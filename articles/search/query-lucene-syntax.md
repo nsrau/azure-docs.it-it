@@ -19,19 +19,19 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 088f3c78e0840ca435d70d6844b0eb932a07ccb7
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 6ea8bc2551df4f85e4b856dc9cf1c06a9bd571fd
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/26/2020
-ms.locfileid: "88891096"
+ms.locfileid: "88923450"
 ---
 # <a name="lucene-query-syntax-in-azure-cognitive-search"></a>Sintassi di query Lucene in Azure ricerca cognitiva
 
 È possibile scrivere query su Azure ricerca cognitiva in base alla sintassi avanzata del [parser di query Lucene](https://lucene.apache.org/core/6_6_1/queryparser/org/apache/lucene/queryparser/classic/package-summary.html) per i moduli di query specializzati: i caratteri jolly, la ricerca fuzzy, la ricerca di prossimità, le espressioni regolari sono alcuni esempi. Gran parte della sintassi del parser di query Lucene viene [implementata in modo intatto in azure ricerca cognitiva](search-lucene-query-architecture.md), ad eccezione delle *ricerche di intervallo* costruite in Azure ricerca cognitiva tramite `$filter` espressioni. 
 
 > [!NOTE]
-> La sintassi Lucene completa viene usata per le espressioni di query passate nel parametro di **ricerca** dell'API di [ricerca dei documenti](https://docs.microsoft.com/rest/api/searchservice/search-documents) , da non confondere con la [sintassi OData](query-odata-filter-orderby-syntax.md) usata per il parametro [$Filter](search-filters.md) di tale API. Queste diverse sintassi hanno regole proprie per la costruzione di query, l'escape di stringhe e così via.
+> La sintassi Lucene completa viene usata per le espressioni di query passate nel parametro di **ricerca** dell'API di [ricerca dei documenti](/rest/api/searchservice/search-documents) , da non confondere con la [sintassi OData](query-odata-filter-orderby-syntax.md) usata per il parametro [$Filter](search-filters.md) di tale API. Queste diverse sintassi hanno regole proprie per la costruzione di query, l'escape di stringhe e così via.
 
 ## <a name="invoke-full-parsing"></a>Richiama analisi completa
 
@@ -60,7 +60,7 @@ POST /indexes/hotels/docs/search?api-version=2020-06-30
 }
 ```
 
-Per altri esempi, vedere [esempi di sintassi di query Lucene per la compilazione di query in Azure ricerca cognitiva](search-query-lucene-examples.md). Per informazioni dettagliate su come specificare l'intero contingente dei parametri di query, vedere [cercare documenti &#40;API REST di Azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+Per altri esempi, vedere [esempi di sintassi di query Lucene per la compilazione di query in Azure ricerca cognitiva](search-query-lucene-examples.md). Per informazioni dettagliate su come specificare l'intero contingente dei parametri di query, vedere [cercare documenti &#40;API REST di Azure ricerca cognitiva&#41;](/rest/api/searchservice/Search-Documents).
 
 > [!NOTE]  
 >  Azure ricerca cognitiva supporta anche una [semplice sintassi di query](query-simple-syntax.md), un linguaggio di query semplice e affidabile che può essere usato per la semplice ricerca di parole chiave.  
@@ -139,7 +139,7 @@ Quando si decide di utilizzare un'impostazione di **searchMode** , considerare i
 
 Assicurarsi di inserire più stringhe racchiuse tra virgolette se si vuole che entrambe le stringhe siano valutate come una singola entità, in questo caso per la ricerca di due artisti distinti nel campo `artists`.  
 
-Il campo specificato in `fieldName:searchExpression` deve essere un campo `searchable`.  Per informazioni dettagliate sull'uso di attributi dell'indice nelle definizioni campo, vedere [Create Index](https://docs.microsoft.com/rest/api/searchservice/create-index) (Creare l'indice).  
+Il campo specificato in `fieldName:searchExpression` deve essere un campo `searchable`.  Per informazioni dettagliate sull'uso di attributi dell'indice nelle definizioni campo, vedere [Create Index](/rest/api/searchservice/create-index) (Creare l'indice).  
 
 > [!NOTE]
 > Quando si usano le espressioni di ricerca nel campo, non è necessario usare il `searchFields` parametro perché ogni espressione di ricerca nel campo ha un nome di campo specificato in modo esplicito. Tuttavia, è comunque possibile utilizzare il `searchFields` parametro se si desidera eseguire una query in cui alcune parti hanno come ambito un campo specifico e il resto può essere applicato a più campi. Ad esempio, la query `search=genre:jazz NOT history&searchFields=description` corrisponderà `jazz` solo al `genre` campo, mentre corrisponderebbe al `NOT history` `description` campo. Il nome del campo fornito in ha `fieldName:searchExpression` sempre la precedenza sul `searchFields` parametro, motivo per cui in questo esempio non è necessario includere `genre` nel `searchFields` parametro.
@@ -202,6 +202,6 @@ Azure ricerca cognitiva usa il punteggio in base alla frequenza ([tf-IDF](https:
 
 + [Esempi di query per la ricerca semplice](search-query-simple-examples.md)
 + [Esempi di query per la ricerca Lucene completa](search-query-lucene-examples.md)
-+ [ricerca documenti](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
++ [ricerca documenti](/rest/api/searchservice/Search-Documents)
 + [Sintassi delle espressioni OData per filtri e ordinamento](query-odata-filter-orderby-syntax.md)   
-+ [Sintassi di query semplice in Azure ricerca cognitiva](query-simple-syntax.md)   
++ [Sintassi di query semplice in Azure ricerca cognitiva](query-simple-syntax.md)

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 86982aa418433ecef6a81252363091714185fe22
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 50c95dc9d045711cb6968b98957d255b4ca73d2c
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202288"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932764"
 ---
 # <a name="data-import-overview---azure-cognitive-search"></a>Panoramica dell'importazione dati-Azure ricerca cognitiva
 
@@ -34,12 +34,12 @@ Questo approccio è più flessibile rispetto al modello pull, perché si possono
 
 Per caricare uno o più documenti in un indice, è possibile usare le API seguenti:
 
-+ [Aggiungere, aggiornare o eliminare documenti (API REST)](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents)
-+ [Classe indexAction](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) o [classe indexBatch](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) 
++ [Aggiungere, aggiornare o eliminare documenti (API REST)](/rest/api/searchservice/AddUpdate-or-Delete-Documents)
++ [Classe indexAction](/dotnet/api/microsoft.azure.search.models.indexaction?view=azure-dotnet) o [classe indexBatch](/dotnet/api/microsoft.azure.search.models.indexbatch?view=azure-dotnet) 
 
 Non sono attualmente supportati strumenti per il push dei dati tramite il portale.
 
-Per un'introduzione a ogni metodologia, vedere [Guida introduttiva: creare un indice di azure ricerca cognitiva usando PowerShell](search-create-index-rest-api.md) o [la Guida introduttiva a C#: creare un indice di ricerca cognitiva di Azure con .NET SDK](search-get-started-dotnet.md).
+Per un'introduzione a ogni metodologia, vedere [Guida introduttiva: creare un indice di azure ricerca cognitiva usando PowerShell](./search-get-started-powershell.md) o [la Guida introduttiva a C#: creare un indice di ricerca cognitiva di Azure con .NET SDK](search-get-started-dotnet.md).
 
 <a name="indexing-actions"></a>
 
@@ -61,7 +61,7 @@ In .NET SDK, assemblare i dati in un `IndexBatch` oggetto. Un oggetto `IndexBatc
 
 ### <a name="formulate-your-query"></a>Formulare la query
 
-Esistono due modi per [eseguire una ricerca nell'indice usando l'API REST](https://docs.microsoft.com/rest/api/searchservice/Search-Documents). Uno consiste nell'inviare una richiesta HTTP POST in cui i parametri di query vengono definiti in un oggetto JSON nel corpo della richiesta. L'altro consiste nell'inviare una richiesta HTTP GET in cui i parametri di query vengono definiti nell'URL della richiesta. POST ha [limiti più ridotti](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) per quanto riguarda le dimensioni dei parametri di query rispetto a GET. Per questo motivo, è consigliabile usare POST, a meno di non avere circostanze particolari in cui l'uso di GET potrebbe essere più conveniente.
+Esistono due modi per [eseguire una ricerca nell'indice usando l'API REST](/rest/api/searchservice/Search-Documents). Uno consiste nell'inviare una richiesta HTTP POST in cui i parametri di query vengono definiti in un oggetto JSON nel corpo della richiesta. L'altro consiste nell'inviare una richiesta HTTP GET in cui i parametri di query vengono definiti nell'URL della richiesta. POST ha [limiti più ridotti](/rest/api/searchservice/Search-Documents) per quanto riguarda le dimensioni dei parametri di query rispetto a GET. Per questo motivo, è consigliabile usare POST, a meno di non avere circostanze particolari in cui l'uso di GET potrebbe essere più conveniente.
 
 Sia per POST che per GET è necessario fornire il *nome del servizio*, il *nome dell'indice*e una versione dell' *API* nell'URL della richiesta. 
 

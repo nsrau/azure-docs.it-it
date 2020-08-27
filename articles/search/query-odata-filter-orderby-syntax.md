@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 07f3e270e799753a582227abe53223bd05755eb5
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: d04311fce81d147a0830918aee1d4a2a9c0808d4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86165210"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923399"
 ---
 # <a name="odata-language-overview-for-filter-orderby-and-select-in-azure-cognitive-search"></a>Panoramica del linguaggio OData per `$filter` , `$orderby` e `$select` in Azure ricerca cognitiva
 
@@ -76,8 +76,8 @@ Nella tabella seguente sono riportati alcuni esempi di percorsi dei campi:
 | `Address/City` | Si riferisce al campo `City` secondario di un campo complesso nell'indice. `Address` è di tipo `Edm.ComplexType` in questo esempio |
 | `Rooms/Type` | Si riferisce al campo `Type` secondario di un campo di raccolta complesso nell'indice. `Rooms` è di tipo `Collection(Edm.ComplexType)` in questo esempio |
 | `Stores/Address/Country` | Fa riferimento al campo `Country` secondario del `Address` sottocampo di un campo di raccolta complesso nell'indice. `Stores` è di tipo `Collection(Edm.ComplexType)` e `Address` è di tipo `Edm.ComplexType` in questo esempio |
-| `room/Type` | Fa riferimento al `Type` sottocampo della variabile di `room` intervallo, ad esempio nell'espressione di filtro`Rooms/any(room: room/Type eq 'deluxe')` |
-| `store/Address/Country` | Si riferisce al `Country` campo secondario del `Address` sottocampo della variabile di `store` intervallo, ad esempio nell'espressione di filtro.`Stores/any(store: store/Address/Country eq 'Canada')` |
+| `room/Type` | Fa riferimento al `Type` sottocampo della variabile di `room` intervallo, ad esempio nell'espressione di filtro `Rooms/any(room: room/Type eq 'deluxe')` |
+| `store/Address/Country` | Si riferisce al `Country` campo secondario del `Address` sottocampo della variabile di `store` intervallo, ad esempio nell'espressione di filtro. `Stores/any(store: store/Address/Country eq 'Canada')` |
 
 Il significato di un percorso di campo varia a seconda del contesto. Nei filtri, il percorso di un campo fa riferimento al valore di una *singola istanza* di un campo nel documento corrente. In altri contesti, ad esempio **$OrderBy**, **$SELECT**o nella [ricerca sul campo nella sintassi Lucene completa](query-lucene-syntax.md#bkmk_fields), un percorso di campo fa riferimento al campo stesso. Questa differenza ha alcune conseguenze sull'uso dei percorsi dei campi nei filtri.
 
@@ -91,25 +91,25 @@ In questo esempio, la variabile `room` di intervallo viene visualizzata nel `roo
 
 ### <a name="using-field-paths"></a>Uso dei percorsi dei campi
 
-I percorsi dei campi vengono usati in molti parametri delle [API REST di Azure ricerca cognitiva](https://docs.microsoft.com/rest/api/searchservice/). Nella tabella seguente sono elencate tutte le posizioni in cui è possibile utilizzare, oltre a eventuali restrizioni relative all'utilizzo:
+I percorsi dei campi vengono usati in molti parametri delle [API REST di Azure ricerca cognitiva](/rest/api/searchservice/). Nella tabella seguente sono elencate tutte le posizioni in cui è possibile utilizzare, oltre a eventuali restrizioni relative all'utilizzo:
 
 | API | Nome parametro | Restrizioni |
 | --- | --- | --- |
-| [Crea](https://docs.microsoft.com/rest/api/searchservice/create-index) o [Aggiorna](https://docs.microsoft.com/rest/api/searchservice/update-index) indice | `suggesters/sourceFields` | Nessuno |
-| [Crea](https://docs.microsoft.com/rest/api/searchservice/create-index) o [Aggiorna](https://docs.microsoft.com/rest/api/searchservice/update-index) indice | `scoringProfiles/text/weights` | Può fare riferimento solo a campi **ricercabili** |
-| [Crea](https://docs.microsoft.com/rest/api/searchservice/create-index) o [Aggiorna](https://docs.microsoft.com/rest/api/searchservice/update-index) indice | `scoringProfiles/functions/fieldName` | Può fare riferimento solo a campi **filtrabili** |
-| [Ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `search`Quando `queryType` è`full` | Può fare riferimento solo a campi **ricercabili** |
-| [Ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `facet` | Può fare riferimento solo a campi **facet** |
-| [Ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `highlight` | Può fare riferimento solo a campi **ricercabili** |
-| [Ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents) | `searchFields` | Può fare riferimento solo a campi **ricercabili** |
-| [Suggerisci](https://docs.microsoft.com/rest/api/searchservice/suggestions) e [completamento automatico](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `searchFields` | Può fare riferimento solo a campi che fanno parte di un componente di [Suggerimento](index-add-suggesters.md) |
-| [Ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents), [suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions)e [completamento automatico](https://docs.microsoft.com/rest/api/searchservice/autocomplete) | `$filter` | Può fare riferimento solo a campi **filtrabili** |
-| [Cerca](https://docs.microsoft.com/rest/api/searchservice/search-documents) e [Suggerisci](https://docs.microsoft.com/rest/api/searchservice/suggestions) | `$orderby` | Può fare riferimento solo a campi **ordinabili** |
-| [Ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents), [suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions)e [ricerca](https://docs.microsoft.com/rest/api/searchservice/lookup-document) | `$select` | Può fare riferimento solo a campi **recuperabili** |
+| [Crea](/rest/api/searchservice/create-index) o [Aggiorna](/rest/api/searchservice/update-index) indice | `suggesters/sourceFields` | Nessuno |
+| [Crea](/rest/api/searchservice/create-index) o [Aggiorna](/rest/api/searchservice/update-index) indice | `scoringProfiles/text/weights` | Può fare riferimento solo a campi **ricercabili** |
+| [Crea](/rest/api/searchservice/create-index) o [Aggiorna](/rest/api/searchservice/update-index) indice | `scoringProfiles/functions/fieldName` | Può fare riferimento solo a campi **filtrabili** |
+| [Ricerca](/rest/api/searchservice/search-documents) | `search` Quando `queryType` è `full` | Può fare riferimento solo a campi **ricercabili** |
+| [Ricerca](/rest/api/searchservice/search-documents) | `facet` | Può fare riferimento solo a campi **facet** |
+| [Ricerca](/rest/api/searchservice/search-documents) | `highlight` | Può fare riferimento solo a campi **ricercabili** |
+| [Ricerca](/rest/api/searchservice/search-documents) | `searchFields` | Può fare riferimento solo a campi **ricercabili** |
+| [Suggerisci](/rest/api/searchservice/suggestions) e [completamento automatico](/rest/api/searchservice/autocomplete) | `searchFields` | Può fare riferimento solo a campi che fanno parte di un componente di [Suggerimento](index-add-suggesters.md) |
+| [Ricerca](/rest/api/searchservice/search-documents), [suggerimenti](/rest/api/searchservice/suggestions)e [completamento automatico](/rest/api/searchservice/autocomplete) | `$filter` | Può fare riferimento solo a campi **filtrabili** |
+| [Cerca](/rest/api/searchservice/search-documents) e [Suggerisci](/rest/api/searchservice/suggestions) | `$orderby` | Può fare riferimento solo a campi **ordinabili** |
+| [Ricerca](/rest/api/searchservice/search-documents), [suggerimenti](/rest/api/searchservice/suggestions)e [ricerca](/rest/api/searchservice/lookup-document) | `$select` | Può fare riferimento solo a campi **recuperabili** |
 
 ## <a name="constants"></a>Costanti
 
-Le costanti in OData sono valori letterali di un determinato tipo di [Entity Data Model](https://docs.microsoft.com/dotnet/framework/data/adonet/entity-data-model) (EDM). Per un elenco dei tipi supportati in Azure ricerca cognitiva, vedere [tipi di dati supportati](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) . Le costanti dei tipi di raccolta non sono supportate.
+Le costanti in OData sono valori letterali di un determinato tipo di [Entity Data Model](/dotnet/framework/data/adonet/entity-data-model) (EDM). Per un elenco dei tipi supportati in Azure ricerca cognitiva, vedere [tipi di dati supportati](/rest/api/searchservice/supported-data-types) . Le costanti dei tipi di raccolta non sono supportate.
 
 La tabella seguente illustra esempi di costanti per ognuno dei tipi di dati supportati da Azure ricerca cognitiva:
 
@@ -243,6 +243,6 @@ I parametri **$Filter**, **$OrderBy**e **$Select** vengono esaminati in modo pi�
 
 - [Esplorazione in base a facet in Azure ricerca cognitiva](search-faceted-navigation.md)
 - [Filtri in ricerca cognitiva di Azure](search-filters.md)
-- [Eseguire ricerche nei documenti &#40;API REST di Azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Eseguire ricerche nei documenti &#40;API REST di Azure ricerca cognitiva&#41;](/rest/api/searchservice/Search-Documents)
 - [Sintassi di query Lucene](query-lucene-syntax.md)
 - [Sintassi di query semplice in Azure ricerca cognitiva](query-simple-syntax.md)

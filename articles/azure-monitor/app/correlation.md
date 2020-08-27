@@ -6,13 +6,13 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.custom: devx-track-python
-ms.openlocfilehash: f2645cc76f6b1a59e84ee01cbc8d4c650cd6c789
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.custom: devx-track-python, devx-track-csharp
+ms.openlocfilehash: b48b02d20ed3d0b731f04d2c6568274bc0262e2e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843625"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933359"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Correlazione di dati di telemetria in Application Insights
 
@@ -34,7 +34,7 @@ In un ambiente di microservizi, le tracce dai componenti possono finire in eleme
 
 ## <a name="example"></a>Esempio
 
-Esaminiamo un esempio. Un'applicazione denominata prezzi azionari Mostra il prezzo di mercato corrente di un'azione usando un'API esterna denominata Stock. L'applicazione dei prezzi azionari include una pagina denominata pagina delle azioni che il browser Web del client si apre usando `GET /Home/Stock` . L'applicazione esegue una query sull'API azionario usando la chiamata HTTP `GET /api/stock/value` .
+Di seguito è descritto un esempio. Un'applicazione denominata prezzi azionari Mostra il prezzo di mercato corrente di un'azione usando un'API esterna denominata Stock. L'applicazione dei prezzi azionari include una pagina denominata pagina delle azioni che il browser Web del client si apre usando `GET /Home/Stock` . L'applicazione esegue una query sull'API azionario usando la chiamata HTTP `GET /api/stock/value` .
 
 È possibile analizzare i dati di telemetria risultanti eseguendo una query:
 
@@ -308,12 +308,12 @@ Si noti che è presente un oggetto `spanId` per il messaggio di log compreso nel
 
 Nel corso del tempo, .NET ha definito diversi modi per correlare i log di diagnostica e di telemetria:
 
-- `System.Diagnostics.CorrelationManager`consente di tenere traccia di [LogicalOperationStack e ActivityID](/dotnet/api/system.diagnostics.correlationmanager?view=netcore-3.1).
+- `System.Diagnostics.CorrelationManager` consente di tenere traccia di [LogicalOperationStack e ActivityID](/dotnet/api/system.diagnostics.correlationmanager?view=netcore-3.1).
 - `System.Diagnostics.Tracing.EventSource` ed Event Tracing for Windows (ETW) definiscono il metodo [SetCurrentThreadActivityId](/dotnet/api/system.diagnostics.tracing.eventsource.setcurrentthreadactivityid?view=netcore-3.1#overloads).
-- `ILogger`USA gli [ambiti del log](/aspnet/core/fundamentals/logging#log-scopes).
+- `ILogger` USA gli [ambiti del log](/aspnet/core/fundamentals/logging#log-scopes).
 - Windows Communication Foundation (WCF) e HTTP creano la propagazione del contesto "corrente".
 
-Tuttavia, questi metodi non abilitavano il supporto automatico per la traccia distribuita. `DiagnosticSource`supporta la correlazione automatica tra computer. Le librerie .NET supportano `DiagnosticSource` e consentono la propagazione automatica tra computer del contesto di correlazione tramite il trasporto, ad esempio http.
+Tuttavia, questi metodi non abilitavano il supporto automatico per la traccia distribuita. `DiagnosticSource` supporta la correlazione automatica tra computer. Le librerie .NET supportano `DiagnosticSource` e consentono la propagazione automatica tra computer del contesto di correlazione tramite il trasporto, ad esempio http.
 
 La [Guida dell'utente dell'attività](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) in `DiagnosticSource` illustra le nozioni di base delle attività di monitoraggio.
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8d786f1ebadc961ab367fdcc9b27c4d829a68400
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cff009d5d1e187e8d0330fadca530b57b3e3d21
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321382"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935212"
 ---
 # <a name="import-data-wizard-for-azure-cognitive-search"></a>Importazione guidata dati per Azure ricerca cognitiva
 
@@ -73,14 +73,14 @@ La procedura guidata **Importa dati** si connette a un'origine dati esterna usan
 
 ## <a name="wizard-output"></a>Output della procedura guidata
 
-Dietro le quinte, la procedura guidata consente di creare, configurare e richiamare gli oggetti seguenti. Dopo l'esecuzione della procedura guidata, è possibile trovarne l'output nelle pagine del portale. La pagina Panoramica del servizio include elenchi di indici, indicizzatori, origini dati e skillsets. Le definizioni degli indici possono essere visualizzate in formato JSON completo nel portale. Per altre definizioni, è possibile usare l' [API REST](https://docs.microsoft.com/rest/api/searchservice/) per ottenere oggetti specifici.
+Dietro le quinte, la procedura guidata consente di creare, configurare e richiamare gli oggetti seguenti. Dopo l'esecuzione della procedura guidata, è possibile trovarne l'output nelle pagine del portale. La pagina Panoramica del servizio include elenchi di indici, indicizzatori, origini dati e skillsets. Le definizioni degli indici possono essere visualizzate in formato JSON completo nel portale. Per altre definizioni, è possibile usare l' [API REST](/rest/api/searchservice/) per ottenere oggetti specifici.
 
 | Oggetto | Descrizione | 
 |--------|-------------|
-| [Origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source)  | Rende permanente le informazioni di connessione ai dati di origine, incluse le credenziali. Un oggetto origine dati viene utilizzato esclusivamente con gli indicizzatori. | 
-| [Indice](https://docs.microsoft.com/rest/api/searchservice/create-index) | Struttura di dati fisici utilizzata per la ricerca full-text e altre query. | 
-| [Set di competenze](https://docs.microsoft.com/rest/api/searchservice/create-skillset) | Set completo di istruzioni per la manipolazione, la trasformazione e il data shaping del contenuto, inclusa l'analisi e l'estrazione di informazioni dai file di immagine. Fatta eccezione per le strutture molto semplici e limitate, include un riferimento a una risorsa Servizi cognitivi che fornisce l'arricchimento. Facoltativamente, potrebbe inoltre contenere una definizione di archivio informazioni.  | 
-| [Indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer)  | Oggetto di configurazione che specifica un'origine dati, un indice di destinazione, un valore facoltativo di competenze, una pianificazione facoltativa e impostazioni di configurazione facoltative per la gestione degli errori e la codifica base-64. |
+| [Origine dati](/rest/api/searchservice/create-data-source)  | Rende permanente le informazioni di connessione ai dati di origine, incluse le credenziali. Un oggetto origine dati viene utilizzato esclusivamente con gli indicizzatori. | 
+| [Index](/rest/api/searchservice/create-index) | Struttura di dati fisici utilizzata per la ricerca full-text e altre query. | 
+| [Set di competenze](/rest/api/searchservice/create-skillset) | Set completo di istruzioni per la manipolazione, la trasformazione e il data shaping del contenuto, inclusa l'analisi e l'estrazione di informazioni dai file di immagine. Fatta eccezione per le strutture molto semplici e limitate, include un riferimento a una risorsa Servizi cognitivi che fornisce l'arricchimento. Facoltativamente, potrebbe inoltre contenere una definizione di archivio informazioni.  | 
+| [Indicizzatore](/rest/api/searchservice/create-indexer)  | Oggetto di configurazione che specifica un'origine dati, un indice di destinazione, un valore facoltativo di competenze, una pianificazione facoltativa e impostazioni di configurazione facoltative per la gestione degli errori e la codifica base-64. |
 
 
 ## <a name="how-to-start-the-wizard"></a>Come avviare la procedura guidata
@@ -103,7 +103,7 @@ La procedura guidata genera un indice incompleto, che verrà popolato con i docu
 
 1. L'elenco dei campi è completo? Aggiungere nuovi campi che campionano mancanti e rimuovere quelli che non aggiungono valore a un'esperienza di ricerca o che non verranno usati in un' [espressione di filtro](search-query-odata-filter.md) o un [profilo di Punteggio](index-add-scoring-profiles.md).
 
-1. Il tipo di dati è appropriato per i dati in ingresso? Azure ricerca cognitiva supporta i [tipi di dati EDM (Entity Data Model)](https://docs.microsoft.com/rest/api/searchservice/supported-data-types). Per i dati SQL di Azure è presente un [grafico di mapping](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) che definisce valori equivalenti. Per ulteriori informazioni, vedere [mapping dei campi e trasformazioni](search-indexer-field-mappings.md).
+1. Il tipo di dati è appropriato per i dati in ingresso? Azure ricerca cognitiva supporta i [tipi di dati EDM (Entity Data Model)](/rest/api/searchservice/supported-data-types). Per i dati SQL di Azure è presente un [grafico di mapping](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#TypeMapping) che definisce valori equivalenti. Per ulteriori informazioni, vedere [mapping dei campi e trasformazioni](search-indexer-field-mappings.md).
 
 1. Si dispone di un campo che può fungere da *chiave*? Questo campo deve essere Edm. String e deve identificare in modo univoco un documento. Per i dati relazionali, è possibile eseguirne il mapping a una chiave primaria. Per i BLOB, potrebbe essere `metadata-storage-path` . Se i valori dei campi includono spazi o trattini, è necessario impostare l'opzione **Chiavi di codifica Base 64** nel passaggio **Crea un indicizzatore**, in **Opzioni avanzate**, per evitare il controllo di convalida per questi caratteri.
 

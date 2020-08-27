@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/08/2020
-ms.openlocfilehash: 03d4c2e0685ea165cbad524360a3db6e6c809733
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: faa98f1c52cfe2dd0e19f085f4d33dedb6f01851
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146135"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934889"
 ---
 # <a name="fuzzy-search-to-correct-misspellings-and-typos"></a>Ricerca fuzzy per correggere errori di ortografia e digitazioni
 
@@ -82,7 +82,7 @@ Quando i risultati sono ambigui, l' [evidenziazione dei riscontri](search-pagina
 
 ### <a name="example-1-fuzzy-search-with-the-exact-term"></a>Esempio 1: ricerca fuzzy con il termine esatto
 
-Si supponga che la stringa seguente sia presente in un `"Description"` campo di un documento di ricerca:`"Test queries with special characters, plus strings for MSFT, SQL and Java."`
+Si supponga che la stringa seguente sia presente in un `"Description"` campo di un documento di ricerca: `"Test queries with special characters, plus strings for MSFT, SQL and Java."`
 
 Iniziare con una ricerca fuzzy su "Special" e aggiungere l'evidenziazione dei risultati al campo Description:
 
@@ -136,5 +136,5 @@ Il punto di questo esempio espanso è illustrare la chiarezza che l'evidenziazio
 
 + [Funzionamento della ricerca full-text in Azure ricerca cognitiva (architettura di analisi delle query)](search-lucene-query-architecture.md)
 + [Esplora ricerche](search-explorer.md)
-+ [Come eseguire query in .NET](search-query-dotnet.md)
-+ [Come eseguire query in REST](search-create-index-rest-api.md)
++ [Come eseguire query in .NET](./search-get-started-dotnet.md)
++ [Come eseguire query in REST](./search-get-started-powershell.md)

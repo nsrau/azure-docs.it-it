@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 321c13e88cb09c7078a169c3e1666cf781ec7787
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8dabf69af8628bb0b168bfea94af5333df341423
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553139"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924130"
 ---
 # <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity-preview"></a>Configurare una connessione dell'indicizzatore al database SQL di Azure usando un'identità gestita (anteprima)
 
@@ -44,7 +44,7 @@ Dopo aver selezionato **Salva**, viene visualizzato un ID oggetto che è stato a
 
 Durante la connessione al database nel passaggio successivo, sarà necessario connettersi con un account di Azure Active Directory (Azure AD) che disponga di accesso amministrativo al database, allo scopo di concedere al servizio di ricerca l'autorizzazione per l'accesso al database.
 
-Seguire le istruzioni disponibili [qui ](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) per concedere l'accesso al database all'amministratore dell'account Azure AD.
+Seguire le istruzioni disponibili [qui ](../azure-sql/database/authentication-aad-configure.md?tabs=azure-powershell#provision-azure-ad-admin-sql-database) per concedere l'accesso al database all'amministratore dell'account Azure AD.
 
 ### <a name="3---assign-the-search-service-permissions"></a>3 - Assegnare le autorizzazioni del servizio di ricerca
 
@@ -97,9 +97,9 @@ In questo passaggio si autorizza il servizio Ricerca cognitiva di Azure a legger
 
 ### <a name="5---create-the-data-source"></a>5 - Creare l'origine dati
 
-L' [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source), portale di Azure e [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) supportano la stringa di connessione dell'identità gestita. Di seguito è riportato un esempio di come creare un'origine dati per indicizzare i dati da un database SQL di Azure usando l' [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source) e una stringa di connessione identità gestita. Il formato della stringa di connessione identità gestita è lo stesso per l'API REST, .NET SDK e il portale di Azure.
+L' [API REST](/rest/api/searchservice/create-data-source), portale di Azure e [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) supportano la stringa di connessione dell'identità gestita. Di seguito è riportato un esempio di come creare un'origine dati per indicizzare i dati da un database SQL di Azure usando l' [API REST](/rest/api/searchservice/create-data-source) e una stringa di connessione identità gestita. Il formato della stringa di connessione identità gestita è lo stesso per l'API REST, .NET SDK e il portale di Azure.
 
-Quando si crea un'origine dati usando l' [API REST](https://docs.microsoft.com/rest/api/searchservice/create-data-source), l'origine dati deve avere le proprietà obbligatorie seguenti:
+Quando si crea un'origine dati usando l' [API REST](/rest/api/searchservice/create-data-source), l'origine dati deve avere le proprietà obbligatorie seguenti:
 
 * **name** è il nome univoco dell'origine dati all'interno del servizio di ricerca.
 * **type** è `azuresql`
@@ -109,7 +109,7 @@ Quando si crea un'origine dati usando l' [API REST](https://docs.microsoft.com/r
         * *Initial Catalog|Database=**nome del database**;ResourceId=/subscriptions/**ID sottoscrizione**/resourceGroups/**nome del gruppo di risorse**/providers/Microsoft.Sql/servers/**nome del server SQL**/;Connection Timeout=**durata del timeout per la connessione**;*
 * **container** specifica il nome della tabella o della vista da indicizzare.
 
-Esempio di creazione di un oggetto origine dati di Azure SQL usando l'[API REST ](https://docs.microsoft.com/rest/api/searchservice/create-data-source):
+Esempio di creazione di un oggetto origine dati di Azure SQL usando l'[API REST ](/rest/api/searchservice/create-data-source):
 
 ```
 POST https://[service name].search.windows.net/datasources?api-version=2020-06-30
@@ -144,7 +144,7 @@ api-key: [admin key]
 }
 ```
 
-Per altre informazioni sulla creazione di indici, vedere [Creare un indice](https://docs.microsoft.com/rest/api/searchservice/create-index)
+Per altre informazioni sulla creazione di indici, vedere [Creare un indice](/rest/api/searchservice/create-index)
 
 ### <a name="7---create-the-indexer"></a>7 - Creare l'indicizzatore
 
@@ -169,13 +169,13 @@ api-key: [admin key]
 
 Questo indicizzatore verrà eseguito ogni due ore (l'intervallo di pianificazione è impostato su "PT2H"). Per eseguire un indicizzatore ogni 30 minuti, impostare l'intervallo su "PT30M". L'intervallo minimo supportato è di 5 minuti. La pianificazione è facoltativa: se omessa, l'indicizzatore viene eseguito una sola volta al momento della creazione. Tuttavia, è possibile eseguire un indicizzatore su richiesta in qualsiasi momento.   
 
-Per altre informazioni sull'API di creazione di un indicizzatore, vedere [Creare un indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Per altre informazioni sull'API di creazione di un indicizzatore, vedere [Creare un indicizzatore](/rest/api/searchservice/create-indexer).
 
 Per altre informazioni sulla definizione delle pianificazioni degli indicizzatori, vedere [Come pianificare gli indicizzatori per Ricerca cognitiva di Azure](search-howto-schedule-indexers.md).
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-Se quando l'indicizzatore tenta di connettersi all'origine dati, si verifica un errore che indica che il client non è autorizzato ad accedere al server, consultare gli [errori comuni dell'indicizzatore](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting).
+Se quando l'indicizzatore tenta di connettersi all'origine dati, si verifica un errore che indica che il client non è autorizzato ad accedere al server, consultare gli [errori comuni dell'indicizzatore](./search-indexer-troubleshooting.md).
 
 ## <a name="see-also"></a>Vedere anche
 

@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 47a8d58d6ca0a8a04823fe09fb52490f13cfead7
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 2211dbe8a5e336ec10562bb8a66ed0e8cc2a9e15
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88208751"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935178"
 ---
 # <a name="field-mappings-and-transformations-using-azure-cognitive-search-indexers"></a>Mapping dei campi e trasformazioni usando gli indicizzatori di Azure ricerca cognitiva
 
@@ -30,7 +30,7 @@ Alcune situazioni in cui i mapping dei campi sono utili:
 * È necessaria la codifica o decodifica Base64 dei dati. I mapping dei campi supportano diverse **funzioni di mapping**, incluse quelle per la codifica e decodifica Base64.
 
 > [!NOTE]
-> I mapping dei campi negli indicizzatori sono un modo semplice per eseguire il mapping dei campi dati ai campi dell'indice, con una certa capacità di conversione dei dati leggeri. I dati più complessi potrebbero richiedere la pre-elaborazione per riformarli in un modulo che favorisce l'indicizzazione. Una delle opzioni che è possibile prendere in considerazione è [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/).
+> I mapping dei campi negli indicizzatori sono un modo semplice per eseguire il mapping dei campi dati ai campi dell'indice, con una certa capacità di conversione dei dati leggeri. I dati più complessi potrebbero richiedere la pre-elaborazione per riformarli in un modulo che favorisce l'indicizzazione. Una delle opzioni che è possibile prendere in considerazione è [Azure Data Factory](../data-factory/index.yml).
 
 ## <a name="set-up-field-mappings"></a>Configurare i mapping dei campi
 
@@ -47,7 +47,7 @@ I mapping dei campi vengono aggiunti alla `fieldMappings` matrice della definizi
 
 ## <a name="map-fields-using-the-rest-api"></a>Eseguire il mapping dei campi con l'API REST
 
-È possibile aggiungere i mapping dei campi quando si crea un nuovo indicizzatore usando la richiesta dell'API di [creazione dell'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-Indexer) . È possibile gestire i mapping dei campi di un indicizzatore esistente usando la richiesta dell'API di [aggiornamento dell'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/update-indexer) .
+È possibile aggiungere i mapping dei campi quando si crea un nuovo indicizzatore usando la richiesta dell'API di [creazione dell'indicizzatore](/rest/api/searchservice/create-Indexer) . È possibile gestire i mapping dei campi di un indicizzatore esistente usando la richiesta dell'API di [aggiornamento dell'indicizzatore](/rest/api/searchservice/update-indexer) .
 
 Ad esempio, di seguito viene illustrato come eseguire il mapping di un campo di origine a un campo di destinazione con un nome diverso:
 
@@ -80,7 +80,7 @@ api-key: [admin key]
 
 ## <a name="map-fields-using-the-net-sdk"></a>Eseguire il mapping di campi con .NET SDK
 
-I mapping dei campi vengono definiti in .NET SDK usando la classe [FieldMapping](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.fieldmapping) , che include le proprietà `SourceFieldName` e e `TargetFieldName` un riferimento facoltativo `MappingFunction` .
+I mapping dei campi vengono definiti in .NET SDK usando la classe [FieldMapping](/dotnet/api/microsoft.azure.search.models.fieldmapping) , che include le proprietà `SourceFieldName` e e `TargetFieldName` un riferimento facoltativo `MappingFunction` .
 
 È possibile specificare i mapping dei campi quando si costruisce l'indicizzatore o in un secondo momento impostando direttamente la `Indexer.FieldMappings` Proprietà.
 
@@ -125,7 +125,7 @@ Esegue la codifica Base64 *sicura per gli URL* della stringa di input. Si presup
 
 #### <a name="example---document-key-lookup"></a>Esempio-ricerca chiave documento
 
-In una chiave del documento ricerca cognitiva di Azure è possibile visualizzare solo i caratteri con URL sicuri, perché i clienti devono essere in grado di indirizzare il documento tramite l' [API di ricerca](https://docs.microsoft.com/rest/api/searchservice/lookup-document) . Se il campo di origine della chiave contiene caratteri non sicuri per gli URL, è possibile usare la `base64Encode` funzione per convertirlo in fase di indicizzazione. Tuttavia, una chiave del documento (sia prima che dopo la conversione) non può contenere più di 1.024 caratteri.
+In una chiave del documento ricerca cognitiva di Azure è possibile visualizzare solo i caratteri con URL sicuri, perché i clienti devono essere in grado di indirizzare il documento tramite l' [API di ricerca](/rest/api/searchservice/lookup-document) . Se il campo di origine della chiave contiene caratteri non sicuri per gli URL, è possibile usare la `base64Encode` funzione per convertirlo in fase di indicizzazione. Tuttavia, una chiave del documento (sia prima che dopo la conversione) non può contenere più di 1.024 caratteri.
 
 Quando si recupera la chiave codificata in fase di ricerca, è possibile usare la `base64Decode` funzione per ottenere il valore di chiave originale e usarlo per recuperare il documento di origine.
 
@@ -200,10 +200,10 @@ Azure ricerca cognitiva supporta due codifiche Base64 diverse. Quando si codific
 
 Azure ricerca cognitiva supporta la codifica Base64 sicura per gli URL e la codifica Base64 normale. Una stringa con codifica Base64 durante l'indicizzazione deve essere decodificata in un secondo momento con le stesse opzioni di codifica; in caso contrario, il risultato non corrisponderà a quello originale.
 
-Se `useHttpServerUtilityUrlTokenEncode` rispettivamente i `useHttpServerUtilityUrlTokenDecode` parametri o per la codifica e la decodifica sono impostati su `true` , si `base64Encode` comporta come [HttpServerUtility. UrlTokenEncode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx) e si `base64Decode` comporta come [HttpServerUtility. UrlTokenDecode](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokendecode.aspx).
+Se `useHttpServerUtilityUrlTokenEncode` rispettivamente i `useHttpServerUtilityUrlTokenDecode` parametri o per la codifica e la decodifica sono impostati su `true` , si `base64Encode` comporta come [HttpServerUtility. UrlTokenEncode](/dotnet/api/system.web.httpserverutility.urltokenencode?view=netframework-4.8) e si `base64Decode` comporta come [HttpServerUtility. UrlTokenDecode](/dotnet/api/system.web.httpserverutility.urltokendecode?view=netframework-4.8).
 
 > [!WARNING]
-> Se `base64Encode` viene utilizzato per generare valori di chiave, `useHttpServerUtilityUrlTokenEncode` deve essere impostato su true. Per i valori delle chiavi è possibile usare solo la codifica Base64 con URL sicuro. Vedere [regole di denominazione &#40;&#41;ricerca cognitiva di Azure ](https://docs.microsoft.com/rest/api/searchservice/naming-rules) per il set completo di restrizioni sui caratteri nei valori chiave.
+> Se `base64Encode` viene utilizzato per generare valori di chiave, `useHttpServerUtilityUrlTokenEncode` deve essere impostato su true. Per i valori delle chiavi è possibile usare solo la codifica Base64 con URL sicuro. Vedere [regole di denominazione &#40;&#41;ricerca cognitiva di Azure ](/rest/api/searchservice/naming-rules) per il set completo di restrizioni sui caratteri nei valori chiave.
 
 Le librerie .NET in Azure ricerca cognitiva presuppongono la .NET Framework completa, che fornisce la codifica incorporata. Le `useHttpServerUtilityUrlTokenEncode` `useHttpServerUtilityUrlTokenDecode` Opzioni e sfruttano questa funzionalità incorporata. Se si usa .NET Core o un altro Framework, è consigliabile impostare tali opzioni su `false` e chiamare direttamente le funzioni di codifica e decodifica del Framework.
 

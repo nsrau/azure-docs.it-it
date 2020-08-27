@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 6/30/2020
-ms.openlocfilehash: 079e3f9219d649d9740d38a8a8452e51b9d84acf
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: a2f319f7bbd3fa0c6c4efb7e225bfc85a76002f2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066407"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919710"
 ---
 # <a name="azure-database-for-mysql-infrastructure-double-encryption"></a>Crittografia doppia dell'infrastruttura del database di Azure per MySQL
 
@@ -62,6 +62,12 @@ Le funzionalità di crittografia fornite da database di Azure per MySQL possono 
 Per database di Azure per MySQL, il supporto per la crittografia a doppia infrastruttura con la chiave gestita dal servizio presenta le limitazioni seguenti:
 
 * Il supporto per questa funzionalità è limitato ai piani tariffari **per utilizzo generico** e con ottimizzazione per la **memoria** .
+* È possibile creare un database di Azure per MySQL con la crittografia dell'infrastruttura abilitata nelle aree seguenti:
+
+   * Stati Uniti orientali
+   * Stati Uniti centro-meridionali
+   * Stati Uniti occidentali 2
+   
 * * Questa funzionalità è supportata solo nelle aree e nei server che supportano l'archiviazione con un massimo di 16 TB. Per l'elenco delle aree di Azure che supportano l'archiviazione con un massimo di 16 TB, vedere la [documentazione relativa all'archiviazione](concepts-pricing-tiers.md#storage).
 
     > [!NOTE]

@@ -19,14 +19,14 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 572b653a49833ae06ee57b1718000e8555239de7
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: fc5803f96c30ea1df362676aa8c4104bb0b69db3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146034"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934872"
 ---
-# <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Operatori di confronto OData in Azure ricerca cognitiva- `eq` ,, `ne` `gt` , `lt` , `ge` e`le`
+# <a name="odata-comparison-operators-in-azure-cognitive-search---eq-ne-gt-lt-ge-and-le"></a>Operatori di confronto OData in Azure ricerca cognitiva- `eq` ,, `ne` `gt` , `lt` , `ge` e `le`
 
 L'operazione più semplice in un' [espressione di filtro OData](query-odata-filter-orderby-syntax.md) in Azure ricerca cognitiva consiste nel confrontare un campo con un valore specificato. Sono possibili due tipi di confronto: confronto di uguaglianza e confronto di intervalli. Per confrontare un campo con un valore costante, è possibile usare gli operatori seguenti:
 
@@ -96,11 +96,11 @@ Per i confronti non consentiti, ad esempio il confronto di un campo di tipo `Edm
 
 <a name="special-case-nan"></a>
 
-### <a name="special-cases-for-null-and-nan"></a>Casi speciali per `null` e`NaN`
+### <a name="special-cases-for-null-and-nan"></a>Casi speciali per `null` e `NaN`
 
 Quando si usano gli operatori di confronto, è importante ricordare che tutti i campi non di raccolta in Azure ricerca cognitiva possono potenzialmente essere `null` . La tabella seguente mostra tutti i possibili risultati per un'espressione di confronto in cui entrambi i lati possono essere `null` :
 
-| Operatore | Risultato quando solo il campo o la variabile è`null` | Risultato quando solo la costante è`null` | Risultato quando il campo o la variabile e la costante sono`null` |
+| Operatore | Risultato quando solo il campo o la variabile è `null` | Risultato quando solo la costante è `null` | Risultato quando il campo o la variabile e la costante sono `null` |
 | --- | --- | --- | --- |
 | `gt` | `false` | HTTP 400: errore di richiesta non valida | HTTP 400: errore di richiesta non valida |
 | `lt` | `false` | HTTP 400: errore di richiesta non valida | HTTP 400: errore di richiesta non valida |
@@ -113,7 +113,7 @@ In breve, `null` è uguale solo a se stesso e non è minore o maggiore di qualsi
 
 Se l'indice include campi di tipo `Edm.Double` e si caricano `NaN` i valori in questi campi, sarà necessario tenere conto di questo durante la scrittura dei filtri. Azure ricerca cognitiva implementa lo standard IEEE 754 per la gestione `NaN` dei valori e i confronti con tali valori producono risultati non evidenti, come illustrato nella tabella seguente.
 
-| Operatore | Risultato quando almeno un operando è`NaN` |
+| Operatore | Risultato quando almeno un operando è `NaN` |
 | --- | --- |
 | `gt` | `false` |
 | `lt` | `false` |
@@ -169,4 +169,4 @@ Rooms/any(room: room/Type eq 'Deluxe Room')
 - [Filtri in ricerca cognitiva di Azure](search-filters.md)
 - [Cenni preliminari sul linguaggio di espressioni OData per ricerca cognitiva di Azure](query-odata-filter-orderby-syntax.md)
 - [Informazioni di riferimento sulla sintassi delle espressioni OData per ricerca cognitiva di Azure](search-query-odata-syntax-reference.md)
-- [Eseguire ricerche nei documenti &#40;API REST di Azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Eseguire ricerche nei documenti &#40;API REST di Azure ricerca cognitiva&#41;](/rest/api/searchservice/Search-Documents)

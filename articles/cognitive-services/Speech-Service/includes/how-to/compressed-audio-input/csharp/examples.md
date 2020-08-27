@@ -4,16 +4,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/09/2020
 ms.author: trbye
-ms.openlocfilehash: 21c4f88083fab28ae132379eae1b5d8a2afa5d9f
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 313d2717e6e40280ed37322d695a2129d833dd59
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81421963"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934099"
 ---
-Per trasmettere in streaming un formato audio compresso al servizio di riconoscimento vocale `PullAudioInputStream` , `PushAudioInputStream`creare o. Quindi, creare un `AudioConfig` oggetto da un'istanza della classe Stream, specificando il formato di compressione del flusso.
+Per trasmettere in streaming un formato audio compresso al servizio di riconoscimento vocale, creare `PullAudioInputStream` o `PushAudioInputStream` . Quindi, creare un oggetto `AudioConfig` da un'istanza della classe Stream, specificando il formato di compressione del flusso.
 
-Si supponga di disporre di una classe di flusso di input `pushStream` denominata e che usi Opus/OGG. Il codice potrebbe essere simile al seguente:
+Si supponga di disporre di una classe di flusso di input denominata `pushStream` e che usi Opus/OGG. Il codice potrebbe essere simile al seguente:
 
 ```csharp
 using Microsoft.CognitiveServices.Speech;
