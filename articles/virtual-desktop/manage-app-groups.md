@@ -3,15 +3,15 @@ title: Gestire gruppi di app per Desktop virtuale Windows con il portale - Azure
 description: Come gestire i gruppi di app di Desktop virtuale Windows con il portale di Azure.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 08/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 6baada4c3b376b936f693d45e39e5887e77ef54b
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e495288bcd2c966dab49925a55507ab1f2379f64
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88010090"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88659484"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Esercitazione: Gestire gruppi di app con il portale di Azure
 
@@ -34,11 +34,15 @@ Se è già stato creato un pool di host e le macchine virtuali dell'host di sess
 
 2.  Cercare e selezionare **Desktop virtuale Windows**.
 
-3.  Selezionare **Gruppi di applicazioni** nel menu sul lato sinistro della pagina, quindi selezionare **+ Aggiungi**.
+3. È possibile aggiungere un gruppo di applicazioni direttamente oppure da un pool host esistente. Scegliere una delle opzioni seguenti:
 
-4. Nella scheda **Informazioni di base** selezionare il gruppo di sottoscrizioni e il gruppo di risorse per cui si vuole creare il gruppo di app. È anche possibile scegliere di creare un nuovo gruppo di risorse anziché selezionarne uno esistente.
+    - Selezionare **Gruppi di applicazioni** nel menu sul lato sinistro della pagina e quindi selezionare **+ Aggiungi**.
 
-5. Selezionare il pool di host che verrà associato al gruppo di applicazioni dal menu a discesa accanto a **Pool di host**.
+    - Selezionare **Pool di host** nel menu sul lato sinistro della schermata, selezionare il nome del pool di host. Selezionare quindi **Gruppi di applicazioni** nel menu sul lato sinistro e infine selezionare **+ Aggiungi**. In questo caso il pool di host risulterà già selezionato nella scheda Informazioni di base.
+
+4. Nella scheda **Informazioni di base** selezionare la **sottoscrizione** e il **gruppo di risorse** per cui si intende creare il gruppo di app. È anche possibile scegliere di creare un nuovo gruppo di risorse anziché selezionarne uno esistente.
+
+5. Nel menu a discesa selezionare il **pool di host** che verrà associato al gruppo di applicazioni.
 
     >[!NOTE]
     >È necessario selezionare il pool di host associato al gruppo di applicazioni. I gruppi di app hanno app o desktop gestiti da un host di sessione e gli host di sessione fanno parte dei pool di host. Il gruppo di app deve essere associato a un pool di host durante la creazione.
@@ -46,41 +50,27 @@ Se è già stato creato un pool di host e le macchine virtuali dell'host di sess
     > [!div class="mx-imgBorder"]
     > ![Screenshot della scheda Informazioni di base nel portale di Azure.](media/basics-tab.png)
 
-6. Se si vogliono aggiungere gruppi di applicazioni al pool di host, selezionare **Pool di host** nel menu sul lato sinistro della schermata.
-
-    Selezionare quindi il nome del pool di host a cui si vogliono aggiungere i gruppi di applicazioni.
-
-    Successivamente, selezionare **Gruppi di applicazioni** nel menu sul lato sinistro della schermata, quindi selezionare **+ Aggiungi**.
-
-    Infine, selezionare il gruppo di sottoscrizioni e il gruppo di risorse in cui si vuole creare il gruppo di app. È possibile selezionare il nome di un gruppo di risorse esistente dal menu a discesa o selezionare **Crea nuovo** per creare un nuovo gruppo di risorse.
-
-      >[!NOTE]
-      >Quando si aggiungono gruppi di applicazioni al pool di host, il pool di host correlato al gruppo di applicazioni è già selezionato perché è da tale gruppo che è iniziata la selezione.
-      >
-      > [!div class="mx-imgBorder"]
-      >![Screenshot della scheda Informazioni di base con il pool di host preselezionato.](media/host-pool-selected.png)
-
-7. Selezionare **RemoteApp** in Tipo di gruppo di applicazioni, quindi immettere un nome per RemoteApp.
+6. Selezionare **RemoteApp** in **Tipo di gruppo di applicazioni** e quindi immettere un nome per RemoteApp.
 
       > [!div class="mx-imgBorder"]
       > ![Screenshot dei campi di Tipo di gruppo di applicazioni. "RemoteApp" è evidenziato.](media/remoteapp-button.png)
 
-8.  Selezionare la scheda **Assegnazioni**.
+7.  Selezionare **Avanti: Assegnazioni >** .
 
-9.  Per pubblicare singoli utenti o gruppi di utenti nel gruppo di app, selezionare **+ Aggiungi utenti o gruppi di utenti di Azure AD**.
+8.  Per assegnare singoli utenti o gruppi di utenti nel gruppo di app, selezionare **+ Aggiungi utenti o gruppi di utenti di Azure AD**.
 
-10.  Selezionare il numero di utenti a cui si vogliono aggiungere le app. È possibile selezionare uno o più utenti e gruppi di utenti.
+9.  Selezionare gli utenti a quali consentire l'accesso alle app. È possibile selezionare uno o più utenti e gruppi di utenti.
 
      > [!div class="mx-imgBorder"]
      > ![Screenshot del menu di selezione dell'utente.](media/select-users.png)
 
-11.  Scegliere **Seleziona**.
+10.  Scegliere **Seleziona**.
 
-12.  Selezionare la scheda **Applicazioni**, quindi selezionare **+ Aggiungi applicazioni**.
+11.  Selezionare **Avanti: Applicazioni >** e quindi **+Aggiungi applicazioni**.
 
-13.  Per aggiungere un'applicazione dal menu Start:
+12.  Per aggiungere un'applicazione dal menu Start:
 
-      - Passare a **Origine applicazione** e selezionare **menu Start** dal menu a discesa. Passare quindi ad **Applicazione** e scegliere l'applicazione dal menu a discesa.
+      - In **Origine applicazione** selezionare **Menu Start** dal menu a discesa. In **Applicazione** scegliere quindi l'applicazione dal menu a discesa.
 
      > [!div class="mx-imgBorder"]
      > ![Screenshot della schermata Aggiungi applicazione con il menu Start selezionato.](media/add-app-start.png)
@@ -89,11 +79,11 @@ Se è già stato creato un pool di host e le macchine virtuali dell'host di sess
 
       - Lasciare invariate le altre opzioni e selezionare **Salva**.
 
-14. Per aggiungere un'applicazione da un percorso di file specifico:
+13.  Per aggiungere un'applicazione da un percorso di file specifico:
 
-      - Passare a **Origine applicazione** e selezionare **Percorso file** dal menu a discesa.
+      - In **Origine applicazione** selezionare **Percorso file** nel menu a discesa.
 
-      - Immettere il percorso dell'applicazione nell'host di sessione, registrato con il pool di host associato.
+      - In **Percorso applicazione** immettere il percorso dell'applicazione nell'host di sessione registrato con il pool di host associato.
 
       - Immettere i dettagli dell'applicazione nei campi **Nome applicazione**, **Nome visualizzato**, **Percorso icone** e **Indice icone**.
 
@@ -102,11 +92,11 @@ Se è già stato creato un pool di host e le macchine virtuali dell'host di sess
      > [!div class="mx-imgBorder"]
      > ![Screenshot della pagina Aggiungi applicazione con il percorso file selezionato.](media/add-app-file.png)
 
-     Ripetere questo processo per tutte le applicazioni che si vuole aggiungere al gruppo di applicazioni.
+14.  Ripetere questo processo per tutte le applicazioni che si vuole aggiungere al gruppo di applicazioni.
 
-15.  Selezionare quindi la scheda **Area di lavoro**.
+15.  Selezionare quindi **Avanti: Area di lavoro >** .
 
-16.  Se si vuole registrare il gruppo di app in un'area di lavoro, passare a **Registra gruppo di applicazioni** e selezionare **Sì**. Se si preferisce registrare il gruppo di app in un secondo momento, selezionare **No**.
+16.  Se si vuole registrare il gruppo di app in un'area di lavoro, selezionare **Sì** per **Registra gruppo di applicazioni**. Se si preferisce registrare il gruppo di app in un secondo momento, selezionare **No**.
 
 17.  Se si seleziona **Sì**, è possibile selezionare un'area di lavoro esistente in cui registrare il gruppo di app.
 
@@ -116,11 +106,11 @@ Se è già stato creato un pool di host e le macchine virtuali dell'host di sess
      > [!div class="mx-imgBorder"]
      > ![Screenshot della pagina Registra gruppo di applicazioni per un'area di lavoro già esistente. Il pool di host è preselezionato.](media/register-existing.png)
 
-18. Facoltativamente, se si vogliono creare tag per semplificare l'organizzazione dell'area di lavoro, selezionare la scheda **Tag** e immettere i nomi dei tag.
+18.  Facoltativamente, se si vogliono creare tag per semplificare l'organizzazione dell'area di lavoro, selezionare **Avanti: Tag >** e immettere i nomi dei tag.
 
-19. Al termine, selezionare la scheda **Rivedi e crea**.
+19.  Al termine, selezionare **Rivedi e crea**.
 
-20. Attendere il completamento del processo di convalida. Al termine, selezionare **Crea** per distribuire il gruppo di app.
+20.  Attendere il completamento del processo di convalida. Al termine, selezionare **Crea** per distribuire il gruppo di app.
 
 Il processo di distribuzione eseguirà le operazioni seguenti:
 

@@ -1,25 +1,25 @@
 ---
 title: 'Esercitazione: Distribuire un cluster vSphere in Azure'
-description: Informazioni su come distribuire un cluster vSphere in Azure con la soluzione Azure VMWare (AVS)
+description: Informazioni su come distribuire un cluster vSphere in Azure con la soluzione Azure VMWare
 ms.topic: tutorial
-ms.date: 07/15/2020
-ms.openlocfilehash: 4f3b33ea401c62124ae5f8a4c881d86d2f19b40c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/21/2020
+ms.openlocfilehash: 8aeedeeb785f149239f2bf9a4b58a18ec8bfeb77
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079418"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750487"
 ---
-# <a name="tutorial-deploy-an-avs-private-cloud-in-azure"></a>Esercitazione: Distribuire un cloud privato di AVS in Azure
+# <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Esercitazione: Distribuire un cloud privato della soluzione Azure VMware in Azure
 
-La soluzione Azure VMware (AVS) offre la possibilità di distribuire un cluster vSphere in Azure. La distribuzione iniziale minima è di tre host. È possibile aggiungere altri host uno alla volta, fino a un massimo di 16 host per cluster. 
+La soluzione Azure VMware consente di distribuire un cluster vSphere in Azure. La distribuzione iniziale minima è di tre host. È possibile aggiungere altri host uno alla volta, fino a un massimo di 16 host per cluster. 
 
-Poiché la soluzione AVS non consente di gestire il cloud privato con l'istanza locale di vCenter all'avvio, è necessario eseguire una configurazione aggiuntiva e una connessione a tale istanza locale, a una rete virtuale e altre operazioni. Queste procedure e i prerequisiti correlati verranno illustrati in questa esercitazione.
+Poiché la soluzione Azure VMware non consente di gestire il cloud privato con l'istanza locale di vCenter all'avvio, è necessario eseguire una configurazione aggiuntiva e una connessione a tale istanza locale, a una rete virtuale e altre operazioni. Queste procedure e i prerequisiti correlati verranno illustrati in questa esercitazione.
 
 In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
-> * Creare un cloud privato di AVS
+> * Creare un cloud privato della soluzione Azure VMware
 > * Verificare la distribuzione del cloud privato
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -42,7 +42,7 @@ Per informazioni su come registrare il provider di risorse in altri modi, vedere
 
 ## <a name="create-a-private-cloud"></a>Creare un cloud privato
 
-È possibile creare un cloud privato di AVS usando il [portale di Azure](#azure-portal) oppure l'[interfaccia della riga di comando di Azure](#azure-cli).
+Per creare un cloud privato della soluzione Azure VMware, è possibile usare il [portale di Azure](#azure-portal) oppure l'[interfaccia della riga di comando di Azure](#azure-cli).
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -57,14 +57,14 @@ Per informazioni su come registrare il provider di risorse in altri modi, vedere
    | **Sottoscrizione** | La sottoscrizione che si intende usare per la distribuzione.|
    | **Gruppo di risorse** | Il gruppo di risorse per le risorse del cloud privato. |
    | **Posizione** | Selezionare una località, ad esempio **Stati Uniti orientali**.|
-   | **Nome risorsa** | Il nome del cloud privato di AVS. |
+   | **Nome risorsa** | Nome del cloud privato della soluzione Azure VMware. |
    | **SKU** | Selezionare il valore di SKU seguente: AV36 |
    | **Host** | Numero di host da aggiungere al cluster del cloud privato. Il valore predefinito è 3 e può essere aumentato o ridotto dopo la distribuzione.  |
    | **Password dell'amministratore di vCenter** | Immettere la password dell'amministratore del cloud. |
    | **Password di NSX-T Manager** | Immettere la password amministratore di NSX-T. |
    | **Blocco di indirizzi** | Immettere un blocco di indirizzi IP per la rete CIDR per il cloud privato, ad esempio 10.175.0.0/22. |
 
-   :::image type="content" source="./media/tutorial-create-private-cloud/create-private-cloud.png" alt-text="Creare un cloud privato" border="true":::
+   :::image type="content" source="./media/tutorial-create-private-cloud/create-private-cloud.png" alt-text="Nella scheda Informazioni di base immettere i valori per i campi." border="true":::
 
 1. Al termine, selezionare **Rivedi e crea**. Nella schermata successiva verificare le informazioni immesse. Se tutte le informazioni sono corrette, selezionare **Crea**.
 
@@ -73,11 +73,11 @@ Per informazioni su come registrare il provider di risorse in altri modi, vedere
 
 1. Verificare che la distribuzione sia riuscita. Passare al gruppo di risorse creato e selezionare il cloud privato.  Al termine della distribuzione, verrà visualizzato lo stato **Completato**. 
 
-   :::image type="content" source="./media/tutorial-create-private-cloud/validate-deployment.png" alt-text="Verificare la distribuzione del cloud privato" border="true":::
+   :::image type="content" source="./media/tutorial-create-private-cloud/validate-deployment.png" alt-text="Verificare che la distribuzione sia riuscita." border="true":::
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-Anziché usare il portale di Azure creare un cloud privato AVS, è possibile usare l'interfaccia della riga di comando di Azure e Azure Cloud Shell. Si tratta di una shell interattiva gratuita in cui sono disponibili gli strumenti comuni di Azure preinstallati e configurati per l'uso con l'account corrente. 
+Anziché usare il portale di Azure creare un cloud privato della soluzione Azure VMware, è possibile usare l'interfaccia della riga di comando di Azure e Azure Cloud Shell. Si tratta di una shell interattiva gratuita in cui sono disponibili gli strumenti comuni di Azure preinstallati e configurati per l'uso con l'account corrente. 
 
 #### <a name="open-azure-cloud-shell"></a>Aprire Azure Cloud Shell
 
@@ -99,7 +99,7 @@ Specificare un nome per il gruppo di risorse, un nome per il cloud privato, una 
 | Proprietà  | Descrizione  |
 | --------- | ------------ |
 | **-g** (nome del gruppo di risorse)     | Nome del gruppo di risorse per le risorse del cloud privato.        |
-| **-n** (nome del cloud privato)     | Il nome del cloud privato di AVS.        |
+| **-n** (nome del cloud privato)     | Nome del cloud privato della soluzione Azure VMware.        |
 | **--location**     | Località per il cloud privato.         |
 | **--cluster-size**     | Le dimensioni del cluster. Il valore minimo è 3.         |
 | **--network-block**     | Il blocco di rete degli indirizzi IP CIDR da usare per il cloud privato. Il blocco di indirizzi non deve sovrapporsi ai blocchi di indirizzi usati in altre reti virtuali presenti nella sottoscrizione e nelle reti locali.        |
@@ -112,7 +112,7 @@ az vmware private-cloud create -g myResourceGroup -n myPrivateCloudName --locati
 
 ## <a name="delete-a-private-cloud-azure-portal"></a>Eliminare un cloud privato (portale di Azure)
 
-Se si dispone di un cloud privato AVS che non è più necessario, è possibile eliminarlo. Quando si elimina un cloud privato, vengono eliminati anche tutti i cluster e i relativi componenti.
+Se si dispone di un cloud privato della soluzione Azure VMware che non è più necessario, è possibile eliminarlo. Quando si elimina un cloud privato, vengono eliminati anche tutti i cluster e i relativi componenti.
 
 A questo scopo, passare al cloud privato nel portale di Azure e selezionare **Elimina**. Nella pagina di conferma verificare il nome del cloud privato e selezionare **Sì**.
 
@@ -124,7 +124,7 @@ A questo scopo, passare al cloud privato nel portale di Azure e selezionare **El
 In questa esercitazione sono state illustrate le procedure per:
 
 > [!div class="checklist"]
-> * Creare un cloud privato di AVS
+> * Creare un cloud privato della soluzione Azure VMware
 > * Verificare la distribuzione del cloud privato
 
 Continuare con l'esercitazione successiva per informazioni su come creare una rete virtuale da usare con il cloud privato come parte della configurazione della gestione locale per i cluster del cloud privato.

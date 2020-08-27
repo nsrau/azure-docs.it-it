@@ -75,6 +75,8 @@
       items:
         - name: Creare un lab
           href: devtest-lab-create-lab.md
+        - name: Creare un lab isolato dalla rete
+          href: network-isolation.md
         - name: Creare o modificare lab tramite il modello di Resource Manager
           href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
         - name: Specificare il gruppo di risorse per le macchine virtuali del lab

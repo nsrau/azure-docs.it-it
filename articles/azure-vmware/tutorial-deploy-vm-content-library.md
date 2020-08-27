@@ -3,14 +3,14 @@ title: 'Esercitazione: Creare una raccolta contenuto per distribuire macchine vi
 description: In questa esercitazione della soluzione Azure VMware viene creata una raccolta contenuto per distribuire una macchina virtuale in un cloud privato della soluzione Azure VMware.
 ms.topic: tutorial
 ms.date: 07/16/2020
-ms.openlocfilehash: d86f9cb92dcb8a852b9b178a5e160da0d1a3a692
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 3abaafac0dbd6f3537d2ca30a093627230780eb5
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612793"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750547"
 ---
-# <a name="tutorial-create-a-content-library-to-deploy-vms-in-azure-vmware-solution-avs"></a>Esercitazione: Creare una raccolta contenuto per distribuire macchine virtuali nella soluzione Azure VMware
+# <a name="tutorial-create-a-content-library-to-deploy-vms-in-azure-vmware-solution"></a>Esercitazione: Creare una raccolta contenuto per distribuire macchine virtuali nella soluzione Azure VMware
 
 Una raccolta contenuto archivia e gestisce il contenuto sotto forma di elementi della raccolta. Un singolo elemento della raccolta è costituito da uno o più file usati per distribuire macchine virtuali. 
  

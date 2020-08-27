@@ -739,6 +739,8 @@
               href: data-lake-storage-explorer.md
             - name: Interfaccia della riga di comando del file system Hadoop
               href: data-lake-storage-use-hdfs-data-lake-storage.md
+            - name: Impostare ricorsivamente gli elenchi di controllo di accesso
+              href: recursive-access-control-lists.md
         - name: Query
           items:
             - name: Filtrare i dati con accelerazione delle query

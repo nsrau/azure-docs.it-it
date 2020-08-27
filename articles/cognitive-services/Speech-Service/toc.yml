@@ -208,7 +208,7 @@
           href: speech-translation.md
         - name: Nozioni di base sulla traduzione vocale
           href: speech-translation-basics.md
-    - name: Guida introduttiva
+    - name: Avvio rapido
       items:
         - name: Tradurre la voce in testo
           href: quickstarts/translate-speech-to-text.md
@@ -257,7 +257,7 @@
   items:
     - name: Documentazione di Riconoscimento finalità
       href: index-intent-recognition.yml
-    - name: Guida introduttiva
+    - name: Avvio rapido
       items:
         - name: 'Riconoscere la voce, le finalità e le entità'
           displayName: 'Recognize intents and entities with LUIS, LUIS, Language Understanding, prebuilt domains'
@@ -356,7 +356,7 @@
           items:
             - name: Che cos'è la conversazione per più dispositivi?
               href: multi-device-conversation.md
-        - name: Guida introduttiva
+        - name: Avvio rapido
           items:
             - name: Avviare a una conversazione e parteciparvi
               href: quickstarts/multi-device-conversation.md
@@ -520,17 +520,11 @@
           href: speech-container-faq.md
 - name: Speech SDK
   items:
-    - name: Panoramica
-      items:
-        - name: Informazioni su Speech SDK
-          href: speech-sdk.md
-        - name: Disponibilità di scenari
-          href: scenario-availability.md
-    - name: Guida introduttiva
-      items:
-        - name: Configurare Speech SDK
-          displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
-          href: quickstarts/setup-platform.md
+    - name: Panoramica di Speech SDK
+      href: speech-sdk.md
+    - name: Configurare Speech SDK
+      displayName: 'install the speech sdk, install the speech sdk java, install the speech sdk C#, install the speech sdk python, install the speech sdk C++, setup speech sdk, install, install C#, install C++, install Python, install Java, install Javascript'
+      href: quickstarts/setup-platform.md
     - name: Guide pratiche
       items:
         - name: Abilitazione della registrazione
@@ -589,7 +583,7 @@
       items:
         - name: Come configurare un array di microfoni
           href: how-to-devices-microphone-array-configuration.md
-    - name: Guida introduttiva
+    - name: Avvio rapido
       items:
         - name: Usare Speech Devices SDK
           href: speech-devices-sdk-quickstart.md

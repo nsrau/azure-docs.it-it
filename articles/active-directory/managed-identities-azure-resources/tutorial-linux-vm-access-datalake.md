@@ -16,10 +16,10 @@ ms.date: 01/10/2020
 ms.author: markvi
 ms.collection: M365-identity-device-management
 ms.openlocfilehash: a0fe442741ae0b8fa817c9ea177ff244a413720e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75888516"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Azure Data Lake Store
@@ -60,7 +60,7 @@ Le identità gestite per le risorse di Azure possono ora eseguire tutte le opera
 
 ## <a name="get-an-access-token"></a>Ottenere un token di accesso 
 
-Questa sezione illustra come ottenere un token di accesso e chiamare il file system di Data Lake Store. Azure Data Lake Store supporta in modo nativo l'autenticazione di Azure AD, in modo da poter accettare direttamente i token di accesso ottenuti tramite le identità gestite per le risorse di Azure. Per eseguire l'autenticazione al file system di Data Lake Store, si invia un token di accesso rilasciato da Azure AD all'endpoint del file system di Data Lake Store. Il token di accesso è incluso in un'intestazione dell'autorizzazione nel formato "Bearer \<VALORE_TOKEN_ACCESSO\>".  Per altre informazioni sul supporto di Data Lake Store per l'autenticazione di Azure AD, vedere [Autenticazione con Data Lake Store usando Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
+Questa sezione illustra come ottenere un token di accesso e chiamare il file system di Data Lake Store. Azure Data Lake Store supporta in modo nativo l'autenticazione di Azure AD, in modo da poter accettare direttamente i token di accesso ottenuti tramite le identità gestite per le risorse di Azure. Per eseguire l'autenticazione al file system di Data Lake Store, si invia un token di accesso rilasciato da Azure AD all'endpoint del file system di Data Lake Store. Il token di accesso è incluso in un'intestazione dell'autorizzazione nel formato "Bearer \<ACCESS_TOKEN_VALUE\>".  Per altre informazioni sul supporto di Data Lake Store per l'autenticazione di Azure AD, vedere [Autenticazione con Data Lake Store usando Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
 
 In questa esercitazione si esegue l'autenticazione all'API REST per il file system di Data Lake Store usando cURL per inviare richieste REST.
 

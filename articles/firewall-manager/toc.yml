@@ -46,6 +46,8 @@
       href: dns-settings.md
     - name: Distribuire più indirizzi IP pubblici - PowerShell
       href: multiple-public-ip-powershell.md
+    - name: Definire una gerarchia di regole
+      href: rule-hierarchy.md
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure

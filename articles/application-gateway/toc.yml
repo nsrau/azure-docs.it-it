@@ -1,11 +1,9 @@
-- name: Documentazione sul gateway applicazione
+- name: Documentazione del gateway applicazione
   href: index.yml
 - name: Panoramica
   items:
     - name: Informazioni sui gateway applicazione
       href: overview.md
-    - name: Novità
-      href: whats-new.md
 - name: Avvi rapidi
   expanded: true
   items:

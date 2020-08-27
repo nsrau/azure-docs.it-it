@@ -3,15 +3,15 @@ title: Pool di host di Desktop virtuale Windows nel portale di Azure - Azure
 description: Come creare un pool di host di Desktop virtuale Windows tramite il portale di Azure.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 04/30/2020
+ms.date: 08/21/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c9a421e15f3561bb4de7f528ab1c707a0251dfe5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 30101d4e9125b0ac283710ebb26205c2bb120766
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002669"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88755484"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Esercitazione: Creare un pool di host con il portale di Azure
 
@@ -36,7 +36,7 @@ Sarà necessario anche conoscere quanto segue:
 - Dove si trova l'origine dell'immagine da usare, ovvero se si tratta di un'immagine della raccolta di Azure o di un'immagine personalizzata.
 - Credenziali di aggiunta al dominio.
 
-Assicurarsi anche di aver registrato il provider di risorse Microsoft.DesktopVirtualization. Se non è già stato fatto, passare a **Sottoscrizioni**, selezionare il nome della sottoscrizione, quindi selezionare **Provider di risorse di Azure**.
+Assicurarsi anche di aver registrato il provider di risorse Microsoft.DesktopVirtualization. Se non è già stato fatto, passare a **Sottoscrizioni**, selezionare il nome della sottoscrizione e quindi **Provider di risorse**. Cercare DesktopVirtualization, selezionare Microsoft.DesktopVirtualization e quindi Registra.
 
 Quando si crea un pool di host di Desktop virtuale Windows con il modello di Azure Resource Manager, è possibile creare una macchina virtuale dalla raccolta di Azure, da un'immagine gestita o da un'immagine non gestita. Per altre informazioni su come creare immagini della macchina virtuale, vedere [Preparare un disco rigido virtuale Windows o VHDX prima del caricamento in Azure](../virtual-machines/windows/prepare-for-upload-vhd-image.md) e [Creare un'immagine gestita di una macchina virtuale generalizzata in Azure](../virtual-machines/windows/capture-image-resource.md).
 
@@ -80,9 +80,9 @@ Per iniziare a creare il nuovo pool di host:
        > [!div class="mx-imgBorder"]
        > ![Screenshot del campo Tipo di assegnazione con "In pool" selezionato. L'utente passa il puntatore del mouse sopra Bilanciamento in ampiezza nel menu a discesa del bilanciamento del carico.](media/pooled-assignment-type.png)
 
-10. Selezionare **Avanti: Dettagli macchina virtuale**.
+10. Selezionare **Avanti: Macchine virtuali >** .
 
-11. Se le macchine virtuali sono già state create e si vuole usarle con il nuovo pool di host, selezionare **No**. Se si vuole creare nuove macchine virtuali e registrarle nel nuovo pool di host, selezionare **Sì**.
+11. Se le macchine virtuali sono già state create e si vuole usarle con il nuovo pool di host, selezionare **No**, **Avanti: Area di lavoro >** e passare alla sezione [Informazioni sull'area di lavoro](#workspace-information). Se si vuole creare nuove macchine virtuali e registrarle nel nuovo pool di host, selezionare **Sì**.
 
 Ora che è stata completata la prima parte, passare alla parte successiva del processo di configurazione in cui viene creata la macchina virtuale.
 
@@ -92,16 +92,16 @@ Ora che è stata eseguita la prima parte, è necessario configurare la macchina 
 
 Per configurare la macchina virtuale all'interno del processo di configurazione del pool di host:
 
-1. In Gruppo di risorse scegliere il gruppo di risorse in cui si vogliono creare le macchine virtuali. Può essere un gruppo di risorse diverso rispetto a quello usato per il pool di host.
+1. In **Gruppo di risorse** scegliere il gruppo di risorse in cui si vogliono creare le macchine virtuali. Può essere un gruppo di risorse diverso rispetto a quello usato per il pool di host.
 
-2. Scegliere l'**area della macchina virtuale** in cui si vogliono creare le macchine virtuali. Può essere la stessa area di quella selezionata per il pool di host o un'area diversa.
+2. Scegliere l'**area della macchina virtuale** in cui creare le macchine virtuali. Può essere la stessa area di quella selezionata per il pool di host o un'area diversa.
 
-3. Scegliere quindi le dimensioni della macchina virtuale da creare. È possibile mantenere le dimensioni predefinite così come sono oppure selezionare **Modifica dimensioni** per modificare le dimensioni. Se si seleziona **Modifica dimensioni**, nella finestra visualizzata scegliere le dimensioni della macchina virtuale appropriate al proprio carico di lavoro.
+3. Scegliere quindi le **dimensioni della macchina virtuale** da usare. È possibile mantenere le dimensioni predefinite così come sono oppure selezionare **Modifica dimensioni** per modificare le dimensioni. Se si seleziona **Modifica dimensioni**, nella finestra visualizzata scegliere le dimensioni della macchina virtuale appropriate al proprio carico di lavoro.
 
-4. In Numero di macchine virtuali specificare il numero di macchine virtuali che si vuole creare per il pool di host.
+4. In **Numero di macchine virtuali** specificare il numero di macchine virtuali che si vuole creare per il pool di host.
 
     >[!NOTE]
-    >Il processo di configurazione può creare fino a 400 macchine virtuali durante la configurazione del pool di host e ogni processo di configurazione della macchina virtuale crea quattro oggetti nel gruppo di risorse. Poiché la procedura di creazione non controlla la quota della sottoscrizione, assicurarsi che il numero di macchine virtuali immesso rientri nei limiti delle API e delle macchine virtuali di Azure per il gruppo di risorse e la sottoscrizione. È possibile aggiungere altre macchine virtuali al termine della creazione del pool di host.
+    >Il processo di configurazione può creare fino a 400 macchine virtuali durante la configurazione del pool di host e ogni processo di configurazione della macchina virtuale crea quattro oggetti nel gruppo di risorse. Poiché il processo di creazione non controlla la quota della sottoscrizione, assicurarsi che il numero di macchine virtuali immesso rientri nei limiti delle API e delle macchine virtuali di Azure per il gruppo di risorse e la sottoscrizione. È possibile aggiungere altre macchine virtuali al termine della creazione del pool di host.
 
 5. Successivamente, fornire un **Prefisso del nome** per denominare le macchine virtuali create dal processo di configurazione. Il suffisso verrà `-` con numeri a partire da 0.
 
@@ -109,9 +109,11 @@ Per configurare la macchina virtuale all'interno del processo di configurazione 
 
     - Se si sceglie **Raccolta**, selezionare una delle immagini consigliate dal menu a discesa:
 
-      - Windows 10 Enterprise multisessione, versione 1909 + Microsoft 365 Apps for enterprise - Gen 1
-      - Windows 10 Enterprise multisessione, versione 1909 – Gen 1
-      - Windows Server 2019 Datacenter - Gen1
+      - Windows 10 Enterprise multisessione, versione 1909
+      - Windows 10 Enterprise multisessione, versione 1909 + Microsoft 365 Apps
+      - Windows Server 2019 Datacenter
+      - Windows 10 Enterprise multisessione, versione 2004
+      - Windows 10 Enterprise multisessione, versione 2004 + Microsoft 365 Apps
 
      Se non viene visualizzata l'immagine desiderata, selezionare **Esplora tutte le immagini e i dischi** che consente di selezionare un'altra immagine della raccolta o un'immagine fornita da Microsoft e da altri editori.
 
@@ -127,7 +129,7 @@ Per configurare la macchina virtuale all'interno del processo di configurazione 
 
 7. Scegliere il tipo di dischi del sistema operativo che si vuole usare per le macchine virtuali: SSD Standard, SSD Premium o HDD Standard.
 
-8. In Rete e sicurezza selezionare la rete virtuale e la subnet in cui si vuole posizionare le macchine virtuali create. Assicurarsi che la rete virtuale possa connettersi al controller di dominio, poiché sarà necessario aggiungere le macchine virtuali all'interno della rete virtuale al dominio. Selezionare quindi se si vuole o meno un indirizzo IP pubblico per le macchine virtuali. Si consiglia di selezionare **No**, perché un IP privato è più sicuro.
+8. In Rete e sicurezza selezionare la **rete virtuale** e la **subnet** in cui inserire le macchine virtuali create. Assicurarsi che la rete virtuale possa connettersi al controller di dominio, poiché sarà necessario aggiungere le macchine virtuali all'interno della rete virtuale al dominio. Selezionare quindi se si vuole o meno un indirizzo IP pubblico per le macchine virtuali. Si consiglia di selezionare **No**, perché un IP privato è più sicuro.
 
 9. Seleziona il tipo di gruppo di sicurezza desiderato: **Di base**, **Avanzato** o **Nessuno**.
 
@@ -141,11 +143,11 @@ Per configurare la macchina virtuale all'interno del processo di configurazione 
 
     Se si sceglie **Avanzato**, selezionare un gruppo di sicurezza di rete esistente che è stato già configurato.
 
-10. Successivamente, selezionare se si vuole che le macchine virtuali vengano aggiunte a un dominio e a un'unità organizzativa specifici. Se si sceglie **Sì**, specificare il dominio da aggiungere. È anche possibile aggiungere un'unità organizzativa specifica in cui si vuole inserire le macchine virtuali.
+10. Successivamente, selezionare se si vuole che le macchine virtuali vengano aggiunte a un dominio e a un'unità organizzativa specifici. Se si sceglie **Sì**, specificare il dominio da aggiungere. Facoltativamente, è possibile aggiungere un'unità organizzativa specifica in cui si vuole inserire le macchine virtuali. Se si sceglie **No**, le macchine virtuali verranno aggiunte al dominio corrispondente al suffisso indicato in **Nome dell'entità utente di aggiunta a un dominio Active Directory**.
 
 11. In Account amministratore immettere le credenziali dell'amministratore del dominio di Active Directory della rete virtuale selezionata.
 
-12. Selezionare **Area di lavoro**.
+12. Selezionare **Avanti: Area di lavoro >** .
 
 A questo punto, è possibile iniziare la fase successiva della configurazione del pool di host, ovvero la registrazione del gruppo di app in un'area di lavoro.
 
@@ -161,7 +163,7 @@ Per registrare il gruppo di app desktop in un'area di lavoro:
 
 2. Scegliere quindi se si vuole creare una nuova area di lavoro o selezionare un'area di lavoro esistente. Sarà possibile registrare il gruppo di app solo nelle aree di lavoro create nella stessa posizione del pool di host.
 
-3. Facoltativamente, è possibile selezionare **Tag**.
+3. Facoltativamente, è possibile selezionare **Avanti: Tag >** .
 
     Qui è possibile aggiungere i tag per raggruppare gli oggetti con i metadati per semplificare le operazioni degli amministratori.
 

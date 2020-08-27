@@ -12,10 +12,10 @@ ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
 ms.openlocfilehash: a865bab690c79288bdffcd7cebe424d1bb1969c0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "82181538"
 ---
 # <a name="call-the-microsoft-graph-api-from-a-windows-desktop-app"></a>Chiamare l'API Microsoft Graph da un'app Windows Desktop
@@ -158,7 +158,7 @@ Questo passaggio consente di creare una classe per gestire l'interazione con la 
 
 Questa sezione illustra come un'applicazione può eseguire una query su un server back-end protetto come Microsoft Graph.
 
-Nell'ambito del modello di progetto viene automaticamente creato un file *MainWindow.xaml*. Aprire il file e sostituire il nodo dell'applicazione *\<Griglia>* con il codice seguente:
+Nell'ambito del modello di progetto viene automaticamente creato un file *MainWindow.xaml*. Aprire il file e sostituire il nodo *\<Grid>* dell'applicazione con il codice seguente:
 
 ```xml
 <Grid>

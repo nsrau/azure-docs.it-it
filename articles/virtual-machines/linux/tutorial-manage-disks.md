@@ -1,26 +1,20 @@
 ---
 title: "Esercitazione: gestire i dischi di Azure con l'interfaccia della riga di comando di Azure"
 description: In questa esercitazione viene descritto come usare l'interfaccia della riga di comando di Azure per creare e gestire dischi di Azure per macchine virtuali
-services: virtual-machines-linux
-documentationcenter: virtual-machines
 author: cynthn
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machines-linux
 ms.topic: tutorial
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/14/2018
+ms.date: 08/20/2020
 ms.author: cynthn
 ms.custom: mvc, devx-track-azurecli
 ms.subservice: disks
-ms.openlocfilehash: 48d9c51c5d008bf652e782573c891cb0e0580f8c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4806fa51be859bd1bdc2a2abd5410f8aa8f4a32b
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831312"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757674"
 ---
 # <a name="tutorial---manage-azure-disks-with-the-azure-cli"></a>Esercitazione: gestire i dischi di Azure con l'interfaccia della riga di comando di Azure
 
@@ -49,20 +43,20 @@ Per installare applicazioni e archiviare dati è possibile aggiungere altri disc
 
 ## <a name="vm-disk-types"></a>Tipi di dischi per la VM
 
-Azure offre due tipi di dischi, ovvero standard e Premium.
+Azure offre due tipi di dischi.
 
-### <a name="standard-disk"></a>Disco standard
+**Dischi Standard**: sono supportati da unità disco rigido e offrono un'archiviazione conveniente con buone prestazioni. I dischi standard sono ideali per un carico di lavoro di test e sviluppo conveniente.
 
-Archiviazione Standard è supportata da unità disco rigido e offre un'archiviazione conveniente con buone prestazioni. I dischi standard sono ideali per un carico di lavoro di test e sviluppo conveniente.
+**Dischi Premium**: sono supportati da un disco a bassa latenza e ad alte prestazioni basato su unità SSD. Ideale per le macchine virtuali che eseguono il carico di lavoro della produzione. Le dimensioni di macchina virtuale che contengono la lettera **S** nel [nome delle dimensioni](../vm-naming-conventions.md) in genere supportano Archiviazione Premium. Le macchine virtuali di Azure serie DS, DSv2 e GS e FS, ad esempio, supportano Archiviazione Premium. Quando si selezionano le dimensioni del disco, il valore viene arrotondato per eccesso al tipo successivo. Ad esempio, se le dimensioni del disco superano i 64 GB ma sono inferiori a 128 GB, il tipo di disco è P10. 
 
-### <a name="premium-disk"></a>Disco premium
+<br>
 
-I dischi premium sono supportati da un disco a bassa latenza e ad alte prestazioni basato su SSD. Ideale per le macchine virtuali che eseguono il carico di lavoro della produzione. L'archiviazione premium supporta le macchine virtuali serie DS, DSv2, GS e FS. Quando si selezionano le dimensioni del disco, il valore viene arrotondato per eccesso al tipo successivo. Ad esempio, se le dimensioni del disco non superano i 128 GB, il tipo di disco è P10. Se le dimensioni del disco vanno da 129 a 512 GB, il tipo sarà un P20. Un valore superiore a 512 GB determina un tipo di disco P30.
 
-### <a name="premium-disk-performance"></a>Prestazioni disco premium
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../../includes/disk-storage-premium-ssd-sizes.md)]
 
-Sebbene la tabella sopra riportata identifichi il numero massimo di operazioni di I/O al secondo per disco, è possibile raggiungere un livello superiore di prestazioni tramite lo striping di più dischi di dati. Ad esempio, una macchina virtuale Standard_GS5 può raggiungere un massimo di 80.000 operazioni di I/O al secondo. Per informazioni dettagliate sul numero massimo di operazioni di I/O al secondo per macchina virtuale, vedere [Dimensioni delle VM Linux](../sizes.md).
+Quando si effettua il provisioning di un disco di archiviazione Premium, a differenza di Archiviazione Standard, vengono garantiti livelli di capacità, IOPS e velocità effettiva del disco. Se ad esempio si crea un disco P50, Azure effettua il provisioning di 4.095 GB di capacità di archiviazione, 7.500 IOPS e 250 MB/s di velocità effettiva per tale disco. L'applicazione può usare la totalità o una della capacità e delle prestazioni. I dischi SSD Premium sono progettati per offrire basse latenze di pochissimi millisecondi, nonché il numero di operazioni di I/O al secondo e la velocità effettiva di destinazione descritti nella tabella precedente per il 99,9% del tempo.
+
+Sebbene la tabella sopra riportata identifichi il numero massimo di operazioni di I/O al secondo per disco, è possibile raggiungere un livello superiore di prestazioni tramite lo striping di più dischi di dati. Ad esempio, è possibile collegare 64 dati dischi alla macchina virtuale Standard_GS5. Se ognuno di questi dischi viene ridimensionato come un P30, è possibile ottenere un massimo di 80.000 operazioni di I/O al secondo. Per informazioni dettagliate sul numero massimo di operazioni di I/O al secondo per macchina virtuale, vedere [Tipi e dimensioni delle macchine virtuali](../sizes.md).
 
 ## <a name="launch-azure-cloud-shell"></a>Avviare Azure Cloud Shell
 
@@ -119,16 +113,17 @@ Creare una connessione SSH alla macchina virtuale. Sostituire l'indirizzo IP di 
 ssh 10.101.10.10
 ```
 
-Eseguire la partizione del disco con `fdisk`.
+Eseguire la partizione del disco con `parted`.
 
 ```bash
-(echo n; echo p; echo 1; echo ; echo ; echo w) | sudo fdisk /dev/sdc
+sudo parted /dev/sdc --script mklabel gpt mkpart xfspart xfs 0% 100%
 ```
 
-Scrivere un file system nella partizione con il comando `mkfs`.
+Scrivere un file system nella partizione con il comando `mkfs`. Usare `partprobe` per fare in modo che il sistema operativo riconosca la modifica.
 
 ```bash
-sudo mkfs -t ext4 /dev/sdc1
+sudo mkfs.xfs /dev/sdc1
+sudo partprobe /dev/sdc1
 ```
 
 Montare il nuovo disco in modo che sia accessibile nel sistema operativo.
@@ -137,18 +132,19 @@ Montare il nuovo disco in modo che sia accessibile nel sistema operativo.
 sudo mkdir /datadrive && sudo mount /dev/sdc1 /datadrive
 ```
 
-È ora possibile accedere al disco tramite il punto di montaggio *datadrive*, che può essere verificato con l'esecuzione del comando `df -h`.
+È possibile ora accedere al disco tramite il punto di montaggio `/datadrive`, che è possibile verificare eseguendo il comando `df -h`.
 
 ```bash
-df -h
+df -h | grep -i "sd"
 ```
 
-L'output mostra la nuova unità montata su */datadrive*.
+L'output mostra la nuova unità montata su `/datadrive`.
 
 ```bash
 Filesystem      Size  Used Avail Use% Mounted on
-/dev/sda1        30G  1.4G   28G   5% /
-/dev/sdb1       6.8G   16M  6.4G   1% /mnt
+/dev/sda1        29G  2.0G   27G   7% /
+/dev/sda15      105M  3.6M  101M   4% /boot/efi
+/dev/sdb1        14G   41M   13G   1% /mnt
 /dev/sdc1        50G   52M   47G   1% /datadrive
 ```
 
@@ -164,11 +160,22 @@ L'output mostra l'UUID dell'unità, `/dev/sdc1` in questo caso.
 /dev/sdc1: UUID="33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e" TYPE="ext4"
 ```
 
-Aggiungere una riga simile alla seguente al file */etc/fstab*.
+> [!NOTE]
+> Se il file **/etc/fstab** non viene modificato in modo corretto, il sistema potrebbe diventare non avviabile. In caso di dubbi, fare riferimento alla documentazione della distribuzione per informazioni su come modificare correttamente questo file. È inoltre consigliabile creare una copia di backup del file /etc/fstab prima della modifica.
+
+Aprire il file `/etc/fstab` in un editor di testo, come segue:
+
+```bash
+sudo nano /etc/fstab
+```
+
+Aggiungere una riga simile alla seguente al file */etc/fstab*, sostituendo il valore UUID con quello personale.
 
 ```bash
 UUID=33333333-3b3b-3c3c-3d3d-3e3e3e3e3e3e   /datadrive  ext4    defaults,nofail   1  2
 ```
+
+Dopo aver completato la modifica del file, usare `Ctrl+O` per scrivere il file e `Ctrl+X` per uscire dall'editor.
 
 Ora che il disco è stato configurato, chiudere la sessione SSH.
 
@@ -180,9 +187,9 @@ exit
 
 Quando si crea uno snapshot del disco, Azure crea una copia temporizzata di sola lettura del disco. Gli snapshot della macchina virtuale di Azure sono utili per salvare rapidamente lo stato di una macchina virtuale prima di apportare modifiche alla configurazione. In caso di problemi o errori, è possibile ripristinare la macchina virtuale usando uno snapshot. Quando una macchina virtuale dispone di più dischi, viene acquisito uno snapshot per ciascun disco separatamente dagli altri dischi. Per eseguire backup coerenti con l'applicazione, prendere in considerazione l'arresto della macchina virtuale prima di eseguire gli snapshot dei dischi. In alternativa, usare il [Servizio Backup di Microsoft Azure](../../backup/index.yml), che consente di eseguire backup automatici, mentre la macchina virtuale è in esecuzione.
 
-### <a name="create-snapshot"></a>Creare snapshot
+### <a name="create-snapshot"></a>Create snapshot
 
-Prima di creare uno snapshot del disco della macchina virtuale, è necessario conoscere l'ID o il nome del disco. Usare il comando [az vm show](/cli/azure/vm#az-vm-show) per ottenere l'ID del disco. In questo esempio l'ID del disco viene archiviato in una variabile in modo da poter essere usato in un passaggio successivo.
+Prima di creare uno snapshot, è necessario l'ID o il nome del disco. Usare [az vm show](/cli/azure/vm#az-vm-show) per visualizzare l'ID disco. In questo esempio l'ID del disco viene archiviato in una variabile in modo da poter essere usato in un passaggio successivo.
 
 ```azurecli-interactive
 osdiskid=$(az vm show \
@@ -192,7 +199,7 @@ osdiskid=$(az vm show \
    -o tsv)
 ```
 
-Dopo aver ottenuto l'ID del disco della macchina virtuale, usare il comando seguente per creare lo snapshot del disco.
+Ora che l'ID è disponibile, usare [az snapshot create](/cli/azure/snapshot#az-snapshot-create) per creare uno snapshot del disco.
 
 ```azurecli-interactive
 az snapshot create \
@@ -203,7 +210,7 @@ az snapshot create \
 
 ### <a name="create-disk-from-snapshot"></a>Creare un disco da uno snapshot
 
-Lo snapshot può quindi essere convertito in un disco da usare per ricreare la macchina virtuale.
+È quindi possibile usare [az disk create](/cli/azure/disk#az-disk-create) per convertire lo snapshot in un disco, che può essere usato per ricreare la macchina virtuale.
 
 ```azurecli-interactive
 az disk create \
@@ -214,7 +221,7 @@ az disk create \
 
 ### <a name="restore-virtual-machine-from-snapshot"></a>Ripristinare una macchina virtuale da uno snapshot
 
-Per illustrare il ripristino della macchina virtuale, eliminare la macchina virtuale esistente.
+Per illustrare il ripristino della macchina virtuale, usare [az vm delete](/cli/azure/vm#az-vm-delete) per eliminare la macchina virtuale esistente.
 
 ```azurecli-interactive
 az vm delete \
@@ -236,7 +243,7 @@ az vm create \
 
 È necessario ricollegare tutti i dischi dati alla macchina virtuale.
 
-Innanzitutto usare il comando [az disk list](/cli/azure/disk#az-disk-list) per trovare il nome del disco dati. L'esempio inserisce il nome del disco in una variabile denominata *datadisk*, che viene usata nel passaggio successivo.
+Usare il comando [az disk list](/cli/azure/disk#az-disk-list) per trovare il nome del disco dati. L'esempio inserisce il nome del disco in una variabile denominata `datadisk`, che viene usata nel passaggio successivo.
 
 ```azurecli-interactive
 datadisk=$(az disk list \
