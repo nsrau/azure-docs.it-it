@@ -3,12 +3,12 @@ title: Crittografia dei dati di backup tramite chiavi gestite dal cliente
 description: Informazioni su come backup di Azure consente di crittografare i dati di backup usando chiavi gestite dal cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 9e299095709e07d3c73c8e8c847042cc51f549dd
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 55b994d287e4e2d3971b43359936815822bc18a4
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827342"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892644"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Crittografia dei dati di backup tramite chiavi gestite dal cliente
 
@@ -220,7 +220,7 @@ Il set di crittografia del disco viene specificato in impostazioni di crittograf
 1. Nell'elenco a discesa selezionare la DES da usare per i dischi ripristinati. **Assicurarsi di avere accesso al DES.**
 
 >[!NOTE]
->La possibilità di scegliere un DES durante il ripristino non è disponibile se si esegue il ripristino di una VM che usa crittografia dischi di Azure.
+>La possibilità di scegliere un DES durante il ripristino non è disponibile se si sta ripristinando una VM che usa crittografia dischi di Azure.
 
 ![Crittografare il disco usando la chiave](./media/encryption-at-rest-with-cmk/encrypt-disk-using-your-key.png)
 

@@ -10,14 +10,15 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/20/2019
 ms.author: trbye
-ms.openlocfilehash: cef47d1c6598e73d2c17c6799f3de90458206a8d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d80f244f7b5e17d730451093070b971e9aa041b9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098298"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919013"
 ---
-# <a name="custom-keyword-basics"></a>Nozioni fondamentali sulle parole chiave personalizzate
+# <a name="custom-keyword-basics"></a>Informazioni di base sulle parole chiave personalizzate
 
 Questo articolo illustra le nozioni di base per l'uso di parole chiave personalizzate, con speech studio e l'SDK di riconoscimento vocale. Una parola chiave è una parola o una frase breve che consente di attivare la voce del prodotto. È possibile creare modelli di parole chiave in speech studio, quindi esportare un file di modello usato con l'SDK di riconoscimento vocale nelle applicazioni.
 

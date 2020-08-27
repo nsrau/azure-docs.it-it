@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: 1748a334c024401d845145947ecd55519f61e5e3
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 9ad6f89392846564631b70f0acfb5658a050be80
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206930"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922821"
 ---
 # <a name="odata-searchin-function-in-azure-cognitive-search"></a>`search.in`Funzione OData in Azure ricerca cognitiva
 
@@ -82,7 +82,7 @@ I parametri sono definiti nella tabella seguente:
 
 <a name="bkmk_performance"></a>
 
-### <a name="performance-of-searchin"></a>Prestazioni di`search.in`
+### <a name="performance-of-searchin"></a>Prestazioni di `search.in`
 
 Se si usa `search.in`, è previsto un tempo di risposta inferiore al secondo quando il secondo parametro contiene un elenco di centinaia o migliaia di valori. Non esiste alcun limite esplicito per il numero di elementi che è possibile passare a `search.in` , sebbene sia ancora limitato dalla dimensione massima della richiesta. Tuttavia, la latenza aumenterà man mano che aumenta il numero di valori.
 
@@ -123,4 +123,4 @@ Trovare tutti gli alberghi senza il tag ' Motel ' o ' Cabin ':
 - [Filtri in ricerca cognitiva di Azure](search-filters.md)
 - [Cenni preliminari sul linguaggio di espressioni OData per ricerca cognitiva di Azure](query-odata-filter-orderby-syntax.md)
 - [Informazioni di riferimento sulla sintassi delle espressioni OData per ricerca cognitiva di Azure](search-query-odata-syntax-reference.md)
-- [Eseguire ricerche nei documenti &#40;API REST di Azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Eseguire ricerche nei documenti &#40;API REST di Azure ricerca cognitiva&#41;](/rest/api/searchservice/Search-Documents)

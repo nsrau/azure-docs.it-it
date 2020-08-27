@@ -6,17 +6,17 @@ ms.topic: how-to
 ms.date: 07/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2032a7c9d9cd9b17da956dc829234462f8b9e726
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 049b962740abc98a6ac7d029c1419d40aa722165
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509604"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922566"
 ---
 # <a name="use-microsoft-teams-on-windows-virtual-desktop"></a>Usare Microsoft teams sul desktop virtuale di Windows
 
 >[!IMPORTANT]
->L'ottimizzazione dei supporti per i team non è supportata per gli ambienti Microsoft 365 enti pubblici.
+>L'ottimizzazione dei supporti per i team è supportata per gli ambienti Microsoft 365 Government (GCC). L'ottimizzazione dei supporti per i team non è supportata per GCC-High o DoD.
 
 >[!NOTE]
 >L'ottimizzazione dei supporti per Microsoft teams è disponibile solo per il client desktop di Windows nei computer Windows 10. Per le ottimizzazioni dei supporti è necessario Windows desktop client versione 1.2.1026.0 o successiva.
@@ -32,7 +32,7 @@ Prima di poter usare Microsoft teams sul desktop virtuale di Windows, è necessa
 - [Preparare la rete](/microsoftteams/prepare-network/) per Microsoft teams.
 - Installare il [client desktop di Windows](connect-windows-7-10.md) in un dispositivo Windows 10 o Windows 10 Internet che soddisfi i requisiti hardware per i team di Microsoft teams [in un computer Windows](/microsoftteams/hardware-requirements-for-the-teams-app#hardware-requirements-for-teams-on-a-windows-pc/).
 - Connettersi a una macchina virtuale (VM) di Windows 10 multisessione o Windows 10 Enterprise.
-- Installare l'app desktop per i team nell'host usando l'installazione per computer. L'ottimizzazione dei supporti per Microsoft teams richiede team desktop app 1.3.00.4461 o versione successiva.
+- [Scaricare](https://www.microsoft.com/microsoft-365/microsoft-teams/download-app) e installare l'app desktop per i team nell'host usando l'installazione per computer. L'ottimizzazione dei supporti per Microsoft teams richiede team desktop app 1.3.00.4461 o versione successiva.
 
 ## <a name="install-the-teams-desktop-app"></a>Installare l'app desktop per i team
 
@@ -94,8 +94,8 @@ La tabella seguente elenca le versioni più recenti del servizio WebSocket:
 
         In questo modo, i team vengono installati nella cartella Program Files (x86) in un sistema operativo a 64 bit e nella cartella programmi in un sistema operativo a 32 bit. A questo punto, la configurazione dell'immagine dorata è stata completata. L'installazione di team per computer è necessaria per le configurazioni non permanenti.
 
-        Sono disponibili due flag che è possibile impostare quando si installano i team, **ALLUSER = 1** e **ALLUSERS = 1**. È importante comprendere la differenza tra questi parametri. Il parametro **ALLUSER = 1** viene usato solo negli ambienti VDI per specificare un'installazione per computer. Il parametro **ALLUSERS = 1** può essere usato in ambienti non VDI e VDI. Quando si imposta questo parametro, il programma di installazione di Teams a livello di computer viene visualizzato in programma e funzionalità nel pannello di controllo, nonché nelle app & funzionalità nelle impostazioni di Windows. Tutti gli utenti con credenziali di amministratore nel computer possono disinstallare i team. 
-       
+        Sono disponibili due flag che è possibile impostare quando si installano i team, **ALLUSER = 1** e **ALLUSERS = 1**. È importante comprendere la differenza tra questi parametri. Il parametro **ALLUSER = 1** viene usato solo negli ambienti VDI per specificare un'installazione per computer. Il parametro **ALLUSERS = 1** può essere usato in ambienti non VDI e VDI. Quando si imposta questo parametro, il programma di installazione di Teams a livello di computer viene visualizzato in programma e funzionalità nel pannello di controllo, nonché nelle app & funzionalità nelle impostazioni di Windows. Tutti gli utenti con credenziali di amministratore nel computer possono disinstallare i team.
+
         > [!NOTE]
         > Gli utenti e gli amministratori non possono disabilitare l'avvio automatico per i team durante l'accesso in questo momento.
 

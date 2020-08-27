@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6232ba859c985929c9df0fb5020fb932611bbb40
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f27822ee6be26f955e4db52548da7fa2a22236c2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85079438"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922753"
 ---
 # <a name="example-add-synonyms-for-azure-cognitive-search-in-c"></a>Esempio: aggiungere sinonimi per ricerca cognitiva di Azure in C #
 
@@ -22,8 +22,8 @@ I sinonimi espandono una query tramite la corrispondenza con termini considerati
 In ricerca cognitiva di Azure, i sinonimi vengono definiti in una *mappa di sinonimi*tramite *regole di mapping* che associano termini equivalenti. In questo esempio vengono illustrati i passaggi essenziali per l'aggiunta e l'utilizzo di sinonimi con un indice esistente. Si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare una mappa di sinonimi usando la classe [SynonymMap](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) . 
-> * Impostare la proprietà [SynonymMaps](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) nei campi che devono supportare l'espansione delle query tramite sinonimi.
+> * Creare una mappa di sinonimi usando la classe  [SynonymMap](/dotnet/api/microsoft.azure.search.models.synonymmap?view=azure-dotnet) . 
+> * Impostare la proprietà [SynonymMaps](/dotnet/api/microsoft.azure.search.models.field.synonymmaps?view=azure-dotnet) nei campi che devono supportare l'espansione delle query tramite sinonimi.
 
 È possibile eseguire una query su un campo abilitato per sinonimi come in genere. Non è necessaria alcuna sintassi di query aggiuntiva per accedere ai sinonimi.
 
@@ -38,8 +38,8 @@ I requisiti per l'esercitazione includono i seguenti:
 
 * [Visual Studio](https://www.visualstudio.com/downloads/)
 * [Servizio ricerca cognitiva di Azure](search-create-service-portal.md)
-* [Libreria Microsoft.Azure.Search .NET](https://docs.microsoft.com/dotnet/api/overview/azure/search)
-* [Come usare ricerca cognitiva di Azure da un'applicazione .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk)
+* [Libreria Microsoft.Azure.Search .NET](/dotnet/api/overview/azure/search)
+* [Come usare ricerca cognitiva di Azure da un'applicazione .NET](./search-howto-dotnet-sdk.md)
 
 ## <a name="overview"></a>Panoramica
 
@@ -77,7 +77,7 @@ Le query di tipo "prima e dopo" illustrano il valore dei sinonimi. In questo ese
       Console.ReadKey();
   }
 ```
-I passaggi per creare e popolare l'indice di esempio sono illustrati in [come usare ricerca cognitiva di Azure da un'applicazione .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
+I passaggi per creare e popolare l'indice di esempio sono illustrati in [come usare ricerca cognitiva di Azure da un'applicazione .NET](./search-howto-dotnet-sdk.md).
 
 ## <a name="before-queries"></a>Query di tipo "prima"
 
@@ -173,7 +173,7 @@ Il modo più rapido per eseguire la pulizia dopo un esempio consiste nell'elimin
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo esempio è stata illustrata la funzionalità sinonimi del codice C# per creare e pubblicare regole di mapping e quindi chiamare la mappa dei sinonimi in una query. Altre informazioni sono disponibili nella documentazione di riferimento per [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search) e [API REST](https://docs.microsoft.com/rest/api/searchservice/).
+In questo esempio è stata illustrata la funzionalità sinonimi del codice C# per creare e pubblicare regole di mapping e quindi chiamare la mappa dei sinonimi in una query. Altre informazioni sono disponibili nella documentazione di riferimento per [.NET SDK](/dotnet/api/microsoft.azure.search) e [API REST](/rest/api/searchservice/).
 
 > [!div class="nextstepaction"]
 > [Come usare i sinonimi in Azure ricerca cognitiva](search-synonyms.md)

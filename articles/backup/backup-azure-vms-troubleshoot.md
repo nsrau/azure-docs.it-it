@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere gli errori riscontrati con 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: bf2a811098138663f1b7f2acd174d6bca4aa6150
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: a5784aeb615c6d84048835bd6169f0819fad2f56
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826241"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892338"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Risoluzione degli errori di backup nelle macchine virtuali di Azure
 
@@ -43,7 +43,7 @@ Di seguito sono riportati i problemi comuni relativi agli errori di backup nelle
 
 Codice di errore: VMRestorePointInternalError
 
-Se al momento del backup, nei **registri applicazioni Visualizzatore eventi** viene visualizzato il nome dell'applicazione per cui si è verificato l' **errore: IaaSBcdrExtension.exe** quindi viene confermato che l'antivirus configurato nella VM sta limitando l'esecuzione dell'estensione di backup.
+Se al momento del backup, nei **registri applicazioni Visualizzatore eventi** viene visualizzato il nome dell'applicazione per cui si è verificato l' **errore: IaaSBcdrExtension.exe** quindi il virus configurato nella VM limita l'esecuzione dell'estensione di backup.
 Per risolvere questo problema, escludere le directory seguenti nella configurazione del programma antivirus, quindi ripetere l'operazione di backup.
 
 * `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot`
@@ -192,7 +192,7 @@ REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v CalculateSnapshotTi
 
 Questo garantirà che gli snapshot vengano creati tramite host invece che guest. Ripetere l'operazione di backup.
 
-**Passaggio 2**: Provare a modificare la pianificazione del backup, definendo un orario in cui la macchina virtuale è sottoposta a un carico inferiore (uso inferiore della CPU/meno operazioni di I/O al secondo e così via)
+**Passaggio 2**: provare a modificare la pianificazione del backup in un momento in cui la macchina virtuale è sotto carico inferiore (ad esempio meno CPU o IOPS)
 
 **Passaggio 3**: provare ad [aumentare le dimensioni della macchina virtuale](https://azure.microsoft.com/blog/resize-virtual-machines/) e ripetere l'operazione
 
@@ -246,7 +246,7 @@ Codice errore: ExtensionSnapshotFailedNoSecureNetwork <br/> Messaggio di errore:
 Codice errore: ExtensionVCRedistInstallationFailure <br/> Messaggio di errore: L'operazione di creazione snapshot non è riuscita a causa di un errore durante l'installazione di Visual C++ Redistributable per Visual Studio 2012.
 
 * Passare a `C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\agentVersion` e installare vcredist2013_x64.<br/>Assicurarsi che il valore della chiave del Registro di sistema che consente l'installazione del servizio sia impostato sul valore corretto. Impostare dunque il valore **Start** in **HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\Msiserver** su **3** anziché su **4**. <br><br>Se i problemi di installazione persistono, riavviare il servizio di installazione eseguendo **MSIEXEC /UNREGISTER** e quindi **MSIEXEC /REGISTER** da un prompt dei comandi con privilegi elevati.
-* Controllare il registro eventi per verificare se si riscontrano problemi relativi all'accesso. Ad esempio: *Prodotto: Microsoft Visual C++ 2013 x64 Minimum Runtime - 12.0.21005 -- Errore 1401 Impossibile creare la chiave: Software\Classes.  Errore di sistema 5.  Assicurarsi di disporre di diritti di accesso sufficienti per tale chiave oppure contattare il personale di supporto.* <br><br> Verificare che l'account amministratore o utente disponga di autorizzazioni sufficienti per aggiornare la chiave del Registro di sistema **HKEY_LOCAL_MACHINE\SOFTWARE\Classes**. Concedere autorizzazioni sufficienti e riavviare l'agente guest di Microsoft Azure.<br><br> <li> Se sono presenti prodotti antivirus, assicurarsi che dispongano delle regole di esclusione appropriate per consentire l'installazione.
+* Controllare il registro eventi per verificare se si è notato l'accesso ai problemi correlati. Ad esempio: *Prodotto: Microsoft Visual C++ 2013 x64 Minimum Runtime - 12.0.21005 -- Errore 1401 Impossibile creare la chiave: Software\Classes.  Errore di sistema 5.  Assicurarsi di disporre di diritti di accesso sufficienti per tale chiave oppure contattare il personale di supporto.* <br><br> Verificare che l'account amministratore o utente disponga di autorizzazioni sufficienti per aggiornare la chiave del Registro di sistema **HKEY_LOCAL_MACHINE\SOFTWARE\Classes**. Concedere autorizzazioni sufficienti e riavviare l'agente guest di Microsoft Azure.<br><br> <li> Se sono presenti prodotti antivirus, assicurarsi che dispongano delle regole di esclusione appropriate per consentire l'installazione.
 
 ### <a name="usererrorrequestdisallowedbypolicy---an-invalid-policy-is-configured-on-the-vm-which-is-preventing-snapshot-operation"></a>UserErrorRequestDisallowedByPolicy: nella macchina virtuale che impedisce il funzionamento dello snapshot è stato configurato un criterio non valido
 
