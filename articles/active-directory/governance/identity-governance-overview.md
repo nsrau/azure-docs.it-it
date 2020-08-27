@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dcb7ab566d861e0c4256acda8f8facd1e94d4ad6
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 711903b106bf6ff7d8f669e2b1d3489057e09fbc
+ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796778"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88783298"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Cos'è Azure AD Identity Governance?
 
@@ -58,9 +58,9 @@ Le organizzazioni hanno bisogno di un processo per gestire l'accesso oltre il pr
 
 In genere, l'IT delega le decisioni in merito all'approvazione dell'accesso ai decision maker aziendali.  Inoltre, l'IT può comprendere gli utenti stessi.  Ad esempio, gli utenti che accedono a dati riservati dei clienti nell'applicazione di marketing di un'azienda in Europa devono conoscere i criteri dell'azienda. Gli utenti guest potrebbero non essere a conoscenza dei requisiti di gestione dei dati in un'organizzazione in cui sono stati invitati.
 
-Le organizzazioni possono automatizzare il processo di gestione del ciclo di vita degli accessi grazie a tecnologie come i [gruppi dinamici](../users-groups-roles/groups-dynamic-membership.md), associati al provisioning degli utenti in [app SaaS](../saas-apps/tutorial-list.md) o [app integrate con SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md).  Possono anche controllare quali [utenti guest hanno accesso alle applicazioni locali](../b2b/hybrid-cloud-to-on-premises.md).  I diritti di accesso possono quindi essere riesaminati regolarmente usando le [verifiche di accesso ricorrenti di Azure AD](access-reviews-overview.md).   La funzionalità di [gestione entitlement di Azure AD](entitlement-management-overview.md) consente inoltre di definire il modo in cui gli utenti richiedono l'accesso tra pacchetti di appartenenza a gruppi e team, ruoli applicazione e ruoli di SharePoint Online.
+Le organizzazioni possono automatizzare il processo di gestione del ciclo di vita degli accessi grazie a tecnologie come i [gruppi dinamici](../users-groups-roles/groups-dynamic-membership.md), associati al provisioning degli utenti in [app SaaS](../saas-apps/tutorial-list.md) o [app integrate con SCIM](../app-provisioning/use-scim-to-provision-users-and-groups.md).  Possono anche controllare quali [utenti guest hanno accesso alle applicazioni locali](../external-identities/hybrid-cloud-to-on-premises.md).  I diritti di accesso possono quindi essere riesaminati regolarmente usando le [verifiche di accesso ricorrenti di Azure AD](access-reviews-overview.md).   La funzionalità di [gestione entitlement di Azure AD](entitlement-management-overview.md) consente inoltre di definire il modo in cui gli utenti richiedono l'accesso tra pacchetti di appartenenza a gruppi e team, ruoli applicazione e ruoli di SharePoint Online.
 
-Quando un utente prova ad accedere alle applicazioni, Azure AD applica criteri di [accesso condizionale](/azure/active-directory/conditional-access/). I criteri di accesso condizionale possono includere ad esempio la visualizzazione di [condizioni per l'utilizzo](../conditional-access/terms-of-use.md) e la [verifica che l'utente le abbia accettate](../conditional-access/require-tou.md) prima di poter accedere a un'applicazione.
+Quando un utente prova ad accedere alle applicazioni, Azure AD applica criteri di [accesso condizionale](../conditional-access/index.yml). I criteri di accesso condizionale possono includere ad esempio la visualizzazione di [condizioni per l'utilizzo](../conditional-access/terms-of-use.md) e la [verifica che l'utente le abbia accettate](../conditional-access/require-tou.md) prima di poter accedere a un'applicazione.
 
 ## <a name="privileged-access-lifecycle"></a>Ciclo di vita dell'accesso con privilegi
 
@@ -100,6 +100,4 @@ Come procedura consigliata, usare il ruolo con privilegi minimi per eseguire att
 - [Informazioni su Gestione entitlement di Azure AD](entitlement-management-overview.md)
 - [Informazioni sulle verifiche di accesso di Azure AD](access-reviews-overview.md)
 - [Che cos'è Azure AD Privileged Identity Management?](../privileged-identity-management/pim-configure.md)
-- [Operazioni supportate da Condizioni per l'utilizzo](active-directory-tou.md)
-
-
+- [Operazioni supportate da Condizioni per l'utilizzo](../conditional-access/terms-of-use.md)

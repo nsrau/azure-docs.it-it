@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come creare un insieme di credenziali
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: ed91105488b812131d3a908c509998c955cec299
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 76c09cc02a3545d975de5d6d49b396b12f8abb44
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263419"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757507"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Usare il portale di Azure per eseguire il backup di più macchine virtuali
 
@@ -136,7 +136,7 @@ Per eseguire un processo di backup su richiesta:
 
 1. Nel menu di scelta rapida, selezionare **Esegui backup ora**.
 
-    ![Menu di scelta rapida](./media/tutorial-backup-vm-at-scale/context-menu.png)
+    ![Menu di scelta rapida - Selezionare Esegui backup ora](./media/tutorial-backup-vm-at-scale/context-menu.png)
 
     Si aprirà il menu Esegui backup ora.
 
@@ -166,7 +166,7 @@ Se si prevede di continuare a usare le esercitazioni successive, non eliminare l
 
 1. Nel menu **Elementi di backup** selezionare i puntini di sospensione per aprire il menu di scelta rapida.
 
-    ![Menu di scelta rapida](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
+    ![Nel menu Elementi di backup aprire il menu di scelta rapida](./media/tutorial-backup-vm-at-scale/context-menu-to-delete-vm.png)
 
 1. Nel menu di scelta rapida selezionare **Interrompi backup** per aprire il menu corrispondente.
 

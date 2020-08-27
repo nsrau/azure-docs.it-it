@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come eseguire il backup di database S
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4113ba75f007bfa03fed5cfeaed7737797e37ed9
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a0b6683183d6bf73b5376c6320106373ffd4ba78
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489504"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762403"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Esercitazione: Eseguire il backup di database SAP HANA in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure
 
@@ -19,7 +19,7 @@ Questo documento presuppone che sia già presente un database SAP HANA installat
 
 > [!div class="checklist"]
 >
-> * Creare un insieme di credenziali dei servizi di ripristino
+> * Creare un insieme di credenziali di Servizi di ripristino
 > * Registrare un'istanza di SAP HANA e individuare i database al suo interno
 > * Abilitare il backup in un database SAP HANA
 > * Attivare un backup su richiesta
@@ -30,7 +30,7 @@ Vedere gli [scenari attualmente supportati](./sap-hana-backup-support-matrix.md#
 
 Per installare e usare l'interfaccia della riga di comando in locale, è necessario eseguire l'interfaccia della riga di comando di Azure xx.xxx.x o versioni successive. Per determinare la versione dell'interfaccia della riga di comando, eseguire `az --version`. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
-## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali dei servizi di ripristino
+## <a name="create-a-recovery-services-vault"></a>Creare un insieme di credenziali di Servizi di ripristino
 
 Un insieme di credenziali di Servizi di ripristino è un contenitore logico in cui vengono archiviati i dati di backup per ogni risorsa protetta, ad esempio le macchine virtuali di Azure, o i carichi di lavoro in esecuzione nelle macchine virtuali di Azure, ad esempio i database SQL o HANA. Quando viene eseguito, il processo di backup per una risorsa protetta crea un punto di ripristino all'interno dell'insieme di credenziali dei servizi di ripristino. È quindi possibile usare uno di questi punti di ripristino per ripristinare i dati a un dato momento.
 

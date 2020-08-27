@@ -188,6 +188,9 @@
           href: /azure/iot-fundamentals/iot-security-architecture?context=azure/iot-hub/rc/rc
         - name: Proteggere la distribuzione di IoT
           href: /azure/iot-fundamentals/iot-security-deployment?context=azure/iot-hub/rc/rc
+        - name: Controlli di sicurezza in base a Criteri di Azure
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
     - name: Proteggere tramite certificati X.509 dell'autorità di certificazione
       items:
         - name: Panoramica della sicurezza con certificati X.509 della CA

@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come eseguire il ripristino di databa
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 282f0ee61ffae455d6d3e49ea445d5ddc2fe56ac
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a1dbf0593c7c9b65c4e285b7162411de6c01bbbf
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500828"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762284"
 ---
 # <a name="tutorial-restore-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Esercitazione: Ripristinare i database SAP HANA in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure
 
@@ -89,7 +89,7 @@ In questa esercitazione verrà ripristinato un punto di ripristino precedente. [
 Usando il nome del punto di ripristino e la modalità di ripristino precedenti, verrà creato l'oggetto configurazione di ripristino usando il cmdlet [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show). Verrà ora esaminato il significato di ognuno dei parametri rimanenti di questo cmdlet:
 
 * **--target-item-name**: nome che verrà usato dal database ripristinato. In questo caso, è stato usato il nome *restored_database*.
-* **--target-server-name**: nome di un server SAP HANA registrato in un insieme di credenziali di servizi di ripristino e che risiede nella stessa area del database da ripristinare. Per questa esercitazione, il database verrà ripristinato nello stesso server SAP HANA protetto, denominato *hxehost*.
+* **--target-server-name**: nome di un server SAP HANA registrato in un insieme di credenziali di Servizi di ripristino e che risiede nella stessa area del database da ripristinare. Per questa esercitazione, il database verrà ripristinato nello stesso server SAP HANA protetto, denominato *hxehost*.
 * **--target-server-type**: per il ripristino dei database SAP HANA, è necessario usare **SapHanaDatabase**.
 
 ```azurecli-interactive
@@ -181,7 +181,7 @@ Per questa esercitazione si sceglieranno il ripristino temporizzato precedente `
 
 Usando il nome del punto di ripristino precedente e la modalità di ripristino, verrà creato l'oggetto configurazione di ripristino usando il cmdlet [az backup recoveryconfig show](/cli/azure/backup/recoveryconfig?view=azure-cli-latest#az-backup-recoveryconfig-show). Verrà ora esaminato il significato di ognuno dei parametri rimanenti di questo cmdlet:
 
-* **--target-container-name**: nome di un server SAP HANA registrato in un insieme di credenziali di servizi di ripristino e che risiede nella stessa area del database da ripristinare. Per questa esercitazione si eseguirà il ripristino del database come file nello stesso server SAP HANA protetto, denominato *hxehost*.
+* **--target-container-name**: nome di un server SAP HANA registrato in un insieme di credenziali di Servizi di ripristino e che risiede nella stessa area del database da ripristinare. Per questa esercitazione si eseguirà il ripristino del database come file nello stesso server SAP HANA protetto, denominato *hxehost*.
 * **--rp-name**: per un ripristino temporizzato il nome del punto di ripristino sarà **DefaultRangeRecoveryPoint**
 
 ```azurecli-interactive

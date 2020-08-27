@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4834cccff11a70249140f49b498b8f7891787c72
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 13bbea166d699acead932b1ad6779720f82090e6
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169341"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919676"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Ottimizzare le richieste di riautenticazione e comprendere la durata della sessione per Azure Multi-Factor Authentication
 
@@ -45,6 +45,8 @@ Per ottimizzare la frequenza dei messaggi di richiesta di autenticazione per gli
 ### <a name="evaluate-session-lifetime-policies"></a>Valutare i criteri di durata della sessione
 
 Senza alcuna impostazione di durata della sessione, non sono presenti cookie permanenti nella sessione del browser. Ogni volta che un utente chiude e apre il browser, riceve una richiesta di riautenticazione. Nei client Office, il periodo di tempo predefinito è una finestra in sequenza di 90 giorni. Con questa configurazione di Office predefinita, se l'utente ha reimpostato la password o è stato inattività di oltre 90 giorni, l'utente deve ripetere l'autenticazione con tutti i fattori richiesti (primo e secondo fattore).
+
+Un utente potrebbe visualizzare più richieste di autenticazione a più fattori in un dispositivo che non ha un'identità in Azure AD. Vengono restituiti più messaggi di richiesta quando ogni applicazione dispone di un proprio token di aggiornamento OAuth che non è condiviso con altre app client. In questo scenario, l'autenticazione a più fattori richiede più volte poiché ogni applicazione richiede che un token di aggiornamento OAuth venga convalidato con l'autenticazione a più fattori.
 
 In Azure AD, i criteri più restrittivi per la durata della sessione determinano quando l'utente deve ripetere l'autenticazione. Si consideri lo scenario seguente:
 

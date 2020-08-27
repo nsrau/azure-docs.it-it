@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c88a54661e8fee2dd7c3b4dc34336d44a6803090
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: ccd1192c7597b5a088b1c50b5367030a616b9d77
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719462"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919591"
 ---
 # <a name="user-portal-for-the-azure-multi-factor-authentication-server"></a>Portale utenti per il server Azure Multi-Factor Authentication
 
@@ -29,7 +29,11 @@ Gli utenti accedono al portale utenti con il nome utente e la password normali, 
 A seconda dell'ambiente, è possibile distribuire il portale utenti nello stesso server in cui è in esecuzione il server Azure Multi-Factor Authentication o in un altro server con connessione Internet.
 
 > [!IMPORTANT]
-> A partire dal 1° luglio 2019, Microsoft non offrirà più il server MFA per le nuove distribuzioni. I nuovi clienti che desiderano richiedere l'autenticazione a più fattori ai loro utenti dovranno usare il servizio Azure Multi-Factor Authentication basato sul cloud. Gli attuali clienti che anno attivato il server MFA prima del 1° luglio potranno scaricare la versione più recente e gli aggiornamenti futuri, oltre a generare le credenziali di attivazione come di consueto.
+> A partire dal 1 ° luglio 2019, Microsoft non offre più il server multi-factor authentication per le nuove distribuzioni. I nuovi clienti che vogliono richiedere l'autenticazione a più fattori durante gli eventi di accesso devono usare Azure Multi-Factor Authentication basato sul cloud.
+>
+> Per iniziare a usare l'autenticazione a più fattori basata sul cloud, vedere [esercitazione: proteggere gli eventi di accesso utente con multi-factor authentication di Azure](tutorial-enable-azure-mfa.md).
+>
+> I clienti esistenti che hanno attivato il server multi-factor authentication prima del 1 ° luglio 2019 possono scaricare la versione più recente, gli aggiornamenti futuri e generare le credenziali di attivazione come di consueto.
 
 ![Pagina di accesso del portale utenti del server MFA](./media/howto-mfaserver-deploy-userportal/portal.png)
 

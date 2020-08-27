@@ -4,12 +4,12 @@ description: Questo articolo illustra come eseguire la migrazione di macchine vi
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 9e26268010e4287d1f98e99389ffeddf3e4747ce
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 0ef9adfe7ee88141b67bb9e8c9586c5cc6e5df6f
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611433"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762420"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Individuare e valutare le VM AWS (Amazon Web Services) ed eseguirne la migrazione ad Azure
 
@@ -379,7 +379,7 @@ Dopo aver verificato che la migrazione di test funzioni nel modo previsto, è po
 **Risposta:** Attualmente non è supportata l'importazione di valutazioni per questo flusso di lavoro. Come soluzione alternativa, è possibile esportare la valutazione e quindi selezionare manualmente la raccomandazione sulla VM durante il passaggio di abilitazione della replica.
   
 **Domanda:** Durante l'individuazione delle VM AWS viene visualizzato un messaggio di errore che informa che non è possibile recuperare il GUID BIOS   
-**Risposta:** Verificare i sistemi operativi supportati per le VM AWS.  
+**Risposta:** Usare sempre l'account di accesso radice per l'autenticazione e non quello di uno pseudoutente. Verificare anche i sistemi operativi supportati per le VM AWS.  
 
 **Domanda:** Lo stato della replica non procede    
 **Risposta:** Verificare se l'appliance di replica soddisfa i requisiti. Assicurarsi di aver abilitato le porte richieste sulle porte TCP 9443 e HTTPS 443 dell'appliance di replica per il trasporto dei dati. Verificare che non siano presenti versioni duplicate non aggiornate dell'appliance di replica connesse allo stesso progetto.   

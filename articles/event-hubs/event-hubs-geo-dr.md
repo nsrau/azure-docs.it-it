@@ -3,12 +3,12 @@ title: Ripristino di emergenza geografico - Hub eventi di Azure | Microsoft Docs
 description: Come usare le aree geografiche per il failover ed eseguire il ripristino di emergenza in Hub eventi di Azure
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 142e2b99376bef24a6477f7b40394ca2b67f292b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1807c22645c3246f4cf18d723fc19da475e4d4f4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85320547"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934073"
 ---
 # <a name="azure-event-hubs---geo-disaster-recovery"></a>Hub eventi di Azure - Ripristino di emergenza geografico 
 In caso di tempo di inattività di interi data center o di aree di Azure complete (se non si usano [zone di disponibilità](../availability-zones/az-overview.md)), è essenziale che l'elaborazione dei dati continui in un'area o in un data center diverso. Il *ripristino di emergenza geografico* e la *replica geografica* sono quindi funzionalità importanti per qualsiasi azienda. Il servizio Hub eventi di Azure supporta il ripristino di emergenza geografico e la replica geografica a livello di spazio dei nomi. 
@@ -167,10 +167,10 @@ Il vantaggio di questo approccio è che il failover può verificarsi a livello d
 Per altre informazioni su Hub eventi, vedere i collegamenti seguenti:
 
 - Introduzione all'Hub eventi
-    - [.NET Core](get-started-dotnet-standard-send-v2.md)
-    - [Java](get-started-java-send-v2.md)
-    - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+    - [Java](event-hubs-java-get-started-send.md)
+    - [Python](event-hubs-python-get-started-send.md)
+    - [JavaScript](event-hubs-java-get-started-send.md)
 * [Domande frequenti su Hub eventi](event-hubs-faq.md)
 * [Applicazioni di esempio che usano Hub eventi](https://github.com/Azure/azure-event-hubs/tree/master/samples)
 

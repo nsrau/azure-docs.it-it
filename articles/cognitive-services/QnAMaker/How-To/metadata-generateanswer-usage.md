@@ -8,13 +8,13 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 07/16/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 7120f95b8b61fc08759f4d15061ec530849dfc05
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: d1258786ec6f611bea5f73f3cb1c176738733acd
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406521"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919064"
 ---
 # <a name="get-an-answer-with-the-generateanswer-api-and-metadata"></a>Ottenere una risposta con l'API e i metadati di GenerateAnswer
 
@@ -215,8 +215,8 @@ Ciò consente alla Knowledge base di restituire le risposte quando qualsiasi fil
 ### <a name="metadata-examples-in-quickstarts"></a>Esempi di metadati nelle guide introduttive
 
 Altre informazioni sui metadati sono disponibili nella Guida introduttiva del portale QnA Maker per i metadati:
-* [Creazione e modifica-aggiungere metadati alla coppia QnA](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
-* [Query PREDICTION-Filtra risposte per metadati](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
+* [Creazione e modifica - aggiungere metadati a una coppia di domanda e risposta](../quickstarts/add-question-metadata-portal.md#add-metadata-to-filter-the-answers)
+* [Eseguire query sulle previsioni - filtrare le risposte in base ai metadati](../quickstarts/get-answer-from-knowledge-base-using-url-tool.md)
 
 <a name="keep-context"></a>
 

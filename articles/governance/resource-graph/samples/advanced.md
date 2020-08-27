@@ -1,14 +1,14 @@
 ---
 title: Esempi di query avanzate
 description: Usare Azure Resource Graph per eseguire alcune query avanzate, ad esempio per usare le colonne, elencare i tag usati e cercare la corrispondenza di risorse con espressioni regolari.
-ms.date: 07/14/2020
+ms.date: 08/13/2020
 ms.topic: sample
-ms.openlocfilehash: 3277d904ebf955c9f924e60dbf6df12eac138a15
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: ba00144a53afd041abe2513862d8a05a51e78809
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534788"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795678"
 ---
 # <a name="advanced-resource-graph-query-samples"></a>Esempi di query di Resource Graph
 
@@ -29,6 +29,7 @@ Si esamineranno le query avanzate seguenti:
 - [Trovare account di archiviazione con un tag specifico del gruppo di risorse](#join-findstoragetag)
 - [Combinare i risultati di due query in un singolo risultato](#unionresults)
 - [Includere i nomi di tenant e sottoscrizioni con DisplayNames](#displaynames)
+- [Riepilogare la macchina virtuale in base alla proprietà estesa stati di alimentazione](#vm-powerstate)
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free) prima di iniziare.
 
@@ -525,9 +526,42 @@ Search-AzGraph -Query "ResourceContainers | where type=='microsoft.resources/sub
 
 ---
 
+## <a name="summarize-virtual-machine-by-the-power-states-extended-property"></a><a name="vm-powerstate"></a>Riepilogare la macchina virtuale in base alla proprietà estesa stati di alimentazione
+
+Questa query usa le [proprietà estese](../concepts/query-language.md#extended-properties) nelle macchine virtuali per riepilogare in base agli stati di alimentazione.
+
+
+```kusto
+Resources
+| where type == 'microsoft.compute/virtualmachines'
+| summarize count() by tostring(properties.extended.instanceView.powerState.code)
+```
+
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+```azurecli-interactive
+az graph query -q "Resources | where type == 'microsoft.compute/virtualmachines' | summarize count() by tostring(properties.extended.instanceView.powerState.code)"
+```
+
+# <a name="azure-powershell"></a>[Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Search-AzGraph -Query "Resources | where type == 'microsoft.compute/virtualmachines' | summarize count() by tostring(properties.extended.instanceView.powerState.code)"
+```
+
+# <a name="portal"></a>[Portale](#tab/azure-portal)
+
+:::image type="icon" source="../media/resource-graph-small.png"::: Provare questa query in Azure Resource Graph Explorer:
+
+- Portale di Azure: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">portal.azure.com <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- Portale di Azure per enti pubblici: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">portal.azure.us <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- Portale di Azure Cina (21Vianet): <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/Resources%20%7C%20where%20type%20%3D%3D%20%27microsoft.compute%2Fvirtualmachines%27%20%7C%20summarize%20count%28%29%20by%20tostring%28properties.extended.instanceView.powerState.code%29" target="_blank">portal.azure.cn <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+
+---
+
 ## <a name="include-the-tenant-and-subscription-names-with-displaynames"></a><a name="displaynames"></a>Includere i nomi di tenant e sottoscrizioni con DisplayNames
 
-Questa query usa il nuovo parametro **Include** con l'opzione _DisplayNames_ per aggiungere **subscriptionDisplayName** e **tenantDisplayName** ai risultati. Questo parametro è disponibile solo per l'interfaccia della riga di comando di Azure e Azure PowerShell.
+Questa query usa il parametro **Include** con l'opzione _DisplayNames_ per aggiungere **subscriptionDisplayName** e **tenantDisplayName** ai risultati. Questo parametro è disponibile solo per l'interfaccia della riga di comando di Azure e Azure PowerShell.
 
 ```azurecli-interactive
 az graph query -q "limit 1" --include displayNames
