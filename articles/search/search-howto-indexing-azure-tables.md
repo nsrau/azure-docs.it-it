@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/11/2020
-ms.openlocfilehash: a57232853284dad6f363797c009b1c38738d5b37
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 26be48e7968345863799191539bd668ea6d9a4a2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519780"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929568"
 ---
 # <a name="how-to-index-tables-from-azure-table-storage-with-azure-cognitive-search"></a>Come indicizzare le tabelle dall'archiviazione tabelle di Azure con Azure ricerca cognitiva
 
@@ -25,8 +25,8 @@ Questo articolo illustra come usare ricerca cognitiva di Azure per indicizzare i
 È possibile configurare un indicizzatore dell'Archiviazione tabelle di Azure mediante queste risorse:
 
 * [Azure portal](https://ms.portal.azure.com)
-* [API REST](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations) di Azure ricerca cognitiva
-* Azure ricerca cognitiva [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search)
+* [API REST](/rest/api/searchservice/Indexer-operations) di Azure ricerca cognitiva
+* Azure ricerca cognitiva [.NET SDK](/dotnet/api/overview/azure/search)
 
 In questo caso viene illustrato il flusso tramite l'API REST. 
 
@@ -62,7 +62,7 @@ Per creare un'origine dati:
     }   
 ```
 
-Per altre informazioni sull'API di creazione dell'origine dati, vedere [Creare un'origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source).
+Per altre informazioni sull'API di creazione dell'origine dati, vedere [Creare un'origine dati](/rest/api/searchservice/create-data-source).
 
 <a name="Credentials"></a>
 #### <a name="ways-to-specify-credentials"></a>Metodi per specificare le credenziali ####
@@ -73,7 +73,7 @@ Per specificare le credenziali per la tabella, sono disponibili questi modi:
 - **Stringa di connessione della firma di accesso condiviso dell'account di archiviazione**: `TableEndpoint=https://<your account>.table.core.windows.net/;SharedAccessSignature=?sv=2016-05-31&sig=<the signature>&spr=https&se=<the validity end time>&srt=co&ss=t&sp=rl` la firma di accesso condiviso deve avere le autorizzazioni di elenco e lettura per i contenitori (tabelle in questo caso) e gli oggetti (righe di tabella).
 -  **Firma di accesso condiviso tabella**: `ContainerSharedAccessUri=https://<your storage account>.table.core.windows.net/<table name>?tn=<table name>&sv=2016-05-31&sig=<the signature>&se=<the validity end time>&sp=r` la firma di accesso condiviso deve avere le autorizzazioni di query (lettura) per la tabella.
 
-Per altre informazioni sulle firme di accesso condiviso, vedere [Uso delle firme di accesso condiviso](../storage/common/storage-dotnet-shared-access-signature-part-1.md).
+Per altre informazioni sulle firme di accesso condiviso, vedere [Uso delle firme di accesso condiviso](../storage/common/storage-sas-overview.md).
 
 > [!NOTE]
 > Se si usano le credenziali di firma di accesso condiviso, sarà necessario aggiornare periodicamente le credenziali dell'origine dati con firme rinnovate per impedire che scadano. Se le credenziali di firma di accesso condiviso scadono, l'indicizzatore ha esito negativo con un messaggio di errore simile a "Le credenziali specificate nella stringa di connessione non sono valide o sono scadute".  
@@ -97,7 +97,7 @@ Per creare un indice:
     }
 ```
 
-Per altre informazioni sulla creazione di indici, vedere [Creare un indice](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Per altre informazioni sulla creazione di indici, vedere [Creare un indice](/rest/api/searchservice/create-index).
 
 ### <a name="step-3-create-an-indexer"></a>Passaggio 3: Creare un indicizzatore
 Un indicizzatore si connette a un'origine dati con un indice di ricerca di destinazione e consente di pianificare l'automatizzazione dell'aggiornamento dei dati. 
@@ -119,7 +119,7 @@ Dopo aver creato l'indice e l'origine dati, è possibile creare l'indicizzatore:
 
 L'indicizzatore verrà eseguito ogni due ore. (L'intervallo di pianificazione è impostato su "PT2H"). Per eseguire un indicizzatore ogni 30 minuti, impostare l'intervallo su "PT30M". L'intervallo minimo supportato è di cinque minuti. La pianificazione è facoltativa; se omessa, l'indicizzatore viene eseguito una sola volta al momento della creazione. Tuttavia, è possibile eseguire un indicizzatore su richiesta in qualsiasi momento.   
 
-Per altre informazioni sull'API di creazione dell'indicizzatore dati, vedere [Creare un indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Per altre informazioni sull'API di creazione dell'indicizzatore dati, vedere [Creare un indicizzatore](/rest/api/searchservice/create-indexer).
 
 Per altre informazioni sulla definizione delle pianificazioni degli indicizzatori, vedere [Come pianificare gli indicizzatori per Ricerca cognitiva di Azure](search-howto-schedule-indexers.md).
 
@@ -170,7 +170,7 @@ Ecco due possibili approcci per migliorare le prestazioni dell'indicizzazione de
 
 - Se i dati sono partizionati in base all'ora (ad esempio, si crea una nuova partizione ogni giorno o ogni settimana), considerare l'approccio seguente: 
     - Usare una query nel formato: `(PartitionKey ge <TimeStamp>) and (other filters)`. 
-    - Monitorare lo stato dell'indicizzatore usando l'[API Get Indexer Status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) (Ottenere lo stato dell'indicizzatore) e aggiornare periodicamente la condizione `<TimeStamp>` della query in base al valore limite massimo corretto più recente. 
+    - Monitorare lo stato dell'indicizzatore usando l'[API Get Indexer Status](/rest/api/searchservice/get-indexer-status) (Ottenere lo stato dell'indicizzatore) e aggiornare periodicamente la condizione `<TimeStamp>` della query in base al valore limite massimo corretto più recente. 
     - Con questo approccio, se è necessario attivare una reindicizzazione completa, occorre reimpostare la query dell'origine dati oltre a reimpostare l'indicizzatore. 
 
 

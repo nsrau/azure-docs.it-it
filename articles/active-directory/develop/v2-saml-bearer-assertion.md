@@ -2,7 +2,7 @@
 title: Microsoft Identity Platform e flusso dell'asserzione SAML Bearer | Azure
 description: Informazioni su come recuperare dati da Microsoft Graph senza richiedere le credenziali all'utente mediante il flusso dell'asserzione SAML Bearer.
 services: active-directory
-author: umeshbarapatre
+author: kenwith
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.custom: aaddev
-ms.openlocfilehash: e0db5bec00ce864536b3559eda160acdada5e157
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 46f3ef775f3b17e0ebc93fc4145a5b8037b901e5
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114694"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949355"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Microsoft Identity Platform e flusso dell'asserzione SAML Bearer di OAuth 2.0
 Il flusso dell'asserzione SAML Bearer di OAuth 2.0 consente di richiedere un token di accesso OAuth tramite un'asserzione SAML quando un client deve usare una relazione di trust esistente. La firma applicata all'asserzione SAML fornisce l'autenticazione dell'app autorizzata. Un'asserzione SAML è un token di sicurezza XML rilasciato da un provider di identità e usato da un provider di servizi. Il provider di servizi si basa sul contenuto del token per identificare l'oggetto dell'asserzione per finalità correlate alla sicurezza.

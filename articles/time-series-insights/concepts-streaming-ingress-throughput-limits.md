@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: fb10effce8b94a6443e1daa8dadaa99111da0d4e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a9ac55802e4bcc435bb4bd6fd4af8977db9fd293
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099125"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950460"
 ---
 # <a name="streaming-ingestion-throughput-limits"></a>Limiti della velocità effettiva di inserimento dei flussi
 
@@ -34,7 +34,7 @@ Per impostazione predefinita, Azure Time Series Insights Gen2 è in grado di ins
 
 > [!TIP]
 >
-> * È possibile richiedere una velocità di inserimento supportata dall'ambiente fino a 16 MBps.
+> * Il supporto dell'ambiente per l'inserimento di velocità fino a 8 MBps può essere fornito dalla richiesta.
 > * Contattare Microsoft se è necessaria una velocità effettiva maggiore inviando un ticket di supporto tramite il portale di Azure.
  
 * **Esempio 1:**
@@ -42,16 +42,16 @@ Per impostazione predefinita, Azure Time Series Insights Gen2 è in grado di ins
     In Contoso Shipping ci sono 100.000 dispositivi che emettono un evento tre volte al minuto. Le dimensioni di un evento sono pari a 200 byte. Usano un hub Internet delle cose con quattro partizioni come Azure Time Series Insights origine evento Gen2.
 
     * La velocità di inserimento per l'ambiente Gen2 Azure Time Series Insights è: **100.000 dispositivi * 200 byte/evento * (3/60 evento/sec) = 1 Mbps**.
-    * La velocità di inserimento per partizione sarà 0,25 MBps.
-    * Il tasso di inserimento di Contoso Shipping rientra nel limite di scalabilità.
+    * Supponendo che le partizioni bilanciate, la velocità di inserimento per partizione è 0,25 MBps.
+    * Il tasso di inserimento di Contoso Shipping sarà entro i limiti di scalabilità.
 
 * **Esempio 2:**
 
-    In Contoso Fleet Analytics ci sono 60.000 dispositivi che emettono un evento ogni secondo. Usano un hub eventi con un numero di partizioni pari a 4 come Azure Time Series Insights origine evento Gen2. Le dimensioni di un evento sono pari a 200 byte.
+    Contoso Fleet Analytics ha 40.000 dispositivi che emettono un evento ogni secondo. Usano un hub eventi con un numero di partizioni pari a 2 come Azure Time Series Insights origine evento Gen2. Le dimensioni di un evento sono pari a 200 byte.
 
-    * La velocità di inserimento dell'ambiente sarà: **60.000 dispositivi * 200 byte/evento * 1 evento/sec = 12 MBps**.
-    * La velocità per partizione sarà 3 MBps.
-    * La velocità di inserimento di Contoso Fleet Analytics supera i limiti dell'ambiente e della partizione. Possono inviare una richiesta di Azure Time Series Insights Gen2 tramite portale di Azure per aumentare la velocità di inserimento per il proprio ambiente e creare un hub eventi con più partizioni entro i limiti.
+    * La velocità di inserimento dell'ambiente è: **40.000 dispositivi * 200 byte/evento * 1 evento/sec = 8 Mbps**.
+    * Supponendo che le partizioni bilanciate, la velocità per partizione sarebbe 4 MBps.
+    * La velocità di inserimento di Contoso Fleet Analytics supera i limiti dell'ambiente e della partizione. Possono inviare una richiesta di Azure Time Series Insights Gen2 tramite il portale di Azure per aumentare la velocità di inserimento per il proprio ambiente e creare un hub eventi con più partizioni entro i limiti.
 
 ## <a name="hub-partitions-and-per-partition-limits"></a>Partizioni dell'hub e limiti per partizione
 

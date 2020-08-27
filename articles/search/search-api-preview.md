@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: efcc4aebf16fccc70af7c77f0e8481d24f13b9cd
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 0e83f63e3c39f2aa20cd46f098185aba523e2478
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935263"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950477"
 ---
 # <a name="preview-features-in-azure-cognitive-search"></a>Funzionalità in anteprima in Azure ricerca cognitiva
 
@@ -35,7 +35,7 @@ Le funzionalità di anteprima che passano alla disponibilità generale vengono r
 |  [**Indicizzatore di Azure Data Lake Storage Gen2**](search-howto-index-azure-data-lake-storage.md) | Origine dati dell'indicizzatore | Indicizzare il contenuto e i metadati da Data Lake Storage Gen2.| È necessario [iscriversi](https://aka.ms/azure-cognitive-search/indexer-preview) per consentire l'abilitazione del supporto per la sottoscrizione nel back-end. Accedere a questa origine dati usando [Create data source (REST)](/rest/api/searchservice/create-data-source) con API-Version = 2020-06 -30-Preview o API-Version = 2019-05-06-Preview. |
 | [**moreLikeThis**](search-more-like-this.md) | Query | Trova i documenti rilevanti per un documento specifico. Questa funzionalità è stata presente nelle anteprime precedenti. | Aggiungere questo parametro di query nelle chiamate di [Cerca documenti (REST)](/rest/api/searchservice/search-documents) con API-Version = 2020-06 -30-preview, 2019-05-06-preview, 2016-09-01-preview o 2017-11-11-Preview. |
 
-## <a name="calling-preview-rest-apis"></a>Chiamata delle API REST di anteprima
+## <a name="how-to-call-a-preview-rest-api"></a>Come chiamare un'API REST di anteprima
 
 Azure ricerca cognitiva sempre versioni preliminari delle funzionalità sperimentali tramite l'API REST, quindi tramite le versioni provvisorie di .NET SDK.
 
@@ -47,12 +47,14 @@ Mentre alcune funzionalità di anteprima potrebbero essere disponibili nel porta
 
 + Per le operazioni di gestione, [**`2019-10-01-Preview`**](/rest/api/searchmanagement/index-2019-10-01-preview) è la versione di anteprima corrente.
 
-Le anteprime precedenti sono ancora operative ma nel tempo non vengono aggiornate. Se il codice chiama `api-version=2019-05-06-Preview` o `api-version=2016-09-01-Preview` o `api-version=2017-11-11-Preview` , queste chiamate sono ancora valide. Tuttavia, solo la versione di anteprima più recente viene aggiornata con miglioramenti. 
+Le anteprime precedenti sono ancora operative ma nel tempo non vengono aggiornate. Se il codice chiama `api-version=2019-05-06-Preview` o `api-version=2016-09-01-Preview` o `api-version=2017-11-11-Preview` , queste chiamate sono ancora valide. Tuttavia, solo la versione di anteprima più recente viene aggiornata con miglioramenti.
 
 La sintassi di esempio seguente viene illustra una chiamata per la versione dell'API di anteprima.
 
 ```HTTP
-GET https://[service name].search.windows.net/indexes/[index name]/docs?search=*&api-version=2020-06-30-Preview
+POST https://[service name].search.windows.net/indexes/hotels-idx/docs/search?api-version=2020-06-30-Preview  
+  Content-Type: application/json  
+  api-key: [admin key]
 ```
 
 Il servizio ricerca cognitiva di Azure è disponibile in più versioni. Per altre informazioni, vedere le [versioni API](search-api-versions.md).

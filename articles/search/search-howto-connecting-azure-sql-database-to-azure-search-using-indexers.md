@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: 725ee57a06d3d547142fdd39ef03e1c7e7c296a8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a1dd88e9007a878ffdf6e5d836391c30c952c35a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084144"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923025"
 ---
 # <a name="connect-to-and-index-azure-sql-content-using-an-azure-cognitive-search-indexer"></a>Connettersi e indicizzare il contenuto SQL di Azure usando un indicizzatore di Azure ricerca cognitiva
 
@@ -34,13 +34,13 @@ Un **indicizzatore** è una risorsa che connette una singola origine dati agli i
 * Aggiornare un indice con le modifiche nell'origine dati in base a una pianificazione.
 * Eseguire aggiornamenti su richiesta in un indice in base alle esigenze.
 
-Un singolo indicizzatore può usare solo una tabella o una vista, ma è possibile creare più indicizzatori se si desidera compilare indici di ricerca multipli. Per altre informazioni sui concetti, vedere [Operazioni degli indicizzatori: flusso di lavoro tipico](https://docs.microsoft.com/rest/api/searchservice/Indexer-operations#typical-workflow).
+Un singolo indicizzatore può usare solo una tabella o una vista, ma è possibile creare più indicizzatori se si desidera compilare indici di ricerca multipli. Per altre informazioni sui concetti, vedere [Operazioni degli indicizzatori: flusso di lavoro tipico](/rest/api/searchservice/Indexer-operations#typical-workflow).
 
 È possibile impostare e configurare un indicizzatore SQL di Azure usando:
 
 * Importazione guidata dati nel [portale di Azure](https://portal.azure.com)
-* Azure ricerca cognitiva [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
-* [API REST](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) di Azure ricerca cognitiva
+* Azure ricerca cognitiva [.NET SDK](/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)
+* [API REST](/rest/api/searchservice/indexer-operations) di Azure ricerca cognitiva
 
 In questo articolo si userà l'API REST per creare gli **indicizzatori** e le **origini dati**.
 
@@ -51,7 +51,7 @@ In base a diversi fattori relativi ai dati, l'utilizzo dell'indicizzatore di SQL
 |----------|---------|
 | I dati provengono da una singola tabella o vista | Se i dati sono sparsi tra più tabelle, è possibile creare un'unica vista dei dati. Tuttavia, se si usa una vista, non sarà possibile usare il rilevamento delle modifiche integrato di SQL Server per aggiornare un indice con le modifiche incrementali. Per altre informazioni, vedere [Acquisizione delle righe modificate ed eliminate](#CaptureChangedRows) di seguito. |
 | Tipi di dati compatibili | La maggior parte ma non tutti i tipi SQL sono supportati in un indice ricerca cognitiva di Azure. Per un elenco, vedere [Elenco dei tipi di dati](#TypeMapping). |
-| La sincronizzazione dei dati in tempo reale non è necessaria | Un indicizzatore può reindicizzare la tabella al massimo ogni 5 minuti. Se i dati vengono modificati di frequente ed è necessario riflettere le modifiche nell’indice entro pochi secondi o pochi minuti, è consigliabile usare l'[API REST](https://docs.microsoft.com/rest/api/searchservice/AddUpdate-or-Delete-Documents) o [l'SDK .NET](search-import-data-dotnet.md) per eseguire direttamente il push delle righe aggiornate. |
+| La sincronizzazione dei dati in tempo reale non è necessaria | Un indicizzatore può reindicizzare la tabella al massimo ogni 5 minuti. Se i dati vengono modificati di frequente ed è necessario riflettere le modifiche nell’indice entro pochi secondi o pochi minuti, è consigliabile usare l'[API REST](/rest/api/searchservice/AddUpdate-or-Delete-Documents) o [l'SDK .NET](./search-get-started-dotnet.md) per eseguire direttamente il push delle righe aggiornate. |
 | L'indicizzazione incrementale è possibile | Se si dispone di un set di dati di grandi dimensioni e si prevede di eseguire l'indicizzatore in base a una pianificazione, Azure ricerca cognitiva deve essere in grado di identificare in modo efficiente le righe nuove, modificate o eliminate. L'indicizzazione incrementale è consentito solo se si esegue l'indicizzazione su richiesta, non programmata, o se la si esegue per meno di 100.000 righe. Per altre informazioni, vedere [Acquisizione delle righe modificate ed eliminate](#CaptureChangedRows) di seguito. |
 
 > [!NOTE] 
@@ -76,7 +76,7 @@ In base a diversi fattori relativi ai dati, l'utilizzo dell'indicizzatore di SQL
 
    È possibile ottenere la stringa di connessione dal [portale di Azure](https://portal.azure.com). Usare l'opzione `ADO.NET connection string`.
 
-2. Creare l'indice di Azure ricerca cognitiva di destinazione se non ne è già presente uno. È possibile creare un indice usando il [portale](https://portal.azure.com) o [l'API Crea indice](https://docs.microsoft.com/rest/api/searchservice/Create-Index). Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo schema della tabella di origine. vedere [mapping tra tipi di dati SQL e ricerca cognitiva di Azure](#TypeMapping).
+2. Creare l'indice di Azure ricerca cognitiva di destinazione se non ne è già presente uno. È possibile creare un indice usando il [portale](https://portal.azure.com) o [l'API Crea indice](/rest/api/searchservice/Create-Index). Assicurarsi che lo schema dell'indice di destinazione sia compatibile con lo schema della tabella di origine. vedere [mapping tra tipi di dati SQL e ricerca cognitiva di Azure](#TypeMapping).
 
 3. Creare l'indicizzatore assegnandogli un nome e il riferimento all’origine dati e all'indice di destinazione:
 
@@ -99,9 +99,9 @@ Un indicizzatore creato in questo modo non dispone di una pianificazione. Viene 
     api-key: admin-key
 ```
 
-È possibile personalizzare alcuni aspetti del comportamento dell'indicizzatore, ad esempio le dimensioni del batch e il numero di documenti che è possibile ignorare prima che un'esecuzione dell'indicizzatore abbia esito negativo. Per altre informazioni, vedere [Create Indexer API](https://docs.microsoft.com/rest/api/searchservice/Create-Indexer)(Creare un'API di indicizzatore).
+È possibile personalizzare alcuni aspetti del comportamento dell'indicizzatore, ad esempio le dimensioni del batch e il numero di documenti che è possibile ignorare prima che un'esecuzione dell'indicizzatore abbia esito negativo. Per altre informazioni, vedere [Create Indexer API](/rest/api/searchservice/Create-Indexer)(Creare un'API di indicizzatore).
 
-Potrebbe essere necessario consentire ai servizi di Azure di connettersi al database. Vedere [Connessione da Azure](https://docs.microsoft.com/azure/sql-database/sql-database-firewall-configure) per istruzioni su come eseguire questa operazione.
+Potrebbe essere necessario consentire ai servizi di Azure di connettersi al database. Vedere [Connessione da Azure](../azure-sql/database/firewall-configure.md) per istruzioni su come eseguire questa operazione.
 
 Per monitorare lo stato dell'indicizzatore e la cronologia di esecuzione (numero di elementi indicizzati, errori e così via), utilizzare una richiesta di **stato indicizzatore** :
 
@@ -146,7 +146,7 @@ La risposta sarà simile alla seguente:
 ```
 
 La cronologia di esecuzione contiene fino a 50 esecuzioni completate più recenti, in ordine cronologico inverso (in modo che l'esecuzione più recente venga visualizzata per prima nella risposta).
-Sono disponibili informazioni aggiuntive relative alla risposta [Ottenere lo stato dell'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status)
+Sono disponibili informazioni aggiuntive relative alla risposta [Ottenere lo stato dell'indicizzatore](/rest/api/searchservice/get-indexer-status)
 
 ## <a name="run-indexers-on-a-schedule"></a>Eseguire gli indicizzatori in base a una pianificazione
 È inoltre possibile fare in modo che l'indicizzatore si esegua periodicamente in base a una pianificazione. A tale scopo, aggiungere la proprietà **schedule** al momento della creazione o dell'aggiornamento dell'indicizzatore. Nell'esempio seguente viene illustrata una richiesta PUT di aggiornamento dell'indicizzatore:
@@ -174,7 +174,7 @@ Per altre informazioni sulla definizione delle pianificazioni degli indicizzator
 Azure ricerca cognitiva usa l' **indicizzazione incrementale** per evitare di dover reindicizzare l'intera tabella o vista ogni volta che viene eseguito un indicizzatore. Azure ricerca cognitiva fornisce due criteri di rilevamento delle modifiche per supportare l'indicizzazione incrementale. 
 
 ### <a name="sql-integrated-change-tracking-policy"></a>Criteri di rilevamento delle modifiche integrati di SQL
-Se il database SQL supporta il [rilevamento delle modifiche](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server), è consigliabile usare i criteri di **rilevamento modifiche integrata di SQL**. Questo è il criterio più efficiente. Consente inoltre ad Azure ricerca cognitiva di identificare le righe eliminate senza dover aggiungere alla tabella una colonna "eliminazione temporanea" esplicita.
+Se il database SQL supporta il [rilevamento delle modifiche](/sql/relational-databases/track-changes/about-change-tracking-sql-server), è consigliabile usare i criteri di **rilevamento modifiche integrata di SQL**. Questo è il criterio più efficiente. Consente inoltre ad Azure ricerca cognitiva di identificare le righe eliminate senza dover aggiungere alla tabella una colonna "eliminazione temporanea" esplicita.
 
 #### <a name="requirements"></a>Requisiti 
 
@@ -182,7 +182,7 @@ Se il database SQL supporta il [rilevamento delle modifiche](https://docs.micros
   * SQL Server 2012 SP3 e versioni successive, se si usa SQL Server nelle macchine virtuali di Azure.
   * Database SQL di Azure o SQL Istanza gestita.
 + Solo tabelle, nessuna vista. 
-+ Nel database [abilitare il rilevamento della modifica](https://docs.microsoft.com/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) per la tabella. 
++ Nel database [abilitare il rilevamento della modifica](/sql/relational-databases/track-changes/enable-and-disable-change-tracking-sql-server) per la tabella. 
 + Nessuna chiave primaria composta, ovvero una chiave primaria che contiene più di una colonna, nella tabella.  
 
 #### <a name="usage"></a>Utilizzo
@@ -204,7 +204,7 @@ Per utilizzare questo criterio, creare o aggiornare l'origine dati nel modo indi
 Quando si usano i criteri di rilevamento delle modifiche integrati di SQL, non specificare criteri di rilevamento dell'eliminazione dei dati separati, perché questi ultimi includono il supporto predefinito per l'identificazione delle righe eliminate. Tuttavia, affinché le operazioni di eliminazione vengano rilevate "auto-magicamente", la chiave del documento nell'indice di ricerca deve essere la stessa della chiave primaria nella tabella SQL. 
 
 > [!NOTE]  
-> Quando si usa [TRUNCATE TABLE](https://docs.microsoft.com/sql/t-sql/statements/truncate-table-transact-sql) per rimuovere un numero elevato di righe da una tabella SQL, l'indicizzatore deve essere [reimpostato](https://docs.microsoft.com/rest/api/searchservice/reset-indexer) per reimpostare lo stato di rilevamento delle modifiche in modo che possa selezionare le righe eliminate.
+> Quando si usa [TRUNCATE TABLE](/sql/t-sql/statements/truncate-table-transact-sql) per rimuovere un numero elevato di righe da una tabella SQL, l'indicizzatore deve essere [reimpostato](/rest/api/searchservice/reset-indexer) per reimpostare lo stato di rilevamento delle modifiche in modo che possa selezionare le righe eliminate.
 
 <a name="HighWaterMarkPolicy"></a>
 
@@ -220,7 +220,7 @@ Questi criteri di rilevamento delle modifiche si basano su una colonna di "livel
 * Le query con le clausole QUERY e ORDER BY seguenti possono essere eseguite in modo efficiente: `WHERE [High Water Mark Column] > [Current High Water Mark Value] ORDER BY [High Water Mark Column]`
 
 > [!IMPORTANT] 
-> È consigliabile usare il tipo di dati [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) per la colonna di livello più alto. Se viene usato un qualsiasi altro tipo di dati, il rilevamento delle modifiche potrebbe non garantire l'acquisizione di tutte le modifiche in presenza di transazioni in esecuzione contemporaneamente a una query dell'indicizzatore. Quando si usa **rowversion** in una configurazione con le repliche di sola lettura, è necessario puntare l'indicizzatore alla replica primaria. Per scenari di sincronizzazione dei dati, è possibile usare solo una replica primaria.
+> È consigliabile usare il tipo di dati [rowversion](/sql/t-sql/data-types/rowversion-transact-sql) per la colonna di livello più alto. Se viene usato un qualsiasi altro tipo di dati, il rilevamento delle modifiche potrebbe non garantire l'acquisizione di tutte le modifiche in presenza di transazioni in esecuzione contemporaneamente a una query dell'indicizzatore. Quando si usa **rowversion** in una configurazione con le repliche di sola lettura, è necessario puntare l'indicizzatore alla replica primaria. Per scenari di sincronizzazione dei dati, è possibile usare solo una replica primaria.
 
 #### <a name="usage"></a>Utilizzo
 
@@ -248,7 +248,7 @@ Per usare questo criterio di limite massimo, creare o aggiornare l'origine dati 
 
 ##### <a name="converthighwatermarktorowversion"></a>convertHighWaterMarkToRowVersion
 
-Se si usa un tipo di dati [rowversion](https://docs.microsoft.com/sql/t-sql/data-types/rowversion-transact-sql) per la colonna High-Mark, provare a usare l' `convertHighWaterMarkToRowVersion` impostazione di configurazione dell'indicizzatore. `convertHighWaterMarkToRowVersion` esegue due operazioni:
+Se si usa un tipo di dati [rowversion](/sql/t-sql/data-types/rowversion-transact-sql) per la colonna High-Mark, provare a usare l' `convertHighWaterMarkToRowVersion` impostazione di configurazione dell'indicizzatore. `convertHighWaterMarkToRowVersion` esegue due operazioni:
 
 * Usare il tipo di dati rowversion per la colonna limite massimo nella query SQL dell'indicizzatore. L'utilizzo del tipo di dati corretto migliora le prestazioni delle query dell'indicizzatore.
 * Sottrarre 1 dal valore rowversion prima dell'esecuzione della query dell'indicizzatore. Le viste con un join a molti possono contenere righe con valori rowversion duplicati. La sottrazione di 1 assicura che la query dell'indicizzatore non perda queste righe.
@@ -354,7 +354,7 @@ Sì. Tuttavia, è necessario consentire al servizio di ricerca di connettersi al
 
 **D: è possibile usare l'indicizzatore SQL di Azure con i database SQL in esecuzione in locale?**
 
-Non direttamente. La connessione diretta non è consigliata né supportata, in quanto richiederebbe l’apertura dei database al traffico Internet. I clienti hanno avuto esito positivo in questo scenario grazie all'uso delle tecnologie bridge come Azure Data Factory. Per altre informazioni, vedere [eseguire il push dei dati in un indice di ricerca cognitiva di Azure usando Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-factory-azure-search-connector).
+Non direttamente. La connessione diretta non è consigliata né supportata, in quanto richiederebbe l’apertura dei database al traffico Internet. I clienti hanno avuto esito positivo in questo scenario grazie all'uso delle tecnologie bridge come Azure Data Factory. Per altre informazioni, vedere [eseguire il push dei dati in un indice di ricerca cognitiva di Azure usando Azure Data Factory](../data-factory/v1/data-factory-azure-search-connector.md).
 
 **D: è possibile usare l'indicizzatore SQL di Azure con database diversi da SQL Server in esecuzione in IaaS in Azure?**
 
@@ -368,7 +368,7 @@ Sì. Tuttavia, è possibile eseguire un solo indicizzatore per volta in un nodo.
 
 Sì. L'indicizzatore viene eseguito in uno dei nodi del servizio di ricerca e le risorse di tale nodo vengono condivise tra l'indicizzazione e la gestione del traffico di query e altre richieste API. Se si eseguono indicizzazione e carichi di lavoro di query intensivi e si verifica una frequenza elevata di 503 errori o aumentando i tempi di risposta, provare a [scalare il servizio di ricerca](search-capacity-planning.md).
 
-**D: Posso usare una replica secondaria in un [cluster di failover](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) come origine dati?**
+**D: Posso usare una replica secondaria in un [cluster di failover](../azure-sql/database/auto-failover-group-overview.md) come origine dati?**
 
 Dipende. Per l'indicizzazione completa di una tabella o vista, è possibile usare una replica secondaria. 
 
@@ -388,4 +388,4 @@ Non è consigliabile. Solo **rowversion** consente una sincronizzazione dei dati
 
 + È possibile assicurarsi che durante l'esecuzione dell'indicizzatore non siano presenti transazioni in attesa nella tabella da indicizzare. ad esempio, tutti gli aggiornamenti delle tabelle vengono eseguiti come batch in base a una pianificazione e la pianificazione dell'indicizzatore ricerca cognitiva di Azure è impostata in modo da evitare sovrapposizioni con la pianificazione dell'aggiornamento della tabella.  
 
-+ Eseguire periodicamente una reindicizzazione completa per prelevare le righe mancanti. 
++ Eseguire periodicamente una reindicizzazione completa per prelevare le righe mancanti.

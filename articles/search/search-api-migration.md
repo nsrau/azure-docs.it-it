@@ -7,28 +7,28 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 06/30/2020
-ms.openlocfilehash: 06e25e1426f206a4542444f57954ed4859a11142
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 08/26/2020
+ms.openlocfilehash: 0f1050bf58e0cd8d9a601d60a4c5dc22a5420483
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927137"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949032"
 ---
-# <a name="upgrade-to-the-latest-azure-cognitive-search-service-rest-api-version"></a>Eseguire l'aggiornamento alla versione più recente dell'API REST del servizio ricerca cognitiva di Azure
+# <a name="upgrade-to-the-latest-rest-api-in-azure-cognitive-search"></a>Eseguire l'aggiornamento alla versione più recente dell'API REST in Azure ricerca cognitiva
 
-Se si usa una versione precedente dell' [API REST di ricerca](/rest/api/searchservice/), questo articolo consentirà di aggiornare l'applicazione per usare la versione API disponibile a livello generale più recente, 2020-06-30.
+Se si usa una versione precedente dell' [**API REST di ricerca**](/rest/api/searchservice/), questo articolo consentirà di aggiornare l'applicazione alla versione più recente dell'API disponibile a livello generale, **2020-06-30**.
 
-La versione 2020-06-30 dell'API REST contiene alcune modifiche rispetto alle versioni precedenti. Le versioni sono abbastanza compatibili tra loro, pertanto la modifica del codice richiede un impegno minimo, a seconda della versione in uso prima. I [passaggi per l'aggiornamento](#UpgradeSteps) delineano le modifiche del codice necessarie per l'utilizzo delle nuove funzionalità.
+La versione 2020-06-30 include una nuova funzionalità importante ([Archivio informazioni](knowledge-store-concept-intro.md)) e introduce diverse modifiche di comportamento minori. Questa versione è per lo più compatibile con le versioni precedenti, pertanto le modifiche al codice devono essere minime se si esegue l'aggiornamento dalla versione precedente (2019-05-06).
 
 > [!NOTE]
-> Un'istanza del servizio ricerca cognitiva di Azure supporta una gamma di versioni dell'API REST, incluse quelle precedenti. È possibile continuare a usare queste versioni dell'API, ma è consigliabile eseguire la migrazione del codice alla versione più recente, in modo da poter accedere a nuove funzionalità.
+> Un servizio di ricerca supporta un intervallo di versioni dell'API REST, incluse quelle precedenti. È possibile continuare a usare queste versioni dell'API, ma è consigliabile eseguire la migrazione del codice alla versione più recente, in modo da poter accedere a nuove funzionalità. Nel corso del tempo, le versioni più obsolete dell'API REST saranno deprecate e [non sono più supportate](search-api-versions.md#unsupported-versions).
 
 <a name="UpgradeSteps"></a>
 
 ## <a name="how-to-upgrade"></a>Come eseguire l'aggiornamento
 
-Quando si esegue l'aggiornamento a nuove versioni, probabilmente non sarà necessario apportare modifiche al codice, tranne che per modificare il numero di versione. Le uniche situazioni in cui può essere necessario modificare il codice si verificano quando:
+Quando si esegue l'aggiornamento a una nuova versione, probabilmente non sarà necessario apportare molte modifiche al codice, tranne che per modificare il numero di versione. Le uniche situazioni in cui può essere necessario modificare il codice si verificano quando:
 
 * Il codice ha esito negativo quando vengono restituite proprietà sconosciute in una risposta API. Per impostazione predefinita, l'applicazione deve ignorare le proprietà che non riconosce.
 
@@ -36,7 +36,7 @@ Quando si esegue l'aggiornamento a nuove versioni, probabilmente non sarà neces
 
 * Il codice fa riferimento a una versione API che precede 2019-05-06 ed è soggetta a una o più delle modifiche di rilievo apportate a tale versione. La sezione [aggiornamento a 2019-05-06](#upgrade-to-2019-05-06) fornisce maggiori dettagli. 
 
-Se si verifica una di queste situazioni, potrebbe essere necessario modificare il codice di conseguenza. In caso contrario, non dovrebbe essere necessario apportare modifiche a meno che non si voglia iniziare a usare le funzionalità aggiunte nella nuova versione.
+Se si verifica una di queste situazioni, potrebbe essere necessario modificare il codice di conseguenza. In caso contrario, non dovrebbe essere necessario apportare modifiche, anche se è possibile iniziare a usare le funzionalità aggiunte nella nuova versione.
 
 ## <a name="upgrade-to-2020-06-30"></a>Aggiornamento a 2020-06-30
 
@@ -61,9 +61,9 @@ La versione 2019-05-06 è la versione disponibile a livello generale precedente 
 * [Modalità di analisi di JsonLines](search-howto-index-json-blobs.md), parte dell'indicizzazione BLOB di Azure, crea un documento di ricerca per entità JSON separato da una nuova riga.
 * L' [arricchimento di intelligenza artificiale](cognitive-search-concept-intro.md) fornisce l'indicizzazione che sfrutta i motori di arricchimento di intelligenza artificiale dei servizi cognitivi.
 
-### <a name="breaking-changes"></a>Modifiche di rilievo
+### <a name="breaking-changes"></a>Modifiche che causano un'interruzione
 
-Il codice esistente scritto con le versioni precedenti dell'API si interrompe in API-Version = 2019-05-06 Se il codice contiene le funzionalità seguenti:
+Il codice esistente scritto con le versioni precedenti dell'API si interrompe in API-Version = 2019-05-06 e versioni successive se il codice contiene le funzionalità seguenti:
 
 #### <a name="indexer-for-azure-cosmos-db---datasource-is-now-type-cosmosdb"></a>Indexer per Azure Cosmos DB-DataSource è ora "Type": "cosmosdb"
 

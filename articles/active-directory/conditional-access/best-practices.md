@@ -11,21 +11,21 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60d72a98a22fa85e87eb8560ad968415ca70f9a5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b5536c3c427e5b6225d81d649722d8af48c23091
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87275429"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948454"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedure consigliate per l'accesso condizionale in Azure Active Directory
 
-Con [l'accesso condizionale Azure Active Directory (Azure ad)](../active-directory-conditional-access-azure-portal.md), è possibile controllare il modo in cui gli utenti autorizzati accedono alle app cloud. Questo articolo illustra quanto segue:
+Con [l'accesso condizionale Azure Active Directory (Azure ad)](./overview.md), è possibile controllare il modo in cui gli utenti autorizzati accedono alle app cloud. Questo articolo illustra quanto segue:
 
 - Informazioni utili 
 - Che cosa si deve evitare quando si configurano i criteri di accesso condizionale. 
 
-In questo articolo si presuppone che l'utente abbia familiarità con i concetti e la terminologia descritta in informazioni sull' [accesso condizionale in Azure Active Directory.](../active-directory-conditional-access-azure-portal.md)
+In questo articolo si presuppone che l'utente abbia familiarità con i concetti e la terminologia descritta in informazioni sull' [accesso condizionale in Azure Active Directory.](./overview.md)
 
 ## <a name="whats-required-to-make-a-policy-work"></a>Cosa è necessario per il funzionamento di un criterio?
 
@@ -57,7 +57,7 @@ Tutti i criteri vengono applicati in due fasi:
    - Usare i dettagli della sessione raccolti nella fase 1 per identificare tutti i requisiti che non sono stati soddisfatti. 
    - Se è presente un criterio configurato per bloccare l'accesso, con il controllo di concessione blocco, l'imposizione verrà arrestata qui e l'utente verrà bloccato. 
    - All'utente verrà richiesto di completare i requisiti di controllo di concessione aggiuntivi che non sono stati soddisfatti durante la fase 1 nell'ordine seguente, fino a quando non viene soddisfatto il criterio:  
-      - Multi-Factor Authentication 
+      - Autenticazione a più fattori 
       - App client approvata/criterio di protezione delle app 
       - Dispositivo gestito (join conforme o ibrido Azure AD) 
       - Condizioni per l'utilizzo 
@@ -154,5 +154,5 @@ Per altre informazioni, vedere [Migrare i criteri classici nel portale di Azure]
 
 Per informazioni su:
 
-- Come configurare un criterio di accesso condizionale, vedere richiedere l'autenticazione a più fattori [per app specifiche con Azure Active Directory l'accesso condizionale](app-based-mfa.md).
+- Come configurare un criterio di accesso condizionale, vedere richiedere l'autenticazione a più fattori [per app specifiche con Azure Active Directory l'accesso condizionale](../authentication/tutorial-enable-azure-mfa.md).
 - Come pianificare i criteri di accesso condizionale, vedere [come pianificare la distribuzione dell'accesso condizionale in Azure Active Directory](plan-conditional-access.md).

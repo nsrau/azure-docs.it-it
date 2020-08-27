@@ -3,22 +3,20 @@ title: Ricevere eventi tramite l'host del processore di eventi - Hub eventi di A
 description: Questo articolo descrive l'host del processore di eventi in Hub eventi di Azure, che semplifica la gestione di checkpoint e lease e la lettura in parallelo degli eventi.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 41778425a0ec6ba1732c8e604dead2deb7c97f12
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 7c6d08c385174597ce80e3ddfd6204db6b0b14a5
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936181"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949083"
 ---
 # <a name="event-processor-host"></a>Host processore di eventi
 > [!NOTE]
-> Questo articolo si applica alla versione precedente dell'SDK di hub eventi di Azure. Per informazioni su come eseguire la migrazione del codice alla versione più recente dell'SDK, vedere queste guide alla migrazione. 
+> Questo articolo si applica alla versione precedente dell'SDK di hub eventi di Azure. Per la versione corrente dell'SDK, vedere [bilanciamento del carico delle partizioni tra più istanze dell'applicazione](event-processor-balance-partition-load.md). Per informazioni su come eseguire la migrazione del codice alla versione più recente dell'SDK, vedere queste guide alla migrazione. 
 > - [.NET](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md)
 > - [Java](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md)
 > - [Python](https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md)
 > - [Script Java](https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md)
->
-> Vedere anche [bilanciamento del carico delle partizioni tra più istanze dell'applicazione](event-processor-balance-partition-load.md).
 
 Hub eventi di Azure è un potente servizio di inserimento di dati di telemetria che può essere usato per lo streaming di milioni di eventi a basso costo. Questo articolo descrive come usare gli eventi inseriti tramite *Host processore di eventi* (EPH); un agente consumer intelligente che semplifica la gestione dei checkpoint, dei leasing e dei lettori di eventi paralleli.  
 

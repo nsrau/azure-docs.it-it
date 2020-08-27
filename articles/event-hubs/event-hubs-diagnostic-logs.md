@@ -3,12 +3,12 @@ title: Configurare i log di diagnostica - Hub eventi in Azure | Microsoft Docs
 description: Informazioni su come configurare log attività e di diagnostica per gli hub eventi in Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 65c3fc783506eae19c911eb035ebc51b2db19849
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: ccd38d8924765df7bfd91b4fc26bb5304f6f180d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521939"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927732"
 ---
 # <a name="set-up-diagnostic-logs-for-an-azure-event-hub"></a>Configurare i log di diagnostica per un hub eventi di Azure
 
@@ -61,18 +61,18 @@ Le stringhe JSON dei log di archiviazione includono gli elementi elencati nella 
 
 Nome | Descrizione
 ------- | -------
-TaskName | Descrizione dell'attività non riuscita
-ActivityId | ID interno, usato a scopo di rilevamento
-trackingId | ID interno, usato a scopo di rilevamento
-resourceId | ID della risorsa Azure Resource Manager
-eventHub | Nome completo dell'hub eventi (include il nome dello spazio dei nomi)
-partitionId | Partizione dell'hub eventi per l'operazione di scrittura
-archiveStep | valori possibili: ArchiveFlushWriter, DestinationInit
-startTime | Ora di inizio di un errore
-errori | Numero di volte in cui si è verificato l'errore
-durationInSeconds | Durata dell'errore
-message | Messaggio di errore
-category | ArchiveLogs
+`TaskName` | Descrizione dell'attività non riuscita
+`ActivityId` | ID interno, usato a scopo di rilevamento
+`trackingId` | ID interno, usato a scopo di rilevamento
+`resourceId` | ID della risorsa Azure Resource Manager
+`eventHub` | Nome completo dell'hub eventi (include il nome dello spazio dei nomi)
+`partitionId` | Partizione dell'hub eventi per l'operazione di scrittura
+`archiveStep` | valori possibili: ArchiveFlushWriter, DestinationInit
+`startTime` | Ora di inizio di un errore
+`failures` | Numero di volte in cui si è verificato l'errore
+`durationInSeconds` | Durata dell'errore
+`message` | Messaggio di errore
+`category` | ArchiveLogs
 
 Il codice seguente è un esempio di stringa JSON di log di archiviazione:
 
@@ -99,15 +99,15 @@ Le stringhe JSON dei log operativi includono gli elementi elencati nella seguent
 
 Nome | Descrizione
 ------- | -------
-ActivityId | ID interno, usato a scopo di rilevamento |
-EventName | Nome operazione |
-resourceId | ID della risorsa Azure Resource Manager |
-SubscriptionId | ID sottoscrizione |
-EventTimeString | Durata dell'operazione |
-EventProperties | Proprietà dell'operazione |
-Stato | Stato dell'operazione |
-Chiamante | Chiamante dell'operazione (Portale di Azure o client di gestione) |
-Category | OperationalLogs |
+`ActivityId` | ID interno, usato a scopo di rilevamento |
+`EventName` | Nome operazione |
+`resourceId` | ID della risorsa Azure Resource Manager |
+`SubscriptionId` | ID sottoscrizione |
+`EventTimeString` | Durata dell'operazione |
+`EventProperties` | Proprietà dell'operazione |
+`Status` | Stato dell'operazione |
+`Caller` | Chiamante dell'operazione (Portale di Azure o client di gestione) |
+`Category` | OperationalLogs |
 
 Il codice seguente è un esempio di stringa JSON di log operativo:
 
@@ -131,9 +131,9 @@ Le stringhe JSON dei log di scalabilità automatica includono gli elementi elenc
 
 | Nome | Descrizione |
 | ---- | ----------- | 
-| TrackingId | ID interno, usato a scopo di analisi |
-| ResourceId | ID della risorsa di Azure Resource Manager. |
-| Message | Messaggio informativo, che offre informazioni dettagliate sull'azione di aumento automatico. Il messaggio contiene il valore precedente e quello corrente delle unità elaborate per un dato spazio dei nomi e indica che cosa ne ha attivato l'aumento automatico. |
+| `TrackingId` | ID interno, usato a scopo di analisi |
+| `ResourceId` | ID della risorsa di Azure Resource Manager. |
+| `Message` | Messaggio informativo, che offre informazioni dettagliate sull'azione di aumento automatico. Il messaggio contiene il valore precedente e quello corrente delle unità elaborate per un dato spazio dei nomi e indica che cosa ne ha attivato l'aumento automatico. |
 
 Di seguito viene riportato un evento di scalabilità automatica di esempio: 
 
@@ -150,13 +150,13 @@ Le stringhe JSON dei log del coordinatore Kafka includono gli elementi elencati 
 
 | Nome | Descrizione |
 | ---- | ----------- | 
-| RequestId | ID richiesta, usato a scopo di analisi |
-| ResourceId | ID della risorsa Azure Resource Manager |
-| Operazione | Nome dell'operazione eseguita durante il coordinamento del gruppo |
-| ClientId | ID client |
-| NamespaceName | Nome spazio dei nomi | 
-| SubscriptionId | ID sottoscrizione di Azure |
-| Message | Messaggio informativo o di avviso, che fornisce informazioni dettagliate sulle azioni eseguite durante il coordinamento del gruppo. |
+| `RequestId` | ID richiesta, usato a scopo di analisi |
+| `ResourceId` | ID della risorsa Azure Resource Manager |
+| `Operation` | Nome dell'operazione eseguita durante il coordinamento del gruppo |
+| `ClientId` | ID client |
+| `NamespaceName` | Nome spazio dei nomi | 
+| `SubscriptionId` | ID della sottoscrizione di Azure |
+| `Message` | Messaggio informativo o di avviso, che fornisce informazioni dettagliate sulle azioni eseguite durante il coordinamento del gruppo. |
 
 ### <a name="example"></a>Esempio
 
@@ -178,14 +178,14 @@ Le stringhe JSON dei log degli errori utente Kafka includono gli elementi elenca
 
 | Nome | Descrizione |
 | ---- | ----------- |
-| TrackingId | ID di verifica, usato a scopo di analisi. |
-| NamespaceName | Nome spazio dei nomi |
-| Eventhub | Nome hub eventi |
-| PartitionId | Partition ID |
-| GroupId | ID gruppo |
-| ClientId | ID client |
-| ResourceId | ID della risorsa di Azure Resource Manager. |
-| Message | Messaggio informativo, che offre informazioni dettagliate su un errore |
+| `TrackingId` | ID di verifica, usato a scopo di analisi. |
+| `NamespaceName` | Nome spazio dei nomi |
+| `Eventhub` | Nome hub eventi |
+| `PartitionId` | Partition ID |
+| `GroupId` | ID gruppo |
+| `ClientId` | ID client |
+| `ResourceId` | ID della risorsa di Azure Resource Manager. |
+| `Message` | Messaggio informativo, che offre informazioni dettagliate su un errore |
 
 ## <a name="event-hubs-virtual-network-connection-event-schema"></a>Schema dell'evento di connessione rete virtuale di hub eventi
 
@@ -193,13 +193,13 @@ Le stringhe JSON dell'evento di connessione rete virtuale degli hub eventi inclu
 
 | Nome | Descrizione |
 | ---  | ----------- | 
-| SubscriptionId | ID sottoscrizione di Azure |
-| NamespaceName | Nome spazio dei nomi |
-| IPAddress | Indirizzo IP di un client connesso al servizio Hub eventi |
-| Azione | Azione eseguita dal servizio Hub eventi durante la valutazione delle richieste di connessione. Le azioni supportate sono **Accetta connessione** e **Rifiuta connessione**. |
-| Motivo | Fornisce un motivo per cui è stata eseguita l'azione |
-| Conteggio | Numero di occorrenze dell'azione |
-| ResourceId | ID della risorsa di Azure Resource Manager. |
+| `SubscriptionId` | ID della sottoscrizione di Azure |
+| `NamespaceName` | Nome spazio dei nomi |
+| `IPAddress` | Indirizzo IP di un client connesso al servizio Hub eventi |
+| `Action` | Azione eseguita dal servizio Hub eventi durante la valutazione delle richieste di connessione. Le azioni supportate sono **Accetta connessione** e **Rifiuta connessione**. |
+| `Reason` | Fornisce un motivo per cui è stata eseguita l'azione |
+| `Count` | Numero di occorrenze dell'azione |
+| `ResourceId` | ID della risorsa di Azure Resource Manager. |
 
 ### <a name="example"></a>Esempio
 
@@ -221,14 +221,14 @@ Le stringhe JSON dei log utente della chiave gestita dal cliente includono gli e
 
 | Nome | Descrizione |
 | ---- | ----------- | 
-| Category | Tipo di categoria per un messaggio. Consiste in uno dei valori riportati di seguito: **error** e **info** |
-| ResourceId | ID della risorsa interna, che include l'ID sottoscrizione e il nome dello spazio dei nomi di Azure |
-| Insieme di credenziali delle chiavi | Nome della risorsa Key Vault |
-| Chiave | Nome della chiave Key Vault. |
-| Versione | Versione della chiave Key Vault |
-| Operazione | Nome di un'operazione eseguita per rispondere alle richieste |
-| Codice | Codice di stato |
-| Message | Messaggio che offre informazioni dettagliate su un errore o messaggio informativo |
+| `Category` | Tipo di categoria per un messaggio. Consiste in uno dei valori riportati di seguito: **error** e **info** |
+| `ResourceId` | ID della risorsa interna, che include l'ID sottoscrizione e il nome dello spazio dei nomi di Azure |
+| `KeyVault` | Nome della risorsa Key Vault |
+| `Key` | Nome della chiave Key Vault. |
+| `Version` | Versione della chiave Key Vault |
+| `Operation` | Nome di un'operazione eseguita per rispondere alle richieste |
+| `Code` | Codice di stato |
+| `Message` | Messaggio che offre informazioni dettagliate su un errore o messaggio informativo |
 
 
 
@@ -236,7 +236,7 @@ Le stringhe JSON dei log utente della chiave gestita dal cliente includono gli e
 - [Introduzione a Hub eventi](./event-hubs-about.md)
 - [Esempi di Hub eventi](sdks.md)
 - Introduzione all'Hub eventi
-    - [.NET Core](get-started-dotnet-standard-send-v2.md)
-    - [Java](get-started-java-send-v2.md)
-    - [Python](get-started-python-send-v2.md)
-    - [JavaScript](get-started-java-send-v2.md)
+    - [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
+    - [Java](event-hubs-java-get-started-send.md)
+    - [Python](event-hubs-python-get-started-send.md)
+    - [JavaScript](event-hubs-java-get-started-send.md)

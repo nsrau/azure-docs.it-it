@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46a00d55c58992be1009da1de5441ebe4e589a70
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 904ea039526b9434501b60ed6ccf762f45625b26
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83994970"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948148"
 ---
 # <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>Configurare un criterio di accesso condizionale in modalità solo report
 
@@ -51,8 +51,8 @@ Per visualizzare il risultato di un criterio di solo report per un particolare a
 
 Per visualizzare l'effetto aggregato dei criteri di accesso condizionale usando la nuova cartella di lavoro di Insights per l'accesso condizionale, è necessario integrare monitoraggio di Azure con Azure AD ed esportare i log di accesso. Per configurare questa integrazione, è necessario eseguire due passaggi: 
 
-1. [Iscriversi per ottenere una sottoscrizione di monitoraggio di Azure e creare un'area di lavoro](/azure/azure-monitor/learn/quick-create-workspace).
-1. [Esportare i log di accesso da Azure ad a monitoraggio di Azure](/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics).
+1. [Iscriversi per ottenere una sottoscrizione di monitoraggio di Azure e creare un'area di lavoro](../../azure-monitor/learn/quick-create-workspace.md).
+1. [Esportare i log di accesso da Azure ad a monitoraggio di Azure](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
 
 Altre informazioni sui prezzi di monitoraggio di Azure sono disponibili nella [pagina dei prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/). Le risorse per stimare i costi, impostare un limite giornaliero o personalizzare il periodo di conservazione dei dati sono disponibili nell'articolo [gestire l'utilizzo e i costi con i log di monitoraggio di Azure](../../azure-monitor/platform/manage-cost-storage.md#estimating-the-costs-to-manage-your-environment).
 

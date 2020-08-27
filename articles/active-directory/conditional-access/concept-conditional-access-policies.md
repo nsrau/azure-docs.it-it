@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 907ad8705742e4b2e38b13c3c675ebd333bd27d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 36ab632010ec2bbbc19ac71cbeccab2ff6b3565f
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80295319"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948386"
 ---
 # <a name="building-a-conditional-access-policy"></a>Creazione di un criterio di accesso condizionale
 
@@ -26,7 +26,7 @@ In che modo un'organizzazione crea questi criteri? Cosa è necessario?
 
 ![Accesso condizionale (segnali + decisioni + applicazione = criteri)](./media/concept-conditional-access-policies/conditional-access-signal-decision-enforcement.png)
 
-## <a name="assignments"></a>Assignments
+## <a name="assignments"></a>Assegnazioni
 
 La parte relativa alle assegnazioni controlla gli utenti, gli elementi e i criteri di accesso condizionale.
 
@@ -44,7 +44,7 @@ Un criterio può contenere più [condizioni](concept-conditional-access-conditio
 
 #### <a name="sign-in-risk"></a>Rischio di accesso
 
-Per le organizzazioni con [Azure ad Identity Protection](../identity-protection/overview.md), i rilevamenti dei rischi generati possono influenzare i criteri di accesso condizionale.
+Per le organizzazioni con [Azure ad Identity Protection](../identity-protection/overview-identity-protection.md), i rilevamenti dei rischi generati possono influenzare i criteri di accesso condizionale.
 
 #### <a name="device-platforms"></a>Piattaforme per dispositivi
 

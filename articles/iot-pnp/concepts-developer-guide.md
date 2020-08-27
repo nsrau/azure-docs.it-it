@@ -7,12 +7,12 @@ ms.date: 07/16/2020
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9e6d13fedbfa495448164c1354868e12992dd71c
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f1860f9645a50789803d509a6a1ea98bc0ea1a9e
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88856028"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950137"
 ---
 # <a name="iot-plug-and-play-preview-developer-guide"></a>Guida per gli sviluppatori dell'anteprima Plug and Play
 
@@ -47,7 +47,7 @@ Il nuovo `ClientOptions` Overload è disponibile in tutti i `DeviceClient` metod
 
 L'annuncio dell'ID modello è stato aggiunto alle versioni successive degli SDK
 
-|SDK|Versione|
+|SDK|Version|
 |---|-------|
 |C-SDK|1.3.9|
 |.NET|1.27.0|
@@ -57,7 +57,7 @@ L'annuncio dell'ID modello è stato aggiunto alle versioni successive degli SDK
 
 ## <a name="dps-payload"></a>Payload DPS
 
-I dispositivi che usano il [servizio Device provisioning (DPS)](/iot-dps/) possono includere l'oggetto `modelId` da usare durante il processo di provisioning usando il payload JSON seguente.
+I dispositivi che usano il [servizio Device provisioning (DPS)](../iot-dps/about-iot-dps.md) possono includere l'oggetto `modelId` da usare durante il processo di provisioning usando il payload JSON seguente.
 
 ```json
 {

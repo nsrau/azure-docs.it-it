@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce687ae1f47b20bb5fff3827e7bcbd5d7edf2d83
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 2564e3f246d23028d6c73832a25f37110e7670c8
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86024360"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948097"
 ---
 # <a name="conditional-access-sign-in-risk-based-conditional-access"></a>Accesso condizionale: accesso condizionale basato sui rischi di accesso
 
@@ -39,7 +39,7 @@ Questo criterio può essere assegnato a due posizioni. Le organizzazioni devono 
 1. In **app Cloud o azioni**  >  **Includi**selezionare **tutte le app Cloud**.
 1. In **Conditions**  >  **User Risk**impostare **Configure** su **Yes**. In **selezionare il livello di rischio di accesso a cui verranno applicati i criteri** 
    1. Selezionare **alta** e **media**.
-   1. Selezionare **Operazione completata**.
+   1. Selezionare **Fine**.
 1. In **Controlli di accesso** > **Concedi**, selezionare **Concedi accesso**, **Richiedi autenticazione a più fattori** e selezionare **Seleziona**.
 1. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.
 1. Selezionare **Crea** per creare e abilitare i criteri.
@@ -52,7 +52,7 @@ Questo criterio può essere assegnato a due posizioni. Le organizzazioni devono 
 1. In **assegnazioni**selezionare **utenti**.
    1. In **Includi** selezionare **Tutti gli utenti**.
    1. In **Escludi**selezionare **Seleziona utenti esclusi**, scegliere l'accesso di emergenza dell'organizzazione o gli account break-Glass e selezionare **Seleziona**.
-   1. Selezionare **Operazione completata**.
+   1. Selezionare **Fine**.
 1. In **condizioni**selezionare **rischio di accesso**, quindi scegliere **media e versioni successive**.
    1. Selezionare **Seleziona**, quindi **fine**.
 1. In **Controlla**  >  **accesso**scegliere **Consenti accesso**, quindi selezionare **Richiedi autenticazione**a più fattori.
@@ -64,10 +64,10 @@ Questo criterio può essere assegnato a due posizioni. Le organizzazioni devono 
 
 [Criteri comuni di accesso condizionale ](concept-conditional-access-policy-common.md)
 
-[Accesso condizionale basato sul rischio utente](howto-conditional-access-policy-risk-user.md)
+[Accesso condizionale basato sul rischio per l'utente](howto-conditional-access-policy-risk-user.md)
 
 [Determinare l'impatto dell'uso della modalità di accesso condizionale solo report](howto-conditional-access-report-only.md)
 
 [Simulare il comportamento di accesso usando lo strumento What If per l'accesso condizionale](troubleshoot-conditional-access-what-if.md)
 
-[Informazioni su Azure Active Directory Identity Protection](../identity-protection/overview.md)
+[Cos'è Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)

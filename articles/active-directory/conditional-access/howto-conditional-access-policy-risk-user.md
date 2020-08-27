@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 916ff4a5e6afd68106d70f386436723c24574df1
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c890c8e9af7310338e8470c4d56b46d1e259c168
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605585"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948063"
 ---
 # <a name="conditional-access-user-risk-based-conditional-access"></a>Accesso condizionale: accesso condizionale basato sul rischio utente
 
@@ -29,7 +29,7 @@ Questo criterio può essere assegnato a due posizioni. Le organizzazioni devono 
 1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
 1. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale**.
 1. Selezionare **Nuovi criteri**.
-1. Assegnare un nome ai criteri. È consigliabile che le organizzazioni creino uno standard descrittivo per i nomi dei criteri. Per altre informazioni, [impostare gli standard di denominazione per i criteri](https://docs.microsoft.com/azure/active-directory/conditional-access/plan-conditional-access#set-naming-standards-for-your-policies).
+1. Assegnare un nome ai criteri. È consigliabile che le organizzazioni creino uno standard descrittivo per i nomi dei criteri. Per altre informazioni, [impostare gli standard di denominazione per i criteri](./plan-conditional-access.md#set-naming-standards-for-your-policies).
 1. In **Assegnazioni** selezionare **Utenti e gruppi**.
    1. In **Includi** selezionare **Tutti gli utenti**.
    1. In **Escludi** selezionare **Utenti e gruppi** e scegliere gli account di accesso di emergenza o gli account critici dell'organizzazione. 
@@ -66,4 +66,4 @@ Questo criterio può essere assegnato a due posizioni. Le organizzazioni devono 
 
 [Simulare il comportamento di accesso usando lo strumento What If per l'accesso condizionale](troubleshoot-conditional-access-what-if.md)
 
-[Che cos'è Azure Active Directory Identity Protection?](../identity-protection/overview.md)
+[Cos'è Azure Active Directory Identity Protection?](../identity-protection/overview-identity-protection.md)

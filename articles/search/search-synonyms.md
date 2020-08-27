@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
-ms.openlocfilehash: 96ad10fcca260223d92203a80f396de816238efc
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/26/2020
+ms.openlocfilehash: aad953483749d676844221f7e519f50c50b63ad4
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529563"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948641"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Sinonimi in Azure ricerca cognitiva
 
@@ -23,7 +23,7 @@ In Azure ricerca cognitiva l'espansione del sinonimo viene eseguita in fase di q
 
 ## <a name="create-synonyms"></a>Creare sinonimi
 
-Non è disponibile il supporto del portale per la creazione di sinonimi, ma è possibile usare l'API REST o .NET SDK. Per iniziare a usare REST, è consigliabile [usare il post](search-get-started-postman.md) e la formulazione delle richieste usando questa API: [create sinonime Maps](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map). Per gli sviluppatori C#, è possibile iniziare a [aggiungere sinonimi in ricerca cognitiva di Azure con C#](search-synonyms-tutorial-sdk.md).
+Non è disponibile il supporto del portale per la creazione di sinonimi, ma è possibile usare l'API REST o .NET SDK. Per iniziare a usare REST, è consigliabile [usare il post](search-get-started-postman.md) e la formulazione delle richieste usando questa API: [create sinonime Maps](/rest/api/searchservice/create-synonym-map). Per gli sviluppatori C#, è possibile iniziare a [aggiungere sinonimi in ricerca cognitiva di Azure con C#](search-synonyms-tutorial-sdk.md).
 
 Facoltativamente, se si usano [chiavi gestite dal cliente](search-security-manage-encryption-keys.md) per la crittografia sul lato servizio, è possibile applicare tale protezione al contenuto della mappa di sinonimi.
 
@@ -92,6 +92,21 @@ Il mapping esplicito è indicato da una freccia "=>". Quando specificato, una se
 
 ```
 Washington, Wash., WA => WA
+```
+
+Se è necessario definire sinonimi che contengono virgole, è possibile usare una barra rovesciata come carattere di escape, come nell'esempio seguente:
+
+```
+WA\, USA, WA, Washington
+```
+
+Poiché la barra rovesciata è a sua volta un carattere speciale in altri linguaggi come JSON e C#, probabilmente sarà necessario eseguire un doppio escape. Ad esempio, il codice JSON inviato all'API REST per la mappa di sinonimi precedente avrà un aspetto simile al seguente:
+
+```json
+    {
+       "format":"solr",
+       "synonyms": "WA\\, USA, WA, Washington"
+    }
 ```
 
 #### <a name="list-synonym-maps-under-your-service"></a>Elencare le mappe sinonimiche del proprio servizio.
@@ -173,4 +188,4 @@ Se si ha un indice esistente in un ambiente di sviluppo (non di produzione), pro
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Creare una mappa di sinonimi](https://docs.microsoft.com/rest/api/searchservice/create-synonym-map)
+> [Creare una mappa di sinonimi](/rest/api/searchservice/create-synonym-map)

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9090ca5b8057179b0cbef1d0a87ae563303ed2c1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 291afbdd902c7563e47595132d56b354dab28a3a
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130433"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950392"
 ---
 # <a name="azure-active-directory-identity-protection-notifications"></a>Notifiche di Azure Active Directory Identity Protection
 
@@ -29,7 +29,7 @@ Questo articolo offre una panoramica di entrambi i messaggi di posta elettronica
 
 ## <a name="users-at-risk-detected-email"></a>Messaggio di posta elettronica relativo al rilevamento di utenti a rischio
 
-In risposta al rilevamento di un account a rischio, Azure AD Identity Protection genera un avviso di posta elettronica con oggetto **Users at risk detected** (Rilevati utenti a rischio). Il messaggio include un collegamento al report **[Utenti contrassegnati per il rischio](../reports-monitoring/concept-user-at-risk.md)**. È consigliabile controllare immediatamente gli utenti a rischio.
+In risposta al rilevamento di un account a rischio, Azure AD Identity Protection genera un avviso di posta elettronica con oggetto **Users at risk detected** (Rilevati utenti a rischio). Il messaggio include un collegamento al report **[Utenti contrassegnati per il rischio](./overview-identity-protection.md)**. È consigliabile controllare immediatamente gli utenti a rischio.
 
 La configurazione di questo avviso consente di specificare a quale livello di rischio utente si desidera generare l'avviso. Il messaggio di posta elettronica verrà generato quando il livello di rischio dell'utente raggiunge gli elementi specificati. Se, ad esempio, si impostano i criteri in modo da ricevere un avviso sul rischio di un utente medio e il Punteggio di rischio dell'utente di John passa a un rischio medio a causa di un rischio di accesso in tempo reale, gli utenti riceveranno un messaggio di posta elettronica a rischio rilevato. Se l'utente dispone di rilevamenti di rischio successivi che fanno sì che il calcolo del livello di rischio dell'utente sia il livello di rischio specificato (o superiore), si riceveranno ulteriori utenti a rischio di messaggi di posta elettronica rilevati quando il Punteggio di rischio utente viene ricalcolato. Se, ad esempio, un utente passa a un livello di rischio medio il 1 ° gennaio, si riceverà una notifica tramite posta elettronica se le impostazioni sono impostate in modo da avvisare il rischio medio. Se lo stesso utente dispone quindi di un altro rilevamento dei rischi a partire dal 5 gennaio, che è anche il rischio medio e il Punteggio di rischio utente viene ricalcolato ed è ancora medio, si riceverà un'altra notifica tramite posta elettronica. 
 
@@ -70,4 +70,4 @@ Configurare la posta elettronica del digest settimanale nella **portale di Azure
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
+- [Azure Active Directory Identity Protection](./overview-identity-protection.md)

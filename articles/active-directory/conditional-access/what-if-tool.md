@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5f75ce20d24f98e5fcefde49b95a545281f8066
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: db76ec2bc2fc8640214f962a809fee559b4c4af3
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032884"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948199"
 ---
-# <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Risolvere i problemi usando lo strumento What If nell'accesso condizionale
+# <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>Risoluzione dei problemi di Accesso condizionale tramite lo strumento What If
 
-[L'accesso condizionale](../active-directory-conditional-access-azure-portal.md) è una funzionalità di Azure Active Directory (Azure ad) che consente di controllare il modo in cui gli utenti autorizzati accedono alle app cloud. Come è possibile sapere cosa aspettarsi dai criteri di accesso condizionale nell'ambiente in uso? Per rispondere a questa domanda, è possibile usare lo **strumento di What If dell'accesso condizionale**.
+[L'accesso condizionale](./overview.md) è una funzionalità di Azure Active Directory (Azure ad) che consente di controllare il modo in cui gli utenti autorizzati accedono alle app cloud. Come è possibile sapere cosa aspettarsi dai criteri di accesso condizionale nell'ambiente in uso? Per rispondere a questa domanda, è possibile usare lo **strumento di What If dell'accesso condizionale**.
 
 Questo articolo illustra come usare questo strumento per testare i criteri di accesso condizionale.
 
@@ -30,7 +30,7 @@ Lo **strumento criteri di What If di accesso condizionale** consente di comprend
 
 Lo strumento **What If** fornisce un modo per determinare rapidamente i criteri applicati a un utente specifico. Queste informazioni possono essere usate, ad esempio, se è necessario risolvere un problema.    
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 Nello **strumento di What If dell'accesso condizionale**, è prima di tutto necessario configurare le impostazioni dello scenario di accesso che si vuole simulare. Le impostazioni includono:
 
@@ -105,4 +105,4 @@ Nell'elenco dei criteri che non si applicano all'utente è possibile trovare anc
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni sull'applicazione dei criteri di accesso condizionale sono reperibili usando la modalità di sola segnalazione dei criteri con informazioni dettagliate sull' [accesso condizionale e creazione di report](howto-conditional-access-insights-reporting.md).
-- Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere [criteri comuni di accesso condizionale](concept-conditional-access-policy-common.md). 
+- Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere [criteri comuni di accesso condizionale](concept-conditional-access-policy-common.md).

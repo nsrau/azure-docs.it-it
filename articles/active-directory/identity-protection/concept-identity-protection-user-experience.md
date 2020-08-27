@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc10fb4f9894a355c9eed024ae9f87747214999b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d3315a8d6bca9406461d0082ed85bbefc9459f4
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72887000"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950205"
 ---
 # <a name="user-experiences-with-azure-ad-identity-protection"></a>Esperienze utente con Azure AD Identity Protection
 
@@ -29,7 +29,7 @@ Tutti i criteri di Identity Protection hanno un effetto sull'esperienza di acces
 
 ## <a name="multi-factor-authentication-registration"></a>Registrazione per l'autenticazione a più fattori
 
-L'abilitazione dei criteri di Identity Protection che richiedono la registrazione dell'autenticazione a più fattori e la destinazione di tutti gli utenti garantisce la possibilità di usare l'autenticazione a più fattori di Azure per la correzione automatica in futuro. La configurazione di questo criterio consente agli utenti di effettuare la registrazione per un periodo di 14 giorni. L'esperienza per gli utenti è illustrata di seguito. Altre informazioni sono disponibili nella documentazione dell'utente finale nell'articolo [Panoramica per la verifica a due fattori e l'account aziendale o dell'Istituto di istruzione](../user-help/user-help-two-step-verification-overview.md).
+L'abilitazione dei criteri di Identity Protection che richiedono la registrazione dell'autenticazione a più fattori e la destinazione di tutti gli utenti garantisce la possibilità di usare l'autenticazione a più fattori di Azure per la correzione automatica in futuro. La configurazione di questo criterio consente agli utenti di effettuare la registrazione per un periodo di 14 giorni. L'esperienza per gli utenti è illustrata di seguito. Altre informazioni sono disponibili nella documentazione dell'utente finale nell'articolo [Panoramica per la verifica a due fattori e l'account aziendale o dell'Istituto di istruzione](../user-help/multi-factor-authentication-end-user-first-time.md).
 
 ### <a name="registration-interrupt"></a>Interrompi registrazione
 
@@ -67,7 +67,7 @@ Quando è stato configurato un criterio di rischio utente, gli utenti che soddis
 
 1. L'utente viene informato che la sicurezza dell'account è a rischio a causa di attività sospette o di credenziali perse.
    
-    ![Soluzione](./media/concept-identity-protection-user-experience/101.png)
+    ![Correzione](./media/concept-identity-protection-user-experience/101.png)
 
 1. L'utente deve dimostrare la propria identità completando l'autenticazione a più fattori di Azure con uno dei metodi precedentemente registrati. 
 1. Infine, l'utente deve modificare la password usando la reimpostazione della password self-service perché qualcun altro potrebbe avere accesso al proprio account.
@@ -84,4 +84,4 @@ Il personale IT può seguire le istruzioni nella sezione [sblocco degli utenti](
 
 - [Correggere i rischi e sbloccare gli utenti](howto-identity-protection-remediate-unblock.md)
 
-- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md) 
+- [Azure Active Directory Identity Protection](./overview-identity-protection.md)

@@ -4,19 +4,22 @@ description: Informazioni sulle quote vCPU per Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 05/31/2018
 ms.author: cynthn
-ms.openlocfilehash: 684c665d57127b7ca52771c0498ef370293e4003
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 028da1fa9d2b16b4d87c345d8435c99b565e1774
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292307"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949695"
 ---
-# <a name="virtual-machine-vcpu-quotas"></a>Quote vCPU delle macchine virtuali
+# <a name="check-vcpu-quotas-using-the-azure-cli"></a>Controllare le quote di vCPU usando l'interfaccia della riga di comando di Azure
 
 Le quote vCPU per le macchine virtuali e i set di scalabilità di macchine virtuali vengono disposte in due livelli per ogni sottoscrizione, in ogni area. Il primo livello è costituito dalle vCPU regionali totali e il secondo livello contiene i vari core a livello di famiglia di dimensioni della macchina virtuale, ad esempio vCPU della serie D. Ogni volta che viene distribuita una nuova macchina virtuale, le relative vCPU non devono superare la quota di vCPU per la famiglia di dimensioni della macchina virtuale o la quota vCPU regionale totale. Se una di queste quote viene superata, la distribuzione della macchina virtuale non sarà possibile. È inoltre disponibile una quota per il numero complessivo di macchine virtuali nell'area. I dettagli su ognuna di queste quote sono disponibili nella sezione **Utilizzo e quote** della pagina **Sottoscrizione** nel [portale di Azure](https://portal.azure.com). In alternativa, è possibile eseguire una ricerca dei valori tramite l'interfaccia della riga di comando di Azure.
+
+> [!NOTE]
+> La quota viene calcolata in base al numero totale di core in uso sia allocati che deallocati. Se sono necessari core aggiuntivi, [richiedere un aumento della quota](../../azure-portal/supportability/resource-manager-core-quotas-request.md) o eliminare le macchine virtuali che non sono più necessarie. 
 
 
 ## <a name="check-usage"></a>Controllare l'utilizzo

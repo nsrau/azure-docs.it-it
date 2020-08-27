@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9a3e2df956aaa4f9fd0af83dd2a18e04d731c714
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1a17f52e519a84c58c9ed5b75259cc0b96d0a175
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74232353"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88949175"
 ---
 # <a name="azure-active-directory-identity-protection-glossary"></a>Glossario di Azure Active Directory Identity Protection
 
@@ -35,7 +35,7 @@ Criteri per la protezione dell'accesso alle risorse. Le regole di accesso condiz
 ### <a name="credentials"></a>Credenziali
 Informazioni che includono l'identificazione e la prova dell'identificazione usata per ottenere l'accesso alle risorse locali e di rete. Tra le credenziali sono inclusi nomi utente e password, smart card e certificati.
 
-### <a name="event"></a>Event
+### <a name="event"></a>Evento
 Record di un'attività in Azure Active Directory.
 
 ### <a name="false-positive-risk-detection"></a>Falso positivo (rilevamento del rischio)
@@ -53,7 +53,7 @@ Stato di rilevamento del rischio impostato manualmente da un utente di Identity 
 ### <a name="impossible-travel-from-atypical-locations"></a>Trasferimento impossibile con posizioni atipiche
 Rilevamento dei rischi attivato quando vengono rilevati due accessi per lo stesso utente, in cui almeno uno di essi si trova in una posizione di accesso atipica e dove il tempo tra gli accessi è inferiore al tempo minimo necessario per spostarsi fisicamente tra queste posizioni.  
 
-### <a name="investigation"></a>Ricerca della causa
+### <a name="investigation"></a>Analisi
 Il processo di revisione di attività, log e altre informazioni rilevanti relative a un rilevamento dei rischi per decidere se sono necessarie procedure di correzione o mitigazione, comprendere se e come l'identità è stata compromessa e comprendere come è stata usata l'identità compromessa.
 
 ### <a name="leaked-credentials"></a>Credenziali perse
@@ -89,13 +89,13 @@ Rilevamento di anomalie e valutazione del rischio di un evento, ad esempio un te
 ### <a name="remediated-risk-detection"></a>Corretti (rilevamento del rischio)
 Stato di rilevamento del rischio impostato automaticamente da Identity Protection, che indica che il rilevamento dei rischi è stato risolto utilizzando l'azione di correzione standard per questo tipo di rilevamento dei rischi. Ad esempio, quando viene reimpostata la password utente, molti rilevamenti dei rischi che indicano che la password precedente è stata compromessa vengono risolti automaticamente.
 
-### <a name="remediation"></a>Soluzione
+### <a name="remediation"></a>Correzione
 Azione che consente di proteggere un'identità o un dispositivo che in precedenza è stato ritenuto o sospettato essere compromesso. Un'azione di correzione ripristina l'identità o il dispositivo a uno stato sicuro e risolve i rilevamenti di rischio precedenti associati all'identità o al dispositivo.
 
 ### <a name="resolved-risk-detection"></a>Risolto (rilevamento del rischio)
 Stato di rilevamento del rischio impostato manualmente da un utente di Identity Protection, che indica che l'utente ha eseguito un'azione di correzione appropriata all'esterno di Identity Protection e che il rilevamento dei rischi deve essere considerato chiuso.
 
-### <a name="risk-detection-status"></a>Stato di rilevamento del rischio
+### <a name="risk-detection-status"></a>Stato rilevamento di rischi
 Proprietà di un rilevamento dei rischi, che indica se l'evento è attivo e se chiuso, il motivo per la chiusura.
 
 ### <a name="risk-detection-type"></a>Tipo di rilevamento dei rischi
@@ -160,4 +160,4 @@ Configurazione o condizione in Azure Active Directory che rende la directory vul
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
+- [Azure Active Directory Identity Protection](./overview-identity-protection.md)

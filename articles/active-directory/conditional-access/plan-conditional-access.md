@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 83cc75c1d69ee7232edf0c21643d25027b97f088
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8f0cb99fd7f2ce842f76cbe1df2f598f2188ca41
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85339734"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948896"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Pianificare una distribuzione dell'accesso condizionale
 
@@ -305,7 +305,7 @@ Quando si pianifica una soluzione di criterio di accesso condizionale, valutare 
 * [Rispondere ad account potenzialmente compromessi](#respond-to-potentially-compromised-accounts)
 * [Richiedere dispositivi gestiti](#require-managed-devices)
 * [Richiedi applicazioni client approvate](#require-approved-client-apps)
-* [Bloccare l'accesso](#block-access)
+* [Blocca accesso](#block-access)
 
 ### <a name="require-mfa"></a>Richiedere l'autenticazione MFA
 
@@ -313,7 +313,7 @@ I casi d'uso comuni per richiedere l'autenticazione a più fattori:
 
 * [Da parte degli amministratori](howto-conditional-access-policy-admin-mfa.md)
 
-* [A specifiche app](app-based-mfa.md)
+* [A specifiche app](../authentication/tutorial-enable-azure-mfa.md)
 
 * [Per tutti gli utenti](howto-conditional-access-policy-all-users-mfa.md)
 
@@ -384,18 +384,18 @@ Il piano di test è importante per disporre di un confronto tra i risultati prev
 | - | - | - |
 | [Richiedi autenticazione a più fattori quando non al lavoro](untrusted-networks.md)| Un utente autorizzato accede all'applicazione da un percorso attendibile/dal posto di lavoro| All'utente non viene richiesta l'autenticazione a più fattori |
 | [Richiedi autenticazione a più fattori quando non al lavoro](untrusted-networks.md)| Un utente autorizzato accede all'applicazione da un percorso non attendibile/non dal posto di lavoro| All'utente viene richiesta l'autenticazione a più fattori e può eseguire correttamente l'accesso |
-| [Richiedi autenticazione a più fattori (per l'amministratore)](howto-baseline-protect-administrators.md)| L'amministratore globale accede all'applicazione| All'amministratore viene richiesta l'autenticazione a più fattori |
-| [Accessi a rischio](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-sign-in-risk-policy)| L'utente accede all'app usando un browser non approvato| All'amministratore viene richiesta l'autenticazione a più fattori |
+| [Richiedi autenticazione a più fattori (per l'amministratore)](../fundamentals/concept-fundamentals-security-defaults.md)| L'amministratore globale accede all'applicazione| All'amministratore viene richiesta l'autenticazione a più fattori |
+| [Accessi a rischio](../identity-protection/howto-identity-protection-configure-risk-policies.md)| L'utente accede all'app usando un browser non approvato| All'amministratore viene richiesta l'autenticazione a più fattori |
 | [Gestione del dispositivo](require-managed-devices.md)| Un utente autorizzato cerca di accedere da un dispositivo autorizzato| Accesso concesso |
 | [Gestione del dispositivo](require-managed-devices.md)| Un utente autorizzato cerca di accedere da un dispositivo non autorizzato| Accesso bloccato |
-| [Modifica password per gli utenti a rischio](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy)| Un utente autorizzato cerca di accedere con credenziali compromesse (accesso ad alto rischio)| All'utente viene richiesto di cambiare la password o l'accesso viene bloccato in base al criterio |
+| [Modifica password per gli utenti a rischio](../identity-protection/howto-identity-protection-configure-risk-policies.md)| Un utente autorizzato cerca di accedere con credenziali compromesse (accesso ad alto rischio)| All'utente viene richiesto di cambiare la password o l'accesso viene bloccato in base al criterio |
 
 
 ### <a name="configure-the-test-policy"></a>Configurare il criterio di test
 
 Nel [portale di Azure](https://portal.azure.com/) configurare i criteri di accesso condizionale in Azure Active Directory > Sicurezza > Accesso condizionale.
 
-Per ulteriori informazioni su come creare i criteri di accesso condizionale, vedere l'esempio seguente: [Criterio di accesso condizionale per richiedere l'autenticazione a più fattori quando un utente accede al portale di Azure](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json). Questo argomento di avvio rapido consente di:
+Per ulteriori informazioni su come creare i criteri di accesso condizionale, vedere l'esempio seguente: [Criterio di accesso condizionale per richiedere l'autenticazione a più fattori quando un utente accede al portale di Azure](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json). Questo argomento di avvio rapido consente di:
 
 * Acquisire familiarità con l'interfaccia utente
 
@@ -442,7 +442,7 @@ Nel caso in cui sia necessario eseguire il rollback dei criteri appena implement
 > [!NOTE]
 >  Questa opzione deve essere usata solo se necessario, solo in situazioni in cui l'utente è attendibile. L'utente deve essere nuovamente aggiunto al criterio o al gruppo appena possibile.
 
-* **Eliminare il criterio.** Se il criterio non è più necessario, [eliminarlo](https://docs.microsoft.com/azure/active-directory/authentication/tutorial-enable-azure-mfa?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json).
+* **Eliminare il criterio.** Se il criterio non è più necessario, [eliminarlo](../authentication/tutorial-enable-azure-mfa.md?bc=%2fazure%2factive-directory%2fconditional-access%2fbreadcrumb%2ftoc.json&toc=%2fazure%2factive-directory%2fconditional-access%2ftoc.json).
 
 ## <a name="manage-access-to-cloud-apps"></a>Gestire l'accesso alle applicazioni cloud
 
@@ -501,4 +501,4 @@ Dopo aver raccolto le informazioni, vedere le seguenti risorse:
 
 [Altre informazioni su Identity Protection](../identity-protection/overview-identity-protection.md)
 
-[Gestire i criteri dell'accesso condizionale con l'API Microsoft Graph](https://docs.microsoft.com/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)
+[Gestire i criteri dell'accesso condizionale con l'API Microsoft Graph](/graph/api/resources/conditionalaccesspolicy?view=graph-rest-beta.md)

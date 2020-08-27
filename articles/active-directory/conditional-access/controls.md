@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 147c6016c56d45fadca4f4b8e583bce54006ef07
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 6eb4efd26502c20a33cb61ab1c9d58f2757bbd70
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922106"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948301"
 ---
 # <a name="custom-controls-preview"></a>Controlli personalizzati (anteprima)
 
@@ -53,7 +53,7 @@ Per modificare un controllo personalizzato, è necessario eliminare il controllo
 
 ## <a name="known-limitations"></a>Limitazioni note
 
-I controlli personalizzati non possono essere usati con l'automazione di Identity Protection che richiede Azure Multi-Factor Authentication, Azure AD la reimpostazione della password self-service (SSPR), soddisfa i requisiti di attestazione di autenticazione a più fattori, per elevare i ruoli in Privileged Identity Manager (PIM) o come parte della registrazione dei dispositivi di Intune.
+I controlli personalizzati non possono essere usati con l'automazione di Identity Protection che richiede Azure Multi-Factor Authentication, Azure AD la reimpostazione della password self-service (SSPR), soddisfa i requisiti di attestazione di autenticazione a più fattori, per elevare i ruoli in Privileged Identity Manager (PIM), come parte della registrazione dei dispositivi di Intune o quando si uniscono i dispositivi a Azure AD.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

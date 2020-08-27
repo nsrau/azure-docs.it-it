@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu, calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7d2bb927569a125015f1b0befa27fd3e1f17c00
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 28516482cf154c81912de0f8e3f35b9e54ef2f69
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874776"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948267"
 ---
 # <a name="configure-authentication-session-management-with-conditional-access"></a>È possibile configurare la gestione della sessione di autenticazione con l'Accesso condizionale
 
@@ -136,5 +136,5 @@ La procedura consigliata è testare i criteri prima di distribuirli nell'ambient
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per informazioni su come configurare i criteri di accesso condizionale, vedere l'articolo richiedere l'autenticazione a più fattori [per app specifiche con Azure Active Directory l'accesso condizionale](app-based-mfa.md).
+* Per informazioni su come configurare i criteri di accesso condizionale, vedere l'articolo richiedere l'autenticazione a più fattori [per app specifiche con Azure Active Directory l'accesso condizionale](../authentication/tutorial-enable-azure-mfa.md).
 * Se si è pronti per configurare i criteri di accesso condizionale per l'ambiente in uso, vedere l'articolo [procedure consigliate per l'accesso condizionale in Azure Active Directory](best-practices.md).

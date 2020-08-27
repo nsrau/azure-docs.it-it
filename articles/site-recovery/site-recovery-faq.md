@@ -4,12 +4,12 @@ description: Questo articolo illustra le domande generali più frequenti su Azur
 ms.topic: conceptual
 ms.date: 7/14/2020
 ms.author: raynew
-ms.openlocfilehash: 8b5730fba1a0267ab72497bc65b51de75654f970
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: d77f62a57a75f13589b11e023f902c1a128a0d95
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263384"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950494"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Domande generali su Azure Site Recovery
 
@@ -256,8 +256,6 @@ I criteri di replica definiscono le impostazioni per la cronologia di conservazi
 
 - 24 ore per la cronologia della conservazione dei punti di recupero.
 - 4 ore per la frequenza degli snapshot coerenti con l'app.
-
-[Altre informazioni sulle impostazioni di replica](./azure-to-azure-tutorial-enable-replication.md#configure-replication-settings).
 
 ### <a name="what-is-a-crash-consistent-recovery-point"></a>Che cos'è il punto di recupero coerente con l'arresto anomalo del sistema?
 

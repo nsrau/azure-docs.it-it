@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: carlrab
 ms.date: 08/25/2020
-ms.openlocfilehash: 85459f357032a7f9944d50e3e4f3929015c6dcfd
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4c7b78f14602632068a19d520aeeb940b543be61
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869118"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948216"
 ---
 # <a name="plan-for-azure-maintenance-events-in-azure-sql-database-and-azure-sql-managed-instance"></a>Pianificare gli eventi di manutenzione di Azure nel database SQL di Azure e in Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -24,6 +24,8 @@ ms.locfileid: "88869118"
 Informazioni su come prepararsi per gli eventi di manutenzione pianificata nel database nel database SQL di Azure e in Azure SQL Istanza gestita.
 
 ## <a name="what-is-a-planned-maintenance-event"></a>Che cos'è un evento di manutenzione pianificata?
+
+Per garantire la sicurezza, la conformità, la stabilità e l'esecuzione degli aggiornamenti del database SQL di Azure e di Azure SQL Istanza gestita Services, i componenti del servizio vengono eseguiti quasi continuamente. Grazie all'architettura del servizio moderna e affidabile e a tecnologie innovative come l'applicazione di [patch a caldo](https://aka.ms/azuresqlhotpatching), la maggior parte degli aggiornamenti è completamente trasparente e non influisca in termini di disponibilità dei servizi. Tuttavia, pochi tipi di aggiornamenti causano brevi interruzioni del servizio e richiedono un trattamento speciale. 
 
 Per ogni database, il database SQL di Azure e Azure SQL Istanza gestita gestiscono un quorum di repliche di database in cui una replica è la replica primaria. In ogni momento, una replica primaria deve essere la manutenzione in linea e almeno una replica secondaria deve essere integra. Durante la manutenzione pianificata, i membri del quorum del database passeranno offline uno alla volta, in quanto sono presenti una replica primaria pronta a rispondere e almeno una replica secondaria online per evitare tempi di inattività del client. Quando la replica primaria deve essere portata offline, si verifica un processo di riconfigurazione/failover in cui una replica secondaria diventa la nuova replica primaria.  
 
