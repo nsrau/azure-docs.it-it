@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: rest-api
 ms.topic: tutorial
 ms.date: 08/21/2020
-ms.openlocfilehash: 04434753949f0e00eaf99610199cc4997ef53caf
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 887017f60deb832bd5c53f28bde4b57a3d82bde5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88751046"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918044"
 ---
 # <a name="tutorial-query-a-cognitive-search-index-from-power-apps"></a>Esercitazione: Eseguire query su un indice di Ricerca cognitiva da Power Apps
 
@@ -261,5 +261,4 @@ Se si usa un servizio gratuito, tenere presente che il numero di indicizzatori e
 Power Apps consente lo sviluppo rapido di app personalizzate. Ora che si è appreso come connettersi a un indice di ricerca, vedere altre informazioni su come creare un'esperienza di visualizzazione arricchita in un'app personalizzata di Power Apps.
 
 > [!div class="nextstepaction"]
-> [Catalogo di risorse di apprendimento per Power Apps](https://docs.microsoft.com/powerapps/learning-catalog/get-started)
-
+> [Catalogo di risorse di apprendimento per Power Apps](/powerapps/learning-catalog/get-started)

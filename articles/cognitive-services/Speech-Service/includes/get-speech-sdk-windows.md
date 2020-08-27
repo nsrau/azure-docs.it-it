@@ -4,12 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 138a9ef9d483ca0d460bab7185d646669650f83e
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 33cc9b52c4b687ca8147867b99dc70e8d71a9223
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399931"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88944440"
 ---
 :::row:::
     :::column span="3":::
@@ -27,9 +28,9 @@ ms.locfileid: "81399931"
 
 Per Speech SDK in Windows è necessario il <a href="https://support.microsoft.com/help/2977003/the-latest-supported-visual-c-downloads" target="_blank">Microsoft Visual C++ Redistributable per Visual Studio 2019 <span class="docon docon-navigate-external x-hidden-focus"></span> </a> nel sistema.
 
-- <a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">Installare per x86<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">Installare per x64<span class="docon docon-navigate-external x-hidden-focus"></span></a>
-- <a href="https://aka.ms/vs/16/release/vc_redist.arm64.exe" target="_blank">Installare per ARMx64<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.x86.exe" target="_blank">Installare per x86 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.x64.exe" target="_blank">Installare per x64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://aka.ms/vs/16/release/vc_redist.arm64.exe" target="_blank">Installare per ARMx64 <span class="docon docon-navigate-external x-hidden-focus"></span></a>
 
 ### <a name="c"></a>C#
 
@@ -39,16 +40,16 @@ Per l'input del microfono, è necessario installare le raccolte Media Foundation
 
 I file Speech SDK richiesti possono essere distribuiti nella stessa directory dell'applicazione. In questo modo l'applicazione può accedere direttamente alle raccolte. Assicurarsi di selezionare la versione corretta (x86/x64) corrispondente all'applicazione.
 
-| Name                                            | Funzione                                             |
+| Nome                                            | Funzione                                             |
 |-------------------------------------------------|------------------------------------------------------|
 | `Microsoft.CognitiveServices.Speech.core.dll`   | SDK di base, necessario per la distribuzione nativa e gestita |
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | Obbligatorio per le distribuzioni gestite                      |
 
 > [!NOTE]
-> A partire dalla versione 1.3.0, il `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` file (fornito nelle versioni precedenti) non è più necessario. La funzionalità è ora integrata in Core SDK.
+> A partire dalla versione 1.3.0, il file `Microsoft.CognitiveServices.Speech.csharp.bindings.dll` (fornito nelle versioni precedenti) non è più necessario. La funzionalità è ora integrata in Core SDK.
 
 > [!IMPORTANT]
-> Per il progetto C# Windows Forms app (.NET Framework), verificare che le librerie siano incluse nelle impostazioni di distribuzione del progetto. È possibile selezionare questa opzione `Properties -> Publish Section`in. Fai clic `Application Files` sul pulsante e trova le librerie corrispondenti dall'elenco di scorrimento verso il basso. Verificare che il valore sia impostato su `Included`. In Visual Studio il file verrà incluso quando il progetto viene pubblicato/distribuito.
+> Per il progetto C# Windows Forms app (.NET Framework), verificare che le librerie siano incluse nelle impostazioni di distribuzione del progetto. È possibile selezionare questa opzione in `Properties -> Publish Section` . Fai clic sul `Application Files` pulsante e trova le librerie corrispondenti dall'elenco di scorrimento verso il basso. Verificare che il valore sia impostato su `Included` . In Visual Studio il file verrà incluso quando il progetto viene pubblicato/distribuito.
 
 ### <a name="c"></a>C++
 

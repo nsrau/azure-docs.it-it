@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: trbye
-ms.openlocfilehash: 41ebcb7b44ea88af06a30a611960fd8bb0ceddee
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 1138a970bf7c52182f13d0fd14d0178a2d0cfeba
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81402230"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918792"
 ---
 # <a name="how-to-recognize-intents-from-speech-using-the-speech-sdk-for-c"></a>Come riconoscere gli Intent dalla voce vocale usando l'SDK di riconoscimento vocale per C #
 
@@ -91,7 +92,7 @@ Aggiungere il codice al progetto.
 
    [!code-csharp[Top-level declarations](~/samples-cognitive-services-speech-sdk/samples/csharp/sharedcontent/console/intent_recognition_samples.cs#toplevel)]
 
-1. Sostituire il metodo `Main()` fornito con l'equivalente asincrono seguente:
+1. Sostituire il `Main()` metodo fornito con l'equivalente asincrono seguente:
 
    ```csharp
    public static async Task Main()
@@ -162,9 +163,9 @@ Con il riconoscimento creato e le finalità aggiunte, è possibile iniziare il r
 | Modalità di riconoscimento | Metodi di chiamata | Risultato |
 | ---------------- | --------------- | ------ |
 | Singolo | `RecognizeOnceAsync()` | Restituisce la finalità riconosciuta, se presente, dopo una singola espressione. |
-| Continuo | `StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()` | Riconosce più espressioni; genera eventi (ad esempio, `IntermediateResultReceived`) quando i risultati sono disponibili. |
+| Continua | `StartContinuousRecognitionAsync()`<br>`StopContinuousRecognitionAsync()` | Riconosce più espressioni; genera eventi (ad esempio, `IntermediateResultReceived`) quando i risultati sono disponibili. |
 
-L'applicazione usa la modalità single-shot, quindi `RecognizeOnceAsync()` chiama per iniziare il riconoscimento. Il risultato è un oggetto `IntentRecognitionResult` contenente le informazioni sulla finalità riconosciuta. La risposta LUIS JSON viene estratta mediante l'espressione seguente:
+L'applicazione usa la modalità single-shot, quindi chiama `RecognizeOnceAsync()` per iniziare il riconoscimento. Il risultato è un oggetto `IntentRecognitionResult` contenente le informazioni sulla finalità riconosciuta. La risposta LUIS JSON viene estratta mediante l'espressione seguente:
 
 ```csharp
 result.Properties.GetProperty(PropertyId.LanguageUnderstandingServiceResponse_JsonResult)
@@ -200,4 +201,4 @@ Cercare il codice usato in questo articolo nella cartella **samples/csharp/share
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Guida introduttiva: riconoscere il riconoscimento vocale da un microfono](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)
+> [Avvio rapido: Riconoscimento vocale da un microfono](~/articles/cognitive-services/Speech-Service/quickstarts/speech-to-text-from-microphone.md?pivots=programming-language-csharp&tabs=dotnetcore)

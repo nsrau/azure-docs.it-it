@@ -3,13 +3,13 @@ title: Domande consigliate sull'apprendimento attivo-QnA Maker
 description: Migliorare la qualità della Knowledge base con l'apprendimento attivo. Verifica, accetta o rifiuta, Aggiungi senza rimuovere o modificare le domande esistenti.
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: fc7aebc3df2d14c78230d112e3e807d8d98fb047
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 9bed80ac8c80fb4cecf06b979e0403e34645db01
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406980"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88919132"
 ---
 # <a name="accept-active-learning-suggested-questions-in-the-knowledge-base"></a>Accetta le domande suggerite di apprendimento attivo nella Knowledge base
 
@@ -130,10 +130,10 @@ Content-Type: application/json
 
 |Proprietà della richiesta HTTP|Nome|Tipo|Scopo|
 |--|--|--|--|
-|Parametro di route URL|ID della knowledge Base|Stringa|L'identificatore univoco globale della Knowledge Base.|
-|Sottodominio personalizzato|Nome della risorsa QnAMaker|Stringa|Il nome della risorsa viene usato come sottodominio personalizzato per la QnA Maker. Questa operazione è disponibile nella pagina impostazioni dopo la pubblicazione della Knowledge base. Viene elencato come `host` .|
-|Intestazione|Content-Type|Stringa|tipo di supporto del corpo inviato all'API. Il valore predefinito è:`application/json`|
-|Intestazione|Autorizzazione|Stringa|la chiave endpoint (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
+|Parametro di route URL|ID della knowledge Base|string|L'identificatore univoco globale della Knowledge Base.|
+|Sottodominio personalizzato|Nome della risorsa QnAMaker|string|Il nome della risorsa viene usato come sottodominio personalizzato per la QnA Maker. Questa operazione è disponibile nella pagina impostazioni dopo la pubblicazione della Knowledge base. Viene elencato come `host` .|
+|Intestazione|Content-Type|string|tipo di supporto del corpo inviato all'API. Il valore predefinito è: `application/json`|
+|Intestazione|Autorizzazione|string|la chiave endpoint (EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx).|
 |Corpo post|Oggetto JSON|JSON|Il feedback di formazione|
 
 Il corpo JSON ha diverse impostazioni:
@@ -141,9 +141,9 @@ Il corpo JSON ha diverse impostazioni:
 |Proprietà corpo JSON|Tipo|Scopo|
 |--|--|--|--|
 |`feedbackRecords`|array|Elenco di commenti.|
-|`userId`|Stringa|ID utente della persona che accetta le domande suggerite. Il formato dell'ID utente è l'utente. Un indirizzo di posta elettronica, ad esempio, può essere un ID utente valido nell'architettura. facoltativo.|
-|`userQuestion`|Stringa|Testo esatto della query dell'utente. Obbligatorio.|
-|`qnaID`|Numero|ID della domanda, disponibile nella [risposta GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
+|`userId`|string|ID utente della persona che accetta le domande suggerite. Il formato dell'ID utente è l'utente. Un indirizzo di posta elettronica, ad esempio, può essere un ID utente valido nell'architettura. Facoltativa.|
+|`userQuestion`|string|Testo esatto della query dell'utente. Obbligatorio.|
+|`qnaID`|d'acquisto|ID della domanda, disponibile nella [risposta GenerateAnswer](metadata-generateanswer-usage.md#generateanswer-response-properties). |
 
 Un esempio di corpo JSON ha un aspetto simile al seguente:
 

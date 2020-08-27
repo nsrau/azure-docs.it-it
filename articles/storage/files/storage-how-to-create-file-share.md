@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: aaba608ba80a751c40cd300dee80f673897c22a8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 236134887728ebc3dd4d03fa4c9d9d450b39eac2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525650"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930673"
 ---
 # <a name="create-an-azure-file-share"></a>Creare una condivisione file di Azure
 Per creare una condivisione file di Azure, è necessario rispondere a tre domande sul modo in cui verrà usata:
@@ -267,6 +267,9 @@ Update-AzRmStorageShare `
     -AccessTier Cool
 ```
 
+> [!Note]  
+> La possibilità di impostare e modificare i livelli tramite PowerShell è disponibile nel modulo anteprima AZ. storage PowerShell. Questi cmdlet o il relativo output possono cambiare prima di essere rilasciati nel modulo AZ. storage PowerShell disponibile a livello generale, quindi creare gli script tenendo conto di questo aspetto.
+
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 La funzionalità per creare o spostare una condivisione file in un livello specifico è disponibile nell'aggiornamento dell'interfaccia della riga di comando di Azure più recente. L'aggiornamento dell'interfaccia della riga di comando di Azure è specifico per la distribuzione Linux o del sistema operativo in uso. Per istruzioni su come aggiornare l'interfaccia della riga di comando di Azure nel sistema, vedere [installare l'interfaccia della](https://docs.microsoft.com/cli/azure/install-azure-cli)riga di comando di Azure.
 
@@ -282,6 +285,10 @@ az storage share-rm create \
     --name $shareName \
     --access-tier "Hot"
 ```
+
+> [!Note]  
+> La possibilità di impostare un livello con il `--access-tier` parametro viene fornita come anteprima nel pacchetto dell'interfaccia della riga di comando di Azure più recente. Questo comando o l'output potrebbe cambiare prima di essere contrassegnato come disponibile a livello generale, quindi creare script tenendo presente questo aspetto.
+
 ---
 
 ## <a name="next-steps"></a>Passaggi successivi

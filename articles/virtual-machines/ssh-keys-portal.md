@@ -5,14 +5,14 @@ author: cynthn
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: article
-ms.date: 07/31/2020
+ms.date: 08/25/2020
 ms.author: cynthn
-ms.openlocfilehash: 17ab7ee75e335d686bf308c4b15a53dc4e2e6b0e
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: abc9a2ae130d987c90ce87ffaecbf2bb44b06010
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041749"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929440"
 ---
 # <a name="generate-and-store-ssh-keys-in-the-azure-portal"></a>Generare e archiviare le chiavi SSH nel portale di Azure
 
@@ -28,7 +28,7 @@ Per informazioni più dettagliate sulla creazione e l'uso di chiavi SSH con macc
 
 1. Aprire il [portale di Azure](https://portal.azure.com).
 
-1. Nella parte superiore della pagina digitare *SSH* per eseguire la ricerca. In **Marketplace*selezionare **chiavi SSH**.
+1. Nella parte superiore della pagina digitare *SSH* per eseguire la ricerca. In **Marketplace**selezionare **chiavi SSH**.
 
 1. Nella pagina **chiave SSH** selezionare **Crea**.
 
@@ -89,6 +89,20 @@ Digitare ad esempio: `ssh -i /Downloads/mySSHKey.pem azureuser@123.45.67.890`
 1. Al termine della convalida selezionare **Crea**. 
 
 Una volta caricata la chiave, è possibile scegliere di usarla quando si crea una macchina virtuale.
+
+## <a name="list-keys"></a>List keys
+
+Le chiavi SSH create nel portale vengono archiviate come risorse, quindi è possibile filtrare la visualizzazione delle risorse per visualizzarle tutte.
+
+1. Nel portale selezionare **All Resource**.
+1. Nei filtri selezionare **tipo**, deselezionare l'opzione **Seleziona tutto** per cancellare l'elenco.
+1. Digitare **SSH** nel filtro e selezionare **chiave SSH**.
+
+   :::image type="content" source="./media/ssh-keys/filter.png" alt-text="Screenshot di come filtrare l'elenco per visualizzare tutte le chiavi SSH.":::
+
+## <a name="get-the-public-key"></a>Ottenere la chiave pubblica
+
+Se è necessaria la chiave pubblica, è possibile copiarla facilmente dalla pagina del portale per la chiave. È sufficiente elencare le chiavi, usando il processo nell'ultima sezione, quindi selezionare una chiave nell'elenco. Verrà aperta la pagina per la chiave ed è possibile fare clic sull'icona **copia negli Appunti** accanto alla chiave per copiarla.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

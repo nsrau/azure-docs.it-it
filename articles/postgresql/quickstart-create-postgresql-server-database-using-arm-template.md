@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: 00e8910627690d4713a7a86a56262519610c2392
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 0661e743fb2493b9eab4b90dcb65297e99c2cc64
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183854"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661215"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Avvio rapido: Usare un modello di Resource Manager per creare un database di Azure per PostgreSQL: server singolo
 
@@ -48,7 +48,7 @@ Un account Azure con una sottoscrizione attiva. [È possibile crearne uno gratui
 
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-managed-postgresql-with-vnet/).
 
-:::code language="json" source="~/quickstart-templates/101-managed-postgresql-with-vnet/azuredeploy.json" range="001-233" highlight="151,164,178,201,215":::
+:::code language="json" source="~/quickstart-templates/101-managed-postgresql-with-vnet/azuredeploy.json":::
 
 Il modello definisce cinque risorse di Azure:
 

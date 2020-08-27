@@ -4,16 +4,17 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
 ms.author: trbye
-ms.openlocfilehash: 49a38c06e3a6105ad12133268b83ea73bcea2fc4
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: bbcc60070a05155a6143d3f1ff4689d44de7b3c7
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81399998"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88944437"
 ---
 :::row:::
     :::column span="3":::
-        .NET Speech SDK è disponibile come pacchetto NuGet e implementa .NET Standard 2,0. per altre informazioni, vedere <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft. CognitiveServices. Speech <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>.
+        .NET Speech SDK è disponibile come pacchetto NuGet e implementa .NET Standard 2,0. per altre informazioni, vedere <a href="https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech" target="_blank">Microsoft. CognitiveServices. Speech <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
     :::column-end:::
     :::column:::
         <br>
@@ -25,13 +26,13 @@ ms.locfileid: "81399998"
 
 #### <a name="c-nuget-package"></a>Pacchetto NuGet C#
 
-.NET Speech SDK può essere installato dal **interfaccia della riga di comando di .NET Core** con il comando seguente `dotnet add` .
+.NET Speech SDK può essere installato dal **interfaccia della riga di comando di .NET Core** con il `dotnet add` comando seguente.
 
 ```dotnetcli
 dotnet add package Microsoft.CognitiveServices.Speech
 ```
 
-.NET Speech SDK può essere installato da **Gestione pacchetti** con il comando seguente `Install-Package` .
+.NET Speech SDK può essere installato da **Gestione pacchetti** con il `Install-Package` comando seguente.
 
 ```powershell
 Install-Package Microsoft.CognitiveServices.Speech
@@ -39,4 +40,4 @@ Install-Package Microsoft.CognitiveServices.Speech
 
 #### <a name="additional-resources"></a>Risorse aggiuntive
 
-- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp" target="_blank">Codice sorgente per la Guida introduttiva a .NET Core, .NET Framework, Unity, UWP e Novell<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+- <a href="https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/quickstart/csharp" target="_blank">Codice sorgente per la Guida introduttiva a .NET Core, .NET Framework, Unity, UWP e Novell <span class="docon docon-navigate-external x-hidden-focus"></span></a>

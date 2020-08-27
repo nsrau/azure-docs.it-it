@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 04/21/2020
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: fe2bbc1d6f42819354f48812a34371a49e5acbac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d4aad485741abc1c0f54e14e00cd8654a8addbca
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86999633"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930800"
 ---
 # <a name="enable-azure-active-directory-domain-services-authentication-on-azure-files"></a>Abilitare l'autenticazione Azure Active Directory Domain Services in File di Azure
 
-[File di Azure](storage-files-introduction.md)   supporta l'autenticazione basata su identità su Server Message Block (SMB) tramite due tipi di servizi del dominio: Active Directory Domain Services locale (AD DS) e Azure Active Directory Domain Services (Azure AD DS). Si consiglia vivamente di esaminare la [sezione come funziona](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) per selezionare il servizio del dominio appropriato per authentcation. Il programma di installazione è diverso a seconda del servizio del dominio scelto. Questo articolo illustra come abilitare e configurare Azure AD DS per l'autenticazione con le condivisioni file di Azure.
+[File di Azure](storage-files-introduction.md)   supporta l'autenticazione basata su identità su Server Message Block (SMB) tramite due tipi di servizi del dominio: Active Directory Domain Services locale (AD DS) e Azure Active Directory Domain Services (Azure AD DS). Si consiglia di esaminare la [sezione come funziona](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview#how-it-works) per selezionare il servizio del dominio appropriato per l'autenticazione. Il programma di installazione è diverso a seconda del servizio del dominio scelto. Questo articolo è incentrato sull'abilitazione e la configurazione di Azure AD DS per l'autenticazione con le condivisioni file di Azure.
 
 Se non si ha familiarità con le condivisioni file di Azure, è consigliabile leggere la [Guida alla pianificazione](storage-files-planning.md) prima di leggere la serie di articoli riportata di seguito.
 
@@ -75,30 +75,30 @@ Il diagramma seguente illustra il flusso di lavoro end-to-end per l'abilitazione
 
 ![Diagramma che mostra il flusso di lavoro per l'autenticazione di Azure AD tramite SMB per File di Azure](media/storage-files-active-directory-enable/azure-active-directory-over-smb-workflow.png)
 
-## <a name="1-enable-azure-ad-ds-authentication-for-your-account"></a>1. abilitare l'autenticazione Azure AD DS per l'account
+## <a name="enable-azure-ad-ds-authentication-for-your-account"></a>Abilitare l'autenticazione di Azure AD DS per l'account
 
 Per abilitare l'autenticazione di Azure AD DS su SMB per File di Azure, è possibile impostare una proprietà negli account di archiviazione usando l'interfaccia della riga di comando portale di Azure, Azure PowerShell o Azure. Impostando questa proprietà in modo implicito "Domain joins", l'account di archiviazione con la distribuzione di Azure AD DS associata. Azure AD autenticazione DS su SMB viene quindi abilitata per tutte le condivisioni file nuove ed esistenti nell'account di archiviazione.
 
 Tenere presente che è possibile abilitare l'autenticazione di Azure AD DS su SMB solo dopo aver distribuito correttamente Azure AD DS nel tenant di Azure AD. Per ulteriori informazioni, vedere i [prerequisiti](#prerequisites).
 
-### <a name="azure-portal"></a>Portale di Azure
+# <a name="portal"></a>[Portale](#tab/azure-portal)
 
 Per abilitare l'autenticazione Azure AD DS su SMB con la [portale di Azure](https://portal.azure.com), attenersi alla seguente procedura:
 
 1. Nel portale di Azure passare all'account di archiviazione esistente o [creare un account di archiviazione](../common/storage-account-create.md).
 1. Nella sezione **Impostazioni** selezionare **Configurazione**.
 1. In **accesso basato su identità per le condivisioni file** impostare l'interruttore per **Azure Active Directory servizio del dominio (AAD DS)** su **abilitato**.
-1. Selezionare **Salva**.
+1. Seleziona **Salva**.
 
 La figura seguente illustra come abilitare l'autenticazione di Azure AD DS su SMB per l'account di archiviazione.
 
 ![Abilitare l'autenticazione di Azure AD DS su SMB nella portale di Azure](media/storage-files-active-directory-enable/portal-enable-active-directory-over-smb.png)
 
-### <a name="powershell"></a>PowerShell  
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Per abilitare l'autenticazione di Azure AD DS su SMB con Azure PowerShell, installare la versione più recente di AZ Module (2,4 o versione successiva) o il modulo AZ. Storage (1,5 o versione successiva). Per altre informazioni sull'installazione di PowerShell, vedere [installare Azure PowerShell in Windows con PowerShellGet](https://docs.microsoft.com/powershell/azure/install-Az-ps).
 
-Per creare un nuovo account di archiviazione, chiamare [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0), quindi impostare il parametro **EnableAzureActiveDirectoryDomainServicesForFile** su **true**. Nell'esempio seguente ricordare di sostituire i valori segnaposto con i propri valori. Se si usa il modulo di anteprima precedente, il parametro per l'abilitazione della funzionalità è **EnableAzureFilesAadIntegrationForSMB**.
+Per creare un nuovo account di archiviazione, chiamare [New-AzStorageAccount](https://docs.microsoft.com/powershell/module/az.storage/New-azStorageAccount?view=azps-2.5.0), quindi impostare il parametro **EnableAzureActiveDirectoryDomainServicesForFile** su **true**. Nell'esempio seguente ricordare di sostituire i valori segnaposto con i propri valori. Se si usa il modulo di anteprima precedente, il parametro per abilitare la funzionalità è **EnableAzureFilesAadIntegrationForSMB**.
 
 ```powershell
 # Create a new storage account
@@ -120,7 +120,7 @@ Set-AzStorageAccount -ResourceGroupName "<resource-group-name>" `
 ```
 
 
-### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per abilitare l'autenticazione Azure AD su SMB con l'interfaccia della riga di comando di Azure, installare la versione più recente dell'interfaccia della riga di comando (versione 2.0.70 o Per altre informazioni sull'installazione dell'interfaccia della riga di comando di Azure, vedere [Install the Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 
@@ -137,10 +137,11 @@ Per abilitare questa funzionalità negli account di archiviazione esistenti, usa
 # Update a new storage account
 az storage account update -n <storage-account-name> -g <resource-group-name> --enable-files-aadds $true
 ```
+---
 
 [!INCLUDE [storage-files-aad-permissions-and-mounting](../../../includes/storage-files-aad-permissions-and-mounting.md)]
 
-È stata abilitata l'autenticazione di Azure AD DS su SMB ed è stato assegnato un ruolo personalizzato che fornisce l'accesso a una condivisione file di Azure con un'identità Azure AD. Per concedere ad altri utenti l'accesso alla condivisione file, seguire le istruzioni riportate nelle sezioni [assegnare le autorizzazioni di accesso](#2-assign-access-permissions-to-an-identity) per l'uso di un'identità e configurare le [autorizzazioni NTFS su SMB](#3-configure-ntfs-permissions-over-smb).
+È stata abilitata l'autenticazione di Azure AD DS su SMB ed è stato assegnato un ruolo personalizzato che fornisce l'accesso a una condivisione file di Azure con un'identità Azure AD. Per concedere ad altri utenti l'accesso alla condivisione file, seguire le istruzioni riportate nelle sezioni [assegnare le autorizzazioni di accesso](#assign-access-permissions-to-an-identity) per l'uso di un'identità e configurare le [autorizzazioni NTFS su SMB](#configure-ntfs-permissions-over-smb).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

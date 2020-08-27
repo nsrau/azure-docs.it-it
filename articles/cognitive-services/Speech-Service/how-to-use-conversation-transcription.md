@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: weixu
-ms.openlocfilehash: f9670733f8aa040b87cec20ac28aacc636c04698
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a425c75dfd57f0d5f9c98b73d8b351972b70703a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056211"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918656"
 ---
 # <a name="real-time-conversation-transcription-preview"></a>Trascrizione di conversazioni in tempo reale (anteprima)
 
@@ -108,7 +109,7 @@ Nell'esempio di codice seguente viene illustrato come trascrivere le conversazio
 
 Di seguito sono riportati alcuni esempi di codice:
 
-- Creazione di un `Conversation` oggetto dall' `SpeechConfig` oggetto utilizzando un identificatore della riunione generato utilizzando`Guid.NewGuid()`
+- Creazione di un `Conversation` oggetto dall' `SpeechConfig` oggetto utilizzando un identificatore della riunione generato utilizzando `Guid.NewGuid()`
 - Creazione `ConversationTranscriber` di un oggetto e aggiunta della conversazione `JoinConversationAsync()` a per avviare la trascrizione
 - Registrazione degli eventi di interesse
 - Aggiunta o rimozione di partecipanti alla conversazione utilizzando l'oggetto Conversation

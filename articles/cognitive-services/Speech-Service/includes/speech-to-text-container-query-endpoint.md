@@ -6,12 +6,13 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: e5f38da6a18e8a4c59bea77f4ddd5a68db1e1902
-ms.sourcegitcommit: 50ef5c2798da04cf746181fbfa3253fca366feaa
+ms.custom: devx-track-csharp
+ms.openlocfilehash: debd1eda050e75ea2b9baed45e6e5af0f5a95c46
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/30/2020
-ms.locfileid: "82610744"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88944433"
 ---
 ### <a name="speech-to-text-or-custom-speech-to-text"></a>Riconoscimento vocale o da Riconoscimento vocale personalizzato a testo
 

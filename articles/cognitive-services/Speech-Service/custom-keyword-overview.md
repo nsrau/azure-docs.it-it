@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 04/06/2020
 ms.author: hasshah
-ms.openlocfilehash: d7eea031e50a0f54a57d8a9c857d52ca137f3283
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 8c19650a8f36181e3e003414ff15add071e9a8ac
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760550"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918894"
 ---
 # <a name="what-is-a-keyword"></a>Che cos'è una parola chiave?
 
@@ -25,7 +26,7 @@ Una parola chiave è una parola o una frase breve che consente di attivare la vo
 
 Con le funzionalità di personalizzazione, prestazioni e integrazione delle parole chiave personalizzate, è possibile personalizzare l'attivazione vocale per soddisfare al meglio la visione del prodotto e le esigenze degli utenti.
 
-| Feature | Descrizione |
+| Funzionalità | Descrizione |
 |----------|----------|
 | Personalizzazione delle parole chiave | Come estensione del marchio, una parola chiave rinforza l'equità creata con i clienti. Il portale di parole chiave personalizzato in speech studio consente di specificare qualsiasi parola o breve frase che meglio rappresenta il marchio. È possibile personalizzare ulteriormente la parola chiave scegliendo le pronunce corrette, che verranno rispettate dal modello di parola chiave generato.
 | Verifica parole chiave | Quando la parola chiave viene rilevata localmente in modo sicuro, l'audio viene inviato al cloud per un'ulteriore verifica che un utente abbia detto la parola chiave. La verifica delle parole chiave offre un ulteriore livello di sicurezza, riducendo l'effetto di un rilevamento locale errato e la protezione della privacy degli utenti.
