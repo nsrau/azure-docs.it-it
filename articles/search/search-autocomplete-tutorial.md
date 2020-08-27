@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/15/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 2de282da56a40c92eacde84ac913be0ceacf9e2b
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: be873ed122bb521ce00e2d18d55a9be8197a0048
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87413018"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936759"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Aggiungere il completamento automatico e suggerimenti alle app client
 
@@ -23,7 +23,7 @@ Il tipo di ricerca è una tecnica comune per migliorare la produttività delle q
 Per implementare queste esperienze in Azure ricerca cognitiva, sarà necessario:
 
 + Un *Suggerimento* sul back-end.
-+ *Query* che specifica l'API di [completamento automatico](https://docs.microsoft.com/rest/api/searchservice/autocomplete) o [suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions) per la richiesta.
++ *Query* che specifica l'API di [completamento automatico](/rest/api/searchservice/autocomplete) o [suggerimenti](/rest/api/searchservice/suggestions) per la richiesta.
 + Un *controllo dell'interfaccia utente* per gestire le interazioni di tipo ricerca in una propria app client. A questo scopo, è consigliabile usare una libreria JavaScript esistente.
 
 In ricerca cognitiva di Azure, le query con completamento automatico e i risultati suggeriti vengono recuperati dall'indice di ricerca, dai campi selezionati registrati con un suggerimento. Un suggerimento è parte dell'indice e specifica i campi che forniranno contenuto che completa una query, suggerisce un risultato oppure esegue entrambe le cause. Quando l'indice viene creato e caricato, viene creata internamente una struttura di dati del suggerimento per archiviare i prefissi utilizzati per la corrispondenza in query parziali. Per i suggerimenti, la scelta di campi appropriati che siano univoci o almeno non ripetitivi è essenziale per l'esperienza. Per ulteriori informazioni, vedere la pagina relativa alla [creazione di un suggerimento](index-add-suggesters.md).
@@ -54,16 +54,16 @@ Le corrispondenze si trovano all'inizio di un termine in qualsiasi punto della s
 
 Seguire questi collegamenti per le pagine di riferimento REST e .NET SDK:
 
-+ [API REST suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions) 
-+ [API REST di completamento automatico](https://docs.microsoft.com/rest/api/searchservice/autocomplete) 
-+ [Metodo SuggestWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
-+ [Metodo AutocompleteWithHttpMessagesAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
++ [API REST suggerimenti](/rest/api/searchservice/suggestions) 
++ [API REST di completamento automatico](/rest/api/searchservice/autocomplete) 
++ [Metodo SuggestWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.suggestwithhttpmessagesasync?view=azure-dotnet)
++ [Metodo AutocompleteWithHttpMessagesAsync](/dotnet/api/microsoft.azure.search.idocumentsoperations.autocompletewithhttpmessagesasync?view=azure-dotnet&viewFallbackFrom=azure-dotnet)
 
 ## <a name="structure-a-response"></a>Struttura di una risposta
 
-Le risposte per il completamento automatico e i suggerimenti sono quelle che è possibile prevedere per il modello: il [completamento automatico](https://docs.microsoft.com/rest/api/searchservice/autocomplete#response) restituisce un elenco di termini, i [suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggestions#response) restituiscono termini più un ID documento in modo che sia possibile recuperare il documento (usare l'API di [ricerca del documento](https://docs.microsoft.com/rest/api/searchservice/lookup-document) per recuperare il documento specifico per una pagina di dettaglio).
+Le risposte per il completamento automatico e i suggerimenti sono quelle che è possibile prevedere per il modello: il [completamento automatico](/rest/api/searchservice/autocomplete#response) restituisce un elenco di termini, i [suggerimenti](/rest/api/searchservice/suggestions#response) restituiscono termini più un ID documento in modo che sia possibile recuperare il documento (usare l'API di [ricerca del documento](/rest/api/searchservice/lookup-document) per recuperare il documento specifico per una pagina di dettaglio).
 
-Le risposte vengono modellate in base ai parametri della richiesta. Per il completamento automatico, impostare [**autocompleteMode**](https://docs.microsoft.com/rest/api/searchservice/autocomplete#autocomplete-modes) per determinare se il completamento del testo viene eseguito in uno o due termini. Per i suggerimenti, il campo scelto determina il contenuto della risposta.
+Le risposte vengono modellate in base ai parametri della richiesta. Per il completamento automatico, impostare [**autocompleteMode**](/rest/api/searchservice/autocomplete#autocomplete-modes) per determinare se il completamento del testo viene eseguito in uno o due termini. Per i suggerimenti, il campo scelto determina il contenuto della risposta.
 
 Per i suggerimenti, è necessario affinare ulteriormente la risposta per evitare i duplicati o i risultati non correlati. Per controllare i risultati, includere più parametri nella richiesta. I parametri seguenti si applicano sia a completamento automatico che a suggerimenti, ma sono forse più necessari per i suggerimenti, soprattutto quando un suggerimento include più campi.
 
@@ -141,7 +141,7 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 Se si usa C# e un'applicazione MVC, il file **HomeController.cs** nella directory Controllers è il punto in cui è possibile creare una classe per i risultati suggeriti. In .NET una funzione suggest è basata sul [Metodo DocumentsOperationsExtensions. suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
 
-Il `InitSearch` metodo crea un client di indice http autenticato per il servizio ricerca cognitiva di Azure. Per altre informazioni su .NET SDK, vedere [come usare ricerca cognitiva di Azure da un'applicazione .NET](https://docs.microsoft.com/azure/search/search-howto-dotnet-sdk).
+Il `InitSearch` metodo crea un client di indice http autenticato per il servizio ricerca cognitiva di Azure. Per altre informazioni su .NET SDK, vedere [come usare ricerca cognitiva di Azure da un'applicazione .NET](./search-howto-dotnet-sdk.md).
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)
@@ -175,7 +175,7 @@ public ActionResult Suggest(bool highlights, bool fuzzy, string term)
 }
 ```
 
-La funzione Suggest include due parametri che determinano se vengono restituiti i risultati evidenziati o se la corrispondenza fuzzy è utilizzata in completamento all'inserimento del termine di ricerca. Il metodo crea un [oggetto SuggestParameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet) che viene quindi passato all'API Suggest. Il risultato viene quindi convertito in formato JSON in modo da essere visualizzato nel client.
+La funzione Suggest include due parametri che determinano se vengono restituiti i risultati evidenziati o se la corrispondenza fuzzy è utilizzata in completamento all'inserimento del termine di ricerca. Il metodo crea un [oggetto SuggestParameters](/dotnet/api/microsoft.azure.search.models.suggestparameters?view=azure-dotnet) che viene quindi passato all'API Suggest. Il risultato viene quindi convertito in formato JSON in modo da essere visualizzato nel client.
 
 ## <a name="autocomplete"></a>Completamento automatico
 
@@ -218,7 +218,7 @@ $(function () {
 
 ### <a name="autocomplete-function"></a>Funzione di completamento automatico
 
-Il completamento automatico è basato sul [Metodo DocumentsOperationsExtensions. AutoComplete](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet). Come per i suggerimenti, questo blocco di codice viene inserito nel file **HomeController.cs** .
+Il completamento automatico è basato sul [Metodo DocumentsOperationsExtensions. AutoComplete](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.autocomplete?view=azure-dotnet). Come per i suggerimenti, questo blocco di codice viene inserito nel file **HomeController.cs** .
 
 ```csharp
 public ActionResult AutoComplete(string term)
@@ -243,7 +243,7 @@ public ActionResult AutoComplete(string term)
 }
 ```
 
-La funzione Autocomplete accetta l'input del termine di ricerca. Il metodo crea un [oggetto AutoCompleteParameters](https://docs.microsoft.com/rest/api/searchservice/autocomplete). Il risultato viene quindi convertito in formato JSON in modo da essere visualizzato nel client.
+La funzione Autocomplete accetta l'input del termine di ricerca. Il metodo crea un [oggetto AutoCompleteParameters](/rest/api/searchservice/autocomplete). Il risultato viene quindi convertito in formato JSON in modo da essere visualizzato nel client.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

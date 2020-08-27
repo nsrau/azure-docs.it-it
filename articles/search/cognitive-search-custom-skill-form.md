@@ -8,12 +8,12 @@ ms.author: pafarley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: c07c00345140d96bf3265fb280fe29b1274bdee6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58f1c2621165a7074c04752832c6560b2fd3e423
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321307"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935433"
 ---
 # <a name="example-create-a-form-recognizer-custom-skill"></a>Esempio: creare un'abilità personalizzata di riconoscimento del modulo
 
@@ -30,18 +30,18 @@ In questo esempio di competenze di Azure ricerca cognitiva si apprenderà come c
 
 ## <a name="train-your-model"></a>Eseguire il training del modello
 
-È necessario eseguire il training di un modello di riconoscimento form con i moduli di input prima di usare questa competenza. Seguire la [Guida introduttiva di curl](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/quickstarts/curl-train-extract) per informazioni su come eseguire il training di un modello. È possibile usare i moduli di esempio disponibili in questa Guida introduttiva oppure è possibile usare i propri dati. Una volta eseguito il training del modello, copiarne il valore ID in una posizione sicura.
+È necessario eseguire il training di un modello di riconoscimento form con i moduli di input prima di usare questa competenza. Seguire la [Guida introduttiva di curl](../cognitive-services/form-recognizer/quickstarts/curl-train-extract.md) per informazioni su come eseguire il training di un modello. È possibile usare i moduli di esempio disponibili in questa Guida introduttiva oppure è possibile usare i propri dati. Una volta eseguito il training del modello, copiarne il valore ID in una posizione sicura.
 
 ## <a name="set-up-the-custom-skill"></a>Configurare l'abilità personalizzata
 
 Questa esercitazione usa il progetto [AnalyzeForm](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Vision/AnalyzeForm) nel repository GitHub [Power Skills di ricerca di Azure](https://github.com/Azure-Samples/azure-search-power-skills) . Clonare il repository nel computer locale e passare a **Vision/AnalyzeForm/** per accedere al progetto. Aprire quindi _AnalyzeForm. csproj_ in Visual Studio. Questo progetto crea una risorsa di funzione di Azure che soddisfa l' [interfaccia skill personalizzata](cognitive-search-custom-skill-interface.md) e può essere usata per l'arricchimento ricerca cognitiva di Azure. Accetta documenti form come input e restituisce come testo le coppie chiave/valore specificate.
 
 In primo luogo, aggiungere variabili di ambiente a livello di progetto. Individuare il progetto **AnalyzeForm** nel riquadro sinistro, fare clic con il pulsante destro del mouse su di esso e scegliere **Proprietà**. Nella finestra **Proprietà** fare clic sulla scheda **debug** , quindi individuare il campo **variabili di ambiente** . Fare clic su **Aggiungi** per aggiungere le variabili seguenti:
-* `FORMS_RECOGNIZER_ENDPOINT_URL`con il valore impostato sull'URL dell'endpoint.
-* `FORMS_RECOGNIZER_API_KEY`con il valore impostato sulla chiave di sottoscrizione.
-* `FORMS_RECOGNIZER_MODEL_ID`con il valore impostato sull'ID del modello sottoposto a training.
-* `FORMS_RECOGNIZER_RETRY_DELAY`con il valore impostato su 1000. Questo valore è il tempo in millisecondi di attesa del programma prima di ritentare la query.
-* `FORMS_RECOGNIZER_MAX_ATTEMPTS`con il valore impostato su 100. Questo valore indica il numero di volte in cui il programma eseguirà una query sul servizio durante il tentativo di ottenere una risposta corretta.
+* `FORMS_RECOGNIZER_ENDPOINT_URL` con il valore impostato sull'URL dell'endpoint.
+* `FORMS_RECOGNIZER_API_KEY` con il valore impostato sulla chiave di sottoscrizione.
+* `FORMS_RECOGNIZER_MODEL_ID` con il valore impostato sull'ID del modello sottoposto a training.
+* `FORMS_RECOGNIZER_RETRY_DELAY` con il valore impostato su 1000. Questo valore è il tempo in millisecondi di attesa del programma prima di ritentare la query.
+* `FORMS_RECOGNIZER_MAX_ATTEMPTS` con il valore impostato su 100. Questo valore indica il numero di volte in cui il programma eseguirà una query sul servizio durante il tentativo di ottenere una risposta corretta.
 
 Successivamente, aprire _AnalyzeForm.cs_ e trovare la `fieldMappings` variabile, che fa riferimento all' *field-mappings.jssu* file. Questo file (e la variabile che vi fa riferimento) definisce l'elenco di chiavi che si desidera estrarre dai form e un'etichetta personalizzata per ciascuna chiave. Il valore indica, ad esempio, che lo `{ "Address:", "address" }, { "Invoice For:", "recipient" }` script salverà solo i valori per i campi rilevati `Address:` e `Invoice For:` che verranno etichettati `"address"` rispettivamente con e `"recipient"` .
 
@@ -167,5 +167,5 @@ In questa guida è stata creata un'abilità personalizzata dal servizio di ricon
 * [Azure Search Skills Power Skills: repository di competenze personalizzate](https://github.com/Azure-Samples/azure-search-power-skills)
 * [Aggiungere un'abilità personalizzata a una pipeline di arricchimento di intelligenza artificiale](cognitive-search-custom-skill-interface.md)
 * [Definire un insieme di competenze](cognitive-search-defining-skillset.md)
-* [Creare un oggetto di competenze (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
+* [Creare un oggetto di competenze (REST)](/rest/api/searchservice/create-skillset)
 * [Mappare campi arricchiti](cognitive-search-output-field-mapping.md)

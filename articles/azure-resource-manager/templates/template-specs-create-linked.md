@@ -2,13 +2,13 @@
 title: Creare una specifica di modello con i modelli collegati
 description: Informazioni su come creare una specifica di modello con i modelli collegati.
 ms.topic: conceptual
-ms.date: 07/22/2020
-ms.openlocfilehash: b952baa465092fef19ad2feb11a43328a6177d1c
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.date: 08/26/2020
+ms.openlocfilehash: 49a26bf61c3c66f41761afe293471575e76c4eb9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387864"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936368"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Esercitazione: creare una specifica di modello con i modelli collegati (anteprima)
 
@@ -19,7 +19,7 @@ Informazioni su come creare una [specifica del modello](template-specs.md) con u
 Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 > [!NOTE]
-> Le specifiche del modello sono attualmente in anteprima. Per usarlo, è necessario [iscriversi per l'anteprima](https://aka.ms/templateSpecOnboarding).
+> La funzionalità Specifiche di modello è attualmente in anteprima. Per usarlo, è necessario [iscriversi per l'anteprima](https://aka.ms/templateSpecOnboarding).
 
 ## <a name="create-linked-templates"></a>Creare modelli collegati
 
@@ -160,9 +160,11 @@ La `relativePath` proprietà è sempre relativa al file di modello in cui `relat
 
 1. Salvare il modello come **linkedTemplate.js** nella cartella **artefatti** .
 
-## <a name="create-template-spec"></a>Crea specifica modello
+## <a name="create-template-spec"></a>Creare la specifica di modello
 
 Le specifiche di modelli vengono archiviate in gruppi di risorse.  Creare un gruppo di risorse e quindi creare una specifica del modello con lo script seguente. Il nome della specifica del modello è **webspec**.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup `
@@ -170,22 +172,51 @@ New-AzResourceGroup `
   -Location westus2
 
 New-AzTemplateSpec `
-  -ResourceGroupName templateSpecRG `
   -Name webSpec `
   -Version "1.0.0.0" `
+  -ResourceGroupName templateSpecRG `
   -Location westus2 `
   -TemplateJsonFile "c:\Templates\linkedTS\azuredeploy.json"
 ```
 
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name templateSpecRG \
+  --location westus2
+
+az template-specs create \
+  --name webSpec \
+  --version "1.0.0.0" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "c:\Templates\linkedTS\azuredeploy.json"
+```
+
+---
+
 Al termine, è possibile visualizzare la specifica del modello dal portale di Azure o usando il cmdlet seguente:
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 Get-AzTemplateSpec -ResourceGroupName templatespecRG -Name webSpec
 ```
 
-## <a name="deploy-template-spec"></a>Distribuisci specifiche modello
+# <a name="cli"></a>[CLI](#tab/azure-cli)
 
-È ora possibile distribuire la specifica del modello. la distribuzione della specifica del modello è simile alla distribuzione del modello in essa contenuto, con la differenza che viene passato l'ID risorsa della specifica del modello. Usare gli stessi comandi di distribuzione e, se necessario, passare i valori dei parametri per la specifica del modello.
+```azurecli
+az template-specs show --name webSpec --resource-group templateSpecRG --version "1.0.0.0"
+```
+
+---
+
+## <a name="deploy-template-spec"></a>Distribuire la specifica di modello
+
+È ora possibile distribuire la specifica di modello. La distribuzione della specifica di modello è analoga alla distribuzione del modello che contiene, con la differenza che occorre passare l'ID risorsa della specifica di modello. Usare gli stessi comandi di distribuzione e, se necessario, passare i valori dei parametri della specifica di modello.
+
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroup `
@@ -198,6 +229,25 @@ New-AzResourceGroupDeployment `
   -TemplateSpecId $id `
   -ResourceGroupName webRG
 ```
+
+# <a name="cli"></a>[CLI](#tab/azure-cli)
+
+```azurecli
+az group create \
+  --name webRG \
+  --location westus2
+
+id = $(az template-specs show --name webSpec --resource-group templateSpecRG --version "1.0.0.0" --query "id")
+
+az deployment group create \
+  --resource-group webRG \
+  --template-spec $id
+```
+
+> [!NOTE]
+> Si è verificato un problema noto durante il recupero dell'ID delle specifiche del modello e quindi viene assegnato a una variabile in Windows PowerShell.
+
+---
 
 ## <a name="next-steps"></a>Passaggi successivi
 

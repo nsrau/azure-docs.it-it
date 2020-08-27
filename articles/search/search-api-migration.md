@@ -8,16 +8,16 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 1e5269333de27c146d4b9e2040801c4b14564125
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 06e25e1426f206a4542444f57954ed4859a11142
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562619"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927137"
 ---
 # <a name="upgrade-to-the-latest-azure-cognitive-search-service-rest-api-version"></a>Eseguire l'aggiornamento alla versione più recente dell'API REST del servizio ricerca cognitiva di Azure
 
-Se si usa una versione precedente dell' [API REST di ricerca](https://docs.microsoft.com/rest/api/searchservice/), questo articolo consentirà di aggiornare l'applicazione per usare la versione API disponibile a livello generale più recente, 2020-06-30.
+Se si usa una versione precedente dell' [API REST di ricerca](/rest/api/searchservice/), questo articolo consentirà di aggiornare l'applicazione per usare la versione API disponibile a livello generale più recente, 2020-06-30.
 
 La versione 2020-06-30 dell'API REST contiene alcune modifiche rispetto alle versioni precedenti. Le versioni sono abbastanza compatibili tra loro, pertanto la modifica del codice richiede un impegno minimo, a seconda della versione in uso prima. I [passaggi per l'aggiornamento](#UpgradeSteps) delineano le modifiche del codice necessarie per l'utilizzo delle nuove funzionalità.
 
@@ -32,7 +32,7 @@ Quando si esegue l'aggiornamento a nuove versioni, probabilmente non sarà neces
 
 * Il codice ha esito negativo quando vengono restituite proprietà sconosciute in una risposta API. Per impostazione predefinita, l'applicazione deve ignorare le proprietà che non riconosce.
 
-* Il codice rende persistenti le richieste API e tenta di inviarle nuovamente alla nuova versione dell'API. Ad esempio, questa situazione può verificarsi se l'applicazione mantiene i token di continuazione restituiti dall'API di ricerca. Per altre informazioni, cercare `@search.nextPageParameters` nel [riferimento all'API di ricerca](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+* Il codice rende persistenti le richieste API e tenta di inviarle nuovamente alla nuova versione dell'API. Ad esempio, questa situazione può verificarsi se l'applicazione mantiene i token di continuazione restituiti dall'API di ricerca. Per altre informazioni, cercare `@search.nextPageParameters` nel [riferimento all'API di ricerca](/rest/api/searchservice/Search-Documents).
 
 * Il codice fa riferimento a una versione API che precede 2019-05-06 ed è soggetta a una o più delle modifiche di rilievo apportate a tale versione. La sezione [aggiornamento a 2019-05-06](#upgrade-to-2019-05-06) fornisce maggiori dettagli. 
 
@@ -146,4 +146,4 @@ Un nuovo formato di tipo albero per la definizione dei campi di indice è stato 
 Vedere la documentazione di riferimento dell'API REST di ricerca. Se si verificano problemi, chiedere assistenza per [stack overflow](https://stackoverflow.com/) o [contattare il supporto tecnico](https://azure.microsoft.com/support/community/?product=search).
 
 > [!div class="nextstepaction"]
-> [Informazioni di riferimento sull'API REST del servizio di ricerca](https://docs.microsoft.com/rest/api/searchservice/)
+> [Informazioni di riferimento sull'API REST del servizio di ricerca](/rest/api/searchservice/)

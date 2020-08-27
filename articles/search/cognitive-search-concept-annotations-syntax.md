@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e27f61239c0631fb248217777a311b13ee48a3f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03431d861ca6d469b894e45c36fe2a3d7904c3a2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74113858"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935535"
 ---
 # <a name="how-to-reference-annotations-in-an-azure-cognitive-search-skillset"></a>Come fare riferimento alle annotazioni in un ricerca cognitiva di Azure
 
@@ -123,5 +123,5 @@ Si noti che la cardinalità di `"/document/people/*/lastname"` è maggiore di qu
 ## <a name="see-also"></a>Vedere anche
 + [Come integrare una competenza personalizzata in una pipeline di arricchimento](cognitive-search-custom-skill-interface.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
-+ [Creare un set di competenze (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Creare un set di competenze (REST)](/rest/api/searchservice/create-skillset)
 + [Come eseguire la mappatura dei campi arricchiti a un indice](cognitive-search-output-field-mapping.md)

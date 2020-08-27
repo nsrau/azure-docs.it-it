@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 12/27/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 62c2193a0045cc2ee35930e87b360446e94ba861
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: cace61739e13514bb4aba1169c51ea670a167c9d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88864787"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88944477"
 ---
 File di Azure offre quattro diversi livelli di archiviazione, ovvero Premium, Ottimizzato per le transazioni, Accesso frequente e Accesso sporadico, che consentono di adattare le condivisioni ai requisiti dello scenario in termini di prestazioni e prezzi:
 
@@ -30,6 +30,8 @@ Le condivisioni file ottimizzate per le transazioni sono disponibili in tutte le
 - Australia centrale 2
 - Australia orientale
 - Australia sud-orientale
+- Canada orientale
+- Canada centrale
 - Francia centrale
 - Francia meridionale
 - Germania settentrionale (pubblico)
@@ -45,6 +47,8 @@ Le condivisioni file ottimizzate per le transazioni sono disponibili in tutte le
 - Norvegia occidentale
 - Sudafrica settentrionale
 - Sudafrica occidentale
+- Svizzera settentrionale
+- Svizzera occidentale
 - Emirati Arabi Uniti centrali
 - Emirati Arabi Uniti settentrionali
 - Regno Unito meridionale

@@ -3,13 +3,13 @@ title: Eseguire le attività in parallelo per ottimizzare le risorse di calcolo
 description: Aumenta l'efficienza e si riducono i costi usando meno nodi di calcolo ed eseguendo attività simultanee in ogni nodo dei pool di Azure Batch
 ms.topic: how-to
 ms.date: 04/17/2019
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1b13f7f276740cd4f37e8d4c4ba1f2967d919ccf
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: H1Hack27Feb2017, devx-track-csharp
+ms.openlocfilehash: e4c98244755cae7a606ebe26cbadef53ca5fd922
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85961575"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926287"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>Eseguire attività contemporaneamente per ottimizzare l'uso dei nodi di calcolo Batch 
 

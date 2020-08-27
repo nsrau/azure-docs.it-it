@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: 443112628edddf9c60cd6469f046b1a9e066dc82
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 8562fd1afaa01e362bd6d95fd4dcf90cf3145c5a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496418"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928524"
 ---
 # <a name="security-filters-for-trimming-results-in-azure-cognitive-search"></a>Filtri di sicurezza per tagliare i risultati in Azure ricerca cognitiva
 
@@ -109,13 +109,13 @@ Se si desidera aggiornare un documento esistente con l'elenco di gruppi, è poss
 }
 ```
 
-Per informazioni dettagliate sull'aggiunta o l'aggiornamento dei documenti, è possibile leggere [Modificare documenti](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents).
+Per informazioni dettagliate sull'aggiunta o l'aggiornamento dei documenti, è possibile leggere [Modificare documenti](/rest/api/searchservice/addupdate-or-delete-documents).
    
 ## <a name="apply-the-security-filter"></a>Applicare il filtro di sicurezza
 
 Al fine di tagliare i documenti in base all'accesso `group_ids`, è consigliabile eseguire una query di ricerca con un filtro `group_ids/any(g:search.in(g, 'group_id1, group_id2,...'))`, in cui "group_id1, group_id2,..." sono i gruppi a cui appartiene l'emittente della richiesta di ricerca.
 Questo filtro corrisponde a tutti i documenti per cui il campo `group_ids` contiene uno degli identificatori specificati.
-Per informazioni dettagliate sulla ricerca di documenti con Azure ricerca cognitiva, è possibile leggere i [documenti di ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Per informazioni dettagliate sulla ricerca di documenti con Azure ricerca cognitiva, è possibile leggere i [documenti di ricerca](/rest/api/searchservice/search-documents).
 Si noti che questo esempio mostra come eseguire la ricerca di documenti con una richiesta POST.
 
 Inviare la richiesta HTTP POST:

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 1994407de579e8fd7bc6dfc2ecc9f021d1bf0ec5
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 3368a42248e084476eb27318abbcd1ca9fbfdacf
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853249"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927545"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Creare & usare gli ambienti software in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -242,7 +242,11 @@ build = env.build(workspace=ws)
 build.wait_for_completion(show_output=True)
 ```
 
-È utile per prima cosa creare immagini localmente usando il [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) metodo. L'impostazione del parametro facoltativo `pushImageToWorkspaceAcr = True` comporterà il push dell'immagine risultante nel registro contenitori dell'area di lavoro di Azure ml. 
+È utile per prima cosa creare immagini localmente usando il [`build_local()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#build-local-workspace--platform-none----kwargs-) metodo. Per creare un'immagine Docker, impostare il parametro facoltativo `useDocker=True` . Per eseguire il push dell'immagine risultante nel registro di sistema del contenitore dell'area di lavoro AzureML, impostare `pushImageToWorkspaceAcr=True` .
+
+```python
+build = env.build_local(workspace=ws, useDocker=True, pushImageToWorkspaceAcr=True)
+```
 
 > [!WARNING]
 >  La modifica dell'ordine delle dipendenze o dei canali in un ambiente determinerà un nuovo ambiente e richiederà una nuova compilazione dell'immagine. Inoltre, la chiamata al `build()` metodo per un'immagine esistente aggiornerà le relative dipendenze se sono presenti nuove versioni. 

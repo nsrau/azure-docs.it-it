@@ -11,15 +11,16 @@ ms.service: azure-cdn
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
+ms.custom: devx-track-csharp
 ms.topic: how-to
 ms.date: 02/15/2018
 ms.author: allensu
-ms.openlocfilehash: 21ff3e456a587a7d676de379987c86f154878c61
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 562d5010458fc938d9d62fed5d0d2c8284f2055d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84887644"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936946"
 ---
 # <a name="manage-expiration-of-web-content-in-azure-cdn"></a>Gestire la scadenza del contenuto Web nella rete CDN di Azure
 > [!div class="op_single_selector"]
@@ -66,7 +67,7 @@ Il metodo preferito per la configurazione dell'intestazione `Cache-Control` di u
 
    Questa regola di memorizzazione nella cache globale imposta una durata di un'ora per la cache e influisce su tutte le richieste per l'endpoint. Esegue l'override di qualsiasi intestazione HTTP `Cache-Control` o `Expires` inviata dal server di origine specificato dall'endpoint.   
 
-1. Selezionare **Salva**.
+1. Seleziona **Salva**.
 
 **Per configurare le intestazioni Cache-Control di un server Web tramite regole di memorizzazione nella cache personalizzate:**
 
@@ -80,7 +81,7 @@ Il metodo preferito per la configurazione dell'intestazione `Cache-Control` di u
 
     La prima regola di memorizzazione nella cache personalizzata imposta una durata della cache di quattro ore per qualsiasi file nella cartella `/webfolder1` nel server di origine specificato dall'endpoint. La seconda regola esegue l'override della prima regola solo per il file `file1.txt` e imposta una durata della cache di due ore per tale file.
 
-1. Selezionare **Salva**.
+1. Seleziona **Salva**.
 
 
 ## <a name="setting-cache-control-headers-by-using-configuration-files"></a>Impostazione delle intestazioni Cache-Control tramite dei file di configurazione
