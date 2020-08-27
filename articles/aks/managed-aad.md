@@ -3,14 +3,14 @@ title: Usare Azure AD nel servizio Azure Kubernetes
 description: Informazioni su come usare Azure AD in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
-ms.date: 07/27/2020
+ms.date: 08/26/2020
 ms.author: thomasge
-ms.openlocfilehash: fd13fbc3b1ada0a9e974742d36bd231e3caf6ef6
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 32273bbb14e6cee73f03bd83b84be77299186370
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661062"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936997"
 ---
 # <a name="aks-managed-azure-active-directory-integration"></a>Integrazione Azure Active Directory gestita da AKS
 
@@ -37,17 +37,19 @@ L'integrazione Azure Active Directory gestita da AKS è disponibile nelle aree p
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* L'interfaccia della riga di comando di Azure versione 2.9.0 o successiva
-* Kubectl con una versione minima di [1,18](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1180)
+* L'interfaccia della riga di comando di Azure versione 2.11.0 o successiva
+* Kubectl con una versione minima di [1.18.1](https://github.com/kubernetes/kubernetes/blob/master/CHANGELOG/CHANGELOG-1.18.md#v1181) o [kubelogin](https://github.com/Azure/kubelogin)
+* Se si usa [Helm](https://github.com/helm/helm), versione minima di Helm 3,3.
 
 > [!Important]
-> È necessario usare Kubectl con una versione minima di 1,18
+> È necessario usare Kubectl con una versione minima di 1.18.1 o kubelogin. Se non si usa la versione corretta, si noteranno problemi di autenticazione.
 
-Per installare kubectl, usare i comandi seguenti:
+Per installare kubectl e kubelogin, usare i comandi seguenti:
 
 ```azurecli-interactive
 sudo az aks install-cli
 kubectl version --client
+kubelogin --version
 ```
 
 Usare [queste istruzioni](https://kubernetes.io/docs/tasks/tools/install-kubectl/) per altri sistemi operativi.

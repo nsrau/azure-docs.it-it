@@ -3,12 +3,12 @@ title: Eseguire il backup di macchine virtuali Hyper-V con MAB
 description: Questo articolo contiene le procedure per il backup e il ripristino di macchine virtuali con Backup di Microsoft Azure Server (MAB).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: 364426956d665d54885182e7b63af93df3d30e1f
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: dc135e74564d4104c61ffef6f1403eddc08586be
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88823965"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892814"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Eseguire il backup di macchine virtuali Hyper-V con server di Backup di Azure
 
@@ -149,7 +149,7 @@ Quando è possibile ripristinare una macchina virtuale sottoposto a backup, usar
     - Selezionare **Abilita recupero basato su SAN tramite snapshot dell'hardware** se è stata configurata la rete.
     - Selezionare **Invia messaggio di posta elettronica al termine del ripristino** e quindi specificare gli indirizzi di posta elettronica, se si vuole che le notifiche di posta elettronica vengano inviate al termine del processo di ripristino.
 
-6. Nella schermata di riepilogo, verificare che tutti i dettagli siano corretti. Se i dettagli non sono corretti o si vuole apportare una modifica, fare clic su **Indietro**. Se si è soddisfatti con le impostazioni, fare clic su **Ripristina** per avviare il processo di ripristino.
+6. Nella schermata di riepilogo, verificare che tutti i dettagli siano corretti. Se i dettagli non sono corretti o si vuole apportare una modifica, fare clic su **Indietro**. Se si è soddisfatti delle impostazioni, fare clic su **Ripristina** per avviare il processo di ripristino.
 
 7. La schermata **Stato ripristino** fornisce informazioni sul processo di ripristino.
 

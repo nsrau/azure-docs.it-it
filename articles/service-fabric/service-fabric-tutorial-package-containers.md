@@ -7,10 +7,10 @@ ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
 ms.openlocfilehash: cc1d6e04b19d36f0ca8c7ed4b2bb3d62f5e8e15a
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "78252755"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>Esercitazione: creare un pacchetto e distribuire contenitori come un'applicazione di Service Fabric usando Yeoman
@@ -60,7 +60,7 @@ Service Fabric offre gli strumenti di scaffolding per la creazione di applicazio
     ```
 2. Digitare "TestContainer" per assegnare un nome all'applicazione.
 3. Digitare "azurevotefront" per assegnare un nome al servizio dell'applicazione.
-4. Specificare il percorso dell'immagine del contenitore in Registro Azure Container del repository frontend, ad esempio '\<acrName&gt;.azurecr.io/azure-vote-front:v1'. Il valore del campo \<acrName> deve essere uguale a quello usato nell'esercitazione precedente.
+4. Fornire il percorso dell'immagine del contenitore in Registro Azure Container del repository front-end, ad esempio, '\<acrName>.azurecr.io/azure-vote-front:v1'. Il valore del campo \<acrName> deve essere uguale a quello usato nell'esercitazione precedente.
 5. Premere INVIO per lasciare vuota la sezione dei comandi.
 6. Specificare 1 come numero di istanze.
 

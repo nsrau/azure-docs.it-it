@@ -8,10 +8,10 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/27/2020
 ms.openlocfilehash: 837174b3ccc08a74583587cb9efd34f8f720aec5
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "77589454"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>Esercitazione: Eseguire Funzioni di Azure da processi di Analisi di flusso di Azure 
@@ -52,7 +52,7 @@ Seguire l'esercitazione [Rilevamento delle frodi in tempo reale](stream-analytic
 
 1. Vedere la sezione [Creare un'app per le funzioni](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) della documentazione relativa a Funzioni. Questa sezione illustra come creare un'app per le funzioni e una [funzione attivata da HTTP in Funzioni di Azure](../azure-functions/functions-create-first-azure-function.md#create-function) usando il linguaggio C#.  
 
-2. Passare alla funzione **run.csx** e aggiornarla con il codice seguente. Sostituire **"\<your Azure Cache for Redis connection string goes here\>"** con la stringa di connessione primaria di Azure Cache per Redis recuperata nella sezione precedente. 
+2. Passare alla funzione **run.csx** e aggiornarla con il codice seguente. Sostituire **"\<your Azure Cache for Redis connection string goes here\>"** con la stringa di connessione primaria della cache di Azure per Redis recuperata nella sezione precedente. 
 
     ```csharp
     using System;

@@ -4,12 +4,12 @@ description: In questo articolo vengono fornite le risposte alle domande più co
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 2112a439585e6b111614e728dbc4a1a5eb4ee3d2
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 670314d8703889016431838a9f5b0a6dc56b84b8
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827172"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892559"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Avviso di monitoraggio di backup di Azure-Domande frequenti
 
@@ -38,7 +38,7 @@ Dopo aver creato un'area di lavoro di LA, è possibile scegliere di conservare i
 
 ### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-la-workspace"></a>I dati nei report vengono visualizzati dopo aver configurato l'area di lavoro di LA?
 
- Tutti i dati generati dopo la configurazione delle impostazioni di diagnostica vengono inseriti nell'area di lavoro di e sono disponibili nei report. I processi in corso non vengono sottoposti a push per la creazione dei report. Una volta completato o non superato il processo, questo viene inviato ai report.
+ Tutti i dati generati dopo la configurazione delle impostazioni di diagnostica vengono inseriti nell'area di lavoro di e sono disponibili nei report. I processi in corso non vengono sottoposti a push per la creazione dei report. Dopo che il processo viene completato o ha esito negativo, viene inviato ai report.
 
 ### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>È possibile visualizzare i report negli insiemi di credenziali e nelle sottoscrizioni?
 

@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: tutorial
 ms.date: 06/17/2020
 ms.author: sebansal
-ms.openlocfilehash: 225fb1099c1a095a4ec5bced4acc010d7cec6835
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 44d77c36b9aacb8a2f06fd7a0f167cffa06ae4eb
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043893"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88716113"
 ---
 # <a name="creating-and-merging-csr-in-key-vault"></a>Creazione e unione di CSR in Key Vault
 
@@ -100,7 +100,9 @@ Esempio
 
 ## <a name="troubleshoot"></a>Risolvere problemi
 
-Se il certificato rilasciato si trova nello stato 'disabilitato' nel portale di Azure, vedere **Operazione relativa al certificato** per esaminare il messaggio di errore per il certificato.
+- **Il tipo di errore 'La chiave pubblica del certificato di entità finale nel contenuto del certificato X.509 specificato non corrisponde alla parte pubblica della chiave privata specificata. Verificare se il certificato sia valido'** Questo errore può verificarsi se non si unisce la CSR con la stessa richiesta CSR avviata. Ogni volta che si crea una CSR, si crea una chiave privata che deve essere confrontata durante l'unione della richiesta firmata.
+    
+- Se il certificato rilasciato si trova nello stato 'disabilitato' nel portale di Azure, vedere **Operazione relativa al certificato** per esaminare il messaggio di errore per il certificato.
 
 Per altre informazioni, vedere le [operazioni relative ai certificati nell'articolo di riferimento all'API REST di Key Vault](/rest/api/keyvault). Per informazioni sulla definizione delle autorizzazioni, vedere [Vaults - Create or Update](/rest/api/keyvault/vaults/createorupdate) (Insiemi di credenziali - Create o Update) e [Vaults - Update Access Policy](/rest/api/keyvault/vaults/updateaccesspolicy) (Insiemi di credenziali - Update Access Policy).
 

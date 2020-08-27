@@ -8,12 +8,12 @@ ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 69fec93c2426f4274e0c890d76bdcbbb4678fa7d
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: ea0dac74d4f995e41513b3451dd28d177040e672
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230758"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935025"
 ---
 # <a name="design-patterns-for-multitenant-saas-applications-and-azure-cognitive-search"></a>Modelli di progettazione per applicazioni SaaS multi-tenant e Azure ricerca cognitiva
 
@@ -119,7 +119,7 @@ I modelli di progettazione precedenti per modellare gli scenari multi-tenant in 
 
 Se i modelli "servizio per tenant" e "indice per tenant" non hanno un ambito sufficientemente piccolo, è possibile modellare un indice per ottenere un livello di granularità ancora più preciso.
 
-Per ottenere che un singolo indice si comporti in modo diverso per endpoint del client diversi, è possibile aggiungere un campo a un indice che stabilisce un determinato valore per ogni possibile client. Ogni volta che un client chiama Azure ricerca cognitiva per eseguire una query o modificare un indice, il codice dell'applicazione client specifica il valore appropriato per quel campo usando la funzionalità di [filtro](https://msdn.microsoft.com/library/azure/dn798921.aspx) di Azure ricerca cognitiva in fase di query.
+Per ottenere che un singolo indice si comporti in modo diverso per endpoint del client diversi, è possibile aggiungere un campo a un indice che stabilisce un determinato valore per ogni possibile client. Ogni volta che un client chiama Azure ricerca cognitiva per eseguire una query o modificare un indice, il codice dell'applicazione client specifica il valore appropriato per quel campo usando la funzionalità di [filtro](./query-odata-filter-orderby-syntax.md) di Azure ricerca cognitiva in fase di query.
 
 Questo metodo può essere usato per ottenere funzionalità di account utente diversi, livelli di autorizzazione diversi e persino applicazioni completamente diverse.
 
@@ -132,4 +132,3 @@ Questo metodo può essere usato per ottenere funzionalità di account utente div
 Azure ricerca cognitiva è una scelta interessante per molte applicazioni. Quando si valutano i vari modelli di progettazione per le applicazioni multi-tenant, prendere in considerazione i [diversi piani tariffari](https://azure.microsoft.com/pricing/details/search/) e i rispettivi [limiti di servizio](search-limits-quotas-capacity.md) per personalizzare meglio Azure ricerca cognitiva per adattare i carichi di lavoro delle applicazioni e le architetture di tutte le dimensioni.
 
 Eventuali domande sugli scenari di Azure ricerca cognitiva e multi-tenant possono essere indirizzate a azuresearch_contact@microsoft.com .
-

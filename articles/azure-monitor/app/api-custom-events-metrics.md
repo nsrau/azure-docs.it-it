@@ -3,13 +3,13 @@ title: API di Application Insights per metriche ed eventi personalizzati | Micro
 description: Inserire alcune righe di codice nell'app desktop o per dispositivi, nella pagina Web o nel servizio per tenere traccia dell'utilizzo e diagnosticare i problemi.
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 430ec96006ed8f564ea5bbd0a28beca858ebe1ab
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: f60fdf9164d09b10d12ada7481edb503cd57a411
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366873"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936572"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>API di Application Insights per metriche ed eventi personalizzati
 
@@ -59,7 +59,7 @@ Ottenere un'istanza di `TelemetryClient` (tranne che in JavaScript nelle pagine 
 
 Per [ASP.NET Core](asp-net-core.md#how-can-i-track-telemetry-thats-not-automatically-collected) app e [non http/Worker per le app .NET/.NET Core](worker-service.md#how-can-i-track-telemetry-thats-not-automatically-collected) , è consigliabile ottenere un'istanza di `TelemetryClient` dal contenitore di inserimento delle dipendenze, come illustrato nella rispettiva documentazione.
 
-Se si usa AzureFunctions v2 + o processi Web di Azure V3 +, seguire questo documento:https://docs.microsoft.com/azure/azure-functions/functions-monitoring#version-2x-and-higher
+Se si usa AzureFunctions v2 + o processi Web di Azure V3 +, seguire questo documento: https://docs.microsoft.com/azure/azure-functions/functions-monitoring#version-2x-and-higher
 
 *C#*
 
@@ -932,7 +932,7 @@ L'[applicazione di filtri](./api-filtering-sampling.md#filtering) consente di mo
 
 Il [campionamento](./api-filtering-sampling.md) è una soluzione in pacchetto che consente di ridurre il volume dei dati inviati dall'app al portale. Lo fa senza influenzare le metriche visualizzate e senza influire sulla possibilità di diagnosticare i problemi navigando tra elementi correlati, come eccezioni, richieste e visualizzazioni di pagina.
 
-[Altre informazioni](./api-filtering-sampling.md).
+[Altre informazioni](./api-filtering-sampling.md)
 
 ## <a name="disabling-telemetry"></a>Disabilitazione della telemetria
 
@@ -1110,7 +1110,7 @@ Per determinare quanto tempo i dati vengono conservati, vedere [Raccolta, conser
 
 * *Quali eccezioni potrebbero essere generate dalle chiamate Track_()?*
 
-    No. Non è necessario eseguirne il wrapping in clausole try-catch. Se l'SDK rileva un problema, registrerà messaggi nell'output della console di debug e quindi in Ricerca diagnostica per approfondirne i dettagli.
+    Nessuno. Non è necessario eseguirne il wrapping in clausole try-catch. Se l'SDK rileva un problema, registrerà messaggi nell'output della console di debug e quindi in Ricerca diagnostica per approfondirne i dettagli.
 * *Esiste un'API REST per ottenere dati dal portale?*
 
     Sì, l'[API di accesso ai dati](https://dev.applicationinsights.io/). Altri modi per estrarre i dati sono l'[esportazione da Analytics a Power BI](./export-power-bi.md) e l'[esportazione continua](./export-telemetry.md).

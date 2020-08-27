@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 98054060210f55803d6e2811e1f494fd3ff00e48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6f1e19fd41b4d98cb401582cd86232d8ada25733
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76838259"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935518"
 ---
 # <a name="how-to-process-and-extract-information-from-images-in-ai-enrichment-scenarios"></a>Come elaborare ed estrarre informazioni dalle immagini negli scenari di arricchimento di intelligenza artificiale
 
@@ -42,7 +42,7 @@ Impostare il parametro **parsingMode** su `json`, per indicizzare ogni BLOB come
 
 Il valore predefinito di 2000 pixel per i valori massimi di altezza e larghezza delle immagini normalizzate è basato sulle dimensioni massime supportate dalla [competenza OCR](cognitive-search-skill-ocr.md) e dalla [competenza di analisi delle immagini](cognitive-search-skill-image-analysis.md). La [skill OCR](cognitive-search-skill-ocr.md) supporta una larghezza e un'altezza massime di 4200 per le lingue diverse dall'inglese e 10000 per la lingua inglese.  Se si aumentano i limiti massimi, l'elaborazione potrebbe avere esito negativo sulle immagini più grandi a seconda della definizione del suo competenze e della lingua dei documenti. 
 
-Specificare imageAction nella [definizione dell'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer) come indicato di seguito:
+Specificare imageAction nella [definizione dell'indicizzatore](/rest/api/searchservice/create-indexer) come indicato di seguito:
 
 ```json
 {
@@ -64,7 +64,7 @@ Se *imageAction* è impostato su un valore diverso da "none", il nuovo campo *no
 |--------------------|-----------------------------------------|
 | data               | Stringa con codifica Base64 dell'immagine normalizzata in formato JPEG.   |
 | width              | Larghezza dell'immagine normalizzata in pixel. |
-| height             | Altezza dell'immagine normalizzata in pixel. |
+| altezza             | Altezza dell'immagine normalizzata in pixel. |
 | originalWidth      | Larghezza originale dell'immagine prima della normalizzazione. |
 | originalHeight      | Altezza originale dell'immagine prima della normalizzazione. |
 | rotationFromOriginal |  Rotazione in senso antiorario, espressa in gradi, effettuata per creare l'immagine normalizzata. Un valore compreso tra 0 e 360 gradi. Questo passaggio legge i metadati dall'immagine generata da una fotocamera o da uno scanner. In genere, è un multiplo di 90 gradi. |
@@ -214,7 +214,7 @@ Se si preferisce trasformare le coordinate normalizzate nello spazio delle coord
 ```
 
 ## <a name="see-also"></a>Vedere anche
-+ [Crea indicizzatore (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Crea indicizzatore (REST)](/rest/api/searchservice/create-indexer)
 + [Competenza di analisi delle immagini](cognitive-search-skill-image-analysis.md)
 + [Competenza OCR](cognitive-search-skill-ocr.md)
 + [Text merge skill](cognitive-search-skill-textmerger.md) (Competenza di unione del testo)

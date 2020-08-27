@@ -4,12 +4,12 @@ description: Questo articolo illustra come ripristinare file e cartelle da un pu
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: ac121195ba46389798acc7f099829fde96da72e1
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 7b9d97e518282cf150a8f54225c11d9edcbf8892
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827138"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892576"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -169,7 +169,7 @@ La prima colonna (PV) Mostra il volume fisico, le colonne successive mostrano il
 
 ###### <a name="duplicate-volume-groups"></a>Gruppi di volumi duplicati
 
-Esistono scenari in cui i nomi dei gruppi di volumi possono avere 2 UUID dopo l'esecuzione dello script. Significa che i nomi dei gruppi di volumi nel computer in cui viene eseguito lo script e nella VM di cui è stato eseguito il backup sono uguali. Quindi, è necessario rinominare i gruppi di volumi di macchine virtuali di cui è stato eseguito il backup. Vedere l'esempio seguente.
+Esistono scenari in cui i nomi dei gruppi di volumi possono avere 2 UUID dopo l'esecuzione dello script. Ciò significa che i nomi dei gruppi di volumi nel computer in cui viene eseguito lo script e nella macchina virtuale di cui è stato eseguito il backup sono gli stessi. Quindi, è necessario rinominare i gruppi di volumi di macchine virtuali di cui è stato eseguito il backup. Vedere l'esempio seguente.
 
 ```bash
 PV         VG        Fmt  Attr PSize   PFree    VG UUID
@@ -285,7 +285,7 @@ In Linux, il sistema operativo del computer usato per ripristinare i file deve s
 | openSUSE | 42.2 e versioni successive |
 
 > [!NOTE]
-> Sono stati rilevati alcuni problemi nell'esecuzione dello script di ripristino dei file nei computer con sistema operativo SLES 12 SP4 ed è in corso l'analisi da parte del team SLES.
+> Sono stati rilevati alcuni problemi nell'esecuzione dello script di ripristino del file nei computer con sistema operativo SLES 12 SP4 ed è in corso l'analisi del team SLES.
 > Attualmente, l'esecuzione dello script di ripristino dei file funziona sui computer con i sistemi operativi SLES 12 SP2 e SP3.
 >
 

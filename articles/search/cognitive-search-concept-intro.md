@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/18/2020
-ms.openlocfilehash: d6fbfc7dced59580e91c3beceb6054f223a0a17d
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 1c041d594b29c6e93b73eb1b0c623b3e566ceef5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319049"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935501"
 ---
 # <a name="ai-enrichment-in-azure-cognitive-search"></a>Arricchimento tramite intelligenza artificiale con Ricerca cognitiva di Azure
 
@@ -29,7 +29,7 @@ Le competenze predefinite rientrano nelle categorie seguenti:
 
 ![Diagramma della pipeline di arricchimento](./media/cognitive-search-intro/cogsearch-architecture.png "panoramica della pipeline di arricchimento")
 
-Le competenze predefinite in Azure ricerca cognitiva si basano su modelli di apprendimento automatico pre-addestrati in API Servizi cognitivi: [visione artificiale](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) e [analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview). È possibile aggiungere una risorsa Servizi cognitivi se si desidera sfruttare queste risorse durante l'elaborazione del contenuto.
+Le competenze predefinite in Azure ricerca cognitiva si basano su modelli di apprendimento automatico pre-addestrati in API Servizi cognitivi: [visione artificiale](../cognitive-services/computer-vision/index.yml) e [analisi del testo](../cognitive-services/text-analytics/overview.md). È possibile aggiungere una risorsa Servizi cognitivi se si desidera sfruttare queste risorse durante l'elaborazione del contenuto.
 
 Il linguaggio naturale e l'elaborazione delle immagini vengono applicati durante la fase di inserimento dei dati e i risultati diventano parte della composizione di un documento in un indice ricercabile in Ricerca cognitiva di Azure. I dati vengono originati come set di dati di Azure e quindi attraverso una pipeline di indicizzazione che usa le [competenze predefinite](cognitive-search-predefined-skills.md) necessarie.  
 
@@ -57,9 +57,9 @@ Un insieme di [competenze](cognitive-search-defining-skillset.md) assemblato con
 
 ### <a name="more-about-custom-skills"></a>Altre informazioni sulle competenze personalizzate
 
-Le competenze personalizzate possono supportare scenari più complessi, ad esempio il riconoscimento di moduli o il rilevamento di entità personalizzate tramite un modello fornito e inserito nell'[interfaccia Web di competenze personalizzate](cognitive-search-custom-skill-interface.md). Alcuni esempi di competenze personalizzate includono [Riconoscimento modulo](/azure/cognitive-services/form-recognizer/overview), l'integrazione dell'[API Ricerca entità Bing](https://docs.microsoft.com/azure/search/cognitive-search-create-custom-skill-example) e il [riconoscimento di entità personalizzate](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
+Le competenze personalizzate possono supportare scenari più complessi, ad esempio il riconoscimento di moduli o il rilevamento di entità personalizzate tramite un modello fornito e inserito nell'[interfaccia Web di competenze personalizzate](cognitive-search-custom-skill-interface.md). Alcuni esempi di competenze personalizzate includono [Riconoscimento modulo](../cognitive-services/form-recognizer/overview.md), l'integrazione dell'[API Ricerca entità Bing](./cognitive-search-create-custom-skill-example.md) e il [riconoscimento di entità personalizzate](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
-## <a name="steps-in-an-enrichment-pipeline"></a>Passaggi in una pipeline di arricchimento<a name="enrichment-steps"></a>
+## <a name="steps-in-an-enrichment-pipeline"></a>Passaggi in una pipeline di arricchimento <a name="enrichment-steps"></a>
 
 Una pipeline di arricchimento è basata sugli [*indicizzatori*](search-indexer-overview.md). Gli indicizzatori popolano un indice in base ai mapping da campo a campo tra l'indice e l'origine dati per il cracking del documento. Le competenze, ora associate agli indicizzatori, intercettano e arricchiscono i documenti secondo le competenze definite. Terminata l'indicizzazione è possibile accedere al contenuto tramite richieste di ricerca usando tutti i [tipi di query supportati da Ricerca cognitiva di Azure](search-query-overview.md).  Se non si ha familiarità con gli indicizzatori, in questa sezione viene illustrata la procedura da seguire.
 
@@ -83,7 +83,7 @@ Internamente, la pipeline genera una raccolta di documenti arricchiti. È possib
 
 #### <a name="add-a-knowledgestore-element-to-save-enrichments"></a>Aggiungere un elemento knowledgeStore per salvare gli arricchimenti
 
-[Search REST API-Version = 2020-06-30](https://docs.microsoft.com/rest/api/searchservice/) estende skillsets con una `knowledgeStore` definizione che fornisce una connessione di archiviazione di Azure e proiezioni che descrivono il modo in cui vengono archiviati gli arricchimenti. Questa operazione è aggiunta all'indice. In una pipeline di intelligenza artificiale standard, i documenti arricchiti sono temporanei, ovvero vengono usati solo durante l'indicizzazione per poi essere rimossi. Con l'archivio conoscenze, i documenti arricchiti vengono conservati. Per ulteriori informazioni, vedere [Knowledge Store](knowledge-store-concept-intro.md).
+[Search REST API-Version = 2020-06-30](/rest/api/searchservice/) estende skillsets con una `knowledgeStore` definizione che fornisce una connessione di archiviazione di Azure e proiezioni che descrivono il modo in cui vengono archiviati gli arricchimenti. Questa operazione è aggiunta all'indice. In una pipeline di intelligenza artificiale standard, i documenti arricchiti sono temporanei, ovvero vengono usati solo durante l'indicizzazione per poi essere rimossi. Con l'archivio conoscenze, i documenti arricchiti vengono conservati. Per ulteriori informazioni, vedere [Knowledge Store](knowledge-store-concept-intro.md).
 
 ### <a name="step-3-search-index-and-query-based-access"></a>Passaggio 3: eseguire ricerche nell'indice e nell'accesso basato su query
 
@@ -99,13 +99,13 @@ Gli indici vengono generati da uno schema dell'indice che definisce i campi, gli
 
 1. Includere in un sottoinsieme i dati di origine di Azure in un campione rappresentativo. L'indicizzazione richiede tempo; si consiglia quindi di iniziare con un set di dati piccolo ma rappresentativo, per poi compilarlo in modo incrementale con l'evolversi della soluzione.
 
-1. Creare un [oggetto di origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source) in Ricerca cognitiva di Azure per fornire una stringa di connessione per il recupero dati.
+1. Creare un [oggetto di origine dati](/rest/api/searchservice/create-data-source) in Ricerca cognitiva di Azure per fornire una stringa di connessione per il recupero dati.
 
-1. Creare un [set di competenze](https://docs.microsoft.com/rest/api/searchservice/create-skillset) con una procedura di arricchimento.
+1. Creare un [set di competenze](/rest/api/searchservice/create-skillset) con una procedura di arricchimento.
 
-1. Definire lo [schema dell'indice](https://docs.microsoft.com/rest/api/searchservice/create-index). La raccolta *Campi* include campi provenienti dall'origine dati. È necessario anche disattivare i campi aggiuntivi per mantenere i valori generati per il contenuto creato durante l'arricchimento.
+1. Definire lo [schema dell'indice](/rest/api/searchservice/create-index). La raccolta *Campi* include campi provenienti dall'origine dati. È necessario anche disattivare i campi aggiuntivi per mantenere i valori generati per il contenuto creato durante l'arricchimento.
 
-1. Definire l'[indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer) che fa riferimento all'origine dati, al set di competenze e all'indice.
+1. Definire l'[indicizzatore](/rest/api/searchservice/create-indexer) che fa riferimento all'origine dati, al set di competenze e all'indice.
 
 1. All'interno dell'indicizzatore, aggiungere *outputFieldMappings*. In questa sezione viene eseguito il mapping dell'output dal set di competenze (nel passaggio 3) ai campi di input nello schema dell'indice (nel passaggio 4).
 
@@ -121,6 +121,6 @@ Gli indici vengono generati da uno schema dell'indice che definisce i campi, gli
 + [Esempio: creazione di un'abilità personalizzata per l'arricchimento di intelligenza artificiale (C#)](cognitive-search-create-custom-skill-example.md)
 + [Guida introduttiva: provare a arricchire l'intelligenza artificiale in una procedura dettagliata per il portale](cognitive-search-quickstart-blob.md)
 + [Esercitazione: informazioni sulle API di arricchimento intelligenza artificiale](cognitive-search-tutorial-blob.md)
-+ [Archivio conoscenze](knowledge-store-concept-intro.md)
++ [Knowledge store](knowledge-store-concept-intro.md)
 + [Creare un archivio conoscenze in REST](knowledge-store-create-rest.md)
 + [Suggerimenti per la risoluzione dei problemi](cognitive-search-concept-troubleshooting.md)

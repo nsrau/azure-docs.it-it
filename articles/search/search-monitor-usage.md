@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 421fddb819d4d396d3ab8890789e58ccb935cbc0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d47f6c20246e3210b58dbc9c802a11c866ae305e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85806812"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935008"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Monitorare le operazioni e le attività di Azure ricerca cognitiva
 
@@ -59,7 +59,7 @@ Lo screenshot seguente consente di individuare le informazioni di monitoraggio n
 
 ### <a name="activity-logs-and-service-health"></a>Log attività e integrità dei servizi
 
-La pagina [**log attività**](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) del portale raccoglie informazioni da Azure Resource Manager e segnala le modifiche apportate all'integrità del servizio. È possibile monitorare il log attività per le condizioni critiche, di errore e di avviso correlate all'integrità del servizio.
+La pagina [**log attività**](../azure-monitor/platform/activity-log.md#view-the-activity-log) del portale raccoglie informazioni da Azure Resource Manager e segnala le modifiche apportate all'integrità del servizio. È possibile monitorare il log attività per le condizioni critiche, di errore e di avviso correlate all'integrità del servizio.
 
 Le voci comuni includono riferimenti a chiavi API: notifiche informative generiche, ad esempio *Ottieni chiave amministratore* e *Ottieni chiavi di query*. Queste attività indicano le richieste effettuate usando la chiave amministratore (crea o Elimina oggetti) o la chiave di query, ma non visualizzano la richiesta. Per informazioni su questa granularità, è necessario configurare la registrazione diagnostica.
 
@@ -75,13 +75,13 @@ La figura seguente è riferita al servizio gratuito, che prevede un limite di 3 
  "Stato di utilizzo rispetto ai limiti del livello")
 
 > [!NOTE]
-> Gli avvisi relativi all'archiviazione non sono attualmente disponibili. il consumo di spazio di archiviazione non viene aggregato o registrato nella tabella **AzureMetrics** di monitoraggio di Azure. Per ottenere gli avvisi di archiviazione, è necessario [compilare una soluzione personalizzata](../azure-monitor/insights/solutions-creating.md) che genera notifiche correlate alle risorse, in cui il codice controlla le dimensioni di archiviazione e gestisce la risposta.
+> Gli avvisi relativi all'archiviazione non sono attualmente disponibili. il consumo di spazio di archiviazione non viene aggregato o registrato nella tabella **AzureMetrics** di monitoraggio di Azure. Per ottenere gli avvisi di archiviazione, è necessario [compilare una soluzione personalizzata](../azure-monitor/insights/solutions.md) che genera notifiche correlate alle risorse, in cui il codice controlla le dimensioni di archiviazione e gestisce la risposta.
 
 <a name="add-azure-monitor"></a>
 
 ## <a name="add-on-monitoring-with-azure-monitor"></a>Monitoraggio dei componenti aggiuntivi con monitoraggio di Azure
 
-Molti servizi, tra cui Azure ricerca cognitiva, si integrano con [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/) per ulteriori avvisi, metriche e registrazione dei dati di diagnostica. 
+Molti servizi, tra cui Azure ricerca cognitiva, si integrano con [monitoraggio di Azure](../azure-monitor/index.yml) per ulteriori avvisi, metriche e registrazione dei dati di diagnostica. 
 
 [Abilitare la registrazione diagnostica](search-monitor-logs.md) per un servizio di ricerca se si vuole controllare la raccolta dei dati e l'archiviazione. Gli eventi registrati acquisiti da monitoraggio di Azure vengono archiviati nella tabella **AzureDiagnostics** ed è costituito da dati operativi correlati a query e indicizzazione.
 
@@ -107,4 +107,4 @@ Non è possibile registrare queste informazioni separatamente dalla stringa di q
 La fluidità con monitoraggio di Azure è essenziale per la supervisione di qualsiasi servizio di Azure, incluse risorse come Azure ricerca cognitiva. Se non si ha familiarità con monitoraggio di Azure, esaminare gli articoli correlati alle risorse. Oltre alle esercitazioni, l'articolo seguente è un valido punto di partenza.
 
 > [!div class="nextstepaction"]
-> [Monitoraggio delle risorse di Azure con Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/insights/monitor-azure-resource)
+> [Monitoraggio delle risorse di Azure con Monitoraggio di Azure](../azure-monitor/insights/monitor-azure-resource.md)

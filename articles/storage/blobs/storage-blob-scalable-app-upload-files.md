@@ -8,10 +8,10 @@ ms.date: 10/08/2019
 ms.author: rogarana
 ms.subservice: blobs
 ms.openlocfilehash: dd87e1a9bcff55813dff420976df58351386fb34
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "75371939"
 ---
 # <a name="upload-large-amounts-of-random-data-in-parallel-to-azure-storage"></a>Caricare grandi quantità di dati casuali in parallelo in Archiviazione di Azure
@@ -44,7 +44,7 @@ mstsc /v:<publicIpAddress>
 
 ## <a name="configure-the-connection-string"></a>Configurare la stringa di connessione
 
-Nel portale di Azure passare all'account di archiviazione. Nell'account di archiviazione selezionare **Chiavi di accesso** in **Impostazioni**. Copiare la **stringa di connessione** dalla chiave primaria o secondaria. Accedere alla macchina virtuale creata nell'esercitazione precedente. Aprire il **prompt dei comandi** come amministratore ed eseguire il comando `setx` con l'opzione `/m`. Questo comando salva una variabile di ambiente di impostazione del computer. La variabile di ambiente non è disponibile finché non si ricarica il **prompt dei comandi**. Sostituire **\<stringaconnessione\>** nell'esempio seguente:
+Nel portale di Azure passare all'account di archiviazione. Nell'account di archiviazione selezionare **Chiavi di accesso** in **Impostazioni**. Copiare la **stringa di connessione** dalla chiave primaria o secondaria. Accedere alla macchina virtuale creata nell'esercitazione precedente. Aprire il **prompt dei comandi** come amministratore ed eseguire il comando `setx` con l'opzione `/m`. Questo comando salva una variabile di ambiente di impostazione del computer. La variabile di ambiente non è disponibile finché non si ricarica il **prompt dei comandi**. Sostituire **\<storageConnectionString\>** nell'esempio seguente:
 
 ```
 setx storageconnectionstring "<storageConnectionString>" /m

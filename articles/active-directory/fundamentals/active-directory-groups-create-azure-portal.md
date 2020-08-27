@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: krbain
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 51b257eb833f6c270f2f1b79b2cccd247c8a2d42
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 69367da8a732f383222836442406a495bf82a0db
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797662"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892593"
 ---
 # <a name="create-a-basic-group-and-add-members-using-azure-active-directory"></a>Creare un gruppo di base e aggiungere membri con Azure Active Directory
 È possibile creare un gruppo di base usando il portale di Azure Active Directory (Azure AD). Ai fini di questo articolo, un gruppo di base viene aggiunto a una singola risorsa dal proprietario della risorsa (amministratore) e include membri specifici (dipendenti) che devono accedere a tale risorsa. Per scenari più complessi, incluse le appartenenze dinamiche e la creazione di regole, vedere la [documentazione sulla gestione degli utenti di Azure Active Directory](../users-groups-roles/index.yml).
@@ -28,7 +28,7 @@ Sono disponibili diversi tipi di gruppo e di appartenenza. In questo articolo ve
 
 ### <a name="group-types"></a>Tipi di gruppo:
 - **Sicurezza**. Usato per gestire l'accesso di membri e computer a risorse condivise per un gruppo di utenti. Ad esempio, è possibile creare un gruppo di sicurezza per criteri di sicurezza specifici. In questo modo, è possibile concedere un set di autorizzazioni a tutti i membri in una sola volta, invece di dover aggiungere autorizzazioni per ogni membro singolarmente. Un gruppo di sicurezza può avere utenti, dispositivi, gruppi ed entità servizio come membri e utenti ed entità servizio come proprietari. Per altre informazioni sulla gestione dell'accesso alle risorse, vedere [Gestire l'accesso alle risorse tramite i gruppi di Azure Active Directory](active-directory-manage-groups.md).
-- **Office 365**. Offre opportunità di collaborazione consentendo ai membri di accedere a cassette postali, calendari, file, siti di SharePoint e altri elementi condivisi. Questa opzione consente anche di concedere l'accesso al gruppo a utenti esterni all'organizzazione. Un gruppo di Office 365 può avere solo utenti come membri. Sia gli utenti che le entità servizio possono essere proprietari di un gruppo di Office 365. Per altre informazioni sui gruppi di Office 365, vedere [Informazioni su Gruppi di Office 365](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
+- **Microsoft 365**. Offre opportunità di collaborazione consentendo ai membri di accedere a cassette postali, calendari, file, siti di SharePoint e altri elementi condivisi. Questa opzione consente anche di concedere l'accesso al gruppo a utenti esterni all'organizzazione. Un gruppo Microsoft 365 può avere solo utenti come membri. Sia gli utenti che le entità servizio possono essere proprietari di un gruppo di Microsoft 365. Per altre informazioni sui gruppi di Office 365, vedere informazioni [sui gruppi di Microsoft 365](https://support.office.com/article/learn-about-office-365-groups-b565caa1-5c40-40ef-9915-60fdb2d97fa2).
 
 ### <a name="membership-types"></a>Tipi di appartenenza:
 - **Assegnato.** Consente di aggiungere utenti specifici come membri di questo gruppo con autorizzazioni univoche. Ai fini di questo articolo viene usata questa opzione.
@@ -77,7 +77,7 @@ Sono disponibili diversi tipi di gruppo e di appartenenza. In questo articolo ve
 
 ## <a name="turn-on-or-off-group-welcome-email"></a>Attivare o disattivare il messaggio di posta elettronica di benvenuto del gruppo
 
-Quando viene creato un nuovo gruppo di Office 365, sia con appartenenza dinamica che statica, a tutti gli utenti aggiunti al gruppo viene inviata una notifica di benvenuto. Quando gli attributi di un utente o un dispositivo cambiano, tutte le regole dinamiche del gruppo dell'organizzazione vengono elaborate per rilevare eventuali modifiche nell'appartenenza. Anche gli utenti aggiunti ricevono la notifica di benvenuto. È possibile disattivare questo comportamento in [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
+Quando viene creato un nuovo gruppo di Microsoft 365, sia con l'appartenenza dinamica che statica, viene inviata una notifica di benvenuto a tutti gli utenti aggiunti al gruppo. Quando gli attributi di un utente o un dispositivo cambiano, tutte le regole dinamiche del gruppo dell'organizzazione vengono elaborate per rilevare eventuali modifiche nell'appartenenza. Anche gli utenti aggiunti ricevono la notifica di benvenuto. È possibile disattivare questo comportamento in [Exchange PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/Set-UnifiedGroup?view=exchange-ps). 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

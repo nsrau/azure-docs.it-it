@@ -4,12 +4,12 @@ description: In questo articolo sono inclusi i collegamenti a script di esempio 
 ms.topic: sample
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 29af774c857f20b0ed4d5392f4933e8056f0d246
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 592cb2016cd86a1a7075fca6dc04ea7ccc673ffc
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170684"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88756028"
 ---
 # <a name="azure-backup-powershell-samples"></a>Esempi PowerShell di Backup di Azure
 
@@ -18,6 +18,6 @@ Nella tabella seguente è disponibile il collegamento a esempi di script PowerSh
 | Script | Descrizione |
 |---|---|
 | [Back up an encrypted virtual machine to Azure](./scripts/backup-powershell-sample-backup-encrypted-vm.md) (Eseguire il backup di una macchina virtuale in Azure | Eseguire il backup di tutti i dati in una macchina virtuale crittografata.|
-| [Trovare l'account di archiviazione registrato](./scripts/backup-powershell-script-find-recovery-services-vault.md) | Trovare l'insieme di credenziali dei servizi di ripristino in cui è registrato l'account di archiviazione |
+| [Trovare l'account di archiviazione registrato](./scripts/backup-powershell-script-find-recovery-services-vault.md) | Trovare l'insieme di credenziali di Servizi di ripristino in cui è registrato l'account di archiviazione |
 | [Disabilitare l'eliminazione temporanea per le condivisioni file in un account di archiviazione](./scripts/disable-soft-delete-for-file-shares.md) | Disabilitare l'eliminazione temporanea per le condivisioni file in un account di archiviazione|
 | [Annullare l'eliminazione della condivisione file eliminata accidentalmente](./scripts/backup-powershell-script-undelete-file-share.md) | Annullare l'eliminazione della condivisione file eliminata accidentalmente |

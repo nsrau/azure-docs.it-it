@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 92c054b42a83d9753e2fcc9c02646c381da795b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8347ca5a33790d0b35176be47a0fa4811a19e3f1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510874"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935467"
 ---
 # <a name="tips-for-ai-enrichment-in-azure-cognitive-search"></a>Suggerimenti per l'arricchimento di intelligenza artificiale in Azure ricerca cognitiva
 
@@ -54,7 +54,7 @@ In tal caso, è possibile indicare all'indicizzatore di ignorare gli errori. Ese
 
 ## <a name="tip-4-use-debug-sessions-to-identify-and-resolve-issues-with-your-skillset"></a>Suggerimento 4: usare le sessioni di debug per identificare e risolvere i problemi con il proprio insieme di competenze 
 
-Sessioni di debug è un editor visivo che funziona con un set di competenze esistente nel portale di Azure. All'interno di una sessione di debug è possibile identificare e risolvere gli errori, convalidare le modifiche ed eseguire il commit delle modifiche apportate a un competenze di produzione nella pipeline di arricchimento di intelligenza artificiale. Si tratta di una funzionalità di anteprima che consente di [leggere la documentazione](https://docs.microsoft.com/azure/search/cognitive-search-debug-session). Per altre informazioni sui concetti e sull'introduzione, vedere [sessioni di debug](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-debug-sessions).
+Sessioni di debug è un editor visivo che funziona con un set di competenze esistente nel portale di Azure. All'interno di una sessione di debug è possibile identificare e risolvere gli errori, convalidare le modifiche ed eseguire il commit delle modifiche apportate a un competenze di produzione nella pipeline di arricchimento di intelligenza artificiale. Si tratta di una funzionalità di anteprima che consente di [leggere la documentazione](./cognitive-search-debug-session.md). Per altre informazioni sui concetti e sull'introduzione, vedere [sessioni di debug](./cognitive-search-tutorial-debug-sessions.md).
 
 Le sessioni di debug funzionano in un singolo documento sono un ottimo modo per creare in modo iterativo pipeline di arricchimento più complesse.
 

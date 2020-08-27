@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/12/2020
-ms.openlocfilehash: 2e62296e95a7b412a24c9d0c151c2bc9175ab4b7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: cf7ae504e57d0b7947f4ff7dc48d50b2e0141eea
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529744"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936640"
 ---
 # <a name="how-to-monitor-azure-cognitive-search-indexer-status-and-results"></a>Come monitorare lo stato e i risultati dell'indicizzatore ricerca cognitiva di Azure
 
@@ -80,7 +80,7 @@ Per ulteriori informazioni sull'analisi degli errori e degli avvisi dell'indiciz
 
 ## <a name="monitor-using-rest-apis"></a>Monitorare con le API REST
 
-È possibile recuperare lo stato e la cronologia di esecuzione di un indicizzatore usando il [comando Get Indexer status](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status):
+È possibile recuperare lo stato e la cronologia di esecuzione di un indicizzatore usando il [comando Get Indexer status](/rest/api/searchservice/get-indexer-status):
 
 ```http
 GET https://[service name].search.windows.net/indexers/[indexer name]/status?api-version=2020-06-30
@@ -125,7 +125,7 @@ Ogni esecuzione dell'indicizzatore ha anche il proprio stato che indica se l'ese
 
 Quando un indicizzatore viene reimpostato per aggiornare lo stato di rilevamento delle modifiche, viene aggiunta una voce della cronologia di esecuzione separata con uno stato di **reimpostazione** .
 
-Per ulteriori informazioni sui codici di stato e sui dati di monitoraggio dell'indicizzatore, vedere [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status).
+Per ulteriori informazioni sui codici di stato e sui dati di monitoraggio dell'indicizzatore, vedere [GetIndexerStatus](/rest/api/searchservice/get-indexer-status).
 
 <a name="dotnetsdk"></a>
 
@@ -184,8 +184,8 @@ Ogni esecuzione dell'indicizzatore ha anche il proprio stato per determinare se 
 
 Quando un indicizzatore viene reimpostato per aggiornare lo stato di rilevamento delle modifiche, viene aggiunta una voce di cronologia separata con uno stato di **reimpostazione** .
 
-Per altre informazioni sui codici di stato e le informazioni di monitoraggio dell'indicizzatore, vedere [GetIndexerStatus](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) nell'API REST.
+Per altre informazioni sui codici di stato e le informazioni di monitoraggio dell'indicizzatore, vedere [GetIndexerStatus](/rest/api/searchservice/get-indexer-status) nell'API REST.
 
 È possibile recuperare informazioni dettagliate sugli errori o gli avvisi specifici del documento enumerando gli elenchi `IndexerExecutionResult.Errors` e `IndexerExecutionResult.Warnings` .
 
-Per ulteriori informazioni sulle classi .NET SDK utilizzate per monitorare gli indicizzatori, vedere [IndexerExecutionInfo](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo?view=azure-dotnet) e [IndexerExecutionResult](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet).
+Per ulteriori informazioni sulle classi .NET SDK utilizzate per monitorare gli indicizzatori, vedere [IndexerExecutionInfo](/dotnet/api/microsoft.azure.search.models.indexerexecutioninfo?view=azure-dotnet) e [IndexerExecutionResult](/dotnet/api/microsoft.azure.search.models.indexerexecutionresult?view=azure-dotnet).

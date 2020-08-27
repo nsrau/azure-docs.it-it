@@ -3,13 +3,14 @@ title: 'Informazioni di riferimento su ApplicationInsights.config: Azure | Docum
 description: Abilitare o disabilitare i moduli di raccolta dati e aggiungere i contatori delle prestazioni e altri parametri.
 ms.topic: conceptual
 ms.date: 05/22/2019
+ms.custom: devx-track-csharp
 ms.reviewer: olegan
-ms.openlocfilehash: ec446190cd589eb511a7a905faeb5f29f31e7d69
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7c0759e78b1adc1704acb602daa12cf9cabbe153
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87310481"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934804"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>Configurazione di Application Insights SDK con ApplicationInsights.config o .xml
 Application Insights .NET SDK è costituito da alcuni pacchetti NuGet. Il [pacchetto di base](https://www.nuget.org/packages/Microsoft.ApplicationInsights) fornisce l'API per l'invio di dati di telemetria ad Application Insights. [Altri pacchetti](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights) forniscono *moduli* e *inizializzatori* di telemetria per il rilevamento automatico dei dati di telemetria dall'applicazione e dal rispettivo contesto. Modificando il file di configurazione, è possibile abilitare o disabilitare i moduli e gli inizializzatori di telemetria e impostare i parametri per alcuni di essi.
@@ -69,7 +70,7 @@ Riporta il [tempo di risposta e il codice dei risultati](../../azure-monitor/app
 
 * `Microsoft.ApplicationInsights.Web.ExceptionTrackingTelemetryModule`
 * [Microsoft.ApplicationInsights.Web](https://www.nuget.org/packages/Microsoft.ApplicationInsights.Web)
-* `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule`-rileva le eccezioni di attività non osservate
+* `Microsoft.ApplicationInsights.WindowsServer.UnobservedExceptionTelemetryModule` -rileva le eccezioni di attività non osservate
 * `Microsoft.ApplicationInsights.WindowsServer.UnhandledExceptionTelemetryModule` - rileva le eccezioni non gestite per i ruoli di lavoro, servizi windows, e applicazioni della console.
 * [Application Insights Windows Server](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) Pacchetto NuGet.
 
@@ -94,8 +95,8 @@ Il pacchetto Microsoft.ApplicationInsights include l' [API principale](/dotnet/a
 ## <a name="telemetry-channel"></a>Canale di telemetria
 Il [canale di telemetria](telemetry-channels.md) gestisce il buffering e la trasmissione dei dati di telemetria al servizio Application Insights.
 
-* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel`è il canale predefinito per le applicazioni Web. Memorizza nel buffer i dati in memoria e usa meccanismi di ripetizione dei tentativi e archiviazione su disco locale per il recapito di telemetria più affidabile.
-* `Microsoft.ApplicationInsights.InMemoryChannel`è un canale di telemetria leggero, che viene usato se non è stato configurato alcun altro canale. 
+* `Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.ServerTelemetryChannel` è il canale predefinito per le applicazioni Web. Memorizza nel buffer i dati in memoria e usa meccanismi di ripetizione dei tentativi e archiviazione su disco locale per il recapito di telemetria più affidabile.
+* `Microsoft.ApplicationInsights.InMemoryChannel` è un canale di telemetria leggero, che viene usato se non è stato configurato alcun altro canale. 
 
 ## <a name="telemetry-initializers-aspnet"></a>Inizializzatori di telemetria (ASP.NET)
 Gli inizializzatori di telemetria impostano le proprietà di contesto che vengono inviate insieme a ogni elemento di telemetria.
@@ -124,7 +125,7 @@ Gli inizializzatori standard sono tutti impostati dal Web o dai pacchetti NuGet 
 
     `<Filters>` imposta le proprietà di identificazione delle richieste.
 * `UserTelemetryInitializer` aggiorna le proprietà `Id` e `AcquisitionDate` del contesto `User` per tutti gli elementi di telemetria con i valori estratti dal cookie `ai_user` generato dal codice di strumentazione JavaScript di Application Insights in esecuzione nel browser dell'utente.
-* `WebTestTelemetryInitializer`imposta le proprietà ID utente, ID sessione e origine sintetica per le richieste HTTP provenienti dai [test di disponibilità](./monitor-web-app-availability.md).
+* `WebTestTelemetryInitializer` imposta le proprietà ID utente, ID sessione e origine sintetica per le richieste HTTP provenienti dai [test di disponibilità](./monitor-web-app-availability.md).
   `<Filters>` imposta le proprietà di identificazione delle richieste.
 
 Per le applicazioni .NET in esecuzione in Service Fabric, è possibile includere il pacchetto NuGet `Microsoft.ApplicationInsights.ServiceFabric`. Questo pacchetto include `FabricTelemetryInitializer`, che aggiunge le proprietà di Service Fabric per gli elementi di telemetria. Per ulteriori informazioni, vedere la [pagina GitHub](https://github.com/Microsoft/ApplicationInsights-ServiceFabric/blob/master/README.md) sulle proprietà aggiunte dal pacchetto NuGet.

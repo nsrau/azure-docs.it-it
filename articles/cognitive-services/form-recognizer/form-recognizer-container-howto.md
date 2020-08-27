@@ -9,12 +9,13 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: aahi
-ms.openlocfilehash: cdcf4182f098affba0a18be5846ae6f6e52d7229
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e4e85de2fad5c08f296d8089f48fa8614f7f1739
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547359"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88925182"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>Installare ed eseguire i contenitori di riconoscimento form (anteprima)
 
@@ -34,7 +35,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Prima di usare i contenitori di Riconoscimento modulo, è necessario soddisfare i prerequisiti seguenti:
 
-| Obbligatoria | Scopo |
+| Obbligatorio | Scopo |
 |----------|---------|
 | Motore Docker | È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> In Windows, è anche necessario configurare Docker per supportare i contenitori Linux.<br><br> |
 | Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base. |

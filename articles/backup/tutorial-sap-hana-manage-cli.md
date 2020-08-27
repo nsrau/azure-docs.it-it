@@ -4,12 +4,12 @@ description: Questa esercitazione descrive come gestire i backup dei database SA
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c47f03b2ac1640c12a833f8bdb53b5d6493d7eb6
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 13cd6e33fbec261b52aae73b1b01fe26764885fe
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489436"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757354"
 ---
 # <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Esercitazione: Gestire i database SAP HANA in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure
 

@@ -9,10 +9,10 @@ ms.topic: tutorial
 ms.date: 9/25/2018
 ms.author: rohink
 ms.openlocfilehash: 2b122a34cfd382a58f7680743d3a1cb1ae598fd1
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "76939261"
 ---
 # <a name="tutorial-create-an-alias-record-to-refer-to-a-zone-resource-record"></a>Esercitazione: Creare un record alias per fare riferimento a un record di risorse della zona
@@ -58,7 +58,7 @@ Creare un record alias che rimandi a un record di risorsa nella zona.
 ## <a name="test-the-alias-record"></a>Testare il record alias
 
 1. Avviare lo strumento nslookup preferito. Una possibilità consiste nel passare a [https://network-tools.com/nslook](https://network-tools.com/nslook).
-2. Impostare il tipo di query per i record A e cercare **test.\<nome di dominio\>** . La risposta è **10.10.10.10**.
+2. Impostare il tipo di query per i record A e cercare **test.\<your domain name\>** . La risposta è **10.10.10.10**.
 3. Nel portale di Azure, modificare il record A **server** in **10.11.11.11**.
 4. Attendere qualche minuto e quindi usare nuovamente nslookup per il record **test**. La risposta è **10.11.11.11**.
 

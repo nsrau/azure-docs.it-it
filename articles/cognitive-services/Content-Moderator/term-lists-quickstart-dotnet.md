@@ -10,12 +10,13 @@ ms.subservice: content-moderator
 ms.topic: conceptual
 ms.date: 10/24/2019
 ms.author: pafarley
-ms.openlocfilehash: a9c64d1a5c4c7ada666b5fe3a8bcc70b39871850
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 90993ea2ee66a23b5b629dfaf5bb34298ce15d9b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545625"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936283"
 ---
 # <a name="check-text-against-a-custom-term-list-in-c"></a>Controllare testo in base a un elenco personalizzato di termini in C#
 

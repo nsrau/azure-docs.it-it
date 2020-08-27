@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 78a8e0a46fd60f14ea3bae7485c737aa4fe3c60e
-ms.sourcegitcommit: f7e160c820c1e2eb57dc480b2a8fd6bef7053e91
+ms.openlocfilehash: 3ec556c6198a00f217568f6591bd4b43c7fc743e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86230775"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924300"
 ---
 # <a name="knowledge-store-in-azure-cognitive-search"></a>Archivio informazioni in Azure ricerca cognitiva
 
@@ -21,7 +21,7 @@ L'archivio conoscenze è una funzionalità di Ricerca cognitiva di Azure che ren
 
 Se le competenze cognitive sono già state usate in precedenza, si saprà che i *set di competenze* consentono di spostare un documento attraverso una sequenza di arricchimenti. Il risultato può essere un indice di ricerca o proiezioni in un archivio informazioni. I due output, l'indice di ricerca e l'archivio conoscenze sono prodotti della stessa pipeline e derivano dagli stessi input, ma risultano in un output che viene strutturato, archiviato e usato in modi molto diversi.
 
-Fisicamente, un archivio conoscenze è una [risorsa di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-overview), ad esempio una risorsa di archiviazione tabelle di Azure, di archiviazione BLOB di Azure o entrambe. Qualsiasi strumento o processo in grado di connettersi ad archiviazione di Azure può usare il contenuto di un archivio conoscenze.
+Fisicamente, un archivio conoscenze è una [risorsa di archiviazione di Azure](../storage/common/storage-account-overview.md), ad esempio una risorsa di archiviazione tabelle di Azure, di archiviazione BLOB di Azure o entrambe. Qualsiasi strumento o processo in grado di connettersi ad archiviazione di Azure può usare il contenuto di un archivio conoscenze.
 
 
 > [!VIDEO https://www.youtube.com/embed/XWzLBP8iWqg?version=3&start=235&end=426]
@@ -39,7 +39,7 @@ Di seguito vengono elencati i vantaggi del knowledge store:
 
 + Utilizzare documenti arricchiti in [strumenti di analisi e creazione report](#tools-and-apps) diversi dalla ricerca. Power BI con Power Query rappresenta una scelta interessante, ma qualsiasi strumento o app in grado di connettersi ad Archiviazione di Azure può eseguire il pull da un archivio conoscenze creato.
 
-+ Affinare una pipeline di indicizzazione basata su intelligenza artificiale mentre si eseguono il debug delle fasi e delle definizioni dei set di competenze. Un knowledge store mostra il prodotto di una definizione di set di competenze in una pipeline di indicizzazione basata su intelligenza artificiale. È possibile usare questi risultati per progettare un set di competenze migliori, perché è possibile vedere esattamente come sono gli arricchimenti. È possibile usare [Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows) in Archiviazione di Azure per visualizzare i contenuti dell'archivio conoscenze.
++ Affinare una pipeline di indicizzazione basata su intelligenza artificiale mentre si eseguono il debug delle fasi e delle definizioni dei set di competenze. Un knowledge store mostra il prodotto di una definizione di set di competenze in una pipeline di indicizzazione basata su intelligenza artificiale. È possibile usare questi risultati per progettare un set di competenze migliori, perché è possibile vedere esattamente come sono gli arricchimenti. È possibile usare [Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md?tabs=windows) in Archiviazione di Azure per visualizzare i contenuti dell'archivio conoscenze.
 
 + Modellare i dati in nuove forme. Il rimodellamento è codificato in set di competenze, ma il punto è che un set di competenze può ora fornire questa funzionalità. La [competenza Shaper](cognitive-search-skill-shaper.md) in Ricerca cognitiva di Azure è stata estesa per supportare questa attività. Il rimodellamento consente di definire una proiezione che si allinea con l'uso previsto dei dati, preservando al tempo stesso le relazioni.
 
@@ -84,7 +84,7 @@ Tuttavia, è possibile creare più set di proiezioni di `table`-`object`-`file` 
 
 ## <a name="requirements"></a>Requisiti 
 
-Il servizio [Archiviazione di Azure](https://docs.microsoft.com/azure/storage/) è obbligatorio. Corrisponde alla posizione di archiviazione fisica. È possibile usare l'archiviazione BLOB, l'archiviazione tabelle o entrambi. L'archiviazione BLOB viene usata per i documenti arricchiti intatti, di solito quando l'output è diretto ai processi downstream. L'archiviazione tabelle è destinata alle sezioni dei documenti arricchiti, comunemente utilizzati per l'analisi e la creazione di report.
+Il servizio [Archiviazione di Azure](../storage/index.yml) è obbligatorio. Corrisponde alla posizione di archiviazione fisica. È possibile usare l'archiviazione BLOB, l'archiviazione tabelle o entrambi. L'archiviazione BLOB viene usata per i documenti arricchiti intatti, di solito quando l'output è diretto ai processi downstream. L'archiviazione tabelle è destinata alle sezioni dei documenti arricchiti, comunemente utilizzati per l'analisi e la creazione di report.
 
 Il [set di competenze](cognitive-search-working-with-skillsets.md) è obbligatorio. Contiene la definizione di `knowledgeStore` e determina la struttura e la composizione di un documento arricchito. Non è possibile creare un archivio conoscenze utilizzando un set di competenze vuoto. Il set di competenze deve contenere almeno una competenza.
 
@@ -130,7 +130,7 @@ Una volta che gli arricchimenti sono presenti nell'archiviazione, è possibile u
 
 + [Power BI](knowledge-store-connect-power-bi.md) per la creazione di report e l'analisi. 
 
-+ [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/) per ulteriori elaborazioni.
++ [Azure Data Factory](../data-factory/index.yml) per ulteriori elaborazioni.
 
 <a name="kstore-rest-api"></a>
 
@@ -138,8 +138,8 @@ Una volta che gli arricchimenti sono presenti nell'archiviazione, è possibile u
 
 La versione dell'API REST `2020-06-30` fornisce l'archivio conoscenze tramite definizioni aggiuntive nei set di competenze. Oltre ai riferimenti, vedere [Creare un archivio conoscenze con Postman](knowledge-store-create-rest.md) per informazioni dettagliate su come chiamare le API.
 
-+ [Crea competenze (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
-+ [Update Skills (API-Version = 2020-06-30)](https://docs.microsoft.com/rest/api/searchservice/update-skillset)
++ [Crea competenze (API-Version = 2020-06-30)](/rest/api/searchservice/create-skillset)
++ [Update Skills (API-Version = 2020-06-30)](/rest/api/searchservice/update-skillset)
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -12,10 +12,10 @@ ms.reviewer: douglasl
 ms.custom: seo-lt-2019
 ms.date: 03/12/2018
 ms.openlocfilehash: e63180a3c4b8de06ab9e26afc8fff322188291cc
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
+ms.lasthandoff: 08/25/2020
 ms.locfileid: "81418984"
 ---
 # <a name="run-a-databricks-notebook-with-the-databricks-notebook-activity-in-azure-data-factory"></a>Eseguire un notebook di Databricks con l'attività dei notebook di Databricks in Azure Data Factory
@@ -54,7 +54,7 @@ Per un'introduzione di undici minuti e una dimostrazione di questa funzionalità
 
 1.  Nel riquadro **Nuova data factory** immettere **ADFTutorialDataFactory** in **Nome**.
 
-    Il nome della data factory di Azure deve essere *univoco a livello globale*. Se viene visualizzato l'errore seguente, cambiare il nome della data factory. Usare, ad esempio **\<nomeutente\>ADFTutorialDataFactory**. Per le regole di denominazione per gli elementi di Data Factory, vedere l'articolo [Data Factory - Regole di denominazione](https://docs.microsoft.com/azure/data-factory/naming-rules).
+    Il nome della data factory di Azure deve essere *univoco a livello globale*. Se viene visualizzato l'errore seguente, cambiare il nome della data factory. Usare, ad esempio **\<yourname\>ADFTutorialDataFactory**. Per le regole di denominazione per gli elementi di Data Factory, vedere l'articolo [Data Factory - Regole di denominazione](https://docs.microsoft.com/azure/data-factory/naming-rules).
 
     ![Specificare un nome per la nuova data factory](media/transform-data-using-databricks-notebook/new-azure-data-factory.png)
 

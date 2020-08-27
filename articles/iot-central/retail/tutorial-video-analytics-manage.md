@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.author: nandab
 author: KishorIoT
 ms.date: 07/31/2020
-ms.openlocfilehash: 30e123b24a5d2c9e45df6ee6dc6debfb88b920f3
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 76e72e8fd134c65cc9334e635375cc25e9b09a75
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88038026"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719071"
 ---
 # <a name="tutorial-monitor-and-manage-a-video-analytics---object-and-motion-detection-application"></a>Esercitazione: Monitorare e gestire un'applicazione Analisi video - rilevamento movimento e oggetti
 
@@ -155,22 +155,22 @@ docker run -it --rm -e amsAadClientId="<FROM_AZURE_PORTAL>" -e amsAadSecret="<FR
 |amsResourceGroup| ResourceGroup |
 |amsAccountName| AccountName|
 
-Passare al dashboard **Monitoraggio** nell'applicazione. Fare quindi clic su uno dei collegamenti ipertestuali di rilevamento degli oggetti acquisiti nel riquadro **Inference Event Video**. Il video viene visualizzato in una pagina aperta dal lettore video locale:
+Passare al dispositivo **camera-003** e selezionare la scheda **Dashboard**. Fare quindi clic su uno dei collegamenti ipertestuali di rilevamento degli oggetti acquisiti nel riquadro **Inference Event Video**. Il video viene visualizzato in una pagina aperta dal lettore video locale:
 
 :::image type="content" source="media/tutorial-video-analytics-manage/video-snippet.png" alt-text="Frammento di video":::
 
-## <a name="change-the-simulated-devices-in-application-dashboard"></a>Modificare i dispositivi simulati nel dashboard dell'applicazione
+## <a name="change-the-simulated-devices-in-application-dashboards"></a>Modificare i dispositivi simulati nei dashboard dell'applicazione
 
 I dashboard dell'applicazione vengono originariamente popolati con le proprietà e i dati di telemetria generati dai dispositivi simulati di IoT Central. Per configurare i riquadri per i dati di telemetria di telecamere reali o per il simulatore Live555, seguire questa procedura:
 
-1. Passare al dashboard **Real Camera Monitor**.
+1. Passare al dashboard dell'applicazione **(Esempio) Real Camera Monitor**.
 1. Selezionare **Modifica**.
+1. Selezionare il riquadro **Note** ed eliminarlo.
+1. Modificare il titolo del dashboard in *Real Camera Monitor*.
 1. Nel riquadro **Inference Count** selezionare l'icona di configurazione.
 1. Nella sezione **Configura grafico** selezionare una o più telecamere reali nel gruppo di dispositivi **LVA Edge Object Detector**.
 1. Selezionare il campo di telemetria `AI Inference Interface/Inference Count`.
 1. Selezionare **Aggiorna**.
-
-   
 
 1. Ripetere la procedura per i riquadri seguenti:
     1. **Detection**: il grafico a torta usa il tipo di telemetria `AI Inference Interface/Inference/entity/tag/value`.

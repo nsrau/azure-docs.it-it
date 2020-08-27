@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/01/2020
-ms.openlocfilehash: fd102706d1fa6c33d8962a5d1caf5aa3e41b231d
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: 08641814e2a4fdf6f174f94b1e38e4124cf531d0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86146175"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934923"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Come usare i risultati della ricerca in Azure ricerca cognitiva
 
 Questo articolo illustra come ottenere una risposta alla query che restituisca un numero totale di documenti corrispondenti, risultati impaginati, risultati ordinati e termini evidenziati.
 
-La struttura di una risposta è determinata dai parametri nella query: il [documento di ricerca](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) nell'API REST o la [classe DOCUMENTSEARCHRESULT](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) in .NET SDK.
+La struttura di una risposta è determinata dai parametri nella query: il [documento di ricerca](/rest/api/searchservice/Search-Documents) nell'API REST o la [classe DOCUMENTSEARCHRESULT](/dotnet/api/microsoft.azure.search.models.documentsearchresult-1) in .NET SDK.
 
 ## <a name="result-composition"></a>Composizione risultato
 
@@ -47,9 +47,9 @@ Per restituire un numero diverso di documenti corrispondenti, aggiungere `$top` 
 
 + Aggiungere `$count=true` per ottenere un conteggio del numero totale di documenti corrispondenti all'interno di un indice.
 
-+ Restituisce il primo set di 15 documenti corrispondenti, oltre a un conteggio delle corrispondenze totali:`GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
++ Restituisce il primo set di 15 documenti corrispondenti, oltre a un conteggio delle corrispondenze totali: `GET /indexes/<INDEX-NAME>/docs?search=<QUERY STRING>&$top=15&$skip=0&$count=true`
 
-+ Restituisce il secondo set, ignorando le prime 15 per ottenere i successivi 15: `$top=15&$skip=15` . Eseguire la stessa operazione per il terzo set di 15:`$top=15&$skip=30`
++ Restituisce il secondo set, ignorando le prime 15 per ottenere i successivi 15: `$top=15&$skip=15` . Eseguire la stessa operazione per il terzo set di 15: `$top=15&$skip=30`
 
 I risultati delle query impaginate non sono necessariamente stabili se l'indice sottostante viene modificato. Il paging modifica il valore di `$skip` per ogni pagina, ma ogni query è indipendente e opera sulla visualizzazione corrente dei dati presenti nell'indice in fase di query (in altre parole, non è presente alcuna memorizzazione nella cache o snapshot dei risultati, ad esempio quelli presenti in un database per utilizzo generico).
  
@@ -98,7 +98,7 @@ Un'altra opzione prevede l'uso di un [profilo di Punteggio personalizzato](index
 
 ## <a name="hit-highlighting"></a>Evidenziazione dei risultati
 
-L'evidenziazione dei riscontri si riferisce alla formattazione del testo (ad esempio evidenziazioni grassetto o gialle) applicata ai termini corrispondenti in un risultato, semplificando l'individuazione della corrispondenza. Nella [richiesta di query](https://docs.microsoft.com/rest/api/searchservice/search-documents)sono disponibili istruzioni per l'evidenziazione dei risultati. 
+L'evidenziazione dei riscontri si riferisce alla formattazione del testo (ad esempio evidenziazioni grassetto o gialle) applicata ai termini corrispondenti in un risultato, semplificando l'individuazione della corrispondenza. Nella [richiesta di query](/rest/api/searchservice/search-documents)sono disponibili istruzioni per l'evidenziazione dei risultati. 
 
 Per abilitare l'evidenziazione dei riscontri, aggiungere `highlight=[comma-delimited list of string fields]` per specificare i campi che utilizzeranno l'evidenziazione. L'evidenziazione è utile per i campi di contenuto più lunghi, ad esempio un campo di descrizione, in cui la corrispondenza non è immediatamente ovvia. Solo le definizioni di campo attribuite come **ricercabili** sono idonee per l'evidenziazione dei risultati.
 

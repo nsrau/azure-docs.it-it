@@ -79,15 +79,15 @@
 - name: Esempi
   items:
     - name: Esempi per C#
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=csharp'
+      href: /samples/browse/?languages=csharp&products=azure-cognitive-search
     - name: Esempi di Java
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=java'
+      href: /samples/browse/?languages=java&products=azure-cognitive-search
     - name: Esempi JavaScript
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=javascript'
+      href: /samples/browse/?languages=javascript&products=azure-cognitive-search
     - name: Esempi per Python
-      href: 'https://docs.microsoft.com/samples/browse/?products=azure-cognitive-search&languages=python'
+      href: /samples/browse/?languages=python&products=azure-cognitive-search
     - name: Esempi REST
-      href: 'https://docs.microsoft.com/samples/browse/?languages=http&expanded=azure&products=azure-cognitive-search'
+      href: /samples/browse/?expanded=azure&languages=http&products=azure-cognitive-search
     - name: Criteri di Azure predefiniti
       displayName: 'samples, policies, definitions'
       href: ./policy-samples.md
@@ -406,25 +406,25 @@
     - name: .NET
       items:
         - name: API di ricerca
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet'
+          href: /dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet
         - name: API di gestione
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/search/management?view=azure-dotnet'
+          href: /dotnet/api/overview/azure/search/management?view=azure-dotnet
     - name: Java
       items:
         - name: API di gestione
-          href: 'https://docs.microsoft.com/java/api/overview/azure/search/management?view=azure-java-stable'
+          href: /java/api/overview/azure/search/management?view=azure-java-stable
     - name: JavaScript
       items:
         - name: API di ricerca
-          href: 'https://docs.microsoft.com/javascript/api/overview/azure/search-documents-readme?view=azure-node-latest'
+          href: /javascript/api/overview/azure/search-documents-readme?view=azure-node-latest
         - name: API di gestione
-          href: 'https://docs.microsoft.com/javascript/api/overview/azure/search/management?view=azure-node-latest'
+          href: /javascript/api/overview/azure/search/management?view=azure-node-latest
     - name: Python
       items:
         - name: API di ricerca
-          href: 'https://docs.microsoft.com/python/api/overview/azure/search-documents-readme?view=azure-python'
+          href: /python/api/overview/azure/search-documents-readme?view=azure-python
         - name: API di gestione
-          href: 'https://docs.microsoft.com/python/api/overview/azure/search/management?view=azure-python'
+          href: /python/api/overview/azure/search/management?view=azure-python
     - name: Informazioni di riferimento sul linguaggio OData
       items:
         - name: Panoramica
@@ -517,7 +517,7 @@
     - name: Formazione
       items:
         - name: Introduzione (Microsoft Learn)
-          href: 'https://docs.microsoft.com/learn/modules/intro-to-azure-search/'
+          href: /learn/modules/intro-to-azure-search/
         - name: Aggiungere la ricerca nelle app (Pluralsight)
           href: 'https://www.pluralsight.com/courses/azure-adding-search-abilities-apps'
         - name: Corso per sviluppatori (Pluralsight)

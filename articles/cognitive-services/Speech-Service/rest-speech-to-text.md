@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.author: trbye
-ms.openlocfilehash: 5c356a1c707ede3b9417bc3e742a940333b4c4ac
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 874978288a38ff56ce220dd13cb6f3dfec902b2d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056823"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934583"
 ---
 # <a name="speech-to-text-rest-api"></a>API REST di riconoscimento vocale
 
@@ -51,7 +52,7 @@ Questi parametri possono essere inclusi nella stringa di query della richiesta R
 
 | Parametro | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| `language` | Identifica la lingua parlata che viene riconosciuta. Vedere [Lingue supportate](language-support.md#speech-to-text). | Richiesto |
+| `language` | Identifica la lingua parlata che viene riconosciuta. Vedere [Lingue supportate](language-support.md#speech-to-text). | Obbligatorio |
 | `format` | Specifica il formato del risultato. I valori accettati sono `simple` e `detailed`. I risultati semplici includono `RecognitionStatus`, `DisplayText`, `Offset` e `Duration`. Le risposte dettagliate includono quattro rappresentazioni diverse del testo visualizzato. L'impostazione predefinita è `simple`. | Facoltativo |
 | `profanity` | Specifica come gestire il linguaggio volgare nei risultati del riconoscimento. I valori accettati sono `masked` , che sostituisce la volgarità con `removed` gli asterischi,, che rimuove tutte le parolacce dal risultato, o `raw` , che include la volgarità nel risultato. L'impostazione predefinita è `masked`. | Facoltativo |
 | `cid` | Quando si usa il [portale di riconoscimento vocale personalizzato](how-to-custom-speech.md) per creare modelli personalizzati, è possibile usare modelli personalizzati tramite l' **ID endpoint** trovato nella pagina **distribuzione** . Usare l' **ID endpoint** come argomento per il `cid` parametro della stringa di query. | Facoltativo |
@@ -65,7 +66,7 @@ Questa tabella elenca le intestazioni obbligatorie e facoltative per le richiest
 | `Ocp-Apim-Subscription-Key` | La chiave di sottoscrizione al Servizio di riconoscimento vocale dell'utente. | È necessaria questa intestazione o `Authorization`. |
 | `Authorization` | Un token di autorizzazione preceduto dalla parola `Bearer`. Per altre informazioni, vedere [Autenticazione](#authentication). | È necessaria questa intestazione o `Ocp-Apim-Subscription-Key`. |
 | `Pronunciation-Assessment` | Specifica i parametri per visualizzare i punteggi di pronuncia nei risultati del riconoscimento, che valutano la qualità di pronuncia dell'input vocale, con indicatori di accuratezza, fluidità, completezza e così via. Questo parametro è un JSON con codifica Base64 contenente più parametri dettagliati. Per informazioni su come compilare questa intestazione, vedere [parametri di valutazione della pronuncia](#pronunciation-assessment-parameters) . | Facoltativo |
-| `Content-type` | Descrive il formato e il codec dei dati audio forniti. I valori accettati sono `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Richiesto |
+| `Content-type` | Descrive il formato e il codec dei dati audio forniti. I valori accettati sono `audio/wav; codecs=audio/pcm; samplerate=16000` e `audio/ogg; codecs=opus`. | Obbligatorio |
 | `Transfer-Encoding` | Specifica che vengono inviati i dati audio in blocchi, anziché un singolo file. Utilizzare questa intestazione solo se vi è stata la suddivisione in blocchi dei dati audio. | Facoltativo |
 | `Expect` | Se si usa il trasferimento in blocchi, inviare `Expect: 100-continue`. Il Servizio di riconoscimento vocale legge la richiesta iniziale e attende ulteriori dati.| Obbligatorio in caso di invio di dati audio in blocchi. |
 | `Accept` | Se specificato, deve essere `application/json`. Il servizio di riconoscimento vocale fornisce i risultati in formato JSON. Alcuni framework di richiesta forniscono un valore predefinito incompatibile. È consigliabile includere sempre `Accept` . | Facoltativo, ma consigliato. |
@@ -88,7 +89,7 @@ Questa tabella elenca i parametri obbligatori e facoltativi per la valutazione d
 
 | Parametro | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
-| ReferenceText | Testo su cui verrà valutata la pronuncia. | Richiesto |
+| ReferenceText | Testo su cui verrà valutata la pronuncia. | Obbligatorio |
 | GradingSystem | Sistema di punti per la taratura dei punteggi. I valori accettati sono `FivePoint` e `HundredMark`. L'impostazione predefinita è `FivePoint`. | Facoltativo |
 | Granularità | Granularità della valutazione. I valori accettati sono `Phoneme` , che mostra il punteggio sul livello full-text, Word e fonema, `Word` , che mostra il punteggio a livello di testo intero e di parola, `FullText` , che mostra il punteggio solo sul livello full-text. L'impostazione predefinita è `Phoneme`. | Facoltativo |
 | Dimension | Definisce i criteri di output. I valori accettati sono `Basic` , che mostra solo il Punteggio di accuratezza, `Comprehensive` Mostra i punteggi su più dimensioni (ad esempio, il Punteggio di fluidità e il Punteggio di completezza sul livello full-text, il tipo di errore a livello di parola). Controllare i [parametri di risposta](#response-parameters) per visualizzare le definizioni delle diverse dimensioni dei punteggi e dei tipi di errore di Word. L'impostazione predefinita è `Basic`. | Facoltativo |
@@ -155,7 +156,7 @@ Il codice di stato HTTP di ogni risposta indica esito positivo o errori comuni.
 
 Il trasferimento in blocchi ( `Transfer-Encoding: chunked` ) consente di ridurre la latenza di riconoscimento. Consente al servizio di riconoscimento vocale di iniziare l'elaborazione del file audio durante la trasmissione. L'API REST non fornisce risultati provvisori o parziali.
 
-Questo esempio di codice mostra come inviare audio in blocchi. Solo il primo blocco deve contenere l'intestazione del file audio. `request`è un `HttpWebRequest` oggetto connesso all'endpoint REST appropriato. `audioFile` è il percorso di un file audio su disco.
+Questo esempio di codice mostra come inviare audio in blocchi. Solo il primo blocco deve contenere l'intestazione del file audio. `request` è un `HttpWebRequest` oggetto connesso all'endpoint REST appropriato. `audioFile` è il percorso di un file audio su disco.
 
 ```csharp
 var request = (HttpWebRequest)HttpWebRequest.Create(requestUri);

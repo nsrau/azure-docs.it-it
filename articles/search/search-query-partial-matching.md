@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: d562931b7578935a4544dfd953ff2de74a5350a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 357f44149cb17976556c1e4609f6f2af531b80ee
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85260985"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935773"
 ---
 # <a name="partial-term-search-and-patterns-with-special-characters-wildcard-regex-patterns"></a>Ricerca dei termini parziali e modelli con caratteri speciali (carattere jolly, Regex, Patterns)
 
@@ -51,7 +51,7 @@ Quando è necessario eseguire la ricerca su frammenti o modelli o caratteri spec
 + Compilare e testare l'indice
 
 > [!TIP]
-> La valutazione degli analizzatori è un processo iterativo che richiede ricompilazioni frequenti degli indici. Per semplificare questo passaggio, è possibile usare il post, le API REST per [create index](https://docs.microsoft.com/rest/api/searchservice/create-index), [delete index](https://docs.microsoft.com/rest/api/searchservice/delete-index),[Load Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents)e [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents). Per i documenti di caricamento, il corpo della richiesta deve contenere un set di dati di piccole dimensioni che si desidera testare, ad esempio un campo con numeri di telefono o codici prodotto. Con queste API nella stessa raccolta di messaggi, è possibile scorrere rapidamente questi passaggi.
+> La valutazione degli analizzatori è un processo iterativo che richiede ricompilazioni frequenti degli indici. Per semplificare questo passaggio, è possibile usare il post, le API REST per [create index](/rest/api/searchservice/create-index), [delete index](/rest/api/searchservice/delete-index),[Load Documents](/rest/api/searchservice/addupdate-or-delete-documents)e [Search Documents](/rest/api/searchservice/search-documents). Per i documenti di caricamento, il corpo della richiesta deve contenere un set di dati di piccole dimensioni che si desidera testare, ad esempio un campo con numeri di telefono o codici prodotto. Con queste API nella stessa raccolta di messaggi, è possibile scorrere rapidamente questi passaggi.
 
 ## <a name="duplicate-fields-for-different-scenarios"></a>Campi duplicati per diversi scenari
 
@@ -78,14 +78,14 @@ Gli analizzatori determinano il modo in cui i termini sono in formato token in u
 
 Quando si sceglie un analizzatore che produce token a lungo termine, gli analizzatori seguenti sono opzioni comuni:
 
-| Analizzatore | comportamenti |
+| Analizzatore | Comportamenti |
 |----------|-----------|
 | [analizzatori del linguaggio](index-add-language-analyzers.md) | Conserva i trattini in parole o stringhe composte, mutazioni vocali e forme verbo. Se i modelli di query includono trattini, potrebbe essere sufficiente utilizzare un analizzatore di linguaggio. |
 | [parola chiave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) | Il contenuto dell'intero campo viene suddiviso in token come un singolo termine. |
 | [Whitespace](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/WhitespaceAnalyzer.html) | Separa solo gli spazi vuoti. I termini che includono trattini o altri caratteri vengono considerati come un singolo token. |
 | [analizzatore personalizzato](index-add-custom-analyzers.md) | consigliabile La creazione di un analizzatore personalizzato consente di specificare il filtro Tokenizer e token. Gli analizzatori precedenti devono essere usati così come sono. Un analizzatore personalizzato consente di selezionare i filtri Tokenizer e token da usare. <br><br>Una combinazione consigliata è la [parola chiave Tokenizer](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordTokenizer.html) con un [filtro token in minuscolo](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/LowerCaseFilter.html). Di per sé, l' [analizzatore di parole chiave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) predefinito non esegue la riduzione del testo maiuscolo e minuscolo, che può causare errori nelle query. Un analizzatore personalizzato fornisce un meccanismo per l'aggiunta del filtro del token in minuscolo. |
 
-Se si usa uno strumento di test dell'API Web come postazione, è possibile aggiungere la [chiamata Rest dell'analizzatore test](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) per esaminare l'output in formato token.
+Se si usa uno strumento di test dell'API Web come postazione, è possibile aggiungere la [chiamata Rest dell'analizzatore test](/rest/api/searchservice/test-analyzer) per esaminare l'output in formato token.
 
 È necessario disporre di un indice popolato da usare. Dato un indice esistente e un campo contenente trattini o termini parziali, è possibile provare diversi analizzatori su termini specifici per visualizzare i token emessi.  
 
@@ -160,7 +160,7 @@ Se si stanno valutando gli analizzatori o procedendo con una configurazione spec
 
 Gli analizzatori predefiniti o predefiniti possono essere specificati in base al nome in una `analyzer` proprietà di una definizione di campo, senza che sia necessaria alcuna configurazione aggiuntiva nell'indice. Nell'esempio seguente viene illustrato come impostare l' `whitespace` analizzatore in un campo. 
 
-Per altri scenari e per altre informazioni su altri analizzatori incorporati, vedere l' [elenco degli analizzatori](https://docs.microsoft.com/azure/search/index-add-custom-analyzers#predefined-analyzers-reference)predefiniti. 
+Per altri scenari e per altre informazioni su altri analizzatori incorporati, vedere l' [elenco degli analizzatori](/azure/search/index-add-custom-analyzers#predefined-analyzers-reference)predefiniti. 
 
 ```json
     {
@@ -222,19 +222,19 @@ Dopo aver definito un indice con gli analizzatori e le definizioni di campo che 
 
 Nella sezione precedente è stata illustrata la logica. Questa sezione illustra ogni API da chiamare durante il test della soluzione. Come indicato in precedenza, se si usa uno strumento di test Web interattivo, ad esempio postazione, è possibile eseguire rapidamente queste attività.
 
-+ [Delete index](https://docs.microsoft.com/rest/api/searchservice/delete-index) rimuove un indice esistente con lo stesso nome in modo che sia possibile ricrearlo.
++ [Delete index](/rest/api/searchservice/delete-index) rimuove un indice esistente con lo stesso nome in modo che sia possibile ricrearlo.
 
-+ [Create index](https://docs.microsoft.com/rest/api/searchservice/create-index) crea la struttura dell'indice nel servizio di ricerca, inclusi i campi e le definizioni dell'analizzatore con una specifica dell'analizzatore.
++ [Create index](/rest/api/searchservice/create-index) crea la struttura dell'indice nel servizio di ricerca, inclusi i campi e le definizioni dell'analizzatore con una specifica dell'analizzatore.
 
-+ [Load Documents](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) importa i documenti con la stessa struttura dell'indice, nonché il contenuto ricercabile. Dopo questo passaggio, l'indice è pronto per eseguire query o test.
++ [Load Documents](/rest/api/searchservice/addupdate-or-delete-documents) importa i documenti con la stessa struttura dell'indice, nonché il contenuto ricercabile. Dopo questo passaggio, l'indice è pronto per eseguire query o test.
 
-+ [Test Analyzer](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) è stato introdotto in [scegliere un analizzatore](#choose-an-analyzer). Testare alcune stringhe nell'indice usando un'ampia gamma di analizzatori per comprendere in che modo i termini vengono suddivisi in token.
++ [Test Analyzer](/rest/api/searchservice/test-analyzer) è stato introdotto in [scegliere un analizzatore](#choose-an-analyzer). Testare alcune stringhe nell'indice usando un'ampia gamma di analizzatori per comprendere in che modo i termini vengono suddivisi in token.
 
-+ Nei [documenti di ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents) viene illustrato come creare una richiesta di query, utilizzando una sintassi [semplice](query-simple-syntax.md) o una [sintassi Lucene completa](query-lucene-syntax.md) per le espressioni regolari e con caratteri jolly.
++ Nei [documenti di ricerca](/rest/api/searchservice/search-documents) viene illustrato come creare una richiesta di query, utilizzando una sintassi [semplice](query-simple-syntax.md) o una [sintassi Lucene completa](query-lucene-syntax.md) per le espressioni regolari e con caratteri jolly.
 
   Per le query a termini parziali, ad esempio l'esecuzione di query su "3-6214" per trovare una corrispondenza in "+ 1 (425) 703-6214", è possibile usare la sintassi semplice: `search=3-6214&queryType=simple` .
 
-  Per le query infissi e dei suffissi, ad esempio l'esecuzione di query su "num" o "NUMERIC" per trovare una corrispondenza in "alfanumerico", usare la sintassi Lucene completa e un'espressione regolare:`search=/.*num.*/&queryType=full`
+  Per le query infissi e dei suffissi, ad esempio l'esecuzione di query su "num" o "NUMERIC" per trovare una corrispondenza in "alfanumerico", usare la sintassi Lucene completa e un'espressione regolare: `search=/.*num.*/&queryType=full`
 
 ## <a name="tune-query-performance"></a>Ottimizzare le prestazioni delle query
 
@@ -287,5 +287,5 @@ Questo articolo spiega in che modo gli analizzatori contribuiscono a risolvere i
 
 + [Analizzatori di linguaggi](search-language-support.md)
 + [Analizzatori per l'elaborazione del testo in Azure ricerca cognitiva](search-analyzers.md)
-+ [Analizza API testo (REST)](https://docs.microsoft.com/rest/api/searchservice/test-analyzer)
++ [Analizza API testo (REST)](/rest/api/searchservice/test-analyzer)
 + [Funzionamento della ricerca full-text (architettura delle query)](search-lucene-query-architecture.md)

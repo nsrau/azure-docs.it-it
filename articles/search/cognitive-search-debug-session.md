@@ -8,19 +8,19 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/19/2020
-ms.openlocfilehash: edce8f3460e92eef4f6665b1b38a61582d6841ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b428ff4a9a4f4b9110e88dba57cfad20f2221cf1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560371"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936164"
 ---
 # <a name="debug-sessions-in-azure-cognitive-search"></a>Sessioni di debug in Azure ricerca cognitiva
 
 Sessioni di debug è un editor visivo che funziona con un set di competenze esistente nel portale di Azure. All'interno di una sessione di debug è possibile identificare e risolvere gli errori, convalidare le modifiche ed effettuare il push delle modifiche a un set di competenze di produzione nella pipeline di arricchimento tramite intelligenza artificiale.
 
 > [!Important]
-> Sessioni di debug è una funzionalità di anteprima fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Le sessioni di debug sono funzionalità di anteprima fornite senza un contratto di servizio e non sono consigliate per i carichi di lavoro di produzione. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
 ## <a name="using-debug-sessions"></a>Uso delle sessioni di debug
@@ -95,4 +95,4 @@ Il debug di sesisons funziona con tutte le origini dati disponibili a livello ge
 Ora che si conoscono gli elementi delle sessioni di debug, provare l'esercitazione per un'esperienza pratica.
 
 > [!div class="nextstepaction"]
-> [Esplorare l'esercitazione sulla funzionalità Sessioni di debug](https://docs.microsoft.com/azure/search/cognitive-search-tutorial-debug-sessions)
+> [Esplorare l'esercitazione sulla funzionalità Sessioni di debug](./cognitive-search-tutorial-debug-sessions.md)

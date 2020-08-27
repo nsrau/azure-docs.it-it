@@ -8,16 +8,16 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: 49918335dc6855726e7d8de15c01a5f15280af08
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 895e22d94122539ee68bcac8ee4debce2d824ff0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503218"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935280"
 ---
 # <a name="sentiment-cognitive-skill"></a>Competenza valutazione cognitiva
 
-La competenza **Valutazione** valuta il testo non strutturato in una sequenza di valori positivi-negativi e per ogni record restituisce un valore numerico compreso tra 0 e 1. I punteggi vicini all'1 indicano una valutazione positiva e i punteggi vicini allo 0 indicano una valutazione negativa. Questa competenza usa i modelli di Machine Learning forniti da [Analisi del testo](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview) in Servizi cognitivi.
+La competenza **Valutazione** valuta il testo non strutturato in una sequenza di valori positivi-negativi e per ogni record restituisce un valore numerico compreso tra 0 e 1. I punteggi vicini all'1 indicano una valutazione positiva e i punteggi vicini allo 0 indicano una valutazione negativa. Questa competenza usa i modelli di Machine Learning forniti da [Analisi del testo](../cognitive-services/text-analytics/overview.md) in Servizi cognitivi.
 
 > [!NOTE]
 > Se si espande l'ambito aumentando la frequenza di elaborazione, aggiungendo più documenti oppure aggiungendo altri algoritmi di intelligenza artificiale, sarà necessario [collegare una risorsa fatturabile di Servizi cognitivi](cognitive-search-attach-cognitive-services.md). Gli addebiti si accumulano quando si chiamano le API in Servizi cognitivi e per l'estrazione di immagini come parte della fase di cracking dei documenti in Ricerca cognitiva di Azure. Non sono previsti addebiti per l'estrazione di testo dai documenti.
@@ -29,7 +29,7 @@ La competenza **Valutazione** valuta il testo non strutturato in una sequenza di
 Microsoft.Skills.Text.SentimentSkill
 
 ## <a name="data-limits"></a>Limiti dei dati
-La dimensione massima di un record deve essere di 5000 caratteri misurata da [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length) . Se è necessario suddividere i dati prima di inviarli all'analizzatore di valutazione, usare la [competenza cognitiva di divisione del testo](cognitive-search-skill-textsplit.md).
+La dimensione massima di un record deve essere di 5000 caratteri misurata da [`String.Length`](/dotnet/api/system.string.length) . Se è necessario suddividere i dati prima di inviarli all'analizzatore di valutazione, usare la [competenza cognitiva di divisione del testo](cognitive-search-skill-textsplit.md).
 
 
 ## <a name="skill-parameters"></a>Parametri della competenza
@@ -38,14 +38,14 @@ I parametri fanno distinzione tra maiuscole e minuscole.
 
 | Nome parametro | Descrizione |
 |----------------|----------------------|
-| `defaultLanguageCode` | (facoltativo) Il codice lingua da applicare ai documenti che non specificano in modo esplicito una lingua. <br/> Vedere l'[elenco completo delle lingue supportate](../cognitive-services/text-analytics/text-analytics-supported-languages.md) |
+| `defaultLanguageCode` | (facoltativo) Il codice lingua da applicare ai documenti che non specificano in modo esplicito una lingua. <br/> Vedere l'[elenco completo delle lingue supportate](../cognitive-services/text-analytics/language-support.md) |
 
 ## <a name="skill-inputs"></a>Input competenze 
 
 | Nome input | Descrizione |
 |--------------------|-------------|
 | `text` | Testo da analizzare.|
-| `languageCode`    |  (Facoltativo) Stringa che indica la lingua dei record. Se questo parametro non è specificato, il valore predefinito è "en". <br/>Vedere l'[elenco completo delle lingue supportate](../cognitive-services/text-analytics/text-analytics-supported-languages.md).|
+| `languageCode`    |  (Facoltativo) Stringa che indica la lingua dei record. Se questo parametro non è specificato, il valore predefinito è "en". <br/>Vedere l'[elenco completo delle lingue supportate](../cognitive-services/text-analytics/language-support.md).|
 
 ## <a name="skill-outputs"></a>Output competenze
 

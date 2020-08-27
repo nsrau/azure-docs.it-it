@@ -1,22 +1,22 @@
 ---
 title: Creare pagine di errore personalizzate del gateway applicazione di Azure
-description: Questo articolo illustra come creare pagine di errore personalizzate del gateway applicazione. Se si usa una pagina di errore personalizzata, è possibile usare il proprio layout e marchio aziendali.
+description: Questo articolo illustra come creare pagine di errore personalizzate del gateway applicazione. Con una pagina di errore personalizzata è possibile usare il layout e il marchio aziendali.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: d78f7aa2a02f14dc9b875895e3057bd4dee29b74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 953be98de855162127fd8b8b8273fe9817668db7
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808091"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934821"
 ---
 # <a name="create-application-gateway-custom-error-pages"></a>Creare pagine di errore personalizzate del gateway applicazione
 
-Il gateway applicazione consente di creare pagine di errore personalizzate da visualizzare al posto delle pagine di errore predefinite. Se si usa una pagina di errore personalizzata, è possibile usare il proprio layout e marchio aziendali.
+Il gateway applicazione consente di creare pagine di errore personalizzate da visualizzare al posto delle pagine di errore predefinite. Con una pagina di errore personalizzata è possibile usare il layout e il marchio aziendali.
 
 È possibile, ad esempio, definire la propria pagina di manutenzione se l'applicazione Web non è raggiungibile. In alternativa, è possibile creare una pagina di accesso non autorizzato se viene inviata una richiesta dannosa a un'applicazione Web.
 
@@ -65,11 +65,21 @@ Dopo che l'utente ha specificato una pagina di errore, il gateway applicazione l
 
 È anche possibile usare Azure PowerShell per configurare una pagina di errore personalizzata. Una pagina di errore personalizzata globale di esempio:
 
-`$updatedgateway = Add-AzApplicationGatewayCustomError -ApplicationGateway $appgw -StatusCode HttpStatus502 -CustomErrorPageUrl $customError502Url`
+```powershell
+$appgw   = Get-AzApplicationGateway -Name <app-gateway-name> -ResourceGroupName <resource-group-name>
+
+$updatedgateway = Add-AzApplicationGatewayCustomError -ApplicationGateway $appgw -StatusCode HttpStatus502 -CustomErrorPageUrl "http://<website-url>"
+```
 
 O una pagina di errore a livello di listener:
 
-`$updatedlistener = Add-AzApplicationGatewayHttpListenerCustomError -HttpListener $listener01 -StatusCode HttpStatus502 -CustomErrorPageUrl $customError502Url`
+```powershell
+$appgw   = Get-AzApplicationGateway -Name <app-gateway-name> -ResourceGroupName <resource-group-name>
+
+$listener01 = Get-AzApplicationGatewayHttpListener -Name <listener-name> -ApplicationGateway $appgw
+
+$updatedlistener = Add-AzApplicationGatewayHttpListenerCustomError -HttpListener $listener01 -StatusCode HttpStatus502 -CustomErrorPageUrl "http://<website-url>"
+```
 
 Per altre informazioni, vedere [Add-AzApplicationGatewayCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewaycustomerror?view=azps-1.2.0) e [Add-AzApplicationGatewayHttpListenerCustomError](https://docs.microsoft.com/powershell/module/az.network/add-azapplicationgatewayhttplistenercustomerror?view=azps-1.3.0).
 

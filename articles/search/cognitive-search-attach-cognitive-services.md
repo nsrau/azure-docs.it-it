@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: ffb52cd34d56c227fc689ea70146e99983e17c0d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c9f6a5ebc4f3242181196bd40b62f7522d025b84
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85564437"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924978"
 ---
 # <a name="attach-a-cognitive-services-resource-to-a-skillset-in-azure-cognitive-search"></a>Alleghi una risorsa di servizi cognitivi a un Skills in Azure ricerca cognitiva 
 
@@ -37,7 +37,7 @@ Azure ricerca cognitiva presenta una dipendenza da servizi cognitivi, inclusi [v
 
 ## <a name="same-region-requirement"></a>Requisito della stessa area
 
-È necessario che Azure ricerca cognitiva e servizi cognitivi di Azure esistano nella stessa area. In caso contrario, verrà ricevuto questo messaggio in fase di esecuzione:`"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
+È necessario che Azure ricerca cognitiva e servizi cognitivi di Azure esistano nella stessa area. In caso contrario, verrà ricevuto questo messaggio in fase di esecuzione: `"Provided key is not a valid CognitiveServices type key for the region of your search service."` 
 
 Non è possibile spostare un servizio tra le aree. Se si riceve questo errore, è necessario creare una nuova risorsa di servizi cognitivi nella stessa area di Azure ricerca cognitiva.
 
@@ -72,7 +72,7 @@ Vengono addebitate solo le competenze che chiamano il API Servizi cognitivi. Non
 
 1. Espandere **Connetti Servizi cognitivi** e quindi selezionare **Crea nuova risorsa Servizi cognitivi**. Viene visualizzata una nuova scheda in cui è possibile creare la risorsa:
 
-   ![Creare una risorsa per Servizi cognitivi](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Creare una risorsa per Servizi cognitivi")
+   ![Creare una risorsa Servizi cognitivi](./media/cognitive-search-attach-cognitive-services/cog-services-create.png "Creare una risorsa per Servizi cognitivi")
 
 1. Nell'elenco **location (percorso** ) selezionare l'area in cui si trova il servizio Azure ricerca cognitiva. Assicurarsi di usare questa area per motivi di prestazioni. L'uso di questa area Annulla anche gli addebiti per la larghezza di banda in uscita tra aree.
 
@@ -170,5 +170,5 @@ Riunendola, pagherai circa $57,00 per inserire i documenti PDF 1.000 di questo t
 ## <a name="next-steps"></a>Passaggi successivi
 + [Pagina dei prezzi di Azure ricerca cognitiva](https://azure.microsoft.com/pricing/details/search/)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
-+ [Creare un set di competenze (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Creare un set di competenze (REST)](/rest/api/searchservice/create-skillset)
 + [Come eseguire il mapping dei campi arricchiti](cognitive-search-output-field-mapping.md)

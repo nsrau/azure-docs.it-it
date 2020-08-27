@@ -113,6 +113,8 @@
   items:
     - name: Plug-in dell'interfaccia della riga di comando di Azure
       href: 'https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud'
+    - name: Azure PowerShell
+      href: 'https://docs.microsoft.com/powershell/module/az.springcloud'
     - name: Risorse
       href: spring-cloud-resources.md
     - name: Domande frequenti
