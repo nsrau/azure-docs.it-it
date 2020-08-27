@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 11/04/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: d76bac60bae11f0843d81de523030154af62a373
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b62352d09419de11135f4d7a2740e0e74b80255d
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811690"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962129"
 ---
 # <a name="use-a-tlsssl-certificate-in-your-code-in-azure-app-service"></a>Usare un certificato TLS/SSL nel codice nel Servizio app di Azure
 
@@ -24,12 +24,12 @@ Quando si consente al servizio app di gestire i certificati TLS/SSL, è possibil
 
 Per completare questa guida pratica:
 
-- [Creare un'app del Servizio app](/azure/app-service/)
+- [Creare un'app del Servizio app](./index.yml)
 - [Aggiungere un certificato all'app](configure-ssl-certificate.md)
 
 ## <a name="find-the-thumbprint"></a>Trovare l'identificazione personale
 
-Nel <a href="https://portal.azure.com" target="_blank">portale di Azure</a>scegliere **Servizi app**dal menu a sinistra  >  **\<app-name>** .
+Nel menu a sinistra del <a href="https://portal.azure.com" target="_blank">portale di Azure</a> scegliere **Servizi app** >  **\<app-name>** .
 
 Dall'area di spostamento a sinistra dell'app selezionare **Impostazioni TLS/SSL**, quindi selezionare **certificati di chiave privata (con estensione pfx)** o **certificati di chiave pubblica (. cer)**.
 
@@ -164,4 +164,4 @@ Per informazioni su come caricare un certificato TLS/SSL da un file in Node.js, 
 * [Proteggere un nome DNS personalizzato con un'associazione TLS/SSL nel Servizio app di Azure](configure-ssl-bindings.md)
 * [Applicare HTTPS](configure-ssl-bindings.md#enforce-https)
 * [Applicare TLS 1.1/1.2](configure-ssl-bindings.md#enforce-tls-versions)
-* [FAQ: App Service Certificates](https://docs.microsoft.com/azure/app-service/faq-configuration-and-management/) (Domande frequenti: certificati del servizio app)
+* [FAQ: App Service Certificates](./faq-configuration-and-management.md) (Domande frequenti: certificati del servizio app)

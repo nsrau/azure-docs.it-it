@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 04/23/2020
 ms.author: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 5507e6f97211f209eb559ff7491f22bdf1a00e54
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 888118d227529110c209d7c8d5a3bb79cfcf3a9a
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079672"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959792"
 ---
 # <a name="monitor-apps-in-azure-app-service"></a>Monitorare le app in Servizio app di Azure
 [App Azure servizio](https://go.microsoft.com/fwlink/?LinkId=529714) fornisce funzionalità di monitoraggio predefinite per app Web, per dispositivi mobili e per le app per le API nel [portale di Azure](https://portal.azure.com).
@@ -152,14 +152,14 @@ Per trovare le quote, selezionare **Settings**  >  **quote**impostazioni. Nel gr
 
 Facendo clic su uno di questi grafici verrà visualizzata la visualizzazione metriche in cui è possibile creare grafici personalizzati, eseguire query su metriche diverse e molto altro. 
 
-Per altre informazioni sulle metriche, vedere [Monitorare le metriche del servizio](../monitoring-and-diagnostics/insights-how-to-customize-monitoring.md).
+Per altre informazioni sulle metriche, vedere [Monitorare le metriche del servizio](../azure-monitor/platform/data-platform.md).
 
 ## <a name="alerts-and-autoscale"></a>Avvisi e scalabilità automatica
-Le metriche per un'app o un piano di servizio app possono essere collegate ad avvisi specifici. Per altre informazioni, vedere [ricevere notifiche di avviso](../monitoring-and-diagnostics/insights-alerts-portal.md).
+Le metriche per un'app o un piano di servizio app possono essere collegate ad avvisi specifici. Per altre informazioni, vedere [ricevere notifiche di avviso](../azure-monitor/platform/alerts-classic-portal.md).
 
 Le app del servizio app ospitate nei piani di servizio App Basic o superiore supportano la scalabilità automatica. Con questa funzionalità è possibile configurare le regole che consentono di monitorare le metriche del piano di servizio app. Le regole possono aumentare o diminuire il numero di istanze per fornire risorse aggiuntive in base alla esigenze. L'uso delle regole consente anche di ridurre i costi quando l'app ha un provisioning eccessivo.
 
-Per altre informazioni sulla scalabilità automatica, vedere [Procedura dettagliata sulla scalabilità automatica](../monitoring-and-diagnostics/insights-how-to-scale.md) e [Procedure consigliate per la scalabilità automatica in Monitoraggio di Azure](../azure-monitor/platform/autoscale-best-practices.md).
+Per altre informazioni sulla scalabilità automatica, vedere [Procedura dettagliata sulla scalabilità automatica](../azure-monitor/platform/autoscale-get-started.md) e [Procedure consigliate per la scalabilità automatica in Monitoraggio di Azure](../azure-monitor/platform/autoscale-best-practices.md).
 
 [fzilla]:https://go.microsoft.com/fwlink/?LinkId=247914
 [vmsizes]:https://go.microsoft.com/fwlink/?LinkID=309169

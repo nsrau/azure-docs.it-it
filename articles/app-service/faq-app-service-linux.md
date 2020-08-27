@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 10/30/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: e01954e0f2f311a7229a69cb18f881e0491b80d3
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c35647a46cd252ce045d10e8dfefcf78236ba74b
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083042"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961721"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Domande frequenti sul Servizio app di Azure in Linux
 
@@ -35,7 +35,7 @@ In caso di domande, inviare commenti su questo articolo.
 | Java SE         | comando per avviare l'app JAR (ad esempio, `java -jar /home/site/wwwroot/app.jar --server.port=80` ) |
 | Tomcat          | percorso di uno script per eseguire tutte le configurazioni necessarie (ad esempio, `/home/site/deployments/tools/startup_script.sh` )          |
 | Node.js         | il file di configurazione PM2 o il file di script                                |
-| .NET Core       | nome della DLL compilata come`dotnet <myapp>.dll`                                 |
+| .NET Core       | nome della DLL compilata come `dotnet <myapp>.dll`                                 |
 | Ruby            | script Ruby con cui si vuole inizializzare l'app                     |
 
 Questi comandi o script vengono eseguiti dopo l'avvio del contenitore Docker incorporato, ma prima dell'avvio del codice dell'applicazione.
@@ -122,7 +122,7 @@ Se `WEBSITES_ENABLE_APP_SERVICE_STORAGE` l'impostazione non è **specificata** o
 
 **Qual è il formato per il nome dell'immagine nell'opzione del Registro di sistema privato?**
 
-Aggiungere il nome dell'immagine completa, incluso l'URL del registro privato (ad esempio myacr.azurecr.io/dotnet:latest). I nomi di immagine che usano una porta personalizzata [non possono essere inseriti tramite il portale](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Per impostare `docker-custom-image-name` , usare lo [ `az` strumento da riga di comando](https://docs.microsoft.com/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
+Aggiungere il nome dell'immagine completa, incluso l'URL del registro privato (ad esempio myacr.azurecr.io/dotnet:latest). I nomi di immagine che usano una porta personalizzata [non possono essere inseriti tramite il portale](https://feedback.azure.com/forums/169385-web-apps/suggestions/31304650). Per impostare `docker-custom-image-name` , usare lo [ `az` strumento da riga di comando](/cli/azure/webapp/config/container?view=azure-cli-latest#az-webapp-config-container-set).
 
 **È possibile esporre più di una porta sull'immagine del contenitore personalizzato?**
 
@@ -130,7 +130,7 @@ Non è supportata l'esposizione di più di una porta.
 
 **È possibile usare la propria archiviazione?**
 
-Sì, l'opzione che consente di [usare la propria archiviazione](https://docs.microsoft.com/azure/app-service/configure-connect-to-azure-storage) è disponibile in anteprima.
+Sì, l'opzione che consente di [usare la propria archiviazione](./configure-connect-to-azure-storage.md) è disponibile in anteprima.
 
 **Perché non è possibile accedere al file system del contenitore personalizzato o ai processi in esecuzione dal sito SCM?**
 

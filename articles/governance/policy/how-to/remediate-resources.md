@@ -1,18 +1,18 @@
 ---
 title: Correggere le risorse non conformi
 description: Questa guida descrive come correggere le risorse che non sono conformi ai criteri di Criteri di Azure.
-ms.date: 06/09/2020
+ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: be55f16734a94acfcc89d632f4cb79f550fa74d5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1274b049d7ce19601968697b22da38f0eb2cb5ff
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84636309"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958746"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Correggere le risorse non conformi con Criteri di Azure
 
-Le risorse che non sono conformi ai criteri **deployIfNotExists** o **modify** possono essere messe in stato di conformità attraverso una **correzione**. La correzione viene eseguita indicando a Criteri di Azure di eseguire l'effetto **deployIfNotExists** o il tag **operations** del criterio assegnato sulle risorse esistenti, sia che tale assegnazione sia rivolta a un gruppo di gestione, a una sottoscrizione, a un gruppo di risorse o a una singola risorsa. Questo articolo illustra i passaggi necessari per comprendere ed eseguire il processo di correzione con i Criteri di Azure.
+Le risorse che non sono conformi ai criteri **deployIfNotExists** o **modify** possono essere messe in stato di conformità attraverso una **correzione**. La correzione viene eseguita indicando a criteri di Azure di eseguire l'effetto **deployIfNotExists** o le **operazioni di modifica** del criterio assegnato nelle risorse esistenti, sia che si tratti di un gruppo di gestione, una sottoscrizione, un gruppo di risorse o una singola risorsa. Questo articolo illustra i passaggi necessari per comprendere ed eseguire il processo di correzione con i Criteri di Azure.
 
 ## <a name="how-remediation-security-works"></a>Funzionamento della sicurezza della correzione
 

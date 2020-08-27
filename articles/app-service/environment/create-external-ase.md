@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6c4838e3226b91cbb5d6f86b83266a986418c120
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 03bc41a0159253359b4f87fd35d4de055b294cc4
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75430521"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961789"
 ---
 # <a name="create-an-external-app-service-environment"></a>Creare un ambiente del servizio app esterno
 
@@ -32,8 +32,8 @@ In questo articolo viene illustrato come creare un ambiente del servizio app est
 
 Dopo avere creato l'ambiente del servizio app, non è possibile modificare quanto segue:
 
-- Location
-- Subscription
+- Località
+- Sottoscrizione
 - Resource group
 - Rete virtuale usata
 - Subnet usata
@@ -196,7 +196,7 @@ Per altre informazioni sull'ambiente del servizio app 1, vedere [Introduction to
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../overview.md
-[mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
+[mobileapps]: /previous-versions/azure/app-service-mobile/app-service-mobile-value-prop
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/management/overview.md

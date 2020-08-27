@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: f663b58de666e2a0fe44fa3c023816a524b7d6c5
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: d46aacc441b412a117d906e0201a9bed6046a338
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083029"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961606"
 ---
 # <a name="open-an-ssh-session-to-a-linux-container-in-azure-app-service"></a>Aprire una sessione SSH in un contenitore Linux nel servizio app Azure
 
@@ -113,11 +113,11 @@ Load average: 0.07 0.04 0.08 4/765 45738
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile pubblicare eventuali domande e dubbi nel [forum di Azure](https://docs.microsoft.com/answers/topics/azure-webapps.html).
+È possibile pubblicare eventuali domande e dubbi nel [forum di Azure](/answers/topics/azure-webapps.html).
 
 Per altre informazioni sull'app Web per contenitori, vedere:
 
 * [Introducing remote debugging of Node.js apps on Azure App Service from VS Code](https://medium.com/@auchenberg/introducing-remote-debugging-of-node-js-apps-on-azure-app-service-from-vs-code-in-public-preview-9b8d83a6e1f0) (Introduzione al debug remoto delle app Node.js nel Servizio app di Azure da Visual Studio Code)
-* [Guida introduttiva: eseguire un contenitore personalizzato nel servizio app](quickstart-custom-container.md?pivots=container-linux)
+* [Avvio rapido: Eseguire un contenitore personalizzato nel servizio app](quickstart-custom-container.md?pivots=container-linux)
 * [Uso di Ruby in Servizio app di Azure in Linux](quickstart-ruby.md)
 * [Azure App Service Web App for Containers FAQ (Domande frequenti sulle app Web per contenitori del servizio app di Azure)](faq-app-service-linux.md)

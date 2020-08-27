@@ -5,12 +5,12 @@ ms.assetid: e224fc4f-800d-469a-8d6a-72bcde612450
 ms.topic: article
 ms.date: 04/30/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ab8bee756cc714074a6f97156bf528ddeabff8a0
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: b12b85a2248d7709066ba3218327e0a5d52a0192
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236744"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962163"
 ---
 # <a name="set-up-staging-environments-in-azure-app-service"></a>Configurare gli ambienti di gestione temporanea nel Servizio app di Azure
 <a name="Overview"></a>
@@ -62,7 +62,7 @@ Per poter abilitare più slot di distribuzione, l'app deve essere in esecuzione 
 
 6. Selezionare l'URL dell'app nella pagina delle risorse dello slot. Lo slot di distribuzione ha un proprio nome host ed è anche un'app Live. Per limitare l'accesso pubblico allo slot di distribuzione, vedere [restrizioni IP del servizio app Azure](app-service-ip-restrictions.md).
 
-Il nuovo slot di distribuzione non ha contenuto, anche se si clonano le impostazioni da un altro slot. Ad esempio, è possibile [pubblicare in questo slot con git](app-service-deploy-local-git.md). È possibile distribuire lo slot da un ramo diverso del repository o da un repository diverso.
+Il nuovo slot di distribuzione non ha contenuto, anche se si clonano le impostazioni da un altro slot. Ad esempio, è possibile [pubblicare in questo slot con git](./deploy-local-git.md). È possibile distribuire lo slot da un ramo diverso del repository o da un repository diverso.
 
 <a name="AboutConfiguration"></a>
 
@@ -83,7 +83,7 @@ Quando si scambiano due slot (in genere da uno slot di gestione temporanea nello
 
 1. Se la [cache locale](overview-local-cache.md) è abilitata, attivare l'inizializzazione della cache locale effettuando una richiesta HTTP alla radice dell'applicazione ("/") in ogni istanza dello slot di origine. Attendere fino a quando ogni istanza non restituisce alcuna risposta HTTP. L'inizializzazione della cache locale causa un altro riavvio in ogni istanza.
 
-1. Se lo [scambio automatico](#Auto-Swap) è abilitato con [Riscaldamento personalizzato](#Warm-up), attivare l' [avvio dell'applicazione](https://docs.microsoft.com/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) eseguendo una richiesta HTTP alla radice dell'applicazione ("/") in ogni istanza dello slot di origine.
+1. Se lo [scambio automatico](#Auto-Swap) è abilitato con [Riscaldamento personalizzato](#Warm-up), attivare l' [avvio dell'applicazione](/iis/get-started/whats-new-in-iis-8/iis-80-application-initialization) eseguendo una richiesta HTTP alla radice dell'applicazione ("/") in ogni istanza dello slot di origine.
 
     Se `applicationInitialization` non è specificato, attivare una richiesta HTTP alla radice dell'applicazione dello slot di origine in ogni istanza. 
     
@@ -222,7 +222,7 @@ In caso di problemi, vedere risolvere i problemi di [swap](#troubleshoot-swaps).
 
 ## <a name="monitor-a-swap"></a>Monitorare uno scambio
 
-Se il completamento dell' [operazione di scambio](#AboutConfiguration) richiede molto tempo, è possibile ottenere informazioni sull'operazione di scambio nel [log attività](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md).
+Se il completamento dell' [operazione di scambio](#AboutConfiguration) richiede molto tempo, è possibile ottenere informazioni sull'operazione di scambio nel [log attività](../azure-monitor/platform/platform-logs-overview.md).
 
 Nel riquadro sinistro della pagina delle risorse dell'app nel portale selezionare **log attività**.
 
@@ -335,7 +335,7 @@ Remove-AzResource -ResourceGroupName [resource group name] -ResourceType Microso
 
 ## <a name="automate-with-resource-manager-templates"></a>Automatizzare i modelli di Gestione risorse
 
-[Azure Resource Manager modelli](https://docs.microsoft.com/azure/azure-resource-manager/template-deployment-overview) sono file JSON dichiarativi usati per automatizzare la distribuzione e la configurazione delle risorse di Azure. Per scambiare gli slot con i modelli di Gestione risorse, è necessario impostare due proprietà nelle risorse *Microsoft. Web/sites/Slots* e *Microsoft. Web/sites* :
+[Azure Resource Manager modelli](../azure-resource-manager/templates/overview.md) sono file JSON dichiarativi usati per automatizzare la distribuzione e la configurazione delle risorse di Azure. Per scambiare gli slot con i modelli di Gestione risorse, è necessario impostare due proprietà nelle risorse *Microsoft. Web/sites/Slots* e *Microsoft. Web/sites* :
 
 - `buildVersion`: proprietà di stringa che rappresenta la versione corrente dell'app distribuita nello slot. Ad esempio: "V1", "1.0.0.1" o "2019-09-20T11:53:25.2887393-07:00".
 - `targetBuildVersion`: proprietà di stringa che specifica `buildVersion` il contenuto dello slot. Se targetBuildVersion non è uguale all'oggetto corrente `buildVersion` , verrà attivata l'operazione di scambio individuando lo slot con l'oggetto specificato `buildVersion` .

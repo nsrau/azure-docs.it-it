@@ -6,18 +6,18 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 1ed7a6ebea12e5db37ec89c73db105dd7ce7e2ab
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: de39789a45856211421e3ec5638a2df94d49976c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211987"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958712"
 ---
 # <a name="troubleshoot-an-app-in-azure-app-service-using-visual-studio"></a>Risolvere i problemi di un'app nel Servizio app di Azure tramite Visual Studio
 ## <a name="overview"></a>Panoramica
-Questa esercitazione illustra come usare gli strumenti di Visual Studio che consentono di eseguire il debug di un'app nel [Servizio app](https://go.microsoft.com/fwlink/?LinkId=529714) tramite la [modalità debug](https://docs.microsoft.com/visualstudio/debugger/) in remoto oppure visualizzando i log dell'applicazione e i log del server Web.
+Questa esercitazione illustra come usare gli strumenti di Visual Studio che consentono di eseguire il debug di un'app nel [Servizio app](https://go.microsoft.com/fwlink/?LinkId=529714) tramite la [modalità debug](/visualstudio/debugger/) in remoto oppure visualizzando i log dell'applicazione e i log del server Web.
 
-Si apprenderà come:
+Si apprenderà:
 
 * Usare le funzioni di gestione app disponibili in Visual Studio.
 * Usare la vista remota di Visual Studio per apportare modifiche rapide a un'app remota.
@@ -680,7 +680,7 @@ Per ulteriori informazioni sull'analisi dei log del server Web, vedere le risors
   Strumento per la visualizzazione di dati nei log del server Web (file con estensione*log* ).
 * [Risoluzione dei problemi relativi alle prestazioni di IIS o degli errori dell'applicazione tramite LogParser](https://www.iis.net/learn/troubleshoot/performance-issues/troubleshooting-iis-performance-issues-or-application-errors-using-logparser)<br/>
    Introduzione allo strumento Log Parser, che è possibile utilizzare per analizzare i log del server Web.
-* [Post di blog di Robert McMurray sull'uso di Log Parser](https://docs.microsoft.com/archive/blogs/robert_mcmurray/using-logparser-with-ftp-7-x-sessions)<br/>
+* [Post di blog di Robert McMurray sull'uso di Log Parser](/archive/blogs/robert_mcmurray/using-logparser-with-ftp-7-x-sessions)<br/>
 * [Codice di stato HTTP in IIS 7.0, IIS 7.5 e IIS 8.0](https://support.microsoft.com/kb/943891)
 
 ### <a name="analyzing-failed-request-tracing-logs"></a>Analisi dei log di traccia delle richieste non riuscite

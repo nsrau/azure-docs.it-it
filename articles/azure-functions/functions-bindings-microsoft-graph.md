@@ -6,14 +6,17 @@ ms.topic: reference
 ms.custom: devx-track-csharp
 ms.date: 12/20/2017
 ms.author: cshoe
-ms.openlocfilehash: 9dd4067d066362f5842b504971afbc59fd0717a3
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: d10b36047959299f5b66da5fb16beef8a591a983
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212207"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962843"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Associazioni di Microsoft Graph per Funzioni di Azure
+
+> [!IMPORTANT]
+> Le associazioni di anteprima Microsoft Graph sono ora deprecate. Per informazioni dettagliate su come usare Microsoft Graph con funzioni di Azure, vedere l'esercitazione [compilare funzioni di Azure con Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
 
 Questo articolo illustra come configurare e usare trigger e associazioni di Microsoft Graph in Funzioni di Azure. I trigger e le associazioni consentono di usare Funzioni di Azure con dati, informazioni dettagliate ed eventi di [Microsoft Graph](https://developer.microsoft.com/graph).
 
@@ -38,6 +41,9 @@ L'associazione di input per il token di autenticazione è disponibile nel pacche
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
 ## <a name="setting-up-the-extensions"></a>Configurazione delle estensioni
+
+> [!IMPORTANT]
+> Le associazioni di anteprima Microsoft Graph sono ora deprecate. Per informazioni dettagliate su come usare Microsoft Graph con funzioni di Azure, vedere l'esercitazione [compilare funzioni di Azure con Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
 
 Le associazioni di Microsoft Graph sono disponibili tramite le _estensioni dell'associazione_. Le estensioni dell'associazione sono componenti facoltativi per il runtime di Funzioni di Azure. Questa sezione illustra come configurare le estensioni dei token di autenticazione e di Microsoft Graph.
 
@@ -72,13 +78,16 @@ Se si usa il portale di Azure, verrà visualizzato un avviso sotto il prompt rel
 <a name="token-input"></a>
 ## <a name="auth-token"></a>Token di autenticazione
 
+> [!IMPORTANT]
+> Le associazioni di anteprima Microsoft Graph sono ora deprecate. Per informazioni dettagliate su come usare Microsoft Graph con funzioni di Azure, vedere l'esercitazione [compilare funzioni di Azure con Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
+
 Questa associazione di input per il token di autenticazione ottiene un token Azure AD per una determinata risorsa e lo inserisce nel codice sotto forma di stringa. La risorsa può essere una qualsiasi risorsa per cui l'applicazione dispone di autorizzazioni. 
 
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#auth-token---example)
 * [Attributes (Attributi)](#auth-token---attributes)
-* [Configuration](#auth-token---configuration)
+* [Configurazione](#auth-token---configuration)
 * [Utilizzo](#auth-token---usage)
 
 ### <a name="auth-token---example"></a>Token di autenticazione: esempio
@@ -230,13 +239,16 @@ Il token viene sempre visualizzato nel codice sotto forma di stringa.
 <a name="excel-input"></a>
 ## <a name="excel-input"></a>Input di Excel
 
+> [!IMPORTANT]
+> Le associazioni di anteprima Microsoft Graph sono ora deprecate. Per informazioni dettagliate su come usare Microsoft Graph con funzioni di Azure, vedere l'esercitazione [compilare funzioni di Azure con Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
+
 L'associazione di input per la tabella di Excel legge il contenuto di una tabella di Excel archiviata in OneDrive.
 
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#excel-input---example)
 * [Attributes (Attributi)](#excel-input---attributes)
-* [Configuration](#excel-input---configuration)
+* [Configurazione](#excel-input---configuration)
 * [Utilizzo](#excel-input---usage)
 
 ### <a name="excel-input---example"></a>Input di Excel: esempio
@@ -385,7 +397,7 @@ In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#excel-output---example)
 * [Attributes (Attributi)](#excel-output---attributes)
-* [Configuration](#excel-output---configuration)
+* [Configurazione](#excel-output---configuration)
 * [Utilizzo](#excel-output---usage)
 
 ### <a name="excel-output---example"></a>Output di Excel: esempio
@@ -538,13 +550,16 @@ L'associazione espone i tipi seguenti nelle funzioni .NET:
 <a name="onedrive-input"></a>
 ## <a name="file-input"></a>Input di file
 
+> [!IMPORTANT]
+> Le associazioni di anteprima Microsoft Graph sono ora deprecate. Per informazioni dettagliate su come usare Microsoft Graph con funzioni di Azure, vedere l'esercitazione [compilare funzioni di Azure con Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
+
 L'associazione di input di file di OneDrive legge il contenuto di un file archiviato in OneDrive.
 
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#file-input---example)
 * [Attributes (Attributi)](#file-input---attributes)
-* [Configuration](#file-input---configuration)
+* [Configurazione](#file-input---configuration)
 * [Utilizzo](#file-input---usage)
 
 ### <a name="file-input---example"></a>Input di file: esempio
@@ -682,13 +697,16 @@ L'associazione espone i tipi seguenti nelle funzioni .NET:
 <a name="onedrive-output"></a>
 ## <a name="file-output"></a>Output di file
 
+> [!IMPORTANT]
+> Le associazioni di anteprima Microsoft Graph sono ora deprecate. Per informazioni dettagliate su come usare Microsoft Graph con funzioni di Azure, vedere l'esercitazione [compilare funzioni di Azure con Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
+
 L'associazione di output di file di OneDrive modifica il contenuto di un file archiviato in OneDrive.
 
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#file-output---example)
 * [Attributes (Attributi)](#file-output---attributes)
-* [Configuration](#file-output---configuration)
+* [Configurazione](#file-output---configuration)
 * [Utilizzo](#file-output---usage)
 
 ### <a name="file-output---example"></a>Output di file: esempio
@@ -829,13 +847,16 @@ L'associazione espone i tipi seguenti nelle funzioni .NET:
 <a name="outlook-output"></a>
 ## <a name="outlook-output"></a>Output di Outlook
 
+> [!IMPORTANT]
+> Le associazioni di anteprima Microsoft Graph sono ora deprecate. Per informazioni dettagliate su come usare Microsoft Graph con funzioni di Azure, vedere l'esercitazione [compilare funzioni di Azure con Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
+
 L'associazione di output del messaggio di Outlook invia un messaggio di posta tramite Outlook.
 
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#outlook-output---example)
 * [Attributes (Attributi)](#outlook-output---attributes)
-* [Configuration](#outlook-output---configuration)
+* [Configurazione](#outlook-output---configuration)
 * [Utilizzo](#outlook-output---usage)
 
 ### <a name="outlook-output---example"></a>Output di Outlook: esempio
@@ -979,6 +1000,9 @@ L'associazione espone i tipi seguenti nelle funzioni .NET:
 
 ## <a name="webhooks"></a>Webhook
 
+> [!IMPORTANT]
+> Le associazioni di anteprima Microsoft Graph sono ora deprecate. Per informazioni dettagliate su come usare Microsoft Graph con funzioni di Azure, vedere l'esercitazione [compilare funzioni di Azure con Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
+
 I webhook consentono di rispondere agli eventi in Microsoft Graph. Per supportare i webhook, le funzioni devono creare, aggiornare e rispondere alle _sottoscrizioni webhook_. Una soluzione webhook completa richiede una combinazione delle associazioni seguenti:
 - Un [trigger webhook di Microsoft Graph](#webhook-trigger) che consente di rispondere a un webhook in ingresso.
 - Un'[associazione di input per la sottoscrizione webhook di Microsoft Graph](#webhook-input) che consente di elencare le sottoscrizioni esistenti e, facoltativamente, di aggiornarle.
@@ -994,13 +1018,16 @@ Per altre informazioni sui webhook, vedere [Usare i webhook in Microsoft Graph].
 
 ## <a name="webhook-trigger"></a>Trigger di webhook
 
+> [!IMPORTANT]
+> Le associazioni di anteprima Microsoft Graph sono ora deprecate. Per informazioni dettagliate su come usare Microsoft Graph con funzioni di Azure, vedere l'esercitazione [compilare funzioni di Azure con Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
+
 Il trigger di webhook di Microsoft Graph consente di rispondere a un webhook in ingresso di Microsoft Graph. Ogni istanza del trigger può rispondere a un tipo di risorsa di Microsoft Graph.
 
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#webhook-trigger---example)
 * [Attributes (Attributi)](#webhook-trigger---attributes)
-* [Configuration](#webhook-trigger---configuration)
+* [Configurazione](#webhook-trigger---configuration)
 * [Utilizzo](#webhook-trigger---usage)
 
 ### <a name="webhook-trigger---example"></a>Trigger di webhook: esempio
@@ -1113,13 +1140,16 @@ L'associazione espone i tipi seguenti nelle funzioni .NET:
 <a name="webhook-input"></a>
 ## <a name="webhook-input"></a>Input di webhook
 
+> [!IMPORTANT]
+> Le associazioni di anteprima Microsoft Graph sono ora deprecate. Per informazioni dettagliate su come usare Microsoft Graph con funzioni di Azure, vedere l'esercitazione [compilare funzioni di Azure con Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
+
 L'associazione di input per il webhook di Microsoft Graph consente di recuperare l'elenco delle sottoscrizioni gestito da questa app per le funzioni. L'associazione legge dall'archiviazione app per le funzioni, quindi non riflette le altre sottoscrizioni create all'esterno dell'app.
 
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#webhook-input---example)
 * [Attributes (Attributi)](#webhook-input---attributes)
-* [Configuration](#webhook-input---configuration)
+* [Configurazione](#webhook-input---configuration)
 * [Utilizzo](#webhook-input---usage)
 
 ### <a name="webhook-input---example"></a>Input di webhook: esempio
@@ -1248,7 +1278,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 |**nome**| n/d |Obbligatoria: nome della variabile usato nel codice della funzione per il messaggio di posta elettronica. Vedere [Usare un'associazione di output per i messaggi di Outlook nel codice](#outlook-output-code).|
 |**type**| n/d |Obbligatoria. Deve essere impostata su `graphWebhookSubscription`.|
 |**direction**| n/d |Obbligatoria. Deve essere impostata su `in`.|
-|**filtro**|**Filter**| Se impostata su `userFromRequest`, l'associazione recupererà solo le sottoscrizioni di proprietà dell'utente chiamante. Questa operazione è valida solo con il [trigger HTTP].| 
+|**filter**|**Filter**| Se impostata su `userFromRequest`, l'associazione recupererà solo le sottoscrizioni di proprietà dell'utente chiamante. Questa operazione è valida solo con il [trigger HTTP].| 
 
 ### <a name="webhook-input---usage"></a>Input di webhook: utilizzo
 
@@ -1264,13 +1294,16 @@ L'associazione espone i tipi seguenti nelle funzioni .NET:
 
 ## <a name="webhook-output"></a>Output di webhook
 
+> [!IMPORTANT]
+> Le associazioni di anteprima Microsoft Graph sono ora deprecate. Per informazioni dettagliate su come usare Microsoft Graph con funzioni di Azure, vedere l'esercitazione [compilare funzioni di Azure con Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
+
 L'associazione di output per la sottoscrizione webhook consente di creare, eliminare e aggiornare le sottoscrizioni webhook in Microsoft Graph.
 
 In questa sezione sono disponibili le procedure seguenti:
 
 * [Esempio](#webhook-output---example)
 * [Attributes (Attributi)](#webhook-output---attributes)
-* [Configuration](#webhook-output---configuration)
+* [Configurazione](#webhook-output---configuration)
 * [Utilizzo](#webhook-output---usage)
 
 ### <a name="webhook-output---example"></a>Output di webhook: esempio
@@ -1407,6 +1440,9 @@ L'associazione espone i tipi seguenti nelle funzioni .NET:
 
 <a name="webhook-examples"></a>
 ## <a name="webhook-subscription-refresh"></a>Aggiornamento della sottoscrizione webhook
+
+> [!IMPORTANT]
+> Le associazioni di anteprima Microsoft Graph sono ora deprecate. Per informazioni dettagliate su come usare Microsoft Graph con funzioni di Azure, vedere l'esercitazione [compilare funzioni di Azure con Microsoft Graph](https://docs.microsoft.com/graph/tutorials/azure-functions) .
 
 Esistono due approcci all'aggiornamento delle sottoscrizioni:
 

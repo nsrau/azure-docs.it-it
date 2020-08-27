@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 49045c8b8c7b3ccfa44a1077e59683191393e1ee
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: c4e5dedf2075a2e13cc91c5eed2c0f03ba498b97
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220814"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962554"
 ---
 # <a name="using-an-internal-load-balancer-with-an-app-service-environment"></a>Uso di un servizio di bilanciamento del carico interno con un ambiente del servizio app
 
@@ -68,7 +68,7 @@ La creazione di un'app in un ambiente del servizio app con bilanciamento del car
 3. Selezionare la propria sottoscrizione.
 4. Selezionare o creare un gruppo di risorse.
 5. Selezionare o creare un piano di servizio app. Se si crea un nuovo piano di servizio app, selezionare l'ambiente del servizio app come posizione e il pool di lavoro in cui si vuole creare il piano di servizio. Quando si crea il piano di servizio app, selezionare l'ambiente del servizio app come posizione e il pool di lavoro. Quando si specifica il nome dell'app, si noterà che il sottodominio sotto il nome dell'app verrà sostituito con il sottodominio dell'ambiente del servizio app. 
-6. Selezionare **Crea**. Selezionare la casella di controllo **Aggiungi al dashboard** se si vuole che l'app venga visualizzata nel dashboard. 
+6. Selezionare **Create** (Crea). Selezionare la casella di controllo **Aggiungi al dashboard** se si vuole che l'app venga visualizzata nel dashboard. 
 
 ![Mostra come creare un'app in un ambiente del servizio app ILB nel portale di Azure.][2]
 
@@ -140,9 +140,9 @@ Per iniziare a usare gli ambienti del servizio app, vedere [Introduzione agli am
 [WhatisASE]: app-service-app-service-environment-intro.md
 [HowtoCreateASE]: app-service-web-how-to-create-an-app-service-environment.md
 [ControlInbound]: app-service-app-service-environment-control-inbound-traffic.md
-[virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
+[virtualnetwork]: ../../virtual-network/virtual-networks-faq.md
 [AppServicePricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ASEAutoscale]: app-service-environment-auto-scale.md
 [ExpressRoute]: app-service-app-service-environment-network-configuration-expressroute.md
-[vnetnsgs]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
+[vnetnsgs]: ../../virtual-network/virtual-network-vnet-plan-design-arm.md
 [ASEConfig]: app-service-web-configure-an-app-service-environment.md

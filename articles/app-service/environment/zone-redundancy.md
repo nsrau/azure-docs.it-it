@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/15/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 1b32ae55030cc24c8892b204ff7330269993a483
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 15b129db56a9c6854bc3c1f2814a8776ec39adc6
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098562"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961568"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>Supporto della zona di disponibilità per gli ambienti del servizio app
 
@@ -77,7 +77,7 @@ Il frammento di codice del modello ARM di esempio seguente illustra la nuova pro
     ]
 ```
 
-Per rendere ridondante la zona delle app, è necessario distribuire due ILB gli ambienti di zona. I due gli ambienti di zona ILB devono trovarsi in zone di disponibilità separate. Sarà quindi necessario distribuire le app in ogni gli ambienti di ILB. Una volta create le app, è necessario configurare una soluzione di bilanciamento del carico. La soluzione consigliata consiste nel distribuire un [gateway applicazione con ridondanza della zona](https://docs.microsoft.com/azure/application-gateway/application-gateway-autoscaling-zone-redundant) upstream del gli ambienti di zona ILB. 
+Per rendere ridondante la zona delle app, è necessario distribuire due ILB gli ambienti di zona. I due gli ambienti di zona ILB devono trovarsi in zone di disponibilità separate. Sarà quindi necessario distribuire le app in ogni gli ambienti di ILB. Una volta create le app, è necessario configurare una soluzione di bilanciamento del carico. La soluzione consigliata consiste nel distribuire un [gateway applicazione con ridondanza della zona](../../application-gateway/application-gateway-autoscaling-zone-redundant.md) upstream del gli ambienti di zona ILB. 
 
 ## <a name="in-region-data-residency"></a>Residenza dei dati in area ##
 
@@ -90,5 +90,3 @@ I clienti possono verificare che un ambiente del servizio app sia configurato co
 1. Usando [Esplora inventario risorse](https://resources.azure.com), passare alla risorsa ARM per il ambiente del servizio app.  Gli ambienti sono elencate in *providers/Microsoft. Web/hostingEnvironments*.
 2. Se una proprietà *zone* è presente nella vista della sintassi JSON di ARM e contiene una matrice JSON a valore singolo con valore "1", "2" o "3", l'ambiente del servizio app è zonally distribuito e i dati dei clienti rimangono nella stessa area.
 2. Se una proprietà *zone* non esiste o se la proprietà non dispone di un valore di zona valido come specificato in precedenza, l'ambiente del servizio app non viene zonally distribuito e i dati del cliente non vengono archiviati in modo esclusivo nella stessa area.
-
-

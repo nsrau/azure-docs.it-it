@@ -7,12 +7,12 @@ ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.topic: article
 ms.date: 07/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: 9cb672f2ada88b1fc67bcd8f022c5faeeac6dddf
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: 9a41c5912ec285094c1f47540caf3744ddd4d469
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170801"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958327"
 ---
 # <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-azure-app-service"></a>Risolvere gli errori HTTP "502 - Gateway non valido" e "503 - Servizio non disponibile" nel Servizio app di Azure
 Gli errori "502 - Gateway non valido" e "503 - Servizio non disponibile" sono comuni nelle app ospitate nel [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714). Questo articolo fornisce informazioni utili per la risoluzione di questi errori.
@@ -42,7 +42,7 @@ Il [servizio app](overview.md) presenta diverse opzioni per ogni passaggio.
 
 ### <a name="1-observe-and-monitor-application-behavior"></a>1. Osservare e monitorare il comportamento dell'applicazione
 #### <a name="track-service-health"></a>Tenere traccia dell'integrità del servizio
-Microsoft Azure pubblica un annuncio ogni volta che si verifica un'interruzione del servizio o una riduzione delle prestazioni. È possibile verificare l'integrità del servizio nel [portale di Azure](https://portal.azure.com/). Per altre informazioni, vedere [Tenere traccia dell’integrità del servizio](../monitoring-and-diagnostics/insights-service-health.md).
+Microsoft Azure pubblica un annuncio ogni volta che si verifica un'interruzione del servizio o una riduzione delle prestazioni. È possibile verificare l'integrità del servizio nel [portale di Azure](https://portal.azure.com/). Per altre informazioni, vedere [Tenere traccia dell’integrità del servizio](../service-health/service-notifications.md).
 
 #### <a name="monitor-your-app"></a>Monitorare l'app
 Questa opzione consente di trovare eventuali problemi nell'applicazione. Nel pannello dell'app fare clic sul riquadro **Richieste ed errori**. Il pannello **Metrica** mostra le metriche che si possono aggiungere.
@@ -60,7 +60,7 @@ Le metriche più comunemente monitorate per le app sono
 Per altre informazioni, vedere:
 
 * [Monitorare le app in Servizio app di Azure](web-sites-monitor.md)
-* [Ricevere notifiche di avviso](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+* [Ricevere notifiche di avviso](../azure-monitor/platform/alerts-overview.md)
 
 <a name="collect"></a>
 
@@ -108,5 +108,4 @@ Questo è spesso il modo più semplice per risolvere problemi occasionali. Nel p
 
  ![riavviare l'app per risolvere gli errori HTTP "502 - Gateway non valido" e "503 - Servizio non disponibile"](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
-È anche possibile gestire l'app usando Azure PowerShell. Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
-
+È anche possibile gestire l'app usando Azure PowerShell. Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../azure-resource-manager/management/manage-resources-powershell.md).

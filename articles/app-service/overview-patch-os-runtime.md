@@ -4,18 +4,18 @@ description: Informazioni sul modo in cui il servizio app Azure aggiorna il sist
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 93716ab36bc475b092542d1eef40cfe9d75ad819
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 831ba5f055b70e2f46cb8c6a941c0401df347dd5
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87414939"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961517"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Applicazione di patch a sistema operativo e runtime in Servizio app di Azure
 
 Questo articolo illustra come ottenere determinate informazioni sulla versione per il sistema operativo o il software nel [servizio app](overview.md). 
 
-Il servizio app è una soluzione PaaS (piattaforma distribuita come servizio), che significa che il sistema operativo e lo stack di applicazioni sono gestiti da Azure, mentre l'utente gestisce solo l'applicazione e i relativi dati. Per un maggiore controllo sul sistema operativo e sullo stack di applicazioni, usare [Macchine virtuali di Azure](https://docs.microsoft.com/azure/virtual-machines/). Tenendo presente questo aspetto, per un utente del servizio app è comunque utile conoscere informazioni come:
+Il servizio app è una soluzione PaaS (piattaforma distribuita come servizio), che significa che il sistema operativo e lo stack di applicazioni sono gestiti da Azure, mentre l'utente gestisce solo l'applicazione e i relativi dati. Per un maggiore controllo sul sistema operativo e sullo stack di applicazioni, usare [Macchine virtuali di Azure](../virtual-machines/index.yml). Tenendo presente questo aspetto, per un utente del servizio app è comunque utile conoscere informazioni come:
 
 -   Come e quando vengono applicati gli aggiornamenti del sistema operativo?
 -   Come vengono applicate nel servizio app le patch per le vulnerabilità significative (ad esempio per gli attacchi zero-day)?
@@ -25,7 +25,7 @@ Per motivi di sicurezza, alcuni dati relativi alle informazioni di sicurezza non
 
 ## <a name="how-and-when-are-os-updates-applied"></a>Come e quando vengono applicati gli aggiornamenti del sistema operativo?
 
-Azure gestisce l'applicazione di patch del sistema operativo su due livelli, i server fisici e le macchine virtuali (VM) guest che eseguono le risorse del servizio app. In entrambi i casi l'aggiornamento avviene mensilmente, in linea con la pianificazione mensile per le [patch](https://technet.microsoft.com/security/bulletins.aspx). Questi aggiornamenti vengono applicati automaticamente in modo da garantire il contratto di servizio a disponibilità elevata di Azure. 
+Azure gestisce l'applicazione di patch del sistema operativo su due livelli, i server fisici e le macchine virtuali (VM) guest che eseguono le risorse del servizio app. In entrambi i casi l'aggiornamento avviene mensilmente, in linea con la pianificazione mensile per le [patch](/security-updates/). Questi aggiornamenti vengono applicati automaticamente in modo da garantire il contratto di servizio a disponibilità elevata di Azure. 
 
 Per informazioni dettagliate su come vengono applicati gli aggiornamenti, vedere [Demystifying the magic behind App Service OS updates](https://azure.github.io/AppService/2018/01/18/Demystifying-the-magic-behind-App-Service-OS-updates.html) (I segreti sugli aggiornamenti del sistema operativo del servizio app svelati).
 
@@ -55,7 +55,7 @@ Le patch di aggiornamento per la versione di .NET, PHP, Java SDK o Tomcat/Jetty 
 
 ### <a name="new-major-and-minor-versions"></a>Nuove versioni principali e secondarie
 
-Quando viene aggiunta una nuova versione principale o secondaria, questa viene installata affiancata alle versioni esistenti. È possibile aggiornare manualmente l'app alla nuova versione. Se la versione del runtime è stata definita in un file di configurazione (ad esempio `web.config` e `package.json`), è necessario eseguire l'aggiornamento con lo stesso metodo. Se per configurare la versione del runtime è stata usata un'impostazione del servizio app, è possibile modificare la versione nel [portale di Azure](https://portal.azure.com) o eseguendo un comando dell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) in [Cloud Shell](../cloud-shell/overview.md), come illustrato negli esempi seguenti:
+Quando viene aggiunta una nuova versione principale o secondaria, questa viene installata affiancata alle versioni esistenti. È possibile aggiornare manualmente l'app alla nuova versione. Se la versione del runtime è stata definita in un file di configurazione (ad esempio `web.config` e `package.json`), è necessario eseguire l'aggiornamento con lo stesso metodo. Se per configurare la versione del runtime è stata usata un'impostazione del servizio app, è possibile modificare la versione nel [portale di Azure](https://portal.azure.com) o eseguendo un comando dell'[interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli) in [Cloud Shell](../cloud-shell/overview.md), come illustrato negli esempi seguenti:
 
 ```azurecli-interactive
 az webapp config set --net-framework-version v4.7 --resource-group <groupname> --name <appname>
@@ -86,7 +86,7 @@ La tabella seguente illustra come ottenere informazioni sulle versioni di Window
 | Versione Java | In `https://<appname>.scm.azurewebsites.net/DebugConsole` eseguire il comando seguente al prompt dei comandi: <br> `java -version` |  
 
 > [!NOTE]  
-> L'accesso al percorso del Registro di sistema `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, dove sono archiviate le informazioni sulle [patch "KB"](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins), è bloccato.
+> L'accesso al percorso del Registro di sistema `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`, dove sono archiviate le informazioni sulle [patch "KB"](/security-updates/SecurityBulletins/securitybulletins), è bloccato.
 >
 >
 

@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 04/14/2020
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: cdbce7c11bc3184b624fa00f3ac33db7ad8730d8
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 4022ca97f88e2f06d3b4c1eeb103bb60d1856eda
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88077434"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962146"
 ---
 # <a name="configure-your-app-service-or-azure-functions-app-to-use-azure-ad-login"></a>Configurare un'app del servizio app o di Funzioni di Azure per l'uso dell'account di accesso di Azure AD
 
@@ -120,7 +120,7 @@ Eseguire la procedura seguente:
 1. In **URI di reindirizzamento** selezionare **Client pubblico (per dispositivi mobili e desktop)** e digitare l'URL `<app-url>/.auth/login/aad/callback`. Ad esempio: `https://contoso.azurewebsites.net/.auth/login/aad/callback`.
 
     > [!NOTE]
-    > Per un'applicazione di Microsoft Store, usare invece il [SID pacchetto](../app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library.md#package-sid) come URI.
+    > Per un'applicazione di Microsoft Store, usare invece il [SID pacchetto](/previous-versions/azure/app-service-mobile/app-service-mobile-dotnet-how-to-use-client-library#package-sid) come URI.
 1. Selezionare **Create** (Crea).
 1. Dopo la creazione della registrazione dell'app, copiare il valore di **ID applicazione (client)** .
 1. Selezionare **Autorizzazioni API** > **Aggiungi un'autorizzazione** > **Le mie API**.

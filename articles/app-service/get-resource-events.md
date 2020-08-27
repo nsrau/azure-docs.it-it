@@ -4,16 +4,16 @@ description: Informazioni su come ottenere gli eventi delle risorse tramite i lo
 ms.topic: article
 ms.date: 04/24/2020
 ms.author: msangapu
-ms.openlocfilehash: 7075e3eacc85198e22a9aa0e53f67a22416b2678
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: c5c84891187c540c0b24162cf5c8c7f96e9e731a
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83649065"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962299"
 ---
 # <a name="get-resource-events-in-azure-app-service"></a>Ottenere gli eventi delle risorse in Servizio app di Azure
 
-Servizio app di Azure fornisce strumenti predefiniti per monitorare lo stato e l'integrità delle risorse. Gli eventi delle risorse consentono di comprendere le modifiche apportate alle risorse dell'app Web sottostanti e di prendere le misure necessarie. Sono esempi di questi eventi il ridimensionamento delle istanze, l'aggiornamento delle impostazioni dell'applicazione, il riavvio dell'app Web e molti altri. In questo articolo si apprenderà come visualizzare i [log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view) e abilitare [Griglia di eventi](https://docs.microsoft.com/azure/event-grid/) per monitorare gli eventi delle risorse correlati all'app Web del servizio app.
+Servizio app di Azure fornisce strumenti predefiniti per monitorare lo stato e l'integrità delle risorse. Gli eventi delle risorse consentono di comprendere le modifiche apportate alle risorse dell'app Web sottostanti e di prendere le misure necessarie. Sono esempi di questi eventi il ridimensionamento delle istanze, l'aggiornamento delle impostazioni dell'applicazione, il riavvio dell'app Web e molti altri. In questo articolo si apprenderà come visualizzare i [log attività di Azure](../azure-monitor/platform/activity-log.md#view-the-activity-log) e abilitare [Griglia di eventi](../event-grid/index.yml) per monitorare gli eventi delle risorse correlati all'app Web del servizio app.
 
 > [!NOTE]
 > L'integrazione del servizio app con Griglia di eventi è una funzionalità in **anteprima**. [Per altri dettagli, vedere l'annuncio.](https://aka.ms/app-service-event-grid-announcement)
@@ -33,15 +33,15 @@ I log attività di Azure per il servizio app indicano in dettaglio, ad esempio:
 
 I log attività di Azure possono essere sottoposti a query usando il portale di Azure, PowerShell, l'API REST o l'interfaccia della riga di comando. È possibile inviare i log a un account di archiviazione, a un hub eventi e a Log Analytics. È anche possibile analizzarli in Power BI o creare avvisi per restare aggiornati sugli eventi delle risorse.
 
-[Visualizzare e recuperare gli eventi del log attività di Azure.](https://docs.microsoft.com/azure/azure-monitor/platform/activity-log-view)
+[Visualizzare e recuperare gli eventi del log attività di Azure.](../azure-monitor/platform/activity-log.md#view-the-activity-log)
 
 ## <a name="ship-activity-logs-to-event-grid"></a>Inviare i log di attività a Griglia di eventi
 
-Mentre i log attività sono basati sull'utente, è disponibile una nuova integrazione di [Griglia di eventi](https://docs.microsoft.com/azure/event-grid/) con il servizio app (in anteprima), che registra sia le azioni utente che gli eventi automatici. Con Griglia di eventi è possibile configurare un gestore per rispondere a detti eventi. Usare, ad esempio, Griglia di eventi per attivare immediatamente una funzione senza server per eseguire l'analisi dell'immagine ogni volta che una nuova foto viene aggiunta a un contenitore di archiviazione BLOB.
+Mentre i log attività sono basati sull'utente, è disponibile una nuova integrazione di [Griglia di eventi](../event-grid/index.yml) con il servizio app (in anteprima), che registra sia le azioni utente che gli eventi automatici. Con Griglia di eventi è possibile configurare un gestore per rispondere a detti eventi. Usare, ad esempio, Griglia di eventi per attivare immediatamente una funzione senza server per eseguire l'analisi dell'immagine ogni volta che una nuova foto viene aggiunta a un contenitore di archiviazione BLOB.
 
 In alternativa è possibile usare Griglia di eventi con App per la logica per elaborare i dati ovunque, senza scrivere codice. Griglia di eventi connette le origini dati e i gestori di eventi. Usare, ad esempio, Griglia di eventi per attivare immediatamente una funzione senza server per eseguire l'analisi dell'immagine ogni volta che una nuova foto viene aggiunta a un contenitore di archiviazione BLOB.
 
-[Visualizzare le proprietà e lo schema per gli eventi di Servizio app di Azure.](https://docs.microsoft.com/azure/event-grid/event-schema-app-service)
+[Visualizzare le proprietà e lo schema per gli eventi di Servizio app di Azure.](../event-grid/event-schema-app-service.md)
 
 ## <a name="next-steps"></a><a name="nextsteps"></a> Passaggi successivi
 * [Eseguire query sui log con Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md)

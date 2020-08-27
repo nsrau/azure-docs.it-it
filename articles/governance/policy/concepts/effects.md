@@ -1,14 +1,14 @@
 ---
 title: Comprendere il funzionamento degli effetti
 description: Le definizioni di Criteri di Azure hanno diversi effetti che determinano in che modo viene gestita e segnalata la conformità.
-ms.date: 08/17/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0cfa8215d828de6d5426c3883ca1968e7a7cb542
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 83566cc638c4db1b00dbe40a48064a7c94250d8c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544724"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958763"
 ---
 # <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
 
@@ -479,14 +479,33 @@ Esempio: Regola di controllo di ammissione Gatekeeper V2 per consentire solo le 
 
 ## <a name="modify"></a>Modifica
 
-Modify viene usato per aggiungere, aggiornare o rimuovere tag in una risorsa durante la creazione o l'aggiornamento. Un esempio comune è l'aggiornamento di tag per le risorse come costCenter. Un criterio Modify deve sempre avere `mode` impostato su _Indicizzato_, a meno che la risorsa di destinazione non sia un gruppo di risorse. È possibile correggere le risorse non conformi esistenti con un'[attività di correzione](../how-to/remediate-resources.md). Una regola Modify singola può avere un numero qualsiasi di operazioni.
+Per aggiungere, aggiornare o rimuovere tag o proprietà in una risorsa durante la creazione o l'aggiornamento viene utilizzata la modifica.
+Un esempio comune è l'aggiornamento di tag per le risorse come costCenter. È possibile correggere le risorse non conformi esistenti con un'[attività di correzione](../how-to/remediate-resources.md). Una regola Modify singola può avere un numero qualsiasi di operazioni.
+
+Le operazioni seguenti sono supportate da modifica:
+
+- Aggiungere, sostituire o rimuovere i tag delle risorse. Per i tag, un criterio di modifica deve avere `mode` impostato su _indicizzato_ , a meno che la risorsa di destinazione non sia un gruppo di risorse.
+- Aggiungere o sostituire il valore del tipo di identità gestita ( `identity.type` ) di macchine virtuali e set di scalabilità di macchine virtuali.
+- Aggiungere o sostituire i valori di determinati alias (anteprima).
+  - Utilizzare `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`.
+    in Azure PowerShell ottenere un elenco di alias che possono essere usati con la modifica.
 
 > [!IMPORTANT]
-> Modify è attualmente disponibile solo per l'uso con tag. Se si gestiscono i tag, è consigliabile usare Modify anziché Append in quanto Modify fornisce tipi di operazione aggiuntivi e la possibilità di correggere le risorse esistenti. Tuttavia, Append è consigliabile se non è possibile creare un'identità gestita.
+> Se si gestiscono i tag, è consigliabile usare modifica anziché Accodamento come modifica fornisce tipi di operazione aggiuntivi e la possibilità di correggere le risorse esistenti. Tuttavia, è consigliabile aggiungere se non si riesce a creare un'identità gestita o la modifica non supporta ancora l'alias per la proprietà della risorsa.
 
 ### <a name="modify-evaluation"></a>Valutazione di Modify
 
-Modify viene valutato prima che la richiesta venga elaborata da un provider di risorse durante la creazione o l'aggiornamento di una risorsa. Modify aggiunge o aggiorna tag nella risorsa quando viene soddisfatta la condizione **if** della regola dei criteri.
+Modify viene valutato prima che la richiesta venga elaborata da un provider di risorse durante la creazione o l'aggiornamento di una risorsa. Le operazioni di modifica vengono applicate al contenuto della richiesta quando viene soddisfatta la condizione **if** della regola dei criteri. Ogni operazione di modifica può specificare una condizione che determina quando viene applicata. Le operazioni con condizioni che vengono valutate su _false_ vengono ignorate.
+
+Quando viene specificato un alias, vengono eseguiti i controlli aggiuntivi seguenti per assicurarsi che l'operazione di modifica non modifichi il contenuto della richiesta in modo che il provider di risorse lo rifiuti:
+
+- La proprietà a cui è associato l'alias è contrassegnata come ' modificabile ' nella versione dell'API della richiesta.
+- Il tipo di token nell'operazione di modifica corrisponde al tipo di token previsto per la proprietà nella versione API della richiesta.
+
+Se uno di questi controlli ha esito negativo, la valutazione del criterio esegue il fallback al **conflictEffect**specificato.
+
+> [!IMPORTANT]
+> È assoluta che la modifica delle definizioni che includono alias usa l' _audit_ **effetto dei conflitti** di controllo per evitare richieste non riuscite usando le versioni API in cui la proprietà mappata non è' modificabile '. Se lo stesso alias si comporta in modo diverso tra le versioni dell'API, è possibile usare le operazioni di modifica condizionale per determinare l'operazione di modifica usata per ogni versione dell'API.
 
 Quando una definizione dei criteri che usa l'effetto Modify viene eseguita come parte di un ciclo di valutazione, non apporta modifiche alle risorse già esistenti. Al contrario, contrassegna qualsiasi risorsa che soddisfi la condizione **if** come non conforme.
 
@@ -498,7 +517,7 @@ La proprietà **details** dell'effetto Modify include tutte le sottoproprietà c
   - Questa proprietà deve contenere una matrice di stringhe che corrispondono all'ID ruolo di controllo degli accessi in base al ruolo accessibile dalla sottoscrizione. Per altre informazioni, vedere [Correzione: configurare la definizione dei criteri](../how-to/remediate-resources.md#configure-policy-definition).
   - Il ruolo definito deve includere tutte le operazioni concesse al ruolo [Contributor](../../../role-based-access-control/built-in-roles.md#contributor).
 - **conflictEffect** (facoltativo)
-  - Determina la definizione di criteri "WINS" nel caso in cui più definizioni di criteri modifichino la stessa proprietà.
+  - Determina la definizione di criteri "WINS" nel caso in cui più definizioni di criteri modifichino la stessa proprietà o quando l'operazione di modifica non funziona sull'alias specificato.
     - Per le risorse nuove o aggiornate, la definizione dei criteri con _Deny_ ha la precedenza. Le definizioni dei criteri con _Audit_ ignorano tutte **le operazioni**. Se la definizione di un criterio è _negata_, la richiesta viene negata come conflitto. Se tutte le definizioni dei criteri includono _Audit_, nessuna delle **operazioni** delle definizioni dei criteri in conflitto verrà elaborata.
     - Per le risorse esistenti, se più di una definizione di criteri contiene _Deny_, lo stato di conformità è _Conflict_. Se una o più definizioni di criteri contengono _Deny_, ogni assegnazione restituisce uno stato di conformità _non conforme_.
   - Valori disponibili: _Audit_, _Deny_, _disabled_.
@@ -513,6 +532,9 @@ La proprietà **details** dell'effetto Modify include tutte le sottoproprietà c
     - **value** (facoltativo)
       - Il valore su cui impostare i tag.
       - Questa proprietà è obbligatoria se **operation** è _addOrReplace_ o _Add_.
+    - **condizione** (facoltativa)
+      - Stringa contenente un'espressione di linguaggio dei criteri di Azure con [funzioni di criteri](./definition-structure.md#policy-functions) che restituiscono _true_ o _false_.
+      - Non supporta le funzioni dei criteri seguenti: `field()` , `resourceGroup()` , `subscription()` .
 
 ### <a name="modify-operations"></a>Modificare le operazioni
 
@@ -548,9 +570,9 @@ Nella proprietà **operation** sono disponibili le opzioni seguenti:
 
 |Operazione |Descrizione |
 |-|-|
-|addOrReplace |Aggiunge il tag e il valore definiti alla risorsa, anche se il tag esiste già con un valore diverso. |
-|Add |Aggiunge il tag e il valore definiti alla risorsa. |
-|Rimuovere |Rimuove il tag definito dalla risorsa. |
+|addOrReplace |Aggiunge la proprietà definita o il tag e il valore alla risorsa, anche se la proprietà o il tag esiste già con un valore diverso. |
+|Aggiungi |Aggiunge la proprietà, il tag e il valore definiti alla risorsa. |
+|Rimuovi |Rimuove la proprietà o il tag definito dalla risorsa. |
 
 ### <a name="modify-examples"></a>Esempi di Modify
 
@@ -593,6 +615,28 @@ Esempio 2: Rimuovere il tag `env` e aggiungere il tag `environment` o sostituire
                 "operation": "addOrReplace",
                 "field": "tags['environment']",
                 "value": "[parameters('tagValue')]"
+            }
+        ]
+    }
+}
+```
+
+Esempio 3: assicurarsi che un account di archiviazione non consenta l'accesso pubblico ai BLOB, l'operazione di modifica viene applicata solo quando si valutano le richieste con versione API maggiore o uguale a' 2019-04-01':
+
+```json
+"then": {
+    "effect": "modify",
+    "details": {
+        "roleDefinitionIds": [
+            "/providers/microsoft.authorization/roleDefinitions/17d1049b-9a84-46fb-8f53-869881c3d3ab"
+        ],
+        "conflictEffect": "audit",
+        "operations": [
+            {
+                "condition": "[greaterOrEquals(requestContext().apiVersion, '2019-04-01')]",
+                "operation": "addOrReplace",
+                "field": "Microsoft.Storage/storageAccounts/allowBlobPublicAccess",
+                "value": false
             }
         ]
     }

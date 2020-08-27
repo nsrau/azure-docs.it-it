@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/11/2020
-ms.openlocfilehash: 7daba35b9247443c84cedad03f252ea6858da236
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6d6754594a321d297d983f9bd7e90ce074857919
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327345"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961976"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage"></a>Monitoraggio del servizio di archiviazione con Monitoraggio di Azure per l'archiviazione
 
@@ -54,11 +54,11 @@ Per visualizzare l'utilizzo e la disponibilità degli account di archiviazione i
 
 ### <a name="overview-workbook"></a>Cartella di lavoro Panoramica
 
-Nella cartella di lavoro **Panoramica** per la sottoscrizione selezionata, la tabella mostra metriche di archiviazione interattive e lo stato di disponibilità del servizio per un massimo di 10 account di archiviazione raggruppati nella sottoscrizione. È possibile filtrare i risultati in base alle opzioni selezionate dagli elenchi a discesa seguenti:
+Nella cartella di lavoro **Panoramica** per la sottoscrizione selezionata la tabella Visualizza le metriche di archiviazione interattiva e lo stato di disponibilità del servizio per un massimo di 5 account di archiviazione raggruppati nella sottoscrizione. È possibile filtrare i risultati in base alle opzioni selezionate dagli elenchi a discesa seguenti:
 
 * **Sottoscrizioni**: sono elencate solo le sottoscrizioni con account di archiviazione.  
 
-* **Account di archiviazione**: per impostazione predefinita, sono preselezionati 10 account di archiviazione. Se si selezionano più account di archiviazione o tutti gli account nel selettore di ambito, verranno restituiti fino a 200 account di archiviazione. Ad esempio, se si ha un totale di 573 account di archiviazione in tre sottoscrizioni selezionate, verranno visualizzati solo 200 account. 
+* **Account di archiviazione** : per impostazione predefinita, 5 account di archiviazione sono pre-selezionati. Se si selezionano più account di archiviazione o tutti gli account nel selettore di ambito, verranno restituiti fino a 200 account di archiviazione. Ad esempio, se si ha un totale di 573 account di archiviazione in tre sottoscrizioni selezionate, verranno visualizzati solo 200 account. 
 
 * **Intervallo di tempo**: per impostazione predefinita, visualizza le ultime 4 ore di informazioni in base alle selezioni corrispondenti effettuate.
 

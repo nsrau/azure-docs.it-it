@@ -7,12 +7,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: jafreebe
-ms.openlocfilehash: addc4edba734c350a1e0e4246203c64315f345dd
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: b4581b7e93cde9d6ba9a20d46ee263a879c05402
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88081052"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961874"
 ---
 # <a name="deployment-best-practices"></a>Procedure consigliate per la distribuzione
 
@@ -127,7 +127,7 @@ Nello script accedere usando `az login --service-principal` , fornendo le inform
 
 ### <a name="java"></a>Java
 
-Usare l'API Kudu [zipdeploy/](deploy-zip.md) per la distribuzione di applicazioni jar e [wardeploy/](deploy-zip.md#deploy-war-file) per le app War. Se si usa Jenkins, è possibile usare tali API direttamente nella fase di distribuzione. Per altre informazioni, vedi [questo articolo](../jenkins/execute-cli-jenkins-pipeline.md).
+Usare l'API Kudu [zipdeploy/](deploy-zip.md) per la distribuzione di applicazioni jar e [wardeploy/](deploy-zip.md#deploy-war-file) per le app War. Se si usa Jenkins, è possibile usare tali API direttamente nella fase di distribuzione. Per altre informazioni, vedi [questo articolo](/azure/developer/jenkins/deploy-to-azure-app-service-using-azure-cli).
 
 ### <a name="node"></a>Nodo
 
@@ -149,7 +149,7 @@ Usare sempre la cache locale in combinazione con gli [slot di distribuzione](dep
 
 Se il piano di servizio app usa oltre il 90% della CPU o della memoria disponibile, la macchina virtuale sottostante potrebbe avere problemi di elaborazione della distribuzione. Quando si verifica questo problema, aumentare temporaneamente il numero di istanze per eseguire la distribuzione. Al termine della distribuzione, è possibile restituire il numero di istanze al valore precedente.
 
-Per altre informazioni sulle procedure consigliate, vedere la pagina relativa alla [diagnostica del servizio app](https://docs.microsoft.com/azure/app-service/overview-diagnostics) per individuare le procedure consigliate di utilità pratica specifiche per la risorsa.
+Per altre informazioni sulle procedure consigliate, vedere la pagina relativa alla [diagnostica del servizio app](./overview-diagnostics.md) per individuare le procedure consigliate di utilità pratica specifiche per la risorsa.
 
 - Passare all'app Web nel [portale di Azure](https://portal.azure.com).
 - Fare clic su **diagnostica e risoluzione dei problemi** nel percorso di spostamento a sinistra, che consente di aprire la diagnostica del servizio app.

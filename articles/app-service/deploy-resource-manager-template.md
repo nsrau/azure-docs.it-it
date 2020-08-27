@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 01/03/2019
 ms.author: tomfitz
 ms.custom: seodec18
-ms.openlocfilehash: 0a282a412823207e5f662441158000e8c6121796
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1146b5979d81b91c6c6894aa54b2e0ca50c896c1
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80637934"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961619"
 ---
 # <a name="guidance-on-deploying-web-apps-by-using-azure-resource-manager-templates"></a>Linee guida per la distribuzione di app Web tramite i modelli di Azure Resource Manager
 
@@ -90,7 +90,7 @@ Se il modello di Resource Manager usa MSDeploy, i messaggi di errore relativi al
 
 1. Passare alla [console Kudu](https://github.com/projectkudu/kudu/wiki/Kudu-console) del sito.
 2. Passare alla cartella D:\home\LogFiles\SiteExtensions\MSDeploy.
-3. Cercare i file appManagerStatus.xml e appManagerLog.xml. Nel primo file viene registrato lo stato, nel secondo le informazioni relative all'errore. Se l'errore non è chiaro, è possibile includerlo quando si richiede assistenza sul [Forum](https://docs.microsoft.com/answers/topics/azure-webapps.html).
+3. Cercare i file appManagerStatus.xml e appManagerLog.xml. Nel primo file viene registrato lo stato, nel secondo le informazioni relative all'errore. Se l'errore non è chiaro, è possibile includerlo quando si richiede assistenza sul [Forum](/answers/topics/azure-webapps.html).
 
 ## <a name="choose-a-unique-web-app-name"></a>Immettere un nome univoco per l'app Web
 

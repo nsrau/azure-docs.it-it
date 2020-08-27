@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 10/31/2018
 ms.author: genli
 ms.custom: seodec18
-ms.openlocfilehash: 021e680a2ca5f7c00f113c4a17421b2648ca6230
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfaeee6a6e2a9728d7e63fb5681c487fbbd6139e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82159984"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959001"
 ---
 # <a name="application-performance-faqs-for-web-apps-in-azure"></a>Domande frequenti sulle prestazioni delle applicazioni in App Web di Azure
 
@@ -32,15 +32,15 @@ Più fattori possono contribuire a rallentare le prestazioni delle app. Per la p
 
 ## <a name="how-do-i-troubleshoot-a-high-cpu-consumption-scenario"></a>Come si risolvono i problemi di uno scenario con utilizzo elevato di CPU?
 
-In alcuni scenari di utilizzo elevato di CPU, l'app può richiedere realmente più risorse di calcolo.In tal caso, prendere in considerazione il passaggio a un livello di servizio superiore per fornire tutte le risorse necessarie all'applicazione. In altri casi, un utilizzo elevato di CPU può essere causato da un ciclo non valido o da una procedura di codifica. La procedura che consente di ottenere informazioni su cosa provochi un maggiore utilizzo di CPU prevede due parti. Creare prima un dump dei processi e analizzarlo. Per altre informazioni, vedere [Acquisire e analizzare un file di dump per l'utilizzo elevato di CPU per le app Web](https://blogs.msdn.microsoft.com/asiatech/2016/01/20/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app/).
+In alcuni scenari di utilizzo elevato di CPU, l'app può richiedere realmente più risorse di calcolo.In tal caso, prendere in considerazione il passaggio a un livello di servizio superiore per fornire tutte le risorse necessarie all'applicazione. In altri casi, un utilizzo elevato di CPU può essere causato da un ciclo non valido o da una procedura di codifica. La procedura che consente di ottenere informazioni su cosa provochi un maggiore utilizzo di CPU prevede due parti. Creare prima un dump dei processi e analizzarlo. Per altre informazioni, vedere [Acquisire e analizzare un file di dump per l'utilizzo elevato di CPU per le app Web](/archive/blogs/asiatech/how-to-capture-dump-when-intermittent-high-cpu-happens-on-azure-web-app).
 
 ## <a name="how-do-i-troubleshoot-a-high-memory-consumption-scenario"></a>Come si risolvono i problemi di uno scenario con utilizzo elevato di memoria?
 
-In alcuni scenari di utilizzo elevato di memoria, l'app può richiedere realmente più risorse di calcolo.In tal caso, prendere in considerazione il passaggio a un livello di servizio superiore per fornire tutte le risorse necessarie all'applicazione. In altri casi, un bug nel codice può causare una perdita di memoria. Anche una procedura di codifica può provocare un maggiore utilizzo di memoria.La procedura che consente di ottenere informazioni su cosa provochi un utilizzo elevato di memoria prevede due parti. Creare prima un dump dei processi e analizzarlo. Crash Diagnoser della raccolta di estensioni sito di Azure può eseguire in modo efficiente entrambi questi passaggi. Per altre informazioni, vedere [Acquisire e analizzare un file di dump per l'utilizzo elevato intermittente di memoria per le app Web](https://blogs.msdn.microsoft.com/asiatech/2016/02/02/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app/).
+In alcuni scenari di utilizzo elevato di memoria, l'app può richiedere realmente più risorse di calcolo.In tal caso, prendere in considerazione il passaggio a un livello di servizio superiore per fornire tutte le risorse necessarie all'applicazione. In altri casi, un bug nel codice può causare una perdita di memoria. Anche una procedura di codifica può provocare un maggiore utilizzo di memoria.La procedura che consente di ottenere informazioni su cosa provochi un utilizzo elevato di memoria prevede due parti. Creare prima un dump dei processi e analizzarlo. Crash Diagnoser della raccolta di estensioni sito di Azure può eseguire in modo efficiente entrambi questi passaggi. Per altre informazioni, vedere [Acquisire e analizzare un file di dump per l'utilizzo elevato intermittente di memoria per le app Web](/archive/blogs/asiatech/how-to-capture-and-analyze-dump-for-intermittent-high-memory-on-azure-web-app).
 
 ## <a name="how-do-i-automate-app-service-web-apps-by-using-powershell"></a>Come si automatizzano le app Web del servizio app usando PowerShell?
 
-È possibile usare i cmdlet di PowerShell per gestire le app Web del servizio app. Il post di blog [Automatizzare le app Web ospitate nel servizio app di Azure usando PowerShell](https://blogs.msdn.microsoft.com/puneetgupta/2016/03/21/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way/) descrive come usare i cmdlet di PowerShell basati su Azure Resource Manager per automatizzare attività comuni. Il post di blog offre anche codice di esempio per diverse attività di gestione delle app Web. Per le descrizioni e la sintassi di tutti i cmdlet delle app Web del servizio app, vedere [Az.Websites](/powershell/module/az.websites).
+È possibile usare i cmdlet di PowerShell per gestire le app Web del servizio app. Il post di blog [Automatizzare le app Web ospitate nel servizio app di Azure usando PowerShell](/archive/blogs/puneetgupta/automating-webapps-hosted-in-azure-app-service-through-powershell-arm-way) descrive come usare i cmdlet di PowerShell basati su Azure Resource Manager per automatizzare attività comuni. Il post di blog offre anche codice di esempio per diverse attività di gestione delle app Web. Per le descrizioni e la sintassi di tutti i cmdlet delle app Web del servizio app, vedere [Az.Websites](/powershell/module/az.websites).
 
 ## <a name="how-do-i-view-my-web-apps-event-logs"></a>Come si possono visualizzare i log eventi dell'app Web?
 
@@ -81,7 +81,7 @@ Questo errore può essere causato da tre condizioni:
 * L'app Web è stata arrestata nel portale.
 * L'app Web ha raggiunto un limite di quota per le risorse che può essere applicabile a un piano di servizio Gratuito o Condiviso.
 
-Per visualizzare la causa dell'errore e risolvere il problema, seguire i passaggi in [App Web: "Errore 403. L'app Web è arrestata"](https://blogs.msdn.microsoft.com/waws/2016/01/05/azure-web-apps-error-403-this-web-app-is-stopped/).
+Per visualizzare la causa dell'errore e risolvere il problema, seguire i passaggi in [App Web: "Errore 403. L'app Web è arrestata"](/archive/blogs/waws/azure-web-apps-error-403-this-web-app-is-stopped).
 
 ## <a name="where-can-i-learn-more-about-quotas-and-limits-for-various-app-service-plans"></a>Dove si trovano altre informazioni su quote e limiti per i vari piani del servizio app?
 
@@ -167,7 +167,7 @@ Processi Web è progettato per l'elaborazione in background. In un processo Web 
 
 Un problema noto con una [versione di Kestrel](https://github.com/aspnet/KestrelHttpServer/issues/1182) precedente potrebbe provocare il blocco intermittente di un'app ASP.NET Core 1.0 ospitata nel servizio app. Potrebbe essere visualizzato il messaggio: "L'applicazione CGI specificata ha rilevato un errore e il server ha interrotto il processo".
 
-Il problema è stato risolto in Kestrel versione 1.0.2. Questa versione è inclusa nell'aggiornamento di ASP.NET Core 1.0.3. Per risolvere questo problema, aggiornare le dipendenze app per l'uso di Kestrel 1.0.2. In alternativa è possibile usare una delle due soluzioni descritte nel post di blog [Problemi di prestazioni lente di ASP.NET Core 1.0 nelle app Web del servizio app](https://blogs.msdn.microsoft.com/waws/2016/12/11/asp-net-core-slow-perf-issues-on-azure-websites).
+Il problema è stato risolto in Kestrel versione 1.0.2. Questa versione è inclusa nell'aggiornamento di ASP.NET Core 1.0.3. Per risolvere questo problema, aggiornare le dipendenze app per l'uso di Kestrel 1.0.2. In alternativa è possibile usare una delle due soluzioni descritte nel post di blog [Problemi di prestazioni lente di ASP.NET Core 1.0 nelle app Web del servizio app](/archive/blogs/waws/asp-net-core-slow-perf-issues-on-azure-websites).
 
 
 ## <a name="i-cant-find-my-log-files-in-the-file-structure-of-my-web-app-how-can-i-find-them"></a>Non è possibile trovare i file di log nella struttura di file dell'app Web. Come si possono trovare?
@@ -188,4 +188,4 @@ Per altre informazioni sulle connessioni in uscita nell'app Web, vedere il post 
 
 ## <a name="how-do-i-use-visual-studio-to-remote-debug-my-app-service-web-app"></a>Come si usa Visual Studio per eseguire il debug remoto dell'app Web del servizio app?
 
-Per una procedura dettagliata che illustra come eseguire il debug dell'app Web usando Visual Studio, vedere [Remote debug your App Service web app](https://blogs.msdn.microsoft.com/benjaminperkins/2016/09/22/remote-debug-your-azure-app-service-web-app/) (Eseguire il debug remoto dell'app Web del servizio app).
+Per una procedura dettagliata che illustra come eseguire il debug dell'app Web usando Visual Studio, vedere [Remote debug your App Service web app](/archive/blogs/benjaminperkins/remote-debug-your-azure-app-service-web-app) (Eseguire il debug remoto dell'app Web del servizio app).

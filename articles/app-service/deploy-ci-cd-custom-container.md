@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 11/08/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: b168328f64f599de109dbd0a5bd95c0a26f5f902
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: b73c7e62c6b621d3ac86cfb99b10b567460534f1
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083124"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961857"
 ---
 # <a name="continuous-deployment-with-web-app-for-containers"></a>Distribuzione continua con l'app Web per contenitori
 
@@ -55,7 +55,7 @@ Copiare l'URL webhook. Per aggiungere un webhook per l'hub Docker, vedere <a hre
 
 ## <a name="automate-with-cli"></a>Automatizzare con l'interfaccia della riga di comando
 
-Per configurare CI/CD usando l'interfaccia della riga di comando di Azure, eseguire il comando [AZ webapp Deployment container config](https://docs.microsoft.com/cli/azure/webapp/deployment/container?view=azure-cli-latest#az-webapp-deployment-container-config) per generare l'URL del webhook. L'URL può essere usato per configurare la Container Registry di Azure o DockerHub.
+Per configurare CI/CD usando l'interfaccia della riga di comando di Azure, eseguire il comando [AZ webapp Deployment container config](/cli/azure/webapp/deployment/container?view=azure-cli-latest#az-webapp-deployment-container-config) per generare l'URL del webhook. L'URL può essere usato per configurare la Container Registry di Azure o DockerHub.
 
 ```azurecli-interactive
 az webapp deployment container config --name <app-name> --resource-group <group-name> --enable-cd true
@@ -66,6 +66,6 @@ az webapp deployment container config --name <app-name> --resource-group <group-
 * [Registro Azure Container](https://azure.microsoft.com/services/container-registry/)
 * [Creare un'app Web .NET Core nel Servizio app in Linux](quickstart-dotnetcore.md?pivots=platform-linux)
 * [Creare un'app Web Ruby nel servizio app in Linux](quickstart-ruby.md)
-* [Guida introduttiva: eseguire un contenitore personalizzato nel servizio app](quickstart-custom-container.md?pivots=container-linux)
+* [Avvio rapido: Eseguire un contenitore personalizzato nel servizio app](quickstart-custom-container.md?pivots=container-linux)
 * [Domande frequenti sul servizio app in Linux](faq-app-service-linux.md)
 * [Configurare contenitori Linux personalizzati](configure-custom-container.md)

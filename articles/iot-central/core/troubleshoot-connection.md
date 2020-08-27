@@ -7,12 +7,12 @@ ms.author: dobett
 ms.date: 08/13/2020
 ms.topic: troubleshooting
 ms.service: iot-central
-ms.openlocfilehash: 4c95c5eccb5ff804adeae94074136c6242678127
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 6a1506de0bf21e44d84925fabeeea860f5807e2c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816066"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958100"
 ---
 # <a name="troubleshoot-why-data-from-your-devices-isnt-showing-up-in-azure-iot-central"></a>Risolvere i problemi perché i dati dei dispositivi non vengono visualizzati in Azure IoT Central
 
@@ -94,8 +94,6 @@ version : 32
 ': 200}, 'brightness': {'value': {'value': 2}, 'status': 'completed', 'desiredVersion': 7, 'ad': 'completed', 'av': 7, 'ac': 200}, 'p
 rocessorArchitecture': 'ARM', 'swVersion': '1.0.0'}
 ```
-
-### <a name="interpreting-terminal-output"></a>Interpretazione dell'output del terminale
 
 Se i dati vengono visualizzati nel terminale, i dati li stanno rendendo fino all'applicazione IoT Central.
 
@@ -187,8 +185,6 @@ Per individuare le categorie in cui si trova il problema, eseguire il comando pi
     az iot central app validate-properties --app-id <app-id> --device-id <device-name>
     ```
 
-- Se si preferisce usare un'interfaccia utente grafica, usare la vista **dati IOT Central RAW** per verificare se un elemento non è in fase di modellazione. La visualizzazione **dati non elaborati** non rileva se il dispositivo sta INVIAndo JSON in formato non valido.
-
 È possibile che venga richiesto di installare la `uamqp` libreria la prima volta che si esegue un `validate` comando.
 
 L'output seguente mostra messaggi di errore e di avviso di esempio dal comando Validate:
@@ -205,9 +201,9 @@ Exiting after 300 second(s), or 10 message(s) have been parsed (whichever happen
 tatype 'double'. Data '56'. All dates/times/datetimes/durations must be ISO 8601 compliant.
 ```
 
-:::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="Screenshot della visualizzazione dati non elaborati":::
+Se si preferisce usare un'interfaccia utente grafica, usare la vista **dati IOT Central RAW** per verificare se un elemento non è in fase di modellazione. La visualizzazione **dati non elaborati** non rileva se il dispositivo sta INVIAndo JSON in formato non valido.
 
-### <a name="interpreting-terminal-output"></a>Interpretazione dell'output del terminale
+:::image type="content" source="media/troubleshoot-connection/raw-data-view.png" alt-text="Screenshot della visualizzazione dati non elaborati":::
 
 Dopo aver rilevato il problema, potrebbe essere necessario aggiornare il firmware del dispositivo oppure creare un nuovo modello di dispositivo che modella i dati precedentemente non modellati.
 
@@ -215,9 +211,6 @@ Se si sceglie di creare un nuovo modello che modella correttamente i dati, esegu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se non si riesce a risolvere il problema usando questa guida, aprire un ticket di supporto. I clienti di Azure possono creare e gestire le richieste di supporto nel portale di Azure:
-
-- [Azure portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
-- [Portale di Azure per il governo degli Stati Uniti](https://portal.azure.us/)
+Per ulteriori informazioni, è possibile contattare gli esperti di Azure nei [Forum MSDN e stack overflow di Azure](https://azure.microsoft.com/support/community/). In alternativa, è possibile archiviare un [ticket di supporto di Azure](https://portal.azure.com/#create/Microsoft.Support).
 
 Per altre informazioni, vedere [supporto di Azure e opzioni](../../iot-fundamentals/iot-support-help.md)per la guida.

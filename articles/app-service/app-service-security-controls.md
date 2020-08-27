@@ -5,12 +5,12 @@ author: msmbaldwin
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9b0c336d9d9c463a7ed7acf42eaf292ecce4f1bb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93e5123e5b61c9013177f7f3c908578b68da52d6
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831149"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962928"
 ---
 # <a name="security-controls-for-azure-app-service"></a>Controlli di sicurezza per il servizio app Azure
 
@@ -49,7 +49,7 @@ Questo articolo descrive i controlli di sicurezza incorporati nel servizio app A
 | Crittografia lato server dei dati inattivi: chiavi gestite da Microsoft | Sì | Il contenuto del file di sito Web viene archiviato in archiviazione di Azure, che crittografa automaticamente il contenuto inattivo. <br><br>I segreti forniti dal cliente vengono crittografati a riposo. I segreti vengono crittografati a riposo durante l'archiviazione nei database di configurazione del servizio app.<br><br>I dischi collegati localmente possono essere facoltativamente usati come archiviazione temporanea da siti Web (D:\Local e% TMP%). I dischi collegati localmente non sono crittografati. | [Crittografia del servizio di archiviazione di Azure per dati inattivi](../storage/common/storage-service-encryption.md)
 | Crittografia lato server dei dati inattivi: chiavi gestite dal cliente (BYOK) | Sì | I clienti possono scegliere di archiviare i segreti dell'applicazione in Key Vault e recuperarli in fase di esecuzione. | [Usare i riferimenti a Key Vault per Servizio app e Funzioni di Azure (anteprima)](app-service-key-vault-references.md)
 | Crittografia a livello di colonna (Servizi dati di Azure)| N/D | |
-| Crittografia in transito (ad esempio crittografia ExpressRoute, crittografia VNet e crittografia VNet-VNet)| Sì | I clienti possono configurare i siti Web in modo da richiedere e usare HTTPS per il traffico in ingresso.  | [Come creare solo un servizio di app Azure HTTPS](https://blogs.msdn.microsoft.com/benjaminperkins/2017/11/30/how-to-make-an-azure-app-service-https-only/) (post di Blog)
+| Crittografia in transito (ad esempio crittografia ExpressRoute, crittografia VNet e crittografia VNet-VNet)| Sì | I clienti possono configurare i siti Web in modo da richiedere e usare HTTPS per il traffico in ingresso.  | [Come creare solo un servizio di app Azure HTTPS](/archive/blogs/benjaminperkins/how-to-make-an-azure-app-service-https-only) (post di Blog)
 | Chiamate API crittografate| Sì | Le chiamate di gestione per configurare il servizio app si verificano tramite [Azure Resource Manager](../azure-resource-manager/index.yml) chiamate su HTTPS. |
 
 ## <a name="configuration-management"></a>Gestione della configurazione

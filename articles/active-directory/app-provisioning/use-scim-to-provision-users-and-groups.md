@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 03/07/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: be33841206fa30a5b4975a604af1b5d9e38551a8
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: a8fa409a8ee66cd69016b7978f0d5f0194b338c4
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690256"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959154"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Creare un endpoint SCIM e configurare il provisioning utenti con Azure AD
 
@@ -153,7 +153,7 @@ Nell'ambito della [specifica del protocollo SCIM 2.0](http://www.simplecloud.inf
 * Supportare query sugli utenti in base all'ID o al manager, come indicato nella sezione 3.4.2 del protocollo SCIM.  
 * Supportare query sui gruppi in base all'ID e ai membri, come indicato nella sezione 3.4.2 del protocollo SCIM.  
 * Accettare un singolo token di connessione per l'autenticazione e l'autorizzazione di Azure AD per l'applicazione.
-* Supporta l'eliminazione temporanea di un utente `active=false` e il ripristino dell'utente `active=true` .
+* Supporta l'eliminazione temporanea di un utente `active=false` e il ripristino dell'utente `active=true` (l'oggetto utente deve essere restituito in una richiesta se l'utente è attivo). L'unica volta in cui l'utente non deve essere restituito è quando viene eliminato definitivamente dall'applicazione. 
 
 Quando si implementa un endpoint SCIM, per garantire la compatibilità con Azure AD seguire queste linee guida generali:
 

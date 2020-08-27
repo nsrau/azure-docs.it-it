@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 03/03/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: e4838597c50898748eb4b33e81ff22eaeea37b30
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3b73d528802a8aa33c6122eaf5edfa9d046b6753
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80476897"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962078"
 ---
 # <a name="integrate-your-ilb-app-service-environment-with-the-azure-application-gateway"></a>Integrare l'ambiente del servizio app con bilanciamento del carico interno con il gateway applicazione di Azure #
 
@@ -127,6 +127,6 @@ Dopo aver completato la configurazione e aver lasciato passare un breve interval
 [9]: ./media/integrate-with-application-gateway/appgw-iplist.png
 
 <!--LINKS-->
-[appgw]: https://docs.microsoft.com/azure/application-gateway/application-gateway-introduction
+[appgw]: ../../application-gateway/overview.md
 [custom-domain]: ../app-service-web-tutorial-custom-domain.md
 [ilbase]: ./create-ilb-ase.md

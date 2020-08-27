@@ -5,12 +5,12 @@ ms.assetid: bb51e565-e462-4c60-929a-2ff90121f41d
 ms.topic: article
 ms.date: 01/06/2016
 ms.custom: seodec18
-ms.openlocfilehash: f5e4c4d89a1119b0f59aa15885406cd7261d2f69
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 6c45d2da8658740b5e5e7e3dceb7478ea28d712c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170004"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962027"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Effettuare il provisioning di microservizi e distribuirli in modo prevedibile in Azure
 Questa esercitazione illustra come effettuare il provisioning di un'applicazione costituita da [microservizi](https://en.wikipedia.org/wiki/Microservices) e come distribuirla nel [servizio app di Azure](https://azure.microsoft.com/services/app-service/) come un'unità singola e in modo prevedibile usando modelli di gruppo di risorse JSON e script di PowerShell. 
@@ -29,7 +29,7 @@ In questa esercitazione si distribuirà un'applicazione che include:
 In questa esercitazione si useranno gli strumenti seguenti. Non essendo una discussione completa sugli strumenti, verrà considerato solo lo scenario end-to-end, fornendo una breve introduzione per ogni strumento e dove è possibile trovare altre informazioni specifiche. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Modelli di Gestione risorse di Azure (JSON)
-Ogni volta che si crea, ad esempio, un'app nel servizio app di Azure, Azure Resource Manager usa un modello JSON per creare l'intero gruppo di risorse con le risorse del componente. Un modello complesso disponibile in [Azure Marketplace](/azure/marketplace) può includere il database, account di archiviazione, il piano di servizio app, la stessa app, regole di avviso, impostazioni dell'app, impostazioni di scalabilità automatica e altro ancora. Tutti questi modelli sono disponibili tramite PowerShell. Per altre informazioni sui modelli di Gestione risorse di Azure, vedere [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/templates/template-syntax.md)
+Ogni volta che si crea, ad esempio, un'app nel servizio app di Azure, Azure Resource Manager usa un modello JSON per creare l'intero gruppo di risorse con le risorse del componente. Un modello complesso disponibile in [Azure Marketplace](../marketplace/index.yml) può includere il database, account di archiviazione, il piano di servizio app, la stessa app, regole di avviso, impostazioni dell'app, impostazioni di scalabilità automatica e altro ancora. Tutti questi modelli sono disponibili tramite PowerShell. Per altre informazioni sui modelli di Gestione risorse di Azure, vedere [Creazione di modelli di Gestione risorse di Azure](../azure-resource-manager/templates/template-syntax.md)
 
 ### <a name="azure-sdk-26-for-visual-studio"></a>Azure SDK 2.6 per Visual Studio
 L'SDK più recente include miglioramenti a livello di supporto per i modelli di Gestione risorse di Azure nell'editor JSON. È possibile usarlo per creare rapidamente da zero un modello di gruppo di risorse o aprire un modello JSON esistente (ad esempio, un modello della raccolta scaricato) per modificarlo, popolare il file di parametri e distribuire il gruppo di risorse direttamente da una soluzione del gruppo di risorse di Azure.
@@ -39,7 +39,7 @@ Per altre informazioni, vedere [Azure SDK 2.6 per Visual Studio](https://azure.m
 ### <a name="azure-powershell-080-or-later"></a>Azure PowerShell 0.8.0 o versione successiva
 A partire dalla versione 0.8.0, l'installazione di Azure PowerShell include il modulo Gestione risorse di Azure, oltre al modulo Azure. Il nuovo modulo permette di creare script per la distribuzione di gruppi di risorse.
 
-Per ulteriori informazioni, vedere [utilizzo di Azure PowerShell con Azure Resource Manager](../powershell-azure-resource-manager.md)
+Per ulteriori informazioni, vedere [utilizzo di Azure PowerShell con Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md)
 
 ### <a name="azure-resource-explorer"></a>Azure Resource Explorer
 Questo [strumento in anteprima](https://resources.azure.com) consente di esplorare le definizioni JSON di tutti i gruppi di risorse nella sottoscrizione e delle singole risorse. Con lo strumento è possibile modificare le definizioni JSON di una risorsa, eliminare l'intera gerarchia di risorse e crearne di nuove.  Le informazioni immediatamente disponibili in questo strumento sono molto utili per la creazione di modelli perché mostrano le proprietà che è necessario impostare per un determinato tipo di risorsa, i valori corretti e così via. È anche possibile creare il gruppo di risorse nel [portale di Azure](https://portal.azure.com/), quindi controllare le relative definizioni JSON nello strumento di esplorazione per impostare il gruppo di risorse.
@@ -130,7 +130,7 @@ L'app dipende da due diverse risorse. Ciò significa che Azure Resource Manager 
 
 ![Mostra le dipendenze dell'app nel piano di servizio app e nell'istanza di SQL Server.](./media/app-service-deploy-complex-application-predictably/examinejson-5-webapproot.png)
 
-##### <a name="app-settings"></a>Impostazioni app
+##### <a name="app-settings"></a>Impostazioni delle app
 Le impostazioni dell'app vengono definite anche come risorsa annidata.
 
 ![Mostra le impostazioni dell'app definite come una risorsa annidata nel codice JSON.](./media/app-service-deploy-complex-application-predictably/examinejson-6-webappsettings.png)
@@ -254,7 +254,7 @@ In DevOps la ripetibilità e la prevedibilità sono fondamentali per la riuscita
 * [Creazione di modelli di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 * [Funzioni del modello di Gestione risorse di Azure](../azure-resource-manager/templates/template-functions.md)
 * [Distribuire un'applicazione con un modello di Gestione risorse di Azure](../azure-resource-manager/templates/deploy-powershell.md)
-* [Uso di Azure PowerShell con Gestione risorse di Azure](../azure-resource-manager/powershell-azure-resource-manager.md)
+* [Uso di Azure PowerShell con Gestione risorse di Azure](../azure-resource-manager/management/manage-resources-powershell.md)
 * [Risoluzione dei problemi relativi alle distribuzioni di gruppi di risorse in Azure](../azure-resource-manager/templates/common-deployment-errors.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -262,7 +262,7 @@ In DevOps la ripetibilità e la prevedibilità sono fondamentali per la riuscita
 Per informazioni sulla sintassi e le proprietà JSON per i tipi di risorsa distribuiti in questo articolo, vedere:
 
 * [Microsoft.Sql/servers](/azure/templates/microsoft.sql/servers)
-* [Microsoft. SQL/Servers/databases](/azure/templates/microsoft.sql/servers/databases)
+* [Microsoft.Sql/servers/databases](/azure/templates/microsoft.sql/servers/databases)
 * [Microsoft. SQL/Servers/firewallRules](/azure/templates/microsoft.sql/servers/firewallrules)
 * [Microsoft. Web/serverfarms](/azure/templates/microsoft.web/serverfarms)
 * [Microsoft. Web/sites](/azure/templates/microsoft.web/sites)

@@ -6,12 +6,12 @@ ms.assetid: 4859d0d5-3e3c-40cc-96eb-f318b2c51a3d
 ms.topic: article
 ms.date: 10/24/2019
 ms.custom: seodec18
-ms.openlocfilehash: d40f5db65ce9ca90ae978bac4491bdebccc2a328
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bb0765a1d7934d60f787ed277dd3bd1f9bc1359b
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80811721"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962945"
 ---
 # <a name="manage-an-app-service-plan-in-azure"></a>Gestire un piano di servizio app in Azure
 
@@ -82,7 +82,7 @@ L'area in cui viene eseguita l'app è l'area del piano di servizio app. Tuttavia
 
 Per passare a un piano tariffario superiore per un piano di servizio app, vedere [Aumentare le prestazioni di un'app in Azure](manage-scale-up.md).
 
-Per scalare il numero di istanze di un'app, vedere [Scalare il conteggio delle istanze manualmente o automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md).
+Per scalare il numero di istanze di un'app, vedere [Scalare il conteggio delle istanze manualmente o automaticamente](../azure-monitor/platform/autoscale-get-started.md).
 
 <a name="delete"></a>
 

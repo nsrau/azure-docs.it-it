@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 867c011cb3086cab736d17501e72bc477d0d2889
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5545acbfd6bb239b9518fbe352b819f300dafaf0
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82160001"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962350"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Domande frequenti sulla configurazione e sulla gestione per App Web di Azure
 
@@ -65,7 +65,7 @@ Per impostare il fuso orario del server per l'app Web:
     * Value = *fuso orario desiderato*
 3. Selezionare **Salva**.
 
-Per i servizi app eseguiti in Windows, vedere la colonna **TimeZone** nell'articolo [fusi orari predefiniti](https://docs.microsoft.com/windows-hardware/manufacture/desktop/default-time-zones) per i valori accettati. Per i servizi app eseguiti in Linux, impostare il [nome del database TZ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) come valore del fuso orario. Di seguito è riportato un esempio di nome del database TZ: America/Adak.
+Per i servizi app eseguiti in Windows, vedere la colonna **TimeZone** nell'articolo [fusi orari predefiniti](/windows-hardware/manufacture/desktop/default-time-zones) per i valori accettati. Per i servizi app eseguiti in Linux, impostare il [nome del database TZ](https://en.wikipedia.org/wiki/List_of_tz_database_time_zones) come valore del fuso orario. Di seguito è riportato un esempio di nome del database TZ: America/Adak.
 
 ## <a name="why-do-my-continuous-webjobs-sometimes-fail"></a>Perché i processi Web continui talvolta hanno esito negativo?
 
@@ -141,13 +141,13 @@ Se si utilizza Connessioni ibride per accedere a SQL Server, un aggiornamento di
 Exception: System.Data.Entity.Core.EntityException: The underlying provider failed on Open. —> System.OverflowException: Arithmetic operation resulted in an overflow. or (64 bit Web app) System.OverflowException: Array dimensions exceeded supported range, at System.Data.SqlClient.TdsParser.ConsumePreLoginHandshake
 ```
 
-### <a name="resolution"></a>Soluzione
+### <a name="resolution"></a>Risoluzione
 
 L'eccezione è stata causata da un problema con Gestione connessione ibrida che poi è stato risolto. Assicurarsi di [aggiornare Gestione connessione ibrida](https://go.microsoft.com/fwlink/?LinkID=841308) per risolvere il problema.
 
 ## <a name="how-do-i-add-a-url-rewrite-rule"></a>Ricerca per categorie aggiungere una regola di riscrittura URL?
 
-Per aggiungere una regola di riscrittura URL, creare un file di web.config con le voci di configurazione pertinenti nella cartella **wwwroot** . Per ulteriori informazioni, vedere [app Azure Services: Understanding URL Rewrite](https://blogs.msdn.microsoft.com/madhurabharadwaj/2018/06/01/azure-app-services-understanding-url-re-write/).
+Per aggiungere una regola di riscrittura URL, creare un file di web.config con le voci di configurazione pertinenti nella cartella **wwwroot** . Per ulteriori informazioni, vedere [app Azure Services: Understanding URL Rewrite](/archive/blogs/madhurabharadwaj/azure-app-services-understanding-url-re-write).
 
 ## <a name="how-do-i-control-inbound-traffic-to-app-service"></a>Come si controlla il traffico in ingresso nel servizio app?
 
@@ -222,7 +222,7 @@ Per risolvere questo problema, assicurarsi che nessuna delle condizioni seguenti
 * Un gruppo di sicurezza di rete non valido ostacola i requisiti di connettività di rete di un ambiente del servizio app.
 * Il tunneling forzato è attivato.
 
-Per altre informazioni, vedere [Problemi più frequenti quando si distribuisce o si crea un nuovo ambiente del servizio app di Azure](https://blogs.msdn.microsoft.com/waws/2016/05/13/most-frequent-issues-when-deploying-creating-a-new-azure-app-service-environment-ase/).
+Per altre informazioni, vedere [Problemi più frequenti quando si distribuisce o si crea un nuovo ambiente del servizio app di Azure](/archive/blogs/waws/most-frequent-issues-when-deploying-creating-a-new-azure-app-service-environment-ase).
 
 ## <a name="why-cant-i-delete-my-app-service-plan"></a>Perché non è possibile eliminare il piano del servizio app?
 
@@ -286,7 +286,7 @@ Quando si crea un nuovo sito Web tramite le app Web in Azure, viene assegnato un
 
 ## <a name="how-do-i-determine-which-version-of-net-version-is-installed-in-app-service"></a>Come si determina la versione di .NET installata nel servizio app?
 
-Il modo più rapido per trovare la versione di Microsoft .NET installata nel servizio app consiste nell'utilizzare la console Kudu. È possibile accedere alla console Kudu dal portale o tramite l'URL dell'app del servizio app. Per istruzioni dettagliate, vedere [Determinare la versione di .NET installata nel servizio app](https://blogs.msdn.microsoft.com/waws/2016/11/02/how-to-determine-the-installed-net-version-in-azure-app-services/).
+Il modo più rapido per trovare la versione di Microsoft .NET installata nel servizio app consiste nell'utilizzare la console Kudu. È possibile accedere alla console Kudu dal portale o tramite l'URL dell'app del servizio app. Per istruzioni dettagliate, vedere [Determinare la versione di .NET installata nel servizio app](/archive/blogs/waws/how-to-determine-the-installed-net-version-in-azure-app-services).
 
 ## <a name="why-isnt-autoscale-working-as-expected"></a>Perché la scalabilità automatica non funziona come previsto?
 

@@ -7,12 +7,12 @@ ms.custom: devx-track-csharp
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: ded612fb79001adf2ada1a289603bc8a7561d38f
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: eebdf053cc3eea1dfc91476bff3817891bec42a3
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612487"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959057"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Introduzione ad Azure WebJobs SDK per l'elaborazione in background guidata dagli eventi
 
@@ -184,7 +184,7 @@ A partire dalla versione 3.x è necessario installare esplicitamente l'estension
 
    L'attributo `QueueTrigger` indica al runtime di chiamare questa funzione quando viene scritto un nuovo messaggio in una coda di archiviazione di Azure denominata `queue`. Il contenuto del messaggio nella coda viene passato al codice del metodo nel parametro `message`. Nel corpo del metodo vengono elaborati i dati del trigger. In questo esempio, il codice registra semplicemente il messaggio.
 
-   Il parametro `message` non deve necessariamente essere una stringa. È possibile eseguire l'associazione anche a un oggetto JSON, una matrice di byte o un oggetto [CloudQueueMessage](https://docs.microsoft.com/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage). [Vedere l'utilizzo del trigger della coda](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#usage). Ogni tipo di associazione (come code, BLOB o tabelle) presenta un diverso set di tipi di parametri a cui è possibile eseguire l'associazione.
+   Il parametro `message` non deve necessariamente essere una stringa. È possibile eseguire l'associazione anche a un oggetto JSON, una matrice di byte o un oggetto [CloudQueueMessage](/dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage). [Vedere l'utilizzo del trigger della coda](../azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp#usage). Ogni tipo di associazione (come code, BLOB o tabelle) presenta un diverso set di tipi di parametri a cui è possibile eseguire l'associazione.
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione
 
@@ -280,7 +280,7 @@ In questa sezione si compila e si esegue il progetto in locale e si attiva la fu
 
    Dato che è stato usato l'attributo `QueueTrigger` nella funzione `ProcessQueueMessage`, il runtime di WeJobs SDK avviato è in ascolto di messaggi nella coda, trova un nuovo messaggio nella coda denominata *queue* e chiama la funzione.
 
-   A causa del [backoff esponenziale del polling delle code](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm), prima che il runtime trovi il messaggio e richiami la funzione possono trascorrere fino a 2 minuti. Questo tempo di attesa può essere ridotto con l'esecuzione in [modalità di sviluppo](webjobs-sdk-how-to.md#host-development-settings).
+   A causa del [backoff esponenziale del polling delle code](../azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp#polling-algorithm), prima che il runtime trovi il messaggio e richiami la funzione possono trascorrere fino a 2 minuti. Questo tempo di attesa può essere ridotto con l'esecuzione in [modalità di sviluppo](webjobs-sdk-how-to.md#host-development-settings).
 
    L'output della console è simile al seguente:
 
@@ -444,7 +444,7 @@ Durante la distribuzione, si crea un'istanza del servizio app in cui eseguire le
 1. Aggiornare la pagina **Coda**. Il nuovo messaggio non sarà presente perché è stato elaborato dalla funzione eseguita in Azure.
 
    > [!TIP]
-   > Quando si esegue il test in Azure, usare la [modalità di sviluppo](webjobs-sdk-how-to.md#host-development-settings) in modo da richiamare immediatamente la funzione trigger della coda ed evitare i ritardi causati dal [backoff esponenziale del polling delle code](/azure/azure-functions/functions-bindings-storage-queue-trigger?tabs=csharp#polling-algorithm).
+   > Quando si esegue il test in Azure, usare la [modalità di sviluppo](webjobs-sdk-how-to.md#host-development-settings) in modo da richiamare immediatamente la funzione trigger della coda ed evitare i ritardi causati dal [backoff esponenziale del polling delle code](../azure-functions/functions-bindings-storage-queue-trigger.md?tabs=csharp#polling-algorithm).
 
 ### <a name="view-logs-in-application-insights"></a>Visualizzare i log in Application Insights
 
