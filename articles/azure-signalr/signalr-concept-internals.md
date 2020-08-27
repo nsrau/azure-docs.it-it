@@ -4,14 +4,15 @@ description: Informazioni sugli elementi interni del servizio Azure SignalR, sul
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
+ms.custom: devx-track-dotnet
 ms.date: 11/13/2019
 ms.author: zhshang
-ms.openlocfilehash: f06b8f9a2d41fc5400aa0fa610a2be3f31e21f1c
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 3fc6971c66d06ae9f25584f5be28b051075bfa49
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86169800"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921971"
 ---
 # <a name="azure-signalr-service-internals"></a>Elementi interni del Servizio Azure SignalR
 
@@ -23,7 +24,7 @@ Il diagramma seguente descrive l'architettura tipica quando si usa il servizio S
 
 Vengono illustrate anche le differenze rispetto all'applicazione ASP.NET Core SignalR self-hosted.
 
-![Architettura](./media/signalr-concept-internals/arch.png)
+![Architecture](./media/signalr-concept-internals/arch.png)
 
 ## <a name="server-connections"></a>Connessioni server
 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: allensu
-ms.openlocfilehash: df1896caaa0cba1f62dc1466124b393337fa8c83
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 5657741a1496084b55d2f76aef12c5e84c274feb
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87985785"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918129"
 ---
 # <a name="azure-private-endpoint-dns-configuration"></a>Configurazione DNS dell'endpoint privato di Azure
 
@@ -33,6 +33,9 @@ Per configurare le impostazioni DNS per gli endpoint privati si può procedere n
 I servizi di Azure creeranno un record DNS di nome canonico (CNAME) nel servizio DNS pubblico per reindirizzare la risoluzione al nome di dominio privato suggerito. È possibile eseguire l'override della risoluzione con l'indirizzo IP privato degli endpoint privati. 
  
 Le applicazioni non devono modificare l'URL di connessione. Quando si tenta di risolvere usando un servizio DNS pubblico, il server DNS verrà risolto negli endpoint privati. Il processo non influisce sulle applicazioni esistenti. 
+
+> [!IMPORTANT]
+> Le reti private che usano già la zona DNS privata per un determinato tipo possono connettersi alle risorse pubbliche solo se non dispongono di connessioni a endpoint privato. in caso contrario, nella zona DNS privata è necessaria una configurazione DNS corrispondente per completare la sequenza di risoluzione DNS. 
 
 Per i servizi di Azure, usare i nomi di zona consigliati come descritto nella tabella seguente:
 
@@ -100,7 +103,7 @@ Per configurare correttamente, sono necessarie le risorse seguenti:
 
 - Rete virtuale client
 
-- DNS privato zona [privatelink.database.Windows.NET](../dns/private-dns-privatednszone.md) con [record di tipo a](../dns/dns-zones-records.md#record-types)
+- DNS privato zona [privatelink.database.Windows.NET](../dns/private-dns-privatednszone.md)  con [record di tipo a](../dns/dns-zones-records.md#record-types)
 
 - Informazioni sull'endpoint privato (nome del record FQDN e indirizzo IP privato)
 

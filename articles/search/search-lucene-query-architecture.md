@@ -8,12 +8,12 @@ ms.author: jlembicz
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8bb10c8e0e1f62e72d48d80014d75dd656490889
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c2d5b4758f80d07516500c663762d7c8607e2a30
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565919"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88917959"
 ---
 # <a name="full-text-search-in-azure-cognitive-search"></a>Ricerca full-text in Azure ricerca cognitiva
 
@@ -42,14 +42,14 @@ Il diagramma seguente illustra i componenti usati per elaborare una richiesta di
 |----------------|------------------------|
 |**Parser della query** | Separare i termini della query dagli operatori della query e creare la struttura della query (un albero di query) da inviare al motore di ricerca. |
 |**Analizzatori** | Eseguire l'analisi lessicale sui termini della query. Questo processo può implicare la trasformazione, la rimozione o l'espansione dei termini della query. |
-|**Indice** | Una struttura efficiente dei dati usata per archiviare e organizzare i termini ricercabili estratti da documenti indicizzati. |
+|**Index** | Una struttura efficiente dei dati usata per archiviare e organizzare i termini ricercabili estratti da documenti indicizzati. |
 |**Motore di ricerca** | Recupera e assegna i punteggi di documenti corrispondenti in base al contenuto dell'indice invertito. |
 
 ## <a name="anatomy-of-a-search-request"></a>Anatomia di una richiesta di ricerca
 
 Una richiesta di ricerca è una specifica completa di ciò che deve essere restituito in un set di risultati. Nella forma più semplice, è una query vuota senza alcun tipo di criterio. Un esempio più realistico include parametri, termini di query diversi, forse con ambito in determinati campi, con eventualmente un'espressione filtro e regole di ordinamento.  
 
-L'esempio seguente è una richiesta di ricerca che è possibile inviare ad Azure ricerca cognitiva usando l' [API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).  
+L'esempio seguente è una richiesta di ricerca che è possibile inviare ad Azure ricerca cognitiva usando l' [API REST](/rest/api/searchservice/search-documents).  
 
 ~~~~
 POST /indexes/hotels/docs/search?api-version=2020-06-30
@@ -69,7 +69,7 @@ Per questa richiesta, il motore di ricerca esegue le operazioni seguenti:
 2. Esegue la query. In questo esempio la query di ricerca è costituita da frasi e termini: `"Spacious, air-condition* +\"Ocean view\""` (gli utenti in genere non immettono segni di punteggiatura, ma includerli nell'esempio consente di spiegare come la gestiscono gli analizzatori). Per questa query, il motore di ricerca esegue la scansione della descrizione e dei campi del titolo specificati in `searchFields` per i documenti che contengono "Vista sull'Oceano" e anche il termine "spazioso" o i termini che iniziano con il prefisso "aria condizionata". Il parametro `searchMode` viene usato per l'abbinamento con qualsiasi termine (impostazione predefinita) o con tutti i termini, per i casi in cui un termine non è esplicitamente richiesto (`+`).
 3. Ordina il set risultante degli hotel in prossimità di una posizione geografica specificata e quindi restituita all'applicazione chiamante. 
 
-La maggior parte di questo articolo riguarda l'elaborazione della *query di ricerca*: `"Spacious, air-condition* +\"Ocean view\""` . Il filtro e l'ordinamento non appartengono all'ambito. Per altre informazioni, vedere la [Documentazione di riferimento dell'API di Ricerca](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+La maggior parte di questo articolo riguarda l'elaborazione della *query di ricerca*: `"Spacious, air-condition* +\"Ocean view\""` . Il filtro e l'ordinamento non appartengono all'ambito. Per altre informazioni, vedere la [Documentazione di riferimento dell'API di Ricerca](/rest/api/searchservice/search-documents).
 
 <a name="stage1"></a>
 ## <a name="stage-1-query-parsing"></a>Fase 1: Analisi della query 
@@ -86,7 +86,7 @@ Il parser della query separa gli operatori (ad esempio `*` e `+` nell'esempio) d
 + *query della frase* per i termini tra virgolette (ad esempio vista oceano)
 + *query del prefisso* per i termini seguiti da un operatore prefisso `*` (ad esempio, aria condizionata)
 
-Per un elenco completo dei tipi di query supportati vedere [Sintassi di query Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
+Per un elenco completo dei tipi di query supportati vedere [Sintassi di query Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search)
 
 Gli operatori associati a una sottoquery determinano se la query "deve essere" o "dovrebbe essere" soddisfatta al fine di considerare un documento come corrispondenza. Ad esempio, `+"Ocean view"` è "deve" in virtù dell'operatore `+`. 
 
@@ -96,7 +96,7 @@ Il parser della query ristruttura le sottoquery in un *albero della query* (una 
 
 ### <a name="supported-parsers-simple-and-full-lucene"></a>Parser supportati: Lucene semplice e completa 
 
- Azure ricerca cognitiva espone due linguaggi di query diversi, `simple` (impostazione predefinita) e `full` . Impostando il parametro `queryType` con la richiesta di ricerca, si indica al parser della query quale linguaggio di query si sceglie in modo che sappia come interpretare gli operatori e la sintassi. Il [linguaggio semplice della query](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) è intuitivo e potente, spesso adatto a interpretare l'input dell'utente così come si presenta, senza elaborazione dal lato client. Supporta operatori di query familiari dai motori di ricerca Web. Il [Linguaggio di query Lucene Full](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), che si ottiene impostando `queryType=full`, estende il linguaggio di query semplice di impostazione predefinita aggiungendo il supporto per più operatori e tipi di query quali carattere jolly, fuzzy, regex e query con ambito campo. Ad esempio, un'espressione regolare inviata nella sintassi di query semplice verrebbe interpretata come una stringa di query e non come un'espressione. La richiesta di esempio in questo articolo usa il linguaggio di query Lucene Full.
+ Azure ricerca cognitiva espone due linguaggi di query diversi, `simple` (impostazione predefinita) e `full` . Impostando il parametro `queryType` con la richiesta di ricerca, si indica al parser della query quale linguaggio di query si sceglie in modo che sappia come interpretare gli operatori e la sintassi. Il [linguaggio semplice della query](/rest/api/searchservice/simple-query-syntax-in-azure-search) è intuitivo e potente, spesso adatto a interpretare l'input dell'utente così come si presenta, senza elaborazione dal lato client. Supporta operatori di query familiari dai motori di ricerca Web. Il [Linguaggio di query Lucene Full](/rest/api/searchservice/lucene-query-syntax-in-azure-search), che si ottiene impostando `queryType=full`, estende il linguaggio di query semplice di impostazione predefinita aggiungendo il supporto per più operatori e tipi di query quali carattere jolly, fuzzy, regex e query con ambito campo. Ad esempio, un'espressione regolare inviata nella sintassi di query semplice verrebbe interpretata come una stringa di query e non come un'espressione. La richiesta di esempio in questo articolo usa il linguaggio di query Lucene Full.
 
 ### <a name="impact-of-searchmode-on-the-parser"></a>Impatto di searchMode sul parser 
 
@@ -123,7 +123,7 @@ Un albero di query modificato per questa query sarà come segue, se un documento
  ![Boolean query searchmode all][3]
 
 > [!Note] 
-> La scelta `searchMode=any` rispetto a `searchMode=all` è una scelta migliore a cui si arriva eseguendo le query rappresentative. Gli utenti che molto probabilmente includono operatori (comune quando si eseguono ricerche nell'archivio dei documenti) potrebbero trovare risultati più intuitivi se `searchMode=all` informa i costrutti della query booleana. Per altre informazioni sull'interazione tra `searchMode` e gli operatori, vedere [Simple query syntax](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) (Sintassi di query semplice).
+> La scelta `searchMode=any` rispetto a `searchMode=all` è una scelta migliore a cui si arriva eseguendo le query rappresentative. Gli utenti che molto probabilmente includono operatori (comune quando si eseguono ricerche nell'archivio dei documenti) potrebbero trovare risultati più intuitivi se `searchMode=all` informa i costrutti della query booleana. Per altre informazioni sull'interazione tra `searchMode` e gli operatori, vedere [Simple query syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search) (Sintassi di query semplice).
 
 <a name="stage2"></a>
 ## <a name="stage-2-lexical-analysis"></a>Fase 2: Analisi lessicale 
@@ -137,10 +137,10 @@ La forma più comune di analisi lessicale è l'*analisi linguistica* che trasfor
 * Suddivisione di una parola composta nelle parti che la compongono 
 * Trasformazione in lettere minuscole di una parola in lettere maiuscole 
 
-Tutte queste operazioni tendono a cancellare le differenze tra l'input del testo fornito dall'utente e i termini archiviati nell'indice. Tali operazioni vanno oltre l'elaborazione del testo e richiedono una conoscenza approfondita del linguaggio. Per aggiungere questo livello di riconoscimento linguistico, Azure ricerca cognitiva supporta un lungo elenco di [analizzatori di linguaggio](https://docs.microsoft.com/rest/api/searchservice/language-support) sia per Lucene che per Microsoft.
+Tutte queste operazioni tendono a cancellare le differenze tra l'input del testo fornito dall'utente e i termini archiviati nell'indice. Tali operazioni vanno oltre l'elaborazione del testo e richiedono una conoscenza approfondita del linguaggio. Per aggiungere questo livello di riconoscimento linguistico, Azure ricerca cognitiva supporta un lungo elenco di [analizzatori di linguaggio](/rest/api/searchservice/language-support) sia per Lucene che per Microsoft.
 
 > [!Note]
-> I requisiti per l'analisi possono variare da minimi a elaborati a seconda dello scenario. È possibile controllare la complessità dell'analisi lessicale quando si seleziona uno degli analizzatori predefiniti o creando il proprio [analizzatore personalizzato](https://docs.microsoft.com/rest/api/searchservice/Custom-analyzers-in-Azure-Search). Gli analizzatori sono limitati a campi ricercabili e vengono specificati come parte di una definizione di campo. Ciò consente di variare l'analisi lessicale in base al campo. Se non è specificato, viene usato l'analizzatore Lucene *standard*.
+> I requisiti per l'analisi possono variare da minimi a elaborati a seconda dello scenario. È possibile controllare la complessità dell'analisi lessicale quando si seleziona uno degli analizzatori predefiniti o creando il proprio [analizzatore personalizzato](/rest/api/searchservice/Custom-analyzers-in-Azure-Search). Gli analizzatori sono limitati a campi ricercabili e vengono specificati come parte di una definizione di campo. Ciò consente di variare l'analisi lessicale in base al campo. Se non è specificato, viene usato l'analizzatore Lucene *standard*.
 
 Nel nostro esempio, prima dell'analisi, l'albero della query iniziale contiene il termine "Spazioso,", con una "S" maiuscola e una virgola, che il parser della query interpreta come parte del termine della query (la virgola non viene considerata come operatore di linguaggio della query).  
 
@@ -150,7 +150,7 @@ Quando l'analizzatore predefinito elabora il termine, renderà con lettere minus
 
 ### <a name="testing-analyzer-behaviors"></a>Comportamenti dell'analizzatore del test 
 
-Il comportamento di un analizzatore può essere testato usando l'[API Analyze](https://docs.microsoft.com/rest/api/searchservice/test-analyzer). Fornire il testo da analizzare per vedere quali termini specificati saranno generati dall'analizzatore. Ad esempio, per visualizzare il modo in cui l'analizzatore standard elabora il testo "aria condizionata", è possibile eseguire la richiesta seguente:
+Il comportamento di un analizzatore può essere testato usando l'[API Analyze](/rest/api/searchservice/test-analyzer). Fornire il testo da analizzare per vedere quali termini specificati saranno generati dall'analizzatore. Ad esempio, per visualizzare il modo in cui l'analizzatore standard elabora il testo "aria condizionata", è possibile eseguire la richiesta seguente:
 
 ~~~~
 {
@@ -279,14 +279,14 @@ Per il campo **descrizione**, l'indice è il seguente:
 | nord | 2
 | oceano | 1, 2, 3
 | di | 2
-| on |2
+| in |2
 | tranquillo | 4
 | camere  | 1, 3
 | appartato | 4
 | costa | 2
 | spazioso | 1
 | il | 1, 2
-| to | 1
+| su | 1
 | vista | 1, 2, 3
 | passeggiata | 1
 | con | 3
@@ -359,8 +359,8 @@ Un esempio illustra il motivo per cui questo risulta importante. Le ricerche con
 
 Esistono due modi per ottimizzare i punteggi di pertinenza in Azure ricerca cognitiva:
 
-1. I **profili di punteggio** promuovono i documenti nell'elenco di pertinenza dei risultati in base a un set di regole. Nel nostro esempio è possibile considerare i documenti che corrispondono al campo del titolo più rilevanti rispetto ai documenti corrispondenti al campo della descrizione. In aggiunta, se l'indice dispone di un campo prezzo per ogni albergo, è possibile promuovere i documenti con prezzo inferiore. Informazioni su come [ aggiungere profili di punteggio a un indice di ricerca](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index).
-2. **Aumento priorità dei termini** (disponibile solo nella sintassi di query Lucene Full) offre un aumento della priorità dell'operatore `^` che può essere applicato a qualsiasi parte dell'albero della query. In questo esempio, invece di cercare il prefisso *aria condizionata* \* , è possibile cercare il termine esatto *aria condizionata* o il prefisso, ma i documenti che corrispondono al termine esatto vengono classificati in un livello superiore applicando un Boost al termine query: * aria condizionata ^ 2 | | condizione aria * *. Altre informazioni sull'[aumento della priorità dei termini](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
+1. I **profili di punteggio** promuovono i documenti nell'elenco di pertinenza dei risultati in base a un set di regole. Nel nostro esempio è possibile considerare i documenti che corrispondono al campo del titolo più rilevanti rispetto ai documenti corrispondenti al campo della descrizione. In aggiunta, se l'indice dispone di un campo prezzo per ogni albergo, è possibile promuovere i documenti con prezzo inferiore. Informazioni su come [ aggiungere profili di punteggio a un indice di ricerca](/rest/api/searchservice/add-scoring-profiles-to-a-search-index).
+2. **Aumento priorità dei termini** (disponibile solo nella sintassi di query Lucene Full) offre un aumento della priorità dell'operatore `^` che può essere applicato a qualsiasi parte dell'albero della query. In questo esempio, invece di cercare il prefisso *aria condizionata* \* , è possibile cercare il termine esatto *aria condizionata* o il prefisso, ma i documenti che corrispondono al termine esatto vengono classificati in un livello superiore applicando un Boost al termine query: * aria condizionata ^ 2 | | condizione aria * *. Altre informazioni sull'[aumento della priorità dei termini](/rest/api/searchservice/lucene-query-syntax-in-azure-search#bkmk_termboost).
 
 
 ### <a name="scoring-in-a-distributed-index"></a>Assegnazione dei punteggi in un indice distribuito
@@ -371,7 +371,7 @@ Ciò significa che un punteggio di pertinenza *potrebbe* essere diverso per docu
 
 In genere, il punteggio del documento non è l'attributo migliore per l'ordinamento dei documenti se la stabilità dell'ordine è importante. Ad esempio, dati due documenti con un punteggio identico, non vi sono garanzie circa quale sarà visualizzato per primo in esecuzioni successive della stessa query. Il punteggio del documento deve solo dare un'idea generale della pertinenza del documento relativo ad altri documenti nel set di risultati.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 Il successo dei motori di ricerca Internet ha generato aspettative per la ricerca full-text su dati privati. Per quasi tutti i tipi di esperienza di ricerca, è ora previsto che il motore comprenda il nostro obiettivo, anche quando i termini sono errati o incompleti. Si possono anche prevedere delle corrispondenze basate su termini quasi equivalenti o sinonimi che non abbiamo mai specificato.
 
@@ -383,23 +383,23 @@ Questo articolo ha esplorato la ricerca full-text nel contesto di Azure ricerca 
 
 + Compilare l'indice di esempio, provare diverse query ed esaminare i risultati. Per le istruzioni, vedere [Eseguire query sull'indice](search-get-started-portal.md#query-index).
 
-+ Provare la sintassi di query aggiuntiva dalla sezione di esempio [Search Documents](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples) (Ricerca di documenti) o da [Sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) in Esplora ricerche nel portale.
++ Provare la sintassi di query aggiuntiva dalla sezione di esempio [Search Documents](/rest/api/searchservice/search-documents#bkmk_examples) (Ricerca di documenti) o da [Sintassi di query semplice](/rest/api/searchservice/simple-query-syntax-in-azure-search) in Esplora ricerche nel portale.
 
-+ Rivedere i [profili di punteggio](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) se si desidera ottimizzare la classificazione nell'applicazione di ricerca.
++ Rivedere i [profili di punteggio](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) se si desidera ottimizzare la classificazione nell'applicazione di ricerca.
 
-+ Informazioni su come applicare [analizzatori lessicali specifici della lingua](https://docs.microsoft.com/rest/api/searchservice/language-support).
++ Informazioni su come applicare [analizzatori lessicali specifici della lingua](/rest/api/searchservice/language-support).
 
-+ [Configurare gli analizzatori personalizzati](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search) per un'elaborazione minima o specializzati per settori specifici.
++ [Configurare gli analizzatori personalizzati](/rest/api/searchservice/custom-analyzers-in-azure-search) per un'elaborazione minima o specializzati per settori specifici.
 
 ## <a name="see-also"></a>Vedere anche
 
-[Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (API REST di Ricerca di documenti) 
+[Search Documents REST API](/rest/api/searchservice/search-documents) (API REST di Ricerca di documenti) 
 
-[Sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) 
+[Sintassi di query semplice](/rest/api/searchservice/simple-query-syntax-in-azure-search) 
 
-[Sintassi completa della query Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
+[Sintassi completa della query Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search) 
 
-[Gestire i risultati della ricerca](https://docs.microsoft.com/azure/search/search-pagination-page-layout)
+[Gestire i risultati della ricerca](./search-pagination-page-layout.md)
 
 <!--Image references-->
 [1]: ./media/search-lucene-query-architecture/architecture-diagram2.png

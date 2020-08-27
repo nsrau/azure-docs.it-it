@@ -4,14 +4,15 @@ description: In molti scenari di scalabilità, il cliente deve spesso eseguire i
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 03/27/2019
 ms.author: zhshang
-ms.openlocfilehash: 43d703312cbc1fc067a2d51d5623ed028ba01405
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ecf4a35fc239a70e87550a97e71d7abd3d00ecfa
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74158169"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921988"
 ---
 # <a name="how-to-scale-signalr-service-with-multiple-instances"></a>Come scalare il servizio SignalR con più istanze?
 L'SDK del servizio SignalR più recente supporta più endpoint per le istanze del servizio SignalR. È possibile usare questa funzionalità per ridimensionare le connessioni simultanee o usarle per la messaggistica tra più aree.
@@ -217,7 +218,7 @@ app.MapAzureSignalR(GetType().FullName, hub, options => {
 
 L' `ServiceEndpoint` oggetto ha una `EndpointType` proprietà con valore `primary` o `secondary` .
 
-`primary`gli endpoint sono endpoint preferiti per la ricezione del traffico client e sono considerati con connessioni di rete più affidabili. gli `secondary` endpoint sono considerati con connessioni di rete meno affidabili e vengono usati solo per l'esecuzione del traffico da server a client, ad esempio per la trasmissione di messaggi, non per l'esecuzione del traffico da client a server.
+`primary` gli endpoint sono endpoint preferiti per la ricezione del traffico client e sono considerati con connessioni di rete più affidabili. gli `secondary` endpoint sono considerati con connessioni di rete meno affidabili e vengono usati solo per l'esecuzione del traffico da server a client, ad esempio per la trasmissione di messaggi, non per l'esecuzione del traffico da client a server.
 
 Nei casi tra aree, la rete può essere instabile. Per un server app che si trova negli *Stati Uniti orientali*, l'endpoint del servizio SignalR situato nella stessa area *Stati Uniti orientali* può essere configurato come gli `primary` endpoint di e in altre aree contrassegnate come `secondary` . In questa configurazione gli endpoint di servizio in altre aree possono **ricevere** messaggi da questo server applicazioni *degli Stati Uniti orientali* , ma non ci saranno client **tra aree** indirizzati a questo server app. L'architettura è illustrata nel diagramma seguente:
 
