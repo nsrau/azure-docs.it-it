@@ -4,15 +4,16 @@ description: Comprendere i motivi per cui vengono visualizzati gli addebiti per 
 author: amberbhargava
 tags: billing
 ms.service: cost-management-billing
+ms.subservice: billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: 557e099b4250d5514920aa6c22399ce225f35d92
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: f81c33f3b49352933801c8b89a2c3a1787c2356a
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "77200949"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88682927"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>Evitare addebiti con l'account Azure gratuito
 
@@ -23,7 +24,6 @@ Ecco alcuni motivi per cui si possono sostenere costi sull'account gratuito di A
 ## <a name="your-credit-runs-out-or-is-expired"></a>Il credito è esaurito o scaduto
 
 Se il credito si esaurisce o scade al termine dei 30 giorni, la sottoscrizione e i servizi vengono disabilitati. Per continuare a usare i servizi di Azure, è necessario aggiornare l'account. Per altre informazioni, vedere [Aggiornare l'account Azure gratuito](upgrade-azure-subscription.md). Dopo l'aggiornamento, sarà ancora possibile accedere ai servizi gratuiti per 12 mesi e verrà addebitato solo l'utilizzo in eccedenza rispetto ai limiti previsti per i servizi gratuiti e le quantità incluse.
-
 
 ## <a name="usage-exceeds-the-limits-of-free-services"></a>L'utilizzo supera i limiti dei servizi gratuiti
 

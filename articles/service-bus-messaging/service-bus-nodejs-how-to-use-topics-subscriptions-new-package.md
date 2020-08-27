@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: devx-track-javascript
-ms.openlocfilehash: fafdf18a3593f7ec444e9970d99807cbfe0cb13d
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: bbb0f530d95c78b8b5da178ee1544830ac3f7132
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080627"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660597"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-nodejs-and-the-azureservice-bus-package"></a>Guida introduttiva: Come usare gli argomenti e le sottoscrizioni del bus di servizio con Node.js e il pacchetto azure/service-bus
 Questa esercitazione illustra come scrivere un programma Node.js per inviare messaggi a un argomento del bus di servizio e ricevere messaggi da una sottoscrizione del bus di servizio usando il nuovo pacchetto [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus). Questo pacchetto usa il [protocollo AMQP 1.0 ](service-bus-amqp-overview.md) più veloce, mentre il precedente pacchetto [azure-sb](https://www.npmjs.com/package/azure-sb) usava le [API di runtime REST del bus di servizio](/rest/api/servicebus/service-bus-runtime-rest). Gli esempi sono scritti in JavaScript.
@@ -86,7 +86,7 @@ Gli argomenti del bus di servizio supportano messaggi di dimensioni massime fino
 L'interazione con una sottoscrizione del bus di servizio inizia con la creazione di un'istanza della classe [ServiceBusClient](/javascript/api/@azure/service-bus/servicebusclient) e con l'uso della stessa per creare un'istanza della classe [SubscriptionClient](/javascript/api/@azure/service-bus/subscriptionclient). Dopo aver ottenuto il client della sottoscrizione, è possibile creare un destinatario e usare il metodo [receiveMessages](/javascript/api/@azure/service-bus/receiver#receivemessages-number--undefined---number-) o [registerMessageHandler](/javascript/api/@azure/service-bus/receiver#registermessagehandler-onmessage--onerror--messagehandleroptions-) per ricevere i messaggi.
 
 1. Aprire l'editor preferito, ad esempio[Visual Studio Code](https://code.visualstudio.com/).
-2. Creare un file denominato `recieve.js` e incollarvi il codice riportato di seguito. Questo codice tenterà di ricevere 10 messaggi dalla sottoscrizione. Il numero effettivo dei messaggi ricevuti dipende dal numero di messaggi nella sottoscrizione e dalla latenza di rete.
+2. Creare un file denominato `receive.js` e incollarvi il codice riportato di seguito. Questo codice tenterà di ricevere 10 messaggi dalla sottoscrizione. Il numero effettivo dei messaggi ricevuti dipende dal numero di messaggi nella sottoscrizione e dalla latenza di rete.
 
     ```javascript
     const { ServiceBusClient, ReceiveMode } = require("@azure/service-bus"); 
@@ -117,7 +117,7 @@ L'interazione con una sottoscrizione del bus di servizio inizia con la creazione
     });
     ```
 3. Immettere la stringa di connessione e i nomi dell'argomento e della sottoscrizione nel codice precedente.
-4. Eseguire quindi questo file tramite il comando `node receiveMessages.js` in un prompt dei comandi.
+4. Eseguire quindi questo file tramite il comando `node receive.js` in un prompt dei comandi.
 
 Congratulazioni! I messaggi sono stati ricevuti da una sottoscrizione del bus di servizio
 

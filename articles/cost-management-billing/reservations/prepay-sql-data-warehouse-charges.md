@@ -4,15 +4,16 @@ description: Informazioni su come risparmiare sui costi addebitati per Azure Syn
 author: yashesvi
 ms.reviewer: yashar
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: 4597268a177773266f0d42eaf5acb9b18bcb3edb
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ca83760f09ea29ba0b21a0f7177dd3f3188c44cd
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286530"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88686140"
 ---
 # <a name="save-costs-for-azure-synapse-analytics-charges-with-reserved-capacity"></a>Risparmiare sui costi per gli addebiti di Azure Synapse Analytics con la capacità riservata di Azure
 

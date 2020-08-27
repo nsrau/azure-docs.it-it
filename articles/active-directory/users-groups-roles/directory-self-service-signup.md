@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d52384f04fd8a2a2bc3c42af713378ad15d01c42
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 3ec578370d32664e36ffcc4bd075c3f6a3ed68ab
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192706"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795363"
 ---
 # <a name="what-is-self-service-sign-up-for-azure-active-directory"></a>Informazioni sull'iscrizione self-service per Azure Active Directory.
 
@@ -64,7 +64,7 @@ Se le condizioni precedenti sono vere, verrà creato un utente membro nella home
 Per altre informazioni sulle iscrizioni per le versioni di valutazione di Flow e PowerApps, vedere gli articoli seguenti:
 
 * [Come è possibile impedire agli utenti di iniziare a usare Power BI?](https://support.office.com/article/Power-BI-in-your-Organization-d7941332-8aec-4e5e-87e8-92073ce73dc5#bkmk_preventjoining)
-* [Domande e risposte riguardo alla registrazione a Microsoft Flow nell'organizzazione](https://docs.microsoft.com/flow/organization-q-and-a)
+* [Domande e risposte riguardo alla registrazione a Microsoft Flow nell'organizzazione](/flow/organization-q-and-a)
 
 ### <a name="how-do-the-controls-work-together"></a>Come operano congiuntamente i controlli?
 Questi due parametri possono essere usati congiuntamente per definire un controllo più preciso sull'iscrizione self-service. Ad esempio, il comando seguente consentirà agli utenti di eseguire l'iscrizione self-service, ma solo se tali utenti dispongono già di un account in Azure AD (in altre parole, gli utenti per cui è prima necessario creare un account verificato tramite posta elettronica non possono eseguire l'iscrizione self-service):

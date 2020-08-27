@@ -3,16 +3,16 @@ title: Informazioni sul backup di condivisioni file di Azure
 description: Informazioni su come eseguire il backup delle condivisioni file di Azure nell'insieme di credenziali di servizi di ripristino
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 1c44d406519c8c0d9fb71b5e94bcb6bcaa1a7253
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 7960040df4208ad021bca3406f6472d8c3206d81
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88823881"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892253"
 ---
 # <a name="about-azure-file-share-backup"></a>Informazioni sul backup di condivisioni file di Azure
 
-Il backup di condivisioni file di Azure è una soluzione di backup nativa basata sul cloud che protegge i dati nel cloud ed Elimina sovraccarichi di manutenzione aggiuntivi che coinvolgono le soluzioni di backup locali. Il servizio backup di Azure si integra perfettamente con Sincronizzazione file di Azure e consente di centralizzare i dati della condivisione file e i backup. Questa soluzione semplice, affidabile e sicura consente di configurare la protezione per le condivisioni file aziendali in pochi semplici passaggi con la garanzia che è possibile ripristinare i dati in caso di scenari di emergenza.
+Il backup di condivisioni file di Azure è una soluzione di backup nativa basata sul cloud che protegge i dati nel cloud ed Elimina sovraccarichi di manutenzione aggiuntivi che coinvolgono le soluzioni di backup locali. Il servizio backup di Azure si integra perfettamente con Sincronizzazione file di Azure e consente di centralizzare i dati della condivisione file e i backup. Questa soluzione semplice, affidabile e sicura consente di configurare la protezione per le condivisioni file aziendali in pochi semplici passaggi con la garanzia che è possibile ripristinare i dati in qualsiasi scenario di emergenza.
 
 ## <a name="key-benefits-of-azure-file-share-backup"></a>Vantaggi principali del backup di condivisioni file di Azure
 

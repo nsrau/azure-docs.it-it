@@ -14,16 +14,16 @@ ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89c96da30411705bf33b1c63f79a9beef11962a1
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: a752eb8f38c5a2ccc88d7ceed3d3b342d20d3f51
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223823"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795306"
 ---
 # <a name="what-is-enterprise-user-management"></a>Che cos'è la gestione degli utenti aziendali?
 
-Questo articolo fornisce un'introduzione per l'amministratore di Azure AD alla relazione tra le principali attività di [gestione delle identità](/azure/active-directory/fundamentals/identity-fundamentals?context=azure/active-directory/users-groups-roles/context/ugr-context) per gli utenti in termini di gruppi, licenze, app aziendali distribuite e ruoli di amministratore. Con la crescita dell'organizzazione, è possibile usare i gruppi e i ruoli di amministratore di Azure AD per:
+Questo articolo fornisce un'introduzione per l'amministratore di Azure AD alla relazione tra le principali attività di [gestione delle identità](../fundamentals/active-directory-whatis.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) per gli utenti in termini di gruppi, licenze, app aziendali distribuite e ruoli di amministratore. Con la crescita dell'organizzazione, è possibile usare i gruppi e i ruoli di amministratore di Azure AD per:
 
 * Assegnare licenze a gruppi anziché singolarmente
 * Delegare le autorizzazioni necessarie per distribuire il lavoro di gestione di Azure AD a ruoli con meno privilegi
@@ -37,7 +37,7 @@ Per una maggiore flessibilità e per diminuire le operazioni di gestione delle a
 
 ## <a name="assign-licenses-to-groups"></a>Assegnare licenze a gruppi
 
-L'assegnazione o rimozione di licenze per singoli utenti può richiedere tempo e attenzione. Se invece si [assegnano le licenze a gruppi](/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context), è possibile semplificare la gestione delle licenze su larga scala.
+L'assegnazione o rimozione di licenze per singoli utenti può richiedere tempo e attenzione. Se invece si [assegnano le licenze a gruppi](../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context), è possibile semplificare la gestione delle licenze su larga scala.
 
 In Azure AD, agli utenti che entrano a far parte di un gruppo con licenze vengono assegnate automaticamente le licenze appropriate. Quando gli utenti lasciano il gruppo, Azure AD rimuove le licenze assegnate. Senza i gruppi di Azure AD sarebbe necessario scrivere uno script di PowerShell oppure usare l'API Graph per aggiungere o rimuovere in blocco le licenze degli utenti che entrano in azienda o ne escono.
 
@@ -60,7 +60,7 @@ Nuovi ruoli di amministratore di Azure AD sono in via di aggiunta. Vedere il por
 
 ## <a name="assign-app-access"></a>Assegnare l'accesso alle app
 
-È possibile usare Azure AD per assegnare l'accesso di gruppo alle [app aziendali distribuite nell'organizzazione di Azure AD](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context). Se si combinano i gruppi dinamici con l'assegnazione di gruppi alle app, è possibile automatizzare le assegnazioni degli accessi utente adattandole alla crescita dell'organizzazione. Per assegnare l'accesso alle app aziendali è necessaria una licenza Azure Active Directory Premium P1 o Premium P2.
+È possibile usare Azure AD per assegnare l'accesso di gruppo alle [app aziendali distribuite nell'organizzazione di Azure AD](../manage-apps/assign-user-or-group-access-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context). Se si combinano i gruppi dinamici con l'assegnazione di gruppi alle app, è possibile automatizzare le assegnazioni degli accessi utente adattandole alla crescita dell'organizzazione. Per assegnare l'accesso alle app aziendali è necessaria una licenza Azure Active Directory Premium P1 o Premium P2.
 
 Azure AD consente anche un controllo granulare dei dati scambiati tra l'app e i gruppi a cui si è assegnato l'accesso. In [Applicazioni aziendali](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps) aprire un'app e selezionare **Provisioning** per:
 
@@ -72,6 +72,6 @@ Azure AD consente anche un controllo granulare dei dati scambiati tra l'app e i 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Le nozioni di base per gli amministratori di Azure AD agli inizi sono disponibili nella [Documentazione sui concetti fondamentali di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/fundamentals/index).
+Le nozioni di base per gli amministratori di Azure AD agli inizi sono disponibili nella [Documentazione sui concetti fondamentali di Azure Active Directory](../fundamentals/index.yml).
 
-È anche possibile cominciare a [creare gruppi](/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal?context=azure/active-directory/users-groups-roles/context/ugr-context), [assegnare licenze](/azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context), [assegnare l'accesso alle app](/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups?context=azure/active-directory/users-groups-roles/context/ugr-context) o [assegnare i ruoli di amministratore](directory-assign-admin-roles.md).
+È anche possibile cominciare a [creare gruppi](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context), [assegnare licenze](../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context), [assegnare l'accesso alle app](../manage-apps/assign-user-or-group-access-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) o [assegnare i ruoli di amministratore](directory-assign-admin-roles.md).
