@@ -2,13 +2,14 @@
 title: Monitoraggio delle dipendenze in Azure Application Insights | Microsoft Docs
 description: Monitorare le chiamate alle dipendenze dall'applicazione Web locale o Microsoft Azure con Application Insights.
 ms.topic: conceptual
-ms.date: 06/26/2020
-ms.openlocfilehash: a7f42c19c835e4f5c49f4d7aa91504b606a09f5b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/26/2020
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3d98fe91994c992d11fc58e3fec42d1796c0c966
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321378"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936538"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Rilevamento delle dipendenze in applicazione Azure Insights 
 
@@ -16,9 +17,9 @@ Una *dipendenza* è un componente chiamato dall'applicazione. In genere è un se
 
 ## <a name="automatically-tracked-dependencies"></a>Dipendenze rilevate automaticamente
 
-Application Insights SDK per .NET e .NET Core viene fornito con `DependencyTrackingTelemetryModule` un modulo di telemetria che raccoglie automaticamente le dipendenze. Questa raccolta delle dipendenze viene abilitata automaticamente per le applicazioni [ASP.NET](./asp-net.md) e [ASP.NET Core](./asp-net-core.md) , se configurata in base alla documentazione ufficiale collegata. `DependencyTrackingTelemetryModule`viene fornito come [questo](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) pacchetto NuGet e viene portato automaticamente quando si usa uno dei pacchetti NuGet `Microsoft.ApplicationInsights.Web` o `Microsoft.ApplicationInsights.AspNetCore` .
+Application Insights SDK per .NET e .NET Core viene fornito con `DependencyTrackingTelemetryModule` , ovvero un modulo di telemetria che raccoglie automaticamente le dipendenze. Questa raccolta delle dipendenze viene abilitata automaticamente per le applicazioni [ASP.NET](./asp-net.md) e [ASP.NET Core](./asp-net-core.md) , se configurata in base alla documentazione ufficiale collegata. `DependencyTrackingTelemetryModule` viene fornito come [questo](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) pacchetto NuGet e viene portato automaticamente quando si usa uno dei pacchetti NuGet `Microsoft.ApplicationInsights.Web` o `Microsoft.ApplicationInsights.AspNetCore` .
 
- `DependencyTrackingTelemetryModule`attualmente rileva automaticamente le dipendenze seguenti:
+ `DependencyTrackingTelemetryModule` attualmente rileva automaticamente le dipendenze seguenti:
 
 |Dependencies |Dettagli|
 |---------------|-------|
@@ -154,7 +155,7 @@ Qui sarà possibile visualizzare il numero di dipendenze non riuscite. Per otten
 
 ## <a name="logs-analytics"></a>Log (Analisi)
 
-È possibile tenere traccia delle dipendenze nel [linguaggio di query Kusto](/azure/kusto/query/). Ecco alcuni esempi.
+È possibile tenere traccia delle dipendenze nel [linguaggio di query Kusto](/azure/kusto/query/). Di seguito sono riportati alcuni esempi.
 
 * Trovare eventuali chiamate alle dipendenze non riuscite:
 
@@ -195,7 +196,19 @@ Qui sarà possibile visualizzare il numero di dipendenze non riuscite. Per otten
 
 ### <a name="how-does-automatic-dependency-collector-report-failed-calls-to-dependencies"></a>*In che modo l'agente di raccolta dipendenze automatico segnala le chiamate alle dipendenze?*
 
-* Le chiamate alle dipendenze non riuscite avranno il campo ' success ' impostato su false. `DependencyTrackingTelemetryModule`non segnala `ExceptionTelemetry` . Il modello di dati completo per la dipendenza è descritto [qui](data-model-dependency-telemetry.md).
+* Le chiamate alle dipendenze non riuscite avranno il campo ' success ' impostato su false. `DependencyTrackingTelemetryModule` non segnala `ExceptionTelemetry` . Il modello di dati completo per la dipendenza è descritto [qui](data-model-dependency-telemetry.md).
+
+### <a name="how-do-i-calculate-ingestion-latency-for-my-dependency-telemetry"></a>*Ricerca per categorie calcolare la latenza di inserimento per la telemetria delle dipendenze?*
+
+```kusto
+dependencies
+| extend E2EIngestionLatency = ingestion_time() - timestamp 
+| extend TimeIngested = ingestion_time()
+```
+
+### <a name="how-do-i-determine-the-time-the-dependency-call-was-initiated"></a>*Ricerca per categorie determinare l'ora in cui è stata avviata la chiamata di dipendenza?*
+
+Nella visualizzazione Query Log Analytics `timestamp` rappresenta il momento in cui è stata avviata la chiamata a TrackDependency () che si verifica immediatamente dopo la ricezione della risposta alla chiamata di dipendenza. Per calcolare l'ora di inizio della chiamata di dipendenza, è necessario `timestamp` e sottrarre il registrato `duration` della chiamata di dipendenza.
 
 ## <a name="open-source-sdk"></a>SDK open source
 Come ogni Application Insights SDK, anche il modulo di raccolta delle dipendenze è open source. Leggere e contribuire al codice o segnalare problemi nel [repository GitHub ufficiale](https://github.com/Microsoft/ApplicationInsights-dotnet-server).

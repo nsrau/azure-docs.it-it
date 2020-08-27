@@ -6,13 +6,13 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.custom: devx-track-javascript
-ms.openlocfilehash: e25a874af66b73f5f75a07a5df65c155a16c9f01
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 0b5056f221fdd6036e5f6dff3d69a21c3a2dc27e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387150"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928565"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Sviluppo e configurazione di Funzioni di Azure e con il Servizio Azure SignalR
 
@@ -109,20 +109,20 @@ Tutte le funzioni che vogliono sfruttare il modello basato su classi devono esse
 
 ### <a name="define-hub-method"></a>Definisci metodo Hub
 
-Tutti i metodi dell'hub **devono** avere un `[SignalRTrigger]` attributo e **devono** usare un costruttore senza parametri. Il **nome del metodo** viene quindi trattato come un **evento**Parameter.
+Tutti i metodi dell'hub **devono**  avere un `[SignalRTrigger]` attributo e **devono** usare un costruttore senza parametri. Il **nome del metodo** viene quindi trattato come un **evento**Parameter.
 
 Per impostazione predefinita, `category=messages` ad eccezione del nome del metodo è uno dei nomi seguenti:
 
-* **OnConnected**: trattato come`category=connections, event=connected`
-* **Disconnected**: trattato come`category=connections, event=disconnected`
+* **OnConnected**: trattato come `category=connections, event=connected`
+* **Disconnected**: trattato come `category=connections, event=disconnected`
 
 ### <a name="parameter-binding-experience"></a>Esperienza di associazione di parametri
 
 Nel modello basato su classi, `[SignalRParameter]` non è necessario perché tutti gli argomenti sono contrassegnati come `[SignalRParameter]` per impostazione predefinita, ad eccezione di una delle situazioni seguenti:
 
 * L'argomento è decorato da un attributo di associazione.
-* Il tipo dell'argomento è `ILogger` o`CancellationToken`
-* L'argomento è decorato dall'attributo`[SignalRIgnore]`
+* Il tipo dell'argomento è `ILogger` o `CancellationToken`
+* L'argomento è decorato dall'attributo `[SignalRIgnore]`
 
 ### <a name="negotiate-experience-in-class-based-model"></a>Negotiate Experience in modello basato su classi
 
@@ -218,8 +218,8 @@ Il client JavaScript/TypeScript esegue richieste HTTP alla funzione Negotiate pe
 
 Quando si esegue l'app per le funzioni nel computer locale, è possibile aggiungere una `Host` sezione *local.settings.json* per abilitare CORS. Nella `Host` sezione aggiungere due proprietà:
 
-* `CORS`-Immettere l'URL di base che rappresenta l'origine dell'applicazione client
-* `CORSCredentials`-impostarla su `true` per consentire le richieste "withCredentials"
+* `CORS` -Immettere l'URL di base che rappresenta l'origine dell'applicazione client
+* `CORSCredentials` -impostarla su `true` per consentire le richieste "withCredentials"
 
 Esempio:
 

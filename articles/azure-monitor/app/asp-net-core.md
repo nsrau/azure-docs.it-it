@@ -2,13 +2,14 @@
 title: Applicazione Azure Insights per le applicazioni ASP.NET Core | Microsoft Docs
 description: Monitorare le applicazioni Web ASP.NET Core per identificare disponibilità, prestazioni e utilizzo.
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 04/30/2020
-ms.openlocfilehash: 81d7ab38080aac941bce1f5d1dd17145f8075036
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 719bf997254c98c5790d6d6733982fea08541967
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518085"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936521"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>Application Insights per le applicazioni ASP.NET Core
 
@@ -120,7 +121,7 @@ Per Visual Studio per Mac usare le [linee guida manuali](#enable-application-ins
 
 ### <a name="user-secrets-and-other-configuration-providers"></a>Segreti utente e altri provider di configurazione
 
-Se si vuole archiviare la chiave di strumentazione in ASP.NET Core segreti utente o recuperarla da un altro provider di configurazione, è possibile usare l'overload con un `Microsoft.Extensions.Configuration.IConfiguration` parametro. Ad esempio: `services.AddApplicationInsightsTelemetry(Configuration);`.
+Se si vuole archiviare la chiave di strumentazione in ASP.NET Core segreti utente o recuperarla da un altro provider di configurazione, è possibile usare l'overload con un `Microsoft.Extensions.Configuration.IConfiguration` parametro. Ad esempio, `services.AddApplicationInsightsTelemetry(Configuration);`
 
 ## <a name="run-your-application"></a>Eseguire l'applicazione
 
@@ -471,5 +472,5 @@ Per gli aggiornamenti e le correzioni di bug più recenti, [vedere le note sulla
 * [Configurare una raccolta di snapshot](./snapshot-debugger.md) per visualizzare lo stato del codice sorgente e delle variabili nel momento in cui viene generata un'eccezione.
 * [Usare l'API](./api-custom-events-metrics.md) per inviare i propri eventi e metriche per una visualizzazione dettagliata delle prestazioni e dell'utilizzo dell'app.
 * Usare [test di disponibilità](./monitor-web-app-availability.md) per controllare costantemente l'app da ogni parte del mondo.
-* [Inserimento di dipendenze in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
+* [Inserimento delle dipendenze in ASP.NET Core](/aspnet/core/fundamentals/dependency-injection)
 

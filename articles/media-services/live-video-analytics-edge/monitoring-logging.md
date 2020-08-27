@@ -3,12 +3,12 @@ title: Monitoraggio e registrazione-Azure
 description: Questo articolo fornisce una panoramica di analisi video in tempo reale su IoT Edge monitoraggio e registrazione.
 ms.topic: reference
 ms.date: 04/27/2020
-ms.openlocfilehash: 82e4a5879e4c88e462edcddb02866ec9b671d7fe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e1f31c6bb3ea344286ad9af89417ca9f8fd59527
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060458"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934294"
 ---
 # <a name="monitoring-and-logging"></a>Monitoraggio e registrazione
 
@@ -100,13 +100,32 @@ Analisi video in tempo reale su IoT Edge emette eventi o dati di telemetria in b
    ```
 Gli eventi generati dal modulo vengono inviati all' [Hub IOT Edge](../../iot-edge/iot-edge-runtime.md#iot-edge-hub)e da qui è possibile instradarli ad altre destinazioni. 
 
+### <a name="timestamps-in-analytic-events"></a>Timestamp negli eventi analitici
+Come indicato in precedenza, agli eventi generati come parte dell'analisi video è associato un timestamp. Se è stato [registrato il video live](video-recording-concept.md) come parte della topologia Graph, questo timestamp consente di individuare la posizione del video registrato in cui si è verificato l'evento specifico. Di seguito sono riportate le linee guida su come eseguire il mapping del timestamp in un evento analitico alla sequenza temporale del video registrato in un [asset di servizi multimediali di Azure](terminology.md#asset).
+
+Estrarre innanzitutto il `eventTime` valore. Usare questo valore in un [filtro di intervallo di tempo](playback-recordings-how-to.md#time-range-filters) per recuperare una parte appropriata della registrazione. È ad esempio possibile che si desideri recuperare video che inizia 30 secondi prima `eventTime` e termina 30 secondi dopo. Con l'esempio precedente, dove `eventTime` è 2020-05-12T23:33:09.381 z, una richiesta di un manifesto HLS per la finestra +/-30s avrà un aspetto simile al seguente:
+```
+https://{hostname-here}/{locatorGUID}/content.ism/manifest(format=m3u8-aapl,startTime=2020-05-12T23:32:39Z,endTime=2020-05-12T23:33:39Z).m3u8
+```
+L'URL precedente restituisce una cosiddetta [playlist Master](https://developer.apple.com/documentation/http_live_streaming/example_playlists_for_http_live_streaming)che contiene gli URL per le playlist multimediali. La playlist multimediale conterrà voci simili alle seguenti:
+
+```
+...
+#EXTINF:3.103011,no-desc
+Fragments(video=143039375031270,format=m3u8-aapl)
+...
+```
+Nella voce precedente, la voce indica che è disponibile un frammento video che inizia con un valore timestamp pari a `143039375031270` . Il `timestamp` valore nell'evento analitico usa la stessa scala cronologica della playlist media e può essere usato per identificare il frammento video pertinente e cercare il frame corretto.
+
+Per altre informazioni, è possibile leggere uno dei numerosi [articoli](https://www.bing.com/search?q=frame+accurate+seeking+in+HLS) sulla ricerca di frame accurati in HLS.
+
 ## <a name="controlling-events"></a>Controllo degli eventi
 
 È possibile usare le proprietà gemelle del modulo seguenti, come documentato nello [schema JSON del modulo gemello](module-twin-configuration-schema.md), per controllare gli eventi operativi e di diagnostica pubblicati dal modulo di analisi video in tempo reale su IOT Edge.
 
-`diagnosticsEventsOutputName`– include e fornisce il valore (any) per questa proprietà, per ottenere gli eventi di diagnostica dal modulo. Ometterlo o lasciarlo vuoto per arrestare la pubblicazione di eventi di diagnostica da parte del modulo.
+`diagnosticsEventsOutputName` – include e fornisce il valore (any) per questa proprietà, per ottenere gli eventi di diagnostica dal modulo. Ometterlo o lasciarlo vuoto per arrestare la pubblicazione di eventi di diagnostica da parte del modulo.
    
-`operationalEventsOutputName`– include e fornisce il valore (any) per questa proprietà, per ottenere gli eventi operativi dal modulo. Ometterlo o lasciarlo vuoto per arrestare la pubblicazione di eventi operativi da parte del modulo.
+`operationalEventsOutputName` – include e fornisce il valore (any) per questa proprietà, per ottenere gli eventi operativi dal modulo. Ometterlo o lasciarlo vuoto per arrestare la pubblicazione di eventi operativi da parte del modulo.
    
 Gli eventi di analisi vengono generati da nodi come il processore di rilevamento del movimento o il processore di estensione HTTP e il sink dell'hub Internet viene usato per inviarli all'hub IoT Edge. 
 
@@ -178,7 +197,7 @@ I tipi di evento vengono assegnati a uno spazio dei nomi in base allo schema seg
 
 `Microsoft.Media.Graph.{EventClass}.{EventType}`
 
-#### <a name="event-classes"></a>Classi di evento
+#### <a name="event-classes"></a>Classi di eventi
 
 |Nome della classe|Descrizione|
 |---|---|

@@ -8,12 +8,12 @@ ms.author: ramero
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/06/2020
-ms.openlocfilehash: ae41cc620960bd49603e6712759585796e76fe67
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c32e1bc6e219ff645223cc34cf78991e229b86f0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029944"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935926"
 ---
 # <a name="add-scoring-profiles-to-an-azure-cognitive-search-index"></a>Aggiungere profili di punteggio a un indice di Ricerca cognitiva di Azure
 
@@ -64,7 +64,7 @@ Il *Punteggio* calcola un punteggio di ricerca per ogni elemento in un set di ri
 GET /indexes/hotels/docs?search=inn&scoringProfile=geo&scoringParameter=currentLocation--122.123,44.77233&api-version=2020-06-30 
 ```  
 
- Questa query cerca il termine 'inn' e passa la posizione attuale. Si noti che questa query include altri parametri, ad esempio `scoringParameter` . I parametri di query sono descritti in [Cerca documenti &#40;API REST di Azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).  
+ Questa query cerca il termine 'inn' e passa la posizione attuale. Si noti che questa query include altri parametri, ad esempio `scoringParameter` . I parametri di query sono descritti in [Cerca documenti &#40;API REST di Azure ricerca cognitiva&#41;](/rest/api/searchservice/Search-Documents).  
 
  Fare clic su [Esempio](#bkmk_ex) per esaminare un esempio più dettagliato del profilo di punteggio.  
 
@@ -157,18 +157,18 @@ Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei 
 
  Iniziare con il profilo [Modello](#bkmk_template) fornito in questo argomento.  
 
- Specificare un nome. I profili di punteggio sono facoltativi, ma quando se ne aggiunge uno è necessario specificare un nome. Assicurarsi di rispettare le convenzioni di denominazione per i campi (deve iniziare con una lettera ed evitare caratteri speciali e parole riservate). Per l'elenco completo, vedere [regole di denominazione &#40;&#41;di ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice/naming-rules) .  
+ Specificare un nome. I profili di punteggio sono facoltativi, ma quando se ne aggiunge uno è necessario specificare un nome. Assicurarsi di rispettare le convenzioni di denominazione per i campi (deve iniziare con una lettera ed evitare caratteri speciali e parole riservate). Per l'elenco completo, vedere [regole di denominazione &#40;&#41;di ricerca cognitiva di Azure ](/rest/api/searchservice/naming-rules) .  
 
  Il corpo del profilo di punteggio è costituito da campi ponderati e funzioni.  
 
 |||  
 |-|-|  
 |**Pesi**|Specificare le coppie nome-valore che assegnano un peso relativo a un campo. Nell' [esempio](#bkmk_ex), i campi albumTitle, genre e ArtistName vengono incrementati rispettivamente di 1,5, 5 e 2. Al campo genre viene assegnata una priorità molto più alta rispetto agli altri, perché, se la ricerca viene eseguita su dati abbastanza omogenei (come nel caso di "genre" in `musicstoreindex`), potrebbe essere necessaria una varianza maggiore nei pesi relativi. Ad esempio, in `musicstoreindex` "rock" viene visualizzato sia come genere che nelle descrizioni di genere che usano lo stesso termine. Se si vuole assegnare una priorità maggiore al genere rispetto alla descrizione del genere, il campo genre dovrà avere un peso relativo decisamente maggiore.|  
-|**Funzioni**|Usate quando sono necessari calcoli aggiuntivi per contesti specifici. I valori validi sono `freshness`, `magnitude`, `distance` e `tag`. Ogni funzione dispone di parametri univoci.<br /><br /> -   `freshness` quando si vuole aumentare la priorità in base alla data di creazione più o meno recente di un elemento. Questa funzione può essere usata solo con campi `datetime` (edm.DataTimeOffset). Si noti che l' `boostingDuration` attributo viene usato solo con la `freshness` funzione.<br />-   È consigliabile usare `magnitude` quando si vuole aumentare la priorità in base alla grandezza di un valore numerico. Gli scenari che richiedono questa funzione includono l'aumento della priorità in base a margine di profitto, prezzo massimo, prezzo minimo o conteggio di download. Questa funzione può essere usata solo con i campi di tipo Integer e Double.<br />     Per la funzione `magnitude` è possibile invertire l'intervallo, dal più alto al più basso, se si vuole il modello inverso, ad esempio per aumentare la priorità degli articoli più economici rispetto a quelli più cari. Dato un intervallo di prezzi da €100 a €1, è necessario impostare `boostingRangeStart` su 100 e `boostingRangeEnd` su 1 per aumentare gli elementi con prezzo minore.<br />-   `distance` quando si vuole aumentare la priorità in base alla prossimità o alla posizione geografica. Questa funzione può essere usata solo con campi `Edm.GeographyPoint` .<br />-   `tag` quando si vuole aumentare la priorità in base ai tag in comune tra documenti e query di ricerca. Questa funzione può essere usata solo con campi `Edm.String` e `Collection(Edm.String)`.<br /><br /> **Regole per l'uso delle funzioni**<br /><br /> Tipo della funzione (`freshness`, `magnitude`, `distance`), `tag` deve essere scritto in lettere minuscole.<br /><br /> Le funzioni non possono includere valori Null o vuoti. In particolare, se si include il nome campo, sarà necessario impostare un valore.<br /><br /> Le funzioni possono essere applicate solo ai campi filtrabili. Per altre informazioni sui campi filtrabili, vedere [creare un indice &#40;API REST di Azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) .<br /><br /> Le funzioni possono essere applicate solo a campi definiti nella raccolta di campi di un indice.|  
+|**Funzioni**|Usate quando sono necessari calcoli aggiuntivi per contesti specifici. I valori validi sono `freshness`, `magnitude`, `distance` e `tag`. Ogni funzione dispone di parametri univoci.<br /><br /> -   `freshness` quando si vuole aumentare la priorità in base alla data di creazione più o meno recente di un elemento. Questa funzione può essere usata solo con campi `datetime` (edm.DataTimeOffset). Si noti che l' `boostingDuration` attributo viene usato solo con la `freshness` funzione.<br />-   È consigliabile usare `magnitude` quando si vuole aumentare la priorità in base alla grandezza di un valore numerico. Gli scenari che richiedono questa funzione includono l'aumento della priorità in base a margine di profitto, prezzo massimo, prezzo minimo o conteggio di download. Questa funzione può essere usata solo con i campi di tipo Integer e Double.<br />     Per la funzione `magnitude` è possibile invertire l'intervallo, dal più alto al più basso, se si vuole il modello inverso, ad esempio per aumentare la priorità degli articoli più economici rispetto a quelli più cari. Dato un intervallo di prezzi da €100 a €1, è necessario impostare `boostingRangeStart` su 100 e `boostingRangeEnd` su 1 per aumentare gli elementi con prezzo minore.<br />-   `distance` quando si vuole aumentare la priorità in base alla prossimità o alla posizione geografica. Questa funzione può essere usata solo con campi `Edm.GeographyPoint` .<br />-   `tag` quando si vuole aumentare la priorità in base ai tag in comune tra documenti e query di ricerca. Questa funzione può essere usata solo con campi `Edm.String` e `Collection(Edm.String)`.<br /><br /> **Regole per l'uso delle funzioni**<br /><br /> Tipo della funzione (`freshness`, `magnitude`, `distance`), `tag` deve essere scritto in lettere minuscole.<br /><br /> Le funzioni non possono includere valori Null o vuoti. In particolare, se si include il nome campo, sarà necessario impostare un valore.<br /><br /> Le funzioni possono essere applicate solo ai campi filtrabili. Per altre informazioni sui campi filtrabili, vedere [creare un indice &#40;API REST di Azure ricerca cognitiva&#41;](/rest/api/searchservice/create-index) .<br /><br /> Le funzioni possono essere applicate solo a campi definiti nella raccolta di campi di un indice.|  
 
- Dopo la definizione dell'indice, compilarlo caricando lo schema dell'indice, seguito dai documenti. Per istruzioni su queste operazioni, vedere [creare un indice &#40;API REST di azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/create-index) e [aggiungere, aggiornare o eliminare documenti &#40;API rest di Azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) . Dopo la compilazione, dovrebbe essere disponibile un profilo di punteggio funzionale utilizzabile con i dati di ricerca.  
+ Dopo la definizione dell'indice, compilarlo caricando lo schema dell'indice, seguito dai documenti. Per istruzioni su queste operazioni, vedere [creare un indice &#40;API REST di azure ricerca cognitiva&#41;](/rest/api/searchservice/create-index) e [aggiungere, aggiornare o eliminare documenti &#40;API rest di Azure ricerca cognitiva&#41;](/rest/api/searchservice/addupdate-or-delete-documents) . Dopo la compilazione, dovrebbe essere disponibile un profilo di punteggio funzionale utilizzabile con i dati di ricerca.  
 
-##  <a name="template"></a><a name="bkmk_template"></a>Modello  
+##  <a name="template"></a><a name="bkmk_template"></a> Modello  
  Questa sezione illustra la sintassi e il modello per i profili di punteggio. Per le descrizioni degli attributi, vedere [Informazioni di riferimento sugli attributi dell'indice](#bkmk_indexref) nella sezione seguente.  
 
 ```  
@@ -231,8 +231,8 @@ Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei 
 |---------------|-----------------|  
 |`name`|Obbligatorio. Nome del profilo di punteggio. Segue le stesse convenzioni di denominazione di un campo. Deve iniziare con una lettera, non può contenere punti, punti e virgole o simboli @ e non può iniziare con la frase "azureSearch" (distinzione tra maiuscole e minuscole applicata).|  
 |`text`|Contiene la proprietà Weights.|  
-|`weights`|facoltativo. Contiene coppie nome-valore che specificano un nome di campo e il peso relativo. Il peso relativo deve essere un numero intero o a virgola mobile positivo.<br /><br /> I pesi vengono usati per indicare l'importanza di un campo ricercabile rispetto a un altro.|  
-|`functions`|facoltativo. La funzione di assegnazione del punteggio può essere applicata solo ai campi filtrabili.|  
+|`weights`|Facoltativa. Contiene coppie nome-valore che specificano un nome di campo e il peso relativo. Il peso relativo deve essere un numero intero o a virgola mobile positivo.<br /><br /> I pesi vengono usati per indicare l'importanza di un campo ricercabile rispetto a un altro.|  
+|`functions`|Facoltativa. La funzione di assegnazione del punteggio può essere applicata solo ai campi filtrabili.|  
 |`type`|Obbligatorio per le funzioni di assegnazione di punteggio. Indica il tipo di funzione da usare. I valori validi includono magnitude, freshness, distance e tag. È possibile includere più funzioni in ogni profilo di punteggio. Il nome della funzione deve essere scritto in lettere minuscole.|  
 |`boost`|Obbligatorio per le funzioni di assegnazione di punteggio. Numero positivo usato come moltiplicatore per un punteggio non elaborato. Non può essere uguale a 1.|  
 |`fieldname`|Obbligatorio per le funzioni di assegnazione di punteggio. Una funzione di assegnazione di punteggio può essere applicata solo a campi che fanno parte della raccolta di campi dell'indice e che sono filtrabili. Ogni tipo di funzione introduce inoltre restrizioni aggiuntive (il valore freshness viene usato con campi datetime, il valore magnitude con campi di tipo Integer o Double e il valore distance con campi location). È possibile specificare solo un campo per ogni definizione di funzione. Ad esempio, per usare il valore magnitude due volte nello stesso profilo, sarà necessario includere due definizioni di magnitude, una per ogni campo.|  
@@ -244,14 +244,14 @@ Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei 
 |`freshness`|La funzione freshness per l'assegnazione del punteggio viene usata per modificare i punteggi di classificazione per gli elementi in base ai valori presenti nei campi `DateTimeOffset`. Ad esempio, un elemento con una data più recente può essere classificato con una priorità maggiore rispetto agli elementi meno recenti.<br /><br /> È anche possibile classificare gli elementi come gli eventi di calendario con date future in modo che gli elementi più vicini al presente possano essere classificati più in alto rispetto agli altri elementi in futuro.<br /><br /> Nella versione attuale del servizio un'estremità dell'intervallo sarà fissata all'ora attuale. L'altra estremità è un momento del passato basato su `boostingDuration`. Per aumentare la priorità di un intervallo di tempo nel futuro, usare un valore negativo di `boostingDuration`.<br /><br /> La frequenza della modifica dell'aumento di priorità da un intervallo massimo e un intervallo minimo viene determinata dall'interpolazione applicata al profilo di punteggio (vedere la figura seguente). Per invertire il fattore di aumento di priorità applicato, scegliere un fattore di aumento di priorità inferiore a 1.|  
 |`freshness` &#124; `boostingDuration`|Imposta un periodo di scadenza, dopo il quale l'aumento di priorità non verrà più applicato a un determinato documento. Per informazioni sulla sintassi ed esempi, vedere [Impostare boostingDuration](#bkmk_boostdur) nella sezione seguente.|  
 |`distance`|La funzione distance per l'assegnazione di punteggio viene usata per influire sul punteggio di documenti in base alla vicinanza o lontananza rispetto a una posizione geografica di riferimento. La posizione di riferimento viene specificata come parte della query in un parametro (usando l'opzione stringa `scoringParameterquery`) sotto forma di argomento lon,lat.|  
-|`distance` &#124; `referencePointParameter`|Parametro da passare nelle query e da usare come posizione di riferimento. `scoringParameter` è un parametro di query. Per le descrizioni dei parametri di query, vedere [cercare documenti &#40;API REST di Azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) .|  
+|`distance` &#124; `referencePointParameter`|Parametro da passare nelle query e da usare come posizione di riferimento. `scoringParameter` è un parametro di query. Per le descrizioni dei parametri di query, vedere [cercare documenti &#40;API REST di Azure ricerca cognitiva&#41;](/rest/api/searchservice/Search-Documents) .|  
 |`distance` &#124; `boostingDistance`|Numero che indica la distanza, in chilometri, dalla posizione di riferimento in cui termina l'intervallo di aumento della priorità.|  
 |`tag`|La funzione per l'assegnazione di punteggio viene usata per influire sul punteggio di documenti in base ai tag nei documenti e nelle query di ricerca. La priorità di documenti con tag in comune con la query di ricerca verrà aumentata. I tag per la query di ricerca vengono specificati come parametro di assegnazione dei punteggi in ogni richiesta di ricerca (usando l'opzione stringa `scoringParameterquery`).|  
-|`tag` &#124; `tagsParameter`|Parametro da passare nelle query per specificare i tag per una particolare richiesta. `scoringParameter` è un parametro di query. Per le descrizioni dei parametri di query, vedere [cercare documenti &#40;API REST di Azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) .|  
-|`functionAggregation`|facoltativo. Applicabile solo se vengono specificate funzioni. I valori validi includono: sum (default), average, minimum, maximum e firstMatching. Un punteggio di ricerca è un singolo valore calcolato da più variabili, incluse le funzioni multiple. Questo attributo indica il modo in cui gli aumenti di priorità di tutte le funzioni vengono combinati in un singolo aumento aggregato della priorità, che viene quindi applicato al punteggio di base del documento. Il punteggio di base dipende dal valore [tf-idf](http://www.tfidf.com/) calcolato dal documento e dalla query di ricerca.|  
+|`tag` &#124; `tagsParameter`|Parametro da passare nelle query per specificare i tag per una particolare richiesta. `scoringParameter` è un parametro di query. Per le descrizioni dei parametri di query, vedere [cercare documenti &#40;API REST di Azure ricerca cognitiva&#41;](/rest/api/searchservice/Search-Documents) .|  
+|`functionAggregation`|Facoltativa. Applicabile solo se vengono specificate funzioni. I valori validi includono: sum (default), average, minimum, maximum e firstMatching. Un punteggio di ricerca è un singolo valore calcolato da più variabili, incluse le funzioni multiple. Questo attributo indica il modo in cui gli aumenti di priorità di tutte le funzioni vengono combinati in un singolo aumento aggregato della priorità, che viene quindi applicato al punteggio di base del documento. Il punteggio di base dipende dal valore [tf-idf](http://www.tfidf.com/) calcolato dal documento e dalla query di ricerca.|  
 |`defaultScoringProfile`|Quando si esegue una richiesta di ricerca, se non viene specificato alcun profilo di punteggio, verrà usato il punteggio predefinito (solo [tf-idf](http://www.tfidf.com/)).<br /><br /> Qui è possibile impostare un nome del profilo di Punteggio predefinito, in modo che Azure ricerca cognitiva usi tale profilo quando nella richiesta di ricerca non viene specificato alcun profilo specifico.|  
 
-##  <a name="set-interpolations"></a><a name="bkmk_interpolation"></a>Imposta interpolazioni  
+##  <a name="set-interpolations"></a><a name="bkmk_interpolation"></a> Imposta interpolazioni  
  Le interpolazioni consentono di impostare la forma dell'inclinazione usata per il punteggio. Poiché il punteggio è indicato dal valore più alto al valore più basso, l'inclinazione diminuisce sempre, ma l'interpolazione determina la curva dell'inclinazione verso il basso. È possibile usare le interpolazioni seguenti:  
 
 | Interpolazione | Descrizione |  
@@ -270,7 +270,7 @@ Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei 
 
  La tabella seguente fornisce alcuni esempi.  
 
-|Durata|boostingDuration|  
+|Duration|boostingDuration|  
 |--------------|----------------------|  
 |1 giorno|"P1D"|  
 |2 giorni e 12 ore|"P2DT12H"|  
@@ -281,6 +281,6 @@ Un punteggio di ricerca viene calcolato in base alle proprietà statistiche dei 
 
 ## <a name="see-also"></a>Vedere anche  
 
-+ [Informazioni di riferimento sulle API REST](https://docs.microsoft.com/rest/api/searchservice/)   
-+ [Create index API](https://docs.microsoft.com/rest/api/searchservice/create-index)   
-+ [.NET SDK di Ricerca cognitiva di Azure](https://docs.microsoft.com/dotnet/api/overview/azure/search?view=azure-dotnet)  
++ [Informazioni di riferimento sull'API REST](/rest/api/searchservice/)   
++ [Create index API](/rest/api/searchservice/create-index)   
++ [.NET SDK di Ricerca cognitiva di Azure](/dotnet/api/overview/azure/search?view=azure-dotnet)

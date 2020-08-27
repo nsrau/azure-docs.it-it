@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 779aa96fcf58d45bb53757f7fe974a0fe4c61ffa
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 39a7c92ca6c83684658cf767722698806ed994ec
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214081"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935450"
 ---
 # <a name="how-to-create-a-skillset-in-an-ai-enrichment-pipeline-in-azure-cognitive-search"></a>Come creare un oggetto di competenze in una pipeline di arricchimento di intelligenza artificiale in Azure ricerca cognitiva 
 
@@ -42,21 +42,21 @@ Si supponga di essere interessati all'elaborazione di un set di commenti di anal
 
 | Testo del record | Società | sentiment | Descrizione della società |
 |--------|-----|-----|-----|
-|record di esempio| ["Microsoft", "LinkedIn"] | 0,99 | ["Microsoft Corporation è una società di tecnologia multinazionale american...", "LinkedIn è un social network orientato al business e all'occupazione..."]
+|record di esempio| ["Microsoft", "LinkedIn"] | 0.99 | ["Microsoft Corporation è una società di tecnologia multinazionale american...", "LinkedIn è un social network orientato al business e all'occupazione..."]
 
 Il diagramma seguente illustra una pipeline di arricchimento ipotetica:
 
 ![Una pipeline di arricchimento ipotetica](media/cognitive-search-defining-skillset/sample-skillset.png "Una pipeline di arricchimento ipotetica")
 
 
-Quando si ha un'idea chiara del contenuto che si desidera includere nella pipeline, si può specificare il set di competenze per eseguire questi passaggi. Dal punto di vista funzionale, il livello di competenze viene espresso quando si carica la definizione dell'indicizzatore in Azure ricerca cognitiva. Per altre informazioni su come caricare l'indicizzatore, vedere la [documentazione relativa all'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer).
+Quando si ha un'idea chiara del contenuto che si desidera includere nella pipeline, si può specificare il set di competenze per eseguire questi passaggi. Dal punto di vista funzionale, il livello di competenze viene espresso quando si carica la definizione dell'indicizzatore in Azure ricerca cognitiva. Per altre informazioni su come caricare l'indicizzatore, vedere la [documentazione relativa all'indicizzatore](/rest/api/searchservice/create-indexer).
 
 
 Nel diagramma il passaggio di *individuazione del documento* avviene automaticamente. In pratica, Azure ricerca cognitiva sa come aprire file noti e crea un campo *contenuto* contenente il testo Estratto da ogni documento. Le caselle bianche sono arricchitori integrati e la casella punteggiata "Ricerca entità di Bing" rappresenta un arricchitore personalizzato che si sta creando. Come illustrato, il set di competenze contiene tre competenze.
 
 ## <a name="skillset-definition-in-rest"></a>Definizione del set di competenze in REST
 
-Un set di competenze è definito come una matrice di competenze. Ogni competenza definisce l'origine dei relativi input e il nome degli output generati. Tramite l'[API REST di creazione del set di competenze](https://docs.microsoft.com/rest/api/searchservice/create-skillset) è possibile definire un set di competenze corrispondente al diagramma precedente: 
+Un set di competenze è definito come una matrice di competenze. Ogni competenza definisce l'origine dei relativi input e il nome degli output generati. Tramite l'[API REST di creazione del set di competenze](/rest/api/searchservice/create-skillset) è possibile definire un set di competenze corrispondente al diagramma precedente: 
 
 ```http
 PUT https://[servicename].search.windows.net/skillsets/[skillset name]?api-version=2020-06-30
@@ -239,7 +239,7 @@ L'output, in questo caso la descrizione di una società, viene generato per ogni
 
 ## <a name="add-structure"></a>Aggiungi struttura
 
-Il set di competenze genera informazioni strutturate da dati non strutturati. Prendere in considerazione gli esempi seguenti:
+Il set di competenze genera informazioni strutturate da dati non strutturati. Si consideri l'esempio seguente:
 
 *"Nel quarto trimestre Microsoft ha registrato $1,1 miliardi in ricavi da LinkedIn, la società di social networking acquistata l'anno scorso. L'acquisizione consente a Microsoft di combinare le funzionalità di LinkedIn con le relative funzionalità CRM e Office. Gli azionisti sono entusiasti del progresso fino a questo punto. "*
 
@@ -281,4 +281,4 @@ Una definizione dell'archivio informazioni viene aggiunta a un oggetto di compet
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo avere acquisito familiarità con la pipeline di arricchimento e i set di competenze, passare a [Come fare riferimento alle annotazioni in un set di competenze](cognitive-search-concept-annotations-syntax.md) o [How to map outputs to fields in an index](cognitive-search-output-field-mapping.md) (Come mappare gli output ai campi di un indice). 
+Dopo avere acquisito familiarità con la pipeline di arricchimento e i set di competenze, passare a [Come fare riferimento alle annotazioni in un set di competenze](cognitive-search-concept-annotations-syntax.md) o [How to map outputs to fields in an index](cognitive-search-output-field-mapping.md) (Come mappare gli output ai campi di un indice).

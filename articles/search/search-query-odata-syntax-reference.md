@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: f3422fd10e062ae87bc165491e0d01ac2b4943d2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 83e9ae4aa68bc0c819d02a0cc6c39758549811cb
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72793242"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928854"
 ---
 # <a name="odata-expression-syntax-reference-for-azure-cognitive-search"></a>Informazioni di riferimento sulla sintassi delle espressioni OData per ricerca cognitiva di Azure
 
@@ -217,6 +217,6 @@ Per esplorare visivamente la grammatica del linguaggio OData supportata da Azure
 ## <a name="see-also"></a>Vedere anche  
 
 - [Filtri in ricerca cognitiva di Azure](search-filters.md)
-- [Eseguire ricerche nei documenti &#40;API REST di Azure ricerca cognitiva&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Eseguire ricerche nei documenti &#40;API REST di Azure ricerca cognitiva&#41;](/rest/api/searchservice/Search-Documents)
 - [Sintassi di query Lucene](query-lucene-syntax.md)
 - [Sintassi di query semplice in Azure ricerca cognitiva](query-simple-syntax.md)

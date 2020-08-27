@@ -3,12 +3,12 @@ title: Appliance Azure Migrate
 description: Offre una panoramica dell'appliance di Azure Migrate usata per la valutazione e la migrazione del server.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 99b29839028432a6b760265b641d35cdf33ee57f
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: a313d7b964e6ea849acb5b034ed55975b8c5b524
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122133"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927510"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -43,11 +43,11 @@ La tabella seguente riepiloga i requisiti dell'appliance di Azure Migrate per VM
 **Requisito** | **VMware** 
 --- | ---
 **Autorizzazioni** | Per accedere all'app Web dell'appliance in locale o in remoto, è necessario essere amministratore di dominio o amministratore locale nel computer dell'appliance.
-**Componenti dell'appliance** | L'appliance include i componenti seguenti:<br/><br/> - **App di gestione**: si tratta di un'app Web per l'input dell'utente durante la distribuzione dell'appliance. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/> - **Agente di individuazione**: l'agente raccoglie i dati di configurazione del computer. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Agente di valutazione**: l'agente raccoglie i dati sulle prestazioni. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Servizio di aggiornamento automatico**: aggiorna i componenti dell'appliance, viene eseguito ogni 24 ore.<br/>- **Agente DRA**: organizza la replica della macchina virtuale e coordina la comunicazione tra computer replicati e Azure. È usato solo quando si esegue la replica di macchine virtuali VMware in Azure con la migrazione senza agente.<br/>- **Gateway**: invia i dati replicati ad Azure. È usato solo quando si esegue la replica di macchine virtuali VMware in Azure con la migrazione senza agente.
+**Componenti dell'appliance** | L'appliance include i componenti seguenti:<br/><br/> - **App di gestione**: si tratta di un'app Web per l'input dell'utente durante la distribuzione dell'appliance. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/> - **Agente di individuazione**: l'agente raccoglie i dati di configurazione del computer. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Agente di raccolta**: l'agente raccoglie i dati sulle prestazioni. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Servizio di aggiornamento automatico**: aggiorna i componenti dell'appliance, viene eseguito ogni 24 ore.<br/>- **Agente DRA**: organizza la replica della macchina virtuale e coordina la comunicazione tra computer replicati e Azure. È usato solo quando si esegue la replica di macchine virtuali VMware in Azure con la migrazione senza agente.<br/>- **Gateway**: invia i dati replicati ad Azure. È usato solo quando si esegue la replica di macchine virtuali VMware in Azure con la migrazione senza agente.
 **Distribuzione supportata** | Distribuire come macchina virtuale di VMware usando il modello OVA.<br/><br/> Distribuire come macchina virtuale VMware o computer fisico con uno script di installazione di PowerShell.
 **Supporto del progetto** |  Un'appliance può essere associata a un solo progetto. <br/> È possibile associare a un progetto un numero qualsiasi di appliance.<br/> 
 **Limiti dell'individuazione** | Un'appliance può individuare fino a 10.000 macchine virtuali VMware in un server vCenter.<br/> Un'appliance può connettersi a un solo server vCenter.
-**Modello OVA** | Scaricare dal portale o da https://aka.ms/migrate/appliance/vmware.<br/><br/> Le dimensioni del download sono di 10,9 GB.<br/><br/> Il modello di appliance scaricato include una licenza di valutazione di Windows Server 2016 valida per 180 giorni. Se il periodo di valutazione sta per terminare, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della macchina virtuale dell'appliance.
+**Modello OVA** | Scaricare dal portale o da [qui](https://go.microsoft.com/fwlink/?linkid=2140333)<br/><br/> Le dimensioni del download sono di 11,6 GB.<br/><br/> Il modello di appliance scaricato include una licenza di valutazione di Windows Server 2016 valida per 180 giorni. Se il periodo di valutazione sta per terminare, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della macchina virtuale dell'appliance.
 **Script di PowerShell** | Vedere questo [articolo](./deploy-appliance-script.md#set-up-the-appliance-for-vmware).<br/><br/> 
 **Software/hardware** |  L'appliance deve essere eseguita in un computer con Windows Server 2016, con una RAM di 32 GB, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un commutatore virtuale esterno.<br/> L'appliance richiede l'accesso a Internet, direttamente o tramite un proxy.<br/><br/> Se si esegue l'appliance in una macchina virtuale VMware, è necessario disporre di risorse sufficienti nel server vCenter per allocare una macchina virtuale che soddisfa i requisiti.<br/><br/> Se si esegue l'appliance in un computer fisico, assicurarsi che esegua Windows Server 2016 e che soddisfi i requisiti hardware.
 **Requisiti di VMware** | Se si distribuisce l'appliance come macchina virtuale VMware, questa deve essere distribuita in un host ESXi che esegue la versione 5.5 o successiva.<br/><br/> Server vCenter che esegue la versione 5.5, 6.0, 6.5 o 6.7.
@@ -63,11 +63,11 @@ La tabella seguente riepiloga i requisiti dell'appliance di Azure Migrate per VM
 **Requisito** | **Hyper-V** 
 --- | ---
 **Autorizzazioni** | Per accedere all'app Web dell'appliance in locale o in remoto, è necessario essere amministratore di dominio o amministratore locale nel computer dell'appliance.
-**Componenti dell'appliance** | L'appliance include i componenti seguenti:<br/><br/>- **App di gestione**: si tratta di un'app Web per l'input dell'utente durante la distribuzione dell'appliance. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/> - **Agente di individuazione**: l'agente raccoglie i dati di configurazione del computer. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Agente di valutazione**: l'agente raccoglie i dati sulle prestazioni. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Servizio di aggiornamento automatico**: aggiorna i componenti dell'appliance, viene eseguito ogni 24 ore.
+**Componenti dell'appliance** | L'appliance include i componenti seguenti:<br/><br/>- **App di gestione**: si tratta di un'app Web per l'input dell'utente durante la distribuzione dell'appliance. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/> - **Agente di individuazione**: l'agente raccoglie i dati di configurazione del computer. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Agente di raccolta**: l'agente raccoglie i dati sulle prestazioni. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Servizio di aggiornamento automatico**: aggiorna i componenti dell'appliance, viene eseguito ogni 24 ore.
 **Distribuzione supportata** | Distribuire come macchina virtuale Hyper-V usando un modello di disco rigido virtuale.<br/><br/> Distribuire come macchina virtuale Hyper-V o computer fisico con uno script di installazione di PowerShell.
 **Supporto del progetto** |  Un'appliance può essere associata a un solo progetto. <br/> È possibile associare a un progetto un numero qualsiasi di appliance.<br/> 
 **Limiti dell'individuazione** | Un'appliance consente di individuare fino a 5000 macchine virtuali Hyper-V.<br/> Un'appliance può connettersi al massimo con 300 host Hyper-V.
-**Modello di disco rigido virtuale** | Cartella compressa con include il disco rigido virtuale. Scaricare dal portale o da https://aka.ms/migrate/appliance/hyperv.<br/><br/> Le dimensioni del download sono 10 GB.<br/><br/> Il modello di appliance scaricato include una licenza di valutazione di Windows Server 2016 valida per 180 giorni. Se il periodo di valutazione sta per terminare, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della macchina virtuale dell'appliance.
+**Modello di disco rigido virtuale** | Cartella compressa con include il disco rigido virtuale. Scaricare dal portale o da [qui](https://go.microsoft.com/fwlink/?linkid=2140422).<br/><br/> Le dimensioni del download sono di 10,4 GB.<br/><br/> Il modello di appliance scaricato include una licenza di valutazione di Windows Server 2016 valida per 180 giorni. Se il periodo di valutazione sta per terminare, è consigliabile scaricare e distribuire una nuova appliance oppure attivare la licenza del sistema operativo della macchina virtuale dell'appliance.
 **Script di PowerShell** | Vedere questo [articolo](./deploy-appliance-script.md#set-up-the-appliance-for-hyper-v).<br/><br/> 
 **Software/hardware***   |  Il dispositivo deve essere eseguito in un computer con Windows Server 2016, 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un Commuter virtuale esterno.<br/> L'appliance deve avere un indirizzo IP statico o dinamico e richiede l'accesso a Internet, direttamente o tramite un proxy.<br/><br/> Se si esegue l'appliance come macchina virtuale Hyper-V, è necessario disporre di risorse sufficienti nell'host Hyper-V per allocare una RAM da 16 GB, 8 vCPU, circa 80 GB di spazio di archiviazione e un commutatore esterno per la macchina virtuale dell'appliance.<br/><br/> Se si esegue l'appliance in un computer fisico, assicurarsi che esegua Windows Server 2016 e che soddisfi i requisiti hardware. 
 **Requisiti di Hyper-V** | Se si distribuisce l'appliance con il modello di disco rigido virtuale, la macchina virtuale dell'appliance messa a disposizione da Azure Migrate è la macchina virtuale Hyper-V versione 5.0.<br/><br/> L'host Hyper-V deve eseguire Windows Server 2012 R2 o una versione successiva. 
@@ -80,11 +80,11 @@ La tabella seguente riepiloga i requisiti dell'appliance di Azure Migrate per VM
 **Requisito** | **Computer fisico** 
 --- | ---
 **Autorizzazioni** | Per accedere all'app Web dell'appliance in locale o in remoto, è necessario essere amministratore di dominio o amministratore locale nel computer dell'appliance.
-**Componenti dell'appliance** | L'appliance include i componenti seguenti: <br/><br/> - **App di gestione**: si tratta di un'app Web per l'input dell'utente durante la distribuzione dell'appliance. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/> - **Agente di individuazione**: l'agente raccoglie i dati di configurazione del computer. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Agente di valutazione**: l'agente raccoglie i dati sulle prestazioni. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Servizio di aggiornamento automatico**: aggiorna i componenti dell'appliance, viene eseguito ogni 24 ore.
+**Componenti dell'appliance** | L'appliance include i componenti seguenti: <br/><br/> - **App di gestione**: si tratta di un'app Web per l'input dell'utente durante la distribuzione dell'appliance. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/> - **Agente di individuazione**: l'agente raccoglie i dati di configurazione del computer. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Agente di raccolta**: l'agente raccoglie i dati sulle prestazioni. È usata durante la valutazione dei computer per la migrazione ad Azure.<br/>- **Servizio di aggiornamento automatico**: aggiorna i componenti dell'appliance, viene eseguito ogni 24 ore.
 **Distribuzione supportata** | Distribuire come computer fisico dedicato o macchina virtuale con uno script di installazione di PowerShell. Lo script può essere scaricato dal portale.
 **Supporto del progetto** |  Un'appliance può essere associata a un solo progetto. <br/> È possibile associare a un progetto un numero qualsiasi di appliance.<br/> 
 **Limiti dell'individuazione** | Un'appliance può individuare fino a 1000 di server fisici.
-**Script di PowerShell** | Scaricare lo script (AzureMigrateInstaller.ps1) in una cartella compressa dal portale. [Altre informazioni](tutorial-assess-physical.md#set-up-the-appliance) In alternativa [scaricare direttamente](https://go.microsoft.com/fwlink/?linkid=2105112).<br/><br/> Le dimensioni del download sono pari a 63,1 MB.
+**Script di PowerShell** | Scaricare lo script (AzureMigrateInstaller.ps1) in una cartella compressa dal portale o da [qui](https://go.microsoft.com/fwlink/?linkid=2140334). [Altre informazioni](tutorial-assess-physical.md#set-up-the-azure-migrate-appliance)<br/><br/> Le dimensioni del download sono pari a 85 MB.
 **Software/hardware** |  Il dispositivo deve essere eseguito in un computer con Windows Server 2016, 16 GB di RAM, 8 vCPU, circa 80 GB di spazio di archiviazione su disco e un Commuter virtuale esterno.<br/> L'appliance deve avere un indirizzo IP statico o dinamico e richiede l'accesso a Internet, direttamente o tramite un proxy.<br/><br/> Se si esegue l'appliance in un computer fisico, assicurarsi che esegua Windows Server 2016 e che soddisfi i requisiti hardware.<br/> L'esecuzione dell'appliance in un computer con Windows Server 2019 non è supportata.
 **Valore hash** | [Verificare](deploy-appliance-script.md#verify-file-security) i valori hash dello script di PowerShell.
 
@@ -218,7 +218,7 @@ Ecco i dati dell'applicazione installati raccolti dal dispositivo da ogni macchi
 **Dati** | **Percorso del registro** | **Chiave**
 --- | --- | ---
 Nome dell'applicazione  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
-Versione  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
+Version  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
 Provider  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publisher
 
 #### <a name="windows-vm-features-data"></a>Dati delle funzionalità della VM Windows
@@ -240,26 +240,26 @@ Ecco i metadati di SQL Server raccolti dall'appliance dalle macchine virtuali ch
 Nome  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL server\istanza Names\SQL  | installedInstance
 Edizione  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Edizione 
 Service Pack  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | SP
-Versione  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Versione 
+Version  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Version 
 
 #### <a name="windows-vm-operating-system-data"></a>Dati del sistema operativo della VM Windows
 
 Ecco i dati del sistema operativo che l'appliance raccoglie ogni macchina virtuale abilitata per l'individuazione delle applicazioni. Questi dati vengono inviati ad Azure.
 
-Data  | classe WMI  | Proprietà della classe WMI
+Dati  | classe WMI  | Proprietà della classe WMI
 --- | --- | ---
 Nome  | Win32_operatingsystem  | Sottotitolo
-Versione  | Win32_operatingsystem  | Versione
+Version  | Win32_operatingsystem  | Version
 Architecture  | Win32_operatingsystem  | OSArchitecture
 
 #### <a name="linux-vm-apps-data"></a>Dati delle app VM Linux
 
 Ecco i dati dell'applicazione installati raccolti dal dispositivo da ogni macchina virtuale abilitata per l'individuazione delle applicazioni. In base al sistema operativo della macchina virtuale, vengono eseguiti uno o più comandi. Questi dati vengono inviati ad Azure.
 
-Data  | Comando
+Dati  | Comando
 --- | --- 
 Nome | rpm, dpkg-query, snap
-Versione | rpm, dpkg-query, snap
+Version | rpm, dpkg-query, snap
 Provider | rpm, dpkg-query, snap
 
 #### <a name="linux-vm-operating-system-data"></a>Dati del sistema operativo della VM Linux
@@ -424,8 +424,8 @@ Di seguito sono riportati i dati sulle prestazioni del server Windows raccolti d
 
 **Dati** | **Classe WMI** | **Proprietà della classe WMI**
 --- | --- | ---
-Utilizzo della CPU | Win32_PerfFormattedData_PerfOS_Processor | PercentIdleTime
-Utilizzo memoria | Win32_PerfFormattedData_PerfOS_Memory | AvailableMBytes
+Utilizzo di CPU | Win32_PerfFormattedData_PerfOS_Processor | PercentIdleTime
+Utilizzo della memoria | Win32_PerfFormattedData_PerfOS_Memory | AvailableMBytes
 Numero di schede di interfaccia di rete | Win32_PerfFormattedData_Tcpip_NetworkInterface | Ottenere il numero di dispositivi di rete.
 Dati ricevuti per ogni scheda di interfaccia di rete | Win32_PerfFormattedData_Tcpip_NetworkInterface  | BytesReceivedPerSec
 Dati trasmessi per ogni scheda di interfaccia di rete | BWin32_PerfFormattedData_Tcpip_NetworkInterface | BytesSentPersec
@@ -465,7 +465,7 @@ L'appliance viene aggiornata quando vengono aggiornati gli agenti di Azure Migra
 È possibile attivare l'aggiornamento automatico usando uno di questi metodi:
 
 - Eliminando la chiave del Registro di sistema AutoUpdate da HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureAppliance.
-- Al termine dell'individuazione, nel Configuration Manager dell'appliance.
+- Fare clic su **Visualizza servizi Appliance** dall'ultimo controllo aggiornamenti nel pannello **Configura prerequisiti** per attivare l'aggiornamento automatico.
 
 Per eliminare la chiave del Registro di sistema:
 
@@ -475,24 +475,24 @@ Per eliminare la chiave del Registro di sistema:
 
 Per attivare l'aggiornamento automatico nel Configuration Manager dell'appliance, al termine dell'individuazione:
 
-1. Nel computer dell'appliance aprire il Configuration Manager dell'appliance.
-2. In **Servizi dell'appliance** > **L'aggiornamento automatico dei componenti di Azure Migrate è disattivato**, fare clic per attivare l'aggiornamento automatico.
+1. In Gestione configurazione Appliance passare a Configura il pannello dei **prerequisiti**
+2. Nel controllo aggiornamenti più recenti fare clic su **Visualizza servizi Appliance** e fare clic sul collegamento per attivare l'aggiornamento automatico.
 
-    ![Attivare l'aggiornamento automatico](./media/migrate-appliance/turn-on.png)
+    ![Attivare l'aggiornamento automatico](./media/migrate-appliance/autoupdate-off.png)
 
 ### <a name="check-the-appliance-services-version"></a>Verificare la versione dei servizi dell'appliance
 
 È possibile verificare la versione dei servizi dell'appliance usando uno di questi metodi:
 
-- Al termine dell'individuazione, nel Configuration Manager dell'appliance.
+- In Gestione configurazione Appliance passare a **Configura il** pannello dei prerequisiti.
 - Nel **Pannello di controllo** > **Programmi e funzionalità** del computer dell'appliance.
 
-Per verificare nel Configuration Manager dell'appliance:
+Per archiviare Gestione configurazione Appliance:
 
-1. Al termine dell'individuazione, aprire il Configuration Manager dell'appliance nell'app Web dell'appliance.
-2. In **Servizi dell'appliance** verificare le versioni dei servizi dell'appliance.
+1. In Gestione configurazione Appliance passare a Configura il pannello dei **prerequisiti**
+2. Nel controllo aggiornamenti più recenti fare clic su **Visualizza servizi Appliance**.
 
-    ![Controllare la versione](./media/migrate-appliance/version.png)
+    ![Controllare la versione](./media/migrate-appliance/versions.png)
 
 Per verificare nel Pannello di controllo:
 

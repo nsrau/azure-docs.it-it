@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 99b64ca8e807fcf6a142f10878d90e77e3639698
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 62a0b0ec5312b4d00724fe7c13a5e20b5d35e34f
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749472"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926865"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limiti del servizio in Ricerca cognitiva di Azure
 
@@ -44,8 +44,8 @@ I limiti massimi per archiviazione, carichi di lavoro e quantità di indici e al
 | Numero massimo di campi di raccolta complessi per indice |40 |40 |40 |40 |40 |40 |40 |40 |
 | Numero massimo di elementi in tutte le raccolte complesse per documento&nbsp;<sup>2</sup> |3000 |3000 |3000 |3000 |3000 |3000 |3000 |3000 |
 | Profondità massima dei campi complessi |10 |10 |10 |10 |10 |10 |10 |10 |
-| Numero massimo di [suggerimenti](https://docs.microsoft.com/rest/api/searchservice/suggesters) per indice |1 |1 |1 |1 |1 |1 |1 |1 |
-| Numero massimo di [profili di punteggio](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per indice |100 |100 |100 |100 |100 |100 |100 |100 |
+| Numero massimo di [suggerimenti](/rest/api/searchservice/suggesters) per indice |1 |1 |1 |1 |1 |1 |1 |1 |
+| Numero massimo di [profili di punteggio](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per indice |100 |100 |100 |100 |100 |100 |100 |100 |
 | Numero massimo di funzioni per profilo |8 |8 |8 |8 |8 |8 |8 |8 |
 
 <sup>1</sup> I servizi Basic creati prima di dicembre 2017 hanno limiti inferiori (5 anziché 15) per gli indici. Il livello Basic è l'unico SKU con un limite inferiore a 100 campi per indice.
@@ -58,7 +58,7 @@ I limiti massimi per archiviazione, carichi di lavoro e quantità di indici e al
 
 A partire da ottobre 2018, non vi sono più limiti relativi al numero di documenti per i nuovi servizi creati in qualsiasi livello fatturabile (Basic, S1, S2, S3, S3 HD) in qualsiasi area. I servizi meno recenti creati prima di ottobre 2018 possono comunque essere soggetti a limiti per il numero di documenti.
 
-Per determinare se il servizio dispone di limiti per i documenti, usare l'[API REST GET Service Statistics](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics). I limiti per i documenti sono riportati nella risposta, con `null` che indica nessun limite.
+Per determinare se il servizio dispone di limiti per i documenti, usare l'[API REST GET Service Statistics](/rest/api/searchservice/get-service-statistics). I limiti per i documenti sono riportati nella risposta, con `null` che indica nessun limite.
 
 > [!NOTE]
 > Sebbene non esistano limiti per i documenti applicati dal servizio, è previsto un limite di partizionamento pari a circa 24 miliardi di documenti per indice nei servizi di ricerca Basic, S1, S2 e S3. Per S3 HD, il limite di partizionamento è di 2 miliardi documenti per indice. Ogni elemento di una raccolta complessa viene conteggiato come un documento distinto in termini di limiti di partizionamento.
@@ -120,7 +120,7 @@ Per i livelli Ottimizzato per l'archiviazione (L1 e L2), sono previste una veloc
 
 ## <a name="data-limits-ai-enrichment"></a>Limiti dei dati (arricchimento tramite intelligenza artificiale)
 
-Una [pipeline di arricchimento con intelligenza artificiale](cognitive-search-concept-intro.md) che effettua chiamate a una risorsa di Analisi del testo per il [riconoscimento di entità](cognitive-search-skill-entity-recognition.md), l'[estrazione di frasi chiave](cognitive-search-skill-keyphrases.md), l'[analisi del sentiment](cognitive-search-skill-sentiment.md), il [rilevamento della lingua](cognitive-search-skill-language-detection.md) e il [rilevamento di informazioni personali](cognitive-search-skill-pii-detection.md) è soggetta a limiti dei dati. Le dimensioni massime di un record devono essere di 50.000 caratteri in base alla misurazione di [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length). Se è necessario suddividere i dati prima di inviarli all'analizzatore di valutazione, usare la [competenza cognitiva di divisione del testo](cognitive-search-skill-textsplit.md).
+Una [pipeline di arricchimento con intelligenza artificiale](cognitive-search-concept-intro.md) che effettua chiamate a una risorsa di Analisi del testo per il [riconoscimento di entità](cognitive-search-skill-entity-recognition.md), l'[estrazione di frasi chiave](cognitive-search-skill-keyphrases.md), l'[analisi del sentiment](cognitive-search-skill-sentiment.md), il [rilevamento della lingua](cognitive-search-skill-language-detection.md) e il [rilevamento di informazioni personali](cognitive-search-skill-pii-detection.md) è soggetta a limiti dei dati. Le dimensioni massime di un record devono essere di 50.000 caratteri in base alla misurazione di [`String.Length`](/dotnet/api/system.string.length). Se è necessario suddividere i dati prima di inviarli all'analizzatore di valutazione, usare la [competenza cognitiva di divisione del testo](cognitive-search-skill-textsplit.md).
 
 ## <a name="throttling-limits"></a>Limiti della limitazione delle richieste
 
@@ -141,7 +141,7 @@ Limiti statici per la frequenza delle richieste per le operazioni correlate a un
 * 32 campi al massimo nella clausola $orderby
 * 32.766 byte (32 KB meno 2 byte) di testo con codifica UTF-8 per la dimensione massima del termine di ricerca
 
-<sup>1</sup> In Ricerca cognitiva di Azure il corpo di una richiesta è soggetto a un limite massimo di 16 MB, che impone un limite pratico ai contenuti di singoli campi o raccolte non vincolati a limiti teorici. Per altre informazioni sulla composizione dei campi e sulle relative restrizioni, vedere [Tipi di dati supportati](https://docs.microsoft.com/rest/api/searchservice/supported-data-types).
+<sup>1</sup> In Ricerca cognitiva di Azure il corpo di una richiesta è soggetto a un limite massimo di 16 MB, che impone un limite pratico ai contenuti di singoli campi o raccolte non vincolati a limiti teorici. Per altre informazioni sulla composizione dei campi e sulle relative restrizioni, vedere [Tipi di dati supportati](/rest/api/searchservice/supported-data-types).
 
 ## <a name="api-response-limits"></a>Limiti delle risposte API
 * 1000 documenti al massimo restituiti per pagina di risultati della ricerca

@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: aac184b9dc7eae8afcf796376d2f7dca684b4367
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 40e20ad4bab0275b44cd868521c7dc70dec52567
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852787"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936130"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>Esempio: creare una competenza personalizzata usando Python
 
@@ -26,12 +26,12 @@ L'abilità personalizzata è semplice in base alla progettazione (concatena due 
 
 + Esaminare l' [interfaccia skill personalizzata](cognitive-search-custom-skill-interface.md) per un'introduzione all'interfaccia di input/output che deve essere implementata da un'abilità personalizzata.
 
-+ Configurare l'ambiente. Abbiamo seguito [questa esercitazione end-to-end](https://docs.microsoft.com/azure/python/tutorial-vs-code-serverless-python-01) per configurare la funzione di Azure senza server usando le estensioni Visual Studio Code e Python. Questa esercitazione consente di installare gli strumenti e i componenti seguenti: 
++ Configurare l'ambiente. Abbiamo seguito [questa esercitazione end-to-end](/azure/python/tutorial-vs-code-serverless-python-01) per configurare la funzione di Azure senza server usando le estensioni Visual Studio Code e Python. Questa esercitazione consente di installare gli strumenti e i componenti seguenti: 
 
   + [Python 3,75](https://www.python.org/downloads/release/python-375/)
   + [Visual Studio Code](https://code.visualstudio.com/)
   + [Estensione Python per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-python.python)
-  + [Azure Functions Core Tools](https://docs.microsoft.com/azure/azure-functions/functions-run-local#v2)
+  + [Azure Functions Core Tools](../azure-functions/functions-run-local.md#v2)
   + [Estensione Funzioni di Azure per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions)
 
 ## <a name="create-an-azure-function"></a>Creare una funzione di Azure
@@ -208,7 +208,7 @@ Ora che si dispone della chiave host predefinita, testare la funzione come segue
 POST [Function URL you copied above]
 ```
 
-### <a name="request-body"></a>Request Body
+### <a name="request-body"></a>Corpo della richiesta
 ```json
 {
     "values": [
@@ -270,5 +270,5 @@ Congratulazioni! Sono state create le prime competenze personalizzate. Ora è po
 + [Power Skills: un repository di competenze personalizzate](https://github.com/Azure-Samples/azure-search-power-skills)
 + [Aggiungere un'abilità personalizzata a una pipeline di arricchimento di intelligenza artificiale](cognitive-search-custom-skill-interface.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
-+ [Creare un set di competenze (REST)](https://docs.microsoft.com/rest/api/searchservice/create-skillset)
++ [Creare un set di competenze (REST)](/rest/api/searchservice/create-skillset)
 + [Come eseguire il mapping dei campi arricchiti](cognitive-search-output-field-mapping.md)

@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 83c3797cc3d9232f8589527285cc56c5cbff9a8a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fdae02ca9d3c434a77eb972bfd4b955161bd72c4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84221306"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935552"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Risoluzione di errori e avvisi comuni dell'indicizzatore in Azure ricerca cognitiva
 
@@ -21,10 +21,10 @@ Questo articolo fornisce informazioni e soluzioni per gli errori e gli avvisi co
 
 L'indicizzazione viene arrestata quando il numero di errori supera [' maxFailedItems '](cognitive-search-concept-troubleshooting.md#tip-3-see-what-works-even-if-there-are-some-failures). 
 
-Se si vuole che gli indicizzatori ignorino questi errori (e ignorino i "documenti non riusciti"), è consigliabile aggiornare `maxFailedItems` e `maxFailedItemsPerBatch` come descritto di [seguito](https://docs.microsoft.com/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
+Se si vuole che gli indicizzatori ignorino questi errori (e ignorino i "documenti non riusciti"), è consigliabile aggiornare `maxFailedItems` e `maxFailedItemsPerBatch` come descritto di [seguito](/rest/api/searchservice/create-indexer#general-parameters-for-all-indexers).
 
 > [!NOTE]
-> Ogni documento con errori insieme alla relativa chiave del documento (se disponibile) verrà visualizzato come errore nello stato di esecuzione dell'indicizzatore. È possibile utilizzare l' [API index](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents) per caricare manualmente i documenti in un secondo momento se l'indicizzatore è stato impostato in modo da tollerare gli errori.
+> Ogni documento con errori insieme alla relativa chiave del documento (se disponibile) verrà visualizzato come errore nello stato di esecuzione dell'indicizzatore. È possibile utilizzare l' [API index](/rest/api/searchservice/addupdate-or-delete-documents) per caricare manualmente i documenti in un secondo momento se l'indicizzatore è stato impostato in modo da tollerare gli errori.
 
 Le informazioni sull'errore in questo articolo possono essere utili per risolvere gli errori, consentendo la continuazione dell'indicizzazione.
 
@@ -46,10 +46,10 @@ A partire dalla versione dell'API `2019-05-06` , gli errori e gli avvisi dell'in
 
 L'indicizzatore non è stato in grado di leggere il documento dall'origine dati. Questo problema può verificarsi a causa di:
 
-| Motivo | Dettagli/esempio | Soluzione |
+| Motivo | Dettagli/esempio | Risoluzione |
 | --- | --- | --- |
 | Tipi di campi incoerenti tra documenti diversi | "Il tipo di valore non corrisponde al tipo di colonna. Impossibile archiviare `'{47.6,-122.1}'` nella colonna autori.  Il tipo previsto è JArray ".  "Errore durante la conversione del tipo di dati nvarchar in float".  "Conversione non riuscita durante la conversione del valore nvarchar '12 months ' nel tipo di dati int".  "Errore di runtime: si è verificato un errore di overflow aritmetico durante la conversione del tipo di dati da espressione a int". | Verificare che il tipo di ogni campo sia lo stesso in documenti diversi. Se, ad esempio, il primo `'startTime'` campo documento è un valore DateTime e nel secondo documento si tratta di una stringa, l'errore verrà raggiunto. |
-| errori dal servizio sottostante dell'origine dati | (da Cosmos DB)`{"Errors":["Request rate is large"]}` | Controllare l'istanza di archiviazione per assicurarsi che sia integro. Potrebbe essere necessario modificare la scalabilità e il partizionamento. |
+| errori dal servizio sottostante dell'origine dati | (da Cosmos DB) `{"Errors":["Request rate is large"]}` | Controllare l'istanza di archiviazione per assicurarsi che sia integro. Potrebbe essere necessario modificare la scalabilità e il partizionamento. |
 | problemi temporanei | si è verificato un errore a livello di trasporto durante la ricezione dei risultati dal server. (provider: provider TCP, errore: 0-una connessione esistente è stata chiusa forzatamente dall'host remoto | Occasionalmente si verificano problemi di connettività imprevisti. Provare a eseguire di nuovo il documento tramite l'indicizzatore in un secondo momento. |
 
 <a name="could-not-extract-document-content"></a>
@@ -57,10 +57,10 @@ L'indicizzatore non è stato in grado di leggere il documento dall'origine dati.
 ## <a name="error-could-not-extract-content-or-metadata-from-your-document"></a>Errore: non è stato possibile estrarre il contenuto o i metadati dal documento
 L'indicizzatore con un'origine dati BLOB non è riuscito a estrarre il contenuto o i metadati dal documento, ad esempio un file PDF. Questo problema può verificarsi a causa di:
 
-| Motivo | Dettagli/esempio | Soluzione |
+| Motivo | Dettagli/esempio | Risoluzione |
 | --- | --- | --- |
 | il BLOB supera il limite di dimensioni | Il documento è `'150441598'` byte, che supera i byte delle dimensioni massime `'134217728'` per l'estrazione dei documenti per il livello di servizio corrente. | [errori di indicizzazione BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
-| il tipo di contenuto del BLOB non è supportato | Il documento contiene un tipo di contenuto non supportato`'image/png'` | [errori di indicizzazione BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
+| il tipo di contenuto del BLOB non è supportato | Il documento contiene un tipo di contenuto non supportato `'image/png'` | [errori di indicizzazione BLOB](search-howto-indexing-azure-blob-storage.md#dealing-with-errors) |
 | il BLOB è crittografato | Non è stato possibile elaborare il documento perché potrebbe essere crittografato o protetto da password. | È possibile ignorare il BLOB con [le impostazioni BLOB](search-howto-indexing-azure-blob-storage.md#controlling-which-parts-of-the-blob-are-indexed). |
 | problemi temporanei | "Errore durante l'elaborazione del BLOB: la richiesta è stata interrotta: la richiesta è stata annullata". "Timeout del documento durante l'elaborazione". | Occasionalmente si verificano problemi di connettività imprevisti. Provare a eseguire di nuovo il documento tramite l'indicizzatore in un secondo momento. |
 
@@ -69,9 +69,9 @@ L'indicizzatore con un'origine dati BLOB non è riuscito a estrarre il contenuto
 ## <a name="error-could-not-parse-document"></a>Errore: non è stato possibile analizzare il documento
 L'indicizzatore ha letto il documento dall'origine dati, ma si è verificato un problema durante la conversione del contenuto del documento nello schema di mapping dei campi specificato. Questo problema può verificarsi a causa di:
 
-| Motivo | Dettagli/esempio | Soluzione |
+| Motivo | Dettagli/esempio | Risoluzione |
 | --- | --- | --- |
-| Manca la chiave del documento | La chiave del documento non può essere mancante o vuota | Verificare che tutti i documenti dispongano di chiavi di documento valide. La chiave del documento viene determinata impostando la proprietà' Key ' come parte della [definizione dell'indice](https://docs.microsoft.com/rest/api/searchservice/create-index#request-body). Gli indicizzatori genereranno questo errore quando non è possibile trovare la proprietà contrassegnata come ' Key ' in un documento specifico. |
+| Manca la chiave del documento | La chiave del documento non può essere mancante o vuota | Verificare che tutti i documenti dispongano di chiavi di documento valide. La chiave del documento viene determinata impostando la proprietà' Key ' come parte della [definizione dell'indice](/rest/api/searchservice/create-index#request-body). Gli indicizzatori genereranno questo errore quando non è possibile trovare la proprietà contrassegnata come ' Key ' in un documento specifico. |
 | La chiave del documento non è valida | La chiave del documento non può contenere più di 1024 caratteri | Modificare la chiave del documento per soddisfare i requisiti di convalida. |
 | Non è stato possibile applicare il mapping dei campi a un campo | Impossibile applicare la funzione `'functionName'` di mapping al campo `'fieldName'` . La matrice non può essere null. Nome parametro: bytes | Controllare i [mapping dei campi](search-indexer-field-mappings.md) definiti nell'indicizzatore e confrontarli con i dati del campo specificato del documento non riuscito. Potrebbe essere necessario modificare i mapping dei campi o i dati del documento. |
 | Impossibile leggere il valore del campo | Impossibile leggere il valore della colonna `'fieldName'` in corrispondenza dell'indice `'fieldIndex'` . si è verificato un errore a livello di trasporto durante la ricezione dei risultati dal server. (provider: Provider TCP, errore: 0 - Connessione in corso interrotta forzatamente dall'host remoto). | Questi errori sono in genere causati da problemi di connettività imprevisti con il servizio sottostante dell'origine dati. Provare a eseguire di nuovo il documento tramite l'indicizzatore in un secondo momento. |
@@ -86,7 +86,7 @@ Il mapping di output potrebbe non essere riuscito perché i dati di output non s
 ## <a name="error-could-not-execute-skill"></a>Errore: non è stato possibile eseguire la competenza
 L'indicizzatore non è stato in grado di eseguire una competenza nel grado di competenze.
 
-| Motivo | Dettagli/esempio | Soluzione |
+| Motivo | Dettagli/esempio | Risoluzione |
 | --- | --- | --- |
 | Problemi di connettività temporanei | Si è verificato un errore temporaneo. Riprova più tardi. | Occasionalmente si verificano problemi di connettività imprevisti. Provare a eseguire di nuovo il documento tramite l'indicizzatore in un secondo momento. |
 | Potenziale bug del prodotto | Si è verificato un errore imprevisto. | Indica una classe di errore sconosciuta e può indicare la presenza di un bug del prodotto. Inviare un [ticket di supporto](https://ms.portal.azure.com/#create/Microsoft.Support) per ottenere assistenza. |
@@ -147,7 +147,7 @@ Il valore massimo che è possibile impostare per il `timeout` parametro è 230 s
 
 Il documento è stato letto ed elaborato, ma l'indicizzatore non è stato in grado di aggiungerlo all'indice di ricerca. Questo problema può verificarsi a causa di:
 
-| Motivo | Dettagli/esempio | Soluzione |
+| Motivo | Dettagli/esempio | Risoluzione |
 | --- | --- | --- |
 | Un campo contiene un termine troppo grande | Un termine nel documento è superiore al limite di [32 KB](search-limits-quotas-capacity.md#api-request-limits) | È possibile evitare questa restrizione assicurandosi che il campo non sia configurato come filtrabile, facet o ordinabile.
 | Il documento è troppo grande per essere indicizzato | Un documento è più grande delle [dimensioni massime delle richieste API](search-limits-quotas-capacity.md#api-request-limits) | [Come indicizzare set di dati di grandi dimensioni](search-howto-large-index.md)
@@ -155,7 +155,7 @@ Il documento è stato letto ed elaborato, ma l'indicizzatore non è stato in gra
 | Problemi di connessione all'indice di destinazione (persistente dopo i tentativi) perché il servizio è sottoposto ad altro carico, ad esempio l'esecuzione di query o l'indicizzazione. | Impossibile stabilire la connessione a Update index. Il servizio di ricerca è sottoposto a un carico elevato. | [Ridimensionare il servizio di ricerca](search-capacity-planning.md)
 | È in corso la correzione del servizio di ricerca per l'aggiornamento del servizio o durante la riconfigurazione della topologia. | Impossibile stabilire la connessione a Update index. Il servizio di ricerca è attualmente inattivo o il servizio di ricerca è in fase di transizione. | Configurare il servizio con almeno 3 repliche per la disponibilità del 99,9% per ogni [contratto](https://azure.microsoft.com/support/legal/sla/search/v1_0/) di servizio
 | Errore nella risorsa di calcolo/rete sottostante (rare) | Impossibile stabilire la connessione a Update index. Si è verificato un errore sconosciuto. | Configurare gli indicizzatori per [l'esecuzione in base a una pianificazione](search-howto-schedule-indexers.md) per riprendersi da uno stato di errore.
-| Una richiesta di indicizzazione effettuata all'indice di destinazione non è stata riconosciuta entro un periodo di timeout a causa di problemi di rete. | Non è stato possibile stabilire la connessione all'indice di ricerca in modo tempestivo. | Configurare gli indicizzatori per [l'esecuzione in base a una pianificazione](search-howto-schedule-indexers.md) per riprendersi da uno stato di errore. Inoltre, provare a ridurre le dimensioni del [batch](https://docs.microsoft.com/rest/api/searchservice/create-indexer#parameters) dell'indicizzatore se questa condizione di errore viene mantenute.
+| Una richiesta di indicizzazione effettuata all'indice di destinazione non è stata riconosciuta entro un periodo di timeout a causa di problemi di rete. | Non è stato possibile stabilire la connessione all'indice di ricerca in modo tempestivo. | Configurare gli indicizzatori per [l'esecuzione in base a una pianificazione](search-howto-schedule-indexers.md) per riprendersi da uno stato di errore. Inoltre, provare a ridurre le dimensioni del [batch](/rest/api/searchservice/create-indexer#parameters) dell'indicizzatore se questa condizione di errore viene mantenute.
 
 <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"></a>
 
@@ -171,11 +171,11 @@ Il documento è stato letto ed elaborato dall'indicizzatore, ma a causa di una m
 | Un tipo sconosciuto è stato individuato nel documento di origine. | Impossibile indicizzare il tipo sconosciuto '_Unknown_' |
 | Una notazione incompatibile per i punti geografici è stata usata nel documento di origine. | I valori letterali stringa del punto WKT non sono supportati. Usare invece i valori letterali del punto GeoJSON |
 
-In tutti questi casi, fare riferimento ai [tipi di dati supportati](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) e al mapping dei tipi di [dati per gli indicizzatori](https://docs.microsoft.com/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) per assicurarsi di compilare correttamente lo schema dell'indice e di aver configurato i mapping appropriati dei [campi dell'indicizzatore](search-indexer-field-mappings.md). Il messaggio di errore includerà i dettagli che consentono di tenere traccia dell'origine della mancata corrispondenza.
+In tutti questi casi, fare riferimento ai [tipi di dati supportati](/rest/api/searchservice/supported-data-types) e al mapping dei tipi di [dati per gli indicizzatori](/rest/api/searchservice/data-type-map-for-indexers-in-azure-search) per assicurarsi di compilare correttamente lo schema dell'indice e di aver configurato i mapping appropriati dei [campi dell'indicizzatore](search-indexer-field-mappings.md). Il messaggio di errore includerà i dettagli che consentono di tenere traccia dell'origine della mancata corrispondenza.
 
 ## <a name="error-integrated-change-tracking-policy-cannot-be-used-because-table-has-a-composite-primary-key"></a>Errore: non è possibile usare i criteri di rilevamento delle modifiche integrati perché la tabella contiene una chiave primaria composta
 
-Questo vale per le tabelle SQL e in genere si verifica quando la chiave è definita come chiave composta o, quando la tabella definisce un indice cluster univoco (come in un indice SQL, non un indice di ricerca di Azure). Il motivo principale è che l'attributo chiave viene modificato come chiave primaria composita nel caso di un [indice cluster univoco](https://docs.microsoft.com/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). In tal caso, assicurarsi che la tabella SQL non disponga di un indice cluster univoco o che il campo chiave sia mappato a un campo che non contenga valori duplicati.
+Questo vale per le tabelle SQL e in genere si verifica quando la chiave è definita come chiave composta o, quando la tabella definisce un indice cluster univoco (come in un indice SQL, non un indice di ricerca di Azure). Il motivo principale è che l'attributo chiave viene modificato come chiave primaria composita nel caso di un [indice cluster univoco](/sql/relational-databases/indexes/clustered-and-nonclustered-indexes-described?view=sql-server-ver15). In tal caso, assicurarsi che la tabella SQL non disponga di un indice cluster univoco o che il campo chiave sia mappato a un campo che non contenga valori duplicati.
 
 <a name="could-not-process-document-within-indexer-max-run-time"></a>
 
@@ -189,11 +189,11 @@ Questo errore si verifica quando l'indicizzatore non è in grado di completare l
 
 Questo errore si verifica quando l'indicizzatore tenta di [proiettare i dati in un archivio informazioni](knowledge-store-projection-overview.md) e si è verificato un errore nel tentativo di eseguire questa operazione.  Questo errore potrebbe essere coerente e risolvibile oppure potrebbe trattarsi di un errore temporaneo con il sink di output della proiezione che potrebbe essere necessario attendere e riprovare per risolverlo.  Ecco un set di Stati di errore noti e le possibili soluzioni.
 
-| Motivo | Dettagli/esempio | Soluzione |
+| Motivo | Dettagli/esempio | Risoluzione |
 | --- | --- | --- |
-| Non è stato possibile aggiornare il BLOB `'blobUri'` di proiezione nel contenitore`'containerName'` |Il contenitore specificato non esiste. | L'indicizzatore verificherà se il contenitore specificato è stato creato in precedenza e lo creerà se necessario, ma eseguirà solo questa verifica una volta per ogni esecuzione dell'indicizzatore. Questo errore indica che un elemento ha eliminato il contenitore dopo questo passaggio.  Per correggere l'errore, provare a eseguire questa operazione: lasciare invariate le informazioni dell'account di archiviazione, attendere il completamento dell'indicizzatore e quindi eseguire di nuovo l'indicizzatore. |
-| Non è stato possibile aggiornare il BLOB `'blobUri'` di proiezione nel contenitore`'containerName'` |Impossibile scrivere dati nella connessione di trasporto: una connessione esistente è stata chiusa forzatamente dall'host remoto. | Si tratta di un errore temporaneo con archiviazione di Azure, pertanto è necessario risolverlo rieseguendo l'indicizzatore. Se questo errore si verifica in modo coerente, inviare un [ticket di supporto](https://ms.portal.azure.com/#create/Microsoft.Support) in modo che sia possibile esaminarlo ulteriormente.  |
-| Non è stato possibile aggiornare la riga `'projectionRow'` nella tabella`'tableName'` | Il server è occupato. | Si tratta di un errore temporaneo con archiviazione di Azure, pertanto è necessario risolverlo rieseguendo l'indicizzatore. Se questo errore si verifica in modo coerente, inviare un [ticket di supporto](https://ms.portal.azure.com/#create/Microsoft.Support) in modo che sia possibile esaminarlo ulteriormente.  |
+| Non è stato possibile aggiornare il BLOB `'blobUri'` di proiezione nel contenitore `'containerName'` |Il contenitore specificato non esiste. | L'indicizzatore verificherà se il contenitore specificato è stato creato in precedenza e lo creerà se necessario, ma eseguirà solo questa verifica una volta per ogni esecuzione dell'indicizzatore. Questo errore indica che un elemento ha eliminato il contenitore dopo questo passaggio.  Per correggere l'errore, provare a eseguire questa operazione: lasciare invariate le informazioni dell'account di archiviazione, attendere il completamento dell'indicizzatore e quindi eseguire di nuovo l'indicizzatore. |
+| Non è stato possibile aggiornare il BLOB `'blobUri'` di proiezione nel contenitore `'containerName'` |Impossibile scrivere dati nella connessione di trasporto: una connessione esistente è stata chiusa forzatamente dall'host remoto. | Si tratta di un errore temporaneo con archiviazione di Azure, pertanto è necessario risolverlo rieseguendo l'indicizzatore. Se questo errore si verifica in modo coerente, inviare un [ticket di supporto](https://ms.portal.azure.com/#create/Microsoft.Support) in modo che sia possibile esaminarlo ulteriormente.  |
+| Non è stato possibile aggiornare la riga `'projectionRow'` nella tabella `'tableName'` | Il server è occupato. | Si tratta di un errore temporaneo con archiviazione di Azure, pertanto è necessario risolverlo rieseguendo l'indicizzatore. Se questo errore si verifica in modo coerente, inviare un [ticket di supporto](https://ms.portal.azure.com/#create/Microsoft.Support) in modo che sia possibile esaminarlo ulteriormente.  |
 
 <a name="could-not-execute-skill-because-a-skill-input-was-invalid"></a>
 
@@ -226,7 +226,7 @@ Se si vuole fornire un valore predefinito in caso di input mancante, è possibil
 }
 ```
 
-| Motivo | Dettagli/esempio | Soluzione |
+| Motivo | Dettagli/esempio | Risoluzione |
 | --- | --- | --- |
 | Il tipo di input Skill è errato | "L'input di competenze obbligatorio non era del tipo previsto `String` . Nome: `text` , origine: `/document/merged_content` . "  "L'input di competenze obbligatorio non è del formato previsto. Nome: `text` , origine: `/document/merged_content` . "  "Impossibile eseguire l'iterazione su un oggetto non di matrice `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` ".  "Impossibile selezionare `0` in non matrice `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` " | Determinate competenze prevedono input di determinati tipi, ad esempio la capacità di valutazione del [sentimento](cognitive-search-skill-sentiment.md) si aspetta `text` una stringa. Se l'input specifica un valore non stringa, l'abilità non viene eseguita e non genera alcun output. Verificare che il set di dati includa valori di input uniformi nel tipo o usare una [competenza personalizzata per l'API Web](cognitive-search-custom-skill-web-api.md) per la pre-elaborazione dell'input. Se si sta scorrendo la competenza su una matrice, verificare che il contesto di competenza e l'input abbiano `*` le posizioni corrette. In genere, il contesto e l'origine di input devono terminare con `*` per le matrici. |
 | Input skill mancante | "Manca l'input di competenze necessario. Nome: `text` , origine: `/document/merged_content` "" valore mancante " `/document/normalized_images/0/imageTags` .  "Impossibile selezionare `0` in una matrice `/document/pages` di lunghezza `0` ". | Se tutti i documenti ricevono questo avviso, è probabile che si verifichi un errore di digitazione nei percorsi di input ed è necessario controllare la combinazione di maiuscole e minuscole del nome della proprietà, supplementare o mancante `*` nel percorso e verificare che i documenti dell'origine dati forniscano gli input necessari. |
@@ -255,9 +255,9 @@ Se si è certi che il set di dati contiene più lingue ed è quindi necessario [
 ```
 
 Di seguito sono riportati alcuni riferimenti per le lingue attualmente supportate per ognuna delle competenze che possono generare questo messaggio di errore:
-* [Analisi del testo le lingue supportate](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) (per [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md), [SentimentSkill](cognitive-search-skill-sentiment.md)e [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
-* [Lingue supportate da Translator](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) (per il [TranslationSkill di testo](cognitive-search-skill-text-translation.md))
-* [SplitSkill di testo](cognitive-search-skill-textsplit.md) Lingue supportate:`da, de, en, es, fi, fr, it, ko, pt`
+* [Analisi del testo le lingue supportate](../cognitive-services/text-analytics/language-support.md) (per [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md), [SentimentSkill](cognitive-search-skill-sentiment.md)e [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
+* [Lingue supportate da Translator](../cognitive-services/translator/language-support.md) (per il [TranslationSkill di testo](cognitive-search-skill-text-translation.md))
+* [SplitSkill di testo](cognitive-search-skill-textsplit.md) Lingue supportate: `da, de, en, es, fi, fr, it, ko, pt`
 
 <a name="skill-input-was-truncated"></a>
 
@@ -304,7 +304,7 @@ Per ulteriori informazioni, vedere [avanzamento incrementale e query personalizz
 
 ## <a name="warning-some-data-was-lost-during-projection-row-x-in-table-y-has-string-property-z-which-was-too-long"></a>Avviso: durante la proiezione alcuni dati sono stati persi. La riga ' X ' nella tabella ' Y ' contiene la proprietà di stringa ' Z ' che è troppo lungo.
 
-Il [servizio di archiviazione tabelle](https://azure.microsoft.com/services/storage/tables) presenta limiti per quanto possono essere le [proprietà di entità](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model#property-types) di grandi dimensioni. Le stringhe possono contenere almeno 32.000 caratteri. Se viene proiettata una riga con una proprietà di stringa di lunghezza superiore a 32.000 caratteri, vengono conservati solo i primi 32.000 caratteri. Per ovviare a questo problema, evitare di proiettare righe con proprietà di stringa di lunghezza superiore a 32.000 caratteri.
+Il [servizio di archiviazione tabelle](https://azure.microsoft.com/services/storage/tables) presenta limiti per quanto possono essere le [proprietà di entità](/rest/api/storageservices/understanding-the-table-service-data-model#property-types) di grandi dimensioni. Le stringhe possono contenere almeno 32.000 caratteri. Se viene proiettata una riga con una proprietà di stringa di lunghezza superiore a 32.000 caratteri, vengono conservati solo i primi 32.000 caratteri. Per ovviare a questo problema, evitare di proiettare righe con proprietà di stringa di lunghezza superiore a 32.000 caratteri.
 
 <a name="truncated-extracted-text-to-x-characters"></a>
 
@@ -318,7 +318,7 @@ Per altre informazioni, vedere [limiti dell'indicizzatore](search-limits-quotas-
 ## <a name="warning-could-not-map-output-field-x-to-search-index"></a>Avviso: Impossibile eseguire il mapping del campo di output ' X ' all'indice di ricerca
 I mapping dei campi di output che fanno riferimento a dati inesistenti/null produrranno avvisi per ogni documento e restituiscono un campo di indice vuoto. Per aggirare questo problema, controllare i percorsi di origine del mapping dei campi di output per individuare possibili errori di digitazione o impostare un valore predefinito usando la [competenza condizionale](cognitive-search-skill-conditional.md#sample-skill-definition-2-set-a-default-value-for-a-value-that-doesnt-exist). Per informazioni dettagliate, vedere [mapping dei campi di output](cognitive-search-output-field-mapping.md) .
 
-| Motivo | Dettagli/esempio | Soluzione |
+| Motivo | Dettagli/esempio | Risoluzione |
 | --- | --- | --- |
 | Non è possibile eseguire l'iterazione su una matrice non array | "Impossibile eseguire l'iterazione su un oggetto non di matrice `/document/normalized_images/0/imageCelebrities/0/detail/celebrities` ". | Questo errore si verifica quando l'output non è una matrice. Se si ritiene che l'output sia una matrice, verificare la presenza di errori nel percorso del campo di origine di output indicato. Ad esempio, è possibile che `*` nel nome del campo di origine sia presente un valore mancante o aggiuntivo. È anche possibile che l'input per questa skill sia null, ottenendo una matrice vuota. Nella sezione [input skill non è stato](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) trovato un tipo di dati simile.    |
 | Non è possibile selezionare `0` in una matrice non di matrici | "Impossibile eseguire la selezione `0` in un non array `/document/pages` ". | Questo problema può verificarsi se l'output delle competenze non produce una matrice e il nome del campo di origine di output contiene un indice di matrice o `*` nel percorso. Controllare i percorsi specificati nei nomi dei campi di origine di output e il valore del campo per il nome del campo indicato. Nella sezione [input skill non è stato](cognitive-search-common-errors-warnings.md#warning-skill-input-was-invalid) trovato un tipo di dati simile.  |
@@ -326,13 +326,13 @@ I mapping dei campi di output che fanno riferimento a dati inesistenti/null prod
 <a name="the-data-change-detection-policy-is-configured-to-use-key-column-x"></a>
 
 ## <a name="warning-the-data-change-detection-policy-is-configured-to-use-key-column-x"></a>Avviso: i criteri di rilevamento delle modifiche dei dati sono configurati per l'utilizzo della colonna chiave ' X '
-I [criteri di rilevamento delle modifiche dei dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source#data-change-detection-policies) presentano requisiti specifici per le colonne utilizzate per rilevare le modifiche. Uno di questi requisiti è che questa colonna viene aggiornata ogni volta che viene modificato l'elemento di origine. Un altro requisito è che il nuovo valore per la colonna sia maggiore del valore precedente. Le colonne chiave non soddisfano questo requisito perché non cambiano a ogni aggiornamento. Per risolvere questo problema, selezionare una colonna diversa per i criteri di rilevamento delle modifiche.
+I [criteri di rilevamento delle modifiche dei dati](/rest/api/searchservice/create-data-source#data-change-detection-policies) presentano requisiti specifici per le colonne utilizzate per rilevare le modifiche. Uno di questi requisiti è che questa colonna viene aggiornata ogni volta che viene modificato l'elemento di origine. Un altro requisito è che il nuovo valore per la colonna sia maggiore del valore precedente. Le colonne chiave non soddisfano questo requisito perché non cambiano a ogni aggiornamento. Per risolvere questo problema, selezionare una colonna diversa per i criteri di rilevamento delle modifiche.
 
 <a name="document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"></a>
 
 ## <a name="warning-document-text-appears-to-be-utf-16-encoded-but-is-missing-a-byte-order-mark"></a>Avviso: il testo del documento sembra essere codificato con UTF-16, ma manca un byte order mark
 
-Le [modalità di analisi dell'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer#blob-configuration-parameters) devono comprendere il modo in cui il testo viene codificato prima di analizzarlo. I due modi più comuni per codificare il testo sono UTF-16 e UTF-8. UTF-8 è una codifica a lunghezza variabile in cui ogni carattere è compreso tra 1 byte e 4 byte. UTF-16 è una codifica a lunghezza fissa in cui ogni carattere ha una lunghezza di 2 byte. UTF-16 presenta due varianti diverse, "big endian" e "little endian". La codifica del testo è determinata da una "byte order mark", una serie di byte prima del testo.
+Le [modalità di analisi dell'indicizzatore](/rest/api/searchservice/create-indexer#blob-configuration-parameters) devono comprendere il modo in cui il testo viene codificato prima di analizzarlo. I due modi più comuni per codificare il testo sono UTF-16 e UTF-8. UTF-8 è una codifica a lunghezza variabile in cui ogni carattere è compreso tra 1 byte e 4 byte. UTF-16 è una codifica a lunghezza fissa in cui ogni carattere ha una lunghezza di 2 byte. UTF-16 presenta due varianti diverse, "big endian" e "little endian". La codifica del testo è determinata da una "byte order mark", una serie di byte prima del testo.
 
 | Codifica | Byte order mark |
 | --- | --- |
@@ -348,4 +348,4 @@ Per ovviare a questo avviso, determinare la codifica del testo per questo BLOB e
 
 ## <a name="warning-cosmos-db-collection-x-has-a-lazy-indexing-policy-some-data-may-be-lost"></a>Avviso: Cosmos DB raccolta ' X ' ha un criterio di indicizzazione Lazy. Alcuni dati potrebbero andare perduti
 
-Non è possibile eseguire query in modo coerente sulle raccolte con criteri di indicizzazione [Lazy](https://docs.microsoft.com/azure/cosmos-db/index-policy#indexing-mode) , causando la mancata corrispondenza dei dati dell'indicizzatore. Per risolvere il problema, modificare i criteri di indicizzazione in coerenza.
+Non è possibile eseguire query in modo coerente sulle raccolte con criteri di indicizzazione [Lazy](/azure/cosmos-db/index-policy#indexing-mode) , causando la mancata corrispondenza dei dati dell'indicizzatore. Per risolvere il problema, modificare i criteri di indicizzazione in coerenza.

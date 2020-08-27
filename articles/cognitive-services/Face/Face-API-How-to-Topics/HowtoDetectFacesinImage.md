@@ -10,12 +10,13 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: sbowles
-ms.openlocfilehash: a3fd308ede17f510b3e9188f2bebc93a08a61181
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 231f30f5532d0934ba41e591aa821d56b11d5856
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84263183"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928004"
 ---
 # <a name="get-face-detection-data"></a>Ottenere i dati di rilevamento viso
 
@@ -27,7 +28,7 @@ Questa guida illustra come:
 - Ottenere le posizioni dei diversi punti di interesse, ad esempio gli alunni, il naso e la bocca, in un'immagine.
 - Indovinare il sesso, l'età, l'emozione e altri attributi di un volto rilevato.
 
-## <a name="setup"></a>Installazione
+## <a name="setup"></a>Eseguire la configurazione
 
 In questa guida si presuppone che sia già stato creato un oggetto [FaceClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceclient?view=azure-dotnet) , denominato `faceClient` , con una chiave di sottoscrizione della faccia e un URL dell'endpoint. Da qui è possibile usare la funzionalità di rilevamento viso chiamando [DetectWithUrlAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithurlasync?view=azure-dotnet), che viene usato in questa guida oppure [DetectWithStreamAsync](https://docs.microsoft.com/dotnet/api/microsoft.azure.cognitiveservices.vision.face.faceoperationsextensions.detectwithstreamasync?view=azure-dotnet). Per istruzioni su come configurare questa funzionalità, seguire una delle guide introduttive.
 

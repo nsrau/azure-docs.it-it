@@ -10,12 +10,12 @@ author: gvashishtha
 ms.date: 07/31/2020
 ms.topic: conceptual
 zone_pivot_groups: aml-control-methods
-ms.openlocfilehash: 6bbee606c59482e4a06f344d3221e8611f6dcc9d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: a3aed23441df225316f52eb3acb1387cbba6d807
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87544585"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935586"
 ---
 # <a name="profile-your-model-to-determine-resource-utilization"></a>Profilare il modello per determinare l'utilizzo delle risorse
 
@@ -36,6 +36,9 @@ Per profilare il modello, è necessario:
 
 > [!IMPORTANT]
 > A questo punto è supportata solo la profilatura dei servizi che prevedono che i dati della richiesta siano una stringa, ad esempio: JSON serializzato di stringa, testo, stringa serializzata immagine e così via. Il contenuto di ogni riga del set di dati (stringa) verrà inserito nel corpo della richiesta HTTP e inviato al servizio incapsulando il modello per l'assegnazione dei punteggi.
+
+> [!IMPORTANT]
+> È supportata solo la profilatura di un massimo di 2 CPU nell'area ChinaEast2 e USGovArizona.
 
 Di seguito è riportato un esempio di come è possibile costruire un set di dati di input per profilare un servizio che prevede che i dati della richiesta in ingresso contengano JSON serializzato. In questo caso, è stato creato un set di dati basato su 100 istanze dello stesso contenuto della richiesta. Negli scenari reali è consigliabile usare set di dati più grandi contenenti diversi input, soprattutto se l'utilizzo o il comportamento delle risorse del modello è dipendente dall'input.
 
@@ -127,7 +130,7 @@ az ml model profile -g <resource-group-name> -w <workspace-name> --inference-con
 * [Risolvere i problemi relativi a una distribuzione non riuscita](how-to-troubleshoot-deployment.md)
 * [Distribuire nel servizio Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md)
 * [Creazione di applicazioni client per l'utilizzo di servizi Web](how-to-consume-web-service.md)
-* [Aggiornare il servizio Web](how-to-deploy-update-web-service.md)
+* [Aggiornare un servizio Web](how-to-deploy-update-web-service.md)
 * [Come distribuire un modello usando un'immagine Docker personalizzata](how-to-deploy-custom-docker-image.md)
 * [Usare TLS per proteggere un servizio Web tramite Azure Machine Learning](how-to-secure-web-service.md)
 * [Monitorare i modelli di Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)

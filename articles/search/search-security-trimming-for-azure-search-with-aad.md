@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/04/2020
-ms.openlocfilehash: ee742eae38ae95756cf31d60b877f18629c569d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 51b8fd25e209316e828e234b4c64c8b2a2152de6
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080491"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928582"
 ---
 # <a name="security-filters-for-trimming-azure-cognitive-search-results-using-active-directory-identities"></a>Filtri di sicurezza per tagliare i risultati di ricerca cognitiva di Azure usando Active Directory identità
 
@@ -40,7 +40,7 @@ Anche l'applicazione in uso deve essere registrata con AAD, come descritto nella
 
 ### <a name="register-your-application-with-aad"></a>Registrare l'applicazione con AAD
 
-Questo passaggio integra l'applicazione in uso con AAD allo scopo di accettare gli accessi di account di gruppi e utenti. Se non si è un amministratore AAD all'interno dell'organizzazione, potrebbe essere necessario [creare un nuovo tenant](https://docs.microsoft.com/azure/active-directory/develop/active-directory-howto-tenant) per eseguire la procedura seguente.
+Questo passaggio integra l'applicazione in uso con AAD allo scopo di accettare gli accessi di account di gruppi e utenti. Se non si è un amministratore AAD all'interno dell'organizzazione, potrebbe essere necessario [creare un nuovo tenant](../active-directory/develop/quickstart-create-new-tenant.md) per eseguire la procedura seguente.
 
 1. Passare al [**portale di registrazione delle applicazioni**](https://apps.dev.microsoft.com)  >   **app Converged**  >  **Aggiungi un'app**.
 2. Immettere un nome per l'applicazione e quindi fare clic su **Crea**. 
@@ -63,7 +63,7 @@ Invece, se non ci sono utenti esistenti, è possibile usare le API Microsoft Gra
 
 L'appartenenza di utenti e gruppi potrebbe essere molto fluida, soprattutto nelle organizzazioni di grandi dimensioni. Il codice per la creazione delle identità di utenti e gruppi dovrebbe essere eseguito abbastanza spesso per individuare i cambiamenti intervenuti nell'appartenenza dell'organizzazione. Analogamente, l'indice di Azure ricerca cognitiva richiede una pianificazione di aggiornamento simile per riflettere lo stato corrente delle risorse e degli utenti autorizzati.
 
-### <a name="step-1-create-aad-group"></a>Passaggio 1: creare il [gruppo AAD](https://docs.microsoft.com/graph/api/group-post-groups?view=graph-rest-1.0) 
+### <a name="step-1-create-aad-group"></a>Passaggio 1: creare il [gruppo AAD](/graph/api/group-post-groups?view=graph-rest-1.0) 
 ```csharp
 // Instantiate graph client 
 GraphServiceClient graph = new GraphServiceClient(new DelegateAuthenticationProvider(...));
@@ -77,7 +77,7 @@ Group group = new Group()
 Group newGroup = await graph.Groups.Request().AddAsync(group);
 ```
    
-### <a name="step-2-create-aad-user"></a>Passaggio 2: creare l'[utente AAD](https://docs.microsoft.com/graph/api/user-post-users?view=graph-rest-1.0)
+### <a name="step-2-create-aad-user"></a>Passaggio 2: creare l'[utente AAD](/graph/api/user-post-users?view=graph-rest-1.0)
 ```csharp
 User user = new User()
 {
@@ -98,9 +98,9 @@ await graph.Groups[newGroup.Id].Members.References.Request().AddAsync(newUser);
 ```
 
 ### <a name="step-4-cache-the-groups-identifiers"></a>Passaggio 4: memorizzare nella cache gli identificatori di gruppo
-Facoltativamente, per ridurre la latenza di rete, è possibile memorizzare nella cache le associazioni utente-gruppo in modo che quando viene emessa una richiesta di ricerca, i gruppi vengono restituiti dalla cache, senza generare un round trip in AAD. È possibile usare l' [API batch di AAD](https://developer.microsoft.com/graph/docs/concepts/json_batching) per inviare una singola richiesta HTTP con più utenti e compilare la cache.
+Facoltativamente, per ridurre la latenza di rete, è possibile memorizzare nella cache le associazioni utente-gruppo in modo che quando viene emessa una richiesta di ricerca, i gruppi vengono restituiti dalla cache, senza generare un round trip in AAD. È possibile usare l' [API batch di AAD](/graph/json-batching) per inviare una singola richiesta HTTP con più utenti e compilare la cache.
 
-Microsoft Graph è progettato per gestire un volume elevato di richieste. Se si verifica un numero eccessivo di richieste, la richiesta con codice di stato HTTP 429 non verrà eseguita. Per altre informazioni, vedere [Microsoft Graph throttling](https://developer.microsoft.com/graph/docs/concepts/throttling) (Limitazione delle richieste di Microsoft Graph).
+Microsoft Graph è progettato per gestire un volume elevato di richieste. Se si verifica un numero eccessivo di richieste, la richiesta con codice di stato HTTP 429 non verrà eseguita. Per altre informazioni, vedere [Microsoft Graph throttling](/graph/throttling) (Limitazione delle richieste di Microsoft Graph).
 
 ## <a name="index-document-with-their-permitted-groups"></a>Indicizzare un documento con i relativi gruppi consentiti
 
@@ -138,7 +138,7 @@ Per filtrare i documenti restituiti nei risultati della ricerca in base ai grupp
 
 ### <a name="step-1-retrieve-users-group-identifiers"></a>Passaggio 1: recuperare gli identificatori di gruppo dell'utente
 
-Se i gruppi dell'utente non sono stati ancora memorizzati nella cache o se la cache è scaduta, emettere la richiesta per [groups](https://docs.microsoft.com/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0).
+Se i gruppi dell'utente non sono stati ancora memorizzati nella cache o se la cache è scaduta, emettere la richiesta per [groups](/graph/api/directoryobject-getmembergroups?view=graph-rest-1.0).
 ```csharp
 private static void RefreshCacheIfRequired(string user)
 {
@@ -182,7 +182,7 @@ DocumentSearchResult<SecuredFiles> results = _indexClient.Documents.Search<Secur
 
 La risposta include un elenco filtrato dei documenti, costituito da quelli che l'utente è autorizzato a visualizzare. A seconda di come viene creata la pagina dei risultati della ricerca, potrebbero essere inclusi segnali visivi per riflettere il set di risultati filtrato.
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 
 In questa procedura dettagliata sono state apprese le tecniche per l'uso degli accessi ad AAD per filtrare i documenti in Azure ricerca cognitiva risultati, tagliando i risultati dei documenti che non corrispondono al filtro specificato nella richiesta.
 

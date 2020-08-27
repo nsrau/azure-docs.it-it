@@ -3,12 +3,12 @@ title: Configurare un'appliance Azure Migrate in Azure per enti pubblici
 description: Informazioni su come configurare un appliance Azure Migrate in Azure per enti pubblici
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 993c25d7b2c580df47b61c836b885ed6379e8640
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: ffea966c58909ecaab0da13a4204295ecb193895
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612266"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936793"
 ---
 # <a name="set-up-an-appliance-in-azure-government"></a>Configurare un'appliance in Azure per enti pubblici 
 
@@ -19,7 +19,7 @@ Seguire questo articolo per distribuire un [appliance Azure migrate](./migrate-a
 > L'opzione per distribuire un'appliance usando un modello (per macchine virtuali VMware e macchine virtuali Hyper-V) non è supportata in Azure per enti pubblici.
 
 
-## <a name="prerequisites"></a>Prerequisites
+## <a name="prerequisites"></a>Prerequisiti
 
 Lo script configura l'appliance Azure Migrate in un computer fisico o una macchina virtuale esistente.
 
@@ -51,7 +51,7 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 
     **Algoritmo** | **Scaricare** | **SHA256**
     --- | --- | ---
-    VMware (63,1 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2120300&clcid=0x409 ) | 3d5822038646b81f458d89d706832c0a2c0e827bfa9b0a55cc478eaf2757a4de
+    VMware (85 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140337) | 31b1bfdd4fc29b3eb923c7c6e7a898af79b7cac0404426bea18809def2284188
 
 
 ### <a name="run-the-script"></a>Eseguire lo script
@@ -71,8 +71,10 @@ Per eseguire lo script:
 1. Estrarre il file compresso in una cartella nel computer che ospiterà l'appliance. Assicurarsi di non eseguire lo script in un computer in un'appliance di Azure Migrate esistente.
 2. Avviare PowerShell nel computer con privilegi di amministratore (con privilegi elevati).
 3. Modificare la directory di PowerShell nella cartella che contiene il contenuto estratto dal file compresso scaricato.
-4. Eseguire lo script **AzureMigrateInstaller.ps1**, come indicato di seguito: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>AzureMigrateInstaller.ps1 ```
-5. Dopo che lo script è stato eseguito correttamente, viene avviata l'applicazione Web Appliance per poter configurare l'appliance. Se si verificano problemi, esaminare i log di script in C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
+4. Eseguire lo script **AzureMigrateInstaller.ps1**, come indicato di seguito: 
+    
+    ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-VMWare-USGov>.\AzureMigrateInstaller.ps1 ```
+1. Dopo che lo script è stato eseguito correttamente, viene avviata l'applicazione Web Appliance per poter configurare l'appliance. Se si verificano problemi, esaminare i log di script in C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
 ### <a name="verify-access"></a>Verificare l'accesso
 
@@ -103,7 +105,7 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 
     **Scenario** | **Scaricare** | **SHA256**
     --- | --- | ---
-    Hyper-V (63,1 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2120200&clcid=0x409) |  2c5e73a1e5525d4fae468934408e43ab55ff397b7da200b92121972e683f9aa3
+    Hyper-V (85 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140424) |  db5311de3d1d4a1167183a94e8347456db9c5749c7332ff2eb4b777798765e48
 
           
 
@@ -124,8 +126,10 @@ Per eseguire lo script:
 1. Estrarre il file compresso in una cartella nel computer che ospiterà l'appliance. Assicurarsi di non eseguire lo script in un computer in un'appliance di Azure Migrate esistente.
 2. Avviare PowerShell nel computer con privilegi di amministratore (con privilegi elevati).
 3. Modificare la directory di PowerShell nella cartella che contiene il contenuto estratto dal file compresso scaricato.
-4. Eseguire lo script **AzureMigrateInstaller.ps1**, come indicato di seguito: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>AzureMigrateInstaller.ps1 ``` 
-5. Dopo che lo script è stato eseguito correttamente, viene avviata l'applicazione Web Appliance per poter configurare l'appliance. Se si verificano problemi, esaminare i log di script in C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
+4. Eseguire lo script **AzureMigrateInstaller.ps1**, come indicato di seguito: 
+
+    ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-HyperV-USGov>.\AzureMigrateInstaller.ps1 ``` 
+1. Dopo che lo script è stato eseguito correttamente, viene avviata l'applicazione Web Appliance per poter configurare l'appliance. Se si verificano problemi, esaminare i log di script in C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
 ### <a name="verify-access"></a>Verificare l'accesso
 
@@ -156,7 +160,7 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 
     **Scenario** | **Download*** | **Valore hash**
     --- | --- | ---
-    Dispositivi fisici (63,1 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2120100&clcid=0x409) | 93dfef131026e70acdfad2769cd208ff745ab96a96f013cdf3f9e1e61c9b37e1
+    Fisico (85 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140338) | 1545f9ce8874cedef6347c1a1332f8b5eabd6811a017440a2382525fb0430309
           
 
 ### <a name="run-the-script"></a>Eseguire lo script
@@ -176,8 +180,10 @@ Per eseguire lo script:
 1. Estrarre il file compresso in una cartella nel computer che ospiterà l'appliance. Assicurarsi di non eseguire lo script in un computer in un'appliance di Azure Migrate esistente.
 2. Avviare PowerShell nel computer con privilegi di amministratore (con privilegi elevati).
 3. Modificare la directory di PowerShell nella cartella che contiene il contenuto estratto dal file compresso scaricato.
-4. Eseguire lo script **AzureMigrateInstaller.ps1**, come indicato di seguito: ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>AzureMigrateInstaller.ps1 ```
-5. Dopo che lo script è stato eseguito correttamente, viene avviata l'applicazione Web Appliance per poter configurare l'appliance. Se si verificano problemi, esaminare i log di script in C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
+4. Eseguire lo script **AzureMigrateInstaller.ps1**, come indicato di seguito: 
+
+    ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1 ```
+1. Dopo che lo script è stato eseguito correttamente, viene avviata l'applicazione Web Appliance per poter configurare l'appliance. Se si verificano problemi, esaminare i log di script in C:\ProgramData\Microsoft Azure\Logs\ AzureMigrateScenarioInstaller_<em>timestamp</em>. log.
 
 ### <a name="verify-access"></a>Verificare l'accesso
 

@@ -2,13 +2,14 @@
 title: Panoramica delle API di Inoltro di Azure | Documentazione Microsoft
 description: Questo articolo fornisce una panoramica delle API di inoltro di Azure disponibili (.NET Standard, .NET Framework, Node.js e così via)
 ms.topic: article
+ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: 15e13ccac9b05e6e1b0730b38b372dec20c69dda
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 98bbb1ecc7e870ff9b7687284e7087d44375d275
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85316957"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935722"
 ---
 # <a name="available-relay-apis"></a>API di Inoltro disponibili
 
@@ -22,7 +23,7 @@ La sezione [Informazioni aggiuntive](#additional-information) contiene altre inf
 | --- | --- | --- | --- |
 | .NET Standard | connessioni ibride | [Microsoft.Azure.Relay](https://www.nuget.org/packages/Microsoft.Azure.Relay/) | [GitHub](https://github.com/azure/azure-relay-dotnet) |
 | .NET Framework | Inoltro WCF | [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) | N/D |
-| Nodo | connessioni ibride | [WebSocket`hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[WebSocket`hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[Richieste HTTP:`hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
+| Nodo | connessioni ibride | [WebSocket `hyco-ws`](https://www.npmjs.com/package/hyco-ws)<br/>[WebSocket `hyco-websocket`](https://www.npmjs.com/package/hyco-websocket)<br/>[Richieste HTTP: `hyco-https`](https://www.npmjs.com/package/hyco-https) | [GitHub](https://github.com/Azure/azure-relay-node) |
 
 ### <a name="additional-information"></a>Informazioni aggiuntive
 
@@ -47,5 +48,5 @@ Informazioni dettagliate su questi moduli sono disponibili nel repository GitHub
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sul servizio di inoltro di Azure, vedere i collegamenti seguenti:
-* [Che cos'è il servizio di inoltro di Azure?](relay-what-is-it.md)
+* [Che cos'è Inoltro di Azure?](relay-what-is-it.md)
 * [Domande frequenti sul servizio di inoltro](relay-faq.md)

@@ -3,12 +3,12 @@ title: Come specificare le versioni del runtime per Funzioni di Azure
 description: La soluzione Funzioni di Azure supporta più versioni del runtime. Informazioni su come specificare la versione del runtime di un'app per le funzioni ospitata in Azure.
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 74ee0d382dcd468aed118a7de330eef95b329402
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: a7d86ef26d50d60389ae09bf3245ed97fea2c3e3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830870"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88926576"
 ---
 # <a name="how-to-target-azure-functions-runtime-versions"></a>Come specificare le versioni del runtime per Funzioni di Azure
 
@@ -42,19 +42,16 @@ Ogni modifica alla versione del runtime comporta il riavvio dell'app per le funz
 > [!IMPORTANT]
 > Anche se la versione del runtime è determinata dall'impostazione `FUNCTIONS_EXTENSION_VERSION`, è necessario apportare questa modifica nel portale di Azure e non modificando l'impostazione direttamente, perché il portale convalida le modifiche e apporta altre modifiche correlate in base alle esigenze.
 
-### <a name="from-the-azure-portal"></a>Dal portale di Azure
+# <a name="portal"></a>[Portale](#tab/portal)
 
 [!INCLUDE [Set the runtime version in the portal](../../includes/functions-view-update-version-portal.md)]
 
 > [!NOTE]
 > Utilizzando la portale di Azure, non è possibile modificare la versione di runtime per un'app per le funzioni che contiene già funzioni.
 
-### <a name="from-the-azure-cli"></a><a name="view-and-update-the-runtime-version-using-azure-cli"></a>Dall'interfaccia della riga di comando di Azure
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azurecli)
 
-È anche possibile visualizzare e configurare `FUNCTIONS_EXTENSION_VERSION` dall'interfaccia della riga di comando di Azure.
-
->[!NOTE]
->Poiché le altre impostazioni potrebbero essere interessate dalla versione del runtime, è necessario modificare la versione nel portale. Il portale esegue automaticamente gli altri aggiornamenti necessari, ad esempio la versione di Node.js e lo stack di runtime, quando si modificano le versioni del runtime.  
+È anche possibile visualizzare e configurare `FUNCTIONS_EXTENSION_VERSION` dall'interfaccia della riga di comando di Azure.  
 
 Tramite l'interfaccia della riga di comando di Azure, visualizzare la versione corrente del runtime con il comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings).
 
@@ -93,16 +90,36 @@ Verrà visualizzato `FUNCTIONS_EXTENSION_VERSION` nell'output seguente, troncato
 È possibile aggiornare l'impostazione `FUNCTIONS_EXTENSION_VERSION` nell'app per le funzioni con il comando [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings).
 
 ```azurecli-interactive
-az functionapp config appsettings set --name <function_app> \
---resource-group <my_resource_group> \
---settings FUNCTIONS_EXTENSION_VERSION=<version>
+az functionapp config appsettings set --name <FUNCTION_APP> \
+--resource-group <RESOURCE_GROUP> \
+--settings FUNCTIONS_EXTENSION_VERSION=<VERSION>
 ```
 
-Sostituire `<function_app>` con il nome dell'app per le funzioni. Sostituire anche `<my_resource_group>` con il nome del gruppo di risorse per l'app per le funzioni. Sostituire anche `<version>` con una versione valida del runtime 1.x oppure `~2` per la versione 2.x.
+Sostituire `<FUNCTION_APP>` con il nome dell'app per le funzioni. Sostituire anche `<RESOURCE_GROUP>` con il nome del gruppo di risorse per l'app per le funzioni. Sostituire anche `<VERSION>` con una versione specifica o `~3` , o `~2` `~1` .
 
 È possibile eseguire questo comando da [Azure Cloud Shell](../cloud-shell/overview.md) scegliendo **Prova** nell'esempio di codice precedente. È anche possibile usare l'[interfaccia della riga di comando di Azure in locale](/cli/azure/install-azure-cli) per eseguire questo comando dopo l'esecuzione del comando [az login](/cli/azure/reference-index#az-login) per eseguire l'accesso.
 
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
+Per controllare il runtime di funzioni di Azure, usare il cmdlet seguente: 
+
+```powershell
+Get-AzFunctionAppSetting -Name "<FUNCTION_APP>" -ResourceGroupName "<RESOURCE_GROUP>"
+```
+
+Sostituire `<FUNCTION_APP>` con il nome dell'app per le funzioni e `<RESOURCE_GROUP>` . Il valore corrente dell' `FUNCTIONS_EXTENSION_VERSION` impostazione viene restituito nella tabella hash.
+
+Usare lo script seguente per modificare il runtime di funzioni:
+
+```powershell
+Update-AzFunctionAppSetting -Name "<FUNCTION_APP>" -ResourceGroupName "<RESOURCE_GROUP>" -AppSetting @{"FUNCTIONS_EXTENSION_VERSION" = "<VERSION>"} -Force
+```
+
+Come in precedenza, sostituire `<FUNCTION_APP>` con il nome dell'app per le funzioni e `<RESOURCE_GROUP>` con il nome del gruppo di risorse. Sostituire anche `<VERSION>` con la versione specifica o la versione principale, ad esempio `~2` o `~3` . È possibile verificare il valore aggiornato dell' `FUNCTIONS_EXTENSION_VERSION` impostazione nella tabella hash restituita. 
+
+---
+
+L'app per le funzioni viene riavviata dopo la modifica apportata all'impostazione dell'applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

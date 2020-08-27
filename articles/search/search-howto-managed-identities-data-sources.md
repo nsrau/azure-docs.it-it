@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/18/2020
-ms.openlocfilehash: 6b07236fd639c9878c59523f78de5215b173ffc6
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d303de23a04d183d0ca280c3b3591299d883adf7
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553165"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936589"
 ---
 # <a name="set-up-an-indexer-connection-to-a-data-source-using-a-managed-identity-preview"></a>Configurare una connessione dell'indicizzatore a un'origine dati usando un'identità gestita (anteprima)
 
@@ -31,7 +31,7 @@ Questi problemi possono essere risolti impostando la connessione tramite un'iden
 
 ## <a name="using-managed-identities"></a>Uso di identità gestite
 
-Le [identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) sono una funzionalità che fornisce ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (Azure AD). È possibile usare questa funzionalità in Ricerca cognitiva di Azure per creare un oggetto origine dati con una stringa di connessione che non include credenziali. Al servizio di ricerca verrà invece concesso l'accesso all'origine dati tramite il controllo degli accessi in base al ruolo.
+Le [identità gestite](../active-directory/managed-identities-azure-resources/overview.md) sono una funzionalità che fornisce ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (Azure AD). È possibile usare questa funzionalità in Ricerca cognitiva di Azure per creare un oggetto origine dati con una stringa di connessione che non include credenziali. Al servizio di ricerca verrà invece concesso l'accesso all'origine dati tramite il controllo degli accessi in base al ruolo.
 
 Quando si configura un'origine dati usando un'identità gestita, è possibile modificare le credenziali dell'origine dati e gli indicizzatori saranno comunque in grado di connettersi all'origine dati. È anche possibile creare oggetti origine dati nel codice senza dover includere una chiave dell'account o usare Key Vault per recuperare una chiave dell'account.
 
