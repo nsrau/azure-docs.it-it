@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/06/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: a77172aacc4c58e6430339328410744cc866def3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce5882f2621dc5b8c48bcf5be6d4ea3a2f723bfe
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207125"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962962"
 ---
 # <a name="azure-app-service-access-restrictions"></a>Restrizioni di accesso al servizio app Azure
 
@@ -94,7 +94,7 @@ Oltre a essere in grado di controllare l'accesso all'app, è anche possibile lim
 
 ## <a name="programmatic-manipulation-of-access-restriction-rules"></a>Manipolazione a livello di codice delle regole di restrizione di accesso ##
 
-L'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/webapp/config/access-restriction?view=azure-cli-latest) e [Azure PowerShell](https://docs.microsoft.com/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-3.1.0) supporta la modifica delle restrizioni di accesso. Esempio di aggiunta di una restrizione di accesso usando l'interfaccia della riga di comando:
+L'interfaccia della riga di comando di [Azure](/cli/azure/webapp/config/access-restriction?view=azure-cli-latest) e [Azure PowerShell](/powershell/module/Az.Websites/Add-AzWebAppAccessRestrictionRule?view=azps-3.1.0) supporta la modifica delle restrizioni di accesso. Esempio di aggiunta di una restrizione di accesso usando l'interfaccia della riga di comando:
 
 ```azurecli-interactive
 az webapp config access-restriction add --resource-group ResourceGroup --name AppName \
@@ -107,7 +107,7 @@ Add-AzWebAppAccessRestrictionRule -ResourceGroupName "ResourceGroup" -WebAppName
     -Name "Ip example rule" -Priority 100 -Action Allow -IpAddress 122.133.144.0/24
 ```
 
-I valori possono essere impostati anche manualmente con un'operazione di inserimento dell' [API REST di Azure](https://docs.microsoft.com/rest/api/azure/) nella configurazione dell'app in Gestione risorse o usando un modello di Azure Resource Manager. Come esempio, è possibile usare resources.azure.com e modificare il blocco ipSecurityRestrictions per aggiungere il JSON necessario.
+I valori possono essere impostati anche manualmente con un'operazione di inserimento dell' [API REST di Azure](/rest/api/azure/) nella configurazione dell'app in Gestione risorse o usando un modello di Azure Resource Manager. Come esempio, è possibile usare resources.azure.com e modificare il blocco ipSecurityRestrictions per aggiungere il JSON necessario.
 
 Il percorso per questa informazione in Gestione risorse è:
 
@@ -139,4 +139,4 @@ Le restrizioni di accesso sono disponibili anche per le app per le funzioni con 
 [Integrazione del gateway applicazione con gli endpoint di servizio](networking/app-gateway-with-service-endpoints.md)
 
 <!--Links-->
-[serviceendpoints]: https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview
+[serviceendpoints]: ../virtual-network/virtual-network-service-endpoints-overview.md

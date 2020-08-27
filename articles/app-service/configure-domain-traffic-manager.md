@@ -5,21 +5,21 @@ ms.assetid: 0f96c0e7-0901-489b-a95a-e3b66ca0a1c2
 ms.topic: article
 ms.date: 03/05/2020
 ms.custom: seodec18
-ms.openlocfilehash: 5ae68a8871bc2894191644e4ab183be4b469bf16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e8d5fa14678a2a26234dfcd73f4a50af62ca7aa
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82610242"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962877"
 ---
 # <a name="configure-a-custom-domain-name-in-azure-app-service-with-traffic-manager-integration"></a>Configurare un nome di dominio personalizzato in app Azure servizio con l'integrazione di gestione traffico
 
 [!INCLUDE [web-selector](../../includes/websites-custom-domain-selector.md)]
 
 > [!NOTE]
-> Per i servizi cloud, vedere [Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure](../cloud-services/cloud-services-custom-domain-name.md).
+> Per i servizi cloud, vedere [Configurazione di un nome di dominio personalizzato per un servizio cloud di Azure](../cloud-services/cloud-services-custom-domain-name-portal.md).
 
-Quando si usa [Gestione traffico di Azure](/azure/traffic-manager/) per bilanciare il carico del traffico verso il [servizio app Azure](overview.md), è possibile accedere all'app del servizio app usando ** \<traffic-manager-endpoint> . trafficmanager.NET**. È possibile assegnare un nome di dominio personalizzato, ad esempio www \. contoso.com, all'app del servizio app per fornire un nome di dominio più riconoscibile per gli utenti.
+Quando si usa [Gestione traffico di Azure](../traffic-manager/index.yml) per bilanciare il carico del traffico verso il [servizio app Azure](overview.md), è possibile accedere all'app del servizio app usando ** \<traffic-manager-endpoint> . trafficmanager.NET**. È possibile assegnare un nome di dominio personalizzato, ad esempio www \. contoso.com, all'app del servizio app per fornire un nome di dominio più riconoscibile per gli utenti.
 
 Questo articolo illustra come configurare un nome di dominio personalizzato con un'app del servizio app integrata con [Gestione traffico](../traffic-manager/traffic-manager-overview.md).
 
@@ -55,7 +55,7 @@ Fare clic su **Applica**.
 
 ## <a name="create-traffic-manager-endpoint"></a>Crea endpoint di gestione traffico
 
-Seguendo i passaggi descritti in [aggiungere o eliminare endpoint](../traffic-manager/traffic-manager-endpoints.md), aggiungere l'app del servizio app come endpoint nel profilo di gestione traffico.
+Seguendo i passaggi descritti in [aggiungere o eliminare endpoint](../traffic-manager/traffic-manager-manage-endpoints.md), aggiungere l'app del servizio app come endpoint nel profilo di gestione traffico.
 
 Quando l'app del servizio app si trova in un piano tariffario supportato, viene visualizzata nell'elenco delle destinazioni del servizio app disponibili quando si aggiunge l'endpoint. Se l'app non è elencata, [verificare il piano tariffario dell'app](#prepare-the-app).
 

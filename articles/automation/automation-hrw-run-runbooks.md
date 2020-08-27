@@ -3,14 +3,14 @@ title: Eseguire runbook di Automazione di Azure in un ruolo di lavoro ibrido per
 description: Questo articolo illustra come eseguire runbook in computer presenti nel data center locale o in un provider di servizi cloud con il ruolo di lavoro ibrido per runbook.
 services: automation
 ms.subservice: process-automation
-ms.date: 01/29/2019
+ms.date: 08/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 22ab982abe9f73aa77cb9bb2c8d3eaa383bc42fb
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 13c982dcfab21371ea6017f730065cc5ced4b79e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186215"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959570"
 ---
 # <a name="run-runbooks-on-a-hybrid-runbook-worker"></a>Eseguire runbook in un ruolo di lavoro ibrido per runbook
 
@@ -304,6 +304,14 @@ Quando si avvia un runbook con PowerShell, usare il parametro `RunOn` con il cmd
 ```azurepowershell-interactive
 Start-AzAutomationRunbook –AutomationAccountName "MyAutomationAccount" –Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
+
+## <a name="logging"></a>Registrazione
+
+Per semplificare la risoluzione dei problemi relativi a manuali operativi in esecuzione in un ruolo di lavoro ibrido per Runbook, i log vengono archiviati localmente nel percorso seguente:
+
+* In Windows in `C:\ProgramData\Microsoft\System Center\Orchestrator\<version>\SMA\Sandboxes` per la registrazione dettagliata del processo di runtime del processo. Gli eventi di stato del processo di Runbook di livello elevato vengono scritti nel registro eventi **Logs\Microsoft-Automation\Operations dell'applicazione e dei servizi** .
+
+* In Linux i log del ruolo di lavoro ibrido dell'utente sono reperibili in e i log del ruolo di `/home/nxautomation/run/worker.log` lavoro di System Runbook sono reperibili in `/var/opt/microsoft/omsagent/run/automationworker/worker.log` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

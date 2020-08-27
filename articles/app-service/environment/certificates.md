@@ -7,16 +7,16 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 73ee2165b8750b79bc33c76604ffed295fd1ea48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 306445e26e5b236b49273b9ab8888ecc610bc075
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831880"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962044"
 ---
 # <a name="certificates-and-the-app-service-environment"></a>Certificati e Ambiente del servizio app 
 
-L'Ambiente del servizio app (ASE) è una distribuzione del servizio app di Azure che viene eseguita nella rete virtuale di Azure (VNet). Può essere distribuita con un endpoint applicazione accessibile da Internet o un endpoint applicazione che si trova in una rete virtuale. Se l'Ambiente del servizio app viene distribuito con un endpoint accessibile da Internet, la distribuzione viene chiamata Ambiente del servizio app esterno. Se l'Ambiente del servizio app viene distribuito con un endpoint nel VNet, la distribuzione viene chiamata Ambiente del servizio app con bilanciamento del carico interno. Per altre informazioni sull'Ambiente del servizio app con bilanciamento del carico interno, vedere il documento [Creazione e uso di un Ambiente del servizio app con bilanciamento del carico interno](https://docs.microsoft.com/azure/app-service/environment/create-ilb-ase).
+L'Ambiente del servizio app (ASE) è una distribuzione del servizio app di Azure che viene eseguita nella rete virtuale di Azure (VNet). Può essere distribuita con un endpoint applicazione accessibile da Internet o un endpoint applicazione che si trova in una rete virtuale. Se l'Ambiente del servizio app viene distribuito con un endpoint accessibile da Internet, la distribuzione viene chiamata Ambiente del servizio app esterno. Se l'Ambiente del servizio app viene distribuito con un endpoint nel VNet, la distribuzione viene chiamata Ambiente del servizio app con bilanciamento del carico interno. Per altre informazioni sull'Ambiente del servizio app con bilanciamento del carico interno, vedere il documento [Creazione e uso di un Ambiente del servizio app con bilanciamento del carico interno](./create-ilb-ase.md).
 
 L'ambiente del servizio app è un sistema a tenant singolo. Poiché si tratta di un tenant singolo, esistono alcune funzionalità disponibili solo con un Ambiente del servizio app che non sono disponibili nel servizio app multi-tenant. 
 

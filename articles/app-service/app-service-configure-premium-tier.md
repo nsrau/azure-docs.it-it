@@ -6,12 +6,12 @@ ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 07/25/2018
 ms.custom: seodec18
-ms.openlocfilehash: d9ef246079fc95b79a2dc7a3d33eba79da70c55a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4db7c6bf29d0874b5441a8a0eb90f7d1ada33d9c
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050379"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962435"
 ---
 # <a name="configure-premiumv2-tier-for-azure-app-service"></a>Configurare il livello PremiumV2 per il servizio app di Azure
 
@@ -116,4 +116,4 @@ New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
 ## <a name="more-resources"></a>Altre risorse
 
 [Aumentare le prestazioni di un'app in Azure](manage-scale-up.md)  
-[Scalare il conteggio delle istanze manualmente o automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md)
+[Scalare il conteggio delle istanze manualmente o automaticamente](../azure-monitor/platform/autoscale-get-started.md)

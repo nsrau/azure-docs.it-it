@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/11/2017
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 9359fe07818b3c5fbc08082cdf1f96195a7836ab
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: d0ac8e0cf187d1a6a329f2c7332c9ec37018d4cf
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080610"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962520"
 ---
 # <a name="create-a-web-app-in-an-app-service-environment-v1"></a>Creare un'app Web in un ambiente del servizio app (versione 1)
 
@@ -57,7 +57,7 @@ Questa esercitazione presuppone che l'utente abbia creato un ambiente del serviz
     Se l'ambiente del servizio app usa un indirizzo VIP interno, l'URL di un'app in tale ambiente del servizio app è: [*nomesito*].[*sottodominio specificato durante la creazione dell'ambiente del servizio app*]   
     Dopo la selezione di ASP durante la creazione dell'ambiente del servizio app, l'aggiornamento del sottodominio verrà visualizzato in **Nome**
 
-## <a name="create-an-app-service-plan"></a><a name="createplan"></a>Creare un piano di servizio app
+## <a name="create-an-app-service-plan"></a><a name="createplan"></a> Creare un piano di servizio app
 Quando si crea un piano di servizio app in un ambiente del servizio app, le scelte relative al ruolo di lavoro sono diverse perché in un ambiente del servizio app non esistono ruoli di lavoro condivisi.  I ruoli di lavoro da usare sono quelli che sono stati allocati all'ambiente del servizio app dall'amministratore.  Ciò significa che per creare un nuovo piano, è necessario disporre di più processi di lavoro allocati al pool di lavoro dell'ambiente del servizio app rispetto al numero totale di istanze in tutti i piani già presenti nel pool di lavoro.  Se nell'ambiente del servizio app non sono presenti pool di lavoro sufficienti per creare il piano, è necessario chiedere all'amministratore dell'ambiente di aggiungerli.
 
 Un'altra differenza dei piani di servizio app ospitati in un ambiente del servizio app è data dall'impossibilità di scegliere il prezzo.  Con un ambiente del servizio app si paga infatti per le risorse di calcolo usate dal sistema e non viene addebito nulla per i piani di servizio app presenti in tale ambiente.  In genere, quando si crea un piano di servizio app è necessario selezionare un piano tariffario che determina la fatturazione.  Un ambiente del servizio app è essenzialmente una posizione privata in cui è possibile creare contenuti.  Si paga per l'ambiente e non per ospitare il contenuto.
@@ -105,4 +105,4 @@ Dopo aver creato l'app Web e il piano di servizio app, è consigliabile aumentar
 [HowtoScale]: app-service-web-scale-a-web-app-in-an-app-service-environment.md
 [HowtoConfigureASE]: app-service-web-configure-an-app-service-environment.md
 [ResourceGroups]: ../../azure-resource-manager/management/overview.md
-[AzurePowershell]: https://azure.microsoft.com/documentation/articles/powershell-install-configure/
+[AzurePowershell]: /powershell/azure/?view=azps-3.8.0

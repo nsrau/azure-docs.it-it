@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 03/20/2020
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: 51b6be8b4deffd81da6c0b714bc6afeff4b06ab2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fa30c6c2c3ecd9c9c119fee80b7ef90999e42d30
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87073949"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962622"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Distribuzione continua nel servizio app di Azure
 
@@ -23,11 +23,11 @@ Per ulteriori informazioni sui servizi di controllo del codice sorgente, vedere 
 
 ## <a name="authorize-azure-app-service"></a>Autorizzare il servizio app Azure 
 
-Per usare Azure Repos, assicurarsi che l'organizzazione Azure DevOps sia collegata alla sottoscrizione di Azure. Per altre informazioni, vedere [configurare un account Azure DevOps Services in modo che possa essere distribuito in un'app Web](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
+Per usare Azure Repos, assicurarsi che l'organizzazione Azure DevOps sia collegata alla sottoscrizione di Azure. Per altre informazioni, vedere [configurare un account Azure DevOps Services in modo che possa essere distribuito in un'app Web](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
 
 Per bitbucket o GitHub, autorizzare app Azure servizio a connettersi al repository. È sufficiente autorizzare un servizio di controllo del codice sorgente una sola volta. 
 
-1. Nella [portale di Azure](https://portal.azure.com)cercare **Servizi app** e selezionare.
+1. Nella [portale di Azure](https://portal.azure.com)cercare  **Servizi app** e selezionare.
 
    ![Cercare i servizi app.](media/app-service-continuous-deployment/search-for-app-services.png)
 
@@ -58,7 +58,7 @@ Dopo aver autorizzato un servizio di controllo del codice sorgente, configurare 
 1. Selezionare il provider del controllo del codice sorgente autorizzato nella pagina **centro distribuzione** e selezionare **continua**. Per GitHub o Bitbucket, è anche possibile selezionare **Cambia account** per modificare l'account autorizzato. 
    
    > [!NOTE]
-   > Per usare Azure Repos, assicurarsi che l'organizzazione Azure DevOps Services sia collegata alla sottoscrizione di Azure. Per altre informazioni, vedere [configurare un account Azure DevOps Services in modo che possa essere distribuito in un'app Web](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
+   > Per usare Azure Repos, assicurarsi che l'organizzazione Azure DevOps Services sia collegata alla sottoscrizione di Azure. Per altre informazioni, vedere [configurare un account Azure DevOps Services in modo che possa essere distribuito in un'app Web](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
    
 1. Per GitHub o Azure Repos, nella pagina **provider di compilazione** selezionare **servizio di compilazione servizio app**e quindi fare clic su **continua**. Bitbucket usa sempre il servizio di compilazione del servizio app.
    
@@ -69,16 +69,16 @@ Dopo aver autorizzato un servizio di controllo del codice sorgente, configurare 
    - Per GitHub, elenco a discesa e selezionare l' **organizzazione**, il **repository**e il **ramo** che si desidera distribuire in modo continuo.
      
      > [!NOTE]
-     > Se non viene visualizzato alcun repository, potrebbe essere necessario autorizzare app Azure servizio in GitHub. Passare al repository GitHub e passare a **Impostazioni**  >  **applicazioni**  >  **app OAuth autorizzate**. Selezionare **app Azure servizio**e quindi fare clic su **Concedi**. Per i repository dell'organizzazione, è necessario essere un proprietario dell'organizzazione per concedere le autorizzazioni.
+     > Se non viene visualizzato alcun repository, potrebbe essere necessario autorizzare app Azure servizio in GitHub. Passare al repository GitHub e passare a **Impostazioni**  >  **applicazioni**  >  **app OAuth autorizzate**. Selezionare **app Azure servizio**e quindi fare clic su **Concedi**. Per concedere le autorizzazioni per i repository dell'organizzazione, è necessario essere un proprietario dell'organizzazione.
      
    - Per bitbucket selezionare il **Team**, il **repository**e il **ramo** di bitbucket che si desidera distribuire in modo continuo.
      
    - Per Azure Repos selezionare l'organizzazione, il **progetto**, il **repository**e il **ramo** di **Azure DevOps**che si vuole distribuire in modo continuo.
      
      > [!NOTE]
-     > Se l'organizzazione di Azure DevOps non è inclusa nell'elenco, assicurarsi che sia collegata alla sottoscrizione di Azure. Per ulteriori informazioni, vedere la pagina relativa [alla configurazione di un account Azure DevOps Services in modo che possa essere distribuito in un'app Web](https://docs.microsoft.com/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
+     > Se l'organizzazione di Azure DevOps non è inclusa nell'elenco, assicurarsi che sia collegata alla sottoscrizione di Azure. Per ulteriori informazioni, vedere la pagina relativa [alla configurazione di un account Azure DevOps Services in modo che possa essere distribuito in un'app Web](/azure/devops/pipelines/apps/cd/deploy-webdeploy-webapps?view=azure-devops).
      
-1. Seleziona **Continua**.
+1. Selezionare **Continua**.
    
    ![Immettere le informazioni sul repository, quindi selezionare continue (continua).](media/app-service-continuous-deployment/configure-kudu.png)
    
@@ -119,7 +119,7 @@ Per app Azure servizio per la creazione di recapito continuo con Azure Pipelines
 1. Nella sezione **codice** della pagina **Configura** selezionare l' **organizzazione**, il **repository**e il **ramo** che si desidera distribuire in modo continuo e selezionare **continua**.
      
      > [!NOTE]
-     > Se non viene visualizzato alcun repository, potrebbe essere necessario autorizzare app Azure servizio in GitHub. Passare al repository GitHub e passare a **Impostazioni**  >  **applicazioni**  >  **app OAuth autorizzate**. Selezionare **app Azure servizio**e quindi fare clic su **Concedi**. Per i repository dell'organizzazione, è necessario essere un proprietario dell'organizzazione per concedere le autorizzazioni.
+     > Se non viene visualizzato alcun repository, potrebbe essere necessario autorizzare app Azure servizio in GitHub. Passare al repository GitHub e passare a **Impostazioni**  >  **applicazioni**  >  **app OAuth autorizzate**. Selezionare **app Azure servizio**e quindi fare clic su **Concedi**. Per concedere le autorizzazioni per i repository dell'organizzazione, è necessario essere un proprietario dell'organizzazione.
        
     Nella sezione **Build (compila** ) specificare l'organizzazione, il progetto e il Framework del linguaggio Azure DevOps che Azure Pipelines deve usare per eseguire le attività di compilazione e quindi selezionare **continue (continua**).
 

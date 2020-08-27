@@ -6,12 +6,12 @@ ms.assetid: dea3f41e-cf35-481b-a6bc-33d7fc9d01b1
 ms.topic: article
 ms.date: 08/12/2020
 ms.custom: seodec18
-ms.openlocfilehash: 3b339b359ddbaf105b95bdf5d94ee0f66f339a82
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: f30221de81b6bef199c0a25e770558c4db8c4006
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611450"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958513"
 ---
 # <a name="azure-app-service-plan-overview"></a>Panoramica del piano di servizio app di Azure
 
@@ -57,7 +57,7 @@ Quando si crea un'app nel servizio app, questa viene inserita in un piano di ser
 
 Il piano di servizio app è quindi l'unità di scala delle app del servizio app. Se il piano è configurato per eseguire cinque istanze di VM, tutte le app nel piano vengono eseguite in tutte le cinque istanze. Se il piano è configurato per la scalabilità automatica, vengono aumentate contemporaneamente le istanze di tutte le app nel piano in base alle impostazioni di scalabilità automatica.
 
-Per informazioni sull'aumento del numero di istanze di un'app, vedere [Aumentare/Ridurre il numero di istanze manualmente o automaticamente](../monitoring-and-diagnostics/insights-how-to-scale.md).
+Per informazioni sull'aumento del numero di istanze di un'app, vedere [Aumentare/Ridurre il numero di istanze manualmente o automaticamente](../azure-monitor/platform/autoscale-get-started.md).
 
 <a name="cost"></a>
 

@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 1a6c109907c20e06796744d42feae20dc53f2b52
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 89162a0b8ca20e59319802f9e2359c2f27ff163f
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88207535"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962180"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app nel Servizio app di Azure
 ## <a name="overview"></a>Panoramica
@@ -46,12 +46,12 @@ Per abilitare la registrazione delle applicazioni per le app di Windows nell' [p
 
 Selezionare **on** per **registrazione applicazioni (file System)** o **registrazione applicazione (BLOB)** o entrambi. 
 
-L'opzione **filesystem** è a scopo di debug temporaneo e si disattiva in 12 ore. L'opzione **BLOB** è per la registrazione a lungo termine e necessita di un contenitore di archiviazione BLOB in cui scrivere i log.  L'opzione **BLOB** include anche informazioni aggiuntive nei messaggi di log, ad esempio l'ID dell'istanza della macchina virtuale di origine del messaggio di log ( `InstanceId` ), l'ID del thread ( `Tid` ) e un timestamp più granulare ( [`EventTickCount`](https://docs.microsoft.com/dotnet/api/system.datetime.ticks) ).
+L'opzione **filesystem** è a scopo di debug temporaneo e si disattiva in 12 ore. L'opzione **BLOB** è per la registrazione a lungo termine e necessita di un contenitore di archiviazione BLOB in cui scrivere i log.  L'opzione **BLOB** include anche informazioni aggiuntive nei messaggi di log, ad esempio l'ID dell'istanza della macchina virtuale di origine del messaggio di log ( `InstanceId` ), l'ID del thread ( `Tid` ) e un timestamp più granulare ( [`EventTickCount`](/dotnet/api/system.datetime.ticks) ).
 
 > [!NOTE]
 > Attualmente solo i log applicazioni .NET possono essere scritti nell'archiviazione BLOB. I log applicazioni Java, PHP, Node.js e Python possono essere archiviati solo nel servizio app file system (senza modifiche al codice per scrivere i log nell'archiviazione esterna).
 >
-> Inoltre, se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/common/storage-create-storage-account.md), è necessario reimpostare la rispettiva configurazione di registrazione in modo da usare le chiavi di accesso aggiornate. A tale scopo, effettuare le seguenti operazioni:
+> Inoltre, se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/common/storage-account-create.md), è necessario reimpostare la rispettiva configurazione di registrazione in modo da usare le chiavi di accesso aggiornate. A tale scopo, effettuare le seguenti operazioni:
 >
 > 1. Nella scheda **Configura** impostare la funzionalità di registrazione corrispondente su **Off**. Salvare l’impostazione.
 > 2. Abilitare di nuovo la registrazione al BLOB dell'account di archiviazione. Salvare l’impostazione.
@@ -62,7 +62,7 @@ Consente di selezionare il **livello**o il livello dei dettagli da registrare. L
 
 | Level | Categorie incluse |
 |-|-|
-|**Disabilitato** | Nessuno |
+|**Disabilitato** | nessuno |
 |**Error (Errore) (Error (Errore)e)** | Errore, Errore critico |
 |**Warning** | Avviso, Errore, Errore critico|
 |**Informazioni** | Informazioni, Avviso, Errore, Errore critico|
@@ -89,7 +89,7 @@ Per la **registrazione del server Web**, selezionare **archiviazione** per archi
 In **periodo di conservazione (giorni)** impostare il numero di giorni per cui conservare i log.
 
 > [!NOTE]
-> Se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/common/storage-create-storage-account.md), è necessario reimpostare la configurazione di registrazione corrispondente per l'uso delle chiavi aggiornate. A tale scopo, effettuare le seguenti operazioni:
+> Se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/common/storage-account-create.md), è necessario reimpostare la configurazione di registrazione corrispondente per l'uso delle chiavi aggiornate. A tale scopo, effettuare le seguenti operazioni:
 >
 > 1. Nella scheda **Configura** impostare la funzionalità di registrazione corrispondente su **Off**. Salvare l’impostazione.
 > 2. Abilitare di nuovo la registrazione al BLOB dell'account di archiviazione. Salvare l’impostazione.
@@ -116,7 +116,7 @@ Nel codice dell'applicazione si usano le normali funzionalità di registrazione 
     System.Diagnostics.Trace.TraceError("If you're seeing this, something bad happened");
     ```
 
-- Per impostazione predefinita, ASP.NET Core usa il provider di registrazione [Microsoft. Extensions. Logging. AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) . Per altre informazioni, vedere [Registrazione in ASP.NET Core- Registrazione in Azure](https://docs.microsoft.com/aspnet/core/fundamentals/logging/).
+- Per impostazione predefinita, ASP.NET Core usa il provider di registrazione [Microsoft. Extensions. Logging. AzureAppServices](https://www.nuget.org/packages/Microsoft.Extensions.Logging.AzureAppServices) . Per altre informazioni, vedere [Registrazione in ASP.NET Core- Registrazione in Azure](/aspnet/core/fundamentals/logging/).
 
 ## <a name="stream-logs"></a>Eseguire lo streaming dei log
 
@@ -151,7 +151,7 @@ az webapp log tail --name appname --resource-group myResourceGroup --path http
 
 ### <a name="in-local-terminal"></a>Nel terminale locale
 
-Per eseguire lo streaming dei log nella console locale, [installare l'interfaccia](https://docs.microsoft.com/cli/azure/install-azure-cli) della riga di comando di Azure e [accedere all'account](https://docs.microsoft.com/cli/azure/authenticate-azure-cli). Una volta effettuato l'accesso, seguire le [istruzioni per cloud Shell](#in-cloud-shell)
+Per eseguire lo streaming dei log nella console locale, [installare l'interfaccia](/cli/azure/install-azure-cli) della riga di comando di Azure e [accedere all'account](/cli/azure/authenticate-azure-cli). Una volta effettuato l'accesso, seguire le [istruzioni per cloud Shell](#in-cloud-shell)
 
 ## <a name="access-log-files"></a>Accedere ai file di log
 

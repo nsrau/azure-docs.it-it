@@ -5,12 +5,12 @@ ms.assetid: 70fb0e6e-8727-4cca-ba82-98a4d21586ff
 ms.topic: article
 ms.date: 11/24/2017
 ms.custom: seodec18
-ms.openlocfilehash: 0d0d0d19b9b84649867085a05efa656131e48c5a
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: ae2d91233df25885bdfd765481f4bb6a1a36da37
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86220721"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958729"
 ---
 # <a name="buy-a-custom-domain-name-for-azure-app-service"></a>Acquistare un nome di dominio personalizzato per Servizio app di Azure
 
@@ -22,7 +22,7 @@ Per una macchina virtuale di Azure o per Archiviazione di Azure, vedere [Assign 
 
 Per completare questa esercitazione:
 
-* [Creare un'app del servizio app](/azure/app-service/) oppure usare un'app creata per un'altra esercitazione.
+* [Creare un'app del servizio app](./index.yml) oppure usare un'app creata per un'altra esercitazione.
 * [Rimuovere il limite di spesa per la sottoscrizione](../cost-management-billing/manage/spending-limit.md#remove). Non è possibile acquistare domini del servizio app con crediti della sottoscrizione gratuiti.
 
 ## <a name="prepare-the-app"></a>Preparare l'app

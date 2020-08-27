@@ -7,12 +7,12 @@ ms.assetid: b8783c10-3a4a-4dd6-af8c-856baafbdde5
 ms.topic: article
 ms.date: 08/03/2016
 ms.custom: seodec18
-ms.openlocfilehash: 2ef4862b629f5d192049c2cb9236a3da2b411960
-ms.sourcegitcommit: 1692e86772217fcd36d34914e4fb4868d145687b
+ms.openlocfilehash: a9d3de5d4a88c782ad541ceb4916ec90a3bdd7b5
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/29/2020
-ms.locfileid: "84170767"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958253"
 ---
 # <a name="troubleshoot-slow-app-performance-issues-in-azure-app-service"></a>Risoluzione dei problemi di rallentamento delle prestazioni delle app nel Servizio app di Azure
 Questo articolo fornisce informazioni utili per la risoluzione dei rallentamenti delle prestazioni delle app nel [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714).
@@ -43,7 +43,7 @@ Il [servizio app](overview.md) presenta diverse opzioni per ogni passaggio.
 
 ### <a name="1-observe-and-monitor-application-behavior"></a>1. Osservare e monitorare il comportamento dell'applicazione
 #### <a name="track-service-health"></a>Tenere traccia dell'integrità del servizio
-Microsoft Azure pubblica un annuncio ogni volta che si verifica un'interruzione del servizio o una riduzione delle prestazioni. È possibile verificare l'integrità del servizio nel [portale di Azure](https://portal.azure.com/). Per altre informazioni, vedere [Tenere traccia dell’integrità del servizio](../monitoring-and-diagnostics/insights-service-health.md).
+Microsoft Azure pubblica un annuncio ogni volta che si verifica un'interruzione del servizio o una riduzione delle prestazioni. È possibile verificare l'integrità del servizio nel [portale di Azure](https://portal.azure.com/). Per altre informazioni, vedere [Tenere traccia dell’integrità del servizio](../service-health/service-notifications.md).
 
 #### <a name="monitor-your-app"></a>Monitorare l'app
 Questa opzione consente di trovare eventuali problemi nell'applicazione. Nel pannello dell'app fare clic sul riquadro **Richieste ed errori**. Il pannello **Metrica** mostra tutte le metriche che si possono aggiungere.
@@ -61,7 +61,7 @@ Le metriche più comunemente monitorate per le app sono
 Per altre informazioni, vedere:
 
 * [Monitorare le app in Servizio app di Azure](web-sites-monitor.md)
-* [Ricevere notifiche di avviso](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
+* [Ricevere notifiche di avviso](../azure-monitor/platform/alerts-overview.md)
 
 #### <a name="monitor-web-endpoint-status"></a>Monitorare lo stato degli endpoint
 Se si esegue l'app nel piano tariffario **Standard**, il servizio app consente di monitorare due endpoint da tre località geografiche.
@@ -161,4 +161,4 @@ Il riavvio è spesso il modo più semplice per risolvere problemi occasionali. N
 
  ![Riavviare l'app per risolvere i problemi di prestazioni](./media/app-service-web-troubleshoot-performance-degradation/2-restart.png)
 
-È anche possibile gestire l'app usando Azure PowerShell. Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../powershell-azure-resource-manager.md).
+È anche possibile gestire l'app usando Azure PowerShell. Per altre informazioni, vedere [Uso di Azure PowerShell con Gestione risorse di Azure](../azure-resource-manager/management/manage-resources-powershell.md).

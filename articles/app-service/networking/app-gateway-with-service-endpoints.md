@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 12/09/2019
 ms.author: madsd
 ms.custom: seodec18
-ms.openlocfilehash: 2bedd8d9ab0b879886042de3dc2fcff7f7b36f2f
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: fdb502685259a5e12bf0182c36aa6c73ec7c1dd5
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080933"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958934"
 ---
 # <a name="application-gateway-integration-with-service-endpoints"></a>Integrazione del gateway applicazione con gli endpoint di servizio
 Sono disponibili tre varianti di servizio app che richiedono una configurazione leggermente diversa dell'integrazione con applicazione Azure gateway. Le varianti includono il servizio app normale, noto anche come ambiente del servizio app (ASE) multi-tenant, Internal Load Balancer (ILB) e ambiente del servizio app esterno. Questo articolo illustra come configurarlo con il servizio app (multi-tenant) e come discutere le considerazioni su ILB e l'ambiente del servizio app esterno.
@@ -84,6 +84,6 @@ az webapp config access-restriction add --resource-group myRG --name myWebApp --
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per ulteriori informazioni sulla ambiente del servizio app, vedere [ambiente del servizio app documentazione](https://docs.microsoft.com/azure/app-service/environment).
+Per ulteriori informazioni sulla ambiente del servizio app, vedere [ambiente del servizio app documentazione](/azure/app-service/environment).
 
 Per proteggere ulteriormente l'app Web, è possibile trovare informazioni su Web Application Firewall nel gateway applicazione nella [documentazione di Azure Web Application Firewall](../../web-application-firewall/ag/ag-overview.md).

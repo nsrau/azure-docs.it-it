@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/06/2020
-ms.openlocfilehash: d507db415a2438c97444ca008f0c9b182306242b
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: e1fa2fe11873d08fae5add1ee3206f6f887975eb
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121528"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88960918"
 ---
 # <a name="log-analytics-agent-overview"></a>Panoramica dell'agente di Log Analytics
 L'agente di Azure Log Analytics è stato sviluppato per la gestione completa di macchine virtuali in qualsiasi cloud, di computer locali e di computer monitorati da [System Center Operations Manager](/system-center/scom/). Gli agenti Windows e Linux inviano i dati raccolti da origini diverse all'area di lavoro Log Analytics in Monitoraggio di Azure, nonché qualsiasi log o metrica univoci come definito in una soluzione di monitoraggio. L'agente di Log Analytics supporta anche informazioni dettagliate e altri servizi in Monitoraggio di Azure, ad esempio [Monitoraggio di Azure per le macchine virtuali](../insights/vminsights-enable-overview.md), [Centro sicurezza di Azure](../../security-center/index.yml) e [Automazione di Azure](../../automation/automation-intro.md).
@@ -118,8 +118,8 @@ A partire dalle versioni rilasciate dopo il mese di agosto 2018, al modello di s
 ### <a name="python-2-requirement"></a>Requisito di Python 2
  L'agente di Log Analytics richiede Python 2. Se la macchina virtuale usa una distribuzione che non include Python 2 per impostazione predefinita, è necessario installarla. I comandi di esempio seguenti installeranno Python 2 in distribuzioni diverse.
 
- - Red Hat, CentOS, Oracle:`yum install -y python2`
- - Ubuntu, Debian:`apt-get install -y python2`
+ - Red Hat, CentOS, Oracle: `yum install -y python2`
+ - Ubuntu, Debian: `apt-get install -y python2`
  - SUSE: `zypper install -y python2`
 
 L'eseguibile di python2 deve essere associato a *Python* usando la procedura seguente:
@@ -130,7 +130,7 @@ L'eseguibile di python2 deve essere associato a *Python* usando la procedura seg
     sudo update-alternatives ––display python
     ```
 
-2. Eseguire il comando seguente. Sostituire *\<priority\>* con un numero maggiore di qualsiasi priorità del collegamento esistente o 1 se non esiste alcun collegamento.
+2. Eseguire il comando indicato di seguito. Sostituire *\<priority\>* con un numero maggiore di qualsiasi priorità del collegamento esistente o 1 se non esiste alcun collegamento.
 
     ```
     sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 <priority>
@@ -213,9 +213,6 @@ L'agente Windows e Linux supporta la comunicazione con Monitoraggio di Azure tra
 Per l'agente di Linux, è possibile specificare il server proxy durante l'installazione o [dopo l'installazione](agent-manage.md#update-proxy-settings) modificando il file di configurazione proxy.conf.  Il valore di configurazione del proxy dell'agente Linux ha la sintassi seguente:
 
 `[protocol://][user:password@]proxyhost[:port]`
-
-> [!NOTE]
-> Se il server proxy non richiede l'autenticazione, l'agente Linux richiede tuttavia di immettere uno pseudoutente o una pseudopassword. Può trattarsi di qualsiasi nome utente o password.
 
 |Proprietà| Descrizione |
 |--------|-------------|

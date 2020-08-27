@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/01/2016
 ms.author: dariac
 ms.custom: seodec18
-ms.openlocfilehash: ded812d5d7a0440466e7284b56c90965ea00406e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0a25ae41a5f4ed73148f629799ca4865d756a769
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75768487"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962452"
 ---
 # <a name="best-practices-for-azure-app-service"></a>Procedure consigliate per il servizio app di Azure
 Questo articolo riepiloga le procedure consigliate per l'uso del [servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714). 
@@ -67,7 +67,7 @@ La configurazione predefinita del Servizio app di Azure per le app Node.js mira 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-Per altre informazioni sulle procedure consigliate, vedere la pagina relativa alla [diagnostica del servizio app](https://docs.microsoft.com/azure/app-service/overview-diagnostics) per individuare le procedure consigliate di utilità pratica specifiche per la risorsa.
+Per altre informazioni sulle procedure consigliate, vedere la pagina relativa alla [diagnostica del servizio app](./overview-diagnostics.md) per individuare le procedure consigliate di utilità pratica specifiche per la risorsa.
 
 - Passare all'app Web nel [portale di Azure](https://portal.azure.com).
 - Fare clic su **diagnostica e risoluzione dei problemi** nel percorso di spostamento a sinistra, che consente di aprire la diagnostica del servizio app.

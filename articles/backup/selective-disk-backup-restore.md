@@ -4,12 +4,12 @@ description: Questo articolo illustra come eseguire il backup e il ripristino de
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 44454977a977a85b8735657a439a265467f1bcf5
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 12b5b4cd35d70d8ebbd6b269e82c46984652bd07
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824747"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961993"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Backup e ripristino di dischi selettivi per macchine virtuali di Azure
 
@@ -68,31 +68,31 @@ az backup protection enable-for-vm  --resource-group {ResourceGroup} --vault-nam
 ### <a name="modify-protection-for-already-backed-up-vms-with-azure-cli"></a>Modificare la protezione per le VM già sottoposte a backup con interfaccia della riga di comando
 
 ```azurecli
-az backup protection update-for-vm --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --disk-list-setting exclude --diskslist {LUN number(s) separated by space}
+az backup protection update-for-vm --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM --disk-list-setting exclude --diskslist {LUN number(s) separated by space}
 ```
 
 ### <a name="backup-only-os-disk-during-configure-backup-with-azure-cli"></a>Backup solo del disco del sistema operativo durante la configurazione del backup con l'interfaccia della riga
 
 ```azurecli
-az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name {vaultname} --vm {vmname} --policy-name {policyname} -- exclude-all-data-disks
+az backup protection enable-for-vm --resource-group {resourcegroup} --vault-name {vaultname} --vm {vmname} --policy-name {policyname} --exclude-all-data-disks
 ```
 
 ### <a name="backup-only-os-disk-during-modify-protection-with-azure-cli"></a>Backup solo del disco del sistema operativo durante la modifica della protezione con l'interfaccia della riga
 
 ```azurecli
-az backup protection update-for-vm --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --exclude-all-data-disks
+az backup protection update-for-vm --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM --exclude-all-data-disks
 ```
 
 ### <a name="restore-disks-with-azure-cli"></a>Ripristinare dischi con l'interfaccia della riga di comando di Azure
 
 ```azurecli
-az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} -r {restorepoint} --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --restore-to-staging-storage-account --diskslist {LUN number of the disk(s) to be restored}
+az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM -r {restorepoint} --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --diskslist {LUN number of the disk(s) to be restored}
 ```
 
 ### <a name="restore-only-os-disk-with-azure-cli"></a>Ripristinare solo il disco del sistema operativo con l'interfaccia della riga
 
 ```azurecli
-az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} -r {restorepoint} } --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --restore-to-staging-storage-account --restore-only-osdisk
+az backup restore restore-disks --resource-group {resourcegroup} --vault-name {vaultname} -c {vmname} -i {vmname} -r {restorepoint} } --target-resource-group {targetresourcegroup} --storage-account {storageaccountname} --restore-only-osdisk
 ```
 
 ### <a name="get-protected-item-to-get-disk-exclusion-details-with-azure-cli"></a>Ottenere l'elemento protetto per ottenere i dettagli di esclusione disco con l'interfaccia della riga di comando
@@ -181,7 +181,7 @@ Ogni punto di ripristino contiene le informazioni dei dischi inclusi ed esclusi:
 ### <a name="remove-disk-exclusion-settings-and-get-protected-item-with-azure-cli"></a>Rimuovere le impostazioni di esclusione disco e ottenere un elemento protetto con l'interfaccia della riga di comando
 
 ```azurecli
-az backup protection update-for-vm --vault-name {vaultname} --resource-group {resourcegroup} -c {vmname} -i {vmname} --disk-list-setting resetexclusionsettings
+az backup protection update-for-vm --vault-name {vaultname} --resource-group {resourcegroup} -c {vmname} -i {vmname} --backup-management-type AzureIaasVM --disk-list-setting resetexclusionsettings
 
 az backup item show -c {vmname} -n {vmname} --vault-name {vaultname} --resource-group {resourcegroup} --backup-management-type AzureIaasVM
 ```

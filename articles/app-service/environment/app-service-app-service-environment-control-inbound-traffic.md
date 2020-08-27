@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 01/11/2017
 ms.author: stefsch
 ms.custom: seodec18
-ms.openlocfilehash: 5efca8ab51c789a619e48b1ae96a53494ae411ea
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fe9326ea9ebd5afe981b7ba6c34b1a5d51e084b0
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85831166"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962061"
 ---
 # <a name="how-to-control-inbound-traffic-to-an-app-service-environment"></a>Come controllare il traffico in ingresso a un ambiente del servizio app
 ## <a name="overview"></a>Panoramica
@@ -31,8 +31,8 @@ Prima di bloccare il traffico di rete in ingresso con un gruppo di sicurezza di 
 
 Nell'elenco seguente sono incluse le porte utilizzate da un ambiente del servizio app. Tutte le porte sono di tipo **TCP**, se non indicato diversamente in modo chiaro:
 
-* 454: **porta obbligatoria** usata dall'infrastruttura di Azure per la gestione e la manutenzione degli ambienti del servizio app tramite TLS.  Non bloccare il traffico su questa porta.  Questa porta è sempre associata all'indirizzo VIP pubblico di un ambiente del servizio app.
-* 455: **porta obbligatoria** usata dall'infrastruttura di Azure per la gestione e la manutenzione degli ambienti del servizio app tramite TLS.  Non bloccare il traffico su questa porta.  Questa porta è sempre associata all'indirizzo VIP pubblico di un ambiente del servizio app.
+* 454:  **porta obbligatoria** usata dall'infrastruttura di Azure per la gestione e la manutenzione degli ambienti del servizio app tramite TLS.  Non bloccare il traffico su questa porta.  Questa porta è sempre associata all'indirizzo VIP pubblico di un ambiente del servizio app.
+* 455:  **porta obbligatoria** usata dall'infrastruttura di Azure per la gestione e la manutenzione degli ambienti del servizio app tramite TLS.  Non bloccare il traffico su questa porta.  Questa porta è sempre associata all'indirizzo VIP pubblico di un ambiente del servizio app.
 * 80: porta predefinita per il traffico HTTP in ingresso alle app in esecuzione nei piani di servizio app in un ambiente del servizio app.  In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB dell'ambiente.
 * 443: porta predefinita per il traffico TLS in ingresso verso le app eseguite nei piani di servizio app in un ambiente del servizio app.  In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB dell'ambiente.
 * 21: canale di controllo per il servizio FTP.  Questa porta può essere bloccata in modo sicuro se FTP non è in uso.  In un ambiente del servizio app abilitato al bilanciamento del carico interno, questa porta è associata all'indirizzo ILB per un ambiente.
@@ -130,12 +130,11 @@ Per altre informazioni, vedere [connessione sicura alle risorse back-end da un a
 [!INCLUDE [app-service-web-try-app-service](../../../includes/app-service-web-try-app-service.md)]
 
 <!-- LINKS -->
-[virtualnetwork]: https://azure.microsoft.com/documentation/articles/virtual-networks-faq/
+[virtualnetwork]: ../../virtual-network/virtual-networks-faq.md
 [HowToCreateAnAppServiceEnvironment]: app-service-web-how-to-create-an-app-service-environment.md
-[NetworkSecurityGroups]: https://azure.microsoft.com/documentation/articles/virtual-networks-nsg/
+[NetworkSecurityGroups]: ../../virtual-network/virtual-network-vnet-plan-design-arm.md
 [IntroToAppServiceEnvironment]:  app-service-app-service-environment-intro.md
 [SecurelyConnecttoBackend]:  app-service-app-service-environment-securely-connecting-to-backend-resources.md
 [NewPortal]:  https://portal.azure.com  
 
 <!-- IMAGES -->
-

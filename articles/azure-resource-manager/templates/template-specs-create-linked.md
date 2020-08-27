@@ -2,13 +2,13 @@
 title: Creare una specifica di modello con i modelli collegati
 description: Informazioni su come creare una specifica di modello con i modelli collegati.
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: 49a26bf61c3c66f41761afe293471575e76c4eb9
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 08/27/2020
+ms.openlocfilehash: a70d4be2810b8d5a19fa9d806444cac1674e1a05
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936368"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959222"
 ---
 # <a name="tutorial-create-a-template-spec-with-linked-templates-preview"></a>Esercitazione: creare una specifica di modello con i modelli collegati (anteprima)
 
@@ -245,7 +245,7 @@ az deployment group create \
 ```
 
 > [!NOTE]
-> Si è verificato un problema noto durante il recupero dell'ID delle specifiche del modello e quindi viene assegnato a una variabile in Windows PowerShell.
+> Si è verificato un problema noto con l'ottenimento di un ID specifiche del modello e l'assegnazione a una variabile in Windows PowerShell.
 
 ---
 
