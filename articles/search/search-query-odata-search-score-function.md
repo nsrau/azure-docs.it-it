@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: c31304228d9629b0df7f7511ecca2616b4891ee7
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 0a84d0310573a1210e21157102a445fff9244782
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206948"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923977"
 ---
 # <a name="odata-searchscore-function-in-azure-cognitive-search"></a>`search.score`Funzione OData in Azure ricerca cognitiva
 
@@ -46,4 +46,4 @@ Ordinare gli hotel in ordine decrescente in base a `search.score` e `rating` , q
 
 - [Cenni preliminari sul linguaggio di espressioni OData per ricerca cognitiva di Azure](query-odata-filter-orderby-syntax.md)
 - [Informazioni di riferimento sulla sintassi delle espressioni OData per ricerca cognitiva di Azure](search-query-odata-syntax-reference.md)
-- [Eseguire ricerche nei documenti &#40;API Azure ricerca cognitiva EST&#41;](https://docs.microsoft.com/rest/api/searchservice/Search-Documents)
+- [Eseguire ricerche nei documenti &#40;API Azure ricerca cognitiva EST&#41;](/rest/api/searchservice/Search-Documents)

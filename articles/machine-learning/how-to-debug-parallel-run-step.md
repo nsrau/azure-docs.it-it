@@ -11,12 +11,12 @@ ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 07/16/2020
-ms.openlocfilehash: 16366d9f3be1144a7588ceb9133fb4e2e60db95c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 0b914059567e9a513b605ce733407465b625a909
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87373709"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88950018"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Eseguire il debug e risolvere i problemi di ParallelRunStep
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,11 +25,11 @@ In questo articolo viene descritto come eseguire il debug e risolvere i problemi
 
 ## <a name="testing-scripts-locally"></a>Test degli script in locale
 
-Vedere la sezione [Test degli script in locale](how-to-debug-pipelines.md#testing-scripts-locally) per le pipeline di Machine Learning. Poiché ParallelRunStep viene eseguita come fase nelle pipeline di Machine Learning, la stessa risposta si applica a entrambi i casi.
+Vedere la sezione [Test degli script in locale](how-to-debug-pipelines.md#debug-scripts-locally) per le pipeline di Machine Learning. Poiché ParallelRunStep viene eseguita come fase nelle pipeline di Machine Learning, la stessa risposta si applica a entrambi i casi.
 
 ## <a name="debugging-scripts-from-remote-context"></a>Debug degli script dal contesto remoto
 
-La transizione dal debug di uno script di assegnazione del punteggio in locale al debug di uno script di assegnazione del punteggio in una pipeline effettiva può risultare difficile. Per informazioni sull'individuazione dei log nel portale, vedere la [sezione sulle pipeline di Machine Learning in Debug degli script dal contesto remoto](how-to-debug-pipelines.md#debugging-scripts-from-remote-context). Le informazioni contenute nella sezione si applicano anche a ParallelRunStep.
+La transizione dal debug di uno script di assegnazione del punteggio in locale al debug di uno script di assegnazione del punteggio in una pipeline effettiva può risultare difficile. Per informazioni sull'individuazione dei log nel portale, vedere la [sezione sulle pipeline di Machine Learning in Debug degli script dal contesto remoto](how-to-debug-pipelines.md#finding-and-reading-pipeline-log-files). Le informazioni contenute nella sezione si applicano anche a ParallelRunStep.
 
 Ad esempio, il file di log `70_driver_log.txt` contiene le informazioni del controller che avvia il codice ParallelRunStep.
 

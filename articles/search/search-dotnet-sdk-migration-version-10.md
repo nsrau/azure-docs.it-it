@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 61fee97323d110875cb05fb48157527a39c80f56
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 101fd5298482f2f92e2a3fa4284d6e3fe94989a1
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87905782"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923229"
 ---
 # <a name="upgrade-to-azure-cognitive-search-net-sdk-version-10"></a>Eseguire l'aggiornamento ad Azure ricerca cognitiva .NET SDK versione 10
 
-Se si usa la versione 9,0 o precedente di [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search), questo articolo consentirà di aggiornare l'applicazione per l'uso della versione 10.
+Se si usa la versione 9,0 o precedente di [.NET SDK](/dotnet/api/overview/azure/search), questo articolo consentirà di aggiornare l'applicazione per l'uso della versione 10.
 
 Ricerca di Azure è stato rinominato in Azure ricerca cognitiva nella versione 10, ma gli spazi dei nomi e i nomi di pacchetto sono invariati. Le versioni precedenti dell'SDK (9,0 e versioni precedenti) continuano a usare il nome precedente. Per altre informazioni sull'uso dell'SDK, inclusi gli esempi, vedere [come usare Azure ricerca cognitiva da un'applicazione .NET](search-howto-dotnet-sdk.md).
 
@@ -35,13 +35,13 @@ La versione 10 aggiunge diverse funzionalità e correzioni di bug, portandolo al
 La versione 10 di Azure ricerca cognitiva .NET SDK è destinata all'API REST `2019-05-06` con questi aggiornamenti:
 
 * Introduzione di due nuove competenze, competenze [condizionali](cognitive-search-skill-conditional.md) e competenze di [traduzione del testo](cognitive-search-skill-text-translation.md).
-* Gli input della [competenza shaper](cognitive-search-skill-shaper.md) sono stati ristrutturati per consentire il consolidamento da contesti annidati. Per altre informazioni, vedere questa [definizione JSON di esempio](https://docs.microsoft.com/azure/search/cognitive-search-skill-shaper#scenario-3-input-consolidation-from-nested-contexts).
+* Gli input della [competenza shaper](cognitive-search-skill-shaper.md) sono stati ristrutturati per consentire il consolidamento da contesti annidati. Per altre informazioni, vedere questa [definizione JSON di esempio](./cognitive-search-skill-shaper.md#scenario-3-input-consolidation-from-nested-contexts).
 * Aggiunta di due nuove [funzioni di mapping dei campi](search-indexer-field-mappings.md):
-    - [urlEncode](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#urlencode-function)
-    - [urlDecode](https://docs.microsoft.com/azure/search/search-indexer-field-mappings#urldecode-function)
-* In alcuni casi, gli errori e gli avvisi visualizzati nello [stato di esecuzione dell'indicizzatore](https://docs.microsoft.com/rest/api/searchservice/get-indexer-status) possono avere dettagli aggiuntivi che consentono di eseguire il debug. `IndexerExecutionResult`è stato aggiornato per riflettere questo comportamento.
+    - [urlEncode](./search-indexer-field-mappings.md#urlencode-function)
+    - [urlDecode](./search-indexer-field-mappings.md#urldecode-function)
+* In alcuni casi, gli errori e gli avvisi visualizzati nello [stato di esecuzione dell'indicizzatore](/rest/api/searchservice/get-indexer-status) possono avere dettagli aggiuntivi che consentono di eseguire il debug. `IndexerExecutionResult` è stato aggiornato per riflettere questo comportamento.
 * Facoltativamente, [è possibile identificare le singole competenze definite](cognitive-search-defining-skillset.md) all'interno di un valore specificando una `name` Proprietà.
-* `ServiceLimits`Mostra i limiti per i [tipi complessi](https://docs.microsoft.com/azure/search/search-howto-complex-data-types) e Mostra i limiti e le `IndexerExecutionInfo` quote dell'indicizzatore pertinenti.
+* `ServiceLimits` Mostra i limiti per i [tipi complessi](./search-howto-complex-data-types.md) e Mostra i limiti e le `IndexerExecutionInfo` quote dell'indicizzatore pertinenti.
 
 <a name="UpgradeSteps"></a>
 
@@ -139,13 +139,13 @@ var skillset = new Skillset()
 }
 ```
 
-`SentimentSkill`viene assegnato un nome `#1` , `WebApiSkill` viene assegnato `#2` , `ShaperSkill` viene assegnato `#3` e così via.
+`SentimentSkill` viene assegnato un nome `#1` , `WebApiSkill` viene assegnato `#2` , `ShaperSkill` viene assegnato `#3` e così via.
 
 Se si sceglie di identificare le competenze in base a un nome personalizzato, assicurarsi di aggiornare prima tutte le istanze dei client alla versione 10 dell'SDK. In caso contrario, è possibile che un client che utilizza una versione precedente dell'SDK abbia `null` la `Name` proprietà di una competenza, causando il fallback dello schema di denominazione predefinito da parte del client.
 
 ## <a name="details-about-errors-and-warnings"></a>Dettagli su errori e avvisi
 
-`ItemError`i `ItemWarning` modelli e che incapsulano i dettagli di errori e avvisi (rispettivamente) che si verificano durante un'esecuzione dell'indicizzatore sono stati modificati in modo da includere tre nuove proprietà con l'obiettivo di facilitare il debug dell'indicizzatore. Le proprietà sono riportate di seguito:
+`ItemError` i `ItemWarning` modelli e che incapsulano i dettagli di errori e avvisi (rispettivamente) che si verificano durante un'esecuzione dell'indicizzatore sono stati modificati in modo da includere tre nuove proprietà con l'obiettivo di facilitare il debug dell'indicizzatore. Le proprietà sono riportate di seguito:
 
 - `Name`: Nome dell'origine da cui ha avuto origine l'errore. Ad esempio, può fare riferimento a una particolare abilità nell'ambito delle competenze associate.
 - `Details`: Dettagli dettagliati aggiuntivi relativi all'errore o all'avviso.
@@ -159,4 +159,3 @@ Se si sceglie di identificare le competenze in base a un nome personalizzato, as
 - Le modifiche apportate alla capacità dell'shaper hanno un impatto più potenziale sul codice nuovo o esistente. Come passaggio successivo, assicurarsi di rivedere questo esempio illustrando l'esempio di definizione della struttura di input: [shaper skill JSON](cognitive-search-skill-shaper.md) .
 - Vedere Panoramica dell' [arricchimento di intelligenza artificiale](cognitive-search-concept-intro.md).
 - I commenti degli utenti sull'SDK saranno molto apprezzati. Se si verificano problemi, è possibile richiedere assistenza per [stack overflow](https://stackoverflow.com/questions/tagged/azure-search). Se si trova un bug, è possibile registrare il problema nel [repository di GitHub su Azure .NET SDK](https://github.com/Azure/azure-sdk-for-net/issues). Assicurarsi di anteporre al titolo del problema il prefisso "[Azure ricerca cognitiva]".
-

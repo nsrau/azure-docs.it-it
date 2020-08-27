@@ -3,12 +3,13 @@ title: Monitorare un'app Web ASP.NET live con Azure Application Insights | Micro
 description: Monitorare le prestazioni di un sito Web senza ripetere la distribuzione. È possibile usare questa funzionalità con app Web ASP.NET ospitate in locale o con macchine virtuali.
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 70a405d2c32641be2ed4038fbffebce0e1340f83
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 603cbde20ae6e8d19e4ad3ae290bbfc925483595
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87310447"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923824"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Instrumentare app Web in fase di esecuzione con Application Insights connessione senza codice
 
@@ -39,10 +40,10 @@ Ecco un riepilogo di ciò che offrono i singoli modi:
 
 |  | Fase di compilazione | Fase di esecuzione |
 | --- | --- | --- |
-| **Richieste & eccezioni** |sì |Sì |
+| **Richieste & eccezioni** |Sì |Sì |
 | **[Eccezioni più dettagliate](./asp-net-exceptions.md)** | |Sì |
 | **[Diagnostica delle dipendenze](./asp-net-dependencies.md)** |In .NET 4.6 e versioni successive, ma meno dettagli |Sì, dettagli completi: codici risultato, testo del comando SQL, verbo HTTP|
-| **[Contatori delle prestazioni di sistema](./performance-counters.md)** |sì |Sì |
+| **[Contatori delle prestazioni di sistema](./performance-counters.md)** |Sì |Sì |
 | **[API per la telemetria personalizzata][api]** |Sì |No |
 | **[Integrazione del log di traccia](./asp-net-trace-logs.md)** |Sì |No |
 | **[Visualizzazione pagina & dati utente](./javascript.md)** |Sì |No |
@@ -243,7 +244,7 @@ Individuare le applicazioni sottoposte a monitoraggio:
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
 * `-Name`: nome di un'app Web in IIS.
-* `-InstrumentationKey`(Facoltativo). Usare questo per modificare la risorsa a cui vengono inviati i dati di telemetria dell'app.
+* `-InstrumentationKey` (Facoltativo). Usare questo per modificare la risorsa a cui vengono inviati i dati di telemetria dell'app.
 * Questo cmdlet:
   * Aggiorna l'app denominata alla versione dell'SDK scaricata più di recente nel computer. Funziona solo se `SdkState==EnabledAfterDeployment`.
   * Se si specifica una chiave di strumentazione, l'app denominata viene riconfigurata per l'invio di dati di telemetria alla risorsa con tale chiave. Funziona se `SdkState != Disabled`.

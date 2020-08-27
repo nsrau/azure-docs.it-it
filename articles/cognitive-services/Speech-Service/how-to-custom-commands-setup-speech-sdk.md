@@ -10,12 +10,13 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/18/2020
 ms.author: xiaojul
-ms.openlocfilehash: 1d84646fcb6769b7489cc0e03085e95fc47ef56c
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f3a8cafa907cb66832faf033f7b62e68bf859097
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86027631"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918826"
 ---
 # <a name="integrate-with-a-client-application-using-speech-sdk"></a>Eseguire l'integrazione con un'applicazione client tramite Speech SDK
 
@@ -64,7 +65,7 @@ In questo passaggio viene aggiunto il codice XAML che definisce l'interfaccia ut
 
 Creare l'interfaccia utente dell'applicazione aggiungendo il codice XAML.
 
-1. In **Esplora soluzioni**aprire`MainPage.xaml`
+1. In **Esplora soluzioni**aprire `MainPage.xaml`
 
 1. Nella visualizzazione XAML della finestra di progettazione sostituire l'intero contenuto con il frammento di codice seguente:
 
@@ -302,7 +303,7 @@ Aggiungere l'origine code-behind come indicato di seguito:
     > 1. Scegliere **Gestisci pacchetti NuGet per la soluzione**, selezionare **aggiornamenti** 
     > 1. Se viene visualizzato **Microsoft. NETCore. UniversalWindowsPlatform** nell'elenco degli aggiornamenti, aggiornare **Microsoft. NETCore. UniversalWindowsPlatform** alla versione più recente
 
-1. Aggiungere il codice seguente al corpo del metodo di`InitializeDialogServiceConnector`
+1. Aggiungere il codice seguente al corpo del metodo di `InitializeDialogServiceConnector`
 
    ```csharp
    // This code creates the `DialogServiceConnector` with your subscription information.
@@ -319,7 +320,7 @@ Aggiungere l'origine code-behind come indicato di seguito:
 
 1. Sostituire le stringhe `YourApplicationId` , `YourSpeechSubscriptionKey` e `YourServiceRegion` con i valori personalizzati per l'app, la sottoscrizione vocale e l' [area](regions.md)
 
-1. Aggiungere il frammento di codice seguente alla fine del corpo del metodo di`InitializeDialogServiceConnector`
+1. Aggiungere il frammento di codice seguente alla fine del corpo del metodo di `InitializeDialogServiceConnector`
 
    ```csharp
    //

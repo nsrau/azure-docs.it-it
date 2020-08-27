@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/10/2020
-ms.openlocfilehash: d3c5a998db5e76118b0c5a73b6df8bdedadc6dfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d6acdcf9487b2d1a5964d4ec686cd23666275b0
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317235"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923093"
 ---
 # <a name="azure-cognitive-search---frequently-asked-questions-faq"></a>Domande frequenti su Azure ricerca cognitiva
 
@@ -23,7 +23,7 @@ ms.locfileid: "85317235"
 
 ### <a name="how-is-azure-cognitive-search-different-from-full-text-search-in-my-dbms"></a>In che modo Azure ricerca cognitiva è diverso dalla ricerca full-text nel DBMS?
 
-Azure ricerca cognitiva supporta più origini dati, l' [analisi linguistica per molti linguaggi](https://docs.microsoft.com/rest/api/searchservice/language-support), l' [analisi personalizzata per input di dati interessanti e insoliti, i](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)controlli di rango di ricerca tramite i [profili di Punteggio](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index)e le funzionalità dell'esperienza utente, ad esempio typeahead, hit highlighting e navigazione in base a facet. Include anche altre funzionalità, come i sinonimi e la sintassi di query avanzata, ma queste non sono in genere funzionalità di differenziazione del servizio.
+Azure ricerca cognitiva supporta più origini dati, l' [analisi linguistica per molti linguaggi](/rest/api/searchservice/language-support), l' [analisi personalizzata per input di dati interessanti e insoliti, i](/rest/api/searchservice/custom-analyzers-in-azure-search)controlli di rango di ricerca tramite i [profili di Punteggio](/rest/api/searchservice/add-scoring-profiles-to-a-search-index)e le funzionalità dell'esperienza utente, ad esempio typeahead, hit highlighting e navigazione in base a facet. Include anche altre funzionalità, come i sinonimi e la sintassi di query avanzata, ma queste non sono in genere funzionalità di differenziazione del servizio.
 
 ### <a name="can-i-pause-azure-cognitive-search-service-and-stop-billing"></a>È possibile sospendere il servizio ricerca cognitiva di Azure e arrestare la fatturazione?
 
@@ -39,7 +39,7 @@ In alternativa, è possibile eseguire il backup di uno snapshot dell'indice in f
 
 È possibile eseguire tutte queste operazioni con il codice di esempio **index-backup-restore** in questo [repository di esempio di Azure ricerca cognitiva .NET](https://github.com/Azure-Samples/azure-search-dotnet-samples). 
 
-È anche possibile [ottenere una definizione di indice](https://docs.microsoft.com/rest/api/searchservice/get-index) in qualsiasi momento usando l'API REST di Azure ricerca cognitiva.
+È anche possibile [ottenere una definizione di indice](/rest/api/searchservice/get-index) in qualsiasi momento usando l'API REST di Azure ricerca cognitiva.
 
 Non esiste attualmente alcuna funzionalità di estrazione, snapshot o ripristino di un indice incorporato nel portale di Azure. Tuttavia, si sta valutando di aggiungere la funzionalità di backup e ripristino in una versione futura. Se si desidera visualizzare il supporto per questa funzionalità, eseguire il cast di un voto sulla [voce dell'utente](https://feedback.azure.com/forums/263029-azure-search/suggestions/8021610-backup-snapshot-of-index).
 
@@ -53,7 +53,7 @@ Per ricreare un indice, è necessario reindicizzare i dati da origini esterne. P
 
 In alternativa, è possibile usare il codice di esempio **index-backup-restore** in questo [repository di esempio di Azure ricerca cognitiva .NET](https://github.com/Azure-Samples/azure-search-dotnet-samples) per eseguire il backup di una definizione di indice e di un indice di snapshot in una serie di file JSON. Successivamente, è possibile utilizzare lo strumento e i file per ripristinare l'indice, se necessario.  
 
-### <a name="can-i-index-from-sql-database-replicas-applies-to-azure-sql-database-indexers"></a>È possibile eseguire l'indicizzazione dalle repliche di database SQL (si applica agli [indicizzatori del database SQL di Azure](https://docs.microsoft.com/azure/search/search-howto-connecting-azure-sql-database-to-azure-search-using-indexers))
+### <a name="can-i-index-from-sql-database-replicas-applies-to-azure-sql-database-indexers"></a>È possibile eseguire l'indicizzazione dalle repliche di database SQL (si applica agli [indicizzatori del database SQL di Azure](./search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md))
 
 Non esistono restrizioni all'utilizzo di repliche primarie o secondarie come origini dati quando si genera un indice da zero. L'aggiornamento di un indice con aggiornamenti incrementali (in base ai record modificati) richiede tuttavia la replica primaria. Questo requisito deriva dal database SQL, che garantisce il rilevamento delle modifiche solo nelle repliche primarie. Se si tenta di usare le repliche secondarie per un carico di lavoro di aggiornamento di indice, non c'è garanzia di ottenere tutti i dati.
 
@@ -65,17 +65,17 @@ No, questa operazione non è supportata. La ricerca avviene sempre nell'ambito d
 
 ### <a name="can-i-restrict-search-index-access-by-user-identity"></a>È possibile limitare l'accesso all'indice di ricerca in base all'identità dell'utente?
 
-È possibile implementare [ filtri di sicurezza](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search) con `search.in()` filtro. Il filtro si integra bene con i [servizi di gestione delle identità come Azure Active Directory(AAD)](https://docs.microsoft.com/azure/search/search-security-trimming-for-azure-search-with-aad) per limitare i risultati della ricerca in base all'appartenenza al gruppo utente definita.
+È possibile implementare [ filtri di sicurezza](./search-security-trimming-for-azure-search.md) con `search.in()` filtro. Il filtro si integra bene con i [servizi di gestione delle identità come Azure Active Directory(AAD)](./search-security-trimming-for-azure-search-with-aad.md) per limitare i risultati della ricerca in base all'appartenenza al gruppo utente definita.
 
 ### <a name="why-are-there-zero-matches-on-terms-i-know-to-be-valid"></a>Perché vengono trovate zero corrispondenze con termini che sono sicuramente validi?
 
 Non tutti sanno che ogni tipo di query supporta comportamenti di ricerca e livelli di analisi linguistiche diversi. La ricerca full-text, che è il carico di lavoro predominante, include una fase di analisi del linguaggio che suddivide i termini nei moduli radice. Questo aspetto di analisi delle query esegue il cast di una rete più ampia alla ricerca di corrispondenze possibili, perché il termine in formato token corrisponde a un maggior numero di varianti.
 
-Le query con caratteri jolly, fuzzy e regex, tuttavia, non vengono analizzate come query di un termine o una frase normale e possono causare un richiamo ridotto se la query non corrisponde alla forma della parola analizzata nell'indice di ricerca. Per altre informazioni sull'analisi e l'analisi delle query, vedere [architettura di query](https://docs.microsoft.com/azure/search/search-lucene-query-architecture).
+Le query con caratteri jolly, fuzzy e regex, tuttavia, non vengono analizzate come query di un termine o una frase normale e possono causare un richiamo ridotto se la query non corrisponde alla forma della parola analizzata nell'indice di ricerca. Per altre informazioni sull'analisi e l'analisi delle query, vedere [architettura di query](./search-lucene-query-architecture.md).
 
 ### <a name="my-wildcard-searches-are-slow"></a>Le ricerche con caratteri jolly sono lente.
 
-La maggior parte delle query di ricerca con caratteri jolly, ad esempio prefisso, fuzzy e regex, viene riscritta internamente con termini corrispondenti nell'indice di ricerca. Questa elaborazione aggiuntiva di analisi dell'indice di ricerca aumenta la latenza. Inoltre, le query di ricerca ampie che, `a*` ad esempio, dovranno probabilmente essere riscritte con numerosi termini, possono essere molto lente. Per ricerche con caratteri jolly efficienti, valutare la definizione di un [analizzatore personalizzato](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search).
+La maggior parte delle query di ricerca con caratteri jolly, ad esempio prefisso, fuzzy e regex, viene riscritta internamente con termini corrispondenti nell'indice di ricerca. Questa elaborazione aggiuntiva di analisi dell'indice di ricerca aumenta la latenza. Inoltre, le query di ricerca ampie che, `a*` ad esempio, dovranno probabilmente essere riscritte con numerosi termini, possono essere molto lente. Per ricerche con caratteri jolly efficienti, valutare la definizione di un [analizzatore personalizzato](/rest/api/searchservice/custom-analyzers-in-azure-search).
 
 ### <a name="why-is-the-search-rank-a-constant-or-equal-score-of-10-for-every-hit"></a>Perché la ricerca classifica un punteggio costante o uguale a 1.0 per ogni occorrenza?
 
@@ -95,7 +95,7 @@ Altre informazioni sull' [arricchimento incrementale](cognitive-search-increment
 
 ### <a name="what-is-the-best-approach-for-implementing-localized-search"></a>Qual è l'approccio migliore per l'implementazione della ricerca localizzata?
 
-La maggior parte dei clienti sceglie campi dedicati da una raccolta quando si tratta di supportare impostazioni locali (lingue) differenti nello stesso indice. I campi specifici delle impostazioni locali consentono di assegnare un analizzatore appropriato, ad esempio l'analizzatore francese di Microsoft a un campo contenente stringhe in francese. Viene anche semplificata l'applicazione dei filtri. Se si sa che una query viene avviata in una pagina fr-fr, è possibile limitare i risultati della ricerca a questo campo. In alternativa, è possibile creare un [profilo di punteggio](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per assegnare al campo più peso relativo. Azure ricerca cognitiva supporta più [analizzatori del linguaggio 50](https://docs.microsoft.com/azure/search/search-language-support) tra cui scegliere.
+La maggior parte dei clienti sceglie campi dedicati da una raccolta quando si tratta di supportare impostazioni locali (lingue) differenti nello stesso indice. I campi specifici delle impostazioni locali consentono di assegnare un analizzatore appropriato, ad esempio l'analizzatore francese di Microsoft a un campo contenente stringhe in francese. Viene anche semplificata l'applicazione dei filtri. Se si sa che una query viene avviata in una pagina fr-fr, è possibile limitare i risultati della ricerca a questo campo. In alternativa, è possibile creare un [profilo di punteggio](/rest/api/searchservice/add-scoring-profiles-to-a-search-index) per assegnare al campo più peso relativo. Azure ricerca cognitiva supporta più [analizzatori del linguaggio 50](./search-language-support.md) tra cui scegliere.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

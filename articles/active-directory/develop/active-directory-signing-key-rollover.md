@@ -8,26 +8,28 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/20/2018
+ms.date: 8/11/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 42f100618ac6ce8769c4a7da67a5bd586794c63b
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: b65ad1f22d20686a1ee47631f9209e1b15b0ab58
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115595"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948131"
 ---
 # <a name="signing-key-rollover-in-microsoft-identity-platform"></a>Rollover della chiave di firma nella piattaforma di identità Microsoft
-Questo articolo descrive le informazioni che è necessario conoscere sulle chiavi pubbliche usate dalla piattaforma di identità Microsoft per firmare i token di sicurezza. È importante sottolineare che queste chiavi si riattivano periodicamente e, in caso di emergenza, possono essere immediatamente sottoposte a rollback. Tutte le applicazioni che usano la piattaforma di identità Microsoft devono essere in grado di gestire il processo di rollover della chiave a livello di codice o di stabilire un processo di rollover manuale periodico. Continuare la lettura per comprendere il funzionamento delle chiavi, come valutare l'impatto del rollover nell'applicazione e come aggiornare l'applicazione o stabilire un processo di rollover manuale periodico per gestire il rollover della chiave, se necessario.
+Questo articolo descrive le informazioni che è necessario conoscere sulle chiavi pubbliche usate dalla piattaforma di identità Microsoft per firmare i token di sicurezza. È importante sottolineare che queste chiavi si riattivano periodicamente e, in caso di emergenza, possono essere immediatamente sottoposte a rollback. Tutte le applicazioni che usano la piattaforma di identità Microsoft devono essere in grado di gestire il processo di rollover della chiave a livello di codice. Continuare la lettura per comprendere il funzionamento delle chiavi, come valutare l'impatto del rollover nell'applicazione e come aggiornare l'applicazione o stabilire un processo di rollover manuale periodico per gestire il rollover della chiave, se necessario.
 
 ## <a name="overview-of-signing-keys-in-microsoft-identity-platform"></a>Panoramica delle chiavi di firma nella piattaforma di identità Microsoft
-Microsoft Identity Platform usa la crittografia a chiave pubblica basata su standard di settore per stabilire una relazione di trust tra se stesso e le applicazioni che lo usano. In pratica, questo funziona nel modo seguente: Microsoft Identity Platform usa una chiave di firma costituita da una coppia di chiavi pubblica e privata. Quando un utente accede a un'applicazione che usa la piattaforma di identità Microsoft per l'autenticazione, Microsoft Identity Platform crea un token di sicurezza che contiene informazioni sull'utente. Questo token è firmato dalla piattaforma Microsoft Identity usando la relativa chiave privata prima che venga inviato di nuovo all'applicazione. Per verificare che il token sia valido e originato da Microsoft Identity Platform, l'applicazione deve convalidare la firma del token usando la chiave pubblica esposta dalla piattaforma di identità Microsoft contenuta nel [documento di individuazione di OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html) del tenant o nel [documento di metadati della Federazione](../azuread-dev/azure-ad-federation-metadata.md)SAML/WS-Fed.
+Microsoft Identity Platform usa la crittografia a chiave pubblica basata su standard di settore per stabilire una relazione di trust tra se stesso e le applicazioni che lo usano. In pratica, questo funziona nel modo seguente: Microsoft Identity Platform usa una chiave di firma costituita da una coppia di chiavi pubblica e privata. Quando un utente accede a un'applicazione che usa la piattaforma di identità Microsoft per l'autenticazione, Microsoft Identity Platform crea un token di sicurezza che contiene informazioni sull'utente. Questo token è firmato dalla piattaforma Microsoft Identity usando la relativa chiave privata prima che venga inviato di nuovo all'applicazione. Per verificare che il token sia valido e originato da Microsoft Identity Platform, l'applicazione deve convalidare la firma del token usando le chiavi pubbliche esposte dalla piattaforma di identità Microsoft contenuta nel [documento di individuazione di OpenID Connect](https://openid.net/specs/openid-connect-discovery-1_0.html) del tenant o nel [documento di metadati della Federazione](../azuread-dev/azure-ad-federation-metadata.md)SAML/WS-Fed.
 
-Per motivi di sicurezza, la chiave di firma della piattaforma Microsoft Identity viene sottoposta a rollup in modo periodico e, in caso di emergenza, è possibile eseguirne immediatamente il rollover. Qualsiasi applicazione che si integra con la piattaforma di identità Microsoft deve essere preparata a gestire un evento di rollover della chiave indipendentemente dalla frequenza con cui può verificarsi. Se l'applicazione non ha la logica necessaria e prova a usare una chiave scaduta per verificare la firma su un token, la richiesta di accesso avrà esito negativo.
+Per motivi di sicurezza, la chiave di firma della piattaforma Microsoft Identity viene sottoposta a rollup in modo periodico e, in caso di emergenza, è possibile eseguirne immediatamente il rollover. Tra questi rotoli di chiavi non è presente alcun tempo impostato o garantito. tutte le applicazioni che si integrano con la piattaforma di identità Microsoft devono essere preparate a gestire un evento di rollover della chiave indipendentemente dalla frequenza con cui possono verificarsi. Se l'applicazione non ha la logica necessaria e prova a usare una chiave scaduta per verificare la firma su un token, la richiesta di accesso avrà esito negativo.  Controllare ogni 24 ore per gli aggiornamenti è una procedura consigliata, con limitazioni (una volta ogni cinque minuti al massimo) aggiornamenti immediati del documento chiave se viene rilevato un token con un identificatore di chiave sconosciuto. 
 
-È sempre disponibile più di una chiave valida nel documento di individuazione di OpenID Connect e nel documento di metadati della federazione. L'applicazione deve poter usare qualsiasi chiave specificata nel documento perché di una chiave può essere eseguito il rollover a breve, un'altra può essere quella sostitutiva e così via.
+È sempre disponibile più di una chiave valida nel documento di individuazione di OpenID Connect e nel documento di metadati della federazione. L'applicazione deve essere preparata a usare una qualsiasi delle chiavi specificate nel documento, perché una chiave può essere presto sottoposta a rollback, un'altra può essere la sostituzione e così via.  Il numero di chiavi presenti può variare nel tempo in base all'architettura interna della piattaforma di identità Microsoft, in quanto supporta nuove piattaforme, nuovi cloud o nuovi protocolli di autenticazione. Né l'ordine delle chiavi nella risposta JSON né l'ordine in cui sono state esposte devono essere considerati meaninful all'app. 
+
+Le applicazioni che supportano solo una singola chiave di firma o quelle che richiedono aggiornamenti manuali alle chiavi di firma sono intrinsecamente meno sicure e affidabili.  Devono essere aggiornati per usare le [librerie standard](reference-v2-libraries.md) per assicurarsi che usino sempre chiavi di firma aggiornate, tra le altre procedure consigliate. 
 
 ## <a name="how-to-assess-if-your-application-will-be-affected-and-what-to-do-about-it"></a>Come valutare se l'applicazione sarà interessata e come intervenire
 Il modo in cui l'applicazione gestisce il rollover della chiave dipende da variabili come il tipo di applicazione o la libreria e il protocollo di identità usati. Le sezioni seguenti valutano se i tipi di applicazioni più comuni sono interessati dal rollover della chiave e offrono indicazioni su come aggiornare l'applicazione per supportare il rollover automatico o aggiornare la chiave manualmente.
@@ -58,7 +60,7 @@ Le applicazioni client native, sia per desktop che per dispositivi mobili, rient
 ### <a name="web-applications--apis-accessing-resources"></a><a name="webclient"></a>API / applicazioni Web che accedono alle risorse
 Le applicazioni che si limitano ad accedere alle risorse, come Microsoft Graph, l'insieme di credenziali delle credenziali, l'API di Outlook e altre API Microsoft) in genere ottengono solo un token e lo passano al proprietario della risorsa. Dato che tali applicazioni non proteggono risorse, il token non viene controllato e quindi non è necessario assicurarsi che sia firmato correttamente.
 
-Le applicazioni Web e le API Web che usano il flusso solo app (credenziali client / certificato client) rientrano in questa categoria e quindi non sono interessate dal rollover.
+Le applicazioni Web e le API Web che usano il flusso solo app (credenziali client/certificato client) per richiedere token rientrano in questa categoria e quindi non sono interessate dal rollover.
 
 ### <a name="web-applications--apis-protecting-resources-and-built-using-azure-app-services"></a><a name="appservices"></a>API / applicazioni Web che proteggono le risorse e sono state compilate con i servizi app di Azure
 La funzionalità di autenticazione / autorizzazione (EasyAuth) dei servizi app di Azure ha già la logica necessaria per gestire automaticamente il rollover della chiave.
@@ -148,7 +150,7 @@ Se l'applicazione API Web è stata creata in Visual Studio 2013 tramite il model
 
 Se l'autenticazione è stata configurata manualmente, seguire le istruzioni riportate di seguito per informazioni su come configurare l'API Web per aggiornare automaticamente le informazioni sulla chiave.
 
-Il frammento di codice seguente illustra come ottenere le chiavi più recenti dal documento di metadati della federazione e quindi usare il [gestore dei token JWT](/previous-versions/dotnet/framework/security/json-web-token-handler) per convalidare il token. Il frammento di codice presuppone che si userà il proprio meccanismo di memorizzazione nella cache per salvare in modo permanente la chiave per convalidare i token futuri dalla piattaforma di identità Microsoft, sia che si tratti di un database, di un file di configurazione o di un'altra posizione.
+Il frammento di codice seguente illustra come ottenere le chiavi più recenti dal documento di metadati della federazione e quindi usare il [gestore dei token JWT](https://msdn.microsoft.com/library/dn205065.aspx) per convalidare il token. Il frammento di codice presuppone che si userà il proprio meccanismo di memorizzazione nella cache per salvare in modo permanente la chiave per convalidare i token futuri dalla piattaforma di identità Microsoft, sia che si tratti di un database, di un file di configurazione o di un'altra posizione.
 
 ```
 using System;
@@ -239,7 +241,7 @@ namespace JWTValidation
 ```
 
 ### <a name="web-applications-protecting-resources-and-created-with-visual-studio-2012"></a><a name="vs2012"></a>Applicazioni Web che proteggono le risorse e sono state create con Visual Studio 2012
-Se l'applicazione è stata creata in Visual Studio 2012 è stato probabilmente usato lo strumento Identità e accesso per configurare l'applicazione. È anche probabile che si usi [Validating Issuer Name Registry (VINR)](/previous-versions/dotnet/framework/security/validating-issuer-name-registry). Il VINR è responsabile della gestione delle informazioni sui provider di identità attendibili (piattaforma di identità Microsoft) e delle chiavi usate per convalidare i token emessi da tali provider. VINR semplifica anche l'aggiornamento automatico delle informazioni sulla chiave archiviate in un file Web.config, scaricando il documento di metadati della federazione più recente associato alla directory, verificando se la configurazione è aggiornata con il documento più recente e aggiornando l'applicazione per l'uso della nuova chiave se necessario.
+Se l'applicazione è stata creata in Visual Studio 2012 è stato probabilmente usato lo strumento Identità e accesso per configurare l'applicazione. È anche probabile che si usi [Validating Issuer Name Registry (VINR)](https://msdn.microsoft.com/library/dn205067.aspx). Il VINR è responsabile della gestione delle informazioni sui provider di identità attendibili (piattaforma di identità Microsoft) e delle chiavi usate per convalidare i token emessi da tali provider. VINR semplifica anche l'aggiornamento automatico delle informazioni sulla chiave archiviate in un file Web.config, scaricando il documento di metadati della federazione più recente associato alla directory, verificando se la configurazione è aggiornata con il documento più recente e aggiornando l'applicazione per l'uso della nuova chiave se necessario.
 
 Se l'applicazione è stata creata usando uno degli esempi di codice o le procedure dettagliate offerte da Microsoft, la logica di rollover della chiave è già inclusa nel progetto. Si noterà che il codice seguente esiste già nel progetto. Se l'applicazione non ha questa logica, seguire questa procedura per aggiungerla e verificarne il corretto funzionamento.
 
@@ -288,14 +290,14 @@ Seguire questa procedura per verificare che la logica di rollover della chiave f
 Se è stata compilata un'applicazione in WIF v1.0 non esistono meccanismi per aggiornare automaticamente la configurazione dell'applicazione per l'uso di una nuova chiave.
 
 * *Modo più semplice* : usare lo strumento FedUtil incluso in WIF SDK, che può recuperare il documento di metadati più recente e aggiornare la configurazione.
-* Aggiornare l'applicazione a .NET 4.5, che include la versione più recente di WIF nello spazio dei nomi System. Sarà quindi possibile usare [Validating Issuer Name Registry (VINR)](/previous-versions/dotnet/framework/security/validating-issuer-name-registry) per eseguire gli aggiornamenti automatici della configurazione dell'applicazione.
+* Aggiornare l'applicazione a .NET 4.5, che include la versione più recente di WIF nello spazio dei nomi System. Sarà quindi possibile usare [Validating Issuer Name Registry (VINR)](https://msdn.microsoft.com/library/dn205067.aspx) per eseguire gli aggiornamenti automatici della configurazione dell'applicazione.
 * Eseguire un rollover manuale seguendo le istruzioni alla fine di questo documento.
 
 Istruzioni per usare FedUtil per aggiornare la configurazione:
 
 1. Verificare di avere l'SDK WIF v1.0 installato nel computer di sviluppo per Visual Studio 2008 o 2010. È possibile [scaricarlo da qui](https://www.microsoft.com/en-us/download/details.aspx?id=4451) se non è ancora installato.
 2. In Visual Studio aprire la soluzione, fare clic con il pulsante destro del mouse sul progetto applicabile, quindi scegliere **Aggiorna metadati di federazione**. Se questa opzione non è disponibile, FedUtil o l'SDK WIF v1.0 non è stato installato.
-3. Quando viene richiesto, selezionare **Aggiorna** per iniziare ad aggiornare i metadati di federazione. Se si ha accesso all'ambiente server in cui è ospitata l'applicazione, è possibile usare facoltativamente l' [utilità di pianificazione dell'aggiornamento automatico dei metadati](/previous-versions/windows-identity-foundation/ee517272(v=msdn.10))di FedUtil.
+3. Quando viene richiesto, selezionare **Aggiorna** per iniziare ad aggiornare i metadati di federazione. Se si ha accesso all'ambiente server in cui è ospitata l'applicazione, è possibile usare facoltativamente l' [utilità di pianificazione dell'aggiornamento automatico dei metadati](https://msdn.microsoft.com/library/ee517272.aspx)di FedUtil.
 4. Fare clic su **Fine** per completare il processo di aggiornamento.
 
 ### <a name="web-applications--apis-protecting-resources-using-any-other-libraries-or-manually-implementing-any-of-the-supported-protocols"></a><a name="other"></a>API / applicazioni Web che proteggono le risorse usando qualsiasi altra libreria o con implementazione manuale di qualsiasi protocollo supportato
