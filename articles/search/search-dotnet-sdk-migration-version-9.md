@@ -9,16 +9,16 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6268bf94350699518d8d578e3a1d5a56a52ad785
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: db2017a3bb1a8910049527796f422227b741b960
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85562343"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923195"
 ---
 # <a name="upgrade-to-azure-search-net-sdk-version-9"></a>Eseguire l'aggiornamento ad Azure search .NET SDK versione 9
 
-Se si usa la versione 7,0-Preview o precedente di [Azure search .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search), questo articolo consentirà di aggiornare l'applicazione per l'uso della versione 9.
+Se si usa la versione 7,0-Preview o precedente di [Azure search .NET SDK](/dotnet/api/overview/azure/search), questo articolo consentirà di aggiornare l'applicazione per l'uso della versione 9.
 
 > [!NOTE]
 > Se si vuole usare la versione 8,0-Preview per valutare le funzionalità che non sono ancora disponibili a livello generale, è anche possibile seguire le istruzioni riportate in questo articolo per eseguire l'aggiornamento a 8,0-Preview da versioni precedenti.
@@ -106,12 +106,12 @@ Il costruttore senza parametri di `Field` è stato creato `internal` . Da questo
 
 Nella versione 7,0-Preview e versioni precedenti, le varie classi che incapsulano gruppi di documenti sono state strutturate in gerarchie di classi parallele:
 
-  -  `DocumentSearchResult`e `DocumentSearchResult<T>` ereditato da`DocumentSearchResultBase`
-  -  `DocumentSuggestResult`e `DocumentSuggestResult<T>` ereditato da`DocumentSuggestResultBase`
-  -  `IndexAction`e `IndexAction<T>` ereditato da`IndexActionBase`
-  -  `IndexBatch`e `IndexBatch<T>` ereditato da`IndexBatchBase`
-  -  `SearchResult`e `SearchResult<T>` ereditato da`SearchResultBase`
-  -  `SuggestResult`e `SuggestResult<T>` ereditato da`SuggestResultBase`
+  -  `DocumentSearchResult` e `DocumentSearchResult<T>` ereditato da `DocumentSearchResultBase`
+  -  `DocumentSuggestResult` e `DocumentSuggestResult<T>` ereditato da `DocumentSuggestResultBase`
+  -  `IndexAction` e `IndexAction<T>` ereditato da `IndexActionBase`
+  -  `IndexBatch` e `IndexBatch<T>` ereditato da `IndexBatchBase`
+  -  `SearchResult` e `SearchResult<T>` ereditato da `SearchResultBase`
+  -  `SuggestResult` e `SuggestResult<T>` ereditato da `SuggestResultBase`
 
 I tipi derivati senza un parametro di tipo generico devono essere utilizzati in scenari con tipizzazione dinamica e si presuppone l'utilizzo del `Document` tipo.
 
@@ -181,7 +181,7 @@ Se l'applicazione ha una dipendenza rigida da questa funzionalità, non sarà po
 
 Se si usano le API "tipizzate in modo dinamico" `Search` , `Suggest` o `Get` che restituiscono istanze di tipo `Document` , tenere presente che ora deserializzano matrici JSON vuote in `object[]` anziché `string[]` .
 
-## <a name="conclusion"></a>Conclusioni
+## <a name="conclusion"></a>Conclusione
 Per altri dettagli sull'uso di .NET SDK Ricerca di Azure, vedere le [Procedure .NET](search-howto-dotnet-sdk.md).
 
 I commenti degli utenti sull'SDK saranno molto apprezzati. Se si verificano problemi, è possibile richiedere assistenza per [stack overflow](https://stackoverflow.com/questions/tagged/azure-search). Se si trova un bug, è possibile registrare il problema nel [repository di GitHub su Azure .NET SDK](https://github.com/Azure/azure-sdk-for-net/issues). Verificare di avere anteposto al titolo del problema il prefisso "[Ricerca di Azure]".

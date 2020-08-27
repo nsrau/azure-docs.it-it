@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f7bf1c8f3f1ecbb21207776a99bba99d123ea891
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: dd00c357a422a407a3367e45531e3443577f9bec
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171942"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923246"
 ---
 # <a name="how-to-implement-faceted-navigation-in-azure-cognitive-search"></a>Come implementare l'esplorazione in base a facet in Ricerca cognitiva di Azure
 
@@ -63,7 +63,7 @@ Nel codice dell'applicazione, il modello consiste nell'usare parametri di query 
 
 ### <a name="query-basics"></a>Nozioni di base sulle query
 
-In Ricerca cognitiva di Azure, una richiesta viene specificata tramite uno o più parametri di query (vedere [Eseguire ricerche nei documenti](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) per una descrizione di ciascuno di essi). Nessuno dei parametri di query è obbligatorio, ma è necessario disporre di almeno di uno affinché una query sia valida.
+In Ricerca cognitiva di Azure, una richiesta viene specificata tramite uno o più parametri di query (vedere [Eseguire ricerche nei documenti](/rest/api/searchservice/Search-Documents) per una descrizione di ciascuno di essi). Nessuno dei parametri di query è obbligatorio, ma è necessario disporre di almeno di uno affinché una query sia valida.
 
 La precisione, interpretata come la possibilità di filtrare i riscontri irrilevanti, avviene attraverso una o entrambe queste espressioni:
 
@@ -230,7 +230,7 @@ SearchParameters sp = new SearchParameters()
 };
 ```
 
-Un parametro di query del facet è impostato su un campo e a seconda del tipo di dati usati, può essere ulteriormente dotato di parametri in un elenco delimitato da virgole che includa `count:<integer>`, `sort:<>`, `interval:<integer>` e `values:<list>`. Durante l'impostazione di intervalli è supportato un elenco di valori per i dati numerici. Per informazioni dettagliate sull’uso, vedere [Eseguire ricerche nei documenti (API di Ricerca cognitiva di Azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) .
+Un parametro di query del facet è impostato su un campo e a seconda del tipo di dati usati, può essere ulteriormente dotato di parametri in un elenco delimitato da virgole che includa `count:<integer>`, `sort:<>`, `interval:<integer>` e `values:<list>`. Durante l'impostazione di intervalli è supportato un elenco di valori per i dati numerici. Per informazioni dettagliate sull’uso, vedere [Eseguire ricerche nei documenti (API di Ricerca cognitiva di Azure)](/rest/api/searchservice/Search-Documents) .
 
 Insieme ai facet, la richiesta formulata dall'applicazione deve anche permettere la creazione di filtri per limitare il set di documenti candidato in base alla selezione di un valore di facet. Per uno store di biciclette, l'esplorazione in base a facet fornisce indicazioni a domande su *colore, produttore e tipi di bicicletta disponibili*. Il filtro risponde a domande come *Quali biciclette sono mountain bike rosse in questa fascia di prezzo?* . Quando si fa clic su "Red" per indicare che devono essere visualizzati solo i prodotti rossi, la query successiva inviata dall'applicazione include `$filter=Color eq 'Red'`.
 
@@ -319,7 +319,7 @@ Quando si aggiunge un filtro a una query in base a facet, è possibile mantenere
 
 **Verificare di ottenere conteggi di facet accurati**
 
-In determinate circostanze, si può notare che i numeri di facet non corrispondono ai set di risultati (vedere [Esplorazione in base a facet in Ricerca cognitiva di Azure (pagina delle Domande frequenti di Microsoft)](https://docs.microsoft.com/answers/topics/azure-cognitive-search.html)).
+In determinate circostanze, si può notare che i numeri di facet non corrispondono ai set di risultati (vedere [Esplorazione in base a facet in Ricerca cognitiva di Azure (pagina delle Domande frequenti di Microsoft)](/answers/topics/azure-cognitive-search.html)).
 
 I conteggi di facet possono essere inesatti grazie all'architettura di partizionamento orizzontale. Ogni indice di ricerca include più partizioni e ciascuno di essi segnala i principali N facet per numero di documenti, combinando poi i dati in un singolo risultato. Se alcune partizioni dispongono di numerosi valori corrispondenti a differenza di altre, è probabile che alcuni valori di facet siano mancanti o non calcolati nei risultati.
 
@@ -333,7 +333,7 @@ Le etichette vengono in genere definite nel codice HTML o nel modulo (`index.csh
 <a name="rangefacets"></a>
 
 ## <a name="filter-based-on-a-range"></a>Filtro basato su un intervallo
-L'esplorazione in base a facet su intervalli di valori è un requisito comune delle applicazioni di ricerca. Gli intervalli sono supportati per i dati numerici e i valori DateTime. Per altre informazioni su ogni approccio, vedere [Eseguire ricerche nei documenti (API di Ricerca cognitiva di Azure)](https://docs.microsoft.com/rest/api/searchservice/Search-Documents).
+L'esplorazione in base a facet su intervalli di valori è un requisito comune delle applicazioni di ricerca. Gli intervalli sono supportati per i dati numerici e i valori DateTime. Per altre informazioni su ogni approccio, vedere [Eseguire ricerche nei documenti (API di Ricerca cognitiva di Azure)](/rest/api/searchservice/Search-Documents).
 
 Ricerca cognitiva di Azure semplifica la creazione degli intervalli fornendo due approcci per l'elaborazione di un intervallo. Per entrambi gli approcci, Ricerca cognitiva di Azure crea gli intervalli appropriati in base agli input resi disponibili. Ad esempio, se si specificano valori di intervallo di 10|20|30, vengono creati automaticamente gli intervalli 0-10, 10-20, 20-30. L'applicazione può facoltativamente rimuovere qualsiasi intervallo vuoto. 
 
@@ -404,4 +404,3 @@ Per altre informazioni sui principi di progettazione per l'esplorazione in base 
 
 * [Schemi progettuali: Esplorazione in base a facet](https://alistapart.com/article/design-patterns-faceted-navigation)
 * [Problemi front-end durante l'implementazione della ricerca in base a facet - Parte 1](https://articles.uie.com/faceted_search2/)
-

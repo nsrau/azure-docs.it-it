@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/17/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f371f52b0a110afeef6f3f72fb459b30842f77eb
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 66f514f4c5d299ef11efda541f16f4ef2fe61aed
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723708"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88930163"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Connettere le app di funzioni di Azure per l'elaborazione dei dati
 
@@ -84,7 +84,7 @@ Per altre informazioni, vedere [*trigger griglia di eventi di debug in locale*](
 
 L'app per le funzioni interagisce con i dispositivi gemelli digitali di Azure usando la [libreria client dei dispositivi digitali gemelli di Azure per .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Per usare l'SDK, è necessario includere i pacchetti seguenti nel progetto:
 * `Azure.DigitalTwins.Core` (versione `1.0.0-preview.2` )
-* `Azure.Identity` (versione `1.1.1` )
+* `Azure.Identity`
 
 Per la configurazione della pipeline di Azure SDK per configurare correttamente per funzioni di Azure, è necessario anche:
 * `Azure.Net.Http`

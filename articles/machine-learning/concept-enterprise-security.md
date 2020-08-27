@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 05/19/2020
-ms.openlocfilehash: 723c30856593044c91220b4e3ab267ab140c5ffd
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: ed95cf0b98edd8a6775c980876a6092c00e3a68d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87366928"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88918588"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sicurezza aziendale per Azure Machine Learning
 
@@ -119,19 +119,14 @@ Per altre informazioni, vedere [Come eseguire in modo sicuro gli esperimenti e l
 ### <a name="encryption-at-rest"></a>Crittografia di dati inattivi
 
 > [!IMPORTANT]
-> Se l'area di lavoro contiene dati sensibili, è consigliabile impostare il [flag hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) durante la sua creazione. 
+> Se l'area di lavoro contiene dati sensibili, è consigliabile impostare il [flag hbi_workspace](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) durante la sua creazione. Il `hbi_workspace` flag può essere impostato solo quando viene creata un'area di lavoro. Non può essere modificato per un'area di lavoro esistente.
 
-Il `hbi_workspace` flag controlla la quantità di dati raccolti da Microsoft per scopi diagnostici e Abilita la crittografia aggiuntiva negli ambienti gestiti da Microsoft. Consente inoltre di abilitare le azioni seguenti:
+Il `hbi_workspace` flag controlla la quantità di [dati raccolti da Microsoft per scopi diagnostici](#microsoft-collected-data) e Abilita la [crittografia aggiuntiva negli ambienti gestiti da Microsoft](../security/fundamentals/encryption-atrest.md). Consente inoltre di abilitare le azioni seguenti:
 
 * Avvia la crittografia del disco scratch locale nel cluster di calcolo Azure Machine Learning purché non siano stati creati cluster precedenti nella sottoscrizione. Altrimenti, è necessario inoltrare un ticket di supporto per abilitare la crittografia del disco temporaneo dei cluster di elaborazione 
 * Pulisce il disco temporaneo locale tra le esecuzioni
 * Passa in modo sicuro le credenziali per l'account di archiviazione, il registro contenitori e l'account SSH dal livello di esecuzione ai cluster di calcolo usando l'insieme di credenziali delle chiavi
 * Abilita il filtro IP per assicurarsi che i pool di batch sottostanti non possano essere chiamati da servizi esterni diversi da AzureMachineLearningService
-
-> [!WARNING]
-> Il `hbi_workspace` flag può essere impostato solo quando viene creata un'area di lavoro. Non può essere modificato per un'area di lavoro esistente.
-
-Per altre informazioni sul funzionamento della crittografia dei dati inattivi in Azure, vedere [Crittografia dei dati inattivi di Azure](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest).
 
 #### <a name="azure-blob-storage"></a>Archiviazione BLOB di Azure
 

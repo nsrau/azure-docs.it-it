@@ -9,12 +9,12 @@ ms.subservice: ''
 ms.date: 06/30/2020
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: 0fcad26bb78e0e9a03d51818ac66a98af1ef0b18
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: f381afa69d1a445d2bdb14dd663341e4a18f8cd9
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590388"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88648667"
 ---
 # <a name="what-are-virtual-machine-scale-sets"></a>Che cosa sono i set di scalabilità delle macchine virtuali?
 I set di scalabilità di macchine virtuali di Azure consentono di creare e gestire un gruppo di macchine virtuali con bilanciamento del carico. Il numero di istanze di macchine virtuali può aumentare o diminuire automaticamente in risposta alla domanda o a una pianificazione definita. I set di scalabilità garantiscono disponibilità elevata per le applicazioni e consentono di gestire in modo centralizzato, configurare e aggiornare un numero elevato di macchine virtuali. Con i set di scalabilità di macchine virtuali è possibile creare servizi su larga scala per aree quali calcolo, Big Data e carichi di lavoro contenitore.
@@ -40,7 +40,7 @@ I set di scalabilità di macchine virtuali di Azure offrono funzionalità di ges
 
 - **Funzionamento su larga scala**
     - I set di scalabilità supportano fino a 1.000 istanze VM. Se si creano e si caricano immagini di macchine virtuali personalizzate, il limite è di 600 istanze di macchina virtuale.
-    - Per prestazioni ottimali con carichi di lavoro di produzione, usare [Azure Managed Disks](../virtual-machines/windows/managed-disks-overview.md).
+    - Per prestazioni ottimali con carichi di lavoro di produzione, usare [Azure Managed Disks](../virtual-machines/managed-disks-overview.md).
 
 
 ## <a name="differences-between-virtual-machines-and-scale-sets"></a>Differenze tra macchine virtuali e set di scalabilità

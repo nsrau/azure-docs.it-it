@@ -4,12 +4,12 @@ description: In questo argomento di avvio rapido verrà creato un lab in Azure D
 ms.topic: quickstart
 ms.custom: subject-armqs
 ms.date: 06/26/2020
-ms.openlocfilehash: 8688b8265a8ca00a36a569ff4e067c9f36834c6d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 93bc4cf91b228de72c217c61ec03d61e87046dd3
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537548"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88653954"
 ---
 # <a name="quickstart-set-up-a-lab-by-using-azure-devtest-labs-arm-template"></a>Avvio rapido: Configurare un lab con un modello di Resource Manager di Azure DevTest Labs
 In questo argomento di avvio rapido verrà creato un lab con una macchina virtuale Windows Server 2019 Datacenter usando un modello di Azure Resource Manager. 
@@ -36,7 +36,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 
 Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di Azure](https://azure.microsoft.com/resources/templates/101-dtl-create-lab-windows-vm/).
 
-:::code language="json" source="~/quickstart-templates/101-dtl-create-lab-windows-vm/azuredeploy.json" range="1-97" highlight="51-85":::
+:::code language="json" source="~/quickstart-templates/101-dtl-create-lab-windows-vm/azuredeploy.json":::
 
 Nel modello sono definite le risorse seguenti:
 

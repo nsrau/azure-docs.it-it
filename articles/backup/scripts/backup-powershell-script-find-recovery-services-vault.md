@@ -1,18 +1,18 @@
 ---
 title: "Script di PowerShell: trovare l'insieme di credenziali per l'account di archiviazione"
-description: Informazioni su come usare uno script di Azure PowerShell per trovare l'insieme di credenziali dei servizi di ripristino in cui è registrato l'account di archiviazione.
+description: Informazioni su come usare uno script di Azure PowerShell per trovare l'insieme di credenziali di Servizi di ripristino in cui è registrato l'account di archiviazione.
 ms.topic: sample
 ms.date: 1/28/2020
-ms.openlocfilehash: b343b2f93ed439188c5c0238bf108064f6e132c1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1e12f1472b8141d06a1b3c1c9049e057f100d0e4
+ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513252"
+ms.lasthandoff: 08/23/2020
+ms.locfileid: "88757524"
 ---
-# <a name="powershell-script-to-find-the-recovery-services-vault-where-a-storage-account-is-registered"></a>Script di PowerShell per trovare l'insieme di credenziali dei servizi di ripristino in cui è registrato l'account di archiviazione
+# <a name="powershell-script-to-find-the-recovery-services-vault-where-a-storage-account-is-registered"></a>Script di PowerShell per trovare l'insieme di credenziali di Servizi di ripristino in cui è registrato l'account di archiviazione
 
-Questo script consente di trovare l'insieme di credenziali dei servizi di ripristino in cui è registrato l'account di archiviazione.
+Questo script consente di trovare l'insieme di credenziali di Servizi di ripristino in cui è registrato l'account di archiviazione.
 
 ## <a name="sample-script"></a>Script di esempio
 
@@ -56,7 +56,7 @@ if(!$found)
     * **-StorageAccountName**: il nome dell'account di archiviazione
     * **-SubscriptionID**: l'ID della sottoscrizione in cui è presente l'account di archiviazione.
 
-L'esempio seguente prova a trovare l'insieme di credenziali dei servizi di ripristino in cui è registrato l'account di archiviazione *afsaccount*:
+L'esempio seguente prova a trovare l'insieme di credenziali di Servizi di ripristino in cui è registrato l'account di archiviazione *afsaccount*:
 
 ```powershell
 .\FindRegisteredStorageAccount.ps1 -ResourceGroupName AzureFiles -StorageAccountName afsaccount -SubscriptionId ef4ad5a7-c2c0-4304-af80-af49f49af3d1
@@ -64,7 +64,7 @@ L'esempio seguente prova a trovare l'insieme di credenziali dei servizi di ripri
 
 ## <a name="output"></a>Output
 
-L'output visualizza il percorso completo dell'insieme di credenziali dei servizi di ripristino in cui è registrato l'account di archiviazione. Di seguito è riportato un output di esempio:
+L'output visualizza il percorso completo dell'insieme di credenziali di Servizi di ripristino in cui è registrato l'account di archiviazione. Di seguito è riportato un output di esempio:
 
 ```output
 Found Storage account afsaccount registered in vault: /subscriptions/ ef4ad5a7-c2c0-4304-af80-af49f49af3d1/resourceGroups/azurefiles/providers/Microsoft.RecoveryServices/vaults/azurefilesvault123

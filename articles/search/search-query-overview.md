@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/22/2020
-ms.openlocfilehash: 8f170d541ec314020702ab53606eed4d660cea9e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 018c3fb08c7fa0ad35fa567bffbeae48b6fbbce9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85130807"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928837"
 ---
 # <a name="query-types-and-composition-in-azure-cognitive-search"></a>Tipi di query e composizione in ricerca cognitiva di Azure
 
 In ricerca cognitiva di Azure, una query è una specifica completa di un'operazione di round trip. Nella richiesta sono presenti parametri che forniscono istruzioni di esecuzione per il motore, nonché parametri che formano la risposta in arrivo. Non specificato ( `search=*` ), senza criteri di corrispondenza e utilizzando parametri null o predefiniti, una query viene eseguita su tutti i campi ricercabili come operazione di ricerca full-text, restituendo un set di risultati senza punteggio in ordine arbitrario.
 
-L'esempio seguente è una query rappresentativa costruita nell' [API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents). Questo esempio è destinato all' [Indice demo degli hotel](search-get-started-portal.md) e include parametri comuni che consentono di ottenere un'idea dell'aspetto di una query.
+L'esempio seguente è una query rappresentativa costruita nell' [API REST](/rest/api/searchservice/search-documents). Questo esempio è destinato all' [Indice demo degli hotel](search-get-started-portal.md) e include parametri comuni che consentono di ottenere un'idea dell'aspetto di una query.
 
 ```
 {
@@ -55,7 +55,7 @@ In ricerca cognitiva di Azure l'esecuzione delle query è sempre rispetto a un i
 
 Prima di scrivere codice, è possibile usare gli strumenti di query per apprendere la sintassi e sperimentare parametri diversi. L'approccio più rapido è lo strumento del portale integrato, [Esplora ricerche](search-explorer.md).
 
-Se è stata seguita questa [Guida introduttiva per creare l'indice demo degli Alberghi](search-get-started-portal.md), è possibile incollare questa stringa di query nella barra di ricerca di Explorer per eseguire la prima query:`search=+"New York" +restaurant&searchFields=Description, Address/City, Tags&$select=HotelId, HotelName, Description, Rating, Address/City, Tags&$top=10&$orderby=Rating desc&$count=true`
+Se è stata seguita questa [Guida introduttiva per creare l'indice demo degli Alberghi](search-get-started-portal.md), è possibile incollare questa stringa di query nella barra di ricerca di Explorer per eseguire la prima query: `search=+"New York" +restaurant&searchFields=Description, Address/City, Tags&$select=HotelId, HotelName, Description, Rating, Address/City, Tags&$top=10&$orderby=Rating desc&$count=true`
 
 ## <a name="how-query-operations-are-enabled-by-the-index"></a>Modo in cui le operazioni di query sono abilitate dall'indice
 
@@ -65,7 +65,7 @@ Gli attributi dell'indice in un campo impostano le operazioni consentite - se un
 
 ![Definizione di indice per l'esempio di Hotel](./media/search-query-overview/hotel-sample-index-definition.png "Definizione di indice per l'esempio di Hotel")
 
-Lo screenshot precedente è un elenco parziale degli attributi di indice per l'esempio di Hotel. È possibile visualizzare lo schema dell'intero indice nel portale. Per ulteriori informazioni sugli attributi dell’indice, vedere [Creare indice API REST](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Lo screenshot precedente è un elenco parziale degli attributi di indice per l'esempio di Hotel. È possibile visualizzare lo schema dell'intero indice nel portale. Per ulteriori informazioni sugli attributi dell’indice, vedere [Creare indice API REST](/rest/api/searchservice/create-index).
 
 > [!Note]
 > Alcune funzionalità di query sono abilitate a livello di indice anziché in base al campo. Queste funzionalità includono: [mappe sinonimi](search-synonyms.md), [analizzatori personalizzati](index-add-custom-analyzers.md), [costrutti del suggerimento (per il completamento automatico e query suggerite)](index-add-suggesters.md), [logica di assegnazione dei punteggi per i risultati di rango](index-add-scoring-profiles.md).
@@ -76,13 +76,13 @@ Le query vengano sempre indirizzate a un singolo indice. Non è possibile unire 
 
 Gli elementi obbligatori in una richiesta di query includono i componenti seguenti:
 
-+ Raccolta di endpoint di servizio e documenti di indice, espressa come URL contenente componenti fissi e definiti dall'utente:**`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
-+ **`api-version`**(Solo REST) è necessario perché più di una versione dell'API è disponibile in qualsiasi momento. 
++ Raccolta di endpoint di servizio e documenti di indice, espressa come URL contenente componenti fissi e definiti dall'utente: **`https://<your-service-name>.search.windows.net/indexes/<your-index-name>/docs`**
++ **`api-version`** (Solo REST) è necessario perché più di una versione dell'API è disponibile in qualsiasi momento. 
 + **`api-key`**, ovvero una query o una chiave API di amministrazione, autentica la richiesta al servizio.
 + **`queryType`**, semplice o completo, che può essere omesso se si usa la sintassi semplice predefinita predefinita.
 + **`search`** o **`filter`** fornisce i criteri di corrispondenza, che possono essere non specificati se si desidera eseguire una ricerca vuota. Entrambi i tipi di query sono descritti in termini di parser semplice, ma anche le query avanzate richiedono il parametro di ricerca per il passaggio di espressioni di query complesse.
 
-Tutti gli altri parametri di ricerca sono facoltativi. Per l'elenco completo degli attributi, vedere [Creare l’indice (REST)](https://docs.microsoft.com/rest/api/searchservice/create-index). Per informazioni dettagliate sul modo in cui i parametri vengono usati durante l'elaborazione, vedere funzionamento [della ricerca full-text in Azure ricerca cognitiva](search-lucene-query-architecture.md).
+Tutti gli altri parametri di ricerca sono facoltativi. Per l'elenco completo degli attributi, vedere [Creare l’indice (REST)](/rest/api/searchservice/create-index). Per informazioni dettagliate sul modo in cui i parametri vengono usati durante l'elaborazione, vedere funzionamento [della ricerca full-text in Azure ricerca cognitiva](search-lucene-query-architecture.md).
 
 ## <a name="choose-apis-and-tools"></a>Scegliere le API e gli strumenti
 
@@ -92,8 +92,8 @@ La tabella seguente elenca le API e i metodi basati su strumenti per inviare que
 |-------------|-------------|
 | [Esplora ricerche (portale)](search-explorer.md) | Fornisce opzioni e una barra di ricerca per selezioni indice e versione API. I risultati vengono restituiti come documenti JSON. Consigliato per l'esplorazione, il test e la convalida. <br/>[Altre informazioni.](search-get-started-portal.md#query-index) | 
 | [Postazione o altri strumenti REST](search-get-started-postman.md) | Gli strumenti di test Web sono un'ottima scelta per formulare le chiamate REST. L'API REST supporta tutte le operazioni possibili in Azure ricerca cognitiva. Questo articolo illustra come configurare un'intestazione e un corpo di richiesta HTTP per l'invio di richieste ad Azure ricerca cognitiva.  |
-| [SearchIndexClient (.NET)](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Client che può essere usato per eseguire query su un indice ricerca cognitiva di Azure.  <br/>[Altre informazioni.](search-howto-dotnet-sdk.md#core-scenarios)  |
-| [Cerca documenti (API REST)](https://docs.microsoft.com/rest/api/searchservice/search-documents) | Metodi GET o POST su un indice, usando i parametri di query per un input aggiuntivo.  |
+| [SearchIndexClient (.NET)](/dotnet/api/microsoft.azure.search.searchindexclient?view=azure-dotnet) | Client che può essere usato per eseguire query su un indice ricerca cognitiva di Azure.  <br/>[Altre informazioni.](search-howto-dotnet-sdk.md#core-scenarios)  |
+| [Cerca documenti (API REST)](/rest/api/searchservice/search-documents) | Metodi GET o POST su un indice, usando i parametri di query per un input aggiuntivo.  |
 
 ## <a name="choose-a-parser-simple--full"></a>Scegliere un parser: semplice | completo
 
@@ -123,7 +123,7 @@ Azure ricerca cognitiva supporta un'ampia gamma di tipi di query.
 |------------|--------|-------------------------------|
 | Ricerca di testo in formato libero | Parametro di ricerca ed entrambi i parser| La ricerca full-text scansiona uno o più termini in tutti i campi *ricercabili* dell'indice e funziona come un motore di ricerca, ad esempio Google o Bing. L'esempio nella sezione introduttiva è di ricerca full-text.<br/><br/>La ricerca full-text viene sottoposta ad analisi lessicale usando l'analizzatore Lucene standard (per impostazione predefinita) per ridurre il maiuscolo di tutti i termini, rimuovere parole non significative come "The". È possibile eseguire l'override dell'impostazione predefinita con gli [analizzatori non in lingua inglese](index-add-language-analyzers.md#language-analyzer-list) o con [analizzatori indipendenti dal linguaggio specializzati](index-add-custom-analyzers.md#AnalyzerTable) che modificano l'analisi lessicale. Ad esempio [parola chiave](https://lucene.apache.org/core/6_6_1/analyzers-common/org/apache/lucene/analysis/core/KeywordAnalyzer.html) gestisce l'intero contenuto di un campo come un token singolo. Ciò è utile per i dati come i codici postali, gli ID e alcuni nomi di prodotto. | 
 | Ricerca filtrata | [Espressione di filtro OData](query-odata-filter-orderby-syntax.md) ed entrambi i parser | Le query filtro valutano un'espressione booleana su tutti i campi *filtrabili* in un indice. Contrariamente alla ricerca, una query filtro corrisponde al contenuto esatto di un campo, inclusa la distinzione tra maiuscole e minuscole nei campi della stringa. Un'altra differenza è che le query filtro vengono espresse nella sintassi di OData. <br/>[Esempio di espressione filtro](search-query-simple-examples.md#example-3-filter-queries) |
-| Ricerca geografica | [Tipo Edm.Geographypoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) sul campo, l'espressione filtro ed entrambi i parser | Le coordinate archiviate in un campo con un Edm.geographypoint sono utilizzate per "ricerca nelle vicinanze" o per controlli di ricerca basati su mappa. <br/>[Esempio di ricerca geografica](search-query-simple-examples.md#example-5-geo-search)|
+| Ricerca geografica | [Tipo Edm.Geographypoint](/rest/api/searchservice/supported-data-types) sul campo, l'espressione filtro ed entrambi i parser | Le coordinate archiviate in un campo con un Edm.geographypoint sono utilizzate per "ricerca nelle vicinanze" o per controlli di ricerca basati su mappa. <br/>[Esempio di ricerca geografica](search-query-simple-examples.md#example-5-geo-search)|
 | Ricerca immagini | espressione di filtro e parser semplice | In ricerca cognitiva di Azure, le query di intervallo vengono compilate utilizzando il parametro Filter. <br/>[Esempio di filtro di intervallo](search-query-simple-examples.md#example-4-range-filters) | 
 | [Ricerca nel campo](query-lucene-syntax.md#bkmk_fields) | Parametro di ricerca ed parser completo | Compilare un'espressione di query composta destinata a un singolo campo. <br/>[Esempio di ricerca nel campo](search-query-lucene-examples.md#example-2-fielded-search) |
 | [Ricerca fuzzy](query-lucene-syntax.md#bkmk_fuzzy) | Parametro di ricerca ed parser completo | Corrispondenze in base alle esigenze di ortografia o di costruzione simile. <br/>[Esempio di ricerca fuzzy](search-query-lucene-examples.md#example-3-fuzzy-search) |
@@ -169,5 +169,5 @@ In ricerca cognitiva di Azure, l'accento sulla parte esatta dei risultati della 
 
 + [Funzionamento della ricerca full-text in Azure ricerca cognitiva (architettura di analisi delle query)](search-lucene-query-architecture.md)
 + [Esplora ricerche](search-explorer.md)
-+ [Come eseguire query in .NET](search-query-dotnet.md)
-+ [Come eseguire query in REST](search-create-index-rest-api.md)
++ [Come eseguire query in .NET](./search-get-started-dotnet.md)
++ [Come eseguire query in REST](./search-get-started-powershell.md)

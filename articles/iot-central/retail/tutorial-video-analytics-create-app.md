@@ -8,12 +8,12 @@ ms.topic: tutorial
 author: KishorIoT
 ms.author: nandab
 ms.date: 07/31/2020
-ms.openlocfilehash: 897262dcdb8cbacd512f19823da375e2c603b97e
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: b98406984f2c9f2adfca030369a6ea3d47a786f3
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037943"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88762778"
 ---
 # <a name="tutorial-create-a-video-analytics---object-and-motion-detection-application-in-azure-iot-central"></a>Esercitazione: Creare un'applicazione Analisi video - rilevamento movimento e oggetti in Azure IoT Central
 
@@ -40,7 +40,7 @@ Per completare questa serie di esercitazioni, sono necessari gli elementi seguen
 
 ## <a name="initial-setup"></a>Configurazione iniziale
 
-In queste esercitazioni si aggiornano e si usano diversi file di configurazione. Le versioni iniziali di questi file sono disponibili nel repository GitHub [LVA-gateway](https://github.com/Azure/live-video-analytics). Il repository include anche un file di testo denominato scratchpad che è possibile scaricare e usare per registrare i valori di configurazione dei servizi distribuiti.
+In queste esercitazioni si aggiornano e si usano diversi file di configurazione. Le versioni iniziali di questi file sono disponibili nel repository GitHub [LVA-gateway](https://github.com/Azure/live-video-analytics/tree/master/ref-apps/lva-edge-iot-central-gateway). Il repository include anche un file di testo denominato scratchpad che è possibile scaricare e usare per registrare i valori di configurazione dei servizi distribuiti.
 
 Creare una cartella denominata *lva-configuration* nel computer locale per salvare copie di questi file. Fare quindi clic con il pulsante destro del mouse su ognuno dei collegamenti seguenti e scegliere **Salva con nome** per salvare il file nella cartella *lva-configuration*:
 
@@ -98,7 +98,7 @@ Per creare una nuova applicazione Azure IoT Central:
 
 Per creare una nuova applicazione di analisi video:
 
-1. Selezionare il modello di applicazione **Analisi video - rilevamento movimento e oggetti**. Questo modello include i modelli per i dispositivi usati nell'esercitazione. Il modello fornisce anche un dashboard operatore per il monitoraggio del video.
+1. Selezionare il modello di applicazione **Analisi video - rilevamento movimento e oggetti**. Questo modello include i modelli per i dispositivi usati nell'esercitazione. Il modello include i dashboard di esempio che gli operatori possono usare per eseguire attività quali il monitoraggio e la gestione delle fotocamere.
 
 1. Facoltativamente, scegliere un **nome applicazione** descrittivo. Questa applicazione si basa su un punto vendita al dettaglio fittizio denominato Northwind Traders. Per **Nome applicazione** l'esercitazione usa *Northwind Traders video analytics*.
 
