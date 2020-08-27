@@ -9,12 +9,12 @@ tags: Lucene query analyzer syntax
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c344d7bd7007dfbea366ea597ec622e35bf1e2eb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d3f8208af9d5997f5a9e025a54b54b5b035fb85
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85561779"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934974"
 ---
 # <a name="use-the-full-lucene-search-syntax-advanced-queries-in-azure-cognitive-search"></a>Usare la sintassi di ricerca Lucene "completa" (query avanzate in Azure ricerca cognitiva)
 
@@ -147,7 +147,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
 
 Assicurarsi di inserire più stringhe tra virgolette se si desidera che entrambe le stringhe vengano valutate come una singola entità, come in questo caso la ricerca di due posizioni distinte nel `state` campo. Assicurarsi anche che l'operatore sia in lettere maiuscole, come NOT e AND.
 
-Il campo specificato in **FieldName: searchExpression** deve essere un campo ricercabile. Per informazioni dettagliate sull'uso degli attributi di indice nelle definizioni di campo, vedere [create index (API REST di Azure ricerca cognitiva)](https://docs.microsoft.com/rest/api/searchservice/create-index) .
+Il campo specificato in **FieldName: searchExpression** deve essere un campo ricercabile. Per informazioni dettagliate sull'uso degli attributi di indice nelle definizioni di campo, vedere [create index (API REST di Azure ricerca cognitiva)](/rest/api/searchservice/create-index) .
 
 > [!NOTE]
 > Nell'esempio precedente non è stato necessario usare il `searchFields` parametro perché ogni parte della query ha un nome di campo specificato in modo esplicito. Tuttavia, è comunque possibile utilizzare il `searchFields` parametro se si desidera eseguire una query in cui alcune parti hanno come ambito un campo specifico e il resto può essere applicato a più campi. La query, ad esempio, `search=business_title:(senior NOT junior) AND external&searchFields=posting_type` corrisponderà `senior NOT junior` solo al `business_title` campo, mentre corrisponderebbe a "External" con il `posting_type` campo. Il nome del campo specificato in **FieldName: searchExpression** ha sempre la precedenza sul `searchFields` parametro, motivo per cui in questo esempio non è necessario includere `business_title` nel `searchFields` parametro.
@@ -256,7 +256,7 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
   ![Query Regex](media/search-query-lucene-examples/regex.png)
 
 > [!Note]
-> Le query Regex non vengono [analizzate](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). L'unica trasformazione eseguita per i termini di una query incompleta è la conversione in lettere minuscole.
+> Le query Regex non vengono [analizzate](./search-lucene-query-architecture.md#stage-2-lexical-analysis). L'unica trasformazione eseguita per i termini di una query incompleta è la conversione in lettere minuscole.
 >
 
 ## <a name="example-7-wildcard-search"></a>Esempio 7: ricerca con caratteri jolly
@@ -278,18 +278,18 @@ https://azs-playground.search.windows.net/indexes/nycjobs/docs?api-version=2020-
   ![Query con caratteri jolly](media/search-query-lucene-examples/wildcard.png)
 
 > [!Note]
-> Le query con caratteri jolly non vengono [analizzate](https://docs.microsoft.com/azure/search/search-lucene-query-architecture#stage-2-lexical-analysis). L'unica trasformazione eseguita per i termini di una query incompleta è la conversione in lettere minuscole.
+> Le query con caratteri jolly non vengono [analizzate](./search-lucene-query-architecture.md#stage-2-lexical-analysis). L'unica trasformazione eseguita per i termini di una query incompleta è la conversione in lettere minuscole.
 >
 
 ## <a name="next-steps"></a>Passaggi successivi
 Provare a specificare il parser di query Lucene nel codice. I collegamenti seguenti illustrano come configurare le query di ricerca per .NET e l'API REST. I collegamenti usano la sintassi semplice predefinita, quindi è necessario applicare quanto appreso in questo articolo per specificare il parametro **queryType**.
 
-* [Eseguire query sull'indice usando .NET SDK](search-query-dotnet.md)
-* [Eseguire query sull'indice usando l'API REST](search-create-index-rest-api.md)
+* [Eseguire query sull'indice usando .NET SDK](./search-get-started-dotnet.md)
+* [Eseguire query sull'indice usando l'API REST](./search-get-started-powershell.md)
 
 Un riferimento alla sintassi aggiuntivo, l'architettura di query ed esempi sono disponibili nei collegamenti seguenti:
 
 + [Esempi di query con sintassi semplice](search-query-simple-examples.md)
 + [Funzionamento della ricerca full-text in Ricerca cognitiva di Azure](search-lucene-query-architecture.md)
-+ [Sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search)
-+ [Sintassi completa della query Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search)
++ [Sintassi di query semplice](/rest/api/searchservice/simple-query-syntax-in-azure-search)
++ [Sintassi completa della query Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search)

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: 3bd0f01193b1e6579d60b581b43ad71ebb6001e3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 49a12203c833fc817b1898e6179d7f812d0a994e
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084195"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923110"
 ---
 # <a name="how-to-filter-by-language-in-azure-cognitive-search"></a>Come filtrare in base alla lingua in Azure ricerca cognitiva 
 
@@ -37,11 +37,11 @@ L'esempio seguente è relativo all' [esempio Real-estate](search-get-started-por
   ![Screenshot che mostra la schermata dei campi dell'esempio Real-immobiliare. Un gruppo di campi viene evidenziato per indicare il modo in cui le assegnazioni dell'analizzatore di linguaggio corrispondono alle lingue per i campi evidenziati.](./media/search-filters-language/lang-fields.png)
 
 > [!Note]
-> Per esempi di codice che mostrano definizioni di campo con analizzatori di lingua, vedere [Definire un indice (.NET)](https://docs.microsoft.com/azure/search/search-create-index-dotnet) e [Definire un indice (REST)](search-create-index-rest-api.md).
+> Per esempi di codice che mostrano definizioni di campo con analizzatori di lingua, vedere [Definire un indice (.NET)](./search-get-started-dotnet.md) e [Definire un indice (REST)](./search-get-started-powershell.md).
 
 ## <a name="build-and-load-an-index"></a>Creare e caricare un indice
 
-Un passaggio intermedio necessario (e probabilmente ovvio) consiste nel [compilare e popolare l'indice](https://docs.microsoft.com/azure/search/search-create-index-dotnet) prima di formulare una query. Questo passaggio viene citato qui per motivi di completezza. Un modo per determinare se l'indice è disponibile consiste nel controllare l'elenco degli indici nel [portale](https://portal.azure.com).
+Un passaggio intermedio necessario (e probabilmente ovvio) consiste nel [compilare e popolare l'indice](./search-get-started-dotnet.md) prima di formulare una query. Questo passaggio viene citato qui per motivi di completezza. Un modo per determinare se l'indice è disponibile consiste nel controllare l'elenco degli indici nel [portale](https://portal.azure.com).
 
 ## <a name="constrain-the-query-and-trim-results"></a>Limitare la query e ridurre i risultati
 
@@ -63,7 +63,6 @@ parameters =
 ## <a name="see-also"></a>Vedere anche
 
 + [Filtri in ricerca cognitiva di Azure](search-filters.md)
-+ [Analizzatori di linguaggi](https://docs.microsoft.com/rest/api/searchservice/language-support)
++ [Analizzatori di linguaggi](/rest/api/searchservice/language-support)
 + [Funzionamento della ricerca full-text in Ricerca cognitiva di Azure](search-lucene-query-architecture.md)
-+ [Search Documents REST API](https://docs.microsoft.com/rest/api/searchservice/search-documents) (API REST di Ricerca di documenti)
-
++ [Search Documents REST API](/rest/api/searchservice/search-documents) (API REST di Ricerca di documenti)

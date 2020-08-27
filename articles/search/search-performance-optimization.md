@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 7c2857de0613be400f83544e1dabe079b7497bbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5fd949466978714fe1dc0c4ccc67a3cb8f993314
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77212381"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934957"
 ---
 # <a name="scale-for-performance-on-azure-cognitive-search"></a>Scalabilità per le prestazioni in Azure ricerca cognitiva
 
@@ -30,7 +30,7 @@ Prima di intraprendere un lavoro di distribuzione più ampio, assicurarsi di con
 
 1. Iniziare con un numero ridotto di query al secondo (query al secondo) e quindi aumentare gradualmente il numero eseguito nel test fino a quando la latenza della query scende sotto la destinazione predefinita. Si tratta di un benchmark importante per la pianificazione della scalabilità man mano che aumenta l'uso dell'applicazione.
 
-1. Se possibile, riusare le connessioni HTTP. Se si usa Azure ricerca cognitiva .NET SDK, questo significa che è necessario riutilizzare un'istanza di o un'istanza di [SearchIndexClient](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.searchindexclient) . Se si usa l'API REST, è necessario riusare un singolo HttpClient.
+1. Se possibile, riusare le connessioni HTTP. Se si usa Azure ricerca cognitiva .NET SDK, questo significa che è necessario riutilizzare un'istanza di o un'istanza di [SearchIndexClient](/dotnet/api/microsoft.azure.search.searchindexclient) . Se si usa l'API REST, è necessario riusare un singolo HttpClient.
 
 1. Variare la sostanza delle richieste di query in modo che la ricerca venga eseguita su diverse parti dell'indice. La variazione è importante perché se si eseguono continuamente le stesse richieste di ricerca, la memorizzazione nella cache dei dati inizierà a migliorare le prestazioni rispetto a una serie di query più diverse.
 
@@ -43,7 +43,7 @@ Durante la creazione di questi carichi di lavoro di test, è necessario tenere p
 + Azure ricerca cognitiva non esegue attività di indicizzazione in background. Se il servizio gestisce contemporaneamente i carichi di lavoro di query e di indicizzazione, è necessario prendere in considerazione l'introduzione dei processi di indicizzazione nei test di query o l'esplorazione delle opzioni per l'esecuzione di processi di indicizzazione durante gli orari di minore attività.
 
 > [!Tip]
-> È possibile simulare un carico di query realistico usando gli strumenti di test di carico. Provare [a eseguire il test di carico con Azure DevOps](https://docs.microsoft.com/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=azure-devops) o usare una di queste [alternative](https://docs.microsoft.com/azure/devops/test/load-test/overview?view=azure-devops#alternatives).
+> È possibile simulare un carico di query realistico usando gli strumenti di test di carico. Provare [a eseguire il test di carico con Azure DevOps](/azure/devops/test/load-test/get-started-simple-cloud-load-test?view=azure-devops) o usare una di queste [alternative](/azure/devops/test/load-test/overview?view=azure-devops#alternatives).
 
 ## <a name="scale-for-high-query-volume"></a>Scalabilità per un volume di query elevato
 
@@ -99,7 +99,7 @@ L'obiettivo di un set con distribuzione geografica di servizi di ricerca consist
 
 ### <a name="keep-data-synchronized-across-multiple-services"></a>Mantieni i dati sincronizzati tra più servizi
 
-Sono disponibili due opzioni per mantenere sincronizzati i servizi di ricerca distribuiti, che possono essere usati con l' [indicizzatore ricerca cognitiva di Azure](search-indexer-overview.md) o l'API push (detta anche [API REST di Azure ricerca cognitiva](https://docs.microsoft.com/rest/api/searchservice/)).  
+Sono disponibili due opzioni per mantenere sincronizzati i servizi di ricerca distribuiti, che possono essere usati con l' [indicizzatore ricerca cognitiva di Azure](search-indexer-overview.md) o l'API push (detta anche [API REST di Azure ricerca cognitiva](/rest/api/searchservice/)).  
 
 ### <a name="use-indexers-for-updating-content-on-multiple-services"></a>Usare gli indicizzatori per aggiornare il contenuto su più servizi
 
@@ -111,7 +111,7 @@ Di seguito è riportato un oggetto visivo di alto livello dell'aspetto dell'arch
 
 ### <a name="use-rest-apis-for-pushing-content-updates-on-multiple-services"></a>Usare le API REST per il push degli aggiornamenti del contenuto su più servizi
 
-Se si usa l'API REST di Azure ricerca cognitiva per eseguire il [push del contenuto nell'indice ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice/update-index), è possibile sincronizzare i vari servizi di ricerca eseguendo il push delle modifiche a tutti i servizi di ricerca ogni volta che è necessario un aggiornamento. Nel codice, assicurarsi di gestire i casi in cui un aggiornamento a un servizio di ricerca ha esito negativo, ma ha esito positivo per altri servizi di ricerca.
+Se si usa l'API REST di Azure ricerca cognitiva per eseguire il [push del contenuto nell'indice ricerca cognitiva di Azure](/rest/api/searchservice/update-index), è possibile sincronizzare i vari servizi di ricerca eseguendo il push delle modifiche a tutti i servizi di ricerca ogni volta che è necessario un aggiornamento. Nel codice, assicurarsi di gestire i casi in cui un aggiornamento a un servizio di ricerca ha esito negativo, ma ha esito positivo per altri servizi di ricerca.
 
 ## <a name="leverage-azure-traffic-manager"></a>Sfruttare gestione traffico di Azure
 

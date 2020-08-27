@@ -8,21 +8,21 @@ ms.author: mcarter
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 05/11/2020
-ms.openlocfilehash: 699715e1188616c2d6bda47016ec1ea7b05cef83
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e8a94b6b9b71d2d71b634edd70ea4150652b143
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "83125589"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88932798"
 ---
 # <a name="configure-ip-firewall-for-azure-cognitive-search"></a>Configurare il firewall IP per Azure ricerca cognitiva
 
 Azure ricerca cognitiva supporta le regole IP per il supporto del firewall in ingresso. Questo modello offre un livello aggiuntivo di sicurezza per il servizio di ricerca simile alle regole IP disponibili in un gruppo di sicurezza di rete virtuale di Azure. Con queste regole IP, è possibile configurare il servizio di ricerca in modo che sia accessibile solo da un set approvato di computer e/o servizi cloud. Per accedere ai dati archiviati nel servizio di ricerca da questi set di computer e servizi approvati, sarà comunque necessario che il chiamante presenti un token di autorizzazione valido.
 
 > [!Important]
-> Le regole IP nel servizio ricerca cognitiva di Azure possono essere configurate usando il portale di Azure o l' [API REST di gestione versione 2020-03-13](https://docs.microsoft.com/rest/api/searchmanagement/).
+> Le regole IP nel servizio ricerca cognitiva di Azure possono essere configurate usando il portale di Azure o l' [API REST di gestione versione 2020-03-13](/rest/api/searchmanagement/).
 
-## <a name="configure-an-ip-firewall-using-the-azure-portal"></a><a id="configure-ip-policy"></a>Configurare un firewall IP usando il portale di Azure
+## <a name="configure-an-ip-firewall-using-the-azure-portal"></a><a id="configure-ip-policy"></a> Configurare un firewall IP usando il portale di Azure
 
 Per impostare i criteri di controllo di accesso IP nel portale di Azure, passare alla pagina del servizio ricerca cognitiva di Azure e selezionare **rete** nel menu di navigazione. La connettività di rete di endpoint deve essere **pubblica**. Se la connettività è impostata su **privata**, è possibile accedere al servizio di ricerca solo tramite un endpoint privato.
 

@@ -2,14 +2,15 @@
 title: Tenere traccia delle operazioni personalizzate con applicazione Azure .NET SDK di Insights
 description: Verifica delle operazioni personalizzate con Azure Application Insights .NET SDK
 ms.topic: conceptual
+ms.custom: devx-track-csharp
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: bd30f60928df3644b215f185d620393d1edda8c7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 42a5318325f9961483465357403089755feb130d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320375"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88933308"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Verifica delle operazioni personalizzate con Application Insights .NET SDK
 
@@ -347,9 +348,9 @@ Quando si instrumenta l'eliminazione di un messaggio, assicurarsi di impostare g
 ### <a name="dependency-types"></a>Tipi di dipendenza
 
 Application Insights usa il tipo di dipendenza per personalizzare le esperienze dell'interfaccia utente. Per le code, riconosce i tipi seguenti di `DependencyTelemetry` che migliorano l' [esperienza di diagnostica delle transazioni](./transaction-diagnostics.md):
-- `Azure queue`per le code di archiviazione di Azure
-- `Azure Event Hubs`per hub eventi di Azure
-- `Azure Service Bus`per il bus di servizio di Azure
+- `Azure queue` per le code di archiviazione di Azure
+- `Azure Event Hubs` per hub eventi di Azure
+- `Azure Service Bus` per il bus di servizio di Azure
 
 ### <a name="batch-processing"></a>Elaborazione batch
 Per alcune code, è possibile una rimozione dalla coda di più messaggi con una singola richiesta. L'elaborazione di tali messaggi è presumibilmente indipendente e appartiene a diverse operazioni logiche. Non è possibile correlare l' `Dequeue` operazione a un determinato messaggio in fase di elaborazione.
@@ -469,11 +470,11 @@ public async Task RunAllTasks()
 ```
 
 ## <a name="applicationinsights-operations-vs-systemdiagnosticsactivity"></a>Operazioni ApplicationInsights rispetto a System. Diagnostics. Activity
-`System.Diagnostics.Activity`rappresenta il contesto della traccia distribuita e viene usato da Framework e librerie per creare e propagare il contesto all'interno e all'esterno del processo e correlare gli elementi di telemetria. L'attività interagisce con `System.Diagnostics.DiagnosticSource` : il meccanismo di notifica tra il Framework o la libreria per notificare gli eventi interessanti (richieste in ingresso o in uscita, eccezioni e così via).
+`System.Diagnostics.Activity` rappresenta il contesto della traccia distribuita e viene usato da Framework e librerie per creare e propagare il contesto all'interno e all'esterno del processo e correlare gli elementi di telemetria. L'attività interagisce con `System.Diagnostics.DiagnosticSource` : il meccanismo di notifica tra il Framework o la libreria per notificare gli eventi interessanti (richieste in ingresso o in uscita, eccezioni e così via).
 
 Le attività sono i cittadini di prima classe in Application Insights e la dipendenza automatica e la raccolta di richieste si basa in modo significativo su di essi insieme agli `DiagnosticSource` eventi. Se si crea un'attività nell'applicazione, non si verificherà la creazione di dati di telemetria Application Insights. Application Insights deve ricevere eventi DiagnosticSource e conosce i nomi e i payload degli eventi per tradurre l'attività nei dati di telemetria.
 
-Ogni operazione di Application Insights (richiesta o dipendenza) implica `Activity` -quando `StartOperation` viene chiamato, crea un'attività sottostante. `StartOperation`è il metodo consigliato per tenere traccia delle telemetrie delle richieste o delle dipendenze manualmente e garantire che tutti gli elementi siano correlati.
+Ogni operazione di Application Insights (richiesta o dipendenza) implica `Activity` -quando `StartOperation` viene chiamato, crea un'attività sottostante. `StartOperation` è il metodo consigliato per tenere traccia delle telemetrie delle richieste o delle dipendenze manualmente e garantire che tutti gli elementi siano correlati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

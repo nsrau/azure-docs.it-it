@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/17/2020
-ms.openlocfilehash: f713eb71d375a3388c4b238656355595354b9806
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b364655f26c6ac29c14d387d69d7b4277d6aeb86
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84982017"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924640"
 ---
 #   <a name="text-merge-cognitive-skill"></a>Competenza cognitiva di unione testi
 
@@ -75,7 +75,7 @@ Questo esempio mostra l'output dell'input precedente assumendo che *insertPreTag
 
 Uno scenario comune per l'uso di unione testi è quello di unire la rappresentazione testuale di immagini (testo di una competenza OCR o la didascalia di un'immagine) nel campo del contenuto di un documento. 
 
-Il set di competenze di esempio seguente usa la competenza OCR per estrarre il testo da immagini incorporate nel documento. Successivamente crea un campo *merged_text* per contenere sia il testo originale sia il testo OCR da ogni immagine. Altre informazioni sulla competenza OCR sono disponibili [qui](https://docs.microsoft.com/azure/search/cognitive-search-skill-ocr).
+Il set di competenze di esempio seguente usa la competenza OCR per estrarre il testo da immagini incorporate nel documento. Successivamente crea un campo *merged_text* per contenere sia il testo originale sia il testo OCR da ogni immagine. Altre informazioni sulla competenza OCR sono disponibili [qui](./cognitive-search-skill-ocr.md).
 
 ```json
 {
@@ -148,4 +148,4 @@ Nell'esempio precedente si suppone l'esistenza di un campo di immagini normalizz
 
 + [Competenze predefinite](cognitive-search-predefined-skills.md)
 + [Come definire un set di competenze](cognitive-search-defining-skillset.md)
-+ [Creare un indicizzatore (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Creare un indicizzatore (REST)](/rest/api/searchservice/create-indexer)

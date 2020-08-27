@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ce2ea7bed7da5226868afcf4d284ba893f2208a
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 915098130c7a8462bc0e009be04a61b5b0a7985d
+ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87828660"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88795593"
 ---
 # <a name="custom-administrator-roles-in-azure-active-directory-preview"></a>Ruoli di amministratore personalizzati in Azure Active Directory (anteprima)
 
@@ -46,7 +46,7 @@ Di seguito è indicata la procedura generale usata da Azure AD per determinare s
 
 1. A seconda delle circostanze, Azure AD esegue una delle operazioni seguenti:
 
-    - Valuta le appartenenze ai ruoli dell'utente in base all'[attestazione wids](https://docs.microsoft.com/azure/active-directory/develop/access-tokens) nel token di accesso dell'utente.
+    - Valuta le appartenenze ai ruoli dell'utente in base all'[attestazione wids](../develop/access-tokens.md) nel token di accesso dell'utente.
     - Recupera tutte le assegnazioni di ruolo valide per l'utente, direttamente o tramite l'appartenenza a gruppi, per la risorsa in cui viene eseguita l'azione.
 
 1. Azure AD determina se l'azione nella chiamata API è inclusa nei ruoli di cui l'utente dispone per questa risorsa.

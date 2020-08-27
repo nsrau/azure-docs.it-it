@@ -8,26 +8,26 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: c940d0dd4c92aca92291bfe1dbd6c15f1091f0b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 52230d6b13c4210e0ff8e85d0a3efe39af55f6e2
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611612"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935059"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Raccogliere e analizzare i dati di log per Azure ricerca cognitiva
 
 I log di diagnostica o operativi forniscono informazioni approfondite sulle operazioni dettagliate di Azure ricerca cognitiva e sono utili per il monitoraggio dei processi del servizio e del carico di lavoro. Internamente, alcune informazioni sul sistema esistono nel back-end per un breve periodo di tempo, sufficiente per l'analisi e l'analisi se si segnala un ticket di supporto. Tuttavia, se si desidera la direzione automatica sui dati operativi, è necessario configurare un'impostazione di diagnostica per specificare la posizione in cui vengono raccolte le informazioni di registrazione.
 
-La registrazione diagnostica viene abilitata tramite l'integrazione con [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/). 
+La registrazione diagnostica viene abilitata tramite l'integrazione con [monitoraggio di Azure](../azure-monitor/index.yml). 
 
 Quando si configura la registrazione diagnostica, verrà richiesto di specificare un meccanismo di archiviazione. Nella tabella seguente sono elencate le opzioni per la raccolta e la conservazione dei dati.
 
-| Risorsa | Utilizzato per |
+| Risorsa | Utilizzo |
 |----------|----------|
-| [Inviare all'area di lavoro Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | Gli eventi e le metriche vengono inviati a un'area di lavoro Log Analytics, su cui è possibile eseguire query nel portale per restituire informazioni dettagliate. Per informazioni introduttive, vedere Introduzione [ai log di monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) |
-| [Archivia con archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | Gli eventi e le metriche vengono archiviati in un contenitore BLOB e archiviati in file JSON. I log possono essere abbastanza granulari (in base all'ora/minuto), utili per la ricerca di un evento imprevisto specifico, ma non per l'analisi aperta. Usare un editor JSON per visualizzare un file di log non elaborato o Power BI per aggregare e visualizzare i dati di log.|
-| [Flusso a hub eventi](https://docs.microsoft.com/azure/event-hubs/) | Gli eventi e le metriche vengono trasmessi a un servizio Hub eventi di Azure. Scegliere questa opzione come servizio di raccolta dati alternativo per i log di dimensioni molto grandi. |
+| [Inviare all'area di lavoro Log Analytics](../azure-monitor/learn/tutorial-resource-logs.md) | Gli eventi e le metriche vengono inviati a un'area di lavoro Log Analytics, su cui è possibile eseguire query nel portale per restituire informazioni dettagliate. Per informazioni introduttive, vedere Introduzione [ai log di monitoraggio di Azure](../azure-monitor/log-query/get-started-portal.md) |
+| [Archivia con archiviazione BLOB](../storage/blobs/storage-blobs-overview.md) | Gli eventi e le metriche vengono archiviati in un contenitore BLOB e archiviati in file JSON. I log possono essere abbastanza granulari (in base all'ora/minuto), utili per la ricerca di un evento imprevisto specifico, ma non per l'analisi aperta. Usare un editor JSON per visualizzare un file di log non elaborato o Power BI per aggregare e visualizzare i dati di log.|
+| [Flusso a hub eventi](../event-hubs/index.yml) | Gli eventi e le metriche vengono trasmessi a un servizio Hub eventi di Azure. Scegliere questa opzione come servizio di raccolta dati alternativo per i log di dimensioni molto grandi. |
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -35,7 +35,7 @@ Creare le risorse in anticipo in modo che sia possibile selezionarne una o più 
 
 + [Creare un'area di lavoro di log Analytics](../azure-monitor/learn/quick-create-workspace.md)
 
-+ [Creare un account di archiviazione](../storage/common/storage-quickstart-create-account.md)
++ [Creare un account di archiviazione](../storage/common/storage-account-create.md)
 
 + [Creare un hub eventi](../event-hubs/event-hubs-create.md)
 
@@ -122,9 +122,9 @@ Gli eventi registrati acquisiti da monitoraggio di Azure includono quelli correl
 
 | OperationName | Descrizione |
 |---------------|-------------|
-| ServiceStats | Questa operazione è una chiamata di routine per [ottenere le statistiche del servizio](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics), chiamate direttamente o in modo implicito per popolare una pagina di panoramica del portale quando viene caricata o aggiornata. |
+| ServiceStats | Questa operazione è una chiamata di routine per [ottenere le statistiche del servizio](/rest/api/searchservice/get-service-statistics), chiamate direttamente o in modo implicito per popolare una pagina di panoramica del portale quando viene caricata o aggiornata. |
 | Query. search |  Richieste di query su un indice vedere [monitorare](search-monitor-queries.md) le query per ottenere informazioni sulle query registrate.|
-| Indexing. index  | Questa operazione è una chiamata per [aggiungere, aggiornare o eliminare documenti](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). |
+| Indexing. index  | Questa operazione è una chiamata per [aggiungere, aggiornare o eliminare documenti](/rest/api/searchservice/addupdate-or-delete-documents). |
 | indici. Prototipo | Si tratta di un indice creato dalla procedura guidata Importa dati. |
 | Indicizzatori. crea | Creare un indicizzatore in modo esplicito o implicito tramite la procedura guidata Importa dati. |
 | Indicizzatori. Get | Restituisce il nome di un indicizzatore ogni volta che viene eseguito l'indicizzatore. |

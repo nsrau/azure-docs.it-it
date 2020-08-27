@@ -8,12 +8,12 @@ ms.author: victliu
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 65e483fd772e20daa73b465ea17dfa6ecde42233
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a1304ad05e05285aa75167ec21519ec90d157662
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76964890"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88922889"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Configurare una connessione da un indicizzatore di Azure ricerca cognitiva a SQL Istanza gestita
 
@@ -38,11 +38,11 @@ Verificare che nel gruppo di sicurezza di rete siano presenti le **regole di sic
 > Gli indicizzatori richiedono comunque che SQL Istanza gestita sia configurato con un endpoint pubblico per leggere i dati.
 > Tuttavia, è possibile scegliere di limitare l'accesso in ingresso a tale endpoint pubblico sostituendo la regola corrente ( `public_endpoint_inbound` ) con le 2 regole seguenti:
 >
-> * Consentire l'accesso in ingresso dal `AzureCognitiveSearch` [tag del servizio](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) ("Source" = `AzureCognitiveSearch` , "Name" = `cognitive_search_inbound` )
+> * Consentire l'accesso in ingresso dal `AzureCognitiveSearch` [tag del servizio](../virtual-network/service-tags-overview.md#available-service-tags) ("Source" = `AzureCognitiveSearch` , "Name" = `cognitive_search_inbound` )
 >
 > * Consentire l'accesso in ingresso dall'indirizzo IP del servizio di ricerca, che può essere ottenuto effettuando il ping del nome di dominio completo (ad esempio, `<your-search-service-name>.search.windows.net` ). ("SOURCE" = `IP address` , "Name" = `search_service_inbound` )
 >
-> Per ognuna di queste due regole, impostare "PORT" = `3342` , "Protocol" = `TCP` , "Destination" = `Any` , "Action" =`Allow`
+> Per ognuna di queste due regole, impostare "PORT" = `3342` , "Protocol" = `TCP` , "Destination" = `Any` , "Action" = `Allow`
 
 ## <a name="get-public-endpoint-connection-string"></a>Ottenere la stringa di connessione dell'endpoint pubblico
 Assicurarsi di usare la stringa di connessione per l' **endpoint pubblico** (porta 3342, non porta 1433).

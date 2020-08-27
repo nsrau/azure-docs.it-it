@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: f030e382a5378c84df347c545e9426adee6eacb1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 18646fc92dda7cebb7a8c1030285956d8fe4df74
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565998"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924164"
 ---
 # <a name="how-to-shape-and-export-enrichments"></a>Come modellare ed esportare gli arricchimenti
 
@@ -206,7 +206,7 @@ La proiezione per le tabelle in archiviazione di Azure è utile per la creazione
 Viene ora creato un dashboard per visualizzare le frasi chiave estratte dai documenti come un cloud di Word. Per creare la struttura di dati corretta, aggiungere una competenza shaper al skillt per creare una forma personalizzata con i dettagli e le frasi chiave specifici del documento. La forma personalizzata verrà chiamata `pbiShape` sul `document` nodo radice.
 
 > [!NOTE] 
-> Le proiezioni di tabella sono tabelle di archiviazione di Azure, regolate dai limiti di archiviazione imposti da archiviazione di Azure. Per altre informazioni, vedere [limiti di archiviazione tabelle](https://docs.microsoft.com/rest/api/storageservices/understanding-the-table-service-data-model). È utile tenere presente che la dimensione dell'entità non può superare 1 MB e una singola proprietà non può essere maggiore di 64 KB. Questi vincoli rendono le tabelle una soluzione efficace per l'archiviazione di un numero elevato di entità di piccole dimensioni.
+> Le proiezioni di tabella sono tabelle di archiviazione di Azure, regolate dai limiti di archiviazione imposti da archiviazione di Azure. Per altre informazioni, vedere [limiti di archiviazione tabelle](/rest/api/storageservices/understanding-the-table-service-data-model). È utile tenere presente che la dimensione dell'entità non può superare 1 MB e una singola proprietà non può essere maggiore di 64 KB. Questi vincoli rendono le tabelle una soluzione efficace per l'archiviazione di un numero elevato di entità di piccole dimensioni.
 
 ### <a name="using-a-shaper-skill-to-create-a-custom-shape"></a>Uso di un'abilità di shaper per creare una forma personalizzata
 
@@ -677,4 +677,3 @@ Per una panoramica sulle proiezioni, vedere altre informazioni sulle funzionalit
 
 > [!div class="nextstepaction"]
 > [Proiezioni in un archivio conoscenze](knowledge-store-projection-overview.md)
-

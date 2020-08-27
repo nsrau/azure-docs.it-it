@@ -9,20 +9,20 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/24/2020
-ms.openlocfilehash: a623436cdeaac89d140b3834808fb975bd733f4e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 84ddc4b427f6dc168c044f34b41e81e3b0ff19e5
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835953"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935042"
 ---
 # <a name="service-administration-for-azure-cognitive-search-in-the-azure-portal"></a>Amministrazione dei servizi per Azure ricerca cognitiva nel portale di Azure
 
 > [!div class="op_single_selector"]
 >
 > * [PowerShell](search-manage-powershell.md)
-> * [REST API](https://docs.microsoft.com/rest/api/searchmanagement/)
-> * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
+> * [REST API](/rest/api/searchmanagement/)
+> * [.NET SDK](/dotnet/api/microsoft.azure.management.search)
 > * [Portale](search-manage.md)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
@@ -33,9 +33,9 @@ Azure ricerca cognitiva è un servizio di ricerca completamente gestito basato s
 * Gestire l'accesso con la pagina **chiavi** a sinistra.
 * Modificare la capacità usando la pagina **scala** a sinistra.
 
-Le stesse attività eseguite nel portale possono essere gestite anche a livello di codice tramite le [API di gestione](https://docs.microsoft.com/rest/api/searchmanagement/) e il [modulo AZ. search PowerShell](search-manage-powershell.md). Le attività amministrative sono completamente rappresentate tra le interfacce del portale e a livello di codice. Nessuna attività amministrativa specifica disponibile in una sola modalità.
+Le stesse attività eseguite nel portale possono essere gestite anche a livello di codice tramite le [API di gestione](/rest/api/searchmanagement/) e il [modulo AZ. search PowerShell](search-manage-powershell.md). Le attività amministrative sono completamente rappresentate tra le interfacce del portale e a livello di codice. Nessuna attività amministrativa specifica disponibile in una sola modalità.
 
-Azure ricerca cognitiva sfrutta altri servizi di Azure per un monitoraggio e una gestione più approfonditi. Di per sé, gli unici dati archiviati con un servizio di ricerca sono il contenuto, ovvero indici, indicizzatori e definizioni delle origini dati e altri oggetti. Le metriche segnalate alle pagine del portale vengono estratte da log interni in un ciclo di 30 giorni in sequenza. Per la conservazione dei log controllata dall'utente e per gli eventi aggiuntivi, è necessario [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/). 
+Azure ricerca cognitiva sfrutta altri servizi di Azure per un monitoraggio e una gestione più approfonditi. Di per sé, gli unici dati archiviati con un servizio di ricerca sono il contenuto, ovvero indici, indicizzatori e definizioni delle origini dati e altri oggetti. Le metriche segnalate alle pagine del portale vengono estratte da log interni in un ciclo di 30 giorni in sequenza. Per la conservazione dei log controllata dall'utente e per gli eventi aggiuntivi, è necessario [monitoraggio di Azure](../azure-monitor/index.yml). 
 
 ## <a name="fixed-service-properties"></a>Proprietà del servizio fisse
 
@@ -58,7 +58,7 @@ Per quanto riguarda l'accesso all'endpoint, chiunque disponga dell'accesso all'U
 
 I diritti per l'apparecchio di provisioning del servizio vengono concessi tramite assegnazioni di ruolo. Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../role-based-access-control/overview.md) è un sistema di autorizzazione basato su [Azure Resource Manager](../azure-resource-manager/management/overview.md) per il provisioning delle risorse di Azure. 
 
-Nel contesto di Azure ricerca cognitiva le [assegnazioni di ruolo di Azure](search-security-rbac.md) determineranno chi può eseguire attività, indipendentemente dal fatto che stiano usando il [portale](search-manage.md), [PowerShell](search-manage-powershell.md)o le [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/search-howto-management-rest-api):
+Nel contesto di Azure ricerca cognitiva le [assegnazioni di ruolo di Azure](search-security-rbac.md) determineranno chi può eseguire attività, indipendentemente dal fatto che stiano usando il [portale](search-manage.md), [PowerShell](search-manage-powershell.md)o le [API REST di gestione](/rest/api/searchmanagement/search-howto-management-rest-api):
 
 * Creare o eliminare un servizio
 * Ridimensionare il servizio
@@ -73,12 +73,12 @@ Nel contesto di Azure ricerca cognitiva le [assegnazioni di ruolo di Azure](sear
 
 Al livello Basic e superiore, Microsoft monitora tutti i servizi ricerca cognitiva di Azure per la disponibilità del 99,9% per ogni contratto di servizio. Se il servizio è lento o la velocità effettiva delle richieste è al di sotto delle soglie dei contratti di servizio, i team di supporto esaminano i file di log disponibili e risolvono il problema.
 
-Azure ricerca cognitiva sfrutta [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/) per raccogliere e archiviare le attività di indicizzazione e query. Un servizio di ricerca da solo archivia il proprio contenuto (indici, definizioni dell'indicizzatore, definizioni delle origini dati, definizioni di competenze, mappe sinonimi). La memorizzazione nella cache e le informazioni registrate vengono archiviate fuori servizio, spesso in un account di archiviazione di Azure. Per altre informazioni sulla registrazione dei carichi di lavoro di indicizzazione e query, vedere [raccogliere e analizzare i dati di log](search-monitor-logs.md).
+Azure ricerca cognitiva sfrutta [monitoraggio di Azure](../azure-monitor/index.yml) per raccogliere e archiviare le attività di indicizzazione e query. Un servizio di ricerca da solo archivia il proprio contenuto (indici, definizioni dell'indicizzatore, definizioni delle origini dati, definizioni di competenze, mappe sinonimi). La memorizzazione nella cache e le informazioni registrate vengono archiviate fuori servizio, spesso in un account di archiviazione di Azure. Per altre informazioni sulla registrazione dei carichi di lavoro di indicizzazione e query, vedere [raccogliere e analizzare i dati di log](search-monitor-logs.md).
 
 In termini di informazioni generali sul servizio, usando solo le funzionalità predefinite di Azure ricerca cognitiva, è possibile ottenere informazioni nei modi seguenti:
 
 * Utilizzo della pagina **Panoramica** servizio tramite notifiche, proprietà e messaggi di stato.
-* Usare [PowerShell](search-manage-powershell.md) o l' [API REST di gestione](https://docs.microsoft.com/rest/api/searchmanagement/) per [ottenere le proprietà del servizio](https://docs.microsoft.com/rest/api/searchmanagement/services). Al livello programmatico non sono state fornite nuove informazioni o operazioni. Le interfacce sono disponibili per consentire la scrittura di script.
+* Usare [PowerShell](search-manage-powershell.md) o l' [API REST di gestione](/rest/api/searchmanagement/) per [ottenere le proprietà del servizio](/rest/api/searchmanagement/services). Al livello programmatico non sono state fornite nuove informazioni o operazioni. Le interfacce sono disponibili per consentire la scrittura di script.
 
 ## <a name="monitor-resource-usage"></a>Monitorare l'uso delle risorse
 
@@ -86,8 +86,8 @@ Nel dashboard il monitoraggio delle risorse è limitato alle informazioni visual
 
 Usando l'API REST del servizio di ricerca, è possibile ottenere un conteggio dei documenti e degli indici a livello di codice: 
 
-* [Ottenere le statistiche di un indice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)
-* [Contare i documenti](https://docs.microsoft.com/rest/api/searchservice/count-documents)
+* [Ottenere le statistiche di un indice](/rest/api/searchservice/Get-Index-Statistics)
+* [Contare i documenti](/rest/api/searchservice/count-documents)
 
 ## <a name="disaster-recovery-and-service-outages"></a>Interruzioni di servizio e ripristino di emergenza
 
@@ -135,7 +135,7 @@ A differenza della rimozione di repliche, che non richiede operazioni aggiuntive
 
 Non è disponibile un metodo di rilevamento che indichi quante sottopartizioni di indice sono archiviate su una partizione specifica. Ogni partizione fornisce approssimativamente 25 GB di spazio di archiviazione, pertanto sarà necessario ridurre l'archiviazione a una dimensione che possa essere contenuta nel numero disponibile di partizioni. Se si vuole tornare a una partizione, questa dovrà contenere tutte e 12 le sottopartizioni.
 
-Per pianificare in anticipo le esigenze future, è possibile verificare l'archiviazione (usando [Ottieni statistiche indice](https://docs.microsoft.com/rest/api/searchservice/Get-Index-Statistics)) per verificare quanta archiviazione è stata effettivamente usata. 
+Per pianificare in anticipo le esigenze future, è possibile verificare l'archiviazione (usando [Ottieni statistiche indice](/rest/api/searchservice/Get-Index-Statistics)) per verificare quanta archiviazione è stata effettivamente usata. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
