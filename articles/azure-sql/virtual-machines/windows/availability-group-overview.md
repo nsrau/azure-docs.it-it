@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019, devx-track-azurecli
-ms.openlocfilehash: bc0d5b0cdf616904ee7ed61fdc681ba60bff8f75
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 705c7dd602d9c908ec9048d131ba66b21c5b2103
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87480289"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006517"
 ---
 # <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Introduzione a SQL Server Gruppi di disponibilità Always On in macchine virtuali di Azure
 
@@ -41,9 +41,10 @@ Per aumentare la ridondanza e la disponibilità elevata, le VM di SQL Server dev
 
 |  | Versione di Windows Server | Versione di SQL Server | Edizione di SQL Server | Configurazione del quorum WSFC | Ripristino di emergenza con più aree | Supporto di più subnet | Supporto di un dominio dell'applicazione esistente | Ripristino di emergenza con più aree della stessa regione | Supporto di dist-AG senza dominio AD | Supporto di dist-AG senza cluster |  
 | :------ | :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----| :-----|
-| **[Interfaccia della riga di comando delle VM SQL](availability-group-az-cli-configure.md)** | 2016 | 2017 </br>2016   | Enterprise | Cloud di controllo | No | Sì | Sì | Sì | No | No |
-| **[Modelli di avvio rapido](availability-group-quickstart-template-configure.md)** | 2016 | 2017</br>2016  | Enterprise | Cloud di controllo | No | Sì | Sì | Sì | No | No |
-| **[Manuale](availability-group-manually-configure-prerequisites-tutorial.md)** | Tutti | Tutti | Tutti | Tutti | Sì | sì | sì | sì | sì | sì |
+| **[Portale di Azure](availability-group-azure-portal-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016   | Enterprise | Cloud di controllo | No | Sì | Sì | Sì | No | No |
+| **[INTERFACCIA della riga di comando di Azure/PowerShell](availability-group-az-cli-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016   | Enterprise | Cloud di controllo | No | Sì | Sì | Sì | No | No |
+| **[Modelli di avvio rapido](availability-group-quickstart-template-configure.md)** | 2019 </br> 2016 | 2019 </br>2017 </br>2016  | Enterprise | Cloud di controllo | No | Sì | Sì | Sì | No | No |
+| **[Manuale](availability-group-manually-configure-prerequisites-tutorial.md)** | Tutti | Tutti | Tutti | Tutti | Sì | Sì | Sì | Sì | Sì | Sì |
 
 Il modello di **SQL Server cluster AlwaysOn (anteprima)** è stato rimosso da Azure Marketplace e non è più disponibile. 
 

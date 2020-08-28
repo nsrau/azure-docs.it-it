@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: a46597087a3eee03f7c5b8d1c9746f968ea1980d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: df81a383dc84ebc70beedded03e9fd1d6bccabdf
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87849727"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89009611"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Archiviazione BLOB di Azure: livelli di accesso frequente, sporadico e archivio
 
@@ -69,6 +69,9 @@ Gli scenari di utilizzo di esempio per il livello di accesso dell'archivio inclu
 - Dati originali (non elaborati) che devono essere conservati, anche dopo che sono stati elaborati in un formato utilizzabile finale,
 - Dati di conformità e di archiviazione che devono essere archiviati per un lungo periodo e a cui non si accede quasi mai,
 
+> [!NOTE]
+> Il livello archivio non è attualmente supportato per gli account ZRS, GZRS o RA-GZRS.
+
 ## <a name="account-level-tiering"></a>Suddivisione in livelli a livello di account
 
 I BLOB in tutti e tre i livelli di accesso possono coesistere nello stesso account. Qualsiasi BLOB a cui non è assegnato un livello in modo esplicito deduce il livello dall'impostazione del livello di accesso dell'account. Se il livello di accesso deriva dall'account, viene visualizzata la proprietà del BLOB **dedotto del livello di accesso** impostato su "true" e la proprietà BLOB **livello di accesso** corrisponde al livello dell'account. Nella portale di Azure la proprietà del _livello di accesso dedotto_ viene visualizzata con il livello di accesso BLOB come **attivo (dedotto)** o sporadico **(dedotto)**.
@@ -119,7 +122,7 @@ La tabella seguente illustra un confronto tra l'archiviazione BLOB in blocchi di
 | ----------------------------------------- | ------------------------- | ------------ | ------------------- | ----------------- |
 | **Disponibilità**                          | 99,9%                     | 99,9%        | 99%                 | Offline           |
 | **Disponibilità** <br> **(Letture RA-GRS)**  | N/D                       | 99,99%       | 99,9%               | Offline           |
-| **Costi di utilizzo**                         | Costi di archiviazione più elevati, accesso inferiore e costo della transazione | Costi di archiviazione più elevati e costi di accesso e transazione più bassi | Costi di archiviazione più bassi e costi di accesso e transazione più elevati | Costi di archiviazione minimi e costi di accesso e transazione più alti |
+| **Addebiti per l'utilizzo**                         | Costi di archiviazione più elevati, accesso inferiore e costo della transazione | Costi di archiviazione più elevati e costi di accesso e transazione più bassi | Costi di archiviazione più bassi e costi di accesso e transazione più elevati | Costi di archiviazione minimi e costi di accesso e transazione più alti |
 | **Dimensioni minime oggetti**                   | N/D                       | N/D          | N/D                 | N/D               |
 | **Durata archiviazione minima**              | N/D                       | N/D          | 30 giorni<sup>1</sup> | 180 giorni
 | **Latency** <br> **(Tempo per il primo byte)** | Millisecondi a singola cifra | millisecondi | millisecondi        | ore<sup>2</sup> |

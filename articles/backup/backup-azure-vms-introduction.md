@@ -3,18 +3,18 @@ title: Informazioni sul backup di macchine virtuali di Azure
 description: Questo articolo illustra come il servizio backup di Azure esegue il backup delle macchine virtuali di Azure e come seguire le procedure consigliate.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 04ea9fa49d95ced3245f88fee58a23ba67aaa0d7
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: f9da75a66d25896e8d977910e2eb7fbe6ea69ca1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587498"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014643"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Panoramica del backup delle macchine virtuali di Azure
 
 Questo articolo descrive il modo in cui il [servizio backup di Azure](./backup-overview.md) esegue il backup di macchine virtuali (VM) di Azure.
 
-Backup di Azure offre backup indipendenti e isolati per prevenire la distruzione accidentale dei dati nelle macchine virtuali. I backup vengono archiviati in un insieme di credenziali di Servizi di ripristino con la gestione predefinita dei punti di ripristino. La configurazione e la scalabilità sono semplici, i backup sono ottimizzati ed è possibile eseguire facilmente il ripristino in base alle esigenze.
+Backup di Azure offre backup indipendenti e isolati per prevenire la distruzione accidentale dei dati nelle macchine virtuali. I backup vengono archiviati in un insieme di credenziali di Servizi di ripristino con gestione incorporata dei punti di ripristino. La configurazione e il ridimensionamento sono semplici, i backup sono ottimizzati ed è possibile eseguire facilmente il ripristino in base alle esigenze.
 
 Come parte del processo di backup, [viene effettuato uno snapshot](#snapshot-creation)e i dati vengono trasferiti nell'insieme di credenziali di servizi di ripristino senza alcun effetto sui carichi di lavoro di produzione. Lo snapshot offre diversi livelli di coerenza, come descritto [qui](#snapshot-consistency).
 
@@ -22,7 +22,7 @@ Backup di Azure include anche offerte specializzate per carichi di lavoro di dat
 
 ## <a name="backup-process"></a>Processo di backup
 
-Ecco come backup di Azure completa un backup per le macchine virtuali di Azure:
+Di seguito è illustrato come Backup di Azure completa un backup per le macchine virtuali di Azure:
 
 1. Per le macchine virtuali di Azure selezionate per il backup, backup di Azure avvia un processo di backup in base alla pianificazione del backup specificata.
 1. Durante il primo backup, un'estensione di backup viene installata nella macchina virtuale se la macchina virtuale è in esecuzione.
@@ -34,8 +34,8 @@ Ecco come backup di Azure completa un backup per le macchine virtuali di Azure:
 1. Per le macchine virtuali Linux, il backup esegue un backup coerente con i file. Per gli snapshot coerenti con l'app, è necessario personalizzare manualmente gli script pre/post.
 1. Al termine dello snapshot, il backup trasferisce i dati all'insieme di credenziali.
     - Il backup viene ottimizzato eseguendo il backup di ogni disco della macchina virtuale in parallelo.
-    - Per ogni disco di cui viene eseguito il backup, backup di Azure legge i blocchi sul disco e identifica e trasferisce solo i blocchi di dati modificati (il Delta) rispetto al backup precedente.
-    - I dati dello snapshot potrebbero non essere copiati immediatamente nell'insieme di credenziali. Questa operazione potrebbe richiedere alcune ore nei momenti di picco. Il tempo totale di backup per una macchina virtuale sarà inferiore a 24 ore per i criteri di backup giornalieri.
+    - Per ogni disco di cui viene eseguito il backup, Backup di Azure legge i blocchi sul disco e identifica e trasferisce solo i blocchi di dati modificati (il delta) rispetto al backup precedente.
+    - È possibile che i dati dello snapshot non vengano copiati immediatamente nell'insieme di credenziali. Questa operazione potrebbe richiedere alcune ore nei momenti di picco. Il tempo totale di backup per una macchina virtuale sarà inferiore a 24 ore per i criteri di backup giornalieri.
 1. Le modifiche apportate a una macchina virtuale Windows dopo l'abilitazione di backup di Azure sono:
     - Microsoft Visual C++ 2013 Redistributable (x64)-12.0.40660 è installato nella macchina virtuale
     - Il tipo di avvio del servizio Copia Shadow del volume (VSS) è stato modificato in automatico da manuale

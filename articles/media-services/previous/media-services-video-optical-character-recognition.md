@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 11889bd6df0bcc9564c17fdaacc333df1d418660
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 44d4e5b6d3e96d2bafa9a7e22f36c6544eaff151
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77918336"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999547"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Usare Analisi Servizi multimediali di Azure per convertire il contenuto di testo dei file video in testo digitale  
 
@@ -113,9 +114,9 @@ L'output contiene gli attributi seguenti:
 | Offset |Differenza di orario dei timestamp Nella versione 1.0 delle API Video, questo valore è sempre 0. |
 | Frequenza fotogrammi |Fotogrammi al secondo del video |
 | width |Larghezza del video in pixel |
-| height |Altezza del video in pixel |
+| altezza |Altezza del video in pixel |
 | Frammenti |Matrice di porzioni temporali di video in cui i metadati sono suddivisi in blocchi |
-| start |Ora di inizio di un frammento in "scatti" |
+| Avvio |Ora di inizio di un frammento in "scatti" |
 | duration |Lunghezza di un frammento in "scatti" |
 | interval |Intervallo di ogni evento all'interno del frammento specificato |
 | eventi |Matrice contenente le aree |
