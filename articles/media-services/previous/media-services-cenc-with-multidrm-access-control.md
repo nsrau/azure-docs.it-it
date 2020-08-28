@@ -14,12 +14,13 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: kilroyh;yanmf;juliako
-ms.openlocfilehash: 254659c58b9830645211596da0095c33d70e8d95
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5a4f436f6f5542db289ed219a240a68db5c2065b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072027"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021528"
 ---
 # <a name="design-of-a-content-protection-system-with-access-control-using-azure-media-services"></a>Progettazione di un sistema di protezione del contenuto con il controllo di accesso tramite Servizi multimediali di Azure 
 
@@ -123,7 +124,7 @@ La sezione seguente illustra la progettazione della gestione della chiave.
 | 1 a 1 |È il caso più semplice. Consente il controllo più dettagliato, ma in genere comporta un costo maggiore di distribuzione delle licenze. È necessaria almeno una richiesta di licenza per ogni asset protetto. |
 | 1 a molti |È possibile usare la stessa chiave simmetrica per più asset. Ad esempio, per tutti gli asset di un gruppo logico, come un genere o un subset del genere (ad esempio, genere di film), è possibile usare una singola chiave simmetrica. |
 | Molti a 1 |Per ogni asset sono necessarie più chiavi simmetriche. <br/><br/>Ad esempio, se è necessario applicare la protezione CENC dinamica con DRM multiplo per MPEG-DASH e la crittografia AES-128 dinamica per HLS, sono necessarie due chiavi simmetriche distinte. Ogni chiave simmetrica deve disporre del relativo tipo ContentKeyType. Per la chiave simmetrica usata per la protezione CENC dinamica, usare ContentKeyType.CommonEncryption. Per la chiave simmetrica usata per la crittografia AES-128 dinamica, usare ContentKeyType.EnvelopeEncryption.<br/><br/>Come ulteriore esempio, nella protezione CENC del contenuto DASH, in teoria, è possibile usare una chiave simmetrica per proteggere il flusso video e un'altra chiave simmetrica per proteggere il flusso audio. |
-| Molti a molti |È una combinazione dei due scenari precedenti. Per ogni asset multiplo nello stesso gruppo di asset viene usato un set di chiavi simmetriche. |
+| Molti-a-molti |È una combinazione dei due scenari precedenti. Per ogni asset multiplo nello stesso gruppo di asset viene usato un set di chiavi simmetriche. |
 
 Un altro fattore importante da considerare è l'uso di licenze permanenti e non permanenti.
 

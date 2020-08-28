@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 759a5fa2be5a3df50160d2fd0ac4231c9f49329b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: b773fb887d3663a2af2e340912e378c7fccaba4a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718952"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003542"
 ---
 # <a name="plan-and-deploy-on-premises-azure-active-directory-password-protection"></a>Pianificare e distribuire la protezione Azure Active Directory password locale
 
@@ -49,6 +49,8 @@ Durante la fase di controllo, molte organizzazioni riscontrano che si applicano 
 * [L'abbassamento di livello del controller di dominio non riesce a causa di una password amministratore locale](howto-password-ban-bad-on-premises-troubleshoot.md#domain-controller-demotion-fails-due-to-a-weak-local-administrator-password)
 
 Dopo che la funzionalità è stata eseguita in modalità di controllo per un periodo di tempo ragionevole, è possibile cambiare la configurazione da *controllo* a *Imponi* per richiedere password più sicure. Il monitoraggio aggiuntivo durante questo periodo di tempo è una scelta efficace.
+
+È importante notare che Azure AD Password Protection può convalidare le password solo durante le operazioni di modifica o impostazione della password. Le password accettate e archiviate in Active Directory prima della distribuzione di Azure AD la protezione con password non verranno mai convalidate e continueranno a funzionare così come sono. Nel corso del tempo, tutti gli utenti e gli account inizieranno a usare Azure AD password convalidate per la protezione delle password perché le password esistenti scadono normalmente. Gli account configurati con "Nessuna scadenza password" sono esenti da questa.
 
 ### <a name="multiple-forest-considerations"></a>Considerazioni su più foreste
 

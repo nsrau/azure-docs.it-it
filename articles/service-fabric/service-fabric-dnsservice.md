@@ -3,12 +3,13 @@ title: Servizio DNS di Azure Service Fabric
 description: Usare il servizio DNS di Service Fabric per individuare microservizi dall'interno del cluster.
 ms.topic: conceptual
 ms.date: 7/20/2018
-ms.openlocfilehash: 6a6611281fd2d2368809419ad594d2eb1289b5a0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a05669bbd6de44447d7eb11a0b9941d18e8048d1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86258912"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021273"
 ---
 # <a name="dns-service-in-azure-service-fabric"></a>Servizio DNS in Azure Service Fabric
 Il servizio DNS è un servizio di sistema facoltativo che è possibile abilitare nel cluster per individuare altri servizi usando il protocollo DNS. 

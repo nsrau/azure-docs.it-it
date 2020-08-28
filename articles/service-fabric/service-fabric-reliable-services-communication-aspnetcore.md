@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: vturecek
-ms.openlocfilehash: 73ba08406e224d6c2a0d5dcaba7e7896dcb4d740
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 69423e7545178fd74ad44f5cab7b37b6f24b3577
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529302"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022191"
 ---
 # <a name="aspnet-core-in-azure-service-fabric-reliable-services"></a>ASP.NET Core in Azure Service Fabric Reliable Services
 
@@ -50,7 +51,7 @@ Un'istanza di Reliable Services è rappresentata dalla classe del servizio deriv
 ![Diagramma per l'hosting di ASP.NET Core in un servizio Reliable Services][1]
 
 ## <a name="aspnet-core-icommunicationlisteners"></a>ICommunicationListeners ASP.NET Core
-Le `ICommunicationListener` implementazioni per gheppio e HTTP.sys nei `Microsoft.ServiceFabric.AspNetCore.*` pacchetti NuGet hanno modelli di utilizzo simili. Ma eseguono azioni leggermente diverse specifiche per ogni server Web. 
+Le `ICommunicationListener` implementazioni per gheppio e HTTP.sys nei  `Microsoft.ServiceFabric.AspNetCore.*` pacchetti NuGet hanno modelli di utilizzo simili. Ma eseguono azioni leggermente diverse specifiche per ogni server Web. 
 
 Entrambi i listener di comunicazione forniscono un costruttore che accetta gli argomenti seguenti:
  - **`ServiceContext serviceContext`**: `ServiceContext` Oggetto che contiene informazioni sul servizio in esecuzione.
@@ -92,7 +93,7 @@ Il diagramma seguente illustra il flusso della richiesta con il middleware abili
 In questo modo, entrambe `ICommunicationListener` le implementazioni di gheppio e HTTP.sys standardizzano il middleware fornito dal `UseServiceFabricIntegration` metodo di estensione. Pertanto, i client devono solo eseguire un'azione di ririsoluzione dell'endpoint del servizio sulle risposte HTTP 410.
 
 ## <a name="httpsys-in-reliable-services"></a>HTTP.sys in Reliable Services
-È possibile usare HTTP.sys in Reliable Services importando il pacchetto NuGet **Microsoft. ServiceFabric. AspNetCore. HttpSys** . Questo pacchetto contiene `HttpSysCommunicationListener` , un'implementazione di `ICommunicationListener` . `HttpSysCommunicationListener`consente di creare un provider di ASP.NET Core all'interno di un servizio Reliable Services usando HTTP.sys come server Web.
+È possibile usare HTTP.sys in Reliable Services importando il pacchetto NuGet **Microsoft. ServiceFabric. AspNetCore. HttpSys** . Questo pacchetto contiene `HttpSysCommunicationListener` , un'implementazione di `ICommunicationListener` . `HttpSysCommunicationListener` consente di creare un provider di ASP.NET Core all'interno di un servizio Reliable Services usando HTTP.sys come server Web.
 
 HTTP.sys si basa sull' [API server http di Windows](/windows/win32/http/http-api-start-page). Questa API usa il driver del kernel **HTTP.sys** per elaborare le richieste HTTP e instradarle ai processi che eseguono applicazioni Web. Questo consente a più processi nella stessa macchina virtuale o fisica di ospitare applicazioni Web sulla stessa porta, ambiguità in base a un percorso URL univoco o a un nome host. Queste funzionalità sono utili in Service Fabric per ospitare più siti Web nello stesso cluster.
 
@@ -129,7 +130,7 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 
 ### <a name="httpsys-in-a-stateful-service"></a>HTTP.sys in un servizio con stato
 
-`HttpSysCommunicationListener`non è attualmente progettato per l'uso nei servizi con stato a causa di complicazioni con la funzionalità di condivisione delle porte **HTTP.sys** sottostante. Per ulteriori informazioni, vedere la sezione seguente sull'allocazione dinamica delle porte con HTTP.sys. Per i servizi con stato, gheppio è il server Web consigliato.
+`HttpSysCommunicationListener` non è attualmente progettato per l'uso nei servizi con stato a causa di complicazioni con la funzionalità di condivisione delle porte **HTTP.sys** sottostante. Per ulteriori informazioni, vedere la sezione seguente sull'allocazione dinamica delle porte con HTTP.sys. Per i servizi con stato, gheppio è il server Web consigliato.
 
 ### <a name="endpoint-configuration"></a>Configurazione dell'endpoint
 
@@ -189,7 +190,7 @@ Per usare una porta assegnata dinamicamente con HTTP.sys, omettere la `Port` pro
 Una porta dinamica allocata da una `Endpoint` configurazione fornisce solo una porta *per ogni processo host*. Il modello di hosting Service Fabric corrente consente l'hosting di più istanze e/o repliche del servizio nello stesso processo. Ciò significa che ognuno condivide la stessa porta quando viene allocata tramite la `Endpoint` configurazione. Più istanze di **HTTP.sys** possono condividere una porta usando la funzionalità di condivisione delle porte **HTTP.sys** sottostante. Ma non è supportato da a `HttpSysCommunicationListener` causa delle complicazioni introdotte per le richieste dei client. Per l'utilizzo della porta dinamica, gheppio è il server Web consigliato.
 
 ## <a name="kestrel-in-reliable-services"></a>Kestrel in Reliable Services
-È possibile usare gheppio in Reliable Services importando il pacchetto NuGet **Microsoft. ServiceFabric. AspNetCore. gheppio** . Questo pacchetto contiene `KestrelCommunicationListener` , un'implementazione di `ICommunicationListener` . `KestrelCommunicationListener`consente di creare un provider di ASP.NET Core all'interno di un servizio Reliable Services usando gheppio come server Web.
+È possibile usare gheppio in Reliable Services importando il pacchetto NuGet **Microsoft. ServiceFabric. AspNetCore. gheppio** . Questo pacchetto contiene `KestrelCommunicationListener` , un'implementazione di `ICommunicationListener` . `KestrelCommunicationListener` consente di creare un provider di ASP.NET Core all'interno di un servizio Reliable Services usando gheppio come server Web.
 
 Kestrel è un server Web per ASP.NET Core multipiattaforma. A differenza di HTTP.sys, gheppio non usa una gestione endpoint centralizzata. Inoltre, a differenza HTTP.sys, gheppio non supporta la condivisione delle porte tra più processi. Ogni istanza di Kestrel deve usare una porta univoca. Per altre informazioni su gheppio, vedere i [Dettagli di implementazione](/aspnet/core/fundamentals/servers/kestrel?view=aspnetcore-2.2).
 
@@ -470,7 +471,7 @@ Gheppio è il server Web consigliato per i servizi front-end che espongono endpo
  
 Se esposti a Internet, un servizio senza stato deve usare un endpoint noto e stabile raggiungibile tramite un servizio di bilanciamento del carico. Questo URL verrà fornito agli utenti dell'applicazione. È consigliabile la configurazione seguente:
 
-| Type | Recommendation | Note |
+| Tipo | Recommendation | Note |
 | ---- | -------------- | ----- |
 | Server Web | Kestrel | Gheppio è il server Web preferito perché è supportato in Windows e Linux. |
 | Configurazione delle porte | static | È necessario configurare una porta statica nota nella configurazione `Endpoints` di ServiceManifest.xml, ad esempio 80 per HTTP o 443 per HTTPS. |
@@ -495,7 +496,7 @@ Se più servizi esposti esternamente condividono lo stesso set di nodi, è possi
 ### <a name="internal-only-stateless-aspnet-core-service"></a>Servizio ASP.NET Core senza stato solo interno
 I servizi senza stato che vengono chiamati solo dall'interno del cluster devono usare URL univoci e porte assegnate dinamicamente per assicurare la cooperazione tra più servizi. È consigliabile la configurazione seguente:
 
-| Type | Recommendation | Note |
+| Tipo | Recommendation | Note |
 | ---- | -------------- | ----- |
 | Server Web | Kestrel | Sebbene sia possibile utilizzare HTTP.sys per i servizi interni senza stato, gheppio è il server migliore per consentire a più istanze del servizio di condividere un host.  |
 | Configurazione delle porte | assegnate in modo dinamico | Più repliche di un servizio con stato possono condividere un processo host o un sistema operativo host e quindi dovranno avere porte univoche. |
@@ -505,7 +506,7 @@ I servizi senza stato che vengono chiamati solo dall'interno del cluster devono 
 ### <a name="internal-only-stateful-aspnet-core-service"></a>Servizio ASP.NET Core con stato solo interno
 I servizi con stato che vengono chiamati solo dall'interno del cluster devono usare porte assegnate dinamicamente per assicurare la cooperazione tra più servizi. È consigliabile la configurazione seguente:
 
-| Type | Recommendation | Note |
+| Tipo | Recommendation | Note |
 | ---- | -------------- | ----- |
 | Server Web | Kestrel | `HttpSysCommunicationListener`Non è progettato per l'uso da parte di servizi con stato in cui le repliche condividono un processo host. |
 | Configurazione delle porte | assegnate in modo dinamico | Più repliche di un servizio con stato possono condividere un processo host o un sistema operativo host e quindi dovranno avere porte univoche. |

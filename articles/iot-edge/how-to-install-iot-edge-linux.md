@@ -9,16 +9,16 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: kgremban
-ms.openlocfilehash: d73f3a37bb084533733b27b49ac171747cee814c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4078d7e6c20571db2387cfd138ecb325fc3469e7
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85321887"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022089"
 ---
 # <a name="install-the-azure-iot-edge-runtime-on-debian-based-linux-systems"></a>Installare il runtime Azure IoT Edge in sistemi Linux basati su Debian
 
-Il runtime di Azure IoT Edge è ciò che trasforma un dispositivo in un dispositivo IoT Edge. Il runtime può essere distribuito nei dispositivi di dimensioni pari a un server industriale o a un dispositivo Raspberry Pi. Dopo aver configurato un dispositivo con il runtime di IoT Edge, è possibile avviare la distribuzione della logica di business dal cloud. Per altre informazioni, vedere [comprendere il runtime di Azure IOT Edge e la relativa architettura](iot-edge-runtime.md).
+Il runtime di Azure IoT Edge è ciò che trasforma un dispositivo in un dispositivo IoT Edge. Il runtime può essere distribuito nei dispositivi di dimensioni pari a un server industriale o a un dispositivo Raspberry Pi. Quando un dispositivo viene configurato con il runtime IoT Edge, è possibile iniziare a distribuirvi la logica di business dal cloud. Per altre informazioni, vedere [comprendere il runtime di Azure IOT Edge e la relativa architettura](iot-edge-runtime.md).
 
 Questo articolo elenca i passaggi per installare il runtime di Azure IoT Edge in un dispositivo Linux x64, ARM32 o ARM64. Sono disponibili pacchetti di installazione per Ubuntu Server 16,04, Ubuntu server 18,04 e Raspbian stretch. Per un elenco dei sistemi operativi e delle architetture Linux supportati, fare riferimento a [Azure IOT Edge sistemi supportati](support.md#operating-systems) .
 
@@ -284,37 +284,19 @@ Molti produttori di dispositivi incorporati spediscono immagini del dispositivo 
    ./check-config.sh
    ```
 
-Questo comando fornisce un output dettagliato che contiene lo stato delle funzionalità del kernel usate dal runtime di Moby. È necessario assicurarsi che tutti gli elementi in `Generally Necessary` e `Network Drivers` siano abilitati per garantire che il kernel sia completamente compatibile con il runtime di Moby.  Se sono state identificate le funzionalità mancanti, abilitarle ricompilando il kernel dall'origine e selezionando i moduli associati da includere nel file kernel. config appropriato.  Analogamente, se si usa un generatore di configurazione kernel come `defconfig` o `menuconfig` , trovare e abilitare le rispettive funzionalità e ricompilare il kernel di conseguenza.  Dopo aver distribuito il kernel appena modificato, eseguire di nuovo lo script Check-config per verificare che tutte le funzionalità necessarie siano state abilitate correttamente.
+Questo comando fornisce un output dettagliato che contiene lo stato delle funzionalità del kernel usate dal runtime di Moby. È necessario assicurarsi che tutti gli elementi in `Generally Necessary` e  `Network Drivers` siano abilitati per garantire che il kernel sia completamente compatibile con il runtime di Moby.  Se sono state identificate le funzionalità mancanti, abilitarle ricompilando il kernel dall'origine e selezionando i moduli associati da includere nel file kernel. config appropriato.  Analogamente, se si usa un generatore di configurazione kernel come `defconfig` o `menuconfig` , trovare e abilitare le rispettive funzionalità e ricompilare il kernel di conseguenza.  Dopo aver distribuito il kernel appena modificato, eseguire di nuovo lo script Check-config per verificare che tutte le funzionalità necessarie siano state abilitate correttamente.
 
 ## <a name="install-runtime-using-release-assets"></a>Installare il runtime usando gli asset di versione
 
-Usare la procedura descritta in questa sezione se si vuole installare una versione specifica di Moby e il runtime di Azure IoT Edge che non è disponibile tramite `apt-get install` . L'elenco di pacchetti Microsoft contiene solo un set limitato di versioni recenti e le relative versioni secondarie, quindi questi passaggi sono destinati a chiunque voglia installare una versione precedente o una versione finale candidata.
+Usare i passaggi in questa sezione se si vuole installare una versione specifica del runtime di Azure IoT Edge che non è disponibile tramite `apt-get install` . L'elenco di pacchetti Microsoft contiene solo un set limitato di versioni recenti e le relative versioni secondarie, quindi questi passaggi sono destinati a chiunque voglia installare una versione precedente o una versione finale candidata.
 
-Usando i comandi CURL, è possibile indirizzare i file dei componenti direttamente dal repository GitHub IoT Edge. Usare la procedura seguente per ottenere tutti i componenti IoT Edge nel dispositivo: il motore di Moby e l'interfaccia della riga di comando, il libiothsm e infine il daemon di sicurezza IoT Edge.
+Usando i comandi CURL, è possibile indirizzare i file dei componenti direttamente dal repository GitHub IoT Edge. Usare la procedura seguente per installare libiothsm e il daemon di sicurezza IoT Edge. Installare il motore Moby e l'interfaccia della riga di comando usando la procedura descritta nella sezione [installare un runtime contenitore](#install-a-container-runtime) .
 
 1. Passare alla [Azure IOT Edge versioni](https://github.com/Azure/azure-iotedge/releases)e individuare la versione di rilascio di destinazione.
 
 2. Espandere la sezione **Asset** per la versione.
 
-3. È possibile che non siano presenti aggiornamenti al motore Moby in una determinata versione. Se vengono visualizzati i file che iniziano con **Moby-Engine** e **Moby-CLI**, usare i comandi seguenti per aggiornare tali componenti. Se non viene visualizzato alcun file Moby, tornare indietro tra gli asset di versione precedenti fino a trovare la versione più recente.
-
-   1. Trovare il file del **motore di Moby** che corrisponde all'architettura del dispositivo IOT Edge. Fare clic con il pulsante destro del mouse sul collegamento file e copiare l'indirizzo del collegamento.
-
-   2. Usare il collegamento copiato nel comando seguente per installare la versione del motore di Moby:
-
-      ```bash
-      curl -L <moby-engine link> -o moby_engine.deb && sudo dpkg -i ./moby_engine.deb
-      ```
-
-   3. Trovare il file **Moby-CLI** corrispondente all'architettura del dispositivo IOT Edge. L'interfaccia della riga di comando di Moby è un componente facoltativo, ma può essere utile durante lo sviluppo. Fare clic con il pulsante destro del mouse sul collegamento file e copiare l'indirizzo del collegamento.
-
-   4. Usare il collegamento copiato nel comando seguente per installare la versione dell'interfaccia della riga di comando di Moby:
-
-      ```bash
-      curl -L <moby-cli link> -o moby_cli.deb && sudo dpkg -i ./moby_cli.deb
-      ```
-
-4. Ogni versione deve avere nuovi file per il daemon di sicurezza IoT Edge e hsmlib. Usare i comandi seguenti per aggiornare tali componenti.
+3. Ogni versione deve avere nuovi file per il daemon di sicurezza IoT Edge e hsmlib. Usare i comandi seguenti per aggiornare tali componenti.
 
    1. Trovare il file **libiothsm-STD** che corrisponde all'architettura del dispositivo IOT Edge. Fare clic con il pulsante destro del mouse sul collegamento file e copiare l'indirizzo del collegamento.
 

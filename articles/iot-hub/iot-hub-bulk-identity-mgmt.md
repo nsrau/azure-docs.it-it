@@ -8,12 +8,13 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: robinsh
-ms.openlocfilehash: 46eb1fe7543cbc65545eaca46e38f09466406701
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5b9170e0fcf4bba8b928522cdc881f34968d771f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84417940"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003865"
 ---
 # <a name="import-and-export-iot-hub-device-identities-in-bulk"></a>Importare ed esportare in blocco le identità dei dispositivi dell'hub IoT
 

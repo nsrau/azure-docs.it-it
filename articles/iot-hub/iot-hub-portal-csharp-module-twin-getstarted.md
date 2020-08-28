@@ -9,13 +9,13 @@ services: iot-hub
 ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.custom: amqp
-ms.openlocfilehash: a3258de2ed7269ab50e6feca3c421d55de5a9d91
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: amqp, devx-track-csharp
+ms.openlocfilehash: a10c8b21da1e4dc08a186ccb6ba6528b7a655943
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81759774"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022072"
 ---
 # <a name="get-started-with-iot-hub-module-identity-and-module-twin-using-the-portal-and-net-device"></a>Creare l'identità del modulo e i moduli gemelli dell'hub IoT con il portale e l'SDK per dispositivi .NET
 
@@ -93,7 +93,7 @@ Le funzionalità di identità del modulo e di modulo gemello sono disponibili in
 
 ### <a name="get-your-module-connection-string"></a>Ottenere la stringa di connessione del modulo
 
-È necessaria la stringa di connessione del modulo per l'app console. Attenersi ai passaggi descritti di seguito.
+È necessaria la stringa di connessione del modulo per l'app console. Seguire questa procedura:
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).
 

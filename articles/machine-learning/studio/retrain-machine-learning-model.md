@@ -7,18 +7,18 @@ ms.subservice: studio
 ms.topic: how-to
 author: likebupt
 ms.author: keli19
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-csharp
 ms.date: 02/14/2019
-ms.openlocfilehash: 9acb9db0024ea1601f82b96376f084536fbbeabb
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 7ce7697b92df9c6bef61bbf9eccb9f4252ce957f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87431873"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020680"
 ---
 # <a name="retrain-and-deploy-a-machine-learning-model"></a>Ripetere il training e distribuire un modello di Machine Learning
 
-**si applica a:** ![ Sì ](../../../includes/media/aml-applies-to-skus/yes.png) Machine Learning Studio (classico) ![ non](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)  
+**SI APPLICA A:**  ![sì](../../../includes/media/aml-applies-to-skus/yes.png)Machine Learning Studio (versione classica)   ![no](../../../includes/media/aml-applies-to-skus/no.png)[Azure Machine Learning](../compare-azure-ml-to-studio-classic.md)
 
 
 La ripetizione del training è un modo per garantire che i modelli di Machine Learning rimangano accurati e si basino sui dati più rilevanti disponibili. Questo articolo illustra come ripetere il training e distribuire un modello di machine learning come nuovo servizio Web in studio (classico). Se si sta cercando di ripetere il training di un servizio Web classico, [vedere questo articolo delle procedure](retrain-classic-web-service.md).

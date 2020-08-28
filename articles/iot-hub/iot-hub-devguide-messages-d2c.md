@@ -10,12 +10,13 @@ ms.date: 05/15/2019
 ms.author: asrastog
 ms.custom:
 - 'Role: Cloud Development'
-ms.openlocfilehash: a8c53dd2755f239763ff572e34dbdf7f73caa8a4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+- devx-track-csharp
+ms.openlocfilehash: a451e13b39aea27b4f1e23f9faa30f4b11c1cff1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327719"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021239"
 ---
 # <a name="use-iot-hub-message-routing-to-send-device-to-cloud-messages-to-different-endpoints"></a>Usare il routing dei messaggi dell'hub Internet per inviare messaggi da dispositivo a cloud a endpoint diversi
 
@@ -37,7 +38,6 @@ Un hub IoT ha un endpoint incorporato predefinito (**messaggi/eventi**) compatib
 
 Ogni messaggio viene indirizzato a tutti gli endpoint le cui query di routing corrispondono. In altre parole, è possibile indirizzare un messaggio a più endpoint.
 
-
 Se l'endpoint personalizzato ha configurazioni del firewall, prendere in considerazione l'uso dell'eccezione Microsoft attendibile per la prima parte, per consentire all'hub delle cose di accedere all'endpoint specifico, ovvero [archiviazione di Azure](./virtual-network-support.md#egress-connectivity-to-storage-account-endpoints-for-routing), [Hub eventi](./virtual-network-support.md#egress-connectivity-to-event-hubs-endpoints-for-routing) di Azure e il [bus di servizio di Azure](./virtual-network-support.md#egress-connectivity-to-service-bus-endpoints-for-routing). Questa operazione è disponibile in aree selezionate per gli hub Internet con [identità del servizio gestito](./virtual-network-support.md).
 
 L'hub Internet delle cose supporta attualmente gli endpoint seguenti:
@@ -47,19 +47,23 @@ L'hub Internet delle cose supporta attualmente gli endpoint seguenti:
  - Code e argomenti del bus di servizio
  - Hub eventi
 
-### <a name="built-in-endpoint"></a>Endpoint predefinito
+## <a name="built-in-endpoint-as-a-routing-endpoint"></a>Endpoint predefinito come endpoint di routing
 
 È possibile usare l'[integrazione standard di Hub eventi e gli SDK](iot-hub-devguide-messages-read-builtin.md) per ricevere i messaggi da dispositivo a cloud dall'endpoint predefinito (**messaggi/eventi**). Una volta creata una route, i dati vengono interrotti verso l'endpoint incorporato, a meno che non venga creata una route per tale endpoint.
 
-### <a name="azure-storage"></a>Archiviazione di Azure
+## <a name="azure-storage-as-a-routing-endpoint"></a>Archiviazione di Azure come endpoint di routing
 
 È possibile instradare i messaggi a un account di [archiviazione BLOB di Azure](../storage/blobs/storage-blobs-introduction.md) e [Azure Data Lake storage Gen2](../storage/blobs/data-lake-storage-introduction.md) (ADLS Gen2). Azure Data Lake Storage account sono account di archiviazione gerarchici abilitati per gli [spazi dei nomi](../storage/blobs/data-lake-storage-namespace.md)basati su archiviazione BLOB. Entrambi usano i BLOB per la loro archiviazione.
 
-L'hub Internet delle cose supporta la scrittura di dati in archiviazione di Azure in formato [Apache avro](https://avro.apache.org/) e in formato JSON. Il valore predefinito è AVRO. Il formato di codifica può essere impostato solo quando viene configurato l'endpoint di archiviazione BLOB. Non è possibile modificare il formato per un endpoint esistente. Quando si usa la codifica JSON, è necessario impostare contentType su **Application/JSON** e ContentEncoding su **UTF-8** nelle [proprietà del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties)del messaggio. Entrambi i valori non fanno distinzione tra maiuscole e minuscole. Se la codifica del contenuto non è impostata, l'hub Internet scriverà i messaggi nel formato con codifica base 64. È possibile selezionare il formato di codifica usando l'API REST di creazione o aggiornamento dell'hub Internet, in particolare [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), il portale di Azure, l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)o l' [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint). Il diagramma seguente illustra come selezionare il formato di codifica nel portale di Azure.
+L'hub Internet delle cose supporta la scrittura di dati in archiviazione di Azure in formato [Apache avro](https://avro.apache.org/) e in formato JSON. Il valore predefinito è AVRO. Quando si usa la codifica JSON, è necessario impostare contentType su **Application/JSON** e ContentEncoding su **UTF-8** nelle [proprietà del sistema](iot-hub-devguide-routing-query-syntax.md#system-properties)del messaggio. Entrambi i valori non fanno distinzione tra maiuscole e minuscole. Se la codifica del contenuto non è impostata, l'hub Internet scriverà i messaggi nel formato con codifica base 64.
+
+Il formato di codifica può essere impostato solo quando è configurato l'endpoint di archiviazione BLOB. non può essere modificato per un endpoint esistente. Per cambiare i formati di codifica per un endpoint esistente, è necessario eliminare e ricreare l'endpoint personalizzato con il formato desiderato. Una strategia utile potrebbe consistere nel creare un nuovo endpoint personalizzato con il formato di codifica desiderato e aggiungere una route parallela a tale endpoint. In questo modo è possibile verificare i dati prima di eliminare l'endpoint esistente.
+
+È possibile selezionare il formato di codifica usando l'API REST di creazione o aggiornamento dell'hub Internet, in particolare [RoutingStorageContainerProperties](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate#routingstoragecontainerproperties), il portale di Azure, l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/iot/hub/routing-endpoint?view=azure-cli-latest)o l' [Azure PowerShell](https://docs.microsoft.com/powershell/module/az.iothub/add-aziothubroutingendpoint). Nell'immagine seguente viene illustrato come selezionare il formato di codifica nel portale di Azure.
 
 ![Codifica dell'endpoint di archiviazione BLOB](./media/iot-hub-devguide-messages-d2c/blobencoding.png)
 
-L'hub Internet delle cose raggruppa i messaggi e scrive i dati nella risorsa di archiviazione ogni volta che il batch raggiunge una determinata dimensione o è trascorso un determinato periodo di tempo. Per impostazione predefinita, l'hub IoT usa la convenzione di denominazione di file seguente: 
+L'hub Internet delle cose raggruppa i messaggi e scrive i dati nella risorsa di archiviazione ogni volta che il batch raggiunge una determinata dimensione o è trascorso un determinato periodo di tempo. Per impostazione predefinita, l'hub IoT usa la convenzione di denominazione di file seguente:
 
 ```
 {iothub}/{partition}/{YYYY}/{MM}/{DD}/{HH}/{mm}
@@ -89,12 +93,11 @@ Per creare un account di archiviazione Azure Data Lake compatibile con Gen2, cre
 
 ![Selezionare Azure Data Lake Gen2 storage](./media/iot-hub-devguide-messages-d2c/selectadls2storage.png)
 
-
-### <a name="service-bus-queues-and-service-bus-topics"></a>Code e argomenti del bus di servizio
+## <a name="service-bus-queues-and-service-bus-topics-as-a-routing-endpoint"></a>Code del bus di servizio e argomenti del bus di servizio come endpoint di routing
 
 Nelle code e negli argomenti del bus di servizio usati come endpoint dell'hub IoT non devono essere abilitati le **sessioni** e il **rilevamento duplicati**. Se una di queste opzioni è abilitata, l'endpoint risulta **non raggiungibile** nel portale di Azure.
 
-### <a name="event-hubs"></a>Hub eventi
+## <a name="event-hubs-as-a-routing-endpoint"></a>Hub eventi come endpoint di routing
 
 Oltre all'endpoint compatibile con Hub eventi predefinito, è anche possibile indirizzare i dati a endpoint personalizzati di tipo Hub eventi. 
 

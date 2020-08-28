@@ -3,12 +3,12 @@ title: Eliminazione temporanea per SQL Server in una macchina virtuale di Azure 
 description: Informazioni su come l'eliminazione temporanea per SQL Server in macchine virtuali di Azure e SAP HANA nei carichi di lavoro delle macchine virtuali di Azure rende più sicuri i backup.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 4e001ee460d9b7106d928da32b1620fb117c6b5a
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 26525ec758b3a27d6e0e1b9754b11041bd1fa0d2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825172"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022293"
 ---
 # <a name="soft-delete-for-sql-server-in-azure-vm-and-sap-hana-in-azure-vm-workloads"></a>Eliminazione temporanea per SQL Server in una macchina virtuale di Azure e SAP HANA nei carichi di lavoro delle macchine virtuali di Azure
 
@@ -109,7 +109,7 @@ Il **DeleteState** dell'elemento di backup cambierà da **NotDeleted** a **ToBeD
 
 ### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Esecuzione dell'operazione di eliminazione utilizzando Azure PowerShell
 
-Per prima cosa, recuperare l'elemento di backup pertinente che si trova nello stato di eliminazione temporanea, ovvero sta per essere eliminato.
+Prima di tutto, recuperare l'elemento di backup pertinente che si trova nello stato di eliminazione temporanea, ovvero sta per essere eliminato.
 
 ```powershell
 Get-AzRecoveryServicesBackupItem -BackupManagementType AzureWorkload -WorkloadType SQLDataBase -VaultId $myVaultID | Where-Object {$_.DeleteState -eq "ToBeDeleted"}

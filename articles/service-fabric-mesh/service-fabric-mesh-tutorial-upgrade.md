@@ -5,13 +5,13 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/29/2018
 ms.author: dekapur
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 7cdb8868f760ef0f35ab90c06b411110f871738c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: mvc, devcenter, devx-track-csharp
+ms.openlocfilehash: 876359b45daa280a1f5701f2490ce505327f309b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75351708"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011005"
 ---
 # <a name="tutorial-learn-how-to-upgrade-a-service-fabric-application-using-visual-studio"></a>Esercitazione: Informazioni su come aggiornare un'applicazione Service Fabric tramite Visual Studio
 
@@ -61,7 +61,7 @@ Il parametro verrà aggiornato in `WebFrontEnd_cpu` modo da aggiornare le risors
 > Per impostazione predefinita, il file dei parametri che è un peer del file profile. YAML verrà usato per fornire i valori per il file profile. yaml.
 > Ad esempio, environments > cloud > Parameters. YAML fornisce i valori dei parametri per gli ambienti > cloud > profile. yaml.
 >
-> È possibile eseguire l'override di questa operazione aggiungendo il codice seguente al file profile. YAML: `parametersFilePath=”relative or full path to the parameters file”` ad esempio, `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` o`parametersFilePath=”..\CommonParameters.yaml”`
+> È possibile eseguire l'override di questa operazione aggiungendo il codice seguente al file profile. YAML: `parametersFilePath=”relative or full path to the parameters file”` ad esempio, `parametersFilePath=”C:\MeshParms\CustomParameters.yaml”` o `parametersFilePath=”..\CommonParameters.yaml”`
 
 ## <a name="modify-the-model"></a>Modificare il modello
 

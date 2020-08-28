@@ -14,12 +14,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 7e5f6b7fa505890dc6bc818d1bd2578e5d974ff0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 93b449636282568ab614b42a46d939935f576895
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82594866"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021307"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserimento di annunci sul lato client
 Questo articolo contiene informazioni su come inserire diversi tipi di annunci sul lato client.
@@ -160,7 +161,7 @@ Anche gli annunci non lineari vengono specificati in un elemento `<Creative>`. L
     </Creative>
 ```
 
-L'elemento <**NonLinearAds**> può contenere uno o più elementi <**NonLinear**>, ognuno dei quali può descrivere un annuncio non lineare. L'elemento <**NonLinear**> specifica la risorsa per l'annuncio non lineare. La risorsa può essere <**StaticResource**>, <**IFrameResource**>, o <**HTMLResource**>. \<**StaticResource**>descrive una risorsa non HTML e definisce un attributo creativeType che specifica la modalità di visualizzazione della risorsa:
+L'elemento <**NonLinearAds**> può contenere uno o più elementi <**NonLinear**>, ognuno dei quali può descrivere un annuncio non lineare. L'elemento <**NonLinear**> specifica la risorsa per l'annuncio non lineare. La risorsa può essere <**StaticResource**>, <**IFrameResource**>, o <**HTMLResource**>. \<**StaticResource**> descrive una risorsa non HTML e definisce un attributo creativeType che specifica la modalità di visualizzazione della risorsa:
 
 Image/gif, image/jpeg, image/png: la risorsa viene visualizzata in un tag HTML <**img**>.
 

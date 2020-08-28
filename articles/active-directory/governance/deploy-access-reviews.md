@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46a56e830c8c9b55c9bbe48cd7d23ad8475b51b8
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 7eb39f1053abeb201c413db7c6bbd3e9f261bd95
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853033"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011345"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Pianificazione della distribuzione delle verifiche di accesso Azure Active Directory
 
@@ -75,7 +75,7 @@ I video seguenti possono essere utili quando si apprenderanno le verifiche di ac
 
 * [Come verificare l'accesso tramite My Access](https://youtu.be/tIKdQhdHLXU)
 
-### <a name="licenses"></a>Licenses
+### <a name="licenses"></a>Licenze
 
 È necessaria una licenza di Azure AD Premium (P2) valida per ogni persona, ad eccezione degli amministratori globali o degli amministratori utenti, che creeranno o eseguiranno verifiche di accesso. Per altre informazioni, vedere [Access reviews License requirements](access-reviews-overview.md).
 
@@ -182,7 +182,7 @@ Le destinazioni tipiche per la revisione includono:
 
 * [Appartenenza](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) a un gruppo (sincronizzato con Azure ad o creato in Azure ad o Office 365, incluso Microsoft Teams).
 
-* Consente di [accedere al pacchetto](/entitlement-management-overview.md) che raggruppa le risorse (gruppi, app e siti) in un unico pacchetto per gestire l'accesso.
+* Consente di [accedere al pacchetto](/azure/active-directory/governance/entitlement-management-overview) che raggruppa le risorse (gruppi, app e siti) in un unico pacchetto per gestire l'accesso.
 
 * [Azure ad ruoli e i ruoli delle risorse di Azure](../privileged-identity-management/pim-resource-roles-assign-roles.md) come definito in Privileged Identity Management.
 
@@ -422,7 +422,7 @@ Per ridurre il rischio di accesso non aggiornato, gli amministratori possono abi
 | Procedure| Descrizione |
 | - | - |
 | [Creazione di verifiche di accesso](entitlement-management-access-reviews-create.md)| Abilita le verifiche del pacchetto di accesso. |
-| [Eseguire verifiche di accesso](/entitlement-management-access-reviews-review-access.md)| Eseguire verifiche di accesso per altri utenti assegnati a un pacchetto di accesso. |
+| [Eseguire verifiche di accesso](entitlement-management-access-reviews-review-access.md)| Eseguire verifiche di accesso per altri utenti assegnati a un pacchetto di accesso. |
 | [Self-Review assegnato/i pacchetti di accesso](entitlement-management-access-reviews-self-review.md)| Revisione automatica dei pacchetti di accesso assegnati |
 
 

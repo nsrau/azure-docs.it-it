@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 06/26/2020
 ms.author: akjosh
-ms.openlocfilehash: 302a0361c19d247b6da4abd516d3a5df8dfd10c7
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 19d94c7ec08dbf2556ae72da2f0e5645fb228569
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86494667"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020508"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Estensione macchina virtuale Log Analytics per Windows
 
@@ -29,7 +29,7 @@ Log di monitoraggio di Azure offre funzionalità di monitoraggio tra risorse clo
 
 ### <a name="operating-system"></a>Sistema operativo
 
-Per informazioni dettagliate sui sistemi operativi Windows supportati, vedere l'articolo [Panoramica dell'agente log Analytics](../../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems) .
+Per informazioni dettagliate sui sistemi operativi Windows supportati, vedere l'articolo [Panoramica degli agenti di monitoraggio di Azure](../../azure-monitor/platform/agents-overview.md#supported-operating-systems) .
 
 ### <a name="agent-and-vm-extension-version"></a>Versione dell'estensione della macchina virtuale e dell'agente
 La tabella seguente fornisce un mapping della versione dell'estensione della macchina virtuale Windows Log Analytics e del bundle di agenti Log Analytics per ogni versione. 

@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 147fecdd9777e06ce078e4ed1531d6d0a0da749c
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c2dc90b84446917c4f06de707047b92e52cf7bc8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954622"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020984"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso di Axinom per fornire licenze Widevine ai Servizi multimediali di Azure 
 > [!div class="op_single_selector"]
@@ -184,7 +185,7 @@ public static string GetKeyID(string dashUrl)
 }
 ```
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 La recente aggiunta del supporto per Widevine nella protezione del contenuto di Servizi multimediali di Azure e in Azure Media Player consente di implementare lo streaming di DASH + DRM multi-native (PlayReady + Widevine) con il server licenze PlayReady nei Servizi multimediali di Azure e un server licenze Widevine di Axinom per i browser moderni seguenti:
 
@@ -199,7 +200,7 @@ I parametri seguenti sono necessari nella soluzione minima che sfrutta il server
 | --- | --- |
 | ID chiave di comunicazione |Deve essere incluso come valore di attestazione "com_key_id" nel token JWT. Vedere [questa](media-services-axinom-integration.md#jwt-token-generation) sezione. |
 | Chiave di comunicazione |Deve essere utilizzato come chiave di firma di token JWT (vedere [questa](media-services-axinom-integration.md#jwt-token-generation) sezione). |
-| Seme chiave |Deve essere usato per generare la chiave simmetrica con qualsiasi ID della chiave simmetrica (vedere [questa](media-services-axinom-integration.md#content-protection) sezione). |
+| Seme chiave |Deve essere usato per generare la chiave simmetrica con qualsiasi ID della chiave simmetrica (vedere  [questa](media-services-axinom-integration.md#content-protection) sezione). |
 | L'URL di acquisizione della licenza Widevine. |È necessario usare la configurazione dei criteri di recapito asset per il flusso DASH. Vedere [questa](media-services-axinom-integration.md#content-protection) sezione. |
 | ID della chiave del contenuto |Deve essere incluso come parte del valore del reclamo del messaggio di attestazione del diritto di token JWT (vedere [questa](media-services-axinom-integration.md#jwt-token-generation) sezione). |
 

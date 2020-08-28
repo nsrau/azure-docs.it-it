@@ -3,13 +3,13 @@ title: Code dei messaggi non recapitabili del bus di servizio | Documentazione M
 description: Descrive le code dei messaggi non recapitabili nel bus di servizio di Azure. Le code del bus di servizio e le sottoscrizioni dell'argomento includono una coda secondaria chiamata coda di messaggi non recapitabili.
 ms.topic: article
 ms.date: 06/23/2020
-ms.custom: fasttrack-edit
-ms.openlocfilehash: 7078a7889947c4121713e9374d1487f408fed871
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: fasttrack-edit, devx-track-csharp
+ms.openlocfilehash: 5f7fb65a2a1a6d6529177cd20a85a6d845c119d4
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86511212"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021681"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Panoramica delle code dei messaggi non recapitabili del bus di servizio
 

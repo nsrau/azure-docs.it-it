@@ -14,12 +14,13 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: 70d824522e1ae71bd49050779ff37e821d560783
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d30949327f3025c06d4c98670494809c486631a3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954707"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022208"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Usare Azure Media Content Moderator per rilevare eventuali contenuti pornografici e per adulti 
 
@@ -54,7 +55,7 @@ L'output JSON include gli elementi seguenti:
 | offset |Differenza di orario dei timestamp. Nella versione 1.0 delle API Video, questo valore è sempre 0, ma può cambiare in futuro. |
 | framerate |Fotogrammi al secondo del video. |
 | width |Larghezza del fotogramma video di output, espressa in pixel.|
-| height |Altezza del fotogramma video di output, espressa in pixel.|
+| altezza |Altezza del fotogramma video di output, espressa in pixel.|
 | totalDuration |Durata del video di input, espressa in "tick". |
 | [frammenti](#fragments-json-elements) |I metadati sono suddivisi in segmenti diversi, detti frammenti. Ogni frammento è uno scatto rilevato automaticamente con un inizio, una durata, un numero di intervallo e uno o più eventi. |
 
@@ -62,7 +63,7 @@ L'output JSON include gli elementi seguenti:
 
 |Elemento|Descrizione|
 |---|---|
-| start |Ora di inizio del primo evento in "tick". |
+| Avvio |Ora di inizio del primo evento in "tick". |
 | duration |Lunghezza del frammento in "tick". |
 | interval |Intervallo di ogni voce di evento all'interno del frammento in "tick". |
 | [eventi](#events-json-elements) |Ogni evento rappresenta una clip e ogni clip contiene fotogrammi chiave rilevati e monitorati nel periodo di tempo specificato. È una matrice di eventi. La matrice esterna rappresenta un intervallo di tempo. La matrice interna è costituita da 0 o più eventi che si sono verificati in un determinato momento.|
@@ -74,7 +75,7 @@ L'output JSON include gli elementi seguenti:
 | reviewRecommended | `true` o `false` a seconda che le soglie interne vengano superate da **adultScore** o **racyScore**. |
 | adultScore | Punteggio di attendibilità per eventuali contenuti per adulti, su una scala compresa tra 0,00 e 0,99. |
 | racyScore | Punteggio di attendibilità per eventuali contenuti pornografici, su una scala compresa tra 0,00 e 0,99. |
-| indice | Indice del fotogramma su una scala dal primo all'ultimo indice di fotogramma. |
+| index | Indice del fotogramma su una scala dal primo all'ultimo indice di fotogramma. |
 | timestamp | Percorso del fotogramma in "tick". |
 | shotIndex | Indice dello scatto padre. |
 

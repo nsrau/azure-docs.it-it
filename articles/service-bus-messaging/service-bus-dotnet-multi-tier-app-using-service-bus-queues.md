@@ -4,12 +4,13 @@ description: Un'esercitazione .NET che consente di sviluppare un'applicazione mu
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 044d0698f1ea181e8f508f92ad2c30ec29b6490b
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 746257195220d26ad5d011a39022a3957e8cb1ae
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067835"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021783"
 ---
 # <a name="net-multi-tier-application-using-azure-service-bus-queues"></a>Applicazione .NET multilivello che usa code del bus di servizio
 
@@ -65,13 +66,13 @@ Aggiungere quindi il codice per inviare elementi a una coda del bus di servizio 
 1. Avviare Visual Studio con privilegi di amministratore: fare clic con il pulsante destro del mouse sull'icona del programma **Visual Studio** e quindi scegliere **Esegui come amministratore**. Per l'emulatore di calcolo di Azure, illustrato più avanti in questo articolo, è necessario che Visual Studio sia avviato con privilegi di amministratore.
    
    In Visual Studio scegliere **Nuovo** dal menu **File** e quindi fare clic su **Progetto**.
-2. Da **Modelli installati** in **Visual C#** fare clic su **Cloud** e quindi su **Servizio cloud di Azure**. Assegnare al progetto il nome **MultiTierApp**. Quindi fare clic su **OK**.
+2. Da **Modelli installati** in **Visual C#** fare clic su **Cloud** e quindi su **Servizio cloud di Azure**. Assegnare al progetto il nome **MultiTierApp**. Fare quindi clic su **OK**.
    
    ![Screenshot della finestra di dialogo nuovo progetto con il cloud selezionato e il servizio cloud di Azure Visual C# evidenziato e descritto in rosso.][9]
 3. Nel riquadro **Ruoli** fare doppio clic su **Ruolo Web ASP.NET**.
    
    ![Screenshot della finestra di dialogo nuovo servizio cloud di Microsoft Azure con il ruolo Web ASP.NET selezionato ed è stata selezionata anche l'opzione WebRole1.][10]
-4. Passare il puntatore su **WebRole1** in **Soluzione servizio cloud di Microsoft Azure**, quindi fare clic sull'icona a forma di matita e rinominare il ruolo Web in **FrontendWebRole**. Quindi fare clic su **OK**. Assicurarsi di immettere "Frontend" con una 'e' minuscola, non "FrontEnd".
+4. Passare il puntatore su **WebRole1** in **Soluzione servizio cloud di Microsoft Azure**, quindi fare clic sull'icona a forma di matita e rinominare il ruolo Web in **FrontendWebRole**. Fare quindi clic su **OK**. Assicurarsi di immettere "Frontend" con una 'e' minuscola, non "FrontEnd".
    
    ![Screenshot della finestra di dialogo nuovo servizio cloud Microsoft Azure con la soluzione rinominata FrontendWebRole.][11]
 5. Nella finestra di dialogo **Nuovo progetto ASP.NET** fare clic su **MVC** in **Seleziona modello**.

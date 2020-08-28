@@ -4,12 +4,12 @@ description: Sintomi, cause e soluzioni per i problemi di Backup di Azure correl
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: a3fe61bf5d116d257ed7aeb32226a437d0193c54
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 1bfd83534bda6397983b0595acc089e901c473d6
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892389"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021483"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Risolvere i problemi di Backup di Azure: problemi relativi all'agente o all'estensione
 

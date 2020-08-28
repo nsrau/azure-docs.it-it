@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/4/2020
 ms.topic: troubleshooting
 ms.service: digital-twins
-ms.openlocfilehash: dafea083e68b2afe6b6bcf45b4cff8779f817049
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: ecd402c30fee63ad594fff5e4fdc3b1610fe7e4e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88749015"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003882"
 ---
 # <a name="troubleshooting-azure-digital-twins-metrics"></a>Risoluzione dei problemi relativi ai dispositivi gemelli digitali di Azure: metriche
 
@@ -24,7 +24,7 @@ Le metriche sono abilitate per impostazione predefinita. È possibile visualizza
 
 1. Creare un'istanza di dispositivi gemelli digitali di Azure. Per istruzioni su come configurare un'istanza di dispositivi gemelli digitali di Azure, vedere [*procedura: configurare un'istanza e l'autenticazione*](how-to-set-up-instance-scripted.md).
 
-2. Trovare l'istanza di Azure Digital gemelli nella [portale di Azure](https:/portal.azure.com) (è possibile aprire la relativa pagina digitando il relativo nome nella barra di ricerca del portale). 
+2. Trovare l'istanza di Azure Digital gemelli nella [portale di Azure](https://portal.azure.com) (è possibile aprire la relativa pagina digitando il relativo nome nella barra di ricerca del portale). 
 
     Dal menu dell'istanza selezionare **metriche**.
    

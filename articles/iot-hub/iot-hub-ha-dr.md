@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/17/2020
 ms.author: philmea
-ms.openlocfilehash: 84fa7ae50b69e7e1a2fe341e34497f2bf1a75b0d
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: d4a5ad36e9d6d71ad88d0b5c56b6079f34483347
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260169"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021429"
 ---
 # <a name="iot-hub-high-availability-and-disaster-recovery"></a>Disponibilità elevata e ripristino di emergenza dell'hub IoT
 
@@ -57,12 +57,14 @@ Entrambe queste opzioni di failover offrono gli obiettivi del punto di ripristin
 
 <sup>1</sup> I messaggi da cloud a dispositivo e i processi padre non vengono recuperati come parte del failover manuale.
 
-Una volta completata l'operazione di failover per l'Hub IoT, tutte le operazioni dal dispositivo e dalle applicazioni di back-end continueranno a funzionare senza richiedere un intervento manuale. Ciò significa che i messaggi da dispositivo a cloud continuano a funzionare e l'intero registro del dispositivo è intatto. Gli eventi generati tramite griglia di eventi possono essere utilizzati tramite le stesse sottoscrizioni configurate in precedenza, purché le sottoscrizioni di griglia di eventi continuino a essere disponibili.
+Una volta completata l'operazione di failover per l'Hub IoT, tutte le operazioni dal dispositivo e dalle applicazioni di back-end continueranno a funzionare senza richiedere un intervento manuale. Ciò significa che i messaggi da dispositivo a cloud continuano a funzionare e l'intero registro del dispositivo è intatto. Gli eventi generati tramite griglia di eventi possono essere utilizzati tramite le stesse sottoscrizioni configurate in precedenza, purché le sottoscrizioni di griglia di eventi continuino a essere disponibili. Per gli endpoint personalizzati non è necessaria alcuna gestione aggiuntiva.
 
 > [!CAUTION]
-> - Il nome e l'endpoint compatibili con l'Hub eventi dell'Hub incorporato degli eventi IoT cambiano dopo il failover. Quando si ricevono messaggi di telemetria dall'endpoint predefinito usando il client dell'hub eventi o l'host del processore di eventi, è necessario [usare la stringa di connessione dell'hub Internet](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) per stabilire la connessione. Ciò garantisce che le applicazioni back-end continuino a funzionare senza richiedere l'intervento manuale dopo il failover. Se si usano direttamente il nome e l'endpoint compatibili con l'hub eventi nell'applicazione, sarà necessario [recuperare il nuovo endpoint compatibile con hub eventi](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) dopo il failover per continuare le operazioni. Se si usa funzioni di Azure o analisi di flusso di Azure per connettere l'endpoint predefinito, potrebbe essere necessario eseguire un **riavvio**.
+> - Il nome e l'endpoint compatibili con l'Hub eventi dell'Hub incorporato degli eventi IoT cambiano dopo il failover. Quando si ricevono messaggi di telemetria dall'endpoint predefinito usando il client dell'hub eventi o l'host del processore di eventi, è necessario [usare la stringa di connessione dell'hub Internet](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) per stabilire la connessione. Ciò garantisce che le applicazioni back-end continuino a funzionare senza richiedere l'intervento manuale dopo il failover. Se si usano direttamente il nome e l'endpoint compatibili con l'hub eventi nell'applicazione, sarà necessario [recuperare il nuovo endpoint compatibile con hub eventi](iot-hub-devguide-messages-read-builtin.md#read-from-the-built-in-endpoint) dopo il failover per continuare le operazioni. 
 >
-> - Quando si esegue il routing alla risorsa di archiviazione, è consigliabile elencare i BLOB o i file e quindi scorrerli per assicurarsi che tutti i BLOB o i file vengano letti senza creare presupposti della partizione. È possibile che l'intervallo di partizioni venga modificato durante un failover manuale o avviato da Microsoft. È possibile usare l' [API List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) per enumerare l'elenco di BLOB o [elencare ADLS Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) per l'elenco di file. 
+> - Se si usa funzioni di Azure o analisi di flusso di Azure per connettere l'endpoint degli eventi predefiniti, potrebbe essere necessario eseguire un **riavvio**. Questo è dovuto al fatto che durante il failover gli offset precedenti non sono più validi.
+>
+> - Quando si esegue il routing alla risorsa di archiviazione, è consigliabile elencare i BLOB o i file e quindi scorrerli per assicurarsi che tutti i BLOB o i file vengano letti senza creare presupposti della partizione. È possibile che l'intervallo di partizioni venga modificato durante un failover manuale o avviato da Microsoft. È possibile usare l' [API List Blobs](https://docs.microsoft.com/rest/api/storageservices/list-blobs) per enumerare l'elenco di BLOB o [elencare ADLS Gen2 API](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/list) per l'elenco di file. Per altre informazioni, vedere [archiviazione di Azure come endpoint di routing](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 
 ## <a name="microsoft-initiated-failover"></a>Failover avviato da Microsoft
 
@@ -132,7 +134,7 @@ Ecco un riepilogo delle opzioni di disponibilità elevata e ripristino di emerge
 
 | Opzione a disponibilità elevata e ripristino di emergenza | RTO | RPO | È necessario un intervento manuale? | Complessità dell'implementazione | Impatto dei costi aggiuntivi|
 | --- | --- | --- | --- | --- | --- |
-| Failover avviato da Microsoft |2-26 ore|Fare riferimento a tabella RPO precedente|No|nessuno|Nessuno|
+| Failover avviato da Microsoft |2-26 ore|Fare riferimento a tabella RPO precedente|No|nessuno|nessuno|
 | Failover manuale |10 min-2 ore|Fare riferimento a tabella RPO precedente|Sì|Molto bassa. È sufficiente attivare questa operazione dal portale.|Nessuno|
 | Disponibilità elevata fra aree |< 1 min|Dipende dalla frequenza di replica della soluzione disponibilità elevata personalizzata|No|Alto|> 1 x il costo di 1 Hub IoT|
 
@@ -140,4 +142,4 @@ Ecco un riepilogo delle opzioni di disponibilità elevata e ripristino di emerge
 
 * [Che cos'è l'hub IoT di Azure?](about-iot-hub.md)
 * [Introduzione agli hub IoT (guida introduttiva)](quickstart-send-telemetry-dotnet.md)
-* [Esercitazione: eseguire il failover manuale per un hub Internet delle cose](tutorial-manual-failover.md)
+* [Esercitazione: Eseguire il failover manuale per un hub IoT](tutorial-manual-failover.md)

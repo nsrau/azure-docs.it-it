@@ -5,12 +5,13 @@ author: sumukhs
 ms.topic: conceptual
 ms.date: 10/02/2017
 ms.author: sumukhs
-ms.openlocfilehash: 640ee925a0a91c4f8424546e7ae734dfbeaed21d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-csharp
+ms.openlocfilehash: cda0a9f988afae58a60bff051885a5eec8afe434
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518963"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021970"
 ---
 # <a name="configure-stateful-reliable-services"></a>Configurazione di servizi Reliable Services con stato
 Esistono due set di impostazioni di configurazione per i servizi Reliable Services. Un set è globale per tutti i servizi Reliable Services del cluster, mentre l'altro è specifico per un particolare servizio Reliable Services.
@@ -19,7 +20,7 @@ Esistono due set di impostazioni di configurazione per i servizi Reliable Servic
 La configurazione globale dei servizi Reliable Services viene specificata nel manifesto del cluster per il cluster nella sezione KtlLogger. Consente di configurare il percorso di log condiviso e la dimensione oltre i limiti di memoria globali utilizzati dal logger. Il manifesto del cluster è un unico file XML che contiene le impostazioni e le configurazioni applicabili a tutti i nodi e ai servizi del cluster. Il file tipicamente si chiama ClusterManifest.xml. È possibile visualizzare il manifesto del cluster utilizzando il comando Powershell Get-ServiceFabricClusterManifest.
 
 ### <a name="configuration-names"></a>Nomi di configurazione
-| Nome | Unità | Valore predefinito | Osservazioni |
+| Name | Unità | Valore predefinito | Osservazioni |
 | --- | --- | --- | --- |
 | WriteBufferMemoryPoolMinimumInKB |Kilobyte |8388608 |Numero minimo di KB da allocare in modalità kernel per il pool di memoria del buffer di scrittura del logger. Questo pool di memoria viene utilizzato per il caching delle informazioni sullo stato prima della scrittura su disco. |
 | WriteBufferMemoryPoolMaximumInKB |Kilobyte |Nessun limite |Dimensioni massime raggiungibili dal pool di memoria del buffer di scrittura del logger. |
@@ -102,7 +103,7 @@ ReplicatorConfig
 > 
 
 ### <a name="configuration-names"></a>Nomi di configurazione
-| Nome | Unità | Valore predefinito | Osservazioni |
+| Name | Unità | Valore predefinito | Osservazioni |
 | --- | --- | --- | --- |
 | BatchAcknowledgementInterval |Secondi |0,015 |Periodo di tempo per cui il replicatore, dopo aver ricevuto un'operazione, attende presso il replicatore secondario prima di inviare un acknowledgement al replicatore principale. Gli altri acknowledgement relativi alle operazioni elaborate all'interno di questo intervallo vengono inviati come risposta unica. |
 | ReplicatorEndpoint |N/D |Nessun valore predefinito: parametro obbligatorio |Indirizzo IP e porta che il replicatore principale/secondario userà per comunicare con altri replicatori nel set di repliche. Deve fare riferimento a un endpoint di risorsa TCP nel manifesto del servizio. Per ulteriori informazioni sulla definizione delle risorse dell'endpoint in un manifesto del servizio, vedere [Specificare le risorse in un manifesto del servizio](service-fabric-service-manifest-resources.md) . |
@@ -118,7 +119,7 @@ ReplicatorConfig
 | SharedLogPath |Nome di percorso completo |"" |Specifica il percorso completo in cui verrà creato il file di log condiviso per la replica in oggetto. In genere, i servizi non devono usare questa impostazione. Tuttavia, se è stato specificato SharedLogPath, lo deve essere anche SharedLogId. |
 | SlowApiMonitoringDuration |Secondi |300 |Imposta l'intervallo di monitoraggio per le chiamate API gestite. Esempio: funzione di callback di backup fornita dall'utente. Al termine dell'intervallo verrà inviato un report sull'integrità di avviso a Health Manager. |
 | LogTruncationIntervalSeconds |Secondi |0 |Intervallo configurabile in cui il troncamento dei registri verrà avviato a ogni replica. Viene utilizzato per garantire che anche il registro sia troncato in base al tempo invece che in base alla sola dimensione del registro. Questa impostazione forza anche l'eliminazione delle voci cancellate in un dizionario affidabile. Può quindi essere utilizzato per garantire che gli elementi eliminati vengano rimossi in modo tempestivo. |
-| EnableStableReads |Booleano |False |L'abilitazione di letture stabili limita le repliche secondarie alla restituzione di valori che sono stati quorum-confermati. |
+| EnableStableReads |Boolean |Falso |L'abilitazione di letture stabili limita le repliche secondarie alla restituzione di valori che sono stati quorum-confermati. |
 
 ### <a name="sample-configuration-via-code"></a>Configurazione di esempio tramite codice
 ```csharp

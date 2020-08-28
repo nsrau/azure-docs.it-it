@@ -3,12 +3,12 @@ title: Modello di dati di Monitoraggio di Azure
 description: In questo articolo si apprenderanno i dettagli del modello di dati di Log Analytics di Monitoraggio di Azure per i dati di Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/26/2019
-ms.openlocfilehash: 7822f88c9ea3e0cd83b7e600d63984a8a51becb1
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 1fcb4eb0c584f792132f19c8c4d66289342aa36e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890264"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020950"
 ---
 # <a name="log-analytics-data-model-for-azure-backup-data"></a>Modello di dati di Log Analytics per i dati di Backup di Azure
 
@@ -159,8 +159,8 @@ Questa tabella offre dettagli sui campi relativi al processo.
 | DataTransferredInMB_s | Number |Dati trasferiti in MB per il processo|
 | JobUniqueId_g |Text |ID univoco per l'identificazione del processo |
 | RecoveryJobDestination_s |Text | Destinazione di un processo di ripristino in cui vengono ripristinati i dati |
-| RecoveryJobRPDateTime_s |Datetime | Data e ora in cui è stato creato il punto di ripristino in corso di ripristino |
-| RecoveryJobRPLocation_s |Text | Posizione in cui è stato archiviato il punto di ripristino in corso di ripristino|
+| RecoveryJobRPDateTime_s |Datetime | Data, ora in cui è stato creato il punto di ripristino da ripristinare |
+| RecoveryJobRPLocation_s |Text | Il percorso in cui è stato archiviato il punto di ripristino da ripristinare|
 | SourceSystem |Text |Sistema di origine dei dati correnti - Azure |
 | ResourceId |Text |Identificatore della risorsa per i dati raccolti. Ad esempio, ID risorsa dell'insieme di credenziali di Servizi di ripristino|
 | SubscriptionId |Text |Identificatore della sottoscrizione della risorsa (ad es. credenziali di Servizi di ripristino) per il quale vengono raccolti i dati |
@@ -472,7 +472,7 @@ Fare riferimento alla terza colonna, 'Description', nel [modello di dati ](#usin
 
 Poiché lo schema V1 si trova in un percorso di deprecazione, è consigliabile usare solo lo schema V2 in tutte le query personalizzate sui dati di diagnostica di backup di Azure. Di seguito è riportato un esempio di come aggiornare le query per rimuovere la dipendenza dallo schema v1:
 
-1. Identificare se la query utilizza qualsiasi campo applicabile solo allo schema v1. Si supponga di disporre di una query per elencare tutti gli elementi di backup e i server protetti associati come indicato di seguito:
+1. Identificare se la query usa qualsiasi campo applicabile solo allo schema v1. Si supponga di disporre di una query per elencare tutti gli elementi di backup e i server protetti associati come indicato di seguito:
 
     ````Kusto
     AzureDiagnostics

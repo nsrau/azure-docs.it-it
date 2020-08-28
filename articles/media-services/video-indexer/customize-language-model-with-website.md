@@ -8,14 +8,14 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 08/10/2020
 ms.author: kumud
-ms.openlocfilehash: d789d74f79fa691a2d5b374530450d966e0c40ed
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f9eedba6c8aee5c8aab73e2ed598a4511b4c5982
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047248"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020457"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-website"></a>Personalizzare un modello linguistico con il sito Web di Video Indexer
 
@@ -133,7 +133,9 @@ Video Indexer supporta la personalizzazione automatica dei modelli di lingua in 
 
     ![Personalizzare la trascrizione di modifica del modello di linguaggio: Video Indexer](./media/customize-language-model/edits.png)
 
-    Video Indexer acquisisce tutte le righe che vengono corrette dall'utente nella trascrizione del video e le aggiunge automaticamente in un file di testo denominato "da modifiche della trascrizione". Queste modifiche vengono utilizzate per ripetere il training del modello di linguaggio specifico utilizzato per indicizzare questo video.
+    Video Indexer acquisisce tutte le righe che vengono corrette dall'utente nella trascrizione del video e le aggiunge automaticamente in un file di testo denominato "da modifiche della trascrizione". Queste modifiche vengono utilizzate per ripetere il training del modello di linguaggio specifico utilizzato per indicizzare questo video. 
+    
+    Sono incluse anche le modifiche eseguite nella sequenza temporale del [widget](video-indexer-embed-widgets.md) .
     
     Se non è stato specificato un modello di lingua durante l'indicizzazione del video, tutte le modifiche per questo video verranno archiviate in un modello di lingua predefinito denominato "adattamenti account" all'interno della lingua rilevata del video.
     

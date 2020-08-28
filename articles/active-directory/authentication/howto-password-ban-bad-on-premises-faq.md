@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d67dbc0eedba8cc32c188636032d96b31f45adf
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: a39871fd6e2aef2e5120030d17192bb32ba2613b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717779"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89003474"
 ---
 # <a name="azure-ad-password-protection-on-premises-frequently-asked-questions"></a>Domande frequenti sulla protezione Azure AD password locale
 
@@ -38,7 +38,7 @@ Il portale di Azure AD consente di modificare la configurazione di "Password Pro
 
 **D: in che modo è possibile applicare Azure AD vantaggi della protezione delle password a un sottoinsieme di utenti locali?**
 
-Non supportato. Dopo la distribuzione e l'abilitazione, Password di protezione di Azure AD non prevede alcuna discriminazione: tutti gli utenti ottengono uguali vantaggi per la sicurezza.
+Non supportata. Dopo la distribuzione e l'abilitazione, Password di protezione di Azure AD non prevede alcuna discriminazione: tutti gli utenti ottengono uguali vantaggi per la sicurezza.
 
 **D: qual è la differenza tra una modifica della password e un set di password (o reimpostazione)?**
 
@@ -47,6 +47,14 @@ Una modifica della password si verifica quando un utente sceglie una nuova passw
 Un set di password (talvolta denominato reimpostazione della password) si verifica quando un amministratore sostituisce la password di un account con una nuova password, ad esempio tramite lo strumento di gestione Active Directory utenti e computer. Questa operazione richiede un livello elevato di privilegi (in genere amministratore di dominio) e la persona che esegue l'operazione in genere non conosce la vecchia password. Gli scenari di supporto tecnico eseguono spesso set di password, ad esempio quando si assiste a un utente che ha dimenticato la password. Gli eventi di impostazione della password vengono visualizzati anche quando viene creato un nuovo account utente per la prima volta con una password.
 
 I criteri di convalida della password si comportano allo stesso modo, indipendentemente dal fatto che sia stata eseguita una modifica o un set di password. Il servizio Azure AD Password Protection Agent esegue il log di eventi diversi per indicare se è stata eseguita una modifica della password o un'operazione di impostazione.  Vedere [Azure ad monitoraggio e registrazione per la protezione delle password](./howto-password-ban-bad-on-premises-monitor.md).
+
+**D: le password esistenti vengono convalidate da Azure AD password per la protezione dopo l'installazione?**
+
+No-Azure AD Password Protection può applicare i criteri password solo per le password non crittografate durante un'operazione di modifica o impostazione della password. Quando una password viene accettata da Active Directory, vengono mantenuti solo gli hash specifici del protocollo di autenticazione di tale password. La password di testo non crittografato non viene mai mantenute, pertanto Azure AD la protezione delle password non può convalidare le password esistenti.
+
+Dopo la distribuzione iniziale di Azure AD la protezione con password, tutti gli utenti e gli account inizieranno a usare una password Azure AD convalidata per la protezione con password, perché le password esistenti scadono normalmente nel tempo. Se lo si desidera, questo processo può essere accelerato da una singola scadenza manuale delle password degli account utente.
+
+Gli account configurati con "Nessuna scadenza password" non verranno mai costretti a modificare la password, a meno che non venga eseguita la scadenza manuale.
 
 **D: perché vengono registrati gli eventi di rifiuto delle password duplicati quando si tenta di impostare una password vulnerabile mediante lo snap-in gestione Active Directory utenti e computer?**
 
@@ -62,11 +70,11 @@ Sì. Il supporto di più DLL di filtro password registrate è una funzionalità 
 
 **D: come è possibile distribuire e configurare Azure AD la protezione delle password nell'ambiente Active Directory senza usare Azure?**
 
-Non supportato. Password di protezione di Azure AD è una funzionalità di Azure che supporta l'estensione in un ambiente Active Directory locale.
+Non supportata. Password di protezione di Azure AD è una funzionalità di Azure che supporta l'estensione in un ambiente Active Directory locale.
 
 **D: come è possibile modificare il contenuto del criterio a livello di Active Directory?**
 
-Non supportato. È possibile amministrare i criteri solo usando il portale di Azure AD. Vedere anche la domanda precedente.
+Non supportata. È possibile amministrare i criteri solo usando il portale di Azure AD. Vedere anche la domanda precedente.
 
 **D: perché è necessario il servizio DFSR per la replica di sysvol?**
 

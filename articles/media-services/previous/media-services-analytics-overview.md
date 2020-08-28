@@ -15,12 +15,13 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: juliako
 ms.reviewer: milanga; johndeu
-ms.openlocfilehash: d9efb1e9256bccd04a76b4f63edaaf7c2c6ac708
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 45a23f55f87f086e4f5be8058a68ada1513f8975
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85955217"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021001"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Analisi Servizi multimediali nella piattaforma Servizi multimediali 
 
@@ -45,7 +46,7 @@ I processori di contenuti multimediali di Analisi Servizi multimediali producono
 
 ## <a name="media-analytics-services"></a>Servizi di Analisi Servizi multimediali
 
-### <a name="indexer"></a>Indexer
+### <a name="indexer"></a>Indicizzatore
 Azure Media Indexer consente di rendere disponibili per la ricerca i contenuti, oltre a generare tracce per i sottotitoli codificati. Per informazioni dettagliate ed esempi, vedere [indicizzazione di file multimediali con Azure Media Indexer](media-services-index-content.md).
 
 ### <a name="motion-detector"></a>Motion Detector

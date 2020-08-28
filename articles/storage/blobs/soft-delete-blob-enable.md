@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 83827c7a39b2833ce1301e78a0bef4e6d61ec62b
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.custom: devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: cba56e699afed8178f93bceddf6bf32a242ed124
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185299"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020848"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Abilitare e gestire l'eliminazione temporanea per i BLOB
 
