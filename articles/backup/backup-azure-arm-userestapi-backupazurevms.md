@@ -4,12 +4,12 @@ description: Questo articolo illustra come configurare, avviare e gestire le ope
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: db5e6cc460d320971a4005889dc2c9aa9925a18d
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: aa072cb48e12ac89af3be28a9633a82b50122275
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890332"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006296"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Eseguire il backup di una macchina virtuale di Azure con Backup di Azure tramite l'API REST
 
@@ -29,7 +29,7 @@ In primo luogo l'insieme di credenziali deve essere in grado di identificare la 
 POST https://management.azure.com/Subscriptions/{subscriptionId}/resourceGroups/{vaultresourceGroupname}/providers/Microsoft.RecoveryServices/vaults/{vaultName}/backupFabrics/{fabricName}/refreshContainers?api-version=2016-12-01
 ```
 
-Per l'URI di POST sono presenti i parametri `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{fabricName}`. Il valore di `{fabricName}` è "Azure". In base all'esempio, `{vaultName}` è "testVault" e `{vaultresourceGroupName}` è "testVaultRG". Tutti i parametri obbligatori vengono specificati nell'URI e di conseguenza il corpo di una richiesta separata non è necessario.
+Per l'URI di POST sono presenti i parametri `{subscriptionId}`, `{vaultName}`, `{vaultresourceGroupName}`, `{fabricName}`. Il valore di `{fabricName}` è "Azure". In base all'esempio, `{vaultName}` è "testVault" e `{vaultresourceGroupName}` è "testVaultRG". Poiché tutti i parametri obbligatori sono specificati nell'URI, non è necessario un corpo della richiesta separato.
 
 ```http
 POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Microsoft.RecoveryServices/vaults/testVault/backupFabrics/Azure/refreshContainers?api-version=2016-12-01

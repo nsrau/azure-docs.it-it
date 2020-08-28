@@ -3,16 +3,17 @@ title: Distribuzione di Service Fabric di Azure con FabricClient
 description: Usare le API del client Fabric per distribuire e rimuovere le applicazioni in Service Fabric.
 ms.topic: conceptual
 ms.date: 01/19/2018
-ms.openlocfilehash: 25b874d1be8ab50d8076ff8fe9423c8cc0187512
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 565e6b8f23f159a5c231295694830917217a3d19
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75376971"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89009301"
 ---
 # <a name="deploy-and-remove-applications-using-fabricclient"></a>Distribuire e rimuovere applicazioni con il client Fabric
 > [!div class="op_single_selector"]
-> * [Gestione risorse](service-fabric-application-arm-resource.md)
+> * [Resource Manager](service-fabric-application-arm-resource.md)
 > * [PowerShell](service-fabric-deploy-remove-applications.md)
 > * [Interfaccia della riga di comando di Service Fabric](service-fabric-application-lifecycle-sfctl.md)
 > * [API FabricClient](service-fabric-deploy-remove-applications-fabricclient.md)
@@ -122,7 +123,7 @@ Per informazioni agguntive sull'archivio di immagini e ImageStoreConnectionStrin
 
 ### <a name="deploy-large-application-package"></a>Distribuire un pacchetto dell'applicazione di grandi dimensioni
 Problema: l'API [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) raggiunge il timeout per un pacchetto dell'applicazione di grandi dimensioni (nell'ordine di GB).
-Soluzione:
+Provare:
 - Specificare un timeout maggiore per il metodo [CopyApplicationPackage](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.copyapplicationpackage) con il parametro `timeout`. Il timeout è di 30 minuti per impostazione predefinita.
 - Controllare la connessione di rete tra il computer di origine e il cluster. Se la connessione è lenta, provare a usare una macchina con una connessione di rete più veloce.
 Se il computer client si trova in un'area diversa dal cluster, si consiglia di usare un computer cliente in un'area più vicina o nella stessa area del cluster.
@@ -135,7 +136,7 @@ La compressione riduce le dimensioni e il numero di file, cosa che a sua volta r
 
 ### <a name="deploy-application-package-with-many-files"></a>Distribuire un pacchetto di applicazione con numerosi file
 Problema: si verifica un timeout di [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) per un pacchetto di applicazione con molti file (nell'ordine di migliaia).
-Soluzione:
+Provare:
 - [Comprimere il pacchetto](service-fabric-package-apps.md#compress-a-package) prima di copiarlo nell'archivio immagini. La compressione riduce il numero dei file.
 - Specificare un timeout maggiore per il metodo [ProvisionApplicationAsync](/dotnet/api/system.fabric.fabricclient.applicationmanagementclient.provisionapplicationasync) con il parametro `timeout`.
 

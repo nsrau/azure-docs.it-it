@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/15/2019
 ms.author: raynew
-ms.openlocfilehash: 766d0a763f7d69ec58851116e18510235f39b364
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7d11fa8605d9cd5f335b6be56097caf7a5222bbd
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495064"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006942"
 ---
 # <a name="monitor-site-recovery-with-azure-monitor-logs"></a>Monitorare Site Recovery con i log di Monitoraggio di Azure
 
@@ -49,7 +49,7 @@ Prima di iniziare, è consigliabile esaminare le [domande di monitoraggio più c
 2. In **impostazioni di diagnostica**specificare un nome e selezionare la casella **Invia a log Analytics**.
 3. Selezionare la sottoscrizione dei log di monitoraggio di Azure e l'area di lavoro Log Analytics.
 4. Selezionare **diagnostica di Azure** nell'interruttore.
-5. Dall'elenco log selezionare tutti i log con il prefisso **AzureSiteRecovery**. Quindi fare clic su **OK**.
+5. Dall'elenco log selezionare tutti i log con il prefisso **AzureSiteRecovery**. Fare quindi clic su **OK**.
 
     ![Screenshot della schermata delle impostazioni di diagnostica.](./media/monitoring-log-analytics/select-workspace.png)
 
@@ -62,9 +62,9 @@ I log Site Recovery iniziano a essere inseriti in una tabella (**AzureDiagnostic
 1. Passare all'area di lavoro Log Analytics e fare clic su **Impostazioni avanzate**.
 2. Fare clic sulla pagina **origini connesse** e selezionare **server Windows**.
 3. Scaricare l'agente Windows (64 bit) nel server di elaborazione. 
-4. [Ottenere l'ID e la chiave dell'area di lavoro](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key)
+4. [Ottenere l'ID e la chiave dell'area di lavoro](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key)
 5. [Configurare Agent per l'uso di TLS 1,2](../azure-monitor/platform/agent-windows.md#configure-agent-to-use-tls-12)
-6. [Completare l'installazione dell'agente](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard) fornendo la chiave e l'ID dell'area di lavoro ottenuti.
+6. [Completare l'installazione dell'agente](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard) fornendo la chiave e l'ID dell'area di lavoro ottenuti.
 7. Al termine dell'installazione, passare all'area di lavoro Log Analytics e fare clic su **Impostazioni avanzate**. Passare alla pagina **dati** e fare clic sui **contatori delle prestazioni di Windows**. 
 8. Fare clic su **' +'** per aggiungere i due contatori seguenti con intervallo di campionamento di 300 secondi:
 

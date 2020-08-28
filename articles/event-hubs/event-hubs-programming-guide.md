@@ -3,12 +3,13 @@ title: Guida per programmatori .NET-Hub eventi di Azure (legacy) | Microsoft Doc
 description: Questo articolo fornisce informazioni su come scrivere codice per Hub eventi di Azure tramite Azure .NET SDK.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 5be30d7786fa094a55badb7b38ff2116a6013b6a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 17bec931f79a6dbb3d98270ab0ff6e2d1d4c6541
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934022"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013912"
 ---
 # <a name="net-programming-guide-for-azure-event-hubs-legacy-microsoftazureeventhubs-package"></a>Guida per programmatori .NET per hub eventi di Azure (pacchetto Microsoft. Azure. EventHubs legacy)
 Questo articolo prende in esame alcuni scenari comuni nella scrittura di codice tramite Hub eventi di Azure. Si presuppone una conoscenza preliminare di Hub eventi. Per una panoramica sui concetti relativi a Hub eventi, vedere [Panoramica di Hub eventi](./event-hubs-about.md).

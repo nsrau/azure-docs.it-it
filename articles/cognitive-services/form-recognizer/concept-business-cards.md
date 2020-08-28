@@ -10,16 +10,16 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 039f7343bcef64db9ad9eae558cd3e97f3678c59
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 1163531fb5a6aa7158bd81ff9095ed1ee29e73c1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799282"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004902"
 ---
 # <a name="business-card-concepts"></a>Concetti relativi ai biglietti da visita
 
-Il riconoscitore di form di Azure può analizzare ed estrarre coppie chiave-valore da schede commerciali usando uno dei modelli predefiniti. L'API del biglietto da visita combina potenti funzionalità di riconoscimento ottico dei caratteri (OCR) con il modello di informazioni sui biglietti da visita per estrarre le informazioni chiave dai biglietti da visita in inglese. Estrae le informazioni di contatto personali, il nome della società, il titolo del processo e altro ancora. L'API del business card predefinita è disponibile pubblicamente nel form Recognizer v 2.1 Preview. 
+Il riconoscitore di Azure form è in grado di analizzare ed estrarre le informazioni di contatto dai biglietti da visita usando uno dei modelli predefiniti. L'API del biglietto da visita combina potenti funzionalità di riconoscimento ottico dei caratteri (OCR) con il modello di informazioni sui biglietti da visita per estrarre le informazioni chiave dai biglietti da visita in inglese. Estrae le informazioni di contatto personali, il nome della società, il titolo del processo e altro ancora. L'API del business card predefinita è disponibile pubblicamente nel form Recognizer v 2.1 Preview. 
 
 ## <a name="what-does-the-business-card-api-do"></a>Che cosa fa l'API della scheda Business?
 
@@ -27,10 +27,11 @@ L'API del business card estrae i campi chiave dai biglietti da visita e li resti
 
 ![Immagine dell'elemento Contoso dall'output di FOTT + JSON](./media/business-card-english.jpg)
 
-### <a name="fields-extracted"></a>Campi estratti: 
+### <a name="fields-extracted"></a>Campi estratti:
+
 * Nomi dei contatti 
-* Nome 
-* Cognome 
+  * Nomi
+  * Cognome
 * Nomi società 
 * Departments 
 * Titoli dei processi 
@@ -43,7 +44,7 @@ L'API del business card estrae i campi chiave dai biglietti da visita e li resti
   * Telefoni lavorativi 
   * Altri telefoni 
 
-L'API del business card restituisce anche tutto il testo riconosciuto dal biglietto da business. Questo output OCR è incluso nella risposta JSON.  
+L'API del business card può restituire anche tutto il testo riconosciuto dal biglietto da business. Questo output OCR è incluso nella risposta JSON.  
 
 ### <a name="input-requirements"></a>Requisiti relativi all'input 
 
@@ -51,7 +52,7 @@ L'API del business card restituisce anche tutto il testo riconosciuto dal biglie
 
 ## <a name="the-analyze-business-card-operation"></a>Operazione Analyze business card
 
-La [scheda analizza business](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) acquisisce un'immagine o un PDF di un biglietto da lavoro come input ed estrae i valori di interesse e testo. La chiamata restituisce un campo di intestazione della risposta denominato `Operation-Location` . Il `Operation-Location` valore è un URL che contiene l'ID risultato da usare nel passaggio successivo.
+La [scheda analizza business](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync) acquisisce un'immagine o un PDF di un biglietto da lavoro come input ed estrae i valori di interesse. La chiamata restituisce un campo di intestazione della risposta denominato `Operation-Location` . Il `Operation-Location` valore è un URL che contiene l'ID risultato da usare nel passaggio successivo.
 
 |Intestazione risposta| URL risultato |
 |:-----|:----|
@@ -63,18 +64,15 @@ Il secondo passaggio consiste nel chiamare l'operazione [Get Analyze business ca
 
 |Campo| Tipo | Valori possibili |
 |:-----|:----:|:----|
-|status | string | notStarted: l'operazione di analisi non è stata avviata. |
-| |  | Running: l'operazione di analisi è in corso. |
-| |  | non riuscito: l'operazione di analisi non è riuscita. |
-| |  | Succeeded: l'operazione di analisi ha avuto esito positivo. |
+|status | string | notStarted: l'operazione di analisi non è stata avviata.<br /><br />Running: l'operazione di analisi è in corso.<br /><br />non riuscito: l'operazione di analisi non è riuscita.<br /><br />Succeeded: l'operazione di analisi ha avuto esito positivo.|
 
-Quando il campo **stato** presenta il valore **succeeded** , la risposta JSON includerà i risultati relativi a business card e riconoscimento testo. Il risultato della comprensione del business card è organizzato come un dizionario di valori di campo denominati, dove ogni valore contiene il testo estratto, il valore normalizzato, il rettangolo di delimitazione, la confidenza e gli elementi di parola corrispondenti. Il risultato del riconoscimento del testo è organizzato come una gerarchia di righe e parole, con testo, rettangolo di delimitazione e informazioni sulla confidenza.
+Quando il campo **stato** presenta il valore **succeeded** , la risposta JSON includerà i risultati relativi a business card e al riconoscimento del testo facoltativo, se richiesto. Il risultato della comprensione del business card è organizzato come un dizionario di valori di campo denominati, dove ogni valore contiene il testo estratto, il valore normalizzato, il rettangolo di delimitazione, la confidenza e gli elementi di parola corrispondenti. Il risultato del riconoscimento del testo è organizzato come una gerarchia di righe e parole, con testo, rettangolo di delimitazione e informazioni sulla confidenza.
 
 ![esempio di output della scheda di business](./media/business-card-results.png)
 
 ### <a name="sample-json-output"></a>Output JSON di esempio
 
-Vedere l'esempio seguente di una risposta JSON riuscita: il nodo "readResults" contiene tutto il testo riconosciuto. Il testo è organizzato in base alla pagina, quindi alla riga, infine in base a singole parole. Il nodo "documentResults" contiene i valori specifici della scheda business individuati dal modello. Qui sono disponibili coppie chiave/valore utili, ad esempio il nome, il cognome, il nome della società e altro ancora.
+Vedere l'esempio seguente di una risposta JSON riuscita: il nodo "readResults" contiene tutto il testo riconosciuto. Il testo è organizzato in base alla pagina, quindi alla riga, infine in base a singole parole. Il nodo "documentResults" contiene i valori specifici della scheda business individuati dal modello. Qui è possibile trovare informazioni utili sul contatto, ad esempio il nome, il cognome, il nome della società e altro ancora.
 
 ```json
 {
@@ -394,5 +392,4 @@ L'API dei biglietti da business è anche la [funzionalità di elaborazione di AI
 - Seguire le guide introduttive per iniziare la Guida introduttiva all' [API delle schede business](./quickstarts/python-business-cards.md)
 - Informazioni sull' [API REST di riconoscimento moduli](https://westcentralus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1-preview-1/operations/AnalyzeBusinessCardAsync)
 - Altre informazioni sul [riconoscimento moduli](overview.md)
-
 

@@ -6,14 +6,14 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
-ms.custom: hdinsightactive
+ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 01/13/2020
-ms.openlocfilehash: 4445bb5c73ca001813d529a3e65d1ea95e084616
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: d54a06c457451fc5323ae37b34b53411cdd6abda
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082455"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000142"
 ---
 # <a name="scp-programming-guide-for-apache-storm-in-azure-hdinsight"></a>Guida alla programmazione SCP per Apache Storm in Azure HDInsight
 
@@ -72,7 +72,7 @@ Il codice del plug-in implementa una delle interfacce seguenti. Quale interfacci
 
 ### <a name="iscpplugin"></a>ISCPPlugin
 
-**ISCPPlugin** è l'interfaccia comune per molti plug-in. attualmente si tratta di un'interfaccia fittizia.
+**ISCPPlugin** è l'interfaccia comune per molti plug-in. Attualmente si tratta di un'interfaccia fittizia.
 
 ```csharp
 public interface ISCPPlugin
@@ -201,7 +201,7 @@ public Dictionary<string, Object> stormConf { get; set; }
 public Dictionary<string, Object> pluginConf { get; set; }  
 ```
 
-La parte **stormConf** è relativa ai parametri definiti da Storm e la parte **ottenendo pluginconf** è relativa ai parametri definiti da SCP. Ad esempio:
+La parte **stormConf** è relativa ai parametri definiti da Storm e la parte **ottenendo pluginconf** è relativa ai parametri definiti da SCP. Ecco un esempio:
 
 ```csharp
 public class Constants
@@ -217,7 +217,7 @@ public class Constants
 }
 ```
 
-Il tipo **TopologyContext** ottiene il contesto della topologia. È particolarmente utile per più componenti paralleli. Ad esempio:
+Il tipo **TopologyContext** ottiene il contesto della topologia. È particolarmente utile per più componenti paralleli. Ecco un esempio:
 
 ```csharp
 //demo how to get TopologyContext info
@@ -456,7 +456,7 @@ SCP.NET definisce le parole chiave seguenti:
 
 SCP.NET definisce anche questi parametri usati di frequente:
 
-| Parametro | Description |
+| Parametro | Descrizione |
 | --- | --- |
 | "plugin.name" |Nome del file exe del plug-in C# |
 | "plugin.args" |Argomenti del plug-in |
@@ -539,9 +539,9 @@ SCP.NET aggiunge un metodo di raggruppamento personalizzato e usa il contenuto d
 
 Nel file di specifica precedente:
 
-* `scp-field-group`Specifica che il raggruppamento è un raggruppamento di campi personalizzato implementato da SCP.
-* `:tx`o `:non-tx` specifica se la topologia è transazionale. Queste informazioni sono necessarie perché l'indice iniziale è diverso tra le topologie transazionali e non transazionali.
-* `[0,1]`Specifica un set di hash di ID campo che iniziano con zero.
+* `scp-field-group` Specifica che il raggruppamento è un raggruppamento di campi personalizzato implementato da SCP.
+* `:tx` o `:non-tx` specifica se la topologia è transazionale. Queste informazioni sono necessarie perché l'indice iniziale è diverso tra le topologie transazionali e non transazionali.
+* `[0,1]` Specifica un set di hash di ID campo che iniziano con zero.
 
 ### <a name="hybrid-topology"></a>Topologia ibrida
 
@@ -549,7 +549,7 @@ Il codice Storm nativo è scritto in Java. SCP.NET ha avanzato Storm per consent
 
 ### <a name="specify-java-spoutbolt-in-a-specification-file"></a>Specifica il beccuccio Java/Bolt in un file di specifica
 
-È possibile usare **SCP-beccuccio** e **SCP-Bolt** in un file di specifica per specificare i beccucci e i Bolt Java. Ad esempio:
+È possibile usare **SCP-beccuccio** e **SCP-Bolt** in un file di specifica per specificare i beccucci e i Bolt Java. Ecco un esempio:
 
 ```csharp
 (spout-spec 
@@ -561,7 +561,7 @@ Ecco `microsoft.scp.example.HybridTopology.Generator` il nome della classe del b
 
 ### <a name="specify-the-java-classpath-in-a-runspec-command"></a>Specificare il CLASSPATH Java in un comando runSpec
 
-Se si vuole inviare la topologia che contiene i beccucci o i Bolt Java, compilarli prima per produrre file con estensione JAR. Specificare quindi il CLASSPATH Java che contiene i file JAR quando si invia la topologia. Ad esempio:
+Se si vuole inviare la topologia che contiene i beccucci o i Bolt Java, compilarli prima per produrre file con estensione JAR. Specificare quindi il CLASSPATH Java che contiene i file JAR quando si invia la topologia. Ecco un esempio:
 
 ```csharp
 bin\runSpec.cmd examples\HybridTopology\HybridTopology.spec specs examples\HybridTopology\net\Target -cp examples\HybridTopology\java\target\*

@@ -6,13 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 03/27/2020
 ms.author: anfeldma
-ms.custom: devx-track-javascript, devx-track-azurecli
-ms.openlocfilehash: 029c2ffa548c8c99030f630a90eb07ac8ba063a0
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-javascript, devx-track-azurecli, devx-track-csharp
+ms.openlocfilehash: 75299ab83543b0f28f4cf8f02e41b692c32d19ed
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497002"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997269"
 ---
 # <a name="configure-time-to-live-in-azure-cosmos-db"></a>Configurare la durata (TTL) in Azure Cosmos DB
 
@@ -50,7 +50,7 @@ Per creare o abilitare la durata (TTL) in un contenitore, vedere.
 
 ## <a name="enable-time-to-live-on-a-container-using-sdk"></a>Abilitare la durata (TTL) in un contenitore usando l'SDK
 
-### <a name="net-sdk"></a><a id="dotnet-enable-noexpiry"></a>.NET SDK
+### <a name="net-sdk"></a><a id="dotnet-enable-noexpiry"></a> .NET SDK
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -83,7 +83,7 @@ await client.GetDatabase("database").CreateContainerAsync(new ContainerPropertie
 ```
 ---
 
-### <a name="java-sdk"></a><a id="java-enable-noexpiry"></a>SDK Java
+### <a name="java-sdk"></a><a id="java-enable-noexpiry"></a> SDK Java
 
 # <a name="java-sdk-v4"></a>[Java SDK v4](#tab/javav4)
 
@@ -116,7 +116,7 @@ container = database.createContainerIfNotExists(containerProperties, 400).block(
 
 Per impostare la durata (TTL) in un contenitore, è necessario specificare un numero positivo diverso da zero che indica il periodo di tempo in secondi. In base al valore TTL configurato, tutti gli elementi nel contenitore dopo l'ultima modifica del timestamp dell'elemento `_ts` vengono eliminati.
 
-### <a name="net-sdk"></a><a id="dotnet-enable-withexpiry"></a>.NET SDK
+### <a name="net-sdk"></a><a id="dotnet-enable-withexpiry"></a> .NET SDK
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -149,7 +149,7 @@ await client.GetDatabase("database").CreateContainerAsync(new ContainerPropertie
 ```
 ---
 
-### <a name="java-sdk"></a><a id="java-enable-defaultexpiry"></a>SDK Java
+### <a name="java-sdk"></a><a id="java-enable-defaultexpiry"></a> SDK Java
 
 # <a name="java-sdk-v4"></a>[Java SDK v4](#tab/javav4)
 
@@ -269,7 +269,7 @@ const itemDefinition = {
         };
 ```
 
-### <a name="java-sdk"></a><a id="java-set-ttl-item"></a>SDK Java
+### <a name="java-sdk"></a><a id="java-set-ttl-item"></a> SDK Java
 
 # <a name="java-sdk-v4"></a>[Java SDK v4](#tab/javav4)
 
@@ -350,7 +350,7 @@ SalesOrder salesOrder = new SalesOrder(
 
 È possibile reimpostare la durata (TTL) per un elemento eseguendo un'operazione di scrittura o aggiornamento per l'elemento. L'operazione di scrittura o aggiornamento imposterà `_ts` sull'ora corrente e la durata (TTL) per la scadenza dell'elemento inizierà nuovamente. Se si vuole modificare la durata (TTL) di un elemento, è possibile aggiornare il campo nello stesso modo in cui si aggiornano tutti gli altri campi.
 
-### <a name="net-sdk"></a><a id="dotnet-extend-ttl-item"></a>.NET SDK
+### <a name="net-sdk"></a><a id="dotnet-extend-ttl-item"></a> .NET SDK
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -382,7 +382,7 @@ await client.GetContainer("database", "container").ReplaceItemAsync(itemResponse
 ```
 ---
 
-### <a name="java-sdk"></a><a id="java-enable-modifyitemexpiry"></a>SDK Java
+### <a name="java-sdk"></a><a id="java-enable-modifyitemexpiry"></a> SDK Java
 
 # <a name="java-sdk-v4"></a>[Java SDK v4](#tab/javav4)
 
@@ -424,7 +424,7 @@ container.getItem("SO05", new PartitionKey("CO18009186470")).read()
 
 Se è stata impostata la durata (TTL) per un elemento e non si vuole più una scadenza per tale elemento, è possibile recuperare l'elemento, rimuovere il campo TTL e sostituire l'elemento nel server. Quando il campo TTL viene rimosso dall'elemento, all'elemento verrà applicato il valore TTL predefinito assegnato al contenitore. Impostare il valore TTL su -1 per impedire a un elemento di scadere e non ereditare il valore TTL dal contenitore.
 
-### <a name="net-sdk"></a><a id="dotnet-turn-off-ttl-item"></a>.NET SDK
+### <a name="net-sdk"></a><a id="dotnet-turn-off-ttl-item"></a> .NET SDK
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -457,7 +457,7 @@ await client.GetContainer("database", "container").ReplaceItemAsync(itemResponse
 ```
 ---
 
-### <a name="java-sdk"></a><a id="java-enable-itemdefaultexpiry"></a>SDK Java
+### <a name="java-sdk"></a><a id="java-enable-itemdefaultexpiry"></a> SDK Java
 
 # <a name="java-sdk-v4"></a>[Java SDK v4](#tab/javav4)
 
@@ -499,7 +499,7 @@ container.getItem("SO05", new PartitionKey("CO18009186470")).read()
 
 Per disabilitare la durata (TTL) in un contenitore e impedire al processo in background di controllare gli elementi scaduti, è necessario eliminare la proprietà `DefaultTimeToLive` per il contenitore. Eliminare questa proprietà non equivale a impostarla su -1. Quando si imposta il valore su -1, i nuovi elementi aggiunti al contenitore non hanno scadenza, tuttavia è possibile eseguire l'override di questo valore per elementi specifici nel contenitore. Quando si rimuove la proprietà TTL dal contenitore, gli elementi non avranno mai scadenza anche se sono presenti elementi con override esplicito di un valore TTL predefinito precedente.
 
-### <a name="net-sdk"></a><a id="dotnet-disable-ttl"></a>.NET SDK
+### <a name="net-sdk"></a><a id="dotnet-disable-ttl"></a> .NET SDK
 
 # <a name="net-sdk-v2"></a>[.NET SDK V2](#tab/dotnetv2)
 
@@ -526,7 +526,7 @@ await client.GetContainer("database", "container").ReplaceContainerAsync(contain
 ```
 ---
 
-### <a name="java-sdk"></a><a id="java-enable-disableexpiry"></a>SDK Java
+### <a name="java-sdk"></a><a id="java-enable-disableexpiry"></a> SDK Java
 
 # <a name="java-sdk-v4"></a>[Java SDK v4](#tab/javav4)
 

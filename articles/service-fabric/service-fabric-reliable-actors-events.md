@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: b17befcd86cd56eb5eb385ddc5196cbfce73003c
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f5634a33dccb06437f2e5f095e7880221dba9d6e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260433"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007911"
 ---
 # <a name="actor-events"></a>Eventi relativi agli attori
 Gli eventi relativi agli attori consentono l'invio di notifiche il più possibile accurate dall'attore ai client. Tali eventi sono progettati per la comunicazione tra attore e client e non è consigliabile usarli per la comunicazione tra attori.

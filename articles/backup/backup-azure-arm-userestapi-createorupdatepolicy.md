@@ -4,16 +4,16 @@ description: In questo articolo si apprenderà come creare e gestire i criteri d
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: 6a045ff1653c58a3a583b6c64941fff26f480861
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 4678c6aaa03d511da35d5efee2b1e75d08546781
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826393"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006262"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>Creare criteri di backup di Servizi di ripristino di Azure usando l'API REST
 
-I passaggi per creare un criterio di backup per un insieme di credenziali di Servizi di ripristino di Azure sono descritti nel [documento relativo all'API REST dei criteri](/rest/api/backup/protectionpolicies/createorupdate). Si userà questo documento come riferimento per creare un criterio di backup di macchine virtuali di Azure.
+I passaggi per creare un criterio di backup per un insieme di credenziali di Servizi di ripristino di Azure sono descritti nel [documento relativo all'API REST dei criteri](/rest/api/backup/protectionpolicies/createorupdate). Usare questo documento come riferimento per creare un criterio per il backup di macchine virtuali di Azure.
 
 ## <a name="create-or-update-a-policy"></a>Creare o aggiornare un criterio
 
@@ -29,7 +29,7 @@ I parametri `{policyName}` e `{vaultName}` vengono forniti nell'URI. Informazion
 
 Ad esempio, per creare un criterio per il backup di macchine virtuali di Azure, sono disponibili i componenti del corpo della richiesta indicati di seguito.
 
-|Nome  |Obbligatorio  |Tipo  |Descrizione  |
+|Name  |Obbligatorio  |Tipo  |Descrizione  |
 |---------|---------|---------|---------|
 |properties     |   Vero      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | Proprietà ProtectionPolicyResource        |
 |tags     |         | Oggetto        |  Tag delle risorse       |

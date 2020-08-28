@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8a7a7a6681be78c2777130ca540319eb829d8f9d
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 257656a29733972672570648d4317b7847fedff1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002351"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997677"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature-in-windows-virtual-desktop-classic"></a>Usare Log Analytics per la funzionalità di diagnostica in desktop virtuale di Windows (versione classica)
 
@@ -34,7 +34,7 @@ Si consiglia di usare Log Analytics per analizzare i dati di diagnostica nel cli
 
 Prima di poter usare Log Analytics con la funzionalità di diagnostica, è necessario [creare un'area di lavoro](../../azure-monitor/learn/quick-collect-windows-computer.md#create-a-workspace).
 
-Dopo aver creato l'area di lavoro, seguire le istruzioni in [connettere i computer Windows a monitoraggio di Azure](../../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key) per ottenere le informazioni seguenti:
+Dopo aver creato l'area di lavoro, seguire le istruzioni in [connettere i computer Windows a monitoraggio di Azure](../../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key) per ottenere le informazioni seguenti:
 
 - ID dell'area di lavoro
 - Chiave primaria dell'area di lavoro

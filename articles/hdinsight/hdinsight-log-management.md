@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 02/05/2020
-ms.openlocfilehash: 14634fac5d4501572a54f80f01a37e440d69d09b
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: e279f0ba5186ae4e4ad4b403ad823a59ee085170
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86075536"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997558"
 ---
 # <a name="manage-logs-for-an-hdinsight-cluster"></a>Gestire i log per un cluster HDInsight
 
@@ -67,7 +67,7 @@ Per visualizzare queste informazioni, è anche possibile usare PowerShell.  Per 
 
 * Considerare come sia possibile raccogliere i log dal cluster o da più di un cluster e collazionarli, ad esempio a scopo di controllo, monitoraggio, pianificazione e creazione di avvisi. È possibile usare una soluzione personalizzata per accedere ai file di log e scaricarli a intervalli regolari e per combinarli e analizzarli per poter fornire una visualizzazione dashboard. È anche possibile aggiungere altre funzionalità per creare avvisi per la sicurezza o il rilevamento di errori. È possibile compilare queste utilità con PowerShell, gli SDK di HDInsight o il codice che accede al modello di distribuzione classica di Azure.
 
-* Stabilire se una soluzione o un servizio di monitoraggio possa essere vantaggioso. In Microsoft System Center è disponibile un [Management Pack per HDInsight](https://www.microsoft.com/download/details.aspx?id=42521). Per raccogliere e centralizzare i log è anche possibile usare strumenti di terze parti, ad esempio Apache Chukwa e Ganglia. Molte aziende offrono servizi per il monitoraggio di soluzioni Big Data basate su Hadoop, ad esempio: Centerity, Compuware APM, Sematext SPM e agente di orchestrazione Zettaset.
+* Stabilire se una soluzione o un servizio di monitoraggio possa essere vantaggioso. In Microsoft System Center è disponibile un [Management Pack per HDInsight](https://systemcenter.wiki/?Get_ManagementPackBundle=Microsoft.HDInsight.mpb&FileMD5=10C7D975C6096FFAA22C84626D211259). Per raccogliere e centralizzare i log è anche possibile usare strumenti di terze parti, ad esempio Apache Chukwa e Ganglia. Molte aziende offrono servizi per il monitoraggio di soluzioni Big Data basate su Hadoop, ad esempio: Centerity, Compuware APM, Sematext SPM e agente di orchestrazione Zettaset.
 
 ## <a name="step-2-manage-cluster-service-versions-and-view-logs"></a>Passaggio 2: gestire le versioni dei servizi cluster e visualizzare i log
 

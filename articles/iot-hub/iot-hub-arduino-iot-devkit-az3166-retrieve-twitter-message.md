@@ -9,12 +9,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 03/07/2018
 ms.author: liydu
-ms.openlocfilehash: 464e2c14fa238160ca198b9f1c8a9808e70933f9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f0aa71b34818cf373d1bb58531ee5c68c8d3d5ec
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560979"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004324"
 ---
 # <a name="shake-shake-for-a-tweet----retrieve-a-twitter-message-with-azure-functions"></a>Usare lo scuotimento per recuperare un messaggio di Twitter con Funzioni di Azure
 
@@ -92,7 +93,7 @@ Compilare e caricare quindi il codice del dispositivo.
 
 1. Usare `Ctrl+P` per eseguire `task device-upload`.
 
-2. Il terminale richiederà di passare alla modalità di configurazione. A tale scopo, procedere come indicato di seguito:
+2. Il terminale richiederà di passare alla modalità di configurazione. A tale scopo, procedere nel seguente modo:
 
    * Tenere premuto il pulsante A
 
@@ -116,11 +117,11 @@ A questo punto la stringa di connessione è impostata, verifica e carica l'app, 
 
    ![device-upload](media/iot-hub-arduino-iot-devkit-az3166-retrieve-twitter-message/device-upload.png)
 
-2. Il DevKit viene riavviato e inizia a eseguire il codice.
+2. DevKit viene riavviato e avvia l'esecuzione del codice.
 
 È possibile che venga visualizzato il messaggio "Errore: AZ3166: Pacchetto sconosciuto". Questo errore si verifica quando l'indice del pacchetto della scheda non è aggiornato correttamente. Per risolvere questo problema, vedere l'[errore "unknown package" (pacchetto sconosciuto) nelle domande frequenti su IoT DevKit](https://microsoft.github.io/azure-iot-developer-kit/docs/faq/#development).
 
-## <a name="test-the-project"></a>Verificare il progetto
+## <a name="test-the-project"></a>Testare il progetto
 
 Dopo l'inizializzazione dell'app, premere e rilasciare il pulsante A, quindi scuotere delicatamente la scheda DevKit. Questa azione recupera un tweet casuale, che contiene l'hashtag specificato in precedenza. Entro pochi secondi, sullo schermo del DevKit compare un tweet:
 

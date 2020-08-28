@@ -8,12 +8,13 @@ ms.topic: article
 ms.service: notification-hubs
 ms.reviewer: jowargo
 ms.lastreviewed: 10/16/2019
-ms.openlocfilehash: 34b3ea9f07475affca76c8a3ff71de61abcadde8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-csharp
+ms.openlocfilehash: df8560bec3671a9f05628ee6ed8ea95c31e9b16f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529710"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998051"
 ---
 # <a name="azure-notification-hubs-updates-for-ios-13"></a>Aggiornamenti di hub di notifica di Azure per iOS 13
 
@@ -25,7 +26,7 @@ Apple ha recentemente apportato alcune modifiche al servizio di push pubblico; l
 
 Apple ora richiede che gli sviluppatori identifichino le notifiche come avvisi o notifiche in background tramite la nuova `apns-push-type` intestazione nell'API APNs. Secondo la [documentazione di Apple](https://developer.apple.com/documentation/usernotifications/setting_up_a_remote_notification_server/sending_notification_requests_to_apns): "il valore di questa intestazione deve riflettere accuratamente il contenuto del payload della notifica. Se si verifica una mancata corrispondenza o se l'intestazione non è presente nei sistemi richiesti, APNs può restituire un errore, ritardare il recapito della notifica o eliminarlo completamente. "
 
-Gli sviluppatori devono ora impostare questa intestazione nelle applicazioni che inviano notifiche tramite hub di notifica di Azure. A causa di una limitazione tecnica, i clienti devono usare l'autenticazione basata su token per le credenziali APNS con le richieste che includono questo attributo. Se si usa l'autenticazione basata su certificati per le credenziali di APNS, è necessario passare all'uso dell'autenticazione basata su token.
+Gli sviluppatori devono ora impostare questa intestazione nelle applicazioni che inviano notifiche tramite hub di notifica di Azure. A causa di una limitazione tecnica, i clienti devono usare l'autenticazione basata su token per le credenziali APNS con le richieste che includono questo attributo. Se si usa l'autenticazione basata su certificati per le credenziali del servizio APN, è necessario passare all'autenticazione basata su token.
 
 Gli esempi di codice seguenti illustrano come impostare questo attributo di intestazione nelle richieste di notifica inviate tramite hub di notifica di Azure.
 

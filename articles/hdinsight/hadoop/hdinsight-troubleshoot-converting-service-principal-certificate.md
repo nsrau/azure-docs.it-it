@@ -7,12 +7,13 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/31/2019
-ms.openlocfilehash: d6119e4f8c651ba482a24f46b44ff15f870858ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 7f4974d9e9a2ff3b63b36e45d406a016078bb290
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75894179"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008166"
 ---
 # <a name="converting-service-principal-certificate-contents-to-base-64-encoded-string-format-in-hdinsight"></a>Conversione del contenuto del certificato dell'entità servizio nel formato stringa con codifica base 64 in HDInsight
 
@@ -26,7 +27,7 @@ Viene visualizzato un messaggio di errore che informa che l'input non è una str
 
 Quando si usa PowerShell o la distribuzione di modelli di Azure per creare cluster con Data Lake come risorsa di archiviazione primaria o aggiuntiva, il contenuto del certificato dell'entità servizio fornito per accedere al Data Lake account di archiviazione è nel formato base 64. La conversione non corretta del contenuto del certificato pfx in una stringa con codifica base 64 può causare questo errore.
 
-## <a name="resolution"></a>Soluzione
+## <a name="resolution"></a>Risoluzione
 
 Una volta ottenuto il certificato dell'entità servizio in formato pfx (vedere [qui](https://github.com/Azure/azure-quickstart-templates/tree/master/201-hdinsight-datalake-store-azure-storage) per i passaggi di esempio per la creazione dell'entità servizio), usare il comando di PowerShell seguente o il frammento di codice C# per convertire il contenuto del certificato in formato base-64.
 

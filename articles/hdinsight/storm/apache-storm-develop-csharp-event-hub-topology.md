@@ -7,12 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 01/14/2020
-ms.openlocfilehash: d16082ed9c7a78cfd02afc1e89ec002a5743d675
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: devx-track-csharp
+ms.openlocfilehash: cb1c2d8daa74d1224ad07ef7a2fb5a74f4773338
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085753"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000312"
 ---
 # <a name="process-events-from-azure-event-hubs-with-apache-storm-on-hdinsight-c"></a>Elaborare eventi di Hub eventi di Azure con Apache Storm in HDInsight (C#)
 
@@ -123,7 +124,7 @@ L'hub eventi è l'origine dati per questo esempio. Usare le informazioni contenu
 
 1. Dopo avere creato l'hub eventi, visualizzare le impostazioni di **Hub eventi** nel portale di Azure e selezionare **Criteri di accesso condivisi**. Selezionare **+ Aggiungi** per creare i criteri seguenti:
 
-   | Nome | Autorizzazioni |
+   | Name | Autorizzazioni |
    | --- | --- |
    | writer |Send |
    | reader |Attesa |

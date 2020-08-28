@@ -5,12 +5,13 @@ author: mjrousos
 ms.topic: conceptual
 ms.date: 01/23/2018
 ms.author: mikerou
-ms.openlocfilehash: 19f773fa781c51f64412039201842a7af4c29052
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: bd47e5e39684bd4b684cd1e12dd9a3d420640ee2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261128"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005806"
 ---
 # <a name="scale-a-service-fabric-cluster-programmatically"></a>Aumentare o ridurre le istanze di un cluster di Service Fabric a livello di codice 
 
@@ -59,7 +60,7 @@ var newCapacity = (int)Math.Min(MaximumNodeCount, scaleSet.Capacity + 1);
 scaleSet.Update().WithCapacity(newCapacity).Apply(); 
 ``` 
 
-In alternativa, le dimensioni del set di scalabilità di macchine virtuali possono essere gestite anche con i cmdlet di PowerShell. [`Get-AzVmss`](/powershell/module/az.compute/get-azvmss)può recuperare l'oggetto del set di scalabilità di macchine virtuali. La capacità corrente è disponibile tramite la proprietà `.sku.capacity`. Dopo aver modificato la capacità sul valore desiderato, il set di scalabilità di macchine virtuali in Azure può essere aggiornato con il [`Update-AzVmss`](/powershell/module/az.compute/update-azvmss) comando.
+In alternativa, le dimensioni del set di scalabilità di macchine virtuali possono essere gestite anche con i cmdlet di PowerShell. [`Get-AzVmss`](/powershell/module/az.compute/get-azvmss) può recuperare l'oggetto del set di scalabilità di macchine virtuali. La capacità corrente è disponibile tramite la proprietà `.sku.capacity`. Dopo aver modificato la capacità sul valore desiderato, il set di scalabilità di macchine virtuali in Azure può essere aggiornato con il [`Update-AzVmss`](/powershell/module/az.compute/update-azvmss) comando.
 
 Quando si aggiunge manualmente un nodo, l'aggiunta di un'istanza del set di scalabilità dovrebbe essere sufficiente per avviare un nuovo nodo Service Fabric in quanto il modello del set di scalabilità include le estensioni per aggiungere automaticamente nuove istanze al cluster Service Fabric. 
 

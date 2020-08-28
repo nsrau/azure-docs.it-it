@@ -13,12 +13,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: ae1371a8f025fd5e5722d483323fbe937538eb15
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 91ef9d8bf75874f07c6a4a9c5763ff77b97b0180
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78939220"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008965"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implementare lo streaming del failover con servizi multimediali V2
 
@@ -57,7 +58,7 @@ Si applicano le considerazioni seguenti:
 * .NET Framework 4.5 o .NET Framework 4.
 * Visual Studio 2010 SP1 o versioni successive (Professional, Premium, Ultimate o Express).
 
-## <a name="set-up-your-project"></a>Impostare il progetto
+## <a name="set-up-your-project"></a>Configurare il progetto
 
 In questa sezione si crea e si configura un progetto di applicazione console in C#.
 

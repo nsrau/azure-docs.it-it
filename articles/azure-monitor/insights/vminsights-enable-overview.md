@@ -1,19 +1,19 @@
 ---
-title: Abilita Panoramica Monitoraggio di Azure per le macchine virtuali
+title: Abilitare Monitoraggio di Azure per le macchine virtuali
 description: Informazioni su come distribuire e configurare Monitoraggio di Azure per le macchine virtuali. Individuare i requisiti di sistema.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/27/2020
-ms.openlocfilehash: e3c5f6d7e04620cf36f6cd952467d47afd775b19
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 08/27/2020
+ms.openlocfilehash: 449979443577d22f8cc2ec35ec770dd1e107bb76
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87824767"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998408"
 ---
-# <a name="enable-azure-monitor-for-vms-overview"></a>Abilita Panoramica Monitoraggio di Azure per le macchine virtuali
+# <a name="enable-azure-monitor-for-vms-overview"></a>Abilitare Monitoraggio di Azure per le macchine virtuali
 
 In questo articolo viene fornita una panoramica delle opzioni disponibili per consentire a Monitoraggio di Azure per le macchine virtuali di monitorare l'integrità e le prestazioni dei seguenti elementi:
 
@@ -78,86 +78,25 @@ Se non si dispone di un'area di lavoro Log Analytics, è possibile crearne una u
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
-Nella tabella seguente sono elencati i sistemi operativi Windows e Linux supportati da Monitoraggio di Azure per le macchine virtuali. Più avanti in questa sezione è presente un elenco completo che descrive in dettaglio la versione principale e secondaria del sistema operativo Linux e le versioni del kernel supportate.
+Monitoraggio di Azure per le macchine virtuali supporta tutti i sistemi operativi che supportano Log Analytics Agent e Dependency Agent. Per un elenco completo, vedere [Panoramica degli agenti di monitoraggio di Azure ](../platform/agents-overview.md#supported-operating-systems) .
 
-|Versione sistema operativo |Prestazioni |Mappe |
-|-----------|------------|-----|
-|Windows Server 2019 | X | X |
-|Windows Server 2016 1803 | X | X |
-|Windows Server 2016 | X | X |
-|Windows Server 2012 R2 | X | X |
-|Windows Server 2012 | X | X |
-|Windows Server 2008 R2 | X | X|
-|Windows 10 1803 | X | X |
-|Windows 8.1 | X | X |
-|Windows 8 | X | X |
-|Windows 7 SP1 | X | X |
-|Red Hat Enterprise Linux (RHEL) 6, 7| X | X| 
-|Ubuntu 18,04, 16,04 | X | X |
-|CentOS Linux 7, 6 | X | X |
-|SUSE Linux Enterprise Server (SLES) 12 | X | X |
-|Debian 9.4, 8 | X<sup>1</sup> | |
+Vedere l'elenco seguente di considerazioni sul supporto Linux di Dependency Agent che supporta Monitoraggio di Azure per le macchine virtuali:
 
-<sup>1</sup> La funzionalità relativa alle prestazioni di Monitoraggio di Azure per le macchine virtuali è disponibile solo da Monitoraggio di Azure. Non è disponibile direttamente dal riquadro sinistro della macchina virtuale di Azure.
+- Sono supportate solo versioni predefinita e SMP del kernel Linux.
+- Le versioni del kernel non standard, ad esempio Estensione indirizzo fisico (Physical Address Extension, PAE) e Xen, non sono supportate per le distribuzioni Linux. Un sistema con stringa di versione *2.6.16.21-0.8-xen*, ad esempio, non è supportato.
+- I kernel personalizzati, incluse le ricompilazioni dei kernel standard, non sono supportati.
+- Per le distribuzioni Debian diverse dalla versione 9,4, la funzionalità mappa non è supportata e la funzionalità prestazioni è disponibile solo dal menu monitoraggio di Azure. Non è disponibile direttamente dal riquadro sinistro della macchina virtuale di Azure.
+- Il kernel CentOSPlus è supportato.
+- È necessario applicare patch al kernel Linux per la vulnerabilità di Spectre. Per ulteriori informazioni, consultare il fornitore della distribuzione Linux.
 
->[!NOTE]
->Nel sistema operativo Linux:
-> - Sono supportate solo versioni predefinita e SMP del kernel Linux.
-> - Le versioni del kernel non standard, ad esempio Estensione indirizzo fisico (Physical Address Extension, PAE) e Xen, non sono supportate per le distribuzioni Linux. Un sistema con stringa di versione *2.6.16.21-0.8-xen*, ad esempio, non è supportato.
-> - I kernel personalizzati, incluse le ricompilazioni dei kernel standard, non sono supportati.
-> - Il kernel CentOSPlus è supportato.
-> - È necessario applicare patch al kernel Linux per la vulnerabilità di Spectre. Per ulteriori informazioni, consultare il fornitore della distribuzione Linux.
 
-#### <a name="red-hat-linux-7"></a>Red Hat Linux 7
-
-| Versione sistema operativo | Versione del kernel |
-|:--|:--|
-| 7.6 | 3.10.0-957 |
-| 7.5 | 3.10.0-862 |
-| 7.4 | 3.10.0-693 |
-
-#### <a name="red-hat-linux-6"></a>Red Hat Linux 6
-
-| Versione sistema operativo | Versione del kernel |
-|:--|:--|
-| 6.10 | 2.6.32-754 |
-| 6.9 | 2.6.32-696 |
-
-#### <a name="centosplus"></a>CentOSPlus
-
-| Versione sistema operativo | Versione del kernel |
-|:--|:--|
-| 6.10 | 2.6.32-754.3.5<br>2.6.32-696.30.1 |
-| 6.9 | 2.6.32-696.30.1<br>2.6.32-696.18.7 |
-
-#### <a name="ubuntu-server"></a>Ubuntu Server
-
-| Versione sistema operativo | Versione del kernel |
-|:--|:--|
-| 18,04 | 5.3.0-1020<br>5,0 (include il kernel ottimizzato per Azure)<br>4,18* <br> 4,15* |
-| 16.04.3 | 4,15. * |
-| 16.04 | 4.13.\*<br>4.11.\*<br>4.10.\*<br>4.8.\*<br>4.4.\* |
-
-#### <a name="suse-linux-12-enterprise-server"></a>SUSE Linux 12 Enterprise Server
-
-| Versione sistema operativo | Versione del kernel |
-|:--|:--|
-|12 SP4 | 4,12. * (include il kernel ottimizzato per Azure) |
-|12 SP3 | 4.4.* |
-|12 SP2 | 4.4.* |
-
-#### <a name="debian"></a>Debian 
-
-| Versione sistema operativo | Versione del kernel |
-|:--|:--|
-| 9 | 4.9 | 
 
 ## <a name="supported-azure-arc-machines"></a>Computer Azure Arc supportati
 Monitoraggio di Azure per le macchine virtuali è disponibile per i server abilitati per Azure Arc in aree in cui è disponibile il servizio estensione ARC. È necessario eseguire la versione 0,9 o successiva dell'agente Arc.
 
 | Origine connessa | Supportato | Descrizione |
 |:--|:--|:--|
-| Agenti di Windows | Sì | Insieme all' [agente log Analytics per Windows](../platform/log-analytics-agent.md), gli agenti Windows necessitano di Dependency Agent. Per ulteriori informazioni, vedere [sistemi operativi supportati](#supported-operating-systems). |
+| Agenti di Windows | Sì | Insieme all' [agente log Analytics per Windows](../platform/log-analytics-agent.md), gli agenti Windows necessitano di Dependency Agent. Per ulteriori informazioni, vedere [sistemi operativi supportati](../platform/agents-overview.md#supported-operating-systems). |
 | Agenti Linux | Sì | Insieme all' [agente log Analytics per Linux](../platform/log-analytics-agent.md), gli agenti Linux necessitano di Dependency Agent. Per ulteriori informazioni, vedere [sistemi operativi supportati](#supported-operating-systems). |
 | Gruppo di gestione di System Center Operations Manager | No | |
 

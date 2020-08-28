@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 05/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f4b1207f85f87755c8c0f2b8e9935f7e88118df3
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: a3fccc934fafd8ff7db2cffbd6ba641329ba8de2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005116"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006806"
 ---
 # <a name="use-log-analytics-for-the-diagnostics-feature"></a>Usare Log Analytics per la funzionalità di diagnostica
 
@@ -48,7 +48,7 @@ Prima di poter usare Log Analytics, è necessario creare un'area di lavoro. A ta
 - Se si preferisce usare portale di Azure, vedere [creare un'area di lavoro log Analytics in portale di Azure](../azure-monitor/learn/quick-create-workspace.md).
 - Se si preferisce PowerShell, vedere [creare un'area di lavoro log Analytics con PowerShell](../azure-monitor/learn/quick-create-workspace-posh.md).
 
-Dopo aver creato l'area di lavoro, seguire le istruzioni in [connettere i computer Windows a monitoraggio di Azure](../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key) per ottenere le informazioni seguenti:
+Dopo aver creato l'area di lavoro, seguire le istruzioni in [connettere i computer Windows a monitoraggio di Azure](../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key) per ottenere le informazioni seguenti:
 
 - ID dell'area di lavoro
 - Chiave primaria dell'area di lavoro

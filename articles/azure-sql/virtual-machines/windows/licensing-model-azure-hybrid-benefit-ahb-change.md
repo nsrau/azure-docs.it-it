@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: f02f31e0fc8943682af77ca6f506d15f36e88146
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 208b900de20a89a9ecc819ef1254c08fcc628f82
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668900"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010223"
 ---
 # <a name="change-the-license-model-for-a-sql-virtual-machine-in-azure"></a>Cambiare il modello di licenza per una macchina virtuale SQL in Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -156,7 +156,9 @@ La modifica del modello di licenza è:
 
 ## <a name="known-errors"></a>Errori noti
 
-### <a name="the-resource-microsoftsqlvirtualmachinesqlvirtualmachinesresource-group-under-resource-group-resource-group-was-not-found"></a>La risorsa 'Microsoft.SqlVirtualMachine/SqlVirtualMachines/\<resource-group>' nel gruppo di risorse '\<resource-group>' non è stata trovata.
+Esaminare gli errori comunemente noti e le relative soluzioni. 
+
+**La risorsa ' Microsoft. SqlVirtualMachine/SqlVirtualMachines/ \<resource-group> ' nel gruppo di risorse ' \<resource-group> ' non è stata trovata.**
 
 Questo errore si verifica quando si prova a cambiare il modello di licenza in una VM di SQL Server che non è stata registrata con un provider di risorse VM di SQL:
 
@@ -165,7 +167,7 @@ Questo errore si verifica quando si prova a cambiare il modello di licenza in un
 Sarà necessario registrare la sottoscrizione e quindi [la VM di SQL Server con il provider di risorse](sql-vm-resource-provider-register.md). 
 
 
-### <a name="the-virtual-machine-vmname-has-more-than-one-nic-associated"></a>Alla macchina virtuale '\<vmname\>' sono associate più schede di interfaccia di rete
+**Alla macchina virtuale ' \<vmname\> ' è associata più di una scheda di interfaccia di rete**
 
 Questo errore si verifica nelle macchine virtuali che includono più di una scheda di interfaccia di rete. Rimuovere una delle schede prima di cambiare il modello di licenza. Anche se è possibile aggiungere di nuovo la scheda di interfaccia di rete alla macchina virtuale dopo aver cambiato il modello di licenza, le operazioni nel portale di Azure, come il backup automatico e l'applicazione di patch, non saranno più supportate. 
 
@@ -175,8 +177,8 @@ Questo errore si verifica nelle macchine virtuali che includono più di una sche
 Per altre informazioni, vedere gli articoli seguenti: 
 
 * [Panoramica di SQL Server in una macchina virtuale Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [Domande frequenti su SQL Server in una macchia virtuale Windows](frequently-asked-questions-faq.md)
-* [Informazioni sui prezzi di SQL Server in una macchina virtuale Windows](pricing-guidance.md)
-* [Note sulla versione di SQL Server in una macchina virtuale Windows](../../database/doc-changes-updates-release-notes.md)
+* [Domande frequenti su SQL Server in una VM di Windows](frequently-asked-questions-faq.md)
+* [Informazioni sui prezzi di SQL Server in una VM di Windows](pricing-guidance.md)
+* [Note sulla versione di SQL Server in una VM di Windows](../../database/doc-changes-updates-release-notes.md)
 
 

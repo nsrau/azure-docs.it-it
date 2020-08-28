@@ -3,7 +3,7 @@ title: Gestire le identità gestite assegnate dall'utente tramite REST-Azure AD
 description: Istruzioni dettagliate su come creare, elencare ed eliminare un'identità gestita assegnata dall'utente per eseguire chiamate API REST.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2c342359b015085804b127ef8c58aca8a4b13dcf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8da142b9ee97d45b5f798e1b7db31228613cd37f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608467"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014269"
 ---
 # <a name="create-list-or-delete-a-user-assigned-managed-identity-using-rest-api-calls"></a>Creare, elencare o eliminare un'identità gestita assegnata dall'utente usando le chiamate API REST
 
@@ -67,7 +67,7 @@ s/<RESOURCE GROUP>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<U
 
 **Corpo della richiesta**
 
-|Nome  |Descrizione  |
+|Name  |Descrizione  |
 |---------|---------|
 |posizione     | Obbligatorio. Percorso della risorsa.        |
 

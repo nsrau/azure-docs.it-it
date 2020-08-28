@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 03/23/2020
 ms.author: ramkris
 ms.reviewer: sngun
-ms.openlocfilehash: 0ab95223d084436d1bf39ba557ec3b01c0b534d8
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 829ddc0b63031722cdcb572a2833926a7837d05d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86503388"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004120"
 ---
 # <a name="use-the-bulk-executor-net-library-to-perform-bulk-operations-in-azure-cosmos-db"></a>Utilizzare la libreria .NET Executor in blocco per eseguire operazioni bulk in Azure Cosmos DB
 
@@ -31,7 +32,7 @@ Attualmente, la libreria di esecuzioni bulk è supportata solo dagli account Azu
 
 * Se Visual Studio 2019 non è ancora installato, è possibile scaricare e usare [Visual studio 2019 Community Edition](https://www.visualstudio.com/downloads/). Assicurarsi di abilitare "sviluppo Azure" durante l'installazione di Visual Studio.
 
-* Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
+* Se non si possiede una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) prima di iniziare.
 
 * È possibile [provare Microsoft Azure Cosmos DB](https://azure.microsoft.com/try/cosmosdb/) senza una sottoscrizione di Azure, gratuitamente e senza impegno. In alternativa, è possibile usare l' [emulatore Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/local-emulator) con l' `https://localhost:8081` endpoint. La chiave primaria viene fornita in [Autenticazione delle richieste](local-emulator.md#authenticating-requests).
 

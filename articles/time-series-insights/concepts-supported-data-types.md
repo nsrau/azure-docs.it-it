@@ -9,25 +9,34 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: e6fd405d1969a2f40a5f0c3466a57fbec60723e9
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 254732630dcf28b90413a1269a34d3aa388cb06c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141160"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997864"
 ---
 # <a name="supported-data-types"></a>Tipi di dati supportati
 
 Nella tabella seguente sono elencati i tipi di dati supportati da Azure Time Series Insights Gen2
 
-| Tipo di dati | Descrizione | Esempio | Nome della colonna proprietà in parquet
-|---|---|---|---|
-| **bool** | Tipo di dati con uno dei due stati: `true` o `false`. | `"isQuestionable" : true` | isQuestionable_bool
-| **datetime** | Rappresenta un istante di tempo, in genere espresso come data e ora del giorno. Espresso nel [formato](https://www.iso.org/iso-8601-date-and-time-format.html) ISO 8601. Le proprietà DateTime sono sempre archiviate in formato UTC. Gli offset del fuso orario, se formattati correttamente, verranno applicati e quindi il valore archiviato in UTC. Per ulteriori informazioni sulla proprietà timestamp dell'ambiente e sugli offset DateTime, vedere [questa](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) sezione. | `"eventProcessedLocalTime": "2020-03-20T09:03:32.8301668Z"` | eventProcessedLocalTime_datetime
-| **double** | Numero a 64 bit a precisione doppia  | `"value": 31.0482941` | value_double
-| **long** | Intero con segno a 64 bit  | `"value" : 31` | value_long
-| **string** | I valori di testo devono essere costituiti da UTF-8 valido. Le stringhe null e vuote vengono considerate identiche. |  `"site": "DIM_MLGGG"` | site_string
-| **dinamico** | Tipo complesso (non primitivo) costituito da una matrice o da un contenitore di proprietà (dizionario). Attualmente solo le matrici JSON file di primitive o matrici di oggetti che non contengono l'ID TS o la proprietà timestamp verranno archiviate come dinamiche. Leggere questo [articolo](./concepts-json-flattening-escaping-rules.md) per comprendere in che modo gli oggetti verranno resi bidimensionali e gli array potrebbero essere registrati. Le proprietà del payload archiviate come questo tipo sono accessibili tramite il Azure Time Series Insights Gen2 Explorer e l' `GetEvents`   API di query. |  `"values": "[197, 194, 189, 188]"` | values_dynamic
+| Tipo di dati | Descrizione | Esempio | [Sintassi delle espressioni Time Series](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) | Nome della colonna proprietà in parquet
+|---|---|---|---|---|
+| **bool** | Tipo di dati con uno dei due stati: `true` o `false`. | `"isQuestionable" : true` | `$event.isQuestionable.Bool` o `$event['isQuestionable'].Bool` | `isQuestionable_bool`
+| **datetime** | Rappresenta un istante di tempo, in genere espresso come data e ora del giorno. Espresso nel [formato](https://www.iso.org/iso-8601-date-and-time-format.html) ISO 8601. Le proprietà DateTime sono sempre archiviate in formato UTC. Gli offset del fuso orario, se formattati correttamente, verranno applicati e quindi il valore archiviato in UTC. Per ulteriori informazioni sulla proprietà timestamp dell'ambiente e sugli offset DateTime, vedere [questa](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) sezione. | `"eventProcessedLocalTime": "2020-03-20T09:03:32.8301668Z"` |  Se "eventProcessedLocalTime" è il timestamp dell'origine evento: `$event.$ts` . Se si tratta di un'altra proprietà JSON: `$event.eventProcessedLocalTime.DateTime` o `$event['eventProcessedLocalTime'].DateTime` | `eventProcessedLocalTime_datetime`
+| **double** | Numero a 64 bit a precisione doppia  | `"value": 31.0482941` | `$event.value.Double` o `$event['value'].Double` |  `value_double`
+| **long** | Intero con segno a 64 bit  | `"value" : 31` | `$event.value.Long` o `$event['value'].Long` |  `value_long`
+| **string** | I valori di testo devono essere costituiti da UTF-8 valido. Le stringhe null e vuote vengono considerate identiche. |  `"site": "DIM_MLGGG"`| `$event.site.String` o `$event['site'].String`| `site_string`
+| **dinamico** | Tipo complesso (non primitivo) costituito da una matrice o da un contenitore di proprietà (dizionario). Attualmente solo le matrici JSON file di primitive o matrici di oggetti che non contengono l'ID TS o la proprietà timestamp verranno archiviate come dinamiche. Leggere questo [articolo](./concepts-json-flattening-escaping-rules.md) per comprendere in che modo gli oggetti verranno resi bidimensionali e gli array potrebbero essere registrati. Le proprietà del payload archiviate come questo tipo sono accessibili solo selezionando `Explore Events` in TSI Explorer per visualizzare gli eventi non elaborati o tramite l' [`GetEvents`](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)   API di query per l'analisi lato client. |  `"values": "[197, 194, 189, 188]"` | Il riferimento ai tipi dinamici in un'espressione Time Series non è ancora supportato | `values_dynamic`
+
+> [!NOTE]
+> sono supportati i valori interi a 64 bit, ma il numero maggiore che il Azure Time Series Insights Explorer può esprimere in modo sicuro è 9.007.199.254.740.991 (2 ^ 53-1) a causa delle limitazioni di JavaScript. Se si utilizzano i numeri nel modello di dati precedente, è possibile ridurre le dimensioni creando una variabile di [modello Time Series](/concepts-variables#numeric-variables) e [convertendo](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions) il valore.
+
+> [!NOTE]
+> Il tipo **stringa** non ammette i valori null:
+>   * Un' [espressione Time Series (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) espressa in una [query di serie temporali](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis) che confronta il valore di una stringa vuota (**''**) rispetto a **null** si comporta allo stesso modo: `$event.siteid.String = NULL` equivale a `$event.siteid.String = ''` .
+>   * L'API può restituire valori **null** anche se gli eventi originali contengono stringhe vuote.
+>   * Non considerare la dipendenza dai valori **null** nelle colonne di tipo **stringa** per eseguire confronti o valutazioni, trattare le stesse modalità delle stringhe vuote.
 
 ## <a name="sending-mixed-data-types"></a>Invio di tipi di dati misti
 

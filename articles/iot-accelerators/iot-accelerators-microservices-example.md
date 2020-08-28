@@ -7,12 +7,13 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: 1552c54afe2195d58a032e9cc7bfa5aa70c844b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9ff3e12721628e244f247e174af101e71ea91191
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61447625"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998323"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Personalizzare e ridistribuire un microservizio
 
@@ -56,7 +57,7 @@ A questo punto cambiare il messaggio di stato del microservizio di gestione dell
 1. Verificare che il terminale sia aperto e passare alla directory in cui è stata clonata la soluzione di monitoraggio remoto. 
 1. Passare alla directory "azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/Services".
 1. Aprire StatusService.cs in un editor di testo o IDE a scelta. 
-1. Individuare il codice seguente:
+1. Trovare il codice seguente:
 
     ```csharp
     var result = new StatusServiceModel(true, "Alive and well!");
@@ -121,7 +122,7 @@ Prima di poter eseguire il push della nuova immagine Docker in un hub Docker, al
 
 1. Tornare al terminale e passare alla directory seguente: "azure-iot-pcs-remote-monitoring-dotnet/services/scripts/local".
 2. Aprire docker-compose.yml con qualsiasi editor di testo o IDE a scelta.
-3. Individuare il codice seguente:
+3. Trovare il codice seguente:
 
     ```yml
     image: azureiotpcs/iothub-manager-dotnet:testing
@@ -148,7 +149,7 @@ Completare la ridistribuzione di un'istanza locale della soluzione di monitoragg
 
 ![Messaggio Postman New Edits Made Here (Nuove modifiche apportate qui)](./media/iot-accelerators-microservices-example/new-postman-message.png)
 
-## <a name="troubleshoot"></a><a name="Troubleshoot"></a>Risolvere i problemi
+## <a name="troubleshoot"></a><a name="Troubleshoot"></a>Risolvere problemi
 
 Se si verificano problemi, provare a rimuovere le immagini e i contenitori Docker nel computer locale.
 

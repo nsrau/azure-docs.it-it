@@ -3,12 +3,13 @@ title: Autenticazione di un'identità gestita con Azure Active Directory
 description: Questo articolo fornisce informazioni sull'autenticazione di un'identità gestita con Azure Active Directory per accedere alle risorse di hub eventi di Azure
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: c74e49eff8233d9918fcdb55e6fa2ad8d7517f6f
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4d606e6cd035d4dae388d8559d100988a46e8203
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079142"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010019"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse di hub eventi
 Hub eventi di Azure supporta l'autenticazione Azure Active Directory (Azure AD) con [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/overview.md). Le identità gestite per le risorse di Azure possono autorizzare l'accesso alle risorse di hub eventi usando Azure AD credenziali di applicazioni in esecuzione in macchine virtuali (VM) di Azure, app per le funzioni, set di scalabilità di macchine virtuali e altri servizi. Usando le identità gestite per le risorse di Azure con l'autenticazione di Azure AD, è possibile evitare di archiviare le credenziali con le applicazioni eseguite nel cloud.
@@ -66,7 +67,7 @@ Per assegnare un ruolo alle risorse di hub eventi, passare a tale risorsa nel po
 Dopo aver assegnato il ruolo, l'applicazione Web avrà accesso alle risorse di hub eventi nell'ambito definito. 
 
 ### <a name="test-the-web-application"></a>Testare l'applicazione Web
-1. Creare uno spazio dei nomi di Hub eventi e un hub eventi. 
+1. Creare uno spazio dei nomi di hub eventi e un hub eventi. 
 2. Distribuire l'app Web in Azure. Vedere la sezione a schede seguente per i collegamenti all'applicazione Web in GitHub. 
 3. Verificare che SendReceive. aspx sia impostato come documento predefinito per l'app Web. 
 3. Abilitare l' **identità** per l'app Web. 

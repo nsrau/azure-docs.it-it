@@ -7,12 +7,13 @@ ms.topic: how-to
 ms.date: 03/20/2020
 ms.author: justipat
 ms.reviewer: sngun
-ms.openlocfilehash: acb74d806f1ad361d3772438eec7fb788a843b02
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 25ec74f3638ce857e4472d73a51e45f24c4df5ec
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88243718"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997728"
 ---
 # <a name="use-system-assigned-managed-identities-to-access-azure-cosmos-db-data"></a>Usare identità gestite assegnate dal sistema per accedere ai dati di Azure Cosmos DB
 
@@ -90,10 +91,10 @@ az role assignment create --assignee $principalId --role "DocumentDB Account Con
 
 A questo punto è disponibile un'app per le funzioni con un'identità gestita assegnata dal sistema con il ruolo **collaboratore account DocumentDB** nelle autorizzazioni Azure Cosmos DB. Il codice dell'app per le funzioni seguente consente di ottenere le chiavi Azure Cosmos DB, creare un oggetto CosmosClient, ottenere la temperatura dell'acquario e quindi salvarlo Azure Cosmos DB.
 
-Questo esempio usa l' [API list keys](/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListKeys) per accedere alle chiavi dell'account Azure Cosmos DB.
+Questo esempio usa l' [API list keys](/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listkeys) per accedere alle chiavi dell'account Azure Cosmos DB.
 
 > [!IMPORTANT] 
-> Se si vuole [assegnare il ruolo di lettore Account Cosmos DB](#grant-access-to-your-azure-cosmos-account) , è necessario usare l' [API elenca chiavi](/rest/api/cosmos-db-resource-provider/DatabaseAccounts/ListReadOnlyKeys)di sola lettura. In questo modo si popolano solo le chiavi di sola lettura.
+> Se si vuole [assegnare il ruolo di lettore Account Cosmos DB](#grant-access-to-your-azure-cosmos-account) , è necessario usare l' [API elenca chiavi](/rest/api/cosmos-db-resource-provider/2020-04-01/databaseaccounts/listreadonlykeys)di sola lettura. In questo modo si popolano solo le chiavi di sola lettura.
 
 L'API List Keys restituisce l' `DatabaseAccountListKeysResult` oggetto. Questo tipo non è definito nelle librerie C#. Il codice seguente illustra l'implementazione di questa classe:  
 

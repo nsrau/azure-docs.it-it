@@ -3,12 +3,13 @@ title: Panoramica dell'elaborazione delle transazioni nel bus di servizio di Azu
 description: Questo articolo offre una panoramica dell'elaborazione delle transazioni e della funzionalità di invio tramite il bus di servizio di Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 90ee3e4f7cd6465d6297406d1d28d4ea34f88ac4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f51e570775fbce8a316d98b5198fa906173dc755
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85340502"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999955"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Panoramica dell'elaborazione delle transazioni del bus di servizio
 
@@ -27,7 +28,7 @@ Il bus di servizio supporta le operazioni di raggruppamento in una singola entit
 È possibile eseguire le operazioni nell'ambito di una transazione come indicato di seguito:
 
 * ** [QueueClient](/dotnet/api/microsoft.azure.servicebus.queueclient), [MessageSender](/dotnet/api/microsoft.azure.servicebus.core.messagesender), [TopicClient](/dotnet/api/microsoft.azure.servicebus.topicclient)**: `Send` , `SendAsync` , `SendBatch` ,`SendBatchAsync`
-* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: `Complete` , `CompleteAsync` , `Abandon` , `AbandonAsync` , `Deadletter` , `DeadletterAsync` , `Defer` , `DeferAsync` , `RenewLock` ,`RenewLockAsync` 
+* **[BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)**: `Complete` , `CompleteAsync` , `Abandon` , `AbandonAsync` , `Deadletter` , `DeadletterAsync` , `Defer` , `DeferAsync` , `RenewLock` , `RenewLockAsync` 
 
 Le operazioni di ricezione non vengono incluse perché si presuppone che l'applicazione acquisisca i messaggi usando la modalità [ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode), all'interno di alcuni cicli di ricezione o di un callback [OnMessage](/dotnet/api/microsoft.servicebus.messaging.queueclient.onmessage), e solo successivamente apra un ambito di transazione per l'elaborazione del messaggio.
 

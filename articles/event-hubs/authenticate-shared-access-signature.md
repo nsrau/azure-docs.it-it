@@ -3,13 +3,13 @@ title: Autenticare l'accesso a hub eventi di Azure con firme di accesso condivis
 description: Questo articolo illustra come autenticare l'accesso alle risorse di hub eventi usando le firme di accesso condiviso.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 5397cd746f33fc82ee63cc7d2a1f396ba704f334
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: bf1f42020237c0907ec7656735adfa46a21370f9
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423100"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008319"
 ---
 # <a name="authenticate-access-to-event-hubs-resources-using-shared-access-signatures-sas"></a>Autenticare l'accesso alle risorse di hub eventi usando firme di accesso condiviso (SAS)
 Firma di accesso condiviso (SAS) offre un controllo granulare sul tipo di accesso concesso ai client che dispongono della firma di accesso condiviso. Ecco alcuni dei controlli che è possibile impostare in una firma di accesso condiviso: 
@@ -44,10 +44,10 @@ Quando si usa la regola di autorizzazione sendRuleNS, le applicazioni client pos
 ## <a name="generate-a-shared-access-signature-token"></a>Generare un token della firma di accesso condiviso 
 Qualsiasi client che abbia accesso al nome di una regola di autorizzazione e a una delle relative chiavi di firma può generare un token di firma di accesso condiviso. Il token viene generato creando una stringa nel formato seguente:
 
-- `se`: Istante di scadenza del token. Integer che riflette i secondi a partire dall'ora UTC 00:00:00 il 1 ° gennaio 1970 (Epoch UNIX) quando il token scade
-- `skn`: Nome della regola di autorizzazione, ovvero il nome della chiave di firma di accesso condiviso.
-- `sr`: URI della risorsa a cui si accede.
-- `sig`Firma.
+- `se`  : Istante di scadenza del token. Integer che riflette i secondi a partire dall'ora UTC 00:00:00 il 1 ° gennaio 1970 (Epoch UNIX) quando il token scade
+- `skn` : Nome della regola di autorizzazione, ovvero il nome della chiave di firma di accesso condiviso.
+- `sr` : URI della risorsa a cui si accede.
+- `sig` Firma.
 
 La stringa di firma è l'hash SHA-256 calcolato sull'URI della risorsa (ambito come descritto nella sezione precedente) e la rappresentazione di stringa dell'istante di scadenza del token, separate da CRLF.
 

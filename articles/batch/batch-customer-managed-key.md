@@ -5,12 +5,12 @@ author: pkshultz
 ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: peshultz
-ms.openlocfilehash: a89d0182f6a659cee65ebc1de7d97d40418b4b20
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 35780f915247e88a5de093594b653ddcebdfb06b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654889"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89008880"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-batch-account-with-azure-key-vault-and-managed-identity"></a>Configurare chiavi gestite dal cliente per l'account Azure Batch con Azure Key Vault e identità gestite
 
@@ -110,7 +110,7 @@ az batch account set \
 
 ## <a name="update-the-customer-managed-key-version"></a>Aggiornare la versione della chiave gestita dal cliente
 
-Quando si crea una nuova versione di una chiave, aggiornare l'account batch per usare la nuova versione. Attenersi ai passaggi descritti di seguito.
+Quando si crea una nuova versione di una chiave, aggiornare l'account batch per usare la nuova versione. Seguire questa procedura:
 
 1. Passare all'account batch in portale di Azure e visualizzare le impostazioni di crittografia.
 2. Immettere l'URI per la nuova versione della chiave. In alternativa, è possibile selezionare di nuovo l'insieme di credenziali delle chiavi e la chiave per aggiornare la versione.
@@ -149,6 +149,6 @@ az batch account set \
   * **Come è possibile ruotare le chiavi?** Le chiavi gestite dal cliente non vengono ruotate automaticamente. Per ruotare la chiave, aggiornare l'identificatore di chiave a cui è associato l'account.
   * **Dopo il ripristino dell'accesso, quanto tempo sarà necessario per il corretto funzionamento dell'account batch?** Possono essere necessari fino a 10 minuti prima che l'account sia nuovamente accessibile dopo il ripristino dell'accesso.
   * **Mentre l'account batch non è disponibile, cosa accade alle risorse?** Tutti i pool in esecuzione quando l'accesso batch alle chiavi gestite dal cliente viene perso continuerà a essere eseguito. Tuttavia, i nodi passeranno a uno stato non disponibile e le attività smetteranno di funzionare e verranno riaccodate. Una volta ripristinato l'accesso, i nodi diventeranno nuovamente disponibili e le attività verranno riavviate.
-  * **Questo meccanismo di crittografia si applica ai dischi delle macchine virtuali in un pool di batch?** No. Per i pool di configurazione dei servizi cloud, non viene applicata alcuna crittografia per il sistema operativo e il disco temporaneo. Per i pool di configurazione delle macchine virtuali, il sistema operativo e i dischi dati specificati verranno crittografati con una chiave gestita della piattaforma Microsoft per impostazione predefinita. Attualmente, non è possibile specificare la propria chiave per questi dischi. Per crittografare il disco temporaneo delle macchine virtuali per un pool di batch con una chiave gestita dalla piattaforma Microsoft, è necessario abilitare la proprietà [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) nel pool di [configurazione della macchina virtuale](/rest/api/batchservice/pool/add#virtualmachineconfiguration) . Per gli ambienti altamente sensibili, è consigliabile abilitare la crittografia del disco temporaneo ed evitare l'archiviazione di dati sensibili nei dischi del sistema operativo e dei dati.
+  * **Questo meccanismo di crittografia si applica ai dischi delle macchine virtuali in un pool di batch?** No. Per i pool di configurazione dei servizi cloud, non viene applicata alcuna crittografia per il sistema operativo e il disco temporaneo. Per i pool di configurazione delle macchine virtuali, il sistema operativo e i dischi dati specificati verranno crittografati con una chiave gestita della piattaforma Microsoft per impostazione predefinita. Attualmente, non è possibile specificare la propria chiave per questi dischi. Per crittografare il disco temporaneo delle macchine virtuali per un pool di batch con una chiave gestita dalla piattaforma Microsoft, è necessario abilitare la proprietà [diskEncryptionConfiguration](/rest/api/batchservice/pool/add#diskencryptionconfiguration) nel pool di [configurazione della macchina virtuale](/rest/api/batchservice/pool/add#virtualmachineconfiguration) . Per gli ambienti altamente sensibili, è consigliabile abilitare la crittografia del disco temporaneo ed evitare l'archiviazione di dati sensibili nei dischi del sistema operativo e dei dati. Per altre informazioni, vedere [creare un pool con crittografia del disco abilitata](./disk-encryption.md)
   * **L'identità gestita assegnata dal sistema per l'account batch è disponibile nei nodi di calcolo?** No. Questa identità gestita viene attualmente utilizzata solo per accedere alla Azure Key Vault per la chiave gestita dal cliente.
   

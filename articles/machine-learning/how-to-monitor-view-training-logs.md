@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/30/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 146b9a04b190808848af56612e14a05a617c7109
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: d06186b2ce4d8bb9143663d41f03b9508e4bd00e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554822"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005956"
 ---
 # <a name="monitor-and-view-ml-run-logs-and-metrics"></a>Monitorare e visualizzare i log e le metriche per l'esecuzione di ML
 
@@ -111,8 +111,7 @@ Eseguire il drill-down fino a un'esecuzione specifica per visualizzare i relativ
 
 È anche possibile modificare la tabella elenco di esecuzione per selezionare più esecuzioni e visualizzare il valore massimo, minimo o massimo registrato per le esecuzioni. Personalizzare i grafici per confrontare i valori delle metriche registrate e le aggregazioni in più esecuzioni.
 
-:::image type="content" source="media/how-to-track-experiments/experimentation-tab.gif" alt-text="Dettagli dell'esecuzione in Azure Machine Learning Studio":::
-
+![Dettagli dell'esecuzione in Azure Machine Learning Studio](media/how-to-track-experiments/experimentation-tab.gif)
 
 ### <a name="format-charts-in-the-studio"></a>Formattare i grafici in studio
 

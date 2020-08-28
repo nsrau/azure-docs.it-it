@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 05/15/2019
 ms.author: asrastog
-ms.openlocfilehash: 92fc5bb88ff5efd8fe1a8cd61be833b3984b673a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f77a5b634b035b7cc1142645d355fe6c3756226b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73605609"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004069"
 ---
 # <a name="query-avro-data-by-using-azure-data-lake-analytics"></a>Eseguire query sui dati di Avro con Azure Data Lake Analytics
 
@@ -20,7 +20,7 @@ Questo articolo illustra come eseguire query sui dati di Avro per un routing eff
 
 Il problema è che, quando l'hub Azure Internet instrada i messaggi nell'archiviazione BLOB di Azure, per impostazione predefinita l'hub Internet scrive il contenuto in formato Avro, che include sia una proprietà del corpo del messaggio che una proprietà del messaggio. Il formato avro non viene usato per altri endpoint. Anche se il formato Avro è molto utile per la conservazione dei dati e dei messaggi, è difficile da usare per eseguire query sui dati. In confronto, il formato JSON o CSV è molto più semplice per l'esecuzione di query sui dati. L'hub Internet delle cose supporta ora la scrittura dei dati nell'archivio BLOB in JSON e AVRO.
 
-Per altre informazioni, vedere [uso di archiviazione di Azure come endpoint di routing](iot-hub-devguide-messages-d2c.md#azure-storage).
+Per altre informazioni, vedere [uso di archiviazione di Azure come endpoint di routing](iot-hub-devguide-messages-d2c.md#azure-storage-as-a-routing-endpoint).
 
 Per soddisfare esigenze e formati di Big Data non relazionali e superare questo problema, è possibile usare molti dei modelli di Big Data per la trasformazione e il ridimensionamento dei dati. Uno dei modelli, basato sul "pagamento per query" è Azure Data Lake Analytics, che viene illustrato in dettaglio in questo articolo. Nonostante sia possibile eseguire facilmente la query in Hadoop o con altre soluzioni, Data Lake Analytics è spesso più indicato per questo approccio basato sul "pagamento per query".
 

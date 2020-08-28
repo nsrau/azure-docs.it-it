@@ -4,12 +4,12 @@ description: Risolvere i problemi di installazione e registrazione del server di
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: cc62418ed1dec3cbcc944d9b66c691062ca552f8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 70431ee42566d1cbba5ed239b9da55c2ff7a2afe
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893018"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999224"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Risolvere i problemi del server di Backup di Azure
 
@@ -83,7 +83,7 @@ Reg query "HKLM\SOFTWARE\Microsoft\Microsoft Data Protection Manager\Setup"
 
 | Operazione | Dettagli errore | Soluzione alternativa |
 | --- | --- | --- |
-| Restore | **Codice errore**: Errore CBPServerRegisteredVaultDontMatchWithCurrent/Credenziali dell'insieme di credenziali: 100110 <br/> <br/>**Messaggio di errore**: I server DPM originali e quelli esterni devono essere registrati nello stesso insieme di credenziali | **Causa**: questo problema si verifica quando si tenta di ripristinare i file nel server alternativo dal server originale usando l'opzione di ripristino DPM esterno e se il server che viene ripristinato e il server originale da cui viene eseguito il backup dei dati non sono associati allo stesso insieme di credenziali di servizi di ripristino.<br/> <br/>**Soluzione alternativa**: per risolvere questo problema verificare che il server originale e il server alternativo siano registrati nello stesso insieme di credenziali.|
+| Restore | **Codice errore**: Errore CBPServerRegisteredVaultDontMatchWithCurrent/Credenziali dell'insieme di credenziali: 100110 <br/> <br/>**Messaggio di errore**: I server DPM originali e quelli esterni devono essere registrati nello stesso insieme di credenziali | **Causa**: questo problema si verifica quando si tenta di ripristinare i file nel server alternativo dal server originale usando l'opzione di ripristino DPM esterno e se il server recuperato e il server originale da cui viene eseguito il backup dei dati non sono associati allo stesso insieme di credenziali di servizi di ripristino.<br/> <br/>**Soluzione alternativa**: per risolvere questo problema verificare che il server originale e il server alternativo siano registrati nello stesso insieme di credenziali.|
 
 ## <a name="online-recovery-point-creation-jobs-for-vmware-vm-fail"></a>I processi di creazione dei punti di ripristino online per VM VMware non riescono
 
