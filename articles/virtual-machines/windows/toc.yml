@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sulle macchine virtuali
       href: overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: 'Creare una VM: portale'
       href: quick-create-portal.md
@@ -82,7 +82,7 @@
             - name: Copiare un disco gestito
               href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: Esportare uno snapshot come disco rigido virtuale in un account di archiviazione
-              href: ../scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md
+              href: ../scripts/virtual-machines-powershell-sample-copy-snapshot-to-storage-account.md
             - name: Esportare il disco rigido virtuale di un disco gestito in un account di archiviazione
               href: ../scripts/virtual-machines-windows-powershell-sample-copy-managed-disks-vhd.md
             - name: Creare uno snapshot da un disco rigido virtuale
@@ -124,7 +124,7 @@
             - name: Copiare un disco gestito
               href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-to-same-or-different-subscription.md
             - name: Esportare uno snapshot come disco rigido virtuale in un account di archiviazione
-              href: ../scripts/virtual-machines-windows-cli-sample-copy-snapshot-to-storage-account.md
+              href: ../scripts/virtual-machines-cli-sample-copy-snapshot-to-storage-account.md
             - name: Esportare il disco rigido virtuale di un disco gestito in un account di archiviazione
               href: ../scripts/virtual-machines-windows-cli-sample-copy-managed-disks-vhd.md
             - name: Copiare uno snapshot

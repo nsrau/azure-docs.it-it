@@ -6,7 +6,7 @@
       href: stream-analytics-introduction.md
     - name: Modelli di soluzioni end-to-end
       href: stream-analytics-solution-patterns.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Creare un processo
@@ -186,6 +186,8 @@
               displayName: 'managed identity, identities, authenticate'
         - name: Crittografare i dati
           href: data-protection.md
+        - name: Ridondanza geografica
+          href: geo-redundancy.md
     - name: Creare soluzioni
       items:
         - name: Analisi del sentiment su Twitter

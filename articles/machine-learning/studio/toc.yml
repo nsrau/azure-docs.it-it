@@ -5,10 +5,10 @@
   items:
     - name: Machine Learning Studio (versione classica)
       displayName: overview
-      href: what-is-ml-studio.md
+      href: studio-classic-overview.md
     - name: Confrontare i prodotti Machine Learning
       href: /azure/architecture/data-guide/technology-choices/data-science-and-machine-learning?context=azure/machine-learning/studio/context/ml-context
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Creare la prima sperimentazione
       displayName: quickstart

@@ -96,6 +96,8 @@
       href: language-packs.md
 - name: Concetti
   items:
+    - name: Authentication
+      href: authentication.md
     - name: Elenco degli URL sicuri
       href: safe-url-list.md
     - name: Ambiente di Desktop virtuale Windows

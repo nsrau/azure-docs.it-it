@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Database di Azure per PostgreSQL
       href: overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Server singolo
@@ -166,7 +166,7 @@
                 - name: Configurare JPA per Spring Data
                   href: /azure/developer/java/spring-framework/configure-spring-data-jpa-with-azure-postgresql?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
                 - name: Configurare R2DBC per Spring Data
-                  href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-postgresl?toc=/azure/postgresql/toc.json&bc=/azure/bread/toc.json
+                  href: /azure/developer/java/spring-framework/configure-spring-data-r2dbc-with-azure-mysql
         - name: Replica
           items:
             - name: Repliche in lettura
