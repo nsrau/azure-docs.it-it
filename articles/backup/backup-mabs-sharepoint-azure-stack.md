@@ -3,12 +3,12 @@ title: Eseguire il backup di una farm di SharePoint con Azure Stack
 description: Usare il server di Backup di Azure per eseguire il backup e ripristinare i dati di SharePoint in Azure Stack. In questo articolo vengono fornite le informazioni per configurare la farm di SharePoint in modo da archiviare in Azure i dati desiderati. È possibile ripristinare i dati SharePoint protetti dal disco o da Azure.
 ms.topic: conceptual
 ms.date: 06/07/2020
-ms.openlocfilehash: bd94b24479631f9fbbe4070529d76fe6442faae2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7319cf064ab2bab20e4140f8a208be843df7fa71
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86538786"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017971"
 ---
 # <a name="back-up-a-sharepoint-farm-on-azure-stack"></a>Eseguire il backup di una farm di SharePoint con Azure Stack
 
@@ -18,7 +18,7 @@ Per eseguire il backup di una farm di SharePoint in Azure con Azure Stack usare 
 
 Backup di Azure per MABS supporta gli scenari seguenti:
 
-| Carico di lavoro | Versione | Distribuzione di SharePoint | Protezione e ripristino |
+| Carico di lavoro | Version | Distribuzione di SharePoint | Protezione e ripristino |
 | --- | --- | --- | --- |
 | SharePoint |SharePoint 2016, SharePoint 2013, SharePoint 2010 |SharePoint distribuito come macchina virtuale Azure Stack <br> -------------- <br> SQL AlwaysOn | Proteggere le opzioni di ripristino di farm di SharePoint: farm di ripristino, database, e file o voce di elenco dai punti di ripristino del disco.  Farm e ripristino dei database dai punti di ripristino di Azure. |
 
@@ -84,17 +84,17 @@ Per eseguire il backup della farm di SharePoint, configurare la protezione per S
 
     Se si espande il server SharePoint, il server di Backup di Microsoft Azure esegue una query su VSS per capire quali dati possono essere protetti dal server.  Se il database di SharePoint è remoto, il server di Backup di Microsoft Azure vi si connette. Se le origini dati di SharePoint non vengono visualizzate, verificare che VSS writer sia in esecuzione nel server SharePoint e in qualsiasi istanza remota di SQL Server e che l'agente del server di Backup di Microsoft Azure sia installato sia nel server SharePoint che in SQL Server in remoto. Assicurarsi inoltre che i database di SharePoint non siano protetti altrove come database SQL Server.
 
-1. In **Seleziona metodo protezione dati** selezionare come gestire i backup a breve e a lungo termine. Il backup a breve termine viene sempre eseguito prima su disco, con l'opzione di eseguire il backup dal disco nel cloud di Azure utilizzando Backup di Azure \(a breve o a lungo termine\).
+1. In **Seleziona metodo protezione dati** selezionare come gestire i backup a breve e a lungo termine. Il backup a breve \- termine è sempre su disco, con l'opzione di eseguire il backup dal disco al cloud di Azure con backup di Azure a \( breve o a lungo \- termine \) .
 
 1. In **Selezione obiettivi a breve termine** selezionare come si desidera eseguire il backup per l'archiviazione a breve termine su disco.   Per **Intervallo conservazione** specificare per quanto tempo si intende conservare i dati su disco. Per **Frequenza di sincronizzazione** specificare la frequenza con cui eseguire un backup incrementale su disco. Se non si vuole impostare un intervallo di backup, è possibile selezionare Immediatamente prima di un punto di ripristino in modo da consentire al server di Backup di Microsoft Azure di eseguire un backup completo rapido subito prima di ogni punto di ripristino pianificato.
 
 1. Nella pagina Verifica allocazione dischi esaminare lo spazio su disco del pool di archiviazione allocato per il gruppo protezione dati.
 
-    Le **dimensioni dati totali** sono le dimensioni dei dati di cui si esegue il backup e lo **spazio su disco per il provisioning nel server di Backup di Microsoft Azure** è lo spazio consigliato dal server per il gruppo protezione dati. Il server di Backup di Microsoft Azure sceglie il volume di backup in base alle impostazioni. Tuttavia è possibile modificare le opzioni del volume di backup nei **dettagli di allocazione del disco**. Per i carichi di lavoro, selezionare la risorsa di archiviazione preferita nel menu a discesa. Le modifiche modificano i valori per **Totale spazio di archiviazione** e **Spazio libero di archiviazione** nel riquadro **Spazio di archiviazione su disco disponibile**. Per spazio con provisioning insufficiente si intende la quantità di spazio di archiviazione che il server di Backup di Microsoft Azure suggerisce di aggiungere al volume per continuare a eseguire backup uniformi in futuro.
+    Le **dimensioni dati totali** sono le dimensioni dei dati di cui si esegue il backup e lo **spazio su disco per il provisioning nel server di Backup di Microsoft Azure** è lo spazio consigliato dal server per il gruppo protezione dati. Il server di Backup di Microsoft Azure sceglie il volume di backup in base alle impostazioni. Tuttavia è possibile modificare le opzioni del volume di backup nei **dettagli di allocazione del disco**. Per i carichi di lavoro, selezionare l'archiviazione preferita nel menu a discesa. Le modifiche modificano i valori per **Totale spazio di archiviazione** e **Spazio libero di archiviazione** nel riquadro **Spazio di archiviazione su disco disponibile**. Per spazio con provisioning insufficiente si intende la quantità di spazio di archiviazione che il server di Backup di Microsoft Azure suggerisce di aggiungere al volume per continuare a eseguire backup uniformi in futuro.
 
 1. In **Scelta del metodo per la creazione della replica** selezionare come gestire la replica dei dati completa iniziale.  Se si seleziona l'opzione per eseguire la replica sulla rete, si consiglia di scegliere un'ora non di punta. Per grandi quantità di dati o condizioni della rete non ottimali, tenere in considerazione la replica dei dati offline con i supporti rimovibili.
 
-1. Nella pagina **Scelta opzioni di verifica coerenza** selezionare il modo in cui automatizzare le verifiche della coerenza. È possibile fare in modo che una verifica venga eseguita solo quando i dati della replica diventano incoerenti o in base a una pianificazione. Se non si vuole configurare la verifica coerenza automatica, è possibile eseguire in qualsiasi momento una verifica manuale facendo clic con il pulsante destro del mouse sul gruppo protezione dati nell'area **Protezione** della console del server di Backup di Microsoft Azure e scegliendo **Esegui verifica coerenza**.
+1. Nella pagina **Scelta opzioni di verifica coerenza** scegliere in che modo automatizzare le verifiche coerenza. È possibile fare in modo che una verifica venga eseguita solo quando i dati della replica diventano incoerenti o in base a una pianificazione. Se non si vuole configurare la verifica coerenza automatica, è possibile eseguire in qualsiasi momento una verifica manuale facendo clic con il pulsante destro del mouse sul gruppo protezione dati nell'area **Protezione** della console del server di Backup di Microsoft Azure e scegliendo **Esegui verifica coerenza**.
 
 1. Se si è scelto di eseguire il backup nel cloud con Backup di Azure, nella pagina **Specifica i dati da proteggere online** verificare che siano selezionati i carichi di lavoro di cui eseguire il backup in Azure.
 
@@ -102,7 +102,7 @@ Per eseguire il backup della farm di SharePoint, configurare la protezione per S
 
 1. In **Specificare i criteri di conservazione online** è possibile specificare la modalità di conservazione in Azure dei punti di recupero creati dai backup giornalieri, settimanali, mensili e annuali.
 
-1. In **Scegliere la replica online** specificare la modalità di esecuzione della replica completa iniziale dei dati. È possibile eseguire la replica in rete o eseguire un backup offline (seeding offline). Il backup offline utilizza la funzionalità di importazione di Azure. [Altre informazioni](./backup-azure-backup-import-export.md).
+1. In **Scegliere la replica online** specificare la modalità di esecuzione della replica completa iniziale dei dati. È possibile eseguire la replica in rete o eseguire un backup offline (seeding offline). Il backup offline usa la funzionalità di importazione di Azure. [Altre informazioni](./backup-azure-backup-import-export.md).
 
 1. Nella pagina **Riepilogo** esaminare le impostazioni. Dopo aver fatto clic su **Crea gruppo**, viene eseguita la replica iniziale dei dati. Al termine, lo stato del gruppo protezione dati viene visualizzato come **OK** nella pagina **Stato**. Viene quindi eseguito il backup in base alle impostazioni del gruppo protezione dati.
 
@@ -128,7 +128,7 @@ Dopo aver creato il gruppo protezione dati, viene eseguita la replica iniziale e
 
 1. Nella console di amministrazione del server di Backup di Microsoft Azure fare clic su **Monitoraggio** > **Azione** > **Opzioni** > **Pubblicazione avvisi** > **Pubblica avvisi attivi**
 
-2. Dopo aver abilitato **Pubblicazione avvisi**, tutti gli avvisi del server di Backup di Microsoft Azure esistenti che potrebbero richiedere l'intervento dell'utente vengono pubblicati nel registro eventi **MABS Alerts** (Avvisi server di Backup di Microsoft Azure). L'agente Operations Manager installato nel server di backup di Microsoft Azure pubblica quindi questi avvisi in Operations Manager e continua ad aggiornare la console man mano che vengono generati nuovi avvisi.
+2. Dopo aver abilitato **Pubblicazione avvisi**, tutti gli avvisi del server di Backup di Microsoft Azure esistenti che potrebbero richiedere l'intervento dell'utente vengono pubblicati nel registro eventi **MABS Alerts** (Avvisi server di Backup di Microsoft Azure). L'agente di Operations Manager installato nel server MAB pubblica quindi questi avvisi nel Operations Manager e continua ad aggiornare la console Man via che vengono generati nuovi avvisi.
 
 ## <a name="restore-a-sharepoint-item-from-disk-by-using-mabs"></a>Ripristinare un elemento di SharePoint dal disco tramite MABS
 
@@ -161,7 +161,7 @@ Nell'esempio seguente, l' *elemento di SharePoint da ripristinare* è stato acci
    >
 8. Selezionare il **processo di ripristino** che si vuole usare.
 
-   * Selezionare **Ripristina senza utilizzare una farm di ripristino** se la farm di SharePoint non è stata modificata e corrisponde al punto di ripristino eseguito.
+   * Selezionare **Ripristina senza utilizzare una farm di ripristino** se la farm di SharePoint non è stata modificata ed è uguale al punto di ripristino da ripristinare.
    * Selezionare **Ripristina utilizzando una farm di ripristino** se la farm di SharePoint è stato modificata dopo che il punto di ripristino è stato creato.
 
      ![processo di ripristino](./media/backup-azure-backup-sharepoint/recovery-process.png)
@@ -169,7 +169,7 @@ Nell'esempio seguente, l' *elemento di SharePoint da ripristinare* è stato acci
 
     ![Staging Location1](./media/backup-azure-backup-sharepoint/staging-location1.png)
 
-    MABS collega il database del contenuto che ospita l'elemento di SharePoint all'istanza di gestione temporanea di SQL Server. MABS ripristina l'elemento dal database del contenuto e lo aggiunge al percorso di file di gestione temporanea di MABS. L'elemento recuperato che si trova nel percorso di gestione temporanea deve ora essere esportato nel percorso di gestione temporaneo della farm di SharePoint.
+    MAB connette il database del contenuto che ospita l'elemento di SharePoint all'istanza di SQL Server temporanea. MABS ripristina l'elemento dal database del contenuto e lo aggiunge al percorso di file di gestione temporanea di MABS. L'elemento recuperato che si trova nel percorso di gestione temporanea deve ora essere esportato nel percorso di gestione temporaneo della farm di SharePoint.
 
     ![Gestione temporanea Location2](./media/backup-azure-backup-sharepoint/staging-location2.png)
 10. Selezionare **Specifica opzioni di ripristino**e applicare le impostazioni di sicurezza per la farm di SharePoint o applicare le impostazioni di sicurezza del punto di ripristino. Fare clic su **Avanti**.

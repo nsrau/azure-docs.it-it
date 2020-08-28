@@ -7,16 +7,16 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.custom: mvc
+ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: 0e161cf83662df671b8cfb100ddc12c3b3e7359f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 572b5328a433839dafbfe23eb7207dfaeb9ea309
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80158147"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017856"
 ---
-# <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Estendi IoT Central di Azure con regole personalizzate usando analisi di flusso, funzioni di Azure e SendGrid
+# <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Estendere Azure IoT Central con regole personalizzate usando Analisi di flusso, Funzioni di Azure e SendGrid
 
 
 
@@ -34,7 +34,7 @@ In questa guida dettagliata si apprenderà come:
 
 Per completare la procedura descritta in questa guida pratica, è necessaria una sottoscrizione di Azure attiva.
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si possiede una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ### <a name="iot-central-application"></a>Applicazione IoT Central
 
@@ -62,25 +62,25 @@ Usare il [portale di Azure per creare un gruppo di risorse](https://portal.azure
 
 Usare il [portale di Azure per creare uno spazio dei nomi di hub eventi](https://portal.azure.com/#create/Microsoft.EventHub) con le impostazioni seguenti:
 
-| Impostazione | valore |
+| Impostazione | Valore |
 | ------- | ----- |
 | Nome    | Scegliere il nome dello spazio dei nomi |
 | Piano tariffario | Basic |
 | Subscription | Sottoscrizione in uso |
 | Resource group | DetectStoppedDevices |
-| Posizione | Stati Uniti orientali |
+| Località | Stati Uniti orientali |
 | Unità elaborate | 1 |
 
 ### <a name="stream-analytics-job"></a>Processo di Analisi di flusso
 
-Usare il [portale di Azure per creare un processo di analisi di flusso](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) con le impostazioni seguenti:
+Usare il [portale di Azure per creare un processo di analisi di flusso](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob)  con le impostazioni seguenti:
 
-| Impostazione | valore |
+| Impostazione | Valore |
 | ------- | ----- |
 | Nome    | Scegliere il nome del processo |
 | Subscription | Sottoscrizione in uso |
 | Resource group | DetectStoppedDevices |
-| Posizione | Stati Uniti orientali |
+| Località | Stati Uniti orientali |
 | Ambiente di hosting | Cloud |
 | Unità di streaming | 3 |
 
@@ -93,17 +93,17 @@ Usare il [portale di Azure per creare un'app per le funzioni](https://portal.azu
 | Nome app    | Scegliere il nome dell'app per le funzioni |
 | Subscription | Sottoscrizione in uso |
 | Resource group | DetectStoppedDevices |
-| OS | Windows |
+| Sistema operativo | Windows |
 | Piano di hosting | Piano a consumo |
-| Posizione | Stati Uniti orientali |
+| Località | Stati Uniti orientali |
 | Stack di runtime | .NET |
-| Archiviazione | Creare un nuovo gruppo di risorse |
+| Archiviazione | Create new |
 
 ### <a name="sendgrid-account"></a>Account SendGrid
 
 Usare il [portale di Azure per creare un account SendGrid](https://portal.azure.com/#create/Sendgrid.sendgrid) con le impostazioni seguenti:
 
-| Impostazione | valore |
+| Impostazione | Valore |
 | ------- | ----- |
 | Nome    | Scegliere il nome dell'account SendGrid |
 | Password | Creare una password |
@@ -321,8 +321,8 @@ Nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentra
     | Spazio dei nomi di Hub eventi | Nome dello spazio dei nomi di hub eventi |
     | Hub eventi | centralexport |
     | Misurazioni | On |
-    | Dispositivi | Off |
-    | Modelli di dispositivo | Off |
+    | Dispositivi | Disattivata |
+    | Modelli di dispositivo | Disattivata |
 
 ![Configurazione dell'esportazione continua dei dati](media/howto-create-custom-rules/cde-configuration.png)
 

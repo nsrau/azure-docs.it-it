@@ -5,12 +5,13 @@ author: jakrams
 ms.author: jakras
 ms.date: 02/27/2020
 ms.topic: how-to
-ms.openlocfilehash: f3400d82a6aa184daabfa2ebbe6b775b8e4c1562
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4a0be44d8709726e159e17e703566c6c576bc18f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85565456"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018978"
 ---
 # <a name="set-up-remote-rendering-for-unity"></a>Configurare Rendering remoto per Unity
 
@@ -66,11 +67,11 @@ RemoteManagerStatic.ShutdownRemoteRendering();
 
 ### <a name="session-state-events"></a>Eventi dello stato della sessione
 
-`RemoteManagerUnity.OnSessionUpdate`genera eventi per quando cambia lo stato della sessione. per informazioni dettagliate, vedere la documentazione del codice.
+`RemoteManagerUnity.OnSessionUpdate` genera eventi per quando cambia lo stato della sessione. per informazioni dettagliate, vedere la documentazione del codice.
 
 ### <a name="arrserviceunity"></a>ARRServiceUnity
 
-`ARRServiceUnity`è un componente facoltativo per semplificare la configurazione e la gestione delle sessioni. Contiene opzioni per arrestare automaticamente la sessione quando l'applicazione è in uscita o la modalità di riproduzione viene chiusa nell'editor, oltre a rinnovare automaticamente il lease della sessione quando necessario. Memorizza nella cache i dati, ad esempio le proprietà della sessione (vedere la relativa `LastProperties` variabile) ed espone gli eventi per le modifiche dello stato della sessione e gli errori di sessione.
+`ARRServiceUnity` è un componente facoltativo per semplificare la configurazione e la gestione delle sessioni. Contiene opzioni per arrestare automaticamente la sessione quando l'applicazione è in uscita o la modalità di riproduzione viene chiusa nell'editor, oltre a rinnovare automaticamente il lease della sessione quando necessario. Memorizza nella cache i dati, ad esempio le proprietà della sessione (vedere la relativa `LastProperties` variabile) ed espone gli eventi per le modifiche dello stato della sessione e gli errori di sessione.
 
 Non può essere presente più di un'istanza di `ARRServiceUnity` alla volta. È concepito per iniziare più rapidamente implementando alcune funzionalità comuni. Per un'applicazione di dimensioni maggiori, può essere preferibile eseguire tali operazioni, tuttavia.
 
@@ -79,4 +80,4 @@ Per un esempio di come configurare e usare, `ARRServiceUnity` vedere [esercitazi
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Installare il pacchetto Rendering remoto per Unity](install-remote-rendering-unity-package.md)
-* [Esercitazione: visualizzazione di modelli sottoposti a rendering remoto](../../tutorials/unity/view-remote-models/view-remote-models.md)
+* [Esercitazione: Visualizzazione di un modello di cui è stato eseguito il rendering in remoto](../../tutorials/unity/view-remote-models/view-remote-models.md)

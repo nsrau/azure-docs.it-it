@@ -3,12 +3,12 @@ title: Risposte alle domande comuni
 description: 'Risposte alle domande frequenti su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: ea4cc792100edf59188a9be99c384747267dc0d8
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 16ee9fa94f8c6d5ee97c35833b4cee908750bc0a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892763"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017737"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 
@@ -56,7 +56,7 @@ Se il backup è già stato configurato e deve essere spostato da GRS a con ridon
 ### <a name="can-i-do-an-item-level-restore-ilr-for-vms-backed-up-to-a-recovery-services-vault"></a>È possibile eseguire un ripristino a livello di elemento per le macchine virtuali di cui è stato eseguito il backup in un insieme di credenziali di Servizi di ripristino?
 
 - Il ripristino a livello di elemento è supportato per le macchine virtuali di Azure sottoposte a backup con il servizio Backup di Azure. Per altre informazioni, vedere [questo articolo](backup-azure-restore-files-from-vm.md).
-- ILR non è supportato per i punti di ripristino online delle macchine virtuali locali di cui è stato eseguito il backup dal server di backup di Azure o da System Center DPM.
+- ILR non è supportato per i punti di ripristino online delle macchine virtuali locali di cui è stato eseguito il backup da server di Backup di Azure (MAB) o System Center DPM.
 
 ## <a name="azure-backup-agent"></a>Agente di Backup di Azure
 
@@ -184,7 +184,7 @@ Per ogni istanza protetta, è possibile creare fino a 9999 punti di ripristino. 
 
 ### <a name="how-many-times-can-i-recover-data-thats-backed-up-to-azure"></a>Quante volte è possibile ripristinare i dati di cui viene eseguito il backup in Azure?
 
-Non esistono limiti al numero di ripristini da Backup di Azure.
+Non esiste alcun limite al numero di recuperi da backup di Azure.
 
 ### <a name="when-restoring-data-do-i-pay-for-the-egress-traffic-from-azure"></a>Quando si ripristinano i dati, vengono addebitati costi per il traffico in uscita da Azure?
 

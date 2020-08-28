@@ -3,12 +3,12 @@ title: Ripristinare i file in Windows Server con l'agente di Servizi di ripristi
 description: Questo articolo illustra come ripristinare i dati archiviati in Azure in un computer Windows Server o Windows con l'agente di Servizi di ripristino di Microsoft Azure.
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: e61ad7083a7b6979222566112820bad133022844
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 59e212b31d79c0d9a75369e542fee5e86f29653a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892508"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018910"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Ripristinare i file in Windows Server con l'agente di Servizi di ripristino di Microsoft Azure
 
@@ -89,7 +89,7 @@ Tali passaggi usano la terminologia seguente:
 * *Insieme di credenziali di esempio*: l'insieme di credenziali dei servizi di ripristino in cui il computer di origine e il computer di destinazione sono registrati.
 
 > [!NOTE]
-> Non è possibile ripristinare i backup in un computer di destinazione che esegue una versione precedente del sistema operativo. Un backup eseguito in un computer con Windows 7, ad esempio, può essere ripristinato in un computer con Windows 7 o versioni successive. Un backup eseguito su un computer con Windows 8 non può essere ripristinato in un computer con Windows 7.
+> Non è possibile ripristinare i backup in un computer di destinazione in cui è in esecuzione una versione precedente del sistema operativo. Un backup eseguito in un computer con Windows 7, ad esempio, può essere ripristinato in un computer con Windows 7 o versioni successive. Non è possibile ripristinare un backup effettuato da un computer Windows 10 in un computer con Windows 7.
 >
 >
 

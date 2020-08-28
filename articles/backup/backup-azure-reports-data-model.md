@@ -3,12 +3,12 @@ title: Modello di dati per gli eventi di diagnostica di backup di Azure
 description: Questo modello di dati è in riferimento alla modalità specifica della risorsa di invio di eventi di diagnostica a Log Analytics (LA).
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 8cc671152485bc2781a80f96e48b81263dea221b
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: adc1442b674b9a6e947ef65967a2c2f1359e7d8a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892525"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017584"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Modello di dati per gli eventi di diagnostica di backup di Azure
 
@@ -136,7 +136,7 @@ Questa tabella offre dettagli sui campi relativi al processo.
 | ProtectedContainerUniqueId     | Testo          | Identificatore univoco del server protetto associato al processo |
 | RecoveryJobDestination         | Text          | Destinazione di un processo di ripristino in cui vengono ripristinati i dati   |
 | RecoveryJobRPDateTime          | Datetime      | Data, ora in cui è stato creato il punto di ripristino da ripristinare |
-| RecoveryJobLocation            | Testo          | Posizione in cui è stato archiviato il punto di ripristino da ripristinare |
+| RecoveryJobLocation            | Testo          | Il percorso in cui è stato archiviato il punto di ripristino da ripristinare |
 | RecoveryLocationType           | Testo          | Tipo di percorso di ripristino                                |
 | schemaVersion                  | Text          | Versione corrente dello schema, ad esempio **V2**            |
 | Stato                          | Testo          | Stato corrente dell'oggetto processo, ad esempio Active, Deleted |

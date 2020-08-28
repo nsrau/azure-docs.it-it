@@ -10,16 +10,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: b7ddbff2643086f1875ca190b67f521edb115c3e
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 009818c9b208f5f464949f5e3ffe1404e509ac4b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930537"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017720"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Pianificare un Azure Active Directory la distribuzione di app personali
 
-Azure Active Directory (Azure AD) app personali è un portale basato sul Web che consente di ridurre i costi di supporto, aumentare la produttività e la sicurezza e ridurre la frustrazione degli utenti. Il sistema include report dettagliati che consentono di tenere traccia del momento in cui si accede al sistema e di informare gli amministratori di abusi o abusi.
+Azure Active Directory (Azure AD) app personali è un portale basato sul Web che consente di ridurre i costi di supporto, aumentare la produttività e la sicurezza e ridurre la frustrazione degli utenti. Il sistema include report dettagliati che consentono di tenere traccia del momento in cui si accede al sistema e di informare gli amministratori di abusi o abusi. Per informazioni sull'uso delle app personali dal punto di vista dell'utente finale, vedere [la guida del portale delle app personali](../user-help/my-apps-portal-end-user-access.md).
 
 Utilizzando Azure AD app personali, è possibile:
 
@@ -42,7 +42,7 @@ Azure AD le mie app sono utili per le aziende nei modi seguenti:
 
 **Offre un'esperienza utente intuitiva**: le mie app offrono un'unica piattaforma per tutte le applicazioni connesse ad Azure Single Sign-on (SSO). Si dispone di un portale unificato per trovare le impostazioni esistenti e le nuove funzionalità, ad esempio la gestione dei gruppi e la reimpostazione della password self-service, man mano che vengono aggiunti. L'esperienza intuitiva consente agli utenti di tornare a lavorare più rapidamente ed essere più produttivi, riducendo al tempo stesso la loro frustrazione.
 
-**Aumenta la produttività**: l'accesso SSO è abilitato per tutte le applicazioni utente nelle app personali. L'abilitazione dell'accesso SSO tra applicazioni aziendali e Microsoft 365 crea un'esperienza di accesso superiore riducendo o eliminando ulteriori richieste di accesso. App personali usa l'appartenenza dinamica e self-service e migliora la sicurezza complessiva del sistema di identità. Questa operazione viene eseguita garantendo che gli utenti giusti gestiscano l'accesso alle applicazioni. App personali funge da pagina di destinazione coerente per individuare rapidamente le risorse e continuare le attività di lavoro.
+**Aumenta la produttività**: l'accesso SSO è abilitato per tutte le applicazioni utente nelle app personali. L'abilitazione dell'accesso SSO tra applicazioni aziendali e Microsoft 365 crea un'esperienza di accesso superiore riducendo o eliminando ulteriori richieste di accesso. App personali usa l'appartenenza dinamica e self-service e migliora la sicurezza complessiva del sistema di identità. App personali garantisce che le persone giuste gestiscano l'accesso alle applicazioni. App personali funge da pagina di destinazione coerente per individuare rapidamente le risorse e continuare le attività di lavoro.
 
 **Gestione dei costi**: l'abilitazione di app personali con Azure ad può essere utile per la dimissione delle infrastrutture locali. Riduce i costi di supporto fornendo un portale coerente per trovare tutte le app, richiedere l'accesso alle risorse e gestire gli account.
 
@@ -89,6 +89,10 @@ La tabella seguente descrive i casi d'uso principali per la distribuzione di app
 | Esperienza dell'utente| Gli utenti possono gestire i propri account. |
 | Esperienza dell'utente| Gli utenti sono consapevoli della compatibilità del browser. |
 | Supporto| Gli utenti possono trovare il supporto per i problemi relativi alle app. |
+
+
+> [!TIP]
+> Le mie app possono essere usate con URL interni della società in remoto usando il proxy di applicazione. Per altre informazioni, vedere [esercitazione: aggiungere un'applicazione locale per l'accesso remoto tramite il proxy di applicazione in Azure Active Directory](application-proxy-add-on-premises-application.md).
 
 ### <a name="best-practices-for-deploying-azure-ad-my-apps"></a>Procedure consigliate per la distribuzione di Azure AD app personali
 
@@ -189,7 +193,7 @@ Un browser protetto con i criteri di Intune (Microsoft Edge o Intune Managed Bro
 
 ## <a name="plan-your-my-apps-deployment"></a>Pianificare la distribuzione delle app personali
 
-La base delle mie app è il portale dell'utilità di avvio delle applicazioni, a cui gli utenti accedono all'indirizzo [https://myapps.microsoft.com](https://myapps.microsoft.com/) . La pagina App personali fornisce agli utenti un'unica posizione per iniziare il lavoro e ottenere le applicazioni necessarie. Qui, gli utenti trovano un elenco di tutte le applicazioni a cui hanno accesso Single Sign-On. 
+La base delle mie app è il portale dell'utilità di avvio delle applicazioni, a cui gli utenti accedono all'indirizzo [https://myapps.microsoft.com](https://myapps.microsoft.com/) . La pagina App personali offre agli utenti un'unica posizione per iniziare il lavoro e ottenere le applicazioni necessarie. Qui, gli utenti trovano un elenco di tutte le applicazioni a cui hanno accesso Single Sign-On. 
 
 > [!NOTE]
 > Le stesse applicazioni verranno visualizzate nell'utilità di avvio dell'app Microsoft 365.
@@ -255,7 +259,7 @@ Vedere [assegnare utenti e gruppi a un'applicazione in Active Directory](methods
 
 Se durante il test o la distribuzione si vuole aggiungere i gruppi ma non consentire le applicazioni da visualizzare nelle app personali, vedere [nascondere un'applicazione dall'esperienza utente in Azure Active Directory](hide-application-from-user-portal.md).
 
-### <a name="deploy-microsoft-microsoft-365-applications-to-my-apps"></a>Distribuisci applicazioni di Microsoft Microsoft 365 in app personali
+### <a name="deploy-microsoft-365-applications-to-my-apps"></a>Distribuisci applicazioni Microsoft 365 alle app personali
 
 Per Microsoft 365 applicazioni, gli utenti ricevono una copia di Office in base alle licenze assegnate. Un prerequisito per l'accesso alle applicazioni di Office è costituito dagli utenti a cui vengono assegnate le licenze corrette legate alle applicazioni di Office. Quando si assegna una licenza a un utente, le applicazioni associate alla licenza verranno visualizzate automaticamente nella pagina App personali e nell'utilità di avvio dell'app Microsoft 365.
 
@@ -303,7 +307,7 @@ I test seguenti devono essere eseguiti con i dispositivi di proprietà dell'azie
 
 ## <a name="manage-your-implementation"></a>Gestire l'implementazione
 
-È consigliabile utilizzare il ruolo con privilegi minimi per eseguire un'attività obbligatoria all'interno Azure Active Directory. [Esaminare i diversi ruoli disponibili](../users-groups-roles/directory-assign-admin-roles.md) e scegliere quello più adatto per soddisfare le proprie esigenze per ogni utente di questa applicazione. È possibile che alcuni ruoli debbano essere applicati temporaneamente e rimossi al termine della distribuzione.
+Utilizzare il ruolo con privilegi minimi per eseguire un'attività obbligatoria all'interno Azure Active Directory. [Esaminare i diversi ruoli disponibili](../users-groups-roles/directory-assign-admin-roles.md) e scegliere quello più adatto per soddisfare le proprie esigenze per ogni utente di questa applicazione. È possibile che alcuni ruoli debbano essere applicati temporaneamente e rimossi al termine della distribuzione.
 
 | Utenti tipo| Ruoli| Ruolo di Azure AD  |
 | - | -| -|

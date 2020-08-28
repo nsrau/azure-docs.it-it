@@ -12,12 +12,12 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: b96627bfdfad039ae23dd134fc76f368d59b7d59
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 791402f5d9648c8d235f8853de1b6c41f8082e1b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984707"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018300"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Configurare Multi-Factor Authentication per SQL Server Management Studio e Azure AD
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -55,7 +55,7 @@ La procedura seguente illustra come connettersi usando la versione più recente 
 4. Selezionare **Opzioni** e specificare il database nella finestra di dialogo **Opzioni** . Se l'utente connesso è un utente Guest, ad esempio joe@outlook.com , è necessario selezionare la casella e aggiungere il nome di dominio ad o l'ID tenant corrente come parte delle opzioni. Vedere [Autenticazione universale con database SQL e SQL Data Warehouse (supporto SSMS per MFA)](../database/authentication-mfa-ssms-overview.md). Fare clic su **Connetti**.  
 5. Quando appare la finestra di dialogo **Accedi al tuo account** , fornire l'account e la password dell'identità di Azure Active Directory. Se un utente fa parte di un dominio federato con Azure AD, non è necessario specificare la password.
 
-   ![2mfa-sign-in](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)  
+   ![2mfa-sign-in](./media/authentication-mfa-ssms-configure/2mfa-sign-in.png)  
 
    > [!NOTE]
    > L'utente viene connesso in questa fase nel caso dell'autenticazione universale con un account che non richiede l'MFA. Per gli utenti che richiedono l'MFA, continuare con la procedura seguente:
@@ -63,13 +63,14 @@ La procedura seguente illustra come connettersi usando la versione più recente 
 
 6. Potrebbero aprirsi due finestre di dialogo per la configurazione del metodo MFA. Questa operazione una tantum dipende l'impostazione dell'amministratore dell'MFA e potrebbe, quindi, essere facoltativa. Per un dominio abilitato per l'MFA si tratta di una procedura predefinita (ad esempio, il dominio richiede agli utenti di utilizzare una smart card con pin).
 
-   ![3mfa-setup](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)  
+   ![3mfa-setup](./media/authentication-mfa-ssms-configure/3mfa-setup.png)
+  
 7. La seconda finestra di dialogo consente di selezionare i dettagli del metodo di autenticazione. Le opzioni possibili sono configurate dall'amministratore.
 
-   ![4mfa-verify-1](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)  
+   ![4mfa-verify-1](./media/authentication-mfa-ssms-configure/4mfa-verify-1.png)  
 8. Azure Active Directory invia le informazioni di conferma all'utente. Quando si riceve il codice di verifica, immetterlo nella casella **Immettere il codice di verifica** e fare clic su **Accedi**.
 
-   ![5mfa-verify-2](./media/authentication-mfa-ssms-configure/mfa-no-tenant-ssms.png)  
+   ![5mfa-verify-2](./media/authentication-mfa-ssms-configure/5mfa-verify-2.png)  
 
 Al termine della procedura di verifica, di norma SSMS stabilisce la connessione se le credenziali sono valide e se il firewall lo consente.
 

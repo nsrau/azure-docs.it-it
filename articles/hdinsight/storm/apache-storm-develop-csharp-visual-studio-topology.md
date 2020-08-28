@@ -8,12 +8,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.date: 12/31/2019
-ms.openlocfilehash: 3645b6752a49a0cf2544d170ac55a77cc8ae5e40
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 271f62625433a6651ba0e3230a62be51e5147f3e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082013"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000193"
 ---
 # <a name="develop-c-topologies-for-apache-storm-by-using-the-data-lake-tools-for-visual-studio"></a>Sviluppare topologie C# per Apache Storm tramite gli strumenti Data Lake per Visual Studio
 
@@ -27,7 +28,7 @@ Le topologie C# usano .NET 4,5 e usano mono per l'esecuzione nel cluster HDInsig
 |:-----------------:|:-------------:|:---------------:|:--------------------:|
 | 3.4 | 0.10.0.x | 0.10.0.x | 3.2.8 |
 | 3,5 | 1.0.2.x | 1.0.0.x | 4.2.1 |
-| 3.6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
+| 3,6 | 1.1.0.x | 1.0.0.x | 4.2.8 |
 
 ## <a name="prerequisite"></a>Prerequisito
 
@@ -150,9 +151,9 @@ Aggiungere quindi il codice per il beccuccio, che viene usato per leggere i dati
 
    * `NextTuple`: Chiamato da Storm quando il beccuccio è autorizzato a emettere nuove Tuple.
 
-   * `Ack`(solo topologia transazionale): gestisce i riconoscimenti avviati da altri componenti della topologia per le tuple inviate dal beccuccio. Il riconoscimento di una tupla consente allo spout di sapere che tale tupla è stata elaborata correttamente dai componenti downstream.
+   * `Ack` (solo topologia transazionale): gestisce i riconoscimenti avviati da altri componenti della topologia per le tuple inviate dal beccuccio. Il riconoscimento di una tupla consente allo spout di sapere che tale tupla è stata elaborata correttamente dai componenti downstream.
 
-   * `Fail`(solo topologia transazionale): gestisce le tuple che non elaborano altri componenti nella topologia. L'implementazione di un `Fail` metodo consente di riemettere la tupla in modo che possa essere nuovamente elaborata.
+   * `Fail` (solo topologia transazionale): gestisce le tuple che non elaborano altri componenti nella topologia. L'implementazione di un `Fail` metodo consente di riemettere la tupla in modo che possa essere nuovamente elaborata.
 
 2. Sostituire il contenuto della `Spout` classe con il testo seguente:
 
@@ -481,9 +482,9 @@ Quando si crea e si invia una topologia ibrida, tenere presente quanto segue:
 
 La versione 0.9.4.203 di SCP.Net introduce una nuova classe e un nuovo metodo appositamente da usare con lo spout dell'hub eventi (uno spout Java che legge dall'hub eventi). Quando si crea una topologia che usa un becco dell'hub eventi (ad esempio, usando il modello di **esempio Storm EventHub Reader** ), usare le API seguenti:
 
-* `EventHubSpoutConfig`Classe: crea un oggetto che contiene la configurazione per il componente del beccuccio.
+* `EventHubSpoutConfig` Classe: crea un oggetto che contiene la configurazione per il componente del beccuccio.
 
-* `TopologyBuilder.SetEventHubSpout`Metodo: aggiunge il componente del beccuccio dell'hub eventi alla topologia.
+* `TopologyBuilder.SetEventHubSpout` Metodo: aggiunge il componente del beccuccio dell'hub eventi alla topologia.
 
 > [!NOTE]  
 > È comunque necessario usare `CustomizedInteropJSONSerializer` per serializzare i dati prodotti dal beccuccio.

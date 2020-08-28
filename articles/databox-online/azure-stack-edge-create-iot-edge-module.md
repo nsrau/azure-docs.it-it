@@ -8,12 +8,13 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
-ms.openlocfilehash: 7c12beaf30651a6cb1048a75b0f7cb353b45173a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: d8cea74ec24efa7562caab5074d87d436cddaffb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339893"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018485"
 ---
 # <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge"></a>Sviluppare un modulo di IoT Edge C# per spostare i file in Azure Stack Edge
 
@@ -76,7 +77,7 @@ Un Registro Azure Container è un registro Docker privato in Azure nel quale è 
 
       ![Creare un registro contenitori](./media/azure-stack-edge-create-iot-edge-module/create-container-registry-1.png)
  
-4. Selezionare **Crea**.
+4. Selezionare **Create** (Crea).
 5. Dopo aver creato il registro contenitori, passare al registro e selezionare **Chiavi di accesso**.
 
     ![Ottenere le chiavi di accesso](./media/azure-stack-edge-create-iot-edge-module/get-access-keys-1.png)

@@ -3,12 +3,12 @@ title: Usare il server di Backup di Azure per eseguire il backup dei carichi di 
 description: Questo articolo contiene informazioni su come preparare l'ambiente per proteggere ed eseguire il backup dei carichi di lavoro usando il server di Backup di Microsoft Azure (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 553073cf70e6806077a4df98e237bbbe0d2bb21a
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 18225fab8b4f1ebe9fd34095108492a0902ca1d1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892287"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001162"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installare e preparare il server di Backup di Azure
 
@@ -66,9 +66,9 @@ Se non si vuole eseguire il server di base in Azure, è possibile eseguire il se
 >
 > * Un computer in esecuzione come controller di dominio
 > * Un computer in cui è installato il ruolo di server applicazioni
-> * Un computer che sia un server di gestione di System Center Operations Manager
+> * Un computer che è un server di gestione System Center Operations Manager
 > * Un computer su cui è in esecuzione Exchange Server
-> * Un computer che sia un nodo di un cluster
+> * Un computer che è un nodo di un cluster
 >
 > L'installazione di server di Backup di Azure non è supportata in Windows Server Core o Microsoft Hyper-V Server.
 
@@ -261,25 +261,25 @@ Ecco i passaggi necessari se si vuole spostare MABS in un nuovo server, mantenen
 
   > [!IMPORTANT]
   >
-  > * Il nuovo server dovrà avere lo stesso nome dell'istanza del server di Backup di Azure originale. Non è possibile modificare il nome della nuova istanza del server di Backup di Azure se si vuole usare il pool di archiviazione e il database del server di Backup di Microsoft Azure precedenti (DPMDB) per conservare i punti di recupero.
-  > * È necessario disporre di un backup del database del server di Backup di Microsoft Azure (DPMDB). Sarà necessario ripristinare il database.
+  > * Il nome del nuovo server deve avere lo stesso nome dell'istanza di server di Backup di Azure originale. Non è possibile modificare il nome della nuova istanza del server di Backup di Azure se si vuole usare il pool di archiviazione e il database del server di Backup di Microsoft Azure precedenti (DPMDB) per conservare i punti di recupero.
+  > * È necessario disporre di un backup del database del server di Backup di Microsoft Azure (DPMDB). Sarà necessario per ripristinare il database.
 
 1. Nel riquadro informazioni selezionare i computer client per i quali si desidera aggiornare l'agente protezione.
-2. Arrestare il server di Backup di Azure originale o portarlo offline.
+2. Arrestare il server di backup di Azure originale o portarlo offline.
 3. Reimpostare l'account del computer in Active Directory.
-4. Installare SQL Server 2016 nel nuovo computer e assegnare al computer lo stesso nome del server di Backup di Azure originale.
-5. Eseguire l'aggiunta al dominio
-6. Installare il server di Backup di Azure V3 o versione successiva. Spostare i dischi del pool di archiviazione del server di Backup di Microsoft Azure dal vecchio server ed eseguire l'importazione
+4. Installare il server 2016 in un nuovo computer e assegnargli lo stesso nome di computer del server di backup di Azure originale.
+5. Eseguire l'aggiunta al dominio.
+6. Installare server di Backup di Azure V3 o versione successiva (spostare i dischi del pool di archiviazione di MAB dal vecchio server e importare).
 7. Ripristinare il database di Data Protection Manager acquisito nel passaggio 1.
 8. Collegare l'archiviazione dal server di backup originale a quello nuovo.
-9. Ripristinare il DPMDB da SQL
-10. Dalla riga di comando di amministratore nel nuovo server cambiare directory per passare al percorso di installazione e alla cartella bin di Backup di Microsoft Azure
+9. Da SQL, ripristinare DPMDB.
+10. Eseguire CMD (come amministratore) nel nuovo server. Passare al percorso di installazione di Backup di Microsoft Azure e alla cartella bin
 
     Esempio di percorso: C:\windows\system32>cd "c:\Programmi\Backup di Microsoft Azure\DPM\DPM\bin\"
 
-11. Per Backup di Azure, eseguire DPMSYNC -SYNC
+11. Per connettersi a backup di Azure, eseguire `DPMSYNC -SYNC`
 
-    Se sono stati aggiunti NUOVI dischi al pool di archiviazione di Data Protection Manager invece di spostare quelli vecchi, eseguire DPMSYNC -Reallocatereplica
+    Se sono stati aggiunti **nuovi** dischi al pool di archiviazione DPM invece di trasferire quelli precedenti, eseguire `DPMSYNC -Reallocatereplica`
 
 ## <a name="network-connectivity"></a>Connettività di rete
 
@@ -300,7 +300,7 @@ Dopo avere verificato lo stato della connettività di Azure e della sottoscrizio
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Recupero dalla perdita di connettività
 
-Se è presente un firewall o un proxy che impedisce l'accesso ad Azure, è necessario consentire gli indirizzi di dominio seguenti nel profilo del firewall/proxy:
+Se si dispone di un firewall o di un proxy che impedisce l'accesso ad Azure, è necessario consentire gli indirizzi di dominio seguenti nel profilo firewall/proxy:
 
 * `http://www.msftncsi.com/ncsi.txt`
 * \*.Microsoft.com

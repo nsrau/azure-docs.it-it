@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
-ms.date: 04/28/2020
-ms.openlocfilehash: 10c0d3d5f043d31454810b55e808cd6df01467a4
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/27/2020
+ms.openlocfilehash: a269796c072a235e4ecd47731ca37a774750a3cf
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448741"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018366"
 ---
 # <a name="creating-and-using-active-geo-replication---azure-sql-database"></a>Creazione e uso della replica geografica attiva-database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -114,7 +114,7 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 Per assicurarsi che l'applicazione possa accedere immediatamente al nuovo database primario dopo il failover, verificare che i requisiti di autenticazione per il server secondario e il database siano configurati correttamente. Per tutti i dettagli, vedere l'articolo sulla [sicurezza del database SQL di Azure dopo il ripristino di emergenza](active-geo-replication-security-configure.md). Per garantire la conformità dopo il failover, assicurarsi che i criteri di conservazione dei backup nel database secondario corrispondano a quelli della replica primaria. Queste impostazioni non fanno parte del database e non vengono replicate. Per impostazione predefinita, il database secondario verrà configurato con un periodo di conservazione predefinito di ripristino temporizzato di sette giorni. Per conoscere i dettagli, vedere [Backup automatici del database SQL](automated-backups-overview.md).
 
 > [!IMPORTANT]
-> Se il database è membro di un gruppo di failover, non è possibile avviare il failover usando il comando di failover della replica geografica. Usare il comando di failover per il gruppo. Se è necessario eseguire il failover di un singolo database, è necessario rimuoverlo prima dal gruppo di failover. Per informazioni dettagliate, vedere [gruppi di failover](auto-failover-group-overview.md) .
+> Se il database è membro di un gruppo di failover, non è possibile avviare il failover usando il comando di failover della replica geografica. Usare il comando di failover per il gruppo. Se è necessario eseguire il failover di un singolo database, è necessario rimuoverlo prima dal gruppo di failover. Per informazioni dettagliate, vedere  [gruppi di failover](auto-failover-group-overview.md) .
 
 ## <a name="configuring-secondary-database"></a>Configurazione del database secondario
 
@@ -178,7 +178,8 @@ Il client che esegue le modifiche richiede l'accesso alla rete al server primari
 
 ### <a name="on-the-master-of-the-secondary-server"></a>Nel database master del server secondario
 
-1. Aggiungere l'indirizzo IP all'elenco Consenti del client che esegue le modifiche. Deve corrispondere esattamente all'indirizzo IP del server primario.
+1. Aggiungere l'indirizzo IP del client all'elenco dei consentiti nelle regole del firewall per il server secondario. Verificare che sia stato aggiunto al database secondario anche lo stesso indirizzo IP del client aggiunto al server primario. Si tratta di un passaggio obbligatorio da eseguire prima di eseguire il comando ALTER DATABASE ADD SECONDARY per avviare la replica geografica.
+
 1. Creare lo stesso account di accesso del server primario, usando la stessa password del nome utente e SID:
 
    ```sql
@@ -245,7 +246,7 @@ Come indicato in precedenza, la replica geografica attiva può essere gestita a 
 > [!IMPORTANT]
 > Questi comandi Transact-SQL si applicano solo alla replica geografica attiva e non ai gruppi di failover. Di conseguenza, non si applicano anche alle istanze di SQL Istanza gestita perché supportano solo i gruppi di failover.
 
-| Comando | Description |
+| Comando | Descrizione |
 | --- | --- |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Usare l'argomento ADD SECONDARY ON SERVER per creare un database secondario per un database esistente e avviare la replica dei dati |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |Usare FAILOVER o FORCE_FAILOVER_ALLOW_DATA_LOSS per passare un database secondario al ruolo di database primario per avviare il failover |

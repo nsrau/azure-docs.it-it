@@ -3,12 +3,12 @@ title: Eseguire il backup di una farm di SharePoint in Azure con il server di Ba
 description: Usare il server di Backup di Azure per eseguire il backup e ripristinare i dati di SharePoint. In questo articolo vengono fornite le informazioni per configurare la farm di SharePoint in modo da archiviare in Azure i dati desiderati. È possibile ripristinare i dati SharePoint protetti dal disco o da Azure.
 ms.topic: conceptual
 ms.date: 04/26/2020
-ms.openlocfilehash: 40997ad2153cdec867fb36ba3475829e18519592
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 00af51764d5a9454b002de6375b2b16d6e80c300
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86514238"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017431"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Eseguire il backup di una farm di SharePoint in Azure con il server di Backup di Microsoft Azure
 
@@ -82,7 +82,7 @@ Per eseguire il backup della farm di SharePoint, configurare la protezione per S
 
     Se si espande il server SharePoint, il server di Backup di Microsoft Azure esegue una query su VSS per capire quali dati possono essere protetti dal server.  Se il database di SharePoint è remoto, il server di Backup di Microsoft Azure vi si connette. Se le origini dati di SharePoint non vengono visualizzate, verificare che VSS writer sia in esecuzione nel server SharePoint e in qualsiasi istanza remota di SQL Server e che l'agente del server di Backup di Microsoft Azure sia installato sia nel server SharePoint che in SQL Server in remoto. Assicurarsi inoltre che i database di SharePoint non siano protetti altrove come database SQL Server.
 
-1. In **Seleziona metodo protezione dati** selezionare come gestire i backup a breve e a lungo termine. Il backup a breve termine viene sempre eseguito prima su disco, con l'opzione di eseguire il backup dal disco nel cloud di Azure utilizzando Backup di Azure \(a breve o a lungo termine\).
+1. In **Seleziona metodo protezione dati** selezionare come gestire i backup a breve e a lungo termine. Il backup a breve \- termine è sempre su disco, con l'opzione di eseguire il backup dal disco al cloud di Azure con backup di Azure a \( breve o a lungo \- termine \) .
 
 1. In **Selezione obiettivi a breve termine** selezionare come si desidera eseguire il backup per l'archiviazione a breve termine su disco.   Per **Intervallo conservazione** specificare per quanto tempo si intende conservare i dati su disco. Per **Frequenza di sincronizzazione** specificare la frequenza con cui eseguire un backup incrementale su disco. Se non si vuole impostare un intervallo di backup, è possibile selezionare Immediatamente prima di un punto di ripristino in modo da consentire al server di Backup di Microsoft Azure di eseguire un backup completo rapido subito prima di ogni punto di ripristino pianificato.
 
@@ -126,7 +126,7 @@ Dopo aver creato il gruppo protezione dati, viene eseguita la replica iniziale e
 
 1. Nella console di amministrazione del server di Backup di Microsoft Azure fare clic su **Monitoraggio** > **Azione** > **Opzioni** > **Pubblicazione avvisi** > **Pubblica avvisi attivi**
 
-2. Dopo aver abilitato **Pubblicazione avvisi**, tutti gli avvisi del server di Backup di Microsoft Azure esistenti che potrebbero richiedere l'intervento dell'utente vengono pubblicati nel registro eventi **MABS Alerts** (Avvisi server di Backup di Microsoft Azure). L'agente Operations Manager installato nel server di backup di Microsoft Azure pubblica quindi questi avvisi in Operations Manager e continua ad aggiornare la console man mano che vengono generati nuovi avvisi.
+2. Dopo aver abilitato **Pubblicazione avvisi**, tutti gli avvisi del server di Backup di Microsoft Azure esistenti che potrebbero richiedere l'intervento dell'utente vengono pubblicati nel registro eventi **MABS Alerts** (Avvisi server di Backup di Microsoft Azure). L'agente di Operations Manager installato nel server MAB pubblica quindi questi avvisi nel Operations Manager e continua ad aggiornare la console Man via che vengono generati nuovi avvisi.
 
 ## <a name="restore-a-sharepoint-item-from-disk-by-using-mabs"></a>Ripristinare un elemento di SharePoint dal disco tramite MABS
 
@@ -159,7 +159,7 @@ Nell'esempio seguente, l' *elemento di SharePoint da ripristinare* è stato acci
    >
 8. Selezionare il **processo di ripristino** che si vuole usare.
 
-   * Selezionare **Ripristina senza utilizzare una farm di ripristino** se la farm di SharePoint non è stata modificata e corrisponde al punto di ripristino eseguito.
+   * Selezionare **Ripristina senza utilizzare una farm di ripristino** se la farm di SharePoint non è stata modificata ed è uguale al punto di ripristino da ripristinare.
    * Selezionare **Ripristina utilizzando una farm di ripristino** se la farm di SharePoint è stato modificata dopo che il punto di ripristino è stato creato.
 
      ![processo di ripristino](./media/backup-azure-backup-sharepoint/recovery-process.png)
@@ -167,7 +167,7 @@ Nell'esempio seguente, l' *elemento di SharePoint da ripristinare* è stato acci
 
     ![Staging Location1](./media/backup-azure-backup-sharepoint/staging-location1.png)
 
-    MABS collega il database del contenuto che ospita l'elemento di SharePoint all'istanza di gestione temporanea di SQL Server. MABS ripristina l'elemento dal database del contenuto e lo aggiunge al percorso di file di gestione temporanea di MABS. L'elemento recuperato che si trova nel percorso di gestione temporanea deve ora essere esportato nel percorso di gestione temporaneo della farm di SharePoint.
+    MAB connette il database del contenuto che ospita l'elemento di SharePoint all'istanza di SQL Server temporanea. MABS ripristina l'elemento dal database del contenuto e lo aggiunge al percorso di file di gestione temporanea di MABS. L'elemento recuperato che si trova nel percorso di gestione temporanea deve ora essere esportato nel percorso di gestione temporaneo della farm di SharePoint.
 
     ![Gestione temporanea Location2](./media/backup-azure-backup-sharepoint/staging-location2.png)
 10. Selezionare **Specifica opzioni di ripristino**e applicare le impostazioni di sicurezza per la farm di SharePoint o applicare le impostazioni di sicurezza del punto di ripristino. Fare clic su **Avanti**.

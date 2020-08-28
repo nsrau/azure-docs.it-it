@@ -3,12 +3,12 @@ title: Eseguire il backup di carichi di lavoro di SQL Server in Azure Stack
 description: Questo articolo illustra come configurare Backup di Microsoft Azure Server (MAB) per proteggere i database di SQL Server in Azure Stack.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: 706050fa37e4234a0ffc902f6b696ebd84e6701e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e56b29f886224617a9ae13d58c8b3dd8dda0dcf8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032647"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017958"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Eseguire il backup di SQL Server in Azure Stack
 
@@ -24,16 +24,16 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
 
 * Se un database con file è ubicato in una condivisione di file remota, la protezione fallirà con Errore ID 104. MAB non supporta la protezione per i dati SQL Server in una condivisione file remota.
 * MAB non è in grado di proteggere i database archiviati nelle condivisioni SMB remote.
-* Verificare che le [repliche del gruppo di disponibilità siano configurate in sola lettura](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server?view=sql-server-ver15).
+* Assicurarsi che le [repliche del gruppo di disponibilità siano configurate in sola lettura](/sql/database-engine/availability-groups/windows/configure-read-only-access-on-an-availability-replica-sql-server?view=sql-server-ver15).
 * È necessario aggiungere in modo esplicito l'account di sistema **NTAuthority\System** al gruppo Sysadmin in SQL Server.
-* Quando si esegue un ripristino del percorso alternativo per un database parzialmente indipendente, è necessario assicurarsi che per l'istanza di SQL di destinazione sia abilitata la funzionalità [database indipendenti](/sql/relational-databases/databases/migrate-to-a-partially-contained-database?view=sql-server-ver15#enable) .
-* Quando si esegue un ripristino in un percorso alternativo per un database di un flusso di file, è necessario assicurarsi che per l'istanza di SQL di destinazione sia abilitata la funzionalità di [database del flusso di file](/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-ver15) .
+* Quando si esegue il ripristino in un percorso alternativo per un database parzialmente indipendente, assicurarsi che per l'istanza di SQL di destinazione sia stata abilitata la funzionalità [Database indipendenti](/sql/relational-databases/databases/migrate-to-a-partially-contained-database?view=sql-server-ver15#enable).
+* Quando si esegue il ripristino in un percorso alternativo per un database di flusso dei file, assicurarsi che per l'istanza di SQL di destinazione sia stata abilitata la funzionalità del [database FILESTREAM](/sql/relational-databases/blob/enable-and-configure-filestream?view=sql-server-ver15).
 * Protezione per SQL Server AlwaysOn:
   * MAB rileva i gruppi di disponibilità durante l'esecuzione di una richiesta di verifica nella creazione del gruppo protezione
   * MAB rileva un failover e continua la protezione del database.
   * MAB supporta le configurazioni di cluster multisito per un'istanza di SQL Server.
 * Quando si proteggono i database che utilizzano la funzionalità AlwaysOn, MAB presenta le limitazioni seguenti:
-  * MAB rispetterà i criteri di backup per i gruppi di disponibilità impostati in SQL Server in base alle preferenze di backup, come indicato di seguito:
+  * MAB rispetta i criteri di backup per i gruppi di disponibilità impostati in SQL Server in base alle preferenze di backup, come indicato di seguito:
     * Preferisco secondario: i backup devono essere eseguiti in una replica secondaria tranne quando la replica primaria è l'unica replica online. Se sono disponibili più repliche secondarie, verrà selezionato per il backup il nodo con la priorità di backup più elevata. Se è disponibile solo la replica primaria, il backup deve essere eseguito nella replica primaria.
     * Solo secondario: il backup non deve essere eseguito nella replica primaria. Se la replica primaria è l'unica online, il backup non deve essere eseguito.
     * Primario: i backup devono essere sempre eseguiti nella replica primaria.
@@ -44,8 +44,8 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
     * Se sono disponibili e leggibili più repliche, per il backup verrà selezionato il nodo con la priorità di backup più elevata.
     * Se il backup non riesce nel nodo selezionato, l'operazione di backup avrà esito negativo.
     * Il ripristino nel percorso originale non è supportato.
-* Problemi di backup SQL Server 2014 o versioni successive:
-  * SQL Server 2014 ha aggiunto una nuova funzionalità per creare un [database per SQL Server locale nell'archivio BLOB di Windows Azure](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-ver15). Non è possibile usare MAB per proteggere questa configurazione.
+* Problemi di backup di SQL Server 2014 o versione successiva:
+  * In SQL Server 2014 è stata aggiunta una nuova funzionalità per creare un [database di SQL Server locale nell'archivio BLOB di Microsoft Azure](/sql/relational-databases/databases/sql-server-data-files-in-microsoft-azure?view=sql-server-ver15). Non è possibile usare MAB per proteggere questa configurazione.
   * Esistono alcuni problemi noti relativi alla preferenza di backup "preferisci secondario" per l'opzione SQL AlwaysOn. MAB accetta sempre un backup dal database secondario. Se non viene trovato alcun database secondario, il backup ha esito negativo.
 
 ## <a name="before-you-start"></a>Prima di iniziare
@@ -60,7 +60,7 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
 
     ![Creazione di un gruppo di protezione](./media/backup-azure-backup-sql/protection-group.png)
 
-    Il server di Backup di Azure avvia la procedura guidata Crea nuovo gruppo protezione dati, che guida l'utente nei passaggi necessari per creare un **gruppo protezione dati**. Fare clic su **Avanti**.
+    Il server di Backup di Azure avvia la procedura guidata Crea nuovo gruppo protezione dati, che guida l'utente nei passaggi necessari per creare un **gruppo protezione dati**. Fare clic su **Next** (Avanti).
 
 3. Nella schermata **Selezione tipo di gruppo protezione dati** selezionare **Server**.
 
@@ -87,9 +87,9 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
    >
    >
 
-7. Nella schermata **Verifica allocazione dischi** verificare lo spazio di archiviazione complessivo disponibile e il potenziale spazio su disco. Fare clic su **Avanti**.
+7. Nella schermata **Verifica allocazione dischi** verificare lo spazio di archiviazione complessivo disponibile e il potenziale spazio su disco. Fare clic su **Next** (Avanti).
 
-8. In **Scelta del metodo per la creazione della replica** scegliere la modalità di creazione del primo punto di recupero. Il backup iniziale (fuori rete) può essere trasferito manualmente per evitare la congestione della larghezza di banda o attraverso la rete. Se si sceglie di attendere prima di trasferire il primo backup, è possibile specificare l'orario del trasferimento iniziale. Fare clic su **Avanti**.
+8. In **Scelta del metodo per la creazione della replica** scegliere la modalità di creazione del primo punto di recupero. Il backup iniziale (fuori rete) può essere trasferito manualmente per evitare la congestione della larghezza di banda o attraverso la rete. Se si sceglie di attendere prima di trasferire il primo backup, è possibile specificare l'orario del trasferimento iniziale. Fare clic su **Next** (Avanti).
 
     ![Metodo di replica iniziale](./media/backup-azure-backup-sql/pg-manual.png)
 
@@ -101,7 +101,7 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
 
     ![Verifica coerenza](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    Il server di Backup di Azure esegue una verifica di coerenza per controllare l'integrità del punto di backup. Server di Backup di Azure calcola il checksum del file di backup nel server di produzione (SQL Server computer in questo scenario) e i dati di cui è stato eseguito il backup per tale file. Se si verifica un conflitto, si presume che il file di cui è stato eseguito il backup nel server di Backup di Azure sia danneggiato. Il server di Backup di Azure corregge i dati di backup inviando i blocchi che equivalgono alla mancata corrispondenza del checksum. Poiché le verifiche della coerenza sono esigenti in termini di prestazioni, è possibile pianificarle o eseguirle automaticamente.
+    Il server di Backup di Azure esegue una verifica di coerenza per controllare l'integrità del punto di backup. Server di Backup di Azure calcola il checksum del file di backup nel server di produzione (SQL Server computer in questo scenario) e i dati di cui è stato eseguito il backup per tale file. Se si verifica un conflitto, si presuppone che il file di cui è stato eseguito il backup in server di Backup di Azure sia danneggiato. Il server di Backup di Azure corregge i dati di backup inviando i blocchi che equivalgono alla mancata corrispondenza del checksum. Poiché le verifiche della coerenza sono esigenti in termini di prestazioni, è possibile pianificarle o eseguirle automaticamente.
 
 10. Per specificare la protezione online delle origini dati, selezionare i database da proteggere in Azure e fare clic su **Avanti**.
 
@@ -124,7 +124,7 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
 
     ![Criteri di conservazione](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
-    In questo esempio:
+    Esempio:
 
     * I backup vengono eseguiti una volta al giorno alle 12.00 PM e alle 8.00 PM (parte in basso della schermata) e vengono conservati per 180 giorni.
     * Il backup di sabato alle ore 12:00 P.M. viene conservato per 104 settimane
@@ -157,19 +157,19 @@ Mentre nei passaggi precedenti sono stati creati i criteri di backup, un "punto 
 
 I passaggi seguenti sono necessari per ripristinare un'entità protetta (database SQL Server) da Azure.
 
-1. Aprire la console di gestione del server di Backup di Azure. Passare all'area di lavoro **Recupero** dove appaiono i server protetti. Passare al database necessario (in questo caso ReportServer$MSDPM2012). Selezionare un orario di inizio del **recupero**, specificato come punto **online**.
+1. Aprire la console di gestione del server di Backup di Azure. Passare all'area di lavoro **Recupero** dove appaiono i server protetti. Passare al database necessario (in questo caso ReportServer$MSDPM2012). Selezionare un **ripristino dal** momento specificato come punto **online** .
 
     ![Selezione di un punto di ripristino](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
 2. Fare clic con il pulsante destro del mouse sul nome del database e scegliere **Ripristina**.
 
     ![Ripristino da Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. MABS mostra i dettagli del punto di ripristino. Fare clic su **Avanti**. Per sovrascrivere il database, selezionare il tipo di ripristino **Ripristina nell'istanza originale di SQL Server**. Fare clic su **Avanti**.
+3. MABS mostra i dettagli del punto di ripristino. Fare clic su **Next** (Avanti). Per sovrascrivere il database, selezionare il tipo di ripristino **Ripristina nell'istanza originale di SQL Server**. Fare clic su **Next** (Avanti).
 
     ![Ripristino nel percorso originale](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
     In questo esempio MABS recupera il database in un'altra istanza di SQL server o in una cartella di rete autonoma.
 
-4. Nella schermata **Specifica opzioni di ripristino** è possibile selezionare le opzioni di ripristino, ad esempio Limitazione all'utilizzo della larghezza di banda per controllare la larghezza di banda usata dal processo di ripristino. Fare clic su **Avanti**.
+4. Nella schermata **Specifica opzioni di ripristino** è possibile selezionare le opzioni di ripristino, ad esempio Limitazione all'utilizzo della larghezza di banda per controllare la larghezza di banda usata dal processo di ripristino. Fare clic su **Next** (Avanti).
 
 5. Nella schermata **Riepilogo** vengono visualizzate le configurazioni di ripristino impostate finora. Fare clic su **Ripristina**.
 

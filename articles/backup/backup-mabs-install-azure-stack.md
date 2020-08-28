@@ -3,12 +3,12 @@ title: Installare il server di Backup di Azure in Azure Stack
 description: Questo articolo illustra come usare il server di Backup di Azure per proteggere o eseguire il backup dei carichi di lavoro in Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 644aeeb8670c4b8d551ba1d3f6b1b16aa199f4ef
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: a95ee42c3229e642bd48b812eb6bc01636af3ba2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88827008"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018128"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installare il server di Backup di Azure in Azure Stack
 
@@ -99,7 +99,7 @@ La protezione dei carichi di lavoro con il server di Backup di Azure è piuttost
 > - Un computer in esecuzione come controller di dominio
 > - Un computer in cui è installato il ruolo di server applicazioni
 > - Un computer su cui è in esecuzione Exchange Server
-> - Un computer che sia un nodo di un cluster
+> - Un computer che è un nodo di un cluster
 
 Aggiungere sempre il server di backup di Azure a un dominio. Se è necessario spostare il server di Backup di Azure in un altro dominio, per prima cosa installare il server di Backup di Azure, quindi aggiungerlo al nuovo dominio. Dopo aver distribuito il server di Backup di Azure, non è possibile spostarlo in un nuovo dominio.
 
@@ -107,7 +107,7 @@ Aggiungere sempre il server di backup di Azure a un dominio. Se è necessario sp
 
 ### <a name="set-storage-replication"></a>Impostare la replica di archiviazione
 
-La replica di archiviazione dell'insieme di credenziali di Servizi di ripristino consente di scegliere tra l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza locale. Per impostazione predefinita, gli insiemi di credenziali di Servizi di ripristino usano l'archiviazione con ridondanza geografica. Se questo insieme di credenziali è quello primario, lasciare l'opzione di archiviazione impostata sull'archiviazione con ridondanza geografica. Se si vuole un'opzione più economica ma meno durevole, scegliere l'archiviazione con ridondanza locale. Per altre informazioni sulle opzioni di archiviazione con [ridondanza geografica](../storage/common/storage-redundancy.md) e con [ridondanza locale](../storage/common/storage-redundancy.md), vedere la panoramica [Replica di Archiviazione di Azure](../storage/common/storage-redundancy.md).
+La replica di archiviazione dell'insieme di credenziali di Servizi di ripristino consente di scegliere tra l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza locale. Per impostazione predefinita, gli insiemi di credenziali di Servizi di ripristino usano l'archiviazione con ridondanza geografica. Se questo insieme di credenziali è quello primario, lasciare l'opzione di archiviazione impostata sull'archiviazione con ridondanza geografica. Scegliere l'archiviazione con ridondanza locale se si vuole un'opzione più economica meno durevole. Per altre informazioni sulle opzioni di archiviazione con [ridondanza geografica](../storage/common/storage-redundancy.md) e con [ridondanza locale](../storage/common/storage-redundancy.md), vedere la panoramica [Replica di Archiviazione di Azure](../storage/common/storage-redundancy.md).
 
 Per modificare le impostazioni di replica di archiviazione:
 

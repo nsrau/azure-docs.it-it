@@ -3,12 +3,12 @@ title: Backup offline con Azure Data Box per DPM e MAB
 description: È possibile utilizzare Azure Data Box per inizializzare i dati di backup iniziali offline da DPM e da MAB.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 33515cdd943f3816328bfd77d831288c5ee0a608
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 5a8fbf3869794b6a5ef78e78177f130e4e009795
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890026"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017601"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Seeding offline con Azure Data Box per DPM e MAB (anteprima)
 
@@ -203,7 +203,7 @@ Al termine del backup dei dati in Azure Data Box Disk, seguire questa procedura.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
-L'agente Backup di Microsoft Azure nel server DPM crea automaticamente un'applicazione Azure AD nel tenant. Questa applicazione richiede un certificato per l'autenticazione, che viene creato e caricato quando si configurano i criteri di seeding offline.
+L'agente Backup di Microsoft Azure nel server DPM crea automaticamente un'applicazione Azure AD nel tenant. Questa applicazione richiede un certificato per l'autenticazione creato e caricato quando si configurano i criteri di seeding offline.
 
 Per creare e caricare il certificato nell'applicazione Azure AD, viene usato Azure PowerShell.
 

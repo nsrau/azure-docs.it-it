@@ -3,15 +3,15 @@ title: Configurare Multi-Factor Authentication di Azure per desktop virtuale Win
 description: Come configurare Multi-Factor Authentication di Azure per una maggiore sicurezza nel desktop virtuale di Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 07/15/2020
+ms.date: 08/27/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 5e42ca0a0d0ff9d9df3dc42f1e165d1035d56d6a
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e8e723aa26ab08c8a09e75f506802101dc07f7e8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009461"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017779"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Abilitare l'autenticazione a più fattori di Azure per Desktop virtuale Windows
 
@@ -47,29 +47,36 @@ Ecco come creare un criterio di accesso condizionale che richiede l'autenticazio
 6. In **Includi**selezionare **Seleziona utenti e gruppi**  >  **utenti e gruppi** > scegliere il gruppo creato nella fase dei [prerequisiti](#prerequisites) .
 7. Selezionare **Fine**.
 8. In **app Cloud o azioni**  >  **Includi**selezionare **Seleziona app**.
-9. Selezionare uno dei seguenti gruppi di app in base alla versione di desktop virtuale di Windows in uso.
-   - Se si usa desktop virtuale di Windows (versione classica), scegliere le due app seguenti:
+9. Selezionare una delle app seguenti in base alla versione di desktop virtuale di Windows in uso.
+   - Se si usa desktop virtuale di Windows (versione classica), scegliere questa app:
        - **Desktop virtuale Windows** (ID app 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
-       - **Client desktop virtuale Windows** (ID app fa4345a4-A730-4230-84a8-7d9651b86739)
-   - Se si usa desktop virtuale di Windows, scegliere le due app seguenti:
+   - Se si usa desktop virtuale di Windows, scegliere questa app:
        -  **Desktop virtuale Windows** (ID app 9cdead84-A844-4324-93f2-b2e6bb768d07)
-       -  **Client desktop virtuale Windows** (ID app a85cf173-4192-42F8-81fa-777a763e6e2c)
 
    >[!IMPORTANT]
-   > Per il client Web vengono usate le app client desktop virtuali di Windows. Tuttavia, non selezionare l'app denominata Windows Virtual Desktop Azure Resource Manager Provider (50e95039-B200-4007-bc97-8d5790743a63). Questa app viene usata solo per recuperare il feed dell'utente e non deve avere l'autenticazione a più fattori.
+   > Non selezionare l'app denominata Windows Virtual Desktop Azure Resource Manager Provider (50e95039-B200-4007-bc97-8d5790743a63). Questa app viene usata solo per recuperare il feed dell'utente e non deve avere l'autenticazione a più fattori.
 
-1. Dopo aver selezionato l'app, scegliere **Seleziona**, quindi fare clic su **fine**.
+10. Passare a **condizioni**  >  **app client**, quindi selezionare la posizione in cui si desidera applicare il criterio:
+    
+    - Selezionare **browser** se si desidera che i criteri vengano applicati al client Web.
+    - Selezionare **app per dispositivi mobili e client desktop** se si desidera applicare i criteri ad altri client.
+    - Selezionare entrambe le caselle di controllo se si desidera applicare il criterio a tutti i client.
+   
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot della pagina delle app client. L'utente ha selezionato la casella di controllo app per dispositivi mobili e client desktop.](media/select-apply.png)
 
-   > [!div class="mx-imgBorder"]
-   > ![Screenshot della pagina app o azioni cloud. Il desktop virtuale Windows e le app client desktop virtuali Windows sono evidenziate in rosso.](media/cloud-apps-enterprise.png)
+11. Dopo aver selezionato l'app, scegliere **Seleziona**, quindi fare clic su **fine**.
 
-   >[!NOTE]
-   >Per trovare l'ID app dell'app che si vuole selezionare, passare ad **applicazioni aziendali** e selezionare **applicazioni Microsoft** dal menu a discesa tipo di applicazione.
+    > [!div class="mx-imgBorder"]
+    > ![Screenshot della pagina app o azioni cloud. Il desktop virtuale Windows e le app client desktop virtuali Windows sono evidenziate in rosso.](media/cloud-apps-enterprise.png)
 
-10. In **controllo di accesso**  >  **concedere**selezionare **Concedi accesso**, **Richiedi autenticazione**a più fattori e quindi **selezionare**.
-11. In **sessione controlli di accesso**  >  **Session**selezionare **frequenza**di accesso, impostare il valore su **1** e unità su **ore**, quindi selezionare **Seleziona**.
-12. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.
-13. Selezionare **Crea** per abilitare i criteri.
+    >[!NOTE]
+    >Per trovare l'ID app dell'app che si vuole selezionare, passare ad **applicazioni aziendali** e selezionare **applicazioni Microsoft** dal menu a discesa tipo di applicazione.
+
+12. In **controllo di accesso**  >  **concedere**selezionare **Concedi accesso**, **Richiedi autenticazione**a più fattori e quindi **selezionare**.
+13. In **sessione controlli di accesso**  >  **Session**selezionare **frequenza**di accesso, impostare il valore su **1** e unità su **ore**, quindi selezionare **Seleziona**.
+14. Confermare le impostazioni e impostare **Abilita criterio** su **Attivato**.
+15. Selezionare **Crea** per abilitare i criteri.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

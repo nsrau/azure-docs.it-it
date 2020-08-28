@@ -3,12 +3,12 @@ title: Domande sull'individuazione, la valutazione e l'analisi delle dipendenze 
 description: Risposte alle domande più comuni sull'individuazione, la valutazione e l'analisi delle dipendenze in Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: 9b8ba0ec83b9f2faedebb2bfb4ba84109f6f8b77
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: d4f833926541bafbae211caff37e5974b57e1047
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263504"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019012"
 ---
 # <a name="discovery-assessment-and-dependency-analysis---common-questions"></a>Individuazione, valutazione e analisi delle dipendenze-domande comuni
 
@@ -145,7 +145,7 @@ Agente | Non è necessario installare gli agenti nei computer che si vuole contr
 Prerequisiti | [Esaminare](concepts-dependency-visualization.md#agentless-analysis) i prerequisiti e i requisiti di distribuzione. | [Esaminare](concepts-dependency-visualization.md#agent-based-analysis) i prerequisiti e i requisiti di distribuzione.
 Log Analytics | Non obbligatorio. | Azure Migrate usa la soluzione [Mapping dei servizi](../azure-monitor/insights/service-map.md) in [Log di Monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md) per la visualizzazione delle dipendenze. [Altre informazioni](concepts-dependency-visualization.md#agent-based-analysis)
 Come funziona | Acquisisce i dati di connessione TCP nei computer abilitati per la visualizzazione delle dipendenze. Dopo l'individuazione, raccoglie i dati a intervalli di cinque minuti. | Mapping dei servizi agenti installati in un computer raccolgono i dati relativi ai processi TCP e alle connessioni in ingresso/in uscita per ogni processo.
-Data | Nome del server del computer di origine, processo, nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta. | Nome del server del computer di origine, processo, nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta.<br/><br/> Il numero di connessioni, la latenza e le informazioni sul trasferimento dei dati sono raccolte e disponibili per Log Analytics query. 
+Dati | Nome del server del computer di origine, processo, nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta. | Nome del server del computer di origine, processo, nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta.<br/><br/> Il numero di connessioni, la latenza e le informazioni sul trasferimento dei dati sono raccolte e disponibili per Log Analytics query. 
 Visualizzazione | La mappa delle dipendenze di un singolo server può essere visualizzata per una durata di un'ora a 30 giorni. | Mappa delle dipendenze di un singolo server.<br/><br/> La mappa può essere visualizzata solo in un'ora.<br/><br/> Mappa delle dipendenze di un gruppo di server.<br/><br/> Aggiungere e rimuovere i server in un gruppo dalla vista mappa.
 Esportazione dati | Ultimi 30 giorni è possibile scaricare i dati in formato CSV. | È possibile eseguire query sui dati con Log Analytics.
 
@@ -181,13 +181,13 @@ No, il report di visualizzazione delle dipendenze nella visualizzazione basata s
 Per la visualizzazione delle dipendenze basate su agente:
 
 - Usare uno [script per installare Dependency Agent](../azure-monitor/insights/vminsights-enable-hybrid.md#dependency-agent).
-- Per MMA, [usare la riga di comando o l'automazione](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration)oppure usare uno [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
+- Per MMA, [usare la riga di comando o l'automazione](../azure-monitor/platform/log-analytics-agent.md#installation-options)oppure usare uno [script](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab).
 - Oltre agli script, è possibile utilizzare strumenti di distribuzione come Microsoft endpoint Configuration Manager e [Intigua](https://www.intigua.com/intigua-for-azure-migration) per distribuire gli agenti.
 
 ## <a name="what-operating-systems-does-mma-support"></a>Quali sistemi operativi sono supportati da MMA?
 
-- Visualizzare l'elenco dei [sistemi operativi Windows supportati da MMA](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems).
-- Visualizzare l'elenco dei [sistemi operativi Linux supportati da MMA](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems).
+- Visualizzare l'elenco dei [sistemi operativi Windows supportati da MMA](../azure-monitor/platform/log-analytics-agent.md#installation-options).
+- Visualizzare l'elenco dei [sistemi operativi Linux supportati da MMA](../azure-monitor/platform/log-analytics-agent.md#installation-options).
 
 ## <a name="can-i-visualize-dependencies-for-more-than-one-hour"></a>È possibile visualizzare le dipendenze per più di un'ora?
 

@@ -6,12 +6,13 @@ ms.author: thweiss
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 3a9039470c32b89d398dd41e3df99e91c70d913c
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 4714ec9773b98887de483b7353eea9f4416eec19
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542637"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017754"
 ---
 # <a name="secure-access-to-data-in-azure-cosmos-db"></a>Proteggere l'accesso ai dati in Azure Cosmos DB
 
@@ -74,7 +75,7 @@ Nell'esempio di codice seguente viene illustrato come utilizzare l'endpoint dell
 
 :::code language="python" source="~/cosmosdb-python-sdk/sdk/cosmos/azure-cosmos/samples/access_cosmos_with_resource_token.py" id="configureConnectivity":::
 
-## <a name="resource-tokens"></a>Token delle risorse<a id="resource-tokens"></a>
+## <a name="resource-tokens"></a>Token delle risorse <a id="resource-tokens"></a>
 
 I token delle risorse consentono di accedere alle risorse dell'applicazione all'interno di un database. Token delle risorse:
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 02c733c7849c89f9d48ddbe75ffbb2235e1be58e
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: cd9b015c292d262430d3fd845e06e38866bc6239
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757286"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018723"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi in Azure Machine Learning
 
@@ -61,7 +61,7 @@ In alcuni casi può essere utile fornire le informazioni di diagnostica quando s
      
 * **Non è garantito che il pacchetto di spiegazione venga installato quando si installa azureml-Train-automl-client:** 
    
-   Quando si esegue un'esecuzione remota di AutoML con la spiegazione del modello abilitata, viene visualizzato un messaggio di errore che illustra l'installazione del pacchetto azureml-explain-Model per le spiegazioni del modello. Questo è un problema noto Come soluzione alternativa, attenersi a uno dei passaggi seguenti:
+   Quando si esegue un'esecuzione remota di AutoML con la spiegazione del modello abilitata, viene visualizzato un messaggio di errore che illustra l'installazione del pacchetto azureml-explain-Model per le spiegazioni del modello. Si tratta di un problema noto. Come soluzione alternativa, attenersi a uno dei passaggi seguenti:
   
   1. Installare azureml-explain-Model localmente.
    ```
@@ -184,6 +184,8 @@ In alcuni casi può essere utile fornire le informazioni di diagnostica quando s
 ## <a name="set-up-your-environment"></a>Configurare l'ambiente
 
 * **Problemi di creazione di AmlCompute**: esiste una rara possibilità che alcuni utenti che hanno creato l'area di lavoro Azure Machine Learning dal portale di Azure prima della versione GA potrebbero non essere in grado di creare AmlCompute in tale area di lavoro. È possibile generare una richiesta di supporto per il servizio o creare una nuova area di lavoro tramite il portale o l'SDK per sbloccarsi immediatamente.
+
+* **Azure container Registry attualmente non supporta i caratteri Unicode nei nomi dei gruppi di risorse**: è possibile che le richieste ACR abbiano esito negativo perché il nome del gruppo di risorse contiene caratteri Unicode. Per attenuare questo problema, è consigliabile creare un registro contenitori di contenitori in un gruppo di risorse con nome diverso.
 
 ## <a name="work-with-data"></a>Usare i dati
 

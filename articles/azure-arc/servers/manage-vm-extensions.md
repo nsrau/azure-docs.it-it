@@ -3,12 +3,12 @@ title: Gestione delle estensioni VM con i server abilitati per Azure Arc (antepr
 description: I server abilitati per Azure Arc (anteprima) possono gestire la distribuzione delle estensioni delle macchine virtuali che forniscono attività di configurazione e automazione post-distribuzione con macchine virtuali non di Azure.
 ms.date: 06/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1b27172a14896041cb4217b12af41d6a04118721
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 259a55c0e5cb4074871fd70a61e6c61d5cf3c50a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213120"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018162"
 ---
 # <a name="virtual-machine-extension-management-with-azure-arc-enabled-servers-preview"></a>Gestione delle estensioni delle macchine virtuali con i server abilitati per Azure Arc (anteprima)
 
@@ -89,14 +89,14 @@ Le estensioni di macchina virtuale possono essere applicate al computer gestito 
 
     ![Installare Log Analytics estensione VM](./media/manage-vm-extensions/mma-extension-config.png)
 
-    Per completare l'installazione, è necessario specificare l'ID e la chiave primaria dell'area di lavoro. Se non si ha familiarità con la ricerca di queste informazioni, vedere [ottenere l'ID e la chiave dell'area di lavoro](../../azure-monitor/platform/agent-windows.md#obtain-workspace-id-and-key).
+    Per completare l'installazione, è necessario specificare l'ID e la chiave primaria dell'area di lavoro. Se non si ha familiarità con la ricerca di queste informazioni, vedere [ottenere l'ID e la chiave dell'area di lavoro](../../azure-monitor/platform/log-analytics-agent.md#workspace-id-and-key).
 
 4. Dopo aver confermato le informazioni necessarie, selezionare **Crea**. Viene visualizzato un riepilogo della distribuzione ed è possibile esaminare lo stato della distribuzione.
 
 >[!NOTE]
 >Sebbene sia possibile raggruppare ed elaborare più estensioni, queste vengono installate in modo seriale. Al termine dell'installazione della prima estensione, viene tentata l'installazione dell'estensione successiva.
 
-## <a name="azure-resource-manager-templates"></a>Modelli di Azure Resource Manager
+## <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
 
 Le estensioni macchina virtuale possono essere aggiunte a un modello di Azure Resource Manager ed eseguite con la distribuzione del modello. Con le estensioni VM supportate dai server abilitati per Arc (anteprima), è possibile distribuire l'estensione VM supportata in computer Linux o Windows usando Azure PowerShell. Ogni esempio seguente include un file modello e un file di parametri con valori di esempio da fornire al modello.
 
