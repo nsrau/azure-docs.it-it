@@ -45,7 +45,7 @@ Per completare questa esercitazione, è necessario un cloud privato della soluzi
 
 1. Assegnare un nome al segmento, scegliere il gateway Tier1 preconfigurato (TNTxx-T1) come **Gateway connesso**, lasciare il valore di **Tipo** come Flessibile, scegliere la **zona di trasporto** overlay preconfigurata (TNTxx-OVERLAY-TZ), quindi selezionare Set Subnets (Imposta subnet). Per tutte le altre impostazioni in questa sezione, per **PORTE** e per **SEGMENT PROFILES** (PROFILI SEGMENTO) è possibile lasciare i valori predefiniti, così come la configurazione.
 
-   :::image type="content" source="media/nsxt/nsxt-create-segment-specs.png" alt-text="Impostare Nome del segmento, Gateway connesso, Tipo e Zona di trasporto, quindi selezionare"Imposta subnet.":::
+   :::image type="content" source="media/nsxt/nsxt-create-segment-specs.png" alt-text="Impostare Nome del segmento, Gateway connesso, Tipo e Zona di trasporto, quindi selezionare Imposta subnet.":::
 
 1. Impostare l'indirizzo IP del gateway per il nuovo segmento e quindi selezionare **AGGIUNGI**. L'indirizzo IP usato deve trovarsi in un blocco di indirizzi RFC1918 non sovrapposto, che garantisce la possibilità di connettersi alle macchine virtuali nel nuovo segmento.
 
