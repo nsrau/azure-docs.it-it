@@ -16,12 +16,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 73210da43c9919af1d92d0e8c354e1d7f9c77bed
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 3d795d30e3ad420e0fed002baddf37469ddcf995
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543946"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004563"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>Infrastruttura di sicurezza: sicurezza della comunicazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -36,7 +37,7 @@ ms.locfileid: "87543946"
 | **Client per dispositivi mobili** | <ul><li>[Implementa blocco certificati](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[Abilitare HTTPS: canale di trasporto sicuro](#https-transport)</li><li>[WCF: impostare il livello di protezione per la sicurezza dei messaggi su EncryptAndSign](#message-protection)</li><li>[WCF: usare un account con privilegi minimi per eseguire il servizio WCF](#least-account-wcf)</li></ul> |
 | **API Web** | <ul><li>[Forzare tutto il traffico verso le API Web su una connessione HTTPS](#webapi-https)</li></ul> |
-| **Cache di Azure per Redis** | <ul><li>[Assicurarsi che la comunicazione con cache di Azure per Redis sia su TLS](#redis-ssl)</li></ul> |
+| **Cache Redis di Azure** | <ul><li>[Assicurarsi che la comunicazione con cache di Azure per Redis sia su TLS](#redis-ssl)</li></ul> |
 | **Gateway IoT sul campo** | <ul><li>[Proteggere la comunicazione da dispositivo a gateway sul campo](#device-field)</li></ul> |
 | **Gateway IoT cloud** | <ul><li>[Proteggere la comunicazione da dispositivo a gateway nel cloud con SSL/TLS](#device-cloud)</li></ul> |
 

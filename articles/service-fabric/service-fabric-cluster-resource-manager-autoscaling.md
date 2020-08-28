@@ -5,12 +5,13 @@ author: radicmilos
 ms.topic: conceptual
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: 3d81feaede7658de69e255c32d3a3ef570156f93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: f57e5079543a3112b4fa59f26ba0ae27c24b79a2
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82793092"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005514"
 ---
 # <a name="introduction-to-auto-scaling"></a>Introduzione alla scalabilità automatica
 La scalabilità automatica è una funzionalità aggiuntiva di Service Fabric che consente di applicare in modo dinamico la scalabilità ai servizi in base al carico che i servizi segnalano o in base all'utilizzo delle risorse. La scalabilità automatica offre grande elasticità e consente di eseguire il provisioning di istanze o partizioni aggiuntive del servizio su richiesta. L'intero processo di scalabilità è automatico e trasparente e, dopo aver configurato i criteri in un servizio, non è necessario eseguire manualmente le operazioni di scalabilità a livello di servizio. La funzione di scalabilità automatica può essere attivata al momento della creazione del servizio o in qualsiasi momento tramite l'aggiornamento del servizio.

@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.custom: seodec18
-ms.openlocfilehash: 4f9d117ccc763744411bfe24163ed955532e8e56
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: fff1a228e32f115c498678a654f6c8f028772161
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85921862"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015680"
 ---
 # <a name="develop-net-standard-user-defined-functions-for-azure-stream-analytics-jobs-preview"></a>Sviluppare .NET Standard funzioni definite dall'utente per i processi di analisi di flusso di Azure (anteprima)
 
@@ -158,7 +158,7 @@ public abstract class StreamingDiagnostics
 }
 ```
 
-`StreamingContext`viene passato come parametro di input al metodo UDF e può essere usato all'interno della funzione definita dall'utente per pubblicare informazioni di log personalizzate. Nell'esempio seguente, `MyUdfMethod` definisce un input di **dati** , fornito dalla query, e un input di **contesto** come `StreamingContext` , fornito dal motore di Runtime. 
+`StreamingContext` viene passato come parametro di input al metodo UDF e può essere usato all'interno della funzione definita dall'utente per pubblicare informazioni di log personalizzate. Nell'esempio seguente, `MyUdfMethod` definisce un input di **dati** , fornito dalla query, e un input di **contesto** come `StreamingContext` , fornito dal motore di Runtime. 
 
 ```csharp
 public static long MyUdfMethod(long data, StreamingContext context)

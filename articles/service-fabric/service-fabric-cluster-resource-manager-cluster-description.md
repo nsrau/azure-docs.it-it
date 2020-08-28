@@ -5,12 +5,13 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: f473b70d260c552dc67d00715b6ee4bc56b670e0
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 5ec5db2b2fefeba3bffb7e30a77850b30dccf95e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86246555"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005633"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>Descrivere un cluster di Service Fabric usando cluster Gestione risorse
 La funzionalità cluster Gestione risorse di Azure Service Fabric fornisce diversi meccanismi per la descrizione di un cluster:
@@ -347,7 +348,7 @@ In alcuni casi (in realtà, la maggior parte del tempo) è opportuno assicurarsi
 
 Un ottimo esempio di destinazione dell'hardware per determinati carichi di lavoro è quasi ogni architettura a più livelli. Alcuni computer fungono da front-end o lato API dell'applicazione e vengono esposti ai client o a Internet. Altri computer, spesso con risorse hardware diverse, gestiscono il lavoro dei livelli di calcolo o archiviazione. In genere _non_ sono esposti direttamente a Internet o ai client. 
 
-Service Fabric prevede che in alcuni casi, potrebbe essere necessario eseguire determinati carichi di lavoro in particolari configurazioni hardware. ad esempio:
+Service Fabric prevede che in alcuni casi, potrebbe essere necessario eseguire determinati carichi di lavoro in particolari configurazioni hardware. Ad esempio:
 
 * Un'applicazione a più livelli esistente è stata "sollevata e spostata" in un ambiente Service Fabric.
 * Un carico di lavoro deve essere eseguito su hardware specifico per motivi di prestazioni, scalabilità o isolamento della sicurezza.

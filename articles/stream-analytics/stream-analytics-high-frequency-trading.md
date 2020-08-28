@@ -7,13 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 12/07/2018
-ms.custom: seodec18
-ms.openlocfilehash: 2196fe825570c371f4590868e994780b16a9c552
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: seodec18, devx-track-csharp
+ms.openlocfilehash: e5d346a6f412b5764400a42e2bebbafec610009b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86040946"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015425"
 ---
 # <a name="high-frequency-trading-simulation-with-stream-analytics"></a>Simulazione di trading ad alta frequenza con Analisi di flusso
 La combinazione di linguaggio SQL, funzioni definite dall'utente di JavaScript e aggregazioni definite dall'utente in Analisi di flusso di Azure consente agli utenti di eseguire analisi avanzate. Le analisi avanzate possono includere il training e l'assegnazione dei punteggi di Machine Learning online, oltre alla simulazione di processi con stato. Questo articolo illustra come eseguire la regressione lineare in un processo di Analisi di flusso di Azure che esegue il training e l'assegnazione di punteggi in modo continuo in uno scenario di trading ad alta frequenza.
@@ -455,7 +455,7 @@ FROM simulation /* output trade simulation to PBI */
 ![PNL dell'oggetto visivo del grafico Power BI](./media/stream-analytics-high-frequency-trading/pnl-power-bi-chart.png)
 
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 È possibile implementare un modello di trading ad alta frequenza realistico con una query moderatamente complessa in Analisi di flusso di Azure. A causa dell'assenza di una funzione di regressione lineare predefinita, è necessario semplificare il modello passando da cinque variabili di input a due. Un utente determinato può tuttavia implementare anche algoritmi con dimensioni superiori e complessità maggiore come aggregazioni definite dall'utente di JavaScript. 
 
 È opportuno rilevare che la maggior parte della query, tranne l'aggregazione definita dall'utente di JavaScript, può essere testata e sottoposta a debug in Visual Studio tramite gli [strumenti di Analisi di flusso di Azure per Visual Studio](stream-analytics-tools-for-visual-studio-install.md). Dopo aver scritto la query iniziale, l'autore ha impiegato meno di 30 minuti per il test e il debug della query in Visual Studio. 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: a143752a5a6cbd32bf18fc5544831bb860097d3a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0bcf81e0c762dd2a8e63ae242fec77d30f5b2c3d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089856"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011855"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Domande frequenti sulla raccolta dati, gli agenti e le aree di lavoro
 
@@ -51,9 +51,9 @@ L'agente raccoglie diversi dettagli di configurazione relativi alla sicurezza e 
 
 Verificare che nei computer sia in esecuzione uno dei sistemi operativi supportati per l'agente, come descritto nelle pagine seguenti:
 
-* [Agente di Log Analytics per sistemi operativi supportati da Windows](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)
+* [Agente di Log Analytics per sistemi operativi supportati da Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
 
-* [Agente di Log Analytics per sistemi operativi Linux supportati](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)
+* [Agente di Log Analytics per sistemi operativi Linux supportati](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
 
 Altre informazioni sui [dati raccolti dall'agente log Analytics](security-center-enable-data-collection.md).
 

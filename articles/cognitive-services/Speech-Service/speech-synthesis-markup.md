@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: trbye
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: f202a9d616809d1f14366350d8d60ef2bc06b96b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 069e0f2d14dafe0de208ac69d2d652361a11ee34
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934515"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012433"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>Migliorare la sintesi con SSML (Speech Synthesis Markup Language)
 
@@ -112,7 +112,7 @@ A seconda del linguaggio dell'SDK vocale, impostare la `"SpeechServiceResponse_S
 
 # <a name="c"></a>[C#](#tab/csharp)
 
-Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+Per altre informazioni, vedere <a href="https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-dotnet" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```csharp
 speechConfig.SetProperty(
@@ -121,7 +121,7 @@ speechConfig.SetProperty(
 
 # <a name="c"></a>[C++](#tab/cpp)
 
-Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+Per altre informazioni, vedere <a href="https://docs.microsoft.com/cpp/cognitive-services/speech/speechconfig#setproperty" target="_blank"> `SetProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```cpp
 speechConfig->SetProperty(
@@ -130,7 +130,7 @@ speechConfig->SetProperty(
 
 # <a name="java"></a>[Java](#tab/java)
 
-Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-java-stable#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+Per altre informazioni, vedere <a href="https://docs.microsoft.com/java/api/com.microsoft.cognitiveservices.speech.speechconfig.setproperty?view=azure-java-stable#com_microsoft_cognitiveservices_speech_SpeechConfig_setProperty_String_String_" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```java
 speechConfig.setProperty(
@@ -139,7 +139,7 @@ speechConfig.setProperty(
 
 # <a name="python"></a>[Python](#tab/python)
 
-Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+Per altre informazioni, vedere <a href="https://docs.microsoft.com/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.speechconfig?view=azure-python#set-property-by-name-property-name--str--value--str-" target="_blank"> `set_property_by_name` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```python
 speech_config.set_property_by_name(
@@ -148,7 +148,7 @@ speech_config.set_property_by_name(
 
 # <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+Per altre informazioni, vedere <a href="https://docs.microsoft.com/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig?view=azure-node-latest#setproperty-string--string-" target="_blank"> `setProperty` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```javascript
 speechConfig.setProperty(
@@ -157,7 +157,7 @@ speechConfig.setProperty(
 
 # <a name="objective-c"></a>[Objective-C](#tab/objectivec)
 
-Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+Per altre informazioni, vedere <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```objectivec
 [speechConfig setPropertyTo:@"false" byName:@"SpeechServiceResponse_Synthesis_WordBoundaryEnabled"];
@@ -165,7 +165,7 @@ Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/objective
 
 # <a name="swift"></a>[Swift](#tab/swift)
 
-Per ulteriori informazioni, vedere <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span> </a>.
+Per altre informazioni, vedere <a href="https://docs.microsoft.com/objectivec/cognitive-services/speech/spxspeechconfiguration#setpropertytobyname" target="_blank"> `setPropertyTo` <span class="docon docon-navigate-external x-hidden-focus"></span></a>.
 
 ```swift
 speechConfig!.setPropertyTo(
@@ -192,33 +192,38 @@ speechConfig!.setPropertyTo(
 > [!IMPORTANT]
 > La regolazione degli stili di lingua funzionerà solo con le voci neurali.
 
-Per impostazione predefinita, il servizio Text-to-Speech sintetizza il testo usando uno stile di pronuncia neutro per le voci standard e neurali. Con le voci neurali è possibile modificare lo stile di pronuncia per esprimere emozioni diverse, ad esempio allegria, empatia e tranquillità, oppure ottimizzare la voce per diversi scenari come servizio personalizzato, telegiornalismo e Assistente vocale, usando l'  `mstts:express-as`   elemento. Si tratta di un elemento facoltativo univoco per il servizio di riconoscimento vocale.
+Per impostazione predefinita, il servizio Text-to-Speech sintetizza il testo usando uno stile di pronuncia neutro per le voci standard e neurali. Con le voci neurali è possibile modificare lo stile di pronuncia per esprimere emozioni diverse, ad esempio allegria, empatia e tranquillità, oppure ottimizzare la voce per diversi scenari, ad esempio servizio clienti, telegiornalismo e Assistente vocale, usando l' `mstts:express-as` elemento. Si tratta di un elemento facoltativo univoco per il servizio di riconoscimento vocale.
 
 Attualmente sono supportate le rettifiche di stile per le voci neurali seguenti:
 * `en-US-AriaNeural`
 * `zh-CN-XiaoxiaoNeural`
 * `zh-CN-YunyangNeural`
 
-Le modifiche vengono applicate a livello di frase e lo stile varia in base alla voce. Se uno stile non è supportato, il servizio restituirà il riconoscimento vocale nello stile di lingua predefinito.
+Le modifiche vengono applicate a livello di frase e gli stili variano in base alla voce. Se uno stile non è supportato, il servizio restituirà il riconoscimento vocale nello stile di lingua predefinito. È possibile eseguire query sugli stili supportati per ogni voce tramite l' [API dell'elenco di voci](rest-text-to-speech.md#get-a-list-of-voices).
+
+Per la XiaoxiaoNeural vocale cinese, l'intensità dello stile di pronuncia può essere modificata ulteriormente per adattarsi meglio al caso d'uso. È possibile specificare uno stile più solido o più flessibile con `styledegree` per rendere il discorso più espressivo o sommesso.
 
 **Sintassi**
 
 ```xml
-<mstts:express-as style="string"></mstts:express-as>
+<mstts:express-as style="string" styledegree="value"></mstts:express-as>
 ```
+> [!NOTE]
+> Al momento, `styledegree` supporta solo XiaoxiaoNeural. 
 
 **Attributes (Attributi)**
 
 | Attributo | Descrizione | Obbligatoria / Facoltativa |
 |-----------|-------------|---------------------|
 | `style` | Specifica lo stile di pronuncia. Attualmente, gli stili di pronuncia sono specifici della voce. | Obbligatorio se si modifica lo stile di pronuncia per una voce neurale. Se `mstts:express-as` si usa, è necessario specificare lo stile. Se viene specificato un valore non valido, questo elemento verrà ignorato. |
+| `styledegree` | Specifica l'intensità dello stile di pronuncia. **Valori accettati**: da 0,01 a 2 inclusi. Il valore predefinito è 1, che indica l'intensità dello stile predefinito. L'unità minima è 0,01 che comporta una lieve tendenza per lo stile di destinazione. Un valore pari a 2 comporta un raddoppio dell'intensità dello stile predefinito.  | Facoltativo (al momento `styledegree` supporta solo XiaoxiaoNeural).|
 
 Usare questa tabella per determinare quali stili di pronuncia sono supportati per ogni voce neurale.
 
 | Chiamata vocale                   | Stile                     | Descrizione                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
-| `en-US-AriaNeural`      | `style="newscast-formal"` | Un tono formale, sicuro e autorevole per la distribuzione di notizie|
-|                         | `style="newscast-casual"` | Un tono versatile e informale per la distribuzione di notizie generali       |
+| `en-US-AriaNeural`      | `style="newscast-formal"` | Esprime un tono formale, sicuro e autorevole per la distribuzione di notizie |
+|                         | `style="newscast-casual"` | Esprime un tono versatile e informale per la distribuzione di notizie generali        |
 |                         | `style="customerservice"` | Esprime un tono descrittivo e utile per il supporto tecnico  |
 |                         | `style="chat"`            | Esprime un tono informale e rilassato                         |
 |                         | `style="cheerful"`        | Esprime un tono positivo e allegro                         |
@@ -226,6 +231,15 @@ Usare questa tabella per determinare quali stili di pronuncia sono supportati pe
 | `zh-CN-XiaoxiaoNeural`  | `style="newscast"`        | Esprime un tono formale e professionale per la narrazione di notizie |
 |                         | `style="customerservice"` | Esprime un tono descrittivo e utile per il supporto tecnico  |
 |                         | `style="assistant"`       | Esprime un tono caldo e rilassato per gli assistenti digitali    |
+|                         | `style="chat"`            | Esprime un tono informale e rilassato per Chit-Chat           |
+|                         | `style="calm"`            | Esprime un atteggiamento interessante, raccolto e composto quando si parla. Tone, pitch, prosodia è molto più uniforme rispetto ad altri tipi di riconoscimento vocale.                                |
+|                         | `style="cheerful"`        | Esprime un allegro e un tono entusiasta, con un passo e un'energia vocale più elevati                         |
+|                         | `style="sad"`             | Esprime un tono dolente, con un passo superiore, una minore intensità e una minore energia vocale. Gli indicatori comuni di questa emozione potrebbero essere piagnucoli o piangere durante il discorso.            |
+|                         | `style="angry"`           | Esprime un tono arrabbiato e infastidito, con un passo inferiore, un'intensità più elevata e una maggiore energia vocale. Il relatore si trova in uno stato di irato, non è più presente e si è offeso.       |
+|                         | `style="fearful"`         | Esprime un tono spaventato e nervoso, con un passo superiore, un'energia vocale più elevata e una velocità più veloce. Il relatore è in uno stato di tensione e disagio.                          |
+|                         | `style="disgruntled"`     | Esprime un tono sprezzante. Il discorso di questa emozione Mostra la dispiacenza e la distemperatura.              |
+|                         | `style="serious"`         | Esprime un tono rigoroso e di comando. L'altoparlante spesso sembra più rigido e molto meno rilassato con una cadenza aziendale.          | |                         | `style="affectionate"`    | Esprime un tono caldo e affettuoso, con un passo e un'energia vocale più elevati. Il relatore è in uno stato che attira l'attenzione del listener. La "personalità" del relatore è spesso di natura.          |     
+|                         | `style="gentle"`          | Esprime un tono lieve, gentile e gradevole, con un tono inferiore e un'energia vocale         |   
 |                         | `style="lyrical"`         | Esprime emozioni in modo melodico e sentimentale         |   
 | `zh-CN-YunyangNeural`   | `style="customerservice"` | Esprime un tono descrittivo e utile per il supporto tecnico  | 
 
@@ -239,6 +253,18 @@ Questo frammento di SSML illustra come `<mstts:express-as>` viene usato l'elemen
     <voice name="en-US-AriaNeural">
         <mstts:express-as style="cheerful">
             That'd be just amazing!
+        </mstts:express-as>
+    </voice>
+</speak>
+```
+
+Questo frammento di SSML illustra come `styledegree` viene usato l'attributo per modificare l'intensità dello stile di pronuncia per XiaoxiaoNeural.
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
+       xmlns:mstts="https://www.w3.org/2001/mstts" xml:lang="zh-CN">
+    <voice name="zh-CN-XiaoxiaoNeural">
+        <mstts:express-as style="sad" styledegree="2">
+            快走吧，路上一定要注意安全，早去早回。
         </mstts:express-as>
     </voice>
 </speak>

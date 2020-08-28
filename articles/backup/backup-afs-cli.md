@@ -3,12 +3,12 @@ title: Backup di condivisioni file di Azure con l'interfaccia della riga di coma
 description: Informazioni su come usare l'interfaccia della riga di comando di Azure per eseguire il backup di condivisioni file di Azure nell'insieme di credenziali
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 9afd1e866c85770a8797493c3f89e531e2ef72fc
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 54852112591b5f5eec1ecbac34b836b4cb0f4f1f
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763253"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012025"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>Eseguire il backup delle condivisioni file di Azure con CLI
 

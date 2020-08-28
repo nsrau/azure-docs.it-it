@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: f2c5b6ef0792e418d873d84341a0fffc356c799e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 14184c09cc9d5eebab7f33323cd8ce587fdf9e88
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509281"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014592"
 ---
 # <a name="troubleshoot"></a>Risolvere problemi
 
@@ -34,6 +34,14 @@ Assicurarsi che i firewall (sul dispositivo, nei router e così via) non blocchi
 Verificare che la GPU supporti la decodifica video hardware. Vedere [PC di sviluppo](../overview/system-requirements.md#development-pc).
 
 Se si lavora su un computer portatile con due GPU, è possibile che la GPU su cui l'utente esegue operazioni per impostazione predefinita non fornisca funzionalità di decodifica video hardware. In tal caso, provare a forzare l'uso dell'altra GPU nell'app. Per svolgere l'operazione spesso è necessario accedere alle impostazioni del driver della GPU.
+
+## <a name="retrieve-sessionconversion-status-fails"></a>Il recupero dello stato della sessione/conversione non riesce
+
+L'invio troppo frequente dei comandi dell'API REST provocherà la limitazione del server e la restituzione di un errore. Il codice di stato HTTP nel case di limitazione delle richieste è 429 ("numero eccessivo di richieste"). Come regola generale, è necessario un ritardo di **5-10 secondi tra le chiamate successive**.
+
+Si noti che questo limite non solo influiscono sulle chiamate all'API REST quando viene chiamato direttamente, ma anche sulle rispettive controparti C#/C + +, ad esempio `Session.GetPropertiesAsync` , `Session.RenewAsync` o `Frontend.GetAssetConversionStatusAsync` .
+
+Se si verifica la limitazione lato server, modificare il codice per eseguire le chiamate con minore frequenza. Il server Reimposta lo stato di limitazione ogni minuto, quindi è sicuro eseguire di nuovo il codice dopo un minuto.
 
 ## <a name="h265-codec-not-available"></a>Il codec H265 non è disponibile
 

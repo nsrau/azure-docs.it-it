@@ -6,12 +6,13 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: maquaran
-ms.openlocfilehash: 1f204b6d73f121b8f05c807d6be47c36c006f607
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 8f573a3e851fe428c66066e36a913d6580cabd51
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85261427"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022480"
 ---
 # <a name="migrate-from-the-bulk-executor-library-to-the-bulk-support-in-azure-cosmos-db-net-v3-sdk"></a>Eseguire la migrazione dalla libreria Executor bulk al supporto bulk in Azure Cosmos DB .NET V3 SDK
 
@@ -87,7 +88,7 @@ Per il supporto bulk in .NET SDK, non esiste alcun comportamento nascosto. È po
 > [!NOTE]
 > Nei casi in cui le unità richiesta di cui è stato effettuato il provisioning sono molto inferiori a quelle previste in base alla quantità di dati, è consigliabile impostare tali unità su valori elevati. L'operazione bulk avrà più tempo, ma avrà una maggiore probabilità di essere completata a causa dei tentativi più elevati.
 
-## <a name="performance-improvements"></a>Miglioramenti alle prestazioni
+## <a name="performance-improvements"></a>Miglioramenti delle prestazioni
 
 Come per le altre operazioni con .NET SDK, l'uso delle API di flusso comporta prestazioni migliori ed evita la serializzazione non necessaria. 
 

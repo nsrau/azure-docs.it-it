@@ -3,16 +3,16 @@ title: Come gestire un account del marketplace commerciale nel Centro per i part
 description: Informazioni su come gestire un account del marketplace commerciale nel Centro per i partner Microsoft.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: parthpandyaMSFT
 ms.author: parthp
-ms.date: 04/27/2020
-ms.openlocfilehash: 8362019365aab002929cc3414e6ca742952fc8ae
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.date: 08/27/2020
+ms.openlocfilehash: 7438351aa9849e3110952043eff8f7d860b5b7de
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320018"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015833"
 ---
 # <a name="manage-your-commercial-marketplace-account-in-partner-center"></a>Come gestire il proprio account del marketplace commerciale nel Centro per i partner
 
@@ -91,16 +91,18 @@ I moduli fiscali possono essere completati e inviati elettronicamente nel Centro
 Paesi e aree geografiche diversi hanno requisiti fiscali diversi. L'importo esatto delle imposte da pagare dipende dai paesi e dalle aree geografiche in cui viene venduta l'offerta. In alcuni paesi o aree geografiche Microsoft versa l'IVA e l'imposta sui beni durevoli per conto dei partner. Questi paesi o aree geografiche verranno identificate durante la pubblicazione dell'offerta. In altri paesi o aree geografiche, a seconda della località in cui viene eseguita la registrazione, potrebbe essere necessario versare l'IVA e l'imposta sui beni durevoli direttamente all'autorità fiscale locale. Gli introiti derivanti dalla vendita potrebbero anche essere tassabili come redditi. È consigliabile contattare l'autorità competente per il proprio paese o area geografica, che fornirà tutte le informazioni fiscali necessarie per le transazioni di vendita di Microsoft.
 
 ##### <a name="withholding-rates"></a>Aliquote di ritenuta d'acconto
+
 Le informazioni inviate nei moduli fiscali determinano l'aliquota di ritenuta d'acconto appropriata. L'aliquota di ritenuta d'acconto si applica solo alle vendite avvenute negli Stati Uniti. Le vendite in aree diverse dagli Stati Uniti non sono soggette a ritenuta. Le aliquote di ritenuta d'acconto variano, ma per la maggior parte degli sviluppatori registrati al di fuori degli Stati Uniti l'aliquota predefinita è del 30%. Questa aliquota può essere ridotta se il proprio paese o area geografica ha accettato una convenzione fiscale con gli Stati Uniti.
 
 ##### <a name="tax-treaty-benefits"></a>Vantaggi della convenzione fiscale
+
 Se non si risiede negli Stati Uniti, è possibile beneficiare dei vantaggi della convenzione fiscale. Tali vantaggi variano a seconda del paese o area geografica e possono ridurre l'importo delle imposte trattenute da Microsoft. È possibile richiedere i vantaggi della convenzione fiscale completando la parte II del modulo W-8BEN. È consigliabile rivolgersi alle autorità competenti del proprio paese o area geografica per determinare l'applicabilità di tali vantaggi alla propria situazione.
 
 [Altre informazioni dettagliate sulle imposte per gli sviluppatori di app/giochi per Windows e per gli editori di Azure Marketplace](https://docs.microsoft.com/windows/uwp/publish/tax-details-for-paid-apps).
 
 #### <a name="payout-hold-status"></a>Stato di blocco pagamenti
 
-Per impostazione predefinita, Microsoft invia i pagamenti su base mensile. Tuttavia, è possibile bloccare i pagamenti, evitando così che vengano inviati all'account. Se si sceglie di bloccare i pagamenti, i ricavi guadagnati continueranno a essere registrati e i dettagli saranno disponibili nel **Riepilogo proventi**. Tuttavia non verranno inviati pagamenti all'account fino a quando non si rimuoverà lo stato di blocco. 
+Per impostazione predefinita, Microsoft invia i pagamenti su base mensile. Tuttavia, è possibile mettere in attesa i pagamenti, in modo da impedire l'invio di pagamenti al proprio account. Se si sceglie di bloccare i pagamenti, i ricavi guadagnati continueranno a essere registrati e i dettagli saranno disponibili nel **Riepilogo proventi**. Tuttavia non verranno inviati pagamenti all'account fino a quando non si rimuoverà lo stato di blocco.
 
 Per bloccare i pagamenti, passare a **Impostazioni account**. In **Dettagli finanziari**, nella sezione **Stato di blocco pagamenti** impostare il dispositivo di scorrimento su **Sì**. È possibile modificare lo stato di blocco dei pagamenti in qualsiasi momento, ma tenere presente che la decisione avrà effetto sul pagamento mensile successivo. Se ad esempio si vuole bloccare il pagamento di aprile, assicurarsi di impostare lo stato di blocco dei pagamenti su **Sì** entro la fine di marzo.
 
@@ -123,8 +125,8 @@ Si consiglia di creare un GUID univoco per ogni canale di offerta e distribuzion
 
 Se si usa un modello per distribuire un prodotto disponibile su Azure Marketplace e su GitHub, è possibile creare e registrare due GUID distinti:
 
-*    Prodotto A su Azure Marketplace
-*    Prodotto A su GitHub
+- Prodotto A su Azure Marketplace
+- Prodotto A su GitHub
 
 La creazione di report viene effettuata in base al valore partner (ID partner Microsoft) e ai GUID. È anche possibile tenere traccia dei GUID a un livello più granulare allineandosi a ogni piano dell'offerta.
 
@@ -138,7 +140,7 @@ L'indirizzo di fatturazione viene prepopolato in base alla persona giuridica ed 
 
 ## <a name="multi-user-account-management"></a>Gestione di account multiutente
 
-Il Centro per i partner utilizza [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) per l'accesso e la gestione di account multiutente. L'istanza di Azure AD dell'organizzazione viene automaticamente associata all'account del Centro per i partner durante il processo di registrazione.
+Il centro per i partner USA [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) (Azure ad) per l'accesso e la gestione di account multiutente. L'istanza di Azure AD dell'organizzazione viene automaticamente associata all'account del Centro per i partner durante il processo di registrazione.
 
 ## <a name="manage-users"></a>Gestire gli utenti
 
@@ -162,13 +164,13 @@ Per aggiungere utenti all'account del Centro per i partner già esistenti nell'[
 1. Passare a **Utenti** (in **Impostazioni account**) e selezionare **Aggiungi utenti**.
 2. Selezionare uno o più utenti nell'elenco visualizzato. È possibile usare la casella di ricerca per cercare utenti specifici.
 *Se si seleziona più di un utente da aggiungere all'account del Centro per i partner, è necessario assegnare loro lo stesso ruolo o set di autorizzazioni personalizzate. Per aggiungere più utenti con ruoli o autorizzazioni diverse, ripetere questi passaggi per ogni ruolo o set di autorizzazioni personalizzate.
-3. Dopo aver scelto gli utenti, fare clic su **Aggiungi elementi selezionati**.
+3. Al termine della scelta degli utenti, selezionare **Aggiungi selezionato**.
 4. Nella sezione **Ruoli** specificare i ruoli o le autorizzazioni personalizzate per gli utenti selezionati.
 5. Selezionare **Salva**.
 
 ### <a name="create-new-users"></a>Creare nuovi utenti
 
-Per creare nuovi account utente, è necessario avere un account con autorizzazioni di [**amministratore globale**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md). 
+Per creare nuovi account utente, è necessario avere un account con autorizzazioni di [**amministratore globale**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 1. Passare a **Utenti** (in **Impostazioni account**), selezionare **Aggiungi utenti**, quindi scegliere **Crea nuovi utenti**.
 1. Immettere un nome, un cognome e un nome utente per ogni nuovo utente. 
@@ -185,7 +187,7 @@ La creazione di un nuovo utente nel Centro per i partner creerà anche un accoun
 Per invitare tramite posta elettronica utenti che attualmente non fanno parte dell'account aziendale (tenant di Azure AD) della società, è necessario un account con autorizzazioni di [**amministratore globale**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md).
 
 1. Passare a **Utenti** (in **Impostazioni account**), selezionare **Aggiungi utenti**, quindi scegliere **Invitare gli utenti tramite posta elettronica**.
-2. Immettere uno o più indirizzi di posta elettronica (fino a dieci), separati da virgola o punto e virgola.
+2. Immettere uno o più indirizzi di posta elettronica (fino a 10), separati da virgole o punti e virgola.
 3. Nella sezione **Ruoli** specificare i ruoli o le autorizzazioni personalizzate per l'utente.
 4. Selezionare **Salva**.
 
@@ -202,11 +204,11 @@ Per rimuovere un utente dall'account aziendale (tenant di Azure AD), passare a *
 
 ### <a name="change-a-user-password"></a>Modificare una password utente
 
-Se uno degli utenti deve modificare la password, può farlo autonomamente se al momento della creazione dell'account si è specificato un **indirizzo e-mail per il ripristino della password**. È anche possibile aggiornare la password di un utente seguendo questa procedura. Per modificare la password di un utente nell'account aziendale della società (tenant di Azure AD), è necessario aver effettuato l'accesso a un account con autorizzazioni di [**amministratore globale**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md). Si noti che in questo modo verrà modificata la password dell'utente nel tenant di Azure AD, insieme alla password usata per accedere al Centro per i partner.
+Se uno degli utenti deve modificare la password, può farlo autonomamente se al momento della creazione dell'account si è specificato un **indirizzo e-mail per il ripristino della password**. È anche possibile aggiornare la password di un utente seguendo questa procedura. Per modificare la password di un utente nell'account aziendale della società (tenant di Azure AD), è necessario aver effettuato l'accesso a un account con autorizzazioni di [**amministratore globale**](../../active-directory/users-groups-roles/directory-assign-admin-roles.md). In questo modo verrà modificata la password dell'utente nel tenant di Azure AD, insieme alla password usata per accedere al centro per i partner.
 
 1. Nella pagina **Utenti** (in **Impostazioni account**) selezionare il nome dell'account utente che si vuole modificare.
 2. Selezionare il pulsante **Reimposta password** nella parte inferiore della pagina.
-3. Verrà visualizzata una pagina di conferma che mostra le informazioni di accesso per l'utente, inclusa una password temporanea. Assicurarsi di stampare o copiare queste informazioni e di farle avere all'utente, perché non sarà possibile accedere alla password temporanea dopo aver lasciato questa pagina.
+3. Verrà visualizzata una pagina di conferma per visualizzare le informazioni di accesso per l'utente, inclusa una password temporanea. Assicurarsi di stampare o copiare queste informazioni e di farle avere all'utente, perché non sarà possibile accedere alla password temporanea dopo aver lasciato questa pagina.
 
 ## <a name="manage-groups"></a>Gestire i gruppi
 
@@ -219,7 +221,7 @@ Per aggiungere un gruppo già esistente nell'account aziendale dell'organizzazio
 1. Nella pagina **Utenti** (in **Impostazioni account**) selezionare **Aggiungi gruppi**.
 2. Selezionare uno o più gruppi dall'elenco visualizzato. È possibile usare la casella di ricerca per cercare gruppi specifici.
 Se si seleziona più di un gruppo da aggiungere all'account del Centro per i partner, è necessario assegnare loro lo stesso ruolo o set di autorizzazioni personalizzate. Per aggiungere più gruppi con ruoli o autorizzazioni diversi, ripetere questi passaggi per ogni ruolo o set di autorizzazioni personalizzate.
-3. Dopo aver scelto i gruppi, fare clic su **Aggiungi elementi selezionati**.
+3. Al termine della scelta di gruppi, selezionare **Aggiungi selezionato**.
 4. Nella sezione **Ruoli** specificare i ruoli o le autorizzazioni personalizzate per i gruppi selezionati. Tutti i membri del gruppo potranno accedere all'account del Centro per i partner con le autorizzazioni applicate al gruppo, indipendentemente dai ruoli e dalle autorizzazioni associati ai rispettivi account.
 5. Selezionare **Salva**.
 
@@ -234,10 +236,10 @@ Per aggiungere un nuovo gruppo all'account del Centro per i partner:
 3. Immettere il nome visualizzato del nuovo gruppo.
 4. Specificare i ruoli o le autorizzazioni personalizzate per il gruppo. Tutti i membri del gruppo potranno accedere all'account del Centro per i partner con le autorizzazioni applicate qui, indipendentemente dai ruoli o dalle autorizzazioni associati ai rispettivi account.
 5. Selezionare gli utenti per il nuovo gruppo nell'elenco visualizzato. È possibile usare la casella di ricerca per cercare utenti specifici.
-6. Dopo aver selezionato gli utenti, fare clic su **Aggiungi elementi selezionati** per aggiungerli al nuovo gruppo.
+6. Al termine della selezione degli utenti, selezionare **Aggiungi selezionati** per aggiungerli al nuovo gruppo.
 7. Selezionare **Salva**.
 
-Si noti che questo nuovo gruppo verrà creato anche nell'account aziendale dell'organizzazione (tenant di Azure AD), non solo nell'account del Centro per i partner.
+Questo nuovo gruppo verrà creato anche nell'account di lavoro dell'organizzazione (tenant Azure AD), non solo nell'account del centro per i partner.
 
 ### <a name="remove-a-group"></a>Rimuovere un gruppo
 
@@ -253,18 +255,18 @@ Per aggiungere applicazioni già esistenti nell'istanza di Azure Active Director
 
 1. Nella pagina **Utenti** (in **Impostazioni account**) selezionare **Aggiungi applicazioni Azure AD**.
 2. Selezionare una o più applicazioni Azure AD dall'elenco visualizzato. È possibile usare la casella di ricerca per cercare applicazioni Azure AD specifiche. Se si seleziona più di un'applicazione Azure AD da aggiungere all'account del Centro per i partner, è necessario assegnare loro lo stesso ruolo o set di autorizzazioni personalizzate. Per aggiungere più applicazioni Azure AD con ruoli o autorizzazioni diversi, ripetere questi passaggi per ogni ruolo o set di autorizzazioni personalizzate.
-3. Dopo avere selezionato le applicazioni Azure AD, fare clic su **Aggiungi elementi selezionati**.
+3. Al termine della selezione Azure AD applicazioni, selezionare **Aggiungi selezionato**.
 4. Nella sezione **Ruoli** specificare i ruoli o le autorizzazioni personalizzate per le applicazioni Azure AD selezionate.
 5. Selezionare **Salva**.
 
 ### <a name="add-new-azure-ad-applications"></a>Aggiungere nuove applicazioni Azure AD
 
-Per concedere all'account di una nuova applicazione Azure AD l'accesso al Centro per i partner, è possibile crearne uno nella sezione **Utenti**. Si noti che in questo modo verrà creato un nuovo account nell'account aziendale della società (tenant di Azure AD), non solo nell'account del Centro per i partner. Se si usa questa applicazione Azure AD soprattutto per l'autenticazione del Centro per i partner e non è necessario che gli utenti vi accedano direttamente, è possibile immettere un indirizzo valido per **URL di risposta** e **URI ID app**, purché tali valori non vengano usati da altre applicazioni Azure AD nella directory.
+Per concedere all'account di una nuova applicazione Azure AD l'accesso al Centro per i partner, è possibile crearne uno nella sezione **Utenti**. Verrà creato un nuovo account nell'account aziendale dell'azienda (tenant Azure AD), non solo nell'account del centro per i partner. Se si usa questa applicazione Azure AD soprattutto per l'autenticazione del Centro per i partner e non è necessario che gli utenti vi accedano direttamente, è possibile immettere un indirizzo valido per **URL di risposta** e **URI ID app**, purché tali valori non vengano usati da altre applicazioni Azure AD nella directory.
 
 1. Nella pagina **Utenti** (in **Impostazioni account**) selezionare **Aggiungi applicazioni Azure AD**.
 2. Nella pagina successiva selezionare **Nuova applicazione Azure AD**.
 3. Immettere l'**URL di risposta** per la nuova applicazione Azure AD. Si tratta dell'URL dove gli utenti possono accedere e usare l'applicazione Azure AD (noto anche come URL dell'app o URL di accesso). L'**URL di risposta** non può contenere più di 256 caratteri e deve essere univoco all'interno della directory.
-4. Immettere l'**URI ID app** per la nuova applicazione Azure AD. Si tratta di un identificatore logico per l'applicazione Azure AD, presentato quando viene inviata ad Azure AD una richiesta di accesso Single Sign-On. Si noti che l'**URI ID app** deve essere univoco per ogni applicazione Azure AD nella directory. Questo ID può contenere al massimo 256 caratteri. Per altre informazioni sull'URI ID app, vedere [integrazione di applicazioni con Azure Active Directory](../../active-directory/develop/quickstart-modify-supported-accounts.md#change-the-application-registration-to-support-different-accounts)).
+4. Immettere l'**URI ID app** per la nuova applicazione Azure AD. Si tratta di un identificatore logico per l'applicazione Azure AD, presentato quando viene inviata ad Azure AD una richiesta di accesso Single Sign-On. L' **URI ID app** deve essere univoco per ogni Azure ad applicazione nella directory. Questo ID può contenere al massimo 256 caratteri. Per altre informazioni sull'URI ID app, vedere [integrazione di applicazioni con Azure Active Directory](../../active-directory/develop/quickstart-modify-supported-accounts.md#change-the-application-registration-to-support-different-accounts)).
 5. Nella sezione **Ruoli** specificare i ruoli o le autorizzazioni personalizzate per l'applicazione Azure AD.
 6. Selezionare **Salva**.
 
@@ -278,7 +280,7 @@ Per rimuovere un'applicazione dall'account aziendale (tenant di Azure AD), passa
 
 Se l'applicazione Azure AD legge e scrive i dati in Microsoft Azure AD, sarà necessaria una chiave. È possibile creare chiavi per un'applicazione Azure AD modificandone le informazioni nel Centro per i partner. È anche possibile rimuovere le chiavi che non sono più necessarie.
 
-1. Nella pagina **Utenti** (in **Impostazioni account**) selezionare il nome dell'applicazione Azure AD. Verranno visualizzate tutte le chiavi attive per l'applicazione Azure AD, inclusa la data di creazione e di scadenza della chiave. 
+1. Nella pagina **Utenti** (in **Impostazioni account**) selezionare il nome dell'applicazione Azure AD. Verranno visualizzate tutte le chiavi attive per l'applicazione Azure AD, inclusa la data in cui è stata creata la chiave e il momento in cui scadrà 50.
 2. Per rimuovere una chiave non più necessaria, selezionare **Rimuovi**.
 3. Per aggiungere una nuova chiave, selezionare **Aggiungi nuova chiave**.
 4. Verrà visualizzata una schermata con i valori **ID client** e **Chiave**. Assicurarsi di stampare o copiare queste informazioni perché non sarà possibile accedervi di nuovo dopo aver lasciato questa pagina.
@@ -286,8 +288,10 @@ Se l'applicazione Azure AD legge e scrive i dati in Microsoft Azure AD, sarà ne
 
 ## <a name="define-user-roles-and-permissions"></a>Definire autorizzazioni e ruoli utente
 
-Agli utenti della società è possibile assegnare i ruoli e le autorizzazioni seguenti per il programma Marketplace commerciale nel Centro per i partner:
+Agli utenti della società è possibile assegnare i seguenti ruoli e autorizzazioni per il programma Commercial Marketplace nel centro per i partner:
 
+- **Proprietario**
+  - "Questa è la persona che ha creato l'account e ha l'accesso completo, inclusa la possibilità di creare e modificare tutti gli utenti dell'account e di modificare tutte le impostazioni finanziarie e degli account. Un account ha in genere un solo proprietario. "
 - **Responsabile**
   - Può accedere a tutte le funzionalità dell'account Microsoft a eccezione delle impostazioni di imposte e pagamenti
   - Può gestire utenti, ruoli e account aziendali (tenant)
@@ -341,6 +345,6 @@ Quando si rimuove un tenant, tutti gli utenti aggiunti all'account del Centro pe
 
 ## <a name="agreements"></a>Contratti
 
-La sezione **Accordi** del Centro per i partner (in **Impostazioni account**) consente di visualizzare un elenco dei contratti di pubblicazione autorizzati. Questi contratti sono elencati in base al nome e al numero di versione, inclusa la data di accettazione e il nome dell'utente che ha accettato il contratto.
+La sezione **contratti** di centro per i partner (in **Impostazioni account**) consente di visualizzare un elenco dei contratti di pubblicazione autorizzati. Questi contratti sono elencati in base al nome e al numero di versione, inclusa la data di accettazione e il nome dell'utente che ha accettato il contratto.
 
 È possibile che nella parte superiore della pagina venga visualizzato il messaggio **Azioni necessarie** se sono presenti aggiornamenti dei contratti che richiedono attenzione. Per accettare un contratto aggiornato, leggere prima la versione del contratto collegata, quindi selezionare **Accetto contratto**.

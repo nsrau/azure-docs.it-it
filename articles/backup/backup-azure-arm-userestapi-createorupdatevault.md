@@ -4,16 +4,16 @@ description: Questo articolo illustra come gestire le operazioni di backup e rip
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: e54750b4-4518-4262-8f23-ca2f0c7c0439
-ms.openlocfilehash: c4aa88399bfbdd7814864170d9861a7b7d14dc58
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: d0baac97b7a1bfb5ac55ee8cacc40dc8f13994a5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757252"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012603"
 ---
 # <a name="create-azure-recovery-services-vault-using-rest-api"></a>Creare un insieme di credenziali di servizi di ripristino di Azure usando l'API
 
-I passaggi per creare un insieme di credenziali di servizi di ripristino di Azure tramite l'API REST sono descritti nella documentazione sull' [API REST di creazione](/rest/api/recoveryservices/vaults/createorupdate) dell'insieme di credenziali. Questo documento verrà usato come riferimento per creare un insieme di credenziali denominato "testVault" nell'area Stati Uniti occidentali ("West US").
+I passaggi per creare un insieme di credenziali di servizi di ripristino di Azure tramite l'API REST sono descritti nella documentazione sull' [API REST di creazione](/rest/api/recoveryservices/vaults/createorupdate) dell'insieme di credenziali. Si userà questo documento come riferimento per creare un insieme di credenziali denominato "testVault" in "Stati Uniti occidentali".
 
 Per creare o aggiornare un insieme di credenziali di Servizi di ripristino di Azure, usare l'operazione *PUT* seguente.
 
@@ -38,10 +38,10 @@ Per altre informazioni su come creare la richiesta, vedere [Componenti di una ri
 
 Per compilare un corpo della richiesta vengono usate le definizioni comuni seguenti:
 
-|Nome  |Obbligatoria  |Tipo  |Descrizione  |
+|Name  |Obbligatorio  |Tipo  |Descrizione  |
 |---------|---------|---------|---------|
-|eTag     |         |   string      |  eTag facoltativo       |
-|posizione     |  true       |string         |   Posizione risorsa      |
+|eTag     |         |   String      |  eTag facoltativo       |
+|posizione     |  true       |String         |   Posizione risorsa      |
 |properties     |         | [VaultProperties](/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  Proprietà dell'insieme di credenziali       |
 |sku     |         |  [Sku](/rest/api/recoveryservices/vaults/createorupdate#sku)       |    Indica l'identificatore di sistema univoco per ogni risorsa di Azure     |
 |tags     |         | Oggetto        |     Tag delle risorse    |

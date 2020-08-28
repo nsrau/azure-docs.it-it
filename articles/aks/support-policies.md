@@ -6,12 +6,12 @@ author: jnoller
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: be80c0d5999ed06bcc505ec5737e7e416d28b981
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c51b5c4d9cd7362aeda0a0998d8031d0ba358ce1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87050681"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012348"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Criteri di supporto del servizio Azure Kubernetes
 
@@ -20,7 +20,7 @@ Questo articolo fornisce informazioni dettagliate sulle limitazioni e sui criter
 ## <a name="service-updates-and-releases"></a>Versioni e aggiornamenti del servizio
 
 * Per informazioni sulle versioni, vedere [AKS release notes](https://github.com/Azure/AKS/releases) (Note sulle versioni del servizio Azure Kubernetes).
-* Per informazioni sulle funzionalità disponibili in anteprima, vedere [AKS Preview Features and Related Projects](https://github.com/Azure/AKS/blob/master/previews.md) (Funzionalità di anteprima del servizio Azure Kubernetes e progetti correlati).
+* Per informazioni sulle funzionalità disponibili in anteprima, vedere [AKS Preview Features and Related Projects](https://awesomeopensource.com/projects/aks?categoryPage=11) (Funzionalità di anteprima del servizio Azure Kubernetes e progetti correlati).
 
 ## <a name="managed-features-in-aks"></a>Funzionalità gestite nel servizio Azure Kubernetes
 
@@ -149,7 +149,7 @@ Il servizio Azure Kubernetes supporta solo funzionalità stabili all'interno del
 Solo in due scenari è consentita l'implementazione di funzionalità alpha o beta prima della loro disponibilità generale:
 
 * Clienti che hanno incontrato i team di supporto, di prodotto o di progettazione del servizio Azure Kubernetes e hanno chiesto di provare le nuove funzionalità.
-* Queste funzionalità vengono [abilitate da un flag di funzionalità](https://github.com/Azure/AKS/blob/master/previews.md). I clienti devono acconsentire esplicitamente all'uso di queste funzionalità.
+* Queste funzionalità vengono [abilitate da un flag di funzionalità](https://awesomeopensource.com/projects/aks?categoryPage=11). I clienti devono acconsentire esplicitamente all'uso di queste funzionalità.
 
 ## <a name="preview-features-or-feature-flags"></a>Funzionalità in anteprima o flag di funzionalità
 

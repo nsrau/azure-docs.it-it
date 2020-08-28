@@ -6,12 +6,13 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 01/03/2020
 ms.author: twooley
-ms.openlocfilehash: eb950f6029511cf834791c161e6a730bcadcabcc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 1044af94df43e61ae8c0032041bc80a356331f1a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85515657"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022463"
 ---
 # <a name="filesystem-operations-on-data-lake-storage-gen1-using-the-net-sdk"></a>Operazioni del file System su Data Lake Storage Gen1 con .NET SDK
 
@@ -48,8 +49,8 @@ Il codice di esempio disponibile in [GitHub](https://github.com/Azure-Samples/da
    1. Nella scheda **Gestione pacchetti NuGet** verificare che l'origine del **pacchetto** sia impostata su **NuGet.org**. Assicurarsi inoltre che sia selezionata la casella di controllo **Includi versione preliminare** .
    1. Cercare e installare i pacchetti NuGet seguenti:
 
-      * `Microsoft.Azure.DataLake.Store`-Questo articolo usa la versione 1.0.0.
-      * `Microsoft.Rest.ClientRuntime.Azure.Authentication`-Questo articolo USA v 2.3.1.
+      * `Microsoft.Azure.DataLake.Store` -Questo articolo usa la versione 1.0.0.
+      * `Microsoft.Rest.ClientRuntime.Azure.Authentication` -Questo articolo USA v 2.3.1.
 
       Chiudere **Gestione pacchetti NuGet**.
 

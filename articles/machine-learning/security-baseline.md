@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/19/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 9d288c8d3f521467c8d15e027e2530ff879b37af
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 203ca95368d313055d7c715a3a3becbc1061582c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642909"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015085"
 ---
 # <a name="azure-security-baseline-for-azure-machine-learning"></a>Baseline della sicurezza di Azure per Azure Machine Learning
 
@@ -270,9 +270,9 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
 
 Azure Machine Learning offre un supporto variabile tra le diverse risorse di calcolo e anche le risorse di calcolo. Per le risorse di calcolo di proprietà dell'organizzazione, abilitare la raccolta di eventi antimalware per Microsoft antimalware per servizi cloud e macchine virtuali di Azure.
 
-- [Come configurare Microsoft antimalware per una macchina virtuale](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azurevmmicrosoftantimalwareextension?view=azuresmps-4.0.0)
+- [Come configurare Microsoft antimalware per una macchina virtuale](/powershell/module/servicemanagement/azure.service/set-azurevmmicrosoftantimalwareextension)
 
-- [Come configurare l'estensione Microsoft antimalware per i servizi cloud](https://docs.microsoft.com/powershell/module/servicemanagement/azure/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
+- [Come configurare l'estensione Microsoft antimalware per i servizi cloud](/powershell/module/servicemanagement/azure.service/set-azureserviceantimalwareextension?view=azuresmps-4.0.0)
 
 - [Informazioni su Microsoft antimalware](../security/fundamentals/antimalware.md)
 
