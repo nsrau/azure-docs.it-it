@@ -3,12 +3,13 @@ title: 'Hub eventi di Azure: eventi di scambio usando protocolli diversi'
 description: Questo articolo illustra in che modo i consumer e i producer che usano protocolli diversi (AMQP, Apache Kafka e HTTPS) possono scambiare eventi quando usano Hub eventi di Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 6cdc4b9040f314b4ec41f84cc7436f0f2e3d6af6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: cbc6999e3ede73b948ce034769966922b4b0f282
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87002506"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89010320"
 ---
 # <a name="exchange-events-between-consumers-and-producers-that-use-different-protocols-amqp-kafka-and-https"></a>Scambiare eventi tra consumer e producer che usano protocolli diversi: AMQP, Kafka e HTTPS
 Hub eventi di Azure supporta tre protocolli per consumer e producer: Kafka, AMQP e HTTPS. Ognuno di questi protocolli rappresenta un messaggio in modo univoco, pertanto sorge la domanda seguente: se un'applicazione invia eventi a un hub eventi con un protocollo e li usa con un protocollo diverso, in che modo le varie parti e i valori dell'evento verranno visualizzati dal consumer? Questo articolo illustra le procedure consigliate per producer e consumer per garantire che i valori all'interno di un evento vengano interpretati correttamente dall'applicazione consumer.

@@ -4,12 +4,12 @@ description: Questo articolo illustra come ripristinare file e cartelle da un pu
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.custom: references_regions
-ms.openlocfilehash: 7b9d97e518282cf150a8f54225c11d9edcbf8892
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 7ff746b85142714c129c04e7f8a3d20ac4b6cb53
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892576"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020168"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Ripristinare i file da un backup della macchina virtuale di Azure
 
@@ -386,7 +386,7 @@ Lo script generato è firmato con il certificato Microsoft ufficiale per il serv
 
 Solo un amministratore può eseguire lo script e l'operazione deve essere eseguita in modalità con privilegi elevati. Lo script esegue solo un set di passaggi pregenerati e non accetta input da un'origine esterna.
 
-Per eseguire lo script, è necessaria una password che viene visualizzata solo all'utente autorizzato al momento della generazione dello script nel portale di Azure o in PowerShell/CLI. In questo modo, l'utente autorizzato che Scarica lo script è anche responsabile dell'esecuzione dello script.
+Per eseguire lo script, è necessaria una password che viene visualizzata solo all'utente autorizzato al momento della generazione dello script nella portale di Azure o in PowerShell/CLI. In questo modo, l'utente autorizzato che Scarica lo script è anche responsabile dell'esecuzione dello script.
 
 #### <a name="browse-files-and-folders"></a>Esplorare file e cartelle
 

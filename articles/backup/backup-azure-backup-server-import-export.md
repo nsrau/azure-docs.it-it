@@ -3,12 +3,12 @@ title: Backup offline per DPM e server di Backup di Azure
 description: Con backup di Azure è possibile inviare dati fuori rete usando il servizio importazione/esportazione di Azure. Questo articolo illustra il flusso di lavoro di backup offline per DPM e server di Backup di Azure.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 221424871aa4f022e199c98e95024ec20e55d803
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 909c7cc85590005afd3b6bd32a94020937f96c32
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890077"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89002012"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Flusso di lavoro di backup offline per DPM e server di Backup di Azure (MAB)
 
@@ -192,7 +192,7 @@ La quantità di tempo necessaria per elaborare un processo di importazione di Az
 
 ### <a name="complete-the-workflow"></a>Completare il flusso di lavoro
 
-Al termine del processo di importazione, i dati di backup iniziali saranno disponibili nell'account di archiviazione. Al momento del backup pianificato successivo, Backup di Azure copia il contenuto dei dati dall'account di archiviazione all'insieme di credenziali di Servizi di ripristino.
+Al termine del processo di importazione, i dati di backup iniziali saranno disponibili nell'account di archiviazione. Al momento del backup pianificato successivo, backup di Azure copia il contenuto dei dati dall'account di archiviazione nell'insieme di credenziali di servizi di ripristino.
 
 Al momento del successivo processo di creazione di replica online pianificato, Data Protection Manager esegue il backup incrementale sulla copia di backup iniziale.
 

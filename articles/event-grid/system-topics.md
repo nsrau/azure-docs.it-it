@@ -2,13 +2,13 @@
 title: Argomenti di sistema in griglia di eventi di Azure
 description: Descrive gli argomenti di sistema in griglia di eventi di Azure.
 ms.topic: conceptual
-ms.date: 07/07/2020
-ms.openlocfilehash: 655ec5f0ad23b3902c1c99ba75eef2ef428911eb
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 08/27/2020
+ms.openlocfilehash: f5ca472ab5141207222987d476284813c2aacf56
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119923"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019097"
 ---
 # <a name="system-topics-in-azure-event-grid"></a>Argomenti di sistema in griglia di eventi di Azure
 Un argomento di sistema in griglia di eventi rappresenta uno o più eventi pubblicati da servizi di Azure, ad esempio archiviazione di Azure e hub eventi di Azure. Un argomento di sistema, ad esempio, può rappresentare **tutti gli eventi BLOB** o solo gli eventi BLOB **creati** e BLOB **eliminati** per un **account di archiviazione specifico**. In questo esempio, quando un BLOB viene caricato nell'account di archiviazione, il servizio di archiviazione di Azure pubblica un evento **BLOB creato** nell'argomento sistema in griglia di eventi, che quindi trasmette l'evento ai [sottoscrittori](event-handlers.md) dell'argomento che ricevono ed elaborano l'evento. 
@@ -57,7 +57,7 @@ La creazione dell'argomento di sistema non riesce se sono stati configurati crit
 ## <a name="location-and-resource-group-for-a-system-topic"></a>Percorso e gruppo di risorse per un argomento di sistema
 Per le origini eventi di Azure che si trovano in un'area o in una località specifica, l'argomento di sistema viene creato nella stessa posizione dell'origine eventi di Azure. Se, ad esempio, si crea una sottoscrizione di eventi per un archivio BLOB di Azure nell'area Stati Uniti orientali, l'argomento di sistema viene creato nell'area Stati Uniti orientali. Per le origini eventi globali di Azure, ad esempio le sottoscrizioni di Azure, i gruppi di risorse o le mappe di Azure, griglia di eventi crea l'argomento di sistema in posizione **globale** . 
 
-In generale, l'argomento di sistema viene creato nello stesso gruppo di risorse in cui si trova l'origine evento di Azure. Per le sottoscrizioni di eventi create nell'ambito della sottoscrizione di Azure, l'argomento di sistema viene creato nel gruppo **di risorse default-EventGrid**. Se il gruppo di risorse non esiste, griglia di eventi di Azure lo crea prima di creare l'argomento di sistema. 
+In generale, l'argomento di sistema viene creato nello stesso gruppo di risorse in cui si trova l'origine evento di Azure. Per le sottoscrizioni di eventi create nell'ambito della sottoscrizione di Azure, l'argomento di sistema viene creato nel gruppo di risorse **default-EventGrid** nell'area **Stati Uniti occidentali 2** . Se il gruppo di risorse non esiste, griglia di eventi di Azure lo crea prima di creare l'argomento di sistema. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere gli articoli seguenti: 

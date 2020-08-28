@@ -8,12 +8,13 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: philmea
-ms.openlocfilehash: c0a8680dc5c06bd1527b2cca732b58f484101a96
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ba4f67f924455b911d76426231cc71b661faf4a0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286496"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89020338"
 ---
 # <a name="symmetric-key-attestation"></a>Attestazione con chiave simmetrica
 
@@ -46,7 +47,7 @@ I token di firma di accesso condiviso hanno il formato seguente:
 
 Di seguito sono riportati i componenti di ciascun token:
 
-| valore | Descrizione |
+| Valore | Descrizione |
 | --- | --- |
 | {signature} |Stringa della firma HMAC-SHA256. Per le registrazioni individuali, questa firma viene generata utilizzando la chiave simmetrica (primaria o secondaria) per eseguire il codice hash. Per i gruppi di registrazioni, viene usata una chiave derivata dalla chiave del gruppo di registrazioni per eseguire il codice hash. Il codice hash viene eseguito su un messaggio nel formato: `URL-encoded-resourceURI + "\n" + expiry`. **Importante**: la chiave deve essere decodificata dalla codifica Base64 prima di essere usata come chiave per eseguire il calcolo di HMAC-SHA256. Inoltre, il risultato di firma deve essere codificato con URL. |
 | {resourceURI} |URI dell'endpoint di registrazione a cui è possibile accedere tramite questo token, a partire da ID ambito per l'istanza del servizio Device Provisioning. Ad esempio, usare `{Scope ID}/registrations/{Registration ID}` |

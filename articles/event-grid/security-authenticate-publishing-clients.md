@@ -3,12 +3,13 @@ title: Autenticare i client che pubblicano eventi in argomenti o domini personal
 description: Questo articolo descrive le diverse modalità di autenticazione dei client che pubblicano eventi in argomenti personalizzati di griglia di eventi.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 8b08c46fdeadccfad0471ddfa4f9ba2762a951a0
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e934ce0d8f5e31dc8dd7592a2e553cd278af2b10
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837398"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019114"
 ---
 # <a name="authenticate-publishing-clients-azure-event-grid"></a>Autenticare i client di pubblicazione (griglia di eventi di Azure)
 Questo articolo fornisce informazioni sull'autenticazione dei client che pubblicano eventi negli argomenti o nei domini di griglia di eventi di Azure usando la **chiave di accesso** o il token di **firma di accesso condiviso (SAS)** . È consigliabile usare il token di firma di accesso condiviso, ma l'autenticazione con chiave fornisce una programmazione semplice ed è compatibile con molti autori di Webhook esistenti.  

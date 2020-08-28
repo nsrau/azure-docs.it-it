@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 06/09/2020
+ms.date: 08/27/2020
 ms.author: victorh
-ms.openlocfilehash: be2bf0f9590a23f9def44a1800338c80f69a782c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 25c2096de4c3643a4e6a3ba7bdad1e69ae93a179
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610524"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019080"
 ---
 # <a name="azure-firewall-snat-private-ip-address-ranges"></a>Intervalli di indirizzi IP privati SNAT del firewall di Azure
 
@@ -23,6 +23,9 @@ Questa logica funziona correttamente quando si instrada il traffico direttamente
 Se l'organizzazione usa un intervallo di indirizzi IP pubblici per le reti private, Firewall di Azure invierà il traffico tramite SNAT a uno degli indirizzi IP privati firewall in AzureFirewallSubnet. Tuttavia, è possibile configurare il firewall di Azure in modo che **non** SNAT l'intervallo di indirizzi IP pubblici.
 
 Per configurare il firewall di Azure in modo che non SNAT mai indipendentemente dall'indirizzo IP di destinazione, usare **0.0.0.0/0** come intervallo di indirizzi IP privati. Con questa configurazione, il firewall di Azure non può mai instradare il traffico direttamente a Internet. Per configurare il firewall in modo che sia sempre SNAT indipendentemente dall'indirizzo di destinazione, usare **255.255.255.255/32** come intervallo di indirizzi IP privati.
+
+> [!IMPORTANT]
+> Se si desidera specificare gli intervalli di indirizzi IP privati e mantenere gli intervalli di indirizzi IANA RFC 1918 predefiniti, assicurarsi che nell'elenco personalizzato sia ancora incluso l'intervallo IANA RFC 1918. 
 
 ## <a name="configure-snat-private-ip-address-ranges---azure-powershell"></a>Configurare gli intervalli di indirizzi IP privati SNAT-Azure PowerShell
 
