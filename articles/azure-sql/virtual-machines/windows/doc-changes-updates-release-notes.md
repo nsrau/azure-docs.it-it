@@ -10,18 +10,25 @@ ms.service: virtual-machines-sql
 ms.topic: conceptual
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 01/06/2020
-ms.openlocfilehash: df1e1e90b35c29678151d4f9159195f829022a62
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.date: 08/20/2020
+ms.openlocfilehash: 5f0ba27a0964f08b32e1af19d6f578b3f41ee300
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236625"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006415"
 ---
 # <a name="documentation-changes-for-sql-server-on-azure-virtual-machines"></a>Modifiche alla documentazione di SQL Server in Macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Azure consente di distribuire una macchina virtuale (VM) con un'immagine di SQL Server predefinita. Questo articolo presenta una sintesi delle modifiche alla documentazione associate alle nuove funzionalità e ai miglioramenti introdotti nelle recenti versioni di [SQL Server in Macchine virtuali di Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). 
+
+## <a name="august-2020"></a>Agosto 2020
+
+| Modifiche | Dettagli |
+| --- | --- |
+| **Configurare il gruppo di disponibilità nel portale** | È ora possibile [configurare il gruppo di disponibilità tramite il portale di Azure](availability-group-azure-portal-configure.md). Questa funzionalità è attualmente in fase di anteprima e viene distribuita, quindi, se l'area desiderata non è disponibile, riprovare più tardi. | 
+
 
 ## <a name="july-2020"></a>Luglio 2020
 

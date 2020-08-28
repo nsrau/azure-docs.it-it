@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 03/26/2020
+ms.date: 08/10/2020
 ms.author: juliako
 ms.custom: devx-track-javascript
-ms.openlocfilehash: afc49e959061bcd2327f1c3a4f988c9ed6e5ce11
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 5f418384d4ec1272600df2488dc71d2102d6a24d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87414021"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011804"
 ---
 # <a name="embed-video-indexer-widgets-in-your-apps"></a>Incorporare Widget Video Indexer nelle app
 
@@ -30,20 +30,20 @@ A partire dalla versione 2, l'URL di base del widget include l'area dell'account
 
 Un widget Cognitive Insights include tutte le informazioni dettagliate visive estratte dal processo di indicizzazione del video. Il widget cognitive Insights supporta i parametri URL facoltativi seguenti:
 
-|Nome|Definizione|Descrizione|
+|Name|Definizione|Descrizione|
 |---|---|---|
 |`widgets` | Stringhe separate da virgola | Consente di controllare le informazioni dettagliate di cui si vuole eseguire il rendering.<br/>Esempio: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,keywords` esegue il rendering solo di utenti e parole chiave interfaccia utente Insights.<br/>Opzioni disponibili: People, animatedCharacters, keywords, labels, sentimentals, Emotions, topics, KeyFrames, transcript, OCR, Speakers, Scenes e namedEntities.|
 |`controls`|Stringhe separate da virgola|Consente di controllare i controlli di cui si desidera eseguire il rendering.<br/>Esempio: Visualizza `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?controls=search,download` solo l'opzione di ricerca e il pulsante di download.<br/>Opzioni disponibili: ricerca, download, set di impostazioni, lingua.|
 |`language`|Un codice di lingua breve (nome del linguaggio)|Controlla il linguaggio Insights.<br/>Esempio: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=es-es` <br/>o `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?language=spanish`|
 |`locale` | Un codice di lingua breve | Controlla la lingua dell'interfaccia utente. Il valore predefinito è `en`. <br/>Esempio: `locale=de`.|
 |`tab` | Scheda selezionata predefinita | Controlla la scheda **Insights** di cui è stato eseguito il rendering per impostazione predefinita. <br/>Esempio: `tab=timeline` esegue il rendering delle informazioni dettagliate con la scheda **sequenza temporale** selezionata.|
-|`location` ||Il `location` parametro deve essere incluso nei collegamenti incorporati, vedere [come ottenere il nome dell'area](regions.md). Se l'account è in anteprima, `trial` per il valore del percorso è necessario usare. `trial`è il valore predefinito per il `location` parametro.| 
+|`location` ||Il `location` parametro deve essere incluso nei collegamenti incorporati, vedere [come ottenere il nome dell'area](regions.md). Se l'account è in anteprima, `trial` per il valore del percorso è necessario usare. `trial` è il valore predefinito per il `location` parametro.| 
 
 ### <a name="player-widget"></a>Widget Player
 
 È possibile usare il widget Player per eseguire lo streaming di video usando la velocità in bit adattiva. Il widget Player supporta i parametri URL facoltativi seguenti.
 
-|Nome|Definizione|Descrizione|
+|Name|Definizione|Descrizione|
 |---|---|---|
 |`t` | Secondi dall'inizio | Consente di avviare la riproduzione del lettore dal punto di tempo specificato.<br/> Esempio: `t=60`. |
 |`captions` | Codice lingua | Recupera la didascalia nella lingua specificata durante il caricamento del widget affinché sia disponibile nel menu **didascalie** .<br/> Esempio: `captions=en-US`. |
@@ -51,18 +51,18 @@ Un widget Cognitive Insights include tutte le informazioni dettagliate visive es
 |`type`| | Attiva un'interfaccia del lettore audio (la parte video viene rimossa).<br/> Esempio: `type=audio`. |
 |`autoplay` | Un valore booleano | Indica se il lettore deve iniziare a riprodurre il video quando viene caricato. Il valore predefinito è `true`.<br/> Esempio: `autoplay=false`. |
 |`language`/`locale` | Codice lingua | Controlla la lingua del lettore. Il valore predefinito è `en-US`.<br/>Esempio: `language=de-DE`.|
-|`location` ||Il `location` parametro deve essere incluso nei collegamenti incorporati, vedere [come ottenere il nome dell'area](regions.md). Se l'account è in anteprima, `trial` per il valore del percorso è necessario usare. `trial`è il valore predefinito per il `location` parametro.| 
+|`location` ||Il `location` parametro deve essere incluso nei collegamenti incorporati, vedere [come ottenere il nome dell'area](regions.md). Se l'account è in anteprima, `trial` per il valore del percorso è necessario usare. `trial` è il valore predefinito per il `location` parametro.| 
 
 ### <a name="editor-widget"></a>Widget editor
 
 È possibile usare il widget editor per creare nuovi progetti e gestire le informazioni dettagliate di un video. Il widget editor supporta i parametri URL facoltativi seguenti.
 
-|Nome|Definizione|Descrizione|
+|Name|Definizione|Descrizione|
 |---|---|---|
 |`accessToken`<sup>*</sup> | string | Consente di accedere ai video che si trovano solo nell'account usato per incorporare il widget.<br> Il widget dell'Editor richiede il `accessToken` parametro. |
 |`language` | Codice lingua | Controlla la lingua del lettore. Il valore predefinito è `en-US`.<br/>Esempio: `language=de-DE`. |
 |`locale` | Un codice di lingua breve | Controlla il linguaggio Insights. Il valore predefinito è `en`.<br/>Esempio: `language=de`. |
-|`location` ||Il `location` parametro deve essere incluso nei collegamenti incorporati, vedere [come ottenere il nome dell'area](regions.md). Se l'account è in anteprima, `trial` per il valore del percorso è necessario usare. `trial`è il valore predefinito per il `location` parametro.| 
+|`location` ||Il `location` parametro deve essere incluso nei collegamenti incorporati, vedere [come ottenere il nome dell'area](regions.md). Se l'account è in anteprima, `trial` per il valore del percorso è necessario usare. `trial` è il valore predefinito per il `location` parametro.| 
 
 <sup>*</sup>Il proprietario deve prestare `accessToken` attenzione.
 
@@ -70,7 +70,7 @@ Un widget Cognitive Insights include tutte le informazioni dettagliate visive es
 
 Questa sezione illustra come incorporare il contenuto pubblico e privato nelle app.
 
-Il `location` parametro deve essere incluso nei collegamenti incorporati, vedere [come ottenere il nome dell'area](regions.md). Se l'account è in anteprima, `trial` per il valore del percorso è necessario usare. `trial`è il valore predefinito per il `location` parametro. Ad esempio: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+Il `location` parametro deve essere incluso nei collegamenti incorporati, vedere [come ottenere il nome dell'area](regions.md). Se l'account è in anteprima, `trial` per il valore del percorso è necessario usare. `trial` è il valore predefinito per il `location` parametro. Ad esempio: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
 
 > [!IMPORTANT]
 > La condivisione di un collegamento per il widget **Player** o **Insights** includerà il token di accesso e consentirà di concedere le autorizzazioni di sola lettura all'account.
@@ -102,6 +102,17 @@ Per fornire funzionalità di modifica di Insights nel widget incorporato, è nec
 Il widget cognitive Insights può interagire con un video nell'app. Questa sezione illustra come ottenere questa interazione.
 
 ![Video Indexer widget cognitive Insights](./media/video-indexer-embed-widgets/video-indexer-widget03.png)
+
+### <a name="flow-overview"></a>Panoramica del flusso
+
+Quando si modificano le trascrizioni, si verifica il flusso seguente:
+
+1. Si modifica la trascrizione nella sequenza temporale.
+1. Video Indexer ottiene questi aggiornamenti e li salva nelle [modifiche da trascrizione](customize-language-model-with-website.md#customize-language-models-by-correcting-transcripts) nel modello di lingua.
+1. Le didascalie vengono aggiornate:
+
+    * Se si usa il widget Player di Video Indexer, questo viene aggiornato automaticamente.
+    * Se si usa un lettore esterno, si ottiene un nuovo file di didascalie utente la chiamata **Get video captions** .
 
 ### <a name="cross-origin-communications"></a>Comunicazioni tra le origini
 

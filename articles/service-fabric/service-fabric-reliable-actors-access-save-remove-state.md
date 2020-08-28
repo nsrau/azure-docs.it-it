@@ -5,12 +5,13 @@ author: vturecek
 ms.topic: conceptual
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 788c337a37ec66c5aa1521c5cd9f2816ed7a8bf9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e97fadb374fc45110f5071aab48da0a57eef4284
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75645634"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012790"
 ---
 # <a name="access-save-and-remove-reliable-actors-state"></a>Accedere, salvare e rimuovere lo stato di Reliable Actors
 I [Reliable Actors](service-fabric-reliable-actors-introduction.md) sono oggetti a thread singolo che possono incapsulare sia la logica che lo stato e mantenere lo stato in modo affidabile. Ogni istanza dell'attore ha un proprio [gestore di stato](service-fabric-reliable-actors-state-management.md): una struttura di dati simile a un dizionario che archivia in modo affidabile le coppie chiave/valore. Il gestore di stato è un wrapper per il provider di stato. È possibile usarlo per archiviare i dati indipendentemente dall' [impostazione di persistenza](service-fabric-reliable-actors-state-management.md#state-persistence-and-replication) usata.

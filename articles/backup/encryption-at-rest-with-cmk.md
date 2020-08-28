@@ -3,12 +3,12 @@ title: Crittografia dei dati di backup tramite chiavi gestite dal cliente
 description: Informazioni su come backup di Azure consente di crittografare i dati di backup usando chiavi gestite dal cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 55b994d287e4e2d3971b43359936815822bc18a4
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 989b06b62f2db8df5504107eee8ed26710d13a57
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892644"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022412"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Crittografia dei dati di backup tramite chiavi gestite dal cliente
 
@@ -242,7 +242,7 @@ No, la crittografia CMK può essere abilitata solo per i nuovi insiemi di creden
 
 No, l'insieme di credenziali non deve avere alcun tentativo di proteggere gli elementi nel passato.
 
-### <a name="i-have-a-vault-that-is-using-cmk-encryption-can-i-later-revert-to-encryption-using-platform-managed-keys-even-if-i-have-backup-items-protected-to-the-vault"></a>Ho un insieme di credenziali che usa la crittografia CMK. È possibile ripristinare la crittografia in un secondo momento usando chiavi gestite dalla piattaforma anche se sono presenti elementi di backup protetti nell'insieme di credenziali?
+### <a name="i-have-a-vault-thats-using-cmk-encryption-can-i-later-revert-to-encryption-using-platform-managed-keys-even-if-i-have-backup-items-protected-to-the-vault"></a>Ho un insieme di credenziali che usa la crittografia CMK. È possibile ripristinare la crittografia in un secondo momento usando chiavi gestite dalla piattaforma anche se sono presenti elementi di backup protetti nell'insieme di credenziali?
 
 No, dopo aver abilitato la crittografia CMK, non è possibile ripristinare l'uso delle chiavi gestite dalla piattaforma. È possibile modificare le chiavi usate in base ai propri requisiti.
 

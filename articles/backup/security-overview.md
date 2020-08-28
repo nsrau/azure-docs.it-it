@@ -3,12 +3,12 @@ title: Panoramica delle funzionalità di sicurezza
 description: Informazioni sulle funzionalità di sicurezza di Backup di Azure che consentono di proteggere i dati di backup e soddisfare le esigenze di sicurezza dell'azienda.
 ms.topic: conceptual
 ms.date: 03/12/2020
-ms.openlocfilehash: f9a505723b40df61665a99e898d59ecfb8c03fd5
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 62f4e6783d4c2c2e09b7b4cbb41ae98ac2779ebe
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890468"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012552"
 ---
 # <a name="overview-of-security-features-in-azure-backup"></a>Panoramica delle funzionalità di sicurezza in Backup di Azure
 
@@ -36,7 +36,7 @@ Con Backup di Azure, che include il backup della macchina virtuale e SQL e SAP H
 
 Il backup delle macchine virtuali di Azure richiede lo spostamento dei dati dal disco della macchina virtuale all'insieme di credenziali di Servizi di ripristino. Tuttavia, tutte le comunicazioni e il trasferimento dei dati necessari avvengono solo nella rete backbone di Azure senza dover accedere alla rete virtuale. Per questo motivo, il backup delle VM di Azure inserite all'interno di reti protette non richiede di consentire l'accesso a qualsiasi IP o FQDN.
 
-## <a name="private-endpoints-for-azure-backup"></a>Endpoint privati per Backup di Azure
+## <a name="private-endpoints-for-azure-backup"></a>Endpoint privati per backup di Azure
 
 È ora possibile usare gli [endpoint privati](../private-link/private-endpoint-overview.md) per eseguire il backup dei dati in modo sicuro dai server all'interno di una rete virtuale nell'insieme di credenziali di Servizi di ripristino. L'endpoint privato usa un IP dallo spazio di indirizzi della VNET per l'insieme di credenziali, quindi non è necessario esporre le reti virtuali a tutti gli indirizzi IP pubblici. È possibile usare gli endpoint privati per eseguire il backup e il ripristino dei database SQL e SAP HANA in esecuzione nelle macchine virtuali di Azure. Possono anche essere usati per i server locali che usano l'agente MARS.
 
@@ -70,7 +70,7 @@ Il servizio Backup di Azure usa l'agente di Servizi di ripristino di Microsoft A
 
 * I dati di backup eliminati vengono conservati per altri 14 giorni dalla data di eliminazione. In questo modo, viene garantita la possibilità di recuperare i dati entro un certo periodo di tempo, così da scongiurare la perdita di dati anche in caso di attacco. Inoltre, viene conservato un maggior numero di punti di recupero per prevenire il rischio di dati danneggiati. [Altre informazioni sul ripristino dei dati di backup eliminati](./backup-azure-security-feature.md#recover-deleted-backup-data).
 
-* Per i dati sottoposti a backup con l'agente di Servizi di ripristino di Microsoft Azure (MARS), viene usata una passphrase per assicurarsi che i dati vengano crittografati prima del caricamento in Backup di Azure e decrittografati solo dopo il download da Backup di Azure. I dettagli della passphrase sono disponibili solo per l'utente che ha creato la passphrase e l'agente che viene con essa configurato. Non viene trasmesso o condiviso niente con il servizio. In questo modo si garantisce la sicurezza completa dei dati perché tutti i dati esposti inavvertitamente, ad esempio nel caso di un attacco man-in-the-middle sulla rete, non possono essere usati senza la passphrase e la passphrase non viene inviata in rete.
+* Per i dati sottoposti a backup con l'agente di Servizi di ripristino di Microsoft Azure (MARS), viene usata una passphrase per assicurarsi che i dati vengano crittografati prima del caricamento in Backup di Azure e decrittografati solo dopo il download da Backup di Azure. I dettagli della passphrase sono disponibili solo per l'utente che ha creato la passphrase e l'agente configurato. Non viene trasmesso o condiviso niente con il servizio. In questo modo si garantisce la sicurezza completa dei dati, perché tutti i dati esposti inavvertitamente (ad esempio un attacco man-in-the-Middle sulla rete) non sono utilizzabili senza la passphrase e la passphrase non viene inviata in rete.
 
 ## <a name="compliance-with-standardized-security-requirements"></a>Conformità ai requisiti di sicurezza standardizzati
 

@@ -4,12 +4,12 @@ description: Eseguire il backup e il ripristino di database SQL in macchine virt
 ms.topic: conceptual
 ms.date: 03/15/2019
 ms.assetid: 57854626-91f9-4677-b6a2-5d12b6a866e1
-ms.openlocfilehash: 1fe3af3b2a12cf6fdfc0e71d36d36046858c50af
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: b355aaa465132e86c636c68552f3d650b51b08f1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892423"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004987"
 ---
 # <a name="back-up-and-restore-sql-databases-in-azure-vms-with-powershell"></a>Eseguire il backup e il ripristino di database SQL in macchine virtuali di Azure con PowerShell
 
@@ -321,7 +321,7 @@ ItemName                       StartTime                      EndTime
 SQLDataBase;MSSQLSERVER;azu... 3/18/2019 8:09:35 PM           3/19/2019 12:08:32 PM
 ```
 
-L'output precedente indica che è possibile eseguire il ripristino in qualsiasi punto nel tempo tra l'ora di inizio e l'ora di fine visualizzate. Gli orari sono in formato UTC. Costruire qualsiasi punto nel tempo in PowerShell compreso nell'intervallo illustrato in precedenza.
+L'output precedente indica che è possibile eseguire il ripristino in qualsiasi punto nel tempo tra l'ora di inizio e l'ora di fine visualizzate. Gli orari sono in formato UTC. Costruire qualsiasi punto nel tempo in PowerShell incluso nell'intervallo illustrato in precedenza.
 
 > [!NOTE]
 > Quando si seleziona un log temporizzato per il ripristino, non è necessario specificare il punto di partenza, ovvero il backup completo da cui viene ripristinato il database. Il servizio backup di Azure si occuperà dell'intero piano di ripristino, ovvero del backup completo da scegliere, dei backup del log da applicare e così via.
@@ -582,7 +582,7 @@ $SQLContainer = Get-AzRecoveryServicesBackupContainer -ContainerType AzureVMAppC
 
 È importante notare che backup di Azure tiene traccia solo dei processi attivati dall'utente nel backup SQL. I backup pianificati, inclusi i backup del log, non sono visibili nel portale o in PowerShell. Tuttavia, in caso di esito negativo di un processo pianificato, viene generato un [avviso di backup](backup-azure-monitoring-built-in-monitor.md#backup-alerts-in-recovery-services-vault) che viene visualizzato nel portale. [Usare monitoraggio di Azure](backup-azure-monitoring-use-azuremonitor.md) per tenere traccia di tutti i processi pianificati e altre informazioni rilevanti.
 
-Gli utenti possono tenere traccia delle operazioni attivate su richiesta/utente con JobID restituito nell' [output](#on-demand-backup) di processi asincroni, ad esempio backup. Usare il cmdlet [Get-AzRecoveryServicesBackupJobDetail](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjobdetail) di PowerShell per tenere traccia del processo e dei relativi dettagli.
+Gli utenti possono tenere traccia delle operazioni attivate su richiesta/utente con il JobID restituito nell' [output](#on-demand-backup) dei processi asincroni, ad esempio il backup. Usare il cmdlet [Get-AzRecoveryServicesBackupJobDetail](/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjobdetail) di PowerShell per tenere traccia del processo e dei relativi dettagli.
 
 ```powershell
  Get-AzRecoveryServicesBackupJobDetails -JobId 2516bb1a-d3ef-4841-97a3-9ba455fb0637 -VaultId $targetVault.ID

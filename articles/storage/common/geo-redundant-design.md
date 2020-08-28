@@ -10,12 +10,13 @@ ms.date: 05/05/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: e1eb105671883d88d8fe34b9741d402d311556a9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: a6aed0630acf6ee6624c72831a2cdc88e6c0a91d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82859016"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013062"
 ---
 # <a name="use-geo-redundancy-to-design-highly-available-applications"></a>Usare la ridondanza geografica per progettare applicazioni a disponibilità elevata
 
@@ -196,12 +197,12 @@ L'archiviazione con ridondanza geografica funziona replicando le transazioni dal
 
 Nella tabella seguente viene illustrato un esempio di ciò che può verificarsi quando si aggiornano i dettagli di un dipendente per impostarli come membri del ruolo di *amministratore* . Ai fini di questo esempio è necessario aggiornare l'entità **employee** e aggiornare un'entità **administrator role** con un conteggio del numero totale di amministratori. Si noti il modo in cui gli aggiornamenti vengono applicati in un ordine diverso nell'area secondaria.
 
-| **Time** | **Transazione**                                            | **Replica**                       | **Data e ora ultima sincronizzazione** | **Risultato** |
+| **Time** | **Transazione**                                            | **Replica**                       | **Ora ultima sincronizzazione** | **Risultato** |
 |----------|------------------------------------------------------------|---------------------------------------|--------------------|------------| 
 | T0       | Transazione A: <br> Inserimento dell'entità <br> employee nell'area primaria |                                   |                    | Transazione A inserita nell'area primaria,<br> non ancora replicata. |
 | T1       |                                                            | Transazione A <br> replicata<br> nell'area secondaria | T1 | Transazione A replicata nell'area secondaria. <br>Ora ultima sincronizzazione aggiornata.    |
-| T2       | Transazione B:<br>Aggiornamento<br> dell'entità employee<br> nell'area primaria  |                                | T1                 | Transazione B scritta nell'area primaria,<br> non ancora replicata.  |
-| T3       | Transazione C:<br> Aggiornamento <br>entità<br>administrator role nell'area<br>primaria |                    | T1                 | Transazione C scritta nell'area primaria,<br> non ancora replicata.  |
+| T2       | Transazione B:<br>Aggiorna<br> dell'entità employee<br> nell'area primaria  |                                | T1                 | Transazione B scritta nell'area primaria,<br> non ancora replicata.  |
+| T3       | Transazione C:<br> Aggiorna <br>entità<br>administrator role nell'area<br>primaria |                    | T1                 | Transazione C scritta nell'area primaria,<br> non ancora replicata.  |
 | *T4*     |                                                       | Transazione C <br>replicata<br> nell'area secondaria | T1         | Transazione C replicata nell'area secondaria.<br>LastSyncTime non aggiornato perché <br>la transazione B non è stata ancora replicata.|
 | *T5*     | Lettura delle entità <br>dall'area secondaria                           |                                  | T1                 | Si ottiene un valore non aggiornato per l'entità <br> employee perché la transazione B <br> non è stata ancora replicata. Si ottiene il nuovo valore per<br> l'entità administrator role perché C è stata<br> replicata. Ora ultima sincronizzazione non ancora<br> aggiornata perché la transazione B<br> non è stata replicata. È possibile stabilire che<br>l'entità administrator role è incoerente <br>perché la data/ora dell'entità è successiva <br>all'ora dell'ultima sincronizzazione. |
 | *T6*     |                                                      | Transazione B<br> replicata<br> nell'area secondaria | T6                 | *T6*: tutte le transazioni fino alla C sono <br>state replicate, ora ultima sincronizzazione<br> aggiornata. |

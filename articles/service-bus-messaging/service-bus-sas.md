@@ -3,12 +3,13 @@ title: Controllo di accesso del bus di servizio di Azure con firme di accesso co
 description: Panoramica del controllo degli accessi del bus di servizio con firme di accesso condiviso, dettagli dell'autorizzazione con firme di accesso condiviso con il bus di servizio di Azure.
 ms.topic: article
 ms.date: 07/30/2020
-ms.openlocfilehash: 8e48858fd76bcf4667cfff1237f49597a477b3e8
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.custom: devx-track-csharp
+ms.openlocfilehash: fb90b2ae290752753b58b5e96c6c8a8b23f4c168
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066186"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012076"
 ---
 # <a name="service-bus-access-control-with-shared-access-signatures"></a>Controllo degli accessi del bus di servizio con firme di accesso condiviso
 
@@ -67,9 +68,9 @@ Qualsiasi client che abbia accesso al nome di una regola di autorizzazione e a u
 SharedAccessSignature sig=<signature-string>&se=<expiry>&skn=<keyName>&sr=<URL-encoded-resourceURI>
 ```
 
-* **`se`**-Istante di scadenza del token. Valore intero che riflette i secondi trascorsi dalle `00:00:00 UTC` del 1 ° gennaio 1970 (epoca UNIX) quando il token scade.
-* **`skn`**: Nome della regola di autorizzazione.
-* **`sr`**: URI della risorsa a cui si accede.
+* **`se`** -Istante di scadenza del token. Valore intero che riflette i secondi trascorsi dalle `00:00:00 UTC` del 1 ° gennaio 1970 (epoca UNIX) quando il token scade.
+* **`skn`** : Nome della regola di autorizzazione.
+* **`sr`** : URI della risorsa a cui si accede.
 * **`sig`** Firma.
 
 `signature-string`È l'hash SHA-256 calcolato sull'URI della risorsa (**ambito** come descritto nella sezione precedente) e la rappresentazione di stringa dell'istante di scadenza del token, separate da LF.

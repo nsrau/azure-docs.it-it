@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere gli errori riscontrati con 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: a5784aeb615c6d84048835bd6169f0819fad2f56
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 65662af2bad5475b024366a2ff550ff30e6c0e88
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892338"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014659"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Risoluzione degli errori di backup nelle macchine virtuali di Azure
 
@@ -29,9 +29,9 @@ Questa sezione descrive l'errore relativo all'operazione di backup della macchin
   * Assicurarsi che un altro servizio di backup non sia in esecuzione.
 * In `Services.msc` assicurarsi che il servizio **agente guest di Microsoft Azure** sia **in esecuzione**. Se il servizio **agente guest di Microsoft Azure** manca, installarlo da [Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino](./backup-azure-arm-vms-prepare.md#install-the-vm-agent).
 * È possibile che nel **registro eventi** vengano visualizzati errori di backup provenienti da altri prodotti di backup, ad esempio Windows Server backup, e che non siano dovuti a backup di Azure. Seguire questa procedura per determinare se il problema è correlato a Backup di Azure:
-  * Se si verifica un errore con una voce **Backup** nell'origine o nel messaggio dell'evento, controllare se i backup delle macchine virtuali IaaS di Azure sono stati completati e se è stato creato un punto di ripristino con il tipo di snapshot desiderato.
+  * Se si verifica un errore con il **backup** delle voci nell'origine o nel messaggio dell'evento, controllare se i backup di backup delle macchine virtuali IaaS di Azure siano stati completati e se è stato creato un punto di ripristino con il tipo di snapshot desiderato.
   * Se Backup di Azure è in funzione, il problema è probabilmente correlato a un'altra soluzione di backup.
-  * Di seguito è riportato un esempio di errore 517 del visualizzatore eventi che indica il corretto funzionamento del backup di Azure, ma la presenza di un errore di "Windows Server Backup":<br>
+  * Di seguito è riportato un esempio di Visualizzatore eventi errore 517 in cui backup di Azure funzionava correttamente, ma "Windows Server Backup" ha avuto esito negativo:<br>
     ![Errore di Windows Server Backup](media/backup-azure-vms-troubleshoot/windows-server-backup-failing.png)
   * In caso di errore relativo a Backup di Azure, cercare il codice errore corrispondente nella sezione relativa agli errori comuni di backup delle VM in questo articolo.
 
@@ -203,7 +203,7 @@ La macchina virtuale di Azure non è stata trovata.
 
 Questo errore si verifica quando la macchina virtuale primaria viene eliminata, ma i criteri di backup continuano a cercare una macchina virtuale di cui eseguire il backup. Per risolvere l'errore, procedere come segue:
 
-* Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse, **nome del servizio cloud**,<br>o
+* Ricreare la macchina virtuale con lo stesso nome e lo stesso nome del gruppo di risorse, **nome del servizio cloud**,<br>oppure
 * Interrompere la protezione della macchina virtuale cancellando o senza eliminare i dati del backup. Per altre informazioni, vedere [Arrestare la protezione delle macchine virtuali](backup-azure-manage-vms.md#stop-protecting-a-vm).</li></ol>
 
 ### <a name="usererrorbcmpremiumstoragequotaerror---could-not-copy-the-snapshot-of-the-virtual-machine-due-to-insufficient-free-space-in-the-storage-account"></a>UserErrorBCMPremiumStorageQuotaError-non è stato possibile copiare lo snapshot della macchina virtuale a causa dello spazio disponibile insufficiente nell'account di archiviazione

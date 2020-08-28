@@ -3,12 +3,12 @@ title: Eseguire il backup e il ripristino di VM di Azure crittografate
 description: Viene descritto come eseguire il backup e il ripristino di VM di Azure crittografate con il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 08/18/2020
-ms.openlocfilehash: 74658f695387a776fe12cef97887075ae0bc161d
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 6ce0068203c91d9d2031ce2f8735cccf94172dd8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611297"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89014915"
 ---
 # <a name="back-up-and-restore-encrypted-azure-virtual-machines"></a>Eseguire il backup e il ripristino di macchine virtuali di Azure crittografate
 
@@ -129,7 +129,7 @@ Per impostare le autorizzazioni:
     - Le autorizzazioni necessarie sono precompilate per **Autorizzazioni chiave** e **Autorizzazioni segrete**.
     - Se la macchina virtuale è crittografata solo con la chiave di ricerca di **sole**, rimuovere la selezione per le **autorizzazioni chiave** perché sono necessarie solo le autorizzazioni per i segreti.
 
-    ![Selezione di Backup di Azure](./media/backup-azure-vms-encryption/select-backup-template.png)
+    ![Selezione di backup di Azure](./media/backup-azure-vms-encryption/select-backup-template.png)
 
 1. Selezionare **Aggiungi**. Il **servizio di gestione di backup** viene aggiunto ai criteri di **accesso**.
 

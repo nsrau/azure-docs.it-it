@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: ff89b38de1ff62ddea328a49b998692e8039341f
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 85056710c8072c55e2661021795d9aedb407b629
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661555"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013005"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gestire i modelli di dispositivi gemelli digitali di Azure
 
@@ -165,6 +165,30 @@ Le chiamate API per recuperare i modelli restituiscono tutti `ModelData` gli ogg
 La `RetrieveModelWithDependencies` chiamata non restituisce solo il modello richiesto, ma anche tutti i modelli da cui dipende il modello richiesto.
 
 I modelli non vengono necessariamente restituiti esattamente nel formato del documento in cui sono stati caricati. I dispositivi gemelli digitali di Azure garantiscono solo che il form restituito sarà semanticamente equivalente. 
+
+### <a name="update-models"></a>Modelli di aggiornamento
+
+Una volta caricato un modello nell'istanza, l'intera interfaccia del modello non è modificabile. Ciò significa che non esiste alcuna "modifica" tradizionale di modelli.
+
+Se invece si vuole apportare modifiche a un modello in dispositivi gemelli digitali di Azure, ad esempio modificando `DisplayName` o `Description` , il modo per eseguire questa operazione consiste nel caricare una **versione più recente** dello stesso modello. Verrà eseguito l'override del modello originale.
+
+A tale scopo, iniziare con il DTDL del modello originale. Aggiornare tutti i campi che si desidera modificare.
+
+Contrassegnare quindi come versione più recente del modello aggiornando il `id` campo del modello. L'ultima sezione dell'ID modello, dopo `;` , rappresenta il numero del modello. Per indicare che questa è ora una versione più aggiornata di questo modello, incrementare il numero alla fine del `id` valore con un numero maggiore del numero di versione corrente.
+
+Ad esempio, se l'ID modello precedente è simile al seguente:
+
+```json
+"@id": "dtmi:com:contoso:PatientRoom;1",
+```
+
+la versione 2 di questo modello potrebbe essere simile alla seguente:
+
+```json
+"@id": "dtmi:com:contoso:PatientRoom;2",
+```
+
+Caricare quindi la nuova versione del modello nell'istanza di. Si sostituirà dalla versione precedente e i nuovi dispositivi gemelli creati con questo modello useranno la versione aggiornata.
 
 ### <a name="remove-models"></a>Rimuovi modelli
 

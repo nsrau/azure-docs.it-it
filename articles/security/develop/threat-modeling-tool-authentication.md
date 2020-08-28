@@ -15,13 +15,13 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.custom: has-adal-ref, devx-track-javascript
-ms.openlocfilehash: 11158749f3cae222c0948286e7365b1629cebbf2
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.custom: has-adal-ref, devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 65e680a14cfc878b6dc406a179a0aa3afe038563
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543980"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004715"
 ---
 # <a name="security-frame-authentication--mitigations"></a>Infrastruttura di sicurezza: autenticazione - Procedure di mitigazione
 
@@ -288,7 +288,7 @@ L'elemento `<netMsmqBinding/>` del file di configurazione WCF seguente indica a 
 Configurare MSMQ perché venga sempre richiesta l'autenticazione del certificato o del dominio di Windows per qualsiasi messaggio in ingresso o in uscita.
 
 ### <a name="example"></a>Esempio
-L'elemento `<netMsmqBinding/>` del file di configurazione WCF seguente indica a WCF di abilitare l'autenticazione quando ci si connette a una coda MSMQ. Il client viene autenticato tramite certificati X.509. Il certificato client deve essere presente nell'archivio certificati del server.
+L'elemento `<netMsmqBinding/>` del file di configurazione WCF seguente indica a WCF di abilitare l'autenticazione quando ci si connette a una coda MSMQ. Il client viene autenticato tramite l'uso di certificati X.509. Il certificato client deve essere presente nell'archivio certificati del server.
 ```
 <bindings>
     <netMsmqBinding>

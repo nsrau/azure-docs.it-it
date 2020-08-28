@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere i problemi relativi al back
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: 56593176e705176b87cf955eb116909c1912e723
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 7eb596853bfe17ec5bf14c8830c1b95bde5b7c98
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824271"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022361"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Risolvere i problemi di backup dello stato del sistema
 
@@ -20,7 +20,7 @@ Questo articolo descrive le soluzioni per i problemi che potrebbero verificarsi 
 Prima di iniziare la risoluzione dei problemi relativi al backup dello stato del sistema, è consigliabile eseguire i passaggi di convalida seguenti:
 
 - [Assicurarsi che l'agente di Servizi di ripristino di Microsoft Azure sia aggiornato](https://go.microsoft.com/fwlink/?linkid=229525&clcid=0x409)
-- [Verificare la presenza di connettività di rete tra l'agente dei Servizi di ripristino di Microsoft Azure e Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
+- [Verificare che sia presente la connettività di rete tra l'agente MARS e Azure](./backup-azure-mars-troubleshoot.md#the-microsoft-azure-recovery-service-agent-was-unable-to-connect-to-microsoft-azure-backup)
 - Verificare che i Servizi di ripristino di Microsoft Azure siano in esecuzione (nella console di Servizio). Se necessario, riavviare e ripetere l'operazione
 - [Verificare che sia disponibile il 5-10% di volume libero nel percorso della cartella dei file temporanei](./backup-azure-file-folder-backup-faq.md#whats-the-minimum-size-requirement-for-the-cache-folder)
 - [Controllare se un altro processo o un software antivirus interferisce con Backup di Azure](./backup-azure-troubleshoot-slow-backup-performance-issue.md#cause-another-process-or-antivirus-software-interfering-with-azure-backup)
@@ -137,7 +137,7 @@ Se il processo ha esito negativo, indica un problema di WSB che comporterebbe un
 
 | Sintomo | Risoluzione
 | -- | --
-| -Errore dell'agente MARS con messaggio di errore: il backup non è riuscito perché non è possibile aumentare il volume della copia shadow a causa di spazio su disco insufficiente nei volumi che contengono file di sistema <br/><br/> -Il registro errori/avvisi seguente è presente nei registri eventi di sistema di VolSnap: "spazio su disco insufficiente nel volume C: per aumentare l'archiviazione delle copie shadow per le copie shadow di C: a causa di questo errore, tutte le copie shadow del volume C: rischiano di essere eliminate" | -Liberare spazio nel volume evidenziato nel registro eventi in modo che sia disponibile spazio sufficiente per la crescita delle copie shadow mentre è in corso il backup. <br/><br/> -Durante la configurazione dello spazio di copia shadow è possibile limitare la quantità di spazio usata per la copia shadow. Per altre informazioni, vedere questo [articolo](/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)
+| -Errore dell'agente MARS con messaggio di errore: il backup non è riuscito perché non è possibile aumentare il volume della copia shadow a causa di spazio su disco insufficiente nei volumi che contengono file di sistema <br/><br/> -Il registro errori/avvisi seguente è presente nei registri eventi di sistema di VolSnap: "spazio su disco insufficiente nel volume C: per aumentare l'archiviazione delle copie shadow per le copie shadow di C: a causa di questo errore, tutte le copie shadow del volume C: rischiano di essere eliminate" | -Liberare spazio nel volume evidenziato nel registro eventi, in modo che sia disponibile spazio sufficiente per la crescita delle copie shadow mentre è in corso il backup. <br/><br/> -Durante la configurazione dello spazio di copia shadow è possibile limitare la quantità di spazio usata per la copia shadow. Per altre informazioni, vedere questo [articolo](/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)
 
 ### <a name="efi-partition-locked"></a>Partizione EFI bloccata
 

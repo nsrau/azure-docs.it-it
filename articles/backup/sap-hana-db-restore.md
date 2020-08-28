@@ -3,12 +3,12 @@ title: Ripristinare i database di SAP HANA nelle macchine virtuali di Azure
 description: Questo articolo illustra come ripristinare SAP HANA database in esecuzione in macchine virtuali di Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 41ee95fc65ed7bdf79388089e27c6d6249132bfd
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 7cb521b4034ef225d3af6d397bb6cd83b28e1b8a
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763287"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006313"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Ripristinare i database di SAP HANA nelle macchine virtuali di Azure
 
@@ -28,7 +28,7 @@ Backup di Azure può ripristinare database SAP HANA in esecuzione nelle macchine
 
 Prima di ripristinare un database, tenere presente quanto segue:
 
-* È possibile ripristinare il database solo in un'istanza SAP HANA che risiede nella stessa area
+* È possibile ripristinare il database solo in un'istanza SAP HANA che si trova nella stessa area
 
 * L'istanza di destinazione deve essere registrata con lo stesso insieme di credenziali dell'origine
 
@@ -138,7 +138,7 @@ Per ripristinare i dati di backup come file anziché come database, scegliere **
 
     * File di backup del database
     * File di catalogo
-    * File di metadati JSON (per ogni file di backup interessato)
+    * File di metadati JSON (per ogni file di backup richiesto)
 
     In genere, quando viene specificato come percorso di destinazione, un percorso di condivisione di rete o un percorso di una condivisione file di Azure montata consente di accedere più facilmente a questi file da altri computer nella stessa rete o con la stessa condivisione file di Azure montata in essi.
 

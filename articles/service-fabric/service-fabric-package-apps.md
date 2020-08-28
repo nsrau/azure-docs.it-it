@@ -3,12 +3,13 @@ title: Creare un pacchetto di un'app Service Fabric di Azure
 description: Informazioni su come creare un pacchetto di un'applicazione Service Fabric di Azure e su come prepararsi per la distribuzione in un cluster.
 ms.topic: conceptual
 ms.date: 2/23/2018
-ms.openlocfilehash: c00e46915c7bf147d224911ef4988d9fedd691c7
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 11a3fdd5dbaef53af321342952f786ed8119689c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86260976"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89012399"
 ---
 # <a name="package-an-application"></a>Inserire un'applicazione in un pacchetto
 
@@ -43,7 +44,7 @@ Le cartelle sono denominate in modo da corrispondere agli attributi **Name** di 
 
 ## <a name="use-setupentrypoint"></a>Usare SetupEntryPoint
 
-Gli scenari tipici per l'utilizzo di **SetupEntryPoint** sono quando è necessario eseguire un file eseguibile prima dell'avvio del servizio o quando è necessario eseguire un'operazione con privilegi elevati. ad esempio:
+Gli scenari tipici per l'utilizzo di **SetupEntryPoint** sono quando è necessario eseguire un file eseguibile prima dell'avvio del servizio o quando è necessario eseguire un'operazione con privilegi elevati. Ad esempio:
 
 * Impostazione e inizializzazione di variabili di ambiente necessari per il file eseguibile del servizio. Questo non è limitato solo agli eseguibili scritti tramite i modelli di programmazione di Service Fabric. Ad esempio, npm.exe richiede alcune variabili di ambiente configurate per la distribuzione di un'applicazione node.js.
 * Impostazione del controllo di accesso mediante l'installazione di certificati di sicurezza.
@@ -52,7 +53,7 @@ Per altre informazioni su come configurare **SetupEntryPoint**, vedere [configur
 
 <a id="Package-App"></a>
 
-## <a name="configure"></a>Configurare
+## <a name="configure"></a>Configura
 
 ### <a name="build-a-package-by-using-visual-studio"></a>Creare un pacchetto mediante Visual Studio
 

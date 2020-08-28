@@ -15,12 +15,13 @@ ms.topic: conceptual
 ms.date: 03/18/2019
 ms.author: anilmur
 ms.reviewer: juliako
-ms.openlocfilehash: 22777b24c9456e9593a59f8dc91ed4e10b6f6f4e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: c189baa0d5e7acc895c86c7b6c658237c07ef403
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000738"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004443"
 ---
 # <a name="how-to-perform-live-streaming-using-azure-media-services-to-create-multi-bitrate-streams-with-net"></a>Come eseguire lo streaming live con Servizi multimediali di Azure per creare flussi a più bitrate con .NET
 > [!div class="op_single_selector"]
@@ -82,7 +83,7 @@ Questo articolo illustra come eseguire le operazioni seguenti:
 2. Ottenere l'endpoint di inserimento (input) del canale. L'endpoint deve essere fornito al codificatore che invia un flusso live a velocità in bit singola.
 3. Ottenere l'endpoint di anteprima. Questo endpoint viene usato per visualizzare il flusso in anteprima.
 4. Creare un asset che viene usato per archiviare il contenuto. È necessario configurare anche i criteri di distribuzione degli asset, come illustrato in questo esempio.
-5. Creare un programma e specificare l'uso dell'asset creato in precedenza. Avviare il programma. Vengono usate API con esecuzione prolungata.
+5. Creare un programma e specificare l'uso dell'asset creato in precedenza. Avvia il programma. Vengono usate API con esecuzione prolungata.
 6. Creare un localizzatore per l'asset in modo che il contenuto venga pubblicato e possa essere trasmesso in streaming ai client.
 7. Mostrare e nascondere slate. Avviare e arrestare annunci. Vengono usate API con esecuzione prolungata.
 8. Pulire il canale e tutte le risorse associate.
