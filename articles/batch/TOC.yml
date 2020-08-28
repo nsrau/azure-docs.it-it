@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Azure Batch
       href: batch-technical-overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Eseguire un processo Batch - Interfaccia della riga di comando
@@ -134,6 +134,8 @@
           href: batch-sig-images.md
         - name: Creare un pool con una risorsa immagine gestita
           href: batch-custom-images.md
+        - name: Creare un pool con la crittografia disco abilitata
+          href: disk-encryption.md
         - name: Creare un pool in una rete virtuale
           href: batch-virtual-network.md
         - name: Creare un pool con indirizzi IP pubblici

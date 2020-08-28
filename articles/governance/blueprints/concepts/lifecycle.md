@@ -1,14 +1,14 @@
 ---
 title: Informazioni sul ciclo di vita di un progetto
 description: Informazioni sul ciclo di vita della definizione di un progetto e informazioni dettagliate su ogni fase, tra cui l'aggiornamento e la rimozione di assegnazioni di progetti.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: dc024c0e6643420d26bdc92e47fabe647c55ae7b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c1de2cf869362154b112c3eef74ed1fb0db3a993
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82864029"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049707"
 ---
 # <a name="understand-the-lifecycle-of-an-azure-blueprint"></a>Comprendere il ciclo di vita di un progetto di Azure
 
@@ -81,14 +81,14 @@ Eliminare un progetto tramite il [portale di Azure](../create-blueprint-portal.m
 
 Esistono diversi punti durante il ciclo di vita in cui un progetto può essere assegnato a una sottoscrizione. Quando la modalità di una versione del progetto è sullo stato **Pubblicato**, tale versione può essere assegnata a una sottoscrizione. Questo ciclo di vita consente di usare e assegnare attivamente le versioni di un progetto mentre viene sviluppata una versione più recente.
 
-Man mano che le versioni dei progetti sono assegnate, è importante comprendere dove e con quali parametri. I parametri possono essere statici o dinamici. Per altre informazioni, vedere [parametri statici e dinamici](parameters.md).
+Man mano che le versioni dei progetti sono assegnate, è importante comprendere dove e con quali parametri. I parametri possono essere statici o dinamici. Per altre informazioni, vedere [parametri statici e dinamici](./parameters.md).
 
 ### <a name="updating-assignments"></a>Aggiornamento delle assegnazioni
 
 Quando viene assegnato un progetto, l'assegnazione può essere aggiornata. Esistono diversi motivi per aggiornare un'assegnazione esistente, tra cui:
 
-- Aggiungere o rimuovere il [blocco delle risorse](resource-locking.md)
-- Modificare il valore dei [parametri dinamici](parameters.md#dynamic-parameters)
+- Aggiungere o rimuovere il [blocco delle risorse](./resource-locking.md)
+- Modificare il valore dei [parametri dinamici](./parameters.md#dynamic-parameters)
 - Aggiornare l'assegnazione a una versione più recente **Pubblicata** del progetto
 
 Per informazioni, vedere [aggiornare assegnazioni esistenti](../how-to/update-existing-assignments.md).
@@ -97,7 +97,7 @@ Per informazioni, vedere [aggiornare assegnazioni esistenti](../how-to/update-ex
 
 Se il progetto non è più necessario, è possibile che non sia assegnato dal gruppo di gestione o dalla sottoscrizione. Durante l'unassegnazione del progetto, si verifica quanto segue:
 
-- Rimozione del [blocco delle risorse del progetto](resource-locking.md)
+- Rimozione del [blocco delle risorse del progetto](./resource-locking.md)
 - Eliminazione dell'oggetto di assegnazione progetto
 - Condizionale Se è stata usata un' **identità gestita assegnata dal sistema** , viene eliminata anche
 
@@ -106,8 +106,8 @@ Se il progetto non è più necessario, è possibile che non sia assegnato dal gr
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come usare [parametri statici e dinamici](parameters.md).
-- Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](sequencing-order.md).
-- Informazioni su come usare in modo ottimale il [blocco delle risorse del progetto](resource-locking.md).
+- Informazioni su come usare [parametri statici e dinamici](./parameters.md).
+- Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](./sequencing-order.md).
+- Informazioni su come usare in modo ottimale il [blocco delle risorse del progetto](./resource-locking.md).
 - Informazioni su come [aggiornare assegnazioni esistenti](../how-to/update-existing-assignments.md).
 - Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](../troubleshoot/general.md).

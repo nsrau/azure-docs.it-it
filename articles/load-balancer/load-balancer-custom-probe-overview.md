@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: e00d6b674453f12f94a2859f9b0533aea0e7332c
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: e22908dc5d445f105c199e594443cd051eb4be41
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86207550"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051356"
 ---
 # <a name="load-balancer-health-probes"></a>Probe di integrità di Load Balancer
 
@@ -92,7 +92,7 @@ I protocolli disponibili dipendono dallo SKU Load Balancer usato:
 
 || TCP | HTTP | HTTPS |
 | --- | --- | --- | --- |
-| **SKU standard** |    &#9989; |   &#9989; |   &#9989; |
+| **SKU Standard** |    &#9989; |   &#9989; |   &#9989; |
 | **SKU Basic** |   &#9989; |   &#9989; | &#10060; |
 
 ### <a name="tcp-probe"></a><a name="tcpprobe"></a>Probe TCP
@@ -223,7 +223,7 @@ Oltre ai Probe di integrità di Load Balancer, le [operazioni seguenti usano que
 - Abilitazione della comunicazione con il server virtuale DNS per fornire la risoluzione dei nomi filtrati per i clienti che non definiscono i server DNS personalizzati.  Questo filtro garantisce che i clienti possano risolvere solo i nomi host della loro distribuzione.
 - Consente alla macchina virtuale di ottenere un indirizzo IP dinamico dal servizio DHCP in Azure.
 
-## <a name="design-guidance"></a><a name="design"></a>Linee guida per la progettazione
+## <a name="design-guidance"></a><a name="design"></a> Linee guida per la progettazione
 
 I probe di integrità consentono di aumentare la resilienza del servizio e di ridimensionarlo. Una configurazione errata o un modello di struttura non valido può compromettere la disponibilità e la scalabilità del servizio. Esaminare l'intero documento e tenere in considerazione l'impatto per il proprio scenario nel caso la risposta del probe venga contrassegnata come inattiva o attiva, nonché per la disponibilità della propria applicazione.
 
@@ -263,6 +263,6 @@ Il Load Balancer pubblico di base espone lo stato del probe di integrità per og
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Altre informazioni su [Load Balancer standard](load-balancer-standard-overview.md)
-- [Introduzione alla creazione di un servizio di bilanciamento del carico pubblico in Resource Manager con PowerShell](quickstart-create-standard-load-balancer-powershell.md)
+- [Introduzione alla creazione di un servizio di bilanciamento del carico pubblico in Resource Manager con PowerShell](quickstart-load-balancer-standard-public-powershell.md)
 - [API REST per i probe di integrità](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
 - Richiedere nuove funzionalità dei probe di integrità con [Uservoice di Load Balancer](https://aka.ms/lbuservoice)

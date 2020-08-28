@@ -3,21 +3,23 @@ title: Inviare dati input penna all'API di Riconoscimento input penna
 titleSuffix: Azure Cognitive Services
 description: Informazioni sulla chiamata all'API Riconoscimento input penna per diverse applicazioni
 services: cognitive-services
-author: erhopf
+author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.author: erhopf
-ms.openlocfilehash: 0ad961495d44f13522a3c02224a5612aaedaf076
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.date: 08/24/2020
+ms.author: aahi
+ms.openlocfilehash: 8665e27b6b7c43bce7d749d9bfe0a2f815a0f46d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "79221106"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051101"
 ---
 # <a name="send-ink-data-to-the-ink-recognizer-api"></a>Inviare dati input penna all'API di Riconoscimento input penna 
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 Con input penna digitale ci si riferisce alle tecnologie che abilitano le rappresentazioni digitali di input quali la scrittura manuale e i disegni. A tale scopo, si usa in genere un digitalizzatore che acquisisce i movimenti dei dispositivi di input, ad esempio uno stilo. Mentre i dispositivi continuano a permettere esperienze di input penna digitale avanzate, l'intelligenza artificiale e l'apprendimento automatico consentono il riconoscimento delle forme e del testo scritto in qualsiasi contesto. L'API Riconoscimento input penna consente di inviare tratti input penna e di ottenere informazioni dettagliate su di essi. 
 

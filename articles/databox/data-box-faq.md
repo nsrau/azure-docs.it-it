@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: alkohli
-ms.openlocfilehash: c6b524fb76c623273c60d39f4102500664c487cb
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 7fbc69100a2cc5c23150fcc0c19e6c38ba6d438d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88823982"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051169"
 ---
 # <a name="azure-data-box-frequently-asked-questions"></a>Azure Data Box: Domande frequenti
 
@@ -61,7 +61,7 @@ R. Data Box è supportato in tutte le aree negli Stati Uniti, in Europa occident
 
 Data Box supporta l'inserimento o l'uscita di dati solo all'interno dello stesso paese/area geografica della destinazione e non attraverserà i confini internazionali. L'unica eccezione riguarda gli ordini nell'Unione europea (UE), in cui le caselle di dati possono essere fornite da e verso qualsiasi paese dell'UE.
 
-Ad esempio, nello scenario di importazione, se si dispone di dati locali in Canada che si desidera spostare in un account di archiviazione di Azure Westus, è possibile ottenerlo nel modo seguente:
+Ad esempio, nello scenario di importazione, se si dispone dei dati di origine in Canada che si desidera spostare in un account di archiviazione di Azure Westus, è possibile ottenerlo nel modo seguente:
 
 1. Ordinare Data Box in Canada scegliendo un account di archiviazione in Cananda. Il dispositivo viene spedito da un Data Center di Azure in Canada all'indirizzo di spedizione, in Canada, fornito durante la creazione dell'ordine.
 

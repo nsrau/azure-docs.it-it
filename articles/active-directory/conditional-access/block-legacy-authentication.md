@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 381afdbb57e2de41382a10c1912abac980e89cbd
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: a1973d45197044c325caf2d9938838f438d7755c
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948471"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049537"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>Procedura: Bloccare l'autenticazione legacy ad Azure AD con l'accesso condizionale   
 
@@ -85,7 +85,7 @@ Prima di poter bloccare l'autenticazione legacy nella directory, è necessario a
 
 1. Passare al **portale di Azure** > **Azure Active Directory** > **Accessi**.
 1. Se non viene visualizzata, aggiungere la colonna App client facendo clic su **Colonne** > **App client**.
-1. **Aggiungi filtri**  >  **App Client** > selezionare tutti i protocolli di autenticazione legacy. Selezionare all'esterno della finestra di dialogo di filtro Blox per applicare le selezioni e chiudere la finestra di dialogo.
+1. **Aggiungi filtri**  >  **App Client** > selezionare tutti i protocolli di autenticazione legacy. Selezionare all'esterno della finestra di dialogo filtro per applicare le selezioni e chiudere la finestra di dialogo.
 
 Applicando il filtro verranno visualizzati solo i tentativi di accesso eseguiti dai protocolli di autenticazione legacy. Facendo clic su ogni singolo tentativo di accesso vengono visualizzati altri dettagli. Nel campo **App client** nella scheda **Info di base** sarà indicato il protocollo di autenticazione legacy che è stato usato.
 
@@ -122,7 +122,7 @@ Perché il criterio abbia effetto, possono essere necessarie fino a 24 ore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Determinare l'impatto dell'uso della modalità di accesso condizionale solo report](howto-conditional-access-report-only.md)
+- [Determinare l'impatto dell'uso della modalità di accesso condizionale solo report](howto-conditional-access-insights-reporting.md)
 - Se non si ha ancora familiarità con la configurazione dei criteri di accesso condizionale, per un esempio vedere [Richiedere l'autenticazione MFA per app specifiche con l'accesso condizionale di Azure Active Directory](../authentication/tutorial-enable-azure-mfa.md).
 - Per altre informazioni sull'autenticazione moderna, vedere [Funzionamento dell'autenticazione moderna per le app client di Office 2013 e Office 2016](/office365/enterprise/modern-auth-for-office-2013-and-2016). 
 - [Come configurare un dispositivo multifunzione o un'applicazione per l'invio di messaggi di posta elettronica tramite Office 365 e Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-office-3)

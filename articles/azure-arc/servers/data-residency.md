@@ -4,12 +4,12 @@ description: Residenza dei dati e informazioni sui server abilitati per Azure Ar
 ms.topic: reference
 ms.date: 08/25/2020
 ms.custom: references_regions
-ms.openlocfilehash: 028398c27dde9760192d366b9e8a91dca8e429cf
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 8f207f5889c1764eebcc6081960ff70c0d5bca3a
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88860972"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048857"
 ---
 # <a name="azure-arc-enabled-servers-preview-data-residency"></a>Server abilitati per Azure Arc (anteprima): residenza dei dati
 
@@ -34,4 +34,4 @@ Per altre informazioni sul supporto per la resilienza e la conformità a livello
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Scopri di più sulla progettazione per la [resilienza di Azure](/architecture/reliability/architect).
+Scopri di più sulla progettazione per la [resilienza di Azure](/azure/architecture/reliability/architect).

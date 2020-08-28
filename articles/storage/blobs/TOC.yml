@@ -13,7 +13,7 @@
       items:
         - name: Introduzione all'archiviazione BLOB
           href: storage-blobs-introduction.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       items:
         - name: Usare i BLOB
           items:
@@ -347,6 +347,8 @@
                   href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
                 - name: Usare l'API REST di Archiviazione di Azure
                   href: ../common/storage-rest-api-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+                - name: Impedire l'autorizzazione con chiave condivisa
+                  href: ../common/shared-key-authorization-prevent.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
             - name: Delegare l'accesso con firme di accesso condiviso
               items:
                 - name: Creare una firma di accesso condiviso di delega utente
@@ -642,7 +644,7 @@
       items:
         - name: Introduzione a Data Lake Storage
           href: data-lake-storage-introduction.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       items:
         - name: Analizzare i dati con Databricks
           href: data-lake-storage-quickstart-create-databricks-account.md

@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: 01706b3f6850d49240b9c84997cbbec528045200
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: e80db84789ab5c8b0f07bc6a76ae99f8db3c8b80
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923875"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051033"
 ---
 # <a name="use-powershell-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2"></a>Usare PowerShell per gestire directory, file e ACL in Azure Data Lake Storage Gen2
 
@@ -125,6 +125,8 @@ $dir.Owner
 $dir.Properties
 $dir.Properties.Metadata
 ```
+> [!NOTE]
+> Per ottenere la directory radice del contenitore, omettere il `-Path` parametro.
 
 ## <a name="rename-or-move-a-directory"></a>Rinominare o spostare una directory
 
@@ -202,7 +204,8 @@ $properties.Group
 $properties.Owner
 ```
 
-Per elencare il contenuto di un contenitore, omettere il `-Path` parametro dal comando.
+> [!NOTE]
+> Per elencare il contenuto della directory radice del contenitore, omettere il `-Path` parametro.
 
 ## <a name="upload-a-file-to-a-directory"></a>Caricare un file in una directory
 
@@ -227,6 +230,9 @@ $file1.Properties
 $file1.Properties.Metadata
 
 ```
+
+> [!NOTE]
+> Per caricare un file nella directory radice del contenitore, omettere il `-Path` parametro.
 
 ## <a name="show-file-properties"></a>Mostrare le proprietà file
 
@@ -404,7 +410,7 @@ Nella tabella seguente viene illustrato il modo in cui i cmdlet utilizzati per D
 |Set-AzDataLakeStoreItemOwner<br>Set-AzDataLakeStoreItemPermission<br>Set-AzDataLakeStoreItemAcl|Update-AzDataLakeGen2Item|Il cmdlet Update-AzDataLakeGen2Item aggiorna un solo elemento e non in modo ricorsivo. Se si vuole aggiornare in modo ricorsivo, elencare gli elementi usando il cmdlet Get-AzDataLakeStoreChildItem, quindi eseguire la pipeline al cmdlet Update-AzDataLakeGen2Item.|
 |Test-AzDataLakeStoreItem|Get-AzDataLakeGen2Item|Il cmdlet Get-AzDataLakeGen2Item segnalerà un errore se l'elemento non esiste.|
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Problemi noti](data-lake-storage-known-issues.md#api-scope-data-lake-client-library)
 * [Cmdlet di PowerShell per l'archiviazione](/powershell/module/az.storage)

@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/29/2020
 ms.author: kenwith
-ms.openlocfilehash: be6a8a58f1d66df9d0fe557584c4731e42ae9c59
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: e04a3aab128bb8f0bdee01361bc0d09aad6ed2fb
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640549"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049061"
 ---
 # <a name="configure-password-based-single-sign-on"></a>Configurare Single Sign-On basate su password
 
@@ -52,6 +52,9 @@ L'uso di Azure AD come provider di identità (IdP) e la configurazione di Single
 ## <a name="basic-configuration"></a>Configurazione di base
 
 Nella [serie di avvio rapido](view-applications-portal.md)si è appreso come aggiungere un'app al tenant, consentendo Azure ad sa che viene usato come provider di identità per l'app. Alcune app sono già preconfigurate e vengono visualizzate nella raccolta di Azure AD. Altre app non sono presenti nella raccolta ed è necessario creare un'app generica e configurarla manualmente. A seconda dell'app, l'opzione SSO basata su password potrebbe non essere disponibile. Se l'elenco di opzioni basato su password non è visualizzato nella pagina Single Sign-On per l'app, non è disponibile.
+
+> [!IMPORTANT]
+> L'estensione del browser My Apps è obbligatoria per SSO basato su password. Per altre informazioni, vedere [pianificare una distribuzione di app personali](access-panel-deployment-plan.md).
 
 La pagina di configurazione per SSO basato su password è semplice. Include solo l'URL della pagina di accesso utilizzata dall'app. Questa stringa deve essere la pagina che include il campo di input username.
 

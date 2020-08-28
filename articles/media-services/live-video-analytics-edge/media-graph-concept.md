@@ -3,12 +3,12 @@ title: Concetto di grafico multimediale-Azure
 description: Un grafico multimediale consente di definire la posizione in cui devono essere acquisiti i supporti, la modalità di elaborazione e la posizione in cui devono essere recapitati i risultati. Questo articolo fornisce una descrizione dettagliata del concetto di grafico multimediale.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 8c6775da6804b5079c89cae73d4621dd8067e90a
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6be741ee38cc8f1980fe9aa96883f9aacc1be8e2
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798840"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048424"
 ---
 # <a name="media-graph"></a>Grafico multimediale
 
@@ -37,19 +37,28 @@ I valori per i parametri nella topologia vengono specificati quando si creano is
 
 ## <a name="media-graph-states"></a>Stati del grafico multimediale  
 
-Un grafico multimediale può trovarsi in uno degli Stati seguenti:
+Nel diagramma di stato seguente viene illustrato il ciclo di vita delle topologie Graph e delle istanze Graph.
 
-* Inattivo: rappresenta lo stato in cui un grafico multimediale è configurato ma non attivo.
-* Attivazione: stato in cui viene creata un'istanza di un grafico multimediale, ovvero lo stato di transizione tra inattivo e attivo.
-* Attivo: stato quando un grafico multimediale è attivo. 
+![Ciclo di vita delle istanze Graph e Graph](./media/media-graph/graph-topology-lifecycle.svg)
 
-    > [!NOTE]
-    >  Il grafico multimediale può essere attivo senza il flusso di dati (ad esempio, l'origine video di input passa alla modalità offline).
-* Disattivazione: questo è lo stato di transizione di un grafico multimediale da attivo a inattivo.
+Si inizia con [la creazione di una topologia Graph](direct-methods.md#graphtopologyset). Quindi, per ogni feed video attivo che si desidera elaborare con questa topologia, si [Crea un'istanza di Graph](direct-methods.md#graphinstanceset). 
 
-Il diagramma seguente illustra la macchina a Stati del grafico multimediale.
+L'istanza del grafo sarà nello `Inactive` stato (inattivo).
 
-![Macchina a Stati del grafico multimediale](./media/media-graph/media-graph-state-machine.png)
+Quando si è pronti per inviare il feed video live nell'istanza Graph, è necessario [attivarlo](direct-methods.md#graphinstanceactivate) . L'istanza del grafo passa brevemente attraverso uno stato di transizione `Activating` e, in caso di esito positivo, entra in uno `Active` stato. Nello `Active` stato, i supporti verranno elaborati (se l'istanza del grafo riceve i dati di input).
+
+> [!NOTE]
+>  Un'istanza del grafo può essere attiva senza il flusso di dati (ad esempio, la videocamera passa alla modalità offline).
+> La sottoscrizione di Azure verrà fatturata quando l'istanza del grafo si trova nello stato attivo.
+
+È possibile ripetere il processo di creazione e attivazione di altre istanze del grafo per la stessa topologia, se si dispone di altri feed video live da elaborare.
+
+Al termine dell'elaborazione del feed video in tempo reale, è possibile [disattivare](direct-methods.md#graphinstancedeactivate) l'istanza di Graph. L'istanza del grafo passa brevemente attraverso uno stato di transizione `Deactivating` , Scarica tutti i dati che contiene e quindi torna allo `Inactive` stato.
+
+È possibile [eliminare](direct-methods.md#graphinstancedelete) un'istanza del grafo solo quando è nello `Inactive` stato.
+
+Dopo che tutte le istanze di Graph che fanno riferimento a una topologia Graph specifica sono state eliminate, è possibile [eliminare la topologia Graph](direct-methods.md#graphtopologydelete).
+
 
 ## <a name="sources-processors-and-sinks"></a>Origini, processori e sink  
 

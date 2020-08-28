@@ -9,14 +9,14 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/06/2020
+ms.date: 08/28/2020
 ms.author: jingwang
-ms.openlocfilehash: 43ab59f109e311d9d7312b77d34321fa98a952d6
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 0104f9002a1fb4f6f1d0d31bd6eea50bce1b365b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926808"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050370"
 ---
 # <a name="copy-data-from-the-hdfs-server-by-using-azure-data-factory"></a>Copiare i dati dal server HDFS usando Azure Data Factory
 
@@ -172,6 +172,8 @@ Le proprietà seguenti sono supportate per HDFS `storeSettings` in impostazioni 
 | ***Impostazioni aggiuntive*** |  | |
 | ricorsiva | Indica se i dati vengono letti in modo ricorsivo dalle cartelle secondarie o solo dalla cartella specificata. Quando `recursive` è impostato su *true* e il sink è un archivio basato su file, una cartella o una sottocartella vuota non viene copiata o creata nel sink. <br>I valori consentiti sono *true* (predefinito) e *false*.<br>Questa proprietà non è applicabile quando si configura `fileListPath`. |No |
 | modifiedDatetimeStart    | I file vengono filtrati in base all' *Ultima modifica*apportata all'attributo. <br>I file vengono selezionati se l'ora dell'Ultima modifica rientra nell'intervallo di `modifiedDatetimeStart` a `modifiedDatetimeEnd` . L'ora viene applicata al fuso orario UTC nel formato *2018-12-01T05:00:00Z*. <br> Le proprietà possono essere NULL, il che significa che al set di dati non viene applicato alcun filtro di attributi di file.  Quando `modifiedDatetimeStart` ha un valore DateTime ma `modifiedDatetimeEnd` è null, significa che i file il cui ultimo attributo modificato è maggiore o uguale al valore DateTime sono selezionati.  Quando `modifiedDatetimeEnd` ha un valore DateTime ma `modifiedDatetimeStart` è null, significa che i file il cui attributo Last modified è minore del valore DateTime sono selezionati.<br/>Questa proprietà non è applicabile quando si configura `fileListPath`. | No                                            |
+| enablePartitionDiscovery | Per i file partizionati, specificare se analizzare le partizioni dal percorso del file e aggiungerle come colonne di origine aggiuntive.<br/>I valori consentiti sono **false** (impostazione predefinita) e **true**. | Falso                                            |
+| partitionRootPath | Quando è abilitata l'individuazione delle partizioni, specificare il percorso radice assoluto per leggere le cartelle partizionate come colonne di dati.<br/><br/>Se non viene specificato, per impostazione predefinita<br/>-Quando si usa il percorso del file in un set di dati o un elenco di file nell'origine, il percorso radice della partizione è il percorso configurato nel set di dati.<br/>-Quando si usa il filtro di cartelle con caratteri jolly, il percorso radice della partizione è il percorso secondario prima del primo carattere jolly.<br/><br/>Si supponga, ad esempio, di configurare il percorso nel set di dati come "root/folder/Year = 2020/month = 08/Day = 27":<br/>-Se si specifica il percorso radice della partizione come "root/folder/Year = 2020", l'attività di copia genererà altre due colonne `month` e `day` con il valore "08" e "27", oltre alle colonne all'interno dei file.<br/>-Se il percorso radice della partizione non è specificato, non verrà generata alcuna colonna aggiuntiva. | Falso                                            |
 | maxConcurrentConnections | Il numero di connessioni che possono connettersi all'archivio di archiviazione simultaneamente. Specificare un valore solo quando si desidera limitare la connessione simultanea all'archivio dati. | No                                            |
 | ***Impostazioni DistCp*** |  | |
 | distcpSettings | Gruppo di proprietà da usare quando si usa HDFS DistCp. | No |
@@ -272,7 +274,7 @@ Per le configurazioni e gli esempi correlati a DistCp, passare alla sezione [HDF
 
 Sono disponibili due opzioni per la configurazione dell'ambiente locale per l'uso dell'autenticazione Kerberos per il connettore HDFS. È possibile scegliere quello più adatto alla propria situazione.
 * Opzione 1: [aggiungere un computer del runtime di integrazione self-hosted nell'area di autenticazione Kerberos](#kerberos-join-realm)
-* Opzione 2: [abilitare il trust reciproco tra il dominio Windows e l'area di autenticazione Kerberos](#kerberos-mutual-trust)
+* Opzione 2: [Abilitare il trust reciproco tra il dominio Windows e l'area di autenticazione Kerberos](#kerberos-mutual-trust)
 
 ### <a name="option-1-join-a-self-hosted-integration-runtime-machine-in-the-kerberos-realm"></a><a name="kerberos-join-realm"></a>Opzione 1: aggiungere un computer del runtime di integrazione self-hosted nell'area di autenticazione Kerberos
 
@@ -405,7 +407,7 @@ Sono disponibili due opzioni per la configurazione dell'ambiente locale per l'us
 
     a. Selezionare **strumenti**  >  **di amministrazione Active Directory utenti e computer**.
 
-    b. Per configurare le funzionalità avanzate, selezionare **Visualizza**  >  **funzionalità avanzate**.
+    b. Configurare le funzionalità avanzate selezionando **Visualizza** > **Funzionalità avanzate**.
 
     c. Nel riquadro **funzionalità avanzate** , fare clic con il pulsante destro del mouse sull'account in cui si desidera creare i mapping e nel riquadro **mapping** nomi selezionare la scheda **nomi Kerberos** .
 

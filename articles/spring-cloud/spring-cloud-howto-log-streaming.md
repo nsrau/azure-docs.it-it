@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 82d820e676cb241198e7b412bad9602b5eb8109b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: fb76f7897b9647a688e21993002f9c96fe9487f8
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037339"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89046749"
 ---
 # <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>Trasmettere i log dell'app Azure Spring Cloud in tempo reale
 Azure Spring cloud consente lo streaming di log nell'interfaccia della riga di comando di Azure per ottenere i log della console applicazione in tempo reale per la risoluzione dei problemi È anche possibile [analizzare i log e le metriche con le impostazioni di diagnostica](./diagnostic-services.md).
@@ -87,7 +87,7 @@ az spring-cloud app logs -h
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi
-
+* [Guida introduttiva: monitoraggio delle app cloud di Azure Spring con log, metriche e traccia](spring-cloud-quickstart-logs-metrics-tracing.md)
 * [Analizzare i log e le metriche con le impostazioni di diagnostica](./diagnostic-services.md)
 
  

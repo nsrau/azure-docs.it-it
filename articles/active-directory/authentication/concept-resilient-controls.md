@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 06/08/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2fafe9fd46322b0720d876f5b70d204fdf23fbb2
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: f58e5a07348dfde4e4618eb58746f08016c55ed6
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716300"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049571"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Creare una strategia di gestione di controllo di accesso resiliente con Azure Active Directory
 
@@ -92,7 +92,7 @@ Questo set di criteri di esempio concederà, agli utenti selezionati in **AppUse
 
 ### <a name="contingencies-for-user-lockout"></a>Contingenze per blocco dell'utente
 
-In alternativa, l'organizzazione può anche creare dei criteri di emergenza. Per creare i criteri di emergenza, è necessario definire i criteri di compromesso tra continuità aziendale, costo operativo, costo finanziario e rischi relativi alla sicurezza. Ad esempio, è possibile attivare un criterio di emergenza solo in un subset di utenti, per un subset di app, per un subset di client o da un subset di percorsi. I criteri di emergenza forniranno l'accesso ad app e risorse agli amministratori e agli utenti finali durante un'interruzione se non è stato implementato alcun metodo di mitigazione dei rischi. Microsoft consiglia di abilitare i criteri di contingenza in [modalità solo rapporto](../conditional-access/howto-conditional-access-report-only.md) quando non è in uso, in modo che gli amministratori possano monitorare il potenziale impatto dei criteri qualora debbano essere attivati.
+In alternativa, l'organizzazione può anche creare dei criteri di emergenza. Per creare i criteri di emergenza, è necessario definire i criteri di compromesso tra continuità aziendale, costo operativo, costo finanziario e rischi relativi alla sicurezza. Ad esempio, è possibile attivare un criterio di emergenza solo in un subset di utenti, per un subset di app, per un subset di client o da un subset di percorsi. I criteri di emergenza forniranno l'accesso ad app e risorse agli amministratori e agli utenti finali durante un'interruzione se non è stato implementato alcun metodo di mitigazione dei rischi. Microsoft consiglia di abilitare i criteri di contingenza in [modalità solo rapporto](../conditional-access/howto-conditional-access-insights-reporting.md) quando non è in uso, in modo che gli amministratori possano monitorare il potenziale impatto dei criteri qualora debbano essere attivati.
 
  Comprendere l'esposizione durante un'interruzione aiuta a ridurre i rischi ed è una parte essenziale del processo di pianificazione. Per creare il piano di emergenza, determinare innanzitutto i seguenti requisiti aziendali dell'organizzazione:
 

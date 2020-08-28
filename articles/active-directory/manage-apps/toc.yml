@@ -246,7 +246,7 @@
               href: application-types.md
             - name: Utente imprevisto assegnato
               href: ways-users-get-assigned-to-applications.md
-        - name: Risolvere i problemi relativi al pannello di accesso
+        - name: Risolvere i problemi di App personali
           items:
             - name: Gestire l'estensione del browser
               href: manage-access-panel-browser-extension.md
@@ -256,8 +256,6 @@
               href: access-panel-troubleshoot-unexpected-application.md
             - name: Accesso non riuscito
               href: access-panel-troubleshoot-web-sign-in-problem.md
-            - name: Errore durante l'installazione dell'estensione del browser
-              href: access-panel-extension-problem-installing.md
             - name: Errore durante l'uso dell'accesso alle app self-service
               href: access-panel-troubleshoot-self-service-access.md
         - name: Risolvere i problemi relativi alle app locali

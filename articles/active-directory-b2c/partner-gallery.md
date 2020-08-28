@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ab9a9785f2f995a6f8df766603e3fc3b9a894be5
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: ec1aa165b8fa5d3a249cb525887acf2990136bd3
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814230"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049868"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Partner ISV Azure Active Directory B2C
 
@@ -31,6 +31,7 @@ Microsoft ISV partner Network estende le funzionalità della soluzione per facil
 | :--- | :--- |
 | ![Logo](./media/partner-gallery/arkose-logo.png) | [Arcose Labs](./partner-arkose-labs.md) è un provider di soluzioni per la prevenzione delle frodi che consente alle organizzazioni di proteggersi da attacchi bot, attacchi di acquisizione di account e aperture fraudolente degli account.
 | ![Logo](./media/partner-gallery/experian-logo.png) | [Experian](./partner-experian.md) è un provider di verifica dell'identità e di correzione che esegue valutazioni del rischio in base agli attributi dell'utente per prevenire le frodi.|
+| ![Logo](./media/partner-gallery/hypr-logo.png) | [HYPR](./partner-hypr.md) è un vero e proprio provider di autenticazione senza password, che sostituisce le password con crittografia a chiave pubblica, eliminando la frode, il phishing e il riutilizzo delle credenziali.|
 | ![Logo](./media/partner-gallery/idology-logo.png) | [IDology](./partner-idology.md) è un provider di verifica dell'identità e di correzione con soluzioni di verifica ID, soluzioni per la prevenzione di frodi, soluzioni di conformità e altro ancora.|
 | ![Logo](./media/partner-gallery/itsme-logo.png) | [itsme](./partner-itsme.md) è una soluzione di identificazione digitale conforme ai servizi di identificazione, autenticazione e attendibilità (eiDAS) per consentire agli utenti di accedere in modo sicuro senza lettori di schede, password, autenticazione a due fattori e codici pin multipli. |
 | ![Logo](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) è un servizio di verifica ID, che consente la verifica automatica in tempo reale degli ID, salvaguardando i dati dei clienti. |

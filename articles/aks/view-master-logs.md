@@ -4,12 +4,12 @@ description: Informazioni su come abilitare e visualizzare i log per il nodo mas
 services: container-service
 ms.topic: article
 ms.date: 01/03/2019
-ms.openlocfilehash: 76ded781d4eae48db04f54a4f88a80cc700d0ad9
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 721ef4f60d263602b01b5957bfb9bc3b5682a2df
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86250737"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048279"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Abilitare e controllare i log del nodo master di Kubernetes nel servizio Azure Kubernetes
 
@@ -30,12 +30,8 @@ I log di monitoraggio di Azure sono abilitati e gestiti nella portale di Azure. 
 1. Selezionare il cluster AKS, ad esempio *myAKSCluster*, quindi scegliere di **aggiungere l'impostazione di diagnostica**.
 1. Immettere un nome, ad esempio *myAKSClusterLogs*, quindi selezionare l'opzione **Invia a Log Analytics**.
 1. Selezionare un'area di lavoro esistente o crearne una nuova. Se si crea un'area di lavoro, specificare un nome per l'area di lavoro, un gruppo di risorse e un percorso.
-1. Nell'elenco dei log disponibili selezionare i log che si desidera abilitare. I log comuni includono *Kube-apiserver*, *Kube-Controller-Manager*e *Kube-Scheduler*. È possibile abilitare ulteriori log, ad esempio *kube-audit* e *cluster-autoscaler*. È possibile restituire e modificare i log raccolti dopo l'abilitazione delle aree di lavoro di Log Analytics.
+1. Nell'elenco dei log disponibili selezionare i log che si desidera abilitare. Per questo esempio, abilitare i log di *controllo Kube* . I log comuni includono *Kube-apiserver*, *Kube-Controller-Manager*e *Kube-Scheduler*. È possibile restituire e modificare i log raccolti dopo l'abilitazione delle aree di lavoro di Log Analytics.
 1. Quando si è pronti, selezionare **Salva** per abilitare la raccolta dei log selezionati.
-
-La schermata del portale di esempio seguente mostra la finestra *impostazioni di diagnostica* :
-
-![Abilitare l'area di lavoro Log Analytics per i log di Monitoraggio di Azure del cluster del servizio Azure Kubernetes](media/view-master-logs/enable-oms-log-analytics.png)
 
 ## <a name="schedule-a-test-pod-on-the-aks-cluster"></a>Pianificare un pod di test nel cluster servizio Azure Kubernetes
 
@@ -71,30 +67,25 @@ pod/nginx created
 
 ## <a name="view-collected-logs"></a>Visualizzare i log raccolti
 
-Potrebbero occorrere alcuni minuti prima che i log di diagnostica siano abilitati e vengano visualizzati nell'area di lavoro Log Analytics. Nella portale di Azure selezionare il gruppo di risorse per l'area di lavoro Log Analytics, ad esempio *myResourceGroup*, quindi scegliere la risorsa di log Analytics, ad esempio *myAKSLogs*.
+Potrebbero essere necessari alcuni minuti per abilitare e visualizzare i log di diagnostica. Nel portale di Azure passare al cluster AKS e selezionare **logs (registri** ) sul lato sinistro. Chiudere la finestra *query di esempio* , se visualizzata.
 
-![Selezionare l'area di lavoro Log Analytics per il cluster servizio Azure Kubernetes](media/view-master-logs/select-log-analytics-workspace.png)
 
-Sul lato sinistro scegliere **Log**. Per visualizzare *kube-apiserver*, immettere la query seguente nella casella di testo:
-
-```
-AzureDiagnostics
-| where Category == "kube-apiserver"
-| project log_s
-```
-
-Probabilmente vengono restituiti molti log per il server API. Per limitare i risultati della query in modo da visualizzare i log sul pod NGINX creato nel passaggio precedente, aggiungere un'altra istruzione *where* per cercare *pods/nginx* come illustrato nella query di esempio seguente:
+Sul lato sinistro scegliere **Log**. Per visualizzare i log di *controllo Kube* , immettere la query seguente nella casella di testo:
 
 ```
 AzureDiagnostics
-| where Category == "kube-apiserver"
-| where log_s contains "pods/nginx"
+| where Category == "kube-audit"
 | project log_s
 ```
 
-Vengono visualizzati i log specifici per il pod NGINX, come illustrato nello screenshot di esempio seguente:
+È probabile che vengano restituiti molti log. Per limitare l'ambito della query per visualizzare i log relativi al Pod NGINX creato nel passaggio precedente, aggiungere un'istruzione *where* aggiuntiva per cercare *nginx* , come illustrato nella query di esempio seguente:
 
-![Registrare i risultati della query di Log Analytics per il pod NGINX di esempio](media/view-master-logs/log-analytics-query-results.png)
+```
+AzureDiagnostics
+| where Category == "kube-audit"
+| where log_s contains "nginx"
+| project log_s
+```
 
 Per visualizzare altri log, è possibile aggiornare la query per il nome di *Categoria* con *kube-controller-manager* oppure *kube-scheduler*, a seconda dei log aggiuntivi che si vuole abilitare. È possibile usare ulteriori istruzioni *where* per definire gli eventi da cercare.
 

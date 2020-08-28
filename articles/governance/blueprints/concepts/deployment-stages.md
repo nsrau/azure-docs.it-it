@@ -1,14 +1,14 @@
 ---
 title: Fasi della distribuzione di un progetto
 description: Informazioni sui passaggi correlati alla sicurezza e agli artefatti durante la creazione di un'assegnazione di progetto.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d3ccba6645e1b14fffc543af2a6ad40e3634e2ed
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 73d5d67cf77d4ccc48517c895630b8299081e2e0
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970655"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049775"
 ---
 # <a name="stages-of-a-blueprint-deployment"></a>Fasi della distribuzione di un progetto
 
@@ -56,8 +56,8 @@ Una volta completate le distribuzioni, i progettisti di Azure revocano i diritti
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come usare [parametri statici e dinamici](parameters.md).
-- Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](sequencing-order.md).
-- Informazioni su come usare in modo ottimale il [blocco delle risorse del progetto](resource-locking.md).
+- Informazioni su come usare [parametri statici e dinamici](./parameters.md).
+- Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](./sequencing-order.md).
+- Informazioni su come usare in modo ottimale il [blocco delle risorse del progetto](./resource-locking.md).
 - Informazioni su come [aggiornare assegnazioni esistenti](../how-to/update-existing-assignments.md).
 - Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](../troubleshoot/general.md).

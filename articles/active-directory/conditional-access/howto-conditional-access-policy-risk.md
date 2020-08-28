@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2564e3f246d23028d6c73832a25f37110e7670c8
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 0c6e3316afc09992d16e17d9d2e2afe6b92dcd22
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948097"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049044"
 ---
 # <a name="conditional-access-sign-in-risk-based-conditional-access"></a>Accesso condizionale: accesso condizionale basato sui rischi di accesso
 
@@ -66,7 +66,7 @@ Questo criterio può essere assegnato a due posizioni. Le organizzazioni devono 
 
 [Accesso condizionale basato sul rischio per l'utente](howto-conditional-access-policy-risk-user.md)
 
-[Determinare l'impatto dell'uso della modalità di accesso condizionale solo report](howto-conditional-access-report-only.md)
+[Determinare l'impatto dell'uso della modalità di accesso condizionale solo report](howto-conditional-access-insights-reporting.md)
 
 [Simulare il comportamento di accesso usando lo strumento What If per l'accesso condizionale](troubleshoot-conditional-access-what-if.md)
 

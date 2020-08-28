@@ -653,7 +653,7 @@
         - name: Domande frequenti
           displayName: faq
           href: managed-instance/frequently-asked-questions-faq.md
-    - name: Avvi rapidi
+    - name: Avvii rapidi
       href: managed-instance/quickstart-content-reference-guide.md
       items:
         - name: Creare un'istanza gestita di SQL
@@ -723,7 +723,7 @@
               href: managed-instance/machine-learning-services-overview.md
             - name: Differenze principali
               href: managed-instance/machine-learning-services-differences.md
-            - name: Avvi rapidi
+            - name: Avvii rapidi
               items:
                 - name: Python
                   items:
@@ -928,7 +928,7 @@
               href: virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md
             - name: Novità
               href: virtual-machines/windows/doc-changes-updates-release-notes.md
-        - name: Avvi rapidi
+        - name: Avvii rapidi
           items:
             - name: Creare una macchina virtuale SQL
               items: null
@@ -986,9 +986,11 @@
                 - name: Modello di licenza
                   displayName: 'ahb, ahub, payg, change, modify, update'
                   href: virtual-machines/windows/licensing-model-azure-hybrid-benefit-ahb-change.md
-                - name: Edizione
+                - name: Cambiare edizione
                   displayName: 'change, modify, update'
                   href: virtual-machines/windows/change-sql-server-edition.md
+                - name: Cambiare versione
+                  href: virtual-machines/windows/change-sql-server-version.md
                 - name: Archiviazione
                   href: virtual-machines/windows/storage-configuration.md
                 - name: Integrazione di Azure Key Vault
@@ -1024,6 +1026,8 @@
                       href: virtual-machines/windows/automated-backup-sql-2014.md
                 - name: Gruppo di disponibilità AlwaysOn
                   items:
+                    - name: Portale di Azure
+                      href: virtual-machines/windows/availability-group-azure-portal-configure.md
                     - name: PowerShell o interfaccia della riga di comando Az
                       href: virtual-machines/windows/availability-group-az-commandline-configure.md
                     - name: Modelli di avvio rapido di Azure
@@ -1102,7 +1106,7 @@
           items:
             - name: Informazioni sulle VM di SQL Server Linux
               href: virtual-machines/linux/sql-server-on-linux-vm-what-is-iaas-overview.md
-        - name: Avvi rapidi
+        - name: Avvii rapidi
           items:
             - name: Creare una macchina virtuale SQL - Portale
               href: virtual-machines/linux/sql-vm-create-portal-quickstart.md

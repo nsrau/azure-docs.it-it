@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 09/27/2018
 ms.author: cynthn
 ms.custom: legacy
-ms.openlocfilehash: e579223691ed7593d04c3b67004a6dd511f72c78
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 751fa9f9fe2ba17a982b71a6332be302804f0dcc
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88236608"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047293"
 ---
 # <a name="create-a-managed-image-of-a-generalized-vm-in-azure"></a>Creare un'immagine gestita di una macchina virtuale generalizzata in Azure
 
@@ -26,10 +26,12 @@ Un'immagine gestita supporta fino a 20 distribuzioni simultanee. Il tentativo di
 
 Sysprep rimuove tutte le informazioni sull'account personale e sulla sicurezza e quindi prepara la macchina da usare come immagine. Per informazioni su Sysprep, vedere [Sysprep overview](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview) (Panoramica di Sysprep).
 
-Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da Sysprep. Per altre informazioni, vedere [Supporto di Sysprep per i ruoli server](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) e [Scenari non supportati](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). Sysprep richiede che le unità vengano decrittografate completamente prima dell'esecuzione. Se è stata abilitata la crittografia nella macchina virtuale, disabilitare la crittografia prima di eseguire Sysprep.
+Assicurarsi che i ruoli server in esecuzione sulla macchina siano supportati da Sysprep. Per altre informazioni, vedere [Supporto di Sysprep per i ruoli server](/windows-hardware/manufacture/desktop/sysprep-support-for-server-roles) e [Scenari non supportati](/windows-hardware/manufacture/desktop/sysprep--system-preparation--overview#unsupported-scenarios). 
 
 > [!IMPORTANT]
 > Dopo aver eseguito Sysprep in una VM, quest'ultima viene considerata *generalizzata* e non può essere riavviata. Il processo di generalizzazione di una macchina virtuale è irreversibile. Per mantenere in funzionamento la VM originale, è consigliabile creare una [copia della VM](create-vm-specialized.md#option-3-copy-an-existing-azure-vm) e generalizzarla. 
+>
+>Sysprep richiede che le unità siano completamente decrittografate. Se è stata abilitata la crittografia nella macchina virtuale, disabilitare la crittografia prima di eseguire Sysprep.
 >
 > Se si prevede di eseguire Sysprep prima di caricare il disco rigido virtuale in Azure per la prima volta, verificare di aver [preparato la VM](prepare-for-upload-vhd-image.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).  
 > 
