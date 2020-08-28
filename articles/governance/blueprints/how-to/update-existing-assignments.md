@@ -1,14 +1,14 @@
 ---
 title: Aggiornare un'assegnazione esistente dal portale
 description: Informazioni sul meccanismo per l'aggiornamento di un'assegnazione di progetto esistente dal portale nei progetti di Azure.
-ms.date: 04/15/2020
+ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 03c954517662c1f54fcca9fbb96ebdf48afdedef
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 888ebbf0149f8f75f867bb17115988cb20d25df2
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969465"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051424"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Come aggiornare un'assegnazione di progetto esistente
 
@@ -24,12 +24,11 @@ Quando viene assegnato un progetto, l'assegnazione può essere aggiornata. Esist
 
 1. Selezionare **Progetti assegnati** nella pagina a sinistra.
 
-1. Nell'elenco dei progetti fare clic sull'assegnazione del progetto Fare quindi clic sul pulsante **Aggiorna assegnazione** oppure fare clic con il pulsante destro del mouse sull'assegnazione del progetto e selezionare **Aggiorna assegnazione**.
+1. Nell'elenco dei progetti selezionare l'assegnazione del progetto. Usare quindi il pulsante di **assegnazione aggiornamento** oppure fare clic con il pulsante destro del mouse sull'assegnazione del progetto e selezionare **Aggiorna assegnazione**.
 
    :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Aggiornare un'assegnazione di progetto esistente" border="false":::
 
-1. La pagina **assegna progetto** caricherà precompilata con tutti i valori dall'assegnazione originale.
-   È possibile modificare la **versione della definizione di progetto**, lo stato di **Blocca assegnazione** e i parametri dinamici presenti nella definizione del progetto. Al termine delle modifiche, fare clic su **Assegna**.
+1. La pagina **assegna progetto** carica precompilata con tutti i valori dall'assegnazione originale. È possibile modificare la **versione della definizione di progetto**, lo stato di **Blocca assegnazione** e i parametri dinamici presenti nella definizione del progetto. Al termine delle modifiche, selezionare **assegna** .
 
 1. Nella pagina dei dettagli dell'assegnazione aggiornata, vedere il nuovo stato. In questo esempio, è stato aggiunto il parametro **Blocco** all'assegnazione.
 
@@ -50,7 +49,7 @@ La distribuzione delle assegnazioni aggiornate segue alcune regole importanti. Q
   - Se viene modificata la definizione dell'assegnazione dei criteri, viene creata una nuova assegnazione di criteri.
     Le assegnazioni di criteri distribuite in precedenza vengono mantenute.
   - Se l'artefatto dell'assegnazione dei criteri viene rimosso dal progetto, l'assegnazione di criteri distribuita viene mantenuta.
-- Modelli di Azure Resource Manager (modelli ARM)
+- Modelli di Azure Resource Manager
   - Il modello viene elaborato tramite Resource Manager come **PUT**. Dato che ogni tipo di risorsa gestisce questo tipo di azione in modo diverso, vedere la documentazione per ogni risorsa inclusa per determinare l'impatto di questa azione quando viene eseguita dai progetti.
 
 ## <a name="possible-errors-on-updating-assignments"></a>Possibili errori per l'aggiornamento delle assegnazioni

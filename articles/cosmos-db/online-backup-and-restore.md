@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/24/2020
 ms.author: govindk
 ms.reviewer: sngun
-ms.openlocfilehash: 54bbd5d45e14c1d345570eea9dc5469f77694154
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f8ec215458e8ebfafb87209516f167d628e98389
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853924"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047629"
 ---
 # <a name="online-backup-and-on-demand-data-restore-in-azure-cosmos-db"></a>Backup online e ripristino dei dati su richiesta in Azure Cosmos DB
 
@@ -57,7 +57,7 @@ Per modificare le opzioni di backup predefinite per un account Azure Cosmos esis
 
    * **Conservazione dei backup** : rappresenta il periodo di conservazione di ogni backup. È possibile configurarlo in ore o giorni. Il periodo di memorizzazione minimo non può essere minore di due volte l'intervallo di backup (in ore) e non può essere maggiore di 720 ore.
 
-   * **Copie dei dati conservati** . per impostazione predefinita, vengono offerte gratuitamente due copie di backup dei dati. Se sono necessarie copie aggiuntive, è necessario creare una richiesta di supporto tramite il portale di Azure e verranno addebitate le copie aggiuntive. Per conoscere il prezzo esatto per le copie aggiuntive, vedere la sezione archiviazione utilizzata nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) .
+   * **Copie dei dati conservati** . per impostazione predefinita, vengono offerte gratuitamente due copie di backup dei dati. Se sono necessarie più di due copie, è previsto un addebito aggiuntivo. Per conoscere il prezzo esatto per le copie aggiuntive, vedere la sezione archiviazione utilizzata nella [pagina dei prezzi](https://azure.microsoft.com/pricing/details/cosmos-db/) .
 
    :::image type="content" source="./media/online-backup-and-restore/configure-backup-interval-retention.png" alt-text="Configurare l'intervallo di backup e la conservazione per un account Azure Cosmos esistente" border="true":::
 

@@ -1,14 +1,14 @@
 ---
 title: Comprendere l'ordine della sequenza di distribuzione
 description: Informazioni sull'ordine predefinito in cui vengono distribuiti gli artefatti del progetto durante un'assegnazione di progetto e su come personalizzare l'ordine di distribuzione.
-ms.date: 05/06/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d4a3b07e158aa7e4514ea9543bf44ad57e379d24
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 8305e5d44caef0f35e5b4beb4b70be9736272fa7
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970621"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051475"
 ---
 # <a name="understand-the-deployment-sequence-in-azure-blueprints"></a>Comprendere la sequenza di distribuzione in Azure Blueprints
 
@@ -141,8 +141,8 @@ Un esempio è un gruppo di risorse che dipende da un criterio a livello di sotto
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni sul [ciclo di vita del progetto](lifecycle.md).
-- Informazioni su come usare [parametri statici e dinamici](parameters.md).
-- Informazioni su come usare in modo ottimale il [blocco delle risorse del progetto](resource-locking.md).
+- Informazioni sul [ciclo di vita del progetto](./lifecycle.md).
+- Informazioni su come usare [parametri statici e dinamici](./parameters.md).
+- Informazioni su come usare in modo ottimale il [blocco delle risorse del progetto](./resource-locking.md).
 - Informazioni su come [aggiornare assegnazioni esistenti](../how-to/update-existing-assignments.md).
 - Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](../troubleshoot/general.md).

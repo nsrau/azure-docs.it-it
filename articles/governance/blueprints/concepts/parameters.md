@@ -1,14 +1,14 @@
 ---
 title: Usare i parametri per creare progetti dinamici
 description: Informazioni sui parametri statici e dinamici e su come usarli per creare progetti dinamici e protetti.
-ms.date: 04/15/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 831dd69f58130247518ee7465bc1059aed61b319
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: b9c80a50ebb4be8dc530c73544a704035d777225
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970638"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051560"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creazione di progetti dinamici tramite parametri
 
@@ -55,11 +55,11 @@ Un valore di parametro definito nella definizione di un progetto viene chiamato 
 
 1. Selezionare **Definizioni di progetto** nella pagina a sinistra.
 
-1. Fare clic su un progetto esistente e quindi fare clic su **modifica progetto** oppure su **+ Crea progetto** e compilare le informazioni nella scheda **nozioni di base** .
+1. Selezionare un progetto esistente e quindi scegliere **modifica progetto** oppure selezionare **+ Crea progetto** e compilare le informazioni nella scheda **nozioni di base** .
 
-1. Fare clic su **Avanti: Artefatti** oppure fare clic sulla scheda **Artefatti**.
+1. Selezionare **Avanti: artefatti** o selezionare la scheda **artefatti** .
 
-1. Gli artefatti aggiunti al progetto che hanno opzioni dei parametri mostrano l'indicazione **X di Y parametri popolati** nella colonna **Parametri**. Fare clic sulla riga dell'artefatto per modificarne i parametri.
+1. Gli artefatti aggiunti al progetto che hanno opzioni dei parametri mostrano l'indicazione **X di Y parametri popolati** nella colonna **Parametri**. Selezionare la riga dell'artefatto per modificare i parametri dell'artefatto.
 
    :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Parametri del progetto in una definizione di progetto" border="false":::
 
@@ -172,7 +172,7 @@ L'opposto di un parametro statico è un **parametro dinamico**. Questo parametro
 
 1. Selezionare **Definizioni di progetto** nella pagina a sinistra.
 
-1. Fare clic con il tasto destro del mouse sul progetto che si desidera assegnare. Selezionare **assegna progetto** oppure fare clic sul progetto che si vuole assegnare, quindi fare clic sul pulsante **assegna progetto** .
+1. Fare clic con il tasto destro del mouse sul progetto che si desidera assegnare. Selezionare **assegna progetto** o selezionare il progetto che si vuole assegnare, quindi usare il pulsante **assegna progetto** .
 
 1. Nella pagina **assegna progetto** individuare la sezione **parametri artefatto** . Ogni artefatto con almeno un **parametro dinamico** mostra l'artefatto e le opzioni di configurazione. Immettere i valori richiesti per i parametri prima di assegnare il progetto. Nell'esempio seguente, _Nome_ è un **parametro dinamico** che deve essere definito per completare l'assegnazione del progetto.
 
@@ -234,8 +234,8 @@ L'impostazione dei **parametri dinamici** durante l'assegnazione si esegue inser
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Vedere l'elenco delle [funzioni di progetto](../reference/blueprint-functions.md).
-- Informazioni sul [ciclo di vita del progetto](lifecycle.md).
-- Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](sequencing-order.md).
-- Informazioni su come usare in modo ottimale il [blocco delle risorse del progetto](resource-locking.md).
+- Informazioni sul [ciclo di vita del progetto](./lifecycle.md).
+- Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](./sequencing-order.md).
+- Informazioni su come usare in modo ottimale il [blocco delle risorse del progetto](./resource-locking.md).
 - Informazioni su come [aggiornare assegnazioni esistenti](../how-to/update-existing-assignments.md).
 - Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](../troubleshoot/general.md).

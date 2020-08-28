@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: how-to
 ms.date: 04/10/2020
 ms.author: ramamill
-ms.openlocfilehash: 431f1da463e4bd9970bc92b0842393f2de882220
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 19d6933497b469148687dc9c5012513ab7d0314b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604732"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047208"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>Informazioni sul servizio Mobility per le macchine virtuali VMware e i server fisici
 
@@ -108,7 +108,7 @@ Durante un'installazione push del servizio Mobility, vengono eseguiti i passaggi
 
   ```cmd
   cd C:\Temp
-  ren Microsoft-ASR_UA_version_Windows_GA_date_release.exe MobilityServiceInstaller.exe
+  ren Microsoft-ASR_UA*Windows*release.exe MobilityServiceInstaller.exe
   MobilityServiceInstaller.exe /q /x:C:\Temp\Extracted
   cd C:\Temp\Extracted
   ```
@@ -135,7 +135,7 @@ Log di installazione | `%ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log`
 `/Role` | Parametro di installazione obbligatorio. Specifica se deve essere installato il servizio Mobility o la destinazione master.
 `/InstallLocation`| Parametro facoltativo. Specifica il percorso di installazione del servizio Mobility (qualsiasi cartella).
 `/Platform` | Mandatory. Specifica la piattaforma in cui è installato il servizio Mobility: <br/> **VMware** per macchine virtuali VMware/server fisici. <br/> **Azure** per macchine virtuali di Azure.<br/><br/> Se si tratta di macchine virtuali di Azure come macchine fisiche, specificare **VMware**.
-`/Silent`| Facoltativa. Specifica se il programma di installazione deve essere eseguito in modalità non interattiva.
+`/Silent`| facoltativo. Specifica se il programma di installazione deve essere eseguito in modalità non interattiva.
 
 #### <a name="registration-settings"></a>Impostazioni di registrazione
 
@@ -175,7 +175,7 @@ Sintassi | `./install -d \<Install Location> -r \<MS/MT> -v VmWare -q`
 `-r` | Parametro di installazione obbligatorio. Specifica se deve essere installato il servizio Mobility o la destinazione master.
 `-d` | Parametro facoltativo. Specifica il percorso di installazione del servizio Mobility: `/usr/local/ASR` .
 `-v` | Mandatory. Specifica la piattaforma in cui è installato il servizio Mobility. <br/> **VMware** per macchine virtuali VMware/server fisici. <br/> **Azure** per macchine virtuali di Azure.
-`-q` | Facoltativa. Specifica se il programma di installazione deve essere eseguito in modalità non interattiva.
+`-q` | facoltativo. Specifica se il programma di installazione deve essere eseguito in modalità non interattiva.
 
 #### <a name="registration-settings"></a>Impostazioni di registrazione
 

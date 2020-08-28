@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cc38e576f53c3623bacc374a00adcb4cced01517
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 45263ca0448042aa972ee53093b51dd47bd51190
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552884"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049350"
 ---
 # <a name="conditional-access-require-mfa-for-administrators"></a>Accesso condizionale: Richiedi autenticazione a più fattori per gli amministratori
 
@@ -81,6 +81,6 @@ La procedura seguente consente di creare un criterio di accesso condizionale per
 
 [Criteri comuni di accesso condizionale ](concept-conditional-access-policy-common.md)
 
-[Determinare l'impatto dell'uso della modalità di accesso condizionale solo report](howto-conditional-access-report-only.md)
+[Determinare l'impatto dell'uso della modalità di accesso condizionale solo report](howto-conditional-access-insights-reporting.md)
 
 [Simulare il comportamento di accesso usando lo strumento What If per l'accesso condizionale](troubleshoot-conditional-access-what-if.md)

@@ -8,12 +8,12 @@ ms.date: 08/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: ac37e9bd10caea5c6e58fc797eac73ce6c714162
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 398cf947f0a2d250c3cd0ed73a75bc3c091e5f7a
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82561023"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047531"
 ---
 # <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Integrazione e distribuzione continue in Azure IoT Edge
 
@@ -101,7 +101,7 @@ In questa sezione viene creata una nuova pipeline di compilazione. Configurare l
    * **Variabili di output**: le variabili di output includono un nome di riferimento che è possibile usare per configurare il percorso del file in cui verrà generato il deployment.jssul file. Impostare il nome di riferimento su un valore facile da ricordare, ad esempio **edge**.
 
 
-   Queste configurazioni usano il repository di immagini e il tag definiti nel `module.json` file per assegnare un nome e un tag all'immagine del modulo. Le **Immagini dei moduli di compilazione** consentono inoltre di sostituire le variabili con il valore esatto definito nel `module.json` file. In Visual Studio o Visual Studio Code si specifica il valore effettivo in un `.env` file. In Azure Pipelines è possibile impostare il valore nella scheda **variabili pipeline** . Selezionare la scheda **variabili** e configurare il nome e il valore come segue:
+   Queste configurazioni usano il repository di immagini e il tag definiti nel `module.json` file per assegnare un nome e un tag all'immagine del modulo. Le **Immagini dei moduli di compilazione** consentono inoltre di sostituire le variabili con il valore esatto definito nel `module.json` file. In Visual Studio o Visual Studio Code si specifica il valore effettivo in un `.env` file. In Azure Pipelines, è possibile impostare il valore nella scheda **variabili pipeline** . Selezionare la scheda **variabili** e configurare il nome e il valore come segue:
 
     * **ACR_ADDRESS**: indirizzo del container Registry di Azure. 
 
@@ -184,7 +184,7 @@ Creare una nuova pipeline e aggiungere una nuova fase
     * **Piattaforma predefinita**: scegliere lo stesso valore quando si compilano le immagini del modulo.
     * **Percorso di output**: inserire il percorso `$(System.DefaultWorkingDirectory)/Drop/drop/configs/deployment.json` . Questo percorso è il file manifesto di distribuzione IoT Edge finale.
 
-    Queste configurazioni consentono di sostituire gli URL delle immagini del modulo nel `deployment.template.json` file. Il **manifesto di generazione della distribuzione** consente inoltre di sostituire le variabili con il valore esatto definito nel `deployment.template.json` file. In VS/VS Code si specifica il valore effettivo in un `.env` file. In Azure Pipelines è possibile impostare il valore nella scheda variabili della pipeline di rilascio. passare alla scheda variabili e configurare il nome e il valore come segue.
+    Queste configurazioni consentono di sostituire gli URL delle immagini del modulo nel `deployment.template.json` file. Il **manifesto di generazione della distribuzione** consente inoltre di sostituire le variabili con il valore esatto definito nel `deployment.template.json` file. In VS/VS Code si specifica il valore effettivo in un `.env` file. In Azure Pipelines è possibile impostare il valore nella scheda variabili della pipeline di rilascio. Passare alla scheda variabili e configurare il nome e il valore come segue.
 
     * **ACR_ADDRESS**: indirizzo del container Registry di Azure.
     * **ACR_PASSWORD**: la password di Azure container Registry.
@@ -204,6 +204,15 @@ Creare una nuova pipeline e aggiungere una nuova fase
       * Se si distribuisce a un singolo dispositivo, immettere l'**ID del dispositivo IoT Edge**.
       * Se si distribuisce a più dispositivi, specificare la **condizione di destinazione** del dispositivo. La condizione di destinazione è un filtro che corrisponde a un set di dispositivi IoT Edge nell'hub Internet. Se si vogliono usare i Tag del dispositivo come condizione, è necessario aggiornare i tag di dispositivo corrispondenti con il dispositivo gemello hub IoT. Aggiornare l'**ID distribuzione di IoT Edge** e la **priorità della distribuzione IoT Edge** nelle impostazioni avanzate. Per altre informazioni sulla creazione di una distribuzione per più dispositivi, vedere [Informazioni sulle distribuzioni automatiche IoT Edge](module-deployment-monitoring.md).
     * Espandere Impostazioni avanzate, selezionare **IOT Edge ID distribuzione**, inserire la variabile `$(System.TeamProject)-$(Release.EnvironmentName)` . Viene eseguito il mapping del progetto e del nome della versione con l'ID distribuzione del IoT Edge.
+
+>[!NOTE]
+>Se si vogliono usare **distribuzioni** a più livelli nella pipeline, le distribuzioni su più livelli non sono ancora supportate nelle attività Azure IOT Edge in Azure DevOps.
+>
+>Tuttavia, è possibile usare un' [attività dell'interfaccia della riga di comando di Azure in Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-cli) per creare la distribuzione come distribuzione a più livelli. Per il valore di **script inline** , è possibile usare il [comando AZ all Edge Deployment create](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/edge/deployment):
+>
+>   ```azurecli-interactive
+>   az iot edge deployment create -d {deployment_name} -n {hub_name} --content modules_content.json --layered true
+>   ```
 
 12. Selezionare **Salva** per salvare le modifiche nella nuova pipeline di versione. Tornare alla visualizzazione pipeline selezionando **Pipeline** dal menu.
 

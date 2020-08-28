@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c60c0324b04bca0a8115f4ac884704012e8e1d8c
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: c98269f9851272e8caa9b26ae0c57ed13e9a99f2
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986849"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049129"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>Accesso condizionale: richiedere i dispositivi conformi
 
@@ -61,7 +61,7 @@ In Windows 7, iOS, Android, macOS e alcuni Web browser di terze parti Azure AD i
 
 [Criteri comuni di accesso condizionale ](concept-conditional-access-policy-common.md)
 
-[Determinare l'impatto dell'uso della modalità di accesso condizionale solo report](howto-conditional-access-report-only.md)
+[Determinare l'impatto dell'uso della modalità di accesso condizionale solo report](howto-conditional-access-insights-reporting.md)
 
 [Simulare il comportamento di accesso usando lo strumento What If per l'accesso condizionale](troubleshoot-conditional-access-what-if.md)
 

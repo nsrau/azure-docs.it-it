@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b45b2294d56de896849dca0f387a4e26b845aa93
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: df25278d37e518e99bc315a315e017b98c7f4e58
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84204192"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049384"
 ---
 # <a name="what-is-conditional-access-report-only-mode"></a>Che cos'è la modalità solo report di accesso condizionale?
 
@@ -51,4 +51,4 @@ Gli amministratori hanno la possibilità di creare più criteri in modalità sol
  
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Configurare la modalità solo report in un criterio di accesso condizionale](howto-conditional-access-report-only.md)
+[Configurare la modalità solo report in un criterio di accesso condizionale](howto-conditional-access-insights-reporting.md)

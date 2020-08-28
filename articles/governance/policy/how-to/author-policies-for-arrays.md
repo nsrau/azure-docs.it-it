@@ -3,12 +3,12 @@ title: Creare i criteri per le proprietà della matrice nelle risorse
 description: Informazioni su come usare i parametri della matrice e le espressioni del linguaggio della matrice, valutare l'alias [*] e aggiungere elementi con le regole di definizione di Criteri di Azure.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: f3ba5179ca7acc60042d23e88d42a504d4d05f08
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 5b9392a943e264ae5eca989ee87eb9ff09b36972
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544588"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048483"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Creare i criteri per le proprietà della matrice nelle risorse di Azure
 
@@ -95,7 +95,7 @@ Il formato del valore del parametro è diverso quando si usa l'interfaccia della
 
 Per usare questa stringa con ogni SDK, usare i comandi seguenti:
 
-- Interfaccia della riga di comando di Azure: comando [az policy assignment create](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create) con il parametro **params**
+- Interfaccia della riga di comando di Azure: comando [az policy assignment create](/cli/azure/policy/assignment#az-policy-assignment-create) con il parametro **params**
 - Azure PowerShell: cmdlet [New-AzPolicyAssignment](/powershell/module/az.resources/New-Azpolicyassignment) con il parametro **PolicyParameter**
 - API REST: durante l'operazione di [creazione](/rest/api/resources/policyassignments/create) di tipo _PUT_ come parte del corpo della richiesta, come valore della proprietà **properties.parameters**
 

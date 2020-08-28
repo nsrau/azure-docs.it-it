@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/06/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1fcec8b591192bba862bf91040e5d6ca1ef9bcd8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4a12658eada3d2660cde86b3eb80e332416ea7a3
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037730"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89046851"
 ---
 # <a name="understand-metrics-for-azure-spring-cloud"></a>Informazioni sulle metriche per il cloud Spring di Azure
 
@@ -129,7 +129,9 @@ Le tabelle seguenti illustrano le metriche e i dettagli disponibili.
 >| Tomcat. Sessions. rifiutato | Tomcat. Sessions. rifiutato | Conteggio | Numero di sessioni che non sono state create perché è stato raggiunto il numero massimo di sessioni attive. |
 >| Tomcat. Sessions. Active. Current | Tomcat. Sessions. Active. Current | Conteggio | Conteggio attivo sessione Tomcat |
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
+* [Guida introduttiva: monitoraggio delle app cloud di Azure Spring con log, metriche e traccia](spring-cloud-quickstart-logs-metrics-tracing.md)
+
 * [Introduzione a Esplora metriche di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-getting-started)
 
 * [Analizzare i log e le metriche con le impostazioni di diagnostica](https://docs.microsoft.com/azure/spring-cloud/diagnostic-services)

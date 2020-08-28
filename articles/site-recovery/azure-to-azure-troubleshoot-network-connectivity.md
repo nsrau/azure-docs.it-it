@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: 9600f1cae61b59af5d026eb74f504658395a11ae
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: afa2cbdb7b0703f9fc0b419442570744c6fefae1
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835885"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049690"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Risolvere i problemi di connettività di rete delle macchine virtuali da Azure ad Azure
 
@@ -18,9 +18,9 @@ Questo articolo descrive i problemi comuni relativi alla connettività di rete q
 
 Per il funzionamento della replica di Site Recovery, è necessaria la connettività in uscita dalla VM a intervalli IP o URL specifici. Se la macchina virtuale è protetta da un firewall o usa regole di gruppi di sicurezza di rete (NGS) per controllare la connettività in uscita, potrebbe verificarsi uno di questi problemi.
 
-| **Nome**                  | **Commerciale**                               | **Enti governativi**                                 | **Descrizione** |
+| **Nome**                  | **Commerciale**                               | **Enti pubblici**                                 | **Descrizione** |
 | ------------------------- | -------------------------------------------- | ---------------------------------------------- | ----------- |
-| Archiviazione:                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Richiesto in modo che i dati possano essere scritti nell'account di archiviazione della cache nell'area di origine dalla macchina virtuale. Se si conoscono tutti gli account di archiviazione della cache per le macchine virtuali, è possibile usare un elenco Consenti per gli URL specifici dell'account di archiviazione. Ad esempio, `cache1.blob.core.windows.net` e `cache2.blob.core.windows.net` anziché `*.blob.core.windows.net` . |
+| Archiviazione                   | `*.blob.core.windows.net`                  | `*.blob.core.usgovcloudapi.net`              | Richiesto in modo che i dati possano essere scritti nell'account di archiviazione della cache nell'area di origine dalla macchina virtuale. Se si conoscono tutti gli account di archiviazione della cache per le macchine virtuali, è possibile usare un elenco Consenti per gli URL specifici dell'account di archiviazione. Ad esempio, `cache1.blob.core.windows.net` e `cache2.blob.core.windows.net` anziché `*.blob.core.windows.net` . |
 | Azure Active Directory    | `login.microsoftonline.com`                | `login.microsoftonline.us`                   | Richiesto per l'autorizzazione e l'autenticazione negli URL del servizio Site Recovery. |
 | Replica               | `*.hypervrecoverymanager.windowsazure.com` | `*.hypervrecoverymanager.windowsazure.com`   | Richiesto in modo che la comunicazione del servizio di Site Recovery possa verificarsi dalla macchina virtuale. È possibile usare l' _IP Site Recovery_ corrispondente se il proxy del firewall supporta gli IP. |
 | Bus di servizio               | `*.servicebus.windows.net`                 | `*.servicebus.usgovcloudapi.net`             | Richiesto in modo che il monitoraggio e i dati di diagnostica di Site Recovery possano essere scritti dalla macchina virtuale. È possibile usare l' _indirizzo IP di monitoraggio Site Recovery_ corrispondente se il proxy del firewall supporta gli IP. |
@@ -80,11 +80,8 @@ In questo esempio viene illustrato come configurare le regole NSG per una macchi
 
      :::image type="content" source="./media/azure-to-azure-about-networking/aad-tag.png" alt-text="aad-tag":::
 
-1. Creare le regole in uscita della porta HTTPS 443 per gli IP Site Recovery che corrispondono alla posizione di destinazione:
-
-   | Percorso | Indirizzo IP di Site Recovery | Indirizzo IP di monitoraggio di Site Recovery |
-   | --- | --- | --- |
-   | Stati Uniti centrali | 40.69.144.231 | 52.165.34.144 |
+1. Analogamente alle regole di sicurezza sopra riportate, creare una regola di sicurezza HTTPS in uscita (443) per "EventHub. Centralus" in NSG che corrisponda al percorso di destinazione. In questo modo è possibile accedere al monitoraggio Site Recovery.
+1. Creare una regola di sicurezza HTTPS in uscita (443) per "AzureSiteRecovery" in NSG. In questo modo è possibile accedere al servizio Site Recovery in qualsiasi area.
 
 #### <a name="nsg-rules---central-us"></a>Regole NSG - Stati Uniti centrali
 
@@ -100,11 +97,8 @@ Per questo esempio, queste regole NSG sono necessarie in modo che la replica pos
    - **Tag del servizio di destinazione**: _AzureActiveDirectory_
    - **Intervalli di porte di destinazione**: _443_
 
-1. Creare le regole in uscita della porta HTTPS 443 per gli IP Site Recovery che corrispondono alla posizione di origine:
-
-   | Percorso | Indirizzo IP di Site Recovery | Indirizzo IP di monitoraggio di Site Recovery |
-   | --- | --- | --- |
-   | Stati Uniti orientali | 13.82.88.226 | 104.45.147.24 |
+1. Analogamente alle regole di sicurezza sopra riportate, creare una regola di sicurezza HTTPS in uscita (443) per "EventHub. Eastus" in NSG che corrisponde alla posizione di origine. In questo modo è possibile accedere al monitoraggio Site Recovery.
+1. Creare una regola di sicurezza HTTPS in uscita (443) per "AzureSiteRecovery" in NSG. In questo modo è possibile accedere al servizio Site Recovery in qualsiasi area.
 
 ### <a name="issue-3-site-recovery-configuration-failed-151197"></a>Problema 3: La configurazione di Site Recovery non è riuscita (151197)
 
@@ -127,8 +121,8 @@ Le impostazioni proxy personalizzate non sono valide e l'agente del servizio di 
 1. L'agente del servizio Mobility rileva le impostazioni proxy da Internet Explorer in Windows e `/etc/environment` in Linux.
 1. Se si preferisce impostare il proxy solo per Azure Site Recovery servizio Mobility, è possibile specificare i dettagli del proxy in _ProxyInfo. conf_ disponibile all'indirizzo:
 
-   - **Linux**:`/usr/local/InMage/config/`
-   - **Windows**:`C:\ProgramData\Microsoft Azure Site Recovery\Config`
+   - **Linux**: `/usr/local/InMage/config/`
+   - **Windows**: `C:\ProgramData\Microsoft Azure Site Recovery\Config`
 
 1. _ProxyInfo. conf_ deve avere le impostazioni proxy nel formato _ini_ seguente:
 
@@ -147,4 +141,4 @@ Per consentire [gli URL richiesti](azure-to-azure-about-networking.md#outbound-c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Replicare le VM di Azure in un'altra area di Azure](azure-to-azure-how-to-enable-replication.md)
+[Replica delle macchine virtuali di Azure in un'altra area di Azure](azure-to-azure-how-to-enable-replication.md)

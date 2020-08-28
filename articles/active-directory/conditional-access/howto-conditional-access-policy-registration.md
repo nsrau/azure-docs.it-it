@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acf17f4cef43fe4221781deedb130ef587208550
-ms.sourcegitcommit: fc718cc1078594819e8ed640b6ee4bef39e91f7f
+ms.openlocfilehash: da68e21aa279ea2503a21ce35eee52f8e49d1434
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/27/2020
-ms.locfileid: "83993746"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049095"
 ---
 # <a name="conditional-access-securing-security-info-registration"></a>Accesso condizionale: protezione della registrazione delle informazioni di sicurezza
 
@@ -67,6 +67,6 @@ Al passaggio 6 precedente si potrebbe scegliere di usare lo stato del dispositiv
 
 [Criteri comuni di accesso condizionale ](concept-conditional-access-policy-common.md)
 
-[Determinare l'impatto dell'uso della modalità di accesso condizionale solo report](howto-conditional-access-report-only.md)
+[Determinare l'impatto dell'uso della modalità di accesso condizionale solo report](howto-conditional-access-insights-reporting.md)
 
 [Simulare il comportamento di accesso usando lo strumento What If per l'accesso condizionale](troubleshoot-conditional-access-what-if.md)

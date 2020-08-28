@@ -1,7 +1,7 @@
 ---
 title: Registrare app per dispositivi mobili che chiamano API Web | Azure
 titleSuffix: Microsoft identity platform
-description: Informazioni su come creare un'app per dispositivi mobili che chiama le API Web (configurazione del codice dell'app)
+description: Informazioni su come creare un'app per dispositivi mobili che chiama le API Web (registrazione dell'app)
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: f24b3c9256f759b87c705aae9b93c2d6bc74d30c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 93dcfad34e5881cda52a69ceb99d52d9a905befb
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82652633"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047674"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registrare app per dispositivi mobili che chiamano API Web
 
@@ -40,7 +40,7 @@ Se si dispone di un'app piattaforma UWP (Universal Windows Platform) (UWP), è p
 
 Per altre informazioni, vedere [scenari e flussi di autenticazione supportati](authentication-flows-app-scenarios.md#scenarios-and-supported-authentication-flows) e [scenari e piattaforme e linguaggi supportati](authentication-flows-app-scenarios.md#scenarios-and-supported-platforms-and-languages).
 
-## <a name="platform-configuration-and-redirect-uris"></a>URI di reindirizzamento e configurazione della piattaforma  
+## <a name="platform-configuration-and-redirect-uris"></a>URI di reindirizzamento e configurazione della piattaforma
 
 ### <a name="interactive-authentication"></a>Autenticazione interattiva
 
@@ -72,20 +72,20 @@ Quando si completano i passaggi, l'URI di reindirizzamento viene calcolato per l
 
 Se si preferisce configurare manualmente l'URI di reindirizzamento, è possibile farlo tramite il manifesto dell'applicazione. Ecco il formato consigliato per il manifesto:
 
-- **iOS**:`msauth.<BUNDLE_ID>://auth` 
+- **iOS**: `msauth.<BUNDLE_ID>://auth`
   - Immettere ad esempio `msauth.com.yourcompany.appName://auth`
-- **Android**:`msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
+- **Android**: `msauth://<PACKAGE_NAME>/<SIGNATURE_HASH>`
   - È possibile generare l'hash della firma Android usando la chiave di rilascio o la chiave di debug tramite il comando di chiave.
 
 ### <a name="username-password-authentication"></a>Nome utente-autenticazione con password
 
-Se l'app usa solo l'autenticazione con nome utente e password, non è necessario registrare un URI di reindirizzamento per l'applicazione. Questo flusso esegue una round trip all'endpoint della versione 2,0 di Microsoft Identity Platform. L'applicazione non verrà richiamata su un URI specifico. 
+Se l'app usa solo l'autenticazione con nome utente e password, non è necessario registrare un URI di reindirizzamento per l'applicazione. Questo flusso esegue una round trip all'endpoint della versione 2,0 di Microsoft Identity Platform. L'applicazione non verrà richiamata su un URI specifico.
 
 Tuttavia, è necessario identificare l'applicazione come applicazione client pubblica. A tale scopo, iniziare nella sezione **autenticazione** dell'applicazione. Nella sottosezione **Impostazioni avanzate** , nel paragrafo del **tipo di client predefinito** , per l'applicazione question **treat come client pubblico**, selezionare **Sì**.
 
 ## <a name="api-permissions"></a>Autorizzazioni delle API
 
-Le applicazioni per dispositivi mobili chiamano le API per conto dell'utente che ha eseguito l'accesso. L'app deve richiedere autorizzazioni delegate. Queste autorizzazioni sono denominate anche ambiti. A seconda dell'esperienza desiderata, è possibile richiedere le autorizzazioni delegate in modo statico tramite la portale di Azure. In alternativa, è possibile richiederli dinamicamente in fase di esecuzione. 
+Le applicazioni per dispositivi mobili chiamano le API per conto dell'utente che ha eseguito l'accesso. L'app deve richiedere autorizzazioni delegate. Queste autorizzazioni sono denominate anche ambiti. A seconda dell'esperienza desiderata, è possibile richiedere le autorizzazioni delegate in modo statico tramite la portale di Azure. In alternativa, è possibile richiederli dinamicamente in fase di esecuzione.
 
 La registrazione statica delle autorizzazioni consente agli amministratori di approvare facilmente l'app. È consigliabile usare la registrazione statica.
 

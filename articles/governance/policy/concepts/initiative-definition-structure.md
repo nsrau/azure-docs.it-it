@@ -3,12 +3,12 @@ title: Dettagli della struttura della definizione dell'iniziativa
 description: Viene descritto come vengono usate le definizioni delle iniziative di criteri per raggruppare le definizioni di criteri per la distribuzione nelle risorse di Azure dell'organizzazione.
 ms.date: 08/17/2020
 ms.topic: conceptual
-ms.openlocfilehash: b151ef4d58998b810e116321de68cbdb2e8d3eff
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d7b4adf15193e2cd1b9e516a04c7c989dc442ee9
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88544639"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048500"
 ---
 # <a name="azure-policy-initiative-definition-structure"></a>Struttura di definizione di Azure Policy Initiative
 
@@ -284,7 +284,7 @@ Queste informazioni sono:
 
 - Visualizzato nella portale di Azure Panoramica di un **controllo** in un'iniziativa di conformità normativa.
 - Disponibile tramite l'API REST. Vedere il `Microsoft.PolicyInsights` provider di risorse e il [gruppo di operazioni policyMetadata](/rest/api/policy-insights/policymetadata/getresource).
-- Disponibile tramite l'interfaccia della riga di comando di Azure. Vedere il comando [AZ Policy Metadata](/cli/azure/policy/metadata?view=azure-cli-latest) .
+- Disponibile tramite l'interfaccia della riga di comando di Azure. Vedere il comando [AZ Policy Metadata](/cli/azure/policy/metadata) .
 
 > [!IMPORTANT]
 > Gli oggetti di metadati per la conformità alle normative sono di sola _lettura_ e non possono essere creati dai clienti.

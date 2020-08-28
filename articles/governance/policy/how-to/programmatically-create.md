@@ -3,12 +3,12 @@ title: Creare criteri a livello di programmazione
 description: Questo articolo illustra la creazione e la gestione a livello di codice dei criteri per Criteri di Azure con l’interfaccia della riga di comando di Azure, Azure PowerShell e l’API REST.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 7a72986d8ffe64953e68ff166de9a02a15fb9c86
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 9b0c2e50536a847555dfa5cc6b9c823cfc1a4cfa
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548312"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047055"
 ---
 # <a name="programmatically-create-policies"></a>Creare criteri a livello di programmazione
 
@@ -235,7 +235,7 @@ L'ID definizione dei criteri per la definizione dei criteri creata dovrebbe esse
 "/subscription/<subscriptionId>/providers/Microsoft.Authorization/policyDefinitions/Audit Storage Accounts Open to Public Networks"
 ```
 
-Per altre informazioni su come gestire i criteri di risorse con l'interfaccia della riga di comando di Azure, vedere [Criteri di risorse dell'interfaccia della riga di comando di Azure](/cli/azure/policy?view=azure-cli-latest).
+Per altre informazioni su come gestire i criteri di risorse con l'interfaccia della riga di comando di Azure, vedere [Criteri di risorse dell'interfaccia della riga di comando di Azure](/cli/azure/policy).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -243,6 +243,6 @@ Esaminare gli articoli seguenti per altre informazioni sui comandi e sulle query
 
 - [Risorse di API REST di Azure](/rest/api/resources/)
 - [Moduli di Azure PowerShell](/powershell/module/az.resources/#policies)
-- [Comandi dei criteri dell'interfaccia della riga di comando di Azure](/cli/azure/policy?view=azure-cli-latest)
+- [Comandi dei criteri dell'interfaccia della riga di comando di Azure](/cli/azure/policy)
 - [Informazioni di riferimento sull'API REST del provider di risorse Insights di Criteri di Azure](/rest/api/policy-insights)
 - [Organizzare le risorse con i gruppi di gestione di Azure](../../management-groups/overview.md).

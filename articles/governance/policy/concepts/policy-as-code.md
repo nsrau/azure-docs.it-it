@@ -1,14 +1,14 @@
 ---
 title: Progettare flussi di lavoro di criteri come codice
 description: Informazioni su come progettare i flussi di lavoro per distribuire le definizioni di Criteri di Azure come codice e convalidare automaticamente le risorse.
-ms.date: 07/23/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 02ff979feac1afb5f1664e6387e0abcde69b60eb
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: d46680a9978cd4ec5cdc612a709f031841716749
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131498"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047327"
 ---
 # <a name="design-policy-as-code-workflows"></a>Progettare flussi di lavoro di criteri come codice
 
@@ -29,10 +29,10 @@ Prima di accedere ai dettagli dei criteri come flusso di lavoro del codice, esam
 - [Definizione di iniziativa](./initiative-definition-structure.md)
 
 I nomi file sono allineati alle parti della definizione Policy o Initiative:
-- `policy(set).json`-Intera definizione
-- `policy(set).parameters.json`-La `properties.parameters` parte della definizione
-- `policy.rules.json`-La `properties.policyRule` parte della definizione
-- `policyset.definitions.json`-La `properties.policyDefinitions` parte della definizione
+- `policy(set).json` -Intera definizione
+- `policy(set).parameters.json` -La `properties.parameters` parte della definizione
+- `policy.rules.json` -La `properties.policyRule` parte della definizione
+- `policyset.definitions.json` -La `properties.policyDefinitions` parte della definizione
 
 Esempi di questi formati di file sono disponibili nel [repository GitHub di criteri di Azure](https://github.com/Azure/azure-policy/):
 
@@ -110,7 +110,8 @@ L'assegnazione deve _disabilitare_ la proprietà [enforcementMode](./assignment-
 > [!NOTE]
 > Sebbene la modalità di imposizione sia utile, non si sostituisce al test accurato di una definizione di criteri in varie condizioni. La definizione dei criteri deve essere testata con le chiamate API REST `PUT` e `PATCH`, con risorse conformi e non conformi e con casi limite come una proprietà mancante nella risorsa.
 
-Dopo la distribuzione dell'assegnazione, usare l'SDK dei criteri per [ottenere i dati di conformità](../how-to/get-compliance-data.md) per la nuova assegnazione. L'ambiente usato per testare i criteri e le assegnazioni deve contenere risorse sia conformi che non conformi. Come un buon unit test per il codice, occorre verificare che le risorse siano come previsto e che non siano presenti falsi positivi o falsi negativi. Se si esegue il test e la convalida solo dei comportamenti previsti, i criteri potrebbero dare risultare imprevisti e non identificati. Per altre informazioni, vedere [Valutare l'impatto di una nuova definizione di Criteri di Azure](./evaluate-impact.md).
+Una volta distribuita l'assegnazione, usare l'azione Policy SDK o [Azure Policy Compliance Scan](https://github.com/marketplace/actions/azure-policy-compliance-scan) per [ottenere i dati di conformità](../how-to/get-compliance-data.md) per la nuova assegnazione. L'ambiente usato per testare i criteri e le assegnazioni deve contenere risorse sia conformi che non conformi.
+Come un buon unit test per il codice, occorre verificare che le risorse siano come previsto e che non siano presenti falsi positivi o falsi negativi. Se si esegue il test e la convalida solo dei comportamenti previsti, i criteri potrebbero dare risultare imprevisti e non identificati. Per altre informazioni, vedere [Valutare l'impatto di una nuova definizione di Criteri di Azure](./evaluate-impact.md).
 
 ### <a name="enable-remediation-tasks"></a>Abilitare le attività di correzione
 

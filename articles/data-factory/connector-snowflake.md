@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/30/2020
-ms.openlocfilehash: 48248b07b64278d5c8d4f297bf83df813aa486fe
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.date: 08/28/2020
+ms.openlocfilehash: 5bc64985401fce1c58a985b6b9fdead620c9aa8f
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529501"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048177"
 ---
 # <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Copiare dati da e a fiocco di neve usando Azure Data Factory
 
@@ -49,7 +49,7 @@ Per un servizio collegato a fiocco di neve sono supportate le proprietà seguent
 | Proprietà         | Descrizione                                                  | Obbligatoria |
 | :--------------- | :----------------------------------------------------------- | :------- |
 | type             | La proprietà Type deve essere impostata su **fiocco di neve**.              | Sì      |
-| connectionString | Specifica le informazioni necessarie per la connessione all'istanza di fiocco di neve. È possibile scegliere di inserire la password o l'intera stringa di connessione in Azure Key Vault. Per altri dettagli, vedere gli esempi sotto la tabella, nonché le [credenziali di archiviazione nell'articolo Azure Key Vault](store-credentials-in-key-vault.md) .<br><br>Alcune impostazioni tipiche:<br>- **Nome account:** [Nome completo dell'account](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) di fiocco di neve (inclusi i segmenti aggiuntivi che identificano l'area e la piattaforma cloud), ad esempio xy12345. East-US-2. Azure.<br/>- **Nome utente:** Nome dell'account di accesso dell'utente per la connessione.<br>- **Password:** Password per l'utente.<br>- **Database:** Il database predefinito da utilizzare una volta connessi. Deve essere un database esistente per il quale il ruolo specificato dispone dei privilegi.<br>- Data **Warehouse:** Il warehouse virtuale da usare una volta connessi. Deve essere un warehouse esistente per il quale il ruolo specificato dispone dei privilegi.<br>- **Ruolo:** Ruolo di controllo di accesso predefinito da usare nella sessione di fiocco di neve. Il ruolo specificato deve essere un ruolo esistente che è già stato assegnato all'utente specificato. Il ruolo predefinito è PUBLIC. | Sì      |
+| connectionString | Specifica le informazioni necessarie per la connessione all'istanza di fiocco di neve. È possibile scegliere di inserire la password o l'intera stringa di connessione in Azure Key Vault. Per altri dettagli, vedere gli esempi sotto la tabella, nonché le [credenziali di archiviazione nell'articolo Azure Key Vault](store-credentials-in-key-vault.md) .<br><br>Alcune impostazioni tipiche:<br>- **Nome account:**  [Nome completo dell'account](https://docs.snowflake.net/manuals/user-guide/connecting.html#your-snowflake-account-name) di fiocco di neve (inclusi i segmenti aggiuntivi che identificano l'area e la piattaforma cloud), ad esempio xy12345. East-US-2. Azure.<br/>- **Nome utente:** Nome dell'account di accesso dell'utente per la connessione.<br>- **Password:** Password per l'utente.<br>- **Database:** Il database predefinito da utilizzare una volta connessi. Deve essere un database esistente per il quale il ruolo specificato dispone dei privilegi.<br>- Data **Warehouse:** Il warehouse virtuale da usare una volta connessi. Deve essere un warehouse esistente per il quale il ruolo specificato dispone dei privilegi.<br>- **Ruolo:** Ruolo di controllo di accesso predefinito da usare nella sessione di fiocco di neve. Il ruolo specificato deve essere un ruolo esistente che è già stato assegnato all'utente specificato. Il ruolo predefinito è PUBLIC. | Sì      |
 | connectVia       | [Runtime di integrazione](concepts-integration-runtime.md) usato per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o un runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se non specificato, viene usato il runtime di integrazione di Azure predefinito. | No       |
 
 **Esempio:**
@@ -160,14 +160,14 @@ Se l'archivio dati sink e il formato soddisfano i criteri descritti in questa se
 
     - Per il formato **parquet** , il codec di compressione è **None**, **Snapper**o **LZO**.
     - Per il formato **testo delimitato** :
-        - `rowDelimiter`è **\r\n**o qualsiasi carattere singolo.
-        - `compression`non può essere di **compressione**, **gzip**, **bzip2**o **deflate**.
+        - `rowDelimiter` è **\r\n**o qualsiasi carattere singolo.
+        - `compression` non può essere di **compressione**, **gzip**, **bzip2**o **deflate**.
         - `encodingName` è impostato sul valore predefinito o su **utf-8**.
-        - `quoteChar`**virgolette doppie**, **virgolette singole** o **stringhe vuote** (senza virgolette).
+        - `quoteChar`**virgolette doppie**, **virgolette singole**o **stringhe vuote** (senza virgolette).
     - Per il formato **JSON** , la copia diretta supporta solo il caso in cui la tabella o il risultato della query di un fiocco di codice sorgente abbia solo una singola colonna e il tipo di dati di questa colonna è **Variant**, **Object**o **Array**.
-        - `compression`non può essere di **compressione**, **gzip**, **bzip2**o **deflate**.
+        - `compression` non può essere di **compressione**, **gzip**, **bzip2**o **deflate**.
         - `encodingName` è impostato sul valore predefinito o su **utf-8**.
-        - `filePattern`nel sink dell'attività di copia viene lasciato come predefinito o impostato su **setOfObjects**.
+        - `filePattern` nel sink dell'attività di copia viene lasciato come predefinito o impostato su **setOfObjects**.
 
 - Nell'origine dell'attività di copia `additionalColumns` non è specificato.
 - Il mapping delle colonne non è specificato.
@@ -292,12 +292,12 @@ Se l'archivio dati di origine e il formato soddisfano i criteri descritti in que
     - Per il formato **parquet** , il codec di compressione è **None**o **Snapper**.
 
     - Per il formato **testo delimitato** :
-        - `rowDelimiter`è **\r\n**o qualsiasi carattere singolo. Se il delimitatore di riga non è "\r\n", `firstRowAsHeader` deve essere **false**e `skipLineCount` non è specificato.
-        - `compression`non può essere di **compressione**, **gzip**, **bzip2**o **deflate**.
-        - `encodingName`viene lasciato come predefinito o impostato su "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
-        - `quoteChar`**virgolette doppie**, **virgolette singole** o **stringhe vuote** (senza virgolette).
+        - `rowDelimiter` è **\r\n**o qualsiasi carattere singolo. Se il delimitatore di riga non è "\r\n", `firstRowAsHeader` deve essere **false**e `skipLineCount` non è specificato.
+        - `compression` non può essere di **compressione**, **gzip**, **bzip2**o **deflate**.
+        - `encodingName` viene lasciato come predefinito o impostato su "UTF-8", "UTF-16", "UTF-16BE", "UTF-32", "UTF-32BE", "BIG5", "EUC-JP", "EUC-KR", "GB18030", "ISO-2022-JP", "ISO-2022-KR", "ISO-8859-1", "ISO-8859-2", "ISO-8859-5", "ISO-8859-6", "ISO-8859-7", "ISO-8859-8", "ISO-8859-9", "WINDOWS-1250", "WINDOWS-1251", "WINDOWS-1252", "WINDOWS-1253", "WINDOWS-1254", "WINDOWS-1255".
+        - `quoteChar`**virgolette doppie**, **virgolette singole**o **stringhe vuote** (senza virgolette).
     - Per il formato **JSON** , la copia diretta supporta solo le maiuscole/minuscole che la tabella di fiocco di neve ha una sola colonna e il tipo di dati di questa colonna è **Variant**, **Object**o **Array**.
-        - `compression`non può essere di **compressione**, **gzip**, **bzip2**o **deflate**.
+        - `compression` non può essere di **compressione**, **gzip**, **bzip2**o **deflate**.
         - `encodingName` è impostato sul valore predefinito o su **utf-8**.
         - Il mapping delle colonne non è specificato.
 
@@ -305,7 +305,7 @@ Se l'archivio dati di origine e il formato soddisfano i criteri descritti in que
 
    -  `additionalColumns` non specificato.
    - Se l'origine è una cartella, `recursive` è impostato su true.
-   - `prefix`, `modifiedDateTimeStart` , `modifiedDateTimeEnd` non sono specificati.
+   - `prefix`, `modifiedDateTimeStart`, `modifiedDateTimeEnd` e `enablePartitionDiscovery` non sono specificati.
 
 **Esempio:**
 

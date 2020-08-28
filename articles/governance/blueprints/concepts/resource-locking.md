@@ -1,14 +1,14 @@
 ---
 title: Informazioni sul blocco delle risorse
 description: Informazioni sulle opzioni di blocco nei progetti di Azure per proteggere le risorse quando si assegna un progetto.
-ms.date: 03/25/2020
+ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 94ed8efd0d6c654cba129dfc69fbfe5add7a0824
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5e60724a276bce94770c5fdc33ee0c8b4e7712fe
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81383600"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051503"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Comprendere il blocco risorse di Azure Blueprint
 
@@ -28,7 +28,7 @@ Le risorse create da elementi in un'assegnazione di progetto hanno quattro stati
 |-|-|-|-|
 |Non bloccare|*|Non bloccato|Le risorse non sono protette dai progetti di Azure. Questo stato viene usato anche per le risorse aggiunte a un artefatto del gruppo di risorse **Sola lettura** o **Non eliminare** all'esterno dell'assegnazione di un progetto.|
 |Sola lettura|Resource group|Impossibile modificare/eliminare|Il gruppo di risorse è di sola lettura e i relativi tag non possono essere modificati. Le risorse con stato **Non bloccato** possono essere aggiunte, spostate, modificate o eliminate da questo gruppo.|
-|Sola lettura|Diverso da gruppo di risorse|Sola lettura|Non è possibile modificare la risorsa in alcun modo: non sono consentite modifiche e la risorsa non può essere eliminata.|
+|Sola lettura|Diverso da gruppo di risorse|Sola lettura|La risorsa non può essere modificata in alcun modo. Non sono state apportate modifiche e non possono essere eliminate.|
 |Non eliminare|*|Impossibile eliminare|Le risorse possono essere modificate, ma non possono essere eliminate. Le risorse con stato **Non bloccato** possono essere aggiunte, spostate, modificate o eliminate da questo gruppo.|
 
 ## <a name="overriding-locking-states"></a>Sostituzione degli stati di blocco
@@ -182,8 +182,8 @@ Mentre **excludedPrincipals** deve essere esplicito, le voci **excludedActions**
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Segui l'esercitazione [Proteggi nuove risorse](../tutorials/protect-new-resources.md) .
-- Informazioni sul [ciclo di vita del progetto](lifecycle.md).
-- Informazioni su come usare [parametri statici e dinamici](parameters.md).
-- Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](sequencing-order.md).
+- Informazioni sul [ciclo di vita del progetto](./lifecycle.md).
+- Informazioni su come usare [parametri statici e dinamici](./parameters.md).
+- Informazioni su come personalizzare l'[ordine di sequenziazione del progetto](./sequencing-order.md).
 - Informazioni su come [aggiornare assegnazioni esistenti](../how-to/update-existing-assignments.md).
 - Risolvere i problemi durante l'assegnazione di un progetto con la [risoluzione generale dei problemi](../troubleshoot/general.md).

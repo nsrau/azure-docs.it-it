@@ -3,12 +3,12 @@ title: Supporto per la migrazione di VMware in Azure Migrate
 description: Informazioni sul supporto per la migrazione di macchine virtuali VMware in Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 19252a058fd26da6bddf64ad7af132a12cd1e140
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4c9ae6a5c3ed0d38b6abc952458422c7789fef8f
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869100"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051118"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>Matrice di supporto per la migrazione a VMware
 
@@ -117,6 +117,7 @@ La tabella riepiloga il supporto delle VM VMware per le macchine virtuali VMware
 **Requisiti di Azure** | Per informazioni aggiornate, vedere i requisiti di rete, [archiviazione](../site-recovery/vmware-physical-azure-support-matrix.md#azure-storage)e [calcolo](../site-recovery/vmware-physical-azure-support-matrix.md#azure-compute) di [Azure](../site-recovery/vmware-physical-azure-support-matrix.md#azure-vm-network-after-failover)per Site Recovery. Azure Migrate presenta requisiti identici per la migrazione di VMware.
 **Servizio Mobility** | L'agente del servizio Mobility deve essere installato in ogni macchina virtuale di cui si vuole eseguire la migrazione.
 **Avvio UEFI** | Supportata.
+**UEFI-avvio protetto**         | Non supportato per la migrazione.
 **Disco di destinazione** | È possibile eseguire la migrazione delle macchine virtuali solo a Managed Disks (standard HDD, unità SSD Premium) in Azure.
 **Dimensioni disco** | disco del sistema operativo da 2 TB; 8 TB per i dischi dati.
 **Limiti del disco** |  Fino a 63 dischi per macchina virtuale.
@@ -168,7 +169,7 @@ VHD condiviso | Non supportata.
 Disco FC | Non supportata. 
 BitLocker | Non supportata.<br/><br/> Prima di eseguire la migrazione della macchina virtuale, è necessario disabilitare BitLocker.
 Nome della VM. | Da 1 a 63 caratteri.<br/><br/> Limitato a lettere, numeri e trattini.<br/><br/> Il nome del computer deve iniziare e terminare con una lettera o un numero. 
-Connetti dopo la migrazione-Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:<br/><br/> -Prima della migrazione, abilitare RDP nella macchina virtuale locale.<br/><br/> Assicurarsi che vengano aggiunte regole TCP e UDP per il profilo **pubblico** e che il protocollo RDP sia consentito in **Windows Firewall**  >  **app consentite**per tutti i profili.<br/><br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire il protocollo RDP in **Windows Firewall**  ->  **app e funzionalità consentite** per le reti di **dominio e private** .<br/><br/> Verificare inoltre che il criterio SAN del sistema operativo sia impostato su onlineal **.** [Altre informazioni](prepare-for-migration.md).
+Connetti dopo la migrazione-Windows | Per connettersi alle macchine virtuali di Azure che eseguono Windows dopo la migrazione:<br/><br/> -Prima della migrazione, abilitare RDP nella macchina virtuale locale.<br/><br/> Assicurarsi che vengano aggiunte regole TCP e UDP per il profilo **pubblico** e che il protocollo RDP sia consentito in **Windows Firewall**  >  **app consentite**per tutti i profili.<br/><br/> Per l'accesso VPN da sito a sito, abilitare RDP e consentire il protocollo RDP in **Windows Firewall**  ->  **app e funzionalità consentite** per le reti di **dominio e private** .<br/><br/> Verificare inoltre che il criterio SAN del sistema operativo sia impostato su onlineal **.** [Altre informazioni](prepare-for-migration.md)
 Connetti dopo la migrazione-Linux | Per connettersi alle macchine virtuali di Azure dopo la migrazione tramite SSH:<br/><br/> Prima della migrazione, nel computer locale controllare che il servizio Secure Shell sia impostato su avvio e che le regole del firewall consentano una connessione SSH.<br/><br/> Dopo il failover, nella macchina virtuale di Azure, consentire le connessioni in ingresso alla porta SSH per le regole del gruppo di sicurezza di rete nella macchina virtuale sottoposta a failover e per la subnet di Azure a cui è connessa.<br/><br/> Aggiungere inoltre un indirizzo IP pubblico per la macchina virtuale.  
 
 

@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 11/14/2019
 ms.author: raynew
-ms.openlocfilehash: d991b38c3f72b54f4564dd4847c8532b507286cc
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 101e42263e46c5a21f26b0fa9cdeed798525fee9
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86131774"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047082"
 ---
 # <a name="set-up-disaster-recovery-at-scale-for-vmware-vmsphysical-servers"></a>Configurare il ripristino di emergenza su larga scala per macchine virtuali VMware/server fisici
 
@@ -205,7 +205,7 @@ In caso di emergenza, potrebbe essere necessario eseguire il failover di un nume
     - Stimare RTO end-to-end per le app.
     - Stimare RPO end-to-end per i carichi di lavoro.
     - Identificare i conflitti di intervallo di indirizzi IP.
-    - Quando si eseguono le esercitazioni, si consiglia di non usare le reti di produzione per le esercitazioni, evitare di usare gli stessi nomi di subnet nelle reti di produzione e di test e pulire i failover di test dopo ogni drill-through.
+    - Quando si eseguono le esercitazioni, si consiglia di non usare le reti di produzione per eseguire il drill-down e pulire i failover di test dopo ogni drill-through.
 
 Per eseguire un failover su larga scala, si consiglia quanto segue:
 

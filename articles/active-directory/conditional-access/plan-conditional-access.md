@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f0cb99fd7f2ce842f76cbe1df2f598f2188ca41
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 14612247d241aed420a76ff40e19d04164cbe150
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948896"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049928"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Pianificare una distribuzione dell'accesso condizionale
 
@@ -242,7 +242,7 @@ Può essere difficile prevedere il numero e i nomi degli utenti interessati da i
 
 La [modalità solo report ](concept-conditional-access-report-only.md) consente agli amministratori di valutare l'impatto dei criteri di accesso condizionale prima di abilitarli nell'ambiente in uso.
 
-Informazioni su come [configurare la modalità solo report in un criterio di accesso condizionale](howto-conditional-access-report-only.md).
+Informazioni su come [configurare la modalità solo report in un criterio di accesso condizionale](howto-conditional-access-insights-reporting.md).
 
 ### <a name="plan-for-disruption"></a>Pianificare l'interruzione
 

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 05/01/2020
+ms.date: 08/27/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: dawoo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 678c32703501c4d0b66321cfc3518631ffa28c0c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3c2364eae0d04da8f8e6fe38ae80db7adb8666ce
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253274"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049418"
 ---
 # <a name="conditional-access-insights-and-reporting"></a>Informazioni dettagliate e report di Accesso condizionale
 
@@ -97,6 +97,22 @@ Visualizzare il dettaglio degli utenti o degli accessi per ognuna delle condizio
 
 È anche possibile esaminare gli accessi di un utente specifico cercando gli accessi nella parte inferiore del dashboard. La query a sinistra visualizza gli utenti più frequenti. Selezionando un utente verrà filtrata la query a destra.  
 
+> [!NOTE]
+> Quando si scaricano i log degli accessi, scegliere il formato JSON per includere solo i dati dei risultati del report di accesso condizionale.
+
+## <a name="configure-a-conditional-access-policy-in-report-only-mode"></a>Configurare un criterio di accesso condizionale in modalità solo report
+
+Per configurare un criterio di accesso condizionale in modalità solo report:
+
+1. Accedere al **portale di Azure** come amministratore di accesso condizionale, amministratore della sicurezza o amministratore globale.
+1. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale**.
+1. Selezionare un criterio esistente o crearne uno nuovo.
+1. In **Attiva criterio** impostare l'interruttore sulla modalità di **sola segnalazione** .
+1. Selezionare **Salva**
+
+> [!TIP]
+> Modificando lo stato di **Abilitazione** dei criteri di un criterio esistente da **on** a **report,** viene disabilitata solo l'applicazione dei criteri esistente. 
+
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="why-are-queries-failing-due-to-a-permissions-error"></a>Perché le query hanno esito negativo a causa di un errore di autorizzazione?
@@ -111,6 +127,10 @@ Per accedere alla cartella di lavoro, è necessario disporre delle autorizzazion
 ![Risolvere i problemi delle query in errore](./media/howto-conditional-access-insights-reporting/query-troubleshoot-sign-in-logs.png)
 
 Per altre informazioni su come eseguire lo streaming dei log di accesso Azure AD in un'area di lavoro Log Analytics, vedere l'articolo [integrare log di Azure ad con i log di monitoraggio di Azure](../reports-monitoring/howto-integrate-activity-logs-with-log-analytics.md).
+
+### <a name="why-are-the-queries-in-the-workbook-failing"></a>Perché le query nella cartella di lavoro hanno esito negativo?
+
+I clienti hanno notato che talvolta le query hanno esito negativo se la cartella di lavoro è associata a una o più aree di lavoro errate. Per risolvere il problema, fare clic su **modifica** nella parte superiore della cartella di lavoro e quindi sull'ingranaggio impostazioni. Selezionare e rimuovere le aree di lavoro non associate alla cartella di lavoro. Deve essere presente una sola area di lavoro associata a ogni cartella di lavoro.
 
 ### <a name="why-is-the-conditional-access-policies-parameter-is-empty"></a>Perché il parametro dei criteri di accesso condizionale è vuoto?
 
@@ -134,4 +154,8 @@ Quando il volume degli accessi supera la capacità di query di Log Analytics, la
  
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Modalità solo report dell'accesso condizionale](concept-conditional-access-report-only.md)
+- [Modalità solo report dell'accesso condizionale](concept-conditional-access-report-only.md)
+
+- Per altre informazioni sulle cartelle di lavoro di Azure AD, vedere l'articolo [come usare le cartelle di lavoro di monitoraggio di Azure per i report Azure Active Directory](../reports-monitoring/howto-use-azure-monitor-workbooks.md).
+
+- [Criteri comuni di accesso condizionale ](concept-conditional-access-policy-common.md)

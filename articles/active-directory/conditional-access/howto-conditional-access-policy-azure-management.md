@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7ee4c7776dbddf089d290d760d6c0689ba9c0102
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 717e81a1385b04d3152beac39105c56754c55c40
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283028"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049282"
 ---
 # <a name="conditional-access-require-mfa-for-azure-management"></a>Accesso condizionale: Richiedere l'autenticazione a più fattori per la gestione di Azure
 
@@ -59,6 +59,6 @@ La procedura seguente consente di creare criteri di accesso condizionale per ric
 
 [Criteri comuni di accesso condizionale](concept-conditional-access-policy-common.md)
 
-[Determinare l'impatto dell'uso della modalità di accesso condizionale solo report](howto-conditional-access-report-only.md)
+[Determinare l'impatto dell'uso della modalità di accesso condizionale solo report](howto-conditional-access-insights-reporting.md)
 
 [Simulare il comportamento di accesso usando lo strumento What If per l'accesso condizionale](troubleshoot-conditional-access-what-if.md)

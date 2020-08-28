@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/10/2020
+ms.date: 08/27/2020
 ms.author: juliako
-ms.openlocfilehash: ddd1a5b9217962b595408973874a59219af298cf
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6eecaaff836d3253d382fdf0280f9a15c3a7b00b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604788"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050863"
 ---
 # <a name="examine-the-video-indexer-output"></a>Esaminare l'output del Video Indexer
 
@@ -27,7 +27,7 @@ Quando un video viene indicizzato, Video Indexer poduces il contenuto JSON che c
 
 ![Informazioni dettagliate](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
-Questo articolo esamina l'output del Video Indexer (contenuto JSON). Per informazioni sulle funzionalità e le informazioni dettagliate disponibili, vedere [video Indexer Insights](video-indexer-overview.md#video-insights).
+Questo articolo esamina l'output del Video Indexer (contenuto JSON). <br/>Per informazioni sulle funzionalità e le informazioni dettagliate disponibili, vedere [video Indexer Insights](video-indexer-overview.md#video-insights).
 
 > [!NOTE]
 > La scadenza di tutti i token di accesso in Video Indexer è di un'ora.
@@ -58,7 +58,7 @@ Per altre informazioni, vedere [Visualizzare e analizzare le informazioni dettag
 |accountId|ID account Video Indexer della playlist.|
 |id|ID della playlist.|
 |name|Nome della playlist.|
-|description|Descrizione della playlist.|
+|Descrizione|Descrizione della playlist.|
 |userName|Nome dell'utente che ha creato la playlist.|
 |created|Ora di creazione della playlist.|
 |privacyMode|Modalità di privacy della playlist (privata/pubblica).|
@@ -221,7 +221,7 @@ instances|Elenco degli intervalli di tempo di questo blocco.|
 |Nome|Descrizione|
 |---|---|
 |id|ID della riga.|
-|testo|Testo della trascrizione.|
+|text|Testo della trascrizione.|
 |Linguaggio|Lingua della trascrizione. Questo elemento è stato progettato per supportare trascrizioni in cui ogni riga può avere una lingua diversa.|
 |instances|Elenco degli intervalli di tempo in cui è presente la riga. Se l'istanza corrisponde a un'intera trascrizione, è riportata una sola istanza.|
 
@@ -259,7 +259,7 @@ Esempio:
 |Nome|Descrizione|
 |---|---|
 |id|ID della riga di riconoscimento ottico dei caratteri.|
-|testo|Testo risultante dal riconoscimento ottico dei caratteri.|
+|text|Testo risultante dal riconoscimento ottico dei caratteri.|
 |confidence|Grado di attendibilità del riconoscimento.|
 |Linguaggio|Lingua del riconoscimento ottico dei caratteri.|
 |instances|Elenco degli intervalli di tempo in cui è presente la riga di riconoscimento ottico dei caratteri. La stessa riga può apparire più volte.|
@@ -294,7 +294,7 @@ Esempio:
 |Nome|Descrizione|
 |---|---|
 |id|ID della parola chiave.|
-|testo|Testo della parola chiave.|
+|text|Testo della parola chiave.|
 |confidence|Grado di attendibilità del riconoscimento della parola chiave.|
 |Linguaggio|Lingua della parola chiave, quando tradotta.|
 |instances|Elenco degli intervalli di tempo in cui è presente la parola chiave. La stessa parola chiave può apparire più volte.|
@@ -331,7 +331,7 @@ Se sono presenti visi (caratteri non animati), Video Indexer USA API Viso su tut
 |id|ID del volto.|
 |name|Nome del viso. Può essere 'Unknown #0, un personaggio noto identificato o una persona per cui il cliente ha eseguito il training.|
 |confidence|Grado di attendibilità dell'identificazione del volto.|
-|description|Descrizione del personaggio noto. |
+|Descrizione|Descrizione del personaggio noto. |
 |thumbnailId|ID dell'anteprima del volto.|
 |knownPersonId|Nel caso di una persona nota, il relativo ID interno.|
 |referenceId|Nel caso di un personaggio noto di Bing, il relativo ID Bing.|
@@ -519,7 +519,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 |name|Nome del marchio.|
 |referenceId | Suffisso dell'URL di Wikipedia del marchio. Ad esempio, "Target_Corporation" è il suffisso di [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation) .
 |referenceUrl | URL di Wikipedia del marchio, se presente. ad esempio [https://en.wikipedia.org/wiki/Target_Corporation](https://en.wikipedia.org/wiki/Target_Corporation).
-|description|Descrizione del marchio.|
+|Descrizione|Descrizione del marchio.|
 |tags|Elenco di tag predefiniti associati a questo marchio.|
 |confidence|Valore di attendibilità della funzionalità di rilevamento dei marchi di Video Indexer (0-1).|
 |instances|Elenco degli intervalli di tempo di questo marchio. Ogni istanza ha un brandType, che indica se il marchio è presente nella trascrizione o nell'OCR.|
@@ -585,7 +585,7 @@ Nomi di marchi di aziende e prodotti rilevati nella trascrizione del riconoscime
 |Nome|Descrizione|
 |---|---|
 |id|L'ID dell'effetto audio.|
-|type|Tipo di effetto audio, ad esempio applausi, voce o silenzio.|
+|tipo|Tipo di effetto audio, ad esempio applausi, voce o silenzio.|
 |instances|Elenco degli intervalli di tempo in cui è presente l'effetto audio.|
 
 ```json
@@ -699,7 +699,7 @@ Video Indexer identifica le emozioni in base ai suggerimenti vocali e audio. L'e
 |Nome|Descrizione|
 |---|---|
 |id|ID dell'emozione.|
-|type|Il momento in cui l'emozione è stata identificata in base ai suggerimenti vocali e audio. L'emozione potrebbe essere: gioia, tristezza, rabbia o timore.|
+|tipo|Il momento in cui l'emozione è stata identificata in base ai suggerimenti vocali e audio. L'emozione potrebbe essere: gioia, tristezza, rabbia o timore.|
 |instances|Elenco degli intervalli di tempo in cui è comparsa l'emozione.|
 
 ```json

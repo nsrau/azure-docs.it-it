@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 08/24/2020
 ms.author: dech
 ms.custom: seodec18, has-adal-ref
-ms.openlocfilehash: b892e4c5078b50bb865a715ddf12aebc1eb05f57
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d1948ae186662c7f60f4d49c19a4d48b424a38f7
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799112"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89047480"
 ---
 # <a name="work-with-data-using-azure-storage-explorer"></a>Gestire i dati con Azure Storage Explorer
 
@@ -95,7 +95,7 @@ Facendo clic con il tasto destro su una sottoscrizione nel riquadro di Explorer,
 
 * Facendo clic con il tasto destro su un account di Azure Cosmos DB o su un database è possibile scegliere **Apri nel portale** e gestire le risorse nel browser sul portale di Azure.
 
-     :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Apri nel portale":::
+  :::image type="content" source="./media/storage-explorer/open-in-portal.png" alt-text="Apri nel portale":::
 
 * È possibile anche aggiungere l'account, il database o la raccolta di Azure Cosmos DB all'**accesso rapido**.
 * **Search from Here** (Esegui ricerca da qui) consente la ricerca di parole chiave nel percorso selezionato.
@@ -106,25 +106,25 @@ Facendo clic con il tasto destro su una sottoscrizione nel riquadro di Explorer,
 
 #### <a name="create-a-database"></a>Creazione di un database
 
--   Fare clic con il tasto destro sull'account di Azure Cosmos DB, scegliere **Crea database**, immettere il nome del database e premere **Invio** per completare la procedura.
+- Fare clic con il tasto destro sull'account di Azure Cosmos DB, scegliere **Crea database**, immettere il nome del database e premere **Invio** per completare la procedura.
 
-    :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Creare un database nell'account Azure Cosmos":::
+  :::image type="content" source="./media/storage-explorer/create-database.png" alt-text="Creare un database nell'account Azure Cosmos":::
 
 #### <a name="delete-a-database"></a>Eliminare un database
 
 - Fare clic con il pulsante destro del mouse sul database, scegliere **Elimina database**e selezionare **Sì** nella finestra popup. Il nodo del database viene eliminato e l'account di Azure Cosmos DB viene aggiornato automaticamente.
 
-    :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Elimina il primo database":::
+  :::image type="content" source="./media/storage-explorer/delete-database1.png" alt-text="Elimina il primo database":::
 
-    :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Eliminare i secondi database":::
+  :::image type="content" source="./media/storage-explorer/delete-database2.png" alt-text="Eliminare i secondi database":::
 
 #### <a name="create-a-collection"></a>Creare una raccolta
 
 1. Fare clic con il pulsante destro del mouse sul database, scegliere **Crea raccolta**, quindi specificare le informazioni seguenti, ad esempio **ID raccolta**, **capacità di archiviazione**e così via. Fare clic su **OK** per terminare.
 
-    :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Crea prima raccolta nel database":::
+   :::image type="content" source="./media/storage-explorer/create-collection.png" alt-text="Crea prima raccolta nel database":::
 
-    :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Crea seconda raccolta nel database":::
+   :::image type="content" source="./media/storage-explorer/create-collection2.png" alt-text="Crea seconda raccolta nel database":::
 
 2. Selezionare **illimitata** per poter specificare la chiave di partizione e quindi fare clic su **OK** per terminare.
 
@@ -146,7 +146,7 @@ Facendo clic con il tasto destro su una sottoscrizione nel riquadro di Explorer,
 
 - Per creare un nuovo documento, aprire **documenti** nella finestra di sinistra, selezionare **nuovo documento**, modificare il contenuto nel riquadro destro e quindi selezionare **Salva**. È anche possibile aggiornare un documento esistente e quindi selezionare **Salva**. Le modifiche possono essere ignorate facendo clic su **Ignora**.
 
-    :::image type="content" source="./media/storage-explorer/document.png" alt-text="Creare un nuovo documento":::
+  :::image type="content" source="./media/storage-explorer/document.png" alt-text="Creare un nuovo documento":::
 
 #### <a name="delete-a-document"></a>Eliminare un documento
 
@@ -156,7 +156,7 @@ Facendo clic con il tasto destro su una sottoscrizione nel riquadro di Explorer,
 
 - Modificare il filtro del documento immettendo una [query SQL](how-to-sql-query.md) e quindi selezionare **applica**.
 
-    :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Query per documenti specifici":::
+  :::image type="content" source="./media/storage-explorer/document-filter.png" alt-text="Query per documenti specifici":::
 
 ### <a name="graph-management"></a>Gestione dei grafi
 
@@ -165,7 +165,7 @@ Facendo clic con il tasto destro su una sottoscrizione nel riquadro di Explorer,
 1. Per creare un nuovo vertice, aprire il **grafico** dalla finestra a sinistra, selezionare **nuovo vertice**, modificare il contenuto e quindi fare clic su **OK**.
 2. Per modificare un vertice esistente, selezionare l'icona della penna nel riquadro di destra.
 
-    :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Modificare il vertice di un grafico":::
+   :::image type="content" source="./media/storage-explorer/vertex.png" alt-text="Modificare il vertice di un grafico":::
 
 #### <a name="delete-a-graph"></a>Eliminare un grafo
 
@@ -175,7 +175,7 @@ Facendo clic con il tasto destro su una sottoscrizione nel riquadro di Explorer,
 
 - Modificare il filtro del grafico immettendo una [query Gremlin](gremlin-support.md) e quindi selezionare **Applica filtro**.
 
-    :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Eseguire una query Graph":::
+   :::image type="content" source="./media/storage-explorer/graph-filter.png" alt-text="Eseguire una query Graph":::
 
 ### <a name="table-management"></a>Gestione delle tabelle
 
@@ -184,33 +184,34 @@ Facendo clic con il tasto destro su una sottoscrizione nel riquadro di Explorer,
 1. Per creare una nuova tabella, aprire **entità** dalla finestra a sinistra, selezionare **Aggiungi**, modificare il contenuto nella finestra di dialogo **Aggiungi entità** , Aggiungi proprietà facendo clic sul pulsante **Aggiungi proprietà**, quindi selezionare **Inserisci**.
 2. Per modificare una tabella, selezionare **modifica**, modificare il contenuto e quindi fare clic su **Aggiorna**.
 
-    :::image type="content" source="./media/storage-explorer/table.png" alt-text="Creare e modificare una tabella":::
+   :::image type="content" source="./media/storage-explorer/table.png" alt-text="Creare e modificare una tabella":::
 
 #### <a name="import-and-export-table"></a>Importare ed esportare una tabella
 
 1. Per importare, selezionare il pulsante **Importa** e scegliere una tabella esistente.
 2. Per esportare, selezionare **Esporta** pulsante e scegliere una destinazione.
 
-    :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Importare o esportare una tabella":::
+   :::image type="content" source="./media/storage-explorer/table-import-export.png" alt-text="Importare o esportare una tabella":::
 
 #### <a name="delete-entities"></a>Eliminare entità
 
 - Selezionare le entità e selezionare pulsante **Elimina**.
 
-    :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Eliminare una tabella":::
+  :::image type="content" source="./media/storage-explorer/table-delete.png" alt-text="Eliminare una tabella":::
 
 #### <a name="query-table"></a>Eseguire query su tabelle
 
 - Fare clic sul pulsante **query** , immettere la condizione di query, quindi selezionare il pulsante **Esegui query** . Chiudere il riquadro Query facendo clic sul pulsante **Close Query** (Chiudi query).
 
-    :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Eseguire query sui dati della tabella":::
+  :::image type="content" source="./media/storage-explorer/table-query.png" alt-text="Eseguire query sui dati della tabella":::
 
 ### <a name="manage-stored-procedures-triggers-and-udfs"></a>Gestire stored procedure, trigger e UDF
 
 * Per creare un stored procedure, nell'albero sinistro fare clic con il pulsante destro del mouse su **stored procedure**, scegliere **Crea stored procedure**, immettere un nome a sinistra, digitare gli script di stored procedure nella finestra di destra, quindi selezionare **Crea**.
 * Per modificare le stored procedure esistenti, è anche possibile fare doppio clic, eseguire l'aggiornamento e quindi fare clic su **Aggiorna** per salvare oppure selezionare **Ignora** per annullare la modifica.
 
-    :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Creazione e gestione di stored procedure":::
+  :::image type="content" source="./media/storage-explorer/stored-procedure.png" alt-text="Creazione e gestione di stored procedure":::
+
 * Le operazioni per **trigger** e **UDF** sono simili a quelle per le **stored procedure**.
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
@@ -299,7 +300,7 @@ Non esiste alcuna risposta dopo aver selezionato il nodo "sviluppo" nel nodo "lo
 
 Se dopo aver collegato l'account di Azure Cosmos DB nel nodo "Local and Attached" (Locale e collegato) viene visualizzato l'errore seguente, verificare che si stia usando la stringa di connessione corretta.
 
-:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Errore di collegamento di Azure Cosmos DB in Local and Attached (Locale e collegato)":::
+:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Errore di collegamento di Azure Cosmos DB in "Local and Attached" (Locale e collegato)":::
 
 ### <a name="expand-azure-cosmos-db-node-error"></a>Errore di espansione del nodo di Azure Cosmos DB
 

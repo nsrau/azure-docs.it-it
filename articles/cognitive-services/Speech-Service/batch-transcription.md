@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 08/28/2020
 ms.author: wolfma
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5be3b4ce5d89a15009f2b9b31183400890dbefb5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3b9a491f7546fbaa8722498b164bfa56353dfcfc
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918945"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050183"
 ---
 # <a name="how-to-use-batch-transcription"></a>Come usare la trascrizione batch
 
@@ -170,7 +170,7 @@ Usare queste proprietà facoltative per configurare la trascrizione:
       `destinationContainerUrl`
    :::column-end:::
    :::column span="2":::
-      URL facoltativo con firma di accesso condiviso del [servizio](../../storage/common/storage-sas-overview.md) per un contenitore scrivibile in Azure. Il risultato viene archiviato in questo contenitore. Quando non è specificato, Microsoft archivia i risultati in un contenitore di archiviazione gestito da Microsoft. Quando la trascrizione viene eliminata chiamando la [trascrizione Delete](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), verranno eliminati anche i dati del risultato.
+      URL facoltativo con firma di accesso condiviso [ad hoc del servizio](../../storage/common/storage-sas-overview.md) in un contenitore scrivibile in Azure. Il risultato viene archiviato in questo contenitore. La firma di accesso condiviso con criteri di accesso archiviati **non** è supportata. Quando non è specificato, Microsoft archivia i risultati in un contenitore di archiviazione gestito da Microsoft. Quando la trascrizione viene eliminata chiamando la [trascrizione Delete](https://westus.dev.cognitive.microsoft.com/docs/services/speech-to-text-api-v3-0/operations/DeleteTranscription), verranno eliminati anche i dati del risultato.
 :::row-end:::
 
 ### <a name="storage"></a>Archiviazione

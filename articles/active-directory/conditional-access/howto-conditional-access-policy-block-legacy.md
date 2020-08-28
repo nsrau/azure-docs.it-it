@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7a4693dabc62ec03897ccc46398bdff77118fe4
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 0eaa2f2bc0ee26a4f543ea0938db6c226a9a6575
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032085"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89049248"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Accesso condizionale: Bloccare l'autenticazione legacy
 
@@ -24,7 +24,7 @@ A causa dell'aumento dei rischi associati ai protocolli di autenticazione legacy
 
 ## <a name="create-a-conditional-access-policy"></a>Creare criteri di accesso condizionale
 
-I passaggi seguenti consentono di creare un criterio di accesso condizionale per bloccare le richieste di autenticazione legacy. Questo criterio viene inserito inizialmente in [Modalità solo report](howto-conditional-access-report-only.md) in modo che gli amministratori possano determinare l'effetto che avrà sugli utenti esistenti. Quando gli amministratori hanno verificato che il criterio funziona come previsto, lo possono **attivare** o gestirne la distribuzione aggiungendo gruppi specifici ed escludendone altri.
+I passaggi seguenti consentono di creare un criterio di accesso condizionale per bloccare le richieste di autenticazione legacy. Questo criterio viene inserito inizialmente in [Modalità solo report](howto-conditional-access-insights-reporting.md) in modo che gli amministratori possano determinare l'effetto che avrà sugli utenti esistenti. Quando gli amministratori hanno verificato che il criterio funziona come previsto, lo possono **attivare** o gestirne la distribuzione aggiungendo gruppi specifici ed escludendone altri.
 
 1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore accesso condizionale.
 1. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale**.
@@ -48,7 +48,7 @@ I passaggi seguenti consentono di creare un criterio di accesso condizionale per
 
 [Criteri comuni di accesso condizionale ](concept-conditional-access-policy-common.md)
 
-[Determinare l'impatto dell'uso della modalità di accesso condizionale solo report](howto-conditional-access-report-only.md)
+[Determinare l'impatto dell'uso della modalità di accesso condizionale solo report](howto-conditional-access-insights-reporting.md)
 
 [Simulare il comportamento di accesso usando lo strumento What If per l'accesso condizionale](troubleshoot-conditional-access-what-if.md)
 

@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: d33b9b4cb50c1be7b316aad2a736bfd6fb074833
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0cf0ef97cc1e06906a529c577e9c2578e5091ef4
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075682"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050727"
 ---
 # <a name="ingestion-rules"></a>Regole di inserimento
 ### <a name="json-flattening-escaping-and-array-handling"></a>Flat JSON, escape e gestione delle matrici
@@ -25,17 +25,17 @@ L'ambiente di Azure Time Series Insights Gen2 creerà in modo dinamico le colonn
 >
 > * Esaminare le regole riportate di seguito prima di selezionare una proprietà relativa all' [ID della serie temporale](time-series-insights-update-how-to-id.md) e/o il [timestamp](concepts-streaming-ingestion-event-sources.md#event-source-timestamp)delle origini eventi. Se l'ID o il timestamp di servizi Terminal si trova all'interno di un oggetto annidato o contiene uno o più dei caratteri speciali seguenti, è importante assicurarsi che il nome di proprietà fornito corrisponda al nome della colonna *dopo* l'applicazione delle regole di inserimento. Vedere l'esempio [B](concepts-json-flattening-escaping-rules.md#example-b) riportato di seguito.
 
-| Regola | JSON di esempio |Nome colonna nello spazio di archiviazione |
-|---|---|---|
-| Il tipo di dati Azure Time Series Insights Gen2 viene aggiunto alla fine del nome della colonna come "_ \<dataType\> " | ```"type": "Accumulated Heat"``` | type_string |
-| La [proprietà timestamp](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) dell'origine evento verrà salvata in Azure Time Series Insights Gen2 come "timestamp" nell'archiviazione e il valore archiviato in formato UTC. È possibile personalizzare la proprietà timestamp delle origini eventi in modo che soddisfi le esigenze della soluzione, ma il nome della colonna nell'archiviazione a caldo e a freddo è "timestamp". Altre proprietà JSON DateTime che non sono il timestamp dell'origine eventi verranno salvate con "_datetime" nel nome della colonna, come indicato nella regola precedente.  | ```"ts": "2020-03-19 14:40:38.318"``` | timestamp |
-| Nomi delle proprietà JSON che includono i caratteri speciali. [\ è sono preceduti da un carattere di escape con [' and ']  |  ```"id.wasp": "6A3090FD337DE6B"``` | [' ID. Wasp '] _string |
-| In [' and '] è presente un ulteriore escape di virgolette singole e barre rovesciate. Una virgoletta singola verrà scritta come \' e una barra rovesciata verrà scritta come\\\ | ```"Foo's Law Value": "17.139999389648"``` | [' Foo \' s Law value '] _double |
-| Gli oggetti JSON annidati sono bidimensionali con un punto come separatore. È supportato l'annidamento di un massimo di 10 livelli. |  ```"series": {"value" : 316 }``` | serie. value_long |
-| Le matrici di tipi primitivi vengono archiviate come tipo dinamico |  ```"values": [154, 149, 147]``` | values_dynamic |
+| Regola | JSON di esempio | [Sintassi delle espressioni Time Series](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) | Nome della colonna proprietà in parquet
+|---|---|---|---|
+| Il tipo di dati Azure Time Series Insights Gen2 viene aggiunto alla fine del nome della colonna come "_ \<dataType\> " | ```"type": "Accumulated Heat"``` | `$event.type.String` |`type_string` |
+| La [proprietà timestamp](concepts-streaming-ingestion-event-sources.md#event-source-timestamp) dell'origine evento verrà salvata in Azure Time Series Insights Gen2 come "timestamp" nell'archiviazione e il valore archiviato in formato UTC. È possibile personalizzare la proprietà timestamp delle origini eventi in modo che soddisfi le esigenze della soluzione, ma il nome della colonna nell'archiviazione a caldo e a freddo è "timestamp". Altre proprietà JSON DateTime che non sono il timestamp dell'origine eventi verranno salvate con "_datetime" nel nome della colonna, come indicato nella regola precedente.  | ```"ts": "2020-03-19 14:40:38.318"``` |  `$event.$ts` | `timestamp` |
+| Nomi delle proprietà JSON che includono i caratteri speciali. [\ è sono preceduti da un carattere di escape con [' and ']  |  ```"id.wasp": "6A3090FD337DE6B"``` |  `$event['id.wasp'].String` | `['id.wasp']_string` |
+| In [' and '] è presente un ulteriore escape di virgolette singole e barre rovesciate. Una virgoletta singola verrà scritta come \' e una barra rovesciata verrà scritta come \\\ | ```"Foo's Law Value": "17.139999389648"``` | `$event['Foo\'s Law Value'].Double` | `['Foo\'s Law Value']_double` |
+| Gli oggetti JSON annidati sono bidimensionali con un punto come separatore. È supportato l'annidamento di un massimo di 10 livelli. |  ```"series": {"value" : 316 }``` | `$event.series.value.Long``$event['series']['value'].Long`o`$event.series['value'].Long` |  `series.value_long` |
+| Le matrici di tipi primitivi vengono archiviate come tipo dinamico |  ```"values": [154, 149, 147]``` | I tipi dinamici possono essere recuperato solo tramite l'API [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) | `values_dynamic` |
 | Le matrici contenenti oggetti hanno due comportamenti a seconda del contenuto dell'oggetto: se gli ID o le proprietà timestamp sono inclusi negli oggetti in una matrice, la matrice verrà annullata in modo tale che il payload JSON iniziale produca più eventi. In questo modo è possibile raggruppare più eventi in una struttura JSON. Tutte le proprietà di primo livello che sono peer della matrice verranno salvate con ogni oggetto non registrato. Se gli ID e il timestamp di Servizi terminal *non* si trovano all'interno della matrice, verranno salvati interi come tipo dinamico. | Vedere gli esempi [A](concepts-json-flattening-escaping-rules.md#example-a), [B](concepts-json-flattening-escaping-rules.md#example-b) e [C](concepts-json-flattening-escaping-rules.md#example-c) sotto
-| Le matrici contenenti elementi misti non sono bidimensionali. |  ```"values": ["foo", {"bar" : 149}, 147]``` | values_dynamic |
-| 512 caratteri è il limite del nome della proprietà JSON. Se il nome supera i 512 caratteri, viene troncato a 512 e viene aggiunto ' _<' codice hash ' >'. Si **noti** che questo vale anche per i nomi di proprietà concatenati dall'oggetto bidimensionale, che denota un percorso dell'oggetto annidato. |``"data.items.datapoints.values.telemetry<...continuing to over 512 chars>" : 12.3440495`` | Data. Items. DataPoints. Values. telemetria<... continuando a 512 caratteri>_912ec803b2ce49e4a541068d495ab570_double |
+| Le matrici contenenti elementi misti non sono bidimensionali. |  ```"values": ["foo", {"bar" : 149}, 147]``` | I tipi dinamici possono essere recuperato solo tramite l'API [GetEvents](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents) | `values_dynamic` |
+| 512 caratteri è il limite del nome della proprietà JSON. Se il nome supera i 512 caratteri, viene troncato a 512 e viene aggiunto ' _<' codice hash ' >'. Si **noti** che questo vale anche per i nomi di proprietà concatenati dall'oggetto bidimensionale, che denota un percorso dell'oggetto annidato. |``"data.items.datapoints.values.telemetry<...continuing to over 512 chars>" : 12.3440495`` |`"$event.data.items.datapoints.values.telemetry<...continuing to include all chars>.Double"` | `data.items.datapoints.values.telemetry<...continuing to 512 chars>_912ec803b2ce49e4a541068d495ab570_double` |
 
 ## <a name="understanding-the-dual-behavior-for-arrays"></a>Informazioni sul doppio comportamento per le matrici
 
@@ -97,7 +97,7 @@ La configurazione e il payload precedenti produrranno tre colonne e quattro even
 
 ### <a name="example-b"></a>Esempio B:
 ID della serie temporale composita con una proprietà nidificata<br/> 
-**ID della serie temporale dell'ambiente:** `"plantId"` e`"telemetry.tagId"`<br/>
+**ID della serie temporale dell'ambiente:** `"plantId"` e `"telemetry.tagId"`<br/>
 **Timestamp origine evento:**`"timestamp"`<br/>
 **Payload JSON:**
 
