@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: b3cf2603dec7e921159824f565336cd91a575731
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 8d222eca76f020703f89dd1bdd5848cec4bc52ca
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86205661"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89006534"
 ---
 # <a name="mysql-drivers-and-management-tools-compatible-with-azure-database-for-mysql"></a>Driver MySQL e strumenti di gestione compatibili con Database di Azure per MySQL
 Questo articolo descrive i driver e gli strumenti di gestione compatibili con il Database di Azure per MySQL.
@@ -34,7 +34,7 @@ Database di Azure per MySQL usa la versione di community del database MySQL più
 | C | Connettore MySQL/C (libmysqlclient) | https://dev.mysql.com/doc/refman/5.7/en/c-api-implementations.html | 6.0.2 + | | |
 | C | Connettore MySQL/ODBC (ODBC) | https://github.com/mysql/mysql-connector-odbc | 3.51.29 + | | |
 | C++ | Connettore MySQL/C++ | https://github.com/mysql/mysql-connector-cpp | 1.1.9 + | 1.1.3 e versioni precedenti | | 
-| C++ | MySQL + +| https://tangentsoft.net/mysql++ | 3.2.3 + | | |
+| C++ | MySQL + +| https://github.com/tangentsoft/mysqlpp | 3.2.3 + | | |
 | Ruby | mysql2 | https://github.com/brianmario/mysql2 | 0.4.10 + | | |
 | R | RMySQL | https://github.com/rstats-db/RMySQL | 0.10.16 + | | |
 | Swift | MySQL-Swift | https://github.com/novi/mysql-swift | 0.7.2 + | | |
@@ -48,7 +48,7 @@ Il vantaggio della compatibilità si estende anche agli strumenti di gestione de
 | **Creare, aggiornare, leggere, scrivere, eliminare** | X | X | X |
 | **Connessione SSL** | X | X | X |
 | **Completamento automatico della query SQL** | X | X |  |
-| **Importazione ed esportazione dati** | X | X | X |
+| **Importare ed esportare dati** | X | X | X |
 | **Esportare in più formati** | X | X | X |
 | **Backup e ripristino** |  | X |  |
 | **Visualizzare i parametri del server** | X | X | X |

@@ -8,15 +8,13 @@ ms.date: 11/01/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.custom:
-- amqp
-- mqtt
-ms.openlocfilehash: ef31bd74c73aa081c32031b71392f69a1ca14f75
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: amqp, mqtt, devx-track-csharp
+ms.openlocfilehash: 25493312854bbd495dce01f8f107b3e3320cb92c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81730898"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89016955"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>Informazioni sul runtime di Azure IoT Edge e sulla relativa architettura
 
@@ -93,21 +91,21 @@ Ogni elemento nel manifesto di distribuzione contiene informazioni specifiche su
 
   * Download in corso
   * In esecuzione
-  * Non integro
-  * Operazione non riuscita
+  * Unhealthy
+  * Non riuscito
   * Arrestato
 
 * **restartPolicy**: la modalità in cui l'agente di IoT Edge riavvia un modulo. I valori possibili sono:
   
-  * `never`: L'agente di IoT Edge non riavvia mai il modulo.
-  * `on-failure`-Se il modulo si arresta in modo anomalo, l'agente di IoT Edge lo riavvia. Se il modulo viene arrestato in modo corretto, l'agente IoT Edge non lo riavvia.
-  * `on-unhealthy`-Se il modulo si arresta in modo anomalo o viene considerato non integro, l'agente di IoT Edge lo riavvia.
-  * `always`-Se il modulo si arresta in modo anomalo, viene considerato non integro o si arresta in qualsiasi modo, l'agente IoT Edge lo riavvia.
+  * `never` : L'agente di IoT Edge non riavvia mai il modulo.
+  * `on-failure` -Se il modulo si arresta in modo anomalo, l'agente di IoT Edge lo riavvia. Se il modulo viene arrestato in modo corretto, l'agente IoT Edge non lo riavvia.
+  * `on-unhealthy` -Se il modulo si arresta in modo anomalo o viene considerato non integro, l'agente di IoT Edge lo riavvia.
+  * `always` -Se il modulo si arresta in modo anomalo, viene considerato non integro o si arresta in qualsiasi modo, l'agente IoT Edge lo riavvia.
 
 * **imagePullPolicy** : indica se l'agente di IOT Edge tenta di estrarre automaticamente l'immagine più recente per un modulo. Se non si specifica un valore, il valore predefinito è *OnCreate*. I valori possibili sono:
 
-  * `on-create`-Quando si avvia un modulo o si aggiorna un modulo basato su un nuovo manifesto di distribuzione, l'agente IoT Edge tenterà di eseguire il pull dell'immagine del modulo dal registro contenitori.
-  * `never`-L'agente di IoT Edge non tenterà mai di eseguire il pull dell'immagine del modulo dal registro contenitori. Con questa configurazione, si è responsabili dell'acquisizione dell'immagine del modulo sul dispositivo e della gestione degli aggiornamenti delle immagini.
+  * `on-create` -Quando si avvia un modulo o si aggiorna un modulo basato su un nuovo manifesto di distribuzione, l'agente IoT Edge tenterà di eseguire il pull dell'immagine del modulo dal registro contenitori.
+  * `never` -L'agente di IoT Edge non tenterà mai di eseguire il pull dell'immagine del modulo dal registro contenitori. Con questa configurazione, si è responsabili dell'acquisizione dell'immagine del modulo sul dispositivo e della gestione degli aggiornamenti delle immagini.
 
 L'agente di IoT Edge invia la risposta runtime all'hub IoT. Ecco un elenco di risposte possibili:
   

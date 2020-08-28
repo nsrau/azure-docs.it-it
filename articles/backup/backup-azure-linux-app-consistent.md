@@ -3,12 +3,12 @@ title: Backup coerenti con l'applicazione di macchine virtuali Linux
 description: In Azure creare backup coerenti con le applicazioni per le macchine virtuali Linux. In questo articolo viene illustrata la configurazione di framework di script per eseguire il backup di macchine virtuali Linux distribuite in Azure. In questo articolo sono incluse anche le informazioni sulla risoluzione dei problemi.
 ms.topic: conceptual
 ms.date: 01/12/2018
-ms.openlocfilehash: 1ebf1b4148c43b07c0fddee67970abe8381e4c30
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 22053004026a2dd8976027359f11d50a5663b334
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407099"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88999241"
 ---
 # <a name="application-consistent-backup-of-azure-linux-vms"></a>Backup coerente con le applicazioni per macchine virtuali Linux in Azure
 
@@ -58,7 +58,7 @@ Gli script di pre-backup richiamano API native delle applicazioni per disattivar
 
     - **timeoutInSeconds**: specificare i timeout individuali per lo script di pre-script e il post-script (il valore massimo può essere 1800).
 
-    - **continueBackupOnFailure**: impostare questo valore su **true** se si desidera che Backup di Azure esegua il fallback a un backup coerente con file system/arresto anomalo in caso di errore dello script di pre-backup o post-backup. Se si imposta questa opzione su **false** , il backup non viene eseguito se si verifica un errore di script (tranne quando si dispone di una macchina virtuale con un solo disco che esegue il fallback del backup coerente con l'arresto anomalo del sistema indipendentemente da questa impostazione Se il valore **continueBackupOnFailure** è impostato su false, se il backup non riesce, l'operazione di backup verrà ritentata in base a una logica di ripetizione dei tentativi nel servizio (per il numero di tentativi stabilito).
+    - **continueBackupOnFailure**: impostare questo valore su **true** se si desidera che Backup di Azure esegua il fallback a un backup coerente con file system/arresto anomalo in caso di errore dello script di pre-backup o post-backup. Se si imposta questa opzione su **false** , il backup non viene eseguito se si verifica un errore di script (tranne quando si dispone di una macchina virtuale con un solo disco che esegue il fallback al backup coerente con l'arresto anomalo del sistema). Se il valore **continueBackupOnFailure** è impostato su false, se il backup non riesce, l'operazione di backup verrà ritentata in base a una logica di ripetizione dei tentativi nel servizio (per il numero di tentativi stabilito).
 
     - **fsFreezeEnabled**: specificare se il comando fsfreeze di Linux deve essere chiamato durante la creazione dello snapshot della macchina virtuale per garantire la coerenza del file system. Si consiglia di mantenere questa impostazione su **true**, a meno che l'applicazione abbia legami di dipendenza con la disattivazione di fsfreeze.
 

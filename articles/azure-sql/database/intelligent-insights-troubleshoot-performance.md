@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 06/12/2020
-ms.openlocfilehash: 0fd391bfb7ed8944866b80acb31d76ea43c77912
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 329d3208037548bd1cb5a5564a4a393747ed48f0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986386"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017278"
 ---
 # <a name="troubleshoot-azure-sql-database-and-azure-sql-managed-instance-performance-issues-with-intelligent-insights"></a>Risolvere i problemi relativi alle prestazioni del database SQL di Azure e di Azure SQL Istanza gestita con Intelligent Insights
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -32,7 +32,7 @@ Questa pagina contiene informazioni sui problemi di prestazioni del database SQL
 
 Intelligent Insights rileva automaticamente i problemi di prestazioni in base ai tempi di attesa, agli errori o ai timeout di esecuzione delle query. Intelligent Insights output ha rilevato modelli di prestazioni nel log delle risorse. La tabella seguente riepiloga i modelli di prestazioni rilevabili.
 
-| Modelli di prestazioni rilevabili | database SQL di Azure | Istanza gestita di SQL di Azure |
+| Modelli di prestazioni rilevabili | Database SQL di Azure | Istanza gestita di SQL di Azure |
 | :------------------- | ------------------- | ------------------- |
 | [Raggiungimento dei limiti delle risorse](intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | Il consumo di risorse disponibili (DTU), dei thread di lavoro del database o delle sessioni di accesso al database disponibili nella sottoscrizione monitorata ha raggiunto i limiti delle risorse. Questa operazione influisce sulle prestazioni. | Il consumo di risorse della CPU sta raggiungendo i limiti delle risorse. Questo influisce sulle prestazioni del database. |
 | [Aumento del carico di lavoro](intelligent-insights-troubleshoot-performance.md#workload-increase) | È stato rilevato un aumento o un accumulo continuo di carico di lavoro nel database. Questa operazione influisce sulle prestazioni. | È stato rilevato un aumento del carico di lavoro. Questo influisce sulle prestazioni del database. |
@@ -168,7 +168,7 @@ Poiché un latch è un meccanismo di controllo interno, determina automaticament
 
 Un metodo per gestire una contesa di latch consiste nel sostituire una chiave di indice sequenziale con una chiave non sequenziale per distribuire uniformemente gli inserimenti su un intervallo di indici. Una colonna iniziale nell'indice distribuisce in genere il carico di lavoro in modo proporzionale. Un altro metodo da considerare consiste nel partizionamento delle tabelle. La creazione di uno schema di partizionamento hash con una colonna calcolata in una tabella partizionata è un approccio comune per attenuare la contesa di latch eccessiva. Nel caso di contesa I/O di latch di pagina l'introduzione degli indici è utile per ridurre questo problema di prestazioni.
 
-Per altre informazioni, vedere il documento in formato PDF [Diagnose and resolve latch contention on SQL Server](https://download.microsoft.com/download/B/9/E/B9EDF2CD-1DBF-4954-B81E-82522880A2DC/SQLServerLatchContention.pdf) (Diagnosi e risoluzione delle contese di latch in SQL Server).
+Per altre informazioni, vedere il documento in formato PDF [Diagnose and resolve latch contention on SQL Server](http://databaser.net/moniwiki/pds/PerformanceTuning/SQLServerLatchContention.pdf) (Diagnosi e risoluzione delle contese di latch in SQL Server).
 
 ## <a name="missing-index"></a>Indice mancante
 
