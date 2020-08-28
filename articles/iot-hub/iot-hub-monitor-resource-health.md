@@ -11,12 +11,13 @@ ms.custom:
 - amqp
 - 'Role: Cloud Development'
 - 'Role: Technical Support'
-ms.openlocfilehash: 140bbc698db773f851cf03d80e8e51be9c2a21c3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+- devx-track-csharp
+ms.openlocfilehash: c7b2055494d61ba348ae6226e6fc0ad9ce5775bb
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327549"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022140"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorare l'integrità dell'hub IoT di Azure ed eseguire la diagnostica rapida dei problemi
 
@@ -387,8 +388,8 @@ Nella `properties` sezione questo log contiene informazioni aggiuntive sull'ingr
 
 | Proprietà | Type | Descrizione |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | Stringa | True o false, indica se il routing dei messaggi è abilitato o meno nell'hub IoT |
-| **parentSpanId** | Stringa | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio D2C |
+| **isRoutingEnabled** | String | True o false, indica se il routing dei messaggi è abilitato o meno nell'hub IoT |
+| **parentSpanId** | String | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio D2C |
 
 ##### <a name="iot-hub-egress-logs"></a>Log di uscita dell'hub IoT
 
@@ -419,9 +420,9 @@ Nella `properties` sezione questo log contiene informazioni aggiuntive sull'ingr
 
 | Proprietà | Type | Descrizione |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **endpointName** | Stringa | Nome dell'endpoint di routing |
-| **endpointType** | Stringa | Tipo dell'endpoint di routing |
-| **parentSpanId** | Stringa | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio di ingresso nell'hub IoT |
+| **endpointName** | String | Nome dell'endpoint di routing |
+| **endpointType** | String | Tipo dell'endpoint di routing |
+| **parentSpanId** | String | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio di ingresso nell'hub IoT |
 
 #### <a name="configurations"></a>Configurazioni
 

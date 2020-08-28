@@ -4,12 +4,13 @@ description: In questa esercitazione vengono create applicazioni console .NET Co
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: 477d9d5a23e50d9b303d560b5530cbc22104c5cb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-csharp
+ms.openlocfilehash: cff2b8a8a0f6aefad43737aeb6fe63d40facac05
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85337554"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021664"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Introduzione alle code del bus di servizio
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
@@ -181,11 +182,11 @@ Selezionare il nome della coda nella finestra **Panoramica** dello spazio dei no
 
 Il valore del **conteggio messaggi attivo** per la coda è ora **10**. Ogni volta che si esegue questa app mittente senza recuperare i messaggi, questo valore aumenta di 10.
 
-Le dimensioni correnti della coda incrementano il valore **corrente** in **Essentials** ogni volta che l'app aggiunge messaggi alla coda.
+Le dimensioni correnti della coda incrementano il valore **corrente** in **Essentials**  ogni volta che l'app aggiunge messaggi alla coda.
 
 Nella sezione successiva viene descritto come recuperare questi messaggi.
 
-## <a name="receive-messages-from-the-queue"></a>Ricezione di messaggi dalla coda
+## <a name="receive-messages-from-the-queue"></a>Ricevere messaggi dalla coda
 
 Per ricevere i messaggi inviati, creare un'altra applicazione **Console (.NET Core)** . Installare il pacchetto NuGet **Microsoft. Azure. ServiceBus** come per l'applicazione mittente.
 
@@ -382,7 +383,7 @@ Eseguire il programma e verificare di nuovo il portale. Il **numero di messaggi 
 
 ![Coda dopo la ricezione dei messaggi][queue-message-receive]
 
-Congratulazioni! A questo punto è stata creata una coda, è stato inviato un set di messaggi alla coda e sono stati ricevuti i messaggi dalla stessa coda.
+Congratulazioni. A questo punto è stata creata una coda, è stato inviato un set di messaggi alla coda e sono stati ricevuti i messaggi dalla stessa coda.
 
 > [!NOTE]
 > È possibile gestire le risorse del bus di servizio con [Service Bus Explorer](https://github.com/paolosalvatori/ServiceBusExplorer/). Service Bus Explorer consente agli utenti di connettersi facilmente a uno spazio dei nomi del bus di servizio e amministrare le entità di messaggistica. Lo strumento offre funzionalità avanzate come la funzionalità di importazione/esportazione o la possibilità di testare argomenti, code, sottoscrizioni, servizi di inoltro, hub di notifica e hub eventi.

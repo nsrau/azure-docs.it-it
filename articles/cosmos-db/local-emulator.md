@@ -6,12 +6,13 @@ ms.topic: how-to
 author: markjbrown
 ms.author: mjbrown
 ms.date: 08/19/2020
-ms.openlocfilehash: 40c32226f0e79e66db45d0c32614eaa4c5b543f9
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ece2fdf5c75decb9a2139b973ad4bbb3f0803a0b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607542"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011175"
 ---
 # <a name="use-the-azure-cosmos-emulator-for-local-development-and-testing"></a>Usare l'emulatore Azure Cosmos per sviluppo e test locali
 
@@ -539,7 +540,7 @@ Usare i suggerimenti seguenti per risolvere i problemi relativi all'emulatore Az
 
 - Se si riceve un messaggio di tipo **Servizio non disponibile**, è possibile che l'emulatore non riesca a inizializzare lo stack di rete. Controllare per verificare se è stato installato il client sicuro Pulse o il client di rete Juniper, perché è possibile che i rispettivi driver del filtro di rete provochino il problema. La disinstallazione dei driver filtro di rete di terze parti consente in genere di risolvere il problema. In alternativa, avviare l'emulatore con /DisableRIO. In questo modo, per la comunicazione di rete dell'emulatore, si passerà ai Winsock normali. 
 
-- Se si riscontrano **"Forbidden", "message": "la richiesta viene effettuata con una crittografia non consentita nel protocollo di transito o nella crittografia. Controllare l'impostazione minima consentita del protocollo SSL/TLS... "** problemi di connettività. questa situazione potrebbe essere causata da modifiche globali nel sistema operativo (ad esempio, Insider Preview Build 20170) o dalle impostazioni del browser che abilitano TLS 1,3 come valore predefinito. Potrebbe verificarsi un errore simile quando si usa l'SDK per eseguire una richiesta nell'emulatore Cosmos, ad esempio **Microsoft.Azure.Documents.DocumentClientException: la richiesta viene effettuata con una crittografia non consentita nel protocollo di transito o nella crittografia. Controllare l'impostazione del protocollo minimo consentito SSL/TLS**. Questa operazione è prevista in questo momento perché Cosmos Emulator accetta e funziona solo con il protocollo TLS 1,2. La soluzione consigliata consiste nel modificare le impostazioni e il valore predefinito in TLS 1,2; ad esempio, in Gestione IIS passare a "siti"-> "siti Web predefiniti" e individuare i "binding del sito" per la porta 8081 e modificarli per disabilitare TLS 1,3. È possibile eseguire un'operazione simile per la Web browser tramite le opzioni "Settings".
+- Se si riscontrano **"Forbidden", "message": "la richiesta viene effettuata con una crittografia non consentita nel protocollo di transito o nella crittografia. Controllare l'impostazione minima consentita del protocollo SSL/TLS... "** problemi di connettività. questa situazione potrebbe essere causata da modifiche globali nel sistema operativo (ad esempio, Insider Preview Build 20170) o dalle impostazioni del browser che abilitano TLS 1,3 come valore predefinito. Potrebbe verificarsi un errore simile quando si usa l'SDK per eseguire una richiesta nell'emulatore Cosmos, ad esempio **Microsoft.Azure.Documents.DocumentClientException: la richiesta viene effettuata con una crittografia non consentita nel protocollo di transito o nella crittografia. Controllare l'impostazione del protocollo minimo consentito SSL/TLS**. Questo problema è previsto in questo momento perché l'emulatore di Cosmos accetta e funziona solo con il protocollo TLS 1.2. La soluzione consigliata consiste nel modificare le impostazioni e il valore predefinito in TLS 1,2; ad esempio, in Gestione IIS passare a "siti"-> "siti Web predefiniti" e individuare i "binding del sito" per la porta 8081 e modificarli per disabilitare TLS 1,3. È possibile eseguire un'operazione simile per il Web browser tramite le opzioni di "Impostazioni".
 
 - Mentre l'emulatore è in esecuzione, se il computer passa in modalità sospensione o esegue eventuali aggiornamenti del sistema operativo, potrebbe essere visualizzato il messaggio **Il servizio non è attualmente disponibile**. Reimpostare i dati dell'emulatore facendo clic con il pulsante destro del mouse sull'icona visualizzata nell'area di notifica di Windows e scegliendo **Reset Data** (Reimposta dati).
 

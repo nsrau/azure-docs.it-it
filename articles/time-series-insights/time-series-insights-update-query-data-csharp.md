@@ -11,19 +11,19 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 075bf78599602b1b92f3cec01fe5dfb92b5321cc
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: fcb38f761a72bf2c6e5dee8bb993cec9143e7241
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654447"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998952"
 ---
 # <a name="query-data-from-the-azure-time-series-insights-gen2-environment-using-c-sharp"></a>Eseguire query sui dati dall'ambiente Azure Time Series Insights Gen2 con C Sharp
 
 Questo esempio in C# illustra come eseguire query sui dati dalle [API di accesso ai dati di Gen2](https://docs.microsoft.com/rest/api/time-series-insights/reference-data-access-overview) in Azure Time Series Insights ambienti Gen2.
 
 > [!TIP]
-> Vedere gli esempi di codice C# Gen2 in [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen1-sample/csharp-tsi-gen1-sample) .
+> Vedere gli esempi di codice C# Gen2 in [https://github.com/Azure-Samples/Azure-Time-Series-Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen2-sample/csharp-tsi-gen2-sample) .
 
 ## <a name="summary"></a>Summary
 
@@ -71,7 +71,7 @@ In alternativa, aggiungere ogni pacchetto usando [NuGet 2.12 o versioni successi
 
 ## <a name="c-sample-code"></a>Codice di esempio C#
 
-Per accedere al codice di esempio C#, vedere il repository [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/blob/master/gen1-sample/csharp-tsi-gen1-sample/Program.cs) . 
+Per accedere al codice di esempio C#, vedere il repository [Azure Time Series Insights](https://github.com/Azure-Samples/Azure-Time-Series-Insights/tree/master/gen2-sample/csharp-tsi-gen2-sample) . 
 
 > [!NOTE]
 >

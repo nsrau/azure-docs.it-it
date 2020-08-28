@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/31/2020
 ms.author: memildin
-ms.openlocfilehash: 3c8bf69b745f5dba8c08556908df4d4ae5b5769f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f02e45804234fc8f8aa2b966db7ddce5efc9cfd1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80521906"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998833"
 ---
 # <a name="supported-platforms"></a>Piattaforme supportate 
 
 Questa pagina mostra le piattaforme e gli ambienti supportati dal centro sicurezza di Azure.
 
-## <a name="combinations-of-environments"></a>Combinazioni di ambienti<a name="vm-server"></a>
+## <a name="combinations-of-environments"></a>Combinazioni di ambienti <a name="vm-server"></a>
 
 Il Centro sicurezza di Azure supporta macchine virtuali e server su diversi tipi di ambienti ibridi:
 
@@ -39,19 +39,19 @@ Per un ambiente Azure attivato in una sottoscrizione di Azure, il Centro sicurez
 
 Il Centro sicurezza dipende dall' [agente log Analytics](../azure-monitor/platform/agents-overview.md#log-analytics-agent). Verificare che nei computer sia in esecuzione uno dei sistemi operativi supportati per questo agente, come descritto nelle pagine seguenti:
 
-* [Agente di Log Analytics per sistemi operativi supportati da Windows](../azure-monitor/platform/log-analytics-agent.md#supported-windows-operating-systems)
-* [Agente di Log Analytics per sistemi operativi Linux supportati](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems)
+* [Agente di Log Analytics per sistemi operativi supportati da Windows](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
+* [Agente di Log Analytics per sistemi operativi Linux supportati](../azure-monitor/platform/agents-overview.md#supported-operating-systems)
 
 Assicurarsi inoltre che l'agente di Log Analytics sia [configurato correttamente per l'invio di dati al centro sicurezza](security-center-enable-data-collection.md#manual-agent)
 
 > [!TIP]
 > Per altre informazioni sulle funzionalità specifiche del Centro sicurezza disponibili in Windows e Linux, vedere [copertura delle funzionalità per i computer](security-center-services.md).
 
-## <a name="managed-virtual-machine-services"></a>Servizi di macchine virtuali gestiti<a name="virtual-machine"></a>
+## <a name="managed-virtual-machine-services"></a>Servizi di macchine virtuali gestiti <a name="virtual-machine"></a>
 
 Anche le macchine virtuali vengono create in una sottoscrizione cliente come parte di alcuni servizi gestiti da Azure, ad esempio Azure Kubernetes (AKS), Azure Databricks e altro ancora. Il Centro sicurezza individua anche queste macchine virtuali e l'agente di Log Analytics può essere installato e configurato se è disponibile un sistema operativo supportato.
 
-## <a name="cloud-services"></a>Servizi cloud<a name="cloud-services"></a>
+## <a name="cloud-services"></a>Servizi cloud <a name="cloud-services"></a>
 
 Sono supportate anche le macchine virtuali in esecuzione in un servizio cloud. Vengono monitorati solo i ruoli di lavoro e Web dei servizi cloud in esecuzione in slot di produzione. Per altre informazioni sui servizi cloud, vedere [Panoramica di Servizi Cloud di Azure](../cloud-services/cloud-services-choose-me.md).
 

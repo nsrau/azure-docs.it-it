@@ -3,12 +3,13 @@ title: Stato delle operazioni asincrone di griglia di eventi
 description: Viene descritto come tenere traccia delle operazioni asincrone di griglia di eventi in Azure. Mostra i valori usati per ottenere lo stato di un'operazione a esecuzione prolungata.
 ms.topic: conceptual
 ms.date: 07/07/2020
-ms.openlocfilehash: 621490a9f56e88baaf343c1c2a072ab84aa7d3ef
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-csharp
+ms.openlocfilehash: baae7b097a0b696d405c0e7ea3d3bdeb326f23b1
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86103331"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89011685"
 ---
 # <a name="track-event-grid-asynchronous-azure-operations"></a>Rileva operazioni di Azure asincrone di griglia di eventi
 Alcune operazioni REST in Azure vengono eseguite in modo asincrono perché non è possibile completarle rapidamente. Questo articolo descrive come tenere traccia dello stato delle operazioni asincrone tramite i valori restituiti nella risposta.  
@@ -71,8 +72,8 @@ Solo `status` viene restituito per tutte le risposte. L'oggetto errore viene res
 
 Le operazioni di creazione, aggiornamento o eliminazione (INSERISCI, PATCH, ELIMINA) di una risorsa restituiscono in genere un valore `provisioningState`. Quando un'operazione viene completata, viene restituito uno dei tre valori seguenti: 
 
-* Operazione riuscita
-* Operazione non riuscita
+* Completato
+* Non riuscito
 * Cancellati
 
 Tutti gli altri valori indicano che l'operazione è ancora in esecuzione. Il provider di risorse può restituire un valore personalizzato che indica lo stato. Ad esempio, potrebbe essere visualizzato **Accettato** quando la richiesta è stata ricevuta ed è in esecuzione.

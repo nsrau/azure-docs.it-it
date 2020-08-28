@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 96eeafd7e434e2c3a42311999fcd4979531df2aa
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 00718e15b069e9be25abdaf0e4460eae20c6afd0
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88584880"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998074"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Creare set di impostazioni di Azure Machine Learning da Azure Open DataSet
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ Creando un set di dati [Azure Machine Learning](../machine-learning/how-to-creat
 
 Per informazioni sul modo in cui i set di dati si adattano al flusso di lavoro di accesso ai dati complessivo di Azure Machine Learning, vedere l'articolo relativo ai [dati](../machine-learning/concept-data.md#data-workflow) di
 
-I set di impostazioni di Azure aprono i set di informazioni pubblici che è possibile usare per aggiungere funzionalità specifiche dello scenario per arricchire le soluzioni predittive e migliorarne la precisione. Vedere il [Catalogo dei set](https://azure.microsoft.com/services/op[en-datasets/catalog/) di dati aperti per i dati di dominio pubblico che consentono di eseguire il training di modelli di Machine Learning, ad esempio:
+I set di impostazioni di Azure aprono i set di informazioni pubblici che è possibile usare per aggiungere funzionalità specifiche dello scenario per arricchire le soluzioni predittive e migliorarne la precisione. Vedere il [Catalogo dei set](https://azure.microsoft.com/en-in/services/open-datasets/catalog/) di dati aperti per i dati di dominio pubblico che consentono di eseguire il training di modelli di Machine Learning, ad esempio:
 
 * [Meteo](https://azure.microsoft.com/services/open-datasets/catalog/noaa-integrated-surface-data/)
 * [Census](https://azure.microsoft.com/services/open-datasets/catalog/us-decennial-census-zip/)

@@ -4,12 +4,12 @@ description: Informazioni sul modo in cui l'eliminazione temporanea per le macch
 ms.topic: conceptual
 ms.date: 04/30/2020
 ms.custom: references_regions
-ms.openlocfilehash: a79f2bf77bcc184db8ac61b51107c1bb4a2a989d
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: a8b70d4c8240d096c19e5a8d7449921557b8896c
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88889827"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022242"
 ---
 # <a name="soft-delete-for-virtual-machines"></a>Eliminazione temporanea per le macchine virtuali
 
@@ -82,7 +82,7 @@ Il ' DeleteState ' dell'elemento di backup cambierà da' NotDeleted ' a' ToBeDel
 
 ### <a name="undoing-the-deletion-operation-using-azure-powershell"></a>Esecuzione dell'operazione di eliminazione utilizzando Azure PowerShell
 
-Per prima cosa, recuperare l'elemento di backup pertinente che si trova nello stato di eliminazione temporanea, ovvero sta per essere eliminato.
+Prima di tutto, recuperare l'elemento di backup pertinente che si trova nello stato di eliminazione temporanea, ovvero sta per essere eliminato.
 
 ```powershell
 

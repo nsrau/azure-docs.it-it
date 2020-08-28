@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
 ms.author: yelevin
-ms.openlocfilehash: a8213bd57936f95870324950204dbd6c1473739a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8114a5e6db7b82b846d221471f41dbdf418ddd9d
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77588519"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001995"
 ---
 # <a name="connect-azure-stack-virtual-machines-to-azure-sentinel"></a>Connetti Azure Stack macchine virtuali ad Azure Sentinel
 
@@ -36,8 +36,8 @@ Aggiungere l'estensione di macchina virtuale di **monitoraggio, aggiornamento e 
 
 1. In una nuova scheda del browser accedere al [portale di Azure stack](https://docs.microsoft.com/azure-stack/user/azure-stack-use-portal#access-the-portal).
 2. Passare alla pagina **macchine virtuali** , selezionare la macchina virtuale che si vuole proteggere con Azure Sentinel. Per informazioni su come creare una macchina virtuale in Azure Stack, vedere [creare una VM Windows Server con il portale di Azure stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) o [creare una VM Server Linux usando il portale di Azure stack](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal).
-3. Selezionare **estensioni**. Viene visualizzato l'elenco delle estensioni macchina virtuale installate in questa macchina virtuale.
-4. Fare clic sulla scheda **Aggiungi** . Si apre il pannello nuovo menu delle **risorse** e viene visualizzato l'elenco delle estensioni delle macchine virtuali disponibili. 
+3. Selezionare **Estensioni**. Viene visualizzato l'elenco delle estensioni macchina virtuale installate in questa macchina virtuale.
+4. Fare clic sulla scheda **Add** (Aggiungi). Viene visualizzato il pannello del menu **Nuova risorsa** che contiene un elenco delle estensioni macchina virtuale disponibili. 
 5. Selezionare l'estensione **monitoraggio di Azure, aggiornamento e gestione della configurazione** e fare clic su **Crea**. Viene visualizzata la finestra di configurazione dell' **estensione di installazione** .
 
    ![Impostazioni di gestione di monitoraggio, aggiornamento e configurazione di Azure](./media/connect-azure-stack/azure-monitor-extension-fix.png)  
@@ -49,7 +49,7 @@ Aggiungere l'estensione di macchina virtuale di **monitoraggio, aggiornamento e 
 1. Nella finestra Azure Stack **Installa estensione** , incollarli nei campi indicati e fare clic su **OK**.
 1. Al termine dell'installazione dell'estensione, il relativo stato viene visualizzato come **provisioning riuscito**. La visualizzazione della macchina virtuale nel portale di Azure Sentinel potrebbe richiedere fino a un'ora.
 
-Per ulteriori informazioni sull'installazione e la configurazione dell'agente per Windows, vedere [connettere computer Windows](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
+Per ulteriori informazioni sull'installazione e la configurazione dell'agente per Windows, vedere [connettere computer Windows](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
 Per risolvere i problemi relativi agli agenti Linux, vedere [Risoluzione dei problemi relativi all'agente Linux di Azure Log Analytics](../azure-monitor/platform/agent-linux-troubleshoot.md).
 

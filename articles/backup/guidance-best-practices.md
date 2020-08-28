@@ -3,12 +3,12 @@ title: Materiale sussidiario e procedure consigliate
 description: Scopri le procedure consigliate e le linee guida per il backup del carico di lavoro cloud e locale nel cloud
 ms.topic: conceptual
 ms.date: 07/22/2020
-ms.openlocfilehash: 6daa3051a00093f74b8b5dac5c81befe006107a4
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: db6eec5351a9015b136226610d2bb3deb8bdc651
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825580"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000363"
 ---
 # <a name="backup-cloud-and-on-premises-workloads-to-cloud"></a>Eseguire il backup di carichi di lavoro cloud e locali nel cloud
 
@@ -212,9 +212,9 @@ Le funzionalità del servizio backup di Azure offrono la flessibilità necessari
 
 * Dischi di backup selettiva: Escludi disco (funzionalità di anteprima) offre una scelta efficace ed economica per eseguire il backup in modo selettivo dei dati critici. Ad esempio, eseguire il backup di un solo disco quando non si vuole eseguire il backup dei restanti dischi collegati a una macchina virtuale. Questa operazione è utile anche quando si dispone di più soluzioni di backup. Ad esempio, quando si esegue il backup di database o dati con una soluzione di backup del carico di lavoro (SQL Server database nel backup di macchine virtuali di Azure) e si vuole usare il backup a livello di VM di Azure per i dischi selezionati.
 
-* Backup di Azure acquisisce snapshot delle macchine virtuali di Azure e le archivia insieme ai dischi per aumentare la creazione dei punti di ripristino e velocizzare le operazioni di ripristino. Questa operazione viene definita ripristino istantaneo. Per impostazione predefinita, gli snapshot di ripristino istantaneo vengono conservati per due giorni. Questa funzionalità consente di eseguire un'operazione di ripristino da questi snapshot riducendo i tempi di ripristino. Riduce il tempo necessario per la trasformazione e la copia dei dati dall'insieme di credenziali. Verranno pertanto addebitati costi di archiviazione corrispondenti agli snapshot creati durante questo periodo. [Altre informazioni](backup-instant-restore-capability.md#configure-snapshot-retention)sono disponibili qui.
+* Backup di Azure acquisisce snapshot delle macchine virtuali di Azure e le archivia insieme ai dischi per aumentare la creazione dei punti di ripristino e velocizzare le operazioni di ripristino. Questa operazione viene definita ripristino istantaneo. Per impostazione predefinita, gli snapshot di ripristino istantaneo vengono conservati per due giorni. Questa funzionalità consente di eseguire un'operazione di ripristino da questi snapshot riducendo i tempi di ripristino. Riduce il tempo necessario per trasformare e copiare i dati dall'insieme di credenziali. Verranno pertanto addebitati costi di archiviazione corrispondenti agli snapshot creati durante questo periodo. [Altre informazioni](backup-instant-restore-capability.md#configure-snapshot-retention)sono disponibili qui.
 
-* Il tipo di replica di archiviazione dell'insieme di credenziali di backup di Azure per impostazione predefinita è con ridondanza geografica (GRS). Questa opzione non può essere modificata dopo la protezione degli elementi. L'archiviazione con ridondanza geografica (GRS) offre un livello più elevato di durabilità dei dati rispetto all'archiviazione con ridondanza locale (con ridondanza locale), consente a un consenso esplicito di usare il ripristino tra aree e i costi. Esaminare i compromessi tra i costi più bassi e la durabilità dei dati più elevata più adatta al proprio scenario. [Per altre informazioni, vedi qui](backup-create-rs-vault.md#set-storage-redundancy)
+* Il tipo di replica di archiviazione dell'insieme di credenziali di backup di Azure per impostazione predefinita è con ridondanza geografica (GRS). Questa opzione non può essere modificata dopo la protezione degli elementi. L'archiviazione con ridondanza geografica (GRS) offre un livello più elevato di durabilità dei dati rispetto all'archiviazione con ridondanza locale (con ridondanza locale), consente a un consenso esplicito di usare il ripristino tra aree e i costi. Esaminare i compromessi tra i costi più bassi e la durabilità dei dati più elevata e decidere cosa è migliore per lo scenario. [Per altre informazioni, vedi qui](backup-create-rs-vault.md#set-storage-redundancy)
 
 * Se si sta proteggendo sia il carico di lavoro in esecuzione all'interno di una macchina virtuale che la macchina virtuale, verificare se è necessaria la doppia protezione.
 

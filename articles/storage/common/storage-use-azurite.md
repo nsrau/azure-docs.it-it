@@ -7,12 +7,13 @@ ms.date: 07/15/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: how-to
-ms.openlocfilehash: c850fccf5a86df4c35ce4db53b5b40d5e8588210
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 35a93669bf301b3be1d560a0777751c12f3c9d14
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089414"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001910"
 ---
 # <a name="use-the-azurite-emulator-for-local-azure-storage-development"></a>Usare l'emulatore di azzurrite per lo sviluppo locale di archiviazione di Azure
 
@@ -329,8 +330,8 @@ Se si usano gli Azure SDK, avviare azzurrite con le `--oauth basic and --cert --
 
 Azzurrite accetta lo stesso account e la chiave noti usati dall'emulatore di archiviazione di Azure legacy.
 
-- Nome account:`devstoreaccount1`
-- Chiave account:`Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
+- Nome account: `devstoreaccount1`
+- Chiave account: `Eby8vdM02xNOcqFlqUwJPLlmEtlCDXJ1OUzFT50uSRZ6IFsuFq2UVErCz4I6tq/K1SZFPTOtr/KBHBeksoGMGw==`
 
 ### <a name="custom-storage-accounts-and-keys"></a>Chiavi e account di archiviazione personalizzati
 
@@ -508,12 +509,12 @@ Seguire questa procedura per aggiungere azzurrite HTTPS a Storage Explorer:
 
 È possibile creare i file e le cartelle seguenti nel percorso dell'area di lavoro durante l'inizializzazione di azzurrite.
 
-- `__blobstorage__`-Directory contenente i dati binari salvati in un servizio BLOB azzurrite
-- `__queuestorage__`-Directory contenente i dati binari salvati in un servizio di Accodamento azzurrite
-- `__azurite_db_blob__.json`-File di metadati del servizio BLOB azzurrite
-- `__azurite_db_blob_extent__.json`-File di metadati dell'extent del servizio BLOB azzurrite
-- `__azurite_db_queue__.json`-Azzurrite file di metadati del servizio di Accodamento
-- `__azurite_db_queue_extent__.json`-File di metadati dell'extent del servizio di Accodamento azzurrite
+- `__blobstorage__` -Directory contenente i dati binari salvati in un servizio BLOB azzurrite
+- `__queuestorage__` -Directory contenente i dati binari salvati in un servizio di Accodamento azzurrite
+- `__azurite_db_blob__.json` -File di metadati del servizio BLOB azzurrite
+- `__azurite_db_blob_extent__.json` -File di metadati dell'extent del servizio BLOB azzurrite
+- `__azurite_db_queue__.json` -Azzurrite file di metadati del servizio di Accodamento
+- `__azurite_db_queue_extent__.json` -File di metadati dell'extent del servizio di Accodamento azzurrite
 
 Per pulire azzurrite, eliminare i file e le cartelle precedenti e riavviare l'emulatore.
 

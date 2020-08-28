@@ -8,14 +8,14 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 02/07/2019
 ms.author: matjazl
-ms.openlocfilehash: 46568bf3969d050fd964c85278debd9d599db266
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: bdf328222fef1f763776bd26c47f5cd4d65e487e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796562"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000006"
 ---
-# <a name="features"></a>Caratteristiche
+# <a name="features"></a>Funzionalità
 
 API di Azure per FHIR offre una distribuzione completamente gestita del server Microsoft FHIR per Azure. Il server è un'implementazione dello standard [FHIR](https://hl7.org/fhir) . Questo documento elenca le funzionalità principali del server FHIR.
 
@@ -39,7 +39,7 @@ Le versioni precedenti sono attualmente supportate anche: `3.0.2`
 | Elimina (condizionale)           | No        | No        | No        |                                                     |
 | create                         | Sì       | Sì       | Sì       | Supporto per POST/PUT                               |
 | Crea (condizionale)           | Sì       | Sì       | Sì       |                                                     |
-| cerca                         | Parziale   | Parziale   | Parziale   | Vedere di seguito                                           |
+| ricerca                         | Parziale   | Parziale   | Parziale   | Vedere di seguito                                           |
 | ricerca concatenata                 | No        | Sì       | No        |                                           |
 | ricerca inversa concatenata         | No        | No        | No        |                                            |
 | capabilities                   | Sì       | Sì       | Sì       |                                                     |
@@ -98,7 +98,7 @@ Sono supportati tutti i tipi di parametro di ricerca.
 | Operazioni di ricerca       | Supportato-PaaS | Supportato-OSS (SQL) | Supportato-OSS (Cosmos DB) | Commento |
 |-------------------------|-----------|-----------|-----------|---------|
 | `_filter`               | No        | No        | No        |         |
-| `_sort`                 | No        | No        | No        |         |
+| `_sort`                 | No        | Parziale   | Parziale        |   `_sort=_lastUpdated` è supportato       |
 | `_score`                | No        | No        | No        |         |
 | `_count`                | Sì       | Sì       | Sì       |         |
 | `_summary`              | Parziale   | Parziale   | Parziale   | `_summary=count` è supportato |
