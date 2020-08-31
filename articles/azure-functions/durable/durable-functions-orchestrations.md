@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 1b349b1e3c4a2fac4cd260dbe83469a776951ab0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5eec15871279f3ca38c726fcd1ef1b21d0d38699
+ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87033643"
+ms.lasthandoff: 08/22/2020
+ms.locfileid: "88750197"
 ---
 # <a name="durable-orchestrations"></a>Orchestrazioni durevoli
 
@@ -51,7 +51,7 @@ Quando a una funzione di orchestrazione vengono assegnate altre operazioni da es
 > Per il funzionamento corretto e affidabile del modello di riesecuzione, il codice della funzione dell'agente di orchestrazione deve essere *deterministico*. Per altre informazioni sulle restrizioni del codice per le funzioni dell'agente di orchestrazione, vedere l'argomento sui [vincoli di codice delle funzioni dell'agente di orchestrazione](durable-functions-code-constraints.md).
 
 > [!NOTE]
-> Se una funzione dell'agente di orchestrazione emette messaggi di log, la riesecuzione potrebbe causare l'emissione di duplicati. Per altre informazioni sui motivi per cui si verifica questo comportamento e su come correggerlo, vedere l'argomento [Registrazione](durable-functions-diagnostics.md#logging).
+> Se una funzione dell'agente di orchestrazione emette messaggi di log, la riesecuzione potrebbe causare l'emissione di duplicati. Per altre informazioni sui motivi per cui si verifica questo comportamento e su come correggerlo, vedere l'argomento [Registrazione](durable-functions-diagnostics.md#app-logging).
 
 ## <a name="orchestration-history"></a>Cronologia di orchestrazione
 

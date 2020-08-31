@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: c060b87b24d7467097d06adecb9f34acb4993779
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 3cae2902385eb82f65243c631745df5ca48825f3
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88032291"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88719223"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Creazione di soluzioni per la vendita al dettaglio con Azure IoT Central
 
@@ -160,20 +160,20 @@ L'applicazione di analisi video usa un modulo [Analisi video live](#live-video-a
 
 Il modello di applicazione include quattro dashboard dell'applicazione:
 
-* **Setup** (Configurazione) fornisce informazioni sulla struttura dell'applicazione e consente di aggiungere ed eliminare videocamere.
-* **Manage** (Gestione) consente di gestire le videocamere. È ad esempio possibile configurare le videocamere, visualizzare le informazioni sullo stato e avviare le videocamere in esecuzione.
-* **Real Cameras** (Videocamere reali) consente di visualizzare le informazioni dalle videocamere reali, ad esempio i conteggi di rilevamento e gli eventi delle videocamere.
-* **Monitor** (Monitoraggio) consente di visualizzare informazioni dettagliate da tutte le videocamere.
+* **Getting Started** (Introduzione) offre collegamenti a risorse utili per imparare a usare il modello di applicazione.
+* **Demo Dashboard** (Dashboard demo) fornisce un'illustrazione dei tipi di informazioni che è possibile visualizzare dalle fotocamere connesse.
+* **(Sample) Real Camera Management** (Gestione fotocamere reali) usa fotocamere simulate per illustrare come è possibile gestire le fotocamere dall'applicazione.
+* **(Sample) Real Camera Monitor** (Monitoraggio fotocamere reali) usa fotocamere simulate per illustrare come è possibile monitorare le fotocamere dall'applicazione.
 
 :::image type="content" source="media/overview-iot-central-retail/live-video-analytics.png" alt-text="Analisi video - rilevamento movimento e oggetti":::
 
 Per ottenere altre informazioni sull'architettura della soluzione, vedere [Architettura dell'applicazione Analisi video](architecture-video-analytics.md).
 
-Per informazioni su come distribuire la soluzione, vedere l'esercitazione [Creare un'applicazione di analisi video in Azure IoT Central](tutorial-video-analytics-create-app.md).
+Per informazioni su come distribuire la soluzione, vedere l'esercitazione [Creare un'applicazione di analisi video in Azure IoT Central](tutorial-video-analytics-deploy.md).
 
 ### <a name="live-video-analytics"></a>Analisi di video live
 
-Live Video Analytics offre una piattaforma per creare applicazioni video intelligenti che vanno dai dispositivi perimetrali al cloud. La piattaforma offre la possibilità di acquisire, registrare e analizzare video live e di pubblicare i risultati, ovvero video o analisi video, nei servizi di Azure. I servizi di Azure possono essere in esecuzione sul cloud o nei dispositivi perimetrali. È possibile usare la piattaforma per migliorare le soluzioni IoT grazie all'analisi video.
+[Analisi video live](https://github.com/Azure/live-video-analytics) offre una piattaforma per creare applicazioni video intelligenti che spaziano dai dispositivi perimetrali al cloud. La piattaforma offre la possibilità di acquisire, registrare e analizzare video live e di pubblicare i risultati, ovvero video o analisi video, nei servizi di Azure. I servizi di Azure possono essere in esecuzione sul cloud o nei dispositivi perimetrali. È possibile usare la piattaforma per migliorare le soluzioni IoT grazie all'analisi video.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -184,4 +184,5 @@ Per iniziare a creare una soluzione per la vendita al dettaglio:
 * [Distribuire ed esaminare un modello di applicazione del centro distribuzione digitale](./tutorial-iot-central-digital-distribution-center.md).
 * [Distribuire ed esaminare un modello di applicazione Gestione inventario intelligente](./tutorial-iot-central-smart-inventory-management.md).
 * [Distribuire ed esaminare un modello di applicazione del centro di micro-adempimenti](./tutorial-micro-fulfillment-center.md).
+* [Distribuire ed esaminare il modello di applicazione di analisi video](./tutorial-video-analytics-deploy.md).
 * Per altre informazioni su IoT Central, vedere [Panoramica di IoT Central](../preview/overview-iot-central.md).

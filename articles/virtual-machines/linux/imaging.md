@@ -1,6 +1,6 @@
 ---
 title: Panoramica della creazione di immagini Linux per Azure
-description: Panoramica della procedura per importare le immagini di VM Linux o crearne di nuove da usare in Azure.
+description: Come importare immagini di VM Linux o crearne di nuove da usare in Azure.
 author: danielsollondon
 ms.service: virtual-machines-linux
 ms.subservice: imaging
@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 06/22/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: aa372d4e1b377ecdcbeb49b47f0f9a3a217ee7ad
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 220aa4e0d545eedcd1eb0e6f5a6555b17a361da2
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502181"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815301"
 ---
 # <a name="bringing-and-creating-linux-images-in-azure"></a>Importazione e creazione di immagini Linux in Azure
 
@@ -25,7 +25,7 @@ Questo articolo illustra i requisiti e i punti decisionali per le immagini, oltr
 ## <a name="difference-between-managed-disks-and-images"></a>Differenza tra dischi gestiti e immagini
 
 
-Azure consente di inserire un disco rigido virtuale nella piattaforma per usarlo come [disco gestito](../windows/faq-for-disks.md#managed-disks) o come origine per un'immagine. 
+Azure consente di inserire un disco rigido virtuale nella piattaforma per usarlo come [disco gestito](../faq-for-disks.md#managed-disks) o come origine per un'immagine. 
 
 I dischi gestiti di Azure sono singoli dischi rigidi virtuali. È possibile creare un disco gestito da un disco rigido virtuale esistente oppure crearne uno vuoto da zero. È possibile creare VM da dischi gestiti collegando il disco alla VM, ma è possibile usare un disco rigido virtuale solo con una singola VM. Non è possibile modificare le proprietà del sistema operativo. Azure proverà semplicemente ad attivare la VM e a iniziare a usare il disco. 
 

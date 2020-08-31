@@ -2,13 +2,13 @@
 title: Analisi di video in tempo reale su IoT Edge note sulla versione-Azure
 description: Questo argomento fornisce le note sulla versione di analisi video in tempo reale su IoT Edge versioni, miglioramenti, correzioni di bug e problemi noti.
 ms.topic: conceptual
-ms.date: 04/27/2020
-ms.openlocfilehash: bad21297c5174c107a8eb03da0e2ed57ee7355d3
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 08/19/2020
+ms.openlocfilehash: 23c2362d46a0b9bfe2fc2fbe31e00d0a42f80cfa
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750207"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055448"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Note sulla versione di analisi video in tempo reale su IoT Edge
 
@@ -87,4 +87,4 @@ Questa è la prima versione di anteprima pubblica di analisi video in tempo real
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Overview](overview.md)
+[Panoramica](overview.md)

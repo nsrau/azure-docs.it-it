@@ -5,7 +5,7 @@
     - name: Informazioni su Criteri di Azure
       displayName: 'rbac, assign, initiative, parameters, count'
       href: overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Assegnare un criterio - Portale
@@ -167,7 +167,11 @@
           displayName: 'monitor, insights, log analytics, builtin'
           href: ../../azure-monitor/insights/vminsights-enable-policy.md?bc=%2fazure%2fgovernance%2fpolicy%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fgovernance%2fpolicy%2ftoc.json
 - name: Risolvere problemi
-  href: ./troubleshoot/general.md
+  items:
+    - name: Problemi comuni
+      href: ./troubleshoot/general.md
+    - name: Problemi noti
+      href: 'https://github.com/azure/azure-policy#known-issues'
 - name: Informazioni di riferimento
   items:
     - name: Interfaccia della riga di comando di Azure
@@ -189,9 +193,9 @@
     - name: Azure SDK per Java
       items:
         - name: Assegnazioni
-          href: /java/api/com.microsoft.azure.management.resources.policyassignment?view=azure-java-stable
+          href: /java/api/com.microsoft.azure.management.resources.policyassignment
         - name: Definizioni dei criteri
-          href: /java/api/com.microsoft.azure.management.resources.PolicyDefinitions?view=azure-java-stable
+          href: /java/api/com.microsoft.azure.management.resources.PolicyDefinitions
     - name: Azure SDK per JavaScript
       items:
         - name: Policy
@@ -234,31 +238,45 @@
           href: /azure/templates/microsoft.authorization/policysetdefinitions
 - name: Risorse
   items:
-    - name: Problemi noti
-      href: 'https://github.com/azure/azure-policy#known-issues'
     - name: GitHub - Esempi di Criteri di Azure
       href: 'https://github.com/Azure/azure-policy'
-    - name: GitHub - Repository dei criteri della community
-      href: 'https://github.com/Azure/Community-Policy'
-    - name: Domande e risposte Microsoft per Criteri di Azure
-      href: /answers/topics/azure-policy.html
-    - name: Canale dedicato alla governance su YouTube
-      href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
-    - name: Video sulla configurazione guest
+    - name: Strumenti della community
       items:
-        - name: Introduzione
-          href: 'https://www.youtube.com/watch?v=mjJw9_EIyHo'
-        - name: Informazioni sulle iniziative
-          href: 'https://www.youtube.com/watch?v=4JZH3kuG8bI'
-        - name: Assegnare un criterio
-          href: 'https://www.youtube.com/watch?v=fbZBaxcjA-Y'
-        - name: Attività di correzione
-          href: 'https://www.youtube.com/watch?v=URE4DUYMgmg'
-    - name: Video - Ignite 2019
-      href: 'https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions'
+        - name: GitHub - Repository dei criteri della community
+          href: 'https://github.com/Azure/Community-Policy'
+        - name: Azione GitHub per l'analisi conformità di Criteri di Azure
+          href: 'https://github.com/marketplace/actions/azure-policy-compliance-scan'
+        - name: Dashboard di governance di Azure per CCO
+          href: 'https://github.com/Azure/ccodashboard/blob/master/README.md#cco-azure-governance-dashboard-report-pages'
+        - name: AzAdvertizer
+          href: 'https://www.azadvertizer.net/'
+        - name: Visualizzatore di governance di Azure
+          href: 'https://github.com/julianhayward/azure-mg-sub-governance-reporting'
+    - name: Feedback e supporto
+      items:
+        - name: Domande e risposte Microsoft per Criteri di Azure
+          href: /answers/topics/azure-policy.html
+        - name: Ticket di supporto di Azure
+          href: 'https://azure.microsoft.com/support/create-ticket/'
+        - name: UserVoice
+          href: 'https://feedback.azure.com/forums/915958-azure-governance?category_id=345055'
+    - name: Video
+      items:
+        - name: Canale dedicato alla governance su YouTube
+          href: 'https://www.youtube.com/channel/UCZZ3-oMrVI5ssheMzaWC4uQ'
+        - name: Video - Ignite 2019
+          href: 'https://myignite.techcommunity.microsoft.com/sessions/81584?source=sessions'
+        - name: Video sulla configurazione guest
+          items:
+            - name: Introduzione
+              href: 'https://www.youtube.com/watch?v=mjJw9_EIyHo'
+            - name: Informazioni sulle iniziative
+              href: 'https://www.youtube.com/watch?v=4JZH3kuG8bI'
+            - name: Assegnare un criterio
+              href: 'https://www.youtube.com/watch?v=fbZBaxcjA-Y'
+            - name: Attività di correzione
+              href: 'https://www.youtube.com/watch?v=URE4DUYMgmg'
     - name: Roadmap per Azure
       href: 'https://azure.microsoft.com/roadmap/'
     - name: Calcolatore prezzi
       href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: UserVoice
-      href: 'https://feedback.azure.com/forums/915958-azure-governance?category_id=345055'

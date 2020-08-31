@@ -10,15 +10,27 @@ ms.subservice: immersive-reader
 ms.topic: overview
 ms.date: 04/13/2020
 ms.author: erhopf
-ms.openlocfilehash: 6223a45c9bc61d7349ec62fa8aa37f907b2cf3b7
-ms.sourcegitcommit: 31ef5e4d21aa889756fa72b857ca173db727f2c3
+ms.openlocfilehash: 182cf54f58b4fbb8b80fb4ff9d7c1a9c1e353470
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/16/2020
-ms.locfileid: "81538375"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723912"
 ---
 # <a name="language-support-for-form-recognizer"></a>Supporto delle lingue per Riconoscimento modulo
 
 Questo articolo elenca le lingue supportate dal servizio Riconoscimento modulo (anteprima).
 
-* Inglese
+
+|Linguaggio| Codice lingua | Riconoscimento modulo v2.0 | Riconoscimento modulo v2.1 anteprima pubblica*|
+|:-----|:----:|:-----:|:---:|:---:|
+|Cinese (semplificato) | `zh-Hans`| | ✔ |
+|Olandese | `nl` | |✔ |
+|Inglese | `en` |✔ |
+|Francese | `fr` | |✔ |
+|Tedesco | `de` | |✔ |
+|Italiano | `it` | |✔ |
+|Portoghese | `pt` | |✔ |
+|Spagnolo | `es` | |✔ |
+
+* Riconoscimento modulo v2.1 anteprima pubblica supporta queste lingue per le operazioni `Analyze Layout` e `Train Custom Model` (_Training con etichette_ e _Training senza etichette_). Le operazioni `Analyze Receipt` e `Analyze Business Card` sono supportate solo in lingua inglese.

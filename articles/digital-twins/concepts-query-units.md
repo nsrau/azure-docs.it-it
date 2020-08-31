@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 8/14/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: 5334a1196ac8044c56e615cf8894b44646b48fb4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: c68cb8cc0ecf759b9af0e313e09663cdbc327917
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88615109"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89067706"
 ---
 # <a name="query-units-in-azure-digital-twins"></a>Unità di query nei dispositivi gemelli digitali di Azure 
 
@@ -20,7 +20,9 @@ Un'unità di query di Azure Digital gemelli **(qu)** è un'unità di calcolo su 
 
 Estrae le risorse di sistema, ad esempio CPU, IOPS e memoria, necessarie per eseguire operazioni di query supportate da dispositivi gemelli digitali di Azure, consentendo di tenere traccia dell'utilizzo nelle unità query.
 
-La complessità della query influiscono sul numero di QUs utilizzati per eseguire la query. 
+La quantità di unità di query utilizzate per eseguire una query è interessata da...
+* complessità della query 
+* dimensioni del set di risultati (pertanto una query che restituisce 10 risultati utilizzerà più QUs di una query con una complessità simile che restituisce solo un risultato)
 
 Questo articolo illustra come comprendere le unità di query e tenere traccia dell'utilizzo delle unità query.
 

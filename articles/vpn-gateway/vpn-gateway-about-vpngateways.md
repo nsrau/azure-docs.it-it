@@ -6,14 +6,14 @@ author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 06/01/2020
+ms.date: 08/25/2020
 ms.author: cherylmc
-ms.openlocfilehash: c195fd3c6d3de518a70070327de5c12d5d210b6a
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: c7fbea977904145aa2e8851f45a4b70f9ce0c560
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036879"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855602"
 ---
 # <a name="what-is-vpn-gateway"></a>Che cos'è un Gateway VPN?
 
@@ -71,6 +71,10 @@ Per informazioni sugli SKU del gateway VPN, vedere [SKU del gateway](vpn-gateway
 ## <a name="faq"></a><a name="faq"></a>Domande frequenti
 
 Per le domande frequenti sul gateway VPN, vedere le [Domande frequenti su Gateway VPN](vpn-gateway-vpn-faq.md).
+
+## <a name="whats-new"></a><a name="new"></a>Novità
+
+Sottoscrivere il feed RSS e visualizzare gli aggiornamenti più recenti delle funzionalità di Gateway VPN nella pagina [Aggiornamenti di Azure](https://azure.microsoft.com/updates/?category=networking&query=VPN%20Gateway).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

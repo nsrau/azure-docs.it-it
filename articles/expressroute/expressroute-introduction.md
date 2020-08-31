@@ -5,14 +5,14 @@ services: expressroute
 author: mialdrid
 ms.service: expressroute
 ms.topic: overview
-ms.date: 09/18/2019
+ms.date: 08/25/2020
 ms.author: mialdrid
-ms.openlocfilehash: 2fda31b97314347f52b0cd1bbe9e1b54d01af807
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 6621a9778025d67046722b7cd60e32a62b574ee5
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607115"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88852936"
 ---
 # <a name="what-is-azure-expressroute"></a>Che cos'è Azure ExpressRoute?
 ExpressRoute consente di estendere le reti locali nel cloud Microsoft tramite una connessione privata fornita da un provider di connettività. Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, come Microsoft Azure e Office 365.
@@ -111,6 +111,10 @@ Per altre informazioni, vedere [Informazioni su ExpressRoute Direct](https://go.
 
 ## <a name="faq"></a>Domande frequenti
 Per le domande frequenti su ExpressRoute, vedere [Domande frequenti su ExpressRoute](expressroute-faqs.md).
+
+## <a name="whats-new"></a><a name="new"></a>Novità
+
+Sottoscrivere il feed RSS e visualizzare gli aggiornamenti più recenti di ExpressRoute nella pagina [Aggiornamenti di Azure](https://azure.microsoft.com/updates/?category=networking&query=ExpressRoute).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sui [Modelli di connettività di ExpressRoute](expressroute-connectivity-models.md).

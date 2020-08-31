@@ -11,12 +11,12 @@ ms.date: 08/17/2020
 ms.author: pafarley
 ms.custom: devx-track-javascript
 zone_pivot_groups: programming-languages-set-ten
-ms.openlocfilehash: 9b6759fedab8d72b883698b9d04c0e2b7df2fdcc
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: eb44456815642989a6f2b36cb15e159318018644
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88505402"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723334"
 ---
 # <a name="quickstart-use-the-form-recognizer-client-library"></a>Avvio rapido: Usare la libreria client di Riconoscimento modulo
 
@@ -29,6 +29,10 @@ Usare la libreria client di Riconoscimento modulo per:
 * [Eseguire il training di un modello personalizzato](#train-a-custom-model)
 * [Analizzare i moduli con un modello personalizzato](#analyze-forms-with-a-custom-model)
 * [Gestire i modelli personalizzati](#manage-your-custom-models)
+
+> [!NOTE]
+> Le librerie client supportano la versione più recente di Riconoscimento modulo in disponibilità generale, v2.0. 
+
 
 ::: zone pivot="programming-language-csharp"
 

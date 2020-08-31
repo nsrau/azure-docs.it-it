@@ -9,16 +9,16 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: 6beda409f03938f471f089bceebaa97c6d02ae7e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 04a308805dd69c4d9245d287a391f1e7fa7d50f2
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496220"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055567"
 ---
 # <a name="use-file-metadata-in-queries"></a>Usare i metadati dei file nelle query
 
-Il servizio di query su richiesta SQL può essere usato con più file e cartelle, come descritto nell'articolo [Eseguire query su cartelle e più file](query-folders-multiple-csv-files.md). In questo articolo verrà illustrato come usare le informazioni sui metadati relative a nomi di file e cartelle nelle query.
+SQL su richiesta può indirizzare più file e cartelle, come descritto nell'articolo [cartelle query e più file](query-folders-multiple-csv-files.md) . In questo articolo verrà illustrato come usare le informazioni sui metadati relative a nomi di file e cartelle nelle query.
 
 In alcuni casi, potrebbe essere necessario individuare l'origine del file o della cartella correlata a una riga specifica nel set di risultati.
 

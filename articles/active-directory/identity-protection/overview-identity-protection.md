@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: overview
-ms.date: 08/15/2020
+ms.date: 08/24/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39c9522362ca6710fae5dee5d831e63cc36a3950
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 0f6ec9c1fb5ae359ca88b48dea97c6a00c0f2b40
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509111"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815182"
 ---
 # <a name="what-is-identity-protection"></a>Informazioni su Identity Protection
 
@@ -52,9 +52,10 @@ Identity Protection consente di identificare i rischi suddivisi nelle classifica
 | Trasferimento atipico | Accesso da una posizione insolita in base agli accessi recenti dell'utente. |
 | Indirizzo IP anonimo | Accesso da indirizzo IP anonimo (ad esempio Tor Browser, VPN per navigazione in anonimato). |
 | Proprietà di accesso insolite | Accesso con proprietà non osservate di recente per l'utente specificato. |
-| Indirizzo IP collegato a malware | Accesso da indirizzo IP collegato a malware |
-| Credenziali perse | Questo rilevamento dei rischi indica che le credenziali valide dell'utente sono andate perse |
-| Intelligence per le minacce di Azure AD | Le origini di intelligence Microsoft per le minacce interne ed esterne hanno identificato uno schema di attacco noto |
+| Indirizzo IP collegato a malware | Accesso da indirizzo IP collegato a malware. |
+| Credenziali perse | Questo rilevamento dei rischi indica che le credenziali valide dell'utente sono andate perse. |
+| Password spraying | Indica che più nomi utente vengono attaccati usando password comuni in modo simile a un attacco di forza bruta unificato. |
+| Intelligence per le minacce di Azure AD | Le origini di intelligence Microsoft per le minacce interne ed esterne hanno identificato uno schema di attacco noto. |
 
 Per maggiori dettagli su questi rischi e su come/quando vengono calcolati, vedere l'articolo [Che cosa sono i rischi?](concept-identity-protection-risks.md).
 

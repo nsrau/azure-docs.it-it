@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 05/18/2020
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 9f6f428a930f03259986373ca70a95d5df1f7dc3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9457836a3048ff08b228bf9d5b84400af15d6cc5
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091488"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854952"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Domande frequenti su Ancoraggi nello spazio di Azure
 
@@ -51,7 +51,7 @@ Per altre informazioni, vedere [Panoramica di Ancoraggi nello spazio di Azure](o
 
 **D: Come vengono archiviati i dati da Ancoraggi nello spazio di Azure?**
 
-**R:** Tutti i dati vengono archiviati crittografati con una chiave gestita da Microsoft.
+**R:** Tutti i dati vengono archiviati crittografati con una chiave di crittografia dei dati gestita da Microsoft e vengono archiviati a livello di area per ogni risorsa.
 
 **D: Quali informazioni su un ambiente vengono trasmesse e archiviate nel servizio quando si usa Ancoraggi nello spazio di Azure? Le immagini dell'ambiente vengono trasmesse e archiviate?**
 

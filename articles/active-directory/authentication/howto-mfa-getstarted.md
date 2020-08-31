@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4fc459e63dd48adb49ab916c368b68cc3a1ccbaf
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: da9a0fe30721a2f55db2c4771f54716868f9972f
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717031"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055074"
 ---
 # <a name="plan-an-azure-multi-factor-authentication-deployment"></a>Pianificare una distribuzione di Azure Multi-Factor Authentication
 
@@ -110,7 +110,7 @@ Alcuni dei rilevamenti dei rischi eseguiti da Azure Active Directory Identity Pr
 Gli amministratori possono scegliere i [metodi di autenticazione](../authentication/concept-authentication-methods.md) che vogliono mettere a disposizione degli utenti. È importante consentire più di un singolo metodo di autenticazione in modo che gli utenti possano contare su un metodo di backup nel caso in cui il metodo principale non sia disponibile. I metodi seguenti sono disponibili per l'abilitazione da parte degli amministratori:
 
 > [!TIP]
-> Microsoft consiglia di usare l'app per dispositivi mobili come metodo principale per Azure Multi-Factor Authentication per la migliore sicurezza e l'esperienza utente.
+> Microsoft consiglia di usare il Microsoft Authenticator (app per dispositivi mobili) come metodo principale per Azure Multi-Factor Authentication per un'esperienza utente più sicura e migliorata. L'app Microsoft Authenticator inoltre [soddisfa](https://azure.microsoft.com/resources/microsoft-nist/) i livelli di garanzia del National Institute of Standards and Technology Authenticator. 
 
 ### <a name="notification-through-mobile-app"></a>Notifica tramite app per dispositivi mobili
 
@@ -287,7 +287,7 @@ Se è già stata distribuita ed è in uso un'istanza di NPS, vedere [Integrare l
 
 Scegliere cosa accade quando gli utenti non registrati per MFA tentano di eseguire l'autenticazione. Usare l'impostazione del registro `REQUIRE_USER_MATCH` nel percorso del registro `HKLM\Software\Microsoft\AzureMFA` per controllare il comportamento della funzionalità. Questa impostazione ha un'unica opzione di configurazione.
 
-| Chiave | Valore | Predefinito |
+| Chiave | valore | Predefinito |
 | --- | --- | --- |
 | `REQUIRE_USER_MATCH` | TRUE / FALSE | Non impostato (equivalente a VERO) |
 

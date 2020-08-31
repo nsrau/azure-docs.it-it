@@ -13,12 +13,12 @@ ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, jeedes, luleon
-ms.openlocfilehash: 1cd2b7550d47ecc92f8ca7f5531fab923e13930c
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: e1c931b37cbe155d62aaffe47e36d84afa547638
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853368"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068644"
 ---
 # <a name="how-to-customize-claims-emitted-in-tokens-for-a-specific-app-in-a-tenant-preview"></a>Procedura: Personalizzare le attestazioni generate nei token per un'app specifica in un tenant (anteprima)
 
@@ -302,7 +302,7 @@ L'elemento ID identifica la proprietà dell'origine che indica il valore per l'a
 | Utente | streetaddress | Indirizzo |
 | Utente | postalcode | CAP |
 | Utente | preferredlanguange | Lingua preferita |
-| Utente | onpremisesuserprincipalname | UPN locale |
+| Utente | onpremisesuserprincipalname | UPN locale |*
 | Utente | mailNickname | Nome di posta elettronica alternativo |
 | Utente | extensionattribute1 | Attributo di estensione 1 |
 | Utente | extensionattribute2 | Attributo di estensione 2 |
@@ -340,6 +340,8 @@ L'elemento ID identifica la proprietà dell'origine che indica il valore per l'a
 
 - JwtClaimType deve contenere il nome dell'attestazione da generare nel token JWT.
 - SamlClaimType deve contenere l'URI dell'attestazione da generare nei token SAML.
+
+* **attributo onPremisesUserPrincipalName:** Quando si usa un ID alternativo, l'attributo locale userPrincipalName viene sincronizzato con l'attributo Azure AD onPremisesUserPrincipalName. Questo attributo è disponibile solo quando è configurato un ID alternativo, ma è disponibile anche tramite MS Graph beta: https://graph.microsoft.com/beta/me/ .
 
 > [!NOTE]
 > Non è possibile utilizzare i nomi e gli URI delle attestazioni nel set di attestazioni con restrizioni per gli elementi dei tipi di attestazioni. Per altre informazioni, vedere la sezione "Eccezioni e restrizioni" più avanti in questo articolo.

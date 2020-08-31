@@ -4,18 +4,18 @@ description: Abilitare collegamenti privati per i dischi gestiti con il portale 
 author: roygara
 ms.service: virtual-machines
 ms.topic: overview
-ms.date: 08/11/2020
+ms.date: 08/24/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 83f204a35e48962e525ad7d64c018eef301f9933
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: ab861b3ed265da9060e2367bdfdeeeee7047c584
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135845"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815862"
 ---
-# <a name="azure-portal---restrict-importexport-access-for-managed-disks-with-private-links"></a>Portale di Azure: limitare l'accesso di importazione/esportazione per i dischi gestiti con collegamenti privati
+# <a name="use-the-azure-portal-to-restrict-importexport-access-for-managed-disks-with-private-links"></a>Usare il portale di Azure per limitare l'accesso di importazione/esportazione per i dischi gestiti con collegamenti privati
 
 Il supporto di collegamenti privati per i dischi gestiti, attualmente in anteprima, consente di limitare l'esportazione e l'importazione di dischi gestiti affinché vengano eseguite solo all'interno della rete virtuale di Azure. È possibile generare un URI di firma di accesso condiviso con limiti di tempo per gli snapshot e i dischi gestiti non collegati per esportare i dati in un'altra area per l'espansione a livello di area, il ripristino di emergenza e per leggere i dati per scopi legali. È anche possibile usare l'URI di firma di accesso condiviso per caricare direttamente un disco rigido virtuale in un disco vuoto dall'ambiente locale. Il traffico di rete tra i client nella rete virtuale e i dischi gestiti passa soltanto attraverso la rete virtuale e un collegamento privato sulla rete backbone Microsoft, eliminando l'esposizione alla rete Internet pubblica.
 
@@ -100,5 +100,5 @@ A questo punto è stata completata la configurazione dei collegamenti privati ch
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Domande frequenti per i collegamenti privati](linux/faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
+- [Domande frequenti per i collegamenti privati](./faq-for-disks.md#private-links-for-securely-exporting-and-importing-managed-disks)
 - [Esportare/copiare snapshot gestiti come disco rigido virtuale in un account di archiviazione di un'area diversa con PowerShell](scripts/virtual-machines-windows-powershell-sample-copy-snapshot-to-storage-account.md)

@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: a087faee45b8725bc596a5faa92536741d8cd569
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0df61c2ee42d468562efd67a2a66a90a5e4fda53
+ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836905"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88723563"
 ---
 # <a name="what-is-form-recognizer"></a>Informazioni su Riconoscimento modulo
 
@@ -24,7 +24,7 @@ Riconoscimento modulo di Azure è un servizio cognitivo che usa la tecnologia di
 
 Riconoscimento modulo è costituito dai servizi seguenti:
 * **Modelli personalizzati**: per estrarre le coppie chiave-valore e i dati delle tabelle dai moduli. Questi modelli vengono sottoposti a training con i dati dell'utente, quindi sono personalizzati per i suoi moduli.
-* **Modello predefinito di ricevuta**: per estrarre i dati dalle ricevute di vendita USA usando un modello predefinito.
+* **Modelli predefiniti**: estrarre i dati da tipi di moduli univoci usando modelli predefiniti. Attualmente sono disponibili modelli predefiniti per ricevute di vendita e biglietti da visita in lingua inglese.
 * **API di layout**: per estrarre le strutture di testo e tabelle, oltre alle coordinate dei relativi rettangoli di selezione, dai documenti.
 
 <!-- add diagram -->
@@ -45,9 +45,18 @@ Quando si esegue il training con dati etichettati, il modello esegue l'apprendim
 
 Riconoscimento modulo usa l'[API di layout](#layout-api) per riconoscere le dimensioni e le posizioni previste degli elementi di testo stampati e scritti a mano. Usa quindi le etichette specificate dall'utente per riconoscere le associazioni chiave-valore nei documenti. Per iniziare a eseguire il training di un nuovo modello, è consigliabile usare cinque moduli dello stesso tipo etichettati manualmente e aggiungere altri dati etichettati se necessario per migliorare l'accuratezza del modello.
 
-## <a name="prebuilt-receipt-model"></a>Modello di ricevute predefinito
+## <a name="prebuilt-models"></a>Modelli predefiniti
 
-Riconoscimento modulo include anche un modello per la lettura di ricevute di vendita in inglese degli Stati Uniti, il tipo usato da ristoranti, distributori di carburante, rivenditori e così via ([ricevuta di esempio](./media/contoso-receipt-small.png)). Questo modello consente di estrarre le informazioni principali, come la data e l'ora della transazione, i dati del rivenditore, gli importi di imposte e totali e altro ancora. Il training del modello di ricevute predefinito è stato inoltre eseguito in modo che il modello possa riconoscere e restituire tutto il testo di una ricevuta.
+Riconoscimento modulo include anche modelli predefiniti per tipi di moduli univoci.
+### <a name="prebuilt-receipt-model"></a>Modello di ricevuta predefinito
+Il modello di ricevuta predefinito viene usato per la lettura di ricevute di vendita in inglese di Australia, Canada, Gran Bretagna, India e Stati Uniti, il tipo usato da ristoranti, distributori di carburante, rivenditori e così via. Questo modello consente di estrarre le informazioni principali, come la data e l'ora della transazione, i dati del fornitore, gli importi delle imposte, gli articoli, i totali e altro ancora. Il training del modello di ricevute predefinito è stato inoltre eseguito in modo che il modello possa riconoscere e restituire tutto il testo di una ricevuta. 
+
+![ricevuta di esempio](./media/contoso-receipt-small.png)
+
+### <a name="prebuilt-business-cards-model"></a>Modello di biglietto da visita predefinito
+Il modello di biglietto da visita consente di estrarre informazioni quali il nome della persona, la posizione, la via e numero civico, l'indirizzo di posta elettronica, la società e i numeri di telefono dai biglietti da visita in inglese. 
+
+![biglietto da visita di esempio](./media/business-card-english.jpg)
 
 ## <a name="layout-api"></a>API di layout
 
@@ -90,7 +99,7 @@ Per altre informazioni, esplorare la [documentazione di riferimento dell'API RES
 
 [!INCLUDE [input requirements](./includes/input-requirements.md)]
 
-### <a name="prebuilt-receipt-model"></a>Modello di ricevute predefinito
+### <a name="prebuilt"></a>Predefinita
 
 I requisiti di input per il modello di ricevuta sono leggermente diversi.
 

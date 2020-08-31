@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1cf29438d3785a3406aa8ce3b75929a5d5261121
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 73c0eeb718bb6ede8215ed3a87e246185a248ffd
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800371"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89054989"
 ---
 # <a name="azure-spring-cloud-faq"></a>Domande frequenti su Azure Spring cloud
 
@@ -42,8 +42,8 @@ Stati Uniti orientali, Stati Uniti occidentali 2, Europa occidentale e Asia sud-
 
 Durante la versione di anteprima, Azure Spring cloud presenta le limitazioni note seguenti:
 
-* `spring.application.name`verrà eseguito l'override del nome dell'applicazione usato per creare ogni applicazione.
-* `server.port`il valore predefinito è porte 80/443. Se viene applicato un altro valore, ne verrà eseguito l'override in 80/443.
+* `spring.application.name` verrà eseguito l'override del nome dell'applicazione usato per creare ogni applicazione.
+* `server.port` il valore predefinito è porte 80/443. Se viene applicato un altro valore, ne verrà eseguito l'override in 80/443.
 * I modelli portale di Azure e Azure Resource Manager non supportano il caricamento di pacchetti dell'applicazione. È possibile caricare i pacchetti dell'applicazione solo distribuendo l'applicazione tramite l'interfaccia della riga di comando di Azure.
 
 ### <a name="what-pricing-tiers-are-available"></a>Quali sono i piani tariffari disponibili? 
@@ -88,6 +88,12 @@ Sì.
 ### <a name="when-i-deletemove-an-azure-spring-cloud-service-instance-will-its-extension-resources-be-deletedmoved-as-well"></a>Quando si elimina o si sposta un'istanza del servizio cloud di Azure Spring, le risorse di estensione verranno eliminate o spostate?
 
 Dipende dalla logica dei provider di risorse che possiedono le risorse di estensione. Le risorse di estensione di un' `Microsoft.AppPlatform` istanza non appartengono allo stesso spazio dei nomi, quindi il comportamento varia a seconda del provider di risorse. Ad esempio, l'operazione di eliminazione/spostamento non produrrà a catena le risorse delle **impostazioni di diagnostica** . Se viene eseguito il provisioning di una nuova istanza di Azure Spring cloud con lo stesso ID di risorsa di quello eliminato o se viene spostata di nuovo l'istanza di Azure Spring cloud precedente, le risorse delle **impostazioni di diagnostica** precedenti continuano a estenderlo.
+
+È possibile eliminare le impostazioni di diagnostica di Spring cloud usando l'interfaccia della riga di comando di Azure:
+
+```azurecli
+ az monitor diagnostic-settings delete --name $diagnosticSettingName --resource $azureSpringCloudResourceId
+```
 
 ## <a name="java-runtime-and-os-versions"></a>Runtime Java e versioni del sistema operativo
 

@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/22/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: cc950c4915a57dd949941fbb9802c51a47c9a00d
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 1a645a333db9b24005639f4adbb2913a2b887b66
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607142"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055669"
 ---
 # <a name="marketplace-insights-dashboard-in-partner-center"></a>Dashboard Informazioni dettagliate sul marketplace nel Centro per i partner
 
@@ -66,7 +66,10 @@ Visualizzare le metriche del Marketplace commerciale in diversi modi:
 
 ## <a name="marketplace-insights-summary"></a>Riepilogo di Informazioni dettagliate sul marketplace
 
-Nella sezione di riepilogo di Informazioni dettagliate sul marketplace viene visualizzato il numero di **visite alle pagine**, **inviti all'azione** e **visitatori univoci** per l'intervallo di date selezionato.
+La sezione di riepilogo di Marketplace Insights Visualizza il numero di **visite di pagina**, le **chiamate all'azione**e **i visitatori univoci** per l'intervallo di date selezionato.
+
+>[!NOTE]
+>Il dashboard di Marketplace Insights fornisce i dati di clickstream, che non devono essere correlati con i lead generati nell'endpoint di destinazione principale.
 
 ### <a name="page-visits"></a>Visite alle pagine
 
@@ -137,10 +140,10 @@ Questa tabella offre una visualizzazione elenco delle visite alle pagine e degli
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per una panoramica dei report di analisi disponibili nel marketplace commerciale del Centro per i partner, vedere [Analisi per il marketplace commerciale nel Centro per i partner](./analytics.md).
-- Per grafici, tendenze e valori dei dati aggregati che riepilogano l'attività del marketplace per le offerte, vedere [Dashboard di riepilogo nell'analisi per il marketplace commerciale](./summary-dashboard.md).
+- Per i grafici, le tendenze e i valori dei dati aggregati che riassumono l'attività del marketplace per l'offerta, vedere [Dashboard di riepilogo nell'analisi per il marketplace commerciale](./summary-dashboard.md).
 - Per informazioni sugli ordini in un formato grafico e scaricabile, vedere [Dashboard degli ordini nell'analisi per il marketplace commerciale](./orders-dashboard.md).
-- Per le metriche di fatturazione a consumo e di utilizzo delle offerte di macchine virtuali (VM), vedere [Dashboard di utilizzo nell'analisi per il marketplace commerciale](./usage-dashboard.md).
+- Per informazioni sull'utilizzo di offerte con macchine virtuali (VM) e sull'analisi della fatturazione a consumo, vedere [Dashboard di utilizzo nell'analisi per il marketplace commerciale](./usage-dashboard.md).
 - Per informazioni dettagliate sui clienti, incluse le tendenze di crescita, vedere [Dashboard dei clienti nell'analisi per il marketplace commerciale](./customer-dashboard.md).
-- Per un elenco delle richieste di download negli ultimi 30 giorni, vedere [Dashboard dei download nell'analisi per il marketplace commerciale](./downloads-dashboard.md).
+- Per un elenco delle richieste di download degli ultimi 30 giorni, vedere [Dashboard dei download nell'analisi per il marketplace commerciale](./downloads-dashboard.md).
 - Per una visualizzazione consolidata del feedback dei clienti per le offerte in Azure Marketplace e AppSource, vedere [Dashboard di valutazioni e recensioni nell'analisi per il marketplace commerciale](./ratings-reviews.md).
 - Per le domande frequenti sull'analisi del marketplace commerciale e per un dizionario completo dei termini relativi ai dati, vedere [Domande frequenti e terminologia per l'analisi nel marketplace commerciale](./faq-terminology.md).

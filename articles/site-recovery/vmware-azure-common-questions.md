@@ -3,12 +3,12 @@ title: Domande comuni sul ripristino di emergenza di VMware con Azure Site Recov
 description: Per ottenere risposte alle domande comuni sul ripristino di emergenza di macchine virtuali VMware locali in Azure, usare Azure Site Recovery.
 ms.date: 11/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 603dc77e6f2a53abb1d65688ced77e58297b8ab5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1d61b8556038959f6acab447fc0510830b1dd943
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086150"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89054972"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>Domande frequenti sulla replica da VMware ad Azure
 
@@ -114,7 +114,7 @@ Site Recovery replica le VM VMware locali e i server fisici in dischi gestiti in
 
 No. A partire da marzo 2019, nella portale di Azure, è possibile eseguire la replica solo in Azure Managed Disks.
 
-La replica di nuove macchine virtuali in un account di archiviazione è disponibile solo tramite PowerShell o l'API REST (versione 2018-01-10 o 2016-08-10).
+La replica di nuove macchine virtuali in un account di archiviazione è disponibile solo tramite PowerShell ([AZ. RecoveryServices Module Version 1.4.5](https://www.powershellgallery.com/packages/Az.RecoveryServices/1.4.5)) o l'API REST (versione 2018-01-10 o 2016-08-10). [Informazioni su come](https://docs.microsoft.com/azure/site-recovery/vmware-azure-disaster-recovery-powershell) configurare la replica usando i comandi di PowerShell.
 
 ### <a name="what-are-the-benefits-of-replicating-to-managed-disks"></a>Quali sono i vantaggi della replica nei dischi gestiti?
 

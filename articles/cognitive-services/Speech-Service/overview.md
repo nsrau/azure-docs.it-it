@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: overview
-ms.date: 06/25/2020
+ms.date: 08/20/2020
 ms.author: trbye
-ms.openlocfilehash: 82099172a933496f015ae8fc575c1919a879e1f9
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: cc29eb959876a0c9c6f8c8e5dee2d18aaa5443ac
+ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167743"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88825357"
 ---
 # <a name="what-is-the-speech-service"></a>Informazioni sul Servizio di riconoscimento vocale
 
@@ -24,7 +24,7 @@ Il servizio Voce di Azure combina il riconoscimento vocale, la sintesi vocale e 
 > [!IMPORTANT]
 > Il servizio Voce ha sostituito l'API Riconoscimento vocale Bing e Traduzione vocale. Vedere _Guide alle procedure > Migrazione_ per istruzioni relative alla migrazione.
 
-Queste funzionalità costituiscono il servizio Voce. Per altre informazioni sui casi d'uso comuni per ogni funzionalità, usare i collegamenti in questa tabella o esplorare il riferimento API.
+Le funzionalità seguenti fanno parte del servizio Voce. Per altre informazioni sui casi d'uso comuni per ogni funzionalità, usare i collegamenti in questa tabella o esplorare la documentazione di riferimento delle API.
 
 | Service | Funzionalità | Descrizione | SDK | REST |
 |---------|---------|-------------|-----|------|
@@ -42,20 +42,61 @@ Queste funzionalità costituiscono il servizio Voce. Per altre informazioni sui 
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-## <a name="try-the-speech-service"></a>Provare il servizio Voce
+## <a name="try-the-speech-service-for-free"></a>Provare gratuitamente il Servizio di riconoscimento vocale
 
-Sono disponibili modelli di avvio rapido nei linguaggi di programmazione più diffusi, ognuno progettato per consentire all'utente di disporre dell'esecuzione di codice in meno di 10 minuti. Questa tabella contiene i modelli di avvio rapido più popolari per ogni funzionalità. Usare il riquadro di spostamento a sinistra per esplorare altri linguaggi e piattaforme.
+Per eseguire la procedura seguente sono necessari sia un account Microsoft che un account Azure. Se non si ha un account Microsoft, è possibile iscriversi per ottenerne uno gratuitamente nel [portale per gli account Microsoft](https://account.microsoft.com/account). Selezionare **Accedi con Microsoft** e quindi, quando viene chiesto di accedere, selezionare **Crea un account Microsoft**. Seguire i passaggi per creare e verificare il nuovo account Microsoft.
 
-| Riconoscimento vocale (SDK) | API Sintesi vocale (SDK) | Traduzione vocale (SDK) |
-|----------------------|----------------------|-------------------|
-| [Riconoscimento vocale da un file audio](quickstarts/speech-to-text-from-file.md) | [Sintesi vocale in un file audio](quickstarts/text-to-speech-audio-file.md) | [Traduzione vocale in testo](quickstarts/translate-speech-to-text.md) |
-| [Riconoscimento vocale con un microfono](quickstarts/speech-to-text-from-microphone.md) | [Sintesi vocale in un altoparlante](quickstarts/text-to-speech.md) | [Tradurre la voce in più lingue di destinazione](quickstarts/translate-speech-to-text-multiple-languages.md) |
-| [Riconoscimento della voce archiviata in archivio BLOB](quickstarts/from-blob.md) | [Sintesi asincrona per audio lungo](quickstarts/text-to-speech/async-synthesis-long-form-audio.md) | [Conversione della voce in voce](quickstarts/translate-speech-to-speech.md) |
+Una volta che si ha un account Microsoft, passare alla [pagina di iscrizione ad Azure](https://azure.microsoft.com/free/ai/), selezionare **Inizia gratuitamente**, quindi creare un nuovo account Azure usando l'account Microsoft.
 
 > [!NOTE]
-> Per il riconoscimento vocale e la sintesi vocale sono disponibili anche endpoint REST e guide di avvio rapido associate.
+> Il servizio Voce ha due livelli di servizio: gratuito e con sottoscrizione, con limitazioni e vantaggi diversi. Quando si effettua l'iscrizione per un account Azure gratuito, si ottiene un credito che è possibile impiegare per una sottoscrizione a pagamento al servizio Voce, valida per un massimo di 30 giorni.
+>
+> Se si usa il livello di servizio gratuito e con volumi ridotti del servizio Voce, è possibile mantenere questa sottoscrizione gratuita anche dopo la scadenza della versione di valutazione gratuita o del credito di servizio.
+>
+> Per altre informazioni, vedere [Prezzi di Servizi cognitivi - Servizi Voce](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
-Dopo avere avuto la possibilità di usare il servizio Voce, provare le esercitazioni che illustrano come risolvere diversi scenari.
+### <a name="create-the-azure-resource"></a>Creare la risorsa di Azure
+
+Per aggiungere una risorsa del servizio vocale (gratuita o a pagamento) al proprio account Azure:
+
+1. Accedere al [portale di Azure](https://portal.azure.com/) con il proprio account Microsoft.
+
+1. Selezionare **Crea una risorsa** in alto a sinistra sul portale. Se l'opzione **Crea una risorsa** non è visualizzata, è sempre possibile trovarla selezionando il menu compresso nell'angolo superiore sinistro dello schermo.
+
+1. Nella finestra **Nuovo** digitare "voce" nella casella di ricerca e premere INVIO.
+
+1. Nei risultati della ricerca, selezionare **Voce**.
+
+   ![Risultati della ricerca di voce](media/index/speech-search.png)
+
+1. Selezionare **Crea**, quindi:
+
+   - Assegnare un nome univoco alla nuova risorsa. Il nome consente di distinguere tra più sottoscrizioni collegate allo stesso servizio.
+   - Scegliere la sottoscrizione di Azure a cui è associata la nuova risorsa per determinare le modalità di fatturazione.
+   - Scegliere l'[area](regions.md) in cui verrà usata la risorsa.
+   - Scegliere un piano tariffario gratuito (F0) o a pagamento (S0). Per informazioni complete sulle quote di utilizzo e sui prezzi per ogni livello, selezionare **Visualizza i dettagli completi sui prezzi**.
+   - Creare un nuovo gruppo di risorse per questa sottoscrizione di riconoscimento vocale o assegnarla a un gruppo di risorse esistente. I gruppi di risorse consentono di mantenere organizzate le diverse sottoscrizioni di Azure.
+   - Selezionare **Crea**. Si passerà alla pagina di panoramica della distribuzione e verranno visualizzati i messaggi sullo stato della distribuzione.
+
+> [!NOTE]
+> È possibile creare un numero illimitato di sottoscrizioni di livello standard in una o più aree. Tuttavia, è possibile creare solo una sottoscrizione gratuita. Le distribuzioni di modelli nel livello gratuito che rimangono inutilizzate per 7 giorni verranno automaticamente rimosse.
+
+È necessario qualche secondo per distribuire la nuova risorsa del servizio Voce. Al termine della distribuzione, selezionare **Vai alla risorsa** e quindi nel riquadro di spostamento a sinistra selezionare **Chiavi** per visualizzare le chiavi di sottoscrizione del servizio Voce. Ogni sottoscrizione dispone di due chiavi, entrambi utilizzabili nell'applicazione. Per copiare e incollare rapidamente una chiave nell'editor di codice o in un'altra posizione, selezionare il pulsante Copia accanto a ogni chiave e cambiare finestra per incollare il contenuto degli Appunti nella posizione desiderata.
+
+> [!IMPORTANT]
+> Queste chiavi di sottoscrizione vengono usate per accedere all'API di Servizi cognitivi. Non condividerle. Archiviarle in una posizione sicura, ad esempio usando Azure Key Vault. È inoltre consigliabile rigenerare queste chiavi regolarmente. Per effettuare una chiamata API è necessaria una sola chiave. Quando si rigenera la prima chiave, è possibile usare la seconda chiave per l'accesso continuato al servizio.
+
+## <a name="complete-a-quickstart"></a>Completare una guida di avvio rapido
+
+Sono disponibili guide di avvio rapido nei linguaggi di programmazione più diffusi, ognuna progettata per insegnare gli schemi progettuali di base e consentire all'utente di eseguire il codice in meno di 10 minuti. Per accedere alla guida di avvio rapido per ogni funzionalità, vedere l'elenco seguente.
+
+* [Guida di avvio rapido sul riconoscimento vocale](speech-to-text-basics.md)
+* [Guida di avvio rapido sulla sintesi vocale](get-started-text-to-speech.md)
+* [Guida di avvio rapido sulla traduzione vocale](speech-translation-basics.md)
+* [Guida di avvio rapido sul riconoscimento delle finalità](quickstarts/intent-recognition.md)
+* [Guida di avvio rapido sul riconoscimento del parlante](speaker-recognition-basics.md)
+
+Dopo avere avuto la possibilità di familiarizzare con il servizio Voce, provare le esercitazioni che illustrano come risolvere diversi scenari.
 
 - [Esercitazione: Riconoscere le finalità dai contenuti vocali con Speech SDK e LUIS per C#](how-to-recognize-intents-from-speech-csharp.md)
 - [Esercitazione: Abilitare il servizio voce per il bot con Speech SDK, C#](tutorial-voice-enable-your-bot-speech-sdk.md)
@@ -74,6 +115,8 @@ Il codice di esempio per il servizio Voce è disponibile in GitHub. Questi esemp
 
 Il servizio Voce funziona bene con i modelli predefiniti, tuttavia, è possibile personalizzare e ottimizzare ulteriormente l'esperienza in base al prodotto o all'ambiente in uso. Le opzioni di personalizzazione spaziano dall'ottimizzazione del modello acustico ai caratteri voce univoci per il proprio marchio.
 
+Altri prodotti offrono modelli di conversione voce/testo ottimizzati per scopi specifici, ad esempio per il settore della sanità o delle assicurazioni, ma sono disponibili per tutti ugualmente. La personalizzazione nel servizio Voce di Azure diventa parte integrante del vantaggio competitivo *esclusivo* dell'utente, non disponibile per altri utenti o clienti. In altre parole, i modelli di un cliente sono privati e personalizzati solo per il suo caso d'uso.
+
 | Servizio di riconoscimento vocale | Piattaforma | Descrizione |
 | -------------- | -------- | ----------- |
 | Riconoscimento vocale | [Riconoscimento vocale personalizzato](https://aka.ms/customspeech) | Personalizzare i modelli di riconoscimento vocale in base alle esigenze e ai dati disponibili. Superare gli ostacoli al riconoscimento vocale, come il modo di parlare, il vocabolario e il rumore di fondo. |
@@ -90,4 +133,5 @@ Il servizio Voce funziona bene con i modelli predefiniti, tuttavia, è possibile
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](get-started.md)
+> [Introduzione al riconoscimento vocale](speech-to-text-basics.md)
+> [Introduzione alla sintesi vocale](get-started-text-to-speech.md)

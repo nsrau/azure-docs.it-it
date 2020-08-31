@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 08/27/2020
 ms.author: erhopf
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 670d7f160285283bd44371b893c63904b2685926
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: cef6ff109607455881970aeb95eaf0859f6f4f05
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934498"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055533"
 ---
 # <a name="what-is-speech-translation"></a>Che cos'è la traduzione vocale?
 
@@ -30,25 +30,14 @@ Oggi Microsoft usa NMT per la traduzione in lingue più diffuse. Tutte le [lingu
 
 ## <a name="core-features"></a>Funzionalità di base
 
-Di seguito sono riportate le funzionalità disponibili tramite l'SDK vocale e le API REST:
+* Traduzione vocale con risultati di riconoscimento.
+* Traduzione vocale.
+* Supporto per la conversione a più lingue di destinazione.
+* Risultati del riconoscimento provvisorio e della traduzione.
 
-| Caso d'uso | SDK | REST |
-|----------|-----|------|
-| Traduzione vocale con risultati di riconoscimento. | Sì | No |
-| Traduzione vocale. | Sì | No |
-| Risultati del riconoscimento provvisorio e della traduzione. | Sì | No |
+## <a name="get-started"></a>Introduzione 
 
-## <a name="get-started-with-speech-translation"></a>Introduzione alla traduzione vocale
-
-Sono disponibili guide introduttive progettate per l'esecuzione di codice in meno di 10 minuti. Questa tabella include un elenco di guide introduttive per la traduzione vocale organizzate in base alla lingua.
-
-| Avvio rapido | Piattaforma | Informazioni di riferimento sulle API |
-|------------|----------|---------------|
-| [C#, .NET Core](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnetcore) | Windows | [Sfoglia](https://aka.ms/csspeech/csharpref) |
-| [C#, .NET Framework](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=dotnet) | Windows | [Sfoglia](https://aka.ms/csspeech/csharpref) |
-| [C#, UWP](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-csharp&tabs=uwp) | Windows | [Sfoglia](https://aka.ms/csspeech/csharpref) |
-| [C++](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-cpp&tabs=windows) | Windows | [Sfoglia](https://aka.ms/csspeech/cppref)|
-| [Java](~/articles/cognitive-services/Speech-Service/quickstarts/translate-speech-to-text.md?pivots=programming-language-java&tabs=jre) | Windows, Linux, macOS | [Sfoglia](https://aka.ms/csspeech/javaref) |
+Per iniziare a usare la traduzione vocale, vedere la [Guida introduttiva](get-started-speech-translation.md) . Il servizio di traduzione vocale è disponibile tramite l' [SDK vocale](speech-sdk.md) e l'interfaccia della riga di comando [vocale](spx-overview.md).
 
 ## <a name="sample-code"></a>Codice di esempio
 
@@ -72,5 +61,6 @@ Se le applicazioni, gli strumenti o i prodotti usano la [API traduzione vocale](
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* Completare la [Guida introduttiva](get-started-speech-translation.md) alla traduzione vocale
 * [Ottenere gratuitamente una chiave di sottoscrizione per i servizi di riconoscimento vocale](get-started.md)
 * [Ottenere Speech SDK](speech-sdk.md)

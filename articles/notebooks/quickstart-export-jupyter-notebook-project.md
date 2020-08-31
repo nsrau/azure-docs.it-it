@@ -1,22 +1,23 @@
 ---
-title: Esportare un progetto Jupyter Notebook da Azure Notebooks (anteprima)
+title: Esportare un progetto Jupyter Notebook dalla versione di anteprima di Azure Notebooks
 description: Esportare rapidamente un progetto Jupyter Notebook.
 ms.topic: quickstart
 ms.date: 06/29/2020
-ms.openlocfilehash: ad37db7e9bdb1251a3e62bd567960979f556b489
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a2e76f2c1956df4d0de59cfb429dc1c9dce85a62
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85832033"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892100"
 ---
-# <a name="quickstart-export-a-jupyter-notebook-project-in-azure-notebooks-preview"></a>Avvio rapido: Esportare un progetto Jupyter Notebook in Azure Notebooks (anteprima)
+# <a name="quickstart-export-a-jupyter-notebook-project-in-azure-notebooks-preview"></a>Avvio rapido: Esportare un progetto Jupyter Notebook nella versione di anteprima di Azure Notebooks
 
 [!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
 
-Questa guida di avvio rapido illustra come scaricare un progetto Azure Notebooks per l'uso in altre soluzioni Jupyter Notebook. 
+Questa guida di avvio rapido illustra come scaricare un progetto Azure Notebooks per usarlo in altre soluzioni Jupyter Notebook. 
 
 ## <a name="prerequisites"></a>Prerequisiti
+
 Progetto Azure Notebooks esistente.
 
 ## <a name="export-an-azure-notebooks-project"></a>Esportare un progetto Azure Notebooks
@@ -49,7 +50,7 @@ Se si vuole creare un ambiente corrispondente a quello di Azure Notebooks (antep
 
 ## <a name="use-notebooks-in-visual-studio-code"></a>Usare i notebook in Visual Studio Code
 
-[VS Code](https://code.visualstudio.com/) è un editor di codice gratuito che può essere usato in locale o connesso a una risorsa di calcolo remota. In combinazione con l'estensione Python, offre un ambiente completo per lo sviluppo Python, inclusa un'esperienza nativa avanzata per l'uso di Jupyter Notebook. 
+[VS Code](https://code.visualstudio.com/) è un editor di codice gratuito che può essere usato in locale o connesso a una risorsa di calcolo remota. In combinazione con l'estensione Python, offre un ambiente completo per lo sviluppo in Python, inclusa un'esperienza nativa avanzata per l'uso di Jupyter Notebook. 
 
 ![Supporto di VS Code per Jupyter Notebook](media/vs-code-jupyter-notebook.png)
 

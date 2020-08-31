@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 07/01/2020
 ms.author: rolyon
-ms.openlocfilehash: 664687d096a3a9c6ce9a6c7de0025604e046b0a1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0a504285b2d79ba1386bcd13dd72fc3faec202ff
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029978"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055652"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Trasferire una sottoscrizione di Azure a un'altra directory di Azure AD (anteprima)
 
@@ -28,12 +28,15 @@ Le organizzazioni potrebbero avere più sottoscrizioni di Azure. Ogni sottoscriz
 
 Questo articolo descrive i passaggi di base che è possibile seguire per trasferire una sottoscrizione a una directory Azure AD diversa e ricreare alcune risorse dopo il trasferimento.
 
+> [!NOTE]
+> Per le sottoscrizioni di Azure CSP, la modifica della directory Azure AD per la sottoscrizione non è supportata.
+
 ## <a name="overview"></a>Panoramica
 
 Il trasferimento di una sottoscrizione di Azure a una directory Azure AD diversa è un processo complesso che deve essere accuratamente pianificato ed eseguito. Molti servizi di Azure richiedono entità di sicurezza (identità) per funzionare normalmente o anche per gestire altre risorse di Azure. Questo articolo prova a coprire la maggior parte dei servizi di Azure che dipendono molto dalle entità di sicurezza, ma non è completa.
 
 > [!IMPORTANT]
-> Il trasferimento di una sottoscrizione richiede tempi di inattività per il completamento del processo.
+> In alcuni scenari, il trasferimento di una sottoscrizione potrebbe richiedere tempi di inattività per il completamento del processo. È necessaria un'attenta pianificazione per valutare se i tempi di inattività saranno necessari per la migrazione.
 
 Il diagramma seguente illustra i passaggi di base che è necessario seguire quando si trasferisce una sottoscrizione a una directory diversa.
 
@@ -71,17 +74,18 @@ Diverse risorse di Azure hanno una dipendenza da una sottoscrizione o una direct
 | Identità gestite assegnate dal sistema | Sì | Sì | [Elencare le identità gestite](#list-role-assignments-for-managed-identities) | È necessario disabilitare e riabilitare le identità gestite. È necessario ricreare le assegnazioni di ruolo. |
 | Identità gestite assegnate dall'utente | Sì | Sì | [Elencare le identità gestite](#list-role-assignments-for-managed-identities) | È necessario eliminare, ricreare e collegare le identità gestite alla risorsa appropriata. È necessario ricreare le assegnazioni di ruolo. |
 | Insieme di credenziali chiave di Azure | Sì | Sì | [Elencare i criteri di accesso Key Vault](#list-other-known-resources) | È necessario aggiornare l'ID tenant associato agli insiemi di credenziali delle chiavi. È necessario rimuovere e aggiungere nuovi criteri di accesso. |
-| Database SQL di Azure con autenticazione Azure AD | Sì | No | [Controllare i database SQL di Azure con l'autenticazione Azure AD](#list-other-known-resources) |  |  |
+| Database SQL di Azure con Azure AD Integration Authentication abilitato | Sì | No | [Controllare i database SQL di Azure con l'autenticazione Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
 | Archiviazione di Azure e Azure Data Lake Storage Gen2 | Sì | Sì |  | È necessario ricreare gli ACL. |
-| Azure Data Lake Storage Gen1 | Sì |  |  | È necessario ricreare gli ACL. |
+| Azure Data Lake Storage Gen1 | Sì | Sì |  | È necessario ricreare gli ACL. |
 | File di Azure | Sì | Sì |  | È necessario ricreare gli ACL. |
 | Sincronizzazione file di Azure | Sì | Sì |  |  |
 | Azure Managed Disks | Sì | N/D |  |  |
 | Servizi contenitore di Azure per Kubernetes | Sì | Sì |  |  |
-| Servizi di dominio Azure Active Directory | Sì | No |  |  |
+| Azure Active Directory Domain Services | Sì | No |  |  |
 | Registrazioni per l'app | Sì | Sì |  |  |
 
-Se si usa la crittografia dei dati inattivi per una risorsa, ad esempio un account di archiviazione o un database SQL, che ha una dipendenza da un insieme di credenziali delle chiavi che non si trova nella stessa sottoscrizione da trasferire, può causare uno scenario irreversibile. In tal caso, è necessario eseguire i passaggi per usare un insieme di credenziali delle chiavi diverso o disabilitare temporaneamente le chiavi gestite dal cliente per evitare questo scenario irreversibile.
+> [!IMPORTANT]
+> Se si usa la crittografia dei dati inattivi per una risorsa come un account di archiviazione o un database SQL e la risorsa ha una dipendenza da un insieme di credenziali delle chiavi che *non* si trova nella sottoscrizione che viene trasferita, è possibile che si ottenga un errore irreversibile. In questa situazione, usare un insieme di credenziali delle chiavi diverso o disabilitare temporaneamente le chiavi gestite dal cliente per evitare un errore irreversibile.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -199,9 +203,9 @@ Le identità gestite non vengono aggiornate quando si trasferisce una sottoscriz
 
     | Criteri | Tipo di identità gestita |
     | --- | --- |
-    | `alternativeNames`inclusioni proprietà`isExplicit=False` | Assegnato dal sistema |
-    | `alternativeNames`la proprietà non include`isExplicit` | Assegnato dal sistema |
-    | `alternativeNames`inclusioni proprietà`isExplicit=True` | Assegnati dall'utente |
+    | `alternativeNames` inclusioni proprietà `isExplicit=False` | Assegnato dal sistema |
+    | `alternativeNames` la proprietà non include `isExplicit` | Assegnato dal sistema |
+    | `alternativeNames` inclusioni proprietà `isExplicit=True` | Assegnati dall'utente |
 
     È anche possibile usare [AZ Identity list](https://docs.microsoft.com/cli/azure/identity#az-identity-list) per elencare solo le identità gestite assegnate dall'utente. Per altre informazioni, vedere [creare, elencare o eliminare un'identità gestita assegnata dall'utente usando l'interfaccia della](../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)riga di comando di Azure.
 
@@ -217,8 +221,8 @@ Le identità gestite non vengono aggiornate quando si trasferisce una sottoscriz
 
 Quando si crea un insieme di credenziali delle chiavi, questo viene automaticamente associato all'ID tenant predefinito Azure Active Directory per la sottoscrizione in cui viene creato. All'ID tenant vengono associate anche tutte le voci dei criteri di accesso. Per ulteriori informazioni, vedere [passaggio di un Azure Key Vault a un'altra sottoscrizione](../key-vault/general/move-subscription.md).
 
-> [!WARNING]
-> Se si usa la crittografia dei dati inattivi per una risorsa, ad esempio un account di archiviazione o un database SQL, che ha una dipendenza da un insieme di credenziali delle chiavi che non si trova nella stessa sottoscrizione da trasferire, può causare uno scenario irreversibile. In tal caso, è necessario eseguire i passaggi per usare un insieme di credenziali delle chiavi diverso o disabilitare temporaneamente le chiavi gestite dal cliente per evitare questo scenario irreversibile.
+> [!IMPORTANT]
+> Se si usa la crittografia dei dati inattivi per una risorsa come un account di archiviazione o un database SQL e la risorsa ha una dipendenza da un insieme di credenziali delle chiavi che *non* si trova nella sottoscrizione che viene trasferita, è possibile che si ottenga un errore irreversibile. In questa situazione, usare un insieme di credenziali delle chiavi diverso o disabilitare temporaneamente le chiavi gestite dal cliente per evitare un errore irreversibile.
 
 - Se si dispone di un insieme di credenziali delle chiavi, usare [AZ Key Vault Show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) per elencare i criteri di accesso. Per altre informazioni, vedere [fornire Key Vault autenticazione con un criterio di controllo di accesso](../key-vault/key-vault-group-permissions-for-apps.md).
 
@@ -228,7 +232,7 @@ Quando si crea un insieme di credenziali delle chiavi, questo viene automaticame
 
 ### <a name="list-azure-sql-databases-with-azure-ad-authentication"></a>Elencare i database SQL di Azure con autenticazione Azure AD
 
-- Usare [AZ SQL Server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) e [AZ Graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) Extension per verificare se si usano database SQL di Azure con l'autenticazione di Azure ad. Per altre informazioni, vedere [configurare e gestire Azure Active Directory autenticazione con SQL](../sql-database/sql-database-aad-authentication-configure.md).
+- Usare [AZ SQL Server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) e [AZ Graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) Extension per verificare se si usano database SQL di Azure con l'autenticazione di Azure ad. Per altre informazioni, vedere [configurare e gestire Azure Active Directory autenticazione con SQL](../azure-sql/database/authentication-aad-configure.md).
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)

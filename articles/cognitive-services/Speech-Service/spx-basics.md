@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 04/04/2020
 ms.author: trbye
-ms.openlocfilehash: 2f5a1d190c6e63056c2377641446f617edaa1bd3
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: e859ac13c72ed07d3f57da6e61fd6d9f827f0fca
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590218"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854890"
 ---
 # <a name="learn-the-basics-of-the-speech-cli"></a>Nozioni di base sull'interfaccia della riga di comando per Voce
 
@@ -31,10 +31,18 @@ Questa sezione illustra alcuni comandi SPX di base spesso utili per eseguire i p
 spx
 ```
 
-Si notino gli argomenti della Guida **vedere anche** riportati a destra dei parametri del comando. È inoltre possibile cercare gli argomenti in base a parola chiave. Ad esempio, immettere il comando seguente per visualizzare un elenco degli argomenti della Guida sugli esempi di interfaccia della riga di comando di Voce:
+Si notino gli argomenti della Guida **vedere** riportati a destra dei parametri del comando. È possibile immettere questi comandi per ottenere informazioni dettagliate della Guida sui sottocomandi.
+
+È possibile cercare gli argomenti della Guida per parola chiave. Ad esempio, immettere il comando seguente per visualizzare un elenco di esempi di utilizzo dell'interfaccia della riga di comando di Voce:
 
 ```shell
 spx help find --topics "examples"
+```
+
+Immettere il comando seguente per visualizzare le opzioni del comando recognize:
+
+```shell
+spx help recognize
 ```
 
 Ora usare il servizio Voce per eseguire alcune operazioni di riconoscimento vocale con il microfono predefinito eseguendo il comando seguente.

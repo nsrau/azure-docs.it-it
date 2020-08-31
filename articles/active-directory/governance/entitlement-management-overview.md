@@ -12,22 +12,23 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 06/18/2020
+ms.date: 08/25/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 710c81c7b5c6abbf499f2cb43570db94df1a3db5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: contperfq1
+ms.openlocfilehash: dbcd8ab2f2825e18943436dcc1a9ca4ff38e2d8d
+ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87034403"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88871208"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Cos'è Gestione entitlement di Azure AD?
 
 Gestione entitlement di Active Directory (Azure AD) è una funzionalità di [Identity Governance](identity-governance-overview.md) che consente alle organizzazioni di gestire il ciclo di vita di identità e accessi su larga scala, automatizzando i flussi di lavoro delle richieste di accesso, le assegnazioni, le verifiche e la scadenza degli accessi.
 
-Per svolgere il proprio lavoro, i dipendenti delle organizzazioni devono accedere a vari gruppi, applicazioni e siti. La gestione di questo accesso è problematica, in quanto i requisiti cambiano quando ad esempio vengono aggiunte nuove applicazioni o se gli utenti necessitano di diritti di accesso aggiuntivi.  Questo scenario diventa ancora più complicato se si collabora con organizzazioni esterne. Si potrebbe non sapere chi nell'altra organizzazione ha l'esigenza di accedere alle risorse della propria organizzazione, mentre gli utenti dell'altra organizzazione non sapranno quali applicazioni, gruppi o siti sono in uso nella propria.
+Per svolgere il proprio lavoro, i dipendenti delle organizzazioni devono accedere a vari gruppi, applicazioni e siti. La gestione di questo accesso è problematica, in quanto i requisiti cambiano quando ad esempio vengono aggiunte nuove applicazioni o se gli utenti necessitano di diritti di accesso aggiuntivi.  Questo scenario diventa ancora più complicato se si collabora con organizzazioni esterne. Si potrebbe non sapere quali utenti dell'altra organizzazione devono accedere alle risorse della propria organizzazione, mentre gli utenti dell'altra organizzazione non sapranno quali applicazioni, gruppi o siti sono in uso nella propria.
 
 La funzionalità di gestione entitlement di Azure AD può aiutare a gestire in modo più efficiente l'accesso a gruppi, applicazioni e siti di SharePoint per utenti interni e anche per quelli esterni all'organizzazione che hanno l'esigenza di accedere a tali risorse.
 
@@ -54,7 +55,10 @@ Ecco alcune funzionalità della gestione entitlement:
 - Delegare a non amministratori la possibilità di creare pacchetti di accesso. Questi pacchetti di accesso contengono risorse che gli utenti possono richiedere e i responsabili dei pacchetti di accesso con delega possono definire criteri con regole per gli utenti che possono effettuare richieste e per quelli che devono approvarne l'accesso, oltre a stabilirne la scadenza.
 - Selezionare le organizzazioni connesse i cui utenti possono richiedere l'accesso.  Quando un utente che non è ancora presente nella directory richiede l'accesso e riceve l'approvazione, viene automaticamente invitato nella directory e gli viene assegnato l'accesso.  Alla scadenza dell'accesso, se non avrà altre assegnazioni del pacchetto di accesso, il suo account B2B nella directory potrà essere rimosso automaticamente.
 
-Per iniziare, seguire l'[esercitazione sulla creazione del primo pacchetto di accesso](entitlement-management-access-package-first.md). È anche possibile leggere gli [scenari comuni](entitlement-management-scenarios.md) o guardare i video, tra cui
+>[!NOTE]
+>Se si è pronti a provare la gestione entitlement, è possibile iniziare con l'[esercitazione sulla creazione del primo pacchetto di accesso](entitlement-management-access-package-first.md).
+
+È anche possibile leggere gli [scenari comuni](entitlement-management-scenarios.md) o guardare i video, tra cui
 
 - [Come distribuire la gestione entitlement di Azure AD nell'organizzazione](https://www.youtube.com/watch?v=zaaKvaaYwI4)
 - [Come monitorare e dimensionare l'uso della gestione entitlement di Azure AD](https://www.youtube.com/watch?v=omtNJ7ySjS0)
@@ -68,7 +72,7 @@ La gestione entitlement introduce in Azure AD il concetto di *pacchetto di acces
 
 - Appartenenza a gruppi di sicurezza di Azure AD
 - Appartenenza a Gruppi e Team di Microsoft 365
-- Assegnazione ad applicazioni aziendali di Azure AD, tra cui applicazioni SaaS e con integrazioni personalizzate che supportano la federazione/Single Sign-On e/o il provisioning
+- Assegnazione ad applicazioni aziendali di Azure AD, tra cui applicazioni SaaS e con integrazioni personalizzate che supportano la federazione, l'accesso Single Sign-On e/o il provisioning
 - Appartenenza a siti di SharePoint Online
 
 È anche possibile controllare l'accesso ad altre risorse che si basano sui gruppi di sicurezza di Azure AD o su Gruppi di Office 365.  Ad esempio:
@@ -99,7 +103,7 @@ Il diagramma seguente mostra un esempio dei diversi elementi della gestione enti
 
 ## <a name="when-should-i-use-access-packages"></a>Quando è consigliabile usare i pacchetti di accesso?
 
-I pacchetti di accesso non sostituiscono altri meccanismi per l'assegnazione dell'accesso.  Sono più appropriati in situazioni come le seguenti:
+I pacchetti di accesso non sostituiscono altri meccanismi per l'assegnazione dell'accesso.  Sono più appropriati nelle situazioni descritte di seguito:
 
 - I dipendenti necessitano di un accesso a tempo limitato per una determinata attività.  Ad esempio, è possibile usare licenze basate su gruppi e un gruppo dinamico per assicurarsi che tutti i dipendenti abbiano una cassetta postale di Exchange e quindi usare i pacchetti di accesso per le situazioni in cui i dipendenti abbiano bisogno di un accesso aggiuntivo, ad esempio per leggere risorse di un altro reparto.
 - L'accesso deve essere approvato dal responsabile di un dipendente o da altre persone designate.
@@ -149,7 +153,7 @@ Le licenze di Azure AD Premium P2 **non** sono necessarie per le attività segue
 - Non sono necessarie licenze per gli utenti a cui sono state delegate attività amministrative, ad esempio autore del catalogo, proprietario del catalogo e responsabile dei pacchetti di accesso.
 - Non sono necessarie licenze per gli utenti guest che **possono** richiedere pacchetti di accesso ma **non** li richiedono.
 
-Per ogni licenza di Azure AD Premium P2 a pagamento acquistata per gli utenti membro (dipendenti), è possibile usare Azure AD B2B per invitare fino a 5 utenti guest. Questi utenti guest possono anche usare le funzionalità di Azure AD Premium P2. Per altre informazioni, vedere [Linee guida sulle licenze per la collaborazione di Azure AD B2B](../b2b/licensing-guidance.md).
+Per ogni licenza di Azure AD Premium P2 a pagamento acquistata per gli utenti membro (dipendenti), è possibile usare Azure AD B2B per invitare fino a cinque utenti guest. Questi utenti guest possono anche usare le funzionalità di Azure AD Premium P2. Per altre informazioni, vedere [Linee guida sulle licenze per la collaborazione di Azure AD B2B](../external-identities/licensing-guidance.md).
 
 Per altre informazioni sulle licenze, vedere [Assegnare o rimuovere licenze usando il portale di Azure Active Directory](../fundamentals/license-users-groups.md).
 

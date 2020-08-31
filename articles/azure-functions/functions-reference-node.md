@@ -5,12 +5,12 @@ ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: ff3e5431481cba0d2d806d60ba5d7a291d1b2b69
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 6ff56ba6dc85901c8cdc7a9b06fbc261feb8792d
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810117"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055329"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Guida per gli sviluppatori JavaScript di Funzioni di Azure
 
@@ -18,9 +18,9 @@ Questa guida contiene informazioni dettagliate che consentono di sviluppare funz
 
 Per gli sviluppatori di Express.js, Node.js o JavaScript, se non si ha familiarità con funzioni di Azure, prendere in considerazione prima di tutto uno degli articoli seguenti:
 
-| Guida introduttiva | Concetti| Apprendimento guidato |
+| Introduzione | Concetti| Apprendimento guidato |
 | -- | -- | -- | 
-| <ul><li>[Node.js funzione utilizzando Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)</li><li>[FunzioneNode.js con terminale/prompt dei comandi](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)</li></ul> | <ul><li>[Guida per sviluppatori](functions-reference.md)</li><li>[Opzioni di hosting](functions-scale.md)</li><li>[Funzioni TypeScript](#typescript)</li><li>[Considerazioni sulle prestazioni &nbsp;](functions-best-practices.md)</li></ul> | <ul><li>[Creare applicazioni serverless](/learn/paths/create-serverless-applications/)</li><li>[Refactoring Node.js ed Express API per le API senza server](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
+| <ul><li>[Node.js funzione utilizzando Visual Studio Code](./functions-create-first-function-vs-code.md?pivots=programming-language-javascript)</li><li>[ FunzioneNode.js con terminale/prompt dei comandi](./functions-create-first-azure-function-azure-cli.md?pivots=programming-language-javascript)</li></ul> | <ul><li>[Guida per sviluppatori](functions-reference.md)</li><li>[Opzioni di hosting](functions-scale.md)</li><li>[Funzioni TypeScript](#typescript)</li><li>[Considerazioni sulle prestazioni &nbsp;](functions-best-practices.md)</li></ul> | <ul><li>[Creare applicazioni serverless](/learn/paths/create-serverless-applications/)</li><li>[Refactoring Node.js ed Express API per le API senza server](/learn/modules/shift-nodejs-express-apis-serverless/)</li></ul> |
 
 ## <a name="javascript-function-basics"></a>Nozioni fondamentali sulle funzioni JavaScript
 
@@ -183,15 +183,38 @@ Per definire il tipo di dati per un'associazione di input, usare la proprietà `
 Le opzioni per `dataType` sono: `binary`, `stream` e `string`.
 
 ## <a name="context-object"></a>Oggetto context
-Il runtime usa un oggetto `context` per passare dati dalla e alla funzione e consentire la comunicazione con il runtime. L'oggetto context può essere usato per la lettura e l'impostazione dei dati dalle associazioni, la scrittura di log e l'uso del callback `context.done` quando la funzione esportata è sincrona.
 
-L'oggetto `context` è sempre il primo parametro per una funzione. Deve essere incluso perché contiene metodi importanti, come `context.done` e `context.log`. È possibile assegnare all'oggetto un nome qualsiasi, ad esempio `ctx` o `c`.
+Il runtime usa un `context` oggetto per passare i dati da e verso la funzione e il Runtime. Utilizzato per leggere e impostare i dati dalle associazioni e per la scrittura nei log, l' `context` oggetto è sempre il primo parametro passato a una funzione.
+
+Per le funzioni con codice sincrono, l'oggetto context include il `done` callback che viene chiamato al termine dell'elaborazione della funzione. La chiamata esplicita `done` non è necessaria quando si scrive codice asincrono `done` . il callback viene chiamato in modo implicito.
 
 ```javascript
-// You must include a context, but other arguments are optional
-module.exports = function(ctx) {
-    // function logic goes here :)
-    ctx.done();
+module.exports = (context) => {
+
+    // function logic goes here
+
+    context.log("The function has executed.");
+
+    context.done();
+};
+```
+
+Il contesto passato nella funzione espone una `executionContext` proprietà, ovvero un oggetto con le proprietà seguenti:
+
+| Nome proprietà  | Type  | Descrizione |
+|---------|---------|---------|
+| `invocationId` | string | Fornisce un identificatore univoco per la chiamata di funzione specifica. |
+| `functionName` | String | Fornisce il nome della funzione in esecuzione |
+| `functionDirectory` | String | Fornisce la directory dell'app per le funzioni. |
+
+Nell'esempio seguente viene illustrato come restituire `invocationId` .
+
+```javascript
+module.exports = (context, req) => {
+    context.res = {
+        body: context.executionContext.invocationId
+    };
+    context.done();
 };
 ```
 
@@ -201,7 +224,7 @@ module.exports = function(ctx) {
 context.bindings
 ```
 
-Restituisce un oggetto denominato utilizzato per leggere o assegnare dati di associazione. È possibile accedere ai dati di binding di input e trigger leggendo le proprietà su `context.bindings` . I dati dell'associazione di output possono essere assegnati aggiungendo dati a`context.bindings`
+Restituisce un oggetto denominato utilizzato per leggere o assegnare dati di associazione. È possibile accedere ai dati di binding di input e trigger leggendo le proprietà su `context.bindings` . I dati dell'associazione di output possono essere assegnati aggiungendo dati a `context.bindings`
 
 Ad esempio, le definizioni di associazione seguenti in function.json consentono di accedere al contenuto di una coda da `context.bindings.myInput` e di assegnare output a una coda tramite `context.bindings.myOutput`.
 
@@ -618,7 +641,7 @@ Il `npm start` comando è equivalente ai comandi seguenti:
 - `tsc`
 - `func start`
 
-#### <a name="publish-to-azure"></a>Eseguire la pubblicazione in Azure
+#### <a name="publish-to-azure"></a>Pubblicazione in Azure
 
 Prima di usare il [`func azure functionapp publish`] comando per eseguire la distribuzione in Azure, creare una compilazione di file JavaScript pronta per la produzione dai file di origine typescript. 
 
@@ -647,7 +670,7 @@ Quando si sviluppano funzioni di Azure in un modello di hosting serverless, gli 
 
 Quando si usa un client specifico del servizio in un'applicazione di funzioni di Azure, non creare un nuovo client con ogni chiamata di funzione. In alternativa, creare un singolo client statico nell'ambito globale. Per altre informazioni, vedere [gestione delle connessioni in funzioni di Azure](manage-connections.md).
 
-### <a name="use-async-and-await"></a>Usare `async` e`await`
+### <a name="use-async-and-await"></a>Usare `async` e `await`
 
 Quando si scrivono funzioni di Azure in JavaScript, è necessario scrivere codice usando le `async` `await` parole chiave e. La scrittura di codice tramite `async` e `await` anziché callback o `.then` e `.catch` con le promesse consente di evitare due problemi comuni:
  - Generazione di eccezioni non rilevate che [arrestano l'arresto anomalo del Node.js processo](https://nodejs.org/api/process.html#process_warning_using_uncaughtexception_correctly), che potenzialmente influisce sull'esecuzione di altre funzioni.

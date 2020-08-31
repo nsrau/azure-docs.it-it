@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: chez
 ms.reviewer: mariozi
-ms.openlocfilehash: 9caa4690fa6b9d6c473bb8863acdcbbe15a37fba
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: c7d3dae2b7da2fcc14e86eb4965ebd99fd7bf681
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85569389"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88650579"
 ---
 # <a name="encrypt-azure-data-factory-with-customer-managed-keys"></a>Crittografare Azure Data Factory con le chiavi gestite dal cliente
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Azure Data Factory crittografa i dati inattivi, ad esempio le definizioni delle entità, tutti i dati memorizzati nella cache mentre le esecuzioni sono in corso e i dati memorizzati nella cache per l'anteprima dei dati. Per impostazione predefinita, i dati vengono crittografati con una chiave gestita da Microsoft e generata in modo casuale, assegnata in modo univoco alla data factory. Per garanzie aggiuntive sulla sicurezza, è ora possibile abilitare la modalità Bring Your Own Key (BYOK) con la funzionalità delle chiavi gestite dal cliente in Azure Data Factory. Quando si specifica una chiave gestita dal cliente, per crittografare i dati del cliente Data Factory usa __entrambe__ le chiavi, ovvero la chiave del sistema data factory e la chiave gestita dal cliente. La mancanza di una delle due chiavi può comportare la negazione dell'accesso ai dati e alla factory.
+Azure Data Factory crittografa i dati inattivi, ad esempio le definizioni delle entità e i dati memorizzati nella cache mentre le esecuzioni sono in corso. Per impostazione predefinita, i dati vengono crittografati con una chiave gestita da Microsoft e generata in modo casuale, assegnata in modo univoco alla data factory. Per garanzie aggiuntive sulla sicurezza, è ora possibile abilitare la modalità Bring Your Own Key (BYOK) con la funzionalità delle chiavi gestite dal cliente in Azure Data Factory. Quando si specifica una chiave gestita dal cliente, per crittografare i dati del cliente Data Factory usa __entrambe__ le chiavi, ovvero la chiave del sistema data factory e la chiave gestita dal cliente. La mancanza di una delle due chiavi può comportare la negazione dell'accesso ai dati e alla factory.
 
 Per archiviare le chiavi gestite dal cliente, è necessario Azure Key Vault. È possibile creare chiavi personalizzate e archiviarle in un insieme di credenziali delle chiavi oppure usare le API Azure Key Vault per generare chiavi. L'insieme delle credenziali della chiavi e Data Factory devono essere presenti nello stesso tenant di Azure Active Directory (Azure AD) e nella stessa area, ma possono appartenere a sottoscrizioni diverse. Per altre informazioni sull'insieme di credenziali di Azure, vedere [Cos'è l'insieme di credenziali delle chiavi di Azure?](../key-vault/general/overview.md)
 
@@ -76,7 +76,7 @@ Verificare che Azure Key Vault e Azure Data Factory si trovino nello stesso tena
 
     ![Screenshot di acquisizione dell'URI della chiave da Key Vault](media/enable-customer-managed-key/04-get-key-identifier.png)
 
-1. Avviare il portale di Azure Data Factory e usare la barra di spostamento a sinistra per passare alla home page di Data Factory
+1. Avviare il portale di Azure Data Factory e usare la barra di spostamento a sinistra per passare al portale di gestione di Data Factory
 
 1. Fare clic sull'icona __Chiave gestita dal cliente__
 

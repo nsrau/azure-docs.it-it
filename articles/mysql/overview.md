@@ -7,12 +7,12 @@ ms.author: andrela
 ms.custom: mvc
 ms.topic: overview
 ms.date: 3/18/2020
-ms.openlocfilehash: c5758fa367ac17ceb687212b4073fd2c1a5c18f6
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 37bc99d9f83f185a5372fd45634351987b85e20b
+ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206415"
+ms.lasthandoff: 08/24/2020
+ms.locfileid: "88763661"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>Database di Azure per MySQL:
 
@@ -37,6 +37,9 @@ Questo articolo è un'introduzione dei concetti fondamentali su Database di Azur
 Per un set di esempi dell'interfaccia della riga di comando di Azure, vedere:
 
 - [Esempi dell'interfaccia della riga di comando di Azure per il database di Azure per MySQL](sample-scripts-azure-cli.md)
+
+## <a name="automated-patching"></a>Applicazione automatica delle patch
+Il servizio esegue l'applicazione automatica di patch dell'hardware, del sistema operativo e del motore di database sottostanti. L'applicazione di patch include aggiornamenti di sicurezza e software per l'hardware, il sistema operativo e il motore di database sottostanti. Per il motore di MySQL gli aggiornamenti della versione secondaria sono automatici e sono inclusi come parte della release di applicazione delle patch. Quando la community rilascia una versione secondaria, tale versione viene integrata automaticamente come parte del ciclo di test per il servizio. Il test della versione secondaria viene eseguito in alcuni carichi di lavoro canonici per MySQL. Il rilascio di versioni secondarie del motore di MySQL viene valutato a livello di affidabilità (nessun arresto anomalo del sistema), disponibilità, sicurezza e prestazioni. Non tutte le versioni secondarie vengono rilasciate in produzione nel servizio. Le versioni vengono valutate in base alla criticità delle correzioni di bug e al nuovo valore incrementale. Questo approccio consente di ottenere il giusto equilibrio tra nuovo valore incrementale e riduzione al minimo delle variabili del sistema per finalità di stabilità. Non è richiesto alcun intervento da parte dell'utente o alcuna impostazione di configurazione per l'applicazione di patch. La frequenza dell'applicazione delle patch è gestita dal servizio in base alla criticità del payload. Il servizio segue in genere la pianificazione di rilascio mensile come parte del processo continuo di integrazione e rilascio. Gli utenti possono sottoscrivere la [notifica per la manutenzione pianificata](concepts-monitoring.md) per ricevere una notifica relativa alla manutenzione imminente 72 ore prima dell'evento.
 
 ## <a name="adjust-performance-and-scale-within-seconds"></a>Regolare prestazioni e scalabilità in pochi secondi
 Database di Azure per MySQL offre vari livelli di servizio: piani Basic, Per utilizzo generico e Con ottimizzazione per la memoria. Ogni livello offre diverse prestazioni e capacità per supportare i carichi di lavoro del database, da quelli leggeri a quelli pesanti. È possibile compilare la prima app in un database di piccole dimensioni con un costo mensile minimo, quindi regolare la scalabilità in base alle esigenze della soluzione. La scalabilità dinamica consente al database di rispondere in modo trasparente ai requisiti delle risorse soggetti a rapidi cambiamenti. Si paga solo per le risorse necessarie, quando sono necessarie. Per informazioni dettagliate, vedere  [Piani tariffari](concepts-service-tiers.md).

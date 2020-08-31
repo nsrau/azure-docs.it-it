@@ -4,20 +4,21 @@ description: Informazioni su come viene applicato lo sconto per i dischi riserva
 author: roygara
 ms.author: rogarana
 ms.service: cost-management-billing
+ms.subservice: reservations
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 3541e3f12a6d0b1beecdd67821d31f71b47f6c68
-ms.sourcegitcommit: eaec2e7482fc05f0cac8597665bfceb94f7e390f
+ms.openlocfilehash: cd89c3ddc3c58de02f1104109ce7f243c4d1e6fd
+ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82509466"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88682451"
 ---
 # <a name="understand-how-your-reservation-discount-is-applied-to-azure-disk-storage"></a>Informazioni su come viene applicato lo sconto della prenotazione all'archiviazione su disco di Azure
 
 Dopo aver acquistato la capacità riservata dei dischi di Azure, lo sconto della prenotazione viene applicato automaticamente alle risorse disco che ne soddisfano le condizioni. Lo sconto della prenotazione si applica solo agli SKU dei dischi. I costi degli snapshot dei dischi vengono addebitati alle tariffe con pagamento in base al consumo.
 
-Per altre informazioni sulla prenotazione di dischi di Azure, vedere [Risparmiare sui costi con la prenotazione di dischi di Azure](../../virtual-machines/linux/disks-reserved-capacity.md). Per informazioni sui prezzi della prenotazione di dischi di Azure, vedere la pagina sui [prezzi dei dischi gestiti di Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
+Per altre informazioni sulla prenotazione di dischi di Azure, vedere [Risparmiare sui costi con la prenotazione di dischi di Azure](../../virtual-machines/disks-reserved-capacity.md). Per informazioni sui prezzi della prenotazione di dischi di Azure, vedere la pagina sui [prezzi dei dischi gestiti di Azure](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 ## <a name="how-the-reservation-discount-is-applied"></a>Come viene applicato lo sconto per la prenotazione
 
@@ -53,6 +54,5 @@ In caso di domande o per assistenza, [creare una richiesta di supporto](https://
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Ridurre i costi con la prenotazione dischi di Azure (Linux)](../../virtual-machines/linux/disks-reserved-capacity.md)
-- [Ridurre i costi con la prenotazione dischi di Azure (Windows)](../../virtual-machines/windows/disks-reserved-capacity.md)
+- [Ridurre i costi con la prenotazione dischi di Azure](../../virtual-machines/disks-reserved-capacity.md)
 - [Informazioni sulle prenotazioni di Azure](save-compute-costs-reservations.md)
