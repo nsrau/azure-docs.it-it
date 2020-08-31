@@ -7,12 +7,13 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 04/03/2019
-ms.openlocfilehash: 0c03eb9d30d204cbfb7fcd8971dd84f2ba5a7737
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: bce1f00603d9304fc544fb92d4cc5f1a429504ed
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039178"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069001"
 ---
 # <a name="how-to-start-an-azure-stream-analytics-job"></a>Come avviare un processo di analisi di flusso di Azure
 
@@ -32,7 +33,7 @@ Il primo evento di output potrebbe avere un timestamp uguale o maggiore dell'ora
 
 Passare al processo nel portale di Azure e selezionare **Avvia** nella pagina panoramica. Selezionare l' **ora di inizio dell'output** di un processo e quindi fare clic su **Avvia**.
 
-Scegliere una delle opzioni per l' **ora di inizio dell'output del processo**. Le opzioni sono *ora*, *personalizzate*e, se il processo è stato eseguito in precedenza, al *momento dell'ultimo arresto*. Per ulteriori informazioni su queste opzioni, vedere sopra.
+Scegliere una delle opzioni per l' **ora di inizio dell'output del processo**. Le opzioni sono *ora*, *personalizzate*e, se il processo è stato eseguito in precedenza, al  *momento dell'ultimo arresto*. Per ulteriori informazioni su queste opzioni, vedere sopra.
 
 ## <a name="visual-studio"></a>Visual Studio
 

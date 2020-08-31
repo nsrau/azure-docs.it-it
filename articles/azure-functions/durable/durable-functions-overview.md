@@ -6,12 +6,12 @@ ms.topic: overview
 ms.date: 03/12/2020
 ms.author: cgillum
 ms.reviewer: azfuncdf
-ms.openlocfilehash: adf58b667d17393fc905fbf31261530fce88d9f8
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: d1c4f62f19a36867ebc85a98b0cd38bbbf8ce757
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272349"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88660683"
 ---
 # <a name="what-are-durable-functions"></a>Informazioni su Durable Functions
 
@@ -704,8 +704,9 @@ La fatturazione di Durable Functions è analoga a quella delle Funzioni di Azure
 * [C# con Visual Studio 2019](durable-functions-create-first-csharp.md)
 * [JavaScript con Visual Studio Code](quickstart-js-vscode.md)
 * [Python con Visual Studio Code](quickstart-python-vscode.md)
+* [PowerShell con Visual Studio Code](quickstart-powershell-vscode.md)
 
-In entrambe le guide di avvio rapido si crea e testa in locale una funzione durevole "hello world". Il codice della funzione verrà quindi pubblicato in Azure. La funzione creata orchestra e concatena le chiamate ad altre funzioni.
+In questi argomenti di avvio rapido viene creata e testata in locale una funzione Durable "hello world". Il codice della funzione verrà quindi pubblicato in Azure. La funzione creata orchestra e concatena le chiamate ad altre funzioni.
 
 ## <a name="learn-more"></a>Altre informazioni
 

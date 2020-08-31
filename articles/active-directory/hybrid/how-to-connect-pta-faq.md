@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 118abaef1fd1458057a7dbe28d5cd74ded55fe28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ac36650e285c371457b89f7a362b51fa74d7d47c
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358294"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071432"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticazione pass-through di Azure Active Directory: domande frequenti
 
@@ -113,7 +113,7 @@ La comunicazione tra ciascun agente di autenticazione pass-through e Azure AD è
 
 Finché l'agente di autenticazione pass-through è in esecuzione, rimane attivo e continua a gestire le richieste di accesso degli utenti. Per disinstallare un agente di autenticazione, andare a **Pannello di controllo -> Programmi -> Programmi e funzionalità** e disinstallare entrambi i programmi **Agente di autenticazione di Microsoft Azure AD Connect** e **Microsoft Azure AD Connect Agent Updater**.
 
-Se si osserva il pannello Autenticazione pass-through nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com) dopo aver completato il passaggio precedente, si noterà l'agente di autenticazione indicato come **Inattivo**. Si tratta di un comportamento _previsto_. L'agente di autenticazione viene eliminato automaticamente dall'elenco dopo alcuni giorni.
+Se si osserva il pannello Autenticazione pass-through nell'[interfaccia di amministrazione di Azure Active Directory](https://aad.portal.azure.com) dopo aver completato il passaggio precedente, si noterà l'agente di autenticazione indicato come **Inattivo**. Si tratta di un comportamento _previsto_. L'agente di autenticazione viene automaticamente eliminato dall'elenco dopo 10 giorni.
 
 ## <a name="i-already-use-ad-fs-to-sign-in-to-azure-ad-how-do-i-switch-it-to-pass-through-authentication"></a>Si usa già AD FS per eseguire l'accesso a Azure AD. Come si passa all'autenticazione pass-through?
 

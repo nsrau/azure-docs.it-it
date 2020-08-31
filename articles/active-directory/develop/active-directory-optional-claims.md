@@ -12,12 +12,12 @@ ms.date: 08/25/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: 1384dc760edb0bca66344d8892c18fdebb54855d
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: e53cf38c9544884caddfdf03c2615217c49ec3d0
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853583"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068727"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedura: fornire attestazioni facoltative all'app
 
@@ -58,7 +58,7 @@ Il set di attestazioni facoltative disponibili per impostazione predefinita per 
 | `verified_secondary_email` | Originato dall'indirizzo di posta elettronica SecondaryAuthoritativeEmail dell'utente   | Token JSON Web        |           |        |
 | `vnet`                     | Informazioni sull'identificatore di rete virtuale. | Token JSON Web        |           |      |
 | `fwd`                      | Indirizzo IP.| Token JSON Web    |   | Aggiunge l'indirizzo IPv4 originale del client richiedente (quando si trova in una rete virtuale). |
-| `ctry`                     | Paese/Area geografica dell'utente | Token JSON Web |  | Azure AD restituisce l' `ctry` attestazione facoltativa se è presente e il valore del campo è un codice di paese/area geografica di due lettere standard, ad esempio fr, JP, SZ e così via. |
+| `ctry`                     | Paese/Area geografica dell'utente | JWT, SAML |  | Azure AD restituisce l' `ctry` attestazione facoltativa se è presente e il valore del campo è un codice di paese/area geografica di due lettere standard, ad esempio fr, JP, SZ e così via. |
 | `tenant_ctry`              | Paese del tenant della risorsa | Token JSON Web | | Uguale a `ctry` eccetto impostare a livello di tenant da un amministratore.  Deve essere anche un valore di due lettere standard. |
 | `xms_pdl`             | Posizione dei dati preferita   | Token JSON Web | | Per i tenant multi-geografici, la posizione dei dati preferita è il codice a tre lettere che mostra l'area geografica in cui si trova l'utente. Per altre informazioni, vedere la [documentazione di Azure AD Connect sulla posizione dei dati preferita](../hybrid/how-to-connect-sync-feature-preferreddatalocation.md).<br/>Ad esempio: `APC` per Asia Pacifico. |
 | `xms_pl`                   | Lingua preferita dell'utente  | Token JSON Web ||Lingua preferita dell'utente, se impostata. Originato dal proprio tenant principale, negli scenari di accesso guest. Nel formato LL-PP ("it-it"). |

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0eaa2f2bc0ee26a4f543ea0938db6c226a9a6575
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 4c10f0ab4ff7fd8461ef81da67e50f7e5e174104
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049248"
+ms.locfileid: "89068627"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>Accesso condizionale: Bloccare l'autenticazione legacy
 
@@ -37,7 +37,7 @@ I passaggi seguenti consentono di creare un criterio di accesso condizionale per
 1. In **App Cloud o azioni** selezionare **Tutte le app Cloud**.
    1. Selezionare **Operazione completata**.
 1. In **condizioni**  >  **app client**impostare **Configura** su **Sì**.
-   1. Controllare solo le caselle **client di Exchange ActiveSync** e **altri client**.
+   1. Controllare solo le caselle **client di Exchange ActiveSync** e **altri client**. Per distribuire i criteri di accesso condizionale di Exchange ActiveSync in Azure, l'utente deve essere anche un amministratore globale.
    1. Selezionare **Operazione completata**.
 1. In **Controlli di accesso** > **Concedi** selezionare **Blocca accesso**.
    1. Scegliere **Seleziona**.

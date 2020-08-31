@@ -3,15 +3,15 @@ title: Informazioni su Desktop virtuale Windows - Azure
 description: Panoramica di Desktop virtuale Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 07/10/2020
+ms.date: 08/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 003662beefcb2ee8f99a5f565ed680d406421a62
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: cc5ad91c779a3445712db962fb97bab309eda973
+ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002371"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88661113"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Informazioni su Desktop virtuale Windows
 
@@ -46,7 +46,7 @@ Con Desktop virtuale Windows è possibile configurare un ambiente scalabile e fl
 
 È possibile distribuire e gestire desktop virtuali:
 
-* Usare le interfacce PowerShell e REST di Desktop virtuale Windows per configurare i pool di host, creare gruppi di app, assegnare utenti e pubblicare risorse.
+* Usare il portale di Azure, PowerShell per Desktop virtuale Windows e le interfacce REST per configurare i pool di host, creare gruppi di app, assegnare utenti e pubblicare risorse.
 * Pubblicare un desktop completo o singole app remote da un singolo pool di host, creare gruppi di app individuali per diversi set di utenti o persino assegnare gli utenti a più gruppi di app per ridurre il numero di immagini.
 * Quando si gestisce l'ambiente, usare l'accesso delegato predefinito per assegnare i ruoli e raccogliere i dati di diagnostica per comprendere i vari errori di configurazione o gli errori degli utenti.
 * Usare il nuovo servizio di diagnostica per risolvere gli errori.
@@ -61,7 +61,7 @@ Con Desktop virtuale Windows è possibile configurare un ambiente scalabile e fl
 
 Sono necessari alcuni requisiti per configurare Desktop virtuale Windows e collegare correttamente gli utenti ai relativi desktop e applicazioni Windows.
 
-Si prevede l'aggiunta di supporto per i seguenti sistemi operativi, assicurarsi quindi di avere le [licenze appropriate](https://azure.microsoft.com/pricing/details/virtual-desktop/) per gli utenti in base al desktop e alle app che si prevede di distribuire:
+Sono supportati i sistemi operativi seguenti, quindi assicurarsi di avere le [licenze appropriate](https://azure.microsoft.com/pricing/details/virtual-desktop/) per gli utenti in base al desktop e alle app che si prevede di distribuire:
 
 |OS|Licenza richiesta|
 |---|---|
@@ -71,11 +71,17 @@ Si prevede l'aggiunta di supporto per i seguenti sistemi operativi, assicurarsi 
 
 L'infrastruttura richiede quanto segue per supportare Desktop virtuale Windows:
 
-* Un'istanza di [Azure Active Directory](/azure/active-directory/)
-* Un'istanza di Windows Server Active Directory sincronizzata con Azure Active Directory. È possibile eseguire la configurazione con uno degli elementi seguenti:
-  * Azure AD Connect (per le organizzazioni ibride)
-  * Azure AD Domain Services (per le organizzazioni ibride o cloud)
-* Una sottoscrizione di Azure contenente una rete virtuale che contiene o è connessa all'istanza di Windows Server Active Directory
+* Un'istanza di [Azure Active Directory](/azure/active-directory/).
+* Un'istanza di Windows Server Active Directory sincronizzata con Azure Active Directory. È possibile eseguirne la configurazione con Azure AD Connect (per organizzazioni ibride) o Azure AD Domain Services (per organizzazioni ibride o cloud).
+  * Un'istanza di Windows Server AD sincronizzata con Azure Active Directory. L'utente è originato da Windows Server AD e la VM di Desktop virtuale Windows è aggiunta al dominio di Windows Server AD.
+  * Un'istanza di Windows Server AD sincronizzata con Azure Active Directory. L'utente è originato da Windows Server AD e la VM di Desktop virtuale Windows è aggiunta al dominio di Azure AD Domain Services.
+  * Un dominio di Azure AD Domain Services. L'utente è originato da Azure Active Directory e la VM di Desktop virtuale Windows è aggiunta al dominio di Azure AD Domain Services.
+* Una sottoscrizione di Azure, associata allo stesso tenant di Azure AD padre, che contiene una rete virtuale contenente l'istanza di Windows Server Active Directory o Azure AD DS o connessa a tale istanza.
+
+Requisiti degli utenti per la connessione a Desktop virtuale Windows:
+
+* L'utente deve essere originato dalla stessa istanza di Active Directory che è connessa ad Azure AD. Desktop virtuale Windows non supporta account del servizio gestito o B2B.
+* Il nome dell'entità utente usato per la sottoscrizione di Desktop virtuale Windows deve essere presente nel dominio di Active Directory a cui è aggiunta la VM.
 
 Le macchine virtuali Azure che create per Desktop virtuale Windows devono essere:
 
@@ -91,7 +97,7 @@ Desktop virtuale Windows comprende i desktop e le app Windows distribuiti agli u
 
 Per prestazioni ottimali, assicurarsi che la rete soddisfi i requisiti seguenti:
 
-* La latenza di round trip (RTT) dalla rete del client all'area di Azure in cui sono stati distribuiti i pool di host deve essere inferiore a 150 ms.
+* La latenza di round trip (RTT) dalla rete del client all'area di Azure in cui sono stati distribuiti i pool di host deve essere inferiore a 150 ms. Usare lo [strumento di valutazione dell'esperienza](https://azure.microsoft.com/services/virtual-desktop/assessment) per visualizzare l'integrità della connessione e l'area di Azure consigliata.
 * Il flusso del traffico di rete può avvenire al di fuori dei confini del paese o dell'area geografica quando le macchine virtuali che ospitano i desktop e le app si collegano al servizio di gestione.
 * Per ottimizzare le prestazioni della rete, si consiglia di collocare le macchine virtuali dell'host della sessione nella stessa area di Azure del servizio di gestione.
 
@@ -111,7 +117,7 @@ I seguenti client Desktop remoto supportano Desktop virtuale Windows:
 > [!IMPORTANT]
 > Desktop virtuale Windows non supporta attualmente il client Desktop remoto di Windows Store. Il supporto per questo client verrà aggiunto in una versione futura.
 
-Per altre informazioni sugli URL che è necessario sbloccare per usare i client remoti, vedere l'[elenco di URL sicuri](safe-url-list.md).
+Per altre informazioni sugli URL che è necessario sbloccare per usare i client, vedere l'[elenco degli URL sicuri](safe-url-list.md).
 
 ## <a name="supported-virtual-machine-os-images"></a>Immagini di sistema operativo supportate per le macchine virtuali
 
@@ -130,10 +136,10 @@ Le opzioni di automazione e distribuzione disponibili variano a seconda del sist
 
 |Sistema operativo|Raccolta immagini di Azure|Distribuzione manuale della macchina virtuale|Integrazione del modello di Azure Resource Manager|Effettuare il provisioning dei pool di host in Azure Marketplace|
 |--------------------------------------|:------:|:------:|:------:|:------:|
-|Windows 10 multisessione, versione 1903|Sì|Sì|Sì|Sì|
-|Windows 10 multisessione, versione 1809|Sì|Sì|No|No|
-|Windows 10 Enterprise, versione 1903|Sì|Sì|Sì|Sì|
-|Windows 10 Enterprise, versione 1809|Sì|Sì|No|No|
+|Windows 10 Enterprise (multisessione), versione 2004|Sì|Sì|Sì|Sì|
+|Windows 10 Enterprise (multisessione), versione 1909|Sì|Sì|Sì|Sì|
+|Windows 10 Enterprise (multisessione), versione 1903|Sì|Sì|No|No|
+|Windows 10 Enterprise (multisessione), versione 1809|Sì|Sì|No|No|
 |Windows 7 Enterprise|Sì|Sì|No|No|
 |Windows Server 2019|Sì|Sì|No|No|
 |Windows Server 2016|Sì|Sì|Sì|Sì|

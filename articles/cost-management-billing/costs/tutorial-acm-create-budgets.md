@@ -3,17 +3,18 @@ title: 'Esercitazione: Creare e gestire i budget di Azure'
 description: Questa esercitazione illustra come pianificare e controllare i costi dei servizi di Azure utilizzati.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/15/2020
-ms.topic: conceptual
+ms.date: 08/20/2020
+ms.topic: tutorial
 ms.service: cost-management-billing
+ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: a48e4b594b82f6e910db26fc2319032fbef30b6b
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 739d300faf77564891b2b783a3eb1cca50373015
+ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446004"
+ms.lasthandoff: 08/21/2020
+ms.locfileid: "88718354"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Esercitazione: Creare e gestire budget di Azure
 
@@ -189,9 +190,14 @@ $ActionGroupId = (Set-AzActionGroup -ResourceGroupName YourResourceGroup -Name T
 
 New-AzConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
 ```
+
 ## <a name="create-a-budget-with-an-azure-resource-manager-template"></a>Creare un budget con un modello di Azure Resource Manager
 
 È possibile creare un budget con un modello di Azure Resource Manager. Per usare il modello, vedere [Creare un budget con un modello di Azure Resource Manager](quick-create-budget-template.md).
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Se è stato creato un budget che non è più necessario, visualizzarne i dettagli ed eliminarlo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

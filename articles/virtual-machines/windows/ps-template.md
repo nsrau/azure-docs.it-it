@@ -7,16 +7,20 @@ ms.topic: how-to
 ms.date: 03/22/2019
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6d0d3e6836e2f87c503ac5154a54aeb0dd1c0e26
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ddd8166dd29d2210fecdd72d5be446df47a6c5df
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87266300"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072299"
 ---
 # <a name="create-a-windows-virtual-machine-from-a-resource-manager-template"></a>Creare una macchina virtuale Windows usando un modello di Resource Manager
 
 Informazioni su come creare una macchina virtuale Windows usando un modello di Azure Resource Manager e Azure PowerShell da Azure cloud Shell. Il modello usato in questo articolo distribuisce una singola macchina virtuale che esegue Windows Server in una nuova rete virtuale con una singola subnet. Per la creazione di una macchina virtuale Linux, vedere [come creare una macchina virtuale Linux con modelli di Azure Resource Manager](../linux/create-ssh-secured-vm-from-template.md).
+
+In alternativa, è possibile distribuire il modello dal portale di Azure. Per aprire il modello nel portale, selezionare il pulsante **Distribuisci in Azure** .
+
+[![Distribuzione in Azure](../../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-vm-simple-windows%2Fazuredeploy.json)
 
 ## <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 

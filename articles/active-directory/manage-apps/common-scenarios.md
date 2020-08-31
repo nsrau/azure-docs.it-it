@@ -15,12 +15,12 @@ ms.date: 03/02/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6b81e792d3b3bf491b281e09c00f48a7ad56fa47
-ms.sourcegitcommit: bc943dc048d9ab98caf4706b022eb5c6421ec459
+ms.openlocfilehash: 8ce3819ff1f9b0c61f7738f90ff17c2798fe888b
+ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/14/2020
-ms.locfileid: "84763636"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88642113"
 ---
 # <a name="centralize-application-management-with-azure-ad"></a>Centralizzare la gestione delle applicazioni con Azure AD
 
@@ -43,7 +43,7 @@ Gestione delle password non più necessaria. Accesso sicuro a tutte le risorse n
 |Funzionalità  | Descrizione | Recommendation |
 |---------|---------|---------|
 |SSO|SSO federato basato su standard che usa standard di settore attendibili.|Usare sempre [SAML/OIDC](https://docs.microsoft.com/azure/active-directory/manage-apps/isv-choose-multi-tenant-federation) per abilitare l'accesso SSO quando l'applicazione lo supporta.|
-|Pannello di accesso|Offre agli utenti un hub semplice per individuare tutte le applicazioni e accedervi. Consente loro di aumentare la produttività grazie alle funzionalità self-service, ad esempio per richiedere l'accesso ad app e gruppi o per gestire l'accesso alle risorse per conto di altri.| Distribuire il [pannello di accesso](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-deployment-plan) nell'organizzazione dopo aver integrato le app con Azure AD per l'accesso Single Sign-On.|
+|App personali|Offre agli utenti un hub semplice per individuare tutte le applicazioni e accedervi. Consente loro di aumentare la produttività grazie alle funzionalità self-service, ad esempio per richiedere l'accesso ad app e gruppi o per gestire l'accesso alle risorse per conto di altri.| Distribuire [App personali](https://docs.microsoft.com/azure/active-directory/manage-apps/access-panel-deployment-plan) nell'organizzazione dopo aver integrato le app con Azure AD per l'accesso Single Sign-On.|
 
 ## <a name="scenario-2-automate-provisioning-and-deprovisioning"></a>Scenario 2: Automazione di provisioning e deprovisioning 
 

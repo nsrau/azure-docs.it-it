@@ -10,7 +10,7 @@
       href: compare-messaging-services.md
     - name: Note sulla versione
       href: whats-new.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Eventi di archiviazione
@@ -234,6 +234,16 @@
       href: custom-disaster-recovery.md
     - name: Tenere traccia di operazioni REST asincrone
       href: ../azure-resource-manager/management/async-operations.md?toc=%2fazure%2fevent-grid%2ftoc.json
+    - name: Sposta
+      items:
+        - name: Spostare gli argomenti di sistema tra aree
+          href: move-system-topics-across-regions.md
+        - name: Spostare gli argomenti personalizzati tra aree
+          href: move-custom-topics-across-regions.md
+        - name: Spostare i domini tra aree
+          href: move-domains-across-regions.md
+        - name: Spostare gli spazi dei nomi partner tra aree
+          href: move-partner-namespaces-across-regions.md
     - name: Sicurezza
       items:
         - name: Configurare gli endpoint privati

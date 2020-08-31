@@ -1,20 +1,20 @@
 ---
-title: "Avvio rapido: Condividere all'esterno dell'organizzazione - Condivisione dati di Azure"
-description: 'Avvio rapido: Condividere dati con clienti e partner usando Condivisione dati di Azure e un modello di Resource Manager'
+title: Condividere all'esterno dell'organizzazione (modello di Resource Manager) - Avvio rapido su Condivisione dati di Azure
+description: In questa guida di avvio rapido viene illustrato come condividere dati con clienti e partner usando Condivisione dati di Azure e un modello di Resource Manager.
 author: mumian
 ms.author: jgao
 ms.service: data-share
 ms.topic: quickstart
 ms.custom: subject-armqs
-ms.date: 08/17/2020
-ms.openlocfilehash: 62c800e8da3ab4f99b0933e286debcb05c5c3e22
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.date: 08/19/2020
+ms.openlocfilehash: 76ef44d438b9af7ada6c1c464705a22ee10f4c58
+ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88575652"
+ms.lasthandoff: 08/20/2020
+ms.locfileid: "88654107"
 ---
-# <a name="tutorial-share-data-using-azure-data-share-and-resource-manager-templates"></a>Esercitazione: Condividere i dati usando Condivisione dati di Azure e modelli di Resource Manager
+# <a name="quickstart-share-data-using-azure-data-share-and-resource-manager-templates"></a>Avvio rapido: Condividere i dati usando Condivisione dati di Azure e modelli di Resource Manager
 
 Informazioni su come configurare una nuova condivisione dati di Azure da un account di archiviazione usando un modello di Resource Manager e come iniziare a condividere i dati con clienti e partner esterni all'organizzazione di Azure. Per un elenco degli archivi dati supportati, vedere [Archivi dati supportati in Condivisione dati di Azure](./supported-data-stores.md).
 
@@ -101,4 +101,4 @@ Write-Host "Press [ENTER] to continue..."
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione si è appreso come creare una condivisione dati di Azure e invitare destinatari. Per altre informazioni su come un consumer di dati può accettare e ricevere una condivisione dati, continuare con l'esercitazione [Accettare e ricevere dati](subscribe-to-data-share.md).
+In questa guida di avvio rapido si è appreso come creare una condivisione dati di Azure e invitare destinatari. Per altre informazioni su come un consumer di dati può accettare e ricevere una condivisione dati, continuare con l'esercitazione [Accettare e ricevere dati](subscribe-to-data-share.md).

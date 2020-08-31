@@ -10,18 +10,18 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: cc0efc0a076ddc3fc9425999f1e38b4a32dec7a3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 46572853cf882df4d6909297dd058d5ccaf782e1
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477341"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144771"
 ---
 # <a name="create-a-shared-pool-of-data-science-virtual-machines"></a>Creare un pool condiviso di Data Science Virtual Machine
 
 In questo articolo si apprenderà come creare un pool condiviso di macchine virtuali di Data Science (Dsvm) per un team. I vantaggi derivanti dall'utilizzo di un pool condiviso includono un migliore utilizzo delle risorse, una condivisione e una collaborazione più semplici e una gestione più efficace delle risorse DSVM.
 
-È possibile usare numerosi metodi e tecnologie per creare un pool di DSVM. Questo articolo è incentrato sui pool di macchine virtuali interattive (VM). Un'infrastruttura di calcolo gestita alternativa è Ambiente di calcolo di Azure Machine Learning. Per altre informazioni, vedere [configurare le destinazioni di calcolo](../how-to-set-up-training-targets.md#amlcompute).
+È possibile usare numerosi metodi e tecnologie per creare un pool di DSVM. Questo articolo è incentrato sui pool di macchine virtuali interattive (VM). Un'infrastruttura di calcolo gestita alternativa è Ambiente di calcolo di Azure Machine Learning. Per altre informazioni, vedere [creare destinazioni di calcolo con Python SDK](../how-to-create-attach-compute-sdk.md).
 
 ## <a name="interactive-vm-pool"></a>Pool di VM interattive
 

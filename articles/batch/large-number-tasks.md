@@ -4,12 +4,12 @@ description: Come inviare in modo efficiente un numero elevato di attività in u
 ms.topic: how-to
 ms.date: 08/24/2018
 ms.custom: devx-track-python, devx-track-csharp
-ms.openlocfilehash: 0442be6f0c56aecc401ac4322c565a9ef999df63
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 26230372a04d13a8b8f59d50aa5da1362126413b
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936895"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144057"
 ---
 # <a name="submit-a-large-number-of-tasks-to-a-batch-job"></a>Inviare un numero elevato di attività a un processo di Batch
 
@@ -26,15 +26,15 @@ Le dimensioni massime della raccolta di attività che è possibile aggiungere in
 * Le API di Batch seguenti limitano la raccolta a **100 attività**. Il limite può essere inferiore a seconda delle dimensioni delle attività, ad esempio nel caso in cui l'attività includa un numero elevato di file di risorse o di variabili di ambiente.
 
     * [REST API](/rest/api/batchservice/task/addcollection)
-    * [API Python](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python)
-    * [API Node.js](/javascript/api/@azure/batch/task?view=azure-node-latest)
+    * [API Python](/python/api/azure-batch/azure.batch.operations.TaskOperations)
+    * [API Node.js](/javascript/api/@azure/batch/task)
 
   Quando si usano queste API, è necessario specificare la logica per dividere il numero di attività in modo da rispettare il limite della raccolta e per gestire errori e tentativi in caso di errore durante l'aggiunta delle attività. Se una raccolta di attività è troppo grande per essere aggiunta, la richiesta genera un errore ed è necessario riprovare con un numero inferiore di attività.
 
 * Le API seguenti supportano raccolte di attività molto più grandi, limitate solo dalla disponibilità di RAM nel client richiedente. Queste API gestiscono in modo trasparente la divisione della raccolta di attività in "blocchi" per le API di livello inferiore e i tentativi in caso di errore durante l'aggiunta delle attività.
 
-    * [API .NET](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet)
-    * [API Java](/java/api/com.microsoft.azure.batch.protocol.tasks.addcollectionasync?view=azure-java-stable)
+    * [API .NET](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync)
+    * [API Java](/java/api/com.microsoft.azure.batch.protocol.tasks.addcollectionasync)
     * [Estensione dell'interfaccia della riga di comando di Azure Batch](batch-cli-templates.md) con i modelli dell'interfaccia della riga di comando di Batch
     * [Estensione di Python SDK](https://pypi.org/project/azure-batch-extensions/)
 
@@ -44,7 +44,7 @@ L'aggiunta di un numero elevato di attività a un processo può richiedere del t
 
 * **Dimensioni delle attività**: l'aggiunta di attività di grandi dimensioni richiede più tempo rispetto a quelle più piccole. Per ridurre le dimensioni di ogni attività in una raccolta, è possibile semplificare la riga di comando dell'attività, ridurre il numero delle variabili di ambiente o gestire i requisiti per l'esecuzione dell'attività in modo più efficiente. Anziché usare un numero elevato di file di risorse, è possibile ad esempio installare le dipendenze delle attività usando un'[attività di avvio](jobs-and-tasks.md#start-task) nel pool oppure usare un [pacchetto dell'applicazione](batch-application-packages.md) o un [contenitore Docker](batch-docker-container-workloads.md).
 
-* **Numero di operazioni parallele**: a seconda dell'API di Batch, è possibile migliorare la velocità effettiva aumentando il numero massimo di operazioni simultanee del client di Batch. Configurare questa impostazione usando la proprietà dell'API .NET [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) o il parametro `threads` dei metodi, ad esempio [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python), nell'estensione di Python SDK di Batch. Questa proprietà non è disponibile nella versione nativa di Python SDK di Batch. Per impostazione predefinita, questa proprietà è impostata su 1, ma è possibile impostarla su un valore superiore per migliorare la velocità effettiva delle operazioni. L'aumento della velocità effettiva comporta un maggiore utilizzo della larghezza di banda della rete e delle prestazioni della CPU. La velocità effettiva delle attività aumenta fino a 100 volte rispetto a `MaxDegreeOfParallelism` o `threads`. In pratica, è consigliabile impostare un numero di operazioni simultanee inferiore a 100. 
+* **Numero di operazioni parallele**: a seconda dell'API di Batch, è possibile migliorare la velocità effettiva aumentando il numero massimo di operazioni simultanee del client di Batch. Configurare questa impostazione usando la proprietà dell'API .NET [BatchClientParallelOptions.MaxDegreeOfParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) o il parametro `threads` dei metodi, ad esempio [TaskOperations.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations), nell'estensione di Python SDK di Batch. Questa proprietà non è disponibile nella versione nativa di Python SDK di Batch. Per impostazione predefinita, questa proprietà è impostata su 1, ma è possibile impostarla su un valore superiore per migliorare la velocità effettiva delle operazioni. L'aumento della velocità effettiva comporta un maggiore utilizzo della larghezza di banda della rete e delle prestazioni della CPU. La velocità effettiva delle attività aumenta fino a 100 volte rispetto a `MaxDegreeOfParallelism` o `threads`. In pratica, è consigliabile impostare un numero di operazioni simultanee inferiore a 100. 
  
   L'estensione dell'interfaccia della riga di comando di Azure Batch con i modelli di Batch aumenta automaticamente il numero di operazioni simultanee in base al numero di core disponibili, ma questa proprietà non è configurabile nell'interfaccia della riga di comando. 
 
@@ -54,7 +54,7 @@ L'aggiunta di un numero elevato di attività a un processo può richiedere del t
 
 I frammenti di codice C# seguenti mostrano le impostazioni di configurazione per l'aggiunta di un numero elevato di attività usando l'API .NET di Batch.
 
-Per migliorare la velocità effettiva delle attività, aumentare il valore della proprietà [MaxDegreeofParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) dell'oggetto [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient?view=azure-dotnet). Ad esempio:
+Per migliorare la velocità effettiva delle attività, aumentare il valore della proprietà [MaxDegreeofParallelism](/dotnet/api/microsoft.azure.batch.batchclientparalleloptions.maxdegreeofparallelism) dell'oggetto [BatchClient](/dotnet/api/microsoft.azure.batch.batchclient). Ad esempio:
 
 ```csharp
 BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
@@ -63,7 +63,7 @@ BatchClientParallelOptions parallelOptions = new BatchClientParallelOptions()
   };
 ...
 ```
-Aggiungere una raccolta di attività al processo usando l'overload appropriato del metodo [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync?view=azure-dotnet) o [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask?view=azure-dotnet
+Aggiungere una raccolta di attività al processo usando l'overload appropriato del metodo [AddTaskAsync](/dotnet/api/microsoft.azure.batch.cloudjob.addtaskasync) o [AddTask](/dotnet/api/microsoft.azure.batch.cloudjob.addtask
 ). Ad esempio:
 
 ```csharp
@@ -144,7 +144,7 @@ tasks = list()
 ...
 ```
 
-Aggiungere la raccolta di attività tramite [task.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations?view=azure-python). Impostare il parametro `threads` per aumentare il numero di operazioni simultanee:
+Aggiungere la raccolta di attività tramite [task.add_collection](/python/api/azure-batch/azure.batch.operations.TaskOperations). Impostare il parametro `threads` per aumentare il numero di operazioni simultanee:
 
 ```python
 try:

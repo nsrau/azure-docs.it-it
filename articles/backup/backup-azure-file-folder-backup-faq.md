@@ -3,12 +3,12 @@ title: Agente di Servizi di ripristino di Microsoft Azure (MARS) – domande fre
 description: Risolve le domande frequenti sul backup di file e cartelle con backup di Azure.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: e50e424f1a9f044aa1ed8e95c1bce002d134bffe
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: ca2753e4d6da7e2e3079f234a3facac27fd5f098
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874623"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144465"
 ---
 # <a name="frequently-asked-questions---microsoft-azure-recovery-services-mars-agent"></a>Domande frequenti-agente Servizi di ripristino di Microsoft Azure (MARS)
 
@@ -80,7 +80,7 @@ Quando si rinomina un computer Windows, tutti i backup attualmente configurati v
 
 * È necessario registrare il nuovo nome del computer con l'insieme di credenziali per il backup.
 * Quando si registra il nuovo nome con l'insieme di credenziali, la prima operazione è un backup *completo* .
-* Se è necessario ripristinare i dati di cui è stato eseguito il backup nell'insieme di credenziali con il nome del server precedente, usare l'opzione per eseguire il ripristino in un percorso alternativo nella procedura guidata Ripristina dati. [Altre informazioni](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+* Se è necessario ripristinare i dati di cui è stato eseguito il backup nell'insieme di credenziali con il nome del server precedente, usare l'opzione per eseguire il ripristino in un percorso alternativo nella procedura guidata Ripristina dati. [Altre informazioni](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine)
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>Qual è la lunghezza massima del percorso file per il backup?
 
@@ -109,7 +109,7 @@ La dimensione della cartella della cache determina la quantità di dati di cui s
 
 ### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>Come verificare se la cartella Scratch è valida e accessibile
 
-1. Per impostazione predefinita, la cartella Scratch si trova in`\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+1. Per impostazione predefinita, la cartella Scratch si trova in `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 2. Verificare che il percorso della cartella dei file temporanei corrisponda ai valori delle voci della chiave del registro di sistema mostrate di seguito:
 
     | Percorso del Registro | Chiave del Registro di sistema | Valore |
@@ -123,7 +123,7 @@ La dimensione della cartella della cache determina la quantità di dati di cui s
 
     ```Net stop obengine```
 2. Se è stato configurato il backup dello stato del sistema, aprire Gestione disco e smontare i dischi con nomi nel formato `"CBSSBVol_<ID>"` .
-3. Per impostazione predefinita, la cartella Scratch si trova in`\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+3. Per impostazione predefinita, la cartella Scratch si trova in `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
 4. Copiare l'intera `\Scratch` cartella in un'altra unità con spazio sufficiente. Verificare che il contenuto venga copiato, non spostato.
 5. Aggiornare le voci del registro di sistema seguenti con il percorso della cartella Scratch appena spostata.
 
@@ -163,7 +163,7 @@ La cartella della cache e il VHD dei metadati non hanno gli attributi necessari 
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>È possibile modificare la quantità di larghezza di banda usata per il backup?
 
-Sì, è possibile usare l'opzione **modifica proprietà** nell'agente Mars per regolare la larghezza di banda e l'intervallo di tempo. [Altre informazioni](backup-windows-with-mars-agent.md#enable-network-throttling).
+Sì, è possibile usare l'opzione **modifica proprietà** nell'agente Mars per regolare la larghezza di banda e l'intervallo di tempo. [Altre informazioni](backup-windows-with-mars-agent.md#enable-network-throttling)
 
 ## <a name="restore"></a>Restore
 
@@ -199,7 +199,7 @@ Se si ha la stessa passphrase (fornita durante la registrazione) del computer or
 
 ### <a name="my-backup-jobs-have-been-failing-or-not-running-for-a-long-time-im-past-the-retention-period-can-i-still-restore"></a>I processi di backup sono in errore o non sono in esecuzione da molto tempo. Ho superato il periodo di conservazione. Posso ancora ripristinare?
 
-Come misura di sicurezza, backup di Azure conserverà l'ultimo punto di ripristino, anche se è passato al periodo di conservazione. Quando i backup vengono ripresi e i punti di ripristino aggiornati diventano disponibili, il punto di ripristino meno recente verrà rimosso in base alla conservazione specificata.
+Come misura di sicurezza, backup di Azure manterrà il punto di ripristino più recente, anche se è passato al periodo di conservazione. Quando i backup vengono ripresi e i punti di ripristino aggiornati diventano disponibili, il punto di ripristino meno recente verrà rimosso in base alla conservazione specificata.
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>Cosa accade se si annulla un processo di ripristino in corso?
 

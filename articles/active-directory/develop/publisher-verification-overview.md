@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: f611eefc50fede2ef4d738cd5abfd6afcc08b9ff
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 286f813c825bcc05ce8e9fa43df5dc0299625277
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120780"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068474"
 ---
 # <a name="publisher-verification-preview"></a>Verifica dell'autore (anteprima)
 
@@ -42,13 +42,13 @@ Esistono alcuni prerequisiti per la verifica dell'autore, alcuni dei quali saran
 
 -  ID MPN per un account [Microsoft Partner Network](https://partner.microsoft.com/membership) valido che ha completato il processo di [verifica](/partner-center/verification-responses). Questo account MPN deve essere l'[account globale del partner (PGA)](/partner-center/account-structure#the-top-level-is-the-partner-global-account-pga) per l'organizzazione. 
 
--  Un tenant di Azure AD con un [dominio personalizzato](../fundamentals/add-custom-domain.md) verificato da DNS. Il dominio personalizzato deve corrispondere al dominio dell'indirizzo di posta elettronica usato durante la verifica nel passaggio precedente. 
+-  App registrata in un tenant di Azure AD con un [dominio dell'editore](howto-configure-publisher-domain.md) configurato.
 
--  Un'app registrata in un tenant di Azure AD con un [dominio dell'autore](howto-configure-publisher-domain.md) configurato con lo stesso dominio usato in precedenza. 
+-  Il dominio dell'indirizzo di posta elettronica usato durante la verifica dell'account MPN deve corrispondere al dominio dell'editore configurato nell'app o a un [dominio personalizzato](../fundamentals/add-custom-domain.md) verificato da DNS aggiunto al tenant Azure ad. 
 
 -  L'utente che esegue la verifica deve essere autorizzato ad apportare modifiche sia alla registrazione dell'app in Azure AD che all'account MPN in Partner Center. 
 
-    -  In Azure AD questo utente deve essere il proprietario dell'app o avere uno dei [ruoli](../users-groups-roles/directory-assign-admin-roles.md) seguenti: Amministratore applicazione, Amministratore applicazione cloud, Amministratore globale. 
+    -  In Azure AD l'utente deve essere membro di uno dei seguenti [ruoli](../users-groups-roles/directory-assign-admin-roles.md): amministratore dell'applicazione, amministratore dell'applicazione cloud o amministratore globale. 
 
     -  In Partner Center questo utente deve avere uno dei [ruoli](/partner-center/permissions-overview) seguenti: Amministratore MPN, Amministratore account o Amministratore globale (si tratta di un ruolo condiviso gestito in Azure AD).
     
