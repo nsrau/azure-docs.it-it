@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 85056710c8072c55e2661021795d9aedb407b629
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3a2b3bfa8553e7c350c08fa7e1a7376ca08d9644
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013005"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079777"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gestire i modelli di dispositivi gemelli digitali di Azure
 
@@ -170,9 +170,9 @@ I modelli non vengono necessariamente restituiti esattamente nel formato del doc
 
 Una volta caricato un modello nell'istanza, l'intera interfaccia del modello non è modificabile. Ciò significa che non esiste alcuna "modifica" tradizionale di modelli.
 
-Se invece si vuole apportare modifiche a un modello in dispositivi gemelli digitali di Azure, ad esempio modificando `DisplayName` o `Description` , il modo per eseguire questa operazione consiste nel caricare una **versione più recente** dello stesso modello. Verrà eseguito l'override del modello originale.
+Se invece si vuole apportare modifiche a un modello in dispositivi gemelli digitali di Azure, il modo per eseguire questa operazione consiste nel caricare una **versione più recente** dello stesso modello. Durante l'anteprima, l'avanzamento di una versione del modello consentirà solo di rimuovere i campi, non di aggiungerne di nuovi (per aggiungere nuovi campi, sarà sufficiente [creare un nuovo modello](#create-models)).
 
-A tale scopo, iniziare con il DTDL del modello originale. Aggiornare tutti i campi che si desidera modificare.
+Per creare una nuova versione di un modello esistente, iniziare con il DTDL del modello originale. Aggiornare i campi che si desidera modificare.
 
 Contrassegnare quindi come versione più recente del modello aggiornando il `id` campo del modello. L'ultima sezione dell'ID modello, dopo `;` , rappresenta il numero del modello. Per indicare che questa è ora una versione più aggiornata di questo modello, incrementare il numero alla fine del `id` valore con un numero maggiore del numero di versione corrente.
 

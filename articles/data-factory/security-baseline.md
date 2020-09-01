@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 771f692ade9c7616eb7d217b4728a8c80d2aeac5
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 256751e452be539084a7dc022dc56c0f60e910e6
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044176"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079184"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Baseline della sicurezza di Azure per Azure Data Factory
 
@@ -287,7 +287,7 @@ Assicurarsi inoltre di abilitare le impostazioni di diagnostica per i servizi co
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8: centralizzare la registrazione antimalware
 
@@ -536,7 +536,7 @@ Usare la funzionalità di individuazione e classificazione dei dati del database
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: isolare i sistemi che archiviano o elaborano informazioni riservate
 
@@ -598,15 +598,15 @@ Le funzionalità di individuazione e classificazione dei dati non sono ancora di
 
 **Responsabilità**: Customer
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usare il controllo degli accessi in base al ruolo per controllare l'accesso alle risorse
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
-**Linee guida**: usare il controllo degli accessi in base al ruolo Azure Active Directory (ad) per controllare l'accesso al piano di controllo Azure Data Factory (la portale di Azure).
+**Linee guida**: usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per controllare l'accesso al piano di controllo Azure Data Factory (il portale di Azure).
 
 Per creare istanze di Data Factory, l'account utente usato per accedere ad Azure deve essere un membro del ruolo collaboratore o proprietario oppure un amministratore della sottoscrizione di Azure.
 
-Per le origini dati Data Factory, ad esempio il database SQL di Azure, fare riferimento alla baseline di sicurezza per il servizio per ulteriori informazioni sul controllo degli accessi in base al ruolo.
+Per le origini dati Data Factory, ad esempio il database SQL di Azure, fare riferimento alla baseline di sicurezza per il servizio per altre informazioni sul controllo degli accessi in base al ruolo di Azure.
 
-* [Come configurare RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+* [Come configurare RBAC di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 * [Ruoli e autorizzazioni per Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
 
@@ -656,7 +656,7 @@ Se si esegue la Integration Runtime in una macchina virtuale di Azure, i dischi 
 
 * [Come creare avvisi per gli eventi del log attività di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log)
 
-* [Registrazione di Analisi di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
+* [Registrazione di Analisi archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-analytics-logging)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -760,7 +760,7 @@ Sebbene le risorse di Azure (versione classica) possano essere individuate trami
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="63-delete-unauthorized-azure-resources"></a>6.3: eliminare le risorse di Azure non autorizzate
 
@@ -900,7 +900,7 @@ Si noti che questo vale solo se il Integration Runtime è in esecuzione in una m
 
 * [Gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview)
 
-* [Che cos'è la rete virtuale di Azure?](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+* [Che cos'è Rete virtuale di Azure?](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
 
 * [Organizzare le risorse con i gruppi di gestione di Azure ](https://docs.microsoft.com/azure/governance/management-groups/overview)
 
@@ -980,19 +980,19 @@ Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati 
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: archiviare in modo sicuro immagini personalizzate del sistema operativo
 
-**Linee guida**: se si usano immagini personalizzate, usare il controllo degli accessi in base al ruolo (RBAC) per garantire che solo gli utenti autorizzati possano accedere alle immagini. Per le immagini contenitore, archiviarle in Azure Container Registry e sfruttare il controllo degli accessi in base al ruolo per assicurarsi che solo gli utenti autorizzati possano accedere alle immagini.
+**Linee guida**: se si usano immagini personalizzate, usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per garantire che solo gli utenti autorizzati possano accedere alle immagini. Per le immagini contenitore, archiviarle in Azure Container Registry e sfruttare il controllo degli accessi in base al ruolo di Azure per garantire che solo gli utenti autorizzati possano accedere alle immagini.
 
 Il ruolo Collaboratore Data Factory può essere usato per creare e gestire Data Factory, nonché per le risorse figlio al loro interno.
 
-* [Informazioni sul RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
+* [Informazioni sul controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles)
 
-* [Comprendere il RBAC per Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
+* [Informazioni su RBAC di Azure per Container Registry](https://docs.microsoft.com/azure/container-registry/container-registry-roles)
 
-* [Come configurare RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
+* [Come configurare RBAC di Azure](https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal)
 
 * [Ruoli e autorizzazioni per Azure Data Factory](https://docs.microsoft.com/azure/data-factory/concepts-roles-permissions)
 
@@ -1068,7 +1068,7 @@ Il ruolo Collaboratore Data Factory può essere usato per creare e gestire Data 
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="713-eliminate-unintended-credential-exposure"></a>7.13: eliminare l'esposizione involontaria delle credenziali
 
@@ -1240,7 +1240,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: automatizzare la risposta agli avvisi di sicurezza
 

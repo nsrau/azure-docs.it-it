@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: d89320807c6322120490db85100453edf593aded
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 2622d7a2e54dac710ac09d61dee639ab1d104f02
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045536"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078997"
 ---
 # <a name="security-control-data-protection"></a>Controllo di sicurezza: protezione dei dati
 
@@ -22,7 +22,7 @@ I suggerimenti sulla protezione dei dati sono incentrati sulla risoluzione dei p
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 4.1 | 13.1 | Customer |
+| 4.1 | 13.1 | Cliente |
 
 Usare i tag per semplificare il monitoraggio delle risorse di Azure che archiviano o elaborano informazioni riservate.
 
@@ -32,7 +32,7 @@ Usare i tag per semplificare il monitoraggio delle risorse di Azure che archivia
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 4.2 | 13,2, 2,10 | Customer |
+| 4.2 | 13,2, 2,10 | Cliente |
 
 Implementare l'isolamento utilizzando sottoscrizioni e gruppi di gestione distinti per singoli domini di sicurezza, ad esempio il tipo di ambiente e il livello di sensibilità dei dati. È possibile limitare il livello di accesso alle risorse di Azure richieste dalle applicazioni e dagli ambienti aziendali. È possibile controllare l'accesso alle risorse di Azure tramite il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). 
 
@@ -84,15 +84,15 @@ Usare Information Protection SQL di Azure per semplificare la classificazione e 
 
 - [Informazioni sulla protezione dei dati dei clienti in Azure](https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data)
 
-## <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usare il controllo degli accessi in base al ruolo per controllare l'accesso alle risorse
+## <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 4.6 | 14,6 | Customer |
+| 4,6 | 14,6 | Cliente |
 
-Usare Azure AD controllo degli accessi in base al ruolo per controllare l'accesso ai dati e alle risorse; in caso contrario, usare metodi di controllo
+Usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso ai dati e alle risorse; in caso contrario, usare i metodi di controllo di accesso specifici del servizio.
 
-- [Come configurare RBAC in Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
+- [Come configurare RBAC di Azure](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)
 
 ## <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: usare la prevenzione della perdita dei dati basata su host per applicare il controllo di accesso
 
@@ -110,7 +110,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 4.8 | 14.8 | Customer |
+| 4.8 | 14.8 | Cliente |
 
 Usare la crittografia inattiva in tutte le risorse di Azure. Microsoft consiglia di consentire ad Azure di gestire le chiavi di crittografia. Tuttavia, è possibile gestire le proprie chiavi in alcune istanze. 
 
@@ -122,7 +122,7 @@ Usare la crittografia inattiva in tutte le risorse di Azure. Microsoft consiglia
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 4,9 | 14,9 | Customer |
+| 4.9 | 14,9 | Cliente |
 
 Usare monitoraggio di Azure con il log attività di Azure per creare avvisi per le modifiche apportate alle risorse di Azure critiche.
 
@@ -131,4 +131,4 @@ Usare monitoraggio di Azure con il log attività di Azure per creare avvisi per 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere il controllo di sicurezza successivo: [gestione delle vulnerabilità](security-control-vulnerability-management.md)
+- Vedere il controllo di sicurezza successivo:  [gestione delle vulnerabilità](security-control-vulnerability-management.md)

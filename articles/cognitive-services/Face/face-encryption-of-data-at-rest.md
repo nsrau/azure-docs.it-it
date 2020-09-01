@@ -1,20 +1,20 @@
 ---
 title: Crittografia del servizio viso dei dati inattivi
 titleSuffix: Azure Cognitive Services
-description: La crittografia dei dati inattivi per il servizio Face.
+description: Microsoft offre chiavi di crittografia gestite da Microsoft e consente inoltre di gestire le sottoscrizioni di servizi cognitivi con chiavi personalizzate, denominate chiavi gestite dal cliente (CMK). Questo articolo illustra la crittografia dei dati inattivi per il viso e come abilitare e gestire CMK.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 03/11/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 33495dd5b092cb51b3421e7204f3b529077d63b3
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: eab90fc2cb30ae8e9f1c19bdbefc6fbc88c32f76
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84309034"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079269"
 ---
 # <a name="face-service-encryption-of-data-at-rest"></a>Crittografia del servizio viso dei dati inattivi
 
@@ -24,15 +24,6 @@ Il servizio viso crittografa automaticamente i dati quando vengono salvati in mo
 
 > [!IMPORTANT]
 > Le chiavi gestite dal cliente sono disponibili solo nel piano tariffario di E0. Per richiedere la possibilità di usare chiavi gestite dal cliente, compilare e inviare il [modulo di richiesta della chiave gestita dal cliente del servizio viso](https://aka.ms/cogsvc-cmk). Saranno richiesti circa 3-5 giorni lavorativi per ricevere informazioni sullo stato della richiesta. A seconda della richiesta, è possibile che venga inserita in una coda e approvata quando lo spazio diventa disponibile. Una volta approvate per l'uso di CMK con il servizio face, sarà necessario creare una nuova risorsa viso e selezionare E0 come piano tariffario. Una volta creata la risorsa face con il piano tariffario E0, è possibile usare Azure Key Vault per configurare l'identità gestita.
-
-## <a name="regional-availability"></a>Disponibilità a livello di area
-
-Le chiavi gestite dal cliente sono attualmente disponibili nelle aree seguenti:
-
-* Stati Uniti centro-meridionali
-* Stati Uniti occidentali 2
-* Stati Uniti orientali
-* US Gov Virginia
 
 [!INCLUDE [cognitive-services-cmk](../includes/configure-customer-managed-keys.md)]
 

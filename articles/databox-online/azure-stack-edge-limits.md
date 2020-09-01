@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 03/22/2019
+ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 8bbcf3f61121813b91cb951809992d10977a640c
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: e21f5a89d9f1f21eb99071a141794f99c07a8dfa
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87922711"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079813"
 ---
 # <a name="azure-stack-edge-limits"></a>Limiti di Azure Stack Edge
 
@@ -27,7 +27,7 @@ Considerare questi limiti quando si distribuisce e si utilizza la soluzione Micr
 
 La tabella seguente descrive i limiti per il dispositivo Azure Stack Edge. 
 
-| Descrizione | Valore |
+| Descrizione | valore |
 |---|---|
 |No. di file per dispositivo |100 milioni |
 |No. di condivisioni per dispositivo |24 |

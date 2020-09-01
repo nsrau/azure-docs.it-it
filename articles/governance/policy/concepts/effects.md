@@ -3,12 +3,12 @@ title: Comprendere il funzionamento degli effetti
 description: Le definizioni di Criteri di Azure hanno diversi effetti che determinano in che modo viene gestita e segnalata la conformità.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 83566cc638c4db1b00dbe40a48064a7c94250d8c
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 7eb1178bbf767f6962c797da4474af81d576545a
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958763"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079660"
 ---
 # <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
 
@@ -488,7 +488,7 @@ Le operazioni seguenti sono supportate da modifica:
 - Aggiungere o sostituire il valore del tipo di identità gestita ( `identity.type` ) di macchine virtuali e set di scalabilità di macchine virtuali.
 - Aggiungere o sostituire i valori di determinati alias (anteprima).
   - Utilizzare `Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }`.
-    in Azure PowerShell ottenere un elenco di alias che possono essere usati con la modifica.
+    in Azure PowerShell **4.6.0** o versione successiva per ottenere un elenco di alias che possono essere usati con la modifica.
 
 > [!IMPORTANT]
 > Se si gestiscono i tag, è consigliabile usare modifica anziché Accodamento come modifica fornisce tipi di operazione aggiuntivi e la possibilità di correggere le risorse esistenti. Tuttavia, è consigliabile aggiungere se non si riesce a creare un'identità gestita o la modifica non supporta ancora l'alias per la proprietà della risorsa.

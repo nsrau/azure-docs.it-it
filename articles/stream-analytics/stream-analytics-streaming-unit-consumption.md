@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/06/2020
-ms.openlocfilehash: 5d16e7f81a439d622a418dbc8cdff2d66c2a814f
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.date: 08/28/2020
+ms.openlocfilehash: e568051bfd5ac58f283eac7f9dc8a72be5c9dbbb
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903562"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079677"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Informazioni sulle unità di flusso e su come modificarle
 
@@ -20,7 +20,7 @@ Unità di streaming (SUs) rappresenta le risorse di calcolo allocate per l'esecu
 
 Per ottenere l'elaborazione di flussi a bassa latenza, i processi di Analisi di flusso di Azure eseguono tutta l'elaborazione in memoria. Quando la memoria viene esaurita, il processo di streaming non riesce. Di conseguenza, per un processo di produzione è importante monitorare l'utilizzo delle risorse di un processo di streaming e assicurarsi che siano state allocate risorse sufficienti per mantenere il processo in esecuzione 24 ore su 24, 7 giorni su 7.
 
-La metrica di utilizzo in percentuale delle unità di streaming, da 0% a 100%, descrive l'utilizzo di memoria del carico di lavoro. Per un processo di streaming con footprint minimo, questa metrica è in genere compresa tra 10% e 20%. Se il valore in percentuale di utilizzo delle unità di streaming è basso e gli eventi di input vengono gestiti con backlog, è probabile che il carico di lavoro richieda più risorse di calcolo ed è quindi necessario aumentare il numero di unità di streaming. È consigliabile mantenere la metrica delle unità di streaming al di sotto dell'80% in modo da tenere conto dei picchi occasionali. Microsoft consiglia di impostare un avviso quando la metrica di utilizzo delle unità di streaming raggiunge l'80% per evitare l'esaurimento delle risorse. Per altre informazioni, vedere [Esercitazione: Impostare gli avvisi per i processi di Analisi di flusso di Azure](stream-analytics-set-up-alerts.md).
+La metrica di utilizzo in percentuale delle unità di streaming, da 0% a 100%, descrive l'utilizzo di memoria del carico di lavoro. Per un processo di streaming con footprint minimo, questa metrica è in genere compresa tra 10% e 20%. Se l'utilizzo di unità di streaming è elevato (superiore al 80%) o se gli eventi di input vengono sottoregistrati (anche con un basso utilizzo SU% perché non Mostra l'utilizzo della CPU), è probabile che il carico di lavoro richieda più risorse di calcolo, per cui è necessario aumentare il numero di unità di streaming. È consigliabile mantenere la metrica delle unità di streaming al di sotto dell'80% in modo da tenere conto dei picchi occasionali. Microsoft consiglia di impostare un avviso quando la metrica di utilizzo delle unità di streaming raggiunge l'80% per evitare l'esaurimento delle risorse. Per altre informazioni, vedere [Esercitazione: Impostare gli avvisi per i processi di Analisi di flusso di Azure](stream-analytics-set-up-alerts.md).
 
 ## <a name="configure-stream-analytics-streaming-units-sus"></a>Configurare le unità di streaming di Analisi di flusso
 1. Accedi per [portale di Azure](https://portal.azure.com/)
@@ -111,7 +111,7 @@ Il numero di eventi senza corrispondenza nel join influisce sull'utilizzo della 
 
 In questo esempio è possibile che vengano mostrati molti annunci e che pochi utenti facciano clic sugli annunci. È anche necessario mantenere tutti gli eventi nell'intervallo di tempo. La memoria consumata è proporzionale alle dimensioni della finestra e alla frequenza degli eventi. 
 
-Per correggere questo problema, inviare gli eventi all'hub eventi partizionati in base alle chiavi di join (in questo caso ID) e scalare la query consentendo al sistema di elaborare ogni partizione di input separatamente usando **Partition by** , come illustrato:
+Per correggere questo problema, inviare gli eventi all'hub eventi partizionati in base alle chiavi di join (in questo caso ID) e scalare la query consentendo al sistema di elaborare ogni partizione di input separatamente usando  **Partition by** , come illustrato:
 
    ```sql
    SELECT clicks.id

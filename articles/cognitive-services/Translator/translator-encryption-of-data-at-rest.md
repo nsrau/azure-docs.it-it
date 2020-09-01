@@ -1,20 +1,20 @@
 ---
 title: Crittografia dei dati inattivi di Translator
 titleSuffix: Azure Cognitive Services
-description: Crittografia dei dati inattivi di Translator.
+description: Microsoft consente di gestire le sottoscrizioni di servizi cognitivi con chiavi personalizzate, denominate chiavi gestite dal cliente (CMK). Questo articolo illustra la crittografia dei dati inattivi per il traduttore e come abilitare e gestire CMK.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: conceptual
-ms.date: 05/26/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: bc328efd648eb3dd522f5233e2a5c440911ac58c
-ms.sourcegitcommit: 69156ae3c1e22cc570dda7f7234145c8226cc162
+ms.openlocfilehash: ce7ff6ae134835de23a0d2670e8b4f44783654f8
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84310836"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079201"
 ---
 # <a name="translator-encryption-of-data-at-rest"></a>Crittografia dei dati inattivi di Translator
 
@@ -22,11 +22,11 @@ Translator esegue automaticamente la crittografia dei dati, caricati per creare 
 
 ## <a name="about-cognitive-services-encryption"></a>Informazioni sulla crittografia di servizi cognitivi
 
-I dati vengono crittografati e decrittografati usando la crittografia [AES a 256 bit](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) conforme allo standard [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) . La crittografia e la decrittografia sono trasparenti, ovvero la crittografia e l'accesso vengono gestite per l'utente. I dati sono protetti per impostazione predefinita e non è necessario modificare il codice o le applicazioni per sfruttare i vantaggi della crittografia.
+I dati vengono crittografati e decrittografati usando la crittografia [AES a 256 bit](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) conforme allo standard [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) . La crittografia e la decrittografia sono trasparenti, ovvero la crittografia e l'accesso vengono gestite per l'utente. I dati sono protetti per impostazione predefinita e non è necessario modificare il codice o le applicazioni per sfruttare la crittografia.
 
 ## <a name="about-encryption-key-management"></a>Informazioni sulla gestione delle chiavi di crittografia
 
-Per impostazione predefinita, la sottoscrizione USA chiavi di crittografia gestite da Microsoft. Se si usa un piano tariffario che supporta chiavi gestite dal cliente, è possibile visualizzare le impostazioni di crittografia per la risorsa nella sezione **crittografia** del [portale di Azure](https://portal.azure.com), come illustrato nella figura seguente.
+Per impostazione predefinita, la sottoscrizione usa chiavi di crittografia gestite da Microsoft. Se si usa un piano tariffario che supporta chiavi gestite dal cliente, è possibile visualizzare le impostazioni di crittografia per la risorsa nella sezione **crittografia** del [portale di Azure](https://portal.azure.com), come illustrato nella figura seguente.
 
 ![Visualizzare le impostazioni di crittografia](../media/cognitive-services-encryption/encryptionblade.png)
 
@@ -34,7 +34,7 @@ Per le sottoscrizioni che supportano solo le chiavi di crittografia gestite da M
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Chiavi gestite dal cliente con Azure Key Vault
 
-È anche possibile gestire la sottoscrizione con le proprie chiavi. Le chiavi gestite dal cliente (CMK), note anche come Bring your own key (BYOK), offrono una maggiore flessibilità per creare, ruotare, disabilitare e revocare i controlli di accesso. È anche possibile controllare le chiavi di crittografia usate per proteggere i dati.
+Per impostazione predefinita, la sottoscrizione usa chiavi di crittografia gestite da Microsoft. È anche possibile gestire la sottoscrizione con chiavi personalizzate denominate chiavi gestite dal cliente (CMK). CMK offre una maggiore flessibilità per creare, ruotare, disabilitare e revocare i controlli di accesso. È anche possibile controllare le chiavi di crittografia usate per proteggere i dati. Se CMK è configurato per la sottoscrizione, viene fornita la crittografia doppia, che offre un secondo livello di protezione, consentendo al contempo di controllare la chiave di crittografia tramite il Azure Key Vault.
 
 > [!IMPORTANT]
 > Le chiavi gestite dal cliente sono disponibili per tutti i piani tariffari per il servizio di conversione. Per richiedere la possibilità di usare chiavi gestite dal cliente, compilare e inviare il [modulo di richiesta di conversione della chiave gestita dal cliente](https://aka.ms/cogsvc-cmk) che richiederà circa 3-5 giorni lavorativi per ricevere informazioni sullo stato della richiesta. A seconda della richiesta, è possibile che venga inserita in una coda e approvata quando lo spazio diventa disponibile. Una volta approvata l'utilizzo di CMK con il servizio di conversione, sarà necessario creare una nuova risorsa di conversione. Una volta creata la risorsa di conversione, è possibile usare Azure Key Vault per configurare l'identità gestita.
@@ -44,8 +44,6 @@ Per abilitare le chiavi gestite dal cliente per il traduttore, attenersi alla pr
 1. Creare la nuova risorsa di traduzione regionale o servizi cognitivi regionali. Questa operazione non funzionerà con una risorsa globale.
 2. È stata abilitata l'identità gestita nel portale di Azure e si aggiungono le informazioni sulla chiave gestita dal cliente.
 3. Creare una nuova area di lavoro nel convertitore personalizzato e associare le informazioni di sottoscrizione.
-
-[!INCLUDE [cognitive-services-cmk](../includes/cognitive-services-cmk-regions.md)]
 
 ### <a name="enable-customer-managed-keys"></a>Abilitare chiavi gestite dal cliente
 
@@ -76,7 +74,7 @@ Con la crittografia dei servizi cognitivi sono supportate solo le chiavi RSA di 
 
 ### <a name="revoke-access-to-customer-managed-keys"></a>Revocare l'accesso alle chiavi gestite dal cliente
 
-Per revocare l'accesso alle chiavi gestite dal cliente, usare PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [Azure Key Vault PowerShell](https://docs.microsoft.com/powershell/module/az.keyvault//) o l'interfaccia della riga di comando di [Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). La revoca dell'accesso blocca in modo efficace l'accesso a tutti i dati nella risorsa Servizi cognitivi e i modelli non verranno distribuiti, perché la chiave di crittografia non è accessibile dai servizi cognitivi. Tutti i dati caricati verranno eliminati anche dal convertitore personalizzato.
+Per revocare l'accesso alle chiavi gestite dal cliente, usare PowerShell o l'interfaccia della riga di comando di Azure. Per altre informazioni, vedere [PowerShell per Azure Key Vault](https://docs.microsoft.com/powershell/module/az.keyvault//) o [Interfaccia della riga di comando per Azure Key Vault](https://docs.microsoft.com/cli/azure/keyvault). La revoca dell'accesso blocca in modo efficace l'accesso a tutti i dati nella risorsa Servizi cognitivi e i modelli non verranno distribuiti, perché la chiave di crittografia non è accessibile dai servizi cognitivi. Tutti i dati caricati verranno eliminati anche dal convertitore personalizzato.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

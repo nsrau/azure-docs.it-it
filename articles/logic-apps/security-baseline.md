@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7dc0913ab206c6b9152d7d6155642c28b430d6f2
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 2e3b6845b66978b4892303549dabca4034a870b2
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836327"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079643"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Baseline della sicurezza di Azure per app per la logica
 
@@ -182,7 +182,7 @@ Distribuire la soluzione firewall scelta a ogni limite di rete dell'organizzazio
 
 Lo standard di protezione DDoS deve essere abilitato
 
-È anche possibile usare i progetti di Azure per semplificare le distribuzioni di Azure su larga scala mediante la creazione di pacchetti di elementi chiave dell'ambiente, ad esempio Azure Resource Manager modelli, il controllo degli accessi in base al ruolo e i criteri, in una singola definizione di progetto. È possibile applicare facilmente il progetto a nuove sottoscrizioni, ambienti e ottimizzare il controllo e la gestione tramite il controllo delle versioni.
+È anche possibile usare i progetti di Azure per semplificare le distribuzioni su larga scala di Azure tramite la creazione di pacchetti di elementi chiave dell'ambiente, ad esempio modelli di Azure Resource Manager, controllo degli accessi in base al ruolo di Azure (RBAC di Azure) e criteri, in una singola definizione di progetto. È possibile applicare facilmente il progetto a nuove sottoscrizioni, ambienti e ottimizzare il controllo e la gestione tramite il controllo delle versioni.
 
 * [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -641,7 +641,7 @@ Microsoft gestisce l'infrastruttura sottostante per le app per la logica di Azur
 
 **Responsabilità**: Condiviso
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usare il controllo degli accessi in base al ruolo per controllare l'accesso alle risorse
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
 **Linee guida**: è possibile consentire solo a utenti o gruppi specifici di eseguire attività specifiche, ad esempio la gestione, la modifica e la visualizzazione di app per la logica. Per controllare le autorizzazioni, usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) in modo da poter assegnare ruoli personalizzati o predefiniti ai membri nella sottoscrizione di Azure:
 - Collaboratore per app per la logica: consente di gestire le app per la logica, ma non di modificarne l'accesso.
@@ -877,7 +877,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Linee guida**: le risorse correlate alle app per la logica necessarie per le operazioni aziendali, ma possono comportare un rischio maggiore per l'organizzazione, devono essere isolate all'interno della propria macchina virtuale e/o della rete virtuale e sufficientemente protette con un firewall di Azure o un gruppo di sicurezza di rete.
 
-Le app per la logica necessarie per le operazioni aziendali, ma possono comportare un rischio maggiore per l'organizzazione, devono essere isolate laddove possibile tramite gruppi di risorse distinti con autorizzazioni specifiche e limiti RBAC.
+Le app per la logica necessarie per le operazioni aziendali, ma possono comportare un rischio maggiore per l'organizzazione, devono essere isolate laddove possibile tramite gruppi di risorse distinti con autorizzazioni specifiche e limiti RBAC di Azure.
 
 * [Come creare una rete virtuale](../virtual-network/quick-create-portal.md)
 
@@ -885,7 +885,7 @@ Le app per la logica necessarie per le operazioni aziendali, ma possono comporta
 
 * [Come creare gruppi di gestione](../governance/management-groups/create.md)
 
-* [Come proteggere l'accesso alle app per la logica tramite RBAC](./logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+* [Come proteggere l'accesso alle app per la logica tramite RBAC di Azure](./logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
 **Monitoraggio del Centro sicurezza di Azure**: N/D
 

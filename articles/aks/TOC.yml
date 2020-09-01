@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sul servizio Azure Container
       href: intro-kubernetes.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Creare un cluster del servizio Azure Kubernetes
@@ -129,6 +129,8 @@
       href: security-hardened-vm-host-image.md
     - name: Panoramica della diagnostica del servizio Azure Kubernetes
       href: concepts-diagnostics.md
+    - name: Ingegneria del software sostenibile
+      href: concepts-sustainable-software-engineering.md
 - name: Guide pratiche
   items:
     - name: Operazioni del cluster

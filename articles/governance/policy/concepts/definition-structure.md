@@ -3,12 +3,12 @@ title: Dettagli della struttura delle definizioni dei criteri
 description: Descrive come vengono usate le definizioni dei criteri per stabilire convenzioni per le risorse di Azure nell'organizzazione.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3b6509f684e611fbb79184383e1b332d793458b9
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 076493fa8fd54e9585d09a3dd352eabdee652f18
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958780"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079031"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -653,7 +653,7 @@ L'elenco degli alias è in costante crescita. Per scoprire quali alias sono attu
   ```
 
   > [!NOTE]
-  > Per trovare gli alias che possono essere utilizzati con l'effetto di [modifica](./effects.md#modify) , utilizzare il comando seguente:
+  > Per trovare gli alias che possono essere usati con l'effetto di [modifica](./effects.md#modify) , usare il comando seguente in Azure PowerShell **4.6.0** o versione successiva:
   >
   > ```azurepowershell-interactive
   > Get-AzPolicyAlias | Select-Object -ExpandProperty 'Aliases' | Where-Object { $_.DefaultMetadata.Attributes -eq 'Modifiable' }
