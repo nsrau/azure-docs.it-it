@@ -3,12 +3,12 @@ title: Ripristinare lo stato del sistema per Windows Server
 description: Spiegazione dettagliata del ripristino dello stato del sistema di Windows Server da un backup in Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 9237d3d087da7f9e72813baa0056cd6b70f2c914
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: d3fb88ddbb02327db4388de18d2645519e13d2ec
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892542"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178587"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Ripristinare lo stato del sistema per Windows Server
 
@@ -112,7 +112,7 @@ Include la terminologia utilizzata in questi passaggi:
 
 ## <a name="apply-restored-system-state-on-a-windows-server"></a>Applicare lo stato del sistema ripristinato a un'istanza di Windows Server
 
-Dopo avere ripristinato lo stato del sistema sotto forma di file tramite l'agente dei Servizi di ripristino di Microsoft Azure, usare l'utilità Windows Server Backup per applicare lo stato del sistema ripristinato a un'istanza di Windows Server. L'utilità Windows Server Backup è già disponibile nel server. La procedura seguente illustra come applicare lo stato del sistema ripristinato.
+Dopo aver recuperato lo stato del sistema come file con l'agente di servizi di ripristino di Azure, usare l'utilità Windows Server Backup per applicare lo stato del sistema ripristinato a Windows Server. L'utilità Windows Server Backup è già disponibile nel server. La procedura seguente illustra come applicare lo stato del sistema ripristinato.
 
 1. Aprire lo snap-in Windows Server Backup. Se non si conosce il percorso di installazione dello snap-in, cercare **Windows Server Backup** nel computer o nel server.
 

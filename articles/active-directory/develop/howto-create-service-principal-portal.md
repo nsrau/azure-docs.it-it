@@ -12,12 +12,12 @@ ms.date: 06/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: c8f9bc283d88121ad4b6144b8ac9463510349212
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 3b060d7caff425414cc7f4e8bbea5d9a29572094
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117227"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178944"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>Procedure: Usare il portale per creare un'applicazione Azure Active Directory (Azure AD) e un'entità servizio che possano accedere alle risorse
 
@@ -87,7 +87,7 @@ Sono state create un'applicazione e un'entità servizio di Azure AD.
 
 ## <a name="assign-a-role-to-the-application"></a>Assegnare un ruolo all'applicazione
 
-Per accedere alle risorse nella sottoscrizione, è necessario assegnare un ruolo all'applicazione. Decidere quale ruolo offre le autorizzazioni appropriate per l'applicazione. Per informazioni sui ruoli disponibili, vedere [Controllo degli accessi in base al ruolo: ruoli predefiniti](../../role-based-access-control/built-in-roles.md).
+Per accedere alle risorse nella sottoscrizione, è necessario assegnare un ruolo all'applicazione. Decidere quale ruolo offre le autorizzazioni appropriate per l'applicazione. Per informazioni sui ruoli disponibili, vedere [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md).
 
 È possibile impostare l'ambito al livello della sottoscrizione, del gruppo di risorse o della risorsa. Le autorizzazioni vengono ereditate a livelli inferiori dell'ambito. Ad esempio, l'aggiunta di un'applicazione al ruolo *lettore* per un gruppo di risorse significa che può leggere il gruppo di risorse e tutte le risorse in esso contenute.
 
@@ -163,7 +163,7 @@ Per caricare il certificato:
 
 Dopo aver registrato il certificato con l'applicazione nel portale di registrazione delle applicazioni, è necessario abilitare il codice dell'applicazione client per l'uso del certificato.
 
-### <a name="create-a-new-application-secret"></a>Crea nuovo segreto applicazione
+### <a name="create-a-new-application-secret"></a>Crea un nuovo segreto dell'applicazione
 
 Se si sceglie di non usare un certificato, è possibile creare un nuovo segreto dell'applicazione.
 

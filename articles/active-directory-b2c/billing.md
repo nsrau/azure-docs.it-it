@@ -10,12 +10,13 @@ ms.workload: identity
 ms.date: 10/25/2019
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f88993db2ca7fa697aadb584fdfcbd9fe200b11c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: fasttrack-edit
+ms.openlocfilehash: f9adf6ce4559234eec74c92f09aa752eb1f9ab51
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85386063"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177330"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Modello di fatturazione per Azure Active Directory B2C
 
@@ -99,7 +100,7 @@ Una sottoscrizione collegata a un tenant di Azure AD B2C può essere usata per l
 1. Selezionare un **Tenant Azure ad B2C** dall'elenco a discesa. Vengono visualizzati solo i tenant di cui si è un amministratore globale e che non sono già collegati a una sottoscrizione. Il campo **nome risorsa Azure ad B2C** viene popolato con il nome di dominio del tenant di Azure ad B2C selezionato.
 1. Selezionare una **sottoscrizione** di Azure attiva di cui si è amministratore.
 1. In **gruppo di risorse**selezionare **Crea nuovo**e quindi specificare il **percorso del gruppo di risorse**. Le impostazioni del gruppo di risorse non hanno alcun effetto sulla posizione, sulle prestazioni o sullo stato di fatturazione del tenant Azure AD B2C.
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
     ![Pagina di creazione della risorsa Azure AD B2C in portale di Azure](./media/billing/portal-01-create-b2c-resource-page.png)
 
 Dopo aver completato questi passaggi per un tenant di Azure AD B2C, la sottoscrizione di Azure viene fatturata in base ai dettagli di Azure Direct o Enterprise Agreement, se applicabile.
@@ -132,11 +133,24 @@ La gestione di Azure AD B2C tramite il controllo degli accessi in base al ruolo 
 
 ## <a name="change-the-azure-ad-b2c-tenant-billing-subscription"></a>Modificare la sottoscrizione per la fatturazione di Azure AD B2C tenant
 
-Azure AD B2C tenant possono essere spostati in un'altra sottoscrizione se le sottoscrizioni di origine e di destinazione sono presenti nello stesso tenant di Azure Active Directory.
+### <a name="move-using-azure-resource-manager"></a>Sposta usando Azure Resource Manager
+
+Azure AD B2C tenant possono essere spostati in un'altra sottoscrizione usando Azure Resource Manager se le sottoscrizioni di origine e di destinazione sono presenti nello stesso tenant Azure Active Directory.
 
 Per informazioni su come spostare risorse di Azure come il tenant di Azure AD B2C in un'altra sottoscrizione, vedere [spostare le risorse in un gruppo di risorse o una sottoscrizione nuovi](../azure-resource-manager/management/move-resource-group-and-subscription.md).
 
 Prima di iniziare lo spostamento, assicurarsi di leggere l'intero articolo per comprendere completamente le limitazioni e i requisiti per tale spostamento. Oltre alle istruzioni per lo spostamento delle risorse, include informazioni critiche come un elenco di controllo di pre-spostamento e come convalidare l'operazione di spostamento.
+
+### <a name="move-by-un-linking-and-re-linking"></a>Spostamento tramite annullamento del collegamento e ricollegamento
+
+Se le sottoscrizioni di origine e di destinazione sono associate a tenant Azure Active Directory diversi, non è possibile eseguire lo spostamento tramite Azure Resource Manager come spiegato in precedenza. Tuttavia, è comunque possibile ottenere lo stesso risultato finale mediante l'annullamento del collegamento del tenant di Azure AD B2C dalla sottoscrizione di origine e la nuova connessione alla sottoscrizione di destinazione. Questo metodo è sicuro perché l'unico oggetto che si elimina è il *collegamento di fatturazione*, non il tenant Azure ad B2C stesso. Nessuno degli utenti, delle app, dei flussi utente e così via sarà interessato.
+
+1. Nella directory Azure AD B2C, [invitare un utente Guest](user-overview.md#guest-user) dal tenant Azure ad di destinazione (quello a cui è collegata la sottoscrizione di Azure di destinazione) e assicurarsi che l'utente disponga del ruolo di **amministratore globale** in Azure ad B2C.
+1. Passare alla *risorsa di Azure* che rappresenta Azure ad B2C nella sottoscrizione di Azure di origine, come illustrato nella sezione gestire le risorse del [tenant del Azure ad B2C](#manage-your-azure-ad-b2c-tenant-resources) . Non passare al tenant Azure AD B2C effettivo.
+1. Fare clic sul pulsante **Elimina** nella pagina **Panoramica** . Questa operazione *non* comporta l'eliminazione degli utenti o delle applicazioni del tenant di Azure ad B2C correlati. Rimuove semplicemente il collegamento di fatturazione dalla sottoscrizione di origine.
+1. Accedere al portale di Azure con l'account utente che è stato aggiunto come amministratore in Azure AD B2C nel passaggio 1. Passare quindi alla sottoscrizione di Azure di destinazione collegata al tenant di Azure Active Directory di destinazione. 
+1. Ristabilire il collegamento di fatturazione nella sottoscrizione di destinazione attenendosi alla procedura [creare il collegamento](#create-the-link) precedente.
+1. La risorsa Azure AD B2C ora è stata spostata nella sottoscrizione di Azure di destinazione (collegata al Azure Active Directory di destinazione) e verrà fatturata tramite la sottoscrizione in futuro.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

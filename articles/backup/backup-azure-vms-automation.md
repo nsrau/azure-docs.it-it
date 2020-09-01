@@ -3,12 +3,12 @@ title: Eseguire il backup e il ripristino di VM di Azure con PowerShell
 description: Viene descritto come eseguire il backup e il ripristino di macchine virtuali di Azure tramite backup di Azure con PowerShell
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: f34dc0b5ce4b230b3bc2408bd011180cb855cf17
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: e4564ba2b6109296a7383fb4b056c2f4b1890fda
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892406"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178132"
 ---
 # <a name="back-up-and-restore-azure-vms-with-powershell"></a>Eseguire il backup e il ripristino di VM di Azure con PowerShell
 
@@ -228,7 +228,7 @@ NewPolicy           AzureVM            AzureVM              4/24/2016 1:30:00 AM
 Dopo aver definito i criteri di protezione è necessario abilitarli per un elemento. Usare [Enable-AzRecoveryServicesBackupProtection](/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection) per abilitare la protezione. Per abilitare la protezione sono necessari due oggetti, l'elemento e i criteri. Dopo aver associato i criteri all'insieme di credenziali, il flusso di lavoro di backup verrà attivato al momento definito nella pianificazione dei criteri.
 
 > [!IMPORTANT]
-> Quando si usa PowerShell per abilitare il backup per più macchine virtuali contemporaneamente, assicurarsi che a un singolo criterio non siano associate più di 100 macchine virtuali. Si tratta di una [procedura consigliata](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Attualmente, il client PowerShell non si blocca in modo esplicito se sono presenti più di 100 macchine virtuali, ma il controllo è pianificato per essere aggiunto in futuro.
+> Quando si usa PowerShell per abilitare il backup per più macchine virtuali contemporaneamente, assicurarsi che a un singolo criterio non siano associate più di 100 macchine virtuali. Si tratta di una [procedura consigliata](./backup-azure-vm-backup-faq.md#is-there-a-limit-on-number-of-vms-that-can-beassociated-with-the-same-backup-policy). Attualmente, il client di PowerShell non si blocca in modo esplicito se sono presenti più di 100 macchine virtuali, ma il controllo dovrebbe essere aggiunto in futuro.
 
 Gli esempi seguenti abilitano la protezione per l'elemento V2VM usando i criteri NewPolicy. Gli esempi variano a seconda del fatto che la macchina virtuale sia crittografata o meno e in base al tipo di crittografia.
 
@@ -474,7 +474,7 @@ $restorejob
 #### <a name="restore-managed-disks"></a>Ripristinare i dischi gestiti
 
 > [!NOTE]
-> Se la macchina virtuale sottoposta a backup include dischi gestiti e si vuole ripristinarli come dischi gestiti, Microsoft ha introdotto questa funzionalità dal modulo RM 6.7.0 di Azure PowerShell in poi
+> Se la macchina virtuale supportata ha dischi gestiti e si vuole ripristinarli come Managed disks, è stata introdotta la funzionalità di Azure PowerShell RM Module v 6.7.0. a partire.
 >
 >
 

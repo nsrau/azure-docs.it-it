@@ -15,12 +15,12 @@ ms.custom: mvc
 ms.date: 06/11/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb5355d4c83961d87ad4b880f6b3758b212e74dd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b93f45b05e6d7773afc2f750fd1a9a034c01ca1e
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014350"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178672"
 ---
 # <a name="how-managed-identities-for-azure-resources-work-with-azure-virtual-machines"></a>Come funzionano le identità gestite per le risorse di Azure con le macchine virtuali di Azure
 
@@ -55,7 +55,7 @@ Il diagramma seguente illustra il funzionamento delle identità del servizio ges
 
 3. Azure Resource Manager configura l'identità nella macchina virtuale aggiornando l'endpoint dell'identità del servizio metadati dell'istanza di Azure con l'ID client e il certificato dell'entità servizio.
 
-4. Quando la VM ha un'identità, è possibile usare le informazioni dell'entità servizio per concedere alla VM l'accesso alle risorse di Azure. Per chiamare Azure Resource Manager, usare il controllo degli accessi in base al ruolo in Azure AD per assegnare il ruolo appropriato all'entità servizio della VM. Per chiamare Key Vault, concedere al codice l'accesso a un segreto specifico o a una chiave specifica in Key Vault.
+4. Quando la VM ha un'identità, è possibile usare le informazioni dell'entità servizio per concedere alla VM l'accesso alle risorse di Azure. Per chiamare Azure Resource Manager, usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per assegnare il ruolo appropriato all'entità servizio della macchina virtuale. Per chiamare Key Vault, concedere al codice l'accesso a un segreto specifico o a una chiave specifica in Key Vault.
 
 5. Il codice in esecuzione nella macchina virtuale può richiedere un token all'endpoint servizio metadati dell'istanza di Azure, accessibile solo dall'interno della macchina virtuale: `http://169.254.169.254/metadata/identity/oauth2/token`
     - Il parametro della risorsa specifica il servizio a cui viene inviato il token. Per l'autenticazione in Azure Resource Manager, usare `resource=https://management.azure.com/`.
@@ -73,7 +73,7 @@ Il diagramma seguente illustra il funzionamento delle identità del servizio ges
 
 3. Azure Resource Manager riceve una richiesta di configurazione dell'identità gestita assegnata dall'utente in una macchina virtuale e aggiorna l'endpoint dell'identità del servizio metadati dell'istanza di Azure con l'ID client e il certificato dell'entità servizio dell'identità gestita assegnata dall'utente.
 
-4. Dopo la creazione dell'identità gestita assegnata dall'utente, usare le informazioni dell'entità servizio per concedere all'identità l'accesso alle risorse di Azure. Per chiamare Azure Resource Manager, usare il controllo degli accessi in base al ruolo in Azure AD per assegnare il ruolo appropriato all'entità servizio dell'identità assegnata dall'utente. Per chiamare Key Vault, concedere al codice l'accesso a un segreto specifico o a una chiave specifica in Key Vault.
+4. Dopo la creazione dell'identità gestita assegnata dall'utente, usare le informazioni dell'entità servizio per concedere all'identità l'accesso alle risorse di Azure. Per chiamare Azure Resource Manager, usare il controllo degli accessi in base al ruolo di Azure per assegnare il ruolo appropriato all'entità servizio dell'identità assegnata dall'utente. Per chiamare Key Vault, concedere al codice l'accesso a un segreto specifico o a una chiave specifica in Key Vault.
 
    > [!Note]
    > È possibile eseguire questo passaggio anche prima del Passaggio 3.

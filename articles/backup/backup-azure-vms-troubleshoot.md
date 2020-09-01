@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere gli errori riscontrati con 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 65662af2bad5475b024366a2ff550ff30e6c0e88
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: aa9b5a3f6f7ca935e4e6b3645c58da5516384072
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014659"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178012"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Risoluzione degli errori di backup nelle macchine virtuali di Azure
 
@@ -103,18 +103,60 @@ L'operazione di backup non è riuscita a causa di un problema con il servizio di
 Codice errore: ExtensionFailedVssWriterInBadState <br/>
 Messaggio di errore: L'operazione di creazione snapshot non è riuscita perché lo stato di VSS writer non è valido.
 
-Riavviare i writer VSS in uno stato non valido. Da un prompt dei comandi con privilegi elevati, eseguire ```vssadmin list writers```. L'output contiene tutti i writer VSS con lo stato. Riavviare ogni VSS writer con stato diverso da **[1] Stable** eseguendo i comandi seguenti da un prompt dei comandi con privilegi elevati:
+Questo errore si verifica perché i writer del servizio Copia Shadow del volume sono in uno stato non valido. Le estensioni di backup di Azure interagiscono con i writer VSS per creare snapshot dei dischi. Per risolvere il problema, seguire questa procedura:
 
-* ```net stop serviceName```
-* ```net start serviceName```
+Riavviare i writer VSS in uno stato non valido.
+- Da un prompt dei comandi con privilegi elevati, eseguire ```vssadmin list writers```.
+- L'output contiene tutti i writer VSS con lo stato. Per ogni VSS writer con uno stato non **[1] stabile**, riavviare il rispettivo servizio del VSS writer. 
+- Per riavviare il servizio, eseguire i comandi seguenti da un prompt dei comandi con privilegi elevati:
 
-Un'altra procedura che può essere utile consiste nell'usare il comando seguente da un prompt dei comandi con privilegi elevati (come amministratore).
+ ```net stop serviceName``` <br>
+ ```net start serviceName```
+
+> [!NOTE]
+> Il riavvio di alcuni servizi può avere un impatto sull'ambiente di produzione. Verificare che il processo di approvazione sia seguito e che il servizio venga riavviato al tempo di inattività pianificato.
+ 
+   
+Se il riavvio dei writer VSS non ha risolto il problema e il problema persiste a causa di un timeout, procedere come segue:
+- Eseguire il comando seguente da un prompt dei comandi con privilegi elevati (come amministratore) per impedire che i thread vengano creati per gli snapshot BLOB.
 
 ```console
 REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgentPersistentKeys" /v SnapshotWithoutThreads /t REG_SZ /d True /f
 ```
 
-Se si aggiunge questa chiave del registro di sistema, i thread non verranno creati per gli snapshot BLOB e si eviterà il timeout.
+### <a name="extensionfailedvssserviceinbadstate---snapshot-operation-failed-due-to-vss-volume-shadow-copy-service-in-bad-state"></a>ExtensionFailedVssServiceInBadState-operazione di snapshot non riuscita a causa di un servizio VSS (copia shadow del volume) in stato non valido
+
+Codice di errore: ExtensionFailedVssServiceInBadState <br/>
+Messaggio di errore: l'operazione di snapshot non è riuscita a causa di un servizio VSS (copia shadow del volume) in stato non valido.
+
+Questo errore si verifica perché il servizio VSS è in uno stato non valido. Le estensioni di backup di Azure interagiscono con il servizio VSS per creare snapshot dei dischi. Per risolvere il problema, seguire questa procedura:
+
+Riavviare il servizio VSS (copia shadow del volume).
+- Passare a Services. msc e riavviare "Volume Shadow Copy Service".<br>
+(oppure)<br>
+- Eseguire i comandi seguenti da un prompt dei comandi con privilegi elevati:
+
+ ```net stop VSS``` <br>
+ ```net start VSS```
+
+ 
+Se il problema persiste, riavviare la macchina virtuale al tempo di inattività pianificato.
+
+### <a name="usererrorskunotavailable---vm-creation-failed-as-vm-size-selected-is-not-available"></a>UserErrorSkuNotAvailable-creazione della macchina virtuale non riuscita perché le dimensioni della macchina virtuale selezionate non sono disponibili
+
+Codice di errore: messaggio di errore UserErrorSkuNotAvailable: Impossibile creare la macchina virtuale. la dimensione della macchina virtuale selezionata non è disponibile. 
+ 
+Questo errore si verifica perché le dimensioni della macchina virtuale selezionate durante l'operazione di ripristino non sono supportate. <br>
+
+Per risolvere questo problema, utilizzare l'opzione [Ripristina dischi](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) durante l'operazione di ripristino. Usare questi dischi per creare una macchina virtuale dall'elenco delle [dimensioni di VM supportate disponibili](https://docs.microsoft.com/azure/backup/backup-support-matrix-iaas#vm-compute-support) usando i [cmdlet di PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks).
+
+### <a name="usererrormarketplacevmnotsupported---vm-creation-failed-due-to-market-place-purchase-request-being-not-present"></a>UserErrorMarketPlaceVMNotSupported-la creazione della macchina virtuale non è riuscita perché la richiesta di acquisto del mercato non è presente
+
+Codice di errore: messaggio di errore UserErrorMarketPlaceVMNotSupported: creazione della macchina virtuale non riuscita a causa di una richiesta di acquisto del mercato non presente. 
+ 
+Backup di Azure supporta il backup e il ripristino di macchine virtuali disponibili in Azure Marketplace. Questo errore si verifica quando si prova a ripristinare una macchina virtuale (con un'impostazione specifica del piano/editore) che non è più disponibile in Azure Marketplace. per [altre informazioni](https://docs.microsoft.com/legal/marketplace/participation-policy#offering-suspension-and-removal), vedere qui.
+- Per risolvere questo problema, usare l'opzione [Ripristina dischi](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) durante l'operazione di ripristino e quindi usare i cmdlet di [PowerShell](https://docs.microsoft.com/azure/backup/backup-azure-vms-automation#create-a-vm-from-restored-disks) o dell'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/azure/backup/tutorial-restore-disk) per creare la VM con le informazioni più recenti sul Marketplace corrispondenti alla macchina virtuale.
+- Se il server di pubblicazione non dispone di informazioni sul Marketplace, è possibile usare i dischi dati per recuperare i dati ed è possibile collegarli a una macchina virtuale esistente.
 
 ### <a name="extensionconfigparsingfailure--failure-in-parsing-the-config-for-the-backup-extension"></a>ExtensionConfigParsingFailure - Errore durante l'analisi della configurazione per l'estensione di backup
 

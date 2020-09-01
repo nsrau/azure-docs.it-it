@@ -12,12 +12,12 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 298c5b96951ed616b324535cf3fe2585180789a1
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 781aa48442d80e55128314dd1e271532162df32c
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117244"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178825"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossario per sviluppatori Microsoft Identity Platform
 
@@ -164,7 +164,7 @@ Così come gli [ambiti](#scopes), i ruoli consentono a un [server di risorse](#r
 
 I ruoli sono stringhe definite a livello di risorsa, ad esempio "Expense approver", "Read-only", "Directory.ReadWrite.All", vengono gestiti nel [portale di Azure][AZURE-portal] tramite il [manifesto dell'applicazione](#application-manifest) della risorsa e vengono archiviati nella [proprietà appRoles][Graph-Sp-Resource] della risorsa. Il portale di Azure viene usato anche per assegnare gli utenti ai ruoli utente e configurare le [autorizzazioni applicazione](#permissions) client per l'accesso a un ruolo applicazione.
 
-Per una descrizione dettagliata dei ruoli applicazione esposti dall'API Microsoft Graph, vedere [API Graph ambiti di autorizzazione][Graph-Perm-Scopes]. Per un esempio di implementazione dettagliata, vedere [Gestire l'accesso usando il controllo degli accessi in base al ruolo e il portale di Azure][AAD-RBAC].
+Per una descrizione dettagliata dei ruoli applicazione esposti dall'API Microsoft Graph, vedere [API Graph ambiti di autorizzazione][Graph-Perm-Scopes]. Per un esempio dettagliato di implementazione, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure][AAD-RBAC].
 
 ## <a name="scopes"></a>ambiti
 

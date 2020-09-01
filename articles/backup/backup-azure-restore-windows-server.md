@@ -3,12 +3,12 @@ title: Ripristinare i file in Windows Server con l'agente di Servizi di ripristi
 description: Questo articolo illustra come ripristinare i dati archiviati in Azure in un computer Windows Server o Windows con l'agente di Servizi di ripristino di Microsoft Azure.
 ms.topic: conceptual
 ms.date: 09/07/2018
-ms.openlocfilehash: 59e212b31d79c0d9a75369e542fee5e86f29653a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0d2f9e8197ac397bf61e4cb293e354a10ba0e1da
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018910"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178558"
 ---
 # <a name="restore-files-to-windows-server-using-the-mars-agent"></a>Ripristinare i file in Windows Server con l'agente di Servizi di ripristino di Microsoft Azure
 
@@ -23,7 +23,7 @@ Usare la funzionalità di ripristino istantaneo per montare uno snapshot del pun
 > Se si vuole usare questa funzione per ripristinare i dati, è necessario l'[aggiornamento di Backup di Azure di gennaio 2017](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar). È necessario anche che i dati di backup siano protetti in insiemi di credenziali nelle impostazioni locali elencate nell'articolo del supporto tecnico. Consultare l'[aggiornamento di Azure Backup di gennaio 2017](https://support.microsoft.com/help/3216528/azure-backup-update-for-microsoft-azure-recovery-services-agent-januar) per un elenco aggiornato delle impostazioni locali che supportano la funzione di ripristino istantaneo.
 >
 
-Usare la funzione di ripristino istantaneo con Servizi di ripristino nel portale di Azure. I dati archiviati negli insiemi di credenziali di backup sono stati convertiti in insiemi di credenziali di Servizi di ripristino. Se si vuole usare la funzione di ripristino istantaneo, scaricare l'aggiornamento di Servizi di ripristino di Microsoft Azure e seguire le procedure relative al ripristino istantaneo.
+Usare la funzione di ripristino istantaneo con Servizi di ripristino nel portale di Azure. Se i dati sono stati archiviati in insiemi di credenziali di backup, sono stati convertiti in insiemi di credenziali dei servizi di ripristino. Se si vuole usare la funzione di ripristino istantaneo, scaricare l'aggiornamento di Servizi di ripristino di Microsoft Azure e seguire le procedure relative al ripristino istantaneo.
 
 [!INCLUDE [learn-about-deployment-models](../../includes/learn-about-deployment-models-rm-include.md)]
 

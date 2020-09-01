@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/30/2019
-ms.openlocfilehash: ec5717135ec7bbf2236b5f5672dbf0b5d1413b44
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: efbc0ba4ef39be6a2a8598ad006cb3aea090974c
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88565724"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177744"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Ottimizzare le query di log in monitoraggio di Azure
 Log di monitoraggio di Azure usa [Esplora dati di Azure (ADX)](/azure/data-explorer/) per archiviare i dati di log ed eseguire query per l'analisi di tali dati. Crea, gestisce e gestisce i cluster ADX per l'utente e li ottimizza per il carico di lavoro di analisi dei log. Quando si esegue una query, questa viene ottimizzata e indirizzata al cluster ADX appropriato che archivia i dati dell'area di lavoro. Sia i log di monitoraggio di Azure che Azure Esplora dati usano molti meccanismi di ottimizzazione automatica delle query. Sebbene le ottimizzazioni automatiche forniscano un incremento significativo, in alcuni casi è possibile migliorare notevolmente le prestazioni di esecuzione delle query. Questo articolo illustra le considerazioni sulle prestazioni e alcune tecniche per risolverle.
@@ -52,6 +52,8 @@ Per ogni query eseguita sono disponibili gli indicatori di prestazioni della que
 
 ## <a name="total-cpu"></a>CPU totale
 CPU di calcolo effettiva investita per elaborare la query in tutti i nodi di elaborazione delle query. Poiché la maggior parte delle query viene eseguita su un numero elevato di nodi, questo sarà in genere molto più grande del tempo impiegato per l'esecuzione della query. 
+
+Una query che utilizza più di 100 secondi di CPU viene considerata una query che utilizza una quantità eccessiva di risorse. Una query che utilizza più di 1.000 secondi di CPU viene considerata una query abusiva e potrebbe essere limitata.
 
 Tempo di elaborazione query dedicato a:
 - Recupero dati: il recupero dei dati precedenti utilizzerà più tempo del recupero dei dati recenti.
@@ -177,6 +179,8 @@ SecurityEvent
 
 Un fattore critico nell'elaborazione della query è costituito dal volume di dati analizzati e utilizzati per l'elaborazione delle query. Azure Esplora dati USA ottimizzazioni aggressive che riducono drasticamente il volume di dati rispetto ad altre piattaforme di dati. Tuttavia, nella query sono presenti fattori cruciali che possono influiscono sul volume di dati utilizzato.
 
+Query che elabora più di 2, il 000KB dei dati viene considerato una query che utilizza una quantità eccessiva di risorse. La query che elabora più di 20 000KB di dati viene considerata una query abusiva e potrebbe essere limitata.
+
 Nei log di monitoraggio di Azure, la colonna **TimeGenerated** viene usata come metodo per indicizzare i dati. La limitazione dei valori di **TimeGenerated** a un intervallo più limitato possibile comporta un miglioramento significativo delle prestazioni delle query, limitando significativamente la quantità di dati da elaborare.
 
 ### <a name="avoid-unnecessary-use-of-search-and-union-operators"></a>Evitare l'uso superfluo degli operatori di ricerca e Unione
@@ -300,6 +304,8 @@ SecurityEvent
 
 Tutti i log nei log di monitoraggio di Azure vengono partizionati in base alla colonna **TimeGenerated** . Il numero di partizioni a cui si accede è direttamente correlato all'intervallo di tempo. La riduzione dell'intervallo di tempo è il modo più efficiente per garantire l'esecuzione di una query di richiesta.
 
+La query con intervallo di tempo superiore a 15 giorni è considerata una query che utilizza un numero eccessivo di risorse. La query con intervallo di tempo superiore a 90 giorni è considerata una query abusiva e potrebbe essere limitata.
+
 L'intervallo di tempo può essere impostato usando il selettore dell'intervallo di tempo nella schermata Log Analytics come descritto nell' [ambito della query di log e nell'intervallo di tempo in monitoraggio di Azure log Analytics](scope.md#time-range). Si tratta del metodo consigliato perché l'intervallo di tempo selezionato viene passato al back-end usando i metadati della query. 
 
 Un metodo alternativo consiste nel includere in modo esplicito una condizione [where](/azure/kusto/query/whereoperator) in **TimeGenerated** nella query. È consigliabile utilizzare questo metodo per garantire che l'intervallo di tempo sia fisso, anche quando la query viene utilizzata da un'interfaccia diversa.
@@ -389,6 +395,9 @@ Esistono diversi casi in cui il sistema non è in grado di fornire una misurazio
 ## <a name="age-of-processed-data"></a>Età dei dati elaborati
 Azure Esplora dati usa diversi livelli di archiviazione: in memoria, dischi SSD locali e BLOB di Azure più lenti. Più recenti sono i dati, maggiore è la probabilità che vengano archiviati in un livello più efficiente con latenza inferiore, riducendo la durata e la CPU della query. Oltre ai dati stessi, il sistema dispone anche di una cache per i metadati. Con i dati meno recenti, minore è la probabilità che i metadati si trovino nella cache.
 
+Una query che elabora i dati di oltre 14 giorni fa è considerata una query che utilizza risorse eccessive.
+
+
 Sebbene alcune query richiedano l'utilizzo di dati obsoleti, esistono casi in cui i dati obsoleti vengono utilizzati per errore. Questo errore si verifica quando le query vengono eseguite senza specificare un intervallo di tempo nei relativi metadati e non tutti i riferimenti alle tabelle includono Filter per la colonna **TimeGenerated** . In questi casi, il sistema analizzerà tutti i dati archiviati in tale tabella. Quando la conservazione dei dati è lunga, può coprire intervalli di tempo prolungati e quindi i dati che hanno un periodo di conservazione dei dati precedente.
 
 Questi casi possono essere ad esempio:
@@ -408,6 +417,8 @@ Esistono diverse situazioni in cui una singola query può essere eseguita in are
 Per l'esecuzione di query tra aree diverse è necessario che il sistema esegua la serializzazione e il trasferimento nel back-end di grandi quantità di dati intermedi che in genere sono molto più grandi dei risultati finali della query. Limita inoltre la capacità del sistema di eseguire ottimizzazioni, euristiche e usare cache.
 Se non esiste un motivo reale per analizzare tutte queste aree, è necessario modificare l'ambito in modo che ricopra un minor numero di aree. Se l'ambito della risorsa è ridotto a icona ma vengono utilizzate ancora molte aree, potrebbe verificarsi un errore di configurazione. Ad esempio, i log di controllo e le impostazioni di diagnostica vengono inviati a diverse aree di lavoro in aree diverse o sono presenti più configurazioni di impostazioni di diagnostica. 
 
+La query che si estende su più di 3 aree è considerata una query che utilizza un numero eccessivo di risorse. La query che si estende su più di 6 aree è considerata una query abusiva e potrebbe essere limitata.
+
 > [!IMPORTANT]
 > Quando una query viene eseguita in diverse aree, le misurazioni di CPU e dati non saranno accurate e rappresenteranno la misurazione solo in una delle aree.
 
@@ -420,6 +431,8 @@ L'uso di più aree di lavoro può essere causato da:
 - Quando una query con ambito di risorsa recupera dati e i dati vengono archiviati in più aree di lavoro.
  
 L'esecuzione di query tra più aree e tra cluster richiede che il sistema esegua la serializzazione e il trasferimento nei blocchi back-end di grandi dimensioni di dati intermedi che in genere sono molto più grandi dei risultati finali della query. Limita inoltre la capacità di sistema di eseguire ottimizzazioni, euristiche e utilizzo di cache.
+
+La query che si estende su più di 5 aree di lavoro è considerata una query che utilizza risorse eccessive. Le query non possono essere estese a più di 100 aree di lavoro.
 
 > [!IMPORTANT]
 > In alcuni scenari con più aree di lavoro, le misurazioni di CPU e dati non saranno accurate e rappresenteranno la misurazione solo per alcune delle aree di lavoro.

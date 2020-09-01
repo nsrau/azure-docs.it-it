@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: c7df035aec199953bdf9a6bd56262af70a5a77e7
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 0c0e286ac9f94768541bb40b9ccca01e0469e0c8
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723963"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177245"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -82,7 +82,7 @@ Quando vengono rilevate vulnerabilità, il Centro sicurezza fornisce una raccoma
 
 Per garantire un'esperienza coerente a tutti gli utenti, indipendentemente dal tipo di scanner usato, abbiamo unificato quattro consigli nei due seguenti elementi:
 
-|Raccomandazione unificata|Descrizione modifica:|
+|Raccomandazione unificata|Descrizione delle modifiche|
 |----|:----|
 |**Una soluzione di valutazione della vulnerabilità dovrebbe essere abilitata nelle macchine virtuali**|Sostituisce le due raccomandazioni seguenti:<br> **•** Abilitare la soluzione di valutazione della vulnerabilità incorporata nelle macchine virtuali (con tecnologia Qualys (ora deprecata) (inclusa nel livello standard)<br> **•** La soluzione di valutazione della vulnerabilità deve essere installata nelle macchine virtuali (ora deprecate) (livelli standard e gratuito)|
 |**È necessario correggere le vulnerabilità nelle macchine virtuali**|Sostituisce le due raccomandazioni seguenti:<br>**•** Correggere le vulnerabilità rilevate nelle macchine virtuali (basate su Qualys) (ora deprecate)<br>**•** Le vulnerabilità devono essere risolte da una soluzione di valutazione della vulnerabilità (ora deprecata)|
@@ -98,7 +98,7 @@ Se si dispone di script, query o automazione che fanno riferimento ai consigli p
 
 ##### <a name="before-august-2020"></a>Prima del 2020 agosto
 
-|Recommendation|Ambito|
+|Recommendation|Scope|
 |----|:----|
 |**Abilitare la soluzione di valutazione della vulnerabilità incorporata nelle macchine virtuali (con tecnologia Qualys)**<br>Chiave: 550e890b-E652-4D22-8274-60b3bdb24c63|Predefinito|
 |**Correggere le vulnerabilità rilevate nelle macchine virtuali (con tecnologia Qualys)**<br>Chiave: 1195afff-c881-495E-9bc5-1486211ae03f|Predefinito|
@@ -107,7 +107,7 @@ Se si dispone di script, query o automazione che fanno riferimento ai consigli p
 ||||
 
 
-|Criteri|Ambito|
+|Policy|Scope|
 |----|:----|
 |**La soluzione Valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali**<br>ID criterio: 501541f7-f7e7-4cd6-868C-4190fdad3ac9|Predefinito|
 |**Le vulnerabilità devono essere risolte da una soluzione di valutazione della vulnerabilità**<br>ID criterio: 760a85ff-6162-42b3-8d70-698e268f648c|BYOL|
@@ -116,13 +116,13 @@ Se si dispone di script, query o automazione che fanno riferimento ai consigli p
 
 ##### <a name="from-august-2020"></a>Da agosto 2020
 
-|Recommendation|Ambito|
+|Recommendation|Scope|
 |----|:----|
 |**Una soluzione di valutazione della vulnerabilità dovrebbe essere abilitata nelle macchine virtuali**<br>Chiave: ffff0522-1e88-47FC-8382-2a80ba848f5d|Incorporato + BYOL|
 |**È necessario correggere le vulnerabilità nelle macchine virtuali**<br>Chiave: 1195afff-c881-495E-9bc5-1486211ae03f|Incorporato + BYOL|
 ||||
 
-|Criteri|Ambito|
+|Policy|Scope|
 |----|:----|
 |[**La valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>ID criterio: 501541f7-f7e7-4cd6-868C-4190fdad3ac9 |Incorporato + BYOL|
 ||||
@@ -159,11 +159,11 @@ Quando si distribuisce una soluzione di valutazione della vulnerabilità, il Cen
 
 Da questo aggiornamento, il controllo è stato rimosso ed è ora possibile distribuire gli strumenti di valutazione della vulnerabilità ai computer Windows e Linux "personalizzati". Le immagini personalizzate sono quelle modificate dalle impostazioni predefinite del Marketplace.
 
-Sebbene sia ora possibile distribuire l'estensione integrata della valutazione della vulnerabilità (basata su Qualys) in molti più computer, il supporto è disponibile solo se si usa un sistema operativo elencato nella pagina relativa [alla distribuzione dello scanner di vulnerabilità predefinito di Qualys](built-in-vulnerability-assessment.md#deploying-the-qualys-built-in-vulnerability-scanner).
+Sebbene sia ora possibile distribuire l'estensione Integrated vulnerabilità Assessment (basata su Qualys) in molti più computer, il supporto è disponibile solo se si usa un sistema operativo elencato in [distribuire lo scanner di vulnerabilità integrato in macchine virtuali di livello standard](deploy-vulnerability-assessment-vm.md#deploy-the-integrated-vulnerability-scanner-to-standard-tier-vms) .
 
-Scopri di più sullo [scanner di vulnerabilità integrato per le macchine virtuali (solo livello standard)](built-in-vulnerability-assessment.md).
+Scopri di più sullo [scanner di vulnerabilità integrato per le macchine virtuali (solo livello standard)](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
 
-Per altre informazioni sull'uso della soluzione di valutazione della vulnerabilità con licenza privata da Qualys o Rapid7, vedere [distribuzione di una soluzione di analisi delle vulnerabilità dei partner](partner-vulnerability-assessment.md).
+Per altre informazioni sull'uso della soluzione di valutazione della vulnerabilità con licenza privata da Qualys o Rapid7, vedere [distribuzione di una soluzione di analisi delle vulnerabilità dei partner](deploy-vulnerability-assessment-vm.md).
 
 
 ### <a name="threat-protection-for-azure-storage-expanded-to-include-azure-files-and-azure-data-lake-storage-gen2-preview"></a>Protezione dalle minacce per archiviazione di Azure espansa per includere File di Azure e Azure Data Lake Storage Gen2 (anteprima)
@@ -236,7 +236,7 @@ La funzionalità controlli applicazione adattivi ha ricevuto due aggiornamenti s
 
     * Utilizzo di un carattere jolly alla fine di un percorso per consentire tutti i file eseguibili all'interno di questa cartella e sottocartelle
 
-    * Utilizzando un carattere jolly all'interno di un percorso per abilitare un nome di file eseguibile noto con un nome di cartella modificabile (ad esempio, cartelle utente personali con un eseguibile noto, nomi di cartella generati automaticamente e così via).
+    * Utilizzando un carattere jolly all'interno di un percorso per abilitare un nome di eseguibile noto con un nome di cartella modificabile (ad esempio, cartelle utente personali con un eseguibile noto, nomi di cartella generati automaticamente e così via).
 
 
 [Altre informazioni sull'applicazione di controlli applicazioni adattivi](security-center-adaptive-application.md).
@@ -326,7 +326,7 @@ Per distribuire le configurazioni di automazione nell'organizzazione, usare i cr
 I criteri si trovano in criteri di Azure:
 
 
-|Obiettivo  |Criteri  |ID condizione  |
+|Obiettivo  |Policy  |ID condizione  |
 |---------|---------|---------|
 |Esportazione continua nell'hub eventi|[Distribuisci esportazione in hub eventi per gli avvisi e le raccomandazioni del Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
 |Esportazione continua nell'area di lavoro Log Analytics|[Distribuisci esportazione nell'area di lavoro Log Analytics per gli avvisi e le raccomandazioni del Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
@@ -359,7 +359,7 @@ I nuovi criteri indicati di seguito sono stati aggiunti all'iniziativa ASC defau
 I criteri si trovano in criteri di Azure:
 
 
-| Criteri                                                                                                                                                                                                                                                                | ID condizione                            |
+| Policy                                                                                                                                                                                                                                                                | ID condizione                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
 | [La soluzione Sicurezza dei dati avanzata deve essere abilitata nei server del database SQL di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7fe3b40f-802b-4cdd-8bd4-fd799c948cc2)     | 7fe3b40f-802b-4cdd-8bd4-fd799c948cc2 |
 | [La soluzione Sicurezza dei dati avanzata deve essere abilitata in SQL Server in macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6581d072-105e-4418-827f-bd446d56421b) | 6581d072-105e-4418-827f-bd446d56421b |
@@ -415,7 +415,7 @@ Per distribuire la soluzione, usare la nuova raccomandazione per la sicurezza:
 
 "Abilitare la soluzione di valutazione delle vulnerabilità predefinita nelle macchine virtuali (con tecnologia Qualys)"
 
-Sono disponibili altre informazioni sulla [valutazione delle vulnerabilità integrata del Centro sicurezza per le macchine virtuali](built-in-vulnerability-assessment.md).
+Sono disponibili altre informazioni sulla [valutazione delle vulnerabilità integrata del Centro sicurezza per le macchine virtuali](deploy-vulnerability-assessment-vm.md#overview-of-the-integrated-vulnerability-scanner).
 
 
 

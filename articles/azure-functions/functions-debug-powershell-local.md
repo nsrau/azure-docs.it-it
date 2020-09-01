@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 6be397631621c727bb8979df2ee8eec3aca43096
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 0c37c8f108e9bcbb827c05242d8863994dfc64cf
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799367"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177092"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>Eseguire il debug di funzioni di Azure PowerShell in locale
 
@@ -65,6 +65,9 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 ## <a name="set-the-attach-point"></a>Impostare il punto di connessione
 
 Per eseguire il debug di qualsiasi funzione di PowerShell, è necessario arrestare la funzione affinché il debugger venga collegato. Il `Wait-Debugger` cmdlet interrompe l'esecuzione e attende il debugger.
+
+>[!NOTE]
+>Quando si usa PowerShell 7, non è necessario aggiungere la `Wait-Debugger` chiamata nel codice.
 
 È sufficiente aggiungere una chiamata al `Wait-Debugger` cmdlet sopra l' `if` istruzione, come indicato di seguito:
 

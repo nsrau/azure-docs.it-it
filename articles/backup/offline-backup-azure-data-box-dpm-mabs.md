@@ -3,12 +3,12 @@ title: Backup offline con Azure Data Box per DPM e MAB
 description: È possibile utilizzare Azure Data Box per inizializzare i dati di backup iniziali offline da DPM e da MAB.
 ms.topic: conceptual
 ms.date: 08/12/2020
-ms.openlocfilehash: 5a8fbf3869794b6a5ef78e78177f130e4e009795
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3755a4cc77455b37ae1545247992a3c8c4f25653
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017601"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177687"
 ---
 # <a name="offline-seeding-using-azure-data-box-for-dpm-and-mabs-preview"></a>Seeding offline con Azure Data Box per DPM e MAB (anteprima)
 
@@ -149,7 +149,7 @@ Specificare l'origine alternativa: *WIM:D:\Sources\Install.wim:4*
           - Azure.Storage *4.6.1*<br>
      >  - L'applicazione Azure AD viene registrata come *AzureOfflineBackup_\<object GUID of the user>* .
 
-13. Selezionare l'ordine di Data Box corretto per il quale è stato decompresso, connesso e sbloccato il disco Data Box. Selezionare **Avanti**.
+13. Selezionare l'ordine di data box corretto per il quale è stato decompresso, connesso e sbloccato il disco Data Box. Selezionare **Avanti**.
 
     ![Selezionare l'istanza di Data Box](./media/offline-backup-azure-data-box-dpm-mabs/select-databox.png)
 

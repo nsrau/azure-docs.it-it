@@ -12,12 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: ed29752e0b5f2ee9acf0382ef96e1b685f9cc886
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: b4eff5910ff5230902d497b55b2afbe6d605365a
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068508"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177432"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Eseguire la migrazione di applicazioni iOS che usano Microsoft Authenticator da ADAL.NET a MSAL.NET
 
@@ -160,7 +160,7 @@ Il valore di
 
 come prefisso, seguito dal `CFBundleURLName`
 
-ad esempio `$"msauth.(BundleId")`
+Ad esempio: `$"msauth.(BundleId")`
 
 ```csharp
  <key>CFBundleURLTypes</key>
@@ -239,6 +239,19 @@ Esempio:
 </table>
 
 Per altre informazioni su come registrare l'URI di reindirizzamento nella portale di Azure, vedere [passaggio 7: aggiungere un URI di reindirizzamento alla registrazione dell'app](msal-net-use-brokers-with-xamarin-apps.md#step-7-add-a-redirect-uri-to-your-app-registration).
+
+### <a name="step-7-set-the-entitlementsplist"></a>**Passaggio 7: impostare i diritti. plist**
+
+Abilitare l'accesso a keychain nel file con *estensione plist dei diritti* :
+
+```xml
+ <key>keychain-access-groups</key>
+    <array>
+      <string>$(AppIdentifierPrefix)com.microsoft.adalcache</string>
+    </array>
+```
+
+Per altre informazioni sull'abilitazione dell'accesso keychain, vedere [Enable Keychain Access](msal-net-xamarin-ios-considerations.md#enable-keychain-access).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,14 +8,14 @@ ms.service: role-based-access-control
 ms.devlang: na
 ms.topic: how-to
 ms.workload: identity
-ms.date: 07/01/2020
+ms.date: 08/31/2020
 ms.author: rolyon
-ms.openlocfilehash: 0a504285b2d79ba1386bcd13dd72fc3faec202ff
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 73f426fdcc020320989f0d09410066b66a131cfa
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055652"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177279"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Trasferire una sottoscrizione di Azure a un'altra directory di Azure AD (anteprima)
 
@@ -29,14 +29,14 @@ Le organizzazioni potrebbero avere più sottoscrizioni di Azure. Ogni sottoscriz
 Questo articolo descrive i passaggi di base che è possibile seguire per trasferire una sottoscrizione a una directory Azure AD diversa e ricreare alcune risorse dopo il trasferimento.
 
 > [!NOTE]
-> Per le sottoscrizioni di Azure CSP, la modifica della directory Azure AD per la sottoscrizione non è supportata.
+> Per le sottoscrizioni del provider di servizi cloud (CSP) di Azure, la modifica della directory Azure AD per la sottoscrizione non è supportata.
 
 ## <a name="overview"></a>Panoramica
 
 Il trasferimento di una sottoscrizione di Azure a una directory Azure AD diversa è un processo complesso che deve essere accuratamente pianificato ed eseguito. Molti servizi di Azure richiedono entità di sicurezza (identità) per funzionare normalmente o anche per gestire altre risorse di Azure. Questo articolo prova a coprire la maggior parte dei servizi di Azure che dipendono molto dalle entità di sicurezza, ma non è completa.
 
 > [!IMPORTANT]
-> In alcuni scenari, il trasferimento di una sottoscrizione potrebbe richiedere tempi di inattività per il completamento del processo. È necessaria un'attenta pianificazione per valutare se i tempi di inattività saranno necessari per la migrazione.
+> In alcuni scenari, il trasferimento di una sottoscrizione potrebbe richiedere tempi di inattività per il completamento del processo. È necessaria un'attenta pianificazione per valutare se i tempi di inattività saranno necessari per il trasferimento.
 
 Il diagramma seguente illustra i passaggi di base che è necessario seguire quando si trasferisce una sottoscrizione a una directory diversa.
 
@@ -73,7 +73,7 @@ Diverse risorse di Azure hanno una dipendenza da una sottoscrizione o una direct
 | Ruoli personalizzati | Sì | Sì | [Elencare ruoli personalizzati](#save-custom-roles) | Tutti i ruoli personalizzati vengono eliminati definitivamente. È necessario ricreare i ruoli personalizzati e le assegnazioni di ruolo. |
 | Identità gestite assegnate dal sistema | Sì | Sì | [Elencare le identità gestite](#list-role-assignments-for-managed-identities) | È necessario disabilitare e riabilitare le identità gestite. È necessario ricreare le assegnazioni di ruolo. |
 | Identità gestite assegnate dall'utente | Sì | Sì | [Elencare le identità gestite](#list-role-assignments-for-managed-identities) | È necessario eliminare, ricreare e collegare le identità gestite alla risorsa appropriata. È necessario ricreare le assegnazioni di ruolo. |
-| Insieme di credenziali chiave di Azure | Sì | Sì | [Elencare i criteri di accesso Key Vault](#list-other-known-resources) | È necessario aggiornare l'ID tenant associato agli insiemi di credenziali delle chiavi. È necessario rimuovere e aggiungere nuovi criteri di accesso. |
+| Insieme di credenziali chiave di Azure | Sì | Sì | [Elencare i criteri di accesso Key Vault](#list-key-vaults) | È necessario aggiornare l'ID tenant associato agli insiemi di credenziali delle chiavi. È necessario rimuovere e aggiungere nuovi criteri di accesso. |
 | Database SQL di Azure con Azure AD Integration Authentication abilitato | Sì | No | [Controllare i database SQL di Azure con l'autenticazione Azure AD](#list-azure-sql-databases-with-azure-ad-authentication) |  |  |
 | Archiviazione di Azure e Azure Data Lake Storage Gen2 | Sì | Sì |  | È necessario ricreare gli ACL. |
 | Azure Data Lake Storage Gen1 | Sì | Sì |  | È necessario ricreare gli ACL. |
@@ -84,8 +84,8 @@ Diverse risorse di Azure hanno una dipendenza da una sottoscrizione o una direct
 | Azure Active Directory Domain Services | Sì | No |  |  |
 | Registrazioni per l'app | Sì | Sì |  |  |
 
-> [!IMPORTANT]
-> Se si usa la crittografia dei dati inattivi per una risorsa come un account di archiviazione o un database SQL e la risorsa ha una dipendenza da un insieme di credenziali delle chiavi che *non* si trova nella sottoscrizione che viene trasferita, è possibile che si ottenga un errore irreversibile. In questa situazione, usare un insieme di credenziali delle chiavi diverso o disabilitare temporaneamente le chiavi gestite dal cliente per evitare un errore irreversibile.
+> [!WARNING]
+> Se si usa la crittografia dei dati inattivi per una risorsa, ad esempio un account di archiviazione o un database SQL, che ha una dipendenza da un insieme di credenziali delle chiavi che **non** si trova nella stessa sottoscrizione da trasferire, può causare uno scenario irreversibile. In tal caso, è necessario eseguire i passaggi per usare un insieme di credenziali delle chiavi diverso o disabilitare temporaneamente le chiavi gestite dal cliente per evitare questo scenario irreversibile.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -221,8 +221,8 @@ Le identità gestite non vengono aggiornate quando si trasferisce una sottoscriz
 
 Quando si crea un insieme di credenziali delle chiavi, questo viene automaticamente associato all'ID tenant predefinito Azure Active Directory per la sottoscrizione in cui viene creato. All'ID tenant vengono associate anche tutte le voci dei criteri di accesso. Per ulteriori informazioni, vedere [passaggio di un Azure Key Vault a un'altra sottoscrizione](../key-vault/general/move-subscription.md).
 
-> [!IMPORTANT]
-> Se si usa la crittografia dei dati inattivi per una risorsa come un account di archiviazione o un database SQL e la risorsa ha una dipendenza da un insieme di credenziali delle chiavi che *non* si trova nella sottoscrizione che viene trasferita, è possibile che si ottenga un errore irreversibile. In questa situazione, usare un insieme di credenziali delle chiavi diverso o disabilitare temporaneamente le chiavi gestite dal cliente per evitare un errore irreversibile.
+> [!WARNING]
+> Se si usa la crittografia dei dati inattivi per una risorsa, ad esempio un account di archiviazione o un database SQL, che ha una dipendenza da un insieme di credenziali delle chiavi che **non** si trova nella stessa sottoscrizione da trasferire, può causare uno scenario irreversibile. In tal caso, è necessario eseguire i passaggi per usare un insieme di credenziali delle chiavi diverso o disabilitare temporaneamente le chiavi gestite dal cliente per evitare questo scenario irreversibile.
 
 - Se si dispone di un insieme di credenziali delle chiavi, usare [AZ Key Vault Show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) per elencare i criteri di accesso. Per altre informazioni, vedere [fornire Key Vault autenticazione con un criterio di controllo di accesso](../key-vault/key-vault-group-permissions-for-apps.md).
 
@@ -232,7 +232,7 @@ Quando si crea un insieme di credenziali delle chiavi, questo viene automaticame
 
 ### <a name="list-azure-sql-databases-with-azure-ad-authentication"></a>Elencare i database SQL di Azure con autenticazione Azure AD
 
-- Usare [AZ SQL Server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) e [AZ Graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) Extension per verificare se si usano database SQL di Azure con l'autenticazione di Azure ad. Per altre informazioni, vedere [configurare e gestire Azure Active Directory autenticazione con SQL](../azure-sql/database/authentication-aad-configure.md).
+- Usare [AZ SQL Server ad-admin list](https://docs.microsoft.com/cli/azure/sql/server/ad-admin#az-sql-server-ad-admin-list) e [AZ Graph](https://docs.microsoft.com/cli/azure/ext/resource-graph/graph) Extension per verificare se si usano database sql di Azure con Azure ad l'integrazione dell'autenticazione abilitata. Per altre informazioni, vedere [configurare e gestire Azure Active Directory autenticazione con SQL](../azure-sql/database/authentication-aad-configure.md).
 
     ```azurecli
     az sql server ad-admin list --ids $(az graph query -q 'resources | where type == "microsoft.sql/servers" | project id' -o tsv | cut -f1)
@@ -262,16 +262,21 @@ Quando si crea un insieme di credenziali delle chiavi, questo viene automaticame
     --subscriptions $subscriptionId --output table
     ```
 
-## <a name="step-2-transfer-billing-ownership"></a>Passaggio 2: trasferire la proprietà della fatturazione
+## <a name="step-2-transfer-the-subscription"></a>Passaggio 2: trasferire la sottoscrizione
 
-In questo passaggio si trasferisce la proprietà di fatturazione della sottoscrizione dalla directory di origine alla directory di destinazione.
+In questo passaggio la sottoscrizione viene trasferita dalla directory di origine alla directory di destinazione. La procedura varia a seconda che si desideri trasferire anche la proprietà della fatturazione.
 
 > [!WARNING]
-> Quando si trasferisce la proprietà di fatturazione della sottoscrizione, tutte le assegnazioni di ruolo nella directory di origine vengono eliminate **definitivamente** e non possono essere ripristinate. Non è possibile tornare indietro quando si trasferisce la proprietà della fatturazione della sottoscrizione. Assicurarsi di completare i passaggi precedenti prima di eseguire questo passaggio.
+> Quando si trasferisce la sottoscrizione, tutte le assegnazioni di ruolo nella directory di origine vengono eliminate **definitivamente** e non possono essere ripristinate. Non è possibile tornare indietro dopo il trasferimento della sottoscrizione. Assicurarsi di completare i passaggi precedenti prima di eseguire questo passaggio.
 
-1. Seguire la procedura descritta in [trasferire la proprietà della fatturazione di una sottoscrizione di Azure a un altro account](../cost-management-billing/manage/billing-subscription-transfer.md). Per trasferire la sottoscrizione a una directory Azure AD diversa, è necessario selezionare la casella di controllo **sottoscrizione Azure ad tenant** .
+1. Determinare se si desidera trasferire anche la proprietà della fatturazione.
 
-1. Al termine del trasferimento della proprietà, tornare a questo articolo per ricreare le risorse nella directory di destinazione.
+1. Trasferire la sottoscrizione a una directory diversa.
+
+    - Se si vuole gestire la proprietà di fatturazione corrente, seguire la procedura descritta in [associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
+    - Se si vuole anche trasferire la proprietà di fatturazione, seguire la procedura descritta in [trasferire la proprietà della fatturazione di una sottoscrizione di Azure a un altro account](../cost-management-billing/manage/billing-subscription-transfer.md). Per trasferire la sottoscrizione a una directory diversa, è necessario selezionare la casella di controllo **sottoscrizione Azure ad tenant** .
+
+1. Al termine del trasferimento della sottoscrizione, tornare a questo articolo per ricreare le risorse nella directory di destinazione.
 
 ## <a name="step-3-re-create-resources"></a>Passaggio 3: ricreare le risorse
 
@@ -313,7 +318,7 @@ In questo passaggio si trasferisce la proprietà di fatturazione della sottoscri
 
 1. Disabilitare e riabilitare le identità gestite assegnate dal sistema.
 
-    | Servizio di Azure | Ulteriori informazioni | 
+    | Servizio di Azure | Altre informazioni | 
     | --- | --- |
     | Macchine virtuali | [Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#system-assigned-managed-identity) |
     | set di scalabilità di macchine virtuali | [Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
@@ -329,7 +334,7 @@ In questo passaggio si trasferisce la proprietà di fatturazione della sottoscri
 
 1. Elimina, ricrea e Connetti identità gestite assegnate dall'utente.
 
-    | Servizio di Azure | Ulteriori informazioni | 
+    | Servizio di Azure | Altre informazioni | 
     | --- | --- |
     | Macchine virtuali | [Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) |
     | set di scalabilità di macchine virtuali | [Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |

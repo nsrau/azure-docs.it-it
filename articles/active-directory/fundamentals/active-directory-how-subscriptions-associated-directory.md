@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 95c3ad5fa66e1327c1fe646303f268ae4e84bd89
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: cbc1286b6c434d1c7a110c75dd5085de2043012d
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87825022"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179097"
 ---
 # <a name="associate-or-add-an-azure-subscription-to-your-azure-active-directory-tenant"></a>Associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory
 
@@ -44,15 +44,16 @@ Prima di poter associare o aggiungere la sottoscrizione, eseguire le attività s
 
 - Esaminare l'elenco seguente di modifiche che verranno eseguite dopo aver associato o aggiunto la sottoscrizione e come potrebbe essere interessata:
 
-  - Gli utenti a cui sono stati assegnati ruoli con RBAC perderanno l'accesso
+  - Gli utenti a cui sono stati assegnati i ruoli con il controllo degli accessi in base al ruolo di Azure
   - L'amministratore del servizio e i coamministratori perderanno l'accesso
   - Se si dispone di insiemi di credenziali delle chiavi, questi saranno inaccessibili e sarà necessario correggerli dopo l'associazione
   - Se si hanno identità gestite per le risorse, ad esempio le macchine virtuali o le app per la logica, è necessario riabilitarle o ricrearle dopo l'associazione
   - Se si dispone di un Azure Stack registrato, sarà necessario registrarlo di nuovo dopo l'associazione
+  - Per altre informazioni, vedere [Trasferire una sottoscrizione di Azure a un'altra directory di Azure AD (anteprima)](../../role-based-access-control/transfer-subscription.md).
 
 - Accedere con un account che:
 
-  - Dispone di un'assegnazione di ruolo [proprietario](../../role-based-access-control/built-in-roles.md#owner) per la sottoscrizione. Per informazioni su come assegnare il ruolo proprietario, vedere [gestire l'accesso alle risorse di Azure usando RBAC e il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
+  - Dispone di un'assegnazione di ruolo [proprietario](../../role-based-access-control/built-in-roles.md#owner) per la sottoscrizione. Per informazioni su come assegnare il ruolo proprietario, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md).
   - Esiste nella directory corrente e nella nuova directory. La directory corrente è associata alla sottoscrizione. Associare la nuova directory alla sottoscrizione. Per ulteriori informazioni su come ottenere l'accesso a un'altra directory, vedere [aggiungere Azure Active Directory utenti di collaborazione B2B nel portale di Azure](../b2b/add-users-administrator.md).
 
 - Assicurarsi di non usare una sottoscrizione provider di servizi cloud di Azure (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P), una sottoscrizione interna Microsoft (MS-AZR-0015P) o una sottoscrizione Microsoft Imagine (MS-AZR-0144P).
@@ -90,6 +91,8 @@ Dopo aver associato una sottoscrizione a una directory diversa, potrebbe essere 
 - Se sono state usate identità gestite assegnate dal sistema per le risorse, è necessario riabilitare tali identità. Se sono state usate identità gestite assegnate dall'utente, è necessario ricreare tali identità. Dopo aver riattivato o ricreato le identità gestite, è necessario ristabilire le autorizzazioni assegnate a tali identità. Per altre informazioni, vedere [Informazioni sulle identità gestite per le risorse di Azure](../managed-identities-azure-resources/overview.md).
 
 - Se è stata registrata una Azure Stack usando questa sottoscrizione, è necessario ripetere la registrazione. Per altre informazioni, vedere [registrare Azure stack con Azure](/azure-stack/operator/azure-stack-registration).
+
+- Per altre informazioni, vedere [Trasferire una sottoscrizione di Azure a un'altra directory di Azure AD (anteprima)](../../role-based-access-control/transfer-subscription.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,6 +1,6 @@
 ---
 title: Connettere i log di Office 365 ad Azure Sentinel | Microsoft Docs
-description: Informazioni su come usare il connettore di log di Office 365 per fornire informazioni sulle attività di amministrazione e utente in corso in Exchange e SharePoint, incluso OneDrive.
+description: Informazioni su come usare il connettore di log di Office 365 per inserire informazioni sulle attività di utenti e amministratori in corso in Exchange, team e SharePoint, incluso OneDrive.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,18 +12,22 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/21/2020
+ms.date: 08/30/2020
 ms.author: yelevin
-ms.openlocfilehash: 180b25f80bd27caea20b1c17cd84fda38c172e0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6b59de048cdf00d352c4f488ecb51bfdf83640f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559349"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178927"
 ---
 # <a name="connect-office-365-logs-to-azure-sentinel"></a>Connettere i log di Office 365 ad Azure Sentinel
 
-Il connettore di log di [Office 365](https://docs.microsoft.com/office/) riporta le informazioni di Azure Sentinel sulle attività degli utenti e degli amministratori in corso in **Exchange** e **SharePoint** (incluso **OneDrive**). Queste informazioni includono i dettagli delle azioni, ad esempio i download di file, le richieste di accesso inviate, le modifiche agli eventi del gruppo e le operazioni delle cassette postali, nonché i dettagli dell'utente che ha eseguito le azioni. La connessione dei log di Office 365 ad Azure Sentinel consente di visualizzare e analizzare questi dati nelle cartelle di lavoro, eseguire query su di essi per creare avvisi personalizzati e incorporarli per migliorare il processo di analisi, offrendo informazioni più dettagliate sulla sicurezza di Office 365.
+Il connettore di log di [Office 365](https://docs.microsoft.com/office/) introduce le informazioni di Azure Sentinel sulle attività di utenti e amministratori in corso in **Exchange** e **SharePoint** (incluso **OneDrive**) e ora anche in **Team** . Queste informazioni includono i dettagli delle azioni, ad esempio i download di file, le richieste di accesso inviate, le modifiche agli eventi del gruppo, le operazioni sulle cassette postali, gli eventi dei team, ad esempio gli eventi chat, team, Member e Channel, nonché i dettagli dell'utente che ha eseguito le azioni. La connessione dei log di Office 365 ad Azure Sentinel consente di visualizzare e analizzare questi dati nelle cartelle di lavoro, eseguire query su di essi per creare avvisi personalizzati e incorporarli per migliorare il processo di analisi, offrendo informazioni più dettagliate sulla sicurezza di Office 365.
+
+> [!IMPORTANT]
+> L'estensione del connettore di log di Office 365 **per i log di Microsoft teams** è attualmente disponibile in anteprima pubblica.
+> Questa funzionalità viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -40,20 +44,27 @@ Il connettore di log di [Office 365](https://docs.microsoft.com/office/) riporta
 
 
    > [!NOTE]
-   > Come indicato in precedenza, e come si vedrà nella pagina Connector in **tipi di dati**, il connettore di Office 365 per Azure Sentinel supporta attualmente l'inserimento di log di controllo solo da Microsoft Exchange e SharePoint (incluso OneDrive). Tuttavia, esistono alcune soluzioni esterne se si è interessati a importare [dati da Team](https://techcommunity.microsoft.com/t5/azure-sentinel/protecting-your-teams-with-azure-sentinel/ba-p/1265761) o da [altri dati di Office](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-office-365-alerts-with-graph-security-api/ba-p/984888) in Sentinel di Azure. 
+   > Come indicato in precedenza, e come si vedrà nella pagina Connector in **tipi di dati**, il connettore di Office 365 per Azure Sentinel supporta attualmente l'inserimento di log di controllo solo da Microsoft Exchange e SharePoint (incluso OneDrive) **e ora da Team**. Tuttavia, esistono alcune soluzioni esterne se si è interessati a trasferire [altri dati di Office](https://techcommunity.microsoft.com/t5/azure-sentinel/ingesting-office-365-alerts-with-graph-security-api/ba-p/984888) in Sentinel di Azure. 
 
 ## <a name="enable-the-office-365-log-connector"></a>Abilitare il connettore di log di Office 365
 
+### <a name="instructions-tab"></a>Scheda istruzioni
+
 1. Dal menu di navigazione di Azure Sentinel selezionare **connettori dati**.
 
-1. Dall'elenco **connettori dati** fare clic su **Office 365**e quindi sul pulsante **Apri pagina connettore** in basso a destra.
+1. Dalla raccolta di **connettori dati** selezionare **Office 365**, quindi selezionare **Apri pagina connettore** nel riquadro di anteprima.
 
 1. Nella sezione **configurazione**con etichetta selezionare le caselle di controllo dei log attività di Office 365 che si vuole connettere a Sentinel di Azure e fare clic su **Applica modifiche**. 
 
    > [!NOTE]
    > Se in precedenza sono stati connessi più tenant ad Azure Sentinel, usando una versione precedente del connettore Office 365 che lo supporta, sarà possibile visualizzare e modificare i log raccolti da ogni tenant. Non sarà possibile aggiungere ulteriori tenant, ma è possibile rimuovere i tenant aggiunti in precedenza.
 
-1. Per eseguire query sui dati di log di Office 365 in Log Analytics, digitare `OfficeActivity` nella prima riga della finestra della query.
+### <a name="next-steps-tab"></a>Scheda passaggi successivi
+
+- Vedere le cartelle di lavoro consigliate, gli esempi di query e i modelli di regola di analisi forniti con il connettore di log di **Office 365** , per ottenere informazioni dettagliate sui dati di log di SharePoint, OneDrive, Exchange e teams.
+
+- Per eseguire manualmente query sui dati di log di Office 365 nei **log**, immettere `OfficeActivity` nella prima riga della finestra query.
+   - Per filtrare la query per un tipo di log specifico, immettere `| where OfficeWorkload == "<logtype>"` nella seconda riga della query, dove *\<logtype\>* è,, `SharePoint` `OneDrive` `Exchange` o `MicrosoftTeams` .
 
 ## <a name="next-steps"></a>Passaggi successivi
 In questo documento è stato descritto come connettere Office 365 ad Azure Sentinel. Per altre informazioni su Azure Sentinel, vedere gli articoli seguenti:
