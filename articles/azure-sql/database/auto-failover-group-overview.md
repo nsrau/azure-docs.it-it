@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 08/28/2020
-ms.openlocfilehash: 68fa972d45ab0db6e5274142f550c2bd829e7917
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 3b81ce6e1b77db7b89f293850e2d00fde5d40cfa
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055584"
+ms.locfileid: "89076515"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>Usare i gruppi di failover automatico per consentire il failover trasparente e coordinato di più database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -89,11 +89,11 @@ Per ottenere una reale continuità aziendale, l'aggiunta di ridondanza dei datab
 
 - **Listener di lettura/scrittura del gruppo di failover**
 
-  Record DNS CNAME che punta all'URL del database primario corrente. Viene creato automaticamente quando viene creato il gruppo di failover e consente al carico di lavoro di lettura/scrittura di riconnettersi in modo trasparente al database primario quando viene modificato il database primario dopo il failover. Quando il gruppo di failover viene creato in un server, il record CNAME DNS per l'URL del listener viene formato come `<fog-name>.database.windows.net` . Quando viene creato il gruppo di failover in un Istanza gestita SQL, il record CNAME DNS per l'URL del listener viene formato come `<fog-name>.zone_id.database.windows.net` .
+  Record DNS CNAME che punta all'URL del database primario corrente. Viene creato automaticamente quando viene creato il gruppo di failover e consente al carico di lavoro di lettura/scrittura di riconnettersi in modo trasparente al database primario quando viene modificato il database primario dopo il failover. Quando il gruppo di failover viene creato in un server, il record CNAME DNS per l'URL del listener viene formato come `<fog-name>.database.windows.net` . Quando viene creato il gruppo di failover in un Istanza gestita SQL, il record CNAME DNS per l'URL del listener viene formato come `<fog-name>.<zone_id>.database.windows.net` .
 
 - **Listener di sola lettura del gruppo di failover**
 
-  Un record CNAME DNS che punta al listener di sola lettura che punta all'URL del database secondario. Viene creato automaticamente quando viene creato il gruppo di failover e consente al carico di lavoro SQL di sola lettura di connettersi in modo trasparente al database secondario usando le regole di bilanciamento del carico specificate. Quando il gruppo di failover viene creato in un server, il record CNAME DNS per l'URL del listener viene formato come `<fog-name>.secondary.database.windows.net` . Quando viene creato il gruppo di failover in un Istanza gestita SQL, il record CNAME DNS per l'URL del listener viene formato come `<fog-name>.zone_id.secondary.database.windows.net` .
+  Un record CNAME DNS che punta al listener di sola lettura che punta all'URL del database secondario. Viene creato automaticamente quando viene creato il gruppo di failover e consente al carico di lavoro SQL di sola lettura di connettersi in modo trasparente al database secondario usando le regole di bilanciamento del carico specificate. Quando il gruppo di failover viene creato in un server, il record CNAME DNS per l'URL del listener viene formato come `<fog-name>.secondary.database.windows.net` . Quando viene creato il gruppo di failover in un Istanza gestita SQL, il record CNAME DNS per l'URL del listener viene formato come `<fog-name>.secondary.<zone_id>.database.windows.net` .
 
 - **Criteri di failover automatico**
 
@@ -257,13 +257,13 @@ Quando si eseguono operazioni OLTP, usare `<fog-name>.zone_id.database.windows.n
 
 ### <a name="using-read-only-listener-to-connect-to-the-secondary-instance"></a>Uso del listener di sola lettura per connettersi all'istanza secondaria
 
-Se è presente un carico di lavoro di sola lettura isolato logicamente che tollera un certo grado di obsolescenza dei dati, è possibile usare il database secondario nell'applicazione. Per connettersi direttamente al database secondario con replica geografica, usare `<fog-name>.zone_id.secondary.database.windows.net` come URL del server.
+Se è presente un carico di lavoro di sola lettura isolato logicamente che tollera un certo grado di obsolescenza dei dati, è possibile usare il database secondario nell'applicazione. Per connettersi direttamente al database secondario con replica geografica, usare `<fog-name>.secondary.<zone_id>.database.windows.net` come URL del server.
 
 > [!NOTE]
 > In alcuni livelli di servizio, il database SQL supporta l'utilizzo di [repliche](read-scale-out.md) di sola lettura per bilanciare il carico dei carichi di lavoro di query di sola lettura utilizzando la capacità di una replica di sola lettura e l'utilizzo del `ApplicationIntent=ReadOnly` parametro nella stringa di connessione. Dopo aver configurato un database secondario con replica geografica, sarà possibile usare questa funzionalità per connettersi a una replica di sola lettura nella posizione primaria o nella posizione con replica geografica.
 >
-> - Per connettersi a una replica di sola lettura nella posizione con replica geografica, usare `<fog-name>.zone_id.database.windows.net`.
-> - Per connettersi a una replica di sola lettura nella posizione secondaria, usare `<fog-name>.secondary.zone_id.database.windows.net` .
+> - Per connettersi a una replica di sola lettura nella posizione con replica geografica, usare `<fog-name>.<zone_id>.database.windows.net`.
+> - Per connettersi a una replica di sola lettura nella posizione secondaria, usare `<fog-name>.secondary.<zone_id>.database.windows.net` .
 
 ### <a name="preparing-for-performance-degradation"></a>Preparazione per il calo delle prestazioni
 

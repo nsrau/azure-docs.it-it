@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e78f4133e7f722870f6c84de2ab7e784cd151d79
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: 6e5c7bbc850a71cd71d8f826c6a975f552374b7a
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87562685"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077722"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Baseline della sicurezza di Azure per l'automazione
 
@@ -146,7 +146,7 @@ Se si usano i ruoli di lavoro ibridi per Runbook ospitati in macchine virtuali d
 
 **Linee guida**: definire e implementare configurazioni di sicurezza standard per le risorse di rete usate da automazione di Azure con criteri di Azure.
 
-È anche possibile usare i progetti di Azure per semplificare le distribuzioni su larga scala di Azure tramite la creazione di pacchetti di elementi chiave dell'ambiente, ad esempio modelli di Azure Resource Manager, controlli RBAC e criteri, in una singola definizione di progetto. È possibile applicare il progetto a nuove sottoscrizioni e ottimizzare il controllo e la gestione tramite il controllo delle versioni.
+È anche possibile usare i progetti di Azure per semplificare le distribuzioni su larga scala di Azure tramite la creazione di pacchetti di elementi chiave dell'ambiente, ad esempio modelli di Azure Resource Manager, controlli RBAC di Azure e criteri, in una singola definizione di progetto. È possibile applicare il progetto a nuove sottoscrizioni e ottimizzare il controllo e la gestione tramite il controllo delle versioni.
 
 * [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -174,7 +174,7 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: usare strumenti automatizzati per monitorare le configurazioni delle risorse di rete e rilevare le modifiche
 
@@ -292,7 +292,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure.
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="28-centralize-anti-malware-logging"></a>2.8: centralizzare la registrazione antimalware
 
@@ -512,7 +512,7 @@ Tuttavia, quando si usano i ruoli di lavoro ibridi per Runbook supportati da mac
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="42-isolate-systems-storing-or-processing-sensitive-information"></a>4.2: isolare i sistemi che archiviano o elaborano informazioni riservate
 
@@ -570,11 +570,11 @@ Seguire le raccomandazioni del Centro sicurezza di Azure per la crittografia dei
 
 **Responsabilità**: Customer
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usare il controllo degli accessi in base al ruolo per controllare l'accesso alle risorse
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
-**Linee guida**: usare Azure ad RBAC per controllare l'accesso alle risorse di automazione di Azure usando le definizioni di ruolo predefinite, assegnare l'accesso per gli utenti che accedono alle risorse di automazione in base a un modello di accesso con privilegi minimi o "just-enough". Quando si usano i ruoli di lavoro ibridi per Runbook, è possibile sfruttare le identità gestite per le macchine virtuali per evitare l'uso di entità servizio, quando si usano sia i ruoli di lavoro ibridi Runbook che multi-tenant, assicurarsi di applicare le autorizzazioni di controllo degli accessi in base al ruolo corrette per l'identità dei dipendenti Runbook.
+**Linee guida**: usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per controllare l'accesso alle risorse di automazione di Azure usando le definizioni di ruolo predefinite, assegnare l'accesso per gli utenti che accedono alle risorse di automazione dopo un modello di accesso con privilegi minimi o "just-enough". Quando si usano i ruoli di lavoro ibridi per Runbook, è possibile sfruttare le identità gestite per le macchine virtuali per evitare di usare le entità servizio, quando si usano sia i ruoli di lavoro ibridi di Runbook multi-tenant che i ruoli di lavoro ibridi di Azure per l'identità dei Runbook Worker.
 
-* [Come configurare RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+* [Come configurare RBAC di Azure](../role-based-access-control/role-assignments-portal.md)
 
 * [Autorizzazioni runbook per un ruolo di lavoro ibrido per runbook](./automation-hybrid-runbook-worker.md#runbook-permissions-for-a-hybrid-runbook-worker)
 
@@ -638,7 +638,7 @@ Quando si usano i ruoli di lavoro ibridi per Runbook, i dischi virtuali delle ma
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="52-deploy-automated-operating-system-patch-management-solution"></a>5.2: distribuire una soluzione di gestione delle patch automatizzata per il sistema operativo
 
@@ -772,7 +772,7 @@ Se si usano i ruoli di lavoro ibridi per Runbook supportati da macchine virtuali
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: rimuovere le risorse di Azure e le applicazioni software non approvate
 
@@ -794,7 +794,7 @@ Se si usano i ruoli di lavoro ibridi per Runbook supportati da macchine virtuali
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: usare solo servizi di Azure approvati
 
@@ -830,7 +830,7 @@ Il controllo delle applicazioni adattivi è una soluzione end-to-end intelligent
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12: limitare la capacità degli utenti di eseguire gli script nelle risorse di calcolo
 
@@ -904,7 +904,7 @@ Quando si usa la funzionalità Hybrid Runbook Worker, usare la raccomandazione d
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: garantire la sicurezza delle configurazioni delle risorse di Azure
 
@@ -968,9 +968,9 @@ Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati 
 
 Quando si usa la funzionalità Hybrid Runbook Worker, assicurarsi di limitare correttamente l'accesso all'immagine del sistema operativo personalizzata presente nell'account di archiviazione, in modo che solo gli utenti autorizzati possano accedere all'immagine.
 
-* [Informazioni sul RBAC in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Come configurare RBAC in Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [Come configurare RBAC di Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1018,7 +1018,7 @@ Quando si usa la funzionalità Hybrid Runbook Worker, sfruttare il Centro sicure
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="710-implement-automated-configuration-monitoring-for-operating-systems"></a>7.10: implementare il monitoraggio automatizzato della configurazione per i sistemi operativi
 
@@ -1260,7 +1260,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: automatizzare la risposta agli avvisi di sicurezza
 

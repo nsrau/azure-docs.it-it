@@ -3,12 +3,12 @@ title: Baseline della sicurezza di Azure per Azure DevTest Labs
 description: Baseline della sicurezza di Azure per Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: ed263ad80250531431840516f2764055c75abd50
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: dc53eacf456d1e7c1926c6d7f20e343b3a84340d
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212308"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078045"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Baseline della sicurezza di Azure per Azure DevTest Labs
 
@@ -159,7 +159,7 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: usare Single Sign-On (SSO) con Azure Active Directory
 **Linee guida:** DevTest Labs usa il servizio Azure AD per la gestione delle identità. Considerare questi due aspetti chiave quando si concede agli utenti l'accesso a un ambiente basato su DevTest Labs:
 
-- **Gestione delle risorse:** Consente di accedere al portale di Azure per gestire le risorse (creare macchine virtuali, creare ambienti, avviare, arrestare, riavviare, eliminare e applicare elementi e così via). La gestione delle risorse viene eseguita in Azure usando il controllo degli accessi in base al ruolo (RBAC). Assegnare i ruoli agli utenti e impostare le autorizzazioni a livello di risorsa e di accesso.
+- **Gestione delle risorse:** Consente di accedere al portale di Azure per gestire le risorse (creare macchine virtuali, creare ambienti, avviare, arrestare, riavviare, eliminare e applicare elementi e così via). La gestione delle risorse viene eseguita in Azure usando il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Assegnare i ruoli agli utenti e impostare le autorizzazioni a livello di risorsa e di accesso.
 - **Macchine virtuali (a livello di rete)**: nella configurazione predefinita, le VM usano un account amministratore locale. Se è disponibile un dominio (Azure AD Domain Services, un dominio locale o un dominio basato su cloud), i computer possono essere aggiunti al dominio. Gli utenti possono quindi usare le proprie identità basate su dominio usando l'elemento di aggiunta al dominio per connettersi ai computer. 
 
 - [Architettura di riferimento per DevTest Labs](devtest-lab-reference-architecture.md#architecture)
@@ -315,9 +315,9 @@ Per la piattaforma sottostante, gestita da Microsoft, Microsoft considera tutti 
 **Responsabilità:** Cliente
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
-**Linee guida:** Usare il controllo degli accessi in base al ruolo (RBAC) Azure Active Directory (Azure AD) per controllare l'accesso ai Lab in Azure DevTest Labs.
+**Linee guida:** Usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per controllare l'accesso ai Lab in Azure DevTest Labs.
 
-- [Come configurare RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [Come configurare RBAC di Azure](../role-based-access-control/role-assignments-portal.md)
 - [Informazioni sui ruoli in DevTest Labs](devtest-lab-add-devtest-user.md)
 
 **Monitoraggio del Centro sicurezza di Azure:** Non applicabile
@@ -638,12 +638,12 @@ Inoltre, le immagini di macchine virtuali di Azure Marketplace pubblicate da Mic
 **Responsabilità:** Cliente
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: archiviare in modo sicuro immagini personalizzate del sistema operativo
-**Linee guida:** Se si usano immagini personalizzate, usare il controllo degli accessi in base al ruolo (RBAC) per garantire che solo gli utenti autorizzati possano accedere alle immagini. Usando una raccolta di immagini condivise, è possibile condividere le immagini con laboratori specifici che lo richiedono. Per le immagini del contenitore, archiviarle in Azure Container Registry e usare il controllo degli accessi in base al ruolo per assicurarsi che gli utenti autorizzati possano accedere alle immagini
+**Linee guida:** Se si usano immagini personalizzate, usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per garantire che solo gli utenti autorizzati possano accedere alle immagini. Usando una raccolta di immagini condivise, è possibile condividere le immagini con laboratori specifici che lo richiedono. Per le immagini del contenitore, archiviarle in Azure Container Registry e usare il controllo degli accessi in base al ruolo di Azure per garantire che solo gli utenti autorizzati possano accedere
 
-- [Informazioni sul RBAC in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
-- [Come configurare RBAC in Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+- [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+- [Come configurare RBAC di Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
 - [Configurare una raccolta di immagini condivise per un Lab di DevTest](configure-shared-image-gallery.md)
-- [Comprendere il RBAC per Container Registry](../container-registry/container-registry-roles.md)
+- [Informazioni su RBAC di Azure per Container Registry](../container-registry/container-registry-roles.md)
 
 **Monitoraggio del Centro sicurezza di Azure:** Non applicabile
 

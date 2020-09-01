@@ -94,9 +94,11 @@
           href: cache-how-to-manage-redis-cache-powershell.md
         - name: Distribuire e gestire con l'interfaccia della riga di comando di Azure
           href: cli-samples.md
-        - name: Effettuare il provisioning di un'istanza di Cache Redis di Azure
+        - name: Creare la cache Redis - Modello di Resource Manager
+          displayName: Resource Manager
           href: cache-redis-cache-arm-provision.md
-        - name: Effettuare il provisioning di un'app Web con Cache Redis di Azure
+        - name: Creare l'app Web con la cache Redis - Modello di Resource Manager
+          displayName: Resource Manager
           href: cache-web-app-arm-with-redis-cache-provision.md
     - name: Gestione
       items:

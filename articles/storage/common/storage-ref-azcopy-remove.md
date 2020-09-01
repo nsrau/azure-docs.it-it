@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 1cdb49f6865afa4101468dc35b4e416d999b63f5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d79b647d216fe28241e5891def574ab598304828
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285221"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078221"
 ---
 # <a name="azcopy-remove"></a>azcopy remove
 
@@ -73,7 +73,6 @@ azcopy rm "https://[account].blob.core.windows.net/[container]/[path/to/parent/d
     blob1
     blob2
 ```
-
 Rimuovere un singolo file da un account di archiviazione BLOB con uno spazio dei nomi gerarchico (includere/escludere non supportato):
 
 ```azcopy
@@ -96,13 +95,15 @@ azcopy rm "https://[account].dfs.core.windows.net/[container]/[path/to/directory
 
 **--Force-if-sola lettura**   Quando si elimina un file o una cartella File di Azure, forzare l'eliminazione a funzionare anche se per l'oggetto esistente è impostato l'attributo di sola lettura.
 
-**--** guida per la rimozione.
+**--**   guida per la rimozione.
 
 **--include-percorso** stringa include solo questi percorsi durante la rimozione. Questa opzione non supporta i caratteri jolly (*). Controlla il prefisso del percorso relativo. ad esempio `myFolder;myFolder/subDirName/file.pdf`
 
 **--include-pattern** String include solo i file in cui il nome corrisponde all'elenco di modelli. Ad esempio: * `.jpg` ;* `.pdf` ;`exactName`
 
-**--List-of-files** String definisce il percorso di un file che contiene l'elenco di file e directory da eliminare. I percorsi relativi devono essere delimitati da interruzioni di riga e i percorsi non devono essere codificati in URL.
+**--List-of-files** String definisce il percorso di un file che contiene l'elenco di file e directory da eliminare. I percorsi relativi devono essere delimitati da interruzioni di riga e i percorsi non devono essere codificati in URL. 
+
+**--List-of-Versions** stringa specifica un file in cui ogni ID versione è elencato in una riga separata. Verificare che l'origine debba puntare a un singolo BLOB e che tutti gli ID versione specificati nel file con questo flag appartengano solo al BLOB di origine. Gli ID versione specificati del blob specificato verranno eliminati dall'archiviazione di Azure. 
 
 **--** la stringa a livello di log definisce il livello di dettaglio del log per il file di log. I livelli disponibili includono: `INFO` (tutte le richieste/risposte), `WARNING` (risposte lente), `ERROR` (solo richieste non riuscite) e `NONE` (nessun log di output). (impostazione predefinita `INFO` ) (impostazione predefinita `INFO` )
 

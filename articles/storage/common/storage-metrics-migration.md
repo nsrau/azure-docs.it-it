@@ -9,16 +9,16 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring
-ms.openlocfilehash: a1f977cef614a52853407c0d0665399f1a249c53
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: c8eae70b88aa454e5d712b3c5b7930b12d169912
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422063"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078249"
 ---
 # <a name="transition-to-metrics-in-azure-monitor"></a>Transizione alle metriche in monitoraggio di Azure
 
-Archiviazione di Azure integra ora le metriche nella piattaforma di monitoraggio di Azure. Questo articolo consente di eseguire la transizione.
+Il **31 agosto 2023** analisi archiviazione metriche, dette anche *metriche classiche* , verranno ritirate. Se si usano metriche classiche, assicurarsi di passare alle metriche in monitoraggio di Azure prima di tale data. Questo articolo consente di eseguire la transizione.
 
 ## <a name="steps-to-complete-the-transition"></a>Passaggi per completare la transizione
 
@@ -63,8 +63,8 @@ Per altre informazioni sulle metriche in monitoraggio di Azure, vedere [metriche
 
 | Metrica classica | Metrica in monitoraggio di Azure |
 | ------------------- | ----------------- |
-| `Capacity`            | `BlobCapacity`con la dimensione `BlobType` uguale a `BlockBlob` o`PageBlob` |
-| `ObjectCount`        | `BlobCount`con la dimensione `BlobType` uguale a `BlockBlob` o`PageBlob` |
+| `Capacity`            | `BlobCapacity` con la dimensione `BlobType` uguale a `BlockBlob` o `PageBlob` |
+| `ObjectCount`        | `BlobCount` con la dimensione `BlobType` uguale a `BlockBlob` o `PageBlob` |
 | `ContainerCount`      | `ContainerCount` |
 
 > [!NOTE]
@@ -74,40 +74,40 @@ Per altre informazioni sulle metriche in monitoraggio di Azure, vedere [metriche
 
 | Metrica classica | Metrica in monitoraggio di Azure |
 | ------------------- | ----------------- |
-| `AnonymousAuthorizationError` | Transazioni con dimensione `ResponseType` uguale a `AuthorizationError` e dimensione `Authentication` uguale a`Anonymous` |
-| `AnonymousClientOtherError` | Transazioni con dimensione `ResponseType` uguale a `ClientOtherError` e dimensione `Authentication` uguale a`Anonymous` |
-| `AnonymousClientTimeoutError` | Transazioni con dimensione `ResponseType` uguale a `ClientTimeoutError` e dimensione `Authentication` uguale a`Anonymous` |
-| `AnonymousNetworkError` | Transazioni con dimensione `ResponseType` uguale a `NetworkError` e dimensione `Authentication` uguale a`Anonymous` |
-| `AnonymousServerOtherError` | Transazioni con dimensione `ResponseType` uguale a `ServerOtherError` e dimensione `Authentication` uguale a`Anonymous` |
-| `AnonymousServerTimeoutError` | Transazioni con dimensione `ResponseType` uguale a `ServerTimeoutError` e dimensione `Authentication` uguale a`Anonymous` |
-| `AnonymousSuccess` | Transazioni con dimensione `ResponseType` uguale a `Success` e dimensione `Authentication` uguale a`Anonymous` |
-| `AnonymousThrottlingError` | Transazioni con dimensione `ResponseType` uguale a `ClientThrottlingError` o `ServerBusyError` e dimensione `Authentication` uguale a`Anonymous` |
-| `AuthorizationError` | Transazioni con la dimensione `ResponseType` uguale a`AuthorizationError` |
+| `AnonymousAuthorizationError` | Transazioni con dimensione `ResponseType` uguale a `AuthorizationError` e dimensione `Authentication` uguale a `Anonymous` |
+| `AnonymousClientOtherError` | Transazioni con dimensione `ResponseType` uguale a `ClientOtherError` e dimensione `Authentication` uguale a `Anonymous` |
+| `AnonymousClientTimeoutError` | Transazioni con dimensione `ResponseType` uguale a `ClientTimeoutError` e dimensione `Authentication` uguale a `Anonymous` |
+| `AnonymousNetworkError` | Transazioni con dimensione `ResponseType` uguale a `NetworkError` e dimensione `Authentication` uguale a `Anonymous` |
+| `AnonymousServerOtherError` | Transazioni con dimensione `ResponseType` uguale a `ServerOtherError` e dimensione `Authentication` uguale a `Anonymous` |
+| `AnonymousServerTimeoutError` | Transazioni con dimensione `ResponseType` uguale a `ServerTimeoutError` e dimensione `Authentication` uguale a `Anonymous` |
+| `AnonymousSuccess` | Transazioni con dimensione `ResponseType` uguale a `Success` e dimensione `Authentication` uguale a `Anonymous` |
+| `AnonymousThrottlingError` | Transazioni con dimensione `ResponseType` uguale a `ClientThrottlingError` o `ServerBusyError` e dimensione `Authentication` uguale a `Anonymous` |
+| `AuthorizationError` | Transazioni con la dimensione `ResponseType` uguale a `AuthorizationError` |
 | `Availability` | `Availability` |
 | `AverageE2ELatency` | `SuccessE2ELatency` |
 | `AverageServerLatency` | `SuccessServerLatency` |
-| `ClientOtherError` | Transazioni con la dimensione `ResponseType` uguale a`ClientOtherError` |
-| `ClientTimeoutError` | Transazioni con la dimensione `ResponseType` uguale a`ClientTimeoutError` |
-| `NetworkError` | Transazioni con la dimensione `ResponseType` uguale a`NetworkError` |
-| `PercentAuthorizationError` | Transazioni con la dimensione `ResponseType` uguale a`AuthorizationError` |
-| `PercentClientOtherError` | Transazioni con la dimensione `ResponseType` uguale a`ClientOtherError` |
-| `PercentNetworkError` | Transazioni con la dimensione `ResponseType` uguale a`NetworkError` |
-| `PercentServerOtherError` | Transazioni con la dimensione `ResponseType` uguale a`ServerOtherError` |
-| `PercentSuccess` | Transazioni con la dimensione `ResponseType` uguale a`Success` |
-| `PercentThrottlingError` | Transazioni con la dimensione `ResponseType` uguale a `ClientThrottlingError` o`ServerBusyError` |
-| `PercentTimeoutError` | Transazioni con la dimensione `ResponseType` uguale `ServerTimeoutError` o `ResponseType` uguale a`ClientTimeoutError` |
-| `SASAuthorizationError` | Transazioni con dimensione `ResponseType` uguale a `AuthorizationError` e dimensione `Authentication` uguale a`SAS` |
-| `SASClientOtherError` | Transazioni con dimensione `ResponseType` uguale a `ClientOtherError` e dimensione `Authentication` uguale a`SAS` |
-| `SASClientTimeoutError` | Transazioni con dimensione `ResponseType` uguale a `ClientTimeoutError` e dimensione `Authentication` uguale a`SAS` |
-| `SASNetworkError` | Transazioni con dimensione `ResponseType` uguale a `NetworkError` e dimensione `Authentication` uguale a`SAS` |
-| `SASServerOtherError` | Transazioni con dimensione `ResponseType` uguale a `ServerOtherError` e dimensione `Authentication` uguale a`SAS` |
-| `SASServerTimeoutError` | Transazioni con dimensione `ResponseType` uguale a `ServerTimeoutError` e dimensione `Authentication` uguale a`SAS` |
-| `SASSuccess` | Transazioni con dimensione `ResponseType` uguale a `Success` e dimensione `Authentication` uguale a`SAS` |
-| `SASThrottlingError` | Transazioni con dimensione `ResponseType` uguale a `ClientThrottlingError` o `ServerBusyError` e dimensione `Authentication` uguale a`SAS` |
-| `ServerOtherError` | Transazioni con la dimensione `ResponseType` uguale a`ServerOtherError` |
-| `ServerTimeoutError` | Transazioni con la dimensione `ResponseType` uguale a`ServerTimeoutError` |
-| `Success` | Transazioni con la dimensione `ResponseType` uguale a`Success` |
-| `ThrottlingError` | `Transactions`con la dimensione `ResponseType` uguale a `ClientThrottlingError` o`ServerBusyError`|
+| `ClientOtherError` | Transazioni con la dimensione `ResponseType` uguale a `ClientOtherError` |
+| `ClientTimeoutError` | Transazioni con la dimensione `ResponseType` uguale a `ClientTimeoutError` |
+| `NetworkError` | Transazioni con la dimensione `ResponseType` uguale a `NetworkError` |
+| `PercentAuthorizationError` | Transazioni con la dimensione `ResponseType` uguale a `AuthorizationError` |
+| `PercentClientOtherError` | Transazioni con la dimensione `ResponseType` uguale a `ClientOtherError` |
+| `PercentNetworkError` | Transazioni con la dimensione `ResponseType` uguale a `NetworkError` |
+| `PercentServerOtherError` | Transazioni con la dimensione `ResponseType` uguale a `ServerOtherError` |
+| `PercentSuccess` | Transazioni con la dimensione `ResponseType` uguale a `Success` |
+| `PercentThrottlingError` | Transazioni con la dimensione `ResponseType` uguale a `ClientThrottlingError` o `ServerBusyError` |
+| `PercentTimeoutError` | Transazioni con la dimensione `ResponseType` uguale `ServerTimeoutError` o `ResponseType` uguale a `ClientTimeoutError` |
+| `SASAuthorizationError` | Transazioni con dimensione `ResponseType` uguale a `AuthorizationError` e dimensione `Authentication` uguale a `SAS` |
+| `SASClientOtherError` | Transazioni con dimensione `ResponseType` uguale a `ClientOtherError` e dimensione `Authentication` uguale a `SAS` |
+| `SASClientTimeoutError` | Transazioni con dimensione `ResponseType` uguale a `ClientTimeoutError` e dimensione `Authentication` uguale a `SAS` |
+| `SASNetworkError` | Transazioni con dimensione `ResponseType` uguale a `NetworkError` e dimensione `Authentication` uguale a `SAS` |
+| `SASServerOtherError` | Transazioni con dimensione `ResponseType` uguale a `ServerOtherError` e dimensione `Authentication` uguale a `SAS` |
+| `SASServerTimeoutError` | Transazioni con dimensione `ResponseType` uguale a `ServerTimeoutError` e dimensione `Authentication` uguale a `SAS` |
+| `SASSuccess` | Transazioni con dimensione `ResponseType` uguale a `Success` e dimensione `Authentication` uguale a `SAS` |
+| `SASThrottlingError` | Transazioni con dimensione `ResponseType` uguale a `ClientThrottlingError` o `ServerBusyError` e dimensione `Authentication` uguale a `SAS` |
+| `ServerOtherError` | Transazioni con la dimensione `ResponseType` uguale a `ServerOtherError` |
+| `ServerTimeoutError` | Transazioni con la dimensione `ResponseType` uguale a `ServerTimeoutError` |
+| `Success` | Transazioni con la dimensione `ResponseType` uguale a `Success` |
+| `ThrottlingError` | `Transactions` con la dimensione `ResponseType` uguale a `ClientThrottlingError` o `ServerBusyError`|
 | `TotalBillableRequests` | `Transactions` |
 | `TotalEgress` | `Egress` |
 | `TotalIngress` | `Ingress` |

@@ -3,12 +3,13 @@ title: Risorse, ruoli e controllo di accesso in Azure Application Insights | Mic
 description: Proprietari, collaboratori e lettori di informazioni dell'organizzazione.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 3d69ad7eeb7c8dd32c2e3cb286f9596bed7fe042
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: cd1e69ecd121380353ad6400d473d572b7b7bb3e
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926502"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076685"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Risorse, ruoli e controllo di accesso in Application Insights
 
@@ -101,7 +102,7 @@ Se si usano servizi come Outlook.com, OneDrive, Windows Phone o XBox Live, hanno
 
 ## <a name="related-content"></a>Contenuti correlati
 
-* [Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/role-assignments-portal.md)
+* [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/role-assignments-portal.md)
 
 ## <a name="powershell-query-to-determine-role-membership"></a>Query di PowerShell per determinare l'appartenenza al ruolo
 

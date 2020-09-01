@@ -1,20 +1,20 @@
 ---
 title: Crittografia dei dati inattivi per il servizio vocale
 titleSuffix: Azure Cognitive Services
-description: Crittografia del servizio vocale dei dati inattivi.
+description: Microsoft offre chiavi di crittografia gestite da Microsoft e consente inoltre di gestire le sottoscrizioni di servizi cognitivi con chiavi personalizzate, denominate chiavi gestite dal cliente (CMK). Questo articolo illustra la crittografia dei dati inattivi per il servizio di riconoscimento vocale.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/11/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: c2e52fbab8d984f7442d8a336e90e9f22c0bf061
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: b9b76b2eb5e9536561f73a92b6911a2f82122a1b
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83198662"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078096"
 ---
 # <a name="speech-service-encryption-of-data-at-rest"></a>Crittografia dei dati inattivi per il servizio vocale
 
@@ -22,7 +22,7 @@ Il servizio di riconoscimento vocale crittografa automaticamente i dati quando v
 
 ## <a name="about-cognitive-services-encryption"></a>Informazioni sulla crittografia di servizi cognitivi
 
-I dati vengono crittografati e decrittografati usando la crittografia [AES a 256 bit](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) conforme allo standard [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) . La crittografia e la decrittografia sono trasparenti, ovvero la crittografia e l'accesso vengono gestite per l'utente. I dati sono protetti per impostazione predefinita e non è necessario modificare il codice o le applicazioni per sfruttare i vantaggi della crittografia.
+I dati vengono crittografati e decrittografati usando la crittografia [AES a 256 bit](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) conforme allo standard [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) . La crittografia e la decrittografia sono trasparenti, ovvero la crittografia e l'accesso vengono gestite per l'utente. I dati sono protetti per impostazione predefinita e non è necessario modificare il codice o le applicazioni per sfruttare la crittografia.
 
 ## <a name="about-encryption-key-management"></a>Informazioni sulla gestione delle chiavi di crittografia
 

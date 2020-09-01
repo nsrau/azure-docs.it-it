@@ -9,13 +9,13 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: dd85504ac2321310288efe5d0a1ef7dfcde60f21
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 9964a10b85d9f388a4498766c6e81ee52498aa37
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566064"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076175"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>Configurare la replica di oggetti per i BLOB in blocchi (anteprima)
 
@@ -24,6 +24,8 @@ La replica di oggetti (anteprima) copia in modo asincrono i BLOB in blocchi tra 
 Quando si configura la replica di oggetti, si crea un criterio di replica che specifica l'account di archiviazione di origine e l'account di destinazione. Un criterio di replica include una o più regole che specificano un contenitore di origine e un contenitore di destinazione e indicano i BLOB in blocchi del contenitore di origine che verranno replicati.
 
 Questo articolo descrive come configurare la replica di oggetti per l'account di archiviazione usando il portale di Azure, PowerShell o l'interfaccia della riga di comando di Azure. Per configurare la replica di oggetti è anche possibile usare una delle librerie client del provider di risorse di Archiviazione di Azure.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="create-a-replication-policy-and-rules"></a>Creare criteri e regole di replica
 

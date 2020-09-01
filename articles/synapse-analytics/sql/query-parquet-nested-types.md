@@ -1,6 +1,6 @@
 ---
 title: Eseguire query su tipi nidificati Parquet con SQL su richiesta (anteprima)
-description: In questo successivo si apprenderà come eseguire query su tipi nidificati Parquet.
+description: In questo articolo si apprenderà come eseguire una query sui tipi annidati parquet usando SQL su richiesta (anteprima).
 services: synapse-analytics
 author: azaricstefan
 ms.service: synapse-analytics
@@ -9,24 +9,24 @@ ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: v-stazar
 ms.reviewer: jrasnick, carlrab
-ms.openlocfilehash: fb56c4da77ddeb87ebc3724a3b138994e4da98e7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: f58adf124634ce1b4326f0026718688f0eb1dc7b
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87489691"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076736"
 ---
-# <a name="query-nested-types-in-parquet-and-json-files-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Eseguire query sui tipi annidati in file parquet e JSON usando SQL su richiesta (anteprima) in Azure sinapsi Analytics
+# <a name="query-nested-types-in-parquet-and-json-files-by-using-sql-on-demand-preview-in-azure-synapse-analytics"></a>Eseguire query sui tipi annidati in file parquet e JSON usando SQL su richiesta (anteprima) in Azure sinapsi Analytics
 
-In questo articolo si apprenderà come scrivere una query usando SQL su richiesta (anteprima) in Azure Synapse Analytics. Questa query leggerà tipi nidificati Parquet.
+Questo articolo illustra come scrivere una query usando SQL su richiesta (anteprima) in Azure sinapsi Analytics. La query eseguirà la lettura dei tipi annidati parquet.
 I tipi annidati sono strutture complesse che rappresentano oggetti o matrici. I tipi annidati possono essere archiviati in: 
-- [Parquet](query-parquet-files.md) in cui è possibile disporre di più colonne complesse contenenti matrici e oggetti.
-- [File JSON](query-json-files.md) gerarchici in cui è possibile leggere documenti JSON complessi come colonna singola.
-- Raccolta CosmosDB in cui ogni documento può contenere proprietà nidificate complesse (attualmente sotto la versione di anteprima pubblica gestita).
+- [Parquet](query-parquet-files.md), in cui è possibile disporre di più colonne complesse che contengono matrici e oggetti.
+- [File JSON](query-json-files.md)gerarchici, in cui è possibile leggere un documento JSON complesso come colonna singola.
+- Azure Cosmos DB raccolte (attualmente in anteprima pubblica gestita), in cui ogni documento può contenere proprietà nidificate complesse.
 
-Sinapsi SQL su richiesta formatta tutti i tipi annidati come oggetti e matrici JSON, in modo da poter [estrarre o modificare oggetti complessi usando funzioni JSON](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) o [analizzare i dati JSON usando la funzione OPENJSON](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
+Azure sinapsi SQL su richiesta formatta tutti i tipi annidati come oggetti e matrici JSON. È quindi possibile [estrarre o modificare oggetti complessi usando funzioni JSON](https://docs.microsoft.com/sql/relational-databases/json/validate-query-and-change-json-data-with-built-in-functions-sql-server) o [analizzare i dati JSON usando la funzione OPENJSON](https://docs.microsoft.com/sql/relational-databases/json/convert-json-data-to-rows-and-columns-with-openjson-sql-server). 
 
-Di seguito è riportato un esempio di query che estrae i valori scalari e oggetti da [COVID-19 Open Research DataSet](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) JSON file con oggetti annidati. 
+Di seguito è riportato un esempio di una query che estrae i valori scalari e di oggetti dal file JSON del [set di dati Open Research COVID-19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/) , che contiene gli oggetti annidati: 
 
 ```sql
 SELECT
@@ -42,18 +42,18 @@ FROM
     WITH ( doc varchar(MAX) ) AS docs;
 ```
 
-`JSON_VALUE`la funzione restituisce un valore scalare dal campo in corrispondenza del percorso specificato. `JSON_QUERY`la funzione restituisce un oggetto formattato come JSON dal campo nel percorso specificato.
+La `JSON_VALUE` funzione restituisce un valore scalare dal campo nel percorso specificato. La `JSON_QUERY` funzione restituisce un oggetto formattato come JSON dal campo nel percorso specificato.
 
 > [!IMPORTANT]
-> Questo esempio usa un file del [set di dati di ricerca aperto COVID-19](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/). Vedere la licenza THS e la struttura dei dati in questa pagina.
+> Questo esempio usa un file del set di dati di ricerca aperto COVID-19. [Vedere la licenza e la struttura dei dati qui](https://azure.microsoft.com/services/open-datasets/catalog/covid-19-open-research/).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Il primo passaggio consiste nel **creare un database** con un'origine dati di riferimento. Inizializzare quindi gli oggetti eseguendo uno [script di configurazione](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) su tale database. Questo script di configurazione creerà le origini dati, le credenziali con ambito database e i formati di file esterni usati in questi esempi.
+Il primo passaggio consiste nel creare un database in cui verrà creata l'origine dati. Sarà quindi possibile inizializzare gli oggetti eseguendo uno [script di installazione](https://github.com/Azure-Samples/Synapse/blob/master/SQL/Samples/LdwSample/SampleDB.sql) nel database. Lo script di installazione creerà le origini dati, le credenziali con ambito database e i formati di file esterni utilizzati negli esempi.
 
 ## <a name="project-nested-or-repeated-data"></a>Proiettare dati annidati o ripetuti
 
-Il file PARQUET può includere più colonne con tipi complessi. I valori di queste colonne vengono formattati come testo JSON e restituiti come colonna VARCHAR. Nella query seguente viene letto il file *structExample. parquet* e viene illustrato come leggere i valori delle colonne nidificate: 
+Un file parquet può includere più colonne con tipi complessi. I valori di queste colonne vengono formattati come testo JSON e restituiti come colonne VARCHAR. Nella query seguente viene letto il file structExample. parquet e viene illustrato come leggere i valori delle colonne nidificate: 
 
 ```sql
 SELECT
@@ -73,14 +73,14 @@ FROM
     ) AS [r];
 ```
 
-Questa query restituirà il risultato seguente, in cui il contenuto di ogni oggetto annidato viene restituito come testo JSON:
+Questa query restituisce il risultato seguente. Il contenuto di ogni oggetto annidato viene restituito come testo JSON.
 
 | DateStruct    | TimeStruct    | TimestampStruct   | DecimalStruct | FloatStruct |
 | --- | --- | --- | --- | --- |
 |{"Date": "2009-04-25"}| {"Time": "20:51:54.3598000"}|    {"Timestamp": "5501-04-08 12:13:57.4821000"}|    {"Decimal": 11143412.25350}| {"Float": 0,5}|
 |{"Date": "1916-04-29"}| {"Time": "00:16:04.6778000"}|    {"Timestamp": "1990-06-30 20:50:52.6828000"}|    {"Decimal": 1963545.62800}|  {"Float":-2,125}|
 
-La query seguente legge il file *justSimpleArray.parquet* e proietta tutte le colonne del file parquet, inclusi i dati nidificati o ripetuti.
+La query seguente legge il file justSimpleArray.parquet Proietta tutte le colonne dal file parquet, inclusi i dati annidati e ripetuti.
 
 ```sql
 SELECT
@@ -102,7 +102,7 @@ Questa query restituirà il risultato seguente:
 
 ## <a name="read-properties-from-nested-object-columns"></a>Leggere le proprietà da colonne oggetto annidate
 
-`JSON_VALUE`la funzione consente di restituire valori da una colonna formattata come testo JSON:
+La `JSON_VALUE` funzione consente di restituire valori da colonne formattate come testo JSON:
 
 ```sql
 SELECT
@@ -121,11 +121,11 @@ Il risultato è illustrato nella tabella seguente:
 | --- | --- | --- | --- |
 | Informazioni supplementari su Eco-epidemiolo... | Julien   | -Figura S1: filogenesi... | `{    "paper_id": "000b7d1517ceebb34e1e3e817695b6de03e2fa78",    "metadata": {        "title": "Supplementary Information An eco-epidemiological study of Morbilli-related paramyxovirus infection in Madagascar bats reveals host-switching as the dominant macro-evolutionary mechanism",        "authors": [            {                "first": "Julien"` |
 
-Diversamente dai file JSON che nella maggior parte dei casi restituiscono una singola colonna contenente un oggetto JSON complesso. I file PARQUET possono avere più complessi. È possibile leggere le proprietà della colonna nidificata utilizzando la `JSON_VALUE` funzione in ogni colonna. `OPENROWSET`consente di specificare direttamente i percorsi della clausola proprietà annidate in `WITH` . I percorsi possono essere impostati come nome della colonna oppure è possibile aggiungere un' [espressione di percorso JSON](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server) dopo il tipo di colonna.
+Diversamente dai file JSON, che nella maggior parte dei casi restituiscono una singola colonna contenente un oggetto JSON complesso, i file parquet possono avere più colonne complesse. È possibile leggere le proprietà delle colonne annidate utilizzando la `JSON_VALUE` funzione in ogni colonna. `OPENROWSET` consente di specificare direttamente i percorsi delle proprietà annidate in una `WITH` clausola. È possibile impostare i percorsi come nome di una colonna oppure è possibile aggiungere un'espressione di [percorso JSON](https://docs.microsoft.com/sql/relational-databases/json/json-path-expressions-sql-server) dopo il tipo di colonna.
 
-Nella query seguente viene letto il file *structExample. parquet* e viene illustrato come visualizzare gli elementi di una colonna nidificata. Sono disponibili due modi per fare riferimento a un valore annidato:
-- Specifica dell'espressione del percorso del valore annidato dopo la specifica del tipo.
-- Formattazione del nome della colonna come percorso annidato utilizzando do "." per fare riferimento ai campi.
+Nella query seguente viene letto il file structExample. parquet e viene illustrato come visualizzare gli elementi di una colonna nidificata. Esistono due modi per fare riferimento a un valore annidato:
+- Specificando l'espressione del percorso del valore annidato dopo la specifica del tipo.
+- Formattando il nome della colonna come tracciato annidato utilizzando "." per fare riferimento ai campi.
 
 ```sql
 SELECT
@@ -147,7 +147,7 @@ FROM
 
 ## <a name="access-elements-from-repeated-columns"></a>Accesso agli elementi di colonne ripetute
 
-La query seguente legge il file *justSimpleArray.parquet* e usa [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) per recuperare un elemento **scalare** dall'interno di una colonna ripetuta, ad esempio una matrice o una mappa:
+La query seguente legge il file justSimpleArray. parquet e USA [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) per recuperare un elemento scalare dall'interno di una colonna ripetuta, ad esempio una matrice o una mappa:
 
 ```sql
 SELECT
@@ -163,7 +163,7 @@ FROM
     ) AS [r];
 ```
 
-Il risultato è illustrato nella tabella seguente:
+Il risultato è il seguente:
 
 |SimpleArray    | FirstElement  | Secondoelement | Terzoelement |
 | --- | --- | --- | --- |
@@ -172,7 +172,7 @@ Il risultato è illustrato nella tabella seguente:
 
 ## <a name="access-sub-objects-from-complex-columns"></a>Accesso a oggetti secondari da colonne complesse
 
-La query seguente legge il file *mapExample.parquet* e usa [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) per recuperare un elemento **non scalare** dall'interno di una colonna ripetuta, ad esempio una matrice o una mappa:
+La query seguente legge il file mapExample. parquet e USA [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json&view=azure-sqldw-latest) per recuperare un elemento non scalare dall'interno di una colonna ripetuta, ad esempio una matrice o una mappa:
 
 ```sql
 SELECT
@@ -186,7 +186,7 @@ FROM
     ) AS [r];
 ```
 
-È inoltre possibile fare riferimento in modo esplicito alle colonne che si desidera restituire nella `WITH` clausola:
+È inoltre possibile fare riferimento in modo esplicito alle colonne che si desidera restituire in una `WITH` clausola:
 
 ```sql
 SELECT DocId,
@@ -201,11 +201,11 @@ FROM
     WITH (DocId bigint, MapOfPersons VARCHAR(max)) AS [r];
 ```
 
-La struttura `MapOfPersons` viene restituita come `VARCHAR` colonna e formattata come stringa JSON.
+La struttura `MapOfPersons` viene restituita come colonna varchar e formattata come stringa JSON.
 
 ## <a name="project-values-from-repeated-columns"></a>Valori di progetto da colonne ripetute
 
-Se si dispone di una matrice di valori scalari (ad esempio `[1,2,3]` ) in alcune colonne, è possibile espanderli facilmente e aggiungerli alla riga principale usando lo script seguente:
+Se si dispone di una matrice di valori scalari (ad esempio `[1,2,3]` ) in alcune colonne, è possibile espanderli facilmente e aggiungerli alla riga principale usando questo script:
 
 ```sql
 SELECT

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
-ms.openlocfilehash: 1a5ed324ae109a151bf21050993bff02434410df
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: e949c3db6d8c0cafab8556dbfde367e6e49273e9
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814451"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078198"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>Crittografia del servizio di archiviazione di Azure per dati inattivi
 
@@ -69,6 +69,8 @@ Dopo aver creato un ambito di crittografia, è possibile specificare tale ambito
 
 > [!NOTE]
 > Gli ambiti di crittografia non sono supportati con l'archiviazione con ridondanza geografica e accesso in lettura (RA-GRS) e gli account di archiviazione con ridondanza geografica e accesso in lettura (RA-GZRS) durante la fase di anteprima.
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 > [!IMPORTANT]
 > L'anteprima degli ambiti di crittografia è destinata solo all'uso non in produzione. I contratti di servizio (SLA) di produzione non sono al momento disponibili.

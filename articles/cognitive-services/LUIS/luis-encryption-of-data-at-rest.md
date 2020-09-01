@@ -1,20 +1,20 @@
 ---
 title: Crittografia dei dati inattivi di Language Understanding Service
 titleSuffix: Azure Cognitive Services
-description: Language Understanding la crittografia dei dati inattivi.
+description: Microsoft offre chiavi di crittografia gestite da Microsoft e consente inoltre di gestire le sottoscrizioni di servizi cognitivi con chiavi personalizzate, denominate chiavi gestite dal cliente (CMK). Questo articolo illustra la crittografia dei dati inattivi per Language Understanding (LUIS) e come abilitare e gestire CMK.
 author: erindormier
 manager: venkyv
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 08/28/2020
 ms.author: egeaney
-ms.openlocfilehash: 4fc816c3894120a5d1b356d91ebebbc56f21b530
-ms.sourcegitcommit: ff19f4ecaff33a414c0fa2d4c92542d6e91332f8
+ms.openlocfilehash: ce6561652801d52e5600ddc63e573070281da3f2
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85052702"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078130"
 ---
 # <a name="language-understanding-service-encryption-of-data-at-rest"></a>Crittografia dei dati inattivi di Language Understanding Service
 
@@ -22,11 +22,11 @@ Il servizio Language Understanding crittografa automaticamente i dati quando ven
 
 ## <a name="about-cognitive-services-encryption"></a>Informazioni sulla crittografia di servizi cognitivi
 
-I dati vengono crittografati e decrittografati usando la crittografia [AES a 256 bit](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) conforme allo standard [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) . La crittografia e la decrittografia sono trasparenti, ovvero la crittografia e l'accesso vengono gestite per l'utente. I dati sono protetti per impostazione predefinita e non è necessario modificare il codice o le applicazioni per sfruttare i vantaggi della crittografia.
+I dati vengono crittografati e decrittografati usando la crittografia [AES a 256 bit](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) conforme allo standard [FIPS 140-2](https://en.wikipedia.org/wiki/FIPS_140-2) . La crittografia e la decrittografia sono trasparenti, ovvero la crittografia e l'accesso vengono gestite per l'utente. I dati sono protetti per impostazione predefinita e non è necessario modificare il codice o le applicazioni per sfruttare la crittografia.
 
 ## <a name="about-encryption-key-management"></a>Informazioni sulla gestione delle chiavi di crittografia
 
-Per impostazione predefinita, la sottoscrizione USA chiavi di crittografia gestite da Microsoft. È anche possibile gestire la sottoscrizione con le proprie chiavi. Chiavi gestite dal cliente (CMK), offrono una maggiore flessibilità per creare, ruotare, disabilitare e revocare i controlli di accesso. È anche possibile controllare le chiavi di crittografia usate per proteggere i dati.
+Per impostazione predefinita, la sottoscrizione usa chiavi di crittografia gestite da Microsoft. È anche possibile gestire la sottoscrizione con chiavi personalizzate denominate chiavi gestite dal cliente (CMK). CMK offre una maggiore flessibilità per creare, ruotare, disabilitare e revocare i controlli di accesso. È anche possibile controllare le chiavi di crittografia usate per proteggere i dati.
 
 ## <a name="customer-managed-keys-with-azure-key-vault"></a>Chiavi gestite dal cliente con Azure Key Vault
 
@@ -39,10 +39,6 @@ Per impostazione predefinita, la sottoscrizione USA chiavi di crittografia gesti
 Per richiedere la possibilità di usare chiavi gestite dal cliente, compilare e inviare il [modulo di richiesta della chiave gestita dal cliente del servizio Luis](https://aka.ms/cogsvc-cmk). Saranno richiesti circa 3-5 giorni lavorativi per ricevere informazioni sullo stato della richiesta. A seconda della richiesta, è possibile che venga inserita in una coda e approvata quando lo spazio diventa disponibile. Una volta approvate per l'uso di CMK con LUIS, è necessario creare una nuova risorsa Language Understanding dal portale di Azure e selezionare E0 come piano tariffario. Il nuovo SKU funzionerà come lo SKU F0 già disponibile ad eccezione di CMK. Gli utenti non saranno in grado di eseguire l'aggiornamento da F0 al nuovo SKU di E0.
 
 ![Immagine della sottoscrizione LUIS](../media/cognitive-services-encryption/luis-subscription.png)
-
-### <a name="regional-availability"></a>Disponibilità a livello di area
-
-Le chiavi gestite dal cliente sono disponibili in tutte le [aree di creazione](luis-reference-regions.md). 
 
 ### <a name="limitations"></a>Limitazioni
 

@@ -6,12 +6,13 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: ff12f8857a7977226f836ec0418f74fb29e02906
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: ba51c96e3195f75a0ccf49baded67737f4665615
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87075109"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077739"
 ---
 # <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-powershell"></a>Iniziare a usare Azure Data Lake Storage Gen1 tramite Azure PowerShell
 
@@ -33,7 +34,7 @@ Informazioni su come usare Azure PowerShell per creare un account di Azure Data 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di prova gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Azure PowerShell 1,0 o versione successiva**. Vedere [Come installare e configurare Azure PowerShell](/powershell/azure/).
 
-## <a name="authentication"></a>Autenticazione
+## <a name="authentication"></a>Authentication
 
 Questo articolo usa un approccio di autenticazione più semplice con Data Lake Storage Gen1 in cui viene richiesto di immettere le credenziali dell'account Azure. Il livello di accesso all'account Data Lake Storage Gen1 e al file system viene quindi controllato dal livello di accesso dell'utente connesso. Esistono tuttavia altri approcci per l'autenticazione con Data Lake Storage Gen1, ovvero l'autenticazione dell'utente finale o l'autenticazione da servizio a servizio. Per altre informazioni e istruzioni su come eseguire l'autenticazione, vedere [Autenticazione dell'utente finale](data-lake-store-end-user-authenticate-using-active-directory.md) o [Autenticazione da servizio a servizio](data-lake-store-authenticate-using-active-directory.md).
 

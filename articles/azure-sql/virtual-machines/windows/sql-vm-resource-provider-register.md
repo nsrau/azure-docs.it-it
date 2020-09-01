@@ -13,13 +13,13 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 6c52275735a6558a625e2118761d7ba98509dbe1
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 3f1a9a2756d81765d82938651672e5a83edc48ed
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497070"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078688"
 ---
 # <a name="register-a-sql-server-vm-in-azure-with-the-sql-vm-resource-provider-rp"></a>Registrare una macchina virtuale SQL Server in Azure con il provider di risorse VM SQL (RP)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -398,9 +398,9 @@ La modalità di gestione predefinita di SQL durante la registrazione con il prov
 
 **La registrazione con il provider di risorse macchine virtuali SQL installerà un agente nella macchina virtuale?**
 
-No. La registrazione con il provider di risorse macchine virtuali SQL creerà solo una nuova risorsa di metadati. Non installerà un agente nella macchina virtuale.
+Sì. la registrazione con il provider di risorse VM SQL installerà un agente nella macchina virtuale.
 
-L'estensione IaaS di SQL Server è necessaria solo per consentire una gestione completa. Se si aggiorna la modalità di gestibilità da semplificata a completa, si installerà l'estensione IaaS di SQL Server e si riavvierà SQL Server.
+Il SQL Server estensione IaaS si basa sull'agente per eseguire una query sui metadati per SQL Server. L'unico momento in cui un agente non è installato è quando il provider di risorse VM SQL è regsitered in modalità noagent
 
 **La registrazione con il provider di risorse VM SQL riavvierà SQL Server nella macchina virtuale?**
 
@@ -466,6 +466,6 @@ I due nomi di servizio sono:
 Per altre informazioni, vedere gli articoli seguenti: 
 
 * [Panoramica di SQL Server in una macchina virtuale Windows](sql-server-on-azure-vm-iaas-what-is-overview.md)
-* [Domande frequenti su SQL Server in una macchia virtuale Windows](frequently-asked-questions-faq.md)
-* [Informazioni sui prezzi di SQL Server in una macchina virtuale Windows](pricing-guidance.md)
-* [Note sulla versione di SQL Server in una macchina virtuale Windows](../../database/doc-changes-updates-release-notes.md)
+* [Domande frequenti su SQL Server in una VM di Windows](frequently-asked-questions-faq.md)  
+* [Informazioni sui prezzi di SQL Server in una VM di Windows](pricing-guidance.md)
+* [Note sulla versione di SQL Server in una VM di Windows](../../database/doc-changes-updates-release-notes.md)

@@ -6,19 +6,19 @@ ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: article
 ms.date: 08/25/2020
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8c51095c9e33cd9e5f6da7e972e0cc596eec6478
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 81fad94dc02bd57f839d7ab8653bec7074e41800
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855597"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076341"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Implementare modelli di Azure Resource Manager per App per la logica di Azure
 
 Dopo aver creato un modello di Azure Resource Manager per l'app per la logica, è possibile distribuire il modello nei modi seguenti:
 
-* [Azure portal](#portal)
+* [Portale di Azure](#portal)
 * [Visual Studio](#visual-studio)
 * [Azure PowerShell](#powershell)
 * [Interfaccia della riga di comando di Azure](#cli)

@@ -4,7 +4,7 @@
   items:
     - name: Che cos'è Gestione firewall di Azure?
       href: overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   expanded: true
   items:
     - name: Hub virtuale protetto - Modello di Resource Manager

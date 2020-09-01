@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 996793f2851949f7474312a18ccff04e88db2232
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: b43635c637f10b6ace8a744ceb3046c4ce3b9bd4
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259155"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078079"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Baseline della sicurezza di Azure per le istanze di contenitore
 
@@ -155,7 +155,7 @@ Distribuire la soluzione firewall scelta a ogni limite di rete dell'organizzazio
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: gestire le configurazioni di sicurezza standard per i dispositivi di rete
 
-**Linee guida**: è anche possibile usare i progetti di Azure per semplificare le distribuzioni di Azure su larga scala mediante la creazione di pacchetti di elementi chiave dell'ambiente, ad esempio modelli di Azure Resource Manager, controlli RBAC e criteri, in una singola definizione di progetto. È possibile applicare il progetto a nuove sottoscrizioni e ottimizzare il controllo e la gestione tramite il controllo delle versioni. 
+**Linee guida**: è anche possibile usare i progetti di Azure per semplificare le distribuzioni di Azure su larga scala creando pacchetti di elementi chiave dell'ambiente, ad esempio modelli di Azure Resource Manager, controlli RBAC di Azure e criteri, in una singola definizione di progetto. È possibile applicare il progetto a nuove sottoscrizioni e ottimizzare il controllo e la gestione tramite il controllo delle versioni. 
 
 * [Come configurare e gestire Criteri di Azure](../governance/policy/tutorials/create-and-manage.md)
 
@@ -186,7 +186,7 @@ Usare una delle definizioni di criteri di Azure predefinite correlate all'assegn
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="111-use-automated-tools-to-monitor-network-resource-configurations-and-detect-changes"></a>1.11: usare strumenti automatizzati per monitorare le configurazioni delle risorse di rete e rilevare le modifiche
 
@@ -356,7 +356,7 @@ Se si usa un registro contenitori di Azure con istanze di contenitore di Azure, 
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="34-use-single-sign-on-sso-with-azure-active-directory"></a>3.4: usare Single Sign-On (SSO) con Azure Active Directory
 
@@ -557,9 +557,9 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
-**Linee guida**: usare Azure ad RBAC per controllare l'accesso ai dati e alle risorse dell'istanza di contenitore di Azure. 
+**Linee guida**: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso ai dati e alle risorse delle istanze di contenitore di Azure. 
 
-* [Come configurare RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+* [Come configurare RBAC di Azure](../role-based-access-control/role-assignments-portal.md)
 
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
@@ -738,7 +738,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6: monitorare le applicazioni software non approvate nelle risorse di calcolo
 
@@ -919,17 +919,17 @@ Usare una soluzione personalizzata o di terze parti per applicare patch alle imm
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: archiviare in modo sicuro immagini personalizzate del sistema operativo
 
-**Indicazioni**: archiviare le immagini del contenitore in Azure container Registry e sfruttare il controllo degli accessi in base al ruolo per garantire che solo gli utenti autorizzati possano accedere alle immagini
+**Linee guida**: archiviare le immagini del contenitore in Azure container Registry e sfruttare il controllo degli accessi in base al ruolo di Azure per garantire che solo gli utenti autorizzati possano accedere
 
-* [Informazioni sul RBAC in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Comprendere il RBAC per Container Registry](../container-registry/container-registry-roles.md)
+* [Informazioni su RBAC di Azure per Container Registry](../container-registry/container-registry-roles.md)
 
-* [Come configurare RBAC in Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [Come configurare RBAC di Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
@@ -1129,7 +1129,7 @@ Il cliente può inoltre sfruttare la guida alla gestione degli eventi imprevisti
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="102-create-an-incident-scoring-and-prioritization-procedure"></a>10.2: creare una procedura per l'assegnazione di punteggi e la classificazione in ordine di priorità per gli eventi imprevisti
 
@@ -1172,7 +1172,7 @@ Inoltre, contrassegnare chiaramente le sottoscrizioni, ad esempio. produzione, n
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: automatizzare la risposta agli avvisi di sicurezza
 

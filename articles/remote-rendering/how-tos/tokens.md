@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: how-to
-ms.openlocfilehash: fd510f90887353d7486908ee076d5308db72c59d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 7e8e2f3f9dd49693faa26eaaab309fcad58f6f9f
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81687078"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076158"
 ---
 # <a name="get-service-access-tokens"></a>Ottenere i token di accesso al servizio
 
@@ -44,7 +45,7 @@ Sostituire *accountId* e *AccountKey* con i rispettivi dati.
 |-----------|:-----------|:-----------|
 | 200 | AccessToken: stringa | Operazione completata |
 
-| Header | Scopo |
+| Intestazione | Scopo |
 |--------|:------|
 | MS-CV | Questo valore può essere utilizzato per tracciare la chiamata all'interno del servizio |
 

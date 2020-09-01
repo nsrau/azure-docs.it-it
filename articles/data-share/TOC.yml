@@ -1,6 +1,7 @@
 - name: Documentazione di Condivisione dati di Azure
   href: index.yml
 - name: Panoramica
+  expanded: true
   items:
     - name: Che cos'è Condivisione dati di Azure?
       href: overview.md
@@ -36,6 +37,11 @@
       href: samples-powershell.md
 - name: Guide pratiche
   items:
+    - name: Condividere e ricevere dati in base all'origine
+      items:
+        - name: Condividere da Esplora dati di Azure
+          href: /azure/data-explorer/data-share
+          maintainContext: true
     - name: Monitorare
       href: how-to-monitor.md
     - name: Risolvere problemi
@@ -54,9 +60,6 @@
       href: security.md
     - name: Ripristino di emergenza
       href: disaster-recovery.md
-    - name: Condividere i dati di Esplora dati di Azure
-      href: /azure/data-explorer/data-share
-      maintainContext: true
 - name: Informazioni di riferimento
   items:
     - name: .NET

@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: f4092b9d5ee7453533561f5921781fee4d1823eb
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: fd14af6c95654708f339f4a68cd333d0e3162553
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005585"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89078181"
 ---
 # <a name="scale-windows-virtual-desktop-classic-session-hosts-using-azure-automation"></a>Ridimensionare gli host di sessione desktop virtuali Windows (classico) usando automazione di Azure
 
@@ -21,10 +21,6 @@ ms.locfileid: "88005585"
 È possibile ridurre il costo totale di distribuzione di Desktop virtuale Windows dimensionando le macchine virtuali (VM). Ciò significa arrestare e deallocare le VM host di sessioni nelle ore non di punta, quindi riattivarle e riallocarle nelle ore di punta.
 
 Questo articolo illustra lo strumento di ridimensionamento creato con l'account di automazione di Azure e l'app per la logica di Azure che ridimensiona automaticamente le VM host della sessione nell'ambiente di desktop virtuale Windows. Per informazioni su come usare lo strumento di dimensionamento, vedere [Prerequisiti](#prerequisites).
-
-## <a name="report-issues"></a>Segnalare i problemi
-
-Le segnalazioni di problemi relativi allo strumento di dimensionamento vengono attualmente gestite in GitHub invece che dal supporto tecnico Microsoft. Se si verificano problemi con lo strumento di scalabilità, ottenere le informazioni necessarie come descritto nella sezione [problemi relativi alla creazione di report](#reporting-issues) e aprire un problema di GitHub denominato "4a-Wvd-scaling-logica" nella [pagina di GitHub su RDS](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4a-WVD-scaling-logicapps).
 
 ## <a name="how-the-scaling-tool-works"></a>Funzionamento dello strumento di dimensionamento
 
@@ -362,3 +358,7 @@ Se si è deciso di usare Log Analytics, è possibile visualizzare tutti i dati d
     | where logmessage_s contains "ERROR:" or logmessage_s contains "WARN:"
     | project TimeStampUTC = TimeGenerated, TimeStampLocal = TimeStamp_s, HostPool = hostpoolName_s, LineNumAndMessage = logmessage_s, AADTenantId = TenantId
     ```
+
+## <a name="report-issues"></a>Segnalare i problemi
+
+I report sui problemi per lo strumento di scalabilità sono attualmente gestiti da supporto tecnico Microsoft. Quando si crea un report di problema, assicurarsi di seguire le istruzioni riportate in [segnalazione di problemi](#reporting-issues). Se si dispone di commenti e suggerimenti sullo strumento o si vuole richiedere nuove funzionalità, aprire un problema di GitHub con l'etichetta "4-WVD-scaling-Tool" nella [pagina di GitHub di RDS](https://github.com/Azure/RDS-Templates/issues?q=is%3Aissue+is%3Aopen+label%3A4-WVD-scaling-tool).

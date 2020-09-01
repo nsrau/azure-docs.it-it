@@ -3,12 +3,13 @@ title: Come creare criteri di Configurazione guest per Linux
 description: Informazioni su come creare criteri di Configurazione guest di Criteri di Azure per Linux.
 ms.date: 08/17/2020
 ms.topic: how-to
-ms.openlocfilehash: 7510cf378bc7e2d999de122be27662a7ccf0ba92
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 4f49732aa2be50b0d8be6f1f3af974121dc9f363
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717541"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89076362"
 ---
 # <a name="how-to-create-guest-configuration-policies-for-linux"></a>Come creare criteri di Configurazione guest per Linux
 
@@ -158,7 +159,7 @@ Il cmdlet `New-GuestConfigurationPackage` crea il pacchetto. Parametri del cmdle
 
 - **Name**: Nome del pacchetto di Configurazione guest.
 - **Configuration**: percorso completo del documento di configurazione compilato.
-- **Path**: percorso della cartella di output. Questo parametro è facoltativo e, se non è specificato, il pacchetto viene creato nella directory corrente.
+- **Path**: percorso della cartella di output. Questo parametro è facoltativo. se non è specificato, il pacchetto viene creato nella directory corrente.
 - **ChefProfilePath**: Percorso completo del profilo InSpec. Questo parametro è supportato solo quando si crea contenuto per il controllo di Linux.
 
 Eseguire il comando seguente per creare un pacchetto usando la configurazione fornita nel passaggio precedente:
