@@ -16,12 +16,12 @@ ms.date: 11/29/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 5536d18ed2af83da122f5748912a0544bbbf7b19
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: a9da4689a1b5579f90a1df0feb487e50d57a9d98
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074828"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269217"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-using-powershell"></a>Visualizzare l'entità servizio di un'identità gestita tramite PowerShell
 
@@ -35,7 +35,7 @@ In questo articolo viene descritto come visualizzare l'entità servizio di un'id
 
 - Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md).
 - Se non si ha già un account Azure, è possibile [registrarsi per ottenerne uno gratuito](https://azure.microsoft.com/free/).
-- Abilitare l'[identità assegnata dal sistema nella macchina virtuale](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#system-assigned-managed-identity) o nell'[applicazione](/azure/app-service/overview-managed-identity#add-a-system-assigned-identity).
+- Abilitare l'[identità assegnata dal sistema nella macchina virtuale](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity) o nell'[applicazione](../../app-service/overview-managed-identity.md#add-a-system-assigned-identity).
 - Installare la versione più recente di [Azure PowerShell](/powershell/azure/install-az-ps)
 
 ## <a name="view-the-service-principal"></a>Visualizzare l'entità servizio
@@ -49,5 +49,3 @@ Get-AzADServicePrincipal -DisplayName <VM or application name>
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni sulla visualizzazione delle entità servizio di Azure AD usando PowerShell, vedere [Get-AzADServicePrincipal](/powershell/module/az.resources/get-azadserviceprincipal).
-
-

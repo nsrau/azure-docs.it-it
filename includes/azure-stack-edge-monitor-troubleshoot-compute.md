@@ -2,16 +2,51 @@
 author: alkohli
 ms.service: databox
 ms.topic: include
-ms.date: 07/26/2019
+ms.date: 08/30/2020
 ms.author: alkohli
-ms.openlocfilehash: 350d41980e3128a8747a673ebea82afbe4fab49b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 92ccb6127e624ace9e719ffd23324b3a1b971f72
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85313198"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89272142"
 ---
-In un dispositivo Azure Stack Edge in cui è configurato il ruolo di calcolo, è disponibile un subset di comandi di Docker per monitorare o risolvere i problemi relativi ai moduli. Per visualizzare un elenco dei comandi disponibili, [connettersi all'interfaccia di PowerShell](#connect-to-the-powershell-interface) e utilizzare la `dkrdbe` funzione.
+In un dispositivo Azure Stack Edge in cui è configurato il ruolo di calcolo, è possibile risolvere i problemi o monitorare il dispositivo utilizzando due diversi set di comandi.
+
+- Uso di `iotedge` comandi. Questi comandi sono disponibili per le operazioni di base per il dispositivo.
+- Uso di `dkrdbe` comandi. Questi comandi sono disponibili per un set completo di operazioni per il dispositivo.
+
+Per eseguire uno dei precedenti set di comandi, è necessario [connettersi all'interfaccia di PowerShell](#connect-to-the-powershell-interface).
+
+### <a name="use-iotedge-commands"></a>Usare i `iotedge` comandi
+
+Per visualizzare un elenco dei comandi disponibili, [connettersi all'interfaccia di PowerShell](#connect-to-the-powershell-interface) e utilizzare la `iotedge` funzione.
+
+```powershell
+[10.100.10.10]: PS>iotedge -?                                                                                                                                                                                                 Usage: iotedge COMMAND
+
+Commands:
+   check
+   list
+   logs
+   restart
+
+[10.100.10.10]: PS>
+```
+
+La tabella seguente contiene una breve descrizione dei comandi disponibili per `iotedge` :
+
+|.  |Descrizione |
+|---------|---------|
+|`check`     | Eseguire controlli automatici per problemi comuni di configurazione e connettività       |
+|`list`     | Elencare i moduli         |
+|`logs`     | Recuperare i log di un modulo        |
+|`restart`     | Arrestare e riavviare un modulo         |
+
+
+### <a name="use-dkrdbe-commands"></a>Usare i `dkrdbe` comandi
+
+Per visualizzare un elenco dei comandi disponibili, [connettersi all'interfaccia di PowerShell](#connect-to-the-powershell-interface) e utilizzare la `dkrdbe` funzione.
 
 ```powershell
 [10.100.10.10]: PS>dkrdbe -?
@@ -39,7 +74,7 @@ La tabella seguente contiene una breve descrizione dei comandi disponibili per `
 
 |.  |Descrizione |
 |---------|---------|
-|`image`     | Gestire le immagini. Per rimuovere le immagini inutilizzate, usare:`dkrdbe image prune -a -f`       |
+|`image`     | Gestire le immagini. Per rimuovere le immagini inutilizzate, usare: `dkrdbe image prune -a -f`       |
 |`images`     | Elencare le immagini         |
 |`inspect`     | Restituisce informazioni di basso livello sugli oggetti Docker         |
 |`login`     | Accedere a un registro Docker         |
@@ -89,14 +124,14 @@ Per ottenere l'elenco di tutti i contenitori, inclusi quelli sospesi, eseguire i
 ```powershell
 [10.100.10.10]: P> dkrdbe ps -a
 CONTAINER ID        IMAGE                                                COMMAND                   CREATED             STATUS              PORTS                                                                  NAMES
-d99e2f91d9a8        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ&euro;¦"    2 days ago          Up 2 days                                                                                  movefile
-0a06f6d605e9        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ&euro;¦"    2 days ago          Up 2 days                                                                                  filemove
-2f8a36e629db        mcr.microsoft.com/azureiotedge-hub:1.0               "/bin/sh -c 'echo \"$â&euro;¦"   2 days ago          Up 2 days           0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp   edgeHub
-acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â&euro;¦"   2 days ago          Up 2 days                                                                                  edgeAgent
+d99e2f91d9a8        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  movefile
+0a06f6d605e9        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  filemove
+2f8a36e629db        mcr.microsoft.com/azureiotedge-hub:1.0               "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days           0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp   edgeHub
+acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days                                                                                  edgeAgent
 [10.100.10.10]: PS>
 ```
 
-Se si è verificato un errore durante la creazione dell'immagine del contenitore o durante il pull dell'immagine, eseguire `logs edgeAgent` .  `EdgeAgent`è il contenitore IoT Edge runtime responsabile del provisioning di altri contenitori.
+Se si è verificato un errore durante la creazione dell'immagine del contenitore o durante il pull dell'immagine, eseguire `logs edgeAgent` .  `EdgeAgent` è il contenitore IoT Edge runtime responsabile del provisioning di altri contenitori.
 
 Poiché `logs edgeAgent` esegue il dump di tutti i log, un modo efficace per visualizzare gli errori recenti consiste nell'usare l'opzione `--tail 20` .
 
@@ -127,10 +162,10 @@ Per ottenere i log per un contenitore specifico, elencare prima il contenitore e
     ```powershell
     [10.100.10.10]: P> dkrdbe ps
     CONTAINER ID        IMAGE                                                COMMAND                   CREATED             STATUS              PORTS                                                                  NAMES
-    d99e2f91d9a8        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ&euro;¦"    2 days ago          Up 2 days                                                                                  movefile
-    0a06f6d605e9        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ&euro;¦"    2 days ago          Up 2 days                                                                                  filemove
-    2f8a36e629db        mcr.microsoft.com/azureiotedge-hub:1.0               "/bin/sh -c 'echo \"$â&euro;¦"   2 days ago          Up 2 days           0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp   edgeHub
-    acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â&euro;¦"   2 days ago          Up 2 days                                                                                  edgeAgent
+    d99e2f91d9a8        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  movefile
+    0a06f6d605e9        edgecompute.azurecr.io/filemovemodule2:0.0.1-amd64   "dotnet FileMoveModuâ€¦"    2 days ago          Up 2 days                                                                                  filemove
+    2f8a36e629db        mcr.microsoft.com/azureiotedge-hub:1.0               "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days           0.0.0.0:443->443/tcp, 0.0.0.0:5671->5671/tcp, 0.0.0.0:8883->8883/tcp   edgeHub
+    acce59f70d60        mcr.microsoft.com/azureiotedge-agent:1.0             "/bin/sh -c 'echo \"$â€¦"   2 days ago          Up 2 days                                                                                  edgeAgent
     ```
 
 3. Prendere nota dell'ID contenitore per il contenitore per il quale sono necessari i log.

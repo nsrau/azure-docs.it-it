@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8367ec2ece59ca8794bc1eeb2027eb6c14db12a0
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: c1106ec63e79d336b740b444a187244de64c03f5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925346"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269574"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure Active Directory ibrido
 
@@ -26,13 +26,13 @@ Analogamente agli utenti, i dispositivi sono un'altra identità di base da prote
 - Aggiunta ad Azure AD ibrido
 - Registrazione di Azure AD
 
-Con il trasferimento dei dispositivi in Azure AD si ottimizza la produttività degli utenti tramite il Single Sign-On (SSO) in tutte le risorse locali e nel cloud. Allo stesso tempo, è possibile proteggere l'accesso alle risorse cloud e locali con [l'accesso condizionale](../active-directory-conditional-access-azure-portal.md).
+Con il trasferimento dei dispositivi in Azure AD si ottimizza la produttività degli utenti tramite il Single Sign-On (SSO) in tutte le risorse locali e nel cloud. Allo stesso tempo, è possibile proteggere l'accesso alle risorse cloud e locali con [l'accesso condizionale](../conditional-access/overview.md).
 
 Se si dispone di un ambiente di Active Directory (AD) locale e si desidera aggiungere i computer aggiunti a un dominio ad Azure AD, è possibile eseguire questa operazione eseguendo il join di Azure AD ibrido. Questo articolo fornisce i passaggi correlati per implementare un'aggiunta ad Azure AD ibrido nell'ambiente. 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo articolo presuppone che l'utente abbia familiarità con l' [Introduzione alla gestione delle identità dei dispositivi in Azure Active Directory](../device-management-introduction.md).
+Questo articolo presuppone che l'utente abbia familiarità con l' [Introduzione alla gestione delle identità dei dispositivi in Azure Active Directory](./overview.md).
 
 > [!NOTE]
 > La versione minima richiesta del controller di dominio per Windows 10 Hybrid Azure AD join è Windows Server 2008 R2.
@@ -65,7 +65,7 @@ Per i dispositivi che eseguono il sistema operativo desktop Windows, la versione
 
 - Windows 8.1
 - Il supporto per Windows 7 è terminato il 14 gennaio 2020. Per ulteriori informazioni, vedere la pagina relativa al completamento [del supporto per Windows 7](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020).
-- Windows Server 2012 R2
+- R2 per Windows Server 2012
 - Windows Server 2012
 - Windows Server 2008 R2. Per informazioni di supporto su Windows Server 2008 e 2008 R2, vedere la pagina relativa [alla fine del supporto tecnico per Windows server 2008](https://www.microsoft.com/cloud-platform/windows-server-2008).
 
@@ -100,7 +100,7 @@ Se i dispositivi Windows 10 aggiunti a un dominio sono [Azure ad registrati](ove
 > Anche se Windows 10 rimuove automaticamente lo stato Azure AD registrato localmente, l'oggetto dispositivo in Azure AD non viene eliminato immediatamente se è gestito da Intune. È possibile convalidare la rimozione dello stato Azure AD registrato eseguendo dsregcmd/status e prendere in considerazione la mancata Azure AD registrazione del dispositivo in base a tale stato.
 
 ### <a name="additional-considerations"></a>Altre considerazioni
-- Se l'ambiente USA Virtual Desktop Infrastructure (VDI), vedere la pagina relativa [a identità del dispositivo e virtualizzazione desktop](/azure/active-directory/devices/howto-device-identity-virtual-desktop-infrastructure).
+- Se l'ambiente USA Virtual Desktop Infrastructure (VDI), vedere la pagina relativa [a identità del dispositivo e virtualizzazione desktop](./howto-device-identity-virtual-desktop-infrastructure.md).
 
 - Azure AD ibrido join è supportato per il TPM 2,0 conforme a FIPS e non è supportato per TPM 1,2. Se i dispositivi hanno un TPM compatibile con FIPS 1,2, è necessario disabilitarli prima di procedere con Azure AD ibrido join. Microsoft non fornisce strumenti per disabilitare la modalità FIPS per TPMs poiché dipende dal produttore del TPM. Contattare l'OEM hardware per assistenza. 
 
@@ -118,12 +118,12 @@ Azure AD ibrido join funziona sia con gli ambienti gestiti che federati, a secon
 
 ### <a name="managed-environment"></a>Ambiente gestito
 
-Un ambiente gestito può essere distribuito tramite la [sincronizzazione dell'hash delle password](/azure/active-directory/hybrid/whatis-phs) o l'[autenticazione pass-through](/azure/active-directory/hybrid/how-to-connect-pta) con [Single Sign-On facile](/azure/active-directory/hybrid/how-to-connect-sso).
+Un ambiente gestito può essere distribuito tramite la [sincronizzazione dell'hash delle password](../hybrid/whatis-phs.md) o l'[autenticazione pass-through](../hybrid/how-to-connect-pta.md) con [Single Sign-On facile](../hybrid/how-to-connect-sso.md).
 
 Questi scenari non richiedono la configurazione di un server federativo per l'autenticazione.
 
 > [!NOTE]
-> [L'autenticazione cloud con implementazione temporanea](/azure/active-directory/hybrid/how-to-connect-staged-rollout) è supportata solo l'avvio dell'aggiornamento di Windows 10 1903
+> [L'autenticazione cloud con implementazione temporanea](../hybrid/how-to-connect-staged-rollout.md) è supportata solo l'avvio dell'aggiornamento di Windows 10 1903
 
 ### <a name="federated-environment"></a>Ambiente federato
 
@@ -152,9 +152,9 @@ In base allo scenario che corrisponde all'infrastruttura di identità, vedere:
 
 ## <a name="review-on-premises-ad-users-upn-support-for-hybrid-azure-ad-join"></a>Verifica del supporto UPN per gli utenti AD locali per Azure AD ibrido join
 
-In alcuni casi, gli utenti AD locali UPN potrebbero essere diversi dalla Azure AD UPN. In questi casi l'aggiunta ad Azure AD ibrido di Windows 10 offre supporto limitato per i nomi dell'entità utente di AD locale in base al [metodo di autenticazione](/azure/security/fundamentals/choose-ad-authn), al tipo di dominio e alla versione di Windows 10. Nell'ambiente possono essere presenti due tipi di nomi dell'entità utente di AD locale:
+In alcuni casi, gli utenti AD locali UPN potrebbero essere diversi dalla Azure AD UPN. In questi casi l'aggiunta ad Azure AD ibrido di Windows 10 offre supporto limitato per i nomi dell'entità utente di AD locale in base al [metodo di autenticazione](../hybrid/choose-ad-authn.md), al tipo di dominio e alla versione di Windows 10. Nell'ambiente possono essere presenti due tipi di nomi dell'entità utente di AD locale:
 
-- UPN per utenti instradabili: un UPN instradabile dispone di un dominio verificato valido, registrato con un registrar. Ad esempio, se contoso.com è il dominio primario in Azure AD, contoso.org è il dominio primario in AD locale di proprietà di Contoso e [verificato in Azure AD](/azure/active-directory/fundamentals/add-custom-domain).
+- UPN per utenti instradabili: un UPN instradabile dispone di un dominio verificato valido, registrato con un registrar. Ad esempio, se contoso.com è il dominio primario in Azure AD, contoso.org è il dominio primario in AD locale di proprietà di Contoso e [verificato in Azure AD](../fundamentals/add-custom-domain.md).
 - UPN per utenti non instradabili: un UPN non instradabile non dispone di un dominio verificato. È applicabile solo all'interno della rete privata dell'organizzazione. Ad esempio, se contoso.com è il dominio primario in Azure AD, contoso.local è il dominio primario in AD locale, ma non è un dominio verificabile in Internet e viene usato solo nella rete di Contoso.
 
 > [!NOTE]
@@ -166,8 +166,8 @@ La tabella seguente contiene informazioni sul supporto per questi nomi dell'enti
 | ----- | ----- | ----- | ----- |
 | Instradabile | Federato | Dalla versione 1703 | Disponibile a livello generale |
 | Non instradabile | Federato | Dalla versione 1803 | Disponibile a livello generale |
-| Instradabile | Gestiti | Dalla versione 1803 | Disponibile a livello generale, Azure AD SSPR su Windows lockscreen non è supportato |
-| Non instradabile | Gestiti | Non supportate | |
+| Instradabile | Gestita | Dalla versione 1803 | Disponibile a livello generale, Azure AD SSPR su Windows lockscreen non è supportato |
+| Non instradabile | Gestita | Non supportate | |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

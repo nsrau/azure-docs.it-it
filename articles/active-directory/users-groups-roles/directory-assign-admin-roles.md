@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 08/13/2020
+ms.date: 08/31/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 953217d15e6aede86d863bcd5be6df583d15df6d
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 09664de9ab2040ad04127ee1556c21244ac6bc2d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180083"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269676"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) consente di designare amministratori limitati 
 
 ## <a name="limit-use-of-global-administrator"></a>Limitare l'uso dell'amministratore globale
 
-Gli utenti assegnati al ruolo di amministratore globale possono leggere e modificare tutte le impostazioni amministrative nell'organizzazione Azure AD. Per impostazione predefinita, alla persona che effettua l'iscrizione per una sottoscrizione di Azure viene assegnato il ruolo di amministratore globale per l'organizzazione Azure AD. Solo gli amministratori globali e gli amministratori dei ruoli con privilegi possono delegare i ruoli di amministratore. Per ridurre il rischio per l'azienda, è consigliabile assegnare questo ruolo al numero minore possibile di persone nell'organizzazione.
+Gli utenti assegnati al ruolo di amministratore globale possono leggere e modificare tutte le impostazioni amministrative nell'organizzazione Azure AD. Per impostazione predefinita, quando un utente si iscrive a un servizio cloud Microsoft, viene creato un tenant di Azure AD e l'utente viene reso membro del ruolo di amministratore globale. Quando si aggiunge una sottoscrizione a un tenant esistente, non viene assegnato al ruolo di amministratore globale. Solo gli amministratori globali e gli amministratori dei ruoli con privilegi possono delegare i ruoli di amministratore. Per ridurre il rischio per l'azienda, è consigliabile assegnare questo ruolo al numero minore possibile di persone nell'organizzazione.
 
 La procedura consigliata prevede di assegnare questo ruolo a meno di cinque utenti nell'organizzazione. Se nell'organizzazione esistono più di cinque amministratori assegnati al ruolo di amministratore globale, di seguito sono riportati alcuni modi per ridurne l'uso.
 

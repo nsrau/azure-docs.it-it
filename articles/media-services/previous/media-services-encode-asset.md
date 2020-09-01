@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/25/2019
 ms.author: juliako
-ms.openlocfilehash: ef558b9339fe1d4525156cf58efe5056862de0a2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c98d265f2d21c1e16ca787d4055eb4c2b1a89133
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87052746"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269082"
 ---
-# <a name="overview-of-azure-on-demand-media-encoders"></a>Panoramica dei codificatori multimediali su richiesta di Azure 
+# <a name="overview-of-azure-on-demand-media-encoders"></a>Panoramica dei codificatori multimediali su richiesta di Azure
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
@@ -60,7 +62,7 @@ I metadati di input dei codificatori sono descritti [qui](media-services-input-m
 I metadati di output dei codificatori sono descritti [qui](media-services-output-metadata-schema.md).
 
 ### <a name="generate-thumbnails"></a>Generare anteprime
-Per informazioni, vedere l'argomento [Come generare anteprime utilizzando Media Encoder Standard](media-services-advanced-encoding-with-mes.md#thumbnails).
+Per informazioni, vedere l'argomento [Come generare anteprime utilizzando Media Encoder Standard](media-services-advanced-encoding-with-mes.md).
 
 ### <a name="trim-videos-clipping"></a>Tagliare video (ritaglio)
 Per informazioni, vedere [Come tagliare video usando Media Encoder Standard](media-services-advanced-encoding-with-mes.md#trim_video).
@@ -68,7 +70,7 @@ Per informazioni, vedere [Come tagliare video usando Media Encoder Standard](med
 ### <a name="create-overlays"></a>Creare sovrimpressioni
 Per informazioni, vedere [Come creare sovrimpressioni usando Media Encoder Standard](media-services-advanced-encoding-with-mes.md#overlay).
 
-### <a name="see-also"></a>Vedere anche
+### <a name="see-also"></a>Vedi anche
 [Blog di Servizi multimediali](https://azure.microsoft.com/blog/2015/07/16/announcing-the-general-availability-of-media-encoder-standard/)
 
 ## <a name="media-encoder-premium-workflow"></a>Flusso di lavoro Premium del codificatore multimediale

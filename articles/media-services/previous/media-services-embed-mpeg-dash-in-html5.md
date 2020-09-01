@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: 6c1df14ba5a9f233f42750d4e6dea68a7d6ddc0e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 55c22a58ea76c268c40894c0ea64d43312b1ba27
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77564857"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269098"
 ---
-# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Incorporamento di un flusso video adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js  
+# <a name="embedding-an-mpeg-dash-adaptive-streaming-video-in-an-html5-application-with-dashjs"></a>Incorporamento di un flusso video adattivo MPEG-DASH in un'applicazione HTML5 con DASH.js
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 ## <a name="overview"></a>Panoramica
 MPEG-DASH è uno standard ISO per lo streaming adattivo di contenuti video che offre vantaggi significativi agli sviluppatori che intendono distribuire output di streaming video adattivo di alta qualità. Con MPEG-DASH il flusso video viene automaticamente adeguato a una definizione inferiore quando si verificano situazioni di congestione sulla rete. In questo modo si riduce la probabilità che il Visualizzatore visualizzi un video "sospeso" mentre il giocatore Scarica i prossimi secondi per la riproduzione, ovvero riduce la probabilità di memorizzazione nel buffer. Man mano che la congestione sulla rete si riduce, il lettore video torna a un flusso di qualità elevata. La possibilità di adattare la larghezza di banda richiesta riduce anche i tempi di avvio del video. I primi secondi, ad esempio, possono essere riprodotti con una qualità inferiore, rapida da scaricare, per poi passare a una qualità superiore nel momento in cui nel buffer è stato memorizzato contenuto sufficiente.

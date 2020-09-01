@@ -1,7 +1,7 @@
 ---
 title: Schema dei metadati di input di servizi multimediali di Azure V3
 description: Questo articolo fornisce una panoramica dello schema dei metadati di input di servizi multimediali di Azure V3.
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 services: media-services
@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/14/2020
-ms.author: juliako
-ms.openlocfilehash: 40e61061878c8aec6bad353bfd0c5f2f4178ce14
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: a9b8fec7e69b6ede15f99cae01e89c962996e280
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85095560"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269149"
 ---
-# <a name="input-metadata"></a>Metadati di input 
+# <a name="input-metadata"></a>Metadati di input
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Un processo di codifica è associato uno (o più) asset di input in cui si desidera eseguire alcune attività di codifica.  Al termine di un'attività, viene generato un asset di output. L'asset di output contiene video, audio, anteprime, manifesti e altri file. 
 
@@ -45,7 +47,7 @@ Contiene una raccolta di elementi AssetFile per il processo di codifica.
 | --- | --- | 
 | **VideoTracks**|Ogni file di asset fisico può contenere da zero a più tracce video con interfoliazione in un formato contenitore appropriato. Per ulteriori informazioni, vedere [VideoTracks](#videotracks). |
 | **AudioTrack**|Ogni file di asset fisico può contenere da zero a più tracce audio con interfoliazione in un formato contenitore appropriato. Per ulteriori informazioni, vedere [AudioTracks](#audiotracks) |
-| **Metadati**  |Metadati del file di asset rappresentati come stringhe chiave-valore. <br />Ad esempio: `<Metadata key="language" value="eng" />` |
+| **Metadata**  |Metadati del file di asset rappresentati come stringhe chiave-valore. <br />Ad esempio: `<Metadata key="language" value="eng" />` |
 
 ### <a name="other-child-elements"></a>Altri elementi figlio
 
@@ -70,7 +72,7 @@ Contiene una raccolta di elementi AssetFile per il processo di codifica.
 | **Level** |Livello della traccia video. <br /><br />Esempio: `"Level": "3.2"`|
 | **PixelFormat** |Formato pixel della traccia video. <br /><br />Esempio: `"PixelFormat": "yuv420p"`|
 | **Larghezza**<br />Necessario |Larghezza del video codificata in pixel. <br /><br />Esempio: `"Width": "1280"`|
-| **Altezza:**<br />Necessario |Altezza del video codificata in pixel.<br /><br />Esempio: `"Height": "720"` |
+| **Altezza**<br />Necessario |Altezza del video codificata in pixel.<br /><br />Esempio: `"Height": "720"` |
 | **DisplayAspectRatioNumerator**<br />Necessario |Numeratore delle proporzioni della visualizzazione video.<br /><br />Esempio: `"DisplayAspectRatioNumerator": 16.0` |
 | **DisplayAspectRatioDenominator**<br />Necessario |Denominatore delle proporzioni della visualizzazione video. <br /><br />Esempio: `"DisplayAspectRatioDenominator": 9.0`|
 | **SampleAspectRatioNumerator** |Numeratore delle proporzioni del campione video. <br /><br />Esempio: `"SampleAspectRatioNumerator": 1.0`|
@@ -78,7 +80,7 @@ Contiene una raccolta di elementi AssetFile per il processo di codifica.
 | **FrameRate**<br />Necessario |Frequenza dei frame misurata in formato .3F. <br /><br />Esempio: `"FrameRate": 29.970`|
 | **Bitrate** |Velocità in bit video media in bit al secondo, calcolata dal file di asset. Viene contato solo il payload del flusso elementare, mentre l'overhead di creazione dei pacchetti è escluso. <br /><br />Esempio: `"Bitrate": 8421583`|
 | **HasBFrames** |Numero di traccia video dei fotogrammi B. <br /><br />Esempio: `"HasBFrames": 2`|
-| **Metadati** |Stringhe chiave-valore generiche che possono essere usate per contenere una varietà di informazioni. <br />Vedere l'esempio completo alla fine dell'articolo. |
+| **Metadata** |Stringhe chiave-valore generiche che possono essere usate per contenere una varietà di informazioni. <br />Vedere l'esempio completo alla fine dell'articolo. |
 | **Id**<br />Necessario |Indice in base zero della traccia audio o video.<br /><br /> Questo **Id** non corrisponde necessariamente al TrackID usato in un file MP4. <br /><br />Esempio: `"Id": 2`|
 | **Codec** |Stringa del codec della traccia video. <br /><br />Esempio: `"Codec": "h264"`|
 | **CodecLongName** |Nome lungo del codec della traccia audio o video. <br /><br />Esempio: `"CodecLongName": "H.264 / AVC / MPEG-4 AVC / MPEG-4 part 10"`|
@@ -94,10 +96,10 @@ Contiene una raccolta di elementi AssetFile per il processo di codifica.
 | --- | --- | 
 | **SampleFormat** |Formato del campione. <br /><br />Esempio: `"SampleFormat": "fltp"`|
 | **ChannelLayout** |Layout del canale. <br /><br />Esempio: `"ChannelLayout": "stereo"`|
-| **Channels**<br />Necessario |Numero di canali audio (da 0 in su). <br /><br />Esempio: `"Channels": 2`|
+| **Canali**<br />Necessario |Numero di canali audio (da 0 in su). <br /><br />Esempio: `"Channels": 2`|
 | **SamplingRate**<br />Necessario |Frequenza di campionamento dell'audio in campioni/sec o Hz. <br /><br />Esempio: `"SamplingRate": 48000`|
 | **Bitrate** |Velocità media in bit audio in bit al secondo, calcolata in base al file di asset. Viene contato solo il payload del flusso elementare, mentre l'overhead di creazione dei pacchetti è escluso dal conteggio. <br /><br />Esempio: `"Bitrate": 192080`|
-| **Metadati** |Stringhe chiave-valore generiche che possono essere usate per contenere una varietà di informazioni.  <br />Vedere l'esempio completo alla fine dell'articolo. |
+| **Metadata** |Stringhe chiave-valore generiche che possono essere usate per contenere una varietà di informazioni.  <br />Vedere l'esempio completo alla fine dell'articolo. |
 | **Id**<br />Necessario |Indice in base zero della traccia audio o video.<br /><br /> Non corrisponde necessariamente al TrackID usato in un file MP4. <br /><br />Esempio: `"Id": 1`|
 | **Codec** |Stringa del codec della traccia video. <br /><br />Esempio: `"Codec": "aac"`|
 | **CodecLongName** |Nome lungo del codec della traccia audio o video. <br /><br />Esempio: `"CodecLongName": "AAC (Advanced Audio Coding)"`|

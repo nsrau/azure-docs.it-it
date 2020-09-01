@@ -14,14 +14,16 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: bb94703a78cd2c025efc1f3c6c16e296fece206e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 746fe9132dcb06678e2a0a975c8eed0aba6c3fad
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85560004"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269625"
 ---
 # <a name="working-with-channels-that-receive-multi-bitrate-live-stream-from-on-premises-encoders"></a>Uso di canali che ricevono il flusso live a bitrate multipli da codificatori locali
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > A partire dal 12 maggio 2018 i canali live non supporteranno più il protocollo di inserimento del flusso di trasporto RTP/MPEG-2. Eseguire la migrazione da RTP/MPEG-2 ai protocolli di inserimento RTMP o MP4 frammentato (Smooth Streaming).
@@ -187,7 +189,7 @@ La tabella seguente illustra il mapping degli stati del canale alla modalità di
 | Stato del canale | Indicatori dell'interfaccia utente del portale | Fatturato? |
 | --- | --- | --- |
 | **Avvio in corso** |**Avvio in corso** |No (stato temporaneo) |
-| **Running** |**Pronto** (nessun programma in esecuzione)<p><p>o<p>**Streaming** (almeno un programma in esecuzione) |Sì |
+| **Running** |**Pronto** (nessun programma in esecuzione)<p><p>oppure<p>**Streaming** (almeno un programma in esecuzione) |Sì |
 | **Stopping** |**Stopping** |No (stato temporaneo) |
 | **Arrestato** |**Arrestato** |No |
 

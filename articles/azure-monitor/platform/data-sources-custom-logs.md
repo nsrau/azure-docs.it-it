@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
-ms.openlocfilehash: 155c8fc3e7f1e37fe455c8f21d36e090c4fffce3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 4f8ef04343d873bcb94ccee599ecbc7c2a1ef94c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112001"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269489"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Log personalizzati in Monitoraggio di Azure
 
@@ -54,7 +54,7 @@ La procedura guidata per i log personalizzati viene eseguita nel portale di Azur
 3. Per impostazione predefinita, viene eseguito automaticamente il push di tutte le modifiche di configurazione in tutti gli agenti. Per gli agenti Linux, viene inviato un file di configurazione all'agente di raccolta dati Fluentd.
 4. Fare clic su **Aggiungi+** per aprire la procedura guidata per i log personalizzati.
 
-### <a name="step-2-upload-and-parse-a-sample-log"></a>Passaggio 2: Caricare e analizzare un log di esempio
+### <a name="step-2-upload-and-parse-a-sample-log"></a>Passaggio 2. Caricare e analizzare un log di esempio
 Per iniziare, caricare un esempio del log personalizzato.  La procedura guidata analizza e visualizza le voci nel file da convalidare.  Monitoraggio di Azure usa il delimitatore specificato per identificare ciascun record.
 
 **Nuova riga** è il delimitatore predefinito e viene usato per i file di log con una sola voce per riga.  Se la riga inizia con una data e ora in uno dei formati disponibili, è possibile specificare un delimitatore **Timestamp** che supporta le voci che si estendono su più righe.
@@ -74,7 +74,7 @@ Ad esempio, un'applicazione potrebbe creare un file di log ogni giorno con la da
 
 La tabella seguente fornisce esempi di percorsi validi per specificare file di log diversi.
 
-| Description | Path |
+| Descrizione | Percorso |
 |:--- |:--- |
 | Tutti i file in *C:\Logs* con estensione txt nell'agente Windows |C:\Logs\\\*.txt |
 | Tutti i file in *C:\Logs* il cui nome inizia con log e aventi un'estensione txt nell'agente Windows |C:\Logs\log\*.txt |
@@ -158,7 +158,7 @@ Viene usata una semplice query di *MyApp_CL* per restituire tutti i record dal l
 
 
 ## <a name="alternatives-to-custom-logs"></a>Alternative per i log personalizzati
-Anche se i log personalizzati sono utili se i dati soddisfano i criteri summenzionati, vi sono tuttavia casi come il seguente in cui è necessario adottare un'altra strategia:
+Mentre i log personalizzati sono utili se i dati soddisfano i criteri elencati in precedenza, esistono casi come i seguenti, in cui è necessaria un'altra strategia:
 
 - I dati non rientrano nella struttura richiesta, ad esempio la presenza di timestamp in un formato diverso.
 - Il file di log non rispetta i requisiti, ad esempio la codifica dei file o una struttura di cartelle non supportata.

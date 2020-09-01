@@ -3,7 +3,7 @@ title: Uso dell'interfaccia della riga di comando per la creazione di filtri con
 description: Questo articolo illustra come usare l'interfaccia della riga di comando per creare filtri con servizi multimediali di Azure V3.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/13/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 2385171a501d00f91c58f3fde9b487505ec21c60
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 024136ab6f660ecc5b6c5c7c0ecae62c83238659
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023212"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269540"
 ---
-# <a name="creating-filters-with-cli"></a>Creazione di filtri con l'interfaccia della riga di comando 
+# <a name="creating-filters-with-cli"></a>Creazione di filtri con l'interfaccia della riga di comando
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Quando si distribuiscono contenuti ai clienti (flusso di eventi dal vivo o di video on demand), il client potrebbe avere bisogno di una maggiore flessibilità rispetto a quanto descritto nel file manifesto dell'asset predefinito. Servizi multimediali di Azure consente di definire i filtri account e i filtri asset per i propri contenuti. 
 
@@ -130,6 +132,6 @@ Nella tabella seguente sono disponibili alcuni esempi di URL con filtri:
 
 [Video in streaming](stream-files-tutorial-with-api.md) 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Interfaccia della riga di comando di Azure](/cli/azure/ams?view=azure-cli-latest)

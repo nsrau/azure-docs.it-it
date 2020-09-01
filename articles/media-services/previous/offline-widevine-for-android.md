@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 04/16/2019
 ms.author: willzhan
 ms.reviewer: dwgeo
-ms.openlocfilehash: b9a47ac9af1d96cbd65ed68dbafccefa3b95bb20
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4b3b2b8c39b5b2552b5ce9f508bacd1ea86b2638
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065491"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269591"
 ---
-# <a name="offline-widevine-streaming-for-android"></a>Modalità offline dello streaming Widevine per Android  
+# <a name="offline-widevine-streaming-for-android"></a>Modalità offline dello streaming Widevine per Android
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="Selezionare la versione di servizi multimediali in uso:"]
 > * [Versione 3](../latest/offline-widevine-for-android.md)
@@ -157,7 +159,7 @@ Se si aggiorna il browser Chrome per dispositivi mobili alla versione 62 o succe
 
 Questa app PWA open source è stata creata in Node.js. Se si vuole ospitare una versione personalizzata su un server Ubuntu, tenere presenti i seguenti problemi comunemente riscontrati che possono impedire la riproduzione:
 
-1. Problema CORS: il video di esempio nell'app di esempio è ospitato in https://storage.googleapis.com/biograf-video-files/videos/. Google ha configurato CORS per tutti gli esempi di test ospitati nel bucket di Google Cloud Storage. Questi sono resi disponibili con intestazioni CORS, che specificano in modo esplicito la voce CORS `https://biograf-155113.appspot.com` (il dominio in cui Google ospita l'esempio), impedendo l'accesso da altri siti. Se si prova, verrà visualizzato il seguente errore HTTP:`Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`
+1. Problema CORS: il video di esempio nell'app di esempio è ospitato in https://storage.googleapis.com/biograf-video-files/videos/. Google ha configurato CORS per tutti gli esempi di test ospitati nel bucket di Google Cloud Storage. Questi sono resi disponibili con intestazioni CORS, che specificano in modo esplicito la voce CORS `https://biograf-155113.appspot.com` (il dominio in cui Google ospita l'esempio), impedendo l'accesso da altri siti. Se si prova, verrà visualizzato il seguente errore HTTP: `Failed to load https://storage.googleapis.com/biograf-video-files/videos/poly-sizzle-2015/mp4/dash.mpd: No 'Access-Control-Allow-Origin' header is present on the requested resource. Origin 'https:\//13.85.80.81:8080' is therefore not allowed access. If an opaque response serves your needs, set the request's mode to 'no-cors' to fetch the resource with CORS disabled.`
 2. Problema di certificato: a partire da Chrome versione 58, EME per Widevine richiede HTTPS. È pertanto necessario ospitare l'app di esempio su HTTPS con un certificato X509. Un normale certificato di test non è in grado di soddisfare i requisiti. È necessario ottenere un certificato che soddisfi i requisiti minimi seguenti:
     - Per Chrome e Firefox, nel certificato deve essere definita l'impostazione relativa al nome alternativo del soggetto (SAN).
     - Il certificato deve avere una CA attendibile. Non è possibile usare un certificato di sviluppo autofirmato.

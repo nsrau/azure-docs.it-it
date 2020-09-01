@@ -3,22 +3,24 @@ title: Gestire gli account di servizi multimediali di Azure V3 | Microsoft Docs
 description: Per avviare le operazioni di gestione, crittografia, codifica, analisi e streaming dei contenuti multimediali in Azure, è necessario creare un account di Servizi multimediali. Questo articolo illustra come gestire gli account di servizi multimediali di Azure V3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/08/2019
-ms.author: juliako
-ms.openlocfilehash: 46f5644fb47b840f273ccab37da4f4743ad335f3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 91e64ab524121faf6d4e363bfbfdea2d5db01941
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053110"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269659"
 ---
 # <a name="manage-azure-media-services-v3-accounts"></a>Gestire gli account di servizi multimediali di Azure V3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Per avviare le operazioni di gestione, crittografia, codifica, analisi e streaming dei contenuti multimediali in Azure, è necessario creare un account di Servizi multimediali. Quando si crea un account di Servizi multimediali, è necessario specificare il nome di una risorsa dell'account di Archiviazione di Azure. L'account di archiviazione specificato è collegato all'account personale di Servizi multimediali. L'account di Servizi multimediali e tutti gli account di archiviazione associati devono far parte della stessa sottoscrizione di Azure. Per altre informazioni, vedere [account di archiviazione](storage-account-concept.md).
 
@@ -37,7 +39,7 @@ Se è necessario spostare un account di servizi multimediali in una nuova sottos
 > [!IMPORTANT]
 > Non avviare l'endpoint di streaming finché il passaggio non viene completato correttamente.
 
-### <a name="troubleshoot"></a>Risoluzione dei problemi 
+### <a name="troubleshoot"></a>Risolvere problemi 
 
 Se un account di servizi multimediali o un account di archiviazione di Azure associato diventa "disconnesso" dopo lo spostamento del gruppo di risorse, provare a ruotare le chiavi dell'account di archiviazione. Se la rotazione delle chiavi dell'account di archiviazione non risolve lo stato "disconnesso" dell'account di servizi multimediali, inserire una nuova richiesta di supporto dal menu "supporto e risoluzione dei problemi" nell'account di servizi multimediali.  
 

@@ -3,7 +3,7 @@ title: Monitorare i log di diagnostica di servizi multimediali tramite monitorag
 description: Questo articolo illustra come indirizzare e visualizzare i log di diagnostica tramite monitoraggio di Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/08/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 15c8cd3eff7b0eb64e1a512282de129f606a33ce
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 837113c11f24eda91a62cc68fdc68180951eee16
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501236"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269455"
 ---
 # <a name="monitor-media-services-diagnostic-logs"></a>Monitorare i log di diagnostica di servizi multimediali
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 [Monitoraggio di Azure](../../azure-monitor/overview.md) consente di monitorare le metriche e i log di diagnostica che consentono di comprendere le prestazioni delle applicazioni. Per una descrizione dettagliata di questa funzionalità e per sapere perché si vuole usare i log di diagnostica e le metriche di servizi multimediali di Azure, vedere [monitorare le metriche di servizi multimediali e i log di diagnostica](media-services-metrics-diagnostic-logs.md).
 
@@ -30,7 +32,7 @@ Questo articolo illustra come instradare i dati all'account di archiviazione e q
 ## <a name="prerequisites"></a>Prerequisiti
 
 - [Creare un account di Servizi multimediali di Azure](./create-account-howto.md).
-- Vedere [monitorare le metriche di servizi multimediali e i log di diagnostica](media-services-metrics-diagnostic-logs.md).
+- Vedere  [monitorare le metriche di servizi multimediali e i log di diagnostica](media-services-metrics-diagnostic-logs.md).
 
 ## <a name="route-data-to-the-storage-account-using-the-portal"></a>Indirizzare i dati all'account di archiviazione usando il portale
 
@@ -179,7 +181,7 @@ Potrebbe essere necessario attendere fino a cinque minuti prima che l'evento ven
 
 * Widevine è un servizio fornito da Google Inc. e soggetto alle condizioni per l'utilizzo e all'informativa sulla privacy di Google Inc.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Metriche di Monitoraggio di Azure](../../azure-monitor/platform/data-platform.md)
 * [Log di diagnostica di monitoraggio di Azure](../../azure-monitor/platform/platform-logs-overview.md)

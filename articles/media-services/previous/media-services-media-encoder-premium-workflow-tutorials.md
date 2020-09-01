@@ -15,16 +15,19 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: christoc
 ms.reviewer: xpouyat; juliako
-ms.openlocfilehash: 67d3591a22ba68c0ddb5c4e2b467e133ef20102b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 55d9d9191dc62d7397c5de944985d5653eff4e13
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86057467"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269829"
 ---
 # <a name="advanced-media-encoder-premium-workflow-tutorials"></a>Esercitazioni avanzate del flusso di lavoro Premium del codificatore multimediale
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>Panoramica
-Questo documento contiene procedure dettagliate che illustrano come personalizzare i flussi di lavoro con **Progettazione flussi di lavoro**. I file dei flussi di lavoro effettivi sono disponibili [qui](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples).  
+Questo documento contiene procedure dettagliate che illustrano come personalizzare i flussi di lavoro con  **Progettazione flussi di lavoro**. I file dei flussi di lavoro effettivi sono disponibili [qui](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows/PremiumEncoderWorkflowSamples).  
 
 ## <a name="toc"></a>Sommario
 Vengono trattati i seguenti argomenti:
@@ -462,7 +465,7 @@ Diversamente dai video MP4, il componente JPG Encoder genererà più di un file.
 
 *Introduzione di Scene Search JPG File Writer*
 
-Configurare la proprietà percorso cartella di output con l'espressione:`${ROOT_outputWriteDirectory}`
+Configurare la proprietà percorso cartella di output con l'espressione: `${ROOT_outputWriteDirectory}`
 
 e la proprietà Filename Prefix con:
 

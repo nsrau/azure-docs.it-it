@@ -14,14 +14,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7cdacabcc97d37c144b498ea9a05ccc9d6bffc04
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9a562e31a26cc6cf7188dd635273bd9fa8c57213
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89019862"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269472"
 ---
-# <a name="redact-faces-with-azure-media-analytics"></a>Offuscare i volti con Analisi Servizi multimediali di Azure 
+# <a name="redact-faces-with-azure-media-analytics"></a>Offuscare i volti con Analisi Servizi multimediali di Azure
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 ## <a name="overview"></a>Panoramica
 **Azure Media Redactor** è un processore di contenuti multimediali di [Analisi Servizi multimediali di Azure](media-services-analytics-overview.md) che offre funzionalità scalabili di offuscamento dei volti nel cloud. L'offuscamento dei volti consente di modificare un video per sfocare i volti di persone selezionate. Può essere opportuno usare tale servizio in scenari di pubblica sicurezza e notizie giornalistiche. Offuscare manualmente alcuni minuti di filmato contenenti più volti può richiedere ore, ma con questo servizio il processo di offuscamento dei volti richiederà pochi semplici passaggi. Per ulteriori informazioni, vedere [questo](https://azure.microsoft.com/blog/azure-media-redactor/) Blog.
 
@@ -160,9 +163,9 @@ Di seguito sono riportati alcuni esempi dei tipi di sfocature.
 
 ![Alto](./media/media-services-face-redaction/blur3.png)
 
-#### <a name="box"></a>Casella
+#### <a name="box"></a>Box
 
-![Casella](./media/media-services-face-redaction/blur4.png)
+![Box](./media/media-services-face-redaction/blur4.png)
 
 #### <a name="black"></a>Black
 

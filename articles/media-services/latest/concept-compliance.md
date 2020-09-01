@@ -10,16 +10,18 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: conceptual
-ms.date: 08/28/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: af9f1f745f58e9d51ff7c5755d24b819ed9443f7
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: e4c0ee0b1a049a7e82cbd1fac8e261fff5fdf375
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147464"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269727"
 ---
 # <a name="media-services-regulatory-compliance"></a>Conformità alle normative di servizi multimediali
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Servizi multimediali soddisfa i requisiti complessi del programma FedRAMP (US Federal Risk & Authorization Management Program) e del Ministero della difesa degli Stati Uniti, dai livelli di interesse delle informazioni da 2 a 5. Grazie alla distribuzione di servizi protetti, tra cui Azure Government, Office 365 U.S. Government e Dynamics 365 Government, Federal e Defense Agency, può usare un'ampia gamma di servizi conformi.
 
