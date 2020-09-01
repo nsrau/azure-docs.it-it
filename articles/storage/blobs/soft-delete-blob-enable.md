@@ -10,16 +10,16 @@ ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-csharp
-ms.openlocfilehash: cba56e699afed8178f93bceddf6bf32a242ed124
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 07e306c6c428a0e3a3f64a29a2574cb0378bb81f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020848"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230229"
 ---
 # <a name="enable-and-manage-soft-delete-for-blobs"></a>Abilitare e gestire l'eliminazione temporanea per i BLOB
 
-L'eliminazione temporanea BLOB protegge i dati da modifiche o modifiche accidentali o eliminate in modo errato. Quando l'eliminazione temporanea BLOB è abilitata per un account di archiviazione, i BLOB, le versioni BLOB (anteprima) e gli snapshot nell'account di archiviazione possono essere ripristinati dopo l'eliminazione, entro un periodo di conservazione specificato.
+L'eliminazione temporanea BLOB protegge i dati da modifiche o modifiche accidentali o eliminate in modo errato. Quando l'eliminazione temporanea BLOB è abilitata per un account di archiviazione, i BLOB, le versioni BLOB e gli snapshot nell'account di archiviazione possono essere ripristinati dopo l'eliminazione, entro un periodo di conservazione specificato.
 
 Se è possibile che i dati vengano accidentalmente modificati o eliminati da un'applicazione o da un altro utente dell'account di archiviazione, Microsoft consiglia di attivare l'eliminazione temporanea del BLOB. Questo articolo illustra come abilitare l'eliminazione temporanea per i BLOB. Per altri dettagli sull'eliminazione temporanea dei BLOB, vedere [eliminazione temporanea per i BLOB](soft-delete-blob-overview.md).
 
@@ -195,4 +195,4 @@ blockBlob.StartCopy(copySource);
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Eliminazione temporanea per l'archiviazione BLOB](soft-delete-overview.md)
-- [Controllo delle versioni dei BLOB (anteprima)](versioning-overview.md)
+- [Controllo delle versioni dei BLOB](versioning-overview.md)

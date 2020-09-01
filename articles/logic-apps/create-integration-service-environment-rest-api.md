@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: d33207639ebef912307a3c594ec274fd9609bd67
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 427b488fe6673bef505fccdaa7185d69437bceaf
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84656550"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231317"
 ---
 # <a name="create-an-integration-service-environment-ise-by-using-the-logic-apps-rest-api"></a>Creare un ambiente del servizio di integrazione (ISE) usando l'API REST App per la logica
 
@@ -58,7 +58,7 @@ Nell'intestazione della richiesta includere le proprietà seguenti:
 
 ## <a name="request-body"></a>Corpo della richiesta
 
-Ecco la sintassi del corpo della richiesta, che descrive le proprietà da usare durante la creazione di ISE. Per creare un ISE che consente l'uso di un certificato autofirmato che viene installato nel `TrustedRoot` percorso, includere l' `certificates` oggetto nella sezione della definizione di ISE `properties` . Per un ISE esistente, è possibile inviare una richiesta PATCH solo per l' `certificates` oggetto. Per altre informazioni sull'uso dei certificati autofirmati, vedere anche [connettore http-certificati autofirmati](../connectors/connectors-native-http.md#self-signed).
+Ecco la sintassi del corpo della richiesta, che descrive le proprietà da usare durante la creazione di ISE. Per creare un ISE che consente l'uso di un certificato autofirmato che viene installato nel `TrustedRoot` percorso, includere l' `certificates` oggetto nella sezione della definizione di ISE `properties` . Per un ISE esistente, è possibile inviare una richiesta PATCH solo per l' `certificates` oggetto. Per ulteriori informazioni sull'utilizzo di certificati autofirmati, vedere [accesso protetto e accesso ai dati per le chiamate in uscita ad altri servizi e sistemi](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
 
 ```json
 {

@@ -17,12 +17,12 @@ ms.date: 04/07/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 92f6f32298dcccca4eba08fd25de0504416e5560
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b48a84bb69a356815cccd1e33c555eeb667699f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608144"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89244722"
 ---
 # <a name="how-to-manage-inactive-user-accounts-in-azure-ad"></a>Procedura: Gestire gli account utente inattivi in Azure AD
 
@@ -58,7 +58,7 @@ Questa sezione elenca le informazioni che è necessario conoscere sulla propriet
 
 ### <a name="how-can-i-access-this-property"></a>Come è possibile accedere a questa proprietà?
 
-La proprietà **lastSignInDateTime** è esposta dal [tipo di risorsa signInActivity](https://docs.microsoft.com/graph/api/resources/signinactivity?view=graph-rest-beta) dell'[API REST Microsoft Graph](https://docs.microsoft.com/graph/overview?view=graph-rest-beta#whats-in-microsoft-graph).   
+La proprietà **lastSignInDateTime** è esposta dal [tipo di risorsa signInActivity](/graph/api/resources/signinactivity?view=graph-rest-beta) dell'[API REST Microsoft Graph](/graph/overview?view=graph-rest-beta#whats-in-microsoft-graph).   
 
 ### <a name="is-the-lastsignindatetime-property-available-through-the-get-azureaduser-cmdlet"></a>La proprietà lastSignInDateTime è disponibile tramite il cmdlet Get-AzureAdUser?
 
@@ -91,5 +91,5 @@ Per generare un timestamp lastSignInDateTime, è necessario che un accesso sia a
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Ottenere dati con l'API di creazione report di Azure Active Directory con certificati](tutorial-access-api-with-certificates.md)
-* [Informazioni di riferimento sulle API di controllo](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-* [Informazioni di riferimento sulle API di report di attività di accesso](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+* [Informazioni di riferimento sulle API di controllo](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
+* [Informazioni di riferimento sulle API di report di attività di accesso](/graph/api/resources/signin?view=graph-rest-beta)

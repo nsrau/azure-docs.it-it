@@ -17,12 +17,12 @@ ms.date: 05/13/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6d031546bb4f1f05e9ea2abb5b74fe911b0b507f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0498ee1c57cfa661884fe3209d4e089b54996fae
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74007698"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231062"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Latenze dei report di Azure Active Directory
 
@@ -54,12 +54,12 @@ Se si dispone già di dati di attività con la licenza gratuita, è possibile vi
 
 Esistono due tipi di report sulla sicurezza:
 
-- [Accessi a rischio](concept-risky-sign-ins.md). Un accesso rischioso è indicativo di un tentativo di accesso che potrebbe essere stato eseguito da qualcuno che non è il legittimo proprietario di un account utente. 
-- [Utenti contrassegnati per il rischio](concept-user-at-risk.md). Un utente rischioso è indicativo di un account utente che potrebbe essere stato compromesso. 
+- [Accessi a rischio](../identity-protection/overview-identity-protection.md). Un accesso rischioso è indicativo di un tentativo di accesso che potrebbe essere stato eseguito da qualcuno che non è il legittimo proprietario di un account utente. 
+- [Utenti contrassegnati per il rischio](../identity-protection/overview-identity-protection.md). Un utente rischioso è indicativo di un account utente che potrebbe essere stato compromesso. 
 
 Nella tabella seguente sono elencate le informazioni sulla latenza per i report di sicurezza.
 
-| Report | Minimo | Media | Massimo |
+| Report | Minima | Media | Massimo |
 | :-- | --- | --- | --- |
 | Utenti a rischio.          | 5 minuti   | 15 minuti  | 2 ore  |
 | Accessi a rischio         | 5 minuti   | 15 minuti  | 2 ore  |
@@ -70,7 +70,7 @@ Azure AD usa l'euristica e gli algoritmi adattivi di Machine Learning per rileva
 
 Nella tabella seguente sono elencate le informazioni sulla latenza per i rilevamenti dei rischi.
 
-| Report | Minimo | Media | Massimo |
+| Report | Minima | Media | Massimo |
 | :-- | --- | --- | --- |
 | Accessi da indirizzi IP anonimi |5 minuti |15 minuti |2 ore |
 | Accessi da posizioni non note |5 minuti |15 minuti |2 ore |
@@ -84,4 +84,4 @@ Nella tabella seguente sono elencate le informazioni sulla latenza per i rilevam
 
 * [Panoramica dei report Azure AD](overview-reports.md)
 * [Accesso programmatico ai report di Azure AD](concept-reporting-api.md)
-* [Rilevamento del rischio Azure Active Directory](concept-risk-events.md)
+* [Rilevamento del rischio Azure Active Directory](../identity-protection/overview-identity-protection.md)

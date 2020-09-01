@@ -1,44 +1,39 @@
 ---
-title: Chiamare, attivare o annidare app per la logica
+title: Chiamare, attivare o annidare app per la logica usando trigger di richiesta
 description: Configurare endpoint HTTPS per chiamare, attivare o annidare flussi di lavoro di app per la logica in app per la logica di Azure
 services: logic-apps
 ms.workload: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
-ms.date: 05/28/2020
-ms.openlocfilehash: d8211127d7c886b86f97e83a61b3b3ebb055851e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/27/2020
+ms.openlocfilehash: 5032676848536f0b9498cf4beecf86277484a901
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87078676"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230807"
 ---
 # <a name="call-trigger-or-nest-logic-apps-by-using-https-endpoints-in-azure-logic-apps"></a>Chiamare, attivare o annidare app per la logica usando endpoint HTTPS in app per la logica di Azure
 
-Per fare in modo che l'app per la logica richiamabile tramite un URL in modo che l'app per la logica possa ricevere le richieste in ingresso da altri servizi, è possibile esporre in modo nativo un endpoint HTTPS sincrono come trigger nell'app per la logica. Quando si configura questa funzionalità, è anche possibile annidare l'app per la logica all'interno di altre app per la logica, che consente di creare un modello di endpoint richiamabili.
-
-Per configurare un endpoint chiamabile, è possibile usare uno di questi tipi di trigger, che consentono alle app per la logica di ricevere le richieste in ingresso:
+Per fare in modo che l'app per la logica richiamabile tramite un URL e in grado di ricevere richieste in ingresso da altri servizi, è possibile esporre in modo nativo un endpoint HTTPS sincrono usando un trigger basato su richiesta nell'app per la logica. Con questa funzionalità è possibile chiamare l'app per la logica da altre app per la logica e creare un modello di endpoint richiamabili. Per configurare un endpoint chiamabile per la gestione delle chiamate in ingresso, è possibile usare uno di questi tipi di trigger:
 
 * [Richiesta](../connectors/connectors-native-reqres.md)
 * [HTTP Webhook](../connectors/connectors-native-webhook.md)
 * Trigger del connettore gestito che hanno il [tipo ApiConnectionWebhook](../logic-apps/logic-apps-workflow-actions-triggers.md#apiconnectionwebhook-trigger) e possono ricevere le richieste HTTPS in ingresso
 
-> [!NOTE]
-> In questi esempi viene usato il trigger request, ma è possibile usare qualsiasi trigger HTTPS basato su richiesta presente nell'elenco precedente. Tutti i principi si applicano in modo identico a questi altri tipi di trigger.
+Questo articolo illustra come creare un endpoint chiamabile nell'app per la logica usando il trigger di richiesta e chiamare tale endpoint da un'altra app per la logica. Tutti i principi si applicano in modo identico agli altri tipi di trigger che è possibile usare per ricevere le richieste in ingresso.
 
-Se non si ha familiarità con le app per la logica, vedere informazioni sulle [app per la](../logic-apps/logic-apps-overview.md) logica di Azure e [avvio rapido: creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+Per informazioni su crittografia, sicurezza e autorizzazione per le chiamate in ingresso all'app per la logica, ad esempio [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), precedentemente noto come Secure Sockets Layer (SSL) o [Azure Active Directory Open Authentication (Azure ad OAuth)](../active-directory/develop/index.yml), vedere [accesso protetto e accesso ai dati per le chiamate in ingresso a trigger basati su richiesta](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
+* Un account e una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* App per la logica in cui si vuole usare il trigger per creare l'endpoint richiamabile. È possibile iniziare con un'app per la logica vuota o un'app per la logica esistente in cui si vuole sostituire il trigger corrente. Questo esempio inizia con un'app per la logica vuota.
+* App per la logica in cui si vuole usare il trigger per creare l'endpoint richiamabile. È possibile iniziare con un'app per la logica vuota o un'app per la logica esistente in cui è possibile sostituire il trigger corrente. Questo esempio inizia con un'app per la logica vuota. Se non si ha familiarità con le app per la logica, vedere informazioni sulle [app per la](../logic-apps/logic-apps-overview.md) logica di Azure e [avvio rapido: creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md)
 
 ## <a name="create-a-callable-endpoint"></a>Creare un endpoint chiamabile
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Creare e aprire un'app per la logica vuota nella finestra di progettazione dell'app per la logica.
-
-   Questo esempio usa il trigger request, ma è possibile usare qualsiasi trigger in grado di ricevere le richieste HTTPS in ingresso. Tutti i principi si applicano in modo identico a questi trigger. Per altre informazioni sul trigger di richiesta, vedere [ricevere e rispondere alle chiamate HTTPS in ingresso usando app per la logica di Azure](../connectors/connectors-native-reqres.md).
 
 1. Nella casella di ricerca selezionare **predefinito**. Nella casella di ricerca immettere `request` come filtro. Dall'elenco trigger selezionare **quando viene ricevuta una richiesta http**.
 
@@ -200,7 +195,7 @@ Quando si desidera accettare valori di parametro tramite l'URL dell'endpoint, so
 
    `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?{parameter-name=parameter-value}&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-   Il browser restituisce una risposta con il testo seguente:`Postal Code: 123456`
+   Il browser restituisce una risposta con il testo seguente: `Postal Code: 123456`
 
    ![Risposta dall'invio della richiesta all'URL callback](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
 
@@ -210,12 +205,12 @@ Quando si desidera accettare valori di parametro tramite l'URL dell'endpoint, so
 
    Questo esempio mostra l'URL di callback con il nome e il valore del parametro `postalCode=123456` di esempio in posizioni diverse all'interno dell'URL:
 
-   * 1 ° posizione:`https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+   * 1 ° posizione: `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?postalCode=123456&api-version=2016-10-01&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
-   * seconda posizione:`https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
+   * seconda posizione: `https://prod-07.westus.logic.azure.com:433/workflows/{logic-app-resource-ID}/triggers/manual/paths/invoke?api-version=2016-10-01&postalCode=123456&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig={shared-access-signature}`
 
 > [!NOTE]
-> Se si desidera includere il simbolo hash o Pound ( **#** ) nell'URI, utilizzare invece questa versione codificata:`%25%23`
+> Se si desidera includere il simbolo hash o Pound ( **#** ) nell'URI, utilizzare invece questa versione codificata: `%25%23`
 
 <a name="relative-path"></a>
 
@@ -257,12 +252,12 @@ Quando si desidera accettare valori di parametro tramite l'URL dell'endpoint, so
 
 1. Per testare l'endpoint richiamabile, copiare l'URL di callback aggiornato dal trigger di richiesta, incollare l'URL in un'altra finestra del browser, sostituire l'URL `{postalCode}` con `123456` e premere INVIO.
 
-   Il browser restituisce una risposta con il testo seguente:`Postal Code: 123456`
+   Il browser restituisce una risposta con il testo seguente: `Postal Code: 123456`
 
    ![Risposta dall'invio della richiesta all'URL callback](./media/logic-apps-http-endpoint/callback-url-returned-response.png)
 
 > [!NOTE]
-> Se si desidera includere il simbolo hash o Pound ( **#** ) nell'URI, utilizzare invece questa versione codificata:`%25%23`
+> Se si desidera includere il simbolo hash o Pound ( **#** ) nell'URI, utilizzare invece questa versione codificata: `%25%23`
 
 ## <a name="call-logic-app-through-endpoint-url"></a>Chiamare l'app per la logica tramite l'URL dell'endpoint
 
@@ -408,3 +403,4 @@ Per visualizzare la definizione JSON per l'azione di risposta e la definizione J
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Ricevere e rispondere alle chiamate HTTPS in ingresso usando app per la logica di Azure](../connectors/connectors-native-reqres.md)
+* [Proteggere l'accesso e i dati in app per la logica di Azure-Access-Access per le chiamate in ingresso a trigger basati su richiesta](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)

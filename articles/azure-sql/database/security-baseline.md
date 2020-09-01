@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 3c890dc48c97580fd8de5c817c96b62d4eb9c009
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 846d66a1cf1bb1d97f7ab9d7dfd7bbcf43d3f8d6
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045944"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231028"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database--sql-managed-instance"></a>Baseline della sicurezza di Azure per il database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -119,7 +119,7 @@ https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 **Linee guida**: abilitazione di Advanced Threat Protection (ATP) per il database SQL di Azure.  Gli utenti ricevono un avviso in caso di attività di database sospetta, potenziali vulnerabilità e attacchi SQL injection, nonché in caso di modelli di query e accesso ai database anomali. Advanced Threat Protection integra anche gli avvisi con il Centro sicurezza di Azure.
 
-Comprendere e usare Advanced Threat Protection per il database SQL di Azure:https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
+Comprendere e usare Advanced Threat Protection per il database SQL di Azure: https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -513,7 +513,7 @@ https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Customer
+**Responsibilità**: Customer
 
 ## <a name="data-protection"></a>Protezione dei dati
 
@@ -565,7 +565,7 @@ Come configurare il collegamento privato e gruppi per impedire il exfiltration d
 
 https://docs.microsoft.com/azure/sql-database/sql-database-private-endpoint-overview
 
-Informazioni sulla protezione dei dati dei clienti in Azure: 
+Informazioni sulla protezione dei dati dei clienti in Azure:
 
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
@@ -687,7 +687,7 @@ https://docs.microsoft.com/azure/security-center/security-center-vulnerability-a
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="54-compare-back-to-back-vulnerability-scans"></a>5.4: confrontare le analisi di vulnerabilità back-to-back
 
@@ -797,7 +797,7 @@ Come creare query con Azure Graph: https://docs.microsoft.com/azure/governance/r
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: rimuovere le risorse di Azure e le applicazioni software non approvate
 
@@ -805,7 +805,7 @@ Come creare query con Azure Graph: https://docs.microsoft.com/azure/governance/r
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="68-use-only-approved-applications"></a>6.8: usare solo applicazioni approvate
 
@@ -813,7 +813,7 @@ Come creare query con Azure Graph: https://docs.microsoft.com/azure/governance/r
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: usare solo servizi di Azure approvati
 
@@ -839,7 +839,7 @@ Come negare un tipo di risorsa specifico con Criteri di Azure: https://docs.micr
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="611-limit-users-ability-to-interact-with-azure-resources-manager-via-scripts"></a>6.11: limitare la capacità degli utenti di interagire con Azure Resource Manager tramite script
 
@@ -881,7 +881,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="72-establish-secure-operating-system-configurations"></a>7.2: definire configurazioni sicure del sistema operativo
 
@@ -889,13 +889,13 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: garantire la sicurezza delle configurazioni delle risorse di Azure
 
 **Indicazioni**: usare i criteri di Azure [deny] e [deploy if not exist] per applicare impostazioni sicure per le risorse di Azure.
 
-Come configurare e gestire i criteri di Azure:
+Come configurare e gestire Criteri di Azure: 
 
 https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
@@ -913,7 +913,7 @@ https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: archiviare in modo sicuro la configurazione delle risorse di Azure
 
@@ -937,7 +937,7 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="77-deploy-system-configuration-management-tools"></a>7.7: distribuire strumenti di gestione della configurazione di sistema
 
@@ -957,7 +957,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: implementare il monitoraggio automatizzato della configurazione per i servizi di Azure
 
@@ -1015,7 +1015,7 @@ Come impostare Credential Scanner: https://secdevtools.azurewebsites.net/helpcre
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ## <a name="malware-defense"></a>Difesa da malware
 
@@ -1035,7 +1035,7 @@ Come impostare Credential Scanner: https://secdevtools.azurewebsites.net/helpcre
 
 Pre-analizza i contenuti caricati in risorse di Azure non di calcolo, ad esempio servizio app, Data Lake Storage, archiviazione BLOB, database SQL di Azure e così via. Microsoft non è in grado di accedere ai dati in tali istanze.
 
-Informazioni su Microsoft antimalware per servizi cloud e macchine virtuali di Azure:https://docs.microsoft.com/azure/security/fundamentals/antimalware
+Informazioni su Microsoft antimalware per servizi cloud e macchine virtuali di Azure: https://docs.microsoft.com/azure/security/fundamentals/antimalware
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -1133,7 +1133,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 **Linee guida**: il Centro sicurezza assegna un livello di gravità agli avvisi, in modo da consentire la priorità dell'ordine in cui si partecipa a ogni avviso, in modo che, quando una risorsa viene compromessa, è possibile accedervi immediatamente. Il livello di gravità è basato sul grado di attendibilità riscontrato dal Centro sicurezza nell'individuazione o nell'analisi usata per emettere l'avviso, nonché sul grado di fiducia con cui si ritiene che vi sia un intento dannoso dietro l'attività che ha portato all'avviso.
 
-Avvisi di sicurezza nel centro sicurezza di Azure:https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
+Avvisi di sicurezza nel centro sicurezza di Azure: https://docs.microsoft.com/azure/security-center/security-center-alerts-overview
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -1201,7 +1201,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
 
-È possibile trovare altre informazioni sulla strategia e l'esecuzione di Microsoft red teaming e test di penetrazione di siti Live su infrastruttura, servizi e applicazioni cloud gestiti da Microsoft, qui:https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+È possibile trovare altre informazioni sulla strategia e l'esecuzione di Microsoft red teaming e test di penetrazione di siti Live su infrastruttura, servizi e applicazioni cloud gestiti da Microsoft, qui: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

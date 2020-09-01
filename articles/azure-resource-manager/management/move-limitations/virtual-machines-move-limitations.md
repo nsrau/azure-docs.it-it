@@ -2,13 +2,13 @@
 title: Spostare le macchine virtuali di Azure in una nuova sottoscrizione o in un gruppo di risorse
 description: Usare Azure Resource Manager per spostare le macchine virtuali in un nuovo gruppo di risorse o una nuova sottoscrizione.
 ms.topic: conceptual
-ms.date: 08/26/2020
-ms.openlocfilehash: d522eb4a6496bc2cc65b4937a19b9ac5228e7f2b
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 08/31/2020
+ms.openlocfilehash: 3878113f6874c40953bec87518a89519bdc6cb1a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88933240"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230960"
 ---
 # <a name="move-guidance-for-virtual-machines"></a>Spostare le linee guida per le macchine virtuali
 
@@ -48,7 +48,7 @@ Se l' [eliminazione](../../../backup/backup-azure-security-feature-cloud.md) tem
 2. Per spostare le macchine virtuali configurate con backup di Azure, seguire questa procedura:
 
    1. Trovare il percorso della macchina virtuale.
-   2. Trovare un gruppo di risorse con il modello di denominazione seguente: `AzureBackupRG_<location of your VM>_1` . Ad esempio, *AzureBackupRG_westus2_1*
+   2. Trovare un gruppo di risorse con il modello di denominazione seguente: `AzureBackupRG_<VM location>_1` . Ad esempio, il nome è nel formato *AzureBackupRG_westus2_1*.
    3. Nella portale di Azure selezionare **Mostra tipi nascosti**.
    4. Trovare la risorsa con il tipo **Microsoft. Compute/restorePointCollections** con il modello di denominazione `AzureBackup_<name of your VM that you're trying to move>_###########` .
    5. Eliminare la risorsa. Con questa operazione vengono eliminati solo i punti di ripristino istantaneo, non i dati di backup presenti nell'insieme di credenziali.
@@ -59,19 +59,41 @@ Se l' [eliminazione](../../../backup/backup-azure-security-feature-cloud.md) tem
 
 ### <a name="powershell"></a>PowerShell
 
-* Individuare la località della macchina virtuale.
-* Trovare un gruppo di risorse con il modello di denominazione seguente: `AzureBackupRG_<location of your VM>_1`, ad esempio AzureBackupRG_westus2_1
-* In PowerShell usare il cmdlet `Get-AzResource -ResourceGroupName AzureBackupRG_<location of your VM>_1`
-* Trovare la risorsa di tipo `Microsoft.Compute/restorePointCollections` con modello di denominazione `AzureBackup_<name of your VM that you're trying to move>_###########`
-* Eliminare la risorsa. Con questa operazione vengono eliminati solo i punti di ripristino istantaneo, non i dati di backup presenti nell'insieme di credenziali.
+1. Trovare il percorso della macchina virtuale.
+
+1. Trovare un gruppo di risorse con il modello di denominazione- `AzureBackupRG_<VM location>_1` . Ad esempio, il nome potrebbe essere `AzureBackupRG_westus2_1` .
+
+1. Usare il comando seguente per ottenere la raccolta di punti di ripristino.
+
+   ```azurepowershell
+   $RestorePointCollection = Get-AzResource -ResourceGroupName AzureBackupRG_<VM location>_1 -ResourceType Microsoft.Compute/restorePointCollections
+   ```
+
+1. Eliminare la risorsa. Con questa operazione vengono eliminati solo i punti di ripristino istantaneo, non i dati di backup presenti nell'insieme di credenziali.
+
+   ```azurepowershell
+   Remove-AzResource -ResourceId $RestorePointCollection.ResourceId -Force
+   ```
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 
-* Individuare la località della macchina virtuale.
-* Trovare un gruppo di risorse con il modello di denominazione seguente: `AzureBackupRG_<location of your VM>_1`, ad esempio AzureBackupRG_westus2_1
-* Nella CLI usare il `az resource list -g AzureBackupRG_<location of your VM>_1`
-* Trovare la risorsa di tipo `Microsoft.Compute/restorePointCollections` con modello di denominazione `AzureBackup_<name of your VM that you're trying to move>_###########`
-* Eliminare la risorsa. Con questa operazione vengono eliminati solo i punti di ripristino istantaneo, non i dati di backup presenti nell'insieme di credenziali.
+1. Trovare il percorso della macchina virtuale.
+
+1. Trovare un gruppo di risorse con il modello di denominazione- `AzureBackupRG_<VM location>_1` . Ad esempio, il nome potrebbe essere `AzureBackupRG_westus2_1` .
+
+1. Usare il comando seguente per ottenere la raccolta di punti di ripristino.
+
+   ```azurecli
+   az resource list -g AzureBackupRG_<VM location>_1 --resource-type Microsoft.Compute/restorePointCollections
+   ```
+
+1. Trovare l'ID risorsa per la risorsa con il modello di denominazione `AzureBackup_<VM name>_###########`
+
+1. Eliminare la risorsa. Con questa operazione vengono eliminati solo i punti di ripristino istantaneo, non i dati di backup presenti nell'insieme di credenziali.
+
+   ```azurecli
+   az resource delete --ids /subscriptions/<sub-id>/resourceGroups/<resource-group>/providers/Microsoft.Compute/restorePointCollections/<name>
+   ```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

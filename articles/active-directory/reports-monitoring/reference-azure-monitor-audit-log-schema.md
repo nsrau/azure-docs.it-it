@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9f58b213e50a021651f35112a48d8f74ae59571
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc7a5e2e45cd3d76c0d8af612291ecaf9893b5b5
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "68987948"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231096"
 ---
 # <a name="interpret-the-azure-ad-audit-logs-schema-in-azure-monitor-preview"></a>Interpretare lo schema dei log di controllo di Azure AD in Monitoraggio di Azure (anteprima)
 
@@ -161,7 +161,7 @@ Questo articolo illustra lo schema del log di controllo di Azure Active Director
 | callerIpAddress | Indirizzo IP del client che ha eseguito la richiesta. | 
 | correlationId | GUID facoltativo passato dal client. Questo valore consente di correlare le operazioni lato client con le operazioni lato server ed è utile durante l'analisi dei log relativi a più servizi. |
 | identity | Identità del token presentato al momento dell'esecuzione della richiesta. L'identità può essere un account utente, un account di sistema o un'entità servizio. |
-| livello | Tipo di messaggio. Per i log di controllo, il livello è sempre *informativo*. |
+| livello | Il tipo di messaggio. Per i log di controllo, il livello è sempre *informativo*. |
 | posizione | Posizione del datacenter. |
 | properties | Elenco delle proprietà supportate relative a un log di controllo. Per altre informazioni, vedere la tabella seguente. | 
 
@@ -179,5 +179,5 @@ Questo articolo illustra lo schema del log di controllo di Azure Active Director
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Interpretare lo schema dei log di accesso in monitoraggio di Azure](reference-azure-monitor-sign-ins-log-schema.md)
-* [Log di diagnostica di Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
+* [Log di diagnostica di Azure](../../azure-monitor/platform/platform-logs-overview.md)
 * [Domande frequenti e problemi noti](concept-activity-logs-azure-monitor.md#frequently-asked-questions)

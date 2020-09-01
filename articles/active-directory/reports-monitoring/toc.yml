@@ -36,11 +36,11 @@
     - name: Report su utilizzo e informazioni dettagliate
       href: concept-usage-insights-report.md
     - name: Accessi a rischio
-      href: concept-risky-sign-ins.md
+      href: ../identity-protection/overview-identity-protection.md
     - name: Rilevamenti dei rischi
-      href: concept-risk-events.md
+      href: ../identity-protection/overview-identity-protection.md
     - name: Utenti a rischio.
-      href: concept-user-at-risk.md
+      href: ../identity-protection/overview-identity-protection.md
     - name: Log di provisioning
       href: concept-provisioning-logs.md
     - name: API di creazione di report
@@ -94,9 +94,9 @@
     - name: Cmdlet di Azure AD PowerShell per la creazione di report
       href: reference-powershell-reporting.md
     - name: Informazioni di riferimento sulle API dei log di controllo
-      href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit'
+      href: /graph/api/resources/directoryaudit?view=graph-rest-beta
     - name: Informazioni di riferimento sulle API dei log di accesso
-      href: 'https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin'
+      href: /graph/api/resources/signin?view=graph-rest-beta
     - name: Attività di controllo
       href: reference-audit-activities.md
     - name: Criteri di conservazione dei dati

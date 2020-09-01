@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 04/09/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: bbc421baddf03068ac72907aaa88a71a81d208d0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 7315ef68b3562a28ee2515077c1e7d2f23c3803f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86041320"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230433"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>Baseline della sicurezza di Azure per HDInsight
 
@@ -32,9 +32,9 @@ Per altre informazioni, vedere [Panoramica delle baseline di sicurezza di Azure]
 
 Per ridurre il rischio di perdita di dati tramite exfiltration, limitare il traffico di rete in uscita per i cluster Azure HDInsight usando il firewall di Azure.
 
-Come distribuire Azure HDInsight all'interno di una rete virtuale e proteggere con un gruppo di sicurezza di rete:https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
+Come distribuire Azure HDInsight all'interno di una rete virtuale e proteggere con un gruppo di sicurezza di rete: https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
 
-Come limitare il traffico in uscita per i cluster HDInsight di Azure con il firewall di Azure:https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
+Come limitare il traffico in uscita per i cluster HDInsight di Azure con il firewall di Azure: https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -108,11 +108,11 @@ Sono disponibili diverse dipendenze per Azure HDInsight che richiedono il traffi
 
 Per ridurre il rischio di perdita di dati tramite exfiltration, limitare il traffico di rete in uscita per i cluster Azure HDInsight usando il firewall di Azure.
 
-Come distribuire HDInsight in una rete virtuale e proteggere con un gruppo di sicurezza di rete:https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
+Come distribuire HDInsight in una rete virtuale e proteggere con un gruppo di sicurezza di rete: https://docs.microsoft.com/azure/hdinsight/hdinsight-create-virtual-network
 
-Informazioni sulle dipendenze di HDInsight e sull'utilizzo del firewall:https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
+Informazioni sulle dipendenze di HDInsight e sull'utilizzo del firewall: https://docs.microsoft.com/azure/hdinsight/hdinsight-restrict-outbound-traffic
 
-Indirizzi IP di gestione HDInsight:https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses
+Indirizzi IP di gestione HDInsight: https://docs.microsoft.com/azure/hdinsight/hdinsight-management-ip-addresses
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -432,7 +432,7 @@ https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getst
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="37-log-and-alert-on-suspicious-activity-from-administrative-accounts"></a>3.7: registrare e inviare avvisi per le attività sospette dagli account amministrativi
 
@@ -532,7 +532,7 @@ Elenco dei servizi Customer Lockbox supportati: https://docs.microsoft.com/azure
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsabilità**: Customer
+**Responsibilità**: Customer
 
 ## <a name="data-protection"></a>Protezione dei dati
 
@@ -848,7 +848,7 @@ Come creare query con Azure Graph: https://docs.microsoft.com/azure/governance/r
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="66-monitor-for-unapproved-software-applications-within-compute-resources"></a>6.6: monitorare le applicazioni software non approvate nelle risorse di calcolo
 
@@ -930,7 +930,7 @@ Come configurare l'accesso condizionale per bloccare l'accesso ad Azure Resource
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ## <a name="secure-configuration"></a>Configurazione sicura
 
@@ -1072,7 +1072,7 @@ https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: gestire le identità in modo sicuro e automatico
 
@@ -1126,7 +1126,7 @@ Informazioni su Microsoft antimalware per servizi cloud e macchine virtuali di A
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsabilità**: Condiviso
+**Responsibilità**: Condiviso
 
 ### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>Passaggio 8.3: assicurarsi che le firme e il software antimalware siano aggiornati
 
@@ -1278,7 +1278,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Test di penetrazione ed esercizi Red Team
 
@@ -1290,7 +1290,7 @@ https://docs.microsoft.com/azure/security-center/workflow-automation
 
 https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1.
 
-È possibile trovare altre informazioni sulla strategia e l'esecuzione di Microsoft red teaming e test di penetrazione di siti Live su infrastruttura, servizi e applicazioni cloud gestiti da Microsoft, qui:https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+È possibile trovare altre informazioni sulla strategia e l'esecuzione di Microsoft red teaming e test di penetrazione di siti Live su infrastruttura, servizi e applicazioni cloud gestiti da Microsoft, qui: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

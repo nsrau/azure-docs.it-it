@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 8342ffc122f56f4e2a3a41e249007b2ceaad22a6
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 4fe353467a11e9581db76ec495194878414f4dfb
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88034652"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230688"
 ---
 # <a name="storage-account-overview"></a>Panoramica dell'account di archiviazione
 
@@ -129,10 +129,10 @@ Un account di archiviazione offre uno spazio dei nomi univoco in Azure per i dat
 
 Ad esempio, se l'account di archiviazione per utilizzo generico si chiama *mystorageaccount*, gli endpoint predefiniti per tale account sono:
 
-- Archiviazione BLOB:`https://*mystorageaccount*.blob.core.windows.net`
-- Archivio tabelle:`https://*mystorageaccount*.table.core.windows.net`
-- Archiviazione code:`https://*mystorageaccount*.queue.core.windows.net`
-- File di Azure:`https://*mystorageaccount*.file.core.windows.net`
+- Archiviazione BLOB: `https://*mystorageaccount*.blob.core.windows.net`
+- Archivio tabelle: `https://*mystorageaccount*.table.core.windows.net`
+- Archiviazione code: `https://*mystorageaccount*.queue.core.windows.net`
+- File di Azure: `https://*mystorageaccount*.file.core.windows.net`
 
 > [!NOTE]
 > Gli account di archiviazione BLOB e BLOB in blocchi espongono solo l'endpoint del servizio BLOB.

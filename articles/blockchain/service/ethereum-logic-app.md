@@ -1,23 +1,24 @@
 ---
 title: Usare il connettore blockchain di Ethereum con app per la logica di Azure-servizio blockchain di Azure
 description: Usare il connettore blockchain per Ethereum con App per la logica di Azure per attivare funzioni di contratto intelligente e rispondere agli eventi di contratto intelligente.
-ms.date: 10/14/2019
+ms.date: 08/31/2020
 ms.topic: how-to
-ms.reviewer: chrisseg
-ms.openlocfilehash: 61dbda7cd7f486c7a8d838084875b34803833502
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.reviewer: caleteet
+ms.openlocfilehash: 4364d2f616c8eaadedf12baf4bf77810eec69fdb
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077032"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230535"
 ---
 # <a name="use-the-ethereum-blockchain-connector-with-azure-logic-apps"></a>Usare il connettore blockchain per Ethereum con App per la logica di Azure
 
-Usare il [connettore blockchain per Ethereum](/connectors/blockchainethereum/) con [App per la logica di Azure](../../logic-apps/index.yml) per eseguire azioni di contratto intelligente e rispondere agli eventi di contratto intelligente. Ad esempio, si vuole creare un microservizio basato su REST che restituisce informazioni da un libro mastro della blockchain. Con un'app per la logica, è possibile accettare richieste HTTP che eseguono query per recuperare le informazioni archiviate in un libro mastro della blockchain.
+Usare il [connettore blockchain per Ethereum](/connectors/blockchainethereum/) con [App per la logica di Azure](../../logic-apps/index.yml) per eseguire azioni di contratto intelligente e rispondere agli eventi di contratto intelligente. Questo articolo illustra come è possibile usare il connettore Ethereum blockchain per inviare informazioni blockchain a un altro servizio o chiamare una funzione blockchain. Ad esempio, si vuole creare un microservizio basato su REST che restituisce informazioni da un libro mastro della blockchain. Con un'app per la logica, è possibile accettare richieste HTTP che eseguono query per recuperare le informazioni archiviate in un libro mastro della blockchain.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Completare la Guida introduttiva al prerequisito facoltativo [: usare Visual Studio Code per connettersi a una rete di Azure blockchain Service Consortium](connect-vscode.md). I moduli di avvio rapido guidano l'utente attraverso l'installazione dell'estensione [Azure Blockchain Development Kit per Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) e la configurazione dell'ambiente di sviluppo blockchain.
+- Completare la Guida introduttiva al prerequisito facoltativo [: usare Visual Studio Code per connettersi a una rete di Azure blockchain Service Consortium](connect-vscode.md). I moduli di avvio rapido guidano l'utente attraverso l'installazione dell'estensione [Azure Blockchain Development Kit per Ethereum](https://marketplace.visualstudio.com/items?itemName=AzBlockchain.azure-blockchain) e la configurazione dell'ambiente di sviluppo blockchain.
+- Se non si ha familiarità con app per la logica di Azure, provare a esaminare i moduli Microsoft Learn [Introduzione alle app per la logica di Azure](/learn/modules/intro-to-logic-apps/) e [chiamare un'API da un flusso di lavoro di app per la logica usando un connettore personalizzato](/learn/modules/logic-apps-and-custom-connectors/).
 
 ## <a name="create-a-logic-app"></a>Creare un'app per la logica
 
@@ -33,7 +34,7 @@ Le app per la logica di Azure consentono di pianificare e automatizzare i proces
 
 Ogni app per la logica deve essere avviata con un trigger, che viene attivato quando si verifica un determinato evento o quando viene soddisfatta una condizione specifica. Ogni volta che il trigger viene attivato, il motore di App per la logica crea un'istanza dell'app per la logica che si avvia ed esegue il flusso di lavoro.
 
-Il connettore blockchain per Ethereum contiene un trigger e numerose azioni. Il trigger o l'azione usata dipendono dallo scenario in uso.
+Il connettore blockchain per Ethereum contiene un trigger e numerose azioni. Il trigger o l'azione usata dipendono dallo scenario in uso. Seguire la sezione di questo articolo più adatta al proprio scenario.
 
 Se il flusso di lavoro:
 
@@ -128,7 +129,7 @@ Ad esempio, la procedura seguente genera un'app per la logica di microservizio b
 
     ![Visualizzazione progettazione con l'opzione Connessioni selezionata](./media/ethereum-logic-app/microservice-logic-app.png)
 
-1. A questo punto, è possibile usare l'app per la logica. Per testare il microservizio basato su REST, inviare una richiesta POST HTTP all'URL di richiesta dell'app per la logica. Copiare il contenuto di **URL POST HTTP** dal passaggio **Alla ricezione di una richiesta HTTP**.
+1. A questo punto, è possibile usare l'app per la logica. Per testare il microservizio basato su REST, inviare una richiesta POST HTTP all'URL di richiesta dell'app per la logica. Copiare il contenuto dell' **URL post http** dal passaggio **quando viene ricevuta una richiesta http** .
 
     ![Riquadro Progettazione app per la logica con URL POST HTTP](./media/ethereum-logic-app/post-url.png)
 

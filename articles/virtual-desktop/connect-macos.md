@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 04/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 649176a363b1a721fede68c5db2a736d5304f485
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: f437c43c1e9ad960910e7576db4b3ddf3f6623ec
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007625"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230875"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-macos-client"></a>Connettersi al desktop virtuale Windows con il client macOS
 
@@ -24,7 +24,7 @@ ms.locfileid: "88007625"
 
 ## <a name="install-the-client"></a>Installare il client
 
-Per iniziare, [scaricare](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12)   e installare il client nel dispositivo MacOS.
+Per iniziare, [scaricare](https://apps.apple.com/app/microsoft-remote-desktop/id1295203466?mt=12) e installare il client nel dispositivo MacOS.
 
 ## <a name="subscribe-to-a-feed"></a>Effettuare la sottoscrizione a un feed
 
@@ -33,9 +33,10 @@ Sottoscrivi il feed fornito dall'amministratore per ottenere l'elenco di risorse
 Per sottoscrivere un feed:
 
 1. Selezionare **Aggiungi area di lavoro** nella pagina principale per connettersi al servizio e recuperare le risorse.
-2. Immettere l'URL del feed. Può essere un URL o un indirizzo e-mail:
+2. Immetti un valore in Feed URL (URL del feed). Può essere un URL o un indirizzo e-mail:
    - Nel caso di un URL, usa quello fornito dall'amministratore. In genere l'URL è <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery>.
    - Nel caso dell'e-mail, immetti il tuo indirizzo. In tal caso indichi al client di cercare un URL associato al tuo indirizzo e-mail, se l'amministratore ha configurato il server in questo modo.
+   - Per connettersi tramite il portale di US Gov, usare <https://rdweb.wvd.azure.us/api/arm/feeddiscovery> .
 3. Selezionare **Aggiungi**.
 4. Accedi con l'account utente quando richiesto.
 

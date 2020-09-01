@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020, devx-track-python
 ms.date: 04/27/2020
-ms.openlocfilehash: 2ab996c3f3310656e7b85dded8e57a129b901660
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: bd61c6812d794d30e28f087dabf58db51e9c3296
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873807"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230416"
 ---
 # <a name="use-apache-spark-mllib-to-build-a-machine-learning-application-and-analyze-a-dataset"></a>Usare MLlib Apache Spark per compilare un'applicazione di Machine Learning e analizzare un set di dati
 
@@ -44,7 +44,7 @@ Nei passaggi seguenti, si svilupperà un modello per sapere che cosa serve per s
 
 ## <a name="create-an-apache-spark-mllib-machine-learning-app"></a>Creare una pipeline di apprendimento automatico MLlib Apache Spark
 
-1. Creare un notebook di Jupyter usando il kernel PySpark. Per le istruzioni, vedere [Creare un notebook Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
+1. Creare un notebook di Jupyter usando il kernel PySpark. Per le istruzioni, vedere [creare un file Jupyter notebook](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
 
 2. Importare i tipi richiesti per l'applicazione. Copiare e incollare il codice seguente in una cella vuota e quindi premere **MAIUSC + INVIO**.
 
@@ -108,7 +108,7 @@ Usare il contesto Spark per eseguire il pull dei dati CSV non elaborati in memor
 
     L'output dà un'idea dello schema del file di input. Include il nome di ogni stabilimento e il tipo di stabilimento. Inoltre, l'indirizzo, i dati delle ispezioni e la posizione, tra le altre cose.
 
-3. Eseguire il codice seguente per creare un frame di dati (*df*) e una tabella temporanea (*CountResults*) con alcune colonne che sono utili per l'analisi predittiva. `sqlContext`viene usato per eseguire trasformazioni sui dati strutturati.
+3. Eseguire il codice seguente per creare un frame di dati (*df*) e una tabella temporanea (*CountResults*) con alcune colonne che sono utili per l'analisi predittiva. `sqlContext` viene usato per eseguire trasformazioni sui dati strutturati.
 
     ```PySpark
     schema = StructType([

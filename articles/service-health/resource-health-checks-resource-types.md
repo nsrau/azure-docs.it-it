@@ -3,12 +3,12 @@ title: Tipi di risorse supportati tramite Integrità risorse di Azure|Microsoft 
 description: Tipi di risorse supportati tramite Integrità risorse di Azure
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: 2c002ab89b1cae4db6d3337908bb401039cb2295
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: d797b9fb9b843f114e01820fa666e56749c7983f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88611943"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230161"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Tipi di risorse e controlli di integrità in Integrità risorse di Azure
 Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite Integrità risorse suddivisi per tipi di risorse.
@@ -22,6 +22,11 @@ Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite
 |Controlli eseguiti|
 |---|
 |<ul><li>Il servizio Gestione API è operativo?</li></ul>|
+
+## <a name="microsoftappplatformspring"></a>Microsoft.AppPlatform/Spring
+|Controlli eseguiti|
+|---|
+|<ul><li>L'istanza di Azure Spring cloud è disponibile?</li></ul>|
 
 ## <a name="microsoftbatchbatchaccounts"></a>Microsoft.Batch/batchAccounts
 |Controlli eseguiti|
@@ -56,12 +61,17 @@ Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite
 ## <a name="microsoftcomputehostgroupshosts"></a>Microsoft.compute/hostgroups/hosts
 |Controlli eseguiti|
 |---|
-|<ul><li>L'host è operativo?</li><li>L'hardware dell'host è danneggiato?</li><li>L'host è deallocato?</li><li>Il servizio hardware dell'host è stato riparato con un hardware diverso?</li></ul>|
+|<ul><li>L'host è in esecuzione?</li><li>L'hardware dell'host è danneggiato?</li><li>L'host è deallocato?</li><li>Il servizio hardware dell'host è stato riparato con un hardware diverso?</li></ul>|
 
 ## <a name="microsoftcomputevirtualmachines"></a>Microsoft.compute/virtualmachines
 |Controlli eseguiti|
 |---|
 |<ul><li>Il server che ospita la macchina virtuale è operativo?</li><li>L'avvio del sistema operativo host è stato completato?</li><li>Sono stati eseguiti il provisioning e l'accensione del contenitore della macchina virtuale?</li><li>È disponibile la connettività di rete tra l'host e l'account di archiviazione?</li><li>L'avvio del sistema operativo guest è stato completato?</li><li>È in corso la manutenzione pianificata?</li><li>L'hardware dell'host è danneggiato e si prevede un guasto imminente?</li></ul>|
+
+## <a name="microsoftcontainerservicemanagedclusters"></a>Microsoft.ContainerService/managedClusters
+|Controlli eseguiti|
+|---|
+|<ul><li>Il cluster è in esecuzione?</li><li>I servizi di base sono disponibili nel cluster?</li><li>Tutti i nodi del cluster sono pronti?</li><li>L'entità servizio è corrente e valida?</li></ul>|
 
 ## <a name="microsoftdatafactoryfactories"></a>Microsoft.datafactory/factories
 |Controlli eseguiti|
@@ -124,10 +134,20 @@ Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite
 |---|
 |<ul><li>I servizi di base sono disponibili nel cluster HDInsight?</li><li>Il cluster HDInsight è in grado di accedere alla chiave per la crittografia di dati BYOK inattivi?</li></ul>|
 
+## <a name="microsoftiotcentraliotapps"></a>Microsoft. IoTCentral/IoTApps
+|Controlli eseguiti|
+|---|
+|<ul><li>L'applicazione IoT Central è disponibile?</li></ul>|
+
 ## <a name="microsoftkeyvaultvaults"></a>Microsoft.KeyVault/vaults
 |Controlli eseguiti|
 |---|
 |<ul><li>Esistono richieste all'insieme di credenziali delle chiavi non riuscite a causa di problemi della piattaforma di Azure Key Vault?</li><li>Le richieste all'insieme di credenziali delle chiavi vengono limitate a causa di un numero eccessivo di richieste effettuate dal cliente?</li></ul>|
+
+## <a name="microsoftkustoclusters"></a>Microsoft. kusto/cluster
+|Controlli eseguiti|
+|---|
+|<ul><li>Il cluster riscontra una riduzione delle percentuali di riuscita dell'inserimento?</li><li>Il cluster sta riscontrando una latenza di inserimento elevata?</li><li>Il cluster sta riscontrando un numero elevato di errori di query?</li></ul>|
 
 ## <a name="microsoftmachinelearningwebservices"></a>Microsoft.MachineLearning/webServices
 |Controlli eseguiti|
@@ -164,6 +184,11 @@ Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite
 |---|
 |<ul><li>Gli endpoint di bilanciamento del carico sono disponibili?</li></ul>|
 
+## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft. Network/trafficmanagerprofiles
+|Controlli eseguiti|
+|---|
+|<ul><li>Sono presenti problemi che influiscano sul profilo di gestione traffico?</li></ul>|
+
 ## <a name="microsoftnetworkvirtualnetworkgateways"></a>Microsoft.network/virtualNetworkGateways
 |Controlli eseguiti|
 |---|
@@ -183,11 +208,6 @@ Di seguito è riportato un elenco completo di tutti i controlli eseguiti tramite
 |Controlli eseguiti|
 |---|
 |<ul><li>La risorsa capacità è operativa?</li><li>Tutti i carichi di lavoro sono operativi?</li></ul>|
-
-## <a name="microsoftpowerbiworkspacecollections"></a>Microsoft.PowerBI/workspaceCollections
-|Controlli eseguiti|
-|---|
-|<ul><li>Il sistema operativo host è operativo?</li><li>La raccolta di aree di lavoro è raggiungibile dall'esterno del data center?</li><li>Il provider di risorse Power BI è disponibile?</li><li>Il servizio Power BI è disponibile nell'area pertinente?</li></ul>|
 
 ## <a name="microsoftsearchsearchservices"></a>Microsoft.search/searchServices
 |Controlli eseguiti|

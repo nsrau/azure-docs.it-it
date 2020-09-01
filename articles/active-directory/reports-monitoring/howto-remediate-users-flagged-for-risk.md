@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3037dd2e03062ebab0c48438aa4345a766a22fc8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 725b3b712313c199382cebe32bed98f2115fc262
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608926"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231164"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Correggere gli utenti contrassegnati per il rischio nel portale di Azure Active Directory
 
@@ -40,7 +40,7 @@ Nel report Utenti contrassegnati per il rischio è possibile eseguire le azioni 
 - Richiedere all'utente la reimpostazione sicura della password al successivo accesso.
 - Eliminare il rischio utente senza eseguire alcuna azione correttiva.
 
-Per altre informazioni, vedere il [report sulla sicurezza Utenti contrassegnati per il rischio](concept-user-at-risk.md).
+Per altre informazioni, vedere il [report sulla sicurezza Utenti contrassegnati per il rischio](../identity-protection/overview-identity-protection.md).
 
 ### <a name="azure-ad-subscription-for-office-365-customers"></a>Sottoscrizione di Azure AD per i clienti di Office 365
 
@@ -91,5 +91,5 @@ Eseguire queste operazioni per correggere gli account interessati e proteggere l
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Azure Active Directory Identity Protection](../active-directory-identityprotection.md)
-* [Utenti contrassegnati per il rischio](concept-user-at-risk.md)
+* [Azure Active Directory Identity Protection](../identity-protection/overview-identity-protection.md)
+* [Utenti contrassegnati per il rischio](../identity-protection/overview-identity-protection.md)

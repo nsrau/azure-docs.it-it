@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/21/2020
-ms.openlocfilehash: eb68aa1dae69134cfdab057a95de8a2393f9a32c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 997064ad030d22531277f1c412add6916eb7733f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998935"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230467"
 ---
 # <a name="install-log-analytics-agent-on-linux-computers"></a>Installare Log Analytics Agent nei computer Linux
 Questo articolo fornisce informazioni dettagliate sull'installazione dell'agente di Log Analytics nei computer Linux usando i metodi seguenti:
@@ -51,11 +51,19 @@ A partire dalle versioni rilasciate dopo il mese di agosto 2018, al modello di s
  - Ubuntu, Debian: `apt-get install -y python2`
  - SUSE: `zypper install -y python2`
 
-L'eseguibile di python2 deve essere associato a "Python" usando il comando seguente:
+L'eseguibile di python2 deve avere un alias per *Python*. Di seguito è riportato un metodo che è possibile utilizzare per impostare l'alias:
 
-```
-alternatives --set python `which python2`
-```
+1. Eseguire il comando seguente per rimuovere gli alias esistenti.
+ 
+    ```
+    sudo update-alternatives --remove-all python
+    ```
+
+2. Eseguire il comando seguente per creare l'alias.
+
+    ```
+    sudo update-alternatives --install /usr/bin/python python /usr/bin/python2 1
+    ```
 
 ## <a name="supported-linux-hardening"></a>Protezione avanzata Linux supportata
 L'agente OMS ha un supporto di personalizzazione limitato per Linux. 
@@ -64,7 +72,8 @@ Sono attualmente supportati gli elementi seguenti:
 - FIPs
 
 Gli elementi seguenti sono pianificati ma non ancora supportati:
-- SID-SELINUX
+- CIS
+- SELINUX
 
 Altri metodi di protezione avanzata e personalizzazione non sono supportati né pianificati per l'agente OMS.  
 
@@ -117,9 +126,9 @@ La procedura seguente consente di configurare l'installazione dell'agente per Lo
 
 Se il computer Linux deve comunicare tramite un server proxy per Log Analytics, questa configurazione può essere specificata nella riga di comando includendo `-p [protocol://][user:password@]proxyhost[:port]` . La proprietà del *protocollo* accetta `http` o `https` e la proprietà *proxyhost* accetta un nome di dominio completo o un indirizzo IP del server proxy. 
 
-ad esempio `https://proxy01.contoso.com:30443`
+Ad esempio: `https://proxy01.contoso.com:30443`
 
-Se l'autenticazione è necessaria in entrambi i casi, è necessario specificare il nome utente e la password. ad esempio `https://user01:password@proxy01.contoso.com:30443`
+Se l'autenticazione è necessaria in entrambi i casi, è necessario specificare il nome utente e la password. Ad esempio: `https://user01:password@proxy01.contoso.com:30443`
 
 1. Per configurare il computer Linux per la connessione a un'area di lavoro Log Analytics, eseguire il comando seguente specificando l'ID e la chiave primaria dell'area di lavoro. Il comando seguente scarica l'agente, convalida il relativo checksum e ne esegue l'installazione.
     

@@ -9,16 +9,16 @@ ms.topic: conceptual
 ms.date: 07/15/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 2e390c9d5d2fa7c6551ed661c6c25096732eefd5
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: a6fc1d6b831ae794907c59ab1af3328902f3a70a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88057325"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230110"
 ---
 # <a name="soft-delete-for-blobs"></a>Eliminazione temporanea per i BLOB
 
-L'eliminazione temporanea per i BLOB impedisce la modifica o l'eliminazione accidentale o errata dei dati. Quando l'eliminazione temporanea per i BLOB è abilitata per un account di archiviazione, i BLOB, le versioni di BLOB (anteprima) e gli snapshot nell'account di archiviazione possono essere ripristinati dopo l'eliminazione, entro il periodo di memorizzazione specificato.
+L'eliminazione temporanea per i BLOB impedisce la modifica o l'eliminazione accidentale o errata dei dati. Quando l'eliminazione temporanea per i BLOB è abilitata per un account di archiviazione, i BLOB, le versioni BLOB e gli snapshot nell'account di archiviazione possono essere ripristinati dopo l'eliminazione, entro un periodo di conservazione specificato.
 
 Se esiste la possibilità che i dati vengano accidentalmente modificati o eliminati da un'applicazione o da un utente con un altro account di archiviazione, Microsoft consiglia di abilitare l'eliminazione temporanea. Per ulteriori informazioni sull'abilitazione dell'eliminazione temporanea, vedere [Enable and Manage soft delete for Blobs](soft-delete-enable.md).
 
@@ -28,7 +28,7 @@ Se esiste la possibilità che i dati vengano accidentalmente modificati o elimin
 
 Quando l'eliminazione temporanea per i BLOB è abilitata in un account di archiviazione, è possibile ripristinare gli oggetti dopo che sono stati eliminati, entro il periodo di conservazione dei dati specificato. Questa protezione si estende a qualsiasi BLOB (BLOB in blocchi, BLOB di accodamento o BLOB di pagine) che vengono cancellati come risultato di una sovrascrittura.
 
-Se i dati di un BLOB o di uno snapshot esistente vengono eliminati mentre l'eliminazione temporanea BLOB è abilitata, ma il controllo delle versioni del BLOB (anteprima) non è abilitato, viene generato uno snapshot eliminato temporaneamente per salvare lo stato dei dati sovrascritti. Dopo la scadenza del periodo di memorizzazione specificato, l'oggetto viene eliminato definitivamente.
+Se i dati di un BLOB o di uno snapshot esistente vengono eliminati mentre l'eliminazione temporanea del BLOB è abilitata, ma il controllo delle versioni del BLOB non è abilitato, viene generato uno snapshot eliminato temporaneamente per salvare lo stato dei dati sovrascritti. Dopo la scadenza del periodo di memorizzazione specificato, l'oggetto viene eliminato definitivamente.
 
 Se per l'account di archiviazione sono abilitate le funzionalità di controllo delle versioni BLOB e eliminazione temporanea BLOB, l'eliminazione di un BLOB crea una nuova versione anziché uno snapshot eliminato temporaneamente. La nuova versione non viene eliminata temporaneamente e non viene rimossa al termine del periodo di memorizzazione dell'eliminazione temporanea. Le versioni eliminate temporaneamente di un BLOB possono essere ripristinate entro il periodo di memorizzazione chiamando l'operazione di [annullamento dell'eliminazione del BLOB](/rest/api/storageservices/undelete-blob) . Il BLOB può essere successivamente ripristinato da una delle relative versioni chiamando l'operazione [Copy Blob](/rest/api/storageservices/copy-blob) . Per altre informazioni sull'uso combinato del controllo delle versioni e dell'eliminazione temporanea, vedere [controllo delle versioni dei BLOB e eliminazione](versioning-overview.md#blob-versioning-and-soft-delete)temporanea.
 
@@ -194,4 +194,4 @@ Una macchina virtuale di Azure scrive in un disco non gestito usando le chiamate
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Abilitare l'eliminazione temporanea per i BLOB](soft-delete-enable.md)
-- [Controllo delle versioni dei BLOB (anteprima)](versioning-overview.md)
+- [Controllo delle versioni dei BLOB](versioning-overview.md)

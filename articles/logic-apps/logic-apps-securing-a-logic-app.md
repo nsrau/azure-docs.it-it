@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 08/20/2020
-ms.openlocfilehash: 883eede5296f3f280bf30c9a459c02a9243f9081
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.date: 08/27/2020
+ms.openlocfilehash: 442b5acf3a6786b9fcaf0a96015a6df31215653c
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719530"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231419"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in App per la logica di Azure
 
@@ -19,11 +19,11 @@ App per la logica di Azure si basa su [archiviazione di Azure](../storage/index.
 
 Per controllare ulteriormente l'accesso e proteggere i dati sensibili in app per la logica di Azure, è possibile configurare una sicurezza aggiuntiva in queste aree:
 
-* [Accesso ai trigger di richiesta](#secure-triggers)
+* [Accesso per le chiamate in ingresso a trigger basati su richiesta](#secure-inbound-requests)
 * [Accesso alle operazioni di app per la logica](#secure-operations)
 * [Accesso agli input e agli output della cronologia di esecuzione](#secure-run-history)
 * [Accesso agli input dei parametri](#secure-action-parameters)
-* [Accesso ai servizi e ai sistemi chiamati dalle app per la logica](#secure-outbound-requests)
+* [Accesso per le chiamate in uscita ad altri servizi e sistemi](#secure-outbound-requests)
 * [Blocca la creazione di connessioni per connettori specifici](#block-connections)
 * [Linee guida sull'isolamento per le app per la logica](#isolation-logic-apps)
 * [Baseline della sicurezza di Azure per app per la logica di Azure](../logic-apps/security-baseline.md)
@@ -34,18 +34,29 @@ Per ulteriori informazioni sulla sicurezza in Azure, vedere gli argomenti seguen
 * [Crittografia dei dati inattivi di Azure](../security/fundamentals/encryption-atrest.md)
 * [Azure Security Benchmark](../security/benchmarks/overview.md)
 
-<a name="secure-triggers"></a>
+<a name="secure-inbound-requests"></a>
 
-## <a name="access-to-request-based-triggers"></a>Accesso ai trigger di richiesta
+## <a name="access-for-inbound-calls-to-request-based-triggers"></a>Accesso per le chiamate in ingresso a trigger basati su richiesta
 
-Se l'app per la logica usa un trigger di richiesta, che riceve le chiamate o le richieste in ingresso, ad esempio i trigger [Richiesta](../connectors/connectors-native-reqres.md) o [Webhook](../connectors/connectors-native-webhook.md), è possibile limitare l'accesso in modo che solo i client autorizzati possano chiamare l'app per la logica. Tutte le richieste ricevute da un'app per la logica vengono crittografate e protette con il protocollo Transport Layer Security (TLS), noto in precedenza come Secure Sockets Layer (SSL).
+Le chiamate in ingresso che un'app per la logica riceve tramite un trigger basato su richiesta, come il trigger di [richiesta](../connectors/connectors-native-reqres.md) o il trigger [http webhook](../connectors/connectors-native-webhook.md) , supportano la crittografia e sono protette con [Transport Layer Security (TLS) 1,2 almeno](https://en.wikipedia.org/wiki/Transport_Layer_Security), noto in precedenza come Secure Sockets Layer (SSL). App per la logica applica questa versione quando riceve una chiamata in ingresso al trigger di richiesta o un callback al trigger o all'azione del webhook HTTP. Se si verificano errori di handshake TLS, assicurarsi di usare TLS 1.2. Per altre informazioni, vedere [Risoluzione del problema relativo a TLS 1.0](/security/solving-tls1-problem).
 
-Di seguito sono riportate alcune opzioni che consentono di proteggere l'accesso a questo tipo di trigger:
+Le chiamate in ingresso supportano questi pacchetti di crittografia:
 
-* [Generare firme di accesso condiviso](#sas)
+* TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+* TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+* TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+* TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+* TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+* TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+
+Ecco altri modi in cui è possibile limitare l'accesso ai trigger che ricevono chiamate in ingresso all'app per la logica in modo che solo i client autorizzati possano chiamare l'app per la logica:
+
+* [Generare firme di accesso condiviso (SAS)](#sas)
 * [Abilitare Azure Active Directory Open Authentication (Azure AD OAuth)](#enable-oauth)
+* [Esporre l'app per la logica con gestione API di Azure](#azure-api-management)
 * [Limitare gli indirizzi IP in ingresso](#restrict-inbound-ip-addresses)
-* [Aggiungere Azure Active Directory Open Authentication (Azure AD OAuth) o altri elementi di sicurezza](#add-authentication)
 
 <a name="sas"></a>
 
@@ -108,9 +119,21 @@ Nel corpo includere la proprietà `KeyType` come `Primary` o `Secondary`. Questa
 
 <a name="enable-oauth"></a>
 
-### <a name="enable-azure-active-directory-oauth"></a>Abilitare Azure Active Directory OAuth
+### <a name="enable-azure-active-directory-open-authentication-azure-ad-oauth"></a>Abilitare Azure Active Directory Open Authentication (Azure AD OAuth)
 
-Se l'app per la logica inizia con un [trigger di richiesta](../connectors/connectors-native-reqres.md), è possibile abilitare [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure ad OAuth) definendo o aggiungendo un criterio di autorizzazione per le chiamate in ingresso al trigger di richiesta. Quando l'app per la logica riceve una richiesta in ingresso che include un token di autenticazione, app per la logica di Azure Confronta le attestazioni del token con le attestazioni in ogni criterio di autorizzazione. Se esiste una corrispondenza tra le attestazioni del token e tutte le attestazioni in almeno un criterio, l'autorizzazione ha esito positivo per la richiesta in ingresso. Il token può avere più attestazioni rispetto al numero specificato dal criterio di autorizzazione.
+Se l'app per la logica inizia con un [trigger di richiesta](../connectors/connectors-native-reqres.md), è possibile abilitare [Azure Active Directory Open Authentication (Azure ad OAuth)](../active-directory/develop/index.yml) definendo o aggiungendo un criterio di autorizzazione per le chiamate in ingresso al trigger di richiesta.
+
+Prima di abilitare questa autenticazione, considerare quanto segue:
+
+* La chiamata in ingresso al trigger di richiesta può utilizzare un solo schema di autorizzazione, Azure AD OAuth utilizzando un token di autenticazione, supportato solo per il trigger di richiesta, oppure tramite un URL di [firma di accesso condiviso (SAS)](#sas) non è possibile utilizzare entrambi gli schemi.
+
+  Sebbene l'utilizzo di uno schema non disabilita l'altro schema, l'utilizzo di entrambe le volte genera un errore perché il servizio non conosce lo schema da scegliere. Inoltre, per i token di autenticazione OAuth sono supportati solo gli schemi di autorizzazione di [tipo Bearer](../active-directory/develop/active-directory-v2-protocols.md#tokens) , che sono supportati solo per il trigger request. Il token di autenticazione deve specificare `Bearer-type` nell'intestazione dell'autorizzazione.
+
+* L'app per la logica è limitata a un numero massimo di criteri di autorizzazione. Ogni criterio di autorizzazione ha anche un numero massimo di [attestazioni](../active-directory/develop/developer-glossary.md#claim). Per altre informazioni, vedere [Limiti e configurazione per App per la logica di Azure](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
+
+* Un criterio di autorizzazione deve includere almeno l'attestazione dell' **autorità emittente** , che ha un valore che inizia con `https://sts.windows.net/` o `https://login.microsoftonline.com/` (OAuth v2) come ID autorità di certificazione Azure ad. Per altre informazioni sui token di accesso, vedere [token di accesso della piattaforma Microsoft Identity](../active-directory/develop/access-tokens.md).
+
+Quando l'app per la logica riceve una richiesta in ingresso che include un token di autenticazione OAuth, app per la logica di Azure Confronta le attestazioni del token con le attestazioni in ogni criterio di autorizzazione. Se esiste una corrispondenza tra le attestazioni del token e tutte le attestazioni in almeno un criterio, l'autorizzazione ha esito positivo per la richiesta in ingresso. Il token può avere più attestazioni rispetto al numero specificato dal criterio di autorizzazione.
 
 Si supponga, ad esempio, che l'app per la logica disponga di un criterio di autorizzazione che richiede due tipi di attestazione, **autorità emittente** e **destinatari**. Questo [token di accesso](../active-directory/develop/access-tokens.md) decodificato di esempio include entrambi i tipi di attestazione:
 
@@ -154,16 +177,6 @@ Si supponga, ad esempio, che l'app per la logica disponga di un criterio di auto
    "ver": "1.0"
 }
 ```
-
-#### <a name="considerations-for-enabling-azure-oauth"></a>Considerazioni per l'abilitazione di OAuth di Azure
-
-Prima di abilitare questa autenticazione, considerare quanto segue:
-
-* Una chiamata in ingresso all'app per la logica può usare un solo schema di autorizzazione, Azure AD OAuth o le [firme di accesso condiviso (SAS)](#sas). L'uso di uno schema non comporta la disabilitazione dell'altro, ma l'uso di entrambe le volte genera un errore perché il servizio non conosce lo schema da scegliere. Per i token OAuth sono supportati solo gli schemi di autorizzazione di [tipo Bearer](../active-directory/develop/active-directory-v2-protocols.md#tokens) , che sono supportati solo per il trigger request.
-
-* L'app per la logica è limitata a un numero massimo di criteri di autorizzazione. Ogni criterio di autorizzazione ha anche un numero massimo di [attestazioni](../active-directory/develop/developer-glossary.md#claim). Per altre informazioni, vedere [Limiti e configurazione per App per la logica di Azure](../logic-apps/logic-apps-limits-and-config.md#authentication-limits).
-
-* Un criterio di autorizzazione deve includere almeno l'attestazione dell' **autorità emittente** , che ha un valore che inizia con `https://sts.windows.net/` o `https://login.microsoftonline.com/` (OAuth v2) come ID autorità di certificazione Azure ad. Per altre informazioni sui token di accesso, vedere [token di accesso della piattaforma Microsoft Identity](../active-directory/develop/access-tokens.md).
 
 <a name="define-authorization-policy-portal"></a>
 
@@ -242,6 +255,12 @@ Per abilitare Azure AD OAuth nel modello ARM per la distribuzione dell'app per l
 
 Per altre informazioni sulla `accessControl` sezione, vedere [limitare gli intervalli di indirizzi IP in ingresso nel modello di Azure Resource Manager](#restrict-inbound-ip-template) e [riferimenti ai modelli di flussi di lavoro Microsoft. logici](/azure/templates/microsoft.logic/2019-05-01/workflows).
 
+<a name="azure-api-management"></a>
+
+### <a name="expose-your-logic-app-with-azure-api-management"></a>Esporre l'app per la logica con gestione API di Azure
+
+Per aggiungere altri [protocolli di autenticazione](../active-directory/develop/authentication-vs-authorization.md) all'app per la logica, provare a usare il servizio [gestione API di Azure](../api-management/api-management-key-concepts.md) . Questo servizio consente di esporre l'app per la logica come API e offre monitoraggio avanzato, sicurezza, criteri e documentazione per ogni endpoint. Gestione API può esporre un endpoint pubblico o privato per l'app per la logica. Per autorizzare l'accesso a questo endpoint, è possibile usare Azure AD OAuth, un [certificato client](#client-certificate-authentication)o altri standard di sicurezza per autorizzare l'accesso a tale endpoint. Quando Gestione API riceve una richiesta, il servizio invia la richiesta all'app per la logica, eseguendo anche eventuali trasformazioni necessarie e restrizioni. Per consentire solo a gestione API di chiamare l'app per la logica, è possibile [limitare gli indirizzi IP in ingresso dell'app per la logica](#restrict-inbound-ip).
+
 <a name="restrict-inbound-ip"></a>
 
 ### <a name="restrict-inbound-ip-addresses"></a>Limitare gli indirizzi IP in ingresso
@@ -311,12 +330,6 @@ Se si [automatizza la distribuzione per le app per la logica usando i modelli di
    "outputs": {}
 }
 ```
-
-<a name="add-authentication"></a>
-
-### <a name="add-azure-active-directory-open-authentication-or-other-security"></a>Aggiungere Azure Active Directory Open Authentication o altri elementi di sicurezza
-
-Per aggiungere altri protocolli di [autenticazione](../active-directory/develop/authentication-vs-authorization.md) all'app per la logica, considerare l'uso del servizio di [Gestione API di Azure](../api-management/api-management-key-concepts.md). Questo servizio consente di esporre l'app per la logica come API e offre monitoraggio avanzato, sicurezza, criteri e documentazione per ogni endpoint. Gestione API può esporre un endpoint pubblico o privato per l'app per la logica. Per autorizzare l'accesso a questo endpoint, è possibile usare [Azure Active Directory Open Authentication](#azure-active-directory-oauth-authentication) (Azure AD OAuth), il [certificato client](#client-certificate-authentication)o altri standard di sicurezza per autorizzare l'accesso a tale endpoint. Quando Gestione API riceve una richiesta, il servizio invia la richiesta all'app per la logica, eseguendo anche eventuali trasformazioni necessarie e restrizioni. Per consentire solo a Gestione API di attivare l'app per la logica, è possibile usare le impostazioni dell'intervallo IP in ingresso dell'app per la logica.
 
 <a name="secure-operations"></a>
 
@@ -719,13 +732,21 @@ Questo modello di esempio ha più definizioni di parametro protette che usano il
 
 <a name="secure-outbound-requests"></a>
 
-## <a name="access-to-services-and-systems-called-from-logic-apps"></a>Accesso ai servizi e ai sistemi chiamati dalle app per la logica
+## <a name="access-for-outbound-calls-to-other-services-and-systems"></a>Accesso per le chiamate in uscita ad altri servizi e sistemi
 
-Ecco alcuni modi in cui è possibile proteggere gli endpoint che ricevono chiamate o richieste dall'app per la logica:
+In base alla funzionalità dell'endpoint di destinazione, le chiamate in uscita inviate dal [trigger http o dall'azione http](../connectors/connectors-native-http.md)supportano la crittografia e sono protette con [Transport Layer Security (TLS) 1,0, 1,1 o 1,2](https://en.wikipedia.org/wiki/Transport_Layer_Security), precedentemente noto come Secure Sockets Layer (SSL). App per la logica negozia con l'endpoint di destinazione usando la versione più alta possibile supportata. Se, ad esempio, l'endpoint di destinazione supporta 1,2, il trigger o l'azione HTTP utilizzerà prima 1,2. In caso contrario, il connettore usa la versione successiva più elevata supportata.
 
-* Aggiunta dell'autenticazione nelle richieste in uscita.
+Di seguito sono riportate informazioni sui certificati autofirmati TLS/SSL:
 
-  Quando si usa un trigger o un'azione basata su HTTP che effettua chiamate in uscita, ad esempio HTTP, è possibile aggiungere l'autenticazione alla richiesta inviata dall'app per la logica. È ad esempio possibile selezionare i tipi di autenticazione seguenti:
+* Per le app per la logica nell'ambiente Azure multi-tenant globale, il connettore HTTP non consente i certificati TLS/SSL autofirmati. Se l'app per la logica effettua una chiamata HTTP a un server e presenta un certificato autofirmato TLS/SSL, la chiamata HTTP ha esito negativo e viene `TrustFailure` visualizzato un errore.
+
+* Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), il connettore HTTP consente i certificati autofirmati per gli handshake TLS/SSL. Tuttavia, è necessario innanzitutto [abilitare il supporto dei certificati autofirmati](../logic-apps/create-integration-service-environment-rest-api.md#request-body) per un ISE esistente o un nuovo ISE usando l'API REST di app per la logica e installare il certificato pubblico nel `TrustedRoot` percorso.
+
+Ecco altri modi per proteggere gli endpoint che gestiscono le chiamate inviate dall'app per la logica:
+
+* [Aggiungere l'autenticazione alle richieste in uscita](#add-authentication-outbound).
+
+  Quando si usa il trigger o l'azione HTTP per inviare chiamate in uscita, è possibile aggiungere l'autenticazione alla richiesta inviata dall'app per la logica. È ad esempio possibile selezionare i tipi di autenticazione seguenti:
 
   * [Autenticazione di base](#basic-authentication)
 
@@ -734,8 +755,6 @@ Ecco alcuni modi in cui è possibile proteggere gli endpoint che ricevono chiama
   * [Autenticazione Active Directory OAuth](#azure-active-directory-oauth-authentication)
 
   * [Autenticazione identità gestita](#managed-identity-authentication)
-
-  Per altre informazioni, vedere [Aggiunta dell'autenticazione alle chiamate in uscita](#add-authentication-outbound) più avanti in questo argomento.
 
 * Limitazione dell'accesso dagli indirizzi IP delle app per la logica.
 
@@ -776,7 +795,7 @@ Ecco alcuni modi in cui è possibile proteggere gli endpoint che ricevono chiama
 
 <a name="add-authentication-outbound"></a>
 
-## <a name="add-authentication-to-outbound-calls"></a>Aggiunta dell'autenticazione alle chiamate in uscita
+### <a name="add-authentication-to-outbound-calls"></a>Aggiunta dell'autenticazione alle chiamate in uscita
 
 Gli endpoint HTTP e HTTPS supportano vari tipi di autenticazione. In alcuni trigger e azioni usati per inviare chiamate in uscita o richieste a questi endpoint, è possibile specificare un tipo di autenticazione. Nella finestra di progettazione dell'app per la logica, i trigger e le azioni che supportano la scelta di un tipo di autenticazione hanno una proprietà di **autenticazione** . Questa proprietà, tuttavia, potrebbe non essere sempre visualizzata per impostazione predefinita. In questi casi, nel trigger o nell'azione aprire l'elenco **Aggiungi nuovo parametro** e selezionare **autenticazione**.
 
@@ -869,7 +888,7 @@ Per altre informazioni sulla protezione dei servizi tramite l'autenticazione del
 
 ### <a name="azure-active-directory-open-authentication"></a>Azure Active Directory Open Authentication
 
-Nei trigger di richiesta è possibile usare [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) per autenticare le chiamate in ingresso dopo aver [configurato i criteri di autorizzazione di Azure AD](#enable-oauth) per l'app per la logica. Per tutti gli altri trigger e azioni che forniscono il tipo di autenticazione **Active Directory OAuth** da selezionare, specificare i valori delle proprietà seguenti:
+Sui trigger di richiesta, è possibile usare [Azure Active Directory autenticazione Open (Azure ad OAuth)](../active-directory/develop/index.yml)per autenticare le chiamate in ingresso dopo aver [configurato Azure ad i criteri di autorizzazione](#enable-oauth) per l'app per la logica. Per tutti gli altri trigger e azioni che forniscono il tipo di autenticazione **Active Directory OAuth** da selezionare, specificare i valori delle proprietà seguenti:
 
 | Proprietà (progettazione) | Proprietà (JSON) | Obbligatoria | valore | Descrizione |
 |---------------------|-----------------|----------|-------|-------------|

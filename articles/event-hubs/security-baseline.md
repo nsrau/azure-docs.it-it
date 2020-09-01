@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 03/25/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: e49a6b8000def0fe175930629b33203adec1b0f5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: a6beb1023b3c934cdbb4b7dc479d87e23a7c96be
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537055"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230365"
 ---
 # <a name="azure-security-baseline-for-event-hubs"></a>Baseline della sicurezza di Azure per hub eventi
 
@@ -36,13 +36,13 @@ Una volta associato ad almeno un endpoint di servizio della subnet di rete virtu
 
 È anche possibile proteggere lo spazio dei nomi di hub eventi di Azure usando i firewall. Hub eventi di Azure supporta i controlli di accesso basato su IP per il supporto del firewall in ingresso. È possibile impostare le regole del firewall usando il portale di Azure, Azure Resource Manager modelli o tramite l'interfaccia della riga di comando di Azure o Azure PowerShell.
 
-Come usare gli endpoint del servizio rete virtuale con hub eventi di Azure:https://docs.microsoft.com/azure/event-hubs/event-hubs-service-endpoints
+Come usare gli endpoint del servizio rete virtuale con hub eventi di Azure: https://docs.microsoft.com/azure/event-hubs/event-hubs-service-endpoints
 
 Per altre informazioni, vedere integrare Hub eventi di Azure con collegamento privato di Azure: https://docs.microsoft.com/azure/event-hubs/private-link-service .
 
-Abilitare l'integrazione delle reti virtuali e i firewall nello spazio dei nomi di hub eventi:https://docs.microsoft.com/azure/event-hubs/event-hubs-tutorial-virtual-networks-firewalls
+Abilitare l'integrazione delle reti virtuali e i firewall nello spazio dei nomi di hub eventi: https://docs.microsoft.com/azure/event-hubs/event-hubs-tutorial-virtual-networks-firewalls
 
-Come configurare le regole del firewall IP per gli spazi dei nomi di hub eventi di Azure:https://docs.microsoft.com/azure/event-hubs/event-hubs-ip-filtering
+Come configurare le regole del firewall IP per gli spazi dei nomi di hub eventi di Azure: https://docs.microsoft.com/azure/event-hubs/event-hubs-ip-filtering
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -54,7 +54,7 @@ Come configurare le regole del firewall IP per gli spazi dei nomi di hub eventi 
 
 Come abilitare i log dei flussi NSG: https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-portal
 
-Informazioni sulla sicurezza di rete fornita dal centro sicurezza di Azure:https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
+Informazioni sulla sicurezza di rete fornita dal centro sicurezza di Azure: https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -72,9 +72,9 @@ Informazioni sulla sicurezza di rete fornita dal centro sicurezza di Azure:https
 
 **Linee guida**: abilitare protezione DDoS standard nelle reti virtuali associate agli hub eventi per prevenire gli attacchi di tipo Denial of Service (DDoS) distribuiti. Usare l'intelligence sulle minacce integrata del Centro sicurezza di Azure per negare le comunicazioni con indirizzi IP Internet notoriamente dannosi o non usati.
 
-Come configurare la protezione DDoS:[https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](../virtual-network/manage-ddos-protection.md)
+Come configurare la protezione DDoS: [https://docs.microsoft.com/azure/virtual-network/manage-ddos-protection](../virtual-network/manage-ddos-protection.md)
 
-Per ulteriori informazioni sull'Intelligence per le minacce integrata nel centro sicurezza di Azure:https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
+Per ulteriori informazioni sull'Intelligence per le minacce integrata nel centro sicurezza di Azure: https://docs.microsoft.com/azure/security-center/security-center-alerts-service-layer
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -90,7 +90,7 @@ Come abilitare i log dei flussi NSG: https://docs.microsoft.com/azure/network-wa
 
 Come abilitare e usare Analisi del traffico: https://docs.microsoft.com/azure/network-watcher/traffic-analytics
 
-Come abilitare Network Watcher:https://docs.microsoft.com/azure/network-watcher/network-watcher-create
+Come abilitare Network Watcher: https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -136,7 +136,7 @@ Come aggiungere una regola del firewall in hub eventi per un indirizzo IP specif
 
 Come configurare e gestire Criteri di Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Criteri predefiniti di Azure per lo spazio dei nomi di hub eventi:https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub
+Criteri predefiniti di Azure per lo spazio dei nomi di hub eventi:  https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub
 
 
 
@@ -188,9 +188,9 @@ Come creare avvisi in Monitoraggio di Azure: https://docs.microsoft.com/azure/az
 
 **Linee guida**: all'interno di monitoraggio di Azure, configurare i log correlati a hub eventi nelle impostazioni di diagnostica del log attività e dell'hub eventi per inviare i log in un'area di lavoro di log Analytics per eseguire query o in un account di archiviazione per l'archiviazione a lungo termine dell'archivio.
 
-Come configurare le impostazioni di diagnostica per hub eventi di Azure:https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs
+Come configurare le impostazioni di diagnostica per hub eventi di Azure: https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs
 
-Informazioni sul log attività di Azure:https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
+Informazioni sul log attività di Azure: https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -202,9 +202,9 @@ Informazioni sul log attività di Azure:https://docs.microsoft.com/azure/azure-m
 
 Inoltre, è possibile abilitare le impostazioni di diagnostica del log attività di Azure e inviarle a un account di archiviazione di Azure, a un hub eventi o a un'area di lavoro Log Analytics. I log attività forniscono informazioni approfondite sulle operazioni eseguite sull'hub eventi di Azure e altre risorse. Usando i log attività, è possibile determinare il "cosa, chi e quando" per qualsiasi operazione di scrittura (PUT, POST, DELETE) eseguita sugli spazi dei nomi di hub eventi di Azure.
 
-Come abilitare le impostazioni di diagnostica per hub eventi di Azure:https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs
+Come abilitare le impostazioni di diagnostica per hub eventi di Azure: https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs
 
-Come abilitare le impostazioni di diagnostica per log attività di Azure:https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
+Come abilitare le impostazioni di diagnostica per log attività di Azure: https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings-legacy
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -222,7 +222,7 @@ Come abilitare le impostazioni di diagnostica per log attività di Azure:https:/
 
 **Linee guida**: all'interno di monitoraggio di Azure impostare il periodo di conservazione dell'area di lavoro log Analytics in base alle normative di conformità dell'organizzazione per acquisire e verificare gli eventi imprevisti correlati all'hub eventi.
 
-Come impostare i parametri di conservazione dei log per le aree di lavoro Log Analytics:https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
+Come impostare i parametri di conservazione dei log per le aree di lavoro Log Analytics: https://docs.microsoft.com/azure/azure-monitor/platform/manage-cost-storage#change-the-data-retention-period
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -233,7 +233,7 @@ Come impostare i parametri di conservazione dei log per le aree di lavoro Log An
 **Linee guida**: analizzare e monitorare i log per un comportamento anomalo ed esaminare periodicamente i risultati correlati all'hub eventi. Usare Log Analytics di Monitoraggio di Azure per esaminare i log ed eseguire query sui relativi dati. In alternativa, è possibile abilitare ed eseguire l'onboarding dei dati in Azure Sentinel o in un SIEM di terze parti.
  
 
-Per ulteriori informazioni sull'area di lavoro Log Analytics:https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
+Per ulteriori informazioni sull'area di lavoro Log Analytics: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal
 
 Come eseguire query personalizzate in Monitoraggio di Azure: https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-queries
 
@@ -249,11 +249,11 @@ Come eseguire l'onboarding di Azure Sentinel: https://docs.microsoft.com/azure/s
 
 In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure. 
 
-Informazioni sul log attività di Azure:https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
+Informazioni sul log attività di Azure: https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 
-Come configurare le impostazioni di diagnostica per hub eventi di Azure:https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs
+Come configurare le impostazioni di diagnostica per hub eventi di Azure: https://docs.microsoft.com/azure/event-hubs/event-hubs-diagnostic-logs
 
-Come inviare un avviso sui dati di log dell'area di lavoro Log Analytics:https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
+Come inviare un avviso sui dati di log dell'area di lavoro Log Analytics: https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
 Come eseguire l'onboarding di Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
@@ -293,9 +293,9 @@ Come eseguire l'onboarding di Azure Sentinel: https://docs.microsoft.com/azure/s
 
 **Linee guida**: Azure Active Directory (ad) include ruoli predefiniti che devono essere assegnati in modo esplicito e possono essere sottoposte a query. Usare il modulo Azure AD PowerShell per eseguire query ad hoc per individuare gli account che sono membri di gruppi amministrativi. 
 
-Come ottenere un ruolo della directory in Azure AD con PowerShell:https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
+Come ottenere un ruolo della directory in Azure AD con PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrole?view=azureadps-2.0
 
-Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell:https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
+Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell: https://docs.microsoft.com/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -307,7 +307,7 @@ Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell:ht
 
 L'accesso al piano dati a hub eventi è controllato tramite Azure AD con identità gestite o Registrazioni app, nonché con firme di accesso condiviso. Le firme di accesso condiviso vengono usate dai client che si connettono a hub eventi e possono essere rigenerate in qualsiasi momento.
 
-Informazioni sulle firme di accesso condiviso per hub eventi:https://docs.microsoft.com/azure/event-hubs/authenticate-shared-access-signature
+Informazioni sulle firme di accesso condiviso per hub eventi: https://docs.microsoft.com/azure/event-hubs/authenticate-shared-access-signature
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -325,9 +325,9 @@ Inoltre, per tenere traccia degli account amministrativi dedicati, è possibile 
 
 - Gli account esterni con autorizzazioni di proprietario devono essere rimossi dalla sottoscrizione
 
-Come usare il Centro sicurezza di Azure per monitorare identità e accesso (anteprima):https://docs.microsoft.com/azure/security-center/security-center-identity-access
+Come usare il Centro sicurezza di Azure per monitorare identità e accesso (anteprima): https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-Come usare criteri di Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Come usare criteri di Azure: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -337,9 +337,9 @@ Come usare criteri di Azure:https://docs.microsoft.com/azure/governance/policy/t
 
 **Indicazioni**: Microsoft Azure offre la gestione integrata del controllo di accesso per le risorse e le applicazioni basate su Azure Active Directory (ad). Un vantaggio fondamentale dell'uso di Azure AD con hub eventi di Azure consiste nel fatto che non è più necessario archiviare le credenziali nel codice. È invece possibile richiedere un token di accesso OAuth 2,0 dalla piattaforma di identità Microsoft. Il nome della risorsa per richiedere un token è https: \/ /Eventhubs.Azure.NET/. Azure AD autentica l'entità di sicurezza (un utente, un gruppo o un'entità servizio) che esegue l'applicazione. Se l'autenticazione ha esito positivo, Azure AD restituisce un token di accesso all'applicazione e l'applicazione può quindi usare il token di accesso per autorizzare la richiesta alle risorse di hub eventi di Azure.
 
-Come autenticare un'applicazione con Azure AD per accedere alle risorse di hub eventi:https://docs.microsoft.com/azure/event-hubs/authenticate-application
+Come autenticare un'applicazione con Azure AD per accedere alle risorse di hub eventi: https://docs.microsoft.com/azure/event-hubs/authenticate-application
 
-Informazioni su SSO con Azure AD:https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
+Informazioni su SSO con Azure AD: https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -377,7 +377,7 @@ Come distribuire Privileged Identity Management (PIM): https://docs.microsoft.co
 
 Informazioni sui rilevamenti dei rischi di Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risk-events
 
-Come configurare gruppi di azioni per avvisi e notifiche personalizzati:https://docs.microsoft.com/azure/azure-monitor/platform/action-groups
+Come configurare gruppi di azioni per avvisi e notifiche personalizzati: https://docs.microsoft.com/azure/azure-monitor/platform/action-groups
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -399,9 +399,9 @@ Come configurare località denominate in Azure: https://docs.microsoft.com/azure
 
 **Linee guida**: usare Azure Active Directory (ad) come sistema di autenticazione e autorizzazione centrale per le risorse di Azure, ad esempio hub eventi. Questo consente il controllo degli accessi in base al ruolo (RBAC) per le risorse amministrative riservate.
 
- Come creare e configurare un'istanza di Azure AD:https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
+ Come creare e configurare un'istanza di Azure AD: https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant
 
-Per informazioni sull'integrazione di hub eventi di Azure con Azure Active Directory (AAD), vedere autorizzare l'accesso alle risorse di hub eventi usando Azure Active Directory:https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
+Per informazioni sull'integrazione di hub eventi di Azure con Azure Active Directory (AAD), vedere autorizzare l'accesso alle risorse di hub eventi usando Azure Active Directory: https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -413,11 +413,11 @@ Per informazioni sull'integrazione di hub eventi di Azure con Azure Active Direc
 
 In altre, ruotare regolarmente le firme di accesso condiviso di hub eventi.
 
-Informazioni Azure AD la creazione di report:https://docs.microsoft.com/azure/active-directory/reports-monitoring/
+Informazioni Azure AD la creazione di report: https://docs.microsoft.com/azure/active-directory/reports-monitoring/
 
 Come usare le verifiche di accesso alle identità di Azure: https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
-Informazioni sulle firme di accesso condiviso per hub eventi:https://docs.microsoft.com/azure/event-hubs/authenticate-shared-access-signature
+Informazioni sulle firme di accesso condiviso per hub eventi: https://docs.microsoft.com/azure/event-hubs/authenticate-shared-access-signature
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -431,7 +431,7 @@ Informazioni sulle firme di accesso condiviso per hub eventi:https://docs.micros
 
 Come integrare i log attività di Azure in Monitoraggio di Azure: https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
-Autorizzare l'accesso alle risorse di hub eventi usando Azure Active Directory:https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
+Autorizzare l'accesso alle risorse di hub eventi usando Azure Active Directory: https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -443,7 +443,7 @@ Autorizzare l'accesso alle risorse di hub eventi usando Azure Active Directory:h
 
 Come visualizzare gli accessi rischiosi per Azure AD: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-risky-sign-ins
 
-Come configurare e abilitare i criteri di rischio di Identity Protection:https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
+Come configurare e abilitare i criteri di rischio di Identity Protection: https://docs.microsoft.com/azure/active-directory/identity-protection/howto-identity-protection-configure-risk-policies
 
 Come eseguire l'onboarding di Azure Sentinel: https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
@@ -455,7 +455,7 @@ Come eseguire l'onboarding di Azure Sentinel: https://docs.microsoft.com/azure/s
 
 **Linee guida**: attualmente non disponibile; Customer Lockbox non è ancora supportato per gli hub eventi.
 
-Elenco di servizi supportati da Customer Lockbox:https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
+Elenco di servizi supportati da Customer Lockbox: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -485,11 +485,11 @@ Come creare sottoscrizioni di Azure aggiuntive: https://docs.microsoft.com/azure
 
 Come creare gruppi di gestione: https://docs.microsoft.com/azure/governance/management-groups/create
 
-Configurare le regole del firewall IP per gli spazi dei nomi di hub eventi di Azure:https://docs.microsoft.com/azure/event-hubs/event-hubs-ip-filtering
+Configurare le regole del firewall IP per gli spazi dei nomi di hub eventi di Azure: https://docs.microsoft.com/azure/event-hubs/event-hubs-ip-filtering
 
-Come creare e usare i tag:https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+Come creare e usare i tag: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
-Come creare una rete virtuale:https://docs.microsoft.com/azure/virtual-network/quick-create-portal
+Come creare una rete virtuale: https://docs.microsoft.com/azure/virtual-network/quick-create-portal
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -501,13 +501,13 @@ Come creare una rete virtuale:https://docs.microsoft.com/azure/virtual-network/q
 
 Microsoft gestisce l'infrastruttura sottostante per hub eventi di Azure e ha implementato severi controlli per impedire la perdita o l'esposizione dei dati del cliente.
 
-Configurare le regole del firewall IP per gli spazi dei nomi di hub eventi di Azure:https://docs.microsoft.com/azure/event-hubs/event-hubs-ip-filtering
+Configurare le regole del firewall IP per gli spazi dei nomi di hub eventi di Azure: https://docs.microsoft.com/azure/event-hubs/event-hubs-ip-filtering
 
-Informazioni sugli endpoint del servizio rete virtuale con hub eventi di Azure:https://docs.microsoft.com/azure/event-hubs/event-hubs-service-endpoints
+Informazioni sugli endpoint del servizio rete virtuale con hub eventi di Azure: https://docs.microsoft.com/azure/event-hubs/event-hubs-service-endpoints
 
-Integrare Hub eventi di Azure con collegamento privato di Azure:https://docs.microsoft.com/azure/event-hubs/private-link-service
+Integrare Hub eventi di Azure con collegamento privato di Azure: https://docs.microsoft.com/azure/event-hubs/private-link-service
 
-Informazioni sui gruppi di sicurezza di rete e sui tag del servizio:https://docs.microsoft.com/azure/virtual-network/security-overview
+Informazioni sui gruppi di sicurezza di rete e sui tag del servizio: https://docs.microsoft.com/azure/virtual-network/security-overview
 
 Informazioni sulla protezione dei dati dei clienti in Azure: https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
@@ -519,7 +519,7 @@ Informazioni sulla protezione dei dati dei clienti in Azure: https://docs.micros
 
 **Linee guida**: Hub eventi di Azure applica le comunicazioni crittografate TLS per impostazione predefinita. Attualmente sono supportate le versioni di TLS 1,0, 1,1 e 1,2. Tuttavia, TLS 1,0 e 1,1 si trovano in un percorso di deprecazione a livello di settore, quindi, se possibile, usare TLS 1,2.
 
-Per informazioni sulle funzionalità di sicurezza di hub eventi, vedere sicurezza di rete:https://docs.microsoft.com/azure/event-hubs/network-security
+Per informazioni sulle funzionalità di sicurezza di hub eventi, vedere sicurezza di rete:  https://docs.microsoft.com/azure/event-hubs/network-security
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -541,7 +541,7 @@ Informazioni sulla protezione dei dati dei clienti in Azure: https://docs.micros
 
 **Linee guida**: Hub eventi di Azure supporta l'uso di Azure Active Directory (ad) per autorizzare le richieste alle risorse di hub eventi. Con Azure AD, è possibile usare il controllo degli accessi in base al ruolo (RBAC) per concedere le autorizzazioni a un'entità di sicurezza, che può essere un utente o un'entità servizio dell'applicazione.
 
-Informazioni su Azure AD RBAC e sui ruoli disponibili per hub eventi di Azure:https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
+Informazioni su Azure AD RBAC e sui ruoli disponibili per hub eventi di Azure: https://docs.microsoft.com/azure/event-hubs/authorize-access-azure-active-directory
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -563,7 +563,7 @@ Informazioni sulla protezione dei dati dei clienti in Azure: https://docs.micros
 
 **Linee guida**: Hub eventi di Azure supporta l'opzione di crittografia dei dati inattivi con chiavi gestite da Microsoft o chiavi gestite dal cliente. Questa funzionalità consente di creare, ruotare, disabilitare e revocare l'accesso alle chiavi gestite dal cliente usate per la crittografia dei dati inattivi di hub eventi di Azure.
 
-Come configurare le chiavi gestite dal cliente per la crittografia di hub eventi di Azure:https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key
+Come configurare le chiavi gestite dal cliente per la crittografia di hub eventi di Azure: https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -697,7 +697,7 @@ Come creare query con Azure Graph: https://docs.microsoft.com/azure/governance/r
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: rimuovere le risorse di Azure e le applicazioni software non approvate
 
@@ -705,7 +705,7 @@ Come creare query con Azure Graph: https://docs.microsoft.com/azure/governance/r
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="68-use-only-approved-applications"></a>6.8: usare solo applicazioni approvate
 
@@ -763,7 +763,7 @@ Come configurare l'accesso condizionale per bloccare l'accesso ad Azure Resource
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ## <a name="secure-configuration"></a>Configurazione sicura
 
@@ -777,7 +777,7 @@ Come configurare l'accesso condizionale per bloccare l'accesso ad Azure Resource
 
 - Gli hub eventi devono usare un endpoint servizio di rete virtuale
 
-Criteri predefiniti di Azure per lo spazio dei nomi di hub eventi:https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub
+Criteri predefiniti di Azure per lo spazio dei nomi di hub eventi: https://docs.microsoft.com/azure/governance/policy/samples/built-in-policies#event-hub
 
 Come visualizzare gli alias di Criteri di Azure disponibili: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
@@ -793,16 +793,16 @@ Come configurare e gestire Criteri di Azure: https://docs.microsoft.com/azure/go
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="73-maintain-secure-azure-resource-configurations"></a>7.3: garantire la sicurezza delle configurazioni delle risorse di Azure
 
 **Linee guida**: usare i criteri di Azure [deny] e [Deploy if not exist] per applicare le impostazioni sicure nelle risorse abilitate per gli hub eventi. 
 
-Come configurare e gestire i criteri di Azure:https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Come configurare e gestire i criteri di Azure:  https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
  
-Per ulteriori informazioni sugli effetti dei criteri di Azure:https://docs.microsoft.com/azure/governance/policy/concepts/effects
+Per ulteriori informazioni sugli effetti dei criteri di Azure:  https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -814,7 +814,7 @@ Per ulteriori informazioni sugli effetti dei criteri di Azure:https://docs.micro
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: archiviare in modo sicuro la configurazione delle risorse di Azure
 
@@ -834,7 +834,7 @@ Documentazione di Azure Repos: https://docs.microsoft.com/azure/devops/repos/ind
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="77-deploy-system-configuration-management-tools"></a>7.7: distribuire strumenti di gestione della configurazione di sistema
 
@@ -852,7 +852,7 @@ Come configurare e gestire Criteri di Azure: https://docs.microsoft.com/azure/go
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="79-implement-automated-configuration-monitoring-for-azure-services"></a>7.9: implementare il monitoraggio automatizzato della configurazione per i servizi di Azure
 
@@ -876,9 +876,9 @@ Come configurare e gestire Criteri di Azure: https://docs.microsoft.com/azure/go
 
 **Linee guida**: per le macchine virtuali o le applicazioni Web di Azure in esecuzione in app Azure servizio usato per accedere a hub eventi, usare identità del servizio gestita insieme a Azure Key Vault per semplificare e proteggere la gestione delle firme di accesso condiviso per le distribuzioni di hub eventi di Azure. Assicurarsi Key Vault l'eliminazione temporanea sia abilitata.
 
-Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse di hub eventi:https://docs.microsoft.com/azure/event-hubs/authenticate-managed-identity?tabs=latest
+Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse di hub eventi: https://docs.microsoft.com/azure/event-hubs/authenticate-managed-identity?tabs=latest
 
-Configurare chiavi gestite dal cliente per hub eventi:https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key 
+Configurare chiavi gestite dal cliente per hub eventi: https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key 
 
 Come eseguire l'integrazione con identità gestite di Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
@@ -896,9 +896,9 @@ Come fornire l'autenticazione di Key Vault con un'identità gestita: https://doc
 
 Usare le identità gestite per fornire ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (AD). Le identità gestite consentono di eseguire l'autenticazione a qualsiasi servizio che supporti l'autenticazione Azure AD, incluso Azure Key Vault, senza credenziali nel codice.
 
-Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse di hub eventi:https://docs.microsoft.com/azure/event-hubs/authenticate-managed-identity?tabs=latest 
+Autenticare un'identità gestita con Azure Active Directory per accedere alle risorse di hub eventi: https://docs.microsoft.com/azure/event-hubs/authenticate-managed-identity?tabs=latest 
 
-Configurare chiavi gestite dal cliente per hub eventi:https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key 
+Configurare chiavi gestite dal cliente per hub eventi: https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key 
 
 Come configurare le identità gestite: https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm
 
@@ -916,7 +916,7 @@ Come impostare Credential Scanner: https://secdevtools.azurewebsites.net/helpcre
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ## <a name="malware-defense"></a>Difesa da malware
 
@@ -958,7 +958,7 @@ Microsoft anti-malware è abilitato nell'host sottostante che supporta i servizi
 
 **Linee guida**: configurare il ripristino di emergenza geografico per hub eventi di Azure. In caso di tempo di inattività di interi data center o aree di Azure (se non vengono usate zone di disponibilità), è essenziale che l'elaborazione dei dati continui in un'area o in un data center diverso. Il ripristino di emergenza geografico e la replica geografica sono quindi funzionalità importanti per qualsiasi azienda. Il servizio Hub eventi di Azure supporta il ripristino di emergenza geografico e la replica geografica a livello di spazio dei nomi. 
 
-Informazioni sul ripristino di emergenza geografico per hub eventi di Azure:https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr#availability-zones
+Informazioni sul ripristino di emergenza geografico per hub eventi di Azure: https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr#availability-zones
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
@@ -970,9 +970,9 @@ Informazioni sul ripristino di emergenza geografico per hub eventi di Azure:http
 
 Verificare i backup automatici regolari dei segreti di Key Vault con il comando di PowerShell seguente: backup-AzKeyVaultSecret
 
-Come configurare chiavi gestite dal cliente per la crittografia dei dati inattivi di hub eventi di Azure:https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key
+Come configurare chiavi gestite dal cliente per la crittografia dei dati inattivi di hub eventi di Azure: https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key
 
-Come eseguire il backup di Key Vault segreti:https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret
+Come eseguire il backup di Key Vault segreti: https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultsecret
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -984,7 +984,7 @@ Come eseguire il backup di Key Vault segreti:https://docs.microsoft.com/powershe
 
  
 
-Come ripristinare le chiavi di Key Vault in Azure:https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
+Come ripristinare le chiavi di Key Vault in Azure: https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
@@ -996,11 +996,11 @@ Come ripristinare le chiavi di Key Vault in Azure:https://docs.microsoft.com/pow
 
 Configurare l'eliminazione temporanea per l'account di archiviazione di Azure usato per l'acquisizione dei dati di hub eventi. Si noti che questa funzionalità non è ancora supportata per Azure Data Lake Storage generazione 2.
 
-Come abilitare l'eliminazione temporanea nei Key Vault:https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
+Come abilitare l'eliminazione temporanea nei Key Vault: https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
-Configurare un insieme di credenziali delle chiavi con chiavi:https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key
+Configurare un insieme di credenziali delle chiavi con chiavi: https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key
 
-Eliminazione temporanea per i BLOB di archiviazione di Azure:https://docs.microsoft.com//azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
+Eliminazione temporanea per i BLOB di archiviazione di Azure: https://docs.microsoft.com//azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 
@@ -1070,7 +1070,7 @@ Come configurare l'automazione del flusso di lavoro e le app per la logica: http
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ## <a name="penetration-tests-and-red-team-exercises"></a>Test di penetrazione ed esercizi Red Team
 
@@ -1079,7 +1079,7 @@ Come configurare l'automazione del flusso di lavoro e le app per la logica: http
 ### <a name="111-conduct-regular-penetration-testing-of-your-azure-resources-and-ensure-remediation-of-all-critical-security-findings-within-60-days"></a>11.1: eseguire con regolarità test di penetrazione delle risorse di Azure e garantire la correzione di tutti i risultati critici in termini di sicurezza entro 60 giorni
 
 **Linee guida**: seguire le regole Microsoft di engagement per assicurarsi che i test di penetrazione non siano in violazione dei criteri Microsoft: https://www.microsoft.com/msrc/pentest-rules-of-engagement?rtc=1 .
-È possibile trovare altre informazioni sulla strategia e l'esecuzione di Microsoft red teaming e test di penetrazione di siti Live su infrastruttura, servizi e applicazioni cloud gestiti da Microsoft, qui:https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
+È possibile trovare altre informazioni sulla strategia e l'esecuzione di Microsoft red teaming e test di penetrazione di siti Live su infrastruttura, servizi e applicazioni cloud gestiti da Microsoft, qui: https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 

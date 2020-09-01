@@ -10,12 +10,12 @@ author: lobrien
 ms.date: 08/20/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, devx-track-python
-ms.openlocfilehash: f870f90ede4465bf9ebf5c886e1ebb7aa76acaaa
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8b20a0815ab16a3713d640a25171e440a8330dd1
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997898"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230314"
 ---
 # <a name="moving-data-into-and-between-ml-pipeline-steps-python"></a>Spostamento di dati in e tra i passaggi della pipeline ML (Python)
 
@@ -33,9 +33,8 @@ In questo articolo verranno illustrate le attività seguenti:
 - Creare nuovi `Dataset` oggetti da `PipelineData` salvare in modo permanente
 
 > [!TIP]
-> Un'esperienza migliorata per passare dati temporanei tra i passaggi della pipeline e salvare in modo permanente i dati dopo l'esecuzione della pipeline è disponibile nelle classi di anteprima pubblica,  `OutputFileDatasetConfig` e `OutputTabularDatasetConfig` .  Queste classi sono funzionalità di anteprima sperimentale e possono cambiare in qualsiasi momento.
-> 
->Per ulteriori informazioni sulle funzionalità sperimentali, vedere https://aka.ms/azuremlexperimental .
+> Un'esperienza migliorata per passare dati temporanei tra i passaggi della pipeline e salvare in modo permanente i dati dopo l'esecuzione della pipeline è disponibile nelle classi di anteprima pubblica,  [`OutputFileDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.outputfiledatasetconfig?view=azure-ml-py) e [`OutputTabularDatasetConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.output_dataset_config.outputtabulardatasetconfig?view=azure-ml-py) .  Queste classi sono funzionalità di anteprima [sperimentale](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py#stable-vs-experimental) e possono cambiare in qualsiasi momento.
+
 
 ## <a name="prerequisites"></a>Prerequisiti
 

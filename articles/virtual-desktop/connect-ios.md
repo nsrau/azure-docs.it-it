@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 02/08/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 79db3db5a46700f55c1dc759443cae194660372d
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 87bb2cc53ce056552e8f44aac4ade96e603a8787
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007642"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230042"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-ios-client"></a>Connettersi al desktop virtuale Windows con il client iOS
 
@@ -36,6 +36,7 @@ Per sottoscrivere un feed:
 2. Immettere l'URL del feed nel campo **feed URL** . L'URL del feed può essere un URL o un indirizzo di posta elettronica.
    - Nel caso di un URL, usa quello fornito dall'amministratore. In genere l'URL è <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery>.
    - Nel caso dell'e-mail, immetti il tuo indirizzo. In tal caso indichi al client di cercare un URL associato al tuo indirizzo e-mail, se l'amministratore ha configurato il server in questo modo.
+   - Per connettersi tramite il portale di US Gov, usare <https://rdweb.wvd.azure.us/api/arm/feeddiscovery> .
 3. Tocca **Next** (Avanti).
 4. Specifica le credenziali quando richiesto.
    - Per **nome utente**, assegnare al nome utente l'autorizzazione per accedere alle risorse.

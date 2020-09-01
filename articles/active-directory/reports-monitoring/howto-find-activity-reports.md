@@ -14,12 +14,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33c4eeda7f7df1a8238f54fa1afd1bc069f64e96
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b705cf6ac6fd25c7794db7651db5bc5c5c0e790c
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608212"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230620"
 ---
 # <a name="find-activity-reports-in-the-azure-portal"></a>Trovare i report attività nel portale di Azure
 
@@ -55,7 +55,7 @@ Le categorie includono:
 - Tutti
 - AdministrativeUnit
 - ApplicationManagement
-- Authentication
+- Autenticazione
 - Autorizzazione
 - Contatto
 - Dispositivo
@@ -114,7 +114,7 @@ Per accedere al report degli accessi:
 
 I report di attività anomale forniscono informazioni sui rilevamenti dei rischi correlati alla sicurezza che Azure AD possibile rilevare e segnalare.
 
-Nella tabella seguente sono elencati i report di sicurezza delle attività anomale Azure AD e i tipi di rilevamento dei rischi corrispondenti nell'portale di Azure. Per altre informazioni, vedere [Rilevamenti dei rischi in Azure Active Directory](concept-risk-events.md).  
+Nella tabella seguente sono elencati i report di sicurezza delle attività anomale Azure AD e i tipi di rilevamento dei rischi corrispondenti nell'portale di Azure. Per altre informazioni, vedere [Rilevamenti dei rischi in Azure Active Directory](../identity-protection/overview-identity-protection.md).  
 
 
 | Report di Anomalie dell'attività di Azure AD |  Tipo di rilevamento del rischio di Identity Protection|
@@ -136,8 +136,8 @@ I report di sicurezza delle attività anomale Azure AD seguenti non sono inclusi
 
 È possibile accedere ai report sui rilevamenti dei rischi rilevati nella sezione **sicurezza** del pannello **Azure Active Directory** della [portale di Azure](https://portal.azure.com). I rilevamenti dei rischi rilevati vengono registrati nei report seguenti:   
 
-- [Utenti a rischio](concept-user-at-risk.md)
-- [Accessi a rischio](concept-risky-sign-ins.md)
+- [Utenti a rischio](../identity-protection/overview-identity-protection.md)
+- [Accessi a rischio](../identity-protection/overview-identity-protection.md)
 
     ![Report sulla sicurezza](./media/howto-find-activity-reports/04.png "Report sulla sicurezza")
 
@@ -155,7 +155,7 @@ I log attività (controllo o accessi) sono stati scaricati ma non vengono visual
 
 Quando si scaricano i log attività nel portale di Azure, viene limitata la scalabilità a 250000 record, ordinati in base alla prima più recente. 
 
-#### <a name="resolution"></a>Soluzione
+#### <a name="resolution"></a>Risoluzione
 
 È possibile sfruttare le [API di Creazione rapporti di Azure AD](concept-reporting-api.md) per recuperare fino a un milione di record per un momento specifico.
 
@@ -176,7 +176,7 @@ Le azioni non vengono visualizzate immediatamente nei log attività. La tabella 
 | Directory Audit (Controllo directory) | 2 min | 5 min |
 | Attività di accesso | 2 min | 5 min |
 
-#### <a name="resolution"></a>Soluzione
+#### <a name="resolution"></a>Risoluzione
 
 Attendere tra 15 minuti e due ore e verificare se le azioni vengono visualizzate nel log. Se i log non vengono visualizzati nemmeno dopo due ore, [inviare un ticket di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) che verrà preso in esame.
 
@@ -197,7 +197,7 @@ Le azioni non vengono visualizzate immediatamente nei log attività. La tabella 
 | Directory Audit (Controllo directory) | 2 min | 5 min |
 | Attività di accesso | 2 min | 5 min |
 
-#### <a name="resolution"></a>Soluzione
+#### <a name="resolution"></a>Risoluzione
 
 Attendere tra 15 minuti e due ore e verificare se le azioni vengono visualizzate nel log. Se i log non vengono visualizzati nemmeno dopo due ore, [inviare un ticket di supporto](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) che verrà preso in esame.
 
@@ -220,7 +220,7 @@ In base alla licenza, Azioni di Azure Active Directory archivia i report delle a
 
 Per altre informazioni, vedere [Criteri di conservazione dei report di Azure Active Directory](reference-reports-data-retention.md).  
 
-#### <a name="resolution"></a>Soluzione
+#### <a name="resolution"></a>Risoluzione
 
 Sono disponibili due opzioni per conservare i dati per più di 30 giorni. È possibile usare le [API creazione report di Azure AD](concept-reporting-api.md) per recuperare i dati a livello di codice e archiviarli in un database. In alternativa, è possibile integrare i log di controllo in un sistema SIEM di terze parti, ad esempio Splunk o SumoLogic.
 
@@ -228,4 +228,4 @@ Sono disponibili due opzioni per conservare i dati per più di 30 giorni. È pos
 
 * [Panoramica dei log di controllo](concept-audit-logs.md)
 * [Panoramica degli accessi](concept-sign-ins.md)
-* [Panoramica degli eventi di rischio](concept-risk-events.md)
+* [Panoramica degli eventi di rischio](../identity-protection/overview-identity-protection.md)

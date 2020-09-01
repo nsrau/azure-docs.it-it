@@ -238,12 +238,6 @@
               href: application-types.md
             - name: Utente imprevisto assegnato
               href: ways-users-get-assigned-to-applications.md
-        - name: Risolvere i problemi di App personali
-          items:
-            - name: App non visualizzate
-              href: access-panel-troubleshoot-application-not-appearing.md
-            - name: Visualizzazione di app impreviste
-              href: access-panel-troubleshoot-unexpected-application.md
         - name: Risolvere i problemi relativi alle app locali
           items:
             - name: Risoluzione dei problemi del proxy dell'applicazione

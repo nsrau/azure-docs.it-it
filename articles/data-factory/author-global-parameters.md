@@ -7,13 +7,13 @@ ms.workload: data-services
 ms.topic: conceptual
 author: djpmsft
 ms.author: daperlov
-ms.date: 08/05/2020
-ms.openlocfilehash: 052f502ed27db9ade0fd2916f91d6922c52a5a98
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.date: 08/31/2020
+ms.openlocfilehash: 96fba5c27115dab65f26be80ce03bef35abcdb92
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87854271"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230832"
 ---
 # <a name="global-parameters-in-azure-data-factory"></a>Parametri globali in Azure Data Factory
 
@@ -41,9 +41,24 @@ I parametri globali possono essere usati in qualsiasi [espressione di pipeline](
 
 ![Uso dei parametri globali](media/author-global-parameters/expression-global-parameters.png)
 
-## <a name="global-parameters-in-cicd"></a><a name="cicd"></a>Parametri globali in CI/CD
+## <a name="global-parameters-in-cicd"></a><a name="cicd"></a> Parametri globali in CI/CD
 
-I parametri globali hanno un processo di integrazione continua/recapito continuo univoco rispetto ad altre entità in Azure Data Factory. Quando si pubblica una factory o si esporta un modello ARM con parametri globali, viene creata una cartella denominata *globalParameters* con un file denominato *your-factory-name_GlobalParameters.json*. Questo file è un oggetto JSON che contiene ogni tipo di parametro globale e valore nella Factory pubblicata.
+Esistono due modi per integrare i parametri globali nella soluzione di distribuzione e integrazione continua:
+
+* Includi parametri globali nel modello ARM
+* Distribuire parametri globali tramite uno script di PowerShell
+
+Per la maggior parte dei casi d'uso, è consigliabile includere i parametri globali nel modello ARM. Questa operazione si integrerà in modo nativo con la soluzione descritta nel [documento ci/CD](continuous-integration-deployment.md). Per impostazione predefinita, i parametri globali verranno aggiunti come parametro di modello ARM perché cambiano spesso da Environment a Environment. È possibile abilitare l'inclusione dei parametri globali nel modello ARM dall'hub di gestione.
+
+![Includi nel modello ARM](media/author-global-parameters/include-arm-template.png)
+
+L'aggiunta di parametri globali al modello ARM aggiunge un'impostazione a livello di factory che può eseguire l'override di altre impostazioni a livello di Factory, ad esempio una chiave gestita dal cliente o una configurazione git in altri ambienti. Se queste impostazioni sono abilitate in un ambiente con privilegi elevati, ad esempio UAT o PROD, è preferibile distribuire i parametri globali tramite uno script di PowerShell nei passaggi indicati di seguito.
+
+### <a name="deploying-using-powershell"></a>Distribuzione tramite PowerShell
+
+I passaggi seguenti illustrano come distribuire parametri globali tramite PowerShell. Questa operazione è utile quando la factory di destinazione ha un'impostazione a livello di Factory, ad esempio una chiave gestita dal cliente.
+
+Quando si pubblica una factory o si esporta un modello ARM con parametri globali, viene creata una cartella denominata *globalParameters* con un file denominato *your-factory-name_GlobalParameters.json*. Questo file è un oggetto JSON che contiene ogni tipo di parametro globale e valore nella Factory pubblicata.
 
 ![Pubblicazione di parametri globali](media/author-global-parameters/global-parameters-adf-publish.png)
 

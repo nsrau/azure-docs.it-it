@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 9dd407ce2727582039089c0abe31b68bfe5d0f30
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 472ab82e6941be5c1485773b1115d91eda701666
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070327"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89231181"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Risolvere i problemi di accesso a un'applicazione da Azure AD app personali
 
@@ -27,10 +27,16 @@ Per altre informazioni sull'uso di Azure AD come provider di identità per un'ap
 Queste applicazioni sono configurate per conto dell'utente nel portale di Azure AD. L'applicazione deve essere configurata correttamente e assegnata all'utente o a un gruppo di cui l'utente è membro per visualizzare l'applicazione in app personali. 
 
 Il tipo di app che l'utente può visualizzare rientra nelle categorie seguenti:
--   Applicazioni di Office 365
+-   Applicazioni Microsoft 365 e Office 365
 -   Applicazioni Microsoft e di terze parti configurate con il servizio Single Sign-On basato su federazione
 -   Applicazioni SSO basate su password
 -   Applicazioni con soluzioni SSO esistenti
+
+Ecco alcuni aspetti da controllare se un'app viene visualizzata o meno.
+- Assicurarsi che l'app venga aggiunta a Azure AD e assicurarsi che l'utente sia assegnato. Per altre informazioni, vedere la [serie di guide introduttive sulla gestione delle applicazioni](view-applications-portal.md).
+- Se un'app è stata aggiunta di recente, chiedere all'utente di disconnettersi ed eseguire di nuovo l'accesso. 
+- Se l'app richiede una licenza, ad esempio Office, assicurarsi che all'utente sia assegnata la licenza appropriata.
+- Il tempo necessario per le modifiche alle licenze può variare a seconda delle dimensioni e della complessità del gruppo.
 
 ## <a name="general-issues-to-check-first"></a>Problemi generali da verificare prima
 

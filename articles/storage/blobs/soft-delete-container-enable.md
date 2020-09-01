@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f79b198b512547b1d93fbbd458af8251b109e62f
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: c2ce40f7d8a8d08e191fce11c98bd780e0c2fda1
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88066662"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230076"
 ---
 # <a name="enable-and-manage-soft-delete-for-containers-preview"></a>Abilitare e gestire l'eliminazione temporanea per i contenitori (anteprima)
 
@@ -22,7 +22,7 @@ L'eliminazione temporanea del contenitore (anteprima) impedisce che i dati venga
 
 Se è possibile che i dati vengano accidentalmente modificati o eliminati da un'applicazione o da un altro utente dell'account di archiviazione, Microsoft consiglia di attivare l'eliminazione temporanea del contenitore. Questo articolo illustra come abilitare l'eliminazione temporanea per i contenitori. Per altri dettagli sull'eliminazione temporanea dei contenitori, inclusa la registrazione per l'anteprima, vedere [eliminazione temporanea per i contenitori (anteprima)](soft-delete-container-overview.md).
 
-Per la protezione dei dati end-to-end, Microsoft consiglia di abilitare anche l'eliminazione temporanea per i BLOB e il controllo delle versioni dei BLOB (anteprima). Per informazioni su come abilitare anche l'eliminazione temporanea per i BLOB, vedere [Enable and Manage soft delete for Blobs](soft-delete-blob-enable.md). Per informazioni su come abilitare il controllo delle versioni dei BLOB, vedere [controllo delle versioni dei BLOB (anteprima)](versioning-overview.md).
+Per la protezione dei dati end-to-end, Microsoft consiglia di abilitare anche l'eliminazione temporanea per i BLOB e il controllo delle versioni dei BLOB. Per informazioni su come abilitare anche l'eliminazione temporanea per i BLOB, vedere [Enable and Manage soft delete for Blobs](soft-delete-blob-enable.md). Per informazioni su come abilitare il controllo delle versioni dei BLOB, vedere [controllo delle versioni dei BLOB](versioning-overview.md).
 
 ## <a name="enable-container-soft-delete"></a>Abilita eliminazione temporanea del contenitore
 
@@ -101,4 +101,4 @@ Per visualizzare i contenitori eliminati temporaneamente nella portale di Azure,
 
 - [Eliminazione temporanea per i contenitori (anteprima)](soft-delete-container-overview.md)
 - [Eliminazione temporanea per i BLOB](soft-delete-blob-overview.md)
-- [Controllo delle versioni dei BLOB (anteprima)](versioning-overview.md)
+- [Controllo delle versioni dei BLOB](versioning-overview.md)

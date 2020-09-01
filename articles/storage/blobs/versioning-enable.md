@@ -1,29 +1,27 @@
 ---
-title: Abilitare e gestire il controllo delle versioni dei BLOB (anteprima)
+title: Abilitare e gestire il controllo delle versioni dei BLOB
 titleSuffix: Azure Storage
-description: Informazioni su come abilitare il controllo delle versioni dei BLOB (anteprima) nel portale di Azure o usando un modello di Azure Resource Manager.
+description: Informazioni su come abilitare il controllo delle versioni dei BLOB nel portale di Azure o usando un modello di Azure Resource Manager.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/10/2020
+ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b34664d36be2f18bc6821d5b13ca8bd403f2b6fc
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 1df7afb5a029ff7770a64d6bf698a462c8ab9735
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074407"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230671"
 ---
-# <a name="enable-and-manage-blob-versioning-preview"></a>Abilitare e gestire il controllo delle versioni dei BLOB (anteprima)
+# <a name="enable-and-manage-blob-versioning"></a>Abilitare e gestire il controllo delle versioni dei BLOB
 
-È possibile abilitare il controllo delle versioni dell'archiviazione BLOB (anteprima) per mantenere automaticamente le versioni precedenti di un oggetto.  Quando è abilitata la funzionalità di controllo delle versioni dei BLOB, è possibile ripristinare una versione precedente di un BLOB per ripristinare i dati se vengono erroneamente modificati o eliminati.
+È possibile abilitare il controllo delle versioni dell'archiviazione BLOB per gestire automaticamente le versioni precedenti di un oggetto.  Quando è abilitata la funzionalità di controllo delle versioni dei BLOB, è possibile ripristinare una versione precedente di un BLOB per ripristinare i dati se vengono erroneamente modificati o eliminati.
 
-Questo articolo illustra come abilitare o disabilitare il controllo delle versioni dei BLOB per l'account di archiviazione usando il portale di Azure o un modello di Azure Resource Manager.
-
-Prima di abilitare il controllo delle versioni dei BLOB, è necessario registrarsi per l'anteprima. Per altre informazioni sul controllo delle versioni dei BLOB, inclusa la registrazione per l'anteprima, vedere [controllo delle versioni dei BLOB (anteprima)](versioning-overview.md).
+Questo articolo illustra come abilitare o disabilitare il controllo delle versioni dei BLOB per l'account di archiviazione usando il portale di Azure o un modello di Azure Resource Manager. Per altre informazioni sul controllo delle versioni dei BLOB, vedere [controllo delle versioni dei BLOB](versioning-overview.md).
 
 [!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
@@ -75,7 +73,7 @@ Per altre informazioni sulla distribuzione di risorse con i modelli nel portale 
 
 ## <a name="modify-a-blob-to-trigger-a-new-version"></a>Modificare un BLOB per attivare una nuova versione
 
-L'esempio di codice seguente illustra come attivare la creazione di una nuova versione con la libreria client di archiviazione di Azure per .NET, versione [12.5.0-Preview. 5](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.0-preview.5) o versioni successive. Prima di eseguire questo esempio, verificare di aver abilitato il controllo delle versioni per l'account di archiviazione.
+L'esempio di codice seguente illustra come attivare la creazione di una nuova versione con la libreria client di archiviazione di Azure per .NET, versione [12.5.1](https://www.nuget.org/packages/Azure.Storage.Blobs/12.5.1) o successiva. Prima di eseguire questo esempio, verificare di aver abilitato il controllo delle versioni per l'account di archiviazione.
 
 Nell'esempio viene creato un BLOB in blocchi, quindi vengono aggiornati i metadati del BLOB. Se si aggiornano i metadati del BLOB, viene attivata la creazione di una nuova versione. Nell'esempio vengono recuperate la versione iniziale e la versione corrente e viene indicato che solo la versione corrente include i metadati.
 
@@ -161,5 +159,5 @@ static void PrintMetadata(Response<BlobProperties> propertiesResponse)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Controllo delle versioni dei BLOB (anteprima)](versioning-overview.md)
+- [Controllo delle versioni dei BLOB](versioning-overview.md)
 - [Eliminazione temporanea per i BLOB di Archiviazione di Azure ](soft-delete-overview.md)
