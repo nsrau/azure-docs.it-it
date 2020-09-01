@@ -300,7 +300,7 @@ Non esiste alcuna risposta dopo aver selezionato il nodo "sviluppo" nel nodo "lo
 
 Se dopo aver collegato l'account di Azure Cosmos DB nel nodo "Local and Attached" (Locale e collegato) viene visualizzato l'errore seguente, verificare che si stia usando la stringa di connessione corretta.
 
-:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Errore di collegamento di Azure Cosmos DB in "Local and Attached" (Locale e collegato)":::
+:::image type="content" source="./media/storage-explorer/attached-error.png" alt-text="Errore di collegamento di Azure Cosmos DB in Local and Attached (Locale e collegato)":::
 
 ### <a name="expand-azure-cosmos-db-node-error"></a>Errore di espansione del nodo di Azure Cosmos DB
 
