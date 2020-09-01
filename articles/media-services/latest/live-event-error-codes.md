@@ -11,22 +11,24 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/4/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 8f86c157652f6219afdf1df1da9b8ad385f059aa
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d6dfaa3491a9d15a3cc54b82d5c116ee2442f70c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000952"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265372"
 ---
 # <a name="media-services-live-event-error-codes"></a>Codici di errore dell'evento live di servizi multimediali
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Nelle tabelle di questa sezione sono elencati i codici di errore dell' [evento Live](live-events-outputs-concept.md) .
 
 ## <a name="liveeventconnectionrejected"></a>LiveEventConnectionRejected
 
-Quando si esegue la sottoscrizione agli eventi di [griglia di eventi](../../event-grid/index.yml) per un evento Live, è possibile che venga visualizzato uno degli errori seguenti dell'evento [LiveEventConnectionRejected](media-services-event-schemas.md#liveeventconnectionrejected) .
+Quando si esegue la sottoscrizione agli eventi di [griglia di eventi](../../event-grid/index.yml) per un evento Live, è possibile che venga visualizzato uno degli errori seguenti dell'evento [LiveEventConnectionRejected](media-services-event-schemas.md#liveeventconnectionrejected)  .
 
 | Codice di risultato | Descrizione |
 | ----------- | ----------- |
@@ -54,7 +56,7 @@ Quando si esegue la sottoscrizione agli eventi di [griglia di eventi](../../even
 |Codici di errore sconosciuti|Questi codici di errore possono variare da errori di memoria a voci duplicate nella mappa di hash.|
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Codici di errore dell'endpoint di streaming (Origin)](streaming-endpoint-error-codes.md)
 

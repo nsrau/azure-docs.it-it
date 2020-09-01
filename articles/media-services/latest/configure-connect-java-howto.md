@@ -3,7 +3,7 @@ title: Connettersi all'API di servizi multimediali di Azure V3-Java
 description: Questo articolo descrive come connettersi all'API di servizi multimediali di Azure V3 con Java.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2019
+ms.date: 08/31/2020
 ms.custom: devx-track-java
-ms.author: juliako
-ms.openlocfilehash: 098e1db7470124dc7c15b3ee65d6ab9cb3fadabd
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.author: inhenkel
+ms.openlocfilehash: dc667a46d9802332d0f8c8dc673b28a9aeab96ea
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319831"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265627"
 ---
 # <a name="connect-to-media-services-v3-api---java"></a>Connettersi all'API di servizi multimediali V3-Java
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Questo articolo illustra come connettersi a servizi multimediali di Azure V3 Java SDK usando il metodo di accesso dell'entità servizio.
 
@@ -59,7 +61,7 @@ Quando si esegue il comando, `pom.xml` `App.java` vengono creati gli altri file,
 ## <a name="add-dependencies"></a>Aggiungere le dipendenze
 
 1. In Visual Studio Code aprire la cartella in cui si trova il progetto
-1. Trovare e aprire il`pom.xml`
+1. Trovare e aprire il `pom.xml`
 1. Aggiungere le dipendenze necessarie
 
     ```xml
@@ -120,7 +122,7 @@ Quando si esegue il comando, `pom.xml` `App.java` vengono creati gli altri file,
    ```
 1. Eseguire l'app.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Concetti relativi ai Servizi multimediali](concepts-overview.md)
 - [SDK per Java](https://aka.ms/ams-v3-java-sdk)

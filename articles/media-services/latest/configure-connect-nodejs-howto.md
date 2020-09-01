@@ -3,7 +3,7 @@ title: Connettersi all'API di servizi multimediali di Azure V3-Node.js
 description: Questo articolo illustra come connettersi all'API di servizi multimediali V3 con Node.js.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 8e54fec584f8961dfc44a7c93f95772ea03e1259
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 95059710ce759a1536bcaacd35c0d2cf6497269b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87424427"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265593"
 ---
 # <a name="connect-to-media-services-v3-api---nodejs"></a>Connettersi all'API di servizi multimediali V3-Node.js
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Questo articolo illustra come connettersi a servizi multimediali di Azure V3 node.js SDK usando il metodo di accesso dell'entità servizio.
 
@@ -117,14 +119,14 @@ msRestAzure.loginWithServicePrincipalSecret(aadClientId, aadSecret, aadTenantId,
 
 ## <a name="run-your-app"></a>Eseguire l'app
 
-Aprire un prompt dei comandi. Passare alla directory dell'esempio e quindi eseguire i comandi seguenti:
+Aprire un prompt dei comandi: Passare alla directory dell'esempio e quindi eseguire i comandi seguenti:
 
 ```
 npm install 
 node index.js
 ```
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Concetti relativi ai Servizi multimediali](concepts-overview.md)
 - [Installazione di NPM tramite azure-arm-mediaservices](https://www.npmjs.com/package/azure-arm-mediaservices/)

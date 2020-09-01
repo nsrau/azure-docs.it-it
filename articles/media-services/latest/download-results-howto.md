@@ -9,17 +9,19 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/04/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b4aa523c6f2fe1e833fa7dfe99cc870bf6014eb7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bc1ac986ffb8e15df5dab14403aac5eca05c5b5d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009917"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263723"
 ---
 # <a name="download-the-results-of-a-job"></a>Scaricare i risultati di un processo
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 In servizi multimediali di Azure, quando si elaborano i video, ad esempio la codifica o l'analisi, è necessario creare un [Asset](assets-concept.md) di output per archiviare il risultato del [processo](transforms-jobs-concept.md). È quindi possibile scaricare questi risultati in una cartella locale usando le API di archiviazione e del servizio multimediale. 
 

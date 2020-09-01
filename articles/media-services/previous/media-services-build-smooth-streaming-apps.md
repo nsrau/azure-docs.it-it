@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 2a1a506e7e4c4a90ed39f4371b48e47b632918c8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9b616b03698e83d256a7b81e4548edbf21dba058
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021502"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264641"
 ---
-# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Come creare un'applicazione Windows Store Smooth Streaming  
+# <a name="how-to-build-a-smooth-streaming-windows-store-application"></a>Come creare un'applicazione Windows Store Smooth Streaming
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 Smooth Streaming Client SDK per Windows 8 consente agli sviluppatori di creare app di Windows Store in grado di riprodurre contenuto Smooth Streaming in diretta e su richiesta. Oltre a fornire le funzionalità di riproduzione di base del contenuto Smooth Streaming, l'SDK offre inoltre funzionalità avanzate, ad esempio protezione Microsoft PlayReady, limitazione del livello di qualità, DVR in diretta, commutazione del flusso audio, ascolto per aggiornamenti di stato (ad esempio variazioni del livello di qualità) ed eventi di errore, e così via. Per altre informazioni sulle funzionalità supportate, vedere le [note sulla versione](https://www.iis.net/learn/media/smooth-streaming/smooth-streaming-client-sdk-for-windows-8-release-notes). Per ulteriori informazioni, vedere [Player Framework per Windows 8](https://playerframework.codeplex.com/). 
 
@@ -71,7 +73,7 @@ Per ulteriori informazioni sullo sviluppo di app di Windows Store, vedere il sit
     | --- | --- |
     | Gruppo dei modelli di progetto |Installato/Modelli/Visual C#/Windows Store |
     | Modello |Applicazione vuota (XAML) |
-    | Name |SSPlayer |
+    | Nome |SSPlayer |
     | Location |C:\SSTutorials |
     | Nome soluzione |SSPlayer |
     | Crea directory per soluzione |(selezionata) |
@@ -86,7 +88,7 @@ Per ulteriori informazioni sullo sviluppo di app di Windows Store, vedere il sit
     | Nome | Valore |
     | --- | --- |
     | Gruppo di riferimenti |Windows/Estensioni |
-    | Informazioni di riferimento |Selezionare Microsoft Smooth Streaming Client SDK per Windows 8 e Microsoft Visual C++ Runtime Package. |
+    | Riferimento |Selezionare Microsoft Smooth Streaming Client SDK per Windows 8 e Microsoft Visual C++ Runtime Package. |
 
 1. Fare clic su **OK**. 
 

@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/21/2018
+ms.date: 08/31/2020
 ms.author: willzhan
 ms.custom: seodec18
-ms.openlocfilehash: 79f06bd5d6af05e334faf4e1f6d8cd3e358f89ba
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: dba0f82ced5500dc85c3254bea6a2a0066770b1e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87039192"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265661"
 ---
-# <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Progettazione di un sistema di protezione del contenuto con DRM multiplo e controllo di accesso 
+# <a name="design-of-a-multi-drm-content-protection-system-with-access-control"></a>Progettazione di un sistema di protezione del contenuto con DRM multiplo e controllo di accesso
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 La progettazione e la creazione di un sottosistema DRM (Digital Rights Management) per una soluzione di streaming online o OTT (Over-The-Top) sono attività complesse. Gli operatori e i provider di video online in genere esternalizzano queste attività a provider di servizi DRM specializzati. L'obiettivo di questo documento è presentare informazioni di riferimento per la progettazione e l'implementazione di un sottosistema DRM end-to-end in una soluzione di streaming online o OTT.
 
@@ -108,7 +110,7 @@ La sezione seguente illustra la progettazione della gestione della chiave.
 | 1 a 1 |È il caso più semplice. Consente il controllo più dettagliato, ma in genere comporta un costo maggiore di distribuzione delle licenze. È necessaria almeno una richiesta di licenza per ogni asset protetto. |
 | 1 a molti |È possibile usare la stessa chiave simmetrica per più asset. Ad esempio, per tutti gli asset di un gruppo logico, come un genere o un subset del genere (ad esempio, genere di film), è possibile usare una singola chiave simmetrica. |
 | Molti a 1 |Per ogni asset sono necessarie più chiavi simmetriche. <br/><br/>Ad esempio, se è necessario applicare la protezione CENC dinamica con DRM multiplo per MPEG-DASH e la crittografia AES-128 dinamica per HLS, sono necessarie due chiavi simmetriche distinte. Ogni chiave simmetrica deve disporre del relativo tipo ContentKeyType. Per la chiave simmetrica usata per la protezione CENC dinamica, usare ContentKeyType.CommonEncryption. Per la chiave simmetrica usata per la crittografia AES-128 dinamica, usare ContentKeyType.EnvelopeEncryption.<br/><br/>Come ulteriore esempio, nella protezione CENC del contenuto DASH, in teoria, è possibile usare una chiave simmetrica per proteggere il flusso video e un'altra chiave simmetrica per proteggere il flusso audio. |
-| Molti a molti |È una combinazione dei due scenari precedenti. Per ogni asset multiplo nello stesso gruppo di asset viene usato un set di chiavi simmetriche. |
+| Molti-a-molti |È una combinazione dei due scenari precedenti. Per ogni asset multiplo nello stesso gruppo di asset viene usato un set di chiavi simmetriche. |
 
 Un altro fattore importante da considerare è l'uso di licenze permanenti e non permanenti.
 

@@ -12,16 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/12/2019
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: da80dacadbef560bb597a235fee59924d3887e19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 698aa849a82e7c9f9a630ca7040f9d449b3765b3
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84765013"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264964"
 ---
 # <a name="live-transcription-preview"></a>Trascrizione in tempo reale (anteprima)
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Servizi multimediali di Azure offre video, audio e testo in protocolli diversi. Quando si pubblica il flusso live con MPEG-DASH o HLS/CMAF, insieme a video e audio, il servizio recapita il testo trascritto in TTML compatibile con IMSC 1.1. Il recapito è incluso nei frammenti MPEG-4 Part 30 (ISO/IEC 14496-30). Se si usa il recapito tramite HLS/TS, il testo viene recapitato come VTT in blocchi.
 
@@ -135,7 +137,7 @@ Per attivare le trascrizioni Live o aggiornare il linguaggio di trascrizione, ap
 
 Si tratta della chiamata di esempio per attivare le trascrizioni in tempo reale.
 
-PATCH```https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview```
+PATCH ```https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview```
 
 ```
 {

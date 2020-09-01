@@ -13,14 +13,16 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: 29753759af341f82429f12b6710ae9c32dcb4103
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f8daa25239b935a9e0092c6bf2e388c7cc3c6789
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74896033"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264760"
 ---
-# <a name="task-preset-for-azure-media-indexer"></a>Set di impostazioni delle attività per Azure Media Indexer 
+# <a name="task-preset-for-azure-media-indexer"></a>Set di impostazioni delle attività per Azure Media Indexer
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Azure Media Indexer è un processore di contenuti multimediali che consente di eseguire le seguenti attività: eseguire ricerche nel contenuto e nei file multimediali, generare tracce con parole chiave e sottotitoli codificati, indicizzare i file di risorse che fanno parte della risorsa.
 
@@ -30,9 +32,9 @@ Questo argomento descrive il set di impostazioni delle attività che è necessar
 
 La tabella seguente illustra gli elementi e gli attributi del file XML di configurazione.
 
-|Nome|Richiedi|Descrizione|
+|Nome|Richiedi|Description|
 |---|---|---|
-|Input|true|File di asset che si desidera indicizzare.<br/>Azure Media Indexer supporta i seguenti formati di file multimediali: MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>È possibile specificare il nome o i nomi file nell'attributo **name** o **list** dell'elemento **input**, come illustrato di seguito. Se non si specifica il file di risorse da indicizzare, viene selezionato il file primario. Se non è impostato alcun file di asset primario, viene indicizzato il primo file dell'asset di input.<br/><br/>Per specificare in modo esplicito il nome del file di asset, eseguire:<br/>```<input name="TestFile.wmv" />```<br/><br/>È anche possibile indicizzare più file di asset contemporaneamente (fino a 10). A tale scopo, effettuare l'operazione seguente:<br/>- Creare un file di testo (file manifesto) con estensione lst.<br/>- Nel file manifesto aggiungere un elenco di tutti i nomi dei file di risorse inclusi nella risorsa di input.<br/>- Aggiungere (caricare) il file manifesto nella risorsa.<br/>- Specificare il nome del file manifesto nell'attributo list dell'input.<br/>```<input list="input.lst">```<br/><br/>**Nota:** Se si aggiungono più di 10 file al file manifesto, il processo di indicizzazione avrà esito negativo con il codice di errore 2006.|
+|Input|true|File di asset che si desidera indicizzare.<br/>Azure Media Indexer supporta i seguenti formati di file multimediali: MP4, MOV, WMV, MP3, M4A, WMA, AAC, WAV. <br/><br/>È possibile specificare il nome o i nomi file nell'attributo **name** o **list** dell'elemento **input**, come illustrato di seguito. Se non si specifica il file di risorse da indicizzare, viene selezionato il file primario. Se non è impostato alcun file di asset primario, viene indicizzato il primo file dell'asset di input.<br/><br/>Per specificare in modo esplicito il nome del file di asset, eseguire:<br/>```<input name="TestFile.wmv" />```<br/><br/>È anche possibile indicizzare più file di asset contemporaneamente (fino a 10). Per eseguire questa operazione:<br/>- Creare un file di testo (file manifesto) con estensione lst.<br/>- Nel file manifesto aggiungere un elenco di tutti i nomi dei file di risorse inclusi nella risorsa di input.<br/>- Aggiungere (caricare) il file manifesto nella risorsa.<br/>- Specificare il nome del file manifesto nell'attributo list dell'input.<br/>```<input list="input.lst">```<br/><br/>**Nota:** Se si aggiungono più di 10 file al file manifesto, il processo di indicizzazione avrà esito negativo con il codice di errore 2006.|
 |metadata|false|Metadati per il file o i file di risorse specificati.<br/>```<metadata key="..." value="..." />```<br/><br/>È possibile fornire i valori per le chiavi predefinite. <br/><br/>Attualmente sono supportate le chiavi seguenti:<br/><br/>**title** e **description**: usate per aggiornare il modello di lingua per migliorare l'accuratezza del riconoscimento vocale.<br/>```<metadata key="title" value="[Title of the media file]" /><metadata key="description" value="[Description of the media file]" />```<br/><br/>**username** e **password**: usate per l'autenticazione quando si scaricano file da Internet tramite http o https.<br/>```<metadata key="username" value="[UserName]" /><metadata key="password" value="[Password]" />```<br/>I valori di nome utente e password si applicano a tutti gli URL di file multimediali nel manifesto di input.|
 |funzionalità<br/><br/> Aggiunto nella versione 1.2. Attualmente la sola funzionalità supportata è il riconoscimento vocale ("ASR").|false|La funzionalità di riconoscimento vocale ha le chiavi di impostazioni seguenti:<br/><br/>Language:<br/>- Lingua naturale da riconoscere nel file multimediale.<br/>- Inglese, spagnolo<br/><br/>CaptionFormats:<br/>- Elenco separato da punto e virgola dei formati desiderati per l'output dell'eventuale barra del titolo.<br/>-TTML; WEBVTT<br/><br/><br/>GenerateKeywords:<br/>- Flag booleano che specifica se sia o meno necessario un file XML di parole chiave.<br/>- True; false|
 

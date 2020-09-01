@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: johndeu
-ms.openlocfilehash: 83e945fccfbfbec207723d6c16f2a4dfc7290c52
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 84e94a431efdc84ff6896de416bd222120784899
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000041"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264284"
 ---
-# <a name="media-services-operations-rest-api-overview"></a>Informazioni generali sull'API REST di Servizi multimediali 
+# <a name="media-services-operations-rest-api-overview"></a>Informazioni generali sull'API REST di Servizi multimediali
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
@@ -63,9 +65,9 @@ Per ogni chiamata effettuata in Servizi multimediali, è necessario includere ne
 | Intestazione | Type | valore |
 | --- | --- | --- |
 | Autorizzazione |Bearer |Bearer è l'unico meccanismo di autorizzazione accettato. Il valore deve includere anche il token di accesso fornito da Azure Active Directory. |
-| x-ms-version |Decimal |2.17 (o versione più recente)|
-| DataServiceVersion |Decimal |3.0 |
-| MaxDataServiceVersion |Decimal |3.0 |
+| x-ms-version |Decimale |2.17 (o versione più recente)|
+| DataServiceVersion |Decimale |3,0 |
+| MaxDataServiceVersion |Decimale |3,0 |
 
 > [!NOTE]
 > Poiché Servizi multimediali usa OData per esporre le API REST, le intestazioni DataServiceVersion e MaxDataServiceVersion devono essere incluse in tutte le richieste. Se non vengono incluse, Servizi multimediali suppone che il valore di DataServiceVersion in uso sia 3.0.
@@ -76,7 +78,7 @@ Nella seguente tabella è riportato un set di intestazioni facoltative:
 
 | Intestazione | Type | valore |
 | --- | --- | --- |
-| Data |Data RFC 1123 |Timestamp della richiesta. |
+| Date |Data RFC 1123 |Timestamp della richiesta. |
 | Accetta |Tipo di contenuto |Tipo di contenuto richiesto per la risposta, ad esempio:<p> -application/json;odata=verbose<p> - application/atom+xml<p> Nelle risposte può essere presente un tipo di contenuto diverso, ad esempio di recupero BLOB. In questo caso, una risposta corretta deve contenere il flusso BLOB come payload. |
 | Accept-Encoding |Gzip, deflate |Codifica GZIP e DEFLATE, se applicabile. Nota: in caso di risorse di grandi dimensioni, Servizi multimediali può ignorare questa intestazione e restituire dati non compressi. |
 | Accept-Language |"en", "es" e così via. |Lingua preferita per la risposta. |
@@ -92,7 +94,7 @@ Nella seguente tabella è riportato un set di intestazioni che possono essere re
 | --- | --- | --- |
 | request-id |Stringa |Identificatore univoco per l'operazione corrente, generato dal servizio. |
 | client-request-id |Stringa |Identificatore specificato dal chiamante nella richiesta originale, se presente. |
-| Data |Data RFC 1123 |Data/ora di elaborazione della richiesta. |
+| Date |Data RFC 1123 |Data/ora di elaborazione della richiesta. |
 | Content-Type |Varia |Tipo di contenuto del corpo della risposta. |
 | Content-Encoding |Varia |Gzip o deflate, a seconda delle esigenze. |
 

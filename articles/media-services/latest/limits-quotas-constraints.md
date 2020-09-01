@@ -3,23 +3,25 @@ title: Quote e limiti in servizi multimediali di Azure
 description: Questo argomento descrive le quote e i limiti in Servizi multimediali di Microsoft Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/01/2020
-ms.author: juliako
-ms.openlocfilehash: c2845cd0fad8375db67d1aa86333f144222dc0aa
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: b1836b1d0dc69a2a0b186a54974895eb0d8cd91a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446338"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265491"
 ---
 <!-- If you update limits in this topic, make sure to also update https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#media-services-limits -->
 # <a name="azure-media-services-quotas-and-limits"></a>Quote e limiti di servizi multimediali di Azure
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Questo articolo elenca alcuni dei limiti di Servizi multimediali di Microsoft Azure più comuni, che sono anche detti quote.
 
@@ -42,7 +44,7 @@ Questo articolo elenca alcuni dei limiti di Servizi multimediali di Microsoft Az
 
 | Risorsa | Limite predefinito | 
 | --- | --- | 
-| Dimensione del file| In alcuni scenari è previsto un limite per le dimensioni massime dei file supportate per l'elaborazione in Servizi multimediali. <sup>1</sup> |
+| Dimensione del file| In alcuni scenari è previsto un limite per le dimensioni massime dei file supportate per l'elaborazione in Servizi multimediali. <sup>(1)</sup> |
 | [Account di archiviazione](storage-account-concept.md) | 100<sup>(2)</sup> (fisso) |
 
 <sup>1</sup> Le dimensioni massime supportate per un BLOB singolo corrispondono a 5 TB in Archiviazione BLOB di Azure. I limiti aggiuntivi si applicano a servizi multimediali in base alle dimensioni delle macchine virtuali usate dal servizio. Il limite delle dimensioni si applica ai file caricati e anche ai file generati come risultato dell'elaborazione di servizi multimediali (codifica o analisi). Se le dimensioni del file di origine sono maggiori di 260 GB, è probabile che il processo abbia esito negativo. 

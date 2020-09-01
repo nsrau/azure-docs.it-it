@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 79f85473f4eb1839a283ce4fc0d3311defaa741e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8a3a51644f61d4a1e118798986f9c6fb6c52d0e5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999624"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264165"
 ---
-# <a name="encrypting-your-content-with-storage-encryption"></a>Crittografare il contenuto con la crittografia di archiviazione 
+# <a name="encrypting-your-content-with-storage-encryption"></a>Crittografare il contenuto con la crittografia di archiviazione
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere la pagina relativa alla [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).   > non sono state aggiunte nuove funzionalità o funzionalità a Media Services V2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
@@ -45,11 +47,11 @@ Quando si accede alle entità in Servizi multimediali, è necessario impostare v
 
 ### <a name="storage-side-encryption"></a>Crittografia lato archiviazione
 
-|Opzione di crittografia|Descrizione|Servizi multimediali v2|Servizi multimediali v3|
+|Opzione di crittografia|Description|Servizi multimediali v2|Servizi multimediali v3|
 |---|---|---|---|
 |Crittografia di archiviazione di Servizi multimediali|Crittografia AES-256, chiave gestita da Servizi multimediali|Supportata<sup>(1)</sup>|Non supportata<sup>(2)</sup>|
 |[Crittografia del servizio di archiviazione per dati inattivi](../../storage/common/storage-service-encryption.md)|Crittografia lato server offerta da Archiviazione di Azure, chiave gestita da Azure o dal cliente|Supportato|Supportato|
-|[Crittografia lato client di archiviazione](../../storage/common/storage-client-side-encryption.md)|Crittografia lato client offerta da Archiviazione di Azure, chiave gestita dal cliente in Key Vault|Non supportate|Non supportate|
+|[Crittografia lato client di archiviazione](../../storage/common/storage-client-side-encryption.md)|Crittografia lato client offerta da Archiviazione di Azure, chiave gestita dal cliente in Key Vault|Non supportato|Non supportato|
 
 <sup>1</sup> Servizi multimediali supporta la gestione di contenuto non crittografato/senza alcuna forma di crittografia, ma tale modalità non è consigliata.
 
@@ -112,7 +114,7 @@ Di seguito sono descritti i passaggi generali per la generazione di chiavi simme
 
     Per la crittografia di archiviazione, nel corpo della richiesta devono essere incluse le proprietà seguenti.
 
-    Proprietà del corpo della richiesta    | Descrizione
+    Proprietà del corpo della richiesta    | Description
     ---|---
     ID | L'ID della chiave simmetrica viene generato usando il formato seguente: "nb:kid:UUID:\<NEW GUID>".
     ContentKeyType | Il tipo di chiave simmetrica è un numero intero che definisce la chiave. Per il formato di crittografia di archiviazione, il valore è 1.

@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 32b3207fc86f9aab7194d63a0e57eea459fd7eac
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4288e2e955f8205f3b6551c83a5c883eecf02501
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018026"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264811"
 ---
-# <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Eseguire attività di codifica avanzata personalizzando i set di impostazioni di Media Encoder Standard 
+# <a name="perform-advanced-encoding-by-customizing-mes-presets"></a>Eseguire attività di codifica avanzata personalizzando i set di impostazioni di Media Encoder Standard
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 ## <a name="overview"></a>Panoramica
 
@@ -51,7 +53,7 @@ Quando si generano anteprime, non è sempre necessario specificare la larghezza 
 <Height>100%</Height>
 ```
 
-## <a name="generate-thumbnails"></a><a id="thumbnails"></a>Generare anteprime
+## <a name="generate-thumbnails"></a>Generare anteprime
 
 Questa sezione illustra come personalizzare un set di impostazioni che genera anteprime. Il set di impostazioni definito di seguito contiene informazioni su come codificare il file, nonché le informazioni necessarie per generare le anteprime. È possibile usare uno dei set di impostazioni per Media Encoder Standard documentati in [questa](media-services-mes-presets-overview.md) sezione e aggiungere il codice che genera le anteprime.  
 
@@ -64,7 +66,7 @@ Per informazioni sullo schema, vedere [questo](media-services-mes-schema.md) arg
 
 Assicurarsi di esaminare la sezione [Considerazioni](#considerations) .
 
-### <a name="json-preset"></a><a id="json"></a>Set di impostazioni JSON
+### <a name="json-preset"></a>Set di impostazioni JSON
 
 ```json
 {
@@ -166,7 +168,7 @@ Assicurarsi di esaminare la sezione [Considerazioni](#considerations) .
 }
 ```
 
-### <a name="xml-preset"></a><a id="xml"></a>Set di impostazioni XML
+### <a name="xml-preset"></a>Set di impostazioni XML
 
 ```xml
 <?xml version="1.0" encoding="utf-16"?>

@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: Juliako
 ms.reviewer: willzhan
-ms.openlocfilehash: 29a344c739d8d99da2e5c81d41a11c601e48022e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17b54b2adb21419de61d2309752987f6e4a48e41
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74969141"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264488"
 ---
-# <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso di castLabs per distribuire licenze Widevine a Servizi multimediali di Azure 
+# <a name="using-castlabs-to-deliver-widevine-licenses-to-azure-media-services"></a>Uso di castLabs per distribuire licenze Widevine a Servizi multimediali di Azure
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+ 
 > [!div class="op_single_selector"]
 > * [Axinom](media-services-axinom-integration.md)
 > * [castLabs](media-services-castlabs-integration.md)
@@ -59,7 +62,7 @@ La tabella seguente descrive il token JWT usato in Servizi multimediali di Azure
 | Issuer | Stringa dell'autorità di certificazione rilasciata dal servizio token di sicurezza scelto |
 | --- | --- |
 | Destinatari |Stringa dei destinatari rilasciata dal servizio token di sicurezza usato |
-| Claims |Set di attestazioni |
+| Attestazioni |Set di attestazioni |
 | NotBefore |Validità di inizio del token |
 | Scadenza |Validità di fine del token |
 | SigningCredentials |Chiave condivisa tra il server licenze PlayReady, il server licenze castLabs e il servizio token di sicurezza (STS); può essere una chiave simmetrica o asimmetrica. |

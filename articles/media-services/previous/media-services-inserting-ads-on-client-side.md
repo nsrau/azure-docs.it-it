@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 93b449636282568ab614b42a46d939935f576895
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 70db1ff63e3c2a7e7806e5ef3c55b4e4af4a5259
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021307"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263570"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>Inserimento di annunci sul lato client
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Questo articolo contiene informazioni su come inserire diversi tipi di annunci sul lato client.
 
 Per informazioni sul supporto di sottotitoli codificati e annunci nei video in streaming live, vedere, [Sottotitoli codificati supportati e standard per l'inserimento di annunci](media-services-live-streaming-with-onprem-encoders.md#cc_and_ads).

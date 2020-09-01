@@ -3,7 +3,7 @@ title: Connettersi alle API di Servizi multimediali di Azure v3 - .NET
 description: Questo argomento illustra come connettersi alle API di Servizi multimediali v3 mediante .NET.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/18/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: has-adal-ref, devx-track-csharp
-ms.openlocfilehash: 933342c8917b3219ec858bfc3edc4013863d2c6a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 90f5c55922a5fafb29a40faf9af719f77c74c6cf
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008115"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265644"
 ---
 # <a name="connect-to-media-services-v3-api---net"></a>Connettersi alle API di Servizi multimediali v3 - .NET
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Questo articolo spiega come connettersi all'SDK .NET di Servizi multimediali di Azure v3 usando il metodo di accesso dell'entità servizio.
 

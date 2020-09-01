@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: Questo argomento fornisce una panoramica degli eventi live e degli output Live in servizi multimediali di Azure V3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -12,16 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 04/08/2020
-ms.author: juliako
-ms.openlocfilehash: c41538acdb8ed94ee4995ad8d5f5e4cebb2e14d6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: da91e37c47db6d944aa6974123dd80ec982453e4
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043437"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265185"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Eventi live e output Live in servizi multimediali
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Servizi multimediali di Azure ti permette di offrire eventi live ai tuoi clienti nel cloud di Azure. Per configurare gli eventi di streaming live in servizi multimediali V3, è necessario comprendere i concetti illustrati in questo articolo.
 
@@ -69,7 +71,7 @@ Le risoluzioni e le velocità in bit contenute nell'output del codificatore Live
 
 ## <a name="creating-live-events"></a>Creazione di eventi Live
 
-### <a name="options"></a>Opzioni
+### <a name="options"></a>Options
 
 Quando si crea un evento live, è possibile specificare le opzioni seguenti:
 
@@ -131,7 +133,7 @@ Una volta creato l'evento Live, è possibile ottenere gli URL di inserimento da 
 ### <a name="live-ingest-url-naming-rules"></a>Regole di denominazione degli URL di inserimento live
 
 * La stringa *casuale* sottostante è un numero esadecimale a 128 bit (costituito da 32 caratteri 0-9 a-f).
-* il *token di accesso*: la stringa GUID valida impostata quando si usa la modalità Vanity. Ad esempio: `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`.
+* il *token di accesso*: la stringa GUID valida impostata quando si usa la modalità Vanity. Ad esempio, `"1fce2e4b-fb15-4718-8adc-68c6eb4c26a7"`
 * *Nome flusso*: indica il nome del flusso per una connessione specifica. Il valore del nome del flusso viene in genere aggiunto dal codificatore Live usato. È possibile configurare il codificatore Live in modo che usi qualsiasi nome per descrivere la connessione, ad esempio: "video1_audio1", "video2_audio1", "Stream".
 
 #### <a name="non-vanity-url"></a>URL di non reindirizzamento a microsito

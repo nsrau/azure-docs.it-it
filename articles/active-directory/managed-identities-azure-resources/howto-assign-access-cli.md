@@ -16,12 +16,12 @@ ms.date: 12/06/2017
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: eb27a147211112fa1a73da37d9f0ff379ec3d63f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: b0437308a0495281e364d42199cc84d9a291cb58
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177653"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263416"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-azure-cli"></a>Assegnare a un'identità gestita l'accesso a una risorsa tramite l'interfaccia della riga di comando di Azure
 
@@ -36,7 +36,7 @@ Dopo aver configurato una risorsa di Azure con un'identità gestita, è possibil
 - Per eseguire gli esempi di script dell'interfaccia della riga di comando, sono disponibili tre opzioni:
     - Usare [Azure Cloud Shell](../../cloud-shell/overview.md) dal portale di Azure (vedere la sezione successiva).
     - Usare il Azure Cloud Shell incorporato tramite il pulsante "prova", che si trova nell'angolo superiore destro di ogni blocco di codice.
-    - [Installare la versione più recente dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) se si preferisce usare una console dell'interfaccia della riga di comando locale. 
+    - [Installare la versione più recente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) se si preferisce usare una console dell'interfaccia della riga di comando locale. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 

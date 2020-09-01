@@ -3,7 +3,7 @@ title: Tipi di LiveEvent Servizi multimediali di Azure | Microsoft Docs
 description: In servizi multimediali di Azure è possibile impostare un evento live su una codifica *pass-through* o *Live*. Questo articolo illustra una tabella dettagliata che confronta i tipi di evento Live.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,18 +11,20 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 06/13/2019
-ms.author: juliako
-ms.openlocfilehash: 793ddb8c99a4e21c176374f7cb3445d1a7d8fca0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 41df31cde95ae7ed1d05dac572718622067194c9
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090060"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265253"
 ---
 # <a name="live-event-types-comparison"></a>Confronto tra tipi di eventi live
 
-In servizi multimediali di Azure è possibile impostare un [evento Live](/rest/api/media/liveevents) su un *pass-through* (un codificatore Live locale invia un flusso a più velocità in bit) o la *codifica live* (un codificatore Live locale invia un flusso a bitrate singolo). 
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
+
+In servizi multimediali di Azure è possibile impostare un  [evento Live](/rest/api/media/liveevents) su un *pass-through* (un codificatore Live locale invia un flusso a più velocità in bit) o la *codifica live* (un codificatore Live locale invia un flusso a bitrate singolo). 
 
 In questo articolo vengono confrontate le funzionalità dei tipi di evento Live.
 

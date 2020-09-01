@@ -3,7 +3,7 @@ title: Stati e fatturazione LiveEvent in Servizi multimediali di Azure | Microso
 description: Questo argomento offre una panoramica degli stati e della fatturazione dei Servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 10/24/2019
-ms.author: juliako
-ms.openlocfilehash: dd63152776e0268b8f9e3e0ce116fea897cdf4e2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 37098b8268d5a451935c925114fb762c574fa55c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87000874"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265304"
 ---
 # <a name="live-event-states-and-billing"></a>Stati e fatturazione di eventi live
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 In Servizi multimediali di Azure, la fatturazione di un evento live non appena lo stato dell'evento live passa a **In esecuzione**. Ti verrà addebitato anche se non è presente alcun video che scorre il servizio. Per interrompere la fatturazione dell'evento live, è necessario interrompere quest'ultimo. La trascrizione in tempo reale viene fatturata allo stesso modo dell'evento Live.
 
@@ -35,7 +37,7 @@ Di seguito sono riportati gli stati possibili per l'evento live.
 
 |State|Descrizione|
 |---|---|
-|**Fermato**| Si tratta dello stato iniziale dell'evento Live dopo la creazione, a meno che autostart non sia impostato su true. In questo stato non viene eseguita alcuna fatturazione. In questo stato è possibile aggiornare le proprietà dell'evento live ma lo streaming non è consentito.|
+|**Arrestato**| Si tratta dello stato iniziale dell'evento Live dopo la creazione, a meno che autostart non sia impostato su true. In questo stato non viene eseguita alcuna fatturazione. In questo stato è possibile aggiornare le proprietà dell'evento live ma lo streaming non è consentito.|
 |**Avvio in corso**| L'avvio dell'evento live e l'allocazione delle risorse sono in corso. In questo stato non viene eseguita alcuna attività di fatturazione. Durante questo stato non sono consentiti aggiornamenti o streaming. Se si verifica un errore, l'evento live torna allo stato Interrotto.|
 |**Running**| Le risorse dell'evento live sono state allocate, gli URL di inserimento e anteprima sono stati generati ed è possibile ricevere flussi live. A questo punto, la fatturazione è attiva. È necessario chiamare esplicitamente Stop sulla risorsa evento live per interrompere la fatturazione.|
 |**Stopping**| L'interruzione dell'evento live e il deprovisioning delle risorse sono in corso. In questo stato di transizione non viene eseguita alcuna attività di fatturazione. Durante questo stato non sono consentiti aggiornamenti o streaming.|

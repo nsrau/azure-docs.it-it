@@ -3,23 +3,25 @@ title: Creare un processo di servizi multimediali di Azure con più output di tr
 description: Questo argomento illustra come creare un processo di servizi multimediali di Azure con più output di trasformazione.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 02/17/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6a0592af43987e89556aee57ea44e07dc2c00828
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 63e6da53e542172d474f9ca5de9ab136f38f42f5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006789"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265542"
 ---
 # <a name="create-a-job-with-multiple-transform-outputs"></a>Creare un processo con più output di trasformazione
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 In questo argomento viene illustrato come creare una trasformazione con due output di trasformazione. Il primo richiede la codifica dell'input per lo streaming a bitrate adattivo con un set di impostazioni [AdaptiveStreaming](encoding-concept.md#builtinstandardencoderpreset) incorporato. Il secondo richiede l'elaborazione del segnale audio nel video di input con [AudioAnalyzerPreset](analyzing-video-audio-files-concept.md#built-in-presets). Dopo la creazione della trasformazione, è possibile inviare un processo che elaborerà il video in modo appropriato. Poiché in questo esempio si specificano due output di trasformazione, è necessario specificare due output del processo. È possibile scegliere di indirizzare entrambi gli output del processo allo stesso asset (come illustrato di seguito) oppure è possibile fare in modo che i risultati vengano scritti in risorse separate.
  

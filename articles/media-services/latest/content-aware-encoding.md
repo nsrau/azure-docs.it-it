@@ -3,23 +3,25 @@ title: Set di impostazioni per la codifica compatibile con il contenuto-servizi 
 description: Questo articolo illustra la codifica compatibile con i contenuti in Servizi multimediali di Microsoft Azure V3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 04/29/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c29909d70b0fd55e4b680c79928cdc5d05b494fa
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 853381dbccea5374806fbeadb1d29632f0525fdb
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003729"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265610"
 ---
 # <a name="use-the-content-aware-encoding-preset-to-find-the-optimal-bitrate-value-for-a-given-resolution"></a>Usare il set di impostazioni di codifica compatibile con il contenuto per trovare il valore di velocità in bit ottimale per una determinata risoluzione
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Per preparare il contenuto per la distribuzione tramite [streaming a bitrate adattivo](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming), il video deve essere codificato a più velocità in bit (da alto a basso). In questo modo si garantisce una riduzione del livello di qualità, perché la velocità in bit è ridotta, quindi è la risoluzione del video. Tale codifica a più bit usa una cosiddetta scala di codifica, ovvero una tabella di risoluzioni e bitrate, vedere i [set di impostazioni di codifica predefiniti di](/rest/api/media/transforms/createorupdate#encodernamedpreset)servizi multimediali.
 

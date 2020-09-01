@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 03/05/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 3e10841852b8a89b344d3bfd9311db8abe15642a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 0afb7906e102e4f0fb49245949b08618da1693ec
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319542"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89265678"
 ---
 # <a name="use-tls-to-secure-a-web-service-through-azure-machine-learning"></a>Usare TLS per proteggere un servizio Web tramite Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -28,7 +28,7 @@ Usare [https](https://en.wikipedia.org/wiki/HTTPS) per limitare l'accesso ai ser
 > [!TIP]
 > Il Azure Machine Learning SDK usa il termine "SSL" per le proprietà correlate alle comunicazioni sicure. Questo non significa che il servizio Web non usa *TLS*. SSL è semplicemente un termine riconosciuto in modo più comune.
 >
-> In particolare, i servizi Web distribuiti tramite Azure Machine Learning supportano solo TLS versione 1,2.
+> In particolare, i servizi Web distribuiti tramite Azure Machine Learning supportano solo TLS versione 1,1
 
 TLS e SSL si basano entrambi sui *certificati digitali*, che contribuiscono alla crittografia e alla verifica dell'identità. Per ulteriori informazioni sul funzionamento dei certificati digitali, vedere l'argomento di Wikipedia [infrastruttura a chiave pubblica](https://en.wikipedia.org/wiki/Public_key_infrastructure).
 
@@ -71,7 +71,7 @@ Quando si richiede un certificato, è necessario fornire il nome di dominio comp
 > [!WARNING]
 > Usare i certificati *autofirmati* solo per lo sviluppo. Non usarli negli ambienti di produzione. I certificati autofirmati possono causare problemi nelle applicazioni client. Per ulteriori informazioni, vedere la documentazione relativa alle librerie di rete utilizzate dall'applicazione client.
 
-## <a name="enable-tls-and-deploy"></a><a id="enable"></a>Abilitare TLS e distribuire
+## <a name="enable-tls-and-deploy"></a><a id="enable"></a> Abilitare TLS e distribuire
 
 Per distribuire (o ridistribuire) il servizio con TLS abilitato, impostare il parametro *ssl_enabled* su "true" laddove applicabile. Impostare il parametro *ssl_certificate* sul valore del file del *certificato* . Impostare il *ssl_key* sul valore del file di *chiave* .
 

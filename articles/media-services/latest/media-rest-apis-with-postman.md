@@ -3,7 +3,7 @@ title: Configurare il post per le chiamate all'API REST di servizi multimediali 
 description: In questo articolo viene illustrato come configurare Postman in modo da usarlo per chiamare le API REST di Servizi multimediali di Azure (AMS).
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2019
-ms.author: juliako
-ms.openlocfilehash: e35a5fe2243c3a9880359900c63f74c6dc90e586
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 1232c47040a5577731121ee0bb17eb264240e765
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654362"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89264879"
 ---
 # <a name="configure-postman-for-media-services-v3-rest-api-calls"></a>Configurare il post per le chiamate all'API REST di servizi multimediali V3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 In questo articolo viene illustrato come configurare **Postman** in modo da usarlo per chiamare le API REST di Servizi multimediali di Azure (AMS). L'articolo illustra come importare i file di ambiente e di raccolta in **Postman**. La raccolta contiene definizioni raggruppate delle richieste HTTP che chiamano le API REST di Servizi multimediali di Azure (AMS). Il file di ambiente contiene le variabili usate dalla raccolta.
 
@@ -97,7 +99,7 @@ Prima di iniziare la modifica delle risorse in servizi multimediali di Microsoft
 * Se l'applicazione ha esito negativo con "HTTP 504: Timeout gateway", assicurarsi che la variabile di percorso non sia stata impostata in modo esplicito su un valore diverso da quello previsto per l'account di servizi multimediali. 
 * Se viene ricevuto un errore "account non trovato", verificare anche che la proprietà location nel messaggio JSON Body sia impostata sul percorso in cui si trova l'account di servizi multimediali. 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - [Creare filtri con Servizi multimediali - REST](filters-dynamic-manifest-rest-howto.md)
 - [API REST basate su Azure Resource Manager](https://github.com/Azure-Samples/media-services-v3-arm-templates)
