@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/25/2018
 ms.author: barclayn
-ms.openlocfilehash: 67e7f8890923dec2dca369b6a57399232c0198cc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5b298767f9814f76dd606bab29bd0b245dad6937
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018377"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260187"
 ---
 # <a name="how-to-stop-using-the-virtual-machine-managed-identities-extension-and-start-using-the-azure-instance-metadata-service"></a>Come interrompere l'uso dell'estensione identità gestite della macchina virtuale e iniziare a usare il servizio metadati dell'istanza di Azure
 
@@ -35,7 +35,7 @@ A causa di diverse limitazioni descritte nella sezione successiva, l'estensione 
 
 ### <a name="provision-the-extension"></a>Eseguire il provisioning dell'estensione 
 
-Quando si configura una macchina virtuale o un set di scalabilità di macchine virtuali in modo che abbia un'identità gestita, è possibile scegliere di eseguire il provisioning delle identità gestite per le risorse di Azure estensione VM usando il `-Type` parametro del cmdlet [set-AzVMExtension](https://docs.microsoft.com/powershell/module/az.compute/set-azvmextension) . È possibile passare `ManagedIdentityExtensionForWindows` o `ManagedIdentityExtensionForLinux` , a seconda del tipo di macchina virtuale, e denominarlo utilizzando il `-Name` parametro. Il parametro `-Settings` specifica la porta usata dall'endpoint del token OAuth per l'acquisizione del token:
+Quando si configura una macchina virtuale o un set di scalabilità di macchine virtuali in modo che abbia un'identità gestita, è possibile scegliere di eseguire il provisioning delle identità gestite per le risorse di Azure estensione VM usando il `-Type` parametro del cmdlet [set-AzVMExtension](/powershell/module/az.compute/set-azvmextension) . È possibile passare `ManagedIdentityExtensionForWindows` o `ManagedIdentityExtensionForLinux` , a seconda del tipo di macchina virtuale, e denominarlo utilizzando il `-Name` parametro. Il parametro `-Settings` specifica la porta usata dall'endpoint del token OAuth per l'acquisizione del token:
 
 ```powershell
    $settings = @{ "port" = 50342 }
@@ -96,7 +96,7 @@ Per eseguire il provisioning dell'estensione del set di scalabilità di macchine
 Il provisioning dell'estensione della macchina virtuale potrebbe non riuscire a causa di errori di ricerca DNS. In tal caso, riavviare la macchina virtuale e riprovare. 
 
 ### <a name="remove-the-extension"></a>Rimuovere l'estensione 
-Per rimuovere l'estensione, usare `-n ManagedIdentityExtensionForWindows` o `-n ManagedIdentityExtensionForLinux` Switch (a seconda del tipo di macchina virtuale) con [AZ VM Extension Delete](https://docs.microsoft.com/cli/azure/vm/)oppure [AZ vmss Extension Delete](https://docs.microsoft.com/cli/azure/vmss) per i set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure o `Remove-AzVMExtension` per PowerShell:
+Per rimuovere l'estensione, usare `-n ManagedIdentityExtensionForWindows` o `-n ManagedIdentityExtensionForLinux` Switch (a seconda del tipo di macchina virtuale) con [AZ VM Extension Delete](/cli/azure/vm/)oppure [AZ vmss Extension Delete](/cli/azure/vmss) per i set di scalabilità di macchine virtuali con l'interfaccia della riga di comando di Azure o `Remove-AzVMExtension` per PowerShell:
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -196,7 +196,7 @@ L'uso dell'estensione della macchina virtuale presenta diverse limitazioni princ
 
 ## <a name="azure-instance-metadata-service"></a>Servizio metadati dell'istanza di Azure
 
-Il [servizio metadati dell'istanza di Azure (IMDS)](/azure/virtual-machines/windows/instance-metadata-service) è un endpoint REST che fornisce informazioni sull'esecuzione di istanze di macchine virtuali che possono essere usate per gestire e configurare le macchine virtuali. L'endpoint è disponibile a un indirizzo IP non instradabile noto () a `169.254.169.254` cui è possibile accedere solo dall'interno della macchina virtuale.
+Il [servizio metadati dell'istanza di Azure (IMDS)](../../virtual-machines/windows/instance-metadata-service.md) è un endpoint REST che fornisce informazioni sull'esecuzione di istanze di macchine virtuali che possono essere usate per gestire e configurare le macchine virtuali. L'endpoint è disponibile a un indirizzo IP non instradabile noto () a `169.254.169.254` cui è possibile accedere solo dall'interno della macchina virtuale.
 
 L'uso di Azure IMDS per richiedere i token presenta diversi vantaggi. 
 
@@ -212,4 +212,4 @@ Per questi motivi, il servizio Azure IMDS sarà il metodo di richiesta di token,
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Come usare le identità gestite per le risorse di Azure in una macchina virtuale di Azure per acquisire un token di accesso](how-to-use-vm-token.md)
-* [Servizio metadati dell'istanza di Azure](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
+* [Servizio metadati dell'istanza di Azure](../../virtual-machines/windows/instance-metadata-service.md)

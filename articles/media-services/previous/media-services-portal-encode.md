@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 7c147d99eaabee70316521d1f2bdc41933162ab1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 606a4d753675475cf0138b688523e9029e6d3b0a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "69542600"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260782"
 ---
 # <a name="encode-an-asset-by-using-media-encoder-standard-in-the-azure-portal"></a>Codificare un asset mediante Media Encoder Standard sul portale di Azure
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Per completare l'esercitazione, è necessario un account Azure. Per informazioni dettagliate, vedere [versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/). 
@@ -41,7 +43,7 @@ Per informazioni su come ridimensionare l'elaborazione di contenuti multimediali
 Per codificare il contenuto tramite Media Encoder Standard:
 
 1. Nel [portale di Azure ](https://portal.azure.com/) selezionare l'account Servizi multimediali di Azure.
-2. Selezionare **Impostazioni**  >  **Asset**. Selezionare l'asset da codificare.
+2. Selezionare **Impostazioni** > **Asset**. Selezionare l'asset da codificare.
 3. Selezionare il pulsante **Codifica**.
 4. Nel riquadro **Codifica un asset** selezionare il processore **Media Encoder Standard** e un set di impostazioni. Per informazioni sui set di impostazioni, vedere [Generare automaticamente una tabella di coppie bitrate-risoluzione](media-services-autogen-bitrate-ladder-with-mes.md) e [Set di impostazioni delle attività MES (Media Encoder Standard)](media-services-mes-presets-overview.md). È importante scegliere il set di impostazioni più idoneo per i video di input. Se ad esempio è noto che il video di input ha una risoluzione di 1920 × 1080 pixel, è possibile scegliere il set di impostazioni **Codec video H.264 a bitrate multiplo con risoluzione 1080p**. Se il video disponibile è a bassa risoluzione (640 × 360), non usare il set di impostazioni **Codec video H.264 a bitrate multiplo con risoluzione 1080p**.
    

@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: e9236b5d6159a87ef09219d5e2bdb2e2679fb85a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 52ce8a359f63004393e191d1d6a8f991fba1e9f6
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084552"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260799"
 ---
-# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Eseguire lo streaming live con servizi multimediali per creare flussi a bitrate multipli con portale di Azure  
+# <a name="perform-live-streaming-using-media-services-to-create-multi-bitrate-streams-with-azure-portal"></a>Eseguire lo streaming live con servizi multimediali per creare flussi a bitrate multipli con portale di Azure
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [Portale](media-services-portal-creating-live-encoder-enabled-channel.md)
 > * [.NET](media-services-dotnet-creating-live-encoder-enabled-channel.md)
@@ -77,7 +80,7 @@ Per completare l'esercitazione è necessario quanto segue.
 3. Selezionare **Creazione personalizzata**. Questa opzione permette di creare un canale abilitato per la codifica live.
 
     ![Creare un canale](./media/media-services-portal-creating-live-encoder-enabled-channel/media-services-create-channel.png)
-4. Fare clic su **Impostazioni**.
+4. Fare clic su **Settings** (Impostazioni).
 
    1. Scegliere il tipo di canale **Codifica live** . Questo tipo specifica che si vuole creare un canale abilitato per la codifica live. Ciò significa che il flusso in ingresso a velocità in bit singola viene inviato al canale e codificato in un flusso a più velocità in bit usando le impostazioni del codificatore live specificato. Per altre informazioni, vedere [Streaming live con Servizi multimediali di Azure per creare flussi a bitrate multipli](media-services-manage-live-encoder-enabled-channels.md). Fare clic su OK.
    2. Specificare il nome di un canale.

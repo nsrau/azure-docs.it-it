@@ -5,12 +5,12 @@ ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27
 ms.topic: how-to
-ms.openlocfilehash: d49b74ffff8f382427422071b7d8f494f71a52fb
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 38bfada87701533002a2dcf304af573da4c87766
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84345190"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259898"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-go"></a>Guida introduttiva: Creare una knowledge base in QnA Maker con Go
 
@@ -37,44 +37,34 @@ Creare un file denominato `create-new-knowledge-base.go`.
 
 All'inizio di `create-new-knowledge-base.go` inserire le righe seguenti per aggiungere le dipendenze necessarie al progetto:
 
-[!code-go[Add the required dependencies](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=1-11 "Add the required dependencies")]
-
-## <a name="add-the-required-constants"></a>Aggiungere le costanti obbligatorie
-Dopo le dipendenze obbligatorie precedenti, aggiungere le costanti obbligatorie per accedere a QnA Maker.
-
-Impostare i valori seguenti:
-
-* `<your-qna-maker-subscription-key>` - La **chiave** è una stringa di 32 caratteri ed è disponibile nella risorsa QnA Maker, nella pagina Avvio rapido del portale di Azure. Non è la stessa chiave dell'endpoint di previsione.
-* `{your-resource-name}` - Il **nome della risorsa** viene usato per creare l'URL dell'endpoint di creazione nel formato `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Non è lo stesso URL usato per eseguire query sull'endpoint di previsione.
-
-[!code-go[Add the required constants](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=13-20 "Add the required constants")]
+:::code language="go" source="~/cognitive-services-quickstart-code/go/QnAMaker/rest/create-kb.go" id="dependencies":::
 
 ## <a name="add-the-kb-model-definition"></a>Aggiungere la definizione del modello di knowledge base
 Dopo le costanti, aggiungere la definizione di modello di knowledge base seguente. Il modello viene convertito in una stringa dopo la definizione.
 
-[!code-go[Add the KB model definition](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=22-44 "Add the KB model definition")]
+:::code language="go" source="~/cognitive-services-quickstart-code/go/QnAMaker/rest/create-kb.go" id="model":::
 
 ## <a name="add-supporting-structures-and-functions"></a>Aggiungere strutture e funzioni di supporto
 
 A questo punto, aggiungere le funzioni di supporto seguenti.
 
-1. Aggiungere la struttura per una richiesta HTTP:
+1. Aggiungere la struttura per una risposta HTTP:
 
-    [!code-go[Add the structure for an HTTP request](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=46-49 "Add the structure for an HTTP request")]
+    :::code language="go" source="~/cognitive-services-quickstart-code/go/QnAMaker/rest/create-kb.go" id="response":::
 
-2. Aggiungere il metodo seguente per gestire una richiesta POST alle API QnA Maker. Per questa guida introduttiva la richiesta POST viene usata per inviare la definizione della knowledge base a QnA Maker.
+1. Aggiungere il metodo seguente per gestire una richiesta POST alle API QnA Maker. Per questa guida introduttiva la richiesta POST viene usata per inviare la definizione della knowledge base a QnA Maker.
 
-    [!code-go[Add the POST method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=51-66 "Add the POST method")]
+    :::code language="go" source="~/cognitive-services-quickstart-code/go/QnAMaker/rest/create-kb.go" id="post":::
 
-3. Aggiungere il metodo seguente per gestire una richiesta GET alle API QnA Maker. Per questa guida introduttiva la richiesta GET viene usata per controllare lo stato dell'operazione di creazione.
+1. Aggiungere il metodo seguente per gestire una richiesta GET alle API QnA Maker. Per questa guida introduttiva la richiesta GET viene usata per controllare lo stato dell'operazione di creazione.
 
-    [!code-go[Add the GET method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=68-83 "Add the GET method")]
+    :::code language="go" source="~/cognitive-services-quickstart-code/go/QnAMaker/rest/create-kb.go" id="get":::
 
 ## <a name="add-function-to-create-kb"></a>Aggiungere le funzioni per creare la knowledge base
 
 Aggiungere le funzioni seguenti per effettuare una richiesta HTTP POST per creare la knowledge base. L' _create_ **ID dell'operazione** di creazione viene restituito nella **posizione**del campo dell'intestazione Post-risposta, quindi viene usato come parte della route nella richiesta GET. `Ocp-Apim-Subscription-Key` è la chiave del servizio QnA Maker usata per l'autenticazione.
 
-[!code-go[Add the create_kb method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=85-97 "Add the create_kb method")]
+:::code language="go" source="~/cognitive-services-quickstart-code/go/QnAMaker/rest/create-kb.go" id="create_kb":::
 
 Questa chiamata API restituisce una risposta JSON che include l'ID operazione. Usare l'ID operazione per determinare se la knowledge base è stata creata.
 
@@ -92,7 +82,7 @@ Questa chiamata API restituisce una risposta JSON che include l'ID operazione. U
 
 Aggiungere la funzione seguente per effettuare una richiesta HTTP GET per controllare lo stato dell'operazione. `Ocp-Apim-Subscription-Key` è la chiave del servizio QnA Maker usata per l'autenticazione.
 
-[!code-go[Add the check_status method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=99-108 "Add the check_status method")]
+:::code language="go" source="~/cognitive-services-quickstart-code/go/QnAMaker/rest/create-kb.go" id="get_status":::
 
 Ripetere la chiamata fino a quando l'esito non è positivo o negativo:
 
@@ -110,7 +100,7 @@ Ripetere la chiamata fino a quando l'esito non è positivo o negativo:
 
 La funzione seguente è quella principale e consente di creare la knowledge base, nonché ripetere i controlli sullo stato. Dal momento che la creazione della knowledge base può richiedere tempo, è necessario ripetere le chiamate per controllare lo stato fino a quando questo indica un esito positivo o negativo dell'operazione.
 
-[!code-go[Add the main method](~/samples-qnamaker-go/documentation-samples/quickstarts/create-knowledge-base/create-new-knowledge-base.go?range=110-140 "Add the main method")]
+:::code language="go" source="~/cognitive-services-quickstart-code/go/QnAMaker/rest/create-kb.go" id="main":::
 
 
 ## <a name="compile-the-program"></a>Compilare il programma

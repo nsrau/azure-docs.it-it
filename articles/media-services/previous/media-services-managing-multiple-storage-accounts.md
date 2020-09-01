@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9c7addf4d30e81f449e9d9a7509dfe44c381e014
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b5b0b383cba45646a1e5a8f980b3a097767f9979
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020084"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262601"
 ---
 # <a name="managing-media-services-assets-across-multiple-storage-accounts"></a>Gestione di asset di Servizi multimediali su più account di archiviazione  
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 È possibile collegare più account di archiviazione a un unico account di Servizi multimediali. La possibilità di collegare più account di archiviazione a un account di Servizi multimediali offre i vantaggi seguenti:
 

@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 1d264b0ae0b06079a45cd1e862144a6920133901
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: aa0514834d1619bbbae4501fe6b1af16d7964ff7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038443"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89261476"
 ---
 # <a name="sample-presets-for-media-encoder-standard-mes"></a>Set di impostazioni di esempio per Media Encoder Standard (MES)
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 **Media Encoder Standard** definisce un set di impostazioni di codifica di sistema predefinite che è possibile usare per la creazione di processi di codifica. Si consiglia di usare il set di impostazioni di "Flusso adattivo" se si vuole codificare un video per lo streaming con Servizi multimediali. Quando si specifica il set di impostazioni Media Encoder Standard [genera automaticamente un bitrate ladder](media-services-autogen-bitrate-ladder-with-mes.md). 
 

@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b9b234f0d701ae2ef269b53c3b3c0276ca31f7f0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 90cd9605a166a00412ed77caf3727ffb3ad3e1fd
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020610"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262116"
 ---
 # <a name="develop-azure-functions-with-media-services"></a>Sviluppare le Funzioni di Azure con Servizi multimediali
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 In questo articolo viene illustrato come iniziare a creare le Funzioni di Azure che usano i Servizi multimediali. La funzione di Azure definita in questo articolo consente di monitorare un contenitore di account di archiviazione denominato **input** per i nuovi file MP4. Una volta rilasciato un file nel contenitore di archiviazione, il trigger BLOB esegue la funzione. Per le funzioni di Azure, vedere [Panoramica](../../azure-functions/functions-overview.md) e altri argomenti della sezione **Funzioni di Azure**.
 
@@ -71,7 +73,7 @@ In seguito alla distribuzione dell'app per le funzioni, questa verrà visualizza
 
     ![files](./media/media-services-azure-functions/media-services-azure-functions005.png)
 
-4. Fare clic su **Crea**. 
+4. Scegliere **Crea**. 
 
 ## <a name="files"></a>File
 

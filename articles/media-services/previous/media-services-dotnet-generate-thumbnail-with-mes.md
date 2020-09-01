@@ -15,14 +15,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 22a79f75fa795226e45e54947f410db4c2a57a7c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3988bbb46782f6dbc703823135f5bda4e2539bd8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020661"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262261"
 ---
-# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Come generare anteprime utilizzando Media Encoder Standard con .NET 
+# <a name="how-to-generate-thumbnails-using-media-encoder-standard-with-net"></a>Come generare anteprime utilizzando Media Encoder Standard con .NET
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 È possibile usare Media Encoder Standard per generare una o più anteprime dal video di input in un formato file di immagine a scelta tra [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) e [BMP](https://en.wikipedia.org/wiki/BMP_file_format). È possibile inviare attività che producono solo immagini oppure combinare la generazione di anteprime con la codifica. Questo articolo offre alcuni set di impostazioni di anteprima XML e JSON di esempio per questi scenari. Nella sezione finale dell'articolo è disponibile un [codice di esempio](#code_sample) che illustra come usare SDK di Servizi multimediali di Azure per .NET per eseguire l'attività di codifica.
 

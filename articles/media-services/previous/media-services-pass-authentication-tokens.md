@@ -16,14 +16,17 @@ ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a15afcba26c8c8dcc8b023e57d05b04dfa5e3e88
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 498e6d9e38468b126dbe10e0d0f59f54f1816ff0
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016717"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89261040"
 ---
 # <a name="learn-how-clients-pass-tokens-to-the-azure-media-services-key-delivery-service"></a>Informazioni sul passaggio dei token al servizio di distribuzione delle chiavi di Servizi multimediali di Azure da parte dei client
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 I clienti chiedono spesso informazioni su come passare i token da un lettore al servizio di distribuzione delle chiavi di Servizi multimediali di Azure per la verifica, in modo che il lettore possa ottenere la chiave. Servizi multimediali supporta i formati SWT (Simple Web Token, token Web semplice) e JWT (JSON Web Token, token JSON Web). L'autenticazione di token può essere applicata a qualsiasi tipo di chiave, indipendentemente dal fatto che si esegua la crittografia comune o la crittografia envelope AES (Advanced Encryption Standard).
 
  Il token può essere passato con il lettore nei modi seguenti, a seconda del lettore e della piattaforma di destinazione:

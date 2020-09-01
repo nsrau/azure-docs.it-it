@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 1fcb935a7a07629ba3d7424a39f6c8542628a842
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: df28078363162496672232ecdebe02fc99ce50f5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084620"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89261054"
 ---
 # <a name="media-services-playready-license-template-overview"></a>Panoramica del modello di licenza PlayReady di Servizi multimediali
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Servizi multimediali di Azure offre ora un servizio per la distribuzione delle licenze PlayReady. Quando il lettore, ad esempio Silverlight, cerca di riprodurre il contenuto protetto con PlayReady, viene inviata una richiesta al servizio di distribuzione di licenze per ottenere una licenza. Se il servizio licenze approva la richiesta, la licenza viene rilasciata e inviata al client e verrà usata per decrittografare e riprodurre il contenuto specificato.
 
 Servizi multimediali offre anche API utili per configurare le licenze PlayReady. Le licenze contengono i diritti e le limitazioni che il runtime Digital Rights Management, ovvero DRM, di PlayReady imporrà quando un utente cerca di riprodurre contenuto protetto.

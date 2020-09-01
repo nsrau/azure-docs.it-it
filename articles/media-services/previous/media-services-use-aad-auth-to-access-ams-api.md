@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 9d73c280e3f5639b11e0d07b9ef2f775f48cd3c3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c0d3ece75d15ae07091f613348389f845ec74ef7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038489"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89262516"
 ---
-# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD  
+# <a name="access-the-azure-media-services-api-with-azure-ad-authentication"></a>Accesso all'API di Servizi multimediali di Azure con l'autenticazione di Azure AD 
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)] 
 
 > [!NOTE]
 > Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
