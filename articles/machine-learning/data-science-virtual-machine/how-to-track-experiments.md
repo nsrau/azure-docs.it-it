@@ -1,7 +1,7 @@
 ---
 title: Rilevamento e distribuzione di modelli
 titleSuffix: Azure Data Science Virtual Machine
-description: Informazioni su come rilevare e registrare gli esperimenti da DSVM con Azure Machine Learning e/o MLFlow.
+description: Informazioni su come rilevare e registrare gli esperimenti dal Data Science Virtual Machine con Azure Machine Learning e/o MLFlow.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -9,12 +9,12 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 943e8bd9f272f3dc8cefbfbccd326cf520497bb2
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 205aed1811c3d9d21a10be7bc4f01c73eb7295b7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146896"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254801"
 ---
 # <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Tenere traccia degli esperimenti e distribuire modelli in Azure Machine Learning
 
@@ -26,7 +26,7 @@ Il diagramma seguente illustra il rilevamento delle metriche di esecuzione di un
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Sarà necessario effettuare il [provisioning di un area di lavoro di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace)
+* È necessario effettuare il [provisioning di un area di lavoro di Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace#create-a-workspace)
 
 ## <a name="create-a-new-notebook"></a>Creare un nuovo notebook
 
@@ -123,7 +123,7 @@ Verrà visualizzato l'errore quadratico medio (MSE) registrato:
 
 ![MSE](./media/how-to-track-experiments/mlflow-experiments-2.png)
 
-Se si fa clic sull'esecuzione, vengono visualizzati altri dettagli e anche il modello selezionato nei log di __output +__
+Se si fa clic sull'esecuzione, verranno visualizzati altri dettagli e anche il modello selezionato nei __log di output +__
 
 ## <a name="deploy-model-in-azure-machine-learning"></a>Distribuire il modello in Azure Machine Learning
 
@@ -131,11 +131,11 @@ In questa sezione viene descritto come distribuire i modelli sottoposti a traini
 
 ### <a name="step-1-create-inference-compute"></a>Passaggio 1: creare un calcolo inferenza
 
-Nel menu a sinistra di [AzureML Studio](https://ml.azure.com) fare clic su __calcolo__ e quindi sulla scheda __cluster di inferenza__ . Fare quindi clic su __+ nuovo__ come articolato di seguito:
+Nel menu a sinistra di [AzureML Studio](https://ml.azure.com) fare clic su __calcolo__ e quindi sulla scheda __cluster di inferenza__ . Fare quindi clic su __+ nuovo__ come illustrato di seguito:
 
 ![Crea calcolo inferenza](./media/how-to-track-experiments/mlflow-experiments-6.png)
 
-Nel riquadro __nuovo cluster inferenza__ compilare i dettagli per:
+Nel riquadro __nuovo cluster inferenza__ immettere i dettagli per:
 
 * Nome calcolo
 * Servizio Kubernetes-selezionare Crea nuovo
@@ -165,9 +165,9 @@ Per distribuire il modello di diabete, andare al menu a sinistra nel [Azure Mach
 
 Fare quindi clic sul pulsante __Distribuisci__ nel riquadro Dettagli modello:
 
-![Distribuisci](./media/how-to-track-experiments/mlflow-experiments-4.png)
+![Distribuire](./media/how-to-track-experiments/mlflow-experiments-4.png)
 
-Il modello viene distribuito nel cluster di inferenza (servizio Azure Kubernetes) creato nel passaggio 1. Inserire i dettagli seguenti specificando un nome per il servizio e il nome del cluster di calcolo AKS (creato nel passaggio 1). Si consiglia inoltre di aumentare la __capacità di riserva della CPU__ a 1 (da 0,1) e la __capacità di riserva di memoria__ a 1 (da 0,5). a tale scopo, fare clic su __Avanzate__ e compilare i dettagli. Fare quindi clic su __Distribuisci__.
+Il modello viene distribuito nel cluster di inferenza (servizio Azure Kubernetes) creato nel passaggio 1. Inserire i dettagli seguenti specificando un nome per il servizio e il nome del cluster di calcolo AKS (creato nel passaggio 1). Si consiglia inoltre di aumentare la __capacità di riserva della CPU__ a 1 (da 0,1) e la __capacità di riserva di memoria__ a 1 (a partire da 0,5). è possibile apportare questo aumento facendo clic su __Avanzate__ e inserendo i dettagli. Fare quindi clic su __Distribuisci__.
 
 ![Dettagli distribuzione](./media/how-to-track-experiments/mlflow-experiments-5.png)
 
@@ -179,7 +179,7 @@ Quando il modello è stato distribuito correttamente, verrà visualizzato quanto
 
 Si noterà che lo stato di distribuzione passa dalla __transizione__ a __integro__. Questa sezione dei dettagli fornisce anche l'endpoint REST e gli URL di spavalderia che uno sviluppatore di applicazioni può usare per integrare il modello ML nelle app.
 
-È possibile testare l'endpoint usando il [post](https://www.postman.com/), in alternativa è possibile usare AzureML SDK:
+È possibile eseguire il test dell'endpoint usando il [post](https://www.postman.com/), oppure è possibile usare AzureML SDK:
 
 ```python
 from azureml.core import Webservice
@@ -200,7 +200,7 @@ print(output)
 
 ### <a name="step-4-clean-up"></a>Passaggio 4: eseguire la pulizia
 
-È necessario eliminare il calcolo inferenza creato nel passaggio 1, in modo da non subire addebiti per il calcolo continuo. Nel menu a sinistra nel Azure Machine Learning Studio fare clic su Compute > inferenza Clusters > selezionare il calcolo > Delete.
+Eliminare il calcolo inferenza creato nel passaggio 1, in modo da non incorrere in costi di calcolo continui. Nel menu a sinistra nel Azure Machine Learning Studio fare clic su Compute > inferenza Clusters > selezionare il calcolo > Delete.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

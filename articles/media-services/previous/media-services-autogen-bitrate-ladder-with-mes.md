@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: b7f0b77ba11a0c9c1670ec240caf45fcf61a934d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0309579a674533ebd056c8493b149cc78beef607
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74896010"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254068"
 ---
-#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Usare Media Encoder Standard per generare automaticamente una scala a bitrate  
+#  <a name="use-media-encoder-standard-to-auto-generate-a-bitrate-ladder"></a>Usare Media Encoder Standard per generare automaticamente una scala a bitrate
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]  
 
 ## <a name="overview"></a>Panoramica
 
@@ -174,7 +176,7 @@ Questa sezione mostra tre esempi dei livelli di output prodotti da MES in seguit
 ### <a name="example-1"></a>Esempio 1
 L'origine con altezza "1080" e una frequenza frame "29.970" produce 6 livelli video:
 
-|Livello|Altezza:|Larghezza|Bitrate (Kbps)|
+|Livello|Altezza|Larghezza|Bitrate (Kbps)|
 |---|---|---|---|
 |1|1080|1920|6780|
 |2|720|1280|3520|
@@ -186,7 +188,7 @@ L'origine con altezza "1080" e una frequenza frame "29.970" produce 6 livelli vi
 ### <a name="example-2"></a>Esempio 2
 L'origine con altezza "720" e una frequenza frame "23.970" produce 5 livelli video:
 
-|Livello|Altezza:|Larghezza|Bitrate (Kbps)|
+|Livello|Altezza|Larghezza|Bitrate (Kbps)|
 |---|---|---|---|
 |1|720|1280|2940|
 |2|540|960|1850|
@@ -194,10 +196,10 @@ L'origine con altezza "720" e una frequenza frame "23.970" produce 5 livelli vid
 |4|270|480|600|
 |5|180|320|320|
 
-### <a name="example-3"></a>Esempio 3
+### <a name="example-3"></a>Esempio 3:
 L'origine con altezza "360" e una frequenza frame "29.970" produce 3 livelli video:
 
-|Livello|Altezza:|Larghezza|Bitrate (Kbps)|
+|Livello|Altezza|Larghezza|Bitrate (Kbps)|
 |---|---|---|---|
 |1|360|640|700|
 |2|270|480|440|

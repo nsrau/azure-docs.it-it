@@ -4,20 +4,20 @@ titleSuffix: Azure Media Services
 description: Informazioni sugli endpoint di streaming (Origin), un servizio di creazione dinamica dei pacchetti e di streaming che fornisce contenuti direttamente a un'app lettore client o a una rete per la distribuzione di contenuti (CDN).
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
-ms.author: juliako
-ms.openlocfilehash: 6d725ed8a69e2dfed6f5197db731f4adac57e2e2
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.author: inhenkel
+ms.openlocfilehash: aa54bc6b8b0912158a5dcd369b12801d51ca7141
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87446217"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256498"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Endpoint di streaming (Origin) in servizi multimediali di Azure
 
@@ -66,7 +66,7 @@ Per informazioni sul contratto di contratto, vedere [prezzi e contratto di contr
 Funzionalità|Standard|Premium
 ---|---|---
 Velocità effettiva |Fino a 600 Mbps e possono fornire una velocità effettiva molto più elevata quando si usa una rete CDN.|200 Mbps per unità di streaming (SU). Può fornire una velocità effettiva molto più elevata quando viene usata una rete CDN.
-Rete CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
+RETE CDN|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.|Rete CDN di Azure, rete CDN di terze parti o nessuna rete CDN.
 Fatturazione con ripartizione proporzionale| Ogni giorno|Ogni giorno
 Crittografia dinamica|Sì|Sì
 creazione dinamica dei pacchetti|Sì|Sì
@@ -122,7 +122,7 @@ Questa sezione fornisce informazioni dettagliate su alcune delle proprietà dell
 
     Attualmente Servizi multimediali non supporta TLS con i domini personalizzati.
 
-- `maxCacheAge`: Esegue l'override dell'intestazione di controllo della cache HTTP Max-Age predefinita impostata dall'endpoint di streaming nei frammenti di supporti e nei manifesti su richiesta. Il valore è impostato in secondi.
+- `maxCacheAge` : Esegue l'override dell'intestazione di controllo della cache HTTP Max-Age predefinita impostata dall'endpoint di streaming nei frammenti di supporti e nei manifesti su richiesta. Il valore è impostato in secondi.
 - `resourceState` -
 
     - Arrestato: stato iniziale di un endpoint di streaming dopo la creazione

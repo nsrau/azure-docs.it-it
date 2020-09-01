@@ -1,6 +1,6 @@
 ---
-title: Usare kubectl per distribuire un'app con stato Kubernetes tramite una condivisione con provisioning dinamico in Azure Stack dispositivo perimetrale | Microsoft Docs
-description: Viene descritto come creare e gestire una distribuzione di applicazioni con stato Kubernetes tramite una condivisione con provisioning dinamico tramite kubectl in un dispositivo Microsoft Azure Stack Edge.
+title: Usare kubectl per distribuire un'app con stato Kubernetes tramite la condivisione con provisioning dinamico sul dispositivo GPU Azure Stack Edge | Microsoft Docs
+description: Viene descritto come creare e gestire una distribuzione di applicazioni con stato Kubernetes tramite una condivisione con provisioning dinamico tramite kubectl in un dispositivo GPU Microsoft Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: e83b2b1cb7013b9d72bd2c2de8c7636d5c9d8773
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c787fc4c37c8fc3b4b8f007b1a84a5989a15fbc4
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085709"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254322"
 ---
-# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-device"></a>Usare kubectl per eseguire un'applicazione con stato Kubernetes con StorageClass nel dispositivo Azure Stack Edge
+# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-gpu-device"></a>Usare kubectl per eseguire un'applicazione con stato Kubernetes con StorageClass sul dispositivo GPU Azure Stack Edge
 
 Questo articolo illustra come distribuire un'applicazione con stato a istanza singola in Kubernetes usando un StorageClass per eseguire il provisioning dinamico di archiviazione e una distribuzione. La distribuzione usa i `kubectl` comandi in un cluster Kubernetes esistente e distribuisce l'applicazione MySQL. 
 

@@ -1,5 +1,5 @@
 ---
-title: Distribuire l'app Guestbook PHP in Arc abilitato Kubernetes nel dispositivo Azure Stack Edge | Microsoft Docs
+title: Distribuire l'app Guestbook PHP in Arc abilitato Kubernetes sul dispositivo GPU Azure Stack Edge | Microsoft Docs
 description: Viene descritto come distribuire un'applicazione PHP Guestbook senza stato con Redis usando GitOps in un cluster Kubernetes con Arc abilitato del dispositivo Azure Stack Edge.
 services: databox
 author: alkohli
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 46cef291a447a7c243ee9ef66ee64e9c6264ad23
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 83ac012c861a0d066bdc47d8e15cbe7ac398aa23
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085769"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254220"
 ---
-# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge"></a>Distribuire un'applicazione PHP Guestbook senza stato con Redis on Arc abilitata per il cluster Kubernetes in Azure Stack Edge
+# <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-gpu"></a>Distribuire un'applicazione PHP Guestbook senza stato con Redis on Arc il cluster Kubernetes abilitato sulla GPU Azure Stack Edge
 
 Questo articolo illustra come creare e distribuire una semplice applicazione Web multilivello con Kubernetes e Azure Arc. Questo esempio è costituito dai componenti seguenti:
 
@@ -83,7 +83,7 @@ Seguire questa procedura per configurare la risorsa di Azure Arc per distribuire
 
 1. In **Aggiungi configurazione**immettere i valori appropriati per i campi e selezionare **applica**.
 
-    |Parametro  |Descrizione |
+    |Parametro  |Description |
     |---------|---------|
     |Nome configurazione     | Nome della risorsa di configurazione.        |
     |Nome dell'istanza dell'operatore     |Nome dell'istanza dell'operatore per identificare una configurazione specifica. Il nome è una stringa costituita da un massimo di 253 caratteri che devono essere di solo minuscolo, alfanumerico, trattino e punto.         |
@@ -132,7 +132,7 @@ La distribuzione tramite la configurazione GitOps crea uno `demotestguestbook` s
     [10.128.44.240]: PS>
     ```  
 
-1. In questo esempio il servizio front-end è stato distribuito come tipo: LoadBalancer. Per visualizzare il Guestbook, sarà necessario trovare l'indirizzo IP del servizio. Eseguire il comando indicato di seguito.
+1. In questo esempio il servizio front-end è stato distribuito come tipo: LoadBalancer. Per visualizzare il Guestbook, sarà necessario trovare l'indirizzo IP del servizio. Eseguire il seguente comando.
 
     `kubectl get service -n <your-namespace>`
     

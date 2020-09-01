@@ -1,23 +1,23 @@
 ---
-title: Distribuire il modulo GPU nel dispositivo Microsoft Azure Stack Edge | Microsoft Docs
+title: Distribuire il modulo GPU sul dispositivo GPU Azure Stack Edge | Microsoft Docs
 description: Viene descritto come abilitare il calcolo e rendere il dispositivo Azure Stack Edge pronto per il calcolo tramite l'interfaccia utente locale.
 services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/23/2020
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 68badb1524c869309a0e2d96eaf6c9e490111bf7
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5af86001d46bf194c9b61f325052a4cde0d86d5e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085808"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254560"
 ---
-# <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-edge-device"></a>Distribuire un modulo Internet delle cose abilitate per la GPU nel dispositivo Azure Stack Edge
+# <a name="deploy-a-gpu-enabled-iot-module-on-azure-stack-edge-gpu-device"></a>Distribuire un modulo Internet delle cose abilitate per la GPU nel dispositivo GPU Azure Stack Edge
 
-Questo articolo descrive come distribuire una GPU abilitata IoT Edge modulo sul dispositivo Azure Stack Edge. 
+Questo articolo descrive come distribuire una GPU abilitata IoT Edge modulo sul dispositivo GPU Azure Stack Edge. 
 
 In questo articolo vengono illustrate le operazioni seguenti:
   - Preparare Azure Stack Edge per eseguire un modulo GPU.

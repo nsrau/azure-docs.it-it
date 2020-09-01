@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 207afe4117e0ab843a35ceadd021c2a201bc5de3
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7754c57563ec5acb9028c2ace217f318fea5e959
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085232"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256276"
 ---
 # <a name="system-requirements-for-azure-stack-edge-with-gpu"></a>Requisiti di sistema per Azure Stack Edge con GPU 
 
@@ -40,7 +40,7 @@ I requisiti di sistema per il Azure Stack Edge includono:
 
 Quando vengono gestite da Azure Stack, i seguenti account di archiviazione a livelli sono supportati con le interfacce SMB/NFS/REST.
 
-|Tipo  |Account di archiviazione  |Commenti  |
+|Type  |Account di archiviazione  |Commenti  |
 |---------|---------|---------|
 |Standard     |Utilizzo generico V1: BLOB in blocchi         |         |
 |    |  Archiviazione BLOB: BLOB in blocchi       | Supportato solo per NAS     |
@@ -71,7 +71,7 @@ Azure IoT Edge consente la comunicazione in uscita da un dispositivo Edge locale
 
 Usare la tabella seguente per la configurazione delle porte per i server che ospitano il runtime di Azure IoT Edge:
 
-| N. porta | In ingresso/In uscita | Ambito porta | Necessario | Indicazioni |
+| N. porta | In ingresso/In uscita | Ambito porta | Obbligatorio | Materiale sussidiario |
 |----------|-----------|------------|----------|----------|
 | TCP 443 (HTTPS)| In uscita       | WAN        | Sì      | Aperto in uscita per il provisioning di IoT Edge. Questa configurazione è necessaria quando si usano script manuali o il servizio Device Provisioning di Azure IoT.|
 

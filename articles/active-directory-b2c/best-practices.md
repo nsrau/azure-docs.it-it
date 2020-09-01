@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: b18717b78a271bd390bc221e9ed0723cb02079ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6fee96354760e448de132f88918e9839c6220af3
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84484290"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254492"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Suggerimenti e procedure consigliate per Azure Active Directory B2C
 
 Le procedure consigliate e le raccomandazioni seguenti illustrano alcuni aspetti principali dell'integrazione di Azure Active Directory (Azure AD) B2C in ambienti applicativi nuovi o esistenti.
 
-## <a name="fundamentals"></a>Nozioni fondamentali
+## <a name="fundamentals"></a>Fundamentals
 
 | Procedura consigliata | Descrizione |
 |--|--|
@@ -43,7 +43,8 @@ Definire l'architettura del servizio e dell'applicazione, inventariare i sistemi
 | Creare un piano di migrazione |La pianificazione in anticipo può rendere la migrazione più agevole. Altre informazioni sulla [migrazione degli utenti](user-migration.md).|
 | Usabilità rispetto alla sicurezza | La soluzione deve raggiungere il giusto equilibrio tra l'usabilità dell'applicazione e il livello di rischio accettabile per l'organizzazione. |
 | Spostare le dipendenze locali nel cloud | Per garantire una soluzione resiliente, provare a trasferire le dipendenze delle applicazioni esistenti nel cloud. |
-| Eseguire la migrazione di app esistenti a b2clogin.com | La deprecazione di login.microsoftonline.com diviene valida per tutti i tenant Azure AD B2C il 04 dicembre 2020. [Altre informazioni](b2clogin.md) |
+| Eseguire la migrazione di app esistenti a b2clogin.com | La deprecazione di login.microsoftonline.com diviene valida per tutti i tenant Azure AD B2C il 04 dicembre 2020. [Altre informazioni](b2clogin.md). |
+| Usare la protezione delle identità e l'accesso condizionale | Usare queste funzionalità per un controllo significativamente maggiore sulle autenticazioni rischiose e sui criteri di accesso. Azure AD B2C Premium P2 è obbligatorio. [Altre informazioni](conditional-access-identity-protection-overview.md). |
 
 ## <a name="implementation"></a>Implementazione
 
@@ -70,7 +71,7 @@ Testare e automatizzare l'implementazione del Azure AD B2C.
 | Limitazione |  Azure AD B2C limita il traffico se un numero eccessivo di richieste viene inviato dalla stessa origine in un breve periodo di tempo. Usare diverse origini di traffico durante i test di carico e gestire `AADB2C90229` correttamente il codice di errore nelle applicazioni. |
 | Automazione | USA pipeline di integrazione continua e recapito continuo per automatizzare i test e le distribuzioni, ad esempio [Azure DevOps](deploy-custom-policies-devops.md). |
 
-## <a name="operations"></a>Operazioni
+## <a name="operations"></a>Gestione operativa
 
 Gestire l'ambiente di Azure AD B2C.
 

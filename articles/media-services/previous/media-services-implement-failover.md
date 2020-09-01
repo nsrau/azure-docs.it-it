@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 91ef9d8bf75874f07c6a4a9c5763ff77b97b0180
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 10976c91e781763264d73adcc54ba88ec8d07f54
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89008965"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256532"
 ---
 # <a name="implement-failover-streaming-with-media-services-v2"></a>Implementare lo streaming del failover con servizi multimediali V2
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Questa procedura dettagliata illustra come copiare il contenuto (BLOB) da un asset all'altro per gestire la ridondanza dello streaming on demand. Questo scenario è utile se si desidera configurare la rete di distribuzione dei contenuti di Azure affinché esegua il failover tra due data center, in caso di interruzione in uno di essi. In questa procedura dettagliata viene usato l'SDK dei Servizi multimediali di Azure, l'API REST di Servizi multimediali di Microsoft Azure e l'SDK di Archiviazione di Azure per dimostrare queste attività:
 
@@ -753,7 +755,7 @@ Nell'esempio riportato in questo argomento viene illustrato il Clear streaming. 
 
 Per altre informazioni sulla protezione del contenuto, vedere [usare la crittografia dinamica AES-128 e il servizio di distribuzione delle chiavi](media-services-protect-with-aes128.md).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Usare i webhook di Azure per monitorare le notifiche dei processi di servizi multimediali](media-services-dotnet-check-job-progress-with-webhooks.md)
 

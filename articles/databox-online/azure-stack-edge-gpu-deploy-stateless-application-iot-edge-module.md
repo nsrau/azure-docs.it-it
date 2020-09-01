@@ -1,6 +1,6 @@
 ---
-title: Gestire la rete di calcolo su Azure Stack Edge per accedere ai moduli | Microsoft Docs
-description: Viene descritto come estendere la rete di calcolo sulla Azure Stack Edge per accedere ai moduli tramite un indirizzo IP esterno.
+title: Distribuire l'app Kubernetes senza stato sulla GPU Azure Stack Edge tramite IoT Edge modulo | Microsoft Docs
+description: Viene descritto come distribuire un'applicazione Kubernetes senza stato sul dispositivo GPU Azure Stack Edge usando un modulo IoT Edge a cui si accede tramite un indirizzo IP esterno.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: 8de3dbd754cd0cbef947d2cde44542f9f3f77a08
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 15316cbdd44053bfaf7403815ba42d92e2264b7b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085652"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254169"
 ---
-# <a name="use-iot-edge-module-to-run-a-kubernetes-stateless-application-on-your-azure-stack-edge-device"></a>Usare IoT Edge modulo per eseguire un'applicazione Kubernetes senza stato sul dispositivo Azure Stack Edge
+# <a name="use-iot-edge-module-to-run-a-kubernetes-stateless-application-on-your-azure-stack-edge-gpu-device"></a>Usare IoT Edge modulo per eseguire un'applicazione Kubernetes senza stato sul dispositivo GPU Azure Stack Edge
 
 Questo articolo descrive come usare un modulo IoT Edge per distribuire un'applicazione senza stato sul dispositivo Azure Stack Edge.
 

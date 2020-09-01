@@ -12,17 +12,19 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 08/18/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 65b0b276dcda58810f44494c14f06dd412d633f6
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: aa5c9178bc84983b7e577cd63cf5b8d9fb9a8436
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88719292"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254662"
 ---
 # <a name="create-an-asset"></a>Creare un asset
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Questo articolo illustra come creare un asset di Servizi multimediali.  L'asset verrà usato per includere contenuti multimediali per la codifica e lo streaming.  Per altre informazioni sugli asset di Servizi multimediali, leggere [Asset in Servizi multimediali di Azure v3](assets-concept.md)
 

@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 08/31/2020
 ms.author: juliako
-ms.openlocfilehash: 21eb3d9862c8fa2b840117d5f0e9fbd0ad2214c9
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4cdc3efc766daff38b566e71f06dc4db0f38fe7a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091743"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255512"
 ---
-# <a name="configure-postman-for-media-services-v2-rest-api-calls"></a>Configurare il post per le chiamate all'API REST di servizi multimediali V2  
+# <a name="configure-postman-for-media-services-v2-rest-api-calls"></a>Configurare il post per le chiamate all'API REST di servizi multimediali V2
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)

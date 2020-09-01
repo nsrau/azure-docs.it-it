@@ -1,6 +1,6 @@
 ---
 title: Usare kubectl per distribuire un'app con stato Kubernetes tramite la condivisione con provisioning statico in Azure Stack dispositivo perimetrale | Microsoft Docs
-description: Viene descritto come creare e gestire una distribuzione di applicazioni con stato Kubernetes tramite una condivisione con provisioning statico tramite kubectl in un dispositivo Microsoft Azure Stack Edge.
+description: Viene descritto come creare e gestire una distribuzione di applicazioni con stato Kubernetes tramite una condivisione con provisioning statico tramite kubectl in un dispositivo GPU Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/18/2020
 ms.author: alkohli
-ms.openlocfilehash: cabd27849445c0eab93a6649d228a172b66bd1a4
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 17be54536f785049aef6831e01f1f12219225b90
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085805"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254373"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-device"></a>Usare kubectl per eseguire un'applicazione con stato Kubernetes con un PersistentVolume sul dispositivo Azure Stack Edge
 
