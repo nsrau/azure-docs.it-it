@@ -3,7 +3,7 @@ title: Codificare i video con Codificatore standard in Servizi multimediali - Az
 description: Questo argomento descrive come usare il Codificatore standard in Servizi multimediali per codificare un video di input con una tabella di coppie velocità in bit-risoluzione generata automaticamente, in base alla velocità in bit e alla risoluzione di input.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/10/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: c25c32f35adc1c017f0f4c012c82bd7e0af8d452
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1c5fb04597ec274eaf2b4a4e7a5e2b96f1816f1
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60733318"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258827"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Codificare con una tabella di coppie velocità in bit-risoluzione generata automaticamente
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 ## <a name="overview"></a>Panoramica
 
@@ -40,7 +42,7 @@ Questa sezione illustra tre esempi dei livelli video di output prodotti dal codi
 ### <a name="example-1"></a>Esempio 1
 L'origine con altezza "1080" e una frequenza frame "29.970" produce 6 livelli video:
 
-|Livello|Altezza:|Larghezza|Velocità in bit (kbps)|
+|Livello|Altezza|Larghezza|Velocità in bit (kbps)|
 |---|---|---|---|
 |1|1080|1920|6780|
 |2|720|1280|3520|
@@ -52,7 +54,7 @@ L'origine con altezza "1080" e una frequenza frame "29.970" produce 6 livelli vi
 ### <a name="example-2"></a>Esempio 2
 L'origine con altezza "720" e una frequenza frame "23.970" produce 5 livelli video:
 
-|Livello|Altezza:|Larghezza|Velocità in bit (kbps)|
+|Livello|Altezza|Larghezza|Velocità in bit (kbps)|
 |---|---|---|---|
 |1|720|1280|2940|
 |2|540|960|1850|
@@ -60,10 +62,10 @@ L'origine con altezza "720" e una frequenza frame "23.970" produce 5 livelli vid
 |4|270|480|600|
 |5|180|320|320|
 
-### <a name="example-3"></a>Esempio 3
+### <a name="example-3"></a>Esempio 3:
 L'origine con altezza "360" e una frequenza frame "29.970" produce 3 livelli video:
 
-|Livello|Altezza:|Larghezza|Velocità in bit (kbps)|
+|Livello|Altezza|Larghezza|Velocità in bit (kbps)|
 |---|---|---|---|
 |1|360|640|700|
 |2|270|480|440|

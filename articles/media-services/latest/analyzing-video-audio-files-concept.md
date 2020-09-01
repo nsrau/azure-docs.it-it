@@ -4,22 +4,24 @@ titleSuffix: Azure Media Services
 description: Informazioni su come analizzare il contenuto audio e video usando AudioAnalyzerPreset e VideoAnalyzerPreset in servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/30/2020
-ms.author: juliako
-ms.openlocfilehash: 4c0eb626b827656a478e02a43b98ed15e7469f92
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 78ac75566eac120db4527b2e04324e7e6d40808c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053479"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258895"
 ---
 # <a name="analyze-video-and-audio-files-with-azure-media-services"></a>Analizzare i file audio e video con servizi multimediali di Azure
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Servizi multimediali di Azure v3 consente di estrarre informazioni approfondite dai file audio e video con Video Indexer. Questo articolo descrive i set di impostazioni di Media Services V3 Analyzer usati per estrarre tali informazioni. Per ottenere informazioni più dettagliate, usare direttamente Video Indexer. Per informazioni su quando usare Video Indexer e i set di impostazioni di Media Services Analyzer, vedere il [documento di confronto](../video-indexer/compare-video-indexer-with-media-services-presets.md).
 
@@ -250,7 +252,7 @@ Esempio:
 
 ### <a name="statistics"></a>statistiche
 
-|Nome|Descrizione|
+|Nome|Description|
 |---|---|
 |CorrespondenceCount|Numero di corrispondenze nel video.|
 |WordCount|Numero di parole per ogni voce.|

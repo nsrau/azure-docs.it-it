@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/01/2019
 ms.author: juliako
-ms.openlocfilehash: 73e92fa505a994cc5cc2fdb3a297dfd653a596a1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 00035782a17936405b2b042035220dde87da12b1
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071813"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89257059"
 ---
-# <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Caricare file in un account Servizi multimediali nel portale di Azure 
+# <a name="upload-files-to-a-media-services-account-in-the-azure-portal"></a>Caricare file in un account Servizi multimediali nel portale di Azure
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector"]
 > * [Portale](media-services-portal-upload-files.md)
@@ -40,7 +42,7 @@ Per completare l'esercitazione, è necessario un account Azure. Per informazioni
 
 ## <a name="upload-files"></a>Caricare file
 1. Nel [portale di Azure ](https://portal.azure.com/) selezionare l'account Servizi multimediali di Azure.
-2. Selezionare **Impostazioni**  >  **Asset**. Selezionare quindi il pulsante **Carica**.
+2. Selezionare **Impostazioni** > **Asset**. Selezionare quindi il pulsante **Carica**.
    
     ![Caricare file](./media/media-services-portal-vod-get-started/media-services-upload.png)
    

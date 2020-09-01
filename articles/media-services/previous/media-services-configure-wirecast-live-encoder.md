@@ -15,14 +15,17 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: cenkdin;anilmur
-ms.openlocfilehash: f5ca4496b9de25d6e95f37076f679eacff28af81
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 7b11d7f577f0a2ceb7284d9f78ccf83a64c72fd3
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85954971"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258113"
 ---
-# <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Usare il codificatore Wirecast per inviare un flusso live a velocità in bit singola. 
+# <a name="use-the-wirecast-encoder-to-send-a-single-bitrate-live-stream"></a>Usare il codificatore Wirecast per inviare un flusso live a velocità in bit singola.
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+ 
 > [!div class="op_single_selector"]
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 >
@@ -153,7 +156,7 @@ Se il flusso viene visualizzato nel lettore, ciò indica che il codificatore è 
 
 In caso di errore sarà necessario reimpostare il canale e regolare le impostazioni del codificatore. Come materiale sussidiario, vedere l'[articolo sulla risoluzione dei problemi](media-services-troubleshooting-live-streaming.md).  
 
-## <a name="create-a-program"></a>Creare un programma.
+## <a name="create-a-program"></a>Creare un programma
 1. Una volta che viene confermata la riproduzione del canale, creare un programma. Nella scheda **Live** nello strumento AMSE fare clic con il pulsante destro del mouse all'interno dell'area del programma e selezionare **Create New Program** (Crea nuovo programma).  
 
     ![Wirecast](./media/media-services-wirecast-live-encoder/media-services-wirecast9.png)

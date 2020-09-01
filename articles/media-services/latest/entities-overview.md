@@ -4,23 +4,25 @@ titleSuffix: Azure Media Services
 description: Informazioni su filtro, ordinamento e paging delle entità di servizi multimediali di Azure V3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 01/21/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18, devx-track-csharp
-ms.openlocfilehash: 4fbd587b99875690a8c95952ce6b11d41e402726
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 96f08f75d0921fdf88b71c8e8dd2398a6b85ec6d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009883"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258470"
 ---
 # <a name="filtering-ordering-and-paging-of-media-services-entities"></a>Filtraggio, ordinamento e paging delle entità di servizi multimediali
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Questo argomento illustra le opzioni di query OData e il supporto per l'impaginazione disponibili quando si elencano le entità di servizi multimediali di Azure V3.
 
@@ -45,7 +47,7 @@ Operatori di intervallo:
 - `ge`: Verificare se un campo è *maggiore o uguale a* un valore costante.
 - `le`: Verificare se un campo è *minore o uguale a* un valore costante.
 
-## <a name="filter"></a>Filtro
+## <a name="filter"></a>Filtra
 
 Usare `$filter` per fornire un parametro di filtro OData per trovare solo gli oggetti a cui si è interessati.
 
@@ -156,7 +158,7 @@ client.Jobs.List(config.ResourceGroup, config.AccountName, VideoAnalyzerTransfor
 
 La tabella seguente illustra come applicare le opzioni di filtro e ordinamento a entità diverse:
 
-|Nome dell'entità|Nome della proprietà|Filtro|JSON|
+|Nome dell'entità|Nome della proprietà|Filtra|JSON|
 |---|---|---|---|
 |[Asset](/rest/api/media/assets/)|name|`eq`, `gt`, `lt`, `ge`, `le`|`asc` e `desc`|
 ||properties.alternateId |`eq`||

@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/21/2020
+ms.date: 08/31/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8acdf714f459ae604ccd7788b021aee3ee037935
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 19b65554801a22954499219e43ed021a7cc8c121
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87482584"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258436"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Panoramica dei token in Azure Active Directory B2C
 
@@ -119,7 +119,7 @@ L'intestazione del token contiene informazioni sulla chiave e sul metodo di crit
 }
 ```
 
-Il valore dell'attestazione **alg** è l'algoritmo usato per firmare il token. Il valore dell'attestazione **kid** è la chiave pubblica usata per firmare il token. In qualsiasi momento Azure AD B2C può firmare un token usando un set di coppie di chiavi pubblica/privata. Azure AD B2C ruota periodicamente il set di chiavi possibile. L'applicazione deve essere scritta in modo da gestire automaticamente le modifiche delle chiavi. Una frequenza ragionevole per la ricerca di aggiornamenti per le chiavi pubbliche usate da Azure AD B2C è circa 24 ore.
+Il valore dell'attestazione **alg** è l'algoritmo usato per firmare il token. Il valore dell'attestazione **kid** è la chiave pubblica usata per firmare il token. In qualsiasi momento Azure AD B2C può firmare un token usando un set di coppie di chiavi pubblica/privata. Azure AD B2C ruota periodicamente il set di chiavi possibile. L'applicazione deve essere scritta in modo da gestire automaticamente le modifiche delle chiavi. Una frequenza ragionevole per la ricerca di aggiornamenti per le chiavi pubbliche usate da Azure AD B2C è circa 24 ore. Per gestire le modifiche impreviste della chiave, l'applicazione deve essere scritta per recuperare nuovamente le chiavi pubbliche se riceve un valore **figlio** imprevisto.
 
 Azure AD B2C include un endpoint dei metadati di OpenID Connect. Usando questo endpoint, le applicazioni possono richiedere informazioni su Azure AD B2C in fase di esecuzione. Queste informazioni includono endpoint, contenuti del token e chiavi per la firma dei token. Il tenant Azure AD B2C contiene un documento di metadati JSON per ogni criterio. Il documento metadati è un oggetto JSON che contiene diverse informazioni utili, I metadati contengono **jwks_uri**, che specifica la posizione del set di chiavi pubbliche usate per firmare i token. Tale posizione è indicata di seguito, ma è consigliabile recuperarla in modo dinamico usando il documento di metadati e analizzando **jwks_uri**:
 

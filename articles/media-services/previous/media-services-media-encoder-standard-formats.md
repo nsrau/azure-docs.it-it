@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: f34e3a3d1e0245180ce923fc3ec7353ab1a176be
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 78236a334b6c75f823819c70c0cdbb75bb30191d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086354"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89257433"
 ---
 # <a name="media-encoder-standard-formats-and-codecs"></a>Formati e codec Media Encoder Standard
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!div class="op_single_selector" title1="Selezionare la versione di servizi multimediali in uso:"]
 > * [Versione 2](media-services-media-encoder-standard-formats.md)
@@ -30,7 +32,7 @@ ms.locfileid: "87086354"
 Questo documento contiene un elenco dei formati di file di importazione ed esportazione più comuni che è possibile usare con Media Encoder Standard.
 
 ## <a name="input-containerfile-formats"></a>Contenitore di input/formati di file
-| Formato di file (estensioni di file) | Funzionalità supportata |
+| Formato di file (estensioni di file) | Supportato |
 | --- | --- |
 | FLV (con codec H. 264 e AAC) (.flv) |Sì |
 | MXF    (.mxf) |Sì |
@@ -59,7 +61,7 @@ oppure
 * File MXF, GXF e QuickTime in cui l'audio viene trasportato in tracce PCM separate, ma il mapping del canale (in stereo o 5.1) può essere dedotto dai metadati del file
 
 ## <a name="input-video-codecs"></a>Codec video di input
-| Codec video di input | Funzionalità supportata |
+| Codec video di input | Supportato |
 | --- | --- |
 | AVC 8 bit/10 bit, fino a 4:2:2, incluso AVCIntra |4:2:0 e 4:2:2 a 8 bit |
 | Avid DNxHD (in MXF) |Sì |
@@ -82,7 +84,7 @@ oppure
 | HEVC/H.265| Main Profile e Main 10 Profile (&#42;)<br/>Il supporto Main 10 Profile è destinato a contenuti 4:2:0 a 8 bit. |
 
 ## <a name="input-audio-codecs"></a>Codec audio di input
-| Codec audio di input | Funzionalità supportata |
+| Codec audio di input | Supportato |
 | --- | --- |
 | AAC (AAC-LC, AAC-HE e AAC-HEv2; fino a 5.1) |Sì |
 | MPEG Layer 2 |Sì |
@@ -112,7 +114,7 @@ La tabella seguente include l'elenco dei codec e dei formati di file supportati 
 ## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 [Codifica di contenuti su richiesta con Servizi multimediali di Azure](media-services-encode-asset.md)
 
 [Come codificare con Media Encoder Standard](media-services-dotnet-encode-with-media-encoder-standard.md)

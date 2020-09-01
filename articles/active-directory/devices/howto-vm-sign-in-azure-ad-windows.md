@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b38d383f7dac832449e5b10e5cda6b0db859f9a0
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 42b980f809074c275a5e62098d4162e4cb4340a0
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180338"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259371"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Windows in Azure usando l'autenticazione Azure Active Directory (anteprima)
 
@@ -191,9 +191,9 @@ az role assignment create \
 
 Per altre informazioni su come usare il controllo degli accessi in base al ruolo di Azure per gestire l'accesso alle risorse della sottoscrizione di Azure, vedere gli articoli seguenti:
 
-- [Aggiungere o rimuovere assegnazioni di ruolo in Azure tramite l'interfaccia della riga di comando](/azure/role-based-access-control/role-assignments-cli)
-- [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](/azure/role-based-access-control/role-assignments-portal)
-- [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando Azure PowerShell](/azure/role-based-access-control/role-assignments-powershell).
+- [Aggiungere o rimuovere assegnazioni di ruolo in Azure tramite l'interfaccia della riga di comando](../../role-based-access-control/role-assignments-cli.md)
+- [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md)
+- [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando Azure PowerShell](../../role-based-access-control/role-assignments-powershell.md).
 
 ## <a name="using-conditional-access"></a>Uso dell'accesso condizionale
 
@@ -339,7 +339,7 @@ Se viene visualizzato il messaggio di errore seguente quando si avvia una connes
 
 ![Le credenziali non sono state utilizzate](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
 
-Verificare che il PC Windows 10 che si sta usando per avviare la connessione Desktop remoto sia un Azure AD Unito o ibrido Azure AD aggiunto alla stessa directory di Azure AD a cui è stata aggiunta la macchina virtuale. Per altre informazioni sull'identità del dispositivo, vedere l'articolo [che cos'è un'identità del dispositivo](/azure/active-directory/devices/overview).
+Verificare che il PC Windows 10 che si sta usando per avviare la connessione Desktop remoto sia un Azure AD Unito o ibrido Azure AD aggiunto alla stessa directory di Azure AD a cui è stata aggiunta la macchina virtuale. Per altre informazioni sull'identità del dispositivo, vedere l'articolo [che cos'è un'identità del dispositivo](./overview.md).
 
 > [!NOTE]
 > Windows 10 Build 20H1 è stato aggiunto il supporto per un computer Azure AD registrato per avviare la connessione RDP alla macchina virtuale. Quando si usa Azure AD un computer registrato (non Azure AD aggiunto o ibrido Azure AD aggiunto) come client RDP per avviare le connessioni alla macchina virtuale, è necessario immettere le credenziali nel formato AzureAD\UPn (ad esempio AzureAD\john@contoso.com ).
@@ -367,4 +367,4 @@ Condividi i tuoi commenti e suggerimenti su questa funzionalità di anteprima o 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su Azure Active Directory, vedere [Informazioni su Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis)
+Per altre informazioni su Azure Active Directory, vedere [Informazioni su Azure Active Directory](../fundamentals/active-directory-whatis.md)

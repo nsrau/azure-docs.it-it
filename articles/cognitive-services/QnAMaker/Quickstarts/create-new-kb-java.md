@@ -1,16 +1,16 @@
 ---
 title: 'Guida introduttiva: Creare una knowledge base in REST, Java - QnA Maker'
-description: Questa guida introduttiva basata su Java REST illustra come creare a livello di codice una knowledge base di esempio per QnA Maker, che verrà visualizzata nel dashboard di Azure relativo all'account delle API Servizi cognitivi.
+description: Questa Guida introduttiva basata su REST Java illustra la creazione di un esempio QnA Maker Knowledge base, a livello di codice, che verrà visualizzato nel dashboard di Azure dell'account API servizi cognitivi.
 ms.date: 12/16/2019
 ROBOTS: NOINDEX,NOFOLLOW
 ms.custom: RESTCURL2020FEB27, devx-track-java
 ms.topic: how-to
-ms.openlocfilehash: 2dcea06fa0cb61813330298c833be7eb21a63ae7
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3a20198e1fce7b72befb0963a4f1eb7a5e7e3f08
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325951"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259796"
 ---
 # <a name="quickstart-create-a-knowledge-base-in-qna-maker-using-java"></a>Guida introduttiva: Creare una knowledge base in QnA Maker con Java
 
@@ -39,7 +39,7 @@ Creare un file denominato `CreateKB.java`
 
 All'inizio di `CreateKB.java` inserire le righe seguenti per aggiungere le dipendenze necessarie al progetto:
 
-[!code-java[Add the required dependencies](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=1-5 "Add the required dependencies")]
+:::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/CreateKB.java" id="dependencies":::
 
 ## <a name="add-the-required-constants"></a>Aggiungere le costanti obbligatorie
 Dopo le dipendenze obbligatorie precedenti, aggiungere alla classe `CreateKB` le costanti obbligatorie per accedere a QnA Maker.
@@ -48,18 +48,18 @@ Dopo le dipendenze obbligatorie precedenti, aggiungere alla classe `CreateKB` le
 
 Impostare i valori seguenti:
 
-* `<your-qna-maker-subscription-key>` - La **chiave** è una stringa di 32 caratteri ed è disponibile nella risorsa QnA Maker, nella pagina Avvio rapido del portale di Azure. Non è la stessa chiave dell'endpoint di previsione.
-* `<your-resource-name>` - Il **nome della risorsa** viene usato per creare l'URL dell'endpoint di creazione nel formato `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Non è lo stesso URL usato per eseguire query sull'endpoint di previsione.
+* `<your-qna-maker-subscription-key>` - La **chiave** è una stringa di 32 caratteri ed è disponibile nella risorsa QnA Maker, nella pagina Avvio rapido del portale di Azure. Questa chiave non corrisponde alla chiave dell'endpoint di stima.
+* `<your-resource-name>` - Il **nome della risorsa** viene usato per creare l'URL dell'endpoint di creazione nel formato `https://YOUR-RESOURCE-NAME.cognitiveservices.azure.com`. Questo nome di risorsa non corrisponde a quello utilizzato per eseguire una query sull'endpoint di stima.
 
 Non è necessario aggiungere la parentesi graffa finale per terminare la classe; si trova nel frammento di codice finale alla fine di questa guida introduttiva.
 
-[!code-java[Add the required constants](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=26-34 "Add the required constants")]
+:::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/CreateKB.java" id="constants":::
 
 
 ## <a name="add-the-kb-model-definition-classes"></a>Aggiungere le classi di definizione del modello di knowledge base
 Dopo le costanti, aggiungere le classi e le funzioni seguenti all'interno della classe `CreateKB` per serializzare l'oggetto di definizione del modello in JSON.
 
-[!code-java[Add the KB model definition classes](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=36-80 "Add the KB model definition classes")]
+:::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/CreateKB.java" id="model":::
 
 ## <a name="add-supporting-functions"></a>Aggiungere funzioni di supporto
 
@@ -67,24 +67,24 @@ A questo punto, aggiungere le funzioni di supporto seguenti nella classe `Create
 
 1. Aggiungere la funzione seguente per stampare JSON in un formato leggibile:
 
-    [!code-java[Add the PrettyPrint function](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=82-87 "Add the KB model definition classes")]
+    :::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/CreateKB.java" id="pretty":::
 
 2. Aggiungere la classe seguente per gestire la risposta HTTP:
 
-    [!code-java[Add class to manage the HTTP response](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=89-97 "Add class to manage the HTTP response")]
+    :::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/CreateKB.java" id="response":::
 
 3. Aggiungere il metodo seguente per effettuare una richiesta POST alle API QnA Maker. `Ocp-Apim-Subscription-Key` è la chiave del servizio QnA Maker usata per l'autenticazione.
 
-    [!code-java[Add POST method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=99-121 "Add POST method")]
+    :::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/CreateKB.java" id="post":::
 
 4. Aggiungere il metodo seguente per effettuare una richiesta GET alle API QnA Maker.
 
-    [!code-java[Add GET method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=123-137 "Add GET method")]
+    :::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/CreateKB.java" id="get":::
 
 ## <a name="add-a-method-to-create-the-kb"></a>Aggiungere un metodo per creare la knowledge base
 Aggiungere il metodo seguente per creare la knowledge base chiamando il metodo POST.
 
-[!code-java[Add CreateKB method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=139-144 "Add CreateKB method")]
+:::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/CreateKB.java" id="create_kb":::
 
 Questa chiamata API restituisce una risposta JSON che include l'ID operazione. Usare l'ID operazione per determinare se la knowledge base è stata creata.
 
@@ -101,7 +101,7 @@ Questa chiamata API restituisce una risposta JSON che include l'ID operazione. U
 ## <a name="add-a-method-to-get-status"></a>Aggiungere un metodo per ottenere lo stato
 Aggiungere il metodo seguente per verificare lo stato di creazione.
 
-[!code-java[Add GetStatus method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=146-150 "Add GetStatus method")]
+:::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/CreateKB.java" id="get_status":::
 
 Ripetere la chiamata fino a quando l'esito non è positivo o negativo:
 
@@ -119,17 +119,17 @@ Ripetere la chiamata fino a quando l'esito non è positivo o negativo:
 ## <a name="add-a-main-method"></a>Aggiungere un metodo Main
 Il metodo Main crea la knowledge base e quindi esegue il polling dello stato. L'ID operazione viene restituito nel campo di intestazione della risposta POST **Location** e quindi viene usato come parte della route nella richiesta GET. Il ciclo `while` ritenta il polling dello stato se non è completo.
 
-[!code-java[Add main method](~/samples-qnamaker-java/documentation-samples/quickstarts/create-knowledge-base/CreateKB.java?range=152-191 "Add main method")]
+:::code language="java" source="~/cognitive-services-quickstart-code/java/QnAMaker/rest/CreateKB.java" id="main":::
 
 ## <a name="compile-and-run-the-program"></a>Compilare ed eseguire il programma
 
-1. Verificare che la libreria gson si trovi nella directory `./libs`. Alla riga di comando compilare il file `CreateKB.java`:
+1. Verificare che la libreria gson si trovi nella directory `./libs`. Compilare il file dalla riga di comando `CreateKB.java` :
 
     ```bash
     javac -cp ".;libs/*" CreateKB.java
     ```
 
-2. Per eseguire il programma, immettere il comando seguente a una riga di comando. La richiesta per creare la knowledge base verrà inviata all'API QnA Maker e verrà eseguito il polling dei risultati ogni 30 secondi. Ogni risposta viene stampata nella finestra della console.
+2. Immettere il comando seguente in una riga di comando per eseguire il programma. La richiesta per creare la knowledge base verrà inviata all'API QnA Maker e verrà eseguito il polling dei risultati ogni 30 secondi. Ogni risposta viene stampata nella finestra della console.
 
     ```bash
     java -cp ",;libs/*" CreateKB

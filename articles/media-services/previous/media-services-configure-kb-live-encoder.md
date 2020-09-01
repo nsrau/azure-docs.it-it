@@ -14,14 +14,17 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
-ms.openlocfilehash: babb5a10818c8108bae34402962fd2503dbecbdc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab73b22e927ad1bbcc8a07173e1548157de03cdd
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81641689"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258096"
 ---
-# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Usare il codificatore live Haivision KB per inviare un flusso live a velocità in bit singola  
+# <a name="use-the-haivision-kb-live-encoder-to-send-a-single-bitrate-live-stream"></a>Usare il codificatore live Haivision KB per inviare un flusso live a velocità in bit singola
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 > [!div class="op_single_selector"]
 > * [Haivision](media-services-configure-kb-live-encoder.md)
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
@@ -92,7 +95,7 @@ Se il flusso viene visualizzato nel lettore, ciò indica che il codificatore è 
 
 In caso di errore sarà necessario reimpostare il canale e regolare le impostazioni del codificatore. Come materiale sussidiario, vedere l'articolo sulla risoluzione dei problemi.
 
-## <a name="create-a-program"></a>Creare un programma.
+## <a name="create-a-program"></a>Creare un programma
 1.  Una volta che viene confermata la riproduzione del canale, creare un programma. Nella scheda Live dello strumento AMSE fare clic con il pulsante destro del mouse all'interno dell'area del programma e selezionare Create New Program (Crea programma).
 [Haivision](./media/media-services-configure-kb-live-encoder/program.png)
 1.  Assegnare un nome al programma e, se necessario, modificare la durata dell'intervallo di archiviazione, la cui impostazione predefinita è di quattro ore. È inoltre possibile specificare un percorso di archiviazione o confermare l'impostazione predefinita.

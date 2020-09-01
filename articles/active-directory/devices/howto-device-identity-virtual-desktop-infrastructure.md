@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e2c516371ada59501edd89491a07014ef949eba
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: f0313c27666cda785b24f23436f6ad727f337ca8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604394"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259354"
 ---
 # <a name="device-identity-and-desktop-virtualization"></a>Identità del dispositivo e virtualizzazione desktop
 
@@ -46,7 +46,7 @@ In questo articolo vengono illustrate le linee guida di Microsoft per gli ammini
 
 Prima di configurare le identità del dispositivo in Azure AD per l'ambiente VDI, acquisire familiarità con gli scenari supportati. La tabella seguente illustra gli scenari di provisioning supportati. Il provisioning in questo contesto implica che un amministratore può configurare le identità dei dispositivi su larga scala senza richiedere alcuna interazione con l'utente finale.
 
-| Tipo di identità del dispositivo | Infrastruttura delle identità | Dispositivi Windows | Versione della piattaforma VDI | Funzionalità supportata |
+| Tipo di identità del dispositivo | Infrastruttura delle identità | Dispositivi Windows | Versione della piattaforma VDI | Supportato |
 | --- | --- | --- | --- | --- |
 | Aggiunta a Azure AD ibrido | Federato<sup>3</sup> | Windows Current e Windows legacy-Level | Persistente | Sì |
 |   |   | Windows corrente | Non persistente | Sì<sup>5</sup> |
@@ -56,7 +56,7 @@ Prima di configurare le identità del dispositivo in Azure AD per l'ambiente VDI
 |   |   | Dispositivi Windows di livello inferiore | Non persistente | Sì<sup>6</sup> |
 | Aggiunta ad Azure AD | Federato | Windows corrente | Persistente | No |
 |   |   |   | Non persistente | No |
-|   | Gestiti | Windows corrente | Persistente | No |
+|   | Gestita | Windows corrente | Persistente | No |
 |   |   |   | Non persistente | No |
 | Registrazione in Azure AD | Federato/gestito | Windows corrente/Windows di livello inferiore | Persistente/non persistente | Non applicabile |
 
@@ -68,7 +68,7 @@ Prima di configurare le identità del dispositivo in Azure AD per l'ambiente VDI
 
 <sup>4</sup> un ambiente di infrastruttura di identità **gestita** rappresenta un ambiente con Azure ad come provider di identità distribuito con la [sincronizzazione dell'hash delle password (pH)](../hybrid/whatis-phs.md) o con [l'autenticazione pass-through (PTA)](../hybrid/how-to-connect-pta.md) con [Single Sign-on senza](../hybrid/how-to-connect-sso.md)problemi.
 
-<sup>5</sup> il **supporto di non persistenza per Windows Current** richiede considerazioni aggiuntive, come descritto di seguito nella sezione delle linee guida.
+<sup>5</sup> il **supporto di non persistenza per Windows Current** richiede considerazioni aggiuntive, come descritto di seguito nella sezione delle linee guida. Questo scenario richiede Windows 10 1803, Windows Server 2019 o Windows Server (canale semestrale) a partire dalla versione 1803
 
 <sup>6</sup> il **supporto di non persistenza per Windows di livello inferiore** richiede considerazioni aggiuntive, come descritto di seguito nella sezione delle linee guida.
 

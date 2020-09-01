@@ -14,14 +14,16 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: be7ac4073bb332a7595dcf211feb7087d0734854
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 958bfa605e0195b5f4fde2c0ff53a8ce567f50a5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082733"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89257144"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Usare l'autenticazione di Azure AD per accedere all'API Servizi multimediali con REST
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
@@ -167,7 +169,7 @@ La risposta restituita contiene il **token di accesso** da usare per accedere al
 Questa sezione mostra come accedere alle API **Assets** tramite **Postman**.
 
 1. Apri il **post**.
-2. Selezionare **GET**.
+2. Selezionare **Get**.
 3. Incollare l'endpoint dell'API REST, ad esempio https://amshelloworld.restv2.westus.media.azure.net/api/Assets)
 4. Selezionare la scheda **Autorizzazione**. 
 5. Selezionare **Token di connessione**.

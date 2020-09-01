@@ -3,21 +3,21 @@ title: Localizzatori di streaming in Servizi multimediali di Azure | Microsoft D
 description: Questo articolo illustra le caratteristiche dei localizzatori di streaming e descrive come vengono usati da Servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.date: 03/04/2020
-ms.author: juliako
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 6b4ba1bf63c1b8ebe6b7e294f416eb528ce444c5
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: fe448ea5a4d9610ff82beb7cfa1071d2e8249dfd
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005786"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89257620"
 ---
 # <a name="streaming-locators"></a>Localizzatori di streaming
 
@@ -99,7 +99,7 @@ Per ottenere i localizzatori di streaming in base al nome dell'asset associato, 
 |Java|[AssetStreamingLocator](/rest/api/media/assets/liststreaminglocators#assetstreaminglocator)|
 |Node.js|[listStreamingLocators](/javascript/api/@azure/arm-mediaservices/assets#liststreaminglocators-string--string--string--msrest-requestoptionsbase-)|
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Asset](assets-concept.md)
 * [Criteri di streaming](streaming-policy-concept.md)

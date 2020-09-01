@@ -10,17 +10,19 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 08/18/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 27082499263af6eedd7d9d628b7b1746a9177672
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 3507d3f0ac978c6f7c2f5fc29fc563eaba79d98a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606847"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258861"
 ---
 # <a name="assets-in-azure-media-services-v3"></a>Asset in servizi multimediali di Azure V3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 In servizi multimediali di Azure, un [Asset](/rest/api/media/assets) è un concetto di base. È il punto in cui vengono inseriti i supporti (ad esempio, tramite il caricamento o l'inserimento Live), i supporti di output (dall'output di un processo) e la pubblicazione di supporti da (per il flusso). 
 
@@ -44,6 +46,6 @@ I nomi di file/BLOB all'interno di un asset devono rispettare i [requisiti del n
 
 [Panoramica di servizi multimediali](media-services-overview.md)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Differenze tra Servizi multimediali v2 e v3](migrate-from-v2-to-v3.md)

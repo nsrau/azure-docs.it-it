@@ -9,17 +9,19 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 5/28/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: references_regions
-ms.openlocfilehash: 6ecc8cad4480528477f6bb470c7bc32ee2a20e11
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e9da87f3b5f7cb513b4b5d51c93a59d1703d401d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87001350"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258657"
 ---
 # <a name="clouds-and-regions-in-which-azure-media-services-v3-exists"></a>Cloud e aree in cui sono presenti i Aervizi multimediali v3 di Azure
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 I Servizi multimediali v3 di Azure sono disponibili tramite il manifesto di Azure Resource Manager in Azure globale, Azure per enti pubblici, Azure Germania, Azure Cina 21Vianet. Tuttavia, non tutte le funzionalità di servizi multimediali sono disponibili in tutti i cloud di Azure. Questo documento descrive le disponibilità dei componenti principali dei Servizi multimediali v3.
 
@@ -83,7 +85,7 @@ Gli endpoint seguenti sono importanti per la connessione agli account di Servizi
 | Service | Endpoint |
 | ------- | -------- |
 | Azure Resource Manager |  `https://management.azure.com/` |
-| Autenticazione | `https://login.microsoftonline.com/` |
+| Authentication | `https://login.microsoftonline.com/` |
 | Destinatari dei token | `https://management.core.windows.net/` |
 
 ### <a name="azure-government"></a>Azure Government
@@ -91,7 +93,7 @@ Gli endpoint seguenti sono importanti per la connessione agli account di Servizi
 | Service | Endpoint |
 | ------- | -------- |
 | Azure Resource Manager |  `https://management.usgovcloudapi.net/` |
-| Autenticazione | `https://login.microsoftonline.us/` |
+| Authentication | `https://login.microsoftonline.us/` |
 | Destinatari dei token | `https://management.core.usgovcloudapi.net/` |
 
 ### <a name="azure-germany"></a>Azure Germania
@@ -99,7 +101,7 @@ Gli endpoint seguenti sono importanti per la connessione agli account di Servizi
 | Service | Endpoint |
 | ------- | -------- |
 | Azure Resource Manager | `https://management.cloudapi.de/` |
-| Autenticazione | `https://login.microsoftonline.de/` |
+| Authentication | `https://login.microsoftonline.de/` |
 | Destinatari dei token | `https://management.core.cloudapi.de/`|
 
 ### <a name="azure-china-21vianet"></a>Azure Cina 21Vianet
@@ -107,10 +109,10 @@ Gli endpoint seguenti sono importanti per la connessione agli account di Servizi
 | Service | Endpoint |
 | ------- | -------- |
 | Azure Resource Manager | `https://management.chinacloudapi.cn/` |
-| Autenticazione | `https://login.chinacloudapi.cn/` |
+| Authentication | `https://login.chinacloudapi.cn/` |
 | Destinatari dei token |  `https://management.core.chinacloudapi.cn/` |
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/)
 * [Aree geografiche di Azure](https://azure.microsoft.com/global-infrastructure/geographies/)
