@@ -4,12 +4,12 @@ description: Azure Resource Graph Explorer nella portale di Azure supporta i tas
 ms.date: 08/25/2020
 ms.topic: reference
 ms.custom: accessibility
-ms.openlocfilehash: f5995498f2b95828a7c03dbcd5669491e62de2e7
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 02471a6efc4ac4d002ca641b792c1c721ffeb3f7
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88848816"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146437"
 ---
 # <a name="keyboard-shortcuts-for-azure-resource-graph-explorer"></a>Tasti di scelta rapida per Azure Resource Graph Explorer
 
@@ -22,7 +22,6 @@ Questo articolo elenca i tasti di scelta rapida che funzionano nella pagina Azur
 |Inserimento/Rimozione di commenti |<kbd>CTRL</kbd>+<kbd>/</kbd> | <kbd>Cmd</kbd>+<kbd>/</kbd> |
 |Riduci rientro |<kbd>CTRL</kbd> + <kbd>[</kbd> |<kbd>Cmd</kbd> + <kbd>[</kbd> |
 |Aumenta rientro |<kbd>CTRL</kbd> + <kbd>]</kbd> |<kbd>Cmd</kbd> + <kbd>]</kbd> |
-|Selezionare tutto |<kbd>CTRL</kbd> + <kbd>Oggetto</kbd> |<kbd>Cmd</kbd> + <kbd>Oggetto</kbd> |
 |Spostare la riga verso il basso |<kbd>ALT</kbd> + <kbd>↓</kbd> |<kbd>Opzione</kbd> + <kbd>↓</kbd> |
 |Spostare la riga verso l'alto |<kbd>ALT</kbd> + <kbd>↑</kbd> |<kbd>Opzione</kbd> + <kbd>↑</kbd> |
 |Sostituisci |<kbd>CTRL</kbd> + <kbd>F</kbd> |<kbd>Cmd</kbd> + <kbd>ALT</kbd> + <kbd>F</kbd> |

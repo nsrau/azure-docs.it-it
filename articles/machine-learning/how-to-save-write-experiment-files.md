@@ -12,19 +12,19 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 27d56958120d0eddebe30dc410805909fe507f7c
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 526a4f9f5542074107700b54dcf3d2a591b08b70
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319576"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144040"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Dove salvare e scrivere file per esperimenti di Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 In questo articolo viene illustrato dove salvare i file di input e dove scrivere i file di output dagli esperimenti per evitare errori di limite di archiviazione e latenza dell'esperimento.
 
-Quando si avvia l'esecuzione del training in una [destinazione di calcolo](how-to-set-up-training-targets.md), questi vengono isolati dagli ambienti esterni. Lo scopo di questa progettazione è garantire la riproducibilità e la portabilità dell'esperimento. Se si esegue lo stesso script due volte, nello stesso o in un'altra destinazione di calcolo, si ottengono gli stessi risultati. Con questa progettazione è possibile considerare le destinazioni di calcolo come risorse di calcolo senza stato, ognuna delle quali non presenta affinità ai processi in esecuzione dopo il completamento.
+Quando si avvia l'esecuzione del training in una [destinazione di calcolo](concept-compute-target.md), questi vengono isolati dagli ambienti esterni. Lo scopo di questa progettazione è garantire la riproducibilità e la portabilità dell'esperimento. Se si esegue lo stesso script due volte, nello stesso o in un'altra destinazione di calcolo, si ottengono gli stessi risultati. Con questa progettazione è possibile considerare le destinazioni di calcolo come risorse di calcolo senza stato, ognuna delle quali non presenta affinità ai processi in esecuzione dopo il completamento.
 
 ## <a name="where-to-save-input-files"></a>Posizione in cui salvare i file di input
 
@@ -79,4 +79,4 @@ Se non è necessario un archivio dati, scrivere i file nella `./outputs` cartell
 
 * Altre informazioni sull' [accesso ai dati dagli archivi dati](how-to-access-data.md).
 
-* Altre informazioni su [come configurare gli obiettivi di training](how-to-set-up-training-targets.md).
+* Altre informazioni sulla creazione di destinazioni di calcolo con [Python SDK](how-to-create-attach-compute-sdk.md) o con [Studio](how-to-create-attach-compute-studio.md).

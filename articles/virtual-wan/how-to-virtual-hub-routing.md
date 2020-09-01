@@ -8,22 +8,18 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 07/07/2020
 ms.author: cherylmc
-ms.openlocfilehash: 634967fbe50c74770bdc3b526d68896728e4ee07
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.openlocfilehash: 00d79f8058d7d478f7fe97ba9677e47098b70e1b
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87513061"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145927"
 ---
 # <a name="how-to-configure-virtual-hub-routing"></a>Come configurare il routing dell'hub virtuale
 
 Un hub virtuale può contenere più gateway, ad esempio un gateway VPN da sito a sito, un gateway ExpressRoute, un gateway da punto a sito e un firewall di Azure. Le funzionalità di routing nell'hub virtuale sono fornite da un router che gestisce tutto il routing, incluso il routing di transito, tra i gateway usando Border Gateway Protocol (BGP). Questo router fornisce anche la connettività di transito tra le reti virtuali che si connettono a un hub virtuale e può supportare fino a una velocità effettiva aggregata di 50 Gbps. Queste funzionalità di routing si applicano ai clienti WAN virtuali standard.
 
 Per ulteriori informazioni, vedere [About Virtual Hub routing](about-virtual-hub-routing.md).
-
-> [!NOTE]
-> Alcune di queste funzionalità potrebbero ancora essere implementate. Questa operazione dovrebbe essere completata entro il 17 agosto.
->
 
 ## <a name="create-a-route-table"></a><a name="create-table"></a>Creare una tabella di route
 

@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 186839425e6ab2fb5430a82650615425bb93d51a
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: d0341e5a4d5dc036a4c3f90b2a25003137602694
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651761"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144839"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Eseguire il training di modelli con Azure Machine Learning
 
@@ -55,7 +55,7 @@ Azure Machine Learning SDK per Python consente di creare ed eseguire flussi di l
 * [Informazioni sulla configurazione di esecuzione](concept-azure-machine-learning-architecture.md#run-configurations)
 * [Esercitazione: Eseguire il training del primo modello di Machine Learning](tutorial-1st-experiment-sdk-train.md)
 * [Esempi: Esempi dei modelli di training con Jupyter Notebook](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/training)
-* [Procedura: Configurare e usare le destinazioni di calcolo per il training del modello](how-to-set-up-training-targets.md)
+* [Procedura: usare le destinazioni di calcolo per il training del modello](how-to-set-up-training-targets.md)
 
 ### <a name="automated-machine-learning"></a>Funzionalità automatizzate di Machine Learning
 
@@ -160,4 +160,4 @@ L'interfaccia della riga di comando di Machine Learning è un'estensione per l'i
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni su come [configurare gli ambienti di training](how-to-set-up-training-targets.md).
+Informazioni su come [usare le destinazioni di calcolo per il training del modello](how-to-set-up-training-targets.md).

@@ -11,12 +11,12 @@ ms.reviewer: Luis.Quintanilla
 ms.date: 07/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8682342d23c37d527528de0b525dbdd49a52676e
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 8a0853d4a863f6b7677f665513bdac9ca8e6b673
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87853399"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144108"
 ---
 # <a name="use-the-interpretability-package-to-explain-ml-models--predictions-in-python-preview"></a>Usare il pacchetto di interpretazione per spiegare i modelli ML & le stime in Python (anteprima)
 
@@ -73,8 +73,8 @@ L'esempio seguente illustra come usare il pacchetto di interpretazione nel compu
    * Per rendere più istruttive le spiegazioni e le visualizzazioni, è possibile scegliere di passare i nomi delle funzionalità e i nomi delle classi di output se si esegue la classificazione.
 
    I blocchi di codice seguenti illustrano come creare un'istanza di un oggetto Explainer con `TabularExplainer` , `MimicExplainer` e `PFIExplainer` localmente.
-   * `TabularExplainer`chiama uno dei tre Explainer SHAP sotto ( `TreeExplainer` , `DeepExplainer` o `KernelExplainer` ).
-   * `TabularExplainer`Seleziona automaticamente quello più appropriato per il caso d'uso, ma è possibile chiamare direttamente ciascuno dei tre Explainer sottostanti.
+   * `TabularExplainer` chiama uno dei tre Explainer SHAP sotto ( `TreeExplainer` , `DeepExplainer` o `KernelExplainer` ).
+   * `TabularExplainer` Seleziona automaticamente quello più appropriato per il caso d'uso, ma è possibile chiamare direttamente ciascuno dei tre Explainer sottostanti.
 
     ```python
     from interpret.ext.blackbox import TabularExplainer
@@ -147,7 +147,7 @@ global_explanation.get_feature_importance_dict()
 ### <a name="explain-an-individual-prediction-local-explanation"></a>Descrizione di una singola stima (spiegazione locale)
 Ottenere i valori di importanza delle singole funzionalità di punti di riferimento diversi chiamando le spiegazioni per una singola istanza o un gruppo di istanze.
 > [!NOTE]
-> `PFIExplainer`non supporta le spiegazioni locali.
+> `PFIExplainer` non supporta le spiegazioni locali.
 
 ```python
 # get explanation for the first data point in the test set
@@ -275,7 +275,7 @@ Nell'esempio seguente viene illustrato come è possibile utilizzare la `Explanat
     #client.upload_model_explanation(global_explanation, top_k=2, comment='global explanation: Only top 2 features')
     ```
 
-1. Configurare un Azure Machine Learning calcolo come destinazione di calcolo e inviare l'esecuzione del training. Per istruzioni, vedere [impostazione di destinazioni di calcolo per il training del modello](how-to-set-up-training-targets.md#amlcompute) . È anche possibile trovare i [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) utili.
+1. Configurare un Azure Machine Learning calcolo come destinazione di calcolo e inviare l'esecuzione del training. Per istruzioni, vedere [creare destinazioni di calcolo con Python SDK](how-to-create-attach-compute-sdk.md#amlcompute) . È anche possibile trovare i [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/explain-model/azure-integration/remote-explanation) utili.
 
 1. Scaricare la spiegazione nel notebook di Jupyter locale.
 
@@ -304,7 +304,7 @@ Dopo aver scaricato le spiegazioni nel notebook di Jupyter locale, è possibile 
 
 I tracciati seguenti forniscono una visualizzazione complessiva del modello sottoposto a training insieme alle relative stime e spiegazioni.
 
-|Grafico|Description|
+|Grafico|Descrizione|
 |----|-----------|
 |Esplorazione dei dati| Visualizza una panoramica del set di dati insieme ai valori di stima.|
 |Importanza globale|Consente di aggregare i valori di importanza dei singoli punti di riferimento per visualizzare le principali funzionalità importanti della K (configurabile K) del modello. Consente di comprendere il comportamento generale del modello sottostante.|
@@ -318,7 +318,7 @@ I tracciati seguenti forniscono una visualizzazione complessiva del modello sott
 
 È possibile caricare il tracciato dell'importanza della singola funzione per qualsiasi punto dati facendo clic su uno dei singoli punti dati in uno qualsiasi dei tracciati complessivi.
 
-|Grafico|Description|
+|Grafico|Descrizione|
 |----|-----------|
 |Importanza locale|Mostra le principali funzionalità principali K (configurabili K) per una singola stima. Consente di illustrare il comportamento locale del modello sottostante in un punto dati specifico.|
 |Esplorazione della perturbazione (analisi di simulazione)|Consente di modificare i valori delle funzionalità del punto dati selezionato e osservare le modifiche risultanti al valore di stima.|

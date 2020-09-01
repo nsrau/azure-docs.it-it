@@ -3,12 +3,12 @@ title: Procedure consigliate
 description: Procedure consigliate e suggerimenti utili per lo sviluppo di soluzioni Azure Batch.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 8f557403426fe4e37287acb681c91069e90fb926
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: ca6e491586fd653f39da7466ea116109000facd6
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191812"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146539"
 ---
 # <a name="azure-batch-best-practices"></a>Procedure consigliate per Azure Batch
 
@@ -29,12 +29,12 @@ I [pool](nodes-and-pools.md#pools) sono le risorse di calcolo per l'esecuzione d
     Non è garantito che i singoli nodi siano sempre disponibili. Anche se non comuni, gli errori dell'hardware, gli aggiornamenti del sistema operativo e una serie di altri problemi possono portare offline i singoli nodi. Se il carico di lavoro di Batch richiede un avanzamento deterministico e garantito, è consigliabile allocare pool con più nodi.
 
 - **Non riutilizzare i nomi delle risorse.**
-    Le risorse di Batch (processi, pool e così via) non sono in genere fisse nel corso del tempo. Ad esempio, è possibile creare un pool il lunedì, eliminarlo il martedì e quindi crearne un altro il giovedì. A ogni nuova risorsa creata è necessario assegnare un nome univoco che non è mai stato usato prima. A tale scopo, è possibile usare un GUID (per l'intero nome della risorsa o solo per una parte) o incorporare nel nome l'ora in cui è stata creata la risorsa. Batch supporta [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname?view=azure-dotnet), che è possibile usare per assegnare a una risorsa un nome facilmente leggibile, anche se l'ID risorsa effettiva può essere più complesso. L'uso di nomi univoci consente di distinguere più facilmente la risorsa specifica a cui fanno riferimento log e metriche. Rimuove anche l'ambiguità se è necessario presentare un caso di supporto per una risorsa.
+    Le risorse di Batch (processi, pool e così via) non sono in genere fisse nel corso del tempo. Ad esempio, è possibile creare un pool il lunedì, eliminarlo il martedì e quindi crearne un altro il giovedì. A ogni nuova risorsa creata è necessario assegnare un nome univoco che non è mai stato usato prima. A tale scopo, è possibile usare un GUID (per l'intero nome della risorsa o solo per una parte) o incorporare nel nome l'ora in cui è stata creata la risorsa. Batch supporta [DisplayName](/dotnet/api/microsoft.azure.batch.jobspecification.displayname), che è possibile usare per assegnare a una risorsa un nome facilmente leggibile, anche se l'ID risorsa effettiva può essere più complesso. L'uso di nomi univoci consente di distinguere più facilmente la risorsa specifica a cui fanno riferimento log e metriche. Rimuove anche l'ambiguità se è necessario presentare un caso di supporto per una risorsa.
 
 - **Continuità durante la manutenzione e gli errori del pool.**
     È preferibile che i processi usino i pool in modo dinamico. Se i processi usano lo stesso pool per tutte le operazioni, è possibile che non vengano eseguiti se si verificano problemi in tale pool. Questo aspetto è particolarmente importante per i carichi di lavoro dipendenti dal tempo. Per risolvere questo problema, selezionare o creare un pool in modo dinamico quando si pianifica ogni processo oppure ignorare in qualche modo il nome del pool in modo che sia possibile evitare un pool non integro.
 
-- **Continuità aziendale durante la manutenzione e gli errori del pool** Le dimensioni di un pool potrebbero non aumentare fino al livello previsto per una serie di possibili cause, ad esempio errori interni, vincoli di capacità e così via. Per questo motivo, è consigliabile essere pronti a ridestinare i processi a un pool diverso (possibilmente con dimensioni di VM diverse, cosa che Batch supporta tramite [UpdateJob](/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update?view=azure-dotnet)), se necessario. Evitare di usare un ID pool statico con l'aspettativa che non verrà mai eliminato e modificato.
+- **Continuità aziendale durante la manutenzione e gli errori del pool** Le dimensioni di un pool potrebbero non aumentare fino al livello previsto per una serie di possibili cause, ad esempio errori interni, vincoli di capacità e così via. Per questo motivo, è consigliabile essere pronti a ridestinare i processi a un pool diverso (possibilmente con dimensioni di VM diverse, cosa che Batch supporta tramite [UpdateJob](/dotnet/api/microsoft.azure.batch.protocol.joboperationsextensions.update)), se necessario. Evitare di usare un ID pool statico con l'aspettativa che non verrà mai eliminato e modificato.
 
 ### <a name="pool-lifetime-and-billing"></a>Durata e fatturazione del pool
 
@@ -63,7 +63,7 @@ Quando si crea un pool in Azure Batch usando la configurazione della macchina vi
 
 ### <a name="third-party-images"></a>Immagini di terze parti
 
-I pool possono essere creati usando immagini di terze parti pubblicate in Azure Marketplace. Con gli account batch della modalità di sottoscrizione utente, è possibile che venga visualizzato l'errore "allocazione non riuscita a causa di un controllo di idoneità acquisti nel Marketplace" quando si crea un pool con immagini di terze parti. Per correggere l'errore, accettare le condizioni impostate dall'editore dell'immagine. A tale scopo, è possibile usare [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms?view=azurermps-6.13.0) o l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/vm/image/terms?view=azure-cli-latest).
+I pool possono essere creati usando immagini di terze parti pubblicate in Azure Marketplace. Con gli account batch della modalità di sottoscrizione utente, è possibile che venga visualizzato l'errore "allocazione non riuscita a causa di un controllo di idoneità acquisti nel Marketplace" quando si crea un pool con immagini di terze parti. Per correggere l'errore, accettare le condizioni impostate dall'editore dell'immagine. A tale scopo, è possibile usare [Azure PowerShell](https://docs.microsoft.com/powershell/module/azurerm.marketplaceordering/set-azurermmarketplaceterms) o l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/vm/image/terms).
 
 ### <a name="azure-region-dependency"></a>Dipendenza dall'area di Azure
 
@@ -83,7 +83,7 @@ Per questo motivo, assicurarsi di non progettare una soluzione Batch che richied
 
 Un processo di Batch ha una durata indefinita fino a quando non viene eliminato dal sistema. Il relativo stato indica se può accettare o meno la pianificazione di altre attività.
 
-Un processo non passa automaticamente allo stato completato a meno che non venga terminato esplicitamente. Questa operazione può essere attivata automaticamente tramite la proprietà [onAllTasksComplete](/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete?view=azure-dotnet) o [maxWallClockTime](/rest/api/batchservice/job/add#jobconstraints).
+Un processo non passa automaticamente allo stato completato a meno che non venga terminato esplicitamente. Questa operazione può essere attivata automaticamente tramite la proprietà [onAllTasksComplete](/dotnet/api/microsoft.azure.batch.common.onalltaskscomplete) o [maxWallClockTime](/rest/api/batchservice/job/add#jobconstraints).
 
 Esiste una [quota predefinita per i processi attivi e le pianificazioni di processi](batch-quota-limit.md#resource-quotas). I processi e le pianificazioni di processi nello stato completato non vengono conteggiati ai fini di questa quota.
 
@@ -99,7 +99,7 @@ Batch offre il supporto integrato per Archiviazione di Azure per il caricamento 
 
 ### <a name="manage-task-lifetime"></a>Gestire la durata delle attività
 
-Eliminare le attività quando non sono più necessarie o impostare un vincolo di attività [retentionTime](/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime?view=azure-dotnet). Se `retentionTime` è impostato, Batch pulisce automaticamente lo spazio su disco usato dall'attività alla scadenza di `retentionTime`.
+Eliminare le attività quando non sono più necessarie o impostare un vincolo di attività [retentionTime](/dotnet/api/microsoft.azure.batch.taskconstraints.retentiontime). Se `retentionTime` è impostato, Batch pulisce automaticamente lo spazio su disco usato dall'attività alla scadenza di `retentionTime`.
 
 Con l'eliminazione delle attività, si realizzano due obiettivi. Ci si assicura di non avere un accumulo di attività nel processo, che può rendere più difficile l'esecuzione di query o l'individuazione di un'attività a cui si è interessati (perché sarà necessario filtrare le attività completate). Vengono inoltre puliti i dati dell'attività corrispondenti nel nodo, purché non sia già stato raggiunto il valore di `retentionTime`. In questo modo si evita che i nodi si riempiano di dati di attività ed esauriscano lo spazio.
 
@@ -113,7 +113,7 @@ Batch supporta la sovrasottoscrizione di attività nei nodi, ossia l'esecuzione 
 
 ### <a name="design-for-retries-and-re-execution"></a>Progettare per la ripetizione di tentativi e di esecuzioni
 
-Batch può provare automaticamente a ripetere le attività. Esistono due tipi di tentativi: controllati dall'utente e interni. I tentativi controllati dall'utente sono specificati dal valore di [maxTaskRetryCount](/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount?view=azure-dotnet) dell'attività. Quando un programma specificato nell'attività termina con un codice di uscita diverso da zero, l'attività viene riprovata fino al valore di `maxTaskRetryCount`.
+Batch può provare automaticamente a ripetere le attività. Esistono due tipi di tentativi: controllati dall'utente e interni. I tentativi controllati dall'utente sono specificati dal valore di [maxTaskRetryCount](/dotnet/api/microsoft.azure.batch.taskconstraints.maxtaskretrycount) dell'attività. Quando un programma specificato nell'attività termina con un codice di uscita diverso da zero, l'attività viene riprovata fino al valore di `maxTaskRetryCount`.
 
 In rari casi, un'attività può essere riprovata internamente a causa di errori del nodo di calcolo, ad esempio se non è possibile aggiornare lo stato interno o si verifica un problema nel nodo durante l'esecuzione dell'attività. L'attività verrà riprovata nello stesso nodo di calcolo, se possibile, fino a un limite interno prima che venga abbandonata e rinviata per la ripianificazione di Batch, possibilmente in un nodo di calcolo diverso.
 
@@ -192,7 +192,7 @@ Se le richieste ricevono risposte HTTP di livello 5xx in cui è presente un'inte
 
 ### <a name="retry-requests-automatically"></a>Riprovare automaticamente le richieste
 
-Assicurarsi che per i client del servizio Batch siano implementati criteri appropriati di ripetizione dei tentativi per riprovare automaticamente le richieste, anche durante il normale funzionamento e non esclusivamente durante i periodi di manutenzione del servizio. Questi criteri di ripetizione dei tentativi devono estendersi in un intervallo di almeno 5 minuti. Le funzionalità di ripetizione automatica dei tentativi sono fornite da vari SDK di Batch, ad esempio la [classe .NET RetryPolicyProvider](/dotnet/api/microsoft.azure.batch.retrypolicyprovider?view=azure-dotnet).
+Assicurarsi che per i client del servizio Batch siano implementati criteri appropriati di ripetizione dei tentativi per riprovare automaticamente le richieste, anche durante il normale funzionamento e non esclusivamente durante i periodi di manutenzione del servizio. Questi criteri di ripetizione dei tentativi devono estendersi in un intervallo di almeno 5 minuti. Le funzionalità di ripetizione automatica dei tentativi sono fornite da vari SDK di Batch, ad esempio la [classe .NET RetryPolicyProvider](/dotnet/api/microsoft.azure.batch.retrypolicyprovider).
 
 ### <a name="static-public-ip-addresses"></a>Indirizzi IP pubblici statici
 

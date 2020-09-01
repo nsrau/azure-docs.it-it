@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: b37b327a535b716bbce845cd5883e58ec5379c48
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 3c2fef4ebd7db076a502f63101c80c4e08683b39
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782720"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145366"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Trasferimento di un Azure Key Vault a un'altra sottoscrizione
 
@@ -58,8 +58,6 @@ Assicurarsi di passare alla pagina Criteri di Azure nella portale di Azure ed es
 * Un gruppo di risorse nella nuova sottoscrizione.
 
 ## <a name="procedure"></a>Procedura
-
-Se 
 
 ### <a name="moving-key-vault-to-a-new-subscription-within-the-same-tenant"></a>Passaggio Key Vault a una nuova sottoscrizione nello stesso tenant
 

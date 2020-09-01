@@ -4,12 +4,12 @@ description: Informazioni su come gestire e monitorare i backup degli agenti Ser
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: b46303bdb7fc6c39aafd3046a4bcbc5e0ba75766
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: b3b648ca27a407640b42932fe2ed7c32f5109114
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893069"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145570"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Gestire i backup degli agenti Servizi di ripristino di Microsoft Azure (MARS) con il servizio backup di Azure
 
@@ -173,7 +173,7 @@ Viene usata una passphrase per crittografare e decrittografare i dati durante il
 
 Questa sezione illustra uno scenario in cui la macchina virtuale di origine protetta con MARS non è più disponibile perché è stata eliminata, danneggiata, infettata da malware/ransomware o è stata rilasciata.
 
-Per questi computer, il servizio backup di Azure garantisce che l'ultimo punto di ripristino non scada (ovvero non viene eliminato) in base alle regole di conservazione specificate nei criteri di backup. Pertanto, è possibile ripristinare in modo sicuro il computer.  Si considerino gli scenari seguenti che è possibile eseguire sui dati di cui è stato eseguito il backup:
+Per questi computer, il servizio backup di Azure garantisce che il punto di ripristino più recente non scada (ovvero non viene eliminato) in base alle regole di conservazione specificate nei criteri di backup. Pertanto, è possibile ripristinare in modo sicuro il computer.  Si considerino gli scenari seguenti che è possibile eseguire sui dati di cui è stato eseguito il backup:
 
 ### <a name="scenario-1-the-source-machine-is-unavailable-and-you-no-longer-need-to-retain-backup-data"></a>Scenario 1: il computer di origine non è disponibile e non è più necessario mantenere i dati di backup
 

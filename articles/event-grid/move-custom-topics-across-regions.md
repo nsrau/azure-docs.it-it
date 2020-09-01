@@ -4,12 +4,12 @@ description: Questo articolo illustra come spostare gli argomenti personalizzati
 ms.topic: how-to
 ms.custom: subject-moving-resources
 ms.date: 08/28/2020
-ms.openlocfilehash: f33636f7033495a1e437715cc89c492889e4dfe0
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: d0656a4f6ec1c7431cf7111f786b0f1d779166e3
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89086252"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145341"
 ---
 # <a name="move-azure-event-grid-custom-topics-to-another-region"></a>Spostare gli argomenti personalizzati di griglia di eventi di Azure in un'altra area
 Potrebbe essere necessario spostare le risorse in un'altra area per diversi motivi. Ad esempio, per sfruttare i vantaggi di una nuova area di Azure, per soddisfare i requisiti di governance e criteri interni oppure in risposta ai requisiti della pianificazione della capacità. 
@@ -63,7 +63,7 @@ Distribuire il modello per creare un argomento personalizzato nell'area di desti
 1. Nella portale di Azure selezionare **Crea una risorsa**.
 2. In **Cerca nel Marketplace**Digitare **distribuzione modello**, quindi premere **invio**.
 3. Selezionare **distribuzione modelli**.
-4. Selezionare **Create** (Crea).
+4. Selezionare **Crea**.
 5. Selezionare **Creare un modello personalizzato nell'editor**.
 6. Selezionare **Carica file**e quindi seguire le istruzioni per caricare il **template.js** nel file scaricato nell'ultima sezione.
 7. Selezionare **Save (Salva** ) per salvare il modello. 
@@ -80,6 +80,8 @@ Distribuire il modello per creare un argomento personalizzato nell'area di desti
 ## <a name="verify"></a>Verifica
 
 1. Una volta completata la distribuzione, selezionare **Vai alla risorsa**. 
+
+    :::image type="content" source="./media/move-custom-topics-across-regions/navigate-custom-topic.png" alt-text="Vai alla risorsa":::
 1. Verificare che venga visualizzata la pagina dell' **argomento griglia di eventi** per l'argomento personalizzato.   
 1. Seguire la procedura descritta in [indirizzare gli eventi personalizzati a un endpoint Web](custom-event-quickstart-portal.md#send-an-event-to-your-topic) per inviare eventi all'argomento. Verificare che venga richiamato il gestore eventi del webhook. 
 

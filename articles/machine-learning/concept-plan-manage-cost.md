@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 2fc9a1a1c3a08f0530649ae64926c673e2d666e0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3173f81f84463cde488dcbf0242f8d65c5b9c9fe
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012689"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144992"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Pianificare e gestire i costi per Azure Machine Learning
 
@@ -69,7 +69,7 @@ Con i dati che cambiano continuamente, è necessario un training del modello vel
 
 Azure Machine Learning utenti possono usare il cluster di calcolo Azure Machine Learning gestito, denominato anche AmlCompute. AmlCompute supporta un'ampia gamma di opzioni GPU e CPU. Il AmlCompute è ospitato internamente per conto della sottoscrizione da Azure Machine Learning. Offre la stessa sicurezza, conformità e governance di livello aziendale in Azure IaaS cloud scale.
 
-Poiché questi pool di calcolo si trovano all'interno dell'infrastruttura IaaS di Azure, è possibile distribuire, ridimensionare e gestire la formazione con gli stessi requisiti di sicurezza e conformità del resto dell'infrastruttura.  Queste distribuzioni si verificano nella sottoscrizione e rispettano le regole di governance. Altre informazioni sulle [Azure Machine Learning di calcolo](how-to-set-up-training-targets.md#amlcompute).
+Poiché questi pool di calcolo si trovano all'interno dell'infrastruttura IaaS di Azure, è possibile distribuire, ridimensionare e gestire la formazione con gli stessi requisiti di sicurezza e conformità del resto dell'infrastruttura.  Queste distribuzioni si verificano nella sottoscrizione e rispettano le regole di governance. Altre informazioni sulle [Azure Machine Learning di calcolo](how-to-create-attach-compute-sdk.md#amlcompute).
 
 ## <a name="configure-training-clusters-for-autoscaling"></a>Configurare i cluster di training per la scalabilità automatica
 
@@ -105,9 +105,9 @@ In alcuni casi, è necessario configurare le esecuzioni di training per limitarn
 Ecco alcune opzioni:
 * Definire un parametro denominato `max_run_duration_seconds` in RunConfiguration per controllare la durata massima di un'esecuzione che può estendersi nel calcolo scelto (calcolo locale o remoto del cloud).
 * Per l' [ottimizzazione iperparametri](how-to-tune-hyperparameters.md#early-termination), definire un criterio di terminazione anticipato da un criterio bandito, un criterio di arresto medio o un criterio di selezione troncamento. Per controllare ulteriormente le sweep di iperparametri, usare parametri come `max_total_runs` o `max_duration_minutes` .
-* Per [Machine Learning automatizzato](how-to-configure-auto-train.md#exit), impostare criteri di terminazione simili usando il `enable_early_stopping` flag. Usare anche proprietà quali `iteration_timeout_minutes` e `experiment_timeout_minutes` per controllare la durata massima di un'esecuzione o per l'intero esperimento.
+* Per [Machine Learning automatizzato](how-to-configure-auto-train.md#exit), impostare criteri di terminazione simili usando il  `enable_early_stopping` flag. Usare anche proprietà quali `iteration_timeout_minutes` e `experiment_timeout_minutes` per controllare la durata massima di un'esecuzione o per l'intero esperimento.
 
-## <a name="use-low-priority-vms"></a><a id="low-pri-vm"></a>Usare macchine virtuali con priorità bassa
+## <a name="use-low-priority-vms"></a><a id="low-pri-vm"></a> Usare macchine virtuali con priorità bassa
 
 Azure consente di usare una capacità superflua non utilizzata come VM con priorità bassa tra set di scalabilità di macchine virtuali, batch e il servizio Machine Learning. Queste allocazioni sono pre-emptible, ma hanno un prezzo ridotto rispetto alle VM dedicate. In generale, è consigliabile usare VM con priorità bassa per i carichi di lavoro di batch. È consigliabile usarli anche per recuperare le interruzioni tramite i reinvii (per l'inferenza del batch) o i riavvii (per un training di apprendimento approfondito con Checkpoint).
 
@@ -127,4 +127,4 @@ Azure Machine Learning calcolo supporta le istanze riservate intrinsecamente. Se
 Altre informazioni su:
 * [Gestire e aumentare le quote di risorse](how-to-manage-quotas.md)
 * [Gestione dei costi con l'analisi dei costi](../cost-management-billing/costs/quick-acm-cost-analysis.md).
-* [Azure Machine Learning calcolo](how-to-set-up-training-targets.md#amlcompute).
+* Creare Azure Machine Learning calcolo con [SDK](how-to-create-attach-compute-sdk.md#amlcompute) o in [Studio](how-to-create-attach-compute-studio.md#amlcompute).

@@ -3,12 +3,12 @@ title: Eseguire il backup di macchine virtuali di Azure in un insieme di credenz
 description: Informazioni su come eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino tramite Backup di Azure
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: fd958fe658306fd068356764100e6aaa15f4fc67
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 29895c0358547679a9db7b2f4da203e2b546d67f
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826311"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145655"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino
 
@@ -155,7 +155,7 @@ Completi | Operazione non riuscita | Completato con avviso
 Operazione non riuscita | Operazione non riuscita | Operazione non riuscita
 
 Con questa funzionalità, per la stessa macchina virtuale è ora possibile eseguire due backup in parallelo, ma in entrambe le fasi (snapshot e trasferimento di dati nell'insieme di credenziali) si può eseguire una sola sottoattività. Negli scenari in cui un processo di backup in corso ha comportato la mancata riuscita del backup del giorno successivo, questo verrà evitato con questa funzionalità di separazione. Nei giorni successivi è possibile completare lo snapshot, mentre i **dati trasferiti nell'insieme di** credenziali vengono ignorati se lo stato del processo di backup del giorno precedente è in corso.
-Il punto di ripristino incrementale creato nell'insieme di credenziali acquisirà tutta la varianza dall'ultimo punto di ripristino creato nell'insieme di credenziali. L'utente non ha alcun impatto sui costi.
+Il punto di ripristino incrementale creato nell'insieme di credenziali acquisirà tutta la varianza dal punto di ripristino più recente creato nell'insieme di credenziali. L'utente non ha alcun impatto sui costi.
 
 ## <a name="optional-steps"></a>Passaggi facoltativi
 

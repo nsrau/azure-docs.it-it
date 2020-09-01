@@ -1,7 +1,7 @@
 ---
-title: Sperimentare il rilevamento e la distribuzione di modelli
+title: Rilevamento e distribuzione di modelli
 titleSuffix: Azure Data Science Virtual Machine
-description: Informazioni su come rilevare e registrare gli esperimenti da DSVM con il servizio Azure Machine Learning e/o MLFlow.
+description: Informazioni su come rilevare e registrare gli esperimenti da DSVM con Azure Machine Learning e/o MLFlow.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -9,14 +9,14 @@ author: samkemp
 ms.author: samkemp
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: 687cd6570a9518be6f398a40fcd2d0e10a9634f2
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 943e8bd9f272f3dc8cefbfbccd326cf520497bb2
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88817727"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146896"
 ---
-# <a name="track-experiments-and-deploy-models-in-azureml"></a>Tenere traccia degli esperimenti e distribuire modelli in AzureML
+# <a name="track-experiments-and-deploy-models-in-azure-machine-learning"></a>Tenere traccia degli esperimenti e distribuire modelli in Azure Machine Learning
 
 Migliorare il processo di creazione del modello tenendo traccia degli esperimenti e monitorando le metriche di esecuzione. Questo articolo illustra come aggiungere codice di registrazione allo script di training usando l'API [MLflow](https://mlflow.org/) e come tenere traccia dell'esperimento in Azure Machine Learning.
 

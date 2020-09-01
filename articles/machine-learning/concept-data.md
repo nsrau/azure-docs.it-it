@@ -1,7 +1,7 @@
 ---
 title: Proteggere l'accesso ai dati nel cloud
 titleSuffix: Azure Machine Learning
-description: Informazioni su come connettersi in modo sicuro ai dati da Azure Machine Learning e come usare i set di dati e gli archivi dati per le attività ML. Gli archivi dati possono archiviare i dati da un BLOB di Azure, Azure Data Lake generazione 1 & 2, database SQL, databricks,...
+description: Informazioni su come connettersi in modo sicuro ai dati da Azure Machine Learning e come usare i set di dati e gli archivi dati per le attività ML. Gli archivi dati possono archiviare i dati da un BLOB di Azure, Azure Data Lake generazione 1 & 2, database SQL e Azure Databricks.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,24 +9,24 @@ ms.topic: conceptual
 ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
-ms.date: 04/24/2020
+ms.date: 08/31/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: dadd3a8316efc5bf090a84a738c8f6da223d4572
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 958a433cc76f00010fe6fd431d8bea4fe6380a9c
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651795"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146690"
 ---
 # <a name="secure-data-access-in-azure-machine-learning"></a>Proteggere l'accesso ai dati in Azure Machine Learning
 
 Azure Machine Learning semplifica la connessione ai dati nel cloud.  Fornisce un livello di astrazione sul servizio di archiviazione sottostante, quindi è possibile accedere in modo sicuro ai dati e utilizzarli senza dover scrivere codice specifico per il tipo di archiviazione. Azure Machine Learning fornisce anche le funzionalità dei dati seguenti:
 
+*    Interoperabilità con Pandas e dataframe di Spark
 *    Controllo delle versioni e rilevamento della derivazione dei dati
 *    Assegnazione di etichette ai dati 
 *    Monitoraggio della deriva dei dati
-*    Interoperabilità con Pandas e dataframe di Spark
-
+    
 ## <a name="data-workflow"></a>Flusso di lavoro dei dati
 
 Quando si è pronti per usare i dati nella soluzione di archiviazione basata su cloud, si consiglia il seguente flusso di lavoro di distribuzione dei dati. Questo flusso di lavoro presuppone che si disponga di un [account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) e di dati in un servizio di archiviazione basato su cloud in Azure. 
@@ -67,13 +67,19 @@ Servizi di archiviazione basati su cloud supportati in Azure che possono essere 
 
 ## <a name="datasets"></a>Set di dati
 
-Azure Machine Learning set di dati sono riferimenti che puntano ai dati nel servizio di archiviazione. Non sono copie dei dati, quindi non sono previsti costi di archiviazione aggiuntivi e l'integrità delle origini dati originali non è a rischio.
+Azure Machine Learning set di dati sono riferimenti che puntano ai dati nel servizio di archiviazione. Non si tratta di copie della dataBy per la creazione di un set di dati Azure Machine Learning, si crea un riferimento al percorso dell'origine dati, insieme a una copia dei relativi metadati. 
 
- Per interagire con i dati nell'archiviazione, [creare un set](how-to-create-register-datasets.md) di dati per creare un pacchetto dei dati in un oggetto utilizzabile per le attività di machine learning. Registrare il set di dati nell'area di lavoro per condividerlo e riutilizzarlo in diversi esperimenti senza complessi di inserimento di dati.
+Poiché i set di dati vengono valutati in modo differito e i dati rimangono nella posizione esistente,
 
-I set di dati possono essere creati da file locali, URL pubblici, set di dati [aperti di Azure](https://azure.microsoft.com/services/open-datasets/)o servizi di archiviazione di Azure tramite archivi dati. Per creare un set di dati da un dataframe Pandas in memoria, scrivere i dati in un file locale, ad esempio un parquet, e creare il set di dati da tale file.  
+* Non sostenere costi di archiviazione aggiuntivi.
+* Non è rischioso modificare involontariamente le origini dati originali.
+* Migliorare le velocità di prestazioni del flusso di lavoro ML.
 
-Sono supportati 2 tipi di set di impostazioni: 
+Per interagire con i dati nell'archiviazione, [creare un set](how-to-create-register-datasets.md) di dati per creare un pacchetto dei dati in un oggetto utilizzabile per le attività di machine learning. Registrare il set di dati nell'area di lavoro per condividerlo e riutilizzarlo in diversi esperimenti senza complessi di inserimento di dati.
+
+I set di dati possono essere creati da file locali, URL pubblici, set di dati [aperti di Azure](https://azure.microsoft.com/services/open-datasets/)o servizi di archiviazione di Azure tramite archivi dati. 
+
+Sono disponibili 2 tipi di set di impostazioni: 
 
 + Un [filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) fa riferimento a uno o più file negli archivi dati o negli URL pubblici. Se i dati sono già puliti e pronti per l'uso negli esperimenti di training, è possibile [scaricare o montare i file](how-to-train-with-datasets.md#mount-files-to-remote-compute-targets) a cui fa riferimento filedatasets nella destinazione di calcolo.
 

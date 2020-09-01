@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.date: 08/20/2020
-ms.openlocfilehash: 3a6ecc44791602ea074ebdd1fdf4e11393e10a4b
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 900e36ec3e508f9d3616cf0c0d19ea4ff067f775
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852151"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144788"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Eseguire il training automatico di un modello di previsione di una serie temporale
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -248,7 +248,6 @@ automl_config = AutoMLConfig(task='forecasting',
 Per abilitare DNN per un esperimento AutoML creato in Azure Machine Learning Studio, vedere le [impostazioni del tipo di attività in studio How-to](how-to-use-automated-ml-for-ml-models.md#create-and-run-experiment).
 
 Machine Learning automatizzato fornisce agli utenti sia i modelli nativi della serie temporale, che i modelli di Deep Learning come parte del sistema di raccomandazione. 
-
 
 Modelli| Descrizione | Vantaggi
 ----|----|---

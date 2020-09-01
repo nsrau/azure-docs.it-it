@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: 3569e5cc25491fd408f7aec57a51d11f56dbd1fe
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.openlocfilehash: ed85678cefe45bbe27595488211173d4fa5418bd
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86145272"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146420"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usare Azure Pipelines per compilare e distribuire soluzioni HPC
 
@@ -28,8 +28,8 @@ In questo esempio verrà creata una pipeline di compilazione e versione per dist
 
 Per seguire la procedura descritta in questo articolo, sono necessari un'organizzazione di Azure DevOps e un progetto team.
 
-* [Creare un'organizzazione di Azure DevOps](/azure/devops/organizations/accounts/create-organization?view=azure-devops)
-* [Creare un progetto in Azure DevOps](/azure/devops/organizations/projects/create-project?view=azure-devops)
+* [Creare un'organizzazione di Azure DevOps](/azure/devops/organizations/accounts/create-organization)
+* [Creare un progetto in Azure DevOps](/azure/devops/organizations/projects/create-projects)
 
 ### <a name="source-control-for-your-environment"></a>Controllo del codice sorgente per l'ambiente
 
@@ -48,7 +48,7 @@ La struttura della codebase usata in questo esempio è simile alla seguente:
 
 Questa sezione presuppone che l'utente abbia familiarità con il controllo della versione e la progettazione di modelli di Resource Manager. Se non si ha familiarità con questi concetti, vedere le pagine seguenti per altre informazioni.
 
-* [What is source control?](/azure/devops/user-guide/source-control?view=azure-devops) (Informazioni sul codice sorgente)
+* [What is source control?](/azure/devops/user-guide/source-control) (Informazioni sul codice sorgente)
 * [Comprendere la struttura e la sintassi dei modelli di Azure Resource Manager](../azure-resource-manager/templates/template-syntax.md)
 
 #### <a name="azure-resource-manager-templates"></a>Modelli di Gestione risorse di Azure
@@ -309,7 +309,7 @@ Ora che il codice sorgente è configurato, è possibile iniziare la prima compil
 
 ## <a name="continuous-integration"></a>Integrazione continua
 
-[Azure Pipelines](/azure/devops/pipelines/get-started/?view=azure-devops), all'interno di Azure DevOps Services, consente di implementare una pipeline di compilazione, test e distribuzione per le applicazioni.
+[Azure Pipelines](/azure/devops/pipelines/get-started/), all'interno di Azure DevOps Services, consente di implementare una pipeline di compilazione, test e distribuzione per le applicazioni.
 
 In questa fase della pipeline, i test vengono in genere eseguiti per convalidare il codice e compilare i componenti del software appropriati. Il numero e i tipi di test e le eventuali attività aggiuntive eseguite dipendono dalla strategia di compilazione e versione più ampia.
 
@@ -323,9 +323,9 @@ In questo esempio si prenderà in esame la cartella **hpc-application**. La cart
 
 1. Per creare una pipeline di compilazione, sono disponibili due opzioni:
 
-    a. [Uso della finestra di progettazione grafica](/azure/devops/pipelines/get-started-designer?view=azure-devops&tabs=new-nav). A tale scopo, fare clic su "Usa la finestra di progettazione grafica" nella pagina **Nuova pipeline**.
+    a. [Uso della finestra di progettazione grafica](/azure/devops/pipelines/get-started-designer). A tale scopo, fare clic su "Usa la finestra di progettazione grafica" nella pagina **Nuova pipeline**.
 
-    b. [Uso delle compilazioni YAML](/azure/devops/pipelines/get-started-yaml?view=azure-devops). È possibile creare una nuova pipeline YAML facendo clic sull'opzione Azure Repos o GitHub nella pagina Nuova pipeline. In alternativa, è possibile archiviare l'esempio seguente nel controllo del codice sorgente e fare riferimento a un file YAML esistente facendo clic sulla finestra di progettazione grafica e quindi usando il modello di YAML.
+    b. [Uso delle compilazioni YAML](/azure/devops/pipelines/get-started-yamls). È possibile creare una nuova pipeline YAML facendo clic sull'opzione Azure Repos o GitHub nella pagina Nuova pipeline. In alternativa, è possibile archiviare l'esempio seguente nel controllo del codice sorgente e fare riferimento a un file YAML esistente facendo clic sulla finestra di progettazione grafica e quindi usando il modello di YAML.
 
     ```yml
     # To publish an application into Azure Batch, we need to
@@ -357,7 +357,7 @@ In questo esempio si prenderà in esame la cartella **hpc-application**. La cart
     ![Visualizzazione degli output live dalla compilazione](media/batch-ci-cd/Build-1.jpg)
 
 > [!NOTE]
-> Se si usa un'applicazione client per eseguire l'applicazione di Azure Batch per HPC, è necessario creare una definizione di compilazione separata per tale applicazione. Per le guide pratiche, vedere la documentazione di [Azure Pipelines](/azure/devops/pipelines/get-started/index?view=azure-devops).
+> Se si usa un'applicazione client per eseguire l'applicazione di Azure Batch per HPC, è necessario creare una definizione di compilazione separata per tale applicazione. Per le guide pratiche, vedere la documentazione di [Azure Pipelines](/azure/devops/pipelines/get-started/index).
 
 ## <a name="continuous-deployment"></a>Distribuzione continua
 

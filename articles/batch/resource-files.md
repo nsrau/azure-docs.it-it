@@ -3,12 +3,12 @@ title: Creazione e utilizzo di file di risorse
 description: Informazioni su come creare file di risorse di Batch da varie origini di input. Questo articolo illustra alcuni metodi comuni per creare tali file e inserirli in una macchina virtuale.
 ms.date: 03/18/2020
 ms.topic: how-to
-ms.openlocfilehash: 481ac8843f871f9f1eaa61e782e273e27715a473
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: e1bf7520774a0f4143aadd2298f300b3ac5c75a3
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85964023"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146301"
 ---
 # <a name="creating-and-using-resource-files"></a>Creazione e utilizzo di file di risorse
 
@@ -50,7 +50,7 @@ SharedAccessBlobPolicy sasConstraints = new SharedAccessBlobPolicy
 > [!NOTE]
 > Per l'accesso al contenitore è necessario disporre di entrambe le autorizzazioni `Read` e `List`, mentre con l'accesso al BLOB è necessaria solo l'autorizzazione `Read`.
 
-Una volta configurate le autorizzazioni, creare il token SAS e formattare l'URL SAS per accedere al contenitore di archiviazione. Usando l'URL SAS formattato per il contenitore di archiviazione, generare un file di risorse con [`FromStorageContainerUrl`](/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl?view=azure-dotnet).
+Una volta configurate le autorizzazioni, creare il token SAS e formattare l'URL SAS per accedere al contenitore di archiviazione. Usando l'URL SAS formattato per il contenitore di archiviazione, generare un file di risorse con [`FromStorageContainerUrl`](/dotnet/api/microsoft.azure.batch.resourcefile.fromstoragecontainerurl).
 
 ```csharp
 CloudBlobContainer container = blobClient.GetContainerReference(containerName);
@@ -99,7 +99,7 @@ Se ogni attività dispone di molti file univoci per tale attività, i file di ri
 
 Se in un'attività sono specificate diverse centinaia di file di risorse, Batch potrebbe rifiutare l'attività perché considerata troppo grande. È preferibile mantenere l'attività di piccole dimensioni riducendo al minimo il numero di file di risorse presenti in essa.
 
-Se non è possibile ridurre al minimo il numero di file necessari per l'attività, ottimizzare l'attività creando un unico file di risorse che fa riferimento a un contenitore di archiviazione dei file di risorse. A tale scopo, inserire i file di risorse in un contenitore di Archiviazione di Azure e usare i diversi [metodi](/dotnet/api/microsoft.azure.batch.resourcefile?view=azure-dotnet#methods) "container" per i file di risorse. Usare le opzioni del prefisso BLOB per specificare le raccolte di file da scaricare per le attività.
+Se non è possibile ridurre al minimo il numero di file necessari per l'attività, ottimizzare l'attività creando un unico file di risorse che fa riferimento a un contenitore di archiviazione dei file di risorse. A tale scopo, inserire i file di risorse in un contenitore di Archiviazione di Azure e usare i diversi [metodi](/dotnet/api/microsoft.azure.batch.resourcefileazure-dotnet#methods) "container" per i file di risorse. Usare le opzioni del prefisso BLOB per specificare le raccolte di file da scaricare per le attività.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

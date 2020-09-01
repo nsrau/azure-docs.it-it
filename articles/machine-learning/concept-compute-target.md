@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 27c129af9fbf3e76c6c57fbf084596876b51955b
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 805141dedddcd915d266c9651fc51732fb51e1b0
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141926"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146734"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Che cosa sono le destinazioni di calcolo in Azure Machine Learning? 
 
@@ -33,7 +33,7 @@ Azure Machine Learning offre un supporto variabile tra le diverse risorse di cal
 
 [!INCLUDE [aml-compute-target-train](../../includes/aml-compute-target-train.md)]
 
-Altre informazioni sulla [configurazione e l'uso di una destinazione di calcolo per il training del modello](how-to-set-up-training-targets.md).
+Altre informazioni sull' [uso di una destinazione di calcolo per il training del modello](how-to-set-up-training-targets.md).
 
 ## <a name="deployment-targets"></a><a name="deploy"></a>Destinazioni della distribuzione
 
@@ -46,10 +46,10 @@ Informazioni su [dove e come distribuire il modello in una destinazione di calco
 <a name="amlcompute"></a>
 ## <a name="azure-machine-learning-compute-managed"></a>Calcolo Azure Machine Learning (gestito)
 
-Una risorsa di calcolo gestita viene creata e gestita da Azure Machine Learning. Questo calcolo è ottimizzato per i carichi di lavoro di machine learning. Azure Machine Learning i cluster di calcolo e le [istanze di calcolo](concept-compute-instance.md) sono gli unici calcoli gestiti. In futuro potrebbero essere aggiunte risorse di calcolo gestite aggiuntive.
+Una risorsa di calcolo gestita viene creata e gestita da Azure Machine Learning. Questo calcolo è ottimizzato per i carichi di lavoro di machine learning. Azure Machine Learning i cluster di calcolo e le [istanze di calcolo](concept-compute-instance.md) sono gli unici calcoli gestiti. 
 
 È possibile creare Azure Machine Learning istanze di calcolo o cluster di calcolo da:
-* Azure Machine Learning Studio
+* [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
 * Portale di Azure
 * Classi [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) e [AMLCOMPUTE](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) per Python SDK
 * [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (anteprima)
@@ -68,7 +68,7 @@ Quando vengono create, queste risorse di calcolo fanno automaticamente parte del
 
 
 > [!NOTE]
-> Quando un cluster di calcolo è inattivo, viene ridimensionato automaticamente a 0 nodi, quindi non si paga se non è in uso.  Un' *istanza*di calcolo, tuttavia, è sempre attiva e non esegue la scalabilità automatica.  È necessario [arrestare l'istanza di calcolo](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) quando non viene usata per evitare costi aggiuntivi.
+> Quando un cluster di calcolo è inattivo, viene ridimensionato automaticamente a 0 nodi, quindi non si paga se non è in uso.  Un' *istanza*di calcolo, tuttavia, è sempre attiva e non esegue la scalabilità automatica.  È necessario [arrestare l'istanza di calcolo](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) quando non viene usata per evitare costi aggiuntivi. 
 
 ### <a name="supported-vm-series-and-sizes"></a>Serie e dimensioni di macchine virtuali supportate
 
@@ -82,19 +82,19 @@ Vedere la tabella seguente per altre informazioni sulle restrizioni e sulle seri
 
 | **Serie di macchine virtuali supportate**  | **Restrizioni** |
 |------------|------------|
-| D | nessuno |
-| Dv2 | nessuno |  
-| DSv2 | nessuno |  
-| FSv2 | nessuno | 
+| D | Nessuno |
+| Dv2 | Nessuno |  
+| DSv2 | Nessuno |  
+| FSv2 | Nessuno | 
 | HBv2 | Richiede approvazione |  
 | Servizio di elaborazione host | Richiede approvazione |  
 | M | Richiede approvazione |
-| NC | nessuno |    
+| NC | Nessuno |    
 | NCsv2 | Richiede approvazione |
 | NCsv3 | Richiede approvazione |  
 | NDs | Richiede approvazione |
 | NDv2 | Richiede approvazione |
-| NV | nessuno |
+| NV | Nessuno |
 | NVv3 | Richiede approvazione | 
 
 
@@ -107,5 +107,5 @@ Una destinazione di calcolo *non gestita non* è gestita da Azure Machine Learni
 ## <a name="next-steps"></a>Passaggi successivi
 
 Viene illustrato come:
-* [Configurare una destinazione di calcolo per il training del modello](how-to-set-up-training-targets.md)
+* [Usare una destinazione di calcolo per eseguire il training del modello](how-to-set-up-training-targets.md)
 * [Distribuire il modello in una destinazione di calcolo](how-to-deploy-and-where.md)

@@ -4,23 +4,23 @@ description: Informazioni su come montare un file system virtuale in un pool Bat
 ms.topic: how-to
 ms.custom: devx-track-csharp
 ms.date: 08/13/2019
-ms.openlocfilehash: 6b42d73954bf7ccaedfec15371cc73115c51198a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: df03275fdeea88df1a2f2b6e2cda55021497cdf7
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88921631"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145485"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Montare un file system virtuale in un pool Batch
 
 Azure Batch supporta ora il montaggio dell'archiviazione cloud o di un file system esterno nei nodi di calcolo Windows o Linux nei pool di Batch. Quando un nodo di calcolo viene aggiunto a un pool, il file system virtuale viene montato e considerato come un'unità locale in tale nodo. È possibile montare diversi tipi di file system, ad esempio File di Azure, archiviazione BLOB di Azure, NFS (Network File System) o anche una [cache Avere vFXT](../avere-vfxt/avere-vfxt-overview.md) o il servizio CIFS (Common Internet file System).
 
-In questo articolo si apprenderà come montare un file system virtuale in un pool di nodi di calcolo usando la [libreria di gestione Batch per .NET](/dotnet/api/overview/azure/batch?view=azure-dotnet).
+In questo articolo si apprenderà come montare un file system virtuale in un pool di nodi di calcolo usando la [libreria di gestione Batch per .NET](/dotnet/api/overview/azure/batch).
 
 > [!NOTE]
 > Il montaggio di un file system virtuale è supportato nei pool Batch creati il 19 agosto 2019 o successivamente. I pool Batch creati prima del 19 agosto 2019 non supportano questa funzionalità.
 > 
-> Le API per il montaggio dei file system in un nodo di calcolo sono parte della raccolta [Batch .NET](/dotnet/api/microsoft.azure.batch?view=azure-dotnet).
+> Le API per il montaggio dei file system in un nodo di calcolo sono parte della raccolta [Batch .NET](/dotnet/api/microsoft.azure.batch).
 
 ## <a name="benefits-of-mounting-on-a-pool"></a>Vantaggi del montaggio in un pool
 

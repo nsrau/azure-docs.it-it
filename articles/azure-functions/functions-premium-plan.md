@@ -3,15 +3,15 @@ title: Piano Premium di funzioni di Azure
 description: Dettagli e opzioni di configurazione (VNet, nessun avvio a freddo, durata di esecuzione illimitata) per il piano Premium di funzioni di Azure.
 author: jeffhollan
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 08/28/2020
 ms.author: jehollan
 ms.custom: references_regions
-ms.openlocfilehash: 5ab506c57a78c67b33b888f1f50d83fe9813d0af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 4f6e2008cad66ce7cd68016d3873ecbc18b1961c
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506197"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145751"
 ---
 # <a name="azure-functions-premium-plan"></a>Piano Premium di funzioni di Azure
 
@@ -36,21 +36,42 @@ Dopo aver creato il piano, è possibile usare il comando [AZ functionapp create]
 
 Per le app per le funzioni distribuite in un piano Premium sono disponibili le funzionalità seguenti.
 
-### <a name="pre-warmed-instances"></a>Istanze pre-riscaldate
+### <a name="always-ready-instances"></a>Istanze sempre pronte
 
 Se attualmente non si verificano eventi ed esecuzioni nel piano a consumo, l'app può essere ridimensionata a zero istanze. Quando vengono rilasciati nuovi eventi, è necessario specializzare una nuova istanza con l'app in esecuzione su di essa.  La specializzazione di nuove istanze può richiedere del tempo a seconda dell'app.  Questa latenza aggiuntiva alla prima chiamata viene spesso chiamata avvio a freddo dell'app.
 
-Nel piano Premium è possibile fare in modo che l'app sia già riscaldata su un numero specificato di istanze, fino alla dimensione minima del piano.  Le istanze pre-surriscaldate consentono inoltre di pre-ridimensionare un'app prima di un carico elevato. Quando l'app viene scalata in orizzontale, viene prima di tutto ridimensionata nelle istanze pre-riscaldate. Altre istanze continuano a eseguire il buffering e a caldo immediatamente in preparazione per l'operazione di ridimensionamento successiva. Grazie alla presenza di un buffer di istanze già riscaldate, è possibile evitare latenze di avvio a freddo.  Le istanze pre-riscaldate sono una funzionalità del piano Premium ed è necessario che almeno un'istanza sia in esecuzione e disponibile in qualsiasi momento il piano sia attivo.
+Nel piano Premium è possibile fare in maniera che l'app sia sempre pronta per un numero specificato di istanze.  Il numero massimo di istanze sempre pronte è 20.  Quando gli eventi iniziano ad attivare l'app, vengono indirizzati alle istanze sempre pronte.  Quando la funzione diventa attiva, le istanze aggiuntive verranno scaldate come buffer.  Questo buffer impedisce l'avvio a freddo per le nuove istanze richieste durante la scalabilità.  Queste istanze memorizzate nel buffer sono denominate [istanze pre-surriscaldate](#pre-warmed-instances).  Con la combinazione delle istanze sempre pronte e di un buffer già riscaldato, l'app può eliminare efficacemente l'avvio a freddo.
 
-È possibile configurare il numero di istanze pre-riscaldate nel portale di Azure selezionando il **app per le funzioni**, passando alla scheda **funzionalità della piattaforma** e selezionando le opzioni di **scale out** . Nella finestra di modifica dell'app per le funzioni, le istanze pre-riscaldate sono specifiche dell'app, ma le istanze minime e massime si applicano all'intero piano.
+> [!NOTE]
+> Ogni piano Premium avrà sempre almeno un'istanza attiva e fatturata.
+
+È possibile configurare il numero di istanze sempre pronte nel portale di Azure selezionando il **app per le funzioni**, passando alla scheda **funzionalità della piattaforma** e selezionando le opzioni di **scale out** . Nella finestra di modifica dell'app per le funzioni, le istanze sempre pronte sono specifiche dell'app.
 
 ![Impostazioni di scalabilità elastica](./media/functions-premium-plan/scale-out.png)
 
-È anche possibile configurare istanze pre-surriscaldate per un'app con l'interfaccia della riga di comando di Azure.
+È anche possibile configurare le istanze sempre pronte per un'app con l'interfaccia della riga di comando di Azure.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.minimumElasticInstanceCount=<desired_always_ready_count> --resource-type Microsoft.Web/sites 
 ```
+
+#### <a name="pre-warmed-instances"></a>Istanze pre-riscaldate
+
+Le istanze pre-riscaldate sono il numero di istanze scaldate come buffer durante gli eventi di scalabilità e attivazione.  Le istanze pre-surriscaldate continuano a essere memorizzate nel buffer fino a quando non viene raggiunto il limite massimo di scalabilità orizzontale.  Il numero predefinito di istanze pre-riscaldate è 1 e per la maggior parte degli scenari deve rimanere come 1.  Se un'app ha un tempo di riscaldamento prolungato (ad esempio un'immagine del contenitore personalizzata), è possibile aumentare questo buffer.  Un'istanza pre-riscaldata diventerà attiva solo dopo che tutte le istanze attive saranno state sufficientemente utilizzate.
+
+Si consideri questo esempio del modo in cui le istanze sempre pronte e quelle pre-surriscaldate interagiscono.  Per un'app per le funzioni Premium sono state configurate cinque istanze sempre pronte e il valore predefinito di un'istanza con riscaldamento.  Quando l'app è inattiva e non viene attivato alcun evento, l'app viene sottoposta a provisioning e in esecuzione in cinque istanze.  
+
+Non appena viene introdotto il primo trigger, le cinque istanze sempre pronte diventano attive e viene allocata un'istanza aggiuntiva pre-riscaldata.  L'app viene ora eseguita con sei istanze di cui è stato effettuato il provisioning: le cinque istanze always ready attive e il sesto buffer preriscaldato e inattivo.  Se la frequenza delle esecuzioni continua ad aumentare, verranno utilizzate le cinque istanze attive.  Quando la piattaforma decide di scalare oltre cinque istanze, verrà ridimensionata nell'istanza pre-riscaldata.  In tal caso, saranno presenti sei istanze attive e verrà eseguito immediatamente il provisioning di una settima istanza e verrà riempito il buffer pre-riscaldato.  Questa sequenza di ridimensionamento e pre-riscaldamento continuerà fino a raggiungere il numero massimo di istanze per l'app.  Nessuna istanza verrà pre-riscaldata o attivata oltre il valore massimo.
+
+È possibile modificare il numero di istanze pre-surriscaldate per un'app usando l'interfaccia della riga di comando di Azure.
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.preWarmedInstanceCount=<desired_prewarmed_count> --resource-type Microsoft.Web/sites 
+```
+
+#### <a name="maximum-instances-for-an-app"></a>Numero massimo di istanze per un'app
+
+Oltre al [numero massimo di istanze del piano](#plan-and-sku-settings), è possibile configurare un valore massimo per app.  Il numero massimo di app può essere configurato usando il [limite di scalabilità dell'app](./functions-scale.md#limit-scale-out).
 
 ### <a name="private-network-connectivity"></a>Connettività di rete privata
 
@@ -68,16 +89,13 @@ Per altre informazioni sul funzionamento della scalabilità, vedere [scalabilit�
 
 ### <a name="longer-run-duration"></a>Durata dell'esecuzione più lunga
 
-Per una singola esecuzione, le funzioni di Azure in un piano a consumo sono limitate a 10 minuti.  Nel piano Premium, per la durata dell'esecuzione viene impostato un valore predefinito di 30 minuti per impedire l'esecuzione di Runaway. Tuttavia, è possibile [modificare la host.jsnella configurazione](./functions-host-json.md#functiontimeout) per rendere questa operazione non vincolata per le app del piano Premium (garantita 60 minuti).
+Per una singola esecuzione, le funzioni di Azure in un piano a consumo sono limitate a 10 minuti.  Nel piano Premium, per la durata dell'esecuzione viene impostato un valore predefinito di 30 minuti per impedire l'esecuzione di Runaway. Tuttavia, è possibile [modificare il host.jsnella configurazione](./functions-host-json.md#functiontimeout) per rendere la durata non vincolata per le app del piano Premium (garantita 60 minuti).
 
 ## <a name="plan-and-sku-settings"></a>Impostazioni del piano e dello SKU
 
-Quando si crea il piano, si configurano due impostazioni: il numero minimo di istanze (o le dimensioni del piano) e il limite massimo di picchi.  Le istanze minime sono riservate e sempre in esecuzione.
+Quando si crea il piano, sono disponibili due impostazioni relative alle dimensioni del piano, ovvero il numero minimo di istanze (o le dimensioni del piano) e il limite massimo di picchi.
 
-> [!IMPORTANT]
-> Viene addebitato il costo di ogni istanza allocata nel numero minimo di istanze indipendentemente dall'esecuzione delle funzioni.
-
-Se l'app richiede istanze oltre le dimensioni del piano, può continuare a eseguire la scalabilità orizzontale finché il numero di istanze raggiunge il limite massimo di picchi.  Vengono addebitati i costi per le istanze oltre le dimensioni del piano solo quando sono in esecuzione e affittate all'utente.  Verrà effettuato il massimo sforzo per la scalabilità dell'app al limite massimo definito, mentre le istanze del piano minimo sono garantite per l'app.
+Se l'app richiede istanze che superano le istanze sempre pronte, può continuare a eseguire la scalabilità orizzontale finché il numero di istanze raggiunge il limite massimo di picchi.  Vengono addebitati i costi per le istanze oltre le dimensioni del piano solo quando sono in esecuzione e affittate all'utente.  Per il ridimensionamento dell'app in base al limite massimo definito, si farà il possibile.
 
 È possibile configurare le dimensioni del piano e i valori massimi nel portale di Azure selezionando le opzioni **scale out** nel piano o in un'app per le funzioni distribuita in tale piano (in **funzionalità della piattaforma**).
 
@@ -85,6 +103,19 @@ Se l'app richiede istanze oltre le dimensioni del piano, può continuare a esegu
 
 ```azurecli-interactive
 az resource update -g <resource_group> -n <premium_plan_name> --set properties.maximumElasticWorkerCount=<desired_max_burst> --resource-type Microsoft.Web/serverfarms 
+```
+
+Il valore minimo per ogni piano sarà almeno un'istanza.  Il numero minimo effettivo di istanze verrà configurato automaticamente in base alle istanze sempre pronte richieste dalle app del piano.  Ad esempio, se l'app A richiede cinque istanze sempre pronte e l'app B richiede due istanze sempre pronte nello stesso piano, le dimensioni minime del piano verranno calcolate come cinque.  L'app A verrà eseguita in tutti i 5 e l'app B verrà eseguita solo su 2.
+
+> [!IMPORTANT]
+> Viene addebitato il costo di ogni istanza allocata nel numero minimo di istanze indipendentemente dall'esecuzione delle funzioni.
+
+Nella maggior parte dei casi questo valore minimo calcolato automaticamente dovrebbe essere sufficiente.  Tuttavia, il ridimensionamento oltre il minimo si verifica al massimo sforzo.  È possibile, anche se improbabile, che in un determinato momento la scalabilità orizzontale venga posticipata se non sono disponibili istanze aggiuntive.  Impostando un valore minimo superiore al minimo calcolato automaticamente, le istanze vengono riservate in anticipo rispetto alla scalabilità orizzontale.
+
+L'aumento del valore minimo calcolato per un piano può essere eseguito usando l'interfaccia della riga di comando di Azure.
+
+```azurecli-interactive
+az resource update -g <resource_group> -n <premium_plan_name> --set sku.capacity=<desired_min_instances> --resource-type Microsoft.Web/serverfarms 
 ```
 
 ### <a name="available-instance-skus"></a>SKU di istanze disponibili
@@ -108,7 +139,7 @@ Di seguito sono riportati i valori di scalabilità orizzontale massimi attualmen
 
 Vedere la disponibilità completa a livello di area delle funzioni qui: [Azure.com](https://azure.microsoft.com/global-infrastructure/services/?products=functions)
 
-|Region| Windows | Linux |
+|Area| Windows | Linux |
 |--| -- | -- |
 |Australia centrale| 20 | Non disponibile |
 |Australia centrale 2| 20 | Non disponibile |
@@ -137,7 +168,7 @@ Vedere la disponibilità completa a livello di area delle funzioni qui: [Azure.c
 |India occidentale| 100 | 20 |
 |Stati Uniti centro-occidentali| 20 | 20 |
 |Stati Uniti occidentali| 100 | 20 |
-|Stati Uniti occidentali 2| 100 | 20 |
+|West US 2| 100 | 20 |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

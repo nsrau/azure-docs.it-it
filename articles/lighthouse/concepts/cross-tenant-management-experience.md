@@ -3,12 +3,12 @@ title: Esperienze di gestione tra tenant
 description: La gestione risorse delegate di Azure consente un'esperienza di gestione tra tenant.
 ms.date: 08/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0ad1c0944076f24363961da21ee347dbd7c0239c
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 41e93f2a6a9fb21720dd2348dd611160b05b65c0
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88163510"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146913"
 ---
 # <a name="cross-tenant-management-experiences"></a>Esperienze di gestione tra tenant
 
@@ -35,7 +35,7 @@ Azure Lighthouse consente una maggiore flessibilità nella gestione delle risors
 
 Il [cmdlet Azure PowerShell Get-AzSubscription](/powershell/module/Az.Accounts/Get-AzSubscription) Mostra gli `HomeTenantId` `ManagedByTenantIds` attributi e per ogni sottoscrizione, consentendo di identificare se una sottoscrizione restituita appartiene a un tenant gestito o al tenant di gestione.
 
-Analogamente, i comandi dell'interfaccia della riga di comando di Azure come [AZ account list](/cli/azure/account?view=azure-cli-latest#az-account-list) mostrano gli `homeTenantId` `managedByTenants` attributi e.
+Analogamente, i comandi dell'interfaccia della riga di comando di Azure come [AZ account list](/cli/azure/account#az-account-list) mostrano gli `homeTenantId` `managedByTenants` attributi e.
 
 > [!TIP]
 > Se, quando si usa l'interfaccia della riga di comando di Azure, questi valori non vengono visualizzati, provare a cancellare la cache eseguendo `az account clear` seguito da `az login --identity`.

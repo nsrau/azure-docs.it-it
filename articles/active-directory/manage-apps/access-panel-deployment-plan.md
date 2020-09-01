@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: kenwith
-ms.openlocfilehash: 009818c9b208f5f464949f5e3ffe1404e509ac4b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0bff283b8e9c0c753100c635ecd4451b467c206d
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017720"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146624"
 ---
 # <a name="plan-an-azure-active-directory-my-apps-deployment"></a>Pianificare un Azure Active Directory la distribuzione di app personali
 
@@ -55,11 +55,8 @@ Azure AD le mie app sono utili per le aziende nei modi seguenti:
 Le mie app sono gratuite e non richiedono licenze da usare a livello di base. Tuttavia, il numero di oggetti nella directory e le funzionalità aggiuntive che si desidera distribuire possono richiedere licenze aggiuntive. Alcuni scenari comuni di Azure AD con requisiti di licenza includono le funzionalità di sicurezza seguenti:
 
 * [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
-
 * [Appartenenza basata sui gruppi](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
-
 * [Reimpostazione della password self-service](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
-
 * [Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 
 Vedere la [Guida completa alle licenze per Azure ad](https://azure.microsoft.com/pricing/details/active-directory/).
@@ -69,7 +66,6 @@ Vedere la [Guida completa alle licenze per Azure ad](https://azure.microsoft.com
 Prima di iniziare questo progetto, completare i prerequisiti seguenti:
 
 * [Integra applicazione SSO](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
-
 * [Gestire Azure AD infrastruttura di utenti e gruppi](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 
 ## <a name="plan-azure-ad-my-apps-deployment"></a>Pianificare Azure AD la distribuzione di app personali
@@ -139,7 +135,6 @@ Gli utenti o gli amministratori devono acconsentire alle condizioni per l'utiliz
 Per utilizzare il consenso dell'amministratore, è necessario essere un amministratore globale dell'organizzazione e che le applicazioni siano:
 
 * Registrato nell'organizzazione
-
 * Registrato in un'altra organizzazione Azure AD e consentiti in precedenza da almeno un utente
 
 Per altre informazioni, vedere [configurare il modo in cui gli utenti finali acconsentono a un'applicazione in Azure Active Directory](configure-user-consent.md).
@@ -180,9 +175,7 @@ Quando gli utenti accedono alle applicazioni SSO basate su password, devono inst
 Se è necessario integrare applicazioni SSO basate su password, è necessario definire un meccanismo per distribuire l'estensione su larga scala con i [browser supportati](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction). Le opzioni includono:
 
 * [Criteri di gruppo per Internet Explorer](https://azure.microsoft.com/documentation/articles/active-directory-saas-ie-group-policy/)
-
 * [Configuration Manager per Internet Explorer](https://docs.microsoft.com/configmgr/core/clients/deploy/deploy-clients-to-windows-computers)
-
 * [Download e configurazione basati sull'utente per Chrome, Firefox, Microsoft Edge o IE](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)
 
 Anche gli utenti che non usano applicazioni SSO basate su password traggono vantaggio dall'estensione. Questi vantaggi includono la possibilità di avviare qualsiasi app dalla relativa barra di ricerca, trovare l'accesso alle applicazioni utilizzate di recente e avere un collegamento alla pagina App personali.
@@ -294,7 +287,6 @@ I test seguenti devono essere eseguiti con i dispositivi di proprietà dell'azie
 
 #### <a name="application-self-service-capabilities-test-case-examples"></a>Esempi di funzionalità self-service per le applicazioni test case
 
-
 | Caso aziendale| Risultato previsto |
 | - | - |
 | L'utente può gestire l'appartenenza all'applicazione| L'utente può aggiungere/rimuovere membri che hanno accesso all'app |
@@ -319,22 +311,5 @@ Utilizzare il ruolo con privilegi minimi per eseguire un'attività obbligatoria 
 
 È possibile usare [Privileged Identity Management](../privileged-identity-management/pim-configure.md) per gestire i ruoli per fornire controllo, controllo e verifica di accesso aggiuntivi per gli utenti con autorizzazioni di directory.
 
-### <a name="troubleshoot-my-apps-issues"></a>Risolvere i problemi relativi alle app personali
-
-Creare guide per la risoluzione dei problemi per l'organizzazione di supporto con scenari comuni, che fanno riferimento alla documentazione Microsoft nelle loro soluzioni. Potrebbe essere necessario creare guide che interrompano il supporto nei livelli utilizzati dall'organizzazione.
-
-Per informazioni di riferimento, vedere la guida alla risoluzione dei problemi:
-
-[Applicazioni non visualizzate](access-panel-troubleshoot-application-not-appearing.md)
-
-[Visualizzazione di applicazioni impreviste](access-panel-troubleshoot-unexpected-application.md)
-
-[L'utente non può accedere ad app personali](access-panel-troubleshoot-web-sign-in-problem.md)
-
-[Problemi con l'accesso alle applicazioni self-service](access-panel-troubleshoot-self-service-access.md)
-
-[Problemi relativi all'estensione del browser](manage-access-panel-browser-extension.md)
-
 ## <a name="next-steps"></a>Passaggi successivi
-
 [Pianificare una distribuzione di Azure Multi-Factor Authentication](https://aka.ms/deploymentplans/mfa)

@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 1ebba13de14935d931d5d21ab786889d9a3755da
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1204435a5f1d7a48fceb654df10b8394d6f5df50
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86500311"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89146641"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Supporto per le macchine virtuali di seconda generazione in Azure
 
@@ -30,6 +30,8 @@ Le macchine virtuali di prima generazione sono supportate da tutte le dimensioni
 * [Serie B](../sizes-b-series-burstable.md)
 * [Serie DCsv2](../dcv2-series.md)
 * [Serie DSv2](../dv2-dsv2-series.md) e [Serie Dsv3](../dv3-dsv3-series.md)
+* [Serie Dsv4](../dv4-dsv4-series.md)
+* [Serie Ddsv4](../ddv4-ddsv4-series.md)
 * [Serie Dasv4](../dav4-dasv4-series.md)
 * [Serie Esv3](../ev3-esv3-series.md)
 * [Serie Easv4](../eav4-easv4-series.md)

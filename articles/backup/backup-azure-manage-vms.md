@@ -3,12 +3,12 @@ title: Gestire e monitorare i backup delle macchine virtuali di Azure
 description: Informazioni su come gestire e monitorare i backup delle macchine virtuali di Azure usando il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 707558b8ad28f7a8a17e24e57f97fda064d0f238
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5a677221f16d00c19ee7083b72540ac7e1bb9cd0
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88999343"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145434"
 ---
 # <a name="manage-azure-vm-backups-with-azure-backup-service"></a>Gestire i backup delle macchine virtuali di Azure con il servizio backup di Azure
 
@@ -121,7 +121,7 @@ Esistono due modi per arrestare la protezione di una macchina virtuale:
 * **Arrestare la protezione ed eliminare i dati di backup**. Questa opzione consente di arrestare tutti i processi di backup futuri dalla protezione della macchina virtuale ed eliminare tutti i punti di ripristino. Non sarà possibile ripristinare la macchina virtuale né usare l'opzione *Riprendi backup* .
 
 >[!NOTE]
->Se si elimina un'origine dati senza arrestare i backup, i nuovi backup avranno esito negativo. I punti di ripristino precedenti scadranno in base ai criteri, ma un ultimo punto di ripristino verrà sempre mantenuto fino a quando non si arrestano i backup ed eliminano i dati.
+>Se si elimina un'origine dati senza arrestare i backup, i nuovi backup avranno esito negativo. I punti di ripristino precedenti scadranno in base ai criteri, ma il punto di ripristino più recente verrà sempre mantenuto fino a quando non si arrestano i backup ed eliminano i dati.
 >
 
 ### <a name="stop-protection-and-retain-backup-data"></a>Arrestare la protezione e conservare i dati di backup
@@ -187,8 +187,8 @@ Per proteggere i dati, backup di Azure include la funzionalità di eliminazione 
 ### <a name="backup-item-where-primary-data-source-no-longer-exists"></a>Elemento di backup in cui l'origine dati primaria non esiste più
 
 * Se le macchine virtuali di Azure configurate per backup di Azure vengono eliminate o spostate senza arrestare la protezione, i processi di backup pianificati e su richiesta (ad-hoc) avranno esito negativo con l'errore UserErrorVmNotFoundV2. Il controllo preliminare di backup verrà visualizzato come critico solo per i processi di backup su richiesta non riusciti (i processi pianificati non riusciti non vengono visualizzati).
-* Questi elementi di backup rimangono attivi nel sistema rispettando i criteri di backup e conservazione impostati dall'utente. I dati di cui è stato eseguito il backup per queste macchine virtuali di Azure verranno conservati in base ai criteri di conservazione. I punti di ripristino scaduti, ad eccezione dell'ultimo punto di ripristino, vengono puliti in base al periodo di mantenimento dati impostato nei criteri di backup.
-* Si consiglia di eliminare gli elementi di backup in cui l'origine dati primaria non esiste più per evitare costi aggiuntivi, se l'elemento o i dati di backup per le risorse di eliminazione non sono più necessari, perché l'ultimo punto di ripristino viene mantenuto per sempre e l'utente viene addebitato in base ai prezzi di backup applicabili.
+* Questi elementi di backup rimangono attivi nel sistema rispettando i criteri di backup e conservazione impostati dall'utente. I dati di cui è stato eseguito il backup per queste macchine virtuali di Azure verranno conservati in base ai criteri di conservazione. I punti di ripristino scaduti, ad eccezione del punto di ripristino più recente, vengono puliti in base al periodo di mantenimento dati impostato nei criteri di backup.
+* Si consiglia di eliminare gli elementi di backup in cui l'origine dati primaria non esiste più per evitare costi aggiuntivi, se l'elemento o i dati di backup per le risorse di eliminazione non sono più necessari, perché il punto di ripristino più recente viene mantenuto per sempre e l'utente viene addebitato in base ai prezzi di backup applicabili.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

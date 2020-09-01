@@ -4,12 +4,12 @@ description: Informazioni sullo sviluppo di funzioni con Java.
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.custom: devx-track-java
-ms.openlocfilehash: ffdb6ee9747c76e7f4a6ff3e2f7b65ae96f53fb4
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 1dd98ede537321403053e2e7c8a5f4f7272665d4
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810089"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144924"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Guida per sviluppatori Java per Funzioni di Azure
 
@@ -144,14 +144,16 @@ La tabella seguente mostra le versioni Java supportate correnti per ogni version
 
 | Versione di Funzioni | Versioni Java (Windows) | Versioni Java (Linux) |
 | ----- | ----- | --- |
-| 3.x | 11 (anteprima)<br/>8<sup>\*</sup> | 11 (anteprima)<br/>8 |
+| 3.x | 11 (anteprima)<br/>8 | 11 (anteprima)<br/>8 |
 | 2.x | 8 | n/d |
 
-<sup>\*</sup>Si tratta dell'impostazione predefinita corrente della pom.xml generata dall'archetipo Maven.
+A meno che non si specifichi una versione Java per la distribuzione, l'archetipo di Maven viene impostato su Java 8 durante la distribuzione in Azure.
 
 ### <a name="specify-the-deployment-version"></a>Specificare la versione della distribuzione
 
-Attualmente, l'archetipo Maven genera un pom.xml destinato a Java 8. Per creare un'app per le funzioni che esegue Java 11, è necessario aggiornare gli elementi seguenti in pom.xml.
+È possibile controllare la versione di Java a cui è destinato l'archetipo Maven usando il `-DjavaVersion` parametro. Il valore di questo parametro può essere etere `8` o `11` . Il supporto Java 11 è attualmente in fase di anteprima. 
+
+L'archetipo Maven genera un pom.xml destinato alla versione Java specificata. Gli elementi seguenti in pom.xml indicano la versione di Java da usare:
 
 | Elemento |  Valore Java 8 | Valore Java 11 | Descrizione |
 | ---- | ---- | ---- | --- |
