@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 85f600c8bd46e699e80bf7b596574dc01467ef79
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dbbc86b44c95219677b520cc54fbad51be06104a
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67109308"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182412"
 ---
 # <a name="determine-hybrid-identity-lifecycle-adoption-strategy"></a>Determinare la strategia di adozione del ciclo di vita della soluzione ibrida di gestione delle identità
 In questa attività verrà definita la strategia di gestione delle identità in modo che la soluzione ibrida soddisfi i requisiti aziendali definiti in [Determinare le attività della gestione ibrida delle identità](plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md).
@@ -41,8 +41,8 @@ Nelle aziende IT sofisticate gli account includono centinaia di parametri che de
 | Gestione e provisioning degli account |Il ruolo del server Servizi di dominio Active Directory® consente di creare un'infrastruttura scalabile, sicura e gestibile per la gestione di utenti e risorse, nonché di fornire supporto per le applicazioni abilitate per le directory, ad esempio Microsoft® Exchange Server. <br><br> [È possibile eseguire il provisioning dei gruppi in Servizi di dominio Active Directory tramite un Identity manager](https://technet.microsoft.com/library/ff686261.aspx) <br>[Puoi effettuare il provisioning degli utenti in servizi di dominio](https://technet.microsoft.com/library/ff686263.aspx) <br><br>  Gli amministratori possono usare il controllo di accesso per gestire l'accesso degli utenti alle risorse condivise per motivi di sicurezza. In Active Directory il controllo di accesso è gestito a livello di oggetto impostando diversi livelli di accesso, o autorizzazioni, agli oggetti, ad esempio Controllo completo, Scrittura, Lettura o Nessun accesso. Il controllo di accesso in Active Directory definisce il modo in cui gli utenti possono usare gli oggetti di Active Directory. Per impostazione predefinita, le autorizzazioni sugli oggetti in Active Directory sono configurate sull'impostazione più sicura. |È necessario creare un account per ogni utente che accederà a un servizio cloud Microsoft. È anche possibile modificare gli account utente oppure eliminarli quando non sono più necessari. Per impostazione predefinita, gli utenti non hanno autorizzazioni di amministratore, ma è possibile scegliere facoltativamente di assegnarle. <br><br>  In Azure Active Directory una delle caratteristiche principali è la possibilità di gestire l'accesso alle risorse. Queste risorse possono far parte della directory, come nel caso delle autorizzazioni per gestire oggetti tramite i ruoli nella directory, o delle risorse esterne alla directory, come ad esempio le applicazioni SaaS, i servizi di Azure e i siti di SharePoint o delle risorse locali. <br><br>  L'elemento principale della soluzione per la gestione degli accessi di Azure Active Directory è il gruppo di sicurezza. Il proprietario della risorsa (o l'amministratore della directory) può assegnare ad un gruppo il compito di fornire un determinato diritto di accesso per le risorse che possiede. Ai membri del gruppo verrà fornito l'accesso e il proprietario della risorsa può delegare il diritto di gestire l'elenco di membri di un gruppo a un altro utente, ad esempio un responsabile di reparto o un amministratore dell'helpdesk<br> <br> La sezione relativa alla gestione dei gruppi in Azure AD fornisce informazioni dettagliate su come gestire gli accessi tramite i gruppi. |Estendere le identità di Active Directory nel cloud tramite la sincronizzazione e la federazione |
 
 ## <a name="role-based-access-control"></a>Controllo di accesso in base ai ruoli
-Il controllo degli accessi in base al ruolo usa i ruoli e i criteri di provisioning per valutare, testare e imporre regole e processi aziendali per concedere l'accesso agli utenti. Gli amministratori principali creano i criteri di provisioning, assegnano gli utenti ai ruoli e definiscono set di assegnazioni alle risorse per questi ruoli. Il controllo degli accessi in base al ruolo estende la soluzione di gestione delle identità per usare processi basati sul software e ridurre l'interazione manuale dell'utente nel processo di provisioning.
-Azure AD controllo degli accessi in base al ruolo consente all'azienda di limitare il numero di operazioni che un utente può eseguire dopo avere accesso al portale di Azure. L'uso del controllo degli accessi in base al ruolo per controllare gli accessi al portale, permette agli amministratori IT di delegare l'accesso tramite gli approcci di gestione dell'accesso seguenti:
+Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) USA i ruoli e i criteri di provisioning per valutare, testare e applicare le regole e i processi aziendali per concedere l'accesso agli utenti. Gli amministratori principali creano i criteri di provisioning, assegnano gli utenti ai ruoli e definiscono set di assegnazioni alle risorse per questi ruoli. Il controllo degli accessi in base al ruolo di Azure estende la soluzione di gestione delle identità per l'uso di processi basati su software e riduce l'interazione manuale dell'utente durante il processo
+Il controllo degli accessi in base al ruolo di Azure consente all'azienda di limitare il numero di operazioni che un utente può eseguire quando ha accesso al portale di Azure. Usando il controllo degli accessi in base al ruolo di Azure per controllare l'accesso al portale, gli amministratori IT delegano l'accesso al delegato CA usando i seguenti approcci di gestione
 
 * **Assegnazione di ruolo basata su gruppo**: è possibile assegnare l'accesso ai gruppi di Azure ad che possono essere sincronizzati dall'Active Directory locale. Questo consente di sfruttare gli investimenti esistenti dell'organizzazione in termini di strumenti e processi per la gestione dei gruppi. È anche possibile usare la funzionalità di delega della gestione dei gruppi disponibile in Azure AD Premium.
 * **Uso dei ruoli predefiniti in Azure**: sono disponibili tre ruoli, proprietario, collaboratore e lettore, per garantire che utenti e gruppi siano autorizzati a eseguire solo le attività necessarie per svolgere il proprio lavoro.
@@ -86,7 +86,7 @@ L'integrazione delle directory locali con Azure AD rende gli utenti più produtt
 
 La figura seguente mostra una panoramica generale del processo di sincronizzazione delle identità.
 
-![Sincronizzazione](./media/plan-hybrid-identity-design-considerations/identitysync.png)
+![Sincronizza](./media/plan-hybrid-identity-design-considerations/identitysync.png)
 
 Processo di sincronizzazione delle identità
 

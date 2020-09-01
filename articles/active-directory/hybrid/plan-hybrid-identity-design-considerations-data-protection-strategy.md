@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e0186d862968259aae73071cfecd7d62443d0256
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2bef7de68084ac3084c0b0179a7bbf6b1c9ca951
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67109363"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182446"
 ---
 # <a name="define-data-protection-strategy-for-your-hybrid-identity-solution"></a>Definire una strategia di protezione dei dati per la soluzione ibrida di gestione delle identità
 In questa attività verrà definita la strategia di protezione dati in modo che la soluzione ibrida di gestione delle identità soddisfi i requisiti aziendali definiti in:
@@ -121,7 +121,7 @@ Ogni interazione nel diagramma illustrato nella figura X rappresenta uno scenari
 
 1. Accesso condizionale alle applicazioni ospitate in locale: è possibile usare i dispositivi registrati con criteri di accesso per le applicazioni configurate per l'uso di AD FS con Windows Server 2012 R2.
 
-2. Controllo di accesso al portale di Azure: Azure consente inoltre di controllare l'accesso al portale tramite il controllo di accesso basato sui ruoli (RBAC)). Questo metodo permette all'azienda di limitare il numero di operazioni che possono essere eseguite da un soggetto nel portale di Azure. L'uso del controllo degli accessi in base al ruolo per controllare gli accessi al portale, permette agli amministratori IT di delegare l'accesso tramite gli approcci di gestione dell'accesso seguenti:
+2. Controllo di accesso alla portale di Azure: Azure consente anche di controllare l'accesso al portale usando il controllo degli accessi in base al ruolo di Azure (RBAC di Azure). Questo metodo permette all'azienda di limitare il numero di operazioni che possono essere eseguite da un soggetto nel portale di Azure. Usando il controllo degli accessi in base al ruolo di Azure per controllare l'accesso al portale, gli amministratori IT possono delegare l'accesso tramite gli approcci di gestione dell'accesso seguenti
 
    - Assegnazione di ruolo basata su gruppo: è possibile assegnare l'accesso ai gruppi di Azure AD che possono essere sincronizzati dall'istanza di Active Directory locale. Questo consente di sfruttare gli investimenti esistenti dell'organizzazione in termini di strumenti e processi per la gestione dei gruppi. È anche possibile usare la funzionalità di delega della gestione dei gruppi disponibile in Azure AD Premium.
    - Uso dei ruoli predefiniti in Azure: sono disponibili tre ruoli, proprietario, collaboratore e lettore, per garantire che utenti e gruppi siano autorizzati a eseguire solo le attività necessarie per svolgere il proprio lavoro.

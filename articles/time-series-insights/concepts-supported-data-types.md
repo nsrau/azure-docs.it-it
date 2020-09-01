@@ -8,13 +8,13 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
-ms.openlocfilehash: 254732630dcf28b90413a1269a34d3aa388cb06c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 08/31/2020
+ms.openlocfilehash: 4e6586453469797458bc60fc7499a45a9aad9b9b
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997864"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226744"
 ---
 # <a name="supported-data-types"></a>Tipi di dati supportati
 
@@ -34,9 +34,10 @@ Nella tabella seguente sono elencati i tipi di dati supportati da Azure Time Ser
 
 > [!NOTE]
 > Il tipo **stringa** non ammette i valori null:
->   * Un' [espressione Time Series (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) espressa in una [query di serie temporali](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis) che confronta il valore di una stringa vuota (**''**) rispetto a **null** si comporta allo stesso modo: `$event.siteid.String = NULL` equivale a `$event.siteid.String = ''` .
->   * L'API può restituire valori **null** anche se gli eventi originali contengono stringhe vuote.
->   * Non considerare la dipendenza dai valori **null** nelle colonne di tipo **stringa** per eseguire confronti o valutazioni, trattare le stesse modalità delle stringhe vuote.
+>
+> * Un' [espressione Time Series (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax) espressa in una [query di serie temporali](https://docs.microsoft.com/rest/api/time-series-insights/reference-query-apis) che confronta il valore di una stringa vuota (**''**) rispetto a **null** si comporta allo stesso modo: `$event.siteid.String = NULL` equivale a `$event.siteid.String = ''` .
+> * L'API può restituire valori **null** anche se gli eventi originali contengono stringhe vuote.
+> * Non considerare la dipendenza dai valori **null** nelle colonne di tipo **stringa** per eseguire confronti o valutazioni, trattare le stesse modalità delle stringhe vuote.
 
 ## <a name="sending-mixed-data-types"></a>Invio di tipi di dati misti
 

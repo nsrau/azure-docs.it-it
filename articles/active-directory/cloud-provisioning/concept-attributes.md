@@ -15,12 +15,12 @@ ms.date: 02/18/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ac09fb3faf55be6c07a1e0a88b6e2032c9ab8ce
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1fff90777c63820b54a1cb37156021c894de19c8
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78299330"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226931"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Informazioni sullo schema di Azure AD
 Un oggetto in Azure Active Directory (Azure AD), come qualsiasi directory, è un costrutto di dati di alto livello programmatico che rappresenta elementi come utenti, gruppi e contatti. Quando si crea un nuovo utente o un contatto in Azure AD, si sta creando una nuova istanza di tale oggetto. Queste istanze possono essere differenziate in base alle relative proprietà.
@@ -51,7 +51,7 @@ Se ad esempio si dispone dell'attributo mail " john.smith@contoso.com " ed è ne
 * **INPUT** (mail): "john.smith@contoso.com"
 * **Output**: "John. Smith"
 
-Per ulteriori informazioni su come scrivere espressioni personalizzate e la sintassi, vedere [scrittura di espressioni per i mapping degli attributi in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data).
+Per ulteriori informazioni su come scrivere espressioni personalizzate e la sintassi, vedere [scrittura di espressioni per i mapping degli attributi in Azure Active Directory](../app-provisioning/functions-for-customizing-application-data.md).
 
 La tabella seguente elenca gli attributi comuni e il modo in cui sono sincronizzati con Azure AD.
 
@@ -245,7 +245,7 @@ Per visualizzare lo schema e verificarlo, attenersi alla seguente procedura.
  
     Esempio: https://graph.microsoft.com/beta/serviceprincipals/653c0018-51f4-4736-a3a3-94da5dcb6862/synchronization/jobs/AD2AADProvisioning.e9287a7367e444c88dc67a531c36d8ec/schema
 
-   Sostituire `{Service Principal Id}` e `{AD2ADD Provisioning Id}` con i valori.
+   Sostituire `{Service Principal Id}` e `{AD2ADD Provisioning Id}` con i propri valori.
 
 1. Questa query restituisce lo schema.
 

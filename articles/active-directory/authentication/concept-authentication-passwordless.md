@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70f7082de204cedd25b3b87b7157376505598712
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: ef1148555706ff04c58733b66f4784da71849ce8
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718085"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226676"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opzioni di autenticazione con password per Azure Active Directory
 
 Funzionalità come l'autenticazione a più fattori sono un ottimo modo per proteggere l'organizzazione, ma gli utenti spesso sono frustrati con il livello di sicurezza aggiuntivo oltre a dover ricordare le proprie password. I metodi di autenticazione senza password sono più convenienti perché la password viene rimossa e sostituita da un elemento, più un elemento o un elemento che si conosce.
 
-| Authentication  | Un elemento | Un elemento o una conoscenza |
+| Autenticazione  | Un elemento | Un elemento o una conoscenza |
 | --- | --- | --- |
 | Accesso senza password | Dispositivo Windows 10, telefono o chiave di sicurezza | Biometrico o PIN |
 
@@ -115,6 +115,8 @@ Una chiave di sicurezza **deve** implementare le seguenti funzionalità ed esten
 | 3 | HMAC-segreto | Questa estensione garantisce che sia possibile accedere al dispositivo quando è offline o in modalità aereo. |
 | 4 | Più account per RP | Questa funzionalità garantisce la possibilità di usare la stessa chiave di sicurezza tra più servizi, ad esempio l'account Microsoft e Azure Active Directory. |
 
+### <a name="fido2-security-key-providers"></a>Provider di chiavi di sicurezza FIDO2
+
 I provider seguenti offrono chiavi di sicurezza FIDO2 di diversi fattori di forma che sono noti come compatibili con l'esperienza senza password. Si consiglia di valutare le proprietà di sicurezza di queste chiavi contattando il fornitore e l'Alleanza FIDO.
 
 | Provider | Contatto |
@@ -157,7 +159,7 @@ La scelta tra queste tre opzioni con password dipende dai requisiti di sicurezza
 
 Di seguito sono riportati alcuni fattori da considerare quando si sceglie la tecnologia con password Microsoft:
 
-||**Windows Hello for business**|**Accesso senza password con l'app Microsoft Authenticator**|**Chiavi di sicurezza FIDO2**|
+||**Windows Hello for Business**|**Accesso senza password con l'app Microsoft Authenticator**|**Chiavi di sicurezza FIDO2**|
 |:-|:-|:-|:-|
 |**Prerequisiti**| Windows 10 versione 1809 o successiva<br>Azure Active Directory| App Microsoft Authenticator<br>Telefono (dispositivi iOS e Android che eseguono Android 6,0 o versione successiva).|Windows 10 versione 1809 o successiva<br>Azure Active Directory|
 |**Modalità**|Piattaforma|Software|Hardware|

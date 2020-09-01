@@ -11,12 +11,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 722b3fcb2bc533e396a35feb4c755de99c375b10
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
-ms.translationtype: HT
+ms.openlocfilehash: c14f406e5671e1eefb43f0208044f9945e446267
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86201861"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226574"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Scrittura di espressioni per il mapping degli attributi in Azure Active Directory
 Quando si configura il provisioning cloud, come mapping degli attributi è possibile specificare il mapping di espressioni. 
@@ -253,7 +253,7 @@ Se l'attributo accountName non è presente, viene generato un errore nell'oggett
    | Nome | Obbligatorio/Ripetuto | Type | Note |
    | --- | --- | --- | --- |
    | **source** |Obbligatoria |string |In genere è il nome dell'attributo dell'oggetto di origine. |
-   | **inputFormat** |Obbligatoria |string |Formato previsto del valore source. Per informazioni sui formati supportati, vedere [https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx](https://msdn.microsoft.com/library/8kb3ddd4%28v=vs.110%29.aspx). |
+   | **inputFormat** |Obbligatoria |string |Formato previsto del valore source. Per i formati supportati, vedere [/DotNet/standard/base-types/Custom-date-and-Time-Format-Strings](/dotnet/standard/base-types/custom-date-and-time-format-strings). |
    | **outputFormat** |Obbligatoria |string |Formato della data di output. |
 
 ---

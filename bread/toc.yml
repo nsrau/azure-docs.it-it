@@ -117,6 +117,9 @@
     - name: Centro sicurezza di Azure per IoT
       tocHref: /azure/asc-for-iot/
       topicHref: /azure/asc-for-iot/
+    - name: Attestazione
+      tocHref: /azure/attestation/
+      topicHref: /azure/attestation/
     - name: Automazione
       tocHref: /azure/automation/
       topicHref: /azure/automation/

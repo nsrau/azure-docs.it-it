@@ -3,17 +3,17 @@ title: Livelli di accesso ad accesso frequente, ad accesso sporadico e archivio 
 description: Informazioni sui livelli di accesso ad accesso frequente, ad accesso sporadico e archivio per archiviazione BLOB di Azure. Esaminare gli account di archiviazione che supportano la suddivisione in livelli. Confrontare le opzioni di archiviazione BLOB in blocchi.
 author: mhopkins-msft
 ms.author: mhopkins
-ms.date: 03/23/2019
+ms.date: 08/27/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: clausjor
-ms.openlocfilehash: df81a383dc84ebc70beedded03e9fd1d6bccabdf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 59a0433a3b22877808fbe2b8371258e00f214d10
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009611"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226183"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-access-tiers"></a>Archiviazione BLOB di Azure: livelli di accesso frequente, sporadico e archivio
 
@@ -156,7 +156,7 @@ In questa sezione vengono illustrati gli scenari seguenti usando il portale di A
 
 1. Fare clic su **Salva** nella parte superiore.
 
-![Modificare il livello dell'account di archiviazione](media/storage-tiers/account-tier.png)
+![Modificare il livello di account predefinito in portale di Azure](media/storage-tiers/account-tier.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Per modificare il livello di account, è possibile usare lo script di PowerShell seguente. La variabile `$rgName` deve essere inizializzata con il nome del gruppo di risorse. La variabile `$accountName` deve essere inizializzata con il nome dell'account di archiviazione. 
@@ -186,7 +186,7 @@ Set-AzStorageAccount -ResourceGroupName $rgName -Name $accountName -AccessTier H
 
 1. Nella parte inferiore selezionare **Salva**.
 
-![Modificare il livello dell'account di archiviazione](media/storage-tiers/blob-access-tier.png)
+![Modificare il livello BLOB in portale di Azure](media/storage-tiers/blob-access-tier.png)
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 Per modificare il livello BLOB, è possibile usare lo script di PowerShell seguente. La variabile `$rgName` deve essere inizializzata con il nome del gruppo di risorse. La variabile `$accountName` deve essere inizializzata con il nome dell'account di archiviazione. La variabile `$containerName` deve essere inizializzata con il nome del contenitore. La variabile `$blobName` deve essere inizializzata con il nome del BLOB. 
@@ -219,6 +219,8 @@ Tutti gli account di archiviazione usano un modello di determinazione dei prezzi
 - **Costi di trasferimento dati con la replica geografica**: si applicano solo agli account per cui è configurata la replica geografica, incluse l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza geografica e accesso in lettura. Il trasferimento dati con la replica geografica comporta un addebito per gigabyte.
 - **Costi di trasferimento dati in uscita**: i trasferimenti dati in uscita (dati che vengono trasferiti al di fuori di un'area di Azure) vengono fatturati in base all'utilizzo di larghezza di banda per singolo gigabyte, come per gli account di archiviazione di uso generico.
 - **Modifica del livello di accesso**: la modifica del livello di accesso dell'account comporterà un addebito per la modifica del livello per i BLOB derivati dal _livello di accesso_ archiviati nell'account che non hanno un set di livelli esplicito. Per informazioni sulla modifica del livello di accesso per un singolo BLOB, vedere [fatturazione a livelli a livello di BLOB](#blob-level-tiering-billing).
+
+    Per modificare il livello di accesso per un BLOB quando è abilitato il controllo delle versioni o se il BLOB contiene snapshot, può comportare addebiti aggiuntivi. Per ulteriori informazioni su come viene addebitata la fatturazione quando il controllo delle versioni dei BLOB è abilitato e si modifica in modo esplicito il livello di un BLOB, vedere [prezzi e fatturazione](versioning-overview.md#pricing-and-billing) nella documentazione per il controllo delle versioni dei BLOB. Per altre informazioni su come viene addebitata la fatturazione quando un BLOB contiene snapshot e si modifica in modo esplicito il livello del BLOB, vedere [prezzi e fatturazione](snapshots-overview.md#pricing-and-billing) nella documentazione per gli snapshot BLOB.
 
 > [!NOTE]
 > Per altre informazioni sui prezzi per i BLOB in blocchi, vedere la pagina [prezzi di archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/) . Per altre informazioni sugli addebiti per i trasferimenti dati in uscita, vedere la pagina [Dettagli prezzi dei trasferimenti di dati](https://azure.microsoft.com/pricing/details/data-transfers/).

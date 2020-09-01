@@ -8,12 +8,12 @@ ms.custom: devx-track-csharp, vs-azure
 ms.date: 07/30/2020
 ms.author: glenga
 ms.reviewer: david.ebbo;suwatch;pbatum;naren.soni
-ms.openlocfilehash: ed473568fbad5bad380001cd2e2faccd90994099
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: de10903be86b52b3415b57a53be81e7fd1661f63
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959902"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226030"
 ---
 # <a name="develop-and-deploy-webjobs-using-visual-studio"></a>Sviluppare e distribuire processi Web con Visual Studio
 
@@ -184,9 +184,9 @@ Informazioni sulla distribuzione di processo Web:
 
 Il tipo di processo Web può essere *attivato* o *continuo*:
 
-- Attivato (impostazione predefinita): un processo Web attivato viene avviato in base a un evento di binding, in base a una [pianificazione](#scheduling-a-triggered-webjob)o quando viene attivato manualmente (su richiesta). Viene eseguito in tutte le istanze in cui viene eseguita l'app Web, ma facoltativamente è possibile limitare la processo Web a una singola istanza.
+- Attivato (impostazione predefinita): un processo Web attivato viene avviato in base a un evento di binding, in base a una [pianificazione](#scheduling-a-triggered-webjob)o quando viene attivato manualmente (su richiesta). Viene eseguito in una singola istanza in cui viene eseguita l'app Web.
 
-- Continuous: un processo Web [continuo](#continuous-execution) inizia immediatamente dopo la creazione del processo Web. Questo tipo di processo Web è ideale per i processi senza binding o con esecuzione prolungata. Se il processo termina, è possibile riavviarlo.  
+- Continuous: un processo Web [continuo](#continuous-execution) inizia immediatamente dopo la creazione del processo Web. Per impostazione predefinita, viene eseguito in tutte le istanze ridimensionate di app Web, ma può essere configurato per l'esecuzione come una singola istanza tramite *Settings. job*.
 
 [!INCLUDE [webjobs-alwayson-note](../../includes/webjobs-always-on-note.md)]
 

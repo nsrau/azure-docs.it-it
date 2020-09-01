@@ -4,20 +4,20 @@ titleSuffix: Azure Media Services
 description: "Informazioni sul flusso di contenuto con l'integrazione della rete CDN, oltre che sulla prelettura e sull'origine: supporto della rete CDN-prelettura."
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
-ms.author: juliako
-ms.openlocfilehash: b60a86d09e5d6f7d1108595253349bbd0784e4d3
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.author: inhenkel
+ms.openlocfilehash: abf4b8dffc69cfee9332d18e59d0a2852fa7617e
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799350"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226149"
 ---
 # <a name="stream-content-with-cdn-integration"></a>Flusso di contenuto con l'integrazione della rete CDN
 
@@ -29,14 +29,19 @@ Il contenuto popolare verrà servito direttamente dalla cache della rete CDN, pu
 
 È anche necessario valutare il funzionamento del flusso adattivo. Ogni singolo frammento video viene memorizzato nella cache come entità propria. Si supponga, ad esempio, la prima volta che un determinato video viene guardato. Se il Visualizzatore Ignora solo pochi secondi qui e qui, solo i frammenti video associati a ciò che l'utente ha guardato vengono memorizzati nella cache nella rete CDN. Con il flusso adattivo, si hanno in genere da 5 a 7 bitrate del video diversi. Se una persona sta osservando una velocità in bit e un altro utente sta osservando una velocità in bit diversa, ognuno di essi viene memorizzato nella cache separatamente nella rete CDN. Anche se due persone stanno osservando la stessa velocità in bit, potrebbero trasmettere flussi su protocolli diversi. Ogni protocollo (HLS, MPEG-DASH, Smooth Streaming) viene memorizzato nella cache separatamente. In conclusione, ogni bitrate e ogni protocollo vengono memorizzati nella cache separatamente; inoltre, vengono memorizzati nella cache solo i frammenti video che sono stati richiesti.
 
-Per decidere se abilitare o meno la rete CDN nell'endpoint di [streaming](streaming-endpoint-concept.md)di servizi multimediali, prendere in considerazione il numero di visualizzatori previsti. La rete CDN è utile solo se ci si aspettano molti visualizzatori per il contenuto. Se la concorrenza massima dei visualizzatori è inferiore a 500, è consigliabile disabilitare la rete CDN poiché la rete CDN si adatta meglio alla concorrenza.
+Ad eccezione dell'ambiente di test, è consigliabile abilitare la rete CDN per gli endpoint di streaming standard e Premium. Ogni tipo di endpoint di streaming ha un limite di velocità effettiva supportato diverso.
+È difficile eseguire un calcolo preciso per il numero massimo di flussi simultanei supportati da un endpoint di streaming, in quanto esistono diversi fattori da tenere in considerazione. Sono inclusi:
+
+- Velocità in bit massime usate per lo streaming
+- Comportamento del pre-buffer e del cambio del lettore. I giocatori tentano di aumentare i segmenti da un'origine e usano la velocità di caricamento per calcolare il cambio a bitrate adattivo. Se un endpoint di streaming si avvicina alla saturazione, i tempi di risposta possono variare e i giocatori iniziano a passare a una qualità inferiore. Poiché questa operazione riduce il carico sui giocatori dell'endpoint di streaming, è possibile aumentare la qualità creando trigger di cambio indesiderati.
+Nel complesso è possibile stimare il numero massimo di flussi simultanei prendendo la velocità effettiva massima degli endpoint di streaming e suddividerla per la velocità in bit massima (presupponendo che tutti i giocatori usino la velocità in bit più elevata). Ad esempio, è possibile avere un endpoint di streaming standard limitato a 600 Mbps e la velocità in bit più elevata di 3Mbp. In questo caso, sono supportati approssimativamente 200 flussi simultanei alla velocità in bit superiore. Ricordarsi di considerare anche i requisiti di larghezza di banda audio. Sebbene un flusso audio possa essere trasmesso solo a 128 KPS, lo streaming totale viene sommato rapidamente quando lo si moltiplica per il numero di flussi simultanei.
 
 Questo argomento illustra l'abilitazione dell'integrazione della rete [CDN](#enable-azure-cdn-integration). Viene inoltre illustrata la prelettura (memorizzazione nella cache attiva) e il concetto di [prelettura della rete CDN Origin-Assist](#origin-assist-cdn-prefetch) .
 
 ## <a name="considerations"></a>Considerazioni
 
-* L' [endpoint di streaming](streaming-endpoint-concept.md) `hostname` e l'URL di streaming rimangono invariati, indipendentemente dal fatto che la rete CDN sia abilitata.
-* Se è necessario testare il contenuto con o senza la rete CDN, creare un altro endpoint di streaming non abilitato per la rete CDN.
+- L' [endpoint di streaming](streaming-endpoint-concept.md) `hostname` e l'URL di streaming rimangono invariati, indipendentemente dal fatto che la rete CDN sia abilitata.
+- Se è necessario testare il contenuto con o senza la rete CDN, creare un altro endpoint di streaming non abilitato per la rete CDN.
 
 ## <a name="enable-azure-cdn-integration"></a>Abilitare l'integrazione della rete CDN di Azure
 
@@ -82,7 +87,7 @@ I vantaggi della funzionalità di *prelettura della rete CDN Origin-Assist* incl
 > [!NOTE]
 > Questa funzionalità non è ancora applicabile alla rete CDN Akamai integrata con l'endpoint di streaming di servizi multimediali. Tuttavia, è disponibile per i clienti di servizi multimediali che hanno un contratto Akamai preesistente e richiedono l'integrazione personalizzata tra la rete CDN Akamai e l'origine di servizi multimediali.
 
-### <a name="how-it-works"></a>Come funziona
+### <a name="how-it-works"></a>Funzionamento
 
 Il supporto della rete CDN per le `Origin-Assist CDN-Prefetch` intestazioni (per lo streaming live e video su richiesta) è disponibile per i clienti che hanno un contratto diretto con la rete CDN Akamai. La funzionalità prevede gli scambi di intestazioni HTTP seguenti tra la rete CDN Akamai e l'origine di servizi multimediali:
 

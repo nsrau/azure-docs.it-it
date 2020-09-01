@@ -17,25 +17,25 @@ ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c4702b12bea2e078af4d10fe9d709d16c361b3f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 22a8a0efe16b4ab2ea7b8a647284a3449741ac02
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608263"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226965"
 ---
 # <a name="prerequisites-to-access-the-azure-active-directory-reporting-api"></a>Prerequisiti di accesso all'API di creazione report di Azure AD
 
-Le [API di creazione report di Azure Active Directory (Azure AD)](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api) forniscono l'accesso ai dati dal codice tramite un set di API basate su REST. È possibile chiamare queste API da strumenti e linguaggi di programmazione.
+Le [API di creazione report di Azure Active Directory (Azure AD)](./concept-reporting-api.md) forniscono l'accesso ai dati dal codice tramite un set di API basate su REST. È possibile chiamare queste API da strumenti e linguaggi di programmazione.
 
-L'API di creazione report usa l'autenticazione [OAuth](https://docs.microsoft.com/azure/api-management/api-management-howto-protect-backend-with-aad) per autorizzare l'accesso alle API Web.
+L'API di creazione report usa l'autenticazione [OAuth](../../api-management/api-management-howto-protect-backend-with-aad.md) per autorizzare l'accesso alle API Web.
 
 Per preparare l'accesso all'API di creazione report, è necessario:
 
 1. [Assegnare ruoli](#assign-roles)
 2. [Requisiti di licenza](#license-requirements)
 3. [Registrare un'applicazione](#register-an-application)
-4. [Concedere le autorizzazioni](#grant-permissions)
+4. [Concedi autorizzazioni](#grant-permissions)
 5. [Ottenere le impostazioni di configurazione](#gather-configuration-settings)
 
 ## <a name="assign-roles"></a>Assegnare ruoli
@@ -85,7 +85,7 @@ Per configurare la directory per l'accesso all'API di creazione report di Azure 
 
     b. Per **tipo di account supportati**, selezionare **account solo in questa organizzazione**.
 
-    c. Nella casella di testo **URL di reindirizzamento** selezionare **Web** digitare `https://localhost` .
+    c. Nella casella di testo **URL di reindirizzamento**  selezionare **Web** digitare `https://localhost` .
 
     d. Selezionare **Registra**. 
 
@@ -225,5 +225,5 @@ Seguire i passaggi descritti in [prerequisiti per accedere all'API di creazione 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Ottenere dati con l'API di creazione report di Azure Active Directory con certificati](tutorial-access-api-with-certificates.md)
-* [Informazioni di riferimento sulle API di controllo](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-* [Informazioni di riferimento sulle API di report di attività di accesso](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+* [Informazioni di riferimento sulle API di controllo](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
+* [Informazioni di riferimento sulle API di report di attività di accesso](/graph/api/resources/signin?view=graph-rest-beta)

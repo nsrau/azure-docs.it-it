@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: aahi
-ms.openlocfilehash: dc17c25a84c3d0af39bfa7a8902bdc1d93f201e8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 80b7d5ca67751cf7ece775331cc13cfbac10395b
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88518323"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182395"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installare ed eseguire i contenitori dei servizi vocali (anteprima)
 
@@ -28,10 +28,10 @@ I contenitori del servizio Voce permettono ai clienti di creare un'architettura 
 
 | Funzione | Funzionalità | Ultima versione |
 |--|--|--|
-| Riconoscimento vocale | Analizza i sentimenti e trascrive le registrazioni audio continue in tempo reale o batch con risultati intermedi.  | 2.3.1 |
-| Da Riconoscimento vocale personalizzato a testo | Usando un modello personalizzato dal [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech), le registrazioni audio continue in tempo reale o batch vengono trascritte in testo con risultati intermedi. | 2.3.1 |
-| Sintesi vocale | Converte il testo in sintesi vocale naturale con input di testo normale o linguaggio di markup sintesi vocale (SSML). | 1.5.0 |
-| Sintesi vocale personalizzata | Usando un modello personalizzato dal [portale vocale personalizzato](https://aka.ms/custom-voice-portal), converte il testo in un discorso di suono naturale con input di testo normale o SSML (Speech Synthesis Markup Language). | 1.5.0 |
+| Riconoscimento vocale | Analizza i sentimenti e trascrive le registrazioni audio continue in tempo reale o batch con risultati intermedi.  | 2.4.0 |
+| Da Riconoscimento vocale personalizzato a testo | Usando un modello personalizzato dal [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech), le registrazioni audio continue in tempo reale o batch vengono trascritte in testo con risultati intermedi. | 2.4.0 |
+| Sintesi vocale | Converte il testo in sintesi vocale naturale con input di testo normale o linguaggio di markup sintesi vocale (SSML). | 1.6.0 |
+| Sintesi vocale personalizzata | Usando un modello personalizzato dal [portale vocale personalizzato](https://aka.ms/custom-voice-portal), converte il testo in un discorso di suono naturale con input di testo normale o SSML (Speech Synthesis Markup Language). | 1.6.0 |
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/) prima di iniziare.
 
@@ -39,7 +39,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 I prerequisiti seguenti prima di usare i contenitori di sintesi vocale:
 
-| Obbligatoria | Scopo |
+| Necessario | Scopo |
 |--|--|
 | Motore Docker | È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br> |
 | Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base. |
@@ -165,7 +165,7 @@ Tutti i tag, ad eccezione di, `latest` sono nel formato seguente e fanno distinz
 Il seguente tag è un esempio del formato:
 
 ```
-2.3.1-amd64-en-us-preview
+2.4.0-amd64-en-us-preview
 ```
 
 Per tutte le impostazioni locali supportate del contenitore di **riconoscimento vocale** , vedere [tag dell'immagine da voce a testo](../containers/container-image-tags.md#speech-to-text).
@@ -207,7 +207,7 @@ Tutti i tag, ad eccezione di, `latest` sono nel formato seguente e fanno distinz
 Il seguente tag è un esempio del formato:
 
 ```
-1.5.0-amd64-en-us-ariarus-preview
+1.6.0-amd64-en-us-ariarus-preview
 ```
 
 Per tutte le impostazioni locali supportate e le voci corrispondenti del contenitore di **sintesi vocale** , vedere [tag di immagine da testo a voce](../containers/container-image-tags.md#text-to-speech).
@@ -423,6 +423,8 @@ Per ulteriori informazioni sull'utilizzo di protocolli WSS e HTTPS, vedere [sicu
 #### <a name="analyze-sentiment"></a>Analizzare la valutazione
 
 Se sono state fornite le credenziali API Analisi del testo [per il contenitore](#analyze-sentiment-on-the-speech-to-text-output), è possibile usare l'SDK per la sintesi vocale per inviare richieste di riconoscimento vocale con l'analisi dei sentimenti. È possibile configurare le risposte API per l'uso di un formato *semplice* o *dettagliato* .
+> [!NOTE]
+> v 1.13 del servizio di riconoscimento vocale python SDK presenta un problema identificato con l'analisi dei sentimenti. Usare v 1.12. x o versione precedente se si usa l'analisi dei sentimenti nell'SDK di Python per il servizio di riconoscimento vocale.
 
 # <a name="simple-format"></a>[Formato semplice](#tab/simple-format)
 

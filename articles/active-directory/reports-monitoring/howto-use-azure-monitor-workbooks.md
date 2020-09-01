@@ -14,12 +14,12 @@ ms.subservice: report-monitor
 ms.date: 10/30/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
-ms.openlocfilehash: ec492466e107eb6f4821f0e6d2caed9daa141a35
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 510991c1afba9a5ffbfd77e855ee25d8b641bdd0
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608951"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226982"
 ---
 # <a name="how-to-use-azure-monitor-workbooks-for-azure-active-directory-reports"></a>Come usare le cartelle di lavoro di Monitoraggio di Azure per i report Azure Active Directory
 
@@ -42,13 +42,13 @@ Si vuole:
 
 - Ottenere maggiori dettagli sulle query dei log di accesso? La cartella di lavoro indica il numero di utenti a cui è stato concesso o negato l'accesso, nonché il numero di utenti che hanno ignorato i criteri di accesso condizionale durante l'accesso alle risorse.
 
-- Per rispondere a queste domande, Azure Active Directory fornisce cartelle di lavoro per il monitoraggio. Le cartelle di lavoro di [Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview) combinano testo, query di analisi, metriche e parametri all'interno di report interattivi avanzati.
+- Per rispondere a queste domande, Azure Active Directory fornisce cartelle di lavoro per il monitoraggio. Le cartelle di lavoro di [Monitoraggio di Azure](../../azure-monitor/platform/workbooks-overview.md) combinano testo, query di analisi, metriche e parametri all'interno di report interattivi avanzati.
 
 
 
 Questo articolo:
 
-- Presuppone che l'utente abbia familiarità con la procedura per [creare report interattivi usando le cartelle di lavoro di Monitoraggio](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).
+- Presuppone che l'utente abbia familiarità con la procedura per [creare report interattivi usando le cartelle di lavoro di Monitoraggio](../../azure-monitor/platform/workbooks-overview.md).
 
 - Spiega come usare le cartelle di lavoro di Monitoraggio per comprendere l'effetto dei criteri di accesso condizionale, per risolvere gli errori di accesso e per identificare le autenticazioni legacy.
  
@@ -58,11 +58,11 @@ Questo articolo:
 
 Per usare le cartelle di lavoro di Monitoraggio, è necessario disporre degli elementi riportati di seguito:
 
-- Un tenant di Azure Active Directory con una licenza Premium (P1 o P2). Sono disponibili informazioni su [come ottenere una licenza Premium](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-get-started-premium).
+- Un tenant di Azure Active Directory con una licenza Premium (P1 o P2). Sono disponibili informazioni su [come ottenere una licenza Premium](../fundamentals/active-directory-get-started-premium.md).
 
-- Un'[area di lavoro Log Analytics](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace).
+- Un'[area di lavoro Log Analytics](../../azure-monitor/learn/quick-create-workspace.md).
 
-- [Accesso](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-workspace-permissions) all'area di lavoro Log Analytics
+- [Accesso](../../azure-monitor/platform/manage-access.md#manage-access-using-workspace-permissions) all'area di lavoro Log Analytics
 - I ruoli seguenti in Azure Active Directory se si accede a Log Analytics tramite il portale di Azure Active Directory
     - Amministratore della sicurezza
     - Ruolo con autorizzazioni di lettura per la sicurezza
@@ -70,7 +70,7 @@ Per usare le cartelle di lavoro di Monitoraggio, è necessario disporre degli el
     - Amministratore globale
 
 ## <a name="roles"></a>Ruoli
-Per gestire le cartelle di lavoro, è necessario disporre di uno dei ruoli seguenti, nonché dell'[accesso all'area di lavoro Log Analytics](https://docs.microsoft.com/azure/azure-monitor/platform/manage-access#manage-access-using-azure-permissions) sottostante:
+Per gestire le cartelle di lavoro, è necessario disporre di uno dei ruoli seguenti, nonché dell'[accesso all'area di lavoro Log Analytics](../../azure-monitor/platform/manage-access.md#manage-access-using-azure-permissions) sottostante:
 -   Amministratore globale
 -   Amministratore della sicurezza
 -   Ruolo con autorizzazioni di lettura per la sicurezza
@@ -302,4 +302,4 @@ Per semplificare la risoluzione dei problemi degli accessi, Monitoraggio di Azur
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Creare report interattivi con cartelle di lavoro di Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview).
+[Creare report interattivi con cartelle di lavoro di Monitoraggio di Azure](../../azure-monitor/platform/workbooks-overview.md).

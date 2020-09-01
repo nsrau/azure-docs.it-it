@@ -1,25 +1,25 @@
 ---
-title: Controllo delle versioni dei BLOB (anteprima)
+title: Controllo delle versioni dei BLOB
 titleSuffix: Azure Storage
-description: Il controllo delle versioni dell'archiviazione BLOB (anteprima) mantiene automaticamente le versioni precedenti di un oggetto e le identifica con i timestamp. È possibile ripristinare le versioni precedenti di un BLOB per ripristinare i dati se vengono erroneamente modificati o eliminati.
+description: Il controllo delle versioni dell'archiviazione BLOB mantiene automaticamente le versioni precedenti di un oggetto e le identifica con i timestamp. È possibile ripristinare le versioni precedenti di un BLOB per ripristinare i dati se vengono erroneamente modificati o eliminati.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 999f7bb14f87d883fa399b1168e887e935651e47
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 72597d445be41ede47d043d11653df139bc52d0d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074535"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226264"
 ---
-# <a name="blob-versioning-preview"></a>Controllo delle versioni dei BLOB (anteprima)
+# <a name="blob-versioning"></a>Controllo delle versioni dei BLOB
 
-È possibile abilitare il controllo delle versioni dell'archiviazione BLOB (anteprima) per mantenere automaticamente le versioni precedenti di un oggetto.  Quando è abilitata la funzionalità di controllo delle versioni dei BLOB, è possibile ripristinare una versione precedente di un BLOB per ripristinare i dati se vengono erroneamente modificati o eliminati.
+È possibile abilitare il controllo delle versioni dell'archiviazione BLOB per gestire automaticamente le versioni precedenti di un oggetto.  Quando è abilitata la funzionalità di controllo delle versioni dei BLOB, è possibile ripristinare una versione precedente di un BLOB per ripristinare i dati se vengono erroneamente modificati o eliminati.
 
 Il controllo delle versioni dei BLOB è abilitato nell'account di archiviazione e si applica a tutti i BLOB nell'account di archiviazione. Dopo aver abilitato il controllo delle versioni dei BLOB per un account di archiviazione, archiviazione di Azure mantiene automaticamente le versioni per ogni BLOB nell'account di archiviazione.
 
@@ -41,6 +41,10 @@ Quando si crea un BLOB con il controllo delle versioni abilitato, il nuovo BLOB 
 Quando si elimina un BLOB con il controllo delle versioni abilitato, archiviazione di Azure crea una versione che acquisisce lo stato del BLOB prima dell'eliminazione. La versione corrente del BLOB viene quindi eliminata, ma le versioni del BLOB vengono mantenute, in modo che possa essere ricreata, se necessario. 
 
 Le versioni BLOB non sono modificabili. Non è possibile modificare il contenuto o i metadati di una versione BLOB esistente.
+
+Il controllo delle versioni dei BLOB è disponibile per gli account per utilizzo generico V2, BLOB in blocchi e archiviazione BLOB. Gli account di archiviazione con uno spazio dei nomi gerarchico abilitato per l'uso con Azure Data Lake Storage Gen2 non sono attualmente supportati.
+
+La versione 2019-10-10 e successive dell'API REST di archiviazione di Azure supporta il controllo delle versioni dei BLOB.
 
 ### <a name="version-id"></a>ID versione
 
@@ -108,7 +112,7 @@ Per automatizzare il processo di trasferimento dei BLOB in blocchi al livello ap
 
 ## <a name="enable-or-disable-blob-versioning"></a>Abilitare o disabilitare il controllo delle versioni dei BLOB
 
-Per informazioni su come abilitare o disabilitare il controllo delle versioni dei BLOB, vedere [abilitare o disabilitare il controllo delle versioni dei BLOB](versioning-enable.md).
+Per informazioni su come abilitare o disabilitare il controllo delle versioni dei BLOB, vedere [Enable and Manage BLOB Versioning](versioning-enable.md).
 
 La disabilitazione del controllo delle versioni dei BLOB non elimina i BLOB, le versioni o gli snapshot esistenti. Quando si disattiva il controllo delle versioni dei BLOB, le versioni esistenti rimangono accessibili nell'account di archiviazione. Nessuna nuova versione viene creata successivamente.
 
@@ -196,134 +200,95 @@ La tabella seguente illustra l'autorizzazione necessaria per una firma di access
 |----------------|----------------|------------------------|
 | Elimina         | x              | Eliminare una versione BLOB. |
 
-## <a name="about-the-preview"></a>Informazioni sulla versione di anteprima
-
-Il controllo delle versioni dei BLOB è disponibile in anteprima nelle aree seguenti:
-
-- Stati Uniti orientali 2
-- Stati Uniti centrali
-- Europa settentrionale
-- Europa occidentale
-- Francia centrale
-- Canada orientale
-- Canada centrale
-
-> [!IMPORTANT]
-> L'anteprima del controllo delle versioni dei BLOB è destinata solo all'uso non in produzione. I contratti di servizio (SLA) di produzione non sono al momento disponibili.
-
-La versione 2019-10-10 e successive dell'API REST di archiviazione di Azure supporta il controllo delle versioni dei BLOB.
-
-### <a name="storage-account-support"></a>Supporto dell'account di archiviazione
-
-Il controllo delle versioni dei BLOB è disponibile per i tipi di account di archiviazione seguenti:
-
-- Account di archiviazione per utilizzo generico V2
-- Bloccare gli account di archiviazione BLOB
-- Account di archiviazione BLOB
-
-Se l'account di archiviazione è un account per utilizzo generico V1, usare il portale di Azure per eseguire l'aggiornamento a un account per utilizzo generico V2. Per altre informazioni sugli account di archiviazione, vedere [Panoramica dell'account di archiviazione di Azure](../common/storage-account-overview.md).
-
-Gli account di archiviazione con uno spazio dei nomi gerarchico abilitato per l'uso con Azure Data Lake Storage Gen2 non sono attualmente supportati.
-
-### <a name="register-for-the-preview"></a>Registrarsi per l'anteprima
-
-Per eseguire la registrazione nell'anteprima del controllo delle versioni dei BLOB, usare PowerShell o l'interfaccia della riga di comando di Azure per inviare una richiesta di registrazione della funzionalità con la sottoscrizione. Dopo che la richiesta è stata approvata, è possibile abilitare il controllo delle versioni dei BLOB con gli account di archiviazione BLOB in blocchi, archiviazione BLOB o Premium per utilizzo generico nuovi o esistenti.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-Per eseguire la registrazione con PowerShell, chiamare il comando [Register-AzProviderFeature](/powershell/module/az.resources/register-azproviderfeature) .
-
-```powershell
-# Register for blob versioning (preview)
-Register-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-
-# Refresh the Azure Storage provider namespace
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
-
-Per eseguire la registrazione con l'interfaccia della riga di comando di Azure, chiamare il comando [AZ feature Register](/cli/azure/feature#az-feature-register) .
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name Versioning
-az provider register --namespace 'Microsoft.Storage'
-```
-
----
-
-### <a name="check-the-status-of-your-registration"></a>Verificare lo stato della registrazione
-
-Per verificare lo stato della registrazione, usare PowerShell o l'interfaccia della riga di comando di Azure.
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-Per verificare lo stato della registrazione con PowerShell, chiamare il comando [Get-AzProviderFeature](/powershell/module/az.resources/get-azproviderfeature) .
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-```
-
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
-
-Per verificare lo stato della registrazione con l'interfaccia della riga di comando di Azure, chiamare il comando [AZ feature](/cli/azure/feature#az-feature-show) .
-
-```azurecli
-az feature show --namespace Microsoft.Storage --name Versioning
-```
-
----
-
 ## <a name="pricing-and-billing"></a>Prezzi e fatturazione
 
 L'abilitazione del controllo delle versioni dei BLOB può comportare ulteriori addebiti di archiviazione dati per l'account Nel progettare l'applicazione, è importante essere coscienti di come i costi possono aumentare, in modo da poterli ridurre al minimo.
 
-Le versioni BLOB, come gli snapshot BLOB, vengono fatturate alla stessa tariffa dei dati attivi. Se una versione condivide blocchi o pagine con il relativo BLOB di base, si paga solo per eventuali blocchi o pagine aggiuntive non condivisi tra la versione e il BLOB di base.
+Le versioni BLOB, come gli snapshot BLOB, vengono fatturate alla stessa tariffa dei dati attivi. Il modo in cui vengono fatturate le versioni varia a seconda che il livello sia stato impostato in modo esplicito per il BLOB di base o per qualsiasi versione o snapshot. Per altre informazioni sui livelli di BLOB, vedere [Archiviazione BLOB di Azure: livelli di accesso frequente, sporadico e archivio](storage-blob-storage-tiers.md).
+
+Se non è stato modificato il livello di un BLOB o di una versione, verranno addebitati i blocchi di dati univoci nel BLOB, le relative versioni e eventuali snapshot. Per ulteriori informazioni, vedere [fatturazione quando il livello BLOB non è stato impostato in modo esplicito](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+Se è stato modificato il livello di un BLOB o di una versione, viene addebitato l'intero oggetto, indipendentemente dal fatto che il BLOB e la versione si trovino di nuovo nello stesso livello. Per ulteriori informazioni, vedere [fatturazione quando il livello BLOB è stato impostato in modo esplicito](#billing-when-the-blob-tier-has-been-explicitly-set).
 
 > [!NOTE]
 > L'abilitazione del controllo delle versioni per i dati sovrascritti di frequente può comportare un aumento della capacità di archiviazione e una latenza maggiore durante le operazioni di elenco. Per attenuare questi problemi, archiviare i dati sovrascritti di frequente in un account di archiviazione separato con il controllo delle versioni disabilitato.
 
-### <a name="important-billing-considerations"></a>Considerazioni importanti sulla fatturazione
+Per altre informazioni sui dettagli di fatturazione per gli snapshot BLOB, vedere [snapshot BLOB](snapshots-overview.md).
 
-Quando si Abilita il controllo delle versioni BLOB, assicurarsi di tenere presenti i punti seguenti:
+### <a name="billing-when-the-blob-tier-has-not-been-explicitly-set"></a>Fatturazione quando il livello BLOB non è stato impostato in modo esplicito
 
-- L'account di archiviazione viene addebitato per i blocchi o le pagine univoche, sia che si trovino nel BLOB o in una versione precedente del BLOB. Per l'account non vengono addebitati costi aggiuntivi per le versioni associate a un BLOB finché non si aggiorna il BLOB su cui si basano. Dopo l'aggiornamento, il BLOB è diverso rispetto alle versioni precedenti. Quando si verifica questo problema, vengono addebitati i blocchi o le pagine univoche in ogni BLOB o versione.
-- Quando si sostituisce un blocco all'interno di un BLOB in blocchi, tale blocco viene successivamente addebitato come blocco univoco. Questo vale anche se il blocco ha lo stesso ID di blocco e gli stessi dati presenti nella versione. Dopo che il blocco è stato nuovamente sottoposta a commit, è diverso dalla relativa controparte in qualsiasi versione e verranno addebitati i dati. Lo stesso vale per una pagina in un BLOB di pagine che viene aggiornata con dati identici.
-- L'archiviazione BLOB non dispone di un metodo per determinare se due blocchi contengono dati identici. Ogni blocco che viene caricato e inviato viene trattato come univoco, persino se contiene gli stessi dati e ha lo stesso ID blocco. Poiché i costi aumentano per i blocchi univoci, è importante tenere presente che l'aggiornamento di un BLOB quando il controllo delle versioni è abilitato comporterà blocchi univoci aggiuntivi e addebiti aggiuntivi.
-- Quando è abilitata la funzionalità di controllo delle versioni dei BLOB, progettare le operazioni di aggiornamento sui BLOB in blocchi in modo che aggiornino il minor numero possibile di blocchi. Le operazioni di scrittura che consentono un controllo granulare sui blocchi sono [Put Block](/rest/api/storageservices/put-block) e [Put Block List](/rest/api/storageservices/put-block-list). L'operazione [Put Blob](/rest/api/storageservices/put-blob) , d'altra parte, sostituisce l'intero contenuto di un BLOB e pertanto può causare addebiti aggiuntivi.
+Se non è stato impostato in modo esplicito il livello BLOB per un BLOB di base o una delle relative versioni, verranno addebitati solo i blocchi o le pagine univoche nel BLOB, le relative versioni e eventuali snapshot. I dati condivisi tra un BLOB e le relative versioni vengono addebitati una sola volta. Quando un BLOB viene aggiornato, i dati in un BLOB di base divengono divergenti dai dati archiviati nelle versioni e i dati univoci vengono addebitati per blocco o pagina.
 
-### <a name="versioning-billing-scenarios"></a>Scenari di fatturazione di controllo delle versioni
+Quando si sostituisce un blocco all'interno di un BLOB in blocchi, tale blocco viene successivamente addebitato come blocco univoco. Questo vale anche se il blocco ha lo stesso ID di blocco e gli stessi dati della versione precedente. Dopo che il blocco è stato nuovamente sottoposta a commit, è diverso dalla controparte della versione precedente e verranno addebitati i dati. Lo stesso vale per una pagina in un BLOB di pagine che viene aggiornata con dati identici.
 
-Negli scenari seguenti viene illustrato il modo in cui vengono addebitati i costi per un BLOB in blocchi e le relative versioni.
+L'archiviazione BLOB non dispone di un metodo per determinare se due blocchi contengono dati identici. Ogni blocco che viene caricato e inviato viene trattato come univoco, persino se contiene gli stessi dati e ha lo stesso ID blocco. Poiché i costi aumentano per i blocchi univoci, è importante tenere presente che l'aggiornamento di un BLOB quando il controllo delle versioni è abilitato comporterà ulteriori blocchi univoci e costi aggiuntivi.
+
+Quando è abilitata la funzionalità di controllo delle versioni dei BLOB, chiamare le operazioni di aggiornamento sui BLOB in blocchi in modo che aggiornino il minor numero possibile di blocchi. Le operazioni di scrittura che consentono un controllo granulare sui blocchi sono [Put Block](/rest/api/storageservices/put-block) e [Put Block List](/rest/api/storageservices/put-block-list). L'operazione [Put Blob](/rest/api/storageservices/put-blob) , d'altra parte, sostituisce l'intero contenuto di un BLOB e pertanto può causare addebiti aggiuntivi.
+
+Negli scenari seguenti viene illustrato il modo in cui vengono addebitati i costi per un BLOB in blocchi e le relative versioni quando il livello BLOB non è stato impostato in modo esplicito.
 
 #### <a name="scenario-1"></a>Scenario 1
 
 Nello scenario 1, la versione del BLOB è precedente. Il BLOB non è stato aggiornato dopo la creazione della versione, quindi gli addebiti vengono addebitati solo per i blocchi univoci 1, 2 e 3.
 
-![Risorse di archiviazione di Azure](./media/versioning-overview/versions-billing-scenario-1.png)
+![Diagramma 1 che mostra la fatturazione per blocchi univoci nel BLOB di base e nella versione precedente](./media/versioning-overview/versions-billing-scenario-1.png)
 
 #### <a name="scenario-2"></a>Scenario 2
 
 Nello scenario 2, un blocco (blocco 3 nel diagramma) nel BLOB è stato aggiornato. Anche se il blocco aggiornato contiene gli stessi dati e lo stesso ID, non corrisponde al blocco 3 della versione precedente. Di conseguenza, all'account vengono addebitati quattro blocchi.
 
-![Risorse di archiviazione di Azure](./media/versioning-overview/versions-billing-scenario-2.png)
+![Diagramma 2 visualizzazione della fatturazione per blocchi univoci nel BLOB di base e nella versione precedente](./media/versioning-overview/versions-billing-scenario-2.png)
 
 #### <a name="scenario-3"></a>Scenario 3
 
 Nello scenario 3, il BLOB è stato aggiornato, ma la versione non lo è. Il blocco 3 è stato sostituito con il blocco 4 nel BLOB di base, ma la versione precedente riflette ancora il blocco 3. Di conseguenza, all'account vengono addebitati quattro blocchi.
 
-![Risorse di archiviazione di Azure](./media/versioning-overview/versions-billing-scenario-3.png)
+![Diagramma 3 che mostra la fatturazione per blocchi univoci nel BLOB di base e nella versione precedente](./media/versioning-overview/versions-billing-scenario-3.png)
 
 #### <a name="scenario-4"></a>Scenario 4
 
-Nello Scenario 4, il BLOB di base è stato completamente aggiornato e non contiene nessuno dei blocchi originali. Di conseguenza, all'account vengono addebitati tutti gli otto blocchi univoci &mdash; quattro nel BLOB di base e quattro nella versione precedente. Questo scenario può verificarsi se si scrive in un BLOB con l'operazione Put Blob, perché sostituisce l'intero contenuto del BLOB di base.
+Nello Scenario 4, il BLOB di base è stato completamente aggiornato e non contiene nessuno dei blocchi originali. Di conseguenza, all'account vengono addebitati tutti gli otto blocchi univoci &mdash; quattro nel BLOB di base e quattro nella versione precedente. Questo scenario può verificarsi se si scrive in un BLOB con l'operazione [Put Blob](/rest/api/storageservices/put-blob) , perché sostituisce l'intero contenuto del BLOB di base.
 
-![Risorse di archiviazione di Azure](./media/versioning-overview/versions-billing-scenario-4.png)
+![Diagramma 4 che mostra la fatturazione per blocchi univoci nel BLOB di base e nella versione precedente](./media/versioning-overview/versions-billing-scenario-4.png)
+
+### <a name="billing-when-the-blob-tier-has-been-explicitly-set"></a>Fatturazione quando il livello BLOB è stato impostato in modo esplicito
+
+Se il livello BLOB è stato impostato in modo esplicito per un BLOB o una versione (o snapshot), viene addebitata la lunghezza totale del contenuto dell'oggetto nel nuovo livello, indipendentemente dal fatto che condivida blocchi con un oggetto nel livello originale. Viene addebitata anche la lunghezza totale del contenuto della versione meno recente nel livello originale. Qualsiasi altra versione o snapshot precedente che rimane nel livello originale viene addebitato per i blocchi univoci che possono condividere, come descritto in [fatturazione quando il livello BLOB non è stato impostato in modo esplicito](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+#### <a name="moving-a-blob-to-a-new-tier"></a>Trasferimento di un BLOB in un nuovo livello
+
+La tabella seguente descrive il comportamento di fatturazione per un BLOB o una versione quando viene spostato in un nuovo livello.
+
+| Quando il livello BLOB è impostato in modo esplicito su... | Viene addebitata la fatturazione... |
+|-|-|
+| Un BLOB di base con una versione precedente | Il BLOB di base nel nuovo livello e la versione meno recente nel livello originale, più eventuali blocchi univoci in altre versioni. <sup>1</sup> |
+| Un BLOB di base con una versione precedente e uno snapshot | Il BLOB di base nel nuovo livello, la versione meno recente nel livello originale e lo snapshot meno recente nel livello originale, più eventuali blocchi univoci in altre versioni o snapshot<sup>1</sup>. |
+| Una versione precedente | La versione nel nuovo livello e il BLOB di base nel livello originale, più eventuali blocchi univoci in altre versioni. <sup>1</sup> |
+
+<sup>1</sup> Se sono presenti altre versioni o snapshot precedenti che non sono stati spostati dal livello originale, le versioni o gli snapshot vengono addebitati in base al numero di blocchi univoci che contengono, come descritto in [fatturazione quando il livello BLOB non è stato impostato in modo esplicito](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+L'impostazione esplicita del livello per un BLOB, una versione o uno snapshot non può essere annullata. Se si sposta un BLOB in un nuovo livello e quindi lo si sposta di nuovo al livello originale, viene addebitata la lunghezza totale del contenuto dell'oggetto anche se condivide blocchi con altri oggetti nel livello originale.
+
+Le operazioni che impostano in modo esplicito il livello di un BLOB, una versione o uno snapshot includono:
+
+- [Set Blob Tier](/rest/api/storageservices/set-blob-tier)
+- [Inserisci BLOB](/rest/api/storageservices/put-blob) con il livello specificato
+- [Inserisci elenco di blocchi](/rest/api/storageservices/put-block-list) con il livello specificato
+- [Copia BLOB](/rest/api/storageservices/copy-blob) con il livello specificato
+
+#### <a name="deleting-a-blob-when-soft-delete-is-enabled"></a>Eliminazione di un BLOB quando l'eliminazione temporanea è abilitata
+
+Quando l'eliminazione temporanea BLOB è abilitata, se si elimina o sovrascrive un BLOB di base per il quale è stato impostato in modo esplicito il livello, tutte le versioni precedenti del BLOB eliminato temporaneamente vengono fatturate in base alla lunghezza totale del contenuto. Per altre informazioni sul modo in cui il controllo delle versioni dei BLOB e l'eliminazione temporanea interagiscono, vedere [controllo delle versioni dei BLOB e eliminazione](#blob-versioning-and-soft-delete)temporanea.
+
+La tabella seguente descrive il comportamento di fatturazione per un BLOB eliminato temporaneamente, a seconda che il controllo delle versioni sia abilitato o disabilitato. Quando è abilitata la funzionalità di controllo delle versioni, viene creata una versione quando un BLOB viene eliminato temporaneamente. Quando il controllo delle versioni è disabilitato, l'eliminazione temporanea di un BLOB crea uno snapshot di eliminazione temporanea.
+
+| Quando si sovrascrive un BLOB di base con il livello impostato in modo esplicito... | Viene addebitata la fatturazione... |
+|-|-|
+| Se l'eliminazione e il controllo delle versioni del BLOB sono entrambi abilitati | Tutte le versioni esistenti alla lunghezza del contenuto completa indipendentemente dal livello. |
+| Se l'eliminazione temporanea BLOB è abilitata ma il controllo delle versioni è disabilitato | Tutti gli snapshot di eliminazione temporanea esistenti alla lunghezza del contenuto completa indipendentemente dal livello. |
 
 ## <a name="see-also"></a>Vedere anche
 
-- [Abilitare il controllo delle versioni dei BLOB](versioning-enable.md)
+- [Abilitare e gestire il controllo delle versioni dei BLOB](versioning-enable.md)
 - [Creazione di uno snapshot di un BLOB](/rest/api/storageservices/creating-a-snapshot-of-a-blob)
 - [Eliminazione temporanea per i BLOB di archiviazione di Azure](storage-blob-soft-delete.md)

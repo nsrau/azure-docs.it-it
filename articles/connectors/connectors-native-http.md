@@ -5,28 +5,32 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 06/09/2020
+ms.date: 08/27/2020
 tags: connectors
-ms.openlocfilehash: 8c7a0ddb80ba28548fc1821cc2063e500af0fa66
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 9ed490dba1547db6ec3c0ddcff38aa3e0c393fcf
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286632"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226430"
 ---
 # <a name="call-service-endpoints-over-http-or-https-from-azure-logic-apps"></a>Chiamare gli endpoint di servizio su HTTP o HTTPS da App per la logica di Azure
 
-Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e l'azione o il trigger http incorporato è possibile creare attività e flussi di lavoro automatizzati che inviano richieste agli endpoint di servizio tramite http o HTTPS. Ad esempio, è possibile monitorare l'endpoint del servizio per il sito Web controllando l'endpoint in base a una pianificazione specifica. Quando l'evento specificato si verifica in corrispondenza di tale endpoint, ad esempio quando il sito Web si arresta, l'evento attiva il flusso di lavoro dell'app per la logica ed esegue le azioni nel flusso di lavoro. Se invece si desidera ricevere e rispondere alle chiamate HTTPS in ingresso, utilizzare il trigger di richiesta incorporato [o l'azione di risposta](../connectors/connectors-native-reqres.md).
+Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e l'azione o il trigger http incorporato è possibile creare attività e flussi di lavoro automatizzati in grado di inviare richieste in uscita agli endpoint su altri servizi e sistemi tramite http o HTTPS. Per ricevere invece e rispondere alle chiamate HTTPS in ingresso, usare il [trigger di richiesta e l'azione di risposta](../connectors/connectors-native-reqres.md)predefiniti.
+
+È ad esempio possibile monitorare un endpoint del servizio per il sito Web controllando l'endpoint in base a una pianificazione specifica. Quando l'evento specificato si verifica in corrispondenza di tale endpoint, ad esempio quando il sito Web si arresta, l'evento attiva il flusso di lavoro dell'app per la logica ed esegue le azioni nel flusso di lavoro.
 
 * Per verificare o eseguire il *polling* di un endpoint in base a una pianificazione ricorrente, [aggiungere il trigger http](#http-trigger) come primo passaggio del flusso di lavoro. Ogni volta che il trigger controlla l'endpoint, il trigger chiama o invia una *richiesta* all'endpoint. La risposta dell'endpoint determina se il flusso di lavoro dell'app per la logica è in esecuzione. Il trigger passa il contenuto dalla risposta dell'endpoint alle azioni nell'app per la logica.
 
 * Per chiamare un endpoint da qualsiasi altra parte del flusso di lavoro, [aggiungere l'azione http](#http-action). La risposta dell'endpoint determina l'esecuzione delle azioni rimanenti del flusso di lavoro.
 
-Questo articolo illustra come aggiungere un trigger o un'azione HTTP al flusso di lavoro dell'app per la logica.
+Questo articolo illustra come usare il trigger HTTP e l'azione HTTP in modo che l'app per la logica possa inviare chiamate in uscita ad altri servizi e sistemi.
+
+Per informazioni su crittografia, sicurezza e autorizzazione per le chiamate in uscita dall'app per la logica, ad esempio [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), precedentemente noto come Secure Sockets Layer (SSL), certificati autofirmati o [Azure Active Directory Open Authentication (Azure ad OAuth)](../active-directory/develop/index.yml), vedere [accesso protetto e accesso ai dati per le chiamate in uscita ad altri servizi e sistemi](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
+* Un account e una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
 * URL per l'endpoint di destinazione che si desidera chiamare
 
@@ -96,21 +100,27 @@ Questa azione predefinita esegue una chiamata HTTP all'URL specificato per un en
 
 1. Al termine, ricordarsi di salvare l'app per la logica. Sulla barra degli strumenti della finestra di progettazione selezionare **Salva**.
 
-<a name="tls-support"></a>
+## <a name="trigger-and-action-outputs"></a>Output di trigger e azioni
 
-## <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
+Di seguito sono riportate altre informazioni sugli output di un trigger o un'azione HTTP, che restituisce queste informazioni:
 
-In base alla funzionalità dell'endpoint di destinazione, le chiamate in uscita supportano Transport Layer Security (TLS), che in precedenza era Secure Sockets Layer (SSL), versioni 1,0, 1,1 e 1,2. App per la logica negozia con l'endpoint usando la versione più elevata supportata possibile.
+| Proprietà | Type | Descrizione |
+|----------|------|-------------|
+| `headers` | Oggetto JSON | Intestazioni della richiesta |
+| `body` | Oggetto JSON | Oggetto con il contenuto del corpo della richiesta |
+| `status code` | Integer | Codice di stato della risposta |
+|||
 
-Se, ad esempio, l'endpoint supporta 1,2, il connettore HTTP USA prima 1,2. In caso contrario, il connettore usa la versione successiva più elevata supportata.
-
-<a name="self-signed"></a>
-
-## <a name="self-signed-certificates"></a>Certificati autofirmati
-
-* Per le app per la logica nell'ambiente Azure multi-tenant globale, il connettore HTTP non consente i certificati TLS/SSL autofirmati. Se l'app per la logica effettua una chiamata HTTP a un server e presenta un certificato autofirmato TLS/SSL, la chiamata HTTP ha esito negativo e viene `TrustFailure` visualizzato un errore.
-
-* Per le app per la logica in un [ambiente Integration Services (ISE)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md), il connettore HTTP consente i certificati autofirmati per gli handshake TLS/SSL. Tuttavia, è necessario innanzitutto [abilitare il supporto dei certificati autofirmati](../logic-apps/create-integration-service-environment-rest-api.md#request-body) per un ISE esistente o un nuovo ISE usando l'API REST di app per la logica e installare il certificato pubblico nel `TrustedRoot` percorso.
+| Codice di stato | Descrizione |
+|-------------|-------------|
+| 200 | OK |
+| 202 | Accepted |
+| 400 | Richiesta non valida |
+| 401 | Non autorizzata |
+| 403 | Accesso negato |
+| 404 | Non trovato |
+| 500 | Errore interno del server. Si è verificato un errore sconosciuto. |
+|||
 
 ## <a name="content-with-multipartform-data-type"></a>Contenuto con tipo di dati multipart/form
 
@@ -249,29 +259,8 @@ Per ulteriori informazioni sui parametri trigger e Action, vedere le sezioni seg
 * [Parametri del trigger HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-trigger)
 * [Parametri azione HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-action)
 
-### <a name="output-details"></a>Dettagli dell'output
-
-Di seguito sono riportate altre informazioni sugli output di un trigger o un'azione HTTP, che restituisce queste informazioni:
-
-| Proprietà | Type | Description |
-|----------|------|-------------|
-| `headers` | Oggetto JSON | Intestazioni della richiesta |
-| `body` | Oggetto JSON | Oggetto con il contenuto del corpo della richiesta |
-| `status code` | Integer | Codice di stato della risposta |
-|||
-
-| Codice di stato | Descrizione |
-|-------------|-------------|
-| 200 | OK |
-| 202 | Accepted |
-| 400 | Richiesta non valida |
-| 401 | Non autorizzata |
-| 403 | Accesso negato |
-| 404 | Non trovato |
-| 500 | Errore interno del server. Si è verificato un errore sconosciuto. |
-|||
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su altri [connettori di App per la logica](../connectors/apis-list.md)
+* [Accesso protetto e accesso ai dati per le chiamate in uscita ad altri servizi e sistemi](../logic-apps/logic-apps-securing-a-logic-app.md#secure-outbound-requests)
+* [Connettori per App per la logica](../connectors/apis-list.md)
 

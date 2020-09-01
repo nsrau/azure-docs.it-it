@@ -8,12 +8,12 @@ ms.date: 12/02/2019
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
-ms.openlocfilehash: 77ea5a354dde7adb006c95e9548d8fcc37e2dc12
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 34796a435536a48100b7434ed5267802cd2d549f
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86256867"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226948"
 ---
 # <a name="cloud-provisioning-troubleshooting"></a>Risoluzione dei problemi di provisioning nel cloud
 
@@ -120,9 +120,9 @@ Quando si installa l'agente di provisioning cloud, è possibile che venga ricevu
 
 Questo problema in genere è dovuto al fatto che l'agente non è in grado di eseguire gli script di registrazione di PowerShell a causa dei criteri di esecuzione di PowerShell locali.
 
-Per risolvere questo problema, modificare i criteri di esecuzione di PowerShell nel server. È necessario che i criteri computer e utente siano impostati come *undefined* o *RemoteSigned*. Se sono impostati come *senza restrizioni*, verrà visualizzato questo errore. Per altre informazioni, vedere [criteri di esecuzione di PowerShell](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
+Per risolvere questo problema, modificare i criteri di esecuzione di PowerShell nel server. È necessario che i criteri computer e utente siano impostati come *undefined* o *RemoteSigned*. Se sono impostati come *senza restrizioni*, verrà visualizzato questo errore. Per altre informazioni, vedere [criteri di esecuzione di PowerShell](/powershell/module/microsoft.powershell.core/about/about_execution_policies?view=powershell-6). 
 
-### <a name="log-files"></a>File di log
+### <a name="log-files"></a>File di registro
 
 Per impostazione predefinita, l'agente genera un numero ridotto di messaggi di errore e informazioni minime di analisi dello stack. È possibile trovare i log di traccia nella cartella *C:\ProgramData\Microsoft\Azure il provisioning di AGENT\TRACE ad Connect*.
 
@@ -195,7 +195,7 @@ Selezionando lo stato, è possibile visualizzare informazioni aggiuntive sulla q
 
   ![Riavviare il provisioning](media/how-to-troubleshoot/quarantine3.png)
 
-- Usare Microsoft Graph per [riavviare il processo di provisioning](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Si avrà il controllo completo su ciò che viene riavviato. È possibile scegliere di cancellare:
+- Usare Microsoft Graph per [riavviare il processo di provisioning](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Si avrà il controllo completo su ciò che viene riavviato. È possibile scegliere di cancellare:
   - Escrow, per riavviare il contatore del deposito per la quarantena.
   - Quarantena, per rimuovere l'applicazione dalla quarantena.
   - Filigrane. 
@@ -208,6 +208,3 @@ Selezionando lo stato, è possibile visualizzare informazioni aggiuntive sulla q
 
 - [Cos'è il provisioning?](what-is-provisioning.md)
 - [Che cos'è il provisioning cloud di Azure AD Connect?](what-is-cloud-provisioning.md)
-
-
-

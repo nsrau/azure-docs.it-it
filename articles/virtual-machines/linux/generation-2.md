@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: 927908fa708e7e687bf82400c10e08fbcccdef19
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 66649bff609e59f0de04bc56b434a2c3d0eedc8d
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145026"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181919"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Supporto per le macchine virtuali di seconda generazione in Azure
 
@@ -28,7 +28,8 @@ Le macchine virtuali di prima generazione sono supportate da tutte le dimensioni
 
 * [Serie B](../sizes-b-series-burstable.md)
 * [Serie DCsv2](../dcv2-series.md)
-* [Serie DSv2](../dv2-dsv2-series.md) e [Serie Dsv3](../dv3-dsv3-series.md)
+* [Serie Dsv2](../dv2-dsv2-series.md) 
+* [Serie Dsv3](../dv3-dsv3-series.md)
 * [Serie Dsv4](../dv4-dsv4-series.md)
 * [Serie Ddsv4](../ddv4-ddsv4-series.md)
 * [Serie Dasv4](../dav4-dasv4-series.md)
@@ -38,10 +39,12 @@ Le macchine virtuali di prima generazione sono supportate da tutte le dimensioni
 * [Serie GS](../sizes-previous-gen.md#gs-series)
 * [Serie HB](../hb-series.md)
 * [Serie HC](../hc-series.md)
-* [Serie Ls](../sizes-previous-gen.md#ls-series) e [Serie Lsv2](../lsv2-series.md)
+* [Serie LS](../sizes-previous-gen.md#ls-series) 
+* [Serie Lsv2](../lsv2-series.md)
 * [Serie M](../m-series.md)
 * [Serie Mv2](../mv2-series.md)<sup>1</sup>
-* [Serie NCv2](../ncv2-series.md) e [Serie NCv3](../ncv3-series.md)
+* [Serie NCv2](../ncv2-series.md)
+* [Serie NCv3](../ncv3-series.md)
 * [Serie ND](../nd-series.md)
 * [Serie NVv3](../nvv3-series.md)
 
@@ -80,7 +83,7 @@ Azure attualmente non supporta alcune funzionalità supportate da Hyper-V in loc
 |---------|--------------|--------------|
 | Avvio             | PCAT         | UEFI |
 | Controller del disco | IDE          | SCSI |
-| Dimensioni delle macchine virtuali         | Tutte le dimensioni delle macchine virtuali | Solo le macchine virtuali che supportano l'archiviazione Premium |
+| Dimensioni delle macchine virtuali         | Tutte le dimensioni delle macchine virtuali | [Vedere le dimensioni disponibili](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2#generation-2-vm-sizes) |
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>Funzionalità di prima e seconda generazione
 

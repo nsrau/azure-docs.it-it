@@ -3,12 +3,12 @@ title: Novità del server di Backup di Microsoft Azure
 description: Il server di Backup di Microsoft Azure offre funzionalità avanzate di backup per la protezione di macchine virtuali, file e cartelle, carichi di lavoro e altro ancora.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: fb47d2f14ca686e04cd2d9e3dec27d3ca4a30f5c
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: ca06e52c81b909bb19008fdccfe4b3fdeb7e6248
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88893188"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182140"
 ---
 # <a name="whats-new-in-microsoft-azure-backup-server-mabs"></a>Novità di Backup di Microsoft Azure Server (MAB)
 
@@ -37,7 +37,7 @@ Con MAB V3 UR1, è possibile eseguire il backup dei volumi ReFS e dei carichi di
 >[!NOTE]
 > Il backup di macchine virtuali Hyper-V archiviate in un volume ReFS è supportato con MAB V3
 
->IMPORTANTE Sono stati identificati alcuni problemi relativi al backup dei volumi ReFS deduplicati. Stiamo lavorando per correggere questi aggiornamenti e aggiorniamo questa sezione non appena sarà disponibile una correzione. Fino ad allora, viene rimosso il supporto per il backup dei volumi ReFS deduplicati da MABSv3 UR1.
+>IMPORTANTE Sono stati identificati alcuni problemi relativi al backup di volumi ReFS deduplicati. Stiamo lavorando per correggere questi aggiornamenti e aggiorniamo questa sezione non appena sarà disponibile una correzione. Fino ad allora, viene rimosso il supporto per il backup dei volumi ReFS deduplicati da MABSv3 UR1.
 
 ### <a name="azure-vmware-solution-protection-support"></a>Supporto per la protezione della soluzione VMware di Azure
 

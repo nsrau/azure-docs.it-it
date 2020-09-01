@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 07/16/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 85e0c1b146cfba0cb95a6612f33e42a465bfd20b
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 0e4f41cb23ec4a9463b983049f5f37d09d1b8c71
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008747"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226710"
 ---
 # <a name="connect-with-the-windows-desktop-client"></a>Connettersi con il client desktop di Windows
 
@@ -61,8 +61,9 @@ Esistono due modi per sottoscrivere un'area di lavoro. Il client può provare a 
 1. Dalla pagina principale del client selezionare **Sottoscrivi con URL**.
 2. Immetti l'URL dell'area di lavoro o il tuo indirizzo e-mail:
    - Nel caso dell'**URL dell'area di lavoro**, usa quello fornito dall'amministratore. Se accedi alle risorse da Desktop virtuale Windows, puoi usare uno degli URL seguenti:
-     - Desktop virtuale Windows (classico):`https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
-     - Desktop virtuale di Windows:`https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
+     - Desktop virtuale Windows (versione classica): `https://rdweb.wvd.microsoft.com/api/feeddiscovery/webfeeddiscovery.aspx`
+     - Desktop virtuale Windows: `https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery`
+     - Desktop virtuale Windows (US Gov): `https://rdweb.wvd.azure.us/api/arm/feeddiscovery`
    - Se invece si usa il campo **posta elettronica** , immettere l'indirizzo di posta elettronica. Indica al client di cercare un URL associato all'indirizzo di posta elettronica se l'amministratore ha configurato l' [individuazione della posta elettronica](/windows-server/remote/remote-desktop-services/rds-email-discovery).
 3. Selezionare **Avanti**.
 4. Accedi con l'account utente quando richiesto.

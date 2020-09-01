@@ -1,7 +1,7 @@
 ---
 title: Linee guida sulla personalizzazione delle app | Azure
 titleSuffix: Microsoft identity platform
-description: Guida completa alle risorse rivolte agli sviluppatori per Azure Active Directory
+description: Informazioni sulle linee guida sulla personalizzazione delle applicazioni per la piattaforma di identità Microsoft.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -9,25 +9,25 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 09/24/2018
+ms.date: 08/31/2020
 ms.author: ryanwi
-ms.reviewer: arielgo
+ms.reviewer: arielgo, jiml
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: cf72a8863976d8a678fbdfb6d369c0423b59acf2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 5e62472fdccd2ee71a0ef725f34a75492d1b8ffa
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117295"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226642"
 ---
 # <a name="branding-guidelines-for-applications"></a>Linee guida sulla personalizzazione per le applicazioni
 
-Quando si sviluppano applicazioni con Azure Active Directory (Azure AD), le linee guida consentiranno agli sviluppatori di fornire ai clienti le indicazioni più appropriate quando questi intendono usare l'account aziendale o dell'istituto di istruzione, gestito in Azure AD, o l'account personale per iscriversi e accedere all'applicazione.
+Quando si sviluppano applicazioni con la piattaforma di identità Microsoft, è necessario indirizzare i clienti quando vogliono usare l'account aziendale o dell'Istituto di istruzione (gestito in Azure AD) o il proprio account personale per l'iscrizione e l'accesso all'applicazione.
 
 Contenuto dell'articolo:
 
 - Informazioni sui due tipi di account utente gestiti da Microsoft e come fare riferimento agli account di Azure AD nell'applicazione
-- Scoprire cosa è necessario per aggiungere il logo Microsoft per l'uso nell'app
+- Informazioni sulle operazioni necessarie per aggiungere il logo Microsoft per l'uso nell'app
 - Scaricare le immagini **Accedi** oppure **Accedi con Microsoft** da usare nell'app
 - Informazioni sulle operazioni di personalizzazione e navigazione consigliate e sconsigliate
 
@@ -38,7 +38,7 @@ Microsoft gestisce due tipi di account utente:
 - **Account personali** (noti in precedenza come Windows Live ID). Rappresentano la relazione tra utenti *individuali* e Microsoft e vengono usati per accedere a dispositivi di consumo e servizi forniti da Microsoft. Questi account sono concepiti per un uso personale.
 - **Account aziendali o dell'Istituto di istruzione.**  Questi account sono gestiti da Microsoft per conto delle organizzazioni che usano Azure Active Directory. Vengono usati per accedere a Office 365 e altri servizi aziendali forniti da Microsoft.
 
-Gli account Microsoft aziendali o dell'istituto di istruzione vengono normalmente assegnati agli utenti finali (dipendenti, studenti, impiegati pubblici) dalle relative organizzazioni (azienda, istituto di istruzione, agenzia governativa). Questi account vengono gestiti direttamente nel cloud, nella piattaforma Azure AD, o sincronizzati con Azure AD da una directory locale, ad esempio Windows Server Active Directory. Microsoft è *responsabile* degli account aziendali o dell'istituto di istruzione, che sono tuttavia di proprietà e controllati dall'organizzazione.
+Gli account Microsoft aziendali o dell'istituto di istruzione vengono normalmente assegnati agli utenti finali (dipendenti, studenti, impiegati pubblici) dalle relative organizzazioni (azienda, istituto di istruzione, agenzia governativa). Questi account sono gestiti direttamente nel cloud (nella piattaforma Azure AD) o sincronizzati con Azure AD da una directory locale, ad esempio Windows Server Active Directory. Microsoft è *responsabile* degli account aziendali o dell'istituto di istruzione, che sono tuttavia di proprietà e controllati dall'organizzazione.
 
 ## <a name="referring-to-azure-ad-accounts-in-your-application"></a>Riferimento agli account Azure AD nella propria applicazione
 

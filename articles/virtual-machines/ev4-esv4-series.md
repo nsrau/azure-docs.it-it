@@ -9,12 +9,12 @@ ms.service: virtual-machines
 ms.subservice: sizes
 ms.topic: conceptual
 ms.date: 6/8/2020
-ms.openlocfilehash: 6e35e32c92535a408c8df22d7306895150a59519
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: b8a6e1013c131778bacb11bd885b9280fb6c6077
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050149"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182174"
 ---
 # <a name="ev4-and-esv4-series"></a>Serie Ev4 e Esv4
 
@@ -28,9 +28,6 @@ La serie Ev4 e Esv4 &reg; è in esecuzione sui processori Intel Xeon &reg; Plati
 Le dimensioni della serie Ev4 vengono eseguite su Intel Xeon &reg; Platinum 8272CL (Cascade Lake). Le istanze della serie Ev4 sono ideali per applicazioni aziendali a uso intensivo di memoria. Le macchine virtuali serie Ev4 includono la &reg; tecnologia Hyper-Threading Intel.
 
 L'archiviazione su disco dati remoto viene fatturata separatamente dalle macchine virtuali. Per usare i dischi di archiviazione Premium, usare le dimensioni Esv4. I prezzi e i contatori di fatturazione per le dimensioni Esv4 sono uguali a quelli della serie Ev4.
-
-> [!IMPORTANT]
-> Queste nuove dimensioni sono attualmente in anteprima pubblica. [Qui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u)è possibile iscriversi a queste serie di Ev4 e Esv4. 
 
 ACU: 195 - 210
 
@@ -58,9 +55,6 @@ Manutenzione con mantenimento della memoria: Supportato
 
 Le dimensioni della serie Esv4 vengono eseguite su Intel &reg; Xeon &reg; Platinum 8272CL (Cascade Lake). Le istanze della serie Esv4 sono ideali per applicazioni aziendali a uso intensivo di memoria. Le macchine virtuali serie Evs4 includono la &reg; tecnologia Hyper-Threading Intel. L'archiviazione su disco dati remoto viene fatturata separatamente dalle macchine virtuali.
 
-> [!IMPORTANT]
-> Queste nuove dimensioni sono attualmente in anteprima pubblica. [Qui](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR_Y3toRKxchLjARedqtguBRURE1ZSkdDUzg1VzJDN0cwWUlKTkcyUlo5Mi4u)è possibile iscriversi a queste serie di Ev4 e Esv4. 
-
 ACU: 195-210
 
 Archiviazione Premium:  Supportato
@@ -71,16 +65,16 @@ Live Migration: Supportato
 
 Manutenzione con mantenimento della memoria: Supportato
 
-| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima nella cache: IOPS/MBps (dimensioni della cache in GiB) | Velocità effettiva massima del disco senza memorizzazione nella cache: Operazioni di I/O al secondo/Mbps | Schede di interfaccia di rete max|Larghezza di banda di rete prevista (Mbps) |
-|---|---|---|---|---|---|---|---|---|
-| Standard_E2s_v4  | 2 | 16  | Solo archiviazione remota | 4 | 19000/120 (50) | 3200/48 | 2|1000  |
-| Standard_E4s_v4  | 4 | 32  | Solo archiviazione remota | 8 | 38500/242 (100) | 6400/96 | 2|2000  |
-| Standard_E8s_v4  | 8 | 64  | Solo archiviazione remota | 16 | 77000/485 (200) | 12800/192 | 4|4000 |
-| Standard_E16s_v4 | 16 | 128 | Solo archiviazione remota | 32 | 154000/968 (400) | 25600/384 | 8|8000 |
-| Standard_E20s_v4 | 20 | 160 | Solo archiviazione remota | 32 | 193000/1211 (500) | 32000/480  | 8|10000 |
-| Standard_E32s_v4 | 32 | 256 | Solo archiviazione remota | 32 | 308000/1936 (800) | 51200/768  | 8|16000 |
-| Standard_E48s_v4 | 48 | 384 | Solo archiviazione remota | 32 | 462000/2904 (1200) | 76800/1152 | 8|24000 |
-| Standard_E64s_v4 <sup>1</sup> | 64 | 504| Solo archiviazione remota | 32 | 615000/3872 (1600) | 80000/1200 | 8|30000 |
+| Dimensione | vCPU | Memoria: GiB | GiB di archiviazione temp (unità SSD) | Numero massimo di dischi dati | Velocità effettiva massima del disco senza memorizzazione nella cache: Operazioni di I/O al secondo/Mbps | Schede di interfaccia di rete max|Larghezza di banda di rete prevista (Mbps) |
+|---|---|---|---|---|---|---|---|
+| Standard_E2s_v4  | 2 | 16  | Solo archiviazione remota | 4 | 3200/48 | 2|1000  |
+| Standard_E4s_v4  | 4 | 32  | Solo archiviazione remota | 8 | 6400/96 | 2|2000  |
+| Standard_E8s_v4  | 8 | 64  | Solo archiviazione remota | 16 | 12800/192 | 4|4000 |
+| Standard_E16s_v4 | 16 | 128 | Solo archiviazione remota | 32 | 25600/384 | 8|8000 |
+| Standard_E20s_v4 | 20 | 160 | Solo archiviazione remota | 32 | 32000/480  | 8|10000 |
+| Standard_E32s_v4 | 32 | 256 | Solo archiviazione remota | 32 | 51200/768  | 8|16000 |
+| Standard_E48s_v4 | 48 | 384 | Solo archiviazione remota | 32 | 76800/1152 | 8|24000 |
+| Standard_E64s_v4 <sup>1</sup> | 64 | 504| Solo archiviazione remota | 32 | 80000/1200 | 8|30000 |
 
 <sup>1</sup> [dimensioni core vincolate disponibili](./constrained-vcpu.md).
 

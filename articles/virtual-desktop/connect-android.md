@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 03/25/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 79d88d218d04d00def19bdd2aa98f76d2f128de1
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ebf91f68e45148d9a609ff671ffa4683bd74c82c
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007761"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226115"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-android-client"></a>Connettersi al desktop virtuale Windows con il client Android
 
@@ -36,8 +36,9 @@ Per sottoscrivere un feed:
 2. Immettere l'URL del feed nel campo **feed URL** . L'URL del feed può essere un URL o un indirizzo di posta elettronica.
    - Se si usa un URL, usare quello che l'amministratore ha assegnato, normalmente <https://rdweb.wvd.microsoft.com/api/arm/feeddiscovery> .
    - Nel caso dell'e-mail, immetti il tuo indirizzo. Il client eseguirà la ricerca di un URL associato all'indirizzo di posta elettronica se l'amministratore ha configurato il server in modo.
+   - Per connettersi tramite il portale di US Gov, usare <https://rdweb.wvd.azure.us/api/arm/feeddiscovery> .
 3. Toccare **AVANTI**.
-4. Specifica le credenziali quando richiesto.
+4. Specificare le credenziali quando richiesto.
    - Per **nome utente**, assegnare al nome utente l'autorizzazione per accedere alle risorse.
    - Per **password**, assegnare la password associata al nome utente.
    - È anche possibile che venga richiesto di fornire altri fattori se l'amministratore ha configurato l'autenticazione in questo modo.

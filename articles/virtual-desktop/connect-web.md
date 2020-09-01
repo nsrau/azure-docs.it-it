@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 7c97009a69c937863a5776d63bab1c994a8a9160
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 2ca5a591d168e18181a29cf1c00a7d1fead54595
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007608"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226047"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-web-client"></a>Connettersi al desktop virtuale Windows con il client Web
 
@@ -41,6 +41,8 @@ In un browser, passare alla versione integrata in Azure Resource Manager del cli
 
 >[!NOTE]
 >Se si usa desktop virtuale di Windows (versione classica) senza Azure Resource Manager integrazione, connettersi alle risorse in <https://rdweb.wvd.microsoft.com/webclient> .
+>
+> Se si usa il portale di US Gov, usare <https://rdweb.wvd.azure.us/arm/webclient/index.html> .
 
 >[!NOTE]
 >Se è già stato eseguito l'accesso con un account Azure Active Directory diverso da quello che si vuole usare per Desktop virtuale Windows, è necessario disconnettersi o usare una finestra del browser privata.

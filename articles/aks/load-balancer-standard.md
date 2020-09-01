@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 06/14/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 417ca42e014c0bb197d7dd834b960f25fcfdf468
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a58b00018f6ac89f024661d8d3f50ea5249e620b
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056799"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182123"
 ---
 # <a name="use-a-public-standard-load-balancer-in-azure-kubernetes-service-aks"></a>Usare un Load Balancer Standard pubblico in Azure Kubernetes Service (AKS)
 
@@ -267,16 +267,15 @@ Se si prevede di avere numerose connessioni di breve durata e non ci sono connes
 *Indirizzi IP in uscita* \* 64.000 \> *macchine virtuali del nodo* \* *desiredAllocatedOutboundPorts*.
  
 Se, ad esempio, si dispone di 3 *macchine virtuali del nodo* e di 50.000 *desiredAllocatedOutboundPorts*, è necessario disporre di almeno 3 *indirizzi IP in uscita*. Si consiglia di incorporare una capacità IP in uscita aggiuntiva oltre quella necessaria. Inoltre, è necessario tenere presente il ridimensionamento automatico del cluster e la possibilità di aggiornamenti del pool di nodi quando si calcola la capacità IP in uscita. Per il ridimensionamento automatico del cluster, esaminare il numero di nodi corrente e il numero massimo di nodi e usare il valore più elevato. Per l'aggiornamento, tenere conto di una macchina virtuale del nodo aggiuntiva per ogni pool di nodi che consente l'aggiornamento.
- 
+
 - Quando si imposta *IdleTimeoutInMinutes* su un valore diverso da quello predefinito di 30 minuti, considerare per quanto tempo i carichi di lavoro necessiteranno di una connessione in uscita. Tenere presente anche che il valore di timeout predefinito per un'istanza di bilanciamento del carico con SKU *Standard* usata al di fuori del servizio Azure Kubernetes è di 4 minuti. Un valore di *IdleTimeoutInMinutes* che riflette in modo più accurato il carico di lavoro del servizio Azure Kubernetes specifico può contribuire a ridurre l'esaurimento SNAT causato dal collegamento di connessioni non più utilizzate.
 
 > [!WARNING]
 > La modifica dei valori di *AllocatedOutboundPorts* e *IdleTimeoutInMinutes* può modificare in modo significativo il comportamento della regola in uscita per il servizio di bilanciamento del carico e non deve essere eseguita con leggerezza, senza conoscere i compromessi e i modelli di connessione dell'applicazione, controllare la [sezione relativa alla risoluzione dei problemi di SNAT di seguito][troubleshoot-snat] ed esaminare le regole in uscita [Load Balancer][azure-lb-outbound-rules-overview] e le [connessioni in uscita in Azure][azure-lb-outbound-connections] prima di aggiornare questi valori per comprendere
 
-
 ## <a name="restrict-inbound-traffic-to-specific-ip-ranges"></a>Limitare il traffico in ingresso a intervalli IP specifici
 
-Per impostazione predefinita, il gruppo di sicurezza di rete (NSG) associato alla rete virtuale per l'istanza di bilanciamento del carico ha una regola per consentire tutto il traffico esterno in ingresso. È possibile aggiornare questa regola in modo da consentire solo intervalli di indirizzi IP specifici per il traffico in ingresso. Il manifesto seguente usa *loadBalancerSourceRanges* per specificare un nuovo intervallo di indirizzi IP per il traffico esterno in ingresso:
+Il manifesto seguente usa *loadBalancerSourceRanges* per specificare un nuovo intervallo di indirizzi IP per il traffico esterno in ingresso:
 
 ```yaml
 apiVersion: v1
@@ -292,6 +291,9 @@ spec:
   loadBalancerSourceRanges:
   - MY_EXTERNAL_IP_RANGE
 ```
+
+> [!NOTE]
+> Il traffico esterno in ingresso fluisce dal servizio di bilanciamento del carico alla rete virtuale per il cluster AKS. La rete virtuale ha un gruppo di sicurezza di rete (NSG) che consente tutto il traffico in ingresso dal servizio di bilanciamento del carico. Questo NSG usa un [tag di servizio][service-tags] di tipo *LoadBalancer* per consentire il traffico dal servizio di bilanciamento del carico.
 
 ## <a name="maintain-the-clients-ip-on-inbound-connections"></a>Mantenere l'indirizzo IP del client per le connessioni in ingresso
 
@@ -322,7 +324,7 @@ Di seguito è riportato un elenco di annotazioni supportate per i servizi Kubern
 | `service.beta.kubernetes.io/azure-dns-label-name`                 | Nome dell'etichetta DNS negli indirizzi IP pubblici   | Specificare il nome dell'etichetta DNS per il servizio **pubblico** . Se è impostato su una stringa vuota, la voce DNS nell'indirizzo IP pubblico non verrà usata.
 | `service.beta.kubernetes.io/azure-shared-securityrule`            | `true` o `false`                     | Specificare che il servizio deve essere esposto usando una regola di sicurezza di Azure che può essere condivisa con un altro servizio, scambiando la specificità delle regole per un aumento del numero di servizi che possono essere esposti. Questa annotazione si basa sulla funzionalità delle [regole di sicurezza aumentata](../virtual-network/security-overview.md#augmented-security-rules) di Azure dei gruppi di sicurezza di rete. 
 | `service.beta.kubernetes.io/azure-load-balancer-resource-group`   | Nome del gruppo di risorse            | Specificare il gruppo di risorse degli indirizzi IP pubblici del servizio di bilanciamento del carico che non si trovano nello stesso gruppo di risorse dell'infrastruttura del cluster (gruppo di risorse nodo).
-| `service.beta.kubernetes.io/azure-allowed-service-tags`           | Elenco di tag di servizio consentiti          | Consente di specificare un elenco di [tag di servizio](../virtual-network/security-overview.md#service-tags) consentiti separati da virgola.
+| `service.beta.kubernetes.io/azure-allowed-service-tags`           | Elenco di tag di servizio consentiti          | Consente di specificare un elenco di [tag di servizio][service-tags] consentiti separati da virgola.
 | `service.beta.kubernetes.io/azure-load-balancer-tcp-idle-timeout` | Timeout di inattività TCP in minuti          | Specificare l'intervallo di tempo, in minuti, per cui si verificano i timeout di inattività della connessione TCP nel servizio di bilanciamento del carico. Il valore predefinito e il valore minimo è 4. Il valore massimo è 30. Deve essere un valore Integer.
 |`service.beta.kubernetes.io/azure-load-balancer-disable-tcp-reset` | `true`                                | Disabilitare `enableTcpReset` per SLB
 
@@ -424,3 +426,4 @@ Per altre informazioni sull'uso di Load Balancer interni per il traffico in ingr
 [requirements]: #requirements-for-customizing-allocated-outbound-ports-and-idle-timeout
 [use-multiple-node-pools]: use-multiple-node-pools.md
 [troubleshoot-snat]: #troubleshooting-snat
+[service-tags]: ../virtual-network/security-overview.md#service-tags

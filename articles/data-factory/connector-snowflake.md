@@ -1,6 +1,6 @@
 ---
-title: Copiare dati da e in fiocco di neve
-description: Informazioni su come copiare dati da e a fiocco di neve usando Azure Data Factory.
+title: Copiare e trasformare i dati in fiocco di neve
+description: Informazioni su come copiare e trasformare i dati in fiocco di neve usando Data Factory.
 services: data-factory
 ms.author: jingwang
 author: linda33wj
@@ -11,30 +11,33 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 08/28/2020
-ms.openlocfilehash: 5bc64985401fce1c58a985b6b9fdead620c9aa8f
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: fa8bb310d6a088db92b3dfd8eb6d2f584e9ffab7
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048177"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181885"
 ---
-# <a name="copy-data-from-and-to-snowflake-by-using-azure-data-factory"></a>Copiare dati da e a fiocco di neve usando Azure Data Factory
+# <a name="copy-and-transform-data-in-snowflake-by-using-azure-data-factory"></a>Copiare e trasformare i dati in fiocco di neve usando Azure Data Factory
 
-[!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
+[!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e in fiocco di neve. Per ulteriori informazioni su Data Factory, vedere l' [articolo introduttivo](introduction.md).
+Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da e in fiocco di neve e usare il flusso di dati per trasformare i dati in fiocco di neve. Per ulteriori informazioni su Data Factory, vedere l' [articolo introduttivo](introduction.md).
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
 Questo connettore a fiocco di neve è supportato per le attività seguenti:
 
 - [Attività di copia](copy-activity-overview.md) con una tabella di [matrice di origine/sink supportata](copy-activity-overview.md)
+- [Flusso di dati per mapping](concepts-data-flow-overview.md)
 - [Attività Lookup](control-flow-lookup-activity.md)
 
 Per l'attività di copia, questo connettore a fiocco di neve supporta le funzioni seguenti:
 
 - Copiare i dati da fiocco di neve che usa la copia di fiocco di neve [nel comando [Location]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-location.html) per ottenere prestazioni ottimali.
-- Copiare i dati in fiocco di neve che sfrutta la copia del fiocco di neve [nel comando [Table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) per ottenere prestazioni ottimali. Supporta fiocco di neve in Azure.
+- Copiare i dati in fiocco di neve che sfrutta la copia del fiocco di neve [nel comando [Table]](https://docs.snowflake.com/en/sql-reference/sql/copy-into-table.html) per ottenere prestazioni ottimali. Supporta fiocco di neve in Azure. 
+
+Quando si usa l'area di lavoro di Azure sinapsi Analytics, il fiocco di neve non è supportato.
 
 ## <a name="get-started"></a>Introduzione
 
@@ -105,8 +108,8 @@ Per il set di dati di fiocco di neve sono supportate le proprietà seguenti.
 | Proprietà  | Descrizione                                                  | Obbligatoria                    |
 | :-------- | :----------------------------------------------------------- | :-------------------------- |
 | type      | La proprietà Type del set di dati deve essere impostata su **SnowflakeTable**. | Sì                         |
-| schema | Nome dello schema. |No per l'origine, Sì per il sink  |
-| tabella | Nome della tabella/vista. |No per l'origine, Sì per il sink  |
+| schema | Nome dello schema. Si noti che il nome dello schema fa distinzione tra maiuscole e minuscole in ADF. |No per l'origine, Sì per il sink  |
+| tabella | Nome della tabella/vista. Si noti che il nome della tabella fa distinzione tra maiuscole e minuscole in ADF. |No per l'origine, Sì per il sink  |
 
 **Esempio:**
 
@@ -143,7 +146,7 @@ Per copiare dati da fiocco di neve, nella sezione **origine** dell'attività di 
 | Proprietà                     | Descrizione                                                  | Obbligatoria |
 | :--------------------------- | :----------------------------------------------------------- | :------- |
 | type                         | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **SnowflakeSource**. | Sì      |
-| query          | Specifica la query SQL per leggere i dati da fiocco di neve.<br>L'esecuzione di stored procedure non è supportata. | No       |
+| query          | Specifica la query SQL per leggere i dati da fiocco di neve. Se i nomi dello schema, della tabella e delle colonne contengono lettere minuscole, indicare l'identificatore di oggetto nella query, ad `select * from "schema"."myTable"` esempio.<br>L'esecuzione di stored procedure non è supportata. | No       |
 | exportSettings | Impostazioni avanzate utilizzate per recuperare dati da fiocco di neve. È possibile configurare quelli supportati dal comando COPY into che Data Factory passerà quando si richiama l'istruzione. | No       |
 | ***In `exportSettings` :*** |  |  |
 | tipo | Tipo di comando Export impostato su **SnowflakeExportCopyCommand**. | Sì |
@@ -194,7 +197,7 @@ Se l'archivio dati sink e il formato soddisfano i criteri descritti in questa se
         "typeProperties": {
             "source": {
                 "type": "SnowflakeSource",
-                "sqlReaderQuery": "SELECT * FROM MyTable",
+                "sqlReaderQuery": "SELECT * FROM MYTABLE",
                 "exportSettings": {
                     "type": "SnowflakeExportCopyCommand",
                     "additionalCopyOptions": {
@@ -396,6 +399,83 @@ Per usare questa funzionalità, creare un [servizio collegato di archiviazione B
 ]
 ```
 
+## <a name="mapping-data-flow-properties"></a>Proprietà del flusso di dati per mapping
+
+Quando si trasformano i dati nel flusso di dati di mapping, è possibile leggere e scrivere nelle tabelle in fiocco di neve. Per altre informazioni, vedere la [trasformazione origine](data-flow-source.md) e la [trasformazione sink](data-flow-sink.md) nei flussi di dati per mapping. È possibile scegliere di usare un set di dati a fiocco di neve o un [set di dati inline](data-flow-source.md#inline-datasets) come tipo di origine e sink.
+
+### <a name="source-transformation"></a>Trasformazione origine
+
+La tabella seguente elenca le proprietà supportate dall'origine fiocco di neve. È possibile modificare queste proprietà nella scheda **Opzioni di origine** . Il connettore usa il [trasferimento dei dati interni](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer)a fiocco di neve.
+
+| Nome | Descrizione | Obbligatorio | Valori consentiti | Proprietà script flusso di dati |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Tabella | Se si seleziona tabella come input, il flusso di dati recupererà tutti i dati dalla tabella specificata nel set di dati a fiocco di neve o nelle opzioni di origine quando si usa il set di dati inline. | No | string | *(solo per set di dati inline)*<br>tableName<br>schemaName |
+| Query | Se si seleziona query come input, immettere una query per recuperare i dati da fiocco di neve. Questa impostazione esegue l'override di qualsiasi tabella scelta nel set di dati.<br>Se i nomi dello schema, della tabella e delle colonne contengono lettere minuscole, indicare l'identificatore di oggetto nella query, ad `select * from "schema"."myTable"` esempio. | No | string | query |
+
+#### <a name="snowflake-source-script-examples"></a>Esempi di script di origine fiocco di neve
+
+Quando si usa il set di dati fiocco di neve come tipo di origine, lo script flusso di dati associato è:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    query: 'select * from MYTABLE',
+    format: 'query') ~> SnowflakeSource
+```
+
+Se si usa il set di dati inline, lo script del flusso di dati associato è:
+
+```
+source(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'query',
+    query: 'select * from MYTABLE',
+    store: 'snowflake') ~> SnowflakeSource
+```
+
+### <a name="sink-transformation"></a>Trasformazione sink
+
+La tabella seguente elenca le proprietà supportate dal sink di fiocco di neve. È possibile modificare queste proprietà nella scheda **Impostazioni** . Quando si usa il set di dati inline, verranno visualizzate impostazioni aggiuntive, che corrispondono alle proprietà descritte nella sezione [Proprietà set di dati](#dataset-properties) . Il connettore usa il [trasferimento dei dati interni](https://docs.snowflake.com/en/user-guide/spark-connector-overview.html#internal-data-transfer)a fiocco di neve.
+
+| Nome | Descrizione | Obbligatorio | Valori consentiti | Proprietà script flusso di dati |
+| ---- | ----------- | -------- | -------------- | ---------------- |
+| Update (metodo) | Specificare le operazioni consentite nella destinazione di fiocco di neve.<br>Per aggiornare, Upsert o eliminare righe, è necessaria una [trasformazione alter Row](data-flow-alter-row.md) per contrassegnare le righe per tali azioni. | Sì | `true` o `false` | cancellabile <br/>inseribile <br/>aggiornabile <br/>upsertable |
+| Colonne chiave | Per le operazioni di aggiornamento, upsert ed eliminazione è necessario impostare una o più colonne chiave per determinare quale riga modificare. | No | Array | chiavi |
+| azione Tabella | Determina se ricreare o rimuovere tutte le righe dalla tabella di destinazione prima della scrittura.<br>- **None**: nessuna azione verrà eseguita nella tabella.<br>- **Ricrea**: la tabella viene eliminata e ricreata. Questa opzione è obbligatoria se si crea una nuova tabella in modo dinamico.<br>- **Truncate**: tutte le righe della tabella di destinazione vengono rimosse. | No | `true` o `false` | ricreare<br/>truncate |
+
+#### <a name="snowflake-sink-script-examples"></a>Esempi di script di sink di fiocchi di neve
+
+Quando si usa il set di dati fiocco come tipo di sink, lo script del flusso di dati associato è:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    deletable:true,
+    insertable:true,
+    updateable:true,
+    upsertable:false,
+    keys:['movieId'],
+    format: 'table',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> SnowflakeSink
+```
+
+Se si usa il set di dati inline, lo script del flusso di dati associato è:
+
+```
+IncomingStream sink(allowSchemaDrift: true,
+    validateSchema: false,
+    format: 'table',
+    tableName: 'table',
+    schemaName: 'schema',
+    deletable: true,
+    insertable: true,
+    updateable: true,
+    upsertable: false,
+    store: 'snowflake',
+    skipDuplicateMapInputs: true,
+    skipDuplicateMapOutputs: true) ~> SnowflakeSink
+```
 
 ## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup
 

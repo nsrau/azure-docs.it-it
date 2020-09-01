@@ -15,12 +15,12 @@ ms.topic: reference
 ms.date: 04/26/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58cddcde71e6e86b9abe07eb4200f13ad55ea659
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 58ecdfefa79716bcc0a69063293d5a1067693a78
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84690694"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182361"
 ---
 # <a name="user-privacy-and-azure-ad-connect-health"></a>Privacy dell'utente e Azure AD Connect Health 
 
@@ -41,7 +41,7 @@ I server con **i dati del servizio integrità attivo non sono** gli avvisi di **
 Azure AD Connect Health consente di arrestare la raccolta di dati per ciascun server monitorato o per un'istanza di un servizio monitorato. Ad esempio, è possibile interrompere la raccolta di dati per i singoli server ADFS (Active Directory Federation Services) che vengono monitorati tramite Azure AD Connect Health. È anche possibile arrestare la raccolta di dati per l'intera istanza ADFS che si desidera monitorare con Azure AD Connect Health. Quando si sceglie di eseguire questa operazione, i server corrispondenti vengono eliminati dal portale di Azure AD Connect Health, dopo l'arresto della raccolta di dati. 
 
 >[!IMPORTANT]
-> Sono necessari i privilegi di Amministratore globale di Azure AD o il ruolo di Collaboratore in Controllo degli accessi in base al ruolo per eliminare i server monitorati da Azure AD Connect Health.
+> È necessario Azure AD privilegi di amministratore globale o il ruolo Collaboratore in Azure RBAC per eliminare i server monitorati da Azure AD Connect Health.
 >
 > La rimozione di un server o un'istanza del servizio da Azure AD Connect Health non è un'operazione reversibile. 
 

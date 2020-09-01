@@ -5,15 +5,15 @@ description: Informazioni su come limitare il traffico Web con Web Application F
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 08/31/2020
 ms.author: victorh
-ms.topic: conceptual
-ms.openlocfilehash: a57c5b155f7ab00f781236cfceea59a4277ff06a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.topic: how-to
+ms.openlocfilehash: 1e2fb98d83d1246c54ccb37d68d9b4282701677e
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74046283"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89225187"
 ---
 # <a name="enable-web-application-firewall-using-azure-powershell"></a>Abilitare Web Application Firewall con Azure PowerShell
 
@@ -21,11 +21,10 @@ ms.locfileid: "74046283"
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
-> [!div class="checklist"]
-> * Configurare la rete
-> * Creare un gateway applicazione con WAF abilitato
-> * Creare un set di scalabilità di macchine virtuali
-> * Creare un account di archiviazione e configurare la diagnostica
+* Configurare la rete
+* Creare un gateway applicazione con WAF abilitato
+* Creare un set di scalabilità di macchine virtuali
+* Creare un account di archiviazione e configurare la diagnostica
 
 ![Esempio di web application firewall](../media/tutorial-restrict-web-traffic-powershell/scenario-waf.png)
 

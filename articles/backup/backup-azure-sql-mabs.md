@@ -3,12 +3,12 @@ title: Eseguire il backup di SQL Server tramite server di Backup di Azure
 description: Questo articolo illustra la configurazione per eseguire il backup dei database SQL Server usando Backup di Microsoft Azure Server (MAB).
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: caf3d49c9b921cab97054a97ece271e484a734bd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b47cb74c6e5dbb868c03f8f7b79c00b0c4ce7886
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89005208"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182310"
 ---
 # <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Eseguire il backup di SQL Server in Azure usando server di Backup di Azure
 

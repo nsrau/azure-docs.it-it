@@ -6,15 +6,15 @@ author: linda33wj
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 07/16/2020
+ms.date: 08/31/2020
 ms.author: jingwang
 ms.reviewer: craigg
-ms.openlocfilehash: 334d5b5113dba17c5abc2b4f2520bde0d16e4c06
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a729d470cccd4121523c767ada9077a51361c061
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007445"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181978"
 ---
 # <a name="azure-data-factory-connector-overview"></a>Panoramica di Azure Data Factory Connector
 
@@ -25,6 +25,17 @@ Azure Data Factory supporta gli archivi dati e i formati seguenti tramite copia,
 ## <a name="supported-data-stores"></a>Archivi dati supportati
 
 [!INCLUDE [Connector overview](../../includes/data-factory-v2-connector-overview.md)]
+
+## <a name="integrate-with-more-data-stores"></a>Integrazione con più archivi dati
+
+Azure Data Factory possibile raggiungere un set più ampio di archivi dati rispetto all'elenco menzionato in precedenza. Se è necessario spostare i dati da e verso un archivio dati che non si trova nell'elenco Azure Data Factory Connector incorporato, di seguito sono riportate alcune opzioni estendibili:
+- Per database e data warehouse, in genere è possibile trovare un driver ODBC corrispondente, con cui è possibile usare il [connettore ODBC generico](connector-odbc.md).
+- Per le applicazioni SaaS:
+    - Se fornisce API RESTful, è possibile usare il [connettore Rest generico](connector-rest.md).
+    - Se è presente un feed OData, è possibile usare il [connettore generico OData](connector-odata.md).
+    - Se fornisce API SOAP, è possibile usare il [connettore http generico](connector-http.md).
+    - Se è presente un driver ODBC, è possibile usare il [connettore ODBC generico](connector-odbc.md).
+- Per gli altri, controllare se è possibile caricare o esporre dati in qualsiasi archivio dati supportato da ADF, ad esempio BLOB di Azure/file/FTP/SFTP e così via, quindi lasciare che ADF rilevi da questa posizione. È possibile richiamare un meccanismo personalizzato di caricamento dei dati tramite [funzione di Azure](control-flow-azure-function-activity.md), [attività personalizzata](transform-data-using-dotnet-custom-activity.md), [databricks](transform-data-databricks-notebook.md) / [HDInsight](transform-data-using-hadoop-hive.md), [attività Web](control-flow-web-activity.md)e così via.
 
 ## <a name="supported-file-formats"></a>Formati di file supportati
 

@@ -7,13 +7,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/16/2020
-ms.openlocfilehash: adbe3ceb72d88c2a6441c04d876d92ac2ab85930
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 08/18/2020
+ms.openlocfilehash: 0f6b1789a5148af37ddd2d0895cec348c27f663a
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522772"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182497"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>Trasformazione origine nel flusso di dati di mapping 
 
@@ -37,7 +37,7 @@ Per usare un set di dati inline, selezionare il formato desiderato nel selettore
 
 ![Set di dati inline](media/data-flow/inline-selector.png "Set di dati inline")
 
-##  <a name="supported-source-types"></a><a name="supported-sources"></a>Tipi di origine supportati
+##  <a name="supported-source-types"></a><a name="supported-sources"></a> Tipi di origine supportati
 
 Il flusso di dati di mapping segue un approccio di estrazione, caricamento e trasformazione (ELT) e funziona con i set di dati di *staging* che sono tutti in Azure. Attualmente i set di dati seguenti possono essere utilizzati in una trasformazione di origine:
 
@@ -49,8 +49,9 @@ Il flusso di dati di mapping segue un approccio di estrazione, caricamento e tra
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
 | [Database SQL di Azure](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure Cosmos DB (API SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+| [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
-Le impostazioni specifiche di questi connettori si trovano nella scheda **Opzioni di origine** . gli esempi di script del flusso di dati e informazioni su queste impostazioni sono disponibili nella documentazione del connettore. 
+Le impostazioni specifiche di questi connettori si trovano nella scheda **Opzioni di origine** . Esempi di script di flusso di dati e informazioni su queste impostazioni sono disponibili nella documentazione del connettore. 
 
 Azure Data Factory può accedere a più di [90 connettori nativi](connector-overview.md). Per includere dati da tali origini nel flusso di dati, usare l'attività di copia per caricare i dati in una delle aree di gestione temporanea supportate.
 

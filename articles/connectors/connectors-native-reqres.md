@@ -5,18 +5,20 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 05/29/2020
+ms.date: 08/27/2020
 tags: connectors
-ms.openlocfilehash: ae34840c04c3a1d2fb3646046792c97ed6f521a0
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 05ce944d195cf43f860fc2b39975a736a4454c05
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289442"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226515"
 ---
 # <a name="receive-and-respond-to-inbound-https-requests-in-azure-logic-apps"></a>Ricevere e rispondere alle richieste HTTPS in ingresso in App per la logica di Azure
 
-Con [App per la logica di Azure](../logic-apps/logic-apps-overview.md), assieme al trigger di richiesta e all'azione di risposta predefiniti, è possibile creare attività e flussi di lavoro automatizzati che ricevono le richieste HTTPS in ingresso e rispondono. Ad esempio, è possibile far sì che l'app per la logica:
+Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il trigger di richiesta e l'azione di risposta predefiniti è possibile creare attività e flussi di lavoro automatizzati in grado di ricevere richieste in ingresso tramite HTTPS. Per inviare le richieste in uscita, usare il [trigger http incorporato o l'azione http](../connectors/connectors-native-http.md).
+
+Ad esempio, è possibile far sì che l'app per la logica:
 
 * Riceva e risponda a una richiesta HTTPS di dati in un database locale.
 
@@ -24,47 +26,28 @@ Con [App per la logica di Azure](../logic-apps/logic-apps-overview.md), assieme 
 
 * Riceva e risponda a una chiamata HTTPS da un'altra app per la logica.
 
-Il trigger di richiesta supporta [Azure Active Directory Open Authentication](../active-directory/develop/index.yml) (Azure AD OAuth) per autorizzare le chiamate in ingresso all'app per la logica. Per altre informazioni sull'abilitazione di questa autenticazione, vedere [Proteggere l'accesso e i dati in App per la logica di Azure: abilitare l'autenticazione OAuth di Azure AD](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth).
+Questo articolo illustra come usare il trigger di richiesta e l'azione di risposta in modo che l'app per la logica possa ricevere e rispondere alle chiamate in ingresso.
+
+Per informazioni su crittografia, sicurezza e autorizzazione per le chiamate in ingresso all'app per la logica, ad esempio [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), precedentemente noto come Secure Sockets Layer (SSL) o [Azure Active Directory Open Authentication (Azure ad OAuth)](../active-directory/develop/index.yml), vedere [accesso protetto e accesso ai dati per le chiamate in ingresso a trigger basati su richiesta](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
+* Un account e una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* Conoscenze di base di [app per la logica](../logic-apps/logic-apps-overview.md). Se non si ha familiarità con le app per la logica, vedere [come creare la prima app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md).
-
-<a name="tls-support"></a>
-
-## <a name="transport-layer-security-tls"></a>Transport Layer Security (TLS)
-
-* Le chiamate in ingresso supportano *solo* Transport Layer Security (TLS) 1,2. Se si verificano errori di handshake TLS, assicurarsi di usare TLS 1.2. Per altre informazioni, vedere [Risoluzione del problema relativo a TLS 1.0](/security/solving-tls1-problem). Le chiamate in uscita supportano TLS 1,0, 1,1 e 1,2, in base alla funzionalità dell'endpoint di destinazione.
-
-* Le chiamate in ingresso supportano questi pacchetti di crittografia:
-
-  * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-
-  * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-
-  * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-
-  * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-
-  * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-
-  * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-
-  * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-
-  * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+* Conoscenza di base di [come creare le app per la logica](../logic-apps/quickstart-create-first-logic-app-workflow.md). Se non si ha familiarità con le app per la logica, vedere informazioni sulle [app per la logica di Azure](../logic-apps/logic-apps-overview.md)
 
 <a name="add-request"></a>
 
 ## <a name="add-request-trigger"></a>Aggiungere un trigger di richiesta
 
-Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che può ricevere *solo* richieste HTTPS in ingresso. Quando si verifica questo evento, il trigger viene attivato ed esegue l'app per la logica. Per altre informazioni sulla definizione JSON sottostante al trigger e su come chiamare questo trigger, vedere [Tipo di trigger di richiesta](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [Chiamare, attivare o annidare flussi di lavoro con endpoint HTTPS in App per la logica di Azure](../logic-apps/logic-apps-http-endpoint.md).
+Questo trigger predefinito crea un endpoint richiamabile manualmente in grado di gestire *solo* le richieste in ingresso su HTTPS. Quando un chiamante invia una richiesta a questo endpoint, il [trigger di richiesta](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) viene attivato ed esegue l'app per la logica. Per altre informazioni su come chiamare questo trigger, vedere [chiamare, attivare o annidare flussi di lavoro con endpoint HTTPS in app per la logica di Azure](../logic-apps/logic-apps-http-endpoint.md).
+
+L'app per la logica mantiene aperta una richiesta in ingresso solo per un [periodo di tempo limitato](../logic-apps/logic-apps-limits-and-config.md#request-limits). Supponendo che l'app per la logica includa un' [azione di risposta](#add-response), se l'app per la logica non invia una risposta al chiamante dopo che questo tempo viene superato, l'app per la logica restituisce uno `504 GATEWAY TIMEOUT` stato al chiamante. Se l'app per la logica non include un'azione di risposta, 
+> l'app per la logica restituisce immediatamente uno `202 ACCEPTED` stato al chiamante.
 
 1. Accedere al [portale di Azure](https://portal.azure.com). Creare un'app per la logica vuota.
 
-1. Nella casella di ricerca della finestra Progettazione app per la logica, immettere `http request` come filtro. Dall'elenco di trigger, selezionare il trigger **Alla ricezione di una richiesta HTTP**, che rappresenta il primo passaggio del flusso di lavoro dell'app per la logica.
+1. Nella casella di ricerca della finestra Progettazione app per la logica, immettere `http request` come filtro. Dall'elenco trigger selezionare il trigger **quando viene ricevuta una richiesta http** .
 
    ![Selezionare Trigger di richiesta](./media/connectors-native-reqres/select-request-trigger.png)
 
@@ -72,7 +55,7 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
 
    ![Trigger di richiesta](./media/connectors-native-reqres/request-trigger.png)
 
-   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Description |
+   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Descrizione |
    |---------------|--------------------|----------|-------------|
    | **URL POST HTTP** | {none} | Sì | URL dell'endpoint che viene generato dopo il salvataggio dell'app per la logica e viene usato per chiamare l'app per la logica |
    | **Corpo della richiesta: Schema JSON** | `schema` | No | Schema JSON che descrive le proprietà e i valori nel corpo della richiesta in ingresso |
@@ -144,11 +127,11 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
 
    1. Nel trigger di richiesta selezionare **Usare il payload di esempio per generare lo schema**.
 
-      ![Generare uno schema dal payload](./media/connectors-native-reqres/generate-from-sample-payload.png)
+      ![Schermata con "USA payload di esempio per generare lo schema" selezionato](./media/connectors-native-reqres/generate-from-sample-payload.png)
 
    1. Immettere il payload di esempio e selezionare **Fine**.
 
-      ![Generare uno schema dal payload](./media/connectors-native-reqres/enter-payload.png)
+      ![Immettere il payload di esempio per generare lo schema](./media/connectors-native-reqres/enter-payload.png)
 
       Di seguito viene riportato il payload di esempio:
 
@@ -179,7 +162,7 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
 
 1. Per specificare proprietà aggiuntive, aprire l'elenco **Aggiungi nuovo parametro** e selezionare i parametri che si desidera aggiungere.
 
-   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Description |
+   | Nome proprietà | Nome proprietà JSON | Obbligatoria | Descrizione |
    |---------------|--------------------|----------|-------------|
    | **Metodo** | `method` | No | Metodo che le richieste in ingresso devono usare per chiamare l'app per la logica |
    | **Percorso relativo** | `relativePath` | No | Percorso relativo per il parametro che l'URL dell'endpoint dell'app per la logica può accettare |
@@ -206,15 +189,13 @@ Questo trigger predefinito crea un endpoint HTTPS richiamabile manualmente che p
    ![URL da usare per l'attivazione dell'app per la logica](./media/connectors-native-reqres/generated-url.png)
 
    > [!NOTE]
-   > Se si desidera includere il simbolo hash o Pound ( **#** ) nell'URI quando si effettua una chiamata al trigger request, utilizzare invece questa versione codificata:`%25%23`
+   > Se si desidera includere il simbolo hash o Pound ( **#** ) nell'URI quando si effettua una chiamata al trigger request, utilizzare invece questa versione codificata: `%25%23`
 
 1. Per attivare l'app per la logica, inviare un POST HTTP all'URL generato.
 
-   Ad esempio, per inviare il POST HTTP è possibile usare uno strumento come [Postman](https://www.getpostman.com/). Se [Azure Active Directory Open Authentication](../logic-apps/logic-apps-securing-a-logic-app.md#enable-oauth) (Azure AD OAuth) è abilitato per autorizzare le chiamate in ingresso al trigger di richiesta, chiamare il trigger usando un [URL di firma di accesso condiviso](../logic-apps/logic-apps-securing-a-logic-app.md#sas) o usando un token di autenticazione. Non è tuttavia possibile usare entrambi. Il token di autenticazione deve specificare il tipo `Bearer` nell'intestazione dell'autorizzazione. Per altre informazioni, vedere [Proteggere l'accesso e i dati in App per la logica di Azure: accesso ai trigger basati su richiesta](../logic-apps/logic-apps-securing-a-logic-app.md#secure-triggers).
+   Ad esempio, per inviare il POST HTTP è possibile usare uno strumento come [Postman](https://www.getpostman.com/). Per altre informazioni sulla definizione JSON sottostante al trigger e su come chiamare questo trigger, vedere gli argomenti [Tipo di trigger di richiesta](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [Chiamare, attivare o annidare flussi di lavoro con endpoint HTTP in App per la logica di Azure](../logic-apps/logic-apps-http-endpoint.md).
 
-Per altre informazioni sulla definizione JSON sottostante al trigger e su come chiamare questo trigger, vedere gli argomenti [Tipo di trigger di richiesta](../logic-apps/logic-apps-workflow-actions-triggers.md#request-trigger) e [Chiamare, attivare o annidare flussi di lavoro con endpoint HTTP in App per la logica di Azure](../logic-apps/logic-apps-http-endpoint.md).
-
-### <a name="trigger-outputs"></a>Output dei trigger
+## <a name="trigger-outputs"></a>Output dei trigger
 
 Di seguito sono riportate altre informazioni sugli output del trigger di richiesta:
 
@@ -228,9 +209,7 @@ Di seguito sono riportate altre informazioni sugli output del trigger di richies
 
 ## <a name="add-a-response-action"></a>Aggiungere un'azione di risposta
 
-È possibile usare l'azione di risposta per rispondere con un payload (dati) a una richiesta HTTPS in ingresso, ma solo in un'app per la logica attivata da una richiesta HTTPS. È possibile aggiungere l'azione di risposta in qualsiasi punto del flusso di lavoro. Per altre informazioni sulla definizione JSON sottostante per questo trigger, vedere il [Tipo di azione di risposta](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action).
-
-L'app per la logica mantiene aperta la richiesta in ingresso solo per un [periodo di tempo limitato](../logic-apps/logic-apps-limits-and-config.md#request-limits). Supponendo che il flusso di lavoro dell'app per la logica includa un'azione di risposta, se l'app per la logica non restituisce una risposta una volta trascorso questo intervallo di tempo, restituisce un `504 GATEWAY TIMEOUT` al chiamante. In caso contrario, se l'app per la logica non include un'azione di risposta, viene restituita immediatamente una risposta `202 ACCEPTED` al chiamante.
+Quando si utilizza il trigger Request per gestire le richieste in ingresso, è possibile modellare la risposta e inviare i risultati del payload al chiamante utilizzando l' [azione di risposta](../logic-apps/logic-apps-workflow-actions-triggers.md#response-action)predefinita. È possibile usare l'azione di risposta *solo* con il trigger di richiesta. Questa combinazione con il trigger di richiesta e l'azione di risposta crea il [modello di richiesta-risposta](https://en.wikipedia.org/wiki/Request%E2%80%93response). Ad eccezione dei cicli all'interno di cicli foreach e until e dei rami paralleli, è possibile aggiungere l'azione di risposta in qualsiasi punto del flusso di lavoro.
 
 > [!IMPORTANT]
 > Se un'azione di risposta include queste intestazioni, App per la logica rimuove le intestazioni dal messaggio di risposta generato senza visualizzare alcun avviso o errore:
@@ -253,7 +232,7 @@ L'app per la logica mantiene aperta la richiesta in ingresso solo per un [period
 
    Per aggiungere un'azione tra i passaggi, spostare il puntatore del mouse sulla freccia tra i passaggi. Selezionare il segno più ( **+** ) visualizzato e quindi **Aggiungi un'azione**.
 
-1. Nella casella di ricerca **Scegliere un'azione**, immettere "risposta" come filtro e selezionare l'azione **Risposta**.
+1. In **scegliere un'azione**, nella casella di ricerca immettere `response` come filtro, quindi selezionare l'azione **risposta** .
 
    ![Selezionare l'azione di risposta](./media/connectors-native-reqres/select-response-action.png)
 
@@ -286,5 +265,5 @@ L'app per la logica mantiene aperta la richiesta in ingresso solo per un [period
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* [Accesso protetto e accesso ai dati per le chiamate in ingresso a trigger basati su richiesta](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
 * [Connettori per App per la logica](../connectors/apis-list.md)
-

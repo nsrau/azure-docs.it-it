@@ -15,12 +15,12 @@ ms.date: 07/16/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0d49c23e5968b0fe1b2d4838978fe1b23931e5e9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cc691148723e610f0885f7c20fd8684f11a81dc0
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763092"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182327"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Guida introduttiva all'integrazione di Azure Active Directory con le applicazioni
 
@@ -45,7 +45,7 @@ Prima di integrare applicazioni con Azure AD, è importante avere un quadro prec
   * Azure AD
   * In un database dell'applicazione separato di proprietà dell'utente
   * In applicazioni non approvate
-  * Tutte le precedenti
+  * Tutte le risposte precedenti
 * Quali autorizzazioni e assegnazioni di ruoli hanno attualmente i singoli utenti? È necessario verificarne l'accesso o si è sicuri che gli accessi utente e le assegnazioni dei ruoli siano appropriati per la situazione attuale?
 * Sono già stati definiti gruppi in Active Directory locale?
   * In che modo sono organizzati i gruppi?
@@ -54,7 +54,7 @@ Prima di integrare applicazioni con Azure AD, è importante avere un quadro prec
 * Sarà necessario pulire i database di utenti/gruppi prima dell'integrazione?  Questa è una domanda molto importante. La qualità del risultato dipende dalla qualità dei dati di partenza.
 
 ### <a name="access-management-inventory"></a>Inventario della gestione degli accessi
-* In che modo si gestisce attualmente l'accesso utente alle applicazioni? È necessario modificarlo?  Sono stati valutati altri modi per gestire l'accesso, ad esempio [RBAC](../../role-based-access-control/role-assignments-portal.md) ?
+* In che modo si gestisce attualmente l'accesso utente alle applicazioni? È necessario modificarlo?  Sono stati considerati altri modi per gestire l'accesso, ad esempio con il controllo degli accessi in base al ruolo di [Azure](../../role-based-access-control/role-assignments-portal.md) ?
 * Chi deve accedere a cosa?
 
 È possibile che non siano immediatamente disponibili le risposte a tutte queste domande.  Questa guida è utile per rispondere ad alcune domande e prendere decisioni informate.

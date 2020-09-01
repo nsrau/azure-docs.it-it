@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7eb632405ef17ef4100503f30168c1207179f48
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cf072ae9544cd479aeca02d9b9fcd670b8eb5fe
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85373863"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226897"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Prerequisiti del provisioning cloud di Azure AD Connect
 Questo articolo fornisce indicazioni su come scegliere e usare il provisioning cloud di Azure Active Directory (Azure AD) Connect come soluzione di identità.
@@ -27,7 +27,7 @@ Questo articolo fornisce indicazioni su come scegliere e usare il provisioning c
 Per usare il provisioning cloud di Azure AD Connect, è necessario quanto segue:
     
 - Un account amministratore di identità ibrido per il tenant di Azure AD che non è un utente Guest.
-- Un server locale per l'agente di provisioning con Windows 2012 R2 o versione successiva.  Questo server deve essere un server di livello 0 basato sul [modello di livello amministrativo Active Directory](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
+- Un server locale per l'agente di provisioning con Windows 2012 R2 o versione successiva.  Questo server deve essere un server di livello 0 basato sul [modello di livello amministrativo Active Directory](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material).
 - Configurazione del firewall locale.
 
 >[!NOTE]
@@ -37,12 +37,12 @@ Nel resto del documento vengono fornite istruzioni più dettagliate su questi pr
 
 ### <a name="in-the-azure-active-directory-admin-center"></a>Nell'interfaccia di amministrazione di Azure Active Directory
 
-1. Creare un account amministratore di identità ibrido solo cloud nel tenant del Azure AD. In questo modo è possibile gestire la configurazione del tenant in caso di errore o mancata disponibilità dei servizi locali. Informazioni su come [aggiungere un account amministratore di identità ibrido solo cloud](../active-directory-users-create-azure-portal.md). Il completamento di questo passaggio è fondamentale ed evita di rimanere bloccati fuori dal tenant.
-1. Aggiungere uno o più [nomi di dominio personalizzati](../active-directory-domains-add-azure-portal.md) al tenant di Azure AD. Gli utenti possono accedere usando uno di questi nomi di dominio.
+1. Creare un account amministratore di identità ibrido solo cloud nel tenant del Azure AD. In questo modo è possibile gestire la configurazione del tenant in caso di errore o mancata disponibilità dei servizi locali. Informazioni su come [aggiungere un account amministratore di identità ibrido solo cloud](../fundamentals/add-users-azure-active-directory.md). Il completamento di questo passaggio è fondamentale ed evita di rimanere bloccati fuori dal tenant.
+1. Aggiungere uno o più [nomi di dominio personalizzati](../fundamentals/add-custom-domain.md) al tenant di Azure AD. Gli utenti possono accedere usando uno di questi nomi di dominio.
 
 ### <a name="in-your-directory-in-active-directory"></a>Nella directory personale di Active Directory
 
-Eseguire lo [strumento IdFix](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) per preparare gli attributi di directory per la sincronizzazione.
+Eseguire lo [strumento IdFix](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) per preparare gli attributi di directory per la sincronizzazione.
 
 ### <a name="in-your-on-premises-environment"></a>Nell'ambiente locale
 
@@ -96,4 +96,3 @@ Per abilitare il protocollo TLS 1.2, seguire questa procedura.
 
 - [Cos'è il provisioning?](what-is-provisioning.md)
 - [Che cos'è il provisioning cloud di Azure AD Connect?](what-is-cloud-provisioning.md)
-

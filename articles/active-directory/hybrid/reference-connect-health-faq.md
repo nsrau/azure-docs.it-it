@@ -16,12 +16,12 @@ ms.topic: reference
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4c4b1f7aed6a188c491e6f4961442fa85744b6b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 9a725831efe6b92ba522900fac67b317e42bc959
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718544"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89182378"
 ---
 # <a name="azure-ad-connect-health-frequently-asked-questions"></a>Domande frequenti su Azure AD Connect Health
 Questo articolo include risposte alle domande frequenti su Azure Active Directory (Azure AD) Connect Health. Le domande sono relative all'uso del servizio, inclusi il modello di fatturazione, le funzionalità, le limitazioni e il supporto.
@@ -37,9 +37,9 @@ La tabella seguente elenca i ruoli e le versioni del sistema operativo supportat
 
 |Ruolo| Sistema operativo/Versione|
 |--|--|
-|Active Directory Federation Services (ADFS)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
+|Active Directory Federation Services (ADFS)| <ul><li> Windows Server 2012  </li> <li>R2 per Windows Server 2012 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
 |Azure AD Connect | Versione 1.0.9125 o successiva|
-|Active Directory Domain Services (AD DS)| <ul><li> Windows Server 2012  </li> <li>Windows Server 2012 R2 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
+|Active Directory Domain Services (AD DS)| <ul><li> Windows Server 2012  </li> <li>R2 per Windows Server 2012 </li> <li> Windows Server 2016  </li> <li> Windows Server 2019  </li> </ul>|
 
 Le installazioni di Windows Server Core non sono supportate.
 
@@ -137,7 +137,7 @@ Le possibili cause per cui un agente per l'integrità non riesce a eseguire la r
 
 * L'agente non può comunicare con gli endpoint necessari perché un firewall blocca il traffico. Questa situazione è molto comune nei server proxy applicazione Web. Assicurarsi di aver abilitato la comunicazione in uscita per le porte e gli endpoint obbligatori. Per informazioni dettagliate, vedere la [sezione requisiti](how-to-connect-health-agent-install.md#requirements) .
 * La comunicazione in uscita è soggetta a un'ispezione TLS da parte del livello di rete. In questo modo il certificato usato dall'agente viene sostituito dall'entità o dal server per l'ispezione e non è possibile eseguire i passaggi necessari per completare la registrazione dell'agente.
-* L'utente non dispone dell'accesso per eseguire la registrazione dell'agente. Per impostazione predefinita, agli amministratori globali l'accesso è consentito. Per delegare l'accesso ad altri utenti, è possibile usare il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](how-to-connect-health-operations.md#manage-access-with-role-based-access-control) .
+* L'utente non dispone dell'accesso per eseguire la registrazione dell'agente. Per impostazione predefinita, agli amministratori globali l'accesso è consentito. Per delegare l'accesso ad altri utenti, è possibile usare il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](how-to-connect-health-operations.md#manage-access-with-azure-rbac) .
 
 **D: viene generato un avviso che indica che "i dati Servizio integrità non sono aggiornati". Ricerca per categorie risolvere il problema?**
 

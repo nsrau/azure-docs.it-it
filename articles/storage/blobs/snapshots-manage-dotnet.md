@@ -1,27 +1,27 @@
 ---
 title: Creare e gestire snapshot BLOB in .NET
 titleSuffix: Azure Storage
-description: Informazioni su come creare uno snapshot di sola lettura di un BLOB per eseguire il backup dei dati BLOB in un determinato momento.
+description: Informazioni su come usare la libreria client .NET per creare uno snapshot di sola lettura di un BLOB per eseguire il backup dei dati BLOB in un determinato momento.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/02/2020
+ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d50357a648d63984ae70a32e0fdd7260a86d6a6a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: fb57e7260a056afe023455149f610ff492c98c12
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020814"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226132"
 ---
 # <a name="create-and-manage-a-blob-snapshot-in-net"></a>Creare e gestire snapshot BLOB in .NET
 
 Uno snapshot è una versione di sola lettura di un BLOB eseguito in un determinato momento. Questo articolo illustra come creare e gestire snapshot BLOB usando la [libreria client di archiviazione di Azure per .NET](/dotnet/api/overview/azure/storage?view=azure-dotnet).
 
-Per altre informazioni sugli snapshot BLOB in archiviazione di Azure, vedere [creare e gestire uno snapshot BLOB in .NET](snapshots-overview.md).
+Per altre informazioni sugli snapshot BLOB in archiviazione di Azure, vedere [snapshot BLOB](snapshots-overview.md).
 
 ## <a name="create-a-snapshot"></a>Creare uno snapshot
 
@@ -162,5 +162,5 @@ await blockBlob.DeleteIfExistsAsync(DeleteSnapshotsOption.IncludeSnapshots, null
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Snapshot BLOB](snapshots-overview.md)
-- [Versioni BLOB (anteprima)](versioning-overview.md)
+- [Versioni BLOB](versioning-overview.md)
 - [Eliminazione temporanea per i BLOB](storage-blob-soft-delete.md)
