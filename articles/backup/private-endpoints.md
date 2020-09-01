@@ -3,12 +3,12 @@ title: Endpoint privati
 description: Informazioni sul processo di creazione di endpoint privati per backup di Azure e sugli scenari in cui l'uso di endpoint privati consente di mantenere la sicurezza delle risorse.
 ms.topic: conceptual
 ms.date: 05/07/2020
-ms.openlocfilehash: 8e9fe46bf3f7528b3a6a08a7c8d90ea6f9117cdd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0a875dfedbf7a3b76b479fd4f23b74a7ced47252
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017669"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179233"
 ---
 # <a name="private-endpoints-for-azure-backup"></a>Endpoint privati per backup di Azure
 
@@ -192,7 +192,7 @@ Vedere [approvazione manuale degli endpoint privati usando il client Azure Resou
 ## <a name="adding-dns-records"></a>Aggiunta di record DNS
 
 >[!NOTE]
-> Questo passaggio non è obbligatorio se si usa una zona DNS integrata. Tuttavia, se è stata creata una propria area di DNS privato di Azure o si usa una zona DNS privata personalizzata, assicurarsi che le voci vengano apportate come descritto in questa sezione.
+> Questo passaggio non è obbligatorio se si usa una zona DNS integrata. Tuttavia, se è stata creata una propria area di DNS privato di Azure o si usa una zona DNS privata personalizzata, assicurarsi che le voci vengano effettuate come descritto in questa sezione.
 
 Dopo aver creato la zona DNS privata facoltativa e gli endpoint privati per l'insieme di credenziali, è necessario aggiungere i record DNS alla zona DNS. Questa operazione può essere eseguita manualmente o tramite uno script di PowerShell. Questa operazione deve essere eseguita solo per la zona DNS di backup, che per i BLOB e le code verrà aggiornata automaticamente.
 

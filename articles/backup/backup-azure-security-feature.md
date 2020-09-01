@@ -4,12 +4,12 @@ description: Informazioni su come usare le funzionalità di sicurezza in Backup 
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: cbd9ee0336953b65b4e2d55d294d30309ebe0de7
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 5a408dc07e83e790a63f8a252d4ed3f84bf66be4
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892457"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181681"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Funzionalità di sicurezza per la protezione dei backup ibridi che usano Backup di Azure
 
@@ -22,7 +22,7 @@ Le preoccupazioni riguardo ai problemi di sicurezza, come malware, ransomware e 
 > [!NOTE]
 > Le funzionalità di sicurezza non devono essere abilitate se si usa il backup di macchine virtuali IaaS (Infrastructure as a Service). Queste funzionalità non sono ancora disponibili per il backup delle macchine virtuali IaaS, quindi l'abilitazione non avrà alcun effetto. Le funzionalità di sicurezza devono essere abilitate solo se si usa: <br/>
 >
-> - **Agente di backup di Azure**. Versione minima dell'agente: 2.0.9052. Dopo aver abilitato queste funzionalità, è necessario eseguire l'aggiornamento a questa versione dell'agente per poter eseguire operazioni critiche. <br/>
+> - **Agente di backup di Azure**. Versione minima dell'agente: 2.0.9052. Dopo aver abilitato queste funzionalità, è necessario eseguire l'aggiornamento a questa versione dell'agente per eseguire operazioni critiche. <br/>
 > - **Server di backup di Azure**. Versione minima dell'agente di Backup di Azure: 2.0.9052, con l'aggiornamento 1 del server di Backup di Azure. <br/>
 > - **System Center Data Protection Manager**. Versione minima dell'agente di Backup di Azure: 2.0.9052, con Data Protection Manager 2012 R2 UR12 o Data Protection Manager 2016 UR2. <br/>
 
@@ -48,7 +48,7 @@ Se si sta creando un insieme di credenziali di servizi di ripristino, è possibi
     ![Screenshot delle proprietà dell'insieme di credenziali di Servizi di ripristino](./media/backup-azure-security-feature/security-settings-update.png)
 
     Il collegamento aggiornamento apre il riquadro **impostazioni di sicurezza** , che fornisce un riepilogo delle funzionalità e consente di abilitarle.
-5. Nell'elenco a discesa **È stata eseguita la configurazione di Azure Multi-Factor Authentication?** selezionare un valore per confermare se [Azure Multi-Factor Authentication](../active-directory/authentication/concept-mfa-howitworks.md) è stato abilitato. Se è abilitata, viene richiesto di eseguire l'autenticazione da un altro dispositivo, ad esempio un telefono cellulare, durante l'accesso al portale di Azure.
+5. Dall'elenco a discesa **sono stati configurati multi-factor authentication di Azure?** selezionare un valore per confermare se è stata abilitata la [multi-factor authentication di Azure](../active-directory/authentication/concept-mfa-howitworks.md). Se è abilitata, viene richiesto di eseguire l'autenticazione da un altro dispositivo, ad esempio un telefono cellulare, durante l'accesso al portale di Azure.
 
    Quando si eseguono operazioni critiche in Backup, è necessario immettere il PIN di sicurezza, disponibile nel portale di Azure. L'abilitazione di Azure Multi-Factor Authentication aggiunge un livello di sicurezza. Solo gli utenti autorizzati con credenziali di Azure valide e autenticati da un secondo dispositivo potranno accedere al portale di Azure.
 6. Per salvare le impostazioni di sicurezza, selezionare **Abilita** e selezionare **Salva**. È possibile selezionare **Abilita** solo dopo aver selezionato un valore nell'elenco **È stata eseguita la configurazione di Azure Multi-Factor Authentication?** nel passaggio precedente.

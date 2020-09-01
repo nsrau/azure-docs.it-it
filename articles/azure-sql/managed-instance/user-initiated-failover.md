@@ -9,13 +9,13 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: douglas, carlrab, sstein
-ms.date: 08/18/2020
-ms.openlocfilehash: 1833f0343aa3e41119e215e7ce022f122d13489b
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.date: 08/31/2020
+ms.openlocfilehash: 0d5390beff6c3e0045c6b887f0262a54a737a851
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589504"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181766"
 ---
 # <a name="user-initiated-manual-failover-on-sql-managed-instance"></a>Failover manuale avviato dall'utente in SQL Istanza gestita
 
@@ -36,6 +36,15 @@ La [disponibilità elevata](../database/high-availability-sla.md) è una parte f
 > Assicurandosi che le applicazioni siano resilienti al failover prima della distribuzione nell'ambiente di produzione, è possibile ridurre il rischio di errori dell'applicazione in produzione e contribuire alla disponibilità dell'applicazione per i clienti.
 
 ## <a name="initiate-manual-failover-on-sql-managed-instance"></a>Avviare il failover manuale in SQL Istanza gestita
+
+### <a name="rbac-permissions-required"></a>Autorizzazioni RBAC richieste
+
+Per avviare un failover, l'utente deve avere uno dei ruoli RBAC seguenti:
+
+- Ruolo di proprietario della sottoscrizione o
+- Istanza gestita ruolo Collaboratore o
+- Ruolo personalizzato con l'autorizzazione seguente:
+  - `Microsoft.Sql/managedInstances/failover/action`
 
 ### <a name="using-powershell"></a>Utilizzo di PowerShell
 

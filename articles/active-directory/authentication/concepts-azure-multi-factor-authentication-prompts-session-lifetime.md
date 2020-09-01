@@ -5,22 +5,26 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 06/22/2020
+ms.date: 08/31/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 13bbea166d699acead932b1ad6779720f82090e6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 0019f7d8195dc39127b992a31ebd8c33e55452f6
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919676"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179352"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Ottimizzare le richieste di riautenticazione e comprendere la durata della sessione per Azure Multi-Factor Authentication
 
 Azure Active Directory (Azure AD) dispone di più impostazioni che determinano la frequenza con cui gli utenti devono eseguire nuovamente l'autenticazione. Questa riautenticazione può avere un primo fattore, ad esempio password, FIDO o senza Microsoft Authenticator password, oppure per eseguire multi-factor authentication. È possibile configurare queste impostazioni di riautenticazione in base alle esigenze per il proprio ambiente e l'esperienza utente desiderata.
+
+La Azure AD configurazione predefinita per la frequenza di accesso dell'utente è una finestra in sequenza di 90 giorni. La richiesta di credenziali agli utenti è spesso un'operazione sensata, ma può essere riattivata. Se gli utenti vengono sottoposti a training per immettere le proprie credenziali senza pensare, possono fornirle involontariamente a una richiesta di credenziali dannose.
+
+Potrebbe sembrare allarmante non chiedere a un utente di eseguire l'accesso, anche se qualsiasi violazione dei criteri IT revoca la sessione. Alcuni esempi includono una modifica della password, un dispositivo incompliant o un'operazione di disabilitazione dell'account. È anche possibile revocare in modo esplicito le [sessioni degli utenti usando PowerShell](/powershell/module/azuread/revoke-azureaduserallrefreshtoken).
 
 Questo articolo illustra in dettaglio le configurazioni consigliate e il modo in cui le diverse impostazioni funzionano e interagiscono tra loro.
 
@@ -35,6 +39,7 @@ Per offrire agli utenti il giusto equilibrio tra sicurezza e facilità d'uso chi
 * Se si dispone di licenze per le app di Office 365 o del livello gratuito Azure AD:
     * Abilita Single Sign-On (SSO) tra le applicazioni usando i [dispositivi gestiti](../devices/overview.md) o l'accesso [Single](../hybrid/how-to-connect-sso.md)Sign-on facile.
     * Mantenere abilitata l'opzione *resta connesso* e consentire agli utenti di accettarla.
+* Per gli scenari di dispositivi mobili, assicurarsi che gli utenti usino l'app Microsoft Authenticator. Questa app viene usata come broker per altre Azure AD app federate e riduce le richieste di autenticazione nel dispositivo.
 
 La nostra ricerca mostra che queste impostazioni sono appropriate per la maggior parte dei tenant. Alcune combinazioni di queste impostazioni, ad esempio *ricordano* l'autenticazione a più fattori e *rimangono cantate*, possono richiedere agli utenti di eseguire l'autenticazione troppo spesso. Le normali richieste di riautenticazione non sono valide per la produttività degli utenti e possono renderle più vulnerabili agli attacchi.
 
@@ -71,11 +76,11 @@ Per ulteriori informazioni sulla configurazione dell'opzione per consentire agli
 
 ### <a name="remember-multi-factor-authentication"></a>Memorizza Multi-Factor Authentication  
 
-Questa impostazione consente di configurare i valori compresi tra 1-60 giorni e imposta un cookie permanente nel browser quando un utente seleziona l'opzione non visualizzare più questo messaggio **per X giorni** all'accesso.
+Questa impostazione consente di configurare i valori compresi tra 1-365 giorni e imposta un cookie permanente nel browser quando un utente seleziona l'opzione non visualizzare più questo messaggio **per X giorni** all'accesso.
 
 ![Screenshot del prompt di esempio per approvare una richiesta di accesso](./media/concepts-azure-multi-factor-authentication-prompts-session-lifetime/approve-sign-in-request.png)
 
-Sebbene questa impostazione riduca il numero di autenticazioni nelle app Web, aumenta il numero di autenticazioni per i client di autenticazione moderni, ad esempio i client Office. Questi client in genere richiedono solo dopo la reimpostazione della password o l'inattività di 90 giorni. Tuttavia, il valore massimo di *Remember AMF* è 60 giorni. Se usato in **combinazione con i criteri di accesso** condizionale o con accesso condizionale, può aumentare il numero di richieste di autenticazione.
+Sebbene questa impostazione riduca il numero di autenticazioni nelle app Web, aumenta il numero di autenticazioni per i client di autenticazione moderni, ad esempio i client Office. Questi client in genere richiedono solo dopo la reimpostazione della password o l'inattività di 90 giorni. Tuttavia, l'impostazione di questo valore su un valore inferiore a 90 giorni abbrevia le richieste di autenticazione a più fattori predefinite per i client Office e aumenta la frequenza di riautenticazione. Se usato in **combinazione con i criteri di accesso** condizionale o con accesso condizionale, può aumentare il numero di richieste di autenticazione.
 
 Se si usa l'autenticazione a più fattori e si hanno Azure AD Premium 1 licenze, provare *a eseguire la* migrazione di queste impostazioni alla frequenza di accesso con accesso condizionale. In caso contrario, provare *a usare Mantieni l'accesso?* .
 

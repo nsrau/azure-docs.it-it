@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 06/16/2020
-ms.openlocfilehash: 5878ea6a554439c261399706eec708b06ed59b11
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 5b6d1ee41434d8aebac81d38ced9cadd93e51ba8
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225377"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181443"
 ---
 # <a name="issues-and-solutions-during-virtual-machine-certification"></a>Problemi e soluzioni durante la certificazione della macchina virtuale 
 
@@ -84,7 +84,7 @@ Se si sta tentando di installare Visual Studio o un prodotto concesso in licenza
 
 Per altre informazioni sulla selezione di una base approvata, vedere [creare le risorse tecniche della macchina virtuale di Azure](create-azure-vm-technical-asset.md#create-a-vm-image-using-an-approved-base).
 
-## <a name="tool-kit-test-case-execution-failed"></a>Esecuzione test case del kit di strumenti non riuscita
+## <a name="tool-kit-test-case-execution-failed"></a>Esecuzione test case del kit di strumenti non riuscita 
 
 Microsoft Certification Toolkit può essere utile per eseguire i test case e verificare che il disco rigido virtuale o l'immagine siano compatibili con l'ambiente Azure.
 
@@ -113,7 +113,7 @@ Nella tabella seguente sono elencati gli errori comuni rilevati durante l'esecuz
  
 |Scenario|Test case|Errore|Soluzione|
 |---|---|---|---|
-|1|Versione dell'agente Linux test case|La versione minima dell'agente Linux è 2,241 o successiva. Questo requisito è stato obbligatorio a partire dal 1 ° maggio 2020.|Per [inviare la richiesta](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support), è necessario aggiornare l'immagine con la versione richiesta.|
+|1|Versione dell'agente Linux test case|La versione minima dell'agente Linux è 2.2.41 o successiva. Questo requisito è stato obbligatorio a partire dal 1 ° maggio 2020.|Aggiornare la versione dell'agente Linux e deve essere 2,241 o successiva. Per altre informazioni, vedere la [pagina relativa all'aggiornamento della versione dell'agente Linux](https://support.microsoft.com/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support).|
 |2|Cronologia bash test case|Verrà visualizzato un errore se la dimensione della cronologia bash nell'immagine inviata è superiore a 1 kilobyte (KB). La dimensione è limitata a 1 KB per garantire che tutte le informazioni potenzialmente riservate non vengano acquisite nel file di cronologia bash.|Per risolvere il problema, montare il disco rigido virtuale in qualsiasi altra VM funzionante e apportare le modifiche desiderate (ad esempio, eliminare i file di cronologia *. bash* ) per ridurre le dimensioni a un numero minore o uguale a 1 KB.|
 |3|Parametro kernel obbligatorio test case|Questo errore viene visualizzato quando il valore per la **console** non è impostato su **ttyS0**. Verificare eseguendo il comando seguente:<br>`cat /proc/cmdline`|Impostare il valore per **console** su **ttyS0**e inviare nuovamente la richiesta.|
 |4|test case intervallo ClientAlive|Se il risultato del Toolkit restituisce un risultato non riuscito per questo test case, esiste un valore non appropriato per **ClientAliveInterval**.|Impostare il valore di **ClientAliveInterval** su un valore minore o uguale a 235, quindi inviare nuovamente la richiesta.|
@@ -184,7 +184,7 @@ Per controllare la versione di Windows Server con patch per i dettagli del siste
 |---|---|
 |Windows serve 2008 R2|6.1.7601.23689|
 |Windows Server 2012|6.2.9200.22099|
-|Windows Server 2012 R2|6.3.9600.18604|
+|R2 per Windows Server 2012|6.3.9600.18604|
 |Windows Server 2016|10.0.14393.953|
 |Windows Server 2019|N/D|
 
@@ -363,7 +363,8 @@ Gli editori devono rivolgersi al supporto tecnico di [Marketplace Publisher](htt
    4.    Version (versione): la versione dell'offerta di macchina virtuale per cui è richiesta l'eccezione
    5.   Tipo di eccezione: test, macchine virtuali bloccate, modelli personalizzati
    6.   Motivo della richiesta: motivo dell'eccezione e informazioni sui test da esentare 
-   7.   Allegato: collegare eventuali documenti di evidenza di importanza. Per le VM bloccate, collegare il report di test e per i modelli personalizzati, fornire il modello ARM personalizzato come allegato. La mancata connessione del report per le VM bloccate e il modello ARM personalizzato per i modelli personalizzati determinerà un attacco Denial of request
+   7. Sequenza temporale-data fino alla quale è stata richiesta questa eccezione 
+   8.   Allegato: collegare eventuali documenti di evidenza di importanza. Per le VM bloccate, collegare il report di test e per i modelli personalizzati, fornire il modello ARM personalizzato come allegato. La mancata connessione del report per le VM bloccate e il modello ARM personalizzato per i modelli personalizzati determinerà un attacco Denial of request
 
 
 ## <a name="next-steps"></a>Passaggi successivi

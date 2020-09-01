@@ -4,12 +4,12 @@ description: In questo articolo vengono fornite le risposte alle domande più co
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 4ce1d65414011b1e307cc16fe886adeb007b262c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: cf6929b9b926a6e6469f3fa789a19e60d5883d21
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000720"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181494"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Avviso di monitoraggio di backup di Azure-Domande frequenti
 
@@ -19,7 +19,7 @@ Questo articolo risponde a domande comuni sul monitoraggio e la creazione di rep
 
 ### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-log-analytics-la-workspace"></a>Ricerca per categorie controllare se i dati di Reporting hanno iniziato a scorrere in un'area di lavoro di Log Analytics (LA)?
 
-Passare all'area di lavoro LA configurata, passare alla voce di menu **logs** ed eseguire la query CoreAzureBackup | eseguire 1. Se viene visualizzato un record restituito, significa che i dati sono stati avviati nel flusso nell'area di lavoro. Il push di dati iniziale può richiedere fino a 24 ore.
+Passare all'area di lavoro LA configurata. Passare alla voce di menu **logs** ed eseguire la query `CoreAzureBackup | take 1` . Se viene visualizzato un record restituito, significa che i dati sono stati avviati nel flusso nell'area di lavoro. Il push di dati iniziale può richiedere fino a 24 ore.
 
 ### <a name="what-is-the-frequency-of-data-push-to-an-la-workspace"></a>Qual è la frequenza di push di dati in un'area di lavoro di LA?
 

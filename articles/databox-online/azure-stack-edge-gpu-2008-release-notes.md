@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: gateway
 ms.topic: article
-ms.date: 08/27/2020
+ms.date: 08/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 6c29240aa3267cd93ba0c3de1f0c797ce1a1483c
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: de0847beb92ebc95e1998d88cae93dbc19c3fb27
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89086162"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180049"
 ---
 # <a name="azure-stack-edge-with-gpu-preview-release-notes"></a>Note sulla versione di Azure Stack Edge con GPU Preview
 
@@ -46,7 +46,7 @@ La tabella seguente fornisce un riepilogo dei problemi noti per il dispositivo A
 |**11.**|Kubernetes |Kubernetes attualmente non consente i servizi LoadBalancer multiprotocollo. Ad esempio, un servizio DNS che avrebbe dovuto rimanere in attesa su TCP e UDP. |Per ovviare a questa limitazione di Kubernetes con MetalLB, è possibile creare due servizi (uno per TCP, uno per UDP) nello stesso selettore di Pod. Questi servizi usano la stessa chiave di condivisione e spec. loadBalancerIP per condividere lo stesso indirizzo IP. Gli IP possono anche essere condivisi se si dispone di più servizi rispetto agli indirizzi IP disponibili. <br> Per altre informazioni, vedere [condivisione degli indirizzi IP](https://metallb.universe.tf/usage/#ip-address-sharing).|
 |**12.**|Cluster Kubernetes|I moduli esistenti di Azure IoT Edge Marketplace non vengono eseguiti nel cluster Kubernetes come piattaforma di hosting per IoT Edge sul dispositivo Azure Stack Edge.|I moduli dovranno essere modificati prima di essere distribuiti nel dispositivo Azure Stack Edge. Per altre informazioni, vedere Modificare Azure IoT Edge moduli da Marketplace per l'esecuzione nel dispositivo Azure Stack Edge.<!-- insert link-->|
 |**13.**|Kubernetes |I montaggi con binding basato su file non sono supportati con Azure IoT Edge in Kubernetes sul dispositivo Azure Stack Edge.|IoT Edge usa un livello di conversione per tradurre le `ContainerCreate` Opzioni nei costrutti Kubernetes. La creazione di `Binds` mappe per la directory hostPath o la creazione e quindi il montaggio di binding basati su file non possono essere associati a percorsi in IOT Edge contenitori.|
-
+|**14.**|Kubernetes |Se si importano certificati personalizzati per IoT Edge e si aggiungono quelli sul dispositivo Azure Stack Edge, i nuovi certificati non vengono selezionati come parte dell'aggiornamento dei grafici Helm.|Per aggirare questo problema, [connettersi all'interfaccia di PowerShell del dispositivo](azure-stack-edge-gpu-connect-powershell-interface.md). Riavviare `iotedged` e `edgehub` pod.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

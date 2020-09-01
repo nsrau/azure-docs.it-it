@@ -5,16 +5,16 @@ description: Informazioni sulle modifiche apportate alla nuova versione di Gemel
 author: baanders
 ms.author: baanders
 ms.date: 3/12/2020
-ms.topic: overview
+ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: ad99dc3dc17e81c3b5da144b21519781353baa47
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6d1786766fc61ed0edfdc53295a50ba212818fc0
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87826824"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181426"
 ---
-# <a name="how-is-the-new-azure-digital-twins-different-from-the-previous-version-2018"></a>In cosa la nuova versione di Gemelli digitali di Azure è diversa dalla versione precedente (2018)?
+# <a name="what-is-the-new-azure-digital-twins-how-is-it-different-from-the-previous-version-2018"></a>Che cosa è la nuova versione di Gemelli digitali di Azure? In cosa si differenzia dalla versione precedente (2018)?
 
 La prima versione di anteprima pubblica di Gemelli digitali di Azure è stata rilasciata a ottobre 2018. Sebbene i concetti di base della versione precedente siano stati trasferiti al nuovo servizio ora in anteprima pubblica, molte interfacce e dettagli di implementazione sono stati modificati per rendere il servizio più flessibile e accessibile. Queste modifiche sono state motivate dal feedback dei clienti.
 
@@ -44,5 +44,4 @@ Per un elenco dei limiti di Gemelli digitali di Azure durante l'anteprima pubbli
 
 Successivamente, approfondire l'uso di Gemelli digitali di Azure con la prima esercitazione:
 
-> [!div class="nextstepaction"]
-> [*Esercitazione: Scrivere il codice di un'app client*](tutorial-code.md)
+[*Esercitazione: Scrivere il codice di un'app client*](tutorial-code.md)

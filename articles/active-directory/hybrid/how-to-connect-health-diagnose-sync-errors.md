@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b15250804dd316000aa20d6b97e9cccbfc36e9ad
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d48483697970333c542f140567ca6a6d3fcf7d2
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359093"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179148"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticare e correggere gli errori di sincronizzazione di attributi duplicati
 
@@ -58,7 +58,7 @@ La funzionalità di diagnostica supporta oggetti utente con gli attributi duplic
 | OnPremiseSecurityIdentifier |  AttributeValueMustBeUnique |
 
 >[!IMPORTANT]
-> Per accedere a questa funzionalità, è necessaria l'autorizzazione **Amministratore globale ** o **Collaboratore** nelle impostazioni di controllo degli accessi in base al ruolo.
+> Per accedere a questa funzionalità, è necessario disporre dell'autorizzazione di **amministratore globale** o del **collaboratore** da Azure RBAC.
 >
 
 Seguire la procedura dal portale di Azure per limitare i dettagli degli errori di sincronizzazione e fornire soluzioni più specifiche:
@@ -148,7 +148,7 @@ L'utente basato su cloud in Azure AD non deve avere l'ancoraggio di origine. In 
 
 
 **D.** Quale autorizzazione è necessaria per applicare la correzione?  
-**R.** **Amministratore globale** o **Collaboratore** nelle impostazioni di controllo degli accessi in base al ruolo hanno l'autorizzazione per accedere al processo di diagnostica e risoluzione dei problemi.
+**R.** L' **amministratore globale**o il **collaboratore** di controllo degli accessi in base al ruolo di Azure dispone dell'autorizzazione per accedere al processo di diagnostica e risoluzione
 
 
 **D.** È necessario configurare Azure AD Connect o aggiornare l'agente di Azure AD Connect Health per questa funzionalità?  

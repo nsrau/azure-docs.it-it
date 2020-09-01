@@ -3,12 +3,12 @@ title: Configurare le impostazioni di diagnostica dell'insieme di credenziali su
 description: Configurare le impostazioni di diagnostica Log Analytics per tutti gli insiemi di credenziali in un determinato ambito usando criteri di Azure
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 17a5ee5a541c3317c9ec9a6cfbed57d85f5116b4
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 751ce0233fb232ef5d276c88a8c2429a2975b2f9
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892236"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179981"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configurare le impostazioni di diagnostica dell'insieme di credenziali su larga scala
 
@@ -78,7 +78,7 @@ Inoltre, se un utente dispone di un insieme di credenziali con solo un subset de
 >
 > Se un insieme di credenziali dispone di un'impostazione di diagnostica esistente con un **subset di categorie specifiche delle risorse** abilitata, configurata per l'invio di dati a una determinata area di lavoro, ad indicare "area di lavoro x", l'attività di correzione avrà esito negativo (solo per tale insieme di credenziali) se l'area di lavoro di destinazione specificata nell'assegnazione dei criteri è la **stessa** "area
 >
->Questo perché, se gli eventi abilitati da due diverse impostazioni di diagnostica sulla stessa risorsa si **sovrappongono** in qualche forma, le impostazioni non possono avere la stessa area di lavoro della destinazione. Sarà necessario risolvere manualmente l'errore, passando all'insieme di credenziali pertinente e configurando un'impostazione di diagnostica con un'area di lavoro di LA diversa come destinazione.
+>Questo perché, se gli eventi abilitati da due diverse impostazioni di diagnostica sulla stessa risorsa si **sovrappongono** in qualche forma, le impostazioni non possono avere la stessa area di lavoro della destinazione. È necessario risolvere manualmente l'errore, passando all'insieme di credenziali pertinente e configurando un'impostazione di diagnostica con un'area di lavoro di LA diversa come destinazione.
 >
 > Si noti che l'attività di correzione **non** avrà esito negativo se l'impostazione di diagnostica esistente è abilitata solo per AzureBackupReport con l'area di lavoro X come destinazione, poiché in questo caso non vi sarà sovrapposizione tra gli eventi abilitati dall'impostazione esistente e gli eventi abilitati dall'impostazione creata dall'attività di correzione.
 

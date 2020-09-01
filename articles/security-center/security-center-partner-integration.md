@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/19/2020
 ms.author: memildin
-ms.openlocfilehash: dd694fd013069c33e4f3af2c81447e014d41b691
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 1af99f6317ac5888478c7df08fcc31478ef1ccef
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519239"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180848"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Integrare soluzioni di sicurezza nel Centro sicurezza di Azure
 Questo documento aiuta a gestire le soluzioni di sicurezza già connesse al Centro sicurezza di Azure e ad aggiungerne di nuove.
@@ -35,10 +35,7 @@ Attualmente, le soluzioni di sicurezza integrate includono la valutazione della 
 > [!NOTE]
 > Il Centro sicurezza non installa l'agente di Log Analytics in appliance virtuali partner perché la maggior parte dei fornitori di sicurezza impedisce l'esecuzione di agenti esterni nei propri dispositivi.
 
-Per ulteriori informazioni sull'integrazione degli strumenti di analisi delle vulnerabilità da Qualys, incluso uno scanner integrato disponibile per i clienti del livello standard, vedere: 
-
-- [Scanner di vulnerabilità integrato per le macchine virtuali](built-in-vulnerability-assessment.md).
-- [Distribuzione di una soluzione di analisi delle vulnerabilità dei partner](partner-vulnerability-assessment.md).
+Per altre informazioni sull'integrazione degli strumenti di analisi delle vulnerabilità da Qualys, incluso uno scanner integrato disponibile per i clienti del livello standard, vedere [valutazioni delle vulnerabilità per le macchine virtuali di Azure](deploy-vulnerability-assessment-vm.md).
 
 Il Centro sicurezza offre anche l'analisi delle vulnerabilità per:
 
@@ -81,7 +78,7 @@ Selezionare **Visualizza** per ulteriori informazioni e opzioni, ad esempio:
    - **Console soluzione** : apre l'esperienza di gestione per questa soluzione.
    - **Collega macchina virtuale** : apre la pagina collega applicazioni. In questo pannello è possibile connettere risorse alla soluzione del partner.
    - **Elimina soluzione**
-   - **Configurare**
+   - **Configurare un**
 
    ![Dettagli della soluzione di un partner](./media/security-center-partner-integration/partner-solutions-detail.png)
 

@@ -12,19 +12,19 @@ manager: daveba
 ms.reviewer: sandeo
 ms.custom: references_regions
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4e707393bda3d8820ccf94abed83beb1317027d5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: b38d383f7dac832449e5b10e5cda6b0db859f9a0
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88005019"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180338"
 ---
 # <a name="sign-in-to-windows-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Accedere a una macchina virtuale Windows in Azure usando l'autenticazione Azure Active Directory (anteprima)
 
 Le organizzazioni possono ora usare l'autenticazione Azure Active Directory (AD) per le macchine virtuali (VM) di Azure che eseguono **Windows Server 2019 Datacenter Edition** o **Windows 10 1809** e versioni successive. L'uso di Azure AD per l'autenticazione nelle macchine virtuali consente di controllare e applicare in modo centralizzato i criteri. Strumenti come il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) e Azure AD l'accesso condizionale consentono di controllare chi può accedere a una macchina virtuale. Questo articolo illustra come creare e configurare una macchina virtuale Windows Server 2019 per usare l'autenticazione Azure AD.
 
 > [!NOTE]
-> Azure AD l'accesso per le macchine virtuali Windows di Azure è una funzionalità di anteprima pubblica di Azure Active Directory. Per ulteriori informazioni sulle anteprime, vedere la pagina relativa alle [condizioni per l'utilizzo aggiuntive per Microsoft Azure anteprime](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure AD l'accesso per le macchine virtuali Windows di Azure è una funzionalità di anteprima pubblica di Azure Active Directory. Per ulteriori informazioni sulle anteprime, vedere la pagina relativa alle  [condizioni per l'utilizzo aggiuntive per Microsoft Azure anteprime](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 L'uso dell'autenticazione Azure AD per accedere alle macchine virtuali Windows in Azure offre molti vantaggi, tra cui:
 
@@ -32,7 +32,7 @@ L'uso dell'autenticazione Azure AD per accedere alle macchine virtuali Windows i
 - Non è più necessario gestire gli account di amministratore locale.
 - Il controllo degli accessi in base al ruolo di Azure consente di concedere l'accesso appropriato alle macchine virtuali in base alla necessità e di rimuoverlo quando non è più necessario.
 - Prima di consentire l'accesso a una macchina virtuale, Azure AD l'accesso condizionale può applicare requisiti aggiuntivi, ad esempio: 
-   - Multi-Factor Authentication
+   - Autenticazione a più fattori
    - Controllo del rischio di accesso
 - Automatizzare e ridimensionare Azure AD join di macchine virtuali Windows di Azure che fanno parte delle distribuzioni VDI.
 
@@ -274,7 +274,7 @@ Questo codice di uscita viene convertito in DSREG_E_MSI_TENANTID_UNAVAILABLE per
 
    - Connettersi tramite RDP alla macchina virtuale come amministratore locale e verificare che l'endpoint restituisca un ID tenant valido eseguendo questo comando da una riga di comando con privilegi elevati nella macchina virtuale:
       
-      - Metadati curl-H: truehttp://169.254.169.254/metadata/identity/info?api-version=2018-02-01
+      - Metadati curl-H: true http://169.254.169.254/metadata/identity/info?api-version=2018-02-01
 
 1. L'amministratore della macchina virtuale tenta di installare l'estensione AADLoginForWindows, ma un'identità gestita assegnata dal sistema non ha abilitato prima la macchina virtuale. Passare al pannello identità della macchina virtuale. Dalla scheda assegnazione sistema verificare che lo stato sia impostato su attivato.
 
@@ -329,7 +329,7 @@ Se viene visualizzato il messaggio di errore seguente quando si avvia una connes
 
 ![L'account è configurato in modo da impedire l'uso di questo dispositivo.](./media/howto-vm-sign-in-azure-ad-windows/rbac-role-not-assigned.png)
 
-Verificare di aver [configurato i criteri RBAC](../../virtual-machines/linux/login-using-aad.md) per la macchina virtuale che concede all'utente l'account di accesso dell'amministratore della macchina virtuale o il ruolo di accesso utente della macchina virtuale:
+Verificare di aver [configurato i criteri](../../virtual-machines/linux/login-using-aad.md) di controllo degli accessi in base al ruolo di Azure per la macchina virtuale che concede all'utente il ruolo di accesso dell'amministratore della macchina virtuale o dell'utente della macchina virtuale
  
 #### <a name="unauthorized-client"></a>Client non autorizzato
 

@@ -4,12 +4,12 @@ description: Informazioni su come l'eliminazione temporanea può proteggere le c
 ms.topic: conceptual
 ms.date: 02/02/2020
 ms.custom: references_regions
-ms.openlocfilehash: 0ec2d3bf84aed19b608a92b6f21cd1674ba5b7cf
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 52a116320e07c25d4ee7f00b8063ca15faeb8560
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282705"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179913"
 ---
 # <a name="accidental-delete-protection-for-azure-file-shares-using-azure-backup"></a>Eliminare accidentalmente la protezione per le condivisioni file di Azure con backup di Azure
 
@@ -53,7 +53,7 @@ Se si dispone di almeno una condivisione file protetta in un account di archivia
 >È necessario eseguire il passaggio 2 prima che il processo di backup pianificato successivo venga eseguito sulla condivisione file protetta nell'account di archiviazione. Poiché ogni volta che viene eseguito il processo di backup, l'eliminazione temporanea viene abilitata per tutte le condivisioni file nell'account di archiviazione.
 
 >[!WARNING]
->Dopo la disabilitazione dell'eliminazione temporanea nel passaggio 2, le operazioni di eliminazione eseguite sulle condivisioni file sono un'operazione di eliminazione permanente. Ciò significa che se si elimina accidentalmente la condivisione file di cui è stato eseguito il backup dopo la disabilitazione dell'eliminazione temporanea, verranno persi tutti gli snapshot e non sarà possibile recuperare i dati.
+>Dopo la disabilitazione dell'eliminazione temporanea nel passaggio 2, le operazioni di eliminazione eseguite sulle condivisioni file sono un'operazione di eliminazione permanente. Se quindi si elimina accidentalmente la condivisione file di cui è stato eseguito il backup dopo la disabilitazione dell'eliminazione temporanea, si perderanno tutti gli snapshot e non sarà possibile recuperare i dati.
 
 ### <a name="in-the-context-of-a-file-shares-soft-delete-setting-what-changes-does-azure-backup-do-when-i-unregister-a-storage-account"></a>Nel contesto dell'impostazione di eliminazione temporanea di una condivisione file, quali modifiche eseguono backup di Azure quando si annulla la registrazione di un account di archiviazione?
 

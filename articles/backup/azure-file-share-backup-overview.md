@@ -3,12 +3,12 @@ title: Informazioni sul backup di condivisioni file di Azure
 description: Informazioni su come eseguire il backup delle condivisioni file di Azure nell'insieme di credenziali di servizi di ripristino
 ms.topic: conceptual
 ms.date: 03/05/2020
-ms.openlocfilehash: 7960040df4208ad021bca3406f6472d8c3206d81
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: dd8a17639c006dd1c0e8cc193776bb63cb536ceb
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892253"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180015"
 ---
 # <a name="about-azure-file-share-backup"></a>Informazioni sul backup di condivisioni file di Azure
 
@@ -50,7 +50,13 @@ Il backup di condivisioni file di Azure è una soluzione di backup nativa basata
 
 ## <a name="backup-costs"></a>Costi di backup
 
-Attualmente verranno addebitati solo gli snapshot, poiché il backup della condivisione file di Azure è una soluzione basata su snapshot. Gli addebiti per lo spazio di archiviazione per gli snapshot vengono fatturati insieme all'utilizzo File di Azure in base ai dettagli sui prezzi indicati [qui](https://azure.microsoft.com/pricing/details/storage/files/).
+Alla soluzione di backup di condivisione file di Azure sono associati due costi:
+
+1. **Costo di archiviazione degli snapshot**: i costi di archiviazione per gli snapshot vengono fatturati insieme all'utilizzo file di Azure in base ai dettagli sui prezzi indicati [qui](https://azure.microsoft.com/pricing/details/storage/files/) 
+
+2. **Tariffa per l'istanza protetta** : a partire dal 1 ° settembre 2020, ai clienti verrà addebitata una tariffa per l'istanza protetta in base ai dettagli sui prezzi indicati [qui](https://azure.microsoft.com/en-in/pricing/details/backup/) . La tariffa per l'istanza protetta dipende dalle dimensioni totali delle condivisioni file protette in un account di archiviazione.
+
+Per ottenere stime dettagliate per il backup delle condivisioni file di Azure, è possibile scaricare lo strumento di [stima dei prezzi di backup di Azure](https://aka.ms/AzureBackupCostEstimates)dettagliato.  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

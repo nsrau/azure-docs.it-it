@@ -3,12 +3,12 @@ title: Eseguire il backup dello stato del sistema Windows in Azure
 description: Informazioni su come eseguire il backup dello stato del sistema dei computer Windows Server in Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: b3e4e5451d40d7b0e600875b73e4810d5818d168
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 14ca17284d48355260cdeda6ef3b20b4794a0c4f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013436"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181630"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Eseguire il backup dello stato del sistema Windows in Azure
 
@@ -80,7 +80,7 @@ Dopo aver creato un insieme di credenziali, configurarlo per il backup dello sta
 
     ![Programma di installazione MARS completato](./media/backup-try-azure-backup-in-10-mins/mars-installer-complete.png)
 
-    Non è ancora necessario installare l'agente. È possibile installare l'agente al termine del download delle credenziali dell'insieme di credenziali.
+    Non è ancora necessario installare l'agente. È possibile installare l'agente dopo aver scaricato le credenziali dell'insieme di credenziali.
 
 6. Nel riquadro **prepara infrastruttura** selezionare **Scarica**.
 

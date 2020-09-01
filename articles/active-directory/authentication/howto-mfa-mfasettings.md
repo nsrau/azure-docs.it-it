@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 8b695bad791388dc51123a118344b8fda0f54ca8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1bc3f7887c9d257f5971b867ff9b7b1dd970fa87
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87027700"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179404"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurare le impostazioni di Azure Multi-Factor Authentication
 
@@ -195,7 +195,7 @@ Gli script di esempio seguenti possono essere usati per creare messaggi personal
 
 | Nome messaggio | Script |
 | --- | --- |
-| Autenticazione riuscita | Verifica dell'accesso completata. Arrivederci. |
+| Autenticazione riuscita | La verifica dell'accesso è stata completata. Arrivederci. |
 | Richiesta interno | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Premere cancelletto per continuare. |
 | Conferma illecito | È stato inviato un avviso di illecito. Per sbloccare l'account, contattare l'help desk IT della società. |
 | Messaggio introduttivo illecito (standard) | Grazie per aver usato il sistema di verifica dell'accesso Microsoft. Premere cancelletto per completare la verifica. Se non si è avviato personalmente la procedura di verifica, è possibile che qualcuno stia tentando di accedere all'account. Premere 0 seguito da cancelletto per inviare un avviso di illecito, in modo da informare il team IT della società e bloccare ulteriori tentativi di verifica. |
@@ -220,7 +220,7 @@ Per usare messaggi personalizzati, attenersi alla procedura seguente:
 
 1. Passare a **Azure Active Directory** > **Sicurezza** > **MFA** > **Impostazioni telefonata**.
 1. Selezionare **Aggiungi messaggio di saluto**.
-1. Scegliere il **tipo** di saluto, ad esempio *saluto (standard)* o *autenticazione riuscita*.
+1. Scegliere il **tipo** di saluto, ad esempio *saluto (standard)* o  *autenticazione riuscita*.
 1. Selezionare la **lingua**in base alla sezione precedente relativa al [comportamento della lingua dei messaggi personalizzata](#custom-message-language-behavior).
 1. Cercare e selezionare un file audio con *estensione mp3* o *WAV* da caricare.
 1. Quando si è pronti, selezionare **Aggiungi**, quindi **Salva**.
@@ -242,12 +242,9 @@ La funzionalità _indirizzi IP attendibili_ di Azure multi-factor authentication
 
 Se l'organizzazione distribuisce l'estensione del server dei criteri di rete per garantire l'autenticazione a più fattori ad applicazioni locali, si prega di notare che gli indirizzi IP originali sembreranno sempre il server dei criteri di rete attraverso cui passa il tentativo di autenticazione.
 
-| Tipo di tenant di Azure AD | Opzioni delle funzionalità IP attendibili |
-|:--- |:--- |
-| Gestito |**Specific range of IP addresses** (Intervallo di indirizzi IP specifico): gli amministratori possono specificare un intervallo di indirizzi IP che può ignorare la verifica in due passaggi per gli utenti che accedono dalla rete Intranet dell'azienda. È possibile configurare un massimo di 50 intervalli di indirizzi IP attendibili.|
-| Federato |**All Federated Users** (Tutti gli utenti federati): tutti gli utenti federati che eseguono l'accesso dall'interno dell'organizzazione possono ignorare la verifica in due passaggi. Gli utenti ignorano la verifica usando un'attestazione emessa da Active Directory Federation Services (AD FS).<br/>**Specific range of IP addresses** (Intervallo di indirizzi IP specifico): gli amministratori possono specificare un intervallo di indirizzi IP che può ignorare la verifica in due passaggi per gli utenti che accedono dalla rete Intranet dell'azienda. |
+| Tipo di tenant Azure AD | Opzioni della funzionalità IP attendibili | |:---|:---| due passaggi | Gestito | **Intervallo specifico di indirizzi IP**: gli amministratori specificano un intervallo di indirizzi IP che possono ignorare l'autenticazione a più fattori per gli utenti che effettuano l'accesso dalla rete Intranet aziendale. È possibile configurare un massimo di 50 intervalli di indirizzi IP attendibili. | | Federato | **Tutti gli utenti federati**: tutti gli utenti federati che eseguono l'accesso dall'interno dell'organizzazione possono ignorare la funzionalità di autenticazione a più fattori. Gli utenti ignorano la verifica usando un'attestazione emessa da Active Directory Federation Services (AD FS).<br/>**Intervallo specifico di indirizzi IP**: gli amministratori specificano un intervallo di indirizzi IP che possono ignorare l'autenticazione a più fattori per gli utenti che effettuano l'accesso dalla rete Intranet aziendale. |
 
-Il bypass IP attendibile funziona solo dall'interno della Intranet aziendale. Se si seleziona l'opzione **All Federated Users** (Tutti gli utenti federati) solo tutti gli utenti federati e un utente accede dall'esterno della rete Intranet aziendale, tale utente deve eseguire l'autenticazione con la verifica in due passaggi. Il processo è lo stesso anche se l'utente presenta un'attestazione AD FS.
+Il bypass IP attendibile funziona solo dall'interno della Intranet aziendale. Se si seleziona l'opzione **tutti gli utenti federati** e un utente accede dall'esterno della rete Intranet aziendale, l'utente deve eseguire l'autenticazione tramite l'autenticazione a più fattori. Il processo è lo stesso anche se l'utente presenta un'attestazione AD FS.
 
 ### <a name="end-user-experience-inside-of-corpnet"></a>Esperienza dell'utente finale all'interno della rete aziendale
 
@@ -278,14 +275,14 @@ Per abilitare gli indirizzi IP attendibili usando i criteri di accesso condizion
 1. Selezionare **Configura indirizzi IP attendibili MFA**.
 1. Nella pagina **Impostazioni servizio**, in **Indirizzi IP attendibili** scegliere una delle due opzioni seguenti:
 
-   * **Per le richieste degli utenti federati originate dalla Intranet dell'utente**: per scegliere questa opzione, selezionare la casella di controllo. Tutti gli utenti federati che eseguono l'accesso dalla rete aziendale ignorano la verifica in due passaggi usando un'attestazione rilasciata da AD FS. Assicurarsi che AD FS abbia una regola per aggiungere l'attestazione intranet al traffico appropriato. Se la regola non esiste, creare la regola seguente in AD FS:
+   * **Per le richieste degli utenti federati originate dalla Intranet dell'utente**: per scegliere questa opzione, selezionare la casella di controllo. Tutti gli utenti federati che eseguono l'accesso dalla rete aziendale ignorano la funzionalità di autenticazione a più fattori usando un'attestazione rilasciata da AD FS. Assicurarsi che AD FS abbia una regola per aggiungere l'attestazione intranet al traffico appropriato. Se la regola non esiste, creare la regola seguente in AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
    * **Per le richieste da un intervallo specifico di IP pubblici**: per scegliere questa opzione, immettere gli indirizzi IP nella casella di testo usando la notazione CIDR.
       * Per gli indirizzi IP nell'intervallo da xxx.xxx.xxx.1 a xxx.xxx.xxx.254, usare una notazione, ad esempio **xxx.xxx.xxx.0/24**.
       * Per un singolo indirizzo IP, usare una notazione simile a **xxx.xxx.xxx.xxx/32**.
-      * Immettere fino a 50 intervalli di indirizzi IP. Gli utenti che accedono da tali indirizzi IP possono ignorare la verifica in due passaggi.
+      * Immettere fino a 50 intervalli di indirizzi IP. Gli utenti che effettuano l'accesso da questi indirizzi IP ignorano la funzionalità di autenticazione a più fattori.
 
 1. Selezionare **Salva**.
 
@@ -298,20 +295,20 @@ Se non si vogliono usare i criteri di accesso condizionale per abilitare gli ind
 1. In Multi-Factor Authentication selezionare **Impostazioni servizio**.
 1. Nella pagina **Impostazioni servizio**, in **Indirizzi IP attendibili** scegliere una o entrambe le opzioni seguenti:
 
-   * **Per le richieste degli utenti federati originate dalla Intranet dell'utente**: per scegliere questa opzione, selezionare la casella di controllo. Tutti gli utenti federati che eseguono l'accesso dalla rete aziendale ignorano la verifica in due passaggi usando un'attestazione rilasciata da AD FS. Assicurarsi che AD FS abbia una regola per aggiungere l'attestazione intranet al traffico appropriato. Se la regola non esiste, creare la regola seguente in AD FS:
+   * **Per le richieste degli utenti federati originate dalla Intranet dell'utente**: per scegliere questa opzione, selezionare la casella di controllo. Tutti gli utenti federati che eseguono l'accesso dalla rete aziendale ignorano la funzionalità di autenticazione a più fattori usando un'attestazione rilasciata da AD FS. Assicurarsi che AD FS abbia una regola per aggiungere l'attestazione intranet al traffico appropriato. Se la regola non esiste, creare la regola seguente in AD FS:
 
       `c:[Type== "http://schemas.microsoft.com/ws/2012/01/insidecorporatenetwork"] => issue(claim = c);`
 
    * **For requests from a specified range of IP address subnets** (Per le richieste provenienti da un intervallo specificato di subnet di indirizzi IP): per scegliere questa opzione, immettere gli indirizzi IP nella casella di testo usando la notazione CIDR.
       * Per gli indirizzi IP nell'intervallo da xxx.xxx.xxx.1 a xxx.xxx.xxx.254, usare una notazione, ad esempio **xxx.xxx.xxx.0/24**.
       * Per un singolo indirizzo IP, usare una notazione simile a **xxx.xxx.xxx.xxx/32**.
-      * Immettere fino a 50 intervalli di indirizzi IP. Gli utenti che accedono da tali indirizzi IP possono ignorare la verifica in due passaggi.
+      * Immettere fino a 50 intervalli di indirizzi IP. Gli utenti che effettuano l'accesso da questi indirizzi IP ignorano la funzionalità di autenticazione a più fattori.
 
 1. Selezionare **Salva**.
 
 ## <a name="verification-methods"></a>Metodi di verifica
 
-È possibile scegliere i metodi di verifica disponibili per gli utenti nel portale delle impostazioni del servizio. Quando gli utenti registrano i propri account per Azure Multi-Factor Authentication, scelgono il metodo di verifica preferito tra le opzioni abilitate. Le linee guida per il processo di registrazione dell'utente sono disponibili in [Configurare l'account per la verifica in due passaggi](../user-help/multi-factor-authentication-end-user-first-time.md).
+È possibile scegliere i metodi di verifica disponibili per gli utenti nel portale delle impostazioni del servizio. Quando gli utenti registrano i propri account per Azure Multi-Factor Authentication, scelgono il metodo di verifica preferito tra le opzioni abilitate. Le linee guida per il processo di registrazione utente sono disponibili in [configurare l'account per l'autenticazione](../user-help/multi-factor-authentication-end-user-first-time.md)a più fattori.
 
 Sono disponibili i metodi di verifica seguenti:
 
@@ -336,25 +333,25 @@ Per abilitare o disabilitare i metodi di verifica, attenersi alla procedura segu
 
 ## <a name="remember-multi-factor-authentication"></a>Memorizza Multi-Factor Authentication
 
-La funzionalità _ricorda multi-factor authentication_ consente agli utenti di ignorare le verifiche successive per un determinato numero di giorni, dopo aver eseguito l'accesso a un dispositivo usando multi-factor authentication. La funzionalità migliora l'usabilità riducendo al minimo il numero di volte in cui un utente deve eseguire l'autenticazione a più fattori nello stesso dispositivo.
+La funzionalità _ricorda multi-factor authentication_ consente agli utenti di ignorare le verifiche successive per un determinato numero di giorni, dopo aver eseguito l'accesso a un dispositivo usando multi-factor authentication. Per migliorare l'usabilità e ridurre al minimo il numero di volte in cui un utente deve eseguire l'autenticazione a più fattori nello stesso dispositivo, selezionare una durata di 90 giorni o più.
 
 > [!IMPORTANT]
 > Se un dispositivo o un account viene compromesso, la memorizzazione di Multi-Factor Authentication per i dispositivi attendibili può influire sulla sicurezza. Se un account aziendale viene compromesso o un dispositivo attendibile viene smarrito o rubato, è necessario [revocare le sessioni MFA](howto-mfa-userdevicesettings.md).
 >
-> L'azione di ripristino revoca lo stato di attendibilità di tutti i dispositivi e l'utente deve eseguire nuovamente la verifica in due passaggi. È anche possibile indicare agli utenti di ripristinare Multi-Factor Authentication nei propri dispositivi come indicato in [gestire le impostazioni per la verifica in due passaggi](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
+> L'azione di ripristino revoca lo stato attendibile da tutti i dispositivi e l'utente deve eseguire di nuovo l'autenticazione a più fattori. È anche possibile indicare agli utenti di ripristinare Multi-Factor Authentication nei propri dispositivi come indicato in [gestire le impostazioni per l'autenticazione a più fattori](../user-help/multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 
 ### <a name="how-the-feature-works"></a>Funzionamento della funzionalità
 
 La funzionalità di memorizzazione di Multi-Factor Authentication imposta un cookie permanente nel browser quando l'utente seleziona l'opzione **Don't ask again for X days** (Non visualizzare più il messaggio per X giorni) al momento dell'accesso. L'utente non visualizza più la richiesta di Multi-Factor Authentication da questo browser fino alla scadenza del cookie. Se l'utente apre un altro browser sullo stesso dispositivo o cancella i cookie, la verifica verrà richiesta di nuovo.
 
-L'opzione **Don't ask again for X days** (Non visualizzare più il messaggio per X giorni) non viene visualizzata nelle applicazioni non basate su browser, indipendentemente dal fatto che l'app supporti l'autenticazione moderna. Queste app usano _token di aggiornamento_ che creano nuovi token di accesso ogni ora. Quando un token di aggiornamento viene convalidato, Azure AD controlla che l'ultima verifica in due passaggi sia stata eseguita entro il numero di giorni specificato.
+L'opzione **Don't ask again for X days** (Non visualizzare più il messaggio per X giorni) non viene visualizzata nelle applicazioni non basate su browser, indipendentemente dal fatto che l'app supporti l'autenticazione moderna. Queste app usano _token di aggiornamento_ che creano nuovi token di accesso ogni ora. Quando un token di aggiornamento viene convalidato, Azure AD verifica che l'ultima autenticazione a più fattori si sia verificata entro il numero di giorni specificato.
 
-La funzionalità riduce il numero di autenticazioni per le app Web, che in genere viene richiesta ogni volta. Questa comporta però un aumento del numero di autenticazioni per i client di autenticazione moderna che in genere la richiedono ogni 90 giorni. Può anche aumentare il numero di autenticazioni in combinazione con i criteri di accesso condizionale.
+La funzionalità riduce il numero di autenticazioni per le app Web, che in genere viene richiesta ogni volta. La funzionalità può aumentare il numero di autenticazioni per i client di autenticazione moderna che in genere richiedono ogni 90 giorni, se è configurata una durata inferiore. Può anche aumentare il numero di autenticazioni in combinazione con i criteri di accesso condizionale.
 
 > [!IMPORTANT]
-> La funzionalità **ricorda multi-factor authentication** non è compatibile con la funzionalità **Mantieni l'accesso** di ad FS, quando gli utenti eseguono la verifica in due passaggi per ad FS tramite server multi-factor authentication di Azure o una soluzione di autenticazione a più fattori di terze parti.
+> La funzionalità **ricorda multi-factor authentication** non è compatibile con la funzionalità **Mantieni l'accesso** di ad FS, quando gli utenti eseguono l'autenticazione a più fattori per ad FS tramite server multi-factor authentication di Azure o una soluzione di autenticazione a più fattori di terze parti.
 >
-> Se si seleziona **Mantieni l'accesso** in AD FS e si contrassegna il dispositivo come attendibile per Multi-Factor Authentication, l'utente non esegue automaticamente la verifica quando terminano i giorni per la **memorizzazione di Multi-Factor Authentication**. Azure AD richiede una nuova verifica in due passaggi, ma AD FS restituisce un token con l'attestazione originale e la data di Multi-Factor Authentication invece di eseguire di nuovo la verifica in due passaggi. **Questa reazione attiva un ciclo di verifica tra Azure AD e AD FS.**
+> Se si seleziona **Mantieni l'accesso** in AD FS e si contrassegna il dispositivo come attendibile per Multi-Factor Authentication, l'utente non esegue automaticamente la verifica quando terminano i giorni per la **memorizzazione di Multi-Factor Authentication**. Azure AD richiede una nuova autenticazione a più fattori, ma AD FS restituisce un token con l'attestazione Multi-Factor Authentication originale e la data, anziché eseguire di nuovo l'autenticazione a più fattori. **Questa reazione attiva un ciclo di verifica tra Azure AD e AD FS.**
 >
 > La funzionalità **Memorizza Multi-Factor Authentication** non è compatibile con gli utenti B2B e non sarà visibile per questi utenti durante l'accesso ai tenant invitati.
 >
@@ -366,8 +363,8 @@ Per abilitare e configurare l'opzione per gli utenti per ricordare il proprio st
 1. Nella portale di Azure cercare e selezionare **Azure Active Directory**, quindi scegliere **utenti**.
 1. Selezionare **Multi-Factor Authentication**.
 1. In Multi-Factor Authentication selezionare **Impostazioni servizio**.
-1. Nella pagina **Impostazioni servizio**, in **manage remember multi-factor authentication** (Gestisci memorizzazione di Multi-Factor Authentication) selezionare l'opzione **Consenti agli utenti di memorizzare l'autenticazione a più fattori nei dispositivi attendibili**.
-1. Impostare il numero di giorni per cui consentire ai dispositivi attendibili di ignorare la verifica in due passaggi. Il valore predefinito è 14 giorni.
+1. Nella pagina **Impostazioni servizio** , in **memorizza autenticazione**a più fattori, selezionare l'opzione **Consenti agli utenti di memorizzare l'autenticazione a più fattori nei dispositivi di cui si considera attendibile** .
+1. Impostare il numero di giorni per consentire ai dispositivi attendibili di ignorare l'autenticazione a più fattori. Per un'esperienza utente ottimale, estendere la durata a *90* o più giorni.
 1. Selezionare **Salva**.
 
 ### <a name="mark-a-device-as-trusted"></a>Contrassegnare un dispositivo come attendibile

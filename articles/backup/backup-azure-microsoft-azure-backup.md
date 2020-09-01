@@ -3,12 +3,12 @@ title: Usare il server di Backup di Azure per eseguire il backup dei carichi di 
 description: Questo articolo contiene informazioni su come preparare l'ambiente per proteggere ed eseguire il backup dei carichi di lavoro usando il server di Backup di Microsoft Azure (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 18225fab8b4f1ebe9fd34095108492a0902ca1d1
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 79abf55fdbaae80a84618f6944870131dcd82c89
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001162"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181698"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installare e preparare il server di Backup di Azure
 
@@ -275,11 +275,11 @@ Ecco i passaggi necessari se si vuole spostare MABS in un nuovo server, mantenen
 9. Da SQL, ripristinare DPMDB.
 10. Eseguire CMD (come amministratore) nel nuovo server. Passare al percorso di installazione di Backup di Microsoft Azure e alla cartella bin
 
-    Esempio di percorso: C:\windows\system32>cd "c:\Programmi\Backup di Microsoft Azure\DPM\DPM\bin\"
+    Esempio di percorso: `C:\windows\system32>cd "c:\Program Files\Microsoft Azure Backup\DPM\DPM\bin\"`
 
 11. Per connettersi a backup di Azure, eseguire `DPMSYNC -SYNC`
 
-    Se sono stati aggiunti **nuovi** dischi al pool di archiviazione DPM invece di trasferire quelli precedenti, eseguire `DPMSYNC -Reallocatereplica`
+    Se sono stati aggiunti **nuovi** dischi al pool di archiviazione DPM invece di trasferire quelli precedenti, eseguire `DPMSYNC -Reallocatereplica` .
 
 ## <a name="network-connectivity"></a>Connettività di rete
 

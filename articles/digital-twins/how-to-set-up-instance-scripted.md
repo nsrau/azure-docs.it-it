@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 86597521f762237b5c4bc9a7a5268d7dae1303b4
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 5d41a9b638ab023d045060e14488e91dca07b10f
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587974"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181375"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurare un'istanza di Azure Digital Twins e l'autenticazione (con script)
 
@@ -55,7 +55,7 @@ Ecco i passaggi per eseguire lo script di distribuzione in Cloud Shell.
     * Per l'istanza: nome del *gruppo di risorse* . È possibile usare un gruppo di risorse esistente o immetterne uno nuovo da creare.
     * Per l'istanza: un *nome* per l'istanza di Azure Digital gemelli. Il nome della nuova istanza deve essere univoco all'interno dell'area per la sottoscrizione. Ciò significa che se la sottoscrizione ha un'altra istanza di Azure Digital gemelli nell'area che usa già il nome scelto, verrà chiesto di selezionare un nome diverso.
     * Per la registrazione dell'app: un *Azure ad nome visualizzato dell'applicazione* da associare alla registrazione. Questa registrazione dell'app è la posizione in cui vengono configurate le autorizzazioni di accesso alle [API di Azure Digital gemelli](how-to-use-apis-sdks.md) Successivamente, l'app client eseguirà l'autenticazione con la registrazione dell'app e, di conseguenza, le autorizzazioni di accesso configurate alle API.
-    * Per la registrazione dell'app: *URL di risposta dell'applicazione Azure ad* per l'applicazione Azure ad. È possibile utilizzare `http://localhost` .
+    * Per la registrazione dell'app: *URL di risposta dell'applicazione Azure ad* per l'applicazione Azure ad. Usare `http://localhost`. Lo script configurerà un URI *pubblico client/nativo (mobile & desktop)* .
 
 Lo script creerà un'istanza di Azure Digital Twins, assegna all'utente di Azure il ruolo *proprietario (anteprima) di Azure Digital gemelli (anteprima)* nell'istanza e configura una registrazione dell'app Azure ad per l'uso da parte dell'app client.
 

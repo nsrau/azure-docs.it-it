@@ -2,13 +2,13 @@
 title: Creare il file di parametri
 description: Creare il file di parametri per passare i valori durante la distribuzione di un modello di Azure Resource Manager
 ms.topic: conceptual
-ms.date: 06/19/2020
-ms.openlocfilehash: 8039b63978e52b69b0f8ffb4dd4e052769f3c5e6
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.openlocfilehash: ff5fa74f8b4b7f0ce7dfe2164a369cfd5eedb4d9
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082937"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179624"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Creare il file di parametri di Resource Manager
 
@@ -184,10 +184,30 @@ L'esempio seguente illustra i formati di diversi tipi di parametro.
 
 ## <a name="deploy-template-with-parameter-file"></a>Distribuire un modello con un file di parametri
 
-Vedere:
+Per passare un file di parametri locale con l'interfaccia della riga di comando di Azure, usare @ e il nome del file di parametri.
 
-- [Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure](./deploy-cli.md#parameters)
-- [Distribuire le risorse con i modelli di Azure Resource Manager e Azure PowerShell](./deploy-powershell.md#pass-parameter-values)
+```azurecli
+az deployment group create \
+  --name ExampleDeployment \
+  --resource-group ExampleGroup \
+  --template-file storage.json \
+  --parameters @storage.parameters.json
+```
+
+Per altre informazioni, vedere [distribuire le risorse con i modelli ARM e l'interfaccia](./deploy-cli.md#parameters)della riga di comando di Azure.
+
+Per passare un file di parametri locale con Azure PowerShell, usare il `TemplateParameterFile` parametro.
+
+```azurepowershell
+New-AzResourceGroupDeployment -Name ExampleDeployment -ResourceGroupName ExampleResourceGroup `
+  -TemplateFile c:\MyTemplates\azuredeploy.json `
+  -TemplateParameterFile c:\MyTemplates\storage.parameters.json
+```
+
+Per altre informazioni, vedere [distribuire le risorse con i modelli ARM e Azure PowerShell](./deploy-powershell.md#pass-parameter-values)
+
+> [!NOTE]
+> Non è possibile usare un file di parametri con il pannello modello personalizzato nel portale.
 
 ## <a name="file-name"></a>Nome file
 
@@ -199,7 +219,7 @@ Per la distribuzione in ambienti diversi, creare più di un file di parametri. Q
 
 È possibile usare i parametri inline e un file di parametri locale nella stessa operazione di distribuzione. Ad esempio, è possibile specificare alcuni valori nel file di parametri locale e aggiungere altri valori inline durante la distribuzione. Se si specificano valori per un parametro sia nel file dei parametri locale che inline, il valore inline ha la precedenza.
 
-È possibile usare un file di parametri esterno specificando l'URI per il file. In questo caso, non è possibile passare altri valori, né inline né da un file locale. Tutti i parametri inline vengono ignorati. È necessario fornire tutti i valori dei parametri presenti nel file esterno.
+È possibile usare un file di parametri esterno specificando l'URI per il file. Quando si usa un file di parametri esterno, non è possibile passare altri valori inline o da un file locale. Tutti i parametri inline vengono ignorati. È necessario fornire tutti i valori dei parametri presenti nel file esterno.
 
 ## <a name="parameter-name-conflicts"></a>Conflitti nei nomi di parametro
 

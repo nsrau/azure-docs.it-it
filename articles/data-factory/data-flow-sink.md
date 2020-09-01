@@ -8,13 +8,13 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 06/03/2020
-ms.openlocfilehash: 49cfc4899379698cab78a5e22fcffacb60636052
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.date: 08/18/2020
+ms.openlocfilehash: b2a356f8ee6c8e3d11548a3c7c17a868e4c057c4
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223636"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89179182"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>Trasformazione sink nel flusso di dati di mapping
 
@@ -36,7 +36,7 @@ Per usare un set di dati inline, selezionare il formato desiderato nel selettore
 
 ![Set di dati inline](media/data-flow/inline-selector.png "Set di dati inline")
 
-##  <a name="supported-sink-types"></a><a name="supported-sinks"></a>Tipi di sink supportati
+##  <a name="supported-sink-types"></a><a name="supported-sinks"></a> Tipi di sink supportati
 
 Il flusso di dati di mapping segue un approccio di estrazione, caricamento e trasformazione (ELT) e funziona con i set di dati di *staging* che sono tutti in Azure. Attualmente i set di dati seguenti possono essere utilizzati in una trasformazione di origine:
 
@@ -48,8 +48,9 @@ Il flusso di dati di mapping segue un approccio di estrazione, caricamento e tra
 | [Azure Synapse Analytics](connector-azure-sql-data-warehouse.md#mapping-data-flow-properties) | | ✓/- |
 | [Database SQL di Azure](connector-azure-sql-database.md#mapping-data-flow-properties) | | ✓/- |
 | [Azure CosmosDB (API SQL)](connector-azure-cosmos-db.md#mapping-data-flow-properties) | | ✓/- |
+| [Snowflake](connector-snowflake.md) | | ✓/✓ |
 
-Le impostazioni specifiche di questi connettori si trovano nella scheda **Impostazioni** . gli esempi di script del flusso di dati e informazioni su queste impostazioni sono disponibili nella documentazione del connettore. 
+Le impostazioni specifiche di questi connettori si trovano nella scheda **Impostazioni** . Esempi di script di flusso di dati e informazioni su queste impostazioni sono disponibili nella documentazione del connettore. 
 
 Azure Data Factory può accedere a più di [90 connettori nativi](connector-overview.md). Per scrivere i dati nelle altre origini dal flusso di dati, usare l'attività di copia per caricare i dati da un sink supportato.
 

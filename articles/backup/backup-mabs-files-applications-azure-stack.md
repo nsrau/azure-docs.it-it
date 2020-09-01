@@ -3,16 +3,16 @@ title: Eseguire il backup di file in Azure Stack macchine virtuali
 description: Usare Backup di Azure per eseguire il backup e ripristinare file e applicazioni di Azure Stack nell'ambiente di Azure Stack.
 ms.topic: conceptual
 ms.date: 06/05/2018
-ms.openlocfilehash: caac247b5a972c515b4350f1b0c79792bbf75537
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: cae95c10c510969cc0553a54a506789d6be427d7
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88825801"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180984"
 ---
 # <a name="back-up-files-and-applications-on-azure-stack"></a>Eseguire il backup di file e applicazioni in Azure Stack
 
-È possibile usare Backup di Azure per proteggere (o eseguire il backup) di file e applicazioni in Azure Stack. Per eseguire il backup di file e applicazioni, installare il server di Backup di Microsoft Azure come macchina virtuale in esecuzione in Azure Stack. È possibile proteggere i file in un server di Azure Stack che si trova nella stessa rete virtuale. Dopo aver installato il server di Backup di Azure, aggiungere i dischi di Azure per aumentare lo spazio di archiviazione locale disponibile per i dati di backup a breve termine. Il server di Backup di Azure usa l'archiviazione di Azure per la conservazione a lungo termine.
+È possibile usare Backup di Azure per proteggere (o eseguire il backup) di file e applicazioni in Azure Stack. Per eseguire il backup di file e applicazioni, installare il server di Backup di Microsoft Azure come macchina virtuale in esecuzione in Azure Stack. È possibile proteggere i file in un server di Azure Stack che si trova nella stessa rete virtuale. Dopo aver installato server di Backup di Azure, aggiungere dischi di Azure per aumentare lo spazio di archiviazione locale disponibile per i dati di backup a breve termine. Il server di Backup di Azure usa l'archiviazione di Azure per la conservazione a lungo termine.
 
 > [!NOTE]
 > Sebbene server di Backup di Azure e System Center Data Protection Manager (DPM) siano simili, DPM non è supportato per l'utilizzo con Azure Stack.
@@ -66,18 +66,18 @@ Per configurare il serve di Backup di Azure per proteggere i file nelle macchine
 
 6. Nella schermata **Verifica allocazione dischi** esaminare lo spazio su disco del pool di archiviazione allocato per il gruppo protezione dati.
 
-    Le **dimensioni dati totali** sono le dimensioni dei dati di cui si esegue il backup e lo **spazio su disco per il provisioning** nel server di Backup di Azure è lo spazio consigliato per il gruppo protezione dati. Il server di Backup di Azure sceglie il volume di backup in base alle impostazioni. Tuttavia è possibile modificare le opzioni del volume di backup nei dettagli di allocazione del disco. Per i carichi di lavoro, selezionare la risorsa di archiviazione preferita nel menu a discesa. Vengono modificati i valori per lo spazio di archiviazione totale e lo spazio di archiviazione libero nel riquadro Spazio di archiviazione su disco disponibile. Per spazio con provisioning insufficiente si intende la quantità di spazio di archiviazione che il server di Backup di Azure suggerisce di aggiungere al volume per continuare a eseguire backup uniformi in futuro.
+    Le **dimensioni dati totali** sono le dimensioni dei dati di cui si esegue il backup e lo **spazio su disco per il provisioning** nel server di Backup di Azure è lo spazio consigliato per il gruppo protezione dati. Il server di Backup di Azure sceglie il volume di backup in base alle impostazioni. Tuttavia è possibile modificare le opzioni del volume di backup nei dettagli di allocazione del disco. Per i carichi di lavoro, selezionare l'archiviazione preferita nel menu a discesa. Vengono modificati i valori per lo spazio di archiviazione totale e lo spazio di archiviazione libero nel riquadro Spazio di archiviazione su disco disponibile. Per spazio con provisioning insufficiente si intende la quantità di spazio di archiviazione che il server di Backup di Azure suggerisce di aggiungere al volume per continuare a eseguire backup uniformi in futuro.
 
 7. In **Scelta del metodo per la creazione della replica** selezionare come gestire la replica dei dati completa iniziale. Se si decide di eseguire la replica in rete, Azure suggerisce di scegliere un orario di scarso traffico. Per grandi quantità di dati o condizioni della rete non ottimali, tenere in considerazione la replica dei dati con i supporti rimovibili.
 
-8. Nella pagina **Scelta opzioni di verifica coerenza** selezionare il modo in cui automatizzare le verifiche della coerenza. Abilitare le verifiche della coerenza in modo che vengano eseguite solo quando la replica dei dati diventa incoerente o in base a una pianificazione. Per non configurare verifiche della coerenza automatiche, eseguire una verifica manuale in qualsiasi momento:
+8. Nella pagina **Scelta opzioni di verifica coerenza** scegliere in che modo automatizzare le verifiche coerenza. Abilitare le verifiche della coerenza in modo che vengano eseguite solo quando la replica dei dati diventa incoerente o in base a una pianificazione. Per non configurare verifiche della coerenza automatiche, eseguire una verifica manuale in qualsiasi momento:
     * Nell'area di **protezione** della console del server di Backup di Azure fare clic con il pulsante destro del mouse sul gruppo protezione dati e selezionare **Esegui verifica coerenza**.
 
 9. Se si è scelto di eseguire il backup in Azure, nella pagina **Specifica i dati da proteggere online** verificare che siano selezionati i carichi di lavoro di cui eseguire il backup in Azure.
 
 10. Nella pagina **Specificare la pianificazione dei backup online** indicare quando devono essere eseguiti i backup incrementali in Azure.
 
-    È possibile pianificare l'esecuzione di backup giornalieri, settimanali, mensili e annuali nonché la data e l'ora in cui eseguirli. È possibile eseguire i backup fino a due volte al giorno. Ogni volta che viene eseguito un processo di backup, viene creato in Azure un punto di recupero dei dati dalla copia dei dati di backup archiviati nel disco del server di Backup di Azure.
+    È possibile pianificare l’esecuzione di backup giornalieri/settimanali/mensili/annuali e la data e l'ora in cui devono essere eseguiti. I backup possono essere eseguiti fino a due volte al giorno. Ogni volta che viene eseguito un processo di backup, viene creato in Azure un punto di recupero dei dati dalla copia dei dati di backup archiviati nel disco del server di Backup di Azure.
 
 11. In **Specificare i criteri di conservazione online** indicare la modalità di conservazione in Azure dei punti di recupero creati dai backup giornalieri, settimanali, mensili e annuali.
 
@@ -89,7 +89,7 @@ Per configurare il serve di Backup di Azure per proteggere i file nelle macchine
 
 Usare la console del server di Backup di Azure per recuperare i dati nella macchina virtuale.
 
-1. Nella console di server di Backup di Azure, sulla barra di spostamento, selezionare **ripristino** e cercare i dati che si desidera ripristinare. Selezionare i dati nel riquadro dei risultati.
+1. Nella console di server di Backup di Azure, sulla barra di spostamento, selezionare **ripristino** e cercare i dati che si desidera ripristinare. Nel riquadro risultati selezionare i dati.
 
 2. Nel calendario della sezione dei punti di recupero le date in grassetto indicano i punti di recupero disponibili. Selezionare la data da ripristinare.
 
@@ -97,17 +97,17 @@ Usare la console del server di Backup di Azure per recuperare i dati nella macch
 
 4. Nel riquadro **azioni** selezionare **Ripristina** per aprire il ripristino guidato.
 
-5. È possibile recuperare i dati come segue:
+5. È possibile ripristinare i dati come indicato in seguito:
 
     * **Recupero nel percorso originale**: se il computer client è connesso via VPN, questa operazione non funziona. In alternativa, usare un percorso alternativo e quindi copiare i dati da quel percorso.
-    * **Recupero in un percorso alternativo**
+    * **Ripristino in un percorso alternativo**
 
 6. Specificare le opzioni di recupero:
 
     * Come **comportamento del recupero della versione esistente** selezionare **Creare copia**, **Ignora** oppure **Sovrascrivi**. La sovrascrittura è disponibile solo quando si recuperano i dati nel percorso originale.
     * Come **protezione del ripristino** scegliere di **applicare le impostazioni del computer di destinazione** oppure **applicare le impostazioni di sicurezza della versione del punto di recupero**.
     * Per la **limitazione all'utilizzo della larghezza di banda di rete**, selezionare **modifica** per abilitare la limitazione all'utilizzo della larghezza di banda.
-    * **Notifica** di Selezionare **Invia messaggio di posta elettronica al termine del ripristino**e specificare i destinatari che riceveranno la notifica. Separare gli indirizzi di posta elettronica con virgole.
+    * **Notifica** di Selezionare **Invia messaggio di posta elettronica al termine del ripristino**e specificare i destinatari che riceveranno la notifica. Se vi sono più indirizzi di posta elettronica, separarli con virgole.
     * Dopo aver effettuato le selezioni, fare clic su **Avanti** .
 
 7. Verificare le impostazioni di ripristino e selezionare **Ripristina**.

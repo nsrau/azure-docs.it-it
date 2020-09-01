@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/27/2020
+ms.date: 08/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 9224888a38c86e35df9ad516c761fd7012824c15
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7274cef73bff3fb87d55ad636ff0167c8a064796
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085280"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180678"
 ---
 # <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-gpu-device"></a>Usare il dashboard di Kubernetes per monitorare il dispositivo GPU Azure Stack Edge
 
@@ -26,6 +26,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 > [!div class="checklist"]
 >
 > * Accedere al dashboard di Kubernetes nel dispositivo
+> * Scarica `aseuser` configurazione
 > * Visualizzare i moduli distribuiti nel dispositivo
 > * Ottenere l'indirizzo IP per le applicazioni distribuite nel dispositivo
 > * Visualizzare i log dei contenitori per i moduli distribuiti nel dispositivo
@@ -33,13 +34,13 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 ## <a name="about-kubernetes-dashboard"></a>Informazioni sul dashboard di Kubernetes
 
-Il dashboard di Kubernetes è un'interfaccia utente basata sul Web che è possibile usare per risolvere i problemi delle applicazioni incluse in contenitori. Il dashboard di Kubernetes è un'alternativa basata sull'interfaccia utente alla riga di comando di Kubernetes `kubectl` . 
+Il dashboard di Kubernetes è un'interfaccia utente basata sul Web che è possibile usare per risolvere i problemi delle applicazioni incluse in contenitori. Il dashboard di Kubernetes è un'alternativa basata sull'interfaccia utente alla riga di comando di Kubernetes `kubectl` . Per altre informazioni, vedere [Dashboard Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
 
-Sul dispositivo Azure Stack Edge, è possibile usare il dashboard di Kubernetes in modalità di sola lettura per ottenere una panoramica delle applicazioni in esecuzione sul dispositivo Azure Stack Edge, visualizzare lo stato delle risorse del cluster Kubernetes e visualizzare gli eventuali errori che si sono verificati nel dispositivo.
+Sul dispositivo Azure Stack Edge, è possibile usare il dashboard di Kubernetes in modalità di sola *lettura* per ottenere una panoramica delle applicazioni in esecuzione sul dispositivo Azure stack Edge, visualizzare lo stato delle risorse del cluster Kubernetes e visualizzare gli eventuali errori che si sono verificati nel dispositivo.
 
 ## <a name="access-dashboard"></a>Accedi al dashboard
 
-Il dashboard Kubernetes è di sola lettura e viene eseguito nel nodo master Kubernetes sulla porta 31000. Per accedere al dashboard, seguire questa procedura: 
+Il dashboard Kubernetes è di sola *lettura* e viene eseguito nel nodo master Kubernetes sulla porta 31000. Per accedere al dashboard, seguire questa procedura: 
 
 1. Nell'interfaccia utente locale del dispositivo passare a **dispositivo** , quindi passare a **endpoint dispositivo**. Selezionare l'URL del dashboard di Kubernetes per aprire il dashboard in un browser.
 

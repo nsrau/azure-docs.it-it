@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 87bb20d23f773997addd170da09ca8f20d2a8ce7
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 953217d15e6aede86d863bcd5be6df583d15df6d
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949984"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180083"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -1980,6 +1980,6 @@ Aggiunta di dispositivi all'area di lavoro | Deprecato | [Documentazione dei ruo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Per altre informazioni su come assegnare un utente come amministratore di una sottoscrizione di Azure, vedere [Aggiungere o rimuovere assegnazioni di ruolo di Azure usando il portale di Azure](../../role-based-access-control/role-assignments-portal.md)
+* Per altre informazioni su come assegnare un utente come amministratore di una sottoscrizione di Azure, vedere [aggiungere o rimuovere assegnazioni di ruolo di Azure (RBAC](../../role-based-access-control/role-assignments-portal.md) di Azure)
 * Per altre informazioni sul controllo dell'accesso alle risorse in Microsoft Azure, vedere le [informazioni sui diversi ruoli](../../role-based-access-control/rbac-and-directory-admin-roles.md).
 * Per informazioni dettagliate sulla relazione tra le sottoscrizioni e un tenant di Azure AD oppure per istruzioni su come associare o aggiungere una sottoscrizione, vedere [associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md)
