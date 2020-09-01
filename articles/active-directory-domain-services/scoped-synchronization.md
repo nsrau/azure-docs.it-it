@@ -11,12 +11,13 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: iainfou
-ms.openlocfilehash: 97c561b2ae919799343abe844b57239d04c26d90
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: fe373b9aa08d6999a9c57dd0008a207071e1dddd
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87283130"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068899"
 ---
 # <a name="configure-scoped-synchronization-from-azure-ad-to-azure-active-directory-domain-services-using-the-azure-portal"></a>Configurare la sincronizzazione con ambito da Azure AD a Azure Active Directory Domain Services utilizzando il portale di Azure
 
@@ -56,7 +57,7 @@ Per ulteriori informazioni sul processo di sincronizzazione, vedere informazioni
 
 Per abilitare la sincronizzazione con ambito nella portale di Azure, attenersi alla procedura seguente:
 
-1. Nella portale di Azure cercare e selezionare **Azure ad Domain Services**. Scegliere il dominio gestito, ad esempio *aaddscontoso.com*.
+1. Nel portale di Azure cercare e selezionare **Azure AD Domain Services**. Scegliere il dominio gestito, ad esempio *aaddscontoso.com*.
 1. Selezionare **sincronizzazione** dal menu sul lato sinistro.
 1. Per *tipo di sincronizzazione*selezionare con **ambito**.
 1. Scegliere **Seleziona gruppi**, quindi cercare e scegliere i gruppi da aggiungere.
@@ -68,7 +69,7 @@ La modifica dell'ambito di sincronizzazione determina la risincronizzazione di t
 
 Per modificare l'elenco dei gruppi i cui utenti devono essere sincronizzati con il dominio gestito, attenersi alla procedura seguente:
 
-1. Nella portale di Azure cercare e selezionare **Azure ad Domain Services**. Scegliere il dominio gestito, ad esempio *aaddscontoso.com*.
+1. Nel portale di Azure cercare e selezionare **Azure AD Domain Services**. Scegliere il dominio gestito, ad esempio *aaddscontoso.com*.
 1. Selezionare **sincronizzazione** dal menu sul lato sinistro.
 1. Per aggiungere un gruppo, scegliere **+ Seleziona gruppi** nella parte superiore, quindi scegliere i gruppi da aggiungere.
 1. Per rimuovere un gruppo dall'ambito di sincronizzazione, selezionarlo dall'elenco dei gruppi attualmente sincronizzati e scegliere **Rimuovi gruppi**.
@@ -80,7 +81,7 @@ La modifica dell'ambito di sincronizzazione determina la risincronizzazione di t
 
 Per disabilitare la sincronizzazione con ambito gruppo per un dominio gestito, completare i passaggi seguenti:
 
-1. Nella portale di Azure cercare e selezionare **Azure ad Domain Services**. Scegliere il dominio gestito, ad esempio *aaddscontoso.com*.
+1. Nel portale di Azure cercare e selezionare **Azure AD Domain Services**. Scegliere il dominio gestito, ad esempio *aaddscontoso.com*.
 1. Selezionare **sincronizzazione** dal menu sul lato sinistro.
 1. Modificare il *tipo di sincronizzazione* dall' **ambito** a **tutti**, quindi selezionare **Salva ambito di sincronizzazione**.
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e73f53fe983c1ebe77044993a281847ad362a840
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: c8aca69c709743afb468657d1d7534ab308fcd29
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496774"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071568"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mysql"></a>Baseline di sicurezza di Azure per Database di Azure per MySQL
 
@@ -42,11 +42,11 @@ Come configurare le regole del firewall di Database di Azure per MySQL: https://
 
 **Monitoraggio del Centro sicurezza di Azure**: Non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="12-monitor-and-log-the-configuration-and-traffic-of-vnets-subnets-and-nics"></a>1.2 Monitorare e registrare la configurazione e il traffico di reti virtuali, subnet e schede di interfaccia di rete
 
-**Indicazioni**: quando l'istanza di Database di Azure per MySQL è protetta nei confronti di un endpoint privato, è possibile distribuire le macchine virtuali nella stessa rete virtuale. Per ridurre il rischio di esfiltrazione di dati, è possibile usare un gruppo di sicurezza di rete (NSG). Abilitare i log dei flussi NSG e inviare i log a un account di archiviazione per il controllo del traffico. È anche possibile inviare i log dei flussi NSG a un'area di lavoro Log Analytics e usare Analisi del traffico per fornire informazioni dettagliate sul flusso del traffico nel cloud di Azure. L'uso di Analisi del traffico offre diversi vantaggi, tra cui la possibilità di visualizzare l'attività di rete e identificare le aree sensibili, individuare le minacce per la sicurezza, comprendere i modelli di flusso del traffico e individuare le configurazioni di rete errate.
+**Indicazioni**: quando l'istanza di Database di Azure per MySQL è protetta nei confronti di un endpoint privato, è possibile distribuire le macchine virtuali nella stessa rete virtuale. Per ridurre il rischio di esfiltrazione di dati, è possibile usare un gruppo di sicurezza di rete (NSG). Abilitare i log dei flussi NSG e inviare i log a un account di archiviazione per il controllo del traffico. È anche possibile inviare i log dei flussi NSG a un'area di lavoro Log Analytics e usare Analisi del traffico per fornire informazioni dettagliate sul flusso del traffico nel cloud di Azure. L'uso di Analisi del traffico offre diversi vantaggi, tra cui la possibilità di visualizzare l'attività di rete e identificare le aree sensibili, individuare identificare le minacce per la sicurezza, comprendere i modelli di flusso del traffico e individuare le configurazioni di rete errate.
 
 Come configurare Collegamento privato per Database di Azure per MySQL: https://docs.microsoft.com/azure/mysql/howto-configure-privatelink-portal
 
@@ -190,7 +190,7 @@ Come eseguire l'onboarding di Azure Sentinel: https://docs.microsoft.com/azure/s
 
 **Monitoraggio del Centro sicurezza di Azure**: Non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="23-enable-audit-logging-for-azure-resources"></a>2.3 Abilitare la registrazione di controllo per le risorse di Azure
 
@@ -206,7 +206,7 @@ Come configurare le impostazioni di diagnostica per il log attività di Azure: h
 
 **Monitoraggio del Centro sicurezza di Azure**: Non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="24-collect-security-logs-from-operating-systems"></a>2.4: raccogliere i log di sicurezza dai sistemi operativi
 
@@ -442,7 +442,7 @@ Come integrare i log attività di Azure in Monitoraggio di Azure: https://docs.m
 
 **Monitoraggio del Centro sicurezza di Azure**: Non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12 Avvisare in caso di deviazione dal comportamento di accesso dell'account
 
@@ -462,7 +462,7 @@ Come eseguire l'onboarding di Azure Sentinel: https://docs.microsoft.com/azure/s
 
 **Monitoraggio del Centro sicurezza di Azure**: Non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13 Fornire a Microsoft l'accesso ai dati dei clienti pertinenti durante gli scenari di supporto
 
@@ -505,7 +505,7 @@ Come configurare le regole del firewall di Database di Azure per MySQL: https://
 
 **Monitoraggio del Centro sicurezza di Azure**: Non disponibile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="43-monitor-and-block-unauthorized-transfer-of-sensitive-information"></a>4.3 Monitorare e bloccare il trasferimento non autorizzato di informazioni riservate
 
@@ -547,9 +547,9 @@ Informazioni sulla protezione dei dati dei clienti in Azure: https://docs.micros
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
-**Linee guida**: usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per controllare l'accesso al piano di controllo del database di Azure per MySQL, ad esempio portale di Azure. Per l'accesso al piano dati (all'interno del database stesso), usare query SQL per creare gli utenti e configurare le autorizzazioni utente. Il controllo degli accessi in base al ruolo non influisce sulle autorizzazioni utente all'interno del database.
+**Linee guida**: usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per controllare l'accesso al piano di controllo del database di Azure per MySQL, ad esempio portale di Azure. Per l'accesso al piano dati (all'interno del database stesso), usare query SQL per creare gli utenti e configurare le autorizzazioni utente. Il controllo degli accessi in base al ruolo di Azure non influisce sulle autorizzazioni dell'utente
 
-Come configurare il controllo degli accessi in base al ruolo di Azure: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
+Come configurare RBAC di Azure: https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal
 
 Come configurare l'accesso utente con SQL per Database di Azure per MySQL: https://docs.microsoft.com/azure/mysql/howto-create-users
 
@@ -904,7 +904,7 @@ Come fornire l'autenticazione di Key Vault con un'identità gestita: https://doc
 
 **Indicazioni**: l'istanza di Database di Azure per MySQL supporta l'autenticazione Azure Active Directory per accedere ai database.  Durante la creazione dell'istanza di Database di Azure per MySQL, è possibile fornire le credenziali per un utente amministratore. Questo amministratore può essere usato per creare altri utenti di database.  
 
-Per Macchine virtuali di Azure o le applicazioni Web in esecuzione nel Servizio app di Azure usato per accedere alle istanze di Database di Azure per MySQL, usare l'identità del servizio gestita insieme ad Azure Key Vault per archiviare e recuperare le credenziali per tale istanza. Assicurarsi che l'eliminazione temporanea di Azure Key Vault sia abilitata.
+Per Macchine virtuali di Azure o le applicazioni Web in esecuzione nel Servizio app di Azure usato per accedere alle istanze di Database di Azure per MySQL, usare l'identità del servizio gestita insieme ad Azure Key Vault per archiviare e recuperare le credenziali per tale istanza. Verificare che l'eliminazione temporanea di Azure Key Vault sia abilitata.
 
 Usare le identità gestite per fornire ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory (AD). Le identità gestite consentono di eseguire l'autenticazione per qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza inserire credenziali nel codice.
 
@@ -948,7 +948,7 @@ Eseguire l'analisi preliminare del contenuto da caricare in risorse di Azure non
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Condiviso
+**Responsabilità**: Condiviso
 
 ### <a name="83-ensure-anti-malware-software-and-signatures-are-updated"></a>Passaggio 8.3: assicurarsi che le firme e il software antimalware siano aggiornati
 

@@ -1,5 +1,5 @@
 ---
-title: Tipi di connessione
+title: Tipi di connessioni
 titleSuffix: Azure SQL Managed Instance
 description: Informazioni sui tipi di connessione Istanza gestita SQL di Azure
 services: sql-database
@@ -10,14 +10,15 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: vanto
 ms.date: 10/07/2019
-ms.openlocfilehash: 6c6774fb462a21e721b19ae53d1d018d780b28ae
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: e46c6d1c14d226522a1d534418b91076efeaaccf
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85517321"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070718"
 ---
-# <a name="azure-sql-managed-instance-connection-types"></a>Tipi di connessione Istanza gestita SQL di Azure
+# <a name="azure-sql-managed-instance-connection-types"></a>Tipi di connessione di Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Questo articolo illustra il modo in cui i client si connettono al Istanza gestita SQL di Azure a seconda del tipo di connessione. Sotto sono descritti alcuni esempi di script per modificare i tipi di connessione e si propongono alcune considerazioni sulla modifica delle impostazioni di connettività predefinite.

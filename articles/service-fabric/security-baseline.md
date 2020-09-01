@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a3641994098834b47412598b25b3effb2be7d276
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 6e620502deb67c7fe79341bc1a45cb1ce33fa52f
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836718"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89071466"
 ---
 # <a name="azure-security-baseline-for-service-fabric"></a>Baseline della sicurezza di Azure per Service Fabric
 
@@ -546,7 +546,7 @@ Per la piattaforma sottostante gestita da Microsoft, Microsoft considera tutti i
 
 **Responsibilità**: Condiviso
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usare il controllo degli accessi in base al ruolo per controllare l'accesso alle risorse
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
 **Indicazioni**: non applicabile; questa raccomandazione riguarda le risorse non di calcolo destinate ad archiviare dati.
 
@@ -868,13 +868,13 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: archiviare in modo sicuro immagini personalizzate del sistema operativo
 
-**Linee guida**: se si usano immagini personalizzate, usare il controllo degli accessi in base al ruolo per garantire che solo gli utenti autorizzati possano accedere Per le immagini contenitore, archiviarle in Azure Container Registry e sfruttare il controllo degli accessi in base al ruolo per assicurarsi che solo gli utenti autorizzati possano accedere alle immagini.
+**Linee guida**: se si usano immagini personalizzate, usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per garantire che solo gli utenti autorizzati possano accedere alle immagini. Per le immagini contenitore, archiviarle in Azure Container Registry e sfruttare il controllo degli accessi in base al ruolo di Azure per garantire che solo gli utenti autorizzati possano accedere alle immagini.
 
-* [Informazioni sul RBAC in Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
+* [Informazioni sul controllo degli accessi in base al ruolo di Azure](../role-based-access-control/rbac-and-directory-admin-roles.md)
 
-* [Comprendere il RBAC per Container Registry](../container-registry/container-registry-roles.md)
+* [Informazioni su RBAC di Azure per Container Registry](../container-registry/container-registry-roles.md)
 
-* [Come configurare RBAC in Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
+* [Come configurare RBAC di Azure](../role-based-access-control/quickstart-assign-role-user-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 

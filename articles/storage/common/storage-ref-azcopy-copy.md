@@ -8,12 +8,12 @@ ms.date: 07/24/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 883d0afac5623838e9dde068964b36cfe3b44380
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b9d5a9e071cc1b2ac81e8cacea8c974181fbb3b6
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87281991"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070395"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -41,7 +41,7 @@ Per altre informazioni, vedere la sezione Esempi di questo articolo.
 - [Trasferire dati con AzCopy e l'archivio file](storage-use-azcopy-files.md)
 - [Configurare, ottimizzare e risolvere i problemi di AzCopy](storage-use-azcopy-configure.md)
 
-## <a name="advanced"></a>Avanzate
+## <a name="advanced"></a>Avanzato
 
 AzCopy rileva automaticamente il tipo di contenuto dei file quando vengono caricati dal disco locale. AzCopy rileva il tipo di contenuto in base all'estensione o al contenuto del file (se non è specificata alcuna estensione).
 
@@ -90,7 +90,7 @@ Caricare un'intera directory usando un token SAS:
 azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive
 ```
 
-o
+oppure
 
 ```azcopy
 azcopy cp "/path/to/dir" "https://[account].blob.core.windows.net/[container]/[path/to/directory]?[SAS]" --recursive --put-md5
@@ -254,7 +254,7 @@ Copiare un subset di bucket usando un carattere jolly (*) nel nome del bucket. C
 
 **--** la stringa from-to specifica facoltativamente la combinazione di destinazione di origine. Ad esempio: `LocalBlob` , `BlobLocal` , `LocalBlobFS` .
 
-**--** guida per la copia.
+**--**  guida per la copia.
 
 le stringhe **--include-after** includono solo i file modificati in o dopo la data/ora specificata. Il valore deve essere in formato ISO8601. Se non viene specificato alcun fuso orario, si presuppone che il valore si trovi nel fuso orario locale del computer che esegue AzCopy. ad esempio, `2020-08-19T15:04:00Z` per un'ora UTC o `2020-08-19` per la mezzanotte (00:00) nel fuso orario locale. Come in AzCopy 10,5, questo flag è valido solo per i file, non per le cartelle, quindi le proprietà delle cartelle non verranno copiate quando si usa questo flag con `--preserve-smb-info` o `--preserve-smb-permissions` .
 
@@ -263,6 +263,8 @@ le stringhe **--include-after** includono solo i file modificati in o dopo la da
 **--include-percorso** stringa include solo questi percorsi durante la copia. Questa opzione non supporta i caratteri jolly (*). Controlla il prefisso del percorso relativo (ad esempio: `myFolder;myFolder/subDirName/file.pdf` ).
 
 **--include-pattern** String include solo questi file durante la copia. Questa opzione supporta i caratteri jolly (*). Separare i file usando `;` .
+
+**--List-of-Versions** stringa specifica un file in cui ogni ID versione è elencato in una riga separata. Verificare che l'origine debba puntare a un singolo BLOB e che tutti gli ID versione specificati nel file con questo flag appartengano solo al BLOB di origine. AzCopy scaricherà le versioni specificate nella cartella di destinazione specificata. Per altre informazioni, vedere [scaricare le versioni precedenti di un BLOB](storage-use-azcopy-blobs.md#download-previous-versions-of-a-blob).
 
 **--** la stringa a livello di log definisce il livello di dettaglio del log per il file di log, i livelli disponibili: info (tutte le richieste/risposte), avviso (risposte lente), errore (solo richieste non riuscite) e nessuno (nessun log di output). (impostazione predefinita `INFO` ). 
 

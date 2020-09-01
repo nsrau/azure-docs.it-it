@@ -9,15 +9,15 @@ ms.topic: how-to
 ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 636efe27ec82fa870267d2cf69d5cdf990fd509a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 8b6f5f302465d075b7a0bcb0e6b12c75b1379bb5
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501356"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069834"
 ---
-# <a name="create-an-azure-storage-account"></a>Creare un account di Archiviazione di Azure
+# <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
 
 Un account di archiviazione di Azure contiene tutti gli oggetti dati di Archiviazione di Azure: BLOB, file, code, tabelle e dischi. L'account di archiviazione fornisce uno spazio dei nomi univoco per i dati di archiviazione di Azure accessibili da qualsiasi parte del mondo tramite HTTP o HTTPS. I dati nell'account di archiviazione di Azure sono durevoli e a disponibilità elevata, protetti e altamente scalabili.
 
@@ -31,7 +31,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 
-No.
+Nessuno.
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
@@ -68,7 +68,7 @@ Il pulsante avvia una shell interattiva che è possibile usare per eseguire la p
 
 # <a name="template"></a>[Modello](#tab/template)
 
-No.
+Nessuno.
 
 ---
 

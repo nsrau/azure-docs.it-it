@@ -6,13 +6,13 @@ ms.author: b-juche
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to
-ms.date: 07/06/2020
-ms.openlocfilehash: 4ad3800748330d5c3a6a32c6c0824bc72a05d0ef
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.date: 08/28/2020
+ms.openlocfilehash: f9dc54959979d00d57536e3a3fa2262d27e28f96
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533088"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072197"
 ---
 # <a name="mount-or-unmount-a-volume-for-windows-or-linux-virtual-machines"></a>Montare o smontare un volume per macchine virtuali Windows o Linux 
 
@@ -28,15 +28,17 @@ ms.locfileid: "87533088"
 
     ![Istruzioni di montaggio SMB](../media/azure-netapp-files/azure-netapp-files-mount-instructions-smb.png)  
     * Se si sta montando un volume NFS, assicurarsi di usare l' `vers` opzione nel `mount` comando per specificare la versione del protocollo NFS corrispondente al volume che si desidera montare. 
-    * Se si usa NFSv 4.1, usare il comando seguente per montare i file system:`sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
+    * Se si usa NFSv 4.1, usare il comando seguente per montare i file system:  `sudo mount -t nfs -o rw,hard,rsize=65536,wsize=65536,vers=4.1,tcp,sec=sys $MOUNTTARGETIPADDRESS:/$VOLUMENAME $MOUNTPOINT`  
+        > [!NOTE]
+        > Se si usa NFSv 4.1, assicurarsi che tutte le macchine virtuali che montano l'esportazione usino nomi host univoci.
 
 3. Se si vuole che un volume NFS venga montato automaticamente quando una macchina virtuale di Azure viene avviata o riavviata, aggiungere una voce al `/etc/fstab` file nell'host. 
 
     Ad esempio: `$ANFIP:/$FILEPATH        /$MOUNTPOINT    nfs bg,rw,hard,noatime,nolock,rsize=65536,wsize=65536,vers=3,tcp,_netdev 0 0`
 
-    * `$ANFIP`è l'indirizzo IP del volume Azure NetApp Files trovato nel pannello delle proprietà del volume.
-    * `$FILEPATH`percorso di esportazione del volume Azure NetApp Files.
-    * `$MOUNTPOINT`è la directory creata nell'host Linux usato per montare l'esportazione NFS.
+    * `$ANFIP` è l'indirizzo IP del volume Azure NetApp Files trovato nel pannello delle proprietà del volume.
+    * `$FILEPATH` percorso di esportazione del volume Azure NetApp Files.
+    * `$MOUNTPOINT` è la directory creata nell'host Linux usato per montare l'esportazione NFS.
 
 4. Se si desidera montare il volume in Windows utilizzando NFS:
 

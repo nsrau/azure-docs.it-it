@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7871099e3e05613bec29a4bfc0824dd9647431e7
-ms.sourcegitcommit: dee7b84104741ddf74b660c3c0a291adf11ed349
+ms.openlocfilehash: 909d423b31bb76d8d6aaed994d1c9f7372cbc01f
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85937512"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069783"
 ---
 # <a name="azure-policy-security-baseline-for-azure-security-benchmark"></a>Criteri di base di sicurezza di Azure per il benchmark di sicurezza di Azure
 
-Questa linea di base di sicurezza applica le linee guida del [benchmark di sicurezza di Azure](../../../security/benchmarks/overview.md) ai criteri di Azure. Il benchmark di sicurezza di Azure offre consigli su come proteggere le soluzioni cloud in Azure. Il contenuto viene raggruppato in base ai **domini di conformità** e ai controlli di **sicurezza** definiti dal benchmark di sicurezza di Azure e alle linee guida correlate applicabili ai criteri di Azure. I **controlli** non applicabili ai criteri di Azure sono stati esclusi. Per informazioni sul mapping completo di criteri di Azure al benchmark di sicurezza di Azure, vedere il [file di mapping di base di sicurezza dei criteri](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)di Azure.
+Questa linea di base di sicurezza applica le linee guida del [benchmark di sicurezza di Azure](../../../security/benchmarks/overview.md) ai criteri di Azure. Azure Security Benchmark offre consigli sulla protezione delle soluzioni cloud in Azure. Il contenuto viene raggruppato in base ai **domini di conformità** e ai controlli di **sicurezza** definiti dal benchmark di sicurezza di Azure e alle linee guida correlate applicabili ai criteri di Azure. I **controlli** non applicabili ai criteri di Azure sono stati esclusi. Per informazioni sul mapping completo di criteri di Azure al benchmark di sicurezza di Azure, vedere il [file di mapping di base di sicurezza dei criteri](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)di Azure.
 
 Per un mapping dei controlli benchmark di sicurezza di Azure alle definizioni di criteri predefinite tramite l'iniziativa predefinita, vedere [conformità normativa: benchmark di sicurezza di Azure](../samples/azure-security-benchmark.md).
 
@@ -72,13 +72,13 @@ I criteri di Azure usano il termine _proprietario_ al posto della _responsabilit
 
 *Per altre informazioni, vedere [Controllo di sicurezza: protezione dei dati](../../../security/benchmarks/security-control-data-protection.md).*
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usare il controllo degli accessi in base al ruolo per controllare l'accesso alle risorse
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
-**Linee guida**: usare Azure Active Directory controllo degli accessi in base al ruolo per controllare l'accesso ai criteri di Azure.
+**Linee guida**: usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per controllare l'accesso ai criteri di Azure.
 
-* [Autorizzazioni del controllo degli accessi in base al ruolo in Criteri di Azure](../overview.md#rbac-permissions-in-azure-policy)
+* [Autorizzazioni RBAC di Azure in criteri di Azure](../overview.md#rbac-permissions-in-azure-policy)
 
-* [Come configurare RBAC in Azure](../../../role-based-access-control/role-assignments-portal.md)
+* [Come configurare RBAC di Azure](../../../role-based-access-control/role-assignments-portal.md)
 
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
@@ -119,7 +119,7 @@ I criteri di Azure usano il termine _proprietario_ al posto della _responsabilit
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="65-monitor-for-unapproved-azure-resources"></a>6.5: monitorare la presenza di risorse di Azure non approvate
 

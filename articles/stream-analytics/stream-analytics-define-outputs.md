@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 92cc742fce101b67bfb359381b4eabf9cf2a404e
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: ade5972226a735ce5d093890091536baf02f5eff
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869576"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068984"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Output di analisi di flusso di Azure
 
@@ -24,7 +24,7 @@ Alcuni tipi di output supportano il [partizionamento](#partitioning) e le [dimen
 
 | Tipo di output | Partizionamento | Sicurezza | 
 |-------------|--------------|----------|
-|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Utente Azure Active Directory </br> Identità del servizio gestita|
+|[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Sì|Utente Azure Active Directory </br> Identità del servizio gestita|
 |[Database SQL di Azure](sql-database-output.md)|Sì, deve essere abilitato.|Autenticazione utente SQL </br> MSI (anteprima)|
 |[Azure Synapse Analytics (anteprima)](azure-synapse-analytics-output.md)|No|Autenticazione utente SQL|
 |[Archiviazione BLOB e Azure Data Lake generazione 2](blob-storage-azure-data-lake-gen2-output.md)|Sì|Identità del servizio gestita </br> Chiave di accesso|

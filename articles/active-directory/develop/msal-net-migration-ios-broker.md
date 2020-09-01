@@ -12,27 +12,27 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: bc94c7be4e3979cf9aa7624a9aeadf156cc48035
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: ed29752e0b5f2ee9acf0382ef96e1b685f9cc886
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88166077"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89068508"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Eseguire la migrazione di applicazioni iOS che usano Microsoft Authenticator da ADAL.NET a MSAL.NET
 
-Si sta usando la libreria di autenticazione Azure Active Directory per .NET (ADAL.NET) e il broker iOS. A questo punto è giunto il momento di eseguire la migrazione a [Microsoft Authentication Library](msal-overview.md) per .net (MSAL.NET), che supporta Service Broker in iOS dalla versione 4,3 e successive. 
+Si sta usando la libreria di autenticazione Azure Active Directory per .NET (ADAL.NET) e il broker iOS. A questo punto è giunto il momento di eseguire la migrazione a [Microsoft Authentication Library](msal-overview.md) per .net (MSAL.NET), che supporta Service Broker in iOS dalla versione 4,3 e successive.
 
 Da dove iniziare? Questo articolo illustra come eseguire la migrazione dell'app Novell iOS da ADAL a MSAL.
 
 ## <a name="prerequisites"></a>Prerequisiti
 Questo articolo presuppone che sia già presente un'app Novell iOS integrata con il broker iOS. In caso contrario, passare direttamente a MSAL.NET e iniziare l'implementazione del broker. Per informazioni su come richiamare il broker iOS in MSAL.NET con una nuova applicazione, vedere [questa documentazione](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS#why-use-brokers-on-xamarinios-and-xamarinandroid-applications).
 
-## <a name="background"></a>Background
+## <a name="background"></a>Sfondo
 
 ### <a name="what-are-brokers"></a>Che cosa sono i broker?
 
-I broker sono applicazioni fornite da Microsoft in Android e iOS. (Vedere l'app [Microsoft Authenticator](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6) in iOS e Android e l'app portale aziendale Intune in Android). 
+I broker sono applicazioni fornite da Microsoft in Android e iOS. (Vedere l'app [Microsoft Authenticator](https://www.microsoft.com/p/microsoft-authenticator/9nblgggzmcj6) in iOS e Android e l'app portale aziendale Intune in Android).
 
 Consentono di:
 
@@ -47,21 +47,21 @@ Consentono di:
 <table>
 <tr><td>Codice ADAL corrente:</td><td>Controparte MSAL:</td></tr>
 <tr><td>
-In ADAL.NET il supporto del broker è stato abilitato in base al contesto di autenticazione. È disabilitata per impostazione predefinita. Era necessario impostare un 
+In ADAL.NET il supporto del broker è stato abilitato in base al contesto di autenticazione. È disabilitata per impostazione predefinita. Era necessario impostare un
 
-`useBroker`flag su true nel `PlatformParameters` costruttore per chiamare Service Broker:
+`useBroker` flag su true nel `PlatformParameters` costruttore per chiamare Service Broker:
 
 ```csharp
 public PlatformParameters(
-        UIViewController callerViewController, 
+        UIViewController callerViewController,
         bool useBroker)
 ```
-Inoltre, nel codice specifico della piattaforma, in questo esempio, nel renderer di pagina per iOS, impostare il`useBroker` 
+Inoltre, nel codice specifico della piattaforma, in questo esempio, nel renderer di pagina per iOS, impostare il `useBroker`
 flag su true:
 ```csharp
 page.BrokerParameters = new PlatformParameters(
-          this, 
-          true, 
+          this,
+          true,
           PromptBehavior.SelectAccount);
 ```
 
@@ -70,17 +70,17 @@ Quindi, includere i parametri nella chiamata al token di acquisizione:
  AuthenticationResult result =
                     await
                         AuthContext.AcquireTokenAsync(
-                              Resource, 
-                              ClientId, 
-                              new Uri(RedirectURI), 
+                              Resource,
+                              ClientId,
+                              new Uri(RedirectURI),
                               platformParameters)
                               .ConfigureAwait(false);
 ```
 
 </td><td>
-In MSAL.NET il supporto del broker è abilitato per ogni PublicClientApplication. È disabilitata per impostazione predefinita. Per abilitarla, usare il 
+In MSAL.NET il supporto del broker è abilitato per ogni PublicClientApplication. È disabilitata per impostazione predefinita. Per abilitarla, usare il
 
-`WithBroker()`(impostare su true per impostazione predefinita) per chiamare Service Broker:
+`WithBroker()` (impostare su true per impostazione predefinita) per chiamare Service Broker:
 
 ```csharp
 var app = PublicClientApplicationBuilder
@@ -98,24 +98,25 @@ result = await app.AcquireTokenInteractive(scopes)
 </table>
 
 ### <a name="step-2-set-a-uiviewcontroller"></a>Passaggio 2: impostare un UIViewController ()
-In ADAL.NET è stato passato un UIViewController come parte di `PlatformParameters` . Vedere l'esempio nel passaggio 1. In MSAL.NET, per offrire agli sviluppatori maggiore flessibilità, viene usata una finestra oggetto, ma non è necessaria nell'utilizzo normale di iOS. Per utilizzare Service Broker, impostare la finestra oggetto per inviare e ricevere risposte dal broker. 
+In ADAL.NET è stato passato un UIViewController come parte di `PlatformParameters` . Vedere l'esempio nel passaggio 1. In MSAL.NET, per offrire agli sviluppatori maggiore flessibilità, viene usata una finestra oggetto, ma non è necessaria nell'utilizzo normale di iOS. Per utilizzare Service Broker, impostare la finestra oggetto per inviare e ricevere risposte dal broker.
 <table>
 <tr><td>Codice ADAL corrente:</td><td>Controparte MSAL:</td></tr>
 <tr><td>
-Un UIViewController viene passato in 
+Un UIViewController viene passato in
 
-`PlatformParameters`nella piattaforma specifica di iOS.
+`PlatformParameters` nella piattaforma specifica di iOS.
 
 ```csharp
 page.BrokerParameters = new PlatformParameters(
-          this, 
-          true, 
+          this,
+          true,
           PromptBehavior.SelectAccount);
 ```
 </td><td>
 In MSAL.NET è possibile eseguire due operazioni per impostare la finestra oggetto per iOS:
 
-1. In `AppDelegate.cs` impostare `App.RootViewController` su un nuovo oggetto `UIViewController()` . Questa assegnazione garantisce che esista un UIViewController con la chiamata al broker. Se non è impostato correttamente, è possibile che venga ricevuto questo errore:`"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
+1. In `AppDelegate.cs` impostare `App.RootViewController` su un nuovo oggetto `UIViewController()` .
+Questa assegnazione garantisce che esista un UIViewController con la chiamata al broker. Se non è impostato correttamente, è possibile che venga ricevuto questo errore: `"uiviewcontroller_required_for_ios_broker":"UIViewController is null, so MSAL.NET cannot invoke the iOS broker. See https://aka.ms/msal-net-ios-broker"`
 1. Nella chiamata AcquireTokenInteractive usare `.WithParentActivityOrWindow(App.RootViewController)` e passare il riferimento alla finestra oggetto che verrà usata.
 
 **Ad esempio:**
@@ -151,15 +152,15 @@ ADAL.NET e MSAL.NET usano gli URL per richiamare il broker e restituire la rispo
 <tr><td>
 Lo schema URL è univoco per l'app.
 </td><td>
-Il valore di 
+Il valore di
 
-`CFBundleURLSchemes`il nome deve includere 
+`CFBundleURLSchemes` il nome deve includere
 
 `msauth.`
 
-come prefisso, seguito dal`CFBundleURLName`
+come prefisso, seguito dal `CFBundleURLName`
 
-Ad esempio: `$"msauth.(BundleId")`
+ad esempio `$"msauth.(BundleId")`
 
 ```csharp
  <key>CFBundleURLTypes</key>
@@ -189,7 +190,7 @@ ADAL.NET e MSAL.NET usano entrambi `-canOpenURL:` per verificare se il broker è
 <table>
 <tr><td>Codice ADAL corrente:</td><td>Controparte MSAL:</td></tr>
 <tr><td>
-Utilizzi 
+Utilizzi
 
 `msauth`
 
@@ -201,7 +202,7 @@ Utilizzi
 </array>
 ```
 </td><td>
-Utilizzi 
+Utilizzi
 
 `msauthv2`
 
@@ -215,16 +216,16 @@ Utilizzi
 ```
 </table>
 
-### <a name="step-6-register-your-redirect-uri-in-the-portal"></a>Passaggio 6: registrare l'URI di reindirizzamento nel portale
+### <a name="step-6-register-your-redirect-uri-in-the-azure-portal"></a>Passaggio 6: registrare l'URI di reindirizzamento nel portale di Azure
 
-ADAL.NET e MSAL.NET aggiungono un requisito aggiuntivo all'URI di reindirizzamento quando è destinato al broker. Registrare l'URI di reindirizzamento con l'applicazione nel portale.
+ADAL.NET e MSAL.NET aggiungono un requisito aggiuntivo all'URI di reindirizzamento quando è destinato al broker. Registrare l'URI di reindirizzamento con l'applicazione nel portale di Azure.
 <table>
 <tr><td>Codice ADAL corrente:</td><td>Controparte MSAL:</td></tr>
 <tr><td>
 
 `"<app-scheme>://<your.bundle.id>"`
 
-Esempio: 
+Esempio:
 
 `mytestiosapp://com.mycompany.myapp`
 </td><td>
@@ -237,7 +238,7 @@ Esempio:
 
 </table>
 
-Per altre informazioni su come registrare l'URI di reindirizzamento nel portale, vedere [sfruttare il broker nelle applicazioni Novell. iOS](msal-net-use-brokers-with-xamarin-apps.md#step-8-make-sure-the-redirect-uri-is-registered-with-your-app).
+Per altre informazioni su come registrare l'URI di reindirizzamento nella portale di Azure, vedere [passaggio 7: aggiungere un URI di reindirizzamento alla registrazione dell'app](msal-net-use-brokers-with-xamarin-apps.md#step-7-add-a-redirect-uri-to-your-app-registration).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

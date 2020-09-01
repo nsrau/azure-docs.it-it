@@ -7,13 +7,13 @@ ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: rogarana
 ms.subservice: files
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 27bedb2a5d9f95632141ce332773e0f4f9c696d5
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 7c178f0bb54cb815b25259c819d15d10b3671c79
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930639"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070939"
 ---
 # <a name="how-to-create-an-azure-premium-file-share"></a>Come creare una condivisione file Premium di Azure
 
@@ -59,7 +59,7 @@ A questo punto si è pronti per creare l'account di archiviazione.
     ![Come creare un account di archiviazione per una condivisione file Premium](media/storage-how-to-create-premium-fileshare/create-filestorage-account.png)
 
 1. Selezionare **Rivedi e crea** per esaminare le impostazioni dell'account di archiviazione e creare l'account.
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 Una volta creata la risorsa dell'account di archiviazione, passare a essa.
 

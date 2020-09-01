@@ -8,13 +8,13 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 04/24/2020
 ms.author: tamram
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8fda0384dacaf1183458e90688b1f6b63cc63a35
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: e5ea94fea00771b64634d6c28a7879fabb195f09
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501339"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069660"
 ---
 # <a name="manage-storage-account-access-keys"></a>Gestisci chiavi di accesso all'account di archiviazione
 
@@ -73,7 +73,7 @@ Per visualizzare o leggere le chiavi di accesso di un account, l'utente deve ess
 Microsoft consiglia di utilizzare Azure Key Vault per gestire e ruotare le chiavi di accesso. L'applicazione può accedere in modo sicuro alle chiavi in Key Vault, in modo che sia possibile evitare di archiviarle con il codice dell'applicazione. Per ulteriori informazioni sull'utilizzo di Key Vault per la gestione delle chiavi, vedere gli articoli seguenti:
 
 - [Gestire le chiavi dell'account di archiviazione con Azure Key Vault e PowerShell](../../key-vault/secrets/overview-storage-keys-powershell.md)
-- [Gestire chiavi dell'account di archiviazione con Azure Key Vault e l'interfaccia della riga di comando di Azure](../../key-vault/secrets/overview-storage-keys.md)
+- [Gestire le chiavi degli account di archiviazione con Azure Key Vault e l'interfaccia della riga di comando di Azure](../../key-vault/secrets/overview-storage-keys.md)
 
 ## <a name="manually-rotate-access-keys"></a>Ruotare manualmente le chiavi di accesso
 

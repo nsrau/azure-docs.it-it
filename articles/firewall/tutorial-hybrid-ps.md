@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: how-to
-ms.date: 01/08/2020
+ms.date: 08/28/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 802df45e7434fd0cb425137964880a281f885ad8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a91d0e11c44657a2d4cdd267ffa6490ca89532a9
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611187"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069409"
 ---
 # <a name="deploy-and-configure-azure-firewall-in-a-hybrid-network-using-azure-powershell"></a>Distribuire e configurare Firewall di Azure in una rete ibrida con Azure PowerShell
 
@@ -31,17 +31,16 @@ Per questo articolo vengono create tre reti virtuali:
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
-> [!div class="checklist"]
-> * Dichiarare le variabili
-> * Creare la rete virtuale dell'hub del firewall
-> * Creare la rete virtuale spoke
-> * Creare la rete virtuale locale
-> * Configurare e distribuire il firewall
-> * Creare e connettere i gateway VPN
-> * Eseguire il peering tra le reti virtuali dell'hub e spoke
-> * Creare le route
-> * Creare le macchine virtuali
-> * Testare il firewall
+* Dichiarare le variabili
+* Creare la rete virtuale dell'hub del firewall
+* Creare la rete virtuale spoke
+* Creare la rete virtuale locale
+* Configurare e distribuire il firewall
+* Creare e connettere i gateway VPN
+* Eseguire il peering tra le reti virtuali dell'hub e spoke
+* Creare le route
+* Creare le macchine virtuali
+* Testare il firewall
 
 Se invece si vuole usare portale di Azure per completare questa esercitazione, vedere [esercitazione: distribuire e configurare il firewall di Azure in una rete ibrida usando il portale di Azure](tutorial-hybrid-portal.md).
 
@@ -71,7 +70,7 @@ Vedere la sezione [creare le route](#create-the-routes) in questo articolo per v
 
 Per esaminare la documentazione di riferimento di Azure PowerShell correlata, vedere [Informazioni di riferimento su Azure PowerShell](https://docs.microsoft.com/powershell/module/az.network/new-azfirewall).
 
-Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="declare-the-variables"></a>Dichiarare le variabili
 

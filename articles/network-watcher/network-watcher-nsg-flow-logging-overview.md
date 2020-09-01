@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: b73727e6bd824b80fbc3897055d71f6b9c632a61
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c0001add9ddbafb67dc7ac305c5fc171a8e24a51
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084365"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89070582"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>Introduzione alla registrazione dei flussi per i gruppi di sicurezza di rete
 
@@ -56,7 +56,7 @@ I log dei flussi sono l'origine della verità per tutte le attività di rete nel
 > [!NOTE]
 > La conservazione è disponibile solo se si usano account di archiviazione per utilizzo [generico V2 (GPv2)](https://docs.microsoft.com/azure/storage/common/storage-account-overview#types-of-storage-accounts). 
 
-**Concetti base**
+**Concetti di base**
 
 - Le reti definite da software sono organizzate intorno alle reti virtuali (reti virtuali) e alle subnet. La sicurezza di questi reti virtuali e subnet può essere gestita tramite un NSG.
 - Un gruppo di sicurezza di rete (NSG) contiene un elenco di _regole di sicurezza_ che consentono o negano il traffico di rete nelle risorse a cui è connessa. Gruppi può essere associato a subnet, singole VM o singole interfacce di rete collegate alle VM (Gestione risorse). Per altre informazioni, vedere [Panoramica dei gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview?toc=%2Fazure%2Fnetwork-watcher%2Ftoc.json).
@@ -294,7 +294,7 @@ Di seguito è riportato un testo di esempio di log dei flussi. Come si può osse
 ```
 **Descrizione della tupla di log**
 
-![Panoramica dei log di flusso](./media/network-watcher-nsg-flow-logging-overview/tuple.png)
+![tupla log di flusso](./media/network-watcher-nsg-flow-logging-overview/tuple.png)
 
 **Calcolo della larghezza di banda di esempio**
 
@@ -365,7 +365,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 
 **Abilita su reti virtuali/subnet critiche**: i log di flusso devono essere abilitati in tutte le reti virtuali/subnet critiche nella sottoscrizione come procedura di controllo e sicurezza consigliata. 
 
-**Abilitare la registrazione del flusso NSG in tutti gruppi collegati a una risorsa**: la registrazione dei flussi in Azure è configurata nella risorsa NSG. Un flusso sarà associato a una sola regola di gruppo di sicurezza di rete. Negli scenari in cui vengono usati più gruppi, è consigliabile abilitare i log dei flussi NSG in tutti i gruppi applicati alla subnet o all'interfaccia di rete di una risorsa per assicurarsi che tutto il traffico venga registrato. Per altre informazioni, vedere [come viene valutato il traffico](../virtual-network/security-overview.md#how-traffic-is-evaluated) nei gruppi di sicurezza di rete.
+**Abilitare la registrazione del flusso NSG in tutti gruppi collegati a una risorsa**: la registrazione dei flussi in Azure è configurata nella risorsa NSG. Un flusso sarà associato a una sola regola di gruppo di sicurezza di rete. Negli scenari in cui vengono usati più gruppi, è consigliabile abilitare i log dei flussi NSG in tutti i gruppi applicati alla subnet o all'interfaccia di rete di una risorsa per assicurarsi che tutto il traffico venga registrato. Per altre informazioni, vedere [come viene valutato il traffico](../virtual-network/network-security-group-how-it-works.md) nei gruppi di sicurezza di rete.
 
 **Provisioning dell'archiviazione**: è necessario eseguire il provisioning dell'archiviazione in sintonia con il volume di log di flusso previsto.
 
@@ -406,8 +406,8 @@ I dati dei log dei flussi vengono raccolti al di fuori del percorso del traffico
 Per usare un account di archiviazione dietro un firewall, è necessario fornire un'eccezione affinché i servizi Microsoft attendibili accedano all'account di archiviazione:
 
 - Passare all'account di archiviazione digitando il nome dell'account di archiviazione nella ricerca globale nel portale o dalla [pagina account di archiviazione](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts)
-- Nella sezione **Impostazioni** selezionare **firewall e reti virtuali**
-- In **Consenti accesso da**selezionare **reti selezionate**. Quindi, in **eccezioni**, seleziona la casella accanto a * * * * Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione * * * *
+- Nella sezione  **Impostazioni**  selezionare  **firewall e reti virtuali**
+- In **Consenti accesso da**selezionare  **reti selezionate**. Quindi, in  **eccezioni**, seleziona la casella accanto a * * * * Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione * * * *
 - Se l'opzione è già selezionata, non occorre modificare niente.
 - Individuare il NSG di destinazione nella [pagina Panoramica dei log di flusso di NSG](https://ms.portal.azure.com/#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/flowLogs) e abilitare i log di flusso di NSG con l'account di archiviazione selezionato.
 

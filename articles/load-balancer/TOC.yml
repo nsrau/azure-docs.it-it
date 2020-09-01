@@ -9,13 +9,15 @@
     - name: Creare una risorsa Load Balancer pubblica - Portale
       href: quickstart-load-balancer-standard-public-portal.md
     - name: Creare una risorsa Load Balancer pubblica - PowerShell
-      href: quickstart-create-standard-load-balancer-powershell.md
+      href: quickstart-load-balancer-standard-public-powershell.md
     - name: Creare una risorsa Load Balancer pubblica - Interfaccia della riga di comando di Azure
       href: quickstart-load-balancer-standard-public-cli.md
     - name: Creare una risorsa Load Balancer pubblica - Modello di Resource Manager
       href: quickstart-load-balancer-standard-public-template.md
     - name: Creare una risorsa Load Balancer interna - Portale
       href: quickstart-load-balancer-standard-internal-portal.md
+    - name: Creare una risorsa Load Balancer interna - PowerShell
+      href: quickstart-load-balancer-standard-internal-powershell.md
     - name: Creare una risorsa Load Balancer interna - Interfaccia della riga di comando di Azure
       href: quickstart-load-balancer-standard-internal-cli.md
   expanded: true
