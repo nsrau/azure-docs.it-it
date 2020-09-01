@@ -7,23 +7,22 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 3/5/2020
 ms.author: matjazl
-ms.openlocfilehash: 46a55b83b38593a514d40a9f75d99739a1efb8a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7ed4e471764fbf8ecc9b82a7d614ae52b97360f1
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84871021"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267259"
 ---
-# <a name="configure-export-setting-and-export-the-data-to-a-storage-account"></a>Configurare l'impostazione di esportazione ed esportare i dati in un account di archiviazione
+# <a name="configure-export-setting-and-set-up-the-storage-account"></a>Configurare l'impostazione di esportazione e impostare l'account di archiviazione
 
 API di Azure per FHIR supporta $export comando che consente di esportare i dati fuori dall'API di Azure per l'account FHIR in un account di archiviazione.
 
-Per eseguire l'esportazione nell'API di Azure per FHIR, sono necessari quattro passaggi:
+Per la configurazione dell'esportazione nell'API di Azure per FHIR sono necessari tre passaggi:
 
 1. Abilitare l'identità gestita nell'API di Azure per il servizio FHIR
 2. Creazione di un account di archiviazione di Azure (se non eseguito in precedenza) e assegnazione dell'autorizzazione all'API di Azure per FHIR all'account di archiviazione
 3. Selezione dell'account di archiviazione nell'API di Azure per FHIR come esportazione dell'account di archiviazione
-4. Esecuzione dell'esportazione richiamando $export comando nell'API di Azure per FHIR
 
 ## <a name="enabling-managed-identity-on-azure-api-for-fhir"></a>Abilitazione dell'identità gestita nell'API di Azure per FHIR
 
@@ -51,18 +50,11 @@ A questo punto si è pronti per il passaggio successivo, in cui è possibile sel
 
 ## <a name="selecting-the-storage-account-for-export"></a>Selezione dell'account di archiviazione per $export
 
-Il passaggio finale prima di richiamare $export comando consiste nell'assegnare l'account di archiviazione di Azure che l'API di Azure per FHIR utilizzerà per esportare i dati. A tale scopo, passare al pannello integrazione nel servizio API di Azure per FHIR in portale di Azure e selezionare l'account di archiviazione 
+Il passaggio finale consiste nell'assegnare l'account di archiviazione di Azure che verrà usato dall'API di Azure per FHIR per esportare i dati in. A tale scopo, passare al pannello integrazione nel servizio API di Azure per FHIR in portale di Azure e selezionare l'account di archiviazione
 
 ![Abilita identità gestita](media/export-data/fhir-export-storage.png)
 
 Al termine, è possibile esportare i dati usando $export comando.
-
-## <a name="exporting-the-data-using-export-command"></a>Esportazione dei dati tramite il comando $export
-
-Dopo aver configurato l'API di Azure per FHIR per l'esportazione, è ora possibile usare il comando $export per esportare i dati dal servizio nell'account di archiviazione specificato. Per informazioni su come richiamare $export comando in FHIR server, vedere la documentazione su $export specifica all'indirizzo[https://hl7.org/Fhir/uv/bulkdata/export/index.html](https://hl7.org/Fhir/uv/bulkdata/export/index.html)
-
-> [!IMPORTANT]
-> Si noti che attualmente l'API di Azure per FHIR supporta solo l'esportazione a livello di sistema, come definito nella specifica di esportazione all'indirizzo [https://hl7.org/Fhir/uv/bulkdata/export/index.html](https://hl7.org/Fhir/uv/bulkdata/export/index.html) . Attualmente i parametri di query non sono supportati con il $export.
 
 >[!div class="nextstepaction"]
 >[Impostazioni aggiuntive](azure-api-for-fhir-additional-settings.md)

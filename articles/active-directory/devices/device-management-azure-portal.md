@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce09bd2a3f5f474ad5c6e6eb73865e2b2dc9fe3a
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 4f12b4e1d64db097730494da746b44479a791f9d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541957"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268639"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gestire le identità dei dispositivi usando il portale di Azure
 
@@ -32,14 +32,14 @@ La pagina **tutti i dispositivi** consente di:
 - Identificare i dispositivi, tra cui:
    - Dispositivi aggiunti o registrati in Azure AD.
    - Dispositivi distribuiti con [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot).
-   - Stampanti che usano la [stampa universale](https://docs.microsoft.com/universal-print/fundamentals/universal-print-getting-started)
+   - Stampanti che usano la [stampa universale](/universal-print/fundamentals/universal-print-getting-started)
 - Eseguire attività di gestione delle identità del dispositivo come Enable, Disable, DELETE o Manage.
    - Le [stampanti](/universal-print/fundamentals/) e i dispositivi [Windows Autopilot](/windows/deployment/windows-autopilot/windows-autopilot) hanno opzioni di gestione limitate in Azure ad. Devono essere gestiti dalle rispettive interfacce di amministrazione.
 - Configurare le impostazioni di identità del dispositivo.
 - Abilitare o disabilitare Enterprise State Roaming.
 - Esaminare i log di controllo relativi al dispositivo
 
-## <a name="manage-devices"></a>Gestire i dispositivi
+## <a name="manage-devices"></a>Gestire dispositivi
 
 Sono disponibili due posizioni per gestire i dispositivi in Azure AD:
 
@@ -156,7 +156,7 @@ Per gestire le identità dei dispositivi tramite il portale di Azure AD, è nece
 
 - **Amministratori locali aggiuntivi su dispositivi aggiunti ad Azure AD**: è possibile selezionare gli utenti a cui vengono concessi i diritti di amministratore locale per un dispositivo. Questi utenti vengono aggiunti al ruolo di *amministratore del dispositivo* in Azure ad. Agli amministratori globali di Azure AD e ai proprietari dei dispositivi vengono concessi i diritti di amministratore locale per impostazione predefinita. Questa opzione è una funzionalità dell'edizione Premium disponibile tramite prodotti come Azure AD Premium o Enterprise Mobility Suite (EMS).
 - **Gli utenti possono registrare i propri dispositivi con Azure ad** : è necessario configurare questa impostazione per consentire la registrazione dei dispositivi Windows 10 Personal, iOS, Android e macOS con Azure ad. Se si seleziona **nessuno**, i dispositivi non possono eseguire la registrazione con Azure ad. L'iscrizione a Microsoft Intune o Gestione dispositivi mobili per Office 365 richiede la registrazione. Se è stato configurato uno di questi servizi, è selezionata l'opzione **TUTTI** e l'opzione **NESSUNO** non è disponibile.
-- **Richiedi autenticazione a più fattori per aggiungere dispositivi** : è possibile scegliere se gli utenti devono fornire un ulteriore fattore di autenticazione per aggiungere il dispositivo a Azure ad. Il valore predefinito è **No**. Si consiglia di richiedere l'autenticazione a più fattori quando si registra un dispositivo. Per abilitare l'autenticazione a più fattori per questo servizio, è necessario verificare che tale tipo di autenticazione sia configurato per gli utenti che registrano i dispositivi. Per altre informazioni sui diversi servizi di autenticazione a più fattori di Azure, vedere [Introduzione ad Azure Multi-Factor Authentication](../authentication/concept-mfa-whichversion.md). 
+- **Richiedi autenticazione a più fattori per aggiungere dispositivi** : è possibile scegliere se gli utenti devono fornire un ulteriore fattore di autenticazione per aggiungere il dispositivo a Azure ad. Il valore predefinito è **No**. Si consiglia di richiedere l'autenticazione a più fattori quando si registra un dispositivo. Per abilitare l'autenticazione a più fattori per questo servizio, è necessario verificare che tale tipo di autenticazione sia configurato per gli utenti che registrano i dispositivi. Per altre informazioni sui diversi servizi di autenticazione a più fattori di Azure, vedere [Introduzione ad Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). 
 
 > [!NOTE]
 > **Richiedi autenticazione a più fattori per aggiungere** l'impostazione dei dispositivi si applica ai dispositivi che sono Azure ad aggiunti o Azure ad registrati. Questa impostazione non si applica ai dispositivi ibridi Azure AD aggiunti.

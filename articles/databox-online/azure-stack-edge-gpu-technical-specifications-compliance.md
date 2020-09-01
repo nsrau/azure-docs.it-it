@@ -5,17 +5,17 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: 87c96ef6487895d3230541f0ae5fe15c5a645368
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 3f354655a612d4085b0a0de45ae1a6e5ee097ade
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085292"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266664"
 ---
-# <a name="azure-stack-edge-technical-specifications-and-compliance"></a>Specifiche tecniche e conformità di Azure Stack Edge
+# <a name="technical-specifications-and-compliance-for-azure-stack-edge-with-gpu"></a>Specifiche tecniche e conformità per Azure Stack Edge con GPU 
 
 I componenti hardware del Azure Stack Edge con un'unità di elaborazione grafica (GPU) onboarding aderiscono alle specifiche tecniche e agli standard normativi descritti in questo articolo. Le specifiche tecniche descrivono hardware, unità di alimentazione (PSU), capacità di archiviazione, enclosure e standard ambientali.
 
@@ -65,7 +65,7 @@ Il dispositivo Azure Stack Edge dispone dei seguenti componenti hardware di rete
 
 Ecco i dettagli per la scheda Mellanox:
 
-| Parametro           | Descrizione                 |
+| Parametro           | Description                 |
 |-------------------------|----------------------------|
 | Modello    | Scheda di interfaccia di rete ConnectX®-4 LX                      |
 | Descrizione modello               | 25GbE Dual-Port SFP28; PCIe 3.0 x8; ROHS R6                    |

@@ -14,14 +14,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/19/2019
 ms.author: juliako
-ms.openlocfilehash: 62754c455ec6aad4a3990bf4af749dcdcd425e55
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 223779dfba5faa77e38221d6f6f4e26dbc44b0cc
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87060219"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268384"
 ---
 # <a name="get-started-with-delivering-content-on-demand-by-using-the-azure-portal"></a>Introduzione alla distribuzione di contenuto on demand tramite il portale di Azure
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 > [!NOTE]
 > Non saranno aggiunte nuove caratteristiche o funzionalità a Servizi multimediali v2. <br/>Esplorare l'ultima versione, [Servizi multimediali v3](../latest/index.yml). Vedere anche le [indicazioni sulla migrazione dalla versione 2 alla versione 3](../latest/migrate-from-v2-to-v3.md)
@@ -61,7 +63,7 @@ Per avviare l'endpoint di streaming:
 Per riprodurre video in streaming con Servizi multimediali è necessario caricare i video di origine, codificarli in bitrate multipli e pubblicare il risultato. Il primo passaggio è illustrato in questa sezione. 
 
 1. Nel [portale di Azure ](https://portal.azure.com/) selezionare l'account Servizi multimediali di Azure.
-2. Selezionare **Impostazioni**  >  **Asset**. Selezionare quindi il pulsante **Carica**.
+2. Selezionare **Impostazioni** > **Asset**. Selezionare quindi il pulsante **Carica**.
    
     ![Caricare file](./media/media-services-portal-vod-get-started/media-services-upload.png)
    
@@ -84,7 +86,7 @@ Per sfruttare i vantaggi della creazione dinamica dei pacchetti è necessario co
 Per codificare il contenuto tramite Media Encoder Standard nel portale di Azure:
 
 1. Nel [portale di Azure ](https://portal.azure.com/) selezionare l'account Servizi multimediali di Azure.
-2. Selezionare **Impostazioni**  >  **Asset**. Selezionare l'asset da codificare.
+2. Selezionare **Impostazioni** > **Asset**. Selezionare l'asset da codificare.
 3. Selezionare il pulsante **Codifica**.
 4. Nel riquadro **Codifica un asset** selezionare il processore **Media Encoder Standard** e un set di impostazioni. Per informazioni sui set di impostazioni, vedere [Generare automaticamente una tabella di coppie bitrate-risoluzione](media-services-autogen-bitrate-ladder-with-mes.md) e [Set di impostazioni delle attività MES (Media Encoder Standard)](media-services-mes-presets-overview.md). È importante scegliere il set di impostazioni più idoneo per i video di input. Se ad esempio è noto che il video di input ha una risoluzione di 1920 × 1080 pixel, è possibile scegliere il set di impostazioni **Codec video H.264 a bitrate multiplo con risoluzione 1080p**. Se il video disponibile è a bassa risoluzione (640 × 360), non usare il set di impostazioni **Codec video H.264 a bitrate multiplo con risoluzione 1080p**.
    
@@ -132,7 +134,7 @@ Per aggiornare la data di scadenza di un localizzatore, è possibile usare un'[A
 
 ### <a name="to-use-the-portal-to-publish-an-asset"></a>Per usare il portale per la pubblicazione di un asset
 1. Nel [portale di Azure ](https://portal.azure.com/) selezionare l'account Servizi multimediali di Azure.
-2. Selezionare **Impostazioni**  >  **Asset**. Selezionare l'asset da pubblicare.
+2. Selezionare **Impostazioni** > **Asset**. Selezionare l'asset da pubblicare.
 3. Fare clic sul pulsante **Pubblica**.
 4. Selezionare il tipo di localizzatore.
 5. Selezionare **Aggiungi**.
@@ -154,7 +156,7 @@ Considerazioni applicabili:
 * Verificare che il video sia stato pubblicato.
 * Media Player nel portale di Azure esegue la riproduzione dall'endpoint di streaming predefinito. Se si vuole eseguire la riproduzione da un endpoint di streaming diverso, selezionare e copiare l'URL e quindi incollarlo in un altro lettore. È ad esempio possibile testare il video in [Azure Media Player](https://aka.ms/azuremediaplayer).
 
-## <a name="provide-feedback"></a>Inviare commenti e suggerimenti
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi

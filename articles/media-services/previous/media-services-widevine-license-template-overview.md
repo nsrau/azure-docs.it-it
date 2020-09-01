@@ -14,14 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 9f583e7956cba0de06e5b3277bfea13c463019d9
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 7bdffa607a1cbe47b940590d19f6140238d31bf0
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171976"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266494"
 ---
-# <a name="widevine-license-template-overview"></a>Panoramica del modello di licenza Widevine 
+# <a name="widevine-license-template-overview"></a>Panoramica del modello di licenza Widevine
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
+
 Servizi multimediali di Azure consente di configurare e richiedere licenze Google Widevine. Quando il lettore tenta di riprodurre contenuto protetto da Widevine, viene inviata una richiesta al servizio di distribuzione di licenze per ottenere una licenza. Se il servizio di licenza approva la richiesta, genera la licenza. Viene inviata al client e usata per decrittografare e riprodurre il contenuto specificato.
 
 Una richiesta per la licenza Widevine è formattata come messaggio JSON.  
@@ -61,7 +64,7 @@ Una richiesta per la licenza Widevine è formattata come messaggio JSON.
 ```
 
 ## <a name="json-message"></a>Messaggio JSON
-| Nome | Valore | Descrizione |
+| Nome | Valore | Description |
 | --- | --- | --- |
 | payload |Stringa con codifica Base64 |Richiesta di licenza inviata da un client. |
 | content_id |Stringa con codifica Base64 |Identificatore usato per derivare l'ID chiave e la chiave simmetrica per ogni content_key_specs.track_type. |
@@ -79,7 +82,7 @@ Se esiste un criterio preesistente, non è necessario specificare alcun valore n
 
 Ogni valore content_key_specs deve essere specificato per tutte le singole tracce, indipendentemente dall'opzione use_policy_overrides_exclusively. 
 
-| Nome | Valore | Descrizione |
+| Nome | Valore | Description |
 | --- | --- | --- |
 | content_key_specs track_type |string |Nome di un tipo di traccia. Se nella richiesta di licenza è specificato un valore content_key_specs, assicurarsi di specificare esplicitamente tutti i tipi di traccia. In caso contrario, non possono essere riprodotti gli ultimi 10 secondi. |
 | content_key_specs  <br/> security_level |uint32 |Definisce i requisiti di affidabilità client per la riproduzione. <br/> - È richiesta una soluzione di crittografia white box basata su software. <br/> - Sono necessari una soluzione di crittografia software e un decodificatore offuscato. <br/> - Il materiale della chiave e le operazioni di crittografia devono essere eseguiti all'interno di un ambiente di esecuzione affidabile basato su hardware. <br/> - Le operazioni di crittografia e decodifica del contenuto devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware.  <br/> - Le operazioni di crittografia, decodifica e l'intera gestione dei file multimediali (con e senza compressione) devono essere eseguite all'interno di un ambiente di esecuzione affidabile basato su hardware. |
@@ -88,7 +91,7 @@ Ogni valore content_key_specs deve essere specificato per tutte le singole tracc
 | content_key_specs.key_id |Stringa binaria con codifica Base64, 16 byte |Identificatore univoco della chiave. |
 
 ## <a name="policy-overrides"></a>Override dei criteri
-| Nome | Valore | Descrizione |
+| Nome | Valore | Description |
 | --- | --- | --- |
 | policy_overrides can_play |Booleano: true o false |Indica che è consentita la riproduzione del contenuto. L'impostazione predefinita è false. |
 | policy_overrides can_persist |Booleano: true o false |Indica che la licenza può essere mantenuta in una memoria non volatile per l'uso offline. L'impostazione predefinita è false. |
@@ -103,7 +106,7 @@ Ogni valore content_key_specs deve essere specificato per tutte le singole tracc
 | policy_overrides renew_with_usage |Booleano: true o false |Indica che la licenza viene inviata per il rinnovo nel momento in cui si inizia a usarla. Questo campo viene usato solo se can_renew è true. |
 
 ## <a name="session-initialization"></a>Inizializzazione della sessione
-| Nome | Valore | Descrizione |
+| Nome | Valore | Description |
 | --- | --- | --- |
 | provider_session_token |Stringa con codifica Base64 |Questo token di sessione viene restituito alla licenza e persiste nei rinnovi successivi, ma non in altre sessioni. |
 | provider_client_token |Stringa con codifica Base64 |Token client da restituire nella risposta di licenza. Se la richiesta di licenza contiene un token client, questo valore viene ignorato. Il token client persiste anche in altre sessioni della licenza. |

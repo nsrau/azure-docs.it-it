@@ -11,16 +11,18 @@ ms.subservice: ''
 ms.workload: ''
 ms.topic: article
 ms.custom: ''
-ms.date: 07/15/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 2dca351133394e27a1d795dc9f5f958f730bbf42
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2b20668ea08186f42eed89f82fb1ae8d85cf090d
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092083"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267701"
 ---
 # <a name="high-availability-with-media-services-and-video-on-demand-vod"></a>Disponibilità elevata con servizi multimediali e video on demand (VOD)
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 ## <a name="high-availability-for-vod"></a>Disponibilità elevata per VOD
 
@@ -34,7 +36,7 @@ ms.locfileid: "87092083"
 
 I servizi usati in questa architettura di esempio includono:
 
-| Icona | Nome | Descrizione |
+| Icona | Nome | Description |
 | :--: | ---- | ----------- |
 |![image](media/media-services-high-availability-encoding/azure-media-services.svg)| Account servizi multimediali | **Descrizione:**<br>Un account di servizi multimediali è il punto di partenza per gestire, crittografare, codificare, analizzare e trasmettere contenuti multimediali in Azure. È associato a una risorsa dell'account di archiviazione di Azure. L'account e tutte le archiviazioni associate devono trovarsi nella stessa sottoscrizione di Azure.<br><br>**Uso VOD:**<br>Si tratta dei servizi usati per codificare e distribuire le risorse audio e video.  Per la disponibilità elevata, è necessario configurare almeno due account di servizi multimediali, ognuno in un'area diversa. [Scopri di più su servizi multimediali di Azure](media-services-overview.md). |
 |![image](media/media-services-high-availability-encoding/storage-account.svg)| Account di archiviazione | **Descrizione:**<br>Un account di archiviazione di Azure contiene tutti gli oggetti dati di archiviazione di Azure: BLOB, file, code, tabelle e dischi. I dati sono accessibili da qualsiasi parte del mondo tramite HTTP o HTTPS.<br><br>Ogni account di servizi multimediali, in ogni area, avrà un account di archiviazione nella stessa area.<br><br>**Uso VOD:**<br>È possibile archiviare i dati di input e di output per l'elaborazione e il flusso VOD. [Altre informazioni su archiviazione di Azure](../../storage/common/storage-introduction.md). |

@@ -3,7 +3,7 @@ title: Eseguire la migrazione da servizi multimediali di Azure V2 a V3
 description: In questo articolo vengono descritte le modifiche introdotte nella versione 3 di Servizi multimediali di Azure e sono illustrate le differenze tra le due versioni.
 services: media-services
 documentationcenter: na
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 tags: ''
@@ -13,16 +13,18 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 03/09/2020
-ms.author: juliako
-ms.openlocfilehash: dfbe1e7fdfca6f9959218f47d903301cb4b6d899
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: be0c12eacae9bb13a475de4634746e9d38d35e43
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448397"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267565"
 ---
 # <a name="media-services-v2-vs-v3"></a>Media Services V2 e V3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 In questo articolo vengono descritte le modifiche introdotte nella versione 3 di Servizi multimediali di Azure e sono illustrate le differenze tra le due versioni.
 
@@ -93,15 +95,15 @@ La tabella seguente illustra in che modo le proprietà dell' [Asset](/rest/api/m
 
 |Proprietà V3|V2 (proprietà)|
 |---|---|
-|`id`-(univoco) il percorso di Azure Resource Manager completo, vedere esempi nell' [Asset](/rest/api/media/assets/createorupdate)||
-|`name`-(univoco) vedere [convenzioni di denominazione](media-services-apis-overview.md#naming-conventions) ||
+|`id` -(univoco) il percorso di Azure Resource Manager completo, vedere esempi nell' [Asset](/rest/api/media/assets/createorupdate)||
+|`name` -(univoco) vedere [convenzioni di denominazione](media-services-apis-overview.md#naming-conventions) ||
 |`alternateId`|`AlternateId`|
-|`assetId`|`Id`-(Unique) il valore inizia con il `nb:cid:UUID:` prefisso.|
+|`assetId`|`Id` -(Unique) il valore inizia con il `nb:cid:UUID:` prefisso.|
 |`created`|`Created`|
 |`description`|`Name`|
 |`lastModified`|`LastModified`|
 |`storageAccountName`|`StorageAccountName`|
-|`storageEncryptionFormat`| `Options`(opzioni di creazione)|
+|`storageEncryptionFormat`| `Options` (opzioni di creazione)|
 |`type`||
 
 ### <a name="storage-side-encryption"></a>Crittografia lato archiviazione
@@ -112,7 +114,7 @@ Per proteggere gli asset inattivi, è necessario crittografarli tramite crittogr
 |---|---|---|---|
 |Crittografia di archiviazione di Servizi multimediali|Crittografia AES-256, chiave gestita da servizi multimediali.|Supportata<sup>(1)</sup>|Non supportata<sup>(2)</sup>|
 |[Crittografia del servizio di archiviazione per dati inattivi](../../storage/common/storage-service-encryption.md)|Crittografia lato server offerta da archiviazione di Azure, chiave gestita da Azure o dal cliente.|Supportato|Supportato|
-|[Crittografia lato client di archiviazione](../../storage/common/storage-client-side-encryption.md)|Crittografia lato client offerta da archiviazione di Azure, la chiave gestita dal cliente in Key Vault.|Non supportate|Non supportate|
+|[Crittografia lato client di archiviazione](../../storage/common/storage-client-side-encryption.md)|Crittografia lato client offerta da archiviazione di Azure, la chiave gestita dal cliente in Key Vault.|Non supportato|Non supportato|
 
 <sup>1</sup> anche se servizi multimediali supporta la gestione del contenuto in chiaro o senza alcuna forma di crittografia, questa operazione non è consigliata.
 

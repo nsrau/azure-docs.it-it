@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 35669a7d80907e2335c68b1da9010f5879aa6c7c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: d9510bd564ced2f458a9a78ff23200bb32358c3e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87274086"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268537"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Domande frequenti su impostazioni e dati in roaming
 
@@ -37,7 +37,7 @@ Questo articolo offre le risposte ad alcune possibili domande degli amministrato
 > [!NOTE]
 > Questo articolo si applica al browser Microsoft Edge legacy basato su HTML avviato con Windows 10 nel 2015 luglio. L'articolo non si applica al nuovo browser Microsoft Edge basato su cromo rilasciato il 15 gennaio 2020. Per altre informazioni sul comportamento di sincronizzazione per il nuovo Microsoft Edge, vedere l'articolo [Microsoft Edge Sync](/deployedge/microsoft-edge-enterprise-sync).
 
-**Dati dell'applicazione**: le app di Windows universale permettono di scrivere i dati delle impostazioni in una cartella di profilo mobile per sincronizzare automaticamente i dati scritti al suo interno. Il singolo sviluppatore di app deve progettare un'app in grado di sfruttare questa funzionalità. Per altre informazioni su come sviluppare un'app di Windows universale che usa il roaming, vedere l' [API di archiviazione AppData](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) e il [Blog per sviluppatori roaming di Windows 8 AppData](https://blogs.windows.com/windowsdeveloper/2016/05/04/roaming-app-data-and-the-user-experience/).
+**Dati dell'applicazione**: le app di Windows universale permettono di scrivere i dati delle impostazioni in una cartella di profilo mobile per sincronizzare automaticamente i dati scritti al suo interno. Il singolo sviluppatore di app deve progettare un'app in grado di sfruttare questa funzionalità. Per altre informazioni su come sviluppare un'app di Windows universale che usa il roaming, vedere l' [API di archiviazione AppData](/windows/uwp/design/app-settings/store-and-retrieve-app-data) e il [Blog per sviluppatori roaming di Windows 8 AppData](https://blogs.windows.com/windowsdeveloper/2016/05/04/roaming-app-data-and-the-user-experience/).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Quale account si usa per la sincronizzazione delle impostazioni?
 
@@ -86,9 +86,9 @@ Quando su uno stesso dispositivo sono presenti più account di Azure AD provenie
 Il roaming è disponibile solo per le app di Windows universale. Sono disponibili due opzioni per l'abilitazione del roaming in un'applicazione desktop di Windows esistente:
 
 * Tramite il [Desktop Bridge](https://aka.ms/desktopbridge) , le app desktop di Windows esistenti vengono trasferite alla piattaforma UWP (Universal Windows Platform). Da qui, verrà richiesto di modificare lievemente il codice per poter sfruttare il roaming dei dati delle app di Azure AD. Desktop Bridge fornisce alle app dell'utente un'identità di un'app necessaria per abilitare il roaming dei dati dell'app per le app desktop esistenti.
-* [User Experience Virtualization (UE-V)](https://technet.microsoft.com/library/dn458947.aspx) consente di creare un modello di impostazioni personalizzate per le app desktop di Windows esistenti e di abilitare il roaming per le applicazioni Win32. Questa opzione non richiede allo sviluppatore di app di modificare il codice dell'app. UE-V è riservato al roaming del servizio Active Directory locale per i clienti che hanno acquistato Microsoft Desktop Optimization Pack.
+* [User Experience Virtualization (UE-V)](/previous-versions//dn458947(v=vs.85)) consente di creare un modello di impostazioni personalizzate per le app desktop di Windows esistenti e di abilitare il roaming per le applicazioni Win32. Questa opzione non richiede allo sviluppatore di app di modificare il codice dell'app. UE-V è riservato al roaming del servizio Active Directory locale per i clienti che hanno acquistato Microsoft Desktop Optimization Pack.
 
-Gli amministratori possono configurare UE-V per eseguire il roaming dei dati delle app desktop di Windows modificando il roaming delle impostazioni del sistema operativo Windows e dei dati delle app universali tramite i [criteri di gruppo di UE-V](https://technet.microsoft.com/itpro/mdop/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2):
+Gli amministratori possono configurare UE-V per eseguire il roaming dei dati delle app desktop di Windows modificando il roaming delle impostazioni del sistema operativo Windows e dei dati delle app universali tramite i [criteri di gruppo di UE-V](/microsoft-desktop-optimization-pack/uev-v2/configuring-ue-v-2x-with-group-policy-objects-both-uevv2):
 
 * Eseguendo il roaming dei criteri di gruppo delle impostazioni di Windows
 * Non sincronizzando i criteri di gruppo delle app Windows

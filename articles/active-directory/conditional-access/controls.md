@@ -11,19 +11,19 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6eb4efd26502c20a33cb61ab1c9d58f2757bbd70
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 59f83d232874a7702598b6ea5fdd458c101e7e79
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948301"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266579"
 ---
 # <a name="custom-controls-preview"></a>Controlli personalizzati (anteprima)
 
 I controlli personalizzati sono una funzionalità di anteprima della Azure Active Directory. Quando si usano i controlli personalizzati, gli utenti vengono reindirizzati a un servizio compatibile per soddisfare i requisiti di autenticazione al di fuori della Azure Active Directory. Per soddisfare questo controllo, il browser di un utente viene reindirizzato al servizio esterno, esegue tutte le operazioni di autenticazione necessarie e viene reindirizzato di nuovo al Azure Active Directory. Azure Active Directory verifica la risposta e, se l'utente è stato autenticato o convalidato correttamente, l'utente continua nel flusso di accesso condizionale.
 
 > [!NOTE]
-> Per ulteriori informazioni sulle modifiche pianificate per la funzionalità di controllo personalizzato, vedere la pagina relativa al [nuovo aggiornamento](../fundamentals/whats-new.md#upcoming-changes-to-custom-controls)di febbraio 2020.
+> Per ulteriori informazioni sulle modifiche pianificate per la funzionalità di controllo personalizzato, vedere l'archivio di febbraio 2020 [per le novità](../fundamentals/whats-new-archive.md#upcoming-changes-to-custom-controls).
 
 ## <a name="creating-custom-controls"></a>Creazione di controlli personalizzati
 

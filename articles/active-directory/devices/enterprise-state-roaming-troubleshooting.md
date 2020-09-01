@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a5043873b18f2d2115fd23e8b52959290393bfb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fb376ebacdd76fdde30178e19fa3c3062e57da1c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85604540"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267242"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Risoluzione dei problemi di Enterprise State Roaming in Azure Active Directory
 
@@ -108,10 +108,10 @@ Assicurarsi che il client Windows 10 v1511 disponga dell'aggiornamento cumulativ
 
 ### <a name="theme-is-not-syncing-as-well-as-data-protected-with-windows-information-protection"></a>Il tema non viene sincronizzato e neppure i dati protetti con Windows Information Protection 
 
-Per evitare la perdita di dati, i dati protetti con [windows Information Protection](https://technet.microsoft.com/itpro/windows/keep-secure/protect-enterprise-data-using-wip) non vengono sincronizzati tramite Enterprise state roaming per i dispositivi che usano l'aggiornamento dell'anniversario di Windows 10.
+Per evitare la perdita di dati, i dati protetti con [windows Information Protection](/windows/security/information-protection/windows-information-protection/protect-enterprise-data-using-wip) non vengono sincronizzati tramite Enterprise state roaming per i dispositivi che usano l'aggiornamento dell'anniversario di Windows 10.
 
 **Azione consigliata**  
-No. È possibile che questo problema venga risolto da aggiornamenti futuri di Windows.
+Nessuno. È possibile che questo problema venga risolto da aggiornamenti futuri di Windows.
 
 ---
 
@@ -120,7 +120,7 @@ No. È possibile che questo problema venga risolto da aggiornamenti futuri di Wi
 Nei dispositivi aggiunti a un dominio non verranno sincronizzati la data, l'ora e l'ora automatica dell'area. L'uso dell'ora automatica potrebbe sovrascrivere le altre impostazioni di data, ora e area e causare la mancata sincronizzazione di queste impostazioni. 
 
 **Azione consigliata**  
-No. 
+Nessuno. 
 
 ---
 
@@ -138,7 +138,7 @@ Assicurarsi che il client Windows 10 v1511 disponga dell'aggiornamento cumulativ
 Se si tenta di accedere al dispositivo Windows utilizzando una smart card, anche virtuale, la sincronizzazione delle impostazioni cesserà di funzionare.     
 
 **Azione consigliata**  
-No. È possibile che questo problema venga risolto da aggiornamenti futuri di Windows.
+Nessuno. È possibile che questo problema venga risolto da aggiornamenti futuri di Windows.
 
 ---
 

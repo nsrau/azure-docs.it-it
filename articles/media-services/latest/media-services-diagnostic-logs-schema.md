@@ -3,7 +3,7 @@ title: Schemi dei log di diagnostica di servizi multimediali di Azure-Azure
 description: Questo articolo illustra gli schemi dei log di diagnostica di servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/20/2019
-ms.author: juliako
-ms.openlocfilehash: 2bc688a61235a31c3d6b6e88cbb90c0d14cca179
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 6f09a0ab88273aa10bb5f3cb55f89d014897df12
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092015"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268452"
 ---
 # <a name="diagnostic-logs-schemas"></a>Schemi dei log di diagnostica
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 [Monitoraggio di Azure](../../azure-monitor/overview.md) consente di monitorare le metriche e i log di diagnostica che consentono di comprendere le prestazioni delle applicazioni. È possibile monitorare i log di diagnostica di servizi multimediali e creare avvisi e notifiche per le metriche e i log raccolti. È possibile inviare log ad [archiviazione di Azure](https://azure.microsoft.com/services/storage/), trasmetterli a [Hub eventi di Azure](https://azure.microsoft.com/services/event-hubs/)ed esportarli in [log Analytics](https://azure.microsoft.com/services/log-analytics/)o usare servizi di terze parti.
 
@@ -38,7 +40,7 @@ Per una descrizione dettagliata dello schema dei log di diagnostica di primo liv
 
 Queste proprietà sono specifiche dello schema del log di distribuzione delle chiavi.
 
-|Nome|Descrizione|
+|Nome|Description|
 |---|---|
 |keyId|ID della chiave richiesta.|
 |keyType|Può essere uno dei valori seguenti: "Clear" (nessuna crittografia), "FairPlay", "PlayReady" o "Widevine".|

@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 03/15/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 23a26e01c8329fa384d29443a143b173c58a2c6e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 93f5e4d659b94bd79345a5e687de14ab6a5e8ba6
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88539129"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267973"
 ---
 # <a name="create-a-media-services-account"></a>Creare un account di Servizi multimediali
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Per avviare le operazioni di crittografia, codifica, analisi, gestione e streaming dei contenuti multimediali in Azure, è necessario creare un account di Servizi multimediali. L'account di Servizi multimediali deve essere associato a uno o più account di archiviazione. Questo articolo descrive i passaggi per la creazione di un nuovo account di servizi multimediali di Azure.
 
@@ -54,7 +56,7 @@ Per tutte le altre attività di gestione (ad esempio, [trasformazioni e processi
 1. Fare clic su **+ Crea una risorsa**  >  **Media**  >  **servizi multimediali**.
 1. Nella sezione **creare un account di servizi multimediali** immettere i valori necessari.
 
-    | Nome | Descrizione |
+    | Nome | Description |
     | ---|---|
     |**Account Name** (Nome account)|Immettere il nome del nuovo account di servizi multimediali. Un nome di account di Servizi multimediali deve essere composto solo da lettere minuscole o da numeri senza spazi con una lunghezza compresa tra 3 e 24 caratteri.|
     |**Sottoscrizione**|Se si hanno più sottoscrizioni, selezionarne una dall'elenco delle sottoscrizioni di Azure a cui si ha accesso.|

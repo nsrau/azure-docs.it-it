@@ -1,21 +1,21 @@
 ---
 title: Usare i certificati con Azure Stack GPU perimetrale | Microsoft Docs
 description: Descrive l'uso dei certificati con Azure Stack dispositivo GPU perimetrale, inclusi i motivi per usare, i tipi e il modo in cui caricare i certificati nel dispositivo.
-services: Azure Stack Edge
+services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 7742d036857525ce6be64a53234f7aa717d4bdca
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: bf7f9236c8f0835d0041b4b0c454a492330ef878
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147083"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268877"
 ---
-# <a name="use-certificates-with-azure-stack-edge-series"></a>Usare i certificati con la serie Azure Stack Edge 
+# <a name="use-certificates-with-azure-stack-edge-gpu-device"></a>Usare i certificati con Azure Stack dispositivo GPU perimetrale
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
@@ -101,7 +101,7 @@ Quando si porta un certificato firmato, è necessaria anche la catena di firma c
     |Tipo |Nome soggetto (SN)  |Nome alternativo del soggetto (SAN)  |Esempio di nome soggetto |
     |---------|---------|---------|---------|
     |Azure Resource Manager|`management.<Device name>.<Dns Domain>`|`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`|`management.mydevice1.microsoftdatabox.com` |
-    |Archiviazione - BLOB|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
+    |Archiviazione BLOB|`*.blob.<Device name>.<Dns Domain>`|`*.blob.< Device name>.<Dns Domain>`|`*.blob.mydevice1.microsoftdatabox.com` |
     |Certificato singolo a più SAN per entrambi gli endpoint|`<Device name>.<dnsdomain>`|`<Device name>.<dnsdomain>`<br>`login.<Device name>.<Dns Domain>`<br>`management.<Device name>.<Dns Domain>`<br>`*.blob.<Device name>.<Dns Domain>`|`mydevice1.microsoftdatabox.com` |
 
 

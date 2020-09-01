@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d43e6e89faa8eca720e3aeafc873af1a18b9753b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0863a782b7f4531b900bc3c005a39387c83d983
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555029"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268228"
 ---
 # <a name="how-to-plan-your-azure-ad-join-implementation"></a>Procedura: Pianificare l'implementazione dell'aggiunta ad Azure AD
 
@@ -26,7 +26,7 @@ Questo articolo contiene le informazioni necessarie per pianificare l'implementa
  
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questo articolo presuppone che l'utente abbia familiarità con quanto descritto in [Introduzione alla gestione dei dispositivi in Azure Active Directory](../device-management-introduction.md).
+Questo articolo presuppone che l'utente abbia familiarità con quanto descritto in [Introduzione alla gestione dei dispositivi in Azure Active Directory](./overview.md).
 
 ## <a name="plan-your-implementation"></a>Pianificare l'implementazione
 
@@ -58,7 +58,7 @@ L'aggiunta ad Azure AD funziona sia con ambienti gestiti sia con ambienti federa
 
 ### <a name="managed-environment"></a>Ambiente gestito
 
-Un ambiente gestito può essere distribuito tramite la [sincronizzazione dell'hash delle password](/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) oppure l'[autenticazione pass-through](/azure/active-directory/hybrid/how-to-connect-pta-quick-start) con Seamless Single Sign On.
+Un ambiente gestito può essere distribuito tramite la [sincronizzazione dell'hash delle password](../hybrid/how-to-connect-password-hash-synchronization.md) oppure l'[autenticazione pass-through](../hybrid/how-to-connect-pta-quick-start.md) con Seamless Single Sign On.
 
 Questi scenari non richiedono la configurazione di un server federativo per l'autenticazione.
 
@@ -90,7 +90,7 @@ Non è possibile usare smart card o l'autenticazione basata su certificato per a
 
 Se si creano utenti in:
 
-- **Active Directory locale**, è necessario sincronizzarli con Azure AD tramite [Azure AD Connect](/azure/active-directory/hybrid/how-to-connect-sync-whatis). 
+- **Active Directory locale**, è necessario sincronizzarli con Azure AD tramite [Azure AD Connect](../hybrid/how-to-connect-sync-whatis.md). 
 - **Azure AD**, non sono necessarie altre configurazioni.
 
 In locale gli UPN che sono diversi da Azure AD UPN non sono supportati nei dispositivi aggiunti Azure AD. Se gli utenti usano un UPN locali, è consigliabile valutare di passare all'uso dei rispettivi UPN primari in Azure AD.
@@ -162,7 +162,7 @@ Se si usa AD FS, vedere [Verificare e gestire l'accesso Single Sign-On con AD FS
 
 Gli utenti ottengono SSO dai dispositivi aggiunti ad Azure AD se il dispositivo ha accesso a un controller di dominio. 
 
-**Consiglio:** distribuire il [proxy di app Azure AD](/azure/active-directory/manage-apps/application-proxy) per abilitare l'accesso sicuro per queste applicazioni.
+**Consiglio:** distribuire il [proxy di app Azure AD](../manage-apps/application-proxy.md) per abilitare l'accesso sicuro per queste applicazioni.
 
 ### <a name="on-premises-network-shares"></a>Condivisioni di rete locali
 
@@ -190,7 +190,7 @@ A partire dall'aggiornamento di Windows 10 2004, gli utenti possono usare deskto
 
 È possibile effettuare il provisioning dell'aggiunta ad Azure AD tramite gli approcci seguenti:
 
-- **Modalità self-service in Configurazione guidata/Impostazioni**: in modalità self-service gli utenti eseguono il processo di aggiunta ad Azure AD durante la Configurazione guidata o le impostazioni di Windows. Per altre informazioni, vedere [Aggiungere il dispositivo aziendale alla rete dell'organizzazione](/azure/active-directory/user-help/user-help-join-device-on-network). 
+- **Modalità self-service in Configurazione guidata/Impostazioni**: in modalità self-service gli utenti eseguono il processo di aggiunta ad Azure AD durante la Configurazione guidata o le impostazioni di Windows. Per altre informazioni, vedere [Aggiungere il dispositivo aziendale alla rete dell'organizzazione](../user-help/user-help-join-device-on-network.md). 
 - **Windows Autopilot**: Windows Autopilot permette la preconfigurazione dei dispositivi per un'esperienza più uniforme in Configurazione guidata per l'esecuzione dell'aggiunta ad Azure AD. Per altre informazioni, vedere [Panoramica di Windows Autopilot](/windows/deployment/windows-autopilot/windows-10-autopilot). 
 - **Registrazione in blocco**: la registrazione in blocco permette un'aggiunta ad Azure AD eseguita da un amministratore tramite uno strumento di provisioning in blocco per configurare i dispositivi. Per altre informazioni, vedere [Registrazione in blocco per dispositivi Windows](/intune/windows-bulk-enroll).
  
@@ -201,7 +201,7 @@ Ecco un confronto di questi tre approcci
 | Richiesta dell'interazione dell'utente per la configurazione | Sì | Sì | No |
 | Richiesta di attività IT | No | Sì | Sì |
 | Flussi applicabili | Configurazione guidata e impostazioni | Solo Configurazione guidata | Solo Configurazione guidata |
-| Diritti di amministratore locale a un utente primario | Sì, per impostazione predefinita | Configurabile | No |
+| Diritti di amministratore locale all'utente primario | Sì, per impostazione predefinita | Configurabile | No |
 | Richiesta del supporto dell'OEM del dispositivo | No | Sì | No |
 | Versioni supportate | 1511+ | 1709+ | 1703+ |
  
@@ -273,9 +273,9 @@ Esistono tre URL correlati alla configurazione MDM:
 
 ![Aggiungere un'applicazione](./media/azureadjoin-plan/06.png)
 
-Ogni URL ha un valore predefinito. Se questi campi sono vuoti, contattare il provider MDM per altre informazioni.
+Per ogni URL è disponibile un valore predefinito. Se questi campi sono vuoti, contattare il provider MDM per altre informazioni.
 
-### <a name="mam-settings"></a>Impostazioni del software MAM
+### <a name="mam-settings"></a>Impostazioni MAM
 
 Il software MAM non si applica all'aggiunta ad Azure AD. 
 
@@ -297,7 +297,7 @@ Se per i dispositivi aggiunti ad Azure AD è stato configurato un provider MDM, 
 
 > [!div class="nextstepaction"]
 > [Aggiungere un nuovo dispositivo Windows 10 con Azure ad durante la prima esecuzione](azuread-joined-devices-frx.md) 
->  [Aggiungere il dispositivo di lavoro alla rete dell'organizzazione](/azure/active-directory/user-help/user-help-join-device-on-network)
+>  [Aggiungere il dispositivo di lavoro alla rete dell'organizzazione](../user-help/user-help-join-device-on-network.md)
 
 <!--Image references-->
 [1]: ./media/azureadjoin-plan/12.png

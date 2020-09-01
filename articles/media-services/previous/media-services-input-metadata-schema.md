@@ -13,14 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b6d89b36123267c0bdc5d8fdbfd56c83610418c9
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 57a91622bef401d946a383e3be39f2e566fa50b4
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86056209"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267837"
 ---
-# <a name="input-metadata"></a>Metadati di input 
+# <a name="input-metadata"></a>Metadati di input
+
+[!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
 Un processo di codifica è associato uno (o più) asset di input in cui si desidera eseguire alcune attività di codifica.  Al termine di un'attività, viene generato un asset di output.  L'asset di output contiene video, audio, anteprime, manifesti e così via. L'asset di output contiene anche un file con i metadati relativi all'asset di input. Il nome del file XML dei metadati ha il seguente formato: &lt;asset_id&gt;_metadata.xml (ad esempio, 41114ad3-eb5e-4c57-8d92-5354e2b7d4a4_metadata.xml), dove &lt;asset_id&gt; è il valore AssetId dell'asset di input.  
 
@@ -38,7 +40,7 @@ Contiene una raccolta di [elementi AssetFile](media-services-input-metadata-sche
 
 Vedere un esempio di codice XML alla fine di questo articolo: [Esempio XML](media-services-input-metadata-schema.md#xml).  
 
-| Name | Descrizione |
+| Nome | Description |
 | --- | --- |
 | **AssetFile**<br /><br /> minOccurs="1" maxOccurs="unbounded" |Un singolo elemento figlio. Per altre informazioni, vedere [Elemento AssetFile](media-services-input-metadata-schema.md#AssetFile). |
 
@@ -47,15 +49,15 @@ Vedere un esempio di codice XML alla fine di questo articolo: [Esempio XML](medi
 
  Vedere un esempio di codice XML alla fine di questo articolo: [Esempio XML](media-services-input-metadata-schema.md#xml).  
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 | Nome | Type | Descrizione |
 | --- | --- | --- |
-| **Nome**<br /><br /> Necessario |**xs:string** |Nome del file di asset |
-| **Dimensione**<br /><br /> Necessario |**xs:long** |Dimensioni del file di asset in byte. |
-| **Duration**<br /><br /> Necessario |**xs:duration** |Durata della riproduzione del contenuto. Esempio: Duration="PT25M37.757S". |
-| **NumberOfStreams**<br /><br /> Necessario |**xs:int** |Numero di flussi nel file di asset. |
-| **FormatNames**<br /><br /> Necessario |**xs: string** |Nomi del formato. |
-| **FormatVerboseNames**<br /><br /> Necessario |**xs: string** |Nomi dettagliati del formato. |
+| **Nome**<br /><br /> Obbligatorio |**xs:string** |Nome del file di asset |
+| **Dimensione**<br /><br /> Obbligatorio |**xs:long** |Dimensioni del file di asset in byte. |
+| **Duration**<br /><br /> Obbligatorio |**xs:duration** |Durata della riproduzione del contenuto. Esempio: Duration="PT25M37.757S". |
+| **NumberOfStreams**<br /><br /> Obbligatorio |**xs:int** |Numero di flussi nel file di asset. |
+| **FormatNames**<br /><br /> Obbligatorio |**xs: string** |Nomi del formato. |
+| **FormatVerboseNames**<br /><br /> Obbligatorio |**xs: string** |Nomi dettagliati del formato. |
 | **StartTime** |**xs:duration** |Ora di inizio del contenuto. Esempio: StartTime="PT2.669S". |
 | **OverallBitRate** |**xs: int** |Media della velocità in bit del file di asset, espressa in kbps. |
 
@@ -65,23 +67,23 @@ Vedere un esempio di codice XML alla fine di questo articolo: [Esempio XML](medi
 > 
 
 ### <a name="child-elements"></a>Elementi figlio
-| Nome | Type | Descrizione |
+| Nome | Type | Description |
 | --- | --- | --- |
 | **Programmi**<br /><br /> minOccurs="0" | |Raccolta di tutti gli [Elementi Programs](media-services-input-metadata-schema.md#Programs) quando il file di asset è in formato MPEG-TS. |
 | **VideoTracks**<br /><br /> minOccurs="0" | |Ogni file di asset fisico può contenere da zero a più tracce video con interfoliazione in un formato contenitore appropriato. Questo elemento contiene una raccolta di tutti i [VideoTracks](media-services-input-metadata-schema.md#VideoTracks) che fanno parte del file di asset. |
 | **AudioTrack**<br /><br /> minOccurs="0" | |Ogni file di asset fisico può contenere da zero a più tracce audio con interfoliazione in un formato contenitore appropriato. Questo elemento contiene una raccolta di tutti gli [AudioTracks](media-services-input-metadata-schema.md#AudioTracks) che fanno parte del file di asset. |
-| **Metadati**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Metadati del file di asset rappresentati come stringhe chiave-valore. Ad esempio:<br /><br /> **&lt;Metadata Key = "Language" value = "ENG"/&gt;** |
+| **Metadata**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Metadati del file di asset rappresentati come stringhe chiave-valore. Ad esempio:<br /><br /> **&lt;Metadata Key = "Language" value = "ENG"/&gt;** |
 
-## <a name="tracktype"></a><a name="TrackType"></a>TrackType
+## <a name="tracktype"></a><a name="TrackType"></a> TrackType
 Vedere un esempio di codice XML alla fine di questo articolo: [Esempio XML](media-services-input-metadata-schema.md#xml).  
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 | Nome | Type | Description |
 | --- | --- | --- |
-| **Id**<br /><br /> Necessario |**xs:int** |Indice in base zero della traccia audio o video.<br /><br /> Non corrisponde necessariamente al TrackID usato in un file MP4. |
+| **Id**<br /><br /> Obbligatorio |**xs:int** |Indice in base zero della traccia audio o video.<br /><br /> Non corrisponde necessariamente al TrackID usato in un file MP4. |
 | **Codec** |**xs:string** |Stringa del codec della traccia video. |
 | **CodecLongName** |**xs: string** |Nome lungo del codec della traccia audio o video. |
-| **TimeBase**<br /><br /> Necessario |**xs:string** |Tempo base. Esempio: TimeBase="1/48000" |
+| **TimeBase**<br /><br /> Obbligatorio |**xs:string** |Tempo base. Esempio: TimeBase="1/48000" |
 | **NumberOfFrames** |**xs:int** |Numero di frame (presenti per le tracce video). |
 | **StartTime** |**xs: duration** |Ora di inizio della traccia. Esempio: StartTime="PT2.669S" |
 | **Duration** |**xs:duration** |Durata della traccia. Esempio: Duration="PTSampleFormat M37.757S". |
@@ -92,103 +94,103 @@ Vedere un esempio di codice XML alla fine di questo articolo: [Esempio XML](medi
 > 
 
 ### <a name="child-elements"></a>Elementi figlio
-| Nome | Type | Descrizione |
+| Nome | Type | Description |
 | --- | --- | --- |
 | **Disposition**<br /><br /> minOccurs="0" maxOccurs="1" |[StreamDispositionType](media-services-input-metadata-schema.md#StreamDispositionType) |Contiene informazioni di presentazione (ad esempio, se una determinata traccia audio è per utenti con problemi di vista). |
-| **Metadati**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Stringhe chiave-valore generiche che possono essere usate per contenere una varietà di informazioni. Esempio, key="language" e value="eng". |
+| **Metadata**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[MetadataType](media-services-input-metadata-schema.md#MetadataType) |Stringhe chiave-valore generiche che possono essere usate per contenere una varietà di informazioni. Esempio, key="language" e value="eng". |
 
-## <a name="audiotracktype-inherits-from-tracktype"></a><a name="AudioTrackType"></a>AudioTrackType (eredita da TrackType)
+## <a name="audiotracktype-inherits-from-tracktype"></a><a name="AudioTrackType"></a> AudioTrackType (eredita da TrackType)
  **AudioTrackType** è un tipo globale complesso che eredita da [TrackType](media-services-input-metadata-schema.md#TrackType).  
 
  Il tipo rappresenta una specifica traccia audio nel file di asset.  
 
  Vedere un esempio di codice XML alla fine di questo articolo: [Esempio XML](media-services-input-metadata-schema.md#xml).  
 
-### <a name="attributes"></a>Attributes
-| Nome | Type | Descrizione |
+### <a name="attributes"></a>Attributi
+| Nome | Type | Description |
 | --- | --- | --- |
 | **SampleFormat** |**xs:string** |Formato del campione. |
 | **ChannelLayout** |**xs: string** |Layout del canale. |
-| **Channels**<br /><br /> Necessario |**xs:int** |Numero di canali audio (da 0 in su). |
-| **SamplingRate**<br /><br /> Necessario |**xs:int** |Frequenza di campionamento dell'audio in campioni/sec o Hz. |
+| **Canali**<br /><br /> Obbligatorio |**xs:int** |Numero di canali audio (da 0 in su). |
+| **SamplingRate**<br /><br /> Obbligatorio |**xs:int** |Frequenza di campionamento dell'audio in campioni/sec o Hz. |
 | **Bitrate** |**xs:int** |Velocità media in bit audio in bit al secondo, calcolata in base al file di asset. Viene contato solo il payload del flusso elementare, mentre l'overhead di creazione dei pacchetti è escluso dal conteggio. |
 | **BitsPerSample** |**xs:int** |Tipo di bit per campione per il formato wFormatTag. |
 
-## <a name="videotracktype-inherits-from-tracktype"></a><a name="VideoTrackType"></a>VideoTrackType (eredita da TrackType)
+## <a name="videotracktype-inherits-from-tracktype"></a><a name="VideoTrackType"></a> VideoTrackType (eredita da TrackType)
 **AudioTrackType** è un tipo globale complesso che eredita da [TrackType](media-services-input-metadata-schema.md#TrackType).  
 
 Il tipo rappresenta una specifica traccia video nel file di asset.  
 
 Vedere un esempio di codice XML alla fine di questo articolo: [Esempio XML](media-services-input-metadata-schema.md#xml).  
 
-### <a name="attributes"></a>Attributes
-| Nome | Type | Descrizione |
+### <a name="attributes"></a>Attributi
+| Nome | Type | Description |
 | --- | --- | --- |
-| **FourCC**<br /><br /> Necessario |**xs:string** |Codice FourCC del codec video. |
+| **FourCC**<br /><br /> Obbligatorio |**xs:string** |Codice FourCC del codec video. |
 | **Profilo** |**xs: string** |Profilo della traccia video. |
 | **Level** |**xs: string** |Livello della traccia video. |
 | **PixelFormat** |**xs: string** |Formato pixel della traccia video. |
-| **Larghezza**<br /><br /> Necessario |**xs:int** |Larghezza del video codificata in pixel. |
-| **Altezza:**<br /><br /> Necessario |**xs:int** |Altezza del video codificata in pixel. |
-| **DisplayAspectRatioNumerator**<br /><br /> Necessario |**xs: double** |Numeratore delle proporzioni della visualizzazione video. |
-| **DisplayAspectRatioDenominator**<br /><br /> Necessario |**xs:double** |Denominatore delle proporzioni della visualizzazione video. |
-| **DisplayAspectRatioDenominator**<br /><br /> Necessario |**xs: double** |Numeratore delle proporzioni del campione video. |
+| **Larghezza**<br /><br /> Obbligatorio |**xs:int** |Larghezza del video codificata in pixel. |
+| **Altezza**<br /><br /> Obbligatorio |**xs:int** |Altezza del video codificata in pixel. |
+| **DisplayAspectRatioNumerator**<br /><br /> Obbligatorio |**xs: double** |Numeratore delle proporzioni della visualizzazione video. |
+| **DisplayAspectRatioDenominator**<br /><br /> Obbligatorio |**xs:double** |Denominatore delle proporzioni della visualizzazione video. |
+| **DisplayAspectRatioDenominator**<br /><br /> Obbligatorio |**xs: double** |Numeratore delle proporzioni del campione video. |
 | **SampleAspectRatioNumerator** |**xs: double** |Numeratore delle proporzioni del campione video. |
 | **SampleAspectRatioNumerator** |**xs:double** |Denominatore delle proporzioni del campione video. |
-| **FrameRate**<br /><br /> Necessario |**xs:decimal** |Frequenza dei frame misurata in formato .3F. |
+| **FrameRate**<br /><br /> Obbligatorio |**xs: decimal** |Frequenza dei frame misurata in formato .3F. |
 | **Bitrate** |**xs:int** |Velocità media in bit video in kilobit al secondo, calcolata in base al file di asset. Viene contato solo il payload del flusso elementare, mentre l'overhead di creazione dei pacchetti è escluso. |
 | **MaxGOPBitrate** |**xs: int** |Velocità media in bit Max GOP per la traccia video, in kilobit al secondo. |
 | **HasBFrames** |**xs:int** |Numero di traccia video dei fotogrammi B. |
 
-## <a name="metadatatype"></a><a name="MetadataType"></a>MetadataType
+## <a name="metadatatype"></a><a name="MetadataType"></a> MetadataType
 **MetadataType** è un tipo globale complesso che descrive i metadati di un file di asset come stringhe chiave-valore. Esempio, key="language" e value="eng".  
 
 Vedere un esempio di codice XML alla fine di questo articolo: [Esempio XML](media-services-input-metadata-schema.md#xml).  
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 | Nome | Type | Descrizione |
 | --- | --- | --- |
-| **key**<br /><br /> Necessario |**xs:string** |La chiave nella coppia chiave-valore. |
-| **value**<br /><br /> Necessario |**xs:string** |Il valore nella coppia chiave-valore. |
+| **key**<br /><br /> Obbligatorio |**xs:string** |La chiave nella coppia chiave-valore. |
+| **value**<br /><br /> Obbligatorio |**xs:string** |Il valore nella coppia chiave-valore. |
 
-## <a name="programtype"></a><a name="ProgramType"></a>ProgramType
+## <a name="programtype"></a><a name="ProgramType"></a> ProgramType
 **ProgramType** è un tipo globale complesso che descrive un programma.  
 
-### <a name="attributes"></a>Attributes
-| Nome | Type | Descrizione |
+### <a name="attributes"></a>Attributi
+| Nome | Type | Description |
 | --- | --- | --- |
-| **ProgramId**<br /><br /> Necessario |**xs:int** |ID programma |
-| **NumberOfPrograms**<br /><br /> Necessario |**xs:int** |Numero di programmi. |
-| **PmtPid**<br /><br /> Necessario |**xs:int** |Tabelle di mappa dei programmi (PMT) che contengono informazioni sui programmi.  Per altre informazioni, vedere [PMT](https://en.wikipedia.org/wiki/MPEG_transport_stream#PMT). |
-| **PcrPid**<br /><br /> Necessario |**xs: int** |Usato dal decodificatore. Per altre informazioni, vedere [PCR](https://en.wikipedia.org/wiki/MPEG_transport_stream#PCR). |
+| **ProgramId**<br /><br /> Obbligatorio |**xs:int** |ID programma |
+| **NumberOfPrograms**<br /><br /> Obbligatorio |**xs:int** |Numero di programmi. |
+| **PmtPid**<br /><br /> Obbligatorio |**xs:int** |Tabelle di mappa dei programmi (PMT) che contengono informazioni sui programmi.  Per altre informazioni, vedere [PMT](https://en.wikipedia.org/wiki/MPEG_transport_stream#PMT). |
+| **PcrPid**<br /><br /> Obbligatorio |**xs: int** |Usato dal decodificatore. Per altre informazioni, vedere [PCR](https://en.wikipedia.org/wiki/MPEG_transport_stream#PCR). |
 | **StartPTS** |**xs: long** |Timestamp di avvio della presentazione. |
 | **EndPTS** |**xs: long** |Timestamp di fine della presentazione. |
 
-## <a name="streamdispositiontype"></a><a name="StreamDispositionType"></a>StreamDispositionType
+## <a name="streamdispositiontype"></a><a name="StreamDispositionType"></a> StreamDispositionType
 **StreamDispositionType** è un tipo globale complesso che descrive il flusso.  
 
 Vedere un esempio di codice XML alla fine di questo articolo: [Esempio XML](media-services-input-metadata-schema.md#xml).  
 
-### <a name="attributes"></a>Attributes
+### <a name="attributes"></a>Attributi
 | Nome | Type | Descrizione |
 | --- | --- | --- |
-| **Default**<br /><br /> Necessario |**xs: int** |Impostare questo attributo su 1 per indicare che si tratta della presentazione predefinita. |
-| **Dub**<br /><br /> Necessario |**xs:int** |Impostare questo attributo su 1 per indicare che si tratta della presentazione doppiata. |
-| **Originale**<br /><br /> Necessario |**xs: int** |Impostare questo attributo su 1 per indicare che si tratta della presentazione originale. |
-| **Commento**<br /><br /> Necessario |**xs:int** |Impostare questo attributo su 1 per indicare che questa traccia contiene commenti. |
-| **Lyrics**<br /><br /> Necessario |**xs:int** |Impostare questo attributo su 1 per indicare che questa traccia contiene testi. |
-| **Karaoke**<br /><br /> Necessario |**xs:int** |Impostare questo attributo su 1 per indicare che si tratta della traccia karaoke (musica di sottofondo, senza cantato). |
-| **Forzato**<br /><br /> Necessario |**xs:int** |Impostare questo attributo su 1 per indicare che si tratta della presentazione forzata. |
-| **HearingImpaired**<br /><br /> Necessario |**xs:int** |Impostare questo attributo su 1 per indicare che questa traccia è destinata agli utenti con difficoltà di udito. |
-| **VisualImpaired**<br /><br /> Necessario |**xs:int** |Impostare questo attributo su 1 per indicare che questa traccia è destinata agli utenti con problemi di vista. |
-| **CleanEffects**<br /><br /> Necessario |**xs: int** |Impostare questo attributo su 1 per indicare che questa traccia contiene effetti clean. |
-| **AttachedPic**<br /><br /> Necessario |**xs: int** |Impostare questo attributo su 1 per indicare che questa traccia contiene foto. |
+| **Default**<br /><br /> Obbligatorio |**xs: int** |Impostare questo attributo su 1 per indicare che si tratta della presentazione predefinita. |
+| **Dub**<br /><br /> Obbligatorio |**xs:int** |Impostare questo attributo su 1 per indicare che si tratta della presentazione doppiata. |
+| **Originale**<br /><br /> Obbligatorio |**xs: int** |Impostare questo attributo su 1 per indicare che si tratta della presentazione originale. |
+| **Commento**<br /><br /> Obbligatorio |**xs:int** |Impostare questo attributo su 1 per indicare che questa traccia contiene commenti. |
+| **Lyrics**<br /><br /> Obbligatorio |**xs:int** |Impostare questo attributo su 1 per indicare che questa traccia contiene testi. |
+| **Karaoke**<br /><br /> Obbligatorio |**xs:int** |Impostare questo attributo su 1 per indicare che si tratta della traccia karaoke (musica di sottofondo, senza cantato). |
+| **Forzato**<br /><br /> Obbligatorio |**xs:int** |Impostare questo attributo su 1 per indicare che si tratta della presentazione forzata. |
+| **HearingImpaired**<br /><br /> Obbligatorio |**xs:int** |Impostare questo attributo su 1 per indicare che questa traccia è destinata agli utenti con difficoltà di udito. |
+| **VisualImpaired**<br /><br /> Obbligatorio |**xs:int** |Impostare questo attributo su 1 per indicare che questa traccia è destinata agli utenti con problemi di vista. |
+| **CleanEffects**<br /><br /> Obbligatorio |**xs: int** |Impostare questo attributo su 1 per indicare che questa traccia contiene effetti clean. |
+| **AttachedPic**<br /><br /> Obbligatorio |**xs: int** |Impostare questo attributo su 1 per indicare che questa traccia contiene foto. |
 
 ## <a name="programs-element"></a><a name="Programs"></a> Elemento Programs
 Elemento wrapper contenente più elementi **Program**.  
 
 ### <a name="child-elements"></a>Elementi figlio
-| Nome | Type | Descrizione |
+| Nome | Type | Description |
 | --- | --- | --- |
 | **Programma**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[ProgramType](media-services-input-metadata-schema.md#ProgramType) |Per i file di asset in formato MPEG-TS, contiene informazioni sui programmi nel file di asset. |
 
@@ -198,7 +200,7 @@ Elemento wrapper contenente più elementi **Program**.
  Vedere un esempio di codice XML alla fine di questo articolo: [Esempio XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="child-elements"></a>Elementi figlio
-| Nome | Type | Descrizione |
+| Nome | Type | Description |
 | --- | --- | --- |
 | **VideoTrack**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[VideoTrackType (eredita da TrackType)](media-services-input-metadata-schema.md#VideoTrackType) |Contiene informazioni sulle tracce video presenti nel file di asset. |
 
@@ -208,11 +210,11 @@ Elemento wrapper contenente più elementi **Program**.
  Vedere un esempio di codice XML alla fine di questo articolo: [Esempio XML](media-services-input-metadata-schema.md#xml).  
 
 ### <a name="elements"></a>Elementi figlio
-| Nome | Type | Descrizione |
+| Nome | Type | Description |
 | --- | --- | --- |
 | **AudioTrack**<br /><br /> minOccurs="0" maxOccurs="unbounded" |[AudioTrackType (eredita da TrackType)](media-services-input-metadata-schema.md#AudioTrackType) |Contiene informazioni sulle tracce audio presenti nel file di asset. |
 
-## <a name="schema-code"></a><a name="code"></a>Codice schema
+## <a name="schema-code"></a><a name="code"></a> Codice schema
 ```xml
 <?xml version="1.0" encoding="utf-8"?>  
 <xs:schema xmlns:xs="https://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" version="1.0"  
@@ -613,7 +615,7 @@ Elemento wrapper contenente più elementi **Program**.
 ```
 
 
-## <a name="xml-example"></a><a name="xml"></a>Esempio XML
+## <a name="xml-example"></a><a name="xml"></a> Esempio XML
 Di seguito è riportato un esempio di file di metadati di input.  
 
 ```xml

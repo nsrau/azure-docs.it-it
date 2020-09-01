@@ -3,7 +3,7 @@ title: Utilizzo dell’interfaccia della riga di comando per ridimensionare Medi
 description: In questo argomento viene spiegato come usare l’interfaccia della riga di comando per ridimensionare l'elaborazione di servizi multimediali con Servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
-author: juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -11,17 +11,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/09/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: 6715014485b227713447ce5d552cf7ba79737845
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8e681b1f82086480541d08ae9f8ef9e5cf07b4df
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053227"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268469"
 ---
 # <a name="scaling-media-processing"></a>Ridimensionamento dell'elaborazione di contenuti multimediali
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Servizi multimediali di Azure consente di ridimensionare l'elaborazione di contenuti multimediali nell'account gestendo le Media Reserved Unit (MRU). MRU determina la velocità con cui vengono elaborate le attività di elaborazione di contenuti multimediali. È possibile scegliere uno dei seguenti tipi di unità riservata: **S1**, **S2** o **S3**. Lo stesso processo di codifica viene eseguito più velocemente quando si usa ad esempio il tipo di unità riservata **S2** rispetto al tipo **S1**. 
 
@@ -71,7 +73,7 @@ L'addebito è basato sul numero di minuti per cui viene effettuato il provisioni
 
 [Analizzare i video](analyze-videos-tutorial-with-api.md) 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Quote e limiti](limits-quotas-constraints.md)
 * [Interfaccia della riga di comando di Azure](/cli/azure/ams?view=azure-cli-latest)

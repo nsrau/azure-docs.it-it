@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 08/26/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ab9672984bca42fc855476bf5b97ff5610ba6081
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e5045c81f280d9d7687a466aed2e918d21eec697
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014201"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266388"
 ---
 # <a name="create-list-delete-or-assign-a-role-to-a-user-assigned-managed-identity-using-the-azure-portal"></a>Creare, elencare, eliminare o assegnare un ruolo a un'identità gestita assegnata dall'utente mediante il portale di Azure
 
@@ -35,7 +35,7 @@ Questo articolo illustra come creare, elencare, eliminare o assegnare un ruolo a
 
 ## <a name="create-a-user-assigned-managed-identity"></a>Creare un'identità gestita assegnata dall'utente
 
-Per creare un'identità gestita assegnata dall'utente, all'account deve essere assegnato il ruolo [Collaboratore di identità gestite](/azure/role-based-access-control/built-in-roles#managed-identity-contributor).
+Per creare un'identità gestita assegnata dall'utente, all'account deve essere assegnato il ruolo [Collaboratore di identità gestite](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
 
 1. Accedere al [portale di Azure](https://portal.azure.com) usando un account associato alla sottoscrizione di Azure per creare l'identità gestita assegnata dall'utente.
 2. Nella casella di ricerca digitare *identità gestite*e in **Servizi**fare clic su **identità gestite**.
@@ -46,11 +46,11 @@ Per creare un'identità gestita assegnata dall'utente, all'account deve essere a
     - **Nome**: nome dell'identità gestita assegnata dall'utente, ad esempio UAI1.
     ![Creare un'identità gestita assegnata dall'utente](./media/how-to-manage-ua-identity-portal/create-user-assigned-managed-identity-portal.png)
 4. Fare clic su **Verifica + Crate** per esaminare le modifiche.
-5. Fare clic su **Crea**.
+5. Scegliere **Crea**.
 
 ## <a name="list-user-assigned-managed-identities"></a>Elencare le identità gestite assegnate dall'utente
 
-Per elencare/leggere un'identità gestita assegnata dall'utente, all'account deve essere assegnato il ruolo [Operatore di identità gestite](/azure/role-based-access-control/built-in-roles#managed-identity-operator) o [Collaboratore di identità gestite](/azure/role-based-access-control/built-in-roles#managed-identity-contributor).
+Per elencare/leggere un'identità gestita assegnata dall'utente, all'account deve essere assegnato il ruolo [Operatore di identità gestite](../../role-based-access-control/built-in-roles.md#managed-identity-operator) o [Collaboratore di identità gestite](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
 
 1. Accedere al [portale di Azure](https://portal.azure.com) usando un account associato alla sottoscrizione di Azure per elencare le identità gestite assegnate dall'utente.
 2. Nella casella di ricerca digitare *Identità gestite* e in Servizi fare clic su **Identità gestite**.
@@ -60,9 +60,9 @@ Per elencare/leggere un'identità gestita assegnata dall'utente, all'account dev
 
 ## <a name="delete-a-user-assigned-managed-identity"></a>Eliminare un'identità gestita assegnata dall'utente
 
-Per eliminare un'identità gestita assegnata dall'utente, all'account deve essere assegnato il ruolo [Collaboratore di identità gestite](/azure/role-based-access-control/built-in-roles#managed-identity-contributor).
+Per eliminare un'identità gestita assegnata dall'utente, all'account deve essere assegnato il ruolo [Collaboratore di identità gestite](../../role-based-access-control/built-in-roles.md#managed-identity-contributor).
 
-L'eliminazione di un'identità assegnata dall'utente non porta alla rimozione di tale identità dalla risorsa o macchina virtuale a cui era stata assegnata.  Per rimuovere un'identità assegnata dall'utente da una macchina virtuale consultare [Rimuovere un'identità gestita assegnata dall'utente da una macchina virtuale](/azure/active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm#remove-a-user-assigned-managed-identity-from-a-vm).
+L'eliminazione di un'identità assegnata dall'utente non porta alla rimozione di tale identità dalla risorsa o macchina virtuale a cui era stata assegnata.  Per rimuovere un'identità assegnata dall'utente da una macchina virtuale consultare [Rimuovere un'identità gestita assegnata dall'utente da una macchina virtuale](./qs-configure-portal-windows-vm.md#remove-a-user-assigned-managed-identity-from-a-vm).
 
 1. Accedere al [portale di Azure](https://portal.azure.com) usando un account associato alla sottoscrizione di Azure per eliminare l'identità gestita assegnata dall'utente.
 2. Selezionare l'identità gestita assegnata dall'utente e fare clic su **Elimina**.
@@ -72,7 +72,7 @@ L'eliminazione di un'identità assegnata dall'utente non porta alla rimozione di
 
 ## <a name="assign-a-role-to-a-user-assigned-managed-identity"></a>Assegnare un ruolo a un'identità gestita assegnata dall'utente 
 
-Per assegnare un ruolo a un'identità gestita assegnata dall'utente, all'account deve essere assegnato il ruolo [Amministratore Accesso utenti](/azure/role-based-access-control/built-in-roles#user-access-administrator).
+Per assegnare un ruolo a un'identità gestita assegnata dall'utente, all'account deve essere assegnato il ruolo [Amministratore Accesso utenti](../../role-based-access-control/built-in-roles.md#user-access-administrator).
 
 1. Accedere al [portale di Azure](https://portal.azure.com) usando un account associato alla sottoscrizione di Azure per elencare le identità gestite assegnate dall'utente.
 2. Nella casella di ricerca digitare *Identità gestite* e in Servizi fare clic su **Identità gestite**.
@@ -86,4 +86,4 @@ Per assegnare un ruolo a un'identità gestita assegnata dall'utente, all'account
    - **Assegna accesso a**: la risorsa a cui assegnare l'identità gestita assegnata dall'utente
    - **Seleziona**: il membro a cui assegnare l'accesso
    
-   ![Identità gestita assegnata dall'utente - IAM](./media/how-to-manage-ua-identity-portal/assign-role-screenshot2.png)  
+   ![Identità gestita assegnata dall'utente - IAM](./media/how-to-manage-ua-identity-portal/assign-role-screenshot2.png)

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 2e2a41f797c6c58597e90ef6bd6e373ab7408a7b
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 38c46bdcce64f726b3a7ddf74e0cfd10a14ba663
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182055"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268032"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-device"></a>Gestione del carico di lavoro Kubernetes sul dispositivo Azure Stack Edge
 
@@ -47,11 +47,11 @@ Esistono tre modi principali per distribuire i carichi di lavoro. Ognuna di ques
 
 ![Distribuzione del carico di lavoro Kubernetes](./media/azure-stack-edge-gpu-kubernetes-workload-management/kubernetes-workload-management-1.png)
 
-- **Distribuzione locale**: si tratta dello strumento di accesso da riga di comando, ad esempio, `kubectl` che consente di distribuire K8 `yamls` . Ci si connette al cluster K8 sul Azure Stack Edge creato usando il `kubeconfig` file. Per altre informazioni, vedere [accedere a un cluster Kubernetes tramite kubectl](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+- **Distribuzione locale**: si tratta dello strumento di accesso da riga di comando, ad esempio, `kubectl` che consente di distribuire Kubernetes `yamls` . È possibile connettersi al cluster Kubernetes nel Azure Stack Edge creato usando il `kubeconfig` file. Per altre informazioni, vedere [accedere a un cluster Kubernetes tramite kubectl](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
-- **Distribuzione di IOT Edge**: questa operazione viene eseguita tramite IOT Edge, che si connette all'hub Azure. Ci si connette al cluster K8 sul dispositivo Azure Stack Edge tramite lo `iotedge` spazio dei nomi. Gli agenti IoT Edge distribuiti in questo spazio dei nomi sono responsabili della connettività ad Azure. Si applica la `IoT Edge deployment.json` configurazione usando ci/CD di Azure DevOps. La gestione dello spazio dei nomi e IoT Edge viene eseguita tramite l'operatore cloud.
+- **Distribuzione di IOT Edge**: questa operazione viene eseguita tramite IOT Edge, che si connette all'hub Azure. Ci si connette al cluster Kubernetes nel dispositivo Azure Stack Edge tramite lo `iotedge` spazio dei nomi. Gli agenti IoT Edge distribuiti in questo spazio dei nomi sono responsabili della connettività ad Azure. Si applica la `IoT Edge deployment.json` configurazione usando ci/CD di Azure DevOps. La gestione dello spazio dei nomi e IoT Edge viene eseguita tramite l'operatore cloud.
 
-- **Distribuzione di Azure/Arc**: Azure Arc è uno strumento di gestione ibrido che consente di distribuire applicazioni nei cluster K8. Connettere il cluster K8 sul dispositivo Azure Stack Edge tramite il `azure-arc namespace` . Gli agenti vengono distribuiti in questo spazio dei nomi responsabile della connettività ad Azure. La configurazione della distribuzione viene applicata tramite la gestione della configurazione basata su GitOps. Azure ARC consente inoltre di usare monitoraggio di Azure per i contenitori per visualizzare e monitorare i cluster. Per altre informazioni, vedere [che cos'è Azure-Arc Enabled Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
+- **Distribuzione di Azure/Arc**: Azure Arc è uno strumento di gestione ibrido che consente di distribuire applicazioni nei cluster Kubernetes. Connettere il cluster Kubernetes nel dispositivo Azure Stack Edge tramite il `azure-arc namespace` . Gli agenti vengono distribuiti in questo spazio dei nomi responsabile della connettività ad Azure. La configurazione della distribuzione viene applicata tramite la gestione della configurazione basata su GitOps. Azure ARC consente inoltre di usare monitoraggio di Azure per i contenitori per visualizzare e monitorare i cluster. Per altre informazioni, vedere [che cos'è Azure-Arc Enabled Kubernetes?](https://docs.microsoft.com/azure/azure-arc/kubernetes/overview).
 
 ## <a name="choose-the-deployment-type"></a>Scegliere il tipo di distribuzione
 

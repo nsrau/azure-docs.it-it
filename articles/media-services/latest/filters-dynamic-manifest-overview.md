@@ -4,7 +4,7 @@ titleSuffix: Azure Media Services
 description: Informazioni su come creare filtri usando Dynamic Packager per filtrare e trasmettere in modo selettivo i manifesti.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
@@ -12,16 +12,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
 ms.topic: article
-ms.date: 07/11/2019
-ms.author: juliako
-ms.openlocfilehash: cb7a399258dcab679468d2b8f699487b1ec5406b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 4a2464cbb47291f35cd4d7e20b555356e3e9aa8b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84705203"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266460"
 ---
 # <a name="filter-your-manifests-using-dynamic-packager"></a>Filtrare i manifesti usando Dynamic Packager
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Quando si distribuisce contenuto di streaming a bitrate adattivo ai dispositivi, a volte è necessario pubblicare più versioni di un manifesto per individuare funzionalità specifiche del dispositivo o larghezza di banda di rete disponibile. [Dynamic Packager](dynamic-packaging-overview.md) consente di specificare filtri che consentono di filtrare i codec, le soluzioni, le velocità in bit e le combinazioni di tracce audio specifiche in tempo reale. Questo filtro elimina la necessità di creare più copie. È sufficiente pubblicare un nuovo URL con un set specifico di filtri configurati per i dispositivi di destinazione (iOS, Android, SmartTV o browser) e le funzionalità di rete (scenari a larghezza di banda elevata, per dispositivi mobili o a larghezza di banda ridotta). In questo caso, i client possono modificare lo streaming del contenuto tramite la stringa di query (specificando i filtri di [asset o i filtri](filters-concept.md)per gli account disponibili) e usare i filtri per trasmettere sezioni specifiche di un flusso.
 

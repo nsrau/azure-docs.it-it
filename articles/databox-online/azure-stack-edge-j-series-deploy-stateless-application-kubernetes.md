@@ -5,17 +5,17 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: f2bd0b8c222b9f9643d53da33619af438c121a2f
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 27502c58481444a9dc14120bf447d4614d051ccc
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145961"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268860"
 ---
-# <a name="run-and-manage-a-kubernetes-stateless-application-on-your-azure-stack-edge-device"></a>Eseguire e gestire un'applicazione Kubernetes senza stato nel dispositivo Azure Stack Edge
+# <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-gpu-device"></a>Distribuire un'applicazione Kubernetes senza stato tramite kubectl sul dispositivo GPU Azure Stack Edge
 
 Questo articolo descrive come distribuire un'applicazione senza stato usando i comandi kubectl in un cluster Kubernetes esistente. Questo articolo illustra anche il processo di creazione e configurazione di Pod nell'applicazione senza stato.
 

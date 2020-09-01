@@ -3,23 +3,25 @@ title: Codificare la trasformazione personalizzata usando l'interfaccia della ri
 description: Questo argomento illustra come usare servizi multimediali di Azure V3 per codificare una trasformazione personalizzata usando l'interfaccia della riga di comando di Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: devx-track-azurecli
-ms.date: 05/14/2019
-ms.author: juliako
-ms.openlocfilehash: 4ea328cc21d849367d36342ed1b0953a7eb26c77
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: f7b1f7a858c465629e075bcdb6d32bec29863f0a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503889"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267888"
 ---
 # <a name="how-to-encode-with-a-custom-transform---azure-cli"></a>Come codificare con una trasformazione personalizzata-interfaccia della riga di comando di Azure
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Quando si esegue la codifica con servizi multimediali di Azure, è possibile iniziare rapidamente con uno dei set di impostazioni predefiniti consigliati, in base alle procedure consigliate del settore, come illustrato nella Guida introduttiva ai [file di streaming](stream-files-cli-quickstart.md#create-a-transform-for-adaptive-bitrate-encoding) . È anche possibile creare un set di impostazioni personalizzato per individuare i requisiti specifici dello scenario o del dispositivo.
 
@@ -140,6 +142,6 @@ az ams transform create -a amsaccount -g amsResourceGroup -n customTransformName
 
 Per fare in modo che servizi multimediali applichi la trasformazione al video o all'audio specificato, è necessario inviare un processo nella trasformazione. Per un esempio completo in cui viene illustrato come inviare un processo in una trasformazione, vedere [Guida introduttiva: eseguire lo streaming di file video-interfaccia](stream-files-cli-quickstart.md)della riga di comando di Azure.
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 [Interfaccia della riga di comando di Azure](/cli/azure/ams)

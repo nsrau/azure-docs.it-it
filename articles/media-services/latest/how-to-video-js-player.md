@@ -10,17 +10,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 07/22/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 39c790ea3c7799c59d4b49e3ce3284fb96b8b254
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2730c6ce523e618110cd29b13ba2f37115e2cbd0
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422964"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267684"
 ---
 # <a name="how-to-use-the-videojs-player-with-azure-media-services"></a>Come usare il lettore di Video.js con servizi multimediali di Azure
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 ## <a name="overview"></a>Panoramica
 
@@ -73,10 +75,10 @@ Il codice di esempio per questo articolo è disponibile in [Azure-Samples/Media-
 
 Eseguire il `addRemoteTextTrack` metodo e sostituire:
 
-- `subtitleKind`con `"captions"` ,, `"subtitles"` `"descriptions"` o`"metadata"`  
-- `caption`con il percorso del file con estensione VTT (il file VTT deve trovarsi nello stesso host per evitare l'errore CORS)
-- `subtitleLang`con il codice BCP 47 per la lingua, ad esempio `"eng"` per l'inglese o lo `"es"` spagnolo
-- `subtitleLabel`con il nome visualizzato della didascalia desiderata
+- `subtitleKind` con `"captions"` ,, `"subtitles"` `"descriptions"` o `"metadata"`  
+- `caption` con il percorso del file con estensione VTT (il file VTT deve trovarsi nello stesso host per evitare l'errore CORS)
+- `subtitleLang` con il codice BCP 47 per la lingua, ad esempio `"eng"` per l'inglese o lo `"es"` spagnolo
+- `subtitleLabel` con il nome visualizzato della didascalia desiderata
 
 ```javascript
 videojs.players.video.addRemoteTextTrack({

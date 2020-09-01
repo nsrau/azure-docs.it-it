@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: ravenn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7637a4280d725aa8cd3482641645dbe19cb56210
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c8d03b8f13a016dc21e37b82f66abc8050ef17d8
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689045"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266783"
 ---
 # <a name="azure-active-directory-device-management-faq"></a>Domande frequenti sulla gestione dei dispositivi di Azure Active Directory
 
@@ -62,7 +62,7 @@ Sotto **Dispositivi utente** vengono elencati solo i dispositivi seguenti:
 - L'utente disabilita il dispositivo dal portale app personali. 
 - Un amministratore (o utente) Elimina o Disabilita il dispositivo nella portale di Azure o tramite PowerShell
 - Azure AD ibrido solo join: un amministratore rimuove l'ambito di sincronizzazione dei dispositivi dall'ambito di sincronizzazione risultante dall'eliminazione dei dispositivi da Azure AD
-- Aggiornamento Azure AD connettersi alla versione 1.4. XX. x. [Informazioni Azure ad Connect 1.4. XX. x e la scomparsa del dispositivo](/azure/active-directory/hybrid/reference-connect-device-disappearance).
+- Aggiornamento Azure AD connettersi alla versione 1.4. XX. x. [Informazioni Azure ad Connect 1.4. XX. x e la scomparsa del dispositivo](../hybrid/reference-connect-device-disappearance.md).
 
 
 Vedere di seguito il modo in cui è possibile rettificare queste azioni.
@@ -312,7 +312,7 @@ Le modifiche UPN sono supportate con l'aggiornamento di Windows 10 2004. Gli ute
 **R:** Seguire questa procedura:
 
 1.    [Creare criteri di conformità](/intune/compliance-policy-create-mac-os)
-1.    [Definire un criterio di accesso condizionale per i dispositivi macOS](../active-directory-conditional-access-azure-portal.md) 
+1.    [Definire un criterio di accesso condizionale per i dispositivi macOS](../conditional-access/overview.md) 
 
 **Osservazioni**
 

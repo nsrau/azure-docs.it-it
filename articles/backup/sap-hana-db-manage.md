@@ -3,12 +3,12 @@ title: Gestire i backup dei database SAP HANA su macchine virtuali di Azure
 description: Questo articolo illustra alcune attività comuni per la gestione e il monitoraggio di database SAP HANA in esecuzione su macchine virtuali di Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 6de1144237366806bb06c28a0777f62d69004e8b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 40761415042cc619893ab3a712a763d4fb046e38
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006566"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267480"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gestire e monitorare i database SAP HANA di cui è stato eseguito il backup
 
@@ -65,6 +65,8 @@ I backup vengono eseguiti in base alla pianificazione dei criteri. È possibile 
 2. In **Elementi di backup** selezionare la macchina virtuale che esegue il database SAP HANA, quindi fare clic su **Esegui backup**.
 3. In **backup ora**scegliere il tipo di backup che si desidera eseguire. Fare quindi clic su **OK**. Questo backup verrà mantenuto in base ai criteri associati a questo elemento di backup.
 4. Monitorare le notifiche del portale. È possibile monitorare l'avanzamento del processo nel dashboard dell'insieme di credenziali > **Processi di Backup** > **In corso**. A seconda delle dimensioni del database, la creazione del backup iniziale potrebbe richiedere un po' di tempo.
+
+Per impostazione predefinita, la conservazione dei backup su richiesta è di 45 giorni.
 
 ### <a name="hana-native-client-integration"></a>Integrazione di client nativi HANA
 

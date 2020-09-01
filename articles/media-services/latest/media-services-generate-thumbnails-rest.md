@@ -11,16 +11,18 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/10/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 635c1bb500f563da3c0eef8698cad8ab9fa5c810
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: af320b94950d5999b6dd181b7a8e0eb198088e98
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88068220"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267633"
 ---
 # <a name="how-to-generate-thumbnails-using-encoder-standard-with-rest"></a>Come generare anteprime usando il codificatore standard con REST
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 È possibile usare Media Encoder Standard per generare una o più anteprime dal video di input in un formato file di immagine a scelta tra [JPEG](https://en.wikipedia.org/wiki/JPEG), [PNG](https://en.wikipedia.org/wiki/Portable_Network_Graphics) e [BMP](https://en.wikipedia.org/wiki/BMP_file_format).
 

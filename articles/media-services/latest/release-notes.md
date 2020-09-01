@@ -3,22 +3,24 @@ title: Note sulla versione di Servizi multimediali v3 | Microsoft Docs
 description: Per stare al passo con gli sviluppi più recenti, questo articolo fornisce gli ultimi aggiornamenti relativi a Servizi multimediali di Azure v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: na
 ms.topic: article
-ms.date: 06/03/2020
-ms.author: juliako
-ms.openlocfilehash: 53e337cf4ccbabf7f0b7a227632ba5e996e2b4f3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 2e637392328c7a09fb23adeca61a352707f05e0e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072133"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267504"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Note sulla versione di Servizi multimediali v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 >Quando si torna a visitare questa pagina per informazioni sugli aggiornamenti, è possibile ricevere notifiche copiando e incollando l'URL `https://docs.microsoft.com/api/search/rss?search=%22Azure+Media+Services+v3+release+notes%22&locale=en-us` nel lettore di feed RSS.
 
@@ -85,7 +87,7 @@ Aggiunta del supporto della rete CDN per le intestazioni *Origin-Assist Prefetch
 
 |Intestazione HTTP|Valori|Mittente|Ricevitore|Scopo|
 | ---- | ---- | ---- | ---- | ----- |
-|Funzionalità CDN-Origin-Assist-Prefetch abilitata | 1 (valore predefinito) o 0 |Rete CDN|Origine|Per indicare che sulla rete CDN è abilitata la prelettura|
+|Funzionalità CDN-Origin-Assist-Prefetch abilitata | 1 (valore predefinito) o 0 |RETE CDN|Origine|Per indicare che sulla rete CDN è abilitata la prelettura|
 |CDN-Origin-Assist-Prefetch-Path| Esempio: <br/>Frammenti (video=1400000000,format=mpd-time-cmaf)|Origine|RETE CDN|Per fornire il percorso di prelettura alla rete CDN|
 |CDN-Origin-Assist-Prefetch-Request|1 (richiesta di prelettura) o 0 (richiesta normale)|RETE CDN|Origine|Per indicare che la richiesta dalla rete CDN è una richiesta di prelettura|
 

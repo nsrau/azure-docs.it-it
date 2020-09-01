@@ -4,22 +4,24 @@ titleSuffix: Azure Media Services
 description: Informazioni su come creare un account di archiviazione di Azure da usare con servizi multimediali di Azure.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/01/2019
-ms.author: juliako
-ms.openlocfilehash: 34b1061519f91c93be2f5eb43f813b83db8305f8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 120bd403d84f9912bd309f965f3b69306fabcc24
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87072008"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267072"
 ---
 # <a name="azure-storage-accounts"></a>Account di archiviazione di Azure
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Per avviare le operazioni di gestione, crittografia, codifica, analisi e streaming dei contenuti multimediali in Azure, è necessario creare un account di Servizi multimediali. Quando si crea un account di Servizi multimediali, è necessario specificare il nome di una risorsa dell'account di Archiviazione di Azure. L'account di archiviazione specificato è collegato all'account personale di Servizi multimediali.
 
@@ -45,11 +47,11 @@ In servizi multimediali V3, le API di archiviazione vengono usate per caricare f
 
 Per proteggere gli asset inattivi, gli asset devono essere crittografati tramite la crittografia lato archiviazione. La tabella seguente illustra il funzionamento della crittografia lato archiviazione in Servizi multimediali versione 3:
 
-|Opzione di crittografia|Descrizione|Servizi multimediali v3|
+|Opzione di crittografia|Description|Servizi multimediali v3|
 |---|---|---|
 |Crittografia di archiviazione di servizi multimediali| Crittografia AES-256, chiave gestita da servizi multimediali. |Non supportato. <sup>(1)</sup>|
 |[Crittografia del servizio di archiviazione per i dati inattivi](../../storage/common/storage-service-encryption.md)|Crittografia lato server offerta da archiviazione di Azure, chiave gestita da Azure o dal cliente.|Supportata.|
-|[Crittografia lato client di archiviazione](../../storage/common/storage-client-side-encryption.md)|Crittografia lato client offerta da archiviazione di Azure, la chiave gestita dal cliente in Key Vault.|Non supportato.|
+|[Crittografia lato client di archiviazione](../../storage/common/storage-client-side-encryption.md)|Crittografia lato client offerta da archiviazione di Azure, la chiave gestita dal cliente in Key Vault.|Non supportata.|
 
 <sup>1</sup> in servizi multimediali V3, la crittografia di archiviazione (crittografia AES-256) è supportata solo per la compatibilità con le versioni precedenti quando gli asset sono stati creati con servizi multimediali V2, il che significa che V3 funziona con asset crittografati di archiviazione esistenti ma non consente la creazione di nuove risorse.
 
@@ -59,7 +61,7 @@ Lo stato "Disconnesso" per un account Servizi multimediali indica che l'account 
 
 Di seguito sono riportati gli scenari principali che potrebbero comportare il mancato accesso, da parte di un account di Servizi multimediali, agli account di archiviazione collegati.
 
-|Problema|Solution|
+|Problema|Soluzione|
 |---|---|
 |L'account di Servizi multimediali o gli account di archiviazione collegati sono stati migrati per separare le sottoscrizioni. |Eseguire la migrazione degli account di archiviazione o degli account di servizi multimediali in modo che si trovino tutti nella stessa sottoscrizione. |
 |L'account di Servizi multimediali usa un account di archiviazione associato in un'altra sottoscrizione perché si tratta di un account Servizi multimediali iniziale in cui l'account di archiviazione era già precedentemente supportato. Tutti gli account di servizi multimediali precedenti sono stati convertiti in account basati su Azure Resource Manager moderni e avranno uno stato disconnesso. |Eseguire la migrazione dell'account di archiviazione o dell'account di servizi multimediali in modo che si trovino tutti nella stessa sottoscrizione.|

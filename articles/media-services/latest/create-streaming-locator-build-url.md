@@ -3,23 +3,25 @@ title: Creare un localizzatore di streaming e gli URL di compilazione-servizi mu
 description: Questo articolo illustra come creare un localizzatore di streaming e gli URL di compilazione.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/04/2020
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-csharp
-ms.openlocfilehash: c9eae2b0d8b5bebc027dd46afd17a37b8a19b422
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c00729e236cb314f47df8f622db2e19438af61ab
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012161"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267905"
 ---
 # <a name="create-a-streaming-locator-and-build-urls"></a>Creare un localizzatore di streaming e gli URL di compilazione
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Per creare un URL di streaming in servizi multimediali di Azure, è prima di tutto necessario creare un [localizzatore di streaming](streaming-locators-concept.md). Si concatenano quindi il nome host dell' [endpoint di streaming](/rest/api/media/streamingendpoints) e il percorso del **localizzatore di streaming** . In questo esempio viene usato l'*endpoint di streaming* **predefinito**. Quando si crea un account del servizio multimediale per la prima volta, questo **endpoint di streaming** *predefinito* si trova nello stato interrotto, quindi è necessario chiamare **Start** per avviare il flusso.
 
@@ -161,7 +163,7 @@ private static async Task<IList<string>> GetStreamingUrlsAsync(
 
 Vedere l'esempio di codice completo: [EncodingWithMESPredefinedPreset](https://github.com/Azure-Samples/media-services-v3-dotnet/blob/master/VideoEncoding/EncodingWithMESPredefinedPreset/Program.cs)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Creare filtri con .NET](filters-dynamic-manifest-dotnet-howto.md)
 * [Creare filtri con REST](filters-dynamic-manifest-rest-howto.md)

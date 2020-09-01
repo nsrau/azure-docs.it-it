@@ -5,17 +5,17 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 330186b12efcc31e9f99d7c4bdbff3e081311c23
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5b69d10bc2f3c5ec737e026059c82c3efac681b5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89085493"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268160"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-device-via-templates"></a>Distribuire macchine virtuali nel dispositivo Azure Stack Edge tramite modelli
+# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-templates"></a>Distribuire macchine virtuali nel dispositivo GPU Azure Stack Edge tramite modelli
 
 Questa esercitazione descrive come creare e gestire una macchina virtuale nel dispositivo Azure Stack Edge usando i modelli. Questi modelli sono file JavaScript Object Notation (JSON) che definiscono l'infrastruttura e la configurazione per la VM. In questi modelli si specificano le risorse da distribuire e le proprietà di tali risorse.
 
@@ -167,7 +167,7 @@ Copiare le immagini del disco da usare nei BLOB di pagine nell'account di archiv
 
     ![Importa certificato dell'endpoint di archiviazione BLOB](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/import-blob-storage-endpoint-certificate-1.png)
 
-    - Se si usano i certificati generati dal dispositivo, scaricare e convertire il certificato dell'endpoint di archiviazione BLOB `.cer` in un `.pem` formato. Eseguire il comando indicato di seguito. 
+    - Se si usano i certificati generati dal dispositivo, scaricare e convertire il certificato dell'endpoint di archiviazione BLOB `.cer` in un `.pem` formato. Eseguire il seguente comando. 
     
         ```powershell
         PS C:\windows\system32> Certutil -encode 'C:\myasegpu1_Blob storage (1).cer' .\blobstoragecert.pem

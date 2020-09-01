@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/01/2017
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0bcf6d99511f744b321a7a47913b44dc376143f
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 4683a77b9467775fbe368e2017416e0fbff9718c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89016139"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266290"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Come usare le identità gestite per risorse di Azure in una macchina virtuale di Azure per acquisire un token di accesso 
 
@@ -125,7 +125,7 @@ Content-Type: application/json
 
 ## <a name="get-a-token-using-the-microsoftazureservicesappauthentication-library-for-net"></a>Ottenere un token usando la libreria Microsoft.Azure.Services.AppAuthentication per .NET
 
-Per le funzioni e le applicazioni .NET, il modo più semplice per usare le identità gestite per risorse di Azure è tramite il pacchetto Microsoft.Azure.Services.AppAuthentication. Questa raccolta consente anche di testare il codice in locale nel computer di sviluppo usando l'account utente da Visual Studio, dall'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure?view=azure-cli-latest) o tramite l'autenticazione integrata di Active Directory. Per altre informazioni sulle opzioni di sviluppo locale con questa libreria, vedere la [documentazione di riferimento della libreria Microsoft.Azure.Services.AppAuthentication](/azure/key-vault/service-to-service-authentication). In questa sezione viene illustrato come muovere i primi passi con la libreria nel codice.
+Per le funzioni e le applicazioni .NET, il modo più semplice per usare le identità gestite per risorse di Azure è tramite il pacchetto Microsoft.Azure.Services.AppAuthentication. Questa raccolta consente anche di testare il codice in locale nel computer di sviluppo usando l'account utente da Visual Studio, dall'[interfaccia della riga di comando di Azure](/cli/azure?view=azure-cli-latest) o tramite l'autenticazione integrata di Active Directory. Per altre informazioni sulle opzioni di sviluppo locale con questa libreria, vedere la [documentazione di riferimento della libreria Microsoft.Azure.Services.AppAuthentication](../../key-vault/general/service-to-service-authentication.md). In questa sezione viene illustrato come muovere i primi passi con la libreria nel codice.
 
 1. Aggiungere un riferimento ai pacchetti NuGet [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) e [Microsoft.Azure.KeyVault](https://www.nuget.org/packages/Microsoft.Azure.KeyVault) all'applicazione.
 
@@ -141,7 +141,7 @@ Per le funzioni e le applicazioni .NET, il modo più semplice per usare le ident
     var kv = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
     ```
     
-Per altre informazioni su Microsoft.Azure.Services.AppAuthentication e sulle relative operazioni esposte, vedere la [documentazione di riferimento su Microsoft.Azure.Services.AppAuthentication](/azure/key-vault/service-to-service-authentication) e l'[esempio .NET del Servizio app di Azure e dell'insieme di credenziali delle chiavi con le identità gestite per risorse di Azure](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
+Per altre informazioni su Microsoft.Azure.Services.AppAuthentication e sulle relative operazioni esposte, vedere la [documentazione di riferimento su Microsoft.Azure.Services.AppAuthentication](../../key-vault/general/service-to-service-authentication.md) e l'[esempio .NET del Servizio app di Azure e dell'insieme di credenziali delle chiavi con le identità gestite per risorse di Azure](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet).
 
 ## <a name="get-a-token-using-c"></a>Ottenere un token tramite C#
 
@@ -381,7 +381,7 @@ Questa sezione illustra le possibili risposte di errore. Uno stato di tipo "200 
 |           | access_denied | Il proprietario della risorsa o il server di autorizzazione ha rifiutato la richiesta. |  |
 |           | unsupported_response_type | Il server di autorizzazione non supporta l'acquisizione di un token di accesso con questo metodo. |  |
 |           | invalid_scope | L'ambito richiesto non è valido, è sconosciuto o ha un formato non valido. |  |
-| 500 - Errore interno del server | unknown | Impossibile recuperare il token da Active Directory. Per informazioni dettagliate, vedere log in *\<file path\>* | Verificare che le identità gestite per le risorse di Azure è stata abilitata nella macchina virtuale. Per informazioni sulla configurazione della macchina virtuale, vedere [Configurare le identità gestite per le risorse di Azure in una macchina virtuale tramite il portale di Azure](qs-configure-portal-windows-vm.md).<br><br>Verificare anche che l'URI della richiesta HTTP GET sia formattato correttamente, in particolare l'URI della risorsa specificato nella stringa di query. Vedere Richiesta di esempio nella sezione REST precedente per un esempio oppure vedere [Servizi di Azure che supportano l'autenticazione di Azure AD](services-support-msi.md) per un elenco di servizi con i relativi ID di risorsa.
+| 500 - Errore interno del server | unknown | Impossibile recuperare il token da Active Directory. Per informazioni dettagliate, vedere log in *\<file path\>* | Verificare che le identità gestite per le risorse di Azure è stata abilitata nella macchina virtuale. Per informazioni sulla configurazione della macchina virtuale, vedere [Configurare le identità gestite per le risorse di Azure in una macchina virtuale tramite il portale di Azure](qs-configure-portal-windows-vm.md).<br><br>Verificare anche che l'URI della richiesta HTTP GET sia formattato correttamente, in particolare l'URI della risorsa specificato nella stringa di query. Vedere Richiesta di esempio nella sezione REST precedente per un esempio oppure vedere [Servizi di Azure che supportano l'autenticazione di Azure AD](./services-support-managed-identities.md) per un elenco di servizi con i relativi ID di risorsa.
 
 ## <a name="retry-guidance"></a>Materiale sussidiario sulla ripetizione di tentativi 
 
@@ -391,23 +391,15 @@ I limiti delle richieste si applicano al numero di chiamate effettuate all'endpo
 
 Per eseguire nuovi tentativi è consigliabile seguire la strategia seguente: 
 
-| **Strategia di ripetizione dei tentativi** | **Impostazioni** | **Valori** | **Come funziona** |
+| **Strategia di ripetizione dei tentativi** | **Impostazioni** | **Valori** | **Funzionamento** |
 | --- | --- | --- | --- |
 |ExponentialBackoff |Numero tentativi<br />Interruzione temporanea minima<br />Interruzione temporanea massima<br />Interruzione temporanea delta<br />Primo tentativo rapido |5<br />0 secondi<br />60 secondi<br />2 secondi<br />false |Tentativo di 1 - intervallo di 0 sec<br />Tentativo 2 - intervallo di ~2 sec<br />Tentativo 3 - intervallo di ~6 sec<br />Tentativo 4 - intervallo di ~14 sec<br />Tentativo 5 - intervallo di 30 sec |
 
 ## <a name="resource-ids-for-azure-services"></a>ID di risorsa per i servizi di Azure
 
-Per un elenco di risorse che supportano Azure AD e che sono state testate con le identità gestite per le risorse di Azure e i relativi ID risorsa, vedere [Servizi di Azure che supportano l'autenticazione di Azure AD](services-support-msi.md).
+Per un elenco di risorse che supportano Azure AD e che sono state testate con le identità gestite per le risorse di Azure e i relativi ID risorsa, vedere [Servizi di Azure che supportano l'autenticazione di Azure AD](./services-support-managed-identities.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Per abilitare le identità gestite per le risorse di Azure in una macchina virtuale di Azure, vedere [Configurare le identità gestite per le risorse di Azure in una macchina virtuale tramite il portale di Azure](qs-configure-portal-windows-vm.md).
-
-
-
-
-
-
-
-

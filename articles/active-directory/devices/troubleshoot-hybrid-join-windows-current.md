@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 08f083fe60076c80b5b7d60f555daac499974254
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc926c385aeee40601c00b3b4ab68065a4260f2f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82611314"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268775"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Risoluzione dei problemi relativi a dispositivi aggiunti all'identità ibrida di Azure Active Directory
 
@@ -28,8 +28,8 @@ Per altri client Windows, vedere l'articolo [risoluzione dei problemi relativi a
 Questo articolo presuppone che siano stati [configurati dispositivi aggiunti all'identità ibrida di Azure Active Directory](hybrid-azuread-join-plan.md) per supportare gli scenari seguenti:
 
 - Accesso condizionale basato sul dispositivo
-- [Roaming aziendale delle impostazioni](../active-directory-windows-enterprise-state-roaming-overview.md)
-- [Windows Hello for Business](../active-directory-azureadjoin-passport-deployment.md)
+- [Roaming aziendale delle impostazioni](./enterprise-state-roaming-overview.md)
+- [Windows Hello for Business](/windows/security/identity-protection/hello-for-business/hello-identity-verification)
 
 Questo documento fornisce indicazioni sulla risoluzione dei problemi per risolvere potenziali problemi.
 
@@ -42,7 +42,7 @@ Per Windows 10 e Windows Server 2016, l'aggiunta all'identità ibrida di Azure A
 **Per recuperare lo stato delle aggiunte:**
 
 1. Aprire un prompt dei comandi come amministratore
-2. Digitare `dsregcmd /status`.
+2. Digitare `dsregcmd /status`
 
 ```
 +----------------------------------------------------------------------+
@@ -170,7 +170,7 @@ Possibili cause dell'errore:
 - **DSREG_AUTOJOIN_DISC_FAILED** (0x801c0021/-2145648607)
    - Motivo: errore di individuazione generica. Non è stato possibile ottenere i metadati di individuazione da DRS.
    - Soluzione: trovare l'errore suberror riportato di seguito per approfondire l'analisi.
-- **DSREG_AUTOJOIN_DISC_WAIT_TIMEOUT** (0x801c001f/-2145648609)
+- **DSREG_AUTOJOIN_DISC_WAIT_TIMEOUT**  (0x801c001f/-2145648609)
    - Motivo: si è verificato il timeout dell'operazione durante l'esecuzione dell'individuazione.
    - Soluzione: assicurarsi che `https://enterpriseregistration.windows.net` sia accessibile nel contesto di sistema. Per ulteriori informazioni, vedere la sezione [requisiti di connettività di rete](hybrid-azuread-join-managed-domains.md#prerequisites).
 - **DSREG_AUTOJOIN_USERREALM_DISCOVERY_FAILED** (0x801c0021/-2145648611)
@@ -373,13 +373,13 @@ Usare i log di Visualizzatore eventi per individuare la fase e il codice ErrorCo
 
 ##### <a name="federated-join-server-errors"></a>Errori del server join federato
 
-| Codice di errore del server | Messaggio di errore del server | Di seguito sono indicati i motivi possibili: | Soluzione |
+| Codice di errore del server | Messaggio di errore del server | Di seguito sono indicati i motivi possibili: | Risoluzione |
 | --- | --- | --- | --- |
 | DirectoryError | La richiesta è limitata temporaneamente. Provare dopo 300 secondi. | Errore previsto. Probabilmente a causa dell'esecuzione di più richieste di registrazione in rapida successione. | Riprova join dopo il periodo di ricarica |
 
 ##### <a name="sync-join-server-errors"></a>Errori del server di sincronizzazione join
 
-| Codice di errore del server | Messaggio di errore del server | Di seguito sono indicati i motivi possibili: | Soluzione |
+| Codice di errore del server | Messaggio di errore del server | Di seguito sono indicati i motivi possibili: | Risoluzione |
 | --- | --- | --- | --- |
 | DirectoryError | AADSTS90002: il tenant non è stato <UUID> trovato. Questo errore può verificarsi se non sono presenti sottoscrizioni attive per il tenant. Rivolgersi all'amministratore della sottoscrizione. | L'ID tenant nell'oggetto SCP non è corretto | Verificare che l'oggetto SCP sia configurato con l'ID tenant Azure AD corretto e con le sottoscrizioni attive e presenti nel tenant. |
 | DirectoryError | L'oggetto dispositivo in base all'ID specificato non è stato trovato. | Errore previsto per Sync join. L'oggetto dispositivo non è stato sincronizzato da AD Azure AD | Attendere il completamento della sincronizzazione del Azure AD Connect e il successivo tentativo di join dopo il completamento della sincronizzazione risolverà il problema |
@@ -387,7 +387,7 @@ Usare i log di Visualizzatore eventi per individuare la fase e il codice ErrorCo
 
 ### <a name="step-5-collect-logs-and-contact-microsoft-support"></a>Passaggio 5: raccogliere i log e contattare supporto tecnico Microsoft
 
-Scaricare il file Auth.zip da[https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
+Scaricare il file Auth.zip da [https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH](https://github.com/CSS-Windows/WindowsDiag/tree/master/ADS/AUTH)
 
 1. Decomprimere i file e rinominare i file inclusi **start-auth.txt** e **stop-auth.txt** in **Start-auth. cmd** e **Stop-auth. cmd**.
 1. Da un prompt dei comandi con privilegi elevati eseguire **Start-auth. cmd**.

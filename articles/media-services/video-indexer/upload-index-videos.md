@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 02/18/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 153540ce0bf49740d0b3387715d83c8efd7af2cf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 722db99da3c46a4ea1e31ed329a8e3448cc5626b
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011872"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268826"
 ---
 # <a name="upload-and-index-your-videos"></a>Caricare e indicizzare i video  
 
@@ -101,7 +101,7 @@ Un URL che viene usato per notificare al cliente (con una richiesta POST) gli ev
 - Modifica stato indicizzazione: 
     - Proprietà:    
     
-        |Name|Descrizione|
+        |Nome|Descrizione|
         |---|---|
         |id|ID video|
         |state|Lo stato del video|  
@@ -167,7 +167,7 @@ Se `videoUrl` non viene specificato, Video Indexer richiede che il file venga pa
 
 Il frammento di codice C# seguente illustra l'uso di tutte le API di Video Indexer.
 
-#### <a name="instructions-for-running-this-code-sample"></a>Istruzioni per l'esecuzione di questo esempio di codice
+**Istruzioni per l'esecuzione dell'esempio di codice seguente**
 
 Dopo aver copiato questo codice nella piattaforma di sviluppo, sarà necessario specificare due parametri: chiave di autenticazione e URL video di gestione API.
 

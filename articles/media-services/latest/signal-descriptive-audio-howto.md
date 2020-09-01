@@ -3,23 +3,25 @@ title: Segnalare tracce audio descrittive con servizi multimediali di Azure V3 |
 description: Seguire i passaggi di questa esercitazione per caricare un file, codificare il video, aggiungere tracce audio descrittive e trasmettere i contenuti con servizi multimediali V3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.date: 09/25/2019
-ms.author: juliako
-ms.openlocfilehash: cce2dfe943519f39fbe0660338babf782fee4336
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 1a8986dcba9dc64eb77d8bc8c6e77704fa212abb
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006653"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267429"
 ---
 # <a name="signal-descriptive-audio-tracks"></a>Segnala tracce audio descrittive
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 È possibile aggiungere una traccia audio al video per aiutare i clienti con problemi di vista a seguire la registrazione ascoltando la narrazione. In servizi multimediali V3 è possibile segnalare tracce audio descrittive annotando la traccia audio nel file manifesto.
 
