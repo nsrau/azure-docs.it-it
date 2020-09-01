@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7b48ac1621c5c8788a4ecdb9ceb3af78f8e82a37
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: bb4cc150fab388846b35dc9adebfacf7a56e9bbc
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890502"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89073506"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Baseline della sicurezza di Azure per il backup
 
@@ -480,11 +480,11 @@ Microsoft gestisce l'infrastruttura sottostante per backup di Azure e ha impleme
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: Usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
-**Indicazioni**: il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente la gestione degli accessi con granularità fine per Azure. Usando il Controllo degli accessi in base al ruolo, è possibile separare i compiti all'interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il proprio lavoro.
+**Indicazioni**: il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente la gestione degli accessi con granularità fine per Azure. Usando il controllo degli accessi in base al ruolo di Azure, è possibile separare le mansioni all'interno del team e concedere agli utenti solo la quantità di accesso di cui hanno bisogno per svolgere il loro lavoro.
 
 Backup di Azure offre tre ruoli predefiniti per controllare le operazioni di gestione dei backup: collaboratore backup, operatore di backup e lettore di backup. È possibile eseguire il mapping dei ruoli predefiniti di backup a diverse azioni di gestione di backup.
 
-- [Come configurare RBAC in Azure](../role-based-access-control/role-assignments-portal.md)
+- [Come configurare RBAC di Azure](../role-based-access-control/role-assignments-portal.md)
 
 - [Usare il controllo degli accessi in base al ruolo per gestire i punti di ripristino di Backup di Azure](./backup-rbac-rs-vault.md)
 

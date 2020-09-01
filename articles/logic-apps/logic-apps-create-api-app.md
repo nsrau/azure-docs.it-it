@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
 ms.date: 05/26/2017
-ms.openlocfilehash: 0fc4fb91653f4a764540df0a7bc0cf0deee30fe6
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 3fe98160cc10eb3607b8309a9a263d63380dcfb5
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080831"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89073217"
 ---
 # <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Creare API personalizzate che è possibile chiamare da App per la logica di Azure
 
@@ -37,7 +37,7 @@ Per consentire alle API personalizzate di funzionare con le app per la logica, l
 > * [Python](../app-service/quickstart-python.md)
 > * [Ruby](../app-service/quickstart-ruby.md)
 >
-> Per gli esempi di app per le API compilate per le app per la logica, visitare il [repository GitHub](https://github.com/logicappsio) o il [blog sulle app per la logica di Azure](https://aka.ms/logicappsblog).
+> Per esempi di app per le API compilati per app per la logica, visitare il [repository GitHub](https://github.com/logicappsio)app per la logica di Azure
 
 ## <a name="how-do-custom-apis-differ-from-custom-connectors"></a>Differenza tra le API e i connettori personalizzati
 

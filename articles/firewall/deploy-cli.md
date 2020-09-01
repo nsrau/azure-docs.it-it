@@ -7,12 +7,12 @@ ms.service: firewall
 ms.date: 08/29/2019
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 3087b01e849aaa4d1f3c2b6b4060cf202927f55f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7f00b57edb37cc5bb5c8340663d619e526c2eacb
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85602636"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075427"
 ---
 # <a name="deploy-and-configure-azure-firewall-using-azure-cli"></a>Distribuire e configurare il firewall di Azure con l'interfaccia della riga di comando
 
@@ -35,13 +35,12 @@ Per questo articolo, si crea un VNet singolo semplificato con tre subnet per sem
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
-> [!div class="checklist"]
-> * Configurare un ambiente di rete di test
-> * Distribuire un firewall
-> * Creare una route predefinita
-> * Configurare una regola dell'applicazione per consentire l'accesso a www.google.com
-> * Configurare una regola di rete per consentire l'accesso a server DNS esterni
-> * Testare il firewall
+* Configurare un ambiente di rete di test
+* Distribuire un firewall
+* Creare una route predefinita
+* Configurare una regola dell'applicazione per consentire l'accesso a www.google.com
+* Configurare una regola di rete per consentire l'accesso a server DNS esterni
+* Testare il firewall
 
 Se si preferisce, è possibile completare questa procedura usando il [portale di Azure](tutorial-firewall-deploy-portal.md) o [Azure PowerShell](deploy-ps.md).
 

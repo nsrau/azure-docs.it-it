@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: how-to
 ms.date: 12/12/2019
-ms.openlocfilehash: ff7cb3c03edf9b421347815311796896caaffd70
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6ef76f3dafc02e89008ae164e3d868c628291766
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86086603"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075308"
 ---
 # <a name="use-id-broker-preview-for-credential-management"></a>Usare ID Broker (anteprima) per la gestione delle credenziali
 
@@ -46,7 +46,7 @@ La funzionalità ID Broker aggiungerà al cluster una macchina virtuale aggiunti
 
 ![Opzione per abilitare ID Broker](./media/identity-broker/identity-broker-enable.png)
 
-### <a name="using-azure-resource-manager-templates"></a>Uso dei modelli di Gestione risorse di Azure
+### <a name="using-azure-resource-manager-templates"></a>Uso di modelli di Azure Resource Manager
 Se si aggiunge un nuovo ruolo denominato `idbrokernode` con gli attributi seguenti al profilo di calcolo del modello, il cluster verrà creato con il nodo ID Broker abilitato:
 
 ```json
@@ -98,13 +98,21 @@ Dopo l'abilitazione di ID Broker, sarà comunque necessario un hash della passwo
 
 Per l'autenticazione SSH è necessario che l'hash sia disponibile in Azure AD DS. Se si vuole usare SSH solo per gli scenari amministrativi, è possibile creare un account solo cloud e usarlo per SSH nel cluster. Altri utenti possono comunque usare gli strumenti Ambari o HDInsight (ad esempio il plug-in IntelliJ) senza che sia disponibile l'hash della password in Azure AD DS.
 
+Per risolvere i problemi di autenticazione, vedere la [Guida](https://docs.microsoft.com/azure/hdinsight/domain-joined/domain-joined-authentication-issues).
+
 ## <a name="clients-using-oauth-to-connect-to-hdinsight-gateway-with-id-broker-setup"></a>Client che usano OAuth per connettersi al gateway HDInsight con l'installazione di ID Broker
 
 Nel programma di installazione di ID Broker è possibile aggiornare le app e i client personalizzati che si connettono al gateway per acquisire prima il token OAuth necessario. È possibile seguire la procedura descritta in questo [documento](https://docs.microsoft.com/azure/storage/common/storage-auth-aad-app) per acquisire il token con le informazioni seguenti:
 
-*   URI risorsa OAuth:`https://hib.azurehdinsight.net` 
+*   URI risorsa OAuth: `https://hib.azurehdinsight.net` 
 * AppId: 7865c1d2-F040-46cc-875f-831a1ef6a28a
 *   Autorizzazione: (nome: cluster. ReadWrite, ID: 8f89faa0-ffef-4007-974d-4989b39ad77d)
+
+Dopo aver acquisire il token OAuth, è possibile usarlo nell'intestazione dell'autorizzazione per la richiesta HTTP al gateway del cluster (ad esempio <clustername> -int.azurehdinsight.NET). Ad esempio, un comando curl di esempio per l'API Livio potrebbe essere simile al seguente:
+    
+```bash
+curl -k -v -H "Authorization: TOKEN" -H "Content-Type: application/json" -X POST -d '{ "file":"wasbs://mycontainer@mystorageaccount.blob.core.windows.net/data/SparkSimpleTest.jar", "className":"com.microsoft.spark.test.SimpleFile" }' "https://<clustername>-int.azurehdinsight.net/livy/batches" -H "X-Requested-By: UPN"
+``` 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

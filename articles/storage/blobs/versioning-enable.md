@@ -10,12 +10,12 @@ ms.date: 08/10/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 7e8d712a3477fe7dd9b963f203b3374dd5fa2a2e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b34664d36be2f18bc6821d5b13ca8bd403f2b6fc
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89001060"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89074407"
 ---
 # <a name="enable-and-manage-blob-versioning-preview"></a>Abilitare e gestire il controllo delle versioni dei BLOB (anteprima)
 
@@ -24,6 +24,8 @@ ms.locfileid: "89001060"
 Questo articolo illustra come abilitare o disabilitare il controllo delle versioni dei BLOB per l'account di archiviazione usando il portale di Azure o un modello di Azure Resource Manager.
 
 Prima di abilitare il controllo delle versioni dei BLOB, è necessario registrarsi per l'anteprima. Per altre informazioni sul controllo delle versioni dei BLOB, inclusa la registrazione per l'anteprima, vedere [controllo delle versioni dei BLOB (anteprima)](versioning-overview.md).
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="enable-blob-versioning"></a>Abilitare il controllo delle versioni dei BLOB
 

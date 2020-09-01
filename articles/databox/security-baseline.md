@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: a13a8b2eef9fa1bd9c7281ac6b7c7dba40105428
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1961aa3ee21d5b04108b3107731560d747a2c963
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497325"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075563"
 ---
 # <a name="azure-security-baseline-for-azure-data-box"></a>Baseline della sicurezza di Azure per Azure Data Box
 
@@ -200,7 +200,7 @@ Per altre informazioni, vedere la [Panoramica delle baseline di sicurezza di Azu
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Non applicabile
+**Responsabilità**: Non applicabile
 
 ### <a name="210-enable-command-line-audit-logging"></a>2.10: abilitare la registrazione di controllo da riga di comando
 
@@ -216,11 +216,11 @@ Per altre informazioni, vedere la [Panoramica delle baseline di sicurezza di Azu
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: gestire un inventario degli account amministrativi
 
-**Linee guida**: gestire un inventario degli account utente con accesso amministrativo al Azure Data Box. Per configurare il controllo degli accessi in base al ruolo (RBAC), è possibile usare il riquadro di controllo delle identità e dell'accesso (IAM) nella portale di Azure per la sottoscrizione. I ruoli vengono applicati a utenti, gruppi, entità servizio e identità gestite in Active Directory. è possibile controllare chi può accedere all'ordine quando viene creato l'ordine. Configurare i ruoli di Azure in vari ambiti per controllare l'accesso all'ordine di Data Box. Un ruolo di Azure determina il tipo di accesso, ovvero di lettura/scrittura, di sola lettura, di lettura e scrittura in un subset di operazioni.
+**Linee guida**: gestire un inventario degli account utente con accesso amministrativo al Azure Data Box. Per configurare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure), è possibile usare il riquadro di controllo delle identità e dell'accesso (IAM) nella portale di Azure per la sottoscrizione. I ruoli vengono applicati a utenti, gruppi, entità servizio e identità gestite in Active Directory. è possibile controllare chi può accedere all'ordine quando viene creato l'ordine. Configurare i ruoli di Azure in vari ambiti per controllare l'accesso all'ordine di Data Box. Un ruolo di Azure determina il tipo di accesso, ovvero di lettura/scrittura, di sola lettura, di lettura e scrittura in un subset di operazioni.
 
 * [Informazioni sui ruoli personalizzati](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
 
-* [Come configurare RBAC per le cartelle di lavoro](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
+* [Come configurare RBAC di Azure per le cartelle di lavoro](https://docs.microsoft.com/azure/sentinel/quickstart-get-visibility)
 
 * [Informazioni su come configurare il controllo di accesso nell'ordine](https://docs.microsoft.com/azure/databox/data-box-logs#set-up-access-control-on-the-order)
 
@@ -403,7 +403,7 @@ Durante il caricamento dei dati in Azure, i Data Box Appliance e il servizio usa
 
 **Monitoraggio del Centro sicurezza di Azure**: attualmente non disponibile
 
-**Responsabilità**: Condiviso
+**Responsibilità**: Condiviso
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: crittografare tutte le informazioni riservate in transito
 
@@ -415,7 +415,7 @@ Durante il caricamento dei dati in Azure, i Data Box Appliance e il servizio usa
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Condiviso
+**Responsabilità**: Condiviso
 
 ### <a name="45-use-an-active-discovery-tool-to-identify-sensitive-data"></a>4.5: usare uno strumento di individuazione attivo per identificare i dati sensibili
 
@@ -427,7 +427,7 @@ Durante il caricamento dei dati in Azure, i Data Box Appliance e il servizio usa
 
 **Responsabilità**: Non applicabile
 
-### <a name="46-use-role-based-access-control-to-control-access-to-resources"></a>4,6: usare il controllo degli accessi in base al ruolo per controllare l'accesso alle risorse
+### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
 **Linee guida**: assicurarsi di disporre dell'accesso come proprietario o collaboratore alla sottoscrizione per creare un ordine di data box. È anche possibile definire Data Box Reader e Data Box i ruoli di collaboratore a livello di risorsa.
 
@@ -437,7 +437,7 @@ Durante il caricamento dei dati in Azure, i Data Box Appliance e il servizio usa
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="47-use-host-based-data-loss-prevention-to-enforce-access-control"></a>4.7: usare la prevenzione della perdita dei dati basata su host per applicare il controllo di accesso
 
@@ -567,7 +567,7 @@ Azure Data Box implementa la crittografia AES a 256 bit per i dati inattivi. Ino
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="67-remove-unapproved-azure-resources-and-software-applications"></a>6.7: rimuovere le risorse di Azure e le applicazioni software non approvate
 
@@ -575,7 +575,7 @@ Azure Data Box implementa la crittografia AES a 256 bit per i dati inattivi. Ino
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="68-use-only-approved-applications"></a>6.8: usare solo applicazioni approvate
 
@@ -583,7 +583,7 @@ Azure Data Box implementa la crittografia AES a 256 bit per i dati inattivi. Ino
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="69-use-only-approved-azure-services"></a>6.9: usare solo servizi di Azure approvati
 
@@ -661,7 +661,7 @@ Azure Data Box implementa la crittografia AES a 256 bit per i dati inattivi. Ino
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsabilità**: Non applicabile
+**Responsibilità**: Non applicabile
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: archiviare in modo sicuro la configurazione delle risorse di Azure
 
@@ -869,7 +869,7 @@ Contrassegnare anche chiaramente le sottoscrizioni, ad esempio di produzione o n
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 
-**Responsibilità**: Customer
+**Responsabilità**: Customer
 
 ### <a name="106-automate-the-response-to-security-alerts"></a>10.6: automatizzare la risposta agli avvisi di sicurezza
 

@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.date: 05/05/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.custom: devx-track-azurecli
-ms.openlocfilehash: 494c1fc1c1c91538240258ab0517c7ff79bdfa74
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.openlocfilehash: 999f7bb14f87d883fa399b1168e887e935651e47
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056534"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89074535"
 ---
 # <a name="blob-versioning-preview"></a>Controllo delle versioni dei BLOB (anteprima)
 
@@ -29,6 +29,8 @@ Per informazioni su come abilitare il controllo delle versioni dei BLOB, vedere 
 
 > [!IMPORTANT]
 > Il controllo delle versioni dei BLOB non consente di eseguire il ripristino dall'eliminazione accidentale di un contenitore o di un account di archiviazione. Per evitare l'eliminazione accidentale dell'account di archiviazione, configurare un blocco **CannotDelete** sulla risorsa dell'account di archiviazione. Per altre informazioni sul blocco delle risorse di Azure, vedere [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md).
+
+[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## <a name="how-blob-versioning-works"></a>Funzionamento del controllo delle versioni dei BLOB
 
@@ -163,7 +165,7 @@ Quando si crea uno snapshot di un BLOB con versione, viene creata una nuova vers
 
 Il diagramma seguente mostra cosa accade quando si crea uno snapshot di un BLOB con versione. Nel diagramma le versioni e gli snapshot dei BLOB con ID versione 2 e 3 contengono dati identici.
 
-:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagramma che Mostra gli snapshot di un BLOB con versione":::
+:::image type="content" source="media/versioning-overview/snapshot-versioned-blob.png" alt-text="Diagramma che Mostra gli snapshot di un BLOB con versione ":::
 
 ## <a name="authorize-operations-on-blob-versions"></a>Autorizzare le operazioni nelle versioni BLOB
 
@@ -192,7 +194,7 @@ La tabella seguente illustra l'autorizzazione necessaria per una firma di access
 
 | **Autorizzazione** | **Simbolo URI** | **Operazioni consentite** |
 |----------------|----------------|------------------------|
-| Delete         | x              | Eliminare una versione BLOB. |
+| Elimina         | x              | Eliminare una versione BLOB. |
 
 ## <a name="about-the-preview"></a>Informazioni sulla versione di anteprima
 

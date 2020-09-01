@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Rete virtuale
       href: virtual-networks-overview.md
-- name: Avvi rapidi
+- name: Avvii rapidi
   items:
     - name: Creare una rete virtuale - Portale
       href: quick-create-portal.md
@@ -97,7 +97,11 @@
     - name: Sicurezza
       items:
         - name: Gruppi di sicurezza di rete
-          href: security-overview.md
+          items:
+            - name: Panoramica
+              href: security-overview.md
+            - name: Come funziona
+              href: network-security-group-how-it-works.md
         - name: Gruppi di sicurezza delle applicazioni
           href: application-security-groups.md
         - name: Tag di servizio

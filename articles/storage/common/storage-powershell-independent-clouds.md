@@ -9,12 +9,13 @@ ms.topic: how-to
 ms.date: 12/04/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2ccacef6f9557bdcf683973c2ad5141b6066347b
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: b610a5537d110a4046bd42ac86f5c938aeafe953
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904310"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89072955"
 ---
 # <a name="managing-storage-in-the-azure-independent-clouds-using-powershell"></a>Gestione dell'archiviazione nei cloud indipendenti di Azure con PowerShell
 
@@ -60,7 +61,7 @@ Get-AzLocation | select Location, DisplayName
 
 La tabella seguente mostra le località restituite per il cloud per la Germania.
 
-|Percorso | Nome visualizzato |
+|Località | Nome visualizzato |
 |----|----|
 | `germanycentral` | Germania centrale|
 | `germanynortheast` | Germania nord-orientale |
@@ -99,7 +100,7 @@ Get-AzEnvironment -Name AzureGermanCloud
 
 I risultati sono simili ai valori seguenti:
 
-|Nome proprietà|Valore|
+|Nome proprietà|valore|
 |----|----|
 | Nome | `AzureGermanCloud` |
 | EnableAdfsAuthentication | `False` |
@@ -155,7 +156,7 @@ table endpoint = http://myexistingstorageaccount.table.core.usgovcloudapi.net/
 
 È ora possibile usare PowerShell per gestire gli account di archiviazione e accedere ai dati di BLOB, code, file e tabelle. Per ulteriori informazioni, vedere [AZ. storage](/powershell/module/az.storage).
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+## <a name="clean-up-resources"></a>Pulizia delle risorse
 
 Se sono stati creati un nuovo gruppo di risorse e un account di archiviazione per questo esercizio, è possibile rimuovere entrambi gli asset eliminando il gruppo di risorse. Se si elimina un gruppo di risorse, vengono eliminate tutte le risorse contenute in esso.
 
