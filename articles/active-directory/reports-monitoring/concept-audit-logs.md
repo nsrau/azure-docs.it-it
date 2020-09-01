@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ad399fc24b2cdfbdc51e7feccba2c05786216b19
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 01c9449a996929eb20acf35897a100dfbb722e82
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85846979"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229923"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di controllo nel portale di Azure Active Directory 
 
@@ -34,8 +34,8 @@ L'architettura di report è costituita dai componenti seguenti:
     - **Accessi**: il [report degli accessi](concept-sign-ins.md) fornisce informazioni sull'uso delle applicazioni gestite e sulle attività di accesso degli utenti.
     - **Log di controllo**: i log consentono la tracciabilità di tutte le modifiche apportate da varie funzionalità all'interno di Azure AD. I log di controllo registrano, ad esempio, le modifiche apportate a qualsiasi risorsa di Azure AD, ad esempio l'aggiunta o la rimozione di utenti, app, gruppi, ruoli e criteri.
 - **Sicurezza** 
-    - **Accessi a rischio** : un [accesso rischioso](concept-risky-sign-ins.md) è un indicatore di un tentativo di accesso che potrebbe essere stato eseguito da un utente che non è il legittimo proprietario di un account utente. 
-    - **Utenti contrassegnati per il rischio** : un [utente rischioso](concept-user-at-risk.md) è un indicatore per un account utente che potrebbe essere stato compromesso.
+    - **Accessi a rischio** : un [accesso rischioso](../identity-protection/overview-identity-protection.md) è un indicatore di un tentativo di accesso che potrebbe essere stato eseguito da un utente che non è il legittimo proprietario di un account utente. 
+    - **Utenti contrassegnati per il rischio** : un [utente rischioso](../identity-protection/overview-identity-protection.md) è un indicatore per un account utente che potrebbe essere stato compromesso.
 
 Questo articolo fornisce una panoramica del report di controllo.
  
@@ -78,7 +78,7 @@ Selezionare un elemento nella visualizzazione elenco per ottenere maggiori infor
 È possibile filtrare i dati di controllo in base ai campi seguenti:
 
 - Servizio
-- Category
+- Categoria
 - Attività
 - Stato
 - Destinazione
@@ -114,7 +114,7 @@ Il filtro **Category** consente di selezionare uno dei filtri seguenti:
 - Tutti
 - AdministrativeUnit
 - ApplicationManagement
-- Authentication
+- Autenticazione
 - Autorizzazione
 - Contatto
 - Dispositivo
@@ -124,7 +124,7 @@ Il filtro **Category** consente di selezionare uno dei filtri seguenti:
 - GroupManagement
 - KerberosDomain
 - KeyManagement
-- Label
+- Etichetta
 - Altro
 - PermissionGrantPolicy
 - Policy
@@ -134,7 +134,7 @@ Il filtro **Category** consente di selezionare uno dei filtri seguenti:
 
 Il filtro **attività** è basato sulla selezione del tipo di risorsa Activity e Category effettuata dall'utente. È possibile selezionare un'attività specifica da visualizzare o selezionarle tutte. 
 
-È possibile ottenere l'elenco di tutte le attività di controllo usando il API Graph:`https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
+È possibile ottenere l'elenco di tutte le attività di controllo usando il API Graph: `https://graph.windows.net/<tenantdomain>/activities/auditActivityTypesV2?api-version=beta`
 
 Il filtro di **stato** consente di filtrare in base allo stato di un'operazione di controllo. Lo stato può essere uno dei seguenti:
 
@@ -210,9 +210,9 @@ Per esaminare i dati di controllo relativi alle applicazioni, è disponibile una
 
 ## <a name="office-365-activity-logs"></a>Log attività di Office 365
 
-È possibile visualizzare i log attività di Office 365 dall'interfaccia di [amministrazione di Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Anche se l'attività di Office 365 e i log attività Azure AD condividono numerose risorse della directory, solo l'interfaccia di amministrazione di Microsoft 365 fornisce una visualizzazione completa dei log attività di Office 365. 
+È possibile visualizzare i log attività di Office 365 dall'interfaccia di [amministrazione di Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Anche se l'attività di Office 365 e i log attività Azure AD condividono numerose risorse della directory, solo l'interfaccia di amministrazione di Microsoft 365 fornisce una visualizzazione completa dei log attività di Office 365. 
 
-È anche possibile accedere ai log attività di Office 365 a livello di codice usando le [API di gestione di office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+È anche possibile accedere ai log attività di Office 365 a livello di codice usando le [API di gestione di office 365](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

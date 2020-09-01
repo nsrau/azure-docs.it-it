@@ -12,12 +12,12 @@ author: eedorenko
 manager: davete
 ms.reviewer: larryfr
 ms.date: 06/23/2020
-ms.openlocfilehash: e78044faabfd5ff3dccb1e7ea04149fbef212c01
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 7a52dcabb448c39d9ae4e4edb4f5b7f701be6603
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87843709"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228886"
 ---
 # <a name="devops-for-a-data-ingestion-pipeline"></a>DevOps per una pipeline di inserimento dati
 
@@ -64,7 +64,7 @@ Ad esempio, il codice verrebbe archiviato in un repository Azure DevOps, GitHub 
 Gli ingegneri dei dati lavorano con il codice sorgente del notebook Python localmente in un IDE (ad esempio, [Visual Studio Code](https://code.visualstudio.com)) o direttamente nell'area di lavoro databricks. Una volta completate le modifiche al codice, queste vengono unite al repository dopo un criterio di diramazione.
 
 > [!TIP] 
-> È consigliabile archiviare il codice nei `.py` file anziché nel `.ipynb` formato Jupyter notebook. Migliora la leggibilità del codice e Abilita i controlli della qualità del codice automatici nel processo CI.
+> Si consiglia di archiviare il codice nei `.py` file anziché nel `.ipynb` formato Jupyter notebook. Migliora la leggibilità del codice e Abilita i controlli della qualità del codice automatici nel processo CI.
 
 ### <a name="azure-data-factory-source-code"></a>Codice sorgente Azure Data Factory
 
@@ -80,7 +80,7 @@ L'obiettivo finale del processo di integrazione continua consiste nel riunire il
 
 Il processo CI per i notebook di Python ottiene il codice dal ramo collaborazione (ad esempio, ***Master*** o ***develop***) ed esegue le attività seguenti:
 * Pelucchi del codice
-* Unit test
+* Testing unità
 * Salvataggio del codice come artefatto
 
 Il frammento di codice seguente illustra l'implementazione di questi passaggi in una pipeline ***YAML*** di Azure DevOps:

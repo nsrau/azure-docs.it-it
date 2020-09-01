@@ -3,31 +3,33 @@ title: Attendere e rispondere agli eventi
 description: Automatizzare i flussi di lavoro che attivano, sospendono e riprendono in base agli eventi in un endpoint del servizio usando app per la logica di Azure
 services: logic-apps
 ms.suite: integration
-ms.reviewer: klam, logicappspm
+ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 03/06/2020
+ms.date: 08/27/2020
 tags: connectors
-ms.openlocfilehash: 0a3fb9a8a72b384d2af4af38bdc382e541ddf535
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7c6f3c4e3e4a2a29fe6a02c03043e3dfb81a2010
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80656289"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227900"
 ---
 # <a name="create-and-run-automated-event-based-workflows-by-using-http-webhooks-in-azure-logic-apps"></a>Creare ed eseguire flussi di lavoro automatizzati basati su eventi usando webhook HTTP in app per la logica di Azure
 
-Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il connettore http webhook incorporato è possibile automatizzare i flussi di lavoro in attesa ed esecuzione in base a eventi specifici che si verificano in un endpoint HTTP o HTTPS compilando app per la logica. Ad esempio, è possibile creare un'app per la logica che esegue il monitoraggio di un endpoint del servizio attendendo un evento specifico prima di attivare il flusso di lavoro ed eseguendo le azioni specificate, invece di eseguire regolarmente il controllo o il *polling* dell'endpoint.
+Con le app per la [logica di Azure](../logic-apps/logic-apps-overview.md) e il connettore http webhook incorporato è possibile creare attività e flussi di lavoro automatizzati che sottoscrivono un endpoint del servizio, attendono eventi specifici ed eseguiti in base a tali eventi, anziché eseguire regolarmente il controllo o il *polling* dell'endpoint.
 
-Di seguito sono riportati alcuni flussi di lavoro basati su eventi di esempio:
+Ecco alcuni flussi di lavoro basati su webhook di esempio:
 
 * Attendere l'arrivo di un elemento da un [Hub eventi di Azure](https://github.com/logicappsio/EventHubAPI) prima di avviare un'esecuzione dell'app per la logica.
 * Attendere un'approvazione prima di continuare con un flusso di lavoro.
 
+Questo articolo illustra come usare il trigger webhook e l'azione webhook in modo che l'app per la logica possa ricevere e rispondere agli eventi in un endpoint del servizio.
+
 ## <a name="how-do-webhooks-work"></a>Come funzionano i webhook?
 
-Un trigger webhook HTTP è basato su eventi, che non dipende dal controllo o dal polling regolarmente per i nuovi elementi. Quando si salva un'app per la logica che inizia con un trigger webhook o quando si modifica l'app per la logica da disabilitato ad abilitato, il trigger webhook *sottoscrive* un servizio o un endpoint specifico registrando un *URL di callback* con tale servizio o endpoint. Il trigger attende quindi il servizio o l'endpoint per chiamare l'URL, che avvia l'esecuzione dell'app per la logica. Analogamente al [trigger di richiesta](connectors-native-reqres.md), l'app per la logica viene attivata immediatamente quando si verifica l'evento specificato. Il trigger *Annulla la sottoscrizione* dal servizio o dall'endpoint se si rimuove il trigger e si salva l'app per la logica o quando si modifica l'app per la logica da abilitato a disabilitato.
+Un trigger webhook è basato su eventi, che non dipende dal controllo o dal polling regolarmente per i nuovi elementi. Quando si salva un'app per la logica che inizia con un trigger webhook o quando si modifica l'app per la logica da disabilitato ad abilitato, il trigger webhook *sottoscrive* l'endpoint del servizio specificato registrando un *URL di callback* con tale endpoint. Il trigger attende quindi che l'endpoint del servizio chiami l'URL, che avvia l'esecuzione dell'app per la logica. Analogamente al [trigger di richiesta](connectors-native-reqres.md), l'app per la logica viene attivata immediatamente quando si verifica l'evento specificato. Il trigger del webhook *Annulla la sottoscrizione* dall'endpoint di servizio se si rimuove il trigger e si salva l'app per la logica o quando si modifica l'app per la logica da abilitato a disabilitato.
 
-Un'azione webhook HTTP è inoltre basata su eventi e *sottoscrive* un servizio o un endpoint specifico registrando un URL di *callback* con tale servizio o endpoint. L'azione webhook sospende il flusso di lavoro dell'app per la logica e attende fino a quando il servizio o l'endpoint chiama l'URL prima che l'app per la logica riprende l'esecuzione. In questi casi, l'app per la logica di azione *Annulla la sottoscrizione* del servizio o dell'endpoint:
+Un'azione webhook è anche basata su eventi e *sottoscrive* l'endpoint del servizio specificato registrando un URL di *callback* con tale endpoint. L'azione webhook sospende il flusso di lavoro dell'app per la logica e attende che l'endpoint del servizio chiami l'URL prima che l'app per la logica riprende l'esecuzione. L'azione webhook *Annulla la sottoscrizione* dell'endpoint del servizio in questi casi:
 
 * Quando l'azione del webhook viene completata correttamente
 * Se l'esecuzione dell'app per la logica viene annullata durante l'attesa di una risposta
@@ -35,27 +37,16 @@ Un'azione webhook HTTP è inoltre basata su eventi e *sottoscrive* un servizio o
 
 Ad esempio, l'azione [**Invia messaggio di posta elettronica di approvazione**](connectors-create-api-office365-outlook.md) di Office 365 Outlook Connector è un esempio di azione webhook che segue questo modello. È possibile estendere questo modello in qualsiasi servizio usando l'azione webhook.
 
-> [!NOTE]
-> App per la logica impone Transport Layer Security (TLS) 1,2 quando riceve la chiamata al trigger o all'azione del webhook HTTP. Se vengono visualizzati errori di handshake TLS, assicurarsi di usare TLS 1,2. Per le chiamate in ingresso, di seguito sono riportati i pacchetti di crittografia supportati:
->
-> * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-> * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-> * TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-> * TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-> * TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-
 Per altre informazioni, vedere gli argomenti seguenti:
 
-* [Parametri del trigger webhook HTTP](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger)
 * [Webhook e sottoscrizioni](../logic-apps/logic-apps-workflow-actions-triggers.md#webhooks-and-subscriptions)
 * [Creare API personalizzate che supportano un webhook](../logic-apps/logic-apps-create-api-app.md)
 
+Per informazioni su crittografia, sicurezza e autorizzazione per le chiamate in ingresso all'app per la logica, ad esempio [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), precedentemente noto come Secure Sockets Layer (SSL) o [Azure Active Directory Open Authentication (Azure ad OAuth)](../active-directory/develop/index.yml), vedere [accesso protetto e accesso ai dati per le chiamate in ingresso a trigger basati su richiesta](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
+* Un account e una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
 * URL per un endpoint o un'API già distribuita che supporta il modello di sottoscrizione e annullamento della sottoscrizione webhook per i [trigger di Webhook in app](../logic-apps/logic-apps-create-api-app.md#webhook-triggers) per la logica o [azioni webhook nelle app](../logic-apps/logic-apps-create-api-app.md#webhook-actions) per la logica in base alle esigenze
 
@@ -147,11 +138,7 @@ Questa azione predefinita chiama l'endpoint di sottoscrizione nel servizio di de
 
    A questo punto, quando viene eseguita questa azione, l'app per la logica chiama l'endpoint di sottoscrizione nel servizio di destinazione e registra l'URL di callback. L'app per la logica sospende quindi il flusso di lavoro e attende che il servizio di destinazione invii una `HTTP POST` richiesta all'URL callback. Quando si verifica questo evento, l'azione passa tutti i dati nella richiesta insieme al flusso di lavoro. Se l'operazione viene completata correttamente, l'azione annulla la sottoscrizione dall'endpoint e l'app per la logica continua a eseguire il flusso di lavoro rimanente.
 
-## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
-
-Per altre informazioni sui parametri trigger e Action, che sono simili tra loro, vedere [parametri del webhook http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger).
-
-### <a name="output-details"></a>Dettagli dell'output
+## <a name="trigger-and-action-outputs"></a>Output di trigger e azioni
 
 Di seguito sono riportate altre informazioni sugli output di un trigger o un'azione HTTP webhook che restituisce queste informazioni:
 
@@ -173,6 +160,11 @@ Di seguito sono riportate altre informazioni sugli output di un trigger o un'azi
 | 500 | Errore interno del server. Si è verificato un errore sconosciuto. |
 |||
 
+## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
+
+Per altre informazioni sui parametri trigger e Action, che sono simili tra loro, vedere [parametri del webhook http](../logic-apps/logic-apps-workflow-actions-triggers.md#http-webhook-trigger).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni su altri [connettori di App per la logica](../connectors/apis-list.md)
+* [Accesso protetto e accesso ai dati per le chiamate in ingresso a trigger basati su richiesta](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests)
+* [Connettori per App per la logica](../connectors/apis-list.md)

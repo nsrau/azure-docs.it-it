@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/05/2019
 ms.author: kenwith
 ms.reviewer: paulgarn
-ms.openlocfilehash: 46f3ef775f3b17e0ebc93fc4145a5b8037b901e5
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 6e7e4dd6383b1f264ff2da7893d9f86a3708217d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949355"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227917"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Microsoft Identity Platform e flusso dell'asserzione SAML Bearer di OAuth 2.0
 Il flusso dell'asserzione SAML Bearer di OAuth 2.0 consente di richiedere un token di accesso OAuth tramite un'asserzione SAML quando un client deve usare una relazione di trust esistente. La firma applicata all'asserzione SAML fornisce l'autenticazione dell'app autorizzata. Un'asserzione SAML è un token di sicurezza XML rilasciato da un provider di identità e usato da un provider di servizi. Il provider di servizi si basa sul contenuto del token per identificare l'oggetto dell'asserzione per finalità correlate alla sicurezza.
@@ -27,7 +27,7 @@ Il flusso dell'asserzione SAML Bearer è utile per recuperare dati da API Micros
 
 Per le applicazioni che eseguono l'accesso interattivo basato su browser per ottenere un'asserzione SAML e quindi intendono aggiungere l'accesso a un'API protetta OAuth, ad esempio Microsoft Graph, è possibile creare una richiesta OAuth per ottenere un token di accesso per l'API. Quando viene reindirizzato ad Azure AD per autenticare l'utente, il browser rileva la sessione dall'accesso SAML e l'utente non deve immettere le proprie credenziali.
 
-Il flusso dell'asserzione SAML Bearer di OAuth è supportato anche per gli utenti che eseguono l'autenticazione con provider di identità, ad esempio Active Directory Federation Services (AD FS), federati per Azure Active Directory.  L'asserzione SAML ottenuta da AD FS può essere usata in un flusso OAuth per autenticare l'utente.
+Il flusso di asserzione della portar SAML di OAuth è supportato solo per gli utenti che eseguono l'autenticazione con provider di identità, ad esempio Active Directory Federation Services (ADFS) federati per Azure Active Directory.  L'asserzione SAML ottenuta da AD FS può essere usata in un flusso OAuth per autenticare l'utente.
 
 ![Flusso OAuth](./media/v2-saml-bearer-assertion/1.png)
 

@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 08/31/2020
 ms.author: rolyon
-ms.openlocfilehash: 73f426fdcc020320989f0d09410066b66a131cfa
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9873bd8f94c80caccd75033e2a8a4bc2cffcde03
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177279"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227033"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Trasferire una sottoscrizione di Azure a un'altra directory di Azure AD (anteprima)
 
@@ -42,7 +42,7 @@ Il diagramma seguente illustra i passaggi di base che è necessario seguire quan
 
 1. Preparare il trasferimento
 
-1. Trasferire la proprietà della fatturazione di una sottoscrizione di Azure in un altro account
+1. Trasferire la sottoscrizione di Azure in una directory diversa
 
 1. Ricreare le risorse nella directory di destinazione, ad esempio le assegnazioni di ruolo, i ruoli personalizzati e le identità gestite
 
@@ -269,7 +269,7 @@ In questo passaggio la sottoscrizione viene trasferita dalla directory di origin
 > [!WARNING]
 > Quando si trasferisce la sottoscrizione, tutte le assegnazioni di ruolo nella directory di origine vengono eliminate **definitivamente** e non possono essere ripristinate. Non è possibile tornare indietro dopo il trasferimento della sottoscrizione. Assicurarsi di completare i passaggi precedenti prima di eseguire questo passaggio.
 
-1. Determinare se si desidera trasferire anche la proprietà della fatturazione.
+1. Determinare se si desidera trasferire anche la proprietà di fatturazione a un altro account.
 
 1. Trasferire la sottoscrizione a una directory diversa.
 

@@ -10,12 +10,12 @@ ms.date: 07/16/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 9964a10b85d9f388a4498766c6e81ee52498aa37
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: c28e869bff1d0e921a1e5a952dbfcb21ee97d16b
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89076175"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228325"
 ---
 # <a name="configure-object-replication-for-block-blobs-preview"></a>Configurare la replica di oggetti per i BLOB in blocchi (anteprima)
 
@@ -36,7 +36,7 @@ Un account di archiviazione può fungere da account di origine per un massimo di
 Prima di iniziare, assicurarsi di aver effettuato la registrazione per le anteprime delle funzionalità seguenti:
 
 - [Replica di oggetti (anteprima)](object-replication-overview.md)
-- [Controllo delle versioni dei BLOB (anteprima)](versioning-overview.md)
+- [Controllo delle versioni dei BLOB](versioning-overview.md)
 - [Supporto del feed di modifiche in Archiviazione BLOB di Azure (anteprima)](storage-blob-change-feed.md)
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)

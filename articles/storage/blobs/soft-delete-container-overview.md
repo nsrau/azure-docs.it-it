@@ -10,12 +10,12 @@ ms.date: 08/25/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions
-ms.openlocfilehash: 60c7ac6a86c963a4a133f06ba6d9d602cb9090d0
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: f41caf61ac23b05ba0ff95d785be2e7449adf75d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854532"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228631"
 ---
 # <a name="soft-delete-for-containers-preview"></a>Eliminazione temporanea per i contenitori (anteprima)
 
@@ -25,7 +25,7 @@ Per la protezione end-to-end per i dati BLOB, Microsoft consiglia di abilitare l
 
 - Eliminazione temporanea del contenitore, per evitare l'eliminazione o la sovrascrittura accidentale di un contenitore. Per informazioni su come abilitare l'eliminazione temporanea del contenitore, vedere [Enable and Manage soft delete for Containers](soft-delete-container-enable.md).
 - Eliminazione temporanea del BLOB, per evitare l'eliminazione o la sovrascrittura accidentale di un singolo BLOB. Per informazioni su come abilitare l'eliminazione temporanea del BLOB, vedere [eliminazione temporanea per i BLOB](soft-delete-blob-overview.md).
-- Controllo delle versioni dei BLOB (anteprima) per gestire automaticamente le versioni precedenti di un BLOB. Quando è abilitata la funzionalità di controllo delle versioni dei BLOB, è possibile ripristinare una versione precedente di un BLOB per ripristinare i dati se vengono erroneamente modificati o eliminati. Per informazioni su come abilitare il controllo delle versioni dei BLOB, vedere [abilitare e gestire il controllo delle versioni dei BLOB](versioning-enable.md).
+- Controllo delle versioni dei BLOB, per gestire automaticamente le versioni precedenti di un BLOB. Quando è abilitata la funzionalità di controllo delle versioni dei BLOB, è possibile ripristinare una versione precedente di un BLOB per ripristinare i dati se vengono erroneamente modificati o eliminati. Per informazioni su come abilitare il controllo delle versioni dei BLOB, vedere [abilitare e gestire il controllo delle versioni dei BLOB](versioning-enable.md).
 
 > [!WARNING]
 > L'eliminazione di un account di archiviazione non può essere annullata. L'eliminazione temporanea non protegge dall'eliminazione di un account di archiviazione. Per evitare l'eliminazione accidentale di un account di archiviazione, configurare un blocco **CannotDelete** sulla risorsa dell'account di archiviazione. Per altre informazioni sul blocco delle risorse di Azure, vedere [bloccare le risorse per impedire modifiche impreviste](../../azure-resource-manager/management/lock-resources.md).
@@ -123,4 +123,4 @@ Non sono previsti costi aggiuntivi per abilitare l'eliminazione temporanea del c
 
 - [Configurare l'eliminazione temporanea del contenitore](soft-delete-container-enable.md)
 - [Eliminazione temporanea per i BLOB](soft-delete-blob-overview.md)
-- [Controllo delle versioni dei BLOB (anteprima)](versioning-overview.md)
+- [Controllo delle versioni dei BLOB](versioning-overview.md)

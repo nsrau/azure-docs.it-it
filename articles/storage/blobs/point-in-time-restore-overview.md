@@ -10,12 +10,12 @@ ms.date: 06/10/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 2840e82508ee4f4046aec8f23c00a5c275bf5b67
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 07a1e81f2fe63ea8d34f362627ad79ab6729f3f0
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89074458"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229124"
 ---
 # <a name="point-in-time-restore-for-block-blobs-preview"></a>Ripristino temporizzato per i BLOB in blocchi (anteprima)
 
@@ -56,7 +56,7 @@ Per il ripristino temporizzato è necessario che siano abilitate le funzionalit�
 
 - [Eliminazione temporanea](soft-delete-overview.md)
 - [Feed di modifiche (anteprima)](storage-blob-change-feed.md)
-- [Controllo delle versioni dei BLOB (anteprima)](versioning-overview.md)
+- [Controllo delle versioni dei BLOB](versioning-overview.md)
 
 Abilitare queste funzionalità per l'account di archiviazione prima di abilitare il ripristino temporizzato. Assicurarsi di eseguire la registrazione per le anteprime del feed di modifiche e del controllo delle versioni dei BLOB prima di abilitarli.
 
@@ -105,7 +105,7 @@ Register-AzProviderFeature -FeatureName RestoreBlobRanges -ProviderNamespace Mic
 # Register for change feed (preview)
 Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
 
-# Register for blob versioning (preview)
+# Register for Blob versioning
 Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.Storage
 
 # Refresh the Azure Storage provider namespace

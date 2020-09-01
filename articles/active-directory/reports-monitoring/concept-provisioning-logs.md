@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 08/25/2020
+ms.date: 09/01/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2a45e6cff7d62dd8841d9d482f799be6977340e
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: 16b2ab39e9bcd6dff44387edc60be9bfc649f224
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826872"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229872"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisioning dei report nel portale di Azure Active Directory (anteprima)
 
@@ -34,8 +34,8 @@ L'architettura di report in Azure Active Directory (Azure AD) include i componen
     - **Log di provisioning** : fornire le attività di sistema relative a utenti, gruppi e ruoli di cui è stato effettuato il provisioning tramite il servizio di provisioning di Azure ad. 
 
 - **Sicurezza** 
-    - **Accessi a rischio** : un [accesso rischioso](concept-risky-sign-ins.md) è un indicatore di un tentativo di accesso che potrebbe essere stato eseguito da un utente che non è il legittimo proprietario di un account utente.
-    - **Utenti contrassegnati per il rischio** : un [utente rischioso](concept-user-at-risk.md) è un indicatore per un account utente che potrebbe essere stato compromesso.
+    - **Accessi a rischio** : un [accesso rischioso](../identity-protection/overview-identity-protection.md) è un indicatore di un tentativo di accesso che potrebbe essere stato eseguito da un utente che non è il legittimo proprietario di un account utente.
+    - **Utenti contrassegnati per il rischio** : un [utente rischioso](../identity-protection/overview-identity-protection.md) è un indicatore per un account utente che potrebbe essere stato compromesso.
 
 Questo argomento offre una panoramica del report di provisioning.
 
@@ -94,7 +94,7 @@ Selezionare un elemento nella visualizzazione elenco per ottenere maggiori infor
 Nella visualizzazione predefinita è possibile selezionare i filtri seguenti:
 
 - Identità
-- Date
+- Data
 - Stato
 - Azione
 
@@ -127,7 +127,7 @@ Il filtro **Stato** consente di selezionare:
 
 Il filtro **azione** consente di filtrare:
 
-- Crea 
+- Create 
 - Aggiornamento
 - Delete
 - Disabilita
@@ -218,7 +218,7 @@ La scheda **Riepilogo** fornisce una panoramica delle operazioni eseguite e degl
 
 - Attualmente non è disponibile alcun supporto per log Analytics.
 
-- Quando si accede ai log di provisioning dal contesto di un'app, non filtra automaticamente gli eventi per l'app specifica nel modo in cui i log di controllo lo eseguono.
+- È possibile che vengano visualizzati eventi ignorati per gli utenti che non rientrano nell'ambito. Questo comportamento è previsto, soprattutto quando l'ambito di sincronizzazione è impostato su tutti gli utenti e i gruppi. Il servizio valuterà tutti gli oggetti nel tenant, anche quelli che non rientrano nell'ambito. 
 
 ## <a name="error-codes"></a>Codici errore
 
@@ -226,28 +226,26 @@ Usare la tabella seguente per comprendere meglio come risolvere gli errori che s
 
 |Codice di errore|Descrizione|
 |---|---|
-|Conflitto, EntryConflict|Correggere i valori di attributo in conflitto in Azure AD o nell'applicazione oppure verificare la configurazione dell'attributo corrispondente se è necessario che l'account utente in conflitto corrisponda e venga ripreso. Per ulteriori informazioni sulla configurazione degli attributi corrispondenti, consultare la seguente [documentazione](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) .|
+|Conflitto, EntryConflict|Correggere i valori di attributo in conflitto in Azure AD o nell'applicazione oppure verificare la configurazione dell'attributo corrispondente se è necessario che l'account utente in conflitto corrisponda e venga ripreso. Per ulteriori informazioni sulla configurazione degli attributi corrispondenti, consultare la seguente [documentazione](../app-provisioning/customize-application-attributes.md) .|
 |TooManyRequests|L'app di destinazione ha rifiutato questo tentativo di aggiornare l'utente perché è sovraccarico e riceve troppe richieste. Non è necessario eseguire alcuna operazione. Il tentativo verrà ritirato automaticamente. Microsoft ha inoltre ricevuto una notifica di questo problema.|
 |InternalServerError |L'app di destinazione ha restituito un errore imprevisto. Potrebbe essersi verificato un problema del servizio con l'applicazione di destinazione che impedisce l'esecuzione di questa operazione. Questo tentativo verrà ritirato automaticamente tra 40 minuti.|
-|InsufficientRights, MethodNotAllowed, NotPermitted, non autorizzato| Azure AD stato in grado di eseguire l'autenticazione con l'applicazione di destinazione, ma non è stato autorizzato a eseguire l'aggiornamento. Esaminare le istruzioni fornite dall'applicazione di destinazione, nonché l' [esercitazione](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)relativa all'applicazione corrispondente.|
+|InsufficientRights, MethodNotAllowed, NotPermitted, non autorizzato| Azure AD stato in grado di eseguire l'autenticazione con l'applicazione di destinazione, ma non è stato autorizzato a eseguire l'aggiornamento. Esaminare le istruzioni fornite dall'applicazione di destinazione, nonché l' [esercitazione](../saas-apps/tutorial-list.md)relativa all'applicazione corrispondente.|
 |UnprocessableEntity|L'applicazione di destinazione ha restituito una risposta imprevista. La configurazione dell'applicazione di destinazione potrebbe non essere corretta o potrebbe essersi verificato un problema del servizio con l'applicazione di destinazione che impedisce il funzionamento di questo.|
 |WebExceptionProtocolError |Si è verificato un errore del protocollo HTTP durante la connessione all'applicazione di destinazione. Non è necessario eseguire alcuna operazione. Questo tentativo verrà ritirato automaticamente tra 40 minuti.|
-|InvalidAnchor|Un utente creato in precedenza o corrispondente al servizio di provisioning non esiste più. Verificare che l'utente esista. Per forzare una nuova corrispondenza di tutti gli utenti, usare il API Graph MS per [riavviare il processo](https://docs.microsoft.com/graph/api/synchronization-synchronizationjob-restart?view=graph-rest-beta&tabs=http). Si noti che il riavvio del provisioning attiverà un ciclo iniziale, operazione che può richiedere del tempo. Elimina inoltre la cache usata dal servizio di provisioning. Ciò significa che tutti gli utenti e i gruppi nel tenant dovranno essere nuovamente valutati e potrebbero essere eliminati determinati eventi di provisioning.|
-|NotImplemented | L'app di destinazione ha restituito una risposta imprevista. La configurazione dell'app potrebbe non essere corretta o potrebbe essersi verificato un problema del servizio con l'app di destinazione che impedisce il funzionamento. Esaminare le istruzioni fornite dall'applicazione di destinazione, nonché l' [esercitazione](https://docs.microsoft.com/azure/active-directory/saas-apps/tutorial-list)relativa all'applicazione corrispondente. |
-|MandatoryFieldsMissing, MissingValues |Impossibile creare l'utente perché mancano i valori obbligatori. Correggere i valori degli attributi mancanti nel record di origine oppure verificare la configurazione dell'attributo corrispondente per assicurarsi che i campi obbligatori non vengano omessi. [Altre](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) informazioni sulla configurazione degli attributi corrispondenti.|
-|SchemaAttributeNotFound |Non è stato possibile eseguire l'operazione perché è stato specificato un attributo che non esiste nell'applicazione di destinazione. Vedere la [documentazione](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) sulla personalizzazione degli attributi e verificare che la configurazione sia corretta.|
+|InvalidAnchor|Un utente creato in precedenza o corrispondente al servizio di provisioning non esiste più. Verificare che l'utente esista. Per forzare una nuova corrispondenza di tutti gli utenti, usare il API Graph MS per [riavviare il processo](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta). Si noti che il riavvio del provisioning attiverà un ciclo iniziale, operazione che può richiedere del tempo. Elimina inoltre la cache usata dal servizio di provisioning. Ciò significa che tutti gli utenti e i gruppi nel tenant dovranno essere nuovamente valutati e potrebbero essere eliminati determinati eventi di provisioning.|
+|NotImplemented | L'app di destinazione ha restituito una risposta imprevista. La configurazione dell'app potrebbe non essere corretta o potrebbe essersi verificato un problema del servizio con l'app di destinazione che impedisce il funzionamento. Esaminare le istruzioni fornite dall'applicazione di destinazione, nonché l' [esercitazione](../saas-apps/tutorial-list.md)relativa all'applicazione corrispondente. |
+|MandatoryFieldsMissing, MissingValues |Impossibile creare l'utente perché mancano i valori obbligatori. Correggere i valori degli attributi mancanti nel record di origine oppure verificare la configurazione dell'attributo corrispondente per assicurarsi che i campi obbligatori non vengano omessi. [Altre](../app-provisioning/customize-application-attributes.md) informazioni sulla configurazione degli attributi corrispondenti.|
+|SchemaAttributeNotFound |Non è stato possibile eseguire l'operazione perché è stato specificato un attributo che non esiste nell'applicazione di destinazione. Vedere la [documentazione](../app-provisioning/customize-application-attributes.md) sulla personalizzazione degli attributi e verificare che la configurazione sia corretta.|
 |InternalError |Si è verificato un errore interno del servizio all'interno del servizio di provisioning Azure AD. Non è necessario eseguire alcuna operazione. Questo tentativo verrà ritentato automaticamente tra 40 minuti.|
 |InvalidDomain |Non è stato possibile eseguire l'operazione a causa di un valore di attributo contenente un nome di dominio non valido. Aggiornare il nome di dominio dell'utente o aggiungerlo all'elenco delle applicazioni consentite nell'applicazione di destinazione. |
 |Timeout |Non è stato possibile completare l'operazione perché l'applicazione di destinazione ha impiegato troppo tempo per rispondere. Non è necessario eseguire alcuna operazione. Questo tentativo verrà ritentato automaticamente tra 40 minuti.|
 |LicenseLimitExceeded|Impossibile creare l'utente nell'applicazione di destinazione perché non sono disponibili licenze per questo utente. Ottenere licenze aggiuntive per l'applicazione di destinazione o esaminare le assegnazioni degli utenti e la configurazione del mapping degli attributi per assicurarsi che gli utenti corretti vengano assegnati con gli attributi corretti.|
-|DuplicateTargetEntries  |Non è stato possibile completare l'operazione perché è stato trovato più di un utente nell'applicazione di destinazione con gli attributi corrispondenti configurati. Rimuovere l'utente duplicato dall'applicazione di destinazione o riconfigurare i mapping degli attributi come descritto [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
-|DuplicateSourceEntries | Non è stato possibile completare l'operazione perché è stato trovato più di un utente con gli attributi corrispondenti configurati. Rimuovere l'utente duplicato o riconfigurare i mapping degli attributi come descritto [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes).|
+|DuplicateTargetEntries  |Non è stato possibile completare l'operazione perché è stato trovato più di un utente nell'applicazione di destinazione con gli attributi corrispondenti configurati. Rimuovere l'utente duplicato dall'applicazione di destinazione o riconfigurare i mapping degli attributi come descritto [qui](../app-provisioning/customize-application-attributes.md).|
+|DuplicateSourceEntries | Non è stato possibile completare l'operazione perché è stato trovato più di un utente con gli attributi corrispondenti configurati. Rimuovere l'utente duplicato o riconfigurare i mapping degli attributi come descritto [qui](../app-provisioning/customize-application-attributes.md).|
 |ImportSkipped | Quando viene valutato ogni utente, si tenta di importare l'utente dal sistema di origine. Questo errore si verifica in genere quando all'utente importato manca la proprietà corrispondente definita nei mapping degli attributi. Senza un valore presente nell'oggetto utente per l'attributo corrispondente, non è possibile valutare le modifiche dell'ambito, della corrispondenza o dell'esportazione. Si noti che la presenza di questo errore non indica che l'utente è nell'ambito perché non è ancora stata valutata la definizione dell'ambito per l'utente.|
 |EntrySynchronizationSkipped | Il servizio di provisioning ha eseguito una query sul sistema di origine e ha identificato l'utente. Non è stata eseguita alcuna azione aggiuntiva per l'utente e i relativi elementi sono stati ignorati. Il salto potrebbe essere dovuto all'esterno dell'ambito o all'utente già esistente nel sistema di destinazione senza che siano necessarie altre modifiche.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Verificare lo stato del provisioning utenti](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user)
-* [Problemi di configurazione del provisioning utenti in un'applicazione della raccolta di Azure AD](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem)
-
-
+* [Verificare lo stato del provisioning utenti](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)
+* [Problemi di configurazione del provisioning utenti in un'applicazione della raccolta di Azure AD](../app-provisioning/application-provisioning-config-problem.md)

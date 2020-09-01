@@ -5,12 +5,12 @@ author: chrisreddington
 ms.author: chredd
 ms.date: 03/28/2019
 ms.topic: how-to
-ms.openlocfilehash: ed85678cefe45bbe27595488211173d4fa5418bd
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 9612c61945a41b30fb5d4768e1eb0909a07911d3
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146420"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229396"
 ---
 # <a name="use-azure-pipelines-to-build-and-deploy-hpc-solutions"></a>Usare Azure Pipelines per compilare e distribuire soluzioni HPC
 
@@ -29,7 +29,7 @@ In questo esempio verrà creata una pipeline di compilazione e versione per dist
 Per seguire la procedura descritta in questo articolo, sono necessari un'organizzazione di Azure DevOps e un progetto team.
 
 * [Creare un'organizzazione di Azure DevOps](/azure/devops/organizations/accounts/create-organization)
-* [Creare un progetto in Azure DevOps](/azure/devops/organizations/projects/create-projects)
+* [Creare un progetto in Azure DevOps](/azure/devops/organizations/projects/create-project)
 
 ### <a name="source-control-for-your-environment"></a>Controllo del codice sorgente per l'ambiente
 
@@ -325,7 +325,7 @@ In questo esempio si prenderà in esame la cartella **hpc-application**. La cart
 
     a. [Uso della finestra di progettazione grafica](/azure/devops/pipelines/get-started-designer). A tale scopo, fare clic su "Usa la finestra di progettazione grafica" nella pagina **Nuova pipeline**.
 
-    b. [Uso delle compilazioni YAML](/azure/devops/pipelines/get-started-yamls). È possibile creare una nuova pipeline YAML facendo clic sull'opzione Azure Repos o GitHub nella pagina Nuova pipeline. In alternativa, è possibile archiviare l'esempio seguente nel controllo del codice sorgente e fare riferimento a un file YAML esistente facendo clic sulla finestra di progettazione grafica e quindi usando il modello di YAML.
+    b. [Uso delle compilazioni YAML](/azure/devops/pipelines/get-started-yaml). È possibile creare una nuova pipeline YAML facendo clic sull'opzione Azure Repos o GitHub nella pagina Nuova pipeline. In alternativa, è possibile archiviare l'esempio seguente nel controllo del codice sorgente e fare riferimento a un file YAML esistente facendo clic sulla finestra di progettazione grafica e quindi usando il modello di YAML.
 
     ```yml
     # To publish an application into Azure Batch, we need to

@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6440e71eade32bfea4ed19448fd2f2007b519cc8
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: e84fb04d967311fede3be7f20b45f01fb442e69e
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816083"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228767"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
 
@@ -32,8 +32,8 @@ L'architettura di report in Azure Active Directory (Azure AD) include i componen
     - **Accessi**: informazioni sull'uso delle applicazioni gestite e sulle attività di accesso degli utenti.
     - **Log**  -  di controllo I [log di controllo](concept-audit-logs.md) forniscono informazioni sulle attività di sistema relative agli utenti e alla gestione dei gruppi, alle applicazioni gestite e alle attività di directory.
 - **Sicurezza** 
-    - **Accessi a rischio** : un [accesso rischioso](concept-risky-sign-ins.md) è un indicatore del tentativo di accesso da parte di un utente che non è il proprietario legittimo di un account utente.
-    - **Utenti contrassegnati per il rischio** : un [utente rischioso](concept-user-at-risk.md) è un indicatore per un account utente che potrebbe essere stato compromesso.
+    - **Accessi a rischio** : un [accesso rischioso](../identity-protection/overview-identity-protection.md) è un indicatore del tentativo di accesso da parte di un utente che non è il proprietario legittimo di un account utente.
+    - **Utenti contrassegnati per il rischio** : un [utente rischioso](../identity-protection/overview-identity-protection.md) è un indicatore per un account utente che potrebbe essere stato compromesso.
 
 Questo articolo fornisce una panoramica del report degli accessi.
 
@@ -124,7 +124,7 @@ Per prima cosa, limitare i dati segnalati a un livello che funziona per l'utente
 
 Il **percorso: il percorso da** cui è stata avviata la connessione:
 
-- city
+- City
 
 - Stato/provincia
 
@@ -149,7 +149,7 @@ Il **percorso: il percorso da** cui è stata avviata la connessione:
 |Exchange ActiveSync| |Questo filtro Mostra tutti i tentativi di accesso in cui è stato tentato il protocollo EAS.|
 |Browser|![Controllo](./media/concept-sign-ins/check.png)|Mostra tutti i tentativi di accesso degli utenti che usano i Web browser|
 |Exchange ActiveSync| | Mostra tutti i tentativi di accesso da parte degli utenti con le app client che usano Exchange ActiceSync per connettersi a Exchange Online|
-|PowerShell per Exchange Online| |Usato per connettersi a Exchange Online con PowerShell remoto. Se si blocca l'autenticazione di base per Exchange Online PowerShell, è necessario usare il modulo PowerShell di Exchange Online per connettersi. Per istruzioni, vedere [Connettersi a Exchange Online PowerShell con l'autenticazione a più fattori](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
+|PowerShell per Exchange Online| |Usato per connettersi a Exchange Online con PowerShell remoto. Se si blocca l'autenticazione di base per Exchange Online PowerShell, è necessario usare il modulo PowerShell di Exchange Online per connettersi. Per istruzioni, vedere [Connettersi a Exchange Online PowerShell con l'autenticazione a più fattori](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
 |Servizi Web Exchange| |Interfaccia di programmazione usata da Outlook, Outlook per Mac e app di terze parti.|
 |IMAP4| |Un client di posta legacy che usa IMAP per recuperare la posta elettronica.|
 |MAPI su HTTP| |Usato da Outlook 2010 e versioni successive.|
@@ -234,7 +234,7 @@ Facendo clic su un elemento, si ottengono altri dettagli sull'operazione di acce
 - Client
 - Location
 - Indirizzo IP
-- Date
+- Data
 - Autenticazione a più fattori obbligatoria
 - Stato accesso
 
@@ -271,13 +271,12 @@ L'opzione **Accessi** offre una panoramica completa di tutti gli eventi di acces
 
 ## <a name="office-365-activity-logs"></a>Log attività di Office 365
 
-È possibile visualizzare i log attività di Office 365 dall'interfaccia di [amministrazione di Microsoft 365](https://docs.microsoft.com/office365/admin/admin-overview/about-the-admin-center). Si consideri il fatto che l'attività di Office 365 e i log attività Azure AD condividono un numero significativo di risorse di directory. Solo l'interfaccia di amministrazione di Microsoft 365 fornisce una visualizzazione completa dei log attività di Office 365. 
+È possibile visualizzare i log attività di Office 365 dall'interfaccia di [amministrazione di Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Si consideri il fatto che l'attività di Office 365 e i log attività Azure AD condividono un numero significativo di risorse di directory. Solo l'interfaccia di amministrazione di Microsoft 365 fornisce una visualizzazione completa dei log attività di Office 365. 
 
-È anche possibile accedere ai log attività di Office 365 a livello di codice usando le [API di gestione di office 365](https://docs.microsoft.com/office/office-365-management-api/office-365-management-apis-overview).
+È anche possibile accedere ai log attività di Office 365 a livello di codice usando le [API di gestione di office 365](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Codici di errore del report delle attività di accesso](reference-sign-ins-error-codes.md)
 * [Criteri di conservazione dei report di Azure AD](reference-reports-data-retention.md)
 * [Latenze dei report di Azure AD](reference-reports-latencies.md)
-

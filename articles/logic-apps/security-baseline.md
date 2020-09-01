@@ -6,13 +6,13 @@ ms.service: security
 ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
-ms.custom: security-benchmark
-ms.openlocfilehash: 2e3b6845b66978b4892303549dabca4034a870b2
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.custom: subject-security-benchmark
+ms.openlocfilehash: 263f018155aa6effada3d509c907d825b65a8d45
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079643"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228393"
 ---
 # <a name="azure-security-baseline-for-logic-apps"></a>Baseline della sicurezza di Azure per app per la logica
 
@@ -94,9 +94,9 @@ Usare il Centro sicurezza di Azure accesso alla rete just-in-time per configurar
 
 Usare il Centro sicurezza di Azure Adaptive Network hardening per consigliare configurazioni NSG che limitano le porte e gli indirizzi IP di origine in base al traffico effettivo e all'Intelligence per le minacce.
 
-* [Come proteggere le chiamate in ingresso alle app per la logica](./logic-apps-securing-a-logic-app.md#access-to-request-based-triggers)
+* [Come proteggere le chiamate in ingresso alle app per la logica](logic-apps-securing-a-logic-app.md#access-for-inbound-calls-to-request-based-triggers)
 
-* [Come limitare gli indirizzi IP in ingresso](./logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
+* [Come limitare gli indirizzi IP in ingresso](logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
 
 * [Come configurare la protezione DDoS](../virtual-network/manage-ddos-protection.md)
 
@@ -368,7 +368,7 @@ Ogni endpoint di richiesta in un'app per la logica ha una firma di accesso condi
 
 * [Come ottenere i membri di un ruolo della directory in Azure AD con PowerShell](/powershell/module/azuread/get-azureaddirectoryrolemember?view=azureadps-2.0)
 
-* [Come proteggere l'accesso e i dati in app per la logica di Azure con SAS](./logic-apps-securing-a-logic-app.md#access-to-request-based-triggers)
+* [Come proteggere l'accesso e i dati in app per la logica di Azure con SAS](logic-apps-securing-a-logic-app.md#access-for-inbound-calls-to-request-based-triggers)
 
 **Monitoraggio del Centro sicurezza di Azure**: N/D
 
@@ -382,7 +382,7 @@ Se viene usata l'autenticazione di base, sarà necessario specificare un nome ut
 
 Se si usa l'infrastruttura come codice, evitare di archiviare le password nel codice e usare invece Azure Key Vault per archiviare e recuperare le credenziali.
 
-* [Come proteggere e accedere ai dati nelle app per la logica](./logic-apps-securing-a-logic-app.md)
+* [Come proteggere e accedere ai dati nelle app per la logica](logic-apps-securing-a-logic-app.md)
 
 * [Come impostare e recuperare un segreto da Azure Key Vault](../key-vault/secrets/quick-create-portal.md)
 
@@ -473,7 +473,7 @@ Ogni endpoint di richiesta in un'app per la logica dispone inoltre di una firma 
 
 * [Come configurare località denominate in Azure](../active-directory/reports-monitoring/quickstart-configure-named-locations.md)
 
-* [Informazioni su come limitare gli indirizzi IP in ingresso nelle app per la logica](./logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
+* [Informazioni su come limitare gli indirizzi IP in ingresso nelle app per la logica](logic-apps-securing-a-logic-app.md#restrict-inbound-ip-addresses)
 
 **Monitoraggio del Centro sicurezza di Azure**: N/D
 
@@ -611,11 +611,11 @@ Il trigger request supporta solo Transport Layer Security (TLS) 1,2 per le richi
 
 Seguire le raccomandazioni del Centro sicurezza di Azure per la crittografia dei dati inattivi e la crittografia in transito, ove applicabile.
 
-* [Proteggere l'accesso e i dati in App per la logica di Azure](./logic-apps-securing-a-logic-app.md)
+* [Proteggere l'accesso e i dati in App per la logica di Azure](logic-apps-securing-a-logic-app.md)
 
-* [Ricevere e rispondere alle richieste HTTPS in ingresso in App per la logica di Azure](../connectors/connectors-native-reqres.md#tls-support)
+* [Ricevere e rispondere alle richieste HTTPS in ingresso in App per la logica di Azure](logic-apps-securing-a-logic-app.md#access-for-inbound-calls-to-request-based-triggers)
 
-* [Chiamare gli endpoint di servizio su HTTP o HTTPS da App per la logica di Azure](../connectors/connectors-native-http.md#tls-support)
+* [Chiamare gli endpoint di servizio su HTTP o HTTPS da App per la logica di Azure](logic-apps-securing-a-logic-app.md#access-for-inbound-calls-to-request-based-triggers)
 
 * [Informazioni sulla crittografia in transito con Azure](../security/fundamentals/encryption-overview.md#encryption-of-data-in-transit)
 
@@ -633,7 +633,7 @@ Seguire le raccomandazioni del Centro sicurezza di Azure per la crittografia dei
 
 Microsoft gestisce l'infrastruttura sottostante per le app per la logica di Azure e ha implementato severi controlli per impedire la perdita o l'esposizione dei dati del cliente.
 
-* [Proteggere l'accesso ai dati della cronologia di esecuzione](./logic-apps-securing-a-logic-app.md#access-to-run-history-data)
+* [Proteggere l'accesso ai dati della cronologia di esecuzione](logic-apps-securing-a-logic-app.md#access-to-run-history-data)
 
 * [Informazioni sulla protezione dei dati dei clienti in Azure](../security/fundamentals/protection-customer-data.md)
 
@@ -649,7 +649,7 @@ Microsoft gestisce l'infrastruttura sottostante per le app per la logica di Azur
 
 Per impedire la modifica o l'eliminazione delle app per la logica da parte di altri utenti è inoltre possibile usare i blocchi per le risorse di Azure. Questa funzionalità impedisce ad altri utenti di modificare o eliminare le risorse di produzione.
 
-* [Proteggere l'accesso alle operazioni di app per la logica di Azure](./logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+* [Proteggere l'accesso alle operazioni di app per la logica di Azure](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
 **Monitoraggio del Centro sicurezza di Azure**: N/D
 
@@ -885,7 +885,7 @@ Le app per la logica necessarie per le operazioni aziendali, ma possono comporta
 
 * [Come creare gruppi di gestione](../governance/management-groups/create.md)
 
-* [Come proteggere l'accesso alle app per la logica tramite RBAC di Azure](./logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
+* [Come proteggere l'accesso alle app per la logica tramite RBAC di Azure](logic-apps-securing-a-logic-app.md#access-to-logic-app-operations)
 
 **Monitoraggio del Centro sicurezza di Azure**: N/D
 
@@ -911,9 +911,9 @@ Usare anche parametri protetti per proteggere i dati sensibili e i segreti.
 
 * [Esportazione di una singola e più risorse in un modello in portale di Azure](../azure-resource-manager/templates/export-template-portal.md)
 
-* [Come distribuire modelli di Azure Resource Manager per app per la logica di Azure](./logic-apps-deploy-azure-resource-manager-templates.md)
+* [Come distribuire modelli di Azure Resource Manager per app per la logica di Azure](logic-apps-deploy-azure-resource-manager-templates.md)
 
-* [Informazioni sui parametri di azione protetti](./logic-apps-securing-a-logic-app.md#secure-action-parameters)
+* [Informazioni sui parametri di azione protetti](logic-apps-securing-a-logic-app.md#secure-action-parameters)
 
 * [Raccomandazioni sulla sicurezza per i parametri](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
 
@@ -947,11 +947,11 @@ Assicurarsi inoltre di proteggere i dati nella cronologia di esecuzione usando l
 
 * [Esportazione di una singola e più risorse in un modello in portale di Azure](../azure-resource-manager/templates/export-template-portal.md)
 
-* [Come distribuire modelli di Azure Resource Manager per app per la logica di Azure](./logic-apps-deploy-azure-resource-manager-templates.md)
+* [Come distribuire modelli di Azure Resource Manager per app per la logica di Azure](logic-apps-deploy-azure-resource-manager-templates.md)
 
-* [Proteggere l'accesso agli input e agli output della cronologia di esecuzione](./logic-apps-securing-a-logic-app.md#obfuscate)
+* [Proteggere l'accesso agli input e agli output della cronologia di esecuzione](logic-apps-securing-a-logic-app.md#obfuscate)
 
-* [Proteggere l'accesso agli input di parametri](./logic-apps-securing-a-logic-app.md#secure-action-parameters)
+* [Proteggere l'accesso agli input di parametri](logic-apps-securing-a-logic-app.md#secure-action-parameters)
 
 * [Raccomandazioni sulla sicurezza per i parametri](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
 
@@ -1033,11 +1033,11 @@ Inoltre, Azure Resource Manager è in grado di esportare il modello in JavaScrip
 
 Quando si crea un ambiente Integration Services (ISE) per ospitare le app per la logica e si desidera un maggiore controllo sulle chiavi di crittografia usate da archiviazione di Azure, è possibile configurare, usare e gestire la propria chiave usando Azure Key Vault. Questa funzionalità è nota anche come "Bring Your Own Key" (BYOK) e la chiave è detta "chiave gestita dal cliente".
 
-* [Proteggere gli input e gli output nella cronologia di esecuzione in app per la logica di Azure](./logic-apps-securing-a-logic-app.md#obfuscate)
+* [Proteggere gli input e gli output nella cronologia di esecuzione in app per la logica di Azure](logic-apps-securing-a-logic-app.md#obfuscate)
 
 * [Raccomandazioni sulla sicurezza per i parametri](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
 
-* [Proteggere l'accesso agli input di parametri in app per la logica di Azure](./logic-apps-securing-a-logic-app.md#access-to-parameter-inputs)
+* [Proteggere l'accesso agli input di parametri in app per la logica di Azure](logic-apps-securing-a-logic-app.md#access-to-parameter-inputs)
 
 * [Passare i valori di parametro protetti durante la distribuzione usando Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
@@ -1069,11 +1069,11 @@ Attualmente, solo trigger e azioni predefiniti specifici supportano le identità
 
 È anche possibile implementare Credential scanner per identificare le credenziali all'interno del codice. Tale strumento inoltre incoraggerà a spostare le credenziali rilevate in posizioni più sicure, ad esempio Azure Key Vault.
 
-* [Proteggere gli input e gli output nella cronologia di esecuzione in app per la logica di Azure](./logic-apps-securing-a-logic-app.md#obfuscate)
+* [Proteggere gli input e gli output nella cronologia di esecuzione in app per la logica di Azure](logic-apps-securing-a-logic-app.md#obfuscate)
 
 * [Raccomandazioni sulla sicurezza per i parametri](../azure-resource-manager/templates/template-best-practices.md#security-recommendations-for-parameters)
 
-* [Proteggere l'accesso agli input di parametri in app per la logica di Azure](./logic-apps-securing-a-logic-app.md#access-to-parameter-inputs)
+* [Proteggere l'accesso agli input di parametri in app per la logica di Azure](logic-apps-securing-a-logic-app.md#access-to-parameter-inputs)
 
 * [Passare i valori di parametro protetti durante la distribuzione usando Azure Key Vault](../azure-resource-manager/templates/key-vault-parameter.md)
 
@@ -1133,7 +1133,7 @@ Inoltre, è necessario espandere la definizione del flusso di lavoro sottostante
 
 * [Altre informazioni sulla continuità aziendale e il ripristino di emergenza per app per la logica di Azure](./business-continuity-disaster-recovery-guidance.md)
 
-* [Come automatizzare la distribuzione per app per la logica di Azure usando modelli di Azure Resource Manager](./logic-apps-azure-resource-manager-templates-overview.md)
+* [Come automatizzare la distribuzione per app per la logica di Azure usando modelli di Azure Resource Manager](logic-apps-azure-resource-manager-templates-overview.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: N/D
 
@@ -1151,9 +1151,9 @@ Ogni endpoint di richiesta in un'app per la logica ha una firma di accesso condi
 
 * [Altre informazioni sulla continuità aziendale e il ripristino di emergenza per app per la logica di Azure](./business-continuity-disaster-recovery-guidance.md)
 
-* [Come automatizzare la distribuzione per app per la logica di Azure usando modelli di Azure Resource Manager](./logic-apps-azure-resource-manager-templates-overview.md)
+* [Come automatizzare la distribuzione per app per la logica di Azure usando modelli di Azure Resource Manager](logic-apps-azure-resource-manager-templates-overview.md)
 
-* [Come proteggere l'accesso e i dati in app per la logica di Azure con SAS](./logic-apps-securing-a-logic-app.md#access-to-request-based-triggers)
+* [Come proteggere l'accesso e i dati in app per la logica di Azure con SAS](logic-apps-securing-a-logic-app.md#access-for-inbound-calls-to-request-based-triggers)
 
 * [Come eseguire il backup di chiavi di Key Vault](/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey)
 

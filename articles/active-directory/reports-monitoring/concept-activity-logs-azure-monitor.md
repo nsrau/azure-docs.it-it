@@ -17,14 +17,14 @@ ms.date: 04/09/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0822bdd886a9a29f2cdb6843d3dc4404d7360f32
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f4253fe52346890eaa993a18e8e9bc9b270bffd7
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81261024"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229855"
 ---
-# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Azure AD log attività in monitoraggio di Azure
+# <a name="azure-ad-activity-logs-in-azure-monitor"></a>Log attività di Azure AD in Monitoraggio di Azure
 
 È possibile instradare i log attività di Azure Active Directory (Azure AD) a diversi endpoint per la conservazione a lungo termine e informazioni dettagliate sui dati. Questa funzionalità consente di:
 
@@ -55,22 +55,22 @@ Per usare questa funzionalità, sono necessari:
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/free/).
 * Una [licenza](https://azure.microsoft.com/pricing/details/active-directory/) di Azure AD Free, Basic, Premium 1 o Premium 2 per accedere ai log di controllo di Azure AD nel portale di Azure. 
 * Un tenant di Azure AD.
-* Un utente con il ruolo di **amministratore globale** o **amministratore della sicurezza** per il tenant di Azure AD.
+* Utente che è un amministratore **globale** o un **amministratore della sicurezza** per il tenant del Azure ad.
 * Una [licenza](https://azure.microsoft.com/pricing/details/active-directory/) di Azure AD Premium 1 o Premium 2 per accedere ai log di accesso di Azure AD nel portale di Azure. 
 
 A seconda del punto in cui si desidera instradare i dati dei log di controllo, è necessario uno dei due elementi seguenti:
 
-* Un account di archiviazione di Azure, con autorizzazioni *ListKeys*. È consigliabile usare un account di archiviazione generale invece di un account di archiviazione BLOB. Per informazioni sui prezzi per l'archiviazione, vedere il [calcolatore prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/calculator/?service=storage). 
+* Un account di archiviazione di Azure, con autorizzazioni *ListKeys*. È consigliabile usare un account di archiviazione generale invece di un account di archiviazione BLOB. Per informazioni sui prezzi di archiviazione, vedere il [calcolatore dei prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/calculator/?service=storage). 
 * Uno spazio dei nomi di Hub eventi di Azure, per l'integrazione con soluzioni di terze parti.
 * Un'area di lavoro Azure Log Analytics per inviare log a log di Monitoraggio di Azure.
 
-## <a name="cost-considerations"></a>Considerazioni sul costo
+## <a name="cost-considerations"></a>Considerazioni sui costi
 
 Se si dispone già di una licenza di Azure AD, è necessaria una sottoscrizione di Azure per configurare l'account di archiviazione o l'hub eventi. La sottoscrizione di Azure viene fornita gratuitamente, ma è necessario un pagamento per usare le risorse di Azure, tra cui l'account di archiviazione usato per archiviazione e l'hub eventi usato per la trasmissione. La quantità di dati, e quindi il costo addebitato, variano significativamente a seconda delle dimensioni del tenant. 
 
 ### <a name="storage-size-for-activity-logs"></a>Dimensioni di archiviazione per i log attività
 
-Ogni evento del log di controllo usa circa 2 KB di archiviazione dati. I registri eventi di accesso sono pari a circa 4 KB di archiviazione dati. Per un tenant con 100.000 utenti, che potrebbe comportare circa 1,5 milioni di eventi al giorno, occorrerebbero circa 3 GB di archiviazione dati al giorno. Dato che le scritture vengono eseguite in batch ogni 5 minuti circa, è possibile prevedere circa 9.000 operazioni di scrittura al mese. 
+Ogni evento di un log di controllo usa circa 2 KB di spazio di archiviazione dati. I registri eventi di accesso sono pari a circa 4 KB di archiviazione dati. Per un tenant con 100.000 utenti, che potrebbe comportare circa 1,5 milioni di eventi al giorno, occorrerebbero circa 3 GB di archiviazione dati al giorno. Dato che le scritture vengono eseguite in batch ogni 5 minuti circa, è possibile prevedere circa 9.000 operazioni di scrittura al mese. 
 
 
 La tabella seguente contiene una stima del costo, a seconda delle dimensioni del tenant, per un account di archiviazione per utilizzo generico v2 negli Stati Uniti occidentali per almeno un anno di conservazione. Usare il [calcolatore prezzi di Archiviazione di Azure](https://azure.microsoft.com/pricing/details/storage/blobs/) per creare una stima più accurata per il volume di dati previsto per l'applicazione.
@@ -103,7 +103,7 @@ La tabella seguente contiene i costi stimati al mese per un hub eventi di base n
 | Categoria di log | Numero di utenti | Eventi al secondo | Eventi per intervallo di cinque minuti | Volume per intervallo | Messaggi per intervallo | Messaggi al mese | Costo mensile (stima) |
 |--------------|-----------------|-------------------------|----------------------------------------|---------------------|---------------------------------|------------------------------|----------------------------|
 | Audit | 100,000 | 18 | 5.400 | 10,8 MB | 43 | 371.520 | $10,83 |
-| Audit | 1\.000 | 0.1 | 52 | 104 KB | 1 | 8.640 | $10,80 |
+| Audit | 1\.000 | 0,1 | 52 | 104 KB | 1 | 8.640 | $10,80 |
 | Accessi | 100,000 | 18000 | 5,4 milioni | 10,8 GB | 42188 | 364.504.320 | $23,9 |  
 | Accessi | 1\.000 | 178 | 53.400 | 106,8&nbsp;MB | 418 | 3.611.520 | $11,06 |  
 
@@ -126,7 +126,7 @@ La tabella seguente contiene i costi stimati al mese per un hub eventi di base n
 
 
 
-Per esaminare i costi legati alla gestione dei log di Monitoraggio di Azure, vedere [Gestire i costi controllando il volume e la conservazione dei dati nei log di Monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-cost-storage).
+Per esaminare i costi legati alla gestione dei log di Monitoraggio di Azure, vedere [Gestire i costi controllando il volume e la conservazione dei dati nei log di Monitoraggio di Azure](../../azure-monitor/platform/manage-cost-storage.md).
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -180,13 +180,13 @@ Questa sezione contiene risposte a domande frequenti e i problemi noti relativi 
 
 **D: Quali strumenti SIEM sono attualmente supportati?** 
 
-**R**: **r**: attualmente, monitoraggio di Azure è supportato da [Splunk](tutorial-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-arcsight), LogRhythm e LOGZ.io. Per altre informazioni sul funzionamento dei connettori, vedere [Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
+**R**: **r**: attualmente, monitoraggio di Azure è supportato da [Splunk](./howto-integrate-activity-logs-with-splunk.md), IBM QRadar, [Sumo Logic](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory), [ArcSight](./howto-integrate-activity-logs-with-arcsight.md), LogRhythm e LOGZ.io. Per altre informazioni sul funzionamento dei connettori, vedere [Trasmettere i dati di monitoraggio di Azure a un hub eventi per il consumo da parte di uno strumento esterno](../../azure-monitor/platform/stream-monitoring-data-event-hubs.md).
 
 ---
 
 **D: Come è possibile integrare i log attività di Azure AD con l'istanza di Splunk?**
 
-**R**: Prima di tutto, [indirizzare i log attività di Azure AD a un hub eventi](quickstart-azure-monitor-stream-logs-to-event-hub.md), quindi seguire i passaggi per [integrare i log attività con Splunk](tutorial-integrate-activity-logs-with-splunk.md).
+**R**: Prima di tutto, [indirizzare i log attività di Azure AD a un hub eventi](./tutorial-azure-monitor-stream-logs-to-event-hub.md), quindi seguire i passaggi per [integrare i log attività con Splunk](./howto-integrate-activity-logs-with-splunk.md).
 
 ---
 
@@ -198,7 +198,7 @@ Questa sezione contiene risposte a domande frequenti e i problemi noti relativi 
 
 **D: È possibile accedere ai dati da un hub eventi senza usare uno strumento di informazioni di sicurezza e gestione degli eventi esterno?** 
 
-**R**: Sì. È possibile usare l'[API di Hub eventi](../../event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph.md) per accedere ai log da un'applicazione personalizzata. 
+**R**: Sì. È possibile usare l'[API di Hub eventi](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) per accedere ai log da un'applicazione personalizzata. 
 
 ---
 
@@ -206,5 +206,5 @@ Questa sezione contiene risposte a domande frequenti e i problemi noti relativi 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Archiviare i log attività in un account di archiviazione](quickstart-azure-monitor-route-logs-to-storage-account.md)
-* [Trasmettere i log attività a un hub eventi](quickstart-azure-monitor-stream-logs-to-event-hub.md)
+* [Trasmettere i log attività a un hub eventi](./tutorial-azure-monitor-stream-logs-to-event-hub.md)
 * [Integrare log attività con Monitoraggio di Azure](howto-integrate-activity-logs-with-log-analytics.md)

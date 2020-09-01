@@ -6,12 +6,12 @@ ms.service: data-lake-store
 ms.topic: how-to
 ms.date: 05/29/2018
 ms.author: twooley
-ms.openlocfilehash: e3e54b037485a85d836e7e7e67c9af2d9d140986
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: fd49ddcb59e0d0f3a706f566cf0c011116b1501a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85856808"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229226"
 ---
 # <a name="create-hdinsight-clusters-with-azure-data-lake-storage-gen1-by-using-the-azure-portal"></a>Creare cluster HDInsight con Azure Data Lake Storage Gen1 tramite il portale di Azure
 
@@ -31,7 +31,7 @@ Prima di iniziare, verificare di aver soddisfatto i requisiti seguenti:
 
 * **Una sottoscrizione di Azure**. Vedere [Ottenere una versione di valutazione gratuita di Azure](https://azure.microsoft.com/pricing/free-trial/).
 * **Un account Data Lake Storage Gen1**. Seguire le istruzioni fornite in [Introduzione all'uso di Azure Data Lake Storage Gen1 tramite il portale di Azure](data-lake-store-get-started-portal.md). È anche necessario creare una cartella radice nell'account.  In questo articolo viene usata una cartella radice denominata __/Clusters__ .
-* **Un'entità servizio di Azure Active Directory**. Questa guida alle procedure fornisce istruzioni su come creare un'entità servizio in Azure Active Directory (Azure AD). Tuttavia, per creare un'entità servizio è necessario essere un amministratore di Azure AD. Se si è un amministratore, è possibile ignorare questo prerequisito e continuare.
+* **Entità servizio Azure Active Directory**. Questa guida alle procedure fornisce istruzioni su come creare un'entità servizio in Azure Active Directory (Azure AD). Tuttavia, per creare un'entità servizio è necessario essere un amministratore di Azure AD. Se si è un amministratore, è possibile ignorare questo prerequisito e continuare.
 
 >[!NOTE]
 >È possibile creare un'entità servizio solo se si è un amministratore Azure AD. Prima di poter creare un cluster HDInsight con Data Lake Storage Gen1, un amministratore di Azure AD deve creare un'entità servizio. Inoltre, l'entità servizio deve essere creata usando un certificato, come descritto in [Creare un'entità servizio con certificato](../active-directory/develop/howto-authenticate-service-principal-powershell.md#create-service-principal-with-self-signed-certificate).
@@ -85,18 +85,11 @@ In questa sezione è possibile configurare l'accesso a Data Lake Storage Gen1 da
 Dal portale di Azure è possibile usare un'entità servizio esistente o crearne una nuova.
 
 Per creare un'entità servizio dal portale di Azure:
-
-1. Selezionare **accesso data Lake Store** dal pannello archiviazione.
-1. Nel pannello **accesso data Lake storage Gen1** selezionare **Crea nuovo**.
-1. Selezionare **entità servizio**, quindi seguire le istruzioni per creare un'entità servizio.
-1. Scaricare il certificato se si decide di usarlo ancora in futuro. Il download del certificato è un'operazione utile se in futuro si vorrà usare la stessa entità servizio per creare altri cluster HDInsight.
-
-    ![Aggiungere entità servizio a cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.2.png "Aggiungere entità servizio a cluster HDInsight")
-
-1. Selezionare **accesso** per configurare l'accesso alla cartella.  Vedere [Configurare le autorizzazioni file](#configure-file-permissions).
+1. Vedere [creare un'entità servizio e certificati](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal) usando Azure Active Directory.
 
 Per usare un'entità servizio esistente dal portale di Azure:
 
+1. L'entità servizio deve avere le autorizzazioni di proprietario per l'account di archiviazione. Vedere [impostare le autorizzazioni per l'entità servizio come proprietario nell'account di archiviazione](#configure-serviceprincipal-permissions)
 1. Selezionare **Data Lake Store accesso**.
 1. Nel pannello **accesso data Lake storage Gen1** selezionare **Usa esistente**.
 1. Selezionare **entità servizio**, quindi selezionare un'entità servizio.
@@ -105,6 +98,10 @@ Per usare un'entità servizio esistente dal portale di Azure:
     ![Aggiungere entità servizio a cluster HDInsight](./media/data-lake-store-hdinsight-hadoop-use-portal/hdi.adl.5.png "Aggiungere entità servizio a cluster HDInsight")
 
 1. Selezionare **accesso** per configurare l'accesso alla cartella.  Vedere [Configurare le autorizzazioni file](#configure-file-permissions).
+
+### <a name="set-up-permissions-for-the-service-principal-to-be-owner-on-the-storage-account"></a><a name="configure-serviceprincipal-permissions"></a>Configurare le autorizzazioni per l'entità servizio come proprietario nell'account di archiviazione
+1. Nel pannello controllo di accesso (IAM) dell'account di archiviazione fare clic su Aggiungi un'assegnazione di ruolo. 
+2. Nel pannello Aggiungi assegnazione ruolo selezionare ruolo come ' proprietario ', quindi selezionare il nome SPN e fare clic su Salva.
 
 ### <a name="configure-file-permissions"></a><a name="configure-file-permissions"></a>Configurare le autorizzazioni file
 
@@ -130,7 +127,7 @@ Per assegnare l'autorizzazione a livello di radice dell'account Data Lake Storag
 
 1. Fare clic su **Seleziona** nella parte inferiore della pagina.
 1. Selezionare **Esegui** per assegnare l'autorizzazione.
-1. Selezionare **Operazione completata**.
+1. Selezionare **Fine**.
 
 Per assegnare l'autorizzazione a livello di radice del cluster HDInsight:
 
@@ -140,7 +137,7 @@ Per assegnare l'autorizzazione a livello di radice del cluster HDInsight:
 1. Impostare le autorizzazioni per la cartella.  Per impostazione predefinita, sono selezionate lettura, scrittura ed esecuzione.
 1. Fare clic su **Seleziona** nella parte inferiore della pagina.
 1. Selezionare **Run** (Esegui).
-1. Selezionare **Operazione completata**.
+1. Selezionare **Fine**.
 
 Se si usa Data Lake Storage Gen1 come risorsa di archiviazione aggiuntiva, è necessario assegnare autorizzazioni solo per le cartella a cui si vuole accedere dal cluster HDInsight. Ad esempio, nella schermata seguente si garantisce l'accesso solo alla cartella **mynewfolder** in un account Data Lake Storage Gen1.
 

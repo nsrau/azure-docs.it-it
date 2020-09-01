@@ -4,12 +4,12 @@ description: Informazioni su come ridimensionare un cluster di Service Fabric ag
 ms.topic: article
 ms.date: 08/06/2020
 ms.author: pepogors
-ms.openlocfilehash: b34f3f77dab6c4dcd8b7653f552c32a669d257c9
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: a18a40cc9e467b089ea9d6be3d0ca81a21d2c474
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854631"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228716"
 ---
 # <a name="scale-up-a-service-fabric-cluster-primary-node-type-by-adding-a-node-type"></a>Scalare verticalmente un tipo di nodo primario del cluster Service Fabric aggiungendo un tipo di nodo
 Questo articolo descrive come aumentare la scalabilità verticale di un Service Fabric tipo di nodo primario del cluster aggiungendo un tipo di nodo aggiuntivo al cluster. Un cluster di Service Fabric è un set di computer fisici o macchine virtuali connessi in rete, in cui vengono distribuiti e gestiti i microservizi. Un computer o una macchina virtuale che fa parte di un cluster viene detto nodo. I set di scalabilità di macchine virtuali sono una risorsa di calcolo di Azure che è possibile usare per distribuire e gestire una raccolta di macchine virtuali come set. Ogni tipo di nodo definito in un cluster di Azure viene [configurato come set di scalabilità di macchine virtuali separato](service-fabric-cluster-nodetypes.md). Ogni tipo di nodo può essere gestito separatamente.
@@ -31,7 +31,7 @@ Di seguito è riportato il processo di aggiornamento delle dimensioni della macc
 ### <a name="deploy-the-initial-service-fabric-cluster"></a>Distribuire il cluster Service Fabric iniziale 
 Se si vuole seguire l'esempio, distribuire il cluster iniziale con un unico tipo di nodo primario e un singolo set di scalabilità [Service Fabric cluster iniziale](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-1.json). È possibile ignorare questo passaggio se è già stato distribuito un cluster di Service Fabric esistente. 
 
-1. Accedere al proprio account Azure. 
+1. Accedere all'account Azure. 
 ```powershell
 # sign in to your Azure account and select your subscription
 Login-AzAccount -SubscriptionId "<your subscription ID>"
@@ -99,7 +99,7 @@ New-AzResourceGroupDeployment `
     "[concat('Microsoft.Network/publicIPAddresses/',concat(variables('lbIPName'),'-',variables('vmNodeType1Name')))]"
 ]
 ```
-4. Creare un nuovo set di scalabilità di macchine virtuali che usa il nuovo SKU di VM e lo SKU del sistema operativo a cui si desidera applicare la scalabilità verticale. 
+4. Creare un nuovo set di scalabilità di macchine virtuali che usa il nuovo SKU di VM e lo SKU del sistema operativo a cui si vuole applicare la scalabilità verticale. 
 
 Ref del tipo di nodo 
 ```json
@@ -124,6 +124,134 @@ SKU DEL SISTEMA OPERATIVO
     "version": "[parameters('vmImageVersion1')]"
 }
 ```
+
+Il frammento di codice seguente è un esempio di una nuova risorsa del set di scalabilità di macchine virtuali utilizzata per creare un nuovo tipo di nodo per un cluster Service Fabric. È necessario assicurarsi di includere eventuali estensioni aggiuntive necessarie per il carico di lavoro. 
+
+```json
+    {
+      "apiVersion": "[variables('vmssApiVersion')]",
+      "type": "Microsoft.Compute/virtualMachineScaleSets",
+      "name": "[variables('vmNodeType1Name')]",
+      "location": "[variables('computeLocation')]",
+      "dependsOn": [
+        "[concat('Microsoft.Network/virtualNetworks/', variables('virtualNetworkName'))]",
+        "[concat('Microsoft.Network/loadBalancers/', concat('LB','-', parameters('clusterName'),'-',variables('vmNodeType1Name')))]",
+        "[concat('Microsoft.Storage/storageAccounts/', variables('supportLogStorageAccountName'))]",
+        "[concat('Microsoft.Storage/storageAccounts/', variables('applicationDiagnosticsStorageAccountName'))]"
+      ],
+      "properties": {
+        "overprovision": "[variables('overProvision')]",
+        "upgradePolicy": {
+          "mode": "Automatic"
+        },
+        "virtualMachineProfile": {
+          "extensionProfile": {
+            "extensions": [
+              {
+                "name": "[concat('ServiceFabricNodeVmExt_',variables('vmNodeType1Name'))]",
+                "properties": {
+                  "type": "ServiceFabricNode",
+                  "autoUpgradeMinorVersion": true,
+                  "protectedSettings": {
+                    "StorageAccountKey1": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key1]",
+                    "StorageAccountKey2": "[listKeys(resourceId('Microsoft.Storage/storageAccounts', variables('supportLogStorageAccountName')),'2015-05-01-preview').key2]"
+                  },
+                  "publisher": "Microsoft.Azure.ServiceFabric",
+                  "settings": {
+                    "clusterEndpoint": "[reference(parameters('clusterName')).clusterEndpoint]",
+                    "nodeTypeRef": "[variables('vmNodeType1Name')]",
+                    "dataPath": "D:\\SvcFab",
+                    "durabilityLevel": "Bronze",
+                    "enableParallelJobs": true,
+                    "nicPrefixOverride": "[variables('subnet1Prefix')]",
+                    "certificate": {
+                      "thumbprint": "[parameters('certificateThumbprint')]",
+                      "x509StoreName": "[parameters('certificateStoreValue')]"
+                    }
+                  },
+                  "typeHandlerVersion": "1.0"
+                }
+              }
+            ]
+          },
+          "networkProfile": {
+            "networkInterfaceConfigurations": [
+              {
+                "name": "[concat(variables('nicName'), '-1')]",
+                "properties": {
+                  "ipConfigurations": [
+                    {
+                      "name": "[concat(variables('nicName'),'-',1)]",
+                      "properties": {
+                        "loadBalancerBackendAddressPools": [
+                          {
+                            "id": "[variables('lbPoolID1')]"
+                          }
+                        ],
+                        "loadBalancerInboundNatPools": [
+                          {
+                            "id": "[variables('lbNatPoolID1')]"
+                          }
+                        ],
+                        "subnet": {
+                          "id": "[variables('subnet1Ref')]"
+                        }
+                      }
+                    }
+                  ],
+                  "primary": true
+                }
+              }
+            ]
+          },
+          "osProfile": {
+            "adminPassword": "[parameters('adminPassword')]",
+            "adminUsername": "[parameters('adminUsername')]",
+            "computernamePrefix": "[variables('vmNodeType1Name')]",
+            "secrets": [
+              {
+                "sourceVault": {
+                  "id": "[parameters('sourceVaultValue')]"
+                },
+                "vaultCertificates": [
+                  {
+                    "certificateStore": "[parameters('certificateStoreValue')]",
+                    "certificateUrl": "[parameters('certificateUrlValue')]"
+                  }
+                ]
+              }
+            ]
+          },
+          "storageProfile": {
+            "imageReference": {
+              "publisher": "[parameters('vmImagePublisher1')]",
+              "offer": "[parameters('vmImageOffer1')]",
+              "sku": "[parameters('vmImageSku1')]",
+              "version": "[parameters('vmImageVersion1')]"
+            },
+            "osDisk": {
+              "caching": "ReadOnly",
+              "createOption": "FromImage",
+              "managedDisk": {
+                "storageAccountType": "[parameters('storageAccountType')]"
+              }
+            }
+          }
+        }
+      },
+      "sku": {
+        "name": "[parameters('vmNodeType1Size')]",
+        "capacity": "[parameters('nt1InstanceCount')]",
+        "tier": "Standard"
+      },
+      "tags": {
+        "resourceType": "Service Fabric",
+        "clusterName": "[parameters('clusterName')]"
+      }
+    },
+
+```
+
 5. Aggiungere un nuovo tipo di nodo al cluster, che fa riferimento al set di scalabilità di macchine virtuali creato in precedenza. La **Proprietà IsTrue** di questo tipo di nodo deve essere impostata su true. 
 ```json
 "name": "[variables('vmNodeType1Name')]",
@@ -339,7 +467,7 @@ Solo per i cluster di durabilità Silver e versioni successive, aggiornare la ri
 ```
 10. Rimuovere tutte le altre risorse correlate al tipo di nodo originale dal modello ARM. Vedere [Service Fabric-nuovo cluster di tipi di nodo](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/Primary-NodeType-Scaling-Sample/AzureDeploy-4.json) per un modello con tutte queste risorse originali rimosse.
 
-11. Distribuire il modello di Azure Resource Manager modificato. * * Questa operazione richiederà un po' di tempo, in genere fino a due ore. Con questo aggiornamento le impostazioni vengono modificate in InfrastructureService, pertanto è necessario riavviare il nodo. In questo caso forceRestart viene ignorato. Il parametro upgradeReplicaSetCheckTimeout specifica il tempo massimo che Service Fabric attende che una partizione sia in uno stato sicuro, se non è già in uno stato sicuro. Una volta superati i controlli di sicurezza per tutte le partizioni in un nodo, Service Fabric procede con l'aggiornamento su tale nodo. Il valore del parametro upgradeTimeout può essere ridotto a 6 ore, ma è consigliabile usare per la massima sicurezza 12 ore.
+11. Distribuire il modello di Azure Resource Manager modificato. * * Questa operazione richiederà un po' di tempo, in genere fino a due ore. Questo aggiornamento modificherà le impostazioni in InfrastructureService; Pertanto, è necessario riavviare un nodo. In questo caso, forceRestart viene ignorato. Il parametro upgradeReplicaSetCheckTimeout specifica il tempo massimo che Service Fabric attende che una partizione sia in uno stato sicuro, se non è già in uno stato sicuro. Una volta superati i controlli di sicurezza per tutte le partizioni in un nodo, Service Fabric procede con l'aggiornamento su tale nodo. Il valore del parametro upgradeTimeout può essere ridotto a 6 ore, ma è consigliabile usare per la massima sicurezza 12 ore.
 Quindi verificare che la risorsa Service Fabric nel portale sia visualizzata come pronta. 
 
 ```powershell

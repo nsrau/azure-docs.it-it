@@ -1,6 +1,6 @@
 ---
-title: Visualizzare i dati in Gen2 Explorer-Azure Time Series Insights Gen2 | Microsoft Docs
-description: Informazioni sulle funzionalità e le opzioni disponibili in Azure Time Series Insights Gen2 Explorer.
+title: Visualizzare i dati in TSI Explorer-Azure Time Series Insights Gen2 | Microsoft Docs
+description: Informazioni sulle funzionalità e le opzioni disponibili in Esplora Azure Time Series Insights.
 author: deepakpalled
 ms.author: dpalled
 manager: diviso
@@ -8,22 +8,22 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/12/2020
+ms.date: 08/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 68b80a3511a82ff06677d3b7bb1fbea1c68cb2ae
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 31ed5f93fc7d1b44ae8a4afb1f4368d0b52eb2fd
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88164156"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227050"
 ---
-# <a name="azure-time-series-insights-gen2-explorer"></a>Azure Time Series Insights Esplora Gen2
+# <a name="azure-time-series-insights-explorer"></a>Strumento di esplorazione di Azure Time Series Insights
 
 Questo articolo descrive le varie funzionalità e opzioni disponibili nell' [ambiente Demo](https://insights.timeseries.azure.com/preview/demo)Azure Time Series Insights Gen2.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per iniziare a usare Azure Time Series Insights Gen2 Explorer, è necessario:
+Per iniziare a usare Esplora Azure Time Series Insights, è necessario:
 
 * Eseguire il provisioning di un ambiente di Azure Time Series Insights Gen2. Per altre informazioni sul provisioning di un'istanza, leggere l'esercitazione [Azure Time Series Insights Gen2](./time-series-insights-update-create-environment.md) .
 * [Fornire l'accesso ai dati](./time-series-insights-data-access.md) all'ambiente Azure Time Series Insights Gen2 creato per l'account. È possibile fornire l'accesso a se stessi e ad altri utenti.
@@ -31,11 +31,11 @@ Per iniziare a usare Azure Time Series Insights Gen2 Explorer, è necessario:
   * Informazioni [su come connettersi a un hub eventi](./time-series-insights-how-to-add-an-event-source-eventhub.md)
   * Informazioni [su come connettersi a un hub](./time-series-insights-how-to-add-an-event-source-iothub.md) Internet
 
-## <a name="explore-the-azure-time-series-insights-gen2-explorer"></a>Esplorare il Azure Time Series Insights Gen2 Explorer
+## <a name="explore-the-azure-time-series-insights-explorer"></a>Esplorare Esplora Azure Time Series Insights
 
-Il Azure Time Series Insights Gen2 Explorer è costituito dai sette elementi seguenti:
+Esplora Azure Time Series Insights è costituito dai sette elementi seguenti:
 
-[![Panoramica di Azure Time Series Insights Gen2 Explorer](media/v2-update-explorer/preview-explorer-overview.png)](media/v2-update-explorer/preview-explorer-overview.png#lightbox)
+[![Panoramica di Azure Time Series Insights Explorer](media/v2-update-explorer/preview-explorer-overview.png)](media/v2-update-explorer/preview-explorer-overview.png#lightbox)
 
 1. [Pannello ambiente](#1-environment-panel): Visualizza tutti gli ambienti di Azure Time Series Insights Gen2.
 1. [Barra di spostamento](#2-navigation-bar): consente di spostarsi tra le pagine **analizza** e **modello** .
@@ -193,7 +193,7 @@ Per selezionare un nuovo tema, selezionare l'icona del profilo nell'angolo in al
 > [!TIP]
 > La selezione della lingua è disponibile anche selezionando l'icona del profilo.
 
-Azure Time Series Insights Gen2 Explorer supporta due temi:
+Azure Time Series Insights Explorer supporta due temi:
 
 * **Tema chiaro**: il tema predefinito illustrato in questo documento.
 * **Tema scuro**: esegue il rendering di Esplora risorse come illustrato di seguito:
@@ -204,7 +204,7 @@ Azure Time Series Insights Gen2 Explorer supporta due temi:
 
 ### <a name="gen2-terms-panel"></a>Pannello termini di Gen2
 
-Questa sezione si applica solo agli ambienti di generazione 1 esistenti che tentano di utilizzare Esplora risorse nell'interfaccia utente aggiornata. Potrebbe essere necessario utilizzare il prodotto di generazione 1 e il prodotto Gen2 in combinazione. Sono state aggiunte alcune funzionalità dall'interfaccia utente esistente alla finestra di esplorazione aggiornata, ma è possibile ottenere l'esperienza dell'interfaccia utente completa per un ambiente di generazione 1 nella nuova Azure Time Series Insights Gen2 Explorer.
+Questa sezione si applica solo agli ambienti di generazione 1 esistenti che tentano di utilizzare Esplora risorse nell'interfaccia utente aggiornata. Potrebbe essere necessario utilizzare il prodotto di generazione 1 e il prodotto Gen2 in combinazione. Sono state aggiunte alcune funzionalità dall'interfaccia utente esistente alla finestra di esplorazione aggiornata, ma è possibile ottenere l'intera esperienza dell'interfaccia utente per un ambiente di generazione 1 nel nuovo Azure Time Series Insights Explorer.
 
 Al posto della gerarchia, viene visualizzato il pannello Azure Time Series Insights termini di Gen2. Il pannello termini consente di definire query nell'ambiente in uso. Utilizzarlo anche per filtrare i dati in base a un predicato.
 
@@ -219,7 +219,7 @@ Il pannello dell'editor dei termini Azure Time Series Insights Gen2 accetta i pa
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | String, Bool, Double, DateTime, TimeSpan, NULL |
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | Tutti gli operandi devono essere dello stesso tipo o essere una costante NULL. |
-| `HAS` | string | Sul lato destro sono consentiti solo valori letterali stringa costanti. Non sono consentite stringhe vuote e NULL. |
+| `HAS` | Stringa | Sul lato destro sono consentiti solo valori letterali stringa costanti. Non sono consentite stringhe vuote e NULL. |
 
 Per ulteriori informazioni sulle operazioni di query e sui tipi di dati supportati, leggere [espressione Time Series (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 
