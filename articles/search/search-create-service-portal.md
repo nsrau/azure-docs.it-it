@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/14/2020
-ms.openlocfilehash: b9507e500282afbdfba5cedd5420974aa8b3ade8
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 6813db0b7416695fb9433a701114f2684dd0e122
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554023"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927120"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-service-in-the-portal"></a>Avvio rapido: Creare un servizio Ricerca cognitiva di Azure nel portale
 
@@ -96,7 +96,7 @@ Ricerca cognitiva di Azure è disponibile nella maggior parte delle aree. L'elen
 
  Se si usano arricchimenti tramite intelligenza artificiale, creare il servizio di ricerca nella stessa area di Servizi cognitivi. *Per l'arricchimento tramite intelligenza artificiale, Ricerca cognitiva di Azure e Servizi cognitivi devono trovarsi nella stessa area*.
 
- I clienti con requisiti di continuità aziendale e ripristino di emergenza dovranno creare i servizi in [coppie di aree](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#azure-regional-pairs). Se ad esempio si opera in America del Nord, è possibile scegliere Stati Uniti orientali e Stati Uniti occidentali oppure Stati Uniti centro-settentrionali e Stati Uniti centro-meridionali per ogni servizio.
+ I clienti con requisiti di continuità aziendale e ripristino di emergenza dovranno creare i servizi in [coppie di aree](../best-practices-availability-paired-regions.md#azure-regional-pairs). Se ad esempio si opera in America del Nord, è possibile scegliere Stati Uniti orientali e Stati Uniti occidentali oppure Stati Uniti centro-settentrionali e Stati Uniti centro-meridionali per ogni servizio.
 
 ### <a name="recommendations"></a>Consigli
 
@@ -160,7 +160,7 @@ La maggior parte dei clienti usa un solo servizio su cui esegue il provisioning 
 
 Sebbene la maggior parte dei clienti usi un solo servizio, la ridondanza del servizio potrebbe essere necessaria se i requisiti operativi includono i seguenti elementi:
 
-+ [Continuità aziendale e ripristino di emergenza](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). Ricerca cognitiva di Azure non offre il failover immediato in caso di interruzione.
++ [Continuità aziendale e ripristino di emergenza](../best-practices-availability-paired-regions.md). Ricerca cognitiva di Azure non offre il failover immediato in caso di interruzione.
 
 + Le [architetture multi-tenant](search-modeling-multitenant-saas-applications.md) talvolta richiedono due o più servizi.
 

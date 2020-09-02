@@ -7,15 +7,15 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: include
 ms.custom: include file
-ms.date: 01/15/2020
-ms.openlocfilehash: d03d904de68720874ea175c95244ba80c586df82
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.date: 08/25/2020
+ms.openlocfilehash: 4eacc1c4e863ad1a278a4974bb0f6c101aafe7e0
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87133852"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055388"
 ---
-## <a name="change-the-model-update-frequency"></a>Modificare la frequenza di aggiornamento del modello
+### <a name="change-the-model-update-frequency"></a>Modificare la frequenza di aggiornamento del modello
 
 Nella pagina **Configurazione** della risorsa di personalizza esperienze nel portale di Azure impostare **Frequenza di aggiornamento del modello** su 10 secondi. Con questa breve durata il training del servizio verrà eseguito rapidamente e sarà possibile visualizzare il cambiamento dell'azione più alta in classifica per ogni iterazione.
 

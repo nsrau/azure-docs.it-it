@@ -5,14 +5,15 @@ author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
+ms.custom: devx-track-csharp
 ms.date: 04/20/2019
 ms.author: zhshang
-ms.openlocfilehash: ec5b7a75bced4b7cd81a120925558b8c1be57818
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 8797d17ac439882415a9f5360fded28cb55484d5
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74158185"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050540"
 ---
 # <a name="quickstart-create-a-chat-room-with-aspnet-and-signalr-service"></a>Guida introduttiva: Creare una chat room con ASP.NET e il Servizio SignalR
 
@@ -30,15 +31,21 @@ In questo argomento di avvio rapido verranno fornite informazioni su come inizia
 * [.NET 4.6.1](https://www.microsoft.com/net/download/windows)
 * [ASP.NET SignalR 2.4.1](https://www.nuget.org/packages/Microsoft.AspNet.SignalR/)
 
+[Problemi? Segnalarli](https://aka.ms/asrs/qsnet).
+
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
 Accedere al [portale di Azure](https://portal.azure.com/) con il proprio account Azure.
+
+[Problemi? Segnalarli](https://aka.ms/asrs/qsnet).
 
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
 La modalità *Serverless* non è supportata per le applicazioni ASP.NET SignalR. Usare sempre la modalità *Predefinita* oppure *Classica* per l'istanza del Servizio Azure SignalR.
 
 È anche possibile creare risorse di Azure usate in questo argomento di avvio rapido con lo script [Creare un Servizio SignalR](scripts/signalr-cli-create-service.md).
+
+[Problemi? Segnalarli](https://aka.ms/asrs/qsnet).
 
 ## <a name="clone-the-sample-application"></a>Clonare l'applicazione di esempio
 
@@ -51,6 +58,8 @@ Mentre il servizio è in distribuzione, è possibile passare all'utilizzo del co
     ```bash
     git clone https://github.com/aspnet/AzureSignalR-samples.git
     ```
+
+[Problemi? Segnalarli](https://aka.ms/asrs/qsnet).
 
 ## <a name="configure-and-run-chat-room-web-app"></a>Configurare ed eseguire l'app Web Chat Room
 
@@ -96,6 +105,8 @@ Mentre il servizio è in distribuzione, è possibile passare all'utilizzo del co
 
 1. Premere **F5** per eseguire il progetto in modalità di debug. È possibile osservare l'esecuzione dell'applicazione in locale. Anziché ospitare un runtime di SignalR nell'applicazione stessa, ora si connette al Servizio Azure SignalR.
 
+[Problemi? Segnalarli](https://aka.ms/asrs/qsnet).
+
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
 
 
@@ -114,9 +125,14 @@ Nella casella di testo **Filtra per nome...** immettere il nome del gruppo di ri
 
 Dopo qualche istante il gruppo di risorse e tutte le risorse che contiene vengono eliminati.
 
+[Problemi? Segnalarli](https://aka.ms/asrs/qsnet).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo argomento di avvio rapido è stata creata una nuova risorsa del Servizio Azure SignalR, che è stata usata con un'app Web ASP.NET. Imparare quindi a sviluppare applicazioni in tempo reale usando il Servizio Azure SignalR con ASP.NET Core.
 
 > [!div class="nextstepaction"]
 > [Servizio Azure SignalR con ASP.NET Core](./signalr-quickstart-dotnet-core.md)
+
+[Problemi? Segnalarli](https://aka.ms/asrs/qsnet).
+

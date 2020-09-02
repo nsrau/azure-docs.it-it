@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: overview
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 38ae6bec99498440d7bf7e68e2d5c397e696192a
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: e7bae2ad19aaf4f1c93d8d2bdefa7fa9f0414860
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604894"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923688"
 ---
 # <a name="about-azure-key-vault-certificates"></a>Informazioni sui certificati di Azure Key Vault
 
@@ -44,7 +44,8 @@ Un certificato di Key Vault creato può essere recuperato dal segreto indirizzab
 
 La chiave indirizzabile diventa maggiormente pertinente con certificati KV non esportabili. Per il mapping delle operazioni della chiave KV indirizzabile si usa il campo *keyusage* dei criteri del certificato KV usato per creare il certificato KV.  
 
-Sono supportati due tipi di chiave *RSA* oppure *RSA HSM* con certificati. La possibilità di essere esportabile è consentita solo con RSA, non è supportata da RSA HSM.  
+ - Tipi di chiavi supportati: RSA, RSA-HSM, EC, EC-HSM, oct (elencati [qui](https://docs.microsoft.com/rest/api/keyvault/createcertificate/createcertificate#jsonwebkeytype)) L'esportabilità è consentita solo con RSA, EC. Le chiavi HSM non sono esportabili.
+
 
 ## <a name="certificate-attributes-and-tags"></a>Tag e attributi dei certificati
 

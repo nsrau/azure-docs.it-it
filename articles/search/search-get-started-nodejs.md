@@ -10,19 +10,19 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 043d5224c9bfefb189e36c0f4b744c93b376ace0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 2c97a770dc10168284bebbc038d8c48145c2a385
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420856"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88917891"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure in Node.js con le API REST
 > [!div class="op_single_selector"]
 > * [JavaScript](search-get-started-nodejs.md)
 > * [C#](search-get-started-dotnet.md)
 > * [Portale](search-get-started-portal.md)
-> * [PowerShell](search-create-index-rest-api.md)
+> * [PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
@@ -130,7 +130,7 @@ Sostituire il valore `[SERVICE_NAME]` con il nome del servizio di ricerca. Sosti
 
 ## <a name="1---create-index"></a>1 - Creare l'indice 
 
-Creare un file **hotels_quickstart_index.json**.  Questo file definisce il funzionamento di Ricerca cognitiva di Azure con i documenti che verranno caricati nel passaggio successivo. Ogni campo verrà identificato da un elemento `name` e avrà un elemento `type` specifico. Ogni campo dispone anche di una serie di attributi di indice che specificano se Ricerca cognitiva di Azure può eseguire ricerche, applicare filtri, eseguire l'ordinamento e applicare facet nel campo. Quasi tutti i campi sono tipi di dati semplici, ma alcuni come `AddressType` sono tipi complessi che consentono di creare strutture di dati avanzate nell'indice.  È possibile leggere altre informazioni sui [tipi di dati supportati](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) e sugli [attributi degli indici](https://docs.microsoft.com/azure/search/search-what-is-an-index#index-attributes). 
+Creare un file **hotels_quickstart_index.json**.  Questo file definisce il funzionamento di Ricerca cognitiva di Azure con i documenti che verranno caricati nel passaggio successivo. Ogni campo verrà identificato da un elemento `name` e avrà un elemento `type` specifico. Ogni campo dispone anche di una serie di attributi di indice che specificano se Ricerca cognitiva di Azure può eseguire ricerche, applicare filtri, eseguire l'ordinamento e applicare facet nel campo. Quasi tutti i campi sono tipi di dati semplici, ma alcuni come `AddressType` sono tipi complessi che consentono di creare strutture di dati avanzate nell'indice.  È possibile leggere altre informazioni sui [tipi di dati supportati](/rest/api/searchservice/supported-data-types) e sugli [attributi degli indici](./search-what-is-an-index.md#index-attributes). 
 
 Aggiungere il codice seguente a **hotels_quickstart_index.json** oppure [scaricare il file](https://github.com/Azure-Samples/azure-search-javascript-samples/blob/master/quickstart/hotels_quickstart_index.json). 
 
@@ -610,7 +610,7 @@ Eseguire di nuovo il programma con `node index.js`. Verrà visualizzato un set d
 
 ## <a name="3---search-an-index"></a>3 - Eseguire la ricerca in un indice
 
-Tornare alla scheda **Indici** nella finestra **Panoramica** del servizio di ricerca nel portale di Azure. L'indice contiene ora quattro documenti e utilizza una certa quantità di spazio di archiviazione (potrebbero essere necessari alcuni minuti prima che l'interfaccia utente rispecchi correttamente lo stato sottostante dell'indice). Fare clic sul nome dell'indice per passare a **Esplora ricerche**. Questa pagina consente di provare a eseguire query sui dati. Provare a eseguire la ricerca con una stringa di query `*&$count=true`. Verranno restituiti tutti i documenti e il numero di risultati. Provare con la stringa di query `historic&highlight=Description&$filter=Rating gt 4`. Verrà restituito un singolo documento con la parola "historic" racchiusa tra tag `<em></em>`. Sono disponibili altre informazioni su [come comporre una query in Ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/search-query-overview). 
+Tornare alla scheda **Indici** nella finestra **Panoramica** del servizio di ricerca nel portale di Azure. L'indice contiene ora quattro documenti e utilizza una certa quantità di spazio di archiviazione (potrebbero essere necessari alcuni minuti prima che l'interfaccia utente rispecchi correttamente lo stato sottostante dell'indice). Fare clic sul nome dell'indice per passare a **Esplora ricerche**. Questa pagina consente di provare a eseguire query sui dati. Provare a eseguire la ricerca con una stringa di query `*&$count=true`. Verranno restituiti tutti i documenti e il numero di risultati. Provare con la stringa di query `historic&highlight=Description&$filter=Rating gt 4`. Verrà restituito un singolo documento con la parola "historic" racchiusa tra tag `<em></em>`. Sono disponibili altre informazioni su [come comporre una query in Ricerca cognitiva di Azure](./search-query-overview.md). 
 
 Riprodurre queste query nel codice aprendo **index.js** e aggiungendo il codice seguente nella parte iniziale:
 

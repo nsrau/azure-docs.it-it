@@ -5,14 +5,15 @@ author: sffamily
 ms.service: signalr
 ms.devlang: dotnet
 ms.topic: quickstart
+ms.custom: devx-track-csharp
 ms.date: 11/04/2019
 ms.author: zhshang
-ms.openlocfilehash: 4665666fe56c208b2437a7051bbf9201383365f8
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: 6c330b201c74a2ce56283e30be90cd117b1022f6
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85962136"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050523"
 ---
 # <a name="quickstart-create-a-chat-room-by-using-signalr-service"></a>Guida introduttiva: Creare una chat room mediante il servizio SignalR
 
@@ -33,9 +34,13 @@ Il codice per questa esercitazione è disponibile per il download nel [repositor
 * Installare [.NET Core SDK](https://www.microsoft.com/net/download/windows).
 * Scaricare o clonare il repository GitHub [AzureSignalR-sample](https://github.com/aspnet/AzureSignalR-samples). 
 
+[Problemi? Segnalarli](https://aka.ms/asrs/qsnetcore).
+
 ## <a name="create-an-azure-signalr-resource"></a>Creare una risorsa di Azure SignalR
 
 [!INCLUDE [azure-signalr-create](../../includes/signalr-create.md)]
+
+[Problemi? Segnalarli](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="create-an-aspnet-core-web-app"></a>Creare un'app Web ASP.NET Core
 
@@ -49,6 +54,7 @@ In questa sezione verrà usata l'[interfaccia della riga di comando di .NET Core
     dotnet new mvc
     ```
 
+[Problemi? Segnalarli](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="add-secret-manager-to-the-project"></a>Aggiungere Secret Manager al progetto
 
@@ -71,6 +77,8 @@ In questa sezione verrà aggiunto lo [strumento Secret Manager](https://docs.mic
     </ItemGroup>
     </Project>    
     ```
+    
+[Problemi? Segnalarli](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="add-azure-signalr-to-the-web-app"></a>Aggiungere Azure SignalR all'app Web
 
@@ -225,6 +233,7 @@ In questa sezione si aggiungerà un ambiente di runtime di sviluppo per ASP.NET 
     }
     ```
 
+[Problemi? Segnalarli](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="build-and-run-the-app-locally"></a>Compilare ed eseguire l'app in locale
 
@@ -254,7 +263,7 @@ In questa sezione si aggiungerà un ambiente di runtime di sviluppo per ASP.NET 
 
     ![Esempio di chat di gruppo di Azure SignalR](media/signalr-quickstart-dotnet-core/signalr-quickstart-complete-local.png)
 
-
+[Problemi? Segnalarli](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -279,7 +288,7 @@ Verrà chiesto di confermare l'eliminazione del gruppo di risorse. Immettere il 
    
 Dopo qualche istante, il gruppo di risorse e tutte le risorse che contiene vengono eliminati.
 
-
+[Problemi? Segnalarli](https://aka.ms/asrs/qsnetcore).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -288,4 +297,5 @@ In questo argomento di avvio rapido è stata creata una nuova risorsa del serviz
 > [!div class="nextstepaction"]
 > [Autenticazione del servizio Azure SignalR](./signalr-concept-authenticate-oauth.md)
 
+[Problemi? Segnalarli](https://aka.ms/asrs/qsnetcore).
 

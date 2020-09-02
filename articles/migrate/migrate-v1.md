@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: bb4cfcd48608f90898648450a20d246f9fde002b
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 71fbd56c2566f008a096482755abbcdb174a987e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87836004"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89001638"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>Utilizzare la versione precedente di Azure Migrate
 
@@ -238,7 +238,7 @@ Per installare l'agente in un computer Windows:
 4. In **Opzioni di installazione dell'agente** selezionare **Azure Log Analytics** > **Avanti**.
 5. Fare clic su **Aggiungi** per aggiungere una nuova area di lavoro Log Analytics. Incollare l'ID e la chiave dell'area di lavoro copiati dal portale. Fare clic su **Avanti**.
 
-È possibile installare l'agente dalla riga di comando o usando un metodo automatizzato, ad esempio Configuration Manager. [Altre informazioni](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) sull'uso di questi metodi per installare l'agente MMA.
+È possibile installare l'agente dalla riga di comando o usando un metodo automatizzato, ad esempio Configuration Manager. [Altre informazioni](../azure-monitor/platform/log-analytics-agent.md#installation-options) sull'uso di questi metodi per installare l'agente MMA.
 
 #### <a name="install-the-mma-agent-on-a-linux-machine"></a>Installare l'agente MMA in un computer Linux
 
@@ -249,7 +249,7 @@ Per installare l'agente in un computer Linux:
 
     ```sudo sh ./omsagent-<version>.universal.x64.sh --install -w <workspace id> -s <workspace key>```
 
-[Altre informazioni](../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) sull'elenco dei sistemi operativi Linux supportati da MMA.
+[Altre informazioni](../azure-monitor/platform/agents-overview.md#supported-operating-systems) sull'elenco dei sistemi operativi Linux supportati da MMA.
 
 ### <a name="install-the-mma-agent-on-a-machine-monitored-by-operations-manager"></a>Installare l'agente MMA in un computer monitorato tramite Operations Manager
 

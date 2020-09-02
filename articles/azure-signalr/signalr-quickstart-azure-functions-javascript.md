@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: zhshang
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 3f1051b81666a036203eb1c810875d837ef9816f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 74f0a1c163380b88986b6866e346a5f044772a0e
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386878"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050557"
 ---
 # <a name="quickstart-use-javascript-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Guida introduttiva: Usare JavaScript per creare una chat room con Funzioni di Azure e il servizio SignalR
 
@@ -32,13 +32,21 @@ Il servizio Azure SignalR consente di aggiungere facilmente funzionalità in tem
 > [!NOTE]
 > Questa guida introduttiva può essere eseguita su macOS, Windows o Linux.
 
+[Problemi? Segnalarli](https://aka.ms/asrs/qsjs).
+
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo <https://portal.azure.com/> con il proprio account Azure.
 
+[Problemi? Segnalarli](https://aka.ms/asrs/qsjs).
+
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
+[Problemi? Segnalarli](https://aka.ms/asrs/qsjs).
+
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
+
+[Problemi? Segnalarli](https://aka.ms/asrs/qsjs).
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Configurare ed eseguire l'app per le funzioni di Azure
 
@@ -71,13 +79,21 @@ Accedere al portale di Azure all'indirizzo <https://portal.azure.com/> con il pr
 
     ![Creare il servizio SignalR](media/signalr-quickstart-azure-functions-javascript/signalr-quickstart-run-application.png)
 
+[Problemi? Segnalarli](https://aka.ms/asrs/qsjs).
+
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
+[Problemi? Segnalarli](https://aka.ms/asrs/qsjs).
+
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+[Problemi? Segnalarli](https://aka.ms/asrs/qsjs).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo avvio reale è stata creata ed eseguita un'applicazione serverless in tempo reale in VS Code. Successivamente, si riceveranno altre informazioni su come distribuire le funzioni di Azure da VS Code.
 
 > [!div class="nextstepaction"]
-> [Distribuire le funzioni di Azure con VS Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01)
+> [Distribuire Funzioni di Azure con VS Code](/azure/developer/javascript/tutorial-vscode-serverless-node-01)
+
+[Problemi? Segnalarli](https://aka.ms/asrs/qsjs).

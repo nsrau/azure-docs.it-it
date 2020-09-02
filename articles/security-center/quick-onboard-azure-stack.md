@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/02/2019
 ms.author: memildin
-ms.openlocfilehash: 67017bdc98b997c728c4d5dcfab92e0804498060
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7469d60095026c8a016fc1ecaa1a4f92361800f3
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87084008"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019380"
 ---
 # <a name="quickstart-onboard-your-azure-stack-virtual-machines-to-security-center"></a>Guida introduttiva: Onboarding delle macchine virtuali di Azure Stack nel Centro sicurezza
 Dopo l'onboarding della sottoscrizione di Azure, è possibile abilitare il Centro sicurezza per proteggere le macchine virtuali in esecuzione in Azure Stack aggiungendo l'estensione macchina virtuale **Monitoraggio di Azure, Gestione aggiornamenti e configurazione** dal Marketplace di Azure Stack.
@@ -72,7 +72,7 @@ Prima di iniziare questo argomento di avvio rapido, è necessario avere una sott
 7. Dopo aver specificato le impostazioni di configurazione necessarie, fare clic su **OK**.
 8. Una volta completata l'installazione dell'estensione, il relativo stato risulterà **Provisioning completato**. La visualizzazione della macchina virtuale nel portale del Centro sicurezza potrebbe richiedere fino a un'ora.
 
-Per altre informazioni sull'installazione e configurazione dell'agente per Windows, vedere [Connettere computer Windows](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
+Per altre informazioni sull'installazione e configurazione dell'agente per Windows, vedere [Connettere computer Windows](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
 Per risolvere i problemi relativi agli agenti Linux, vedere [Risoluzione dei problemi relativi all'agente Linux di Azure Log Analytics](../azure-monitor/platform/agent-linux-troubleshoot.md).
 
