@@ -3,7 +3,7 @@ title: Avvio rapido`:` Usare un'identità gestita per accedere ad Azure Resource
 description: Guida introduttiva che illustra come usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: bryanla
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ee10a73579e8533cd14ecfeeebab44e726ba16b
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 623aba3616ed95c64612c0e32f6ba0344bb2b464
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "74326329"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255436"
 ---
 # <a name="use-a-linux-vm-system-assigned-managed-identity-to-access-azure-resource-manager"></a>Usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Azure Resource Manager
 
@@ -52,7 +52,7 @@ Usando le identità gestite per le risorse di Azure, il codice può ottenere i t
 
 ## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-resource-manager"></a>Ottenere un token di accesso usando l'identità gestita assegnata dal sistema della macchina virtuale e usarlo per chiamare Resource Manager 
 
-Per completare questi passaggi, è necessario disporre di un client SSH. Se si usa Windows, è possibile usare il client SSH nel [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about). Per richiedere assistenza nella configurazione delle chiavi del client SSH, vedere [Come usare le chiavi SSH con Windows in Azure](../../virtual-machines/linux/ssh-from-windows.md) o [Come creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+Per completare questi passaggi, è necessario disporre di un client SSH. Se si usa Windows, è possibile usare il client SSH nel [sottosistema Windows per Linux](/windows/wsl/about). Per richiedere assistenza nella configurazione delle chiavi del client SSH, vedere [Come usare le chiavi SSH con Windows in Azure](../../virtual-machines/linux/ssh-from-windows.md) o [Come creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. Nel portale, passare a una macchina virtuale Linux e in **Panoramica** fare clic su **Connetti**.  
 2. **Connettersi** alla macchina virtuale usando un client SSH di propria scelta. 
@@ -81,7 +81,7 @@ Per completare questi passaggi, è necessario disporre di un client SSH. Se si u
     "token_type":"Bearer"} 
     ```
     
-    È possibile usare questo token di accesso per accedere a Azure Resource Manager, ad esempio per leggere i dettagli del gruppo di risorse a cui l'utente ha concesso in precedenza l'accesso alla macchina virtuale. Sostituire i valori dell'\<ID di sottoscrizione\>, del \<gruppo di risorse\> e del \<token di accesso\> con quelli creati in precedenza. 
+    È possibile usare questo token di accesso per accedere a Azure Resource Manager, ad esempio per leggere i dettagli del gruppo di risorse a cui l'utente ha concesso in precedenza l'accesso alla macchina virtuale.Sostituire i valori di \<SUBSCRIPTION ID\>, \<RESOURCE GROUP\> e \<ACCESS TOKEN\> con quelli creato in precedenza. 
     
     > [!NOTE]
     > L'URL fa distinzione tra maiuscole e minuscole. Accertarsi quindi di usare la stessa combinazione di maiuscole e minuscole usata in precedenza per il nome del gruppo di risorse, facendo attenzione alla maiuscola "G" in "resourceGroup".  
@@ -100,5 +100,5 @@ Per completare questi passaggi, è necessario disporre di un client SSH. Se si u
 In questa esercitazione si è appreso come usare un'identità gestita assegnata dal sistema per accedere all'API di Azure Resource Manager.  Per altre informazioni su Azure Resource Manager, vedere:
 
 > [!div class="nextstepaction"]
->[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
+>[Azure Resource Manager](../../azure-resource-manager/management/overview.md)
 >[Creare, elencare o eliminare un'identità gestita assegnata dall'utente tramite Azure PowerShell](how-to-manage-ua-identity-powershell.md)

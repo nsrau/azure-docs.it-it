@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 04/18/2020
 ms.author: lcozzens
 ms.custom: devx-track-java
-ms.openlocfilehash: 615815f11264578bc2a5930553c8e6f5bfed937f
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 337baae97d426fe05ac59290a882865038f60c02
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121902"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89019743"
 ---
 # <a name="quickstart-add-feature-flags-to-a-spring-boot-app"></a>Guida introduttiva: Aggiungere flag di funzionalità a un'app Spring Boot
 
@@ -97,7 +97,7 @@ Usare [Spring Initializr](https://start.spring.io/) per creare un nuovo progetto
     ```
 
 > [!Note]
-> È presente una libreria di Gestione funzionalità non Web che non include una dipendenza da spring-web. Per le differenze, vedere la [documentazione](https://github.com/microsoft/spring-cloud-azure/tree/master/spring-cloud-azure-feature-management) di GitHub.
+> È presente una libreria di Gestione funzionalità non Web che non include una dipendenza da spring-web. Per le differenze, vedere la [documentazione](https://github.com/microsoft/spring-cloud-azure) di GitHub.
 
 ## <a name="connect-to-an-app-configuration-store"></a>Connettersi a un archivio di Configurazione app
 

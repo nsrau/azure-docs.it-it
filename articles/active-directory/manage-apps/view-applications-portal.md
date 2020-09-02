@@ -12,12 +12,12 @@ ms.date: 04/09/2019
 ms.author: kenwith
 ms.reviewer: arvinh
 ms.custom: it-pro
-ms.openlocfilehash: 8f6d9c3409e0b91b6744d406fb1af674f73dbe3c
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: a79078977d25c55edfb4ad72bbd4602a073231f6
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88117890"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277936"
 ---
 # <a name="quickstart-view-the-list-of-applications-that-are-using-your-azure-active-directory-azure-ad-tenant-for-identity-management"></a>Avvio rapido: Visualizzare l'elenco delle applicazioni che usano il tenant di Azure Active Directory (Azure AD) per la gestione delle identità
 
@@ -27,7 +27,7 @@ Iniziare a usare Azure AD come sistema di gestione delle identità e degli acces
 
 Per visualizzare le applicazioni che sono state registrate nel tenant di Azure AD, è necessario:
 
-- Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Un account Azure. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 >[!IMPORTANT]
 >Per testare i passaggi di questo argomento di avvio rapido, è consigliabile usare un ambiente non di produzione.

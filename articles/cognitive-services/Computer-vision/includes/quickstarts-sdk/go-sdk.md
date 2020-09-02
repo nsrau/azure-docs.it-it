@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 40796951fe356fcf950b83c6ac771a0ca98ffd5a
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.openlocfilehash: d0e677377037203a6a67150d985efb30e09af86e
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "85073281"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321861"
 ---
 <a name="HOLTop"></a>
 
@@ -251,5 +251,5 @@ Se si vuole pulire e rimuovere una sottoscrizione a Servizi cognitivi, è possib
 > [!div class="nextstepaction"]
 > [Informazioni di riferimento per l'API Visione artificiale (Go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)
 
-* [Informazioni su Visione artificiale](../../Home.md)
+* [Informazioni su Visione artificiale](../../overview.md)
 * Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go).

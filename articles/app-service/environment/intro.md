@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 04/19/2018
 ms.author: ccompy
 ms.custom: mvc, seodec18
-ms.openlocfilehash: 08a97f0f7b1a6a65feb7a2ec041001f2199ffdf7
-ms.sourcegitcommit: d57d2be09e67d7afed4b7565f9e3effdcc4a55bf
+ms.openlocfilehash: e9bd97dc4afe0937ebd0553117640e008a72722e
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/22/2020
-ms.locfileid: "81770637"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961748"
 ---
 # <a name="introduction-to-the-app-service-environments"></a>Introduzione agli ambienti del servizio app #
  
@@ -61,13 +61,13 @@ Per gli ambienti del servizio app è prevista una tariffa fissa mensile che copr
 
 ## <a name="virtual-network-support"></a>Supporto della rete virtuale ##
 
-La funzionalità Ambiente del servizio app è una distribuzione del Sevizio app di Azure direttamente in una rete virtuale di Azure Resource Manager del cliente. Per altre informazioni sulle reti virtuali di Azure, vedere le [domande frequenti sulle reti virtuali di Azure](https://azure.microsoft.com/documentation/articles/virtual-networks-faq/). Un ambiente del servizio app esiste sempre in una rete virtuale e, più precisamente, all'interno di una subnet di una rete virtuale. È possibile usare le funzionalità di sicurezza delle reti virtuali per controllare le comunicazioni di rete in ingresso e in uscita per le app.
+La funzionalità Ambiente del servizio app è una distribuzione del Sevizio app di Azure direttamente in una rete virtuale di Azure Resource Manager del cliente. Per altre informazioni sulle reti virtuali di Azure, vedere le [domande frequenti sulle reti virtuali di Azure](../../virtual-network/virtual-networks-faq.md). Un ambiente del servizio app esiste sempre in una rete virtuale e, più precisamente, all'interno di una subnet di una rete virtuale. È possibile usare le funzionalità di sicurezza delle reti virtuali per controllare le comunicazioni di rete in ingresso e in uscita per le app.
 
 Un ambiente del servizio app può avere una connessione a Internet con un indirizzo IP pubblico o una connessione interna con il solo indirizzo del servizio di bilanciamento del carico interno di Azure.
 
 I [gruppi di sicurezza di rete][NSGs] permettono di limitare le comunicazioni di rete in ingresso alla subnet in cui risiede un ambiente del servizio app. È possibile usare i gruppi di sicurezza di rete per eseguire le app protette da dispositivi e servizi upstream, quali Web application firewall e provider di servizi SaaS di rete.
 
-Spesso le app devono accedere a risorse aziendali, ad esempio database e servizi Web interni. Se si distribuisce un ambiente del servizio app in una rete virtuale che ha una connessione VPN alla rete locale, le app dell'ambiente del servizio app possono accedere alle risorse locali. Questo vale indipendentemente dal fatto che la VPN sia di tipo [da sito a sito](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-multi-site) o [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+Spesso le app devono accedere a risorse aziendali, ad esempio database e servizi Web interni. Se si distribuisce un ambiente del servizio app in una rete virtuale che ha una connessione VPN alla rete locale, le app dell'ambiente del servizio app possono accedere alle risorse locali. Questo vale indipendentemente dal fatto che la VPN sia di tipo [da sito a sito](../../vpn-gateway/vpn-gateway-multi-site.md) o [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
 Per altre informazioni sul funzionamento degli ambienti del servizio app con reti virtuali e reti locali, vedere [Considerazioni sulla rete per un ambiente del servizio app][ASENetwork].
 
@@ -95,12 +95,12 @@ ASEv1 usa un modello tariffario diverso rispetto a ASEv2. Nella versione ASEv1, 
 [ConfigureASEv1]: app-service-web-configure-an-app-service-environment.md
 [ASEv1Intro]: app-service-app-service-environment-intro.md
 [webapps]: ../overview.md
-[mobileapps]: ../../app-service-mobile/app-service-mobile-value-prop.md
+[mobileapps]: /previous-versions/azure/app-service-mobile/app-service-mobile-value-prop
 [Functions]: ../../azure-functions/index.yml
 [Pricing]: https://azure.microsoft.com/pricing/details/app-service/
 [ARMOverview]: ../../azure-resource-manager/management/overview.md
 [ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [ASEWAF]: app-service-app-service-environment-web-application-firewall.md
-[AppGW]: ../../application-gateway/waf-overview.md
+[AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [ASEAZ]: https://azure.github.io/AppService/2019/12/12/App-Service-Environment-Support-for-Availability-Zones.html

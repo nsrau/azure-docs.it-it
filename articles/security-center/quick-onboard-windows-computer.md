@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/3/2018
 ms.author: memildin
-ms.openlocfilehash: ecbdb6dc73082fc0fab04c8802c43219cabb6a79
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 2cec55b7c9450070d2e692fae50eff9ea880c54e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519763"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013742"
 ---
 # <a name="quickstart-onboard-windows-computers-to-azure-security-center"></a>Guida di avvio rapido: Onboarding di computer Windows in Centro sicurezza di Azure
 Dopo aver caricato le sottoscrizioni di Azure è possibile abilitare il Centro sicurezza per le risorse in esecuzione all'esterno di Azure, per esempio in locale o in altri cloud, effettuando il provisioning dell'agente di Log Analytics.
@@ -74,7 +74,7 @@ Ora è necessario installare il file scaricato nel computer di destinazione.
 
 Al termine, l'**agente di Log Analytics** verrà visualizzato nel **Pannello di controllo**. È possibile rivedere la configurazione e verificare che l'agente sia connesso.
 
-Per altre informazioni sull'installazione e configurazione dell'agente, vedere [Connettere computer Windows al servizio Log Analytics in Azure](../azure-monitor/platform/agent-windows.md#install-the-agent-using-setup-wizard).
+Per altre informazioni sull'installazione e configurazione dell'agente, vedere [Connettere computer Windows al servizio Log Analytics in Azure](../azure-monitor/platform/agent-windows.md#install-agent-using-setup-wizard).
 
 Ora è possibile monitorare le macchine virtuali di Azure e i computer non di Azure in un'unica posizione. In **Calcolo** si dispone di una panoramica di tutte le VM e di tutti i computer insieme alle raccomandazioni. Ogni colonna rappresenta un set di raccomandazioni. Il colore rappresenta lo stato corrente della sicurezza della macchina virtuale o del computer per tale raccomandazione. Il Centro sicurezza segnala anche qualsiasi rilevamento per questi computer negli avvisi di sicurezza.
 

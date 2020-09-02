@@ -10,24 +10,24 @@ ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 08/20/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: aa2357e31bf2fba97ae8547948cacdffc70cc741
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: e4141bc4887a166876d1fc4590b73f382abd0b95
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705011"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936674"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-python-using-jupyter-notebooks"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure in Python con Jupyter Notebook
 
 > [!div class="op_single_selector"]
 > * [Python (REST)](search-get-started-python.md)
-> * [PowerShell (REST)](search-create-index-rest-api.md)
-> * [C#](search-create-index-dotnet.md)
+> * [PowerShell (REST)](./search-get-started-powershell.md)
+> * [C#](./search-get-started-dotnet.md)
 > * [Postman (REST)](search-get-started-postman.md)
 > * [Portale](search-get-started-portal.md)
 > 
 
-Creare un notebook di Jupyter che crea e carica un indice di Ricerca cognitiva di Azure ed esegue query su di esso usando Python e le [API REST di Ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice/). Questo articolo illustra in modo dettagliato come creare un notebook. In alternativa, è possibile [scaricare ed eseguire un notebook Python di Jupyter già completato](https://github.com/Azure-Samples/azure-search-python-samples).
+Creare un notebook di Jupyter che crea e carica un indice di Ricerca cognitiva di Azure ed esegue query su di esso usando Python e le [API REST di Ricerca cognitiva di Azure](/rest/api/searchservice/). Questo articolo illustra in modo dettagliato come creare un notebook. In alternativa, è possibile [scaricare ed eseguire un notebook Python di Jupyter già completato](https://github.com/Azure-Samples/azure-search-python-samples).
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -93,7 +93,7 @@ In questa attività avviare un notebook di Jupyter e verificare di potersi conne
 
 ## <a name="1---create-an-index"></a>1 - Creare un indice
 
-A meno che non si usi il portale, per poter caricare dati è prima necessario che nel servizio esista un indice. In questo passaggio si usa l'[API REST per la creazione di indici](https://docs.microsoft.com/rest/api/searchservice/create-index) per effettuare il push di uno schema di indice nel servizio.
+A meno che non si usi il portale, per poter caricare dati è prima necessario che nel servizio esista un indice. In questo passaggio si usa l'[API REST per la creazione di indici](/rest/api/searchservice/create-index) per effettuare il push di uno schema di indice nel servizio.
 
 Gli elementi obbligatori di un indice includono un nome, una raccolta di campi e una chiave. La raccolta di campi (fields) definisce la struttura di un *documento*. Ogni campo ha un nome, un tipo e attributi che determinano come viene usato, ad esempio se è compatibile con la ricerca full-text, filtrabile o recuperabile nei risultati della ricerca. All'interno di un indice, uno dei campi di tipo `Edm.String` deve essere designato come chiave (*key*) per l'identità del documento.
 
@@ -149,7 +149,7 @@ Questo indice è denominato "hotels-quickstart" e include le definizioni dei cam
 
 ## <a name="2---load-documents"></a>2 - Caricare i documenti
 
-Per effettuare il push di documenti, usare una richiesta HTTP POST all'endpoint URL dell'indice. L'API REST è illustrata in [Aggiungere, aggiornare o eliminare documenti](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). I documenti provengono da [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) in GitHub.
+Per effettuare il push di documenti, usare una richiesta HTTP POST all'endpoint URL dell'indice. L'API REST è illustrata in [Aggiungere, aggiornare o eliminare documenti](/rest/api/searchservice/addupdate-or-delete-documents). I documenti provengono da [HotelsData](https://github.com/Azure-Samples/azure-search-sample-data/blob/master/hotels/HotelsData_toAzureSearch.JSON) in GitHub.
 
 1. In una nuova cella fornire quattro documenti conformi allo schema di indice. Specificare un'azione di caricamento per ogni documento.
 
@@ -251,7 +251,7 @@ Per effettuare il push di documenti, usare una richiesta HTTP POST all'endpoint 
 
 ## <a name="3---search-an-index"></a>3 - Eseguire la ricerca in un indice
 
-Questo passaggio illustra come eseguire query su un indice con l'[API REST per la ricerca di documenti](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Questo passaggio illustra come eseguire query su un indice con l'[API REST per la ricerca di documenti](/rest/api/searchservice/search-documents).
 
 1. In una cella specificare un'espressione di query che esegue una ricerca vuota (search=*), restituendo un elenco non classificato (con punteggio di ricerca uguale a 1) di documenti arbitrari. Per impostazione predefinita, Ricerca cognitiva di Azure restituisce 50 corrispondenze per volta. Così come strutturata, questa query restituisce un'intera struttura di documenti e i valori. Aggiungere $count=true per ottenere un conteggio di tutti i documenti nei risultati.
 

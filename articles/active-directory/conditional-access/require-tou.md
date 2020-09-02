@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 34cc8154660db8afcd5859d45ccfd622bc7ca88f
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 53f99456449e778ff7c1fd3ab096e1afd3562c1e
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039824"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948862"
 ---
 # <a name="quickstart-require-terms-of-use-to-be-accepted-before-accessing-cloud-apps"></a>Avvio rapido: Richiedere l'accettazione di condizioni per l'utilizzo prima dell'accesso alle app cloud
 
@@ -25,7 +25,7 @@ Prima che gli utenti accedano ad app cloud specifiche all'interno dell'ambiente 
 - Un metodo semplice per la configurazione delle condizioni per l'utilizzo
 - La possibilità di richiedere l'accettazione delle condizioni per l'utilizzo tramite criteri di accesso condizionale  
 
-Questa guida di avvio rapido illustra come configurare [criteri di accesso condizionale di Azure AD](../active-directory-conditional-access-azure-portal.md) che richiedono l'accettazione di condizioni per l'utilizzo per un'app cloud selezionata all'interno dell'ambiente.
+Questa guida di avvio rapido illustra come configurare [criteri di accesso condizionale di Azure AD](./overview.md) che richiedono l'accettazione di condizioni per l'utilizzo per un'app cloud selezionata all'interno dell'ambiente.
 
 ![Crea criteri](./media/require-tou/5555.png)
 
@@ -209,4 +209,4 @@ Quando non sono più necessari, eliminare l'utente di test e i criteri di access
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Richiedere Multi-Factor Authentication per app specifiche](app-based-mfa.md)
+> [Richiedere Multi-Factor Authentication per app specifiche](../authentication/tutorial-enable-azure-mfa.md)

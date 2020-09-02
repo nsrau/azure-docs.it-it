@@ -3,7 +3,7 @@ title: Configurare le identità gestite in macchine virtuali di Azure tramite RE
 description: Istruzioni dettagliate per configurare le identità gestite assegnate dall'utente e dal sistema in una macchina virtuale di Azure usando CURL per eseguire le chiamate all'API REST.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/25/2018
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9db22c6876294c9ffba33eab3d27900bf294e886
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 59f60a0167e7ac09b1fdfee87cc8412cdbe19053
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873841"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255954"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-rest-api-calls"></a>Configurare le identità gestite per risorse di Azure in una macchina virtuale di Azure usando le chiamate API REST
 
@@ -37,8 +37,8 @@ Questo articolo illustra come eseguire queste operazioni di identità gestite pe
 
 - Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#managed-identity-types)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
-- Se si usa Windows, installare il [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about) oppure usare [Azure Cloud Shell](../../cloud-shell/overview.md) nel portale di Azure.
-- [Installare la console locale di interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli), se si utilizzano i [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about) o una [distribuzione Linux del sistema operativo](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
+- Se si usa Windows, installare il [sottosistema Windows per Linux](/windows/wsl/about) oppure usare [Azure Cloud Shell](../../cloud-shell/overview.md) nel portale di Azure.
+- [Installare la console locale di interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli), se si utilizzano i [sottosistema Windows per Linux](/windows/wsl/about) o una [distribuzione Linux del sistema operativo](/cli/azure/install-azure-cli-apt?view=azure-cli-latest).
 - Se si usa la console locale dell'interfaccia della riga di comando di Azure, accedere ad Azure tramite `az login` con un account associato alla sottoscrizione di Azure di cui si intende gestire le identità gestite assegnate dal sistema o dall'utente.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
@@ -49,7 +49,7 @@ Questa sezione illustra come abilitare e disattivare le identità gestite assegn
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-vm"></a>Abilitare l'identità gestita assegnata dal sistema durante la creazione di una macchina virtuale di Azure
 
-Per creare una macchina virtuale di Azure con l'identità gestita assegnata dal sistema abilitata, all'account deve essere assegnato il ruolo [Collaboratore Macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  Non sono necessarie altre assegnazioni di ruoli di Azure Active Directory.
+Per creare una macchina virtuale di Azure con l'identità gestita assegnata dal sistema abilitata, all'account deve essere assegnato il ruolo [Collaboratore Macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).  Non sono necessarie altre assegnazioni di ruoli di Azure Active Directory.
 
 1. Creare un [gruppo di risorse](../../azure-resource-manager/management/overview.md#terminology) per il contenuto e la distribuzione della macchina virtuale e le risorse correlate, usando [az group create](/cli/azure/group/#az-group-create). Se si dispone già di un gruppo di risorse da usare, è possibile ignorare questo passaggio:
 
@@ -148,7 +148,7 @@ Per creare una macchina virtuale di Azure con l'identità gestita assegnata dal 
 
 ### <a name="enable-system-assigned-identity-on-an-existing-azure-vm"></a>Abilitare l'identità assegnata dal sistema in una macchina virtuale di Azure esistente
 
-Per abilitare l'identità gestita assegnata dal sistema in una macchina virtuale di cui originariamente è stato effettuato il provisioning senza tale identità, all'account deve essere assegnato il ruolo [Collaboratore Macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  Non sono necessarie altre assegnazioni di ruoli di Azure Active Directory.
+Per abilitare l'identità gestita assegnata dal sistema in una macchina virtuale di cui originariamente è stato effettuato il provisioning senza tale identità, all'account deve essere assegnato il ruolo [Collaboratore Macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).  Non sono necessarie altre assegnazioni di ruoli di Azure Active Directory.
 
 1. Recuperare un bearer token di accesso, che sarà usato nel passaggio successivo nell'intestazione dell'autorizzazione per creare una macchina virtuale con un'identità gestita assegnata dal sistema.
 
@@ -258,7 +258,7 @@ Per abilitare l'identità gestita assegnata dal sistema in una macchina virtuale
 
 ### <a name="disable-system-assigned-managed-identity-from-an-azure-vm"></a>Disabilitare un'identità gestita assegnata dal sistema in una macchina virtuale di Azure
 
-Per disabilitare l'identità gestita assegnata dal sistema in una macchina virtuale, all'account deve essere assegnato il ruolo [Collaboratore Macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).  Non sono necessarie altre assegnazioni di ruoli di Azure Active Directory.
+Per disabilitare l'identità gestita assegnata dal sistema in una macchina virtuale, all'account deve essere assegnato il ruolo [Collaboratore Macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).  Non sono necessarie altre assegnazioni di ruoli di Azure Active Directory.
 
 1. Recuperare un bearer token di accesso, che sarà usato nel passaggio successivo nell'intestazione dell'autorizzazione per creare una macchina virtuale con un'identità gestita assegnata dal sistema.
 
@@ -303,7 +303,7 @@ Questa sezione illustra come aggiungere e rimuovere identità gestite assegnate 
 
 ### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-an-azure-vm"></a>Assegnare un'identità gestita assegnata dall'utente durante la creazione di una macchina virtuale di Azure
 
-Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'account devono essere assegnati i ruoli [Collaboratore Macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) e [Operatore di identità gestite](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Non sono necessarie altre assegnazioni di ruoli di Azure Active Directory.
+Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'account devono essere assegnati i ruoli [Collaboratore Macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) e [Operatore di identità gestite](../../role-based-access-control/built-in-roles.md#managed-identity-operator). Non sono necessarie altre assegnazioni di ruoli di Azure Active Directory.
 
 1. Recuperare un bearer token di accesso, che sarà usato nel passaggio successivo nell'intestazione dell'autorizzazione per creare una macchina virtuale con un'identità gestita assegnata dal sistema.
 
@@ -490,7 +490,7 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
 
 ### <a name="assign-a-user-assigned-managed-identity-to-an-existing-azure-vm"></a>Assegnare un'identità gestita assegnata dall'utente a una macchina virtuale di Azure esistente
 
-Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'account devono essere assegnati i ruoli [Collaboratore Macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) e [Operatore di identità gestite](/azure/role-based-access-control/built-in-roles#managed-identity-operator). Non sono necessarie altre assegnazioni di ruoli di Azure Active Directory.
+Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'account devono essere assegnati i ruoli [Collaboratore Macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) e [Operatore di identità gestite](../../role-based-access-control/built-in-roles.md#managed-identity-operator). Non sono necessarie altre assegnazioni di ruoli di Azure Active Directory.
 
 1. Recuperare un bearer token di accesso, che sarà usato nel passaggio successivo nell'intestazione dell'autorizzazione per creare una macchina virtuale con un'identità gestita assegnata dal sistema.
 
@@ -660,7 +660,7 @@ Per assegnare un'identità assegnata dall'utente a una macchina virtuale, all'ac
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Rimuovere un'identità gestita assegnata dall'utente da una macchina virtuale di Azure
 
-Per rimuovere un'identità assegnata dall'utente da una macchina virtuale, all'account deve essere assegnato il ruolo [Collaboratore Macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor).
+Per rimuovere un'identità assegnata dall'utente da una macchina virtuale, all'account deve essere assegnato il ruolo [Collaboratore Macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 
 1. Recuperare un bearer token di accesso, che sarà usato nel passaggio successivo nell'intestazione dell'autorizzazione per creare una macchina virtuale con un'identità gestita assegnata dal sistema.
 

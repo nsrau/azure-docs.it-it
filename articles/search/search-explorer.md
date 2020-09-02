@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 19d46c034d56c1c54f8a00f08a7e3e72e758984f
-ms.sourcegitcommit: 20e246e86e25d63bcd521a4b4d5864fbc7bad1b0
+ms.openlocfilehash: 8f004ff8118829ebf2d245a136cf22cdde23accc
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/08/2020
-ms.locfileid: "84488206"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929789"
 ---
 # <a name="quickstart-use-search-explorer-to-run-queries-in-the-portal"></a>Avvio rapido: Usare Esplora ricerche per eseguire query nel portale
 
 **Esplora ricerche** è uno strumento di query predefinito che consente di eseguire query su un indice di ricerca in Ricerca cognitiva di Azure. Questo strumento semplifica l'apprendimento della sintassi di query, il test di una query o di un'espressione filtro oppure la conferma di un aggiornamento dei dati verificando la disponibilità di nuovi contenuti nell'indice.
 
-Questo argomento di avvio rapido prevede l'uso di un indice esistente per illustrare il funzionamento di Esplora ricerche. Le richieste vengono formulate usando l'[API REST di ricerca](https://docs.microsoft.com/rest/api/searchservice/) e le risposte vengono restituite come documenti JSON.
+Questo argomento di avvio rapido prevede l'uso di un indice esistente per illustrare il funzionamento di Esplora ricerche. Le richieste vengono formulate usando l'[API REST di ricerca](/rest/api/searchservice/) e le risposte vengono restituite come documenti JSON.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -133,7 +133,7 @@ Aggiungere [ **$orderby**](search-query-odata-orderby.md) per ordinare i risulta
 
    ![Espressione OrderBy](./media/search-explorer/search-explorer-example-ordery.png "Modificare l'ordinamento")
 
-Le espressioni **$filter** e **$orderby** sono entrambe strutture OData. Per altre informazioni, vedere l'articolo relativo alla [sintassi OData per i filtri](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+Le espressioni **$filter** e **$orderby** sono entrambe strutture OData. Per altre informazioni, vedere l'articolo relativo alla [sintassi OData per i filtri](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 <a name="start-search-explorer"></a>
 
@@ -147,7 +147,7 @@ In questa guida di avvio rapido è stato usato **Esplora ricerche** per eseguire
 
 + Le query in formato libero, simili alle stringhe che è possibile immettere in un Web browser commerciale, sono utili per testare un'esperienza utente finale. Si supponga ad esempio di usare l'indice realestate predefinito. È possibile immettere "Seattle apartment lake washington" e quindi premere CTRL-F per trovare i termini nei risultati della ricerca. 
 
-+ Le espressioni di query e filtro devono essere formulate in una sintassi supportata da Ricerca cognitiva di Azure. Per impostazione predefinita viene usata una [sintassi semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search), ma è possibile usare la sintassi [Lucene completa](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search) per eseguire query più avanzate. Le [espressioni di filtro](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search) sono scritte usando la sintassi OData.
++ Le espressioni di query e filtro devono essere formulate in una sintassi supportata da Ricerca cognitiva di Azure. Per impostazione predefinita viene usata una [sintassi semplice](/rest/api/searchservice/simple-query-syntax-in-azure-search), ma è possibile usare la sintassi [Lucene completa](/rest/api/searchservice/lucene-query-syntax-in-azure-search) per eseguire query più avanzate. Le [espressioni di filtro](/rest/api/searchservice/odata-expression-syntax-for-azure-search) sono scritte usando la sintassi OData.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
@@ -159,7 +159,7 @@ Se si usa un servizio gratuito, tenere presente che il numero di indicizzatori e
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sulle strutture e la sintassi delle query, usare Postman o uno strumento equivalente per creare espressioni di query che sfruttano più parti dell'API. L'[API REST di ricerca](https://docs.microsoft.com/rest/api/searchservice/) è particolarmente utile per l'apprendimento e l'esplorazione.
+Per altre informazioni sulle strutture e la sintassi delle query, usare Postman o uno strumento equivalente per creare espressioni di query che sfruttano più parti dell'API. L'[API REST di ricerca](/rest/api/searchservice/) è particolarmente utile per l'apprendimento e l'esplorazione.
 
 > [!div class="nextstepaction"]
 > [Creare una query di base in Postman](search-query-simple-examples.md)

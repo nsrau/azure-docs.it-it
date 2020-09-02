@@ -3,7 +3,7 @@ title: Esercitazione`:` Usare un'identità gestita per accedere ad Azure Resourc
 description: Esercitazione che illustra come usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6edd926c0a91519f4c75228d8230c71ff7b96442
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 646be410cceb214efad19757378c74f086e58578
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87018826"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263067"
 ---
 # <a name="use-a-windows-vm-system-assigned-managed-identity-to-access-resource-manager"></a>Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere a Resource Manager
 
@@ -51,7 +51,7 @@ Usando le identità gestite per le risorse di Azure, il codice può ottenere i t
 
 ## <a name="get-an-access-token-using-the-vms-system-assigned-managed-identity-and-use-it-to-call-azure-resource-manager"></a>Ottenere un token di accesso usando l'identità gestita assegnata dal sistema della macchina virtuale e usarlo per chiamare Azure Resource Manager 
 
-In questa sezione è necessario usare **PowerShell**.  Se **PowerShell** non è installato, scaricarlo da [qui](https://docs.microsoft.com/powershell/azure/). 
+In questa sezione è necessario usare **PowerShell**.  Se **PowerShell** non è installato, scaricarlo da [qui](/powershell/azure/). 
 
 1.  Nel portale passare a **Macchine virtuali**, selezionare la macchina virtuale Windows e in **Panoramica** fare clic su **Connetti**. 
 2.  In **Nome utente** e **Password** immettere i valori specificati al momento della creazione della macchina virtuale Windows. 
@@ -95,5 +95,4 @@ In questa sezione è necessario usare **PowerShell**.  Se **PowerShell** non è 
 In questa esercitazione si è appreso come usare un'identità gestita assegnata dal sistema per accedere all'API di Azure Resource Manager.  Per altre informazioni su Azure Resource Manager, vedere:
 
 > [!div class="nextstepaction"]
->[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
-
+>[Azure Resource Manager](../../azure-resource-manager/management/overview.md)

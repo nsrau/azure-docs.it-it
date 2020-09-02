@@ -11,17 +11,19 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: overview
-ms.date: 08/18/2020
+ms.topic: conceptual
+ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 8a5d52f2705a04c290f1122335430c12db8d294c
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: dfa87921bc6a5a6c34b4dec33f4aae1907507730
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604575"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291620"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Creazione dinamica dei pacchetti in Servizi multimediali versione 3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Servizi multimediali di Microsoft Azure può essere usato per codificare molti formati di file di origini multimediali. Tali formati vengono distribuiti tramite protocolli di streaming diversi, con o senza protezione del contenuto, per raggiungere tutti i dispositivi principali, ad esempio dispositivi iOS e Android. Tali client supportano protocolli diversi. iOS, ad esempio, richiede che i flussi vengano distribuiti nel formato HLS (HTTP Live Streaming), mentre i dispositivi Android supportano HLS e MPEG DASH.
 

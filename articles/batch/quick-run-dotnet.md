@@ -3,13 +3,13 @@ title: "Avvio rapido: Eseguire il primo processo di Azure Batch con l'API .NET"
 description: In questo argomento di avvio rapido si eseguono un processo e le attività di esempio di Azure Batch da un'applicazione C# con la libreria client .NET di Batch.
 ms.topic: quickstart
 ms.date: 08/17/2020
-ms.custom: mvc
-ms.openlocfilehash: f17fc2103e4b8512e050d79f5a639b38d90a2a95
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.custom: mvc, devx-track-csharp
+ms.openlocfilehash: 9087261865b07d32afab65012e04ea478cb60611
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88511032"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88921648"
 ---
 # <a name="quickstart-run-your-first-azure-batch-job-with-the-net-api"></a>Avvio rapido: Eseguire il primo processo di Azure Batch con l'API .NET
 

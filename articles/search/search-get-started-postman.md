@@ -9,23 +9,23 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 08/17/2020
-ms.openlocfilehash: 04619df8009aca3fecf317481d030280d5532281
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 4f969b08c16b26fe67ca6520323fcde780d43925
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88510913"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88929772"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-postman-using-rest-apis"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure in Postman con le API REST
 > [!div class="op_single_selector"]
 > * [Postman](search-get-started-postman.md)
-> * [C#](search-create-index-dotnet.md)
+> * [C#](./search-get-started-dotnet.md)
 > * [Python](search-get-started-python.md)
 > * [Portale](search-get-started-portal.md)
 > * [PowerShell](search-howto-dotnet-sdk.md)
 >*
 
-Questo articolo illustra come formulare richieste all'API REST in modo interattivo usando le [API REST di Ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice) e un client API per l'invio e la ricezione di richieste. Con un client API e queste istruzioni è possibile inviare richieste e visualizzare le risposte prima di scrivere codice.
+Questo articolo illustra come formulare richieste all'API REST in modo interattivo usando le [API REST di Ricerca cognitiva di Azure](/rest/api/searchservice) e un client API per l'invio e la ricezione di richieste. Con un client API e queste istruzioni è possibile inviare richieste e visualizzare le risposte prima di scrivere codice.
 
 L'articolo usa l'applicazione Postman. È possibile [scaricare e importare una raccolta Postman](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/Quickstart) se si preferisce usare le richieste predefinite. 
 
@@ -74,7 +74,7 @@ In Postman formulare una richiesta simile allo screenshot seguente. Scegliere **
 
 ## <a name="1---create-an-index"></a>1 - Creare un indice
 
-In Ricerca cognitiva di Azure l'indice viene generalmente creato prima di caricarlo con i dati. Per questa attività viene usata l'[API REST di creazione dell'indice](https://docs.microsoft.com/rest/api/searchservice/create-index). 
+In Ricerca cognitiva di Azure l'indice viene generalmente creato prima di caricarlo con i dati. Per questa attività viene usata l'[API REST di creazione dell'indice](/rest/api/searchservice/create-index). 
 
 L'URL è stato esteso per includere il nome dell'indice `hotels`.
 
@@ -128,7 +128,7 @@ Quando si invia questa richiesta, si dovrebbe ottenere una risposta HTTP 201, ch
 
 ## <a name="2---load-documents"></a>2 - Caricare i documenti
 
-La creazione e il popolamento dell'indice sono passaggi distinti. In Ricerca cognitiva di Azure l'indice contiene tutti dati ricercabili. In questo scenario i dati vengono forniti come documenti JSON. Per questa attività viene usata l'[API REST di aggiunta, aggiornamento o eliminazione di documenti](https://docs.microsoft.com/rest/api/searchservice/addupdate-or-delete-documents). 
+La creazione e il popolamento dell'indice sono passaggi distinti. In Ricerca cognitiva di Azure l'indice contiene tutti dati ricercabili. In questo scenario i dati vengono forniti come documenti JSON. Per questa attività viene usata l'[API REST di aggiunta, aggiornamento o eliminazione di documenti](/rest/api/searchservice/addupdate-or-delete-documents). 
 
 L'URL è stato esteso per includere le raccolte `docs` e l'operazione `index`.
 
@@ -236,12 +236,12 @@ Entro pochi secondi si dovrebbe visualizzare una risposta HTTP 201 nell'elenco d
 Se viene restituito un codice 207, significa che il caricamento di almeno uno dei documenti non è riuscito. Se viene restituito un codice 404, significa che è presente un errore di sintassi nell'intestazione o nel corpo della richiesta. Verificare di aver modificato l'endpoint per includere `/docs/index`.
 
 > [!Tip]
-> Per le origini dati selezionate, è possibile scegliere l'approccio alternativo tramite *indicizzatore*, che semplifica e riduce la quantità di codice necessario per l'indicizzazione. Per altre informazioni, vedere [Indexer operations](https://docs.microsoft.com/rest/api/searchservice/indexer-operations) (Operazioni dell'indicizzatore).
+> Per le origini dati selezionate, è possibile scegliere l'approccio alternativo tramite *indicizzatore*, che semplifica e riduce la quantità di codice necessario per l'indicizzazione. Per altre informazioni, vedere [Indexer operations](/rest/api/searchservice/indexer-operations) (Operazioni dell'indicizzatore).
 
 
 ## <a name="3---search-an-index"></a>3 - Eseguire la ricerca in un indice
 
-Ora che l'indice e il set di documenti sono stati caricati, è possibile sottoporli a query con l'[API REST di ricerca documenti](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+Ora che l'indice e il set di documenti sono stati caricati, è possibile sottoporli a query con l'[API REST di ricerca documenti](/rest/api/searchservice/search-documents).
 
 L'URL viene esteso per includere un'espressione di query, specificata usando l'operatore di ricerca.
 
@@ -278,7 +278,7 @@ https://<YOUR-SEARCH-SERVICE>.search.windows.net/indexes/hotels-quickstart/docs?
 ```
 
 ## <a name="get-index-properties"></a>Ottenere le proprietà dell'indice
-È anche possibile usare [Get Index Statistics](https://docs.microsoft.com/rest/api/searchservice/get-index-statistics) per recuperare i conteggi dei documenti e le dimensioni dell'indice: 
+È anche possibile usare [Get Index Statistics](/rest/api/searchservice/get-index-statistics) per recuperare i conteggi dei documenti e le dimensioni dell'indice: 
 
 ```
 https://<YOUR-SEARCH-SERVICE-NAME>.search.windows.net/indexes/hotels-quickstart/stats?api-version=2020-06-30
