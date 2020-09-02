@@ -657,6 +657,8 @@
           href: instance-metadata-service.md
         - name: Abilitare la virtualizzazione annidata
           href: nested-virtualization.md
+        - name: Applicazione automatica di patch guest alle macchine virtuali (anteprima)
+          href: automatic-vm-guest-patching.md
     - name: Manutenzione della piattaforma
       items:
         - name: Notifiche di manutenzione

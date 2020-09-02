@@ -49,20 +49,22 @@
   items:
     - name: .NET
       items:
-        - name: Codificare e trasmettere un file remoto - REST
-          href: stream-files-tutorial-with-rest.md
         - name: Codificare e trasmettere un file remoto - .NET
           href: stream-files-dotnet-quickstart.md
-        - name: Codificare e trasmettere un file caricato
+        - name: Codificare e trasmettere un file caricato - .NET
           href: stream-files-tutorial-with-api.md
-        - name: Streaming live
+        - name: Trasmettere in tempo reale con .NET
           href: stream-live-tutorial-with-api.md
-        - name: Analizzare i video
+        - name: Analizzare il video con .NET
           href: analyze-videos-tutorial-with-api.md
         - name: Crittografare in modo dinamico il contenuto con AES-128
           href: protect-with-aes128.md
         - name: Crittografare in modo dinamico il contenuto con DRM
           href: protect-with-drm.md
+    - name: REST
+      items:
+        - name: Codificare e trasmettere un file remoto - REST
+          href: stream-files-tutorial-with-rest.md
     - name: CLI
       items:
         - name: Codificare e trasmettere un file remoto - Interfaccia della riga di comando

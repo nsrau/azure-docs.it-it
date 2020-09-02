@@ -116,6 +116,10 @@
               href: howto-authentication-passwordless-security-key-windows.md
             - name: Accesso SSO alle risorse locali
               href: howto-authentication-passwordless-security-key-on-premises.md
+            - name: Domande frequenti sull'ambiente ibrido
+              href: howto-authentication-passwordless-faqs.md
+            - name: Risolvere i problemi dell'ambiente ibrido
+              href: howto-authentication-passwordless-troubleshoot.md
         - name: Accesso tramite telefono senza password
           href: howto-authentication-passwordless-phone.md
         - name: Windows Hello for Business
@@ -209,7 +213,7 @@
               href: howto-mfa-nps-extension-errors.md
     - name: Risolvere problemi
       items:
-        - name: Risolvere i problemi della reimpostazione della password self-service
+        - name: Reimpostazione della password self-service
           href: active-directory-passwords-troubleshoot.md
         - name: Domande frequenti sulla reimpostazione della password self-service
           href: active-directory-passwords-faq.md

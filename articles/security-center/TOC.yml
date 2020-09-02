@@ -107,12 +107,12 @@
           href: update-regulatory-compliance-packages.md
     - name: Analizzare le macchine virtuali per individuare le vulnerabilità
       items:
-        - name: Panoramica dell'analisi delle vulnerabilità
-          href: security-center-vulnerability-assessment-recommendations.md
-        - name: Rilevatore di vulnerabilità integrato per le macchine virtuali
-          href: built-in-vulnerability-assessment.md
-        - name: Uso di rilevatori esterni
-          href: partner-vulnerability-assessment.md
+        - name: Distribuire lo scanner di vulnerabilità integrato nelle macchine virtuali
+          href: deploy-vulnerability-assessment-vm.md
+        - name: Distribuire una soluzione di vulnerabilità BYOL nelle macchine virtuali
+          href: deploy-vulnerability-assessment-byol-vm.md
+        - name: Esaminare e risolvere le vulnerabilità nelle macchine virtuali
+          href: remediate-vulnerability-findings-vm.md
     - name: Configurare la protezione dalle minacce e gestire gli avvisi
       items:
         - name: Gestire gli avvisi di sicurezza

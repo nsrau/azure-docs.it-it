@@ -4,6 +4,8 @@
   items:
     - name: Informazioni sui server con abilitazione di Azure Arc
       href: overview.md
+    - name: Novità su Agente Connected Machine
+      href: agent-release-notes.md
 - name: Avvi rapidi
   items:
     - name: Abilitare l'agente per server con abilitazione di Arc

@@ -1,0 +1,48 @@
+- name: Attestazione di Microsoft Azure (anteprima)
+  href: index.yml
+- name: Panoramica
+  items:
+    - name: Informazioni su Attestazione di Microsoft Azure
+      href: overview.md
+- name: Avvi rapidi
+  items:
+    - name: Modello ARM
+      href: quickstart-template.md
+    - name: PowerShell
+      href: quickstart-powershell.md
+- name: Esercitazioni
+  items:
+    - name: Creazione e firma di un criterio di attestazione
+      href: author-sign-policy.md
+    - name: Esempi di codice per attestazioni SGX
+      href: 'https://docs.microsoft.com/en-us/samples/browse/?expanded=azure&terms=attestation'
+- name: Esempi
+  items:
+    - name: Criteri di attestazione
+      href: policy-examples.md
+    - name: Certificato dei firmatari dei criteri
+      href: policy-signer-examples.md
+- name: Concetti
+  items:
+    - name: Concetti fondamentali
+      href: basic-concepts.md
+    - name: Attestazioni dei criteri di attestazione
+      items:
+        - name: Grammatica delle regole di attestazione
+          href: claim-rule-grammar.md
+        - name: Set di attestazioni
+          href: claim-sets.md
+    - name: Flusso di lavoro
+      href: workflow.md
+- name: Riferimenti
+  items:
+    - name: Domande frequenti
+      href: faq.md
+    - name: REST
+      href: /rest/api/attestation/
+    - name: Azure PowerShell
+      href: /powershell/module/az.attestation/?view=azps-4.3.0#attestation
+    - name: Libreria DCAP di Azure per Windows
+      href: 'https://www.nuget.org/packages/Microsoft.Azure.DCAP/'
+    - name: Libreria DCAP di Azure per Linux
+      href: 'https://packages.microsoft.com/ubuntu/18.04/prod/pool/main/a/az-dcap-client/'

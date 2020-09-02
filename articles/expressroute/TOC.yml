@@ -4,6 +4,10 @@
   items:
     - name: Che cos'è ExpressRoute?
       href: expressroute-introduction.md
+- name: Avvio rapido
+  items:
+    - name: Creare un circuito ExpressRoute - Modello di Resource Manager
+      href: quickstart-create-expressroute-vnet-template.md
 - name: Esercitazioni
   items:
     - name: Creare e modificare un circuito
