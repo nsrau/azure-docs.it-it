@@ -122,7 +122,7 @@
               href: /azure/sql-database/transparent-data-encryption-azure-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
             - name: TDE con Bring Your Own Key
               href: /azure/sql-database/transparent-data-encryption-byok-azure-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json
-    - name: Caricamento dei dati
+    - name: Inserimento e preparazione dei dati
       items:
         - name: Panoramica
           href: design-elt-data-loading.md
@@ -284,7 +284,7 @@
           href: sql-data-warehouse-encryption-tde.md
         - name: Abilitare la crittografia - T-SQL
           href: sql-data-warehouse-encryption-tde-tsql.md
-    - name: Caricare dati
+    - name: Caricare e preparare i dati
       items:
         - name: Da Azure Data Lake Storage (ADLS)
           href: sql-data-warehouse-load-from-azure-data-lake-store.md

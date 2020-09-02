@@ -61,8 +61,6 @@
           href: security-center-recommendations.md
         - name: Panoramica dei criteri di sicurezza
           href: tutorial-security-policy.md
-        - name: Criteri di sicurezza predefiniti
-          href: security-center-policy-definitions.md
         - name: Usare le raccomandazioni per migliorare la sicurezza
           href: security-center-using-recommendations.md
         - name: Baseline di sicurezza
@@ -157,7 +155,7 @@
       href: asset-inventory.md
     - name: Integrazione con altri strumenti e servizi
       items:
-        - name: Integrazione con Windows Admin Center
+        - name: Proteggere i server di Windows Admin Center
           href: windows-admin-center-integration.md
         - name: Proteggere le app Web e le API del servizio app di Azure
           href: security-center-app-services.md
@@ -211,6 +209,9 @@
       href: security-center-features-retirement-july2019.md
     - name: Valutazione e consigli per la protezione degli endpoint
       href: security-center-endpoint-protection.md
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Risorse
   items:
     - name: Sviluppare le proprie competenze con Microsoft Learn
