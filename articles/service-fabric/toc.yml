@@ -116,9 +116,6 @@
       href: service-fabric-powershell-samples.md
     - name: Interfaccia della riga di comando di Service Fabric
       href: samples-cli.md
-    - name: Criteri di Azure predefiniti
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Informazioni sui microservizi
@@ -895,6 +892,9 @@
           href: service-fabric-service-model-schema-element-groups.md
     - name: Variabili di ambiente
       href: service-fabric-environment-variables-reference.md
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Risorse
   items:
     - name: Roadmap per Azure

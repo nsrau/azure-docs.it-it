@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sul servizio Azure Container
       href: intro-kubernetes.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare un cluster del servizio Azure Kubernetes
@@ -40,11 +40,6 @@
       href: tutorial-kubernetes-app-update.md
     - name: 7 - Aggiornare il cluster
       href: tutorial-kubernetes-upgrade-cluster.md
-- name: Esempi
-  items:
-    - name: Criteri di Azure predefiniti
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Cluster e carichi di lavoro
@@ -388,6 +383,9 @@
       href: /javascript/api/overview/azure/container-service
     - name: Modello di Resource Manager
       href: /azure/templates/microsoft.containerservice/managedclusters
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Risorse
   items:
     - name: Sviluppare le proprie competenze con Microsoft Learn

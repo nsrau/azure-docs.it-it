@@ -44,11 +44,6 @@
           href: tutorial-sap-hana-restore-cli.md
         - name: Gestire i backup dei database SAP HANA - Interfaccia della riga di comando
           href: tutorial-sap-hana-manage-cli.md
-- name: Esempi
-  items:
-    - name: Criteri di Azure predefiniti
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Matrici di supporto
@@ -428,6 +423,9 @@
       href: /rest/api/recoveryservices/
     - name: Modello di Resource Manager
       href: /azure/templates/microsoft.recoveryservices/allversions
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Risorse
   items:
     - name: Conformità

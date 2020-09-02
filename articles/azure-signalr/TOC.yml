@@ -31,8 +31,6 @@
       href: 'https://github.com/aspnet/AzureSignalR-samples'
     - name: Interfaccia della riga di comando di Azure
       href: signalr-reference-cli.md
-    - name: Criteri di Azure predefiniti
-      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Elementi interni del Servizio Azure SignalR
@@ -103,6 +101,9 @@
       href: 'https://docs.microsoft.com/aspnet/core/signalr'
     - name: Protocollo del servizio Azure SignalR
       href: 'https://github.com/Azure/azure-signalr/blob/dev/specs/ServiceProtocol.md'
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Risorse
   items:
     - name: Soluzioni

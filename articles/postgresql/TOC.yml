@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Database di Azure per PostgreSQL
       href: overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Server singolo
@@ -73,9 +73,6 @@
   items:
     - name: Interfaccia della riga di comando di Azure
       href: sample-scripts-azure-cli.md
-    - name: Criteri di Azure predefiniti
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Server singolo
@@ -393,6 +390,9 @@
           href: reference-hyperscale-parameters.md
         - name: Tabelle di sistema
           href: reference-hyperscale-metadata.md
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Risorse
   items:
     - name: Sviluppare le proprie competenze con Microsoft Learn

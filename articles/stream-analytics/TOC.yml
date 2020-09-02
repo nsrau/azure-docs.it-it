@@ -6,7 +6,7 @@
       href: stream-analytics-introduction.md
     - name: Modelli di soluzioni end-to-end
       href: stream-analytics-solution-patterns.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Creare un processo
@@ -40,9 +40,6 @@
   items:
     - name: Esempi di codice
       href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
-    - name: Criteri di Azure predefiniti
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Scegliere una tecnologia di analisi del flusso
@@ -655,6 +652,9 @@
       href: /azure/templates/microsoft.streamanalytics/allversions
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/ext/stream-analytics/stream-analytics
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Risorse
   items:
     - name: Anteprime di Analisi di flusso

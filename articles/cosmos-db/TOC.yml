@@ -83,9 +83,6 @@
       href: cli-samples.md
     - name: Azure Resource Manager
       href: resource-manager-samples.md
-    - name: Criteri di Azure predefiniti
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Differenze tra NoSQL e database relazionali
@@ -1305,6 +1302,11 @@
       displayName: ARM
     - name: Note sulla versione dell'emulatore
       href: local-emulator-release-notes.md
+- name: Riferimento
+  items:
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Risorse
   items:
     - name: Sviluppare le proprie competenze con Microsoft Learn

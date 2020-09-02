@@ -10,7 +10,7 @@
       href: compare-messaging-services.md
     - name: Note sulla versione
       href: whats-new.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Eventi di archiviazione
@@ -94,8 +94,6 @@
       href: template-samples.md
     - name: Esempi di codice
       href: /samples/browse/?term=Event+Grid
-    - name: Criteri di Azure predefiniti
-      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Terminologia di Griglia di eventi
@@ -296,6 +294,9 @@
           href: /azure/templates/microsoft.eventgrid/topics
     - name: SDK
       href: sdk-overview.md
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Risorse
   items:
     - name: Sviluppare le proprie competenze con Microsoft Learn

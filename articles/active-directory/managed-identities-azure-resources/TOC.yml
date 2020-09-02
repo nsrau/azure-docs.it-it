@@ -43,17 +43,17 @@
         - name: Accedere ad Azure Cosmos DB
           href: tutorial-linux-vm-access-cosmos-db.md
         - name: Accedere a Registro Azure Container
-          href: /azure/container-registry/container-registry-authentication-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
+          href: ../../container-registry/container-registry-authentication-managed-identity.md?context=azure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
         - name: Accedere ad Azure Resource Manager con un'identità gestita assegnata dall'utente
           href: msi-tutorial-linux-vm-access-arm.md
     - name: Bus di servizio di Azure
-      href: /azure/service-bus-messaging/service-bus-managed-service-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
+      href: ../../service-bus-messaging/service-bus-managed-service-identity.md?context=azure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
     - name: Servizio app e Funzioni di Azure
-      href: /azure/app-service/overview-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
+      href: ../../app-service/overview-managed-identity.md?context=azure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
     - name: Hub eventi di Azure
-      href: /azure/event-hubs/authenticate-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
+      href: ../../event-hubs/authenticate-managed-identity.md?context=azure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
     - name: Istanze di Azure Container
-      href: /azure/container-instances/container-instances-managed-identity?context=azure/active-directory/managed-identities-azure-resources/context/msi-context
+      href: ../../container-instances/container-instances-managed-identity.md?context=azure%2factive-directory%2fmanaged-identities-azure-resources%2fcontext%2fmsi-context
 - name: Concetti
   items:
     - name: Identità gestite e macchine virtuali di Azure
@@ -127,13 +127,13 @@
 - name: Informazioni di riferimento
   items:
     - name: .NET
-      href: 'https://docs.microsoft.com/dotnet/api/overview/azure/identity-readme?view=azure-dotnet'
+      href: /dotnet/api/overview/azure/identity-readme?view=azure-dotnet
     - name: Java
-      href: 'https://docs.microsoft.com/java/api/overview/azure/identity-readme?view=azure-java-stable'
+      href: /java/api/overview/azure/identity-readme?view=azure-java-stable
     - name: JavaScript
-      href: 'https://docs.microsoft.com/javascript/api/overview/azure/identity-readme?view=azure-node-latest'
+      href: /javascript/api/overview/azure/identity-readme?view=azure-node-latest
     - name: Python
-      href: 'https://docs.microsoft.com/python/api/overview/azure/identity-readme?view=azure-python'
+      href: /python/api/overview/azure/identity-readme?view=azure-python
     - name: Go
       href: 'https://golang.org/doc/'
 - name: Risorse

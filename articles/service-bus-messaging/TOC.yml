@@ -72,9 +72,6 @@
   items:
     - name: Esempi relativi al bus di servizio
       href: service-bus-samples.md
-    - name: Criteri di Azure predefiniti
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Messaggistica Premium
@@ -272,6 +269,9 @@
       href: service-bus-messaging-sql-filter.md
     - name: Sintassi di SQLRuleAction
       href: service-bus-messaging-sql-rule-action.md
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Risorse
   items:
     - name: Domande frequenti

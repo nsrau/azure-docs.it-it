@@ -161,7 +161,8 @@
     - name: Modello di Resource Manager
       href: /azure/templates/microsoft.cache/allversions
     - name: Criteri di Azure predefiniti
-      href: ./policy-samples.md
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
     - name: Comandi di Redis
       href: 'https://redis.io/commands#'
 - name: Risorse

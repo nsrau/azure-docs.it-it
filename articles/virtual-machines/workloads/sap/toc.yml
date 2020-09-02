@@ -301,6 +301,8 @@
   items:
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/ext/sap-hana/hanainstance
+    - name: Azure PowerShell
+      href: /powershell/module/az.hanaonazure/#sap-hana-on-azure
 - name: Risorse
   items:
     - name: Roadmap per Azure

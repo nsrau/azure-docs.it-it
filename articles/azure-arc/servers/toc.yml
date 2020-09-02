@@ -16,12 +16,6 @@
       href: ./learn/tutorial-assign-policy-portal.md
     - name: Monitorare il computer
       href: ./learn/tutorial-enable-vm-insights.md
-- name: Esempi
-  items:
-    - name: Criteri di Azure predefiniti
-      items:
-        - name: Server con abilitazione di Azure Arc
-          href: policy-samples.md
 - name: Concetti
   items:
     - name: Sicurezza
@@ -57,3 +51,6 @@
           href: data-residency.md
         - name: REST
           href: /rest/api/hybridcompute
+        - name: Criteri di Azure predefiniti
+          displayName: 'samples, policies, definitions'
+          href: policy-reference.md

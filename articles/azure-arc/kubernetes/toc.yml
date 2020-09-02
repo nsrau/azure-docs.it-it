@@ -4,12 +4,6 @@
   items:
     - name: Informazioni su Kubernetes con abilitazione di Azure Arc
       href: overview.md
-- name: Esempi
-  items:
-    - name: Criteri di Azure predefiniti
-      items:
-        - name: Kubernetes con abilitazione di Azure Arc
-          href: policy-samples.md
 - name: Guide pratiche
   items:
     - name: Connessione ad Azure Arc
@@ -34,3 +28,8 @@
           href: deploy-azure-iot-edge-workloads.md
     - name: Risoluzione dei problemi
       href: Troubleshooting.md
+- name: Riferimento
+  items:
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: policy-reference.md

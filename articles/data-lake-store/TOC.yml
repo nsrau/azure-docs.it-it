@@ -22,11 +22,6 @@
       href: data-lake-store-get-started-powershell.md
     - name: Utilizzare l'interfaccia della riga di comando di Azure
       href: data-lake-store-get-started-cli-2.0.md
-- name: Esempi
-  items:
-    - name: Criteri di Azure predefiniti
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Procedure
   items:
     - name: Caricare e spostare dati
@@ -177,6 +172,9 @@
       href: /azure/templates/microsoft.datalakestore/allversions
     - name: Interfaccia della riga di comando di Azure
       href: 'https://docs.microsoft.com/cli/azure/dls'
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Risorse
   items:
     - name: Roadmap per Azure

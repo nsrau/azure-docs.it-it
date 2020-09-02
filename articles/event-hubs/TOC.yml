@@ -75,9 +75,6 @@
   items:
     - name: Esempi di codice
       href: event-hubs-samples.md
-    - name: Criteri di Azure predefiniti
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Terminologia relativa a hub eventi
@@ -290,6 +287,9 @@
       href: event-hubs-quotas.md
     - name: Configurazioni di Apache Kafka
       href: apache-kafka-configurations.md
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Risorse
   items:
     - name: Sviluppare le proprie competenze con Microsoft Learn

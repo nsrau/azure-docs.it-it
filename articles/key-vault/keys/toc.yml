@@ -27,9 +27,6 @@
   items:
     - name: Esempi di codice di Key Vault
       href: 'https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault'
-    - name: Criteri di Azure predefiniti
-      displayName: 'samples, policies, definitions'
-      href: ../policy-samples.md?toc=/azure/key-vault/keys/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 - name: Informazioni di riferimento
   items:
     - name: Azure PowerShell
@@ -51,6 +48,9 @@
       displayName: ARM
     - name: Specifica di BYOK (Bring Your Own Key)
       href: byok-specification.md
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ../policy-reference.md?toc=/azure/key-vault/keys/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
 - name: Risorse
   items:
     - name: Sviluppare le proprie competenze con Microsoft Learn

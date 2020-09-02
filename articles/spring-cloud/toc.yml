@@ -47,11 +47,6 @@
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: Distribuire Azure Spring Cloud nella rete virtuale
       href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
-- name: Esempi
-  items:
-    - name: Criteri di Azure predefiniti
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Informazioni su app e distribuzione
@@ -126,3 +121,6 @@
       href: spring-cloud-faq.md
     - name: Informazioni di riferimento sulle API REST
       href: 'https://docs.microsoft.com/rest/api/azurespringclould/'
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md

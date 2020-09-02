@@ -4,11 +4,6 @@
   items:
     - name: Informazioni su Resource Manager
       href: overview.md
-- name: Esempi
-  items:
-    - name: Criteri di Azure predefiniti
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Sottoscrizione e limiti dei servizi
@@ -17,8 +12,6 @@
       href: resource-name-rules.md
     - name: Resource Manager e distribuzione classica
       href: deployment-models.md
-    - name: Attributi comuni della sicurezza di Azure
-      href: azure-resource-manager-security-controls.md
     - name: Provider di risorse per servizio
       href: azure-services-resource-providers.md
     - name: Tipi di risorsa dell'estensione
@@ -30,6 +23,8 @@
         - name: Controlli di sicurezza in base a Criteri di Azure
           displayName: 'regulatory, compliance, standards, domains'
           href: ./security-controls-policy.md
+        - name: Attributi comuni della sicurezza di Azure
+          href: azure-resource-manager-security-controls.md
 - name: Procedure
   items:
     - name: Spostamento - gruppi di risorse/sottoscrizioni
@@ -172,6 +167,9 @@
       href: /java/api/com.microsoft.azure.management.resources
     - name: Python
       href: /python/api/overview/azure/resources?view=azure-python
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Risorse
   items:
     - name: Roadmap per Azure

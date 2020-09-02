@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Azure Batch
       href: batch-technical-overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Eseguire un processo Batch - Interfaccia della riga di comando
@@ -44,9 +44,6 @@
           href: 'https://github.com/Azure/azure-batch-samples'
     - name: Interfaccia della riga di comando di Azure
       href: cli-samples.md
-    - name: Criteri di Azure predefiniti
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Sicurezza
@@ -268,6 +265,9 @@
           href: batch-task-complete-event.md
         - name: Evento di attività non riuscita
           href: batch-task-fail-event.md
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Risorse
   items:
     - name: Aggiornamenti di Azure

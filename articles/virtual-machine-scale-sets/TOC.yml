@@ -93,9 +93,6 @@
           href: ./scripts/powershell-single-av-zone-scale-set.md
         - name: Creare un set di scalabilità con ridondanza della zona
           href: ./scripts/powershell-sample-zone-redundant-scale-set.md
-    - name: Criteri di Azure predefiniti
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Azure Resource Manager
@@ -394,6 +391,9 @@
       href: /rest/api/virtualmachinescalesets/
     - name: Modelli di Azure
       href: /azure/templates/microsoft.compute/virtualmachinescalesets
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Risorse
   items:
     - name: Roadmap per Azure

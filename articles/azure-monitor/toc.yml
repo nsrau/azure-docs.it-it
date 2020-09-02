@@ -8,7 +8,7 @@
       href: faq.md
     - name: Novità
       href: whats-new.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Monitorare la risorsa di Azure
       href: learn/quick-monitor-azure-resource.md
@@ -105,9 +105,6 @@
       href: samples/cli-samples.md
     - name: Azure PowerShell
       href: samples/powershell-samples.md
-    - name: Criteri di Azure predefiniti
-      displayName: 'samples, policies, definitions'
-      href: samples/policy-samples.md
 - name: Concetti
   items:
     - name: Elementi monitorabili
@@ -1298,6 +1295,9 @@
           href: /azure/templates/microsoft.insights/allversions
         - name: Log di Monitoraggio di Azure
           href: /azure/templates/microsoft.operationalinsights/allversions
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: samples/policy-reference.md
     - name: Ritiro di funzionalità e API
       items:
         - name: API classiche per scalabilità automatica e metrica
