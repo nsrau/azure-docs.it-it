@@ -7,7 +7,7 @@
       href: overview.md
     - name: Panoramica degli aspetti tecnici e delle funzionalità
       href: technical-overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Configurare l'accesso - ASP.NET
@@ -81,6 +81,8 @@
       href: user-profile-attributes.md
     - name: Sessioni SSO
       href: session-overview.md
+    - name: Identity Protection e Accesso condizionale
+      href: conditional-access-identity-protection-overview.md
 - name: Guide pratiche
   items:
     - name: Integrazione di app
@@ -111,6 +113,8 @@
               href: configure-ropc.md
             - name: Configurare la reimpostazione self-service delle password
               href: user-flow-self-service-password-reset.md
+        - name: Aggiungere Accesso condizionale
+          href: conditional-access-user-flow.md
         - name: Personalizzazione dell'esperienza utente
           items:
             - name: Personalizzare l'interfaccia utente
@@ -164,6 +168,8 @@
           href: user-flow-custom-attributes.md
         - name: Pass-through di un token IdP esterno
           href: idp-pass-through-user-flow.md
+    - name: Identity Protection e Accesso condizionale
+      href: conditional-access-identity-protection-setup.md
     - name: Criteri personalizzati
       items:
         - name: Creare criteri
@@ -333,6 +339,9 @@
                       href: aad-sspr-technical-profile.md
                     - name: Trasformazione delle attestazioni
                       href: claims-transformation-technical-profile.md
+                    - name: Profilo tecnico di Accesso condizionale
+                      href: conditional-access-technical-profile.md
+                      displayName: ca
                     - name: Autorità emittente di token JWT
                       href: jwt-issuer-technical-profile.md
                     - name: OAuth1

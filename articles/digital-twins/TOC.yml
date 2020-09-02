@@ -56,6 +56,8 @@
               href: how-to-set-up-instance-portal.md
         - name: Scrivere il codice di autenticazione dell'app
           href: how-to-authenticate-client.md
+        - name: Spostare un'istanza in un'area diversa
+          href: how-to-move-regions.md
     - name: Modelli di progettazione
       items:
         - name: Gestire i modelli personalizzati

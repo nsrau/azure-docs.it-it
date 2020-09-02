@@ -8,7 +8,7 @@
       href: howto-best-practices.md
     - name: Domande frequenti
       href: faq.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Configurazione
@@ -76,9 +76,6 @@
   items:
     - name: Interfaccia della riga di comando di Azure
       href: cli-samples.md
-    - name: Criteri di Azure predefiniti
-      displayName: 'samples, policies, definitions'
-      href: ./policy-samples.md
 - name: Concetti
   items:
     - name: Chiavi e valori
@@ -151,6 +148,9 @@
       items:
         - name: API REST
           href: 'https://docs.microsoft.com/rest/api/appconfiguration/'
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Risorse
   items:
     - name: Prezzi
@@ -165,7 +165,7 @@
           href: 'https://channel9.msdn.com/Events/dotnetConf/NET-Conf-2019/B210'
         - name: Configurazione app di Azure in Cloud Native Show
           href: 'https://www.youtube.com/watch?v=DJqmA5PcfzE'
-        - name: Filtro delle funzionalità in Azure Friday
-          url: 'https://channel9.msdn.com/Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553'
+        - name: Distribuzione di nuove funzionalità
+          href: 'https://channel9.msdn.com/Shows/Azure-Friday/How-Azure-App-Configuration-helps-developers-roll-out-new-features?ocid=AID747781&wt.mc_id=azfr-c9-scottha&wt.mc_id=CFID0553'
     - name: Inviare commenti e suggerimenti per il prodotto
       href: 'https://github.com/Azure/AppConfiguration/issues'
