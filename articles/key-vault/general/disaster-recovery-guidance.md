@@ -7,14 +7,14 @@ manager: ravijan
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
-ms.date: 08/24/2020
+ms.date: 08/28/2020
 ms.author: sudbalas
-ms.openlocfilehash: e4364c3c5bcba1a04837f3f9e7a0576579211c72
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 35814f34550ac7bf4ad85a96d0838df62fe63be6
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796596"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89073183"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Disponibilità e ridondanza dell'insieme di credenziali delle chiavi di Azure
 
@@ -32,8 +32,6 @@ Esistono alcune limitazioni che è necessario tenere presenti:
 
 * Nel caso del failover di un'area, il failover del servizio può richiedere alcuni minuti. Le richieste effettuate durante questo periodo prima del failover potrebbero non riuscire.
 * Dopo il failover, l'insieme di credenziali delle chiavi è in modalità di sola lettura. Le richieste supportate in questa modalità sono le seguenti:
-  * List key vaults
-  * Get properties of key vaults
   * List certificates
   * Get certificates
   * List secrets
