@@ -14,12 +14,12 @@ ms.date: 05/31/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b17300fa69b61c7713c860e2a35e63fcb6584bc4
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 04ea92e18fc6efb8b375a22cc34baf1d33b78802
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "66474010"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279024"
 ---
 # <a name="tutorial--integrate-a-single-ad-forest-using-password-hash-sync-phs"></a>Esercitazione:  Integrare una singola foresta di AD mediante la sincronizzazione dell'hash delle password
 
@@ -29,8 +29,8 @@ L'esercitazione seguente illustrerà come creare un ambiente ibrido di gestione 
 
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa esercitazione sono necessari i requisiti seguenti
-- Un computer in cui è installato [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview).  È consigliabile installarlo in un computer con [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) o in un computer con [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
-- Una [scheda di rete esterna](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) per consentire alla macchina virtuale di comunicare con Internet.
+- Un computer in cui è installato [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview).  È consigliabile installarlo in un computer con [Windows 10](/virtualization/hyper-v-on-windows/about/supported-guest-os) o in un computer con [Windows Server 2016](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+- Una [scheda di rete esterna](/virtualization/hyper-v-on-windows/quick-start/connect-to-network) per consentire alla macchina virtuale di comunicare con Internet.
 - Una [sottoscrizione di Azure](https://azure.microsoft.com/free)
 - Una copia di Windows Server 2016
 

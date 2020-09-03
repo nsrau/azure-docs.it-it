@@ -8,16 +8,16 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/10/2020
-ms.openlocfilehash: 69618604c38d82567260e45d651df523055c5f7b
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: a4e686fe7adcc7e990a26484bc5850de977e862a
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86245331"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88924589"
 ---
 # <a name="tutorial-build-and-deploy-a-custom-skill-with-azure-machine-learning"></a>Esercitazione: Creare e distribuire una competenza personalizzata con Azure Machine Learning 
 
-In questa esercitazione si userà il [set di dati delle recensioni di hotel](https://www.kaggle.com/datafiniti/hotel-reviews) (distribuito con la licenza Creative Commons [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) per creare una [competenza personalizzata](https://docs.microsoft.com/azure/search/cognitive-search-aml-skill) usando Azure Machine Learning per estrarre il sentiment basato sull'aspetto dalle recensioni. Questo consente di attribuire correttamente l'assegnazione di sentiment positivo e negativo nella stessa recensione a entità identificate, come personale, stanza, hall o piscina.
+In questa esercitazione si userà il [set di dati delle recensioni di hotel](https://www.kaggle.com/datafiniti/hotel-reviews) (distribuito con la licenza Creative Commons [CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.txt)) per creare una [competenza personalizzata](./cognitive-search-aml-skill.md) usando Azure Machine Learning per estrarre il sentiment basato sull'aspetto dalle recensioni. Questo consente di attribuire correttamente l'assegnazione di sentiment positivo e negativo nella stessa recensione a entità identificate, come personale, stanza, hall o piscina.
 
 Per eseguire il training del modello di sentiment basato sull'aspetto in Azure Machine Learning, si userà il [repository nlp-recipes](https://github.com/microsoft/nlp-recipes/tree/master/examples/sentiment_analysis/absa). Il modello verrà quindi distribuito come endpoint in un cluster di Azure Kubernetes. Una volta distribuito, il modello verrà aggiunto alla pipeline di arricchimento come competenza di Azure Machine Learning che verrà usata dal servizio Ricerca cognitiva.
 
@@ -36,10 +36,10 @@ Vengono forniti due set di dati. Se si vuole eseguire il training del modello au
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Sottoscrizione di Azure - ottenere una [sottoscrizione gratuita](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* [Servizio Ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/search-get-started-arm)
-* [Risorsa di Servizi cognitivi](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Cwindows)
-* [account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)
-* [Azure Machine Learning workspace](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace) (Area di lavoro di Azure Machine Learning)
+* [Servizio Ricerca cognitiva di Azure](./search-get-started-arm.md)
+* [Risorsa di Servizi cognitivi](../cognitive-services/cognitive-services-apis-create-account.md?tabs=multiservice%2cwindows)
+* [account di archiviazione di Azure](../storage/common/storage-account-create.md?tabs=azure-portal&toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+* [Azure Machine Learning workspace](../machine-learning/how-to-manage-workspace.md) (Area di lavoro di Azure Machine Learning)
 
 ## <a name="setup"></a>Configurazione
 
@@ -47,9 +47,9 @@ Vengono forniti due set di dati. Se si vuole eseguire il training del modello au
 * Estrarre il contenuto del download in un file ZIP. Verificare che i file siano in lettura/scrittura.
 * Mentre si configurano gli account e i servizi di Azure, copiare i nomi e le chiavi in un file di testo di facile accesso. I nomi e le chiavi verranno aggiunti alla prima cella del notebook in cui sono definite le variabili per l'accesso ai servizi di Azure.
 * Se non si ha familiarità con Azure Machine Learning e i relativi requisiti, vedere questi documenti prima di iniziare:
- * [Configurare un ambiente di sviluppo per Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-configure-environment)
- * [Creare e gestire le aree di lavoro di Azure Machine Learning nel portale di Azure](https://docs.microsoft.com/azure/machine-learning/how-to-manage-workspace)
- * Quando si configura l'ambiente di sviluppo per Azure Machine Learning, è consigliabile usare l'[istanza di calcolo basata sul cloud](https://docs.microsoft.com/azure/machine-learning/how-to-configure-environment#compute-instance) per velocizzare e semplificare la fase iniziale.
+ * [Configurare un ambiente di sviluppo per Azure Machine Learning](../machine-learning/how-to-configure-environment.md)
+ * [Creare e gestire le aree di lavoro di Azure Machine Learning nel portale di Azure](../machine-learning/how-to-manage-workspace.md)
+ * Quando si configura l'ambiente di sviluppo per Azure Machine Learning, è consigliabile usare l'[istanza di calcolo basata sul cloud](../machine-learning/how-to-configure-environment.md#compute-instance) per velocizzare e semplificare la fase iniziale.
 * Caricare il file del set di dati in un contenitore nell'account di archiviazione. Il file più grande è necessario se si vuole eseguire la fase di training nel notebook. Se si preferisce saltare la fase di training, è consigliabile usare il file più piccolo.
 
 ## <a name="open-notebook-and-connect-to-azure-services"></a>Aprire il notebook e connettersi ai servizi di Azure
@@ -68,9 +68,9 @@ Nella sezione 2 sono presenti sei celle che scaricano il file di incorporamenti 
 
 La sezione 3 del notebook esegue il training dei modelli creati nella sezione 2, registra i modelli e li distribuisce come endpoint in un cluster di Azure Kubernetes. Se non si ha familiarità con Azure Kubernetes, è consigliabile leggere gli articoli seguenti prima di provare a creare un cluster di inferenza:
 
-* [Panoramica del servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/intro-kubernetes)
-* [Concetti di base di Kubernetes per il servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads)
-* [Quote, limitazioni delle dimensioni delle macchine virtuali e disponibilità delle aree nel servizio Azure Kubernetes](https://docs.microsoft.com/azure/aks/quotas-skus-regions)
+* [Panoramica del servizio Azure Kubernetes](../aks/intro-kubernetes.md)
+* [Concetti di base di Kubernetes per il servizio Azure Kubernetes](../aks/concepts-clusters-workloads.md)
+* [Quote, limitazioni delle dimensioni delle macchine virtuali e disponibilità delle aree nel servizio Azure Kubernetes](../aks/quotas-skus-regions.md)
 
 La creazione e la distribuzione del cluster di inferenza possono richiedere fino a 30 minuti. Prima di procedere con i passaggi finali, è consigliabile testare il servizio Web, aggiornando il set di competenze ed eseguendo l'indicizzatore.
 
@@ -108,5 +108,5 @@ Se si usa un servizio gratuito, tenere presente che il numero di indicizzatori e
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Competenza API Web personalizzata](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-web-api)
-> [Altre informazioni sull'aggiunta di competenze personalizzate alla pipeline di arricchimento](https://docs.microsoft.com/azure/search/cognitive-search-custom-skill-interface)
+> [Competenza API Web personalizzata](./cognitive-search-custom-skill-web-api.md)
+> [Altre informazioni sull'aggiunta di competenze personalizzate alla pipeline di arricchimento](./cognitive-search-custom-skill-interface.md)
