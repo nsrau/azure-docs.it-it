@@ -4,7 +4,7 @@
   expanded: true
   items:
     - name: Informazioni su Servizi cognitivi
-      href: Welcome.md
+      href: what-are-cognitive-services.md
     - name: Novità della documentazione di Servizi cognitivi
       href: whats-new-docs.md
     - name: Servizi cognitivi e Machine Learning
@@ -82,7 +82,7 @@
           href: ./big-data/recipes/anomaly-detection.md
         - name: 'Recipe: Esplorazione immagini artistiche'
           href: ./big-data/recipes/art-explorer.md
-- name: Riferimento
+- name: Informazioni di riferimento
   items:
     - name: Criteri di Azure predefiniti
       displayName: 'samples, policies, definitions'
