@@ -9,12 +9,12 @@ ms.subservice: computer-vision
 ms.topic: include
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: c6e94cb4d55fdc8a204af0017eb1a8b37d44f087
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 744ef58b54dc3718c4693ce2aad69024e2d6e2fe
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86035563"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321864"
 ---
 <a name="HOLTop"></a>
 
@@ -194,5 +194,5 @@ In questo argomento di avvio rapido si è appreso come usare la libreria di Visi
 > [!div class="nextstepaction"]
 >[Informazioni di riferimento per l'API Visione artificiale (Python)](https://docs.microsoft.com/python/api/azure-cognitiveservices-vision-computervision/azure.cognitiveservices.vision.computervision)
 
-* [Informazioni su Visione artificiale](../../Home.md)
+* [Informazioni su Visione artificiale](../../overview.md)
 * Il codice sorgente per questo esempio è disponibile su [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/python/ComputerVision/ComputerVisionQuickstart.py).

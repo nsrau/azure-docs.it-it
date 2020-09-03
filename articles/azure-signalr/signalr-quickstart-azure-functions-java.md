@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 03/04/2019
 ms.author: zhshang
 ms.custom: devx-track-java
-ms.openlocfilehash: b67480f2b6de37822d74162f46caa4d7e50dc193
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 544f200e749b1b125e8077ee65f20a06779fb13d
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321786"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050574"
 ---
 # <a name="quickstart-use-java-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>Guida introduttiva: Usare Java per creare una chat room con Funzioni di Azure e il servizio SignalR
 
@@ -37,13 +37,21 @@ Il servizio Azure SignalR consente di aggiungere facilmente funzionalità in tem
 > [!NOTE]
 > Questa guida introduttiva può essere eseguita su macOS, Windows o Linux.
 
+[Problemi? Segnalarli](https://aka.ms/asrs/qsjava).
+
 ## <a name="log-in-to-azure"></a>Accedere ad Azure
 
 Accedere al portale di Azure all'indirizzo <https://portal.azure.com/> con il proprio account Azure.
 
+[Problemi? Segnalarli](https://aka.ms/asrs/qsjava).
+
 [!INCLUDE [Create instance](includes/signalr-quickstart-create-instance.md)]
 
+[Problemi? Segnalarli](https://aka.ms/asrs/qsjava).
+
 [!INCLUDE [Clone application](includes/signalr-quickstart-clone-application.md)]
+
+[Problemi? Segnalarli](https://aka.ms/asrs/qsjava).
 
 ## <a name="configure-and-run-the-azure-function-app"></a>Configurare ed eseguire l'app per le funzioni di Azure
 
@@ -79,10 +87,15 @@ Accedere al portale di Azure all'indirizzo <https://portal.azure.com/> con il pr
     ```bash
     mvn azure-functions:run
     ```
+[Problemi? Segnalarli](https://aka.ms/asrs/qsjava).
 
 [!INCLUDE [Run web application](includes/signalr-quickstart-run-web-application.md)]
 
+[Problemi? Segnalarli](https://aka.ms/asrs/qsjava).
+
 [!INCLUDE [Cleanup](includes/signalr-quickstart-cleanup.md)]
+
+[Problemi? Segnalarli](https://aka.ms/asrs/qsjava).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
@@ -90,3 +103,5 @@ In questo avvio reale è stata creata ed eseguita un'applicazione serverless in 
 
 > [!div class="nextstepaction"]
 > [Creare la prima funzione con Java e Maven](../azure-functions/functions-create-first-java-maven.md)
+
+[Problemi? Segnalarli](https://aka.ms/asrs/qsjava).

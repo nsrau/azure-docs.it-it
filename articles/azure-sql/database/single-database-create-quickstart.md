@@ -11,18 +11,18 @@ author: sachinpMSFT
 ms.author: ninarn
 ms.reviewer: carlrab, sstein, vanto
 ms.date: 04/19/2020
-ms.openlocfilehash: 20f8a08cfe31534abe24c7af1055e0945e021643
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 6572f2e71b794f9f147278970b3f5f29fceb29d7
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86081588"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962690"
 ---
 # <a name="quickstart-create-an-azure-sql-database-single-database"></a>Avvio rapido: Crea un database SQL di Azure singolo
 
 In questo argomento di avvio rapido si userà il portale di Azure, uno script di Azure PowerShell o uno script dell'interfaccia della riga di comando di Azure per creare un database singolo nel database SQL di Azure. È quindi possibile eseguire query sul database con l'**editor di query** nel portale di Azure.
 
-Un [database singolo](single-database-overview.md) è l'opzione più semplice e rapida per il database SQL di Azure. È possibile gestire un database singolo all'interno di un [server](logical-servers.md), che risiede in un [gruppo di risorse di Azure ](../../active-directory-b2c/overview.md) in un'area di Azure specificata. In questa guida di avvio rapido vengono creati un nuovo gruppo di risorse e un server per il nuovo database.
+Un [database singolo](single-database-overview.md) è l'opzione più semplice e rapida per il database SQL di Azure. È possibile gestire un database singolo all'interno di un [server](logical-servers.md), che risiede in un [gruppo di risorse di Azure ](../../azure-resource-manager/management/manage-resource-groups-portal.md) in un'area di Azure specificata. In questa guida di avvio rapido vengono creati un nuovo gruppo di risorse e un server per il nuovo database.
 
 È quindi possibile creare un database singolo nel livello di calcolo *con provisioning* o *serverless*. Per un database con provisioning viene preallocata una quantità fissa di risorse di calcolo, tra cui CPU e memoria, e viene usato uno dei due [modelli di acquisto](purchasing-models.md) disponibili. In questo argomento di avvio rapido viene creato un database con provisioning usando il modello di acquisto [basato su vCore](service-tiers-vcore.md), ma è anche possibile scegliere un modello [basato su unità di elaborazione di database](service-tiers-dtu.md).
 

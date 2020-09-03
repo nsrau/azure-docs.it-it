@@ -4,12 +4,12 @@ description: Questa guida di avvio rapido illustra la procedura per abilitare l'
 ms.date: 08/10/2020
 ms.topic: quickstart
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 8132cfb60009739fc2f5fd518ef2a112fea93c4a
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 7d55aaae30176b3f0246dd254496465fb89b0e99
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056449"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050999"
 ---
 # <a name="quickstart-run-your-first-resource-graph-query-using-azure-cli"></a>Guida introduttiva: Eseguire la prima query di Resource Graph usando l'interfaccia della riga di comando di Azure
 
@@ -27,7 +27,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 Per consentire all'interfaccia della riga di comando di Azure di eseguire query su Azure Resource Graph è necessario che l'estensione sia aggiunta. Questa estensione funziona ovunque sia possibile usare l'interfaccia della riga di comando di Azure, fra cui [bash in Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) sia autonomo che nel portale e l'[immagine Docker di Azure PowerShell](https://hub.docker.com/r/microsoft/azure-cli/), oppure installata in locale.
 
-1. Controllare che sia installata l'interfaccia della riga di comando di Azure più recente o almeno la versione **2.0.76**. Se non è ancora installato, seguire [queste istruzioni](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+1. Controllare che sia installata l'interfaccia della riga di comando di Azure più recente o almeno la versione **2.0.76**. Se non è ancora installato, seguire [queste istruzioni](/cli/azure/install-azure-cli-windows).
 
 1. Importarla nell'ambiente della riga di comando di Azure scelto usando il comando seguente:
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 07/23/2020
 ms.author: magoedte
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: 37a619fe3279d1cb03763b14c3dfc9e315d850b9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 441e53123512a9611f9568edccfd40a3e17c981f
+ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685647"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89055431"
 ---
 # <a name="quickstart-create-an-automation-account-by-using-arm-template"></a>Avvio rapido: Creare un account di automazione con il modello di Resource Manager
 

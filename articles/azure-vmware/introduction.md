@@ -3,12 +3,12 @@ title: Introduzione
 description: Informazioni sulle funzionalità e i vantaggi della soluzione Azure VMware per distribuire e gestire i carichi di lavoro basati su VMware in Azure.
 ms.topic: overview
 ms.date: 05/04/2020
-ms.openlocfilehash: 9d39cb759190eef535519decccec943ab66de2c7
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 3d6801a6cdec7600cc6003711a08e6af8c86483e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752135"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89005055"
 ---
 # <a name="what-is-azure-vmware-solution-preview"></a>Che cos'è la soluzione Azure VMware (anteprima)?
 
@@ -46,7 +46,7 @@ Gli aggiornamenti regolari del cloud privato della soluzione Azure VMware e del 
 
 ## <a name="monitoring-your-private-cloud"></a>Monitoraggio del cloud privato
 
-È possibile usare la funzionalità [Log in Monitoraggio di Azure](../azure-monitor/overview.md) per raccogliere i log delle macchine virtuali in esecuzione nel cloud privato della soluzione Azure VMware. È possibile [scaricare e installare l'agente Microsoft Monitoring Agent](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) nelle macchine virtuali Linux e Windows in esecuzione nei cloud privati della soluzione Azure VMware, usando le stesse query eseguite nelle macchine virtuali locali. È possibile eseguire le stesse query che si eseguono normalmente nelle macchine virtuali. Per altre informazioni sulla creazione di query, vedere [Come scrivere le query](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries).
+È possibile usare la funzionalità [Log in Monitoraggio di Azure](../azure-monitor/overview.md) per raccogliere i log delle macchine virtuali in esecuzione nel cloud privato della soluzione Azure VMware. È possibile [scaricare e installare l'agente Microsoft Monitoring Agent](../azure-monitor/platform/log-analytics-agent.md#installation-options) nelle macchine virtuali Linux e Windows in esecuzione nei cloud privati della soluzione Azure VMware, usando le stesse query eseguite nelle macchine virtuali locali. È possibile eseguire le stesse query che si eseguono normalmente nelle macchine virtuali. Per altre informazioni sulla creazione di query, vedere [Come scrivere le query](../azure-monitor/log-query/log-query-overview.md#how-can-i-learn-how-to-write-queries).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

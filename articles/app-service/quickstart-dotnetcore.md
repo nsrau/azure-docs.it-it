@@ -6,12 +6,12 @@ ms.topic: quickstart
 ms.date: 08/01/2020
 ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18
 zone_pivot_groups: app-service-platform-windows-linux
-ms.openlocfilehash: b7402dc3f7c1e5c7ff5552b2f454156ef1539711
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 5604153d31a2828bcefbeccbd2f4fea428e878b5
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212676"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961534"
 ---
 # <a name="quickstart-create-an-aspnet-core-web-app-in-azure"></a>Guida introduttiva: Creare un'app Web ASP.NET Core in Azure
 
@@ -59,8 +59,8 @@ Per pubblicare l'app Web, è necessario prima creare e configurare un nuovo serv
 
 Come parte della configurazione del servizio app, si creeranno:
 
-- Un nuovo [gruppo di risorse](https://docs.microsoft.com/azure/azure-resource-manager/management/overview#terminology) che conterrà tutte le risorse di Azure per il servizio.
-- Un nuovo [piano di hosting](https://docs.microsoft.com/azure/app-service/overview-hosting-plans) che specifica la località, le dimensioni e le funzionalità della server farm Web che ospita l'app.
+- Un nuovo [gruppo di risorse](../azure-resource-manager/management/overview.md#terminology) che conterrà tutte le risorse di Azure per il servizio.
+- Un nuovo [piano di hosting](./overview-hosting-plans.md) che specifica la località, le dimensioni e le funzionalità della server farm Web che ospita l'app.
 
 Seguire questa procedura per creare il servizio app e pubblicare l'app Web:
 
@@ -160,7 +160,7 @@ Procedere con l'articolo successivo per informazioni su come creare un'app .NET 
 ::: zone-end  
 
 ::: zone pivot="platform-linux"
-Il [Servizio app in Linux](overview.md#app-service-on-linux) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa guida introduttiva mostra come creare un'app [.NET Core](https://docs.microsoft.com/aspnet/core/) nel Servizio app in Linux. È necessario creare l'app usando l'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli) e GIT per distribuire il codice Node.js nell'app.
+Il [Servizio app in Linux](overview.md#app-service-on-linux) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione basato sul sistema operativo Linux. Questa guida introduttiva mostra come creare un'app [.NET Core](/aspnet/core/) nel Servizio app in Linux. È necessario creare l'app usando l'[interfaccia della riga di comando di Azure](/cli/azure/get-started-with-azure-cli) e GIT per distribuire il codice Node.js nell'app.
 
 ![App di esempio in esecuzione in Azure](media/quickstart-dotnetcore/dotnet-browse-azure.png)
 
@@ -322,4 +322,4 @@ Il menu a sinistra fornisce varie pagine per la configurazione dell'app.
 > [!div class="nextstepaction"]
 > [Configurare l'app ASP.NET Core](configure-language-dotnetcore.md)
 
-::: zone-end  
+::: zone-end

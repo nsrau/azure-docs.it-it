@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 9bd4c7f17ec1a75e54ca857325cdbb7bf3358511
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 6475fc61502a82844605ba267db5f8da984c8de6
+ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88234704"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88948879"
 ---
 # <a name="what-is-conditional-access"></a>Informazioni sull'accesso condizionale
 
@@ -100,6 +100,6 @@ Anche i clienti con [licenze Premium di Microsoft 365 Business](/office365/servi
 
 - [Creazione dettagliata di criteri di accesso condizionale](concept-conditional-access-policies.md)
 - [Pianificare la distribuzione dell'accesso condizionale](plan-conditional-access.md)
-- [Informazioni su Identity Protection](../identity-protection/overview-v2.md)
+- [Informazioni su Identity Protection](../identity-protection/overview-identity-protection.md)
 - [Informazioni su Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security)
 - [Informazioni su Microsoft Intune](/intune/index)

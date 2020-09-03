@@ -3,12 +3,12 @@ title: "Avvio rapido: Creare un progetto con l'interfaccia della riga di comando
 description: In questa guida di avvio rapido si userà Azure Blueprints per creare, definire e distribuire artefatti con l'interfaccia della riga di comando di Azure.
 ms.date: 06/02/2020
 ms.topic: quickstart
-ms.openlocfilehash: 30a450fc7eab55424da7ce971ad234cbf2248b30
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: c64723befbe3cb8d811179e7062df18606749783
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85969669"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051543"
 ---
 # <a name="quickstart-define-and-assign-an-azure-blueprint-with-azure-cli"></a>Avvio rapido: Definire e assegnare un progetto Azure Blueprint con l'interfaccia della riga di comando di Azure
 
@@ -25,7 +25,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 Per abilitare l'interfaccia della riga di comando di Azure per gestire le definizioni e le assegnazioni del progetto, è necessario aggiungere l'estensione.
 Questa estensione funziona ovunque sia possibile usare l'interfaccia della riga di comando di Azure, fra cui [bash in Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) sia autonomo che nel portale e l'[immagine Docker di Azure PowerShell](https://hub.docker.com/r/microsoft/azure-cli/), oppure installata in locale.
 
-1. Controllare che sia installata l'interfaccia della riga di comando di Azure più recente o almeno la versione **2.0.76**. Se non è ancora installato, seguire [queste istruzioni](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+1. Controllare che sia installata l'interfaccia della riga di comando di Azure più recente o almeno la versione **2.0.76**. Se non è ancora installato, seguire [queste istruzioni](/cli/azure/install-azure-cli-windows).
 
 1. Importarla nell'ambiente della riga di comando di Azure scelto usando il comando seguente:
 

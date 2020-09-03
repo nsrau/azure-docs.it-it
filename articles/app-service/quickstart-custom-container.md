@@ -7,12 +7,12 @@ ms.date: 08/28/2019
 ms.topic: quickstart
 ms.custom: devx-track-csharp
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: 2aed6a2fea38f10a2e06ea51edb7fb529c8a2dde
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 33eaf6274f2da09ab98a21e6028b0103df817744
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212528"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961364"
 ---
 # <a name="run-a-custom-container-in-azure"></a>Eseguire un contenitore personalizzato in Azure
 
@@ -103,7 +103,7 @@ Creare un'app Web ASP.NET seguendo questa procedura:
 
    ![Configurare l'app Web per contenitori](media/quickstart-custom-container/configure-web-app-continer.png)
 
-    Se si ha un'immagine personalizzata per l'applicazione Web in un'altra posizione, ad esempio in [Registro Azure Container](/azure/container-registry/) o in qualsiasi altro repository privato, si può configurare tale immagine.
+    Se si ha un'immagine personalizzata per l'applicazione Web in un'altra posizione, ad esempio in [Registro Azure Container](../container-registry/index.yml) o in qualsiasi altro repository privato, si può configurare tale immagine.
 
 1. Selezionare **Rivedi e crea** e quindi **Crea** e attendere che Azure crei le risorse necessarie.
 
@@ -173,8 +173,8 @@ I log trasmessi sono simili al seguente:
 
 È possibile eseguire l'app usando un'altra immagine Docker personalizzata. È tuttavia necessario scegliere l'[immagine padre (di base)](https://docs.docker.com/develop/develop-images/baseimages/) corretta per il framework desiderato:
 
-- Per distribuire app .NET Framework, usare un'immagine padre basata sulla versione [Long-Term Servicing Channel (LTSC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) di Windows Server Core 2019. 
-- Per distribuire app .NET Core, usare un'immagine padre basata sulla versione [Semi-Annual Servicing Channel (SAC)](https://docs.microsoft.com/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) di Windows Server Nano 1809. 
+- Per distribuire app .NET Framework, usare un'immagine padre basata sulla versione [Long-Term Servicing Channel (LTSC)](/windows-server/get-started-19/servicing-channels-19#long-term-servicing-channel-ltsc) di Windows Server Core 2019. 
+- Per distribuire app .NET Core, usare un'immagine padre basata sulla versione [Semi-Annual Servicing Channel (SAC)](/windows-server/get-started-19/servicing-channels-19#semi-annual-channel) di Windows Server Nano 1809. 
 
 Il download di un'immagine padre durante l'avvio dell'app richiede tempo. È tuttavia possibile ridurre i tempi di avvio usando una delle immagini padre seguenti, già memorizzate nella cache nel servizio app di Azure.
 
@@ -188,7 +188,7 @@ Il download di un'immagine padre durante l'avvio dell'app richiede tempo. È tut
 ::: zone-end  
 
 ::: zone pivot="container-linux"
-Il servizio app in Linux fornisce stack di applicazioni predefiniti in Linux con il supporto per linguaggi quali .NET, PHP, Node.js e altri ancora. È anche possibile usare un'immagine Docker personalizzata per eseguire l'app Web in uno stack di applicazioni non ancora definito in Azure. Questo argomento di avvio rapido illustra come distribuire un'immagine da un [Registro Azure Container](/azure/container-registry) al servizio app.
+Il servizio app in Linux fornisce stack di applicazioni predefiniti in Linux con il supporto per linguaggi quali .NET, PHP, Node.js e altri ancora. È anche possibile usare un'immagine Docker personalizzata per eseguire l'app Web in uno stack di applicazioni non ancora definito in Azure. Questo argomento di avvio rapido illustra come distribuire un'immagine da un [Registro Azure Container](../container-registry/index.yml) al servizio app.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -200,7 +200,7 @@ Il servizio app in Linux fornisce stack di applicazioni predefiniti in Linux con
 
 ## <a name="create-an-image"></a>Creare un'immagine
 
-Per completare questa guida di avvio rapido, è necessaria un'immagine dell'app Web appropriata archiviata in un [Registro Azure Container](/azure/container-registry). Seguire le istruzioni contenute nell'articolo [Avvio rapido: Creare un registro contenitori privato con il portale di Azure](/azure/container-registry/container-registry-get-started-portal), ma usare l'immagine `mcr.microsoft.com/azuredocs/go` anziché `hello-world`. Per riferimento, il [Dockerfile di esempio è disponibile nel repository di esempi di Azure](https://github.com/Azure-Samples/go-docs-hello-world).
+Per completare questa guida di avvio rapido, è necessaria un'immagine dell'app Web appropriata archiviata in un [Registro Azure Container](../container-registry/index.yml). Seguire le istruzioni contenute nell'articolo [Avvio rapido: Creare un registro contenitori privato con il portale di Azure](../container-registry/container-registry-get-started-portal.md), ma usare l'immagine `mcr.microsoft.com/azuredocs/go` anziché `hello-world`. Per riferimento, il [Dockerfile di esempio è disponibile nel repository di esempi di Azure](https://github.com/Azure-Samples/go-docs-hello-world).
 
 > [!IMPORTANT]
 > Assicurarsi di impostare l'opzione **Utente amministratore** su **Abilita** durante la creazione del registro contenitori. È anche possibile impostare questa opzione dalla sezione **Chiavi di accesso** della pagina del registro nel portale di Azure. Questa impostazione è obbligatoria per l'accesso al servizio app.
@@ -261,4 +261,4 @@ Vedere ora le altre estensioni di Azure.
 
 In alternativa, è possibile ottenere tutte queste soluzioni installando il pacchetto di estensioni [Azure Tools](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack).
 
-::: zone-end  
+::: zone-end

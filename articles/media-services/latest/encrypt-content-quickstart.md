@@ -2,15 +2,17 @@
 title: Crittografare contenuti con il portale di Azure
 description: Questo argomento di avvio rapido illustra come configurare la crittografia dei contenuti usando Servizi multimediali di Azure nel portale di Azure.
 ms.topic: quickstart
-ms.date: 06/08/2020
-ms.openlocfilehash: 6ff3c14039f9199053d3d43c6ce4488c2692b336
-ms.sourcegitcommit: 55b2bbbd47809b98c50709256885998af8b7d0c5
+ms.date: 08/31/2020
+ms.openlocfilehash: e42b2d4487f2f51c082f22068160a02b3dcbb0a5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/18/2020
-ms.locfileid: "84988831"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263638"
 ---
 # <a name="quickstart-use-portal-to-encrypt-content"></a>Avvio rapido: Usare il portale per crittografare contenuto
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Usare Servizi multimediali di Azure per proteggere i file multimediali dal momento in cui escono dal computer fino alle fasi di archiviazione, elaborazione e recapito. Con Servizi multimediali è possibile distribuire contenuti live e on demand crittografati dinamicamente con AES-128 (Advanced Encryption Standard) o con uno dei principali sistemi DRM (Digital Rights Management): Microsoft PlayReady, Google Widevine e Apple FairPlay. Servizi multimediali offre anche un servizio per la distribuzione di chiavi AES e licenze DRM (PlayReady, Widevine e FairPlay) ai client autorizzati. 
  
