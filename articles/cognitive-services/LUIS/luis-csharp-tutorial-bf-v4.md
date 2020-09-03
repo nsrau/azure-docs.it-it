@@ -3,12 +3,13 @@ title: 'Esercitazione: Bot LUIS (Language Understanding) C# v4'
 description: Usando C#, creare un chat bot integrato con Language Understanding (LUIS). Il bot viene creato con Bot Framework versione 4 e il servizio bot app Web di Azure.
 ms.topic: tutorial
 ms.date: 06/22/2020
-ms.openlocfilehash: b9da1d1fecbb251ebf27833cc381eb658a9df46b
-ms.sourcegitcommit: 74ba70139781ed854d3ad898a9c65ef70c0ba99b
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 820cdeb692dffbf80a0e85c9d3dd86b703a4cae3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/26/2020
-ms.locfileid: "85445900"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88931268"
 ---
 # <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-c"></a>Esercitazione: Usare un bot app Web abilitato con Language Understanding in C#
 

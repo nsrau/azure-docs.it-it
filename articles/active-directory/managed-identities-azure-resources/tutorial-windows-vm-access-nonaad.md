@@ -3,7 +3,7 @@ title: Esercitazione`:` Usare un'identità gestita per accedere ad Azure Key Vau
 description: Esercitazione che illustra come usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure Key Vault.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/10/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7648f0c41731968c6cf8d2b2b2e55fffd9b5f53d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2890eb2211ac0a105363742a0e900e52a577ed27
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87018775"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255826"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-key-vault"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure Key Vault 
 
@@ -75,7 +75,7 @@ Successivamente, aggiungere un segreto all'insieme di credenziali delle chiavi, 
  
 ## <a name="access-data"></a>Accedere ai dati  
 
-Questa sezione illustra come ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per recuperare il segreto dall'insieme di credenziali delle chiavi. Se non si dispone di PowerShell 4.3.1 o versione successiva, è necessario [scaricare e installare la versione più recente](https://docs.microsoft.com/powershell/azure/).
+Questa sezione illustra come ottenere un token di accesso usando l'identità della macchina virtuale e usarlo per recuperare il segreto dall'insieme di credenziali delle chiavi. Se non si dispone di PowerShell 4.3.1 o versione successiva, è necessario [scaricare e installare la versione più recente](/powershell/azure/).
 
 In primo luogo, si userà l'identità gestita assegnata dal sistema della macchina virtuale per ottenere un token di accesso per l'autenticazione a Key Vault:
  
@@ -128,4 +128,4 @@ Dopo aver recuperato il segreto dall'insieme di credenziali delle chiavi, è pos
 In questa esercitazione si è appreso come usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure Key Vault.  Per altre informazioni su Azure Key Vault, consultare:
 
 > [!div class="nextstepaction"]
->[Insieme di credenziali chiave Azure](/azure/key-vault/key-vault-overview)
+>[Insieme di credenziali chiave Azure](../../key-vault/general/overview.md)

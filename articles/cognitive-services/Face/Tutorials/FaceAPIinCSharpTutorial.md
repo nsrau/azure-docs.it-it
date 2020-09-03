@@ -10,12 +10,13 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 08/17/2020
 ms.author: pafarley
-ms.openlocfilehash: d5d16181eb4dda08f002587545f99fab757b6b0e
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 13bbb5e006f725ff0b75a5b86aee414f84a80dcf
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586427"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936300"
 ---
 # <a name="tutorial-create-a-windows-presentation-framework-wpf-app-to-display-face-data-in-an-image"></a>Esercitazione: Creare un'app Windows Presentation Framework (WPF) per visualizzare i dati relativi ai visi in un'immagine
 

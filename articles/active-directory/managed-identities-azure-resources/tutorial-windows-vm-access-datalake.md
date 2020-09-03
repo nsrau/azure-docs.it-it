@@ -3,7 +3,7 @@ title: Esercitazione`:` Usare un'identità gestita per accedere ad Azure Data La
 description: Esercitazione che illustra come usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure Data Lake Store.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/14/2018
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c03f78341b7521267f8aaf72d58ebd4c912949ce
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: d29edec6145ebc03218264532cae07b6afc9654c
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75977871"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89254203"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure Data Lake Store
 
@@ -46,7 +46,7 @@ Questa esercitazione illustra come usare un'identità gestita assegnata dal sist
 
 ## <a name="grant-access"></a>Concedere l'accesso
 
-È ora possibile concedere alla VM l'accesso a file e cartelle in un'istanza di Azure Data Lake Store.  Per questo passaggio, è possibile usare un'istanza di Data Lake Store esistente o crearne una nuova.  Per creare una nuova istanza di Data Lake Store usando il portale di Azure, seguire questa [guida introduttiva ad Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Nella [documentazione di Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) sono disponibili anche guide introduttive che usano l'interfaccia della riga di comando di Azure e Azure PowerShell.
+È ora possibile concedere alla VM l'accesso a file e cartelle in un'istanza di Azure Data Lake Store.  Per questo passaggio, è possibile usare un'istanza di Data Lake Store esistente o crearne una nuova.  Per creare una nuova istanza di Data Lake Store usando il portale di Azure, seguire questa [guida introduttiva ad Azure Data Lake Store](../../data-lake-store/data-lake-store-get-started-portal.md). Nella [documentazione di Azure Data Lake Store](../../data-lake-store/data-lake-store-overview.md) sono disponibili anche guide introduttive che usano l'interfaccia della riga di comando di Azure e Azure PowerShell.
 
 Nell'istanza di Data Lake Store creare una nuova cartella e concedere all'identità assegnata dal sistema della macchina virtuale l'autorizzazione per leggere, scrivere ed eseguire file in quella cartella:
 
@@ -62,11 +62,11 @@ Nell'istanza di Data Lake Store creare una nuova cartella e concedere all'identi
 10. Come nel passaggio 5, fare clic su **Aggiungi**, nel campo **Seleziona** immettere il nome della VM, selezionarla e fare clic su **Seleziona**.
 11. Come nel passaggio 6, fare clic su **Selezionare le autorizzazioni**, selezionare **Lettura**, **Scrittura** ed **Esecuzione**, aggiungere a **Questa cartella** e aggiungere come **Una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**.  Fare clic su **OK**.  L'autorizzazione verrà aggiunta correttamente.
 
-L'identità gestita assegnata dal sistema della macchina virtuale può ora eseguire tutte le operazioni sui file nella cartella creata.  Per altre informazioni sulla gestione dell'accesso a Data Lake Store, vedere [Controllo di accesso in Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
+L'identità gestita assegnata dal sistema della macchina virtuale può ora eseguire tutte le operazioni sui file nella cartella creata.  Per altre informazioni sulla gestione dell'accesso a Data Lake Store, vedere [Controllo di accesso in Data Lake Store](../../data-lake-store/data-lake-store-access-control.md).
 
 ## <a name="access-data"></a>Accedere ai dati
 
-Azure Data Lake Store supporta in modo nativo l'autenticazione di Azure AD, in modo da poter accettare direttamente i token di accesso ottenuti usando identità gestite per le risorse di Azure.  Per eseguire l'autenticazione al file system di Data Lake Store, inviare un token di accesso rilasciato da Azure AD all'endpoint del file system di Data Lake Store, in un'intestazione dell'autorizzazione con il formato "Bearer <ACCESS_TOKEN_VALUE>".  Per altre informazioni sul supporto di Data Lake Store per l'autenticazione di Azure AD, vedere [Autenticazione con Data Lake Store usando Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory)
+Azure Data Lake Store supporta in modo nativo l'autenticazione di Azure AD, in modo da poter accettare direttamente i token di accesso ottenuti usando identità gestite per le risorse di Azure.  Per eseguire l'autenticazione al file system di Data Lake Store, inviare un token di accesso rilasciato da Azure AD all'endpoint del file system di Data Lake Store, in un'intestazione dell'autorizzazione con il formato "Bearer <ACCESS_TOKEN_VALUE>".  Per altre informazioni sul supporto di Data Lake Store per l'autenticazione di Azure AD, vedere [Autenticazione con Data Lake Store usando Azure Active Directory](../../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)
 
 > [!NOTE]
 > Gli SDK client del file system di Data Lake Store non supportano ancora le identità gestite per le risorse di Azure.  Questa esercitazione verrà aggiornata quando verrà aggiunto il supporto all'SDK.
@@ -193,4 +193,4 @@ Usando altre API del file system di Data Lake Store, è possibile accodare ai fi
 In questa esercitazione si è appreso come usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere a un'istanza di Azure Data Lake Store. Per altre informazioni su Azure Data Lake Store, vedere:
 
 > [!div class="nextstepaction"]
->[Azure Data Lake Store](/azure/data-lake-store/data-lake-store-overview)
+>[Azure Data Lake Store](../../data-lake-store/data-lake-store-overview.md)

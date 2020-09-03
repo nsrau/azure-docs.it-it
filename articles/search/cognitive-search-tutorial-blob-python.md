@@ -10,18 +10,18 @@ ms.devlang: python
 ms.topic: tutorial
 ms.date: 06/12/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 5dfa105b7af146086da6b72dd55f6fe679832f44
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 39891b69cdb8e7f392657514d255f5f85b3eba60
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845052"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88936028"
 ---
 # <a name="tutorial-use-python-and-ai-to-generate-searchable-content-from-azure-blobs"></a>Esercitazione: Usare Python e intelligenza artificiale per generare contenuto ricercabile dai BLOB di Azure
 
 Se si dispone di immagini o di testo non strutturato in Archiviazione BLOB di Azure, è possibile usare la [pipeline di arricchimento tramite intelligenza artificiale](cognitive-search-concept-intro.md) per estrarre informazioni e creare nuovo contenuto utile per gli scenari di ricerca full-text o di knowledge mining. Anche se la pipeline può elaborare le immagini, questa esercitazione per Python è incentrata sul testo, sull'applicazione del rilevamento della lingua e sull'elaborazione del linguaggio naturale per creare nuovi campi e informazioni che è possibile sfruttare in query, facet e filtri.
 
-Questa esercitazione usa Python e le [API REST per la ricerca](https://docs.microsoft.com/rest/api/searchservice/) per eseguire le attività seguenti:
+Questa esercitazione usa Python e le [API REST per la ricerca](/rest/api/searchservice/) per eseguire le attività seguenti:
 
 > [!div class="checklist"]
 > * Iniziare con documenti interi (testo non strutturato), ad esempio file PDF, HTML, DOCX e PPTX, in Archiviazione BLOB di Azure.
@@ -163,7 +163,7 @@ In Ricerca cognitiva di Azure l'elaborazione tramite intelligenza artificiale vi
 
 ### <a name="step-1-create-a-data-source"></a>Passaggio 1: Creare un'origine dati
 
-Un [oggetto origine dati](https://docs.microsoft.com/rest/api/searchservice/create-data-source) fornisce la stringa di connessione al contenitore BLOB che contiene i file.
+Un [oggetto origine dati](/rest/api/searchservice/create-data-source) fornisce la stringa di connessione al contenitore BLOB che contiene i file.
 
 Nello script seguente sostituire il segnaposto YOUR-BLOB-RESOURCE-CONNECTION-STRING con la stringa di connessione per il BLOB creato nel passaggio precedente. Sostituire il testo segnaposto per il contenitore. Eseguire quindi lo script per creare un'origine dati denominata `cogsrch-py-datasource`.
 
@@ -375,11 +375,11 @@ print(r.status_code)
 
 La richiesta restituirà il codice di stato 201 come conferma dell'avvenuta operazione.
 
-Per altre informazioni sulla definizione di un indice, vedere [Creare un indice - API REST di Ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice/create-index).
+Per altre informazioni sulla definizione di un indice, vedere [Creare un indice - API REST di Ricerca cognitiva di Azure](/rest/api/searchservice/create-index).
 
 ### <a name="step-4-create-and-run-an-indexer"></a>Passaggio 4: Creare ed eseguire un indicizzatore
 
-Un [indicizzatore](https://docs.microsoft.com/rest/api/searchservice/create-indexer) consente di gestire la pipeline. I tre componenti creati finora (origine dati, set di competenze, indice) costituiscono i valori di input di un indicizzatore. La creazione dell'indicizzatore in Ricerca cognitiva di Azure è l'evento che mette in moto l'intera pipeline. 
+Un [indicizzatore](/rest/api/searchservice/create-indexer) consente di gestire la pipeline. I tre componenti creati finora (origine dati, set di competenze, indice) costituiscono i valori di input di un indicizzatore. La creazione dell'indicizzatore in Ricerca cognitiva di Azure è l'evento che mette in moto l'intera pipeline. 
 
 Per unire questi elementi in un indicizzatore, è necessario definire i mapping dei campi.
 
@@ -512,7 +512,7 @@ I risultati saranno simili all'esempio seguente. Lo screenshot mostra solo una p
 
 Ripetere la procedura per i campi `content`, `languageCode`, `keyPhrases` e `organizations` in questo esercizio. È possibile restituire più campi tramite `$select` usando un elenco delimitato da virgole.
 
-È possibile usare GET o POST, in base alla lunghezza e alla complessità della stringa di query. Per altre informazioni, vedere [Eseguire query su un indice di Ricerca di Azure con l'API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents).
+È possibile usare GET o POST, in base alla lunghezza e alla complessità della stringa di query. Per altre informazioni, vedere [Eseguire query su un indice di Ricerca di Azure con l'API REST](/rest/api/searchservice/search-documents).
 
 <a name="reset"></a>
 
