@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b80cd2e40e54837682e72837cf0d1a9058f3a7fc
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 6c062b907f1e8a8e0541db0d69c6e24901f3145f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428388"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268554"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-joined-devices-manually"></a>Esercitazione: Configurare manualmente i dispositivi aggiunti ad Azure Active Directory ibrido
 
@@ -39,7 +39,7 @@ Se in un ambiente Active Directory locale Per aggiungere ad Azure AD i dispositi
 
 Questa esercitazione presuppone che l'utente abbia familiarità con:
 
-* [Introduction to device management in Azure Active Directory](../device-management-introduction.md) (Introduzione alla gestione dei dispositivi in Azure Active Directory)
+* [Introduction to device management in Azure Active Directory](./overview.md) (Introduzione alla gestione dei dispositivi in Azure Active Directory)
 * [Pianificare l'implementazione dell'aggiunta ad Azure Active Directory ibrido](hybrid-azuread-join-plan.md)
 * [Controllare l'aggiunta dei dispositivi ad Azure AD ibrido](hybrid-azuread-join-control.md)
 
@@ -94,7 +94,7 @@ Per una panoramica dei passaggi necessari per il proprio scenario, vedere la tab
 
 I dispositivi usano un oggetto punto di connessione del servizio durante la registrazione per individuare le informazioni del tenant di Azure AD. Nell'istanza locale di Active Directory l'oggetto punto di connessione del servizio per i dispositivi aggiunti ad Azure AD ibrido deve essere incluso nella partizione del contesto dei nomi di configurazione della foresta del computer. Esiste un solo contesto dei nomi di configurazione per foresta. In una configurazione di Active Directory a più foreste, il punto di connessione del servizio deve essere presente in tutte le foreste contenenti computer aggiunti al dominio.
 
-Per recuperare il contesto dei nomi di configurazione della foresta è possibile usare il cmdlet [**Get-ADRootDSE**](https://technet.microsoft.com/library/ee617246.aspx).  
+Per recuperare il contesto dei nomi di configurazione della foresta è possibile usare il cmdlet [**Get-ADRootDSE**](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/ee617246(v=technet.10)).  
 
 Per una foresta con nome di dominio di Active Directory *fabrikam.com*, il contesto dei nomi di configurazione è il seguente:
 
@@ -167,7 +167,7 @@ Per i controller di dominio che eseguono Windows Server 2008 o versioni preceden
 
 Nello script precedente `$verifiedDomain = "contoso.com"` è un segnaposto. Sostituirlo con uno dei nomi di dominio verificati in Azure AD. È necessario essere proprietari del dominio per poterlo usare.
 
-Per altre informazioni sui nomi dominio verificati, vedere [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](../active-directory-domains-add-azure-portal.md).
+Per altre informazioni sui nomi dominio verificati, vedere [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](../fundamentals/add-custom-domain.md).
 
 Per ottenere un elenco dei domini aziendali verificati, è possibile usare il cmdlet [Get-AzureADDomain](/powershell/module/Azuread/Get-AzureADDomain?view=azureadps-2.0).
 
@@ -326,7 +326,7 @@ L'attestazione `http://schemas.microsoft.com/ws/2008/06/identity/claims/issuerid
 
 Nell'attestazione precedente `<verified-domain-name>` è un segnaposto. Sostituirlo con uno dei nomi di dominio verificati in Azure AD. Ad esempio, usare `Value = "http://contoso.com/adfs/services/trust/"`.
 
-Per altre informazioni sui nomi dominio verificati, vedere [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](../active-directory-domains-add-azure-portal.md).  
+Per altre informazioni sui nomi dominio verificati, vedere [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](../fundamentals/add-custom-domain.md).  
 
 Per ottenere un elenco dei domini aziendali verificati, è possibile usare il cmdlet [Get-MsolDomain](/powershell/module/msonline/get-msoldomain?view=azureadps-1.0).
 
@@ -614,7 +614,7 @@ Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -e
 
 Se si verificano problemi durante il completamento dell'aggiunta ad Azure AD ibrido per dispositivi Windows aggiunti al dominio, vedere:
 
-- [Risoluzione dei problemi dei dispositivi con il comando dsregcmd](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
+- [Risoluzione dei problemi dei dispositivi con il comando dsregcmd](./troubleshoot-device-dsregcmd.md)
 - [Risoluzione dei problemi relativi a dispositivi aggiunti all'identità ibrida di Azure Active Directory](troubleshoot-hybrid-join-windows-current.md)
 - [Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory](troubleshoot-hybrid-join-windows-legacy.md)
 

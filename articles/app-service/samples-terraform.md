@@ -9,12 +9,12 @@ author: ericgre
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 8b15b3c4444a6f26734b133f169cea7074956ae7
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: f88ccd077c857826271484c9929b37f8c5d751fe
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042904"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962707"
 ---
 # <a name="terraform-samples-for-azure-app-service"></a>Esempi di Terraform per Servizio app di Azure
 
@@ -24,5 +24,5 @@ La tabella seguente include i collegamenti agli script di Terraform.
 |-|-|
 |**Creare un'app**||
 | [Creare due app e connetterle in modo sicuro con l'endpoint privato e l'integrazione rete virtuale](./scripts/terraform-secure-backend-frontend.md )| Crea due app del servizio app e le connette con l'endpoint privato e l'integrazione rete virtuale. |
-| [Eseguire il provisioning del servizio app e usare lo scambio di slot per la distribuzione](https://docs.microsoft.com/azure/developer/terraform/provision-infrastructure-using-azure-deployment-slots)| Effettua il provisioning dell'infrastruttura del servizio app con slot di distribuzione di Azure. |
+| [Eseguire il provisioning del servizio app e usare lo scambio di slot per la distribuzione](/azure/developer/terraform/provision-infrastructure-using-azure-deployment-slots)| Effettua il provisioning dell'infrastruttura del servizio app con slot di distribuzione di Azure. |
 | | |

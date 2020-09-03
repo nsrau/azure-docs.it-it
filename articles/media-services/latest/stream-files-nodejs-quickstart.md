@@ -3,7 +3,7 @@ title: Eseguire lo streaming di file video con Servizi multimediali di Azure - N
 description: Seguire i passaggi di questa esercitazione per creare un nuovo account di Servizi multimediali di Azure, codificare un file ed eseguirne lo streaming su Azure Media Player.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 keywords: azure media services, streaming
@@ -11,16 +11,18 @@ ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
 ms.custom: mvc, devx-track-javascript
-ms.date: 08/19/2019
-ms.author: juliako
-ms.openlocfilehash: 1c96c538826de696de531aff79ce601bc01a239d
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 901287a82ece873a572d7773dd53f80e1e8af716
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87414072"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267395"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---nodejs"></a>Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - Node.js
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Questa esercitazione illustra quanto sia facile codificare e iniziare a eseguire lo streaming di video su un'ampia gamma di browser e dispositivi tramite Servizi multimediali di Azure. È possibile specificare il contenuto di input usando URL HTTPS, URL di firma di accesso condiviso o percorsi ai file che si trovano nell'archivio BLOB di Azure.
 

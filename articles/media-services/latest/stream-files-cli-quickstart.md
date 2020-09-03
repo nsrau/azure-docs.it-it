@@ -3,7 +3,7 @@ title: Eseguire lo streaming di file video con Servizi multimediali di Azure e l
 description: Seguire i passaggi di questa esercitazione per creare un nuovo account di Servizi multimediali di Azure, codificare un file ed eseguirne lo streaming su Azure Media Player.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 keywords: azure media services, streaming
@@ -11,16 +11,18 @@ ms.service: media-services
 ms.workload: media
 ms.topic: tutorial
 ms.custom: devx-track-azurecli
-ms.date: 08/19/2019
-ms.author: juliako
-ms.openlocfilehash: 5a90e1fdc50a6e2b1544a06f587362bf43b80369
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: 8c8db31ae51e1fb80ae9baad6a5d6329cd963bab
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87504450"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267412"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---azure-cli"></a>Esercitazione: Codificare un file remoto basato su URL ed eseguire lo streaming del video - Interfaccia della riga di comando di Azure
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Questa esercitazione illustra come codificare ed eseguire lo streaming di video su un'ampia gamma di browser e dispositivi con la massima semplicità tramite Servizi multimediali di Azure e l'interfaccia della riga di comando di Azure. È possibile specificare il contenuto di input usando URL HTTPS, URL di firma di accesso condiviso o percorsi a file che si trovano nell'archivio BLOB di Azure.
 

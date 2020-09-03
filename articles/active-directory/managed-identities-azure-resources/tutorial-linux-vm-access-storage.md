@@ -3,7 +3,7 @@ title: Esercitazione`:` Usare un'identità gestita per accedere ad Archiviazione
 description: Esercitazione che illustra come usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Archiviazione di Azure.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/14/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b11df2e1a6140d251801a3243f3eaa9458b77d29
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 9b61d3ed21d053fc7166b47c94a9ec61e355d199
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75971924"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263162"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Archiviazione di Azure 
 
@@ -44,7 +44,7 @@ Questa esercitazione mostra come usare un'identità gestita assegnata dal sistem
 Per eseguire gli esempi di script dell'interfaccia della riga di comando in questa esercitazione sono disponibili due opzioni:
 
 - Usare [Azure Cloud Shell](~/articles/cloud-shell/overview.md) tramite il portale di Azure o il pulsante **Prova**, che si trova nell'angolo in alto a destra di ogni blocco di codice.
-- [Installare la versione più recente dell'interfaccia della riga di comando 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale.
+- [Installare la versione più recente dell'interfaccia della riga di comando 2.0](/cli/azure/install-azure-cli) (2.0.23 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale.
 
 ## <a name="create-a-storage-account"></a>Creare un account di archiviazione 
 
@@ -95,7 +95,7 @@ Poiché i file richiedono l'archiviazione BLOB, è necessario creare un contenit
 
 Archiviazione di Azure supporta in modo nativo l'autenticazione di Azure AD, per poter accettare direttamente i token di accesso ottenuti usando l'identità gestita. Questo fa parte dell'integrazione di Archiviazione di Azure con Azure AD e non prevede l'inserimento di credenziali nella stringa di connessione.
 
-Per completare i passaggi seguenti, si deve operare dalla VM creata in precedenza ed è necessario un client SSH per la connessione. Se si usa Windows, è possibile usare il client SSH nel [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about). Per richiedere assistenza nella configurazione delle chiavi del client SSH, vedere [Come usare le chiavi SSH con Windows in Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) o [Come creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
+Per completare i passaggi seguenti, si deve operare dalla VM creata in precedenza ed è necessario un client SSH per la connessione. Se si usa Windows, è possibile usare il client SSH nel [sottosistema Windows per Linux](/windows/wsl/about). Per richiedere assistenza nella configurazione delle chiavi del client SSH, vedere [Come usare le chiavi SSH con Windows in Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) o [Come creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. Nel portale di Azure passare a **Macchine virtuali**, selezionare la macchina virtuale Linux e quindi nella pagina **Panoramica** fare clic su **Connetti**. Copiare la stringa di connessione alla macchina virtuale.
 2. **Connettersi** alla macchina virtuale usando un client SSH di propria scelta. 
@@ -121,4 +121,4 @@ Per completare i passaggi seguenti, si deve operare dalla VM creata in precedenz
 In questa esercitazione si è appreso come abilitare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Archiviazione di Azure.  Per altre informazioni su Archiviazione di Azure, vedere:
 
 > [!div class="nextstepaction"]
-> [Archiviazione di Azure](/azure/storage/common/storage-introduction)
+> [Archiviazione di Azure](../../storage/common/storage-introduction.md)

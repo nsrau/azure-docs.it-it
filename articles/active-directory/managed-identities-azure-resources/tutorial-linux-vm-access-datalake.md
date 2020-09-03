@@ -3,7 +3,7 @@ title: Esercitazione`:` Usare un'identità gestita per accedere ad Azure Data La
 description: Esercitazione che illustra come usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Azure Data Lake Store.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/10/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0fe442741ae0b8fa817c9ea177ff244a413720e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d465419dfe36fd5dd67abdef22a6f54fba69a98e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "75888516"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267463"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-data-lake-store"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Azure Data Lake Store
 
@@ -40,7 +40,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="grant-access"></a>Concedere l'accesso
 
-Questa sezione illustra come concedere alla VM l'accesso a file e cartelle in Azure Data Lake Store. Per questo passaggio, è possibile usare un'istanza di Data Lake Store esistente o crearne una nuova. Per creare un'istanza di Data Lake Store usando il portale di Azure, seguire la [guida introduttiva ad Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-get-started-portal). Nella [documentazione per Azure Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-overview) sono disponibili anche guide introduttive che usano l'interfaccia della riga di comando di Azure e Azure PowerShell.
+Questa sezione illustra come concedere alla VM l'accesso a file e cartelle in Azure Data Lake Store. Per questo passaggio, è possibile usare un'istanza di Data Lake Store esistente o crearne una nuova. Per creare un'istanza di Data Lake Store usando il portale di Azure, seguire la [guida introduttiva ad Azure Data Lake Store](../../data-lake-store/data-lake-store-get-started-portal.md). Nella [documentazione per Azure Data Lake Store](../../data-lake-store/data-lake-store-overview.md) sono disponibili anche guide introduttive che usano l'interfaccia della riga di comando di Azure e Azure PowerShell.
 
 In Data Lake Store creare una nuova cartella e concedere all'identità gestita assegnata dal sistema della macchina virtuale Linux l'autorizzazione per leggere, scrivere ed eseguire file in quella cartella:
 
@@ -56,18 +56,18 @@ In Data Lake Store creare una nuova cartella e concedere all'identità gestita a
 10. Come nel passaggio 5, selezionare **Aggiungi**. Nella casella **Seleziona** immettere il nome della VM. Selezionare la VM nei risultati della ricerca e quindi fare clic su **Seleziona**.
 11. Come nel passaggio 6, selezionare **Selezionare le autorizzazioni**. Selezionare **Lettura**, **Scrittura** ed **Esecuzione**, aggiungere a **Questa cartella** e aggiungere come **Una voce di autorizzazione di accesso e una voce di autorizzazione predefinita**. Selezionare **OK**.  L'autorizzazione verrà aggiunta correttamente.
 
-Le identità gestite per le risorse di Azure possono ora eseguire tutte le operazioni sui file nella cartella creata. Per altre informazioni sulla gestione dell'accesso a Data Lake Store, vedere [Controllo di accesso in Data Lake Store](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-access-control).
+Le identità gestite per le risorse di Azure possono ora eseguire tutte le operazioni sui file nella cartella creata. Per altre informazioni sulla gestione dell'accesso a Data Lake Store, vedere [Controllo di accesso in Data Lake Store](../../data-lake-store/data-lake-store-access-control.md).
 
 ## <a name="get-an-access-token"></a>Ottenere un token di accesso 
 
-Questa sezione illustra come ottenere un token di accesso e chiamare il file system di Data Lake Store. Azure Data Lake Store supporta in modo nativo l'autenticazione di Azure AD, in modo da poter accettare direttamente i token di accesso ottenuti tramite le identità gestite per le risorse di Azure. Per eseguire l'autenticazione al file system di Data Lake Store, si invia un token di accesso rilasciato da Azure AD all'endpoint del file system di Data Lake Store. Il token di accesso è incluso in un'intestazione dell'autorizzazione nel formato "Bearer \<ACCESS_TOKEN_VALUE\>".  Per altre informazioni sul supporto di Data Lake Store per l'autenticazione di Azure AD, vedere [Autenticazione con Data Lake Store usando Azure Active Directory](https://docs.microsoft.com/azure/data-lake-store/data-lakes-store-authentication-using-azure-active-directory).
+Questa sezione illustra come ottenere un token di accesso e chiamare il file system di Data Lake Store. Azure Data Lake Store supporta in modo nativo l'autenticazione di Azure AD, in modo da poter accettare direttamente i token di accesso ottenuti tramite le identità gestite per le risorse di Azure. Per eseguire l'autenticazione al file system di Data Lake Store, si invia un token di accesso rilasciato da Azure AD all'endpoint del file system di Data Lake Store. Il token di accesso è incluso in un'intestazione dell'autorizzazione nel formato "Bearer \<ACCESS_TOKEN_VALUE\>".  Per altre informazioni sul supporto di Data Lake Store per l'autenticazione di Azure AD, vedere [Autenticazione con Data Lake Store usando Azure Active Directory](../../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md).
 
 In questa esercitazione si esegue l'autenticazione all'API REST per il file system di Data Lake Store usando cURL per inviare richieste REST.
 
 > [!NOTE]
 > Gli SDK client del file system di Data Lake Store non supportano ancora le identità gestite per le risorse di Azure.
 
-Per completare questi passaggi, è necessario disporre di un client SSH. Se si usa Windows, è possibile usare il client SSH nel [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about). Per informazioni sulla configurazione delle chiavi del client SSH, vedere [Come usare le chiavi SSH con Windows in Azure](../../virtual-machines/linux/ssh-from-windows.md) o [Come creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+Per completare questi passaggi, è necessario disporre di un client SSH. Se si usa Windows, è possibile usare il client SSH nel [sottosistema Windows per Linux](/windows/wsl/about). Per informazioni sulla configurazione delle chiavi del client SSH, vedere [Come usare le chiavi SSH con Windows in Azure](../../virtual-machines/linux/ssh-from-windows.md) o [Come creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. Nel portale passare alla VM Linux. In **Panoramica** selezionare **Connetti**.  
 2. Connettersi alla VM usando il client SSH di propria scelta. 
@@ -155,4 +155,4 @@ Usando altre API per il file system di Data Lake Store, è possibile eseguire ag
 In questa esercitazione si è appreso come usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere a un'istanza di Azure Data Lake Store. Per altre informazioni su Azure Data Lake Store, vedere:
 
 > [!div class="nextstepaction"]
->[Azure Data Lake Store](/azure/data-lake-store/data-lake-store-overview)
+>[Azure Data Lake Store](../../data-lake-store/data-lake-store-overview.md)

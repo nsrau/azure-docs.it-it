@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 07/15/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: 244809db8efac00124a11ab5c163bfefc9ea7dd2
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 47c846f0d8d1cccd91301c7424b2618fffddd565
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420601"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998442"
 ---
 # <a name="tutorial-add-autocomplete-and-suggestions-using-the-net-sdk"></a>Esercitazione: Aggiungere il completamento automatico e i suggerimenti con .NET SDK
 
@@ -145,7 +145,7 @@ Per iniziare, esamineremo il caso più semplice per offrire alternative all'uten
  
     !["po" con fuzzy impostato su true](./media/tutorial-csharp-create-first-app/azure-search-suggest-fuzzy.png)
 
-    Se si è interessati, nell'articolo [Sintassi di query Lucene in Ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/query-lucene-syntax) è descritta in dettaglio la logica usata nelle ricerche fuzzy.
+    Se si è interessati, nell'articolo [Sintassi di query Lucene in Ricerca cognitiva di Azure](./query-lucene-syntax.md) è descritta in dettaglio la logica usata nelle ricerche fuzzy.
 
 ## <a name="add-highlighting-to-the-suggestions"></a>Aggiungere l'evidenziazione per i suggerimenti
 
@@ -244,7 +244,7 @@ Un'altra variante, leggermente diversa dai suggerimenti, è il cosiddetto comple
 
     Si noti che per la ricerca con completamento automatico viene usata la stessa funzione *strumento suggerimenti*, denominato "sg", già usato per i suggerimenti, quindi si intende solo provare il completamento automatico dei nomi degli alberghi.
 
-    Sono disponibili numerose impostazioni di **AutocompleteMode**. In questo caso verrà usata quella **OneTermWithContext**. Per una descrizione delle opzioni aggiuntive, vedere [API di completamento automatico](https://docs.microsoft.com/rest/api/searchservice/autocomplete).
+    Sono disponibili numerose impostazioni di **AutocompleteMode**. In questo caso verrà usata quella **OneTermWithContext**. Per una descrizione delle opzioni aggiuntive, vedere [API di completamento automatico](/rest/api/searchservice/autocomplete).
 
 4. Eseguire l'app. Notare che le opzioni visualizzate nell'elenco a discesa sono singole parole. Provare a digitare parole che iniziano con "re". Notare che il numero di opzioni si riduce via via che si digitano le lettere.
 
@@ -464,5 +464,3 @@ Nella prossima esercitazione verrà esaminato un altro modo per migliorare l'esp
 
 > [!div class="nextstepaction"]
 > [Esercitazione per C#: Usare facet per semplificare l'esplorazione - Ricerca cognitiva di Azure](tutorial-csharp-facets.md)
-
-

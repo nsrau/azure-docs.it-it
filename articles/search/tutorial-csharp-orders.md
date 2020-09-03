@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.custom: devx-track-javascript
-ms.openlocfilehash: f2182dcfd3db83580dfbec9b4f09479650dd62ca
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom: devx-track-javascript, devx-track-csharp
+ms.openlocfilehash: 9819615039a6dd6aceec796a3ec1c7338f6f3968
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420635"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88998527"
 ---
 # <a name="tutorial-order-search-results-using-the-net-sdk"></a>Esercitazione: Ordinare i risultati della ricerca con .NET SDK
 
@@ -462,8 +462,8 @@ Per visualizzare i risultati in base alla distanza geografica, sono necessari di
 
 4. A questo punto è necessario unire questi concetti. Questi frammenti di codice sono però utili solo ai fini di questa esercitazione. La creazione di un'app basata su mappa costituisce un esercizio per il lettore. Per approfondire questo esempio, provare a immettere un nome di città con un raggio oppure a localizzare un punto su una mappa e selezionare un raggio. Per saperne di più su queste opzioni, vedere le risorse seguenti:
 
-* [Documentazione di Mappe di Azure](https://docs.microsoft.com/azure/azure-maps/)
-* [Trovare un indirizzo usando il servizio di ricerca di Mappe di Azure](https://docs.microsoft.com/azure/azure-maps/how-to-search-for-address)
+* [Documentazione di Mappe di Azure](../azure-maps/index.yml)
+* [Trovare un indirizzo usando il servizio di ricerca di Mappe di Azure](../azure-maps/how-to-search-for-address.md)
 
 ## <a name="order-results-based-on-a-scoring-profile"></a>Ordinare i risultati in base a un profilo di punteggio
 
@@ -959,7 +959,7 @@ Esaminare tre esempi di profili di punteggio e considerare in che modo ognuno _d
 
 ### <a name="resources"></a>Risorse
 
-Per altre informazioni, vedere l'articolo seguente [Aggiungere profili di punteggio a un indice di Ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/index-add-scoring-profiles).
+Per altre informazioni, vedere l'articolo seguente [Aggiungere profili di punteggio a un indice di Ricerca cognitiva di Azure](/azure/search/index-add-scoring-profiles).
 
 ## <a name="takeaways"></a>Risultati
 
@@ -975,4 +975,4 @@ Tenere conto delle considerazioni seguenti riguardo a questo progetto:
 
 Questa serie di esercitazioni per C# è stata completata. A questo punto sono state acquisite conoscenze preziose sulle API di Ricerca cognitiva di Azure.
 
-Per altre informazioni di riferimento ed esercitazioni, provare a esplorare [Microsoft Learn](https://docs.microsoft.com/learn/browse/?products=azure) o a completare le altre esercitazioni disponibili nella [documentazione di Ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/).
+Per altre informazioni di riferimento ed esercitazioni, provare a esplorare [Microsoft Learn](/learn/browse/?products=azure) o a completare le altre esercitazioni disponibili nella [documentazione di Ricerca cognitiva di Azure](./index.yml).

@@ -4,23 +4,25 @@ titleSuffix: Azure Media Services
 description: Esercitazione che illustra come caricare un file, codificare video e trasmettere contenuti con Servizi multimediali di Azure v3.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 07/09/2020
-ms.author: juliako
-ms.openlocfilehash: 2c2d55b15fb69fe4c1aea21bb2183f0e40c3586c
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.date: 08/31/2020
+ms.author: inhenkel
+ms.openlocfilehash: eedbb63f4928c0397150b40a47fdc7c3e87d1991
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88136491"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89256770"
 ---
 # <a name="tutorial-upload-encode-and-stream-videos-with-media-services-v3"></a>Esercitazione: Caricare, codificare ed eseguire lo streaming di video con Servizi multimediali v3
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 > [!NOTE]
 > Anche se l'esercitazione usa esempi di [.NET SDK](/dotnet/api/microsoft.azure.management.media.models.liveevent?view=azure-dotnet), i passaggi generali sono gli stessi per [API REST](/rest/api/media/liveevents), l'[interfaccia della riga di comando](/cli/azure/ams/live-event?view=azure-cli-latest) o altri [SDK](media-services-apis-overview.md#sdks) supportati.
