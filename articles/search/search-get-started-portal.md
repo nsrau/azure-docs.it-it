@@ -8,12 +8,12 @@ ms.author: terrychr
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/07/2020
-ms.openlocfilehash: 632071c2a9597fc11ab4ffc0971493ef5b52d807
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: f405219701e910159de6f4fc91e9960a76f5a0cd
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86083560"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935314"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-the-azure-portal"></a>Avvio rapido: Creare un indice di Ricerca cognitiva di Azure nel portale di Azure
 > [!div class="op_single_selector"]
@@ -140,7 +140,7 @@ Per capire chiaramente cosa è possibile o meno modificare durante la progettazi
 
 A questo punto dovrebbe essere disponibile un indice di ricerca pronto per le query tramite la pagina predefinita per le query [**Esplora ricerche**](search-explorer.md). In questa pagina è disponibile una casella di ricerca che consente di testare stringhe di query arbitrarie.
 
-**Esplora ricerche** consente di gestire solo le [richieste dell'API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents), ma accetta sia la [sintassi di query semplice](https://docs.microsoft.com/rest/api/searchservice/simple-query-syntax-in-azure-search) che la sintassi [completa del parser di query Lucene](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search), oltre a tutti i parametri di ricerca disponibili nelle [operazioni di ricerca nei documenti dell'API REST](https://docs.microsoft.com/rest/api/searchservice/search-documents#bkmk_examples).
+**Esplora ricerche** consente di gestire solo le [richieste dell'API REST](/rest/api/searchservice/search-documents), ma accetta sia la [sintassi di query semplice](/rest/api/searchservice/simple-query-syntax-in-azure-search) che la sintassi [completa del parser di query Lucene](/rest/api/searchservice/lucene-query-syntax-in-azure-search), oltre a tutti i parametri di ricerca disponibili nelle [operazioni di ricerca nei documenti dell'API REST](/rest/api/searchservice/search-documents#bkmk_examples).
 
 > [!TIP]
 > I passaggi seguenti vengono presentati al minuto 6.08 del [video della panoramica di Ricerca cognitiva di Azure](https://channel9.msdn.com/Events/Connect/2016/138).
@@ -188,7 +188,7 @@ Quando si aggiunge il parametro **$filter**, vengono inclusi filtri nelle richie
 
 * Il parametro **$filter** restituisce risultati corrispondenti ai criteri immessi. In questo caso, restituisce le valutazioni maggiori di 4.
 
-* La sintassi del filtro è una costruzione OData. Per altre informazioni, vedere l'articolo relativo alla [sintassi OData per i filtri](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+* La sintassi del filtro è una costruzione OData. Per altre informazioni, vedere l'articolo relativo alla [sintassi OData per i filtri](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 ### <a name="facet-the-query"></a><a name="facet-query"></a> Applicare un facet alla query
 
@@ -207,7 +207,7 @@ Nelle richieste di ricerca vengono inclusi filtri facet. È possibile usare il p
 
 * Solo i campi filtrabili sono adatti all'esplorazione in base a facet. Solo i campi recuperabili possono essere restituiti nei risultati.
 
-* Il campo *Rating* è un valore a virgola mobile e precisione doppia e il raggruppamento verrà effettuato in base a un valore preciso. Per altre informazioni sul raggruppamento in base a un intervallo, ad esempio la classificazione a 3 stelle o 4 stelle, vedere [Come implementare l'esplorazione in base a facet in Ricerca cognitiva di Azure](https://docs.microsoft.com/azure/search/search-faceted-navigation#filter-based-on-a-range).
+* Il campo *Rating* è un valore a virgola mobile e precisione doppia e il raggruppamento verrà effettuato in base a un valore preciso. Per altre informazioni sul raggruppamento in base a un intervallo, ad esempio la classificazione a 3 stelle o 4 stelle, vedere [Come implementare l'esplorazione in base a facet in Ricerca cognitiva di Azure](./search-faceted-navigation.md#filter-based-on-a-range).
 
 
 ### <a name="highlight-search-results"></a><a name="highlight-query"></a> Evidenziare i risultati della ricerca
@@ -240,11 +240,11 @@ Se non si specifica **queryType**, viene usato il parser di query semplice prede
 
 La ricerca fuzzy e la ricerca con caratteri jolly hanno implicazioni per l'output della ricerca. L'analisi linguistica non viene eseguita su questi formati di query. Prima di usare la ricerca fuzzy e la ricerca con caratteri jolly, vedere [Funzionamento della ricerca full-text in Ricerca cognitiva di Azure](search-lucene-query-architecture.md#stage-2-lexical-analysis) e cercare la sezione sulle eccezioni per l'analisi lessicale.
 
-Per altre informazioni sugli scenari di query abilitati dal parser di query completa, vedere [Sintassi di query Lucene in Ricerca cognitiva di Azure](https://docs.microsoft.com/rest/api/searchservice/lucene-query-syntax-in-azure-search).
+Per altre informazioni sugli scenari di query abilitati dal parser di query completa, vedere [Sintassi di query Lucene in Ricerca cognitiva di Azure](/rest/api/searchservice/lucene-query-syntax-in-azure-search).
 
 ### <a name="try-geospatial-search"></a><a name="geo-search"></a> Provare la ricerca geospaziale
 
-La ricerca geospaziale è supportata tramite il [tipo di dati edm.GeographyPoint](https://docs.microsoft.com/rest/api/searchservice/supported-data-types) in un campo che contiene coordinate. La ricerca geografica è un tipo di filtro, illustrato nell'articolo relativo alla [sintassi OData per i filtri](https://docs.microsoft.com/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+La ricerca geospaziale è supportata tramite il [tipo di dati edm.GeographyPoint](/rest/api/searchservice/supported-data-types) in un campo che contiene coordinate. La ricerca geografica è un tipo di filtro, illustrato nell'articolo relativo alla [sintassi OData per i filtri](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
 
 #### <a name="example-geo-coordinate-filters-searchcounttruefiltergeodistancelocationgeographypoint-12212-4767-le-5"></a>Esempio (filtri con coordinate geografiche): `search=*&$count=true&$filter=geo.distance(Location,geography'POINT(-122.12 47.67)') le 5`
 
@@ -256,7 +256,7 @@ La ricerca geospaziale risulta utile se l'applicazione di ricerca include una fu
 
 Questa esercitazione ha presentato una breve introduzione a Ricerca cognitiva di Azure tramite il portale di Azure.
 
-Si è appreso come creare un indice di ricerca tramite la procedura guidata **Importa dati**. È stata acquisita familiarità con gli [indicizzatori](search-indexer-overview.md), nonché con il flusso di lavoro di base per la progettazione di indici, tra cui le [modifiche supportate a un indice pubblicato](https://docs.microsoft.com/rest/api/searchservice/update-index).
+Si è appreso come creare un indice di ricerca tramite la procedura guidata **Importa dati**. È stata acquisita familiarità con gli [indicizzatori](search-indexer-overview.md), nonché con il flusso di lavoro di base per la progettazione di indici, tra cui le [modifiche supportate a un indice pubblicato](/rest/api/searchservice/update-index).
 
 Usando **Esplora ricerche** nel portale di Azure, è stata acquisita la sintassi di query di base tramite esempi pratici che hanno mostrato le principali funzionalità, come filtri, evidenziazione dei risultati, ricerca fuzzy e ricerca geografica.
 
@@ -280,4 +280,4 @@ Usare una procedura guidata del portale per generare un'app Web pronta per l'uso
 Si vuole ottimizzare e risparmiare sulla spesa per il cloud?
 
 > [!div class="nextstepaction"]
-> [Per iniziare, analizzare i costi con Gestione costi](https://docs.microsoft.com/azure/cost-management-billing/costs/quick-acm-cost-analysis?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)
+> [Per iniziare, analizzare i costi con Gestione costi](../cost-management-billing/costs/quick-acm-cost-analysis.md?WT.mc_id=costmanagementcontent_docsacmhorizontal_-inproduct-learn)

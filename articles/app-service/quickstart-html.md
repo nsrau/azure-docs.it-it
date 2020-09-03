@@ -7,16 +7,16 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: mvc, cli-validate, seodec18
-ms.openlocfilehash: bd1e44aefed310826465dbf44dee1324f5a085b3
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: d624d332fa35bf458e9158e00aaf83ce495b9061
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88084114"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961342"
 ---
 # <a name="create-a-static-html-web-app-in-azure"></a>Creare un'app Web HTML statica in Azure
 
-[Servizio app di Azure](overview.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione. Questa guida introduttiva illustra come distribuire un sito HTML e CSS di base nel servizio app di Azure. Questa guida introduttiva verrà completata in [Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview), ma gli stessi comandi possono essere eseguiti anche in locale con l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
+[Servizio app di Azure](overview.md) offre un servizio di hosting Web con scalabilità elevata e funzioni di auto-correzione. Questa guida introduttiva illustra come distribuire un sito HTML e CSS di base nel servizio app di Azure. Questa guida introduttiva verrà completata in [Cloud Shell](../cloud-shell/overview.md), ma gli stessi comandi possono essere eseguiti anche in locale con l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 ![Home page dell'app di esempio](media/quickstart-html/hello-world-in-browser-az.png)
 
@@ -58,7 +58,7 @@ Il comando `az webapp up` esegue le azioni seguenti:
 
 - Crea un'app con il nome specificato.
 
-- [Distribuisce con zipdeploy](https://docs.microsoft.com/azure/app-service/deploy-zip) i file dalla directory di lavoro corrente all'app Web.
+- [Distribuisce con zipdeploy](./deploy-zip.md) i file dalla directory di lavoro corrente all'app Web.
 
 L'esecuzione del comando può richiedere alcuni minuti. Durante l'esecuzione, il comando visualizza informazioni simili all'esempio seguente:
 

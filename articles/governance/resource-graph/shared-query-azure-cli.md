@@ -3,12 +3,12 @@ title: "Avvio rapido: Creare una query condivisa con l'interfaccia della riga di
 description: Questa guida di avvio rapido illustra la procedura per abilitare l'estensione Resource Graph per l'interfaccia della riga di comando di Azure e creare una query condivisa.
 ms.date: 06/29/2020
 ms.topic: quickstart
-ms.openlocfilehash: fc03339c50316516301901d84d2c5a3ba2ab287d
-ms.sourcegitcommit: 73ac360f37053a3321e8be23236b32d4f8fb30cf
+ms.openlocfilehash: c5f7e6fbe1b462c1f9b6e8ad46c598398e1aca02
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/30/2020
-ms.locfileid: "85569445"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89050948"
 ---
 # <a name="quickstart-create-a-resource-graph-shared-query-using-azure-cli"></a>Avvio rapido: Creare una query condivisa di Resource Graph usando l'interfaccia della riga di comando di Azure
 
@@ -26,7 +26,7 @@ Se non si ha una sottoscrizione di Azure, creare un account [gratuito](https://a
 
 Per consentire all'interfaccia della riga di comando di Azure di funzionare con Azure Resource Graph è necessario che l'estensione sia aggiunta. Questa estensione funziona ovunque sia possibile usare l'interfaccia della riga di comando di Azure, fra cui [bash in Windows 10](/windows/wsl/install-win10), [Cloud Shell](https://shell.azure.com) sia autonomo che nel portale e l'[immagine Docker di Azure PowerShell](https://hub.docker.com/r/microsoft/azure-cli/), oppure installata in locale.
 
-1. Controllare che sia installata l'interfaccia della riga di comando di Azure più recente o almeno la versione **2.8.0**. Se non è ancora installato, seguire [queste istruzioni](/cli/azure/install-azure-cli-windows?view=azure-cli-latest).
+1. Controllare che sia installata l'interfaccia della riga di comando di Azure più recente o almeno la versione **2.8.0**. Se non è ancora installato, seguire [queste istruzioni](/cli/azure/install-azure-cli-windows).
 
 1. Nell'ambiente dell'interfaccia della riga di comando di Azure preferito usare [az extension add](/cli/azure/extension#az-extension-add) per importare l'estensione Resource Graph con il comando seguente:
 

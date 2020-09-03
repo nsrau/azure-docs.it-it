@@ -13,12 +13,12 @@ ms.date: 05/17/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c3d681dd06f07f6174e31b59cccf42df5dc16a1e
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: f74798eeed4764bf2f7b71cb5049fb1c6b3ae077
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "68779839"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278650"
 ---
 # <a name="what-is-hybrid-identity-with-azure-active-directory"></a>Che cos'è l'identità ibrida con Azure Active Directory?
 
@@ -36,7 +36,7 @@ Per usare l'identità ibrida con Azure AD, a seconda degli scenari è possibile 
 
 Questi metodi di autenticazione offrono anche funzionalità [Single Sign-On](how-to-connect-sso.md).  La funzionalità Single Sign-On consente agli utenti di eseguire l'accesso automaticamente dai dispositivi di proprietà dell'azienda connessi alla rete aziendale.
 
-Per altre informazioni, vedere [Scegliere il metodo di autenticazione appropriato per la soluzione ibrida di gestione delle identità di Azure AD](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn). 
+Per altre informazioni, vedere [Scegliere il metodo di autenticazione appropriato per la soluzione ibrida di gestione delle identità di Azure AD](./choose-ad-authn.md). 
 
 ## <a name="common-scenarios-and-recommendations"></a>Scenari comuni e raccomandazioni 
 
@@ -60,7 +60,7 @@ Di seguito sono riportati alcuni scenari comuni di gestione di identità ibride 
 > 
 > <sup>3</sup> Accesso Single Sign-On federato con AD FS.  
 >  
-> <sup>4</sup> ADFS può essere integrato con l'infrastruttura a chiave pubblica aziendale per consentire l'accesso usando certificati. Questi certificati possono essere certificati software distribuiti tramite canali di provisioning attendibili, ad esempio i certificati di gestione di dispositivi mobili (MDM) o l'oggetto Criteri di gruppo o smart card (comprese le schede PIV/CAC) o Hello for Business (cert-trust). Per altre informazioni sul supporto dell'autenticazione con smart card, vedere [questo blog](https://blogs.msdn.microsoft.com/samueld/2016/07/19/adfs-certauth-aad-o365/). 
+> <sup>4</sup> ADFS può essere integrato con l'infrastruttura a chiave pubblica aziendale per consentire l'accesso usando certificati. Questi certificati possono essere certificati software distribuiti tramite canali di provisioning attendibili, ad esempio i certificati di gestione di dispositivi mobili (MDM) o l'oggetto Criteri di gruppo o smart card (comprese le schede PIV/CAC) o Hello for Business (cert-trust). Per altre informazioni sul supporto dell'autenticazione con smart card, vedere [questo blog](/archive/blogs/samueld/adfs-certauth-aad-o365). 
 > 
 
 ## <a name="license-requirements-for-using-azure-ad-connect"></a>Requisiti di licenza per l'uso di Azure AD Connect
@@ -73,5 +73,4 @@ Di seguito sono riportati alcuni scenari comuni di gestione di identità ibride 
 - [Informazioni sulla sincronizzazione dell'hash delle password](whatis-phs.md) 
 - [Informazioni sull'autenticazione pass-through](how-to-connect-pta.md) 
 - [Informazioni sulla federazione](whatis-fed.md) 
-- [Informazioni su Single Sign-On](how-to-connect-sso.md) 
-
+- [Informazioni su Single Sign-On](how-to-connect-sso.md)

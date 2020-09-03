@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.date: 08/07/2020
 ms.author: curtand
 ms.reviewer: vincesm
-ms.custom: it-pro
+ms.custom: it-pro, devx-track-azurepowershell
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fdaf80f7b493c0979f1d353b7d740a41035a87bc
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: d7304ecd73ed73e3ec6ae3c060fef264e016fe38
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003314"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89067808"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>Avvio rapido: Concedere l'autorizzazione per creare registrazioni per l'app illimitate
 

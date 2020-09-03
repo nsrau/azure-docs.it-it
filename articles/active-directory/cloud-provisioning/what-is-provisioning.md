@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28513c57101af67695d10056b3dc8e6537dcddb2
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: d75dbfc1acd3ffee1b641a3110717eb11ab4e623
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "76712547"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228240"
 ---
 # <a name="what-is-identity-provisioning"></a>Che cos'è il provisioning di identità?
 
@@ -50,7 +50,7 @@ Lo scenario più comune è quando un nuovo dipendente entra a far parte dell'azi
 
 ![Provisioning cloud](media/what-is-provisioning/cloud3.png)
 
-In Azure Active Directory (Azure AD) il termine **[provisioning dell'app](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** si riferisce alla creazione automatica di identità e ruoli utente nelle applicazioni cloud a cui gli utenti devono accedere. Oltre a creare le identità utente, il provisioning automatico include la manutenzione e la rimozione delle identità utente quando lo stato o i ruoli cambiano. Gli scenari comuni includono il provisioning di un utente di Azure AD in applicazioni come [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial) e altre ancora.
+In Azure Active Directory (Azure AD) il termine **[provisioning dell'app](../app-provisioning/user-provisioning.md)** si riferisce alla creazione automatica di identità e ruoli utente nelle applicazioni cloud a cui gli utenti devono accedere. Oltre a creare le identità utente, il provisioning automatico include la manutenzione e la rimozione delle identità utente quando lo stato o i ruoli cambiano. Gli scenari comuni includono il provisioning di un utente di Azure AD in applicazioni come [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md) e altre ancora.
 
 ## <a name="directory-provisioning"></a>Provisioning della directory
 

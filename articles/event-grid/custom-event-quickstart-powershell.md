@@ -3,12 +3,13 @@ title: "Guida introduttiva: Inviare eventi personalizzati all'endpoint Web - Gri
 description: "Guida introduttiva: Usare Griglia di eventi di Azure e PowerShell per pubblicare un argomento personalizzato e sottoscrivere gli eventi per tale argomento. Gli eventi sono gestiti da un'applicazione Web."
 ms.date: 07/07/2020
 ms.topic: quickstart
-ms.openlocfilehash: 4dbed993b4123045ae6233466cd9ca0565465a1e
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: 3bd389ff523fd32e73ac19f1131c8c2784e16db5
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86115027"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075614"
 ---
 # <a name="quickstart-route-custom-events-to-web-endpoint-with-powershell-and-event-grid"></a>Guida introduttiva: Instradare eventi personalizzati all'endpoint Web con PowerShell e Griglia di eventi
 

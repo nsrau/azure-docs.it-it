@@ -3,12 +3,13 @@ title: Hub eventi di Azure - Inviare e ricevere eventi tramite .NET Framework
 description: "Guida introduttiva: Questo articolo offre una procedura dettagliata per la creazione di un'applicazione .NET Framework che invia eventi a Hub eventi di Azure."
 ms.topic: quickstart
 ms.date: 06/23/2020
-ms.openlocfilehash: 3ecbade69ee730d88bb39e700e20e65c0aa64a8d
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.custom: devx-track-csharp
+ms.openlocfilehash: e3f8aee3480f5200a23344553268da1864f892c7
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322525"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89021290"
 ---
 # <a name="quickstart-send-events-to-or-receive-events-from-azure-event-hubs-using-net-framework"></a>Guida introduttiva: Inviare o ricevere eventi da Hub eventi di Azure tramite .NET Framework
 Hub eventi di Azure è una piattaforma di Big Data streaming e un servizio di inserimento di eventi che consente di ricevere ed elaborare milioni di eventi al secondo. Hub eventi consente di elaborare e archiviare eventi, dati o dati di telemetria generati dal software distribuito e dai dispositivi. I dati inviati a un hub eventi possono essere trasformati e archiviati usando qualsiasi provider di analisi in tempo reale o adattatori di invio in batch/archiviazione. Per una panoramica dettagliata di Hub eventi, vedere [Panoramica di Hub eventi](event-hubs-about.md) e [Funzionalità di Hub eventi](event-hubs-features.md).
