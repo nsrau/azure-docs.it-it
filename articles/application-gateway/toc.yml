@@ -90,6 +90,8 @@
       href: application-gateway-web-app-overview.md
     - name: Supporto per WebSocket
       href: application-gateway-websocket.md
+    - name: Informazioni sui prezzi
+      href: understanding-pricing.md
     - name: Domande frequenti
       href: application-gateway-faq.md
 - name: Guide pratiche

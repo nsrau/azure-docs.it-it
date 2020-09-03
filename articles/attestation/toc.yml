@@ -15,7 +15,7 @@
     - name: Creazione e firma di un criterio di attestazione
       href: author-sign-policy.md
     - name: Esempi di codice per attestazioni SGX
-      href: 'https://docs.microsoft.com/en-us/samples/browse/?expanded=azure&terms=attestation'
+      href: /samples/browse/?expanded=azure&terms=attestation
 - name: Esempi
   items:
     - name: Criteri di attestazione

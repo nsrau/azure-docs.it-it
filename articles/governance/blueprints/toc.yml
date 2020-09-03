@@ -22,7 +22,7 @@
       href: create-blueprint-rest-api.md
     - name: Creare un progetto - Modello di Resource Manager
       displayName: 'assign, compliance, resource manager'
-      href: ../../azure-resource-manager/templates/deploy-to-subscription.md??toc=/azure/governance/blueprints/toc.json&bc=/azure/governance/blueprints/breadcrumb/toc.json
+      href: ../../azure-resource-manager/templates/deploy-to-subscription.md?toc=/azure/governance/blueprints/toc.json&bc=/azure/governance/blueprints/breadcrumb/toc.json#azure-blueprints
 - name: Esercitazioni
   items:
     - name: Creare da un esempio di progetto

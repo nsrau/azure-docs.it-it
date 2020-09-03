@@ -5,7 +5,7 @@
   items:
     - name: Che cosa sono le code di Azure?
       href: storage-queues-introduction.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Gestire le code senza codice
       items:
@@ -45,8 +45,6 @@
       href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Sicurezza
       items:
-        - name: Baseline di sicurezza
-          href: ../common/security-baseline.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Crittografia dei dati inattivi di Archiviazione di Azure
           href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
           items:
@@ -77,6 +75,11 @@
           href: ../common/storage-security-controls.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
         - name: Usare endpoint privati di Azure
           href: ../common/storage-private-endpoints.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
+        - name: Controlli di sicurezza in base a Criteri di Azure
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ../common/security-controls-policy.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+        - name: Baseline di sicurezza
+          href: ../common/security-baseline.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Ridondanza dei dati
       href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2fqueues%2ftoc.json
     - name: Ripristino di emergenza e failover

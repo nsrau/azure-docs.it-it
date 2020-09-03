@@ -72,6 +72,9 @@
           href: concepts-data-access-security-private-link.md
         - name: Advanced Threat Protection
           href: concepts-data-access-and-security-threat-protection.md
+        - name: Controlli di sicurezza in base a Criteri di Azure
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ./security-controls-policy.md
         - name: Baseline di sicurezza
           href: security-baseline.md
     - name: Continuità aziendale

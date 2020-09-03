@@ -4,7 +4,7 @@
   expanded: true
   items:
     - name: Informazioni sulla Visione artificiale
-      href: Home.md
+      href: overview.md
     - name: Novità
       href: whats-new.md
 - name: Avvi rapidi
