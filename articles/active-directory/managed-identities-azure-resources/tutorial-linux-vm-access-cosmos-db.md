@@ -3,7 +3,7 @@ title: Esercitazione`:` Usare un'identità gestita per accedere ad Azure Cosmos 
 description: Esercitazione che illustra come usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f15a269656f205b0acb6a49740dd4c625c0bdd41
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 2006c44d68d9570af0bfa410cc7fe908502d2ba5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78248289"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89267990"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Azure Cosmos DB 
 
@@ -44,7 +44,7 @@ Questa esercitazione mostra come usare un'identità gestita assegnata dal sistem
 Per eseguire gli esempi di script dell'interfaccia della riga di comando in questa esercitazione sono disponibili due opzioni:
 
 - Usare [Azure Cloud Shell](~/articles/cloud-shell/overview.md) tramite il portale di Azure o il pulsante **Prova**, che si trova nell'angolo in alto a destra di ogni blocco di codice.
-- [Installare la versione più recente dell'interfaccia della riga di comando 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale.
+- [Installare la versione più recente dell'interfaccia della riga di comando 2.0](/cli/azure/install-azure-cli) (2.0.23 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale.
 
 ## <a name="create-a-cosmos-db-account"></a>Creare un account Cosmos DB 
 
@@ -114,7 +114,7 @@ La risposta include i dettagli relativi all'assegnazione di ruolo creata:
 
 La parte rimanente dell'esercitazione prevede che le operazioni vengano svolte dalla macchina virtuale creata in precedenza.
 
-Per completare questi passaggi, è necessario disporre di un client SSH. Se si usa Windows, è possibile usare il client SSH nel [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). Per richiedere assistenza nella configurazione delle chiavi del client SSH, vedere [Come usare le chiavi SSH con Windows in Azure](../../virtual-machines/linux/ssh-from-windows.md) o [Come creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+Per completare questi passaggi, è necessario disporre di un client SSH. Se si usa Windows, è possibile usare il client SSH nel [sottosistema Windows per Linux](/windows/wsl/install-win10). Per richiedere assistenza nella configurazione delle chiavi del client SSH, vedere [Come usare le chiavi SSH con Windows in Azure](../../virtual-machines/linux/ssh-from-windows.md) o [Come creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. Nel portale di Azure passare a **Macchine virtuali**, selezionare la macchina virtuale Linux e quindi nella parte superiore della pagina **Panoramica** fare clic su **Connetti**. Copiare la stringa di connessione alla macchina virtuale. 
 2. Connettersi alla macchina virtuale tramite il client SSH.  
@@ -228,5 +228,4 @@ Questo comando dell'interfaccia della riga di comando restituisce i dettagli sul
 In questa esercitazione si è appreso come usare un'identità gestita assegnata dal sistema in una macchina virtuale Linux per accedere a Cosmos DB.  Per altre informazioni su Cosmos DB, consultare:
 
 > [!div class="nextstepaction"]
->[Panoramica di Azure Cosmos DB](/azure/cosmos-db/introduction)
-
+>[Panoramica di Azure Cosmos DB](../../cosmos-db/introduction.md)

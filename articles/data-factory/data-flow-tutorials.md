@@ -6,12 +6,12 @@ ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 08/11/2020
-ms.openlocfilehash: 809011df3c8cd6dbc1ee2a2129a261102adb43c0
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: c1527161948a6312fc0877748b2818b3ccc2143e
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067852"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322620"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>Esercitazioni video sul flusso di dati di mapping
 
@@ -107,8 +107,6 @@ Poiché il prodotto viene aggiornato costantemente, alcune caratteristiche prese
 
 [Derivazione dei dati](https://www.youtube.com/watch?v=5KvqYF-y93s)
 
-[Suggerimenti per l'ottimizzazione](https://www.youtube.com/watch?v=a2KtwUJngHo)
-
 [Eseguire l'iterazione dei file con i parametri](http://youtu.be/uEgz0ptYRDM?hd=1)
 
 [Ridurre i tempi di avvio](https://youtu.be/FFCbU4ujCiY?t=528)
@@ -121,7 +119,7 @@ Poiché il prodotto viene aggiornato costantemente, alcune caratteristiche prese
 
 [Ottimizzare i tempi di avvio del flusso di dati](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
-[Istanze di Azure Integration Runtime per flussi di dati](https://mssqldude.wordpress.com/)
+[Istanze di Azure Integration Runtime per flussi di dati](https://www.youtube.com/watch?v=VT_2ZV3a7Fc)
 
 ## <a name="mapping-data-flow-scenarios"></a>Scenari di flussi di dati per mapping
 
@@ -131,7 +129,7 @@ Poiché il prodotto viene aggiornato costantemente, alcune caratteristiche prese
 
 [Pulire il modello di indirizzi](https://youtu.be/axEYbuU3lmw)
 
-[Deduplicazione](https://www.youtube.com/watch?v=OLenvYwg__I)
+[Deduplicazione](https://youtu.be/QOi26ETtPTw)
 
 [Unire file](http://youtu.be/WbDTBAyYte8)
 

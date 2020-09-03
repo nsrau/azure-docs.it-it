@@ -3,7 +3,7 @@ title: "Esercitazione: Usare un'identità gestita per accedere ad Azure Cosmos D
 description: Esercitazione che illustra come usare un'identità gestita assegnata dal sistema in una macchina virtuale Windows per accedere ad Azure Cosmos DB.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: ''
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/14/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11b7f8eeb94fb2d6f197af2d40b120c5f74d6128
-ms.sourcegitcommit: b9d4b8ace55818fcb8e3aa58d193c03c7f6aa4f1
+ms.openlocfilehash: 17cdebb1291f78706178e129a62b932d45f38537
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "82583070"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263070"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-cosmos-db"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Azure Cosmos DB
 
@@ -84,7 +84,7 @@ New-AzRoleAssignment -ObjectId $spID -RoleDefinitionName "Cosmos DB Account Read
 
 Questa sezione illustra come chiamare Azure Resource Manager usando un token di accesso per l'identità gestita assegnata dal sistema della macchina virtuale Windows. Il resto dell'esercitazione prevede che le operazioni vengano svolte dalla macchina virtuale creata in precedenza. 
 
-È necessario installare la versione più recente dell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nella macchina virtuale Windows.
+È necessario installare la versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) nella macchina virtuale Windows.
 
 
 
@@ -204,6 +204,4 @@ Questo comando dell'interfaccia della riga di comando restituisce i dettagli sul
 In questa esercitazione si è appreso come usare un'identità assegnata dal sistema per una macchina virtuale Windows per accedere a Cosmos DB.  Per altre informazioni su Cosmos DB, consultare:
 
 > [!div class="nextstepaction"]
->[Panoramica di Azure Cosmos DB](/azure/cosmos-db/introduction)
-
-
+>[Panoramica di Azure Cosmos DB](../../cosmos-db/introduction.md)

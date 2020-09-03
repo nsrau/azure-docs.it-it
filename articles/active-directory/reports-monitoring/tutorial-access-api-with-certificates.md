@@ -17,12 +17,12 @@ ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 4f27385cc33c6c289718c3143d03e24f0454a9f0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bc763a99c945925b80171738f4076e6305d92df9
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85608009"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229460"
 ---
 # <a name="tutorial-get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Esercitazione: Ottenere dati con l'API di creazione report di Azure Active Directory con certificati
 
@@ -100,5 +100,5 @@ In questa esercitazione si apprenderà come usare un certificato di test per acc
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Ottenere una prima impressione delle API di creazione report](concept-reporting-api.md)
-* [Informazioni di riferimento sulle API di controllo](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) 
-* [Informazioni di riferimento sulle API di report di attività di accesso](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/signin)
+* [Informazioni di riferimento sulle API di controllo](/graph/api/resources/directoryaudit?view=graph-rest-beta) 
+* [Informazioni di riferimento sulle API di report di attività di accesso](/graph/api/resources/signin?view=graph-rest-beta)

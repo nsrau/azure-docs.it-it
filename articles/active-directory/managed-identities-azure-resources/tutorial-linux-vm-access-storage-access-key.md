@@ -3,7 +3,7 @@ title: Esercitazione`:` Usare un'identità gestita per accedere ad Archiviazione
 description: Esercitazione che illustra come usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Archiviazione di Azure.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 03/04/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86f875fa80f8bb8dd33a369a23f49833162cd417
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4c00c723c23e2f0d962009d33a6abe1008c734a5
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "78273825"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266273"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Archiviazione di Azure tramite la chiave di accesso
 
@@ -78,7 +78,7 @@ In questo passaggio si concede l'accesso alle chiavi dell'account di archiviazio
 
 Il resto dell'esercitazione prevede che le operazioni vengano svolte dalla macchina virtuale creata in precedenza.
 
-Per completare questi passaggi, è necessario disporre di un client SSH. Se si usa Windows, è possibile usare il client SSH nel [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). Per richiedere assistenza nella configurazione delle chiavi del client SSH, vedere [Come usare le chiavi SSH con Windows in Azure](../../virtual-machines/linux/ssh-from-windows.md) o [Come creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+Per completare questi passaggi, è necessario disporre di un client SSH. Se si usa Windows, è possibile usare il client SSH nel [sottosistema Windows per Linux](/windows/wsl/install-win10). Per richiedere assistenza nella configurazione delle chiavi del client SSH, vedere [Come usare le chiavi SSH con Windows in Azure](../../virtual-machines/linux/ssh-from-windows.md) o [Come creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. Nel portale di Azure passare a **Macchine virtuali**, selezionare la macchina virtuale Linux e quindi nella parte superiore della pagina **Panoramica** fare clic su **Connetti**. Copiare la stringa di connessione alla macchina virtuale. 
 2. Connettersi alla macchina virtuale tramite il client SSH.  
@@ -127,7 +127,7 @@ Creare un file di BLOB esempio da caricare nel contenitore di archiviazione BLOB
 echo "This is a test file." > test.txt
 ```
 
-Eseguire quindi l'autenticazione con il comando dell'interfaccia della riga di comando `az storage` usando la chiave di accesso alle risorse di archiviazione e caricare il file nel contenitore di BLOB. Per questo passaggio è necessario [installare la versione più recente dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nella macchina virtuale, se non è già stato fatto.
+Eseguire quindi l'autenticazione con il comando dell'interfaccia della riga di comando `az storage` usando la chiave di accesso alle risorse di archiviazione e caricare il file nel contenitore di BLOB. Per questo passaggio è necessario [installare la versione più recente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) nella macchina virtuale, se non è già stato fatto.
  
 
 ```azurecli-interactive
@@ -199,4 +199,4 @@ Risposta:
 In questa esercitazione si è appreso come usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Archiviazione di Azure tramite una chiave di accesso.  Per altre informazioni sulle chiavi di accesso ad Archiviazione di Azure, vedere:
 
 > [!div class="nextstepaction"]
->[Gestire le chiavi di accesso alle risorse di archiviazione](/azure/storage/common/storage-create-storage-account)
+>[Gestire le chiavi di accesso alle risorse di archiviazione](../../storage/common/storage-account-create.md)

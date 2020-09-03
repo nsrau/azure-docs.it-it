@@ -1,19 +1,19 @@
 ---
-title: Filtrare il traffico Internet in ingresso con DNAT di Firewall di Azure tramite il portale
+title: 'Esercitazione: Filtrare il traffico Internet in ingresso con DNAT di Firewall di Azure tramite il portale'
 description: Questa esercitazione mostra come distribuire e configurare DNAT di Firewall di Azure tramite il portale di Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 03/02/2020
+ms.date: 08/28/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 7220e48c6103352108bdb89e107bb862ee194040
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 8f528c6be68258400cb3e29582943f1d657c557d
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "78251495"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069273"
 ---
 # <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>Esercitazione: Filtrare il traffico Internet in ingresso con DNAT di Firewall di Azure tramite il portale di Azure
 
@@ -28,12 +28,11 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Configurare una regola DNAT
 > * Testare il firewall
 
+## <a name="prerequisites"></a>Prerequisiti
+
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
-Per questa esercitazione vengono create due reti virtuali con peering:
 
-- **VN-Hub**: in questa rete virtuale si trova il firewall.
-- **VN-Spoke**: in questa rete virtuale si trova il server del carico di lavoro.
 
 ## <a name="create-a-resource-group"></a>Creare un gruppo di risorse
 
@@ -45,6 +44,11 @@ Per questa esercitazione vengono create due reti virtuali con peering:
 6. Selezionare **Create** (Crea).
 
 ## <a name="set-up-the-network-environment"></a>Configurare l'ambiente di rete
+
+Per questa esercitazione vengono create due reti virtuali con peering:
+
+- **VN-Hub**: in questa rete virtuale si trova il firewall.
+- **VN-Spoke**: in questa rete virtuale si trova il server del carico di lavoro.
 
 Creare innanzitutto le reti virtuali e quindi eseguire il peering.
 
