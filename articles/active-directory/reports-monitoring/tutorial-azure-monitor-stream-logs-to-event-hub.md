@@ -17,12 +17,12 @@ ms.date: 04/18/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eba44252672248b983d7f6e0c843f638e5f73447
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 4cf35b2c15c0d85c93e69ef4e3b6c76932cbd75d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "74007650"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229379"
 ---
 # <a name="tutorial-stream-azure-active-directory-logs-to-an-azure-event-hub"></a>Esercitazione: Trasmettere i log di Azure Active Directory a un hub eventi di Azure
 
@@ -35,7 +35,7 @@ Per usare questa funzionalità, sono necessari:
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, è possibile [iscriversi per ottenere una versione di valutazione gratuita](https://azure.microsoft.com/free/).
 * Un tenant di Azure AD.
 * Un utente con il ruolo di *amministratore globale* o *amministratore della sicurezza* per il tenant di Azure AD.
-* Uno spazio dei nomi di Hub eventi e un hub eventi nella sottoscrizione di Azure. Leggere le informazioni su come [creare un hub eventi](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
+* Uno spazio dei nomi di Hub eventi e un hub eventi nella sottoscrizione di Azure. Leggere le informazioni su come [creare un hub eventi](../../event-hubs/event-hubs-create.md).
 
 ## <a name="stream-logs-to-an-event-hub"></a>Trasmettere i log a un hub eventi
 
@@ -79,19 +79,19 @@ Dopo che i dati vengono visualizzati nell'hub eventi, è possibile accedervi e l
     
     * **ArcSight**: per altre informazioni sull'integrazione dei log di Azure AD con ArcSight, vedere [Integrare i log di Azure AD con ArcSight usando Monitoraggio di Azure](howto-integrate-activity-logs-with-arcsight.md).
     
-    * **Splunk**: per altre informazioni sull'integrazione dei log di Azure AD con Splunk, vedere [Integrare i log di Azure AD con Splunk usando Monitoraggio di Azure](tutorial-integrate-activity-logs-with-splunk.md).
+    * **Splunk**: per altre informazioni sull'integrazione dei log di Azure AD con Splunk, vedere [Integrare i log di Azure AD con Splunk usando Monitoraggio di Azure](./howto-integrate-activity-logs-with-splunk.md).
     
     * **IBM QRadar**: il modulo DSM e Azure Event Hub Protocol sono disponibili per il download nel [sito Web del supporto IBM](https://www.ibm.com/support). Per altre informazioni sull'integrazione con Azure, visitare il sito [IBM QRadar Security Intelligence Platform 7.3.0](https://www.ibm.com/support/knowledgecenter/SS42VS_DSM/c_dsm_guide_microsoft_azure_overview.html?cp=SS42VS_7.3.0).
     
     * **Sumo Logic**: per configurare Sumo Logic per usare i dati da un hub eventi, vedere [Install the Azure AD app and view the dashboards](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards) (Installare l'app Azure AD e visualizzare i dashboard). 
 
-* **Configurare strumenti personalizzati**. Se lo strumento SIEM in uso non è ancora supportato nella diagnostica di Monitoraggio di Azure, è possibile configurare strumenti personalizzati usando le API di Hub eventi. Per altre informazioni, vedere la [Guida introduttiva alla ricezione di messaggi da un hub eventi](https://docs.microsoft.com/azure/event-hubs/event-hubs-dotnet-standard-getstarted-receive-eph).
+* **Configurare strumenti personalizzati**. Se lo strumento SIEM in uso non è ancora supportato nella diagnostica di Monitoraggio di Azure, è possibile configurare strumenti personalizzati usando le API di Hub eventi. Per altre informazioni, vedere la [Guida introduttiva alla ricezione di messaggi da un hub eventi](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Integrare i log di Azure Active Directory con ArcSight usando Monitoraggio di Azure](howto-integrate-activity-logs-with-arcsight.md)
-* [Integrare i log di Azure AD con Splunk usando Monitoraggio di Azure](tutorial-integrate-activity-logs-with-splunk.md)
+* [Integrare i log di Azure AD con Splunk usando Monitoraggio di Azure](./howto-integrate-activity-logs-with-splunk.md)
 * [Integrate Azure AD logs with SumoLogic by using Azure Monitor](howto-integrate-activity-logs-with-sumologic.md) (Integrare i log di Azure AD con SumoLogic usando Monitoraggio di Azure)
 * [Interpretare lo schema dei log di controllo in Monitoraggio di Azure](reference-azure-monitor-audit-log-schema.md)
 * [Interpretare lo schema dei log di accesso in Monitoraggio di Azure](reference-azure-monitor-sign-ins-log-schema.md)

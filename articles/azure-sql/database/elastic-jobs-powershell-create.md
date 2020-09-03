@@ -4,19 +4,19 @@ description: Informazioni su come creare un agente processo elastico tramite Pow
 services: sql-database
 ms.service: sql-database
 ms.subservice: scale-out
-ms.custom: seo-lt-2019, sqldbrb=1
+ms.custom: seo-lt-2019, sqldbrb=1, devx-track-azurepowershell
 ms.devlang: ''
 ms.topic: tutorial
 author: johnpaulkee
 ms.author: joke
 ms.reviwer: sstein
 ms.date: 03/13/2019
-ms.openlocfilehash: 84f3bbc01d7161dd6d7002102cc006dfae3ce3e4
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0fe6a3b1d0e5216d923cfe3997826e7a727f1a2b
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88118162"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077348"
 ---
 # <a name="create-an-elastic-job-agent-using-powershell"></a>Creare un agente processo elastico con PowerShell
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

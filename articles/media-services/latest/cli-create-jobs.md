@@ -3,26 +3,28 @@ title: Esempio di script dell'interfaccia della riga di comando di Azure - Crear
 description: Lo script dell'interfaccia della riga di comando di Azure in questo argomento mostra come inviare un processo a una semplice trasformazione di codifica con URL HTTPs.
 services: media-services
 documentationcenter: ''
-author: Juliako
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
 ms.assetid: ''
 ms.service: media-services
 ms.devlang: azurecli
-ms.topic: sample
+ms.topic: how-to
 ms.tgt_pltfrm: multiple
 ms.workload: na
-ms.date: 05/01/2019
-ms.author: juliako
+ms.date: 08/31/2020
+ms.author: inhenkel
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: c89fe37bb443dbdbb312f2c930a4df8a708bb597
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 0f2e1d901e674c3fecf957bd10314e51195f8b84
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500692"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295989"
 ---
 # <a name="cli-example-create-and-submit-a-job"></a>Esempio dell'interfaccia della riga di comando: Creare e inviare un processo
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 In Servizi multimediali v3, quando si inviano processi per elaborare i video, è necessario indicare a Servizi multimediali dove trovare il video di input. Una delle opzioni consiste nello specificare un URL HTTPS come input del processo, come illustrato in questo articolo. 
 

@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 8c17351c049ef419ab95f46a54aa9f8cc523f7cf
-ms.sourcegitcommit: e3c28affcee2423dc94f3f8daceb7d54f8ac36fd
+ms.openlocfilehash: 76c45e586ea7101015cb878d198cab73ed32498e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/17/2020
-ms.locfileid: "84887450"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89018247"
 ---
 # <a name="install-software-and-set-up-resources-for-the-tutorial"></a>Installare il software e configurare le risorse per l'esercitazione
 
@@ -30,7 +30,7 @@ In questa esercitazione in tre parti si creerà un modello di Machine Learning p
 4. Installare [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio/)
 5. Aprire Azure Data Studio e configurare Python per i notebook. Per informazioni dettagliate, vedere [Configurare Python per i notebook](/sql/azure-data-studio/sql-notebooks#configure-python-for-notebooks). Questo passaggio può richiedere alcuni minuti.
 6. Installare la versione più recente dell'[interfaccia della riga di comando di Azure](https://github.com/Azure/azure-powershell/releases/tag/v3.5.0-February2020). Per gli script seguenti è necessaria la versione più recente di Azure PowerShell (3.5.0, febbraio 2020).
-7. Scaricare il file [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) e [i file di immagine Docker AMD/ARM](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/tar-files) che verranno usati nell'esercitazione.
+7. Scaricare il file [DACPAC](https://github.com/microsoft/sql-server-samples/tree/master/samples/demos/azure-sql-edge-demos/iron-ore-silica-impurities/DACPAC) e [i file di immagine Docker AMD/ARM](https://www.docker.com/blog/multi-arch-images/) che verranno usati nell'esercitazione.
 
 ## <a name="deploy-azure-resources-using-powershell-script"></a>Distribuire le risorse di Azure usando lo script PowerShell
 

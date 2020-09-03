@@ -3,7 +3,7 @@ title: 'Esercitazione: Accedere ad Archiviazione di Azure con credenziali di fir
 description: Esercitazione che illustra come usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Archiviazione di Azure tramite credenziali di firma di accesso condiviso anziché tramite una chiave di accesso dell'account di archiviazione.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,20 +13,20 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6a173fe36c20e9f13f1b1c1f27efc36821c8264a
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: 04e265ea0128411eb483c84b1317051089a0550a
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266305"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89260238"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Esercitazione: Usare un'identità assegnata dal sistema per una macchina virtuale Linux per accedere ad Archiviazione di Azure tramite credenziali di firma di accesso condiviso
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Questa esercitazione mostra come usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per ottenere credenziali di firma di accesso condiviso per l'archiviazione. In particolare, [credenziali di firma di accesso condiviso del servizio](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
+Questa esercitazione mostra come usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per ottenere credenziali di firma di accesso condiviso per l'archiviazione. In particolare, [credenziali di firma di accesso condiviso del servizio](../../storage/common/storage-sas-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures). 
 
 > [!NOTE]
 > La chiave di firma di accesso condiviso generata in questa esercitazione non sarà limitata/vincolata alla VM.  
@@ -86,7 +86,7 @@ Archiviazione di Azure non supporta l'autenticazione di Azure AD in modo nativo.
 
 Il resto dell'esercitazione prevede che le operazioni vengano svolte dalla macchina virtuale creata in precedenza.
 
-Per completare questi passaggi, è necessario disporre di un client SSH. Se si usa Windows, è possibile usare il client SSH nel [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/install_guide). Per richiedere assistenza nella configurazione delle chiavi del client SSH, vedere [Come usare le chiavi SSH con Windows in Azure](../../virtual-machines/linux/ssh-from-windows.md) o [Come creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
+Per completare questi passaggi, è necessario disporre di un client SSH. Se si usa Windows, è possibile usare il client SSH nel [sottosistema Windows per Linux](/windows/wsl/install-win10). Per richiedere assistenza nella configurazione delle chiavi del client SSH, vedere [Come usare le chiavi SSH con Windows in Azure](../../virtual-machines/linux/ssh-from-windows.md) o [Come creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](../../virtual-machines/linux/mac-create-ssh-keys.md).
 
 1. Nel portale di Azure passare a **Macchine virtuali**, selezionare la macchina virtuale Linux e quindi nella parte superiore della pagina **Panoramica** fare clic su **Connetti**. Copiare la stringa di connessione alla macchina virtuale. 
 2. Connettersi alla macchina virtuale tramite il client SSH.  
@@ -152,7 +152,7 @@ Creare un file di BLOB esempio da caricare nel contenitore di archiviazione BLOB
 echo "This is a test file." > test.txt
 ```
 
-Eseguire quindi l'autenticazione con il comando `az storage` dell'interfaccia della riga di comando usando le credenziali di firma di accesso condiviso e caricare il file nel contenitore BLOB. Per questo passaggio è necessario [installare la versione più recente dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) nella macchina virtuale, se non è già stato fatto.
+Eseguire quindi l'autenticazione con il comando `az storage` dell'interfaccia della riga di comando usando le credenziali di firma di accesso condiviso e caricare il file nel contenitore BLOB. Per questo passaggio è necessario [installare la versione più recente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) nella macchina virtuale, se non è già stato fatto.
 
 ```azurecli-interactive
  az storage blob upload --container-name 
@@ -231,4 +231,4 @@ Risposta:
 In questa esercitazione si è appreso come usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Archiviazione di Azure tramite credenziali di firma di accesso condiviso.  Per altre informazioni su Archiviazione di Azure SAS, consultare:
 
 > [!div class="nextstepaction"]
->[Uso delle firme di accesso condiviso](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)
+>[Uso delle firme di accesso condiviso](../../storage/common/storage-sas-overview.md)
