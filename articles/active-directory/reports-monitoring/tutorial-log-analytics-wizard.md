@@ -11,12 +11,12 @@ author: MarkusVi
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cffd72171693499365f31b6eb51fd2586187b98b
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 93caf52d8b4a11f9843ad5f18ebf968d1d0730cd
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271264"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226208"
 ---
 # <a name="tutorial-configure-the-log-analytics-wizard"></a>Esercitazione: Configurare la procedura guidata di Log Analytics
 
@@ -41,15 +41,15 @@ In questa esercitazione verranno illustrate le procedure per:
 
 Acquisire familiarità con questi articoli:
 
-- [Esercitazione: Raccogliere e analizzare i log delle risorse da una risorsa di Azure](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs)
+- [Esercitazione: Raccogliere e analizzare i log delle risorse da una risorsa di Azure](../../azure-monitor/learn/tutorial-resource-logs.md)
 
-- [Integrare i log attività con Log Analytics](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics)
+- [Integrare i log attività con Log Analytics](./howto-integrate-activity-logs-with-log-analytics.md)
 
-- [Gestire gli account di accesso di emergenza in Azure AD](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)
+- [Gestire gli account di accesso di emergenza in Azure AD](../users-groups-roles/directory-emergency-access.md)
 
-- [Riferimento rapido sul linguaggio KQL](https://docs.microsoft.com/azure/data-explorer/kql-quick-reference)
+- [Riferimento rapido sul linguaggio KQL](/azure/data-explorer/kql-quick-reference)
 
-- [Cartelle di lavoro di Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/workbooks-overview)
+- [Cartelle di lavoro di Monitoraggio di Azure](../../azure-monitor/platform/workbooks-overview.md)
 
 
 

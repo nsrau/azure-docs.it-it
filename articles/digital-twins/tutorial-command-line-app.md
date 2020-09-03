@@ -1,5 +1,5 @@
 ---
-title: Esplorare le nozioni di base con un'app client di esempio
+title: "Esercitazione: Esplorare le nozioni di base con un'app client di esempio"
 titleSuffix: Azure Digital Twins
 description: Esercitazione per esplorare gli SDK di Gemelli digitali di Azure usando un'applicazione da riga di comando di esempio
 author: baanders
@@ -7,23 +7,24 @@ ms.author: baanders
 ms.date: 5/8/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: d02766d82690d2f546fdcbad76efcda043f54471
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: a1dc42815167da308fd87b541c0f21d02b47329b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87986272"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89022514"
 ---
-# <a name="explore-azure-digital-twins-with-a-sample-client-app"></a>Esplorare Gemelli digitali di Azure con un'app client di esempio
+# <a name="tutorial-explore-azure-digital-twins-with-a-sample-client-app"></a>Esercitazione: Esplorare Gemelli digitali di Azure con un'app client di esempio
 
 Questa esercitazione presenta un'applicazione di esempio che implementa un'applicazione client da riga di comando per interagire con un'istanza di Gemelli digitali di Azure. L'app client è simile a quella scritta in [*Esercitazione: Scrivere il codice di un'app client*](tutorial-code.md).
 
 È possibile usare questo esempio per eseguire azioni essenziali di Gemelli digitali di Azure, ad esempio il caricamento di modelli, la creazione e la modifica di gemelli e la creazione di relazioni. È anche possibile esaminare il codice dell'esempio per acquisire informazioni sulle API di Gemelli digitali di Azure e provare a implementare i propri comandi modificando il progetto di esempio come si preferisce.
 
 In questa esercitazione si apprenderà come:
-1. Configurare un'istanza di Gemelli digitali di Azure
-2. Configurare l'app da riga di comando di esempio per interagire con l'istanza
-3. Usare l'app da riga di comando per esplorare Gemelli digitali di Azure, tra cui **modelli**, **gemelli digitali**, **relazioni** e **query**
+> [!div class="checklist"]
+> * Configurare un'istanza di Gemelli digitali di Azure
+> * Configurare l'app da riga di comando di esempio per interagire con l'istanza
+> * Usare l'app da riga di comando per esplorare Gemelli digitali di Azure, tra cui **modelli**, **gemelli digitali**, **relazioni** e **query**
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
@@ -288,24 +289,7 @@ Una delle principali funzionalità di Gemelli digitali di Azure è la possibilit
 Il progetto di questa esercitazione costituisce la base per quella successiva, [*Esercitazione: Connettere una soluzione end-to-end*](tutorial-end-to-end.md). Se si prevede di continuare con l'esercitazione successiva, è possibile mantenere le risorse configurate qui per continuare a usare questa istanza di Gemelli digitali di Azure e l'app di esempio configurata.
 * In questo caso, è possibile usare i comandi `DeleteAllTwins` e `DeleteAllModels` dell'app di esempio per cancellare rispettivamente i gemelli e i modelli nell'istanza. In questo modo si ottiene un ambiente pulito per l'esercitazione successiva.
 
-Se le risorse create in questa esercitazione non sono più necessarie, seguire questa procedura per eliminarle.
-
-Usando [Azure Cloud Shell](https://shell.azure.com), è possibile eliminare tutte le risorse di Azure di un gruppo di risorse con il comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Questo comando rimuove il gruppo di risorse e l'istanza di Gemelli digitali di Azure.
-
-> [!IMPORTANT]
-> L'eliminazione di un gruppo di risorse è irreversibile. Il gruppo di risorse e tutte le risorse in esso contenute vengono eliminati in modo permanente. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate. 
-
-Aprire un'istanza di Azure Cloud Shell ed eseguire il comando seguente per eliminare il gruppo di risorse e tutti gli elementi contenuti al suo interno.
-
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
-
-Eliminare quindi la registrazione dell'app di Azure Active Directory creata per l'app client con questo comando:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
 Infine, eliminare la cartella dell'esempio di progetto scaricata nel computer locale.
 
@@ -314,12 +298,5 @@ Infine, eliminare la cartella dell'esempio di progetto scaricata nel computer lo
 In questa esercitazione sono state configurate un'istanza di Gemelli digitali di Azure e un'applicazione client per interagire con l'istanza. L'app client è stata usata per esplorare Gemelli digitali di Azure, creando modelli, gemelli digitali e relazioni. Sono state anche eseguite alcune query sulla soluzione, per avere un'idea dei tipi di domande a cui Gemelli digitali di Azure è in grado di rispondere su un ambiente.
 
 Continuare con l'esercitazione successiva per usare l'app da riga di comando di esempio in combinazione con altri servizi di Azure per completare uno scenario end-to-end basato sui dati:
-
 > [!div class="nextstepaction"]
 > [*Esercitazione: Connettere una soluzione end-to-end*](tutorial-end-to-end.md)
-
-Oppure iniziare a esaminare la documentazione concettuale per altre informazioni sugli elementi usati nell'esercitazione:
-* [*Concetti: Modelli personalizzati*](concepts-models.md)
-
-È anche possibile approfondire ulteriormente i processi illustrati in questa esercitazione a partire dagli articoli sulle procedure:
-* [*Procedura: Usare l'interfaccia della riga di comando di Gemelli digitali di Azure*](how-to-use-cli.md)

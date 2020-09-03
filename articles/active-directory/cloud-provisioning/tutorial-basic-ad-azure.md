@@ -10,12 +10,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fe2d0a16aeacfc551a6a07a72b58b5f461f93433
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8a6fc1291615760320deb488511fdd9d964d25d
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85360521"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89227866"
 ---
 # <a name="tutorial-basic-active-directory-environment"></a>Esercitazione: Ambiente Active Directory di base
 
@@ -28,8 +28,8 @@ Questa esercitazione illustra come creare un ambiente Active Directory di base.
 Sezioni dell'esercitazione
 ## <a name="prerequisites"></a>Prerequisiti
 Per completare questa esercitazione sono necessari i requisiti seguenti
-- Un computer in cui è installato [Hyper-V](https://docs.microsoft.com/windows-server/virtualization/hyper-v/hyper-v-technology-overview).  È consigliabile installarlo in un computer con [Windows 10](https://docs.microsoft.com/virtualization/hyper-v-on-windows/about/supported-guest-os) o in un computer con [Windows Server 2016](https://docs.microsoft.com/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
-- Una [scheda di rete esterna](https://docs.microsoft.com/virtualization/hyper-v-on-windows/quick-start/connect-to-network) per consentire alla macchina virtuale di comunicare con Internet.
+- Un computer in cui è installato [Hyper-V](/windows-server/virtualization/hyper-v/hyper-v-technology-overview).  È consigliabile installarlo in un computer con [Windows 10](/virtualization/hyper-v-on-windows/about/supported-guest-os) o in un computer con [Windows Server 2016](/windows-server/virtualization/hyper-v/supported-windows-guest-operating-systems-for-hyper-v-on-windows).
+- Una [scheda di rete esterna](/virtualization/hyper-v-on-windows/quick-start/connect-to-network) per consentire alla macchina virtuale di comunicare con Internet.
 - Una [sottoscrizione di Azure](https://azure.microsoft.com/free)
 - Una copia di Windows Server 2016
 - [Microsoft .NET Framework 4.7.1](https://www.microsoft.com/download/details.aspx?id=56115)

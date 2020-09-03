@@ -8,18 +8,19 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: a3a7657aa83a675982adc304de01ba0fcc26d193
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 9c8647e28701316ecd7305e206918c53281deb6b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045451"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89004256"
 ---
 # <a name="tutorial-index-azure-sql-data-using-the-net-sdk"></a>Esercitazione: Indicizzare i dati di Azure SQL con .NET SDK
 
 Configurare un [indicizzatore](search-indexer-overview.md) per estrarre i dati ricercabili da Database SQL di Azure e inviarli a un indice di ricerca in Ricerca cognitiva di Azure. 
 
-In questa esercitazione si usa C# e [.NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/search) per le attività seguenti:
+In questa esercitazione si usa C# e [.NET SDK](/dotnet/api/overview/azure/search) per le attività seguenti:
 
 > [!div class="checklist"]
 > * Creare un'origine dati che si connette al database SQL di Azure
@@ -144,7 +145,7 @@ Uno schema può includere anche altri elementi, tra cui l'assegnazione di punteg
 
 Il programma principale include la logica per la creazione di un client, un indice, un'origine dati e un indicizzatore. Il codice cerca ed elimina le risorse esistenti con lo stesso nome, presupponendo che sia possibile che il programma venga eseguito più volte.
 
-L'oggetto origine dati è configurato con le impostazioni specifiche per le risorse di Database SQL di Azure, tra cui l'[indicizzazione parziale o incrementale](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) per sfruttare le [funzionalità di rilevamento delle modifiche](https://docs.microsoft.com/sql/relational-databases/track-changes/about-change-tracking-sql-server) predefinite di SQL di Azure. Il database degli hotel demo in SQL di Azure include una colonna di "eliminazione temporanea" denominata **IsDeleted**. Quando questa colonna è impostata su true nel database, l'indicizzatore rimuove il documento corrispondente dall'indice di Ricerca cognitiva di Azure.
+L'oggetto origine dati è configurato con le impostazioni specifiche per le risorse di Database SQL di Azure, tra cui l'[indicizzazione parziale o incrementale](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md#capture-new-changed-and-deleted-rows) per sfruttare le [funzionalità di rilevamento delle modifiche](/sql/relational-databases/track-changes/about-change-tracking-sql-server) predefinite di SQL di Azure. Il database degli hotel demo in SQL di Azure include una colonna di "eliminazione temporanea" denominata **IsDeleted**. Quando questa colonna è impostata su true nel database, l'indicizzatore rimuove il documento corrispondente dall'indice di Ricerca cognitiva di Azure.
 
   ```csharp
   Console.WriteLine("Creating data source...");

@@ -4,12 +4,12 @@ description: Informazioni su come richiamare i processi aziendali dall'app del S
 ms.topic: tutorial
 ms.date: 04/08/2020
 ms.custom: devx-track-csharp, mvc
-ms.openlocfilehash: 9d4136099a8cadc43a53298f367f6eeb784e5ce1
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: ddd57bfe653766d133824f42098d9ad9adb1e56b
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212841"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88962197"
 ---
 # <a name="tutorial-send-email-and-invoke-other-business-processes-from-app-service"></a>Esercitazione: Inviare messaggi di posta elettronica e richiamare altri processi aziendali dal Servizio app
 
@@ -84,7 +84,7 @@ Distribuire un'app con il framework del linguaggio desiderato nel Servizio app. 
 1. Nella parte inferiore della finestra di progettazione fare clic su **Nuovo passaggio**, digitare **Gmail** nella casella di ricerca azioni e trovare e selezionare **Invia messaggio di posta elettronica (v2)** .
     
     > [!TIP]
-    > È possibile cercare altri tipi di integrazioni, ad esempio SendGrid, MailChimp, Office 365 e SalesForce. Per altre informazioni, vedere la [Documentazione di App per la logica](https://docs.microsoft.com/azure/logic-apps/).
+    > È possibile cercare altri tipi di integrazioni, ad esempio SendGrid, MailChimp, Office 365 e SalesForce. Per altre informazioni, vedere la [Documentazione di App per la logica](../logic-apps/index.yml).
 1. Nella finestra di dialogo **Gmail** selezionare **Accedi** e accedere all'account Gmail da cui si vuole inviare il messaggio di posta elettronica.
 
     ![Screenshot che mostra la finestra di dialogo Gmail che consente di accedere all'account Gmail da cui si desidera inviare il messaggio di posta elettronica.](./media/tutorial-send-email/gmail-sign-in.png)
@@ -152,7 +152,7 @@ Fare clic sulla scheda linguaggio/framework preferito sotto per visualizzare un 
 
 ### <a name="aspnet"></a>[ASP.NET](#tab/dotnet)
 
-In ASP.NET è possibile inviare la richiesta HTTP POST con la classe [System.Net.Http.HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient). Ad esempio:
+In ASP.NET è possibile inviare la richiesta HTTP POST con la classe [System.Net.Http.HttpClient](/dotnet/api/system.net.http.httpclient). Ad esempio:
 
 ```csharp
 // requires using System.Net.Http;
@@ -177,7 +177,7 @@ Se si sta testando il codice nell'app di esempio per [Esercitazione: Creare un'a
 
 ### <a name="aspnet-core"></a>[ASP.NET Core](#tab/dotnetcore)
 
-In ASP.NET Core è possibile inviare la richiesta HTTP POST con la classe [System.Net.Http.HttpClient](https://docs.microsoft.com/dotnet/api/system.net.http.httpclient). Ad esempio:
+In ASP.NET Core è possibile inviare la richiesta HTTP POST con la classe [System.Net.Http.HttpClient](/dotnet/api/system.net.http.httpclient). Ad esempio:
 
 ```csharp
 // requires using System.Net.Http;
@@ -199,7 +199,7 @@ var statusCode = result.StatusCode.ToString();
 ```
 
 > [!NOTE]
-> Questo codice è stato scritto per una facile dimostrazione. In pratica, non creare un'istanza di un oggetto `HttpClient` per ogni richiesta. Seguire le indicazioni fornite in [Usare IHttpClientFactory per implementare richieste HTTP resilienti](https://docs.microsoft.com/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
+> Questo codice è stato scritto per una facile dimostrazione. In pratica, non creare un'istanza di un oggetto `HttpClient` per ogni richiesta. Seguire le indicazioni fornite in [Usare IHttpClientFactory per implementare richieste HTTP resilienti](/dotnet/architecture/microservices/implement-resilient-applications/use-httpclientfactory-to-implement-resilient-http-requests).
 
 Se si sta testando il codice nell'app di esempio per [Esercitazione: Creare un'app ASP.NET Core con un database SQL nel Servizio app di Azure](tutorial-dotnetcore-sqldb-app.md), è possibile provare a inviare una conferma tramite posta elettronica in [Azione Crea](https://github.com/Azure-Samples/dotnetcore-sqldb-tutorial/blob/master/Controllers/TodosController.cs#L56-L65), dopo aver aggiunto l'elemento `Todo`.
 
