@@ -7,18 +7,18 @@ ms.author: msangapu
 keywords: servizio app di azure, app web, linux, windows, docker, contenitore
 ms.custom: devx-track-csharp, mvc, seodec18, devx-track-python
 zone_pivot_groups: app-service-containers-windows-linux
-ms.openlocfilehash: a3579ba805d0da08184e6274de60086a9d55a938
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: df46d61ddfba5f4da977b19db3158691c78168f8
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212950"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88958474"
 ---
 # <a name="migrate-custom-software-to-azure-app-service-using-a-custom-container"></a>Eseguire la migrazione di un software personalizzato al Servizio app di Azure usando un contenitore personalizzato
 
 ::: zone pivot="container-windows"  
 
-Il [servizio app di Azure](overview.md) offre stack di applicazioni predefiniti in Windows, ad esempio ASP.NET o Node.js, eseguiti in IIS. L'ambiente Windows preconfigurato blocca il sistema operativo impedendo l'accesso amministrativo, le installazioni di software, le modifiche alla Global Assembly Cache e così via (vedere [Funzionalità del sistema operativo in Servizio app di Azure](operating-system-functionality.md)). Tuttavia, usando un contenitore Windows personalizzato nel Servizio app (Anteprima) è possibile apportare le modifiche del sistema operativo necessarie per l'app, per poter eseguire in modo semplice la migrazione di un'app locale che richiede una configurazione personalizzata di software e sistema operativo. Questa esercitazione illustra come eseguire la migrazione al servizio app di un'app ASP.NET che usa tipi di carattere personalizzati installati nella libreria dei tipi di carattere Windows. Si distribuisce un'immagine Windows configurata in modo personalizzato da Visual Studio a [Registro Azure Container](https://docs.microsoft.com/azure/container-registry/) e quindi la si esegue nel servizio app.
+Il [servizio app di Azure](overview.md) offre stack di applicazioni predefiniti in Windows, ad esempio ASP.NET o Node.js, eseguiti in IIS. L'ambiente Windows preconfigurato blocca il sistema operativo impedendo l'accesso amministrativo, le installazioni di software, le modifiche alla Global Assembly Cache e così via (vedere [Funzionalità del sistema operativo in Servizio app di Azure](operating-system-functionality.md)). Tuttavia, usando un contenitore Windows personalizzato nel Servizio app (Anteprima) è possibile apportare le modifiche del sistema operativo necessarie per l'app, per poter eseguire in modo semplice la migrazione di un'app locale che richiede una configurazione personalizzata di software e sistema operativo. Questa esercitazione illustra come eseguire la migrazione al servizio app di un'app ASP.NET che usa tipi di carattere personalizzati installati nella libreria dei tipi di carattere Windows. Si distribuisce un'immagine Windows configurata in modo personalizzato da Visual Studio a [Registro Azure Container](../container-registry/index.yml) e quindi la si esegue nel servizio app.
 
 ![Mostra l'app Web in esecuzione in un contenitore di Windows.](media/tutorial-custom-container/app-running.png)
 
@@ -92,7 +92,7 @@ _InstallFont.ps1_ è disponibile nel progetto **CustomFontSample**. Si tratta di
 
 ## <a name="publish-to-azure-container-registry"></a>Eseguire la pubblicazione in Registro Azure Container
 
-[Registro Azure Container](https://docs.microsoft.com/azure/container-registry/) consente di archiviare le immagini per le distribuzioni di contenitori. È possibile configurare il servizio app per usare le immagini ospitate in Registro Azure Container.
+[Registro Azure Container](../container-registry/index.yml) consente di archiviare le immagini per le distribuzioni di contenitori. È possibile configurare il servizio app per usare le immagini ospitate in Registro Azure Container.
 
 ### <a name="open-publish-wizard"></a>Aprire la pubblicazione guidata
 
@@ -439,7 +439,7 @@ Per distribuire un contenitore nel servizio app di Azure, creare prima un'app We
     
     Per altre informazioni su questa variabile di ambiente, vedere il file [readme nel repository GitHub dell'esempio](https://github.com/Azure-Samples/docker-django-webapp-linux).
 
-1. Abilitare '[identità gestita](/azure/app-service/overview-managed-identity) per l'app Web usando il comando [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign):
+1. Abilitare '[identità gestita](./overview-managed-identity.md) per l'app Web usando il comando [`az webapp identity assign`](/cli/azure/webapp/identity?view=azure-cli-latest#az-webapp-identity-assign):
 
     ```azurecli-interactive
     az webapp identity assign --resource-group AppSvc-DockerTutorial-rg --name <app-name> --query principalId --output tsv
@@ -466,7 +466,7 @@ Per distribuire un contenitore nel servizio app di Azure, creare prima un'app We
     - `<registry-name>` con il nome del registro contenitori
     - `<subscription-id>` con l'ID sottoscrizione recuperato dal comando `az account show`
 
-Per altre informazioni su queste autorizzazioni, vedere [Che cos'è il controllo degli accessi in base al ruolo di Azure?](/azure/role-based-access-control/overview) 
+Per altre informazioni su queste autorizzazioni, vedere [Che cos'è il controllo degli accessi in base al ruolo di Azure?](../role-based-access-control/overview.md) 
 
 ## <a name="deploy-the-image-and-test-the-app"></a>Distribuire l'immagine e testare l'app
 

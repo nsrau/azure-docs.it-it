@@ -3,12 +3,13 @@ title: 'Esercitazione: Inviare i dati di Hub eventi di Azure al data warehouse: 
 description: 'Esercitazione: Descrive come usare Griglia di eventi e Hub eventi di Azure per eseguire la migrazione dei dati in un SQL Data Warehouse. Usa una Funzione di Azure per recuperare un file di Acquisizione.'
 ms.topic: tutorial
 ms.date: 07/07/2020
-ms.openlocfilehash: 9373eb4902d1bc06b394385135d08236cfcea8f4
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.custom: devx-track-csharp
+ms.openlocfilehash: 1c4a1943981fc3e9f1df0fafff540e24ee3631e9
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86117560"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007452"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Esercitazione: Trasmettere Big Data a un data warehouse
 [Griglia di eventi](overview.md) di Azure è un servizio intelligente di routing di eventi che consente di rispondere alle notifiche (eventi) inviate da applicazioni e servizi. Per esempio, può attivare una Funzione di Azure per elaborare i dati di Hub eventi che sono stati acquisiti in un archivio BLOB di Azure o Azure Data Lake Store ed eseguire la migrazione dei dati su altri repository di dati. Questo [esempio di integrazione di Hub eventi e di Griglia di eventi](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra come usare Hub eventi con Griglia di eventi per migrare facilmente i dati di Hub eventi acquisiti da una risorsa di archiviazione BLOB a un SQL Data Warehouse.
