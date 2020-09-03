@@ -59,6 +59,9 @@
           href: security-baseline.md
         - name: Raccomandazioni sulla sicurezza per Azure Key Vault
           href: security-recommendations.md
+        - name: Controlli di sicurezza in base a Criteri di Azure
+          displayName: 'regulatory, compliance, standards, domains'
+          href: ../security-controls-policy.md?toc=/azure/key-vault/general/toc.json&bc=/azure/key-vault/breadcrumb/toc.json
     - name: Notifiche (anteprima)
       items:
         - name: Eseguire il monitoraggio con Griglia di eventi di Azure (anteprima)
@@ -83,13 +86,17 @@
       items:
         - name: Eseguire l'autenticazione a Key Vault
           href: authentication.md
-        - name: Usare un'identità gestita nel servizio app
-          href: managed-identity.md
-        - name: Usare un criterio di controllo di accesso
-          href: group-permissions-for-apps.md
-        - name: Usare un controllo degli accessi in base al ruolo di Azure (anteprima)
+        - name: Assegnare un criterio di accesso
+          items:
+            - name: CLI
+              href: assign-access-policy-cli.md
+            - name: PowerShell
+              href: assign-access-policy-powershell.md
+            - name: Portale
+              href: assign-access-policy-portal.md
+        - name: 'Usare un controllo degli accessi in base al ruolo di Azure per gestire l''accesso a chiavi, segreti e certificati (anteprima)'
           href: rbac-guide.md
-        - name: Risoluzione dei problemi di accesso
+        - name: Risolvere i problemi di accesso
           href: troubleshooting-access-issues.md
     - name: Sviluppo
       items:

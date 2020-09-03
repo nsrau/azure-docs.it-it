@@ -1,21 +1,21 @@
 ---
-title: Introduzione a Web application firewall di Azure
+title: Che cos'è Azure web application firewall nel gateway applicazione di Azure?
 titleSuffix: Azure Web Application Firewall
-description: Questo articolo offre una panoramica di Web Application Firewall (WAF) nel gateway applicazione
+description: Questo articolo offre una panoramica di web application firewall (WAF) nel gateway applicazione
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/14/2019
+ms.date: 08/31/2020
 ms.author: victorh
-ms.topic: overview
-ms.openlocfilehash: d7eaff980b50cc463efc09e49febd4a947a7543c
-ms.sourcegitcommit: 5cace04239f5efef4c1eed78144191a8b7d7fee8
+ms.topic: conceptual
+ms.openlocfilehash: e3b7e3ae10afd45105358743ef1fc0f4c6d14e78
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86142846"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226999"
 ---
-# <a name="azure-web-application-firewall-on-azure-application-gateway"></a>Web Application Firewall di Azure nel gateway applicazione di Azure
+# <a name="what-is-azure-web-application-firewall-on-azure-application-gateway"></a>Che cos'è Azure web application firewall nel gateway applicazione di Azure?
 
 Web Application Firewall (WAF) di Azure nel gateway applicazione di Azure offre protezione centralizzata delle applicazioni Web da exploit e vulnerabilità comuni. Le applicazioni Web sono sempre più vittime di attacchi che sfruttano le più comuni e note vulnerabilità. Gli attacchi SQL injection e quelli tramite scripting intersito sono tra i più comuni.
 
@@ -158,7 +158,7 @@ Microsoft Azure Sentinel è una soluzione di tipo SIEM (Security Information and
 Con la cartella di lavoro predefinita degli eventi del firewall Azure WAF, è possibile ottenere una panoramica degli eventi di sicurezza in WAF. Sono inclusi eventi, regole corrispondenti e bloccanti e tutto quello che viene registrato nei log del firewall. Per altre informazioni sulla registrazione, vedere di seguito. 
 
 
-![Sentinel](../media/ag-overview/sentinel.png)
+![Cartella di lavoro di eventi del firewall Azure WAF](../media/ag-overview/sentinel.png)
 
 #### <a name="logging"></a>Registrazione
 
@@ -206,10 +206,12 @@ WAF nel gateway applicazione fornisce report dettagliati su ogni minaccia rileva
 
 I modelli di determinazione dei prezzi sono diversi per gli SKU WAF_v1 e WAF_v2. Per altre informazioni, vedere la pagina relativa ai [prezzi del gateway applicazione](https://azure.microsoft.com/pricing/details/application-gateway/). 
 
+## <a name="whats-new"></a>Novità
+
+Per informazioni sulle novità di Azure web application firewall, vedere [aggiornamenti di Azure](https://azure.microsoft.com/updates/?category=networking&query=Web%20Application%20Firewall).
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per iniziare, [creare un criterio di WAF](create-waf-policy-ag.md)
 - Altre informazioni sulle [regole gestite di WAF](application-gateway-crs-rulegroups-rules.md)
 - Altre informazioni sulle [regole personalizzate](custom-waf-rules-overview.md)
 - Informazioni su [Web Application Firewall in Frontdoor di Azure](../afds/afds-overview.md)
-

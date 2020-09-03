@@ -4,8 +4,6 @@
   items:
     - name: Che cos'è il servizio Frontdoor di Azure?
       href: front-door-overview.md
-    - name: Novità di Frontdoor di Azure
-      href: front-door-whats-new.md
 - name: Avvi rapidi
   expanded: true
   items:

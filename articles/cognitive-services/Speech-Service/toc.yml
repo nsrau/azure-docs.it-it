@@ -22,7 +22,7 @@
           href: speech-to-text.md
         - name: Nozioni di base sul riconoscimento vocale
           href: speech-to-text-basics.md
-    - name: Avvii rapidi
+    - name: Avvi rapidi
       items:
         - name: Riconoscimento vocale con input del microfono
           href: quickstarts/speech-to-text-from-microphone.md
@@ -241,11 +241,8 @@
   items:
     - name: Documentazione di Riconoscimento finalità
       href: index-intent-recognition.yml
-    - name: Avvio rapido
-      items:
-        - name: 'Riconoscere la voce, le finalità e le entità'
-          displayName: 'Recognize intents and entities with LUIS, LUIS, Language Understanding, prebuilt domains'
-          href: quickstarts/intent-recognition.md
+    - name: Guida di avvio rapido sul riconoscimento delle finalità
+      href: quickstarts/intent-recognition.md
     - name: Guide pratiche
       items:
         - name: 'Riconoscere le finalità voce con LUIS, C#'
@@ -428,7 +425,7 @@
       items:
         - name: Che cos'è Direct Line Speech?
           href: direct-line-speech.md
-        - name: Avvii rapidi
+        - name: Avvi rapidi
           items:
             - name: Creare un assistente vocale personalizzato
               href: quickstarts/voice-assistants.md
@@ -466,18 +463,14 @@
           href: custom-keyword-basics.md
 - name: Riconoscimento del parlante
   items:
-    - name: Panoramica
-      items:
-        - name: Che cos’è il Riconoscimento del parlante?
-          href: speaker-recognition-overview.md
-        - name: Nozioni di base su Riconoscimento del parlante
-          href: speaker-recognition-basics.md
+    - name: Panoramica di Riconoscimento del parlante
+      href: speaker-recognition-overview.md
+    - name: Guida di avvio rapido di Riconoscimento del parlante
+      href: get-started-speaker-recognition.md
     - name: Informazioni di riferimento
       items:
-        - name: API REST
-          items:
-            - name: API REST Riconoscimento del parlante
-              href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
+        - name: API REST Riconoscimento del parlante
+          href: 'https://docs.microsoft.com/rest/api/speakerrecognition/'
 - name: Hosting
   items:
     - name: Documentazione dell'hosting

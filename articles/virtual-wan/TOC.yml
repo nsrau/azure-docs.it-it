@@ -4,16 +4,6 @@
   items:
     - name: Che cos'è una rete WAN virtuale?
       href: virtual-wan-about.md
-    - name: Architecture
-      items:
-        - name: Eseguire la migrazione alla rete WAN virtuale
-          href: migrate-from-hub-spoke-topology.md
-        - name: Architettura della rete di transito globale
-          href: virtual-wan-global-transit-network-architecture.md
-        - name: Architettura della connettività SD-WAN
-          href: sd-wan-connectivity-architecture.md
-        - name: Interconnettersi con la Cina
-          href: interconnect-china.md
 - name: Esercitazioni
   items:
     - name: Creare una connessione da sito a sito
@@ -36,11 +26,21 @@
           href: virtual-wan-locations-partners.md
         - name: Linee guida sull'automazione per i partner
           href: virtual-wan-configure-automation-providers.md
-    - name: Routing
+    - name: Architecture
+      items:
+        - name: Eseguire la migrazione alla rete WAN virtuale
+          href: migrate-from-hub-spoke-topology.md
+        - name: Architettura della rete di transito globale
+          href: virtual-wan-global-transit-network-architecture.md
+        - name: Architettura della connettività SD-WAN
+          href: sd-wan-connectivity-architecture.md
+        - name: Interconnettersi con la Cina
+          href: interconnect-china.md
+    - name: Routing.
       items:
         - name: Informazioni sul routing dell'hub virtuale
           href: about-virtual-hub-routing.md
-        - name: Scenari
+        - name: Scenari di routing
           items:
             - name: Any-to-any
               href: scenario-any-to-any.md
@@ -116,7 +116,7 @@
           href: openvpn-azure-ad-client.md
         - name: Configurare l'autenticazione multi-applicazione di Azure AD
           href: openvpn-azure-ad-tenant-multi-app.md
-    - name: Routing
+    - name: Routing.
       items:
         - name: Come configurare il routing dell'hub virtuale
           href: how-to-virtual-hub-routing.md
@@ -154,8 +154,6 @@
   items:
     - name: Domande frequenti
       href: virtual-wan-faq.md
-    - name: Annunci di aggiornamento
-      href: 'https://azure.microsoft.com/updates/?category=networking&query=VIRTUAL%20WAN'
     - name: Prezzi
       href: 'https://azure.microsoft.com/pricing/details/virtual-wan'
     - name: Sottoscrizione e limiti dei servizi

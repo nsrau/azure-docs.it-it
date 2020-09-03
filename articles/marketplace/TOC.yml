@@ -17,12 +17,16 @@
               href: ./lead-management-for-cloud-marketplace.md
             - name: Esecuzione di transazioni nel marketplace commerciale
               href: ./marketplace-commercial-transaction-capabilities-and-considerations.md
+            - name: Piani e prezzi
+              href: plans-pricing.md
             - name: Offerte private
               href: ./private-offers.md
             - name: Contratto standard
               href: ./standard-contract.md
             - name: Attribuzione dell'uso da parte dei clienti e dei partner di Azure
               href: ./azure-partner-customer-usage-attribution.md
+            - name: Paesi e aree supportati
+              href: ./sell-from-countries.md
         - name: Guide alla pubblicazione per tipo di offerta
           href: ./publisher-guide-by-offer-type.md
           items:
@@ -32,8 +36,6 @@
               href: ./marketplace-solution-templates.md
             - name: Applicazioni gestite per app di Azure
               href: ./marketplace-managed-apps.md
-            - name: App SaaS
-              href: ./marketplace-saas-applications-technical-publishing-guide.md
             - name: Contenitori
               href: ./marketplace-containers.md
             - name: Moduli di IoT Edge
@@ -109,11 +111,11 @@
               href: ./partner-center-portal/create-azure-container-technical-assets.md
             - name: Creare un'offerta di Contenitore di Azure
               href: ./partner-center-portal/create-azure-container-offer.md
-        - name: Offerta di una macchina virtuale
+        - name: Offerta di macchina virtuale
           items:
-            - name: Creare un'offerta per macchine virtuali di Azure
+            - name: Creare un'offerta di macchina virtuale di Azure
               href: ./partner-center-portal/azure-vm-create-offer.md
-            - name: Creare un asset tecnico per macchine virtuali di Azure
+            - name: Creare l'asset tecnico delle macchine virtuali di Azure
               items:
                 - name: Certificazione di macchine virtuali - Problemi e soluzioni
                   href: ./partner-center-portal/vm-certification-issues-solutions.md
@@ -165,10 +167,8 @@
               href: ./partner-center-portal/create-power-bi-app-offer.md
         - name: Offerte SaaS
           items:
-            - name: Elenco di controllo per la creazione di offerte SaaS
-              href: ./partner-center-portal/offer-creation-checklist.md
-            - name: Creare un'offerta SaaS
-              href: ./partner-center-portal/create-new-saas-offer.md
+            - name: Pianificare un'offerta SaaS
+              href: plan-saas-offer.md
             - name: Autenticazione di Azure AD per SaaS
               items:
                 - name: Panoramica di Azure AD e SaaS
@@ -177,6 +177,26 @@
                   href: ./azure-ad-transactable-saas-landing-page.md
                 - name: Pagina di destinazione per le offerte gratuite o di valutazione
                   href: ./azure-ad-free-or-trial-landing-page.md
+            - name: Fatturazione a consumo dell'offerta SaaS
+              href: ./partner-center-portal/saas-metered-billing.md
+            - name: Creare e pubblicare un'offerta SaaS
+              items:
+                - name: Creare un'offerta SaaS
+                  href: create-new-saas-offer.md
+                - name: Configurare le proprietà dell'offerta SaaS
+                  href: create-new-saas-offer-properties.md
+                - name: Configurare la presentazione dell'offerta SaaS
+                  href: create-new-saas-offer-listing.md
+                - name: Aggiungere un gruppo di destinatari dell'anteprima
+                  href: create-new-saas-offer-preview.md
+                - name: Aggiungere i dettagli tecnici
+                  href: create-new-saas-offer-technical.md
+                - name: Creare piani
+                  href: create-new-saas-offer-plans.md
+                - name: Testare e pubblicare un'offerta SaaS
+                  href: test-publish-saas-offer.md
+            - name: Commercializzare l'offerta SaaS
+              href: create-new-saas-offer-marketing.md
             - name: API di evasione ordini SaaS
               href: ./partner-center-portal/pc-saas-fulfillment-apis.md
               items:
@@ -188,8 +208,6 @@
                   href: ./partner-center-portal/pc-saas-fulfillment-api-v1.md
                 - name: API di evasione ordini SaaS - domande frequenti
                   href: ./partner-center-portal/saas-fulfillment-apis-faq.md
-            - name: Fatturazione a consumo dell'offerta SaaS
-              href: ./partner-center-portal/saas-metered-billing.md
         - name: Panoramica della gestione dei clienti potenziali
           href: ./partner-center-portal/commercial-marketplace-get-customer-leads.md
           items:
@@ -207,8 +225,6 @@
               href: ./partner-center-portal/commercial-marketplace-lead-management-instructions-salesforce.md
         - name: Servizio di misurazione del Marketplace
           items:
-            - name: Servizio di rilevamento anomalie
-              href: ./partner-center-portal/anomaly-detection-service-for-metered-billing.md
             - name: Strategie di autenticazione
               href: ./partner-center-portal/marketplace-metering-service-authentication.md
             - name: API del servizio di misurazione di Marketplace
@@ -234,7 +250,7 @@
       href: review-publish-offer.md
     - name: Aggiornare le offerte esistenti
       href: ./partner-center-portal/update-existing-offer.md
-    - name: Attivare i vantaggi
+    - name: Attivare Marketplace Rewards
       href: ./partner-center-portal/marketplace-rewards.md
     - name: Analisi del Centro per i Partner
       items:
@@ -304,3 +320,7 @@
           href: ./cloud-partner-portal-api-troubleshooting-authentication-errors.md
     - name: Opzioni di supporto
       href: ./partner-center-portal/support.md
+    - name: Risorse
+      items:
+        - name: Tag HTML supportati
+          href: supported-html-tags.md

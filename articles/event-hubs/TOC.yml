@@ -125,8 +125,12 @@
       maintainContext: true
 - name: Guide pratiche
   items:
-    - name: Spostarsi tra aree
-      href: move-across-regions.md
+    - name: Spostamento
+      items:
+        - name: Spostare uno spazio dei nomi in un'altra area
+          href: move-across-regions.md
+        - name: Spostare un cluster dedicato in un'altra area
+          href: move-cluster-across-regions.md
     - name: Aggiungere dinamicamente partizioni
       href: dynamically-add-partitions.md
     - name: Usare l'archiviazione BLOB come archivio di checkpoint nell'hub di Azure Stack
