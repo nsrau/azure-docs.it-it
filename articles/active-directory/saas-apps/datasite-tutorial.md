@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/05/2020
+ms.date: 08/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 4608e8b818fcb75d91d7daf5278ba1dd30c9d667
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 36a90dee086a0ada705a0c067f3ad9d717542d52
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88555896"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077535"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-datasite"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Datasite
 
@@ -43,6 +43,9 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * Dopo aver configurato Datasite, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
+> [!NOTE]
+> Dal momento che l'identificatore di questa applicazione è un valore stringa fisso, è possibile configurare una sola istanza in un solo tenant.
+
 ## <a name="adding-datasite-from-the-gallery"></a>Aggiunta di Datasite dalla raccolta
 
 Per configurare l'integrazione di Datasite in Azure AD, è necessario aggiungere Datasite dalla raccolta all'elenco di app SaaS gestite.
@@ -62,7 +65,7 @@ Configurare e testare l'accesso SSO di Azure AD con Datasite usando un utente di
 Per configurare e testare l'accesso SSO di Azure AD con Datasite, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
+    1. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
     1. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
 1. **[Configurare l'accesso SSO di Datasite](#configure-datasite-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
     1. **[Creare l'utente di test di Datasite](#create-datasite-test-user)** : per avere una controparte di B.Simon in Datasite collegata alla rappresentazione dell'utente in Azure AD.
@@ -80,10 +83,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
 1. Nella sezione **Configurazione SAML di base** immettere i valori per i campi seguenti:
 
-    Nella casella di testo **URL accesso** digitare un URL nel formato seguente: `https://auth.<ENVIRONMENT>.com/sp/ACS.saml2`
-
-    > [!NOTE]
-    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di accesso effettivo. Per ottenere il valore, contattare il [team di supporto clienti di Datasite](mailto:service@datasite.com). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    Nella casella di testo **URL di accesso** digitare l'URL: `https://auth.datasite.com/sp/ACS.saml2`
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare **Certificato (Base64)** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 

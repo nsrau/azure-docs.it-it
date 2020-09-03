@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cf30324371043d8b702d3e22ec3ecd98e114ba6
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 3a37353615e35cd75c126c268de71d10077a9071
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428589"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268435"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Esercitazione: configurare l'aggiunta all'identità ibrida di Azure Active Directory per i domini federati
 
@@ -88,7 +88,7 @@ A partire da Windows 10 1803, se l'aggiunta istantanea ad Azure AD ibrido per un
 
 Se l'organizzazione deve accedere a Internet tramite un proxy in uscita, è consigliabile [implementare WPAD (Web Proxy Auto-Discovery)](/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) per consentire ai computer Windows 10 di eseguire la registrazione di dispositivi con Azure AD. In caso di problemi nella configurazione e nella gestione di WPAD, vedere [Risolvere i problemi di rilevamento automatico](/previous-versions/tn-archive/cc302643(v=technet.10)). 
 
-Se non si non usa WPAD e si vuole configurare le impostazioni proxy nel computer in uso, è possibile farlo a partire da Windows 10 1709. Per altre informazioni, vedere [Configurare le impostazioni WinHTTP tramite un oggetto Criteri di gruppo (GPO)](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
+Se non si non usa WPAD e si vuole configurare le impostazioni proxy nel computer in uso, è possibile farlo a partire da Windows 10 1709. Per altre informazioni, vedere [Configurare le impostazioni WinHTTP tramite un oggetto Criteri di gruppo (GPO)](/archive/blogs/netgeeks/winhttp-proxy-settings-deployed-by-gpo).
 
 > [!NOTE]
 > Se si configurano le impostazioni proxy nel computer usando le impostazioni WinHTTP, i computer che non possono connettersi al proxy configurato non riusciranno a connettersi a Internet.
@@ -193,7 +193,7 @@ Ecco tre modi per individuare e verificare lo stato del dispositivo:
 ### <a name="using-the-azure-portal"></a>Uso del portale di Azure
 
 1. Passare alla pagina di dispositivi usando un [collegamento diretto](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
-2. Per informazioni su come individuare un dispositivo, vedere [Come gestire le identità dei dispositivi con il portale di Microsoft Azure](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal#locate-devices).
+2. Per informazioni su come individuare un dispositivo, vedere [Come gestire le identità dei dispositivi con il portale di Microsoft Azure](./device-management-azure-portal.md).
 3. Se la colonna **Registrazione completata** indica **In sospeso**, l'operazione di Aggiunta ad Azure AD ibrido non è stata completata. Negli ambienti federati questo problema può verificarsi solo se non è stato possibile eseguire la registrazione e AAD Connect è configurato per sincronizzare i dispositivi.
 4. Se la colonna **Registrazione completata** contiene una **data/ora**, l'operazione di Aggiunta ad Azure AD ibrido è stata completata.
 
@@ -243,7 +243,7 @@ Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -e
 
 Se si verificano problemi durante il completamento dell'aggiunta ad Azure AD ibrido per dispositivi Windows aggiunti al dominio, vedere:
 
-- [Risoluzione dei problemi dei dispositivi con il comando dsregcmd](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
+- [Risoluzione dei problemi dei dispositivi con il comando dsregcmd](./troubleshoot-device-dsregcmd.md)
 - [Risolvere i problemi dei dispositivi Windows correnti aggiunti ad Azure AD ibrido](troubleshoot-hybrid-join-windows-current.md)
 - [Risolvere i problemi dei dispositivi Windows di livello inferiore aggiunti ad Azure AD ibrido](troubleshoot-hybrid-join-windows-legacy.md)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4f30202b08328854296b45e0279fc51b25b0a7c
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 56b0685dee518399ae8328ddac18f03e82918a38
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87428471"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268418"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Esercitazione: Configurare l'aggiunta all'identità ibrida di Azure Active Directory per i domini gestiti
 
@@ -73,9 +73,9 @@ Per l'aggiunta ad Azure AD ibrido i dispositivi devono avere accesso alle risors
 > [!WARNING]
 > Se l'organizzazione usa server proxy che intercettano il traffico SSL per scenari come la prevenzione della perdita dei dati o restrizioni del tenant di Azure AD, assicurarsi che il traffico verso https://device.login.microsoftonline.com sia escluso dall'interruzione e dall'ispezione di TLS. La mancata esclusione di https://device.login.microsoftonline.com può determinare interferenze con l'autenticazione dei certificati client, causando problemi con la registrazione dei dispositivi e l'accesso condizionale basato su dispositivo.
 
-Se l'organizzazione deve accedere a Internet tramite un proxy in uscita, è consigliabile [implementare WPAD (Web Proxy Auto-Discovery)](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10)) per consentire ai computer Windows 10 di eseguire la registrazione di dispositivi con Azure AD. Per risolvere i problemi durante la configurazione e la gestione di WPAD, vedere [Risoluzione dei problemi relativi al rilevamento automatico](/previous-versions/tn-archive/cc302643(v=technet.10)). Nei dispositivi Windows 10 precedenti all'aggiornamento 1709, WPAD è l'unica opzione disponibile per configurare un proxy da usare con l'aggiunta ad Azure AD ibrido. 
+Se l'organizzazione deve accedere a Internet tramite un proxy in uscita, è consigliabile [implementare WPAD (Web Proxy Auto-Discovery)](/previous-versions/tn-archive/cc995261(v=technet.10)) per consentire ai computer Windows 10 di eseguire la registrazione di dispositivi con Azure AD. Per risolvere i problemi durante la configurazione e la gestione di WPAD, vedere [Risoluzione dei problemi relativi al rilevamento automatico](/previous-versions/tn-archive/cc302643(v=technet.10)). Nei dispositivi Windows 10 precedenti all'aggiornamento 1709, WPAD è l'unica opzione disponibile per configurare un proxy da usare con l'aggiunta ad Azure AD ibrido. 
 
-Se non si usa WPAD, è possibile configurare le impostazioni proxy WinHTTP nel computer in uso a partire da Windows 10 1709. Per altre informazioni, vedere [Impostazioni del proxy WinHTTP distribuite dall'oggetto Criteri di gruppo](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/).
+Se non si usa WPAD, è possibile configurare le impostazioni proxy WinHTTP nel computer in uso a partire da Windows 10 1709. Per altre informazioni, vedere [Impostazioni del proxy WinHTTP distribuite dall'oggetto Criteri di gruppo](/archive/blogs/netgeeks/winhttp-proxy-settings-deployed-by-gpo).
 
 > [!NOTE]
 > Se si configurano le impostazioni proxy nel computer usando le impostazioni WinHTTP, i computer che non possono connettersi al proxy configurato non riusciranno a connettersi a Internet.
@@ -174,7 +174,7 @@ Ecco tre modi per individuare e verificare lo stato del dispositivo:
 ### <a name="using-the-azure-portal"></a>Uso del portale di Azure
 
 1. Passare alla pagina di dispositivi usando un [collegamento diretto](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
-2. Per informazioni su come individuare un dispositivo, vedere [Come gestire le identità dei dispositivi con il portale di Microsoft Azure](https://docs.microsoft.com/azure/active-directory/devices/device-management-azure-portal#locate-devices).
+2. Per informazioni su come individuare un dispositivo, vedere [Come gestire le identità dei dispositivi con il portale di Microsoft Azure](./device-management-azure-portal.md).
 3. Se la colonna **Registrazione completata** indica **In sospeso**, l'operazione di Aggiunta ad Azure AD ibrido non è stata completata.
 4. Se la colonna **Registrazione completata** contiene una **data/ora**, l'operazione di Aggiunta ad Azure AD ibrido è stata completata.
 
@@ -224,7 +224,7 @@ Get-MsolDevice -All -IncludeSystemManagedDevices | where {($_.DeviceTrustType -e
 
 Se si verificano problemi durante il completamento dell'aggiunta ad Azure AD ibrido per dispositivi Windows aggiunti al dominio, vedere:
 
-- [Risoluzione dei problemi dei dispositivi con il comando dsregcmd](https://docs.microsoft.com/azure/active-directory/devices/troubleshoot-device-dsregcmd)
+- [Risoluzione dei problemi dei dispositivi con il comando dsregcmd](./troubleshoot-device-dsregcmd.md)
 - [Risoluzione dei problemi relativi a dispositivi aggiunti all'identità ibrida di Azure Active Directory](troubleshoot-hybrid-join-windows-current.md)
 - [Risoluzione dei problemi relativi a dispositivi di livello inferiore aggiunti all'identità ibrida di Azure Active Directory](troubleshoot-hybrid-join-windows-legacy.md)
 

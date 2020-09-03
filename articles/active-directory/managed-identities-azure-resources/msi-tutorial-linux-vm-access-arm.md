@@ -3,7 +3,7 @@ title: Usare un'identità gestita assegnata dall'utente per una macchina virtual
 description: Esercitazione che illustra come usare un'identità gestita assegnata dall'utente in una macchina virtuale Linux per accedere ad Azure Resource Manager.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,15 +13,15 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/22/2017
-ms.author: markvi
+ms.author: barclayn
 ROBOTS: NOINDEX,NOFOLLOW
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 57b68ebb21c0c10c3fbe3fd77d11785d16a10053
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: c27480f29a29f4805f8a9cafcfd388cb0638519e
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "60443467"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269319"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Esercitazione: Usare un'identità gestita assegnata dall'utente in una macchina virtuale Linux per accedere ad Azure Resource Manager
 
@@ -43,7 +43,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 - [Accedere al portale di Azure](https://portal.azure.com)
 
-- [Creare una macchina virtuale Linux](/azure/virtual-machines/linux/quick-create-portal)
+- [Creare una macchina virtuale Linux](../../virtual-machines/linux/quick-create-portal.md)
 
 - Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa guida introduttiva è necessario eseguire la versione 2.0.4 o successiva dell'interfaccia della riga di comando di Azure. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure 2.0]( /cli/azure/install-azure-cli).
 
@@ -122,11 +122,11 @@ La risposta contiene i dettagli per l'assegnazione di ruolo creata, in modo anal
 
 Il resto dell'esercitazione prevede che le operazioni vengano svolte dalla macchina virtuale creata in precedenza.
 
-Per completare questi passaggi, è necessario disporre di un client SSH. Se si usa Windows, è possibile usare il client SSH nel [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about). 
+Per completare questi passaggi, è necessario disporre di un client SSH. Se si usa Windows, è possibile usare il client SSH nel [sottosistema Windows per Linux](/windows/wsl/about). 
 
 1. Accedere al [portale](https://portal.azure.com) di Azure.
 2. Nel portale passare a **Macchine virtuali**, selezionare la macchina virtuale Linux e in **Panoramica** fare clic su **Connetti**. Copiare la stringa di connessione alla macchina virtuale.
-3. Connettersi alla macchina virtuale usando un client SSH di propria scelta. Se si usa Windows, è possibile usare il client SSH nel [sottosistema Windows per Linux](https://msdn.microsoft.com/commandline/wsl/about). Per richiedere assistenza nella configurazione delle chiavi del client SSH, vedere [Come usare le chiavi SSH con Windows in Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) o [Come creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
+3. Connettersi alla macchina virtuale usando un client SSH di propria scelta. Se si usa Windows, è possibile usare il client SSH nel [sottosistema Windows per Linux](/windows/wsl/about). Per richiedere assistenza nella configurazione delle chiavi del client SSH, vedere [Come usare le chiavi SSH con Windows in Azure](~/articles/virtual-machines/linux/ssh-from-windows.md) o [Come creare e usare una coppia di chiavi SSH pubblica e privata per le macchine virtuali Linux in Azure](~/articles/virtual-machines/linux/mac-create-ssh-keys.md).
 4. Nella finestra terminale usare CURL per fare una richiesta all'endpoint di Identità del servizio metadati di Azure per ottenere un token di accesso per Azure Resource Manager.  
 
    La richiesta CURL per acquisire un token di accesso viene visualizzata nell'esempio seguente. Assicurarsi di sostituire `<CLIENT ID>` con la proprietà `clientId` restituita dal comando `az identity create` in [Creare un'identità gestita assegnata dall'utente](#create-a-user-assigned-managed-identity): 
@@ -179,5 +179,4 @@ Per completare questi passaggi, è necessario disporre di un client SSH. Se si u
 In questa esercitazione si è appreso come creare un'identità gestita assegnata dall'utente e associarla a una macchina virtuale Linux per accedere all'API di Azure Resource Manager.  Per altre informazioni su Azure Resource Manager, vedere:
 
 > [!div class="nextstepaction"]
->[Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview)
-
+>[Azure Resource Manager](../../azure-resource-manager/management/overview.md)
