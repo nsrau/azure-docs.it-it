@@ -3,15 +3,16 @@ title: Esempi di modello di Resource Manager per le risorse di Servizio app di A
 description: Modelli di Azure Resource Manager di esempio per distribuire un servizio app di Azure con una risorsa di Application Insights.
 ms.subservice: application-insights
 ms.topic: sample
+ms.custom: devx-track-dotnet
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 08/06/2020
-ms.openlocfilehash: 20a03720233c276ddb71d53c97252643dce8d557
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 966dc0650d445a2181dc6a7d6ea1c57f223fd6f9
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927496"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934243"
 ---
 # <a name="resource-manager-template-samples-for-creating-azure-app-services-web-apps-with-application-insights-monitoring"></a>Esempio di modello di Resource Manager per la creazione di app Web di Servizi app di Azure con il monitoraggio di Application Insights
 

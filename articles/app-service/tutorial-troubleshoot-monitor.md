@@ -5,12 +5,12 @@ author: msangapu-msft
 ms.author: msangapu
 ms.topic: tutorial
 ms.date: 06/20/2020
-ms.openlocfilehash: 106427a6b26386e6ff881862f836e9108a27aa96
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c34cf47a5b8c20c10b160ac6e55309b3c18448f3
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88082330"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959018"
 ---
 # <a name="tutorial-troubleshoot-an-app-service-app-with-azure-monitor"></a>Esercitazione: Risolvere i problemi di un'app del servizio app con Monitoraggio di Azure
 
@@ -18,9 +18,9 @@ ms.locfileid: "88082330"
 > L'integrazione di Monitoraggio di Azure con il Servizio app è in [anteprima](https://aka.ms/appsvcblog-azmon).
 >
 
-Questa esercitazione illustra come risolvere i problemi di un'app del [servizio app](overview.md) con [Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview). L'app di esempio include il codice destinato a esaurire la memoria e a causare errori HTTP 500, in modo da poter diagnosticare e risolvere il problema con Monitoraggio di Azure. Al termine, si avrà un'app di esempio in esecuzione nel Servizio app in Linux integrata con [Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview).
+Questa esercitazione illustra come risolvere i problemi di un'app del [servizio app](overview.md) con [Monitoraggio di Azure](../azure-monitor/overview.md). L'app di esempio include il codice destinato a esaurire la memoria e a causare errori HTTP 500, in modo da poter diagnosticare e risolvere il problema con Monitoraggio di Azure. Al termine, si avrà un'app di esempio in esecuzione nel Servizio app in Linux integrata con [Monitoraggio di Azure](../azure-monitor/overview.md).
 
-[Monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview) ottimizza la disponibilità e le prestazioni delle applicazioni e dei servizi in uso offrendo una soluzione completa per raccogliere e analizzare la telemetria e intervenire di conseguenza dal cloud e dagli ambienti locali.
+[Monitoraggio di Azure](../azure-monitor/overview.md) ottimizza la disponibilità e le prestazioni delle applicazioni e dei servizi in uso offrendo una soluzione completa per raccogliere e analizzare la telemetria e intervenire di conseguenza dal cloud e dagli ambienti locali.
 
 In questa esercitazione verranno illustrate le procedure per:
 
@@ -38,7 +38,7 @@ I passaggi illustrati in questa esercitazione possono essere eseguiti in macOS, 
 Per completare questa esercitazione, è necessario disporre di:
 
 - [Sottoscrizione di Azure](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
-- [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli)
+- [Interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli)
 - [Git](https://git-scm.com/)
 
 ## <a name="create-azure-resources"></a>Creare le risorse di Azure
@@ -73,12 +73,12 @@ az monitor log-analytics workspace create --resource-group myResourceGroup --wor
 
 ### <a name="create-a-diagnostic-setting"></a>Creare un'impostazione di diagnostica
 
-È possibile usare le impostazioni di diagnostica per raccogliere le metriche per determinati servizi di Azure nei log di Monitoraggio di Azure per l'analisi con altri dati di monitoraggio usando le query su log. Per questa esercitazione si abilitano il server Web e i log di output standard e/o degli errori. Vedere i [tipi di log supportati](https://docs.microsoft.com/azure/app-service/troubleshoot-diagnostic-logs#supported-log-types) per un elenco completo dei tipi di log e delle descrizioni.
+È possibile usare le impostazioni di diagnostica per raccogliere le metriche per determinati servizi di Azure nei log di Monitoraggio di Azure per l'analisi con altri dati di monitoraggio usando le query su log. Per questa esercitazione si abilitano il server Web e i log di output standard e/o degli errori. Vedere i [tipi di log supportati](./troubleshoot-diagnostic-logs.md#supported-log-types) per un elenco completo dei tipi di log e delle descrizioni.
 
 Eseguire i comandi seguenti per creare le impostazioni di diagnostica per AppServiceConsoleLogs (output standard/errori) e AppServiceHTTPLogs (log del server Web). Sostituire _\<app-name>_ e _\<workspace-name>_ con i propri valori. 
 
 > [!NOTE]
-> I primi due comandi, `resourceID` e `workspaceID`, sono variabili da usare nel comando `az monitor diagnostic-settings create`. Vedere [Creare le impostazioni di diagnostica usando l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostic-settings#create-diagnostic-settings-using-azure-cli) per altre informazioni su questo comando.
+> I primi due comandi, `resourceID` e `workspaceID`, sono variabili da usare nel comando `az monitor diagnostic-settings create`. Vedere [Creare le impostazioni di diagnostica usando l'interfaccia della riga di comando di Azure](../azure-monitor/platform/diagnostic-settings.md#create-using-azure-cli) per altre informazioni su questo comando.
 >
 
 ```bash
@@ -129,7 +129,7 @@ Nel portale di Azure selezionare l'area di lavoro Log Analytics.
 
 ### <a name="log-queries"></a>Query di log
 
-Le query su log consentono di sfruttare appieno il valore dei dati raccolti nei log di Monitoraggio di Azure. Le query su log vengono usate per identificare i log sia in AppServiceHTTPLogs che in AppServiceConsoleLogs. Per altre informazioni sulle query su log, vedere [Panoramica delle query su log](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview).
+Le query su log consentono di sfruttare appieno il valore dei dati raccolti nei log di Monitoraggio di Azure. Le query su log vengono usate per identificare i log sia in AppServiceHTTPLogs che in AppServiceConsoleLogs. Per altre informazioni sulle query su log, vedere [Panoramica delle query su log](../azure-monitor/log-query/log-query-overview.md).
 
 ### <a name="view-appservicehttplogs-with-log-query"></a>Visualizzare AppServiceHTTPLogs con una query su log
 

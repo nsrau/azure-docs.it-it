@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 07/15/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 8b4d58163c28e00c30c5b0f9db3a6ff259fbf5ae
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: d6f72231e84650a17850932979b43c21dd045f30
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86536927"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89069324"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>Esercitazione: Distribuire e configurare Firewall di Azure tramite il portale di Azure
 
@@ -47,6 +47,8 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Testare il firewall
 
 Se si preferisce, è possibile completare questa esercitazione usando [Azure PowerShell](deploy-ps.md).
+
+## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
@@ -130,9 +132,9 @@ Distribuire il firewall nella rete virtuale.
 3. Selezionare **Firewall**, quindi **Crea**.
 4. Nella pagina **Crea un firewall** usare la tabella seguente per configurare il firewall:
 
-   |Impostazione  |Valore  |
+   |Impostazione  |valore  |
    |---------|---------|
-   |Sottoscrizione     |\<your subscription\>|
+   |Subscription     |\<your subscription\>|
    |Resource group     |**Test-FW-RG** |
    |Nome     |**Test-FW01**|
    |Location     |Selezionare la stessa località usata in precedenza|

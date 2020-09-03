@@ -3,7 +3,7 @@ title: Usare un'identità gestita assegnata dal sistema per una macchina virtual
 description: Esercitazione che illustra come usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Archiviazione di Azure.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
+author: barclayn
 manager: daveba
 editor: daveba
 ms.service: active-directory
@@ -13,14 +13,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 01/14/2020
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 182bf02bfaad598a447304cc9f2ed42f6221176d
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: de1cc69b3cfdac307edf6dfe999a5d538c2cb811
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75971957"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89263179"
 ---
 # <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Windows per accedere ad Archiviazione di Azure
 
@@ -184,4 +184,4 @@ La risposta contiene il contenuto del file:
 In questa esercitazione si è appreso come abilitare un'identità assegnata dal sistema di una macchina virtuale Windows per accedere ad Archiviazione di Azure.  Per altre informazioni su Archiviazione di Azure, vedere:
 
 > [!div class="nextstepaction"]
-> [Archiviazione di Azure](/azure/storage/common/storage-introduction)
+> [Archiviazione di Azure](../../storage/common/storage-introduction.md)

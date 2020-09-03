@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 05/19/2020
-ms.openlocfilehash: 2f25cab211d24facea7863c15b6d7671a9657ae9
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: b6164ef955ac92a7ef8776e560ea4d3a92abaf8d
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290675"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935977"
 ---
 # <a name="tutorial-diagnose-repair-and-commit-changes-to-your-skillset"></a>Esercitazione: Diagnosticare, correggere ed eseguire il commit delle modifiche apportate al set di competenze
 
@@ -39,7 +39,7 @@ Questa esercitazione usa i servizi Ricerca cognitiva di Azure e Archiviazione di
 
 * [Scaricare i dati di esempio](https://github.com/Azure-Samples/azure-search-sample-data/tree/master/clinical-trials-pdf-19) costituiti da 19 file.
 
-* [Creare un account di archiviazione di Azure](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal) o [trovare un account esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
+* [Creare un account di archiviazione di Azure](../storage/common/storage-account-create.md?tabs=azure-portal) o [trovare un account esistente](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Storage%2storageAccounts/). 
 
    Per evitare addebiti dovuti alla larghezza di banda, scegliere la stessa area di Ricerca cognitiva di Azure.
    
@@ -258,5 +258,5 @@ Se si usa un servizio gratuito, tenere presente che il numero di indicizzatori e
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Altre informazioni sui set di competenze](https://docs.microsoft.com/azure/search/cognitive-search-working-with-skillsets)
-> [Altre informazioni sull'arricchimento incrementale e la memorizzazione nella cache](https://docs.microsoft.com/azure/search/cognitive-search-incremental-indexing-conceptual)
+> [Altre informazioni sui set di competenze](./cognitive-search-working-with-skillsets.md)
+> [Altre informazioni sull'arricchimento incrementale e la memorizzazione nella cache](./cognitive-search-incremental-indexing-conceptual.md)

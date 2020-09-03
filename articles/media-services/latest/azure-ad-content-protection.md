@@ -10,17 +10,19 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/1/2020
+ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-javascript
-ms.openlocfilehash: ad50b29dbda7c09c9312ebb4a01ebc5da568f3da
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 006e312e67f5f4014248c44a799c2dde826801c2
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87422097"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89258844"
 ---
 # <a name="tutorial-end-to-end-content-protection-using-azure-ad"></a>Esercitazione: Protezione end-to-end del contenuto con Azure AD
+
+[!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
 Con questa esercitazione e l'app lettore di esempio fornita è possibile configurare un sottosistema di protezione end-to-end del contenuto multimediale in Servizi multimediali di Azure (AMS) e in Azure Active Directory (AAD) per trasmettere contenuti multimediali con tutti i sistemi di crittografia DRM/AES-128, i protocolli di streaming, i codec e i formati di contenitore supportati da AMS. L'esempio è sufficientemente generico da consentire l'accesso sicuro a qualsiasi API REST protetta da OAuth 2 tramite il flusso di codice di autorizzazione con PKCE (Proof Key for Code Exchange). Il servizio di distribuzione delle licenze di Servizi multimediali di Azure è solo una di queste API. Funziona anche per l'API Microsoft Graph o per qualsiasi API REST personalizzata protetta con il flusso di codice di autorizzazione OAuth 2. Questa è la documentazione relativa al [codice di esempio](https://github.com/Azure-Samples/media-services-content-protection-azure-ad).
 

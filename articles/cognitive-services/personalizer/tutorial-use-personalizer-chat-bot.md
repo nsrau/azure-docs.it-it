@@ -3,12 +3,13 @@ title: Usare Personalizza esperienze nel chatbot - Personalizza esperienze
 description: Personalizzare un chatbot .NET C# con un ciclo di Personalizza esperienze per fornire il contenuto corretto a un utente in base alle azioni (con caratteristiche) e alle caratteristiche del contesto.
 ms.topic: tutorial
 ms.date: 07/17/2020
-ms.openlocfilehash: 8e936b4017ad50434bc7d6b05b4217f82a9080e0
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.custom: devx-track-csharp
+ms.openlocfilehash: ee037632b068b0d8d2f3ed3b6ea7a83d157c5083
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87131668"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88935654"
 ---
 # <a name="tutorial-use-personalizer-in-net-chat-bot"></a>Esercitazione: Usare Personalizza esperienze in un chatbot .NET
 
