@@ -80,7 +80,7 @@
               href: data-factory-azure-search-connector.md
             - name: database SQL di Azure
               href: data-factory-azure-sql-connector.md
-            - name: Azure SQL Data Warehouse
+            - name: Azure Synapse Analytics
               href: data-factory-azure-sql-data-warehouse-connector.md
             - name: Archiviazione tabelle di Azure
               href: data-factory-azure-table-connector.md

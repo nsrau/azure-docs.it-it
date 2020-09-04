@@ -5,7 +5,7 @@
     - name: Informazioni su Criteri di Azure
       displayName: 'rbac, assign, initiative, parameters, count'
       href: overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Assegnare un criterio - Portale
@@ -93,6 +93,9 @@
     - name: Valutare l'effetto di un nuovo criterio
       displayName: 'audit, enforcementmode, compliance'
       href: ./concepts/evaluate-impact.md
+    - name: Criteri consigliati
+      displayName: 'VMs, virtual machines'
+      href: ./concepts/recommended-policies.md
     - name: Conformità alle normative
       displayName: 'standards, domains, controls'
       href: ./concepts/regulatory-compliance.md

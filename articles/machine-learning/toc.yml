@@ -124,7 +124,7 @@
     - name: Destinazione del calcolo
       displayName: 'resource, dsvm, AKS, kubernetes, amlcompute, Data Science Virtual Machine, local, cluster, ACI, container instance, ADB, Databricks, data lake, lake, HDI, HDInsight'
       href: concept-compute-target.md
-    - name: Dati
+    - name: Data
       items:
         - name: Accesso ai dati
           href: concept-data.md
@@ -219,9 +219,10 @@
     - name: Creare le risorse di calcolo
       items:
         - name: Usare Studio
+          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority'
           href: how-to-create-attach-compute-studio.md
         - name: Usare Python SDK
-          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight'
+          displayName: 'compute target, dsvm, Data Science Virtual Machine, local, cluster, ACI, container instance, Databricks, data lake, lake, HDI, HDInsight, low priority'
           href: how-to-create-attach-compute-sdk.md
     - name: Configurare l'ambiente
       items:
@@ -477,9 +478,6 @@
         - name: Eseguire il debug e la risoluzione dei problemi del passaggio di esecuzione in parallelo
           displayName: debug_batch consume pipeline parallelrunstep inference
           href: how-to-debug-parallel-run-step.md
-        - name: Iterazione ed evoluzione delle pipeline di Machine Learning
-          displayName: modularizing testing
-          href: concept-pipeline-practices-tips.md
     - name: Azure Pipelines per CI/CD
       displayName: 'continuous, integration, delivery'
       href: /azure/devops/pipelines/targets/azure-machine-learning?context=azure/machine-learning/context/ml-context
