@@ -107,10 +107,10 @@
           href: howto-run-a-job.md
     - name: Trasformare
       items:
-        - name: Esportare dati in destinazioni in Azure (legacy)
-          href: howto-export-data.md
         - name: Esportare i dati in destinazioni cloud (anteprima)
-          href: howto-use-data-export.md
+          href: howto-export-data.md
+        - name: Esportare i dati in destinazioni cloud (legacy)
+          href: howto-export-data-legacy.md
         - name: Creare webhook per le regole
           href: howto-create-webhooks.md
         - name: Usare i flussi di lavoro per l'integrazione con altri servizi

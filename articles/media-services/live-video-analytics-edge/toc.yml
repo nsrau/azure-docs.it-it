@@ -93,10 +93,10 @@
       href: troubleshoot-how-to.md
 - name: Informazioni di riferimento
   items:
-    - name: Contratto di dati HTTP
-      href: http-data-contract.md
-    - name: Contratto di dati gRPC
-      href: grpc-data-contract.md
+    - name: Protocollo di estensione HTTP
+      href: http-extension-protocol.md
+    - name: Protocollo di estensione gRPC
+      href: grpc-extension-protocol.md
     - name: Schema dei metadati di inferenza
       href: inference-metadata-schema.md
     - name: Metodi diretti

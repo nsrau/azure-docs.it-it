@@ -10,7 +10,7 @@
     - name: Creare un cluster del servizio Azure Kubernetes
       expanded: true
       items:
-        - name: Usare l'interfaccia della riga di comando di Azure
+        - name: Utilizzare l’interfaccia della riga di comando di Azure
           href: kubernetes-walkthrough.md
         - name: Usare Azure PowerShell
           href: kubernetes-walkthrough-powershell.md
@@ -148,7 +148,7 @@
           href: cluster-container-registry-integration.md
         - name: Creare nodi virtuali
           items:
-            - name: Usare l'interfaccia della riga di comando di Azure
+            - name: Utilizzare l’interfaccia della riga di comando di Azure
               href: virtual-nodes-cli.md
             - name: Usare il portale di Azure
               href: virtual-nodes-portal.md
@@ -187,6 +187,14 @@
           href: azure-netapp-files.md
         - name: Usare Dischi Ultra di Azure (anteprima)
           href: use-ultra-disks.md
+        - name: Driver di archiviazione CSI
+          items:
+            - name: Abilitare i driver di archiviazione CSI (anteprima)
+              href: csi-storage-drivers.md
+            - name: Driver CSI per dischi di Azure (anteprima)
+              href: azure-disk-csi.md
+            - name: Driver CSI per File di Azure (anteprima)
+              href: azure-files-csi.md
     - name: Configurare le impostazioni di rete
       items:
         - name: Creare o usare una rete virtuale esistente
@@ -252,9 +260,9 @@
           href: update-credentials.md
         - name: Abilitare l'integrazione di Azure Active Directory
           items:
-            - name: AAD gestito dal servizio Azure Kubernetes
+            - name: Azure AD gestito dal servizio Azure Kubernetes
               href: managed-aad.md
-            - name: Integrazione di AAD (legacy)
+            - name: Integrazione di Azure AD (legacy)
               href: azure-ad-integration-cli.md
         - name: Usare il controllo degli accessi in base al ruolo di Azure per l'autorizzazione di Kubernetes (anteprima)
           href: manage-azure-rbac.md

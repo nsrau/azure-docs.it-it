@@ -7,7 +7,7 @@
           href: cloudsimple-vmware-solutions-overview.md
         - name: Concetti chiave per l'amministrazione
           href: key-concepts.md
-    - name: Guida introduttiva
+    - name: Avvio rapido
       expanded: true
       items:
         - name: Pianificazione della rete
@@ -22,7 +22,7 @@
           href: quickstart-create-vmware-virtual-machine.md
     - name: Concetti
       items:
-        - name: Service
+        - name: Servizio
           href: cloudsimple-service.md
         - name: Nodi
           href: cloudsimple-node.md
@@ -40,7 +40,7 @@
           href: cloudsimple-public-ip-address.md
         - name: Connessione di rete di Azure
           href: cloudsimple-azure-network-connection.md
-        - name: Gestione account
+        - name: Gestione degli account
           href: cloudsimple-account.md
         - name: Gestione attività
           href: cloudsimple-activity.md
@@ -178,3 +178,7 @@
               href: on-premises-connection.md
             - name: Connessione di rete virtuale di Azure con ExpressRoute
               href: azure-expressroute-connection.md
+    - name: Note sulla versione
+      items:
+        - name: Aggiornamento di CloudSimple di settembre 2020
+          href: update-plan-sept-2020.md

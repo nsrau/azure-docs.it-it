@@ -1,6 +1,6 @@
 ### YamlMime:Landing
-title: Documentazione dell'API Riconoscimento input penna
-summary: Informazioni su come usare l'API Riconoscimento input penna per inserire il riconoscimento input penna nelle app e nei servizi. L'API è un servizio basato sul cloud che usa Machine Learning per riconoscere forme e testo scritti a mano in qualsiasi contesto.
+title: Documentazione dell'API Riconoscimento input penna (ritiro)
+summary: L'anteprima dell'API riconoscimento input penna è terminata il 26 agosto 2020. Se esistono risorse di riconoscimento input penna, è possibile continuare a usarle fino a quando il servizio non verrà ritirato completamente il 31 gennaio 2021. Informazioni su come usare l'API Riconoscimento input penna per inserire il riconoscimento input penna nelle app e nei servizi. L'API è un servizio basato sul cloud che usa Machine Learning per riconoscere forme e testo scritti a mano in qualsiasi contesto.
 metadata:
   title: API Riconoscimento input penna - Esercitazioni, guide introduttive, informazioni di riferimento sulle API
   titleSuffix: Azure Cognitive Services
@@ -13,12 +13,12 @@ metadata:
   ms.topic: landing-page
   ms.date: 09/23/2019
   ms.author: aahi
-  ms.openlocfilehash: f7e273639e5a5efd5e52517d9729bb7ba8908604
-  ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+  ms.openlocfilehash: e0886171d074863009dd83163599c888db10e187
+  ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 03/24/2020
-  ms.locfileid: "79415717"
+  ms.lasthandoff: 09/03/2020
+  ms.locfileid: "89419589"
 landingContent:
 - title: Informazioni sull'API Riconoscimento input penna
   linkLists:
@@ -40,7 +40,7 @@ landingContent:
     links:
     - text: Inviare dati con tratto input penna all'API
       url: concepts/send-ink-data.md
-- title: Riferimento
+- title: Informazioni di riferimento
   linkLists:
   - linkListType: reference
     links:
