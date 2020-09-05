@@ -229,7 +229,7 @@
     - name: Guida di orientamento per l'idoneità
       href: security-center-readiness-roadmap.md
     - name: 'Blog su sicurezza, privacy e conformità per Azure'
-      href: 'https://blogs.msdn.com/b/azuresecurity/'
+      href: 'https://docs.microsoft.com/archive/blogs/azuresecurity/'
     - name: Centro sicurezza di Azure in Stack Overflow
       href: 'https://stackoverflow.com/search?q=azure-security-center'
     - name: Video

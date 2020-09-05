@@ -32,7 +32,7 @@
       href: 'https://github.com/Azure/azure-relay/tree/master/samples/wcf-relay'
 - name: Concetti
   items:
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Autenticazione e autorizzazione
           href: relay-authentication-and-authorization.md
@@ -44,6 +44,8 @@
       href: relay-hybrid-connections-protocol.md
 - name: Procedure
   items:
+    - name: Spostarsi tra aree
+      href: move-across-regions.md
     - name: Eseguire la migrazione da API Service Manager (classiche) di Azure ad API Resource Manager
       href: ../service-bus-messaging/deprecate-service-bus-management.md?toc=%2fazure%2fservice-bus-relay%2ftoc.json
     - name: Pianificare e progettare
