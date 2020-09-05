@@ -206,6 +206,10 @@
       items:
         - name: Risolvere i problemi relativi all'aggiunta di app
           href: troubleshoot-adding-apps.md
+        - name: Risolvere i problemi dell'accesso Single Sign-On basato su password
+          href: troubleshoot-password-based-sso.md
+        - name: Risolvere i problemi relativi all'accesso Single Sign-On basato su SAML
+          href: troubleshoot-saml-based-sso.md
         - name: Risolvere i problemi di accesso degli utenti
           items:
             - name: Richiesta di consenso imprevista
@@ -224,14 +228,6 @@
               href: application-sign-in-problem-federated-sso-gallery.md
             - name: Problema con app sviluppata in modo personalizzato
               href: application-sign-in-problem-custom-dev.md
-        - name: Risolvere i problemi relativi all'accesso Single Sign-On
-          items:
-            - name: Risolvere i problemi dell'accesso Single Sign-On basato su password
-              href: troubleshoot-password-based-sso.md
-            - name: Problemi comuni della configurazione dell'accesso federato - App della raccolta
-              href: configure-federated-single-sign-on-gallery-applications-problems.md
-            - name: Problemi comuni della configurazione dell'accesso federato - App non della raccolta
-              href: configure-federated-single-sign-on-non-gallery-applications-problems.md
         - name: Risolvere i problemi relativi alle app locali
           items:
             - name: Risoluzione dei problemi del proxy dell'applicazione
