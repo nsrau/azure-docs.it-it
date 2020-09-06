@@ -9,18 +9,18 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 53ccd610c6f0f36d4ab04efbada2070a22975023
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 2c043ab535504a02a151d308de0562debdba950a
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650112"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89145893"
 ---
 # <a name="what-is-azure-machine-learning"></a>Informazioni su Azure Machine Learning
 
 Questo articolo illustra Azure Machine Learning, un ambiente basato sul cloud utilizzabile per eseguire il training, distribuire, automatizzare, gestire e tenere traccia dei modelli di Machine Learning. 
 
-È possibile usare Azure Machine Learning per qualsiasi tipo di Machine Learning, dalla forma classica al Deep Learning, con e senza supervisione. Che si preferisca scrivere codice Python o R oppure usare opzioni senza codice o con poco codice, come la [finestra di progettazione](tutorial-designer-automobile-price-train-score.md), si possono creare, sottoporre a training e monitorare modelli di Machine Learning e Deep Learning estremamente accurati in un'area di lavoro di Azure Machine Learning. 
+È possibile usare Azure Machine Learning per qualsiasi tipo di Machine Learning, dalla forma classica al Deep Learning, con e senza supervisione. Che si preferisca scrivere codice Python o R con l'SDK oppure usare opzioni senza codice o con poco codice nello [Studio](#build-ml-models-in-the-studio), è possibile creare, eseguire il training e monitorare modelli di Machine Learning e Deep Learning in un'area di lavoro di Azure Machine Learning. 
 
 Iniziare il training nel computer locale per poi aumentare il numero di istanze nel cloud. 
 
@@ -63,27 +63,31 @@ Azure Machine Learning offre tutti gli strumenti necessari agli sviluppatori e a
 
 Iniziare il training nel computer locale usando Azure Machine Learning <a href="https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py" target="_blank">Python SDK</a> o <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R SDK</a> per poi aumentare il numero di istanze nel cloud. 
 
-Grazie alla disponibilità di molte [destinazioni di calcolo](how-to-set-up-training-targets.md), ad esempio l'ambiente di calcolo di Azure Machine Learning e [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), e a [servizi avanzati per l'ottimizzazione degli iperparametri](how-to-tune-hyperparameters.md), è possibile creare modelli migliori in modo più rapido, sfruttando la potenza del cloud.
+Grazie alla disponibilità di molte [destinazioni di calcolo](how-to-create-attach-compute-sdk.md), ad esempio l'ambiente di calcolo di Azure Machine Learning e [Azure Databricks](/azure/azure-databricks/what-is-azure-databricks), e a [servizi avanzati per l'ottimizzazione degli iperparametri](how-to-tune-hyperparameters.md), è possibile creare modelli migliori in modo più rapido, sfruttando la potenza del cloud.
 
 È anche possibile [automatizzare il training e l'ottimizzazione dei modelli](tutorial-auto-train-models.md) usando l'SDK.
 
-## <a name="build-ml-models-with-no-code-tools"></a>Creare modelli di Machine Learning con strumenti senza codice
+## <a name="build-ml-models-in-the-studio"></a>Creare modelli di Machine Learning nello Studio
 
-Per un training e una distribuzione senza codice o con poco codice, provare:
+[Azure Machine Learning Studio](https://www.ml.azure.com) è un portale Web in Azure Machine Learning che contiene opzioni con codice ridotto e senza codice per il training dei modelli, la distribuzione e la gestione degli asset. Lo Studio si integra con Azure Machine Learning SDK per un'esperienza semplificata. Per altre informazioni, vedere [Informazioni su Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md).
 
 + **Finestra di progettazione di Azure Machine Learning (anteprima)**
 
-  Usare la finestra di progettazione per preparare i dati, eseguire il training, testare, distribuire, gestire e tenere traccia dei modelli di Machine Learning senza scrivere codice. Non sono necessarie operazioni di programmazione, è sufficiente collegare visivamente i set di dati e i moduli per costruire il modello. Provare l'[esercitazione relativa alla finestra di progettazione](tutorial-designer-automobile-price-train-score.md).
+  Usare la [finestra di progettazione](concept-designer.md) per eseguire il training e distribuire i modelli di Machine Learning senza scrivere codice. Per iniziare, provare l'esercitazione sulla [finestra di progettazione](tutorial-designer-automobile-price-train-score.md). 
 
-  Per altre informazioni, vedere l'[articolo di panoramica sulla finestra di progettazione di Azure Machine Learning](concept-designer.md). 
+  ![GIF animata dell'interfaccia di trascinamento selezione della finestra di progettazione di Azure Machine Learning](media/concept-designer/designer-drag-and-drop.gif)
 
-  ![Esempio di finestra di progettazione di Azure Machine Learning](./media/overview-what-is-azure-ml/designer-drag-and-drop.gif)
++ **Tenere traccia degli esperimenti**
 
-+ **Interfaccia utente di Machine Learning automatizzato**
+  Informazioni su come [tenere traccia e visualizzare gli esperimenti di data science](tutorial-first-experiment-automated-ml.md) nello Studio. 
 
-  Imparare a creare [esperimenti di Machine Learning automatizzato](tutorial-first-experiment-automated-ml.md) in un'interfaccia semplice da usare. 
+    ![Dettagli dell'esecuzione in Azure Machine Learning Studio](media/how-to-track-experiments/experimentation-tab.gif)
 
-  [![Riquadro di spostamento di Azure Machine Learning Studio](./media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)](./media/overview-what-is-azure-ml/azure-machine-learning-automated-ml-ui.jpg)
+
++ **E molto altro ancora...**
+
+  Visitare Azure Machine Learning Studio all'indirizzo [ml.azure.com](https://www.ml.azure.com). 
+
 
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps: Esecuzione della distribuzione e gestione del ciclo di vita
 Dopo aver creato il modello appropriato, è possibile usarlo facilmente in un servizio Web, in un dispositivo IoT o in Power BI. Per altre informazioni, vedere l'articolo su [come e dove eseguire la distribuzione](how-to-deploy-and-where.md).

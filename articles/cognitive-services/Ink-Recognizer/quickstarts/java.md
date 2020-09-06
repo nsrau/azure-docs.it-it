@@ -1,24 +1,26 @@
 ---
 title: "Avvio rapido: Riconoscere l'input penna con l'API REST Riconoscimento input penna e Java"
 titleSuffix: Azure Cognitive Services
-description: Questo argomento di avvio rapido illustra come usare l'API Riconoscimento input penna per avviare il riconoscimento di tratti input penna.
+description: Questo argomento di avvio rapido illustra come usare l'API Riconoscimento input penna e Java per avviare il riconoscimento di tratti input penna.
 services: cognitive-services
 author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: ink-recognizer
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 08/24/2020
 ms.author: aahi
 ms.custom: devx-track-java
-ms.openlocfilehash: 902d8a592893a70b8a694ab888bb3c22c6c9670a
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: b73f5013fdbef34344ece672bacff90db9bac60b
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87371550"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051577"
 ---
 # <a name="quickstart-recognize-digital-ink-with-the-ink-recognizer-rest-api-and-java"></a>Avvio rapido: Riconoscere l'input penna con l'API REST Riconoscimento input penna e Java
+
+[!INCLUDE [ink-recognizer-deprecation](../includes/deprecation-note.md)]
 
 Usare questa guida di avvio rapido per iniziare a usare l'API Riconoscimento input penna su tratti input penna. Questa applicazione Java invia una richiesta API contenenti i dati del tratto input penna in formato JSON e riceve la risposta.
 

@@ -1,10 +1,10 @@
 ---
-title: Configurare identità gestite nel set di scalabilità di macchine virtuali-interfaccia della riga di comando di Azure-Azure AD
-description: Istruzioni dettagliate per la configurazione del sistema e delle identità gestite assegnate dall'utente in un set di scalabilità di macchine virtuali di Azure tramite l'interfaccia della riga di comando di Azure.
+title: Configurare le identità gestite in un set di scalabilità di macchine virtuali - Interfaccia della riga di comando di Azure - Azure AD
+description: Istruzioni dettagliate per configurare identità gestite assegnate dal sistema e dall'utente in un set di scalabilità di macchine virtuali tramite l'interfaccia della riga di comando di Azure.
 services: active-directory
 documentationcenter: ''
-author: MarkusVi
-manager: MarkusVi
+author: barclayn
+manager: daveba
 editor: ''
 ms.service: active-directory
 ms.subservice: msi
@@ -13,14 +13,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/26/2019
-ms.author: markvi
+ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 969307070d23f9892105b2f620ee839356f46330
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3915108b9bd182053b62ee427fb95b5b984233db
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85609173"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255393"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite l'interfaccia della riga di comando di Azure
 
@@ -28,7 +28,7 @@ ms.locfileid: "85609173"
 
 Le identità gestite per le risorse di Azure offrono ai servizi di Azure un'identità gestita automaticamente in Azure Active Directory. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice. 
 
-Questo articolo illustra come eseguire le seguenti identità gestite per le operazioni sulle risorse di Azure in un set di scalabilità di macchine virtuali di Azure usando l'interfaccia della riga di comando di Azure:
+Questo articolo descrive come eseguire le operazioni seguenti per le identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali di Azure tramite l'interfaccia della riga di comando di Azure:
 - Abilitare e disabilitare l'identità gestita assegnata dal sistema in un set di scalabilità di macchine virtuali di Azure
 - Aggiungere e rimuovere un'identità gestita assegnata dall'utente in un set di scalabilità di macchine virtuali di Azure
 
@@ -37,27 +37,27 @@ Questo articolo illustra come eseguire le seguenti identità gestite per le oper
 
 - Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#managed-identity-types)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
-- Per eseguire le operazioni di gestione in questo articolo, l'account richiede le seguenti assegnazioni di controllo degli accessi in base al ruolo di Azure:
+- Per eseguire le operazioni di gestione illustrate in questo articolo, l'account necessita delle assegnazioni di controllo degli accessi in base al ruolo di Azure seguenti:
 
     > [!NOTE]
     > Non sono necessarie altre assegnazioni di ruoli della directory di Azure AD.
 
-    - [Collaboratore macchina virtuale](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) per creare un set di scalabilità di macchine virtuali e abilitare e rimuovere da un set di scalabilità di macchine virtuali l'identità gestita assegnata dal sistema e/o dall'utente.
-    - [Collaboratore di identità gestite](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) per creare un'identità gestita assegnata dall'utente.
-    - [Operatore identità gestita](/azure/role-based-access-control/built-in-roles#managed-identity-operator) per assegnare e rimuovere un'identità gestita assegnata dall'utente da e verso un set di scalabilità di macchine virtuali.
+    - [Collaboratore macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) per creare un set di scalabilità di macchine virtuali e abilitare e rimuovere da un set di scalabilità di macchine virtuali l'identità gestita assegnata dal sistema e/o dall'utente.
+    - [Collaboratore di identità gestite](../../role-based-access-control/built-in-roles.md#managed-identity-contributor) per creare un'identità gestita assegnata dall'utente.
+    - [Operatore identità gestita](../../role-based-access-control/built-in-roles.md#managed-identity-operator) per assegnare e rimuovere un'identità gestita assegnata dall'utente da e verso un set di scalabilità di macchine virtuali.
 - Per eseguire gli esempi di script dell'interfaccia della riga di comando, sono disponibili tre opzioni:
     - Usare [Azure Cloud Shell](../../cloud-shell/overview.md) dal portale di Azure (vedere la sezione successiva).
-    - Usare il Azure Cloud Shell incorporato tramite il pulsante "prova", che si trova nell'angolo superiore destro di ogni blocco di codice.
-    - [Installare la versione più recente dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.13 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale. 
+    - Usare l'opzione Azure Cloud Shell incorporata tramite il pulsante "Prova", disponibile nell'angolo superiore destro di ogni blocco di codice.
+    - [Installare la versione più recente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) (2.0.13 o successiva) se si preferisce usare una console dell'interfaccia della riga di comando locale. 
       
       > [!NOTE]
-      > I comandi sono stati aggiornati in base alla versione più recente dell'[interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli).
+      > I comandi sono stati aggiornati in base alla versione più recente dell'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="system-assigned-managed-identity"></a>Identità gestita assegnata dal sistema
 
-Questa sezione illustra come abilitare e disabilitare l'identità gestita assegnata dal sistema per un set di scalabilità di macchine virtuali di Azure usando l'interfaccia della riga di comando di Azure.
+Questa sezione descrive come abilitare e disabilitare l'identità gestita assegnata dal sistema per un set di scalabilità di macchine virtuali di Azure mediante l'interfaccia della riga di comando di Azure.
 
 ### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-virtual-machine-scale-set"></a>Abilitare l'identità gestita assegnata dal sistema durante la creazione di un set di scalabilità di macchine virtuali di Azure
 
@@ -91,7 +91,7 @@ Se è necessario abilitare l'identità gestita assegnata dal sistema in un set d
    az login
    ```
 
-2. [Abilitare](/cli/azure/vmss/identity/#az-vmss-identity-assign) un'identità gestita assegnata dal sistema a una macchina virtuale esistente:
+2. [Abilitare](/cli/azure/vmss/identity/#az-vmss-identity-assign) un'identità gestita assegnata dal sistema in una macchina virtuale esistente:
 
    ```azurecli-interactive
    az vmss identity assign -g myResourceGroup -n myVMSS
@@ -122,7 +122,7 @@ Questa sezione descrive come abilitare e rimuovere un'identità gestita assegnat
 
 ### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-a-virtual-machine-scale-set"></a>Assegnare un'identità gestita assegnata dall'utente durante la creazione di un set di scalabilità di macchine virtuali
 
-Questa sezione illustra la creazione di un set di scalabilità di macchine virtuali e l'assegnazione di un'identità gestita assegnata dall'utente al set di scalabilità di macchine virtuali. Se si dispone già di un set di scalabilità di macchine virtuali che si vuole usare, ignorare questa sezione e passare a quella successiva.
+Questa sezione descrive come creare un set di scalabilità di macchine virtuali e assegnare un'identità gestita assegnata dall'utente al set di scalabilità di macchine virtuali. Se si dispone già di un set di scalabilità di macchine virtuali che si intende usare, ignorare questa sezione e procedere alla successiva.
 
 1. Se si dispone già di un gruppo di risorse da usare, è possibile ignorare questo passaggio. Creare un [gruppo di risorse](~/articles/azure-resource-manager/management/overview.md#terminology) per contenere e distribuire l'identità gestita assegnata dall'utente mediante [az group create](/cli/azure/group/#az-group-create). Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<LOCATION>` con valori personalizzati. :
 
@@ -154,7 +154,7 @@ Questa sezione illustra la creazione di un set di scalabilità di macchine virtu
    }
    ```
 
-3. [Creare](/cli/azure/vmss/#az-vmss-create) un set di scalabilità di macchine virtuali. Nell'esempio seguente viene creato un set di scalabilità di macchine virtuali associato alla nuova identità gestita assegnata dall'utente, come specificato dal `--assign-identity` parametro. Sostituire i valori dei parametri `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>` e `<USER ASSIGNED IDENTITY>` con valori personalizzati. 
+3. [Creare](/cli/azure/vmss/#az-vmss-create) un set di scalabilità di macchine virtuali. L'esempio seguente crea un set di scalabilità di macchine virtuali associato alla nuova identità gestita assegnata dall'utente, come specificato dal parametro `--assign-identity`. Sostituire i valori dei parametri `<RESOURCE GROUP>`, `<VMSS NAME>`, `<USER NAME>`, `<PASSWORD>` e `<USER ASSIGNED IDENTITY>` con valori personalizzati. 
 
    ```azurecli-interactive 
    az vmss create --resource-group <RESOURCE GROUP> --name <VMSS NAME> --image UbuntuLTS --admin-username <USER NAME> --admin-password <PASSWORD> --assign-identity <USER ASSIGNED IDENTITY>
@@ -192,7 +192,7 @@ Questa sezione illustra la creazione di un set di scalabilità di macchine virtu
 
 ### <a name="remove-a-user-assigned-managed-identity-from-an-azure-virtual-machine-scale-set"></a>Rimuovere un'identità gestita assegnata dall'utente da un set di scalabilità di macchine virtuali di Azure
 
-Per [rimuovere](/cli/azure/vmss/identity#az-vmss-identity-remove) un'identità gestita assegnata dall'utente da un set di scalabilità di macchine virtuali `az vmss identity remove` , usare. Se è l'unica identità gestita assegnata dall'utente associata al set di scalabilità di macchine virtuali, `UserAssigned` verrà rimosso dal valore del tipo di identità.  Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<VIRTUAL MACHINE SCALE SET NAME>` con valori personalizzati. `<USER ASSIGNED IDENTITY>` sarà la proprietà `name` dell'identità gestita assegnata dall'utente, che si può trovare nella sezione relativa all'identità del set di scalabilità di macchine virtuali usando `az vmss identity show`:
+Per [rimuovere](/cli/azure/vmss/identity#az-vmss-identity-remove) un'identità gestita assegnata dall'utente da un set di scalabilità di macchine virtuali, usare `az vmss identity remove`. Se è l'unica identità gestita assegnata dall'utente associata al set di scalabilità di macchine virtuali, `UserAssigned` verrà rimosso dal valore del tipo di identità.  Sostituire i valori dei parametri `<RESOURCE GROUP>` e `<VIRTUAL MACHINE SCALE SET NAME>` con valori personalizzati. `<USER ASSIGNED IDENTITY>` sarà la proprietà `name` dell'identità gestita assegnata dall'utente, che si può trovare nella sezione relativa all'identità del set di scalabilità di macchine virtuali usando `az vmss identity show`:
 
 ```azurecli-interactive
 az vmss identity remove -g <RESOURCE GROUP> -n <VIRTUAL MACHINE SCALE SET NAME> --identities <USER ASSIGNED IDENTITY>
@@ -219,20 +219,3 @@ az vmss update -n myVMSS -g myResourceGroup --set identity.type='SystemAssigned'
 - Per la guida introduttiva completa sulla creazione del set di scalabilità di macchine virtuali di Azure vedere: 
 
   - [Creare un set di scalabilità di macchine virtuali con l'interfaccia della riga di comando](../../virtual-machines/linux/tutorial-create-vmss.md#create-a-scale-set)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,32 +1,37 @@
 ---
-title: 'Avvio rapido: Libreria client di Visione artificiale | Microsoft Docs'
+title: 'Avvio rapido: Libreria client di Visione artificiale'
 titleSuffix: Azure Cognitive Services
-description: Seguire questo argomento di avvio rapido per connettere le applicazioni all'API Visione artificiale di Servizi cognitivi di Azure.
+description: Informazioni su come usare Visione artificiale di Azure nell'applicazione tramite una libreria client nativa nel linguaggio preferito.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 06/29/2020
+ms.date: 08/31/2020
 ms.author: pafarley
-ms.custom: devx-track-python, devx-track-javascript
+ms.custom:
+- devx-track-python
+- devx-track-javascript
+- devx-track-csharp
+- cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 699f2c3b16346a88bdd5828c32dc64225a712e05
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+keywords: visione artificiale, servizio visione artificiale
+ms.openlocfilehash: 87ff6a03f45fe61b44712166966a1fe3851ffb41
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852039"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321862"
 ---
 # <a name="quickstart-use-the-computer-vision-client-library"></a>Avvio rapido: Usare la libreria client di Visione artificiale
 
-Introduzione alla libreria client di Visione artificiale. Seguire questi passaggi per installare il pacchetto e provare il codice di esempio per le attività di base. Il servizio Visione artificiale consente di accedere ad algoritmi avanzati per l'elaborazione delle immagini e la restituzione di informazioni.
+Introduzione alla libreria client di Visione artificiale. Il servizio Visione artificiale fornisce algoritmi di intelligenza artificiale avanzati per l'elaborazione delle immagini e la restituzione di informazioni sulle relative caratteristiche visive. Seguire questi passaggi per installare un pacchetto nell'applicazione e provare il codice di esempio per le attività di base.
 
 Usare la libreria client di Visione artificiale per:
 
 * Analizzare un'immagine per trovare tag, descrizioni di testo, visi, contenuto per adulti e altro ancora.
-* Riconoscere il testo stampato e scritto a mano con l'API di lettura batch.
+* Eseguire la lettura del testo stampato e scritto a mano con l'API di lettura.
 
 ::: zone pivot="programming-language-csharp"
 

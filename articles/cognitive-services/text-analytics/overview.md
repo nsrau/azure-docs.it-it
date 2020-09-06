@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 03/04/2020
+ms.date: 08/27/2020
 ms.author: aahi
-ms.openlocfilehash: 1e9928359f314ed57004df0264ac843871083eba
-ms.sourcegitcommit: f0b206a6c6d51af096a4dc6887553d3de908abf3
+ms.openlocfilehash: a3c538f3a9e7a2d8d71fff38fb927dbcdf725732
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/28/2020
-ms.locfileid: "84141858"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89000958"
 ---
 # <a name="what-is-the-text-analytics-api"></a>Informazioni sull'API Analisi del testo
 
@@ -82,26 +82,7 @@ Questa sezione è stata spostata in un articolo separato per una migliore rintra
 
 ## <a name="data-limits"></a>Limiti dei dati
 
-Tutti gli endpoint dell'API Analisi del testo accettano dati di testo non elaborati. Il limite corrente è di 5.120 caratteri per ogni documento. Se è necessario analizzare documenti di dimensioni maggiori, è possibile suddividerli in blocchi più piccoli.
-
-| Limite | valore |
-|------------------------|---------------|
-| Dimensioni massime di un singolo documento | 5\.120 caratteri misurati da [`StringInfo.LengthInTextElements`](https://docs.microsoft.com/dotnet/api/system.globalization.stringinfo.lengthintextelements). |
-| Dimensioni massime dell'intera richiesta | 1 MB |
-| Numero massimo di documenti in una richiesta | Fino a 1.000 documenti ([varia per ogni funzionalità](concepts/data-limits.md)) |
-
-Il limite di frequenza varia con il piano tariffario.
-
-| Livello          | Richieste al secondo | Richieste al minuto |
-|---------------|---------------------|---------------------|
-| S/multiservizio | 1000                | 1000                |
-| S0/F0         | 100                 | 300                 |
-| S1            | 200                 | 300                 |
-| S2            | 300                 | 300                 |
-| S3            | 500                 | 500                 |
-| S4            | 1000                | 1000                |
-
-Le richieste vengono misurate separatamente per ogni funzionalità di Analisi del testo. Ad esempio, è possibile inviare il numero massimo di richieste per il piano tariffario per ogni funzionalità, nello stesso momento.      
+Tutti gli endpoint dell'API Analisi del testo accettano dati di testo non elaborati. Per altre informazioni, vedere l'articolo sui [Limiti dei dati](concepts/data-limits.md).
 
 ## <a name="unicode-encoding"></a>Codifica Unicode
 
