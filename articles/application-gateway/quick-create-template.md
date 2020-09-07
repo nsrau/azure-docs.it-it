@@ -1,20 +1,20 @@
 ---
 title: 'Avvio rapido: Indirizzare il traffico Web con il modello di Resource Manager'
 titleSuffix: Azure Application Gateway
-description: Informazioni su come usare un modello di Resource Manager per creare un gateway applicazione di Azure che indirizza il traffico Web alle macchine virtuali in un pool back-end.
+description: Questo argomento di avvio rapido illustra come usare un modello di Resource Manager per creare un gateway applicazione di Azure che indirizza il traffico Web alle macchine virtuali in un pool back-end.
 services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: quickstart
-ms.date: 05/28/2020
+ms.date: 08/27/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: ebcb51dc4de9283752d61831eb0cad801ec1ac4b
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: f492521469281615d4182294feaefffff688bd21
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705946"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88961687"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---arm-template"></a>Avvio rapido: Indirizzare il traffico Web con un gateway applicazione Azure - Modello di Resource Manager
 

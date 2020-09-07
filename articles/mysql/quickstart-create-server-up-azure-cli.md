@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 3/18/2020
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 4f2c0a51f7c8d2441c9ddff2520dae2f5cc13565
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 40f820a32c7848b5370cb664d706e9f20928bc5c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495344"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296482"
 ---
 # <a name="quickstart-create-an-azure-database-for-mysql-using-a-simple-azure-cli-command---az-mysql-up-preview"></a>Avvio rapido: Creare un'istanza di Database di Azure per MySQL con un semplice comando dell'interfaccia della riga di comando di Azure - az mysql up (anteprima)
 
@@ -75,7 +75,7 @@ admin-password | Generata dal sistema | Password dell'utente amministratore.
 
 Dopo la creazione del server, vengono applicate le impostazioni seguenti:
 
-- Viene creata una regola del firewall denominata "devbox". L'interfaccia della riga di comando di Azure prova a rilevare l'indirizzo IP del computer da cui viene eseguito il comando `az mysql up` e inserisce tale indirizzo IP nell'elenco elementi consentiti.
+- Viene creata una regola del firewall denominata "devbox". L'interfaccia della riga di comando di Azure prova a rilevare l'indirizzo IP del computer da cui viene eseguito il comando `az mysql up` e consente tale indirizzo IP.
 - Viene attivata l'opzione "Consenti l'accesso a Servizi di Azure". Questa impostazione configura il firewall del server in modo da accettare connessioni da tutte le risorse di Azure, incluse le risorse non incluse nella sottoscrizione dell'utente.
 - Il parametro `wait_timeout` è impostato su 8 ore
 - Viene creato un database vuoto denominato "sampledb".

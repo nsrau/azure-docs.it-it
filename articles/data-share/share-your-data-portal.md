@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: quickstart
 ms.date: 08/19/2020
-ms.openlocfilehash: 7dd81afb3189055c194b8a94b4bcbdf48f85d6f2
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 5ceaf949df88468b2239bd901f639ba6096b0d5f
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88658368"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89269642"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-in-the-azure-portal"></a>Avvio rapido: Condividere dati con Condivisione dati di Azure nel portale di Azure
 
@@ -47,7 +47,7 @@ Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azur
 
 1. Una volta completata la distribuzione, selezionare **Vai alla risorsa**.
 
-## <a name="create-a-data-share"></a>Creare una condivisione dati
+## <a name="create-a-share"></a>Creare una condivisione
 
 1. Passare alla pagina di panoramica della condivisione dati.
 
@@ -57,15 +57,15 @@ Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azur
 
 1. Selezionare **Crea**.
 
-1. Immettere i dettagli della condivisione dati. Specificare un nome, un tipo di condivisione, una descrizione del contenuto della condivisione e le condizioni per l'utilizzo (facoltativo). 
+1. Immettere i dettagli della condivisione. Specificare un nome, un tipo di condivisione, una descrizione del contenuto della condivisione e le condizioni per l'utilizzo (facoltativo). 
 
    ![Immettere i dettagli della condivisione](./media/enter-share-details.png "Immettere i dettagli della condivisione") 
 
 1. Selezionare **Continua**.
 
-1. Per aggiungere set di dati alla condivisione dati, selezionare **Add Datasets** (Aggiungi set di dati). 
+1. Per aggiungere set di dati alla condivisione, selezionare **Aggiungi set di dati**. 
 
-   ![Set di dati](./media/datasets.png "Set di dati")
+   ![Aggiungere set di dati alla condivisione](./media/datasets.png "Set di dati")
 
 1. Selezionare il tipo di set di dati da aggiungere. Verrà visualizzato un elenco di tipi di set di dati diverso a seconda del tipo di condivisione (snapshot o sul posto) selezionato nel passaggio precedente. Se si condivide da un database SQL di Azure o da Azure SQL Data Warehouse, verranno richieste alcune credenziali di SQL. Eseguire l'autenticazione con l'utente creato come parte dei prerequisiti.
 

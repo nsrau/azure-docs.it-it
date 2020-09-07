@@ -1,19 +1,19 @@
 ---
 title: "Avvio rapido: Creare un'istanza di Azure Analysis Services tramite Azure Analysis Services in PowerShell | Microsoft Docs"
-description: Informazioni su come creare un server di Azure Analysis Services tramite PowerShell
+description: Questo argomento di avvio rapido illustra come creare un server di Azure Analysis Services con PowerShell
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 03/30/2020
+ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.custom: references_regions
-ms.openlocfilehash: 375d72c8de0aa16d2c10da701fb9670a9c87b79f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.custom: references_regions , devx-track-azurepowershell
+ms.openlocfilehash: 737649538aaf82352e27aec6220b13ba355a7a82
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87015460"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89229328"
 ---
 # <a name="quickstart-create-a-server---powershell"></a>Avvio rapido: Creare un server - PowerShell
 
@@ -74,5 +74,3 @@ In questa guida introduttiva si è appreso come creare un server nella sottoscri
 
 > [!div class="nextstepaction"]
 > [Avvio rapido: Configurare il firewall del server - Portale](analysis-services-qs-firewall.md)      
-> [!div class="nextstepaction"]
-> [Esercitazione: Aggiungere un modello di esempio al server](analysis-services-create-sample-model.md)

@@ -1,14 +1,14 @@
 ---
 title: 'Avvio rapido: Creare un progetto nel portale'
 description: In questa guida di avvio rapido si userà Azure Blueprints per creare, definire e distribuire artefatti tramite il portale di Azure.
-ms.date: 03/25/2020
+ms.date: 08/27/2020
 ms.topic: quickstart
-ms.openlocfilehash: dfd0aeb22801776fc9effdf8d0418a9c9b6ab802
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: a37c621e0a90a0748d3ddc3fda34612c54712ed9
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045213"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051523"
 ---
 # <a name="quickstart-define-and-assign-a-blueprint-in-the-portal"></a>Avvio rapido: Definire e assegnare un progetto nel portale
 
@@ -61,7 +61,7 @@ Il primo passaggio nella definizione di un modello standard per la conformità �
 
    1. Modificare **Tipo** in **Predefinito**. In **Ricerca** immettere **tag**.
 
-   1. Fare clic al di fuori di **Cerca** per applicare il filtro. Selezionare **Accorda tag e relativo valore predefinito ai gruppi di risorse**.
+   1. Spostare lo stato attivo al di fuori di **Cerca** per applicare il filtro. Selezionare **Accorda tag e relativo valore predefinito ai gruppi di risorse**.
 
    1. Selezionare **Aggiungi** per aggiungere questo artefatto al progetto.
 

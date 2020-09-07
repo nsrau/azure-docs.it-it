@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 276b6cc8038a7ac8e0ddd27a3c3eb7c87f05ed1b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 5854ef57a08218fee4479eb9e075824f4a1ff781
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795899"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376384"
 ---
 # <a name="administrative-units-management-in-azure-active-directory-preview"></a>Gestione delle unità amministrative in Azure Active Directory (anteprima)
 
@@ -27,7 +27,7 @@ Questo articolo descrive le unità amministrative in Azure Active Directory (Azu
 
 Le unità amministrative consentono di concedere autorizzazioni di amministratore limitate a un reparto, un'area o un altro segmento definito dell'organizzazione. È possibile usare le unità amministrative per delegare le autorizzazioni agli amministratori regionali o per impostare criteri a livello dettagliato. Ad esempio, un amministratore di account utente potrebbe aggiornare le informazioni sul profilo, reimpostare le password e assegnare le licenze agli utenti solo nella propria unità amministrativa.
 
- Ad esempio, la delega del ruolo [Amministratore supporto tecnico](directory-assign-admin-roles.md#helpdesk-administrator) agli specialisti del supporto locale limita la gestione ai soli utenti dell'area che supportano.
+Ad esempio, la delega del ruolo [Amministratore supporto tecnico](directory-assign-admin-roles.md#helpdesk-administrator) agli specialisti del supporto locale limita la gestione ai soli utenti dell'area che supportano.
 
 ## <a name="deployment-scenario"></a>Scenario di distribuzione
 
@@ -64,7 +64,7 @@ La creazione di unità amministrative in un'organizzazione è in genere costitui
 
 ## <a name="currently-supported-scenarios"></a>Scenari attualmente supportati
 
-Gli amministratori globali o gli amministratori ruolo con privilegi possono usare il portale di Azure AD per creare unità amministrative, aggiungere utenti come membri delle unità amministrative e quindi assegnare il personale IT ai ruoli di amministratore con ambito unità amministrativa. Gli amministratori con ambito unità amministrativa possono quindi usare il portale di Microsoft 365 per la gestione di base degli utenti nelle rispettive unità amministrative.
+Gli amministratori globali o gli amministratori ruolo con privilegi possono usare il portale di Azure AD per creare unità amministrative, aggiungere utenti come membri delle unità amministrative e quindi assegnare il personale IT ai ruoli di amministratore con ambito unità amministrativa. Gli amministratori con ambito unità amministrativa possono quindi usare l'interfaccia di amministrazione di Microsoft 365 per la gestione di base degli utenti nelle rispettive unità amministrative.
 
 Inoltre, è possibile aggiungere gruppi come membri dell'unità amministrativa e un amministratore di gruppo con ambito unità amministrativa può gestirli usando PowerShell, Microsoft Graph e il portale di Azure AD.
 
@@ -99,7 +99,7 @@ Gestione con ambito unità amministrativa delle licenze del gruppo   |    Suppor
 >
 > Gli amministratori con ambito unità amministrativa non possono gestire le regole di appartenenza a gruppi dinamica.
 
-Le unità amministrative applicano l'ambito solo alle autorizzazioni di gestione. Non impediscono a membri o amministratori di usare le proprie [autorizzazioni utente predefinite](../fundamentals/users-default-permissions.md) per esplorare altri utenti, gruppi o risorse al di fuori dell'unità amministrativa. Nel portale di Microsoft 365 gli utenti esterni alle unità amministrative di un amministratore con ambito sono esclusi, ma è possibile esplorare altri utenti nel portale di Azure AD, in PowerShell e in altri servizi Microsoft.
+Le unità amministrative applicano l'ambito solo alle autorizzazioni di gestione. Non impediscono a membri o amministratori di usare le proprie [autorizzazioni utente predefinite](../fundamentals/users-default-permissions.md) per esplorare altri utenti, gruppi o risorse al di fuori dell'unità amministrativa. Nell'interfaccia di amministrazione di Microsoft 365 gli utenti esterni alle unità amministrative di un amministratore con ambito sono esclusi, ma è possibile esplorare altri utenti nel portale di Azure AD, in PowerShell e in altri servizi Microsoft.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

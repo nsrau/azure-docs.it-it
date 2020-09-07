@@ -262,6 +262,8 @@
           href: how-to-connect-health-diagnose-sync-errors.md
         - name: Catalogo degli avvisi di Azure AD Connect Health
           href: how-to-connect-health-alert-catalog.md
+        - name: Recupero di dati di Azure AD Connect Health
+          href: how-to-connect-health-data-retrieval.md
     - name: Gestire il Servizio di sincronizzazione Azure AD Connect
       items:
         - name: Server di gestione temporanea e ripristino di emergenza

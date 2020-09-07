@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 07/01/2020
-ms.openlocfilehash: c6ab5c2cae2bb966c2b040b40dbf36e56a54411b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6adbd83ddfbdb82d1054d4e74dd9492d08583ede
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496753"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292538"
 ---
 # <a name="quickstart-create-a-demo-app-in-the-portal-azure-cognitive-search"></a>Avvio rapido: Creare un'app demo nel portale di Azure (Ricerca cognitiva di Azure)
 
@@ -61,7 +61,7 @@ La procedura guidata fornisce un layout di base per i risultati della ricerca co
 
 1. In Descrizione scegliere un campo che fornisca dettagli che potrebbero aiutare gli utenti a decidere se fare clic su quel particolare documento.
 
-   ![pagina origine dati per i dati di esempio](media/search-create-app-portal/configure-results.png)
+   ![configurare i risultati per i dati di esempio](media/search-create-app-portal/configure-results.png)
 
 ## <a name="add-a-sidebar"></a>Aggiungere una barra laterale
 
@@ -111,4 +111,4 @@ Se si usa un servizio gratuito, tenere presente che il numero di indicizzatori e
 Sebbene l'app predefinita sia utile per l'esplorazione iniziale e piccole attività, l'esame anticipato delle API consentirà di comprendere i concetti e il flusso di lavoro a un livello più approfondito:
 
 > [!div class="nextstepaction"]
-> [Creare un indice tramite .NET SDK](https://docs.microsoft.com/azure/search/search-create-index-dotnet)
+> [Creare un indice tramite .NET SDK](./search-get-started-dotnet.md)

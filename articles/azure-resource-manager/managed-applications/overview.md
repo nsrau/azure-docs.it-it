@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: overview
 ms.date: 07/12/2019
 ms.author: tomfitz
-ms.openlocfilehash: 0615830e525ab60bbb2167dd39d9c4bf14cc91b3
-ms.sourcegitcommit: d6e4eebf663df8adf8efe07deabdc3586616d1e4
+ms.openlocfilehash: 9bb3f0d57f7d47e4cb754305627c52003273ca09
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/15/2020
-ms.locfileid: "81391571"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377013"
 ---
 # <a name="azure-managed-applications-overview"></a>Panoramica delle applicazioni gestite di Azure
 
@@ -71,13 +71,13 @@ Il consumer ha accesso completo al gruppo di risorse e lo usa per gestire il cic
 
 Questo gruppo di risorse contiene tutte le risorse richieste dall'applicazione gestita. Ad esempio, le macchine virtuali, gli account di archiviazione e le reti virtuali per la soluzione. Il consumer ha accesso limitato al gruppo di risorse perché non gestisce le singole risorse per l'applicazione gestita. L'accesso al gruppo di risorse dell'entità di pubblicazione corrisponde al ruolo specificato nella definizione dell'applicazione gestita. Ad esempio, l'entità di pubblicazione potrebbe richiedere il ruolo di proprietario o di collaboratore per il gruppo di risorse. L'accesso è permanente o limitato a un periodo di tempo.
 
-Quando pubblica l'[applicazione gestita nel Marketplace](publish-marketplace-app.md), l'autore può concedere agli utenti la possibilità di eseguire azioni specifiche sulle risorse nel gruppo di risorse gestite. L'autore può ad esempio specificare che gli utenti possono riavviare le macchine virtuali. Tutte le altre azioni oltre alle azioni di lettura sono comunque negate.
+Quando pubblica l'[applicazione gestita nel Marketplace](publish-marketplace-app.md), l'autore può concedere agli utenti la possibilità di eseguire azioni specifiche sulle risorse nel gruppo di risorse gestite. L'autore può ad esempio specificare che gli utenti possono riavviare le macchine virtuali. Tutte le altre azioni oltre alle azioni di lettura sono comunque negate. Le modifiche apportate alle risorse in un gruppo di risorse gestito da un consumer a cui sono state concesse azioni sono soggette alle assegnazioni di [Criteri di Azure](../../governance/policy/overview.md) all'interno del tenant di consumer allo scopo di includere il gruppo di risorse gestite.
 
 Quando il consumer elimina l'applicazione gestita, viene eliminato anche il gruppo di risorse gestite.
 
 ## <a name="azure-policy"></a>Criteri di Azure
 
-È possibile applicare [criteri di Azure](../../governance/policy/overview.md) all'applicazione gestita. L'applicazione di criteri consente di garantire che le istanze distribuite dell'applicazione gestita siano conformi ai requisiti per i dati e la sicurezza. Se l'applicazione interagisce con dati sensibili, assicurarsi di avere valutato come devono essere protetti. Ad esempio, se l'applicazione interagisce con dati di Office 365, applicare criteri per verificare che sia abilitata la crittografia dei dati.
+È possibile applicare [criteri di Azure](../../governance/policy/overview.md) per controllare l'applicazione gestita. L'applicazione di definizioni di criteri consente di garantire che le istanze distribuite dell'applicazione gestita siano conformi ai requisiti per i dati e la sicurezza. Se l'applicazione interagisce con dati sensibili, assicurarsi di avere valutato come devono essere protetti. Ad esempio, se l'applicazione interagisce con dati di Office 365, applicare una definizione di criteri per verificare che sia abilitata la crittografia dei dati.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

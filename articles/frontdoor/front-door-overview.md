@@ -3,21 +3,21 @@ title: Frontdoor di Azure | Microsoft Docs
 description: Questo articolo offre una panoramica di Azure Frontdoor. È possibile scoprire se è la scelta giusta per bilanciare il carico del traffico degli utenti per la propria applicazione.
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 editor: ''
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/23/2019
-ms.author: sharadag
-ms.openlocfilehash: 081305170020aa35511ad574bd8c5575c192d577
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.date: 09/02/2020
+ms.author: duau
+ms.openlocfilehash: 003903a941b0d9ce36f28ce5e4d640e5746a7de3
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85322285"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378186"
 ---
 # <a name="what-is-azure-front-door"></a>Che cos'è il servizio Frontdoor di Azure?
 Il servizio Frontdoor di Azure consente di definire, gestire e monitorare il routing globale del traffico Web, offrendo prestazioni ottimali e failover globale rapido per una disponibilità elevata. Con Frontdoor è possibile trasformare applicazioni aziendali e consumer globali (multi-area) in affidabili applicazioni moderne personalizzate ad alte prestazioni, API e contenuto che grazie ad Azure raggiunge un pubblico globale.
@@ -81,6 +81,10 @@ I protocolli HTTP/2 consentono una comunicazione full duplex tra i back-end dell
 ## <a name="pricing"></a>Prezzi
 
 Per informazioni sui prezzi, vedere [Prezzi di Frontdoor](https://azure.microsoft.com/pricing/details/frontdoor/).
+
+## <a name="whats-new"></a>Novità
+
+Sottoscrivere il feed RSS e visualizzare gli aggiornamenti più recenti di Azure Load Balancer nella pagina [Aggiornamenti di Azure](https://azure.microsoft.com/updates/?category=networking&query=Azure%20Front%20Door).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

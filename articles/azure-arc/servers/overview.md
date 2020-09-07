@@ -1,16 +1,16 @@
 ---
 title: Panoramica di server abilitati per Azure Arc (anteprima)
-description: Questo articolo illustra come usare i server abilitati per Azure Arc (anteprima) per gestire macchine virtuali ospitate all'esterno di Azure come se fossero risorse di Azure.
+description: Informazioni su come usare i server abilitati per Azure Arc (anteprima) per gestire server ospitati all'esterno di Azure come una risorsa di Azure.
 keywords: automazione di azure, DSC, powershell, configurazione dello stato desiderato, gestione aggiornamenti, rilevamento modifiche, inventario, runbook, python, grafico, ibrido
 ms.custom: references_regions
 ms.date: 08/06/2020
 ms.topic: overview
-ms.openlocfilehash: dfc4d8e046cef5af7c3eaf0d31ce2d6120dfc8f2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: c368307df911f5143541bb5337eb76a208416909
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211315"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89228088"
 ---
 # <a name="what-is-azure-arc-enabled-servers-preview"></a>Che cosa sono i server abilitati per Azure Arc (anteprima)?
 
@@ -51,4 +51,4 @@ L'agente Connected Machine invia un messaggio regolare di tipo heartbeat al serv
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Prima di valutare o abilitare i server abilitati per Arc (anteprima) tra più computer ibridi, vedere l'articolo [Panoramica dell'agente Connected Machine](agent-overview.md) per comprendere cosa è obbligatorio, quali sono i dettagli tecnici sull'agente e i metodi di distribuzione.
+Prima di valutare o abilitare i server abilitati per Arc (anteprima) tra più computer ibridi, vedere [Panoramica dell'agente Connected Machine](agent-overview.md) per informazioni su requisiti, i dettagli tecnici sull'agente e metodi di distribuzione.

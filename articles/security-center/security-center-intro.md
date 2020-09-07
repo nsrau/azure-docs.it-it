@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: bb75405a1cd1e282023936673aa73be25556e0af
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: c42009f5e02180dc5e4c5e3e4b43f00277d7bf58
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86529353"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89177869"
 ---
 # <a name="what-is-azure-security-center"></a>Che cos'è il Centro sicurezza di Azure?
 
@@ -63,39 +63,36 @@ Centro sicurezza di Azure migliora il comportamento di sicurezza. Ciò significa
 
 Conoscere e verificare che i carichi di lavoro siano protetti è fondamentale. Per farlo, è necessario disporre di policy di sicurezza personalizzate. Dal momento che tutti i criteri nel Centro sicurezza sono basati su controlli di Criteri di Azure, è possibile usufruire dell'intera gamma e della flessibilità di una **soluzione di qualità elevata per la gestione dei criteri**. In Centro sicurezza è possibile impostare le proprie policy da eseguire su gruppi di gestione, sulle sottoscrizioni e anche su un intero tenant.
 
-![Dashboard del Centro sicurezza](media/security-center-intro/sc-dashboard.png)
+:::image type="content" source="./media/security-center-intro/sc-dashboard.png" alt-text="Pagina di gestione dei criteri":::
 
 Centro sicurezza consente di **identificare sottoscrizioni shadow IT**. Esaminando le sottoscrizioni con l'etichetta **non coperto** nel dashboard, è possibile sapere immediatamente quando vengono create nuove sottoscrizioni e assicurarsi che siano coperte dalle policy e protette da Centro sicurezza di Azure.
 
-![Dashboard delle policy di Centro sicurezza](media/security-center-intro/sc-policy-dashboard.png)
-
-Le funzionalità avanzate di monitoraggio di Centro sicurezza consentono inoltre di **rilevare e gestire la conformità e la governance nel tempo**. La **conformità generale** è indicativa della conformità delle sottoscrizioni ai criteri associati al carico di lavoro. 
-
-![Policy di Centro sicurezza nel tempo](media/security-center-intro/sc-policy-time.png)
+:::image type="content" source="./media/security-center-intro/sc-policy-dashboard.png" alt-text="Dashboard delle policy di Centro sicurezza":::
 
 ### <a name="continuous-assessments"></a>Valutazioni continue
 
 Centro sicurezza individua continuamente le nuove risorse distribuite tra i carichi di lavoro e consente di valutare se sono configurate in base alle procedure ottimali di protezione; in caso contrario, vengono contrassegnate e viene restituito un elenco in ordine di priorità delle raccomandazioni sulle risorse da correggere per proteggere i computer.
 
+Per consentire agli utenti di comprendere l'importanza delle singole raccomandazioni ai fini del comportamento di sicurezza complessivo, Centro sicurezza raggruppa le raccomandazioni in controlli di sicurezza e aggiunge a ogni controllo un valore che indica il **punteggio di sicurezza**. Si tratta di una funzionalità essenziale per **classificare in ordine di priorità gli interventi di sicurezza**.
+
+:::image type="content" source="./media/security-center-intro/sc-secure-score.png" alt-text="Punteggio di sicurezza di Centro sicurezza":::
+
+### <a name="network-map"></a>Mappa di rete
+
 Uno degli strumenti più potenti offerti da Centro sicurezza per il monitoraggio continuo dello stato di sicurezza della rete è la **mappa di rete**. La mappa consente di visualizzare la topologia dei carichi di lavoro, pertanto è possibile controllare che ogni nodo sia configurato correttamente. È possibile visualizzare come sono connessi i nodi per bloccare le connessioni indesiderate che potrebbero potenzialmente agevolare l’attacco alla rete da parte di un utente malintenzionato.
 
-![Mappa della rete di Centro sicurezza](media/security-center-intro/sc-net-map.png)
+:::image type="content" source="./media/security-center-intro/sc-net-map.png" alt-text="Mappa della rete di Centro sicurezza":::
 
-Centro sicurezza semplifica la mitigazione degli avvisi di sicurezza, grazie all'aggiunta di un **punteggio di sicurezza**. I punteggi di sicurezza sono associati a ogni raccomandazione ricevuta per consentire di comprenderne l'importanza per la postura di sicurezza generale. Si tratta di una funzionalità essenziale per **classificare in ordine di priorità gli interventi di sicurezza**.
-
-![Punteggio di sicurezza di Centro sicurezza](media/security-center-intro/sc-secure-score.png)
 
 ### <a name="optimize-and-improve-security-by-configuring-recommended-controls"></a>Ottimizzare e migliorare la sicurezza mediante la configurazione di controlli consigliati
 
 La parte più importante di Centro sicurezza di Azure sono le raccomandazioni. Le raccomandazioni sono personalizzate per i problemi di sicurezza specifici rilevati nei carichi di lavoro e Centro sicurezza funge da amministratore rilevando le vulnerabilità e fornendo istruzioni specifiche per risolverle.
 
-![Elementi consigliati di Centro sicurezza](media/security-center-intro/sc-recommendations.png)
-
 In questo modo, Centro sicurezza consente non solo di impostare policy di sicurezza, ma anche di applicare gli standard di una configurazione protetta in tutte le risorse.
 
 Gli elementi consigliati aiutano a ridurre la superficie di attacco in ognuna delle risorse. La superficie include macchine virtuali di Azure, server non Azure e servizi PaaS di Azure come SQL, account di storage e altro, in cui ciascun tipo di risorsa viene valutato in modo diverso e dispone di standard propri.
 
-![Esempio di elemento consigliato di Centro sicurezza](media/security-center-intro/sc-recommendation-example.png)
+:::image type="content" source="./media/security-center-intro/sc-recommendation-example.png" alt-text="Esempio di elemento consigliato di Centro sicurezza":::
 
 ## <a name="protect-against-threats"></a>Protezione dalle minacce
 
@@ -103,9 +100,7 @@ La protezione dalle minacce di Centro sicurezza consente di rilevare ed evitare 
 
 La protezione dalle minacce di Centro sicurezza include un’analisi unificata della catena di attacco che genera automaticamente avvisi nell’ambiente per comprendere meglio la storia completa di una campagna di attacco, da dove è iniziata e che tipo di impatto ha avuto sulle risorse.
 
-
-
-![Raccomandazioni sugli attacchi di Centro sicurezza](media/security-center-intro/sc-attack-recommendation.png)
+:::image type="content" source="./media/security-center-intro/sc-alerts.png" alt-text="Avvisi di sicurezza":::
 
 ### <a name="integration-with-microsoft-defender-advanced-threat-protection"></a>Integrazione con Microsoft Defender Advanced Threat Protection
 
@@ -120,8 +115,6 @@ Centro sicurezza aiuta a rilevare le minacce in tutti i servizi PaaS di Azure. �
 ### <a name="block-brute-force-attacks"></a>Blocco degli attacchi di forza bruta
 
 Centro sicurezza consente di limitare l’esposizione agli attacchi di forza bruta. Riducendo l'accesso alle porte delle macchine virtuali, tramite l'accesso alle macchine virtuali JIT, è possibile rafforzare la protezione della rete impedendo accessi non necessari. È possibile impostare policy di accesso sicure su porte selezionate, per i soli utenti autorizzati, intervalli di indirizzi IP di origine o singoli indirizzi IP e per un periodo di tempo limitato.
-
-![Centro sicurezza e forza bruta](media/security-center-intro/sc-brute-force.png)
 
 ### <a name="protect-data-services"></a>Protezione dei servizi dati
 

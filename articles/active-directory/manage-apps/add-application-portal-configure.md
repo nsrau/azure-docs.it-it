@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/29/2019
 ms.author: kenwith
-ms.openlocfilehash: 1873cd14883e8b1a5174b8761e4a0bc9ba1ef872
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 1cc7d7755d22568b9b66216709dc0c3765d58657
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641858"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300154"
 ---
 # <a name="quickstart-configure-properties-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Avvio rapido: Configurare le proprietà per un'applicazione nel tenant di Azure Active Directory (Azure AD)
 
@@ -93,6 +93,6 @@ Se non si intende continuare con questa serie di argomenti di avvio rapido, è c
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come configurare l'accesso Single Sign-On per un'app, passare all'articolo successivo.
+Per informazioni su come assegnare utenti all'app, procedere con l'articolo successivo.
 > [!div class="nextstepaction"]
-> [Configurare Single Sign-On](add-application-portal-setup-sso.md)
+> [Assegnare gli utenti a un'app](add-application-portal-assign-users.md)

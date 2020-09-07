@@ -10,12 +10,12 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 06/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 993dff37f9bde5e674dbe5d41d6d4c6da92f0bc9
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e9a2ff5d46557ddf8f5f62b456e8a3d54bf90c55
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327532"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290345"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-java-using-rest-apis"></a>Guida introduttiva: Creare un indice di Ricerca cognitiva di Azure in Java con le API REST
 > [!div class="op_single_selector"]
@@ -23,7 +23,7 @@ ms.locfileid: "87327532"
 > * [C#](search-get-started-dotnet.md)
 > * [Java](search-get-started-java.md)
 > * [Portale](search-get-started-portal.md)
-> * [PowerShell](search-create-index-rest-api.md)
+> * [PowerShell](./search-get-started-powershell.md)
 > * [Python](search-get-started-python.md)
 > * [Postman](search-get-started-postman.md)
 
@@ -373,7 +373,7 @@ Per iniziare, aprire IntelliJ IDEA e configurare un nuovo progetto.
 
 1. Verificare che il progetto presenti la struttura seguente.
 
-    ![Struttura di directory del progetto](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
+    ![Struttura di directory del progetto e classi](media/search-get-started-java/java-quickstart-basic-code-tree-plus-classes.png)
 
 1. Aprire la finestra degli strumenti **Maven** ed eseguire questo obiettivo Maven: `verify exec:java`
 ![Esecuzione dell'obiettivo Maven: verify exec:java](media/search-get-started-java/java-quickstart-execute-maven-goal.png)

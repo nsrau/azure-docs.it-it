@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/01/2020
 ms.author: kenwith
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 461a424f23161e1567c6b32a38db0225efc56b1e
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 040cc2dfa48f24fff4c7dda2cb6010efb01e9b86
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808389"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300137"
 ---
 # <a name="quickstart-set-up-single-sign-on-sso-for-an-application-in-your-azure-active-directory-azure-ad-tenant"></a>Avvio rapido: Configurare l'accesso Single Sign-On (SSO) per un'applicazione nel tenant di Azure Active Directory (Azure AD)
 
@@ -32,6 +32,7 @@ Per configurare l'accesso SSO per un'applicazione aggiunta al tenant di Azure AD
 - Facoltativo: completamento di [Visualizzare le app](view-applications-portal.md).
 - Facoltativo: completamento di [Aggiungere un'app](add-application-portal.md).
 - Facoltativo: completamento di [Configurare un'app](add-application-portal-configure.md).
+- Facoltativo: completamento di [Assegnare utenti a un'app](add-application-portal-assign-users.md).
 
 
 >[!IMPORTANT]

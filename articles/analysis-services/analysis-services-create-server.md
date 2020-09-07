@@ -1,18 +1,18 @@
 ---
 title: 'Avvio rapido: Creare un server di Analysis Services nel portale di Azure | Microsoft Docs'
-description: Informazioni su come creare rapidamente un'istanza del server di Azure Analysis Services usando il portale di Azure.
+description: Questo argomento di avvio rapido illustra come creare rapidamente un'istanza del server di Azure Analysis Services usando il portale di Azure.
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: quickstart
-ms.date: 05/19/2020
+ms.date: 08/31/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 36899aa789f4947fe860621bc1795bfbe2ff1ecf
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.openlocfilehash: 488e7c84e481edd1b136fe90ab948d3cfb51ed2c
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83697477"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230781"
 ---
 # <a name="quickstart-create-a-server---portal"></a>Avvio rapido: Creare un server - Portale
 
@@ -59,5 +59,3 @@ In questa guida introduttiva si è appreso come creare un server nella sottoscri
 
 > [!div class="nextstepaction"]
 > [Avvio rapido: Configurare il firewall del server - Portale](analysis-services-qs-firewall.md)   
-> [!div class="nextstepaction"]
-> [Esercitazione: Aggiungere un modello di esempio al server](analysis-services-create-sample-model.md)

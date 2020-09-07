@@ -312,6 +312,8 @@
           href: how-to-train-keras.md
         - name: PyTorch
           href: how-to-train-pytorch.md
+        - name: Eseguire il training con un'immagine Docker personalizzata
+          href: how-to-train-with-custom-image.md
         - name: Tenere traccia e monitorare il training
           items:
             - name: 'Avviare, monitorare o annullare esecuzioni'

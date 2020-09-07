@@ -8,12 +8,12 @@ ms.topic: overview
 ms.date: 06/18/2020
 ms.author: allensu
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c2959507b8b9275ee2b7a9ebd8159e0014e932c0
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 908d9386f08c5de863d1d435c54d65cb85feef7a
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88639699"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89181664"
 ---
 # <a name="what-is-azure-private-link"></a>Che cos'è Collegamento privato di Azure? 
 Collegamento privato di Azure consente di accedere ai servizi PaaS di Azure, ad esempio Archiviazione di Azure e Database SQL, nonché ai servizi di proprietà di clienti/partner ospitati in Azure tramite un [endpoint privato](private-endpoint-overview.md) nella rete virtuale.
@@ -62,7 +62,7 @@ Collegamento privato di Azure offre i vantaggi descritti di seguito.
 |Servizio di inoltro di Azure | Tutte le aree pubbliche      |  | Anteprima <br/> [Altre informazioni](https://docs.microsoft.com/azure/service-bus-relay/private-link-service)  |
 |Griglia di eventi di Azure| Tutte le aree pubbliche<br/> Tutte le aree per enti pubblici       |  | GA   <br/> [Altre informazioni](https://docs.microsoft.com/azure/event-grid/network-security) |
 |App Web di Azure | Tutte le aree pubbliche      | Supportato con Funzioni Windows e Linux PremiumV2 e Database elastico Premium  | Anteprima   <br/> [Altre informazioni](https://docs.microsoft.com/azure/app-service/networking/private-endpoint)   |
-|Azure Machine Learning | STATI UNITI ORIENTALI, STATI UNITI OCCIDENTALI 2      |  | Anteprima   <br/> [Altre informazioni](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
+|Azure Machine Learning | STATI UNITI ORIENTALI, STATI UNITI CENTRO-MERIDIONALI, STATI UNITI OCCIDENTALI 2      |  | Anteprima   <br/> [Altre informazioni](https://docs.microsoft.com/azure/machine-learning/how-to-configure-private-link)   |
 | Automazione di Azure  | Tutte le aree pubbliche |  | Anteprima | |
 | Hub IoT Azure | Tutte le aree pubbliche    |  | GA   <br/> [Altre informazioni](https://docs.microsoft.com/azure/iot-hub/virtual-network-support ) |
 | Servizio Azure SignalR | STATI UNITI ORIENTALI, STATI UNITI OCCIDENTALI 2, STATI UNITI CENTRO-MERIDIONALI      |  | Anteprima   <br/> [Altre informazioni](https://aka.ms/asrs/privatelink)   |

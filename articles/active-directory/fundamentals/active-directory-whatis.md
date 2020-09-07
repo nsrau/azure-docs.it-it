@@ -11,12 +11,12 @@ ms.date: 06/05/2020
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan, contperfq4
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 91e89f274615e75fec818ec9e3ecf785aa6e804f
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: db14e4e47cce1822404561d33bd8e0d3f224e037
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88262959"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321107"
 ---
 # <a name="what-is-azure-active-directory"></a>Informazioni su Azure Active Directory
 
@@ -26,7 +26,7 @@ Azure Active Directory (Azure AD) è il servizio di gestione delle identità e d
 
 - Risorse interne, tra cui app nella rete e nella Intranet aziendale, oltre a eventuali app cloud sviluppate dall'organizzazione. Per altre informazioni sulla creazione di un tenant per l'organizzazione, vedere [Avvio rapido: Creare un nuovo tenant in Azure Active Directory](active-directory-access-create-new-tenant.md).
 
-Per informazioni sulla differenza tra Azure AD e Active Directory Domain Services, vedere [Confrontare Active Directory con Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). È anche possibile usare i diversi poster della [serie su Microsoft Cloud per Enterprise Architects](https://docs.microsoft.com/microsoft-365/solutions/cloud-architecture-models?view=o365-worldwide) per ottenere informazioni più dettagliate sui servizi di gestione delle identità principali di Azure, Azure AD e Office 365.
+Per informazioni sulla differenza tra Azure AD e Active Directory Domain Services, vedere [Confrontare Active Directory con Azure Active Directory](active-directory-compare-azure-ad-to-ad.md). È anche possibile usare i diversi poster della [serie su Microsoft Cloud per Enterprise Architects](/microsoft-365/solutions/cloud-architecture-models?view=o365-worldwide) per ottenere informazioni più dettagliate sui servizi di gestione delle identità principali di Azure, Azure AD e Office 365.
 
 ## <a name="who-uses-azure-ad"></a>Utenti di Azure AD
 
@@ -68,7 +68,7 @@ Dopo la scelta della licenza di Azure AD, sarà possibile accedere ad alcune o a
 |Gestione delle applicazioni|Consente di gestire le app cloud e locali con Application Proxy, accesso Single Sign-On, portale App personali (definito anche pannello di accesso) e app SaaS (Software as a Service). Per altre informazioni, vedere [Come fornire l'accesso remoto sicuro alle applicazioni locali](../manage-apps/application-proxy.md) e la [Documentazione della gestione delle applicazioni](../manage-apps/index.yml).|
 |Authentication|Consente di gestire la reimpostazione della password self-service di Azure Active Directory, Multi-Factor Authentication, l'elenco personalizzato di password escluse e il blocco intelligente. Per altre informazioni, vedere la [Documentazione di Autenticazione di Azure AD](../authentication/index.yml).|
 |Azure Active Directory per sviluppatori|Consente di creare app che accedono a tutte le identità Microsoft e ottengono token per chiamare Graph, altre API Microsoft o API personalizzate. Per altre informazioni, vedere [Microsoft identity platform (Azure Active Directory per sviluppatori)](../develop/index.yml).|
-|Business-to-Business (B2B)|Consente di gestire gli utenti guest e i partner esterni, mantenendo al tempo stesso il controllo sui propri dati aziendali. Per altre informazioni, vedere la [Documentazione di Azure Active Directory B2B](../b2b/index.yml).|
+|Business-to-Business (B2B)|Consente di gestire gli utenti guest e i partner esterni, mantenendo al tempo stesso il controllo sui propri dati aziendali. Per altre informazioni, vedere la [Documentazione di Azure Active Directory B2B](../external-identities/index.yml).|
 |Business-to-Customer (B2C)|Consente di personalizzare e controllare la modalità con cui gli utenti accedono e gestiscono i propri profili quando usano le app. Per altre informazioni, vedere la [documentazione di Azure Active Directory B2C](../../active-directory-b2c/index.yml).|
 |Accesso condizionale|Consente di gestire l'accesso alle app cloud. Per altre informazioni, vedere la [Documentazione sull'accesso condizionale di Azure AD](../conditional-access/index.yml).|
 |Gestione dei dispositivi|Consente di gestire il modo in cui i dispositivi cloud o locali accedono ai dati aziendali. Per altre informazioni, vedere la [Documentazione sulla gestione dei dispositivi in Azure AD](../devices/index.yml).|
@@ -92,7 +92,7 @@ Per una migliore comprensione di Azure AD e della rispettiva documentazione, è 
 |Account Azure AD| Identità creata tramite Azure AD o un altro servizio cloud Microsoft, ad esempio Office 365. Le identità vengono archiviate in Azure AD e sono accessibili alle sottoscrizioni dei servizi cloud dell'organizzazione. Questo account viene a volte definito account aziendale o dell'istituto di istruzione.|
 |Amministratore dell'account|Il ruolo Amministratore della sottoscrizione classica corrisponde concettualmente al proprietario di fatturazione di una sottoscrizione. Questo ruolo può accedere al [Centro account di Azure](https://account.azure.com/Subscriptions) e consente di gestire tutte le sottoscrizioni di un account. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, ruoli di Azure e ruoli di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Amministratore del servizio|Il ruolo Amministratore della sottoscrizione classica consente di gestire tutte le risorse di Azure, incluso l'accesso. Questo ruolo ha un accesso equivalente a quello di un utente cui viene assegnato il ruolo di proprietario nell'ambito della sottoscrizione. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, ruoli di Azure e ruoli di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
-|Proprietario|Questo ruolo consente di gestire tutte le risorse di Azure, incluso l'accesso. Si tratta di un ruolo basato su un sistema di autorizzazione più recente definito controllo degli accessi in base al ruolo, che fornisce una gestione con granularità fine dell'accesso alle risorse di Azure. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, ruoli di Azure e ruoli di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
+|Proprietario|Questo ruolo consente di gestire tutte le risorse di Azure, incluso l'accesso. Si tratta di un ruolo basato su un sistema di autorizzazione più recente definito controllo degli accessi in base al ruolo di Azure, che fornisce una gestione con granularità fine dell'accesso alle risorse di Azure. Per altre informazioni, vedere [Ruoli di amministratore sottoscrizione classico, ruoli di Azure e ruoli di amministratore di Azure AD](../../role-based-access-control/rbac-and-directory-admin-roles.md).|
 |Amministrazione globale di Azure AD|Questo ruolo di amministratore viene assegnato automaticamente a chiunque abbia creato il tenant di Azure AD. Gli amministratori globali possono eseguire tutte le funzioni amministrative per Azure AD ed eventuali servizi federati con Azure AD, come Exchange Online, SharePoint Online e Skype for Business Online. È possibile avere più amministratori globali ma solo gli amministratori globali possono assegnare ruoli di amministratore, inclusi altri ruoli di amministratore globale, agli utenti. Si noti che questo ruolo di amministratore è definito amministratore globale nel portale di Azure, ma corrisponde all'**Amministratore società** nell'API Microsoft Graph e in Azure AD PowerShell. Per altre informazioni sui diversi ruoli di amministratore, vedere [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).|
 |Sottoscrizione di Azure| Usata per pagare i servizi cloud di Azure. È possibile avere più sottoscrizioni, collegate a una carta di credito.|
 |Tenant di Azure| Istanza attendibile e dedicata di Azure AD che viene creata automaticamente quando l'organizzazione si registra a una sottoscrizione di un servizio cloud Microsoft, ad esempio Microsoft Azure, Microsoft Intune oppure Office 365. Un tenant di Azure rappresenta una singola organizzazione.|

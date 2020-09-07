@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: overview
 ms.custom: seoapr2020
-ms.date: 04/20/2020
-ms.openlocfilehash: 1869671b465b7175cf3160c41debc66cbd0818ad
-ms.sourcegitcommit: bf8c447dada2b4c8af017ba7ca8bfd80f943d508
+ms.date: 08/24/2020
+ms.openlocfilehash: 9cfda93cb7f99851109ab7c4a4590517f785c8a1
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/25/2020
-ms.locfileid: "85367105"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292980"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Panoramica della sicurezza aziendale in Azure HDInsight
 
@@ -59,7 +59,7 @@ Per accedere ai log di controllo di Apache Ranger e Ambari e ai log di accesso d
 
 La protezione dei dati è importante per rispettare i requisiti di sicurezza e conformità dell'organizzazione. Oltre a limitare l'accesso ai dati da parte di dipendenti non autorizzati, è necessario crittografarli.
 
-Archiviazione di Azure e Data Lake Storage Gen1 e Gen2 supportano la [crittografia dei dati inattivi](../../storage/common/storage-service-encryption.md) lato server in modo trasparente. La protezione dei cluster HDInsight sarà perfettamente compatibile con la crittografia lato server dei dati inattivi.
+HDInsight supporta la crittografia dei dati inattivi con chiavi gestite dalla piattaforma e [gestite dal cliente](../disk-encryption.md). La crittografia dei dati in transito viene gestita con TLS e IPSec. Per altre informazioni, vedere [Crittografia dei dati in transito per Azure HDInsight](encryption-in-transit.md).
 
 ### <a name="compliance"></a>Conformità
 
@@ -79,7 +79,7 @@ La tabella seguente include i collegamenti alle risorse per ogni tipo di soluzio
 |  | Abilitare la proprietà [Trasferimento sicuro obbligatorio](../../storage/common/storage-require-secure-transfer.md) negli account di archiviazione. | Customer |
 |  | Configurare le reti virtuali e i [firewall di Archiviazione di Azure](../../storage/common/storage-network-security.md) | Customer |
 |  | Configurare gli [endpoint servizio di rete virtuale di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) per Cosmos DB e [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview) | Customer |
-|  | Assicurarsi che la [crittografia TLS](../../storage/common/storage-security-tls.md) sia abilitata per i dati in transito. | Customer |
+|  | Assicurarsi che la funzionalità di [crittografia dei dati in transito](./encryption-in-transit.md) sia abilitata per l'uso di TLS e IPSec per la comunicazione intra-cluster. | Customer |
 |  | Configurare le [chiavi gestite dal cliente](../../storage/common/storage-encryption-keys-portal.md) per la crittografia di Archiviazione di Azure | Customer |
 |  | Controllare l'accesso ai dati da parte del supporto tecnico di Azure usando [Customer Lockbox](https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview) | Customer |
 | Sicurezza delle applicazioni e del middleware | Eseguire l'integrazione con Azure AD Domain Services e [configurare l'autenticazione](apache-domain-joined-configure-using-azure-adds.md) | Customer |

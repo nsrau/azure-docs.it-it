@@ -7,12 +7,12 @@ ms.date: 07/14/2020
 ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 9011c56096d61e50ae3655a76a396ec3f2dd97c5
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: 65b35c30d796f733e91c71e569634b61f9f7c52b
+ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87352616"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88959290"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-running-on-linux-or-windows-to-iot-hub-c"></a>Avvio rapido: Connettere un'applicazione per dispositivi Plug and Play IoT (anteprima) di esempio in esecuzione in Linux o Windows all'hub IoT (C)
 
@@ -117,7 +117,10 @@ Usare l'SDK per dispositivi per compilare il codice di esempio incluso:
 
 Per eseguire l'applicazione di esempio nell'SDK che simula un dispositivo Plug and Play IoT che invia dati di telemetria all'hub IoT:
 
-Creare una variabile di ambiente denominata **IOTHUB_DEVICE_CONNECTION_STRING** per archiviare la stringa di connessione del dispositivo annotata in precedenza.
+Creare due variabili di ambiente per configurare l'esempio in modo da usare una stringa di connessione per la connessione all'hub IoT:
+
+- **IOTHUB_DEVICE_SECURITY_TYPE** con il valore `"connectionString"`
+- **IOTHUB_DEVICE_CONNECTION_STRING** per archiviare la stringa di connessione del dispositivo annotata in precedenza.
 
 Dalla cartella _cmake_ passare alla cartella che contiene il file eseguibile ed eseguirlo:
 

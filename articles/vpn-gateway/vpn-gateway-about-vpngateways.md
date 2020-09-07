@@ -6,20 +6,19 @@ author: cherylmc
 Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure VPN Gateway so that I can securely connect to my Azure virtual networks.
 ms.service: vpn-gateway
 ms.topic: overview
-ms.date: 08/25/2020
+ms.date: 08/27/2020
 ms.author: cherylmc
-ms.openlocfilehash: c7fbea977904145aa2e8851f45a4b70f9ce0c560
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.custom: contperfq1
+ms.openlocfilehash: 23d8d28a03217b1359462332da736f852cfaf8ea
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855602"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015391"
 ---
 # <a name="what-is-vpn-gateway"></a>Che cos'è un Gateway VPN?
 
 Un gateway VPN è un tipo specifico di gateway di rete virtuale, usato per inviare traffico crittografato tra una rete virtuale di Azure e una posizione locale attraverso la rete Internet pubblica. È possibile usare un gateway VPN anche per inviare traffico crittografato tra le reti virtuali di Azure sulla rete Microsoft. Ogni rete virtuale può avere un solo gateway VPN, ma è possibile creare più connessioni allo stesso gateway VPN. Quando si creano più connessioni allo stesso gateway VPN, tutti i tunnel VPN condividono la larghezza di banda disponibile per il gateway.
-
-I gateway VPN possono essere distribuiti nelle zone di disponibilità di Azure. In questo modo, i gateway di rete virtuale ottengono maggiore disponibilità, scalabilità e resilienza. La distribuzione di gateway in zone di disponibilità di Azure separa fisicamente e logicamente i gateway all'interno di un'area e consente, al contempo, di proteggere la connettività di rete locale ad Azure da errori a livello di zona. Vedere [Informazioni sui gateway di rete virtuale con ridondanza della zona in zone di disponibilità di Azure](about-zone-redundant-vnet-gateways.md).
 
 ## <a name="what-is-a-virtual-network-gateway"></a><a name="whatis"></a>Informazioni sul gateway di rete virtuale
 
@@ -33,9 +32,15 @@ La creazione di un gateway di rete virtuale può richiedere fino a 45 minuti. Qu
 
 Una connessione gateway VPN si basa su più risorse configurate con impostazioni specifiche. La maggior parte delle risorse può essere configurata separatamente, anche se alcune risorse devono essere configurate in un determinato ordine.
 
-### <a name="design-connection-topology-diagrams"></a><a name="diagrams"></a>Progettazione: Diagrammi delle topologie di connessione
+### <a name="design"></a><a name="diagrams"></a>Progettazione
 
-È importante tenere presente che sono disponibili configurazioni diverse per le connessioni del gateway VPN. È necessario determinare la configurazione più adatta alle proprie esigenze. Ad esempio, le connessioni da punto a sito, da sito a sito e coesistenti da sito a sito ed ExpressRoute hanno tutte requisiti di configurazione e istruzioni differenti. Per informazioni sui diagrammi delle topologie di progettazione e connessione, vedere [Progettazione](design.md).
+È importante tenere presente che sono disponibili configurazioni diverse per le connessioni del gateway VPN. È necessario determinare la configurazione più adatta alle proprie esigenze. Ad esempio, le connessioni da punto a sito, da sito a sito e coesistenti da sito a sito ed ExpressRoute hanno tutte requisiti di configurazione e istruzioni differenti. Per informazioni sulla progettazione e per visualizzare i diagrammi delle topologie di connessione, vedere [Progettazione](design.md).
+
+### <a name="planning-table"></a><a name="planningtable"></a>Tabella di pianificazione
+
+La tabella seguente può aiutare nella scelta della migliore opzione di connettività per la soluzione.
+
+[!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ### <a name="settings"></a><a name="settings"></a>Impostazioni
 
@@ -44,12 +49,6 @@ Le impostazioni scelte per ogni risorsa sono fondamentali per creare una conness
 ### <a name="deployment-tools"></a><a name="tools"></a>Strumenti di distribuzione
 
 È possibile iniziare a creare e configurare le risorse usando uno strumento di configurazione, ad esempio il portale di Azure, e successivamente decidere di passare a un altro strumento, ad esempio PowerShell, per configurare risorse aggiuntive o eventualmente modificare quelle esistenti. Attualmente, non è possibile configurare tutte le risorse e le relative impostazioni nel portale di Azure. Le istruzioni riportate negli articoli per ogni topologia di connessione indicano se è necessario usare uno strumento di configurazione specifico.
-
-### <a name="planning-table"></a><a name="planningtable"></a>Tabella di pianificazione
-
-La tabella seguente può aiutare nella scelta della migliore opzione di connettività per la soluzione.
-
-[!INCLUDE [cross-premises](../../includes/vpn-gateway-cross-premises-include.md)]
 
 ## <a name="gateway-skus"></a><a name="gwsku"></a>SKU del gateway
 
@@ -61,6 +60,10 @@ Quando si crea un gateway di rete virtuale, specificare lo SKU del gateway da us
 ### <a name="gateway-skus-by-tunnel-connection-and-throughput"></a><a name="benchmark"></a>SKU del gateway per tunnel, connessione e velocità effettiva
 
 [!INCLUDE [Aggregated throughput by SKU](../../includes/vpn-gateway-table-gwtype-aggtput-include.md)]
+
+## <a name="availability-zones"></a><a name="availability"></a>Zone di disponibilità
+
+I gateway VPN possono essere distribuiti nelle zone di disponibilità di Azure. In questo modo, i gateway di rete virtuale ottengono maggiore disponibilità, scalabilità e resilienza. La distribuzione di gateway in zone di disponibilità di Azure separa fisicamente e logicamente i gateway all'interno di un'area e consente, al contempo, di proteggere la connettività di rete locale ad Azure da errori a livello di zona. Vedere [Informazioni sui gateway di rete virtuale con ridondanza della zona in zone di disponibilità di Azure](about-zone-redundant-vnet-gateways.md).
 
 ## <a name="pricing"></a><a name="pricing"></a>Prezzi
 

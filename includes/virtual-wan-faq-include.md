@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/18/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: eec99ae353d4e5ca1bede1afef135def96207c50
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: fab36a538cd9dfa17852c513974af062fa7a0ec2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88604677"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89304068"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Per usare la rete WAN virtuale di Azure, è necessario avere un'architettura hub-spoke con dispositivi SD-WAN/VPN?
 
@@ -249,9 +249,12 @@ Quando un circuito ExpressRoute è connesso all'hub virtuale, i router perimetra
 
 Il comportamento corrente è quello di preferire il percorso del circuito ExpressRoute rispetto a quello da hub a hub per la connettività da rete virtuale a rete virtuale. Tuttavia, questa scelta non è consigliata in una configurazione di rete WAN virtuale. Il team della rete WAN virtuale sta lavorando a una correzione per consentire di preferire il percorso da hub a hub rispetto a quello ExpressRoute. È consigliabile connettere più circuiti ExpressRoute (provider diversi) a un hub e usare la connettività da hub a hub fornita dalla rete WAN virtuale per i flussi di traffico tra aree.
 
+### <a name="can-hubs-be-created-in-different-resource-group-in-virtual-wan"></a>È possibile creare hub in un gruppo di risorse diverso nella rete WAN virtuale?
+Sì. Questa opzione è attualmente disponibile solo tramite PowerShell. Il portale della rete WAN virtuale impone che gli hub si trovino nello stesso gruppo di risorse della rete WAN virtuale stessa.
+
 ### <a name="is-there-support-for-ipv6-in-virtual-wan"></a>È disponibile il supporto per IPv6 nella rete WAN virtuale?
 
-IPv6 non è supportato nell'hub della rete WAN virtuale e nei relativi gateway. Attualmente non è neanche supportata la connessione di una rete virtuale con supporto per IPv6 a una rete WAN virtuale.
+IPv6 non è supportato nell'hub della rete WAN virtuale e nei relativi gateway. Attualmente non è neanche supportata la connessione di una rete virtuale con supporto per IPv4 e IPv6 a una rete WAN virtuale. 
 
 ### <a name="what-is-the-recommended-api-version-to-be-used-by-scripts-automating-various-virtual-wan-functionalities"></a>Qual è la versione consigliata dell'API da usare per gli script che automatizzano varie funzionalità della rete WAN virtuale?
 
