@@ -2,23 +2,23 @@
 title: 'Avvio rapido: Creare un profilo per la disponibilità elevata delle applicazioni - Interfaccia della riga di comando di Azure - Gestione traffico di Azure'
 description: Questo articolo di avvio rapido descrive come creare un profilo di Gestione traffico per creare un'applicazione Web a disponibilità elevata.
 services: traffic-manager
-author: rohinkoul
-mnager: twooley
+author: duongau
+mnager: kumud
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/29/2019
-ms.author: rohink
+ms.date: 08/26/2020
+ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 1de651d5321fa3a0dea4da33c5d41839e67ad9dc
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 429d107a68c8631983bf791108f5091f31a480c3
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87491188"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89178083"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>Guida introduttiva: Creare un profilo di Gestione traffico per un'applicazione Web a disponibilità elevata usando l'interfaccia della riga di comando di Azure
 
@@ -117,7 +117,7 @@ Aggiungere le due app Web come endpoint di Gestione traffico al profilo di Gesti
 
 Quando l'endpoint primario non è disponibile, il traffico viene instradato automaticamente all'endpoint di failover.
 
-Nell'esempio seguente sostituire **<app1name_eastus>** e **<app2name_westeurope>** con il nome dell'app creata per ogni area nella sezione precedente, sostituire **<appspname_eastus>** e **<appspname_westeurope>** con il nome usato per creare i piani di servizio app nella sezione precedente e sostituire **<profile_name>** con il nome del profilo usato nella sezione precedente. 
+Nell'esempio seguente sostituire **<app1name_eastus>** e **<app2name_westeurope>** con i nomi di app creati per ogni area nella sezione precedente. Quindi sostituire **<profile_name>** con il nome del profilo usato nella sezione precedente. 
 
 **Endpoint Stati Uniti orientali**
 
@@ -174,7 +174,7 @@ az network traffic-manager endpoint create \
 
 In questa sezione, si controllerà il nome di dominio del profilo di Gestione traffico. Si configurerà anche l'endpoint primario come non disponibile. Si osserverà infine che l'app Web è ancora disponibile. Gestione traffico infatti invia il traffico all'endpoint di failover.
 
-Nell'esempio seguente sostituire **<app1name_eastus>** e **<app2name_westeurope>** con il nome dell'app creata per ogni area nella sezione precedente, sostituire **<appspname_eastus>** e **<appspname_westeurope>** con il nome usato per creare i piani di servizio app nella sezione precedente e sostituire **<profile_name>** con il nome del profilo usato nella sezione precedente.
+Nell'esempio seguente sostituire **<app1name_eastus>** e **<app2name_westeurope>** con i nomi di app creati per ogni area nella sezione precedente. Quindi sostituire **<profile_name>** con il nome del profilo usato nella sezione precedente.
 
 ### <a name="determine-the-dns-name"></a>Determinare il nome DNS
 
