@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 03/11/2020
-ms.openlocfilehash: f60cb3f28c57d6df4a309a7630d078c593d75410
-ms.sourcegitcommit: 61d850bc7f01c6fafee85bda726d89ab2ee733ce
+ms.openlocfilehash: 01501b99d5d7c42af98d0397cf6ff8cbca14b07b
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/03/2020
-ms.locfileid: "84343762"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485802"
 ---
 # <a name="tutorial-configure-an-availability-group-listener-for-sql-server-on-rhel-virtual-machines-in-azure"></a>Esercitazione: Configurare un listener del gruppo di disponibilità per SQL Server nelle macchine virtuali RHEL in Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -41,7 +41,7 @@ Aver completato l'[Esercitazione: Configurare i gruppi di disponibilità per SQL
 
 ## <a name="create-the-load-balancer-in-the-azure-portal"></a>Creare il servizio di bilanciamento del carico nel portale di Azure
 
-Le istruzioni seguenti illustrano i passaggi da 1 a 4 della sezione [Creare e configurare il servizio di bilanciamento del carico nel portale di Azure](../windows/availability-group-load-balancer-portal-configure.md#create-and-configure-the-load-balancer-in-the-azure-portal) dell'articolo [Bilanciamento del carico - Portale di Azure](../windows/availability-group-load-balancer-portal-configure.md).
+Le istruzioni seguenti illustrano i passaggi da 1 a 4 della sezione [Creare e configurare il servizio di bilanciamento del carico nel portale di Azure](../windows/availability-group-load-balancer-portal-configure.md#create--configure-load-balancer) dell'articolo [Bilanciamento del carico - Portale di Azure](../windows/availability-group-load-balancer-portal-configure.md).
 
 ### <a name="create-the-load-balancer"></a>Creare il servizio di bilanciamento del carico
 

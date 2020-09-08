@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come aggiungere un endpoint HTTPS a u
 ms.topic: tutorial
 ms.date: 07/22/2019
 ms.custom: mvc, devx-track-csharp
-ms.openlocfilehash: 6b8587982a8cbe496427960495055adbd68a07a7
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b309a13288c8ea95f453c1e80549a979e3f89921
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997286"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441528"
 ---
 # <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Esercitazione: Aggiungere un endpoint HTTPS a un servizio front-end API Web ASP.NET Core usando Kestrel
 
@@ -238,7 +238,7 @@ In Esplora soluzioni aprire *VotingWeb/PackageRoot/ServiceManifest.xml*.  Nella 
 
 Per eseguire PowerShell dal punto **SetupEntryPoint**, è possibile eseguire PowerShell.exe in un file batch che punta a un file di PowerShell. Per prima cosa, aggiungere il file batch al progetto del servizio.  In Esplora soluzioni fare clic con il pulsante destro del mouse su **VotingWeb**, scegliere **Aggiungi**->**Nuovo elemento** e aggiungere un nuovo file denominato "Setup.bat".  Modificare il file *Setup.bat* e aggiungere il comando seguente:
 
-```bat
+```cmd
 powershell.exe -ExecutionPolicy Bypass -Command ".\SetCertAccess.ps1"
 ```
 

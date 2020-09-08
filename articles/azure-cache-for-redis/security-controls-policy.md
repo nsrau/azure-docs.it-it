@@ -1,22 +1,22 @@
 ---
 title: Controlli di conformità alle normative di Criteri di Azure per Cache di Azure per Redis
-description: Elenca i controlli di conformità alle normative di Criteri di Azure per Cache di Azure per Redis. Queste definizioni di criteri predefiniti rappresentano approcci comuni per gestire la conformità delle risorse di Azure.
-ms.date: 07/22/2020
+description: Elenca i controlli di conformità alle normative di Criteri di Azure per Cache di Azure per Redis. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
+ms.date: 09/04/2020
 ms.topic: sample
 author: yegu-ms
 ms.author: yegu
 ms.service: cache
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 75b33610acac0309f6141d807d204d4dfef9d91c
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 9979956ef20e83a3c9b6254208c94c50c9a41dc5
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374438"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484792"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-cache-for-redis"></a>Controlli di conformità alle normative di Criteri di Azure per Cache di Azure per Redis
 
-La [conformità alle normative di Criteri di Azure](../governance/policy/concepts/regulatory-compliance.md) offre definizioni di iniziative create e gestite da Microsoft, note come _criteri predefiniti_, per i **domini di conformità** e i **controlli di sicurezza** correlati a diversi standard di conformità. Questa pagina elenca i **domini di conformità** e i **controlli di sicurezza** per Cache di Azure per Redis. È possibile assegnare singolarmente i criteri predefiniti per un **controllo di sicurezza** in modo da rendere le risorse di Azure conformi allo specifico standard.
+La [conformità alle normative di Criteri di Azure](../governance/policy/concepts/regulatory-compliance.md) fornisce definizioni di iniziative gestite e create da Microsoft, note come _definizioni predefinite_, per i **domini di conformità** e i **controlli di sicurezza** correlati a diversi standard di conformità. Questa pagina elenca i **domini di conformità** e i **controlli di sicurezza** per Cache di Azure per Redis. È possibile assegnare singolarmente i criteri predefiniti per un **controllo di sicurezza** in modo da rendere le risorse di Azure conformi allo specifico standard.
 
 [!INCLUDE [azure-policy-compliancecontrols-introwarning](../../includes/policy/standards/intro-warning.md)]
 

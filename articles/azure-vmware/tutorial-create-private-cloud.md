@@ -2,13 +2,13 @@
 title: 'Esercitazione: Distribuire un cluster vSphere in Azure'
 description: Informazioni su come distribuire un cluster vSphere in Azure con la soluzione Azure VMWare
 ms.topic: tutorial
-ms.date: 08/21/2020
-ms.openlocfilehash: 8aeedeeb785f149239f2bf9a4b58a18ec8bfeb77
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.date: 09/07/2020
+ms.openlocfilehash: 69a29a459ba283bb34169112ac2fa174ac6a14af
+ms.sourcegitcommit: 8791f69d44150767807d215cafc4076f3ed43f9f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750487"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89512370"
 ---
 # <a name="tutorial-deploy-an-azure-vmware-solution-private-cloud-in-azure"></a>Esercitazione: Distribuire un cloud privato della soluzione Azure VMware in Azure
 
@@ -30,14 +30,7 @@ In questa esercitazione verranno illustrate le procedure per:
 
 ## <a name="register-the-resource-provider"></a>Registrare il provider di risorse
 
-Per usare la soluzione Azure VMware, è prima necessario registrare il provider di risorse con la sottoscrizione.
-
-```
-azurecli-interactive
-az provider register -n Microsoft.AVS --subscription <your subscription ID>
-```
-
-Per informazioni su come registrare il provider di risorse in altri modi, vedere [Provider e tipi di risorse di Azure](../azure-resource-manager/management/resource-providers-and-types.md).
+[!INCLUDE [register-resource-provider-steps](includes/register-resource-provider-steps.md)]
 
 
 ## <a name="create-a-private-cloud"></a>Creare un cloud privato
@@ -46,34 +39,7 @@ Per creare un cloud privato della soluzione Azure VMware, è possibile usare il 
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-1. Accedere al [portale di Azure](https://portal.azure.com).
-
-1. Selezionare **Crea una nuova risorsa**. Nella casella di testo **Cerca nel marketplace** digitare `Azure VMware Solution` e selezionare **Soluzione Azure VMware** nell'elenco. Nella finestra **Soluzione Azure VMware** selezionare **Crea**
-
-1. Nella scheda **Informazioni di base** immettere i valori per i campi. La tabella seguente elenca le proprietà per i campi.
-
-   | Campo   | valore  |
-   | ---| --- |
-   | **Sottoscrizione** | La sottoscrizione che si intende usare per la distribuzione.|
-   | **Gruppo di risorse** | Il gruppo di risorse per le risorse del cloud privato. |
-   | **Posizione** | Selezionare una località, ad esempio **Stati Uniti orientali**.|
-   | **Nome risorsa** | Nome del cloud privato della soluzione Azure VMware. |
-   | **SKU** | Selezionare il valore di SKU seguente: AV36 |
-   | **Host** | Numero di host da aggiungere al cluster del cloud privato. Il valore predefinito è 3 e può essere aumentato o ridotto dopo la distribuzione.  |
-   | **Password dell'amministratore di vCenter** | Immettere la password dell'amministratore del cloud. |
-   | **Password di NSX-T Manager** | Immettere la password amministratore di NSX-T. |
-   | **Blocco di indirizzi** | Immettere un blocco di indirizzi IP per la rete CIDR per il cloud privato, ad esempio 10.175.0.0/22. |
-
-   :::image type="content" source="./media/tutorial-create-private-cloud/create-private-cloud.png" alt-text="Nella scheda Informazioni di base immettere i valori per i campi." border="true":::
-
-1. Al termine, selezionare **Rivedi e crea**. Nella schermata successiva verificare le informazioni immesse. Se tutte le informazioni sono corrette, selezionare **Crea**.
-
-   > [!NOTE]
-   > Questo passaggio richiede circa due ore. 
-
-1. Verificare che la distribuzione sia riuscita. Passare al gruppo di risorse creato e selezionare il cloud privato.  Al termine della distribuzione, verrà visualizzato lo stato **Completato**. 
-
-   :::image type="content" source="./media/tutorial-create-private-cloud/validate-deployment.png" alt-text="Verificare che la distribuzione sia riuscita." border="true":::
+[!INCLUDE [create-avs-private-cloud-azure-portal](includes/create-avs-private-cloud-azure-portal-steps.md)]
 
 ### <a name="azure-cli"></a>Interfaccia della riga di comando di Azure
 

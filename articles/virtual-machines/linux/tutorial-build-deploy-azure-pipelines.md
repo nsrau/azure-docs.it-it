@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops, devx-track-javascript
-ms.openlocfilehash: 140365abad266617443d58b7ed59f05a27009f59
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: c83a67f7d524a062485f2c68e0adb7fdd2855a84
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87433055"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462174"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>Esercitazione: Distribuire l'app su macchine virtuali Linux in Azure con Azure DevOps Services e Azure Pipelines
 
@@ -84,9 +84,10 @@ Seguire i passaggi aggiuntivi descritti di seguito in base allo stack di runtime
 
 #### <a name="java"></a>[Java](#tab/java)
 
-- Per la distribuzione di app basate su Java Spring Boot e Spring Cloud, creare una VM Linux in Azure usando [questo](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) modello, che fornisce un runtime completamente supportato basato su OpenJDK.
-- Per la distribuzione di servlet Java in server Tomcat, creare una VM Linux con Java 8 usando [questo](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) modello di Azure e [configurare Tomcat 9.x come servizio](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
-- Per la distribuzione di app basate su Java EE, usare un modello di Azure per creare una [VM Linux + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90), una [VM Linux + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) o una [VM Linux + Java + WildFly/JBoss 14](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) 
+- Per la distribuzione di app basate su Java Spring Boot e Spring Cloud, creare una VM Linux in Azure usando [questo](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu13-ubuntu-2004) modello, che fornisce un runtime completamente supportato basato su OpenJDK.
+- Per la distribuzione di servlet Java in server Tomcat, creare una VM Linux con Java 8 usando [questo](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu13-ubuntu-2004) modello di Azure e [configurare Tomcat 9.x come servizio](https://tomcat.apache.org/tomcat-9.0-doc/setup.html).
+- Per la distribuzione di app basate su Java EE, usare un modello di Azure per creare una [VM Linux + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90), una [VM Linux + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) o una [VM Linux + Java + WildFly/JBoss 14](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu13-ubuntu-2004) 
+
 
 #### <a name="javascript"></a>[JavaScript](#tab/java-script)
 
