@@ -1,18 +1,18 @@
 ---
 title: Controlli di conformità alle normative di Criteri di Azure per Archiviazione di Azure
 description: Elenca i controlli di conformità alle normative di Criteri di Azure disponibili per Archiviazione di Azure. Queste definizioni di criteri predefinite rappresentano approcci comuni alla gestione della conformità delle risorse di Azure.
-ms.date: 07/22/2020
+ms.date: 09/04/2020
 ms.topic: sample
 author: twooley
 ms.author: twooley
 ms.service: storage
 ms.custom: subject-policy-compliancecontrols
-ms.openlocfilehash: 99d5f217d2f8ea51a8697bdcf71ba34f3ac3087b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 7b3d75e5dbb1f2baf4f0723f6aadee0a3b8ae886
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89380260"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89486817"
 ---
 # <a name="azure-policy-regulatory-compliance-controls-for-azure-storage"></a>Controlli di conformità alle normative di Criteri di Azure per Archiviazione di Azure
 
