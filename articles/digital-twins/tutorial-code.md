@@ -1,5 +1,5 @@
 ---
-title: Scrivere il codice di un'app client
+title: "Esercitazione: Scrivere il codice di un'app client"
 titleSuffix: Azure Digital Twins
 description: Esercitazione su come scrivere il codice minimo per un'app client usando .NET (C#) SDK.
 author: baanders
@@ -7,16 +7,23 @@ ms.author: baanders
 ms.date: 05/05/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 52a22dd215769208b60f180b576ae5763d67eade
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: c000d48043a46ecdbdfee263cc5c8ce877f66b4b
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723470"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88923705"
 ---
-# <a name="coding-with-the-azure-digital-twins-apis"></a>Scrivere codice con le API di Gemelli digitali di Azure
+# <a name="tutorial-coding-with-the-azure-digital-twins-apis"></a>Esercitazione: Scrivere codice con le API di Gemelli digitali di Azure
 
 È comune per gli sviluppatori che usano Gemelli digitali di Azure scrivere un'applicazione client per interagire con la loro istanza del servizio. Questa esercitazione destinata agli sviluppatori offre un'introduzione alla programmazione per il servizio Gemelli digitali di Azure, usando la [libreria client di Gemelli digitali IoT di Azure per .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Viene descritta la procedura dettagliata per scrivere un'app client console in C# a partire da zero.
+
+> [!div class="checklist"]
+> * Configurare il progetto
+> * Iniziare a scrivere il codice del progetto   
+> * Esempio di codice completo
+> * Pulire le risorse
+> * Passaggi successivi
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -48,7 +55,7 @@ Aggiungere quindi due dipendenze necessarie per l'uso di Gemelli digitali di Azu
 
 ```cmd/sh
 dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
-dotnet add package Azure.identity --version 1.1.1
+dotnet add package Azure.identity
 ```
 
 La prima dipendenza è la [libreria client di Gemelli digitali IoT di Azure per .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). La seconda dipendenza fornisce strumenti che consentono di eseguire l'autenticazione in Azure.
@@ -419,7 +426,6 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Collections.Generic;
 using Azure;
-using Azure.DigitalTwins.Core.Models;
 using Azure.DigitalTwins.Core.Serialization;
 using System.Text.Json;
 
@@ -532,24 +538,7 @@ namespace minimal
  
 L'istanza usata in questa esercitazione può essere riutilizzata nell'esercitazione successiva, [*Esercitazione: Esplorare le nozioni di base con un'app client di esempio*](tutorial-command-line-app.md). Se si prevede di continuare con l'esercitazione successiva, è possibile mantenere l'istanza di Gemelli digitali di Azure configurata qui.
  
-Se le risorse create in questa esercitazione non sono più necessarie, seguire questa procedura per eliminarle.
-
-Usando [Azure Cloud Shell](https://shell.azure.com), è possibile eliminare tutte le risorse di Azure di un gruppo di risorse con il comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Questo comando rimuove il gruppo di risorse e l'istanza di Gemelli digitali di Azure.
-
-> [!IMPORTANT]
-> L'eliminazione di un gruppo di risorse è irreversibile. Il gruppo di risorse e tutte le risorse in esso contenute vengono eliminati in modo permanente. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate. 
-
-Aprire un'istanza di Azure Cloud Shell ed eseguire il comando seguente per eliminare il gruppo di risorse e tutti gli elementi contenuti al suo interno.
-
-```azurecli-interactive
-az group delete --name <your-resource-group>
-```
-
-Eliminare quindi la registrazione dell'app di Azure Active Directory creata per l'app client con questo comando:
-
-```azurecli
-az ad app delete --id <your-application-ID>
-```
+[!INCLUDE [digital-twins-cleanup-basic.md](../../includes/digital-twins-cleanup-basic.md)]
 
 Infine, eliminare la cartella del progetto creata nel computer locale.
 
@@ -561,7 +550,3 @@ Continuare con l'esercitazione successiva per esplorare le operazioni che è pos
 
 > [!div class="nextstepaction"]
 > [*Esercitazione: Esplorare le nozioni di base con un'app client di esempio*](tutorial-command-line-app.md)
-
-È anche possibile aggiungere altro al codice scritto in questa esercitazione acquisendo informazioni su altre operazioni di gestione negli articoli di procedure oppure iniziare a esaminare la documentazione concettuale sugli elementi usati nell'esercitazione.
-* [*Procedura: Gestire modelli personalizzati*](how-to-manage-model.md)
-* [*Concetti: Modelli personalizzati*](concepts-models.md)

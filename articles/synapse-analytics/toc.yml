@@ -36,6 +36,8 @@
   items:
     - name: Creare un'area di lavoro di Synapse con il portale di Azure
       href: quickstart-create-workspace.md
+    - name: Eseguire la distribuzione con un modello
+      href: quickstart-deployment-template-workspaces.md
     - name: Creare un'area di lavoro di Synapse con l'interfaccia della riga di comando di Azure
       href: quickstart-create-workspace-cli.md
     - name: Usare Synapse Studio
@@ -210,6 +212,8 @@
               href: ./spark/apache-spark-delta-lake-overview.md
             - name: Prestazioni di Apache Spark
               href: ./spark/apache-spark-performance.md
+            - name: Ottimizzazione delle prestazioni per Apache Spark con indici Hyperspace
+              href: ./spark/apache-spark-performance-hyperspace.md
             - name: Comportamento di scalabilità automatica di Apache Spark
               href: ./spark/apache-spark-autoscale.md
         - name: Sviluppo

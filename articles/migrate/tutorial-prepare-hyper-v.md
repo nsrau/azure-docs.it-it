@@ -4,12 +4,12 @@ description: Informazioni su come preparare la valutazione e la migrazione di ma
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 5f669de6bd8d767ca7b947fca883187dad9fe29d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 8ecb886b5d5cd9d6811788043b924880b4c366c4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86109621"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88928922"
 ---
 # <a name="prepare-for-assessment-and-migration-of-hyper-v-vms-to-azure"></a>Preparare le VM Hyper-V per la valutazione e la migrazione ad Azure
 
@@ -38,6 +38,7 @@ La tabella riepiloga le attività da completare in Azure. Sotto la tabella sono 
 **Creare un progetto di Azure Migrate** | Un progetto Azure Migrate offre una posizione centralizzata per l'orchestrazione e la gestione di valutazioni e migrazioni con strumenti Azure Migrate, strumenti Microsoft e offerte di terze parti. | L'account Azure deve disporre delle autorizzazioni del ruolo Collaboratore o Proprietario nel gruppo di risorse in cui si trova il progetto.
 **Registrare l'appliance** | Azure Migrate usa un'appliance di Azure Migrate leggera per individuare e valutare le VM Hyper-V. [Altre informazioni](migrate-appliance-architecture.md#appliance-registration) | Per registrare l'appliance, l'account Azure deve disporre delle autorizzazioni del ruolo Collaboratore o Proprietario nella sottoscrizione di Azure.
 **Creare l'app di Azure AD** | Quando si registra l'appliance, Azure Migrate crea un'app di Azure Active Directory (Azure AD) che viene usata per la comunicazione tra gli agenti in esecuzione nell'appliance e Azure Migrate. | L'account di Azure necessita di autorizzazioni per creare app di Azure AD.
+**Creare un insieme di credenziali delle chiavi** | L'insieme di credenziali delle chiavi viene creato nell'ambito della registrazione dell'appliance e viene usato per la gestione del certificato scaricato nell'appliance durante la relativa configurazione.| Per consentire ad Azure Migrate di creare l'insieme di credenziali delle chiavi, l'account Azure deve avere le autorizzazioni di Collaboratore per il gruppo di risorse in cui risiede il progetto Azure Migrate.
 **Creare una macchina virtuale** | È necessario disporre delle autorizzazioni per creare una macchina virtuale nel gruppo di risorse e nella rete virtuale e per scrivere in un disco gestito di Azure. | L'account Azure deve avere il ruolo Collaboratore Macchina virtuale.
 
 
@@ -81,6 +82,7 @@ L'amministratore tenant/globale può concedere le autorizzazioni nel modo seguen
 #### <a name="assign-application-developer-role"></a>Assegnare il ruolo Sviluppatore di applicazioni
 
 L'amministratore tenant/globale può assegnare il ruolo Sviluppatore di applicazioni a un account. [Altre informazioni](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md)
+
 
 ### <a name="assign-azure-account-permissions"></a>Assegnare le autorizzazioni all'account Azure
 

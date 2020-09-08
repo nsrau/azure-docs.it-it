@@ -7,12 +7,12 @@ author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: 49984349ce8d9d1bc43778c0042dd21485eded15
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 1b6fdbdfaef601751961d022858545d731fe62a8
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829680"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88856021"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Creare dashboard personalizzati per gli indicatori KPI con Azure Application Insights
 
@@ -40,6 +40,9 @@ Per completare questa esercitazione:
 Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com).
 
 ## <a name="create-a-new-dashboard"></a>Creare un nuovo dashboard
+> [!WARNING]
+> Se si sposta la risorsa di Application Insights in una sottoscrizione o un gruppo di risorse diverso, sarà necessario aggiornare manualmente il dashboard rimuovendo i riquadri precedenti e bloccando i nuovi riquadri dalla stessa risorsa di Application Insights in una nuova posizione. 
+
 Un unico dashboard può contenere risorse da più applicazioni, gruppi di risorse e sottoscrizioni.  Iniziare l'esercitazione creando un nuovo dashboard per l'applicazione.  
 
 1. Nel riquadro del dashboard selezionare **Nuovo dashboard**.

@@ -10,12 +10,12 @@ author: peterclu
 ms.author: peterlu
 ms.date: 03/29/2020
 ms.custom: designer
-ms.openlocfilehash: c1d927583ecf0ac5684c607b7d203c3224fe87b1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c4fa5a2554f10a720c0f2241e17514e798cf7f4c
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87318828"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88812938"
 ---
 # <a name="example-pipelines--datasets-for-azure-machine-learning-designer-preview"></a>Pipeline e set di dati di esempio per la finestra di progettazione di Azure Machine Learning (anteprima)
 
@@ -55,9 +55,9 @@ Di seguito viene illustrato come usare un esempio di finestra di progettazione:
 
 1. Al termine dell'esecuzione, è possibile esaminare la pipeline e visualizzare l'output di ogni modulo per acquisire altre informazioni. Per visualizzare l'output dei moduli, procedere come segue:
 
-   1. Selezionare un modulo nel canvas.
+   1. Fare clic con il pulsante destro del mouse sul modulo nel canvas di cui si vuole visualizzare l'output.
+   1. Selezionare **Visualize** (Visualizza).
 
-   1. Nel riquadro dei dettagli del modulo a destra del canvas selezionare **Output + log**. Selezionare l'icona del grafico ![icona di visualizzazione](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) per visualizzare i risultati di ogni modulo. 
 
    Usare gli esempi come punti di partenza per alcuni scenari più comuni di Machine Learning.
 

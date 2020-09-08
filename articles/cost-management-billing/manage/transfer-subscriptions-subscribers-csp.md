@@ -8,12 +8,12 @@ ms.subservice: billing
 ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: banders
-ms.openlocfilehash: ffb72b4b06b8925cae57989a171d7efbd88c3866
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 52dd9d2f6299f8d574934e7baec54333d2ffc0c8
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88686606"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "88997575"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>Trasferire le sottoscrizioni di Azure tra sottoscrittori e CSP
 
@@ -24,6 +24,9 @@ Questo articolo illustra i passaggi generali necessari per trasferire le sottosc
 I partner con fatturazione diretta CSP certificati come [Azure Expert Managed Services Provider (MSP)](https://partner.microsoft.com/membership/azure-expert-msp) possono richiedere di trasferire le sottoscrizioni di Azure per i clienti che dispongono di un Contratto Enterprise diretto (EA). I trasferimenti di sottoscrizioni sono consentiti solo per i clienti che hanno accettato un Contratto del cliente Microsoft e hanno acquistato un piano Azure.
 
 Quando la richiesta viene approvata, il CSP può fornire una fattura combinata ai clienti. Per altre informazioni sui DSN che trasferiscono le sottoscrizioni, vedere [Ottenere la proprietà della fatturazione delle sottoscrizioni di Azure per l'account MPA](mpa-request-ownership.md).
+
+>[!IMPORTANT]
+> Dopo il trasferimento di una sottoscrizione con Contratto Enterprise a un partner CSP, per eventuali incrementi della quota applicati in precedenza alla sottoscrizione con Contratto Enterprise verrà ripristinato il valore predefinito. Se sono necessarie quote aggiuntive dopo il trasferimento della sottoscrizione, richiedere al provider CSP di inviare una richiesta di [incremento della quota](https://docs.microsoft.com/azure/azure-portal/supportability/regional-quota-requests). 
 
 ## <a name="other-subscription-transfers-to-a-csp-partner"></a>Altri trasferimenti di sottoscrizione a un partner CSP
 

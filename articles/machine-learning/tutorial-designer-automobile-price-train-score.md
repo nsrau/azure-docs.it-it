@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 4a925fb4352ac81e5879bb925ee1d743a77ffd5c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 3992bbe466241eb388874905237dbe00f07b3752
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290289"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88812986"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -104,13 +104,7 @@ Nella finestra di progettazione sono disponibili diversi set di dati di esempio 
 
 È possibile visualizzare i dati per comprendere il set di dati che verrà usato.
 
-1. Selezionare il modulo **Automobile price data (Raw)** .
-
-1. Nel riquadro dei dettagli del modulo a destra del canvas selezionare **Output + log**.
-
-1. Selezionare l'icona del grafico per visualizzare i dati.
-    
-    :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/visualize-data.png"alt-text="Testo alternativo qui.":::
+1. Fare clic con il pulsante destro del mouse su **Automobile price data (Raw)** e scegliere **Visualize** (Visualizza).
 
 1. Selezionare le diverse colonne nella finestra dei dati per visualizzare le informazioni relative a ciascuna.
 
@@ -291,9 +285,7 @@ Ora che la pipeline è completamente configurata, è possibile inviare un'esecuz
 
 Al termine dell'esecuzione, è possibile visualizzare i risultati dell'esecuzione della pipeline. Prima di tutto, esaminare le previsioni generate dal modello di regressione.
 
-1. Selezionare il modulo **Score Model** (Punteggio modello) per visualizzare il relativo output.
-
-1. Nel riquadro dei dettagli del modulo a destra dell'area di disegno selezionare **Output + log** > icona del grafo ![icona di visualizzazione](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) per visualizzare i risultati.
+1. Fare clic con il pulsante destro del mouse sul modulo **Score Model** (Punteggio modello) e scegliere **Visualize** (Visualizza) per visualizzarne l'output.
 
     Qui è possibile visualizzare i prezzi stimati e i prezzi effettivi dai dati di test.
 
@@ -303,9 +295,7 @@ Al termine dell'esecuzione, è possibile visualizzare i risultati dell'esecuzion
 
 Usare **Evaluate Model** (Valutazione modello) per verificare le prestazioni del modello sottoposto a training nel set di dati di test.
 
-1. Selezionare il modulo **Evaluate Model** (Valutazione modello) per visualizzare il relativo output.
-
-1. Nel riquadro dei dettagli del modulo a destra dell'area di disegno selezionare **Output + log** > icona del grafo ![icona di visualizzazione](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png) per visualizzare i risultati.
+1. Fare clic con il pulsante destro del mouse sul modulo **Evaluate Model** (Valutazione modello) e selezionare **Visualize** (Visualizza) per visualizzarne l'output.
 
 Per il modello vengono visualizzate le seguenti statistiche:
 

@@ -8,12 +8,12 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: tutorial
 ms.date: 06/22/2020
-ms.openlocfilehash: a9c2a5beae8a9206554dd6c432c1d8442b652696
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e714c58827ebb4ee7e50696db27644fa65a73af1
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021886"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290311"
 ---
 # <a name="tutorial-create-a-custom-analyzer-for-phone-numbers"></a>Esercitazione: Creare un analizzatore personalizzato per i numeri di telefono
 
@@ -21,7 +21,7 @@ Gli [analizzatori](search-analyzers.md) sono un componente chiave delle soluzion
 
 In alcuni casi, ad esempio con un campo di testo libero, è sufficiente selezionare l'[analizzatore del linguaggio](index-add-language-analyzers.md) corretto per migliorare i risultati della ricerca. Alcuni scenari invece, come la ricerca accurata di numeri di telefono, URL o indirizzi di posta elettronica, possono richiedere l'uso di analizzatori personalizzati.
 
-Questa esercitazione usa Postman e le [API REST](https://docs.microsoft.com/rest/api/searchservice/) di Ricerca cognitiva di Azure per:
+Questa esercitazione usa Postman e le [API REST](/rest/api/searchservice/) di Ricerca cognitiva di Azure per:
 
 > [!div class="checklist"]
 > * Spiegare il funzionamento degli analizzatori
@@ -225,7 +225,7 @@ Questi risultati possono creare confusione. Nella prossima sezione si esamineran
 
 ## <a name="4---debug-search-results"></a>4 - Eseguire il debug dei risultati della ricerca
 
-Per comprendere i risultati della ricerca, è importante comprendere prima di tutto il funzionamento degli analizzatori. Sarà quindi possibile testare l'analizzatore predefinito usando l'[API di analisi del testo](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) e creare un analizzatore che soddisfi le specifiche esigenze.
+Per comprendere i risultati della ricerca, è importante comprendere prima di tutto il funzionamento degli analizzatori. Sarà quindi possibile testare l'analizzatore predefinito usando l'[API di analisi del testo](/rest/api/searchservice/test-analyzer) e creare un analizzatore che soddisfi le specifiche esigenze.
 
 ### <a name="how-analyzers-work"></a>Funzionamento degli analizzatori
 
@@ -239,7 +239,7 @@ Gli analizzatori sono costituiti da tre componenti:
 
 Nel diagramma seguente si può vedere come questi tre componenti interagiscono tra loro per suddividere in token una frase:
 
-  ![Diagramma del processo dell'analizzatore](media/tutorial-create-custom-analyzer/analyzers-explained.png)
+  ![Diagramma del processo dell'analizzatore per suddividere in token una frase](media/tutorial-create-custom-analyzer/analyzers-explained.png)
 
 Questi token vengono quindi archiviati in un indice invertito, che consente ricerche full-text rapide.  Un indice invertito abilita la ricerca full-text eseguendo il mapping di tutti i termini univoci estratti durante l'analisi lessicale ai documenti che li contengono. Il diagramma seguente ne illustra un esempio:
 
@@ -251,7 +251,7 @@ L'intero processo di ricerca consiste nel cercare i termini archiviati nell'indi
 1. Viene quindi eseguita la scansione dell'indice invertito alla ricerca di documenti contenenti termini corrispondenti.
 1. Infine, i documenti recuperati vengono classificati in base all'[algoritmo di somiglianza](index-ranking-similarity.md).
 
-  ![Diagramma del processo dell'analizzatore](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
+  ![Diagramma del processo dell'analizzatore per la classificazione della somiglianza](media/tutorial-create-custom-analyzer/query-architecture-explained.png)
 
 Se i termini della query non corrispondono a quelli nell'indice invertito, non vengono restituiti risultati. Per altre informazioni sul funzionamento delle query, vedere questo articolo sulla [ricerca full-text](search-lucene-query-architecture.md).
 
@@ -260,7 +260,7 @@ Se i termini della query non corrispondono a quelli nell'indice invertito, non v
 
 ### <a name="test-analyzer-using-the-analyze-text-api"></a>Testare l'analizzatore usando l'API di analisi del testo
 
-Ricerca cognitiva di Azure fornisce un'[API di analisi del testo](https://docs.microsoft.com/rest/api/searchservice/test-analyzer) che consente di testare gli analizzatori per comprendere il modo in cui elaborano il testo.
+Ricerca cognitiva di Azure fornisce un'[API di analisi del testo](/rest/api/searchservice/test-analyzer) che consente di testare gli analizzatori per comprendere il modo in cui elaborano il testo.
 
 L'API viene chiamata tramite la richiesta seguente:
 

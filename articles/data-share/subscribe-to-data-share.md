@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/14/2020
-ms.openlocfilehash: 409f143ce67e301e3b2a973d8d2db80380fbd50e
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 104654a721912324cdc8ea636e8b4e75765e73f7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258665"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89268894"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>Esercitazione: Accettare e ricevere dati con Condivisione dati di Azure  
 
@@ -38,7 +38,7 @@ Assicurarsi che tutti i prerequisiti siano soddisfatti prima di accettare un inv
 * Autorizzazione per la scrittura nell'account di archiviazione, disponibile in *Microsoft.Storage/storageAccounts/write*. Questa autorizzazione è presente nel ruolo Collaboratore. 
 * Autorizzazione per aggiungere l'assegnazione di ruolo all'account di archiviazione, disponibile in *Microsoft.Authorization/role assignments/write*. Questa autorizzazione è presente nel ruolo Proprietario.  
 
-### <a name="receive-data-into-a-sql-based-source"></a>Ricevere dati in un'origine basata su SQL:
+### <a name="receive-data-into-a-sql-based-target"></a>Ricevere dati in una destinazione basata su SQL:
 
 * Autorizzazione per la scrittura nei database del server SQL, disponibile in *Microsoft.Sql/servers/databases/write*. Questa autorizzazione è presente nel ruolo Collaboratore. 
 * Autorizzazione per l'identità gestita della risorsa di condivisione dati per l'accesso al database SQL di Azure o ad Azure SQL Data Warehouse. A tale scopo, seguire questa procedura: 
@@ -78,7 +78,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
    Per aprire direttamente l'invito dal portale di Azure, cercare **Inviti alla condivisione dati** nel portale di Azure. In questo modo viene visualizzato l'elenco di inviti alla condivisione dati.
 
-   ![Inviti](./media/invitations.png "Elenco di inviti") 
+   ![Elenco di inviti](./media/invitations.png "Elenco di inviti") 
 
 1. Selezionare la condivisione che si vuole visualizzare. 
 

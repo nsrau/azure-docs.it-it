@@ -4,12 +4,12 @@ description: Informazioni su come preparare la valutazione e la migrazione di ma
 ms.topic: tutorial
 ms.date: 06/08/2020
 ms.custom: mvc
-ms.openlocfilehash: 8b812924c0922d460c631baec8b0e13a9f45cd76
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 8d4d6ac1149c397442a8ca7dd01f46f04ffc89b4
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86109576"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927307"
 ---
 # <a name="prepare-vmware-vms-for-assessment-and-migration-to-azure"></a>Preparare le macchine virtuali VMware per la valutazione e la migrazione ad Azure
 
@@ -36,8 +36,8 @@ La tabella riepiloga le attività da completare in Azure. Dopo la tabella sono d
 --- | --- | ---
 **Creare un progetto di Azure Migrate** | Un progetto Azure Migrate offre una posizione centralizzata per l'orchestrazione e la gestione di valutazioni e migrazioni con strumenti Azure Migrate, strumenti Microsoft e offerte di terze parti. | L'account Azure deve disporre delle autorizzazioni del ruolo Collaboratore o Proprietario nel gruppo di risorse in cui si trova il progetto.
 **Registrare l'appliance** | Azure Migrate usa un'appliance di Azure Migrate leggera per individuare le macchine virtuali, valutarle con lo strumento Valutazione server ed eseguirne la migrazione usando la modalità di migrazione senza agente con lo strumento Migrazione del server. [Altre informazioni](migrate-appliance-architecture.md#appliance-registration) sulla registrazione. | Per registrare l'appliance, l'account Azure deve disporre delle autorizzazioni del ruolo Collaboratore o Proprietario nella sottoscrizione di Azure.
-**Creare app Azure AD** | Quando si registra un'appliance, Azure Migrate crea due app Azure Active Directory (Azure AD). <br/><br/> - La prima app viene usata per la comunicazione tra gli agenti in esecuzione nell'appliance e Azure Migrate. <br/><br/> - La seconda app viene usata esclusivamente per l'accesso all'insieme di credenziali delle chiavi creato nella sottoscrizione dell'utente per la migrazione di macchine virtuali VMware senza agente.   | L'account di Azure necessita di autorizzazioni per creare app di Azure AD.
-**Creare un insieme di credenziali delle chiavi** | Per eseguire la migrazione delle macchine virtuali VMware con il metodo senza agente, Azure Migrate crea un insieme di credenziali delle chiavi per gestire le chiavi di accesso all'account di replica nella sottoscrizione. | Per consentire ad Azure Migrate di creare l'insieme di credenziali delle chiavi, è necessario impostare le autorizzazioni (Proprietario, Collaboratore e Amministratore Accesso utenti) nel gruppo di risorse in cui risiede il progetto Azure Migrate.
+**Creare app Azure AD** | Quando si registra un'appliance, Azure Migrate crea due app Azure Active Directory (Azure AD). <br/><br/> - La prima app viene usata per la comunicazione tra gli agenti in esecuzione nell'appliance e Azure Migrate. <br/><br/> - La seconda app viene usata esclusivamente per l'accesso all'insieme di credenziali delle chiavi creato nella sottoscrizione dell'utente per la migrazione di macchine virtuali VMware senza agente.   | L'account di Azure necessita di queste [autorizzazioni](https://docs.microsoft.com/azure/migrate/tutorial-prepare-vmware#assign-permissions-to-create-azure-ad-apps) per creare app di Azure AD.
+**Creare un insieme di credenziali delle chiavi** | - Il primo insieme di credenziali delle chiavi viene creato nell'ambito della registrazione dell'appliance e viene usato per la gestione del certificato scaricato nell'appliance durante la relativa configurazione. <br/><br/> Per eseguire la migrazione delle macchine virtuali VMware con il metodo senza agente, Azure Migrate crea un altro insieme di credenziali delle chiavi per gestire le chiavi di accesso all'account di replica nella sottoscrizione.| Per consentire ad Azure Migrate di creare l'insieme di credenziali delle chiavi, è necessario impostare le autorizzazioni (Proprietario, Collaboratore e Amministratore Accesso utenti) nel gruppo di risorse in cui risiede il progetto Azure Migrate.
 
 
 ### <a name="assign-permissions-to-create-project"></a>Assegnare le autorizzazioni per creare il progetto

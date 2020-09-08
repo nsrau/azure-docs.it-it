@@ -29,6 +29,8 @@
           href: quickstart-service-python.md
 - name: Esercitazioni
   items:
+    - name: Connettere un dispositivo a più componenti (C)
+      href: tutorial-multiple-components-c.md
     - name: Connettere un dispositivo a più componenti (C#)
       href: tutorial-multiple-components-csharp.md
     - name: Connettere un dispositivo a più componenti (Java)

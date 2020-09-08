@@ -9,18 +9,18 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 739d300faf77564891b2b783a3eb1cca50373015
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: fab6422300dd3db7dd0d02055721bd57354668bf
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718354"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322280"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Esercitazione: Creare e gestire budget di Azure
 
 I budget in Gestione costi consentono di pianificare e promuovere la responsabilizzazione nell'organizzazione. Con i budget, è possibile tenere traccia dei costi sostenuti per i servizi di Azure consumati o sottoscritti per un determinato periodo. Risultano utili per informare altri utenti in merito alle spese per una gestione proattiva dei costi e per monitorare l'andamento della spesa nel tempo. Quando vengono superate le soglie di budget create, vengono attivate solo notifiche. Nessuna delle risorse è interessata e il consumo non viene interrotto. È possibile usare i budget per confrontare e tenere traccia della spesa durante l'analisi dei costi.
 
-I dati relativi ai costi e all'utilizzo sono in genere disponibili entro 20 ore e i budget vengono valutati a fronte di questi costi ogni 12-14 ore. Quando viene raggiunta una soglia del budget, le notifiche di posta elettronica vengono generalmente inviate entro un'ora dalla valutazione.
+I dati relativi ai costi e all'utilizzo sono in genere disponibili entro 8-24 ore e i budget vengono valutati a fronte di questi costi ogni 12-14 ore. Assicurarsi di acquisire familiarità con le specifiche di [Aggiornamenti dei dati relativi a costi e utilizzo](https://docs.microsoft.com/azure/cost-management-billing/costs/understand-cost-mgt-data#cost-and-usage-data-updates-and-retention). Quando viene raggiunta una soglia del budget, le notifiche di posta elettronica vengono generalmente inviate entro un'ora dalla valutazione.
 
 I budget vengono reimpostati automaticamente alla fine di un periodo (mensile, trimestrale o annuale) per lo stesso importo di budget quando si seleziona una data di scadenza nel futuro. Dato che vengono reimpostati con lo stesso importo di budget, è necessario creare budget distinti se gli importi in valuta previsti differiscono per periodi futuri.
 
@@ -92,7 +92,7 @@ Selezionare **Aggiungi**.
 
 Verificare che l'ambito visualizzato nella finestra **Crea il budget** sia corretto. Scegliere i filtri da aggiungere. I filtri consentono di creare budget per costi specifici, ad esempio i gruppi di risorse in una sottoscrizione o un servizio come le macchine virtuali. Tutti i filtri che si possono usare per l'analisi dei costi possono essere applicati anche a un budget.
 
-Dopo aver identificato l'ambito e i filtri, digitare un nome di budget. Scegliere quindi il periodo di ripristino del budget, tra mensile, trimestrale o annuale. Il periodo di ripristino determina l'intervallo di tempo analizzato dal budget. Il costo valutato dal budget comincia da zero, all'inizio di ogni nuovo periodo. Quando si crea un budget trimestrale, funziona esattamente come un budget mensile. La differenza è che l'importo di budget per il trimestre viene suddiviso in modo uniforme tra i tre mesi del trimestre. Un importo di budget annuale viene suddiviso in modo uniforme tra tutti i 12 mesi dell'anno di calendario.
+Dopo aver identificato l'ambito e i filtri, digitare un nome di budget. Scegliere quindi il periodo di ripristino del budget, mensile, trimestrale o annuale. Il periodo di ripristino determina l'intervallo di tempo analizzato dal budget. Il costo valutato dal budget comincia da zero, all'inizio di ogni nuovo periodo. Quando si crea un budget trimestrale, funziona esattamente come un budget mensile. La differenza è che l'importo di budget per il trimestre viene suddiviso in modo uniforme tra i tre mesi del trimestre. Un importo di budget annuale viene suddiviso in modo uniforme tra tutti i 12 mesi dell'anno di calendario.
 
 Se si ha una sottoscrizione con pagamento in base al consumo, MSDN o Visual Studio, il periodo di fatturazione potrebbe non allinearsi con il mese di calendario. Per questi tipi di sottoscrizioni e gruppi di risorse, è possibile creare un budget allineato al periodo di fatturazione o ai mesi di calendario. Per creare un budget allineato al periodo di fatturazione, selezionare un periodo di ripristino tra **Mese di fatturazione**, **Trimestre di fatturazione** o **Anno di fatturazione**. Per creare un budget allineato al mese di calendario, selezionare un periodo di ripristino tra **Mensile**, **Trimestrale** o **Annuale**.
 

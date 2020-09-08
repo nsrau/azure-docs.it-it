@@ -1,42 +1,46 @@
 ---
-title: 'Esercitazione: Trovare il percorso per una località | Mappe di Microsoft Azure'
-description: Informazioni su come trovare un itinerario verso un punto di interesse. Vedere come impostare le coordinate degli indirizzi ed eseguire una query sul servizio di pianificazione percorso di Mappe di Azure per ottenere le indicazioni verso un punto di interesse.
+title: 'Esercitazione: Come visualizzare le indicazioni stradali usando il servizio di pianificazione percorso e il controllo mappa di Mappe di Microsoft Azure'
+description: Informazioni su come visualizzare le indicazioni stradali usando il servizio di pianificazione percorso e il controllo mappa di Mappe di Microsoft Azure.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 01/14/2020
+ms.date: 09/01/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 0ff604e920ca3e0708fc21a1cadfe61646f4e30b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 992640424f6fdb632327866e132fdbb1c6244492
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88037576"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400331"
 ---
-# <a name="tutorial-route-to-a-point-of-interest-using-azure-maps"></a>Esercitazione: Trovare il percorso per raggiungere un punto di interesse usando Mappe di Azure
+# <a name="tutorial-how-to-display-route-directions-using-azure-maps-route-service-and-map-control"></a>Esercitazione: Come visualizzare le indicazioni stradali usando il servizio di pianificazione percorso e il controllo mappa di Mappe di Azure
 
-Questa esercitazione illustra come usare l'account Mappe di Azure e l'SDK del servizio di pianificazione percorso per trovare il percorso per raggiungere un determinato punto di interesse. In questa esercitazione verranno illustrate le procedure per:
+Questa esercitazione illustra come usare l'[API del servizio di pianificazione percorso](https://docs.microsoft.com/rest/api/maps/route) e il [controllo mappa](https://docs.microsoft.com/azure/azure-maps/how-to-use-map-control) di Mappe di Azure per visualizzare le indicazioni stradali da un punto di partenza a un punto di arrivo. In questa esercitazione si apprenderà come:
 
 > [!div class="checklist"]
-> * Creare una nuova pagina Web usando l'API del controllo mappa
-> * Impostare le coordinate di un indirizzo
-> * Inviare una query al servizio di pianificazione percorso per ottenere le indicazioni stradali per un punto di interesse
+> * Creare e visualizzare il controllo mappa in una pagina Web. 
+> * Definire il rendering della visualizzazione del percorso definendo [livelli simbolo](map-add-pin.md) e [livelli linea](map-add-line-layer.md).
+> * Creare e aggiungere oggetti GeoJSON alla mappa per rappresentare i punti di partenza e di arrivo.
+> * Ottenere le indicazioni stradali dal punto di partenza a quello di arrivo usando l'[API Get Route Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
+
+È possibile ottenere il codice sorgente completo per l'esempio [qui](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). Un esempio eseguibile è disponibile [qui](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di continuare, creare una sottoscrizione con il piano tariffario S1 seguendo le istruzioni riportate in [Creare un account](quick-demo-map-app.md#create-an-azure-maps-account). Per ottenere la chiave primaria per l'account, seguire la procedura illustrata in [Ottenere la chiave primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account). Per altre informazioni sull'autenticazione in Mappe di Azure, vedere [Gestire l'autenticazione in Mappe di Azure](how-to-manage-authentication.md).
+1. [Creare un account Mappe di Azure](quick-demo-map-app.md#create-an-azure-maps-account)
+2. [Ottenere una chiave di sottoscrizione primaria](quick-demo-map-app.md#get-the-primary-key-for-your-account), nota anche come chiave primaria o chiave di sottoscrizione
 
 <a id="getcoordinates"></a>
 
-## <a name="create-a-new-map"></a>Creare una nuova mappa
+## <a name="create-and-display-the-map-control"></a>Creare e visualizzare il controllo mappa
 
-La procedura seguente illustra come creare una pagina HTML statica incorporata usando l'API del controllo mappa.
+La procedura seguente illustra come creare e visualizzare il controllo mappa in una pagina Web.
 
 1. Nel computer locale creare un nuovo file con il nome **MapRoute.html**.
-2. Aggiungere al file i componenti HTML seguenti:
+2. Copiare e incollare il markup HTML seguente nel file.
 
     ```HTML
     <!DOCTYPE html>
@@ -81,7 +85,7 @@ La procedura seguente illustra come creare una pagina HTML statica incorporata u
     </html>
     ```
 
-    Si noti che l'intestazione HTML include i file di risorse CSS e JavaScript ospitati dalla libreria del controllo mappa di Azure. Notare l'evento `onload` nel corpo della pagina, che chiamerà la funzione `GetMap` dopo il caricamento del corpo della pagina. Questa funzione deve contenere il codice JavaScript inline per l'accesso alle API di Mappe di Azure. 
+    L'intestazione HTML include i file di risorse CSS e JavaScript ospitati dalla libreria del controllo mappa di Azure. L'evento `onload` del corpo chiama la funzione `GetMap`. Nel passaggio successivo verrà aggiunto il codice di inizializzazione del controllo mappa.
 
 3. Aggiungere il codice JavaScript seguente alla funzione `GetMap`. Sostituire la stringa `<Your Azure Maps Key>` con la chiave primaria copiata dall'account Mappe.
 
@@ -96,17 +100,15 @@ La procedura seguente illustra come creare una pagina HTML statica incorporata u
    });
    ```
 
-    `atlas.Map` fornisce il controllo per una mappa Web visiva e interattiva ed è un componente dell'API del controllo mappa di Azure.
+4. Salvare il file e aprirlo nel browser. Viene visualizzata una mappa semplice.
 
-4. Salvare il file e aprirlo nel browser. A questo punto si ha una mappa di base che è possibile sviluppare ulteriormente.
+     :::image type="content" source="./media/tutorial-route-location/basic-map.png" alt-text="Rendering di una mappa di base del controllo mappa":::
 
-   ![Visualizzare la mappa di base](media/tutorial-route-location/basic-map.png)
+## <a name="define-route-display-rendering"></a>Definire il rendering della visualizzazione del percorso
 
-## <a name="define-how-the-route-will-be-rendered"></a>Definire il rendering dell'itinerario
+In questa esercitazione verrà eseguito il rendering del percorso usando un livello linea. Il rendering dei punti di partenza e di arrivo verrà eseguito usando un livello simbolo. Per altre informazioni sull'aggiunta di livelli linea, vedere [Aggiungere un livello linea a una mappa](map-add-line-layer.md). Per altre informazioni sui livelli simbolo, vedere [Aggiungere un livello simbolo a una mappa](map-add-pin.md).
 
-In questa esercitazione verrà eseguito il rendering di un itinerario semplice usando un'icona di simbolo per l'inizio e la fine dell'itinerario e una linea per il percorso dell'itinerario.
-
-1. Dopo aver inizializzato la mappa, aggiungere il codice JavaScript seguente.
+1. Aggiungere il codice JavaScript seguente alla funzione `GetMap`. Questo codice implementa il gestore dell'evento `ready` del controllo mappa. Il resto del codice in questa esercitazione verrà inserito all'interno del gestore dell'evento `ready`.
 
     ```JavaScript
     //Wait until the map resources are ready.
@@ -138,10 +140,12 @@ In questa esercitazione verrà eseguito il rendering di un itinerario semplice u
         }));
     });
     ```
-    
-    Nel gestore dell'evento `ready` delle mappe viene creata un'origine dati per archiviare la linea relativa all'itinerario e i punti di partenza e di arrivo. Viene creato un livello linea che viene allegato all'origine dati per definire il rendering della linea dell'itinerario. Il rendering della linea dell'itinerario verrà eseguito con una sfumatura di blu. Avrà una larghezza di cinque pixel, giunzioni di linee arrotondate e le estremità. Quando si aggiunge il livello alla mappa, viene passato un secondo parametro con valore `'labels'`, per indicare che il rendering di questo livello deve essere eseguito sotto le etichette della mappa. In questo modo la linea dell'itinerario non coprirà le etichette delle strade. Viene creato un livello simboli che viene allegato all'origine dati. Questo livello specifica la modalità di rendering del punto di partenza e del punto di arrivo. In questo caso sono state aggiunte espressioni per recuperare l'immagine dell'icona e le informazioni sull'etichetta di testo dalle proprietà di ogni oggetto punto. 
-    
-2. Per questa esercitazione impostare Microsoft come punto di partenza e una stazione di rifornimento a Seattle come punto di destinazione. Nel gestore dell'evento `ready` delle mappe aggiungere il codice seguente.
+
+    Nel gestore dell'evento `ready` del controllo mappa viene creata un'origine dati per archiviare il percorso dal punto di partenza a quello di arrivo. Per definire il rendering della linea del percorso viene creato un livello linea che viene collegato all'origine dati.  Per assicurarsi che la linea del percorso non copra le etichette stradali, è stato passato un secondo parametro con il valore `'labels'`.
+
+    Viene poi creato un livello simbolo collegato all'origine dati. Questo livello specifica la modalità di rendering del punto di partenza e del punto di arrivo. In questo caso sono state aggiunte espressioni per recuperare l'immagine dell'icona e le informazioni sull'etichetta di testo dalle proprietà di ogni oggetto punto.
+
+2. Impostare Microsoft come punto di partenza e una stazione di rifornimento a Seattle come punto di arrivo.  Nel gestore dell'evento `ready` del controllo mappa aggiungere il codice seguente.
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end points of the route.
@@ -164,19 +168,19 @@ In questa esercitazione verrà eseguito il rendering di un itinerario semplice u
     });
     ```
 
-    Questo codice crea due [oggetti punto GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) per rappresentare i punti di partenza e di arrivo dell'itinerario e aggiunge i punti all’origine dati. A ogni punto vengono aggiunge le proprietà `title` e `icon`. L'ultimo blocco imposta la visualizzazione della fotocamera tramite le informazioni di latitudine e longitudine del punto di partenza e di arrivo tramite la proprietà [setCamera](/javascript/api/azure-maps-control/atlas.map#setcamera-cameraoptions---cameraboundsoptions---animationoptions-) della mappa.
+    Questo codice crea due [oggetti punto GeoJSON](https://en.wikipedia.org/wiki/GeoJSON) per rappresentare i punti di partenza e di arrivo, che vengono quindi aggiunti all'origine dati. L'ultimo blocco di codice imposta la visualizzazione della fotocamera tramite le informazioni di latitudine e longitudine del punto di partenza e di arrivo. Per altre informazioni sulla proprietà setCamera del controllo mappa, vedere [setCamera(CameraOptions | CameraBoundsOptions e AnimationOptions)](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-maps-typescript-latest#setcamera-cameraoptions---cameraboundsoptions---animationoptions-).
 
-3. Salvare il file **MapRoute.html** e aggiornare il browser. Ora la mappa è centrata su Seattle ed è possibile vedere il segnaposto blu che indica il punto di partenza e il segnaposto blu che indica il punto di arrivo.
+3. Salvare **MapRoute.html** e aggiornare il browser. La mappa è ora centrata sulla città di Seattle. L'indicatore blu a goccia contrassegna il punto di partenza. L'indicatore rotondo a goccia contrassegna il punto di arrivo.
 
-   ![Visualizzare il punto di partenza e di arrivo di un percorso sulla mappa](media/tutorial-route-location/map-pins.png)
+    :::image type="content" source="./media/tutorial-route-location/map-pins.png" alt-text="Visualizzare il punto di partenza e di arrivo di un percorso sulla mappa":::
 
 <a id="getroute"></a>
 
-## <a name="get-directions"></a>Ottenere le indicazioni stradali
+## <a name="get-route-directions"></a>Ottenere le indicazioni stradali
 
-Questa sezione mostra come usare l'API del servizio di pianificazione percorso di Mappe di Azure. L'API del servizio di pianificazione percorso trova l'itinerario dal punto di partenza specificato al punto di arrivo. In questo servizio sono disponibili le API per pianificare il percorso *più veloce*, *più breve*, *più ecologico* o *più interessante* tra due posizioni. Consente inoltre agli utenti di pianificare percorsi per il futuro tramite il database dei dati storici sul traffico di Azure che fornisce previsioni della durata dei percorsi per qualsiasi giorno e ora. Per altre informazioni, vedere [Get route directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) (Ottenere le indicazioni stradali). Tutte le funzionalità seguenti devono essere aggiunte **all'interno del listener ready della mappa** per garantire che vengano caricate quando le risorse della mappa sono pronte per l'accesso.
+Questa sezione illustra come usare l'API del servizio di pianificazione percorso di Mappe di Azure per ottenere le indicazioni da un punto a un altro. In questo servizio sono disponibili altre API che consentono di pianificare il percorso *più veloce*, *più breve*, *più ecologico* o *più interessante* tra due posizioni. Questo servizio consente anche agli utenti di pianificare percorsi futuri in base alle condizioni storiche del traffico. Gli utenti possono visualizzare la durata stimata del percorso per qualsiasi ora specificata. Per altre informazioni, vedere [API Get Route Directions](https://docs.microsoft.com/rest/api/maps/route/getroutedirections).
 
-1. Nella funzione GetMap aggiungere il codice JavaScript seguente.
+1. Nella funzione `GetMap`, all'interno del gestore dell'evento `ready` del controllo, aggiungere quanto segue al codice JavaScript.
 
     ```JavaScript
     // Use SubscriptionKeyCredential with a subscription key
@@ -191,7 +195,7 @@ Questa sezione mostra come usare l'API del servizio di pianificazione percorso d
 
    `SubscriptionKeyCredential` crea un elemento `SubscriptionKeyCredentialPolicy` per autenticare le richieste HTTP in Mappe di Azure con la chiave di sottoscrizione. `atlas.service.MapsURL.newPipeline()` acquisisce il criterio `SubscriptionKeyCredential` e crea un'istanza [pipeline](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.pipeline?view=azure-maps-typescript-latest). `routeURL` rappresenta un URL per le operazioni di [pianificazione del percorso](https://docs.microsoft.com/rest/api/maps/route) di Mappe di Azure.
 
-2. Dopo aver configurato le credenziali e l'URL, aggiungere il codice JavaScript seguente per creare il percorso dal punto iniziale a quello finale. `routeURL` chiede al servizio di pianificazione percorso Mappe di Azure di calcolare le indicazioni. Dalla risposta viene estratta una raccolta di funzionalità GeoJSON con il metodo `geojson.getFeatures()` e viene aggiunta all'origine dati.
+2. Dopo aver impostato le credenziali e l'URL, aggiungere il codice seguente nel gestore dell'evento `ready` del controllo. Questo codice costruisce il percorso dal punto di partenza a quello di arrivo. `routeURL` richiede all'API del servizio di pianificazione percorso di Mappe di Azure di calcolare le indicazioni stradali. Dalla risposta viene estratta una raccolta di funzionalità GeoJSON con il metodo `geojson.getFeatures()` e viene aggiunta all'origine dati.
 
     ```JavaScript
     //Start and end point input to the routeURL
@@ -205,26 +209,15 @@ Questa sezione mostra come usare l'API del servizio di pianificazione percorso d
     });
     ```
 
-3. Salvare il file **MapRoute.html** e aggiornare il Web browser. Se la connessione con le API di Mappe è stata stabilita correttamente, verrà visualizzata una mappa simile alla seguente.
+3. Salvare il file **MapRoute.html** e aggiornare il Web browser. La mappa dovrebbe ora visualizzare il percorso dal punto di partenza al punto di arrivo.
 
-    ![Controllo mappa e servizio di pianificazione percorso di Azure](./media/tutorial-route-location/map-route.png)
+     :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="Controllo mappa e servizio di pianificazione percorso di Azure":::
+
+    È possibile ottenere il codice sorgente completo per l'esempio [qui](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). Un esempio eseguibile è disponibile [qui](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono state illustrate le procedure per:
-
-> [!div class="checklist"]
-> * Creare una nuova pagina Web usando l'API del controllo mappa
-> * Impostare le coordinate di un indirizzo
-> * Inviare una query al servizio di pianificazione percorso per ottenere le indicazioni stradali per un punto di interesse
-
-> [!div class="nextstepaction"]
-> [Visualizzare il codice sorgente completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html)
-
-> [!div class="nextstepaction"]
-> [Visualizzare l'esempio in tempo reale](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination)
-
-L'esercitazione successiva illustra come creare una query del percorso con restrizioni, ad esempio la modalità di trasporto o il tipo di carico, e come visualizzare più percorsi sulla mappa stessa.
+L'esercitazione successiva mostra come creare una query del percorso con restrizioni, ad esempio la modalità di trasporto o il tipo di carico. È quindi possibile visualizzare più percorsi sulla stessa mappa.
 
 > [!div class="nextstepaction"]
 > [Find routes for different modes of travel (Trovare i percorsi per diverse modalità di trasporto)](./tutorial-prioritized-routes.md)

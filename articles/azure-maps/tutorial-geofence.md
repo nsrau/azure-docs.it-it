@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: b88d9132ec1548c9d94fc418af35b55ac2836e96
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 3ea9923dd98a49b1533defa3e95616655b7ea78d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121239"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299304"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>Esercitazione: Configurare un recinto virtuale con Mappe di Azure
 
@@ -258,15 +258,15 @@ Seguire questi passaggi per creare una sottoscrizione per gli eventi di ingresso
 
 5. Ripetere i passaggi da 1 a 4 per l'endpoint di uscita dell'app per la logica creato nella sezione precedente. Al passaggio 3 assicurarsi di scegliere `Geofence Exited` come tipo di evento.
 
-## <a name="use-search-geofence-get-api"></a>Usare l'API GET di ricerca recinto virtuale
+## <a name="use-spatial-geofence-get-api"></a>Usare l'API spaziale Get Geofence
 
-Si userà ora l'[API GET di ricerca recinto virtuale](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) per inviare notifiche tramite posta elettronica al direttore dei lavori ogni volta che un macchinario entra o esce dal recinto virtuale.
+Si userà ora l'[API spaziale Get Geofence](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) per inviare notifiche tramite posta elettronica al direttore operativo ogni volta che un macchinario entra o esce dal recinto virtuale.
 
 Ogni macchinario ha un `deviceId`. In questa esercitazione verrà monitorato un singolo macchinario il cui ID univoco è `device_1`.
 
 Per chiarezza, il diagramma seguente mostra le cinque posizioni del macchinario nel tempo, a partire dalla posizione *Start*, che si trova all'esterno del recinto virtuale. Ai fini di questa esercitazione, la posizione *Start* non è definita, dato che non verranno eseguite query sul dispositivo in tale posizione.
 
-Quando si esegue una query sull'[API GET di ricerca recinto virtuale](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) con una posizione del macchinario che indica l'entrata o l'uscita iniziale dal recinto virtuale, Griglia di eventi chiama l'endpoint dell'app per la logica appropriato per inviare una notifica tramite posta elettronica al direttore dei lavori.
+Quando si esegue una query sull'[API spaziale Get Geofence](https://docs.microsoft.com/rest/api/maps/spatial/getgeofence) con una posizione del macchinario che indica l'entrata o l'uscita iniziale dal recinto virtuale, Griglia di eventi chiama l'endpoint dell'app per la logica appropriato per inviare una notifica tramite posta elettronica al direttore operativo.
 
 Ognuna delle sezioni seguenti crea richieste HTTP GET dell'API Geofencing usando le cinque diverse coordinate di posizione del macchinario.
 

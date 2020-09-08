@@ -3,18 +3,18 @@ title: Gestire i costi e l'utilizzo di AWS in Gestione costi di Azure
 description: Questo articolo illustra come usare l'analisi dei costi e i budget in Gestione costi per gestire i costi e l'utilizzo di AWS.
 author: bandersmsft
 ms.author: banders
-ms.date: 07/24/2020
+ms.date: 08/28/2020
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: matrive
 ms.custom: ''
-ms.openlocfilehash: 4d6a961388c9794a7584e8529dac75d068f91ed4
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 7df27a6ed288555d0f4815223fd0bb6dddff6f44
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88685018"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89266203"
 ---
 # <a name="manage-aws-costs-and-usage-in-azure"></a>Gestire i costi e l'utilizzo di AWS in Azure
 
@@ -36,17 +36,18 @@ Nelle sezioni successive viene descritto come usare gli ambiti in modo da vedere
 
 ### <a name="view-aws-linked-accounts-under-a-management-group"></a>Visualizzare account AWS collegati in un gruppo di gestione
 
-La visualizzazione dei costi tramite l'ambito del gruppo di gestione è l'unico modo per vedere i costi aggregati provenienti da sottoscrizioni e account collegati diversi. L'uso di un gruppo di gestione consente una visualizzazione tra cloud.
+La visualizzazione dei costi tramite l'ambito del gruppo di gestione è l'unico modo per vedere i costi aggregati provenienti da sottoscrizioni di Azure e account collegati di AWS diversi. L'uso di un gruppo di gestione offre una visualizzazione tra cloud per mostrare insieme i costi di Azure e AWS.
 
 In Analisi dei costi aprire la selezione ambiti e selezionare il gruppo di gestione contenente gli account AWS collegati. Di seguito è riportata un'immagine di esempio nel portale di Azure:
 
-![Esempio della visualizzazione Seleziona ambito](./media/aws-integration-manage/select-scope01.png)
-
-
+:::image type="content" source="./media/aws-integration-manage/select-scope01.png" alt-text="Esempio della visualizzazione Seleziona ambito con account collegati in un gruppo di gestione" :::
 
 Di seguito è riportato un esempio in cui sono indicati i costi del gruppo di gestione in Analisi dei costi, raggruppati per provider (Azure e AWS).
 
-![Esempio che illustra i costi di Azure e AWS per un trimestre in Analisi dei costi](./media/aws-integration-manage/cost-analysis-aws-azure.png)
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-azure.png" alt-text="Esempio che illustra i costi di Azure e AWS per un trimestre in Analisi dei costi" lightbox="./media/aws-integration-manage/cost-analysis-aws-azure.png" :::
+
+> [!NOTE]
+> I gruppi di gestione non sono attualmente supportati per i clienti con Contratto del cliente Microsoft. I clienti con Contratto del cliente Microsoft possono creare il connettore e visualizzare i rispettivi dati di AWS. I clienti con Contratto del cliente Microsoft, tuttavia, non possono visualizzare insieme i costi di Azure e di AWS in un gruppo di gestione.
 
 ### <a name="view-aws-linked-account-costs"></a>Visualizzare i costi di un account AWS collegato
 
@@ -54,21 +55,17 @@ Per visualizzare i costi di un account AWS collegato, aprire la selezione ambiti
 
 Di seguito è riportato un esempio che illustra la selezione dell'ambito di un account AWS collegato.
 
-![Esempio della visualizzazione Seleziona ambito](./media/aws-integration-manage/select-scope02.png)
-
-
+:::image type="content" source="./media/aws-integration-manage/select-scope02.png" alt-text="Esempio della visualizzazione Seleziona ambito che mostra gli account collegati di AWS" :::
 
 ### <a name="view-aws-consolidated-account-costs"></a>Visualizzare i costi di un account AWS consolidato
 
 Per visualizzare i costi di un account AWS consolidato, aprire la selezione ambiti e selezionare l'account AWS consolidato. Di seguito è riportato un esempio che illustra la selezione dell'ambito di un account AWS consolidato.
 
-![Esempio della visualizzazione Seleziona ambito](./media/aws-integration-manage/select-scope03.png)
-
-
+:::image type="content" source="./media/aws-integration-manage/select-scope03.png" alt-text="Esempio della visualizzazione Seleziona ambito con account consolidati" :::
 
 Questo ambito offre una visualizzazione aggregata di tutti gli account AWS collegati associati all'account AWS consolidato. Di seguito è riportato un esempio in cui sono indicati i costi per un account AWS consolidato, raggruppati per nome di servizio.
 
-![Esempio che illustra i costi consolidati di AWS in Analisi dei costi](./media/aws-integration-manage/cost-analysis-aws-consolidated.png)
+:::image type="content" source="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" alt-text="Esempio che illustra i costi consolidati di AWS in Analisi dei costi" lightbox="./media/aws-integration-manage/cost-analysis-aws-consolidated.png" :::
 
 ### <a name="dimensions-available-for-filtering-and-grouping"></a>Dimensioni disponibili per il filtraggio e il raggruppamento
 
@@ -85,11 +82,11 @@ La tabella seguente descrive le dimensioni disponibili in base alle quali raggru
 | Risorsa | lineItem/ResourceId | Tutti |   |
 | Tipo di risorsa | product/instanceType | Tutti | Se product/instanceType è Null, viene usato lineItem/UsageType. |
 | ResourceGuid | N/D | Tutti | GUID del contatore di Azure. |
-| Nome servizio | product/ProductName | Tutti | Se product/ProductName è Null, viene usato lineItem/ProductCode. |
+| Nome del servizio | product/ProductName | Tutti | Se product/ProductName è Null, viene usato lineItem/ProductCode. |
 | Livello di servizio |   |   |   |
 | ID sottoscrizione | lineItem/UsageAccountId | Account consolidato e gruppo di gestione |   |
 | Nome sottoscrizione | N/D | Account consolidato e gruppo di gestione | I nomi degli account vengono raccolti usando l'API AWS Organization. |
-| Tag | resourceTags/\* | Tutti | Il prefisso _user:_ viene rimosso dai tag definiti dall'utente per consentire i tag tra cloud. Il prefisso _aws:_ rimane intatto. |
+| Tag | resourceTags | Tutti | Il prefisso _user:_ viene rimosso dai tag definiti dall'utente per consentire i tag tra cloud. Il prefisso _aws:_ rimane intatto. |
 | ID account di fatturazione | bill/PayerAccountId | Gruppo di gestione |   |
 | Nome dell'account di fatturazione | N/D | Gruppo di gestione | I nomi degli account vengono raccolti usando l'API AWS Organization. |
 | Provider | N/D | Gruppo di gestione | AWS o Azure. |
@@ -98,7 +95,7 @@ La tabella seguente descrive le dimensioni disponibili in base alle quali raggru
 
 Usare i budget per gestire in modo proattivo i costi e promuovere la responsabilità nell'organizzazione. I budget vengono impostati negli ambiti dell'account AWS consolidato e dell'account AWS collegato. Di seguito è riportato un esempio di budget per un account AWS consolidato visualizzati in Gestione costi:
 
-![Esempio che illustra i budget per un account AWS consolidato](./media/aws-integration-manage/budgets-aws-consolidated-account01.png)
+:::image type="content" source="./media/aws-integration-manage/budgets-aws-consolidated-account01.png" alt-text="Esempio che illustra i budget per un account AWS consolidato" :::
 
 ## <a name="aws-data-collection-process"></a>Processo di raccolta dati di AWS
 
@@ -110,15 +107,15 @@ Dopo la configurazione del connettore AWS iniziano i processi di raccolta e indi
 
 ## <a name="aws-integration-pricing"></a>Prezzi dell'integrazione di AWS
 
-Per ogni connettore AWS viene concessa una prova gratuita di 90 giorni. Durante l'anteprima pubblica non è previsto alcun addebito.
+Per ogni connettore AWS viene concessa una prova gratuita di 90 giorni.
 
 Il prezzo di listino è l'1% dei costi mensili di AWS. Ogni mese viene addebitato un importo in base ai costi fatturati del mese precedente.
 
-L'accesso alle API di AWS può comportare costi aggiuntivi.
+L'accesso alle API di AWS può comportare costi aggiuntivi in AWS.
 
 ## <a name="aws-integration-limitations"></a>Limitazioni dell'integrazione di AWS
 
-- Gestione costi non supporta i report di costi che contengono più tipi di valuta. Se si seleziona un ambito con più valute, viene visualizzato un messaggio di errore.
+- I budget in Gestione costi non supportano i gruppi di gestione con più valore. Per i gruppi di gestione con più valute non verrà visualizzata una valutazione del budget. Se si seleziona un gruppo di gestione con più valute quando si crea un budget, verrà visualizzato un messaggio di errore.
 - I connettori cloud non supportano AWS GovCloud (US), AWS Gov o AWS Cina.
 - Gestione costi visualizza solo i _costi di utilizzo_ di AWS. Imposte, supporto, rimborsi, istanze riservate, crediti o altri tipi di addebito non sono ancora supportati.
 

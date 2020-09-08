@@ -4,12 +4,12 @@ description: Informazioni su come preparare la valutazione e la migrazione di se
 ms.topic: tutorial
 ms.date: 04/15/2020
 ms.custom: mvc
-ms.openlocfilehash: 55e6039e5844c575808210cde7ee348f658b40ec
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: aba1608c9219e7e8dffe66344b04fa3f085b06f3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420788"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88927375"
 ---
 # <a name="prepare-for-assessment-and-migration-of-physical-servers-to-azure"></a>Effettuare la preparazione per la valutazione e la migrazione di server fisici ad Azure
 
@@ -40,6 +40,7 @@ Configurare Azure per l'uso con Azure Migrate.
 **Creare un progetto di Azure Migrate** | Per creare un progetto, è necessario che l'account Azure abbia autorizzazioni di Collaboratore o Proprietario. 
 **Registrare i provider di risorse (solo valutazione)** | Azure Migrate usa un'appliance di Azure Migrate leggera per individuare e valutare le macchine virtuali con lo strumento Valutazione server di Azure Migrate.<br/><br/> Durante la registrazione dell'appliance, i provider di risorse vengono registrati con la sottoscrizione scelta nell'appliance. [Altre informazioni](migrate-appliance-architecture.md#appliance-registration)<br/><br/> Per registrare i provider di risorse, è necessario il ruolo di proprietario o collaboratore della sottoscrizione.
 **Creare l'app Azure AD (solo valutazione)** | Quando si registra l'appliance, Azure Migrate crea un'app di Azure Active Directory (Azure AD) usata per la comunicazione tra gli agenti in esecuzione nell'appliance con i rispettivi servizi in esecuzione in Azure. [Altre informazioni](migrate-appliance-architecture.md#appliance-registration)<br/><br/> Sono necessarie le autorizzazioni per creare app di Azure AD (disponibili nel ruolo Sviluppatore applicazioni).
+**Creare un insieme di credenziali delle chiavi** | L'insieme di credenziali delle chiavi viene creato nell'ambito della registrazione dell'appliance e viene usato per la gestione del certificato scaricato nell'appliance durante la relativa configurazione.<br/><br/>Per consentire ad Azure Migrate di creare l'insieme di credenziali delle chiavi, l'account Azure deve avere le autorizzazioni di Collaboratore per il gruppo di risorse in cui risiede il progetto Azure Migrate.
 
 
 ### <a name="assign-permissions-to-create-project"></a>Assegnare le autorizzazioni per creare il progetto 

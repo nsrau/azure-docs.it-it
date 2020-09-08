@@ -5,12 +5,13 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/12/2020
 ms.topic: sample
-ms.openlocfilehash: 07055025eff9ab81c7321624daed9b4a6e993a60
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.custom: devx-track-azurepowershell
+ms.openlocfilehash: fbac172952c9feea92341dbc028567235b9250bc
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506512"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89075274"
 ---
 # <a name="example-powershell-scripts"></a>Script di Azure PowerShell di esempio
 
@@ -20,6 +21,9 @@ Rendering remoto di Azure include le due API REST seguenti:
 - [API REST di sessione](../how-tos/session-rest-api.md)
 
 Il [repository di esempi di Rendering remoto di Azure](https://github.com/Azure/azure-remote-rendering) contiene script di esempio nella cartella *Scripts* per interagire con le API REST del servizio. Questo articolo ne descrive l'utilizzo.
+
+> [!CAUTION]
+La chiamata di funzioni API REST troppo frequente causerà la limitazione del server e la restituzione di un errore. In questo caso, l'ID del codice di errore HTTP è 429 ("troppe richieste"). Come regola generale, è necessario un ritardo di **5-10 secondi tra chiamate successive**.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

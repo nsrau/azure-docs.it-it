@@ -3,12 +3,12 @@ title: Hub eventi di Azure - Visualizzare le anomalie dei dati in eventi in temp
 description: 'Esercitazione: Visualizzare le anomalie dei dati in eventi in tempo reale inviati a Hub eventi di Microsoft Azure'
 ms.topic: tutorial
 ms.date: 06/23/2020
-ms.openlocfilehash: 595c0e06750171c844249a77ecef16c84dc8ada5
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 1394f9bedfdfc3715090bdb8a9028d2654a1e4e3
+ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "85315608"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88934056"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>Esercitazione: Visualizzare le anomalie dei dati in eventi in tempo reale inviati a Hub eventi di Azure
 
@@ -308,7 +308,7 @@ Nel processo di Analisi di flusso fare clic su **Avvia**, poi su **Adesso** e su
 
    ![Screenshot della specifica del set di dati.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-dashboard-select-dataset.png)
 
-9. Selezionare **Scheda** per il tipo di visualizzazione. In **Campi** fare clic su **Aggiungi valore** e selezionare **fraudulentuses**.
+9. Selezionare **Scheda** per il tipo di visualizzazione. In **Campi** fare clic su **Aggiungi valore** e quindi selezionare `fraudulentuses`.
 
    ![Screenshot che specifica il tipo di visualizzazione e i campi.](./media/event-hubs-tutorial-visualize-anomalies/power-bi-add-card-tile.png)
 
@@ -329,9 +329,9 @@ Nel processo di Analisi di flusso fare clic su **Avvia**, poi su **Adesso** e su
 
 12. In **Tipo di visualizzazione** selezionare **Grafico a linee**.
 
-13. In **Asse** fare clic su **Aggiungi valore**e selezionare **windowend**. 
+13. In **Asse** fare clic su **Aggiungi valore** e selezionare `windowend`. 
 
-14. In **Valori** fare clic su **Aggiungi valore**e selezionare **fraudulentuses**.
+14. In **Valori** fare clic su **Aggiungi valore** e selezionare `fraudulentuses`.
 
 15. In **Intervallo di tempo da visualizzare** selezionare gli ultimi cinque minuti. Fare clic su **Avanti**.
 
@@ -378,6 +378,6 @@ In questa esercitazione sono state illustrate le procedure per:
 Passare all'articolo successivo per altre informazioni su Hub eventi di Azure.
 
 > [!div class="nextstepaction"]
-> [Introduzione all'invio di messaggi a Hub eventi di Azure in .NET Standard](get-started-dotnet-standard-send-v2.md)
+> [Introduzione all'invio di messaggi a Hub eventi di Azure in .NET Standard](event-hubs-dotnet-standard-getstarted-send.md)
 
 [Creare un account gratuito]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio

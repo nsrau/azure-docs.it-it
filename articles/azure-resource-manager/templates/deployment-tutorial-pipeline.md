@@ -1,15 +1,15 @@
 ---
 title: Integrazione continua con Azure Pipelines
 description: Informazioni su come creare, testare e distribuire modelli di Azure Resource Manager in modo continuo.
-ms.date: 04/22/2020
+ms.date: 08/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b8163c357f184ac41ce72dc8c89fcc5030c3180d
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c793c8bcbc01cbef99de13ef6dd2f6ce61a50773
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118920"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88892678"
 ---
 # <a name="tutorial-continuous-integration-of-azure-resource-manager-templates-with-azure-pipelines"></a>Esercitazione: Integrazione continua dei modelli di Azure Resource Manager con Azure Pipelines
 
@@ -175,8 +175,8 @@ Per creare una pipeline con un passaggio per distribuire un modello:
     * **Località**: Selezionare una posizione per il gruppo di risorse, ad esempio **Stati Uniti centrali**.
     * **Posizione del modello**: selezionare **Linked artifact**, che indica che l'attività cerca il file del modello direttamente dal repository connesso.
     * **Modello**: immettere **CreateWebApp/azuredeploy.json**. Se è stato modificato il nome della cartella e il nome del file, è necessario modificare questo valore.
-    * **Parametri del modello**: lasciare vuoto questo campo. I valori dei parametri vengono specificati in **Esegui override dei parametri del modello.
-    * **overrideParameters**: immettere **-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]** . Sostituire il nome del progetto e l'URL del modello collegato. L'URL del modello collegato è quello annotato al termine del passaggio [Creare un repository GitHub](#create-a-github-repository).
+    * **Parametri del modello**: lasciare vuoto questo campo. I valori dei parametri verranno specificati in **Esegui override dei parametri del modello**.
+    * **Esegui override dei parametri del modello**: immettere **-projectName [EnterAProjectName] -linkedTemplateUri [EnterTheLinkedTemplateURL]** . Sostituire il nome del progetto e l'URL del modello collegato. L'URL del modello collegato è quello annotato al termine del passaggio [Creare un repository GitHub](#create-a-github-repository). Inizia con **https://raw.githubusercontent.com** .
     * **Modalità di distribuzione**: selezionare **Incrementale**.
     * **Nome distribuzione**: immettere **DeployPipelineTemplate**. Selezionare **Avanzate** per poter visualizzare **Nome distribuzione**.
 

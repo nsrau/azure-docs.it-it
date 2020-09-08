@@ -1,6 +1,6 @@
 ---
-title: 'Esercitazione: Integrazione di Azure Active Directory con Wandera | Microsoft Docs'
-description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Wandera.
+title: 'Esercitazione: Integrazione di Azure Active Directory con Wandera RADAR Admin | Microsoft Docs'
+description: Informazioni su come configurare l'accesso Single Sign-On tra Azure Active Directory e Wandera RADAR Admin.
 services: active-directory
 author: jeevansd
 manager: CelesteDG
@@ -9,21 +9,21 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/30/2019
+ms.date: 08/27/2020
 ms.author: jeedes
-ms.openlocfilehash: 4af2fa415c22abe5cd8ac98d510feb44abab0e97
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c8ec4b68dc774b52ad621ff3e965481de680b6ff
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88523984"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89080000"
 ---
-# <a name="tutorial-integrate-wandera-with-azure-active-directory"></a>Esercitazione: Integrare Wandera con Azure Active Directory
+# <a name="tutorial-integrate-wandera-radar-admin-with-azure-active-directory"></a>Esercitazione: Integrare Wandera RADAR Admin con Azure Active Directory
 
-Questa esercitazione descrive come integrare Wandera con Azure Active Directory (Azure AD). Quando si integra Wandera con Azure AD, è possibile:
+Questa esercitazione descrive come integrare Wandera RADAR Admin con Azure Active Directory (Azure AD). Quando si integra Wandera RADAR Admin con Azure AD, è possibile:
 
-* Controllare in Azure AD chi può accedere a Wandera.
-* Abilitare gli utenti per l'accesso automatico a Wandera con gli account Azure AD personali.
+* Controllare in Azure AD chi può accedere a Wandera RADAR Admin.
+* Abilitare gli utenti per l'accesso automatico a Wandera RADAR Admin con gli account Azure AD personali.
 * Gestire gli account in un'unica posizione centrale: il portale di Azure.
 
 Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Accesso Single Sign-On alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis).
@@ -33,44 +33,45 @@ Per altre informazioni sull'integrazione di app SaaS con Azure AD, vedere [Acces
 Per iniziare, sono necessari gli elementi seguenti:
 
 * Una sottoscrizione di Azure AD. Se non si ha una sottoscrizione, è possibile ottenere un [account gratuito](https://azure.microsoft.com/free/).
-* Sottoscrizione di Wandera abilitata per l'accesso Single Sign-On (SSO).
+* Sottoscrizione di Wandera RADAR Admin abilitata per l'accesso Single Sign-On (SSO).
 
 ## <a name="scenario-description"></a>Descrizione dello scenario
 
 In questa esercitazione vengono eseguiti la configurazione e il test dell'accesso Single Sign-On di Azure AD in un ambiente di test.
 
-* Wandera supporta l'accesso SSO avviato da **IDP**
+* Wandera RADAR Admin supporta l'accesso SSO avviato da **IDP**
+* Dopo aver configurato Wandera RADAR Admin, è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
-## <a name="adding-wandera-from-the-gallery"></a>Aggiunta di Wandera dalla raccolta
+## <a name="adding-wandera-radar-admin-from-the-gallery"></a>Aggiunta di Wandera RADAR Admin dalla raccolta
 
-Per configurare l'integrazione di Wandera in Azure AD, è necessario aggiungere Wandera dalla raccolta all'elenco di app SaaS gestite.
+Per configurare l'integrazione di Wandera RADAR Admin in Azure AD, è necessario aggiungere Wandera RADAR Admin dalla raccolta all'elenco di app SaaS gestite.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
 1. Nel riquadro di spostamento a sinistra selezionare il servizio **Azure Active Directory**.
 1. Passare ad **Applicazioni aziendali** e quindi selezionare **Tutte le applicazioni**.
 1. Per aggiungere una nuova applicazione, selezionare **Nuova applicazione**.
-1. Nella sezione **Aggiungi dalla raccolta** digitare **Wandera** nella casella di ricerca.
-1. Selezionare **Wandera** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
+1. Nella sezione **Aggiungi dalla raccolta** digitare **Wandera RADAR Admin** nella casella di ricerca.
+1. Selezionare **Wandera RADAR Admin** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
+## <a name="configure-and-test-azure-ad-sso"></a>Configurare e testare l'accesso SSO di Azure AD
 
-Configurare e testare l'accesso SSO di Azure AD con Wandera usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Wandera.
+Configurare e testare l'accesso SSO di Azure AD con Wandera RADAR Admin usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Wandera RADAR Admin.
 
-Per configurare e testare l'accesso SSO di Azure AD con Wandera, completare le procedure di base seguenti:
+Per configurare e testare l'accesso SSO di Azure AD con Wandera RADAR Admin, completare le procedure di base seguenti:
 
 1. **[Configurare l'accesso Single Sign-On di Azure AD](#configure-azure-ad-sso)** : per consentire agli utenti di usare questa funzionalità.
-2. **[Configurare l'accesso Single Sign-On per Wandera](#configure-wandera-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
-3. **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B. Simon.
-4. **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B. Simon all'uso dell'accesso Single Sign-On di Azure AD.
-5. **[Creare l'utente di test di Wandera](#create-wandera-test-user)** : per avere una controparte di B.Simon in Wandera collegata alla rappresentazione dell'utente in Azure AD.
-6. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
+   * **[Creare un utente di test di Azure AD](#create-an-azure-ad-test-user)** : per testare l'accesso Single Sign-On di Azure AD con l'utente B.Simon.
+   * **[Assegnare l'utente di test di Azure AD](#assign-the-azure-ad-test-user)** : per abilitare B.Simon all'uso dell'accesso Single Sign-On di Azure AD.
+1. **[Configurare l'accesso Single Sign-On per Wandera RADAR Admin](#configure-wandera-radar-admin-sso)** : per configurare le impostazioni di Single Sign-On sul lato applicazione.
+   * **[Creare l'utente di test di Wandera RADAR Admin](#create-wandera-radar-admin-test-user)** : per avere una controparte di B.Simon in Wandera RADAR Admin collegata alla rappresentazione dell'utente in Azure AD.
+1. **[Testare l'accesso Single Sign-On](#test-sso)** : per verificare se la configurazione funziona.
 
 ### <a name="configure-azure-ad-sso"></a>Configurare l'accesso SSO di Azure AD
 
 Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire questa procedura.
 
-1. Nella pagina di integrazione dell'applicazione **Wandera** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
+1. Nella pagina di integrazione dell'applicazione **Wandera RADAR Admin** del [portale di Azure](https://portal.azure.com/) individuare la sezione **Gestione** e selezionare **Single Sign-On**.
 1. Nella pagina **Selezionare un metodo di accesso Single Sign-On** selezionare **SAML**.
 1. Nella pagina **Configura l'accesso Single Sign-On con SAML** fare clic sull'icona Modifica (la penna) relativa a **Configurazione SAML di base** per modificare le impostazioni.
 
@@ -81,7 +82,7 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
     Nella casella di testo **URL di risposta** digitare un URL nel formato seguente: `https://radar.wandera.com/saml/acs/<tenant id>`
 
     > [!NOTE]
-    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di risposta effettivo. Per ottenere il valore, contattare il [team di supporto clienti di Wandera](https://www.wandera.com/about-wandera/contact/#supportsection). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
+    > Poiché non è reale, è necessario aggiornare questo valore con l'URL di risposta effettivo. Per ottenere il valore, contattare il [team di supporto clienti di Wandera RADAR Admin](https://www.wandera.com/about-wandera/contact/#supportsection). È anche possibile fare riferimento ai modelli mostrati nella sezione **Configurazione SAML di base** del portale di Azure.
 
 1. Nella sezione **Certificato di firma SAML** della pagina **Configura l'accesso Single Sign-On con SAML** individuare il file **XML dei metadati della federazione** e selezionare **Scarica** per scaricare il certificato e salvarlo nel computer.
 
@@ -95,33 +96,9 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     1. Impostare **Algoritmo di firma** su **SHA-256**.
 
-1. Nella sezione **Configura Wandera** copiare gli URL appropriati in base alle esigenze.
+1. Nella sezione **Configura Wandera RADAR Admin** copiare gli URL appropriati in base alle esigenze.
 
     ![Copiare gli URL di configurazione](common/copy-configuration-urls.png)
-
-### <a name="configure-wandera-sso"></a>Configurare l'accesso SSO per Wandera
-
-1. Per automatizzare la configurazione all'interno di Wandera, è necessario installare l'**estensione del browser My Apps Secure Sign-in** facendo clic su **Installa l'estensione**.
-
-    ![Estensione MyApps](common/install-myappssecure-extension.png)
-
-2. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura Wandera** per passare direttamente all'applicazione Wandera. Specificare quindi le credenziali di amministratore per accedere a Wandera. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 4.
-
-    ![Eseguire la configurazione](common/setup-sso.png)
-
-3. Se si vuole configurare manualmente Wandera, aprire una nuova finestra del Web browser, accedere al sito aziendale di Wandera come amministratore e seguire questa procedura:
-
-4. Nell'angolo superiore destro della pagina fare clic su **Settings** (Impostazioni) > **Administration** (Amministrazione) > **Single Sign-On** e quindi selezionare l'opzione **Enable SAML 2.0** (Abilita SAML 2.0) per eseguire questa procedura.
-
-    ![Configurazione di Wandera](./media/wandera-tutorial/config01.png)
-
-    a. Fare clic su **Or manually enter the required fields** (In alternativa immettere manualmente i campi obbligatori).
-
-    b. Nella casella di testo **IdP EntityId** (ID entità IdP) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
-
-    c. Aprire il file XML dei metadati della federazione nel Blocco note, copiarne il contenuto e incollarlo nella casella di testo **IdP Public X.509 Certificate** (Certificato X.509 pubblico IdP).
-
-    d. Fare clic su **Salva**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
@@ -137,10 +114,10 @@ In questa sezione verrà creato un utente di test di nome B.Simon nel portale di
 
 ### <a name="assign-the-azure-ad-test-user"></a>Assegnare l'utente di test di Azure AD
 
-In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Wandera.
+In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di Azure concedendole l'accesso a Wandera RADAR Admin.
 
 1. Nel portale di Azure selezionare **Applicazioni aziendali** e quindi **Tutte le applicazioni**.
-1. Nell'elenco delle applicazioni selezionare **Wandera**.
+1. Nell'elenco delle applicazioni selezionare **Wandera RADAR Admin**.
 1. Nella pagina di panoramica dell'app trovare la sezione **Gestione** e selezionare **Utenti e gruppi**.
 
    ![Collegamento "Utenti e gruppi"](common/users-groups-blade.png)
@@ -153,15 +130,39 @@ In questa sezione si abiliterà B. Simon all'uso dell'accesso Single Sign-On di 
 1. Se si prevede un valore di ruolo nell'asserzione SAML, nella finestra di dialogo **Selezionare un ruolo** selezionare il ruolo appropriato per l'utente dall'elenco e quindi fare clic sul pulsante **Seleziona** nella parte inferiore della schermata.
 1. Nella finestra di dialogo **Aggiungi assegnazione** fare clic sul pulsante **Assegna**.
 
-### <a name="create-wandera-test-user"></a>Creare l'utente di test di Wandera
+## <a name="configure-wandera-radar-admin-sso"></a>Configurare l'accesso SSO per Wandera RADAR Admin
 
-In questa sezione si crea un utente di nome B.Simon in Wandera. Collaborare con il  [team di supporto di Wandera](https://www.wandera.com/about-wandera/contact/#supportsection) per aggiungere gli utenti alla piattaforma Wandera. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+1. Per automatizzare la configurazione all'interno di Wandera RADAR Admin, è necessario installare l'**estensione del browser My Apps Secure Sign-in** facendo clic su **Installa l'estensione**.
 
-### <a name="test-sso"></a>Testare l'accesso SSO
+    ![Estensione MyApps](common/install-myappssecure-extension.png)
+
+2. Dopo aver aggiunto l'estensione al browser, fare clic su **Configura Wandera RADAR Admin** per passare direttamente all'applicazione Wandera RADAR Admin. Specificare quindi le credenziali di amministratore per accedere a Wandera RADAR Admin. L'estensione del browser configurerà automaticamente l'applicazione e automatizzerà i passaggi da 3 a 4.
+
+    ![Eseguire la configurazione](common/setup-sso.png)
+
+3. Se si vuole configurare manualmente Wandera RADAR Admin, aprire una nuova finestra del Web browser, accedere al sito aziendale di Wandera RADAR Admin come amministratore e seguire questa procedura:
+
+4. Nell'angolo superiore destro della pagina fare clic su **Settings** (Impostazioni) > **Administration** (Amministrazione) > **Single Sign-On** e quindi selezionare l'opzione **Enable SAML 2.0** (Abilita SAML 2.0) per eseguire questa procedura.
+
+    ![Configurazione di Wandera RADAR Admin](./media/wandera-tutorial/config01.png)
+
+    a. Fare clic su **Or manually enter the required fields** (In alternativa immettere manualmente i campi obbligatori).
+
+    b. Nella casella di testo **IdP EntityId** (ID entità IdP) incollare il valore di **Identificatore Azure AD** copiato dal portale di Azure.
+
+    c. Aprire il file XML dei metadati della federazione nel Blocco note, copiarne il contenuto e incollarlo nella casella di testo **IdP Public X.509 Certificate** (Certificato X.509 pubblico IdP).
+
+    d. Fare clic su **Salva**.
+
+### <a name="create-wandera-radar-admin-test-user"></a>Creare un utente di test di Wandera RADAR Admin
+
+In questa sezione si crea un utente di nome B.Simon in Wandera RADAR Admin. Collaborare con il  [team di supporto di Wandera RADAR Admin](https://www.wandera.com/about-wandera/contact/#supportsection) per aggiungere gli utenti alla piattaforma Wandera RADAR Admin. Gli utenti devono essere creati e attivati prima di usare l'accesso Single Sign-On.
+
+## <a name="test-sso"></a>Testare l'accesso SSO
 
 In questa sezione viene testata la configurazione dell'accesso Single Sign-On di Azure AD usando il pannello di accesso.
 
-Quando si fa clic sul riquadro di Wandera nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Wandera per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
+Quando si fa clic sul riquadro di Wandera RADAR Admin nel pannello di accesso, si dovrebbe accedere automaticamente all'applicazione Wandera RADAR Admin per cui si è configurato l'accesso SSO. Per altre informazioni sul pannello di accesso, vedere [Introduzione al Pannello di accesso](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction).
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

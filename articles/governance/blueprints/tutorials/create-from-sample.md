@@ -1,14 +1,14 @@
 ---
 title: 'Esercitazione: Esempio di progetto in un nuovo ambiente'
 description: In questa esercitazione si usa un esempio di progetto per creare una definizione di progetto che configura due gruppi di risorse e un'assegnazione di ruolo per ciascuno.
-ms.date: 03/25/2020
+ms.date: 08/27/2020
 ms.topic: tutorial
-ms.openlocfilehash: 79928822b41dfe0583afbeaf2f5f1a4a87dd3202
-ms.sourcegitcommit: 642a297b1c279454df792ca21fdaa9513b5c2f8b
+ms.openlocfilehash: 891240dcafe0cbfbfab4ff1fd415cba4abf682a5
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80677083"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89048733"
 ---
 # <a name="tutorial-create-an-environment-from-a-blueprint-sample"></a>Esercitazione: Creare un ambiente da un esempio di progetto
 
@@ -122,7 +122,7 @@ L'assegnazione del progetto crea e tiene traccia degli artefatti definiti nella 
 
 1. Selezionare la pagina **Progetti assegnati** a sinistra. Usare i filtri per trovare l'assegnazione del progetto _Assignment-two-rgs-with-role-assignments_ e selezionarla.
 
-   In questa pagina è possibile vedere l'assegnazione riuscita e l'elenco delle risorse create insieme al relativo stato di blocco del progetto. Se l'assegnazione viene aggiornata, nell'elenco a discesa **Operazione di assegnazione** vengono visualizzati i dettagli della distribuzione di ogni versione di definizione. È possibile fare clic su ogni risorsa elencata per aprire la relativa pagina delle proprietà.
+   In questa pagina è possibile vedere l'assegnazione riuscita e l'elenco delle risorse create insieme al relativo stato di blocco del progetto. Se l'assegnazione viene aggiornata, nell'elenco a discesa **Operazione di assegnazione** vengono visualizzati i dettagli della distribuzione di ogni versione di definizione. È possibile selezionare ogni risorsa elencata per aprire la relativa pagina delle proprietà.
 
 1. Selezionare il gruppo di risorse **ProductionRG**.
 

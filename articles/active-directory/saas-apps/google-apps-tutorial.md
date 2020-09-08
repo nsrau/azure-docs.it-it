@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/06/2020
 ms.author: jeedes
-ms.openlocfilehash: 5ff34b967e2ba42c01c904b8854ecfa04c394e17
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d20d527c35eac422efdc3719f153b6d7e8f4ef07
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551523"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89017530"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-google-cloud-g-suite-connector"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Google Cloud (G Suite) Connector
 
@@ -225,15 +225,18 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
     b. Nel campo **Sign-in page URL** (URL pagina di accesso) di Google Cloud (G Suite) Connector incollare il valore dell'**URL di accesso** copiato dal portale di Azure.
 
-    c. Nel campo **Sign-out page URL** (URL pagina di disconnessione) di Google Cloud (G Suite) Connector incollare il valore dell'**URL di disconnessione** copiato dal portale di Azure.
+    c. Nel campo **Sign-out page URL** (URL pagina di disconnessione) di Google Cloud (G Suite) Connector incollare il valore dell'**URL di accesso** copiato dal portale di Azure.
 
-    d. Nel campo **Change password URL** (URL di modifica della password) di Google Cloud (G Suite) Connector incollare il valore dell'**URL di modifica della password** copiato dal portale di Azure.
+    > [!NOTE]
+    > Google Cloud (G Suite) si basa sul protocollo di disconnessione SAML. Quindi, nel campo **Sign-out page URL** (URL pagina di disconnessione) è necessario usare l'URL di disconnessione SAML, ovvero l'URL di accesso visto che il valore è lo stesso.
 
-    e. In Google Cloud (G Suite) Connector per **Verification certificate** (Certificato di verifica) caricare il certificato scaricato dal portale di Azure.
+    d. In Google Cloud (G Suite) Connector per **Verification certificate** (Certificato di verifica) caricare il certificato scaricato dal portale di Azure.   
 
-    f. Selezionare/deselezionare l'opzione **Use a domain specific issuer** (Usa un'autorità di certificazione specifica del dominio) in base alla nota menzionata della sezione **Configurazione SAML di base** in Azure AD.
+    e. Selezionare/deselezionare l'opzione **Use a domain specific issuer** (Usa un'autorità di certificazione specifica del dominio) in base alla nota menzionata della sezione **Configurazione SAML di base** in Azure AD.
 
-    g. Fare clic su **Salva modifiche**.
+    f. Nel campo **Change password URL** (URL di modifica della password) di Google Cloud (G Suite) Connector incollare il valore dell'**URL di modifica della password** copiato dal portale di Azure.
+
+    g. Fare clic su **Salva**.
 
 ### <a name="create-google-cloud-g-suite-connector-test-user"></a>Creare l'utente di test di Google Cloud (G Suite) Connector
 

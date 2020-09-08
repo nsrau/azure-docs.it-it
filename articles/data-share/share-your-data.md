@@ -1,17 +1,17 @@
 ---
 title: "Esercitazione: Condividere all'esterno dell'organizzazione - Condivisione dati di Azure"
 description: Esercitazione - Condividere dati con clienti e partner usando Condivisione dati di Azure
-author: joannapea
-ms.author: joanpo
+author: jifems
+ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
-ms.date: 07/30/2020
-ms.openlocfilehash: 1de793dc2f4f72efb67c954e60262c3d7f1b74fc
-ms.sourcegitcommit: 29400316f0c221a43aff3962d591629f0757e780
+ms.date: 08/28/2020
+ms.openlocfilehash: 4f3c9d739f959670700182baf80c4a08e53d8587
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/02/2020
-ms.locfileid: "87511974"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89259065"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Esercitazione: Condividere dati con Condivisione dati di Azure  
 
@@ -73,7 +73,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azure.
 
-1. Selezionare il pulsante **Crea una risorsa** (+) nell'angolo superiore sinistro del portale.
+1. Selezionare il pulsante del menu nell'angolo superiore sinistro del portale e quindi selezionare **+ Crea una risorsa**.
 
 1. Cercare *Condivisione dati*.
 
@@ -83,17 +83,17 @@ Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azur
 
      **Impostazione** | **Valore consigliato** | **Descrizione campo**
     |---|---|---|
-    | Nome | *datashareacount* | Specificare un nome per l'account di condivisione dati. |
     | Subscription | Sottoscrizione in uso | Selezionare la sottoscrizione di Azure da usare per l'account di condivisione dati.|
-    | Resource group | *test-resource-group* | Usare un gruppo di risorse esistente oppure crearne uno nuovo. |
-    | Location | *Stati Uniti orientali 2* | Selezionare un'area per l'account di condivisione dati.
+    | Gruppo di risorse | *test-resource-group* | Usare un gruppo di risorse esistente oppure crearne uno nuovo. |
+    | Posizione | *Stati Uniti orientali 2* | Selezionare un'area per l'account di condivisione dati.
+    | Nome | *datashareaccount* | Specificare un nome per l'account di condivisione dati. |
     | | |
 
-1. Selezionare **Crea** per effettuare il provisioning dell'account di condivisione dati. Il completamento del provisioning di un nuovo account di condivisione dati in genere impiega al massimo 2 minuti. 
+1. Selezionare **Rivedi e crea**, quindi **Crea** per effettuare il provisioning dell'account di condivisione dati. Il completamento del provisioning di un nuovo account di condivisione dati in genere impiega al massimo 2 minuti. 
 
 1. Una volta completata la distribuzione, selezionare **Vai alla risorsa**.
 
-## <a name="create-a-data-share"></a>Creare una condivisione dati
+## <a name="create-a-share"></a>Creare una condivisione
 
 1. Passare alla pagina di panoramica della condivisione dati.
 
@@ -103,15 +103,15 @@ Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azur
 
 1. Selezionare **Create** (Crea).   
 
-1. Immettere i dettagli della condivisione dati. Specificare un nome, un tipo di condivisione, una descrizione del contenuto della condivisione e le condizioni per l'utilizzo (facoltativo). 
+1. Immettere i dettagli della condivisione. Specificare un nome, un tipo di condivisione, una descrizione del contenuto della condivisione e le condizioni per l'utilizzo (facoltativo). 
 
     ![Immettere i dettagli della condivisione](./media/enter-share-details.png "Immettere i dettagli della condivisione") 
 
-1. Selezionare **Continua**
+1. Selezionare **Continua**.
 
-1. Per aggiungere set di dati alla condivisione dati, selezionare **Add Datasets** (Aggiungi set di dati). 
+1. Per aggiungere set di dati alla condivisione, selezionare **Aggiungi set di dati**. 
 
-    ![Set di dati](./media/datasets.png "Set di dati")
+    ![Aggiungere set di dati alla condivisione](./media/datasets.png "Set di dati")
 
 1. Selezionare il tipo di set di dati da aggiungere. Verrà visualizzato un elenco di tipi di set di dati diverso a seconda del tipo di condivisione (snapshot o sul posto) selezionato nel passaggio precedente. Se si condivide da un database SQL di Azure o da Azure SQL Data Warehouse, verranno richieste alcune credenziali di SQL. Eseguire l'autenticazione con l'utente creato come parte dei prerequisiti.
 
@@ -125,7 +125,7 @@ Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azur
 
     ![Aggiungere i destinatari](./media/add-recipient.png "Aggiungere destinatari") 
 
-1. Selezionare **Continua**
+1. Selezionare **Continua**.
 
 1. Se è stato selezionato tipo di condivisione snapshot, è possibile configurare la pianificazione degli snapshot per fornire aggiornamenti dei dati al consumer di dati. 
 
@@ -133,9 +133,9 @@ Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azur
 
 1. Selezionare un'ora di inizio e un intervallo di ricorrenza. 
 
-1. Selezionare **Continua**
+1. Selezionare **Continua**.
 
-1. Nella scheda Rivedi e crea verificare il contenuto del pacchetto, le impostazioni, i destinatari e le impostazioni di sincronizzazione. Selezionare **Crea**
+1. Nella scheda Rivedi e crea verificare il contenuto del pacchetto, le impostazioni, i destinatari e le impostazioni di sincronizzazione. Selezionare **Crea**.
 
 La condivisione dati di Azure è stata creata e il suo destinatario è ora pronto ad accettare l'invito. 
 

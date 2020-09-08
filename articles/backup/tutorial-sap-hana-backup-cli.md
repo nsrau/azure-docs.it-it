@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come eseguire il backup di database S
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a0b6683183d6bf73b5376c6320106373ffd4ba78
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: eb6b9f4d58a94cc8a4b9f70b5ead7d319a0d51b5
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762403"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007571"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Esercitazione: Eseguire il backup di database SAP HANA in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure
 
@@ -50,7 +50,7 @@ az backup vault create --resource-group saphanaResourceGroup \
     --location westus2
 ```
 
-Per impostazione predefinita, l'insieme di credenziali di Servizi di ripristino è impostato per l'archiviazione con ridondanza geografica. Con l'archiviazione con ridondanza geografica i dati di backup vengono replicati in un'area di Azure secondaria a centinaia di chilometri di distanza dall'area primaria. Se è necessario modificare l'impostazione di ridondanza dell'archiviazione, usare il cmdlet [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set).
+Per impostazione predefinita, l'insieme di credenziali di Servizi di ripristino è impostato per l'archiviazione con ridondanza geografica. Con l'archiviazione con ridondanza geografica ci si assicura che i dati di backup vengono replicati in un'area di Azure secondaria a centinaia di chilometri di distanza dall'area primaria. Se è necessario modificare l'impostazione di ridondanza dell'archiviazione, usare il cmdlet [az backup vault backup-properties set](/cli/azure/backup/vault/backup-properties?view=azure-cli-latest#az-backup-vault-backup-properties-set).
 
 ```azurecli
 az backup vault backup-properties set \
@@ -141,7 +141,7 @@ Name                                  Operation         Status     Item Name   S
 e0f15dae-7cac-4475-a833-f52c50e5b6c3  ConfigureBackup   Completed  hxe         2019-12-03T03:09:210831+00:00  
 ```
 
-Il cmdlet [az backup job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) elenca tutti i processi di backup (pianificati o su richiesta) che sono stati eseguiti o attualmente in esecuzione nel database protetto, oltre ad altre operazioni come la registrazione, la configurazione del backup, l'eliminazione dei dati di backup e così via.
+Il cmdlet [az backup job list](/cli/azure/backup/job?view=azure-cli-latest#az-backup-job-list) elenca tutti i processi di backup (pianificati o su richiesta) che sono stati eseguiti o sono attualmente in esecuzione nel database protetto, oltre ad altre operazioni come la registrazione, la configurazione del backup e l'eliminazione dei dati di backup.
 
 >[!NOTE]
 >Backup di Azure non si adatta automaticamente al cambiamento dell'ora legale per il backup di un database SAP HANA in esecuzione in una VM di Azure.

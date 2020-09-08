@@ -8,39 +8,17 @@ manager: julieMSFT
 ms.reviewer: jrasnick
 ms.service: synapse-analytics
 ms.topic: tutorial
-ms.date: 07/20/2020
-ms.openlocfilehash: b4d48dcc8f09ae8e2ec3bb198f8864de1c945682
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 08/27/2020
+ms.openlocfilehash: 56292d3e8ba4c9ec89d73f10640264c178f8a9a7
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87093899"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255019"
 ---
 # <a name="create-a-synapse-workspace"></a>Creare un'area di lavoro di Synapse
 
 In questa esercitazione si apprenderà a creare un'area di lavoro di Synapse, un pool SQL e un pool di Apache Spark. 
-
-## <a name="prepare-a-storage-account"></a>Preparare un account di archiviazione
-
-1. Aprire il [portale di Azure](https://portal.azure.com).
-1. Creare un nuovo account di archiviazione con le impostazioni seguenti:
-
-    |Scheda|Impostazione | Valore consigliato | Descrizione |
-    |---|---|---|---|
-    |Nozioni di base|**Nome account di archiviazione**| Scegliere qualsiasi nome.| In questo documento si userà il nome **contosolake**.|
-    |Nozioni di base|**Tipo di account**| **StorageV2** ||
-    |Nozioni di base|**Posizione**|Scegliere la località desiderata.| È consigliabile che l'area di lavoro di Azure Synapse Analytics e l'account Azure Data Lake Storage Gen2 risiedano nella stessa area.|
-    |Avanzate|**Data Lake Storage Gen2**|**Enabled**| Azure Synapse funziona solo con account di archiviazione con questa impostazione abilitata.|
-    |||||
-
-1. Dopo aver creato l'account di archiviazione, selezionare **Controllo di accesso (IAM)** nel riquadro a sinistra. Assegnare quindi i ruoli seguenti o verificare che siano già assegnati:
-    * Assegnare a se stessi al ruolo **Proprietario**.
-    * Assegnare a se stessi il ruolo **Proprietario dei dati dei BLOB di archiviazione**.
-1. Nel riquadro a sinistra selezionare **Contenitori** e creare un contenitore.
-1. È possibile assegnare al contenitore il nome desiderato. In questo documento verrà assegnato il nome **users**.
-1. Accettare l'impostazione predefinita **Livello di accesso pubblico**, quindi selezionare **Crea**.
-
-Nel passaggio seguente verranno configurati l'area di lavoro di Azure Synapse per usare questo account di archiviazione come account di archiviazione "primario" e il contenitore per archiviare i dati dell'area di lavoro. L'area di lavoro archivia i dati in tabelle Apache Spark. Archivia i log delle applicazioni Spark in una cartella denominata **/synapse/nome_area_di_lavoro**.
 
 ## <a name="create-a-synapse-workspace"></a>Creare un'area di lavoro di Synapse
 
@@ -53,20 +31,14 @@ Nel passaggio seguente verranno configurati l'area di lavoro di Azure Synapse pe
     |Nozioni di base|**Nome area di lavoro**|È possibile assegnare un nome qualsiasi.| In questo documento verrà usato il nome **myworkspace**.|
     |Nozioni di base|**Area**|Usare la stessa area dell'account di archiviazione.|
 
-1. In **Selezionare Data Lake Storage Gen 2** selezionare l'account e il contenitore creati in precedenza.
+1. Per creare un'area di lavoro, è necessario un account ADLSGEN2. La scelta più semplice consiste nel crearne una nuova. Se si vuole riutilizzarne una esistente, sarà necessario eseguire alcune operazioni di configurazione aggiuntive. 
+1. OPZIONE 1 Creazione di un nuovo account ADLSGEN2 
+    1. In **Seleziona account Data Lake Storage Gen2** fare clic su **Crea nuovo** e denominarlo **contosolake**.
+    1. In **Seleziona account Data Lake Storage Gen2** fare clic su **File system** e denominarlo **users**.
+1. OPZIONE 2 Vedere le istruzioni in **Preparare un account di archiviazione** nella parte inferiore di questo documento.
+1. L'area di lavoro di Azure Synapse userà questo account di archiviazione come account di archiviazione "primario" e il contenitore per archiviare i dati dell'area di lavoro. L'area di lavoro archivia i dati in tabelle Apache Spark. Archivia i log delle applicazioni Spark in una cartella denominata **/synapse/nome_area_di_lavoro**.
 1. Selezionare **Rivedi e crea** > **Crea**. L'area di lavoro sarò pronta entro pochi minuti.
 
-## <a name="verify-access-to-the-storage-account"></a>Verificare l'accesso all'account di archiviazione
-
-Le identità gestite per l'area di lavoro di Azure Synapse potrebbero già avere accesso all'account di archiviazione. Per verificare, seguire questa procedura:
-
-1. Aprire il [portale di Azure](https://portal.azure.com) e aprire l'account di archiviazione primario scelto per l'area di lavoro.
-1. Selezionare **Controllo di accesso (IAM)** dal riquadro a sinistra.
-1. Assegnare i ruoli seguenti o verificare che siano già assegnati. Per l'identità dell'area di lavoro e il nome dell'area di lavoro verrà usato lo stesso nome.
-    * Per il ruolo **Collaboratore ai dati dei BLOB di archiviazione** nell'account di archiviazione, assegnare **myworkspace** come identità dell'area di lavoro.
-    * Assegnare **myworkspace** come nome dell'area di lavoro.
-
-1. Selezionare **Salva**.
 
 ## <a name="open-synapse-studio"></a>Aprire Synapse Studio
 
@@ -121,6 +93,38 @@ Diversamente dagli altri tipi di pool, la fatturazione per SQL su richiesta è b
 
 * SQL su richiesta dispone di database SQL su richiesta indipendenti da qualsiasi pool SQL su richiesta.
 * A un'area di lavoro è sempre associato esattamente un pool SQL su richiesta denominato **SQL su richiesta**.
+
+## <a name="prepare-a-storage-account"></a>Preparare un account di archiviazione
+
+1. Aprire il [portale di Azure](https://portal.azure.com).
+1. Creare un nuovo account di archiviazione con le impostazioni seguenti:
+
+    |Scheda|Impostazione | Valore consigliato | Descrizione |
+    |---|---|---|---|
+    |Nozioni di base|**Nome account di archiviazione**| Scegliere qualsiasi nome.| In questo documento si userà il nome **contosolake**.|
+    |Nozioni di base|**Tipo di account**| **StorageV2** ||
+    |Nozioni di base|**Posizione**|Scegliere la località desiderata.| È consigliabile che l'area di lavoro di Azure Synapse Analytics e l'account Azure Data Lake Storage Gen2 risiedano nella stessa area.|
+    |Avanzate|**Data Lake Storage Gen2**|**Enabled**| Azure Synapse funziona solo con account di archiviazione con questa impostazione abilitata.|
+    |||||
+
+1. Dopo aver creato l'account di archiviazione, selezionare **Controllo di accesso (IAM)** nel riquadro a sinistra. Assegnare quindi i ruoli seguenti o verificare che siano già assegnati:
+    * Assegnare a se stessi al ruolo **Proprietario**.
+    * Assegnare a se stessi il ruolo **Proprietario dei dati dei BLOB di archiviazione**.
+1. Nel riquadro a sinistra selezionare **Contenitori** e creare un contenitore.
+1. È possibile assegnare al contenitore il nome desiderato. In questo documento verrà assegnato il nome **users**.
+1. Accettare l'impostazione predefinita **Livello di accesso pubblico**, quindi selezionare **Crea**.
+
+### <a name="configure-access-to-the-storage-account-from-your-workspace"></a>Configurare l'accesso all'account di archiviazione dall'area di lavoro
+
+Le identità gestite per l'area di lavoro di Azure Synapse potrebbero già avere accesso all'account di archiviazione. Per verificare, seguire questa procedura:
+
+1. Aprire il [portale di Azure](https://portal.azure.com) e aprire l'account di archiviazione primario scelto per l'area di lavoro.
+1. Selezionare **Controllo di accesso (IAM)** dal riquadro a sinistra.
+1. Assegnare i ruoli seguenti o verificare che siano già assegnati. Per l'identità dell'area di lavoro e il nome dell'area di lavoro verrà usato lo stesso nome.
+    * Per il ruolo **Collaboratore ai dati dei BLOB di archiviazione** nell'account di archiviazione, assegnare **myworkspace** come identità dell'area di lavoro.
+    * Assegnare **myworkspace** come nome dell'area di lavoro.
+
+1. Selezionare **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

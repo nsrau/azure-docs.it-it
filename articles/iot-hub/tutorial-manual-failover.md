@@ -11,12 +11,12 @@ ms.author: robinsh
 ms.custom:
 - mvc
 - mqtt
-ms.openlocfilehash: 26679a7111e11eaf48e948fa6d3622814327433a
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 69a0795b9c299b5113c39ce2c4556573f730e4b7
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86252573"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89013946"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>Esercitazione: Eseguire il failover manuale per un hub IoT
 
@@ -30,6 +30,8 @@ In questa esercitazione si eseguono le seguenti attività:
 > * Vedere l'hub in esecuzione nella località secondaria.
 > * Eseguire un failback per ritornare alle operazioni dell'hub IoT nella località primaria. 
 > * Verificare che l'hub venga eseguito correttamente nella località corretta.
+
+Per altre informazioni sul failover manuale e sul failover avviato da Microsoft con l'hub IoT, vedere [Ripristino di emergenza tra aree](iot-hub-ha-dr.md#cross-region-dr).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -83,7 +85,7 @@ Si noti che è previsto un limite di due failover e due failback al giorno per u
 
    La quantità di tempo impiegato per eseguire il failover manuale è proporzionale al numero di dispositivi registrati per l'hub. Ad esempio, in presenza di 100.000 dispositivi potrebbero essere richiesti 15 minuti, ma per cinque milioni di dispositivi l'operazione potrebbe richiedere un'ora o più.
 
-   ![Screenshot che mostra il riquadro Failover manuale](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
+   ![Screenshot che mostra il riquadro di conferma Failover manuale](./media/tutorial-manual-failover/trigger-failover-03-confirm.png)
 
    Durante l'esecuzione del processo di failover manuale, viene visualizzato un banner che indica che è in corso un failover manuale. 
 

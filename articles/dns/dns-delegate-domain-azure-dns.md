@@ -7,18 +7,18 @@ ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
 ms.author: rohink
-ms.openlocfilehash: 8f29a2bbe0eb392927dd111b13e2260111ddd18e
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 207254164296d6ed3b0c412c4bf19322ca3ffc0c
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "84710134"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89077994"
 ---
 # <a name="tutorial-host-your-domain-in-azure-dns"></a>Esercitazione: Ospitare il dominio in DNS di Azure
 
 È possibile usare DNS di Azure per ospitare il dominio DNS e gestire i record DNS. L'hosting dei domini in Azure consente di gestire i record DNS usando gli stessi strumenti, credenziali, API e fatturazione usati per altri servizi Azure.
 
-Si supponga di acquistare il dominio "contoso.net" da un registrar di nomi di dominio e di creare una zona con il nome "contoso.net" nel servizio DNS di Azure. Il registrar offre al proprietario del dominio la possibilità di configurare i record del server dei nomi (NS) per il dominio. Il registrar archivia i record NS nel dominio padre ".net". Gli utenti di Internet di tutto il mondo vengono quindi reindirizzati al dominio nella zona DNS di Azure quando provano a risolvere i record DNS in contoso.net.
+Si supponga di acquistare il dominio "contoso.net" da un registrar di nomi di dominio e di creare una zona con il nome "contoso.net" nel servizio DNS di Azure. Il registrar offre al proprietario del dominio la possibilità di configurare i record del server dei nomi (NS) per il dominio. Il registrar archivia i record NS nella zona padre .NET. Gli utenti di Internet di tutto il mondo vengono quindi reindirizzati al dominio nella zona DNS di Azure quando provano a risolvere i record DNS in contoso.net.
 
 
 In questa esercitazione verranno illustrate le procedure per:
@@ -36,7 +36,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per il test deve essere disponibile un nome di dominio che possa essere ospitato in DNS di Azure. È necessario disporre del controllo completo di questo dominio, inclusa la possibilità di impostare i record di nome server (NS) per il dominio.
 
-Il dominio di esempio usato per questa esercitazione è contoso.net, ma in questo caso usare il nome di dominio personale.
+In questo esempio si farà riferimento al dominio padre come **contoso.net**
 
 ## <a name="create-a-dns-zone"></a>Creare una zona DNS
 
@@ -45,14 +45,19 @@ Il dominio di esempio usato per questa esercitazione è contoso.net, ma in quest
    ![Zona DNS](./media/dns-delegate-domain-azure-dns/openzone650.png)
 
 1. Selezionare **Crea zona DNS**.
-1. Nella pagina **Crea zona DNS** immettere i valori seguenti e quindi selezionare **Crea**:
+1. Nella pagina **Crea zona DNS** immettere i valori seguenti e quindi selezionare **Crea**: ad esempio, **contoso.net**
+      > [!NOTE] 
+      > Se la nuova zona che si sta creando è una zona figlio (ad esempio, zona padre = contoso.net zona figlio = figlio.contoso.net), fare riferimento all'[esercitazione Creazione di una nuova zona DNS figlio](./tutorial-public-dns-zones-child.md)
 
-   | **Impostazione** | **Valore** | **Dettagli** |
-   |---|---|---|
-   |**Nome**|[nome di dominio] |Nome di dominio che è stato acquistato. In questa esercitazione viene usato contoso.net come esempio.|
-   |**Sottoscrizione**|[Sottoscrizione]|Selezionare una sottoscrizione in cui creare la zona.|
-   |**Gruppo di risorse**|**Crea nuovo:** contosoRG|Creare un gruppo di risorse. Il nome del gruppo di risorse deve essere univoco all'interno della sottoscrizione selezionata.<br>La località del gruppo di risorse non ha alcun impatto sulla zona DNS. La posizione della zona DNS è sempre "globale" e non viene visualizzata.|
-   |**Posizione**|Stati Uniti orientali||
+    | **Impostazione** | **Valore** | **Informazioni dettagliate** |
+    |--|--|--|
+    | **Dettagli del progetto:**  |  |  |
+    | **Gruppo di risorse**    | ContosoRG | Creare un gruppo di risorse. Il nome del gruppo di risorse deve essere univoco all'interno della sottoscrizione selezionata. La località del gruppo di risorse non ha alcun impatto sulla zona DNS. La posizione della zona DNS è sempre "globale" e non viene visualizzata. |
+    | **Dettagli istanza:** |  |  |
+    | **Zona figlio**        | lasciare deselezionata | Poiché questa zona **non** è una [zona figlio](./tutorial-public-dns-zones-child.md) è necessario lasciare deselezionata questa opzione |
+    | **Nome**              | contoso.net | Campo per il nome della zona padre      |
+    | **Posizione**          | Stati Uniti orientali | Questo campo si basa sulla posizione selezionata durante la creazione del gruppo di risorse  |
+    
 
 ## <a name="retrieve-name-servers"></a>Recuperare i server dei nomi
 

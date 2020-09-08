@@ -4,12 +4,12 @@ description: Questa esercitazione illustra come creare un insieme di credenziali
 ms.date: 07/26/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 76c09cc02a3545d975de5d6d49b396b12f8abb44
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: a9517ffc1e37d50f7c0e57b9ed53fb8bcf55fd70
+ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757507"
+ms.lasthandoff: 08/31/2020
+ms.locfileid: "89180576"
 ---
 # <a name="use-azure-portal-to-back-up-multiple-virtual-machines"></a>Usare il portale di Azure per eseguire il backup di più macchine virtuali
 
@@ -53,7 +53,7 @@ L'insieme di credenziali dei Servizi di ripristino contiene i dati di backup e i
 
     ![Valori dell'insieme di credenziali di Servizi di ripristino](./media/tutorial-backup-vm-at-scale/review-and-create.png)
 
-    Un insieme di credenziali di Servizi di ripristino deve trovarsi nello stesso percorso delle macchine virtuali da proteggere. Se si hanno macchine virtuali in più aree, creare un insieme di credenziali di Servizi di ripristino in ogni area. Questa esercitazione consente di creare un insieme di credenziali di Servizi di ripristino in *Europa occidentale*, dove *myVM* (macchina virtuale creata con la Guida introduttiva) è stata creata.
+    Un insieme di credenziali di Servizi di ripristino deve trovarsi nello stesso percorso delle macchine virtuali da proteggere. Se si hanno macchine virtuali in più aree, creare un insieme di credenziali di Servizi di ripristino in ogni area. Questa esercitazione consente di creare un insieme di credenziali di Servizi di ripristino nell'area *Europa occidentale*, dove è stata creata *myVM*, ovvero la macchina virtuale creata con la guida di avio rapido.
 
 1. Quando si è pronti per creare l'insieme di credenziali di Servizi di ripristino, selezionare **Crea**.
 
@@ -114,7 +114,7 @@ Dopo aver creato l'insieme di credenziali di Servizi di ripristino, il passaggio
 
 ## <a name="initial-backup"></a>Backup iniziale
 
-È stata abilitata la copia di backup per gli insiemi di credenziali di Servizi di ripristino, ma non è stato creato un backup iniziale. Ai fini di un ripristino di emergenza è consigliabile attivare il primo backup, in modo da proteggere i dati.
+È stato abilitato il backup per gli insiemi di credenziali di Servizi di ripristino, ma non è stato creato un backup iniziale. Ai fini di un ripristino di emergenza è consigliabile attivare il primo backup, in modo da proteggere i dati.
 
 Per eseguire un processo di backup su richiesta:
 

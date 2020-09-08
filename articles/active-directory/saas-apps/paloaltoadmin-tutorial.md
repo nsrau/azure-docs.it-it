@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 03/12/2020
+ms.date: 08/17/2020
 ms.author: jeedes
-ms.openlocfilehash: 8bd41034d6d4cfa444ae4c0711fd46cb2924d009
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d8a4a4360265cabc179c8cd41d0a33a0575f55a6
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88554080"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88855009"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-palo-alto-networks---admin-ui"></a>Esercitazione: Integrazione di Azure Active Directory con Palo Alto Networks - Admin UI
 
@@ -43,6 +43,7 @@ In questa esercitazione vengono eseguiti la configurazione e il test dell'access
 
 * Palo Alto Networks - Admin UI supporta l'accesso SSO avviato da **SP**
 * Palo Alto Networks - Admin UI supporta il **provisioning utenti Just-In-Time** (JIT)
+* Dopo aver configurato Palo Alto Networks - Admin UI è possibile applicare il controllo sessione che consente di proteggere in tempo reale l'esfiltrazione e l'infiltrazione dei dati sensibili dell'organizzazione. Il controllo sessione costituisce un'estensione dell'accesso condizionale. [Informazioni su come applicare il controllo sessione con Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-palo-alto-networks---admin-ui-from-the-gallery"></a>Aggiunta di Palo Alto Networks - Admin UI dalla raccolta
 
@@ -55,8 +56,7 @@ Per configurare l'integrazione di Palo Alto Networks - Admin UI in Azure AD, è 
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Palo Alto Networks - Admin UI** nella casella di ricerca.
 1. Selezionare **Palo Alto Networks - Admin UI** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-## <a name="configure-and-test-azure-ad-single-sign-on"></a>Configurare e testare l'accesso Single Sign-On di Azure AD
-
+## <a name="configure-and-test-azure-ad-sso"></a>Configurare e testare l'accesso SSO di Azure AD
 In questa sezione viene configurato e testato l'accesso Single Sign-On di Azure AD con Palo Alto Networks - Admin UI usando un utente di test di nome **B.Simon**.
 Per il corretto funzionamento dell'accesso Single Sign-On, deve essere stabilita una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Palo Alto Networks - Admin UI.
 
@@ -118,6 +118,9 @@ Per configurare l'accesso Single Sign-On di Azure AD con Palo Alto Networks - Ad
     | | |
 
     > [!NOTE]
+    > Il valore di _adminrole_ deve corrispondere al nome del ruolo configurato in **Palo Alto Networks** come indicato nel passaggio 9. 
+
+    > [!NOTE]
     > Per altre informazioni sugli attributi, vedere gli articoli seguenti:
     > * [Administrative role profile for Admin UI (adminrole)](https://www.paloaltonetworks.com/documentation/80/pan-os/pan-os/firewall-administration/manage-firewall-administrators/configure-an-admin-role-profile) (Profilo del ruolo amministrativo per Admin UI - adminrole)
     > * [Device access domain for Admin UI (accessdomain)](https://docs.paloaltonetworks.com/pan-os/8-0/pan-os-web-interface-help/device/device-access-domain.html) (Dominio di accesso al dispositivo per Admin UI - accessdomain)
@@ -134,7 +137,7 @@ Per configurare l'accesso Single Sign-On di Azure AD con Palo Alto Networks - Ad
 
     b. Identificatore Azure AD
 
-    c. URL di disconnessione
+    c. URL di chiusura sessione
 
 ### <a name="create-an-azure-ad-test-user"></a>Creare un utente di test di Azure AD
 
@@ -272,5 +275,3 @@ Quando si fa clic sul riquadro di Palo Alto Networks - Admin UI nel pannello di 
 - [Provare Palo Alto Networks - Admin UI con Azure AD](https://aad.portal.azure.com/)
 
 - [Informazioni sul controllo sessioni in Microsoft Cloud App Security](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
-
-- [Come proteggere Palo Alto Networks - Admin UI con visibilità e controlli avanzati](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

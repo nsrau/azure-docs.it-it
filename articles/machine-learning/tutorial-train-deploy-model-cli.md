@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 03/26/2020
-ms.openlocfilehash: b4167f8958f7a1613c4d48625f7a79a02c7588d0
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 4028d6732220dba4848c88306a501ce22af7487a
+ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543402"
+ms.lasthandoff: 08/30/2020
+ms.locfileid: "89144023"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>Esercitazione: Eseguire il training e la distribuzione di un modello dall'interfaccia della riga di comando
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -300,7 +300,7 @@ Il file runconfig contiene anche le informazioni necessarie per configurare l'am
 > [!TIP]
 > Sebbene sia possibile creare manualmente un file runconfig, quello fornito in questo esempio è stato creato usando il file `generate-runconfig.py` incluso nel repository. Questo file ottiene un riferimento al set di dati registrato, crea una configurazione di esecuzione a livello di codice e la salva in modo permanente nel file.
 
-Per altre informazioni sui file di configurazione di esecuzione, vedere [Configurare e usare le destinazioni di calcolo per il training del modello](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli). Per informazioni di riferimento sul codice JSON completo, vedere [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
+Per altre informazioni sui file di configurazione di esecuzione, vedere [Usare le destinazioni di calcolo per il training del modello](how-to-set-up-training-targets.md#whats-a-run-configuration). Per informazioni di riferimento sul codice JSON completo, vedere [runconfigschema.json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json).
 
 ## <a name="submit-the-training-run"></a>Inviare l'esecuzione del training
 

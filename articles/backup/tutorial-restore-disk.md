@@ -4,12 +4,12 @@ description: Informazioni su come ripristinare un disco e creare un ripristino d
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: 56ea3de451e625ef5c55f92daa1b86bd34b1c4c4
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: d93f3d24762f4b9a3da4a9e725d28810f6700fe0
+ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141347"
+ms.lasthandoff: 08/26/2020
+ms.locfileid: "88890672"
 ---
 # <a name="restore-a-vm-with-azure-cli"></a>Ripristinare una macchina virtuale con l'interfaccia della riga di comando di Azure
 
@@ -59,7 +59,7 @@ az backup recoverypoint list \
 ## <a name="restore-a-vm-disk"></a>Ripristinare il disco di una macchina virtuale
 
 > [!IMPORTANT]
-> Si consiglia vivamente di usare l'interfaccia della riga di comando di Azure 2.0.74 o versioni successive per sfruttare tutti i vantaggi di un ripristino rapido, incluso il ripristino dei dischi gestiti. È preferibile che l'utente usi sempre la versione più recente.
+> Si consiglia vivamente di usare l'interfaccia della riga di comando di Azure 2.0.74 o versioni successive per sfruttare tutti i vantaggi di un ripristino rapido, incluso il ripristino dei dischi gestiti. È consigliabile usare sempre la versione più recente.
 
 ### <a name="managed-disk-restore"></a>Ripristino di dischi gestiti
 
@@ -88,7 +88,7 @@ Se nella macchina virtuale di cui si esegue il backup sono presenti dischi gesti
     ```
 
     > [!WARNING]
-    > Se il gruppo di risorse di destinazione non è indicato, i dischi gestiti verranno ripristinati come dischi non gestiti nell'account di archiviazione specificato. Le conseguenze per il tempo di ripristino saranno significative, dal momento che il tempo impiegato per ripristinare i dischi dipende esclusivamente dall'account di archiviazione specificato. I clienti otterranno il vantaggio del ripristino istantaneo solo quando viene specificato il parametro target-resource-group. Se si intende ripristinare i dischi gestiti come non gestiti, non specificare il parametro target-resource-group e fornire invece il parametro restore-as-unmanaged-disk come illustrato di seguito. Questo parametro è disponibile in az 3.4.0 e versioni successive.
+    > Se il **gruppo di risorse di destinazione** non è indicato, i dischi gestiti verranno ripristinati come dischi non gestiti nell'account di archiviazione specificato. Le conseguenze per il tempo di ripristino saranno significative, dal momento che il tempo impiegato per ripristinare i dischi dipende esclusivamente dall'account di archiviazione specificato. Si otterrà il vantaggio del ripristino istantaneo solo quando viene specificato il parametro target-resource-group. Se si intende ripristinare i dischi gestiti come non gestiti, non specificare il parametro **target-resource-group** e fornire invece il parametro **restore-as-unmanaged-disk** come illustrato di seguito. Questo parametro è disponibile in az 3.4.0 e versioni successive.
 
     ```azurecli-interactive
     az backup restore restore-disks \
@@ -101,11 +101,11 @@ Se nella macchina virtuale di cui si esegue il backup sono presenti dischi gesti
     --restore-as-unmanaged-disk
     ```
 
-Verranno ripristinati i dischi gestiti come dischi non gestiti nell'account di archiviazione specificato e non verrà usata la funzionalità di ripristino 'istantaneo'. Nelle versioni future dell'interfaccia della riga di comando, sarà obbligatorio specificare il parametro target-resource-group o il parametro 'restore-as-unmanaged-disk'.
+Verranno ripristinati i dischi gestiti come dischi non gestiti nell'account di archiviazione specificato e non verrà usata la funzionalità di ripristino 'istantaneo'. Nelle versioni future dell'interfaccia della riga di comando, sarà obbligatorio specificare il parametro **target-resource-group** o il parametro **restore-as-unmanaged-disk**.
 
 ### <a name="unmanaged-disks-restore"></a>Ripristino di dischi non gestiti
 
-Se nella macchina virtuale di cui si esegue il backup sono presenti dischi non gestiti e se lo scopo è quello di ripristinare i dischi dal punto di ripristino, è prima necessario specificare un account di archiviazione di Azure. Questo account di archiviazione viene usato per archiviare la configurazione della macchina virtuale e il modello di distribuzione che può essere usato in seguito per distribuire la macchina virtuale dai dischi ripristinati. Per impostazione predefinita, i dischi non gestiti verranno ripristinati nei relativi account di archiviazione originali. Se l'utente vuole ripristinare tutti i dischi non gestiti in un'unica posizione, è possibile usare l'account di archiviazione specificato come posizione di gestione temporanea per tali dischi.
+Se nella macchina virtuale di cui si esegue il backup sono presenti dischi non gestiti e se lo scopo è quello di ripristinare i dischi dal punto di ripristino, è prima necessario specificare un account di archiviazione di Azure. Questo account di archiviazione viene usato per archiviare la configurazione della macchina virtuale e il modello di distribuzione che può essere usato in seguito per distribuire la macchina virtuale dai dischi ripristinati. Per impostazione predefinita, i dischi non gestiti verranno ripristinati nei relativi account di archiviazione originali. Se si vogliono ripristinare tutti i dischi non gestiti in un'unica posizione, l'account di archiviazione specificato può anche essere usato come posizione di gestione temporanea per tali dischi.
 
 Nei passaggi aggiuntivi il disco ripristinato viene usato per creare una macchina virtuale.
 

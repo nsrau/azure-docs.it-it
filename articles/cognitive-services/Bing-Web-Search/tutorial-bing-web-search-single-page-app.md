@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 6d958cd2fa95cd3c3747afc80b47c17f55e4248a
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 251dbf6897f7efe56d968122c2ccad7093d39e44
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87405535"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300052"
 ---
 # <a name="tutorial-create-a-single-page-app-using-the-bing-web-search-api"></a>Esercitazione: Creare un'app a singola pagina con l'API Ricerca Web Bing
 
@@ -443,7 +443,7 @@ I criteri di sicurezza del browser, come Condivisione risorse tra le origini (CO
 > [!NOTE]
 > In un'applicazione Web di produzione è consigliabile comunque eseguire la richiesta lato server. In caso contrario, la chiave di sottoscrizione dell'API di ricerca Bing deve essere inclusa nella pagina Web, dove è disponibile per chiunque visualizzi l'origine. All'utente vengono addebitati costi per tutto l'utilizzo della chiave di sottoscrizione API, anche le richieste effettuate da parti non autorizzate, pertanto è importante che la chiave non sia visibile.
 
-Ai fini dello sviluppo, è possibile effettuare una richiesta tramite un proxy CORS. La risposta da questo tipo di proxy ha un'intestazione `Access-Control-Expose-Headers` che inserisce le intestazioni di risposta in un elenco elementi consentiti e le rende disponibili a JavaScript.
+Ai fini dello sviluppo, è possibile effettuare una richiesta tramite un proxy CORS. La risposta da questo tipo di proxy ha un'intestazione `Access-Control-Expose-Headers` che filtra le intestazioni di risposta e le rende disponibili per JavaScript.
 
 È facile installare un proxy CORS per consentire all'app di esempio di accedere all'intestazione ID client. Eseguire questo comando:
 

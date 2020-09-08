@@ -10,12 +10,12 @@ ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
 ms.date: 02/07/2020
-ms.openlocfilehash: bb2a7d8ef55e993726b185e5652c8dff9e96b23e
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 887b2da46fdcd6ad275f18913fd7ba675700ad3b
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056364"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89015986"
 ---
 # <a name="tutorial-use-r-to-create-a-machine-learning-model-preview"></a>Esercitazione: Usare R per creare un modello di Machine Learning (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,8 +29,8 @@ In questa esercitazione si userà Azure Machine Learning R SDK (anteprima) per c
 In questa esercitazione si eseguono le seguenti attività:
 > [!div class="checklist"]
 > * Creare un'area di lavoro di Machine Learning di Azure
-> * Clonare una cartella del notebook con i file necessari per eseguire questa esercitazione nell'area di lavoro
 > * Aprire RStudio dall'area di lavoro
+> * Clonare https://github.com/Azure/azureml-sdk-for-r per ottenere i file necessari per eseguire questa esercitazione nell'area di lavoro personale
 > * Caricare i dati e preparare il training
 > * Caricare i dati in un archivio dati in modo che siano disponibili per il training remoto
 > * Creare una risorsa di calcolo per eseguire il training del modello in remoto
@@ -53,33 +53,11 @@ Per creare un'area di lavoro è necessario usare il portale di Azure, una consol
 > Prendere nota dell'**area di lavoro** e della **sottoscrizione**. Si tratta di informazioni necessarie per assicurarsi di creare l'esperimento nel posto giusto. 
 
 
-## <a name="clone-a-notebook-folder"></a><a name="azure"></a>Clonare una cartella del notebook
-
-Questo esempio usa il server notebook cloud nell'area di lavoro per un'esperienza preconfigurata senza installazioni. Se si preferisce avere il controllo sull'ambiente, sui pacchetti e sulle dipendenze, usare il [proprio ambiente](https://azure.github.io/azureml-sdk-for-r/articles/installation.html).
-
-Completare i passaggi seguenti di configurazione ed esecuzione dell'esperimento in Azure Machine Learning Studio, un'interfaccia consolidata che include strumenti di Machine Learning per l'esecuzione di scenari di data science per esperti della materia di qualsiasi livello di competenza.
-
-1. Accedere ad [Azure Machine Learning Studio](https://ml.azure.com/).
-
-1. Selezionare la sottoscrizione e l'area di lavoro create.
-
-1. Selezionare **Notebook** a sinistra.
-
-1. Aprire la cartella **Samples**.
-
-1. Aprire la cartella **R**.
-
-1. Aprire la cartella con un numero di versione.  Questo numero rappresenta la versione corrente di R SDK.
-
-1. Selezionare **"..."** a destra della cartella **vignettes** e quindi scegliere **Clone** (Clona).
-
-    ![Clonare la cartella](media/tutorial-1st-r-experiment/clone-folder.png)
-
-1. Viene visualizzato un elenco di cartelle che mostra ogni utente che accede all'area di lavoro.  Selezionare la propria cartella per clonare la cartella **vignettes** al suo interno.
-
 ## <a name="open-rstudio"></a><a name="open"></a>Aprire RStudio
 
-Per eseguire questa esercitazione, usare RStudio in un'istanza di calcolo o in una macchina virtuale con notebook.  
+Questo esempio usa un'istanza di calcolo nell'area di lavoro per un'esperienza preconfigurata senza installazioni. Se si preferisce avere il controllo sull'ambiente, sui pacchetti e sulle dipendenze nel computer in uso, usare il [proprio ambiente](https://azure.github.io/azureml-sdk-for-r/articles/installation.html).
+
+Per eseguire questa esercitazione, usare RStudio in un'istanza di calcolo di Azure Machine Learning.  
 
 1. Selezionare **Calcolo** a sinistra.
 
@@ -87,10 +65,19 @@ Per eseguire questa esercitazione, usare RStudio in un'istanza di calcolo o in u
 
 1. Quando il calcolo è in esecuzione, usare il collegamento **RStudio** per aprire RStudio.
 
-1. In RStudio la cartella *vignettes* si trova alcuni livelli sotto *Users* (Utenti) nella sezione **Files** (File) nella parte inferiore destra.  In *vignettes* selezionare la cartella *train-and-deploy-to-aci* per trovare i file necessari per questa esercitazione.
+
+## <a name="clone-the-sample-vignettes"></a><a name="azure"></a>Clonare le vignette di esempio 
+
+Clonare il repository GitHub https://github.com/azure/azureml-sdk-for-r per ottenere una copia dei file delle vignette che verranno eseguiti in questa esercitazione.
+
+1. In RStudio passare alla scheda "Terminal" (Terminale) e passare alla directory in cui si vuole clonare il repository.
+
+1. Eseguire "git clone https://github.com/Azure/azureml-sdk-for-r.git" nel terminale per clonare il repository.
+
+1. In RStudio passare alla cartella *vignettes* della cartella clonata *azureml-sdk-for-r*.  In *vignettes* selezionare il file *train-and-deploy-first-model.Rmd* per trovare le vignette usate in questa esercitazione. I file aggiuntivi usati per la vignetta si trovano nella sottocartella *train-and-deploy-first-model*. Dopo aver aperto la vignetta, impostare la directory di lavoro sul percorso del file tramite **Session > Set Working Directory > To Source File Location** (Sessione > Imposta directory di lavoro > Posizione file di origine). 
 
 > [!Important]
-> Il resto di questo articolo contiene lo stesso contenuto visualizzato nel file *train-and-deploy-to-aci.Rmd*. Se si ha familiarità con RMarkdown, è possibile usare il codice di tale file.  In alternativa, è possibile copiare e incollare i frammenti di codice da tale posizione o da questo articolo in uno script R o nella riga di comando.  
+> Il resto di questo articolo contiene lo stesso contenuto visualizzato nel file *train-and-deploy-first-model.Rmd*. Se si ha familiarità con RMarkdown, è possibile usare il codice di tale file.  In alternativa, è possibile copiare e incollare i frammenti di codice da tale posizione o da questo articolo in uno script R o nella riga di comando. 
 
 
 ## <a name="set-up-your-development-environment"></a>Configurazione dell'ambiente di sviluppo
@@ -197,7 +184,7 @@ Per questa esercitazione, adattare un modello di regressione logistica ai dati c
 * Inviare il processo
 
 ### <a name="prepare-the-training-script"></a>Preparare lo script di training
-Uno script di training denominato `accidents.R` è incluso nella stessa directory dell'esercitazione. Notare i dettagli seguenti **all'interno dello script di training** che permettono di sfruttare il servizio Azure Machine Learning per il training:
+Uno script di training denominato `accidents.R` è incluso nella directory *train-and-deploy-first-model*. Notare i dettagli seguenti **all'interno dello script di training** che permettono di sfruttare il servizio Azure Machine Learning per il training:
 
 * Lo script di training usa un argomento `-d` per trovare la directory che contiene i dati di training. Quando si definisce e si invia il processo in un secondo momento, si fa riferimento all'archivio dati per questo argomento. Azure ML monta la cartella di archiviazione nel cluster remoto per il processo di training.
 * Lo script di training registra l'accuratezza finale come metrica per il record esecuzione in Azure ML usando `log_metric_to_run()`. Azure ML SDK offre un set di API di registrazione per registrare diverse metriche durante le esecuzioni di training. Queste metriche vengono registrate e salvate in modo persistente nel record esecuzione dell'esperimento. È possibile accedere alle metriche in qualsiasi momento e visualizzarle nella pagina dei dettagli dell'esecuzione nello [studio](https://ml.azure.com). Per il set completo di metodi di registrazione `log_*()`, vedere il [riferimento](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-training-experimentation).
@@ -216,7 +203,7 @@ Per creare l'oggetto di stima, definire quanto segue:
 * Eventuali dipendenze di ambiente necessarie per il training. L'immagine Docker predefinita compilata per il training contiene già i tre pacchetti (`caret`, `e1071` e `optparse`) necessari nello script di training.  Non è quindi necessario specificare altre informazioni. Se si usano pacchetti R che non sono inclusi per impostazione predefinita, usare il parametro `cran_packages` dell'oggetto di stima per aggiungere altri pacchetti CRAN. Per il set completo di opzioni configurabili, vedere il riferimento [`estimator()`](https://azure.github.io/azureml-sdk-for-r/reference/estimator.html).
 
 ```R
-est <- estimator(source_directory = ".",
+est <- estimator(source_directory = "train-and-deploy-first-model",
                  entry_script = "accidents.R",
                  script_params = list("--data_folder" = ds$path(target_path)),
                  compute_target = compute_target
@@ -331,6 +318,7 @@ A questo punto si dispone di tutto il necessario per creare un elemento **infere
 ```R
 inference_config <- inference_config(
   entry_script = "accident_predict.R",
+  source_directory = "train-and-deploy-first-model",
   environment = r_env)
 ```
 

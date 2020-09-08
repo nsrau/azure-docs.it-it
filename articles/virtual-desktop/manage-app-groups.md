@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 08/20/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e495288bcd2c966dab49925a55507ab1f2379f64
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 21dba3c9beeefa2b25b8038f6cbd0ec77f947774
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88659484"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89226727"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Esercitazione: Gestire gruppi di app con il portale di Azure
 
@@ -31,6 +31,8 @@ In questa esercitazione si apprenderà come:
 Se è già stato creato un pool di host e le macchine virtuali dell'host di sessione usando il portale di Azure o PowerShell, è possibile aggiungere gruppi di applicazioni dal portale di Azure con il processo seguente:
 
 1.  Accedere al [portale di Azure](https://portal.azure.com/).
+   
+   >![NOTE] Se si esegue l'accesso al portale di US Gov, passare a invece all'indirizzo [https://portal.azure.us/](https://portal.azure.us/).
 
 2.  Cercare e selezionare **Desktop virtuale Windows**.
 

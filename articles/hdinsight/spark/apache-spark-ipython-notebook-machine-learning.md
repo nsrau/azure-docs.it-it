@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: tutorial
 ms.custom: hdinsightactive,mvc, devx-track-python
 ms.date: 04/07/2020
-ms.openlocfilehash: 0029761f8a1c48ab595dfa5bc2a87fca12d90e3d
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 753f45257f820f87f2e4bfb1893f581bee167a4a
+ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873926"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89230926"
 ---
 # <a name="tutorial-build-an-apache-spark-machine-learning-application-in-azure-hdinsight"></a>Esercitazione: Compilare un'applicazione di apprendimento automatico Apache Spark in Azure HDInsight
 
@@ -41,7 +41,7 @@ L'applicazione usa i dati di **HVAC.csv** di esempio disponibili in tutti i clus
 
 In questa applicazione viene usata una [pipeline di Machine Learning](https://spark.apache.org/docs/2.2.0/ml-pipeline.html) Spark per eseguire la classificazione di un documento. Le pipeline di Machine Learning offrono un set uniforme di API generali basate su dataframe. I dataframe consentono di creare e ottimizzare pipeline di Machine Learning pratiche. Nella pipeline il documento è stato suddiviso in parole, le parole sono state convertite in un vettore di funzionalità numerico e infine è stato creato un modello di stima usando le etichette e i vettori di funzionalità. Procedere come descritto di seguito per creare l'applicazione.
 
-1. Creare un notebook di Jupyter usando il kernel PySpark. Per le istruzioni, vedere [Creare un notebook Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook).
+1. Creare un notebook di Jupyter usando il kernel PySpark. Per istruzioni, vedere [Creare un file di notebook Jupyter](./apache-spark-jupyter-spark-sql.md#create-a-jupyter-notebook-file).
 
 1. Importare i tipi richiesti per questo scenario. Incollare il frammento di codice seguente in una cella vuota e quindi premere **MAIUSC+INVIO**.
 

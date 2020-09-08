@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 05/03/2019
 ms.author: jeedes
-ms.openlocfilehash: bdea7fc3c295016204a80772bdf367dda7e194fb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 80900f8a63d29e8c36ec190945efc3c44f713a3f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546305"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296873"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xaitporter"></a>Esercitazione: Integrazione di Azure Active Directory con XaitPorter
 
@@ -112,7 +112,7 @@ Per configurare Single Sign-On di Azure AD con XaitPorter, completare i passaggi
 
     ![Collegamento di download del certificato](common/copy-metadataurl.png)
 
-6. Fornire l'**Indirizzo IP** o l'**URL dei metadati di federazione dell'app** al [team di supporto di SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/), in modo che XaitPorter possa garantire che l'indirizzo IP sia raggiungibile dall'istanza di XaitPorter configurando l'elenco elementi consentiti. 
+6. Fornire l'**Indirizzo IP** o l'**URL dei metadati di federazione dell'app** al [team di supporto di SmartRecruiters](https://www.smartrecruiters.com/about-us/contact-us/), in modo che XaitPorter possa garantire che l'indirizzo IP sia raggiungibile dall'istanza di XaitPorter configurando l'elenco elementi approvati. 
 
 ### <a name="configure-xaitporter-single-sign-on"></a>Configurare l'accesso Single Sign-On di XaitPorter
 
@@ -213,4 +213,3 @@ Quando si fa clic sul riquadro XaitPorter nel pannello di accesso, si dovrebbe a
 - [Informazioni sull'accesso alle applicazioni e Single Sign-On con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
 
 - [Che cos'è l'accesso condizionale in Azure Active Directory?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-

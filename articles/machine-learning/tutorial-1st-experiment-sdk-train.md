@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 ms.author: sgilley
 author: sdgilley
-ms.date: 02/10/2020
+ms.date: 08/25/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: be8f0c85f62779dec9231a9f44155d4608e88b52
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: fb380e4b71ba68daf694ab725c41be64f066805e
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852702"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88854936"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>Esercitazione: Eseguire il training del primo modello di Machine Learning
 
@@ -43,21 +43,24 @@ In questa parte dell'esercitazione si eseguirà il codice del notebook di Jupyte
 
 1. Aprire il file **tutorial-1st-experiment-sdk-train.ipynb** nella cartella, come illustrato nella [prima parte](tutorial-1st-experiment-sdk-setup.md#open).
 
-
-> [!Warning]
-> **Non** creare un *nuovo* notebook nell'interfaccia di Jupyter. Il notebook *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* include **tutto il codice e i dati necessari** per questa esercitazione.
+**Non** creare un *nuovo* notebook nell'interfaccia di Jupyter. Il notebook *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* include **tutto il codice e i dati necessari** per questa esercitazione.
 
 ## <a name="connect-workspace-and-create-experiment"></a>Connettere l'area di lavoro e creare un esperimento
 
-> [!Important]
-> Il resto di questo articolo contiene lo stesso contenuto visualizzato nel notebook.  
->
-> Passare ora al notebook di Jupyter se si desidera leggere durante l'esecuzione del codice. 
-> Per eseguire una singola cella di codice in un notebook, fare clic sulla cella di codice e premere **MAIUSC + INVIO**. In alternativa, eseguire l'intero notebook scegliendo **Esegui tutto** dalla barra degli strumenti superiore.
+<!-- nbstart https://raw.githubusercontent.com/Azure/MachineLearningNotebooks/master/tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb -->
 
-Importare la classe `Workspace` e caricare le informazioni sulla sottoscrizione dal file `config.json` con la funzione `from_config().`. Per impostazione predefinita, questa funzione cerca il file JSON nella directory corrente, ma è possibile anche specificare un parametro del percorso che punti al file usando `from_config(path="your/file/path")`. In un server notebook cloud, il file si trova automaticamente nella directory radice.
+> [!TIP]
+> Contenuto di _tutorial-1st-experiment-sdk-train.ipynb_. Passare ora al notebook di Jupyter se si desidera leggere durante l'esecuzione del codice. Per eseguire una singola cella di codice in un notebook, fare clic sulla cella di codice e premere **MAIUSC + INVIO**. In alternativa, eseguire l'intero notebook scegliendo **Esegui tutto** dalla barra degli strumenti superiore.
 
-Se il codice seguente richiede un'autenticazione aggiuntiva, incollare semplicemente il collegamento in un browser e immettere il token di autenticazione.
+
+Importare la classe `Workspace` e caricare le informazioni sulla sottoscrizione dal file `config.json` con la funzione `from_config().`. Per impostazione predefinita, questa funzione cerca il file JSON nella directory corrente, ma è possibile anche specificare un parametro del percorso che punti al file usando `from_config(path="your/file/path")`. Se il notebook viene eseguito in un server notebook cloud nell'area di lavoro, il file si trova automaticamente nella directory radice.
+
+Se il codice seguente richiede un'autenticazione aggiuntiva, incollare semplicemente il collegamento in un browser e immettere il token di autenticazione. Inoltre, se all'utente sono collegati più tenant, sarà necessario aggiungere le righe seguenti:
+```
+from azureml.core.authentication import InteractiveLoginAuthentication
+interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
+Additional details on authentication can be found here: https://aka.ms/aml-notebook-auth 
+```
 
 ```python
 from azureml.core import Workspace
@@ -105,16 +108,16 @@ alphas = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
 for alpha in alphas:
     run = experiment.start_logging()
     run.log("alpha_value", alpha)
-
+    
     model = Ridge(alpha=alpha)
     model.fit(X=X_train, y=y_train)
     y_pred = model.predict(X=X_test)
     rmse = math.sqrt(mean_squared_error(y_true=y_test, y_pred=y_pred))
     run.log("rmse", rmse)
-
+    
     model_name = "model_alpha_" + str(alpha) + ".pkl"
     filename = "outputs/" + model_name
-
+    
     joblib.dump(value=model, filename=filename)
     run.upload_file(name=model_name, path_or_stream=filename)
     run.complete()
@@ -162,7 +165,7 @@ for run in experiment.get_runs():
     # each logged metric becomes a key in this returned dict
     run_rmse = run_metrics["rmse"]
     run_id = run_details["runId"]
-
+    
     if minimum_rmse is None:
         minimum_rmse = run_rmse
         minimum_rmse_runid = run_id
@@ -172,15 +175,15 @@ for run in experiment.get_runs():
             minimum_rmse_runid = run_id
 
 print("Best run_id: " + minimum_rmse_runid)
-print("Best run_id rmse: " + str(minimum_rmse))
+print("Best run_id rmse: " + str(minimum_rmse))    
 ```
-
 ```output
 Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
 Best run_id rmse: 57.234760283951765
 ```
 
 Usare l'ID dell'esecuzione migliore per recuperare la singola esecuzione con il costruttore `Run` e l'oggetto esperimento. Chiamare quindi `get_file_names()` per visualizzare tutti i file disponibili per il download da questa esecuzione. In questo caso, durante il training è stato caricato un solo file per ogni esecuzione.
+
 
 ```python
 from azureml.core import Run
@@ -194,9 +197,11 @@ print(best_run.get_file_names())
 
 Chiamare `download()` sull'oggetto esecuzione, specificando il nome del file del modello da scaricare. Per impostazione predefinita, questa funzione esegue il download nella directory corrente.
 
+
 ```python
 best_run.download_file(name="model_alpha_0.1.pkl")
 ```
+<!-- nbend -->
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

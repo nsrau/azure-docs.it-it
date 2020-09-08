@@ -4,12 +4,12 @@ description: Questa esercitazione descrive come gestire i backup dei database SA
 ms.topic: tutorial
 ms.date: 12/4/2019
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 13cd6e33fbec261b52aae73b1b01fe26764885fe
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 3051eb9a6f0c395f8ec06d92d6501296ec39c768
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757354"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007299"
 ---
 # <a name="tutorial-manage-sap-hana-databases-in-an-azure-vm-using-azure-cli"></a>Esercitazione: Gestire i database SAP HANA in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure
 
@@ -119,7 +119,7 @@ saphanadatabase;hxe;newhxe      SAPHanaDatabase          HXE           hxehost  
 
 Se si sceglie di lasciare invariati i punti di ripristino, tenere presente quanto segue:
 
-* Tutti i punti di ripristino rimarranno invariati per sempre, tutte le eliminazioni verranno arrestate in caso di arresto della protezione con conservazione dei dati.
+* Tutti i punti di ripristino rimarranno invariati per sempre e tutte le eliminazioni verranno arrestate in caso di arresto della protezione con conservazione dei dati.
 * Verranno addebitati i costi per l'istanza protetta e lo spazio di archiviazione utilizzato.
 * Se si elimina un'origine dati senza arrestare i backup, i nuovi backup avranno esito negativo.
 

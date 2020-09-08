@@ -8,12 +8,13 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 05/08/2020
 ms.author: sngun
-ms.openlocfilehash: 69a0fec0dd5036b021926045ff3a63a011966654
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.custom: devx-track-dotnet
+ms.openlocfilehash: 6772150338dd0d172f2f100c2aa8cae7175b18d6
+ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118883"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89051296"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>Esercitazione: Sviluppare un'applicazione Web MVC ASP.NET Core con Azure Cosmos DB usando .NET SDK
 
@@ -116,36 +117,19 @@ Azure Cosmos DB usa JSON per lo spostamento e l'archiviazione di dati. È possib
 
 ### <a name="add-views"></a><a name="add-views"></a>Aggiungere visualizzazioni
 
-Creare ora le tre visualizzazioni seguenti.
+Verranno ora create le visualizzazioni seguenti.
 
-* Aggiungere una visualizzazione elemento elenco
-* Aggiungere una visualizzazione Nuovo elemento
-* Aggiungere una visualizzazione Modifica elemento
+* Una visualizzazione per creare un elemento
+* Una visualizzazione per eliminare un elemento
+* Una visualizzazione per ottenere i dettagli di un elemento
+* Una visualizzazione per modificare un elemento
+* Una visualizzazione per elencare tutti gli elementi
 
-#### <a name="add-a-list-item-view"></a><a name="AddItemIndexView"></a>Aggiungere una visualizzazione elemento elenco
+#### <a name="create-item-view"></a><a name="AddNewIndexView"></a>Visualizzazione per creare un elemento
 
 1. In **Esplora soluzioni** fare clic con il pulsante destro del mouse sulla cartella **Visualizzazioni** e scegliere **Aggiungi** > **Nuova cartella**. Assegnare alla cartella il nome *Item*.
 
 1. Fare clic con il pulsante destro del mouse sulla cartella **Item** vuota, quindi scegliere **Aggiungi** > **Visualizzazione**.
-
-1. In **Add MVC View** (Aggiungi visualizzazione MVC) specificare i valori seguenti:
-
-   * In **Nome visualizzazione** immettere *Indice*.
-   * In **Modello** selezionare **Elenco**.
-   * In **Classe modello** selezionare **Elemento (todo.Models)** .
-   * Selezionare **Usa una pagina layout** e immettere *~/Views/Shared/_Layout.cshtml*.
-
-   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="Screenshot della finestra di dialogo Aggiungi visualizzazione MVC":::
-
-1. Dopo aver aggiunto questi valori, scegliere **Aggiungi** per creare automaticamente una nuova visualizzazione modello.
-
-Al termine, Visual Studio apre il file *cshtml* creato. È possibile chiudere tale file in Visual Studio. Verrà usato più tardi.
-
-#### <a name="add-a-new-item-view"></a><a name="AddNewIndexView"></a>Aggiungere una visualizzazione Nuovo elemento
-
-In modo analogo alla creazione della visualizzazione per gli elementi elenco, creare una nuova visualizzazione per la creazione di elementi seguendo questa procedura:
-
-1. In **Esplora soluzioni** fare di nuovo clic con il pulsante destro del mouse sulla cartella **Item** e scegliere **Aggiungi** > **Visualizzazione**.
 
 1. In **Add MVC View** (Aggiungi visualizzazione MVC) apportare le modifiche seguenti:
 
@@ -155,9 +139,44 @@ In modo analogo alla creazione della visualizzazione per gli elementi elenco, cr
    * Selezionare **Usa una pagina layout** e immettere *~/Views/Shared/_Layout.cshtml*.
    * Selezionare **Aggiungi**.
 
-#### <a name="add-an-edit-item-view"></a><a name="AddEditIndexView"></a>Aggiungere una visualizzazione Modifica elemento
+   :::image type="content" source="./media/sql-api-dotnet-application/asp-net-mvc-tutorial-add-mvc-view.png" alt-text="Screenshot della finestra di dialogo Aggiungi visualizzazione MVC":::
 
-Infine, aggiungere una visualizzazione per la modifica di elementi seguendo questa procedura:
+1. Selezionare quindi **Aggiungi** e consentire a Visual Studio di creare una nuova visualizzazione modello. Sostituire il codice nel file generato con il contenuto seguente:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Create.cshtml":::
+
+#### <a name="delete-item-view"></a><a name="AddEditIndexView"></a>Visualizzazione per eliminare un elemento
+
+1. In **Esplora soluzioni** fare di nuovo clic con il pulsante destro del mouse sulla cartella **Item** e scegliere **Aggiungi** > **Visualizzazione**.
+
+1. In **Add MVC View** (Aggiungi visualizzazione MVC) apportare le modifiche seguenti:
+
+   * Nella casella **Nome visualizzazione** digitare *Elimina*.
+   * Nella casella **Modello** selezionare **Elimina**.
+   * Nella casella **Classe modello** selezionare **Item (todo.Models)** .
+   * Selezionare **Usa una pagina layout** e immettere *~/Views/Shared/_Layout.cshtml*.
+   * Selezionare **Aggiungi**.
+
+1. Selezionare quindi **Aggiungi** e consentire a Visual Studio di creare una nuova visualizzazione modello. Sostituire il codice nel file generato con il contenuto seguente:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Delete.cshtml":::
+
+#### <a name="add-a-view-to-get-an-item-details"></a><a name="AddItemIndexView"></a>Aggiungere una visualizzazione per ottenere i dettagli di un elemento
+
+1. In **Esplora soluzioni** fare di nuovo clic con il pulsante destro del mouse sulla cartella **Item** e scegliere **Aggiungi** > **Visualizzazione**.
+
+1. In **Add MVC View** (Aggiungi visualizzazione MVC) specificare i valori seguenti:
+
+   * In **Nome visualizzazione** immettere *Dettagli*.
+   * In **Modello** selezionare **Dettagli**.
+   * In **Classe modello** selezionare **Elemento (todo.Models)** .
+   * Selezionare **Usa una pagina layout** e immettere *~/Views/Shared/_Layout.cshtml*.
+
+1. Selezionare quindi **Aggiungi** e consentire a Visual Studio di creare una nuova visualizzazione modello. Sostituire il codice nel file generato con il contenuto seguente:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Details.cshtml":::
+
+#### <a name="add-an-edit-item-view"></a><a name="AddEditIndexView"></a>Aggiungere una visualizzazione Modifica elemento
 
 1. In **Esplora soluzioni** fare di nuovo clic con il pulsante destro del mouse sulla cartella **Item** e scegliere **Aggiungi** > **Visualizzazione**.
 
@@ -169,7 +188,29 @@ Infine, aggiungere una visualizzazione per la modifica di elementi seguendo ques
    * Selezionare **Usa una pagina layout** e immettere *~/Views/Shared/_Layout.cshtml*.
    * Selezionare **Aggiungi**.
 
-Dopo aver completato questi passaggi, chiudere tutti i documenti con estensione *cshtml* in Visual Studio. Si tornerà a queste visualizzazioni in un secondo momento.
+1. Selezionare quindi **Aggiungi** e consentire a Visual Studio di creare una nuova visualizzazione modello. Sostituire il codice nel file generato con il contenuto seguente:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Edit.cshtml":::
+
+#### <a name="add-a-view-to-list-all-the-items"></a><a name="AddEditIndexView"></a>Aggiungere una visualizzazione per elencare tutti gli elementi
+
+Infine, aggiungere una visualizzazione per ottenere tutti gli elementi seguendo questa procedura:
+
+1. In **Esplora soluzioni** fare di nuovo clic con il pulsante destro del mouse sulla cartella **Item** e scegliere **Aggiungi** > **Visualizzazione**.
+
+1. In **Add MVC View** (Aggiungi visualizzazione MVC) apportare le modifiche seguenti:
+
+   * Nella casella **Nome visualizzazione** digitare *Index*.
+   * Nella casella **Modello** selezionare **Elenco**.
+   * Nella casella **Classe modello** selezionare **Item (todo.Models)** .
+   * Selezionare **Usa una pagina layout** e immettere *~/Views/Shared/_Layout.cshtml*.
+   * Selezionare **Aggiungi**.
+
+1. Selezionare quindi **Aggiungi** e consentire a Visual Studio di creare una nuova visualizzazione modello. Sostituire il codice nel file generato con il contenuto seguente:
+
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Views/Item/Index.cshtml":::
+
+Dopo aver completato questi passaggi, chiudere tutti i documenti *cshtml* in Visual Studio.
 
 ### <a name="declare-and-initialize-services"></a><a name="initialize-services"></a>Dichiarare e inizializzare i servizi
 

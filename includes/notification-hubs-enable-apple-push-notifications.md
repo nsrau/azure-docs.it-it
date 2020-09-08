@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: a9e8574ea2d7222871c7f065383e6c0c62057dd3
-ms.sourcegitcommit: 25490467e43cbc3139a0df60125687e2b1c73c09
-ms.translationtype: MT
+ms.openlocfilehash: 1cb7753f54e9c1334e35635c227f776041631f1d
+ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/09/2020
-ms.locfileid: "81007834"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88864850"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>Generare il file della richiesta di firma del certificato
 
@@ -95,7 +95,7 @@ L'approccio più recente presenta diversi vantaggi rispetto all'uso dei certific
     Verrà visualizzata la schermata **Create a new Certificate** (Crea un nuovo certificato).
 
     > [!NOTE]
-    > Questa esercitazione usa un certificato di sviluppo. La stessa procedura viene usata per registrare un certificato di produzione. Per l'invio delle notifiche, assicurarsi di usare lo stesso tipo di certificato.
+    > Questa esercitazione usa un certificato di sviluppo usato dall'app per generare un token univoco del dispositivo. La stessa procedura viene usata per registrare un certificato di produzione. Per l'invio delle notifiche, assicurarsi di usare lo stesso tipo di certificato.
 
 3. Selezionare **Choose File** (Scegli file), passare al percorso in cui è stato salvato il file CSR creato durante la prima attività e quindi fare doppio clic sul nome del certificato per caricarlo. Selezionare quindi **Continua**.
 
@@ -211,7 +211,7 @@ In questa sezione viene creato un hub di notifica e viene configurata l'autentic
 In **Notification Services** (Servizi di notifica) selezionare **Apple (APNS)** e quindi seguire i passaggi appropriati in base all'approccio scelto in precedenza nella sezione [Creazione di un certificato per Hub di notifica](#creating-a-certificate-for-notification-hubs).  
 
 > [!NOTE]
-> Usare la modalità **Production** (Produzione) per **Application Mode** (Modalità applicazione) solo se si vuole inviare notifiche push agli utenti che hanno acquistato l'app dallo Store.
+> Se si compila l'app con un profilo di distribuzione ad hoc o App Store, usare **Produzione** per **Modalità applicazione**. Ciò consentirà al dispositivo di inviare notifiche push agli utenti che hanno acquistato l'app dallo Store.
 
 ### <a name="option-1-using-a-p12-push-certificate"></a>OPZIONE 1: Uso di un certificato push con estensione .p12
 

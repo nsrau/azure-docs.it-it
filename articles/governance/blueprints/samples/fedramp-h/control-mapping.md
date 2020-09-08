@@ -3,12 +3,12 @@ title: Controlli dell'esempio di progetto FedRAMP High
 description: Mapping dei controlli dell'esempio di progetto FedRAMP High. Ogni controllo viene mappato a uno o più criteri di Azure che assistono nella valutazione.
 ms.date: 07/31/2020
 ms.topic: sample
-ms.openlocfilehash: 1b5be2a4dbc6c54e4d8aa69f6be7bc7c60b9a73d
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 9d13b77736c8e58b304b8ae99582ad288f18c433
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926009"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299066"
 ---
 # <a name="control-mapping-of-the-fedramp-high-blueprint-sample"></a>Mapping dei controlli dell'esempio di progetto FedRAMP High
 
@@ -161,19 +161,19 @@ Questo criterio predefinito richiede di specificare una matrice di tipi di risor
 
 ## <a name="cm-7-2-least-functionality--prevent-program-execution"></a>CM-7 (2) Funzionalità minima | Impedire l'esecuzione di programmi
 
-Il controllo delle applicazioni adattivo in Centro sicurezza di Azure è una soluzione per l'inserimento delle applicazioni nell'elenco elementi consentiti end-to-end, intelligente e automatizzata in grado di bloccare o impedire l'esecuzione di software specifico nelle macchine virtuali. Il controllo delle applicazioni può essere eseguito in una modalità di imposizione che impedisce l'esecuzione di applicazioni non approvate. Questo progetto assegna una definizione di Criteri di Azure che consente di monitorare le macchine virtuali quando è consigliato un elenco elementi consentiti che però non è stato ancora configurato.
+Il controllo delle applicazioni adattivo in Centro sicurezza di Azure è una soluzione di filtro delle applicazioni completa, intelligente e automatizzata in grado di bloccare o impedire l'esecuzione di software specifico nelle macchine virtuali. Il controllo delle applicazioni può essere eseguito in una modalità di imposizione che impedisce l'esecuzione di applicazioni non approvate. Questo progetto assegna una definizione di Criteri di Azure che consente di monitorare le macchine virtuali quando è consigliato un elenco di applicazioni consentite, che però non è stato ancora configurato.
 
 - I controlli applicazioni adattivi devono essere abilitati nelle macchine virtuali
 
 ## <a name="cm-7-5-least-functionality--authorized-software--whitelisting"></a>CM-7 (5) Funzionalità minima | Software autorizzato/elenco elementi consentiti
 
-Il controllo delle applicazioni adattivo in Centro sicurezza di Azure è una soluzione per l'inserimento delle applicazioni nell'elenco elementi consentiti end-to-end, intelligente e automatizzata in grado di bloccare o impedire l'esecuzione di software specifico nelle macchine virtuali. Il controllo delle applicazioni consente di creare elenchi di applicazioni approvate per le macchine virtuali. Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di monitorare le macchine virtuali quando è consigliato un elenco elementi consentiti che però non è stato ancora configurato.
+Il controllo delle applicazioni adattivo in Centro sicurezza di Azure è una soluzione di filtro delle applicazioni completa, intelligente e automatizzata in grado di bloccare o impedire l'esecuzione di software specifico nelle macchine virtuali. Il controllo delle applicazioni consente di creare elenchi di applicazioni approvate per le macchine virtuali. Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di monitorare le macchine virtuali quando è consigliato un elenco di applicazioni consentite, che però non è stato ancora configurato.
 
 - I controlli applicazioni adattivi devono essere abilitati nelle macchine virtuali
 
 ## <a name="cm-11-user-installed-software"></a>CM-11 Software installato dall'utente
 
-Il controllo delle applicazioni adattivo in Centro sicurezza di Azure è una soluzione per l'inserimento delle applicazioni nell'elenco elementi consentiti end-to-end, intelligente e automatizzata in grado di bloccare o impedire l'esecuzione di software specifico nelle macchine virtuali. Il controllo delle applicazioni consente di imporre e monitorare la conformità ai criteri di restrizione software. Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di monitorare le macchine virtuali quando è consigliato un elenco elementi consentiti che però non è stato ancora configurato.
+Il controllo delle applicazioni adattivo in Centro sicurezza di Azure è una soluzione di filtro delle applicazioni completa, intelligente e automatizzata in grado di bloccare o impedire l'esecuzione di software specifico nelle macchine virtuali. Il controllo delle applicazioni consente di imporre e monitorare la conformità ai criteri di restrizione software. Questo progetto assegna una definizione di [Criteri di Azure](../../../policy/overview.md) che consente di monitorare le macchine virtuali quando è consigliato un elenco di applicazioni consentite, che però non è stato ancora configurato.
 
 - I controlli applicazioni adattivi devono essere abilitati nelle macchine virtuali
 

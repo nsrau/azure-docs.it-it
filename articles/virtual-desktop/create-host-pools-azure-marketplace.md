@@ -3,15 +3,15 @@ title: Pool di host di Desktop virtuale Windows nel portale di Azure - Azure
 description: Come creare un pool di host di Desktop virtuale Windows tramite il portale di Azure.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 08/21/2020
+ms.date: 09/01/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 30101d4e9125b0ac283710ebb26205c2bb120766
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: b6d54c226dd3a156ff6164f87fc755aac3dd040c
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755484"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322586"
 ---
 # <a name="tutorial-create-a-host-pool-with-the-azure-portal"></a>Esercitazione: Creare un pool di host con il portale di Azure
 
@@ -47,6 +47,8 @@ Se non si ha già una sottoscrizione di Azure, assicurarsi di [creare un account
 Per iniziare a creare il nuovo pool di host:
 
 1. Accedere al portale di Azure all'indirizzo [https://portal.azure.com](https://portal.azure.com/).
+   
+   >![NOTE] Se si esegue l'accesso al portale di US Gov, passare a invece all'indirizzo [https://portal.azure.us/](https://portal.azure.us/).
 
 2. Immettere **Desktop virtuale Windows** nella barra di ricerca, quindi individuare e selezionare **Desktop virtuale Windows** in Servizi.
 
@@ -72,7 +74,7 @@ Per iniziare a creare il nuovo pool di host:
       > [!div class="mx-imgBorder"]
       > ![Screenshot del menu a discesa del campo Tipo di assegnazione. L'utente ha selezionato Automatico.](media/assignment-type-field.png)
 
-9. Se si sceglie **In pool**, immettere le informazioni seguenti:
+9.  Se si sceglie **In pool**, immettere le informazioni seguenti:
 
      - Per **Limite massimo sessioni** immettere il numero massimo di utenti per cui si vuole eseguire il bilanciamento del carico in un singolo host di sessione.
      - Per **Algoritmo di bilanciamento del carico** scegliere bilanciamento in ampiezza o bilanciamento del carico in profondità, in base al modello di utilizzo.
@@ -129,9 +131,11 @@ Per configurare la macchina virtuale all'interno del processo di configurazione 
 
 7. Scegliere il tipo di dischi del sistema operativo che si vuole usare per le macchine virtuali: SSD Standard, SSD Premium o HDD Standard.
 
-8. In Rete e sicurezza selezionare la **rete virtuale** e la **subnet** in cui inserire le macchine virtuali create. Assicurarsi che la rete virtuale possa connettersi al controller di dominio, poiché sarà necessario aggiungere le macchine virtuali all'interno della rete virtuale al dominio. Selezionare quindi se si vuole o meno un indirizzo IP pubblico per le macchine virtuali. Si consiglia di selezionare **No**, perché un IP privato è più sicuro.
+8. In Rete e sicurezza selezionare la **rete virtuale** e la **subnet** in cui inserire le macchine virtuali create. Assicurarsi che la rete virtuale possa connettersi al controller di dominio, poiché sarà necessario aggiungere le macchine virtuali all'interno della rete virtuale al dominio. I server DNS della rete virtuale selezionata devono essere configurati per l'uso dell'IP del controller di dominio.
 
-9. Seleziona il tipo di gruppo di sicurezza desiderato: **Di base**, **Avanzato** o **Nessuno**.
+9. Selezionare quindi se si vuole un indirizzo IP pubblico per le macchine virtuali. Si consiglia di selezionare **No**, perché un IP privato è più sicuro.
+
+10. Seleziona il tipo di gruppo di sicurezza desiderato: **Di base**, **Avanzato** o **Nessuno**.
 
     Se si seleziona **Di base**, è necessario selezionare se si vuole che tutte le porte in ingresso siano aperte. Se si seleziona **Sì**, scegliere dall'elenco le porte standard a cui consentire le connessioni in ingresso.
 
@@ -143,11 +147,13 @@ Per configurare la macchina virtuale all'interno del processo di configurazione 
 
     Se si sceglie **Avanzato**, selezionare un gruppo di sicurezza di rete esistente che è stato già configurato.
 
-10. Successivamente, selezionare se si vuole che le macchine virtuali vengano aggiunte a un dominio e a un'unità organizzativa specifici. Se si sceglie **Sì**, specificare il dominio da aggiungere. Facoltativamente, è possibile aggiungere un'unità organizzativa specifica in cui si vuole inserire le macchine virtuali. Se si sceglie **No**, le macchine virtuali verranno aggiunte al dominio corrispondente al suffisso indicato in **Nome dell'entità utente di aggiunta a un dominio Active Directory**.
+11. Successivamente, selezionare se si vuole che le macchine virtuali vengano aggiunte a un dominio e a un'unità organizzativa specifici. Se si sceglie **Sì**, specificare il dominio da aggiungere. Facoltativamente, è possibile aggiungere un'unità organizzativa specifica in cui si vuole inserire le macchine virtuali. Se si sceglie **No**, le macchine virtuali verranno aggiunte al dominio corrispondente al suffisso indicato in **Nome dell'entità utente di aggiunta a un dominio Active Directory**.
 
-11. In Account amministratore immettere le credenziali dell'amministratore del dominio di Active Directory della rete virtuale selezionata.
+  - Quando si specifica un'unità organizzativa, assicurarsi di usare il percorso completo (nome distinto) e senza virgolette.
 
-12. Selezionare **Avanti: Area di lavoro >** .
+12. In Account amministratore immettere le credenziali dell'amministratore del dominio di Active Directory della rete virtuale selezionata. Per questo account non può essere abilitata l'autenticazione a più fattori (MFA). In caso di aggiunta a un dominio di Azure Active Directory Domain Services (Azure AD DS), è necessario che l'account faccia parte del gruppo Administrators di Azure AD DC e che la password dell'account funzioni in Azure AD DS.
+
+13. Selezionare **Avanti: Area di lavoro >** .
 
 A questo punto, è possibile iniziare la fase successiva della configurazione del pool di host, ovvero la registrazione del gruppo di app in un'area di lavoro.
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/13/2020
+ms.date: 08/20/2020
 ms.author: jeedes
-ms.openlocfilehash: c7d452803d15bab77df8e85a861de914a5ed08d5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 85e198def03ab4f6d3e18047ccea0152f96694fd
+ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88546065"
+ms.lasthandoff: 08/25/2020
+ms.locfileid: "88815070"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-zendesk"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con Zendesk
 
@@ -54,7 +54,7 @@ Per configurare l'integrazione di Zendesk in Azure AD, è necessario aggiungerla
 1. Nella sezione **Aggiungi dalla raccolta** digitare **Zendesk** nella casella di ricerca.
 1. Selezionare **Zendesk** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-zendesk"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per Zendesk
+## <a name="configure-and-test-azure-ad-sso-for-zendesk"></a>Configurare e testare l'accesso SSO di Azure AD per Zendesk
 
 Configurare e testare l'accesso SSO di Azure AD con Zendesk usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente correlato in Zendesk.
 
@@ -149,50 +149,29 @@ In questa sezione si abiliterà B.Simon all'uso dell'accesso Single Sign-On di A
 
 1. Se si vuole configurare manualmente Zendesk, aprire una nuova finestra del Web browser, accedere al sito aziendale di Zendesk come amministratore e seguire questa procedura:
 
-1. Fare clic su **Admin**.
+1. Nell'**interfaccia di amministrazione di Zendesk** fare clic su **Security settings** (Impostazioni di sicurezza) nella scheda **Security** (Sicurezza).
 
-1. Nel riquadro di spostamento sinistro fare clic su **Impostazioni** e quindi su **Sicurezza**.
+    ![Sicurezza](./media/zendesk-tutorial/settings.png "Sicurezza")
 
-1. Nella pagina **Sicurezza** eseguire la procedura seguente:
+1. Passare alla pagina **Single sign-on** e fare clic su **Edit** (Modifica) in **SAML**.
 
-    ![Sicurezza](./media/zendesk-tutorial/ic773089.png "Sicurezza")
+    ![Sicurezza](./media/zendesk-tutorial/saml-sso.png "Sicurezza")
 
-    ![Single Sign-On](./media/zendesk-tutorial/ic773090.png "Single sign-on")
+1. Seguire questa procedura nella pagina **SSO**.
 
-    a. Fare clic sulla scheda **Amministratore e agenti**.
+    ![Single Sign-On](./media/zendesk-tutorial/saml-configuration.png "Single sign-on")
 
-    b. Selezionare **Single sign-on (SSO) e SAML** e quindi **SAML**.
+    a. Nella casella di testo **URL SSO SAML** incollare il valore di **URL di accesso** copiato dal portale di Azure.
 
-    c. Nella casella di testo **URL SSO SAML** incollare il valore di **URL di accesso** copiato dal portale di Azure.
+    b. Nella casella di testo **Certificate Fingerprint** (Impronta digitale certificato) incollare il valore **Identificazione personale** del certificato copiato dal portale di Azure.
 
-    d. Nella casella di testo **URL disconnessione remota** incollare il valore di **URL disconnessione** copiato dal portale di Azure.
+    c. Nella casella di testo **URL disconnessione remota** incollare il valore di **URL disconnessione** copiato dal portale di Azure.
 
-    e. Nella casella di testo **Certificate Fingerprint** (Impronta digitale certificato) incollare il valore **Identificazione personale** del certificato copiato dal portale di Azure.
-
-    f. Fare clic su **Salva**.
+    d. Fare clic su **Salva**.
 
 ### <a name="create-zendesk-test-user"></a>Creare l'utente di test di Zendesk
 
 Questa sezione descrive come creare un utente chiamato Britta Simon in Zendesk. Zendesk supporta il provisioning utenti automatico, che è abilitato per impostazione predefinita. Altri dettagli su come configurare il provisioning utenti automatico sono disponibili [qui](Zendesk-provisioning-tutorial.md).
-
-**Per creare un utente manualmente, seguire questa procedura:**
-
-> [!NOTE]
-> All'accesso viene eseguito automaticamente il provisioning degli account dell'**utente finale**. Il provisioning degli account **Agente** e **Amministratore** devono essere eseguiti manualmente in **Zendesk** prima dell'accesso.
-
-1. Accedere al tenant di **Zendesk**.
-
-2. Selezionare la scheda **Customer List**.
-
-3. Selezionare la scheda **User** e fare clic su **Add**.
-
-    ![Aggiungere l'utente](./media/zendesk-tutorial/ic773632.png "Add User")
-4. Digitare il **Nome** e l'**Indirizzo di posta elettronica** di un account Azure AD esistente da sottoporre a provisioning, quindi fare clic su **Salva**.
-
-    ![Nuovo utente](./media/zendesk-tutorial/ic773633.png "Nuovo utente")
-
-> [!NOTE]
-> È possibile usare qualsiasi altro strumento o API di creazione di account utente forniti da Zendesk per effettuare il provisioning degli account utente di Azure AD.
 
 ## <a name="test-sso"></a>Testare l'accesso SSO 
 

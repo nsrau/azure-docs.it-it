@@ -3,12 +3,12 @@ title: 'Esercitazione: Eseguire il backup di database SAP HANA nelle VM di Azure
 description: Questa esercitazione illustra come eseguire il backup di database SAP HANA in esecuzione nelle VM di Azure in un insieme di credenziali di Servizi di ripristino di Backup di Azure.
 ms.topic: tutorial
 ms.date: 02/24/2020
-ms.openlocfilehash: 50c71d58a2409d0062c414b4328eaf8a919e338b
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: b43fd5c432b06902de0a898fc4bb0f114143b3ba
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757490"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375279"
 ---
 # <a name="tutorial-back-up-sap-hana-databases-in-an-azure-vm"></a>Esercitazione: Eseguire il backup di database SAP HANA in una VM di Azure
 
@@ -36,7 +36,9 @@ Prima di configurare i backup, eseguire la procedura seguente:
   * Deve essere presente in **hdbuserstore** predefinito. Il valore predefinito è l'account `<sid>adm` con cui viene installato SAP HANA.
   * Per MDC, la chiave deve puntare alla porta SQL di **NAMESERVER**. Nel caso di SDC, deve puntare alla porta SQL di **INDEXSERVER**
   * Deve avere le credenziali per aggiungere ed eliminare gli utenti
+  * Si noti che questa chiave può essere eliminata dopo l'esecuzione corretta dello script di pre-registrazione
 * Eseguire lo script di configurazione di backup SAP HANA (script di pre-registrazione) come utente radice nella macchina virtuale in cui è installato HANA. [Questo script](https://aka.ms/scriptforpermsonhana) prepara il sistema HANA per il backup. Per altre informazioni sullo script di pre-registrazione, vedere la sezione [Funzionalità dello script di pre-registrazione](#what-the-pre-registration-script-does).
+* Se il programma di installazione di HANA usa endpoint privati, eseguire lo [script di pre-registrazione](https://aka.ms/scriptforpermsonhana) con il parametro *-sn* o *--skip-network-checks*.
 
 >[!NOTE]
 >Lo script di preregistrazione installa **compat-unixODBC234** per i carichi di lavoro SAP HANA in esecuzione in RHEL (7.4, 7.6 e 7.7) e **unixODBC** per RHEL 8.1. [Questo pacchetto si trova nel repository RHEL for SAP HANA (per RHEL 7 Server) Update Services for SAP Solutions (RPMs)](https://access.redhat.com/solutions/5094721).  Per un'immagine RHEL di Azure Marketplace, il repository è **rhui-rhel-sap-hana-for-rhel-7-server-rhui-e4s-rpms**.
@@ -71,7 +73,7 @@ Se si usano gruppi di sicurezza di rete (NSG), usare il tag del servizio *AzureB
 
 1. Selezionare **Aggiungi**. Immettere tutti i dettagli necessari per la creazione di una nuova regola, come descritto nelle [impostazioni delle regole di sicurezza](../virtual-network/manage-network-security-group.md#security-rule-settings). Assicurarsi che l'opzione **Destinazione** sia impostata su *Tag del servizio* e che l'opzione **Tag del servizio di destinazione** sia impostata su *AzureBackup*.
 
-1. Fare clic su **Aggiungi** per salvare la regola di sicurezza in uscita appena creata.
+1. Selezionare **Aggiungi** per salvare la regola di sicurezza in uscita appena creata.
 
 È possibile creare in modo analogo le regole di sicurezza NSG in uscita NSG per Archiviazione di Azure e Azure AD. Per altre informazioni sui tag di servizio, vedere [questo articolo](../virtual-network/service-tags-overview.md).
 
@@ -103,7 +105,7 @@ L'esecuzione dello script di pre-registrazione esegue le funzioni seguenti:
 
 * In base alla distribuzione Linux, lo script installa o aggiorna tutti i pacchetti necessari richiesti dall'agente di Backup di Azure.
 * Esegue i controlli della connettività di rete in uscita con i server di Backup di Azure e i servizi dipendenti come Azure Active Directory e Archiviazione di Azure.
-* Accede al sistema HANA usando la chiave utente elencata come parte dei [prerequisiti](#prerequisites). La chiave utente viene usata per creare un utente di backup (AZUREWLBACKUPHANAUSER) nel sistema HANA e può essere eliminata dopo che lo script di pre-registrazione è stato eseguito correttamente.
+* Accede al sistema HANA usando la chiave utente elencata come parte dei [prerequisiti](#prerequisites). La chiave utente viene usata per creare un utente di backup (AZUREWLBACKUPHANAUSER) nel sistema HANA e **può essere eliminata dopo l'esecuzione corretta dello script di pre-registrazione**.
 * Ad AZUREWLBACKUPHANAUSER vengono assegnati questi ruoli e autorizzazioni necessari:
   * AMMINISTRATORE DEL DATABASE (nel caso di MDC) e AMMINISTRATORE DEL BACKUP (nel caso di DSC): per creare nuovi database durante il ripristino.
   * CATALOG READ: per leggere il catalogo di backup.
@@ -150,10 +152,10 @@ Per creare un insieme di credenziali dei servizi di ripristino:
    ![Creare un insieme di credenziali di Servizi di ripristino](./media/tutorial-backup-sap-hana-db/create-vault.png)
 
    * **Name**: il nome viene usato per identificare l'insieme di credenziali di Servizi di ripristino e deve essere univoco per la sottoscrizione di Azure. Specificare un nome che contiene almeno due caratteri, ma non più di 50. Il nome deve iniziare con una lettera e deve contenere solo lettere, numeri e trattini. Per questa esercitazione viene usato il nome **SAPHanaVault**.
-   * **Sottoscrizione** scegliere la sottoscrizione da usare. Se si è un membro di una sola sottoscrizione, verrà visualizzato tale nome. Se non si è certi della sottoscrizione da usare, scegliere quella predefinita (consigliato). Sono disponibili più opzioni solo se l'account aziendale o dell'istituto di istruzione è associato a più sottoscrizioni di Azure. In questa esercitazione viene usata la sottoscrizione **SAP HANA solution lab subscription**.
-   * **Gruppo di risorse**: Usare un gruppo di risorse esistente oppure crearne uno nuovo. In questa esercitazione viene usato **SAPHANADemo**.<br>
+   * **Sottoscrizione** scegliere la sottoscrizione da usare. Se si è un membro di una sola sottoscrizione, verrà visualizzato tale nome. Se non si è certi della sottoscrizione da usare, scegliere quella predefinita (consigliato). Sono disponibili più opzioni solo se l'account aziendale o dell'istituto di istruzione è associato a più sottoscrizioni di Azure. In questa esercitazione è stata usata la sottoscrizione **SAP HANA solution lab subscription**.
+   * **Gruppo di risorse**: Usare un gruppo di risorse esistente oppure crearne uno nuovo. In questa esercitazione è stato usato il gruppo **SAPHANADemo**.<br>
    Selezionare **Usa esistente** e nell'elenco a discesa scegliere una risorsa per visualizzare l'elenco di gruppi di risorse disponibili nella sottoscrizione. Per creare un nuovo gruppo di risorse, selezionare **Crea nuovo** e inserire il nome. Per informazioni complete sui gruppi di risorse, vedere [Panoramica di Azure Resource Manager](../azure-resource-manager/management/overview.md).
-   * **Località**: selezionare l'area geografica per l'insieme di credenziali. L'insieme di credenziali deve trovarsi nella stessa area della macchina virtuale che esegue SAP HANA. In questa esercitazione viene usata l'area **Stati Uniti orientali 2**.
+   * **Località**: selezionare l'area geografica per l'insieme di credenziali. L'insieme di credenziali deve trovarsi nella stessa area della macchina virtuale che esegue SAP HANA. In questa esercitazione è stata usata l'area **Stati Uniti orientali 2**.
 
 5. Selezionare **Rivedi e crea**.
 
@@ -163,11 +165,11 @@ L'insieme di credenziali di Servizi di ripristino è stato creato.
 
 ## <a name="discover-the-databases"></a>Individuare i database
 
-1. Nell'insieme di credenziali, in **Attività iniziali**, fare clic su **Backup**. In **Posizione di esecuzione del carico di lavoro** selezionare **SAP HANA in una macchina virtuale di Azure**.
-2. Fare clic su **Avvia individuazione**. Viene avviata l'individuazione delle macchine virtuali Linux non protette nell'area dell'insieme di credenziali. Viene visualizzata la VM di Azure che si vuole proteggere.
-3. In **Seleziona macchine virtuali** fare clic sul collegamento per scaricare lo script che fornisce le autorizzazioni per il servizio Backup di Azure per accedere alle macchine virtuali SAP HANA per l'individuazione del database.
+1. Nell'insieme di credenziali, in **Attività iniziali**, selezionare **Backup**. In **Posizione di esecuzione del carico di lavoro** selezionare **SAP HANA in una macchina virtuale di Azure**.
+2. Selezionare **Avvia individuazione**. Viene avviata l'individuazione delle macchine virtuali Linux non protette nell'area dell'insieme di credenziali. Verrà visualizzata la macchina virtuale di Azure che si vuole proteggere.
+3. In **Seleziona macchine virtuali** selezionare il collegamento per scaricare lo script che fornisce le autorizzazioni per il servizio Backup di Azure per accedere alle macchine virtuali SAP HANA per l'individuazione del database.
 4. Eseguire lo script nella macchina virtuale che ospita i database SAP HANA di cui eseguire il backup.
-5. Dopo aver eseguito lo script nella macchina virtuale, selezionarla in **Seleziona macchine virtuali**. Quindi fare clic su **Individua database**.
+5. Dopo aver eseguito lo script nella macchina virtuale, selezionarla in **Seleziona macchine virtuali**. Selezionare quindi **Individua database**.
 6. Backup di Azure individua tutti i database SAP HANA presenti nella macchina virtuale. Durante l'individuazione, Backup di Azure registra la VM con l'insieme di credenziali e installa l'estensione. Nel database non vengono installati agenti.
 
    ![Individuare i database](./media/tutorial-backup-sap-hana-db/database-discovery.png)
@@ -176,11 +178,11 @@ L'insieme di credenziali di Servizi di ripristino è stato creato.
 
 Dopo aver individuato i database di cui eseguire il backup, abilitare il backup.
 
-1. Fare clic su **Configura backup**.
+1. Selezionare **Configura backup**.
 
    ![Configurare il backup](./media/tutorial-backup-sap-hana-db/configure-backup.png)
 
-2. In **Seleziona elementi per backup** selezionare uno o più database da proteggere, quindi fare clic su **OK**.
+2. In **Seleziona elementi per backup** selezionare uno o più database da proteggere e quindi selezionare **OK**.
 
    ![Seleziona elementi per backup](./media/tutorial-backup-sap-hana-db/select-items-to-backup.png)
 
@@ -188,9 +190,9 @@ Dopo aver individuato i database di cui eseguire il backup, abilitare il backup.
 
    ![Scegliere i criteri di backup](./media/tutorial-backup-sap-hana-db/backup-policy.png)
 
-4. Dopo aver creato il criterio, nel menu **Backup** fare clic su **Abilita backup**.
+4. Dopo aver creato i criteri, scegliere **Abilita backup** dal menu **Backup**.
 
-   ![Fare clic su Abilita backup](./media/tutorial-backup-sap-hana-db/enable-backup.png)
+   ![Selezionare Abilita backup](./media/tutorial-backup-sap-hana-db/enable-backup.png)
 
 5. Per tenere traccia dello stato di avanzamento della configurazione di backup, vedere l'area **Notifiche** del portale.
 
@@ -217,9 +219,9 @@ Specificare le impostazioni del criterio come segue:
    * I punti di recupero vengono contrassegnati per la conservazione, in base al relativo intervallo. Ad esempio, se si seleziona un backup completo giornaliero, viene attivato solo un backup completo ogni giorno.
    * Il backup di un giorno specifico viene contrassegnato e conservato in base all'intervallo e all'impostazione di conservazione settimanale.
    * L'intervallo di conservazione mensile e annuale si comporta allo stesso modo.
-4. Nel menu **Criteri di backup completo** fare clic su **OK** per accettare le impostazioni.
+4. Nel menu del **criterio Backup completo** selezionare **OK** per accettare le impostazioni.
 5. Quindi selezionare **Backup differenziale** per aggiungere un criterio differenziale.
-6. Nel **criterio Backup differenziale** selezionare **Abilita** per accedere alle opzioni di frequenza e conservazione. È stato abilitato un backup differenziale da eseguire ogni **Domenica** alle **2:00**, che viene conservato per **30 giorni**.
+6. Nel **criterio Backup differenziale** selezionare **Abilita** per accedere alle opzioni di frequenza e conservazione. È stato abilitato un backup differenziale da eseguire ogni **Domenica** alle **2:00** e che viene conservato per **30 giorni**.
 
    ![Criteri di backup differenziale](./media/tutorial-backup-sap-hana-db/differential-backup-policy.png)
 
@@ -227,7 +229,7 @@ Specificare le impostazioni del criterio come segue:
    >I backup incrementali non sono attualmente supportati.
    >
 
-7. Fare clic su **OK** per salvare il criterio e tornare nel menu principale **Criteri di backup**.
+7. Selezionare **OK** per salvare il criterio e tornare al menu principale **Criteri di backup**.
 8. Selezionare **Backup del log** per aggiungere un criterio per i backup del log delle transazioni.
    * Per impostazione predefinita, l'opzione **Backup del log** è impostata su **Abilita**. Questa opzione non può essere disabilitata perché SAP HANA gestisce tutti i backup del log.
    * Per la pianificazione del backup è stata impostata l'opzione **2 ore** e per il periodo di conservazione **15 giorni**.
@@ -238,8 +240,8 @@ Specificare le impostazioni del criterio come segue:
    > I backup del log iniziano a fluire solo dopo il corretto completamento di un backup completo.
    >
 
-9. Fare clic su **OK** per salvare il criterio e tornare nel menu principale **Criteri di backup**.
-10. Dopo aver completato la definizione dei criteri di backup, fare clic su **OK**.
+9. Selezionare **OK** per salvare il criterio e tornare al menu principale **Criteri di backup**.
+10. Dopo aver completato la definizione dei criteri di backup, selezionare **OK**.
 
 I backup per i database SAP HANA sono stati correttamente configurati.
 

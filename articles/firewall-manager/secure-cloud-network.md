@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 07/29/2020
+ms.date: 08/28/2020
 ms.author: victorh
-ms.openlocfilehash: 458ebe14e77c7b190a5c4cdd9b408396589d5d27
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 9da1340d08d4eaab3ba208c667861093ef0f799b
+ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420822"
+ms.lasthandoff: 08/28/2020
+ms.locfileid: "89079116"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Esercitazione: Proteggere l'hub virtuale con Gestione firewall di Azure
 
@@ -32,6 +32,10 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Distribuire i server
 > * Creare un criterio firewall e proteggere l'hub
 > * Testare il firewall
+
+## <a name="prerequisites"></a>Prerequisiti
+
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ## <a name="create-a-hub-and-spoke-architecture"></a>Creare un'architettura hub-spoke
 
@@ -80,7 +84,7 @@ Creare l'hub virtuale protetto usando Gestione firewall.
 5. Selezionare **Avanti: Firewall di Azure**.
 6. Accettare l'impostazione predefinita **Firewall di Azure** **Abilitato** e quindi selezionare **Avanti: Partner di sicurezza affidabile**.
 7. Accettare l'impostazione predefinita **Partner di sicurezza affidabile** **Disabilitato** e selezionare **Avanti: Rivedi e crea**.
-8. Selezionare **Create** (Crea). La distribuzione richiederà circa 30 minuti.
+8. Selezionare **Crea**. La distribuzione richiederà circa 30 minuti.
 
 A questo punto è possibile ottenere l'indirizzo IP pubblico del firewall.
 
@@ -136,7 +140,7 @@ Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
 2. Selezionare **Windows Server 2016 Datacenter** nell'elenco **Più comuni**.
 3. Immettere i valori seguenti per la macchina virtuale:
 
-   |Impostazione  |Valore  |
+   |Impostazione  |valore  |
    |---------|---------|
    |Resource group     |**fw-manager**|
    |Nome macchina virtuale     |**Srv-workload-01**|
@@ -270,6 +274,10 @@ Ora testare la regola di rete.
 
 A questo punto è stato verificato che la regola di rete del firewall funziona:
 * È possibile connettere un desktop remoto a un server che si trova in un'altra rete virtuale.
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Al termine del test delle risorse del firewall, eliminare il gruppo di risorse **fw-manager** per eliminare tutte le risorse correlate al firewall.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

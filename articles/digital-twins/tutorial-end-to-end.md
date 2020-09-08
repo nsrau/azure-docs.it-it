@@ -1,5 +1,5 @@
 ---
-title: Connettere una soluzione end-to-end
+title: 'Esercitazione: Connettere una soluzione end-to-end'
 titleSuffix: Azure Digital Twins
 description: Esercitazione per creare una soluzione end-to-end di Gemelli digitali di Azure basata sui dati del dispositivo.
 author: baanders
@@ -7,22 +7,23 @@ ms.author: baanders
 ms.date: 4/15/2020
 ms.topic: tutorial
 ms.service: digital-twins
-ms.openlocfilehash: 0407046dcafb0dcc1872d5083669e09b378a75cd
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: b22505d5152b005a054d36fafb965006d04b201e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87827336"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401776"
 ---
-# <a name="build-out-an-end-to-end-solution"></a>Creare una soluzione end-to-end
+# <a name="tutorial-build-out-an-end-to-end-solution"></a>Esercitazione: Creare una soluzione end-to-end
 
 Per configurare una soluzione end-to-end completa basata su dati in tempo reale dell'ambiente, è possibile connettere l'istanza di Gemelli digitali di Azure ad altri servizi di Azure per la gestione di dispositivi e dati.
 
 In questa esercitazione si apprenderà come:
-* Configurare un'istanza di Gemelli digitali di Azure
-* Seguire l'esempio di scenario edilizio e creare un'istanza di componenti scritti in precedenza
-* Usare un'app di [Funzioni di Azure](../azure-functions/functions-overview.md) per instradare i dati di telemetria simulati da un dispositivo [hub IoT](../iot-hub/about-iot-hub.md) alle proprietà dei gemelli digitali
-* Propagare le modifiche tramite il **grafo dei gemelli** elaborando le notifiche dei gemelli digitali con Funzioni di Azure, endpoint e route
+> [!div class="checklist"]
+> * Configurare un'istanza di Gemelli digitali di Azure
+> * Seguire l'esempio di scenario edilizio e creare un'istanza di componenti scritti in precedenza
+> * Usare un'app di [Funzioni di Azure](../azure-functions/functions-overview.md) per instradare i dati di telemetria simulati da un dispositivo [hub IoT](../iot-hub/about-iot-hub.md) alle proprietà dei gemelli digitali
+> * Propagare le modifiche tramite il **grafo dei gemelli** elaborando le notifiche dei gemelli digitali con Funzioni di Azure, endpoint e route
 
 [!INCLUDE [Azure Digital Twins tutorial: sample prerequisites](../../includes/digital-twins-tutorial-sample-prereqs.md)]
 
@@ -365,6 +366,8 @@ Salvare i nomi assegnati all'argomento di Griglia di eventi e all'endpoint di Ge
 
 Successivamente, creare una route di Gemelli digitali di Azure che invia eventi all'endpoint di Gemelli digitali di Azure appena creato.
 
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
+
 ```azurecli
 az dt route create --dt-name <your-Azure-Digital-Twins-instance> --endpoint-name <your-Azure-Digital-Twins-endpoint> --route-name <name-for-your-Azure-Digital-Twins-route>
 ```
@@ -433,7 +436,7 @@ Ecco una revisione dello scenario creato in questa esercitazione.
 
 Se le risorse create in questa esercitazione non sono più necessarie, seguire questa procedura per eliminarle. 
 
-Usando Azure Cloud Shell, è possibile eliminare tutte le risorse di Azure di un gruppo di risorse con il comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Questo comando rimuove il gruppo di risorse, l'istanza di Gemelli digitali di Azure, l'hub IoT e la registrazione del dispositivo hub, l'argomento di Griglia di eventi e le sottoscrizioni associate, nonché entrambe le app di Funzioni di Azure, incluse le risorse associate, come l'archiviazione.
+Usando [Azure Cloud Shell](https://shell.azure.com), è possibile eliminare tutte le risorse di Azure di un gruppo di risorse con il comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete). Questo comando rimuove il gruppo di risorse, l'istanza di Gemelli digitali di Azure, l'hub IoT e la registrazione del dispositivo hub, l'argomento di Griglia di eventi e le sottoscrizioni associate, nonché l'app di Funzioni di Azure, incluse entrambe le funzioni e le risorse associate, come l'archiviazione.
 
 > [!IMPORTANT]
 > L'eliminazione di un gruppo di risorse è irreversibile. Il gruppo di risorse e tutte le risorse in esso contenute vengono eliminati in modo permanente. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate. 
@@ -448,14 +451,13 @@ Eliminare quindi la registrazione dell'app di Azure AD creata per l'app client c
 az ad app delete --id <your-application-ID>
 ```
 
-Infine, eliminare la cartella dell'esempio di progetto scaricata dal computer locale.
+Infine, eliminare la cartella dell'esempio di progetto scaricata nel computer locale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questa esercitazione è stato creato uno scenario end-to-end che mostra un'istanza di Gemelli digitali di Azure basata su dati di dispositivo in tempo reale.
 
 Quindi, iniziare a esaminare la documentazione concettuale per altre informazioni sugli elementi usati nell'esercitazione:
-* [*Concetti: Modelli personalizzati*](concepts-models.md)
 
-Oppure approfondire ulteriormente i processi illustrati in questa esercitazione a partire dagli articoli sulle procedure:
-* [*Procedura: Usare l'interfaccia della riga di comando di Gemelli digitali di Azure*](how-to-use-cli.md)
+> [!div class="nextstepaction"]
+> [*Concetti: Modelli personalizzati*](concepts-models.md)

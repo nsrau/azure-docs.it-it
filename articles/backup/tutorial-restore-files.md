@@ -4,12 +4,12 @@ description: Informazioni su come eseguire un ripristino a livello di file su un
 ms.topic: tutorial
 ms.date: 01/31/2019
 ms.custom: mvc
-ms.openlocfilehash: e74fd14c0f33c8633165029a18582b80810184a2
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c8adb114685379112aee20ab600d37bc25ce700e
+ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87003509"
+ms.lasthandoff: 08/27/2020
+ms.locfileid: "89007639"
 ---
 # <a name="restore-files-to-a-virtual-machine-in-azure"></a>Ripristinare file in una macchina virtuale in Azure
 
@@ -77,7 +77,7 @@ Se si elimina accidentalmente o si apportano modifiche a un file, è possibile r
 
 Per ripristinare i file, Backup di Azure fornisce uno script da eseguire nella macchina virtuale che si connette al punto di recupero come un'unità locale. È possibile individuare l'unità locale, ripristinare i file nella macchina virtuale stessa, quindi disconnettere il punto di recupero. Backup di Azure continua a eseguire il backup in base al criterio assegnato per la pianificazione e la conservazione dei dati.
 
-1. Per elencare i punti di ripristino per la macchina virtuale, usare l'[elenco az backup recoverypoint](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). In questo esempio verrà seleziona il punto di recupero più recente per la macchina virtuale denominata *myVM* protetta in *myRecoveryServicesVault*:
+1. Per elencare i punti di ripristino per la macchina virtuale, usare l'[elenco az backup recoverypoint](/cli/azure/backup/recoverypoint?view=azure-cli-latest#az-backup-recoverypoint-list). In questo esempio verrà selezionato il punto di recupero più recente per la macchina virtuale denominata *myVM* protetta in *myRecoveryServicesVault*:
 
     ```azurecli-interactive
     az backup recoverypoint list \
@@ -139,7 +139,7 @@ Con lo script di recupero copiato nella macchina virtuale è possibile collegare
     ./myVM_we_1571974050985163527.sh
     ```
 
-    Durante l'esecuzione dello script viene chiesto di immettere una password per accedere al punto di recupero. Immettere la password illustrata nell'output dal precedente comando [az backup restore files mount-rp](/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-mount-rp), che ha generato lo script di ripristino.
+    Durante l'esecuzione dello script viene richiesto di immettere una password per accedere al punto di recupero. Immettere la password illustrata nell'output dal precedente comando [az backup restore files mount-rp](/cli/azure/backup/restore/files?view=azure-cli-latest#az-backup-restore-files-mount-rp), che ha generato lo script di ripristino.
 
     L'output dello script fornisce il percorso per il punto di recupero. L'output di esempio seguente mostra che il punto di recupero è montato su */home/azureuser/myVM-20170919213536/Volume1*:
 

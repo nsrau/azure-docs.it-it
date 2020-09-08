@@ -4,14 +4,14 @@ description: "Esercitazione: Informazioni sull'uso degli strumenti open source d
 author: deborahc
 ms.service: cosmos-db
 ms.topic: tutorial
-ms.date: 11/05/2019
+ms.date: 08/31/2020
 ms.author: dech
-ms.openlocfilehash: 5c9eb2409b67d71882406c21728fbf2429eb16a9
-ms.sourcegitcommit: 23604d54077318f34062099ed1128d447989eea8
+ms.openlocfilehash: 9992d6f1f9f1d0aad6f451d6a974f4df9f655881
+ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/20/2020
-ms.locfileid: "85118764"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89255988"
 ---
 # <a name="tutorial-use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Esercitazione: Usare l'utilità di migrazione dati per la migrazione dei dati in Azure Cosmos DB
 
@@ -40,6 +40,9 @@ Prima di seguire le istruzioni di questo articolo, assicurarsi di eseguire i pas
 * **Aumentare la velocità effettiva:** la durata della migrazione dei dati dipende dalla velocità effettiva configurata per una singola raccolta o un set di raccolte. Assicurarsi di aumentare la velocità effettiva per le migrazioni dei dati di dimensioni più grandi. Dopo avere completato la migrazione, diminuire la velocità effettiva per ridurre i costi. Per altre informazioni sull'aumento della velocità effettiva nel portale di Azure, vedere [livelli di prestazioni](performance-levels.md) e [piani tariffari](https://azure.microsoft.com/pricing/details/cosmos-db/) in Azure Cosmos DB.
 
 * **Creare risorse di Azure Cosmos DB:** prima di iniziare la migrazione dei dati, creare tutte le raccolte dal portale di Azure. Per eseguire la migrazione a un account Azure Cosmos DB con velocità effettiva a livello di database, fornire una chiave di partizione quando si creano i contenitori Azure Cosmos.
+
+> [!IMPORTANT]
+> Per assicurarsi che lo strumento di migrazione dei dati usi Transport Layer Security (TLS) 1.2 per la connessione agli account Azure Cosmos, usare la versione 4.7 di .NET Framework o seguire le istruzioni disponibili in [questo articolo](https://docs.microsoft.com/dotnet/framework/network-programming/tls).
 
 ## <a name="overview"></a><a id="Overviewl"></a>Panoramica
 

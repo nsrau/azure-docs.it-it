@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: c31c52d278c1e40b18b3308ca154b934d060d403
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 856bace0c67c5afedd6305158326af46037e7f21
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87071173"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299228"
 ---
 # <a name="tutorial-how-to-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>Esercitazione: Come monitorare le risorse di Spring Cloud tramite avvisi e gruppi di azioni.
 
@@ -24,7 +24,7 @@ La procedura per la configurazione di una pipeline di avvisi, prevede due passag
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Oltre ai requisiti di Azure Spring Cloud, le procedure descritte in questa esercitazione si basano su un'istanza di Azure Spring Cloud distribuita.  Per iniziare, seguire una [guida di avvio rapido](spring-cloud-quickstart-launch-app-cli.md).
+Oltre ai requisiti di Azure Spring Cloud, le procedure descritte in questa esercitazione si basano su un'istanza di Azure Spring Cloud distribuita.  Per iniziare, seguire una [guida di avvio rapido](spring-cloud-quickstart.md).
 
 Le procedure seguenti consentono di inizializzare sia il **gruppo di azioni** sia l'**avviso** dall'opzione **Avvisi** nel riquadro di spostamento a sinistra di un'istanza di Spring Cloud. La procedura può anche essere avviata dalla pagina **Panoramica di Monitoraggio** del portale di Azure. 
 
@@ -76,11 +76,11 @@ Per configurare un **Avviso**, tornare alla pagina **Avvisi** e fare clic su **G
 
 1. Selezionare una condizione. Questo esempio usa la **percentuale di utilizzo della CPU di sistema**.
 
-   ![Screenshot dell'opzione Nuova regola di avviso nel portale](media/alerts-action-groups/alerts-3-1.png)
+   ![Screenshot dell'opzione Nuova regola di avviso nel portale 2](media/alerts-action-groups/alerts-3-1.png)
 
 1. Nel riquadro **Configura logica dei segnali** scorrere verso il basso per impostare **Valore soglia** per il monitoraggio.
 
-   ![Screenshot dell'opzione Nuova regola di avviso nel portale](media/alerts-action-groups/alerts-3-2.png)
+   ![Screenshot dell'opzione Nuova regola di avviso nel portale 3](media/alerts-action-groups/alerts-3-2.png)
 
 1. Fare clic su **Done**.
 
@@ -88,7 +88,7 @@ Per informazioni dettagliate sulle condizioni disponibili per il monitoraggio, v
 
  In **AZIONI** fare clic su **Seleziona gruppo di azioni**. Dal riquadro **AZIONI** selezionare il **Gruppo di azioni** definito in precedenza.
 
-   ![Screenshot dell'opzione Nuova regola di avviso nel portale](media/alerts-action-groups/alerts-3-3.png) 
+   ![Screenshot dell'opzione Nuova regola di avviso nel portale 4](media/alerts-action-groups/alerts-3-3.png) 
 
 1. Scorrere verso il basso e in **DETTAGLI AVVISO** assegnare un nome alla regola di avviso.
 
@@ -96,15 +96,15 @@ Per informazioni dettagliate sulle condizioni disponibili per il monitoraggio, v
 
 1. Fare clic su **Crea regola di avviso**.
 
-   ![Screenshot dell'opzione Nuova regola di avviso nel portale](media/alerts-action-groups/alerts-3-4.png)
+   ![Screenshot dell'opzione Nuova regola di avviso nel portale 5](media/alerts-action-groups/alerts-3-4.png)
 
 Verificare che la nuova regola di avviso sia abilitata.
 
-   ![Screenshot dell'opzione Nuova regola di avviso nel portale](media/alerts-action-groups/alerts-4.png)
+   ![Screenshot dell'opzione Nuova regola di avviso nel portale 6](media/alerts-action-groups/alerts-4.png)
 
 È possibile creare una regola anche usando la pagina **Metriche**:
 
-   ![Screenshot dell'opzione Nuova regola di avviso nel portale](media/alerts-action-groups/alerts-5.png)
+   ![Screenshot dell'opzione Nuova regola di avviso nel portale 7](media/alerts-action-groups/alerts-5.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
