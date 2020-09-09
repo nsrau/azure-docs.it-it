@@ -3,12 +3,12 @@ title: Introduzione ad Analisi di video live in IoT Edge - Azure
 description: Questo argomento di avvio rapido descrive come iniziare a usare Analisi video live in IoT Edge. Informazioni su come rilevare il movimento in un flusso video live.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 16c3c849e7d936c6e94539176d8f171f52bd15de
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: c7e5efa19c27c3f56f9653ed933c7ad290d18408
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067690"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568048"
 ---
 # <a name="quickstart-get-started---live-video-analytics-on-iot-edge"></a>Avvio rapido: Introduzione: analisi di video live in IoT Edge
 
@@ -16,7 +16,8 @@ Questo avvio rapido illustra la procedura per iniziare a usare Analisi di video 
 
 Dopo aver completato i passaggi di configurazione, sarà possibile eseguire un flusso video live simulato tramite un grafo multimediale che rileva e segnala qualsiasi movimento in tale flusso. Il diagramma seguente rappresenta graficamente il grafo multimediale.
 
-![Analisi di video live basata su un rilevamento del movimento](./media/analyze-live-video/motion-detection.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/analyze-live-video/motion-detection.svg" alt-text="Analisi di video live basata su un rilevamento del movimento":::
 
 ## <a name="prerequisites"></a>Prerequisiti
 

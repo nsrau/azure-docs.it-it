@@ -3,12 +3,12 @@ title: Rilevare il movimento, registrare video in Servizi multimediali di Azure
 description: Questo avvio rapido illustra come usare l'analisi di video live in IoT Edge per rilevare il movimento in un flusso video live e registrare clip video in Servizi multimediali di Azure.
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 972b85c00aa29cc39dafd03b9945e489680dd9a5
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: d4301a9c0c5684be04ee2cfbace60c1bb1904876
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067662"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569008"
 ---
 # <a name="quickstart-detect-motion-record-video-to-media-services"></a>Avvio rapido: Rilevare il movimento, registrare video in Servizi multimediali
 
@@ -33,7 +33,8 @@ Nell'ambito della procedura precedente per la configurazione delle risorse di Az
 
 Nel corso della procedura descritta di seguito si userà l'analisi di video live in IoT Edge per rilevare il movimento dell'auto e registrare un clip video iniziando quando l'indicazione del tempo è 5 secondi. Il diagramma seguente è la rappresentazione visiva del flusso complessivo.
 
-![Registrazione video basata su eventi per asset basati su eventi di movimento](./media/quickstarts/topology.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/quickstarts/topology.svg" alt-text="Registrazione video basata su eventi per asset basati su eventi di movimento":::
 
 ## <a name="use-direct-method-calls"></a>Usare chiamate dei metodi diretti
 

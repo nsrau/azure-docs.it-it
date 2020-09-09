@@ -3,18 +3,18 @@ title: 'Avvio rapido: Liberia client dello strumento di lettura immersiva per Sw
 titleSuffix: Azure Cognitive Services
 description: In questo argomento di avvio rapido si creerà da zero un'app iOS a cui si aggiungerà la funzionalità dell'API dello strumento di lettura immersiva.
 services: cognitive-services
-author: pasta
+author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/20/2020
-ms.author: pasta
-ms.openlocfilehash: 212aa3613335fe60bab2fa3d4f632577418a7d41
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.author: nitinme
+ms.openlocfilehash: 2455297cd9dd77d2b5f605bf36ed46b6240b3f4d
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88602363"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505394"
 ---
 Lo [strumento di lettura immersiva](https://www.onenote.com/learningtools) è uno strumento incluso che implementa tecniche comprovate per migliorare la comprensione della lettura.
 

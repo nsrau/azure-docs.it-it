@@ -4,15 +4,15 @@ description: Illustra Cache HPC di Azure, una soluzione che accelera l'accesso a
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: overview
-ms.date: 07/16/2020
+ms.date: 09/03/2020
 ms.author: v-erkel
 ms.custom: references_regions
-ms.openlocfilehash: 8c8223872ec3ef1d875e10ead8f327db01a924c4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0c898b0d5a58654547cb6205ee0c845c9cfa4aa9
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87053682"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611739"
 ---
 # <a name="what-is-azure-hpc-cache"></a>Che cos'è Cache HPC di Azure?
 
@@ -65,11 +65,11 @@ La [funzionalità delle chiavi gestite dal cliente](customer-keys.md) è support
 * US Gov Arizona
 * US Gov Virginia
 
-## <a name="service-availability"></a>Disponibilità del servizio
+<!-- ## Service availability
 
-È necessario richiedere l'accesso per ogni sottoscrizione che si userà con Cache HPC di Azure. Questa restrizione contribuisce a garantire la qualità del servizio.
+You must request access for each subscription you will use with Azure HPC Cache. This restriction helps ensure service quality.
 
-Per richiedere l'accesso, compilare [questo modulo](https://aka.ms/onboard-hpc-cache). Dopo aver aggiunto la sottoscrizione all'elenco di accesso, è possibile creare cache.
+Request access by filling out [this form](https://aka.ms/onboard-hpc-cache). After your subscription is added to the access list, you can create caches. -->
 
 ## <a name="next-steps"></a>Passaggi successivi
 
