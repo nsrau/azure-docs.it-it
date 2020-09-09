@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: sahandle
 ms.custom: contperfq1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f6ec9c1fb5ae359ca88b48dea97c6a00c0f2b40
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: ffe7f58f27d028dd114f548521feeeb74bb12cf1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815182"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437701"
 ---
 # <a name="what-is-identity-protection"></a>Informazioni su Identity Protection
 
@@ -102,17 +102,17 @@ Gli amministratori di accesso condizionale possono anche creare criteri che teng
 
 [!INCLUDE [Active Directory P2 license](../../../includes/active-directory-p2-license.md)]
 
-| Funzionalità | Dettagli | Azure AD Premium P2 | Azure AD Premium P1 | App di Azure AD Free/Office 365 |
+| Funzionalità | Dettagli  | App di Azure AD Free/Office 365 | Azure AD Premium P1|Azure AD Premium P2 |
 | --- | --- | --- | --- | --- |
-| Criteri di rischio | Criteri di rischio utente (tramite Identity Protection) | Sì | No | No |
-| Criteri di rischio | Criteri di rischio di accesso (tramite Identity Protection o accesso condizionale) | Sì | No | No |
-| Report sulla sicurezza | Panoramica | Sì | No | No |
-| Report sulla sicurezza | Utenti a rischio | Accesso completo | Informazioni limitate | Informazioni limitate |
-| Report sulla sicurezza | Accessi a rischio | Accesso completo | Informazioni limitate | Informazioni limitate |
-| Report sulla sicurezza | Rilevamenti dei rischi | Accesso completo | Informazioni limitate | No |
-| Notifiche | Avvisi relativi a utenti a rischio rilevati | Sì | No | No |
-| Notifiche | Digest settimanale | Sì | No | No |
-| | Criteri di registrazione MFA | Sì | No | No |
+| Criteri di rischio | Criteri di rischio utente (tramite Identity Protection)  | No | No |Sì | 
+| Criteri di rischio | Criteri di rischio di accesso (tramite Identity Protection o accesso condizionale)  | No |  No |Sì |
+| Report sulla sicurezza | Panoramica |  No | No |Sì |
+| Report sulla sicurezza | Utenti a rischio  | Informazioni limitate | Informazioni limitate | Accesso completo|
+| Report sulla sicurezza | Accessi a rischio  | Informazioni limitate | Informazioni limitate | Accesso completo|
+| Report sulla sicurezza | Rilevamenti dei rischi   | No | Informazioni limitate| Accesso completo|
+| Notifiche | Avvisi relativi a utenti a rischio rilevati  | No | No |Sì |
+| Notifiche | Digest settimanale| No | No | Sì | 
+| | Criteri di registrazione MFA | No | No | Sì |
 
 ## <a name="next-steps"></a>Passaggi successivi
 

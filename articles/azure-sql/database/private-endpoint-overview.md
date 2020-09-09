@@ -9,12 +9,12 @@ ms.topic: overview
 ms.custom: sqldbrb=1
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 5fcc50670973c361d830e4e6bbf2ce26101b8582
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: f8c7e2cfb17ca48a67a009f532a9cbb6894cc05d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213370"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442599"
 ---
 # <a name="azure-private-link-for-azure-sql-database-and-azure-synapse-analytics"></a>Collegamento privato di Azure per database SQL di Azure e Azure Synapse Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -22,7 +22,7 @@ ms.locfileid: "88213370"
 Il servizio Collegamento privato consente di connettersi a diversi servizi PaaS in Azure tramite un **endpoint privato**. Per un elenco dei servizi PaaS che supportano la funzionalità Collegamento privato, visitare la pagina [Documentazione di Collegamento privato](../../private-link/index.yml). Un endpoint privato è un indirizzo IP privato all'interno di una [rete virtuale](../../virtual-network/virtual-networks-overview.md) e una subnet specifiche.
 
 > [!IMPORTANT]
-> Questo articolo si applica sia al database SQL di Azure sia ad Azure Synapse Analytics (in precedenza Azure SQL Data Warehouse). Per semplicità, il termine 'database' fa riferimento a entrambi i database nel database SQL di Azure e in Azure Synapse Analytics. Analogamente, tutti i riferimenti a 'server' indicano il [server SQL logico](logical-servers.md) che ospita il database SQL di Azure e Azure Synapse Analytics. Questo articolo *non* si applica a **Istanza gestita di SQL di Azure**.
+> Questo articolo si applica sia al database SQL di Azure sia aD Azure Synapse Analytics (in precedenza SQL Data Warehouse). Per semplicità, il termine 'database' fa riferimento a entrambi i database nel database SQL di Azure e in Azure Synapse Analytics. Analogamente, tutti i riferimenti a 'server' indicano il [server SQL logico](logical-servers.md) che ospita il database SQL di Azure e Azure Synapse Analytics. Questo articolo *non* si applica a **Istanza gestita di SQL di Azure**.
 
 ## <a name="data-exfiltration-prevention"></a>Impedire l'esfiltrazione dei dati
 

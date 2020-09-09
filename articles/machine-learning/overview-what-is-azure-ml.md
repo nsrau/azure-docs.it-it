@@ -9,12 +9,12 @@ author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
 ms.custom: devx-track-python
-ms.openlocfilehash: 2c043ab535504a02a151d308de0562debdba950a
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 233eb06714dc8ac614cceef157f87d175c3f455b
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145893"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462463"
 ---
 # <a name="what-is-azure-machine-learning"></a>Informazioni su Azure Machine Learning
 
@@ -69,7 +69,7 @@ Grazie alla disponibilità di molte [destinazioni di calcolo](how-to-create-atta
 
 ## <a name="build-ml-models-in-the-studio"></a>Creare modelli di Machine Learning nello Studio
 
-[Azure Machine Learning Studio](https://www.ml.azure.com) è un portale Web in Azure Machine Learning che contiene opzioni con codice ridotto e senza codice per il training dei modelli, la distribuzione e la gestione degli asset. Lo Studio si integra con Azure Machine Learning SDK per un'esperienza semplificata. Per altre informazioni, vedere [Informazioni su Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md).
+[Azure Machine Learning Studio](https://studio.azureml.net) è un portale Web in Azure Machine Learning che contiene opzioni con codice ridotto e senza codice per il training dei modelli, la distribuzione e la gestione degli asset. Lo Studio si integra con Azure Machine Learning SDK per un'esperienza semplificata. Per altre informazioni, vedere [Informazioni su Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md).
 
 + **Finestra di progettazione di Azure Machine Learning (anteprima)**
 
@@ -86,7 +86,7 @@ Grazie alla disponibilità di molte [destinazioni di calcolo](how-to-create-atta
 
 + **E molto altro ancora...**
 
-  Visitare Azure Machine Learning Studio all'indirizzo [ml.azure.com](https://www.ml.azure.com). 
+  Visitare Azure Machine Learning Studio all'indirizzo [ml.azure.com](https://studio.azureml.net). 
 
 
 ## <a name="mlops-deploy--lifecycle-management"></a>MLOps: Esecuzione della distribuzione e gestione del ciclo di vita

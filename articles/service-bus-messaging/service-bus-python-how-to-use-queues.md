@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.date: 06/23/2020
 ms.author: spelluru
 ms.custom: seo-python-october2019, devx-track-python
-ms.openlocfilehash: 55ed71c6947c70ac797656f2f18cf71dd8aaae9d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: a09f20b2c392dbf219750a76e9570239227dc865
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852481"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458562"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-python"></a>Guida introduttiva: Usare le code del bus di servizio con Python
 
@@ -81,7 +81,7 @@ Per altre informazioni sulle quote, vedere [Quote del bus di servizio][Service B
 Il client della coda riceve i messaggi da una coda usando il metodo `get_receiver` nell'oggetto **ServiceBusClient**. L'esempio di codice seguente crea un client della coda e riceve un messaggio dalla coda `taskqueue`. Sostituire `<connectionstring>` con il valore della stringa di connessione primaria del bus di servizio. 
 
 ```python
-from azure.servicebus import QueueClient, Message
+from azure.servicebus import QueueClient
 
 # Create the QueueClient
 queue_client = QueueClient.from_connection_string("<connectionstring>", "taskqueue")
