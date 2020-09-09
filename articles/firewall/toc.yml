@@ -4,14 +4,6 @@
   items:
     - name: Informazioni sul firewall di Azure
       href: overview.md
-- name: Esercitazioni
-  items:
-    - name: Distribuire e configurare
-      href: tutorial-firewall-deploy-portal.md
-    - name: Distribuire in una rete ibrida
-      href: tutorial-hybrid-portal.md
-    - name: Filtrare il traffico in ingresso con DNAT
-      href: tutorial-firewall-dnat.md
 - name: Avvi rapidi
   expanded: true
   items:
@@ -24,6 +16,14 @@
     - name: Eseguire la distribuzione con zone di disponibilità - Modello di Resource Manager
       displayName: Resource Manager
       href: deploy-template.md
+- name: Esercitazioni
+  items:
+    - name: Distribuire e configurare
+      href: tutorial-firewall-deploy-portal.md
+    - name: Distribuire in una rete ibrida
+      href: tutorial-hybrid-portal.md
+    - name: Filtrare il traffico in ingresso con DNAT
+      href: tutorial-firewall-dnat.md
 - name: Esempi
   items:
     - name: Azure PowerShell
