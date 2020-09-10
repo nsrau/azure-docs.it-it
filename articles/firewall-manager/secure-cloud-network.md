@@ -5,14 +5,14 @@ services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 08/28/2020
+ms.date: 09/08/2020
 ms.author: victorh
-ms.openlocfilehash: 9da1340d08d4eaab3ba208c667861093ef0f799b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 9d1e2d257074555e7a2e78930e1f9be6cd4d90fe
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079116"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536003"
 ---
 # <a name="tutorial-secure-your-virtual-hub-using-azure-firewall-manager"></a>Esercitazione: Proteggere l'hub virtuale con Gestione firewall di Azure
 
@@ -110,37 +110,13 @@ Eseguire ora il peering tra le reti virtuali hub-spoke.
 
 Ripetere la connessione alla rete virtuale **Spoke-02**: nome connessione - **hub-spoke-02**
 
-### <a name="configure-the-hub-and-spoke-routing"></a>Configurare il routing hub-spoke
-
-Nel portale di Azure aprire un'istanza di Cloud Shell ed eseguire il comando di Azure PowerShell seguente per configurare il routing hub-spoke necessario. La propagazione delle connessioni di spoke/succursali con peering deve essere impostata su **NONE**. In questo modo si impedisce la comunicazione any-to-any tra gli spoke e si indirizza invece il traffico al firewall usando la route predefinita.
-
-```azurepowershell
-$noneRouteTable = Get-AzVHubRouteTable -ResourceGroupName fw-manager `
-                  -HubName hub-01 -Name noneRouteTable
-$vnetConns = Get-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
-             -ParentResourceName hub-01
-
-$vnetConn = $vnetConns[0]
-$vnetConn.RoutingConfiguration.PropagatedRouteTables.Ids = @($noneRouteTable)
-$vnetConn.RoutingConfiguration.PropagatedRouteTables.Labels = @("none")
-Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
-   -ParentResourceName hub-01 -Name $vnetConn.Name `
-   -RoutingConfiguration $vnetConn.RoutingConfiguration
-
-$vnetConn = $vnetConns[1]
-$vnetConn.RoutingConfiguration.PropagatedRouteTables.Ids = @($noneRouteTable)
-$vnetConn.RoutingConfiguration.PropagatedRouteTables.Labels = @("none")
-Update-AzVirtualHubVnetConnection -ResourceGroupName fw-manager `
-   -ParentResourceName hub-01 -Name $vnetConn.Name -RoutingConfiguration $vnetConn.RoutingConfiguration
-```
-
 ## <a name="deploy-the-servers"></a>Distribuire i server
 
 1. Nel portale di Azure fare clic su **Crea una risorsa**.
 2. Selezionare **Windows Server 2016 Datacenter** nell'elenco **Più comuni**.
 3. Immettere i valori seguenti per la macchina virtuale:
 
-   |Impostazione  |valore  |
+   |Impostazione  |Valore  |
    |---------|---------|
    |Resource group     |**fw-manager**|
    |Nome macchina virtuale     |**Srv-workload-01**|

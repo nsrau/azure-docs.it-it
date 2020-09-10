@@ -11,12 +11,12 @@ ms.author: tracych
 author: tracychms
 ms.date: 08/14/2020
 ms.custom: Build2020, devx-track-python
-ms.openlocfilehash: 04d1e531f3041ef0a6231607cc795c67168ebf2e
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 0fb46f4b9fd29c47e9cd38920665b2791f678847
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651200"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647220"
 ---
 # <a name="run-batch-inference-on-large-amounts-of-data-by-using-azure-machine-learning"></a>Eseguire l'inferenza batch su grandi quantità di dati usando Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -67,7 +67,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-compute-target"></a>Creare una destinazione di calcolo
 
-In Azure Machine Learning il *calcolo* (o la *destinazione di calcolo*) si riferisce ai computer o ai cluster che eseguono i passaggi di calcolo nella pipeline di Machine Learning. Eseguire il codice seguente per creare una destinazione [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py) basata su CPU.
+In Azure Machine Learning il *calcolo* (o la *destinazione di calcolo*) si riferisce ai computer o ai cluster che eseguono i passaggi di calcolo nella pipeline di Machine Learning. Eseguire il codice seguente per creare una destinazione [AmlCompute](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute.amlcompute?view=azure-ml-py&preserve-view=true) basata su CPU.
 
 ```python
 from azureml.core.compute import AmlCompute, ComputeTarget
@@ -134,9 +134,9 @@ def_data_store = ws.get_default_datastore()
 
 ### <a name="create-the-data-inputs"></a>Creare gli input di dati
 
-Gli input per l'inferenza batch sono i dati che si vogliono partizionare per l'elaborazione parallela. Una pipeline di inferenza batch accetta gli input di dati tramite [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py).
+Gli input per l'inferenza batch sono i dati che si vogliono partizionare per l'elaborazione parallela. Una pipeline di inferenza batch accetta gli input di dati tramite [`Dataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py&preserve-view=true).
 
-`Dataset` è una classe per l'esplorazione, la trasformazione e la gestione dei dati in Azure Machine Learning. Ne esistono due tipi: [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) e [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py). In questo esempio si userà `FileDataset` come input. `FileDataset` offre la possibilità di scaricare o montare i file nel contesto di calcolo. Creando un set di dati, si crea un riferimento alla posizione dell'origine dati. Anche le eventuali trasformazioni di subset applicate al set di dati verranno archiviate nel set di dati. I dati rimangono nell'attuale posizione, quindi non si incorre in costi aggiuntivi di archiviazione.
+`Dataset` è una classe per l'esplorazione, la trasformazione e la gestione dei dati in Azure Machine Learning. Ne esistono due tipi: [`TabularDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) e [`FileDataset`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true). In questo esempio si userà `FileDataset` come input. `FileDataset` offre la possibilità di scaricare o montare i file nel contesto di calcolo. Creando un set di dati, si crea un riferimento alla posizione dell'origine dati. Anche le eventuali trasformazioni di subset applicate al set di dati verranno archiviate nel set di dati. I dati rimangono nell'attuale posizione, quindi non si incorre in costi aggiuntivi di archiviazione.
 
 Per altre informazioni sui set di dati di Azure Machine Learning, vedere [Creare e accedere ai set di dati (anteprima)](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets).
 
@@ -147,7 +147,7 @@ path_on_datastore = mnist_blob.path('mnist/')
 input_mnist_ds = Dataset.File.from_files(path=path_on_datastore, validate=False)
 ```
 
-Per usare gli input di dati dinamici quando si esegue la pipeline di inferenza batch, è possibile definire il `Dataset` degli input come [`PipelineParameter`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py). È possibile specificare il set di dati di input ogni volta che si ripete l'esecuzione della pipeline di inferenza batch.
+Per usare gli input di dati dinamici quando si esegue la pipeline di inferenza batch, è possibile definire il `Dataset` degli input come [`PipelineParameter`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.pipelineparameter?view=azure-ml-py&preserve-view=true). È possibile specificare il set di dati di input ogni volta che si ripete l'esecuzione della pipeline di inferenza batch.
 
 ```python
 from azureml.data.dataset_consumption_config import DatasetConsumptionConfig
@@ -159,7 +159,7 @@ input_mnist_ds_consumption = DatasetConsumptionConfig("minist_param_config", pip
 
 ### <a name="create-the-output"></a>Creare l'output
 
-Gli oggetti [`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py) vengono usati per trasferire i dati intermedi tra i passaggi della pipeline. In questo esempio l'oggetto viene usato per l'output di inferenza.
+Gli oggetti [`PipelineData`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinedata?view=azure-ml-py&preserve-view=true) vengono usati per trasferire i dati intermedi tra i passaggi della pipeline. In questo esempio l'oggetto viene usato per l'output di inferenza.
 
 ```python
 from azureml.pipeline.core import Pipeline, PipelineData
@@ -353,7 +353,7 @@ parallelrun_step = ParallelRunStep(
 ```
 ### <a name="create-and-run-the-pipeline"></a>Creare ed eseguire la pipeline
 
-Eseguire ora la pipeline Creare prima di tutto un oggetto [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py) usando il riferimento all'area di lavoro e il passaggio della pipeline creato. Il parametro `steps` è una matrice di passaggi. In questo caso, è presente un solo passaggio per l'inferenza batch. Per creare pipeline con più passaggi, inserire i passaggi nell'ordine corretto in questa matrice.
+Eseguire ora la pipeline Creare prima di tutto un oggetto [`Pipeline`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipeline%28class%29?view=azure-ml-py&preserve-view=true) usando il riferimento all'area di lavoro e il passaggio della pipeline creato. Il parametro `steps` è una matrice di passaggi. In questo caso, è presente un solo passaggio per l'inferenza batch. Per creare pipeline con più passaggi, inserire i passaggi nell'ordine corretto in questa matrice.
 
 Usare quindi la funzione `Experiment.submit()` per inviare la pipeline per l'esecuzione.
 
@@ -371,7 +371,7 @@ pipeline_run = experiment.submit(pipeline)
 Il completamento di un processo di inferenza batch può richiedere molto tempo. Questo esempio ne monitora lo stato usando un widget Jupyter. È possibile monitorare lo stato del processo anche usando:
 
 * Azure Machine Learning Studio. 
-* Output della console dall'oggetto [`PipelineRun`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.run.pipelinerun?view=azure-ml-py).
+* Output della console dall'oggetto [`PipelineRun`](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.run.pipelinerun?view=azure-ml-py&preserve-view=true).
 
 ```python
 from azureml.widgets import RunDetails

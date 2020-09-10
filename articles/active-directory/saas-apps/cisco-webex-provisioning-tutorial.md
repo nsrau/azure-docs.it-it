@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: zhchia
-ms.openlocfilehash: bdf2bf4102795d35df7eae658e3a24028da79b33
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2500a22d4d3775f7cfea7afbf4e8d106ec2da139
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551303"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647979"
 ---
 # <a name="tutorial-configure-cisco-webex-for-automatic-user-provisioning"></a>Esercitazione: Configurare Cisco Webex per il provisioning utenti automatico
 
@@ -97,7 +97,7 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
 
     ![Provisioning di Cisco Webex](./media/cisco-webex-provisioning-tutorial/secrettoken1.png)
 
-6.  Nel campo **URL tenant** immettere un valore in formato `https://api.ciscoweb.com/v1/scim/[OrgId]`. Per ottenere il valore di `[OrgId]`, accedere a [Cisco Webex Control Hub](https://admin.webex.com/login). Fare clic sul nome dell'organizzazione in basso a sinistra e copiare il valore di **Organization ID** (ID organizzazione). 
+6.  Nel campo **URL tenant** immettere un valore in formato `https://api.ciscospark.com/v1/scim/[OrgId]`. Per ottenere il valore di `[OrgId]`, accedere a [Cisco Webex Control Hub](https://admin.webex.com/login). Fare clic sul nome dell'organizzazione in basso a sinistra e copiare il valore di **Organization ID** (ID organizzazione). 
 
     * Per ottenere il valore del **token segreto**, passare a questo [URL](https://idbroker.webex.com/idb/saml2/jsp/doSSO.jsp?type=login&goto=https%3A%2F%2Fidbroker.webex.com%2Fidb%2Foauth2%2Fv1%2Fauthorize%3Fresponse_type%3Dtoken%26client_id%3DC4ca14fe00b0e51efb414ebd45aa88c1858c3bfb949b2405dba10b0ca4bc37402%26redirect_uri%3Dhttp%253A%252F%252Flocalhost%253A3000%252Fauth%252Fcode%26scope%3Dspark%253Apeople_read%2520spark%253Apeople_write%2520Identity%253ASCIM%26state%3Dthis-should-be-a-random-string-for-security-purpose). Nella pagina di accesso di Webex visualizzata, accedere con l'account di amministratore di Cisco Webex completo per l'organizzazione. Viene visualizzata una pagina di errore che informa che non è possibile raggiungere il sito. Si tratta di un comportamento normale.
 
