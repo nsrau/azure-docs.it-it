@@ -69,6 +69,8 @@
           href: tokens-overview.md
         - name: Richiedere il token di accesso
           href: access-tokens.md
+    - name: Chiavi dei criteri
+      href: policy-keys-overview.md
     - name: Flussi degli utenti e criteri
       items:
         - name: Flussi degli utenti

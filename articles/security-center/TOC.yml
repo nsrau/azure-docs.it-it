@@ -136,7 +136,11 @@
       items:
         - name: Raccomandazioni per la correzione
           href: security-center-remediate-recommendations.md
+        - name: Impedire configurazioni errate con Imponi/Nega
+          displayName: recommendations
+          href: prevent-misconfigurations.md
         - name: Migliorare il comportamento di sicurezza
+          displayName: recommendations
           href: security-center-monitoring.md
         - name: Elenco di riferimento delle raccomandazioni
           href: recommendations-reference.md

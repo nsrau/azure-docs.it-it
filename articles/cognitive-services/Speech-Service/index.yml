@@ -13,12 +13,12 @@ metadata:
   ms.topic: hub-page
   ms.date: 03/24/2020
   ms.author: trbye
-  ms.openlocfilehash: 17cc7914c8e02d3b38e2527e1c0bff3afb885b0b
-  ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+  ms.openlocfilehash: 7b64ef2739b8e6531f7531f9a135b7fb5ffe3467
+  ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 08/28/2020
-  ms.locfileid: "89055097"
+  ms.lasthandoff: 09/09/2020
+  ms.locfileid: "89568019"
 highlightedContent:
   items:
   - title: Informazioni sul Servizio di riconoscimento vocale
@@ -37,15 +37,15 @@ conceptualContent:
   items:
   - title: Riconoscimento vocale
     links:
+    - itemType: overview
+      text: Informazioni sul riconoscimento vocale
+      url: speech-to-text.md
     - itemType: quickstart
-      text: Riconoscimento vocale da un microfono
-      url: quickstarts/speech-to-text-from-microphone.md
-    - itemType: quickstart
-      text: Riconoscimento vocale da un file audio
-      url: quickstarts/speech-to-text-from-file.md
+      text: Introduzione al riconoscimento vocale
+      url: get-started-speech-to-text.md
     - itemType: how-to-guide
-      text: Nozioni di base sul riconoscimento vocale
-      url: speech-to-text-basics.md
+      text: Migliorare l'accuratezza con Riconoscimento vocale personalizzato
+      url: how-to-custom-speech.md
     footerLink:
       text: Altro
       url: index-speech-to-text.yml

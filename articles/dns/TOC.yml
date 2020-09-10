@@ -17,6 +17,8 @@
           href: dns-getstarted-powershell.md
         - name: Creare una zona pubblica - Interfaccia della riga di comando
           href: dns-getstarted-cli.md
+        - name: Creare una zona pubblica - Modello di Azure Resource Manager
+          href: dns-get-started-template.md
     - name: DNS privato
       items:
         - name: Creare una zona privata - Portale

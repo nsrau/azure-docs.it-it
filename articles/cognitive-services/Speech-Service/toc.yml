@@ -16,24 +16,14 @@
   items:
     - name: Documentazione del riconoscimento vocale
       href: index-speech-to-text.yml
-    - name: Panoramica
-      items:
-        - name: Che cos'è il riconoscimento vocale?
-          href: speech-to-text.md
-        - name: Nozioni di base sul riconoscimento vocale
-          href: speech-to-text-basics.md
-    - name: Avvi rapidi
-      items:
-        - name: Riconoscimento vocale con input del microfono
-          href: quickstarts/speech-to-text-from-microphone.md
-        - name: Riconoscimento vocale da un file audio
-          href: quickstarts/speech-to-text-from-file.md
-        - name: Riconoscimento della voce archiviata in archivio BLOB
-          href: quickstarts/from-blob.md
-        - name: Testare un modello usando file audio in Speech Studio
-          href: quickstarts/speech-studio-test-model.md
+    - name: Panoramica del riconoscimento vocale
+      href: speech-to-text.md
+    - name: Guida di avvio rapido sul riconoscimento vocale
+      href: get-started-speech-to-text.md
     - name: Guide pratiche
       items:
+        - name: Riconoscimento della voce archiviata in archivio BLOB
+          href: quickstarts/from-blob.md
         - name: Scegliere la modalità di riconoscimento vocale
           href: how-to-choose-recognition-mode.md
         - name: Cambiare la lingua di origine del riconoscimento vocale
@@ -57,6 +47,8 @@
           href: tutorial-tenant-model.md
     - name: Personalizzazione
       items:
+        - name: Testare un modello usando file audio in Speech Studio
+          href: quickstarts/speech-studio-test-model.md
         - name: Preparare i dati per Riconoscimento vocale personalizzato
           href: how-to-custom-speech-test-and-train.md
         - name: Esaminare i dati di Riconoscimento vocale personalizzato
@@ -75,33 +67,29 @@
           href: how-to-custom-speech-human-labeled-transcriptions.md
     - name: Informazioni di riferimento
       items:
-        - name: API Speech SDK
-          items:
-            - name: C++
-              displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/cppref'
-            - name: C#
-              displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/csharpref'
-            - name: Java
-              displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/javaref'
-            - name: JavaScript
-              displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/javascriptref'
-            - name: Objective-C
-              displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/objectivecref'
-            - name: Python
-              displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
-              href: 'https://aka.ms/csspeech/pythonref'
-            - name: Note sulla versione
-              displayName: 'release notes,updates,what''s new,what is new,changes'
-              href: releasenotes.md
-        - name: API REST
-          items:
-            - name: API REST di riconoscimento vocale
-              href: rest-speech-to-text.md
+        - name: C++
+          displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+          href: 'https://aka.ms/csspeech/cppref'
+        - name: C#
+          displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
+          href: 'https://aka.ms/csspeech/csharpref'
+        - name: Java
+          displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+          href: 'https://aka.ms/csspeech/javaref'
+        - name: JavaScript
+          displayName: 'Node, Node.js, NodeJS, JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
+          href: 'https://aka.ms/csspeech/javascriptref'
+        - name: Objective-C
+          displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
+          href: 'https://aka.ms/csspeech/objectivecref'
+        - name: Python
+          displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
+          href: 'https://aka.ms/csspeech/pythonref'
+        - name: Note sulla versione
+          displayName: 'release notes,updates,what''s new,what is new,changes'
+          href: releasenotes.md
+        - name: API REST di riconoscimento vocale
+          href: rest-speech-to-text.md
     - name: Risorse
       items:
         - name: Lingue supportate

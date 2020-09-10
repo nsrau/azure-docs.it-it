@@ -24,6 +24,8 @@
   items:
     - name: Eseguire l'integrazione con Power Virtual Agents
       href: Tutorials/integrate-with-power-virtual-assistant-fallback-topic.md
+    - name: Creare un bot di domande frequenti con il servizio Azure Bot
+      href: Tutorials/create-faq-bot-with-azure-bot-service.md
     - name: Eseguire test con file batch
       href: Quickstarts/batch-testing.md
 - name: Concetti
@@ -91,7 +93,7 @@
         - name: Eseguire la migrazione a una nuova knowledge base
           href: Tutorials/migrate-knowledge-base.md
           displayName: 'metadata, pair'
-        - name: Test
+        - name: Testare la knowledge base
           href: How-To/test-knowledge-base.md
     - name: Gestire coppie di domande e risposte
       items:

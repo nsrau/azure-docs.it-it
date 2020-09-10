@@ -9,8 +9,8 @@
     - name: Aggiungere utenti ad Azure AD
       href: ../fundamentals/add-users-azure-active-directory.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
     - name: Assegnare licenze agli utenti
-      href: ../fundamentals/license-users-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
-    - name: Concedere l'autorizzazione per registrazioni illimitate di app
+      href: /azure/active-directory/fundamentals/license-users-groups?context=azure/active-directory/users-groups-roles/context/ugr-context
+    - name: Creare registrazioni di app illimitate
       href: roles-quickstart-app-registration-limits.md
     - name: Impostare la scadenza dei gruppi
       href: groups-quickstart-expiration.md
@@ -175,6 +175,8 @@
               href: ../fundamentals/active-directory-users-assign-role-azure-portal.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context
             - name: Assegnare ruoli personalizzati in PowerShell
               href: roles-assign-powershell.md
+            - name: Ruoli personalizzati per le app aziendali
+              href: custom-enterprise-apps.md
             - name: Autorizzazioni dei ruoli personalizzati
               href: roles-custom-available-permissions.md
             - name: Delegare le autorizzazioni di amministrazione di app

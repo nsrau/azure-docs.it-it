@@ -77,3 +77,11 @@
       items:
         - name: Date_Bucket (Transact-SQL)
           href: date-bucket-tsql.md
+        - name: Conservazione e pulizia dei dati
+          items:
+            - name: Panoramica della conservazione dei dati
+              href: data-retention-overview.md
+            - name: Abilitare o disabilitare la conservazione dei dati
+              href: data-retention-enable-disable.md
+            - name: Pulizia della conservazione dei dati
+              href: data-retention-cleanup.md

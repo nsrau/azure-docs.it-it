@@ -114,6 +114,8 @@
           href: understand/mca-overview.md
         - name: Account di fatturazione del Contratto Microsoft Partner
           href: understand/mpa-overview.md
+        - name: Trasferire sottoscrizioni tra partner (anteprima)
+          href: manage/azure-plan-subscription-transfer-partners.md
 - name: Guide pratiche
   items:
     - name: Configurare Gestione dei costi e fatturazione
