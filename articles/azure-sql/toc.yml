@@ -924,8 +924,6 @@
               href: virtual-machines/windows/doc-changes-updates-release-notes.md
         - name: Avvi rapidi
           items:
-            - name: Creare una macchina virtuale SQL
-              items: null
             - name: Portale
               href: virtual-machines/windows/sql-vm-create-portal-quickstart.md
             - name: PowerShell

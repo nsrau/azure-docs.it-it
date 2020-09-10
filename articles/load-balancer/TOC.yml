@@ -81,6 +81,8 @@
       href: load-balancer-standard-virtual-machine-scale-sets.md
 - name: Procedure
   items:
+    - name: Impostazioni del portale
+      href: manage.md
     - name: set di scalabilità di macchine virtuali
       items:
         - name: Uso con un'istanza esistente di Azure Load Balancer - Portale

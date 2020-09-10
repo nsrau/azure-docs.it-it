@@ -4,7 +4,7 @@
   items:
     - name: Che cos'è Collegamento privato di Azure?
       href: private-link-overview.md
-- name: Avvii rapidi
+- name: Avvi rapidi
   items:
     - name: Creare un endpoint privato - Portale
       href: create-private-endpoint-portal.md
@@ -32,6 +32,10 @@
       href: private-link-service-overview.md
     - name: Integrazione DNS dell'endpoint privato
       href: private-endpoint-dns.md
+    - name: Sicurezza
+      items:
+        - name: Baseline di sicurezza
+          href: security-baseline.md
 - name: Procedure
   items:
     - name: Connettersi privatamente a un account di archiviazione

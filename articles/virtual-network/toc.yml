@@ -96,7 +96,7 @@
         - name: Gruppi di sicurezza di rete
           items:
             - name: Panoramica
-              href: security-overview.md
+              href: network-security-groups-overview.md
             - name: Come funziona
               href: network-security-group-how-it-works.md
         - name: Gruppi di sicurezza delle applicazioni
