@@ -159,7 +159,7 @@
             - name: .NET (C#) SDK - origine
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
             - name: JavaScript SDK - npm
-              href: 'https://www.npmjs.com/package/@azure/digital-twins'
+              href: 'https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1'
     - name: Interfaccia della riga di comando di Gemelli digitali
       items:
         - name: Informazioni di riferimento sull'interfaccia della riga di comando di Gemelli digitali
