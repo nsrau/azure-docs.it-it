@@ -151,6 +151,8 @@
           href: cloud-services-disaster-recovery-guidance.md
         - name: Flusso di lavoro dell'architettura classica delle VM
           href: cloud-services-workflow-process.md
+        - name: Supporto dell'integrità delle risorse per i servizi cloud
+          href: resource-health-for-cloud-services.md
         - name: Domande frequenti sui servizi cloud
           items:
             - name: Domande frequenti sulla disponibilità di applicazioni e servizi

@@ -30,6 +30,8 @@
         - name: Guide alla pubblicazione per tipo di offerta
           href: ./publisher-guide-by-offer-type.md
           items:
+            - name: Pianificare un'offerta SaaS
+              href: ./plan-saas-offer.md
             - name: Macchine virtuali
               href: ./marketplace-virtual-machines.md
             - name: Modelli di soluzioni per app di Azure

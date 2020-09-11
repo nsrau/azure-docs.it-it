@@ -214,7 +214,9 @@
     - name: Risolvere problemi
       items:
         - name: Reimpostazione della password self-service
-          href: active-directory-passwords-troubleshoot.md
+          href: troubleshoot-sspr.md
+        - name: Writeback della reimpostazione della password self-service
+          href: troubleshoot-sspr-writeback.md
         - name: Domande frequenti sulla reimpostazione della password self-service
           href: active-directory-passwords-faq.md
         - name: Domande frequenti su Multi-Factor Authentication

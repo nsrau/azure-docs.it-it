@@ -67,6 +67,8 @@
   items:
     - name: Preparare un'app Java Spring per la distribuzione
       href: spring-cloud-tutorial-prepare-app-deployment.md
+    - name: Avviare un'app Java dal codice sorgente
+      href: spring-cloud-howto-launch-from-source.md
     - name: Configurare un server di configurazione
       href: spring-cloud-tutorial-config-server.md
     - name: Abilitare la registrazione del servizio

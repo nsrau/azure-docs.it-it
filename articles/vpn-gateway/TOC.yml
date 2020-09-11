@@ -172,6 +172,8 @@
           href: vpn-gateway-howto-always-on-user-tunnel.md
         - name: Pubblicizzare route personalizzate ai client da punto a sito
           href: vpn-gateway-p2s-advertise-custom-routes.md
+        - name: Creare criteri IPSec personalizzati per connessioni da punto a sito
+          href: create-custom-policies-p2s-ps.md
     - name: 'Routing, BGP e peering reti virtuali'
       items:
         - name: Configurare BGP per un gateway VPN

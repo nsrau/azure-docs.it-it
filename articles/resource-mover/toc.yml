@@ -24,8 +24,22 @@
       href: support-matrix-move-region-sql.md
 - name: Guide pratiche
   items:
-    - name: Rimuovere le risorse da una raccolta di spostamento
-      href: remove-move-resources.md
+    - name: Spostarsi tra aree
+      items:
+        - name: Spostarsi tra aree con PowerShell
+          href: move-region-powershell.md
+        - name: Spostare VM di Azure in zone di disponibilità
+          href: move-region-availability-zone.md
+        - name: Spostarsi tra aree (dal gruppo di risorse)
+          href: move-region-within-resource-group.md
+    - name: Gestire gli spostamenti tra aree
+      items:
+        - name: Modificare le impostazioni di destinazione per uno spostamento tra aree
+          href: modify-target-settings.md
+        - name: Rimuovere risorse da una raccolta di spostamento tra aree
+          href: remove-move-resources.md
+        - name: Gestire le risorse create dal processo di spostamento tra aree
+          href: manage-resources-created-move-process.md
 - name: Risorse
   items:
     - name: Migrazione a Cloud Adoption Framework
