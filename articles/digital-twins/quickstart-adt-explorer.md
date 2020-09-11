@@ -29,7 +29,7 @@ L'avvio rapido illustra i passaggi principali seguenti:
 
 Il grafo di esempio con cui si lavorerà rappresenta un edificio con due piani e due camere. Il grafo sarà simile al seguente:
 
-:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Visualizzazione di un grafo costituito da quattro nodi circolari connessi tramite frecce. Un cerchio con etichetta "Floor1" è connesso da una freccia con etichetta "contains" a un cerchio con etichetta "Room1". Un cerchio con etichetta "Floor0" è connesso da una freccia con etichetta "contains" a un cerchio con etichetta "Room0". 'Floor1' e 'Floor0' non sono connessi.":::
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Visualizzazione di un grafo costituito da quattro nodi circolari connessi tramite frecce. Un cerchio con etichetta Floor1 è connesso da una freccia con etichetta contains a un cerchio con etichetta Room1. Un cerchio con etichetta Floor0 è connesso da una freccia con etichetta contains a un cerchio con etichetta Room0. Floor1 e Floor0 non sono connessi.":::
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -141,14 +141,14 @@ Nella casella *MODEL VIEW* (Visualizzazione modello) selezionare l'icona *Upload
 3. Seguire le istruzioni della finestra di dialogo popup in cui viene chiesto di accedere al proprio account Azure.
 
 >[!NOTE]
->Se viene visualizzato il messaggio di errore seguente: :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="Finestra popup che segnala un "errore durante il recupero dei modelli: ClientAuthError: errore durante l'apertura della finestra popup. Può succedere se si usa Internet Explorer o se i popup sono bloccati nel browser". In fondo alla finestra del messaggio di errore c'è un pulsante Close" border="false"::: 
+>Se viene visualizzato il messaggio di errore seguente: :::image type="content" source="media/quickstart-adt-explorer/error-models-popup.png" alt-text="Finestra popup che segnala un errore durante il recupero dei modelli: ClientAuthError: errore durante l'apertura della finestra popup. Può succedere se si usa Internet Explorer o se i popup sono bloccati nel browser. In fondo alla finestra del messaggio di errore c'è un pulsante Close" border="false"::: 
 > Provare a disabilitare il blocco dei popup o a usare un browser diverso.
 
 ADT Explorer caricherà ora questi file di modello nell'istanza di Gemelli digitali di Azure. Dovrebbero essere visualizzati nella finestra *MODEL VIEW* (Visualizzazione modello), con il rispettivo nome descrittivo e ID modello completo. È possibile fare clic sulle icone di informazioni *View Model* (Visualizza modello) per visualizzare il codice DTDL sottostante.
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/model-info.png" alt-text="Finestra "Model View" contenente due definizioni di modello, Floor (dtmi:example:Floor;1) e Room (dtmi:example:Room;1). L'icona di visualizzazione modello, con la lettera "i" in un cerchio, è evidenziata per ogni modello." lightbox="media/quickstart-adt-explorer/model-info.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/model-info.png" alt-text="Finestra Model View contenente due definizioni di modello, Floor (dtmi:example:Floor;1) e Room (dtmi:example:Room;1). L'icona di visualizzazione modello, con la lettera i in un cerchio, è evidenziata per ogni modello." lightbox="media/quickstart-adt-explorer/model-info.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -192,7 +192,7 @@ ADT Explorer userà ora il file caricato per creare i gemelli richiesti e le rel
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Finestra di dialogo che indica che l'importazione del grafo è riuscita. Il messaggio indica: "Importazione riuscita. 49 gemelli importati. 50 relazioni importate"." lightbox="media/quickstart-adt-explorer/import-success.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/import-success.png" alt-text="Finestra di dialogo che indica che l'importazione del grafo è riuscita. Il messaggio indica: Importazione riuscita. 49 gemelli importati. 50 relazioni importate." lightbox="media/quickstart-adt-explorer/import-success.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -202,7 +202,7 @@ ADT Explorer userà ora il file caricato per creare i gemelli richiesti e le rel
 
 Il grafo è stato caricato in ADT Explorer. Per visualizzarlo, selezionare il pulsante *Run Query* (Esegui query) nel riquadro *GRAPH EXPLORER* (Esplora grafo), nella parte superiore della finestra di ADT Explorer. 
 
-:::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="Pulsante "Run Query" evidenziato nella parte superiore del riquadro" lightbox="media/quickstart-adt-explorer/run-query.png":::
+:::image type="content" source="media/quickstart-adt-explorer/run-query.png" alt-text="Pulsante Run Query evidenziato nella parte superiore del riquadro" lightbox="media/quickstart-adt-explorer/run-query.png":::
 
 Verrà eseguita la query predefinita per selezionare e visualizzare tutti i gemelli digitali. ADT Explorer recupererà tutti i gemelli e le relazioni dal servizio e creerà il grafo definito da essi nel riquadro *GRAPH VIEW* (Visualizzazione grafo).
 
@@ -210,7 +210,7 @@ Verrà eseguita la query predefinita per selezionare e visualizzare tutti i geme
 
 A questo punto è possibile vedere il grafo caricato dello scenario di esempio:
 
-:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Riquadro "Graph View" contenente un grafo dei gemelli. Un cerchio con etichetta "floor1" è connesso da una freccia con etichetta "contains" a un cerchio con etichetta "room1". Un cerchio con etichetta "floor0" è connesso da una freccia con etichetta "contains" a un cerchio con etichetta "room0".":::
+:::image type="content" source="media/quickstart-adt-explorer/graph-view-full.png" alt-text="Riquadro Graph View contenente un grafo dei gemelli. Un cerchio con etichetta floor1 è connesso da una freccia con etichetta contains a un cerchio con etichetta room1. Un cerchio con etichetta floor0 è connesso da una freccia con etichetta contains a un cerchio con etichetta room0.":::
 
 I cerchi ("nodi" del grafo) rappresentano i gemelli digitali e le linee rappresentano le relazioni. Come si può vedere, il gemello *Floor0* contiene *Room0* e il gemello *Floor1* contiene *Room1*.
 
@@ -224,7 +224,7 @@ Queste sono le proprietà di *Room0*:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="Evidenziazione del riquadro "Property Explorer" che mostra le proprietà di Room0, tra cui il campo $dtId con il valore "Room0", il campo Temperature con il valore 70 e il campo Humidity con il valore 30." lightbox="media/quickstart-adt-explorer/properties-room0.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room0.png" alt-text="Evidenziazione del riquadro Property Explorer che mostra le proprietà di Room0, tra cui il campo $dtId con il valore Room0, il campo Temperature con il valore 70 e il campo Humidity con il valore 30." lightbox="media/quickstart-adt-explorer/properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -236,7 +236,7 @@ Queste sono le proprietà di *Room1*:
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Evidenziazione del riquadro "Property Explorer" che mostra le proprietà di Room1, tra cui il campo $dtId con il valore "Room1", il campo Temperature con il valore 80 e il campo Humidity con il valore 60." lightbox="media/quickstart-adt-explorer/properties-room1.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/properties-room1.png" alt-text="Evidenziazione del riquadro Property Explorer che mostra le proprietà di Room1, tra cui il campo $dtId con il valore Room1, il campo Temperature con il valore 80 e il campo Humidity con il valore 60." lightbox="media/quickstart-adt-explorer/properties-room1.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
@@ -275,7 +275,7 @@ Le proprietà in questo elenco sono modificabili. Selezionare il valore di tempe
 
 :::row:::
     :::column:::
-        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="Riquadro "Property Explorer" con le proprietà di Room0. Il valore della temperatura è una casella modificabile che mostra 76 e l'icona di salvataggio è evidenziata." lightbox="media/quickstart-adt-explorer/new-properties-room0.png":::
+        :::image type="content" source="media/quickstart-adt-explorer/new-properties-room0.png" alt-text="Riquadro Property Explorer con le proprietà di Room0. Il valore della temperatura è una casella modificabile che mostra 76 e l'icona di salvataggio è evidenziata." lightbox="media/quickstart-adt-explorer/new-properties-room0.png":::
     :::column-end:::
     :::column:::
     :::column-end:::
