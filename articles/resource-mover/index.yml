@@ -2,7 +2,7 @@
 title: Documentazione di Spostamento risorse di Azure
 summary: Spostare le risorse di Azure tra aree di Azure nell'hub di Spostamento risorse di Azure.
 metadata:
-  title: Documentazione di Azure Resource Manager
+  title: Documentazione di Spostamento risorse di Azure
   description: Esercitazioni e informazioni sullo spostamento delle risorse tra aree di Azure.
   ms.service: resource-move
   ms.topic: landing-page
@@ -11,12 +11,12 @@ metadata:
   ms.author: raynew
   ms.date: 09/09/2020
   keywords: azure resource mover, azure regions, move across regions
-  ms.openlocfilehash: 4dec18e3000373953c93ee99a6b5500ffb515807
-  ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+  ms.openlocfilehash: 3dab9d313ab9564e860d78495d375bd0116ac9e0
+  ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
   ms.translationtype: HT
   ms.contentlocale: it-IT
   ms.lasthandoff: 09/10/2020
-  ms.locfileid: "89652145"
+  ms.locfileid: "89669653"
 landingContent:
 - title: Informazioni su Spostamento risorse di Azure
   linkLists:
