@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 224623f7851c35b12e1f2e1d028355c202128fa1
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 9e960914f86f2f9fc63a62d62fe1f923d21b9d31
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89244756"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394619"
 ---
 # <a name="azure-security-baseline-for-backup"></a>Baseline della sicurezza di Azure per il backup
 
@@ -818,7 +818,9 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 - [Come creare una Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-- [Come fornire l'autenticazione Key Vault con un'identità gestita](../key-vault/general/managed-identity.md)
+* [Come eseguire l'autenticazione a Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+* [Come assegnare un criterio di accesso Key Vault](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

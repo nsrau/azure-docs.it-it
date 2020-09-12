@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 080b5a224f3d4a720d8009933ddd9161f56dba0a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d2a62b55ce7f8cd408afeb2f10fd40f42b36d53d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89270106"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393939"
 ---
 # <a name="define-a-conditional-access-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico di accesso condizionale in un Azure Active Directory B2C criteri personalizzati
 
@@ -47,11 +47,11 @@ Nell'esempio seguente viene illustrato un profilo tecnico di accesso condizional
 
 ## <a name="conditional-access-evaluation"></a>Valutazione dell'accesso condizionale
 
-Per ogni accesso, Azure AD B2C valuta tutti i criteri e garantisce che tutti i requisiti siano soddisfatti prima di concedere l'accesso utente. "Blocca accesso" esegue l'override di tutte le altre impostazioni di configurazione. La modalità di **valutazione** del profilo tecnico di accesso condizionale valuta i segnali raccolti da Azure ad B2C durante l'accesso con un account locale. Il risultato del profilo tecnico di accesso condizionale è un set di attestazioni risultante dalla valutazione dell'accesso condizionale. Il criterio Azure AD B2C utilizza queste attestazioni in un passaggio di orchestrazione successivo per eseguire un'azione, ad esempio bloccare l'utente o richiedere l'utilizzo con l'autenticazione a più fattori. Per questa modalità è possibile configurare le opzioni seguenti.
+Per ogni accesso, Azure AD B2C valuta tutti i criteri e garantisce che tutti i requisiti siano soddisfatti prima di concedere l'accesso utente. "Blocca accesso" esegue l'override di tutte le altre impostazioni di configurazione. La modalità di **valutazione** del profilo tecnico di accesso condizionale valuta i segnali raccolti da Azure ad B2C durante l'accesso con un account locale. Il risultato del profilo tecnico di accesso condizionale è un set di attestazioni risultante dalla valutazione dell'accesso condizionale. Il criterio Azure AD B2C utilizza tali attestazioni in un passaggio di orchestrazione successivo per eseguire un'azione, ad esempio per bloccare l'utente o per richiedere l'autenticazione a più fattori da parte dell'utente. Per questa modalità è possibile configurare le opzioni seguenti.
 
 ### <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Tipo operazione | Sì | Deve essere **Evaluation**.  |
 
@@ -59,7 +59,7 @@ Per ogni accesso, Azure AD B2C valuta tutti i criteri e garantisce che tutti i r
 
 L'elemento **InputClaims** contiene un elenco di attestazioni da inviare all'accesso condizionale. È anche possibile mappare il nome dell'attestazione al nome definito nel profilo tecnico di accesso condizionale.
 
-| ClaimReferenceId | Obbligatorio | Tipo di dati | Descrizione |
+| ClaimReferenceId | Obbligatoria | Tipo di dati | Descrizione |
 | --------- | -------- | ----------- |----------- |
 | UserId | Sì | string | Identificatore dell'utente che accede. |
 | AuthenticationMethodsUsed | Sì |stringCollection | Elenco di metodi usati dall'utente per eseguire l'accesso. Valori possibili: `Password` , e `OneTimePasscode` . |
@@ -73,7 +73,7 @@ L'elemento **InputClaimsTransformations** può contenere una raccolta di element
 
 L'elemento **OutputClaims** contiene un elenco di attestazioni generate da ConditionalAccessProtocolProvider. È anche possibile mappare il nome dell'attestazione al nome definito di seguito.
 
-| ClaimReferenceId | Obbligatorio | Tipo di dati | Descrizione |
+| ClaimReferenceId | Obbligatoria | Tipo di dati | Descrizione |
 | --------- | -------- | ----------- |----------- |
 | Problematiche | Sì |stringCollection | Elenco di azioni per il monitoraggio e l'aggiornamento della minaccia identificata. Valori possibili: `block` |
 | MultiConditionalAccessStatus | Sì | stringCollection |  |
@@ -113,7 +113,7 @@ La modalità di **monitoraggio e aggiornamento** del profilo tecnico di accesso 
 
 ### <a name="metadata"></a>Metadati
 
-| Attributo | Obbligatorio | Description |
+| Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
 | Tipo operazione | Sì | Deve essere il monitoraggio e l' **aggiornamento**.  |
 
@@ -121,7 +121,7 @@ La modalità di **monitoraggio e aggiornamento** del profilo tecnico di accesso 
 
 L'elemento **InputClaims** contiene un elenco di attestazioni da inviare all'accesso condizionale. È anche possibile mappare il nome dell'attestazione al nome definito nel profilo tecnico di accesso condizionale.
 
-| ClaimReferenceId | Obbligatorio | Tipo di dati | Descrizione |
+| ClaimReferenceId | Obbligatoria | Tipo di dati | Descrizione |
 | --------- | -------- | ----------- |----------- |
 | ChallengesSatisfied | Sì | stringCollection| Elenco di problemi soddisfatti per correggere la minaccia identificata come restituzione dalla modalità di valutazione, richiesta di problemi.|
 

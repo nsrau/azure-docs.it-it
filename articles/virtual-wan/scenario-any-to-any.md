@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 95fa7a8c6abd0ad65b367cacef15b8faa16da640
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: f8127b485d8fea5aedccd472e209a448e3076b5b
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553428"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400076"
 ---
 # <a name="scenario-any-to-any"></a>Scenario: any-to-any
 
@@ -24,12 +24,12 @@ Quando si usa il routing dell'hub virtuale WAN virtuale, esistono molti scenari 
 
 Per determinare il numero di tabelle di route necessarie in uno scenario WAN virtuale, è possibile creare una matrice di connettività, in cui ogni cella indica se un'origine (riga) può comunicare con una destinazione (colonna). La matrice di connettività in questo scenario è semplice, ma è stata inclusa per essere coerente con altri scenari.
 
-| Da |   To |  *Reti virtuali* | *Rami* |
+| Da |   A |  *Reti virtuali* | *Rami* |
 | -------------- | -------- | ---------- | ---|
 | Reti virtuali     | &#8594;|      X     |     X    |
 | Rami   | &#8594;|    X     |     X    |
 
-Ognuna delle celle della tabella precedente descrive se una connessione WAN virtuale (il lato "da" del flusso, le intestazioni di riga nella tabella) apprende un prefisso di destinazione (il lato "a" del flusso, le intestazioni di colonna in corsivo nella tabella) per un flusso di traffico specifico.
+Ogni cella della tabella precedente descrive se una connessione WAN virtuale (il lato "da" del flusso, le intestazioni di riga nella tabella) apprende un prefisso di destinazione (il lato "a" del flusso, le intestazioni di colonna in corsivo nella tabella) per un flusso di traffico specifico, dove una "X" significa che la connettività viene fornita dalla rete WAN virtuale.
 
 Poiché tutte le connessioni da reti virtuali e Branch (VPN, ExpressRoute e VPN utente) presentano gli stessi requisiti di connettività, è necessaria una singola tabella di route. Di conseguenza, tutte le connessioni verranno associate e propagate alla stessa tabella di route, ovvero la tabella di route predefinita:
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/23/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f7f559a0f0cfeddcba6e3f563c0a74a2472887d7
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f067d4c777bb9a49ac2cc50595046249479a8f7a
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226778"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393837"
 ---
 # <a name="azure-security-baseline-for-azure-database-for-mariadb"></a>Baseline della sicurezza di Azure per database di Azure per MariaDB
 
@@ -880,11 +880,11 @@ Come configurare e gestire Criteri di Azure: https://docs.microsoft.com/azure/go
 
 Come eseguire l'integrazione con identità gestite di Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Come creare un insieme di credenziali delle chiavi: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Come creare un insieme di credenziali delle chiavi: https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Come fornire l'autenticazione di Key Vault con un'identità gestita: https://docs.microsoft.com/azure/key-vault/managed-identity 
+Come eseguire l'autenticazione a Key Vault: https://docs.microsoft.com/azure/key-vault/general/authentication
 
-
+Come assegnare un criterio di accesso Key Vault: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 

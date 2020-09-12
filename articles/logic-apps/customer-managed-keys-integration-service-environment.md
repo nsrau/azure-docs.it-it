@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, rarayudu, logicappspm
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.openlocfilehash: a7cc135555db2673225d857bf6a21e57de3e3f6b
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: ad5b4245cc445ecf8fae22c39db3365d71730a56
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386164"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400144"
 ---
 # <a name="set-up-customer-managed-keys-to-encrypt-data-at-rest-for-integration-service-environments-ises-in-azure-logic-apps"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati inattivi per gli ambienti di Integration Services (ISEs) in app per la logica di Azure
 
@@ -47,7 +47,7 @@ Questo argomento illustra come configurare e specificare la propria chiave di cr
   |----------|-------|
   | **Tipo chiave** | RSA |
   | **Dimensioni della chiave RSA** | 2048 |
-  | **Attivata** | Sì |
+  | **Enabled** | Sì |
   |||
 
   ![Creare la chiave di crittografia gestita dal cliente](./media/customer-managed-keys-integration-service-environment/create-customer-managed-key-for-encryption.png)
@@ -225,7 +225,7 @@ Per questa attività, è possibile usare il comando Azure PowerShell [set-AzKeyV
 
    1. Al termine del riquadro Criteri di **accesso** selezionare **Salva**.
 
-Per altre informazioni, vedere [fornire Key Vault autenticazione con un'identità gestita](../key-vault/general/managed-identity.md#grant-your-app-access-to-key-vault).
+Per ulteriori informazioni, vedere [come eseguire l'autenticazione a Key Vault](/azure/key-vault/general/authentication) e [assegnare un criterio di accesso key Vault](/azure/key-vault/general/assign-access-policy-portal).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

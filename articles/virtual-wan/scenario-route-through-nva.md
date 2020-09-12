@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 6b62f8c33c73ded978c0c2e3a8c3b7fadea49c96
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 2fdc1cd36c037f163b6b04907248e08ef20e961d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88852098"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400025"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scenario: indirizzare il traffico attraverso un'appliance virtuale di dispositivo
 
@@ -39,14 +39,14 @@ La seguente matrice di connettività, riepiloga i flussi supportati in questo sc
 
 **Matrice di connettività**
 
-| From             | Con:|   *Spoke di NVA*|*Reti virtuali di appliance virtuale di dispositivo*|*Reti virtuali non appliance virtuale di dispositivo*|*Rami*|
+| Da             | Con:|   *Spoke di NVA*|*Reti virtuali di appliance virtuale di dispositivo*|*Reti virtuali non appliance virtuale di dispositivo*|*Rami*|
 |---|---|---|---|---|---|
 | **Spoke di NVA**   | &#8594; | 0/0 UDR  |  Peering |   0/0 UDR    |  0/0 UDR  |
-| **Reti virtuali di appliance virtuale di dispositivo**    | &#8594; |   Statico |      X   |        X     |      X    |
-| **Reti virtuali non appliance virtuale di dispositivo**| &#8594; |   Statico |      X   |        X     |      X    |
-| **Rami**     | &#8594; |   Statico |      X   |        X     |      X    |
+| **Reti virtuali di appliance virtuale di dispositivo**    | &#8594; |   Static |      X   |        X     |      X    |
+| **Reti virtuali non appliance virtuale di dispositivo**| &#8594; |   Static |      X   |        X     |      X    |
+| **Rami**     | &#8594; |   Static |      X   |        X     |      X    |
 
-Ognuna delle celle nella matrice di connettività descrive se una connessione WAN virtuale (il lato "da" del flusso, le intestazioni di riga nella tabella) apprende un prefisso di destinazione (il lato "a" del flusso, le intestazioni di colonna in corsivo nella tabella) per un flusso di traffico specifico. Considerare quanto segue:
+Ognuna delle celle nella matrice di connettività descrive se una connessione WAN virtuale (il lato "da" del flusso, le intestazioni di riga nella tabella) apprende un prefisso di destinazione (il lato "a" del flusso, le intestazioni di colonna in corsivo nella tabella) per un flusso di traffico specifico. Una "X" significa che la connettività viene fornita a livello nativo dalla rete WAN virtuale e "static" significa che la connettività viene fornita dalla rete WAN virtuale usando route statiche. Considerare quanto segue:
 
 * I spoke di appliance virtuale di rete non sono gestiti da WAN virtuale. Di conseguenza, i meccanismi con i quali comunicheranno con altri reti virtuali o rami verranno gestiti dall'utente. La connettività ai VNet dell'appliance virtuale di rete viene fornita da un peering VNet e una route predefinita a 0.0.0.0/0 che punta all'appliance virtuale di rete come hop successivo dovrebbe coprire la connettività a Internet, ad altri spoke e ai Branch
 * L'appliance virtuale di reti virtuali saprà conoscere i propri spoke di appliance virtuale di dispositivo, ma non i spoke di appliance virtuale di appliance connessi ad altri reti virtuali di appliance Nella tabella 1, ad esempio, VNet 2 conosce VNet 5 e VNet 6, ma non su altri spoke come VNet 7 e VNet 8. Per inserire i prefissi di altri spoke in appliance virtuale di reti virtuali, è necessaria una route statica
@@ -71,8 +71,8 @@ In questo modo, le route statiche necessarie nella tabella predefinita per invia
 
 | Descrizione | Tabella di route | Route statica              |
 | ----------- | ----------- | ------------------------- |
-| VNet 2       | Impostazione predefinita     | 10.2.0.0/16-> eastusconn |
-| VNet 4       | Impostazione predefinita     | 10.4.0.0/16-> weconn     |
+| VNet 2       | Predefinito     | 10.2.0.0/16-> eastusconn |
+| VNet 4       | Predefinito     | 10.4.0.0/16-> weconn     |
 
 A questo punto, la rete WAN virtuale sa a quale connessione inviare i pacchetti, ma la connessione deve sapere cosa fare quando ricevono i pacchetti: qui vengono usate le tabelle della route di connessione. Qui verranno usati i prefissi più brevi (/24 anziché più a lungo/16) per assicurarsi che queste route abbiano la preferenza sulle route importate dall'appliance virtuale di reti virtuali (VNet 2 e VNet 4):
 

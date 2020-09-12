@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 07/14/2020
-ms.openlocfilehash: d49f9df9fdc7dd8d2fb53b9ad6eb6eae64965fb7
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.date: 09/02/2020
+ms.openlocfilehash: fe8024c60e204a4ec72002c878f7753ae35aa00d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87271723"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393820"
 ---
 # <a name="pricing-for-virtual-machine-offers"></a>Prezzi per le offerte di macchine virtuali
 
@@ -98,7 +98,7 @@ L'editore può anche caricare il foglio di calcolo dei prezzi in un percorso di 
 
 ## <a name="new-core-sizes-added-on-722019"></a>Nuove dimensioni core aggiunte il 7/2/2019
 
-Gli editori di VM hanno ricevuto una notifica il 2 luglio 2019 dell'aggiunta di nuovi prezzi per le nuove dimensioni di macchine virtuali di Azure (in base al numero di core).  I nuovi prezzi sono per le dimensioni di base 10, 44, 48, 60, 120, 208 e 416.  Per le macchine virtuali esistenti, i nuovi prezzi per queste dimensioni di core sono stati calcolati automaticamente in base ai prezzi correnti.  Gli editori hanno fino al 1 ° agosto 2019 per esaminare i prezzi aggiuntivi e apportare le modifiche desiderate.  Dopo questa data, se non è già stata ripubblicata dal server di pubblicazione, i prezzi calcolati automaticamente per queste nuove dimensioni di core diverranno effettivi.
+Gli editori di VM hanno ricevuto una notifica il 2 luglio 2019 dell'aggiunta di nuovi prezzi per le nuove dimensioni di macchine virtuali di Azure (in base al numero di core).  I nuovi prezzi sono per le dimensioni di base 10, 44, 48, 60, 120, 208 e 416.  Per le macchine virtuali esistenti, i nuovi prezzi per queste dimensioni di core sono stati calcolati automaticamente in base ai prezzi correnti. Gli editori hanno fino al 1 ° agosto 2019 per esaminare i prezzi aggiuntivi e apportare le modifiche desiderate.  Dopo questa data, se non è già stata ripubblicata dal server di pubblicazione, i prezzi calcolati automaticamente per queste nuove dimensioni di core diverranno effettivi.
 
 ## <a name="regions"></a>Regioni
 
@@ -121,7 +121,7 @@ La tabella seguente illustra le diverse aree che è possibile specificare per i 
 | CR         | Costa Rica           | CRC               |
 | HR         | Croazia              | HRK               |
 | CY         | Cipro               | EUR               |
-| CZ         | Repubblica ceca       | CZK               |
+| CZ         | Cechia       | CZK               |
 | DK         | Danimarca              | DKK               |
 | DO         | Repubblica dominicana   | USD               |
 | EC         | Ecuador              | USD               |
@@ -151,7 +151,6 @@ La tabella seguente illustra le diverse aree che è possibile specificare per i 
 | LI         | Liechtenstein        | CHF               |
 | LT         | Lituania            | EUR               |
 | LU         | Lussemburgo           | EUR               |
-| MK         | Macedonia del Nord      | MKD               |
 | MY         | Malaysia             | MYR               |
 | MT         | Malta                | EUR               |
 | MX         | Messico               | MXN               |
@@ -160,6 +159,7 @@ La tabella seguente illustra le diverse aree che è possibile specificare per i 
 | NL         | Paesi Bassi          | EUR               |
 | NZ         | Nuova Zelanda          | NZD               |
 | NG         | Nigeria              | NGN               |
+| MK         | Macedonia del Nord      | MKD               |
 | NO         | Norvegia               | NOK               |
 | OM         | Oman                 | OMR               |
 | PK         | Pakistan             | PKR               |

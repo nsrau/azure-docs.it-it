@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/11/2020
-ms.openlocfilehash: f592d6fb8fed3f15bd11d5e6ebe6ee358953748c
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 8a988895cd8999d15c32d7056d35abf40aeaba7e
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837229"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420694"
 ---
 # <a name="configure-server-parameters-in-azure-database-for-mysql-using-the-azure-portal"></a>Configurare i parametri del server nel database di Azure per MySQL usando il portale di Azure
 
@@ -24,7 +24,7 @@ Database di Azure per MySQL supporta la configurazione di alcuni parametri di se
 ![Pagina Parametri del server del portale di Azure](./media/howto-server-parameters/auzre-portal-server-parameters.png)
 3. Individuare eventuali impostazioni da modificare. Esaminare la colonna **Descrizione** per ottenere informazioni sulle finalità e sui valori consentiti.
 ![Elenco a discesa dei parametri di tipo enumerato](./media/howto-server-parameters/3-toggle_parameter.png)
-4. Fare clic su **Salva** per salvare le modifiche.
+4. Fare clic su  **Salva** per salvare le modifiche.
 ![Salvataggio o rimozione delle modifiche](./media/howto-server-parameters/4-save_parameters.png)
 5. Se sono stati salvati nuovi valori per i parametri, è possibile ripristinare i valori predefiniti in qualsiasi momento selezionando **Ripristina tutte le impostazioni predefinite**.
 ![Ripristino di tutte le impostazioni predefinite](./media/howto-server-parameters/5-reset_parameters.png)
@@ -34,11 +34,14 @@ Database di Azure per MySQL supporta la configurazione di alcuni parametri di se
 Se il parametro Server che si desidera aggiornare non è elencato nella portale di Azure, è possibile impostare facoltativamente il parametro a livello di connessione utilizzando `init_connect` . In questo modo vengono impostati i parametri del server per ogni client che si connette al server. 
 
 1. Nella sezione **IMPOSTAZIONI** fare clic su **Parametri del server** per aprire la pagina Parametri del server per il server di Database di Azure per MySQL.
-2. Cerca`init_connect`
+2. Cerca `init_connect`
 3. Aggiungere i parametri del server nel formato: `SET parameter_name=YOUR_DESIRED_VALUE` valore nella colonna valore.
 
-    Ad esempio, è possibile modificare il set di caratteri del server impostando `init_connect` su`SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`
+    Ad esempio, è possibile modificare il set di caratteri del server impostando `init_connect` su `SET character_set_client=utf8;SET character_set_database=utf8mb4;SET character_set_connection=latin1;SET character_set_results=latin1;`
 4. Fare clic su **Salva** per salvare le modifiche.
+
+>[!Note]
+> `init_connect` può essere usato per modificare i parametri che non richiedono privilegi avanzati a livello di sessione. Per verificare se è possibile impostare il parametro usando `init_connect` , eseguire il `set session parameter_name=YOUR_DESIRED_VALUE;` comando e in caso di errori di **accesso negato. è necessario** un errore con privilegi avanzati, quindi non è possibile impostare il parametro con ' init_connect '.
 
 ## <a name="working-with-the-time-zone-parameter"></a>Uso del parametro di fuso orario
 

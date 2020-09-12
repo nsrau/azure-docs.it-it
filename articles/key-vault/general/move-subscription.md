@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/05/2020
 ms.author: sudbalas
 Customer intent: As a key vault administrator, I want to move my vault to another subscription.
-ms.openlocfilehash: 3c2fef4ebd7db076a502f63101c80c4e08683b39
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: e6ab37539d00b6748d0e63a3f559bf70f493cf42
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145366"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394738"
 ---
 # <a name="moving-an-azure-key-vault-to-another-subscription"></a>Trasferimento di un Azure Key Vault a un'altra sottoscrizione
 
@@ -39,7 +39,7 @@ Quando si crea un insieme di credenziali delle chiavi, questo viene automaticame
 
 Alcune entità servizio (utenti e applicazioni) sono associate a un tenant specifico. Se si sposta l'insieme di credenziali delle chiavi in una sottoscrizione in un altro tenant, è probabile che non sia possibile ripristinare l'accesso a un'entità servizio specifica. Verificare che tutte le entità servizio essenziali esistano nel tenant in cui si sta migrando l'insieme di credenziali delle chiavi.
 
-## <a name="design-considerations"></a>Considerazioni relative alla progettazione
+## <a name="design-considerations"></a>Considerazioni sulla progettazione
 
 È possibile che l'organizzazione abbia implementato criteri di Azure con l'imposizione o le esclusioni a livello di sottoscrizione. Nella sottoscrizione in cui è attualmente presente l'insieme di credenziali delle chiavi e la sottoscrizione in cui si sta migrando l'insieme di credenziali delle chiavi può essere presente un set di assegnazioni di criteri diverso. Un conflitto nei requisiti dei criteri può causare l'interruzione delle applicazioni.
 
@@ -97,11 +97,9 @@ az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Upd
 
 Ora che l'insieme di credenziali è associato all'ID tenant corretto e che le voci dei criteri di accesso precedenti sono state rimosse, impostare le nuove voci dei criteri di accesso con il cmdlet [Set-AzKeyVaultAccessPolicy](/powershell/module/az.keyvault/Set-azKeyVaultAccessPolicy) di Azure PowerShell o il comando [az keyvault set-policy](/cli/azure/keyvault?view=azure-cli-latest#az-keyvault-set-policy) dell'interfaccia della riga di comando di Azure.
 
-Se si usa un'identità gestita per le risorse di Azure, sarà necessario aggiornarla con il nuovo tenant di Azure AD. Per altre informazioni sulle identità gestite, vedere [Eseguire l'autenticazione a Key Vault con un'identità gestita](managed-identity.md).
+Se si usa un'identità gestita per le risorse di Azure, sarà necessario aggiornarla anche alla nuova Azure Active Directory tenant. Per altre informazioni sulle identità gestite, [Panoramica dell'identità gestita](/azure/active-directory/managed-identities-azure-resources/overview).
 
-Se si usa l'identità del servizio gestito, sarà anche necessario aggiornare l'identità del servizio gestita perché l'identità precedente non risiederà più nel tenant AAD corretto. Per risolvere il problema, vedere i documenti seguenti. 
+Se si usa l'identità gestita, sarà necessario aggiornare anche l'identità perché l'identità precedente non sarà più nel tenant Azure Active Directory corretto. Per risolvere il problema, vedere i documenti seguenti. 
 
 * [Aggiornamento di MSI](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/known-issues#transferring-a-subscription-between-azure-ad-directories)
 * [Trasferisce la sottoscrizione alla nuova directory](https://docs.microsoft.com/azure/role-based-access-control/transfer-subscription)
-
-

@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ecfc532ea859c78b72a15dc85e0d3fc740ffe19a
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 6f3918016e35029ea6cc1b60d407ad475b35895b
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797543"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565465"
 ---
 # <a name="add-or-remove-a-group-from-another-group-using-azure-active-directory"></a>Aggiungere o rimuovere un gruppo da un altro gruppo con Azure Active Directory
 Questo articolo descrive come aggiungere o rimuovere un gruppo da un altro gruppo con Azure Active Directory.
@@ -30,7 +30,7 @@ Questo articolo descrive come aggiungere o rimuovere un gruppo da un altro grupp
 È possibile aggiungere un gruppo di sicurezza esistente a un altro gruppo di sicurezza esistente, ovvero creare gruppi annidati, creando un gruppo membri, o sottogruppo, e un gruppo padre. Il gruppo membri eredita gli attributi e le proprietà del gruppo padre, consentendo di risparmiare tempo di configurazione.
 
 >[!Important]
->Attualmente non sono supportate le operazioni seguenti:<ul><li>Aggiunta di gruppi a un gruppo sincronizzato con Active Directory locale.</li><li>Aggiunta di gruppi di sicurezza a gruppi di Office 365.</li><li>Aggiunta di gruppi di Office 365 a gruppi di sicurezza o ad altri gruppi di Office 365.</li><li>Assegnazione di app a gruppi annidati.</li><li>Applicazione di licenze a gruppi annidati.</li><li>Aggiunta di gruppi di distribuzione in scenari di annidamento.</li></ul>
+>Attualmente non sono supportate le operazioni seguenti:<ul><li>Aggiunta di gruppi a un gruppo sincronizzato con Active Directory locale.</li><li>Aggiunta di gruppi di sicurezza a gruppi di Microsoft 365.</li><li>Aggiunta di gruppi di Microsoft 365 ai gruppi di sicurezza o ad altri gruppi di Microsoft 365.</li><li>Assegnazione di app a gruppi annidati.</li><li>Applicazione di licenze a gruppi annidati.</li><li>Aggiunta di gruppi di distribuzione in scenari di annidamento.</li></ul>
 
 ### <a name="to-add-a-group-as-a-member-of-another-group"></a>Per aggiungere un gruppo come membro di un altro gruppo
 

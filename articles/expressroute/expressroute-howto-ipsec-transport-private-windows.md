@@ -2,18 +2,18 @@
 title: 'Peering privato di Azure ExpressRoute: configurare la modalità di trasporto IPsec-host Windows'
 description: Come abilitare la modalità trasporto IPSec tra macchine virtuali Windows di Azure e host Windows locali tramite il peering privato ExpressRoute usando oggetti Criteri di gruppo e unità organizzative.
 services: expressroute
-author: fabferri
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 10/17/2018
-ms.author: fabferri
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: 32ad4f643ff0b217460403245cbb4e99f139aef9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 026b7ee6cf8061c7cff25b4f9f8d46b6ec3e6a8d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737258"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396489"
 ---
 # <a name="configure-ipsec-transport-mode-for-expressroute-private-peering"></a>Configurare la modalità trasporto IPSec per il peering privato ExpressRoute
 
@@ -57,7 +57,7 @@ Quando si configurano i criteri IPSec, è importante comprendere la terminologia
   * Operazioni di filtro IP
   * Metodi di autenticazione
   * Impostazioni tunnel IP
-  * Tipi di connessione
+  * Tipi di connessioni
 
 [![5]][5]
 
@@ -147,7 +147,7 @@ Per applicare l'oggetto Criteri di gruppo all'unità organizzativa, non è suffi
 8. Nella pagina **Impostazioni personalizzate metodo di sicurezza** selezionare **Integrità dati con crittografia (ESP): SHA1, 3DES**. Successivamente, scegliere **OK**.
 
    [![22]][22]
-9. Nella pagina **Gestione operazioni filtro** è possibile vedere che il filtro **myEncryption** è stato aggiunto correttamente. Fare clic su **Chiudi**.
+9. Nella pagina **Gestione operazioni filtro** è possibile vedere che il filtro **myEncryption** è stato aggiunto correttamente. Fare clic su **Close**.
 
    [![23]][23]
 
@@ -161,7 +161,7 @@ Creare un elenco di filtri che specifica il traffico HTTP crittografato destinat
 2. Nel campo **Nome** digitare un nome per l'elenco di filtri IP. Ad esempio, **azure-onpremises-HTTP8080**. Quindi, fare clic su **Aggiungi**.
 
    [![25]][25]
-3. Nella pagina **Descrizione filtro IP e proprietà Speculare** selezionare **Speculare**. L'impostazione speculare consente di definire una corrispondenza con i pacchetti che viaggiano in entrambe le direzioni, permettendo la comunicazione bidirezionale. Fare quindi clic su **Avanti**.
+3. Nella pagina **Descrizione filtro IP e proprietà Speculare** selezionare **Speculare**. L'impostazione speculare consente di definire una corrispondenza con i pacchetti che viaggiano in entrambe le direzioni, permettendo la comunicazione bidirezionale. Quindi fare clic su **Next**.
 
    [![26]][26]
 4. Nella pagina **Origine traffico IP**, nell'elenco a discesa **Indirizzo origine** scegliere **Subnet o indirizzo IP specifico**. 
@@ -231,7 +231,7 @@ Aggiungere i criteri IPSec all'**elenco di filtri IP** e all'**operazione di fil
 1. Nella scheda **Regole** della finestra delle proprietà dei criteri HTTP fare clic su **Aggiungi**.
 
    [![41]][41]
-2. Nella pagina di benvenuto fare clic su **Avanti**.
+2. Nella pagina Benvenuti fare clic su **Avanti**.
 
    [![42]][42]
 3. Una regola consente di definire la modalità IPSec: modalità tunnel o modalità trasporto.

@@ -8,12 +8,12 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 70dcee1cce49c658a60e98821a3ce60ec443408a
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f4a345fe62a1d13a6be7dc71ecc0529fec2a6a4e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932577"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401504"
 ---
 # <a name="key-vault-virtual-machine-extension-for-windows"></a>Estensione di macchina virtuale Key Vault per Windows
 
@@ -206,7 +206,7 @@ Per distribuire l'estensione macchina virtuale di Key Vault in una macchina virt
 Tenere presenti le restrizioni e i requisiti seguenti:
 - Restrizioni relative all'insieme di credenziali:
   - Deve essere già presente al momento della distribuzione 
-  - Il criterio di accesso Key Vault è impostato per l'identità VM/VMSS con MSI
+  - I criteri di accesso Key Vault devono essere impostati per l'identità VM/VMSS usando un'identità gestita. Vedere [come eseguire l'autenticazione a Key Vault](/azure/key-vault/general/authentication) e [assegnare un criterio di accesso key Vault](/azure/key-vault/general/assign-access-policy-cli).
 
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto

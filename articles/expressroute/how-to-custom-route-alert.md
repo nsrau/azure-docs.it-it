@@ -2,17 +2,17 @@
 title: 'ExpressRoute: come configurare gli avvisi personalizzati per le route annunciate'
 description: Questo articolo illustra come usare automazione di Azure e le app per la logica per monitorare il numero di route annunciate dal gateway ExpressRoute alle reti locali per evitare di raggiungere il limite di 200 Route.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
-ms.author: cherylmc
-ms.openlocfilehash: 42f416cf6f297eb54298a10162e7ba28f7acd1bd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: f29f43234f1541abeb448e722d0b72ef7c0221c9
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738482"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401725"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configurare avvisi personalizzati per il monitoraggio di route annunciate
 
@@ -78,7 +78,7 @@ Per impostazione predefinita, il ruolo **collaboratore** viene assegnato all'ent
 
 2. Selezionare **Roles (ruoli** ) per visualizzare la definizione di ruolo utilizzata.
 
-   :::image type="content" source="./media/custom-route-alert-portal/run-as-account-permissions.png" alt-text="Assegnare un ruolo":::
+   :::image type="content" source="./media/custom-route-alert-portal/run-as-account-permissions.png" alt-text="Assegnare il ruolo":::
 
 ## <a name="create-and-configure-runbooks"></a><a name="runbooks"></a>Creare e configurare manuali operativi
 
@@ -235,7 +235,7 @@ Write-Output  $jsonResults
 
 Quando si esegue lo script di PowerShell, viene raccolto un elenco di valori:
  
-* Resource group
+* Gruppo di risorse
 
 * Nome del gateway ExpressRoute
 
@@ -257,7 +257,7 @@ Quando si esegue lo script di PowerShell, viene raccolto un elenco di valori:
 
 * Messaggio di avviso, per una descrizione dettagliata dello stato (OK, avviso, avviso)
 
-Lo script di PowerShell converte le informazioni raccolte in un output JSON. Runbook usa il cmdlet di PowerShell [Write-Output](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Write-Output?) come flusso di output per comunicare le informazioni al client.
+Lo script di PowerShell converte le informazioni raccolte in un output JSON. Runbook usa il cmdlet di PowerShell [Write-Output](https://docs.microsoft.com/powershell/module/Microsoft.PowerShell.Utility/Write-Output?)  come flusso di output per comunicare le informazioni al client.
 
 ### <a name="4-validate-the-runbook"></a><a name="validate"></a>4. convalidare il Runbook
 
@@ -308,7 +308,7 @@ Un'app per la logica accede ad altre app, servizi e la piattaforma, sebbene i co
 1. Nella **finestra di progettazione di app**per la logica, sotto **ricorrenza**, selezionare **nuovo passaggio**. In **scegliere un'azione** e la casella di ricerca selezionare **tutti**.
 2. Nella casella di ricerca digitare automazione e ricerca di **Azure** . Selezionare **Crea processo**. **Create Job** verrà usato per attivare il Runbook di automazione creato in precedenza.
 
-   :::image type="content" source="./media/custom-route-alert-portal/create-job.png" alt-text="Creazione processo":::
+   :::image type="content" source="./media/custom-route-alert-portal/create-job.png" alt-text="Creare il processo":::
 
 3. Accedere con un'entità servizio. È possibile usare un'entità servizio esistente oppure è possibile crearne una nuova. Per creare una nuova entità servizio, vedere [come usare il portale per creare un'entità servizio Azure ad in grado di accedere alle risorse](../active-directory/develop/howto-create-service-principal-portal.md). Selezionare **Connetti con entità servizio**.
 
@@ -367,7 +367,7 @@ In questo passaggio del flusso di lavoro viene creata una condizione per inviare
 
 2. Nell'elenco **azioni** selezionare l'azione **Inizializza variabile** .
 
-   :::image type="content" source="./media/custom-route-alert-portal/initialize-variables.png" alt-text="Inizializzare variabili":::
+   :::image type="content" source="./media/custom-route-alert-portal/initialize-variables.png" alt-text="Inizializzare le variabili":::
 
 3. Specificare il nome della variabile. Per **tipo**selezionare **stringa**. Il **valore** della variabile verrà assegnato in un secondo momento nel flusso di lavoro.
 
@@ -379,7 +379,7 @@ Una volta analizzato il codice JSON, l'azione **analizza operazioni dati JSON** 
 
 1. In **Inizializza variabile**selezionare **Aggiungi un'azione**. Nella casella di ricerca digitare "for each" come filtro.
 
-   :::image type="content" source="./media/custom-route-alert-portal/control.png" alt-text="Controllare":::
+   :::image type="content" source="./media/custom-route-alert-portal/control.png" alt-text="Controllo":::
 
 2. Nell'elenco **azioni** selezionare l'azione **per ogni controllo**.
 
@@ -391,7 +391,7 @@ Una volta analizzato il codice JSON, l'azione **analizza operazioni dati JSON** 
 
 4. Per ogni elemento del corpo JSON, è necessario impostare una condizione. Dal gruppo azione selezionare **controllo**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/condition-control.png" alt-text="Controllare":::
+   :::image type="content" source="./media/custom-route-alert-portal/condition-control.png" alt-text="Controllo":::
 
 5. Nell'elenco **azioni** selezionare **Condition-Control**. Il controllo della condizione è una struttura di controllo che confronta i dati nel flusso di lavoro con valori o campi specifici. È quindi possibile specificare azioni diverse che vengono eseguite in base al fatto che i dati soddisfino o meno la condizione.
 
@@ -399,7 +399,7 @@ Una volta analizzato il codice JSON, l'azione **analizza operazioni dati JSON** 
 
 6. Nell'azione della **condizione** radice, modificare l'operazione della logica in **o**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/condition-or.png" alt-text="O" lightbox="./media/custom-route-alert-portal/condition-or-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/condition-or.png" alt-text="Or" lightbox="./media/custom-route-alert-portal/condition-or-expand.png":::
 
 7. Controllare il valore per il numero di prefissi di rete che un gateway ExpressRoute annuncia ai due peer BGP. Il numero di route è disponibile in "numRoutePeer1" e "numRoutePeer2" nel **contenuto dinamico**. Nella casella valore digitare il valore per **numRoutePeer1**.
 

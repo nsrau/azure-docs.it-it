@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/11/2019
 author: mingshen-ms
 ms.author: mingshen
-ms.openlocfilehash: 4a107b3175b7dddad3abb6401cbc12216ae843be
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ff46c5e2d434a75bf71d6216ce81b34de878ba80
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87304191"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419181"
 ---
 # <a name="ratings--reviews-analytics-dashboard-in-partner-center"></a>Classificazioni & esamina il dashboard di analisi nel centro per i partner
 
@@ -33,7 +33,7 @@ Il dashboard Visualizza una rappresentazione grafica delle attività dei clienti
 - Valutazioni & valutazioni  
 - Esaminare i commenti
 
-Usare le schede **storefront del Marketplace** per visualizzare le metriche dell'offerta Microsoft AppSource e di Azure Marketplace separatamente. Per visualizzare specifiche metriche dell'offerta, selezionare l'offerta dall'elenco a discesa offerta.
+Usare le schede di **Marketplace Insights** per visualizzare le metriche dell'offerta Microsoft AppSource e di Azure Marketplace separatamente. Per visualizzare specifiche metriche dell'offerta, selezionare l'offerta dall'elenco a discesa offerta.
 
 ### <a name="ratings--reviews-summary"></a>Riepilogo valutazioni &
 

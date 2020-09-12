@@ -13,19 +13,19 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: fd44c07ea44e7487a22b0de67737dcc135c813b6
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: ce4c44ef17f456a776fde3addc5ec4ed29c8ebbd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86038039"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434453"
 ---
 # <a name="virtual-network-service-tags"></a>Tag del servizio di rete virtuale
 <a name="network-service-tags"></a>
 
 Un tag del servizio rappresenta un gruppo di prefissi di indirizzi IP di un determinato servizio di Azure. Microsoft gestisce i prefissi di indirizzo inclusi nel tag del servizio e aggiorna automaticamente il tag in base alla modifica degli indirizzi, riducendo la complessità degli aggiornamenti frequenti alle regole di sicurezza di rete.
 
-È possibile usare i tag del servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) o in [Firewall di Azure](https://docs.microsoft.com/azure/firewall/service-tags). Usare i tag del servizio anziché indirizzi IP specifici quando si creano regole di sicurezza. Se si specifica il nome del tag del servizio, ad esempio **ApiManagement**, nel campo di *origine* o di *destinazione* appropriato di una regola, è possibile consentire o negare il traffico per il servizio corrispondente.
+È possibile usare i tag del servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules) o in [Firewall di Azure](https://docs.microsoft.com/azure/firewall/service-tags). Usare i tag del servizio anziché indirizzi IP specifici quando si creano regole di sicurezza. Specificando il nome del tag di servizio, ad esempio **ApiManagement**, nel *source*   campo di origine o di *destinazione*appropriato   di una regola, è possibile consentire o negare il traffico per il servizio corrispondente.
 
 È possibile usare i tag del servizio per ottenere l'isolamento rete e proteggere le risorse di Azure da Internet in generale durante l'accesso ai servizi di Azure con endpoint pubblici. Creare regole del gruppo di sicurezza di rete in ingresso/uscita per negare il traffico da/verso **Internet** e consentire il traffico da/verso **AzureCloud** o altri [tag del servizio](#available-service-tags) disponibili dei servizi di Azure specifici.
 
@@ -54,7 +54,7 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 | **AzureBackup** |Backup di Azure.<br/><br/>*Nota:* questo tag presenta una dipendenza dai tag **Storage** e **AzureActiveDirectory**. | In uscita | No | Sì |
 | **AzureBotService** | Servizio Azure Bot. | In uscita | No | No |
 | **AzureCloud** | Tutti gli [indirizzi IP pubblici dei data center](https://www.microsoft.com/download/details.aspx?id=56519). | In uscita | Sì | Sì |
-| **AzureCognitiveSearch** | Ricerca cognitiva di Azure <br/><br/>Questo tag o gli indirizzi IP associati possono essere usati per concedere agli indicizzatori l'accesso sicuro alle origini dati. Per altri dettagli, vedere la [documentazione sulla connessione agli indicizzatori](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting#connection-errors). <br/><br/> *Nota*: l'indirizzo IP del servizio di ricerca non è incluso nell'elenco di intervalli IP per questo tag del servizio ed **è necessario aggiungerlo anche** al firewall IP delle origini dati. | In ingresso | No | No |
+| **AzureCognitiveSearch** | Ricerca cognitiva di Azure <br/><br/>Questo tag o gli indirizzi IP associati possono essere usati per concedere agli indicizzatori l'accesso sicuro alle origini dati. Per altri dettagli, vedere la [documentazione sulla connessione all'indicizzatore](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting#connection-errors) . <br/><br/> *Nota*: l'indirizzo IP del servizio di ricerca non è incluso nell'elenco di intervalli IP per questo tag del servizio ed **è necessario aggiungerlo anche** al firewall IP delle origini dati. | In ingresso | No | No |
 | **AzureConnectors** | Connettori di App per la logica di Azure per le connessioni probe/back-end. | In ingresso | Sì | Sì |
 | **AzureContainerRegistry** | Registro Azure Container. | In uscita | Sì | Sì |
 | **AzureCosmosDB** | Azure Cosmos DB. | In uscita | Sì | Sì |
@@ -96,7 +96,7 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 | **PowerQueryOnline** | Power Query online. | Entrambe | No | No |
 | **Bus di servizio** | Traffico del bus di servizio di Azure che usa il livello di servizio Premium. | In uscita | Sì | Sì |
 | **ServiceFabric** | Azure Service Fabric.<br/><br/>*Nota:* questo tag rappresenta l'endpoint del servizio Service Fabric per il piano di controllo per l'area. Ciò consente ai clienti di eseguire operazioni di gestione per i propri cluster Service Fabric dalle rispettive reti virtuali (endpoint, ad esempio https:// westus.servicefabric.azure.com) | Entrambe | No | No |
-| **Sql** | Database SQL di Azure, Database di Azure per MySQL, Database di Azure per PostgreSQL e Azure SQL Data Warehouse.<br/><br/>*Nota:* il tag rappresenta il servizio, ma non istanze specifiche del servizio. Ad esempio, il tag rappresenta il servizio Database SQL di Azure, ma non uno specifico server o database SQL. Questo tag non è applicabile a SQL Istanza gestita. | In uscita | Sì | Sì |
+| **Sql** | Database SQL di Azure, database di Azure per MySQL, database di Azure per PostgreSQL e analisi delle sinapsi di Azure.<br/><br/>*Nota:* il tag rappresenta il servizio, ma non istanze specifiche del servizio. Ad esempio, il tag rappresenta il servizio Database SQL di Azure, ma non uno specifico server o database SQL. Tale tag non si applica all'istanza gestita di SQL. | In uscita | Sì | Sì |
 | **SqlManagement** | Traffico di gestione per le distribuzioni dedicate SQL. | Entrambe | No | Sì |
 | **Storage** | Archiviazione di Azure. <br/><br/>*Nota:* il tag rappresenta il servizio, ma non istanze specifiche del servizio. Ad esempio, il tag rappresenta il servizio Archiviazione di Azure, ma non uno specifico account di archiviazione di Azure. | In uscita | Sì | Sì |
 | **StorageSyncService** | Servizio di sincronizzazione archiviazione | Entrambe | No | No |

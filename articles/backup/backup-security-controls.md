@@ -3,12 +3,12 @@ title: Controlli di sicurezza
 description: Informazioni sui controlli di sicurezza usati nel servizio backup di Azure. Questi controlli consentono al servizio di prevenire, rilevare e rispondere alle vulnerabilità di sicurezza.
 ms.topic: conceptual
 ms.date: 09/23/2019
-ms.openlocfilehash: ce1ca0a79476e4985569c677b58892fad91866a5
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 7ff3ff5c1b024a228778b0214e67239d3c8ab721
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892963"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89418756"
 ---
 # <a name="security-controls-for-azure-backup"></a>Controlli di sicurezza per backup di Azure
 
@@ -22,8 +22,9 @@ Questo articolo descrive i controlli di sicurezza incorporati in backup di Azure
 |---|---|--|--|
 | Supporto endpoint di servizio| No |  |  |
 | Supporto aggiunta rete virtuale| No |  |  |
-| Isolamento rete e supporto del firewall| Sì | Il tunneling forzato è supportato per il backup delle macchine virtuali. Il tunneling forzato non è supportato per i carichi di lavoro in esecuzione nelle macchine virtuali. |  |
-| Supporto del tunneling forzato| No |  |  |
+| Isolamento rete e supporto del firewall| Sì | |  |
+| Supporto del tunneling forzato per le macchine virtuali di Azure | Sì  |  |  |
+| Supporto del tunneling forzato per le applicazioni in esecuzione nelle macchine virtuali di Azure| No  |  |  |
 
 ## <a name="monitoring--logging"></a>Monitoraggio e registrazione
 

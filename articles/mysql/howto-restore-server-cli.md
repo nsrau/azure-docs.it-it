@@ -8,12 +8,12 @@ ms.devlang: azurecli
 ms.topic: how-to
 ms.date: 3/27/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 27d1841458e8c5e1854d6fcd0810c36d4272cc1d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 2116b5be4c5d40076aae10ecc2e81d73e7806e6d
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500539"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419504"
 ---
 # <a name="how-to-back-up-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-cli"></a>Come eseguire il backup e il ripristino di un server in Database di Azure per MySQL usando l'interfaccia della riga di comando di Azure
 
@@ -79,6 +79,12 @@ Quando si ripristina un server a un punto precedente nel tempo, viene creato un 
 I valori relativi al percorso e al piano tariffario per il server ripristinato sono gli stessi del server di origine. 
 
 Al termine del ripristino, individuare il nuovo server creato per verificare che il ripristino dei dati sia avvenuto come previsto. Il nuovo server ha lo stesso nome di accesso dell'amministratore del server e la stessa password validi per il server esistente nel momento in cui è stato avviato il ripristino. È possibile modificare la password dalla pagina **Panoramica** del nuovo server.
+
+Inoltre, al termine dell'operazione di ripristino, sono disponibili due parametri del server che vengono reimpostati sui valori predefiniti (e non vengono copiati dal server primario) dopo l'operazione di ripristino
+*   time_zone: questo valore per impostare il valore predefinito del **sistema**
+*   event_scheduler: il event_scheduler è impostato su **off** nel server ripristinato
+
+È necessario copiare il valore dal server primario e impostarlo sul server ripristinato riconfigurando il [parametro Server](howto-server-parameters.md)
 
 Il nuovo server creato durante un ripristino non include gli endpoint servizio di rete virtuale presenti nel server originale. Per il nuovo server, queste regole devono essere impostate separatamente. Vengono ripristinate le regole del firewall del server originale.
 

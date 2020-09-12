@@ -8,16 +8,19 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 05/07/2020
+ms.date: 9/01/2020
 ms.author: aahi
-ms.openlocfilehash: 69984f9dbd94bcdca2e272a5bdebbb7fc1464dae
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 141b82467f2b437cfd4a8125d86618b85e48a6ef
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104410"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89424643"
 ---
 # <a name="container-support-in-azure-cognitive-services"></a>Supporto dei contenitori in Servizi cognitivi di Azure
+
+> [!WARNING]
+> L'11 giugno 2020 Microsoft ha annunciato che non venderà la tecnologia di riconoscimento facciale ai dipartimenti di polizia degli Stati Uniti fino a quando non verranno adottate norme rigorose, che tengano conto dei diritti umani. Di conseguenza, i clienti non possono usare le funzionalità o le funzionalità di riconoscimento facciali incluse nei servizi di Azure, ad esempio viso o Video Indexer, se un cliente è o consente l'uso di tali servizi per o per un reparto di polizia nel Stati Uniti.
 
 Il supporto dei contenitori nei servizi cognitivi di Azure consente agli sviluppatori di usare le stesse API avanzate disponibili in Azure e offre la flessibilità necessaria per distribuire e ospitare i servizi inclusi nei [contenitori Docker](https://www.docker.com/what-container). Il supporto dei contenitori è attualmente disponibile per un sottoinsieme di servizi cognitivi di Azure, incluse le parti di:
 
@@ -49,7 +52,7 @@ Le risorse di servizi cognitivi sono disponibili in [Microsoft Azure](https://az
 
 I contenitori di Servizi cognitivi di Azure offrono il set seguente di contenitori Docker, ognuno dei quali contiene un subset di funzionalità dei servizi disponibili in Servizi cognitivi di Azure:
 
-| Servizio | Piano tariffario supportato | Contenitore | Description |
+| Servizio | Piano tariffario supportato | Contenitore | Descrizione |
 |--|--|--|--|
 | [Rilevamento anomalie][ad-containers] | F0, S0 | **Rilevamento anomalie** | L'API Rilevamento anomalie permette di monitorare e rilevare le anomalie nei dati di serie temporali con l'apprendimento automatico.<br>[Richiedere l'accesso][request-access] |
 | [Visione artificiale][cv-containers] | F0, S1 | **Lettura** | Estre testo stampato dalle immagini di diversi oggetti con superfici e sfondi diversi, ad esempio ricette, poster e biglietti da visita. Il contenitore di lettura rileva anche il *testo scritto a mano* nelle immagini e fornisce il supporto per PDF/TIFF/più pagine.<br/><br/>**Importante:** Il contenitore di lettura attualmente funziona solo con l'inglese. |
@@ -60,6 +63,7 @@ I contenitori di Servizi cognitivi di Azure offrono il set seguente di contenito
 | [API servizio Voce][sp-containers-cstt] | F0, S0 | **Da Riconoscimento vocale personalizzato a testo** | Trascrive il discorso continuo in tempo reale nel testo usando un modello personalizzato. |
 | [API servizio Voce][sp-containers-tts] | F0, S0 | **Sintesi vocale** | Converte il testo scritto in un audio che suona naturale. |
 | [API servizio Voce][sp-containers-ctts] | F0, S0 | **Sintesi vocale personalizzata** | Converte il testo in un riconoscimento vocale naturale usando un modello personalizzato. |
+| [API servizio Voce][sp-containers-ntts] | F0, S0 | **Sintesi vocale neurale** | Converte il testo in sintesi vocale naturale usando la tecnologia di rete neurale profonda, consentendo una sintesi vocale più naturale. |
 | [Analisi del testo][ta-containers-keyphrase] | F0, S | **Estrazione frasi chiave** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018757&clcid=0x409)) | Estrae le frasi chiave per identificare i punti principali. Ad esempio, per il testo di input "Il cibo era delizioso e il personale era meraviglioso", l'API restituisce i punti rilevanti del discorso, ovvero "cibo" e "personale meraviglioso". |
 | [Analisi del testo][ta-containers-language] | F0, S | **Rilevamento lingua** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018759&clcid=0x409)) | Per un massimo di 120 lingue, rileva la lingua in cui è scritto il testo di input e crea un report relativo a un codice lingua singolo per ogni documento inviato nella richiesta. Il codice lingua è associato a un punteggio che indica il livello di attendibilità. |
 | [Analisi del testo][ta-containers-sentiment] | F0, S | **Analisi del sentiment V3** ([immagine](https://go.microsoft.com/fwlink/?linkid=2018654&clcid=0x409)) | Analizza testo non elaborato per indicazioni su una valutazione positiva o negativa. Questa versione dell'analisi dei sentimenti restituisce le etichette del sentimento, ad esempio *positivo* o *negativo*, per ogni documento e frase al suo interno. |
@@ -74,7 +78,7 @@ Inoltre, alcuni contenitori sono supportati in Servizi cognitivi [**All-in-One c
 * Visione artificiale
 * Viso
 * LUIS
-* Analisi del testo
+* Text Analytics
 
 ## <a name="container-availability-in-azure-cognitive-services"></a>Disponibilità dei contenitori in Servizi cognitivi di Azure
 
@@ -127,6 +131,7 @@ Installare ed esplorare le funzionalità fornite dai contenitori in Servizi cogn
 [sp-containers-cstt]: speech-service/speech-container-howto.md?tabs=cstt
 [sp-containers-tts]: speech-service/speech-container-howto.md?tabs=tts
 [sp-containers-ctts]: speech-service/speech-container-howto.md?tabs=ctts
+[sp-containers-ntts]: speech-service/speech-container-howto.md?tabs=ntts
 [ta-containers]: text-analytics/how-tos/text-analytics-how-to-install-containers.md
 [ta-containers-keyphrase]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=keyphrase
 [ta-containers-language]: text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=language

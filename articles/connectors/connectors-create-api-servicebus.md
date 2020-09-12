@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 07/31/2020
+ms.date: 09/03/2020
 tags: connectors
-ms.openlocfilehash: 13732c6d31f19dfb2548154feb8336a1dff3a529
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 68b81fa8cf110b47581e482e7e546821d40aef62
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88853300"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435151"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Scambiare messaggi nel cloud usando app per la logica di Azure e il bus di servizio di Azure
 
@@ -167,7 +167,7 @@ Quando si crea un'app per la logica, è possibile selezionare il modello **di re
 
 ## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
 
-Il connettore del bus di servizio può salvare fino a 1.500 sessioni univoche alla volta da un bus di servizio alla cache del connettore. Se il numero di sessioni supera questo limite, le sessioni precedenti vengono rimosse dalla cache. Per ulteriori informazioni, vedere [sessioni di messaggi](../service-bus-messaging/message-sessions.md).
+Da un bus di servizio, il connettore del bus di servizio può salvare fino a 1.500 sessioni univoche alla volta nella cache del connettore, per [entità di messaggistica del bus di servizio, ad esempio una sottoscrizione o un argomento](../service-bus-messaging/service-bus-queues-topics-subscriptions.md). Se il numero di sessioni supera questo limite, le sessioni precedenti vengono rimosse dalla cache. Per ulteriori informazioni, vedere [sessioni di messaggi](../service-bus-messaging/message-sessions.md).
 
 Per altri dettagli tecnici su trigger, azioni e limiti, descritti dalla descrizione di spavalderia del connettore, vedere la [pagina di riferimento del connettore](/connectors/servicebus/). Per altre informazioni sulla messaggistica del bus di servizio di Azure, vedere [che cos'è il bus di servizio di Azure](../service-bus-messaging/service-bus-messaging-overview.md)?
 

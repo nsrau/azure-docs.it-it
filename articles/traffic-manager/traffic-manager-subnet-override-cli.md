@@ -3,17 +3,17 @@ title: Override della subnet di gestione traffico di Azure con l'interfaccia del
 description: Questo articolo illustra come usare l'override della subnet di gestione traffico per eseguire l'override del metodo di routing di un profilo di gestione traffico per indirizzare il traffico a un endpoint in base all'indirizzo IP dell'utente finale tramite un intervallo IP predefinito per i mapping degli endpoint.
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.topic: how-to
 ms.service: traffic-manager
 ms.date: 09/18/2019
-ms.author: rohink
-ms.openlocfilehash: 33fdc2875d8d766f212301ddfecf9dbb734b876a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: b66f1f0061f697349afae21f5f9c63a4089c2794
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689691"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401708"
 ---
 # <a name="traffic-manager-subnet-override-using-azure-cli"></a>Sostituzione della subnet di gestione traffico con l'interfaccia della riga
 

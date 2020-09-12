@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 5b69d10bc2f3c5ec737e026059c82c3efac681b5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 4f5fb02239fa48d96b0b779af7c970fc67fbcb99
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268160"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419827"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-templates"></a>Distribuire macchine virtuali nel dispositivo GPU Azure Stack Edge tramite modelli
 
@@ -23,7 +23,7 @@ I modelli sono flessibili in ambienti diversi, in quanto possono assumere parame
 
 In questa esercitazione verranno usati modelli di esempio pre-scritti per la creazione di risorse. Non è necessario modificare il file modello ed è possibile modificare solo i `.parameters.json` file per personalizzare la distribuzione nel computer. 
 
-## <a name="vm-deployment-workflow"></a>Flusso di lavoro di distribuzione VM
+## <a name="vm-deployment-workflow"></a>Flusso di lavoro di distribuzione della VM
 
 Per distribuire le macchine virtuali Azure Stack Edge in molti dispositivi, è possibile usare un singolo disco rigido virtuale preparata con Sysprep per la flotta completa, lo stesso modello per la distribuzione e apportare solo modifiche minime ai parametri del modello per ogni percorso di distribuzione (queste modifiche possono essere apportate in modo manuale o a livello di codice). 
 
@@ -139,7 +139,7 @@ key1 GsCm7QriXurqfqx211oKdfQ1C9Hyu5ZutP6Xl0dqlNNhxLxDesDej591M8y7ykSPN4fY9vmVpgc
 key2 7vnVMJUwJXlxkXXOyVO4NfqbW5e/5hZ+VOs+C/h/ReeoszeV+qoyuBitgnWjiDPNdH4+lSm1/ZjvoBWsQ1klqQ== ll
 ```
 
-### <a name="add-blob-uri-to-hosts-file"></a>Aggiungi URI BLOB al file hosts
+### <a name="add-blob-uri-to-hosts-file"></a>Aggiungere l'URI del BLOB al file hosts
 
 Assicurarsi di aver già aggiunto l'URI del BLOB nel file hosts per il client usato per connettersi all'archiviazione BLOB. **Eseguire blocco note come amministratore** e aggiungere la voce seguente per l'URI del BLOB in `C:\windows\system32\drivers\etc\hosts` :
 
@@ -167,7 +167,7 @@ Copiare le immagini del disco da usare nei BLOB di pagine nell'account di archiv
 
     ![Importa certificato dell'endpoint di archiviazione BLOB](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/import-blob-storage-endpoint-certificate-1.png)
 
-    - Se si usano i certificati generati dal dispositivo, scaricare e convertire il certificato dell'endpoint di archiviazione BLOB `.cer` in un `.pem` formato. Eseguire il seguente comando. 
+    - Se si usano i certificati generati dal dispositivo, scaricare e convertire il certificato dell'endpoint di archiviazione BLOB `.cer` in un `.pem` formato. Eseguire il comando seguente. 
     
         ```powershell
         PS C:\windows\system32> Certutil -encode 'C:\myasegpu1_Blob storage (1).cer' .\blobstoragecert.pem
@@ -185,11 +185,11 @@ Copiare le immagini del disco da usare nei BLOB di pagine nell'account di archiv
 
     ![Connettersi ad archiviazione di Azure 1](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-1.png)
 
-5. Selezionare **Usare un nome e una chiave dell'account di archiviazione**. Selezionare **Avanti**.
+5. Selezionare **Usare un nome e una chiave dell'account di archiviazione**. Selezionare **Next** (Avanti).
 
     ![Connettersi ad archiviazione di Azure 2](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-2.png)
 
-6. Nella pagina **Connetti con nome e chiave**specificare il **nome visualizzato**, il **nome dell'account di archiviazione**e la chiave dell' **account**di archiviazione di Azure. Selezionare **altro** dominio di archiviazione e quindi specificare la `<device name>.<DNS domain>` stringa di connessione. Se non è stato installato un certificato in Storage Explorer, selezionare l'opzione **USA http** . Selezionare **Avanti**.
+6. Nella pagina **Connetti con nome e chiave**specificare il **nome visualizzato**, il **nome dell'account di archiviazione**e la chiave dell' **account**di archiviazione di Azure. Selezionare **altro** dominio di archiviazione e quindi specificare la `<device name>.<DNS domain>` stringa di connessione. Se non è stato installato un certificato in Storage Explorer, selezionare l'opzione **USA http** . Selezionare **Next** (Avanti).
 
     ![Connetti con nome e chiave](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-name-key-1.png)
 
@@ -245,11 +245,14 @@ Il file `CreateImageAndVnet.parameters.json` accetta i parametri seguenti:
 
 ```json
 "parameters": {
+        "osType": {
+              "value": "<Operating system corresponding to the VHD you upload can be Windows or Linux>"
+        },
         "imageName": {
             "value": "<Name for the VM iamge>"
         },
         "imageUri": {
-      "value": "<Path to the VHD that you uploaded in the Storage account>"
+              "value": "<Path to the VHD that you uploaded in the Storage account>"
         },
         "vnetName": {
             "value": "<Name for the virtual network where you will deploy the VM>"
@@ -501,7 +504,7 @@ Distribuire il modello di creazione della macchina virtuale `CreateVM.json` . Qu
         
         $templateFile = "<Path to CreateVM.json>"
         $templateParameterFile = "<Path to CreateVM.parameters.json>"
-        $RGName = "RG1"
+        $RGName = "<Resource group name>"
              
         New-AzureRmResourceGroupDeployment `
             -ResourceGroupName $RGName `
@@ -547,7 +550,27 @@ Distribuire il modello di creazione della macchina virtuale `CreateVM.json` . Qu
         
         PS C:\07-30-2020>
     ```   
- 
+È anche possibile eseguire il `New-AzureRmResourceGroupDeployment` comando in modo asincrono con il `–AsJob` parametro. Di seguito è riportato un esempio di output quando il cmdlet viene eseguito in background. È quindi possibile eseguire una query sullo stato del processo creato utilizzando il `Get-Job` cmdlet.
+
+    ```powershell   
+    PS C:\WINDOWS\system32> New-AzureRmResourceGroupDeployment `
+    >>     -ResourceGroupName $RGName `
+    >>     -TemplateFile $templateFile `
+    >>     -TemplateParameterFile $templateParameterFile `
+    >>     -Name "Deployment2" `
+    >>     -AsJob
+     
+    Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+    --     ----            -------------   -----         -----------     --------             -------
+    2      Long Running... AzureLongRun... Running       True            localhost            New-AzureRmResourceGro...
+     
+    PS C:\WINDOWS\system32> Get-Job -Id 2
+     
+    Id     Name            PSJobTypeName   State         HasMoreData     Location             Command
+    --     ----            -------------   -----         -----------     --------             -------
+    2      Long Running... AzureLongRun... Completed     True            localhost            New-AzureRmResourceGro...
+    ```
+
 7. Controllare se è stato eseguito correttamente il provisioning della macchina virtuale. Eseguire il comando seguente:
 
     `Get-AzureRmVm`
@@ -555,7 +578,19 @@ Distribuire il modello di creazione della macchina virtuale `CreateVM.json` . Qu
 
 ## <a name="connect-to-a-vm"></a>Connettersi a una macchina virtuale
 
+A seconda del fatto che sia stata creata una macchina virtuale Windows o Linux, la procedura per la connessione può essere diversa.
+
+### <a name="connect-to-windows-vm"></a>Connettersi a una macchina virtuale Windows
+
+Per connettersi a una macchina virtuale Windows, seguire questa procedura.
+
 [!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
+
+### <a name="connect-to-linux-vm"></a>Connettersi a una VM Linux
+
+Seguire questa procedura per connettersi a una VM Linux.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
 
 <!--## Manage VM
 

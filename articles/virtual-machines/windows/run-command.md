@@ -9,12 +9,12 @@ ms.date: 04/26/2019
 ms.topic: how-to
 ms.custom: devx-track-azurecli
 manager: carmonm
-ms.openlocfilehash: dd1e20504d96b55d6a450512ea287b9352fb043a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 3393cb66735ffb881520a11bf9d1680c35d3d374
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496934"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89424804"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-by-using-run-command"></a>Eseguire gli script di PowerShell nella macchina virtuale Windows usando Esegui comando
 
@@ -40,6 +40,7 @@ Quando si usa Esegui comando, sono valide le limitazioni seguenti:
 * Non è possibile annullare l'esecuzione di uno script.
 * Il tempo massimo di esecuzione di uno script è di 90 minuti. Dopo questo tempo viene raggiunto il timeout.
 * La connettività in uscita dalla macchina virtuale è necessaria per restituire i risultati dello script.
+* Non è consigliabile eseguire uno script che provocherà l'arresto o l'aggiornamento dell'agente di macchine virtuali. Ciò può consentire l'estensione in uno stato di transizione, causando un timeout.
 
 > [!NOTE]
 > Per funzionare correttamente, Esegui comando richiede la connettività agli indirizzi IP pubblici di Azure (porta 443). Se l'estensione non ha accesso a questi endpoint, gli script potrebbero funzionare correttamente, ma non restituiranno risultati. Se si sta bloccando il traffico nella macchina virtuale, è possibile usare i [tag di servizio](../../virtual-network/security-overview.md#service-tags) per consentire il traffico verso gli indirizzi IP pubblici di Azure tramite il tag `AzureCloud`.

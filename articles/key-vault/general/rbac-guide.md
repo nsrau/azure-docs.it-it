@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 8f1e95c1244d327478862c3919481394d974ea42
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9b7abc39bf50a61b7b52bc4027c6d845728c3874
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89270175"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419266"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Fornire l'accesso a chiavi Key Vault, certificati e segreti con un controllo degli accessi in base al ruolo di Azure (anteprima)
 
@@ -38,7 +38,7 @@ Le autorizzazioni per chiavi, segreti e certificati singoli devono essere usate 
 
 Per ulteriori informazioni sulle linee guida per la gestione di Azure Key Vault, vedere:
 
-- [Procedure consigliate Azure Key Vault](best-practices.md)
+- [Procedure consigliate per Azure Key Vault](best-practices.md)
 - [Limiti del servizio Azure Key Vault](service-limits.md)
 
 ## <a name="azure-built-in-roles-for-key-vault-data-plane-operations-preview"></a>Ruoli predefiniti di Azure per Key Vault operazioni del piano dati (anteprima)
@@ -61,6 +61,10 @@ Per altre informazioni sulle definizioni dei ruoli predefiniti di Azure, vedere 
 Il nuovo modello di autorizzazione RBAC di Azure per Key Vault fornisce un'alternativa al modello di autorizzazioni per i criteri di accesso all'insieme di credenziali. 
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Abilitare le autorizzazioni RBAC di Azure per Key Vault
+
+Durante la fase di anteprima, è necessario usare il tag di funzionalità RBAC di Azure (Microsoft_Azure_KeyVault_RBACEnabled = true) per visualizzare le nuove opzioni del modello di autorizzazione.
+
+https://portal.azure.com/?Microsoft_Azure_KeyVault_RBACEnabled=true#home
 
 > [!IMPORTANT]
 > L'impostazione del modello di autorizzazione RBAC di Azure invalida tutte le autorizzazioni per i criteri di accesso. Può causare interruzioni quando i ruoli di Azure equivalenti non vengono assegnati.
@@ -205,8 +209,6 @@ az role definition create --role-definition '{ \
 Per ulteriori informazioni su come creare ruoli personalizzati, vedere:
 
 [Ruoli personalizzati di Azure](https://docs.microsoft.com/azure/role-based-access-control/custom-roles)
-
-Per le azioni disponibili, vedere Appendice: **azioni disponibili**
 
 ## <a name="known-limits-and-performance"></a>Limiti e prestazioni noti
 

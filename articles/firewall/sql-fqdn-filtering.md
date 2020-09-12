@@ -7,12 +7,12 @@ ms.service: firewall
 ms.topic: how-to
 ms.date: 06/18/2020
 ms.author: victorh
-ms.openlocfilehash: e921ea707e4a0df968d162726fe53064491cb032
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 744fe22b6b2c9fbeb9b149760145267ccb6fa6f8
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85610507"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435213"
 ---
 # <a name="configure-azure-firewall-application-rules-with-sql-fqdns"></a>Configurare le regole dell'applicazione Firewall di Azure con FQDN di SQL
 
@@ -20,7 +20,7 @@ ms.locfileid: "85610507"
 
 Con i nomi di dominio completi di SQL è possibile filtrare il traffico:
 
-- Dalla reti virtuali a un database SQL di Azure o a un Azure SQL Data Warehouse. Ad esempio: Consentire l'accesso solo a *sql-server1.database.windows.net*.
+- Dalla reti virtuali a un database SQL di Azure o ad Azure sinapsi Analytics. Ad esempio: Consentire l'accesso solo a *sql-server1.database.windows.net*.
 - Da locale a istanze gestite di SQL di Azure o IaaS SQL in esecuzione in reti virtuali.
 - Da spoke a spoke a istanze gestite di SQL di Azure o IaaS SQL in esecuzione in reti virtuali.
 
@@ -30,7 +30,7 @@ Se si usano porte non predefinite per il traffico IaaS SQL, è possibile configu
 ## <a name="configure-using-azure-cli"></a>Configurare con l'interfaccia della riga di comando
 
 1. Distribuire un [firewall di Azure con l'interfaccia della riga di comando di Azure](deploy-cli.md).
-2. Se si filtra il traffico verso il database SQL di Azure, SQL Data Warehouse o Istanza gestita di SQL, assicurarsi che la modalità di connettività SQL sia impostata su **Proxy**. Per informazioni su come cambiare la modalità di connettività SQL, vedere [Impostazioni di connettività per SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-settings#change-connection-policy-via-azure-cli).
+2. Se si filtra il traffico verso il database SQL di Azure, Azure sinapsi Analytics o SQL Istanza gestita, assicurarsi che la modalità di connettività SQL sia impostata su **proxy**. Per informazioni su come cambiare la modalità di connettività SQL, vedere [Impostazioni di connettività per SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-settings#change-connection-policy-via-azure-cli).
 
    > [!NOTE]
    > La modalità *proxy di SQL* può comportare una latenza maggiore rispetto al *reindirizzamento*. Se si vuole continuare a usare la modalità di reindirizzamento, che è l'impostazione predefinita per i client che si connettono all'interno di Azure, è possibile filtrare l'accesso usando il [tag di servizio](service-tags.md) di SQL nelle [regole di rete](tutorial-firewall-deploy-portal.md#configure-a-network-rule) del firewall.
@@ -52,7 +52,7 @@ Se si usano porte non predefinite per il traffico IaaS SQL, è possibile configu
 
 ## <a name="configure-using-the-azure-portal"></a>Configurare con il Portale di Azure
 1. Distribuire un [firewall di Azure con l'interfaccia della riga di comando di Azure](deploy-cli.md).
-2. Se si filtra il traffico verso il database SQL di Azure, SQL Data Warehouse o Istanza gestita di SQL, assicurarsi che la modalità di connettività SQL sia impostata su **Proxy**. Per informazioni su come cambiare la modalità di connettività SQL, vedere [Impostazioni di connettività per SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-settings#change-connection-policy-via-azure-cli).  
+2. Se si filtra il traffico verso il database SQL di Azure, Azure sinapsi Analytics o SQL Istanza gestita, assicurarsi che la modalità di connettività SQL sia impostata su **proxy**. Per informazioni su come cambiare la modalità di connettività SQL, vedere [Impostazioni di connettività per SQL di Azure](https://docs.microsoft.com/azure/sql-database/sql-database-connectivity-settings#change-connection-policy-via-azure-cli).  
 
    > [!NOTE]
    > La modalità *proxy di SQL* può comportare una latenza maggiore rispetto al *reindirizzamento*. Se si vuole continuare a usare la modalità di reindirizzamento, che è l'impostazione predefinita per i client che si connettono all'interno di Azure, è possibile filtrare l'accesso usando il [tag di servizio](service-tags.md) di SQL nelle [regole di rete](tutorial-firewall-deploy-portal.md#configure-a-network-rule) del firewall.

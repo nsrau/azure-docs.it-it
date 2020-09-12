@@ -5,14 +5,14 @@ services: vpn-gateway
 author: yushwang
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 02/26/2020
+ms.date: 09/02/2020
 ms.author: yushwang
-ms.openlocfilehash: 7fb344e16ed672dfc6c88fbe2c4888c52c9b717d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2a85204fef026940394a19934bef1c631a8e2d21
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081985"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89418879"
 ---
 # <a name="connect-azure-vpn-gateways-to-multiple-on-premises-policy-based-vpn-devices-using-powershell"></a>Connettere i gateway VPN di Azure a più dispositivi VPN basati su criteri locali usando PowerShell
 
@@ -40,7 +40,7 @@ Azure supporta attualmente entrambe le modalità di gateway VPN: gateway VPN bas
 | -------- | ----------------------- | ---------------------- | ---------------------- |---                                                 |
 | **SKU del gateway di Azure**    | Basic                       | Basic                            | VpnGw1, VpnGw2, VpnGw3, VpnGw4, VpnGw5  |
 | **Versione IKE**          | IKEv1                       | IKEv2                            | IKEv1 e IKEv2                         |
-| **Max. Connessioni S2S** | **1**                       | 10                               | 30                     |
+| **Numero massimo di connessioni S2S** | **1**                       | 10                               | 30                     |
 |                          |                             |                                  |                                                    |
 
 Con i criteri IPsec/IKE personalizzati, ora è possibile configurare i gateway VPN basati su route di Azure per l'uso di selettori di traffico basati su prefissi con l'opzione "**PolicyBasedTrafficSelectors**", per connettersi ai dispositivi VPN basati su criteri locali. Questa funzionalità consente di connettersi da una rete virtuale di Azure e da un gateway VPN a più dispositivi VPN/firewall basati su criteri locali, rimuovendo il limite della connessione singola dai gateway VPN basati su criteri di Azure correnti.

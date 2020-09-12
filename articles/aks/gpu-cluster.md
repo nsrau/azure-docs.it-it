@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 08/21/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: 27c284ff7e806c9f194005ed26c05e99c4697083
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 4dfaa329dd0472b52de2d3306e6a3b61f660e666
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757643"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443059"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>Usare le GPU per carichi di lavoro a elevato utilizzo di calcolo nel servizio Azure Kubernetes
 
@@ -162,7 +162,7 @@ az extension update --name aks-preview
 
 Configurare il cluster per l'uso dell'immagine GPU specializzata AKS quando viene creato il cluster. Usare il `--aks-custom-headers` flag per i nodi dell'agente GPU nel nuovo cluster per usare l'immagine GPU specializzata AKS.
 
-```azure-cli
+```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
 ```
 
@@ -173,7 +173,7 @@ Se si vuole creare un cluster usando le immagini AKS normali, è possibile omett
 
 Configurare un nuovo pool di nodi per l'uso dell'immagine GPU specializzata AKS. Usare il `--aks-custom-headers` flag flag per i nodi dell'agente GPU nel nuovo pool di nodi per usare l'immagine GPU specializzata AKS.
 
-```azure-cli
+```azurecli
 az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true
 ```
 
@@ -181,7 +181,7 @@ Se si vuole creare un pool di nodi usando le immagini AKS normali, è possibile 
 
 > [!NOTE]
 > Se lo SKU GPU richiede le macchine virtuali di seconda generazione, è possibile creare:
-> ```azure-cli
+> ```azurecli
 > az aks nodepool add --name gpu --cluster-name myAKSCluster --resource-group myResourceGroup --node-vm-size Standard_NC6s_v2 --node-count 1 --aks-custom-headers UseGPUDedicatedVHD=true,usegen2vm=true
 > ```
 

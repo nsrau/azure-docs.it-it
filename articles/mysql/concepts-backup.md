@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/27/2020
-ms.openlocfilehash: 3f24e3538f05ca3b6a27907e0b794705402fce7c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 4a6f6a052269bbfef6cafb359626031692a7d9c6
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285442"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89418586"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mysql"></a>Eseguire il backup e il ripristino in Database di Azure per MySQL
 
@@ -36,7 +36,7 @@ I backup differenziali degli snapshot si verificano almeno una volta al giorno. 
 
 I backup del log delle transazioni vengono eseguiti ogni cinque minuti. 
 
-### <a name="backup-retention"></a>Conservazione backup
+### <a name="backup-retention"></a>Conservazione dei backup
 
 I backup vengono conservati in base all'impostazione del periodo di conservazione dei backup nel server. È possibile selezionare un periodo di conservazione compreso tra 7 e 35 giorni. Il periodo di memorizzazione predefinito è 7 giorni. È possibile impostare il periodo di conservazione durante la creazione del server o in un secondo momento aggiornando la configurazione di backup usando [portale di Azure](https://docs.microsoft.com/azure/mysql/howto-restore-server-portal#set-backup-configuration) o l' [interfaccia](https://docs.microsoft.com/azure/mysql/howto-restore-server-cli#set-backup-configuration)della riga di comando 
 
@@ -76,6 +76,13 @@ Il tempo stimato per il ripristino dipende da diversi fattori, tra cui le dimens
 ### <a name="point-in-time-restore"></a>Ripristino temporizzato
 
 Indipendentemente dall'opzione di ridondanza per il backup scelta, è possibile eseguire il ripristino a qualsiasi momento specifico all'interno del periodo di conservazione dei backup. Verrà creato un nuovo server nella stessa area di Azure del server originale, nonché con la stessa configurazione in termini di piano tariffario, generazione di calcolo, numero di vCore, dimensioni di archiviazione, periodo di conservazione dei backup e opzione di ridondanza per il backup.
+
+> [!NOTE]
+> Sono disponibili due parametri del server che vengono reimpostati sui valori predefiniti (e non vengono copiati dal server primario) dopo l'operazione di ripristino
+> * time_zone: questo valore per impostare il valore predefinito del **sistema**
+> * event_scheduler: il event_scheduler è impostato su **off** nel server ripristinato
+>
+> È necessario impostare questi parametri del server riconfigurando il [parametro Server](howto-server-parameters.md)
 
 Il ripristino temporizzato è utile in più scenari, ad esempio quando un utente per errore elimina dati o rimuove un database o una tabella importante oppure se un'applicazione sovrascrive accidentalmente dati corretti con dati non validi a causa di un difetto dell'applicazione.
 

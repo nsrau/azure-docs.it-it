@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/05/2018
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: d7903dc7f614d16380626f27579363b1529665cc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 926de9f3fd357cd9d9ca067e4f7beff7d03eec95
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84988113"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394188"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Generare ed esportare certificati per connessioni da punto a sito usando MakeCert
 
@@ -52,7 +52,7 @@ Si consiglia di esportare il certificato radice autofirmato e archiviarlo in un 
 
 Il certificato autofirmato non deve essere installato direttamente nel computer client. È necessario generare un certificato client da un certificato autofirmato. Quindi, esportare e installare il certificato client nel computer client. I seguenti passaggi non si applicano specificatamente a un modello di distribuzione. Sono validi sia per Gestione risorse che per il modello classico.
 
-### <a name="generate-a-client-certificate"></a><a name="clientcert"></a>Generazione di un certificato client
+### <a name="generate-a-client-certificate"></a><a name="clientcert"></a>Generare un certificato client
 
 Ogni computer client che si connette a una rete virtuale usando la soluzione Da punto a sito deve avere un certificato client installato. È possibile generare un certificato client da un certificato radice autofirmato, quindi esportare e installare il certificato client. Se il certificato client non è installato, l'autenticazione ha esito negativo. 
 

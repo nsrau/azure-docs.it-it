@@ -3,7 +3,7 @@ title: Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traf
 description: Come risolvere i problemi relativi ai profili di Gestione traffico quando risulta uno stato Danneggiato.
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/03/2017
-ms.author: rohink
-ms.openlocfilehash: 88c2536ad53be0beb583dc64e633322b2a531d15
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.author: duau
+ms.openlocfilehash: 83dc432a1f88b443d500bf9a977abfed69211156
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86183444"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401555"
 ---
 # <a name="troubleshooting-degraded-state-on-azure-traffic-manager"></a>Risoluzione dei problemi relativi allo stato Danneggiato di Gestione traffico
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c2e2394bbcee5294bfb752a0af2969457ffff0ee
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 290990e312a7f591539686ecce1eec1ac742dd60
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84710151"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443025"
 ---
 # <a name="move-data-from-amazon-redshift-using-azure-data-factory"></a>Spostare i dati da Amazon Redshift usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -65,7 +65,7 @@ La tabella seguente include le descrizioni degli elementi JSON specifici di un s
 | **server** |Indirizzo IP o nome host del server Amazon Redshift. |Sì |
 | **port** |Il numero della porta TCP che il server Amazon Redshift usa per ascoltare le connessioni client. |No (il valore predefinito è 5439) |
 | **database** |Nome del database Amazon Redshift. |Sì |
-| **username** |Nome dell'utente che ha accesso al database. |Sì |
+| **nome utente** |Nome dell'utente che ha accesso al database. |Sì |
 | **password** |La password per l'account utente. |Sì |
 
 ## <a name="dataset-properties"></a>Proprietà del set di dati
@@ -101,13 +101,13 @@ In alternativa, è possibile usare il tipo **RelationalSource**, che include Ama
 
 Il comando [**UNLOAD**](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) di Amazon Redshift scarica i risultati di una query in uno o più file su Amazon S3. Questo comando è consigliato da Amazon per la copia di set di dati di grandi dimensioni da Redshift.
 
-**Esempio: Copiare dati da Amazon Redshift ad Azure SQL Data Warehouse**
+**Esempio: copiare dati da Amazon lo spostamento in Azure sinapsi Analytics (in precedenza SQL Data Warehouse)**
 
-Questo esempio copia i dati da Amazon Redshift ad Azure SQL Data Warehouse. L'esempio usa il comando **UNLOAD** di Redshift, i dati della copia di staging e Microsoft PolyBase.
+Questo esempio copia i dati da Amazon lo spostamento in Azure sinapsi Analytics. L'esempio usa il comando **UNLOAD** di Redshift, i dati della copia di staging e Microsoft PolyBase.
 
-Per questo caso d'uso di esempio, l'attività di copia scarica prima i dati da Amazon Redshift ad Amazon S3, in base alla configurazione dell'opzione **redshiftUnloadSettings**. I dati vengono quindi copiati da Amazon S3 all'archiviazione BLOB di Azure, come specificato nell'opzione **stagingSettings**. PolyBase carica infine i dati in SQL Data Warehouse. Tutti i formati provvisori vengono gestiti dall'attività di copia.
+Per questo caso d'uso di esempio, l'attività di copia scarica prima i dati da Amazon Redshift ad Amazon S3, in base alla configurazione dell'opzione **redshiftUnloadSettings**. I dati vengono quindi copiati da Amazon S3 all'archiviazione BLOB di Azure, come specificato nell'opzione **stagingSettings**. Infine, la polibase carica i dati in Azure sinapsi Analytics. Tutti i formati provvisori vengono gestiti dall'attività di copia.
 
-![Flusso di lavoro di copia da Amazon Redshift a SQL Data Warehouse](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
+![Eseguire la copia del flusso di lavoro da Amazon spostamento in Azure sinapsi Analytics](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 {

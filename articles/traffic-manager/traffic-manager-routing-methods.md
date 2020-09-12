@@ -2,20 +2,20 @@
 title: Metodi di routing del traffico di Gestione traffico di Azure
 description: Questo articolo fornisce informazioni sui diversi metodi di routing del traffico usati da Gestione traffico
 services: traffic-manager
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
-ms.author: rohink
-ms.openlocfilehash: 4a035506943eeffa2c3fc4fec27c47da4136683b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 3cf493beab6dfe1767ae35ea36732dc364e29736
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84689657"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401657"
 ---
 # <a name="traffic-manager-routing-methods"></a>Metodi di routing di Gestione traffico
 
@@ -39,7 +39,7 @@ Un'organizzazione vuole spesso offrire la massima affidabilità per i propri ser
 
 ![Metodo di routing del traffico "Priorità" di Gestione traffico di Azure](media/traffic-manager-routing-methods/priority.png)
 
-Il profilo di Gestione traffico contiene un elenco con priorità di endpoint di servizio. Per impostazione predefinita, tutto il traffico viene inviato all'endpoint primario (o con priorità più elevata). Se l'endpoint primario non è disponibile, Gestione traffico indirizza il traffico verso il secondo endpoint. Se l'endpoint primario e secondario non sono disponibili, il traffico viene indirizzato al terzo e così via. La disponibilità dell'endpoint si basa sullo stato configurato (abilitato o disabilitato) e sul monitoraggio degli endpoint in corso.
+Il profilo di Gestione traffico contiene un elenco di endpoint del servizio con diverse priorità. Per impostazione predefinita, tutto il traffico viene inviato all'endpoint primario (con priorità più elevata). Se l'endpoint primario non è disponibile, Gestione traffico indirizza il traffico verso il secondo endpoint. Se l'endpoint primario e secondario non sono disponibili, il traffico viene indirizzato al terzo e così via. La disponibilità dell'endpoint si basa sullo stato configurato (abilitato o disabilitato) e sul monitoraggio degli endpoint in corso.
 
 ### <a name="configuring-endpoints"></a>Configurazione degli endpoint
 
@@ -50,9 +50,9 @@ Il metodo di routing del traffico "Ponderato" consente di distribuire il traffic
 
 ![Metodo di routing del traffico "Ponderato" di Gestione traffico di Azure](media/traffic-manager-routing-methods/weighted.png)
 
-Nel metodo di routing del traffico "Ponderato" viene assegnato un peso a ogni endpoint come parte della configurazione del profilo di Gestione traffico. Ogni peso è un numero intero compreso tra 1 e 1000. Questo parametro è facoltativo. se omesso, viene usato il valore di peso predefinito "1". Maggiore è il peso, maggiore è la priorità.
+Nel metodo di routing del traffico "Ponderato" viene assegnato un peso a ogni endpoint come parte della configurazione del profilo di Gestione traffico. Ogni peso è un numero intero compreso tra 1 e 1000. Questo parametro è facoltativo e, se omesso, viene usato il valore di peso predefinito "1". Maggiore è il peso, maggiore è la priorità.
 
-Per ogni query DNS ricevuta, viene scelto un endpoint disponibile in modo casuale, con una probabilità di scelta basata sul peso assegnato a tutti gli endpoint disponibili. L'uso dello stesso peso in tutti gli endpoint comporta una distribuzione uniforme del traffico. Se vengono usati pesi superiori o inferiori in specifici endpoint, questi verranno restituiti più o meno frequentemente nelle risposte DNS.
+Per ogni query DNS ricevuta, Gestione traffico sceglie casualmente un endpoint disponibile. La probabilità di scelta di un determinato endpoint dipende dai pesi assegnati a tutti gli endpoint disponibili. L'uso dello stesso peso in tutti gli endpoint comporta una distribuzione uniforme del traffico. Se vengono usati pesi superiori o inferiori in specifici endpoint, questi verranno restituiti più o meno frequentemente nelle risposte DNS.
 
 Il metodo "Ponderato" abilita alcuni scenari utili:
 

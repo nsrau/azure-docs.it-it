@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 07/06/2020
-ms.openlocfilehash: 19e3e356765099b83f7248a024b55c491a61b110
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: c3ffcea27fa16fd4f5449b42407a7e4779ca27f9
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816270"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420932"
 ---
 # <a name="offer-listing-best-practices"></a>Procedure consigliate per le inserzioni di offerte
 
@@ -48,11 +48,11 @@ Le categorie e i settori per un negozio online diverso saranno applicabili ai di
 
 ### <a name="categories"></a>Categorie
 
-Microsoft AppSource e Azure Marketplace sono due diversi negozi online che soddisfano i requisiti dei clienti esclusivi. Azure Marketplace è destinato a professionisti IT e sviluppatori che sviluppano soluzioni in Azure.  Microsoft AppSource è destinata agli utenti aziendali che cercano applicazioni SaaS aziendali e/o del settore, componenti aggiuntivi di Dynamics 365, componenti aggiuntivi Microsoft 365 e app Power Platform.
+Microsoft AppSource e Azure Marketplace sono negozi online che offrono tipi diversi di soluzioni. Azure Marketplace offre soluzioni IT basate su o per Azure.  Microsoft AppSource offrire soluzioni aziendali, ad esempio applicazioni SaaS del settore, componenti aggiuntivi di Dynamics 365, componenti aggiuntivi Microsoft 365 e app Power Platform.
 
-Le categorie e le sottocategorie sono mappate a ogni negozio online in base ai destinatari. L'offerta verrà pubblicata in Microsoft AppSource o in Azure Marketplace a seconda del tipo di offerta, delle funzionalità di transazione dell'offerta e della selezione di categoria/sottocategoria. 
+Le categorie e le sottocategorie sono mappate a ogni negozio online in base al tipo di soluzione. L'offerta verrà pubblicata in Microsoft AppSource o in Azure Marketplace a seconda del tipo di offerta, delle funzionalità di transazione dell'offerta e della selezione di categoria/sottocategoria. 
 
-Selezionare le categorie e le sottocategorie che meglio si allineano con l'offerta e con i destinatari desiderati. È possibile selezionare:
+Selezionare le categorie e le sottocategorie che meglio si allineano con il tipo di soluzione. È possibile selezionare:
 
 * Fino a due categorie, tra cui una categoria primaria e una secondaria (facoltativo).
 * Fino a due sottocategorie per ogni categoria primaria e/o secondaria. Se non è selezionata alcuna sottocategoria, l'offerta sarà comunque individuabile solo per la categoria selezionata.

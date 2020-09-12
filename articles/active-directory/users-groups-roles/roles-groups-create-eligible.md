@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f816c95b5e210e86e2215cadf8407f442d69ebe
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: 1c5efbbd5f9f5dfe701deb50b51605ab324c081a
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476117"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401674"
 ---
 # <a name="create-a-role-assignable-group-in-azure-active-directory"></a>Creare un gruppo assegnabile al ruolo in Azure Active Directory
 
-È possibile assegnare un ruolo solo a un gruppo creato con la proprietà' isAssignableToRole ' impostata su true oppure è stato creato nel portale di Azure AD con **Azure ad i ruoli possono essere assegnati al gruppo** attivato. Questo attributo di gruppo rende il gruppo uno che può essere assegnato a un ruolo in Azure Active Directory (Azure AD). Questo articolo descrive come creare questo tipo di gruppo speciale.
+È possibile assegnare un ruolo solo a un gruppo creato con la proprietà' isAssignableToRole ' impostata su true oppure è stato creato nel portale di Azure AD con **Azure ad i ruoli possono essere assegnati al gruppo** attivato. Questo attributo di gruppo rende il gruppo uno che può essere assegnato a un ruolo in Azure Active Directory (Azure AD). Questo articolo descrive come creare questo tipo di gruppo speciale. **Nota:** Un gruppo con la proprietà isAssignableToRole impostata su true non può essere di tipo di appartenenza dinamica. Per ulteriori informazioni, vedere [utilizzo di un gruppo per gestire le assegnazioni di ruolo Azure ad](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-groups-concept).
 
 ## <a name="using-azure-ad-admin-center"></a>Uso di Azure AD interfaccia di amministrazione
 
@@ -128,4 +128,4 @@ Per questo tipo di gruppo, `isPublic` sarà sempre false e `isSecurityEnabled` s
 
 - [Assegnare un ruolo a un gruppo cloud](roles-groups-assign-role.md)
 - [Usare i gruppi di cloud per gestire le assegnazioni di ruolo](roles-groups-concept.md)
-- [Risoluzione dei problemi assegnati ai gruppi di cloud](roles-groups-faq-troubleshooting.md)
+- [Risoluzione dei problemi correlati ai ruoli assegnati ai gruppi cloud](roles-groups-faq-troubleshooting.md)

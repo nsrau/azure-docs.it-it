@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: tagore
 ms.custom: devx-track-python
-ms.openlocfilehash: 7025d042fa021c6ee5311566d66bfd090dbd06cd
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 503e37d0e339cacc9c21a2b2f3ad739e1385c955
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87851580"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443195"
 ---
 # <a name="python-web-and-worker-roles-with-python-tools-for-visual-studio"></a>Ruoli Web e ruoli di lavoro Python con Python Tools for Visual Studio
 
@@ -288,7 +288,7 @@ else
 #### <a name="pscmd"></a>ps.cmd
 I modelli di Visual Studio dovrebbero aver creato un file **ps.cmd** nella cartella **./bin**. Questo script della shell chiama gli script del wrapper di PowerShell precedenti e fornisce la registrazione in base al nome del wrapper di PowerShell chiamato. Se questo file non è stato creato, di seguito è indicato il contenuto necessario. 
 
-```bat
+```cmd
 @echo off
 
 cd /D %~dp0
@@ -308,7 +308,7 @@ Per eseguire il debug dei ruoli di lavoro e Web, è possibile impostare il proge
 
 ![Proprietà del progetto di avvio della soluzione](./media/cloud-services-python-ptvs/startup.png)
 
-## <a name="publish-to-azure"></a>Eseguire la pubblicazione in Azure
+## <a name="publish-to-azure"></a>Pubblicazione in Azure
 Per pubblicare, fare clic con il pulsante destro del mouse sul progetto servizio cloud nella soluzione e quindi scegliere **Pubblica**.
 
 ![Accesso per la pubblicazione di Microsoft Azure](./media/cloud-services-python-ptvs/publish-sign-in.png)

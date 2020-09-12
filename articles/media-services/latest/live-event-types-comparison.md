@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 41df31cde95ae7ed1d05dac572718622067194c9
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c79d45cfac22f41f05071b619c444e7b7ab7956a
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265253"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397305"
 ---
 # <a name="live-event-types-comparison"></a>Confronto tra tipi di eventi live
 
@@ -36,7 +36,7 @@ Nella tabella seguente vengono confrontate le funzionalità dei tipi di evento L
 * **LiveEventEncodingType. standard** : un codificatore Live locale invia un flusso a bitrate singolo all'evento Live e servizi multimediali crea più flussi a bitrate multipli. Se il feed di contributo è di risoluzione 720p o superiore, il set di impostazioni di **Default720p** codifica un set di 6 coppie di risoluzione/velocità in bit (i dettagli seguiranno più avanti in questo articolo).
 * **LiveEventEncodingType. Premium1080p** : un codificatore Live locale invia un flusso a bitrate singolo all'evento Live e servizi multimediali crea più flussi a bitrate multipli. Il set di impostazioni Default1080p specifica il set di output di coppie di risoluzione/velocità in bit (i dettagli sono seguiti più avanti nell'articolo). 
 
-| Funzionalità | Evento live pass-through | Evento live standard o Premium1080p |
+| Feature | Evento live pass-through | Evento live standard o Premium1080p |
 | --- | --- | --- |
 | Input a bitrate singolo codificato in bitrate multipli nel cloud |No |Sì |
 | Risoluzione video massima per feed di contributo |4K (4096 x 2160 a 60 fotogrammi/sec) |1080p (1920 x 1088 a 30 fotogrammi/sec)|
@@ -86,8 +86,7 @@ Se il feed di contributo è di risoluzione 720p o superiore, il set di impostazi
 | 200 |340 |192 |30 |Alto |
 
 > [!NOTE]
-> Se è necessario personalizzare il set di impostazioni per la codifica live, aprire un ticket di supporto tramite il portale di Azure. È necessario specificare la tabella di risoluzione e la velocità in bit desiderata. Verificare che vi sia un solo livello a 720p e un massimo di 6 livelli. Specificare anche che si richiede un set di impostazioni per un codificatore Live standard.
-> I valori specifici della velocità in bit e delle risoluzioni possono essere regolati nel tempo
+> Se è necessario personalizzare il set di impostazioni per la codifica live, aprire un ticket di supporto tramite il portale di Azure. È necessario specificare la tabella desiderata per la risoluzione e la velocità in bit del video. La personalizzazione della velocità in bit della codifica audio non è supportata. Verificare che vi sia un solo livello a 720p e un massimo di 6 livelli. Specificare anche che si sta richiedendo un set di impostazioni.
 
 ### <a name="output-video-streams-for-default1080p"></a>Flussi video di output per Default1080p
 
@@ -103,8 +102,7 @@ Se il feed di contributo è di risoluzione 1080p, il set di impostazioni **Defau
 | 200 |320 |180 |30 |Alto |
 
 > [!NOTE]
-> Se è necessario personalizzare il set di impostazioni per la codifica live, aprire un ticket di supporto tramite il portale di Azure. È necessario specificare la tabella di risoluzione e la velocità in bit desiderata. Verificare che sia presente un solo livello a 1080p e al massimo 6 livelli. Specificare anche che si richiede un set di impostazioni per un codificatore Premium1080p Live.
-> I valori specifici della velocità in bit e delle risoluzioni possono essere modificati nel tempo.
+> Se è necessario personalizzare il set di impostazioni per la codifica live, aprire un ticket di supporto tramite il portale di Azure. È necessario specificare la tabella di risoluzione e la velocità in bit desiderata. Verificare che sia presente un solo livello a 1080p e al massimo 6 livelli. Inoltre, specificare che si richiede un set di impostazioni per un codificatore Premium1080p Live. I valori specifici della velocità in bit e delle risoluzioni possono essere modificati nel tempo.
 
 ### <a name="output-audio-stream-for-default720p-and-default1080p"></a>Flusso audio di output per Default720p e Default1080p
 

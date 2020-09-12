@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 3422176ed89b7f575c11cc40e5be8420da0018b0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 170716804a5bc3133e070ee67f2aac71acad7b0b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81415808"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435559"
 ---
 # <a name="load-data-from-office-365-by-using-azure-data-factory"></a>Caricare dati da Office 365 tramite Azure Data Factory
 
@@ -63,7 +63,7 @@ Questo articolo illustra come usare Data Factory per _caricare dati da Office 36
 
 2. Nella finestra nuovo set di dati selezionare **Office 365**, quindi selezionare **continua**.
  
-3. A questo punto si è nella scheda configurazione attività di copia. fare clic sul pulsante **modifica** accanto al set di dati di Office 365 per continuare la configurazione dei dati.
+3. A questo punto si è nella scheda configurazione attività di copia. Fare clic sul pulsante **modifica** accanto al set di dati di Office 365 per continuare la configurazione dei dati.
 
     ![Configurazione generale del set di dati di Office 365](./media/load-office-365-data/transition-to-edit-dataset.png)
  
@@ -147,7 +147,7 @@ Passare ora all'archivio BLOB di Azure di destinazione e verificare che i dati d
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Leggere l'articolo seguente per altre informazioni sul supporto di Azure SQL Data Warehouse: 
+Per informazioni sul supporto di Azure sinapsi Analytics (in precedenza SQL Data Warehouse), passare all'articolo seguente: 
 
 > [!div class="nextstepaction"]
 >[Connettore di Office 365](connector-office-365.md)

@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 2f90ba0bb732930b4cf3b1c832c6954683119f5f
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: b18ca88f9a97b09b7c5e15e78a2301bee712df5e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585866"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394755"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
 
@@ -67,7 +67,7 @@ Prima di usare chiavi, segreti o certificati nell'insieme di credenziali delle c
 - [Impostare e recuperare un certificato con l'interfaccia della riga di comando](../certificates/quick-create-cli.md)
 - [Impostare e recuperare un certificato con PowerShell](../certificates/quick-create-powershell.md)
 - [Impostare e recuperare un certificato con il portale di Azure](../certificates/quick-create-portal.md)
-- [Operazioni di chiavi con REST](/rest/api/keyvault/#certificate-operations)
+- [Operazioni sui certificati con REST](/rest/api/keyvault/#certificate-operations)
 - [Impostare e recuperare un certificato con Python](../certificates/quick-create-python.md)
 
 ## <a name="coding-with-key-vault"></a>Codifica con l'insieme di credenziali delle chiavi
@@ -125,7 +125,7 @@ Gli articoli e gli scenari seguenti offrono indicazioni specifiche su come usare
 - [Extensible Key Management tramite l'insieme di credenziali delle chiavi di Azure (SQL Server)](https://msdn.microsoft.com/library/dn198405.aspx): SQL Server Connector per l'insieme di credenziali delle chiavi di Azure consente a SQL Server e a SQL in una VM di sfruttare il servizio di insieme di credenziali delle chiavi di Azure come provider EKM (Extensible Key Management) per proteggere le chiavi di crittografia per le applicazioni. L'articolo contiene esempi di Transparent Data Encryption, backup della crittografia e crittografia a livello di colonna.
 - [Come distribuire certificati a macchine virtuali dall'insieme di credenziali delle chiavi](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) : un'applicazione cloud in esecuzione su una VM in Azure necessita di un certificato. Come ottenere oggi il certificato per questa VM?
 - [Deploying Azure Web App Certificate through Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) (Distribuzione del certificato dell'app Web di Azure tramite l'insieme di credenziali delle chiavi) offre istruzioni dettagliate per la distribuzione dei certificati archiviati nell'insieme di credenziali delle chiavi come parte dell'offerta del [certificato del servizio app](https://azure.microsoft.com/blog/internals-of-app-service-certificate/).
-- [Concedere a molte applicazioni l'autorizzazione per accedere a un insieme di credenziali delle chiavi](group-permissions-for-apps.md): i criteri di controllo di accesso di Key Vault supportano fino a 1024 voci. È tuttavia possibile creare un gruppo di sicurezza di Azure Active Directory. Aggiungere tutte le entità servizio associate a questo gruppo di sicurezza e quindi concedere a tale gruppo di accedere a Key Vault.
+- Assegnare un criterio di accesso[CLI](assign-access-policy-cli.md)(  |  [portale PowerShell](assign-access-policy-powershell.md)dell'interfaccia della riga di comando  |  [Portal](assign-access-policy-portal.md)). Key Vault supporta fino a 1024 voci di criteri di accesso. Per rimanere entro questo limite con gli utenti, creare Azure Active Directory gruppi di sicurezza, aggiungere tutte le entità servizio associate a tale gruppo, quindi concedere al gruppo l'accesso a Key Vault.
 - Per indicazioni specifiche sulle attività relative all'integrazione e all'uso dell'insieme di credenziali delle chiavi con Azure, vedere gli [esempi di modelli di Azure Resource Manager di Ryan Jones per l'insieme di credenziali delle chiavi](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 - [Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando](soft-delete-cli.md) descrive l'utilizzo e il ciclo di vita di un insieme di credenziali delle chiavi e di vari oggetti dell'insieme di credenziali delle chiavi con l'eliminazione temporanea abilitata.
 - [Come usare l'eliminazione temporanea di Key Vault con PowerShell](soft-delete-powershell.md) descrive l'utilizzo e il ciclo di vita di un insieme di credenziali delle chiavi e di vari oggetti dell'insieme di credenziali delle chiavi con l'eliminazione temporanea abilitata.

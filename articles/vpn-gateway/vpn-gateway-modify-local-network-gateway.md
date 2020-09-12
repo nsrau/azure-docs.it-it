@@ -6,21 +6,21 @@ titleSuffix: Azure VPN Gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 06/19/2017
+ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 422f144f357d8f5af0c34e09eb7b995ab7a80896
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b235d278cb3061f17068f4e5a3edf5e8f8899f17
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079775"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89392460"
 ---
 # <a name="modify-local-network-gateway-settings-using-powershell"></a>Modificare le impostazioni del gateway di rete locale usando PowerShell
 
 In alcuni casi le impostazioni per il valore AddressPrefix o GatewayIPAddress del gateway di rete locale subiscono modifiche. Questo articolo illustra come modificare le impostazioni del gateway di rete locale. È anche possibile modificare queste impostazioni con un altro metodo selezionando un'opzione diversa nell'elenco seguente:
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](vpn-gateway-modify-local-network-gateway-portal.md)
+> * [Azure portal](vpn-gateway-modify-local-network-gateway-portal.md)
 > * [PowerShell](vpn-gateway-modify-local-network-gateway.md)
 > * [Interfaccia della riga di comando di Azure](vpn-gateway-modify-local-network-gateway-cli.md)
 >

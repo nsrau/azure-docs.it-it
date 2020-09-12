@@ -1,7 +1,7 @@
 ---
 title: Controlli di accesso alla rete
 titleSuffix: Azure SQL Database & Azure Synapse Analytics
-description: Panoramica su come gestire e controllare l'accesso alla rete per il database SQL di Azure e Azure sinapsi Analytics (in precedenza Azure SQL Data Warehouse).
+description: Panoramica su come gestire e controllare l'accesso alla rete per il database SQL di Azure e Azure sinapsi Analytics (in precedenza SQL Data Warehouse).
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 03/09/2020
-ms.openlocfilehash: 435a5fe6f5900ffe742d4459e8e402d2e698ca9f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: caad78bf61c9ad470464d69c7320aa1d08dcee09
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085464"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435372"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-network-access-controls"></a>Controlli di accesso alla rete del database SQL di Azure e di Azure sinapsi Analytics
 
@@ -102,7 +102,7 @@ start          end
 13.86.216.192  13.86.216.223
 ```
 
-È ora possibile aggiungerli come regole del firewall distinte, quindi impostare **Consenti ai servizi di Azure di accedere al server** .
+È ora possibile aggiungerli come regole del firewall distinte, quindi impostare **Consenti ai servizi di Azure di accedere al server**  .
 
 ## <a name="ip-firewall-rules"></a>Regole del firewall IP
 

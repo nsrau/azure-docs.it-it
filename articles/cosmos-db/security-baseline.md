@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 99985ba8540a347977b9eaf2e733a308fa777b97
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 051f6e6ef15cc94e2b607c74e666bae9c91c1160
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231402"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401623"
 ---
 # <a name="azure-security-baseline-for-cosmos-db"></a>Baseline della sicurezza di Azure per Cosmos DB
 
@@ -890,9 +890,11 @@ Come configurare e gestire Criteri di Azure: https://docs.microsoft.com/azure/go
 
 Come eseguire l'integrazione con identità gestite di Azure: https://docs.microsoft.com/azure/azure-app-configuration/howto-integrate-azure-managed-service-identity
 
-Come creare un insieme di credenziali delle chiavi: https://docs.microsoft.com/azure/key-vault/quick-create-portal
+Come creare un insieme di credenziali delle chiavi: https://docs.microsoft.com/azure/key-vault/general/quick-create-portal
 
-Come fornire l'autenticazione di Key Vault con un'identità gestita: https://docs.microsoft.com/azure/key-vault/managed-identity
+Come eseguire l'autenticazione a Key Vault: https://docs.microsoft.com/azure/key-vault/general/authentication
+
+Come assegnare un criterio di accesso Key Vault: https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 

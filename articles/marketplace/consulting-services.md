@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/08/2020
 author: Microsoft-BradleyWright
 ms.author: brwrigh
-ms.openlocfilehash: afcca913b8a9c8fb31fa6e18d0570aebd68b8ef3
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 9745dce03d87b447dfd606f021891794cb343593
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814723"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419755"
 ---
 # <a name="consulting-service-offers"></a>Offerte di servizi di consulenza
 
@@ -22,16 +22,16 @@ Queste offerte di servizi di consulenza sono engagement specifici del cliente. G
 
 ## <a name="compare-consulting-services"></a>Confrontare i servizi di consulenza
 
-I negozi online del Marketplace commerciale, Microsoft AppSource e Azure Marketplace, sono allineati con i destinatari e i prodotti cloud per aiutare i clienti a trovare gli elementi necessari. In ogni negozio online sono disponibili opzioni di pubblicazione specializzate che consentono di ottimizzare l'investimento di pubblicazione. Per ulteriori informazioni sulla differenza tra i due archivi online, vedere [confronto tra Microsoft AppSource e Azure Marketplace](comparing-appsource-azure-marketplace.md).
+I negozi online del Marketplace commerciale, Microsoft AppSource e Azure Marketplace, sono allineati ai tipi di soluzioni e ai prodotti cloud per aiutare i clienti a trovare gli elementi necessari. In ogni negozio online sono disponibili opzioni di pubblicazione specializzate che consentono di ottimizzare l'investimento di pubblicazione. Per ulteriori informazioni sulla differenza tra i due archivi online, vedere [confronto tra Microsoft AppSource e Azure Marketplace](comparing-appsource-azure-marketplace.md).
 
 Le offerte di servizi di consulenza basate su Dynamics 365, Power Apps e Power BI sono idonee alla presentazione in AppSource. Per altre informazioni, scaricare il file PDF [Microsoft AppSource consulting services listing guidelines](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409) (Linee guida alla presentazione dei servizi di consulenza in Microsoft AppSource).
 
 Le offerte di servizi di consulenza e servizi gestiti basate su Microsoft Azure sono idonee alla presentazione in Azure Marketplace. Per altre informazioni, vedere [Pubblicare un'offerta di servizio di consulenza di Azure](./partner-center-portal/create-consulting-service-offer.md) e [Pubblicare un'offerta di servizi gestiti in Azure Marketplace](../lighthouse/how-to/publish-managed-services-offers.md).
 
 > [!Note]
-> I servizi di consulenza in Azure Marketplace devono concentrarsi su offerte rivolte a un pubblico tecnico ed evidenziare le soluzioni e i servizi tecnici di Azure.
+> I servizi di consulenza in Azure Marketplace devono concentrarsi su soluzioni e servizi tecnici di Azure.
 >
-> I servizi di consulenza in AppSource devono concentrarsi su offerte rivolte a utenti con esperienza nella distribuzione di soluzioni di qualità per Dynamics 365, Power BI o Power Apps.
+> I servizi di consulenza in AppSource dovrebbero concentrarsi sulle soluzioni aziendali per Dynamics 365, Power BI o Power Apps.
  
 > [!TIP]
 > Per pubblicare in Azure Marketplace, selezionare **Azure**nell'elenco a discesa **prodotto principale** del centro per i partner.
@@ -131,7 +131,7 @@ Le offerte devono rientrare almeno in uno dei cinque tipi di servizi seguenti:
 > * **Di persona**: presso la sede di un cliente o la struttura di un partner.
 > * **Virtualmente**: tramite teleconferenza, conferenza Web o implementazione remota.
 
-Dopo aver configurato gli elementi obbligatori elencati sopra, il team di revisione del contenuto verificherà che la descrizione dell'offerta sia completa e offra sufficienti informazioni ai destinatari. 
+Dopo aver configurato gli elementi necessari elencati in precedenza, il team di revisione del contenuto convaliderà che la descrizione dell'offerta è informativa e completa. 
 
 ### <a name="the-listing-title"></a>Titolo della presentazione
 
@@ -171,9 +171,5 @@ Di seguito sono riportati alcuni suggerimenti di Markdown:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se non è già stato fatto, scoprire come [Aumentare il business sul cloud con Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
-
-Per eseguire la registrazione e iniziare a usare il Centro per i partner:
-
-* [Accedere al Centro per i partner](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) per creare o completare l'offerta.
-* Per altre informazioni, vedere [Creare un'offerta di un servizio di consulenza](./partner-center-portal/create-consulting-service-offer.md).
+- [Amplia la tua attività cloud con Azure Marketplace](https://azuremarketplace.microsoft.com/sell).
+- [Creare un'offerta di un servizio di consulenza](./partner-center-portal/create-consulting-service-offer.md)

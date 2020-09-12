@@ -8,18 +8,18 @@ ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
 ms.date: 07/14/2020
-ms.openlocfilehash: 465543e639514753bc0a6762dbbeb888d490ccd2
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 4d307b2a16262645919423ef89c0d87636639bf1
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705045"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378713"
 ---
 # <a name="marketplace-rewards"></a>Marketplace Rewards
 
 Il ricompense del Marketplace ti aiuta in una fase specifica di crescita, a partire dalle attività di sensibilizzazione per ottenere i primi clienti. Man mano che si aumenta il mercato commerciale Microsoft, è possibile sbloccare i nuovi vantaggi progettati per convertire i clienti e chiudere le offerte.
 
-Il programma crea un ciclo di feedback positivo: i vantaggi di ogni fase di crescita consentono di passare alla fase successiva, consentendo di far crescere la propria azienda ai clienti Microsoft, con il campo di Microsoft e tramite il canale di Microsoft sfruttando il Marketplace commerciale come piattaforma.
+Il programma crea un ciclo di feedback positivo: i vantaggi di ogni fase di crescita consentono di passare alla fase successiva, contribuendo a far crescere la propria azienda ai clienti Microsoft, con il campo di Microsoft e tramite il canale di Microsoft sfruttando il Marketplace commerciale come piattaforma.
 
 I vantaggi sono diversi a seconda del tipo di offerta: [Inserzione, Valutazione o Transazione](../determine-your-listing-type.md#choose-a-listing-option).
 
@@ -29,16 +29,16 @@ Per i partner di transazione, man mano che si aumentano le vendite fatturate tra
 
 Il requisito minimo per la pubblicazione nei negozi online è un MPNID, quindi questi vantaggi sono disponibili per tutti i partner indipendentemente dallo stato delle competenze MPN o dal tipo di partner. Ogni partner è autorizzato a far crescere la propria azienda attraverso il Marketplace commerciale come piattaforma.
 
-Sarà possibile ricevere supporto per conoscere le risorse disponibili e implementare le procedura consigliate, che è anche possibile [consultare personalmente](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
+Si otterrà supporto per la comprensione delle risorse disponibili e per l'implementazione delle procedure consigliate, che è anche possibile [esaminare autonomamente](https://partner.microsoft.com/asset/collection/azure-marketplace-and-appsource-publisher-toolkit#/).
 
 Per verificare l'idoneità per il programma Marketplace Rewards, vedere la pagina dei [vantaggi del Marketplace](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) nel centro per i partner.
 
 La procedura per iniziare è semplice:
 
 1. Pubblicare un'offerta in Microsoft AppSource o in Azure Marketplace.
-2. Andare al [dashboard](https://partner.microsoft.com/dashboard/directory) del Centro per i partner, selezionare la scheda **Vantaggi di marketing e vendite** nella pagina Marketplace Rewards per visualizzare l'elenco dei vantaggi.
-3. Per attivare il vantaggio di marketing e vendite, è necessario prima di tutto assegnare un contatto di marketing aziendale. Questo contatto riceverà le comunicazioni di follow-up relative ai premi del Marketplace.
-4. Per aggiungere o aggiornare le informazioni di contatto marketing, passare alla parte superiore della scheda Vantaggi di marketing e vendite nella pagina Marketplace Rewards, quindi selezionare **Aggiungi, aggiorna o modifica**.  Eseguire quindi queste operazioni:
+1. Per visualizzare l'elenco dei vantaggi, visitare la pagina dei [premi del Marketplace](https://partner.microsoft.com/dashboard/mpn/program/commercialmarketplace) in centro per i partner e selezionare la scheda **vantaggi vendite e marketing** .
+1. Per attivare il vantaggio di marketing e vendite, è necessario prima di tutto assegnare un contatto di marketing aziendale. Questo contatto riceverà le comunicazioni di follow-up relative ai premi del Marketplace.
+1. Per aggiungere o aggiornare le informazioni di contatto marketing, passare alla parte superiore della scheda Vantaggi di marketing e vendite nella pagina Marketplace Rewards, quindi selezionare **Aggiungi, aggiorna o modifica**.  Eseguire quindi queste operazioni:
 
     1. Selezionare un utente dall'elenco. Se l'utente da assegnare non è presente nell'elenco, è possibile aggiungere nuovi utenti in **Impostazioni account**.
     1. Indicare per l'utente un indirizzo di posta elettronica diverso da quello associato all'account del Centro per i partner della società. Verrà inviato un messaggio di posta elettronica contenente le istruzioni per l'uso dei vantaggi di Marketplace Rewards all'indirizzo di posta elettronica del contatto marketing designato.
@@ -48,7 +48,7 @@ La procedura per iniziare è semplice:
 ## <a name="technical-benefits"></a>Vantaggi tecnici
 
 1. Puoi usare il tuo vantaggio tecnico per richiedere assistenza tecnica durante le fasi di pre-vendita, progettazione, distribuzione e sviluppo di app delle tue soluzioni cloud e ibride. Per richiedere assistenza, compilare il modulo di richiesta e quindi selezionare **Invia richiesta**.
-2. Quando i vantaggi di Azure Sponsorship vengono sbloccati, si riceve un messaggio di posta elettronica che illustra come usarli.
+1. Quando i vantaggi di Azure Sponsorship vengono sbloccati, si riceve un messaggio di posta elettronica che illustra come usarli.
 
 >[!NOTE]
 >Se l'offerta è rimasta in tempo reale per più di quattro settimane e non è stato ricevuto alcun messaggio, rivolgersi al centro per trovare il proprietario dell'offerta nell'organizzazione. che dovrebbe aver ricevuto la comunicazione ed essere a conoscenza dei passaggi successivi. Se non è possibile determinare il proprietario o se il proprietario ha lasciato la società, aprire un ticket di supporto all'indirizzo https://aka.ms/marketplacepublishersupport .

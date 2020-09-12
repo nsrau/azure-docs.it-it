@@ -8,14 +8,14 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 09/08/2020
 ms.author: kumud
-ms.openlocfilehash: 45da0556d074fdb81002f73cd89d0c35cb37276e
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: dd95f022e40b9ae6fa60a6536a87146049c53b68
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86530050"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565328"
 ---
 # <a name="azure-regions-in-which-video-indexer-exists"></a>Aree di Azure in cui esiste Video Indexer
 
@@ -23,7 +23,7 @@ Le API di Video Indexer contengono un parametro **location** che è consigliabil
 
 ## <a name="locations"></a>Percorsi
 
-Al `location` parametro deve essere assegnato il nome del codice dell'area di Azure come valore. Se si usa Video Indexer in modalità di anteprima, è necessario inserire `"trial"` come valore. `trial`è il valore predefinito per il `location` parametro. In alternativa, per ottenere il nome del codice dell'area di Azure in cui si trova l'account e a cui deve essere indirizzata la chiamata, è possibile eseguire la riga seguente nell'[interfaccia della riga di comando di Azure](/cli/azure):
+Al `location` parametro deve essere assegnato il nome del codice dell'area di Azure come valore. Se si usa Video Indexer in modalità di anteprima, è necessario inserire `"trial"` come valore. `trial` è il valore predefinito per il `location` parametro. In alternativa, per ottenere il nome del codice dell'area di Azure in cui si trova l'account e a cui deve essere indirizzata la chiamata, è possibile eseguire la riga seguente nell'[interfaccia della riga di comando di Azure](/cli/azure):
 
 ```azurecli-interactive
 az account list-locations
@@ -36,7 +36,7 @@ Ad esempio, per l'area di Azure Stati Uniti occidentali 2 (indicata di seguito),
 ```json
    {
       "displayName": "West US 2",
-      "id": "/subscriptions/35c2594a-23da-4fce-b59c-f6fb9513eeeb/locations/westus2",
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/locations/westus2",
       "latitude": "47.233",
       "longitude": "-119.852",
       "name": "westus2",

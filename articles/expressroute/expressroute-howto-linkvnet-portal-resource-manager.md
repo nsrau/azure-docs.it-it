@@ -2,26 +2,26 @@
 title: 'ExpressRoute: collegare un VNet a un circuito: portale di Azure'
 description: Informazioni su come creare una connessione per collegare una rete virtuale a un circuito Azure ExpressRoute usando il portale di Azure.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 09/17/2019
-ms.author: cherylmc
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: ad222e55f1e3051266c1398d76c8d246e342aba9
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 56508503c199b1f822ce8f181689a236f3a0af18
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190931"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395826"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-the-portal"></a>Connettere una rete virtuale a un circuito ExpressRoute usando il portale
 > [!div class="op_single_selector"]
-> * [Portale di Azure](expressroute-howto-linkvnet-portal-resource-manager.md)
+> * [Azure portal](expressroute-howto-linkvnet-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-linkvnet-arm.md)
 > * [Interfaccia della riga di comando di Azure](howto-linkvnet-cli.md)
-> * [portale di Azure video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
-> * [PowerShell (versione classica)](expressroute-howto-linkvnet-classic.md)
+> * [Video - Portale di Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-a-connection-between-your-vpn-gateway-and-expressroute-circuit)
+> * [PowerShell (classic)](expressroute-howto-linkvnet-classic.md) (PowerShell (classico))
 > 
 
 Questo articolo consente di creare una connessione per collegare una rete virtuale a un circuito ExpressRoute di Azure tramite il portale di Azure. Le reti virtuali da connettere al circuito ExpressRoute di Azure possono trovarsi nella stessa sottoscrizione o appartenere a un'altra sottoscrizione.

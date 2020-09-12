@@ -9,12 +9,12 @@ ms.custom: vs-azure, devx-track-csharp
 ms.topic: how-to
 ms.date: 08/07/2019
 ms.author: ghogen
-ms.openlocfilehash: 3d39ad2016da1525658944f4f13185e9df9855af
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d0d0465e2e60945649958911c508e06aee877ac9
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007095"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378866"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Aggiungere Key Vault all'applicazione Web usando Servizi connessi di Visual Studio
 
@@ -201,6 +201,6 @@ Influiscono sul file di progetto .NET References e `packages.config` (riferiment
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Se è stata seguita questa esercitazione, le autorizzazioni Key Vault sono configurate per l'esecuzione con la propria sottoscrizione di Azure, ma ciò potrebbe non essere auspicabile per uno scenario di produzione. È possibile creare un'identità gestita per gestire l'accesso Key Vault per l'app. Vedere [fornire Key Vault autenticazione con un'identità gestita](/azure/key-vault/managed-identity).
+Se è stata seguita questa esercitazione, le autorizzazioni Key Vault sono configurate per l'esecuzione con la propria sottoscrizione di Azure, ma ciò potrebbe non essere auspicabile per uno scenario di produzione. È possibile creare un'identità gestita per gestire l'accesso Key Vault per l'app. Vedere [come eseguire l'autenticazione a Key Vault](/azure/key-vault/general/authentication) e [assegnare un criterio di accesso key Vault](/azure/key-vault/general/assign-access-policy-portal).
 
 Per ulteriori informazioni sullo sviluppo Key Vault, vedere la guida per gli [sviluppatori di Key Vault](developers-guide.md).

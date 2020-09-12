@@ -3,20 +3,20 @@ title: Sportello anteriore di Azure-metodi di routing del traffico | Microsoft D
 description: Questo articolo fornisce informazioni sui diversi metodi di routing del traffico usati da Frontdoor
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: b7dd00d28ecfe844094677e0ae19f4fd359d97d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: d12eb67abbc216afb241fa6c5a9ef9c66e65040c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81687800"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399311"
 ---
 # <a name="front-door-routing-methods"></a>Metodi di routing di Frontdoor
 

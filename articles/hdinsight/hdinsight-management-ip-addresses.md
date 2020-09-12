@@ -7,20 +7,26 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 03/03/2020
-ms.openlocfilehash: f1a539096ac1a154ca37bbe6703f820787f927fb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/11/2020
+ms.openlocfilehash: 4f7db88da646c9787c70d04ff7e3478a27a09275
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82778261"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401640"
 ---
 # <a name="hdinsight-management-ip-addresses"></a>Indirizzi IP di gestione di HDInsight
 
+Questo articolo elenca gli indirizzi IP usati dai servizi di gestione e integrità di Azure HDInsight. Se si usano gruppi di sicurezza di rete (gruppi) o route definite dall'utente (UDR), potrebbe essere necessario aggiungere alcuni di questi indirizzi IP all'elenco Consenti per il traffico di rete in ingresso.
+
+## <a name="introduction"></a>Introduzione
+ 
 > [!Important]
-> Nella maggior parte dei casi, è ora possibile usare la funzionalità [tag di servizio](hdinsight-service-tags.md) per i gruppi di sicurezza di rete, anziché aggiungere manualmente gli indirizzi IP. Le nuove aree verranno aggiunte solo per i tag di servizio e gli indirizzi IP statici saranno deprecati.
+> Nella maggior parte dei casi, è ora possibile usare i [tag di servizio](hdinsight-service-tags.md) per i gruppi di sicurezza di rete, anziché aggiungere manualmente gli indirizzi IP. Gli indirizzi IP non verranno pubblicati per le nuove aree di Azure e avranno solo tag di servizio pubblicati. Gli indirizzi IP statici per gli indirizzi IP di gestione saranno deprecati.
 
 Se si usano gruppi di sicurezza di rete (gruppi) o route definite dall'utente (UDR) per controllare il traffico in ingresso verso il cluster HDInsight, è necessario assicurarsi che il cluster sia in grado di comunicare con i servizi di gestione e integrità di Azure critici.  Alcuni degli indirizzi IP per questi servizi sono specifici dell'area e alcuni di essi si applicano a tutte le aree di Azure. Potrebbe anche essere necessario consentire il traffico dal servizio DNS di Azure se non si usa un DNS personalizzato.
+
+Se sono necessari indirizzi IP per un'area non elencata qui, è possibile usare l' [API di individuazione dei tag di servizio](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) per trovare gli indirizzi IP per l'area geografica. Se non è possibile usare l'API, scaricare il [file JSON del tag del servizio](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) e cercare l'area desiderata.
 
 Nelle sezioni seguenti vengono illustrati gli indirizzi IP specifici che devono essere consentiti.
 
@@ -32,7 +38,7 @@ Se si usa il servizio DNS fornito da Azure, consentire l'accesso da __168.63.129
 
 Consentire il traffico dagli indirizzi IP seguenti per i servizi di gestione e integrità di Azure HDInsight, che si applicano a tutte le aree di Azure:
 
-| Indirizzo IP di origine | Destination  | Direction |
+| Indirizzo IP di origine | Destination  | Direzione |
 | ---- | ----- | ----- |
 | 168.61.49.99 | \*: 443 | In ingresso |
 | 23.99.5.239 | \*: 443 | In ingresso |
@@ -46,7 +52,7 @@ Consentire il traffico dagli indirizzi IP elencati per i servizi di gestione e i
 > [!IMPORTANT]  
 > Se l'area di Azure in uso non è inclusa nell'elenco, usare la funzionalità [tag di servizio](hdinsight-service-tags.md) per i gruppi di sicurezza di rete.
 
-| Paese | Region | Indirizzi IP di origine consentiti | Destinazione consentita | Direction |
+| Country | Region | Indirizzi IP di origine consentiti | Destinazione consentita | Direzione |
 | ---- | ---- | ---- | ---- | ----- |
 | Asia | Asia orientale | 23.102.235.122</br>52.175.38.134 | \*: 443 | In ingresso |
 | &nbsp; | Asia sud-orientale | 13.76.245.160</br>13.76.136.249 | \*: 443 | In ingresso |
@@ -77,7 +83,7 @@ Consentire il traffico dagli indirizzi IP elencati per i servizi di gestione e i
 | &nbsp; | Stati Uniti centro-settentrionali | 157.56.8.38</br>157.55.213.99 | \*: 443 | In ingresso |
 | &nbsp; | Stati Uniti centro-occidentali | 52.161.23.15</br>52.161.10.167 | \*: 443 | In ingresso |
 | &nbsp; | Stati Uniti occidentali | 13.64.254.98</br>23.101.196.19 | \*: 443 | In ingresso |
-| &nbsp; | Stati Uniti occidentali 2 | 52.175.211.210</br>52.175.222.222 | \*: 443 | In ingresso |
+| &nbsp; | West US 2 | 52.175.211.210</br>52.175.222.222 | \*: 443 | In ingresso |
 | &nbsp; | Emirati Arabi Uniti settentrionali | 65.52.252.96</br>65.52.252.97 | \*: 443 | In ingresso |
 
 Per informazioni sugli indirizzi IP da usare per Azure per enti pubblici, vedere il documento [Azure Government Intelligence + Analytics](https://docs.microsoft.com/azure/azure-government/documentation-government-services-intelligenceandanalytics) (Intelligence e Analisi di Azure per enti pubblici).

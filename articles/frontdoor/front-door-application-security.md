@@ -3,20 +3,20 @@ title: Sportello anteriore di Azure-sicurezza a livello dell'applicazione | Micr
 description: Questo articolo consente di comprendere il modo in cui la porta anteriore di Azure consente di proteggere e proteggere i backend dell'applicazione
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: e458926930c1b95d48886559551878fc6c9d0673
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 4ee50b4c7da27df3630c1b4d263f076da44189bc
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471796"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399940"
 ---
 # <a name="application-layer-security-with-front-door"></a>Sicurezza del livello dell'applicazione con Frontdoor
 Il front-end di Azure offre funzionalità di protezione delle applicazioni Web per salvaguardare le applicazioni Web da attacchi di rete e exploit di vulnerabilità Web comuni, come SQL Injection o cross site scripting (XSS). Abilitata per i front-end HTTP(S), la sicurezza del livello dell'applicazione di Frontdoor viene distribuita a livello globale ed è sempre attiva, permettendo così di bloccare gli attacchi dannosi alla periferia della rete di Azure, molto lontano dai back-end. Grazie a una maggiore sicurezza e all'ottimizzazione delle prestazioni, Frontdoor offre esperienze Web veloci e sicure agli utenti finali.

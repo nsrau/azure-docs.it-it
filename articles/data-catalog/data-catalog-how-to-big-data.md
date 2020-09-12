@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: c6f7355b4505324c562ae39b05155a2902da2790
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e79e5e16b300fd02b9c9124f9677747834f22813
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86523452"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89443144"
 ---
 # <a name="how-to-catalog-big-data-in-azure-data-catalog"></a>Come catalogare Big Data in Azure Data Catalog
 
@@ -19,7 +19,7 @@ ms.locfileid: "86523452"
 
 **Microsoft Azure Data Catalog** è un servizio cloud completamente gestito che funge da sistema di registrazione e di individuazione per origini dati aziendali. Permette agli utenti di trovare, comprendere e usare le origini dati e consente alle organizzazioni di ottenere maggior valore dalle origini dati esistenti, inclusi i Big Data.
 
-**Catalogo dati di Azure** supporta la registrazione di BLOB e directory di Archiviazione BLOB di Azure, nonché file e directory HDFS di Hadoop. La natura semistrutturata di questi dati offre una grande flessibilità. Per ottenere il massimo del valore dalla registrazione con **Azure Data Catalog**, gli utenti devono tuttavia considerare come sono organizzate le origini dati.
+**Azure Data Catalog** supporta la registrazione di BLOB e directory di archiviazione di Azure, nonché di file e directory di Hadoop HDFS. La natura semistrutturata di questi dati offre una grande flessibilità. Per ottenere il massimo del valore dalla registrazione con **Azure Data Catalog**, gli utenti devono tuttavia considerare come sono organizzate le origini dati.
 
 ## <a name="directories-as-logical-data-sets"></a>Directory come set di dati logici
 
@@ -66,6 +66,6 @@ In questo schema può essere utile registrare i singoli file di dati di riferime
 
 Gli schemi descritti nella sezione precedente sono solo due possibili modalità di organizzazione di un archivio di Big Data, ma ogni implementazione è diversa. Indipendentemente da come sono strutturate le origini dati, quando si registrano origini dati di tipo Big Data con **Azure Data Catalog**, concentrarsi sulla registrazione di file e directory che rappresentano i set di dati importanti per altri utenti dell'organizzazione. La registrazione di tutti i file e tutte le directory può creare confusione nel catalogo, rendendo più difficile per gli utenti trovare le informazioni necessarie.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 La registrazione di origini dati con il **Catalogo dati di Azure** ne rende più semplice l'individuazione e la comprensione. La registrazione e l'annotazione dei file e delle directory di Big Data che rappresentano set di dati logici permettono agli utenti di trovare e usare le origini dati di tipo Big Data necessarie.

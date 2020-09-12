@@ -3,20 +3,20 @@ title: Back-end e pool back-end in Azure front door | Microsoft Docs
 description: Questo articolo descrive i back-end e i pool back-end che si trovano nella configurazione di sportello anteriore.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: 18b165d83bfa154348842542bd8323a40330aa2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 66767d4329a0a757de99308e1f586b56b327a515
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80293459"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399923"
 ---
 # <a name="backends-and-backend-pools-in-azure-front-door"></a>Back-end e pool back-end in Azure front door
 Questo articolo descrive i concetti relativi a come eseguire il mapping della distribuzione di app con Azure front door. Vengono inoltre illustrati i diversi termini della configurazione front-end intorno ai backend dell'app.

@@ -1,25 +1,27 @@
 ---
-title: Servizio Riconoscimento del parlante di Azure
+title: Panoramica di Riconoscimento del parlante-servizio riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: Servizi cognitivi di Azure Riconoscimento del parlante fornisce algoritmi che verificano e identificano gli speaker con le relative caratteristiche vocali univoche. Riconoscimento del parlante viene utilizzato per rispondere alla domanda "chi parla?".
+description: Riconoscimento del parlante fornisce algoritmi che verificano e identificano gli speaker con le relative caratteristiche vocali univoche usando la biometria vocale. Il servizio Riconoscimento del parlante consente di rispondere alla domanda "chi parla?" In questo articolo viene illustrata una panoramica dei vantaggi e delle funzionalità del servizio Riconoscimento del parlante.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/27/2020
+ms.date: 09/02/2020
 ms.author: trbye
-ms.openlocfilehash: a333a61a28fabddc2e8101fdf3290c52f3db59ae
-ms.sourcegitcommit: 52d2f06ecec82977a1463d54a9000a68ff26b572
+ms.custom: cog-serv-seo-aug-2020
+keywords: riconoscimento del parlante, biometria vocale
+ms.openlocfilehash: 2c5b73b93c22ef27d7b68455f5e1e5108f25c984
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/15/2020
-ms.locfileid: "84780886"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89397260"
 ---
-# <a name="what-is-the-azure-speaker-recognition-service"></a>Che cos'è il servizio Riconoscimento del parlante di Azure?
+# <a name="what-is-speaker-recognition"></a>Che cos’è il Riconoscimento del parlante?
 
-Il servizio Riconoscimento del parlante fornisce algoritmi che verificano e identificano i relatori in base alle relative caratteristiche vocali univoche. Riconoscimento del parlante viene utilizzato per rispondere alla domanda "chi parla?". Si forniscono dati di training audio per un singolo altoparlante, che consente di creare un profilo di registrazione in base alle caratteristiche univoche della voce del parlante. È quindi possibile eseguire il controllo incrociato degli esempi di voce audio in base a questo profilo per verificare che il relatore sia la stessa persona (verifica del parlante) o gli esempi di voce audio di controllo incrociato per un *gruppo* di profili speaker registrati, per vedere se corrisponde a qualsiasi profilo nel gruppo (identificazione del parlante). Al contrario, la messa in funzione del [relatore](batch-transcription.md#speaker-separation-diarization) raggruppa i segmenti di audio per altoparlante in un'operazione batch.
+Il servizio Riconoscimento del parlante fornisce algoritmi che verificano e identificano gli speaker con le proprie caratteristiche vocali univoche usando la biometria vocale. Il servizio Riconoscimento del parlante consente di rispondere alla domanda "chi parla?" Si forniscono dati di training audio per un singolo altoparlante, che consente di creare un profilo di registrazione in base alle caratteristiche univoche della voce del parlante. È quindi possibile eseguire il controllo incrociato degli esempi di voce audio in base a questo profilo per verificare che il relatore sia la stessa persona (verifica del parlante) o gli esempi di voce audio di controllo incrociato per un *gruppo* di profili speaker registrati, per vedere se corrisponde a qualsiasi profilo nel gruppo (identificazione del parlante). Al contrario, la messa in funzione del [relatore](batch-transcription.md#speaker-separation-diarization) raggruppa i segmenti di audio per altoparlante in un'operazione batch.
 
 ## <a name="speaker-verification"></a>Verifica voce
 

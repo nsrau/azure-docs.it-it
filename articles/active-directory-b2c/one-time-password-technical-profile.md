@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/26/2020
+ms.date: 09/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9592afbf74e65bcb2fe9319da764bf06d8d4eb6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6b0a90eee4a1bd309a04cf355eb8d8c0564830aa
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385723"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89418909"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Definire un profilo tecnico monouso per la password in un Azure AD B2C criteri personalizzati
 
@@ -77,6 +77,7 @@ Per configurare la modalità di generazione del codice, è possibile usare le im
 | CodeLength | No | Lunghezza del codice. Il valore predefinito è `6`. |
 | CharacterSet | No | Set di caratteri per il codice, formattato per essere utilizzato in un'espressione regolare. Ad esempio, `a-z0-9A-Z` Il valore predefinito è `0-9`. Il set di caratteri deve includere almeno 10 caratteri diversi nel set specificato. |
 | NumRetryAttempts | No | Il numero di tentativi di verifica prima che il codice venga considerato non valido. Il valore predefinito è `5`. |
+| NumCodeGenerationAttempts | No | Numero massimo di tentativi di generazione del codice per identificatore. Se non è specificato, il valore predefinito è 10. |
 | Operazione | Sì | L'operazione da eseguire. Valore possibile: `GenerateCode` . |
 | ReuseSameCode | No | Indica se deve essere fornito un codice duplicato anziché generare un nuovo codice quando il codice specificato non è scaduto ed è ancora valido. Il valore predefinito è `false`. |
 
@@ -94,6 +95,7 @@ L'esempio seguente `TechnicalProfile` viene usato per generare un codice:
     <Item Key="CodeLength">6</Item>
     <Item Key="CharacterSet">0-9</Item>
     <Item Key="NumRetryAttempts">5</Item>
+    <Item Key="NumCodeGenerationAttempts">15</Item>
     <Item Key="ReuseSameCode">false</Item>
   </Metadata>
   <InputClaims>
@@ -105,7 +107,7 @@ L'esempio seguente `TechnicalProfile` viene usato per generare un codice:
 </TechnicalProfile>
 ```
 
-## <a name="verify-code"></a>Verificare il codice
+## <a name="verify-code"></a>Verifica il codice
 
 La seconda modalità di questo profilo tecnico consiste nel verificare un codice. Di seguito sono elencate le opzioni che possono essere configurate per questa modalità.
 
@@ -143,6 +145,7 @@ I metadati seguenti possono essere utilizzati per configurare i messaggi di erro
 | --------- | -------- | ----------- |
 | UserMessageIfSessionDoesNotExist | No | Messaggio da visualizzare all'utente se la sessione di verifica del codice è scaduta. Il codice è scaduto o il codice non è mai stato generato per un identificatore specificato. |
 | UserMessageIfMaxRetryAttempted | No | Messaggio da visualizzare all'utente se è stato superato il numero massimo di tentativi di verifica consentiti. |
+| UserMessageIfMaxNumberOfCodeGenerated | No | Messaggio da visualizzare all'utente se la generazione del codice ha superato il numero massimo consentito di tentativi. |
 | UserMessageIfInvalidCode | No | Messaggio da visualizzare all'utente se è stato fornito un codice non valido. |
 | UserMessageIfVerificationFailedRetryAllowed | No | Messaggio da visualizzare all'utente se è stato fornito un codice non valido e l'utente è autorizzato a fornire il codice corretto.  |
 |UserMessageIfSessionConflict|No| Messaggio da visualizzare all'utente se il codice non può essere verificato.|

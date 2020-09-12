@@ -4,12 +4,12 @@ description: Informazioni su come abilitare e configurare dischi ultra in un clu
 services: container-service
 ms.topic: article
 ms.date: 07/10/2020
-ms.openlocfilehash: 6ad739a128839eac4d664ffb6f9e3b2fcd07f2d9
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 3f15f075604c104b467af289f6f5d4b92dc12659
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650180"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420864"
 ---
 # <a name="use-azure-ultra-disks-on-azure-kubernetes-service-preview"></a>Usare i dischi di Azure ultra in Azure Kubernetes Service (anteprima)
 
@@ -21,11 +21,6 @@ Questa funzionalità può essere impostata solo in fase di creazione del cluster
 
 > [!IMPORTANT]
 > Azure ultra disks richiede la distribuzione di nodepools in zone di disponibilità e aree che supportano questi dischi, oltre a specifiche serie di VM. Vedere [**ambito e limitazioni di ultra disks GA**](../virtual-machines/disks-enable-ultra-ssd.md#ga-scope-and-limitations).
-
-### <a name="prerequisites"></a>Prerequisiti
-
-- Assicurarsi di avere `EnableUltraSSD` abilitato il flag funzionalità.
-- Assicurarsi che sia installata la versione più recente dell' `aks-preview` [estensione CLI][az-extension-add] .
 
 ### <a name="register-the-enableultrassd-preview-feature"></a>Registrare la `EnableUltraSSD` funzionalità di anteprima
 
@@ -78,7 +73,7 @@ Creare un gruppo di risorse di Azure:
 az group create --name myResourceGroup --location westus2
 ```
 
-Creare il cluster del servizio contenitore di Azure con l'integrazione Azure AD gestita e il controllo degli accessi in base al ruolo
+Creare il cluster AKS con supporto per i dischi Ultra.
 
 ```azurecli-interactive
 # Create an AKS-managed Azure AD cluster
@@ -133,7 +128,7 @@ storageclass.storage.k8s.io/ultra-disk-sc created
 
 ## <a name="create-a-persistent-volume-claim"></a>Creare un'attestazione di volume permanente
 
-Un'attestazione di volume permanente viene usata per il provisioning automatico dell'archiviazione in una classe di archiviazione. In tal caso un'attestazione di volume permanente può usare una delle classi di archiviazione create in precedenza per creare un disco gestito di Azure standard o premium.
+Un'attestazione di volume permanente viene usata per il provisioning automatico dell'archiviazione in una classe di archiviazione. In questo caso, un PVC può usare la classe di archiviazione creata in precedenza per creare un disco Ultra.
 
 Creare un file denominato `azure-ultra-disk-pvc.yaml` e copiarlo nel manifesto seguente. L'attestazione richiede un disco denominato `ultra-disk` con dimensioni di *1000 GB* con accesso a *ReadWriteOnce* . La classe di archiviazione *ultra-disk-SC* è specificata come classe di archiviazione.
 

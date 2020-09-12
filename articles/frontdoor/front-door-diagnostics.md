@@ -3,20 +3,20 @@ title: Monitoraggio di metriche e log nella porta anteriore di Azure | Microsoft
 description: Questo articolo descrive le diverse metriche e i log di accesso supportati da Azure front door
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
-ms.author: sharadag
-ms.openlocfilehash: 249b2406f048709fd7e4f76f8272b3158708e5bb
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.author: duau
+ms.openlocfilehash: 6f5051dd7dedcc49320557f17148bcdc9bf539ab
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056432"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399753"
 ---
 # <a name="monitoring-metrics-and-logs-in-azure-front-door"></a>Monitoraggio di metriche e log in front-end di Azure
 
@@ -38,7 +38,7 @@ Le metriche sono una funzionalità per alcune risorse di Azure che consentono di
 | BackendRequestCount | Conteggio delle richieste del back-end | Conteggio | HttpStatus</br>HttpStatusGroup</br>Back-end | Numero di richieste inviate da Frontdoor ai back-end. |
 | BackendRequestLatency | Latenza della richiesta del back-end | Millisecondi | Back-end | Tempo calcolato dal momento dell'invio della richiesta al back-end da parte di Frontdoor al momento della ricezione da parte di Frontdoor dell'ultimo byte della risposta inviata dal back-end. |
 | BackendHealthPercentage | Percentuale di integrità del back-end | Percentuale | Back-end</br>BackendPool | Percentuale di probe di integrità con esito positivo da Frontdoor ai back-end. |
-| WebApplicationFirewallRequestCount | Conteggio delle richieste web application firewall | Conteggio | PolicyName</br>RuleName</br>Action | Numero di richieste client elaborate dalla sicurezza del livello dell'applicazione di Frontdoor. |
+| WebApplicationFirewallRequestCount | Conteggio delle richieste web application firewall | Conteggio | PolicyName</br>RuleName</br>Azione | Numero di richieste client elaborate dalla sicurezza del livello dell'applicazione di Frontdoor. |
 
 ## <a name="activity-logs"></a><a name="activity-log"></a>Log attività
 
