@@ -3,7 +3,7 @@ title: Uso dei servizi di bilanciamento del carico in Azure | Microsoft Docs
 description: 'Questa esercitazione illustra come creare uno scenario tramite il portafoglio di soluzioni Azure per il bilanciamento del carico: Gestione traffico, il gateway applicazione e Load Balancer.'
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
-ms.author: rohink
-ms.openlocfilehash: c5667a03d127441a9a911ff4b8daba0b3b138e3a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 431eaff9da95063648d3e80acb54be9cc5c25bc5
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711749"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393066"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Uso dei servizi di bilanciamento del carico in Azure
 
@@ -39,7 +39,7 @@ A livello concettuale, ognuno di questi servizi svolge un ruolo distinto nella g
 
   Il client si connette direttamente all'endpoint restituito da Gestione traffico. Gestione traffico di Azure rileva gli endpoint non integri e reindirizza i client a un'altra istanza integra. Per altre informazioni sul servizio, vedere [Gestione traffico di Azure](traffic-manager-overview.md).
 * Il **gateway applicazione** offre un servizio di controller per la distribuzione di applicazioni (ADC, Application Delivery Controller), che offre diverse funzionalità di bilanciamento del carico di livello 7 per l'applicazione. Consente ai clienti di ottimizzare la produttività Web farm eseguendo l'offload della terminazione TLS a elevato utilizzo di CPU al gateway applicazione. Altre funzionalità di routing di livello 7 includono la distribuzione round robin del traffico in ingresso, l'affinità di sessione basata su cookie, il routing basato su percorso URL e la possibilità di ospitare più siti Web dietro un unico gateway applicazione. Il gateway applicazione può essere configurato come gateway con connessione Internet, come gateway solo interno o come una combinazione di queste due opzioni. È completamente gestito in Azure e offre scalabilità e disponibilità elevata, oltre a un set completo di funzionalità di registrazione e diagnostica che ne migliorano la gestibilità.
-* **Load Balancer** è parte integrante dello stack Sdn di Azure, offrendo servizi di bilanciamento del carico di livello 4 a prestazioni elevate e a bassa latenza per tutti i protocolli UDP e TCP. Gestisce le connessioni in ingresso e in uscita. È possibile configurare endpoint pubblici e interni con carico bilanciato e definire regole per mappare le connessioni in ingresso a destinazioni pool back-end con opzioni di probe dell'integrità TCP e HTTP per gestire la disponibilità del servizio.
+* **Load Balancer** è parte integrante dello stack Sdn di Azure, offrendo servizi di bilanciamento del carico di livello 4 a prestazioni elevate e a bassa latenza per tutti i protocolli UDP e TCP. Gestisce le connessioni in ingresso e in uscita. Consente di configurare endpoint pubblici e interni con carico bilanciato e di definire regole per mappare le connessioni in ingresso a destinazioni pool back-end con opzioni di probe dell'integrità TCP e HTTP per gestire la disponibilità del servizio.
 
 ## <a name="scenario"></a>Scenario
 

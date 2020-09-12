@@ -3,13 +3,13 @@ title: Concetti - Archiviazione nel servizio Azure Kubernetes
 description: Informazioni sull'archiviazione nel servizio Azure Kubernetes, inclusi volumi, volumi permanenti, classi di archiviazione e attestazioni
 services: container-service
 ms.topic: conceptual
-ms.date: 03/01/2019
-ms.openlocfilehash: 5cf52cb608061498c8e613a3bf1064997acaa128
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.date: 08/17/2020
+ms.openlocfilehash: 00dee485c7b07ec19bb1399aab9d55b286830871
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87406963"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421153"
 ---
 # <a name="storage-options-for-applications-in-azure-kubernetes-service-aks"></a>Opzioni di archiviazione per le applicazioni nel servizio Azure Kubernetes
 
@@ -32,8 +32,6 @@ Vengono creati volumi tradizionali per archiviare e recuperare i dati come risor
 
 - È possibile usare *Dischi di Azure* per creare una risorsa *DataDisk* Kubernetes. I dischi possono usare l'archiviazione Premium di Azure, supportata da unità SSD a prestazioni elevate, o l'archiviazione Standard di Azure, supportata da unità HDD regolari. Per la maggior parte dei carichi di lavoro di produzione e di sviluppo, usare l'archiviazione Premium. I dischi di Azure sono montati come *ReadWriteOnce*, quindi sono disponibili solo per un singolo POD. Per i volumi di archiviazione a cui è possibile accedere simultaneamente da più POD, utilizzare File di Azure.
 - È possibile usare *File di Azure* per montare una condivisione SMB 3.0 supportata da un account di archiviazione di Azure nei pod. I file consentono di condividere dati tra più nodi e pod. I file possono usare l'archiviazione standard di Azure supportata da HDD normali o archiviazione Premium di Azure, supportata da unità SSD a prestazioni elevate.
-> [!NOTE] 
-> File di Azure supportano archiviazione Premium nei cluster AKS che eseguono Kubernetes 1,13 o versione successiva.
 
 In Kubernetes, i volumi possono rappresentare più di un semplice disco tradizionale in cui possono essere archiviate e recuperate le informazioni. I volumi di Kubernetes possono anche essere usati come modo per inserire dati in un pod per l'uso da parte dei contenitori. I tipi di volumi aggiuntivi comuni in Kubernetes includono:
 
@@ -55,12 +53,18 @@ Un volume permanente può essere creato *staticamente* da un amministratore del 
 
 Per definire livelli di archiviazione diversi, ad esempio Premium e Standard, è possibile creare una *StorageClass*. La StorageClass definisce anche i *reclaimPolicy*. I criteri reclaimPolicy controllano il comportamento della risorsa di archiviazione di Azure sottostante quando il pod viene eliminato e il volume permanente potrebbe non essere più necessario. La risorsa di archiviazione sottostante può essere eliminata o conservata per l'uso con un pod futuro.
 
-In AKS verranno creati 4 StorageClasses iniziali:
+In AKS `StorageClasses` vengono creati quattro iniziali per il cluster con i plug-in di archiviazione nell'albero:
 
-- *impostazione predefinita* : usa l'archiviazione StandardSSD di Azure per creare un disco gestito. Il criterio di rimborso indica che il disco di Azure sottostante viene eliminato quando viene eliminato il volume permanente che lo ha usato.
-- *managed-premium* - Usa l'archiviazione Premium di Azure per creare un disco gestito. Il criterio di rimborso indica di nuovo che il disco di Azure sottostante viene eliminato quando viene eliminato il volume permanente che lo utilizza.
-- *azurefile* : usa l'archiviazione standard di Azure per creare una condivisione file di Azure. Il criterio di rimborso indica che la condivisione file di Azure sottostante viene eliminata quando viene eliminato il volume permanente che lo ha usato.
-- *azurefile-Premium* : Usa archiviazione Premium di Azure per creare una condivisione file di Azure. Il criterio di rimborso indica che la condivisione file di Azure sottostante viene eliminata quando viene eliminato il volume permanente che lo ha usato.
+- `default` : Usa l'archiviazione StandardSSD di Azure per creare un disco gestito. Il criterio di rimborso garantisce che il disco di Azure sottostante venga eliminato quando viene eliminato il volume permanente che lo ha usato.
+- `managed-premium` -Usa archiviazione Premium di Azure per creare un disco gestito. Il criterio di rimborso garantisce che il disco di Azure sottostante venga eliminato quando viene eliminato il volume permanente che lo ha usato.
+- `azurefile` : Usa l'archiviazione standard di Azure per creare una condivisione file di Azure. Il criterio di rimborso garantisce che la condivisione file di Azure sottostante venga eliminata quando viene eliminato il volume permanente che lo ha usato.
+- `azurefile-premium` -Usa archiviazione Premium di Azure per creare una condivisione file di Azure. Il criterio di rimborso garantisce che la condivisione file di Azure sottostante venga eliminata quando viene eliminato il volume permanente che lo ha usato.
+
+Per i cluster che usano i nuovi plug-in dell'interfaccia di archiviazione contenitori (CSI), vengono creati i seguenti elementi aggiuntivi `StorageClasses` :
+- `managed-csi` : Usa l'archiviazione con ridondanza locale di Azure StandardSSD (con ridondanza locale) per creare un disco gestito. Il criterio di rimborso garantisce che il disco di Azure sottostante venga eliminato quando viene eliminato il volume permanente che lo ha usato. La classe di archiviazione configura anche i volumi permanenti in modo che siano espandibili. è sufficiente modificare l'attestazione del volume permanente con le nuove dimensioni.
+- `managed-csi-premium` : Usa l'archiviazione con ridondanza locale di Azure Premium (con ridondanza locale) per creare un disco gestito. Il criterio di rimborso garantisce che il disco di Azure sottostante venga eliminato quando viene eliminato il volume permanente che lo ha usato. Analogamente, questa classe di archiviazione consente l'espansione dei volumi permanenti.
+- `azurefile-csi` : Usa l'archiviazione standard di Azure per creare una condivisione file di Azure. Il criterio di rimborso garantisce che la condivisione file di Azure sottostante venga eliminata quando viene eliminato il volume permanente che lo ha usato.
+- `azurefile-csi-premium` -Usa archiviazione Premium di Azure per creare una condivisione file di Azure. Il criterio di rimborso garantisce che la condivisione file di Azure sottostante venga eliminata quando viene eliminato il volume permanente che lo ha usato.
 
 Se non si specifica una StorageClass per un volume permanente, viene usata la StorageClass predefinita. Prestare attenzione per la richiesta di volumi permanenti, in modo che usino le risorse di archiviazione appropriate necessarie. È possibile creare una StorageClass per esigenze aggiuntive con `kubectl`. L'esempio seguente usa Managed Disks Premium e specifica che il disco di Azure sottostante deve essere *conservato* quando viene eliminato il pod:
 

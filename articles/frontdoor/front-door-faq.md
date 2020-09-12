@@ -3,20 +3,20 @@ title: Sportello anteriore di Azure-Domande frequenti
 description: Questa pagina fornisce le risposte alle domande frequenti su Azure front door
 services: frontdoor
 documentationcenter: ''
-author: sohamnchatterjee
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/13/2020
-ms.author: sohamnc
-ms.openlocfilehash: e1b8c432673712b637d51a64ce87b4eb2131be7d
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.author: duau
+ms.openlocfilehash: 995b8ab77779f0d3b9e2260ea18aa13aa242db36
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87760414"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399736"
 ---
 # <a name="frequently-asked-questions-for-azure-front-door"></a>Domande frequenti per Azure front door
 
@@ -92,8 +92,8 @@ Per bloccare l'applicazione in modo che accetti il traffico solo da un sportello
 - Configurare ACLing IP per i back-end in modo che accettino il traffico dallo spazio degli indirizzi IP back-end di Azure front door e dai servizi di infrastruttura di Azure. Vedere i dettagli dell'indirizzo IP seguente per ACLing il back-end:
  
     - Vedere la sezione *AzureFrontDoor. backend* negli [intervalli IP di Azure e nei tag del servizio](https://www.microsoft.com/download/details.aspx?id=56519) per l'intervallo di indirizzi IP del back-end IPv4 di front-end oppure è possibile usare anche il tag di servizio *AzureFrontDoor. backend* nei [gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview#security-rules).
-    - Lo spazio IP del back-end **IPv6** dello sportello anteriore mentre è incluso nel tag del servizio non è elencato nel file JSON degli intervalli IP di Azure. Se si sta cercando un intervallo di indirizzi IPv6 esplicito, è attualmente limitato a`2a01:111:2050::/44`
-    - Servizi di [infrastruttura di base](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) di Azure tramite indirizzi IP host virtualizzati: `168.63.129.16` e`169.254.169.254`
+    - Lo spazio IP del back-end **IPv6** dello sportello anteriore mentre è incluso nel tag del servizio non è elencato nel file JSON degli intervalli IP di Azure. Se si sta cercando un intervallo di indirizzi IPv6 esplicito, è attualmente limitato a `2a01:111:2050::/44`
+    - Servizi di [infrastruttura di base](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations) di Azure tramite indirizzi IP host virtualizzati: `168.63.129.16` e `169.254.169.254`
 
     > [!WARNING]
     > Lo spazio IP back-end della porta anteriore potrebbe cambiare in un secondo momento, tuttavia, prima che ciò accada, avremmo integrato gli [intervalli IP di Azure e i tag di servizio](https://www.microsoft.com/download/details.aspx?id=56519). È consigliabile sottoscrivere gli [intervalli IP e i tag di servizio di Azure](https://www.microsoft.com/download/details.aspx?id=56519) per eventuali modifiche o aggiornamenti.

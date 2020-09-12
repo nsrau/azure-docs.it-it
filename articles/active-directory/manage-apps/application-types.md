@@ -1,128 +1,42 @@
 ---
-title: Applicazione non prevista nell'elenco delle applicazioni | Microsoft Docs
-description: Come visualizzare tutte le applicazioni nel tenant e capire come le applicazioni vengono visualizzate nell'elenco Tutte le applicazioni in Applicazioni aziendali
+title: Visualizzazione di app con il tenant di Azure Active Directory per la gestione delle identità
+description: Informazioni su come visualizzare tutte le applicazioni usando il tenant di Azure Active Directory per la gestione delle identità.
 services: active-directory
-documentationcenter: ''
 author: kenwith
 manager: celestedg
-ms.assetid: ''
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: troubleshooting
+ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: kenwith
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d6c329b7de3e18989e7dbfa35aa6e9303c129654
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 955efe45be27fa2f4e738066bb3b69b3604be33a
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019302"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400722"
 ---
-# <a name="unexpected-application-in-my-applications-list"></a>Applicazione non prevista nell'elenco delle applicazioni
-
-Questo articolo illustra come vengono visualizzate le applicazioni nell'elenco **Tutte le applicazioni** in **Applicazioni aziendali**. 
-
-## <a name="how-to-see-all-applications-in-your-tenant"></a>Come visualizzare tutte le applicazioni nel tenant
-
-Per visualizzare tutte le applicazioni nel tenant, è necessario usare il controllo **Filtro** per visualizzare **Tutte le applicazioni** nell'elenco **Tutte le applicazioni**. Seguire questa procedura:
-
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
-
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
-
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
-
-4.  Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
-
-5.  Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
-
-6.  Fare clic sul controllo **Filtro** all'inizio dell'**elenco Tutte le applicazioni**.
-
-7.  Nel riquadro **Filtro** impostare l'opzione **Mostra** su **Tutte le applicazioni**.
+# <a name="viewing-apps-using-your-azure-ad-tenant-for-identity-management"></a>Visualizzazione di app con il tenant di Azure AD per la gestione delle identità
+La [serie di guide introduttive sulla gestione delle applicazioni](view-applications-portal.md) offre le nozioni di base. Si apprenderà come visualizzare tutte le app usando il tenant di Azure AD per la gestione delle identità. Questo articolo illustra in maniera approfondita i tipi di app disponibili.
 
 ## <a name="why-does-a-specific-application-appear-in-my-all-applications-list"></a>Perché viene visualizzata un'applicazione specifica nell'elenco di tutte le applicazioni?
-
 Quando viene applicato un filtro a **tutte le applicazioni**, l' **elenco** **tutte le applicazioni** Mostra ogni oggetto entità servizio nel tenant. Gli oggetti entità servizio possono essere visualizzati in questo elenco in diversi modi:
+- Quando si aggiunge un'applicazione dalla raccolta di applicazioni, incluse:
+   - **Applicazioni Azure ad-Enterprise** : app aggiunte al tenant usando l'opzione **applicazioni aziendali** nel portale di Azure ad. In genere le app sono integrate con lo standard SAML.
+   - **Azure ad-registrazioni app** : app aggiunte al tenant usando l'opzione **registrazioni app** nel portale di Azure ad. In genere app personalizzate sviluppate usando gli standard Open ID Connect e OAuth.
+   - **Applicazioni del proxy di applicazione**: un'applicazione in esecuzione nell'ambiente locale per cui si vuole offrire l'accesso Single Sign-On sicuro all'esterno.
+- Quando si effettua l'iscrizione o si accede a un'applicazione di terze parti integrata con Azure Active Directory. ad esempio [Smartsheet](https://app.smartsheet.com/b/home) o [DocuSign](https://www.docusign.net/member/MemberLogin.aspx).
+- App Microsoft, ad esempio Microsoft 365 o Office 365.
+- Quando si aggiunge una nuova registrazione di applicazione creando un'applicazione personalizzata con il [Registro applicazioni](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration).
+- Quando si aggiunge una nuova registrazione di applicazione creando un'applicazione personalizzata con il [portale di registrazione delle applicazioni V2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration).
+- Quando si aggiunge un'applicazione, si sta sviluppando usando i [metodi di autenticazione ASP.NET](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) di Visual Studio o [servizi connessi](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/)
+- Quando si crea un oggetto entità servizio usando il [modulo Azure AD PowerShell](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
+- Quando un amministratore [consente a un'applicazione](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) di usare i dati nel tenant.
+- Quando un [utente consente a un'applicazione](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) di usare i dati nel tenant.
+- Quando si abilitano determinati servizi che archiviano dati nel tenant, Un esempio è la reimpostazione della password, che è modellata come un'entità servizio per archiviare in modo sicuro i criteri di reimpostazione password.
 
-1. Quando si aggiunge un'applicazione dalla raccolta di applicazioni, incluse:
-
-   1. **Applicazioni della raccolta di Azure AD**: un'applicazione che è già stata integrata per l'accesso Single Sign-On con Azure AD.
-
-   2. **Applicazioni del proxy di applicazione**: un'applicazione in esecuzione nell'ambiente locale per cui si vuole offrire l'accesso Single Sign-On sicuro all'esterno.
-
-   3. **Applicazioni personalizzate**: un'applicazione che l'organizzazione vuole sviluppare nella piattaforma di sviluppo di applicazioni di Azure AD ma che potrebbe non essere ancora disponibile.
-
-   4. **Applicazioni non della raccolta** : porta le tue applicazioni! Qualsiasi collegamento Web o qualsiasi applicazione che usa un campo di nome utente e password supporta i protocolli SAML o OpenID Connect oppure supporta SCIM che può essere integrato per un accesso Single Sign-On con Azure AD.
-
-2. Quando si effettua l'iscrizione o si esegue l'accesso a un'applicazione di terze parti integrata con Azure Active Directory<sup></sup>, ad esempio [Smartsheet](https://app.smartsheet.com/b/home) o [DocuSign](https://www.docusign.net/member/MemberLogin.aspx).
-
-3. Quando si effettua l'iscrizione o si aggiunge una licenza a un utente o un gruppo per un'applicazione proprietaria, come [Microsoft Office 365](https://products.office.com/).
-
-4. Quando si aggiunge una nuova registrazione di applicazione creando un'applicazione personalizzata con il [Registro applicazioni](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration).
-
-5. Quando si aggiunge una nuova registrazione di applicazione creando un'applicazione personalizzata con il [portale di registrazione delle applicazioni V2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration).
-
-6. Quando si aggiunge un'applicazione sviluppata con i [metodi di autenticazione ASP.NET](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) o con [Servizi connessi](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/) di Visual Studio.
-
-7. Quando si crea un oggetto entità servizio usando il [modulo Azure AD PowerShell](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0).
-
-8. Quando un amministratore [consente a un'applicazione](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) di usare i dati nel tenant.
-
-9. Quando un [utente consente a un'applicazione](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) di usare i dati nel tenant.
-
-10. Quando si abilitano determinati servizi che archiviano dati nel tenant, Un esempio è la reimpostazione della password, che è modellata come un'entità servizio per archiviare in modo sicuro i criteri di reimpostazione password.
-
-Per ottenere altre informazioni dettagliate sull'aggiunta di app alla directory, vedere [Come vengono aggiunte le applicazioni in Azure AD e perché](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added).
-
-## <a name="i-want-to-remove-a-specific-users-or-groups-assignment-to-an-application"></a>Si vuole rimuovere un'assegnazione specifica di un utente o gruppo a un'applicazione
-
-Per rimuovere un'assegnazione di un utente o di un gruppo da un'applicazione, seguire i passaggi elencati nell'articolo [Rimuovere l'assegnazione di un utente o un gruppo da un'app aziendale in anteprima di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-remove-assignment-azure-portal).
-
-## <a name="i-want-to-disable-all-access-to-an-application-for-every-user"></a>Si vuole disabilitare tutti gli accessi a un'applicazione per tutti gli utenti
-
-Per disabilitare tutti gli accessi utente a un'applicazione, seguire i passaggi elencati nell'articolo [Disabilitare gli accessi utente per un'app aziendale in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-disable-app-azure-portal).
-
-## <a name="i-want-to-delete-an-application-entirely"></a>Si vuole eliminare completamente un'applicazione
-
-Per **eliminare un'applicazione**, seguire questa procedura:
-
-1. Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **amministratore globale** o **coamministratore.**
-
-2. Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
-
-3. Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
-
-4. Fare clic su **Applicazioni aziendali** nel menu di spostamento di sinistra di Azure Active Directory.
-
-5. Fare clic su **Tutte le applicazioni** per visualizzare un elenco di tutte le applicazioni.
-
-   * Se l'applicazione non è inclusa nell'elenco, usare il controllo **Filtro** all'inizio dell'elenco **Tutte le applicazioni** e impostare l'opzione **Mostra** su **Tutte le applicazioni**.
-
-6. Selezionare l'applicazione che si desidera eliminare.
-
-7. Dopo il caricamento dell'applicazione, fare clic sull'icona **Elimina** nella parte superiore del riquadro **Panoramica** dell'applicazione.
-
-## <a name="i-want-to-disable-all-future-user-consent-operations-to-any-application"></a>Si vuole disabilitare tutte le operazioni future di consenso da parte dell'utente a tutte le applicazioni
-
-La disabilitazione di consenso da parte dell'utente per l'intera directory impedisce agli utenti finali di consentire l'accesso a qualsiasi applicazione. Gli amministratori possono comunque acconsentire per conto dell'utente. Per informazioni sul consenso per le applicazioni e sui motivi per cui può essere opportuno o meno concederlo, vedere [Informazioni sul consenso dell'utente e dell'amministratore](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview).
-
-Per **disabilitare tutte le future operazioni di consenso utente nell'intera directory**, seguire questa procedura:
-
-1.  Aprire il [**portale di Azure**](https://portal.azure.com/) e accedere come **Amministratore globale**.
-
-2.  Aprire l'**estensione Azure Active Directory** facendo clic su **Tutti i servizi** nella parte superiore del menu di spostamento principale a sinistra.
-
-3.  Digitare "**Azure Active Directory**" nella casella di ricerca filtro e selezionare l'elemento **Azure Active Directory**.
-
-4.  fare clic su **utenti e gruppi** nel menu di navigazione.
-
-5.  fare clic su **impostazioni utente**.
-
-6.  Disabilitare tutte le future operazioni di consenso degli utenti impostando l'opzione **Gli utenti possono consentire alle app di accedere ai propri dati** su **No** e facendo clic sul pulsante **Salva**.
+Per altre informazioni su come e perché, le app vengono aggiunte alla directory, vedere [come vengono aggiunte le applicazioni ai Azure ad](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added).
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Gestione di applicazioni con Azure Active Directory](what-is-application-management.md)

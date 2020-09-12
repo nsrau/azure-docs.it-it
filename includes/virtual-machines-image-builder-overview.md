@@ -5,12 +5,12 @@ ms.date: 08/03/2020
 ms.topic: include
 ms.service: virtual-machines-linux
 manager: daberry
-ms.openlocfilehash: 6024dd595166afe24a75720d8c7593afd451b610
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: a5a201a9f993db2be00645d8d60a11c5be9cdbe0
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87554906"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89303969"
 ---
 Le immagini di macchine virtuali (VM) standardizzate consentono alle organizzazioni di eseguire la migrazione al cloud e garantire la coerenza nelle distribuzioni. Le immagini includono in genere impostazioni predefinite di configurazione e sicurezza, oltre al software necessario. La configurazione della pipeline di creazione di immagini richiede tempo, infrastruttura e installazioni, ma con Image Builder per macchine virtuali di Azure è sufficiente specificare una semplice configurazione con la descrizione dell'immagine e inviarla al servizio che provvederà a compilare e distribuire l'immagine.
  
@@ -100,7 +100,7 @@ Image Builder crea una VM di dimensioni D1v2, oltre alle risorse di archiviazion
 Azure Image Builder distribuirà l'immagine nelle aree scelte, che potrebbero comportare addebiti in uscita dalla rete.
 
 ## <a name="hyper-v-generation"></a>Generazione di Hyper-V
-Il generatore di immagini attualmente in supporta le immagini e le VM Hyper-V di generazione 1.
+Il generatore di immagini attualmente supporta solo in modo nativo la creazione di immagini di generazione Hyper-V (Gen1) 1 nella raccolta di immagini condivise (SIG) o nell'immagine gestita di Azure. Se si vuole creare immagini Gen2, è necessario usare un'immagine Gen2 di origine e distribuirla nel disco rigido virtuale. Successivamente, sarà necessario creare un'immagine gestita dal disco rigido virtuale e inserirla nel SIG come immagine Gen2.
  
 ## <a name="next-steps"></a>Passaggi successivi 
  

@@ -2,17 +2,17 @@
 title: Eseguire l'onboarding di un dominio radice o Apex a una porta anteriore esistente-portale di Azure
 description: Informazioni su come caricare un dominio radice o Apex in un sportello anteriore esistente usando il portale di Azure.
 services: front-door
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.topic: how-to
 ms.date: 5/21/2019
-ms.author: sharadag
-ms.openlocfilehash: d8f08f7cde54aaf705872c8c45bc18eb4a27df77
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 05267ad43f6e7f89ec50b1765d2475a02fae1702
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743593"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399581"
 ---
 # <a name="onboard-a-root-or-apex-domain-on-your-front-door"></a>Eseguire l'onboarding di un dominio radice o apex nella frontdoor
 Il front-end di Azure usa record CNAME per convalidare la proprietà del dominio per l'onboarding di domini personalizzati. Inoltre, la porta anteriore non espone l'indirizzo IP front-end associato al profilo della porta anteriore e pertanto non è possibile eseguire il mapping del dominio Apex a un indirizzo IP, se lo scopo è quello di eseguire l'onboarding in Azure front door.
@@ -62,7 +62,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 ## <a name="enable-https-on-your-custom-domain"></a>Abilitare HTTPS nel dominio personalizzato
 
 1. Fare clic sul dominio personalizzato che è stato aggiunto e nella sezione **dominio personalizzato HTTPS**impostare lo stato su **abilitato**.
-2. Selezionare il **tipo di gestione dei certificati** per _usare il proprio certificato_.
+2. Selezionare il  **tipo di gestione dei certificati** per _usare il proprio certificato_.
 
 > [!WARNING]
 > Il tipo di gestione dei certificati gestiti dalla porta anteriore non è attualmente supportato per i domini di apice o radice. L'unica opzione disponibile per l'abilitazione di HTTPS in un vertice o un dominio radice per la porta anteriore è l'uso di un certificato TLS/SSL personalizzato ospitato in Azure Key Vault.

@@ -10,22 +10,25 @@ ms.topic: conceptual
 author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: carlrab
-ms.date: 09/25/2018
-ms.openlocfilehash: cb7fb7f6c44f9e1c4a9b073c666543a2e892582a
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.date: 09/02/2020
+ms.openlocfilehash: 22a9bec09652b6cbce02fe5a54a319694aaa6911
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985500"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421306"
 ---
-# <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Accelerare l'analisi Big Data in tempo reale con il connettore Spark 
+# <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Accelerare l'analisi Big Data in tempo reale con il connettore Spark
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
+
+> [!NOTE]
+> A partire da Sep 2020, questo connettore non viene mantenuto attivamente. Tuttavia, [Apache Spark Connector per SQL Server e Azure SQL](https://docs.microsoft.com/sql/connect/spark/connector) è ora disponibile, con supporto per i binding Python e R, un'interfaccia più semplice da usare per l'inserimento bulk dei dati e molti altri miglioramenti. Si consiglia vivamente di valutare e usare il nuovo connettore invece di questo. Le informazioni sul connettore precedente (Questa pagina) vengono mantenute solo a scopo di archiviazione.
 
 Il connettore Spark Abilita i database nel database SQL di Azure, Istanza gestita SQL di Azure e SQL Server per agire come origine dati di input o sink di dati di output per i processi Spark. Consente di utilizzare dati transazionali in tempo reale in Big Data Analytics e di salvare i risultati per query ad hoc o per la creazione di report. Rispetto al connettore JDBC incorporato, questo connettore consente di eseguire l'inserimento bulk dei dati nel database. Può superare l'inserimento riga per riga con prestazioni da 10 a 20 volte più veloci. Il connettore Spark supporta l'autenticazione Azure Active Directory (Azure AD) per connettersi al database SQL di Azure e al Istanza gestita SQL di Azure, consentendo di connettere il database da Azure Databricks usando l'account di Azure AD. Fornisce interfacce simili al connettore JDBC incorporato. È facile eseguire la migrazione dei processi Spark esistenti per l'utilizzo di questo nuovo connettore.
 
 ## <a name="download-and-build-a-spark-connector"></a>Scaricare e compilare un connettore Spark
 
-Per iniziare, scaricare il connettore Spark dal [repository Azure-SQLDB-Spark](https://github.com/Azure/azure-sqldb-spark) in GitHub.
+Il repository GitHub per il connettore precedente precedentemente collegato a da questa pagina non viene mantenuto attivamente. Si consiglia invece di valutare e usare il [nuovo connettore](https://github.com/microsoft/sql-spark-connector).
 
 ### <a name="official-supported-versions"></a>Versioni ufficiali supportate
 
@@ -35,8 +38,8 @@ Per iniziare, scaricare il connettore Spark dal [repository Azure-SQLDB-Spark](h
 | Scala                                 | 2.10 o versione successiva            |
 | Microsoft JDBC Driver per SQL Server  | 6.2 o versione successiva             |
 | Microsoft SQL Server                  | SQL Server 2008 o versione successiva |
-| database SQL di Azure                    | Supportato                |
-| Istanza gestita di SQL di Azure            | Supportato                |
+| Database SQL di Azure                    | Funzionalità supportata                |
+| Istanza gestita di SQL di Azure            | Funzionalità supportata                |
 
 Il connettore Spark utilizza Microsoft JDBC driver per SQL Server per spostare i dati tra i nodi di lavoro Spark e i database:
 

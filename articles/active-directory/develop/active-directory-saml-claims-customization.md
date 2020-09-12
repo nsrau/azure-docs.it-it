@@ -13,12 +13,12 @@ ms.date: 10/22/2019
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.openlocfilehash: f35e5971374f54940396f602a23ffa0ae3abd015
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 5de505ff9573fb186ca2bbe4f5bd6783022eb3ef
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87552833"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421459"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>Procedura: Personalizzare le attestazioni rilasciate nel token SAML per le applicazioni aziendali
 
@@ -88,11 +88,11 @@ Per altre informazioni, vedere [Tabella 3: Valori di ID validi per origine](acti
 
 1. In **Attributo di origine** immettere il valore costante senza virgolette in base ai requisiti dell'organizzazione e fare clic su **Salva**.
 
-    ![Aprire la sezione Attributi utente e attestazioni nel portale di Azure](./media/active-directory-saml-claims-customization/organization-attribute.png)
+    ![Attributi dell'organizzazione & sezione delle attestazioni nell'portale di Azure](./media/active-directory-saml-claims-customization/organization-attribute.png)
 
 1. Il valore costante verrà visualizzato come indicato di seguito.
 
-    ![Aprire la sezione Attributi utente e attestazioni nel portale di Azure](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
+    ![Modificare gli attributi & sezione delle attestazioni nell'portale di Azure](./media/active-directory-saml-claims-customization/edit-attributes-claims.png)
 
 ### <a name="special-claims---transformations"></a>Attestazioni speciali - Trasformazioni
 
@@ -121,7 +121,7 @@ Per applicare una trasformazione a un attributo utente:
 2. Selezionare la funzione nell'elenco a discesa Trasformazione. A seconda della funzione selezionata, sarà necessario specificare i parametri e un valore costante da valutare nella trasformazione. Per altre informazioni sulle funzioni disponibili, vedere la tabella seguente.
 3. Per applicare più trasformazioni, fare clic su **Aggiungi trasformazione**. È possibile applicare al massimo due trasformazioni a un'attestazione. È ad esempio possibile estrarre prima il prefisso dell'indirizzo di posta elettronica da `user.mail`. Quindi, impostare la stringa in maiuscolo.
 
-   ![Modificare il valore di NameID (identificatore del nome)](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
+   ![Trasformazione di più attestazioni](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
 
 Per trasformare le attestazioni, è possibile usare le funzioni seguenti.
 
@@ -129,8 +129,8 @@ Per trasformare le attestazioni, è possibile usare le funzioni seguenti.
 |----------|-------------|
 | **ExtractMailPrefix()** | Rimuove il suffisso del dominio dall'indirizzo di posta elettronica o dal nome dell'entità utente. In questo modo viene estratta solo la prima parte del nome utente passata, ad esempio "joe_smith" anziché joe_smith@contoso.com. |
 | **Join()** | Crea un nuovo valore creando un join tra due attributi. Facoltativamente, è possibile usare un separatore tra i due attributi. Per la trasformazione dell'attestazione NameID, il join è limitato solo a un dominio verificato. Se il valore dell'ID utente selezionato ha un dominio, estrarrà il nome utente per accodare il dominio verificato selezionato. Ad esempio, se si seleziona l'indirizzo e-mail (joe_smith@contoso.com) come valore dell'ID utente e si seleziona contoso.onmicrosoft.com come dominio verificato, si avrà come risultato joe_smith@contoso.onmicrosoft.com. |
-| **ToLower()** | Converte i caratteri dell'attributo selezionato in minuscole. |
-| **ToUpper()** | Converte i caratteri dell'attributo selezionato in maiuscole. |
+| **Tominuscolo ()** | Converte i caratteri dell'attributo selezionato in minuscole. |
+| **Tomaiuscole ()** | Converte i caratteri dell'attributo selezionato in maiuscole. |
 | **Contains()** | Restituisce un attributo o una costante se l'input corrisponde al valore specificato. In caso contrario, se non esistono corrispondenze, è possibile specificare un altro output.<br/>Ad esempio, è possibile scegliere che venga creata un'attestazione in cui il valore corrisponde all'indirizzo di posta elettronica dell'utente se contiene il dominio "@contoso.com" e in caso contrario che venga restituito il nome dell'entità utente. A questo scopo, configurare i valori seguenti:<br/>*Parametro 1 (input)* : user.email<br/>*Valore*: "@contoso.com"<br/>Parametro 2 (output): user.email<br/>Parametro 3 (output se non esistono corrispondenze): user.userprincipalname |
 | **EndWith()** | Restituisce un attributo o una costante se l'input termina con il valore specificato. In caso contrario, se non esistono corrispondenze, è possibile specificare un altro output.<br/>Ad esempio, è possibile scegliere che venga creata un'attestazione in cui il valore corrisponde all'ID dipendente dell'utente se termina con "000" e in caso contrario che venga restituito un attributo di estensione. A questo scopo, configurare i valori seguenti:<br/>*Parametro 1 (input)* : user.employeeid<br/>*Value*: "000"<br/>Parametro 2 (output): user.employeeid<br/>Parametro 3 (output se non esistono corrispondenze): user.extensionattribute1 |
 | **StartWith()** | Restituisce un attributo o una costante se l'input inizia con il valore specificato. In caso contrario, se non esistono corrispondenze, è possibile specificare un altro output.<br/>Ad esempio, è possibile scegliere che venga creata un'attestazione in cui il valore corrisponde all'ID dipendente dell'utente se il paese/area geografica inizia con "US" e in caso contrario che venga restituito un attributo di estensione. A questo scopo, configurare i valori seguenti:<br/>*Parametro 1 (input)* : user.country<br/>*Value*: "US"<br/>Parametro 2 (output): user.employeeid<br/>Parametro 3 (output se non esistono corrispondenze): user.extensionattribute1 |

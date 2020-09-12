@@ -3,20 +3,20 @@ title: Sportello anteriore di Azure-Reindirizzamento URL | Microsoft Docs
 description: Questo articolo illustra in che modo il portale di Azure supporta il reindirizzamento URL per le route, se configurate.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/08/2019
-ms.author: sharadag
-ms.openlocfilehash: 5e3e44c4aee84fe9e2e21174a1d65fdf26b765a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 41cb2343cb86d2ec756bb0a2fb690b7df886024f
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80295467"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399039"
 ---
 # <a name="url-redirect"></a>Reindirizzamento URL
 È possibile usare lo sportello anteriore di Azure per reindirizzare il traffico. È possibile reindirizzare il traffico a più livelli (protocollo, nome host, percorso, stringa di query) e tutte le funzionalità possono essere configurate per i singoli microservizi perché il reindirizzamento è basato sul percorso. In questo modo semplifica la configurazione dell'applicazione, ottimizza l'utilizzo delle risorse e supporta i nuovi scenari di reindirizzamento, tra cui il reindirizzamento globale e basato sul percorso.
@@ -43,7 +43,7 @@ Un tipo di reindirizzamento imposta il codice di stato della risposta per i clie
 Come parte della configurazione di un routing di reindirizzamento, è anche possibile modificare il nome host o il dominio per la richiesta di reindirizzamento. È possibile impostare questo campo per modificare il nome host nell'URL per il reindirizzamento oppure mantenere il nome host dalla richiesta in ingresso. Quindi, usando questo campo è possibile reindirizzare tutte le richieste inviate `https://www.contoso.com/*` a `https://www.fabrikam.com/*` .
 
 ## <a name="destination-path"></a>Percorso di destinazione
-Per i casi in cui si desidera sostituire il segmento di percorso di un URL come parte del reindirizzamento, è possibile impostare questo campo con il nuovo valore del percorso. In caso contrario, è possibile scegliere di mantenere il valore del percorso come parte del reindirizzamento. Quindi, usando questo campo, è possibile reindirizzare tutte le richieste inviate a `https://www.contoso.com/\*` a `https://www.contoso.com/redirected-site` .
+Per i casi in cui si desidera sostituire il segmento di percorso di un URL come parte del reindirizzamento, è possibile impostare questo campo con il nuovo valore del percorso. In caso contrario, è possibile scegliere di mantenere il valore del percorso come parte del reindirizzamento. Quindi, usando questo campo, è possibile reindirizzare tutte le richieste inviate a `https://www.contoso.com/\*` a  `https://www.contoso.com/redirected-site` .
 
 ## <a name="query-string-parameters"></a>Parametri della stringa di query
 È anche possibile sostituire i parametri della stringa di query nell'URL reindirizzato. Per sostituire una stringa di query esistente dall'URL della richiesta in ingresso, impostare questo campo su' Sostituisci ' e quindi impostare il valore appropriato. In caso contrario, è possibile mantenere il set originale di stringhe di query impostando il campo su' preserve '. Ad esempio, usando questo campo, è possibile reindirizzare tutto il traffico inviato a `https://www.contoso.com/foo/bar` `https://www.contoso.com/foo/bar?&utm_referrer=https%3A%2F%2Fwww.bing.com%2F` . 

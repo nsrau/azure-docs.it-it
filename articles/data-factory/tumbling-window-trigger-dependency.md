@@ -2,21 +2,21 @@
 title: Crea dipendenze trigger finestra a cascata
 description: Informazioni su come creare dipendenze del trigger di finestra a cascata in Azure Data Factory.
 services: data-factory
-ms.author: daperlov
-author: djpmsft
-manager: anandsub
+ms.author: chez
+author: chez-charlie
+manager: weetok
 ms.service: data-factory
 ms.workload: data-services
 ms.devlang: na
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 07/29/2019
-ms.openlocfilehash: 3b417e7c4589f3a4214400a877812d196a63349b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/03/2020
+ms.openlocfilehash: 4a99865e13e029dcea478cf6085d71c465918b14
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82870043"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421858"
 ---
 # <a name="create-a-tumbling-window-trigger-dependency"></a>Creare una dipendenza del trigger di finestra a cascata
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -33,7 +33,7 @@ Per una dimostrazione su come creare pipeline dipendenti nel Azure Data Factory 
 
 Per creare dipendenze di un trigger, selezionare **Trigger > Avanzate > Nuovo**, quindi scegliere il trigger da cui dipendere con le dimensioni e gli scostamenti appropriati. Selezionare **Fine** e pubblicare le modifiche alla data factory per attivare le dipendenze.
 
-![Creazione di dipendenze](media/tumbling-window-trigger-dependency/tumbling-window-dependency01.png "Creazione di dipendenze")
+![Creazione di dipendenze](media/tumbling-window-trigger-dependency/tumbling-window-dependency-01.png "Creazione di dipendenze")
 
 ## <a name="tumbling-window-dependency-properties"></a>Proprietà di una dipendenza in una finestra a cascata
 
@@ -133,41 +133,53 @@ Di seguito sono illustrate le illustrazioni degli scenari e l'utilizzo delle pro
 
 ### <a name="dependency-offset"></a>Scostamento della dipendenza
 
-![Esempio di offset](media/tumbling-window-trigger-dependency/tumbling-window-dependency02.png "Esempio di offset")
+![Esempio di offset](media/tumbling-window-trigger-dependency/tumbling-window-dependency-02.png "Esempio di offset")
 
 ### <a name="dependency-size"></a>Dimensione della dipendenza
 
-![Esempio di dimensioni](media/tumbling-window-trigger-dependency/tumbling-window-dependency03.png "Esempio di dimensioni")
+![Esempio di dimensioni](media/tumbling-window-trigger-dependency/tumbling-window-dependency-03.png "Esempio di dimensioni")
 
 ### <a name="self-dependency"></a>Auto-dipendenza
 
-![Dipendenza autonoma](media/tumbling-window-trigger-dependency/tumbling-window-dependency04.png "Auto-dipendenza")
+![Dipendenza autonoma](media/tumbling-window-trigger-dependency/tumbling-window-dependency-04.png "Auto-dipendenza")
 
 ### <a name="dependency-on-another-tumbling-window-trigger"></a>Dipendenza di un altro trigger in una finestra a cascata
 
 Un processo di elaborazione dei dati di telemetria giornaliero a seconda di un altro processo giornaliero che esegue l'aggregazione degli ultimi sette giorni e genera flussi di finestra in sequenza per sette giorni:
 
-![Esempio di dipendenza](media/tumbling-window-trigger-dependency/tumbling-window-dependency05.png "Esempio di dipendenza")
+![Esempio di dipendenza](media/tumbling-window-trigger-dependency/tumbling-window-dependency-05.png "Esempio di dipendenza")
 
 ### <a name="dependency-on-itself"></a>Dipendenza su se stesso
 
 Un processo giornaliero senza interruzioni nei flussi di output del processo:
 
-![Esempio di dipendenza autonoma](media/tumbling-window-trigger-dependency/tumbling-window-dependency06.png "Esempio di dipendenza autonoma")
+![Esempio di dipendenza autonoma](media/tumbling-window-trigger-dependency/tumbling-window-dependency-06.png "Esempio di dipendenza autonoma")
 
 ## <a name="monitor-dependencies"></a>Monitorare le dipendenze
 
-È possibile monitorare la catena delle dipendenze e le finestre corrispondenti dalla pagina di monitoraggio dell'esecuzione del trigger. Navigare alla voce **Monitoraggio > Esecuzioni di trigger**. Nella colonna azioni è possibile eseguire nuovamente il trigger o visualizzarne le dipendenze.
+È possibile monitorare la catena delle dipendenze e le finestre corrispondenti dalla pagina di monitoraggio dell'esecuzione del trigger. Navigare alla voce **Monitoraggio > Esecuzioni di trigger**. Se un trigger di finestra a cascata presenta dipendenze, il nome del trigger conterrà un collegamento ipertestuale alla visualizzazione di monitoraggio delle dipendenze.  
 
-![Monitorare le esecuzioni del trigger](media/tumbling-window-trigger-dependency/tumbling-window-dependency07.png "Monitorare le esecuzioni del trigger")
+![Monitorare le esecuzioni del trigger](media/tumbling-window-trigger-dependency/tumbling-window-dependency-07.png "Monitorare le esecuzioni di trigger-intere alla visualizzazione delle dipendenze della finestra a cascata")
 
-Se si fa clic su "Visualizza dipendenze trigger", è possibile visualizzare lo stato delle dipendenze. Se uno dei trigger di dipendenza ha esito negativo, è necessario eseguirlo di nuovo affinché il trigger dipendente venga eseguito. Un trigger di finestra a cascata attenderà le dipendenze per sette giorni prima del timeout.
+Fare clic sul nome del trigger per visualizzare le dipendenze del trigger. Il pannello a destra mostra informazioni dettagliate sull'esecuzione di trigger, ad esempio RunID, ora finestra, stato e così via.
 
-![Monitorare le dipendenze](media/tumbling-window-trigger-dependency/tumbling-window-dependency08.png "Monitorare le dipendenze")
+![Visualizzazione elenco dipendenze monitoraggio](media/tumbling-window-trigger-dependency/tumbling-window-dependency-08.png "Visualizzazione elenco dipendenze monitoraggio")
+
+È possibile visualizzare lo stato delle dipendenze e Windows per ogni trigger dipendente. Se uno dei trigger di dipendenza ha esito negativo, è necessario eseguirlo di nuovo affinché il trigger dipendente venga eseguito.
+
+Un trigger di finestra a cascata attenderà le dipendenze per _sette giorni_ prima del timeout. Dopo sette giorni, l'esecuzione del trigger avrà esito negativo.
 
 Per un oggetto visivo più visualizzato per visualizzare la pianificazione delle dipendenze del trigger, selezionare la visualizzazione Gantt.
 
-![Monitorare le dipendenze](media/tumbling-window-trigger-dependency/tumbling-window-dependency09.png "Monitorare le dipendenze")
+![Diagramma di Gantt del monitoraggio delle dipendenze](media/tumbling-window-trigger-dependency/tumbling-window-dependency-09.png "Visualizzazione diagramma di Gantt dipendenze monitoraggio")
+
+Le caselle trasparenti mostrano le finestre di dipendenza per ogni trigger Down dipendente dal flusso, mentre le caselle colorate a tinta unita sopra mostrano le singole esecuzioni di finestra. Di seguito sono riportati alcuni suggerimenti per l'interpretazione della vista del diagramma di Gantt:
+
+* La casella trasparente esegue il rendering blu quando le finestre dipendenti sono in stato in sospeso o in esecuzione
+* Una volta che tutte le finestre sono state riuscite per un trigger dipendente, la finestra trasparente diventa verde
+* La casella trasparente esegue il rendering di rosso quando una finestra dipendente non riesce. Cercare una casella rossa a tinta unita per identificare l'esecuzione della finestra di errore
+
+Per rieseguire una finestra nella visualizzazione diagramma di Gantt, selezionare la casella colore a tinta unita per la finestra. viene visualizzato un pannello azione con i dettagli e le opzioni Riesegui
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -3,13 +3,13 @@ title: Servizi e schemi supportati per i log delle risorse di Azure
 description: Informazioni sui servizi e sullo schema di eventi supportati per i log delle risorse di Azure.
 ms.subservice: logs
 ms.topic: reference
-ms.date: 06/15/2020
-ms.openlocfilehash: acd661467e90b4915daa2f3eb31f34fd350dc9f5
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.date: 09/01/2020
+ms.openlocfilehash: d0f78b858da51838aacd9e3be9b0a069918710a7
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226464"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421918"
 ---
 # <a name="common-and-service-specific-schema-for-azure-resource-logs"></a>Schema comune e specifico del servizio per i log delle risorse di Azure
 
@@ -25,12 +25,12 @@ Una combinazione del tipo di risorsa (disponibile nella proprietà `resourceId`)
 
 | Nome | Obbligatorio/facoltativo | Descrizione |
 |---|---|---|
-| time | Necessario | Il timestamp dell’evento (fuso UTC). |
-| resourceId | Necessario | ID della risorsa che ha emesso l’evento. Per i servizi di tenant, questo ha la forma /tenants/tenant-id/providers/provider-name. |
+| time | Obbligatoria | Il timestamp dell’evento (fuso UTC). |
+| resourceId | Obbligatoria | ID della risorsa che ha emesso l’evento. Per i servizi di tenant, questo ha la forma /tenants/tenant-id/providers/provider-name. |
 | TenantId | Obbligatorio per i log di tenant | L'ID tenant del tenant di Active Directory associato a questo evento. Questa proprietà viene utilizzata solo per i log a livello di tenant, non viene visualizzata nei log a livello di risorsa. |
-| operationName | Necessario | Il nome dell'operazione rappresentata da questo evento. Se l'evento rappresenta un'operazione RBAC, questo è il nome dell'operazione RBAC (ad esempio, Microsoft. storage/storageAccounts/blobServices/Blobs/Read). Tipicamente modellate sotto forma di operazione di Resource Manager, anche se non sono effettivamente operazioni documentate di Resource Manager (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
+| operationName | Obbligatoria | Il nome dell'operazione rappresentata da questo evento. Se l'evento rappresenta un'operazione RBAC, questo è il nome dell'operazione RBAC (ad esempio, Microsoft. storage/storageAccounts/blobServices/Blobs/Read). Tipicamente modellate sotto forma di operazione di Resource Manager, anche se non sono effettivamente operazioni documentate di Resource Manager (`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`) |
 | operationVersion | Facoltativo | La versione API associata all'operazione, se OperationName è stata eseguita usando un'API (ad esempio, `http://myservice.windowsazure.net/object?api-version=2016-06-01` ). Se non esiste un'API corrispondente a questa operazione, la versione rappresenta la versione di tale operazione nel caso in cui le proprietà associate all'operazione cambino in futuro. |
-| category | Necessario | La categoria di log dell'evento. La categoria è la granularità con cui è possibile abilitare o disabilitare i log di una particolare risorsa. Le proprietà che appaiono all'interno del BLOB delle proprietà di un evento sono le stesse all'interno di una particolare categoria di log e tipo di risorsa. Le categorie di log tipiche sono "audit" "Operational" "Execution" e "Request". |
+| category | Obbligatoria | La categoria di log dell'evento. La categoria è la granularità con cui è possibile abilitare o disabilitare i log di una particolare risorsa. Le proprietà che appaiono all'interno del BLOB delle proprietà di un evento sono le stesse all'interno di una particolare categoria di log e tipo di risorsa. Le categorie di log tipiche sono "audit" "Operational" "Execution" e "Request". |
 | resultType | Facoltativo | Lo stato dell'evento. I valori tipici includono: Started, In Progress, Succeeded, Failed, Active e Resolved. |
 | resultSignature | Facoltativo | Lo stato secondario dell'evento. Se questa operazione corrisponde a una chiamata all'API REST, questo campo è il codice di stato HTTP della chiamata REST corrispondente. |
 | resultDescription | Facoltativo | Descrizione statica del testo di questa operazione, ad esempio "Get storage file". |
@@ -49,7 +49,7 @@ Lo schema per i log delle risorse varia a seconda della risorsa e della categori
 | Service | Schema e documenti |
 | --- | --- |
 | Azure Active Directory | [Panoramica](../../active-directory/reports-monitoring/concept-activity-logs-azure-monitor.md), schema del [Registro di controllo](../../active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema.md) e [schema degli accessi](../../active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema.md) |
-| Analysis Services | https://docs.microsoft.com/azure/analysis-services/analysis-services-logging |
+| Analysis Services | [Azure Analysis Services-configurare la registrazione diagnostica](../../analysis-services/analysis-services-logging.md) |
 | Gestione API | [Log delle risorse di gestione API](../../api-management/api-management-howto-use-azure-monitor.md#resource-logs) |
 | Gateway applicazione |[Registrazione per il gateway applicazione](../../application-gateway/application-gateway-diagnostics.md) |
 | Automazione di Azure |[Log Analytics per automazione di Azure](../../automation/automation-manage-send-joblogs-log-analytics.md) |
@@ -64,8 +64,8 @@ Lo schema per i log delle risorse varia a seconda della risorsa e della categori
 | Esplora dati di Azure | [Log di Azure Esplora dati](/azure/data-explorer/using-diagnostic-logs) |
 | Database di Azure per MySQL | [Log di diagnostica di database di Azure per MySQL](../../mysql/concepts-server-logs.md#diagnostic-logs) |
 | Database di Azure per PostgreSQL | [Log di database di Azure per PostgreSQL](../../postgresql/concepts-server-logs.md#resource-logs) |
-| Azure Databricks | [Registrazione diagnostica in Azure Databricks](https://github.com/MicrosoftDocs/databricks-pr/blob/live/databricks/administration-guide/account-settings/azure-diagnostic-logs.md) |
-| Gemelli digitali | [Configurare la diagnostica di dispositivi gemelli digitali](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
+| Azure Databricks | [Registrazione diagnostica in Azure Databricks](https://docs.microsoft.com/azure/databricks/administration-guide/account-settings/azure-diagnostic-logs) |
+| Gemelli digitali di Azure | [Configurare la diagnostica di dispositivi gemelli digitali di Azure](../../digital-twins/troubleshoot-diagnostics.md#log-schemas)
 | Hub eventi |[Log di hub eventi di Azure](../../event-hubs/event-hubs-diagnostic-logs.md) |
 | Express Route | Lo schema non è disponibile. |
 | Firewall di Azure | Lo schema non è disponibile. |

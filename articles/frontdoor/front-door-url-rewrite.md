@@ -3,20 +3,20 @@ title: Sportello anteriore di Azure-riscrittura URL | Microsoft Docs
 description: Questo articolo consente di comprendere in che modo Azure front door riscrive l'URL per le route, se configurato.
 services: front-door
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: 1e5bd565be7a1cabf08ddf33c65eb12b5294249f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 8f4a6283f762d9792f50651b9caee17795df6d55
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79471473"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398938"
 ---
 # <a name="url-rewrite-custom-forwarding-path"></a>Riscrittura di URL (percorso di trasferimento personalizzato)
 Il front-end di Azure supporta la riscrittura URL consentendo di configurare un **percorso di invio personalizzato** facoltativo da usare quando si costruisce la richiesta da trasmettere al back-end. Per impostazione predefinita, se non viene specificato alcun percorso di trasferimento personalizzato, Frontdoor copia il percorso dell'URL in ingresso nell'URL usato nella richiesta inoltrata. L'intestazione Host usata nella richiesta inoltrata viene configurata per il back-end selezionato. Vedere [Intestazione Host di back-end](front-door-backend-pool.md#hostheader) per informazioni su cosa può fare l'intestazione e come configurarla.

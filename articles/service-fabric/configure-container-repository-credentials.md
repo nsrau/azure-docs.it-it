@@ -4,12 +4,12 @@ description: Configurare le credenziali del repository per scaricare immagini da
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.custom: sfrev
-ms.openlocfilehash: 9bd6e6a0a22f7568760f014897fd28ff47e9450b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 142ede6fcc59063d83854712a966a90c7472923b
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76934988"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421425"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>Configurare le credenziali del repository per l'applicazione per scaricare le immagini del contenitore
 
@@ -83,6 +83,10 @@ Di seguito è riportato un esempio di ciò che è possibile aggiungere all'inter
           {
             "name": "DefaultContainerRepositoryPasswordType",
             "value": "PlainText"
+          },
+          {
+        "name": "DefaultMSIEndpointForTokenAuthentication",
+        "value": "URI"
           }
         ]
       },
@@ -117,6 +121,25 @@ Service Fabric supporta l'uso di token come credenziali per scaricare immagini p
 
     > [!NOTE]
     > Il flag `UseDefaultRepositoryCredentials` impostato su true mentre `UseTokenAuthenticationCredentials` è true causerà un errore durante la distribuzione.
+
+### <a name="using-token-credentials-outside-of-azure-global-cloud"></a>Uso delle credenziali del token all'esterno del cloud globale di Azure
+
+Quando si usano le credenziali del registro di sistema basate su token, Service Fabric recupera un token per conto della macchina virtuale da presentare a ACR. Per impostazione predefinita, Service Fabric richiede un token il cui pubblico è l'endpoint cloud globale di Azure. Se si esegue la distribuzione in un'altra istanza cloud, ad esempio Azure Germania o Azure per enti pubblici, sarà necessario eseguire l'override del valore predefinito del parametro `DefaultMSIEndpointForTokenAuthentication` . Se non si esegue la distribuzione in un ambiente speciale, non eseguire l'override di questo parametro. In tal caso, verrà sostituito il valore predefinito, ovvero
+
+```
+http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.windows.net/
+```
+
+con l'endpoint di risorsa appropriato per l'ambiente in uso. Ad esempio, per [Azure Germania](https://docs.microsoft.com/azure/germany/germany-developer-guide#endpoint-mapping), l'override sarebbe 
+
+```json
+{
+    "name": "DefaultMSIEndpointForTokenAuthentication",
+    "value": "http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.core.cloudapi.de/"
+}
+```
+
+[Scopri di più sul recupero dei token del set di scalabilità di macchine virtuali](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/how-to-use-vm-token).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

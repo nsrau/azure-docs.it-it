@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/21/2020
 ms.author: rdhillon
-ms.openlocfilehash: 3c0b0f9f39620996245614b53c7ec274ec965d5b
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 14ecb30af11bf750c90e45c3fb6b443d861a1445
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921199"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400756"
 ---
 # <a name="virtual-network-service-endpoint-policies-for-azure-storage"></a>Criteri dell'endpoint del servizio rete virtuale per archiviazione di Azure
 
@@ -122,7 +122,7 @@ Le reti virtuali e gli account di archiviazione di Azure possono trovarsi nella 
 - Le reti virtuali devono trovarsi nella stessa area dei criteri degli endpoint di servizio.
 - È possibile applicare criteri degli endpoint di servizio in una subnet solo se gli endpoint di servizio sono configurati per i servizi di Azure specificati nei criteri.
 - Non è possibile usare i criteri degli endpoint di servizio per il traffico dalla rete locale ai servizi di Azure.
-- I servizi gestiti di Azure attualmente non supportano i criteri endpoint. Sono inclusi i servizi gestiti distribuiti nelle subnet condivise (ad esempio, *Azure HDInsight, Azure batch, Azure aggiunge, il gateway applicazione di Azure, il gateway VPN di Azure, il firewall di Azure*) o nelle subnet dedicate, ad esempio *ambiente del servizio app di Azure, cache Redis di Azure, gestione API di Azure, Azure SQL mi, servizi gestiti classici*.
+- I servizi gestiti di Azure attualmente non supportano i criteri endpoint. Sono inclusi i servizi gestiti distribuiti nelle subnet condivise (ad esempio, *Azure HDInsight, Azure batch, Azure aggiunge, applicazione Azure gateway, il gateway VPN di Azure, il firewall di Azure*) o nelle subnet dedicate, ad esempio *ambiente del servizio app di Azure, cache Redis di Azure, gestione API di Azure, Azure SQL mi, servizi gestiti classici*.
 
  > [!WARNING]
  > I servizi di Azure distribuiti nella rete virtuale, ad esempio Azure HDInsight, accedono ad altri servizi di Azure, ad esempio Archiviazione di Azure, per i requisiti di infrastruttura. Limitando i criteri degli endpoint a risorse specifiche si potrebbe interrompere l'accesso a queste risorse di infrastruttura per i servizi di Azure distribuiti nella rete virtuale.

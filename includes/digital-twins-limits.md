@@ -5,12 +5,12 @@ ms.service: digital-twins
 ms.topic: include
 ms.date: 6/9/2020
 ms.author: baanders
-ms.openlocfilehash: 22b00b41c7fce0af57fd9f92b0f42bbd9412afda
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: 2ea607b22bfa1eebdf6b63adcd14a5d1bb1ca9d0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87771139"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89304099"
 ---
 ### <a name="functional-limits"></a>Limiti funzionali
 
@@ -22,8 +22,8 @@ La tabella seguente elenca i limiti funzionali dei dispositivi gemelli digitali 
 | Gemelli digitali | Numero di gemelli in un'istanza di dispositivi gemelli digitali di Azure | 200.000 | Sì |
 | Gemelli digitali | Numero di relazioni in ingresso per un singolo gemello | 5\.000 | No |
 | Gemelli digitali | Numero di relazioni in uscita da un singolo gemello | 5\.000 | No |
-| Routing | Numero di endpoint per una singola istanza di Azure Digital Twins | 6 | No |
-| Routing | Numero di route per una singola istanza di Azure Digital Twins | 6 | Sì |
+| Routing. | Numero di endpoint per una singola istanza di Azure Digital Twins | 6 | No |
+| Routing. | Numero di route per una singola istanza di Azure Digital Twins | 6 | Sì |
 | Modelli | Numero di modelli all'interno di una singola istanza di Azure Digital Twins | 10,000 | Sì |
 | Modelli | Numero di modelli che possono essere caricati in una singola chiamata API | 250 | No |
 | Modelli | Numero di elementi restituiti in una singola pagina | 100 | No |
@@ -42,7 +42,7 @@ Questa tabella riflette i limiti di velocità delle diverse API.
 | API modelli | Numero di richieste al secondo | 100 | Sì |
 | API gemelli digitali | Numero di richieste al secondo | 1\.000 | Sì |
 | API di query | Numero di richieste al secondo | 500 | Sì |
-| API di query | Unità di query al secondo | 4.000 | Sì |
+| API di query | [Unità di query](../articles/digital-twins/concepts-query-units.md) al secondo | 4.000 | Sì |
 | API route di eventi | Numero di richieste al secondo | 100 | Sì |
 
 ### <a name="other-limits"></a>Altri limiti
