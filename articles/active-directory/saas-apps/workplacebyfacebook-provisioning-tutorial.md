@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: ea5a7a0cd89b9aad78ce789517aa8f75767955d8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4b4953cbca4d08e911fd043413387a1602bd8e08
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88526399"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006092"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workplace by Facebook per il provisioning utenti automatico
 
@@ -125,8 +125,16 @@ Il servizio di provisioning di Azure AD consente di definire l'ambito per gli ut
    |phoneNumbers[type eq "fax"].value|string|
    |externalId|string|
    |preferredLanguage|string|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|string|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|string|
+   |urn: SCIM: schemas: Extension: Enterprise: 1.0. Manager|string|
+   |urn: SCIM: schemas: Extension: Enterprise: 1.0. Department|string|
+   |urn: SCIM: schemas: Extension: Enterprise: 1.0. Division|string|
+   |urn: SCIM: schemas: estensione: Enterprise: 1.0. Organization|string|
+   |urn: SCIM: schemas: Extension: Enterprise: 1.0. costCenter|string|
+   |urn: SCIM: schemas: Extension: Enterprise: 1.0. employeeNumber|string|
+   |urn: SCIM: schemas: estensione: Facebook: auth_method: 1.0: auth_method|string|
+   |urn: SCIM: schemas: estensione: Facebook: Frontline: 1.0. is_frontline|Boolean|
+   |urn: SCIM: schemas: estensione: Facebook: starttermdates: 1.0. startDate|Integer|
+
 
 10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -153,6 +161,10 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 
 ## <a name="troubleshooting-tips"></a>Suggerimenti per la risoluzione dei problemi
 *  Se viene visualizzato un utente che non è stato creato correttamente ed è presente un evento del registro di controllo con il codice "1789003", significa che l'utente è da un dominio non verificato.
+
+## <a name="change-log"></a>Registro delle modifiche
+
+* 09/10/2020-è stato aggiunto il supporto per gli attributi Enterprise "Division", "Organization", "costCenter" e "employeeNumber". Aggiunta del supporto per gli attributi personalizzati "startDate", "auth_method" e "Frontline"
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

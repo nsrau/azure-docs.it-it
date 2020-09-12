@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: e47cb1180bbc6eaaaffd79b78563ab1b1d5e016a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 68bf47f370a57fe277d4ab9679af0b920a0d81ec
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85611816"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658123"
 ---
 # <a name="import-data-module"></a>Modulo Import Data
 
@@ -35,7 +35,7 @@ Il modulo **Import Data** supporta la lettura dei dati dalle origini seguenti:
     - Condivisione file di Azure
     - Azure Data Lake
     - Azure Data Lake Gen2
-    - database SQL di Azure
+    - Database SQL di Azure
     - PostgreSQL di Azure    
 
 Prima di usare l'archiviazione cloud, prima di tutto è necessario registrare un archivio dati nell'area di lavoro Azure Machine Learning. Per ulteriori informazioni, vedere [la pagina relativa alla modalità di accesso ai dati](../how-to-access-data.md). 
@@ -45,7 +45,7 @@ Dopo aver definito i dati desiderati e averli connessi all'origine, l' **[import
 Se i dati di origine cambiano, è possibile aggiornare il set di dati e aggiungere nuovi dati rieseguendo [Import Data](./import-data.md).
 
 > [!WARNING]
-> Se l'area di lavoro si trova in una rete virtuale, è necessario configurare gli archivi dati per l'uso delle funzionalità di visualizzazione dei dati della finestra di progettazione. Per altre informazioni su come usare gli archivi dati e i set di dati in una rete virtuale, vedere [isolamento rete durante il training & inferenza con reti virtuali private](../how-to-enable-virtual-network.md#machine-learning-studio).
+> Se l'area di lavoro si trova in una rete virtuale, è necessario configurare gli archivi dati per l'uso delle funzionalità di visualizzazione dei dati della finestra di progettazione. Per altre informazioni su come usare gli archivi dati e i set di dati in una rete virtuale, vedere [usare Azure Machine Learning Studio in una rete virtuale di Azure](../how-to-enable-studio-virtual-network.md).
 
 
 ## <a name="how-to-configure-import-data"></a>Come configurare i dati di importazione

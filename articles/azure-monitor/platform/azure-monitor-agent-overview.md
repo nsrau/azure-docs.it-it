@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: ff70beef89f6db240db244de1e11e54193858be0
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 0fc9139e9456a62bf3586fb358046e7c868b834a
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705776"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005225"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Panoramica dell'agente di monitoraggio di Azure (anteprima)
 L'agente di monitoraggio di Azure raccoglie i dati di monitoraggio dal sistema operativo guest delle macchine virtuali e li recapita a monitoraggio di Azure. Questo articolo fornisce una panoramica dell'agente di monitoraggio di Azure, tra cui come installarlo e come configurare la raccolta dei dati.
@@ -88,12 +88,12 @@ I sistemi operativi seguenti sono attualmente supportati dall'agente di monitora
   - CentOS 6<sup>1</sup>, 7
   - Debian 9, 10
   - Oracle Linux 6<sup>1</sup>, 7
-  - RHEL 6<sup>1</sup>, 7, 8
+  - RHEL 6<sup>1</sup>, 7
   - SLES 11, 12, 15
   - Ubuntu 14,04 LTS, 16,04 LTS, 18,04 LTS
 
 > [!IMPORTANT]
-> <sup>1</sup> Per le distribuzioni che inviano i dati di syslog, è necessario rimuovere rsyslog e installare syslog-ng.
+> <sup>1</sup> Per le distribuzioni che inviano i dati di syslog, è necessario riavviare il servizio rsyslog una volta dopo l'installazione dell'agente.
 
 
 ## <a name="security"></a>Sicurezza
@@ -105,9 +105,9 @@ L'agente di monitoraggio di Azure viene implementato come [estensione della macc
 
 | Proprietà | Windows | Linux |
 |:---|:---|:---|
-| Publisher | Microsoft. Azure. monitor  | Microsoft. Azure. monitor |
+| Editore | Microsoft. Azure. monitor  | Microsoft. Azure. monitor |
 | Type      | AzureMonitorWindowsAgent | AzureMonitorLinuxAgent  |
-| TypeHandlerVersion  | 1.0 | 1.5 |
+| TypeHandlerVersion  | 1,0 | 1.5 |
 
 Installare l'agente di monitoraggio di Azure usando uno dei metodi per installare gli agenti di macchine virtuali, inclusi i seguenti, usando PowerShell o l'interfaccia della riga di comando. In alternativa, è possibile installare l'agente e configurare la raccolta dei dati nelle macchine virtuali nella sottoscrizione di Azure usando il portale con la procedura descritta in [configurare la raccolta dati per l'agente di monitoraggio di Azure (anteprima)](data-collection-rule-azure-monitor-agent.md#create-using-the-azure-portal).
 

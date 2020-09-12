@@ -16,18 +16,18 @@ ms.date: 08/23/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3ca659535c225ca6736fe7bba8aa5b0120c684c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 895e7347feea3190ba9bdc273200d2985dfaa0d1
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359824"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661820"
 ---
 # <a name="azure-ad-federation-compatibility-list"></a>Elenco di compatibilità di federazione di Azure AD
-Azure Active Directory offre la sicurezza avanzata dell'accesso alle applicazioni e Single Sign-On per Office 365 e altri Microsoft Online Services per implementazioni ibride o solo cloud senza richiedere soluzioni di terze parti. Analogamente alla maggior parte dei Microsoft Online Services, Office 365 è integrato con Azure Active Directory per i servizi di directory, l'autenticazione e l'autorizzazione. Azure Active Directory offre anche l'accesso Single Sign-On a migliaia di applicazioni SaaS e di applicazioni Web locali. Per le applicazioni SaaS supportate, vedere la [raccolta di applicazioni](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) Azure Active Directory. 
+Azure Active Directory offre una protezione avanzata per l'accesso alle applicazioni per Microsoft 365 e altri Microsoft Online Services per implementazioni ibride e solo cloud senza richiedere alcuna soluzione di terze parti. Microsoft 365, come la maggior parte dei servizi online di Microsoft, è integrato con Azure Active Directory per i servizi directory, l'autenticazione e l'autorizzazione. Azure Active Directory offre anche l'accesso Single Sign-On a migliaia di applicazioni SaaS e di applicazioni Web locali. Per le applicazioni SaaS supportate, vedere la [raccolta di applicazioni](https://azuremarketplace.microsoft.com/marketplace/apps/category/azure-active-directory-apps) Azure Active Directory. 
 
 ## <a name="idp-validation"></a>Convalida IDP
-Se l'organizzazione usa una soluzione di federazione di terze parti, è possibile configurare Single Sign-On per gli utenti di Active Directory locale con Microsoft Online Services, ad esempio Office 365, purché la soluzione di federazione di terze parti sia compatibile con Azure Active Directory.  Per informazioni sulla compatibilità, contattare il provider di identità.  Per visualizzare un elenco di provider di identità già testati da Microsoft per verificarne la compatibilità con Azure AD, fare clic [qui](https://www.microsoft.com/download/details.aspx?id=56843). 
+Se l'organizzazione usa una soluzione di Federazione di terze parti, è possibile configurare Single Sign-On per gli utenti Active Directory locali con Microsoft Online Services, ad esempio Microsoft 365, purché la soluzione federativa di terze parti sia compatibile con Azure Active Directory.  Per informazioni sulla compatibilità, contattare il provider di identità.  Per visualizzare un elenco di provider di identità che in precedenza sono stati testati per la compatibilità con Azure AD, da Microsoft, vedere [Azure ad documentazione sulla compatibilità dei provider di identità](https://www.microsoft.com/download/details.aspx?id=56843). 
 
 >[!NOTE]
 >Microsoft non fornisce più test di convalida ai provider di identità indipendenti per la compatibilità con Azure Active Directory. Per testare il prodotto per verificarne l'interoperabilità, vedere queste [linee guida](https://www.microsoft.com/download/details.aspx?id=56843). 

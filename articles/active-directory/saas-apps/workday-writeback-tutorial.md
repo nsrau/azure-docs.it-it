@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 324d3a21e1694d243f03beca28ac8376bedffa4d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 8c76bddc0fae024b0dd2bdd27d6b1e10d71dec71
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88526831"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017473"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-workday"></a>Esercitazione: configurare il writeback degli attributi da Azure AD a giornata lavorativa
 L'obiettivo di questa esercitazione è mostrare i passaggi da eseguire per gli attributi di writeback da Azure AD a giornata lavorativa. L'app di provisioning writeback dei giorni lavorativi supporta l'assegnazione di valori agli attributi di giornata lavorativi seguenti:
@@ -34,7 +34,7 @@ Dopo aver configurato l'integrazione del provisioning in ingresso usando la [gio
 
 Questa soluzione di provisioning utenti writeback dei giorni lavorativi è ideale per:
 
-* Organizzazioni che usano Office 365 che desiderano eseguire il writeback degli attributi autorevoli gestiti dall'IT (ad esempio indirizzo di posta elettronica, nome utente e numero di telefono) alla giornata lavorativa
+* Le organizzazioni che usano Microsoft 365 che desiderano eseguire il writeback degli attributi autorevoli gestiti dall'IT (ad esempio indirizzo di posta elettronica, nome utente e numero di telefono) alla giornata lavorativa
 
 ## <a name="configure-integration-system-user-in-workday"></a>Configurare un utente del sistema di integrazione in Workday
 

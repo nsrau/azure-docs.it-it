@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 05/12/2020
-ms.openlocfilehash: 529988ce456b9017d700880d55b349fa93e15f96
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ca1a1bd1f07bf30fd7e5cd57b617a823120e85ea
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104232"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017371"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opzione di co-selling nel Centro per i partner
 
@@ -62,7 +62,7 @@ Le aree della soluzione consentono di definire ulteriormente la soluzione.
 
 ## <a name="documents"></a>Documenti
 
-È possibile fornire garanzie per Microsoft da usare per valutare le esigenze dei clienti.
+È possibile fornire documenti collaterali che Microsoft utilizzerà per ottenere ulteriori informazioni sull'offerta e valutarne la idoneità alle esigenze dei clienti. Tutti i documenti elencati nella tabella riportata di seguito sono facoltativi.
 
 | **Documents** (Documenti)    | **Descrizione**  |
 | :------------------- | :-------------------|
@@ -79,14 +79,14 @@ Le aree della soluzione consentono di definire ulteriormente la soluzione.
 
 Le informazioni di contatto consentono ai team di vendita Microsoft e ai rivenditori di canale di richiedere informazioni aggiuntive dalla risorsa appropriata nell'organizzazione. Le informazioni di contatto sono disponibili per tutti i team di vendita Microsoft. Se si sceglie di rendere disponibile l'offerta nel programma CSP, le informazioni di contatto sono disponibili anche per i rivenditori di canali.
 
-In questo documento vengono fornite indicazioni sui diversi ruoli per i partner e su come scegliere tra di essi. È possibile fornire i contatti scaricando il modello CSV dal centro per i partner, inserendo ogni riga con le informazioni sul contatto e importando il file CSV. Se si importa un file CSV, i contatti esistenti vengono sovrascritti.
+È possibile fornire i contatti scaricando il modello CSV dal centro per i partner, inserendo ogni riga con le informazioni sul contatto e importando il file CSV. Se si importa un file CSV, i contatti esistenti vengono sovrascritti.
 
 È anche possibile esportare l'elenco di contatti di un'offerta esistente e quindi apportare modifiche a tale file.
 
 * *Nome (obbligatorio)*: nome del contatto.
 * *Indirizzo di posta elettronica (obbligatorio)*: indirizzo di posta elettronica del contatto.
 * *Titolo processo (obbligatorio)*: titolo processo.
-* *Role (obbligatorio)*: usare uno dei ruoli seguenti in questo campo nel modello.
+* *Role (obbligatorio)*: usare uno dei ruoli seguenti.
 
     | **Ruolo**    | **Descrizione**  |
     | :------------------- | :-------------------|

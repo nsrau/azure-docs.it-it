@@ -1,5 +1,5 @@
 ---
-title: Creare risorse di calcolo in studio
+title: Creazione di training & la distribuzione di calcoli (Studio)
 titleSuffix: Azure Machine Learning
 description: Usare Studio per creare risorse di calcolo per training e distribuzione (destinazioni di calcolo) per Machine Learning
 services: machine-learning
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 2e32eb9a2a13b8e247388e8da80dd5f5967fdc6d
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 37253ccfb249eb8b510af5e314c3167ddd979a87
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147480"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661958"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Creare destinazioni di calcolo per il training e la distribuzione di modelli in Azure Machine Learning Studio
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -91,7 +91,7 @@ Usare la [procedura precedente](#portal-create) per creare l'istanza di calcolo.
 |Tipo di macchina virtuale |  Scegliere CPU o GPU. Questo tipo non può essere modificato dopo la creazione     |
 |Dimensioni della macchina virtuale     |  Le dimensioni delle macchine virtuali supportate possono essere limitate nella propria area. Controllare l' [elenco di disponibilità](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Abilitare/disabilitare l'accesso SSH     |   L'accesso SSH è disabilitato per impostazione predefinita.  L'accesso SSH non può essere. modificato dopo la creazione. Assicurarsi di abilitare l'accesso se si prevede di eseguire il debug in modo interattivo con [vs code remoto](how-to-set-up-vs-code-remote.md)   |
-|Impostazioni avanzate     |  facoltativo. Configurare una rete virtuale. Specificare il **gruppo di risorse**, la **rete virtuale**e la **subnet** per creare l'istanza di calcolo all'interno di una rete virtuale di Azure (VNET). Per ulteriori informazioni, vedere i [requisiti di rete](how-to-enable-virtual-network.md#compute-instance) per vnet.  |
+|Impostazioni avanzate     |  Facoltativa. Configurare una rete virtuale. Specificare il **gruppo di risorse**, la **rete virtuale**e la **subnet** per creare l'istanza di calcolo all'interno di una rete virtuale di Azure (VNET). Per ulteriori informazioni, vedere i [requisiti di rete](how-to-enable-virtual-network.md#compute-instance) per vnet.  |
 
 ### <a name="compute-clusters"></a><a name="amlcompute"></a> Cluster di calcolo
 
@@ -106,7 +106,7 @@ Creare un cluster di calcolo a nodo singolo o a più nodi per i carichi di lavor
 |Dimensioni della macchina virtuale     |  Le dimensioni delle macchine virtuali supportate possono essere limitate nella propria area. Controllare l' [elenco di disponibilità](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Numero minimo di nodi | Numero minimo di nodi di cui si vuole eseguire il provisioning. Se si desidera un numero dedicato di nodi, impostare il conteggio qui. Per risparmiare sui costi, impostare il valore minimo su 0, in modo da non pagare per alcun nodo quando il cluster è inattivo. |
 |Numero massimo di nodi | Numero massimo di nodi di cui si vuole eseguire il provisioning. Il calcolo verrà ridimensionato automaticamente fino a un numero massimo di questo nodo quando viene inviato un processo. |
-|Impostazioni avanzate     |  facoltativo. Configurare una rete virtuale. Specificare il **gruppo di risorse**, la **rete virtuale**e la **subnet** per creare l'istanza di calcolo all'interno di una rete virtuale di Azure (VNET). Per ulteriori informazioni, vedere i [requisiti di rete](how-to-enable-virtual-network.md#compute-instance) per vnet.   Connetti anche le [identità gestite](#managed-identity) per concedere l'accesso alle risorse     |
+|Impostazioni avanzate     |  Facoltativa. Configurare una rete virtuale. Specificare il **gruppo di risorse**, la **rete virtuale**e la **subnet** per creare l'istanza di calcolo all'interno di una rete virtuale di Azure (VNET). Per ulteriori informazioni, vedere i [requisiti di rete](how-to-enable-virtual-network.md#compute-instance) per vnet.   Connetti anche le [identità gestite](#managed-identity) per concedere l'accesso alle risorse     |
 
 #### <a name="set-up-managed-identity"></a><a id="managed-identity"></a> Configurare l'identità gestita
 
@@ -120,6 +120,9 @@ Durante la creazione del cluster o quando si modificano i dettagli del cluster d
 
 ### <a name="inference-clusters"></a>Inferenza cluster
 
+> [!IMPORTANT]
+> L'uso del servizio Azure Kubernetes con Azure Machine Learning ha più opzioni di configurazione. Alcuni scenari, ad esempio la rete, richiedono un'installazione e una configurazione aggiuntive. Per altre informazioni sull'uso di AKS con Azure ML, vedere [creare e associare un cluster del servizio Azure Kubernetes](how-to-create-attach-kubernetes.md).
+
 Creare o alleghi un cluster Azure Kubernetes Service (AKS) per l'inferenza su larga scala. Usare i [passaggi precedenti](#portal-create) per creare il cluster AKS.  Compilare quindi il modulo come segue:
 
 
@@ -127,7 +130,7 @@ Creare o alleghi un cluster Azure Kubernetes Service (AKS) per l'inferenza su la
 |---------|---------|
 |Nome del calcolo     |  <li>Il nome è obbligatorio. Il nome deve avere una lunghezza compresa tra 2 e 16 caratteri. </li><li>I caratteri validi sono lettere maiuscole e minuscole, cifre e il  **-** carattere.</li><li>Il nome deve iniziare con una lettera</li><li>Il nome deve essere univoco in tutti i calcoli esistenti all'interno di un'area di Azure. Se il nome scelto non è univoco, verrà visualizzato un avviso</li><li>Se **-**  viene usato il carattere, deve essere seguito da almeno una lettera in un secondo momento nel nome</li>     |
 |Servizio Kubernetes | Selezionare **Crea nuovo** e compilare il resto del modulo.  In alternativa, selezionare **Usa esistente** e quindi selezionare un cluster AKS esistente dalla sottoscrizione.
-|Area |  Selezionare l'area in cui verrà creato il cluster |
+|Region |  Selezionare l'area in cui verrà creato il cluster |
 |Dimensioni della macchina virtuale     |  Le dimensioni delle macchine virtuali supportate possono essere limitate nella propria area. Controllare l' [elenco di disponibilità](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Scopo del cluster  | Seleziona **produzione** o **sviluppo/test** |
 |Numero di nodi | Il numero di nodi moltiplicato per il numero di core della macchina virtuale (vCPU) deve essere maggiore o uguale a 12. |

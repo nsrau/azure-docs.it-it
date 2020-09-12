@@ -1,6 +1,6 @@
 ---
 title: Panoramica della verifica dell'autore - Microsoft Identity Platform | Azure
-description: Viene fornita una panoramica del programma di verifica dell'autore (anteprima) per Microsoft Identity Platform. Elenco dei vantaggi, dei requisiti del programma e delle domande frequenti. Se un'applicazione è contrassegnata come con autore verificato, significa che l'autore ha verificato la propria identità usando un account Microsoft Partner Network che ha completato il processo di verifica e ha associato l'account MPN durante la registrazione dell'applicazione.
+description: Viene fornita una panoramica del programma di verifica dell'editore per la piattaforma di identità Microsoft. Elenco dei vantaggi, dei requisiti del programma e delle domande frequenti. Se un'applicazione è contrassegnata come con autore verificato, significa che l'autore ha verificato la propria identità usando un account Microsoft Partner Network che ha completato il processo di verifica e ha associato l'account MPN durante la registrazione dell'applicazione.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,16 +12,16 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 286f813c825bcc05ce8e9fa43df5dc0299625277
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 07e8f1d0cf173a8ab41f8feb105743a7559cdd2f
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068474"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005792"
 ---
-# <a name="publisher-verification-preview"></a>Verifica dell'autore (anteprima)
+# <a name="publisher-verification"></a>Verifica dell'editore
 
-La verifica dell'autore (anteprima) consente agli amministratori e agli utenti finali di controllare l'autenticità degli sviluppatori di applicazioni che si integrano con Microsoft Identity Platform. Se un'applicazione è contrassegnata come con autore verificato, significa che l'autore ha verificato la propria identità usando un account [Microsoft Partner Network](https://partner.microsoft.com/membership) che ha completato il processo di [verifica](/partner-center/verification-responses) e ha associato l'account MPN durante la registrazione dell'applicazione. 
+La verifica dell'editore consente agli amministratori e agli utenti finali di comprendere l'autenticità degli sviluppatori di applicazioni che si integrano con la piattaforma di identità Microsoft. Se un'applicazione è contrassegnata come con autore verificato, significa che l'autore ha verificato la propria identità usando un account [Microsoft Partner Network](https://partner.microsoft.com/membership) che ha completato il processo di [verifica](/partner-center/verification-responses) e ha associato l'account MPN durante la registrazione dell'applicazione. 
 
 Un badge di verifica completata blu viene visualizzato nella richiesta di consenso di Azure AD e in altre schermate: ![Richiesta di consenso](./media/publisher-verification-overview/consent-prompt.png)
 

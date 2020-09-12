@@ -16,12 +16,12 @@ ms.date: 11/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 47973a8444de64dc5c2bb75b5f0d65d1e6d35f6e
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 7616ceed812b21f471609d95f59a0d0270dd7f52
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509085"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658503"
 ---
 # <a name="topologies-for-azure-ad-connect"></a>Topologie per Azure AD Connect
 Questo articolo descrive diverse topologie locali e di Azure Active Directory (Azure AD) che usano il Servizio di sincronizzazione Azure AD Connect come soluzione di integrazione chiave. Questo articolo include le configurazioni supportate e non supportate.
@@ -117,15 +117,15 @@ In una topologia di foresta account-risorse sono presenti una o più foreste di 
 
 In questo scenario una o più foreste risorse considerano attendibili tutte le foreste account. La foresta risorse presenta in genere uno schema di Active Directory esteso con Exchange e Lync. Tutti i servizi Exchange e Lync, con altri servizi condivisi, si trovano in questa foresta. Gli utenti hanno un account utente disabilitato in questa foresta e la cassetta postale è collegata alla foresta account.
 
-## <a name="office-365-and-topology-considerations"></a>Considerazioni su Office 365 e sulle topologie
-Alcuni carichi di lavoro di Office 365 prevedono determinate restrizioni per le topologie supportate:
+## <a name="microsoft-365-and-topology-considerations"></a>Considerazioni su Microsoft 365 e topologia
+Alcuni carichi di lavoro Microsoft 365 presentano alcune restrizioni sulle topologie supportate:
 
 | Carico di lavoro | Restrizioni |
 | --------- | --------- |
-| Exchange Online | Per altre informazioni sulle topologie ibride supportate da Exchange Online, vedere [Distribuzioni ibride con più insiemi di strutture di Active Directory](https://technet.microsoft.com/library/jj873754.aspx). |
-| Skype for Business | Quando si usano più foreste locali, sarà supportata solo la topologia di tipo foresta account-risorse. Per altre informazioni, vedere [Requisiti ambientali di Skype for Business Server 2015](https://technet.microsoft.com/library/dn933910.aspx). |
+| Exchange Online | Per altre informazioni sulle topologie ibride supportate da Exchange Online, vedere [Distribuzioni ibride con più insiemi di strutture di Active Directory](/Exchange/hybrid-deployment/hybrid-with-multiple-forests). |
+| Skype for Business | Quando si usano più foreste locali, sarà supportata solo la topologia di tipo foresta account-risorse. Per altre informazioni, vedere [Requisiti ambientali di Skype for Business Server 2015](/skypeforbusiness/plan-your-deployment/requirements-for-your-environment/environmental-requirements). |
 
-Un'organizzazione più grande può provare a usare la funzionalità [PreferredDataLocation di Office 365](how-to-connect-sync-feature-preferreddatalocation.md), che consente di definire l'area del data center in cui si trovano le risorse dell'utente.
+Se si è un'organizzazione più grande, è consigliabile usare la funzionalità [Microsoft 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md) . che consente di definire l'area del data center in cui si trovano le risorse dell'utente.
 
 ## <a name="staging-server"></a>server di gestione temporanea
 ![Server di staging in una topologia](./media/plan-connect-topologies/MultiForestStaging.png)
@@ -165,7 +165,7 @@ Questa topologia presenta le restrizioni seguenti per scenari altrimenti support
 * I dispositivi Windows 10 possono essere associati a un solo tenant di Azure AD.
 * L'opzione Single Sign-On (SSO) per la sincronizzazione dell'hash delle password e l'autenticazione pass-through può essere usata solo con un tenant di Azure AD.
 
-Il requisito relativo a un set di oggetti che si escludono a vicenda si applica anche al writeback. Alcune funzionalità di writeback non sono supportate con questa topologia, perché presuppongono una singola configurazione locale. Queste funzionalità includono:
+Il requisito relativo a un set di oggetti che si escludono a vicenda si applica anche al writeback. Alcune funzionalità di writeback non sono supportate con questa topologia, perché presuppongono una singola configurazione locale. Queste funzionalità comprendono:
 
 * Writeback dei gruppi con la configurazione predefinita.
 * Writeback dispositivi.

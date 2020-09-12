@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/20/2020
 ms.author: mingshen
 author: mingshen-ms
-ms.openlocfilehash: d086f8f3a2f4939012691d5bd03cc92a50ac4613
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: ca8f2e1721c99c79188917e5b44950b8db6895ce
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078317"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006398"
 ---
 # <a name="commercial-marketplace-transact-capabilities"></a>Funzionalità di transazione del marketplace commerciale
 
@@ -146,7 +146,7 @@ In questo scenario Microsoft fattura $ 100,00 per la licenza software e paga $ 9
 
 ### <a name="reduced-service-fee"></a>Tariffa ridotta per il servizio
 
-Per alcune offerte pubblicate sul Marketplace commerciale, Microsoft ridurrà il costo del servizio Marketplace dal 20% (come descritto nel [Contratto Microsoft Publisher](https://go.microsoft.com/fwlink/?LinkID=699560)) al 10%. Per le offerte idonee, le offerte devono essere state designate da Microsoft come co-selling IP di Azure incentivate. L'idoneità deve essere soddisfatta per almeno cinque giorni lavorativi prima della fine di ogni mese di calendario per ricevere la tariffa per il servizio Marketplace ridotta per il mese. La tariffa ridotta per il servizio Marketplace si applica alle app SaaS incentivate, alle VM, alle app gestite e a qualsiasi altra offerta IaaS transazionale qualificata resa disponibile tramite il Marketplace commerciale.
+Per alcune offerte pubblicate sul Marketplace commerciale, Microsoft ridurrà il costo del servizio Marketplace dal 20% (come descritto nel [Contratto Microsoft Publisher](https://go.microsoft.com/fwlink/?LinkID=699560)) al 10%. Per le offerte idonee, le offerte devono essere state designate da Microsoft come co-selling IP di Azure incentivate. L'idoneità deve essere soddisfatta per almeno cinque giorni lavorativi prima della fine di ogni mese di calendario per ricevere la tariffa per il servizio Marketplace ridotta per il mese. La tariffa ridotta per il servizio Marketplace si applica alle app SaaS incentivate, alle VM, alle app gestite e a qualsiasi altra offerta IaaS transazionale qualificata resa disponibile tramite il Marketplace commerciale. Le offerte SaaS a pagamento associate a un'app Microsoft teams o almeno due Microsoft 365 componenti aggiuntivi (Excel, PowerPoint, Word, Outlook e SharePoint) e pubblicate in AppSource ricevono anche questo sconto.
 
 ### <a name="customer-invoicing-payment-billing-and-collections"></a>Fatturazione cliente, pagamento e riscossioni
 
@@ -185,6 +185,7 @@ In questa sezione vengono analizzati i requisiti delle transazioni per i diversi
 
 - Per l'opzione di pubblicazione delle transazioni, sono necessari un account Microsoft e informazioni finanziarie, indipendentemente dal modello di determinazione prezzi dell'offerta.
 - Le informazioni finanziarie obbligatorie includono l'account di pagamento e il profilo fiscale.
+- Il server di pubblicazione deve risiedere in un [paese o un'area geografica supportata](sell-from-countries.md).
 
 Per ulteriori informazioni sulla configurazione di questi account, vedere [gestire l'account del Marketplace commerciale nel centro per i partner](partner-center-portal/manage-account.md).
 
