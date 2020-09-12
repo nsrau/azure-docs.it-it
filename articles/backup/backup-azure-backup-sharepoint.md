@@ -3,12 +3,12 @@ title: Eseguire il backup di una farm di SharePoint in Azure con DPM
 description: Questo articolo offre una panoramica sulla protezione del server DPM/Backup di Azure di una farm di SharePoint in Azure
 ms.topic: conceptual
 ms.date: 03/09/2020
-ms.openlocfilehash: b326ce15cd605f4f768a03b95337bbc5bd6aaabc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a667626fb53920150a4b5a16759228aacbfae75d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87032885"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375245"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>Eseguire il backup di una farm di SharePoint in Azure con DPM
 
@@ -53,7 +53,7 @@ Per informazioni su come ripristinare un elemento di SharePoint da un disco con 
    > Poiché la farm di SharePoint è protetta per la conservazione a lungo termine in Azure, non è disponibile nessuna informazione sul catalogo (metadati) nel server DPM. Di conseguenza, ogni volta che si vuole ripristinare un database del contenuto di SharePoint temporizzato, si deve ricatalogare la farm di SharePoint.
    >
    >
-3. Fare clic su **Ricatalogazione**.
+3. Selezionare **re-Catalog**.
 
     ![DPM SharePoint Protection10](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection12.png)
 
@@ -61,10 +61,10 @@ Per informazioni su come ripristinare un elemento di SharePoint da un disco con 
 
     ![DPM SharePoint Protection11](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
-    Dopo aver completato la catalogazione, viene visualizzato lo stato *Operazione completata*. Fare clic su **Close**.
+    Dopo aver completato la catalogazione, viene visualizzato lo stato *Operazione completata*. Selezionare **Chiudi**.
 
     ![DPM SharePoint Protection12](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
-4. Fare clic sull'oggetto di SharePoint visualizzato nella scheda **Ripristino** di DPM per ottenere la struttura del database del contenuto. Fare clic con il pulsante destro del mouse sull'elemento e scegliere **Ripristina**.
+4. Selezionare l'oggetto di SharePoint visualizzato nella scheda **ripristino** di DPM per ottenere la struttura del database del contenuto. Fare clic con il pulsante destro del mouse sull'elemento, quindi scegliere **Ripristina**.
 
     ![DPM SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. A questo punto seguire i passaggi di ripristino illustrati precedentemente in questo articolo per ripristinare il database del contenuto di SharePoint dal disco.

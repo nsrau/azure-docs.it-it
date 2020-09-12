@@ -3,12 +3,12 @@ title: Ripristinare i database di SAP HANA nelle macchine virtuali di Azure
 description: Questo articolo illustra come ripristinare SAP HANA database in esecuzione in macchine virtuali di Azure.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 7cb521b4034ef225d3af6d397bb6cd83b28e1b8a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 68858db6f89221e1a3a8f0955d5e009d56e2d365
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006313"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375313"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Ripristinare i database di SAP HANA nelle macchine virtuali di Azure
 
@@ -28,29 +28,29 @@ Backup di Azure può ripristinare database SAP HANA in esecuzione nelle macchine
 
 Prima di ripristinare un database, tenere presente quanto segue:
 
-* È possibile ripristinare il database solo in un'istanza SAP HANA che si trova nella stessa area
+* È possibile ripristinare il database solo in un'istanza SAP HANA che si trova nella stessa area.
 
-* L'istanza di destinazione deve essere registrata con lo stesso insieme di credenziali dell'origine
+* L'istanza di destinazione deve essere registrata con lo stesso insieme di credenziali dell'origine.
 
 * Backup di Azure non può identificare due istanze di SAP HANA diverse nella stessa macchina virtuale. Il ripristino dei dati da un'istanza a un'altra nella stessa macchina virtuale non è quindi possibile.
 
 * Per assicurarsi che l'istanza di SAP HANA di destinazione sia pronta per il ripristino, verificare lo stato di **conformità del backup** :
 
-  1. Aprire l'insieme di credenziali in cui è registrata l'istanza di SAP HANA di destinazione
+  1. Aprire l'insieme di credenziali in cui è registrata l'istanza di SAP HANA di destinazione.
 
-  1. Nel dashboard dell'insieme di credenziali, in **Guida introduttiva**, scegliere **backup** .
+  1. Nel dashboard dell'insieme di credenziali, in **Guida introduttiva**, scegliere **backup**.
 
       ![Backup nel dashboard dell'insieme di credenziali](media/sap-hana-db-restore/getting-started-backup.png)
 
-  1. In **backup**, in **che cosa si vuole eseguire il backup?** scegliere **SAP Hana nella macchina virtuale di Azure**
+  1. In **backup**, in **che cosa si vuole** eseguire il backup, scegliere **SAP Hana nella macchina virtuale di Azure**.
 
       ![Scegliere SAP HANA in una macchina virtuale di Azure](media/sap-hana-db-restore/sap-hana-backup.png)
 
-  1. In **individuare i database nelle macchine virtuali**fare clic su **Visualizza dettagli**
+  1. **In individua database in VM**selezionare **Visualizza dettagli**.
 
       ![Visualizza i dettagli](media/sap-hana-db-restore/view-details.png)
 
-  1. Verificare la **conformità del backup** della macchina virtuale di destinazione
+  1. Verificare la **preparazione** per il backup della macchina virtuale di destinazione.
 
       ![Server protetti](media/sap-hana-db-restore/protected-servers.png)
 
@@ -138,7 +138,7 @@ Per ripristinare i dati di backup come file anziché come database, scegliere **
 
     * File di backup del database
     * File di catalogo
-    * File di metadati JSON (per ogni file di backup richiesto)
+    * File di metadati JSON (per ogni file di backup interessato)
 
     In genere, quando viene specificato come percorso di destinazione, un percorso di condivisione di rete o un percorso di una condivisione file di Azure montata consente di accedere più facilmente a questi file da altri computer nella stessa rete o con la stessa condivisione file di Azure montata in essi.
 

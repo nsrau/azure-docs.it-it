@@ -1,6 +1,6 @@
 ---
-title: Uso di pacchetti di applicazione livello dati del database SQL - SQL Edge di Azure (anteprima)
-description: Informazioni sull'uso dei pacchetti di applicazione livello dati in SQL Edge di Azure (anteprima)
+title: Uso dei pacchetti DACPAC e BACPAC del database SQL-Azure SQL Edge (anteprima)
+description: Informazioni sull'uso di dacpac e i file BACPAC in Azure SQL Edge (anteprima)
 keywords: SQL Edge, SqlPackage
 services: sql-edge
 ms.service: sql-edge
@@ -8,19 +8,19 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 05/19/2020
-ms.openlocfilehash: 0ddd1544c6a51ff1e2f98a28e40d9eb2ee0b47c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/03/2020
+ms.openlocfilehash: 52c8e9586d8ee53cdaac28cb1c48d2927d82c2ed
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84233272"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462760"
 ---
-# <a name="sql-database-dac-packages-in-sql-edge"></a>Pacchetti di applicazione livello dati del database SQL in SQL Edge
+# <a name="sql-database-dacpac-and-bacpac-packages-in-sql-edge"></a>Pacchetti DACPAC e BACPAC del database SQL in SQL Edge
 
 SQL Edge di Azure (anteprima) è un motore di database relazionale ottimizzato progettato per distribuzioni di IoT ed Edge. È basato sulle versioni più recenti del motore di database di Microsoft SQL Server, che offre funzionalità leader del settore per prestazioni, sicurezza ed elaborazione delle query. Oltre alle funzionalità leader del settore per la gestione dei database relazionali di SQL Server, SQL Edge di Azure offre funzionalità di streaming predefinite per l'analisi in tempo reale e l'elaborazione di eventi complessa.
 
-SQL Edge di Azure fornisce anche un'implementazione nativa di SqlPackage.exe che consente di distribuire un [pacchetto di applicazione livello dati del database SQL](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) durante la distribuzione di SQL Edge. Per distribuire i pacchetti di applicazione livello dati del database SQL in SQL Edge, è possibile usare il parametro SqlPackage esposto tramite l'opzione `module twin's desired properties` del modulo SQL Edge:
+Azure SQL Edge fornisce anche un'implementazione nativa di SqlPackage.exe che consente di distribuire un pacchetto [dacpac e BACPAC del database SQL](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) durante la distribuzione di SQL Edge. Per distribuire i pacchetti di applicazione livello dati del database SQL in SQL Edge, è possibile usare il parametro SqlPackage esposto tramite l'opzione `module twin's desired properties` del modulo SQL Edge:
 
 ```json
 {
@@ -34,16 +34,18 @@ SQL Edge di Azure fornisce anche un'implementazione nativa di SqlPackage.exe che
 
 |Campo | Descrizione |
 |------|-------------|
-| SqlPackage | URI dell'archiviazione BLOB di Azure per il file *.zip che contiene il pacchetto di applicazione livello dati del database SQL.
+| SqlPackage | URI dell'archiviazione BLOB di Azure per il file *zip* che contiene il pacchetto DAC o BACPAC del database SQL. Il file zip può contenere sia più pacchetti DAC che file BACPAC.
 | ASAJobInfo | URI dell'archiviazione BLOB di Azure per il processo Edge di Analisi di flusso di Azure.
 
 ## <a name="use-a-sql-database-dac-package-with-sql-edge"></a>Usare un pacchetto di applicazione livello dati del database SQL con SQL Edge
 
-Per usare un pacchetto di applicazione livello dati del database SQL (*.dacpac) con SQL Edge, seguire questa procedura:
+Per usare un pacchetto di applicazione livello dati del database SQL `(*.dacpac)` o un file BACPAC `(*.bacpac)` con SQL Edge, seguire questa procedura:
 
-1. Creare o estrarre un pacchetto di applicazione livello dati del database SQL. Vedere [Estrazione di un'applicazione livello dati da un database](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) per informazioni su come generare un pacchetto di applicazione livello dati per un database di SQL Server esistente.
+1. Creare/estrarre un pacchetto di applicazione livello dati o esportare un file BACPAC usando il meccanismo indicato di seguito. 
+    - Creare o estrarre un pacchetto di applicazione livello dati del database SQL. Vedere [Estrazione di un'applicazione livello dati da un database](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) per informazioni su come generare un pacchetto di applicazione livello dati per un database di SQL Server esistente.
+    - Esportazione di un pacchetto di applicazione livello dati distribuito o di un database. Vedere [esportare un'applicazione livello dati](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application/) per informazioni su come generare un file BACPAC per un database di SQL Server esistente.
 
-2. Comprimere il file *.dacpac e caricarlo in un account di archiviazione BLOB di Azure. Per altre informazioni sul caricamento di file nell'archiviazione BLOB di Azure, vedere [Caricare, scaricare ed elencare BLOB con il portale di Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
+2. Eseguire il Zip `*.dacpac` o il `*.bacpac` file e caricarlo in un account di archiviazione BLOB di Azure. Per altre informazioni sul caricamento di file nell'archiviazione BLOB di Azure, vedere [Caricare, scaricare ed elencare BLOB con il portale di Azure](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 3. Generare una firma di accesso condiviso per il file ZIP usando il portale di Azure. Per altre informazioni, vedere [Delegare l'accesso con firme di accesso condiviso](../storage/common/storage-sas-overview.md).
 
@@ -68,7 +70,7 @@ Per usare un pacchetto di applicazione livello dati del database SQL (*.dacpac) 
             {
                 "properties.desired":
                 {
-                    "SqlPackage": "<<<SAS URL for the *.zip file containing the dacpac",
+                    "SqlPackage": "<<<SAS URL for the *.zip file containing the dacpac and/or the bacpac files",
                 }
             }
         ```
@@ -79,9 +81,9 @@ Per usare un pacchetto di applicazione livello dati del database SQL (*.dacpac) 
 
     9. Nella pagina **Imposta moduli** selezionare **Avanti** e quindi **Invia**.
 
-5. Dopo l'aggiornamento del modulo, il file del pacchetto di applicazione livello dati viene scaricato, decompresso e distribuito nell'istanza di SQL Edge.
+5. Dopo l'aggiornamento del modulo, il file del pacchetto viene scaricato, decompresso e distribuito nell'istanza di SQL Edge.
 
-A ogni riavvio del contenitore SQL Edge di Azure, il pacchetto di file *.dacpac viene scaricato e valutato per verificare la presenza di modifiche. Se viene rilevata una nuova versione del file dacpac, le modifiche vengono distribuite nel database in SQL Edge.
+A ogni riavvio del contenitore Edge di Azure SQL, il `*.dacpac` pacchetto di file viene scaricato e valutato per le modifiche. Se viene rilevata una nuova versione del file dacpac, le modifiche vengono distribuite nel database in SQL Edge. File BACPAC 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

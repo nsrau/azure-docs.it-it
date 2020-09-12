@@ -12,12 +12,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: carlrab, vanto
 ms.date: 06/26/2020
-ms.openlocfilehash: 4d48ca3685dca36157307e7cb4b3d25261c243aa
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 10108fdf4f2b7090eaeaa4b378992c2e94d3b04c
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88705742"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489579"
 ---
 # <a name="azure-sql-database-and-azure-synapse-analytics-connectivity-architecture"></a>Architettura di connettività del database SQL di Azure e di Azure sinapsi Analytics
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -94,6 +94,7 @@ Per informazioni dettagliate sul modo in cui verrà eseguita la migrazione del t
 | Francia centrale       | 40.79.137.0, 40.79.129.1 |
 | Germania centrale      | 51.4.144.100       |
 | Germania nord-orientale   | 51.5.144.179       |
+| Germania centro-occidentale | 51.116.240.0, 51.116.248.0, 51.116.152.0 |
 | India centrale        | 104.211.96.159     |
 | India meridionale          | 104.211.224.146    |
 | India occidentale           | 104.211.160.80     |

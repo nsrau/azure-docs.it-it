@@ -1,5 +1,5 @@
 ---
-title: Caricare i dati in Azure sinapsi Analytics
+title: Caricare i dati in Azure Synapse Analytics
 description: Usare Azure Data Factory per copiare dati in Azure sinapsi Analytics
 services: data-factory
 ms.author: jingwang
@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 06/08/2020
-ms.openlocfilehash: 8891c65707822abeb2bcca52280d9b56dc725e4f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c90590ac4c47f6ac8d51273fecfb653dfe056b1d
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85251999"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485771"
 ---
 # <a name="load-data-into-azure-synapse-analytics-by-using-azure-data-factory"></a>Caricare i dati in Azure sinapsi Analytics usando Azure Data Factory
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-[Azure sinapsi Analytics (noto in precedenza come SQL DW)](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) è un database basato sul cloud e con scalabilità orizzontale in grado di elaborare grandi volumi di dati, sia relazionali che non relazionali. Azure sinapsi Analytics è basato sull'architettura MPP (Massive Parallel Processing) ottimizzata per carichi di lavoro aziendali data warehouse. Offre l'elasticità del cloud con la flessibilità per ridimensionare la capacità di archiviazione e di calcolo in modo indipendente.
+[Azure sinapsi Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) è un database basato sul cloud e con scalabilità orizzontale in grado di elaborare grandi volumi di dati, sia relazionali che non relazionali. Azure sinapsi Analytics è basato sull'architettura MPP (Massive Parallel Processing) ottimizzata per carichi di lavoro aziendali data warehouse. Offre l'elasticità del cloud con la flessibilità per ridimensionare la capacità di archiviazione e di calcolo in modo indipendente.
 
 La Guida introduttiva ad Azure sinapsi Analytics è ora più semplice che mai quando si usa Azure Data Factory. Azure Data Factory è un servizio di integrazione dei dati completamente gestito e basato sul cloud. È possibile usare il servizio per popolare un'analisi di sinapsi di Azure con i dati del sistema esistente e risparmiare tempo durante la creazione delle soluzioni di analisi.
 
@@ -64,7 +64,7 @@ Questo articolo illustra come usare lo strumento Data Factory Copia dati per _ca
 
    Selezionare il riquadro **Crea e monitora** per avviare l'applicazione Integrazione dati in una scheda separata.
 
-## <a name="load-data-into-azure-synapse-analytics"></a>Caricare i dati in Azure sinapsi Analytics
+## <a name="load-data-into-azure-synapse-analytics"></a>Caricare i dati in Azure Synapse Analytics
 
 1. Nella pagina attività **iniziali** selezionare il riquadro **copia dati** per avviare lo strumento copia dati.
 
@@ -102,13 +102,13 @@ Questo articolo illustra come usare lo strumento Data Factory Copia dati per _ca
 
     a. Fare clic su **+ Crea nuova connessione** per aggiungere una connessione
 
-    b. Selezionare **Azure sinapsi Analytics (in precedenza SQL DW)** dalla raccolta e selezionare **continua**. È possibile digitare "SQL" nella casella di ricerca per filtrare i connettori.
+    b. Selezionare **Azure sinapsi Analytics (in precedenza SQL Data Warehouse)** dalla raccolta e selezionare **continua**. È possibile digitare "SQL" nella casella di ricerca per filtrare i connettori.
 
-    ![Selezionare Azure SQL DW](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
+    ![Selezionare Azure sinapsi Analytics](./media/load-azure-sql-data-warehouse/select-azure-sql-dw-sink.png)
 
     c. Nella pagina **nuovo servizio collegato** selezionare il nome del server e il nome del database dall'elenco a discesa e specificare il nome utente e la password. Fare clic su **Test connessione** per convalidare le impostazioni, quindi selezionare **Crea**.
 
-    ![Configurare Azure SQL DW](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
+    ![Configurare Azure sinapsi Analytics](./media/load-azure-sql-data-warehouse/configure-azure-sql-dw.png)
 
     d. Selezionare il servizio collegato appena creato come sink e quindi fare clic su **Avanti**.
 

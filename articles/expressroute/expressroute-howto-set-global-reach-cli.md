@@ -2,18 +2,18 @@
 title: 'Azure ExpressRoute: configurare Copertura globale di ExpressRoute: interfaccia della riga di comando'
 description: Questo articolo descrive come collegare circuiti ExpressRoute tra loro per creare una rete privata tra le reti locali e abilitare il servizio Copertura globale.
 services: expressroute
-author: jaredr80
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 12/12/2018
-ms.author: jaredro
+ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2e4f7b53ffd3642869e6246e546e3feeda3cf529
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 20ec5bb565a506d935ef7de6475e5062a21faa22
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495897"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395486"
 ---
 # <a name="configure-expressroute-global-reach-by-using-the-azure-cli"></a>Configurare ExpressRoute Copertura globale usando l'interfaccia della riga di comando di Azure
 

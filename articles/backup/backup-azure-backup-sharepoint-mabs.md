@@ -3,12 +3,12 @@ title: Eseguire il backup di una farm di SharePoint in Azure con il server di Ba
 description: Usare il server di Backup di Azure per eseguire il backup e ripristinare i dati di SharePoint. In questo articolo vengono fornite le informazioni per configurare la farm di SharePoint in modo da archiviare in Azure i dati desiderati. È possibile ripristinare i dati SharePoint protetti dal disco o da Azure.
 ms.topic: conceptual
 ms.date: 04/26/2020
-ms.openlocfilehash: 00af51764d5a9454b002de6375b2b16d6e80c300
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 837aabf739431eebaa6406770620329fe6345eb7
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017431"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89375398"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>Eseguire il backup di una farm di SharePoint in Azure con il server di Backup di Microsoft Azure
 
@@ -74,7 +74,7 @@ Per eseguire il backup della farm di SharePoint, configurare la protezione per S
 
         Dopo aver eseguito ConfigureSharePoint.exe, è necessario ripetere l'operazione se si verifica un cambiamento nelle credenziali di amministratore di farm SharePoint.
 
-1. Per creare un nuovo gruppo protezione dati, fare clic su **Protezione** > **Azioni** > **Crea gruppo protezione dati** per aprire la procedura guidata **Crea nuovo gruppo protezione dati** nella console del server di Backup di Microsoft Azure.
+1. Per creare un gruppo protezione dati, **Protection**selezionare  >  **azioni**  >  di protezione**Crea gruppo protezione** dati per aprire la procedura guidata **Crea nuovo gruppo protezione** dati nella console di MAB.
 
 1. In **Selezione tipo di gruppo protezione dati** selezionare **Server**.
 
@@ -102,7 +102,7 @@ Per eseguire il backup della farm di SharePoint, configurare la protezione per S
 
 1. In **Scegliere la replica online** specificare la modalità di esecuzione della replica completa iniziale dei dati. È possibile eseguire la replica in rete o eseguire un backup offline (seeding offline). Il backup offline utilizza la funzionalità di importazione di Azure. [Altre informazioni](./backup-azure-backup-import-export.md).
 
-1. Nella pagina **Riepilogo** esaminare le impostazioni. Dopo aver fatto clic su **Crea gruppo**, viene eseguita la replica iniziale dei dati. Al termine, lo stato del gruppo protezione dati viene visualizzato come **OK** nella pagina **Stato**. Viene quindi eseguito il backup in base alle impostazioni del gruppo protezione dati.
+1. Nella pagina **Riepilogo** verificare le impostazioni. Dopo aver selezionato **Crea gruppo**, viene eseguita la replica iniziale dei dati. Al termine, lo stato del gruppo protezione dati viene visualizzato come **OK** nella pagina **Stato**. Viene quindi eseguito il backup in base alle impostazioni del gruppo protezione dati.
 
 ## <a name="monitoring"></a>Monitoraggio
 
@@ -114,17 +114,17 @@ Dopo aver creato il gruppo protezione dati, viene eseguita la replica iniziale e
 
 ### <a name="set-up-monitoring-notifications"></a>Impostare le notifiche di monitoraggio
 
-1. Nella console di amministrazione del server di Backup di Microsoft Azure fare clic su **Monitoraggio** > **Azione** > **Opzioni**.
+1. Nel Console di amministrazione di MAB selezionare opzioni di **monitoraggio**delle  >  **azioni**  >  **Options**.
 
-2. Fare clic su **Server SMTP**, digitare il nome del server, la porta e l'indirizzo e-mail da cui verranno inviate le notifiche. L'indirizzo deve essere valido.
+2. Selezionare **server SMTP**, digitare il nome del server, la porta e l'indirizzo di posta elettronica da cui verranno inviate le notifiche. L'indirizzo deve essere valido.
 
 3. Nell'area **Server SMTP autenticato** digitare un nome utente e una password. Il nome utente e la password devono corrispondere al nome dell'account di dominio della persona il cui indirizzo "Da" è stato specificato nel passaggio precedente. In caso contrario, il recapito delle notifiche ha esito negativo.
 
-4. Per verificare le impostazioni del server SMTP, fare clic su **Invia messaggio di posta elettronica di prova**, digitare l'indirizzo e-mail di destinazione per l'invio del messaggio di prova dal server di Backup di Microsoft Azure e quindi fare clic su **OK**. Fare clic su **Opzioni** > **Notifiche** e selezionare i tipi di avvisi per cui inviare notifica ai destinatari. In **Destinatari** digitare l'indirizzo e-mail di ogni destinatario a cui inviare copie delle notifiche.
+4. Per verificare le impostazioni del server SMTP, selezionare Invia messaggio di **posta elettronica di prova**, digitare l'indirizzo di posta elettronica a cui si desidera inviare il messaggio di test da parte di MAB, quindi fare clic su **OK**. Selezionare **Opzioni**  >  **notifiche** e selezionare i tipi di avvisi per cui si desidera ricevere una notifica ai destinatari. In **Destinatari** digitare l'indirizzo e-mail di ogni destinatario a cui inviare copie delle notifiche.
 
 ### <a name="publish-operations-manager-alerts"></a>Pubblicare avvisi di Operations Manager
 
-1. Nella console di amministrazione del server di Backup di Microsoft Azure fare clic su **Monitoraggio** > **Azione** > **Opzioni** > **Pubblicazione avvisi** > **Pubblica avvisi attivi**
+1. Nel Console di amministrazione di MAB selezionare opzioni di **monitoraggio**  >  **Action**  >  **Opzioni**azione  >  **pubblicazione**avvisi  >  **pubblica avvisi attivi**
 
 2. Dopo aver abilitato **Pubblicazione avvisi**, tutti gli avvisi del server di Backup di Microsoft Azure esistenti che potrebbero richiedere l'intervento dell'utente vengono pubblicati nel registro eventi **MABS Alerts** (Avvisi server di Backup di Microsoft Azure). L'agente di Operations Manager installato nel server MAB pubblica quindi questi avvisi nel Operations Manager e continua ad aggiornare la console Man via che vengono generati nuovi avvisi.
 
@@ -146,10 +146,10 @@ Nell'esempio seguente, l' *elemento di SharePoint da ripristinare* è stato acci
 5. È inoltre possibile scorrere i vari punti di ripristino e selezionare un database o un elemento da recuperare. Selezionare **Data > Tempo di ripristino**, quindi selezionare l'elemento corretto da **Database > Farm SharePoint > Punto di ripristino > Elemento**.
 
     ![MABS SharePoint Protection7](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection8.png)
-6. Fare clic con il pulsante destro del mouse sull'elemento e selezionare **Ripristina** per aprire il **Ripristino guidato**. Fare clic su **Avanti**.
+6. Fare clic con il pulsante destro del mouse sull'elemento e selezionare **Ripristina** per aprire il **Ripristino guidato**. Selezionare **Next** (Avanti).
 
     ![Verifica selezione per ripristino](./media/backup-azure-backup-sharepoint/review-recovery-selection.png)
-7. Selezionare il tipo di ripristino che si vuole eseguire, quindi fare clic su **Avanti**.
+7. Selezionare il tipo di ripristino che si desidera eseguire e quindi fare clic su **Avanti**.
 
     ![Tipo di ripristino](./media/backup-azure-backup-sharepoint/select-recovery-type.png)
 
@@ -170,7 +170,7 @@ Nell'esempio seguente, l' *elemento di SharePoint da ripristinare* è stato acci
     MAB connette il database del contenuto che ospita l'elemento di SharePoint all'istanza di SQL Server temporanea. MABS ripristina l'elemento dal database del contenuto e lo aggiunge al percorso di file di gestione temporanea di MABS. L'elemento recuperato che si trova nel percorso di gestione temporanea deve ora essere esportato nel percorso di gestione temporaneo della farm di SharePoint.
 
     ![Gestione temporanea Location2](./media/backup-azure-backup-sharepoint/staging-location2.png)
-10. Selezionare **Specifica opzioni di ripristino**e applicare le impostazioni di sicurezza per la farm di SharePoint o applicare le impostazioni di sicurezza del punto di ripristino. Fare clic su **Avanti**.
+10. Selezionare **Specifica opzioni di ripristino**e applicare le impostazioni di sicurezza per la farm di SharePoint o applicare le impostazioni di sicurezza del punto di ripristino. Selezionare **Next** (Avanti).
 
     ![Opzioni di ripristino](./media/backup-azure-backup-sharepoint/recovery-options.png)
 
@@ -178,7 +178,7 @@ Nell'esempio seguente, l' *elemento di SharePoint da ripristinare* è stato acci
     > È possibile scegliere di limitare l'utilizzo della larghezza di banda di rete. Consente di ridurre l'impatto sul server di produzione durante l'orario di produzione.
     >
     >
-11. Esaminare le informazioni di riepilogo e fare clic su **Ripristina** per avviare il ripristino del file.
+11. Esaminare le informazioni di riepilogo e quindi selezionare **Ripristina** per avviare il ripristino del file.
 
     ![Riepilogo di ripristino](./media/backup-azure-backup-sharepoint/recovery-summary.png)
 12. Selezionare la scheda **Monitoraggio** nella **Console di amministrazione MABS** per visualizzare lo **Stato** del ripristino.
@@ -201,7 +201,7 @@ Nell'esempio seguente, l' *elemento di SharePoint da ripristinare* è stato acci
    > Poiché la farm di SharePoint è protetta per la conservazione a lungo termine in Azure, non sono disponibili informazioni sul catalogo (metadati) nel server di Backup di Microsoft Azure. Di conseguenza, ogni volta che si vuole ripristinare un database del contenuto di SharePoint temporizzato, si deve ricatalogare la farm di SharePoint.
    >
    >
-3. Fare clic su **Ricatalogazione**.
+3. Selezionare **re-Catalog**.
 
     ![MABS SharePoint Protection10](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection12.png)
 
@@ -209,10 +209,10 @@ Nell'esempio seguente, l' *elemento di SharePoint da ripristinare* è stato acci
 
     ![MABS SharePoint Protection11](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection13.png)
 
-    Dopo aver completato la catalogazione, viene visualizzato lo stato *Operazione completata*. Fare clic su **Close**.
+    Dopo aver completato la catalogazione, viene visualizzato lo stato *Operazione completata*. Selezionare **Chiudi**.
 
     ![MABS SharePoint Protection12](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection14.png)
-4. Fare clic sull'oggetto di SharePoint visualizzato nella scheda **Ripristino** di MABS per ottenere la struttura del database del contenuto. Fare clic con il pulsante destro del mouse sull'elemento e scegliere **Ripristina**.
+4. Selezionare l'oggetto di SharePoint visualizzato nella scheda **ripristino** di MAB per ottenere la struttura del database del contenuto. Fare clic con il pulsante destro del mouse sull'elemento, quindi scegliere **Ripristina**.
 
     ![MABS SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
 5. A questo punto seguire i passaggi di ripristino illustrati precedentemente in questo articolo per ripristinare il database del contenuto di SharePoint dal disco.
@@ -247,7 +247,7 @@ Nella procedura seguente viene utilizzato l'esempio di una server farm con due s
 
 1. In *Server2*, al prompt dei comandi, impostare la directory su `_MABS installation location_\bin\` ed eseguire **ConfigureSharepoint**. Per ulteriori informazioni su ConfigureSharePoint, vedere [Configurare il backup](#configure-backup).
 
-1. Selezionare il gruppo protezione dati a cui appartiene la server farm, quindi fare clic su **Modifica gruppo protezione dati**.
+1. Selezionare il gruppo protezione dati a cui appartiene la server farm, quindi selezionare **modifica gruppo protezione**dati.
 
 1. Nella procedura guidata Modifica gruppo, nella pagina **Selezione membri del gruppo**, espandere *Server2* e selezionare la server farm, quindi completare la procedura guidata.
 

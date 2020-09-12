@@ -16,12 +16,12 @@ ms.date: 10/09/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7730efd29e24f99bce3937a9ce5cc2caf4e1400f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7d61a3dd995efd1f433c2e862c4b7a59d31f79a3
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359501"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660862"
 ---
 # <a name="azure-ad-connect-and-federation"></a>Azure AD Connect e federazione
 Azure Active Directory (Azure AD) consente di configurare la federazione con Active Directory Federation Services (ADFS) locale e Azure AD. Grazie all'accesso federato, gli utenti possono accedere ai servizi basati su Azure AD con le proprie password locali e, se usano la rete aziendale, senza dover immettere di nuovo le password. Usando l'opzione di federazione con ADFS, è possibile distribuire una nuova installazione di ADFS oppure specificare un'installazione esistente in una farm di Windows Server 2012 R2.
@@ -38,12 +38,12 @@ Questo argomento è il punto centrale per le informazioni sulle funzionalità re
 | [Configurare una farm ADFS](how-to-connect-install-custom.md#configuring-federation-with-ad-fs) |Installare una nuova farm ADFS tramite Azure AD Connect. |
 | [Federazione con Azure AD utilizzando un ID di accesso alternativo](how-to-connect-fed-management.md#alternateid) | Configurazione della federazione usando l'ID di accesso alternativo  |
 | **Modifica della configurazione di ADFS** | |
-| [Ripristinare il trust](how-to-connect-fed-management.md#repairthetrust) |Ripristinare il trust corrente tra l'istanza di ADFS locale e Office 365/Azure. |
+| [Ripristinare il trust](how-to-connect-fed-management.md#repairthetrust) |Ripristinare il trust corrente tra AD FS locali e Microsoft 365/Azure. |
 | [Aggiungere un nuovo server ADFS](how-to-connect-fed-management.md#addadfsserver) |Espandere la farm ADFS con un server ADFS aggiuntivo dopo l'installazione iniziale. |
 | [Aggiungere un nuovo server WAP ADFS](how-to-connect-fed-management.md#addwapserver) |Espandere la farm ADFS con un server Web Application Proxy (WAP) aggiuntivo dopo l'installazione iniziale. |
 | [Aggiungere un nuovo dominio federato](how-to-connect-fed-management.md#addfeddomain) |Aggiungere un altro dominio per la federazione con Azure AD. |
 | [Aggiornare il certificato TLS/SSL](how-to-connect-fed-ssl-update.md)| Aggiornare il certificato TLS/SSL per una farm AD FS. |
-| [Rinnovare i certificati di federazione per Office 365 e Azure AD](how-to-connect-fed-o365-certs.md)|Rinnovare il certificato per Office 365 con Azure AD.|
+| [Rinnovare i certificati di federazione per Microsoft 365 e Azure AD](how-to-connect-fed-o365-certs.md)|Rinnovare il certificato per Office 365 con Azure AD.|
 | **Configurazione aggiuntiva della federazione** | |
 | [Eseguire la federazione di più istanze di Azure AD con una singola istanza di AD FS](how-to-connect-fed-single-adfs-multitenant-federation.md) | Eseguire la federazione di più istanze di Azure AD con una singola farm AD FS.| 
 | [Aggiungere l'illustrazione o il logo personalizzato della società](how-to-connect-fed-management.md#customlogo) |Come modificare l'esperienza di accesso specificando il logo personalizzato che viene visualizzato nella pagina di accesso di ADFS. |
@@ -53,5 +53,5 @@ Questo argomento è il punto centrale per le informazioni sulle funzionalità re
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 * [Eseguire la federazione di due istanze di Azure AD con una singola istanza di AD FS](how-to-connect-fed-single-adfs-multitenant-federation.md)
-* [Distribuzione di AD FS in Azure](how-to-connect-fed-azure-adfs.md)
-* [Distribuzione di ADFS a disponibilità elevata tra aree geografiche in Azure con Gestione traffico di Azure](../active-directory-adfs-in-azure-with-azure-traffic-manager.md)
+* [Distribuzione di AD FS in Azure](/windows-server/identity/ad-fs/deployment/how-to-connect-fed-azure-adfs)
+* [Distribuzione di ADFS a disponibilità elevata tra aree geografiche in Azure con Gestione traffico di Azure](/windows-server/identity/ad-fs/deployment/active-directory-adfs-in-azure-with-azure-traffic-manager)

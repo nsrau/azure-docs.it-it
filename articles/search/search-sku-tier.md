@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 07/14/2020
-ms.openlocfilehash: ac08f2cee19b2d8860323c48d89205d5ca939157
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: c09c5b33f7960ffebfdfc8005537e75a249b8d99
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88922804"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661092"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Scegliere un piano tariffario per Azure ricerca cognitiva
 
@@ -25,7 +25,7 @@ La maggior parte dei clienti inizia con il livello gratuito, in modo da poter va
 
 Nella tabella seguente vengono descritti i vincoli di funzionalità correlati al livello.
 
-| Funzionalità | Limitazioni |
+| Feature | Limitazioni |
 |---------|-------------|
 | [indicizzatori](search-indexer-overview.md) | Gli indicizzatori non sono disponibili in S3 HD. |
 | [Arricchimento con intelligenza artificiale](search-security-manage-encryption-keys.md) | Viene eseguito sul livello gratuito, ma non consigliato. |
@@ -39,7 +39,7 @@ La maggior parte delle funzionalità è disponibile in ogni livello, incluso gra
 
 I livelli sono differenziati per:
 
-+ Quantità di indici e indicizzatori che è possibile creare
++ Quantità di indici e indicizzatori (limiti massimi)
 + Dimensione e velocità delle partizioni (archiviazione fisica)
 
 Il livello selezionato determina la velocità fatturabile. Lo screenshot seguente di portale di Azure Mostra i livelli disponibili, meno i prezzi (che è possibile trovare nel portale e nella pagina dei [prezzi](https://azure.microsoft.com/pricing/details/search/). I livelli **gratuito**, **Basic**e **standard** sono i più comuni.

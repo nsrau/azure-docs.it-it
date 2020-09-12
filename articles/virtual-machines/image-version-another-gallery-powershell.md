@@ -9,12 +9,12 @@ ms.workload: infrastructure
 ms.date: 05/04/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: 48f0a247ed023583c8489994439a790944b90fdc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2f26716a4d04b574bf393f502758a725948419da
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082597"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299950"
 ---
 # <a name="copy-an-image-from-another-gallery-using-powershell"></a>Copiare un'immagine da un'altra raccolta usando PowerShell
 
@@ -70,7 +70,7 @@ Get-AzGalleryImageDefinition `
 ```
 
 
-L'output sarà simile al seguente:
+Verrà visualizzato un risultato simile al seguente:
 
 ```output
 {
@@ -114,7 +114,7 @@ $destinationImgDef  = New-AzGalleryImageDefinition `
    -Name 'myDestinationImgDef' `
    -OsState specialized `
    -OsType Windows `
-   -HyperVGeneration v1
+   -HyperVGeneration v1 `
    -Publisher 'myPublisher' `
    -Offer 'myOffer' `
    -Sku 'mySKU'

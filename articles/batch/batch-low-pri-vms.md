@@ -3,14 +3,14 @@ title: Eseguire i carichi di lavoro su macchine virtuali convenienti con priorit
 description: Informazioni su come eseguire il provisioning di macchine virtuali con priorità bassa per ridurre i costi dei carichi di lavoro di Azure Batch.
 author: mscurrell
 ms.topic: how-to
-ms.date: 03/19/2020
+ms.date: 09/08/2020
 ms.custom: seodec18
-ms.openlocfilehash: e33119213d4ae28347334e60923d5ba222cd3a66
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: bd5b73cf55110985a2e7eecbc161c77ca6d645cb
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816695"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568456"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Usare le macchine virtuali con priorità bassa in Batch
 
@@ -18,7 +18,7 @@ Azure Batch offre macchine virtuali con priorità bassa per ridurre i costi dei 
 
 Le macchine virtuali con priorità bassa sfruttano la capacità in eccesso di Azure. Quando si specificano le macchine virtuali con priorità bassa nei pool, Azure Batch può usare questa capacità in eccesso, quando disponibile.
 
-Il compromesso per l'uso di macchine virtuali con priorità bassa è che queste macchine virtuali possono non essere disponibili per l'allocazione o essere interrotte in qualsiasi momento, a seconda della capacità disponibile. Per questo motivo, le macchine virtuali con priorità bassa sono più adatte per determinati tipi di carichi di lavoro. Usare le macchine virtuali con priorità bassa per carichi di lavoro di batch ed elaborazione asincrona in cui il tempo di completamento del processo è flessibile e il lavoro viene distribuito su più macchine virtuali.
+Il compromesso per l'uso di macchine virtuali con priorità bassa è che queste macchine virtuali potrebbero non essere sempre disponibili per l'allocazione o che potrebbero essere interrotte in qualsiasi momento, a seconda della capacità disponibile. Per questo motivo, le macchine virtuali con priorità bassa sono più adatte per determinati tipi di carichi di lavoro. Usare le macchine virtuali con priorità bassa per carichi di lavoro di batch ed elaborazione asincrona in cui il tempo di completamento del processo è flessibile e il lavoro viene distribuito su più macchine virtuali.
 
 Le macchine virtuali con priorità bassa sono caratterizzate da un prezzo notevolmente ridotto rispetto alle macchine virtuali dedicate. Per i dettagli sui prezzi vedere [Prezzi dei Batch](https://azure.microsoft.com/pricing/details/batch/).
 
@@ -123,7 +123,7 @@ I nodi pool dispongono di una proprietà che indica se il nodo è una macchina v
 bool? isNodeDedicated = poolNode.IsDedicated;
 ```
 
-Quando uno o più nodi in un pool sono superati, un'operazione di elenco nodi nel pool restituisce comunque tali nodi. Il numero corrente di nodi con priorità bassa rimane invariato, ma lo stato di tali nodi viene impostato su **Superato**. Il servizio Batch tenterà di individuare le macchine virtuali di sostituzione e, se l'operazione ha esito positivo, i nodi avranno lo stato **Creazione in corso** e poi **Avvio in corso** prima di essere disponibili per l'esecuzione di attività, come avviene per i nuovi nodi.
+Per i pool di configurazione delle macchine virtuali, quando uno o più nodi vengono interrotti, un'operazione di elenco dei nodi nel pool restituisce comunque tali nodi. Il numero corrente di nodi con priorità bassa rimane invariato, ma lo stato di tali nodi viene impostato su **Superato**. Il servizio Batch tenterà di individuare le macchine virtuali di sostituzione e, se l'operazione ha esito positivo, i nodi avranno lo stato **Creazione in corso** e poi **Avvio in corso** prima di essere disponibili per l'esecuzione di attività, come avviene per i nuovi nodi.
 
 ## <a name="scale-a-pool-containing-low-priority-vms"></a>Ridimensionare un pool che contiene macchine virtuali con priorità bassa
 
@@ -155,10 +155,11 @@ I processi e le attività richiedono una configurazione aggiuntiva minima per no
 
 ## <a name="handling-preemption"></a>Gestione delle priorità
 
-Le macchine virtuali in alcuni casi possono essere superate. In questo caso, il servizio Batch effettua le operazioni seguenti:
+Occasionalmente, le macchine virtuali possono essere interrotte. Quando si verifica questa situazione, le attività in esecuzione sulle VM del nodo interrotte vengono riaccodate ed eseguite nuovamente.
+
+Per i pool di configurazione delle macchine virtuali, batch esegue anche le operazioni seguenti:
 
 -   Le macchine virtuali interrotte hanno lo stato aggiornato ad **Annullato**.
--   Se sulle macchine virtuali di un nodo annullato vi erano delle attività in esecuzione, queste vengono riaccodate e rieseguire.
 -   La macchina virtuale viene eliminata in modo efficace e tutti i dati memorizzati in locale nella macchina virtuale andranno persi.
 -   Il pool tenta continuamente raggiungere il numero stabilito di nodi con priorità bassa disponibili. Quando viene individuata una capacità di sostituzione, i nodi mantengono il proprio ID, ma vengono inizializzati di nuovo, attraversando gli stati **Creazione in corso** e **Avvio in corso** prima che siano disponibili per la pianificazione delle attività.
 -   Il numero delle priorità è disponibile come metrica nel portale di Azure.
@@ -168,7 +169,7 @@ Le macchine virtuali in alcuni casi possono essere superate. In questo caso, il 
 Per i nodi con priorità bassa sono disponibili nuove metriche nel [portale di Azure](https://portal.azure.com). Le metriche sono:
 
 - Numero di nodi a bassa priorità
-- Numero di core a bassa priorità 
+- Numero di core a bassa priorità
 - Numero di nodi annullati
 
 Per visualizzare le metriche nel portale di Azure:
@@ -177,10 +178,10 @@ Per visualizzare le metriche nel portale di Azure:
 2. Selezionare **Metrica** dalla sezione **Monitoraggio**.
 3. Selezionare le metriche da usare dall'elenco **Metriche disponibili**.
 
-![Metriche per i nodi a priorità bassa](media/batch-low-pri-vms/low-pri-metrics.png)
+![Screenshot che mostra la selezione delle metriche per i nodi con priorità bassa.](media/batch-low-pri-vms/low-pri-metrics.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sul [Flusso di lavoro del servizio Batch e risorse primarie](batch-service-workflow-features.md), ad esempio pool, nodi, processi e attività.
-* Informazioni sulle [API e gli strumenti di Batch](batch-apis-tools.md) disponibili per la compilazione di soluzioni Batch.
-* Iniziare a pianificare lo spostamento dalle macchine virtuali con priorità bassa alle macchine virtuali Spot. Se con i pool di **Configurazione del servizio cloud** si usano macchine virtuali con priorità bassa, pianificare lo spostamento nei pool di **Configurazione macchina virtuale**.
+- Informazioni sul [Flusso di lavoro del servizio Batch e risorse primarie](batch-service-workflow-features.md), ad esempio pool, nodi, processi e attività.
+- Informazioni sulle [API e gli strumenti di Batch](batch-apis-tools.md) disponibili per la compilazione di soluzioni Batch.
+- Iniziare a pianificare lo spostamento dalle macchine virtuali con priorità bassa alle macchine virtuali Spot. Se con i pool di **Configurazione del servizio cloud** si usano macchine virtuali con priorità bassa, pianificare lo spostamento nei pool di **Configurazione macchina virtuale**.

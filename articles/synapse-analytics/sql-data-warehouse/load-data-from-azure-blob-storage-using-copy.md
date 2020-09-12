@@ -11,12 +11,12 @@ ms.date: 05/31/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: c4dbc63e8829d8a9ca3a3820fbb6675da4fad357
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 67392f965b3fddec7fc7a03bd328a224dad42208
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86262082"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442982"
 ---
 # <a name="tutorial-load-the-new-york-taxicab-dataset"></a>Esercitazione: caricare il set di dati del taxi di New York
 
@@ -98,7 +98,7 @@ Per creare un database vuoto, seguire questa procedura.
 Un firewall a livello di server che impedisce alle applicazioni e agli strumenti esterni di connettersi al server o a qualsiasi database nel server. Per abilitare la connettività, è possibile aggiungere regole del firewall per aprire il firewall a indirizzi IP specifici.  Seguire questa procedura per creare una [regola del firewall a livello di server](../../azure-sql/database/firewall-configure.md?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json) per l'indirizzo IP del client.
 
 > [!NOTE]
-> SQL Data Warehouse comunica attraverso la porta 1433. Se si sta provando a connettersi da una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In questo caso, non è possibile connettersi al server a meno che il reparto IT non apra la porta 1433.
+> Azure sinapsi Analytics comunica sulla porta 1433. Se si sta provando a connettersi da una rete aziendale, il traffico in uscita sulla porta 1433 potrebbe non essere consentito dal firewall della rete. In questo caso, non è possibile connettersi al server a meno che il reparto IT non apra la porta 1433.
 
 1. Al termine della distribuzione, selezionare **database SQL** dal menu a sinistra e quindi selezionare **mySampleDatabase** nella pagina **database SQL** . Viene visualizzata la pagina di panoramica per il database che mostra il nome completo del server, ad esempio **mynewserver-20180430.database.windows.net**, e offre altre opzioni per la configurazione.
 
@@ -147,7 +147,7 @@ In questa sezione si usa [SQL Server Management Studio](/sql/ssms/download-sql-s
     | -------------- | ------------------------------------------ | ------------------------------------------------------------ |
     | Tipo di server    | Motore di database                            | Questo valore è obbligatorio                                       |
     | Nome server    | Nome completo del server            | Il nome sarà simile a: **mynewserver-20180430.database.windows.net**. |
-    | Autenticazione | Autenticazione di SQL Server                  | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
+    | Authentication | Autenticazione di SQL Server                  | L'autenticazione SQL è il solo tipo di autenticazione configurato in questa esercitazione. |
     | Login          | Account amministratore del server                   | Si tratta dell'account specificato al momento della creazione del server. |
     | Password       | Password per l'account amministratore del server | Si tratta della password specificata al momento della creazione del server. |
 
@@ -178,7 +178,7 @@ Poiché l'accesso è stato eseguito come amministratore del server, è possibile
     CREATE USER LoaderRC20 FOR LOGIN LoaderRC20;
     ```
 
-3. Selezionare **Esegui**.
+3. Scegliere **Execute**(Esegui).
 
 4. Fare clic con il pulsante destro del mouse su **mySampleDataWarehouse** e scegliere **Nuova query**. Viene visualizzata una nuova finestra della query.  
 
@@ -192,7 +192,7 @@ Poiché l'accesso è stato eseguito come amministratore del server, è possibile
     EXEC sp_addrolemember 'staticrc20', 'LoaderRC20';
     ```
 
-6. Selezionare **Esegui**.
+6. Scegliere **Execute**(Esegui).
 
 ## <a name="connect-to-the-server-as-the-loading-user"></a>Connettersi al server come utente addetto al caricamento
 

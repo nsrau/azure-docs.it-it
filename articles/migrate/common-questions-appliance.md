@@ -3,12 +3,12 @@ title: Domande frequenti sull'appliance Azure Migrate
 description: Risposte alle domande più comuni sull'appliance Azure Migrate.
 ms.topic: conceptual
 ms.date: 06/03/2020
-ms.openlocfilehash: de34bba40b9200c198f3c07262bd6b7a00b62060
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: aa15a3451b990d3c3cec3535fdc14315ff149aef
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050676"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514544"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Appliance Azure Migrate: domande comuni
 
@@ -21,7 +21,7 @@ Questo articolo risponde alle domande più comuni sull'appliance Azure Migrate. 
 
 ## <a name="what-is-the-azure-migrate-appliance"></a>Che cos'è la Azure Migrate Appliance?
 
-Il dispositivo Azure Migrate è un dispositivo leggero che lo strumento Azure Migrate: server Assessment USA per individuare e valutare i server locali. Lo strumento di migrazione Azure Migrate: Server usa anche l'appliance per la migrazione senza agenti di macchine virtuali VMware locali.
+Il dispositivo Azure Migrate è un dispositivo leggero che lo strumento Azure Migrate: server Assessment USA per individuare e valutare i server fisici o virtuali da locale o da qualsiasi cloud. Lo strumento di migrazione Azure Migrate: Server usa anche l'appliance per la migrazione senza agenti di macchine virtuali VMware locali.
 
 Di seguito sono riportate altre informazioni sull'appliance Azure Migrate:
 
@@ -35,13 +35,14 @@ Di seguito sono riportate altre informazioni sull'appliance Azure Migrate:
 
 L'appliance può essere distribuita come indicato di seguito:
 
-- Uso di un modello per macchine virtuali VMware e macchine virtuali Hyper-V (modello OVA per VMware o VHD per Hyper-V).
-- Se non si vuole usare un modello o si è in Azure per enti pubblici, è possibile distribuire l'appliance per VMware o Hyper-V usando uno script di PowerShell.
-- Per i server fisici, l'appliance viene distribuita sempre usando uno script.
+- Uso di un modello per l'individuazione di macchine virtuali VMware (. File OVA) e macchine virtuali Hyper-V (. File VHD) per creare una nuova macchina virtuale che ospita l'appliance.
+- Se non si vuole usare un modello, è possibile distribuire l'appliance in una macchina virtuale o fisica esistente per l'individuazione di macchine virtuali VMware o Hyper-V usando uno script del programma di installazione di PowerShell, disponibile per il download in un file zip dal portale.
+- Per i server fisici o virtuali dall'ambiente locale o da qualsiasi cloud, è sempre necessario distribuire l'appliance usando uno script in un server esistente.
+- Per Azure per enti pubblici, tutti e tre i dispositivi possono essere distribuiti solo tramite lo script del programma di installazione di PowerShell.
 
 ## <a name="how-does-the-appliance-connect-to-azure"></a>In che modo l'appliance si connette ad Azure?
 
-L'appliance può connettersi tramite Internet o usando Azure ExpressRoute.
+L'appliance può connettersi tramite Internet o usando Azure ExpressRoute. Assicurarsi che gli [URL](https://docs.microsoft.com/azure/migrate/migrate-appliance#url-access) siano inclusi nell'elenco elementi consentiti per la connessione dell'appliance ad Azure.
 
 - Per usare Azure ExpressRoute per Azure Migrate il traffico di replica, è necessario il peering Microsoft o un peering pubblico esistente (il peering pubblico è deprecato per le nuove creazioni ER).
 - La replica su Azure ExpressRoute con (solo) il peering privato abilitato non è supportato.
@@ -66,6 +67,7 @@ Vedere gli articoli seguenti per informazioni sui dati raccolti dal Azure Migrat
 
 - **VM VMware**: [esaminare](migrate-appliance.md#collected-data---vmware) i dati raccolti.
 - **VM Hyper-V**: [esaminare](migrate-appliance.md#collected-data---hyper-v) i dati raccolti.
+- **Server fisici o virtuali**:[esaminare](migrate-appliance.md#collected-data---physical) i dati raccolti.
 
 ## <a name="how-is-data-stored"></a>Come vengono archiviati i dati?
 
@@ -107,8 +109,7 @@ A un progetto possono essere collegati più appliance. Tuttavia, un appliance pu
 
 ## <a name="can-the-azure-migrate-appliancereplication-appliance-connect-to-the-same-vcenter"></a>Il dispositivo di Azure Migrate/appliance di replica può connettersi allo stesso vCenter?
 
-Sì. È possibile aggiungere il dispositivo Azure Migrate (usato per la valutazione e la migrazione VMware senza agente) e l'appliance di replica (usato per la migrazione basata su agenti delle VM VMware) allo stesso server vCenter.
-
+Sì. È possibile aggiungere il dispositivo Azure Migrate (usato per la valutazione e la migrazione VMware senza agente) e l'appliance di replica (usato per la migrazione basata su agenti delle VM VMware) allo stesso server vCenter. Assicurarsi però di non configurare entrambi i dispositivi nella stessa macchina virtuale e che non sono attualmente supportati.
 
 ## <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>Quante VM o server è possibile individuare con un'appliance?
 
@@ -124,7 +125,9 @@ Tuttavia, l'eliminazione del gruppo di risorse Elimina anche altre appliance reg
 
 ## <a name="can-i-use-the-appliance-with-a-different-subscription-or-project"></a>È possibile usare l'appliance con una sottoscrizione o un progetto diverso?
 
-Dopo aver usato l'appliance per avviare l'individuazione, non è possibile riconfigurare l'appliance per l'uso con una sottoscrizione di Azure diversa e non è possibile usarla in un progetto di Azure Migrate diverso. Non è inoltre possibile individuare le macchine virtuali in un'altra istanza di server vCenter. Configurare un nuovo Appliance per queste attività.
+Per usare il dispositivo con una sottoscrizione o un progetto diverso, è necessario riconfigurare l'appliance esistente eseguendo lo script del programma di installazione di PowerShell per lo scenario specifico (VMware/Hyper-V/fisico) nel computer dell'appliance. Tramite lo script vengono puliti i componenti e le impostazioni dell'appliance esistente per distribuire una nuova appliance. Assicurarsi di cancellare la cache del browser prima di iniziare a usare la gestione configurazione Appliance appena distribuita.
+
+Non è inoltre possibile riutilizzare una chiave di progetto Azure Migrate esistente in un'appliance riconfigurata. Assicurarsi di generare una nuova chiave dal progetto o dalla sottoscrizione desiderata per completare la registrazione dell'appliance.
 
 ## <a name="can-i-set-up-the-appliance-on-an-azure-vm"></a>È possibile configurare l'appliance in una macchina virtuale di Azure?
 

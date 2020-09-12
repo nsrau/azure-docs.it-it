@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 08/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: cbf1c678307d76361e6083f4e2231fb9e48a112f
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 0fb50e01e86c00ac863352118eb36f7470251435
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855147"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489154"
 ---
 # <a name="querying-data-from-azure-time-series-insights-gen2"></a>Esecuzione di query sui dati da Azure Time Series Insights Gen2
 
@@ -73,4 +73,4 @@ Queste API sono disponibili in entrambi i punti vendita (caldo e a freddo) nella
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Altre informazioni sulle diverse variabili che possono essere definite nel [modello Time Series](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-tsm).
-* Scopri di più su come eseguire query sui dati da [Azure Time Series Insights TSI Explorer](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).
+* Scopri di più su come eseguire query sui dati da [esplora Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-update-explorer).

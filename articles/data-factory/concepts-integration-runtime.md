@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/14/2020
-ms.openlocfilehash: e8e900e410f1a41c8c98f5cec00631cfb5f275de
-ms.sourcegitcommit: 42107c62f721da8550621a4651b3ef6c68704cd3
+ms.openlocfilehash: 03b8deaa700d15a20571a8ec5f389c252c32eed2
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87407694"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485720"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Runtime di integrazione in Azure Data Factory 
 
@@ -143,7 +143,7 @@ Se si sceglie di usare la risoluzione automatica Azure IR nella rete pubblica, c
   - Quando si copiano dati in Salesforce di cui l'area non è rilevabile, l'attività di copia viene eseguita su IR negli Stati Uniti orientali.
 
   >[!TIP] 
-  >Se sono presenti requisiti di conformità rigorosi per i dati e si deve garantire che i dati non lascino una certa area geografica, è possibile creare esplicitamente un runtime di integrazione di Azure in una determinata area e puntare il servizio collegato a questo runtime di integrazione tramite la proprietà ConnectVia. Se ad esempio si vogliono copiare i dati da un BLOB nel Regno Unito meridionale a un'istanza di SQL Data Warehouse nel Regno Unito meridionale e si vuole garantire che i dati non lascino il Regno Unito, creare un runtime di integrazione di Azure nel Regno Unito meridionale e collegare entrambi i servizi collegati a questo runtime di integrazione.
+  >Se sono presenti requisiti di conformità rigorosi per i dati e si deve garantire che i dati non lascino una certa area geografica, è possibile creare esplicitamente un runtime di integrazione di Azure in una determinata area e puntare il servizio collegato a questo runtime di integrazione tramite la proprietà ConnectVia. Ad esempio, se si vogliono copiare dati da un BLOB in Regno Unito meridionale ad Azure sinapsi Analytics in Regno Unito meridionale e si vuole garantire che i dati non lascino il Regno Unito, creare una Azure IR in Regno Unito meridionale e collegare entrambi i servizi collegati al runtime di integrazione.
 
 - Per l'esecuzione dell'attività Lookup/GetMetadata/Delete (nota anche come attività Pipeline), l'invio di attività di trasformazione (note anche come attività esterne) e la creazione di operazioni (test connection, browse Folder List e Table list, data Preview), ADF usa il runtime di integrazione nell'area data factory.
 
