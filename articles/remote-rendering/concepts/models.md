@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9fd18195c0276999f445e0990838e293a5081131
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e9c8c4a1209b8bb5be7af87ef22aeab0ffd90b79
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021885"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023772"
 ---
 # <a name="models"></a>Modelli
 
@@ -28,7 +28,6 @@ A ogni entità possono essere associati alcuni [componenti](components.md) che, 
 Per creare modelli per il runtime è necessario [convertire modelli di input](../how-tos/conversion/model-conversion.md) da file di tipo FBX e GLTF. Il processo di conversione estrae tutte le risorse, quali trame, materiali e mesh, e le converte in formati di runtime ottimizzati. Estrae anche le informazioni strutturali e le converte nella struttura del grafo entità/componente di Rendering remoto di Azure.
 
 > [!IMPORTANT]
->
 > La [conversione di un modello](../how-tos/conversion/model-conversion.md) è l'unico modo per creare [mesh](meshes.md). Sebbene in fase di runtime sia possibile condividere le mesh tra più entità, non esiste altro modo per inserire una mesh nel runtime se non caricando un modello.
 
 ## <a name="loading-models"></a>Caricamento di modelli
@@ -118,6 +117,13 @@ Successivamente, è possibile attraversare la gerarchia delle entità e modifica
 
 > [!CAUTION]
 > Tutte le funzioni *asincrone* in Rendering remoto di Azure restituiscono oggetti di operazioni asincrone. È necessario quindi archiviare un riferimento a tali oggetti fino al completamento dell'operazione. In caso contrario, è possibile che il Garbage Collector C# elimini l'operazione in anticipo, che quindi non verrà mai completata. Nel codice di esempio sopra riportato, l'uso di *await* garantisce che la variabile locale 'loadOp' contenga un riferimento fino al completo caricamento del modello. Se invece si usasse l'evento *Completato*, sarebbe necessario archiviare l'operazione asincrona in una variabile membro.
+
+## <a name="api-documentation"></a>Documentazione dell'API
+
+* [C# RemoteManager. LoadModelAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelasync)
+* [C# RemoteManager. LoadModelFromSASAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadmodelfromsasasync)
+* [C++ RemoteManager:: LoadModelAsync ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadmodelasync)
+* [C++ RemoteManager:: LoadModelFromSASAsync ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadmodelfromsasasync)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

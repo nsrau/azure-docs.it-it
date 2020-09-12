@@ -1,6 +1,6 @@
 ---
 title: Concetti sulla sicurezza X.509 dell'hub IoT di Azure | Microsoft Docs
-description: Concetto - capire il valore dei certificati di autorità del certificato X.509 nella produzione e nell'autenticazione del dispositivo IoT.
+description: "Concetto: informazioni sul valore dei certificati dell'autorità di certificazione X. 509 nella produzione e nell'autenticazione del dispositivo."
 author: eustacea
 manager: arjmands
 ms.service: iot-hub
@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 09/18/2017
 ms.author: eustacea
-ms.openlocfilehash: 3c7e1167b3326620863d35cb2d4b07235cbd5517
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4487772aba22f1ce577e6a0d8263ce1200b6345f
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "61320527"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019904"
 ---
 # <a name="conceptual-understanding-of-x509-ca-certificates-in-the-iot-industry"></a>Comprensione concettuale dei certificati x.509 nel settore IoT
 
@@ -28,6 +28,8 @@ L'articolo illustra:
 * Come configurare una catena di alimentazione di produzione per un'autenticazione basata sull'autorità di certificazione X.509
 
 * Come si collegano i dispositivi firmati con l'autorità di certificazione X.509 all'hub IoT
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 ## <a name="overview"></a>Panoramica
 
@@ -63,13 +65,13 @@ Dettagli su come l'esecuzione di questi passaggi cambi con provider di servizio 
 
 ### <a name="purchasing-an-x509-ca-certificate"></a>Acquistare un certificato della CA X.509
 
-Il vantaggio dell'acquisto di un certificato della CA risiede nell'avere un atto della CA radice ben noto che funge da terza parte attendibile a garanzia della legittimità dei dispositivi IoT quando si connettono i dispositivi. La Società-X sceglie questa opzione se si prevede che lo Smart-X-Widget interagisca con i prodotti o i servizi di terze parti dopo la connessione iniziale all'hub IoT.
+Il vantaggio dell'acquisto di un certificato della CA risiede nell'avere un atto della CA radice ben noto che funge da terza parte attendibile a garanzia della legittimità dei dispositivi IoT quando si connettono i dispositivi. La società-X sceglie questa opzione se si vuole che Smart-X-Widget interagisca con prodotti o servizi di terze parti dopo la connessione iniziale all'hub.
 
 Per acquistare un certificato di autorità di certificazione X.509, la Società-X sceglie un provider di servizi dei certificati radice. Una ricerca su internet per la frase 'Autorità di certificazione radice' genererà lead validi. La CA radice guiderà la Società-X su come creare la coppia di chiavi pubblica/privata e su come generare una Richiesta di firma del certificato (CSR) per i servizi. Una richiesta di firma del certificato è il processo formale di richiesta di un certificato da parte di un'autorità di certificazione. Il risultato dell'acquisto è un certificato da usare come certificato di autorità. Data la grande diffusione di certificati X.509, è probabile che il certificato sia stato formattato correttamente in relazione allo standard IETF RFC 5280.
 
 ### <a name="creating-a-self-signed-x509-ca-certificate"></a>Creazione di un certificato della CA autofirmato X.509
 
-Il processo per creare un certificato della CA autofirmato X.509 è simile all'acquisto, ad eccezione del fatto che interessa un firmatario di terze parti come autorità di certificazione radice. In questo esempio, la Società-X firmerà il certificato dell'autorità invece che un'autorità di certificazione radice. La Società-X può scegliere questa opzione per verificare fino a che punto è in grado di acquistare un certificato di autorità. La Società-X può anche usare un certificato autofirmato della CA X.509 nella produzione, se lo Smart-X-Widget non sarà connesso a nessun servizio di terze parti di fuori dell'hub IoT.
+Il processo di creazione di un certificato della CA autofirmato X. 509 è simile all'acquisto, ad eccezione del coinvolgimento di un firmatario di terze parti come l'autorità di certificazione radice. In questo esempio, la Società-X firmerà il certificato dell'autorità invece che un'autorità di certificazione radice. La Società-X può scegliere questa opzione per verificare fino a che punto è in grado di acquistare un certificato di autorità. La società-X può anche usare un certificato della CA autofirmato X. 509 in produzione, se Smart-X-widget non è destinato a connettersi a servizi di terze parti all'esterno dell'hub Internet.
 
 ## <a name="register-the-x509-certificate-to-iot-hub"></a>Registrare il certificato X.509 all'hub IoT
 

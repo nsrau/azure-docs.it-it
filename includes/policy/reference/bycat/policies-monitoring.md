@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 09/04/2020
+ms.date: 09/10/2020
 ms.author: dacoulte
 ms.custom: generated
-ms.openlocfilehash: 8e0b244e0ba25ad253b4beeb0e0a707e66c39cef
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 0c3896ca49a157928b7aea08ecf3b07485c173f7
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89483160"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90022136"
 ---
 |Nome<br /><sub>(Portale di Azure)</sub> |Descrizione |Effetto/i |Versione<br /><sub>(GitHub)</sub> |
 |---|---|---|---|
@@ -46,7 +46,6 @@ ms.locfileid: "89483160"
 |[Distribuisci le impostazioni di diagnostica per le app per la logica nell'hub eventi](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fa1dae6c7-13f3-48ea-a149-ff8442661f60) |Distribuisce le impostazioni di diagnostica per le app per la logica per lo streaming in un hub eventi a livello di area quando viene creata o aggiornata un'app per la logica in cui manca questa impostazione di diagnostica. |DeployIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/LogicApps_DeployDiagnosticLog_Deploy_EventHub.json) |
 |[Distribuisci le impostazioni di diagnostica per le app per la logica nell'area di lavoro Log Analytics](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fb889a06c-ec72-4b03-910a-cb169ee18721) |Distribuisce le impostazioni di diagnostica per le app per la logica per lo streaming in un'area di lavoro Log Analytics a livello di area quando viene creata o aggiornata un'app per la logica in cui manca questa impostazione di diagnostica. |DeployIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/LogicApps_DeployDiagnosticLog_Deploy_LogAnalytics.json) |
 |[Distribuire le impostazioni di diagnostica per i gruppi di sicurezza di rete](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc9c29499-c1d1-4195-99bd-2ec9e3a9dc89) |Questo criterio distribuisce automaticamente le impostazioni diagnostiche nei gruppi di sicurezza di rete. Verrà creato automaticamente un account di archiviazione con il nome '{storagePrefixParameter}{NSGLocation}'. |deployIfNotExists |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/DiagnosticSettingsForNSG_Deploy.json) |
-|[Distribuire le impostazioni di diagnostica per l'insieme di credenziali di Servizi di ripristino nell'area di lavoro Log Analytics per categorie specifiche delle risorse.](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc717fb0c-d118-4c43-ab3d-ece30ac81fb3) |Distribuire le impostazioni di diagnostica per l'insieme di credenziali di Servizi di ripristino per lo streaming nell'area di lavoro Log Analytics per categorie specifiche delle risorse. Se una delle categorie specifiche delle risorse non è abilitata, verrà creata una nuova impostazione di diagnostica. |deployIfNotExists |[1.0.0-preview](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/EnableRecoveryServiceVaultDiagnosticSetting_Backup_DeployIfNotExist.json) |
 |[Distribuisci le impostazioni di diagnostica per i servizi di ricerca nell'hub eventi](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F3d5da587-71bd-41f5-ac95-dd3330c2d58d) |Distribuisce le impostazioni di diagnostica per i servizi di ricerca per lo streaming in un hub eventi a livello di area quando viene creato o aggiornato un servizio di ricerca in cui manca questa impostazione di diagnostica. |DeployIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/Search_DeployDiagnosticLog_Deploy_EventHub.json) |
 |[Distribuisci le impostazioni di diagnostica per il servizio di ricerca nell'area di lavoro Log Analytics](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F08ba64b8-738f-4918-9686-730d2ed79c7d) |Distribuisce le impostazioni di diagnostica per i servizi di ricerca per lo streaming in un'area di lavoro Log Analytics a livello di area quando viene creato o aggiornato un servizio di ricerca in cui manca questa impostazione di diagnostica. |DeployIfNotExists, Disabled |[1.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/Search_DeployDiagnosticLog_Deploy_LogAnalytics.json) |
 |[Distribuisci le impostazioni di diagnostica per il bus di servizio nell'hub eventi](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F6b51af03-9277-49a9-a3f8-1c69c9ff7403) |Distribuisce le impostazioni di diagnostica per il bus di servizio per lo streaming in un hub eventi a livello di area quando viene creato o aggiornato un bus di servizio in cui manca questa impostazione di diagnostica. |DeployIfNotExists, Disabled |[2.0.0](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Monitoring/ServiceBus_DeployDiagnosticLog_Deploy_EventHub.json) |

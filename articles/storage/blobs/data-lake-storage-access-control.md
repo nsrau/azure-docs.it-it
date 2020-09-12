@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 03/16/2020
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: 9edf348c856de5c75c95d8a8f1957dcf73fc8ec1
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: fa6a226926439e30b9ca51c75743ce35915ffd85
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88030487"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017235"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Controllo di accesso in Azure Data Lake Storage Gen2
 
@@ -256,7 +256,7 @@ La proprietà umask per Azure Data Lake Storage Gen2 è un valore costante impos
 | umask.owning_group  |    0         |   `---`      | Per il gruppo proprietario, copiare l'ACL predefinito dell'elemento padre nell'ACL di accesso dell'elemento figlio | 
 | umask.other         |    7         |   `RWX`      | Per altri, rimuovere tutte le autorizzazioni sull'ACL di accesso dell'elemento figlio |
 
-Il valore umask usato da Azure Data Lake Storage Gen2 significa di fatto che il valore per **other** non viene mai trasmesso per impostazione predefinita sui nuovi elementi figlio, indipendentemente da ciò che indica l'ACL predefinito. 
+Il valore umask usato da Azure Data Lake Storage Gen2 significa che il valore di **other** non viene mai trasmesso per impostazione predefinita nei nuovi elementi figlio, a meno che non sia stato definito un ACL predefinito nella directory padre. In tal caso, umask viene ignorato e le autorizzazioni definite dall'ACL predefinito vengono applicate all'elemento figlio. 
 
 Lo pseudocodice seguente illustra come viene applicata la proprietà umask quando si creano gli ACL per un elemento figlio.
 
@@ -347,6 +347,6 @@ Gli elenchi di controllo di accesso non ereditano. Gli ACL predefiniti tuttavia 
 * [ACL POSIX in Ubuntu](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL: Using Access Control Lists on Linux](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/) (ACL: uso di elenchi di controllo di accesso in Linux)
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Panoramica di Azure Data Lake Storage Gen2](../blobs/data-lake-storage-introduction.md)

@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
-ms.openlocfilehash: c27c5fae45f7cde57f2db12c05107d2b77b90a2c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0af9d6906e038a4b9285a2c302fc0c98345fdbd9
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012382"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023755"
 ---
 # <a name="use-the-session-management-rest-api"></a>Usare l'API REST di gestione delle sessioni
 
@@ -77,7 +77,7 @@ Questo comando crea una sessione. Restituisce l'ID della nuova sessione. È nece
 
 **Risposte**
 
-| Codice di stato | payload JSON | Commenti |
+| Codice stato | payload JSON | Commenti |
 |-----------|:-----------|:-----------|
 | 202 | -sessionId: GUID | Operazione completata |
 
@@ -122,7 +122,7 @@ $sessionId = "d31bddca-dab7-498e-9bc9-7594bc12862f"
 Sono disponibili alcuni comandi per eseguire query o modificare i parametri delle sessioni esistenti.
 
 > [!CAUTION]
-Come per tutte le chiamate REST, l'invio di questi comandi troppo spesso provocherà la limitazione del server e la restituzione di un errore. Il codice di stato in questo caso è 429 ("numero eccessivo di richieste"). Come regola generale, è necessario un ritardo di **5-10 secondi tra le chiamate successive**.
+> Come per tutte le chiamate REST, l'invio di questi comandi troppo spesso provocherà la limitazione del server e la restituzione di un errore. Il codice di stato in questo caso è 429 ("numero eccessivo di richieste"). Come regola generale, è necessario un ritardo di **5-10 secondi tra chiamate successive**.
 
 ### <a name="update-session-parameters"></a>Aggiornare i parametri della sessione
 
@@ -141,7 +141,7 @@ Questo comando Aggiorna i parametri di una sessione. Attualmente è possibile es
 
 **Risposte**
 
-| Codice di stato | payload JSON | Commenti |
+| Codice stato | payload JSON | Commenti |
 |-----------|:-----------|:-----------|
 | 200 | | Operazione completata |
 
@@ -177,7 +177,7 @@ Questo comando restituisce un elenco di sessioni attive.
 
 **Risposte**
 
-| Codice di stato | payload JSON | Commenti |
+| Codice stato | payload JSON | Commenti |
 |-----------|:-----------|:-----------|
 | 200 | -Sessions: matrice di proprietà della sessione | vedere la sezione "ottenere le proprietà della sessione" per una descrizione delle proprietà della sessione |
 
@@ -220,7 +220,7 @@ Questo comando restituisce informazioni su una sessione, ad esempio il nome host
 
 **Risposte**
 
-| Codice di stato | payload JSON | Commenti |
+| Codice stato | payload JSON | Commenti |
 |-----------|:-----------|:-----------|
 | 200 | -Message: stringa<br/>-sessionElapsedTime: TimeSpan<br/>-sessionHostname: stringa<br/>-sessionId: stringa<br/>-sessionMaxLeaseTime: TimeSpan<br/>-sessionSize: enumerazione<br/>-sessionStatus: enumerazione | enum sessionStatus {starting, Ready, stoping, Stopped, expired, Error}<br/>Se lo stato è' Error ' o ' expired ', il messaggio conterrà ulteriori informazioni |
 
@@ -263,7 +263,7 @@ Questo comando Arresta una sessione. La macchina virtuale allocata verrà recupe
 
 **Risposte**
 
-| Codice di stato | payload JSON | Commenti |
+| Codice stato | payload JSON | Commenti |
 |-----------|:-----------|:-----------|
 | 204 | | Operazione completata |
 

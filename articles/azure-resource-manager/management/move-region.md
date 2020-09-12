@@ -4,20 +4,20 @@ description: Viene fornita una panoramica dello stato di trasferimento delle ris
 author: rayne-wiselman
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: 22d8bcee96b4ac52641d4f0841267195f44fe15a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a71502ec361004079e0962d8bc6433316a4ba81
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75485208"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007639"
 ---
 # <a name="moving-azure-resources-across-regions"></a>Trasferimento di risorse di Azure tra aree
 
 Questo articolo fornisce informazioni sullo trasferimento di risorse di Azure tra aree di Azure.
 
-Aree geografiche e zone di disponibilità di Azure costituiscono la base dell'infrastruttura globale di Azure. Le aree [geografiche](https://azure.microsoft.com/global-infrastructure/geographies/) di Azure contengono in genere due o più [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/). Un'area è un'area all'interno di una geografia che contiene zone di disponibilità e più data center. 
+Le aree geografiche, le aree e le zone di disponibilità di Azure costituiscono la base dell'infrastruttura globale di Azure. Le aree [geografiche](https://azure.microsoft.com/global-infrastructure/geographies/) di Azure contengono in genere due o più [aree di Azure](https://azure.microsoft.com/global-infrastructure/regions/). Un'area è un'area all'interno di una geografia che contiene zone di disponibilità e più data center. 
 
 Dopo la distribuzione delle risorse in un'area specifica di Azure, è possibile che si voglia spostare le risorse in un'area diversa.
 
@@ -25,24 +25,54 @@ Dopo la distribuzione delle risorse in un'area specifica di Azure, è possibile 
 - **Allinea per servizi/funzionalità**: spostare le risorse per sfruttare i vantaggi dei servizi o delle funzionalità disponibili in un'area specifica.
 - **Rispondere agli sviluppi aziendali**: spostare le risorse in un'area in risposta alle modifiche aziendali, ad esempio fusioni o acquisizioni.
 - **Allinea per prossimità**: sposta le risorse in un'area locale nell'azienda.
-- **Soddisfare i requisiti dei dati**: spostare le risorse per allinearli ai requisiti di residenza dei dati o alle esigenze di classificazione dei dati. [Altre informazioni](https://azure.microsoft.com/mediahandler/files/resourcefiles/achieving-compliant-data-residency-and-security-with-azure/Achieving_Compliant_Data_Residency_and_Security_with_Azure.pdf)
+- **Soddisfare i requisiti dei dati**: spostare le risorse per allinearli ai requisiti di residenza dei dati o alle esigenze di classificazione dei dati. [Altre informazioni](https://azure.microsoft.com/mediahandler/files/resourcefiles/achieving-compliant-data-residency-and-security-with-azure/Achieving_Compliant_Data_Residency_and_Security_with_Azure.pdf).
 - **Rispondere ai requisiti di distribuzione**: spostare le risorse distribuite in errore o spostarle in risposta alle esigenze di capacità. 
 - **Rispondere alla rimozione delle autorizzazioni**: spostare le risorse dovute alla rimozione delle autorizzazioni delle aree.
 
-## <a name="move-process"></a>Sposta processo
+## <a name="move-resources-with-resource-mover"></a>Spostare le risorse con il motore di risorse
 
-Il processo di spostamento effettivo dipende dalle risorse che si stanno spostando. Tuttavia, esistono alcuni passaggi chiave comuni:
+È possibile spostare le risorse in un'area diversa con [Azure Resource Mover](../../resource-mover/overview.md). Il motore di risorse fornisce:
 
-- **Verificare i prerequisiti**: i prerequisiti includono assicurarsi che le risorse necessarie siano disponibili nell'area di destinazione, verificare di disporre di una quota sufficiente e verificare che la sottoscrizione sia in grado di accedere all'area di destinazione.
-- **Analizzare le dipendenze**: le risorse potrebbero avere dipendenze da altre risorse. Prima dello spostamento, determinare le dipendenze in modo che le risorse spostate continuino a funzionare come previsto dopo lo spostamento.
-- **Prepararsi per lo spostamento**: questi sono i passaggi da eseguire nell'area primaria prima dello spostamento. Ad esempio, potrebbe essere necessario esportare un modello di Azure Resource Manager o avviare la replica delle risorse dall'origine alla destinazione.
-- **Spostare le risorse: il**modo in cui si spostano le risorse dipende da quali sono. Potrebbe essere necessario distribuire un modello nell'area di destinazione o eseguire il failover delle risorse nella destinazione.
-- **Scartare le risorse di destinazione**: dopo lo stato di trasferimento delle risorse, è possibile esaminare le risorse ora nell'area di destinazione e decidere se sono presenti operazioni non necessarie.
-- Eseguire **il commit dello spostamento**: dopo aver verificato le risorse nell'area di destinazione, alcune risorse potrebbero richiedere un'azione di commit finale. Ad esempio, in un'area di destinazione che è ora l'area primaria, potrebbe essere necessario configurare il ripristino di emergenza in una nuova area secondaria. 
-- **Pulire l'origine**: Infine, dopo che tutto è in esecuzione nella nuova area, è possibile pulire e rimuovere le autorizzazioni create per lo spostamento e le risorse nell'area primaria.
+- Hub singolo per lo stato di trasferimento delle risorse tra le aree.
+- Tempi di spostamento e complessità ridotti. Tutto quello che ti serve si trova in un'unica posizione.
+- Un'esperienza semplice e coerente per lo stato di trasferimento di diversi tipi di risorse di Azure.
+- Un modo semplice per identificare le dipendenze tra le risorse che si desidera spostare. Ciò consente di spostare insieme le risorse correlate, in modo che tutto funzioni come previsto nell'area di destinazione, dopo lo spostamento.
+- Pulizia automatica delle risorse nell'area di origine, se si desidera eliminarle dopo lo spostamento.
+- Test. È possibile provare lo spostamento e quindi rimuoverlo se non si vuole eseguire uno spostamento completo.
+
+È possibile spostare le risorse in un'altra area usando un paio di metodi diversi:
+
+- **Avviare lo spostamento delle risorse da un gruppo di risorse**: con questo metodo è possibile avviare lo spostamento dell'area dall'interno di un gruppo di risorse. Dopo aver selezionato le risorse che si desidera spostare, il processo continua nell'hub di Resource Mover, per verificare le dipendenze delle risorse e orchestrare il processo di spostamento. [Altre informazioni](../../resource-mover/move-region-within-resource-group.md).
+- **Iniziare a spostare le risorse direttamente dall'hub di Resource Mover**: con questo metodo è possibile avviare il processo di spostamento dell'area direttamente nell'hub. [Altre informazioni](../../resource-mover/tutorial-move-region-virtual-machines.md).
+
+
+## <a name="support-for-region-move"></a>Supporto per lo spostamento nell'area
+
+È attualmente possibile usare il motore di risorse per spostare queste risorse in un'altra area:
+
+- Macchine virtuali di Azure e dischi associati
+- Schede di interfaccia di rete
+- Set di disponibilità
+- Reti virtuali di Azure
+- Indirizzi IP pubblici
+- Gruppi di sicurezza di rete (NSG)
+- Bilanciamento del carico interno e pubblico
+- Database SQL di Azure e pool elastici
+
+## <a name="region-move-process"></a>Processo di spostamento dell'area
+
+Il processo effettivo per lo trasferimento delle risorse tra le aree dipende dalle risorse che si stanno muovendo. Tuttavia, esistono alcuni passaggi chiave comuni:
+
+1. **Verificare i prerequisiti**: i prerequisiti includono assicurarsi che le risorse necessarie siano disponibili nell'area di destinazione, verificare di disporre di una quota sufficiente e verificare che la sottoscrizione sia in grado di accedere all'area di destinazione.
+2. **Analizzare le dipendenze**: le risorse potrebbero avere dipendenze da altre risorse. Prima dello spostamento, determinare le dipendenze in modo che le risorse spostate continuino a funzionare come previsto dopo lo spostamento.
+3. **Prepararsi per lo spostamento**: questi sono i passaggi da eseguire nell'area primaria prima dello spostamento. Ad esempio, potrebbe essere necessario esportare un modello di Azure Resource Manager o avviare la replica delle risorse dall'origine alla destinazione.
+4. **Spostare le risorse: il**modo in cui si spostano le risorse dipende da quali sono. Potrebbe essere necessario distribuire un modello nell'area di destinazione o eseguire il failover delle risorse nella destinazione.
+5. **Scartare le risorse di destinazione**: dopo lo stato di trasferimento delle risorse, è possibile esaminare le risorse ora nell'area di destinazione e decidere se sono presenti operazioni non necessarie.
+6. Eseguire **il commit dello spostamento**: dopo aver verificato le risorse nell'area di destinazione, alcune risorse potrebbero richiedere un'azione di commit finale. Ad esempio, in un'area di destinazione che è ora l'area primaria, potrebbe essere necessario configurare il ripristino di emergenza in una nuova area secondaria. 
+7. **Pulire l'origine**: Infine, dopo che tutto è in esecuzione nella nuova area, è possibile pulire e rimuovere le autorizzazioni create per lo spostamento e le risorse nell'area primaria.
 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per un elenco delle risorse che supportano lo spostamento tra le aree, vedere [spostare il supporto delle operazioni per le risorse](region-move-support.md).
+[Altre](../../resource-mover/about-move-process.md) informazioni sul processo di spostamento nel motore di risorse.

@@ -1,20 +1,20 @@
 ---
-title: Esempi di log Analytics di Azure firewall
+title: Log di monitoraggio di Azure per il firewall di Azure
 description: I log di monitoraggio di Azure possono essere usati per analizzare il firewall di Azure. Un file di esempio è incorporato in Progettazione viste in monitoraggio di Azure.
 services: firewall
 author: vhorne
 ms.service: firewall
-ms.topic: article
-ms.date: 01/23/2020
+ms.topic: how-to
+ms.date: 09/11/2020
 ms.author: victorh
-ms.openlocfilehash: bc34afe82c1b73afb5f3d5d1a07f2a5059590146
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5acbc1f3b8c5519c22105f05219ab2cef5c15892
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76705983"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023874"
 ---
-# <a name="azure-firewall-log-analytics-samples"></a>Esempi di log Analytics di Azure firewall
+# <a name="azure-monitor-logs-for-azure-firewall"></a>Log di monitoraggio di Azure per il firewall di Azure
 
 Gli esempi seguenti di log di monitoraggio di Azure possono essere usati per analizzare i log del firewall di Azure. Il file di esempio è incorporato in Progettazione viste in monitoraggio di Azure. l'articolo progettazione [viste in monitoraggio di Azure](https://docs.microsoft.com/azure/log-analytics/log-analytics-view-designer) contiene altre informazioni sul concetto di progettazione della vista.
 
@@ -170,11 +170,11 @@ AzureDiagnostics
 
 Negli esempi di log seguenti vengono illustrati i dati inclusi in una voce di log.
 
-![voce di log](media/log-analytics-samples/log1.png)
+![voce di log 1](media/log-analytics-samples/log1.png)
 
-![voce di log](media/log-analytics-samples/log2.png)
+![voce di log due ](media/log-analytics-samples/log2.png)
 
-![voce di log](media/log-analytics-samples/log3.png)
+![voce di log tre](media/log-analytics-samples/log3.png)
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per informazioni sul monitoraggio e la diagnostica di Firewall di Azure, vedere [Esercitazione: Monitorare i log e le metriche di Firewall di Azure](tutorial-diagnostics.md).

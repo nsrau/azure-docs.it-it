@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 08/17/2020
+ms.date: 09/11/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 40672ac958e84d816d4b582472ae04502a910c6a
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 2d00942331b7e6c881803af366d1c08e173462b3
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88521264"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023789"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -138,7 +138,7 @@ L'elemento **JourneyInsights** contiene gli attributi seguenti:
 | --------- | -------- | ----------- |
 | TelemetryEngine | Sì | Il valore deve essere `ApplicationInsights`. |
 | InstrumentationKey | Sì | Stringa che contiene la chiave di strumentazione per l'elemento Application Insights. |
-| DeveloperMode | Sì | I valori possibili sono: `true` o `false`. Se il valore è `true`, Application Insights velocizza la telemetria nella pipeline di elaborazione. Questa impostazione è utile per lo sviluppo, ma vincolata a volumi elevati. I log attività dettagliati sono concepiti solo per supportare lo sviluppo di criteri personalizzati. Non usare la modalità di sviluppo in fase di produzione. I log raccolgono tutte le attestazioni inviate verso e dai provider di identità durante lo sviluppo. Se usato in fase di produzione, lo sviluppatore si assume la responsabilità delle informazioni personali raccolte nel log di App Insights di cui è proprietario. Questi log dettagliati vengono raccolti solo quando il valore è impostato su `true`.|
+| DeveloperMode | Sì | I valori possibili sono: `true` o `false`. Se il valore è `true`, Application Insights velocizza la telemetria nella pipeline di elaborazione. Questa impostazione è ideale per lo sviluppo, ma vincolata a volumi elevati. I log attività dettagliati sono progettati solo per favorire lo sviluppo di criteri personalizzati. Non usare la modalità di sviluppo in fase di produzione. I log raccolgono tutte le attestazioni inviate verso e dai provider di identità durante lo sviluppo. Se usato in fase di produzione, lo sviluppatore si assume la responsabilità delle informazioni personali raccolte nel log di App Insights di cui è proprietario. Questi log dettagliati vengono raccolti solo quando il valore è impostato su `true`.|
 | ClientEnabled | Sì | I valori possibili sono: `true` o `false`. Se il valore è `true`, invia lo script di Application Insights lato client per tenere traccia della visualizzazione della pagina e degli errori del client. |
 | ServerEnabled | Sì | I valori possibili sono: `true` o `false`. Se il valore è `true`, invia l'elemento JSON UserJourneyRecorder esistente come evento personalizzato ad Application Insights. |
 | TelemetryVersion | Sì | Il valore deve essere `1.0.0`. |
@@ -198,7 +198,12 @@ Quando il protocollo è `SAML` , un elemento Metadata contiene gli elementi segu
 
 | Attributo | Obbligatoria | Descrizione |
 | --------- | -------- | ----------- |
+| IdpInitiatedProfileEnabled | No | Indica se il flusso avviato da IDP è supportato. Valori possibili: `true` o `false` (impostazione predefinita). | 
 | XmlSignatureAlgorithm | No | Metodo che Azure AD B2C USA per firmare la risposta SAML. I valori possibili sono: `Sha256`, `Sha384`, `Sha512` o `Sha1`. Verificare di configurare l'algoritmo di firma per entrambe le parti con lo stesso valore. Usare solo l'algoritmo supportato dal certificato. Per configurare l'asserzione SAML, vedere [metadati del profilo tecnico dell'autorità emittente SAML](saml-issuer-technical-profile.md#metadata). |
+| DataEncryptionMethod | No | Indica il metodo utilizzato da Azure AD B2C per crittografare i dati utilizzando l'algoritmo Advanced Encryption Standard (AES). I metadati controllano il valore dell' `<EncryptedData>` elemento nella risposta SAML. I valori possibili sono: `Aes256` (impostazione predefinita), `Aes192`, `Sha512` o ` Aes128`. |
+| KeyEncryptionMethod| No | Indica il metodo utilizzato da Azure AD B2C per crittografare la copia della chiave utilizzata per crittografare i dati. I metadati controllano il valore dell'  `<EncryptedKey>` elemento nella risposta SAML. Valori possibili: ` Rsa15` (impostazione predefinita)-algoritmo RSA Public Key Cryptography Standard (PKCS) versione 1,5, ` RsaOaep` algoritmo di crittografia RSA Optimal asimmetrica Encryption Padding (OAEP). |
+| UseDetachedKeys | No |  Valori possibili: `true` o `false` (impostazione predefinita). Quando il valore è impostato su `true` , Azure ad B2C modifica il formato delle asserzioni crittografate. L'uso di chiavi scollegate aggiunge l'asserzione crittografata come elemento figlio di EncrytedAssertion anziché EncryptedData. |
+| WantsSignedResponses| No | Indica se Azure AD B2C firma la `Response` sezione della risposta SAML. Valori possibili: `true` (impostazione predefinita) o `false` .  |
 
 ### <a name="outputclaims"></a>OutputClaims
 

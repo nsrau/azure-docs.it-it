@@ -4,15 +4,15 @@ description: Eseguire la replica di Azure Analysis Services server con scalabili
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 09/10/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ceed2a287fb210a421972e9c9f9e6c77c6cb1879
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 33f42b1d01bd0a39a268d9425a8406f976534634
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716929"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007690"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Ridimensionamento orizzontale di Azure Analysis Services
 
@@ -41,6 +41,8 @@ Quando si esegue un'operazione di scalabilità orizzontale successiva, ad esempi
 * Eseguire una sincronizzazione *prima dell'operazione di scalabilità orizzontale* per evitare l'idratazione ridondante delle repliche aggiunte. Non sono consentite operazioni simultanee di sincronizzazione e scalabilità orizzontale in esecuzione nello stesso momento.
 
 * Quando si automatizzano le operazioni di elaborazione *e* scalabilità orizzontale, è importante innanzitutto elaborare i dati nel server primario, quindi eseguire una sincronizzazione e quindi eseguire l'operazione di scalabilità orizzontale. Questa sequenza garantisce un effetto minimo sulle risorse di memoria e QPU.
+
+* Durante le operazioni di scalabilità orizzontale, tutti i server nel pool di query, incluso il server primario, sono temporaneamente offline.
 
 * La sincronizzazione è consentita anche quando non sono presenti repliche nel pool di query. Se si esegue la scalabilità orizzontale da zero a una o più repliche con nuovi dati da un'operazione di elaborazione sul server primario, eseguire prima la sincronizzazione senza repliche nel pool di query e quindi eseguire la scalabilità orizzontale. La sincronizzazione prima della scalabilità orizzontale evita l'idratazione ridondante delle repliche appena aggiunte.
 
@@ -114,7 +116,7 @@ Le operazioni di sincronizzazione devono essere eseguite manualmente o tramite l
 
 In **Panoramica** > modello > **Sincronizza modello**.
 
-![Dispositivo di scorrimento di ridimensionamento orizzontale](media/analysis-services-scale-out/aas-scale-out-sync.png)
+![Icona Sincronizza](media/analysis-services-scale-out/aas-scale-out-sync.png)
 
 ### <a name="rest-api"></a>API REST
 
@@ -137,7 +139,7 @@ Codici di stato restituiti:
 |0     | Replicating        |
 |1     |  Reidratanti       |
 |2     |   Completato       |
-|3     |   Non riuscito      |
+|3     |   Operazione non riuscita      |
 |4     |    Finalizzazione     |
 |||
 

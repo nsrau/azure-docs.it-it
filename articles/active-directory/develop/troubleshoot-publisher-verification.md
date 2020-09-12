@@ -1,6 +1,6 @@
 ---
 title: Risolvere i problemi di verifica dell'autore - Microsoft Identity Platform | Azure
-description: Viene descritto come risolvere i problemi di verifica dell'autore (anteprima) per Microsoft Identity Platform chiamando API Microsoft Graph.
+description: Viene descritto come risolvere i problemi di verifica dell'editore per la piattaforma di identità Microsoft chiamando Microsoft Graph API.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,15 +12,15 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 3069e3caf81d9bb2f809b21c88383c419e3b90b3
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: c332b960caf7707953069c5252219ca6c51761a8
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282977"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007554"
 ---
-# <a name="troubleshoot-publisher-verification-preview"></a>Risolvere i problemi di verifica dell'autore (anteprima)
-Se non è possibile completare il processo o si riscontra un comportamento imprevisto con la [verifica dell'autore (anteprima)](publisher-verification-overview.md), è consigliabile iniziare eseguendo le operazioni seguenti se si ricevono errori o in presenza di comportamenti imprevisti: 
+# <a name="troubleshoot-publisher-verification"></a>Risolvere i problemi di verifica dell'autore
+Se non si riesce a completare il processo o si verifica un comportamento imprevisto con la [Verifica dell'editore](publisher-verification-overview.md), è consigliabile iniziare eseguendo le operazioni seguenti se si ricevono errori o si verifica un comportamento imprevisto: 
 
 1. Esaminare i [requisiti](publisher-verification-overview.md#requirements) e verificare che siano stati soddisfatti tutti.
 
@@ -62,7 +62,7 @@ Di seguito sono riportati alcuni problemi comuni che possono verificarsi durante
 
 ## <a name="making-microsoft-graph-api-calls"></a>Eseguire chiamate API Microsoft Graph 
 
-Se si verifica un problema, ma non si riesce a capirne il motivo in base a ciò che viene visualizzato nell'interfaccia utente, può essere utile eseguire ulteriori operazioni di risoluzione dei problemi usando chiamate API Microsoft Graph per eseguire le stesse operazioni che è possibile eseguire nel portale di registrazione delle app. Durante la fase di anteprima, queste API saranno disponibili solo nell'endpoint /beta di Microsoft Graph.  
+Se si verifica un problema, ma non si riesce a capirne il motivo in base a ciò che viene visualizzato nell'interfaccia utente, può essere utile eseguire ulteriori operazioni di risoluzione dei problemi usando chiamate API Microsoft Graph per eseguire le stesse operazioni che è possibile eseguire nel portale di registrazione delle app.
 
 Il modo più semplice per effettuare queste richieste consiste nell'usare [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). È anche possibile prendere in considerazione altre opzioni, ad esempio l'uso [Postman](https://www.postman.com/) o l'uso di PowerShell per [richiamare una richiesta Web](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7).  
 
