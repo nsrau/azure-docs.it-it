@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 40761b8b187d864c7b93b8aa4ee49233683fcad7
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4baafe9f3356e3134626c819c47939b96ab48a79
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502758"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595844"
 ---
 # <a name="create-an-application-gateway-that-hosts-multiple-web-sites-using-the-azure-cli"></a>Creare un gateway applicazione che ospita più siti Web usando l'interfaccia della riga di comando di Azure
 
@@ -22,13 +22,12 @@ ms.locfileid: "87502758"
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
-> [!div class="checklist"]
-> * Configurare la rete
-> * Creare un gateway applicazione
-> * Creare i listener back-end
-> * Creare le regole di routing
-> * Creare set di scalabilità di macchine virtuali con i pool back-end
-> * Creare un record CNAME nel dominio
+* Configurare la rete
+* Creare un gateway applicazione
+* Creare i listener back-end
+* Creare le regole di routing
+* Creare set di scalabilità di macchine virtuali con i pool back-end
+* Creare un record CNAME nel dominio
 
 :::image type="content" source="./media/tutorial-multiple-sites-cli/scenario.png" alt-text="Gateway applicazione multisito":::
 

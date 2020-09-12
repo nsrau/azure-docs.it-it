@@ -15,16 +15,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/22/2020
 ms.author: yelevin
-ms.openlocfilehash: 6573237cbba8951bdd45c5b32c572b9af772ee5a
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6cd69d1f5330e4967a31ac77359e046f461270cf
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519259"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657510"
 ---
 # <a name="connect-windows-security-events"></a>Connettere gli eventi di sicurezza di Windows 
 
-Il connettore eventi di sicurezza consente di trasmettere tutti gli eventi di sicurezza dai sistemi Windows (server e workstation, fisici e virtuali) all'area di lavoro di Azure Sentinel. Questo consente di visualizzare gli eventi di sicurezza di Windows nei dashboard, di usarli per la creazione di avvisi personalizzati e di basarsi su di essi per migliorare le indagini, offrendo un'analisi più approfondita sulla rete dell'organizzazione e espandendo le funzionalità operative di sicurezza. È possibile selezionare gli eventi da trasmettere tra i seguenti set:<a name="event-sets"></a>
+Il connettore eventi di sicurezza consente di trasmettere tutti gli eventi di sicurezza dai sistemi Windows (server e workstation, fisici e virtuali) all'area di lavoro di Azure Sentinel. Questo consente di visualizzare gli eventi di sicurezza di Windows nei dashboard, di usarli per la creazione di avvisi personalizzati e di basarsi su di essi per migliorare le indagini, offrendo un'analisi più approfondita sulla rete dell'organizzazione e espandendo le funzionalità operative di sicurezza. È possibile selezionare gli eventi da trasmettere tra i seguenti set: <a name="event-sets"></a>
 
 - **Tutti gli eventi** : tutti gli eventi di sicurezza di Windows e AppLocker.
 - **Comune** : set standard di eventi a scopo di controllo. Un audit trail utente completo è incluso in questo set. Ad esempio, contiene gli eventi di accesso utente e di disconnessione utente (ID evento 4624, 4634). Sono inoltre disponibili azioni di controllo, ad esempio modifiche ai gruppi di sicurezza, operazioni Kerberos principali del controller di dominio e altri tipi di eventi in linea con le procedure consigliate accettate.
@@ -40,13 +40,13 @@ Il connettore eventi di sicurezza consente di trasmettere tutti gli eventi di si
     | Set di eventi | ID evento raccolti |
     | --- | --- |
     | **Minima** | 1102, 4624, 4625, 4657, 4663, 4688, 4700, 4702, 4719, 4720, 4722, 4723, 4724, 4727, 4728, 4732, 4735, 4737, 4739, 4740, 4754, 4755, 4756, 4767, 4799, 4825, 4946, 4948, 4956, 5024, 5033, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8222 |
-    | **Comuni** | 1, 299, 300, 324, 340, 403, 404, 410, 411, 412, 413, 431, 500, 501, 1100, 1102, 1107, 1108, 4608, 4610, 4611, 4614, 4622, 4624, 4625, 4634, 4647, 4648, 4649, 4657, 4661, 4662, 4663, 4665, 4666, 4667, 4688, 4670, 4672, 4673, 4674, 4675, 4689, 4697, 4700, 4702, 4704, 4705, 4716, 4717, 4718, 4719, 4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729 , 4733, 4732, 4735, 4737, 4738, 4739, 4740, 4742, 4744, 4745, 4746, 4750, 4751, 4752, 4754, 4755, 4756, 4757, 4760, 4761, 4762, 4764, 4767, 4768, 4771, 4774, 4778, 4779, 4781, 4793, 4797, 4798, 4799, 4800, 4801, 4802, 4803, 4825, 4826, 4870, 4886, 4887, 4888, 4893, 4898, 4902, 4904, 4905, 4907, 4931, 4932, 4933, 4946, 4948, 4956, 4985, 5024, 5033, 5059, 5136, 5137 , 5140, 5145, 5632, 6144, 6145, 6272, 6273, 6278, 6416, 6423, 6424, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8222, 26401, 30004 |
+    | **Common** | 1, 299, 300, 324, 340, 403, 404, 410, 411, 412, 413, 431, 500, 501, 1100, 1102, 1107, 1108, 4608, 4610, 4611, 4614, 4622, 4624, 4625, 4634, 4647, 4648, 4649, 4657, 4661, 4662, 4663, 4665, 4666, 4667, 4688, 4670, 4672, 4673, 4674, 4675, 4689, 4697, 4700, 4702, 4704, 4705, 4716, 4717, 4718, 4719, 4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729 , 4733, 4732, 4735, 4737, 4738, 4739, 4740, 4742, 4744, 4745, 4746, 4750, 4751, 4752, 4754, 4755, 4756, 4757, 4760, 4761, 4762, 4764, 4767, 4768, 4771, 4774, 4778, 4779, 4781, 4793, 4797, 4798, 4799, 4800, 4801, 4802, 4803, 4825, 4826, 4870, 4886, 4887, 4888, 4893, 4898, 4902, 4904, 4905, 4907, 4931, 4932, 4933, 4946, 4948, 4956, 4985, 5024, 5033, 5059, 5136, 5137 , 5140, 5145, 5632, 6144, 6145, 6272, 6273, 6278, 6416, 6423, 6424, 8001, 8002, 8003, 8004, 8005, 8006, 8007, 8222, 26401, 30004 |
 
 > [!NOTE]
-> La raccolta di eventi di sicurezza nel contesto di una singola area di lavoro può essere configurata dal centro sicurezza di Azure o da Azure Sentinel, ma non da entrambi. Se si sta caricando Azure Sentinel in un'area di lavoro in cui è già in esecuzione il Centro sicurezza di Azure ed è impostato per raccogliere gli eventi di sicurezza, sono disponibili due opzioni:
-> - Lasciare invariata la raccolta di eventi di sicurezza nel centro sicurezza di Azure. Sarà possibile eseguire query e analizzare questi eventi in Sentinel di Azure, oltre che nel centro sicurezza di Azure. Tuttavia, non sarà possibile monitorare lo stato di connettività del connettore o modificarne la configurazione in Sentinel di Azure. Se è importante, prendere in considerazione la seconda opzione.
+> La raccolta di eventi di sicurezza nel contesto di una singola area di lavoro può essere configurata da Azure Defender (in precedenza Centro sicurezza di Azure) o da Azure Sentinel, ma non da entrambi. Se si sta caricando Azure Sentinel in un'area di lavoro in cui è già in esecuzione Azure Defender ed è impostato per raccogliere gli eventi di sicurezza, sono disponibili due opzioni:
+> - Lasciare la raccolta di eventi di sicurezza in Azure Defender così com'è. Sarà possibile eseguire query e analizzare questi eventi in Sentinel di Azure e in Azure Defender. Tuttavia, non sarà possibile monitorare lo stato di connettività del connettore o modificarne la configurazione in Sentinel di Azure. Se è importante, prendere in considerazione la seconda opzione.
 >
-> - [Disabilitare la raccolta di eventi di sicurezza](../security-center/security-center-enable-data-collection.md) nel centro sicurezza di Azure e aggiungere il connettore degli eventi di sicurezza in Sentinel di Azure. Come per la prima opzione, sarà possibile eseguire una query e analizzare gli eventi sia in Sentinel di Azure che nel centro sicurezza di Azure, ma ora sarà possibile monitorare lo stato di connettività del connettore o modificarne la configurazione in e solo in Sentinel di Azure.
+> - [Disabilitare la raccolta di eventi di sicurezza](../security-center/security-center-enable-data-collection.md) in Azure Defender e aggiungere il connettore degli eventi di sicurezza in Sentinel di Azure. Come per la prima opzione, sarà possibile eseguire query e analizzare gli eventi sia in Azure Sentinel che in Azure Defender, ma ora sarà possibile monitorare lo stato di connettività del connettore o modificarne la configurazione in e solo in Sentinel di Azure.
 
 ## <a name="set-up-the-windows-security-events-connector"></a>Configurare il connettore per gli eventi di sicurezza di Windows
 
@@ -79,7 +79,7 @@ Per raccogliere gli eventi di sicurezza di Windows in Sentinel di Azure:
 
 1. Selezionare il set di eventi ([tutti, comune o minimo](#event-sets)) che si desidera trasmettere in streaming.
 
-1. Fare clic su **Aggiorna**.
+1. Fare clic su **Update**.
 
 1. Per utilizzare lo schema pertinente in Log Analytics per gli eventi di sicurezza di Windows, digitare `SecurityEvent` nella finestra query.
 
@@ -106,7 +106,7 @@ Azure Sentinel può applicare Machine Learning (ML) ai dati degli eventi di sicu
 
 1. È necessario raccogliere i dati di accesso RDP (ID evento 4624) tramite il connettore di dati **degli eventi di sicurezza** . Assicurarsi di aver selezionato un [set di eventi](#event-sets) oltre a "None" per eseguire lo streaming in Sentinel di Azure.
 
-1. Dal portale di Azure Sentinel fare clic su **Analytics**, quindi fare clic sulla scheda **modelli di regole** . scegliere la regola di **Rilevamento anomalie di accesso RDP (anteprima)** e spostare il dispositivo di scorrimento **stato** su **abilitato**.
+1. Dal portale di Azure Sentinel fare clic su **Analytics**e quindi sulla scheda **modelli di regola** . Scegliere la regola di **rilevamento dell'accesso RDP anomalo (anteprima)** e spostare il dispositivo di scorrimento **stato** su **abilitato**.
 
     > [!NOTE]
     > Poiché l'algoritmo di machine learning richiede i dati di 30 giorni per la creazione di un profilo di base del comportamento dell'utente, è necessario consentire la raccolta di 30 giorni di dati degli eventi di sicurezza prima di poter rilevare eventuali eventi imprevisti.

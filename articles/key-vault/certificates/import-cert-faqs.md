@@ -10,12 +10,12 @@ ms.subservice: certificates
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: sebansal
-ms.openlocfilehash: b7a2c78238de58ee8851462aa7193121b35f72a9
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3b87d68fb9b5fa5f5f8dec43c39ea8b7dbf08b93
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588822"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651853"
 ---
 # <a name="importing-azure-key-vault-certificates-faq"></a>Domande frequenti sull'importazione di certificati Azure Key Vault
 
@@ -54,7 +54,7 @@ Per ulteriori informazioni sui criteri di accesso relativi ai certificati, veder
 
 ### <a name="how-can-i-resolve-error-type-conflict-when-creating-a-certificate"></a>Come è possibile risolvere il problema relativo al tipo di errore: conflitto durante la creazione di un certificato?
     
-Ogni nome di certificato deve essere univoco. Un certificato con lo stesso nome di un altro potrebbe essere in uno stato di eliminazione temporanea. Inoltre, in base alla [composizione di un certificato](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate) in Azure Key Vault, se è presente un'altra chiave o segreto nell'insieme di credenziali delle chiavi con lo stesso nome di quello che si sta provando a specificare per il certificato, la creazione del certificato avrà esito negativo e sarà necessario rimuovere la chiave o il segreto o usare un nome diverso per il certificato. 
+Ogni nome di certificato deve essere univoco. Un certificato con lo stesso nome potrebbe essere in uno stato di eliminazione temporanea. Inoltre, in base alla [composizione di un certificato](https://docs.microsoft.com/azure/key-vault/certificates/about-certificates#composition-of-a-certificate), quando viene creato un nuovo certificato, viene creato un segreto indirizzabile con lo stesso nome. Se nell'insieme di credenziali delle chiavi è presente un'altra chiave o segreto con lo stesso nome di quello che si sta provando a specificare per il certificato, la creazione del certificato avrà esito negativo e sarà necessario rimuovere la chiave o il segreto o usare un nome diverso 
 
 Per ulteriori informazioni, vedere [get deleted certificate Operation](https://docs.microsoft.com/rest/api/keyvault/getdeletedcertificate/getdeletedcertificate).
 

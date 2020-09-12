@@ -7,16 +7,16 @@ ms.service: application-gateway
 ms.topic: conceptual
 ms.date: 04/07/2020
 ms.author: victorh
-ms.openlocfilehash: 560d836f99f7a1be85007bb9d488f80a68d7999b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bbb78fd879bc5c6bb8c2624329a23d7137b11660
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87067979"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651986"
 ---
 # <a name="azure-application-gateway-features"></a>Funzionalità del gateway applicazione Azure
 
-Il [gateway applicazione di Azure](overview.md) è un servizio di bilanciamento del carico del traffico Web che consente di gestire il traffico verso le applicazioni Web.
+[Applicazione Azure gateway](overview.md) è un servizio di bilanciamento del carico del traffico Web che consente di gestire il traffico per le applicazioni Web.
 
 ![Concetti relativi al gateway applicazione](media/overview/figure1-720.png)
 
@@ -35,7 +35,7 @@ Il gateway applicazione include le funzionalità seguenti:
 - [Traffico Websocket e HTTP/2](#websocket-and-http2-traffic)
 - [Esaurimento delle connessioni](#connection-draining)
 - [Pagine di errore personalizzate](#custom-error-pages)
-- [Riscrivere le intestazioni HTTP e l'URL](#rewrite-http-headers-and-url)
+- [Riscrivere l'URL e le intestazioni HTTP](#rewrite-http-headers-and-url)
 - [Ridimensionamento](#sizing)
 
 ## <a name="secure-sockets-layer-ssltls-termination"></a>Terminazione Secure Sockets Layer (SSL/TLS)
@@ -83,13 +83,13 @@ Per altre informazioni, vedere [Panoramica del routing basato sul percorso URL](
 
 ## <a name="multiple-site-hosting"></a>Hosting di più siti
 
-Con il gateway applicazione, è possibile configurare il routing in base al nome host o al nome di dominio per più di un'applicazione Web nello stesso gateway applicazione. Consente di configurare una topologia più efficiente per le distribuzioni aggiungendo fino a 100 siti Web a un gateway applicazione. Ogni sito Web può essere indirizzato al proprio pool back-end. Ad esempio, tre domini, contoso.com, fabrikam.com e adatum.com, puntano all'indirizzo IP del gateway applicazione. Si creeranno tre listener multisito e si configureranno ogni listener per la rispettiva porta e impostazione del protocollo. 
+Con il gateway applicazione, è possibile configurare il routing in base al nome host o al nome di dominio per più di un'applicazione Web nello stesso gateway applicazione. Consente di configurare una topologia più efficiente per le distribuzioni aggiungendo fino a più di 100 siti Web a un unico gateway applicazione. Ogni sito Web può essere indirizzato al proprio pool back-end. Ad esempio, tre domini, contoso.com, fabrikam.com e adatum.com, puntano all'indirizzo IP del gateway applicazione. Si creeranno tre listener multisito e si configurerà ogni listener per la rispettiva impostazione della porta e del protocollo. 
 
 Le richieste per `http://contoso.com` vengono indirizzate a ContosoServerPool, `http://fabrikam.com` vengono instradate a FabrikamServerPool e così via.
 
 Analogamente, la stessa distribuzione del gateway applicazione può ospitare due sottodomini dello stesso dominio padre. Gli esempi di uso di sottodomini possono includere `http://blog.contoso.com` e `http://app.contoso.com` ospitati in una singola distribuzione del gateway applicazione. Per altre informazioni, vedere [hosting di più siti nel gateway applicazione](multiple-site-overview.md).
 
-È anche possibile definire nomi host con caratteri jolly in un listener multisito e fino a 5 nomi host per ogni listener. Per altre informazioni, vedere [nomi host con caratteri jolly nel listener (anteprima)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
+È anche possibile definire nomi host con caratteri jolly in un listener multisito e fino a cinque nomi host per ogni listener. Per altre informazioni, vedere [nomi host con caratteri jolly nel listener (anteprima)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
 
 ## <a name="redirection"></a>Reindirizzamento
 
@@ -117,13 +117,13 @@ Il gateway applicazione offre il supporto nativo per i protocolli WebSocket e HT
 
 I protocolli WebSocket HTTP/2 consentono una comunicazione full duplex tra un server e un client su una connessione TCP con esecuzione prolungata. Questo consente una comunicazione più interattiva tra il server Web e il client che può essere bidirezionale senza necessità di polling che invece è richiesto nelle implementazioni basate su HTTP. Questi protocolli presentano un sovraccarico ridotto, a differenza di HTTP, e possono riutilizzare la stessa connessione TCP per più richieste/risposte, causando un utilizzo più efficiente delle risorse. Questi protocolli sono progettati per usare le porte HTTP 80 e 443 tradizionali.
 
-Per altre informazioni, vedere [Supporto per WebSocket](application-gateway-websocket.md) e [supporto per HTTP/2](configuration-overview.md#http2-support).
+Per altre informazioni, vedere [Supporto per WebSocket](application-gateway-websocket.md) e [supporto per HTTP/2](configuration-listeners.md#http2-support).
 
 ## <a name="connection-draining"></a>Esaurimento delle connessioni
 
 Lo svuotamento delle connessioni aiuta a rimuovere in modo controllato i membri del pool back-end durante gli aggiornamenti pianificati del servizio. Questa modalità viene abilitata tramite l'impostazione http back-end e può essere applicata a tutti i membri di un pool back-end durante la creazione delle regole. Dopo l'abilitazione, il gateway applicazione assicura che tutte le istanze di annullamento della registrazione di un pool back-end non ricevano alcuna nuova richiesta, consentendo al tempo stesso di completare le richieste esistenti entro un limite di tempo Questo vale sia per le istanze back-end che vengono rimosse dal pool back-end in modo esplicito mediante una modifica di configurazione dell'utente, sia per le istanze back-end che vengono segnalate come non integre, come determinato dai probe di integrità. L'unica eccezione è costituita dalle richieste associate per l'annullamento della registrazione delle istanze, che sono state annullate in modo esplicito a causa dell'affinità di sessione gestita dal gateway e continuano a essere inviate tramite proxy alle istanze di annullamento della registrazione.
 
-Per altre informazioni, vedere [Panoramica della configurazione del gateway applicazione](configuration-overview.md#connection-draining).
+Per altre informazioni, vedere [Panoramica della configurazione del gateway applicazione](configuration-http-settings.md#connection-draining).
 
 ## <a name="custom-error-pages"></a>Pagine di errore personalizzate
 
@@ -131,7 +131,7 @@ Il gateway applicazione consente di creare pagine di errore personalizzate da vi
 
 Per altre informazioni, vedere [Errori personalizzati](custom-error.md).
 
-## <a name="rewrite-http-headers-and-url"></a>Riscrivere le intestazioni HTTP e l'URL
+## <a name="rewrite-http-headers-and-url"></a>Riscrivere l'URL e le intestazioni HTTP
 
 Le intestazioni HTTP consentono al client e al server di passare informazioni aggiuntive insieme alla richiesta o alla risposta. La riscrittura delle intestazioni HTTP consente di affrontare diversi scenari importanti, ad esempio:
 
@@ -139,15 +139,15 @@ Le intestazioni HTTP consentono al client e al server di passare informazioni ag
 - Rimozione di campi di intestazione della risposta che possono rivelare informazioni riservate.
 - Rimozione delle informazioni sulle porte dalle intestazioni X-Forwarded-For.
 
-Il gateway applicazione e lo SKU WAF V2 supportano la possibilità di aggiungere, rimuovere o aggiornare intestazioni di richiesta e risposta HTTP, mentre i pacchetti di richiesta e risposta si spostano tra il client e i pool back-end. È inoltre possibile riscrivere gli URL, i parametri della stringa di query e il nome host. Con la riscrittura URL e il routing basato su percorso URL, è possibile scegliere di indirizzare le richieste a uno dei pool back-end in base al percorso originale o al percorso riscritto, usando l'opzione mappa di percorso di rivalutazione. 
+Il gateway applicazione e lo SKU WAF v2 supportano la possibilità di aggiungere, rimuovere o aggiornare le intestazioni di richieste e risposte HTTP durante lo spostamento dei pacchetti di richiesta e risposta tra il client e i pool back-end. È anche possibile riscrivere gli URL, i parametri della stringa di query e il nome host. Con la riscrittura dell'URL e il routing basato sul percorso URL, è possibile scegliere di indirizzare le richieste a uno dei pool back-end in base al percorso originale o al percorso riscritto, usando l'opzione Rivaluta mappa percorso. 
 
-Offre inoltre la possibilità di aggiungere condizioni per garantire che le intestazioni o l'URL specificato vengano riscritti solo quando vengono soddisfatte determinate condizioni. Queste condizioni sono basate sulle informazioni sulla richiesta e sulla risposta.
+Consente anche di aggiungere le condizioni necessarie per garantire che le intestazioni specificate o l'URL vengono riscritti solo in presenza di determinate condizioni. Queste condizioni sono basate sulle informazioni della richiesta e della risposta.
 
 Per altre informazioni, vedere [riscrivere le intestazioni HTTP e l'URL](rewrite-http-headers-url.md).
 
 ## <a name="sizing"></a>Ridimensionamento
 
-Il Standard_v2 del gateway applicazione può essere configurato per la scalabilità automatica o per le distribuzioni a dimensione fissa. Questo SKU non offre dimensioni diverse per le istanze. Per altre informazioni sulle prestazioni e sui prezzi di v2, vedere [Ridimensionamento automatico nello SKU v2](application-gateway-autoscaling-zone-redundant.md#pricing).
+Il Standard_v2 del gateway applicazione può essere configurato per la scalabilità automatica o per le distribuzioni a dimensione fissa. Questo SKU non offre dimensioni diverse per le istanze. Per altre informazioni sulle prestazioni e sui prezzi di V2, vedere [scalabilità automatica V2](application-gateway-autoscaling-zone-redundant.md) e [informazioni sui prezzi](understanding-pricing.md).
 
 Lo standard del gateway applicazione è disponibile in tre dimensioni: **small**, **medium**e **large**. Le dimensioni delle istanze piccole sono destinate a scenari di sviluppo e test.
 
@@ -155,7 +155,7 @@ Per un elenco completo dei limiti del gateway applicazione, vedere i [limiti del
 
 La tabella seguente illustra una velocità effettiva media delle prestazioni per ogni istanza del gateway applicazione v1 con offload SSL abilitato:
 
-| Dimensioni medie risposta della pagina di back-end | Piccolo | Media | large |
+| Dimensioni medie risposta della pagina di back-end | Piccola | Media | Grande |
 | --- | --- | --- | --- |
 | 6 KB |7,5 Mbps |13 Mbps |50 Mbps |
 | 100 kB |35 Mbps |100 Mbps |200 Mbps |

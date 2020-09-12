@@ -3,12 +3,12 @@ title: Usare i parametri per creare progetti dinamici
 description: Informazioni sui parametri statici e dinamici e su come usarli per creare progetti dinamici e protetti.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: b9c80a50ebb4be8dc530c73544a704035d777225
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: b6cefe7ec75ec622cb341d8f12edfd9c0cfa66e6
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051560"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651946"
 ---
 # <a name="creating-dynamic-blueprints-through-parameters"></a>Creazione di progetti dinamici tramite parametri
 
@@ -61,11 +61,11 @@ Un valore di parametro definito nella definizione di un progetto viene chiamato 
 
 1. Gli artefatti aggiunti al progetto che hanno opzioni dei parametri mostrano l'indicazione **X di Y parametri popolati** nella colonna **Parametri**. Selezionare la riga dell'artefatto per modificare i parametri dell'artefatto.
 
-   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Parametri del progetto in una definizione di progetto" border="false":::
+   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Screenshot della definizione di un progetto e della "X di parametri Y popolati" evidenziati." border="false":::
 
-1. La pagina **Modifica artefatto** mostra le opzioni del valore appropriate per l'artefatto selezionato. Ogni parametro dell'artefatto ha un titolo, una casella del valore e una casella di controllo. Deselezionare la casella di controllo per renderlo un **parametro statico**. Nell'esempio seguente, solo _Località_ è un **parametro statico** perché la casella è deselezionata, mentre è selezionata in _Nome gruppo di risorse_.
+1. Nella pagina **modifica elemento** vengono visualizzate le opzioni relative ai valori appropriate per l'elemento selezionato. Ogni parametro dell'artefatto ha un titolo, una casella del valore e una casella di controllo. Deselezionare la casella di controllo per renderlo un **parametro statico**. Nell'esempio seguente, solo _Località_ è un **parametro statico** perché la casella è deselezionata, mentre è selezionata in _Nome gruppo di risorse_.
 
-   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Parametri statici del progetto su un elemento del progetto" border="false":::
+   :::image type="content" source="../media/parameters/static-parameter.png" alt-text="Screenshot dei parametri statici in un elemento del progetto." border="false":::
 
 #### <a name="setting-static-parameters-from-rest-api"></a>Impostazione dei parametri statici dall'API REST
 
@@ -176,7 +176,7 @@ L'opposto di un parametro statico è un **parametro dinamico**. Questo parametro
 
 1. Nella pagina **assegna progetto** individuare la sezione **parametri artefatto** . Ogni artefatto con almeno un **parametro dinamico** mostra l'artefatto e le opzioni di configurazione. Immettere i valori richiesti per i parametri prima di assegnare il progetto. Nell'esempio seguente, _Nome_ è un **parametro dinamico** che deve essere definito per completare l'assegnazione del progetto.
 
-   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Parametro dinamico progetto durante l'assegnazione del progetto" border="false":::
+   :::image type="content" source="../media/parameters/dynamic-parameter.png" alt-text="Screenshot dell'impostazione di parametri dinamici durante l'assegnazione del progetto." border="false":::
 
 #### <a name="setting-dynamic-parameters-from-rest-api"></a>Impostazione dei parametri dinamici dall'API REST
 

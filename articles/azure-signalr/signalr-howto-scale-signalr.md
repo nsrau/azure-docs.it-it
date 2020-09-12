@@ -4,21 +4,21 @@ description: Informazioni su come ridimensionare un'istanza del servizio Azure S
 author: sffamily
 ms.service: signalr
 ms.topic: conceptual
-ms.date: 12/11/2019
+ms.date: 9/9/2020
 ms.author: zhshang
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: bd112526c7b36d5636d5d85c66b25b6310d35d1e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bb01f2f96e5db4c94e759b114818360e6084255f
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500488"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595768"
 ---
 # <a name="how-to-scale-an-azure-signalr-service-instance"></a>Come ridimensionare un'istanza del servizio Azure SignalR?
 Questo articolo illustra come ridimensionare l'istanza del servizio Azure SignalR. Esistono due scenari per il ridimensionamento, la scalabilità verticale e orizzontale.
 
 * [Scalabilità verticale](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): Ottieni altre unità, connessioni, messaggi e altro ancora. Per aumentare il livello di prestazioni, è possibile modificare il piano tariffario da gratuito a standard.
-* [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): aumentare il numero di unità SignalR. È possibile scalare in orizzontale fino a un massimo di 100 unità.
+* [Scale out](https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling): aumentare il numero di unità SignalR. È possibile scalare in orizzontale fino a un massimo di 100 unità. Sono disponibili opzioni di unità limitate da selezionare per la scalabilità: 1, 2, 5, 10, 20, 50 e 100 unità per una singola istanza del servizio SignalR.
 
 Sono necessari alcuni minuti per applicare le impostazioni di scalabilità. In rari casi, l'applicazione potrebbe richiedere circa 30 minuti. Non è necessario modificare il codice o ridistribuire l'applicazione server.
 

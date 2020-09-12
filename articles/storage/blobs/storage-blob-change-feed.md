@@ -1,21 +1,21 @@
 ---
-title: Feed delle modifiche nell'archiviazione BLOB di Azure (anteprima) | Microsoft Docs
+title: Feed delle modifiche nell'archiviazione BLOB di Azure | Microsoft Docs
 description: Informazioni sui log dei feed di modifiche nell'archivio BLOB di Azure e su come usarli.
 author: normesta
 ms.author: normesta
-ms.date: 11/04/2019
+ms.date: 09/08/2020
 ms.topic: how-to
 ms.service: storage
 ms.subservice: blobs
 ms.reviewer: sadodd
-ms.openlocfilehash: 09a97897ca7e3984c7003c1dbbca65cddaec1ee6
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c3348356561ea74bb5e0b5bc46fccee1ada82755
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055424"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568235"
 ---
-# <a name="change-feed-support-in-azure-blob-storage-preview"></a>Supporto del feed di modifiche in Archiviazione BLOB di Azure (anteprima)
+# <a name="change-feed-support-in-azure-blob-storage"></a>Supporto del feed delle modifiche nell'archiviazione BLOB di Azure
 
 Lo scopo del feed delle modifiche è fornire i log delle transazioni di tutte le modifiche apportate ai BLOB e ai metadati del BLOB nell'account di archiviazione. Il feed di modifiche fornisce un registro **ordinato**, **garantito**, **durevole**, non **modificabile**e di sola **lettura** di queste modifiche. Le applicazioni client possono leggere questi log in qualsiasi momento, in streaming o in modalità batch. Il feed delle modifiche consente di creare soluzioni efficienti e scalabili che elaborano gli eventi di modifica che si verificano nell'account di archiviazione BLOB a un costo ridotto.
 
@@ -27,11 +27,11 @@ Il feed delle modifiche viene archiviato come [BLOB](https://docs.microsoft.com/
 
 Il supporto del feed di modifiche è particolarmente adatto per gli scenari in cui vengono elaborati i dati in base agli oggetti modificati. Ad esempio, le applicazioni possono:
 
-  - Aggiornare un indice secondario, sincronizzarlo con una cache, un motore di ricerca o qualsiasi altro scenario di gestione del contenuto.
+  - Aggiornare un indice secondario ed eseguire la sincronizzazione con una cache, un motore di ricerca o qualsiasi altro scenario di gestione dei contenuti.
   
-  - Consente di estrarre informazioni dettagliate e metriche di analisi business in base alle modifiche apportate agli oggetti in modalità flusso o in modalità batch.
+  - Estrarre informazioni dettagliate e metriche sulle analisi di business basate sulle modifiche apportate agli oggetti in modalità flusso o batch.
   
-  - Archivia, controlla e analizza le modifiche apportate agli oggetti, in qualsiasi periodo di tempo, per la sicurezza, la conformità o l'Intelligence per la gestione dei dati aziendali.
+  - Archiviare, controllare e analizzare le modifiche apportate agli oggetti, in qualsiasi intervallo di tempo, per la gestione dei dati sulla sicurezza, la conformità o l'intelligenza a livello aziendale.
 
   - Consente di creare soluzioni per eseguire il backup, il mirroring o la replica dello stato dell'oggetto nell'account per la gestione o la conformità di emergenza.
 
@@ -55,9 +55,6 @@ Ecco alcuni aspetti da tenere presenti quando si Abilita il feed delle modifiche
 - Il feed delle modifiche acquisisce *tutte* le modifiche per tutti gli eventi disponibili che si verificano nell'account. Le applicazioni client possono filtrare i tipi di evento in modo obbligatorio. (Vedere le [condizioni](#conditions) della versione corrente).
 
 - Solo gli account di archiviazione BLOB e GPv2 possono abilitare il feed delle modifiche. Gli account BlockBlobStorage Premium e gli account abilitati per gli spazi dei nomi gerarchici non sono attualmente supportati. Gli account di archiviazione utilizzo generico V1 non sono supportati, ma possono essere aggiornati a GPv2 senza tempi di inattività. per altre informazioni, vedere [eseguire l'aggiornamento a un account di archiviazione GPv2](../common/storage-account-upgrade.md) .
-
-> [!IMPORTANT]
-> Il feed delle modifiche è disponibile in anteprima pubblica ed è disponibile nelle aree **Stati Uniti centro-occidentali**, **Stati Uniti occidentali 2**, **Francia centrale**, **Francia meridionale**, **Canada centrale**e **Canada orientale** . Vedere la sezione [condizioni](#conditions) di questo articolo. Per iscriversi all'anteprima, vedere la sezione [registrare la sottoscrizione](#register) di questo articolo. Per poter abilitare il feed delle modifiche negli account di archiviazione, è necessario registrare la sottoscrizione.
 
 ### <a name="portal"></a>[Portale](#tab/azure-portal)
 
@@ -85,10 +82,10 @@ Abilitare il feed delle modifiche usando PowerShell:
 
 2. Chiudere e riaprire la console di PowerShell.
 
-3. Installare il modulo **AZ. storage** Preview.
+3. Installare la versione 2.5.0 o successiva del modulo **AZ. storage** .
 
    ```powershell
-   Install-Module Az.Storage –Repository PSGallery -RequiredVersion 1.8.1-preview –AllowPrerelease –AllowClobber –Force
+   Install-Module Az.Storage –Repository PSGallery -RequiredVersion 2.5.0 –AllowClobber –Force
    ```
 
 4. Accedere alla sottoscrizione di Azure con il comando `Connect-AzAccount` e seguire le istruzioni visualizzate per eseguire l'autenticazione.
@@ -289,43 +286,18 @@ Per una descrizione di ogni proprietà, vedere [schema di eventi di griglia di e
 
 ```
 
-<a id="register"></a>
-
-## <a name="register-your-subscription-preview"></a>Registrare la sottoscrizione (anteprima)
-
-Poiché il feed delle modifiche è solo in anteprima pubblica, è necessario registrare la sottoscrizione per l'uso della funzionalità.
-
-### <a name="register-by-using-powershell"></a>Eseguire la registrazione tramite PowerShell
-
-In una console di PowerShell eseguire questi comandi:
-
-```powershell
-Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-   
-### <a name="register-by-using-azure-cli"></a>Registrare usando l'interfaccia della riga di comando di Azure
-
-In Azure Cloud Shell eseguire questi comandi:
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name Changefeed
-az provider register --namespace 'Microsoft.Storage'
-```
-
 <a id="conditions"></a>
 
-## <a name="conditions-and-known-issues-preview"></a>Condizioni e problemi noti (anteprima)
+## <a name="conditions-and-known-issues"></a>Condizioni e problemi noti
 
-In questa sezione vengono descritti i problemi noti e le condizioni nell'anteprima pubblica corrente del feed di modifiche. 
-- Per l'anteprima, è necessario prima [registrare la sottoscrizione](#register) prima di poter abilitare il feed delle modifiche per l'account di archiviazione nelle aree Stati Uniti centro-occidentali, Stati Uniti occidentali 2, Francia centrale, Francia meridionale, Canada centrale e Canada orientale. 
-- Il feed delle modifiche acquisisce solo le operazioni di creazione, aggiornamento, eliminazione e copia. Vengono inoltre acquisite le modifiche alle proprietà e ai metadati del BLOB. Tuttavia, la proprietà livello di accesso non è attualmente acquisita. 
+In questa sezione vengono descritti i problemi noti e le condizioni nella versione corrente del feed di modifiche. 
+
 - I record degli eventi di modifica per ogni singola modifica possono apparire più di una volta nel feed di modifiche.
 - Non è ancora possibile gestire la durata dei file di log del feed di modifiche impostando i criteri di conservazione basati sul tempo su di essi e non è possibile eliminare i BLOB.
 - La `url` proprietà del file di log è attualmente sempre vuota.
 - La `LastConsumable` proprietà del segments.jsnel file non elenca il primo segmento finalizzato dal feed di modifiche. Questo problema si verifica solo dopo la finalizzazione del primo segmento. Tutti i segmenti successivi dopo la prima ora vengono acquisiti accuratamente nella `LastConsumable` Proprietà.
 - Attualmente non è possibile visualizzare il contenitore **$blobchangefeed** quando si chiama l'API ListContainers e il contenitore non viene visualizzato in portale di Azure o Storage Explorer. È possibile visualizzare il contenuto chiamando direttamente l'API ListBlobs sul contenitore $blobchangefeed.
-- Gli account di archiviazione che hanno avviato in precedenza un [failover dell'account](../common/storage-disaster-recovery-guidance.md) possono avere problemi con il file di log che non viene visualizzato. Eventuali failover futuri degli account potrebbero influito anche sul file di log durante l'anteprima.
+- Gli account di archiviazione che hanno avviato in precedenza un [failover dell'account](../common/storage-disaster-recovery-guidance.md) possono avere problemi con il file di log che non viene visualizzato. Eventuali failover futuri degli account potrebbero influito anche sul file di log.
 
 ## <a name="faq"></a>Domande frequenti
 

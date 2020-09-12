@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: cf6cfdc00d38b72f292f2b3ed41a633fb9cf989d
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: d2a49c1ba90c35575116ed6cf1482683c45e0b5e
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502733"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595819"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-the-azure-cli"></a>Creare un gateway applicazione con terminazione TLS usando l'interfaccia della riga di comando di Azure
 
@@ -21,11 +21,10 @@ ms.locfileid: "87502733"
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
-> [!div class="checklist"]
-> * Creare un certificato autofirmato
-> * Configurare una rete
-> * Creare un gateway applicazione con il certificato
-> * Creare un set di scalabilità di macchine virtuali con il pool back-end predefinito
+* Creare un certificato autofirmato
+* Configurare una rete
+* Creare un gateway applicazione con il certificato
+* Creare un set di scalabilità di macchine virtuali con il pool back-end predefinito
 
 Se si preferisce, è possibile completare questa procedura usando [Azure PowerShell](tutorial-ssl-powershell.md).
 

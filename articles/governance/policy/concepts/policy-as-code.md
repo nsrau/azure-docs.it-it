@@ -3,12 +3,12 @@ title: Progettare flussi di lavoro di criteri come codice
 description: Informazioni su come progettare i flussi di lavoro per distribuire le definizioni di Criteri di Azure come codice e convalidare automaticamente le risorse.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: d46680a9978cd4ec5cdc612a709f031841716749
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: bc7a6d72e344868a799638f724b5c225516b5a32
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047327"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651889"
 ---
 # <a name="design-policy-as-code-workflows"></a>Progettare flussi di lavoro di criteri come codice
 
@@ -43,7 +43,9 @@ Esempi di questi formati di file sono disponibili nel [repository GitHub di crit
 
 Il flusso di lavoro generale consigliato di Criteri come codice è simile a questo diagramma:
 
-:::image type="content" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Panoramica del flusso di lavoro di Criteri come codice" border="false":::
+:::image type="complex" source="../media/policy-as-code/policy-as-code-workflow.png" alt-text="Diagramma che mostra i criteri come caselle del flusso di lavoro di codice da crea a test da distribuire." border="false":::
+   Il diagramma che mostra i criteri come caselle del flusso di lavoro di codice. Creazione copre la creazione delle definizioni di criteri e iniziative. Test illustra l'assegnazione con la modalità di imposizione disabilitata. Un controllo del gateway per lo stato di conformità è seguito dalla concessione delle autorizzazioni M S I e delle risorse di correzione.  Deploy include l'aggiornamento dell'assegnazione con la modalità di imposizione abilitata.
+:::image-end:::
 
 ### <a name="create-and-update-policy-definitions"></a>Creare e aggiornare le definizioni dei criteri
 
