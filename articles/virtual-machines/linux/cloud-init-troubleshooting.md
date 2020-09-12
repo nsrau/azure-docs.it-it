@@ -8,12 +8,12 @@ ms.topic: troubleshooting
 ms.date: 07/06/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: 81e138e7149327c7b792df58180419b93417d263
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6412036e3f16e2efb3bbf6669f6a31e9dc6e3584
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86510974"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434640"
 ---
 # <a name="troubleshooting-vm-provisioning-with-cloud-init"></a>Risoluzione dei problemi relativi al provisioning di macchine virtuali con cloud-init
 
@@ -21,7 +21,7 @@ Se è stata creata un'immagine personalizzata generalizzata, usando cloud-init p
 
 Alcuni esempi di problemi con il provisioning:
 - La macchina virtuale si blocca in fase di creazione per 40 minuti e la creazione della macchina virtuale è contrassegnata come non riuscita
-- `CustomData`non viene elaborato
+- `CustomData` non viene elaborato
 - Il montaggio del disco temporaneo non riesce
 - Gli utenti non vengono creati o sono presenti problemi di accesso degli utenti
 - La rete non è configurata correttamente
@@ -29,7 +29,7 @@ Alcuni esempi di problemi con il provisioning:
 
 Questo articolo illustra come risolvere i problemi di cloud-init. Per informazioni più dettagliate, vedere [Deep Dive di cloud-init](./cloud-init-deep-dive.md).
 
-## <a name="step-1-test-the-deployment-without-customdata"></a>Passaggio 1: testare la distribuzione senza`customData`
+## <a name="step-1-test-the-deployment-without-customdata"></a>Passaggio 1: testare la distribuzione senza `customData`
 
 Cloud-init può accettare `customData` , che viene passato al momento della creazione della macchina virtuale. Per prima cosa è necessario assicurarsi che non si verifichino problemi con le distribuzioni. Provare a eseguire il provisioning della macchina virtuale senza passare alcuna configurazione. Se la macchina virtuale non viene sottoposta a provisioning, continuare con i passaggi seguenti, se si rileva che la configurazione che si sta passando non è stata applicata, andare al [passaggio 4](). 
 
@@ -56,7 +56,7 @@ Quando non è possibile eseguire il provisioning della macchina virtuale, in Azu
 
 Mentre la macchina virtuale è in esecuzione, sono necessari i log della macchina virtuale per comprendere il motivo per cui il provisioning non è riuscito.  Per comprendere il motivo per cui il provisioning della macchina virtuale non è riuscito, non arrestare la macchina virtuale. Lasciare in esecuzione la macchina virtuale. Per raccogliere i log, è necessario evitare che la macchina virtuale sia in esecuzione in stato di esecuzione. Per raccogliere i log, usare uno dei metodi seguenti:
 
-- [Console seriale](./serial-console-grub-single-user-mode.md)
+- [Console seriale](../troubleshooting/serial-console-grub-single-user-mode.md)
 
 - [Abilitare la diagnostica di avvio](./tutorial-monitor.md#enable-boot-diagnostics) prima di creare la macchina virtuale e quindi [visualizzarla](./tutorial-monitor.md#view-boot-diagnostics) durante l'avvio.
 
@@ -108,7 +108,7 @@ Dopo aver individuato un errore o un avviso, leggere indietro nel log di cloud-i
 2019-10-10 04:51:24,010 - util.py[DEBUG]: Running command ['mount', '-o', 'ro,sync', '-t', 'auto', u'/dev/sr0', '/run/cloud-init/tmp/tmpXXXXX'] with allowed return codes [0] (shell=False, capture=True)
 ```
 
-Se si ha accesso alla [console seriale](./serial-console-grub-single-user-mode.md), è possibile provare a eseguire di nuovo il comando che cloud-init stava tentando di eseguire.
+Se si ha accesso alla [console seriale](../troubleshooting/serial-console-grub-single-user-mode.md), è possibile provare a eseguire di nuovo il comando che cloud-init stava tentando di eseguire.
 
 La registrazione per `/var/log/cloud-init.log` può essere riconfigurata anche in/etc/cloud/cloud.cfg.d/05_logging. cfg. Per altri dettagli sulla registrazione di cloud-init, vedere la [documentazione di cloud-init](https://cloudinit.readthedocs.io/en/latest/topics/logging.html). 
 
@@ -126,7 +126,7 @@ Se non è ancora possibile isolare il motivo per cui cloud-init non è stato in 
 ## <a name="step-4-investigate-why-the-configuration-isnt-being-applied"></a>Passaggio 4: esaminare il motivo per cui la configurazione non viene applicata
 Non tutti gli errori in cloud-init generano un errore di provisioning irreversibile. Ad esempio, se si usa il `runcmd` modulo in una configurazione cloud-init, un codice di uscita diverso da zero dal comando in esecuzione provocherà un errore del provisioning della macchina virtuale. Questo perché viene eseguito dopo le funzionalità di provisioning di base che si verificano nelle prime 3 fasi di cloud-init. Per risolvere il motivo per cui la configurazione non è stata applicata, esaminare i log nel passaggio 3 e i moduli cloud-init manualmente. Ad esempio:
 
-- `runcmd`-gli script vengono eseguiti senza errori? Eseguire manualmente la configurazione dal terminale per assicurarsi che funzionino come previsto.
+- `runcmd` -gli script vengono eseguiti senza errori? Eseguire manualmente la configurazione dal terminale per assicurarsi che funzionino come previsto.
 - Installazione di pacchetti: la VM può accedere ai repository dei pacchetti?
 - È anche necessario controllare la `customData` configurazione dei dati fornita alla macchina virtuale, disponibile in `/var/lib/cloud/instances/<unique-instance-identifier>/user-data.txt` .
 

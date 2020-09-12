@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: dbf4770bf5ac1747d596e6907dbc903ce8c16de9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07689f7d16cd1df451fdab28f188e5c4a324486e
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84804342"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594816"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Creare un gateway applicazione con reindirizzamento da HTTP a HTTPS tramite il portale di Azure
 
@@ -20,14 +20,13 @@ ms.locfileid: "84804342"
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
-> [!div class="checklist"]
-> * Creare un certificato autofirmato
-> * Configurare una rete
-> * Creare un gateway applicazione con il certificato
-> * Aggiungere un listener e una regola di reindirizzamento
-> * Creare un set di scalabilità di macchine virtuali con il pool back-end predefinito
+* Creare un certificato autofirmato
+* Configurare una rete
+* Creare un gateway applicazione con il certificato
+* Aggiungere un listener e una regola di reindirizzamento
+* Creare un set di scalabilità di macchine virtuali con il pool back-end predefinito
 
-Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -133,7 +132,7 @@ In primo luogo, aggiungere il listener denominato *myListener* per la porta 80.
 In questo esempio viene creato un set di scalabilità di macchine virtuali per fornire i server per il pool back-end nel gateway applicazione.
 
 1. Selezionare **+ Crea una risorsa** nell'angolo in alto a sinistra del portale.
-2. Selezionare **calcolo**.
+2. Selezionare **Calcolo**.
 3. Nella casella di ricerca digitare *set di scalabilità* e premere INVIO.
 4. Selezionare **Set di scalabilità di macchine virtuali**, quindi selezionare **Crea**.
 5. Per **Nome del set di scalabilità di macchine virtuali** digitare *myvmss*.
@@ -146,7 +145,7 @@ In questo esempio viene creato un set di scalabilità di macchine virtuali per f
 12. In **Rete** assicurarsi che **Scegliere le opzioni di bilanciamento del carico** sia impostato su **Gateway applicazione**.
 13. Assicurarsi che **Gateway applicazione** sia impostato su **myAppGateway**.
 14. Assicurarsi che **Subnet** sia impostato su **myBackendSubnet**.
-15. Selezionare **Crea**.
+15. Selezionare **Create** (Crea).
 
 ### <a name="associate-the-scale-set-with-the-proper-backend-pool"></a>Associare il set di scalabilità al pool back-end appropriato
 
@@ -215,7 +214,7 @@ Dopo aver modificato le istanze con IIS, è necessario aggiornare di nuovo il se
 1. Selezionare **myAppGateway**.
 2. Nella pagina **Panoramica** prendere nota dell'indirizzo IP in **Indirizzo IP pubblico front-end**.
 
-3. Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser. Ad esempio: http://52.170.203.149
+3. Copiare l'indirizzo IP pubblico e quindi incollarlo nella barra degli indirizzi del browser. Ad esempio, usare http://52.170.203.149
 
    ![Avviso di sicurezza](./media/redirect-http-to-https-powershell/application-gateway-secure.png)
 

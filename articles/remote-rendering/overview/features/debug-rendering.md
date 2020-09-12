@@ -6,12 +6,12 @@ ms.author: jumeder
 ms.date: 06/15/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 9ee6945cec4c2441334e665947568743aaf29226
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ebde1be459078f4f3473ebc3042d8acebcce910a
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013589"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613738"
 ---
 # <a name="debug-rendering"></a>Eseguire il debug del rendering
 
@@ -74,6 +74,10 @@ Tuttavia, gli effetti forniti non offrono un'introspezione dettagliata sull'inte
 
 * L'abilitazione delle sovrimpressioni di testo comporta un overhead delle prestazioni minimo o inesistente.
 * L'abilitazione della modalità wireframe comporta un overhead delle prestazioni non indifferente, anche se variabile a seconda della scena. Per le scene complesse, questa modalità può causare il calo della frequenza dei fotogrammi sotto il target dei 60 Hz.
+
+## <a name="api-documentation"></a>Documentazione dell'API
+
+* [C++ RemoteManager::D ebugRenderingSettings ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#debugrenderingsettings)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

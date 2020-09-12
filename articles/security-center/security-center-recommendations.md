@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/29/2019
 ms.author: memildin
-ms.openlocfilehash: 6363100c844d071a3bb47521cec6ff7e988f6af8
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.openlocfilehash: 11043d6686bd762b1c0a9827c7edb2230487cc72
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263222"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595445"
 ---
 # <a name="security-recommendations-in-azure-security-center"></a>Raccomandazioni di sicurezza nel Centro sicurezza di Azure 
 Questo argomento illustra come visualizzare e comprendere le raccomandazioni nel centro sicurezza di Azure per proteggere le risorse di Azure.
@@ -57,6 +57,7 @@ Il Centro sicurezza analizza lo stato di sicurezza delle risorse per identificar
 
     La pagina include:
 
+    - **Applicare** e **negare** i pulsanti sulle raccomandazioni supportate (vedere Impedisci configurazioni non configurate [con le raccomandazioni Imponi/nega](prevent-misconfigurations.md))
     - **Indicatore di gravità**
     - **Intervallo di aggiornamento**  (se pertinente) 
     - **Descrizione** : breve descrizione del problema
@@ -68,10 +69,19 @@ Il Centro sicurezza analizza lo stato di sicurezza delle risorse per identificar
 
             :::image type="content" source="./media/security-center-recommendations/recommendations-not-applicable-reasons.png" alt-text="Risorse non applicabili con motivi.":::
 
+## <a name="preview-recommendations"></a>Suggerimenti per l'anteprima
 
+Le raccomandazioni contrassegnate come **Anteprima** non sono incluse nei calcoli del Punteggio sicuro.
+
+Dovrebbero comunque essere corretti, laddove possibile, in modo che, al termine del periodo di anteprima, contribuiscano al punteggio.
+
+Esempio di raccomandazione per l'anteprima:
+
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Raccomandazione con il flag di anteprima":::
  
 ## <a name="next-steps"></a>Passaggi successivi
 
 Questo documento ha introdotto le raccomandazioni relative alla sicurezza nel Centro sicurezza. Per informazioni su come correggere le raccomandazioni:
 
-* [Correggere le raccomandazioni](security-center-remediate-recommendations.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+- [Correggere le raccomandazioni](security-center-remediate-recommendations.md) : informazioni su come configurare i criteri di sicurezza per le sottoscrizioni e i gruppi di risorse di Azure.
+- [Impedisci configurazioni errate con le raccomandazioni Imponi/nega](prevent-misconfigurations.md).

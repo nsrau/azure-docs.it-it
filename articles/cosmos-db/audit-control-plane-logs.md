@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 06/25/2020
 ms.author: sngun
-ms.openlocfilehash: ae1d2743934c5ae8df9f2a1514bdda9b34262b9d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 691c6ec0559eceb60d57bf04819701edebbffd83
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87023688"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462446"
 ---
 # <a name="how-to-audit-azure-cosmos-db-control-plane-operations"></a>Come controllare le operazioni del piano di controllo Azure Cosmos DB
 
@@ -193,6 +193,22 @@ AzureDiagnostics 
 AzureDiagnostics 
 | where Category =="ControlPlaneRequests"
 | where  OperationName startswith "SqlContainersThroughputUpdate"
+```
+
+Eseguire una query per ottenere l'activityId e il chiamante che ha avviato l'operazione di eliminazione del contenitore:
+
+```kusto
+(AzureDiagnostics
+| where Category == "ControlPlaneRequests"
+| where OperationName == "SqlContainersDelete"
+| where TimeGenerated >= todatetime('9/3/2020, 5:30:29.300 PM')
+| summarize by activityId_g )
+| join (
+AzureActivity
+| parse HTTPRequest with * "clientRequestId\": \"" activityId_g "\"" * 
+| summarize by Caller, HTTPRequest, activityId_g)
+on activityId_g
+| project Caller, activityId_g
 ```
 
 ## <a name="next-steps"></a>Passaggi successivi

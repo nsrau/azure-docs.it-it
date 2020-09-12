@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: f6c4fb5caf746650f95872d50afe31e5693422be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d3326587d9c03e0a3960016b8ba3668c825ee6d
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81382910"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470086"
 ---
 # <a name="azure-active-directory-integration-for-azure-red-hat-openshift"></a>Integrazione di Azure Active Directory per Azure Red Hat OpenShift
 
@@ -30,7 +30,7 @@ Creare un nuovo utente Azure Active Directory ' proprietario ' per accedere al c
 1. Passare al pannello [utenti-tutti gli utenti](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UsersManagementMenuBlade/AllUsers) .
 2. Fare clic su **+ nuovo utente** per aprire il riquadro **utente** .
 3. Immettere un **nome** per l'utente.
-4. Creare un **nome utente** in base al nome del tenant creato, con `.onmicrosoft.com` accodato alla fine. Ad esempio: `yourUserName@yourTenantName.onmicrosoft.com`. Annotare il nome utente. Sarà necessario per accedere al cluster.
+4. Creare un **nome utente** in base al nome del tenant creato, con  `.onmicrosoft.com` accodato alla fine. Ad esempio: `yourUserName@yourTenantName.onmicrosoft.com`. Annotare il nome utente. Sarà necessario per accedere al cluster.
 5. Fare clic su **ruolo della directory** per aprire il riquadro del ruolo della directory e selezionare **proprietario** , quindi fare clic su **OK** nella parte inferiore del riquadro.
 6. Nel riquadro **utente** fare clic su **Mostra password** e registrare la password temporanea. Dopo aver eseguito l'accesso per la prima volta, verrà richiesto di reimpostarlo.
 7. Nella parte inferiore del riquadro fare clic su **Crea** per creare l'utente.
@@ -86,9 +86,9 @@ Generare un segreto client per l'autenticazione dell'app Azure Active Directory.
 
 ![Screenshot del riquadro certificati e segreti](./media/howto-create-tenant/create-key.png)
 
-Per ulteriori informazioni sugli oggetti applicazione Azure, vedere [oggetti applicazione e oggetti entità servizio in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals).
+Per ulteriori informazioni sugli oggetti applicazione Azure, vedere [oggetti applicazione e oggetti entità servizio in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md).
 
-Per informazioni dettagliate sulla creazione di una nuova applicazione Azure AD, vedere [registrare un'app con l'endpoint Azure Active Directory v 1.0](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app).
+Per informazioni dettagliate sulla creazione di una nuova applicazione Azure AD, vedere [registrare un'app con l'endpoint Azure Active Directory v 1.0](../active-directory/develop/quickstart-register-app.md).
 
 ## <a name="add-api-permissions"></a>Aggiungere autorizzazioni API
 
@@ -110,12 +110,12 @@ Per informazioni dettagliate sulla creazione di una nuova applicazione Azure AD,
 > [!IMPORTANT]
 > La sincronizzazione del gruppo Administrators del cluster funzionerà solo dopo che è stato concesso il consenso. Viene visualizzato un cerchio verde con un segno di spunta e un messaggio "concesso per *nome sottoscrizione*" nella colonna *autorizzazione amministratore richiesta* .
 
-Per informazioni dettagliate sulla gestione degli amministratori e di altri ruoli, vedere [aggiungere o modificare gli amministratori della sottoscrizione di Azure](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator).
+Per informazioni dettagliate sulla gestione degli amministratori e di altri ruoli, vedere [aggiungere o modificare gli amministratori della sottoscrizione di Azure](../cost-management-billing/manage/add-change-subscription-administrator.md).
 
 ## <a name="resources"></a>Risorse
 
-* [Applicazioni e oggetti entità servizio in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)
-* [Guida introduttiva: registrare un'app con l'endpoint v1.0 di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-add-azure-ad-app)
+* [Applicazioni e oggetti entità servizio in Azure Active Directory](../active-directory/develop/app-objects-and-service-principals.md)
+* [Guida introduttiva: registrare un'app con l'endpoint v1.0 di Azure Active Directory](../active-directory/develop/quickstart-register-app.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

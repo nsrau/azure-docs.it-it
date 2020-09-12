@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f12b4e1d64db097730494da746b44479a791f9d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 569bc54d262e8611679c8aa86ed4dbfbed61aa79
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268639"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442680"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gestire le identità dei dispositivi usando il portale di Azure
 
@@ -161,7 +161,7 @@ Per gestire le identità dei dispositivi tramite il portale di Azure AD, è nece
 > [!NOTE]
 > **Richiedi autenticazione a più fattori per aggiungere** l'impostazione dei dispositivi si applica ai dispositivi che sono Azure ad aggiunti o Azure ad registrati. Questa impostazione non si applica ai dispositivi ibridi Azure AD aggiunti.
 
-- **Numero massimo di dispositivi** : questa impostazione consente di selezionare il numero massimo di dispositivi Azure ad aggiunti o Azure ad registrati che un utente può avere in Azure ad. Se un utente raggiunge la quota specificata, non potrà aggiungere altri dispositivi fino a quando non vengono rimossi uno o più dispositivi esistenti. Il valore predefinito è **20**.
+- **Numero massimo di dispositivi** : questa impostazione consente di selezionare il numero massimo di dispositivi Azure ad aggiunti o Azure ad registrati che un utente può avere in Azure ad. Se un utente raggiunge la quota specificata, non potrà aggiungere altri dispositivi fino a quando non vengono rimossi uno o più dispositivi esistenti. Il valore predefinito è **50**.
 
 > [!NOTE]
 > L'impostazione **numero massimo di dispositivi** si applica ai dispositivi Azure ad aggiunti o Azure ad registrati. Questa impostazione non si applica ai dispositivi ibridi Azure AD aggiunti.

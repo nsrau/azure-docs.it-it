@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: rosouz
-ms.openlocfilehash: b3d1371f486a73b40d352007e3681fd451a8a8b7
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: fdaffef6c682bd1f9c81f14af6cd949816f7555a
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815828"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505523"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Che cos'è l'archivio analitico di Azure Cosmos DB (anteprima)?
 
@@ -155,10 +155,15 @@ Il valore della durata (TTL) dei dati analitici in un contenitore viene impostat
 * Se presente e il valore è impostato su un numero positivo "n": gli elementi scadranno dall'archivio analitico "n" secondi dopo l'ora dell'ultima modifica nell'archivio transazionale. Questa impostazione può essere sfruttata se si desidera conservare i dati operativi per un periodo di tempo limitato nell'archivio analitico, indipendentemente dalla conservazione dei dati nell'archivio transazionale.
 
 Alcune informazioni da considerare:
-*   Dopo aver abilitato l'archivio analitico con un valore della durata (TTL) dei dati analitici, è possibile aggiornarlo con un altro valore valido in un secondo momento. 
-*   Mentre la durata (TTL) dei dati transazionali può essere impostata a livello di contenitore o di elemento, la durata (TTL) dei dati analitici può essere impostata solo a livello di contenitore.
-*   È possibile ottenere un periodo di conservazione più lungo dei dati operativi nell'archivio analitico impostando la proprietà TTL dei dati analitici su un valore maggiore o uguale alla proprietà TTL dei dati transazionali a livello di contenitore.
-*   L'archivio analitico può essere reso speculare all'archivio transazionale impostando la proprietà TTL dei dati analitici su un valore uguale alla proprietà TTL dei dati transazionali.
+*   Dopo l'abilitazione dell'archivio analitico con un valore TTL analitico, è possibile aggiornarlo a un valore valido diverso in un secondo momento 
+*   Sebbene sia possibile impostare la durata TTL transazionale a livello di contenitore o di elemento, è possibile impostare la durata (TTL) solo a livello di contenitore
+*   È possibile ottenere un periodo di conservazione più lungo dei dati operativi nell'archivio analitico impostando TTL analitico >= TTL transazionale a livello di contenitore
+*   È possibile eseguire l'archivio analitico per eseguire il mirroring dell'archivio transazionale impostando il valore di Analytical TTL = transazionale TTL
+
+Quando si Abilita l'archivio anaytical in un contenitore:
+ * con il portale di Azure, il valore TTL analitico è impostato sul valore predefinito-1. È possibile modificare questo valore in "n" secondi passando alle impostazioni del contenitore in Esplora dati. 
+ 
+ * usando Azure SDK o PowerShell o l'interfaccia della riga di comando, è possibile abilitare l'opzione TTL analitico impostando il valore su-1 o ' n'. 
 
 Per altre informazioni, vedere [come configurare la durata (TTL) dei dati analitici in un contenitore](configure-synapse-link.md#create-analytical-ttl).
 

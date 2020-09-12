@@ -5,12 +5,12 @@ author: sideeksh
 manager: rochakm
 ms.topic: how-to
 ms.date: 04/06/2020
-ms.openlocfilehash: afa2cbdb7b0703f9fc0b419442570744c6fefae1
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 6adfd9bc778318b406d5ce27cadccdad02d73d69
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049690"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437463"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-network-connectivity-issues"></a>Risolvere i problemi di connettività di rete delle macchine virtuali da Azure ad Azure
 
@@ -33,7 +33,7 @@ Per il funzionamento della replica di Site Recovery, è necessaria la connettivi
 
 Non è possibile stabilire una connessione per Site Recovery endpoint a causa di un errore di risoluzione Domain Name System (DNS). Questo problema è più comune durante la riprotezione quando è stato eseguito il failover della macchina virtuale, ma il server DNS non è raggiungibile dall'area di ripristino di emergenza.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Se si usa il DNS personalizzato, assicurarsi che il server DNS sia accessibile dall'area di ripristino di emergenza.
 
@@ -57,7 +57,7 @@ Provare ad accedere al server DNS dalla macchina virtuale. Se il server DNS non 
 
 Non è possibile stabilire una connessione agli endpoint IP4 di autenticazione e identità di Office 365.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 - Azure Site Recovery richiede l'accesso agli intervalli IP di Office 365 per l'autenticazione.
 - Se si usano regole del gruppo di sicurezza di rete di Azure (NSG)/proxy firewall per controllare la connettività di rete in uscita nella macchina virtuale, assicurarsi di consentire la comunicazione con gli intervalli IP di Office 365. Creare Azure Active Directory una regola NSG [(Azure ad)](../virtual-network/security-overview.md#service-tags) basata su tag di servizio che consenta l'accesso a tutti gli indirizzi IP corrispondenti a Azure ad.
@@ -106,9 +106,9 @@ Per questo esempio, queste regole NSG sono necessarie in modo che la replica pos
 
 Non è possibile stabilire una connessione per Azure Site Recovery endpoint di servizio.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
-Azure Site Recovery deve accedere agli [intervalli IP di Site Recovery](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags) a seconda dell'area. Assicurarsi che gli intervalli di indirizzi IP richiesti siano accessibili dalla macchina virtuale.
+Se si usa un proxy del firewall/regola del gruppo di sicurezza di rete (NSG) di Azure per controllare la connettività di rete in uscita nel computer, è necessario consentire diversi tag di servizio. [Altre informazioni](azure-to-azure-about-networking.md#outbound-connectivity-using-service-tags).
 
 ### <a name="issue-4-azure-to-azure-replication-failed-when-the-network-traffic-goes-through-on-premises-proxy-server-151072"></a>Problema 4: la replica da Azure ad Azure non è riuscita quando il traffico di rete passa attraverso il server proxy locale (151072)
 
@@ -116,7 +116,7 @@ Azure Site Recovery deve accedere agli [intervalli IP di Site Recovery](azure-to
 
 Le impostazioni proxy personalizzate non sono valide e l'agente del servizio di Azure Site Recovery Mobility non rileva automaticamente le impostazioni proxy da Internet Explorer (IE).
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 1. L'agente del servizio Mobility rileva le impostazioni proxy da Internet Explorer in Windows e `/etc/environment` in Linux.
 1. Se si preferisce impostare il proxy solo per Azure Site Recovery servizio Mobility, è possibile specificare i dettagli del proxy in _ProxyInfo. conf_ disponibile all'indirizzo:

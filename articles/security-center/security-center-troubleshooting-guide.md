@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: e26744c2003bd55b33b638b15775c52abbe1dc32
-ms.sourcegitcommit: 0b80a5802343ea769a91f91a8cdbdf1b67a932d3
+ms.openlocfilehash: f5e71697ca6ce9e2585bbb903ad8c46744e05e13
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/25/2020
-ms.locfileid: "83836006"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462395"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guida alla risoluzione dei problemi del Centro sicurezza di Azure
 
@@ -29,7 +29,7 @@ Tipi di avviso:
 
 * Analisi del comportamento delle macchine virtuali (VMBA)
 * Analisi di rete
-* Analisi di database SQL e SQL Data Warehouse
+* Analysis database SQL e Azure sinapsi Analytics (in precedenza SQL Data Warehouse)
 * Informazioni contestuali
 
 A seconda dei tipi di avvisi, i clienti possono raccogliere le informazioni necessarie per esaminare l'avviso usando le risorse seguenti:
@@ -151,4 +151,4 @@ In questo documento è stato descritto come configurare i criteri di sicurezza n
 * [Funzionalità di rilevamento del Centro sicurezza di Azure](security-center-detection-capabilities.md)
 * [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md) : informazioni su come monitorare l'integrità delle soluzioni dei partner.
 * [Domande frequenti sul Centro sicurezza di Azure](faq-general.md) : domande frequenti sull'uso del servizio
-* [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/) : post di blog sulla sicurezza e sulla conformità di Azure
+* [Blog sulla sicurezza di Azure](https://docs.microsoft.com/archive/blogs/azuresecurity/) : post di blog sulla sicurezza e sulla conformità di Azure

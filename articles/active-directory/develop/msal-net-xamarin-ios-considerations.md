@@ -9,25 +9,26 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 07/16/2019
+ms.date: 09/09/2020
 ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: devx-track-csharp, aaddev
-ms.openlocfilehash: 73303d64d7ebeb94290819226e5e5944f95f6e42
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: f550cb4e9069055da6569492b35fc7fe75d70980
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88165703"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594051"
 ---
 # <a name="considerations-for-using-xamarin-ios-with-msalnet"></a>Considerazioni sull'uso di Novell iOS con MSAL.NET
-Quando si usa Microsoft Authentication Library per .NET (MSAL.NET) in Novell iOS, è necessario: 
+
+Quando si usa Microsoft Authentication Library per .NET (MSAL.NET) in Novell iOS, è necessario:
 
 - Eseguire l'override e implementare la `OpenUrl` funzione in `AppDelegate` .
 - Abilitare i gruppi di portachiavi.
 - Abilitare la condivisione della cache del token.
 - Abilitare l'accesso keychain.
-- Informazioni sui problemi noti di iOS 12 e sull'autenticazione.
+- Informazioni sui problemi noti di iOS 12 e iOS 13 e sull'autenticazione.
 
 ## <a name="implement-openurl"></a>Implementare OpenUrl
 
@@ -41,11 +42,12 @@ public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
 }
 ```
 
-Eseguire anche le attività seguenti: 
-* Definire uno schema URL.
+Eseguire inoltre le attività seguenti:
+
+* Definire uno schema URI di reindirizzamento.
 * Richiedere le autorizzazioni per l'app per chiamare un'altra app.
-* Hanno un modulo specifico per l'URL di reindirizzamento.
-* Registrare l'URL di reindirizzamento nella [portale di Azure](https://portal.azure.com).
+* Hanno un formato specifico per l'URI di reindirizzamento.
+* [Registrare un URI di reindirizzamento](quickstart-register-app.md#add-a-redirect-uri) nel portale di Azure.
 
 ### <a name="enable-keychain-access"></a>Abilita accesso Keychain
 
@@ -54,6 +56,7 @@ Per abilitare l'accesso keychain, assicurarsi che l'applicazione disponga di un 
 Per sfruttare i vantaggi della cache e della Single Sign-On (SSO), impostare il gruppo di accesso a keychain sullo stesso valore in tutte le applicazioni.
 
 Questo esempio di installazione usa MSAL 4. x:
+
 ```csharp
 var builder = PublicClientApplicationBuilder
      .Create(ClientId)
@@ -74,7 +77,7 @@ Abilitare anche l'accesso a keychain nel `Entitlements.plist` file. Usare il gru
 
 Quando si usa l' `WithIosKeychainSecurityGroup()` API, MSAL aggiunge automaticamente il gruppo di sicurezza alla fine dell' *ID team* dell'applicazione ( `AppIdentifierPrefix` ). MSAL aggiunge il gruppo di sicurezza perché, quando si compila l'applicazione in Xcode, eseguirà la stessa operazione. Questo è il motivo per cui i diritti nel `Entitlements.plist` file devono includere `$(AppIdentifierPrefix)` prima del gruppo di accesso a keychain.
 
-Per ulteriori informazioni, vedere la [documentazione relativa ai diritti iOS](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps). 
+Per ulteriori informazioni, vedere la [documentazione relativa ai diritti iOS](https://developer.apple.com/documentation/security/keychain_services/keychain_items/sharing_access_to_keychain_items_among_a_collection_of_apps).
 
 ### <a name="enable-token-cache-sharing-across-ios-applications"></a>Abilitare la condivisione della cache del token tra le applicazioni iOS
 
@@ -87,11 +90,7 @@ Per abilitare questa condivisione della cache, usare il `WithIosKeychainSecurity
 In precedenza in questo articolo si è appreso che MSAL aggiunge `$(AppIdentifierPrefix)` ogni volta che si usa l' `WithIosKeychainSecurityGroup()` API. MSAL aggiunge questo elemento perché l'ID Team `AppIdentifierPrefix` garantisce che solo le applicazioni eseguite dallo stesso server di pubblicazione possano condividere l'accesso keychain.
 
 > [!NOTE]
-> La `KeychainSecurityGroup` proprietà è deprecata.
-> 
-> A partire da MSAL 2. x, gli sviluppatori erano costretti a includere il `TeamId` prefisso quando usavano la `KeychainSecurityGroup` Proprietà. Tuttavia, a partire da MSAL 2.7. x, quando si usa la nuova `iOSKeychainSecurityGroup` proprietà, MSAL risolve il `TeamId` prefisso durante il Runtime. Quando si usa questa proprietà, non includere il `TeamId` prefisso nel valore. Il prefisso non è obbligatorio.
->
-> Poiché la `KeychainSecurityGroup` proprietà è obsoleta, utilizzare la `iOSKeychainSecurityGroup` Proprietà.
+> La `KeychainSecurityGroup` proprietà è deprecata. Utilizzare in alternativa la proprietà `iOSKeychainSecurityGroup`. Il `TeamId` prefisso non è obbligatorio quando si usa `iOSKeychainSecurityGroup` .
 
 ### <a name="use-microsoft-authenticator"></a>USA Microsoft Authenticator
 
@@ -104,11 +103,49 @@ L'applicazione può usare Microsoft Authenticator come broker per abilitare:
 Per informazioni dettagliate su come abilitare un broker, vedere [usare Microsoft Authenticator o Microsoft Intune portale aziendale nelle applicazioni Novell iOS e Android](msal-net-use-brokers-with-xamarin-apps.md).
 
 ## <a name="known-issues-with-ios-12-and-authentication"></a>Problemi noti con iOS 12 e autenticazione
-Microsoft ha rilasciato un [avviso di sicurezza](https://github.com/aspnet/AspNetCore/issues/4647) relativo a un'incompatibilità tra iOS 12 e alcuni tipi di autenticazione. L'incompatibilità interrompe gli accessi social, WSFed e OIDC. Gli avvisi di sicurezza aiutano gli sviluppatori a comprendere come rimuovere le restrizioni di sicurezza ASP.NET dalle applicazioni per renderle compatibili con iOS 12.  
 
-Quando si sviluppano applicazioni MSAL.NET in Novell iOS, è possibile che venga visualizzato un ciclo infinito quando si tenta di accedere ai siti Web da iOS 12. Questo comportamento è simile a questo [problema adal](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/issues/1329). 
+Microsoft ha rilasciato un [avviso di sicurezza](https://github.com/aspnet/AspNetCore/issues/4647) relativo a un'incompatibilità tra iOS 12 e alcuni tipi di autenticazione. L'incompatibilità interrompe gli accessi social, WSFed e OIDC. L'avviso di sicurezza consente di comprendere come rimuovere le restrizioni di sicurezza ASP.NET dalle applicazioni per renderle compatibili con iOS 12.
+
+Quando si sviluppano applicazioni MSAL.NET in Novell iOS, è possibile che venga visualizzato un ciclo infinito quando si tenta di accedere ai siti Web da iOS 12. Questo comportamento è simile a questo problema di ADAL su GitHub: [ciclo infinito quando si prova ad accedere al sito Web da iOS 12 #1329](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/issues/1329).
 
 È anche possibile che venga visualizzato un break in ASP.NET Core Autenticazione OIDC con iOS 12 Safari. Per altre informazioni, vedere questo [problema di WebKit](https://bugs.webkit.org/show_bug.cgi?id=188165).
+
+## <a name="known-issues-with-ios-13-and-authentication"></a>Problemi noti di iOS 13 e autenticazione
+
+Se l'app richiede l'accesso condizionale o il supporto per l'autenticazione dei certificati, consentire all'app di comunicare con l'app Microsoft Authenticator Broker. MSAL è quindi responsabile della gestione delle richieste e delle risposte tra l'applicazione e Microsoft Authenticator.
+
+In iOS 13, Apple ha apportato una modifica all'API di rilievo rimuovendo la capacità dell'applicazione di leggere l'applicazione di origine quando riceve una risposta da un'applicazione esterna tramite schemi URL personalizzati.
+
+Documentazione di Apple per gli stati [UIApplicationOpenURLOptionsSourceApplicationKey](https://developer.apple.com/documentation/uikit/uiapplicationopenurloptionssourceapplicationkey?language=objc) :
+
+> *Se la richiesta proviene da un'altra app appartenente al team, UIKit imposta il valore di questa chiave sull'ID dell'app. Se l'identificatore del team dell'app di origine è diverso dall'identificatore del team dell'app corrente, il valore della chiave è Nil.*
+
+Questa modifica si interrompe per MSAL perché si è basata su `UIApplication.SharedApplication.OpenUrl` per verificare la comunicazione tra MSAL e l'app Microsoft Authenticator.
+
+In iOS 13 è inoltre necessario che lo sviluppatore fornisca un controller di presentazione quando usa `ASWebAuthenticationSession` .
+
+Se si esegue la compilazione con Xcode 11 e si usa il broker iOS o, l'app ha un effetto `ASWebAuthenticationSession` .
+
+In questi casi, usare [MSAL.NET 4.4.0 +](https://www.nuget.org/packages/Microsoft.Identity.Client/) per consentire l'autenticazione riuscita.
+
+### <a name="additional-requirements"></a>Requisiti aggiuntivi
+
+- Quando si usano le librerie MSAL più recenti, verificare che nel dispositivo sia installato **Microsoft Authenticator versione 6.3.19 +** .
+- Quando si esegue l'aggiornamento a MSAL.NET 4.4.0 +, aggiornare il `LSApplicationQueriesSchemes` nel file *info. plist* e aggiungere `msauthv3` :
+
+    ```xml
+    <key>LSApplicationQueriesSchemes</key>
+    <array>
+         <string>msauthv2</string>
+         <string>msauthv3</string>
+    </array>
+    ```
+
+    L'aggiunta `msauthv3` a *info. plist* è necessaria per rilevare la presenza dell'app Microsoft Authenticator più recente sul dispositivo che supporta iOS 13.
+
+## <a name="report-an-issue"></a>Segnalare un problema
+
+Se si hanno domande o si vuole segnalare un problema riscontrato in MSAL.NET, aprire un problema nel repository [AzureAD/Microsoft-Authentication-Library-for-DotNet](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/issues) su GitHub.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,16 +8,16 @@ author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 393185d2167e18df3f8c1319e7367efbc437de1a
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: fd6ea0749cce154ae20479bc54ef9b7374a69d0c
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590337"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469423"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-cli"></a>Configurare l'autenticazione Azure Active Directory per un cluster Azure Red Hat OpenShift 4 (CLI)
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.6.0 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questo articolo è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.6.0 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 Recuperare gli URL specifici del cluster che verranno usati per configurare l'applicazione Azure Active Directory.
 
@@ -66,7 +66,7 @@ Si dovrebbe ottenere un risultato simile al seguente. Prendere nota di questo **
 
 ## <a name="create-a-manifest-file-to-define-the-optional-claims-to-include-in-the-id-token"></a>Creare un file manifesto per definire le attestazioni facoltative da includere nel token ID
 
-Gli sviluppatori di applicazioni possono utilizzare [attestazioni facoltative](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims) nelle applicazioni Azure ad per specificare le attestazioni desiderate nei token inviati alla propria applicazione.
+Gli sviluppatori di applicazioni possono utilizzare [attestazioni facoltative](../active-directory/develop/active-directory-optional-claims.md) nelle applicazioni Azure ad per specificare le attestazioni desiderate nei token inviati alla propria applicazione.
 
 Le attestazioni facoltative possono essere usate per:
 
@@ -127,7 +127,7 @@ az ad app permission add \
 
 Per impostazione predefinita, le applicazioni registrate in un tenant di Azure Active Directory (Azure AD) sono disponibili per tutti gli utenti del tenant che eseguono correttamente l'autenticazione. Azure AD consente agli amministratori e agli sviluppatori di tenant di limitare un'app a un set specifico di utenti o gruppi di sicurezza all'interno del tenant.
 
-Seguire le istruzioni nella documentazione di Azure Active Directory per [assegnare utenti e gruppi all'app](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users#app-registration).
+Seguire le istruzioni nella documentazione di Azure Active Directory per [assegnare utenti e gruppi all'app](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md#app-registration).
 
 ## <a name="configure-openshift-openid-authentication"></a>Configurare l'autenticazione OpenID OpenShift
 

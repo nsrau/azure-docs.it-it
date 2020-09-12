@@ -11,18 +11,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 9/03/2019
-ms.openlocfilehash: a0263880262da95f4d26ee8388da464e9a59efca
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2197136b86d0bfbb2de79af6712c953339d46371
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81416446"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442838"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-an-on-premises-netezza-server-to-azure"></a>Usare Azure Data Factory per migrare i dati da un server Netezza locale ad Azure 
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Azure Data Factory offre un meccanismo efficiente, affidabile ed economico per eseguire la migrazione dei dati su larga scala da un server Netezza locale all'account di archiviazione di Azure o a Azure SQL Data Warehouse database. 
+Azure Data Factory offre un meccanismo efficiente, affidabile ed economico per eseguire la migrazione dei dati su larga scala da un server Netezza locale all'account di archiviazione di Azure o al database di analisi delle sinapsi di Azure (in precedenza SQL Data Warehouse). 
 
 In questo articolo vengono fornite le seguenti informazioni per i data engineer e gli sviluppatori:
 
@@ -57,7 +57,7 @@ Con Azure Data Factory attività di copia, quando si copiano dati tra gli archiv
 
 ## <a name="network-security"></a>Sicurezza di rete 
 
-Per impostazione predefinita, Azure Data Factory trasferisce i dati dal server Netezza locale a un account di archiviazione di Azure o a Azure SQL Data Warehouse database usando una connessione crittografata su Hypertext Transfer Protocol Secure (HTTPS). Il protocollo HTTPS offre la crittografia dei dati in transito e impedisce l'intercettazione e gli attacchi man-in-the-middle.
+Per impostazione predefinita, Azure Data Factory trasferisce i dati dal server Netezza locale a un account di archiviazione di Azure o a un database di analisi delle sinapsi di Azure tramite una connessione crittografata tramite Hypertext Transfer Protocol Secure (HTTPS). Il protocollo HTTPS offre la crittografia dei dati in transito e impedisce l'intercettazione e gli attacchi man-in-the-middle.
 
 In alternativa, se non si vuole trasferire i dati attraverso la rete Internet pubblica, è possibile ottenere una maggiore sicurezza trasferendo i dati tramite un collegamento di peering privato tramite Azure Express route. 
 
@@ -109,7 +109,7 @@ Il diagramma precedente può essere interpretato nel modo seguente:
    
    - È anche possibile usare un' [entità servizio](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#service-principal-authentication) o una [chiave dell'account di archiviazione](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage#account-key-authentication). 
 
-- Per eseguire l'autenticazione a Azure SQL Data Warehouse:
+- Per eseguire l'autenticazione in Azure sinapsi Analytics:
 
    - Si consiglia vivamente [di usare identità gestite per le risorse di Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse#managed-identity).
    
@@ -131,7 +131,7 @@ Per le tabelle di dimensioni maggiori (ovvero le tabelle con un volume di 100 GB
 
 Se un processo di copia ha esito negativo a causa di un problema temporaneo di rete o archivio dati, è possibile rieseguire il processo di copia non riuscito per ricaricare la partizione specifica dalla tabella. Non sono interessati altri processi di copia che caricano altre partizioni.
 
-Quando si caricano i dati in un database di Azure SQL Data Warehouse, è consigliabile abilitare la polibase all'interno del processo di copia con archiviazione BLOB di Azure come gestione temporanea.
+Quando si caricano i dati in un database di analisi delle sinapsi di Azure, si consiglia di abilitare la polibase nel processo di copia con archiviazione BLOB di Azure come gestione temporanea.
 
 ### <a name="migrate-delta-data"></a>Eseguire la migrazione dei dati Delta 
 
@@ -162,7 +162,7 @@ Quando si verificano errori di limitazione, come indicato dall'attività di copi
 
 ### <a name="estimate-your-pricing"></a>Stima dei prezzi 
 
-Si consideri la pipeline seguente, costruita per la migrazione dei dati dal server Netezza locale a un database di Azure SQL Data Warehouse:
+Si consideri la pipeline seguente, costruita per la migrazione dei dati dal server Netezza locale a un database di analisi delle sinapsi di Azure:
 
 ![Pipeline dei prezzi](media/data-migration-guidance-netezza-azure-sqldw/pricing-pipeline.png)
 
@@ -187,7 +187,7 @@ In base ai presupposti precedenti, il prezzo stimato è il seguente:
 > [!NOTE]
 > I prezzi indicati nella tabella precedente sono ipotetici. I prezzi effettivi variano in base alla velocità effettiva dell'ambiente. Il prezzo per il computer Windows (con il runtime di integrazione self-hosted installato) non è incluso. 
 
-### <a name="additional-references"></a>Riferimenti aggiuntivi
+### <a name="additional-references"></a>Altri riferimenti
 
 Per ulteriori informazioni, vedere gli articoli e le guide seguenti:
 
@@ -196,7 +196,7 @@ Per ulteriori informazioni, vedere gli articoli e le guide seguenti:
 - [Connettore ODBC](https://docs.microsoft.com/azure/data-factory/connector-odbc)
 - [Connettore di archiviazione BLOB di Azure](https://docs.microsoft.com/azure/data-factory/connector-azure-blob-storage)
 - [Connettore di Azure Data Lake Storage Gen2](https://docs.microsoft.com/azure/data-factory/connector-azure-data-lake-storage)
-- [Connettore Azure SQL Data Warehouse](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse)
+- [Connettore Azure sinapsi Analytics](https://docs.microsoft.com/azure/data-factory/connector-azure-sql-data-warehouse)
 - [Guida alle prestazioni delle attività di copia e all'ottimizzazione](https://docs.microsoft.com/azure/data-factory/copy-activity-performance)
 - [Creare e configurare un runtime di integrazione self-hosted](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime)
 - [Disponibilità elevata e scalabilità del runtime di integrazione self-hosted](https://docs.microsoft.com/azure/data-factory/create-self-hosted-integration-runtime#high-availability-and-scalability)

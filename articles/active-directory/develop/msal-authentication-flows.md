@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 07/08/2020
 ms.author: marsma
 ms.reviewer: saeeda
-ms.openlocfilehash: 0dbd7eb9203f31b580f586a8a7d1fa216533628c
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 4a902ed53e92cd073d81626e80bdb3c8629ad072
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170514"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437871"
 ---
 # <a name="authentication-flows"></a>Flussi di autenticazione
 
@@ -57,7 +57,7 @@ Molti di questi flussi supportano l'acquisizione di token sia interattivi che no
 
 L'applicazione basata su MSAL deve prima tentare di acquisire un token in modo *invisibile all'utente*e quindi in modo interattivo solo se il metodo non interattivo ha esito negativo. Per ulteriori informazioni su questo modello, vedere [acquisire e memorizzare nella cache i token tramite Microsoft Authentication Library (MSAL)](msal-acquire-cache-tokens.md).
 
-## <a name="authorization-code"></a>Authorization code (Codice di autorizzazione)
+## <a name="authorization-code"></a>Codice di autorizzazione
 
 La [concessione del codice di autorizzazione OAuth 2](v2-oauth2-auth-code-flow.md) può essere usata nelle app installate in un dispositivo per ottenere l'accesso alle risorse protette, ad esempio le API Web. Questo consente di aggiungere l'accesso e l'accesso all'API alle app desktop e per dispositivi mobili.
 
@@ -219,7 +219,7 @@ Poiché l'autenticazione integrata di Microsoft è un flusso invisibile all'uten
 Questo significa che una delle seguenti condizioni è vera:
 
 - Gli sviluppatori hanno selezionato **Concedi** nel portale di Azure per se stessi.
-- Un amministratore tenant ha selezionato **Concedi/revoca il consenso dell'amministratore per {tenant dominio}** nella scheda **autorizzazioni API** della registrazione dell'app nel portale di Azure (vedere [aggiungere autorizzazioni per accedere alle API Web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)).
+- Un amministratore tenant ha selezionato **Concedi/revoca il consenso dell'amministratore per {tenant dominio}** nella scheda **autorizzazioni API** della registrazione dell'app nel portale di Azure (vedere [aggiungere le autorizzazioni per accedere all'API Web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api)).
 - È stato fornito un modo per consentire agli utenti di fornire il consenso all'applicazione; vedere [richiesta di consenso utente singolo](v2-permissions-and-consent.md#requesting-individual-user-consent).
 - È stato fornito un modo per consentire all'amministratore del tenant di concedere il consenso per l'applicazione. vedere il [consenso dell'amministratore](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 

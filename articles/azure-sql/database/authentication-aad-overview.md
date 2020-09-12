@@ -11,18 +11,18 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 04/23/2020
-ms.openlocfilehash: e1f97b1a29681a65cddf3a5904020555e903fe63
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 943569a16101ac170d01d08250b31ba67c0e590e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984776"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434283"
 ---
 # <a name="use-azure-active-directory-authentication"></a>Usa autenticazione Azure Active Directory
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-L'autenticazione Azure Active Directory (Azure AD) è un meccanismo per la connessione al [database SQL](sql-database-paas-overview.md)di Azure, ad [Azure SQL istanza gestita](../managed-instance/sql-managed-instance-paas-overview.md)e ad [Azure sinapsi Analytics (in precedenza Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando le identità in Azure ad.
+L'autenticazione Azure Active Directory (Azure AD) è un meccanismo per la connessione al [database SQL](sql-database-paas-overview.md)di Azure, ad [Azure SQL istanza gestita](../managed-instance/sql-managed-instance-paas-overview.md)e ad [Azure sinapsi Analytics (in precedenza SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) usando le identità in Azure ad.
 
 > [!NOTE]
 > Questo articolo si applica al database SQL di Azure, a SQL Istanza gestita e ad Azure sinapsi Analytics.
@@ -168,7 +168,7 @@ Per Azure AD entità server (account di accesso) sono supportati i metodi di aut
 - Per una panoramica degli account di accesso, degli utenti, dei ruoli del database e delle autorizzazioni nel database SQL, vedere [account di accesso, utenti, ruoli del database e autorizzazioni](logins-create-manage.md).
 - Per altre informazioni sulle entità di database, vedere [Entità](https://msdn.microsoft.com/library/ms181127.aspx).
 - Per altre informazioni sui ruoli del database, vedere [Ruoli a livello di database](https://msdn.microsoft.com/library/ms189121.aspx).
-- Per la sintassi per la creazione di Azure AD entità server (account di accesso) per SQL Istanza gestita, vedere [creare un account di accesso](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
+- Per la sintassi per la creazione di Azure AD entità server (account di accesso) per SQL Istanza gestita, vedere  [creare un account di accesso](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current).
 - Per informazioni generali sulle regole del firewall, vedere l'articolo relativo alle [regole del firewall per il database SQL](firewall-configure.md).
 
 <!--Image references-->

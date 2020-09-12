@@ -5,12 +5,12 @@ description: Informazioni sulle procedure consigliate per l'operatore del cluste
 services: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.openlocfilehash: fc839fd69e3b574c47aa7bb712583dfc0b9c711d
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 9ec6423a853aacbc8a03cc5472bf1a95a5623b1f
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542705"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482726"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>Procedure consigliate per la sicurezza e la connettività di rete nel servizio Azure Kubernetes
 
@@ -31,7 +31,7 @@ Questo articolo sulle procedure consigliate è incentrato sulla sicurezza e la c
 Le reti virtuali forniscono la connettività di base per consentire ai clienti e ai nodi del servizio Azure Kubernetes di accedere alle applicazioni. Esistono due diversi modi per distribuire i cluster del servizio Azure Kubernetes nelle reti virtuali:
 
 * **Funzionalità di rete kubenet**: Azure gestisce le risorse di rete virtuale durante la distribuzione del cluster e usa il plug-in [kubenet][kubenet] di Kubernetes.
-* **Funzionalità di rete Azure CNI**: la distribuzione avviene in una rete virtuale esistente e viene usato il plug-in [Azure Container Networking Interface (CNI)][cni-networking] di Kubernetes. Ai pod vengono assegnati IP singoli che possono essere instradati ad altri servizi di rete o a risorse locali.
+* **Rete di Azure CNI** : viene distribuita in una rete virtuale e usa il plug-in di Azure per la rete di [contenitori di Azure (CNI)][cni-networking] Kubernetes. Ai pod vengono assegnati IP singoli che possono essere instradati ad altri servizi di rete o a risorse locali.
 
 Container Networking Interface (CNI) è un protocollo indipendente dal fornitore che consente al runtime del contenitore di indirizzare le richieste a un provider di rete. Azure CNI assegna gli indirizzi IP ai pod e ai nodi e offre funzionalità di gestione degli indirizzi IP (IPAM) durante la connessione a reti virtuali Azure esistenti. A ogni risorsa di nodi e pod viene assegnato un indirizzo IP nella rete virtuale di Azure e non è necessario alcun routing aggiuntivo per comunicare con altri servizi o risorse.
 
@@ -64,14 +64,14 @@ Kubenet è adatto per carichi di lavoro di sviluppo o di test di dimensioni rido
 
 **Suggerimento per la procedura consigliata**: per distribuire il traffico HTTP o HTTPS alle applicazioni, usare controller e risorse in ingresso. I controller in ingresso offrono funzionalità aggiuntive rispetto a un normale servizio di bilanciamento del carico di Azure e possono essere gestiti come risorse native di Kubernetes.
 
-Un servizio di bilanciamento del carico di Azure può distribuire il traffico dei clienti alle applicazioni del cluster del servizio Azure Kubernetes, ma è limitato a quanto riconosce di tale traffico. Una risorsa di bilanciamento del carico funziona al livello 4 e distribuisce il traffico in base al protocollo o alle porte. La maggior parte delle applicazioni Web che usano HTTP o HTTPS deve usare controller e risorse in ingresso Kubernetes, che funzionano al livello 7. I controller e le risorse in ingresso possono distribuire il traffico in base all'URL dell'applicazione e gestire la terminazione TLS/SSL. Questa funzionalità consente anche di ridurre il numero di indirizzi IP che vengono esposti e di cui si esegue il mapping. Con un servizio di bilanciamento del carico, ogni applicazione necessita in genere di un indirizzo IP pubblico che è stato assegnato e di cui viene eseguito il mapping al servizio nel cluster del servizio Azure Kubernetes. Con una risorsa in ingresso, un singolo indirizzo IP può distribuire il traffico a più applicazioni.
+Un servizio di bilanciamento del carico di Azure può distribuire il traffico dei clienti alle applicazioni del cluster del servizio Azure Kubernetes, ma è limitato a quanto riconosce di tale traffico. Una risorsa di bilanciamento del carico funziona al livello 4 e distribuisce il traffico in base al protocollo o alle porte. La maggior parte delle applicazioni Web che usano HTTP o HTTPS deve usare le risorse e i controller in ingresso Kubernetes, che funzionano al livello 7. I controller e le risorse in ingresso possono distribuire il traffico in base all'URL dell'applicazione e gestire la terminazione TLS/SSL. Questa funzionalità consente anche di ridurre il numero di indirizzi IP che vengono esposti e di cui si esegue il mapping. Con un servizio di bilanciamento del carico, ogni applicazione necessita in genere di un indirizzo IP pubblico che è stato assegnato e di cui viene eseguito il mapping al servizio nel cluster del servizio Azure Kubernetes. Con una risorsa in ingresso, un singolo indirizzo IP può distribuire il traffico a più applicazioni.
 
 ![Diagramma che mostra il flusso del traffico in ingresso in un cluster del servizio Azure Kubernetes](media/operator-best-practices-network/aks-ingress.png)
 
  Esistono due componenti per l'ingresso:
 
  * Una *risorsa* in ingresso e
- * Un *controller* in ingresso
+ * Un *controller* di ingresso
 
 La risorsa in ingresso è un manifesto YAML di `kind: Ingress` che definisce l'host, i certificati e le regole per instradare il traffico ai servizi che vengono eseguiti nel cluster del servizio Azure Kubernetes. L'esempio di manifesto YAML seguente consente di distribuire il traffico per *myapp.com* a uno dei due servizi, ovvero *blog* o *storeservice*. Il cliente viene indirizzato all'uno o all'altro servizio in base all'URL a cui accede.
 

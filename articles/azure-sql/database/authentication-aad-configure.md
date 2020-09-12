@@ -12,18 +12,18 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto, carlrab
 ms.date: 08/17/2020
-ms.openlocfilehash: 3eb1a4cbfcf62617796af6a26cb4688b734eb617
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 22ed36213c932c7e202817fd093e1ec96aec94fd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551841"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434402"
 ---
-# <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configurare e gestire l'autenticazione Azure AD con SQL di Azure
+# <a name="configure-and-manage-azure-ad-authentication-with-azure-sql"></a>Configurare e gestire l'autenticazione di Azure AD con Azure SQL
 
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Questo articolo illustra come creare e popolare un'istanza di Azure Active Directory (Azure AD) e quindi usare Azure AD con il [database SQL di Azure](sql-database-paas-overview.md), [istanza gestita di Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md)e [Azure sinapsi Analytics (in precedenza Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Per una panoramica, vedere [autenticazione Azure Active Directory](authentication-aad-overview.md).
+Questo articolo illustra come creare e popolare un'istanza di Azure Active Directory (Azure AD) e quindi usare Azure AD con il [database SQL di Azure](sql-database-paas-overview.md), [istanza gestita di Azure SQL](../managed-instance/sql-managed-instance-paas-overview.md)e [Azure sinapsi Analytics (in precedenza SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Per una panoramica, vedere [autenticazione Azure Active Directory](authentication-aad-overview.md).
 
 ## <a name="azure-ad-authentication-methods"></a>Metodi di autenticazione di Azure AD
 
@@ -73,7 +73,7 @@ Quando si usa Azure Active Directory con la replica geografica, l'amministratore
 > [!IMPORTANT]
 > Se si esegue il provisioning di un Istanza gestita SQL di Azure, seguire questa procedura. Questa operazione può essere eseguita solo dall'amministratore globale/aziendale o da un amministratore del ruolo con privilegi in Azure AD.
 >
-> Nell' **anteprima pubblica**è possibile assegnare il ruolo **Readers di directory** a un gruppo in Azure ad. I proprietari del gruppo possono quindi aggiungere l'identità dell'istanza gestita come membro di questo gruppo, che consente di effettuare il provisioning di un amministratore Azure AD per il Istanza gestita SQL. Per altre informazioni su questa funzionalità, vedere [ruolo dei lettori di directory nella Azure Active Directory per SQL di Azure](authentication-aad-directory-readers-role.md).
+> Nell' **anteprima pubblica**è possibile assegnare il ruolo **Readers di directory** a un gruppo in Azure ad. I proprietari del gruppo possono quindi aggiungere l'identità dell'istanza gestita come membro di questo gruppo, che consente di effettuare il provisioning di un amministratore Azure AD per il Istanza gestita SQL. Per altre informazioni su questa funzionalità, vedere [Ruolo con autorizzazioni di lettura nella directory in Azure Active Directory per Azure SQL](authentication-aad-directory-readers-role.md).
 
 Il Istanza gestita SQL richiede le autorizzazioni per leggere Azure AD per eseguire correttamente le attività, ad esempio l'autenticazione degli utenti tramite l'appartenenza ai gruppi di sicurezza o la creazione di nuovi utenti. Per eseguire questa operazione, è necessario concedere l'autorizzazione SQL Istanza gestita per la lettura Azure AD. Questa operazione può essere eseguita usando il portale di Azure o PowerShell.
 

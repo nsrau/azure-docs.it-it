@@ -11,13 +11,13 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 07/09/2020
-ms.openlocfilehash: 1eac86e856840d5cb78313fb4d61751066d6886b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.date: 09/09/2020
+ms.openlocfilehash: d135320d8dd9f86fbc313b17b8b55ed3c609e9dc
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86184005"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595021"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Configurare un runtime di integrazione self-hosted come proxy per un Azure-SSIS IR in Azure Data Factory
 
@@ -27,9 +27,11 @@ Questo articolo descrive come eseguire pacchetti SQL Server Integration Services
 
 Con questa funzionalità è possibile accedere ai dati in locale senza dover [aggiungere la Azure-SSIS IR a una rete virtuale](https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network). Questa funzionalità è utile quando la rete aziendale presenta una configurazione troppo complessa o un criterio troppo restrittivo per poter inserire il Azure-SSIS IR.
 
-Questa funzionalità suddivide qualsiasi attività flusso di dati SSIS con un'origine dati locale in due attività di gestione temporanea: 
-* La prima attività, eseguita sul runtime di integrazione self-hosted, sposta innanzitutto i dati dall'origine dati locale in un'area di gestione temporanea nell'archivio BLOB di Azure.
-* La seconda attività, che viene eseguita nel Azure-SSIS IR, sposta i dati dall'area di gestione temporanea alla destinazione dati desiderata.
+Questa funzionalità suddivide l'attività flusso di dati SSIS in due attività di gestione temporanea quando applicabile: 
+* **Attività di gestione temporanea locale**: questa attività esegue il componente flusso di dati che si connette a un archivio dati locale nel runtime di integrazione self-hosted. Sposta i dati dall'archivio dati locale in un'area di gestione temporanea nell'archivio BLOB di Azure o viceversa.
+* **Attività di gestione temporanea cloud**: questa attività esegue il componente flusso di dati che non si connette a un archivio dati locale nella Azure-SSIS IR. Sposta i dati dall'area di gestione temporanea nell'archivio BLOB di Azure a un archivio dati cloud o viceversa.
+
+Se l'attività flusso di dati sposta i dati da locale a cloud, la prima e la seconda attività di gestione temporanea saranno rispettivamente attività di staging locali e cloud. Se l'attività flusso di dati sposta i dati dal cloud in locale, la prima e la seconda attività di gestione temporanea saranno rispettivamente attività di gestione temporanea cloud e locali. Se l'attività flusso di dati sposta i dati da un ambiente locale a un ambiente locale, la prima e la seconda attività di gestione temporanea saranno entrambe attività di gestione temporanea locali. Se l'attività flusso di dati sposta i dati dal cloud al cloud, questa funzionalità non è applicabile.
 
 Altri vantaggi e funzionalità di questa funzionalità consentono, ad esempio, di configurare il runtime di integrazione self-hosted in aree non ancora supportate da un Azure-SSIS IR e di consentire l'indirizzo IP statico pubblico del runtime di integrazione self-hosted nel firewall delle origini dati.
 
@@ -41,13 +43,13 @@ Si configura quindi il runtime di integrazione Self-Hosted nello stesso data fac
 
 Infine, scaricare e installare la versione più recente del runtime di integrazione self-hosted, nonché i driver e il runtime aggiuntivi, nel computer locale o nella macchina virtuale di Azure (VM), come indicato di seguito:
 - Scaricare e installare la versione più recente del runtime di integrazione [self-hosted](https://www.microsoft.com/download/details.aspx?id=39717).
-- Se si usano connettori di oggetti di collegamento e di incorporamento dei database (OLEDB) nei pacchetti, scaricare e installare i driver OLEDB pertinenti nello stesso computer in cui è installato il runtime di integrazione self-hosted, se non è già stato fatto.  
+- Se si usano gli oggetti collegamento e incorporamento dei connettori ODBC (/Open Database Connectivity) nei pacchetti, scaricare e installare i driver pertinenti nello stesso computer in cui è installato il runtime di integrazione self-hosted, se non è già stato fatto.  
 
   Se si utilizza la versione precedente del driver OLEDB per SQL Server (SQL Server Native Client [SQLNCLI]), [scaricare la versione a 64 bit](https://www.microsoft.com/download/details.aspx?id=50402).  
 
   Se si utilizza la versione più recente del driver OLEDB per SQL Server (MSOLEDBSQL), [scaricare la versione a 64 bit](https://www.microsoft.com/download/details.aspx?id=56730).  
   
-  Se si usano driver OLEDB per altri sistemi di database, ad esempio PostgreSQL, MySQL, Oracle e così via, è possibile scaricare le versioni a 64 bit dai rispettivi siti Web.
+  Se si usano driver OLEDB/ODBC per altri sistemi di database, ad esempio PostgreSQL, MySQL, Oracle e così via, è possibile scaricare le versioni a 64 bit dai rispettivi siti Web.
 - Se non è già stato fatto, [scaricare e installare la versione a 64 bit del runtime di Visual C++ (VC)](https://www.microsoft.com/download/details.aspx?id=40784) nello stesso computer in cui è installato il runtime di integrazione self-hosted.
 
 ## <a name="prepare-the-azure-blob-storage-linked-service-for-staging"></a>Preparare il servizio collegato di archiviazione BLOB di Azure per la gestione temporanea
@@ -118,20 +120,20 @@ Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
 
 ## <a name="enable-ssis-packages-to-connect-by-proxy"></a>Abilitare la connessione dei pacchetti SSIS per proxy
 
-Utilizzando la versione più recente di SSDT con estensione progetti SSIS per Visual Studio o un programma di installazione autonomo, è possibile trovare una nuova `ConnectByProxy` proprietà aggiunta nelle gestioni connessioni file flat o OLEDB.
-* [Scaricare l'estensione SSDT con i progetti SSIS per Visual Studio](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)
+Utilizzando la versione più recente di SSDT come estensione di progetti SSIS per Visual Studio o un programma di installazione autonomo, è possibile trovare una nuova `ConnectByProxy` proprietà aggiunta nelle gestioni connessioni per i componenti del flusso di dati supportati.
+* [Scaricare l'estensione di progetti SSIS per Visual Studio](https://marketplace.visualstudio.com/items?itemName=SSIS.SqlServerIntegrationServicesProjects)
 * [Scaricare il programma di installazione autonomo](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt?view=sql-server-2017#ssdt-for-vs-2017-standalone-installer)   
 
-Quando si progettano nuovi pacchetti che contengono attività flusso di dati con OLEDB o origini file flat che consentono di accedere a database o file in locale, è possibile abilitare questa proprietà impostandola su *true* nel riquadro **Proprietà** delle gestioni connessioni pertinenti.
+Quando si progettano nuovi pacchetti contenenti attività flusso di dati con componenti che accedono ai dati in locale, è possibile abilitare questa proprietà impostandola su *true* nel riquadro **Proprietà** delle gestioni connessioni pertinenti.
 
 ![Abilita proprietà ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-manager-properties.png)
 
 È anche possibile abilitare questa proprietà quando si eseguono i pacchetti esistenti senza doverli modificare manualmente uno alla volta.  Sono disponibili due opzioni:
-- **Opzione a**: aprire, ricompilare e ridistribuire il progetto contenente i pacchetti con la versione più recente di SSDT da eseguire nel Azure-SSIS IR. È quindi possibile abilitare la proprietà impostandola su *true* per le gestioni connessioni pertinenti. Quando eseguono pacchetti da SSMS, queste gestioni connessioni vengono visualizzate nella scheda **gestioni connessioni** della finestra popup **Esegui pacchetto** .
+- **Opzione a**: aprire, ricompilare e ridistribuire il progetto contenente i pacchetti con la versione più recente di SSDT da eseguire nel Azure-SSIS IR. È quindi possibile abilitare la proprietà impostandola su *true* per le gestioni connessioni pertinenti. Quando si eseguono pacchetti da SSMS, queste gestioni connessioni vengono visualizzate nella scheda **gestioni connessioni** della finestra popup **Esegui pacchetto** .
 
   ![Abilita Property2 ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png)
 
-  È inoltre possibile abilitare la proprietà impostandola su *true* per le gestioni connessioni pertinenti visualizzate nella scheda **gestioni connessioni** dell' [attività Esegui pacchetto SSIS](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) quando eseguono pacchetti in data factory pipeline.
+  Per abilitare la proprietà, è inoltre possibile impostarla su *true* per le gestioni connessioni pertinenti visualizzate nella scheda **gestioni connessioni** dell' [attività Esegui pacchetto SSIS](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity) quando si eseguono pacchetti in data factory pipeline.
   
   ![Abilita property3 ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssis-activity.png)
 
@@ -143,27 +145,27 @@ Quando si progettano nuovi pacchetti che contengono attività flusso di dati con
   
   ![Abilita property5 ConnectByProxy](media/self-hosted-integration-runtime-proxy-ssis/shir-property-overrides-tab-ssis-activity.png)
 
-## <a name="debug-the-first-and-second-staging-tasks"></a>Eseguire il debug della prima e della seconda attività di gestione temporanea
+## <a name="debug-the-on-premises-and-cloud-staging-tasks"></a>Eseguire il debug delle attività di gestione temporanea in locale e nel cloud
 
-Nel runtime di integrazione self-hosted è possibile trovare i log di runtime nella cartella *C:\ProgramData\SSISTelemetry* e i log di esecuzione delle prime attività di staging nella cartella *C:\ProgramData\SSISTelemetry\ExecutionLog* .  È possibile trovare i log di esecuzione delle seconde attività di staging nei percorsi di registrazione SSISDB o specificati, a seconda che i pacchetti vengano archiviati in SSISDB o file system, condivisioni file o File di Azure. È anche possibile trovare gli ID univoci delle prime attività di staging nei log di esecuzione delle seconde attività di gestione temporanea. 
+Nel runtime di integrazione self-hosted è possibile trovare i log di runtime nella cartella *C:\ProgramData\SSISTelemetry* e i log di esecuzione delle attività di gestione temporanea locali nella cartella *C:\ProgramData\SSISTelemetry\ExecutionLog* .  È possibile trovare i log di esecuzione delle attività di gestione temporanea nel database SSISDB o nei percorsi di registrazione specificati, a seconda che i pacchetti vengano archiviati in SSISDB o meno. È anche possibile trovare gli ID univoci delle attività di staging locali nei log di esecuzione delle attività di gestione temporanea del cloud. 
 
 ![ID univoco della prima attività di staging](media/self-hosted-integration-runtime-proxy-ssis/shir-first-staging-task-guid.png)
 
-## <a name="use-windows-authentication-in-staging-tasks"></a>Usa autenticazione di Windows nelle attività di gestione temporanea
+## <a name="use-windows-authentication-in-on-premises-staging-tasks"></a>Usare l'autenticazione di Windows nelle attività di gestione temporanea locali
 
-Se le attività di gestione temporanea sul runtime di integrazione self-hosted richiedono l'autenticazione di Windows, [configurare i pacchetti SSIS in modo da usare la stessa autenticazione di Windows](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15). 
+Se per le attività di gestione temporanea locali nel runtime di integrazione self-hosted è richiesta l'autenticazione di Windows, [configurare i pacchetti SSIS in modo da usare la stessa autenticazione di Windows](https://docs.microsoft.com/sql/integration-services/lift-shift/ssis-azure-connect-with-windows-auth?view=sql-server-ver15). 
 
-Le attività di gestione temporanea verranno richiamate con l'account del servizio IR self-hosted (*NT SERVICE\DIAHostService*, per impostazione predefinita) e gli archivi dati saranno accessibili con l'account di autenticazione di Windows. Per entrambi gli account è necessario assegnare determinati criteri di sicurezza. Nel computer IR indipendente, passare a **criteri di sicurezza**  >  **locali**  >  **assegnazione diritti utente**e quindi eseguire le operazioni seguenti:
+Le attività di gestione temporanea locali verranno richiamate con l'account del servizio IR self-hosted (*NT SERVICE\DIAHostService*, per impostazione predefinita) e l'accesso agli archivi dati verrà eseguito con l'account di autenticazione di Windows. Per entrambi gli account è necessario assegnare determinati criteri di sicurezza. Nel computer IR indipendente, passare a **criteri di sicurezza**  >  **locali**  >  **assegnazione diritti utente**e quindi eseguire le operazioni seguenti:
 
 1. Assegnare i criteri di *regolazione delle quote di memoria per un processo* e sostituire i criteri del *token a livello di processo* con l'account del servizio IR self-hosted. Questa operazione deve essere eseguita automaticamente quando si installa il runtime di integrazione self-hosted con l'account del servizio predefinito. In caso contrario, assegnare questi criteri manualmente. Se si utilizza un account del servizio diverso, assegnare gli stessi criteri.
 
 1. Assegnare i criteri *Accedi come servizio* all'account di autenticazione di Windows.
 
-## <a name="billing-for-the-first-and-second-staging-tasks"></a>Fatturazione per la prima e la seconda attività di gestione temporanea
+## <a name="billing-for-the-on-premises-and-cloud-staging-tasks"></a>Fatturazione per le attività locali e di gestione temporanea cloud
 
-Le prime attività di staging eseguite nel runtime di integrazione self-hosted vengono fatturate separatamente, così come vengono fatturate le attività di spostamento dei dati eseguite in un runtime di integrazione self-hosted. Questo è specificato nell'articolo [sui prezzi della pipeline di dati Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) .
+Le attività di gestione temporanea locali eseguite nel runtime di integrazione self-hosted vengono fatturate separatamente, così come vengono fatturate tutte le attività di spostamento dei dati eseguite in un runtime di integrazione self-hosted. Questo è specificato nell'articolo [sui prezzi della pipeline di dati Azure Data Factory](https://azure.microsoft.com/pricing/details/data-factory/data-pipeline/) .
 
-La seconda attività di gestione temporanea eseguita nel Azure-SSIS IR non viene fatturata separatamente, ma la Azure-SSIS IR in esecuzione viene fatturata come specificato nell'articolo [sui prezzi di Azure-SSIS IR](https://azure.microsoft.com/pricing/details/data-factory/ssis/) .
+Le attività di staging cloud eseguite nel Azure-SSIS IR non vengono fatturate separatamente, ma la Azure-SSIS IR in esecuzione viene fatturata come specificato nell'articolo relativo ai [prezzi di Azure-SSIS IR](https://azure.microsoft.com/pricing/details/data-factory/ssis/) .
 
 ## <a name="enabling-tls-12"></a>Abilitazione di TLS 1.2
 
@@ -173,9 +175,9 @@ Se è necessario usare il protocollo di rete Secure Cryptography/più sicuro (TL
 
 ## <a name="current-limitations"></a>Limitazioni correnti
 
-- Attualmente sono supportate solo le attività flusso di dati con Open Database Connectivity (ODBC)/OLEDB/Flat origini file o destinazione OLEDB. 
+- Attualmente sono supportate solo le attività flusso di dati con OLE DB/ODBC/origini file flat o destinazione OLEDB.
 - Attualmente sono supportati solo i servizi collegati di archiviazione BLOB di Azure configurati con la *chiave dell'account*, *l'URI della firma di accesso condiviso*o l'autenticazione dell' *entità servizio* .
-- *ParameterMapping* nell'origine OLEDB non è ancora supportato. Come soluzione alternativa, usare il *comando SQL dalla variabile* come *AccessMode* e usare *Expression* per inserire le variabili o i parametri in un comando SQL. Per un'illustrazione, vedere il pacchetto *ParameterMappingSample. dtsx* disponibile nella cartella *SelfHostedIRProxy/limitazioni* del contenitore di anteprima pubblica. Con Azure Storage Explorer è possibile connettersi al contenitore di anteprima pubblica immettendo l'URI SAS precedente.
+- *ParameterMapping* nell'origine OLEDB non è attualmente supportato. Come soluzione alternativa, usare il *comando SQL dalla variabile* come *AccessMode* e usare *Expression* per inserire le variabili o i parametri in un comando SQL. Per un'illustrazione, vedere il pacchetto *ParameterMappingSample. dtsx* disponibile nella cartella *SelfHostedIRProxy/limitazioni* del contenitore di anteprima pubblica. Con Azure Storage Explorer è possibile connettersi al contenitore di anteprima pubblica immettendo l'URI SAS precedente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

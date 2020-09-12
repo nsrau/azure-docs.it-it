@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: b8bd471c5fd5346fcc7e95b9afb49e833e7c6384
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2d2c4145ab0a070e4cb20d89b8a0d3973b23d9ed
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84187287"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440508"
 ---
 # <a name="azure-data-factory-faq"></a>Domande frequenti su Azure Data Factory
 
@@ -101,7 +101,7 @@ Integration Runtime è l'infrastruttura di calcolo che Azure Data Factory USA pe
 
 È possibile distribuire una o più istanze del runtime di integrazione come richiesto per lo spostamento e la trasformazione dei dati. Il runtime di integrazione può essere eseguito in una rete pubblica di Azure o in una rete privata (locale, rete virtuale di Azure o Amazon Web Services cloud privato virtuale [VPC]). 
 
-Per ulteriori informazioni, vedere [runtime di integrazione in Azure Data Factory](concepts-integration-runtime.md).
+Per altre informazioni, vedere il [Runtime di integrazione in Azure Data Factory](concepts-integration-runtime.md).
 
 ## <a name="what-is-the-limit-on-the-number-of-integration-runtimes"></a>Qual è il limite al numero di runtime di integrazione?
 Non sono previsti limiti rigidi per il numero di istanze di runtime di integrazione che è possibile avere in una data factory. È stato posto tuttavia un limite al numero di core di VM che il runtime di integrazione può usare per ogni sottoscrizione per l'esecuzione del pacchetto SSIS. Per altre informazioni, vedere [Limiti della data factory](../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits).
@@ -190,7 +190,7 @@ Quando Microsoft fornisce la guida o la risoluzione dei problemi relativi ai flu
 
 ### <a name="how-do-i-access-data-by-using-the-other-90-dataset-types-in-data-factory"></a>Ricerca per categorie accedere ai dati usando gli altri tipi di set di dati 90 Data Factory?
 
-La funzionalità del flusso di dati di mapping consente attualmente il database SQL di Azure, Azure SQL Data Warehouse, i file di testo delimitati dall'archiviazione BLOB di Azure o Azure Data Lake Storage Gen2 e i file parquet dall'archiviazione BLOB o Data Lake Storage Gen2 in modo nativo per l'origine e il sink. 
+La funzionalità del flusso di dati di mapping consente attualmente il database SQL di Azure, Azure sinapsi Analytics (in precedenza SQL Data Warehouse), i file di testo delimitati dall'archiviazione BLOB di Azure o Azure Data Lake Storage Gen2 e i file parquet dall'archiviazione BLOB o Data Lake Storage Gen2 in modo nativo per l'origine e il sink. 
 
 Usare l'attività di copia per organizzare i dati da uno qualsiasi degli altri connettori, quindi eseguire un'attività flusso di dati per trasformare i dati dopo che sono stati gestiti in modo temporaneo. Ad esempio, la pipeline verrà prima copiata nell'archivio BLOB e quindi un'attività flusso di dati utilizzerà un set di dati in origine per trasformare i dati.
 
@@ -257,7 +257,7 @@ Il flusso di dati in corso supporta i tipi di dati seguenti in SQL. Si otterrà 
 * NCHAR
 * varchar
 * NVARCHAR
-* integer
+* numero intero
 * INT
 * bit
 * boolean
@@ -265,7 +265,7 @@ Il flusso di dati in corso supporta i tipi di dati seguenti in SQL. Si otterrà 
 * TINYINT
 * bigint
 * long
-* text
+* testo
 * Data
 * Datetime
 * datetime2

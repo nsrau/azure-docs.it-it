@@ -5,15 +5,15 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 8328fa9c9e32a22e8e5093aa343f333cd1914ddc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5681228e5da2708912d69f16a4b09a4a93d8bb04
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89038671"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500301"
 ---
 # <a name="supported-authentication-methods"></a>Metodi di autenticazione supportati
 
@@ -25,7 +25,7 @@ Desktop virtuale Windows supporta sia NT LAN Manager (NTLM) che Kerberos per l'a
 
 Questi sono i metodi di accesso attualmente supportati:
 
-- Client Windows Desktop
+- Client desktop di Windows
     - Nome utente e password
     - Smart card
     - Windows Hello
@@ -43,9 +43,13 @@ Questi sono i metodi di accesso attualmente supportati:
 >[!NOTE]
 >Smart Card e Windows Hello possono usare solo Kerberos per accedere. L'accesso con Kerberos richiede una linea di visibilità al controller di dominio.
 
+## <a name="hybrid-identity"></a>Identità ibrida
+
+Il desktop virtuale Windows supporta le [identità ibride](../active-directory/hybrid/whatis-hybrid-identity.md) tramite Azure Active Directory (ad), incluse quelle federate con Active Directory Federation Services (ADFS). Poiché gli utenti devono essere individuabili tramite Azure AD, desktop virtuale Windows non supporta le distribuzioni Active Directory autonome con ADFS.
+
 ## <a name="single-sign-on-sso"></a>Single Sign-on (SSO)
 
-Il desktop virtuale Windows non supporta attualmente Active Directory Federation Services (ADFS) per l'autenticazione o l'accesso SSO.
+Il desktop virtuale Windows non supporta attualmente Active Directory Federation Services (ADFS) per SSO.
 
 L'unico modo per evitare che vengano richieste le credenziali per l'host della sessione consiste nel salvarle nel client. È consigliabile eseguire questa operazione solo con i dispositivi protetti per impedire ad altri utenti di accedere alle risorse.
 

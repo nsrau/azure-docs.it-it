@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: e26d4070bc9fabeb3467e7bdc805faad4e6646c3
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bae0eb91460bf7ab72abbaa7fa56b2515367d37d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86526504"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436188"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>Risolvere i problemi di avvio della macchina virtuale Linux a causa di errori file system
 
@@ -73,7 +73,7 @@ Questo problema può verificarsi se il file system non è stato arrestato in mod
 
 Per Linux sono disponibili diversi file system Checker. I più comuni per le distribuzioni in Azure sono: [FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/storage_administration_guide/fsck-fs-specific), [E2FSCK](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/fsck-fs-specific)e [Xfs_repair](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/storage_administration_guide/xfsrepair).
 
-## <a name="resolution"></a>Risoluzione
+## <a name="resolution"></a>Soluzione
 
 Per risolvere il problema, avviare la macchina virtuale in modalità di emergenza usando la [console seriale](./serial-console-linux.md) e usare tale strumento per ripristinare la file System. Se la console seriale non è abilitata nella macchina virtuale o non funziona, vedere la sezione [ripristinare la macchina virtuale offline](#repair-the-vm-offline) di questo articolo.
 
@@ -83,7 +83,7 @@ Per risolvere il problema, avviare la macchina virtuale in modalità di emergenz
 
    > [!Note]
    > Per ulteriori informazioni sull'utilizzo della console seriale per Linux, vedere:
-   > * [Usare la console seriale per accedere a GRUB e alla modalità utente singolo](../linux/serial-console-grub-single-user-mode.md)
+   > * [Usare la console seriale per accedere a GRUB e alla modalità utente singolo](serial-console-grub-single-user-mode.md)
    > * [Usare la console seriale per le chiamate SysRq e NMI](./serial-console-nmi-sysrq.md)
 
 2. Selezionare il pulsante icona di alimentazione, quindi selezionare Riavvia macchina virtuale. Se la console seriale non è abilitata o non è connessa correttamente, il pulsante non verrà visualizzato.

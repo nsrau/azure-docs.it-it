@@ -1,25 +1,28 @@
 ---
-title: Servizio riconoscimento vocale vocale
+title: Panoramica di sintesi vocale-servizio riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: La funzionalità di riconoscimento vocale consente la trascrizione in tempo reale dei flussi audio in testo. Le applicazioni, gli strumenti o i dispositivi possono utilizzare, visualizzare ed eseguire azioni su questo input di testo. Questo servizio funziona senza interruzioni con le funzionalità di sintesi vocale e traduzione vocale.
+description: Il software di riconoscimento vocale consente la trascrizione in tempo reale dei flussi audio in testo. Le applicazioni, gli strumenti o i dispositivi possono utilizzare, visualizzare ed eseguire azioni su questo input di testo. Questo articolo offre una panoramica dei vantaggi e delle funzionalità del servizio di riconoscimento vocale.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/12/2020
+ms.date: 09/01/2020
 ms.author: trbye
-ms.openlocfilehash: 90a5ec8c58865c3aa1b210db51b9ffeb7169d641
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.custom: cog-serv-seo-aug-2020
+keywords: sintesi vocale, riconoscimento vocale e testo
+ms.openlocfilehash: 804acd17f3df91cc3df949d6d9ccac0450bb225f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640413"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569221"
 ---
 # <a name="what-is-speech-to-text"></a>Che cos'è il riconoscimento vocale?
 
-Il riconoscimento vocale del servizio riconoscimento vocale, noto anche come riconoscimento vocale, consente la trascrizione in tempo reale dei flussi audio in testo. Le applicazioni, gli strumenti o i dispositivi possono utilizzare, visualizzare ed eseguire operazioni su questo testo come input del comando. Questo servizio è basato sulla stessa tecnologia di riconoscimento utilizzata da Microsoft per i prodotti Cortana e Office. Funziona senza interruzioni con le offerte di servizi di <a href="./speech-translation.md" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> traduzione</a> e <a href="./text-to-speech.md" target="_blank">sintesi vocale <span class="docon docon-navigate-external x-hidden-focus"></span> </a> . Per un elenco completo delle lingue di sintesi vocale disponibili, vedere [linguaggi supportati](language-support.md#speech-to-text).
+In questa panoramica vengono illustrati i vantaggi e le funzionalità del servizio di riconoscimento vocale.
+La sintesi vocale, nota anche come riconoscimento vocale, consente la trascrizione in tempo reale dei flussi audio in testo. Le applicazioni, gli strumenti o i dispositivi possono utilizzare, visualizzare ed eseguire operazioni su questo testo come input del comando. Questo servizio è basato sulla stessa tecnologia di riconoscimento utilizzata da Microsoft per i prodotti Cortana e Office. Funziona senza interruzioni con le offerte di servizi di <a href="./speech-translation.md" target="_blank"> <span class="docon docon-navigate-external x-hidden-focus"></span> traduzione</a> e <a href="./text-to-speech.md" target="_blank">sintesi vocale <span class="docon docon-navigate-external x-hidden-focus"></span> </a> . Per un elenco completo delle lingue di sintesi vocale disponibili, vedere [linguaggi supportati](language-support.md#speech-to-text).
 
 Per impostazione predefinita, il servizio di sintesi vocale usa il modello di linguaggio universale. Questo modello è stato sottoposto a training usando i dati di proprietà di Microsoft e viene distribuito nel cloud. È ideale per gli scenari di conversazione e di dettatura. Quando si usa il riconoscimento vocale per il riconoscimento e la trascrizione in un ambiente univoco, è possibile creare ed eseguire il training di modelli acustici, di lingua e di pronuncia personalizzati. La personalizzazione è utile per risolvere il rumore di ambiente o il vocabolario specifico del settore.
 
@@ -31,23 +34,11 @@ Con il testo di riferimento aggiuntivo come input, il servizio riconoscimento vo
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-## <a name="get-started-with-speech-to-text"></a>Introduzione alla sintesi vocale
+## <a name="get-started"></a>Introduzione
 
-Il servizio riconoscimento vocale è disponibile tramite l' [SDK di riconoscimento vocale](speech-sdk.md). Sono disponibili diversi scenari comuni come guide introduttive, in diversi linguaggi e piattaforme:
+Per iniziare a usare la sintesi vocale, vedere la [Guida introduttiva](get-started-speech-to-text.md) . Il servizio è disponibile tramite l' [SDK vocale](speech-sdk.md), l' [API REST](rest-speech-to-text.md#pronunciation-assessment-parameters)e l'interfaccia della riga di comando [vocale](spx-overview.md).
 
- - [Guida introduttiva: riconoscere il riconoscimento vocale con input microfono](quickstarts/speech-to-text-from-microphone.md)
- - [Avvio rapido: Riconoscimento vocale da un file](quickstarts/speech-to-text-from-file.md)
- - [Guida introduttiva: riconoscere il riconoscimento vocale archiviato nell'archivio BLOB](quickstarts/from-blob.md)
-
-Se si preferisce usare il servizio REST di riconoscimento vocale, vedere [API REST](rest-speech-to-text.md).
-
- - [Guida introduttiva: valutazione della pronuncia con input di riferimento](rest-speech-to-text.md#pronunciation-assessment-parameters)
-
-## <a name="tutorials-and-sample-code"></a>Esercitazioni e codice di esempio
-
-Dopo aver usato il servizio Voce, provare l'esercitazione che illustra come riconoscere le finalità dai contenuti vocali con Speech SDK e LUIS.
-
-- [Esercitazione: riconoscere gli Intent dalla sintesi vocale con l'SDK di riconoscimento vocale e LUIS, usando C #](how-to-recognize-intents-from-speech-csharp.md)
+## <a name="sample-code"></a>Codice di esempio
 
 Il codice di esempio per l'SDK di riconoscimento vocale è disponibile su GitHub. Questi esempi esaminano gli scenari comuni, ad esempio la lettura di audio da un file o streaming, il riconoscimento continuo e singolo e l'uso di modelli personalizzati.
 
@@ -59,7 +50,7 @@ Il codice di esempio per l'SDK di riconoscimento vocale è disponibile su GitHub
 
 Oltre al modello di servizio vocale standard, è possibile creare modelli personalizzati. La personalizzazione consente di superare gli ostacoli al riconoscimento vocale, ad esempio lo stile di pronuncia, il vocabolario e il rumore di fondo, vedere [riconoscimento vocale personalizzato](how-to-custom-speech.md). Opzioni di personalizzazione variano in base a lingua/impostazioni locali, vedere le [lingue supportate](supported-languages.md) per verificare il supporto.
 
-## <a name="batch-transcription"></a>Trascrizione Batch
+## <a name="batch-transcription"></a>Trascrizione batch
 
 La trascrizione batch è un set di operazioni API REST che consentono di trascrivere una grande quantità di audio nell'archivio. È possibile puntare a file audio con un URI di firma di accesso condiviso (SAS) e ricevere in modo asincrono i risultati della trascrizione. Vedere le [procedure](batch-transcription.md) per altre informazioni su come usare l'API di trascrizione batch.
 

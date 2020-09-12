@@ -7,12 +7,12 @@ services: monitoring
 ms.topic: conceptual
 ms.date: 8/20/2020
 ms.subservice: alerts
-ms.openlocfilehash: 05586f95de03b09b95eb589812935970126b12f2
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 8a608e43ef41abfb7002811df5629eb789c3ae22
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661317"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595581"
 ---
 # <a name="supported-resources-for-metric-alerts-in-azure-monitor"></a>Risorse supportate per gli avvisi delle metriche in Monitoraggio di Azure
 
@@ -37,7 +37,7 @@ Ecco l'elenco completo delle origini delle metriche di Monitoraggio di Azure sup
 |Microsoft.Automation/automationAccounts | Sì| No | [Account di Automazione](./metrics-supported.md#microsoftautomationautomationaccounts) |
 |Microsoft. AVS/privateClouds | No | No | |
 |Microsoft.Batch/batchAccounts | Sì | No | [Account Batch](./metrics-supported.md#microsoftbatchbatchaccounts) |
-|Microsoft.Cache/Redis | Sì | No | [Cache Redis di Azure](./metrics-supported.md#microsoftcacheredis) |
+|Microsoft.Cache/Redis | Sì | No | [Cache di Azure per Redis](./metrics-supported.md#microsoftcacheredis) |
 |Microsoft.ClassicStorage/storageAccounts | Sì | No | [Account di archiviazione (versione classica)](./metrics-supported.md#microsoftclassicstoragestorageaccounts) |
 |Microsoft.ClassicStorage/storageAccounts/blobServices | Sì | No | |
 |Microsoft.ClassicStorage/storageAccounts/fileServices | Sì | No | |
@@ -112,7 +112,7 @@ Ecco l'elenco completo delle origini delle metriche di Monitoraggio di Azure sup
 |Microsoft.Web/sites | Sì | No | [Servizi app](./metrics-supported.md#microsoftwebsites-excluding-functions) e [Funzioni](./metrics-supported.md#microsoftwebsites-functions)|
 |Microsoft.Web/sites/slots | Sì | No | [Slot del servizio app](./metrics-supported.md#microsoftwebsitesslots)|
 
-<sup>1</sup> supportato solo per le metriche della piattaforma (non per le metriche personalizzate)
+<sup>1</sup> non supportato per le metriche di rete della macchina virtuale (rete totale, totale di rete, flussi in ingresso, flussi in uscita, velocità di creazione massima dei flussi in ingresso, velocità di creazione massima dei flussi in uscita) e metriche personalizzate.
 
 ## <a name="payload-schema"></a>Schema del payload
 

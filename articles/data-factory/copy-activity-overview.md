@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: jingwang
-ms.openlocfilehash: 54597953aac6fabe419a9d1b62b16de7ca7bd1e0
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 3a1e5ed7d9ca14c03483cb6afe6b6318c6a90764
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87534346"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440593"
 ---
 # <a name="copy-activity-in-azure-data-factory"></a>Attività di copia in Azure Data Factory
 
@@ -129,7 +129,7 @@ Il modello seguente di un'attività di copia contiene un elenco completo delle p
 
 | Proprietà | Descrizione | Necessaria? |
 |:--- |:--- |:--- |
-| tipo | Per un'attività di copia, impostare su`Copy` | Sì |
+| type | Per un'attività di copia, impostare su `Copy` | Sì |
 | input | Specificare il set di dati creato che fa riferimento ai dati di origine. L'attività di copia supporta solo un singolo input. | Sì |
 | outputs | Specificare il set di dati creato che punta ai dati del sink. L'attività di copia supporta solo un singolo output. | Sì |
 | typeProperties | Specificare le proprietà per configurare l'attività di copia. | Sì |
@@ -200,7 +200,7 @@ Per configurarlo a livello di codice, aggiungere la `additionalColumns` propriet
 
 | Proprietà | Descrizione | Obbligatoria |
 | --- | --- | --- |
-| additionalColumns | Aggiungere altre colonne di dati da copiare nel sink.<br><br>Ogni oggetto sotto la `additionalColumns` matrice rappresenta una colonna aggiuntiva. `name`Definisce il nome della colonna e `value` indica il valore dei dati di tale colonna.<br><br>I valori dei dati consentiti sono:<br>- **`$$FILEPATH`**-una variabile riservata indica di archiviare il percorso relativo dei file di origine nel percorso di cartella specificato nel set di dati. Applicare all'origine basata su file.<br>- **Espressione**<br>- **Valore statico** | No |
+| additionalColumns | Aggiungere altre colonne di dati da copiare nel sink.<br><br>Ogni oggetto sotto la `additionalColumns` matrice rappresenta una colonna aggiuntiva. `name`Definisce il nome della colonna e `value` indica il valore dei dati di tale colonna.<br><br>I valori dei dati consentiti sono:<br>- **`$$FILEPATH`** -una variabile riservata indica di archiviare il percorso relativo dei file di origine nel percorso di cartella specificato nel set di dati. Applicare all'origine basata su file.<br>- **Espressione**<br>- **Valore statico** | No |
 
 **Esempio:**
 
@@ -249,7 +249,7 @@ Questa funzionalità è supportata per la copia di dati da qualsiasi origine nei
 
 - [Database SQL di Azure](connector-azure-sql-database.md)
 - [Istanza gestita di database SQL di Azure](connector-azure-sql-managed-instance.md)
-- [Analisi delle sinapsi di Azure (in precedenza Azure SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)
+- [Azure Synapse Analytics (in precedenza SQL Data Warehouse)](connector-azure-sql-data-warehouse.md)
 - [SQL Server](connector-sql-server.md)
 
 ![Creazione di tabelle di sink](media/copy-activity-overview/create-sink-table.png)

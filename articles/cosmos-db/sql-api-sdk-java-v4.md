@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: af0964dceca8b862d0008d878045203983a96bda
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: f88004d219989b06d4bc7e75e76aca1ce1e894fe
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88586216"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536401"
 ---
 # <a name="azure-cosmos-db-java-sdk-v4-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK v4 per API Core (SQL): note sulla versione e risorse
 > [!div class="op_single_selector"]
@@ -68,7 +68,33 @@ Azure Cosmos DB Java SDK v4 per API Core (SQL) combina un'API asincrona e un'API
 
 ## <a name="release-history"></a>Cronologia delle versioni
 
-### <a name="440-beta1-unreleased"></a>4.4.0-beta. 1 (non rilasciato)
+### <a name="440-beta2-unreleased"></a>4.4.0-beta. 2 (non rilasciato)
+#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+* Correzione di RequestTimeoutException quando si Abilita tcnative.
+
+### <a name="440-beta1-2020-08-27"></a>4.4.0-beta. 1 (2020-08-27)
+#### <a name="new-features"></a>Nuove funzioni e caratteristiche
+* Aggiunta di una nuova API per caricare in modo efficiente molti documenti (tramite un elenco di coppie PK/ID o tutti i documenti per un set di valori PK).
+* Aggiunta nuova `deleteItem` API.
+* Per impostazione predefinita, le metriche di query sono abilitate.
+#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+* Correzione di NPE in `GatewayAddressCache` .
+* Correzione del problema della metrica di query per la risposta a zero elementi.
+* Miglioramento delle prestazioni (utilizzo ridotto della CPU) per l'analisi degli indirizzi e l'autenticazione della chiave master.
+
+### <a name="432-beta2-2020-08-17"></a>4.3.2-beta. 2 (2020-08-17)
+#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+* Non sono state apportate modifiche alla versione precedente, rilasciate per problemi di compatibilità con i moduli Spring data.
+
+### <a name="432-beta1-2020-08-14"></a>4.3.2-beta. 1 (2020-08-14)
+#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+* Correzione del problema in RntbdServiceEndpoint per evitare la chiusura anticipata di una connessione TCP inutilizzata.
+
+### <a name="431-2020-08-13"></a>4.3.1 (2020-08-13)
+#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+* Correzione del problema relativo alla `GROUP BY` query, in cui veniva restituita una sola pagina.
+* Correzione del formato stringa agente utente per la conformità alle linee guida di Central SDK.
+* Informazioni di diagnostica avanzate per includere la diagnostica del piano di query.
 
 ### <a name="430-2020-07-29"></a>4.3.0 (2020-07-29)
 #### <a name="new-features"></a>Nuove funzionalità

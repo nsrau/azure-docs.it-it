@@ -4,12 +4,12 @@ description: Questo articolo illustra come eseguire il backup e il ripristino de
 ms.topic: conceptual
 ms.date: 07/17/2020
 ms.custom: references_regions
-ms.openlocfilehash: 12b5b4cd35d70d8ebbd6b269e82c46984652bd07
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: fa5ab60481b431971abb1e3fcb5c85492eb5b22a
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961993"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506696"
 ---
 # <a name="selective-disk-backup-and-restore-for-azure-virtual-machines"></a>Backup e ripristino di dischi selettivi per macchine virtuali di Azure
 
@@ -268,6 +268,10 @@ La configurazione dell'esperienza di backup dei dischi selettivi per una macchin
 Quando si Abilita il backup con portale di Azure, è possibile scegliere l'opzione **solo disco del sistema operativo di backup** . È quindi possibile configurare il backup della macchina virtuale di Azure con il disco del sistema operativo ed escludere tutti i dischi dati collegati.
 
 ![Configurare il backup solo per il disco del sistema operativo](./media/selective-disk-backup-restore/configure-backup-operating-system-disk.png)
+
+## <a name="using-azure-rest-api"></a>Uso dell'API REST di Azure
+
+È possibile configurare il backup delle VM di Azure con pochi dischi selezionati oppure modificare la protezione di una macchina virtuale esistente per includere/escludere pochi dischi, come descritto [qui](backup-azure-arm-userestapi-backupazurevms.md#excluding-disks-in-azure-vm-backup).
 
 ## <a name="selective-disk-restore"></a>Ripristino del disco selettivo
 

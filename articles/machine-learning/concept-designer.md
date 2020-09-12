@@ -10,12 +10,12 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 181f0d62f160a6644e0423be052012521752525f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 788eebaf28a768acbdb5b1eb778f196fe05dc3e3
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012944"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651220"
 ---
 # <a name="what-is-azure-machine-learning-designer-preview"></a>Che cos'è la finestra di progettazione di Azure Machine Learning (anteprima)? 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -114,7 +114,7 @@ Le pipeline pubblicate sono flessibili e possono essere usate per eseguire o rip
 
 Una pipeline pubblicata viene eseguita nelle risorse di calcolo definite nella bozza di pipeline per ogni modulo.
 
-La finestra di progettazione crea lo stesso oggetto [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py) dell'SDK.
+La finestra di progettazione crea lo stesso oggetto [PublishedPipeline](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.graph.publishedpipeline?view=azure-ml-py&preserve-view=true) dell'SDK.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

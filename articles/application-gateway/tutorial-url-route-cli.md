@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 08/01/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurecli
-ms.openlocfilehash: 34553c1b211b9e2c4b13a083f5c3a6732fb65472
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 4aee41bc0188676ac0bd168474f1842199af9620
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502699"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595242"
 ---
 # <a name="route-web-traffic-based-on-the-url-using-the-azure-cli"></a>Instradare il traffico Web in base all'URL tramite l'interfaccia della riga di comando di Azure
 
@@ -23,13 +23,12 @@ Come amministratore IT che gestisce il traffico Web, si vuole aiutare i clienti 
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
-> [!div class="checklist"]
-> * Creare un gruppo di risorse per le risorse di rete necessarie
-> * Creare le risorse di rete
-> * Creare un gateway applicazione per il traffico proveniente dall'applicazione
-> * Specificare pool di server e regole di routing per i diversi tipi di traffico
-> * Creare un set di scalabilità per ogni pool in modo da consentirne la scalabilità automatica
-> * Eseguire un test per verificare che i diversi tipi di traffico vengano indirizzati al pool corretto
+* Creare un gruppo di risorse per le risorse di rete necessarie
+* Creare le risorse di rete
+* Creare un gateway applicazione per il traffico proveniente dall'applicazione
+* Specificare pool di server e regole di routing per i diversi tipi di traffico
+* Creare un set di scalabilità per ogni pool in modo da consentirne la scalabilità automatica
+* Eseguire un test per verificare che i diversi tipi di traffico vengano indirizzati al pool corretto
 
 Se si preferisce, è possibile completare questa procedura usando [Azure PowerShell](tutorial-url-route-powershell.md) oppure il [portale di Azure](create-url-route-portal.md).
 
@@ -98,7 +97,7 @@ az network application-gateway create \
  La creazione del gateway applicazione può richiedere diversi minuti. Dopo aver creato il gateway applicazione, saranno disponibili le nuove funzionalità seguenti:
 
 
-|Funzionalità  |Descrizione  |
+|Feature  |Descrizione  |
 |---------|---------|
 |appGatewayBackendPool     |Un gateway applicazione deve avere almeno un pool di indirizzi back-end.|
 |appGatewayBackendHttpSettings     |Specifica che per le comunicazioni vengono usati la porta 80 e il protocollo HTTP.|

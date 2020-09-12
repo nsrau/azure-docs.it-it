@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: 37005a722d4a1962b4f6e1ddb8bb1c7a1229d28a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16345ae479be70ffb1eaae95196a43ec99ca1586
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81273291"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470137"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Rendere persistenti i file in Azure Cloud Shell
 Cloud Shell utilizza l'archiviazione dei file di Azure per mantenere i file in più sessioni. Al primo avvio Cloud Shell richiede di associare una condivisione file nuova o esistente per mantenere i file in più sessioni.
@@ -83,7 +83,7 @@ Se viene usata un'area di archiviazione secondaria, l'account di archiviazione d
 Un utente può eseguire `(Get-CloudDrive | Get-AzStorageAccount).Location` in PowerShell per visualizzare il percorso della condivisione file.
 
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Limitare la creazione di risorse con i criteri delle risorse di Azure
-Gli account di archiviazione che si creano in Cloud Shell sono contrassegnati con `ms-resource-usage:azure-cloud-shell`. Se si desidera impedire agli utenti di creare account di archiviazione con Cloud Shell, creare [criteri di risorse di Azure per tag](../azure-policy/json-samples.md) che vengono attivati dal tag specificato.
+Gli account di archiviazione che si creano in Cloud Shell sono contrassegnati con `ms-resource-usage:azure-cloud-shell`. Se si desidera impedire agli utenti di creare account di archiviazione con Cloud Shell, creare [criteri di risorse di Azure per tag](../governance/policy/samples/index.md) che vengono attivati dal tag specificato.
 
 ## <a name="how-cloud-shell-storage-works"></a>Come funziona l’archiviazione Cloud Shell 
 Cloud Shell rende persistenti i file tramite entrambe le modalità seguenti: 
@@ -103,7 +103,7 @@ In Cloud Shell, è possibile eseguire un comando denominato `clouddrive` , che c
 ### <a name="list-clouddrive"></a>Elenco `clouddrive`
 Per sapere quale condivisione file è montata come `clouddrive`, eseguire il comando `df`. 
 
-Il percorso file a clouddrive indica il nome dell'account di archiviazione e la condivisione file nell'URL. Ad esempio: `//storageaccountname.file.core.windows.net/filesharename`
+Il percorso file a clouddrive indica il nome dell'account di archiviazione e la condivisione file nell'URL. Ad esempio, usare `//storageaccountname.file.core.windows.net/filesharename`
 
 ```
 justin@Azure:~$ df
@@ -170,4 +170,4 @@ Nota: se è necessario definire una funzione in un file e chiamarla dai cmdlet d
 ## <a name="next-steps"></a>Passaggi successivi
 [Avvio rapido di Cloud Shell](quickstart.md) <br>
 [Informazioni sull'archiviazione di Microsoft Azure Files](../storage/files/storage-files-introduction.md) <br>
-[Informazioni sui tag di archiviazione](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags) <br>
+[Informazioni sui tag di archiviazione](../azure-resource-manager/management/tag-resources.md) <br>

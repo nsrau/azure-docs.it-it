@@ -2,14 +2,13 @@
 title: Limiti e quote della sottoscrizione di Azure
 description: Fornisce un elenco di limiti, quote e vincoli comuni relativi alle sottoscrizioni e ai servizi di Azure. Questo articolo include informazioni su come aumentare i limiti insieme ai valori massimi.
 ms.topic: conceptual
-author: davidsmatlak
-ms.date: 06/04/2020
-ms.openlocfilehash: 86c9958818b5439502ab37471ed7a51fb3f21bf9
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.date: 09/02/2020
+ms.openlocfilehash: b9b2b7217b854153f03d61713d8b4a1bcf5bfd9d
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88854066"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89470171"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Sottoscrizione di Azure e limiti, quote e vincoli dei servizi
 
@@ -27,6 +26,9 @@ Per altre informazioni sui prezzi di Azure, vedere [Panoramica dei prezzi di Azu
 > Quando è possibile modificare il limite, le tabelle includono le intestazioni **limite predefinito** e **limite massimo** . Il limite può essere aumentato oltre il limite predefinito, ma non superiore al limite massimo.
 >
 > Per aumentare il limite o la quota superiore al limite predefinito, è possibile [aprire una richiesta di assistenza clienti online senza alcun addebito](../templates/error-resource-quota.md).
+>
+> I termini *limite flessibile* e limite *rigido* vengono spesso usati in modo informale per descrivere il limite corrente, regolabile (limite flessibile) e il limite massimo (limite rigido). Se un limite non è regolabile, non sarà previsto un limite massimo.
+>
 
 Le [sottoscrizioni della versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p) non sono idonee per aumenti limite o quota Se si ha una [sottoscrizione per la versione di valutazione gratuita](https://azure.microsoft.com/offers/ms-azr-0044p), è possibile eseguire l'aggiornamento a una sottoscrizione con [pagamento in base al consumo](https://azure.microsoft.com/offers/ms-azr-0003p/). Per altre informazioni, vedere [aggiornare la sottoscrizione della versione di valutazione gratuita di Azure a una sottoscrizione con pagamento in base](../../cost-management-billing/manage/upgrade-azure-subscription.md) al consumo e le [domande frequenti sulla sottoscrizione della versione di valutazione gratuita](https://azure.microsoft.com/free/free-account-faq).
 
@@ -75,6 +77,10 @@ I limiti del servizio App seguenti includono limiti per le App Web, App mobili e
 ## <a name="automation-limits"></a>Limiti di automazione
 
 [!INCLUDE [automation-limits](../../../includes/azure-automation-service-limits.md)]
+
+## <a name="azure-app-configuration"></a>Configurazione app di Azure
+
+[!INCLUDE [app-configuration-limits](../../../includes/app-configuration-limits.md)]
 
 ## <a name="azure-cache-for-redis-limits"></a>Cache Redis per limiti di Azure
 
@@ -427,7 +433,7 @@ Sono previsti limiti, per sottoscrizione, per la distribuzione delle risorse tra
 
 [!INCLUDE [virtual-machine-scale-sets-limits](../../../includes/azure-virtual-machine-scale-sets-limits.md)]
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Informazioni sui limiti e sugli aumenti di Azure](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Dimensioni delle macchine virtuali e dei servizi cloud per Azure](../../virtual-machines/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)

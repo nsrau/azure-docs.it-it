@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/24/2020
-ms.openlocfilehash: 9ffc2af0309f8a682db04b36675a3c29725c44fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 67bb77777ee1052a5429dc4599ed30593b9ae2ac
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84324454"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436562"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Rimuovere una protezione TDE (Transparent Data Encryption) tramite PowerShell
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -35,7 +35,7 @@ Tenere presente che quando la protezione Transparent Data Encryption viene elimi
 Questa guida dettagliata passa a due approcci a seconda del risultato desiderato dopo una risposta a un evento imprevisto compromesso:
 
 - Per rendere **inaccessibili**i database nel database SQL di Azure o in Azure sinapsi Analytics.
-- Per rendere **inaccessibili**i database nel database SQL di Azure/Azure SQL data warehouse.
+- Per rendere **inaccessibili**i database nel database SQL di Azure/Azure sinapsi Analytics (in precedenza SQL Data Warehouse).
 
 ## <a name="prerequisites"></a>Prerequisiti
 

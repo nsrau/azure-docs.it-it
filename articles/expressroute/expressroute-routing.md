@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: requisiti di routing'
 description: Questa pagina illustra i requisiti dettagliati per la configurazione e la gestione del routing per i circuiti ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 09/19/2019
-ms.author: cherylmc
-ms.openlocfilehash: 7e70348ba1638057fdab579c1f2799a0f5aa77a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 5b7af755c9843456c25c8d18b78be48d83b96acd
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85341366"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569612"
 ---
 # <a name="expressroute-routing-requirements"></a>Requisiti per il routing di ExpressRoute
 Per connettersi ai servizi cloud Microsoft con ExpressRoute, è necessario configurare e gestire il routing. Alcuni provider di connettività offrono la configurazione e la gestione del routing come servizio gestito. Rivolgersi al proprio provider di connettività per verificare se viene offerto questo servizio. Se non è offerto, è necessario rispettare i requisiti seguenti:
@@ -83,7 +83,7 @@ Per configurare le sessioni BGP è necessario usare indirizzi IP pubblici di pro
 È possibile scegliere di usare gli indirizzi IPv4 pubblici o privati per il peering privato. Microsoft offre un isolamento end-to-end del traffico, quindi la sovrapposizione degli indirizzi con altri clienti non si verifica in caso di peering privato. Questi indirizzi non vengono annunciati su Internet. 
 
 ### <a name="microsoft-peering"></a>Peering Microsoft
-Il percorso di peering di Microsoft consente di connettersi ai servizi cloud Microsoft. L'elenco dei servizi include i servizi di Office 365, ad esempio Exchange Online, SharePoint Online, Skype for business e Microsoft teams. Microsoft supporta la connettività bidirezionale nel peering Microsoft. Il traffico destinato ai servizi cloud Microsoft nel peering pubblico deve usare indirizzi IPv4 pubblici validi per poter accedere alla rete Microsoft.
+Il percorso di peering di Microsoft consente di connettersi ai servizi cloud Microsoft. L'elenco dei servizi include Microsoft 365 Services, ad esempio Exchange Online, SharePoint Online, Skype for business e Microsoft teams. Microsoft supporta la connettività bidirezionale nel peering Microsoft. Il traffico destinato ai servizi cloud Microsoft nel peering pubblico deve usare indirizzi IPv4 pubblici validi per poter accedere alla rete Microsoft.
 
 Assicurarsi che l'indirizzo IP e il numero AS siano registrati a nome dell'utente in uno dei registri seguenti:
 
@@ -100,7 +100,7 @@ Se i prefissi e il numero AS non sono assegnati all'utente specifico nei registr
 Un numero AS privato è consentito con il peering Microsoft, ma sarà necessaria anche la convalida manuale. Inoltre, i numeri AS privati in AS PATH per i prefissi ricevuti vengono rimossi. Di conseguenza, non è possibile aggiungere numeri AS privati in AS PATH per [determinare il routing per peering Microsoft](expressroute-optimize-routing.md). 
 
 > [!IMPORTANT]
-> Non annunciare la stessa route IP pubblica tramite Internet pubblico ed ExpressRoute. Per ridurre il rischio che una configurazione errata causi un routing asimmetrico, è opportuno che gli [indirizzi IP NAT](expressroute-nat.md) annunciati a Microsoft su ExpressRoute siano inclusi in un intervallo non annunciato a Internet. Se questo non è possibile, è essenziale assicurarsi di annunciare un intervallo su ExpressRoute più specifico di quello sulla connessione Internet. Oltre alla route pubblica per NAT, è anche possibile annunciare tramite ExpressRoute gli indirizzi IP pubblici usati dai server nella rete locale che comunicano con gli endpoint di Office 365 all'interno di Microsoft. 
+> Non annunciare la stessa route IP pubblica tramite Internet pubblico ed ExpressRoute. Per ridurre il rischio che una configurazione errata causi un routing asimmetrico, è opportuno che gli [indirizzi IP NAT](expressroute-nat.md) annunciati a Microsoft su ExpressRoute siano inclusi in un intervallo non annunciato a Internet. Se questo non è possibile, è essenziale assicurarsi di annunciare un intervallo su ExpressRoute più specifico di quello sulla connessione Internet. Oltre alla route pubblica per NAT, è anche possibile annunciare over ExpressRoute gli indirizzi IP pubblici usati dai server nella rete locale che comunicano con Microsoft 365 endpoint all'interno di Microsoft. 
 > 
 > 
 
@@ -138,7 +138,7 @@ Le route predefinite sono consentite solo nelle sessioni di peering privato di A
 * Si usi il routing definito dall'utente per consentire la connettività Internet per ogni subnet che la richiede.
 
 > [!NOTE]
-> L'annuncio delle route predefinite interromperà l'attivazione della licenza di Windows e di altre macchine virtuali. Per risolvere questo problema, seguire le istruzioni fornite [qui](https://blogs.msdn.com/b/mast/archive/2015/05/20/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling.aspx) .
+> L'annuncio delle route predefinite interromperà l'attivazione della licenza di Windows e di altre macchine virtuali. Per risolvere questo problema, seguire le istruzioni fornite [qui](https://docs.microsoft.com/archive/blogs/mast/use-azure-custom-routes-to-enable-kms-activation-with-forced-tunneling) .
 > 
 > 
 
@@ -159,7 +159,7 @@ Per un elenco dettagliato delle aree geopolitiche, delle aree di Azure associate
 | Stati Uniti orientali | 12076:51004 | 12076:52004 | 12076:53004 | 12076:54004 | 12076:55004 |
 | Stati Uniti orientali 2 | 12076:51005 | 12076:52005 | 12076:53005 | 12076:54005 | 12076:55005 |
 | Stati Uniti occidentali | 12076:51006 | 12076:52006 | 12076:53006 | 12076:54006 | 12076:55006 |
-| Stati Uniti occidentali 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 | 12076:55026 |
+| West US 2 | 12076:51026 | 12076:52026 | 12076:53026 | 12076:54026 | 12076:55026 |
 | Stati Uniti centro-occidentali | 12076:51027 | 12076:52027 | 12076:53027 | 12076:54027 | 12076:55027 |
 | Stati Uniti centro-settentrionali | 12076:51007 | 12076:52007 | 12076:53007 | 12076:54007 | 12076:55007 |
 | Stati Uniti centro-meridionali | 12076:51008 | 12076:52008 | 12076:53008 | 12076:54008 | 12076:55008 |
@@ -218,7 +218,7 @@ Tutte le route annunciate da Microsoft verranno contrassegnate con il valore del
 ### <a name="service-to-bgp-community-value"></a>Valore della community da servizio a BGP
 Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. Questo si applica solo al peering Microsoft. La tabella seguente fornisce il mapping del servizio al valore della community BGP. Per un elenco completo dei valori più recenti, è possibile eseguire il cmdlet "Get-AzBgpServiceCommunity".
 
-| **Service** | **Valore della community BGP** |
+| **Servizio** | **Valore della community BGP** |
 | --- | --- |
 | Exchange Online\*\* | 12076:5010 |
 | SharePoint Online\*\* | 12076:5020 |
@@ -229,10 +229,10 @@ Microsoft contrassegnerà anche i prefissi in base al servizio di appartenenza. 
 | Azure Resource Manager |12076:5070 |
 | Altri servizi online di Office 365 * * | 12076:5100 |
 
-\*I servizi globali di Azure includono al momento solo Azure DevOps. \
-\*\*Autorizzazione richiesta da Microsoft, vedere [configurare i filtri di route per il peering Microsoft](how-to-routefilter-portal.md)\
-\*\*\*Questa community pubblica anche le route necessarie per i servizi Microsoft teams. \
-\*\*\*\*CRM Online supporta Dynamics v 8.2 e versioni precedenti. Per le versioni successive, selezionare la community regionale per le distribuzioni di Dynamics.
+\* I servizi globali di Azure includono al momento solo Azure DevOps. \
+\*\* Autorizzazione richiesta da Microsoft, vedere [configurare i filtri di route per il peering Microsoft](how-to-routefilter-portal.md)\
+\*\*\* Questa community pubblica anche le route necessarie per i servizi Microsoft teams. \
+\*\*\*\* CRM Online supporta Dynamics v 8.2 e versioni precedenti. Per le versioni successive, selezionare la community regionale per le distribuzioni di Dynamics.
 
 > [!NOTE]
 > Microsoft non riconosce eventuali valori di BGP Community impostati sulle route pubblicate su Microsoft.

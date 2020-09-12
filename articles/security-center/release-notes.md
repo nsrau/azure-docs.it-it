@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/12/2020
 ms.author: memildin
-ms.openlocfilehash: 0c0e286ac9f94768541bb40b9ccca01e0469e0c8
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: f3aeccd30a9c89c2a43dfb85d4a57274037ec05f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177245"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569255"
 ---
 # <a name="whats-new-in-azure-security-center"></a>Novità del Centro sicurezza di Azure
 
@@ -28,6 +28,104 @@ La sicurezza di Azure è in fase di sviluppo attivo e riceve miglioramenti su ba
 - Funzionalità deprecate
 
 Poiché questa pagina viene aggiornata regolarmente, è consigliabile consultarla spesso. Se si cercano informazioni precedenti agli ultimi sei mesi, è possibile trovarle in [Archive for What's new in Azure Security Center](release-notes-archive.md) (Archivio per le novità nel Centro sicurezza di Azure).
+
+
+## <a name="september-2020"></a>Settembre 2020
+
+Gli aggiornamenti di settembre includono:
+
+- [I risultati della valutazione della vulnerabilità sono ora disponibili nell'esportazione continua](#vulnerability-assessment-findings-are-now-available-in-continuous-export)
+- [Impedisci configurazioni di sicurezza imponendo consigli per la creazione di nuove risorse](#prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources)
+- [Raccomandazioni del gruppo di sicurezza di rete migliorate](#network-security-group-recommendations-improved)
+- [Raccomandazione AKS di anteprima deprecata "i criteri di sicurezza di Pod devono essere definiti nei servizi Kubernetes"](#deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services)
+- [Notifiche tramite posta elettronica dal centro sicurezza di Azure migliorata](#email-notifications-from-azure-security-center-improved)
+- [Il Punteggio sicuro non include le raccomandazioni per l'anteprima](#secure-score-doesnt-include-preview-recommendations)
+- [Le raccomandazioni includono ora un indicatore di gravità e l'intervallo di aggiornamento](#recommendations-now-include-a-severity-indicator-and-the-freshness-interval)
+
+### <a name="vulnerability-assessment-findings-are-now-available-in-continuous-export"></a>I risultati della valutazione della vulnerabilità sono ora disponibili nell'esportazione continua
+
+Usare l'esportazione continua per trasmettere avvisi e consigli in tempo reale a hub eventi di Azure, aree di lavoro Log Analytics o monitoraggio di Azure. Da qui è possibile integrare questi dati con SIEMs (ad esempio, Sentinel di Azure, Power BI, Azure Esplora dati e altro ancora.
+
+Gli strumenti di valutazione della vulnerabilità integrata del Centro sicurezza restituiscono risultati sulle risorse come raccomandazioni praticabili in una raccomandazione "padre", ad esempio "le vulnerabilità nelle macchine virtuali devono essere risolte". 
+
+I risultati di sicurezza sono ora disponibili per l'esportazione tramite esportazione continua quando si selezionano le raccomandazioni e si Abilita l'opzione **Includi risultati di sicurezza** .
+
+:::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Includi risultati di sicurezza/Nascondi nella configurazione dell'esportazione continua" :::
+
+Pagine correlate:
+
+- [Soluzione di valutazione della vulnerabilità integrata del Centro sicurezza per le macchine virtuali di Azure](deploy-vulnerability-assessment-vm.md)
+- [Soluzione integrata di valutazione della vulnerabilità del Centro sicurezza per immagini di Azure Container Registry](monitor-container-security.md)
+- [Esportazione continua](continuous-export.md)
+
+### <a name="prevent-security-misconfigurations-by-enforcing-recommendations-when-creating-new-resources"></a>Impedisci configurazioni di sicurezza imponendo consigli per la creazione di nuove risorse
+
+Le configurazioni non configurate per la sicurezza sono una delle principali cause degli incidenti di sicurezza. Il Centro sicurezza offre ora la possibilità di *evitare* configurazioni errate delle nuove risorse per quanto concerne raccomandazioni specifiche. 
+
+Questa funzionalità può aiutare a proteggere i carichi di lavoro e stabilizzare il Punteggio sicuro.
+
+L'applicazione di una configurazione sicura, basata su una raccomandazione specifica, viene offerta in due modalità:
+
+- Usando l'effetto di **negazione** di criteri di Azure, è possibile arrestare la creazione di risorse non integre.
+
+- Con l'opzione **Imponi** è possibile sfruttare l'effetto **DeployIfNotExist** di criteri di Azure e correggere automaticamente le risorse non conformi al momento della creazione
+ 
+Questa opzione è disponibile per le raccomandazioni di sicurezza selezionate e si trova nella parte superiore della pagina dei dettagli delle risorse.
+
+Per altre informazioni, vedere [Impedisci configurazioni errate con le raccomandazioni Imponi/nega](prevent-misconfigurations.md).
+
+###  <a name="network-security-group-recommendations-improved"></a>Raccomandazioni del gruppo di sicurezza di rete migliorate
+
+Sono state migliorate le seguenti raccomandazioni di sicurezza relative ai gruppi di sicurezza di rete per ridurre alcune istanze di falsi positivi.
+
+- È consigliabile limitare tutte le porte di rete nei gruppi di sicurezza di rete associati alla VM
+- È consigliabile chiudere le porte di gestione nelle macchine virtuali
+- Le macchine virtuali con connessione Internet devono essere protette con i gruppi di sicurezza di rete
+- Le subnet devono essere associate a un gruppo di sicurezza di rete
+
+
+### <a name="deprecated-preview-aks-recommendation-pod-security-policies-should-be-defined-on-kubernetes-services"></a>Raccomandazione AKS di anteprima deprecata "i criteri di sicurezza di Pod devono essere definiti nei servizi Kubernetes"
+
+La raccomandazione di anteprima "i criteri di sicurezza di pod da definire nei servizi Kubernetes" è stata deprecata come descritto nella documentazione del [servizio Kubernetes di Azure](https://docs.microsoft.com/azure/aks/use-pod-security-policies) .
+
+La funzionalità criteri di sicurezza pod (anteprima) è impostata per la deprecazione e non sarà più disponibile dopo il 15 ottobre 2020 a favore di criteri di Azure per AKS.
+
+Dopo che i criteri di sicurezza pod (anteprima) sono deprecati, è necessario disabilitare la funzionalità in tutti i cluster esistenti usando la funzionalità deprecata per eseguire gli aggiornamenti futuri del cluster e rimanere nel supporto tecnico di Azure.
+
+
+### <a name="email-notifications-from-azure-security-center-improved"></a>Notifiche tramite posta elettronica dal centro sicurezza di Azure migliorata
+
+Sono state migliorate le seguenti aree dei messaggi di posta elettronica relativi agli avvisi di sicurezza: 
+
+- Aggiunta della possibilità di inviare notifiche tramite posta elettronica sugli avvisi per tutti i livelli di gravità
+- Aggiunta della possibilità di inviare notifiche agli utenti con ruoli RBAC diversi nella sottoscrizione
+- Per impostazione predefinita, i proprietari delle sottoscrizioni vengono notificati in modo proattivo agli avvisi con gravità elevata, che hanno una probabilità elevata di violazioni autentiche.
+- Il campo numero di telefono è stato rimosso dalla pagina di configurazione delle notifiche di posta elettronica
+
+Per altre informazioni, vedere [configurare le notifiche di posta elettronica per gli avvisi di sicurezza](security-center-provide-security-contact-details.md).
+
+
+### <a name="secure-score-doesnt-include-preview-recommendations"></a>Il Punteggio sicuro non include le raccomandazioni per l'anteprima 
+
+Il Centro sicurezza valuta continuamente risorse, sottoscrizioni e organizzazione per rilevare problemi di sicurezza. Aggrega quindi tutti i risultati in un singolo punteggio, in modo da poter indicare, a colpo d'occhio, lo stato di sicurezza attuale: maggiore è il punteggio, minore è il livello di rischio identificato.
+
+Quando vengono individuate nuove minacce, i nuovi consigli sulla sicurezza vengono resi disponibili nel centro sicurezza attraverso nuove raccomandazioni. Per evitare che le modifiche sorprendano il Punteggio sicuro e per fornire un periodo di tolleranza in cui è possibile esplorare le nuove raccomandazioni prima che influiscano sui punteggi, le raccomandazioni contrassegnate come **Anteprima** non sono più incluse nei calcoli del Punteggio sicuro. Dovrebbero comunque essere corretti, laddove possibile, in modo che, al termine del periodo di anteprima, contribuiscano al punteggio.
+
+Inoltre, le raccomandazioni di **Anteprima** non eseguono il rendering di una risorsa "non integro".
+
+Esempio di raccomandazione per l'anteprima:
+
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Raccomandazione con il flag di anteprima":::
+
+[Altre informazioni sul punteggio sicuro](secure-score-security-controls.md).
+
+
+### <a name="recommendations-now-include-a-severity-indicator-and-the-freshness-interval"></a>Le raccomandazioni includono ora un indicatore di gravità e l'intervallo di aggiornamento
+
+La pagina dei dettagli per le indicazioni include ora un indicatore di intervallo di aggiornamento (se pertinente) e una visualizzazione chiara della gravità dell'indicazione.
+
+:::image type="content" source="./media/release-notes/recommendations-severity-freshness-indicators.png" alt-text="Pagina di raccomandazione che mostra la validità e la gravità":::
+
 
 
 ## <a name="august-2020"></a>Agosto 2020
@@ -107,7 +205,7 @@ Se si dispone di script, query o automazione che fanno riferimento ai consigli p
 ||||
 
 
-|Policy|Scope|
+|Criteri|Scope|
 |----|:----|
 |**La soluzione Valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali**<br>ID criterio: 501541f7-f7e7-4cd6-868C-4190fdad3ac9|Predefinito|
 |**Le vulnerabilità devono essere risolte da una soluzione di valutazione della vulnerabilità**<br>ID criterio: 760a85ff-6162-42b3-8d70-698e268f648c|BYOL|
@@ -122,7 +220,7 @@ Se si dispone di script, query o automazione che fanno riferimento ai consigli p
 |**È necessario correggere le vulnerabilità nelle macchine virtuali**<br>Chiave: 1195afff-c881-495E-9bc5-1486211ae03f|Incorporato + BYOL|
 ||||
 
-|Policy|Scope|
+|Criteri|Scope|
 |----|:----|
 |[**La valutazione della vulnerabilità deve essere abilitata nelle macchine virtuali**](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f501541f7-f7e7-4cd6-868c-4190fdad3ac9)<br>ID criterio: 501541f7-f7e7-4cd6-868C-4190fdad3ac9 |Incorporato + BYOL|
 ||||
@@ -326,7 +424,7 @@ Per distribuire le configurazioni di automazione nell'organizzazione, usare i cr
 I criteri si trovano in criteri di Azure:
 
 
-|Obiettivo  |Policy  |ID condizione  |
+|Obiettivo  |Criteri  |ID condizione  |
 |---------|---------|---------|
 |Esportazione continua nell'hub eventi|[Distribuisci esportazione in hub eventi per gli avvisi e le raccomandazioni del Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fcdfcce10-4578-4ecd-9703-530938e4abcb)|cdfcce10-4578-4ecd-9703-530938e4abcb|
 |Esportazione continua nell'area di lavoro Log Analytics|[Distribuisci esportazione nell'area di lavoro Log Analytics per gli avvisi e le raccomandazioni del Centro sicurezza di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fffb6f416-7bd2-4488-8828-56585fef2be9)|ffb6f416-7bd2-4488-8828-56585fef2be9|
@@ -359,7 +457,7 @@ I nuovi criteri indicati di seguito sono stati aggiunti all'iniziativa ASC defau
 I criteri si trovano in criteri di Azure:
 
 
-| Policy                                                                                                                                                                                                                                                                | ID condizione                            |
+| Criteri                                                                                                                                                                                                                                                                | ID condizione                            |
 |-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------|
 | [La soluzione Sicurezza dei dati avanzata deve essere abilitata nei server del database SQL di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f7fe3b40f-802b-4cdd-8bd4-fd799c948cc2)     | 7fe3b40f-802b-4cdd-8bd4-fd799c948cc2 |
 | [La soluzione Sicurezza dei dati avanzata deve essere abilitata in SQL Server in macchine virtuali](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6581d072-105e-4418-827f-bd446d56421b) | 6581d072-105e-4418-827f-bd446d56421b |
@@ -489,7 +587,7 @@ Creare un'iniziativa personalizzata in Criteri di Azure, aggiungervi criteri e i
 
 È stata anche aggiunta la possibilità di modificare i metadati delle raccomandazioni personalizzate. Le opzioni dei metadati includono gravità, procedure di correzione, informazioni sulle minacce e altro ancora.  
 
-Sono disponibili altre informazioni sull'[ottimizzazione delle raccomandazioni personalizzate con informazioni dettagliate](custom-security-policies.md#enhancing-your-custom-recommendations-with-detailed-information).
+Sono disponibili altre informazioni sull'[ottimizzazione delle raccomandazioni personalizzate con informazioni dettagliate](custom-security-policies.md#enhance-your-custom-recommendations-with-detailed-information).
 
 
 
@@ -550,79 +648,3 @@ Se si hanno sottoscrizioni nel piano tariffario gratuito, il punteggio di sicure
 Sono disponibili altre informazioni sulle [raccomandazioni relative a identità e accesso](recommendations-reference.md#recs-identity).
 
 Sono disponibili altre informazioni sul [monitoraggio di identità e accesso](security-center-identity-access.md).
-
-
-## <a name="march-2020"></a>Marzo 2020
-
-Gli aggiornamenti di marzo includono:
-- [L'automazione del flusso di lavoro è ora disponibile a livello generale](#workflow-automation-is-now-generally-available)
-- [Integrazione del Centro sicurezza di Azure con Windows Admin Center](#integration-of-azure-security-center-with-windows-admin-center)
-- [Protezione per il servizio Azure Kubernetes](#protection-for-azure-kubernetes-service)
-- [Esperienza JIT migliorata](#improved-just-in-time-experience)
-- [Due raccomandazioni sulla sicurezza per le applicazioni Web sono ora deprecate](#two-security-recommendations-for-web-applications-deprecated)
-
-
-### <a name="workflow-automation-is-now-generally-available"></a>L'automazione del flusso di lavoro è ora disponibile a livello generale
-
-La funzionalità di automazione del flusso di lavoro del Centro sicurezza di Azure è ora disponibile a livello generale. È possibile usarla per attivare automaticamente le app per la logica negli avvisi di sicurezza e nelle raccomandazioni. Sono inoltre disponibili trigger manuali per gli avvisi e tutte le raccomandazioni per le quali è disponibile l'opzione di correzione rapida.
-
-Ogni programma di sicurezza include più flussi di lavoro per la risposta agli eventi imprevisti. Questi processi possono includere la notifica a stakeholder di rilievo, l'avvio di un processo di gestione delle modifiche e l'applicazione di procedure di correzione specifiche. Gli esperti di sicurezza raccomandano di automatizzare quante più procedure possibili. L'automazione riduce il sovraccarico e può migliorare la sicurezza garantendo che i passaggi del processo vengano eseguiti rapidamente, in modo coerente e in base ai requisiti predefiniti.
-
-Per altre informazioni sulle funzionalità automatiche e manuali del Centro sicurezza per l'esecuzione dei flussi di lavoro, vedere [Automazione del flusso di lavoro](workflow-automation.md).
-
-Sono disponibili altre informazioni sulla [creazione di app per la logica](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
-
-
-### <a name="integration-of-azure-security-center-with-windows-admin-center"></a>Integrazione del Centro sicurezza di Azure con Windows Admin Center
-
-È ora possibile spostare i server Windows locali da Windows Admin Center direttamente nel Centro sicurezza di Azure. Il Centro sicurezza diventa quindi il punto centrale in cui visualizzare le informazioni di sicurezza per tutte le risorse Windows Admin Center, inclusi i server locali, le macchine virtuali e carichi di lavoro PaaS aggiuntivi.
-
-Dopo aver spostato un server da Windows Admin Center al Centro sicurezza di Azure, sarà possibile:
-
-- Visualizzare gli avvisi di sicurezza e le raccomandazioni nell'estensione del Centro sicurezza di Windows Admin Center.
-- Visualizzare il comportamento di sicurezza e recuperare informazioni dettagliate aggiuntive dei server gestiti di Windows Admin Center nel Centro sicurezza all'interno del portale di Azure (o tramite un'API).
-
-Sono disponibili altre informazioni su [come integrare il Centro sicurezza di Azure con Windows Admin Center](windows-admin-center-integration.md).
-
-
-### <a name="protection-for-azure-kubernetes-service"></a>Protezione per il servizio Azure Kubernetes
-
-Il Centro sicurezza di Azure espande le funzionalità di sicurezza dei contenitori per proteggere il servizio Azure Kubernetes.
-
-La piattaforma Kubernetes open source è talmente diffusa da essere diventata standard di settore per l'orchestrazione dei contenitori. Ciononostante, non sono ancora disponibili informazioni chiare su come proteggere un ambiente Kubernetes. Per difendere le aree di attacco di un'applicazione aggiunta a un contenitore, è necessario avere una certa esperienza per garantire che l'infrastruttura sia configurata in modo sicuro e costantemente monitorata per potenziali minacce.
-
-La difesa del Centro sicurezza include:
-
-- **Individuazione e visibilità**: individuazione continua delle istanze gestite del servizio Azure Kubernetes all'interno delle sottoscrizioni registrate nel Centro sicurezza.
-- **Raccomandazioni sulla sicurezza**: raccomandazioni utili per la conformità alle procedure consigliate sulla sicurezza per il servizio Azure Kubernetes. Queste raccomandazioni sono incluse nel punteggio di sicurezza per garantire che vengano visualizzate nell'ambito del comportamento di sicurezza dell'organizzazione. Un esempio di raccomandazione relativa al servizio Azure Kubernetes potrebbe essere "Il controllo degli accessi in base al ruolo deve essere usato per limitare l'accesso a un cluster del servizio Kubernetes".
-- **Protezione dalle minacce**: grazie all'analisi continua della distribuzione del servizio Azure Kubernetes, il Centro sicurezza avvisa l'utente in merito a minacce e attività dannose rilevate a livello di host e del cluster del servizio.
-
-Sono disponibili altre informazioni sull'[integrazione del servizio Azure Kubernetes con il Centro sicurezza](azure-kubernetes-service-integration.md).
-
-Sono disponibili altre informazioni sulle [funzionalità di sicurezza dei contenitori nel Centro sicurezza](container-security.md).
-
-
-### <a name="improved-just-in-time-experience"></a>Esperienza JIT migliorata
-
-Le funzionalità, il funzionamento e l'interfaccia utente per gli strumenti just-in-time (JIT) del Centro sicurezza di Azure che proteggono le porte di gestione sono stati migliorati come segue: 
-
-- **Campo di giustificazione**: quando si richiede l'accesso a una macchina virtuale tramite la pagina JIT del portale di Azure, è disponibile un nuovo campo facoltativo per immettere una giustificazione per la richiesta. Le informazioni immesse in questo campo possono essere rilevate nel log attività. 
-- **Pulizia automatica di regole JIT ridondanti**: ogni volta che si aggiorna un criterio JIT, viene eseguito automaticamente uno strumento di pulizia per verificare la validità dell'intero set di regole. Lo strumento cerca eventuali mancate corrispondenze tra le regole nei criteri e le regole nel gruppo di sicurezza di rete. Se lo strumento di pulizia rileva una mancata corrispondenza, determina la cause e, se l'operazione è sicura, rimuove le regole incorporate che non sono più necessarie. Lo strumento di pulizia non elimina mai le regole create dall'utente. 
-
-Sono disponibili altre informazioni sulla [funzionalità di accesso JIT](security-center-just-in-time.md).
-
-
-### <a name="two-security-recommendations-for-web-applications-deprecated"></a>Due raccomandazioni sulla sicurezza per le applicazioni Web sono ora deprecate
-
-Due raccomandazioni sulla sicurezza per le applicazioni Web sono ora considerate deprecate: 
-
-- È consigliabile applicare la protezione avanzata alle regole per le applicazioni Web nei gruppi di sicurezza di rete IaaS
-    (criterio correlato: È necessario rafforzare le regole dei gruppi di sicurezza di rete per le applicazioni Web nella soluzione IaaS).
-
-- L'accesso ai Servizi app deve essere limitato
-    (criterio correlato: [Anteprima]: L'accesso ai Servizi app deve essere limitato).
-
-Queste raccomandazioni non verranno più visualizzate nel relativo elenco del Centro sicurezza. I criteri correlati non verranno più inclusi nell'iniziativa denominata "Criteri predefiniti del Centro sicurezza".
-
-Sono disponibili altre informazioni sulle [raccomandazioni relative alla sicurezza](recommendations-reference.md).
-

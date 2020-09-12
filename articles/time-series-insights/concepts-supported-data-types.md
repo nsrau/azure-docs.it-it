@@ -9,12 +9,12 @@ ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
 ms.date: 08/31/2020
-ms.openlocfilehash: 4e6586453469797458bc60fc7499a45a9aad9b9b
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 9dbc66e3331325e9b79d0434fb452d01d69d550a
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226744"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482590"
 ---
 # <a name="supported-data-types"></a>Tipi di dati supportati
 
@@ -27,10 +27,10 @@ Nella tabella seguente sono elencati i tipi di dati supportati da Azure Time Ser
 | **double** | Numero a 64 bit a precisione doppia  | `"value": 31.0482941` | `$event.value.Double` o `$event['value'].Double` |  `value_double`
 | **long** | Intero con segno a 64 bit  | `"value" : 31` | `$event.value.Long` o `$event['value'].Long` |  `value_long`
 | **string** | I valori di testo devono essere costituiti da UTF-8 valido. Le stringhe null e vuote vengono considerate identiche. |  `"site": "DIM_MLGGG"`| `$event.site.String` o `$event['site'].String`| `site_string`
-| **dinamico** | Tipo complesso (non primitivo) costituito da una matrice o da un contenitore di proprietà (dizionario). Attualmente solo le matrici JSON file di primitive o matrici di oggetti che non contengono l'ID TS o la proprietà timestamp verranno archiviate come dinamiche. Leggere questo [articolo](./concepts-json-flattening-escaping-rules.md) per comprendere in che modo gli oggetti verranno resi bidimensionali e gli array potrebbero essere registrati. Le proprietà del payload archiviate come questo tipo sono accessibili solo selezionando `Explore Events` in TSI Explorer per visualizzare gli eventi non elaborati o tramite l' [`GetEvents`](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)   API di query per l'analisi lato client. |  `"values": "[197, 194, 189, 188]"` | Il riferimento ai tipi dinamici in un'espressione Time Series non è ancora supportato | `values_dynamic`
+| **dinamico** | Tipo complesso (non primitivo) costituito da una matrice o da un contenitore di proprietà (dizionario). Attualmente solo le matrici JSON file di primitive o matrici di oggetti che non contengono l'ID TS o la proprietà timestamp verranno archiviate come dinamiche. Leggere questo [articolo](./concepts-json-flattening-escaping-rules.md) per comprendere in che modo gli oggetti verranno resi bidimensionali e gli array potrebbero essere registrati. Le proprietà del payload archiviate come questo tipo sono accessibili solo selezionando `Explore Events` in esplora Time Series Insights per visualizzare gli eventi non elaborati o tramite l' [`GetEvents`](https://docs.microsoft.com/rest/api/time-series-insights/dataaccessgen2/query/execute#getevents)   API di query per l'analisi lato client. |  `"values": "[197, 194, 189, 188]"` | Il riferimento ai tipi dinamici in un'espressione Time Series non è ancora supportato | `values_dynamic`
 
 > [!NOTE]
-> sono supportati i valori interi a 64 bit, ma il numero maggiore che il Azure Time Series Insights Explorer può esprimere in modo sicuro è 9.007.199.254.740.991 (2 ^ 53-1) a causa delle limitazioni di JavaScript. Se si utilizzano i numeri nel modello di dati precedente, è possibile ridurre le dimensioni creando una variabile di [modello Time Series](/concepts-variables#numeric-variables) e [convertendo](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions) il valore.
+> sono supportati i valori interi a 64 bit, ma il numero maggiore che il Azure Time Series Insights Explorer può esprimere in modo sicuro è 9.007.199.254.740.991 (2 ^ 53-1) a causa delle limitazioni di JavaScript. Se si utilizzano i numeri nel modello di dati precedente, è possibile ridurre le dimensioni creando una variabile di [modello Time Series](/azure/time-series-insights/concepts-variables#numeric-variables) e [convertendo](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax#conversion-functions) il valore.
 
 > [!NOTE]
 > Il tipo **stringa** non ammette i valori null:

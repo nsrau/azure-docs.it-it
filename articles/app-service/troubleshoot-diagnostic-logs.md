@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 89162a0b8ca20e59319802f9e2359c2f27ff163f
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 5eaf107861d20cea395209418c343d25461b3836
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962180"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469933"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Abilitare la registrazione diagnostica per le app nel Servizio app di Azure
 ## <a name="overview"></a>Panoramica
@@ -51,7 +51,7 @@ L'opzione **filesystem** è a scopo di debug temporaneo e si disattiva in 12 ore
 > [!NOTE]
 > Attualmente solo i log applicazioni .NET possono essere scritti nell'archiviazione BLOB. I log applicazioni Java, PHP, Node.js e Python possono essere archiviati solo nel servizio app file system (senza modifiche al codice per scrivere i log nell'archiviazione esterna).
 >
-> Inoltre, se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/common/storage-account-create.md), è necessario reimpostare la rispettiva configurazione di registrazione in modo da usare le chiavi di accesso aggiornate. A tale scopo, effettuare le seguenti operazioni:
+> Inoltre, se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/common/storage-account-create.md), è necessario reimpostare la rispettiva configurazione di registrazione in modo da usare le chiavi di accesso aggiornate. Per eseguire questa operazione:
 >
 > 1. Nella scheda **Configura** impostare la funzionalità di registrazione corrispondente su **Off**. Salvare l’impostazione.
 > 2. Abilitare di nuovo la registrazione al BLOB dell'account di archiviazione. Salvare l’impostazione.
@@ -89,7 +89,7 @@ Per la **registrazione del server Web**, selezionare **archiviazione** per archi
 In **periodo di conservazione (giorni)** impostare il numero di giorni per cui conservare i log.
 
 > [!NOTE]
-> Se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/common/storage-account-create.md), è necessario reimpostare la configurazione di registrazione corrispondente per l'uso delle chiavi aggiornate. A tale scopo, effettuare le seguenti operazioni:
+> Se si [rigenerano le chiavi di accesso dell'account di archiviazione](../storage/common/storage-account-create.md), è necessario reimpostare la configurazione di registrazione corrispondente per l'uso delle chiavi aggiornate. Per eseguire questa operazione:
 >
 > 1. Nella scheda **Configura** impostare la funzionalità di registrazione corrispondente su **Off**. Salvare l’impostazione.
 > 2. Abilitare di nuovo la registrazione al BLOB dell'account di archiviazione. Salvare l’impostazione.
@@ -191,7 +191,7 @@ La tabella seguente illustra i tipi di log e le descrizioni supportati:
 | AppServiceHTTPLogs | Sì | Sì | Web Server Logs |
 | AppServiceEnvironmentPlatformLogs | Sì | Sì | Ambiente del servizio app: ridimensionamento, modifiche di configurazione e log di stato|
 | AppServiceAuditLogs | Sì | Sì | Attività di accesso tramite FTP e Kudu |
-| AppServiceFileAuditLogs | Sì | TBD | Modifiche ai file tramite FTP e Kudu |
+| AppServiceFileAuditLogs | Sì | TBD | Modifiche dei file apportate al contenuto del sito; disponibile solo per il livello Premium e versioni successive |
 | AppServiceAppLogs | TBA | Java SE & Tomcat | Log applicazioni |
 | AppServiceIPSecAuditLogs  | Sì | Sì | Richieste dalle regole IP |
 | AppServicePlatformLogs  | TBA | Sì | Log del contenitore |

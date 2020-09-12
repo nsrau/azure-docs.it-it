@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/11/2019
 ms.author: terrylan
-ms.openlocfilehash: 6058b0d72eafe3a44ebdbabf291af05c08e772b3
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7c317a0b4fea0c981b227bace00c1b8924fd582c
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038274"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536383"
 ---
 # <a name="security-recommendations-for-azure-marketplace-images"></a>Raccomandazioni sulla sicurezza per le immagini di Azure Marketplace
 
@@ -65,11 +65,3 @@ Eseguire sempre un rilevamento delle vulnerabilità di sicurezza sull'immagine p
 
 Anche se l'organizzazione non ha immagini in Azure Marketplace, provare a controllare le configurazioni delle immagini Windows e Linux in base a questi consigli.
 
-## <a name="contacting-customers"></a>Contattare i clienti
-
-Per identificare i clienti e i relativi messaggi di posta elettronica di contatto:
-
-1.  Nella barra di sinistra di portale Cloud Partner selezionare **Insights (informazioni dettagliate**).
-2.  Nella scheda **Orders and Usage** usare i campi data di **inizio** e **Data di fine** per eseguire query sull'utilizzo entro l'intervallo di date richiesto. Questo mostra le sottoscrizioni di Azure usate per l'offerta su base giornaliera. Esportare questi dati. 
-3.  Analogamente, nella scheda **Customer** eseguire una query ed esportare la base clienti.
-4.  Trovare la corrispondenza con l'ID sottoscrizione dal passaggio 2 all'ID sottoscrizione del passaggio 3 per trovare le informazioni necessarie sul cliente.

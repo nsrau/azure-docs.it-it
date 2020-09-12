@@ -10,14 +10,14 @@ ms.service: media-services
 ms.subservice: video-indexer
 ms.workload: na
 ms.topic: article
-ms.date: 08/05/2020
+ms.date: 09/03/2020
 ms.author: juliako
-ms.openlocfilehash: 1b11dc0ee17fd0686776a7262c4bc99bd98bcc3e
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: e2b45ebf9acea7334678110015d8cfd3022675f4
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837310"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505339"
 ---
 # <a name="azure-media-services-video-indexer-release-notes"></a>Note sulla versione di servizi multimediali di Azure Video Indexer
 
@@ -29,6 +29,16 @@ Per stare al passo con gli sviluppi più recenti, questo articolo fornisce infor
 * Problemi noti
 * Correzioni di bug
 * Funzionalità deprecate
+
+## <a name="august-2020"></a>Agosto 2020
+
+### <a name="mobile-design-for-the-video-indexer-website"></a>Progettazione per dispositivi mobili per il sito Web Video Indexer
+
+L'esperienza del sito Web Video Indexer ora supporta i dispositivi mobili. L'esperienza utente è sensibile per adattarsi alle dimensioni dello schermo mobile (escluse le interfacce utente di personalizzazione). 
+
+### <a name="accessibility-improvements-and-bug-fixes"></a>Miglioramenti per l'accessibilità e correzioni di bug 
+
+Come parte di WCAG (linee guida per l'accessibilità di contenuti Web), il Video Indexer il sito Web è allineato alla classe C come parte degli standard di accessibilità Microsoft. Sono stati risolti diversi bug e miglioramenti relativi alla navigazione da tastiera, l'accesso a livello di codice e l'lettore schermo. 
 
 ## <a name="july-2020"></a>Luglio 2020
 
@@ -129,7 +139,7 @@ Elimina l'azione dell'account ora elimina l'account entro 90 giorni anziché 48 
  
 ### <a name="new-video-indexer-github-repository"></a>Nuovo repository GitHub Video Indexer
 
-Un nuovo Video Indexer GitHub con progetti diversi, guide introduttive ed esempi di codice sono ora disponibili:https://github.com/Azure-Samples/media-services-video-indexer
+Un nuovo Video Indexer GitHub con progetti diversi, guide introduttive ed esempi di codice sono ora disponibili: https://github.com/Azure-Samples/media-services-video-indexer
  
 ### <a name="swagger-update"></a>Aggiornamento di spavalderia
 

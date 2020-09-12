@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 805141dedddcd915d266c9651fc51732fb51e1b0
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 08f1d1e0ca1936b30db968dde5d7f6f2e6104cf8
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146734"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651198"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Che cosa sono le destinazioni di calcolo in Azure Machine Learning? 
 
@@ -51,7 +51,7 @@ Una risorsa di calcolo gestita viene creata e gestita da Azure Machine Learning.
 È possibile creare Azure Machine Learning istanze di calcolo o cluster di calcolo da:
 * [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md)
 * Portale di Azure
-* Classi [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py) e [AMLCOMPUTE](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py) per Python SDK
+* Classi [ComputeInstance](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.computeinstance(class)?view=azure-ml-py&preserve-view=true) e [AMLCOMPUTE](https://docs.microsoft.com/python/api/azureml-core/azureml.core.compute.amlcompute(class)?view=azure-ml-py&preserve-view=true) per Python SDK
 * [R SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html#section-compute-targets) (anteprima)
 * Gestione risorse modello. Per un modello di esempio, vedere [creare Azure Machine Learning modello di calcolo](https://github.com/Azure/azure-quickstart-templates/tree/master/101-machine-learning-compute-create-amlcompute).
 * [Estensione di machine learning per l'interfaccia della riga di comando di Azure](reference-azure-machine-learning-cli.md#resource-management).  
@@ -82,19 +82,19 @@ Vedere la tabella seguente per altre informazioni sulle restrizioni e sulle seri
 
 | **Serie di macchine virtuali supportate**  | **Restrizioni** |
 |------------|------------|
-| D | Nessuno |
-| Dv2 | Nessuno |  
-| DSv2 | Nessuno |  
-| FSv2 | Nessuno | 
+| D | nessuno |
+| Dv2 | nessuno |  
+| DSv2 | nessuno |  
+| FSv2 | nessuno | 
 | HBv2 | Richiede approvazione |  
 | Servizio di elaborazione host | Richiede approvazione |  
 | M | Richiede approvazione |
-| NC | Nessuno |    
+| NC | nessuno |    
 | NCsv2 | Richiede approvazione |
 | NCsv3 | Richiede approvazione |  
 | NDs | Richiede approvazione |
 | NDv2 | Richiede approvazione |
-| NV | Nessuno |
+| NV | nessuno |
 | NVv3 | Richiede approvazione | 
 
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.date: 11/15/2019
 ms.custom: H1Hack27Feb2017,hdinsightactive, devx-track-python
-ms.openlocfilehash: 2f02e579f7679180cecfd8a48736b3af307ba371
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 9c16b3ff013c2985ea381ed4bb002276b1c3fdb8
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87874759"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462242"
 ---
 # <a name="use-python-user-defined-functions-udf-with-apache-hive-and-apache-pig-in-hdinsight"></a>Usare le funzioni definite dall'utente di Python con Apache Hive e Apache Pig in HDInsight
 
@@ -31,14 +31,14 @@ HDInsight include anche Jython, un'implementazione di Python scritta in Java. Jy
 * **Un client SSH**. Per altre informazioni, vedere [Connettersi a HDInsight (Apache Hadoop) con SSH](../hdinsight-hadoop-linux-use-ssh-unix.md).
 * Lo [schema URI](../hdinsight-hadoop-linux-information.md#URI-and-scheme) per l'archiviazione primaria dei cluster. Per l' `wasb://` archiviazione di Azure, `abfs://` per Azure Data Lake Storage Gen2 o adl://per Azure Data Lake storage Gen1. Se il trasferimento sicuro è abilitato per archiviazione di Azure, l'URI è wasbs://.  Vedere anche l'articolo sul [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md).
 * **Possibile modifica della configurazione dell'archiviazione.**  Vedere [configurazione dell'archiviazione](#storage-configuration) se si usa il tipo di account di archiviazione `BlobStorage` .
-* facoltativo.  Se si prevede di usare PowerShell, è necessario che il [modulo AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) sia installato.
+* Facoltativa.  Se si prevede di usare PowerShell, è necessario che il [modulo AZ](https://docs.microsoft.com/powershell/azure/new-azureps-module-az) sia installato.
 
 > [!NOTE]  
 > L'account di archiviazione usato in questo articolo è stato l'archiviazione di Azure con [trasferimento sicuro](../../storage/common/storage-require-secure-transfer.md) abilitato e quindi `wasbs` viene usato in tutto l'articolo.
 
 ## <a name="storage-configuration"></a>Configurazione dell'archiviazione
 
-Non è richiesta alcuna azione se l'account di archiviazione usato è di tipo `Storage (general purpose v1)` o `StorageV2 (general purpose v2)` .  Il processo in questo articolo produrrà almeno l'output `/tezstaging` .  Una configurazione Hadoop predefinita conterrà `/tezstaging` nella `fs.azure.page.blob.dir` variabile di configurazione in `core-site.xml` per il servizio `HDFS` .  Questa configurazione provocherà l'output della directory come BLOB di pagine, che non sono supportati per il tipo di account di archiviazione `BlobStorage` .  Per usare `BlobStorage` per questo articolo, rimuovere `/tezstaging` dalla `fs.azure.page.blob.dir` variabile di configurazione.  È possibile accedere alla configurazione dall' [interfaccia utente di Ambariri](../hdinsight-hadoop-manage-ambari.md).  In caso contrario, verrà visualizzato il messaggio di errore:`Page blob is not supported for this account type.`
+Non è richiesta alcuna azione se l'account di archiviazione usato è di tipo `Storage (general purpose v1)` o `StorageV2 (general purpose v2)` .  Il processo in questo articolo produrrà almeno l'output `/tezstaging` .  Una configurazione Hadoop predefinita conterrà `/tezstaging` nella `fs.azure.page.blob.dir` variabile di configurazione in `core-site.xml` per il servizio `HDFS` .  Questa configurazione provocherà l'output della directory come BLOB di pagine, che non sono supportati per il tipo di account di archiviazione `BlobStorage` .  Per usare `BlobStorage` per questo articolo, rimuovere `/tezstaging` dalla `fs.azure.page.blob.dir` variabile di configurazione.  È possibile accedere alla configurazione dall' [interfaccia utente di Ambariri](../hdinsight-hadoop-manage-ambari.md).  In caso contrario, verrà visualizzato il messaggio di errore: `Page blob is not supported for this account type.`
 
 > [!WARNING]  
 > La procedura in questo documento parte dai presupposti seguenti:  
@@ -300,8 +300,8 @@ Si può usare uno script di Python come funzione definita dall'utente da Pig tra
 
 Per specificare l'interprete Python, usare `register` quando si fa riferimento allo script di Python. Negli esempi seguenti gli script vengono registrati con Pig come `myfuncs`:
 
-* **Per usare Jython**:`register '/path/to/pigudf.py' using jython as myfuncs;`
-* **Per usare C Python**:`register '/path/to/pigudf.py' using streaming_python as myfuncs;`
+* **Per usare Jython**: `register '/path/to/pigudf.py' using jython as myfuncs;`
+* **Per usare C Python**: `register '/path/to/pigudf.py' using streaming_python as myfuncs;`
 
 > [!IMPORTANT]  
 > Quando si usa Jython, il percorso del file di pig_jython può essere un percorso locale o un percorso WASBS://. Tuttavia, quando si usa C Python, è necessario fare riferimento un file nel file system locale del nodo che si usa per inviare il processo Pig.
@@ -594,7 +594,7 @@ Le informazioni sull'errore (STDERR) e il risultato del processo (STDOUT) vengon
 
 ## <a name="next-steps"></a><a name="next"></a>Passaggi successivi
 
-Se è necessario caricare moduli Python non forniti per impostazione predefinita, vedere [Come distribuire un modulo in Azure HDInsight](https://blogs.msdn.com/b/benjguin/archive/2014/03/03/how-to-deploy-a-python-module-to-windows-azure-hdinsight.aspx).
+Se è necessario caricare moduli Python non forniti per impostazione predefinita, vedere [Come distribuire un modulo in Azure HDInsight](https://docs.microsoft.com/archive/blogs/benjguin/how-to-deploy-a-python-module-to-windows-azure-hdinsight).
 
 Per altre modalità d'uso di Pig e Hive e per informazioni su come usare MapReduce, vedere i documenti seguenti:
 

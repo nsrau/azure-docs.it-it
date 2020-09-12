@@ -6,16 +6,16 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 05/13/2019
-ms.openlocfilehash: ad03538cafcce9c1d660d0f2ac5eb3c6ae5f4f38
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 775aa44043e9c8900bd0c040ab603736314ea34e
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84694906"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469984"
 ---
 # <a name="create-an-azure-ad-tenant-for-azure-red-hat-openshift"></a>Creare un tenant di Azure AD per Azure Red Hat OpenShift
 
-Microsoft Azure Red Hat OpenShift richiede un tenant di [Azure Active Directory (Azure ad)](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant) in cui creare il cluster. Un *tenant* è un'istanza dedicata di Azure ad che un'organizzazione o uno sviluppatore di app riceve quando crea una relazione con Microsoft iscrivendosi ad Azure, Microsoft Intune o Microsoft 365. Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD e ha le proprie identità aziendali e dell'Istituto di istruzione e le registrazioni delle app.
+Microsoft Azure Red Hat OpenShift richiede un tenant di [Azure Active Directory (Azure ad)](../active-directory/develop/quickstart-create-new-tenant.md) in cui creare il cluster. Un *tenant* è un'istanza dedicata di Azure ad che un'organizzazione o uno sviluppatore di app riceve quando crea una relazione con Microsoft iscrivendosi ad Azure, Microsoft Intune o Microsoft 365. Ogni tenant di Azure AD è distinto e separato dagli altri tenant di Azure AD e ha le proprie identità aziendali e dell'Istituto di istruzione e le registrazioni delle app.
 
 Se non si ha già un tenant di Azure AD, seguire queste istruzioni per crearne uno.
 
@@ -39,7 +39,7 @@ Per creare un tenant:
 
 ## <a name="resources"></a>Risorse
 
-Per altre informazioni sui [tenant Azure ad](https://docs.microsoft.com/azure/active-directory/develop/quickstart-create-new-tenant), vedere [Azure Active Directory documentazione](https://docs.microsoft.com/azure/active-directory/) .
+Per altre informazioni sui [tenant Azure ad](../active-directory/develop/quickstart-create-new-tenant.md), vedere [Azure Active Directory documentazione](../active-directory/index.yml) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

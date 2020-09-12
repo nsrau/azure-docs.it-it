@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 11/08/2019
 ms.author: sumi
 ms.custom: ''
-ms.openlocfilehash: 6935ea505643f253daf4c0b7d818137f52583682
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 7d937542201792c0d1c0be69df9bd1c2b34edea3
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132824"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434470"
 ---
 # <a name="virtual-network-service-endpoints"></a>Endpoint servizio di rete virtuale
 
@@ -30,7 +30,7 @@ Questa funzionalità è disponibile per i servizi e le aree di Azure seguenti. *
 
 - **[Archiviazione di Azure](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json#grant-access-from-a-virtual-network)** (*Microsoft. storage*): disponibile a livello generale in tutte le aree di Azure.
 - **[Database SQL di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): disponibile a livello generale in tutte le aree di Azure.
-- **[Azure SQL data warehouse](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): disponibile a livello generale in tutte le aree di Azure.
+- **[Analisi delle sinapsi di Azure](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): disponibile a livello generale in tutte le aree di Azure.
 - **[Database di Azure per il server PostgreSQL](../postgresql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): disponibile a livello generale nelle aree di Azure in cui è disponibile il servizio di database.
 - **[Database di Azure per il server MySQL](../mysql/howto-manage-vnet-using-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. SQL*): disponibile a livello generale nelle aree di Azure in cui è disponibile il servizio di database.
 - **[Database di Azure per MariaDB](https://docs.microsoft.com/azure/mariadb/concepts-data-access-security-vnet)** (*Microsoft. SQL*): disponibile a livello generale nelle aree di Azure in cui è disponibile il servizio di database.
@@ -40,6 +40,7 @@ Questa funzionalità è disponibile per i servizi e le aree di Azure seguenti. *
 - **[Hub eventi di Azure](../event-hubs/event-hubs-service-endpoints.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. EventHub*): disponibile a livello generale in tutte le aree di Azure.
 - **[Azure Data Lake Store generazione 1](../data-lake-store/data-lake-store-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)** (*Microsoft. AzureActiveDirectory*): disponibile a livello generale in tutte le aree di Azure in cui è disponibile ADLS Gen1.
 - **[Servizio app Azure](https://docs.microsoft.com/azure/app-service/app-service-ip-restrictions)** (*Microsoft. Web*): disponibile a livello generale in tutte le aree di Azure in cui è disponibile il servizio app.
+- **[Servizi cognitivi di Azure](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-virtual-networks?tabs=portal)** (*Microsoft. CognitiveServices*): disponibile a livello generale in tutte le aree di Azure in cui sono disponibili servizi cognitivi.
 
 **Anteprima pubblica**
 
@@ -148,7 +149,7 @@ Per domande frequenti, vedere [domande frequenti sull'endpoint di servizio di re
 - [Configurare gli endpoint servizio di rete virtuale](tutorial-restrict-network-access-to-resources.md)
 - [Proteggere un account di archiviazione di Azure in una rete virtuale](../storage/common/storage-network-security.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
 - [Proteggere un database SQL di Azure in una rete virtuale](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
-- [Proteggere un Azure SQL Data Warehouse a una rete virtuale](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
+- [Proteggere un'analisi delle sinapsi di Azure in una rete virtuale](../azure-sql/database/vnet-service-endpoint-rule-overview.md?toc=%2fazure%2fsql-data-warehouse%2ftoc.json)
 - [Integrazione di servizi di Azure nelle reti virtuali](virtual-network-for-azure-services.md)
 - [Criteri degli endpoint servizio di rete virtuale](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoint-policies-overview)
 - [Modello di Azure Resource Manager](https://azure.microsoft.com/resources/templates/201-vnet-2subnets-service-endpoints-storage-integration)

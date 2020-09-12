@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 08/31/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 3bd059e59bebe9ae1ecc8f2f00dd63f873e08944
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: eed9109416f434e2492d621f60b7ad6bf6e188e8
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269370"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437378"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Risolvere i problemi di File di Azure in Windows
 
@@ -50,7 +50,12 @@ Se gli utenti accedono alla condivisione file di Azure usando l'autenticazione A
 
 ### <a name="solution-for-cause-3"></a>Soluzione per la causa 3
 
-Per aggiornare le autorizzazioni a livello di condivisione, vedere [assegnare le autorizzazioni di accesso a un'identità](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable#2-assign-access-permissions-to-an-identity).
+Verificare che le autorizzazioni siano configurate correttamente:
+
+- **Active Directory (ad)** vedere [assegnare autorizzazioni a livello di condivisione a un'identità](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions).
+
+    Le assegnazioni delle autorizzazioni a livello di condivisione sono supportate per i gruppi e gli utenti che sono stati sincronizzati dal Active Directory (AD) al Azure Active Directory (AAD) usando Azure AD Connect.  Verificare che i gruppi e gli utenti a cui vengono assegnate le autorizzazioni a livello di condivisione non siano gruppi "solo cloud" non supportati.
+- **Azure Active Directory Domain Services (Azure AD DS)** vedere [assegnare le autorizzazioni di accesso a un'identità](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable?tabs=azure-portal#assign-access-permissions-to-an-identity).
 
 <a id="error53-67-87"></a>
 ## <a name="error-53-error-67-or-error-87-when-you-mount-or-unmount-an-azure-file-share"></a>Errore 53, Errore 67 o Errore 87 quando si prova a montare o smontare una condivisione file di Azure
@@ -316,18 +321,6 @@ L'errore AadDsTenantNotFound si verifica quando si tenta di [abilitare l'autenti
 Abilitare Azure AD DS nel tenant Azure AD della sottoscrizione in cui è distribuito l'account di archiviazione. Per creare un dominio gestito, è necessario disporre dei privilegi di amministratore del tenant Azure AD. Se non si è l'amministratore del tenant di Azure AD, contattare l'amministratore e seguire le istruzioni dettagliate per [Abilitare Azure Active Directory Domain Services tramite il portale di Azure](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-getting-started).
 
 [!INCLUDE [storage-files-condition-headers](../../../includes/storage-files-condition-headers.md)]
-
-## <a name="error-system-error-1359-has-occurred-an-internal-error-received-over-smb-access-to-file-shares-with-azure-active-directory-domain-service-azure-ad-ds-authentication-enabled"></a>Si è verificato l'errore di sistema 1359. Errore interno "ricevuto sull'accesso SMB alle condivisioni file con Azure Active Directory autenticazione del servizio del dominio (Azure AD DS) abilitata
-
-### <a name="cause"></a>Causa
-
-Si è verificato l'errore di sistema 1359. Si verifica un errore interno quando si tenta di connettersi alla condivisione file con Azure AD autenticazione DS abilitata rispetto a una Azure AD DS con il nome DNS di dominio che inizia con un carattere numerico. Se, ad esempio, il nome DNS del dominio Azure AD DS è "1domain", si otterrà questo errore quando si tenta di montare la condivisione file con Azure AD credenziali. 
-
-### <a name="solution"></a>Soluzione
-
-Attualmente, è possibile provare a ridistribuire il Azure AD DS usando un nuovo nome DNS del dominio che si applica alle regole seguenti:
-- I nomi non possono iniziare con un carattere numerico.
-- I nomi devono avere una lunghezza compreso tra 3 e 63 caratteri.
 
 ## <a name="unable-to-mount-azure-files-with-ad-credentials"></a>Non è possibile montare File di Azure con le credenziali di Active Directory 
 

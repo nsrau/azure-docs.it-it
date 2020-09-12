@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/19/2018
-ms.openlocfilehash: a264e40814952577d3a7db3b36c168dfc396f388
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9339ed7d0ab122420b37a67a96ee0d9d324e2f15
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249165"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442906"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---multi-tenant-app"></a>Analisi su più tenant con dati estratti in un'app multi-tenant
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ Le applicazioni SaaS sviluppate hanno accesso a un'elevata quantità di dati dei
 
 L'accesso ai dati per tutti i tenant è semplice quando tutti i dati si trovano in un unico database multi-tenant. È invece più complesso quando sono distribuiti su larga scala in migliaia di database. Un modo per superare tale complessità consiste nell'estrarre i dati in un database o un data warehouse di analisi. Si eseguono quindi query sul data warehouse per raccogliere informazioni dettagliate dai dati relativi ai biglietti di tutti i tenant.
 
-Questa esercitazione presenta uno scenario di analisi completo per questa applicazione SaaS di esempio. Per prima cosa, si usano processi elastici per pianificare l'estrazione dei dati dal database di ogni tenant. I dati vengono inviati a un archivio di analisi, che può essere un database SQL o un'istanza di SQL Data Warehouse. Per l'estrazione di dati su larga scala, è consigliabile usare [Azure Data Factory](../../data-factory/introduction.md).
+Questa esercitazione presenta uno scenario di analisi completo per questa applicazione SaaS di esempio. Per prima cosa, si usano processi elastici per pianificare l'estrazione dei dati dal database di ogni tenant. I dati vengono inviati a un archivio di analisi, L'archivio di analisi può essere un database SQL o un'analisi delle sinapsi di Azure (in precedenza SQL Data Warehouse). Per l'estrazione di dati su larga scala, è consigliabile usare [Azure Data Factory](../../data-factory/introduction.md).
 
 I dati aggregati vengono quindi suddivisi in un set di tabelle con [schema star](https://www.wikipedia.org/wiki/Star_schema). Le tabelle sono costituite da una tabella dei fatti centrale e dalle tabelle delle dimensioni correlate:
 

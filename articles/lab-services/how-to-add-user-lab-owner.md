@@ -2,13 +2,13 @@
 title: Come aggiungere altri proprietari a un Lab in Azure Lab Services
 description: Questo articolo illustra come un amministratore può aggiungere un utente come proprietario di un Lab in Azure Lab Services.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: 6671a3070dae672769eecf59d614d3b75455ef5a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/04/2020
+ms.openlocfilehash: 4b46dd08a3b9527cdfc7bdf766ee4976e67656d0
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445866"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482670"
 ---
 # <a name="how-to-add-additional-owners-to-an-existing-lab-in-azure-lab-services"></a>Come aggiungere altri proprietari a un lab esistente in Azure Lab Services
 Questo articolo illustra come un amministratore può aggiungere altri proprietari a un lab esistente.
@@ -31,6 +31,9 @@ Per aggiungere un utente come proprietario aggiuntivo a un lab esistente, è inn
         ![Aggiungere un utente al ruolo Reader per l'account Lab ](./media/how-to-add-user-lab-owner/reader-lab-account.png)
 
 ## <a name="add-user-to-the-owner-role-for-the-lab"></a>Aggiungere un utente al ruolo di proprietario per il Lab
+
+> [!NOTE]
+> Se l'utente ha solo l'accesso in lettura al Lab, il Lab non viene visualizzato in labs.azure.com.
 
 1. Tornare alla pagina **account Lab** , selezionare **tutti i Lab** nel menu a sinistra.
 2. Selezionare il **Lab** al quale si desidera aggiungere l'utente come proprietario. 

@@ -1,14 +1,14 @@
 ---
 title: Come proteggere la gerarchia di risorse - Governance di Azure
 description: Informazioni su come proteggere la gerarchia di risorse con le impostazioni di gerarchia che includono l'impostazione del gruppo di gestione predefinito.
-ms.date: 08/10/2020
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: 2dd6791e152ba3ef02f6e6f710589cbe7d3442bc
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 19d699b54a9979df1030c0f6e294d5a4492f2853
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056619"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469780"
 ---
 # <a name="how-to-protect-your-resource-hierarchy"></a>Come proteggere la gerarchia di risorse
 
@@ -31,7 +31,26 @@ Per impostazione predefinita, viene aggiunta una nuova sottoscrizione in un tena
 
 Consentendo di definire il gruppo di gestione predefinito per le nuove sottoscrizioni, è possibile applicare costrutti di governance a livello di organizzazione al gruppo di gestione radice e un gruppo di gestione separato con assegnazioni di criteri o assegnazioni di ruolo di Azure più adatte a una nuova sottoscrizione.
 
-Per configurare questa impostazione, viene chiamato l'endpoint dell'API REST [Impostazioni gerarchia](/rest/api/resources/hierarchysettings). A tale scopo, usare il formato di URI DELL'API REST e di richiesta seguente. Sostituire `{rootMgID}` con l'ID del gruppo di gestione radice e `{defaultGroupID}` con l'ID del gruppo di gestione che deve diventare il gruppo di gestione predefinito:
+### <a name="set-default-management-group-in-portal"></a>Impostare il gruppo di gestione predefinito nel portale
+
+Per configurare questa impostazione in portale di Azure, attenersi alla procedura seguente:
+
+1. Utilizzare la barra di ricerca per cercare e selezionare "gruppi di gestione".
+
+1. Nel gruppo di gestione radice selezionare **Dettagli** accanto al nome del gruppo di gestione.
+
+1. In **Impostazioni**selezionare **Impostazioni gerarchia**.
+
+1. Selezionare il pulsante **modifica gruppo di gestione predefinito** .
+
+   > [!NOTE]
+   > Se il pulsante **modifica gruppo di gestione predefinito** è disabilitato, il gruppo di gestione visualizzato non è il gruppo di gestione radice oppure l'entità di sicurezza non dispone delle autorizzazioni necessarie per modificare le impostazioni della gerarchia.
+
+1. Selezionare un gruppo di gestione dalla gerarchia e usare il pulsante **Seleziona** .
+
+### <a name="set-default-management-group-with-rest-api"></a>Impostare un gruppo di gestione predefinito con l'API REST
+
+Per configurare questa impostazione con l'API REST, viene chiamato l'endpoint [delle impostazioni della gerarchia](/rest/api/resources/hierarchysettings) . A tale scopo, usare il formato di URI DELL'API REST e di richiesta seguente. Sostituire `{rootMgID}` con l'ID del gruppo di gestione radice e `{defaultGroupID}` con l'ID del gruppo di gestione che deve diventare il gruppo di gestione predefinito:
 
 - URI DELL'API REST
 
@@ -55,7 +74,24 @@ Per impostare di nuovo il gruppo di gestione radice come gruppo di gestione pred
 
 Per impostazione predefinita, qualsiasi utente può creare nuovi gruppi di gestione all'interno di un tenant. Gli amministratori di un tenant possono voler fornire queste autorizzazioni solo a utenti specifici per mantenere la coerenza e la conformità nella gerarchia del gruppo di gestione. Se abilitata, un utente richiede l'operazione `Microsoft.Management/managementGroups/write` sul gruppo di gestione radice per creare nuovi gruppi di gestione figlio.
 
-Per configurare questa impostazione, viene chiamato l'endpoint dell'API REST [Impostazioni gerarchia](/rest/api/resources/hierarchysettings). A tale scopo, usare il formato di URI DELL'API REST e di richiesta seguente. Si tratta di un valore _booleano_, è quindi necessario specificare **true** o **false**. Il valore **true** abilita questo metodo di protezione della gerarchia del gruppo di gestione:
+### <a name="set-require-authorization-in-portal"></a>Impostare Richiedi autorizzazione nel portale
+
+Per configurare questa impostazione in portale di Azure, attenersi alla procedura seguente:
+
+1. Utilizzare la barra di ricerca per cercare e selezionare "gruppi di gestione".
+
+1. Nel gruppo di gestione radice selezionare **Dettagli** accanto al nome del gruppo di gestione.
+
+1. In **Impostazioni**selezionare **Impostazioni gerarchia**.
+
+1. Abilitare o disabilitare le **autorizzazioni Richiedi per la creazione di nuovi gruppi di gestione.** opzione su on.
+
+   > [!NOTE]
+   > Se sono necessarie le **autorizzazioni per la creazione di nuovi gruppi di gestione.** l'interruttore è disabilitato, il gruppo di gestione visualizzato non è il gruppo di gestione radice oppure l'entità di sicurezza non ha le autorizzazioni necessarie per modificare le impostazioni della gerarchia.
+
+### <a name="set-require-authorization-with-rest-api"></a>Impostare Richiedi autorizzazione con l'API REST
+
+Per configurare questa impostazione con l'API REST, viene chiamato l'endpoint [delle impostazioni della gerarchia](/rest/api/resources/hierarchysettings) . A tale scopo, usare il formato di URI DELL'API REST e di richiesta seguente. Si tratta di un valore _booleano_, è quindi necessario specificare **true** o **false**. Il valore **true** abilita questo metodo di protezione della gerarchia del gruppo di gestione:
 
 - URI DELL'API REST
 

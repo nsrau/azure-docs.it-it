@@ -15,14 +15,14 @@ ms.workload: iaas-sql-server
 ms.date: 10/18/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: a2ba89a9adec5443ed8ae2a10e0230874b571f46
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9abc6574117b194a626c2697f5297a13566e0447
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88690239"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89481791"
 ---
-# <a name="performance-guidelines-for-sql-server-on-azure-virtual-machines"></a>Linee guida sulle prestazioni per SQL Server in macchine virtuali di Azure
+# <a name="performance-guidelines-for-sql-server-on-azure-virtual-machines"></a>Linee guida sulle prestazioni per SQL Server sulle macchine virtuali di Microsoft Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
 Questo articolo fornisce indicazioni per l'ottimizzazione delle prestazioni SQL Server in Macchine virtuali di Microsoft Azure.
@@ -197,6 +197,19 @@ Se si usa spazi di archiviazione, quando si aggiungono nodi al cluster nella pag
 ![Deselezionare le risorse di archiviazione idonee](./media/performance-guidelines-best-practices/uncheck-eligible-cluster-storage.png)
 
 Se si usa Spazi di archiviazione e non si deseleziona **Aggiungi tutte le risorse di archiviazione idonee al cluster**, Windows rende non visibili i dischi virtuali durante il processo di clustering. Di conseguenza, tali dischi non vengono visualizzati in Gestione disco o in Esplora risorse fino a quando gli spazi di archiviazione non vengono rimossi dal cluster e ricollegati usando PowerShell. Spazi di archiviazione consente di raggruppare più dischi in pool di archiviazione. Per altre informazioni, vedere [Spazi di archiviazione](/windows-server/storage/storage-spaces/overview).
+
+## <a name="multiple-instances"></a>Istanze multiple 
+
+Quando si distribuiscono più istanze di SQL Server in una singola macchina virtuale, tenere presenti le seguenti procedure consigliate: 
+
+- Impostare la memoria massima del server per ogni istanza di SQL Server, assicurandosi che rimanga memoria rimanente per il sistema operativo. Assicurarsi di aggiornare le restrizioni di memoria per le istanze di SQL Server se si modifica la quantità di memoria allocata alla macchina virtuale. 
+- Disporre di lun distinti per i dati, i log e TempDB poiché tutti hanno modelli di carico di lavoro diversi e non si vuole che influiscano tra loro. 
+- Eseguire test approfonditi dell'ambiente in carichi di lavoro di produzione intensivi per garantire la massima capacità di carico di lavoro nei contratti di licenza dell'applicazione. 
+
+I segnali di sistemi di overload possono includere, tra l'altro, l'esaurimento dei thread di lavoro, tempi di risposta lenti e/o memoria di sistema Dispatcher bloccata. 
+
+
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

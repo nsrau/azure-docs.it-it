@@ -3,12 +3,12 @@ title: Configurare l'analisi delle dipendenze senza agente in Azure Migrate serv
 description: Configurare l'analisi delle dipendenze senza agente in Azure Migrate server assessment.
 ms.topic: how-to
 ms.date: 6/08/2020
-ms.openlocfilehash: dc2ea0656198927cc8ae58533d296a2bedc37c13
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2e6e562a18fa2ee0b89416ea67cc15394e760ada
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84771377"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536439"
 ---
 # <a name="analyze-machine-dependencies-agentless"></a>Analizzare le dipendenze dei computer (senza agente)
 
@@ -25,7 +25,7 @@ Questo articolo descrive come configurare l'analisi delle dipendenze senza agent
 
 - Nella visualizzazione analisi delle dipendenze non è attualmente possibile aggiungere o rimuovere un server da un gruppo.
 - Una mappa delle dipendenze per un gruppo di server non è attualmente disponibile.
-- I dati sulle dipendenze non possono essere scaricati in formato tabulare.
+- La raccolta dei dati di dipendenza può essere configurata contemporaneamente per i server 400. È possibile analizzare un numero maggiore di server eseguendo la sequenziazione in batch di 400.
 
 ## <a name="before-you-start"></a>Prima di iniziare
 

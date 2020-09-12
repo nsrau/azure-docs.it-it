@@ -7,24 +7,23 @@ ms.service: application-gateway
 ms.date: 03/19/2020
 ms.author: victorh
 ms.topic: how-to
-ms.openlocfilehash: 7a0e29d3fc90d50f23247a9c11cd4846aa4fb158
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8763c07ee91f228f63880c2be16497a7a78c6453
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84806021"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595275"
 ---
 # <a name="create-an-application-gateway-with-url-path-based-redirection-using-azure-powershell"></a>Creare un gateway applicazione con reindirizzamento basato su percorsi URL usando Azure PowerShell
 
-È possibile usare Azure PowerShell per configurare [regole di routing basato su URL](application-gateway-url-route-overview.md) quando si crea un [gateway applicazione](application-gateway-introduction.md). In questo articolo si creano pool back-end usando i [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Si creano quindi le regole di routing degli URL per garantire che il traffico Web venga reindirizzato nel pool back-end appropriato.
+È possibile usare Azure PowerShell per configurare [regole di routing basato su URL](application-gateway-url-route-overview.md) quando si crea un [gateway applicazione](application-gateway-introduction.md). In questo articolo si creano pool back-end usando i  [set di scalabilità di macchine virtuali](../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md). Si creano quindi le regole di routing degli URL per garantire che il traffico Web venga reindirizzato nel pool back-end appropriato.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
-> [!div class="checklist"]
-> * Configurare la rete
-> * Creare un gateway applicazione
-> * Aggiungere i listener e le regole di routing
-> * Creare set di scalabilità di macchine virtuali per i pool back-end
+* Configurare la rete
+* Creare un gateway applicazione
+* Aggiungere i listener e le regole di routing
+* Creare set di scalabilità di macchine virtuali per i pool back-end
 
 L'esempio seguente illustra il traffico del sito in arrivo dalle porte 8080 e 8081 e indirizzato agli stessi pool back-end:
 
@@ -32,7 +31,7 @@ L'esempio seguente illustra il traffico del sito in arrivo dalle porte 8080 e 80
 
 Se si preferisce, è possibile completare questa procedura usando l'[interfaccia della riga di comando di Azure](tutorial-url-redirect-cli.md).
 
-Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 

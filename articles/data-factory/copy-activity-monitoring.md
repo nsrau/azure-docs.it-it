@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jingwang
-ms.openlocfilehash: fd2bd404d59b57eae111ba969fb7dcf20a98de35
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 92119709aa260f3180c503a77064f6e80dece6e6
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036369"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440610"
 ---
 # <a name="monitor-copy-activity"></a>Monitorare l'attività di copia
 
@@ -30,7 +30,7 @@ Dopo aver creato e pubblicato una pipeline in Azure Data Factory, è possibile a
 
 Per monitorare l'esecuzione dell'attività di copia, passare all'interfaccia utente di data factory **& monitoraggio** . Nella scheda **monitoraggio** viene visualizzato un elenco di esecuzioni di pipeline, fare clic sul collegamento **nome pipeline** per accedere all'elenco delle esecuzioni di attività nell'esecuzione della pipeline.
 
-![Monitorare l'esecuzione dell'attività di copia](./media/copy-activity-overview/monitor-pipeline-run.png)
+![Monitorare l'esecuzione della pipeline](./media/copy-activity-overview/monitor-pipeline-run.png)
 
 A questo livello, è possibile visualizzare i collegamenti all'input dell'attività di copia, l'output e gli errori (se l'esecuzione dell'attività di copia ha esito negativo), oltre a statistiche come Duration/status. Facendo clic sul pulsante **Dettagli** (occhiali) accanto al nome dell'attività di copia, vengono illustrati i dettagli approfonditi sull'esecuzione dell'attività di copia. 
 
@@ -38,7 +38,7 @@ A questo livello, è possibile visualizzare i collegamenti all'input dell'attivi
 
 In questa visualizzazione di monitoraggio con interfaccia grafica, Azure Data Factory presenta le informazioni di esecuzione dell'attività di copia, inclusi il volume di lettura/scrittura dei dati, il numero di file o righe di dati copiati dall'origine al sink, la velocità effettiva, le configurazioni applicate per lo scenario di copia, i passaggi dell'attività di copia con le durate e i dettagli corrispondenti e altro ancora. Fare riferimento a [questa tabella](#monitor-programmatically) per ogni metrica possibile e la relativa descrizione dettagliata. 
 
-In alcuni scenari, quando si esegue un'attività di copia in Data Factory, verranno visualizzati **"suggerimenti per l'ottimizzazione delle prestazioni"** nella parte superiore della visualizzazione monitoraggio dell'attività di copia, come illustrato nell'esempio. I suggerimenti indicano il collo di bottiglia identificato da ADF per l'esecuzione della copia specifica, oltre a suggerimenti sugli elementi da modificare per aumentare la velocità effettiva della copia. Altre informazioni sui [Suggerimenti per l'ottimizzazione automatica delle prestazioni](copy-activity-performance-troubleshooting.md#performance-tuning-tips).
+In alcuni scenari, quando si esegue un'attività di copia in Data Factory, verranno visualizzati **"suggerimenti per l'ottimizzazione delle prestazioni"**  nella parte superiore della visualizzazione monitoraggio dell'attività di copia, come illustrato nell'esempio. I suggerimenti indicano il collo di bottiglia identificato da ADF per l'esecuzione della copia specifica, oltre a suggerimenti sugli elementi da modificare per aumentare la velocità effettiva della copia. Altre informazioni sui [Suggerimenti per l'ottimizzazione automatica delle prestazioni](copy-activity-performance-troubleshooting.md#performance-tuning-tips).
 
 I **Dettagli di esecuzione e le durate** inferiori descrivono i passaggi chiave che l'attività di copia passa, che è particolarmente utile per la risoluzione dei problemi relativi alle prestazioni di copia. Il collo di bottiglia dell'esecuzione della copia è quello con la durata più lunga. Fare riferimento a [risolvere i problemi relativi alle prestazioni dell'attività di copia](copy-activity-performance-troubleshooting.md) in per ogni fase rappresentata e istruzioni dettagliate per la risoluzione dei problemi.
 
@@ -67,7 +67,7 @@ I dettagli dell'esecuzione dell'attività di copia e le caratteristiche delle pr
 | throughput | Frequenza di trasferimento dei dati. | Numero a virgola mobile, in KBps |
 | sourcePeakConnections | Numero massimo di connessioni simultanee stabilite nell'archivio dati di origine durante l'esecuzione dell'attività di copia. | Valore Int32 (nessuna unità) |
 | sinkPeakConnections| Numero massimo di connessioni simultanee stabilite nell'archivio dati sink durante l'esecuzione dell'attività di copia.| Valore Int32 (nessuna unità) |
-| sqlDwPolyBase | Indica se la polibase viene utilizzata quando i dati vengono copiati in SQL Data Warehouse. | Boolean |
+| sqlDwPolyBase | Se viene usato polibase quando i dati vengono copiati in Azure sinapsi Analytics (in precedenza SQL Data Warehouse). | Boolean |
 | redshiftUnload | Indica se lo SCARICAmento viene utilizzato quando i dati vengono copiati da spostamento verso il suo | Boolean |
 | hdfsDistcp | Indica se DistCp viene usato quando i dati vengono copiati da HDFS. | Boolean |
 | effectiveIntegrationRuntime | Runtime di integrazione (IR) o Runtime usati per potenziare l'esecuzione dell'attività, nel formato `<IR name> (<region if it's Azure IR>)` . | Testo (stringa) |

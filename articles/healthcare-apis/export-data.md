@@ -7,12 +7,12 @@ ms.subservice: fhir
 ms.topic: reference
 ms.date: 8/26/2020
 ms.author: matjazl
-ms.openlocfilehash: 10d901f73006051e8b1ddd02aeb36b229c6a7761
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 83509b5f452ab7cf88774561c12d7aa2cf3b46cf
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89270145"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482318"
 ---
 # <a name="how-to-export-fhir-data"></a>Come esportare i dati di FHIR
 
@@ -35,10 +35,17 @@ Il $export comando può essere usato anche per esportare dati deselezionati dal 
 
  `https://<<FHIR service base URL>>/$export?_container=<<container_name>>&_anonymizationConfig=<<config file name>>&_anonymizationConfigEtag=<<ETag on storage>>`
 
-|Query parameter (Parametro di query)            | Esempio |Opzionalità| Description|
+|Query parameter (Parametro di query)            | Esempio |Opzionalità| Descrizione|
 |---------------------------|---------|-----------|------------|
 | _\_anonymizationConfig_   |DemoConfig.js|Obbligatorio per l'esportazione deselezionata |Nome del file di configurazione. Vedere il formato del file di configurazione [qui](https://github.com/microsoft/FHIR-Tools-for-Anonymization#configuration-file-format). Questo file deve essere conservato all'interno di un contenitore denominato **anonimato dei** nello stesso account di archiviazione di Azure configurato come percorso di esportazione. |
 | _\_anonymizationConfigEtag_|"0x8D8494A069489EC"|Facoltativo per esportazione deselezionata|Si tratta dell'ETAG del file di configurazione. È possibile ottenere il valore ETag usando Azure Storage Explorer dalla proprietà BLOB|
 
 > [!IMPORTANT]
 > Si noti che sia l'esportazione non elaborata che l'esportazione deselezionata vengono scritte nello stesso account di archiviazione di Azure specificato come parte della configurazione di esportazione. Si consiglia di usare contenitori diversi corrispondenti a una configurazione deselezionata diversa e gestire l'accesso utente a livello di contenitore.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+In questo articolo si è appreso come esportare le risorse di FHIR usando $export comando, inclusi i dati deidentificati. Successivamente, è possibile configurare i dati di esportazione:
+ 
+>[!div class="nextstepaction"]
+>[configurare Esporta dati](configure-export-data.md)

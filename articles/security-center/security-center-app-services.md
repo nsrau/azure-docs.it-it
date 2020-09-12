@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/27/2019
 ms.author: memildin
-ms.openlocfilehash: 35b91aab8c228fc7dced5dfe06e33f939f4634f5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec3fb8609612f3920e330da7922fdd1eb8883305
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080795"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459777"
 ---
 # <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Proteggere le app Web e le API del servizio app di Azure
 
@@ -32,7 +32,7 @@ Con il piano di servizio app abilitato, il Centro sicurezza valuta le risorse co
 Il Centro sicurezza sfrutta la scalabilità del cloud e la visibilità di Azure come provider di servizi cloud per monitorare gli attacchi di app Web comuni. Il Centro sicurezza può individuare gli attacchi alle applicazioni e identificare gli attacchi emergenti, anche se gli utenti malintenzionati sono nella fase di esplorazione, analizzando per identificare le vulnerabilità in più applicazioni ospitate in Azure. In qualità di servizio nativo di Azure, il Centro sicurezza è anche in una posizione univoca per offrire analisi della sicurezza basate su host che coprono i nodi di calcolo sottostanti per questo PaaS, consentendo al centro sicurezza di rilevare gli attacchi contro le applicazioni Web già sfruttate. Per informazioni dettagliate, vedere [protezione dalle minacce per il servizio app Azure](threat-protection.md#app-services).
 
 
-## <a name="enabling-monitoring-and-protection-of-app-service"></a>Abilitazione del monitoraggio e della protezione del servizio app
+## <a name="enable-monitoring-and-protection-of-app-service"></a>Abilitare il monitoraggio e la protezione del servizio app
 
 1. Nella portale di Azure scegliere Centro sicurezza.
 2. Passare a **prezzi & impostazioni** e scegliere una sottoscrizione.
@@ -57,11 +57,11 @@ Per disabilitare il monitoraggio e gli elementi consigliati per il servizio app,
 
 
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 Questo articolo descrive come usare le funzionalità di monitoraggio nel Centro sicurezza di Azure. Per altre informazioni sul Centro sicurezza di Azure, vedere gli articoli seguenti:
 
 * [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md): informazioni su come configurare le impostazioni di sicurezza nel Centro sicurezza di Azure.
 * [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md): informazioni su come gestire e rispondere agli avvisi di sicurezza.
 * [Servizi app](security-center-virtual-machine-protection.md#app-services): visualizzare un elenco di ambienti del servizio app con riepiloghi sull'integrità.
 * [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md): informazioni su come monitorare l'integrità delle soluzioni dei partner.
-* [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/): post di Blog sulla sicurezza e sulla conformità di Azure.
+* [Blog sulla sicurezza di Azure](https://docs.microsoft.com/archive/blogs/azuresecurity/): post di Blog sulla sicurezza e sulla conformità di Azure.

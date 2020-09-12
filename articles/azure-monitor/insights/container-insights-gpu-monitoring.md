@@ -3,12 +3,12 @@ title: Configurare il monitoraggio GPU con monitoraggio di Azure per i contenito
 description: Questo articolo descrive come configurare il monitoraggio dei cluster Kubernetes con i nodi NVIDIA e AMD con GPU abilitati con monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 958f5ab33edcd280f5673391eba907728f1153c7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4c6044d407dc4abd0e69bac0190cc19c901022c3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80373310"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569697"
 ---
 # <a name="configure-gpu-monitoring-with-azure-monitor-for-containers"></a>Configurare il monitoraggio GPU con monitoraggio di Azure per i contenitori
 
@@ -22,7 +22,10 @@ Monitoraggio di Azure per contenitori supporta il monitoraggio dei cluster GPU d
 
 - [AMD](https://github.com/RadeonOpenCompute/k8s-device-plugin)
 
-Monitoraggio di Azure per i contenitori avvia automaticamente il monitoraggio dell'utilizzo della GPU nei nodi e la GPU che richiede i pod e i carichi di lavoro raccogliendo le metriche seguenti a intervalli 60sec e archiviando tali dati nella tabella **InsightMetrics** :
+Monitoraggio di Azure per i contenitori avvia automaticamente il monitoraggio dell'utilizzo della GPU nei nodi e la GPU che richiede i pod e i carichi di lavoro raccogliendo le metriche seguenti a intervalli 60sec e archiviando tali dati nella tabella **InsightMetrics** .
+
+>[!NOTE]
+>Dopo il provisioning di un cluster con nodi GPU, verificare che il [driver GPU](../../aks/gpu-cluster.md) sia installato come richiesto da AKS per eseguire carichi di lavoro GPU. Il monitoraggio di Azure per i contenitori raccoglie le metriche GPU tramite Pod driver GPU in esecuzione nel nodo. 
 
 |Nome metrica |Dimensione metrica (tag) |Descrizione |
 |------------|------------------------|------------|

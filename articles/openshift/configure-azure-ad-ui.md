@@ -8,16 +8,16 @@ author: sabbour
 ms.author: asabbour
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc
-ms.openlocfilehash: 10a7dc662993327b71d43c27f44d22166a3f3611
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 2cb54c202af04996080cda970b3d327145f0e72b
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590320"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469882"
 ---
 # <a name="configure-azure-active-directory-authentication-for-an-azure-red-hat-openshift-4-cluster-portal"></a>Configurare l'autenticazione Azure Active Directory per un cluster Azure Red Hat OpenShift 4 (portale)
 
-Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure versione 2.6.0 o successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
+Se si sceglie di installare e usare l'interfaccia della riga di comando in locale, per questa esercitazione è necessario eseguire l'interfaccia della riga di comando di Azure 2.6.0 o versione successiva. Eseguire `az --version` per trovare la versione. Se è necessario eseguire l'installazione o l'aggiornamento, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
@@ -50,7 +50,7 @@ Passare alla **Panoramica** e prendere nota dell'ID dell' **applicazione (client
 
 ## <a name="configure-optional-claims"></a>Configurare le attestazioni facoltative
 
-Gli sviluppatori di applicazioni possono utilizzare [attestazioni facoltative](https://docs.microsoft.com/azure/active-directory/develop/active-directory-optional-claims) nelle applicazioni Azure ad per specificare le attestazioni desiderate nei token inviati alla propria applicazione.
+Gli sviluppatori di applicazioni possono utilizzare [attestazioni facoltative](../active-directory/develop/active-directory-optional-claims.md) nelle applicazioni Azure ad per specificare le attestazioni desiderate nei token inviati alla propria applicazione.
 
 Le attestazioni facoltative possono essere usate per:
 
@@ -68,7 +68,7 @@ Passare a **configurazione token (anteprima)** e fare clic su **Aggiungi attesta
 
 Per impostazione predefinita, le applicazioni registrate in un tenant di Azure Active Directory (Azure AD) sono disponibili per tutti gli utenti del tenant che eseguono correttamente l'autenticazione. Azure AD consente agli amministratori e agli sviluppatori di tenant di limitare un'app a un set specifico di utenti o gruppi di sicurezza all'interno del tenant.
 
-Seguire le istruzioni nella documentazione di Azure Active Directory per [assegnare utenti e gruppi all'app](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users#app-registration).
+Seguire le istruzioni nella documentazione di Azure Active Directory per [assegnare utenti e gruppi all'app](../active-directory/develop/howto-restrict-your-app-to-a-set-of-users.md#app-registration).
 
 ## <a name="configure-openshift-openid-authentication"></a>Configurare l'autenticazione OpenID OpenShift
 
@@ -100,7 +100,7 @@ L'output di esempio seguente mostra che la password sarà in `kubeadminPassword`
 
 Avviare l'URL della console in un browser e accedere usando le credenziali `kubeadmin`.
 
-Passare ad **Amministrazione**, fare clic su **Impostazioni cluster**, quindi selezionare la scheda **configurazione globale** . scorrere fino a selezionare **OAuth**.
+Passare ad **Amministrazione**, fare clic su **Impostazioni cluster**, quindi selezionare la scheda **configurazione globale** . Scorrere fino a selezionare **OAuth**.
 
 Scorrere verso il basso per selezionare **Aggiungi** in **Identity Providers** e selezionare **OpenID Connect**.
 ![Selezionare OpenID Connect dall'elenco a discesa provider di identità](media/aro4-oauth-idpdrop.png)

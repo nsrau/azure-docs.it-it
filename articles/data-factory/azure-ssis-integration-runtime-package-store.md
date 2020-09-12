@@ -11,13 +11,13 @@ ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 07/20/2020
-ms.openlocfilehash: 6455c186e05fc98b1ec340c152f9b3e5710f1dd5
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/06/2020
+ms.openlocfilehash: 84a7a205e52ba37eb6fcb3b624e0f71a9b9bbc10
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87087909"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505489"
 ---
 # <a name="manage-packages-with-azure-ssis-integration-runtime-package-store"></a>Gestire i pacchetti con Azure-SSIS Integration Runtime archivio pacchetti
 
@@ -57,7 +57,7 @@ Dopo la connessione al Azure-SSIS IR in SSMS, è possibile fare clic con il puls
       > [!NOTE]
       > L'importazione di pacchetti SSIS in Azure-SSIS IR archivi pacchetti può essere eseguita una sola volta e copiarli semplicemente nel database MSDB/file system/File di Azure sottostante, conservando al tempo stesso la versione SQL Server/SSIS. 
       >
-      > Poiché Azure-SSIS IR dispone attualmente di un livello di compatibilità predefinito pari a 140, che è uguale a **SQL Server 2017**, l'esecuzione di pacchetti di versioni inferiori verrà aggiornata in pacchetti SSIS 2017 in fase di esecuzione. L'esecuzione di pacchetti con versioni successive non è supportata.
+      > Dato che Azure-SSIS IR è attualmente basato su **SQL Server 2017**, l'esecuzione di pacchetti di versioni inferiori ne eseguirà l'aggiornamento nei pacchetti SSIS 2017 in fase di esecuzione. L'esecuzione di pacchetti con versioni successive non è supportata.
       >
       > Inoltre, poiché gli archivi di pacchetti SSIS legacy sono associati a una versione specifica di SQL Server e sono accessibili solo in SSMS per tale versione, i pacchetti di versioni precedenti negli archivi di pacchetti SSIS legacy devono essere esportati in file system prima di poter essere importati negli archivi di pacchetti Azure-SSIS IR usando SSMS 2019 o versioni successive.
       >
@@ -72,7 +72,7 @@ Dopo la connessione al Azure-SSIS IR in SSMS, è possibile fare clic con il puls
       > [!NOTE]
       > L'esportazione di pacchetti SSIS da Azure-SSIS IR archivi pacchetti può essere eseguita una sola volta e in questo modo, senza cambiare il livello di protezione, sarà sufficiente copiarli conservando la versione SQL Server/SSIS. in caso contrario, verranno aggiornati nei pacchetti SSIS 2019 o versioni successive.
       >
-      > Poiché Azure-SSIS IR dispone attualmente di un livello di compatibilità predefinito pari a 140, che è uguale a **SQL Server 2017**, l'esecuzione di pacchetti di versioni inferiori verrà aggiornata in pacchetti SSIS 2017 in fase di esecuzione. L'esecuzione di pacchetti con versioni successive non è supportata.
+      > Dato che Azure-SSIS IR è attualmente basato su **SQL Server 2017**, l'esecuzione di pacchetti di versioni inferiori ne eseguirà l'aggiornamento nei pacchetti SSIS 2017 in fase di esecuzione. L'esecuzione di pacchetti con versioni successive non è supportata.
       >
       > In alternativa, per esportare più pacchetti SSIS da Azure-SSIS IR archivi pacchetti durante il cambio del livello di protezione, è possibile usare l'utilità della riga di comando [dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility?view=sql-server-2017) , vedere [distribuzione di più pacchetti con dtutil](#deploying-multiple-packages-with-dtutil).
 
@@ -88,7 +88,7 @@ Dopo la connessione al Azure-SSIS IR in SSMS, è possibile fare clic con il puls
 
 ![Utilità di esecuzione pacchetti pagine 3 & 4](media/azure-ssis-integration-runtime-package-store/ssms-package-store-execute2.png)
 
-Le pagine **generale**, **configurazioni**, **Opzioni di esecuzione**e **registrazione** della finestra di dialogo **utilità di esecuzione pacchetti** corrispondono alla scheda **Impostazioni** dell'attività Esegui pacchetto SSIS. In queste pagine è possibile immettere la password di crittografia per il pacchetto e accedere alle informazioni per il file di configurazione del pacchetto. È anche possibile immettere le credenziali e le proprietà di esecuzione del pacchetto, nonché le informazioni di accesso per la cartella dei log.  La pagina **Imposta valori** della finestra di dialogo **utilità di esecuzione pacchetti** corrisponde alla scheda **override proprietà** dell'attività Esegui pacchetto SSIS, in cui è possibile immettere le proprietà del pacchetto esistenti di cui eseguire l'override. Per ulteriori informazioni, vedere [esecuzione di pacchetti SSIS come attività Esegui pacchetto SSIS nelle pipeline di ADF](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
+Le pagine **generale**, **configurazioni**, **Opzioni di esecuzione**e **registrazione** della finestra di dialogo **utilità di esecuzione pacchetti** corrispondono alla scheda  **Impostazioni** dell'attività Esegui pacchetto SSIS. In queste pagine è possibile immettere la password di crittografia per il pacchetto e accedere alle informazioni per il file di configurazione del pacchetto. È anche possibile immettere le credenziali e le proprietà di esecuzione del pacchetto, nonché le informazioni di accesso per la cartella dei log.  La pagina **Imposta valori** della finestra di dialogo **utilità di esecuzione pacchetti** corrisponde alla scheda **override proprietà** dell'attività Esegui pacchetto SSIS, in cui è possibile immettere le proprietà del pacchetto esistenti di cui eseguire l'override. Per ulteriori informazioni, vedere [esecuzione di pacchetti SSIS come attività Esegui pacchetto SSIS nelle pipeline di ADF](https://docs.microsoft.com/azure/data-factory/how-to-invoke-ssis-package-ssis-activity).
 
 Quando si seleziona il pulsante **Esegui** , viene generata e attivata automaticamente una nuova pipeline ADF con l'attività Esegui pacchetto SSIS. Se una pipeline ADF con le stesse impostazioni esiste già, verrà rieseguita e non verrà generata una nuova pipeline. La pipeline ADF e l'attività Esegui pacchetto SSIS verranno rispettivamente denominate `Pipeline_SSMS_YourPackageName_HashString` e `Activity_SSMS_YourPackageName` .
 
@@ -124,7 +124,7 @@ Per sollevare & spostare i carichi di lavoro SSIS locali in SSIS in ADF mantenen
 
 È possibile usare l'utilità della riga di comando [dtutil](https://docs.microsoft.com/sql/integration-services/dtutil-utility?view=sql-server-2017) fornita con l'installazione SQL Server/SSIS per distribuire più pacchetti in batch. È associato a una versione specifica di SSIS, quindi se lo si usa per distribuire pacchetti con versioni precedenti senza cambiare il livello di protezione, sarà sufficiente copiarli mantenendo la versione SSIS. Se lo si usa per distribuirli e cambiare il livello di protezione allo stesso tempo, li aggiornerà nella versione SSIS.
 
- Poiché Azure-SSIS IR dispone attualmente di un livello di compatibilità predefinito pari a 140, che è uguale a **SQL Server 2017**, l'esecuzione di pacchetti di versioni inferiori verrà aggiornata in pacchetti SSIS 2017 in fase di esecuzione. L'esecuzione di pacchetti con versioni successive non è supportata.
+ Dato che Azure-SSIS IR è attualmente basato su **SQL Server 2017**, l'esecuzione di pacchetti di versioni inferiori ne eseguirà l'aggiornamento nei pacchetti SSIS 2017 in fase di esecuzione. L'esecuzione di pacchetti con versioni successive non è supportata.
 
 Di conseguenza, per evitare gli aggiornamenti della fase di esecuzione, la distribuzione dei pacchetti da eseguire su Azure-SSIS IR nel modello di distribuzione del pacchetto deve usare dtutil 2017 che viene fornito con l'installazione di SQL Server/SSIS 2017. Per questo scopo è possibile scaricare e installare gratuitamente [SQL Server/SSIS 2017 Developer Edition](https://go.microsoft.com/fwlink/?linkid=853016) . Una volta installato, è possibile trovare dtutil 2017 in questa cartella: `YourLocalDrive:\Program Files\Microsoft SQL Server\140\DTS\Binn` .
 

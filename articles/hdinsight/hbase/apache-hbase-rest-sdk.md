@@ -1,19 +1,19 @@
 ---
 title: Usare HBase .NET SDK - Azure HDInsight
 description: Usare HBase .NET SDK per creare ed eliminare tabelle e per leggere e scrivere dati.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive, devx-track-csharp
 ms.date: 12/02/2019
-ms.openlocfilehash: 7c62f1875fe44aa001323af5d83a0007ee18f11d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e8bce1ca10e9175b699bd548d9241b78bce3b5cf
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017346"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504860"
 ---
 # <a name="use-the-net-sdk-for-apache-hbase"></a>Usare .NET SDK per Apache HBase
 

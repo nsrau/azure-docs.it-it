@@ -12,12 +12,12 @@ author: sashan
 ms.author: sashan
 ms.reviewer: carlrab, sashan
 ms.date: 08/12/2020
-ms.openlocfilehash: 62dfa3214b86139a8f836b3d9bd72585653b7fa2
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 16e15976c6f09881b75dcec207833f48aa1c4e7a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88189939"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437674"
 ---
 # <a name="high-availability-for-azure-sql-database-and-sql-managed-instance"></a>Disponibilità elevata per database SQL di Azure e SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -91,11 +91,11 @@ La versione con ridondanza della zona dell'architettura a disponibilità elevata
 
 ## <a name="accelerated-database-recovery-adr"></a>Ripristino accelerato del database
 
-[Accelerated Database Recovery (ADR)](../accelerated-database-recovery.md) è una nuova funzionalità del motore di database che migliora notevolmente la disponibilità dei database, soprattutto in presenza di transazioni a esecuzione prolungata. ADR è attualmente disponibile per il database SQL di Azure, Istanza gestita SQL di Azure e Azure SQL Data Warehouse.
+[Accelerated Database Recovery (ADR)](../accelerated-database-recovery.md) è una nuova funzionalità del motore di database che migliora notevolmente la disponibilità dei database, soprattutto in presenza di transazioni a esecuzione prolungata. ADR è attualmente disponibile per il database SQL di Azure, Azure SQL Istanza gestita e Azure sinapsi Analytics (in precedenza SQL Data Warehouse).
 
 ## <a name="testing-application-fault-resiliency"></a>Test della resilienza degli errori delle applicazioni
 
-La disponibilità elevata è una parte fondamentale del database SQL e della piattaforma SQL Istanza gestita che funziona in modo trasparente per l'applicazione di database. Tuttavia, è possibile che si desideri testare il modo in cui le operazioni di failover automatico avviate durante gli eventi pianificati o non pianificati avranno un effetto su un'applicazione prima di distribuirla nell'ambiente di produzione. È possibile attivare manualmente un failover chiamando un'API speciale per riavviare un database, un pool elastico o un'istanza gestita. Nel caso di un database con ridondanza della zona o di un pool elastico, la chiamata API comporterebbe il reindirizzamento delle connessioni client al nuovo primario in una zona di disponibilità diversa dalla zona di disponibilità della replica primaria precedente. Quindi, oltre a testare il modo in cui il failover influisca sulle sessioni di database esistenti, è anche possibile verificare se le prestazioni end-to-end vengono modificate a causa di modifiche alla latenza di rete. Poiché l'operazione di riavvio è intrusiva e un numero elevato di questi potrebbe sottolineare la piattaforma, viene consentita una sola chiamata di failover ogni 30 minuti per ogni database, pool elastico o istanza gestita.
+La disponibilità elevata è una parte fondamentale del database SQL e della piattaforma Istanza gestita di SQL che funziona in modo trasparente per l'applicazione del database. Tuttavia, è possibile che si desideri testare il modo in cui le operazioni di failover automatico avviate durante gli eventi pianificati o non pianificati influiranno su un'applicazione prima di distribuirla nella produzione. È possibile attivare manualmente un failover chiamando un'API speciale per riavviare un database, un pool elastico o un'istanza gestita. Nel caso di un database con ridondanza della zona o di un pool elastico, la chiamata API comporterebbe il reindirizzamento delle connessioni client al nuovo primario in una zona di disponibilità diversa dalla zona di disponibilità della replica primaria precedente. Quindi, oltre a testare il modo in cui il failover influisca sulle sessioni di database esistenti, è anche possibile verificare se le prestazioni end-to-end vengono modificate a causa di modifiche alla latenza di rete. Poiché l'operazione di riavvio è intrusiva e un numero elevato di questi potrebbe sottolineare la piattaforma, viene consentita una sola chiamata di failover ogni 30 minuti per ogni database, pool elastico o istanza gestita.
 
 È possibile avviare un failover usando PowerShell, l'API REST o l'interfaccia della riga di comando di Azure:
 

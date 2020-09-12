@@ -3,12 +3,12 @@ title: Distribuire analisi video in tempo reale in un dispositivo IoT Edge-Azure
 description: Questo articolo elenca i passaggi che consentono di distribuire analisi video in tempo reale sul dispositivo IoT Edge. Questa operazione può essere eseguita, ad esempio, se si ha accesso a un computer Linux locale e/o in precedenza è stato creato un account di servizi multimediali di Azure.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: 774fdb440307d0df92e9735a8bdf055687f450a2
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: eecc17e36f35e7552c0be83f7ecc38f2d644f18d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684100"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439623"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuire analisi video in tempo reale in un dispositivo IoT Edge
 
@@ -38,7 +38,7 @@ Se si intende usare analisi video in tempo reale per registrare i video in modo 
 
 Si tratta di un passaggio facoltativo. A tale scopo, è possibile usare questo comando dell'interfaccia della riga di comando di Azure:
 
-```azure-cli
+```azurecli
 az ams streaming-endpoint scale --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --scale-units 1
 ```
 
@@ -47,7 +47,7 @@ az ams streaming-endpoint scale --resource-group $RESOURCE_GROUP --account-name 
 > [!IMPORTANT]
 > A questo punto, la sottoscrizione inizierà a essere fatturata.
 
-```azure-cli
+```azurecli
 az ams streaming-endpoint start --resource-group $RESOURCE_GROUP --account-name $AMS_ACCOUNT -n default --no-wait
 ```
 
@@ -107,7 +107,7 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
     * **Nome del modulo IOT Edge**: lvaEdge
     * **URI immagine**: MCR.Microsoft.com/media/Live-Video-Analytics:1.0    
     
-    ![Aggiunta](./media/deploy-iot-edge-device/add.png)
+    ![Add](./media/deploy-iot-edge-device/add.png)
     
     > [!TIP]
     > Non selezionare **Aggiungi** fino a quando non sono stati specificati i valori nelle schede **Impostazioni modulo**, **Opzioni di creazione contenitori**e **modulo gemello** , come descritto in questa procedura.

@@ -13,12 +13,12 @@ ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mathoma
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 9cf6fa26cec0abbc52a990d71c1c2fcc5d6023e4
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: f59f8af3f9a845f7e8663877f6d806c33b216a41
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612555"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482845"
 ---
 # <a name="configure-a-load-balancer-for-a-sql-server-always-on-availability-group-in-azure-virtual-machines"></a>Configurare un servizio di bilanciamento del carico per un gruppo di disponibilità SQL Server Always On in macchine virtuali di Azure
 
@@ -40,7 +40,7 @@ Visualizza articoli correlati:
 
 Completando questo articolo si creerà e configurerà un servizio di bilanciamento del carico nel portale di Azure. Al termine del processo, si configurerà il cluster per usare l'indirizzo IP dal servizio di bilanciamento del carico per il listener del gruppo di disponibilità.
 
-## <a name="create-and-configure-the-load-balancer-in-the-azure-portal"></a>Creare e configurare il servizio di bilanciamento del carico nel portale di Azure
+## <a name="create--configure-load-balancer"></a>Creare & configurare il servizio di bilanciamento del carico 
 
 In questa parte dell'attività eseguire i passaggi seguenti:
 
@@ -71,7 +71,7 @@ Per prima cosa creare il servizio di bilanciamento del carico.
    | --- | --- |
    | **Nome** |Nome che rappresenta il servizio di bilanciamento del carico. Ad esempio **sqlLB**. |
    | **Tipo** |**Interna**: La maggior parte delle implementazioni usa un servizio di bilanciamento del carico interno, che consente alle applicazioni all'interno della stessa rete virtuale di connettersi al gruppo di disponibilità.  </br> **Esterna**: consente alle applicazioni di connettersi al gruppo di disponibilità tramite una connessione Internet pubblica. |
-   | **SKU** |**Standard**: obbligatorio se le istanze di SQL si trovano in un set di disponibilità diverso da quello del servizio di bilanciamento del carico. </br> **Basic**: opzione predefinita. |
+   | **SKU** |**Basic**: opzione predefinita. Valido solo se le istanze SQL Server si trovano nello stesso set di disponibilità. </br> **Standard**: preferibile. Valido se le istanze di SQL Server si trovano nello stesso set di disponibilità. Obbligatorio se le istanze di SQL Server si trovano in zone di disponibilità diverse. |
    | **Rete virtuale** |Selezionare la rete virtuale in cui si trovano le istanze di SQL Server. |
    | **Subnet** |Selezionare la subnet in cui si trovano le istanze di SQL Server. |
    | **Assegnazione indirizzi IP** |**Statico** |

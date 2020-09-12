@@ -9,12 +9,12 @@ ms.author: nibaccam
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 03/27/2020
-ms.openlocfilehash: 8c2867fc5d57cf9ad6eb6bf2d90e02c61e320120
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 62edee6a882191551ce2409646ea8b617576c059
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146658"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651151"
 ---
 # <a name="distributed-training-with-azure-machine-learning"></a>Training distribuito con Azure Machine Learning
 
@@ -24,7 +24,7 @@ Nel training distribuito, il carico di lavoro per il training di un modello vien
 
 ## <a name="deep-learning-and-distributed-training"></a>Apprendimento avanzato e formazione distribuita 
 
-Esistono due tipi principali di training distribuito: [parallelismo dei dati](#data-parallelism) e [parallelismo del modello](#model-parallelism). Per la formazione distribuita su modelli di apprendimento avanzato, [Azure Machine Learning SDK in Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) supporta le integrazioni con i Framework più diffusi, PyTorch e TensorFlow. Entrambi i Framework utilizzano il parallelismo dei dati per il training distribuito e possono sfruttare [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) per ottimizzare le velocità di calcolo. 
+Esistono due tipi principali di training distribuito: [parallelismo dei dati](#data-parallelism) e [parallelismo del modello](#model-parallelism). Per la formazione distribuita su modelli di apprendimento avanzato, [Azure Machine Learning SDK in Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) supporta le integrazioni con i Framework più diffusi, PyTorch e TensorFlow. Entrambi i Framework utilizzano il parallelismo dei dati per il training distribuito e possono sfruttare [horovod](https://horovod.readthedocs.io/en/latest/summary_include.html) per ottimizzare le velocità di calcolo. 
 
 * [Formazione distribuita con PyTorch](how-to-train-pytorch.md#distributed-training)
 

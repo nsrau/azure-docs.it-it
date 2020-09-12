@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/12/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 3a2b3bfa8553e7c350c08fa7e1a7376ca08d9644
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 3deb7c0802dbfcdb65bcff6cb2653e73017651f1
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079777"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536456"
 ---
 # <a name="manage-azure-digital-twins-models"></a>Gestire i modelli di dispositivi gemelli digitali di Azure
 
@@ -79,7 +79,7 @@ Le sezioni seguenti illustrano come completare diverse operazioni di gestione de
 > [!TIP] 
 > Tenere presente che tutti i metodi SDK sono disponibili in versioni sincrone e asincrone. Per le chiamate di paging, i metodi asincroni restituiscono `AsyncPageable<T>` mentre le versioni sincrone restituiscono `Pageable<T>` .
 
-### <a name="upload-models"></a>Carica modelli
+### <a name="upload-models"></a>Caricare i modelli
 
 Una volta creati i modelli, è possibile caricarli nell'istanza di Azure Digital gemelli.
 
@@ -168,11 +168,16 @@ I modelli non vengono necessariamente restituiti esattamente nel formato del doc
 
 ### <a name="update-models"></a>Modelli di aggiornamento
 
-Una volta caricato un modello nell'istanza, l'intera interfaccia del modello non è modificabile. Ciò significa che non esiste alcuna "modifica" tradizionale di modelli.
+Dopo che un modello è stato caricato nell'istanza di Azure Digital gemelli, l'intera interfaccia del modello non è modificabile. Ciò significa che non esiste alcuna "modifica" tradizionale di modelli. I dispositivi gemelli digitali di Azure non consentono inoltre di caricare nuovamente lo stesso modello.
 
-Se invece si vuole apportare modifiche a un modello in dispositivi gemelli digitali di Azure, il modo per eseguire questa operazione consiste nel caricare una **versione più recente** dello stesso modello. Durante l'anteprima, l'avanzamento di una versione del modello consentirà solo di rimuovere i campi, non di aggiungerne di nuovi (per aggiungere nuovi campi, sarà sufficiente [creare un nuovo modello](#create-models)).
+Al contrario, se si desidera apportare modifiche a un modello, ad esempio `displayName` l'aggiornamento o `description` , il modo per eseguire questa operazione consiste nel caricare una **versione più recente** del modello. 
+
+#### <a name="model-versioning"></a>Gestione della versione dei modelli
 
 Per creare una nuova versione di un modello esistente, iniziare con il DTDL del modello originale. Aggiornare i campi che si desidera modificare.
+
+>[!NOTE]
+>Durante l'anteprima, l'avanzamento di una versione del modello consente solo di aggiungere nuovi campi, non rimuovere quelli esistenti. Per rimuovere i campi, è sufficiente [creare un nuovo modello](#create-models).
 
 Contrassegnare quindi come versione più recente del modello aggiornando il `id` campo del modello. L'ultima sezione dell'ID modello, dopo `;` , rappresenta il numero del modello. Per indicare che questa è ora una versione più aggiornata di questo modello, incrementare il numero alla fine del `id` valore con un numero maggiore del numero di versione corrente.
 
@@ -188,7 +193,17 @@ la versione 2 di questo modello potrebbe essere simile alla seguente:
 "@id": "dtmi:com:contoso:PatientRoom;2",
 ```
 
-Caricare quindi la nuova versione del modello nell'istanza di. Si sostituirà dalla versione precedente e i nuovi dispositivi gemelli creati con questo modello useranno la versione aggiornata.
+Caricare quindi la nuova versione del modello nell'istanza di. 
+
+Questa versione del modello sarà quindi disponibile nell'istanza da usare per i dispositivi gemelli digitali. Non **sovrascrive le** versioni precedenti del modello, pertanto più versioni del modello coesisteranno nell'istanza fino a quando non vengono [rimosse](#remove-models).
+
+#### <a name="impact-on-twins"></a>Effetti sui dispositivi gemelli
+
+Quando si crea un nuovo dispositivo gemello, poiché la nuova versione del modello e la versione precedente del modello coesisteno, il nuovo dispositivo gemello può usare la nuova versione del modello o la versione precedente.
+
+Questo significa anche che il caricamento di una nuova versione di un modello non influisce automaticamente sui dispositivi gemelli esistenti. I dispositivi gemelli esistenti rimarranno semplicemente le istanze della versione precedente del modello.
+
+È possibile aggiornare questi dispositivi gemelli esistenti alla nuova versione del modello mediante l'applicazione di patch, come descritto nella sezione [*aggiornare un modello di un dispositivo digitale gemello*](how-to-manage-twin.md#update-a-digital-twins-model) di *How-to: Manage Digital gemells*. All'interno della stessa patch, è necessario aggiornare sia l' **ID del modello** (alla nuova versione) **che tutti i campi che devono essere modificati sul dispositivo gemello per renderlo conforme al nuovo modello**.
 
 ### <a name="remove-models"></a>Rimuovi modelli
 
@@ -273,6 +288,8 @@ I dispositivi gemelli digitali di Azure non impediscono questo stato, quindi pre
 ## <a name="manage-models-with-cli"></a>Gestire modelli con l'interfaccia della riga di comando
 
 I modelli possono essere gestiti anche tramite l'interfaccia della riga di comando di Azure Digital gemelli. È possibile trovare i comandi in [*procedura: usare l'interfaccia della riga di comando di Azure Digital gemelli*](how-to-use-cli.md).
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

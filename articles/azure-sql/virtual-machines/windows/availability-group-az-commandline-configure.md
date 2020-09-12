@@ -13,12 +13,12 @@ ms.date: 08/20/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: a74a791c8c6a95c71faf1f4a0ce6eaacd7c68901
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 212ead54f0f8212ae251175d40873e7cec4e0240
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002998"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89482658"
 ---
 # <a name="configure-an-availability-group-for-sql-server-on-azure-vm-powershell--az-cli"></a>Configurare un gruppo di disponibilità per SQL Server in una macchina virtuale di Azure (PowerShell & AZ CLI)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -44,13 +44,13 @@ Per configurare il gruppo di disponibilità AlwaysOn usando l'interfaccia della 
 - Un account utente di dominio esistente con l'autorizzazione **Create Computer Object** (Crea oggetti computer) nel dominio. Un account amministratore di dominio ha in genere autorizzazioni sufficienti, ad esempio: account@domain.com. _Questo account deve anche fare parte del gruppo degli amministratori locali in ogni macchina virtuale per creare il cluster._
 - L'account utente di dominio che controlla SQL Server. 
  
-## <a name="create-a-storage-account-as-a-cloud-witness"></a>Creare un account di archiviazione come server di controllo del cloud
+## <a name="create-a-storage-account"></a>Creare un account di archiviazione 
+
 Per il cluster è necessario una account di archiviazione che funga da cloud di controllo. È possibile usare un account di archiviazione esistente o crearne uno nuovo. Per usare un account di archiviazione esistente, passare direttamente alla sezione successiva. 
 
 Il frammento di codice seguente crea un account di archiviazione: 
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
-
 
 ```azurecli-interactive
 # Create the storage account
@@ -80,7 +80,7 @@ New-AzStorageAccount -ResourceGroupName <resource group name> -Name <name> `
 
 ---
 
-## <a name="define-windows-failover-cluster-metadata"></a>Definire i metadati del cluster di failover di Windows
+## <a name="define-cluster-metadata"></a>Definire i metadati del cluster
 
 Il gruppo di comandi dell'interfaccia della riga di comando di Azure [az sql vm group](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest) gestisce i metadati del servizio WSFC (Windows Server Failover Cluster, Cluster di failover di Windows Server) che ospita il gruppo di disponibilità. I metadati del cluster includono il dominio Active Directory, gli account del cluster, gli account di archiviazione da usare come cloud di controllo e la versione di SQL Server. Usare [az sql vm group create](https://docs.microsoft.com/cli/azure/sql/vm/group?view=azure-cli-latest#az-sql-vm-group-create) per definire i metadati per WSFC in modo che, quando viene aggiunta la prima VM di SQL Server, il cluster venga creato come definito. 
 
@@ -183,6 +183,17 @@ Update-AzSqlVM -ResourceId $sqlvm2.ResourceId -SqlVM $sqlvmconfig2
 ```
 
 ---
+
+
+## <a name="validate-cluster"></a>Convalida cluster 
+
+Affinché un cluster di failover sia supportato da Microsoft, deve superare la convalida del cluster. Connettersi alla macchina virtuale usando il metodo preferito, ad esempio Remote Desktop Protocol (RDP) e verificare che il cluster superi la convalida prima di procedere. In caso contrario, il cluster rimane in uno stato non supportato. 
+
+È possibile convalidare il cluster usando Gestione cluster di failover (FCM) o il comando di PowerShell seguente:
+
+   ```powershell
+   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+   ```
 
 ## <a name="create-availability-group"></a>Creare un gruppo di disponibilità
 

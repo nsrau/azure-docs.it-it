@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 09/01/2020
+ms.date: 09/02/2020
 ms.author: markvi
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 16b2ab39e9bcd6dff44387edc60be9bfc649f224
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a15024362b31d49e51b291c10401bbf2965f1d82
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229872"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469865"
 ---
 # <a name="provisioning-reports-in-the-azure-active-directory-portal-preview"></a>Provisioning dei report nel portale di Azure Active Directory (anteprima)
 
@@ -85,7 +85,7 @@ In questo modo è possibile visualizzare campi aggiuntivi o rimuovere campi già
 
 Selezionare un elemento nella visualizzazione elenco per ottenere maggiori informazioni dettagliate.
 
-![Informazioni dettagliate](./media/concept-provisioning-logs/steps.png "Filtra")
+![Informazioni dettagliate](./media/concept-provisioning-logs/steps.png "Filtro")
 
 
 ## <a name="filter-provisioning-activities"></a>Filtrare le attività di provisioning
@@ -99,7 +99,7 @@ Nella visualizzazione predefinita è possibile selezionare i filtri seguenti:
 - Azione
 
 
-![Filter](./media/concept-provisioning-logs/default-filter.png "Filtra")
+![Aggiungere filtri](./media/concept-provisioning-logs/default-filter.png "Filtro")
 
 Il filtro di **identità** consente di specificare il nome o l'identità a cui si è interessati. Questa identità può essere un utente, un gruppo, un ruolo o un altro oggetto. È possibile eseguire la ricerca in base al nome o all'ID dell'oggetto. L'ID varia in base allo scenario. Ad esempio, quando si esegue il provisioning di un oggetto da Azure AD a SalesForce, l'ID di origine è l'ID oggetto dell'utente in Azure AD mentre TargetID è l'ID dell'utente in Salesforce. Quando si effettua il provisioning da giorni lavorativi a Active Directory, l'ID di origine è l'ID del dipendente del lavoro lavorativo. Si noti che il nome dell'utente potrebbe non essere sempre presente nella colonna Identity. Ci sarà sempre un ID. 
 
@@ -130,8 +130,8 @@ Il filtro **azione** consente di filtrare:
 - Create 
 - Aggiornamento
 - Delete
-- Disabilita
-- Altro
+- Disabilitazione
+- Altri
 
 Inoltre, per i filtri della visualizzazione predefinita, è anche possibile impostare i filtri seguenti:
 
@@ -175,7 +175,7 @@ I dettagli sono raggruppati in base alle categorie seguenti:
 - Riepilogo
 
 
-![Filter](./media/concept-provisioning-logs/provisioning-tabs.png "Schede")
+![Dettagli del provisioning](./media/concept-provisioning-logs/provisioning-tabs.png "Schede")
 
 
 
@@ -190,7 +190,7 @@ Nella scheda **passaggi** vengono descritti i passaggi necessari per eseguire il
 
 
 
-![Filter](./media/concept-provisioning-logs/steps.png "Filtra")
+![Passaggi](./media/concept-provisioning-logs/steps.png "Filtro")
 
 
 ### <a name="troubleshoot-and-recommendations"></a>Risoluzione dei problemi e suggerimenti
@@ -214,11 +214,13 @@ La scheda **Riepilogo** fornisce una panoramica delle operazioni eseguite e degl
 
 - È possibile usare l'attributo Change ID come identificatore univoco. Questo è, ad esempio, utile quando si interagisce con il supporto tecnico.
 
-- Attualmente non è disponibile alcuna opzione per scaricare i dati di provisioning.
+- Attualmente non è disponibile alcuna opzione per scaricare i dati di provisioning come file CSV, ma è possibile esportare i dati usando [Microsoft Graph](https://docs.microsoft.com/graph/api/provisioningobjectsummary-list?view=graph-rest-beta&tabs=http).
 
 - Attualmente non è disponibile alcun supporto per log Analytics.
 
 - È possibile che vengano visualizzati eventi ignorati per gli utenti che non rientrano nell'ambito. Questo comportamento è previsto, soprattutto quando l'ambito di sincronizzazione è impostato su tutti gli utenti e i gruppi. Il servizio valuterà tutti gli oggetti nel tenant, anche quelli che non rientrano nell'ambito. 
+
+- I log di provisioning non sono attualmente disponibili nel cloud per enti pubblici. Se non si è in grado di accedere ai log di provisioning, usare i log di controllo come soluzione temporanea.  
 
 ## <a name="error-codes"></a>Codici errore
 
@@ -244,6 +246,7 @@ Usare la tabella seguente per comprendere meglio come risolvere gli errori che s
 |DuplicateSourceEntries | Non è stato possibile completare l'operazione perché è stato trovato più di un utente con gli attributi corrispondenti configurati. Rimuovere l'utente duplicato o riconfigurare i mapping degli attributi come descritto [qui](../app-provisioning/customize-application-attributes.md).|
 |ImportSkipped | Quando viene valutato ogni utente, si tenta di importare l'utente dal sistema di origine. Questo errore si verifica in genere quando all'utente importato manca la proprietà corrispondente definita nei mapping degli attributi. Senza un valore presente nell'oggetto utente per l'attributo corrispondente, non è possibile valutare le modifiche dell'ambito, della corrispondenza o dell'esportazione. Si noti che la presenza di questo errore non indica che l'utente è nell'ambito perché non è ancora stata valutata la definizione dell'ambito per l'utente.|
 |EntrySynchronizationSkipped | Il servizio di provisioning ha eseguito una query sul sistema di origine e ha identificato l'utente. Non è stata eseguita alcuna azione aggiuntiva per l'utente e i relativi elementi sono stati ignorati. Il salto potrebbe essere dovuto all'esterno dell'ambito o all'utente già esistente nel sistema di destinazione senza che siano necessarie altre modifiche.|
+|SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| Quando si esegue una richiesta GET per recuperare un utente o un gruppo, nella risposta sono stati ricevuti più utenti o gruppi. Si prevede di ricevere un solo utente o gruppo nella risposta. Se, [ad esempio](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#get-group), si esegue una richiesta GET per recuperare un gruppo e si fornisce un filtro per escludere i membri e l'endpoint scim restituisce i membri, verrà generato questo errore.|
 
 ## <a name="next-steps"></a>Passaggi successivi
 

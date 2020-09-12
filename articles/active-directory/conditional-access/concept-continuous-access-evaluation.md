@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39736f0a369064e1a825ba3f6975a01c5e9ecc40
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 27aabac75516eed2c68b4f14c6593411d0141ef1
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147515"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437242"
 ---
 # <a name="continuous-access-evaluation"></a>Valutazione continua dell'accesso
 
@@ -61,13 +61,13 @@ Questo processo Abilita lo scenario in cui gli utenti perdono l'accesso ai file 
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| SharePoint Online | Supportato | Supportato | Non supportato | Non supportato | Supportato |
-| Exchange Online | Supportato | Supportato | Supportato | Supportato | Supportato |
+| SharePoint Online | Funzionalità supportata | Supportato | Non supportato | Non supportato | Supportato |
+| Exchange Online | Funzionalità supportata | Funzionalità supportata | Funzionalità supportata | Funzionalità supportata | Funzionalità supportata |
 
 | | App Web di Office | App di Office Win32 | Office per iOS | Office per Android | Office per Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| SharePoint Online | Supportato | Supportato | Non supportato | Supportato | Supportato |
-| Exchange Online | Supportato | Supportato | Non supportato | Supportato | Supportato |
+| SharePoint Online | Funzionalità supportata | Supportato | Non supportato | Supportato | Funzionalità supportata |
+| Exchange Online | Funzionalità supportata | Supportato | Non supportato | Supportato | Funzionalità supportata |
 
 ### <a name="client-side-claim-challenge"></a>Richiesta di attestazione lato client
 
@@ -108,7 +108,7 @@ Se non si usano client con supporto per CAE, la durata dei token di accesso pred
 1. In questo caso, il provider di risorse nega l'accesso e invia una richiesta di attestazione 401 + al client.
 1. Il client in grado di supportare CAE riconosce la richiesta di attestazione 401 +. Ignora le cache e torna al passaggio 1, inviando il token di aggiornamento insieme alla richiesta di attestazione al Azure AD. Azure AD valuterà quindi tutte le condizioni e chiederà all'utente di eseguire nuovamente l'autenticazione in questo caso.
 
-### <a name="user-condition-change-flow-public-preview"></a>Flusso di modifica della condizione utente (anteprima pubblica):
+### <a name="user-condition-change-flow-preview"></a>Flusso di modifica della condizione utente (anteprima):
 
 Nell'esempio seguente, un amministratore dell'accesso condizionale ha configurato un criterio di accesso condizionale basato sulla posizione per consentire l'accesso solo da intervalli IP specifici:
 
@@ -135,6 +135,13 @@ Da questa pagina, facoltativamente è possibile limitare gli utenti e i gruppi c
 
 ## <a name="troubleshooting"></a>Risoluzione dei problemi
 
+### <a name="supported-location-policies"></a>Criteri di percorso supportati
+
+Per CAE sono disponibili solo informazioni dettagliate sulle località denominate basate su IP. Non sono disponibili informazioni approfondite sulle altre impostazioni di località, ad esempio gli [IP attendibili](../authentication/howto-mfa-mfasettings.md#trusted-ips) a più fattori o i percorsi basati su paesi. Quando l'utente deriva da un indirizzo IP attendibile dell'autenticazione a più fattori o da percorsi attendibili che includono indirizzi IP attendibili a più fattori o località del paese, CAE non verrà applicato dopo lo spostamento dell'utente in un percorso diverso. In questi casi, viene emesso un token CAE di 1 ora senza controllo di imposizione dell'IP immediato.
+
+> [!IMPORTANT]
+> Quando si configurano i percorsi per la valutazione dell'accesso continuo, usare solo la [condizione di percorso di accesso condizionale basato su IP](../conditional-access/location-condition.md#preview-features) e configurare tutti gli indirizzi IP, **inclusi IPv4 e IPv6**, che possono essere visualizzati dal provider di identità e dal provider di risorse. Non usare le condizioni di località del paese o la funzionalità indirizzi IP attendibili disponibile nella pagina delle impostazioni del servizio Multi-Factor Authentication di Azure.
+
 ### <a name="ip-address-configuration"></a>Configurazione dell'indirizzo IP
 
 Il provider di identità e i provider di risorse possono visualizzare indirizzi IP diversi. Questa mancata corrispondenza può verificarsi a causa di implementazioni di proxy di rete nell'organizzazione o di configurazioni IPv4/IPv6 non corrette tra il provider di identità e il provider di risorse. Ad esempio:
@@ -144,9 +151,6 @@ Il provider di identità e i provider di risorse possono visualizzare indirizzi 
 - L'indirizzo IP visualizzato dal provider di identità fa parte di un intervallo di indirizzi IP consentiti nel criterio, ma l'indirizzo IP del provider di risorse non lo è.
 
 Se questo scenario è presente nell'ambiente per evitare cicli infiniti, Azure AD emetterà un token CAE di un'ora e non imporrà la modifica della posizione del client. Anche in questo caso, la sicurezza è migliorata rispetto ai token di un'ora tradizionale, perché stiamo ancora valutando gli [altri eventi](#critical-event-evaluation) oltre agli eventi di modifica della posizione del client.
-
-> [!IMPORTANT]
-> Quando si configurano i percorsi per la valutazione di accesso continuo, usare solo la [condizione di percorso di accesso condizionale basato su IP](../conditional-access/location-condition.md) Non usare le condizioni di località del paese o la funzionalità indirizzi IP attendibili disponibile nella pagina delle impostazioni del servizio Multi-Factor Authentication di Azure.
 
 ### <a name="office-and-web-account-manager-settings"></a>Impostazioni di gestione account Office e Web
 

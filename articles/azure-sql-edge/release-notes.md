@@ -9,28 +9,49 @@ ms.subservice: ''
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 07/27/2020
-ms.openlocfilehash: 74e9772ada010d79e81ef36cae89ba586db73077
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.date: 09/04/2020
+ms.openlocfilehash: a2d27f892e79d99f515032b72e1ec090ab1f6a31
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553411"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500352"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Note sulla versione di Azure SQL Edge 
 
 Questo articolo descrive le novità e le modifiche apportate a ogni nuova build di Azure SQL Edge.
 
+## <a name="ctp-23"></a>CTP 2.3
+### <a name="sql-engine-build-number---15020001549"></a>Numero di build del motore SQL: 15.0.2000.1549
+### <a name="whats-new"></a>Novità
+1. Supporto per le origini personalizzate nella funzione Date_Bucket (). 
+2. Supporto per i file BacPac come parte della distribuzione SQL.
+3. Supporto per la pulizia basata sui criteri di conservazione dei dati.      
+   - Supporto DDL per l'abilitazione dei criteri di conservazione 
+   - Stored procedure di pulizia e attività di pulizia in background
+   - Eventi estesi per il monitoraggio delle attività di pulizia
+
+### <a name="fixes"></a>Correzioni
+1. Messaggi di errore aggiuntivi e dettagli per la risoluzione dei problemi relativi alle operazioni di streaming TSQL. 
+2. Imporvements per preservare la durata della batteria in modalità inattiva. 
+3. Correzioni del motore di flusso TSQL: 
+   - Correzione del problema relativo alla filigrana bloccata con la finestra di salto in flusso 
+   - Correzione della gestione delle eccezioni del Framework per assicurarsi che venga raccolta come errore eseguibile dall'utente
+
+
 ## <a name="ctp-22"></a>CTP 2.2
 ### <a name="sql-engine-build-number---15020001546"></a>Numero di build del motore SQL: 15.0.2000.1546
-### <a name="fixes"></a>Correzioni
+### <a name="whats-new"></a>Novità
 1. Supporto per i contenitori non radice 
 2. Supporto per la raccolta di dati di utilizzo e diagnostica 
 3. Aggiornamenti di streaming T-SQL
    - Supporto per i caratteri Unicode per i nomi di oggetti di flusso
+
+### <a name="fixes"></a>Correzioni
+1. Aggiornamenti di streaming T-SQL
    - Miglioramenti alla pulizia del processo
    - Miglioramenti della registrazione e della diagnostica
-4. Miglioramento delle prestazioni per l'inserimento dei dati
+2. Miglioramento delle prestazioni per l'inserimento dei dati
 
 ## <a name="ctp-21"></a>CTP 2.1 
 ### <a name="sql-engine-build-number---15020001545"></a>Numero di build del motore SQL: 15.0.2000.1545

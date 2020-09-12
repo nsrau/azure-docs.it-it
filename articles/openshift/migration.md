@@ -1,18 +1,18 @@
 ---
-title: Eseguire la migrazione da un Azure Red Hat OpenShift 3,11 ad Azure Red Hat OpenShift 4
-description: Eseguire la migrazione da un Azure Red Hat OpenShift 3,11 ad Azure Red Hat OpenShift 4
+title: Eseguire la migrazione da Azure Red Hat OpenShift 3.11 ad Azure Red Hat OpenShift 4
+description: Eseguire la migrazione da Azure Red Hat OpenShift 3.11 ad Azure Red Hat OpenShift 4
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 08/13/2020
 keywords: migrazione, Aro, OpenShift, Red Hat
-ms.openlocfilehash: 68e8be24273dfab490d2423b76c372f2ff9f2b38
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 322c0cf5ece2a9c950e71b947e2aa6088a165cb8
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88513188"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469746"
 ---
 # <a name="migrate-from-azure-red-hat-openshift-311-to-azure-red-hat-openshift-4"></a>Eseguire la migrazione da Azure Red Hat OpenShift 3,11 ad Azure Red Hat OpenShift 4
 
@@ -77,7 +77,7 @@ Per consentire agli utenti di interagire con Azure Red Hat OpenShift, è necessa
 
 Quando viene creato un cluster Azure Red Hat OpenShift 4, viene creato un utente amministratore temporaneo. [Connettersi al cluster](tutorial-connect-cluster.md), aggiungere utenti e gruppi e [configurare le autorizzazioni appropriate](https://docs.openshift.com/aro/4/authentication/understanding-authentication.html) per entrambe.
 
-### <a name="networking"></a>Funzionalità di rete
+### <a name="networking"></a>Rete
 
 Azure Red Hat OpenShift 4 usa alcuni operatori diversi per configurare la rete nel cluster: [operatore di rete cluster](https://docs.openshift.com/aro/4/networking/cluster-network-operator.html#nw-cluster-network-operator_cluster-network-operator), [operatore DNS](https://docs.openshift.com/aro/4/networking/dns-operator.html)e [operatore di ingresso](https://docs.openshift.com/aro/4/networking/ingress-operator.html). Per altre informazioni sulla configurazione della rete in un cluster Azure Red Hat OpenShift 4, vedere il [diagramma di rete](concepts-networking.md) e [informazioni sulla rete](https://docs.openshift.com/aro/4/networking/understanding-networking.html).
 
@@ -100,7 +100,7 @@ Per informazioni sulla configurazione di questi tipi di archiviazione, vedere [c
 
 Azure Red Hat OpenShift 4 può creare immagini dal codice sorgente, distribuirle e gestirne il ciclo di vita. Per abilitare questa funzionalità, Azure Red Hat OpenShift fornisce 4 un [registro interno integrato di immagini del contenitore](https://docs.openshift.com/aro/4/registry/registry-options.html) che può essere distribuito nell'ambiente Azure Red Hat OpenShift per gestire le immagini in locale.
 
-Se si usano registri esterni come [Azure container Registry](https://docs.microsoft.com/azure/container-registry/), [registri Red Hat Quay](https://docs.openshift.com/aro/4/registry/registry-options.html#registry-quay-overview_registry-options)o un [Registro Red Hat abilitato](https://docs.openshift.com/aro/4/registry/registry-options.html#registry-authentication-enabled-registry-overview_registry-options)per l'autenticazione, seguire la procedura per fornire le credenziali al cluster per consentire al cluster di accedere ai repository.
+Se si usano registri esterni come [Azure container Registry](../container-registry/index.yml), [registri Red Hat Quay](https://docs.openshift.com/aro/4/registry/registry-options.html#registry-quay-overview_registry-options)o un [Registro Red Hat abilitato](https://docs.openshift.com/aro/4/registry/registry-options.html#registry-authentication-enabled-registry-overview_registry-options)per l'autenticazione, seguire la procedura per fornire le credenziali al cluster per consentire al cluster di accedere ai repository.
 
 ### <a name="monitoring"></a>Monitoraggio
 
@@ -128,4 +128,3 @@ az openshift delete --name $CLUSTER_NAME
 ```
 ## <a name="next-steps"></a>Passaggi successivi
 Vedere la documentazione di Azure Red Hat OpenShift fornita da Red Hat [qui](https://docs.openshift.com/aro/4/welcome/index.html).
-

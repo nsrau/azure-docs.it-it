@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: rarayudu, logicappspm
 ms.topic: conceptual
-ms.date: 08/27/2020
-ms.openlocfilehash: 442b5acf3a6786b9fcaf0a96015a6df31215653c
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.date: 09/08/2020
+ms.openlocfilehash: 75c434b5c1927251940a691a16069425b4cc88a3
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231419"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500403"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Proteggere l'accesso e i dati in App per la logica di Azure
 
@@ -197,7 +197,7 @@ Per abilitare Azure AD OAuth per l'app per la logica nel portale di Azure, segui
    | Proprietà | Obbligatoria | Descrizione |
    |----------|----------|-------------|
    | **Nome del criterio** | Sì | Il nome da usare per il criterio di autorizzazione |
-   | **Richieste** | Sì | I tipi di attestazione e i valori accettati dall'app per la logica dalle chiamate in ingresso. Ecco i tipi di attestazione disponibili: <p><p>- **Autorità di certificazione** <br>- **Destinatari** <br>- **Oggetto** <br>- **ID JWT** (ID token Web JSON) <p><p>Come minimo, è necessario che l'elenco di **attestazioni** includa l'attestazione **Issuer** , che ha un valore che inizia con `https://sts.windows.net/` o `https://login.microsoftonline.com/` come ID emittente Azure ad. Per altre informazioni su questi tipi di attestazione, vedere [Attestazioni nei token di sicurezza Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). È anche possibile specificare il proprio tipo di attestazione e il proprio valore. |
+   | **Richieste** | Sì | I tipi di attestazione e i valori accettati dall'app per la logica dalle chiamate in ingresso. Ecco i tipi di attestazione disponibili: <p><p>- **Autorità di certificazione** <br>- **Destinatari** <br>- **Oggetto** <br>- **ID JWT** (ID token Web JSON) <p><p>Come minimo, è necessario che l'elenco di **attestazioni** includa l'attestazione dell' **autorità emittente** , che ha un valore che inizia con `https://sts.windows.net/` o `https://login.microsoftonline.com/` come ID autorità di certificazione Azure ad. Per altre informazioni su questi tipi di attestazione, vedere [Attestazioni nei token di sicurezza Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). È anche possibile specificare il proprio tipo di attestazione e il proprio valore. |
    |||
 
 1. Per aggiungere un'altra attestazione, selezionare una delle opzioni seguenti:
@@ -216,6 +216,9 @@ Per abilitare Azure AD OAuth per l'app per la logica nel portale di Azure, segui
 
 Per abilitare Azure AD OAuth nel modello ARM per la distribuzione dell'app per la logica, nella `properties` sezione relativa alla [definizione di risorsa dell'app](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#logic-app-resource-definition)per la logica aggiungere un `accessControl` oggetto, se non ne esiste alcuno, che contiene un `triggers` oggetto. Nell' `triggers` oggetto aggiungere un oggetto in `openAuthenticationPolicies` cui definire uno o più criteri di autorizzazione seguendo questa sintassi:
 
+> [!NOTE]
+> Come minimo, la `claims` matrice deve includere l' `iss` attestazione, che ha un valore che inizia con `https://sts.windows.net/` o `https://login.microsoftonline.com/` come ID emittente Azure ad. Per altre informazioni su questi tipi di attestazione, vedere [Attestazioni nei token di sicurezza Azure AD](../active-directory/azuread-dev/v1-authentication-scenarios.md#claims-in-azure-ad-security-tokens). È anche possibile specificare il proprio tipo di attestazione e il proprio valore.
+
 ```json
 "resources": [
    {
@@ -233,7 +236,7 @@ Per abilitare Azure AD OAuth nel modello ARM per la distribuzione dell'app per l
                         "claims": [
                            {
                               "name": "<claim-name>",
-                              "values": "<claim-value>"
+                              "value": "<claim-value>"
                            }
                         ]
                      }
@@ -811,7 +814,7 @@ Questa tabella identifica i tipi di autenticazione disponibili per i trigger e l
 | [Certificato client](#client-certificate-authentication) | Gestione API di Azure, servizio app di Azure, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Active Directory OAuth](#azure-active-directory-oauth-authentication) | Gestione API di Azure, servizi app di Azure, Funzioni di Azure, HTTP, HTTP + Swagger, HTTP Webhook |
 | [Raw](#raw-authentication) | Gestione API di Azure, servizi app di Azure, Funzioni di Azure, HTTP, HTTP + Swagger, HTTP Webhook |
-| [Identità gestita](#managed-identity-authentication) | Gestione API di Azure, servizi app Azure, funzioni di Azure, HTTP |
+| [Identità gestita](#managed-identity-authentication) | Gestione API di Azure, servizi app Azure, funzioni di Azure, HTTP, webhook HTTP |
 |||
 
 <a name="basic-authentication"></a>

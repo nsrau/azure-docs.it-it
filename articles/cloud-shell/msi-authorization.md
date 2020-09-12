@@ -10,12 +10,12 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 04/14/2018
-ms.openlocfilehash: a5d49a16324a5a97f4a0507f9abf47ea602ea072
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0fb19524079f84e92e1ddbc98a61917026492663
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "72328707"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469899"
 ---
 # <a name="use-managed-identities-for-azure-resources-in-azure-cloud-shell"></a>Usare identità gestite per le risorse di Azure in Azure Cloud Shell
 
@@ -43,8 +43,8 @@ Il sottosistema dell'identità del servizio gestito locale memorizza i token nel
 
 Se si memorizza nella cache il token nel codice, è consigliabile essere preparati a gestire gli scenari in cui la risorsa indica che il token è scaduto.
 
-Per gestire gli errori del token, visitare la [pagina dell'identità del servizio gestito relativa al curl dei token di accesso dell'identità del servizio gestito](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token#error-handling).
+Per gestire gli errori del token, visitare la [pagina dell'identità del servizio gestito relativa al curl dei token di accesso dell'identità del servizio gestito](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md#error-handling).
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Altre informazioni sull'identità del servizio gestito](https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview)  
-[Acquisire i token di accesso dall'identità del servizio gestito delle macchine virtuali](https://docs.microsoft.com/azure/active-directory/managed-service-identity/how-to-use-vm-token)
+[Altre informazioni sull'identità del servizio gestito](../active-directory/managed-identities-azure-resources/overview.md)  
+[Acquisire i token di accesso dall'identità del servizio gestito delle macchine virtuali](../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)
