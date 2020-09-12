@@ -1,6 +1,6 @@
 ---
-title: Caricare terabyte di dati in SQL Data Warehouse
-description: Illustra come caricare 1 TB di dati in Azure SQL Data Warehouse in meno di 15 minuti con Azure Data Factory
+title: Caricare terabyte di dati in Azure sinapsi Analytics
+description: Viene illustrato come caricare 1 TB di dati in Azure sinapsi Analytics in meno di 15 minuti con Azure Data Factory
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -12,33 +12,33 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 3b5ce0cba68d4374d6a0403af28ec3f03920acf6
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a5bf53597c0706a5ef435d6ab8cc06e14726db8a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86537599"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442480"
 ---
-# <a name="load-1-tb-into-azure-sql-data-warehouse-under-15-minutes-with-data-factory"></a>Caricare 1 TB di dati in Azure SQL Data Warehouse in meno di 15 minuti con Data Factory
+# <a name="load-1-tb-into-azure-synapse-analytics-under-15-minutes-with-data-factory"></a>Caricare 1 TB in Azure sinapsi Analytics in meno di 15 minuti con Data Factory
 > [!NOTE]
-> Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere [Copy data to or from Azure SQL Data Warehouse by using Data Factory](../connector-azure-sql-data-warehouse.md) (Copiare dati da o in Azure SQL Data Warehouse usando Data Factory).
+> Le informazioni di questo articolo sono valide per la versione 1 di Data Factory. Se si usa la versione corrente del servizio Data Factory, vedere [copiare dati da o verso Azure sinapsi Analytics (in precedenza SQL Data Warehouse) usando Data Factory](../connector-azure-sql-data-warehouse.md).
 
 
-[Azure SQL data warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) è un database basato su cloud e con scalabilità orizzontale in grado di elaborare grandi volumi di dati, sia relazionali che non relazionali.  Basato sull'architettura di elaborazione parallela massiva (MPP, Massively Parallel Processing), SQL Data Warehouse è ottimizzato per i carichi di lavoro dei data warehouse dell'organizzazione.  Offre l'elasticità del cloud con la flessibilità per ridimensionare la capacità di archiviazione e di calcolo in modo indipendente.
+[Azure sinapsi Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) è un database basato su cloud e con scalabilità orizzontale in grado di elaborare grandi volumi di dati, sia relazionali che non relazionali.  Basato sull'architettura MPP (Massive Parallel Processing), Azure sinapsi Analytics è ottimizzato per carichi di lavoro aziendali data warehouse.  Offre l'elasticità del cloud con la flessibilità per ridimensionare la capacità di archiviazione e di calcolo in modo indipendente.
 
-L'uso di Azure SQL Data Warehouse è ora più semplice dell'uso di **Azure Data Factory**.  Azure Data Factory è un servizio di integrazione di dati basato su cloud completamente gestito, che può essere usato per popolare un'istanza di SQL Data Warehouse con i dati del sistema esistente e che consente di risparmiare tempo prezioso durante la valutazione di SQL Data Warehouse e la creazione di soluzioni di analisi. Di seguito sono elencati i vantaggi principali del caricamento di dati in Azure SQL Data Warehouse mediante Azure Data Factory:
+La Guida introduttiva ad Azure sinapsi Analytics è ora più semplice che mai usare **Azure Data Factory**.  Azure Data Factory è un servizio di integrazione dei dati basato su cloud completamente gestito, che può essere usato per popolare analisi delle sinapsi di Azure con i dati del sistema esistente e per risparmiare tempo prezioso durante la valutazione di analisi sinapsi di Azure e la creazione di soluzioni di analisi. Ecco i vantaggi principali del caricamento dei dati in Azure sinapsi Analytics usando Azure Data Factory:
 
 * **Semplicità di configurazione**: procedura guidata intuitiva in 5 passaggi, senza necessità di script.
 * **Supporto per gli archivi dati avanzati**: supporto incorporato per un set completo di archivi dati locali e basati sul cloud.
 * **Sicurezza e conformità**: i dati vengono trasferiti tramite HTTPS o ExpressRoute e la presenza di un servizio globale garantisce che i dati non superino mai il confine geografico.
-* **Prestazioni ineguagliabili tramite Polybase**: Polybase rappresenta il modo più efficiente per spostare dati in Azure SQL Data Warehouse. Mediante la funzionalità di gestione temporanea dei BLOB è possibile ottenere velocità di carico elevate da tutti i tipi di archivi dati oltre all'archivio BLOB di Azure, supportato da Polybase per impostazione predefinita.
+* **Prestazioni ineguagliabili tramite polibase** : l'uso di polibase è il modo più efficiente per spostare i dati in Azure sinapsi Analytics. Mediante la funzionalità di gestione temporanea dei BLOB è possibile ottenere velocità di carico elevate da tutti i tipi di archivi dati oltre all'archivio BLOB di Azure, supportato da Polybase per impostazione predefinita.
 
-Questo articolo illustra come usare la Copia guidata di Data Factory per caricare 1 TB di dati da Archiviazione BLOB di Azure ad Azure SQL Data Warehouse in meno di 15 minuti a una velocità effettiva di oltre 1,2 GBps.
+Questo articolo illustra come usare la copia guidata di Data Factory per caricare i dati da 1 TB dall'archiviazione BLOB di Azure in Azure sinapsi Analytics in meno di 15 minuti, a una velocità effettiva superiore a 1,2 GBps.
 
-Questo articolo include istruzioni dettagliate per spostare dati in Azure SQL Data Warehouse tramite la Copia guidata.
+Questo articolo fornisce istruzioni dettagliate per lo spostamento dei dati in Azure sinapsi Analytics usando la copia guidata.
 
 > [!NOTE]
->  Per informazioni generali sulle funzionalità di Data Factory per lo spostamento di dati da e verso Azure SQL Data Warehouse, vedere [Spostare dati da e verso Azure SQL Data Warehouse mediante Azure Data Factory](data-factory-azure-sql-data-warehouse-connector.md).
+>  Per informazioni generali sulle funzionalità di Data Factory per lo spostamento di dati da e verso Azure sinapsi Analytics, vedere [spostare dati da e verso Azure sinapsi Analytics con Azure Data Factory](data-factory-azure-sql-data-warehouse-connector.md) articolo.
 >
 > È anche possibile compilare pipeline con Visual Studio, PowerShell e così via. Vedere [esercitazione: copiare i dati dal BLOB di Azure al database SQL di Azure](data-factory-copy-data-from-azure-blob-storage-to-sql-database.md) per una rapida procedura dettagliata con istruzioni dettagliate per l'uso dell'attività di copia in Azure Data Factory.  
 >
@@ -54,18 +54,18 @@ Questo articolo include istruzioni dettagliate per spostare dati in Azure SQL Da
   * `Dbgen -s 1000 -S **10** -C 10 -T L -v`
 
     Copiare ora i file generati nel BLOB di Azure.  Per informazioni su come eseguire questa operazione usando ADF Copy, vedere [Spostare i dati da e nel file system locale usando Azure Data Factory](data-factory-onprem-file-system-connector.md).    
-* Azure SQL Data Warehouse: in questo esperimento i dati vengono caricati nell'istanza di Azure SQL Data Warehouse creata con 6000 DWU (Data Warehouse Units)
+* Analisi delle sinapsi di Azure: questo esperimento carica i dati in Azure sinapsi Analytics creati con 6.000 DWU
 
-    Per informazioni su come creare un database di SQL Data Warehouse, vedere [Create an Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) (Creare un'istanza di Azure SQL Data Warehouse).  Per ottenere le migliori prestazioni di caricamento possibili in SQL Data Warehouse usando Polybase, si è scelto il numero massimo di DWU consentito nell'impostazione delle prestazioni, ovvero 6000 DWU.
+    Per istruzioni dettagliate su come creare un database di analisi delle sinapsi di Azure, vedere [creare un'analisi delle sinapsi di Azure](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md) .  Per ottenere le migliori prestazioni di caricamento in Azure sinapsi Analytics usando la polibase, è possibile scegliere il numero massimo di unità di data warehouse (DWU) consentito nell'impostazione delle prestazioni, ovvero 6.000 DWU.
 
   > [!NOTE]
-  > Durante il caricamento dal BLOB di Azure, le prestazioni di caricamento dei dati sono direttamente proporzionali al numero di DWU configurate in SQL Data Warehouse:
+  > Quando si esegue il caricamento da un BLOB di Azure, le prestazioni di caricamento dei dati sono direttamente proporzionali al numero di DWU configurato per l'analisi delle sinapsi di Azure:
   >
-  > Il caricamento di 1 TB in un'istanza di SQL Data Warehouse con 1.000 DWU richiede 87 minuti (alla velocità effettiva di circa 200 MBps) Il caricamento di 1 TB in un'istanza di SQL Data Warehouse con 2.000 DWU richiede 46 minuti (alla velocità effettiva di circa 380 MBps) Il caricamento di 1 TB in un'istanza di SQL Data Warehouse con 6.000 DWU richiede 14 minuti (alla velocità effettiva di circa 1,2 GBps)
+  > Il caricamento di 1 TB in 1.000 DWU Azure sinapsi Analytics richiede 87 minuti (~ 200 MBps velocità effettiva) il caricamento di 1 TB in 2.000 DWU Azure sinapsi Analytics richiede 46 minuti (~ 380 MBps velocità effettiva) il caricamento di 1 TB in 6.000 DWU Azure sinapsi Analytics richiede 14 minuti (~ 1,2 GBps velocità effettiva)
   >
   >
 
-    Per creare un'istanza di SQL Data Warehouse con 6000 DWU, spostare il dispositivo di scorrimento delle prestazioni verso destra:
+    Per creare un pool di SQL sinapsi con 6.000 DWU, spostare il dispositivo di scorrimento delle prestazioni a destra:
 
     ![Dispositivo di scorrimento delle prestazioni](media/data-factory-load-sql-data-warehouse/performance-slider.png)
 
@@ -77,10 +77,10 @@ Questo articolo include istruzioni dettagliate per spostare dati in Azure SQL Da
 
     ![Finestra di dialogo Ridimensiona](media/data-factory-load-sql-data-warehouse/scale-dialog.png)
 
-    In questo esperimento i dati vengono caricati in Azure SQL Data Warehouse mediante la classe di risorse `xlargerc`.
+    Questo esperimento carica i dati in Azure sinapsi Analytics usando la `xlargerc` classe di risorse.
 
-    Per ottenere la velocità effettiva migliore possibile, è necessario eseguire la copia tramite un utente di SQL Data Warehouse appartenente alla classe di risorse `xlargerc`.  Per eseguire questa operazione, seguire la procedura descritta in [Esempio di modifica della classe di risorse di un utente](../../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md).  
-* Creare lo schema della tabella di destinazione nel database di Azure SQL Data Warehouse eseguendo l'istruzione DDL seguente:
+    Per ottenere la massima velocità effettiva possibile, è necessario eseguire la copia usando un utente di Azure sinapsi Analytics appartenente alla `xlargerc` classe di risorse.  Per eseguire questa operazione, seguire la procedura descritta in [Esempio di modifica della classe di risorse di un utente](../../sql-data-warehouse/sql-data-warehouse-develop-concurrency.md).  
+* Creare lo schema della tabella di destinazione nel database di analisi delle sinapsi di Azure, eseguendo l'istruzione DDL seguente:
 
     ```SQL  
     CREATE TABLE [dbo].[lineitem]
@@ -165,13 +165,13 @@ Questa sezione illustra i passaggi per configurare l'origine: BLOB di Azure cont
     ![Copia guidata: impostazioni di formattazione file](media/data-factory-load-sql-data-warehouse/file-format-settings.png)
 
 ## <a name="step-3-configure-destination"></a>Passaggio 3: Configurare la destinazione
-Questa sezione illustra come configurare la destinazione: tabella `lineitem` nel database di Azure SQL Data Warehouse.
+Questa sezione illustra come configurare la tabella Destination: `lineitem` nel database di analisi delle sinapsi di Azure.
 
-1. Selezionare **Azure SQL Data Warehouse** come archivio di destinazione e fare clic su **Avanti**.
+1. Scegliere **Azure sinapsi Analytics** come archivio di destinazione e fare clic su **Avanti**.
 
     ![Copia guidata: selezionare l'archivio dati di destinazione](media/data-factory-load-sql-data-warehouse/select-destination-data-store.png)
 
-2. Immettere le informazioni di connessione per Azure SQL Data Warehouse.  Assicurarsi di specificare l'utente membro del ruolo `xlargerc` (per informazioni dettagliate, vedere la sezione **Prerequisiti**), quindi fare clic su **Avanti**.
+2. Immettere le informazioni di connessione per Azure sinapsi Analytics.  Assicurarsi di specificare l'utente membro del ruolo `xlargerc` (per informazioni dettagliate, vedere la sezione **Prerequisiti**), quindi fare clic su **Avanti**.
 
     ![Copia guidata: informazioni sulla connessione di destinazione](media/data-factory-load-sql-data-warehouse/destination-connection-info.png)
 
@@ -190,27 +190,27 @@ L'opzione **Allow polybase** (Consenti Polybase) è selezionata per impostazione
 ## <a name="step-5-deploy-and-monitor-load-results"></a>Passaggio 5: Distribuire e monitorare i risultati del caricamento
 1. Fare clic sul pulsante **Fine** per eseguire la distribuzione.
 
-    ![Copia guidata: pagina di riepilogo](media/data-factory-load-sql-data-warehouse/summary-page.png)
+    ![Copia guidata-pagina Riepilogo 1](media/data-factory-load-sql-data-warehouse/summary-page.png)
 
 2. Al termine della distribuzione, fare clic su `Click here to monitor copy pipeline` per monitorare l'avanzamento dell'esecuzione della copia. Scegliere la pipeline di copia creata nell'elenco **Activity Windows** (Finestre attività).
 
-    ![Copia guidata: pagina di riepilogo](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
+    ![Copia guidata: pagina Riepilogo 2](media/data-factory-load-sql-data-warehouse/select-pipeline-monitor-manage-app.png)
 
     È possibile visualizzare i dettagli relativi all'esecuzione della copia in **Activity Window Explorer** (Esplora attività) nel riquadro di destra, inclusi il volume dei dati letti dall'origine e scritti nella destinazione, la durata e la velocità effettiva media dell'esecuzione.
 
-    Come è possibile vedere dallo screenshot seguente, la copia di 1 TB dall'archiviazione BLOB di Azure a SQL Data Warehouse ha richiesto 14 minuti, ottenendo effettivamente una velocità effettiva di 1,22 GBps.
+    Come è possibile vedere dallo screenshot seguente, la copia di 1 TB dall'archiviazione BLOB di Azure in Azure sinapsi Analytics ha richiesto 14 minuti, ottenendo effettivamente una velocità effettiva di 1,22 GBps.
 
     ![Copia guidata: finestra di dialogo operazione completata](media/data-factory-load-sql-data-warehouse/succeeded-info.png)
 
 ## <a name="best-practices"></a>Procedure consigliate
-Di seguito sono elencate alcune procedure consigliate per l'esecuzione del database di Azure SQL Data Warehouse:
+Di seguito sono riportate alcune procedure consigliate per l'esecuzione del database di analisi delle sinapsi di Azure:
 
 * Usare una classe di risorse di dimensioni maggiori durante il caricamento in un INDICE COLUMNSTORE CLUSTER.
 * Per join più efficienti, è consigliabile usare la distribuzione hash da una colonna di selezione anziché la distribuzione round robin predefinita.
 * Per una maggiore velocità di carico, è consigliabile usare un heap per i dati temporanei.
-* Creare statistiche al termine del caricamento di Azure SQL Data Warehouse.
+* Creare statistiche dopo aver completato il caricamento in Azure sinapsi Analytics.
 
-Per informazioni dettagliate, vedere [Procedure consigliate per Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md).
+Per informazioni dettagliate, vedere [procedure consigliate per l'analisi delle sinapsi di Azure](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-best-practices.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Data Factory Copy Wizard](data-factory-copy-wizard.md) (Copia guidata di Data Factory): questo articolo include informazioni dettagliate sulla Copia guidata.

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: terrylan
-ms.openlocfilehash: 9adbe7b03283a00f78222ffdc77dca7aaadcbda0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 53a41c3921ee92b1ec79edf95999c97f80cbce45
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81461702"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462361"
 ---
 # <a name="securing-paas-deployments"></a>Protezione delle distribuzioni PaaS
 
@@ -98,12 +98,12 @@ Usare protocolli di autenticazione standard come OAuth2 e Kerberos. Questi proto
 
 Nella tabella seguente sono elencate le minacce STRIDE e alcuni esempi di mitigazioni dei rischi che usano le funzionalità di Azure. Queste mitigazioni dei rischi non funzioneranno in tutte le situazioni.
 
-| Threat | Proprietà di sicurezza | Potenziali mitigazioni della piattaforma di Azure |
+| Minaccia | Proprietà di sicurezza | Potenziali mitigazioni della piattaforma di Azure |
 | --- | --- | --- |
-| Spoofing | Authentication | Richiede connessioni HTTPS. |
+| Spoofing | Autenticazione | Richiede connessioni HTTPS. |
 | Manomissione | Integrità | Convalidare i certificati TLS/SSL. |
 | Ripudio | Non ripudio | Abilitazione del [monitoraggio e diagnostica](/azure/architecture/best-practices/monitoring) di Azure. |
-| Divulgazione di informazioni | Riservatezza | Crittografare i dati sensibili inattivi tramite [certificati di servizio](/rest/api/appservice/certificates). |
+| Diffusione di informazioni | Riservatezza | Crittografare i dati sensibili inattivi tramite [certificati di servizio](/rest/api/appservice/certificates). |
 | Denial of Service | Disponibilità | Monitorare le metriche delle prestazioni per le potenziali condizioni di Denial of service. Implementare i filtri di connessione. |
 | Elevazione dei privilegi | Autorizzazione | Usare [Privileged Identity Management](/azure/active-directory/privileged-identity-management/subscription-requirements). |
 
@@ -151,10 +151,10 @@ Il test fuzzy è un metodo per individuare gli errori del programma (errori del 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
-In questo articolo sono stati illustrati i vantaggi di sicurezza di una distribuzione PaaS di Azure e le procedure consigliate per le applicazioni cloud. Il passaggio successivo è costituito dall'approfondimento delle procedure consigliate per proteggere le soluzioni PaaS Web e mobili usando servizi di Azure specifici. Si inizierà dal Servizio app di Azure, il database SQL di Azure e SQL Data Warehouse di Azure e Archiviazione di Azure. Non appena saranno disponibili le procedure consigliate per altri servizi Azure, nell'elenco seguente verranno inseriti i relativi collegamenti:
+In questo articolo sono stati illustrati i vantaggi di sicurezza di una distribuzione PaaS di Azure e le procedure consigliate per le applicazioni cloud. Il passaggio successivo è costituito dall'approfondimento delle procedure consigliate per proteggere le soluzioni PaaS Web e mobili usando servizi di Azure specifici. Si inizierà con il servizio app Azure, il database SQL di Azure e l'analisi delle sinapsi di Azure e archiviazione di Azure. Non appena saranno disponibili le procedure consigliate per altri servizi Azure, nell'elenco seguente verranno inseriti i relativi collegamenti:
 
 - [Servizio app di Azure](paas-applications-using-app-services.md)
-- [Database SQL di Azure e SQL Data Warehouse di Azure](paas-applications-using-sql.md)
+- [Database SQL di Azure e analisi delle sinapsi di Azure](paas-applications-using-sql.md)
 - [Archiviazione di Azure](paas-applications-using-storage.md)
 - Cache Redis di Azure
 - Bus di servizio di Azure

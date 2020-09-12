@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: dba0f22f1dfece7edd92a80ae1c3a91616a4236c
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: b570968a66a0cfd60ac4d6ce6dd7dc31a1003240
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815913"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440457"
 ---
 # <a name="data-science-with-a-windows-data-science-virtual-machine"></a>Data Science con Windows Data Science Virtual Machine
 
@@ -255,7 +255,7 @@ I dati vengono letti come frame di dati:
 ### <a name="azure-synapse-analytics-formerly-sql-dw-and-databases"></a>Azure sinapsi Analytics (in precedenza SQL DW) e database
 Azure sinapsi Analytics (noto in precedenza come SQL DW) è un data warehouse elastico come servizio con un'esperienza di SQL Server di livello aziendale.
 
-È possibile eseguire il provisioning di Azure sinapsi Analytics seguendo le istruzioni riportate in [questo articolo](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). Dopo aver eseguito il provisioning del data warehouse SQL, è possibile usare [questa procedura dettagliata](../team-data-science-process/sqldw-walkthrough.md) per eseguire operazioni di caricamento, esplorazione e modellazione dei dati usando i dati all'interno di SQL data warehouse.
+È possibile eseguire il provisioning di Azure sinapsi Analytics seguendo le istruzioni riportate in [questo articolo](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md). Dopo aver eseguito il provisioning di Azure sinapsi Analytics, è possibile usare [questa procedura dettagliata](../team-data-science-process/sqldw-walkthrough.md) per eseguire il caricamento, l'esplorazione e la modellazione dei dati usando i dati all'interno di Azure sinapsi Analytics.
 
 #### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 Azure Cosmos DB è un database NoSQL sul cloud. È possibile usarlo per lavorare con documenti come JSON e per archiviare ed eseguire query sui documenti.

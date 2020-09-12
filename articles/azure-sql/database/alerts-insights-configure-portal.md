@@ -11,12 +11,12 @@ author: aamalvea
 ms.author: aamalvea
 ms.reviewer: jrasnik, carlrab
 ms.date: 05/04/2020
-ms.openlocfilehash: d03c1cad9692058c47dd643be9770284b207bb74
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2b7457ad5870e31d682f8727901795c9d6d73f06
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85553500"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442667"
 ---
 # <a name="create-alerts-for-azure-sql-database-and-azure-synapse-analytics-using-the-azure-portal"></a>Creare avvisi per il database SQL di Azure e l'analisi delle sinapsi di Azure usando il portale di Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
@@ -24,7 +24,7 @@ ms.locfileid: "85553500"
 
 ## <a name="overview"></a>Panoramica
 
-Questo articolo illustra come configurare gli avvisi per i database nel database SQL di Azure e in Azure sinapsi Analytics (in precedenza Azure SQL Data Warehouse) usando il portale di Azure. Gli avvisi possono inviare un messaggio di posta elettronica all'utente o chiamare un webhook quando una o più metriche (ad esempio le dimensioni del database o l'utilizzo della CPU) raggiungono la soglia impostata.
+Questo articolo illustra come configurare gli avvisi per i database nel database SQL di Azure e in Azure sinapsi Analytics (in precedenza SQL Data Warehouse) usando il portale di Azure. Gli avvisi possono inviare un messaggio di posta elettronica all'utente o chiamare un webhook quando una o più metriche (ad esempio le dimensioni del database o l'utilizzo della CPU) raggiungono la soglia impostata.
 
 > [!NOTE]
 > Per istruzioni specifiche di Azure SQL Istanza gestita, vedere [creare avvisi per istanza gestita SQL di Azure](../managed-instance/alerts-create.md).

@@ -3,12 +3,12 @@ title: Crittografia dei dati di backup tramite chiavi gestite dal cliente
 description: Informazioni su come backup di Azure consente di crittografare i dati di backup usando chiavi gestite dal cliente (CMK).
 ms.topic: conceptual
 ms.date: 07/08/2020
-ms.openlocfilehash: 989b06b62f2db8df5504107eee8ed26710d13a57
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5c0bddc6cdb8ec150a031541ced1abf1ebfb6f0f
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022412"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378288"
 ---
 # <a name="encryption-of-backup-data-using-customer-managed-keys"></a>Crittografia dei dati di backup tramite chiavi gestite dal cliente
 
@@ -66,7 +66,7 @@ Backup di Azure usa l'identità gestita assegnata dal sistema per autenticare l'
 
     ![Impostazioni di identità](./media/encryption-at-rest-with-cmk/managed-identity.png)
 
-1. Impostare lo **stato** **su on** , quindi fare clic su **Salva**.
+1. Modificare lo **stato** **su on** e selezionare **Salva**.
 
 1. Viene generato un ID oggetto, ovvero l'identità gestita assegnata dal sistema dell'insieme di credenziali.
 
@@ -82,13 +82,13 @@ A questo punto è necessario consentire all'insieme di credenziali dei servizi d
 
     ![Assegnazione di autorizzazioni per chiavi](./media/encryption-at-rest-with-cmk/key-permissions.png)
 
-1. Passare a **Seleziona entità** e cercare l'insieme di credenziali nella casella di ricerca usando il nome o l'identità gestita. Quando viene visualizzato, selezionare l'insieme di credenziali e fare clic su **Seleziona** nella parte inferiore del riquadro.
+1. Passare a **Seleziona entità** e cercare l'insieme di credenziali nella casella di ricerca usando il nome o l'identità gestita. Quando viene visualizzato, selezionare l'insieme di credenziali e scegliere **Seleziona** nella parte inferiore del riquadro.
 
     ![Selezionare un'entità](./media/encryption-at-rest-with-cmk/select-principal.png)
 
-1. Al termine, fare clic su **Aggiungi** per aggiungere i nuovi criteri di accesso.
+1. Al termine, selezionare **Aggiungi** per aggiungere i nuovi criteri di accesso.
 
-1. Fare clic su **Salva** per salvare le modifiche apportate ai criteri di accesso del Azure Key Vault.
+1. Selezionare **Save (Salva** ) per salvare le modifiche apportate ai criteri di accesso del Azure Key Vault.
 
 ### <a name="enable-soft-delete-and-purge-protection-on-the-azure-key-vault"></a>Abilitare l'eliminazione temporanea e ripulire la protezione sul Azure Key Vault
 
@@ -148,7 +148,7 @@ Per assegnare la chiave:
 
     ![Impostazioni di crittografia](./media/encryption-at-rest-with-cmk/encryption-settings.png)
 
-1. Fare clic su **Aggiorna** in **impostazioni di crittografia**.
+1. Selezionare **Aggiorna** in **impostazioni di crittografia**.
 
 1. Nel riquadro impostazioni di crittografia selezionare **Usa una chiave personalizzata** e continuare a specificare la chiave usando uno dei modi seguenti. **Verificare che la chiave che si vuole usare sia una chiave RSA 2048, che si trova in uno stato abilitato.**
 
@@ -160,7 +160,7 @@ Per assegnare la chiave:
 
         ![Selezionare la chiave da Key Vault](./media/encryption-at-rest-with-cmk/key-vault.png)
 
-1. Fare clic su **Salva**.
+1. Selezionare **Salva**.
 
 1. **Rilevamento dello stato di avanzamento dell'aggiornamento della chiave di crittografia:** È possibile tenere traccia dello stato di avanzamento dell'assegnazione della chiave usando il **log attività** nell'insieme di credenziali di servizi di ripristino. Lo stato dovrebbe presto essere modificato in **riuscito**. L'insieme di credenziali ora eseguirà la crittografia di tutti i dati con la chiave specificata come KEK.
 

@@ -3,12 +3,12 @@ title: Eseguire il backup di un database SAP HANA in Azure con Backup di Azure
 description: Questo articolo illustra come eseguire il backup di un database SAP HANA in macchine virtuali di Azure con il servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 07b82e166b0ec6f0d3a29de50584158b67750e8e
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: b808038c9b973cbf4ba9e0b2e54d97bd41664297
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146556"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378254"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Eseguire il backup di database SAP HANA nelle VM di Azure
 
@@ -65,7 +65,7 @@ Se si usano gruppi di sicurezza di rete (NSG), usare il tag del servizio *AzureB
 
 1. Selezionare **Aggiungi**. Immettere tutti i dettagli necessari per la creazione di una nuova regola, come descritto nelle [impostazioni delle regole di sicurezza](../virtual-network/manage-network-security-group.md#security-rule-settings). Assicurarsi che l'opzione **Destinazione** sia impostata su *Tag del servizio* e che l'opzione **Tag del servizio di destinazione** sia impostata su *AzureBackup*.
 
-1. Fare clic su **Aggiungi** per salvare la regola di sicurezza in uscita appena creata.
+1. Selezionare **Aggiungi** per salvare la regola di sicurezza in uscita appena creata.
 
 È possibile creare in modo analogo le regole di sicurezza NSG in uscita NSG per Archiviazione di Azure e Azure AD. Per altre informazioni sui tag di servizio, vedere [questo articolo](../virtual-network/service-tags-overview.md).
 
@@ -95,16 +95,16 @@ Quando si esegue il backup di un database SAP HANA in una macchina virtuale di A
 
 ## <a name="discover-the-databases"></a>Individuare i database
 
-1. Nell'insieme di credenziali, in **Attività iniziali**, fare clic su **Backup**. In **Posizione di esecuzione del carico di lavoro** selezionare **SAP HANA in una macchina virtuale di Azure**.
-2. Fare clic su **Avvia individuazione**. Viene avviata l'individuazione delle macchine virtuali Linux non protette nell'area dell'insieme di credenziali.
+1. Nell'insieme di credenziali, in **Attività iniziali**, selezionare **Backup**. In **Posizione di esecuzione del carico di lavoro** selezionare **SAP HANA in una macchina virtuale di Azure**.
+2. Selezionare **Avvia individuazione**. Viene avviata l'individuazione delle macchine virtuali Linux non protette nell'area dell'insieme di credenziali.
 
    * Le VM non protette verranno visualizzate nel portale dopo l'individuazione, elencate per nome e gruppo di risorse.
    * Se una VM non è elencata come previsto, verificare se ne è già stato eseguito il backup in un insieme di credenziali.
    * Più macchine virtuali possono avere lo stesso nome, ma in questo caso appartengono a gruppi di risorse differenti.
 
-3. In **Seleziona macchine virtuali** fare clic sul collegamento per scaricare lo script che fornisce le autorizzazioni per il servizio Backup di Azure per accedere alle macchine virtuali SAP HANA per l'individuazione del database.
+3. In **Seleziona macchine virtuali** selezionare il collegamento per scaricare lo script che fornisce le autorizzazioni per il servizio Backup di Azure per accedere alle macchine virtuali SAP HANA per l'individuazione del database.
 4. Eseguire lo script in ogni macchina virtuale che ospita i database SAP HANA di cui eseguire il backup.
-5. Dopo aver eseguito lo script nelle macchine virtuali, selezionarle in **Seleziona macchine virtuali**. Quindi fare clic su **Individua database**.
+5. Dopo aver eseguito lo script nelle macchine virtuali, selezionarle in **Seleziona macchine virtuali**. Selezionare quindi **Individua database**.
 6. Backup di Azure individua tutti i database SAP HANA presenti nella macchina virtuale. Durante l'individuazione, Backup di Azure registra la VM con l'insieme di credenziali e installa l'estensione. Nel database non vengono installati agenti.
 
     ![Individuare i database SAP HANA](./media/backup-azure-sap-hana-database/hana-discover.png)
@@ -113,7 +113,7 @@ Quando si esegue il backup di un database SAP HANA in una macchina virtuale di A
 
 Ora abilitare il backup.
 
-1. Nel passaggio 2 fare clic su **Configura backup**.
+1. Nel passaggio 2 Selezionare **Configura backup**.
 
     ![Configurazione di backup](./media/backup-azure-sap-hana-database/configure-backup.png)
 2. In **Seleziona gli elementi per il backup** selezionare tutti i database da proteggere e fare clic su **OK**.
@@ -122,7 +122,7 @@ Ora abilitare il backup.
 3. In **Criteri di backup** > **Scegliere i criteri di backup** creare un nuovo criterio di backup per i database, seguendo le istruzioni seguenti.
 
     ![Scegliere i criteri di backup](./media/backup-azure-sap-hana-database/backup-policy.png)
-4. Dopo aver creato il criterio, nel menu **Backup** fare clic su **Abilita backup**.
+4. Dopo aver creato il criterio, scegliere **Abilita backup**dal menu **backup** .
 
     ![Abilita backup](./media/backup-azure-sap-hana-database/enable-backup.png)
 5. Per tenere traccia dello stato di avanzamento della configurazione di backup, vedere l'area **Notifiche** del portale.
@@ -147,7 +147,7 @@ Specificare le impostazioni del criterio come segue:
 2. Nel criterio **Backup completo** selezionare una **frequenza di backup** scegliendo **Giornaliero** o **Settimanale**.
    * **Giornaliera**: Scegliere l'ora e il fuso orario per l'inizio del processo di backup.
        * È necessario eseguire un backup completo. Non è possibile disattivare questa opzione.
-       * Fare clic su **Backup completo** per visualizzare il criterio.
+       * Selezionare **Backup completo** per visualizzare il criterio.
        * Se si sceglie di eseguire backup completi giornalieri, non è possibile creare backup differenziali.
    * **Settimanale**: selezionare il giorno della settimana, l'ora e il fuso orario per l'inizio del processo di backup.
 
@@ -160,7 +160,7 @@ Specificare le impostazioni del criterio come segue:
     * Il backup di un giorno specifico viene contrassegnato e conservato in base all'intervallo e all'impostazione di conservazione settimanale.
     * L'intervallo di conservazione mensile e annuale si comporta allo stesso modo.
 
-4. Nel menu **Criteri di backup completo** fare clic su **OK** per accettare le impostazioni.
+4. Nel menu del **criterio Backup completo** selezionare **OK** per accettare le impostazioni.
 5. Selezionare **Backup differenziale** per aggiungere un criterio differenziale.
 6. Nel **criterio Backup differenziale** selezionare **Abilita** per accedere alle opzioni di frequenza e conservazione.
     * Al massimo, è possibile attivare un backup differenziale al giorno.
@@ -171,7 +171,7 @@ Specificare le impostazioni del criterio come segue:
     > [!NOTE]
     > I backup incrementali non sono attualmente supportati.
 
-7. Fare clic su **OK** per salvare il criterio e tornare nel menu principale **Criteri di backup**.
+7. Selezionare **OK** per salvare il criterio e tornare al menu principale **Criteri di backup**.
 8. Selezionare **Backup del log** per aggiungere un criterio per i backup del log delle transazioni.
     * In **Backup del log** selezionare **Abilita**.  Questa operazione non può essere disabilitata, dal momento che SAP HANA gestisce tutti i backup del log.
     * Impostare la frequenza e i controlli di conservazione.
@@ -179,8 +179,8 @@ Specificare le impostazioni del criterio come segue:
     > [!NOTE]
     > I backup del log iniziano a fluire solo dopo il corretto completamento di un backup completo.
 
-9. Fare clic su **OK** per salvare il criterio e tornare nel menu principale **Criteri di backup**.
-10. Dopo aver completato la definizione dei criteri di backup, fare clic su **OK**.
+9. Selezionare **OK** per salvare il criterio e tornare al menu principale **Criteri di backup**.
+10. Dopo aver completato la definizione dei criteri di backup, selezionare **OK**.
 
 > [!NOTE]
 > Ogni backup del log viene concatenato al backup completo precedente per formare una catena di recupero. Questo backup completo verrà mantenuto fino alla scadenza della conservazione dell'ultimo backup del log. Questo potrebbe significare che il backup completo viene mantenuto per un periodo aggiuntivo per assicurarsi che tutti i log possano essere ripristinati. Si supponga che un utente disponga di un backup completo settimanale, dei registri differenziali giornalieri e di 2 ore. Vengono tutti conservati per 30 giorni. Tuttavia, la versione settimanale completa può essere effettivamente eliminata o eliminata solo dopo i successivi backup completi, ovvero dopo 30 + 7 giorni. Ad esempio, un backup completo settimanale si verifica il 16 novembre. In base ai criteri di conservazione, deve essere mantenuto fino al 16 dicembre. L'ultimo backup del log per questa versione completa si verifica prima del successivo completo in programma, il 22 novembre. Questo log è disponibile fino al 22 dicembre e fino a quel momento non sarà possibile eliminare il backup completo del 16 novembre. Il backup completo del 16 novembre, quindi, viene mantenuto fino al 22 dicembre.
@@ -189,9 +189,9 @@ Specificare le impostazioni del criterio come segue:
 
 I backup vengono eseguiti in base alla pianificazione dei criteri. È possibile eseguire un backup su richiesta nel modo seguente:
 
-1. Selezionare **Elementi di backup** dal menu dell'insieme di credenziali.
-2. In **Elementi di backup** selezionare la macchina virtuale che esegue il database SAP HANA, quindi fare clic su **Esegui backup**.
-3. In **backup ora**scegliere il tipo di backup che si desidera eseguire. Fare quindi clic su **OK**. Questo backup verrà mantenuto in base ai criteri associati a questo elemento di backup.
+1. Nel menu dell'insieme di credenziali selezionare **elementi di backup**.
+2. In **elementi di backup**selezionare la macchina virtuale che esegue il database di SAP Hana, quindi selezionare **Esegui backup ora**.
+3. In **backup ora**scegliere il tipo di backup che si desidera eseguire. Quindi scegliere **OK**. Questo backup verrà mantenuto in base ai criteri associati a questo elemento di backup.
 4. Monitorare le notifiche del portale. È possibile monitorare l'avanzamento del processo nel dashboard dell'insieme di credenziali > **Processi di Backup** > **In corso**. A seconda delle dimensioni del database, la creazione del backup iniziale potrebbe richiedere un po' di tempo.
 
 Per impostazione predefinita, la conservazione dei backup su richiesta è di 45 giorni.

@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: oslake
 ms.author: moslake
 ms.reviewer: sstein, carlrab
-ms.date: 8/7/2020
-ms.openlocfilehash: 7697ba514b74935f8da6d71cdfb380e704d66f56
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.date: 9/8/2020
+ms.openlocfilehash: 979976ba88c2acca282a7f8bef4784b9d91ce0aa
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121358"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565090"
 ---
 # <a name="azure-sql-database-serverless"></a>Database SQL di Azure senza server
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -34,7 +34,7 @@ Il livello di calcolo senza server per database singoli nel database SQL di Azur
 - Il valore **minimo di Vcore** e il **numero massimo di Vcore** sono parametri configurabili che definiscono l'intervallo di capacità di calcolo disponibile per il database. I limiti di memoria e I/O sono proporzionali all'intervallo vCore specificato.  
 - Il **ritardo di sospensione** automatica è un parametro configurabile che definisce il periodo di tempo in cui il database deve rimanere inattivo prima che venga sospeso automaticamente. Il database viene ripreso automaticamente quando si verifica il successivo accesso o un'altra attività.  In alternativa, è possibile disabilitare l'autosospensione.
 
-### <a name="cost"></a>Costi
+### <a name="cost"></a>Cost
 
 - Il costo di un database senza server è la somma del costo di calcolo e dei costi di archiviazione.
 - Quando l'utilizzo delle risorse di calcolo è compreso tra i limiti minimo e massimo configurati, il costo di calcolo è basato su vCore e sulla memoria usata.
@@ -114,11 +114,12 @@ La sospensione automatica viene attivata se tutte le condizioni seguenti sono ve
 
 Se lo si desidera, viene fornita un'opzione per disabilitare la sospensione.
 
-Le funzionalità seguenti non supportano la sospensione automatica, ma supportano la scalabilità automatica.  Ovvero, se viene utilizzata una delle funzionalità seguenti, il database rimane online indipendentemente dalla durata dell'inattività del database:
+Le funzionalità seguenti non supportano la sospensione automatica, ma supportano la scalabilità automatica.  Se viene utilizzata una delle funzionalità seguenti, è necessario disabilitare la sospensione e il database rimarrà online indipendentemente dalla durata dell'inattività del database:
 
 - Replica geografica (gruppi di replica geografica attiva e failover automatico).
 - Conservazione dei backup a lungo termine (LTR).
 - Database di sincronizzazione utilizzato nella sincronizzazione dati SQL.  A differenza dei database di sincronizzazione, i database hub e membri supportano la sospensione automatica.
+- Alias DNS
 - Il database dei processi usato nei processi elastici (anteprima).
 
 La sospensione dell'autosospensione è temporaneamente bloccata durante la distribuzione di alcuni aggiornamenti dei servizi che richiedono che il database sia online.  In questi casi, la sospensione automatico diventa nuovamente consentita al termine dell'aggiornamento del servizio.
@@ -127,9 +128,9 @@ La sospensione dell'autosospensione è temporaneamente bloccata durante la distr
 
 La ripresa automatica viene attivata se si verifica una delle condizioni seguenti in qualsiasi momento:
 
-|Funzionalità|Trigger di ripresa automatica|
+|Feature|Trigger di ripresa automatica|
 |---|---|
-|Autenticazione e autorizzazione|Accedi|
+|Autenticazione e autorizzazione|Login|
 |Rilevamento delle minacce|Abilitazione o disabilitazione delle impostazioni di rilevamento delle minacce a livello di database o di server.<br>Modifica delle impostazioni di rilevamento delle minacce a livello di database o di server.|
 |Individuazione e classificazione dei dati|Aggiunta, modifica, eliminazione o visualizzazione delle etichette di riservatezza|
 |Controllo|Visualizzazione dei record di controllo<br>Aggiornamento o visualizzazione dei criteri di controllo.|

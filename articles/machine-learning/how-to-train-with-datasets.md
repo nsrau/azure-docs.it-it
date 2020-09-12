@@ -12,19 +12,19 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b20612756050ae2e9d39f59d049b8c097e3b8010
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 1db62b77f3b9b1bcfc524a68b52c4aef5c16d851
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651217"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648188"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Eseguire il training con set di impostazioni in Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Questo articolo illustra come usare i set di impostazioni di [Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py) negli esperimenti di training.  È possibile usare i set di dati nella destinazione di calcolo locale o remota senza preoccuparsi di stringhe di connessione o percorsi di dati.
+Questo articolo illustra come usare i set di impostazioni di [Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py&preserve-view=true) negli esperimenti di training.  È possibile usare i set di dati nella destinazione di calcolo locale o remota senza preoccuparsi di stringhe di connessione o percorsi di dati.
 
-Azure Machine Learning set di impostazioni forniscono un'integrazione perfetta con Azure Machine Learning prodotti di formazione come [scriptrun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py), [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py) [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py), iperguida e [Azure Machine Learning pipeline](how-to-create-your-first-pipeline.md).
+Azure Machine Learning set di impostazioni forniscono un'integrazione perfetta con Azure Machine Learning prodotti di formazione come [scriptrun](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py&preserve-view=true), [HyperDrive](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py&preserve-view=true) [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true), iperguida e [Azure Machine Learning pipeline](how-to-create-your-first-pipeline.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -34,16 +34,16 @@ Per creare ed eseguire il training con i set di impostazioni, è necessario:
 
 * [Area di lavoro Azure Machine Learning](how-to-manage-workspace.md).
 
-* [SDK Azure Machine Learning per Python installato](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py), che include il pacchetto azureml-DataSets.
+* [SDK Azure Machine Learning per Python installato](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true), che include il pacchetto azureml-DataSets.
 
 > [!Note]
-> Alcune classi del set di dati presentano dipendenze dal pacchetto [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py) . Per gli utenti Linux queste classi sono supportate solo nelle distribuzioni seguenti: Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
+> Alcune classi del set di dati presentano dipendenze dal pacchetto [azureml-dataprep](https://docs.microsoft.com/python/api/azureml-dataprep/?view=azure-ml-py&preserve-view=true) . Per gli utenti Linux queste classi sono supportate solo nelle distribuzioni seguenti: Red Hat Enterprise Linux, Ubuntu, Fedora e CentOS.
 
 ## <a name="access-and-explore-input-datasets"></a>Accedere ed esplorare i set di dati di input
 
 È possibile accedere a un TabularDataset esistente dallo script di training di un esperimento nell'area di lavoro e caricare il set di dati in un frame di dati Pandas per un'ulteriore esplorazione nell'ambiente locale.
 
-Il codice seguente usa il [`get_context()`]() metodo nella [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py) classe per accedere al TabularDataset di input esistente, `titanic` , nello script di training. USA quindi il [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) metodo per caricare il set di dati in un frame di dati Pandas per eseguire ulteriori operazioni di esplorazione e preparazione dei dati prima del training.
+Il codice seguente usa il [`get_context()`]() metodo nella [`Run`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run.run?view=azure-ml-py&preserve-view=true) classe per accedere al TabularDataset di input esistente, `titanic` , nello script di training. USA quindi il [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) metodo per caricare il set di dati in un frame di dati Pandas per eseguire ulteriori operazioni di esplorazione e preparazione dei dati prima del training.
 
 > [!Note]
 > Se l'origine dati originale contiene NaN, stringhe vuote o valori vuoti, quando si usa il to_pandas_dataframe (), questi valori vengono sostituiti come valore *null* . 
@@ -67,7 +67,7 @@ Se è necessario caricare i dati preparati in un nuovo set di dati da un frame d
 
 Se i dati strutturati non sono ancora registrati come set di dati, creare un TabularDataset e usarlo direttamente nello script di training per l'esperimento locale o remoto.
 
-In questo esempio si crea un [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py) non registrato e lo si usa come input diretto all' `estimator` oggetto per il training. Se si vuole riusare questo TabularDataset con altri esperimenti nell'area di lavoro, vedere [come registrare i set di impostazioni nell'area di lavoro](how-to-create-register-datasets.md#register-datasets).
+In questo esempio si crea un [TabularDataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true) non registrato e lo si usa come input diretto all' `estimator` oggetto per il training. Se si vuole riusare questo TabularDataset con altri esperimenti nell'area di lavoro, vedere [come registrare i set di impostazioni nell'area di lavoro](how-to-create-register-datasets.md#register-datasets).
 
 ### <a name="create-a-tabulardataset"></a>Creare un TabularDataset
 
@@ -84,7 +84,7 @@ Gli oggetti TabularDataset offrono la possibilità di caricare i dati nel Tabula
 
 ### <a name="configure-the-estimator"></a>Configurare lo strumento di stima
 
-Viene usato un oggetto [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py) per inviare l'esecuzione dell'esperimento. Azure Machine Learning dispone di estimatori preconfigurati per i Framework di apprendimento automatico comuni, oltre a uno strumento di stima generico.
+Viene usato un oggetto [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator.estimator?view=azure-ml-py&preserve-view=true) per inviare l'esecuzione dell'esperimento. Azure Machine Learning dispone di estimatori preconfigurati per i Framework di apprendimento automatico comuni, oltre a uno strumento di stima generico.
 
 Questo codice crea un oggetto estimatore generico, `est` , che specifica
 
@@ -109,9 +109,12 @@ experiment_run.wait_for_completion(show_output=True)
 
 ## <a name="mount-files-to-remote-compute-targets"></a>Montare i file nelle destinazioni di calcolo Remote
 
-Se si dispone di dati non strutturati, creare un [filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py) e montare o scaricare i file di dati per renderli disponibili per la destinazione di calcolo remota per il training. Informazioni su quando usare [Mount vs. download](#mount-vs-download) per gli esperimenti di training remoto. 
+Se si dispone di dati non strutturati, creare un [filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.filedataset?view=azure-ml-py&preserve-view=true) e montare o scaricare i file di dati per renderli disponibili per la destinazione di calcolo remota per il training. Informazioni su quando usare [Mount vs. download](#mount-vs-download) per gli esperimenti di training remoto. 
 
 Nell'esempio seguente viene creato un oggetto filedataset e il set di dati viene montato nella destinazione di calcolo passandolo come argomento nell'estimatore per il training. 
+
+> [!Note]
+> Se si usa un'immagine di base Docker personalizzata, è necessario installare fuse tramite `apt-get install -y fuse` come dipendenza per il funzionamento del montaggio del set di dati. Informazioni su come [creare un'immagine di compilazione personalizzata](how-to-deploy-custom-docker-image.md#build-a-custom-base-image).
 
 ### <a name="create-a-filedataset"></a>Creare un oggetto FileDataset
 
@@ -133,7 +136,7 @@ mnist_ds = Dataset.File.from_files(path = web_paths)
 
 È consigliabile passare il set di dati come argomento durante il montaggio. Oltre a passare il set di `inputs` dati tramite il parametro nello strumento di stima, è anche possibile passare il set `script_params` di dati tramite e ottenere il percorso dati (punto di montaggio) nello script di training tramite argomenti. In questo modo, sarà possibile usare lo stesso script di training per il debug locale e il training remoto in qualsiasi piattaforma cloud.
 
-Un oggetto [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py) Estimator viene usato per inviare l'esecuzione per gli esperimenti Scikit-learn. Dopo aver inviato l'esecuzione, i file di dati a cui fa riferimento il `mnist` set di dati verranno montati nella destinazione di calcolo. Scopri di più sul training con [SKlearn Estimator](how-to-train-scikit-learn.md).
+Un oggetto [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py&preserve-view=true) Estimator viene usato per inviare l'esecuzione per gli esperimenti Scikit-learn. Dopo aver inviato l'esecuzione, i file di dati a cui fa riferimento il `mnist` set di dati verranno montati nella destinazione di calcolo. Scopri di più sul training con [SKlearn Estimator](how-to-train-scikit-learn.md).
 
 ```Python
 from azureml.train.sklearn import SKLearn
@@ -219,7 +222,7 @@ print (mounted_path)
 
 ## <a name="access-datasets-in-your-script"></a>Accedere ai set di impostazioni nello script
 
-I set di impostazioni registrati sono accessibili sia localmente che in remoto nei cluster di calcolo, ad esempio il calcolo Azure Machine Learning. Per accedere al set di dati registrato tra gli esperimenti, usare il codice seguente per accedere all'area di lavoro e al set di dati registrato in base al nome. Per impostazione predefinita, il [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) metodo della `Dataset` classe restituisce la versione più recente del set di dati registrato con l'area di lavoro.
+I set di impostazioni registrati sono accessibili sia localmente che in remoto nei cluster di calcolo, ad esempio il calcolo Azure Machine Learning. Per accedere al set di dati registrato tra gli esperimenti, usare il codice seguente per accedere all'area di lavoro e al set di dati registrato in base al nome. Per impostazione predefinita, il [`get_by_name()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#&preserve-view=trueget-by-name-workspace--name--version--latest--) metodo della `Dataset` classe restituisce la versione più recente del set di dati registrato con l'area di lavoro.
 
 ```Python
 %%writefile $script_folder/train.py

@@ -12,20 +12,20 @@ author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
 ms.date: 08/27/2019
-ms.openlocfilehash: 791402f5d9648c8d235f8853de1b6c41f8082e1b
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: b1dbd66e34790599020233c5b1249593a4c0472d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018300"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442650"
 ---
 # <a name="configure-multi-factor-authentication-for-sql-server-management-studio-and-azure-ad"></a>Configurare Multi-Factor Authentication per SQL Server Management Studio e Azure AD
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
-Questo articolo illustra come usare Azure Active Directory (Azure AD) multi-factor authentication con SQL Server Management Studio (SSMS). Azure AD autenticazione a più fattori può essere usata per la connessione di SSMS o SqlPackage.exe a [database SQL di Azure](sql-database-paas-overview.md), [Azure SQL istanza gestita](../managed-instance/sql-managed-instance-paas-overview.md) e [Azure sinapsi Analytics (in precedenza Azure SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Per una panoramica dell'autenticazione a più fattori, vedere [autenticazione universale con database SQL, sql istanza gestita e sinapsi di Azure (supporto di SSMS per](../database/authentication-mfa-ssms-overview.md)l'autenticazione a più fattori).
+Questo articolo illustra come usare Azure Active Directory (Azure AD) multi-factor authentication con SQL Server Management Studio (SSMS). Azure AD autenticazione a più fattori può essere usata per la connessione di SSMS o SqlPackage.exe a [database SQL di Azure](sql-database-paas-overview.md), [Azure SQL istanza gestita](../managed-instance/sql-managed-instance-paas-overview.md) e [Azure sinapsi Analytics (in precedenza SQL Data Warehouse)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md). Per una panoramica dell'autenticazione a più fattori, vedere [autenticazione universale con database SQL, sql istanza gestita e sinapsi di Azure (supporto di SSMS per](../database/authentication-mfa-ssms-overview.md)l'autenticazione a più fattori).
 
 > [!IMPORTANT]
-> I database nel database SQL di Azure, Azure SQL Istanza gestita e la sinapsi di Azure (in precedenza Azure SQL Data Warehouse) sono definiti collettivamente nel resto di questo articolo come database e il server fa riferimento al [Server](logical-servers.md) che ospita i database per il database SQL di Azure e la sinapsi di Azure.
+> I database nel database SQL di Azure, Azure SQL Istanza gestita e la sinapsi di Azure (in precedenza SQL Data Warehouse) sono definiti collettivamente nel resto di questo articolo come database e il server fa riferimento al [Server](logical-servers.md) che ospita i database per il database SQL di Azure e la sinapsi di Azure.
 
 ## <a name="configuration-steps"></a>Passaggi di configurazione
 
@@ -52,7 +52,7 @@ La procedura seguente illustra come connettersi usando la versione più recente 
 
    ![mfa-tenant-ssms](./media/authentication-mfa-ssms-configure/mfa-tenant-ssms.png)
 
-4. Selezionare **Opzioni** e specificare il database nella finestra di dialogo **Opzioni** . Se l'utente connesso è un utente Guest, ad esempio joe@outlook.com , è necessario selezionare la casella e aggiungere il nome di dominio ad o l'ID tenant corrente come parte delle opzioni. Vedere [Autenticazione universale con database SQL e SQL Data Warehouse (supporto SSMS per MFA)](../database/authentication-mfa-ssms-overview.md). Fare clic su **Connetti**.  
+4. Selezionare **Opzioni** e specificare il database nella finestra di dialogo **Opzioni** . Se l'utente connesso è un utente Guest, ad esempio joe@outlook.com , è necessario selezionare la casella e aggiungere il nome di dominio ad o l'ID tenant corrente come parte delle opzioni. Vedere [autenticazione universale con database SQL e Azure sinapsi Analytics (supporto di SSMS per l'autenticazione a](../database/authentication-mfa-ssms-overview.md)più fattori). Fare clic su **Connetti**.  
 5. Quando appare la finestra di dialogo **Accedi al tuo account** , fornire l'account e la password dell'identità di Azure Active Directory. Se un utente fa parte di un dominio federato con Azure AD, non è necessario specificare la password.
 
    ![2mfa-sign-in](./media/authentication-mfa-ssms-configure/2mfa-sign-in.png)  

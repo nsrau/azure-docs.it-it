@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/23/2017
 ms.author: mazha
-ms.openlocfilehash: 53db148eac0d56e53bb96e0597ad53d3183d86e9
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: f49af1488a0c044639a72fc2ea52ba0a47727a24
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192524"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433671"
 ---
 # <a name="troubleshooting-cdn-file-compression"></a>Risoluzione dei problemi della compressione dei file CDN
 Questo articolo consente di risolvere i problemi relativi alla [compressione dei file CDN](cdn-improve-performance.md).
@@ -111,8 +111,8 @@ Usando gli strumenti per sviluppatori del browser, controllare le intestazioni d
 
 Per essere idoneo per la compressione, un file deve avere le dimensioni seguenti:
 
-* Maggiore di 128 byte.
-* Minore di 1 MB.
+* Maggiore di 128 byte (Content-length: 128)
+* Inferiore a 3 MB
 
 ### <a name="check-the-request-at-the-origin-server-for-a-via-header"></a>Cercare nelle richieste nel server di origine un'intestazione **Via**
 L'intestazione HTPP **Via** indica al server Web che la richiesta viene passata da un server proxy.  Per impostazione predefinita, i server Web Microsoft IIS non comprimono le risposte quando la richiesta contiene un'intestazione **Via** .  Per eseguire l'override di questo comportamento, eseguire queste operazioni:

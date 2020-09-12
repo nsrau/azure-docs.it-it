@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 3/6/2020
 ms.custom: seodec18
-ms.openlocfilehash: 04d86b0ef8202c1c544524dd2a7331d521245f12
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: deaa52494fce387bde2b105de7d34e8a4f0c5c2f
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043957"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612159"
 ---
 # <a name="test-an-azure-stream-analytics-job-in-the-portal"></a>Testare un processo di analisi di flusso di Azure nel portale
 
@@ -96,6 +96,21 @@ Invece di usare i dati dinamici, è possibile usare dati di esempio da un file l
    ![Output selezionato di analisi di flusso di Azure](./media/stream-analytics-test-query/asa-sample-test-selected-output.png)
 
 10. Dopo aver verificato i risultati visualizzati nel browser, è possibile **avviare** il processo.
+
+## <a name="limitations"></a>Limitazioni
+
+1.  Il criterio di ora non è supportato nel test del portale:
+
+   * Non ordinato: verranno ordinati tutti gli eventi in ingresso.
+   * Arrivo in ritardo: non ci sarà un evento di arrivo in ritardo perché analisi di flusso può usare solo i dati esistenti per il test.
+   
+2.  La funzione definita dall'utente C# non è supportata.
+
+3.  Tutti i test verranno eseguiti con un processo con un'unità di streaming.
+
+4.  Le dimensioni del timeout sono pari a un minuto. Pertanto, qualsiasi query con una dimensione della finestra maggiore di un minuto non può recuperare dati.
+
+5.  Machine Learning non è supportato.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Creare una soluzione Internet delle cose usando analisi di flusso](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-build-an-iot-solution-using-stream-analytics): questa esercitazione illustra come creare una soluzione end-to-end con un generatore di dati che simula il traffico presso un casello.

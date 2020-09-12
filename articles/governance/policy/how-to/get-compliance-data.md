@@ -3,12 +3,12 @@ title: Ottenere i dati di conformità ai criteri
 description: Le valutazioni e gli effetti di Criteri di Azure determinano la conformità. Informazioni su come ottenere informazioni dettagliate sulle risorse di Azure.
 ms.date: 08/10/2020
 ms.topic: how-to
-ms.openlocfilehash: 7795bba9fec79ee13600d9c72f68e9c763b169e4
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 57e508048b5e628911db90b0b6835f88b5ebd8fb
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88054653"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648344"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Ottenere i dati di conformità delle risorse di Azure
 
@@ -142,11 +142,15 @@ Richiedono inoltre che la condizione di esistenza sia FALSE per lo stato non con
 
 Ad esempio, si supponga di avere un gruppo di risorse, ContosoRG, con alcuni account di archiviazione (evidenziati in rosso) esposti su reti pubbliche.
 
-:::image type="content" source="../media/getting-compliance-data/resource-group01.png" alt-text="Account di archiviazione esposti su reti pubbliche" border="false":::
+:::image type="complex" source="../media/getting-compliance-data/resource-group01.png" alt-text="Diagramma degli account di archiviazione esposti alle reti pubbliche nel gruppo di risorse contoso R G." border="false":::
+   Diagramma che mostra le immagini per cinque account di archiviazione nel gruppo di risorse contoso R G.  Gli account di archiviazione uno e tre sono blu, mentre gli account di archiviazione due, quattro e cinque sono rossi.
+:::image-end:::
 
 In questo esempio, è necessario essere ben consapevoli dei rischi di sicurezza. Dopo avere creato un'assegnazione dei criteri, questa viene valutata per tutti gli account di archiviazione nel gruppo di risorse ContosoRG. Controlla i tre account di archiviazione non conformi, modificandone di conseguenza lo stato impostandolo su **Non conforme**.
 
-:::image type="content" source="../media/getting-compliance-data/resource-group03.png" alt-text="Account di archiviazione non conformi controllati" border="false":::
+:::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Diagramma della conformità dell'account di archiviazione nel gruppo di risorse contoso R G." border="false":::
+   Diagramma che mostra le immagini per cinque account di archiviazione nel gruppo di risorse contoso R G. Gli account di archiviazione uno e tre ora hanno segni di spunta verdi sotto di essi, mentre gli account di archiviazione due, quattro e cinque ora hanno segni di avviso rossi sotto di essi.
+:::image-end:::
 
 Oltre a **Conforme** e **Non conforme**, i criteri e le risorse possono avere altri tre stati:
 
@@ -159,7 +163,7 @@ Criteri di Azure usa i campi **tipo** e **nome** nella definizione per determina
 La percentuale di conformità viene determinata dividendo le risorse **conformi** per il  _totale delle risorse_.
 Per _totale delle risorse_ si intende la somma delle risorse **conformi**, **non conformi** e **in conflitto**. I valori di conformità complessiva corrispondono alla somma delle risorse distinte **conformi** divisa per la somma di tutte le risorse distinte. Nell'immagine seguente sono presenti 20 risorse distinte applicabili, di cui una sola **Non conforme**. La conformità complessiva delle risorse è pari al 95% (19 su 20).
 
-:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Esempio di conformità dei criteri dalla pagina Conformità" border="false":::
+:::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Screenshot dei dettagli di conformità dei criteri dalla pagina conformità." border="false":::
 
 > [!NOTE]
 > La conformità alle normative in criteri di Azure è una funzionalità in anteprima. Le proprietà di conformità da SDK e pagine del portale sono diverse per le iniziative abilitate. Per ulteriori informazioni, vedere [conformità normativa](../concepts/regulatory-compliance.md)
@@ -168,11 +172,11 @@ Per _totale delle risorse_ si intende la somma delle risorse **conformi**, **non
 
 Il portale di Azure illustra un'esperienza grafica di visualizzazione e comprensione dello stato di conformità nell'ambiente in uso. Nella pagina **Criteri** l'opzione **Panoramica** fornisce i dettagli per gli ambiti disponibili sulla conformità dei criteri e delle iniziative. Oltre allo stato di conformità e al conteggio per assegnazione, contiene un grafico che mostra la conformità negli ultimi sette giorni. La pagina **Conformità** contiene buona parte di queste stesse informazioni (eccetto il grafico), ma fornisce altre opzioni di ordinamento e applicazione di filtri.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Esempio di pagina Conformità di Criteri di Azure" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-page.png" alt-text="Screenshot della pagina conformità, opzioni di filtro e dettagli." border="false":::
 
-Dal momento che un criterio o un'iniziativa può essere assegnata a diversi ambiti, la tabella include l'ambito di ogni assegnazione e il tipo di definizione assegnato. È anche indicato il numero di risorse non conformi e di criteri non conformi per ogni assegnazione. Quando si fa clic su un criterio o su un'iniziativa nella tabella, viene fornita un'analisi più approfondita della conformità per quella particolare assegnazione.
+Dal momento che un criterio o un'iniziativa può essere assegnata a diversi ambiti, la tabella include l'ambito di ogni assegnazione e il tipo di definizione assegnato. È anche indicato il numero di risorse non conformi e di criteri non conformi per ogni assegnazione. La selezione di un criterio o di un'iniziativa nella tabella consente di esaminare in modo più approfondito la conformità per quella particolare assegnazione.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Esempio di pagina Dettagli di conformità di Criteri di Azure" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-details.png" alt-text="Screenshot della pagina dei dettagli di conformità, compresi i conteggi e i dettagli conformi alle risorse." border="false":::
 
 L'elenco delle risorse nella scheda **Conformità risorsa** mostra lo stato di valutazione delle risorse esistenti per l'assegnazione corrente. Il valore predefinito della scheda è **Non conforme**, ma è possibile applicare un filtro.
 Gli eventi (Append, Audit, Deny, Deploy) attivati dalla richiesta di creazione di una risorsa sono visualizzati nella scheda **Eventi**.
@@ -180,15 +184,15 @@ Gli eventi (Append, Audit, Deny, Deploy) attivati dalla richiesta di creazione d
 > [!NOTE]
 > Per i criteri del motore del servizio Azure Kubernetes, la risorsa mostrata è il gruppo di risorse.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Esempio degli eventi Conformità di Criteri di Azure" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-events.png" alt-text="Screenshot della scheda eventi nella pagina Dettagli conformità." border="false":::
 
 Per le risorse della [Modalità del provider di risorse](../concepts/definition-structure.md#resource-provider-modes), nella scheda **Conformità risorse** selezionare la risorsa o fare clic con il pulsante destro del mouse sulla riga e selezionare **Visualizza dettagli conformità** per aprire i dettagli di conformità dei componenti. Questa pagina include anche le schede per visualizzare i criteri assegnati a questa risorsa, eventi, eventi del componente e cronologia delle modifiche.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Esempio di pagina Dettagli di conformità del componente di Criteri di Azure" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-components.png" alt-text="Screenshot della scheda conformità componenti e dei dettagli di conformità per un'assegnazione in modalità provider di risorse." border="false":::
 
 Tornare alla pagina di conformità delle risorse e fare clic con il pulsante destro del mouse sulla riga dell'evento per cui si vogliono raccogliere maggiori dettagli, quindi selezionare **Mostra log attività**. La pagina del log attività viene aperta e pre-filtrata con la ricerca contenente i dettagli per l'assegnazione e gli eventi. Il log attività offre un contesto aggiuntivo e altre informazioni su tali eventi.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Esempio del log attività di Conformità di Criteri di Azure" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-activitylog.png" alt-text="Screenshot del log attività per le attività e le valutazioni di criteri di Azure." border="false":::
 
 ### <a name="understand-non-compliance"></a>Comprendere la mancata conformità
 
@@ -639,7 +643,7 @@ Trent Baker
 
 Se si dispone di un'[area di lavoro Log Analytics](../../../azure-monitor/log-query/log-query-overview.md) con `AzureActivity` dalla [soluzione di Analisi log attività](../../../azure-monitor/platform/activity-log.md) collegata alla sottoscrizione in uso, è anche possibile visualizzare i risultati di non conformità dal ciclo di valutazione usando semplici query Kusto e la tabella `AzureActivity`. Con i dettagli dei log di Monitoraggio di Azure è possibile configurare gli avvisi in modo da individuare le risorse non conformi.
 
-:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Conformità di Criteri di Azure con i log di Monitoraggio di Azure" border="false":::
+:::image type="content" source="../media/getting-compliance-data/compliance-loganalytics.png" alt-text="Screenshot dei log di monitoraggio di Azure che illustrano le azioni dei criteri di Azure nella tabella AzureActivity." border="false":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -12,12 +12,12 @@ author: joesackmsft
 ms.author: josack
 ms.reviewer: sstein
 ms.date: 02/13/2019
-ms.openlocfilehash: 4c6904cfa2a7a3c3281da9a930fd59e8d511ac89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 016bb1e4a0844be2a137108d673159bd041cd351
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85249279"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439776"
 ---
 # <a name="new-dba-in-the-cloud--managing-azure-sql-database-after-migration"></a>Nuovo DBA nel cloud: gestione del database SQL di Azure dopo la migrazione
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -101,12 +101,14 @@ Il [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-cen
 
 Nel database SQL sono disponibili due metodi di autenticazione:
 
-- [Autenticazione Azure Active Directory](authentication-aad-overview.md)
+- [Autenticazione di Azure Active Directory](authentication-aad-overview.md)
 - [Autenticazione SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication)
 
-L'autenticazione tradizionale di Windows non è supportata. Azure Active Directory (Azure AD) è un servizio centralizzato di gestione delle identità e degli accessi. In questo modo è possibile garantire l'accesso Single Sign-On (SSO) a tutto il personale dell'organizzazione. Ciò significa che le credenziali vengono condivise tra tutti i servizi di Azure per semplificare l'autenticazione. Azure AD supporta [Azure multi-factor authentication](authentication-mfa-ssms-overview.md) e con [pochi clic](../../active-directory/hybrid/how-to-connect-install-express.md) Azure ad può essere integrato con Active Directory di Windows Server. L'autenticazione SQL Server funziona esattamente come in passato. Si fornisce un nome utente e una password ed è possibile autenticare gli utenti in qualsiasi database in un determinato server. Questo consente anche al database SQL e SQL Data Warehouse di offrire account utente Multi-Factor Authentication e Guest in un dominio Azure AD. Se Active Directory è già disponibile in locale, è possibile attuare la federazione della directory con Azure Active Directory per estendere la directory ad Azure.
+L'autenticazione tradizionale di Windows non è supportata. Azure Active Directory (Azure AD) è un servizio centralizzato di gestione delle identità e degli accessi. In questo modo è possibile garantire l'accesso Single Sign-On (SSO) a tutto il personale dell'organizzazione. Ciò significa che le credenziali vengono condivise tra tutti i servizi di Azure per semplificare l'autenticazione. 
 
-|**Se…**|**Database SQL/SQL Data Warehouse**|
+Azure AD supporta [Azure multi-factor authentication](authentication-mfa-ssms-overview.md) e con [pochi clic](../../active-directory/hybrid/how-to-connect-install-express.md) Azure ad può essere integrato con Active Directory di Windows Server. L'autenticazione SQL Server funziona esattamente come in passato. Si fornisce un nome utente e una password ed è possibile autenticare gli utenti in qualsiasi database in un determinato server. Questo consente anche a database SQL e Azure sinapsi Analytics (in precedenza SQL Data Warehouse) di offrire account utente Multi-Factor Authentication e Guest in un dominio di Azure AD. Se Active Directory è già disponibile in locale, è possibile attuare la federazione della directory con Azure Active Directory per estendere la directory ad Azure.
+
+|**Se…**|**Database SQL/analisi delle sinapsi di Azure**|
 |---|---|
 |Preferisce non usare Azure Active Directory (Azure AD) in Azure|Usare l'[autenticazione in SQL](security-overview.md)|
 |È stato usato Active Directory in SQL Server in locale|[Attuare la federazione di Active Directory con Azure AD](../../active-directory/hybrid/whatis-hybrid-identity.md) e usare l'autenticazione di Azure AD. In questo caso è possibile usare Single Sign-On.|
@@ -114,7 +116,7 @@ L'autenticazione tradizionale di Windows non è supportata. Azure Active Directo
 |Si dispone di account guest Microsoft (live.com, outlook.com) o di altri domini (gmail.com)|Usare l'[autenticazione universale di Azure AD](authentication-mfa-ssms-overview.md) nel database SQL o in Data Warehouse, che sfrutta la [collaborazione B2B di Azure AD](../../active-directory/b2b/what-is-b2b.md).|
 |Si è connessi a Windows con le credenziali di Azure AD da un dominio federato|Usare l'[autenticazione integrata di Azure AD](authentication-aad-configure.md).|
 |Si è connessi a Windows con le credenziali di un dominio non federato con Azure|Usare l'[autenticazione integrata di Azure AD](authentication-aad-configure.md).|
-|Si dispone di servizi di livello intermedio che devono connettersi al database SQL o a SQL Data Warehouse|Usare l'[autenticazione integrata di Azure AD](authentication-aad-configure.md).|
+|Sono disponibili servizi di livello intermedio che devono connettersi al database SQL o ad Azure sinapsi Analytics|Usare l'[autenticazione integrata di Azure AD](authentication-aad-configure.md).|
 |||
 
 ### <a name="how-do-i-limit-or-control-connectivity-access-to-my-database"></a>Come limitare o controllare l'accesso di connettività al database
@@ -153,7 +155,7 @@ La porta 1433. Il database SQL comunica attraverso questa porta. Per connettersi
 
 Con il database SQL è possibile attivare il controllo per rilevare gli eventi di database. Il servizio di [controllo del database SQL](../../azure-sql/database/auditing-overview.md) registra gli eventi che si verificano nel database e li registra in un file di log di controllo nell'account di Archiviazione di Azure dell'utente. Il controllo è particolarmente utile se si intende ottenere informazioni sulle potenziali violazioni di sicurezza e criteri, mantenere la conformità alle normative e così via. Consente di definire e configurare determinate categorie di eventi che si ritiene necessario controllare e in base a che è possibile ottenere report preconfigurati e un dashboard per ottenere una panoramica degli eventi che si verificano nel database. È possibile applicare questi criteri di controllo a livello di database o server. Per una guida su come attivare il controllo per il server/database, vedere: [Abilitare il controllo del database SQL](secure-database-tutorial.md#enable-security-features).
 
-#### <a name="threat-detection"></a>Introduzione al rilevamento delle minacce
+#### <a name="threat-detection"></a>Rilevamento delle minacce
 
 Con il [rilevamento delle minacce](threat-detection-configure.md) è possibile intervenire in modo molto semplice sulle violazioni in termini di sicurezza o criteri individuate con il controllo. Non è necessario essere esperti di sicurezza per risolvere potenziali minacce o violazioni nel sistema. Il rilevamento delle minacce include anche alcune funzionalità incorporate come il rilevamento di attacchi SQL injection. Un attacco SQL injection è un tentativo di modificare o compromettere i dati e un modo molto comune per attaccare in genere un'applicazione di database. Il rilevamento delle minacce esegue vari set di algoritmi che rilevano potenziali vulnerabilità e attacchi SQL injection, nonché modelli anomali di accesso al database (ad esempio, accesso da una posizione insolita o da un'entità di sicurezza sconosciuta). I responsabili della sicurezza o altri amministratori designati ricevono una notifica e-mail se viene rilevata una minaccia nel database. Ogni notifica contiene dettagli sull'attività sospetta e consigli su come eseguire altre indagini e mitigare la minaccia. Per informazioni su come attivare il rilevamento delle minacce, vedere [abilitare il rilevamento delle minacce](secure-database-tutorial.md#enable-security-features).
 

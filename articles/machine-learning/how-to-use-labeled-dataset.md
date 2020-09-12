@@ -9,12 +9,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 05/14/2020
-ms.openlocfilehash: 05ecce2d6ef0f8a3f241570ba9364c5e38682f3e
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 1293534849c98cee51349bbefd3073cc8b94f876
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319440"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647202"
 ---
 # <a name="create-and-explore-azure-machine-learning-dataset-with-labels"></a>Creare ed esplorare il set di dati di Azure Machine Learning con etichette
 
@@ -22,13 +22,13 @@ In questo articolo si apprenderà come esportare le etichette dati da un progett
 
 ## <a name="what-are-datasets-with-labels"></a>Informazioni sui set di dati con etichette 
 
-I set di dati di Azure Machine Learning con etichette sono [set di dati tabulari](how-to-create-register-datasets.md#dataset-types) con una proprietà Etichetta e in seguito verranno indicati come set di dati con etichetta. Questi tipi specifici di set di dati tabulari vengono creati solo come output dei progetti di etichettatura dei dati di Azure Machine Learning. Creare un progetto di etichettatura dei dati seguendo [questa procedura](how-to-create-labeling-projects.md). Machine Learning supporta i progetti di etichettatura dei dati per la classificazione di immagini, multi-etichetta o multi-classe, e l'identificazione di oggetti con i riquadri di selezione.
+Si fa riferimento a Azure Machine Learning set di impostazioni con etichette come DataSet con etichetta. Questi tipi di set di dati specifici di set di dati con etichetta vengono creati solo come output dei progetti di assegnazione di etichette di dati Azure Machine Learning. Creare un progetto di etichettatura dei dati seguendo [questa procedura](how-to-create-labeling-projects.md). Machine Learning supporta i progetti di etichettatura dei dati per la classificazione di immagini, multi-etichetta o multi-classe, e l'identificazione di oggetti con i riquadri di selezione.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://aka.ms/AMLFree) prima di iniziare.
-* [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) o accesso ad [Azure Machine Learning Studio](https://ml.azure.com/).
-    * Installare il pacchetto [azure-contrib-dataset](https://docs.microsoft.com/python/api/azureml-contrib-dataset/?view=azure-ml-py)
+* [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) o accesso ad [Azure Machine Learning Studio](https://ml.azure.com/).
+    * Installare il pacchetto [azure-contrib-dataset](https://docs.microsoft.com/python/api/azureml-contrib-dataset/?view=azure-ml-py&preserve-view=true)
 * Un'area di lavoro di Machine Learning. Vedere [Creare un'area di lavoro di Azure Machine Learning](how-to-manage-workspace.md).
 * Accedere a un progetto di etichettatura dei dati di Azure Machine Learning. Se non è disponibile un progetto di etichettatura, crearne uno seguendo [questi passaggi](how-to-create-labeling-projects.md).
 
@@ -52,7 +52,7 @@ Caricare i set di dati con etichetta in un dataframe Pandas o un set di dati di 
 
 ### <a name="pandas-dataframe"></a>Dataframe Pandas
 
-È possibile caricare i set di dati con etichetta in un dataframe Pandas con il metodo [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#to-pandas-dataframe-on-error--null---out-of-range-datetime--null--) della classe `azureml-contrib-dataset`. Installare la classe con il seguente comando della shell: 
+È possibile caricare i set di dati con etichetta in un dataframe Pandas con il metodo [`to_pandas_dataframe()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=trueto-pandas-dataframe-on-error--null---out-of-range-datetime--null--) della classe `azureml-contrib-dataset`. Installare la classe con il seguente comando della shell: 
 
 ```shell
 pip install azureml-contrib-dataset
@@ -80,7 +80,7 @@ imgplot = plt.imshow(img)
 
 ### <a name="torchvision-datasets"></a>Set di dati di Torchvision
 
-È possibile caricare set di dati con etichetta nel set di dati di Torchvision con il metodo [to_torchvision()](https://docs.microsoft.com/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?view=azure-ml-py#to-torchvision--) anche dalla classe `azureml-contrib-dataset`. Per usare questo metodo, è necessario aver installato [PyTorch](https://pytorch.org/). 
+È possibile caricare set di dati con etichetta nel set di dati di Torchvision con il metodo [to_torchvision()](https://docs.microsoft.com/python/api/azureml-contrib-dataset/azureml.contrib.dataset.tabulardataset?view=azure-ml-py#&preserve-view=trueto-torchvision--) anche dalla classe `azureml-contrib-dataset`. Per usare questo metodo, è necessario aver installato [PyTorch](https://pytorch.org/). 
 
 ```python
 from torchvision.transforms import functional as F

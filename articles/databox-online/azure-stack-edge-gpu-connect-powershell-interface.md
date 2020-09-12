@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 85e95dc4138fd638c8db9f5c98a7064153c7ef17
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: b58c38dd0257a65bad6021b6152c14a37f905e0a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181647"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461834"
 ---
 # <a name="manage-an-azure-stack-edge-gpu-device-via-windows-powershell"></a>Gestire un dispositivo GPU Azure Stack Edge tramite Windows PowerShell
 
@@ -30,24 +30,24 @@ Questo articolo è incentrato sulla modalità di connessione all'interfaccia di 
 
 [!INCLUDE [Create a support package](../../includes/data-box-edge-gateway-create-support-package.md)]
 
-## <a name="upload-certificate"></a>Caricamento del certificato
+<!--## Upload certificate
 
 [!INCLUDE [Upload certificate](../../includes/data-box-edge-gateway-upload-certificate.md)]
 
-È anche possibile caricare IoT Edge certificati per abilitare una connessione sicura tra il dispositivo IoT Edge e i dispositivi downstream che possono connettersi ad esso. Sono disponibili tre certificati IoT Edge (formato*PEM* ) che è necessario installare:
+You can also upload IoT Edge certificates to enable a secure connection between your IoT Edge device and the downstream devices that may connect to it. There are three IoT Edge certificates (*.pem* format) that you need to install:
 
-- Certificato CA radice o CA proprietario
-- Certificato CA del dispositivo
-- Certificato chiave del dispositivo
+- Root CA certificate or the owner CA
+- Device CA certificate
+- Device key certificate
 
-Nell'esempio seguente viene illustrato l'utilizzo di questo cmdlet per installare i certificati IoT Edge:
+The following example shows the usage of this cmdlet to install IoT Edge certificates:
 
 ```
 Set-HcsCertificate -Scope IotEdge -RootCACertificateFilePath "\\hcfs\root-ca-cert.pem" -DeviceCertificateFilePath "\\hcfs\device-ca-cert.pem\" -DeviceKeyFilePath "\\hcfs\device-key-cert.pem" -Credential "username"
 ```
-Quando si esegue questo cmdlet, verrà richiesto di specificare la password per la condivisione di rete.
+When you run this cmdlet, you will be prompted to provide the password for the network share.
 
-Per altre informazioni sui certificati, vedere [Azure IOT Edge Certificates](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) o [Install certificates on a gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway).
+For more information on certificates, go to [Azure IoT Edge certificates](https://docs.microsoft.com/azure/iot-edge/iot-edge-certs) or [Install certificates on a gateway](https://docs.microsoft.com/azure/iot-edge/how-to-create-transparent-gateway).-->
 
 ## <a name="view-device-information"></a>Visualizza informazioni sul dispositivo
  
@@ -121,18 +121,45 @@ Se il ruolo di calcolo è configurato nel dispositivo, è anche possibile ottene
     - `FullLogCollection`: Questo parametro garantisce che il pacchetto di log conterrà tutti i log di calcolo. Per impostazione predefinita, il pacchetto di log contiene solo un subset di log.
 
 
+## <a name="change-kubernetes-pod-and-service-subnets"></a>Modificare le subnet di Pod e servizi Kubernetes
+
+Per impostazione predefinita, Kubernetes sul dispositivo Azure Stack Edge usa le subnet 172.27.0.0/16 e 172.28.0.0/16 rispettivamente per pod e servizio. Se queste subnet sono già in uso nella rete, è possibile eseguire il `Set-HcsKubeClusterNetworkInfo` cmdlet per modificare le subnet.
+
+Si vuole eseguire questa configurazione prima di configurare il calcolo dal portale di Azure durante la creazione del cluster Kubernetes in questo passaggio.
+
+1. Connettersi all'interfaccia di PowerShell del dispositivo.
+1. Dall'interfaccia di PowerShell del dispositivo eseguire:
+
+    `Set-HcsKubeClusterNetworkInfo -PodSubnet <subnet details> -ServiceSubnet <subnet details>`
+
+    Sostituire <subnet details> con l'intervallo di subnet che si vuole usare. 
+
+1. Dopo aver eseguito questo comando, è possibile usare il `Get-HcsKubeClusterNetworkInfo` comando per verificare che le subnet pod e servizio siano state modificate.
+
+Di seguito è riportato un esempio di output per questo comando.
+
+```powershell
+[10.100.10.10]: PS>Set-HcsKubeClusterNetworkInfo -PodSubnet 10.96.0.1/16 -ServiceSubnet 10.97.0.1/16
+[10.100.10.10]: PS>Get-HcsKubeClusterNetworkInfo
+
+Id                                   PodSubnet    ServiceSubnet
+--                                   ---------    -------------
+6dbf23c3-f146-4d57-bdfc-76cad714cfd1 10.96.0.1/16 10.97.0.1/16
+[10.100.10.10]: PS>
+```
+
 
 ## <a name="debug-kubernetes-issues-related-to-iot-edge"></a>Debug dei problemi di Kubernetes correlati all'IoT Edge
 
-Quando viene creato il cluster Kubernetes, `aseuser` viene creato anche un utente predefinito associato a uno spazio dei nomi System `iotedge` . Per eseguire il debug di eventuali problemi correlati alla IoT Edge, è possibile usare questo utente e lo spazio dei nomi di sistema.  
+<!--When the Kubernetes cluster is created, there are two system namespaces created: `iotedge` and `azure-arc`. --> 
 
-### <a name="create-config-file-for-system-namespace"></a>Crea file di configurazione per lo spazio dei nomi System
+<!--### Create config file for system namespace
 
-Per risolvere il problemi, creare innanzitutto il `config` file corrispondente allo `iotedge` spazio dei nomi con `aseuser` .
+To troubleshoot, first create the `config` file corresponding to the `iotedge` namespace with `aseuser`.
 
-Eseguire il `Get-HcsKubernetesUserConfig -AseUser` comando e salvare l'output come `config` file (nessuna estensione di file). Salvare il file nella `.kube` cartella del profilo utente nel computer locale.
+Run the `Get-HcsKubernetesUserConfig -AseUser` command and save the output as `config` file (no file extension). Save the file in the `.kube` folder of your user profile on the local machine.
 
-Di seguito è riportato l'output di esempio del `Get-HcsKubernetesUserConfig` comando.
+Following is the sample output of the `Get-HcsKubernetesUserConfig` command.
 
 ```PowerShell
 [10.100.10.10]: PS>Get-HcsKubernetesUserConfig -AseUser
@@ -158,11 +185,67 @@ users:
 
 [10.100.10.10]: PS>
 ```
+-->
+
+In un dispositivo Azure Stack Edge in cui è configurato il ruolo di calcolo, è possibile risolvere i problemi o monitorare il dispositivo utilizzando due diversi set di comandi.
+
+- Uso di `iotedge` comandi. Questi comandi sono disponibili per le operazioni di base per il dispositivo.
+- Uso di `kubectl` comandi. Questi comandi sono disponibili per un set completo di operazioni per il dispositivo.
+
+Per eseguire uno dei precedenti set di comandi, è necessario [connettersi all'interfaccia di PowerShell](#connect-to-the-powershell-interface).
+
+### <a name="use-iotedge-commands"></a>Usare i `iotedge` comandi
+
+Per visualizzare un elenco dei comandi disponibili, [connettersi all'interfaccia di PowerShell](#connect-to-the-powershell-interface) e utilizzare la `iotedge` funzione.
+
+```powershell
+[10.100.10.10]: PS>iotedge -?                                                                                                                           
+Usage: iotedge COMMAND
+
+Commands:
+   list
+   logs
+   restart
+
+[10.100.10.10]: PS>
+```
+
+La tabella seguente contiene una breve descrizione dei comandi disponibili per `iotedge` :
+
+|.  |Descrizione |
+|---------|---------|
+|`list`     | Elencare i moduli         |
+|`logs`     | Recuperare i log di un modulo        |
+|`restart`     | Arrestare e riavviare un modulo         |
+
+
+Per elencare tutti i moduli in esecuzione nel dispositivo, usare il `iotedge list` comando.
+
+Di seguito è riportato un esempio di output di questo comando. Questo comando elenca tutti i moduli, la configurazione associata e gli indirizzi IP esterni associati ai moduli. Ad esempio, è possibile accedere all'app **webserver** all'indirizzo `https://10.128.44.244` . 
+
+
+```powershell
+[10.100.10.10]: PS>iotedge list
+
+NAME                   STATUS  DESCRIPTION CONFIG                                             EXTERNAL-IP
+----                   ------  ----------- ------                                             -----
+gettingstartedwithgpus Running Up 10 days  mcr.microsoft.com/intelligentedge/solutions:latest
+iotedged               Running Up 10 days  azureiotedge/azureiotedge-iotedged:0.1.0-beta10    <none>
+edgehub                Running Up 10 days  mcr.microsoft.com/azureiotedge-hub:1.0             10.128.44.243
+edgeagent              Running Up 10 days  azureiotedge/azureiotedge-agent:0.1.0-beta10
+webserverapp           Running Up 10 days  nginx:stable                                       10.128.44.244
+
+[10.100.10.10]: PS>
+```
+
+
+### <a name="use-kubectl-commands"></a>Usare i comandi kubectl
 
 In un dispositivo Azure Stack Edge in cui è configurato il ruolo di calcolo, tutti i `kubectl` comandi sono disponibili per monitorare o risolvere i problemi relativi ai moduli. Per visualizzare un elenco dei comandi disponibili, eseguire `kubectl --help` dalla finestra di comando.
 
 ```PowerShell
 C:\Users\myuser>kubectl --help
+
 kubectl controls the Kubernetes cluster manager.
 
 Find more information at: https://kubernetes.io/docs/reference/kubectl/overview/
@@ -187,7 +270,7 @@ C:\Users\myuser>
 Per un elenco completo dei `kubectl` comandi, passare a [ `kubectl` foglio informativo](https://kubernetes.io/docs/reference/kubectl/cheatsheet/).
 
 
-### <a name="to-get-ip-of-service-or-module-exposed-outside-of-kubernetes-cluster"></a>Per ottenere l'indirizzo IP del servizio o del modulo esposto all'esterno del cluster Kubernetes
+#### <a name="to-get-ip-of-service-or-module-exposed-outside-of-kubernetes-cluster"></a>Per ottenere l'indirizzo IP del servizio o del modulo esposto all'esterno del cluster Kubernetes
 
 Per ottenere l'indirizzo IP di un servizio di bilanciamento del carico o di moduli esposti all'esterno di Kubernetes, eseguire il comando seguente:
 
@@ -197,39 +280,53 @@ Di seguito è riportato un esempio di output di tutti i servizi o i moduli espos
 
 
 ```powershell
-C:\Users\user>kubectl get svc -n iotedge
+[10.100.10.10]: PS>kubectl get svc -n iotedge
 NAME           TYPE           CLUSTER-IP      EXTERNAL-IP     PORT(S)                                       AGE
 edgehub        LoadBalancer   10.103.52.225   10.128.44.243   443:31987/TCP,5671:32336/TCP,8883:30618/TCP   34h
 iotedged       ClusterIP      10.107.236.20   <none>          35000/TCP,35001/TCP                           3d8h
 webserverapp   LoadBalancer   10.105.186.35   10.128.44.244   8080:30976/TCP                                16h
 
-C:\Users\user>
+[10.100.10.10]: PS>
 ```
 L'indirizzo IP nella colonna IP esterno corrisponde all'endpoint esterno per il servizio o il modulo. È anche possibile [ottenere l'indirizzo IP esterno nel dashboard di Kubernetes](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md#get-ip-address-for-services-or-modules).
 
 
-### <a name="to-check-if-module-deployed-successfully"></a>Per verificare se il modulo è stato distribuito correttamente
+#### <a name="to-check-if-module-deployed-successfully"></a>Per verificare se il modulo è stato distribuito correttamente
 
-I moduli di calcolo sono contenitori per i quali è implementata una logica di business. Un pod Kubernetes può avere più contenitori in esecuzione. Per verificare se un modulo di calcolo è stato distribuito correttamente, eseguire il `get pods` comando e verificare se il contenitore, corrispondente al modulo di calcolo, è in esecuzione.
+I moduli di calcolo sono contenitori per i quali è implementata una logica di business. Un pod Kubernetes può avere più contenitori in esecuzione. 
+
+Per verificare se un modulo di calcolo è stato distribuito correttamente, connettersi all'interfaccia di PowerShell del dispositivo.
+Eseguire il `get pods` comando e verificare se il contenitore, corrispondente al modulo di calcolo, è in esecuzione.
 
 Per ottenere l'elenco di tutti i pod in esecuzione in uno spazio dei nomi specifico, eseguire il comando seguente:
 
 `get pods -n <namespace>`
 
+Per controllare i moduli distribuiti tramite IoT Edge, eseguire il comando seguente:
+
+`get pods -n iotedge`
+
 Di seguito è riportato un output di esempio di tutti i pod in esecuzione nello `iotedge` spazio dei nomi.
 
 ```
-C:\Users\myuser>kubectl get pods -n iotedge
+[10.100.10.10]: PS>kubectl get pods -n iotedge
 NAME                        READY   STATUS    RESTARTS   AGE
 edgeagent-cf6d4ffd4-q5l2k   2/2     Running   0          20h
 edgehub-8c9dc8788-2mvwv     2/2     Running   0          56m
 filemove-66c49984b7-h8lxc   2/2     Running   0          56m
 iotedged-675d7f4b5f-9nml4   1/1     Running   0          20h
 
-C:\Users\myuser>
+[10.100.10.10]: PS>
 ```
 
 Lo **stato** indica che tutti i pod nello spazio dei nomi sono in esecuzione e che il **pronto** indica il numero di contenitori distribuiti in un pod. Nell'esempio precedente, tutti i pod sono in esecuzione e tutti i moduli distribuiti in ogni pod sono in esecuzione. 
+
+Per controllare i moduli distribuiti tramite Azure Arc, eseguire il comando seguente:
+
+`get pods -n azure-arc`
+
+In alternativa, è possibile [connettersi al dashboard di Kubernetes per vedere le distribuzioni IOT Edge o Azure Arc](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md#view-module-status).
+
 
 Per un output più dettagliato di un pod specifico per un determinato spazio dei nomi, è possibile eseguire il comando seguente:
 
@@ -238,7 +335,7 @@ Per un output più dettagliato di un pod specifico per un determinato spazio dei
 L'output di esempio è illustrato di seguito.
 
 ```
-C:\Users\myuser>kubectl describe pod filemove-66c49984b7 -n iotedge
+[10.100.10.10]: PS>kubectl describe pod filemove-66c49984b7 -n iotedge
 Name:           filemove-66c49984b7-h8lxc
 Namespace:      iotedge
 Priority:       0
@@ -295,12 +392,12 @@ Tolerations:     node.kubernetes.io/not-ready:NoExecute for 300s
 Events:          <none>
 
 
-C:\Users\myuser>
+[10.100.10.10]: PS>
 ```
 
-### <a name="to-get-container-logs"></a>Per ottenere i log del contenitore
+#### <a name="to-get-container-logs"></a>Per ottenere i log del contenitore
 
-Per ottenere i log per un modulo, eseguire il comando seguente:
+Per ottenere i log per un modulo, eseguire il comando seguente dall'interfaccia di PowerShell del dispositivo:
 
 `kubectl logs <pod_name> -n <namespace> --all-containers` 
 
@@ -309,7 +406,7 @@ Poiché il `all-containers` flag eseguirà il dump di tutti i log per tutti i co
 Di seguito è riportato un esempio di output. 
 
 ```
-C:\Users\myuser>kubectl logs filemove-66c49984b7-h8lxc -n iotedge --all-containers --tail 10
+[10.100.10.10]: PS>kubectl logs filemove-66c49984b7-h8lxc -n iotedge --all-containers --tail 10
 DEBUG 2020-05-14T20:40:42Z: loop process - 0 events, 0.000s
 DEBUG 2020-05-14T20:40:44Z: loop process - 0 events, 0.000s
 DEBUG 2020-05-14T20:40:44Z: loop process - 0 events, 0.000s
@@ -325,8 +422,10 @@ DEBUG 2020-05-14T20:42:14Z: loop process - 0 events, 0.000s
 05/14/2020 19:46:45: Info: Initializing with input: /home/input, output: /home/output, protocol: Amqp.
 05/14/2020 19:46:45: Info: IoT Hub module client initialized.
 
-C:\Users\myuser>
+[10.100.10.10]: PS>
 ```
+
+
 
 ## <a name="exit-the-remote-session"></a>Uscire dalla sessione remota
 
@@ -334,4 +433,4 @@ Per uscire dalla sessione remota di PowerShell, chiudere la finestra di PowerShe
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Distribuire [Azure stack Edge](azure-stack-edge-gpu-deploy-prep.md) nel portale di Azure.
+- Distribuire [Azure Stack Edge](azure-stack-edge-gpu-deploy-prep.md) nel portale di Azure.

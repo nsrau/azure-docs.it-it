@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 07/09/2020
 ms.author: victorh
-ms.openlocfilehash: b613e89fbe29074160d83a96d2cd13505244994a
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: f0e5a153efe26640e54f386600f07c7b3d4711d0
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186716"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649068"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Panoramica del monitoraggio dell'integrità del gateway applicazione
 
@@ -42,7 +42,7 @@ Se il controllo Probe predefinito non riesce per il server A, il gateway applica
 | Proprietà probe | valore | Descrizione |
 | --- | --- | --- |
 | URL probe |\<protocol\>://127.0.0.1:\<port\>/ |Il protocollo e la porta vengono ereditati dalle impostazioni HTTP back-end a cui è associato il probe |
-| Intervallo |30 |Il tempo di attesa in secondi prima di inviare il probe di integrità successivo.|
+| Interval |30 |Il tempo di attesa in secondi prima di inviare il probe di integrità successivo.|
 | Timeout |30 |Il tempo in secondi che un gateway applicazione trascorre in attesa di una risposta del probe prima di contrassegnare il probe come non integro. Se un probe viene restituito come integro, il back-end corrispondente viene subito contrassegnato anch'esso come tale.|
 | Soglia non integra |3 |Determina quanti probe inviare in caso di errore del probe di integrità normale. Nello SKU V1, questi probe di integrità aggiuntivi vengono inviati in rapida successione per determinare rapidamente l'integrità del back-end e non attendere l'intervallo di probe. In caso di SKU versione 2, i probe di integrità attendono l'intervallo. Il server back-end viene contrassegnato come inattivo dopo che il numero di errori di probe consecutivi ha raggiunto una soglia non integra. |
 
@@ -98,7 +98,7 @@ Una volta specificati, i criteri di corrispondenza possono essere associati alla
 
 Non è possibile neanche bloccare la connettività Internet in uscita ed è necessario autorizzare il traffico in ingresso proveniente dal tag **AzureLoadBalancer**.
 
-Per altre informazioni, vedere [Panoramica della configurazione del gateway applicazione](configuration-overview.md#network-security-groups-on-the-application-gateway-subnet).
+Per altre informazioni, vedere [Panoramica della configurazione del gateway applicazione](configuration-infrastructure.md#network-security-groups).
 
 ## <a name="next-steps"></a>Passaggi successivi
 Dopo aver acquisito familiarità con il monitoraggio dell'integrità del gateway applicazione, è possibile configurare un [probe di integrità personalizzato](application-gateway-create-probe-portal.md) nel portale di Azure oppure un [probe di integrità personalizzato](application-gateway-create-probe-ps.md) usando PowerShell e il modello di distribuzione Azure Resource Manager.

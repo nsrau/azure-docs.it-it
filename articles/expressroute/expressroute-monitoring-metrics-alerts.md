@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: monitoraggio, metriche e avvisi'
 description: Informazioni sul monitoraggio, le metriche e gli avvisi di Azure ExpressRoute con monitoraggio di Azure, un punto di interruzione per tutte le metriche, avvisi e log di diagnostica in Azure.
 services: expressroute
-author: mialdrid
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/25/2020
-ms.author: cherylmc
-ms.openlocfilehash: 6f3bd5392457f05caa8704e7e1de5b4155b28794
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.author: duau
+ms.openlocfilehash: fc83e5e8d14250ed163a56830311533144bbe344
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871344"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89395435"
 ---
 # <a name="expressroute-monitoring-metrics-and-alerts"></a>Monitoraggio, metriche e avvisi di ExpressRoute
 

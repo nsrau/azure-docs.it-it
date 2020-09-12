@@ -12,17 +12,17 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 06/17/2020
-ms.openlocfilehash: e18c0470a2d1be8323c2fe1c0780bfd47f3f64cb
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: ef46a0040ba767197028d170372a4a9edca9feee
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085090"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442701"
 ---
 # <a name="azure-sql-database-and-azure-synapse-ip-firewall-rules"></a>Regole del firewall IP del database SQL di Azure e della sinapsi di Azure
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
-Quando si crea un nuovo server nel database SQL di Azure o in Azure sinapsi Analytics denominato *SqlServer*, ad esempio, un firewall a livello di server blocca tutti gli accessi all'endpoint pubblico per il server (accessibile in *MySQLServer.database.Windows.NET*). Per semplicità, il *database SQL* viene usato per fare riferimento sia al database SQL che ad Azure sinapsi Analytics (in precedenza Azure SQL Data Warehouse).
+Quando si crea un nuovo server nel database SQL di Azure o in Azure sinapsi Analytics denominato *SqlServer*, ad esempio, un firewall a livello di server blocca tutti gli accessi all'endpoint pubblico per il server (accessibile in *MySQLServer.database.Windows.NET*). Per semplicità, il *database SQL* viene usato per fare riferimento sia al database SQL che ad Azure sinapsi Analytics (in precedenza SQL Data Warehouse).
 
 > [!IMPORTANT]
 > Questo articolo *non* si applica a *Istanza gestita di SQL di Azure*. Per informazioni sulla configurazione di rete, vedere [connettere l'applicazione ad Azure SQL istanza gestita](../managed-instance/connect-application-instance.md).
@@ -237,7 +237,7 @@ az sql server firewall-rule create --resource-group myResourceGroup --server $se
 | [Elimina regole firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/delete) |Server |Rimuove regole del firewall IP a livello di server |
 | [Ottenere le regole del firewall](https://docs.microsoft.com/rest/api/sql/firewallrules/get) | Server | Ottiene regole del firewall IP a livello di server |
 
-## <a name="troubleshoot-the-database-firewall"></a>Risolvere i problemi relativi al firewall del database
+## <a name="troubleshoot-the-database-firewall"></a>Eseguire la risoluzione dei problemi del firewall del database
 
 Quando l'accesso al database SQL di Azure non si comporta come previsto, considerare i punti seguenti.
 

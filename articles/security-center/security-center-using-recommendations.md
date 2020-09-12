@@ -13,14 +13,15 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/22/2019
 ms.author: memildin
-ms.openlocfilehash: 8039be7b69444cc32e763e9a1fb074e7dda4a5ba
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aac6f833985a708c7ed65542e314b65fa1039ef7
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84783232"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569051"
 ---
 # <a name="use-azure-security-center-recommendations-to-enhance-security"></a>Uso delle raccomandazioni del Centro sicurezza di Azure per migliorare la sicurezza
+
 Configurando i criteri di sicurezza e implementando le raccomandazioni offerte dal Centro sicurezza di Azure, è possibile ridurre le probabilità di un importante evento di sicurezza. Questo articolo illustra come usare i criteri di sicurezza e le raccomandazioni nel Centro sicurezza di Azure per attenuare un attacco alla sicurezza. 
 
 Il Centro sicurezza esegue automaticamente analisi continue per analizzare lo stato di sicurezza delle risorse di Azure. Quando il Centro sicurezza identifica potenziali vulnerabilità della sicurezza, crea raccomandazioni utili per definire il processo di configurazione dei controlli di sicurezza necessari. Il Centro sicurezza aggiorna le proprie raccomandazioni entro 24 ore, con le eccezioni seguenti:
@@ -66,6 +67,11 @@ Come parte delle attività di monitoraggio quotidiane, Jeff accede ad Azure e ap
 6. Jeff dispone di numerose macchine virtuali con connessione Internet e, poiché le relative porte sono esposte, temono che un utente malintenzionato possa ottenere il controllo sui server. Quindi, Jeff sceglie di usare [**l'accesso just-in-time alle macchine virtuali**](security-center-just-in-time.md).
 
 Jeff continua a sfogliare le raccomandazioni con priorità alta e media, decidendo di volta in volta sull'implementazione. Per ogni raccomandazione, Jeff esamina le informazioni dettagliate fornite dal centro sicurezza per comprendere quali sono le risorse interessate, qual è l'effetto del Punteggio sicuro, il significato di ogni raccomandazione e i passaggi correttivi per la risoluzione di ogni problema.
+
+### <a name="enforce-recommendations-to-prevent-security-misconfigurations"></a>Applicare raccomandazioni per impedire la configurazione della sicurezza
+
+Per assicurarsi che gli utenti non creino risorse che influiscano negativamente sul punteggio di Jeff, configurano le opzioni Applica e nega sulle raccomandazioni più importanti. Per altre informazioni, vedere [Impedisci configurazioni errate con le raccomandazioni Imponi/nega](prevent-misconfigurations.md).
+
 
 ## <a name="conclusion"></a>Conclusioni
 Il monitoraggio delle raccomandazioni nel Centro sicurezza contribuisce a eliminare le vulnerabilità di sicurezza prima che si verifichi un attacco. Quando si correggono le raccomandazioni, il Punteggio sicuro e il comportamento di sicurezza dei carichi di lavoro migliorano. Il Centro sicurezza individua automaticamente le nuove risorse distribuite, le valuta in base ai criteri di sicurezza e offre nuove raccomandazioni per proteggerle.

@@ -1,5 +1,5 @@
 ---
-title: Caricare i dati di Contoso retail in una sinapsi SQL data warehouse
+title: Caricare i dati di Contoso retail in sinapsi SQL
 description: Usare i comandi polibase e T-SQL per caricare due tabelle dai dati di Contoso retail in sinapsi SQL.
 services: synapse-analytics
 author: kevinvngo
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 90da35b76bbe6ec933b3a1fd200f0f5bad643759
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 904ce55f376e42156b014056b1226512b2784742
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213313"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461698"
 ---
 # <a name="load-contoso-retail-data-to-synapse-sql"></a>Caricare i dati di Contoso retail in sinapsi SQL 
 
-In questa esercitazione si apprenderà come usare i comandi polibase e T-SQL per caricare due tabelle dai dati di Contoso retail in un data warehouse SQL sinapsi.
+In questa esercitazione si apprenderà come usare i comandi polibase e T-SQL per caricare due tabelle dai dati di Contoso retail in sinapsi SQL.
 
 In questa esercitazione si apprenderà come:
 
@@ -30,11 +30,11 @@ In questa esercitazione si apprenderà come:
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Per eseguire questa esercitazione, è necessario un account Azure che dispone già di un data warehouse SQL sinapsi. Se non si dispone di un data warehouse sottoposto a provisioning, vedere [creare una data warehouse e impostare la regola del firewall a livello di server](create-data-warehouse-portal.md).
+Per eseguire questa esercitazione, è necessario un account Azure che dispone già di una sinapsi SQL. Se non si dispone di un data warehouse sottoposto a provisioning, vedere [creare una data warehouse e impostare la regola del firewall a livello di server](create-data-warehouse-portal.md).
 
 ## <a name="configure-the-data-source"></a>Configurare l'origine dati
 
-PolyBase utilizza oggetti esterni T-SQL per definire il percorso e gli attributi dei dati esterni. Le definizioni degli oggetti esterni vengono archiviate nel data warehouse SQL sinapsi. I dati vengono archiviati esternamente.
+PolyBase utilizza oggetti esterni T-SQL per definire il percorso e gli attributi dei dati esterni. Le definizioni degli oggetti esterni vengono archiviate in sinapsi SQL. I dati vengono archiviati esternamente.
 
 ## <a name="create-a-credential"></a>Creare una credenziale
 
@@ -122,7 +122,7 @@ GO
 
 Eseguire lo script seguente per creare le tabelle esterne DimProduct e FactOnlineSales. In questo esempio vengono definiti i nomi delle colonne e i tipi di dati e il relativo binding al percorso e al formato dei file di archiviazione BLOB di Azure. La definizione viene archiviata nella data warehouse e i dati rimangono nella BLOB del servizio di archiviazione di Azure.
 
-Il parametro **location** è la cartella nella cartella radice nella BLOB del servizio di archiviazione di Azure. Ogni tabella è in una cartella diversa.
+Il parametro  **location** è la cartella nella cartella radice nella BLOB del servizio di archiviazione di Azure. Ogni tabella è in una cartella diversa.
 
 ```sql
 --DimProduct
@@ -274,7 +274,7 @@ ORDER BY
 
 ## <a name="optimize-columnstore-compression"></a>Ottimizzare la compressione columnstore
 
-Per impostazione predefinita, la data warehouse sinapsi SQL archivia la tabella come indice columnstore cluster. Al termine di un caricamento, alcune delle righe di dati potrebbero non essere compresse nel columnstore.  Esistono diversi motivi per cui questo può verificarsi. Per altre informazioni, vedere l'articolo [Gestire gli indici columnstore](sql-data-warehouse-tables-index.md).
+Per impostazione predefinita, sinapsi SQL archivia la tabella come indice columnstore cluster. Al termine di un caricamento, alcune delle righe di dati potrebbero non essere compresse nel columnstore.  Esistono diversi motivi per cui questo può verificarsi. Per altre informazioni, vedere l'articolo [Gestire gli indici columnstore](sql-data-warehouse-tables-index.md).
 
 Per ottimizzare le prestazioni delle query e la compressione columnstore dopo un'operazione di caricamento, ricompilare la tabella per forzare l'indice columnstore per comprimere tutte le righe.
 
@@ -340,7 +340,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 
 ## <a name="achievement-unlocked"></a>Obiettivo raggiunto
 
-I dati pubblici sono stati caricati nel data warehouse. Ottimo lavoro.
+I dati pubblici sono stati caricati nel data warehouse. Risposta esatta.
 
 È ora possibile iniziare a eseguire query sulle tabelle per esplorare i dati. Eseguire la query seguente per trovare le vendite totali per marchio:
 

@@ -3,12 +3,12 @@ title: Estensione Criteri di Azure per Visual Studio Code
 description: Informazioni su come usare l'estensione di criteri di Azure per Visual Studio Code per cercare Azure Resource Manager alias.
 ms.date: 06/16/2020
 ms.topic: how-to
-ms.openlocfilehash: c91d39414a376b410e52c2ba60ce15ed0c5054f6
-ms.sourcegitcommit: f684589322633f1a0fafb627a03498b148b0d521
+ms.openlocfilehash: 9b3f27492bee5301e22e83ebf9734afa3de43897
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85970757"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648337"
 ---
 # <a name="use-azure-policy-extension-for-visual-studio-code"></a>Usare l'estensione di criteri di Azure per Visual Studio Code
 
@@ -52,7 +52,7 @@ Per un utente cloud nazionale, attenersi alla procedura seguente per impostare p
 
 1. Selezionare il cloud di Nation dall'elenco:
 
-   :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="Impostare l'accesso cloud predefinito di Azure per Visual Studio Code" border="false":::
+   :::image type="content" source="../media/extension-for-vscode/set-default-azure-cloud-sign-in.png" alt-text="Screenshot della selezione dell'accesso cloud di Azure per la nazione per Visual Studio Code." border="false":::
 
 ## <a name="connect-to-an-azure-account"></a>Connettersi a un account Azure
 
@@ -64,13 +64,13 @@ Per valutare le risorse e gli alias di ricerca, è necessario connettersi all'ac
 
      Dall'estensione criteri di Azure selezionare **Accedi ad Azure**.
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Accesso al cloud di Azure per Visual Studio Code dall'estensione criteri di Azure" border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-policy-extension.png" alt-text="Screenshot della Visual Studio Code e dell'icona dell'estensione criteri di Azure." border="false":::
 
    - Riquadro comandi
 
      Dalla barra dei menu passare a **Visualizza**  >  **riquadro comandi**e immettere **Azure: Sign in (accedi**).
 
-     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Accesso al cloud di Azure per Visual Studio Code dal riquadro comandi" border="false":::
+     :::image type="content" source="../media/extension-for-vscode/azure-cloud-sign-in-command-palette.png" alt-text="Screenshot delle opzioni di accesso al cloud di Azure per Visual Studio Code dal riquadro comandi." border="false":::
 
 1. Seguire le istruzioni di accesso per accedere ad Azure. Dopo la connessione, il nome dell'account Azure viene visualizzato sulla barra di stato nella parte inferiore della finestra di Visual Studio Code.
 
@@ -125,7 +125,7 @@ Quando si seleziona una risorsa, tramite l'interfaccia di ricerca o selezionando
 
 Una volta aperta una risorsa, il puntatore del mouse sul nome o sul valore della proprietà Gestione risorse Visualizza l'alias di criteri di Azure, se disponibile. In questo esempio, la risorsa è un `Microsoft.Compute/virtualMachines` tipo di risorsa e la proprietà **Properties. StorageProfile. imageReference. offer** viene posizionata sopra. Il passaggio del mouse Mostra gli alias corrispondenti.
 
-:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Il passaggio del mouse sull'estensione criteri di Azure Mostra Gestione risorse alias proprietà" border="false":::
+:::image type="content" source="../media/extension-for-vscode/extension-hover-shows-property-alias.png" alt-text="Screenshot dell'estensione di criteri di Azure per Visual Studio Code il passaggio del mouse su una proprietà per visualizzare i nomi degli alias." border="false":::
 
 > [!NOTE]
 > L'estensione VS Code espone solo le proprietà della modalità Resource Manager e non visualizza nessuna proprietà della modalità [Provider di risorse](../concepts/definition-structure.md#mode).

@@ -3,12 +3,12 @@ title: Comprendere il funzionamento degli effetti
 description: Le definizioni di Criteri di Azure hanno diversi effetti che determinano in che modo viene gestita e segnalata la conformità.
 ms.date: 08/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 7eb1178bbf767f6962c797da4474af81d576545a
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: d2ea27ceda36d2feebcf12cc47ac741093b0729c
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079660"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425535"
 ---
 # <a name="understand-azure-policy-effects"></a>Informazioni sugli effetti di Criteri di Azure
 
@@ -156,7 +156,8 @@ La proprietà **details** degli effetti AuditIfNotExists ha tutte le sottopropri
   - Se **details.type** è un tipo di risorsa sotto la condizione di risorsa **if**, il criterio esegue una query per le risorse di questo **tipo** nell'ambito della risorsa valutata. In caso contrario, il criterio esegue la query all'interno dello stesso gruppo di risorse della risorsa valutata.
 - **Name** (facoltativo)
   - Specifica il nome esatto della risorsa a cui corrispondere e fa sì che il criterio recuperi una risorsa specifica invece di tutte le risorse del tipo specificato.
-  - Quando i valori della condizione per **if.field.type** e **then.details. type** corrispondono, allora **Name** diventa _obbligatorio_ e deve essere `[field('name')]`. Tuttavia, deve essere considerato invece un effetto [audit](#audit).
+  - Quando i valori della condizione per **if. Field. Type** e **then. Details. Type** corrispondono, il **nome** diventa _obbligatorio_ e deve essere `[field('name')]` o `[field('fullName')]` per una risorsa figlio.
+    Tuttavia, deve essere considerato invece un effetto [audit](#audit).
 - **ResourceGroupName** (facoltativo)
   - Consente che la corrispondenza della risorsa correlata provenga da un gruppo di risorse diverso.
   - Non è applicabile se **type** è una risorsa sottostante la risorsa della condizione **if**.
@@ -277,7 +278,7 @@ La proprietà **details** dell'effetto DeployIfNotExists ha tutte le sottopropri
   - Inizia cercando di recuperare una risorsa sottostante la risorsa della condizione **if**, quindi esegue una query all'interno dello stesso gruppo di risorse come risorsa della condizione **if**.
 - **Name** (facoltativo)
   - Specifica il nome esatto della risorsa a cui corrispondere e fa sì che il criterio recuperi una risorsa specifica invece di tutte le risorse del tipo specificato.
-  - Quando i valori della condizione per **if.field.type** e **then.details. type** corrispondono, allora **Name** diventa _obbligatorio_ e deve essere `[field('name')]`.
+  - Quando i valori della condizione per **if. Field. Type** e **then. Details. Type** corrispondono, il **nome** diventa _obbligatorio_ e deve essere `[field('name')]` o `[field('fullName')]` per una risorsa figlio.
 - **ResourceGroupName** (facoltativo)
   - Consente che la corrispondenza della risorsa correlata provenga da un gruppo di risorse diverso.
   - Non è applicabile se **type** è una risorsa sottostante la risorsa della condizione **if**.
@@ -571,8 +572,8 @@ Nella proprietà **operation** sono disponibili le opzioni seguenti:
 |Operazione |Descrizione |
 |-|-|
 |addOrReplace |Aggiunge la proprietà definita o il tag e il valore alla risorsa, anche se la proprietà o il tag esiste già con un valore diverso. |
-|Aggiungi |Aggiunge la proprietà, il tag e il valore definiti alla risorsa. |
-|Rimuovi |Rimuove la proprietà o il tag definito dalla risorsa. |
+|Add |Aggiunge la proprietà, il tag e il valore definiti alla risorsa. |
+|Rimuovere |Rimuove la proprietà o il tag definito dalla risorsa. |
 
 ### <a name="modify-examples"></a>Esempi di Modify
 

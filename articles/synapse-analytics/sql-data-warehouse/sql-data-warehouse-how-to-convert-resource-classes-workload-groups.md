@@ -1,6 +1,6 @@
 ---
 title: Convertire una classe di risorse in un gruppo di carico di lavoro
-description: Informazioni su come creare un gruppo di carico di lavoro simile a una classe di risorse in Azure SQL Data Warehouse.
+description: Informazioni su come creare un gruppo di carico di lavoro simile a una classe di risorse in Azure sinapsi Analytics.
 services: synapse-analytics
 author: ronortloff
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 08/13/2020
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c61e8df05c4bc199c0d91b8ed0cbd73fa6f196cf
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: fe65aa8c69bc4bd3837ea68bc48ffdbbeed87e0e
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192315"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461375"
 ---
 # <a name="convert-resource-classes-to-workload-groups"></a>Convertire le classi di risorse in gruppi di carico di lavoro
 

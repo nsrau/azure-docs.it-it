@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: bc926c385aeee40601c00b3b4ab68065a4260f2f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: ec59c07d66150bf7b184c149a9b1ed9015c17645
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268775"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433654"
 ---
 # <a name="troubleshooting-hybrid-azure-active-directory-joined-devices"></a>Risoluzione dei problemi relativi a dispositivi aggiunti all'identità ibrida di Azure Active Directory
 
@@ -99,7 +99,7 @@ Questo campo mostra se il dispositivo è aggiunto a un dominio Active Directory 
 
 #### <a name="workplacejoined--no"></a>WorkplaceJoined: NO
 
-Questo campo mostra se il dispositivo è registrato con Azure AD come dispositivo personale, contrassegnato come *aggiunto correttamente* all'area di lavoro. Questo valore deve essere **NO** per un computer aggiunto al dominio che è anche aggiunto all'identità ibrida di Azure AD. Se il valore è **YES**, è stato aggiunto un account aziendale o dell'istituto di istruzione prima del completamento dell'aggiunta all'identità ibrida di Azure AD. In questo caso l'account viene ignorato quando si usa la versione anniversario dell'aggiornamento di Windows 10 (1607).
+Questo campo mostra se il dispositivo è registrato con Azure AD come dispositivo personale, contrassegnato come *aggiunto correttamente* all'area di lavoro. Questo valore deve essere **NO** per un computer aggiunto al dominio che è anche aggiunto all'identità ibrida di Azure AD. Se il valore è **YES**, è stato aggiunto un account aziendale o dell'istituto di istruzione prima del completamento dell'aggiunta all'identità ibrida di Azure AD. In questo caso, l'account viene ignorato quando si usa Windows 10 versione 1607 o successiva.
 
 #### <a name="azureadjoined--yes"></a>AzureAdJoined: YES
 
@@ -373,13 +373,13 @@ Usare i log di Visualizzatore eventi per individuare la fase e il codice ErrorCo
 
 ##### <a name="federated-join-server-errors"></a>Errori del server join federato
 
-| Codice di errore del server | Messaggio di errore del server | Di seguito sono indicati i motivi possibili: | Risoluzione |
+| Codice di errore del server | Messaggio di errore del server | Di seguito sono indicati i motivi possibili: | Soluzione |
 | --- | --- | --- | --- |
 | DirectoryError | La richiesta è limitata temporaneamente. Provare dopo 300 secondi. | Errore previsto. Probabilmente a causa dell'esecuzione di più richieste di registrazione in rapida successione. | Riprova join dopo il periodo di ricarica |
 
 ##### <a name="sync-join-server-errors"></a>Errori del server di sincronizzazione join
 
-| Codice di errore del server | Messaggio di errore del server | Di seguito sono indicati i motivi possibili: | Risoluzione |
+| Codice di errore del server | Messaggio di errore del server | Di seguito sono indicati i motivi possibili: | Soluzione |
 | --- | --- | --- | --- |
 | DirectoryError | AADSTS90002: il tenant non è stato <UUID> trovato. Questo errore può verificarsi se non sono presenti sottoscrizioni attive per il tenant. Rivolgersi all'amministratore della sottoscrizione. | L'ID tenant nell'oggetto SCP non è corretto | Verificare che l'oggetto SCP sia configurato con l'ID tenant Azure AD corretto e con le sottoscrizioni attive e presenti nel tenant. |
 | DirectoryError | L'oggetto dispositivo in base all'ID specificato non è stato trovato. | Errore previsto per Sync join. L'oggetto dispositivo non è stato sincronizzato da AD Azure AD | Attendere il completamento della sincronizzazione del Azure AD Connect e il successivo tentativo di join dopo il completamento della sincronizzazione risolverà il problema |

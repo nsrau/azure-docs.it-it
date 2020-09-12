@@ -3,12 +3,12 @@ title: Informazioni sul linguaggio di query
 description: Descrive le tabelle di Resource Graph e i tipi di dati, gli operatori e le funzioni di Kusto disponibili utilizzabili con Azure Resource Graph.
 ms.date: 08/24/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4d7ca949e9eef075adb130bb84b2617749950bec
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 65304ca1241b2c8a1f9541580e7ee8434dd5b6eb
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798551"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426402"
 ---
 # <a name="understanding-the-azure-resource-graph-query-language"></a>Informazioni sul linguaggio di query di Azure Resource Graph
 
@@ -32,6 +32,7 @@ Il grafico risorse fornisce diverse tabelle per i dati archiviati su Azure Resou
 |ResourceContainers |Include i dati e i tipi di risorsa delle sottoscrizioni (in anteprima, `Microsoft.Resources/subscriptions`) e dei gruppi di risorse (`Microsoft.Resources/subscriptions/resourcegroups`). |
 |AdvisorResources |Include le risorse _relative_ a `Microsoft.Advisor`. |
 |AlertsManagementResources |Include le risorse _relative_ a `Microsoft.AlertsManagement`. |
+|GuestConfigurationResources |Include le risorse _relative_ a `Microsoft.GuestConfiguration`. |
 |HealthResources |Include le risorse _relative_ a `Microsoft.ResourceHealth`. |
 |MaintenanceResources |Include le risorse _relative_ a `Microsoft.Maintenance`. |
 |SecurityResources |Include le risorse _relative_ a `Microsoft.Security`. |
@@ -142,7 +143,7 @@ Di seguito è riportato l'elenco degli operatori tabulari di KQL supportati da R
 L'ambito delle sottoscrizioni da cui le risorse vengono restituite da una query dipende dal metodo di accesso al grafico delle risorse. L'interfaccia della riga di comando di Azure e Azure PowerShell popolare l'elenco di sottoscrizioni da includere nella richiesta in base al contesto dell'utente autorizzato. L'elenco delle sottoscrizioni può essere definito manualmente per ogni con le **sottoscrizioni** e i parametri di **sottoscrizione** , rispettivamente.
 Nell'API REST e in tutti gli altri SDK, l'elenco di sottoscrizioni per includere le risorse da deve essere definito in modo esplicito come parte della richiesta.
 
-Come **Anteprima**, la versione dell'API REST `2020-04-01-preview` aggiunge una proprietà per definire l'ambito della query a un [gruppo di gestione](../../management-groups/overview.md). Questa API di anteprima rende inoltre la proprietà della sottoscrizione facoltativa. Se un gruppo di gestione o un elenco di sottoscrizioni non è definito, l'ambito della query è tutte le risorse a cui l'utente autenticato può accedere. La nuova `managementGroupId` proprietà accetta l'ID del gruppo di gestione, che è diverso dal nome del gruppo di gestione. Quando `managementGroupId` si specifica, vengono incluse le risorse della prima sottoscrizioni 5000 in o sotto la gerarchia del gruppo di gestione specificata. `managementGroupId` non può essere usato contemporaneamente a `subscriptions` .
+Come **Anteprima**, la versione dell'API REST `2020-04-01-preview` aggiunge una proprietà per definire l'ambito della query a un [gruppo di gestione](../../management-groups/overview.md). Questa API di anteprima rende inoltre la proprietà della sottoscrizione facoltativa. Se un gruppo di gestione o un elenco di sottoscrizioni non è definito, l'ambito della query è costituito da tutte le risorse, incluse le risorse delegate del [Faro di Azure](../../../lighthouse/concepts/azure-delegated-resource-management.md) , a cui l'utente autenticato può accedere. La nuova `managementGroupId` proprietà accetta l'ID del gruppo di gestione, che è diverso dal nome del gruppo di gestione. Quando `managementGroupId` si specifica, vengono incluse le risorse della prima sottoscrizioni 5000 in o sotto la gerarchia del gruppo di gestione specificata. `managementGroupId` non può essere usato contemporaneamente a `subscriptions` .
 
 Esempio: eseguire una query su tutte le risorse nella gerarchia del gruppo di gestione denominato "My Management Group" con ID "myMG".
 

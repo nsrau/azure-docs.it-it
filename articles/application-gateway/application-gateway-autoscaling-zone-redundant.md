@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: victorh
 ms.custom: fasttrack-edit, references_regions
-ms.openlocfilehash: f10bb1f4065f3bdb517fcad4f3eb6caa331c5233
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: cbd15819fc03eb80b3647f6ffede93f851e295d4
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87273202"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649737"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>Gateway applicazione con scalabilità automatica e ridondanza della zona versione 2 
 
@@ -47,87 +47,7 @@ Con lo SKU v2, il modello dei prezzi è associato al consumo e non più al numer
 
 Ogni unità di capacità è composta al massimo: 1 unità di calcolo, 2500 connessioni permanenti e velocità effettiva di 2,22 Mbps.
 
-Unità di calcolo nel dettaglio:
-
-- **Standard_v2**: ogni unità di calcolo è in grado di effettuare circa 50 connessioni al secondo con il certificato TLS della chiave RSA a 2048 bit.
-- **WAF_v2**: ogni unità di calcolo può supportare circa 10 richieste simultanee al secondo per una combinazione di traffico 70-30%, con il 70% di richieste inferiore a 2 KB GET/POST e le rimanenti impostate su un valore superiore. Le prestazioni di Web Application Firewall (WAF) non sono attualmente interessate dalle dimensioni della risposta.
-
-> [!NOTE]
-> Ogni istanza può attualmente supportare circa 10 unità di capacità.
-> Il numero di richieste che possono essere gestite da un'unità di calcolo dipende da vari fattori, tra cui le dimensioni della chiave del certificato TLS, l'algoritmo di scambio delle chiavi, le riscritture di intestazioni e, nel caso in cui sia presente WAF, dalle dimensioni della richiesta in ingresso. Si consiglia di eseguire test delle applicazioni per determinare la frequenza di richieste per ogni unità di calcolo. Sia l'unità di capacità che l'unità di calcolo saranno rese disponibili come metrica prima dell'inizio della fatturazione.
-
-Nella tabella seguente vengono illustrati prezzi di esempio, riportati solo a scopo illustrativo.
-
-**Prezzi negli Stati Uniti orientali**:
-
-|              Nome SKU                             | Prezzo fisso ($/hr)  | Prezzo unità di capacità ($/CU-hr)   |
-| ------------------------------------------------- | ------------------- | ------------------------------- |
-| Standard_v2                                       |    0,20             | 0,0080                          |
-| WAF_v2                                            |    0,36             | 0,0144                          |
-
-Per altre informazioni sui prezzi, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/application-gateway/). 
-
-**Esempio 1**
-
-Viene eseguito il provisioning di un gateway applicazione Standard_v2 senza scalabilità automatica, in modalità scalabilità manuale, con capacità fissa di cinque istanze.
-
-Prezzo fisso = 744 (ore) * $ 0,20 = $ 148,8 <br>
-Unità di capacità = 744 (ore) * 10 unità di capacità per istanza * 5 istanze * $ 0,008 per ora di unità di capacità = $ 297,6
-
-Prezzo totale = $ 148,8 + $ 297,6 = $ 446,4
-
-**Esempio 2**
-
-Viene eseguito il provisioning di un gateway applicazione Standard_v2 per un mese, con zero istanze minime e, durante questo periodo, riceve 25 nuove connessioni TLS/sec, con una velocità media di trasferimento dati di 8,88 Mbps. Supponendo che le connessioni siano di breve durata, il prezzo sarà:
-
-Prezzo fisso = 744 (ore) * $ 0,20 = $ 148,8
-
-Prezzo unità di capacità = 744 (ore) * Max (25/50 unità di calcolo per connessioni/sec, 8,88/2,22 unità di capacità per velocità effettiva) * $ 0,008 = 744 * 4 * 0,008 = $ 23,81
-
-Prezzo totale = $ 148,8 + 23,81 = $ 172,61
-
-Come si può notare, vengono addebitate solo quattro unità di capacità, non l'intera istanza. 
-
-> [!NOTE]
-> La funzione Max restituisce il valore più grande in una coppia di valori.
-
-
-**Esempio 3**
-
-Viene eseguito il provisioning di un gateway applicazione Standard_v2 per un mese, con un minimo di cinque istanze. Supponendo che non ci sia traffico e che le connessioni siano di breve durata, il prezzo sarà:
-
-Prezzo fisso = 744 (ore) * $ 0,20 = $ 148,8
-
-Prezzo unità di capacità = 744 (ore) * Max (0/50 unità di calcolo per connessioni/sec, 0/2,22 unità di capacità per velocità effettiva) * $ 0,008 = 744 * 50 * 0,008 = $ 297,60
-
-Prezzo totale = $ 148,80 + 297,60 = $ 446,4
-
-In questo caso, le cinque istanze vengono addebitate per intero, anche in assenza di traffico.
-
-**Esempio 4**
-
-Viene eseguito il provisioning di un gateway applicazione Standard_v2 per un mese, con un minimo di cinque istanze ma, in questo caso, riceve 25 connessioni TLS/sec, con una velocità media di trasferimento dati di 125 Mbps. Supponendo che non ci sia traffico e che le connessioni siano di breve durata, il prezzo sarà:
-
-Prezzo fisso = 744 (ore) * $ 0,20 = $ 148,8
-
-Prezzo unità di capacità = 744 (ore) * Max (25/50 unità di calcolo per connessioni/sec, 125/2,22 unità di capacità per velocità effettiva) * $ 0,008 = 744 * 57 * 0,008 = $ 339,26
-
-Prezzo totale = $ 148,80 + 339,26 = $ 488,06
-
-In questo caso, vengono addebitate le cinque istanze per intero, oltre a sette unità di capacità (ovvero 7/10 di un'istanza).  
-
-**Esempio 5**
-
-Viene eseguito il provisioning di un gateway applicazione WAF_v2 per un mese. Durante questo periodo, riceve 25 nuove connessioni TLS/sec, con una velocità media di trasferimento dati di 8,88 Mbps, ed esegue 80 richieste al secondo. Supponendo che le connessioni siano di breve durata e che per calcolare le unità di calcolo per l'applicazione siano supportati 10 RPS per unità di calcolo, il prezzo sarà:
-
-Prezzo fisso = 744 (ore) * $ 0,36 = $ 267,84
-
-Prezzo unità di capacità = 744 (ore) * Max (unità di calcolo Max (25/50 per connessioni/sec, 80/10 RPS WAF), 8,88/2,22 unità di capacità per velocità effettiva) * $ 0,0144 = 744 * 8 * 0,0144 = $ 85,71
-
-Prezzo totale = $ 267,84 + $ 85,71 = $ 353,55
-
-> [!NOTE]
-> La funzione Max restituisce il valore più grande in una coppia di valori.
+Per altre informazioni, vedere [informazioni sui prezzi](understanding-pricing.md).
 
 ## <a name="scaling-application-gateway-and-waf-v2"></a>Scalabilità del gateway applicazione e WAF v2
 
@@ -148,7 +68,7 @@ La creazione di una nuova istanza, tuttavia, può richiedere sei o sette minuti.
 
 La tabella seguente confronta le funzionalità disponibili con ogni SKU.
 
-| Funzionalità                                           | SKU v1   | SKU v2   |
+| Feature                                           | SKU v1   | SKU v2   |
 | ------------------------------------------------- | -------- | -------- |
 | Scalabilità automatica                                       |          | &#x2713; |
 | Ridondanza della zona                                   |          | &#x2713; |
@@ -178,11 +98,11 @@ Questa sezione descrive le funzionalità e le limitazioni dello SKU v2 che lo di
 
 |Differenza|Dettagli|
 |--|--|
-|Autenticazione del certificato|Non supportata.<br>Per altre informazioni, vedere [Panoramica di TLS end-to-end con il gateway applicazione](ssl-overview.md#end-to-end-tls-with-the-v2-sku).|
+|Autenticazione del certificato|Non supportato.<br>Per altre informazioni, vedere [Panoramica di TLS end-to-end con il gateway applicazione](ssl-overview.md#end-to-end-tls-with-the-v2-sku).|
 |Combinazione di versione 2 Standard e gateway applicazione standard nella stessa subnet|Non supportate|
-|Applicazione di una route definita dall'utente alla subnet del gateway applicazione|Supportata (scenari specifici). In anteprima.<br> Per altre informazioni sugli scenari supportati, vedere [Panoramica della configurazione del gateway applicazione](configuration-overview.md#user-defined-routes-supported-on-the-application-gateway-subnet).|
+|Applicazione di una route definita dall'utente alla subnet del gateway applicazione|Supportata (scenari specifici). In anteprima.<br> Per altre informazioni sugli scenari supportati, vedere [Panoramica della configurazione del gateway applicazione](configuration-infrastructure.md#supported-user-defined-routes).|
 |Gruppo di sicurezza di rete per intervallo di porte in ingresso| - Da 65200 a 65535 per SKU versione 2 Standard<br>- Da 65503 a 65534 per SKU Standard.<br>Per altre informazioni, vedere la sezione [Domande frequenti](application-gateway-faq.md#are-network-security-groups-supported-on-the-application-gateway-subnet).|
-|Contatori delle prestazioni in Diagnostica di Azure|Non supportata.<br>Usare le metriche di Azure.|
+|Contatori delle prestazioni in Diagnostica di Azure|Non supportato.<br>Usare le metriche di Azure.|
 |Fatturazione|Inizio della fatturazione pianificato per il 1° luglio 2019.|
 |Modalità FIPS|Attualmente non supportati.|
 |Modalità solo bilanciamento del carico interno|Non supportato attualmente. Le modalità pubblica e con bilanciamento del carico interno insieme non sono supportate.|

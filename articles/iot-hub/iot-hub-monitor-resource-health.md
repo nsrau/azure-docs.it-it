@@ -12,12 +12,12 @@ ms.custom:
 - 'Role: Cloud Development'
 - 'Role: Technical Support'
 - devx-track-csharp
-ms.openlocfilehash: c7b2055494d61ba348ae6226e6fc0ad9ce5775bb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 100f87b8a13fb424706c3b5ec13268cd3ba42bbe
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022140"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438399"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Monitorare l'integrità dell'hub IoT di Azure ed eseguire la diagnostica rapida dei problemi
 
@@ -61,7 +61,7 @@ La categoria Connessioni tiene traccia degli eventi di connessione e disconnessi
             "operationName": "deviceConnect",
             "category": "Connections",
             "level": "Information",
-            "properties": "{\"deviceId\":\"<deviceId>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}",
+            "properties": "{\"deviceId\":\"<deviceId>\",\"sdkVersion\":\"<sdkVersion>\",\"protocol\":\"<protocol>\",\"authType\":\"{\\\"scope\\\":\\\"device\\\",\\\"type\\\":\\\"sas\\\",\\\"issuer\\\":\\\"iothub\\\",\\\"acceptingIpFilterRule\\\":null}\",\"maskedIpAddress\":\"<maskedIpAddress>\"}",
             "location": "Resource location"
         }
     ]
@@ -388,8 +388,8 @@ Nella `properties` sezione questo log contiene informazioni aggiuntive sull'ingr
 
 | Proprietà | Type | Descrizione |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **isRoutingEnabled** | String | True o false, indica se il routing dei messaggi è abilitato o meno nell'hub IoT |
-| **parentSpanId** | String | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio D2C |
+| **isRoutingEnabled** | string | True o false, indica se il routing dei messaggi è abilitato o meno nell'hub IoT |
+| **parentSpanId** | string | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio D2C |
 
 ##### <a name="iot-hub-egress-logs"></a>Log di uscita dell'hub IoT
 
@@ -420,13 +420,13 @@ Nella `properties` sezione questo log contiene informazioni aggiuntive sull'ingr
 
 | Proprietà | Type | Descrizione |
 |--------------------|-----------------------------------------------|------------------------------------------------------------------------------------------------|
-| **endpointName** | String | Nome dell'endpoint di routing |
-| **endpointType** | String | Tipo dell'endpoint di routing |
-| **parentSpanId** | String | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio di ingresso nell'hub IoT |
+| **endpointName** | string | Nome dell'endpoint di routing |
+| **endpointType** | string | Tipo dell'endpoint di routing |
+| **parentSpanId** | string | Oggetto [span-id](https://w3c.github.io/trace-context/#parent-id) del messaggio padre, che in questo caso sarebbe la traccia del messaggio di ingresso nell'hub IoT |
 
 #### <a name="configurations"></a>Configurazioni
 
-I log di configurazione dell'hub Internet rileva gli eventi e gli errori relativi al set di funzionalità di gestione automatica dei dispositivi.
+I log di configurazione dell'hub Internet rileva gli eventi e gli errori per il set di funzionalità di gestione dei dispositivi automatico.
 
 ```json
 {
@@ -470,6 +470,42 @@ La categoria flussi del dispositivo tiene traccia delle interazioni richiesta-ri
          }
     ]
 }
+```
+
+### <a name="sdk-version"></a>Versione dell'SDK
+
+Alcune operazioni restituiscono una `sdkVersion` proprietà nell' `properties` oggetto. Per queste operazioni, quando un dispositivo o un'app back-end usa uno degli SDK di Azure, questa proprietà contiene informazioni sull'SDK usato, la versione dell'SDK e la piattaforma in cui è in esecuzione l'SDK. Nell'esempio seguente viene illustrata la `sdkVersion` proprietà generata per un' `deviceConnect` operazione quando si usa l'SDK del dispositivo Node.js: `"azure-iot-device/1.17.1 (node v10.16.0; Windows_NT 10.0.18363; x64)"` . Di seguito è riportato un esempio del valore generato per .NET (C#) SDK: `".NET/1.21.2 (.NET Framework 4.8.4200.0; Microsoft Windows 10.0.17763 WindowsProduct:0x00000004; X86)"` .
+
+La tabella seguente mostra il nome dell'SDK usato per i diversi SDK di Azure:
+
+| Nome dell'SDK nella proprietà sdkVersion | Linguaggio |
+|----------|----------|
+| .NET | .NET (C#) |
+| Microsoft. Azure. Devices | .NET (C#) Service SDK |
+| Microsoft. Azure. Devices. client | SDK per dispositivi .NET (C#) |
+| iothubclient | C o Python V1 (deprecato) SDK per dispositivi |
+| iothubserviceclient | C o Python V1 (deprecato) Service SDK |
+| Azure-Azure-Device-iothub-py | SDK per dispositivi Python |
+| azure-iot-device | SDK per dispositivi Node.js |
+| azure-iothub | SDK del servizio Node.js |
+| com. Microsoft. Azure. iothub-Java-client | SDK per dispositivi Java |
+| com. Microsoft. Azure. iothub. Service. SDK | Java Service SDK |
+| com. Microsoft. Azure. Sdk. Internet | SDK per dispositivi Java |
+| com. Microsoft. Azure. Sdk. Internet | Java Service SDK |
+| C | C incorporato |
+| C + (OSSimplified = Azure RTO) | Azure RTOS |
+
+È possibile estrarre la proprietà versione SDK quando si eseguono query sui log di diagnostica. La query seguente estrae la proprietà della versione SDK (e l'ID dispositivo) dalle proprietà restituite dagli eventi di connessione. Queste due proprietà vengono scritte nei risultati con l'ora dell'evento e l'ID della risorsa dell'hub Internet a cui si connette il dispositivo.
+
+```kusto
+// SDK version of devices
+// List of devices and their SDK versions that connect to IoT Hub
+AzureDiagnostics
+| where ResourceProvider == "MICROSOFT.DEVICES" and ResourceType == "IOTHUBS"
+| where Category == "Connections"
+| extend parsed_json = parse_json(properties_s) 
+| extend SDKVersion = tostring(parsed_json.sdkVersion) , DeviceId = tostring(parsed_json.deviceId)
+| distinct DeviceId, SDKVersion, TimeGenerated, _ResourceId
 ```
 
 ### <a name="read-logs-from-azure-event-hubs"></a>Leggere i log da Hub eventi di Azure

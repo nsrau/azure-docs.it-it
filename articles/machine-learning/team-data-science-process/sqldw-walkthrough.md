@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, devx-track-python, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 21bede74ee265ffbe530c7697817186ac0e8dd3b
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 59935d2659d27059617059c021fef9b6a2b552e0
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87845698"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440202"
 ---
 # <a name="the-team-data-science-process-in-action-using-azure-synapse-analytics"></a>Processo di analisi scientifica dei dati per i team in azione: uso di Azure sinapsi Analytics
 Questa esercitazione illustra la creazione e la distribuzione di un modello di apprendimento automatico usando Azure sinapsi Analytics per un set di dati disponibile pubblicamente, il set di dati [NYC Taxi Trips](https://www.andresmh.com/nyctaxitrips/) . Il modello di classificazione binaria costruito prevede se viene o meno pagata una mancia per una corsa.  I modelli includono la classificazione multiclasse (indipendentemente dalla presenza di un suggerimento) e la regressione (la distribuzione per gli importi delle mance a pagamento).
@@ -91,14 +91,14 @@ Per configurare l'ambiente di analisi scientifica dei dati di Azure, seguire que
   * **Nome contenitore** (in cui si vogliono salvare i dati nell'archivio BLOB di Azure)
 
 **Eseguire il provisioning dell'istanza di Azure sinapsi Analytics.**
-Per eseguire il provisioning di un'istanza di Azure sinapsi Analytics, seguire la documentazione disponibile in [creare ed eseguire query su un Azure SQL data warehouse nell'portale di Azure](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) . Assicurarsi di creare le annotazioni sulle credenziali di Azure sinapsi Analytics seguenti che verranno usate nei passaggi successivi.
+Per eseguire il provisioning di un'istanza di Azure sinapsi Analytics, vedere la documentazione relativa alla [creazione e alla query di un'analisi di sinapsi di Azure nel portale di Azure](../../synapse-analytics/sql-data-warehouse/create-data-warehouse-portal.md) Assicurarsi di creare le annotazioni sulle credenziali di Azure sinapsi Analytics seguenti che verranno usate nei passaggi successivi.
 
 * **Nome server**: \<server Name> . database.Windows.NET
 * **Nome SQLDW (database)**
 * **Nome utente**
 * **Password**
 
-**Installare Visual Studio e SQL Server Data Tools.** Per istruzioni, vedere [Introduzione a Visual Studio 2019 per SQL data warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
+**Installare Visual Studio e SQL Server Data Tools.** Per istruzioni, vedere [Introduzione a Visual Studio 2019 per l'analisi delle sinapsi di Azure](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-install-visual-studio.md).
 
 **Connettersi ad Azure sinapsi Analytics con Visual Studio.** Per istruzioni, vedere i passaggi 1 & 2 in [connettersi a SQL Analytics in Azure sinapsi Analytics](../../synapse-analytics/sql/connect-overview.md).
 

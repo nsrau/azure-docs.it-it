@@ -10,12 +10,12 @@ author: peterclu
 ms.date: 05/05/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b5ad09925c4a81dd09bd1ddf171ffccb8413b12b
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 97119f3ec370894183c4aee44ff8a5bd6e5ea93b
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88650826"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647148"
 ---
 # <a name="reinforcement-learning-preview-with-azure-machine-learning"></a>Apprendimento per rinforzo con Azure Machine Learning (anteprima)
 
@@ -49,8 +49,8 @@ Eseguire questo codice in uno degli ambienti seguenti. Si consiglia di provare l
  
  - Server Jupyter Notebook personale
 
-    - Installare [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py).
-    - Installare [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py): `pip install --upgrade azureml-contrib-reinforcementlearning`
+    - Installare [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
+    - Installare [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/?view=azure-ml-py&preserve-view=true): `pip install --upgrade azureml-contrib-reinforcementlearning`
     - Creare un [file di configurazione dell'area di lavoro](how-to-configure-environment.md#workspace).
     - Eseguire il [notebook di configurazione](https://aka.ms/azure-rl-env-setup) della rete virtuale per aprire le porte di rete usate per l'apprendimento per rinforzo distribuito.
 
@@ -107,7 +107,7 @@ ws = Workspace.from_config()
 
 ### <a name="create-a-reinforcement-learning-experiment"></a>Creare un esperimento di apprendimento per rinforzo
 
-Creare un [esperimento](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py) per tenere traccia dell'esecuzione dell'apprendimento per rinforzo. In Azure Machine Learning, gli esperimenti sono raccolte logiche di versioni di valutazione correlate per organizzare log di esecuzione, cronologia, output e altro ancora.
+Creare un [esperimento](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment.experiment?view=azure-ml-py&preserve-view=true) per tenere traccia dell'esecuzione dell'apprendimento per rinforzo. In Azure Machine Learning, gli esperimenti sono raccolte logiche di versioni di valutazione correlate per organizzare log di esecuzione, cronologia, output e altro ancora.
 
 ```python
 experiment_name='rllib-pong-multi-node'
@@ -213,7 +213,7 @@ else:
 
 ## <a name="create-a-reinforcement-learning-estimator"></a>Creare un oggetto di stima per l'apprendimento per rinforzo
 
-In questa sezione si apprenderà come usare il [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py) per inviare un processo di training ad Azure Machine Learning.
+In questa sezione si apprenderà come usare il [ReinforcementLearningEstimator](https://docs.microsoft.com/python/api/azureml-contrib-reinforcementlearning/azureml.contrib.train.rl.reinforcementlearningestimator?view=azure-ml-py&preserve-view=true) per inviare un processo di training ad Azure Machine Learning.
 
 Azure Machine Learning usa le classi di stima per incapsulare le informazioni di configurazione di esecuzione. Ciò consente di specificare facilmente come configurare un'esecuzione di script. Per altre informazioni sul modello di stima di Azure Machine Learning, vedere [come eseguire il training dei modelli usando gli oggetti di stima](how-to-train-ml-models.md).
 
@@ -399,7 +399,7 @@ def on_train_result(info):
 
 ## <a name="submit-a-run"></a>Inviare un'esecuzione
 
-L'oggetto [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py) gestisce la cronologia di esecuzione dei processi in corso o completati. 
+L'oggetto [Run](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=azure-ml-py&preserve-view=true) gestisce la cronologia di esecuzione dei processi in corso o completati. 
 
 ```python
 run = exp.submit(config=rl_estimator)

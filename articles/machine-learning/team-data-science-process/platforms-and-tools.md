@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: a9528b31bfd1be40b478f3c47fd0a16047a7f6ff
-ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
+ms.openlocfilehash: 37faf5d8e6292844245f475d9fcf0f832a0cca10
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86028116"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439998"
 ---
 # <a name="platforms-and-tools-for-data-science-projects"></a>Piattaforme e strumenti per progetti di data science
 
@@ -63,11 +63,11 @@ Quando si crea un cluster di Spark in HDInsight, si creano risorse di calcolo di
 Il team TDSP di Microsoft ha pubblicato due procedure dettagliate end-to-end su come usare cluster di Azure HDInsight Spark per compilare soluzioni di data science, una tramite Python e l'altra tramite Scala. Per altre informazioni sui cluster di **Azure HDInsight Spark**, vedere [Panoramica: Apache Spark in HDInsight Linux](../../hdinsight/spark/apache-spark-overview.md). Per informazioni su come compilare una soluzione di data science tramite **Python** in un cluster di Azure HDInsight Spark, vedere [Panoramica dell'analisi scientifica dei dati con Spark in Azure HDInsight](spark-overview.md). Per informazioni su come compilare una soluzione di data science tramite **Scala** in un cluster di Azure HDInsight Spark, vedere [Analisi scientifica dei dati tramite Scala e Spark in Azure](scala-walkthrough.md). 
 
 
-##  <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+##  <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-Azure SQL Data Warehouse consente di ridimensionare le risorse di calcolo in modo semplice e rapido, senza eseguire un provisioning o un pagamento in eccesso. Tale servizio offre anche la possibilità esclusiva di sospendere l'uso delle risorse di calcolo, consentendo pertanto di gestire in modo più efficiente i costi correlati al cloud. La possibilità di distribuire risorse di calcolo scalabili consente di trasferire tutti i dati in Azure SQL Data Warehouse. I costi di archiviazione sono minimi ed è possibile eseguire calcoli solo sulle parti dei set di dati da analizzare. 
+Azure sinapsi Analytics ti permette di ridimensionare le risorse di calcolo in modo semplice e in pochi secondi, senza eseguire il provisioning o pagare in modo eccessivo. Tale servizio offre anche la possibilità esclusiva di sospendere l'uso delle risorse di calcolo, consentendo pertanto di gestire in modo più efficiente i costi correlati al cloud. La possibilità di distribuire risorse di calcolo scalabili consente di portare tutti i dati in Azure sinapsi Analytics. I costi di archiviazione sono minimi ed è possibile eseguire calcoli solo sulle parti dei set di dati da analizzare. 
 
-Per altre informazioni su Azure SQL Data Warehouse, vedere il sito Web di [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse). Per informazioni su come compilare soluzioni avanzate di analisi end-to-end con SQL Data Warehouse, vedere [Processo di analisi scientifica dei dati per i team in azione: uso di SQL Data Warehouse](sqldw-walkthrough.md).
+Per altre informazioni su Azure sinapsi Analytics, vedere il sito Web [Azure sinapsi Analytics](https://azure.microsoft.com/services/sql-data-warehouse) . Per informazioni su come creare soluzioni di analisi avanzata end-to-end con Azure sinapsi Analytics, vedere [il processo di Data Science per i team in azione: uso di Azure sinapsi Analytics](sqldw-walkthrough.md).
 
 
 ## <a name="azure-data-lake"></a>Azure Data Lake

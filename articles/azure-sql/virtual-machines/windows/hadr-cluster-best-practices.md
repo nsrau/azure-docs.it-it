@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 06/02/2020
 ms.author: mathoma
-ms.openlocfilehash: de773bb2188f09822cae59ce42924a9a49f8087e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 50546a3efc008e074f4e7831d2cc657539b2f98b
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285629"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612330"
 ---
 # <a name="cluster-configuration-best-practices-sql-server-on-azure-vms"></a>Procedure consigliate per la configurazione del cluster (SQL Server nelle VM di Azure)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -35,26 +35,23 @@ Usare una singola scheda di interfaccia di rete per server (nodo cluster) e una 
 
 Sebbene un cluster a due nodi funzioni senza una [risorsa quorum](/windows-server/storage/storage-spaces/understand-quorum), i clienti devono usare esclusivamente una risorsa quorum per ottenere supporto di produzione. La convalida del cluster non passerà alcun cluster senza una risorsa quorum. 
 
-Tecnicamente, un cluster a tre nodi può sopravvivere a una perdita a nodo singolo (fino a due nodi) senza una risorsa quorum. Tuttavia, quando il cluster si trova in due nodi, si rischia di eseguire: 
+Tecnicamente, un cluster a tre nodi può sopravvivere a una perdita a nodo singolo (fino a due nodi) senza una risorsa quorum. Tuttavia, quando il cluster si trova in due nodi, c'è il rischio che le risorse del cluster passino alla modalità offline in caso di perdita del nodo o di errore di comunicazione per evitare uno scenario Split Brain.
 
-- **Partizione nello spazio** (Split Brain): i nodi del cluster vengono separati in rete a causa del problema di server, nic o switch. 
-- **Partizione nel tempo** (amnesia): un nodo viene aggiunto o riunito al cluster e tenta di richiedere la proprietà del gruppo di cluster o di un ruolo del cluster in modo non appropriato. 
-
-La risorsa quorum protegge il cluster in base a uno di questi problemi. 
+La configurazione di una risorsa quorum consente al cluster di continuare online con un solo nodo online.
 
 La tabella seguente elenca le opzioni del quorum disponibili nell'ordine consigliato per l'uso con una macchina virtuale di Azure, con il disco di controllo che è la scelta preferita: 
 
 
 ||[Disco di controllo](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |[Cloud di controllo](/windows-server/failover-clustering/deploy-cloud-witness)  |[Condivisione file di controllo](/windows-server/failover-clustering/manage-cluster-quorum#configure-the-cluster-quorum)  |
 |---------|---------|---------|---------|
-|**Sistema operativo supportato**| Tutti |Windows Server 2016+| Windows Server 2012 +|
+|**Sistema operativo supportato**| Tutti |Windows Server 2016+| Tutti|
 
 
 
 
 ### <a name="disk-witness"></a>Disco di controllo
 
-Un disco di controllo è un disco di dimensioni ridotte del cluster nel gruppo di archiviazione disponibile nel cluster. Questo disco è a disponibilità elevata ed è in grado di eseguire il failover tra i nodi. Contiene una copia del database del cluster, con dimensioni predefinite generalmente inferiori a 1 GB. Il disco di controllo è l'opzione quorum preferita per una macchina virtuale di Azure perché può risolvere il problema della partizione in tempo, a differenza del server di controllo del cloud e della condivisione file di controllo. 
+Un disco di controllo è un disco di dimensioni ridotte del cluster nel gruppo di archiviazione disponibile nel cluster. Questo disco è a disponibilità elevata ed è in grado di eseguire il failover tra i nodi. Contiene una copia del database del cluster, con dimensioni predefinite generalmente inferiori a 1 GB. Il disco di controllo è l'opzione quorum preferita per tutti i cluster che usano i dischi condivisi di Azure (o qualsiasi soluzione di dischi condivisi, ad esempio una rete SAN SCSI, iSCSI o Fibre Channel).  Un volume condiviso cluster non può essere utilizzato come disco di controllo.
 
 Configurare un disco condiviso di Azure come disco di controllo. 
 
@@ -95,8 +92,8 @@ Nella tabella seguente viene confrontata la supportabilità della connessione HA
 
 | |**VNN (Virtual Network Name)**  |**DNN (Distributed Network Name)**  |
 |---------|---------|---------|
-|**Versione minima del sistema operativo**| Windows Server 2012 | Windows Server 2016|
-|**Versione minima di SQL Server** |SQL Server 2012 |SQL Server 2019 CU2|
+|**Versione minima del sistema operativo**| Tutti | Tutti |
+|**Versione minima di SQL Server** |Tutti |SQL Server 2019 CU2|
 |**Soluzione HADR supportata** | Istanza del cluster di failover <br/> gruppo di disponibilità | Istanza del cluster di failover|
 
 
@@ -108,9 +105,9 @@ Si verifica un lieve ritardo di failover quando si usa il servizio di bilanciame
 
 Per iniziare, informazioni su come [configurare Azure Load Balancer per un'istanza FCI](hadr-vnn-azure-load-balancer-configure.md). 
 
-**Sistema operativo supportato**: Windows Server 2012 e versioni successive   
-**Versione SQL supportata**: SQL Server 2012 e versioni successive   
-**Soluzione HADR supportata**: istanza del cluster di failover e gruppo di disponibilità 
+**Sistema operativo supportato**: tutti   
+**Versione SQL supportata**: tutti   
+**Soluzione HADR supportata**: istanza del cluster di failover e gruppo di disponibilità   
 
 
 ### <a name="distributed-network-name-dnn"></a>DNN (Distributed Network Name)
@@ -138,9 +135,10 @@ Per iniziare, informazioni su come [configurare una risorsa DNN per un'istanza F
 Quando si lavora con la FCI o i gruppi di disponibilità e SQL Server in macchine virtuali di Azure, tenere presenti le limitazioni seguenti. 
 
 ### <a name="msdtc"></a>MSDTC 
-Macchine virtuali di Azure supporta Microsoft Distributed Transaction Coordinator (MSDTC) in Windows Server 2019 con archiviazione in volumi condivisi cluster (CSV) e [Load Balancer standard di Azure](../../../load-balancer/load-balancer-standard-overview.md).
 
-In macchine virtuali di Azure, MSDTC non è supportato per Windows Server 2016 o versioni precedenti perché:
+Le macchine virtuali di Azure supportano Microsoft Distributed Transaction Coordinator (MSDTC) in Windows Server 2019 con archiviazione in volumi condivisi cluster (CSV) e [azure Load Balancer standard](../../../load-balancer/load-balancer-standard-overview.md) o in macchine virtuali SQL Server che usano dischi condivisi di Azure. 
+
+In macchine virtuali di Azure, MSDTC non è supportato per Windows Server 2016 o versioni precedenti con volumi condivisi cluster, perché:
 
 - La risorsa MSDTC in cluster non può essere configurata per usare la risorsa di archiviazione condivisa. In Windows Server 2016, se si crea una risorsa MSDTC, non verrà visualizzata alcuna risorsa di archiviazione condivisa disponibile per l'uso, anche se lo spazio di archiviazione è disponibile. Questo problema è stato risolto per Windows Server 2019.
 - Il servizio di bilanciamento del carico di base non gestisce le porte RPC.

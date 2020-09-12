@@ -6,22 +6,22 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 04/01/2020
+ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: b2a621a23a81e4fb4f47e7c99d780211973e30a0
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 50926074c09ef8f438b0abb53a4eb5f1813871b3
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "81274833"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321036"
 ---
 Il contenitore fornisce [API endpoint basate su REST](../rest-text-to-speech.md). Sono disponibili molti [progetti di codice sorgente di esempio](https://github.com/Azure-Samples/Cognitive-Speech-TTS) per la piattaforma, il Framework e le varianti del linguaggio disponibili.
 
-Con il contenitore *di sintesi vocale standard* , è consigliabile fare affidamento sulle impostazioni locali e sulla voce del tag di immagine scaricato. Ad esempio, se è stato scaricato il `latest` tag le impostazioni locali predefinite sono `en-US` e la `JessaRUS` voce. L' `{VOICE_NAME}` argomento sarà quindi [`en-US-JessaRUS`](../language-support.md#standard-voices) . Vedere l'esempio di SSML di seguito:
+Con i contenitori di sintesi vocale standard o neurale, è consigliabile fare affidamento sulle impostazioni locali e sulla voce del tag di immagine scaricato. Ad esempio, se è stato scaricato il `latest` tag le impostazioni locali predefinite sono `en-US` e la `AriaRUS` voce. L' `{VOICE_NAME}` argomento sarà quindi [`en-US-AriaRUS`](../language-support.md#standard-voices) . Vedere l'esempio di SSML di seguito:
 
 ```xml
 <speak version="1.0" xml:lang="en-US">
-    <voice name="en-US-JessaRUS">
+    <voice name="en-US-AriaRUS">
         This text will get converted into synthesized speech.
     </voice>
 </speak>
@@ -54,7 +54,7 @@ curl -s -v -X POST http://localhost:5000/speech/synthesize/cognitiveservices/v1 
 Questo comando:
 
 * Costruisce una richiesta HTTP POST per l' `speech/synthesize/cognitiveservices/v1` endpoint.
-* Specifica un' `Accept` intestazione di`audio/*`
+* Specifica un' `Accept` intestazione di `audio/*`
 * Specifica un' `Content-Type` intestazione di `application/ssml+xml` . per ulteriori informazioni, vedere il [corpo della richiesta](../rest-text-to-speech.md#request-body).
 * Specifica un' `X-Microsoft-OutputFormat` intestazione di `riff-16khz-16bit-mono-pcm` , per altre opzioni vedere [output audio](../rest-text-to-speech.md#audio-outputs).
 * Invia la richiesta [SSML (Speech Synthesis Markup Language)](../speech-synthesis-markup.md) fornita all' `{VOICE_NAME}` endpoint.

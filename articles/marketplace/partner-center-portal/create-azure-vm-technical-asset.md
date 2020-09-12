@@ -3,16 +3,16 @@ title: Creare asset tecnici di macchine virtuali di Azure
 description: Informazioni su come creare e configurare le risorse tecniche necessarie per un'offerta di macchina virtuale (VM) per Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
-ms.openlocfilehash: 496cd4aeb96ca1849e950331658014d91dc6d6ba
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 07c8de2a9d94b51f7183829466bd68d56e19efba
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89143904"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646795"
 ---
 # <a name="create-azure-virtual-machine-technical-assets"></a>Creare asset tecnici di macchine virtuali di Azure
 
@@ -123,7 +123,7 @@ Creare una macchina virtuale di generazione 2 (Gen2) in portale di Azure.
 2. Selezionare **Crea una risorsa**.
 3. Selezionare **Visualizza tutto** da Azure Marketplace sulla sinistra.
 4. Selezionare un'immagine che supporti Gen2.
-5. Selezionare **Crea**.
+5. Selezionare **Create** (Crea).
 6. Nella scheda **Avanzate**, nella sezione **Generazione macchina virtuale** selezionare l'opzione **Gen 2**.
 7. Nella scheda **Impostazioni di base**, in **Dettagli istanza** passare a **Dimensioni** e aprire il pannello **Selezionare le dimensioni di macchina virtuale**.
 8. Selezionare le dimensioni consigliate per le [macchine virtuali di seconda generazione](https://docs.microsoft.com/azure/virtual-machines/windows/generation-2#generation-2-vm-sizes) e le dimensioni supportate.

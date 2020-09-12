@@ -12,12 +12,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 01/10/2018
-ms.openlocfilehash: 02d6c11e3880f69f5020fb51f90a72c3233e2f25
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d9d41e80f78af7087c80592d927c193e494eab8
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84195894"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442395"
 ---
 # <a name="use-case---product-recommendations"></a>Caso d'uso - Consigli sui prodotti
 Azure Data Factory è uno dei numerosi servizi usati per implementare i Solution Accelerator di Cortana Intelligence Suite.  Per i dettagli sulla suite, vedere la pagina [Cortana Intelligence Suite](https://www.microsoft.com/cortanaanalytics) . Questo documento descrive un caso d'uso comune risolto e implementato da alcuni utenti di Azure usando Azure Data Factory e altri servizi del componente Cortana Intelligence.
@@ -41,7 +41,7 @@ I rivenditori, infine, devono poter misurare l'efficacia del loro approccio moni
 ## <a name="solution-overview"></a>Panoramica della soluzione
 Questo caso d'uso di esempio è stato risolto e implementato da utenti reali di Azure usando Azure Data Factory e altri servizi del componente Cortana Intelligence, tra cui [HDInsight](https://azure.microsoft.com/services/hdinsight/) e [Power BI](https://powerbi.microsoft.com/).
 
-Il rivenditore online usa un archivio BLOB di Azure, un SQL Server locale, un database SQL di Azure e un data mart relazionale come opzioni di archiviazione dei dati in tutto il flusso di lavoro.  L'archivio BLOB contiene informazioni sui clienti, dati sul comportamento dei clienti e informazioni sui prodotti, che comprendono informazioni sui marchi dei prodotti e un catalogo prodotti archiviato localmente in SQL Data Warehouse. 
+Il rivenditore online usa un archivio BLOB di Azure, un SQL Server locale, un database SQL di Azure e un data mart relazionale come opzioni di archiviazione dei dati in tutto il flusso di lavoro.  L'archivio BLOB contiene informazioni sui clienti, dati sul comportamento dei clienti e informazioni sui prodotti, I dati relativi alle informazioni sul prodotto includono informazioni sul marchio del prodotto e un catalogo prodotti archiviato in locale in un'analisi delle sinapsi di Azure (in precedenza SQL Data Warehouse). 
 
 Tutti i dati vengono combinati e inseriti in un sistema di raccomandazione dei prodotti allo scopo di fornire consigli personalizzati in base agli interessi e alle azioni dei clienti, mentre questi consultano i prodotti nel catalogo disponibile sul sito Web del catalogo. Ai clienti vengono mostrati anche prodotti collegati al prodotto che stanno visualizzando, definiti sulla base di modelli generali di uso del sito non correlati a un utente specifico.
 

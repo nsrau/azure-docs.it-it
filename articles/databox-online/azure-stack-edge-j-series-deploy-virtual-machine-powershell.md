@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: d5210a3788f7bb054492c2d83c595c26fa3c4f42
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: aa35111a2fa26b3e4fd5e80a8227b7c244f30e9f
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265712"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461715"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-azure-powershell"></a>Distribuire le VM sul dispositivo GPU Azure Stack Edge tramite Azure PowerShell
 
@@ -21,11 +21,11 @@ ms.locfileid: "89265712"
 
 Questa esercitazione descrive come creare e gestire una macchina virtuale nel dispositivo Azure Stack Edge usando Azure PowerShell.
 
-## <a name="vm-deployment-workflow"></a>Flusso di lavoro di distribuzione VM
+## <a name="vm-deployment-workflow"></a>Flusso di lavoro di distribuzione della VM
 
 Il flusso di lavoro di distribuzione è illustrato nel diagramma seguente.
 
-![Flusso di lavoro di distribuzione VM](media/azure-stack-edge-j-series-deploy-virtual-machine-powershell/vm-workflow_r.svg)
+![Flusso di lavoro di distribuzione della VM](media/azure-stack-edge-j-series-deploy-virtual-machine-powershell/vm-workflow_r.svg)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -178,7 +178,7 @@ key1 /IjVJN+sSf7FMKiiPLlDm8mc9P4wtcmhhbnCa7...
 key2 gd34TcaDzDgsY9JtDNMUgLDOItUU0Qur3CBo6Q...
 ```
 
-## <a name="add-blob-uri-to-hosts-file"></a>Aggiungi URI BLOB al file hosts
+## <a name="add-blob-uri-to-hosts-file"></a>Aggiungere l'URI del BLOB al file hosts
 
 È già stato aggiunto l'URI del BLOB nel file hosts per il client usato per connettersi all'archiviazione BLOB nella sezione [modificare il file host per la risoluzione dei nomi di endpoint](azure-stack-edge-j-series-connect-resource-manager.md#step-5-modify-host-file-for-endpoint-name-resolution). Questa è la voce per l'URI del BLOB:
 
@@ -220,8 +220,8 @@ Creare un disco gestito dal disco rigido virtuale caricato.
 $DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import -SourceUri "Source URL for your VHD"
 ```
 Di seguito è riportato un output di esempio: 
-
-$DiskConfig = New-AzureRmDiskConfig-location DBELocal-CreateOption-SourceUri http://sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages/ubuntu13.vhd 
+<code>
+$DiskConfig = New-AzureRmDiskConfig -Location DBELocal -CreateOption Import –SourceUri http://</code><code>sa191113014333.blob.dbe-1dcmhq2.microsoftdatabox.com/vmimages/ubuntu13.vhd</code> 
 
 ```powershell
 New-AzureRMDisk -ResourceGroupName <Resource group name> -DiskName <Disk name> -Disk $DiskConfig
@@ -251,7 +251,7 @@ Location           : DBELocal
 Tags               : {}
 ```
 
-## <a name="create-a-vm-image-from-the-image-managed-disk"></a>Creare un'immagine di macchina virtuale dal disco gestito dall'immagine
+## <a name="create-a-vm-image-from-the-image-managed-disk"></a>Creare un'immagine di VM dal disco gestito dell'immagine
 
 Usare il comando seguente per creare un'immagine di macchina virtuale dal disco gestito. Sostituire i valori in \< \> con i nomi scelti.
 
@@ -283,7 +283,7 @@ Location             : dbelocal
 Tags                 : {}
 ```
 
-## <a name="create-vm-with-previously-created-resources"></a>Creare una macchina virtuale con risorse create in precedenza
+## <a name="create-vm-with-previously-created-resources"></a>Creare una VM con le risorse create in precedenza
 
 È necessario creare una rete virtuale e associare un'interfaccia di rete virtuale prima di creare e distribuire la VM.
 
@@ -408,24 +408,39 @@ New-AzureRmVM -ResourceGroupName <Resource Group Name> -Location DBELocal -VM $V
 
 ## <a name="connect-to-a-vm"></a>Connettersi a una macchina virtuale
 
-Connettersi alla macchina virtuale usando l'indirizzo IP privato passato durante la creazione della macchina virtuale.
+A seconda del fatto che sia stata creata una macchina virtuale Windows o Linux, la procedura per la connessione può essere diversa.
 
-Aprire una sessione SSH per connettersi con l'indirizzo IP.
+### <a name="connect-to-linux-vm"></a>Connettersi a una VM Linux
+
+Seguire questa procedura per connettersi a una VM Linux.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-linux.md)]
+
+### <a name="connect-to-windows-vm"></a>Connettersi a una macchina virtuale Windows
+
+Per connettersi a una macchina virtuale Windows, seguire questa procedura.
+
+[!INCLUDE [azure-stack-edge-gateway-connect-vm](../../includes/azure-stack-edge-gateway-connect-virtual-machine-windows.md)]
+
+
+<!--Connect to the VM using the private IP that you passed during the VM creation.
+
+Open an SSH session to connect with the IP address.
 
 `ssh -l <username> <ip address>`
 
-Quando richiesto, specificare la password usata durante la creazione della macchina virtuale.
+When prompted, provide the password that you used when creating the VM.
 
-Se è necessario specificare la chiave SSH, usare questo comando.
+If you need to provide the SSH key, use this command.
 
-SSH-i c:/Users/Administrator/. ssh/id_rsa Administrator@5.5.41.236
+ssh -i c:/users/Administrator/.ssh/id_rsa Administrator@5.5.41.236
 
-Se durante la creazione della macchina virtuale è stato usato un indirizzo IP pubblico, è possibile usare tale indirizzo IP per connettersi alla macchina virtuale. Per ottenere l'indirizzo IP pubblico: 
+If you used a public IP address during VM creation, you can use that IP to connect to the VM. To get the public IP: 
 
 ```powershell
 $publicIp = Get-AzureRmPublicIpAddress -Name <Public IP> -ResourceGroupName <Resource group name>
 ```
-In questo caso l'indirizzo IP pubblico sarà uguale all'indirizzo IP privato passato durante la creazione dell'interfaccia di rete virtuale.
+The public IP in this case will be the same as the private IP that you passed during virtual network interface creation.-->
 
 
 ## <a name="manage-vm"></a>Gestisci macchina virtuale

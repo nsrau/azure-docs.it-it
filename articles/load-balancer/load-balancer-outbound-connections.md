@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/24/2020
 ms.author: allensu
-ms.openlocfilehash: 738b54d9fcd86313c2581c5d0f055a7cca8230b8
-ms.sourcegitcommit: e0785ea4f2926f944ff4d65a96cee05b6dcdb792
+ms.openlocfilehash: 4368a025ecc158afa1ee78b8abd86bd6db42ba75
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88706065"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438666"
 ---
 # <a name="outbound-connections-in-azure"></a>Connessioni in uscita in Azure
 
@@ -44,7 +44,7 @@ Azure Load Balancer fornisce la connettività in uscita tramite diversi meccanis
 
 Azure usa un algoritmo per determinare il numero di porte SNAT preallocate disponibili in base alla dimensione del pool back-end quando si usa PAT. Per ogni indirizzo IP pubblico associato a un servizio di bilanciamento del carico sono disponibili 64.000 porte come porte SNAT per ogni protocollo di trasporto IP. Lo stesso numero di porte SNAT viene allocato rispettivamente per UDP e TCP e utilizzato indipendentemente per ogni protocollo di trasporto IP.  Tuttavia, l'uso delle porte SNAT è diverso a seconda che il flusso sia UDP o TCP. Quando vengono creati i flussi in uscita, queste porte vengono utilizzate dinamicamente (fino al limite preallocato) e rilasciate quando il flusso viene chiuso o si verificano [timeout di inattività](../load-balancer/troubleshoot-outbound-connection.md#idletimeout) . Le porte vengono usate solo se è necessario per rendere univoci i flussi.
 
-#### <a name="default-snat-ports-allocated"></a><a name="snatporttable"></a> Porte SNAT predefinite allocate
+#### <a name="dynamic-snat-ports-allocated"></a><a name="snatporttable"></a> Porte SNAT dinamiche allocate
 
 Nella tabella seguente sono riportate le preallocazioni delle porte SNAT per i livelli di dimensioni del pool back-end:
 

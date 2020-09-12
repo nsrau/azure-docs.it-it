@@ -13,12 +13,12 @@ ms.date: 05/07/2019
 ms.author: jmprieur
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.openlocfilehash: 93dcfad34e5881cda52a69ceb99d52d9a905befb
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: e0f1cc446b6b957b17153dd538922d2b9acd891f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047674"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442735"
 ---
 # <a name="register-mobile-apps-that-call-web-apis"></a>Registrare app per dispositivi mobili che chiamano API Web
 
@@ -30,7 +30,7 @@ I tipi di account supportati dalle applicazioni per dispositivi mobili dipendono
 
 ### <a name="audience-for-interactive-token-acquisition"></a>Destinatari per l'acquisizione di token interattivi
 
-La maggior parte delle applicazioni mobili usa l'autenticazione interattiva. Se l'app usa questa forma di autenticazione, è possibile accedere agli utenti da qualsiasi [tipo di account](quickstart-register-app.md#register-a-new-application-using-the-azure-portal).
+La maggior parte delle applicazioni mobili usa l'autenticazione interattiva. Se l'app usa questa forma di autenticazione, è possibile accedere agli utenti da qualsiasi [tipo di account](quickstart-register-app.md).
 
 ### <a name="audience-for-integrated-windows-authentication-username-password-and-b2c"></a>Destinatari per autenticazione integrata di Windows, nome utente-password e B2C
 

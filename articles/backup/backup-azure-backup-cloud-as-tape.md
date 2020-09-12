@@ -3,12 +3,12 @@ title: Come sostituire l'infrastruttura basata su nastro
 description: Informazioni su come backup di Azure offre una semantica di tipo nastro che consente di eseguire il backup e il ripristino dei dati in Azure
 ms.topic: conceptual
 ms.date: 04/30/2017
-ms.openlocfilehash: 4174868d391eda70ce4921deee63b8bacf672b4c
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 695cc2644521384527ecd871f3613a078e987aa7
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757235"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378441"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>Spostare lo spazio di archiviazione a lungo termine su nastro nel cloud di Azure
 
@@ -62,7 +62,7 @@ Il numero totale dei punti di ripristino è 56.
 
 ## <a name="advanced-configuration"></a>Configurazione avanzata
 
-Facendo clic su **Modifica** nella schermata precedente, i clienti dispongono di un'ulteriore flessibilità nella definizione delle pianificazioni di conservazione.
+Selezionando **modifica** nella schermata precedente, i clienti hanno maggiore flessibilità nella definizione delle pianificazioni di conservazione.
 
 ![Modificare la finestra dei criteri](./media/backup-azure-backup-cloud-as-tape/modify.png)
 
