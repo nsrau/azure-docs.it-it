@@ -12,21 +12,21 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: d25a3831897ff8ad2e7dfb0c69910fee246aec21
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3c3bed20b5fd60b9323dada617fb1302efc41d2
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85477686"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006945"
 ---
-# <a name="mark-your-app-as-publisher-verified-preview"></a>Contrassegnare l'app come con autore verificato (anteprima)
+# <a name="mark-your-app-as-publisher-verified"></a>Contrassegnare l'app come con autore verificato
 
 Se un'applicazione è contrassegnata come con autore verificato, significa che l'autore ha verificato la propria identità usando il proprio account MPN (Microsoft Partner Network) e ha associato questo account MPN durante la registrazione dell'applicazione. Questo articolo descrive come eseguire il processo di [verifica dell'autore (anteprima)](publisher-verification-overview.md).
 
 ## <a name="quickstart"></a>Guida introduttiva
 Se si è già iscritti a Microsoft Partner Network (MPN) e sono stati soddisfatti i [prerequisiti](publisher-verification-overview.md#requirements), è possibile iniziare subito: 
 
-1. Accedere al [portale di registrazione delle app](https://aka.ms/PublisherVerificationPreview) di anteprima.
+1. Passare al [portale di registrazione delle app](https://aka.ms/PublisherVerificationPreview).
 
 1. Scegliere un'app e fare clic su **Personalizzazione**. 
 
@@ -46,7 +46,7 @@ Assicurarsi di soddisfare i [prerequisiti](publisher-verification-overview.md#re
 
     - In Partner Center questo utente deve avere uno dei ruoli seguenti: Amministratore MPN, Amministratore account o Amministratore globale (si tratta di un ruolo condiviso gestito in Azure AD). 
 
-1. Passare alla versione di anteprima del portale di registrazione delle app:  
+1. Passare al portale di registrazione delle app:  
 
 1. Fare clic su un'app che si vuole contrassegnare come con autore verificato (Publisher Verified) e aprire il pannello Personalizzazione. 
 

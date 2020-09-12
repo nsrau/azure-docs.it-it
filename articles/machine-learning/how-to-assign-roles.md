@@ -11,14 +11,14 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: afffdd0267cde8ffc841587748e51dd27e021369
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 235135cbbcc7c622f4dd23c2e4f29cc3636dc1ea
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079587"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661933"
 ---
-# <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gestire l'accesso a un'area di lavoro Azure Machine Learning
+# <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gestire gli accessi all'area di lavoro di Azure Machine Learning
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Questo articolo illustra come gestire l'accesso a un'area di lavoro Azure Machine Learning. Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](/azure/role-based-access-control/overview) viene usato per gestire l'accesso alle risorse di Azure. Agli utenti nella Azure Active Directory vengono assegnati ruoli specifici che consentono di accedere alle risorse. Azure fornisce ruoli predefiniti e la possibilità di creare ruoli personalizzati.
@@ -134,17 +134,17 @@ La tabella seguente è un riepilogo delle attività Azure Machine Learning e del
 
 | Attività | Ambito a livello di sottoscrizione | Ambito a livello di gruppo di risorse | Ambito a livello di area di lavoro |
 | ----- | ----- | ----- | ----- |
-| Creare una nuova area di lavoro | Non richiesto | Proprietario o collaboratore | N/d (diventa proprietario o eredita un ruolo con ambito superiore dopo la creazione) |
-| Aggiornare l'edizione dell'area di lavoro | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`/workspaces/write` |
-| Richiedi quota Amlcompute a livello di sottoscrizione o imposta quota a livello di area di lavoro | Proprietario, collaboratore o ruolo personalizzato </br>permettendo`/locations/updateQuotas/action`</br> nell'ambito della sottoscrizione | Non autorizzato | Non autorizzato |
-| Crea nuovo cluster di calcolo | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`/workspaces/computes/write` |
-| Crea nuova istanza di calcolo | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`/workspaces/computes/write` |
-| Invio di qualsiasi tipo di esecuzione | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
-| Pubblicazione di un endpoint della pipeline | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
-| Distribuzione di un modello registrato su una risorsa AKS/ACI | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
-| Assegnazione dei punteggi a un endpoint AKS distribuito | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (se non si usa l'autenticazione Azure Active Directory) o `"/workspaces/read"` (quando si usa l'autenticazione del token) |
-| Accesso all'archiviazione tramite notebook interattivi | Non richiesto | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
-| Crea nuovo ruolo personalizzato | Proprietario, collaboratore o ruolo personalizzato che consente`Microsoft.Authorization/roleDefinitions/write` | Non richiesto | Proprietario, collaboratore o ruolo personalizzato che consente:`/workspaces/computes/write` |
+| Creare una nuova area di lavoro | Facoltativo | Proprietario o collaboratore | N/d (diventa proprietario o eredita un ruolo con ambito superiore dopo la creazione) |
+| Aggiornare l'edizione dell'area di lavoro | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente: `/workspaces/write` |
+| Richiedi quota Amlcompute a livello di sottoscrizione o imposta quota a livello di area di lavoro | Proprietario, collaboratore o ruolo personalizzato </br>permettendo `/locations/updateQuotas/action`</br> nell'ambito della sottoscrizione | Non autorizzato | Non autorizzato |
+| Crea nuovo cluster di calcolo | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente: `/workspaces/computes/write` |
+| Crea nuova istanza di calcolo | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente: `/workspaces/computes/write` |
+| Invio di qualsiasi tipo di esecuzione | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente: `"/workspaces/*/read", "/workspaces/environments/write", "/workspaces/experiments/runs/write", "/workspaces/metadata/artifacts/write", "/workspaces/metadata/snapshots/write", "/workspaces/environments/build/action", "/workspaces/experiments/runs/submit/action", "/workspaces/environments/readSecrets/action"` |
+| Pubblicazione di un endpoint della pipeline | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente: `"/workspaces/pipelines/write", "/workspaces/endpoints/pipelines/*", "/workspaces/pipelinedrafts/*", "/workspaces/modules/*"` |
+| Distribuzione di un modello registrato su una risorsa AKS/ACI | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente: `"/workspaces/services/aks/write", "/workspaces/services/aci/write"` |
+| Assegnazione dei punteggi a un endpoint AKS distribuito | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente: `"/workspaces/services/aks/score/action", "/workspaces/services/aks/listkeys/action"` (se non si usa l'autenticazione Azure Active Directory) o `"/workspaces/read"` (quando si usa l'autenticazione del token) |
+| Accesso all'archiviazione tramite notebook interattivi | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente: `"/workspaces/computes/read", "/workspaces/notebooks/samples/read", "/workspaces/notebooks/storage/*"` |
+| Crea nuovo ruolo personalizzato | Proprietario, collaboratore o ruolo personalizzato che consente `Microsoft.Authorization/roleDefinitions/write` | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente: `/workspaces/computes/write` |
 
 > [!TIP]
 > Se viene visualizzato un errore durante il tentativo di creare un'area di lavoro per la prima volta, assicurarsi che il ruolo sia consentito `Microsoft.MachineLearningServices/register/action` . Questa azione consente di registrare il provider di risorse Azure Machine Learning con la sottoscrizione di Azure.
@@ -429,6 +429,6 @@ Sì, è possibile definire un ruolo che impedisce l'aggiornamento dell'edizione 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Panoramica sulla sicurezza aziendale](concept-enterprise-security.md)
-- [Eseguire in modo sicuro gli esperimenti e l'inferenza e il Punteggio all'interno di una rete virtuale](how-to-enable-virtual-network.md)
+- [Panoramica dell'isolamento e della privacy della rete virtuale](how-to-network-security-overview.md)
 - [Esercitazione: Eseguire il training dei modelli](tutorial-train-models-with-aml.md)
 - [Operazioni del provider di risorse](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)

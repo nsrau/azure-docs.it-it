@@ -8,13 +8,13 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
 ms.custom: subject-moving-resources
-ms.date: 03/24/2020
-ms.openlocfilehash: 71846b8e26efb3853705fabff78831e746727191
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/10/2020
+ms.openlocfilehash: 7383d9f95435775448f7322d9eb7707f676e9952
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926950"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007044"
 ---
 # <a name="move-your-azure-cognitive-search-service-to-another-azure-region"></a>Spostare il servizio ricerca cognitiva di Azure in un'altra area di Azure
 
@@ -23,7 +23,13 @@ Occasionalmente, i clienti chiedono di trasferire un servizio di ricerca in un'a
 > [!NOTE]
 > Nel portale di Azure tutti i servizi dispongono di un comando **Esporta modello** . Nel caso di Azure ricerca cognitiva, questo comando genera una definizione di base di un servizio (nome, posizione, livello, replica e numero di partizioni), ma non riconosce il contenuto del servizio, né esegue il riporto di chiavi, ruoli o log. Sebbene il comando esista, non è consigliabile utilizzarlo per lo trasferimento di un servizio di ricerca.
 
-## <a name="guidance-for-moving-a-service"></a>Linee guida per lo trasferimento di un servizio
+## <a name="prerequisites"></a>Prerequisiti
+
++ Assicurarsi che i servizi e le funzionalità usati dall'account siano supportati nell'area di destinazione.
+
++ Per le funzionalità di anteprima, assicurarsi che la sottoscrizione sia consentita per l'area di destinazione.
+
+## <a name="prepare-and-move"></a>Preparazione e spostamento
 
 1. Identificare le dipendenze e i servizi correlati per comprendere l'effetto completo della rilocazione di un servizio, nel caso in cui sia necessario spostare più di ricerca cognitiva di Azure.
 
@@ -41,7 +47,9 @@ Occasionalmente, i clienti chiedono di trasferire un servizio di ricerca in un'a
 
 1. Aggiornare le applicazioni client e i gruppi di test per usare il nuovo nome del servizio e le chiavi API e testare tutte le applicazioni.
 
-1. Elimina il vecchio servizio dopo che il nuovo servizio è stato completamente testato e funzionante.
+## <a name="discard-or-clean-up"></a>Eliminare o pulire
+
+Elimina il vecchio servizio dopo che il nuovo servizio è stato completamente testato e funzionante. Eliminando il servizio viene eliminato automaticamente tutto il contenuto associato al servizio.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,27 +1,27 @@
 ---
-title: Panoramica del riepilogo proventi - Azure Marketplace
+title: Panoramica di riepilogo pagamenti, Azure Marketplace
 description: Il riepilogo proventi presenta informazioni dettagliate sulle entrate realizzate con l'offerta. Consente anche di determinare quando si riceveranno i pagamenti e gli importi che verranno corrisposti.
 ms.subservice: partnercenter-marketplace-publisher
 ms.service: marketplace
 ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 07/14/2020
-ms.openlocfilehash: 2e7658e965931dd78a6db0e2c9fee36edffff98b
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 09/09/2020
+ms.openlocfilehash: 708fc2c0783bdefa4ac4fa4b73f10733bba0bc04
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87479813"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006925"
 ---
 # <a name="payout-summary-overview"></a>Panoramica del riepilogo proventi
 
 Il [riepilogo proventi](./payout-summary.md) presenta informazioni dettagliate sulle entrate realizzate con Microsoft. Consente anche di determinare quando si riceveranno i pagamenti e gli importi che verranno corrisposti.
 
-Se si vendono offerte in Azure Marketplace, nel riepilogo proventi verranno visualizzate anche informazioni sui pagamenti andati a buon fine. Per altre informazioni sui pagamenti di Azure Marketplace, vedere [Criteri di partecipazione ad Azure Marketplace](https://docs.microsoft.com/legal/marketplace/participation-policy) e [Contratto per editori di Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
+Se si vendono offerte in Azure Marketplace, verranno visualizzate anche le informazioni sui pagamenti riusciti nel riepilogo dei pagamenti. Per ulteriori informazioni sui pagamenti di Azure Marketplace, vedere la pagina relativa al pagamento [nel Marketplace commerciale](./get-paid.md) e il [Contratto Microsoft Publisher](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
-> Per poter beneficiare del pagamento, gli introiti devono raggiungere la [soglia di pagamento](./payment-thresholds-methods-timeframes.md) di 50 dollari statunitensi. Per informazioni dettagliate sulla soglia di pagamento, vedere il [Contratto per editori di Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
+> Per poter beneficiare del pagamento, gli introiti devono raggiungere la soglia di pagamento di 50 dollari statunitensi. Per informazioni dettagliate, vedere il [contratto di Microsoft Publisher](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 Per visualizzare i dettagli relativi ai pagamenti, accedere al centro per i [partner](https://partner.microsoft.com/dashboard/home) e selezionare l'icona del payout nell'angolo superiore destro della schermata:
 
@@ -29,7 +29,7 @@ Per visualizzare i dettagli relativi ai pagamenti, accedere al centro per i [par
 
 ## <a name="roles-and-permissions"></a>Ruoli e autorizzazioni
 
-Di seguito sono indicati i ruoli e le autorizzazioni per accedere al report sui proventi:
+Questi sono i ruoli e le autorizzazioni per accedere al report dei pagamenti:
 
 | Report/pagine | Proprietario dell'account | Manager | Developer | Collaboratore aziendale | Collaboratore finanza | Addetto al marketing |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -45,7 +45,7 @@ Di seguito sono indicati i ruoli e le autorizzazioni per accedere al report sui 
 
 ## <a name="payment-schedules"></a>Pianificazioni dei pagamenti
 
-Per una descrizione delle pianificazioni dei pagamenti, inclusi i periodi di detenzione, la visibilità dei partner e quando il cliente usa una carta di credito o una fattura, vedere la sezione [Pianificazioni dei pagamenti](./payout-policy-details.md#payment-schedules) dell'argomento **Dettagli dei pagamenti**.
+Per una descrizione delle pianificazioni dei pagamenti, inclusi i periodi di mantenimento, la visibilità del partner e quando il cliente usa una carta di credito o una fattura, vedere la sezione relativa alle [pianificazioni](./payout-policy-details.md#payment-schedules) dei pagamenti nell'articolo **Dettagli** del pagamento.
 
 ## <a name="transaction-history-download-export"></a>Esportazione del download della cronologia delle transazioni
 
@@ -129,6 +129,6 @@ Questa opzione consente di scaricare ogni voce di reddito visualizzata nella pag
 ## <a name="billing-questions-and-support"></a>Domande sulla fatturazione e supporto
 Per il supporto sulla fatturazione, contattare il [supporto per gli editori](https://partner.microsoft.com/support/v2/?stage=1) del marketplace commerciale.
 
-## <a name="next-step"></a>passaggio successivo
+## <a name="next-step"></a>Passaggio successivo
 
 - [Riepiloghi proventi](./payout-summary.md)

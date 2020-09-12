@@ -11,12 +11,12 @@ ms.subservice: msi
 manager: daveba
 ms.collection: M365-identity-device-management
 ms.custom: references_regions
-ms.openlocfilehash: e62fc34ad02303f61214f754f6506c39af76fc94
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 207b4a926e77ff55faad388b6eeaeb221ec252a8
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267446"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006781"
 ---
 # <a name="services-that-support-managed-identities-for-azure-resources"></a>Servizi che supportano le identità gestite per le risorse di Azure
 
@@ -222,7 +222,7 @@ Vedere l'elenco seguente per configurare l'identità gestita per le App per la l
 
 Vedere l'elenco seguente per configurare l'identità gestita per i criteri di Azure (nelle aree in cui sono disponibili):
 
-- [Portale di Azure](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
+- [Azure portal](../../governance/policy/tutorials/create-and-manage.md#assign-a-policy)
 - [PowerShell](../../governance/policy/how-to/remediate-resources.md#create-managed-identity-with-powershell)
 - [Interfaccia della riga di comando di Azure](/cli/azure/policy/assignment?view=azure-cli-latest#az-policy-assignment-create)
 - [Modelli di Gestione risorse di Azure](/azure/templates/microsoft.authorization/policyassignments)
@@ -284,6 +284,7 @@ Vedere l'elenco seguente per configurare l'identità gestita per le macchine vir
 - [Interfaccia della riga di comando di Azure](qs-configure-cli-windows-vm.md)
 - [Modelli di Gestione risorse di Azure](qs-configure-template-windows-vm.md)
 - [REST](qs-configure-rest-vm.md)
+- [Azure SDK](qs-configure-sdk-windows-vm.md)
 
 
 ### <a name="azure-vm-image-builder"></a>Generatore di immagini VM di Azure

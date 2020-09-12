@@ -5,17 +5,17 @@ description: Informazioni su come importare dati in Azure Machine Learning Desig
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-author: peterclu
-ms.author: peterlu
-ms.date: 01/16/2020
+author: likebupt
+ms.author: keli19
+ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: d977c8e13ce75eb276c8fdb11e9dd40e40a923ad
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: a7d0a1604b3bea1f11532639dbbc5102f4a243a6
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495372"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006985"
 ---
 # <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importare dati in Azure Machine Learning Designer (anteprima)
 
@@ -38,19 +38,28 @@ Consigliamo di usare i [set di dati](concept-data.md#datasets) per importare i d
 
 1. Selezionare il modulo che restituisce i dati da registrare.
 
-1. Nel riquadro delle proprietà selezionare **Output** > **Registra set di dati**.
+1. Nel riquadro Proprietà selezionare **output + log**  >  **registra set di dati**.
 
     ![Screenshot che mostra come passare all'opzione Registra set di dati](media/how-to-designer-import-data/register-dataset-designer.png)
 
+Se i dati di output del modulo sono in formato tabulare, è necessario scegliere di registrare l'output come set di dati di **file** o **tabulare**.
+
+ - Il **set di dati del file** registra la cartella di output del modulo come set di dati di file. La cartella di output contiene un file di dati e i metadati che la finestra di progettazione utilizza internamente. Selezionare questa opzione se si desidera continuare a utilizzare il set di dati registrato nella finestra di progettazione. 
+
+ - Il set di dati **tabulare** registra solo il file di dati di output del modulo come set di dati tabulare. Questo formato è facilmente utilizzabile da altri strumenti, ad esempio in Machine Learning automatizzato o Python SDK. Selezionare questa opzione se si prevede di utilizzare il set di dati registrato al di fuori della finestra di progettazione.  
+
+
+
 ### <a name="use-a-dataset"></a>Uso di un set di dati
 
-I set di dati registrati sono disponibili nella tavolozza dei moduli, in **Set di dati** > **Set di dati personali**. Per usare un set di dati, trascinarlo e rilascialo nelle canvas della pipeline. Collegare quindi la porta di uscita del set di dati agli altri moduli della tavolozza.
+I set di strumenti registrati sono disponibili nella tavolozza dei moduli, in **set di impostazioni**. Per usare un set di dati, trascinarlo e rilascialo nelle canvas della pipeline. Quindi, connettere la porta di output del set di dati ad altri moduli nell'area di disegno. 
 
 ![Screenshot che mostra la posizione dei set di dati salvati nella tavolozza della finestra di progettazione](media/how-to-designer-import-data/use-datasets-designer.png)
 
 
 > [!NOTE]
-> Al momento la finestra di progettazione supporta solo l'elaborazione di [set di dati tabulari](how-to-create-register-datasets.md#dataset-types). Per impiegare un [set di dati in file](how-to-create-register-datasets.md#dataset-types), usare l'SDK di Azure Machine Learning, disponibile per Python e R.
+> La finestra di progettazione supporta il [controllo delle versioni dei DataSet](how-to-version-track-datasets.md). Specificare la versione del set di dati nel pannello Proprietà del modulo DataSet.
+
 
 ## <a name="import-data-using-the-import-data-module"></a>Importazione dei dati usando il modulo Importa dati
 
@@ -94,7 +103,7 @@ I moduli della finestra di progettazione sono limitati dalle dimensioni della de
 
 ## <a name="access-data-in-a-virtual-network"></a>Accedere ai dati in una rete virtuale
 
-Se l'area di lavoro si trova in una rete virtuale, è necessario eseguire passaggi di configurazione aggiuntivi per visualizzare i dati nella finestra di progettazione. Per altre informazioni su come usare gli archivi dati e i set di dati in una rete virtuale, vedere [isolamento rete durante il training & inferenza con reti virtuali private](how-to-enable-virtual-network.md#machine-learning-studio).
+Se l'area di lavoro si trova in una rete virtuale, è necessario eseguire passaggi di configurazione aggiuntivi per visualizzare i dati nella finestra di progettazione. Per altre informazioni su come usare gli archivi dati e i set di dati in una rete virtuale, vedere [usare Azure Machine Learning Studio in una rete virtuale di Azure](how-to-enable-studio-virtual-network.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

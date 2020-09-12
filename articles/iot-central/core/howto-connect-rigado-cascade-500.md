@@ -10,16 +10,16 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
-ms.openlocfilehash: 3e6026e683d46ca9062c5c139fcd7febd7df9bd1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0000e7690ab92f469a7417e82cb375c524e0b343
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758257"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016844"
 ---
 # <a name="connect-a-rigado-cascade-500-gateway-device-to-your-azure-iot-central-application"></a>Connettere un dispositivo gateway RIGADO Cascade 500 all'applicazione IoT Central di Azure
 
-*Le informazioni di questo articolo sono destinate a generatori di soluzioni e sviluppatori di dispositivi.*
+*Le informazioni di questo articolo sono destinate ai generatori di soluzioni.*
 
 Questo articolo descrive come un generatore di soluzioni può connettere un dispositivo gateway RIGADO Cascade 500 all'applicazione Microsoft Azure IoT Central. 
 
@@ -51,7 +51,7 @@ Per aggiungere un modello di dispositivo Cascade 500:
 
 Per connettere il dispositivo Cascade 500, è ora necessario recuperare l' **ID ambito** e la **chiave primaria** per l'applicazione IoT Central di Azure. 
 
-1. Passare ad **Amministrazione** nel riquadro sinistro e fare clic su **connessione dispositivo**. 
+1. Passare ad **Amministrazione**  nel riquadro sinistro e fare clic su **connessione dispositivo**. 
 2. Prendere nota dell' **ID ambito** per l'applicazione IoT Central.
 ![ID ambito app](./media/howto-connect-rigado-cascade-500/app-scope-id.png)
 3. Fare ora clic su **Visualizza chiavi** e prendere nota della **Primary key** 
@@ -65,7 +65,7 @@ Quando il dispositivo è connesso a Internet, RIGADO sarà in grado di eseguire 
 
 Questo aggiornamento applicherà i dettagli della connessione IoT Central nel dispositivo Cascade 500 e verrà visualizzato nell'elenco dei dispositivi. 
 
-![Chiave primaria](./media/howto-connect-rigado-cascade-500/devices-list-c500.png)  
+![Elenco di dispositivi](./media/howto-connect-rigado-cascade-500/devices-list-c500.png)  
 
 A questo punto è possibile usare il dispositivo C500 nell'applicazione IoT Central.
 

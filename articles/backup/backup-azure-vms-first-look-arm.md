@@ -3,12 +3,12 @@ title: Eseguire il backup di una macchina virtuale di Azure dalle impostazioni d
 description: Questo articolo illustra come eseguire il backup di una singola macchina virtuale di Azure o di più macchine virtuali di Azure con il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: a8d1c29c894663da76b5882ef7ba249356ba3e6d
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 55b71d2a2901cdde984df3ebfd68a2a643b78b74
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87531847"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667520"
 ---
 # <a name="back-up-an-azure-vm-from-the-vm-settings"></a>Eseguire il backup di una macchina virtuale di Azure dalle impostazioni della macchina virtuale
 
@@ -76,7 +76,7 @@ Per eseguire il backup di macchine virtuali di Azure, backup di Azure installa u
 
 ## <a name="back-up-from-the-recovery-services-vault"></a>Eseguire il backup da un insieme di credenziali di Servizi di ripristino
 
-Seguire le istruzioni in questo articolo per abilitare il backup per macchine virtuali di Azure configurando un insieme di credenziali di Servizi di ripristino di Backup di Azure e per abilitare il backup nell'insieme di credenziali.
+Seguire le istruzioni in [questo articolo](backup-azure-arm-vms-prepare.md) per abilitare il backup per le macchine virtuali di Azure configurando un insieme di credenziali di servizi di ripristino di backup di Azure e abilitando il backup nell'insieme di credenziali.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

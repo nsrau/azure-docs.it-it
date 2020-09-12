@@ -4,14 +4,13 @@ description: Informazioni su come distribuire i contenitori in istanze di conten
 services: container-instances
 ms.topic: article
 ms.date: 07/02/2020
-ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 0a997733e015a9f65b59ffc99cc137dae3d2d62a
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: eeafc58a1f61ed0439fb29fb08e4ce8c5dd4350c
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87927437"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89656999"
 ---
 # <a name="deploy-to-azure-container-instances-from-azure-container-registry"></a>Eseguire la distribuzione in Istanze di Azure Container da Registro Azure Container
 
@@ -31,6 +30,9 @@ Azure Container Registry offre [Opzioni di autenticazione](../container-registry
 
 > [!NOTE]
 > Non è possibile eseguire l'autenticazione in Azure Container Registry per eseguire il pull delle immagini durante la distribuzione del gruppo di contenitori usando un' [identità gestita](container-instances-managed-identity.md) configurata nello stesso gruppo di contenitori.
+
+> [!NOTE]
+> Al momento non è possibile effettuare il pull di immagini da [Azure container Registry](../container-registry/container-registry-vnet.md) distribuite in una rete virtuale di Azure.
 
 Nella sezione seguente vengono creati un insieme di credenziali delle chiavi e un'entità servizio di Azure e le credenziali dell'entità servizio vengono archiviate nell'insieme. 
 

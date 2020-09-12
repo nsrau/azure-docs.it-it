@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 04/15/2020
+ms.date: 09/08/2020
 ms.custom: devx-track-javascript, devx-track-csharp
-ms.openlocfilehash: c0031b09dbb3335113cb52c9b3ec5e4fd4fa2758
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8be53838f6262eaafc643bc78fd08b6f02d9bac6
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011580"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660255"
 ---
 # <a name="add-autocomplete-and-suggestions-to-client-apps"></a>Aggiungere il completamento automatico e suggerimenti alle app client
 
@@ -67,7 +67,7 @@ Le risposte vengono modellate in base ai parametri della richiesta. Per il compl
 
 Per i suggerimenti, è necessario affinare ulteriormente la risposta per evitare i duplicati o i risultati non correlati. Per controllare i risultati, includere più parametri nella richiesta. I parametri seguenti si applicano sia a completamento automatico che a suggerimenti, ma sono forse più necessari per i suggerimenti, soprattutto quando un suggerimento include più campi.
 
-| Parametro | Utilizzo |
+| Parametro | Uso |
 |-----------|-------|
 | **$select** | Se si dispone di più **sourceFields** in un suggerimento, utilizzare **$SELECT** per scegliere il campo che contribuisce ai valori ( `$select=GameTitle` ). |
 | **searchFields** | Vincolare la query a campi specifici. |
@@ -139,9 +139,11 @@ source: "/home/suggest?highlights=true&fuzzy=true&",
 
 ### <a name="suggest-function"></a>Suggerisci funzione
 
-Se si usa C# e un'applicazione MVC, il file **HomeController.cs** nella directory Controllers è il punto in cui è possibile creare una classe per i risultati suggeriti. In .NET una funzione suggest è basata sul [Metodo DocumentsOperationsExtensions. suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet).
+Se si usa C# e un'applicazione MVC, il file **HomeController.cs** nella directory Controllers è il punto in cui è possibile creare una classe per i risultati suggeriti. In .NET una funzione suggest è basata sul [Metodo DocumentsOperationsExtensions. suggest](/dotnet/api/microsoft.azure.search.documentsoperationsextensions.suggest?view=azure-dotnet). Per altre informazioni su .NET SDK, vedere [come usare ricerca cognitiva di Azure da un'applicazione .NET](./search-howto-dotnet-sdk.md).
 
-Il `InitSearch` metodo crea un client di indice http autenticato per il servizio ricerca cognitiva di Azure. Per altre informazioni su .NET SDK, vedere [come usare ricerca cognitiva di Azure da un'applicazione .NET](./search-howto-dotnet-sdk.md).
+Il `InitSearch` metodo crea un client di indice http autenticato per il servizio ricerca cognitiva di Azure. Le proprietà della classe [SuggestParameters](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.suggestparameters) determinano quali campi vengono ricercati e restituiti nei risultati, il numero di corrispondenze e se viene utilizzata la corrispondenza fuzzy. 
+
+Per il completamento automatico, la corrispondenza fuzzy è limitata a una distanza di modifica (un carattere omesso o inserito in modo non consentito). Si noti che la corrispondenza fuzzy nelle query di completamento automatico può talvolta produrre risultati imprevisti a seconda delle dimensioni dell'indice e del partizionamento. Per altre informazioni, vedere [concetti relativi a partizionamento e partizionamento orizzontale](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards).
 
 ```csharp
 public ActionResult Suggest(bool highlights, bool fuzzy, string term)
@@ -250,5 +252,5 @@ La funzione Autocomplete accetta l'input del termine di ricerca. Il metodo crea 
 Segui questi collegamenti per istruzioni end-to-end o codice che dimostrano entrambe le esperienze di ricerca in base al tipo. Entrambi gli esempi di codice includono implementazioni ibride di suggerimenti e completamento automatico insieme.
 
 + [Esercitazione: creare la prima app in C# (lezione 3)](tutorial-csharp-type-ahead-and-suggestions.md)
-+ [Esempio di codice C#: Azure-Search-DotNet-Samples/create-First-app/3-Add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/3-add-typeahead)
++ [Esempio di codice C#: Azure-Search-DotNet-Samples/create-First-app/3-Add-typeahead/](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/create-first-app/v10/3-add-typeahead)
 + [C# e JavaScript con l'esempio di codice side-by-side REST](https://github.com/Azure-Samples/search-dotnet-getting-started/tree/master/DotNetHowToAutocomplete)

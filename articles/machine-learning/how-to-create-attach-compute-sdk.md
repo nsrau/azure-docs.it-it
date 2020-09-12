@@ -1,5 +1,5 @@
 ---
-title: Creare risorse di calcolo con Python SDK
+title: Creazione di training & la distribuzione di calcoli (Python)
 titleSuffix: Azure Machine Learning
 description: Usare il Azure Machine Learning Python SDK per creare risorse di calcolo di training e distribuzione (destinazioni di calcolo) per Machine Learning
 services: machine-learning
@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: 96aa6839fe51bb8a8c26f411c1a1f9df6b8c5a7f
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: c25ee5d9c626ba95d28f2247e6771d9fa1ada0f7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89147501"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662546"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-with-python-sdk"></a>Creare destinazioni di calcolo per il training e la distribuzione di modelli con Python SDK
 
@@ -31,8 +31,12 @@ In questo articolo viene usato il Azure Machine Learning Python SDK per creare e
 ## <a name="prerequisites"></a>Prerequisiti
 
 * Se non si ha una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Prova subito la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree)
-* [SDK Azure Machine Learning per Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* [SDK Azure Machine Learning per Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * [Area di lavoro Azure Machine Learning](how-to-manage-workspace.md)
+
+## <a name="limitations"></a>Limitazioni
+
+Alcuni degli scenari elencati in questo documento sono contrassegnati come __Anteprima__. La funzionalità di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="whats-a-compute-target"></a>Che cos'è una destinazione di calcolo?
 
@@ -55,16 +59,33 @@ Usare le sezioni seguenti per configurare queste destinazioni di calcolo:
 * [Macchine virtuali remote](#vm)
 * [Azure HDInsight](#hdinsight)
 
+## <a name="compute-targets-for-inference"></a>Destinazioni di calcolo per l'inferenza
+
+Quando si esegue l'inferenza, Azure Machine Learning crea un contenitore Docker che ospita il modello e le risorse associate necessarie per usarlo. Questo contenitore viene quindi utilizzato in uno degli scenari di distribuzione seguenti:
+
+* Come __servizio Web__ utilizzato per l'inferenza in tempo reale. Le distribuzioni di servizi Web usano una delle seguenti destinazioni di calcolo:
+
+    * [Computer locale](#local)
+    * [Istanza di calcolo di Azure Machine Learning](#instance)
+    * [Istanze di Azure Container](#aci)
+    * [Servizio Azure Kubernetes](how-to-create-attach-kubernetes.md)
+    * Funzioni di Azure (anteprima). La distribuzione in funzioni di Azure si basa solo su Azure Machine Learning per compilare il contenitore docker. Da qui viene distribuito usando funzioni di Azure. Per altre informazioni, vedere [distribuire un modello di Machine Learning in funzioni di Azure (anteprima)](how-to-deploy-functions.md).
+
+* Come endpoint di __inferenza batch__ usato per elaborare periodicamente batch di dati. L'inferenza di batch USA [Azure Machine Learning cluster di elaborazione](#amlcompute).
+
+* In un __dispositivo__ Internet (anteprima). La distribuzione in un dispositivo Internet è basata solo su Azure Machine Learning per compilare il contenitore docker. Da qui viene distribuito usando Azure IoT Edge. Per altre informazioni, vedere [deploy As a IOT Edge Module (Preview)](/azure/iot-edge/tutorial-deploy-machine-learning).
 
 ## <a name="local-computer"></a><a id="local"></a>Computer locale
 
-Quando si usa il computer locale per il training, non è necessario creare una destinazione di calcolo.  È sufficiente [inviare l'esecuzione del training](how-to-set-up-training-targets.md) dal computer locale.
+Quando si usa il computer locale per il **Training**, non è necessario creare una destinazione di calcolo.  È sufficiente [inviare l'esecuzione del training](how-to-set-up-training-targets.md) dal computer locale.
+
+Quando si usa il computer locale per l' **inferenza**, è necessario che Docker sia installato. Per eseguire la distribuzione, utilizzare [LocalWebservice. deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.local.localwebservice?view=azure-ml-py#deploy-configuration-port-none-) per definire la porta che il servizio Web utilizzerà. Usare quindi il normale processo di distribuzione come descritto in [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
 ## <a name="azure-machine-learning-compute-cluster"></a><a id="amlcompute"></a>Azure Machine Learning cluster di calcolo
 
 Azure Machine Learning cluster di calcolo è un'infrastruttura di calcolo gestito che consente di creare facilmente un calcolo a nodo singolo o a più nodi. Il calcolo viene creato all'interno dell'area di lavoro ed è una risorsa che può essere condivisa con altri utenti dell'area. Il calcolo si ridimensiona verticalmente in modo automatico quando viene inviato un processo e può essere inserito in una Rete virtuale di Azure. Il calcolo viene eseguito in un ambiente basato su contenitori, con la creazione di un pacchetto delle dipendenze del modello in un [contenitore Docker](https://www.docker.com/why-docker).
 
-È possibile usare un ambiente di calcolo di Azure Machine Learning per distribuire il processo di training in un cluster di nodi di calcolo CPU o GPU nel cloud. Per altre informazioni sulle dimensioni delle macchine virtuali che includono GPU, consultare il documento [Dimensioni delle macchine virtuali ottimizzate per GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
+È possibile usare Azure Machine Learning calcolo per distribuire un processo di inferenza di training o batch in un cluster di nodi di calcolo CPU o GPU nel cloud. Per altre informazioni sulle dimensioni delle macchine virtuali che includono GPU, consultare il documento [Dimensioni delle macchine virtuali ottimizzate per GPU](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu). 
 
 Per alcuni aspetti, l'ambiente di calcolo di Azure Machine Learning prevede limiti predefiniti, ad esempio il numero di core che possono essere allocati. Per altre informazioni, consultare il documento [Gestire e richiedere quote per risorse di Azure](how-to-manage-quotas.md).
 
@@ -87,7 +108,7 @@ Un ambiente di calcolo di Azure Machine Learning può essere usato su più esecu
 
     In alternativa, è possibile creare e collegare una risorsa permanente dell'ambiente di calcolo di Azure Machine Learning in [Azure Machine Learning Studio](how-to-create-attach-compute-studio.md#portal-create).
 
-Ora che è stato collegato il calcolo, il passaggio successivo consiste nell' [inviare l'esecuzione del training](how-to-set-up-training-targets.md).
+Ora che è stato collegato il calcolo, il passaggio successivo consiste nell' [inviare l'esecuzione del training](how-to-set-up-training-targets.md) o l' [inferenza batch](how-to-use-parallel-run-step.md).
 
  ### <a name="lower-your-compute-cluster-cost"></a><a id="low-pri-vm"></a> Abbassare il costo del cluster di calcolo
 
@@ -201,8 +222,15 @@ Le istanze di calcolo possono eseguire processi in modo sicuro in un [ambiente d
         instance.wait_for_completion(show_output=True)
     ```
 
-Ora che è stato collegato il calcolo e configurato l'esecuzione, il passaggio successivo consiste nell' [inviare l'esecuzione del training](how-to-set-up-training-targets.md)
+Ora che è stato collegato il calcolo e configurato l'esecuzione, il passaggio successivo consiste nell' [inviare l'esecuzione del training](how-to-set-up-training-targets.md) o [distribuire un modello per l'inferenza](how-to-deploy-local-container-notebook-vm.md).
 
+## <a name="azure-container-instance"></a><a id="aci"></a>Istanza di contenitore di Azure
+
+Le istanze di contenitore di Azure (ACI) vengono create dinamicamente quando si distribuisce un modello. Non è possibile creare o alporre l'associazione ACI all'area di lavoro in qualsiasi altro modo. Per altre informazioni, vedere [distribuire un modello in istanze di contenitore di Azure](how-to-deploy-azure-container-instance.md).
+
+## <a name="azure-kubernetes-service"></a>Servizio Azure Kubernetes
+
+Azure Kubernetes Service (AKS) consente un'ampia gamma di opzioni di configurazione quando vengono usate con Azure Machine Learning. Per altre informazioni, vedere [come creare e alleghi il servizio Azure Kubernetes](how-to-create-attach-kubernetes.md).
 
 ## <a name="remote-virtual-machines"></a><a id="vm"></a>Macchine virtuali remote
 
@@ -437,7 +465,7 @@ except ComputeTargetException:
 Per un esempio più dettagliato, vedere un [notebook di esempio](https://aka.ms/pl-adla) in GitHub.
 
 > [!TIP]
-> Le pipeline di Azure Machine Learning possono funzionare solo con i dati archiviati nell'archivio dati predefinito dell'account Data Lake Analytics. Se i dati che è necessario utilizzare si trova in un archivio non predefinito, è possibile utilizzare un oggetto [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py) per copiare i dati prima del training.
+> Le pipeline di Azure Machine Learning possono funzionare solo con i dati archiviati nell'archivio dati predefinito dell'account Data Lake Analytics. Se i dati che è necessario utilizzare si trova in un archivio non predefinito, è possibile utilizzare un oggetto [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py&preserve-view=true) per copiare i dati prima del training.
 
 ## <a name="notebook-examples"></a>Esempi di notebook
 

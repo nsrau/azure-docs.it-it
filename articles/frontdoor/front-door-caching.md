@@ -3,20 +3,20 @@ title: Sportello anteriore di Azure-Caching | Microsoft Docs
 description: Questo articolo consente di comprendere come il front-end di Azure monitora l'integrità dei backend
 services: frontdoor
 documentationcenter: ''
-author: sharad4u
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: sharadag
-ms.openlocfilehash: e521711cdf488f00b56e2805ee0aaa6ee8412958
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.author: duau
+ms.openlocfilehash: aada5b976721fdfed31131095f7f2b12aefefea9
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056959"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024282"
 ---
 # <a name="caching-with-azure-front-door"></a>Memorizzazione nella cache con lo sportello anteriore di Azure
 Il documento seguente specifica il comportamento di Frontdoor di Azure con regole di routing che hanno abilitato la memorizzazione nella cache. La porta anteriore è una rete per la distribuzione di contenuti (CDN) moderna e, insieme a bilanciamento del carico e accelerazione sito dinamico, supporta anche i comportamenti di memorizzazione nella cache come qualsiasi altra rete CDN.
@@ -88,13 +88,22 @@ Frontdoor consente di controllare la modalità di memorizzazione nella cache dei
 - **Memorizza nella cache tutti gli URL univoci**: in questa modalità ogni richiesta con URL univoco, compresa la stringa di query, viene considerata un asset univoco con la propria cache. Ad esempio, la risposta inviata da back-end per una richiesta di `www.example.ashx?q=test1` viene memorizzata nella cache nell'ambiente Frontdoor e restituita per le memorizzazioni nella cache successive con la stessa stringa di query. Una richiesta di `www.example.ashx?q=test2` viene memorizzata nella cache come asset separato con la propria impostazione di durata (TTL).
 
 ## <a name="cache-purge"></a>Ripulire la cache
-Frontdoor memorizzerà nella cache gli asset fino alla scadenza della durata TTL dell'asset. Dopo la scadenza della durata TTL dell'asset, quando un client richiede l'asset dall'ambiente Frontdoor, questo recupera una nuova copia aggiornata dell'asset per soddisfare la richiesta del client e aggiornare la cache.
-</br>La procedura consigliata per assicurarsi che gli utenti ottengano sempre la copia più recente degli asset consiste nel versioning di questi ultimi per ogni aggiornamento e nella relativa pubblicazione come nuovi URL. Frontdoor recupera immediatamente i nuovi asset per le richieste client successive. A volte si desidera ripulire il contenuto memorizzato nella cache da tutti i nodi periodici e forzare il recupero dei nuovi asset aggiornati. Ciò potrebbe essere dovuto agli aggiornamenti all'applicazione Web o a un aggiornamento rapido di asset che contengono informazioni non corrette.
 
-</br>Selezionare gli asset che si desidera ripulire dai nodi periferici. Se si desidera ripulire tutti gli asset, fare clic sulla casella di controllo Elimina tutto. In alternativa digitare il percorso di ogni asset che si vuole ripulire nella casella di testo Percorso. I formati seguenti sono supportati nel percorso.
-1. **Eliminazione a percorso singolo**: Ripulisci singoli asset specificando il percorso completo dell'asset (senza il protocollo e il dominio), con l'estensione di file, ad esempio/Pictures/strasbourg.png;
-2. **Wildcard purge**: (Eliminazione dei caratteri jolly) l'asterisco (\*) può essere usato come carattere jolly. Eliminare tutte le cartelle, le sottocartelle e i file in un endpoint con/ \* nel percorso o eliminare tutte le sottocartelle e i file in una cartella specifica specificando la cartella seguita da/ \* , ad esempio/Pictures/ \* .
-3. **Root domain purge**: (Eliminazione del dominio radice) consente di eliminare la radice dell'endpoint inserendo "/" nel percorso.
+La porta anteriore memorizza nella cache gli asset fino alla scadenza della durata (TTL) dell'asset. Dopo la scadenza della durata TTL dell'asset, quando un client richiede l'asset, l'ambiente della porta anteriore recupera una nuova copia aggiornata dell'asset per soddisfare la richiesta del client e archiviare l'aggiornamento della cache.
+
+La procedura consigliata per assicurarsi che gli utenti ottengano sempre la copia più recente degli asset consiste nel versioning di questi ultimi per ogni aggiornamento e nella relativa pubblicazione come nuovi URL. Frontdoor recupera immediatamente i nuovi asset per le richieste client successive. A volte si desidera ripulire il contenuto memorizzato nella cache da tutti i nodi periodici e forzare il recupero dei nuovi asset aggiornati. Ciò potrebbe essere dovuto agli aggiornamenti all'applicazione Web o a un aggiornamento rapido di asset che contengono informazioni non corrette.
+
+Selezionare gli asset che si vuole ripulire dai nodi perimetrali. Per cancellare tutti gli asset, selezionare **Ripulisci tutto**. In caso contrario, in **percorso**immettere il percorso di ogni asset che si desidera eliminare.
+
+Questi formati sono supportati negli elenchi di percorsi da eliminare:
+
+- **Eliminazione a percorso singolo**: eliminare singoli asset specificando il percorso completo dell'asset (senza il protocollo e il dominio), con l'estensione di file, ad esempio/Pictures/strasbourg.png;
+- **Wildcard purge**: (Eliminazione dei caratteri jolly) l'asterisco (\*) può essere usato come carattere jolly. Eliminare tutte le cartelle, le sottocartelle e i file in un endpoint con/ \* nel percorso o eliminare tutte le sottocartelle e i file in una cartella specifica specificando la cartella seguita da/ \* , ad esempio/Pictures/ \* .
+- **Root domain purge**: (Eliminazione del dominio radice) consente di eliminare la radice dell'endpoint inserendo "/" nel percorso.
+
+> [!NOTE]
+> **Eliminazione di domini con caratteri jolly**: specificare i percorsi memorizzati nella cache da ripulire come descritto in questa sezione non si applica ai domini con caratteri jolly associati alla porta anteriore. Attualmente non è supportata la cancellazione diretta di domini con caratteri jolly. È possibile eliminare i percorsi da sottodomini specifici specificando il sottodominio specifico e il percorso di ripulitura. Ad esempio, se la mia porta principale è `*.contoso.com` , posso eliminare le risorse del sottodominio `foo.contoso.com` digitando `foo.contoso.com/path/*` . Attualmente, se applicabile, la specifica dei nomi host nel percorso del contenuto di ripulitura è imited sulla ai sottodomini dei domini con caratteri jolly.
+>
 
 Le pulizie della cache su Frontdoor non fanno distinzione tra maiuscole e minuscole. Inoltre, risultano indipendenti dalla stringa di query, vale a dire che l'eliminazione di un indirizzo Web eliminerà tutte le variazioni delle stringhe di query. 
 
@@ -102,7 +111,7 @@ Le pulizie della cache su Frontdoor non fanno distinzione tra maiuscole e minusc
 L'ordine delle intestazioni seguente viene usato per determinare quanto tempo un elemento rimane memorizzato nella cache:</br>
 1. Cache-Control: s-maxage=\<seconds>
 2. Cache-Control: max-age =\<seconds>
-3. Scadenza\<http-date>
+3. Scadenza \<http-date>
 
 Intestazioni di risposta Cache-Control che indicano che la risposta non verrà memorizzata nella cache, ad esempio cache-Control: private, cache-Control: No-cache e cache-Control: No-Store viene rispettato. Tuttavia, se sono presenti più richieste in elaborazione in un POP per lo stesso indirizzo Web, esse possono condividere la risposta. Se non è presente alcun controllo cache, il comportamento predefinito è che AFD memorizza nella cache la risorsa per l'intervallo di tempo X, dove X viene selezionato in modo casuale da 1 a 3 giorni.
 

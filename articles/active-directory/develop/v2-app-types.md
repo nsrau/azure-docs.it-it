@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.date: 05/19/2020
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
-ms.custom: aaddev
-ms.openlocfilehash: 7b89add55a060c7ba0ef9488f1f6438090b8d3d2
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.custom: aaddev, fasttrack-edit
+ms.openlocfilehash: f8906c5fb934546ac8b1a95f817874f91f6c3b95
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121171"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015807"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Tipi di applicazioni per Microsoft Identity Platform
 
@@ -42,9 +42,9 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 ## <a name="single-page-apps-javascript"></a>App a singola pagina (JavaScript)
 
-Molte app moderne hanno un front-end dell'app a singola pagina scritto principalmente in JavaScript, spesso con un framework come Angular, React o Vue. L'endpoint di Microsoft Identity Platform supporta queste app usando il [flusso del codice di autorizzazione OAuth 2.0](v2-oauth2-auth-code-flow.md).
+Molte app moderne hanno un front-end dell'app a singola pagina scritto principalmente in JavaScript, spesso con un framework come Angular, React o Vue. L'endpoint della piattaforma Microsoft Identity supporta queste app usando il protocollo [OpenID Connect](v2-protocols-oidc.md) per l'autenticazione e il [flusso di concessione implicita OAuth 2,0](v2-oauth2-implicit-grant-flow.md) o il codice di [autorizzazione OAuth 2,0 più recente + flusso PKCE](v2-oauth2-auth-code-flow.md) per l'autorizzazione (vedere di seguito).
 
-In questo flusso, l'app riceve un codice dall’endpoint di Microsoft Identity Platform `authorize` e lo riscatta per i token e i token di aggiornamento usando le richieste Web tra siti. Il token di aggiornamento scade ogni 24 ore e l'app deve richiedere un altro codice.
+Il diagramma di flusso seguente illustra la concessione del codice di autorizzazione OAuth 2,0 (con informazioni dettagliate su PKCE omesso), in cui l'app riceve un codice dall'endpoint della piattaforma di identità Microsoft `authorize` e lo riscatta per i token e i token di aggiornamento usando le richieste Web tra siti. Il token di aggiornamento scade ogni 24 ore e l'app deve richiedere un altro codice. Oltre al token di accesso, un oggetto `id_token` che rappresenta l'utente che ha eseguito l'accesso all'applicazione client viene in genere richiesto anche tramite lo stesso flusso e/o una richiesta di OpenID Connect separata (non illustrata di seguito).
 
 ![Flusso di codice per le applicazioni a pagina singola](media/v2-oauth-auth-code-spa/active-directory-oauth-code-spa.png)
 

@@ -10,12 +10,12 @@ author: rohitnayakmsft
 ms.author: rohitna
 ms.reviewer: vanto
 ms.date: 07/01/2019
-ms.openlocfilehash: af5486630eb89de198b6ed2975a919b04b01a902
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: ee55e0a66a0487291233713498f6eb541980dbba
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88507502"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004273"
 ---
 # <a name="azure-sql-database-traffic-migration-to-newer-gateways"></a>Migrazione del traffico del database SQL di Azure ai gateway più recenti
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,6 +27,14 @@ I clienti riceveranno una notifica tramite posta elettronica e in portale di Azu
 ## <a name="status-updates"></a>Aggiornamenti dello stato
 
 # <a name="in-progress"></a>[In corso](#tab/in-progress-ip)
+### <a name="october-2020"></a>2020 ottobre
+
+Nuovi gateway SQL vengono aggiunti alle aree seguenti:
+
+- Germania centro-occidentale: 51.116.240.0, 51.116.248.0
+
+Questi gateway SQL inizieranno ad accettare il traffico dei clienti il 12 ottobre 2020. 
+
 ### <a name="september-2020"></a>Settembre 2020
 Nuovi gateway SQL vengono aggiunti alle aree seguenti. Questi gateway SQL dovranno iniziare ad accettare il traffico dei clienti il **15 settembre 2020**:
 

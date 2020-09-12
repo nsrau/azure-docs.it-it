@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 09dd444d0d7409ca86955d2854aec82f07db0c4d
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 429471c2a24b90f14241bf54197c4baecb27e5c0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185401"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660426"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creare, rivedere e distribuire modelli di Machine Learning automatizzato con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -69,7 +69,7 @@ Altrimenti, verrà visualizzato un elenco degli esperimenti recenti di Machine L
 
     1. Selezionare **Avanti** per aprire il **modulo di selezione file e archivio dati**. In questo modulo è possibile selezionare la posizione in cui caricare il set di dati, il contenitore di archiviazione predefinito creato automaticamente con l'area di lavoro o scegliere un contenitore di archiviazione da usare per l'esperimento. 
     
-        1. Se i dati sono protetti da una rete virtuale, è necessario abilitare la funzione **Ignora la convalida** per assicurarsi che l'area di lavoro sia in grado di accedere ai dati. Scopri di più sulla [privacy e sull'isolamento della rete](how-to-enable-virtual-network.md#machine-learning-studio). 
+        1. Se i dati sono protetti da una rete virtuale, è necessario abilitare la funzione **Ignora la convalida** per assicurarsi che l'area di lavoro sia in grado di accedere ai dati. Per altre informazioni, vedere [usare Azure Machine Learning Studio in una rete virtuale di Azure](how-to-enable-studio-virtual-network.md). 
     
     1. Selezionare **Browse (Sfoglia** ) per caricare il file di dati per il set di dati. 
 
@@ -120,11 +120,14 @@ Altrimenti, verrà visualizzato un elenco degli esperimenti recenti di Machine L
 
 1. Nel modulo **Tipo di attività e impostazioni** selezionare il tipo di attività: classificazione, regressione o previsione. Per ulteriori informazioni, vedere [tipi di attività supportati](concept-automated-ml.md#when-to-use-automl-classify-regression--forecast) .
 
-    1. Per la **classificazione**, è anche possibile abilitare l'apprendimento avanzato usato per featurizations di testo.
+    1. Per la **classificazione**, è anche possibile abilitare l'apprendimento avanzato.
+    
+        Se l'apprendimento avanzato è abilitato, la convalida è limitata a _train_validation divisione_. [Altre informazioni sulle opzioni di convalida](how-to-configure-cross-validation-data-splits.md).
+
 
     1. Per la **previsione** è possibile, 
     
-        1. Abilita Deep Learning
+        1. Abilitare l'apprendimento avanzato.
     
         1. Seleziona *colonna temporale*: questa colonna contiene i dati relativi all'ora da usare.
 
@@ -135,10 +138,10 @@ Altrimenti, verrà visualizzato un elenco degli esperimenti recenti di Machine L
     Configurazioni aggiuntive|Descrizione
     ------|------
     Primary metric (Metrica principale)| Metrica principale usata per assegnare un punteggio al modello. [Altre informazioni sulle metriche dei modelli](how-to-configure-auto-train.md#primary-metric).
-    Modello esplicativo migliore | Selezionare questa opzione per abilitare o disabilitare per mostrare la spiegazione del modello migliore consigliato.
-    Algoritmo bloccato| Selezionare gli algoritmi da escludere dal processo di training.
+    Modello esplicativo migliore | Selezionare questa opzione per abilitare o disabilitare, in modo da visualizzare le spiegazioni per il modello migliore consigliato. <br> Questa funzionalità non è attualmente disponibile per [determinati algoritmi di previsione](how-to-machine-learning-interpretability-automl.md#interpretability-during-training-for-the-best-model). 
+    Algoritmo bloccato| Selezionare gli algoritmi da escludere dal processo di training. <br><br> Consentire gli algoritmi è disponibile solo per gli [esperimenti SDK](how-to-configure-auto-train.md#supported-models). <br> Vedere i [modelli supportati per ogni tipo di attività](https://docs.microsoft.com/python/api/azureml-automl-core/azureml.automl.core.shared.constants.supportedmodels?view=azure-ml-py&preserve-view=true).
     Exit criterion (Esci da criterio)| Quando uno di questi criteri viene soddisfatto, il processo di training viene arrestato. <br> *Durata del processo di training (ore)* : per quanto tempo consentire l'esecuzione del processo di training. <br> *Soglia di punteggio metrica*:  punteggio di metrica minimo per tutte le pipeline. In questo modo si garantisce che, se si dispone di una metrica di destinazione definita che si desidera raggiungere, non si dedica più tempo del necessario al processo di training.
-    Convalida| Selezionare una delle opzioni di convalida incrociata da usare nel processo di training. [Altre informazioni sulla convalida incrociata](how-to-configure-cross-validation-data-splits.md#prerequisites).
+    Convalida| Selezionare una delle opzioni di convalida incrociata da usare nel processo di training. <br> [Altre informazioni sulla convalida incrociata](how-to-configure-cross-validation-data-splits.md#prerequisites).<br> <br>La previsione supporta solo la convalida incrociata k-fold.
     Concorrenza| *Numero massimo di iterazioni simultanee*: numero massimo di pipeline (iterazioni) da testare nel processo di training. Il processo non viene eseguito più volte del numero specificato di iterazioni.
 
 1. Opzionale Visualizza impostazioni conteggi: se si sceglie di abilitare **conteggi automatici** nel modulo **impostazioni di configurazione aggiuntive** , vengono applicate le tecniche conteggi predefinite. Nelle **impostazioni di visualizzazione conteggi** è possibile modificare queste impostazioni predefinite e personalizzarle di conseguenza. Informazioni su come [personalizzare featurizations](#customize-featurization). 
@@ -217,7 +220,7 @@ ML automatizzato semplifica la distribuzione del modello senza scrivere codice:
         1. Selezionare **Distribuisci** nella parte superiore sinistra della finestra. 
 
     + Opzione 2: per distribuire un'iterazione del modello specifica da questo esperimento.
-        1. Selezionare il modello desiderato dalla scheda **modelli**
+        1. Selezionare il modello desiderato dalla scheda **Modelli**
         1. Selezionare **Distribuisci** nella parte superiore sinistra della finestra.
 
 1. Inserire i dati nel riquadro **Distribuisci modello**.
@@ -237,7 +240,7 @@ ML automatizzato semplifica la distribuzione del modello senza scrivere codice:
     Il menu *Avanzata* offre funzionalità di distribuzione predefinite, quali la [raccolta dati](how-to-enable-app-insights.md) e le impostazioni di utilizzo delle risorse. Se si desidera eseguire l'override di queste impostazioni predefinite, effettuare questa operazione in questo menu.
 
 1. Selezionare **Distribuisci**. Il completamento della distribuzione può richiedere circa 20 minuti.
-    Una volta avviata la distribuzione, viene visualizzata la scheda **Riepilogo modello** . Vedere lo stato di avanzamento della distribuzione nella sezione **stato distribuzione** . 
+    Una volta avviata la distribuzione, viene visualizzata la scheda **Riepilogo modello**. Vedere lo stato di avanzamento della distribuzione nella sezione **Stato distribuzione**. 
 
 A questo punto, è disponibile un servizio Web operativo per generare previsioni. Per eseguire il test delle previsioni, è possibile eseguire una query sul servizio dal [supporto Azure Machine Learning incorporato di Power BI](how-to-consume-web-service.md#consume-the-service-from-power-bi).
 

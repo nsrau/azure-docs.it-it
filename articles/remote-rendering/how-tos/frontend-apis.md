@@ -6,19 +6,19 @@ ms.author: flborn
 ms.date: 02/12/2010
 ms.topic: how-to
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 0488f467a036957bf2341aab63919a105f383bdf
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 420ff7ed838bc9fa14c1276ae0a70220fc7e11a9
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89003525"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024061"
 ---
 # <a name="use-the-azure-frontend-apis-for-authentication"></a>Usare le API front-end di Azure per l'autenticazione
 
 In questa sezione verrà descritto come usare l'API per l'autenticazione e la gestione delle sessioni.
 
 > [!CAUTION]
-Le funzioni descritte in questo capitolo rilasciano internamente le chiamate REST sul server. Come per tutte le chiamate REST, l'invio di questi comandi troppo spesso provocherà la limitazione del server e la restituzione di un errore. Il valore del `SessionGeneralContext.HttpResponseCode` membro in questo caso è 429 ("numero eccessivo di richieste"). Come regola generale, è necessario un ritardo di **5-10 secondi tra le chiamate successive**.
+> Le funzioni descritte in questo capitolo rilasciano internamente le chiamate REST sul server. Come per tutte le chiamate REST, l'invio di questi comandi troppo spesso provocherà la limitazione del server e la restituzione di un errore. Il valore del `SessionGeneralContext.HttpResponseCode` membro in questo caso è 429 ("numero eccessivo di richieste"). Come regola generale, è necessario un ritardo di **5-10 secondi tra chiamate successive**.
 
 
 ## <a name="azurefrontendaccountinfo"></a>AzureFrontendAccountInfo

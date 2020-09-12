@@ -3,25 +3,25 @@ title: Report sui proventi - Marketplace commerciale di Microsoft
 description: I report sui proventi consentono di visualizzare i dettagli relativi agli utili ottenuti con l'offerta, inclusi l'importo e la data dei pagamenti.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: conceptual
+ms.topic: article
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 04/24/2020
-ms.openlocfilehash: a013dd875fc5a97e5e2e619553cdeb8c6d729298
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.date: 09/09/2020
+ms.openlocfilehash: 62de9380578ca5a97f7b72f9939d5c2dd7392c0d
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87502631"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004222"
 ---
 # <a name="payout-summaries"></a>Riepiloghi proventi
 
 Il riepilogo proventi offre informazioni dettagliate sugli utili realizzati con Microsoft. Consente anche di determinare quando si riceveranno i pagamenti e gli importi che verranno corrisposti.
 
-Se si vendono prodotti in Azure Marketplace, nel riepilogo proventi verranno visualizzate anche informazioni sui pagamenti andati a buon fine. Per informazioni dettagliate, vedere [Criteri di partecipazione a Microsoft Azure Marketplace](https://docs.microsoft.com/legal/marketplace/participation-policy) e il [Contratto per editori di Microsoft Azure Marketplace](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
+Se si vendono prodotti in Azure Marketplace, nel riepilogo proventi verranno visualizzate anche informazioni sui pagamenti andati a buon fine. Per ulteriori informazioni sui pagamenti di Azure Marketplace, vedere la pagina relativa al pagamento [nel Marketplace commerciale](./get-paid.md) e il [Contratto Microsoft Publisher](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
-> Per poter beneficiare del pagamento, gli introiti devono raggiungere la [soglia di pagamento](payment-thresholds-methods-timeframes.md) di 50 dollari statunitensi. Per informazioni dettagliate sulla soglia di pagamento, vedere questa pagina ed esaminare il contratto per sviluppatori di app.
+> Per poter beneficiare del pagamento, gli introiti devono raggiungere la soglia di pagamento di 50 dollari statunitensi. Per informazioni dettagliate, vedere il [contratto di Microsoft Publisher](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4xqkx).
 
 > [!NOTE]
 > Per supporto sui proventi, incluse informazioni su configurazione di account proventi, pagamenti mancanti o in attesa e altre informazioni, contattare il team di supporto [qui](https://developer.microsoft.com/windows/support).
@@ -31,22 +31,14 @@ Se si vendono prodotti in Azure Marketplace, nel riepilogo proventi verranno vis
 Per aprire una delle pagine di riepilogo proventi:
 
 1. Nell'angolo superiore destro fare clic sull'icona dei proventi.
-2. Selezionare Cronologia transazioni, Pagamenti o Esportazione dati.
-
-## <a name="transaction-history-page"></a>Pagina Cronologia transazioni
-
-In questa pagina vengono visualizzati tutti gli utili, con informazioni quali data, tipo e importo per ogni voce. È possibile selezionare un periodo di tempo da visualizzare e filtrare in base a ID di iscrizione, programma, ID del pagamento, tipo di utili, leva e stato. I dati sono disponibili per l'anno fiscale corrente (1 luglio-30 giugno) e per i due anni fiscali precedenti.
-
-Per visualizzare altri dettagli sugli utili, selezionare la freccia rivolta verso il basso sul lato destro della pagina. Verrà visualizzata la leva, l'importo dei ricavi e il prodotto. Se uno di questi tipi di dati non è disponibile ma è necessario accedervi, contattare il [supporto](https://developer.microsoft.com/windows/support). Se gli utili derivano da una rettifica e non da una transazione, i campi del prodotto non vengono visualizzati.
-
-Per esportare i dati della transazione in questa pagina, utilizzare la pagina di **esportazione dati**.
+2. Selezionare **Cronologia transazioni**, **pagamenti**o **Esporta dati**.
 
 ## <a name="payments-page"></a>Pagina Pagamenti
 
 I totali in questa pagina sono riferiti a tutti i programmi a cui si partecipa. È possibile filtrare in base a ID partecipante, programma, ID di pagamento e tipo di utili. Gli importi vengono specificati in dollari statunitensi. Il valore pagato viene inoltre visualizzato nella valuta di pagamento.
 
-| Area                   | Descrizione                                                                                |
-|------------------------|---------------------------------------------------------------------------------------------|
+| Area  | Descrizione |
+| --- | --- |
 | Totale pagato questo anno   | Il totale combinato pagato nell'anno corrente, in dollari statunitensi, per tutti i programmi       |
 | Pagamento successivo stimato | Il singolo pagamento successivo in previsione (anche se ne saranno presto disponibili altri), in dollari statunitensi |
 | Ultimo pagamento           | La quantità (in dollari statunitensi), il nome del programma e il programma del pagamento più recente           |
@@ -66,8 +58,8 @@ Per esportare i dati delle transazioni in questa pagina, selezionare **Esporta**
 
 ## <a name="payment-status"></a>Stato dei pagamenti
 
-| Stato degli utili           | Motivo                                                                                                                                      | È richiesta un'azione del partner?                                   |
-|--------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|------------------------------------------------------------|
+| Stato degli utili | Motivo | È richiesta un'azione del partner? |
+| --- | --- | --- |
 | Non elaborato              | Gli utili non sono idonei al pagamento. Rimane in questo stato per un periodo di sospensione come definito nella guida al programma per il programma Incentive. | No                                                         |
 | In programma                 | Ordine di pagamento generato in attesa di revisioni interne prima dell'elaborazione del pagamento.                                                               | No                                                         |
 | Pending tax invoice (Fattura fiscale in sospeso)      | La fattura fiscale è incompleta o non valida.                                                                                                  | È necessario aggiornare la fattura fiscale prima di poter essere pagati. |
@@ -97,8 +89,8 @@ Il filtro può causare un errore di tipo **Non sono disponibili dati**. Ciò sig
 
 Questa opzione consente di scaricare i pagamenti ricevuti in banca per un determinato programma, le imposte associate e la quantità aggregata di utili. Questo report viene utilizzato per molti programmi del Centro per i partner, pertanto alcune colonne potrebbero non essere applicabili al report. Queste colonne sono indicate di seguito.
 
-| Nome colonna              | Descrizione                                                                                                                               |
-|--------------------------|-----------------------------------------------------------------------------------------------------------------------------------------  |
+| Nome colonna | Descrizione |
+| --- | --- |
 | participantID            | Identità principale del partner che realizza un reddito nell'ambito del programma                                                                             |
 | participantIDType        | ID programma per i programmi Incentive e ID venditore per programmi relativi allo Store                                                                |
 | participantName          | Nome del partner beneficiario del reddito                                                                                                               |
@@ -123,8 +115,8 @@ Questa opzione consente di scaricare i pagamenti ricevuti in banca per un determ
 
 Questa opzione consente di scaricare ogni voce della riga degli utili visualizzata nella pagina della cronologia transazioni con informazioni su tipo, data, importo transazione associato, cliente, prodotto e altri dettagli della transazione applicabili ai programmi.
 
-| Nome colonna                    | Descrizione                                                                                                                              | Applicabilità per i programmi Incentive/Store/Azure Marketplace           |
-|--------------------------------|------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------|
+| Nome colonna | Descrizione | Applicabilità per i programmi Incentive/Store/Azure Marketplace |
+| --- | --- | --- |
 | earningId                      | Identificatore univoco per ogni reddito                                                                                                       | Tutti                                                            |
 | participantId                  | Identità principale del partner che realizza un reddito nell'ambito del programma                                                                            | Tutti                                                            |
 | participantIdType              | Principalmente ID programma per i programmi Incentive e ID venditore SE il programma è relativo allo Store o ad Azure Marketplace                                          | Tutti                                                            |
@@ -209,8 +201,8 @@ La cronologia delle transazioni antecedenti al 1 luglio 2019 luglio viene gestit
 > [!NOTE]
 > Filtri come 3M, 6M o 12M, non si applicano alla sezione dei **rendiconti cronologici**.
 
-| Nome campo              | Descrizione                                                                                                                                                             |
-|-------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Nome campo | Descrizione |
+| --- | --- |
 | Origine dei ricavi          | Origine dei ricavi in base a dove si è verificata la transazione, ad esempio Microsoft Store, Windows Phone Store, Windows 8 Store o Microsoft Advertising                  |
 | ID dell'ordine                | Identificatore univoco dell'ordine. Questo ID consente di identificare le transazioni di acquisto con le rispettive transazioni non di acquisto, ad esempio rimborsi o chargeback. Entrambe avranno lo stesso ID ordine. Inoltre, nel caso di un addebito suddiviso in cui sono stati usati più metodi di pagamento per un singolo acquisto, è possibile collegare le transazioni di acquisto. |
 | TransactionID          | Identificatore univoco della transazione.                                                                                                                                          |
@@ -241,6 +233,6 @@ La cronologia delle transazioni antecedenti al 1 luglio 2019 luglio viene gestit
 | Charges                 | Mostra una suddivisione di tutti i dettagli dell'addebito aggregati nella colonna Importo transazione (incluso solo per Azure Marketplace; non incluso nel file CSV **riservato**). |
 |||
 
-## <a name="next-step"></a>passaggio successivo
+## <a name="next-step"></a>Passaggio successivo
 
 - [Dettagli dei criteri dei proventi](./payout-policy-details.md)

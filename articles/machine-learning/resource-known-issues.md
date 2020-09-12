@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4
 ms.date: 08/13/2020
-ms.openlocfilehash: 4dced0e0597e4df2fe215c9f4b85e3e8defd92c3
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 1524e51fff64b00a798f15425973145feee730fe
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230382"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651647"
 ---
 # <a name="known-issues-and-troubleshooting-in-azure-machine-learning"></a>Problemi noti e risoluzione dei problemi in Azure Machine Learning
 
@@ -173,7 +173,9 @@ In alcuni casi può essere utile fornire le informazioni di diagnostica quando s
 > [!WARNING]
 > Lo spostamento dell’area di lavoro di Azure Machine Learning in una diversa sottoscrizione o della sottoscrizione proprietaria su un nuovo tenant non è supportato in quanto ciò può provocare errori.
 
-* **Portale di Azure**: se si passa direttamente a visualizzare l'area di lavoro da un collegamento di condivisione dall'SDK o dal portale, non sarà possibile visualizzare la pagina **Panoramica** normale con le informazioni sulla sottoscrizione nell'estensione. Inoltre non sarà possibile passare in un'altra area di lavoro. Se è necessario visualizzare un'altra area di lavoro, passare direttamente a [Azure Machine Learning Studio](https://ml.azure.com) e cercare il nome dell'area di lavoro.
+* **Portale di Azure**: 
+  * Se si passa direttamente all'area di lavoro da un collegamento di condivisione dall'SDK o dalla portale di Azure, non è possibile visualizzare la pagina **Panoramica** standard che contiene informazioni sulla sottoscrizione nell'estensione. In questo scenario non è possibile passare a un'altra area di lavoro. Per visualizzare un'altra area di lavoro, passare direttamente a [Azure Machine Learning Studio](https://ml.azure.com) e cercare il nome dell'area di lavoro.
+  * Tutti gli asset (set di impostazioni, esperimenti, calcoli e così via) sono disponibili solo in [Azure Machine Learning Studio](https://ml.azure.com). *Non* sono disponibili dal portale di Azure.
 
 * **Browser supportati nel portale Web di Azure Machine Learning Studio**: è consigliabile usare il browser più aggiornato compatibile con il sistema operativo. Sono supportati i browser seguenti:
   * Microsoft Edge (il nuovo Microsoft Edge, la versione più recente. Non legacy Microsoft Edge)
@@ -208,9 +210,9 @@ Se si usa una condivisione file per altri carichi di lavoro, ad esempio il trasf
 
     Se non si include la barra iniziale '/', sarà necessario anteporre la directory di lavoro ad esempio alla `/mnt/batch/.../tmp/dataset` destinazione di calcolo per indicare dove si desidera montare il set di dati.
 
-### <a name="data-labeling-projects"></a>Progetti di assegnazione di etichette ai dati
+### <a name="data-labeling-projects"></a>Progetti di etichettatura dei dati
 
-|Problema  |Risoluzione  |
+|Problema  |Soluzione  |
 |---------|---------|
 |È possibile usare solo i set di dati creati negli archivi dati BLOB.     |  Si tratta di un limite noto della versione corrente.       |
 |Dopo la creazione, il progetto Mostra "inizializzazione" per molto tempo.     | Aggiornare manualmente la pagina. L'inizializzazione deve continuare a circa 20 punti di database al secondo. La mancanza di AutoRefresh è un problema noto.         |
@@ -239,7 +241,7 @@ Limitazioni e problemi noti per i monitoraggi della deriva dei dati:
     1. Nella scheda **monitoraggi set di dati** selezionare il collegamento esperimento per controllare lo stato dell'esecuzione.  Questo collegamento si trova all'estrema destra della tabella.
     1. Se l'esecuzione è stata completata correttamente, controllare i registri driver per vedere quante metriche sono state generate o se sono presenti messaggi di avviso.  Trovare i log dei driver nella scheda **output + logs** dopo aver fatto clic su un esperimento.
 
-* Se la `backfill()` funzione SDK non genera l'output previsto, la causa potrebbe essere un problema di autenticazione.  Quando si crea il calcolo da passare a questa funzione, non usare `Run.get_context().experiment.workspace.compute_targets` .  Usare invece [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py) come il seguente per creare il calcolo passato a tale `backfill()` funzione: 
+* Se la `backfill()` funzione SDK non genera l'output previsto, la causa potrebbe essere un problema di autenticazione.  Quando si crea il calcolo da passare a questa funzione, non usare `Run.get_context().experiment.workspace.compute_targets` .  Usare invece [ServicePrincipalAuthentication](https://docs.microsoft.com/python/api/azureml-core/azureml.core.authentication.serviceprincipalauthentication?view=azure-ml-py&preserve-view=true) come il seguente per creare il calcolo passato a tale `backfill()` funzione: 
 
   ```python
    auth = ServicePrincipalAuthentication(
@@ -294,7 +296,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     Azure ML fornisce anche estimatori specifici del Framework per TensorFlow, PyTorch, Chainer e SKLearn. Con questi estimatori si assicurerà che le dipendenze del Framework di base siano installate per conto dell'utente nell'ambiente utilizzato per il training. È possibile specificare dipendenze aggiuntive, come descritto in precedenza. 
  
     Le immagini Docker gestite da Azure ML e il relativo contenuto possono essere visualizzate nei [contenitori AzureML](https://github.com/Azure/AzureML-Containers).
-    Le dipendenze specifiche del Framework sono elencate nella rispettiva documentazione di Framework- [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks).
+    Le dipendenze specifiche del Framework sono elencate nella rispettiva documentazione di Framework- [Chainer](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#&preserve-view=trueremarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#&preserve-view=trueremarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#&preserve-view=trueremarks), [SKLearn](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#&preserve-view=trueremarks).
 
     > [!Note]
     > Se si ritiene che un particolare pacchetto sia abbastanza comune da essere aggiunto in ambienti e immagini gestite da Azure ML, è necessario generare un problema di GitHub nei [contenitori AzureML](https://github.com/Azure/AzureML-Containers). 
@@ -303,7 +305,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 * **Horovod è stato arrestato**: nella maggior parte dei casi se si verifica l'arresto di "AbortedError: Horovod" questa eccezione significa che è presente un'eccezione sottostante in uno dei processi che hanno causato l'arresto di Horovod. Ogni rango nel processo MPI ottiene il proprio file di log dedicato in Azure ML. Questi log sono denominati `70_driver_logs` . In caso di training distribuito, i nomi dei log sono con suffisso `_rank` per semplificare la differenziazione dei log. Per individuare l'errore esatto che ha causato l'arresto di Horovod, esaminare tutti i file di log e cercare `Traceback` alla fine dei file di driver_log. Uno di questi file fornirà l'effettiva eccezione sottostante. 
 
-* **Esecuzione o eliminazione dell'esperimento**: gli esperimenti possono essere archiviati tramite il metodo [Experiment. Archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#archive--) o dalla visualizzazione della scheda dell'esperimento nel client di Azure Machine Learning Studio tramite il pulsante "Archivia esperimento". Questa azione consente di nascondere l'esperimento dall'elenco di query e viste, ma non di eliminarlo.
+* **Esecuzione o eliminazione dell'esperimento**: gli esperimenti possono essere archiviati tramite il metodo [Experiment. Archive](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#&preserve-view=truearchive--) o dalla visualizzazione della scheda dell'esperimento nel client di Azure Machine Learning Studio tramite il pulsante "Archivia esperimento". Questa azione consente di nascondere l'esperimento dall'elenco di query e viste, ma non di eliminarlo.
 
     L'eliminazione permanente di singoli esperimenti o esecuzioni non è attualmente supportata. Per ulteriori informazioni sull'eliminazione delle risorse dell'area di lavoro, vedere [esportare o eliminare i dati dell'area di lavoro del servizio Machine Learning](how-to-export-delete-data.md).
 
@@ -337,6 +339,8 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
     pip install --upgrade pandas==0.23.4
     pip install --upgrade scikit-learn==0.20.3
   ```
+ 
+* Il **Punteggio di previsione R2 è sempre zero**: questo problema si verifica se i dati di training forniti hanno una serie temporale che contiene lo stesso valore per gli ultimi `n_cv_splits`  +  `forecasting_horizon` punti dati. Se questo modello è previsto nella serie temporale, è possibile cambiare la metrica primaria in modo da normalizzare l'errore quadratico medio.
  
 * **TensorFlow**: a partire dalla versione 1.5.0 dell'SDK, Machine Learning automatico non installa i modelli TensorFlow per impostazione predefinita. Per installare TensorFlow e usarlo con gli esperimenti di Machine Learning automatici, installare TensorFlow = = 1.12.0 tramite CondaDependecies. 
  
@@ -403,7 +407,7 @@ interactive_auth = InteractiveLoginAuthentication(tenant_id="the tenant_id in wh
 
 Eseguire queste azioni per gli errori seguenti:
 
-|Errore  | Risoluzione  |
+|Errore  | Soluzione  |
 |---------|---------|
 |Errore di compilazione dell'immagine durante la distribuzione del servizio Web     |  Aggiungere "pynacl = = 1.2.1" come dipendenza pip al file conda per la configurazione dell'immagine       |
 |`['DaskOnBatch:context_managers.DaskOnBatch', 'setup.py']' died with <Signals.SIGKILL: 9>`     |   Modificare lo SKU per le macchine virtuali usate nella distribuzione in uno con una maggiore quantità di memoria. |

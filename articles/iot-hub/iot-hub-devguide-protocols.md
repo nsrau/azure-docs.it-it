@@ -13,12 +13,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: 619bc7cec2f8a79a656cf3a7ad1f86d1e5786abb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 1792535fab79ed20bdf77f96b4fc39f13b0c7bbb
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322993"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016002"
 ---
 # <a name="reference---choose-a-communication-protocol"></a>Informazioni di riferimento: scegliere un protocollo di comunicazione
 
@@ -54,6 +54,8 @@ Nella scelta del protocollo per le comunicazioni sul lato dispositivo occorre pr
 
 > [!WARNING]
 > Quando si usa HTTPS, ogni dispositivo deve eseguire il polling dei messaggi da cloud a dispositivo non più di una volta ogni 25 minuti. In fase di sviluppo, ogni dispositivo può eseguire il polling più frequentemente, se lo si desidera.
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-support-note](../../includes/iot-hub-include-x509-ca-signed-support-note.md)]
 
 ## <a name="port-numbers"></a>Numeri di porta
 

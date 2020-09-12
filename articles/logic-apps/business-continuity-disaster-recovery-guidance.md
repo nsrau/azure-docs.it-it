@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 03/31/2020
-ms.openlocfilehash: cc55b24c4852028eb1244e97b48415ba08420e20
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0a36cb468ebcb77c0614bffd0afc392df3655c20
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066534"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658196"
 ---
 # <a name="business-continuity-and-disaster-recovery-for-azure-logic-apps"></a>Continuità aziendale e ripristino di emergenza per app per la logica di Azure
 
@@ -69,7 +69,7 @@ Questo esempio mostra le istanze di app per la logica primaria e secondaria prec
 
 ## <a name="connections-to-resources"></a>Connessioni alle risorse
 
-App per la logica di Azure offre [trigger e azioni predefiniti, oltre a centinaia di connettori gestiti](../connectors/apis-list.md) che possono essere usati dall'app per la logica per lavorare con altre app, servizi, sistemi e altre risorse, ad esempio account di archiviazione di Azure, database SQL Server, account di posta elettronica di Office 365 Outlook e così via. Se l'app per la logica necessita dell'accesso a queste risorse, si creano connessioni che autenticano l'accesso a queste risorse. Ogni connessione è una risorsa di Azure separata presente in una posizione specifica e non può essere usata da risorse in altre posizioni.
+App per la logica di Azure offre [trigger e azioni predefiniti, oltre a centinaia di connettori gestiti](../connectors/apis-list.md) che possono essere usati dall'app per la logica per lavorare con altre app, servizi, sistemi e altre risorse, ad esempio account di archiviazione di Azure, database SQL Server, account di posta elettronica aziendali o dell'Istituto di istruzione e così via. Se l'app per la logica necessita dell'accesso a queste risorse, si creano connessioni che autenticano l'accesso a queste risorse. Ogni connessione è una risorsa di Azure separata presente in una posizione specifica e non può essere usata da risorse in altre posizioni.
 
 Per la strategia di ripristino di emergenza, prendere in considerazione le posizioni in cui sono presenti risorse dipendenti rispetto alle istanze dell'app per la logica:
 
@@ -102,8 +102,8 @@ La risorsa del gateway dati è associata a una località o a un'area di Azure, p
 
 | Primario-ruolo secondario | Descrizione |
 |------------------------|-------------|
-| *Attivo-attivo* | Le istanze dell'app per la logica primaria e secondaria in entrambe le posizioni gestiscono attivamente le richieste seguendo uno di questi modelli: <p><p>- *Bilanciamento del carico*: è possibile fare in modo che entrambe le istanze attendano un endpoint e bilanciare il carico del traffico in ogni istanza, se necessario. <p>- *Consumer concorrenti*: è possibile fare in modo che entrambe le istanze fungano da consumer concorrenti, in modo che le istanze concorrano per i messaggi da una coda. Se un'istanza ha esito negativo, l'altra istanza assume il carico di lavoro. |
-| *Attivo-passivo* | L'istanza dell'app per la logica primaria gestisce attivamente l'intero carico di lavoro, mentre l'istanza secondaria è passiva (disabilitata o inattiva). Il database secondario attende un segnale che il database primario non è disponibile o non funziona a causa di interruzioni o errori e assume il carico di lavoro come istanza attiva. |
+| *Modalità attiva-attiva* | Le istanze dell'app per la logica primaria e secondaria in entrambe le posizioni gestiscono attivamente le richieste seguendo uno di questi modelli: <p><p>- *Bilanciamento del carico*: è possibile fare in modo che entrambe le istanze attendano un endpoint e bilanciare il carico del traffico in ogni istanza, se necessario. <p>- *Consumer concorrenti*: è possibile fare in modo che entrambe le istanze fungano da consumer concorrenti, in modo che le istanze concorrano per i messaggi da una coda. Se un'istanza ha esito negativo, l'altra istanza assume il carico di lavoro. |
+| *Modalità attiva-passiva* | L'istanza dell'app per la logica primaria gestisce attivamente l'intero carico di lavoro, mentre l'istanza secondaria è passiva (disabilitata o inattiva). Il database secondario attende un segnale che il database primario non è disponibile o non funziona a causa di interruzioni o errori e assume il carico di lavoro come istanza attiva. |
 | Combinazione | Alcune app per la logica svolgono un ruolo attivo-attivo, mentre altre app per la logica svolgono un ruolo attivo-passivo. |
 |||
 

@@ -9,16 +9,14 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc, devx-track-csharp
 manager: philmea
-ms.openlocfilehash: 572b5328a433839dafbfe23eb7207dfaeb9ea309
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 288fb5b552eab2029ea72f73a835fc73d97244b9
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017856"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018190"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Estendere Azure IoT Central con regole personalizzate usando Analisi di flusso, Funzioni di Azure e SendGrid
-
-
 
 Questa guida illustra come uno sviluppatore di soluzioni, come estendere l'applicazione IoT Central con regole e notifiche personalizzate. Nell'esempio viene illustrato l'invio di una notifica a un operatore quando un dispositivo interrompe l'invio di dati di telemetria. La soluzione USA una query di [analisi di flusso di Azure](https://docs.microsoft.com/azure/stream-analytics/) per rilevare quando un dispositivo ha interrotto l'invio della telemetria. Il processo di analisi di flusso usa [funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/) per inviare messaggi di posta elettronica di notifica usando [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/).
 
@@ -34,7 +32,7 @@ In questa guida dettagliata si apprenderà come:
 
 Per completare la procedura descritta in questa guida pratica, è necessaria una sottoscrizione di Azure attiva.
 
-Se non si possiede una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
+Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 ### <a name="iot-central-application"></a>Applicazione IoT Central
 
@@ -54,7 +52,7 @@ Gli esempi e le schermate in questo articolo usano l'area **Stati Uniti** . Sceg
 
 Questo modello di applicazione include due dispositivi termotermostati simulati che inviano dati di telemetria.
 
-### <a name="resource-group"></a>Resource group
+### <a name="resource-group"></a>Gruppo di risorse
 
 Usare il [portale di Azure per creare un gruppo di risorse](https://portal.azure.com/#create/Microsoft.ResourceGroup) denominato **DetectStoppedDevices** per contenere le altre risorse create. Creare le risorse di Azure nello stesso percorso dell'applicazione IoT Central.
 
@@ -317,12 +315,12 @@ Nel sito Web di [Azure IOT Central Application Manager](https://aka.ms/iotcentra
     | Impostazione | Valore |
     | ------- | ----- |
     | Nome visualizzato | Esporta in hub eventi |
-    | Abilitato | On |
+    | Attivato | On |
     | Spazio dei nomi di Hub eventi | Nome dello spazio dei nomi di hub eventi |
     | Hub eventi | centralexport |
     | Misurazioni | On |
-    | Dispositivi | Disattivata |
-    | Modelli di dispositivo | Disattivata |
+    | Dispositivi | Off |
+    | Modelli di dispositivo | Off |
 
 ![Configurazione dell'esportazione continua dei dati](media/howto-create-custom-rules/cde-configuration.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
 ms.author: yelevin
-ms.openlocfilehash: 4042f7b9d0f6fdf293f338c89d5783fe266c4edf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0d918de4669e1b4bac6c1775a813eb1d224f39cf
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77581685"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662019"
 ---
 # <a name="remove-azure-sentinel-from-your-workspace"></a>Rimuovere Azure Sentinel dall'area di lavoro
 
@@ -48,13 +48,13 @@ Una volta identificata la disconnessione, viene avviato il processo offboarding.
 
 -   AWS
 
--   Avvisi di sicurezza dei servizi Microsoft (Azure ATP, Microsoft Cloud App Security inclusi Cloud Discovery segnalazione Shadow IT, Azure AD Identity Protection, Microsoft Defender ATP, Centro sicurezza di Azure)
+-   Avvisi di sicurezza dei servizi Microsoft: Microsoft Defender for Identity (in*precedenza Azure ATP*), Microsoft Cloud App Security inclusi cloud Discovery Shadow it reporting, Azure ad Identity Protection, Microsoft Defender for endpoint (in*precedenza Microsoft Defender ATP*), Azure Defender (in*precedenza il Centro sicurezza di Azure*)
 
 -   Intelligence per le minacce
 
--   Log di sicurezza comuni (inclusi i log basati su CEF, Barracuda e syslog). Se si dispone del Centro sicurezza di Azure, questi log continueranno a essere raccolti.
+-   Log di sicurezza comuni (inclusi i log basati su CEF, Barracuda e syslog). Se si dispone di Azure Defender, questi log continueranno a essere raccolti.
 
--   Eventi di sicurezza di Windows. Se si dispone del Centro sicurezza di Azure, questi log continueranno a essere raccolti.
+-   Eventi di sicurezza di Windows. Se si dispone di Azure Defender, questi log continueranno a essere raccolti.
 
 Nelle prime 48 ore, i dati e le regole analitiche (inclusa la configurazione di automazione in tempo reale) non saranno più accessibili o disponibili per le query in Sentinel di Azure.
 

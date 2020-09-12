@@ -5,17 +5,17 @@ description: Informazioni su come eseguire il training di un modello e configura
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.author: peterlu
-author: peterclu
-ms.date: 02/24/2020
+ms.author: keli19
+author: likebupt
+ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 61465210c9ad476c6d8d2987330498aa0efa39d4
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e4ca191e50f4ca8aa5a11a36ec44e737cc2ef6bc
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319610"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661485"
 ---
 # <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Eseguire stime batch tramite la finestra di progettazione di Azure Machine Learning (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -71,9 +71,12 @@ In questa sezione viene creato un parametro del set di dati per specificare un s
    
     Immettere un nome per il parametro o accettare il valore predefinito.
 
-## <a name="publish-your-batch-inferencing-pipeline"></a>Pubblicare la pipeline di inferenza batch
+    > [!div class="mx-imgBorder"]
+    > ![Imposta set di dati come parametro della pipeline](./media/how-to-run-batch-predictions-designer/set-dataset-as-pipeline-parameter.png)
 
-A questo punto è possibile distribuire la pipeline di inferenza. La pipeline verrà distribuita e resa disponibile per l'uso da parte di altri utenti.
+## <a name="publish-your-batch-inference-pipeline"></a>Pubblicare la pipeline di inferenza batch
+
+A questo punto si è pronti per distribuire la pipeline di inferenza. La pipeline verrà distribuita e resa disponibile per l'uso da parte di altri utenti.
 
 1. Fare clic sul pulsante **Pubblica**.
 
@@ -126,9 +129,7 @@ Per informazioni su come utilizzare gli endpoint della pipeline e la pipeline pu
 
 È possibile trovare l'endpoint REST di un endpoint della pipeline nel pannello di panoramica dell'esecuzione. Chiamando l'endpoint, si utilizza la pipeline pubblicata predefinita.
 
-È anche possibile utilizzare una pipeline pubblicata nella pagina **Published pipelines** (Pipeline pubblicate). Selezionare una pipeline pubblicata e trovare l'endpoint REST. 
-
-![Dettagli dell'endpoint REST](./media/how-to-run-batch-predictions-designer/rest-endpoint-details.png)
+È anche possibile utilizzare una pipeline pubblicata nella pagina **Published pipelines** (Pipeline pubblicate). Selezionare una pipeline pubblicata ed è possibile trovare l'endpoint REST nel pannello panoramica della **pipeline pubblicata** a destra del grafo. 
 
 Per eseguire una chiamata REST è necessaria un'intestazione di autenticazione di tipo bearer token OAuth 2.0. Vedere la [sezione dell'esercitazione](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint) seguente per informazioni più dettagliate sulla configurazione dell'autenticazione per l'area di lavoro e l'esecuzione di una chiamata REST con parametri.
 
@@ -142,7 +143,7 @@ Quando si pubblica una pipeline, è possibile scegliere di impostarla come nuova
 
 È anche possibile impostare una nuova pipeline predefinita nella scheda **Published pipelines** (Pipeline pubblicate) dell'endpoint.
 
-![Impostare la pipeline predefinita](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
+![Imposta pipeline predefinita nella pagina della pipeline pubblicata](./media/how-to-run-batch-predictions-designer/set-new-default-pipeline.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

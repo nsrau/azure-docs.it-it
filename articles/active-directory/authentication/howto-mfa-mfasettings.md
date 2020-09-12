@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 1bc3f7887c9d257f5971b867ff9b7b1dd970fa87
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 6a5ec4644eaed8d525c278c4fc464b4dbc683596
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179404"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90023840"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurare le impostazioni di Azure Multi-Factor Authentication
 
@@ -25,7 +25,7 @@ Per personalizzare l'esperienza dell'utente finale per Azure Multi-Factor Authen
 
 Le impostazioni Multi-Factor Authentication di Azure seguenti sono disponibili nel portale di Azure:
 
-| Funzionalità | Descrizione |
+| Feature | Descrizione |
 | ------- | ----------- |
 | [Blocco dell'account](#account-lockout) | Bloccare temporaneamente gli account usando Azure Multi-Factor Authentication se sono presenti troppi tentativi di autenticazione negati in una riga. Questa funzionalità si applica solo agli utenti che effettuano l'autenticazione tramite PIN (server MFA). |
 | [Blocca/Sblocca utenti](#block-and-unblock-users) | Impedisce a utenti specifici di ricevere richieste di Multi-Factor Authentication di Azure. Eventuali tentativi di autenticazione per gli utenti bloccati vengono negati automaticamente. Gli utenti rimangono bloccati per 90 giorni dal momento in cui vengono bloccati o sbloccati manualmente. |
@@ -242,7 +242,10 @@ La funzionalità _indirizzi IP attendibili_ di Azure multi-factor authentication
 
 Se l'organizzazione distribuisce l'estensione del server dei criteri di rete per garantire l'autenticazione a più fattori ad applicazioni locali, si prega di notare che gli indirizzi IP originali sembreranno sempre il server dei criteri di rete attraverso cui passa il tentativo di autenticazione.
 
-| Tipo di tenant Azure AD | Opzioni della funzionalità IP attendibili | |:---|:---| due passaggi | Gestito | **Intervallo specifico di indirizzi IP**: gli amministratori specificano un intervallo di indirizzi IP che possono ignorare l'autenticazione a più fattori per gli utenti che effettuano l'accesso dalla rete Intranet aziendale. È possibile configurare un massimo di 50 intervalli di indirizzi IP attendibili. | | Federato | **Tutti gli utenti federati**: tutti gli utenti federati che eseguono l'accesso dall'interno dell'organizzazione possono ignorare la funzionalità di autenticazione a più fattori. Gli utenti ignorano la verifica usando un'attestazione emessa da Active Directory Federation Services (AD FS).<br/>**Intervallo specifico di indirizzi IP**: gli amministratori specificano un intervallo di indirizzi IP che possono ignorare l'autenticazione a più fattori per gli utenti che effettuano l'accesso dalla rete Intranet aziendale. |
+| Tipo di tenant di Azure AD | Opzioni delle funzionalità IP attendibili |
+|:--- |:--- |
+| Gestiti |**Intervallo specifico di indirizzi IP**: gli amministratori specificano un intervallo di indirizzi IP che possono ignorare l'autenticazione a più fattori per gli utenti che effettuano l'accesso dalla rete Intranet aziendale. È possibile configurare un massimo di 50 intervalli di indirizzi IP attendibili.|
+| Federato |**Tutti gli utenti federati**: tutti gli utenti federati che eseguono l'accesso dall'interno dell'organizzazione possono ignorare la funzionalità di autenticazione a più fattori. Gli utenti ignorano la verifica usando un'attestazione emessa da Active Directory Federation Services (AD FS).<br/>**Intervallo specifico di indirizzi IP**: gli amministratori specificano un intervallo di indirizzi IP che possono ignorare l'autenticazione a più fattori per gli utenti che effettuano l'accesso dalla rete Intranet aziendale. |
 
 Il bypass IP attendibile funziona solo dall'interno della Intranet aziendale. Se si seleziona l'opzione **tutti gli utenti federati** e un utente accede dall'esterno della rete Intranet aziendale, l'utente deve eseguire l'autenticazione tramite l'autenticazione a più fattori. Il processo è lo stesso anche se l'utente presenta un'attestazione AD FS.
 

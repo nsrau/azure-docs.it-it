@@ -9,12 +9,12 @@ ms.topic: troubleshooting
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 08/06/2020
-ms.openlocfilehash: 73cb8396876a5baad74190ec9a86237362037c36
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 1449114ad14ebbd064f95ad2853b516893ba4b12
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87908902"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661690"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Debug interattivo con Visual Studio Code
 
@@ -37,7 +37,7 @@ In alcuni casi, potrebbe essere necessario eseguire il debug interattivo del cod
   * Un'istanza di calcolo della VM del notebook nella rete virtuale
   * Un computer client con connettività di rete privata alla rete virtuale, tramite VPN o tramite ExpressRoute.
 
-Per altre informazioni sull'uso di una rete virtuale di Azure con Azure Machine Learning, vedere [proteggere i processi di sperimentazione e inferenza di Azure ml in una rete virtuale di Azure](how-to-enable-virtual-network.md).
+Per altre informazioni sull'uso di una rete virtuale di Azure con Azure Machine Learning, vedere [Panoramica dell'isolamento e della privacy della rete virtuale](how-to-network-security-overview.md).
 
 > [!TIP]
 > Sebbene sia possibile utilizzare Azure Machine Learning risorse che non si trovano dietro una rete virtuale, è consigliabile utilizzare una rete virtuale.
@@ -281,7 +281,7 @@ Salvare il `ip_address` valore. Verranno usate nella sezione successiva.
 In alcuni casi, potrebbe essere necessario eseguire il debug interattivo del codice Python contenuto nella distribuzione del modello. Ad esempio, se lo script di immissione ha esito negativo e il motivo non può essere determinato da una registrazione aggiuntiva. Usando VS Code e debugpy, è possibile connettersi al codice in esecuzione all'interno del contenitore docker.
 
 > [!IMPORTANT]
-> Questo metodo di debug non funziona quando si usano `Model.deploy()` e `LocalWebservice.deploy_configuration` per distribuire un modello localmente. Al contrario, è necessario creare un'immagine usando il metodo [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#package-workspace--models--inference-config-none--generate-dockerfile-false-).
+> Questo metodo di debug non funziona quando si usano `Model.deploy()` e `LocalWebservice.deploy_configuration` per distribuire un modello localmente. Al contrario, è necessario creare un'immagine usando il metodo [Model.package()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truepackage-workspace--models--inference-config-none--generate-dockerfile-false-).
 
 Per le distribuzioni di servizi Web locali è necessaria un'installazione Docker funzionante nel sistema locale. Per altre informazioni sull'uso di Docker, vedere la [Documentazione di Docker](https://docs.docker.com/). Si noti che quando si lavora con le istanze di calcolo, Docker è già installato.
 

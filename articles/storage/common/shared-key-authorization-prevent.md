@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: 3d46df8847a5865c42438ea36245ead0f1e6e528
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: f65bf2bbe174ff90d5a0b962768833b8668f6400
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88951119"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019717"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedisci l'autorizzazione della chiave condivisa per un account di archiviazione di Azure (anteprima)
 
@@ -213,7 +213,7 @@ Alcuni strumenti di Azure offrono la possibilità di usare Azure AD autorizzazio
 
 | Strumento di Azure | Azure AD autorizzazione per archiviazione di Azure |
 |-|-|
-| Portale di Azure | Supportata. Per informazioni sull'autorizzazione con l'account Azure AD dall'portale di Azure, vedere [scegliere come autorizzare l'accesso ai dati BLOB o di accodamento nel portale di Azure](storage-access-blobs-queues-portal.md). |
+| Portale di Azure | Supportata. Per informazioni sull'autorizzazione con l'account Azure AD dall'portale di Azure, vedere [scegliere come autorizzare l'accesso ai dati BLOB nel portale di Azure](../blobs/authorize-blob-access-portal.md). |
 | AzCopy | Supportato per l'archiviazione BLOB. Per informazioni su come autorizzare le operazioni di AzCopy, vedere [scegliere come fornire le credenziali di autorizzazione](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) nella documentazione di AzCopy. |
 | Esplora archivi Azure | Supportato solo per l'archiviazione BLOB e Azure Data Lake Storage Gen2. Azure AD l'accesso all'archiviazione code non è supportato. Assicurarsi di selezionare il tenant Azure AD corretto. Per ulteriori informazioni, vedere [Introduzione a Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) |
 | Azure PowerShell | Supportata. Per informazioni su come autorizzare i comandi di PowerShell con Azure AD per l'accesso ai dati BLOB e di Accodamento, vedere [eseguire comandi di PowerShell con Azure ad credenziali per accedere ai dati di BLOB o di Accodamento](authorize-active-directory-powershell.md). |

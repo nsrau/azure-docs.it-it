@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: arthii, logicappspm
 ms.topic: article
 ms.date: 05/15/2020
-ms.openlocfilehash: 9e50cdb16ee6acbdb903681984dcfbd7bfe170fa
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: f646af4cad6101e019e58f4f50a40b07aff19461
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386130"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660483"
 ---
 # <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>Installare il gateway dati locale per App per la logica di Azure
 
@@ -33,7 +33,7 @@ Questo articolo illustra come scaricare, installare e configurare il gateway dat
   * L'account di Azure deve essere un account aziendale o dell'Istituto di istruzione, simile a `username@contoso.com` . Non è possibile usare un account di Azure B2B (guest) o un account Microsoft personale, ad esempio @hotmail.com o @outlook.com.
 
     > [!NOTE]
-    > Se l'utente si è iscritto a un'offerta di Office 365 senza specificare l'indirizzo di posta elettronica aziendale, questo potrebbe essere simile a `username@domain.onmicrosoft.com`. L'account è archiviato in un tenant di Azure AD. Nella maggior parte dei casi, il nome dell'entità utente (UPN) per l'account Azure è uguale a quello dell'indirizzo di posta elettronica.
+    > Se è stata effettuata l'iscrizione per un'offerta di Microsoft 365 e non è stato fornito l'indirizzo di posta elettronica dell'ufficio, l'indirizzo potrebbe essere simile a `username@domain.onmicrosoft.com` . L'account è archiviato in un tenant di Azure AD. Nella maggior parte dei casi, il nome dell'entità utente (UPN) per l'account Azure è uguale a quello dell'indirizzo di posta elettronica.
 
     Per usare una [sottoscrizione standard di Visual Studio](https://visualstudio.microsoft.com/vs/pricing/) associata a una account Microsoft, creare prima [un tenant Azure ad](../active-directory/develop/quickstart-create-new-tenant.md) o usare la directory predefinita. Aggiungere un utente con una password alla directory e quindi concedere all'utente l'accesso alla sottoscrizione di Azure. Sarà quindi possibile accedere durante l'installazione del gateway con questo nome utente e questa password.
 

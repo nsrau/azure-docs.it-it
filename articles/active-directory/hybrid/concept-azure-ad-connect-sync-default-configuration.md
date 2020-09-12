@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2886b842aab81732beec0fdd7957aab8e2b4f5e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3853d0e5754f368043414ea4eaade8c4adf179e9
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76548867"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661852"
 ---
 # <a name="azure-ad-connect-sync-understanding-the-default-configuration"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sulla configurazione predefinita
 In questo articolo vengono illustrate le regole di configurazione predefinite, elencando le regole e spiegando come influiscono sulla configurazione. Viene inoltre illustrata la configurazione predefinita della sincronizzazione Azure AD Connect. L'obiettivo è che il lettore conosca il modo in cui il modello di configurazione, denominato provisioning dichiarativo, sta funzionando in un esempio reale. Nell'articolo si presuppone che l'utente abbia già installato e configurato il servizio di sincronizzazione Azure AD Connect tramite l'Installazione guidata.
@@ -223,7 +223,7 @@ Le informazioni fornite fino a questo punto dovrebbero essere sufficienti per co
 | Nome | Commento |
 |:--- |:--- |
 | In from AD – User Join |Regola per l'unione degli oggetti dello spazio connettore con il metaverse. |
-| In from AD – UserAccount Enabled |Attributi necessari per l'accesso ad Azure AD e Office 365. Questi attributi dovranno essere rilevati dall'account abilitato. |
+| In from AD – UserAccount Enabled |Attributi necessari per l'accesso Azure AD e Microsoft 365. Questi attributi dovranno essere rilevati dall'account abilitato. |
 | In from AD – User Common from Exchange |Attributi trovati nell'Elenco indirizzi globale. Si presuppone che la qualità dei dati sia migliore nella foresta in cui è stata individuata la cassetta postale dell'utente. |
 | In from AD – User Common |Attributi trovati nell'Elenco indirizzi globale. Se non è stata trovata una cassetta postale, alla definizione del valore dell'attributo può contribuire qualsiasi altro oggetto unito. |
 | In from AD – User Exchange |Presente solo se è stato rilevato Exchange. Trasmette tutti gli attributi dell'infrastruttura di Exchange. |

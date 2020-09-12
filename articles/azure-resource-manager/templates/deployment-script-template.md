@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 07/24/2020
 ms.author: jgao
-ms.openlocfilehash: 4094e610bb290fc11656dc192f3d0a495f679dc5
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: fb6d1c9e0e2ca545be850af22df15b342cf8d82c
+ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87291803"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89667496"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>Usare gli script di distribuzione nei modelli (anteprima)
 
@@ -143,7 +143,7 @@ Dettagli sui valori delle proprietà:
 - **azPowerShellVersion**/**azCliVersion**: Specificare la versione del modulo da usare. Per un elenco delle versioni supportate di PowerShell e dell'interfaccia della riga di comando, vedere [Prerequisiti](#prerequisites).
 - **arguments**: Specificare i valori del parametro. I valori sono separati da uno spazio.
 
-    Gli script di distribuzione suddividono gli argomenti in una matrice di stringhe richiamando la chiamata di sistema [CommandLineToArgvW](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) . Questa operazione è necessaria perché gli argomenti vengono passati come [proprietà del comando](/rest/api/container-instances/containergroups/createorupdate#containerexec) a un'istanza di contenitore di Azure e la proprietà Command è una matrice di stringa.
+    Gli script di distribuzione suddividono gli argomenti in una matrice di stringhe richiamando la chiamata di sistema [CommandLineToArgvW ](/windows/win32/api/shellapi/nf-shellapi-commandlinetoargvw) . Questa operazione è necessaria perché gli argomenti vengono passati come [proprietà del comando](/rest/api/container-instances/containergroups/createorupdate#containerexec) a un'istanza di contenitore di Azure e la proprietà Command è una matrice di stringa.
 
     Se gli argomenti contengono caratteri di escape, usare [JsonEscaper](https://www.jsonescaper.com/) per eseguire il doppio escape dei caratteri. Incollare la stringa di escape originale nello strumento, quindi selezionare **escape**.  Lo strumento restituisce una doppia stringa con caratteri di escape. Nel modello di esempio precedente, ad esempio, l'argomento è **-Name \\ "John Dole \\ "**.  La stringa con caratteri di escape è il **nome \\ \\ \\ "John Dole \\ \\ \\ "**.
 
@@ -217,7 +217,7 @@ L'utente è responsabile di garantire l'integrità degli script a cui viene fatt
 
 ## <a name="use-supporting-scripts"></a>Usare script di supporto
 
-È possibile separare le logiche complesse in uno o più file di script di supporto. Se necessario, la proprietà `supportingScriptURI` consente di fornire una matrice di URI ai file di script di supporto:
+È possibile separare le logiche complesse in uno o più file di script di supporto. Se necessario, la proprietà `supportingScriptUris` consente di fornire una matrice di URI ai file di script di supporto:
 
 ```json
 "scriptContent": "

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
-ms.openlocfilehash: ddc70ccbbb5c964f16b078470517ce667bc878f1
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: bf22e20a6c6187677f000e0c50ac64582233c3cd
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082642"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019666"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Configurare la pianificazione dell'applicazione di patch del sistema operativo per i cluster HDInsight basati su Linux
 
@@ -22,8 +22,8 @@ ms.locfileid: "86082642"
 
 HDInsight fornisce supporto per l'esecuzione di attività comuni nel cluster, ad esempio l'installazione di patch del sistema operativo, gli aggiornamenti della sicurezza e il riavvio dei nodi. Queste attività vengono eseguite usando i due script seguenti che possono essere eseguiti come [azioni script](hdinsight-hadoop-customize-cluster-linux.md)e configurati con i parametri:
 
-- `schedule-reboots.sh`-Eseguire un riavvio immediato o pianificare un riavvio nei nodi del cluster.
-- `install-updates-schedule-reboots.sh`-Installare tutti gli aggiornamenti, solo quelli di kernel + Security o solo gli aggiornamenti del kernel.
+- `schedule-reboots.sh` -Eseguire un riavvio immediato o pianificare un riavvio nei nodi del cluster.
+- `install-updates-schedule-reboots.sh` -Installare tutti gli aggiornamenti, solo quelli di kernel + Security o solo gli aggiornamenti del kernel.
 
 > [!NOTE]  
 > Le azioni script non applicano automaticamente gli aggiornamenti per tutti i cicli di aggiornamento futuri. Eseguire gli script ogni volta che è necessario applicare nuovi aggiornamenti per installare gli aggiornamenti, quindi riavviare la macchina virtuale.
@@ -32,11 +32,16 @@ HDInsight fornisce supporto per l'esecuzione di attività comuni nel cluster, ad
 
 Patch su un ambiente non di produzione rappresentativo prima della distribuzione nell'ambiente di produzione. Sviluppare un piano per testare adeguatamente il sistema prima dell'effettiva applicazione di patch.
 
-Da una sessione SSH con il cluster, è possibile che venga visualizzato un messaggio che indica che è disponibile un aggiornamento. Il messaggio potrebbe avere un aspetto simile al seguente:
+Da una sessione SSH con il cluster, è possibile che venga visualizzato un messaggio in cui sono disponibili gli aggiornamenti della sicurezza. Il messaggio potrebbe avere un aspetto simile al seguente:
 
 ```
-New release '18.04.3 LTS' available.
-Run 'do-release-upgrade' to upgrade it
+89 packages can be updated.
+82 updates are security updates.
+
+*** System restart required ***
+
+Welcome to Spark on HDInsight.
+
 ```
 
 L'applicazione di patch è facoltativa e a propria discrezione.
@@ -64,6 +69,9 @@ Lo `install-updates-schedule-reboots` script accetta due parametri numerici, com
 
 > [!NOTE]
 > È necessario contrassegnare uno script come reso permanente dopo che è stato applicato a un cluster esistente. In caso contrario i nuovi nodi creati tramite le operazioni di ridimensionamento useranno la pianificazione dell'applicazione di patch predefinita. Se si applica lo script come parte del processo di creazione del cluster, questo viene reso automaticamente permanente.
+
+> [!NOTE]
+> L'opzione di riavvio pianificato esegue un riavvio automatico dei nodi del cluster con patch in un periodo di 12 o 24 ore e prende in considerazione le considerazioni su disponibilità elevata, dominio di aggiornamento e dominio di errore. Il riavvio pianificato non comporta l'interruzione dei carichi di lavoro in esecuzione, ma potrebbe rimuovere la capacità del cluster nel frattempo quando i nodi non sono disponibili, causando tempi di elaborazione più lunghi. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

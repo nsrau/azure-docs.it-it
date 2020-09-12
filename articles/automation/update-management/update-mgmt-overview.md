@@ -3,14 +3,14 @@ title: Automazione di Azure - Panoramica di Gestione aggiornamenti
 description: Questo articolo fornisce una panoramica della funzionalità Gestione aggiornamenti che implementa gli aggiornamenti per computer Windows e Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 07/28/2020
+ms.date: 09/11/2020
 ms.topic: conceptual
-ms.openlocfilehash: 0fd416c844ac93ffb77eded98448b2e93e9acd30
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: c95bd7523a57c2de02686d3cd06190e60550de0a
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88660909"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024138"
 ---
 # <a name="update-management-overview"></a>Panoramica di Gestione aggiornamenti
 
@@ -18,8 +18,8 @@ ms.locfileid: "88660909"
 
 È possibile abilitare Gestione aggiornamenti per le VM nei modi seguenti:
 
-* Dall'[account di Automazione di Azure](update-mgmt-enable-automation-account.md) per uno o più computer di Azure.
-* Manualmente per computer non Azure.
+* Dall' [account di automazione di Azure](update-mgmt-enable-automation-account.md) per uno o più computer Azure e non Azure.
+* Manualmente per i computer non Azure, inclusi i computer o i server registrati con i [server abilitati per Azure Arc](../../azure-arc/servers/overview.md) (anteprima).
 * Per una singola VM di Azure dalla pagina Macchina virtuale nel portale di Azure. Questo scenario è disponibile per macchine virtuali [Linux](../../virtual-machines/linux/tutorial-config-management.md#enable-update-management) e [Windows](../../virtual-machines/windows/tutorial-config-management.md#enable-update-management).
 * Per [più VM di Azure](update-mgmt-enable-portal.md) mediante la selezione delle VM dalla pagina Macchina virtuale nel portale di Azure.
 
@@ -40,21 +40,17 @@ I computer gestiti da Gestione aggiornamenti usano le configurazioni seguenti pe
 * Ruolo di lavoro ibrido per runbook di Automazione
 * Microsoft Update o Windows Server Update Services (WSUS) per computer Windows
 
-Il diagramma seguente illustra il modo in cui Gestione aggiornamenti valuta e applica gli aggiornamenti della sicurezza a tutti i computer Windows Server e Linux connessi in un'area di lavoro:
+Il diagramma seguente illustra il modo in cui Gestione aggiornamenti valuta e applica gli aggiornamenti della sicurezza a tutti i server Windows Server e Linux connessi in un'area di lavoro:
 
 ![Flusso di lavoro di Gestione aggiornamenti](./media/update-mgmt-overview/update-mgmt-updateworkflow.png)
 
-Gestione aggiornamenti può essere usato per la distribuzione nativa di computer in più sottoscrizioni nello stesso tenant.
+Gestione aggiornamenti può essere usato per distribuire in modo nativo ai computer in più sottoscrizioni nello stesso tenant.
 
-Dopo il rilascio di un pacchetto, la visualizzazione della patch per i computer Linux per la valutazione richiede tra 2 e 3 ore. Per i computer Windows, la visualizzazione della patch per la valutazione dopo il rilascio richiede tra 12 e 15 ore.
-
-Quando un computer ha completato l'analisi di conformità degli aggiornamenti, l'agente inoltra le informazioni in blocco ai log di Monitoraggio di Azure. In un computer Windows l'analisi della conformità viene eseguita ogni 12 ore per impostazione predefinita.
+Dopo il rilascio di un pacchetto, la visualizzazione della patch per i computer Linux per la valutazione richiede tra 2 e 3 ore. Per i computer Windows, la visualizzazione della patch per la valutazione dopo il rilascio richiede tra 12 e 15 ore. Quando un computer completa un'analisi per la conformità degli aggiornamenti, l'agente trasmette le informazioni in blocco ai log di monitoraggio di Azure. In un computer Windows l'analisi della conformità viene eseguita ogni 12 ore per impostazione predefinita. Per un computer Linux, l'analisi della conformità viene eseguita ogni ora per impostazione predefinita. Se l'agente di Log Analytics viene riavviato, viene avviata un'analisi della conformità entro 15 minuti.
 
 Oltre all'analisi pianificata, l'analisi della conformità degli aggiornamenti viene avviata entro 15 minuti dal momento del riavvio dell'agente di Log Analytics e prima e dopo l'installazione degli aggiornamenti.
 
-Per un computer Linux, l'analisi della conformità viene eseguita ogni ora per impostazione predefinita. Se l'agente di Log Analytics viene riavviato, viene avviata un'analisi della conformità entro 15 minuti.
-
-Gestione aggiornamenti genera report sullo stato di aggiornamento del computer in base all'origine configurata per la sincronizzazione. Se il computer Windows è configurato per l'invio di report a WSUS, in base a quando WSUS ha eseguito l'ultima sincronizzazione con Microsoft Update i risultati possono differire da quanto visualizzato da Microsoft Update. Questo comportamento è lo stesso per i computer Linux configurati per l'invio di report a un repository locale anziché a un repository pubblico.
+Gestione aggiornamenti genera report sullo stato di aggiornamento del computer in base all'origine configurata per la sincronizzazione. Se il computer Windows è configurato per la segnalazione di [Windows Server Update Services](/windows-server/administration/windows-server-update-services/get-started/windows-server-update-services-wsus) (WSUS), a seconda del momento in cui WSUS è stato sincronizzato con Microsoft Update, i risultati potrebbero essere diversi da quelli mostrati Microsoft Update. Questo comportamento è lo stesso per i computer Linux configurati per l'invio di report a un repository locale anziché a un repository pubblico.
 
 > [!NOTE]
 > Per inviare correttamente un report al servizio, Gestione aggiornamenti richiede l'abilitazione di determinati URL e porte. Per altre informazioni su questi requisiti, vedere [Configurazione della rete](../automation-hybrid-runbook-worker.md#network-planning).
@@ -176,7 +172,7 @@ La tabella seguente descrive le origini connesse supportate da Gestione aggiorna
 
 Gestione aggiornamenti analizza i computer gestiti per individuare i dati usando le regole seguenti. La visualizzazione nel dashboard dei dati aggiornati dei computer gestiti può richiedere da 30 minuti a 6 ore.
 
-* Ogni computer Windows - Gestione aggiornamenti esegue l'analisi due volte al giorno per ogni computer. Ogni 15 minuti viene eseguita una query nell'API Windows per rilevare la data/ora dell'ultimo aggiornamento e determinare se lo stato è cambiato. Se lo stato è cambiato, Gestione aggiornamenti avvia un'analisi della conformità.
+* Ogni computer Windows - Gestione aggiornamenti esegue l'analisi due volte al giorno per ogni computer.
 
 * Ogni computer Linux - Gestione aggiornamenti esegue un'analisi ogni ora.
 
@@ -256,9 +252,10 @@ Gestione aggiornamenti si basa sul repository di aggiornamento configurato in lo
 
 Di seguito sono elencate le modalità per abilitare Gestione aggiornamenti e selezionare i computer da gestire:
 
-* [Da una macchina virtuale](update-mgmt-enable-vm.md)
-* [Dall'esplorazione di più computer](update-mgmt-enable-portal.md)
+* [Da una macchina virtuale di Azure](update-mgmt-enable-vm.md)
+* [Dall'esplorazione di più macchine virtuali di Azure](update-mgmt-enable-portal.md)
 * [Da un account di Automazione di Azure](update-mgmt-enable-automation-account.md)
+* Per i server abilitati per Arc (anteprima) o per i computer non Azure, installare l' [agente log Analytics](../../azure-monitor/platform/log-analytics-agent.md) e quindi [abilitare i computer nell'area di lavoro](update-mgmt-enable-automation-account.md#enable-machines-in-the-workspace) per gestione aggiornamenti.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

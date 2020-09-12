@@ -10,12 +10,12 @@ author: Blackmist
 ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 0eec9ce6b035b7bf3627c844abb97649ce972693
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: cd9b891212010d7e61c4a4eb64d8bf0660bbd69a
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167641"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661638"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creare un'area di lavoro per Azure Machine Learning con l'interfaccia della riga di comando di Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -155,7 +155,7 @@ Se si vuole limitare l'accesso all'area di lavoro a una rete virtuale, è possib
 * `--pe-vnet-name`: Rete virtuale esistente in cui creare l'endpoint privato.
 * `--pe-subnet-name`: Nome della subnet in cui creare l'endpoint privato. Il valore predefinito è `default`.
 
-Per ulteriori informazioni sull'utilizzo di un endpoint privato e di una rete virtuale con l'area di lavoro, vedere [isolamento e privacy della rete](how-to-enable-virtual-network.md).
+Per ulteriori informazioni sull'utilizzo di un endpoint privato e di una rete virtuale con l'area di lavoro, vedere [Panoramica dell'isolamento e della privacy della rete virtuale](how-to-network-security-overview.md).
 
 ### <a name="customer-managed-key-and-high-business-impact-workspace"></a>Area di lavoro della chiave gestita dal cliente e dell'elevata incidenza aziendale
 

@@ -16,29 +16,29 @@ ms.date: 04/15/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d1754456873e464e4bd624f47c5ea98e4fb88827
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 9411c22183620f883b4d2819eb3078e49837e578
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542230"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016079"
 ---
 # <a name="azure-ad-connect-sync-attributes-synchronized-to-azure-active-directory"></a>Servizio di sincronizzazione Azure AD Connect: Attributi sincronizzati con Azure Active Directory
 Questo argomento elenca gli attributi sincronizzati tramite il servizio di sincronizzazione Azure AD Connect.  
 Gli attributi sono raggruppati in base alle app Azure AD correlate.
 
 ## <a name="attributes-to-synchronize"></a>Attributi da sincronizzare
-Spesso viene chiesto *Qual è l'elenco degli attributi minimi per sincronizzare*. L'approccio predefinito e consigliato consiste nel mantenere gli attributi predefiniti per creare un elenco indirizzi globale completo nel cloud e per ottenere tutte le funzionalità nei carichi di lavoro Office 365. Talvolta l'organizzazione non vuole sincronizzare alcuni attributi con il cloud perché contengono dati sensibili o informazioni personali, come illustrato nell'esempio seguente:   
+Spesso viene chiesto *Qual è l'elenco degli attributi minimi per sincronizzare*. L'approccio predefinito e consigliato consiste nel tenere gli attributi predefiniti, in modo che sia possibile costruire un elenco indirizzi globale completo (elenco indirizzi globale) nel cloud e ottenere tutte le funzionalità in Microsoft 365 carichi di lavoro. In alcuni casi, esistono alcuni attributi che l'organizzazione non vuole sincronizzare nel cloud poiché questi attributi contengono dati personali sensibili, come in questo esempio:  
 ![attributi non validi](./media/reference-connect-sync-attributes-synchronized/badextensionattribute.png)
 
-In questo caso, partire dal seguente elenco di attributi in questo argomento e individuare gli attributi che potrebbero contenere dati sensibili o informazioni personali e che non possono quindi essere sincronizzati. Deselezionare questi attributi durante l'installazione tramite [Filtro attributi e app di Azure AD](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering).
+In questo caso, iniziare con l'elenco degli attributi in questo argomento e identificare gli attributi che contengono dati personali e che non possono essere sincronizzati. Deselezionare questi attributi durante l'installazione tramite [Filtro attributi e app di Azure AD](how-to-connect-install-custom.md#azure-ad-app-and-attribute-filtering).
 
 > [!WARNING]
 > Quando si deselezionano gli attributi, prestare grande attenzione e deselezionare soltanto quelli che non devono assolutamente essere sincronizzati. Deselezionando altri attributi si potrebbe influire negativamente sulle funzionalità.
 >
 >
 
-## <a name="office-365-proplus"></a>Office 365 ProPlus
+## <a name="microsoft-365-apps-for-enterprise"></a>Microsoft 365 Apps for enterprise
 | Nome attributo | Utente | Commento |
 | --- |:---:| --- |
 | accountEnabled |X |Definisce se un account è abilitato. |
@@ -375,7 +375,7 @@ Questo gruppo è un set di attributi usati come gli attributi minimi necessari p
 * Yammer (viene usato solo Utente)
 * [Scenari di collaborazione tra organizzazioni Business-to-Business (B2B) ibridi offerti da risorse come SharePoint](https://go.microsoft.com/fwlink/?LinkId=747036)
 
-Questo gruppo è un set di attributi che può essere usato se non si utilizza la directory di Azure AD per supportare Office 365, Dynamics o Intune. Contiene un piccolo set di attributi principali. Si noti che Single Sign-On o il provisioning per alcune applicazioni di terze parti richiede la configurazione della sincronizzazione degli attributi oltre agli attributi descritti qui. I requisiti dell'applicazione sono descritti nell' [esercitazione sull'app Saas](../saas-apps/tutorial-list.md) per ogni applicazione.
+Questo gruppo è un set di attributi che possono essere usati se la directory Azure AD non viene usata per supportare Microsoft 365, Dynamics o Intune. Contiene un piccolo set di attributi principali. Si noti che Single Sign-On o il provisioning per alcune applicazioni di terze parti richiede la configurazione della sincronizzazione degli attributi oltre agli attributi descritti qui. I requisiti dell'applicazione sono descritti nell' [esercitazione sull'app Saas](../saas-apps/tutorial-list.md) per ogni applicazione.
 
 | Nome attributo | Utente | Contatto | Group | Commento |
 | --- |:---:|:---:|:---:| --- |
@@ -397,7 +397,7 @@ Questo gruppo è un set di attributi che può essere usato se non si utilizza la
 | userPrincipalName |X | | |Il nome dell'entità utente (UPN) costituisce l'ID di accesso per l'utente. In genere corrisponde al valore di [mail]. |
 
 ## <a name="windows-10"></a>Windows 10
-I computer o dispositivi appartenenti a un dominio Windows 10 sincronizzano alcuni attributi in Azure AD. Per altre informazioni sugli scenari, vedere [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](../active-directory-azureadjoin-devices-group-policy.md). Questi attributi verranno sempre sincronizzati e Windows 10 non appare come app che è possibile deselezionare. Un computer appartenente a un dominio Windows 10 viene identificato se l’attributo userCertificate è popolato.
+I computer o dispositivi appartenenti a un dominio Windows 10 sincronizzano alcuni attributi in Azure AD. Per altre informazioni sugli scenari, vedere [Connettere dispositivi appartenenti a un dominio ad Azure AD per usufruire di Windows 10](../devices/hybrid-azuread-join-plan.md). Questi attributi verranno sempre sincronizzati e Windows 10 non appare come app che è possibile deselezionare. Un computer appartenente a un dominio Windows 10 viene identificato se l’attributo userCertificate è popolato.
 
 | Nome attributo | Dispositivo | Commento |
 | --- |:---:| --- |

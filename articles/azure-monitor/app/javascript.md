@@ -4,12 +4,12 @@ description: Ottenere i conteggi delle visualizzazioni pagina e delle sessioni, 
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 3acb7379644b5bfcb22ed86b6bde7031095fef24
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 9f335ca6912545b39fb8276f5895f98e653735d0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224853"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89656946"
 ---
 # <a name="application-insights-for-web-pages"></a>Application Insights per pagine Web
 
@@ -115,7 +115,7 @@ Le opzioni di configurazione disponibili sono
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Invio di dati di telemetria al portale di Azure
 
-Per impostazione predefinita, Application Insights JavaScript SDK raccoglie un numero di elementi di telemetria utili per determinare l'integrità dell'applicazione e l'esperienza utente sottostante. incluse le seguenti:
+Per impostazione predefinita, Application Insights JavaScript SDK raccoglie un numero di elementi di telemetria utili per determinare l'integrità dell'applicazione e l'esperienza utente sottostante. Sono inclusi:
 
 - **Eccezioni non rilevate** nell'app, incluse informazioni su
     - Analisi dello stack
@@ -155,7 +155,7 @@ La maggior parte dei campi di configurazione è denominata in modo che sia possi
 
 | Nome | Predefinito | Descrizione |
 |------|---------|-------------|
-| instrumentationKey | Null | **Obbligatorio**<br>Chiave di strumentazione ottenuta dal portale di Azure. |
+| instrumentationKey | Null | **Richiesto**<br>Chiave di strumentazione ottenuta dal portale di Azure. |
 | accountId | Null | ID account facoltativo, se l'app raggruppa gli utenti in account. Spazi, virgole, punti e virgola, uguali o barre verticali |
 | sessionRenewalMs | 1,8 milioni | Una sessione viene registrata se l'utente è inattivo per questo periodo di tempo in millisecondi. Il valore predefinito è 30 minuti. |
 | sessionExpirationMs | 86,4 milioni | Una sessione viene registrata se continua per questo periodo di tempo in millisecondi. Il valore predefinito è 24 ore |
@@ -204,8 +204,7 @@ La maggior parte dei campi di configurazione è denominata in modo che sia possi
 
 Per impostazione predefinita, questo SDK **non** gestirà la modifica della Route basata sullo stato che si verifica nelle applicazioni a pagina singola. Per abilitare il rilevamento automatico delle modifiche della route per l'applicazione a pagina singola, è possibile aggiungere `enableAutoRouteTracking: true` alla configurazione di installazione.
 
-Attualmente si offre un plug-in [React](#react-extensions)separato, che può essere inizializzato con questo SDK. Verrà anche eseguito il rilevamento delle modifiche delle route, oltre a raccogliere altri dati di [telemetria specifici di React](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/extensions/applicationinsights-react-js/README.md).
-
+Attualmente si offre un plug-in [React](javascript-react-plugin.md)separato, che può essere inizializzato con questo SDK. Verrà anche eseguito il rilevamento delle modifiche delle route, oltre a raccogliere altri dati di telemetria specifici di React.
 > [!NOTE]
 > Usare `enableAutoRouteTracking: true` solo se **non** si usa il plug-in React. Entrambi sono in grado di inviare nuove visualizzazioni di pagina quando la route cambia. Se entrambe le funzionalità sono abilitate, è possibile che vengano inviate pagine di visualizzazione duplicate.
 
@@ -213,12 +212,13 @@ Attualmente si offre un plug-in [React](#react-extensions)separato, che può ess
 
 Impostando `autoTrackPageVisitTime: true` , viene tenuta traccia del tempo impiegato da un utente in ogni pagina. In ogni nuova pagina di visualizzazione, la durata dell'utente nella pagina *precedente* viene inviata come [metrica personalizzata](../platform/metrics-custom-overview.md) denominata `PageVisitTime` . Questa metrica personalizzata è visualizzabile nel [Esplora metriche](../platform/metrics-getting-started.md) come "metrica basata su log".
 
-## <a name="react-extensions"></a>Estensioni React
+## <a name="extensions"></a>Estensioni
 
 | Estensioni |
 |---------------|
 | [React](javascript-react-plugin.md)|
 | [React Native](javascript-react-native-plugin.md)|
+| [Angular](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-angularplugin-js) |
 
 ## <a name="correlation"></a>Correlazione
 
@@ -315,7 +315,7 @@ Questa versione include il numero minimo di caratteristiche e funzionalità e si
 
 ## <a name="examples"></a>Esempi
 
-Per esempi eseguibili, vedere [esempi di Application Insights JavaScript SDK](https://github.com/topics/applicationinsights-js-demo)
+Per esempi eseguibili, vedere [Application Insights esempi di JavaScript SDK](https://github.com/Azure-Samples?q=applicationinsights-js-demo).
 
 ## <a name="upgrading-from-the-old-version-of-application-insights"></a>Aggiornamento dalla versione precedente di Application Insights
 

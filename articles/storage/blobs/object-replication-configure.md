@@ -1,25 +1,25 @@
 ---
-title: Configurare la replica di oggetti (anteprima)
+title: Configurare la replica di oggetti
 titleSuffix: Azure Storage
 description: Informazioni su come configurare la replica di oggetti per copiare in modo asincrono BLOB in blocchi da un contenitore in un account di archiviazione a un contenitore in un altro account.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/16/2020
+ms.date: 09/10/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: c28e869bff1d0e921a1e5a952dbfcb21ee97d16b
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 4fb616860cb1e85c6249329f3679de0d29b72e61
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228325"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018833"
 ---
-# <a name="configure-object-replication-for-block-blobs-preview"></a>Configurare la replica di oggetti per i BLOB in blocchi (anteprima)
+# <a name="configure-object-replication-for-block-blobs"></a>Configurare la replica di oggetti per i BLOB in blocchi
 
-La replica di oggetti (anteprima) copia in modo asincrono i BLOB in blocchi tra un account di archiviazione di origine e uno di destinazione. Per altre informazioni sulla replica di oggetti, vedere [Replica di oggetti (anteprima)](object-replication-overview.md).
+La replica di oggetti copia in modo asincrono i BLOB in blocchi tra un account di archiviazione di origine e un account di destinazione. Per ulteriori informazioni sulla replica degli oggetti, vedere [replica di oggetti](object-replication-overview.md).
 
 Quando si configura la replica di oggetti, si crea un criterio di replica che specifica l'account di archiviazione di origine e l'account di destinazione. Un criterio di replica include una o più regole che specificano un contenitore di origine e un contenitore di destinazione e indicano i BLOB in blocchi del contenitore di origine che verranno replicati.
 
@@ -31,17 +31,23 @@ Questo articolo descrive come configurare la replica di oggetti per l'account di
 
 Prima di configurare la replica di oggetti, creare gli account di archiviazione di origine e di destinazione, se non esistono già. Entrambi gli account devono essere account di archiviazione v2 per uso generico. Per altre informazioni, vedere [Creare un account di archiviazione di Azure](../common/storage-account-create.md).
 
-Un account di archiviazione può fungere da account di origine per un massimo di due account di destinazione. E un account di destinazione non può avere più di due account di origine. Gli account di origine e di destinazione possono trovarsi in aree diverse. È possibile configurare criteri di replica distinti per replicare i dati in ogni account di destinazione.
+Per la replica di oggetti è necessario che il controllo delle versioni dei BLOB sia abilitato sia per l'account di origine che per quello di destinazione e che il feed di modifiche BLOB sia abilitato per l'account di origine Per altre informazioni sul controllo delle versioni dei BLOB, vedere [controllo delle versioni dei BLOB](versioning-overview.md). Per altre informazioni sul feed delle modifiche, vedere [supporto del feed delle modifiche nell'archivio BLOB di Azure](storage-blob-change-feed.md). Tenere presente che l'abilitazione di queste funzionalità può comportare costi aggiuntivi.
 
-Prima di iniziare, assicurarsi di aver effettuato la registrazione per le anteprime delle funzionalità seguenti:
+Un account di archiviazione può fungere da account di origine per un massimo di due account di destinazione. Gli account di origine e di destinazione possono trovarsi nella stessa area o in aree diverse. Possono inoltre trovarsi in sottoscrizioni diverse e in tenant di Azure Active Directory (Azure AD) diversi. Per ogni coppia di account è possibile creare un solo criterio di replica.
 
-- [Replica di oggetti (anteprima)](object-replication-overview.md)
-- [Controllo delle versioni dei BLOB](versioning-overview.md)
-- [Supporto del feed di modifiche in Archiviazione BLOB di Azure (anteprima)](storage-blob-change-feed.md)
+Quando si configura la replica degli oggetti, si crea un criterio di replica nell'account di destinazione tramite il provider di risorse di archiviazione di Azure. Dopo aver creato i criteri di replica, archiviazione di Azure assegna un ID criterio. È quindi necessario associare i criteri di replica all'account di origine utilizzando l'ID criterio. L'ID criterio negli account di origine e di destinazione deve essere lo stesso affinché venga eseguita la replica.
+
+Per configurare un criterio di replica degli oggetti per un account di archiviazione, è necessario avere l'assegnazione del ruolo di **collaboratore** Azure Resource Manager, con ambito al livello dell'account di archiviazione o superiore. Per altre informazioni, vedere [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md) nella documentazione relativa al controllo degli accessi in base al ruolo di Azure (RBAC).
+
+### <a name="configure-object-replication-when-you-have-access-to-both-storage-accounts"></a>Configurare la replica di oggetti quando si ha accesso a entrambi gli account di archiviazione
+
+Se si ha accesso a entrambi gli account di archiviazione di origine e di destinazione, è possibile configurare i criteri di replica degli oggetti in entrambi gli account.
+
+Prima di configurare la replica di oggetti nel portale di Azure, creare i contenitori di origine e di destinazione nei rispettivi account di archiviazione, se non esistono già. Abilitare anche il controllo delle versioni dei BLOB e il feed delle modifiche nell'account di origine e abilitare il controllo delle versioni dei BLOB nell'account di destinazione.
 
 # <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
-Prima di configurare la replica di oggetti nel portale di Azure, creare i contenitori di origine e di destinazione nei rispettivi account di archiviazione, se non esistono già. Abilitare anche il controllo delle versioni dei BLOB e il feed di modifiche nell'account di origine e il controllo delle versioni dei BLOB nell'account di destinazione.
+Il portale di Azure crea automaticamente i criteri nell'account di origine dopo la configurazione per l'account di destinazione.
 
 Per creare un criterio di replica nel portale di Azure, seguire questa procedura:
 
@@ -63,39 +69,19 @@ Per creare un criterio di replica nel portale di Azure, seguire questa procedura
 
 1. Per impostazione predefinita, l'ambito di copia è impostato in modo che vengano copiati solo i nuovi oggetti. Per copiare tutti gli oggetti nel contenitore o per copiare oggetti a partire da una data e un'ora personalizzate, selezionare il collegamento **cambia** e configurare l'ambito di copia per la coppia di contenitori.
 
-    L'immagine seguente illustra un ambito di copia personalizzato.
+    Nell'immagine seguente viene illustrato un ambito di copia personalizzato che copia gli oggetti da una data e un'ora specificate in avanti.
 
     :::image type="content" source="media/object-replication-configure/configure-replication-copy-scope.png" alt-text="Screenshot che illustra un ambito di copia personalizzato per la replica di oggetti":::
 
 1. Selezionare **Salva e applica** per creare i criteri di replica e avviare la replica dei dati.
 
+Dopo aver configurato la replica degli oggetti, nel portale di Azure vengono visualizzati i criteri e le regole di replica, come illustrato nell'immagine seguente.
+
+:::image type="content" source="media/object-replication-configure/object-replication-policies-portal.png" alt-text="Screenshot che illustra i criteri di replica degli oggetti in portale di Azure":::
+
 # <a name="powershell"></a>[PowerShell](#tab/powershell)
 
-Per creare un criterio di replica con PowerShell, installare prima la versione [2.0.1-Preview](https://www.powershellgallery.com/packages/Az.Storage/2.0.1-preview) o successiva del modulo AZ. storage PowerShell. Per installare il modulo di anteprima, seguire questa procedura:
-
-1. Disinstallare eventuali installazioni precedenti di Azure PowerShell da Windows usando l'opzione **App e funzionalità** in **Impostazioni**.
-
-1. Assicurarsi di avere la versione più recente di PowerShellGet installata. Aprire una finestra di Windows PowerShell ed eseguire i seguenti comandi per installare la versione più recente:
-
-    ```powershell
-    Install-Module PowerShellGet –Repository PSGallery –Force
-    ```
-
-    Chiudere e riaprire la finestra di PowerShell dopo l'installazione di PowerShellGet.
-
-1. Installare la versione più recente di Azure PowerShell:
-
-    ```powershell
-    Install-Module Az –Repository PSGallery –AllowClobber
-    ```
-
-1. Installare il modulo di anteprima Az.Storage:
-
-    ```powershell
-    Install-Module Az.Storage -Repository PSGallery -RequiredVersion 2.0.1-preview -AllowPrerelease -AllowClobber -Force
-    ```
-
-Per altre informazioni sull'installazione di Azure PowerShell, vedere [Installare Azure PowerShell con PowerShellGet](/powershell/azure/install-az-ps).
+Per creare un criterio di replica con PowerShell, installare prima la versione [2.5.0](https://www.powershellgallery.com/packages/Az.Storage/2.5.0) o successiva del modulo AZ. storage PowerShell. Per altre informazioni sull'installazione di Azure PowerShell, vedere [Installare Azure PowerShell con PowerShellGet](/powershell/azure/install-az-ps).
 
 L'esempio seguente illustra come creare un criterio di replica per gli account di origine e di destinazione. Ricordare di sostituire i valori tra parentesi angolari con valori personalizzati:
 
@@ -162,32 +148,22 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-Per creare un criterio di replica con l'interfaccia della riga di comando di Azure, installare prima l'estensione di anteprima di Archiviazione di Azure:
+Per creare criteri di replica con l'interfaccia della riga di comando di Azure, installare prima l'interfaccia della riga di comando di Azure versione 2.11.1 Per altre informazioni, vedere [Introduzione all'interfaccia](/cli/azure/get-started-with-azure-cli)della riga di comando di Azure.
+
+Successivamente, abilitare il controllo delle versioni dei BLOB negli account di archiviazione di origine e di destinazione e abilitare il feed delle modifiche nell'account di origine. Ricordare di sostituire i valori tra parentesi angolari con valori personalizzati:
 
 ```azurecli
-az extension add -n storage-or-preview
-```
-
-Quindi accedere con le credenziali di Azure:
-
-```azurecli
-az login
-```
-
-Abilitare il controllo delle versioni dei BLOB negli account di archiviazione di origine e di destinazione e abilitare il feed delle modifiche nell'account di origine. Ricordare di sostituire i valori tra parentesi angolari con valori personalizzati:
-
-```azurecli
-az storage blob service-properties update \
+az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <source-storage-account> \
     --enable-versioning
 
-az storage blob service-properties update \
+az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <source-storage-account> \
     --enable-change-feed
 
-az storage blob service-properties update \
+az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <dest-storage-account> \
     --enable-versioning
@@ -242,12 +218,110 @@ Creare il criterio nell'account di origine usando l'ID criterio.
 ```azurecli
 az storage account or-policy show \
     --resource-group <resource-group> \
-    --name <dest-storage-account> \
+    --account-name <dest-storage-account> \
     --policy-id <policy-id> |
-    --az storage account or-policy create --resource-group <resource-group> \
-    --name <source-storage-account> \
+    az storage account or-policy create --resource-group <resource-group> \
+    --account-name <source-storage-account> \
     --policy "@-"
 ```
+
+---
+
+### <a name="configure-object-replication-when-you-have-access-only-to-the-destination-account"></a>Configurare la replica di oggetti quando si ha accesso solo all'account di destinazione
+
+Se non si dispone delle autorizzazioni per l'account di archiviazione di origine, è possibile configurare la replica degli oggetti nell'account di destinazione e fornire un file JSON che contenga la definizione dei criteri a un altro utente per creare gli stessi criteri nell'account di origine. Se, ad esempio, l'account di origine si trova in un tenant di Azure AD diverso dall'account di destinazione, utilizzare questo approccio per configurare la replica degli oggetti. 
+
+Tenere presente che è necessario avere a disposizione il ruolo **collaboratore** Azure Resource Manager ambito per il livello dell'account di archiviazione di destinazione o superiore per creare il criterio. Per altre informazioni, vedere [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md) nella documentazione relativa al controllo degli accessi in base al ruolo di Azure (RBAC).
+
+La tabella seguente riepiloga i valori da usare per l'ID dei criteri nel file JSON in ogni scenario.
+
+| Quando si crea il file JSON per l'account... | Imposta l'ID dei criteri su questo valore... |
+|-|-|
+| Account di destinazione | Valore *predefinito*della stringa. Archiviazione di Azure creerà l'ID criterio per l'utente. |
+| Account di origine | ID dei criteri restituito quando si scarica un file JSON contenente le regole definite nell'account di destinazione. |
+
+Nell'esempio seguente viene definito un criterio di replica nell'account di destinazione con una singola regola che corrisponde al prefisso *b* e viene impostato il tempo di creazione minimo per i BLOB che devono essere replicati. Ricordare di sostituire i valori tra parentesi angolari con valori personalizzati:
+
+```json
+{
+  "properties": {
+    "policyId": "default",
+    "sourceAccount": "<source-account>",
+    "destinationAccount": "<dest-account>",
+    "rules": [
+      {
+        "ruleId": "default",
+        "sourceContainer": "<source-container>",
+        "destinationContainer": "<destination-container>",
+        "filters": {
+          "prefixMatch": [
+            "b"
+          ],
+          "minCreationTime": "2020-08-028T00:00:00Z"
+        }
+      }
+    ]
+  }
+}
+```
+
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
+
+Per configurare la replica di oggetti nell'account di destinazione con un file JSON nel portale di Azure, attenersi alla procedura seguente:
+
+1. Creare un file JSON locale che definisce i criteri di replica nell'account di destinazione. Impostare il campo **policyId** su **predefinito** in modo che archiviazione di Azure definisca l'ID criterio.
+
+    Un modo semplice per creare un file JSON che definisce i criteri di replica è creare prima di tutto un criterio di replica di test tra due account di archiviazione nel portale di Azure. È quindi possibile scaricare le regole di replica e modificare il file JSON in base alle esigenze.
+
+1. Passare alle impostazioni di **replica degli oggetti** per l'account di destinazione nel portale di Azure.
+1. Selezionare **carica regole di replica**.
+1. Caricare il file JSON. Il portale di Azure Visualizza i criteri e le regole che verranno creati, come illustrato nella figura seguente.
+
+    :::image type="content" source="media/object-replication-configure/replication-rules-upload-portal.png" alt-text="Screenshot che illustra come caricare un file JSON per definire un criterio di replica":::
+
+1. Selezionare **carica** per creare i criteri di replica nell'account di destinazione.
+
+È quindi possibile scaricare un file JSON contenente la definizione dei criteri che è possibile fornire a un altro utente per configurare l'account di origine. Per scaricare questo file JSON, seguire questa procedura:
+
+1. Passare alle impostazioni di **replica degli oggetti** per l'account di destinazione nel portale di Azure.
+1. Selezionare il pulsante **altro** accanto al criterio che si desidera scaricare, quindi selezionare **Scarica regole**, come illustrato nella figura seguente.
+
+    :::image type="content" source="media/object-replication-configure/replication-rules-download-portal.png" alt-text="Screenshot che illustra come scaricare le regole di replica in un file JSON":::
+
+1. Salvare il file JSON nel computer locale per condividerlo con un altro utente per configurare i criteri nell'account di origine.
+
+Il file JSON scaricato include l'ID criterio creato da archiviazione di Azure per i criteri nell'account di destinazione. Per configurare la replica di oggetti nell'account di origine, è necessario utilizzare lo stesso ID criterio.
+
+Tenere presente che il caricamento di un file JSON per la creazione di un criterio di replica per l'account di destinazione tramite il portale di Azure non crea automaticamente lo stesso criterio nell'account di origine. Un altro utente deve creare i criteri nell'account di origine prima che archiviazione di Azure inizi a replicare gli oggetti.
+
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
+
+Per scaricare un file JSON che contiene la definizione dei criteri di replica per l'account di destinazione da PowerShell, chiamare il comando [Get-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/get-azstorageobjectreplicationpolicy) per restituire il criterio. Convertire quindi il criterio in JSON e salvarlo come file locale, come illustrato nell'esempio seguente. Ricordarsi di sostituire i valori tra parentesi acute e il percorso del file con valori personalizzati:
+
+```powershell
+$rgName = "<resource-group>"
+$destAccountName = "<destination-storage-account>"
+
+$destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $destAccountName
+$destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
+```
+
+Per usare il file JSON per definire i criteri di replica nell'account di origine con PowerShell, recuperare il file locale ed eseguire la conversione da JSON a un oggetto. Chiamare quindi il comando [set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) per configurare i criteri nell'account di origine, come illustrato nell'esempio seguente. Ricordarsi di sostituire i valori tra parentesi acute e il percorso del file con valori personalizzati:
+
+```powershell
+$object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json
+Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
+    -StorageAccountName $srcAccountName `
+    -PolicyId $object.PolicyId `
+    -SourceAccount $object.SourceAccount `
+    -DestinationAccount $object.DestinationAccount `
+    -Rule $object.Rules
+```
+
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
+
+N/D
 
 ---
 
@@ -300,4 +374,6 @@ az storage account or-policy delete \
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Panoramica della replica di oggetti (anteprima)](object-replication-overview.md)
+- [Panoramica della replica degli oggetti](object-replication-overview.md)
+- [Abilitare e gestire il controllo delle versioni dei BLOB](versioning-enable.md)
+- [Elaborare il feed delle modifiche nell'archivio BLOB di Azure](storage-blob-change-feed-how-to.md)

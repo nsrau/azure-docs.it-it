@@ -3,12 +3,12 @@ title: Supporto per la valutazione VMware in Azure Migrate
 description: 'Informazioni sul supporto per la valutazione delle macchine virtuali VMware con lo strumento Azure Migrate: valutazione server.'
 ms.topic: conceptual
 ms.date: 06/08/2020
-ms.openlocfilehash: 4f724297f216267dadda31be4bd548eb241b9845
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 6716bea08347783d8c5728a4e346ffab8ea60a07
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266970"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660273"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>Matrice di supporto per la valutazione di VMware 
 
@@ -33,7 +33,7 @@ Per eseguire la migrazione di macchine virtuali VMware in Azure, vedere la [matr
 
 **VMware** | **Dettagli**
 --- | ---
-**Server vCenter** | I computer che si desidera individuare e valutare devono essere gestiti da server vCenter versione 5,5, 6,0, 6,5 o 6,7.
+**Server vCenter** | I computer che si desidera individuare e valutare devono essere gestiti da server vCenter versione 5,5, 6,0, 6,5, 6,7 o 7,0.<br/><br/> L'individuazione delle macchine virtuali VMware fornendo i dettagli dell'host ESXi nell'appliance non è attualmente supportata.
 **Autorizzazioni** | Per la valutazione del server è necessaria una server vCenter account di sola lettura per l'individuazione e la valutazione.<br/><br/> Se si vuole eseguire l'individuazione delle applicazioni o la visualizzazione delle dipendenze, l'account deve **Virtual Machines**abilitare i privilegi per  >  **le operazioni Guest**delle macchine virtuali.
 
 ## <a name="vm-requirements"></a>Requisiti della macchina virtuale
@@ -89,7 +89,7 @@ L'[analisi delle dipendenze](concepts-dependency-visualization.md) consente di i
 **Credenziali del server vCenter** | Per la visualizzazione delle dipendenze è necessario un account server vCenter con accesso di sola lettura e privilegi abilitati per Macchine virtuali > Operazioni Guest.
 **Autorizzazioni VM Windows** |  Per l'analisi delle dipendenze, l'appliance Azure Migrate necessita di un account amministratore di dominio o di un account amministratore locale per accedere alle macchine virtuali Windows.
 **Macchine virtuali di Linux** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
-**Account Linux** | Per l'analisi delle dipendenze, nei computer Linux l'appliance Azure Migrate necessita di un account utente con privilegi radice.<br/><br/> In alternativa, l'account utente deve disporre delle seguenti autorizzazioni per i file /bin/netstat e/bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE.
+**Account Linux** | Per l'analisi delle dipendenze, nei computer Linux l'appliance Azure Migrate necessita di un account utente con privilegi radice.<br/><br/> In alternativa, l'account utente deve disporre delle seguenti autorizzazioni per i file /bin/netstat e/bin/ls: CAP_DAC_READ_SEARCH e CAP_SYS_PTRACE. Configurare queste funzionalità usando i comandi seguenti: <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP/bin/ls <br/> sudo setcap CAP_DAC_READ_SEARCH, CAP_SYS_PTRACE = EP/bin/netstat
 **Agenti obbligatori** | Non sono necessari agenti nei computer che si vuole analizzare.
 **Strumenti VMware** | Gli strumenti VMware (successivi alla versione 10.2) devono essere installati e in esecuzione in ogni macchina virtuale che si vuole analizzare.
 

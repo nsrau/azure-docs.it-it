@@ -3,12 +3,12 @@ title: Gestisci aree di lavoro di Sentinel di Azure su larga scala
 description: Informazioni su come gestire efficacemente Azure Sentinel sulle risorse dei clienti Delegate.
 ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 328c55afc141a7f2efd85104453342b62eae0bb2
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 78896d6458f6b1c40655bc36d2bf63e05ddb0a59
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050812"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019734"
 ---
 # <a name="manage-azure-sentinel-workspaces-at-scale"></a>Gestisci aree di lavoro di Sentinel di Azure su larga scala
 
@@ -65,7 +65,7 @@ I [PlayBook](../../sentinel/tutorial-respond-threats-playbook.md) possono essere
 
 Le [cartelle di lavoro di monitoraggio di Azure in Sentinel di Azure](../../sentinel/overview.md#workbooks) consentono di visualizzare e monitorare i dati dalle origini dati connesse per ottenere informazioni dettagliate. È possibile usare i modelli di cartella di lavoro predefiniti in Sentinel di Azure o creare cartelle di lavoro personalizzate per gli scenari.
 
-È possibile distribuire cartelle di lavoro nel tenant di gestione e creare dashboard su larga scala per monitorare ed eseguire query sui dati tra i tenant del cliente. Per altre informazioni, vedere [monitoraggio tra aree di lavoro](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks). Si noti che alcune funzionalità [non sono supportate in più aree di lavoro](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
+È possibile distribuire cartelle di lavoro nel tenant di gestione e creare dashboard su larga scala per monitorare ed eseguire query sui dati tra i tenant del cliente. Per altre informazioni, vedere [monitoraggio tra aree di lavoro](../../sentinel/extend-sentinel-across-workspaces-tenants.md#using-cross-workspace-workbooks). 
 
 È anche possibile distribuire le cartelle di lavoro direttamente in un singolo tenant gestito per gli scenari specifici del cliente.
 
@@ -76,8 +76,6 @@ Creare e salvare Log Analytics query per il rilevamento delle minacce in modo ce
 ## <a name="use-automation-for-cross-workspace-management"></a>Usare l'automazione per la gestione tra aree di lavoro
 
 È possibile usare l'automazione per gestire più aree di lavoro di Sentinel di Azure e configurare le [query di ricerca](../../sentinel/hunting.md), i PlayBook e le cartelle di lavoro. Per altre informazioni, vedere [gestione tra aree di lavoro tramite automazione](../../sentinel/extend-sentinel-across-workspaces-tenants.md#cross-workspace-management-using-automation).
-
-Si noti che alcune funzionalità [non sono attualmente supportate in più aree di lavoro](../../sentinel/extend-sentinel-across-workspaces-tenants.md#whats-not-supported-across-workspaces).
 
 ## <a name="manage-security-of-office-365-environments"></a>Gestire la sicurezza degli ambienti Office 365
 
