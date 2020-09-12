@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/31/2020
 ms.author: gopalv
-ms.openlocfilehash: 0499cd6885454604e89ce4cadc313b2f68c45156
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 95d3570d93aa4966fcf6864838ec01735b8662db
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87544639"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650279"
 ---
-# <a name="advanced-entry-script-authoring"></a>Creazione di script di immissione avanzata
+# <a name="advanced-entry-script-authoring"></a>Creazione avanzata di script di immissione
 
 Questo articolo illustra come scrivere script di immissione per i casi d'uso specializzati.
 
@@ -90,7 +90,7 @@ def run(data):
 ```
 
 
-## <a name="binary-ie-image-data"></a><a id="binary-data"></a>Dati binari (ad esempio immagine)
+## <a name="binary-ie-image-data"></a><a id="binary-data"></a> Dati binari (ad esempio immagine)
 
 Se il modello accetta dati binari, ad esempio un'immagine, è necessario modificare il `score.py` file usato per la distribuzione per accettare richieste HTTP non elaborate. Per accettare dati non elaborati, usare la `AMLRequest` classe nello script di immissione e aggiungere l' `@rawhttp` elemento Decorator alla `run()` funzione.
 
@@ -260,7 +260,7 @@ second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_na
 
 ### <a name="get_model_path"></a>get_model_path
 
-Quando si registra un modello, è necessario specificare un nome di modello utilizzato per la gestione del modello nel registro di sistema. Usare questo nome con il metodo [Model. get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#get-model-path-model-name--version-none---workspace-none-) per recuperare il percorso del file o dei file del modello nel file system locale. Se si registra una cartella o una raccolta di file, questa API restituisce il percorso della directory che contiene tali file.
+Quando si registra un modello, è necessario specificare un nome di modello utilizzato per la gestione del modello nel registro di sistema. Usare questo nome con il metodo [Model. get_model_path ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) per recuperare il percorso del file o dei file del modello nel file system locale. Se si registra una cartella o una raccolta di file, questa API restituisce il percorso della directory che contiene tali file.
 
 Quando si registra un modello, è necessario assegnargli un nome. Il nome corrisponde alla posizione in cui viene inserito il modello, localmente o durante la distribuzione del servizio.
 
@@ -269,7 +269,7 @@ Quando si registra un modello, è necessario assegnargli un nome. Il nome corris
 * [Risolvere i problemi relativi a una distribuzione non riuscita](how-to-troubleshoot-deployment.md)
 * [Distribuire nel servizio Azure Kubernetes](how-to-deploy-azure-kubernetes-service.md)
 * [Creazione di applicazioni client per l'utilizzo di servizi Web](how-to-consume-web-service.md)
-* [Aggiornare il servizio Web](how-to-deploy-update-web-service.md)
+* [Aggiornare un servizio Web](how-to-deploy-update-web-service.md)
 * [Come distribuire un modello usando un'immagine Docker personalizzata](how-to-deploy-custom-docker-image.md)
 * [Usare TLS per proteggere un servizio Web tramite Azure Machine Learning](how-to-secure-web-service.md)
 * [Monitorare i modelli di Azure Machine Learning con Application Insights](how-to-enable-app-insights.md)

@@ -12,12 +12,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 03/10/2020
-ms.openlocfilehash: 526a4f9f5542074107700b54dcf3d2a591b08b70
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: df254e0766a755754aabcfb8c98a8c140b43cb20
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144040"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650845"
 ---
 # <a name="where-to-save-and-write-files-for-azure-machine-learning-experiments"></a>Dove salvare e scrivere file per esperimenti di Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -30,13 +30,13 @@ Quando si avvia l'esecuzione del training in una [destinazione di calcolo](conce
 
 Prima di poter avviare un esperimento in una destinazione di calcolo o nel computer locale, è necessario assicurarsi che i file necessari siano disponibili per la destinazione di calcolo, ad esempio file di dipendenza e file di dati di cui è necessario eseguire il codice.
 
-Azure Machine Learning esegue gli script di training copiando l'intera directory di origine. Se si dispone di dati sensibili che non si desidera caricare, utilizzare un [file con estensione ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) o non includerlo nella directory di origine. È invece possibile accedere ai dati usando un [Archivio](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py)dati.
+Azure Machine Learning esegue gli script di training copiando l'intera directory di origine. Se si dispone di dati sensibili che non si desidera caricare, utilizzare un [file con estensione ignore](how-to-save-write-experiment-files.md#storage-limits-of-experiment-snapshots) o non includerlo nella directory di origine. È invece possibile accedere ai dati usando un [Archivio](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true)dati.
 
 Il limite di archiviazione di snapshot dell'esperimento è 300 MB e/o 2000 file.
 
 Per questo motivo, è consigliabile:
 
-* **Archiviazione dei file in un [archivio dati](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py)Azure Machine Learning.** In questo modo si evitano problemi di latenza dell'esperimento e si hanno i vantaggi di accedere ai dati da una destinazione di calcolo remota, ovvero l'autenticazione e il montaggio vengono gestiti da Azure Machine Learning. Altre informazioni su come specificare un archivio dati come directory di origine e caricare i file nell'archivio dati nell'articolo accedere ai [dati dall'archivio dati](how-to-access-data.md) .
+* **Archiviazione dei file in un [archivio dati](https://docs.microsoft.com/python/api/azureml-core/azureml.data?view=azure-ml-py&preserve-view=true)Azure Machine Learning.** In questo modo si evitano problemi di latenza dell'esperimento e si hanno i vantaggi di accedere ai dati da una destinazione di calcolo remota, ovvero l'autenticazione e il montaggio vengono gestiti da Azure Machine Learning. Altre informazioni su come specificare un archivio dati come directory di origine e caricare i file nell'archivio dati nell'articolo accedere ai [dati dall'archivio dati](how-to-access-data.md) .
 
 * **Se sono necessari solo un paio di file di dati e script di dipendenza e non è possibile usare un archivio dati,** inserire i file nella stessa directory della cartella dello script di training. Specificare questa cartella come `source_directory` direttamente nello script di training o nel codice che chiama lo script di training.
 

@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/03/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 20de83e190a419b95c99c1c1238eb931910feb82
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 1c49c7bfaa7714dda902d05537fbe3d8a55d5abe
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020287"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613915"
 ---
 # <a name="entities"></a>Entità
 
@@ -21,7 +21,7 @@ Un *entità* rappresenta un oggetto mobile nello spazio ed è il blocco predefin
 
 Le entità subiscono una trasformazione definita in termini di posizione, rotazione e scalabilità. Le entità non possiedono di per sé alcuna funzionalità osservabile. Al contrario, il comportamento viene aggiunto tramite componenti, che sono collegati alle entità. Ad esempio, il collegamento di un componente [CutPlaneComponent](../overview/features/cut-planes.md) crea un piano di taglio in corrispondenza della posizione dell'entità.
 
-L'aspetto più importante dell'entità stessa è rappresentato dalla gerarchia e dalla trasformazione gerarchica risultante. Ad esempio, quando più entità sono collegate come elementi figlio a un'entità padre condivisa, tutte queste entità possono essere spostate, ruotate e ridimensionate all'unisono modificando la trasformazione dell'entità padre.
+L'aspetto più importante dell'entità stessa è rappresentato dalla gerarchia e dalla trasformazione gerarchica risultante. Ad esempio, quando più entità sono collegate come elementi figlio a un'entità padre condivisa, tutte queste entità possono essere spostate, ruotate e ridimensionate all'unisono modificando la trasformazione dell'entità padre. È inoltre `enabled` possibile utilizzare lo stato dell'entità per disattivare la visibilità e le risposte ai cast di Ray per un sottografico completo della gerarchia.
 
 Un'entità è di proprietà esclusiva dell'elemento padre e ciò significa che, quando l'elemento padre viene eliminato definitivamente con `Entity.Destroy()`, vengono eliminati anche i relativi elementi figlio e tutti i [componenti](components.md) connessi. Pertanto, la rimozione di un modello dalla scena viene eseguita chiamando `Destroy` sul nodo radice di un modello, restituito da `AzureSession.Actions.LoadModelAsync()` o dalla relativa variante SAS `AzureSession.Actions.LoadModelFromSASAsync()`.
 
@@ -95,7 +95,6 @@ Double3 translation = entity->GetPosition();
 Quaternion rotation = entity->GetRotation();
 ```
 
-
 ### <a name="querying-spatial-bounds"></a>Query sui limiti spaziali
 
 Le query sui limiti sono chiamate asincrone che operano su una gerarchia completa di oggetti, usando un'unica entità come radice. Vedere il capitolo dedicato sui [limiti degli oggetti](object-bounds.md).
@@ -137,6 +136,13 @@ metaDataQuery->Completed([](const ApiHandle<MetadataQueryAsync>& query)
 ```
 
 La query avrà esito positivo anche se l'oggetto non dispone di metadati.
+
+## <a name="api-documentation"></a>Documentazione dell'API
+
+* [Classe di entità C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.entity)
+* [C# RemoteManager. CreateEntity ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.createentity)
+* [Classe di entità C++](https://docs.microsoft.com/cpp/api/remote-rendering/entity)
+* [C++ RemoteManager:: CreateEntity ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#createentity)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

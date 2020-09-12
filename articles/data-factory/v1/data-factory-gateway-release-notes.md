@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 405beb5cb8c2e74951aa54ba371be04d290ad3a2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0538777cadf7935a6684932a17fadc10849518d8
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194479"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89490089"
 ---
 # <a name="release-notes-for-data-management-gateway"></a>Note sulla versione di Gateway di gestione dati
 > [!NOTE]
@@ -26,7 +26,7 @@ Una delle maggiori difficoltà relative all'integrazione moderna dei dati consis
 
 Vedere gli articoli seguenti per informazioni dettagliate su Gateway di gestione dati e su come usarlo:
 
-*  [Gateway Gestione dati](data-factory-data-management-gateway.md)
+*  [Gateway di gestione dati](data-factory-data-management-gateway.md)
 *  [Spostare dati tra un ambiente locale e il cloud mediante Azure Data Factory](data-factory-move-data-between-onprem-and-cloud.md)
 
 
@@ -39,14 +39,14 @@ Non è più possibile mantenere le note sulla versione qui. Ottenere le note sul
 ## <a name="earlier-versions"></a>Versioni precedenti
 ## <a name="21063477"></a>2.10.6347.7
 ### <a name="enhancements-"></a>Miglioramenti
-- È possibile aggiungere le voci DNS per aggiungere il bus di servizio all'elenco elementi consentiti, invece di inserire in tale elenco tutti gli indirizzi IP di Azure IP dal firewall (se necessario). È possibile trovare la rispettiva voce DNS nel portale di Azure (Data Factory -> "Creare e distribuire" -> "Gateway" -> "serviceUrls" (in JSON)
+- È possibile aggiungere voci DNS per consentire il bus di servizio anziché consentire tutti gli indirizzi IP di Azure dal firewall (se necessario). È possibile trovare la rispettiva voce DNS nel portale di Azure (Data Factory -> "Creare e distribuire" -> "Gateway" -> "serviceUrls" (in JSON)
 - Il connettore HDFS supporta ora il certificato pubblico autofirmato, consentendo di ignorare la convalida TLS.
 - Corretto: problema relativo al gateway offline durante l'aggiornamento (a causa di uno sfasamento del clock)
 
 
 ## <a name="2963132"></a>2.9.6313.2
 ### <a name="enhancements-"></a>Miglioramenti
--   È possibile aggiungere le voci DNS per aggiungere il bus di servizio all'elenco elementi consentiti, invece di inserire in tale elenco tutti gli indirizzi IP di Azure IP dal firewall (se necessario). Altri dettagli sono disponibili qui.
+-   È possibile aggiungere voci DNS per consentire il bus di servizio anziché consentire tutti gli indirizzi IP di Azure dal firewall (se necessario). Altri dettagli sono disponibili qui.
 -   È ora possibile copiare i dati in/da un singolo BLOB in blocchi fino a 4,75 TB, che corrisponde alle dimensioni massime supportate per i BLOB in blocchi. Il limite precedente era di 195 GB.
 -   Corretto: problema relativo alla memoria esaurita durante la decompressione di alcuni file di piccole dimensioni durante l'attività di copia.
 -   Corretto: problema di indice non compreso nell'intervallo durante la copia dal database del documento al SQL Server con la funzionalità idempotenza.
@@ -128,7 +128,7 @@ Non è più possibile mantenere le note sulla versione qui. Ottenere le note sul
     *  È possibile copiare dati da un archivio tramite lo [strumento di copia senza codice](data-factory-copy-data-wizard-tutorial.md). Per informazioni generiche su questa funzionalità, vedere [Copia di staging](data-factory-copy-activity-performance.md#staged-copy) .
 *  È possibile usare Gestione dati Gateway per inserire i dati direttamente da un database di SQL Server in Azure Machine Learning.
 
-*  Miglioramenti alle prestazioni
+*  Miglioramenti delle prestazioni
 
     * Prestazioni di visualizzazione migliorate dello schema e dell'anteprima in SQL Server nello strumento di copia senza codice.
 
@@ -144,7 +144,7 @@ Non è più possibile mantenere le note sulla versione qui. Ottenere le note sul
 
 *  In caso di errore dell'aggiornamento automatico, il programma di installazione del gateway ritenta l'aggiornamento automatico al massimo tre volte.
 
-*  Miglioramenti alle prestazioni
+*  Miglioramenti delle prestazioni
 
     * È possibile migliorare le prestazioni in caso di caricamento di tabelle di grandi dimensioni dal server locale in uno scenario di copia senza codice.
 
@@ -152,7 +152,7 @@ Non è più possibile mantenere le note sulla versione qui. Ottenere le note sul
 
 ## <a name="11058921"></a>1.10.5892.1
 
-*  Miglioramenti alle prestazioni
+*  Miglioramenti delle prestazioni
 
 *  Correzioni di bug
 
@@ -164,41 +164,41 @@ Non è più possibile mantenere le note sulla versione qui. Ottenere le note sul
 *  Possibilità di impostare l'ora di pianificazione dell'aggiornamento
 *  Script di PowerShell per attivare o disattivare l'aggiornamento automatico
 *  Supporto per il formato JSON  
-*  Miglioramenti alle prestazioni
+*  Miglioramenti delle prestazioni
 *  Correzioni di bug
 
 ## <a name="1858221"></a>1.8.5822.1
 
 *  Miglioramento dell'esperienza di risoluzione dei problemi
-*  Miglioramenti alle prestazioni
+*  Miglioramenti delle prestazioni
 *  Correzioni di bug
 
 ### <a name="1757951"></a>1.7.5795.1
 
-*  Miglioramenti alle prestazioni
+*  Miglioramenti delle prestazioni
 *  Correzioni di bug
 
 ### <a name="1757641"></a>1.7.5764.1
 
-*  Miglioramenti alle prestazioni
+*  Miglioramenti delle prestazioni
 *  Correzioni di bug
 
 ### <a name="1657351"></a>1.6.5735.1
 
 *  Supporto di origine/sink HDFS in locale
-*  Miglioramenti alle prestazioni
+*  Miglioramenti delle prestazioni
 *  Correzioni di bug
 
 ### <a name="1656961"></a>1.6.5696.1
 
-*  Miglioramenti alle prestazioni
+*  Miglioramenti delle prestazioni
 *  Correzioni di bug
 
 ### <a name="1656761"></a>1.6.5676.1
 
 *  Supporto degli strumenti di diagnostica in Gestione configurazione
 *  Supporto delle colonne di tabella per le origini dati tabulari per Data factory di Azure
-*  Supporto di SQL DW per Data factory di Azure
+*  Supportare Azure sinapsi Analytics per Azure Data Factory
 *  Supporto dell'isolamento in BlobSource e FileSource per Data factory di Azure
 *  Supporto di CopyBehavior – MergeFiles, PreserveHierarchy e FlattenHierarchy in BlobSink e FileSink con copia binaria per Data Factory di Azure
 *  Supporto dello stato di avanzamento della creazione di report per l'attività di copia per Data factory di Azure
@@ -208,7 +208,7 @@ Non è più possibile mantenere le note sulla versione qui. Ottenere le note sul
 ### <a name="1656721"></a>1.6.5672.1
 
 *  Supporto del nome di tabella per l'origine dati ODBC per Data factory di Azure
-*  Miglioramenti alle prestazioni
+*  Miglioramenti delle prestazioni
 *  Correzioni di bug
 
 ### <a name="1656581"></a>1.6.5658.1
@@ -229,13 +229,13 @@ Non è più possibile mantenere le note sulla versione qui. Ottenere le note sul
 
 *  Supporto di cinque database relazionali per Data Factory di Azure (MySQL, PostgreSQL, DB2, Teradata e Sybase)
 *  Supporto della compressione (Gzip e Deflate)
-*  Miglioramenti alle prestazioni
+*  Miglioramenti delle prestazioni
 *  Correzioni di bug
 
 ### <a name="1455491"></a>1.4.5549.1
 
 *  Aggiunta del supporto dell'origine dati Oracle per Data factory di Azure
-*  Miglioramenti alle prestazioni
+*  Miglioramenti delle prestazioni
 *  Correzioni di bug
 
 ### <a name="1454921"></a>1.4.5492.1

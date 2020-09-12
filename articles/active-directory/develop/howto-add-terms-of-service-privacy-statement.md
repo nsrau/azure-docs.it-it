@@ -12,12 +12,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja
 ms.custom: aaddev
-ms.openlocfilehash: 517d6f7f06025b35dd27fa69d1de1b4139de6c8d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 73c4931533e3926086320531a0800a572d13808c
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85478009"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535773"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>Procedura: configurare le condizioni del servizio e l'informativa sulla privacy per un'app
 
@@ -41,7 +41,7 @@ Prima di aggiungere collegamenti ai documenti delle condizioni per l'utilizzo de
 
 | Linee guida     | Descrizione                           |
 |---------------|---------------------------------------|
-| Format        | URL valido                             |
+| Formato        | URL valido                             |
 | Schemi validi | HTTP e HTTPS<br/>Si consiglia HTTPS |
 | Lunghezza massima    | 2048 caratteri                       |
 
@@ -55,10 +55,10 @@ Quando le condizioni per l'utilizzo del servizio e l'informativa sulla privacy s
 * [Con il codice JSON dell'oggetto app](#app-object-json)
 * [Uso dell'API Microsoft Graph](#msgraph-rest-api)
 
-### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Uso della portale di Azure
+### <a name="using-the-azure-portal"></a><a name="azure-portal"></a>Uso del portale di Azure
 Seguire questa procedura nella portale di Azure.
 
-1. Accedere al [portale di Azure](https://portal.azure.com/).
+1. Accedere al [portale di Azure](https://portal.azure.com/), selezionare il tenant AzureAD corretto (non B2C).
 2. Passare alla sezione **Registrazioni per l'app** e selezionare l'app.
 3. Aprire il riquadro **personalizzazione** .
 4. Completare i campi **URL delle condizioni d'uso** e **URL dell'informativa sulla privacy**.
@@ -69,6 +69,11 @@ Seguire questa procedura nella portale di Azure.
 ### <a name="using-the-app-object-json"></a><a name="app-object-json"></a>Con il codice JSON dell'oggetto app
 
 Se si preferisce modificare direttamente il codice JSON dell'oggetto app, è possibile usare l'editor del manifesto nel portale di Azure o nel portale di registrazione delle applicazioni per includere i collegamenti alle condizioni per l'utilizzo del servizio e all'informativa sulla privacy.
+
+1. Passare alla sezione registrazioni per l' **app** e selezionare l'app.
+2. Aprire il riquadro **manifesto** .
+3. CTRL + F, cercare "informationalUrls". Immettere le informazioni.
+4. Salvare le modifiche.
 
 ```json
     "informationalUrls": { 

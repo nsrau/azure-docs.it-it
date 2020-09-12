@@ -4,14 +4,14 @@ description: Prerequisiti per l'uso della cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 06/24/2020
+ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: 1ead2a34b3617093fcbbb63d053f223fc96d698d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7731839d23ec49ddfee814cc6b2f6b3459372f03
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098453"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613995"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Prerequisiti per cache HPC di Azure
 
@@ -36,9 +36,9 @@ Per indicazioni specifiche, leggere la parte restante di questo articolo.
 ## <a name="azure-subscription"></a>Sottoscrizione di Azure
 
 È consigliabile usare una sottoscrizione A pagamento.
-
+<!-- 
 > [!NOTE]
-> Il team di cache HPC di Azure deve aggiungere la sottoscrizione all'elenco di accesso prima di poterla usare per creare un'istanza della cache. Questa procedura consente di garantire che ogni cliente ottenga una risposta di alta qualità dalle proprie cache. Compilare [questo modulo](https://aka.ms/onboard-hpc-cache) per richiedere l'accesso.
+> The Azure HPC Cache team must add your subscription to the access list before it can be used to create a cache instance. This procedure helps ensure that each customer gets high-quality responsiveness from their caches. Fill out [this form](https://aka.ms/onboard-hpc-cache) to request access.  -->
 
 ## <a name="network-infrastructure"></a>Infrastruttura di rete
 
@@ -131,7 +131,7 @@ Altre informazioni sono disponibili in [risolvere i problemi relativi alla confi
 
   * Se non è possibile usare il `rpcinfo` comando, assicurarsi che queste porte usate di frequente consentano il traffico in ingresso e in uscita:
 
-    | Protocollo | Porta  | Service  |
+    | Protocollo | Porta  | Servizio  |
     |----------|-------|----------|
     | TCP/UDP  | 111   | rpcbind  |
     | TCP/UDP  | 2049  | NFS      |

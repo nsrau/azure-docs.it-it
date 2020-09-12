@@ -9,12 +9,12 @@ ms.workload: mobile
 ms.topic: article
 ms.author: apimpm
 ms.date: 04/23/2020
-ms.openlocfilehash: abcda4ea4b14f058325318661daa574494268780
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 023c2c89b90d6ddc71abc95db325dcdeb7684a2d
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056376"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500131"
 ---
 # <a name="deploy-a-self-hosted-gateway-to-kubernetes"></a>Distribuire un gateway self-hosted in Kubernetes
 
@@ -63,7 +63,7 @@ Questo articolo descrive i passaggi per la distribuzione del componente gateway 
 ## <a name="production-deployment-considerations"></a>Considerazioni sulla distribuzione di produzione
 
 ### <a name="access-token"></a>Token di accesso
-Senza un token di accesso valido, un gateway self-hosted non può accedere ai dati di configurazione e scaricarli dall'endpoint del servizio gestione API associato. Il token di accesso può essere valido per un massimo di 30 giorni. Deve essere rigenerata e il cluster configurato con un token aggiornato, manualmente o tramite automazione, prima della scadenza. 
+Senza un token di accesso valido, un gateway self-hosted non può accedere ai dati di configurazione e scaricarli dall'endpoint del servizio gestione API associato. Il token di accesso può essere valido per un massimo di 30 giorni. Deve essere rigenerata e il cluster configurato con un token aggiornato, manualmente o tramite automazione, prima della scadenza.
 
 Quando si automatizza l'aggiornamento del token, usare [questa operazione dell'API di gestione](/rest/api/apimanagement/2019-12-01/gateway/generatetoken) per generare un nuovo token. Per informazioni sulla gestione dei segreti Kubernetes, vedere il [sito Web Kubernetes](https://kubernetes.io/docs/concepts/configuration/secret).
 
@@ -106,6 +106,9 @@ La risoluzione dei nomi DNS gioca un ruolo fondamentale nella capacità di un ga
 Il file YAML fornito nella portale di Azure applica i criteri predefiniti di [ClusterFirst](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) . Questo criterio fa sì che le richieste di risoluzione dei nomi non risolte dal DNS del cluster vengano inviate al server DNS upstream ereditato dal nodo.
 
 Per informazioni sulla risoluzione dei nomi in Kubernetes, vedere il [sito Web Kubernetes](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service). Provare a personalizzare i [criteri DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-policy) o la [configurazione DNS](https://kubernetes.io/docs/concepts/services-networking/dns-pod-service/#pod-s-dns-config) nel modo appropriato per la configurazione.
+
+### <a name="external-traffic-policy"></a>Criteri di traffico esterno
+Il file YAML fornito nel campo portale di Azure imposta nell' `externalTrafficPolicy` oggetto [servizio](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.19/#service-v1-core) su `Local` . Questo consente di mantenere l'indirizzo IP del chiamante (accessibile nel [contesto della richiesta](api-management-policy-expressions.md#ContextVariables)) e di disabilitare il bilanciamento del carico tra nodi, eliminando gli hop di rete causati dall'it. Tenere presente che questa impostazione potrebbe causare la distribuzione asimmetrica del traffico nelle distribuzioni con un numero diverso di Pod del gateway per ogni nodo.
 
 ### <a name="custom-domain-names-and-ssl-certificates"></a>Nomi di dominio personalizzati e certificati SSL
 

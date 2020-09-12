@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 4800234b55507b7c8d8a16d16ce4d2fef3365baa
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 54f99f2f8708fca9c02950a8886a2a9b976a93dd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87829595"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440678"
 ---
 # <a name="troubleshooting-metrics-charts"></a>Risoluzione dei problemi dei grafici delle metriche
 
@@ -110,7 +110,7 @@ Per impostazione predefinita, le metriche del sistema operativo Guest vengono ar
 
 1. Verificare che l'account di archiviazione non sia protetto da firewall. Il portale di Azure richiede l'accesso all'account di archiviazione per recuperare i dati delle metriche e tracciare i grafici.
 
-1. Usare lo [strumento di esplorazione dell'archiviazione di Azure](https://azure.microsoft.com/features/storage-explorer/) per accertarsi che le metriche vengano trasmesse nell'account di archiviazione. Se le metriche non vengono raccolte, seguire le [Guida alla risoluzione dei problemi dell'estensione Diagnostica di Azure](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
+1. Usare [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) per convalidare la propagazione delle metriche nell'account di archiviazione. Se le metriche non vengono raccolte, seguire le [Guida alla risoluzione dei problemi dell'estensione Diagnostica di Azure](diagnostics-extension-troubleshooting.md#metric-data-doesnt-appear-in-the-azure-portal).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

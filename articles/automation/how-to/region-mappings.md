@@ -1,27 +1,29 @@
 ---
 title: Aree supportate per l'area di lavoro Log Analytics collegata
-description: Questo articolo descrive i mapping di area supportati tra un account di Automazione e un'area di lavoro Log Analytics.
+description: Questo articolo descrive i mapping dell'area supportati tra un account di automazione e un'area di lavoro di Log Analytics in relazione a determinate funzionalità di automazione di Azure.
+ms.date: 09/03/2020
 services: automation
-ms.service: automation
-ms.subservice: process-automation
-author: mgoedtel
-ms.author: magoedte
-ms.date: 06/12/2020
 ms.topic: conceptual
-manager: carmonm
 ms.custom: references_regions
-ms.openlocfilehash: 4e5cad25c80661f9e707f545929e6ffcb00a1e42
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: dd831789d5f09ca6a20cce13659d6c479845f74e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447865"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440661"
 ---
 # <a name="supported-regions-for-linked-log-analytics-workspace"></a>Aree supportate per l'area di lavoro Log Analytics collegata
 
-In Automazione di Azure è possibile abilitare le funzionalità Gestione aggiornamenti, Rilevamento modifiche e inventario e Avvio/Arresto di macchine virtuali durante gli orari di minore attività per le macchine virtuali. Sono tuttavia supportate solo determinate aree per il collegamento di un'area di lavoro Log Analytics e un account di Automazione nella sottoscrizione. I mapping di area si applicano solo all'account di Automazione e all'area di lavoro Log Analytics. L'area di lavoro Log Analytics e l'account di Automazione devono trovarsi nella stessa sottoscrizione, ma possono trovarsi in gruppi di risorse diversi distribuiti nella stessa area. Per altre informazioni, vedere [Area di lavoro Log Analytics e account di Automazione](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
+In automazione di Azure è possibile abilitare le funzionalità di Gestione aggiornamenti, Rilevamento modifiche e inventario e Avvio/Arresto di macchine virtuali durante gli orari di minore attività per i server e le macchine virtuali. Queste funzionalità hanno una dipendenza da un'area di lavoro Log Analytics e pertanto richiedono il collegamento dell'area di lavoro con un account di automazione. Tuttavia, solo determinate aree sono supportate per collegarle insieme. In generale, il mapping *non* è applicabile se si prevede di collegare un account di automazione a un'area di lavoro in cui non sono abilitate queste funzionalità.
+
+Questo articolo fornisce i mapping supportati per abilitare e usare correttamente queste funzionalità nell'account di automazione.
+
+Per altre informazioni, vedere [log Analytics area di lavoro e l'account di automazione](../../azure-monitor/insights/solutions.md#log-analytics-workspace-and-automation-account).
 
 ## <a name="supported-mappings"></a>Mapping supportati
+
+> [!NOTE]
+> Come illustrato nella tabella seguente, può esistere un solo mapping tra Log Analytics e automazione di Azure.
 
 La tabella seguente mostra i mapping supportati:
 
@@ -52,7 +54,7 @@ La tabella seguente mostra i mapping supportati:
 
 ## <a name="unlink-a-workspace"></a>Scollegare un'area di lavoro
 
-Se si decide che non si vuole più integrare l'account di Automazione con un'area di lavoro Log Analytics, è possibile scollegare l'account direttamente dal portale di Azure. Prima di procedere, è necessario [rimuovere](move-account.md#remove-features) le funzionalità Gestione aggiornamenti, Rilevamento modifiche e inventario e Avvio/Arresto di macchine virtuali durante gli orari di minore attività se sono in uso. Se non vengono rimosse, non è possibile completare l'operazione di scollegamento. 
+Se si decide che non si vuole più integrare l'account di Automazione con un'area di lavoro Log Analytics, è possibile scollegare l'account direttamente dal portale di Azure. Prima di procedere, è necessario [rimuovere](move-account.md#remove-features) le funzionalità Gestione aggiornamenti, Rilevamento modifiche e inventario e Avvio/Arresto di macchine virtuali durante gli orari di minore attività se sono in uso. Se non vengono rimosse, non è possibile completare l'operazione di scollegamento.
 
 Dopo aver rimosso le funzionalità è possibile seguire questa procedura per scollegare l'account di Automazione.
 

@@ -9,12 +9,12 @@ ms.date: 2/22/2020
 ms.author: rogarana
 ms.subservice: files
 ms.custom: devx-track-azurecli, references_regions
-ms.openlocfilehash: 236134887728ebc3dd4d03fa4c9d9d450b39eac2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 728db85e7b5afab676612d908e2ba420c7582194
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930673"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645585"
 ---
 # <a name="create-an-azure-file-share"></a>Creare una condivisione file di Azure
 Per creare una condivisione file di Azure, è necessario rispondere a tre domande sul modo in cui verrà usata:
@@ -231,7 +231,7 @@ Questo comando avrà esito negativo se l'account di archiviazione è contenuto a
 > Il nome della condivisione file deve essere composto solo da caratteri minuscoli. Per informazioni complete sulla denominazione di condivisioni file e file, vedere [denominazione e riferimento a condivisioni, directory, file e metadati](https://msdn.microsoft.com/library/azure/dn167011.aspx).
 
 ### <a name="create-a-hot-or-cool-file-share"></a>Creare una condivisione file frequente o ad accesso sporadico
-Una condivisione file in un **account di archiviazione per utilizzo generico V2 (GPv2)** può contenere condivisioni di file ottimizzate, ad accesso frequente o ad accesso sporadico (o un miscuglio). Le condivisioni ottimizzate per le transazioni sono disponibili in tutte le aree di Azure, ma le condivisioni di file frequente e sporadico sono disponibili solo [in un subset di aree](storage-files-planning.md#storage-tiers). È possibile creare una condivisione file frequente o ad accesso sporadico usando il modulo Azure PowerShell Preview o l'interfaccia della riga di comando di Azure. 
+Un **account di archiviazione per utilizzo generico V2 (GPv2)** può contenere condivisioni di file ottimizzate, a caldo o ad accesso sporadico (o una combinazione). Le condivisioni ottimizzate per le transazioni sono disponibili in tutte le aree di Azure, ma le condivisioni di file frequente e sporadico sono disponibili solo [in un subset di aree](storage-files-planning.md#storage-tiers). È possibile creare una condivisione file frequente o ad accesso sporadico usando il modulo Azure PowerShell Preview o l'interfaccia della riga di comando di Azure. 
 
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 Il portale di Azure non supporta ancora la creazione di condivisioni file frequente e sporadico o lo stato di trasferimento di condivisioni file ottimizzate per le transazioni esistenti ad accesso frequente o sporadico Vedere le istruzioni per la creazione di una condivisione file con PowerShell o l'interfaccia della riga di comando di Azure.

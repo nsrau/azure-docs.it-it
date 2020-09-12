@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 01b6a72dfe3180324919fd712412ae88578c641b
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 6f7af74cce6bbafea7924d505f768503c7b1f108
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047453"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89457992"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Note sulla versione di Azure Synapse Analytics
 
@@ -35,7 +35,7 @@ Per i miglioramenti agli strumenti, verificare che sia installata la versione co
 > ```sql
 > SELECT SERVERPROPERTY('ProductVersion')
 >
-> --To return engine edition, use this command that returns 6 for Azure Synapse Analytics (Formerly SQL Data Warehouse):
+> --To return engine edition, use this command that returns 6 for Azure Synapse Analytics (formerly SQL Data Warehouse):
 >
 > SELECT SERVERPROPERTY('EngineEdition')
 > ```
@@ -51,7 +51,7 @@ Per i miglioramenti agli strumenti, verificare che sia installata la versione co
 
 | Miglioramenti al servizio | Dettagli |
 | --- | --- |
-|**Crittografia a livello di colonna (anteprima pubblica)**|Proteggere le informazioni riservate nel data warehouse SQL sinapsi applicando la crittografia simmetrica a una colonna di dati tramite Transact-SQL. La crittografia a livello di colonna include funzioni predefinite che è possibile utilizzare per crittografare i dati utilizzando chiavi simmetriche che sono ulteriormente protette con un certificato, una password, una chiave simmetrica o una chiave asimmetrica. Per altre informazioni, vedere [crittografare una colonna di dati](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest).|
+|**Crittografia a livello di colonna (anteprima pubblica)**|Proteggere le informazioni riservate in Azure sinapsi Analytics applicando la crittografia simmetrica a una colonna di dati tramite Transact-SQL. La crittografia a livello di colonna include funzioni predefinite che è possibile utilizzare per crittografare i dati utilizzando chiavi simmetriche che sono ulteriormente protette con un certificato, una password, una chiave simmetrica o una chiave asimmetrica. Per altre informazioni, vedere [crittografare una colonna di dati](/sql/relational-databases/security/encryption/encrypt-a-column-of-data?view=azure-sqldw-latest).|
 |**Supporto del livello di compatibilità (GA)**|Con questa versione, gli utenti possono ora impostare il livello di compatibilità del database per ottenere il linguaggio Transact-SQL e i comportamenti di elaborazione delle query di una versione specifica del motore Synapse SQL. Per altre informazioni, vedere [sys.database_scoped_configurations](/sql/relational-databases/system-catalog-views/sys-database-scoped-configurations-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest) e [Alter Database Scoped Configuration](/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).|
 |**Sicurezza a livello di riga**|Questa versione include un miglioramento per le operazioni di aggiornamento ed eliminazione sulle righe con l'applicazione della sicurezza a livello di riga. Con questa versione, le operazioni di aggiornamento ed eliminazione con funzioni intrinseche come ' is_rolemember ' riusciranno se il intrinseco non fa riferimento ad alcuna colonna nella tabella di destinazione DML. Prima di questo miglioramento, queste operazioni non sono riuscite a causa di limitazioni nelle operazioni DML sottostanti.|
 |**DBCC SHRINKDATABASE (GA)**|È ora possibile compattare le dimensioni dei file di dati e di log nel database specificato. Per ulteriori informazioni, vedere la [documentazione](https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-shrinkdatabase-transact-sql?view=sql-server-ver15)di.|

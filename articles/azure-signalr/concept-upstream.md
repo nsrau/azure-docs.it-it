@@ -6,16 +6,16 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 06/11/2020
 ms.author: chenyl
-ms.openlocfilehash: be7736d0c90d1c384e15e8c7dee29d016b052dbd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c3e317a87ba888fac3c069cc5327bd89c859e9de
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559442"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514238"
 ---
 # <a name="upstream-settings"></a>Impostazioni upstream
 
-Upstream è una funzionalità che consente al servizio Azure SignalR di inviare messaggi ed eventi di connessione a un set di endpoint in modalità senza server. È possibile usare upstream per richiamare un metodo Hub da client in modalità senza server e consentire agli endpoint di ricevere notifiche quando le connessioni client vengono connesse o disconnesse.
+Upstream è una funzionalità di anteprima che consente al servizio Azure SignalR di inviare messaggi ed eventi di connessione a un set di endpoint in modalità senza server. È possibile usare upstream per richiamare un metodo Hub da client in modalità senza server e consentire agli endpoint di ricevere notifiche quando le connessioni client vengono connesse o disconnesse.
 
 > [!NOTE]
 > Solo la modalità senza server può configurare le impostazioni upstream.
@@ -60,6 +60,10 @@ http://host.com/chat/api/messages/broadcast
 - Usare una virgola (,) per unire più eventi. Ad esempio, `connected, disconnected` corrisponde agli eventi connessi e disconnessi.
 - Usare il nome completo dell'evento per trovare la corrispondenza con l'evento. Ad esempio, `connected` corrisponde all'evento connesso.
 
+> [!NOTE]
+> Se si usa funzioni di Azure e il [trigger SignalR](../azure-functions/functions-bindings-signalr-service-trigger.md), il trigger SignalR esporrà un singolo endpoint nel formato seguente: `https://<APP_NAME>.azurewebsites.net/runtime/webhooks/signalr?code=<API_KEY>` .
+> È possibile configurare solo il modello di URL in questo URL.
+
 ### <a name="authentication-settings"></a>Authentication settings
 
 È possibile configurare l'autenticazione per ogni elemento dell'impostazione upstream separatamente. Quando si configura l'autenticazione di, un token viene impostato nell' `Authentication` intestazione del messaggio upstream. Attualmente, il servizio Azure SignalR supporta i tipi di autenticazione seguenti:
@@ -78,7 +82,7 @@ Quando si seleziona `ManagedIdentity` , è necessario abilitare in anticipo un'i
 3. Aggiungere URL nel **modello URL upstream**. Impostazioni come le **regole dell'hub** mostreranno quindi il valore predefinito.
 4. Per impostare le impostazioni per le **regole dell'hub**, le **regole degli eventi**, le regole di **categoria**e **l'autenticazione upstream**, selezionare il valore delle **regole dell'hub**. Viene visualizzata una pagina che consente di modificare le impostazioni:
 
-    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Impostazioni upstream":::
+    :::image type="content" source="media/concept-upstream/upstream-detail-portal.png" alt-text="Dettagli impostazione upstream":::
 
 5. Per impostare **l'autenticazione upstream**, assicurarsi che sia stata abilitata per prima un'identità gestita. Selezionare quindi **Usa identità gestita**. Secondo le esigenze, è possibile scegliere qualsiasi opzione in **ID risorsa di autenticazione**. Per informazioni dettagliate, vedere [identità gestite per il servizio Azure SignalR](howto-use-managed-identity.md) .
 
@@ -139,7 +143,7 @@ Content-Type: application/json
 
 #### <a name="disconnected"></a>Disconnesso
 
-Tipo di contenuto:`application/json`
+Tipo di contenuto: `application/json`
 
 |Nome  |Type  |Descrizione  |
 |---------|---------|---------|
@@ -147,13 +151,13 @@ Tipo di contenuto:`application/json`
 
 #### <a name="invocation-message"></a>Messaggio di chiamata
 
-Content-Type: `application/json` o`application/x-msgpack`
+Content-Type: `application/json` o `application/x-msgpack`
 
 |Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |InvocationId |string | Stringa facoltativa che rappresenta un messaggio di chiamata. Trovare i dettagli nelle [chiamate](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocations).|
 |Destinazione |string | Uguale all'evento e uguale a quello della destinazione in un messaggio di [chiamata](https://github.com/dotnet/aspnetcore/blob/master/src/SignalR/docs/specs/HubProtocol.md#invocation-message-encoding). |
-|Arguments |Matrice di oggetti |Matrice contenente gli argomenti da applicare al metodo a cui si fa riferimento in `Target` . |
+|Argomenti |Matrice di oggetti |Matrice contenente gli argomenti da applicare al metodo a cui si fa riferimento in `Target` . |
 
 ### <a name="signature"></a>Firma
 

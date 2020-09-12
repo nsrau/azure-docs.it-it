@@ -3,12 +3,12 @@ title: Migliorare le prestazioni delle app di Azure con Advisor
 description: Usare le raccomandazioni sulle prestazioni in Azure Advisor per migliorare la velocità e la velocità di risposta delle applicazioni cruciali per l'azienda.
 ms.topic: article
 ms.date: 01/29/2019
-ms.openlocfilehash: 0112e94e7652026e020e99ca82ad757c236a0c53
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 9a8499e85a264488c756a3d497565398f2e1c229
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88653308"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651573"
 ---
 # <a name="improve-the-performance-of-azure-applications-by-using-azure-advisor"></a>Migliorare le prestazioni delle applicazioni Azure usando Azure Advisor
 
@@ -63,6 +63,8 @@ Advisor identifica le tabelle che non dispongono di [statistiche di tabella](../
 
 L'analisi di Advisor può indicare che l'applicazione che si connette a un server MySQL potrebbe non gestire le connessioni in modo efficiente. Questa condizione può causare un consumo di risorse superfluo e una latenza dell'applicazione complessiva superiore. Per migliorare la gestione delle connessioni, è consigliabile ridurre il numero di connessioni di breve durata ed eliminare le connessioni inattive non necessarie. È possibile apportare questi miglioramenti configurando una connessione lato server pool, ad esempio ProxySQL.
 
+## <a name="update-your-current-compute-management-sdk-version-to-the-most-recent-version"></a>Aggiornare la versione corrente dell'SDK di gestione di calcolo alla versione più recente
+Advisor identifica le sottoscrizioni con operazioni che usano versioni obsolete dell'SDK di gestione di calcolo. Questo potrebbe influito sulla sicurezza e sulle prestazioni dei carichi di lavoro e pertanto Advisor consiglia di passare alla versione più recente di Compute Management SDK. 
 
 ## <a name="scale-up-to-optimize-cache-utilization-on-your-azure-synapse-analytics-tables-to-increase-query-performance"></a>Scalabilità verticale per ottimizzare l'utilizzo della cache nelle tabelle di analisi delle sinapsi di Azure per migliorare le prestazioni delle query
 
@@ -165,7 +167,7 @@ Questo consiglio fa emergere le tabelle di Esplora dati di Azure con un numero p
 ## <a name="improve-performance-by-optimizing-mysql-temporary-table-sizing"></a>Migliorare le prestazioni ottimizzando il dimensionamento della tabella temporanea MySQL
 L'analisi di Advisor indica che è possibile che il server MySQL incorra un sovraccarico di I/O non necessario a causa di impostazioni di parametri low-table temporanee. Ciò può comportare transazioni non necessarie basate su disco e prestazioni ridotte. Per ridurre il numero di transazioni basate su disco, è consigliabile aumentare i valori del parametro "tmp_table_size' and 'max_heap_table_size". [Altre informazioni](https://aka.ms/azure_mysql_tmp_table)
 
-## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>Distribuire i dati nel gruppo di server per distribuire il carico di lavoro tra i nodi
+## <a name="distribute-data-in-server-group-to-distribute-workload-among-nodes"></a>Distribuire i dati nel gruppo di server per la distribuzione del carico di lavoro tra i nodi
 Advisor identifica i gruppi di server in cui i dati non sono stati distribuiti, ma rimane sul coordinatore. In base a questa operazione, Advisor consiglia di distribuire i dati nei nodi del ruolo di lavoro per i gruppi di server per i vantaggi della scalabilità completa (CITUS). Ciò consente di migliorare le prestazioni di esecuzione delle query utilizzando la risorsa di ogni nodo nel gruppo di server. [Altre informazioni](https://go.microsoft.com/fwlink/?linkid=2135201) 
 
 ## <a name="how-to-access-performance-recommendations-in-advisor"></a>Come accedere ai consigli sulle prestazioni in Advisor

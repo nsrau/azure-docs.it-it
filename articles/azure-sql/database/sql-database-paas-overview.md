@@ -12,14 +12,14 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 04/08/2019
-ms.openlocfilehash: fcad4f02f3fdfcbdc95617da7344d06feb70d1af
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9ee4070562e44d4f560230fa2fd069eb1fd57932
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343252"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612082"
 ---
-# <a name="what-is-azure-sql-database"></a>Informazioni sul database SQL di Azure
+# <a name="what-is-azure-sql-database"></a>Che cos'è il database SQL di Azure?
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Il database SQL di Azure è un motore di database di piattaforma distribuita come servizio (PaaS) completamente gestito che gestisce la maggior parte delle funzioni di gestione del database, ad esempio l'aggiornamento, l'applicazione di patch, i backup e il monitoraggio senza coinvolgimento dell'utente. Il database SQL di Azure è sempre in esecuzione nella versione stabile più recente del motore di database SQL Server e del sistema operativo con patch con disponibilità del 99,99%. Le funzionalità di PaaS integrate nel database SQL di Azure consentono di concentrarsi sulle attività di amministrazione e ottimizzazione del database specifiche del dominio cruciali per l'azienda.
@@ -29,6 +29,9 @@ Con il database SQL di Azure è possibile creare un livello di archiviazione dei
 Il database SQL di Azure è basato sulla versione stabile più recente del [motore di database di Microsoft SQL Server](https://docs.microsoft.com/sql/sql-server/sql-server-technical-documentation?toc=/azure/sql-database/toc.json). È possibile utilizzare le funzionalità avanzate di elaborazione delle query, ad esempio le [tecnologie in memoria a prestazioni elevate](../in-memory-oltp-overview.md) e l' [elaborazione intelligente delle query](https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json). Infatti, le funzionalità più recenti di SQL Server vengono rilasciate prima al database SQL e quindi a SQL Server stesso. Si ottengono le più recenti funzionalità di SQL Server senza sovraccarico per l'applicazione di patch o l'aggiornamento, testati in milioni di database. 
 
 Il database SQL consente di definire e ridimensionare facilmente le prestazioni in due diversi modelli di acquisto: un [modello di acquisto basato su vCore](service-tiers-vcore.md) e un [modello di acquisto basato su DTU](service-tiers-dtu.md). Il database SQL è un servizio completamente gestito che dispone di disponibilità elevata, backup e altre operazioni di manutenzione comuni incorporati. Microsoft gestisce tutte le patch e l'aggiornamento del codice SQL e del sistema operativo. Non è necessario gestire l'infrastruttura sottostante.
+
+Se non si ha familiarità con il database SQL di Azure, vedere il video di *panoramica sul database SQL di Azure* della [serie di video di Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner)approfondita:
+> [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Database-Overview-7-of-61/player]
 
 ## <a name="deployment-models"></a>Modelli di distribuzione
 
@@ -111,7 +114,7 @@ Zone di disponibilità di Azure tenta di proteggersi da un'interruzione di una s
 
 Infatti, il contratto di servizio di Azure, basato su una rete globale di data center gestiti da Microsoft, [consente di garantire](https://azure.microsoft.com/support/legal/sla/) l'esecuzione dell'app 24/7. La piattaforma Azure gestisce completamente tutti i database e non garantisce alcuna perdita di dati e una percentuale elevata di disponibilità dei dati. Azure gestisce automaticamente l'applicazione di patch, i backup, la replica, il rilevamento degli errori, i possibili errori di hardware, software o rete sottostanti, la distribuzione di correzioni di bug, i failover, gli aggiornamenti del database e altre attività di manutenzione. La disponibilità standard viene ottenuta separando i livelli di calcolo e archiviazione. La disponibilità Premium viene eseguita integrando risorse di calcolo e archiviazione in un singolo nodo per le prestazioni e quindi implementando una tecnologia simile a Always On gruppi di disponibilità. Per una descrizione completa delle funzionalità a disponibilità elevata del database SQL di Azure, vedere la [disponibilità del database SQL](high-availability-sla.md). 
 
-Inoltre, il database SQL offre funzionalità integrate per la [continuità aziendale e la scalabilità globale](business-continuity-high-availability-disaster-recover-hadr-overview.md) . Tra queste sono incluse:
+Inoltre, il database SQL offre funzionalità integrate per la [continuità aziendale e la scalabilità globale](business-continuity-high-availability-disaster-recover-hadr-overview.md) . Sono inclusi:
 
 - [Backup automatici](automated-backups-overview.md):
 
@@ -172,11 +175,11 @@ Sicurezza dei dati avanzata è un pacchetto unificato che include le funzionalit
   Questo servizio consente di individuare, monitorare e risolvere potenziali vulnerabilità del database. Consente di visualizzare lo stato di sicurezza e prevede passaggi utili per risolvere i problemi di sicurezza e migliorare la protezione del database.
 - [Rilevamento minacce](threat-detection-configure.md):
 
-  Questa funzionalità rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare il database. Monitora in modo continuo il database in caso di attività sospette e fornisce avvisi di sicurezza immediati su potenziali vulnerabilità, attacchi SQL injection e in caso di modelli di accesso ai database anomali. Gli avvisi di rilevamento delle minacce forniscono informazioni dettagliate sull'attività sospetta e consigliano un'azione su come analizzare e mitigare la minaccia.
+  Questa funzionalità rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare il database. Monitora in modo continuo il database in caso di attività sospette e fornisce avvisi di sicurezza immediati su potenziali vulnerabilità, attacchi SQL injection e in caso di criteri anomali di accesso ai database. Gli avvisi di Threat Protection includono dettagli sulle attività sospette e consigliano azioni per l'analisi e la mitigazione della minaccia.
 
 ### <a name="auditing-for-compliance-and-security"></a>Controllo per conformità e sicurezza
 
-Il servizio di [controllo](../../azure-sql/database/auditing-overview.md) tiene traccia degli eventi che si verificano nel database e li registra in un log di controllo nell'account di archiviazione di Azure. Il controllo consente di agevolare la conformità alle normative, comprendere l'attività del database e ottenere informazioni dettagliate su eventuali discrepanze e anomalie che potrebbero indicare problemi aziendali o sospette violazioni della sicurezza.
+Il [controllo](../../azure-sql/database/auditing-overview.md) tiene traccia degli eventi di database e li scrive in un log di controllo nell'account di archiviazione di Azure. Il controllo consente di agevolare la conformità alle normative, comprendere l'attività del database e ottenere informazioni dettagliate su eventuali discrepanze e anomalie che potrebbero indicare problemi aziendali o sospette violazioni della sicurezza.
 
 ### <a name="data-encryption"></a>Crittografia dei dati
 
@@ -196,7 +199,7 @@ Il database SQL consente di creare e gestire le applicazioni in modo più facile
 |[Azure Data Studio](/sql/azure-data-studio/)|Uno strumento di database multipiattaforma eseguito in Windows, MacOS e Linux.|
 |[SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)|Applicazione client gratuita e scaricabile per la gestione di qualsiasi infrastruttura SQL, dal SQL Server al database SQL.|
 |[SQL Server Data Tools in Visual Studio](https://docs.microsoft.com/sql/ssdt/download-sql-server-data-tools-ssdt)|Applicazione client gratuita e scaricabile per lo sviluppo di database relazionali SQL Server, database nel database SQL di Azure, pacchetti di Integration Services, modelli di dati Analysis Services e report di Reporting Services.|
-|[Visual Studio Code](https://code.visualstudio.com/docs)|Un editor di codice open source gratuito e scaricabile per Windows, macOS e Linux. Supporta estensioni, tra cui l'[estensione mssql](https://aka.ms/mssql-marketplace) per l'esecuzione di query in Microsoft SQL Server, database SQL di Azure e Azure SQL Data Warehouse.|
+|[Visual Studio Code](https://code.visualstudio.com/docs)|Un editor di codice open source gratuito e scaricabile per Windows, macOS e Linux. Supporta le estensioni, tra cui l' [estensione MSSQL](https://aka.ms/mssql-marketplace) per l'esecuzione di query Microsoft SQL Server, il database SQL di Azure e Azure sinapsi Analytics di Azure (in precedenza SQL Data Warehouse).|
 
 Il database SQL supporta la creazione di applicazioni con Python, Java, Node.js, PHP, Ruby e .NET in macOS, Linux e Windows. Il database SQL supporta le stesse [librerie di connessione](connect-query-content-reference-guide.md#libraries) di SQL Server.
 

@@ -2,18 +2,18 @@
 title: 'Azure ExpressRoute: flusso di lavoro di configurazione del circuito'
 description: Questa pagina mostra il flusso di lavoro per la configurazione di circuiti e peering ExpressRoute
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/24/2020
-ms.author: cherylmc
+ms.author: duau
 ms.custom: contperfq1
-ms.openlocfilehash: 229b7c145fa38443d2bc5f99005078ffa7f77065
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: bb0d3cebd9382ef2c81b217417cfbcb6198b6ebb
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814077"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565924"
 ---
 # <a name="expressroute-workflows-for-circuit-provisioning-and-circuit-states"></a>Flussi di lavoro ExpressRoute per provisioning di un circuito e stati di circuito
 
@@ -86,7 +86,7 @@ Consentire il peering privato per connettersi alle macchine virtuali e ai serviz
 
 #### <a name="for-microsoft-peering"></a>Per il peering Microsoft
 
-Consente di accedere a Microsoft Servizi online, ad esempio Office 365. Inoltre, tutti i servizi PaaS di Azure sono accessibili tramite il peering Microsoft. È necessario assicurarsi di usare un proxy/Edge separato per connettersi a Microsoft rispetto a quello usato per Internet. Se si usa lo stesso server perimetrale per ExpressRoute e Internet, si verificherà un routing asimmetrico con interruzioni della connettività di rete.
+Consente di accedere a Microsoft Servizi online, ad esempio Microsoft 365. Inoltre, tutti i servizi PaaS di Azure sono accessibili tramite il peering Microsoft. È necessario assicurarsi di usare un proxy/Edge separato per connettersi a Microsoft rispetto a quello usato per Internet. Se si usa lo stesso server perimetrale per ExpressRoute e Internet, si verificherà un routing asimmetrico con interruzioni della connettività di rete.
 
 * Subnet di peering per il percorso 1 (/30). deve essere un indirizzo IP pubblico
 * Subnet di peering per il percorso 2 (/30)-deve essere un indirizzo IP pubblico

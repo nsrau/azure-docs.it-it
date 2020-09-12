@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/18/2020
+ms.date: 09/09/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2bf767bd87e0df791b0efff1294f15353234ba2c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 09edfc91f98e51a7dce7e98b48f2970ccba33586
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520210"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611604"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Registrare un'applicazione SAML in Azure AD B2C
 
@@ -354,7 +354,8 @@ Per completare questa esercitazione, usare l'[applicazione di test SAML][samltes
 
 Selezionare **Accedi** e dovrebbe essere visualizzata una schermata di accesso utente. Dopo l'accesso, all'applicazione di esempio viene restituita un'asserzione SAML.
 
-## <a name="enable-encypted-assertions"></a>Abilita asserzioni crittografato
+## <a name="enable-encrypted-assertions-optional"></a>Abilita asserzioni crittografate (facoltativo)
+
 Per crittografare le asserzioni SAML restituite al provider di servizi, Azure AD B2C utilizzerà il certificato di chiave pubblica del provider di servizi. La chiave pubblica deve esistere nei metadati SAML descritti in precedenza ["samlMetadataUrl"](#samlmetadataurl) come descrittore di chiave con l'uso di "Encryption".
 
 Di seguito è riportato un esempio del descrittore di metadati SAML con un valore use impostato su Encryption:
@@ -369,35 +370,50 @@ Di seguito è riportato un esempio del descrittore di metadati SAML con un valor
 </KeyDescriptor>
 ```
 
-Per consentire Azure AD B2C di inviare asserzioni crittografate, impostare l'elemento dei metadati **WantsEncryptedAssertion** su true nel profilo tecnico della relying party, come illustrato di seguito.
+Per consentire Azure AD B2C di inviare asserzioni crittografate, impostare l'elemento dei metadati **WantsEncryptedAssertion** su `true` nel [profilo tecnico relying party](relyingparty.md#technicalprofile). È anche possibile configurare l'algoritmo usato per crittografare l'asserzione SAML. Per ulteriori informazioni, vedere [relying party metadati del profilo tecnico](relyingparty.md#metadata). 
 
 ```xml
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<TrustFrameworkPolicy
-  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xmlns:xsd="http://www.w3.org/2001/XMLSchema"
-  xmlns="http://schemas.microsoft.com/online/cpim/schemas/2013/06"
-  PolicySchemaVersion="0.3.0.0"
-  TenantId="contoso.onmicrosoft.com"
-  PolicyId="B2C_1A_signup_signin_saml"
-  PublicPolicyUri="http://contoso.onmicrosoft.com/B2C_1A_signup_signin_saml">
- ..
- ..
-  <RelyingParty>
-    <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
-    <TechnicalProfile Id="PolicyProfile">
-      <DisplayName>PolicyProfile</DisplayName>
-      <Protocol Name="SAML2"/>
-      <Metadata>
-          <Item Key="WantsEncryptedAssertions">true</Item>
-      </Metadata>
-     ..
-     ..
-     ..
-    </TechnicalProfile>
-  </RelyingParty>
-</TrustFrameworkPolicy>
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="SAML2"/>
+    <Metadata>
+      <Item Key="WantsEncryptedAssertions">true</Item>
+    </Metadata>
+   ..
+  </TechnicalProfile>
+</RelyingParty>
 ```
+
+## <a name="enable-identity-provider-initiated-flow-optional"></a>Abilita flusso avviato dal provider di identità (facoltativo)
+
+Nel flusso avviato dal provider di identità, il processo di accesso viene avviato dal provider di identità (Azure AD B2C), che invia una risposta SAML non richiesta al provider di servizi (l'applicazione relying party). Per abilitare il flusso avviato dal provider di identità, impostare l'elemento dei metadati **IdpInitiatedProfileEnabled** su `true` nel [profilo tecnico relying party](relyingparty.md#technicalprofile).
+
+```xml
+<RelyingParty>
+  <DefaultUserJourney ReferenceId="SignUpOrSignIn" />
+  <TechnicalProfile Id="PolicyProfile">
+    <DisplayName>PolicyProfile</DisplayName>
+    <Protocol Name="SAML2"/>
+    <Metadata>
+      <Item Key="IdpInitiatedProfileEnabled">true</Item>
+    </Metadata>
+   ..
+  </TechnicalProfile>
+</RelyingParty>
+```
+
+Per eseguire l'accesso o l'iscrizione di un utente tramite il flusso avviato dal provider di identità, usare l'URL seguente:
+
+```
+https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/generic/login
+```
+
+Sostituire i valori seguenti:
+
+* **nome-tenant** con il nome del tenant
+* **Policy-Name** con il nome del criterio di relying party SAML
 
 ## <a name="sample-policy"></a>Criterio di esempio
 

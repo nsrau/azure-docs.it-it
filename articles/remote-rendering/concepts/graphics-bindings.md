@@ -10,12 +10,12 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f769036ac9e5a6945e7ecad30e021d377cabd358
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8d8dc4a3efb034c9428de32f0f975869e1044327
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020270"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613893"
 ---
 # <a name="graphics-binding"></a>Binding di grafica
 
@@ -115,7 +115,6 @@ if (*wmrBinding->UpdateUserCoordinateSystem(ptr) == Result::Success)
     //...
 }
 ```
-
 
 Dove `ptr` qui sopra deve essere un puntatore a un oggetto `ABI::Windows::Perception::Spatial::ISpatialCoordinateSystem` nativo che definisce il sistema di coordinate dello spazio globale in cui sono espresse le coordinate nell'API.
 
@@ -231,6 +230,17 @@ else
     ...
 }
 ```
+
+## <a name="api-documentation"></a>Documentazione dell'API
+
+* [C# RemoteManagerStatic. StartupRemoteRendering ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanagerstatic.startupremoterendering)
+* [Classe Graphics di C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.graphicsbinding)
+* [C# GraphicsBindingWmrD3d11 (classe)](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.graphicsbindingwmrd3d11)
+* [C# GraphicsBindingSimD3d11 (classe)](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.graphicsbindingsimd3d11)
+* [Struct C++ RemoteRenderingInitialization](https://docs.microsoft.com/cpp/api/remote-rendering/remoterenderinginitialization)
+* [Classe Graphics di C++](https://docs.microsoft.com/cpp/api/remote-rendering/graphicsbinding)
+* [Classe C++ GraphicsBindingWmrD3d11](https://docs.microsoft.com/cpp/api/remote-rendering/graphicsbindingwmrd3d11)
+* [Classe C++ GraphicsBindingSimD3d11](https://docs.microsoft.com/cpp/api/remote-rendering/graphicsbindingsimd3d11)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

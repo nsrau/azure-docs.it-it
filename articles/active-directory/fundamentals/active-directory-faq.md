@@ -13,12 +13,12 @@ ms.date: 11/12/2018
 ms.author: ajburnle
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d88873dafd5a3ffac3f0135d877ff407427ffd6f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: afb6adc38fd44366b837119518622dd8931f9096
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179862"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565566"
 ---
 # <a name="frequently-asked-questions-about-azure-active-directory"></a>Domande frequenti su Azure Active Directory
 Azure Active Directory (Azure AD) è una soluzione IDaaS (Identity as a Service) completa che si estende a tutti gli aspetti relativi a identità, gestione degli accessi e sicurezza.
@@ -29,7 +29,7 @@ Per altre informazioni, vedere [Informazioni su Azure Active Directory](active-d
 ## <a name="access-azure-and-azure-active-directory"></a>Accedere ad Azure e Azure Active Directory
 **D: Perché viene visualizzato il messaggio "Non sono state trovate sottoscrizioni" quando si prova ad accedere ad Azure AD nel portale di Azure?**
 
-**R:** Per accedere al portale di Azure, ogni utente deve avere autorizzazioni per una sottoscrizione di Azure. Se non si dispone di un abbonamento a Office 365 o una sottoscrizione di Azure AD a pagamento, sarà necessario attivare un [account Azure](https://azure.microsoft.com/free/
+**R:** Per accedere al portale di Azure, ogni utente deve avere autorizzazioni per una sottoscrizione di Azure. Se non si ha una sottoscrizione a pagamento Microsoft 365 o Azure AD, sarà necessario attivare un [account Azure](https://azure.microsoft.com/free/
 ) gratuito o una sottoscrizione a pagamento.
 
 Per altre informazioni, vedere:
@@ -37,13 +37,13 @@ Per altre informazioni, vedere:
 * [Associare le sottoscrizioni di Azure ad Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)
 
 ---
-**D: Qual è la relazione tra Azure AD, Office 365 e Azure?**
+**D: qual è la relazione tra Azure AD, Microsoft 365 e Azure?**
 
-**R:** Azure AD offre funzionalità comuni di gestione delle identità e dell'accesso in tutti i servizi Web. Se si usa Office 365, Microsoft Azure, Intune o altri servizi, si usa già Azure AD per abilitare la gestione dell'accesso per tutti questi servizi.
+**R:** Azure AD offre funzionalità comuni di gestione delle identità e dell'accesso in tutti i servizi Web. Se si usa Microsoft 365, Microsoft Azure, Intune o altri utenti, si sta già usando Azure AD per abilitare la gestione dell'accesso e dell'accesso per tutti questi servizi.
 
 Tutti gli utenti abilitati all'uso dei servizi Web sono definiti come account utente in una o più istanze di Azure AD. È possibile configurare questi account per funzionalità di Azure AD gratuite come l'accesso alle applicazioni cloud.
 
-I servizi a pagamento di Azure AD, ad esempio Enterprise Mobility + Security, sono complementari ad altri servizi Web come Office 365 e Microsoft Azure, con soluzioni di gestione e di sicurezza complete di scala aziendale.
+Azure AD Servizi a pagamento come Enterprise Mobility + Security complementari ad altri servizi Web come Microsoft 365 e Microsoft Azure con soluzioni complete per la gestione e la sicurezza su scala aziendale.
 
 ---
 
@@ -55,7 +55,7 @@ Se altri utenti devono accedere ai servizi con la stessa sottoscrizione, è poss
 
 Per impostazione predefinita, la persona che effettua l'iscrizione per una sottoscrizione di Azure riceve il ruolo Amministratore globale per la directory. L'amministratore globale ha accesso a tutte le funzionalità della directory di Azure AD. In Azure AD è invece disponibile un set di ruoli di amministratore diverso per gestire la directory e le funzionalità relative alle identità. Questi amministratori avranno accesso a diverse funzionalità nel portale di Azure. Il ruolo dell'amministratore determina le operazioni consentite, ad esempio creare o modificare gli utenti, assegnare ruoli amministrativi ad altri, reimpostare le password utente, gestire le licenze utente o gestire i domini.  Per altre informazioni sugli amministratori della directory di AD e i loro ruoli, vedere [Assegnare un utente ai ruoli di amministratore in Azure Active Directory](active-directory-users-assign-role-azure-portal.md) e [Autorizzazioni del ruolo di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
 
-I servizi a pagamento di Azure AD, ad esempio Enterprise Mobility + Security, sono complementari ad altri servizi Web come Office 365 e Microsoft Azure, con soluzioni di gestione e di sicurezza complete di scala aziendale.
+Inoltre, Azure AD Servizi a pagamento come Enterprise Mobility + Security complementari ad altri servizi Web, ad esempio Microsoft 365 e Microsoft Azure, con soluzioni complete per la gestione e la sicurezza su scala aziendale.
 
 ---
 **D: È disponibile un report che indica la scadenza delle licenze utente di Azure AD?**
@@ -90,16 +90,16 @@ Per altre informazioni, vedere [Integrazione delle identità locali con Azure Ac
 ---
 **D: Azure AD offre un portale self-service per gli utenti dell'organizzazione?**
 
-**R:** Sì, in Azure AD è disponibile il [pannello di accesso di Azure AD](https://myapps.microsoft.com) per l'accesso degli utenti alle funzionalità self-service e alle applicazioni. I clienti di Office 365 possono trovare molte funzionalità analoghe nel [portale di Office 365](https://portal.office.com).
+**R:** Sì, in Azure AD è disponibile il [pannello di accesso di Azure AD](https://myapps.microsoft.com) per l'accesso degli utenti alle funzionalità self-service e alle applicazioni. I clienti Microsoft 365 possono trovare molte delle stesse funzionalità del [portale di Office 365](https://portal.office.com).
 
-Per altre informazioni, vedere [Introduzione al Pannello di accesso](../user-help/active-directory-saas-access-panel-introduction.md).
+Per altre informazioni, vedere [Introduzione al Pannello di accesso](../user-help/my-apps-portal-end-user-access.md).
 
 ---
 **D: Azure AD semplifica la gestione dell'infrastruttura locale?**
 
 **R:** Sì. Azure AD Premium Edition include Azure AD Connect Health. Azure AD Connect Health consente di monitorare e ottenere informazioni dettagliate sull'infrastruttura di gestione delle identità locale e sui servizi di sincronizzazione.  
 
-Per altre informazioni, vedere [Monitorare l'infrastruttura di gestione delle identità locale e i servizi di sincronizzazione nel cloud](../hybrid/whatis-hybrid-identity-health.md).  
+Per altre informazioni, vedere [Monitorare l'infrastruttura di gestione delle identità locale e i servizi di sincronizzazione nel cloud](../hybrid/whatis-azure-ad-connect.md).  
 
 ---
 ## <a name="password-management"></a>Gestione delle password
@@ -112,7 +112,7 @@ Per altre informazioni, vedere [Monitorare l'infrastruttura di gestione delle id
 
 **R:** Il writeback delle password viene eseguito in tempo reale.
 
-Per altre informazioni, vedere [Introduzione alla gestione delle password](../authentication/quickstart-sspr.md).
+Per altre informazioni, vedere [Introduzione alla gestione delle password](../authentication/tutorial-enable-sspr.md).
 
 ---
 **D: È possibile usare il writeback delle password con password gestite da un amministratore?**
@@ -121,11 +121,11 @@ Per altre informazioni, vedere [Introduzione alla gestione delle password](../au
 
 <a name="for-more-answers-to-password-related-questions-see-password-management-frequently-asked-questions"></a>Per altre risposte a domande relative alle password, vedere [Domande frequenti sulla gestione delle password](../authentication/active-directory-passwords-faq.md).
 ---
-**D:  Cosa si può fare se non si ricorda la password di Office 365/Azure AD esistente durante il tentativo di modificare la password?**
+**D: quali operazioni è possibile eseguire se non si ricorda la password Microsoft 365/Azure AD esistente durante il tentativo di modificare la password?**
 
 **R:** In situazioni di questo tipo è possibile procedere in due modi.  Usare la reimpostazione password self-service (SSPR), se disponibile.  La disponibilità della funzione SSPR dipende dalla sua configurazione.  Per altre informazioni, vedere [Funzionamento del portale di reimpostazione delle password](../authentication/howto-sspr-deployment.md).
 
-Per gli utenti di Office 365, l'amministratore può reimpostare la password seguendo la procedura descritta in [Reimpostare le password degli utenti](https://support.office.com/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
+Per Microsoft 365 utenti, l'amministratore può reimpostare la password usando la procedura descritta in [reimpostazione delle password utente](https://support.office.com/article/Admins-Reset-user-passwords-7A5D073B-7FAE-4AA5-8F96-9ECD041ABA9C?ui=en-US&rs=en-US&ad=US).
 
 Per gli account Azure AD, gli amministratori possono reimpostare le password in uno dei modi seguenti:
 
@@ -171,7 +171,7 @@ Per altre informazioni, vedere:
 **R:** Azure AD consente agli utenti di visualizzare e accedere alle applicazioni in molti modi, ad esempio:
 
 * Pannello di accesso di Azure AD
-* Applicazione di avvio di Office 365
+* Utilità di avvio dell'applicazione Microsoft 365
 * Accesso diretto alle applicazioni federate
 * Collegamenti diretti per applicazioni federate, basate su password o esistenti
 
@@ -184,8 +184,8 @@ Per altre informazioni, vedere [End user experiences for applications](../manage
 
 Per altre informazioni, vedere:
 
-* [Scenari di autenticazione per Azure AD](../develop/authentication-scenarios.md)
-* [Protocolli di autenticazione di Active Directory](https://msdn.microsoft.com/library/azure/dn151124.aspx)
+* [Scenari di autenticazione per Azure AD](../develop/authentication-vs-authorization.md)
+* [Protocolli di autenticazione di Active Directory](/previous-versions/azure/dn151124(v=azure.100))
 * [Single Sign-On per le applicazioni in Azure AD](../manage-apps/what-is-single-sign-on.md)
 
 ---
@@ -200,7 +200,7 @@ Per altre informazioni, vedere [Come fornire l'accesso remoto sicuro alle applic
 
 **R:** L'accesso condizionale di Azure AD consente di assegnare criteri di accesso univoci per ogni applicazione. Nel criterio è possibile richiedere sempre l'autenticazione Multi-Factor Authentication o solo quando gli utenti non sono connessi alla rete locale.  
 
-Per altre informazioni, vedere [Protezione dell'accesso a Office 365 e ad altre app connesse ad Azure Active Directory](../conditional-access/overview.md).
+Per altre informazioni, vedere [protezione dell'accesso a Microsoft 365 e ad altre app connesse a Azure Active Directory](../conditional-access/overview.md).
 
 ---
 **D: Che cos'è il provisioning utenti automatizzato per app SaaS?**

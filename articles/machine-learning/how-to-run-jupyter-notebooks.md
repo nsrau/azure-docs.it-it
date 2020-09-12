@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: 861fcabbfca07cb342fda42ea2425fa290a1598e
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: a59905c1d410ae0ffd4520f3b61fd37e649012e7
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386453"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650919"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Come eseguire Jupyter Notebook nell'area di lavoro
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -48,7 +48,7 @@ Per creare un nuovo notebook:
     :::image type="content" source="media/how-to-run-jupyter-notebooks/create-new-file.png" alt-text="Create new file"::: (Crea nuovo file)
 
 1. Assegnare un nome al file. 
-1. Per i file di Jupyter Notebook, selezionare **Python Notebook** (Notebook Python) come tipo di file.
+1. Per Jupyter Notebook file, selezionare **notebook** come tipo di file.
 1. Selezionare una directory di file.
 1. Selezionare **Create** (Crea).
 
@@ -82,7 +82,7 @@ Per accedere al terminale:
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/open-terminal.png" alt-text="Aprire il terminale":::
 
-1. Se l'icona non viene visualizzata, selezionare **...** a destra della destinazione di calcolo e quindi selezionare **Open terminal** (Apri terminale).
+1. Se l'icona non viene visualizzata, selezionare il **...** a destra della destinazione di calcolo e quindi selezionare **Apri terminale**.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/alt-open-terminal.png" alt-text="Open terminal"::: (Apri terminale)
 
@@ -92,7 +92,7 @@ Vedere altre informazioni su come [clonare i repository GIT nel file system dell
 
 ### <a name="share-notebooks-and-other-files"></a>Condividere notebook e altri file
 
-Copiare e incollare l'URL per condividere un notebook o un file.  Solo gli altri utenti dell'area di lavoro saranno in grado di accedere all'URL.  Vedere altre informazioni su come [concedere l'accesso all'area di lavoro](how-to-assign-roles.md).
+Copiare e incollare l'URL per condividere un notebook o un file.  Solo gli altri utenti dell'area di lavoro possono accedere a questo URL.  Vedere altre informazioni su come [concedere l'accesso all'area di lavoro](how-to-assign-roles.md).
 
 ## <a name="edit-a-notebook"></a>Modificare un notebook
 
@@ -109,6 +109,22 @@ Quando un'istanza di calcolo è in esecuzione, è anche possibile usare il compl
 [IntelliSense](https://code.visualstudio.com/docs/editor/intellisense) è un supporto per il completamento del codice che include numerose funzionalità: Elenca membri, informazioni sul parametro, informazioni rapide e completa parola. Queste funzionalità consentono di acquisire altre informazioni sul codice in uso, tengono traccia dei parametri che si digitano e aggiungono le chiamate a proprietà e metodi con poche sequenze di tasti.  
 
 Quando si digita il codice, premere CTRL + barra spaziatrice per attivare IntelliSense.
+
+### <a name="clean-your-notebook-preview"></a>Pulire il notebook (anteprima)
+
+> [!IMPORTANT]
+> La funzionalità di raccolta è attualmente disponibile in anteprima pubblica.
+> La versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+
+Nel corso della creazione di un notebook, in genere si finisce con le celle usate per l'esplorazione o il debug dei dati. La funzionalità di *raccolta* consente di creare un notebook pulito senza queste celle estranee.
+
+1. Eseguire tutte le celle del notebook.
+1. Selezionare la cella che contiene il codice che si desidera venga eseguito dal nuovo notebook. Ad esempio, il codice che invia un esperimento o forse il codice che registra un modello.
+1. Selezionare l'icona **gather** visualizzata sulla barra degli strumenti della cella.
+    :::image type="content" source="media/how-to-run-jupyter-notebooks/gather.png" alt-text="Screenshot: selezionare l'icona di raccolta":::
+1. Immettere il nome del nuovo notebook "raccolto".  
+
+Il nuovo notebook contiene solo celle di codice, con tutte le celle necessarie per produrre gli stessi risultati della cella selezionata per la raccolta.
 
 ### <a name="save-and-checkpoint-a-notebook"></a>Salvare e Checkpoint un notebook
 
@@ -157,7 +173,7 @@ Per eseguire un esperimento da un notebook, connettersi prima a un'[istanza di c
 
 ### <a name="view-logs-and-output"></a>Visualizzare i log e l'output
 
-Usare i [widget del notebook](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py) per visualizzare lo stato di avanzamento dell'esecuzione e i log. Il widget è asincrono e offre gli aggiornamenti fino al termine del training. I widget di Azure Machine Learning sono supportati anche in Jupyter e JupterLab.
+Usare i [widget del notebook](https://docs.microsoft.com/python/api/azureml-widgets/azureml.widgets?view=azure-ml-py&preserve-view=true) per visualizzare lo stato di avanzamento dell'esecuzione e i log. Il widget è asincrono e offre gli aggiornamenti fino al termine del training. I widget di Azure Machine Learning sono supportati anche in Jupyter e JupterLab.
 
 ## <a name="change-the-notebook-environment"></a>Modificare l'ambiente del notebook
 

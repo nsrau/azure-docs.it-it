@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/17/2020
-ms.openlocfilehash: 371099610da129025f6683630b1824b8466b5aff
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 77980541049740c5f706d54d289472a076103137
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833012"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461902"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-database-for-mysql"></a>Usare gli endpoint servizio e le regole di rete virtuale per Database di Azure per MySQL
 
@@ -112,7 +112,7 @@ Per Database di Azure per MySQL, la funzionalità delle regole di rete virtuale 
 
 - Le regole di rete virtuale si applicano solo alle reti virtuali di Azure Resource Manager e non alle reti con un [modello di distribuzione classica][arm-deployment-model-568f].
 
-- L'attivazione degli endpoint servizio di rete virtuale su Database di Azure per MySQL tramite il tag di servizio **Microsoft.Sql** abilita anche gli endpoint per tutti i servizi di Database di Azure: Database di Azure per MySQL, Database di Azure per PostgreSQL, Database SQL di Azure e Azure SQL Data Warehouse.
+- L'attivazione degli endpoint di servizio della rete virtuale nel database di Azure per MySQL con il tag del servizio **Microsoft. SQL** Abilita anche gli endpoint per tutti i servizi di database di Azure: database di Azure per MySQL, database di Azure per PostgreSQL, database SQL di Azure e Azure sinapsi Analytics (in precedenza SQL Data Warehouse).
 
 - Gli endpoint di servizio di rete virtuale sono supportati solo per i server per utilizzo generico e ottimizzati per la memoria.
 

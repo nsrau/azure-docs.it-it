@@ -8,12 +8,12 @@ ms.subservice: pod
 ms.topic: conceptual
 ms.date: 06/16/2020
 ms.author: alkohli
-ms.openlocfilehash: 7b74c40ab504c08f5a19a1382c303530116c0fdf
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 132c072ad4cbee5cc3ac49695aa34480dc827400
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87483830"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565759"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Sicurezza e protezione dei dati di Azure Data Box
 
@@ -30,9 +30,13 @@ La soluzione Microsoft Azure Data Box è costituita da quattro componenti princi
 - **Client/host connessi al dispositivo**: i client nell'infrastruttura che si connettono al dispositivo Data Box tramite USB e che contengono i dati da proteggere.
 - **Archiviazione cloud** Posizione nel cloud Azure in cui vengono archiviati i dati. In genere si tratta dell'account di archiviazione collegato alla risorsa di Azure Data Box creata.
 
-Il diagramma seguente indica il flusso dei dati attraverso la soluzione Azure Data Box, dall'ambiente locale ad Azure. Questo flusso è per un ordine di importazione per il Data Box.
+Il diagramma seguente indica il flusso di dati tramite la soluzione Azure Data Box dall'ambiente locale ad Azure e le varie funzionalità di sicurezza sul posto mentre i dati passano attraverso la soluzione. Questo flusso è per un ordine di importazione per il Data Box.
 
-![Sicurezza di Data Box](media/data-box-security/data-box-security-2.png)
+![Sicurezza importazione Data Box](media/data-box-security/data-box-security-2.png)
+
+Il diagramma seguente è per l'ordine di esportazione per la Data Box.
+
+![Sicurezza esportazione Data Box](media/data-box-security/data-box-security-3.png)
 
 Con il passaggio dei dati attraverso questa soluzione, vengono registrati eventi e vengono generati log. Per altre informazioni, vedere:
 
@@ -84,7 +88,7 @@ Azure Data Box raccoglie e visualizza informazioni personali nei principali casi
   - Numero di telefono
   - E-mail
   - Indirizzo
-  - Città
+  - City
   - CAP
   - State
   - Paese/provincia/area geografica

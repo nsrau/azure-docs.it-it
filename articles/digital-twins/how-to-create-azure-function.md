@@ -4,19 +4,19 @@ titleSuffix: Azure Digital Twins
 description: Vedere come creare una funzione di Azure che possa accedere e essere attivata da dispositivi gemelli digitali.
 author: baanders
 ms.author: baanders
-ms.date: 3/17/2020
+ms.date: 8/27/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 66f514f4c5d299ef11efda541f16f4ef2fe61aed
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: a0f5a921ad9eba82f27b3a8945643737b6d76030
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88930163"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89614071"
 ---
 # <a name="connect-azure-functions-apps-for-processing-data"></a>Connettere le app di funzioni di Azure per l'elaborazione dei dati
 
-Durante l'anteprima, l'aggiornamento dei dispositivi gemelli digitali basati sui dati viene gestito usando le [**Route di eventi**](concepts-route-events.md) tramite risorse di calcolo, ad esempio [funzioni di Azure](../azure-functions/functions-overview.md). Una funzione di Azure può essere usata per aggiornare un dispositivo gemello digitale in risposta a:
+L'aggiornamento di dispositivi gemelli digitali basati sui dati viene gestito usando le [**Route di eventi**](concepts-route-events.md) tramite risorse di calcolo, ad esempio [funzioni di Azure](../azure-functions/functions-overview.md). Una funzione di Azure può essere usata per aggiornare un dispositivo gemello digitale in risposta a:
 * dati di telemetria del dispositivo provenienti dall'hub Internet
 * modifica delle proprietà o altri dati provenienti da un altro dispositivo gemello digitale all'interno del grafico gemello
 
@@ -28,71 +28,53 @@ Ecco una panoramica dei passaggi che contiene:
 2. Scrivere una funzione di Azure con un trigger di [griglia di eventi](../event-grid/overview.md)
 3. Aggiungere il codice di autenticazione alla funzione (per poter accedere ai dispositivi gemelli digitali di Azure)
 4. Pubblicare l'app per le funzioni in Azure
-5. Configurare l'accesso alla [sicurezza](concepts-security.md) . Per consentire alla funzione di Azure di ricevere un token di accesso in fase di esecuzione per accedere al servizio, è necessario configurare identità del servizio gestita per l'app per le funzioni.
-
-Il resto di questo articolo illustra i passaggi di installazione delle funzioni di Azure, uno alla volta.
+5. Configurare l'accesso di [sicurezza](concepts-security.md) per l'app per le funzioni di Azure
 
 ## <a name="create-an-azure-functions-app-in-visual-studio"></a>Creare un'app funzioni di Azure in Visual Studio
 
-In Visual Studio 2019 selezionare *File > nuovo progetto*. Cercare il modello *funzioni di Azure* , selezionarlo e premere "Avanti".
+In Visual Studio 2019 selezionare _File > nuovo progetto >_ e cercare il modello _funzioni di Azure_ , quindi fare clic su _Avanti_.
 
-:::image type="content" source="media/how-to-create-azure-function/visual-studio-new-project.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
+:::image type="content" source="media/how-to-create-azure-function/create-azure-function-project.png" alt-text="Visual Studio: finestra di dialogo nuovo progetto":::
 
-Specificare un nome per l'app per le funzioni e fare clic su "Crea".
+Specificare un nome per l'app per le funzioni e selezionare _Crea_.
 
-:::image type="content" source="media/how-to-create-azure-function/visual-studio-project-config.png" alt-text="Visual Studio: finestra di dialogo Configura progetto":::
+:::image type="content" source="media/how-to-create-azure-function/configure-new-project.png" alt-text="Visual Studio: configurare un nuovo progetto":::
 
-Selezionare il *trigger griglia di eventi* e premere "Crea".
+Selezionare il tipo di *trigger griglia di eventi* dell'app per le funzioni e selezionare _Crea_.
 
-:::image type="content" source="media/how-to-create-azure-function/visual-studio-project-trigger.png" alt-text="Visual Studio: finestra di dialogo trigger del progetto di funzione di Azure":::
+:::image type="content" source="media/how-to-create-azure-function/eventgridtrigger-function.png" alt-text="Visual Studio: finestra di dialogo trigger del progetto di funzione di Azure":::
+
+Una volta creata l'app per le funzioni, in Visual Studio verrà eseguito l'esempio di codice con popolamento automatico nel file **Function.cs** nella cartella del progetto. Questa breve funzione di Azure viene usata per registrare gli eventi.
+
+:::image type="content" source="media/how-to-create-azure-function/visual-studio-sample-code.png" alt-text="Visual Studio: finestra del progetto con codice di esempio":::
 
 ## <a name="write-an-azure-function-with-an-event-grid-trigger"></a>Scrivere una funzione di Azure con un trigger di griglia di eventi
 
-Il codice seguente crea una funzione di Azure breve che è possibile usare per registrare gli eventi: 
+È possibile scrivere una funzione di Azure aggiungendo SDK all'app per le funzioni. L'app per le funzioni interagisce con i dispositivi gemelli digitali di Azure usando la [libreria client dei dispositivi digitali gemelli di Azure per .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
 
-```csharp
-// Default URL for triggering Event Grid function in the local environment
-// http://localhost:7071/runtime/webhooks/EventGrid?functionName={functionname}
-using System;
-using Microsoft.Azure.WebJobs;
-using Microsoft.Azure.WebJobs.Host;
-using Microsoft.Azure.EventGrid.Models;
-using Microsoft.Azure.WebJobs.Extensions.EventGrid;
-using Microsoft.Extensions.Logging;
+Per usare l'SDK, è necessario includere nel progetto i pacchetti seguenti. È possibile installare i pacchetti usando Gestione pacchetti NuGet di Visual Studio o aggiungere i pacchetti usando `dotnet` lo strumento da riga di comando. Scegliere uno di questi metodi: 
 
-namespace FunctionSample
-{
-    public static class FooFunction    {
-        [FunctionName("Foo")]
-        public static void Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
-        {
-            log.LogInformation(eventGridEvent.Data.ToString());
-        }
-    }
-}
+**Opzione 1. Aggiungere pacchetti usando Gestione pacchetti di Visual Studio:**
+    
+A tale scopo, fare clic con il pulsante destro del mouse sul progetto e scegliere _Gestisci pacchetti NuGet_ dall'elenco. Quindi, nella finestra che viene visualizzata selezionare scheda _Sfoglia_ e cercare i pacchetti seguenti. Selezionare _Installa_ e _accettare_ il contratto di licenza per installare i pacchetti.
+
+* `Azure.DigitalTwins.Core`
+* `Azure.Identity` 
+
+Per la configurazione della pipeline di Azure SDK per configurare correttamente per funzioni di Azure, sono necessari anche i pacchetti seguenti. Ripetere lo stesso processo precedente per installare tutti i pacchetti.
+
+* `System.Net.Http`
+* `Azure.Core.Pipeline`
+
+**Opzione 2. Aggiungere pacchetti utilizzando `dotnet` lo strumento da riga di comando:**
+
+```cmd/sh
+dotnet add package Azure.DigitalTwins.Core --version 1.0.0-preview.3
+dotnet add package Azure.identity --version 1.2.2
+dotnet add package System.Net.Http
+dotnet add package Azure.Core.Pipeline
 ```
-
-Si tratta della funzione di base di Azure.
-
-### <a name="run-and-debug-the-azure-function-app"></a>Eseguire ed eseguire il debug dell'app per le funzioni di Azure
-
-È ora possibile compilare ed eseguire la funzione. Mentre le funzioni di Azure sono destinate all'esecuzione nel cloud, è anche possibile eseguire ed eseguire il debug di funzioni di Azure in locale.
-
-Per altre informazioni, vedere [*trigger griglia di eventi di debug in locale*](../azure-functions/functions-debug-event-grid-trigger-local.md).
-
-### <a name="add-the-azure-digital-twins-sdk-to-your-azure-function-app"></a>Aggiungere Azure Digital Twins SDK all'app per le funzioni di Azure
-
-L'app per le funzioni interagisce con i dispositivi gemelli digitali di Azure usando la [libreria client dei dispositivi digitali gemelli di Azure per .NET (C#)](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). Per usare l'SDK, è necessario includere i pacchetti seguenti nel progetto:
-* `Azure.DigitalTwins.Core` (versione `1.0.0-preview.2` )
-* `Azure.Identity`
-
-Per la configurazione della pipeline di Azure SDK per configurare correttamente per funzioni di Azure, è necessario anche:
-* `Azure.Net.Http`
-* `Azure.Core`
-
-A seconda degli strumenti scelti, è possibile eseguire questa operazione con gestione pacchetti di Visual Studio o lo `dotnet` strumento da riga di comando. 
-
-Aggiungere le istruzioni using seguenti alla funzione di Azure.
+Successivamente, nel Esplora soluzioni di Visual Studio aprire il file _Function.cs_ in cui è presente il codice di esempio e aggiungere le istruzioni _using_ seguenti alla funzione di Azure. 
 
 ```csharp
 using Azure.DigitalTwins.Core;
@@ -100,129 +82,210 @@ using Azure.Identity;
 using System.Net.Http;
 using Azure.Core.Pipeline;
 ```
-
 ## <a name="add-authentication-code-to-the-azure-function"></a>Aggiungere il codice di autenticazione alla funzione di Azure
 
-Aggiungere quindi il codice di autenticazione che consente alla funzione di accedere ai dispositivi gemelli digitali di Azure.
+Verranno ora dichiarate le variabili a livello di classe e verrà aggiunto il codice di autenticazione che consente alla funzione di accedere ai dispositivi gemelli digitali di Azure. Si aggiungerà quanto segue alla funzione di Azure nel file {nome funzione}. cs.
 
-Aggiungere variabili alla classe Function per questi valori: 
-* ID app per dispositivi digitali gemelli di Azure
-* URL dell'istanza di Digital gemelli di Azure. È consigliabile leggere l'URL del servizio da una variabile di ambiente, anziché impostarlo come hardcoded nella funzione.
+* Leggere l'URL del servizio ADT come variabile di ambiente. È consigliabile leggere l'URL del servizio da una variabile di ambiente, anziché impostarlo come hardcoded nella funzione.
+```csharp     
+private static readonly string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL");
+```
 * Variabile statica per la quale deve essere contenuta un'istanza di HttpClient. HttpClient è relativamente costoso da creare ed è consigliabile evitare di eseguire questa operazione per ogni chiamata di funzione.
+```csharp
+private static readonly HttpClient httpClient = new HttpClient();
+```
+* È possibile usare le credenziali di identità gestite in funzione di Azure.
+```csharp
+ManagedIdentityCredential cred = new ManagedIdentityCredential("https://digitaltwins.azure.net");
+```
+* Aggiungere una variabile locale _DigitalTwinsClient_ all'interno della funzione per ospitare l'istanza del client di Azure Digital Twins nel progetto di funzione. Non *rendere questa* variabile statica all'interno della classe.
+```csharp
+DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
+```
+* Aggiungere un controllo null per _adtInstanceUrl_ ed eseguire il wrapping della logica della funzione in un blocco try catch per intercettare eventuali eccezioni.
 
-Aggiungere anche una variabile locale all'interno della funzione per ospitare l'istanza del client di Azure Digital Twins nel progetto di funzione. *Non* renderla una variabile statica all'interno della classe.
-
-Infine, modificare la firma della funzione in modo che sia asincrona.
-
-Una volta apportate queste modifiche, il codice della funzione dovrebbe essere simile al seguente:
+Una volta apportate queste modifiche, il codice della funzione sarà simile al seguente:
 
 ```csharp
-namespace FunctionSample
-{
-    public static class FooFunction
-    {
-        const string adtAppId = "https://digitaltwins.azure.net";
-        private static string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL");
-        private static HttpClient httpClient = new HttpClient();
+// Default URL for triggering event grid function in the local environment.
+// http://localhost:7071/runtime/webhooks/EventGrid?functionName={functionname}
+using System;
+using Microsoft.Azure.WebJobs;
+using Microsoft.Azure.WebJobs.Host;
+using Microsoft.Azure.EventGrid.Models;
+using Microsoft.Azure.WebJobs.Extensions.EventGrid;
+using Microsoft.Extensions.Logging;
+using Azure.DigitalTwins.Core;
+using Azure.Identity;
+using System.Net.Http;
+using Azure.Core.Pipeline;
 
-        [FunctionName("Foo")]
-        public static async Task Run([EventGridTrigger]EventGridEvent eventGridEvent, ILogger log)
+namespace adtIngestFunctionSample
+{
+    public class Function1
+    {
+        //Your Digital Twin URL is stored in an application setting in Azure Functions
+        private static readonly string adtInstanceUrl = Environment.GetEnvironmentVariable("ADT_SERVICE_URL");
+        private static readonly HttpClient httpClient = new HttpClient();
+
+        [FunctionName("TwinsFunction")]
+        public void Run([EventGridTrigger] EventGridEvent eventGridEvent, ILogger log)
         {
-            DigitalTwinsClient client = null;
+            log.LogInformation(eventGridEvent.Data.ToString());
+            if (adtInstanceUrl == null) log.LogError("Application setting \"ADT_SERVICE_URL\" not set");
             try
             {
-                ManagedIdentityCredential cred = new ManagedIdentityCredential(adtAppId);
-                DigitalTwinsClientOptions opts = 
-                    new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
-                client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, opts);
-                                                
+                //Authenticate with Digital Twins
+                ManagedIdentityCredential cred = new ManagedIdentityCredential("https://digitaltwins.azure.net");
+                DigitalTwinsClient client = new DigitalTwinsClient(new Uri(adtInstanceUrl), cred, new DigitalTwinsClientOptions { Transport = new HttpClientTransport(httpClient) });
                 log.LogInformation($"ADT service client connection created.");
+                /*
+                * Add your business logic here
+                */
             }
             catch (Exception e)
             {
-                log.LogError($"ADT service client connection failed. " + e.ToString());
-                return;
+                log.LogError(e.Message);
             }
-            log.LogInformation(eventGridEvent.Data.ToString());
+
         }
     }
 }
 ```
 
-Per consentire all'app per le funzioni di accedere ai dispositivi gemelli digitali di Azure, è necessario disporre di un'identità gestita dal sistema e avere le autorizzazioni per accedere all'istanza di Azure Digital gemelli.
+## <a name="publish-the-function-app-to-azure"></a>Pubblicare l'app per le funzioni in Azure
 
-Usare il comando seguente per creare l'identità gestita dal sistema. Prendere nota del campo *principalId* nell'output.
-
-```azurecli
-az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>
-```
-
-Usare il valore *PrincipalId* nel comando seguente per assegnare l'identità dell'app per le funzioni al ruolo *proprietario digitale gemelli di Azure (anteprima)* per l'istanza di Azure Digital gemelli. In questo modo si concede all'app per le funzioni l'autorizzazione per l'esecuzione di attività del piano dati.
-
-```azurecli
-az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
-```
-
-Per altre informazioni sull'identità gestita, vedere [*come usare le identità gestite per il servizio app e funzioni di Azure*](../app-service/overview-managed-identity.md).
-
-Infine, è possibile rendere accessibile l'URL dell'istanza di Azure Digital Twins alla funzione impostando una variabile di ambiente. Per altre informazioni, vedere variabili di [*ambiente*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables).
-
-> [!TIP]
-> L'URL dell'istanza di Azure Digital gemelli viene creato aggiungendo *https://* all'inizio del *nome host*dell'istanza di Azure Digital gemelli. Per visualizzare il nome host, insieme a tutte le proprietà dell'istanza, è possibile eseguire `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
-
-```azurecli
-az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-URL>"
-```
-
-## <a name="publish-the-azure-function-app"></a>Pubblicare l'app per le funzioni di Azure
-
-Per pubblicare l'app per le funzioni in Azure, fare clic con il pulsante destro del mouse sul progetto di funzione (non sulla soluzione) in Esplora soluzioni e scegliere *pubblica ()*.
-
-Verrà visualizzata la scheda seguente:
-
-:::image type="content" source="media/how-to-create-azure-function/visual-studio-publish-1.png" alt-text="Visual Studio: finestra di dialogo pubblica funzione, pagina 1":::
-
-Selezionare o creare un piano di servizio app da usare con funzioni di Azure. In caso di dubbi, iniziare usando il piano a consumo predefinito.
+Per pubblicare l'app per le funzioni in Azure, fare clic con il pulsante destro del mouse sul progetto di funzione (non sulla soluzione) in Esplora soluzioni e scegliere **pubblica**.
 
 > [!IMPORTANT] 
 > La pubblicazione di una funzione di Azure comporta costi aggiuntivi per la sottoscrizione, indipendentemente dai dispositivi gemelli digitali di Azure.
 
-:::image type="content" source="media/how-to-create-azure-function/visual-studio-publish-2.png" alt-text="Visual Studio: finestra di dialogo pubblica funzione, pagina 2":::
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function.png" alt-text="Visual Studio: pubblicare la funzione di Azure ":::
+
+Selezionare **Azure** come destinazione di pubblicazione e fare clic su **Avanti**.
+
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-1.png" alt-text="Visual Studio: finestra di dialogo pubblica funzione di Azure, selezionare Azure ":::
+
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-2.png" alt-text="Visual Studio: finestra di dialogo pubblica funzione, selezionare Azure app per le funzioni (Windows) o (Linux) in base al computer":::
+
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-3.png" alt-text="Visual Studio: finestra di dialogo pubblica funzione, creare una nuova funzione di Azure":::
+
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-4.png" alt-text="Visual Studio: finestra di dialogo pubblica funzione, compilare i campi e selezionare Crea":::
+
+:::image type="content" source="media/how-to-create-azure-function/publish-azure-function-5.png" alt-text="Visual Studio: finestra di dialogo pubblica funzione, selezionare l'app per le funzioni dall'elenco e terminare":::
 
 Nella pagina seguente immettere il nome desiderato per la nuova app per le funzioni, per un gruppo di risorse e per altri dettagli.
+Per consentire all'app per le funzioni di accedere ai dispositivi gemelli digitali di Azure, è necessario disporre di un'identità gestita dal sistema e avere le autorizzazioni per accedere all'istanza di Azure Digital gemelli.
+
+Successivamente, è possibile configurare l'accesso di sicurezza per la funzione usando l'interfaccia della riga di comando o portale di Azure. Scegliere uno di questi metodi:
 
 ## <a name="set-up-security-access-for-the-azure-function-app"></a>Configurare l'accesso di sicurezza per l'app per le funzioni di Azure
+È possibile configurare l'accesso di sicurezza per l'app per le funzioni di Azure usando una delle opzioni seguenti:
+
+### <a name="option-1-set-up-security-access-for-the-azure-function-app-using-cli"></a>Opzione 1: configurare l'accesso di sicurezza per l'app per le funzioni di Azure con CLI
 
 Per poter eseguire l'autenticazione con i dispositivi gemelli digitali di Azure, lo scheletro della funzione di Azure degli esempi precedenti richiede che venga passato un bearer token. Per assicurarsi che questo bearer token venga passato, è necessario configurare [identità del servizio gestita (MSI)](../active-directory/managed-identities-azure-resources/overview.md) per l'app per le funzioni. Questa operazione deve essere eseguita solo una volta per ogni app per le funzioni.
 
-Per configurare questa impostazione, passare alla [portale di Azure](https://portal.azure.com/) e passare all'app per le funzioni.
+È possibile creare un'identità gestita dal sistema e assegnare l'identità dell'app per le funzioni al ruolo proprietario di dispositivi _gemelli digitali di Azure (anteprima)_ per l'istanza di Digital gemelli di Azure. In questo modo si concede all'app per le funzioni l'autorizzazione per l'esecuzione di attività del piano dati. Quindi, rendere accessibile l'URL dell'istanza di Azure Digital Twins alla funzione impostando una variabile di ambiente.
 
-Nella scheda *funzionalità della piattaforma* selezionare *Identity (identità*):
+ Usare [Azure cloud Shell](https://shell.azure.com) per eseguire i comandi.
 
-:::image type="content" source="media/how-to-create-azure-function/visual-studio-msi-1.png" alt-text="Portale di Azure: selezione dell'identità per una funzione di Azure":::
+Usare il comando seguente per creare l'identità gestita dal sistema. Prendere nota del campo _principalId_ nell'output.
 
-Nella pagina identità impostare lo *stato* *su*attivato. 
-
-:::image type="content" source="media/how-to-create-azure-function/visual-studio-msi-2.png" alt-text="Portale di Azure: attivazione dello stato di identità":::
-
-Si noti anche l' **ID oggetto** illustrato in questa pagina, che verrà usato nella sezione successiva.
-
-### <a name="assign-access-roles"></a>Assegnare i ruoli di accesso
-
-Poiché i dispositivi gemelli digitali di Azure usano il controllo degli accessi in base al ruolo per gestire l'accesso (vedere [*concetti: sicurezza per le soluzioni di dispositivi gemelli digitali di Azure*](concepts-security.md) per altre informazioni), è anche necessario aggiungere un ruolo per ogni app per le funzioni che si vuole consentire di accedere ai dispositivi gemelli digitali di Azure.
-
-Per assegnare un ruolo, è necessario l' **ID risorsa** dell'istanza di Azure Digital Twins creata. Se non è stato registrato in precedenza durante la creazione dell'istanza, è possibile recuperarla utilizzando questo comando:
-
-```bash
-az dt show --name <your-instance-name> -g <your-resource-group-name>
+```azurecli 
+az functionapp identity assign -g <your-resource-group> -n <your-App-Service-(function-app)-name>   
 ```
-L'ID risorsa sarà parte dell'output, come una stringa estesa denominata "ID" che inizia con le lettere "/subscriptions/...".
+Usare il valore _PrincipalId_ nel comando seguente per assegnare l'identità dell'app per le funzioni al ruolo _proprietario digitale gemelli di Azure (anteprima)_ per l'istanza di Azure Digital gemelli.
 
-Usare l'ID risorsa con l'ID oggetto della funzione di Azure precedente nel comando seguente:
-
-```azurecli
-az role assignment create --role "Azure Digital Twins Owner (Preview)" --assignee <object-ID> --scope <resource-ID>
+```azurecli 
+az dt role-assignment create --dt-name <your-Azure-Digital-Twins-instance> --assignee "<principal-ID>" --role "Azure Digital Twins Owner (Preview)"
 ```
+Infine, è possibile rendere accessibile l'URL dell'istanza di Azure Digital Twins alla funzione impostando una variabile di ambiente. Per ulteriori informazioni sull'impostazione di variabili di ambiente, vedere [*variabili di ambiente*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables). 
+
+> [!TIP]
+> L'URL dell'istanza di Azure Digital gemelli viene creato aggiungendo *https://* all'inizio del *nome host*dell'istanza di Azure Digital gemelli. Per visualizzare il nome host, insieme a tutte le proprietà dell'istanza, è possibile eseguire `az dt show --dt-name <your-Azure-Digital-Twins-instance>` .
+
+```azurecli 
+az functionapp config appsettings set -g <your-resource-group> -n <your-App-Service-(function-app)-name> --settings "ADT_SERVICE_URL=https://<your-Azure-Digital-Twins-instance-hostname>"
+```
+### <a name="option-2-set-up-security-access-for-the-azure-function-app-using-azure-portal"></a>Opzione 2: configurare l'accesso di sicurezza per l'app per le funzioni di Azure usando portale di Azure
+
+Un'identità gestita assegnata dal sistema consente alle risorse di Azure di eseguire l'autenticazione nei servizi cloud, ad esempio Azure Key Vault, senza archiviare le credenziali nel codice. Una volta abilitate, tutte le autorizzazioni necessarie possono essere concesse tramite il controllo degli accessi in base al ruolo di Azure. Il ciclo di vita di questo tipo di identità gestita è associato al ciclo di vita di questa risorsa. Inoltre, ogni risorsa (ad esempio, macchina virtuale) può avere solo un'identità gestita assegnata dal sistema.
+
+Nella [portale di Azure](https://portal.azure.com/)cercare app per le _funzioni_ nella barra di ricerca con il nome dell'app per le funzioni creato in precedenza. Selezionare il *app per le funzioni* dall'elenco. 
+
+:::image type="content" source="media/how-to-create-azure-function/portal-search-for-functionapp.png" alt-text="Portale di Azure: cerca app per le funzioni":::
+
+Nella finestra app per le funzioni selezionare _Identity_ nella barra di spostamento a sinistra per abilitare identità gestita.
+Nella scheda _sistema assegnato_ , impostare lo _stato_ su attivato e _salvarlo_ . Viene visualizzato un popup per _abilitare l'identità gestita assegnata dal sistema_.
+Selezionare il pulsante _Sì_ . 
+
+:::image type="content" source="media/how-to-create-azure-function/enable-system-managed-identity.png" alt-text="Portale di Azure: abilitare l'identità gestita dal sistema":::
+
+È possibile verificare nelle notifiche che la funzione sia stata registrata correttamente con Azure Active Directory.
+
+:::image type="content" source="media/how-to-create-azure-function/notifications-enable-managed-identity.png" alt-text="Portale di Azure: notifiche":::
+
+Si noti anche l' **ID oggetto** visualizzato nella pagina _identità_ , che verrà usato nella sezione successiva.
+
+:::image type="content" source="media/how-to-create-azure-function/object-id.png" alt-text="Copiare l'ID oggetto da usare in futuro":::
+
+### <a name="assign-access-roles-using-azure-portal"></a>Assegnare i ruoli di accesso utilizzando portale di Azure
+
+Selezionare il pulsante _assegnazioni di ruolo di Azure_ per aprire la pagina assegnazioni di ruolo di Azure. Quindi selezionare _+ Aggiungi assegnazione ruolo (anteprima)_.
+
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignments.png" alt-text="Portale di Azure: aggiungere un'assegnazione di ruolo":::
+
+Nella finestra _Aggiungi assegnazione ruolo (anteprima)_ visualizzata selezionare
+
+* _Ambito_: gruppo di risorse
+* _Sottoscrizione_: selezionare la sottoscrizione di Azure
+* _Gruppo di risorse_: selezionare il gruppo di risorse dall'elenco a discesa
+* _Ruolo_: selezionare il _proprietario di Azure Digital gemelli (anteprima)_ nell'elenco a discesa
+
+Salvare i dettagli selezionando il pulsante _Salva_ .
+
+:::image type="content" source="media/how-to-create-azure-function/add-role-assignment.png" alt-text="Portale di Azure: aggiungere un'assegnazione di ruolo (anteprima) ":::
+
+### <a name="configure-application-settings-using-azure-portal"></a>Configurare le impostazioni dell'applicazione tramite portale di Azure
+
+È possibile rendere accessibile l'URL dell'istanza di Azure Digital Twins alla funzione impostando una variabile di ambiente. Per altre informazioni, vedere variabili di [*ambiente*](https://docs.microsoft.com/sandbox/functions-recipes/environment-variables). Le impostazioni dell'applicazione sono esposte come variabili di ambiente per accedere all'istanza di dispositivi gemelli digitali. 
+
+È necessario ADT_INSTANCE_URL per creare un'impostazione dell'applicazione.
+
+È possibile ottenere ADT_INSTANCE_URL aggiungendo **_https://_** al nome host dell'istanza. Nella portale di Azure è possibile trovare il nome host dell'istanza di Digital gemelli cercando l'istanza nella barra di ricerca. Selezionare quindi _Panoramica_ sulla barra di spostamento a sinistra per visualizzare il _nome host_. Copiare questo valore per creare un'impostazione dell'applicazione.
+
+:::image type="content" source="media/how-to-create-azure-function/adt-hostname.png" alt-text="Portale di Azure: Panoramica-> copiare il nome host da usare nel campo _Value_.":::
+
+È ora possibile creare un'impostazione dell'applicazione seguendo questa procedura:
+
+* Cercare la funzione di Azure usando il nome della funzione nella barra di ricerca e selezionare la funzione nell'elenco
+* Selezionare _configurazione_ nella barra di spostamento a sinistra per creare una nuova impostazione dell'applicazione
+* Nella scheda _Impostazioni applicazione_ selezionare _+ nuova impostazione applicazione_
+
+:::image type="content" source="media/how-to-create-azure-function/search-for-azure-function.png" alt-text="Portale di Azure: ricerca di funzioni di Azure esistenti":::
+
+:::image type="content" source="media/how-to-create-azure-function/application-setting.png" alt-text="Portale di Azure: configurare le impostazioni dell'applicazione":::
+
+Nella finestra visualizzata, usare il valore copiato da sopra per creare un'impostazione dell'applicazione. \
+_Nome_  : ADT_SERVICE_URL \
+_Valore_ : https://{Your-Azure-Digital-Twins-hostname}
+
+Selezionare _OK_ per creare un'impostazione dell'applicazione.
+
+:::image type="content" source="media/how-to-create-azure-function/add-application-setting.png" alt-text="Portale di Azure: aggiungere le impostazioni dell'applicazione.":::
+
+È possibile visualizzare le impostazioni dell'applicazione con il nome dell'applicazione nel campo _nome_ . Salvare quindi le impostazioni dell'applicazione selezionando il pulsante _Salva_ .
+
+:::image type="content" source="media/how-to-create-azure-function/application-setting-save-details.png" alt-text="Portale di Azure: visualizzare l'applicazione creata e riavviare l'applicazione":::
+
+Per tutte le modifiche apportate alle impostazioni dell'applicazione è necessario riavviare l'applicazione. Selezionare _continua_ per riavviare l'applicazione.
+
+:::image type="content" source="media/how-to-create-azure-function/save-application-setting.png" alt-text="Portale di Azure: salvare le impostazioni dell'applicazione":::
+
+È possibile visualizzare le impostazioni dell'applicazione aggiornate selezionando l'icona _notifiche_ . Se non viene creata l'impostazione dell'applicazione, è possibile riprovare ad aggiungere un'impostazione dell'applicazione attenendosi al processo precedente.
+
+:::image type="content" source="media/how-to-create-azure-function/notifications-update-web-app-settings.png" alt-text="Portale di Azure: notifiche per l'aggiornamento delle impostazioni dell'applicazione":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

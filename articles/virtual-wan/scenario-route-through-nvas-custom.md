@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5546fc63b01d1da6b4033e071ac071574ab9699a
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: f233aedf8b51967264994f5a4081f8f4cd99df01
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987205"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400008"
 ---
 # <a name="scenario-route-traffic-through-nvas---custom-preview"></a>Scenario: instradare il traffico attraverso appliance virtuali-Custom (anteprima)
 
@@ -35,12 +35,12 @@ La seguente matrice di connettività riepiloga i flussi supportati in questo sce
 
 | Da          | Con:|*Spoke di NVA*|*Servizio VNet*|*VNet DMZ*|*Rami statici*|
 |---|---|---|---|---|---|
-| **Spoke di NVA**| &#8594;|      X |            X |   Peering |    Statico    |
+| **Spoke di NVA**| &#8594;|      X |            X |   Peering |    Static    |
 | **Servizio VNet**| &#8594;|    X |            X |      X    |      X       |
 | **VNet DMZ** | &#8594;|       X |            X |      X    |      X       |
-| **Rami** | &#8594;|  Statico |            X |      X    |      X       |
+| **Rami** | &#8594;|  Static |            X |      X    |      X       |
 
-Ognuna delle celle nella matrice di connettività descrive se una connessione WAN virtuale (il lato "da" del flusso, le intestazioni di riga) apprende un prefisso di destinazione (il lato "a" del flusso, le intestazioni di colonna in corsivo) per un flusso di traffico specifico. Di seguito vengono descritte le diverse righe:
+Ognuna delle celle nella matrice di connettività descrive se una connessione WAN virtuale (il lato "da" del flusso, le intestazioni di riga) apprende un prefisso di destinazione (il lato "a" del flusso, le intestazioni di colonna in corsivo) per un flusso di traffico specifico. Una "X" significa che la connettività viene fornita a livello nativo dalla rete WAN virtuale e "static" significa che la connettività viene fornita dalla rete WAN virtuale usando route statiche. Di seguito vengono descritte le diverse righe:
 
 * Spoke di NVA:
   * I spoke raggiungono gli altri spoke direttamente sugli hub WAN virtuali.
@@ -68,7 +68,7 @@ Queste route statiche sono necessarie per assicurarsi che il traffico da VNet a 
 | Descrizione | Tabella di route | Route statica              |
 | ----------- | ----------- | ------------------------- |
 | Rami    | RT_V2B      | 10.2.0.0/16-> vnet4conn  |
-| Spoke di NVA  | Impostazione predefinita     | 10.1.0.0/16-> vnet4conn  |
+| Spoke di NVA  | Predefinito     | 10.1.0.0/16-> vnet4conn  |
 
 A questo punto, la rete WAN virtuale sa a quale connessione inviare i pacchetti, ma la connessione deve sapere cosa fare quando ricevono i pacchetti: qui vengono usate le tabelle della route di connessione.
 

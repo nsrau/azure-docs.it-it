@@ -7,12 +7,12 @@ author: musa-57
 ms.manager: abhemraj
 ms.author: hamusa
 ms.date: 01/02/2020
-ms.openlocfilehash: a6a185c61c32636dd0189bc5835f850348b196cd
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: afc7e6c1ed41661c835a811a7cbcaa6f7771328e
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020355"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645651"
 ---
 # <a name="troubleshoot-assessmentdependency-visualization"></a>Risolvere i problemi relativi alla visualizzazione di valutazioni/dipendenze
 
@@ -126,7 +126,7 @@ Azure Migrate server Assessment considera attualmente il costo della licenza del
 Server Assessment raccoglie continuamente i dati delle prestazioni dei computer locali e li usa per consigliare lo SKU della macchina virtuale e del disco in Azure. [Informazioni su come](concepts-assessment-calculation.md#calculate-sizing-performance-based) vengono raccolti i dati basati sulle prestazioni.
 
 ## <a name="why-is-my-assessment-showing-a-warning-that-it-was-created-with-an-invalid-combination-of-reserved-instances-vm-uptime-and-discount-"></a>Perché la mia valutazione mostra un avviso che è stata creata con una combinazione non valida di istanze riservate, tempo di esecuzione della macchina virtuale e sconto (%)?
-Quando si seleziona ' istanze riservate ',' discount (%)' e le proprietà' tempo di esecuzione VM ' non sono applicabili. Poiché la valutazione è stata creata con una combinazione non valida di queste proprietà, i pulsanti modifica e ricalcola sono disabilitati. Creare una nuova valutazione. [Altre informazioni](https://go.microsoft.com/fwlink/?linkid=2131554)
+Quando si seleziona ' istanze riservate ',' discount (%)' e le proprietà' tempo di esecuzione VM ' non sono applicabili. Poiché la valutazione è stata creata con una combinazione non valida di queste proprietà, i pulsanti modifica e ricalcola sono disabilitati. Creare una nuova valutazione. [Altre informazioni](https://go.microsoft.com/fwlink/?linkid=2131554).
 
 ## <a name="i-do-not-see-performance-data-for-some-network-adapters-on-my-physical-servers"></a>Non vengono visualizzati i dati sulle prestazioni per alcune schede di rete nei server fisici
 
@@ -147,7 +147,8 @@ Questo problema può verificarsi se nel server fisico è abilitata la virtualizz
 
 ## <a name="dependency-visualization-in-azure-government"></a>Visualizzazione delle dipendenze in Azure per enti pubblici
 
-Azure Migrate dipende da Mapping dei servizi per la funzionalità di visualizzazione delle dipendenze. Poiché Mapping dei servizi non è attualmente disponibile in Azure per enti pubblici, questa funzionalità non è disponibile in Azure per enti pubblici.
+L'analisi delle dipendenze basata su agente non è supportata in Azure per enti pubblici. Usare l'analisi delle dipendenze senza agenti.
+
 
 ## <a name="dependencies-dont-show-after-agent-install"></a>Le dipendenze non vengono visualizzate dopo l'installazione dell'agente
 
@@ -160,7 +161,7 @@ Per VM di Windows:
 
     ![Stato MMA](./media/troubleshoot-assessment/mma-properties.png)
 
-Per le macchine virtuali Linux, assicurarsi che i comandi di installazione per MMA e Dependency Agent siano riusciti.
+Per le macchine virtuali Linux, assicurarsi che i comandi di installazione per MMA e Dependency Agent siano riusciti. Per ulteriori informazioni sulla risoluzione dei problemi, vedere [qui](https://docs.microsoft.com/azure/azure-monitor/insights/service-map#post-installation-issues).
 
 ## <a name="supported-operating-systems"></a>Sistemi operativi supportati
 
@@ -181,7 +182,6 @@ In Azure Migrate server Assessment, con l'analisi delle dipendenze basata su age
 ## <a name="machines-show-install-agent"></a>Computer che visualizzano "Installa agente"
 
 Dopo aver eseguito la migrazione dei computer con la visualizzazione delle dipendenze abilitata in Azure, i computer potrebbero visualizzare l'azione "Installa agente" invece di "Visualizza dipendenze" a causa del comportamento seguente:
-
 
 - Dopo la migrazione ad Azure, i computer locali sono spenti e le VM equivalenti vengono riattivate in Azure. Queste macchine acquisiscono un indirizzo MAC diverso
 - I computer possono anche avere un indirizzo IP diverso, a seconda che l'indirizzo IP locale sia stato mantenuto o meno.

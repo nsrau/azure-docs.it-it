@@ -9,12 +9,12 @@ ms.subservice: availability
 ms.date: 08/08/2018
 ms.reviewer: jushiman
 ms.custom: mimckitt
-ms.openlocfilehash: e1c91bf9138e37c6de381ab34ab80413d3040981
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: cb4d30a2bb7704ef7d4d4760f3d8cf74788945c2
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87029315"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611919"
 ---
 # <a name="create-a-virtual-machine-scale-set-that-uses-availability-zones"></a>Creare un set di scalabilità di macchine virtuali che usa le zone di disponibilità
 
@@ -22,13 +22,17 @@ Per proteggere i set di scalabilità di macchine virtuali dagli errori che posso
 
 ## <a name="availability-considerations"></a>Considerazioni sulla disponibilità
 
-Quando si distribuisce un set di scalabilità in una o più zone con la versione *2017-12-01* dell'API sono disponibili le opzioni di distribuzione massima e di distribuzione statica in 5 domini di errore. Con la distribuzione massima, il set di scalabilità distribuisce le macchine virtuali nel maggior numero di domini di errore possibile all'interno di ogni zona. Questa distribuzione potrebbe interessare più o meno di cinque domini di errore per zona. Con la distribuzione statica in 5 domini di errore il set di scalabilità distribuisce le macchine virtuali esattamente in cinque domini di errore per zona. Se il set di scalabilità non trova cinque domini di errore distinti per zona per soddisfare la richiesta di allocazione, la richiesta ha esito negativo.
+Quando si distribuisce un set di scalabilità a livello di area (non di zona) in una o più zone a partire dalla versione API *2017-12-01*, sono disponibili le opzioni di disponibilità seguenti:
+- Distribuzione massima (platformFaultDomainCount = 1)
+- Distribuzione fissa statica (platformFaultDomainCount = 5)
+- Distribuzione allineata con i domini di errore del disco di archiviazione (platforFaultDomainCount = 2 o 3)
+
+Con la distribuzione massima, il set di scalabilità distribuisce le macchine virtuali nel maggior numero di domini di errore possibile all'interno di ogni zona. Questa distribuzione potrebbe interessare più o meno di cinque domini di errore per zona. Con la distribuzione fissa statica, il set di scalabilità distribuisce le macchine virtuali in base a cinque domini di errore per zona. Se il set di scalabilità non trova cinque domini di errore distinti per zona per soddisfare la richiesta di allocazione, la richiesta ha esito negativo.
 
 **È consigliabile usare la distribuzione massima per la maggior parte dei carichi di lavoro** perché questo approccio offre la migliore distribuzione nella maggior parte dei casi. Se è necessario distribuire repliche in unità di isolamento hardware distinte, è consigliabile eseguire la distribuzione in zone di disponibilità e usare l'opzione di distribuzione massima all'interno di ogni zona.
 
-Con la distribuzione massima si vede solo un dominio di errore nella visualizzazione dell'istanza di macchina virtuale del set di scalabilità e nei metadati dell'istanza, indipendentemente dal numero di domini di errore in cui le macchine virtuali sono distribuite. La distribuzione all'interno di ogni zona è implicita.
-
-Per usare la distribuzione massima, impostare *platformFaultDomainCount* su *1*. Per usare la distribuzione statica in cinque domini di errore, impostare *platformFaultDomainCount* su *5*. Nella versione API *2017-12-01*, *platformFaultDomainCount* è impostato su *1* per i set di scalabilità a zona singola e tra zone. Attualmente è supportata solo la distribuzione statica di cinque domini di errore per i set di scalabilità a livello di area (non di zona).
+> [!NOTE]
+> Con la distribuzione massima si vede solo un dominio di errore nella visualizzazione dell'istanza di macchina virtuale del set di scalabilità e nei metadati dell'istanza, indipendentemente dal numero di domini di errore in cui le macchine virtuali sono distribuite. La distribuzione all'interno di ogni zona è implicita.
 
 ### <a name="placement-groups"></a>Gruppi di posizionamento
 
@@ -58,7 +62,7 @@ Quando si crea un set di scalabilità in una sola zona, la zona in cui tutte le 
 
 Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'[area di Azure supportata](../availability-zones/az-region.md). È possibile creare un set di scalabilità che usa le zone di disponibilità in uno dei modi seguenti:
 
-- [Portale di Azure](#use-the-azure-portal)
+- [Azure portal](#use-the-azure-portal)
 - Interfaccia della riga di comando di Azure
 - [Azure PowerShell](#use-azure-powershell)
 - [Modelli di Gestione risorse di Azure](#use-azure-resource-manager-templates)
@@ -71,7 +75,7 @@ La procedura per creare un set di scalabilità che usa una zona di disponibilit�
 
 Il set di scalabilità e le risorse di supporto, ad esempio Azure Load Balancer e l'indirizzo IP pubblico, vengono creati nella sola zona specificata.
 
-## <a name="use-the-azure-cli"></a>Utilizzare l’interfaccia della riga di comando di Azure
+## <a name="use-the-azure-cli"></a>Usare l'interfaccia della riga di comando di Azure
 
 La procedura per creare un set di scalabilità che usa una zona di disponibilità è identica a quella descritta in dettaglio nell'[articolo introduttivo](quick-create-cli.md). Per usare le zone di disponibilità, è necessario creare il set di scalabilità in un'area di Azure supportata.
 

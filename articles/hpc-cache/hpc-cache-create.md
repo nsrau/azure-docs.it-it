@@ -4,14 +4,14 @@ description: Come creare un'istanza di Cache HPC di Azure
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 07/10/2020
+ms.date: 09/03/2020
 ms.author: v-erkel
-ms.openlocfilehash: a988f08b2b6e30543c112b20e5b374130ceddc47
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 5b1062556f1f971690f835274be15c11b072eca9
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092491"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612063"
 ---
 # <a name="create-an-azure-hpc-cache"></a>Creare una cache HPC di Azure
 
@@ -29,7 +29,7 @@ Fare clic sull'immagine seguente per visualizzare una [dimostrazione video](http
 
 ![screenshot della pagina dei dettagli del progetto nel portale di Azure](media/hpc-cache-create-basics.png)
 
-In **Dettagli progetto** selezionare la sottoscrizione e il gruppo di risorse in cui verrà ospitata la cache. Assicurarsi che la sottoscrizione sia presente nell'elenco di [accesso](hpc-cache-prerequisites.md#azure-subscription).
+In **Dettagli progetto** selezionare la sottoscrizione e il gruppo di risorse in cui verrà ospitata la cache.<!-- Make sure the subscription is on the [access](hpc-cache-prerequisites.md#azure-subscription) list.  -->
 
 In **Dettagli servizio** impostare il nome della cache e questi altri attributi:
 
@@ -132,11 +132,11 @@ nets/<cache_subnet_name>"``
 
   | Dimensioni cache | Standard_2G | Standard_4G | Standard_8G |
   |------------|-------------|-------------|-------------|
-  | 3072 GB    | sì         | no          | no          |
-  | 6144 GB    | Sì         | sì         | no          |
-  | 12288 GB   | Sì         | Sì         | Sì         |
-  | 24576 GB   | no          | sì         | Sì         |
-  | 49152 GB   | No          | no          | sì         |
+  | 3072 GB    | sì         | No          | No          |
+  | 6144 GB    | sì         | sì         | No          |
+  | 12288 GB   | sì         | sì         | sì         |
+  | 24576 GB   | No          | sì         | sì         |
+  | 49152 GB   | No          | No          | sì         |
 
   Per informazioni importanti su prezzi, velocità effettiva e come ridimensionare la cache in modo appropriato per il flusso di lavoro, vedere la sezione **impostare la capacità della cache** nella scheda istruzioni del portale.
 

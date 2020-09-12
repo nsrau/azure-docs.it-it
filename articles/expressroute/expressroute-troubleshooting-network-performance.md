@@ -2,18 +2,18 @@
 title: 'Risolvere i problemi relativi alle prestazioni del collegamento di rete: Azure'
 description: Questa pagina fornisce un metodo standardizzato di test delle prestazioni dei collegamenti di rete di Azure.
 services: expressroute
-author: tracsman
+author: duongau
 ms.service: expressroute
 ms.topic: troubleshooting
 ms.date: 12/20/2017
-ms.author: jonor
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: e882035af3ac0a086c58b4886fd6999970712df1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 6b9a951787df6775b5159433c7172e767ff955b2
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86521667"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566076"
 ---
 # <a name="troubleshooting-network-performance"></a>Risoluzione dei problemi di prestazioni di rete
 ## <a name="overview"></a>Panoramica
@@ -121,7 +121,7 @@ Se non si conoscono i perimetri del cloud, l'isolamento dei componenti di Azure 
 ![2][2]
 
 >[!NOTE]
-> Si noti che MSEE non si trova nel cloud di Azure. ExpressRoute si trova effettivamente ai margini della rete Microsoft, non proprio in Azure. Una volta che si è connessi a un MSEE con ExpressRoute, si è connessi alla rete Microsoft, dalla quale si può quindi accedere a qualsiasi servizio cloud, come Office 365 (con Peering Microsoft) o Azure (con Peering Microsoft e/o privato).
+> Si noti che MSEE non si trova nel cloud di Azure. ExpressRoute si trova effettivamente ai margini della rete Microsoft, non proprio in Azure. Quando si è connessi a ExpressRoute a una MSEE, si è connessi alla rete Microsoft, da qui è possibile passare a uno dei servizi cloud, ad esempio Microsoft 365 (con peering Microsoft) o Azure (con peering privato e/o Microsoft).
 >
 >
 
@@ -146,7 +146,7 @@ Per quel che riguarda la WAN, la condivisione dei risultati del test con il prov
 
 Con Azure, una volta isolato il problema nel modo più preciso possibile, è necessario esaminare la [Documentazione di Microsoft Azure][Network Docs] e quindi, se ancora necessario, [aprire un ticket di supporto][Ticket Link].
 
-## <a name="references"></a>Bibliografia
+## <a name="references"></a>Riferimenti
 ### <a name="latencybandwidth-expectations"></a>Aspettative in termini di latenza e larghezza di banda
 >[!TIP]
 > La latenza geografica (miglia o chilometri) tra gli endpoint che si stanno testando è di gran lunga il più importante componente della latenza. Sebbene esista la latenza delle apparecchiature (componenti fisici e virtuali, numero di hop, ecc.), la geografia si è dimostrata il più grande componente della latenza complessiva quando si tratta di connessioni WAN. È anche importante notare che la distanza è la distanza in fibra ottica, non in linea d'aria o su mappa stradale. Ottenere una distanza precisa è estremamente difficile. Di conseguenza, generalmente uso un calcolatore di distanza tra le città su Internet. Questo metodo è certamente approssimativo, ma è sufficiente per definire un'aspettativa generale.
@@ -179,7 +179,7 @@ Configurazione di test:
 
 | ExpressRoute<br/>Location|Azure<br/>Region | Distanza<br/>stimata (km) | Latenza|1 Sessione<br/>Larghezza di banda | Massimo<br/>Larghezza di banda |
 | ------------------------------------------ | --------------------------- |  - | - | - | - |
-| Seattle | Stati Uniti occidentali 2        |    191 km |   5 ms | 262,0 Mbit/sec |  3,74 Gbit/sec |
+| Seattle | West US 2        |    191 km |   5 ms | 262,0 Mbit/sec |  3,74 Gbit/sec |
 | Seattle | Stati Uniti occidentali          |  1.094 km |  18 ms |  82,3 Mbit/sec |  3,70 Gbit/sec |
 | Seattle | Stati Uniti centrali       |  2.357 km |  40 ms |  38,8 Mbit/sec |  2,55 Gbit/sec |
 | Seattle | Stati Uniti centro-meridionali |  2.877 km |  51 ms |  30,6 Mbit/sec |  2,49 Gbit/sec |
@@ -197,7 +197,7 @@ Configurazione di test:
 \* La latenza in Brasile è un buon esempio in cui la distanza in linea d'aria differisce notevolmente dalla distanza in fibra ottica. Mentre la latenza dovrebbe normalmente essere di circa 160 ms, è di 189 ms. Questa differenza rispetto alle mie aspettative potrebbe indicare un problema di rete da qualche parte, ma molto probabilmente la fibra ottica in Brasile non va in linea retta e percorre circa 1.000 km in più per arrivare da Seattle.
 
 ## <a name="next-steps"></a>Passaggi successivi
-1. Scaricare Azure Connectivity Toolkit da GitHub all'indirizzo[https://aka.ms/AzCT][ACT]
+1. Scaricare Azure Connectivity Toolkit da GitHub all'indirizzo [https://aka.ms/AzCT][ACT]
 2. Seguire le istruzioni per il [test delle prestazioni dei collegamenti][Performance Doc]
 
 <!--Image References-->

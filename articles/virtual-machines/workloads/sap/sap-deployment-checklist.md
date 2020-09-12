@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 08/10/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f195d4096baaa1d6a03b4b6c7c589ccef8fbd036
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 9991bae3d5c8487cc80cca0bf9a249e715b5c521
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88651727"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650701"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Carichi di lavoro SAP in Azure: elenco di controllo di pianificazione e distribuzione
 
@@ -213,7 +213,7 @@ Durante questa fase, in genere si distribuiscono sistemi di sviluppo, sistemi di
 12. Con l'applicazione del carico di lavoro, registrare il consumo di risorse dei sistemi in Azure. Confrontare questo consumo con i record della piattaforma precedente. Modificare il dimensionamento delle VM per le distribuzioni future se si riscontrano notevoli differenze. Tenere presente che, quando si riducono le dimensioni, lo spazio di archiviazione e le larghezze di banda di rete delle macchine virtuali.
     - [Dimensioni per le macchine virtuali Windows in Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json)
     - [Dimensioni delle macchine virtuali Linux in Azure](../../sizes.md?toc=%2fazure%2fvirtual-network%2ftoc.json) 
-13. Sperimentare la funzionalità di copia del sistema e i processi. L'obiettivo è semplificare la copia di un sistema di sviluppo o di un sistema di test, in modo che i team del progetto possano ottenere rapidamente nuovi sistemi. Prendere in considerazione l'uso di [SAP lama](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) per queste attività.
+13. Sperimentare la funzionalità di copia del sistema e i processi. L'obiettivo è semplificare la copia di un sistema di sviluppo o di un sistema di test, in modo che i team del progetto possano ottenere rapidamente nuovi sistemi. 
 14. Ottimizza e perfeziona l'accesso, le autorizzazioni e i processi in base al ruolo di Azure del team per assicurarti la separazione dei compiti. Allo stesso tempo, assicurarsi che tutti i team possano eseguire le attività nell'infrastruttura di Azure.
 15. Procedure di esercitazione, test e ripristino di emergenza a disponibilità elevata per consentire al personale di eseguire queste attività. Identifica le carenze e adatta le nuove funzionalità di Azure che stai integrando nelle tue distribuzioni.
 

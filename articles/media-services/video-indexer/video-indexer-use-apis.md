@@ -8,15 +8,15 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/21/2020
+ms.date: 09/03/2020
 ms.author: juliako
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 94d5b0cac332cf777f9393104861ee766ef2488c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 85d392323b24df3cede196d2c68f05c9522b2293
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022429"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458298"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>Esercitazione: Usare l'API Video Indexer
 
@@ -36,7 +36,6 @@ Questo articolo illustra in che modo gli sviluppatori possono trarre vantaggio d
    > * È necessario usare lo stesso provider usato per l'iscrizione a Video Indexer.
    > * Gli account Google e Microsoft personali (Outlook/Live) possono essere usati solo per gli account di valutazione. Gli account connessi ad Azure richiedono Azure AD.
    > * Può essere presente un solo account attivo per ogni indirizzo di posta elettronica. Se un utente cerca di effettuare l'accesso con user@gmail.com per LinkedIn e successivamente con user@gmail.com per Google, verrà visualizzata una pagina di errore che indica che l'utente esiste già.
-
 2. Eseguire la sottoscrizione.
 
     Selezionare la scheda [Prodotti](https://api-portal.videoindexer.ai/products). Selezionare quindi Autorizzazione ed eseguire la sottoscrizione.
@@ -46,7 +45,7 @@ Questo articolo illustra in che modo gli sviluppatori possono trarre vantaggio d
     > [!NOTE]
     > I nuovi utenti sono automaticamente sottoscritti per l'autorizzazione.
     
-    Dopo aver effettuato la sottoscrizione, si vedrà la sottoscrizione e le chiavi primaria e secondaria. Le chiavi devono essere protette. Le chiavi devono essere usate solo dal codice server. Non devono essere disponibili sul lato client (JS, HTML e così via).
+    Una volta effettuata la sottoscrizione, è possibile trovare la sottoscrizione in **prodotti**  ->  **autorizzazione**. Nella pagina sottoscrizione sono disponibili le chiavi primarie e secondarie. Le chiavi devono essere protette. Le chiavi devono essere usate solo dal codice server. Non devono essere disponibili sul lato client (JS, HTML e così via).
 
     ![Sottoscrizione e chiavi nel portale per sviluppatori di Video Indexer](./media/video-indexer-use-apis/video-indexer-api03.png)
 

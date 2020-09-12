@@ -3,12 +3,12 @@ title: Configurare un'appliance Azure Migrate con uno script
 description: Informazioni su come configurare un'appliance Azure Migrate con uno script
 ms.topic: article
 ms.date: 04/16/2020
-ms.openlocfilehash: 43e47c6b4121a2f389dfec27873b90b7031c4f2c
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 5be6f161724b8ab555c406ebf6e75072d7902eda
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88929976"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514408"
 ---
 # <a name="set-up-an-appliance-with-a-script"></a>Configurare un'appliance con uno script
 
@@ -51,7 +51,7 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 
     **Algoritmo** | **Scaricare** | **SHA256**
     --- | --- | ---
-    VMware (85 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140334) | 5d0a3dbce4b5010980d59d49859f809acfeb17f5a36f57af4dac44a0a62dde1f
+    VMware (85 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2116601) | 72fef66b8efd93106e626ea87354af0fb800893f9cb77edb5490490106c6a193
 
 
 
@@ -61,7 +61,7 @@ Ecco cosa fa lo script:
 
 - Installa gli agenti e un'applicazione Web.
 - Installa i ruoli di Windows, tra cui il servizio Attivazione Windows, IIS e PowerShell ISE.
-- Scarica e installa un modulo riscrivibile di IIS. [Altre informazioni](https://www.microsoft.com/download/details.aspx?id=7435)
+- Scarica e installa un modulo riscrivibile di IIS. [Altre informazioni](https://www.microsoft.com/download/details.aspx?id=7435).
 - Aggiorna una chiave del registro di sistema (HKLM) con impostazioni permanenti per Azure Migrate.
 - Crea i file di log e di configurazione come segue:
     - **File di configurazione**:%ProgramData%\Microsoft Azure\Config
@@ -100,7 +100,7 @@ Prima di distribuire il file compresso, verificarne la sicurezza.
 
     **Scenario** | **Scaricare** | **SHA256**
     --- | --- | ---
-    Hyper-V (85 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2140334) |  5d0a3dbce4b5010980d59d49859f809acfeb17f5a36f57af4dac44a0a62dde1f
+    Hyper-V (85 MB) | [Versione più recente](https://go.microsoft.com/fwlink/?linkid=2116657) |  bea013eab690ae3a476422c55becd87c369c14834e52f8cafe6ad0ed7f416b4f
 
 ### <a name="run-the-script"></a>Eseguire lo script
 
@@ -108,7 +108,7 @@ Ecco cosa fa lo script:
 
 - Installa gli agenti e un'applicazione Web.
 - Installa i ruoli di Windows, tra cui il servizio Attivazione Windows, IIS e PowerShell ISE.
-- Scarica e installa un modulo riscrivibile di IIS. [Altre informazioni](https://www.microsoft.com/download/details.aspx?id=7435)
+- Scarica e installa un modulo riscrivibile di IIS. [Altre informazioni](https://www.microsoft.com/download/details.aspx?id=7435).
 - Aggiorna una chiave del registro di sistema (HKLM) con impostazioni permanenti per Azure Migrate.
 - Crea i file di log e di configurazione come segue:
     - **File di configurazione**:%ProgramData%\Microsoft Azure\Config

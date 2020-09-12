@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/30/2020
+ms.date: 09/04/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 0c30d5c072c66e04b97cae2f88e4c8ef96b32779
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: 30c64e4cf467f4e505327414e15b23ee2c6d1543
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116220"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611655"
 ---
 # <a name="define-a-saml-identity-provider-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Definire un profilo tecnico del provider di identità SAML in un Azure Active Directory B2C criteri personalizzati
 
@@ -152,7 +152,6 @@ L'elemento **OutputClaimsTransformations** può contenere una raccolta di elemen
 | WantsSignedAssertions | No | Indica se il profilo tecnico richiede che tutte le asserzioni in ingresso siano firmate. I valori possibili sono: `true` o `false`. Il valore predefinito è `true`. Se il valore è impostato su `true`, tutta la sezione `saml:Assertion` delle asserzioni inviate dal provider di identità del provider ad Azure AD B2C deve essere firmata. Se il valore è impostato su `false`, il provider di identità non deve firmare le asserzioni e anche se esegue questa operazione Azure AD B2C non convalida la firma. Questi metadati controllano anche il flag **WantsAssertionsSigned** emesso nei metadati del profilo tecnico di Azure AD B2C condiviso con il provider di identità. Se si disabilita la convalida delle asserzioni, è anche possibile disabilitare la convalida della firma della risposta. Per altre informazioni, vedere **ResponsesSigned**. |
 | ResponsesSigned | No | I valori possibili sono: `true` o `false`. Il valore predefinito è `true`. Se il valore è impostato su `false`, il provider di identità non deve firmare la risposta SAML e anche se esegue questa operazione Azure AD B2C non convalida la firma. Se il valore è impostato su `true`, la risposta SAML inviata dal provider di identità ad Azure AD B2C è firmata e deve essere convalidata. Se si disabilita la convalida della risposta SAML, è anche possibile disabilitare la convalida della firma di asserzione. Per altre informazioni, vedere **WantsSignedAssertions**. |
 | WantsEncryptedAssertions | No | Indica se il profilo tecnico richiede che tutte le asserzioni in ingresso siano crittografate. I valori possibili sono: `true` o `false`. Il valore predefinito è `false`. Se il valore è impostato su `true`, le asserzioni inviate dal provider di identità ad Azure AD B2C devono essere firmate e la chiave di crittografia **SamlAssertionDecryption** deve essere specificata. Se il valore è impostato su `true`, i metadati del profilo tecnico di Azure AD B2C includono la sezione **encryption**. Il provider di identità legge i metadati e crittografa l'asserzione di risposta SAML con la chiave pubblica contenuta nei metadati del profilo tecnico di Azure AD B2C. Se si abilita la crittografia delle asserzioni, può anche essere necessario disabilitare la convalida della firma della risposta. Per altre informazioni, vedere **ResponsesSigned**. |
-| IdpInitiatedProfileEnabled | No | Indica se è abilitato un profilo di sessione Single Sign-On avviato da un profilo del provider di identità SAML. I valori possibili sono: `true` o `false`. Il valore predefinito è `false`. Nel flusso di avviato dal provider di identità l'utente viene autenticato esternamente e viene inviata una risposta non richiesta ad Azure AD B2C, che usa il token, esegue i passaggi di orchestrazione e quindi invia una risposta all'applicazione relying party. |
 | NameIdPolicyFormat | No | Specifica i vincoli sull'identificatore del nome da usare per rappresentare il soggetto richiesto. Se omesso, è possibile usare qualsiasi tipo di identificatore supportato dal provider di identità per il soggetto richiesto. Ad esempio, `urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified`. **NameIdPolicyFormat** può essere usato con **NameIdPolicyAllowCreate**. Esaminare la documentazione del provider di identità per materiale sussidiario sui criteri di ID nome supportati. |
 | NameIdPolicyAllowCreate | No | Quando si usa **NameIdPolicyFormat**, è anche possibile specificare la proprietà `AllowCreate` di **NameIDPolicy**. Il valore di questi metadati è `true` o `false` per indicare se il provider di identità è autorizzato a creare un nuovo account durante il flusso di accesso. Esaminare la documentazione del provider di identità per ottenere indicazioni su come eseguire questa operazione. |
 | AuthenticationRequestExtensions | No | Elementi di estensione facoltativi del messaggio del protocollo concordati tra Azure AD B2C e il provider di identità. L'estensione viene presentata in formato XML. I dati XML si aggiungono all'interno dell'elemento CDATA `<![CDATA[Your IDP metadata]]>`. Controllare la documentazione del provider di identità per vedere se l'elemento di estensione è supportato. |
@@ -160,7 +159,7 @@ L'elemento **OutputClaimsTransformations** può contenere una raccolta di elemen
 | IncludeKeyInfo | No | Indica se la richiesta di autenticazione SAML contiene la chiave pubblica del certificato quando l'associazione è impostata su `HTTP-POST`. I valori possibili sono: `true` o `false`. |
 | IncludeClaimResolvingInClaimsHandling  | No | Per le attestazioni di input e output, specifica se la [risoluzione delle attestazioni](claim-resolver-overview.md) è inclusa nel profilo tecnico. Valori possibili: `true` , o `false`   (impostazione predefinita). Se si desidera utilizzare un resolver di attestazioni nel profilo tecnico, impostare questa impostazione su `true` . |
 
-## <a name="cryptographic-keys"></a>Chiavi crittografiche
+## <a name="cryptographic-keys"></a>Chiavi di crittografia
 
 L'elemento **CryptographicKeys** contiene gli attributi seguenti:
 

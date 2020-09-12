@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/28/2020
 ms.author: apimpm
-ms.openlocfilehash: 6a8c4c3fa2bd73fa689458d6877d09900ea86938
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 068f15cc06a76412836176dc13237741ea14d135
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852158"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89614051"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Panoramica del portale per sviluppatori di Gestione API
 
@@ -31,9 +31,9 @@ Questo articolo descrive le differenze tra le versioni Self-Hosted e quelle gest
 [!INCLUDE [premium-dev-standard-basic.md](../../includes/api-management-availability-premium-dev-standard-basic.md)]
 
 > [!NOTE]
-> <a name="migrate-from-legacy"></a>Il nuovo portale per sviluppatori non è compatibile con il portale per sviluppatori Legacy e la migrazione automatica non è possibile. È necessario ricreare manualmente il contenuto (pagine, testo, file multimediali) e personalizzare l'aspetto del nuovo portale. Per istruzioni, vedere [l'esercitazione sul portale per sviluppatori](api-management-howto-developer-portal-customize.md) .
+> <a name="migrate-from-legacy"></a> Il nuovo portale per sviluppatori non è compatibile con il portale per sviluppatori Legacy e la migrazione automatica non è possibile. È necessario ricreare manualmente il contenuto (pagine, testo, file multimediali) e personalizzare l'aspetto del nuovo portale. Per istruzioni, vedere [l'esercitazione sul portale per sviluppatori](api-management-howto-developer-portal-customize.md) .
 
-## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a>Versioni gestite e self-hosted
+## <a name="managed-and-self-hosted-versions"></a><a name="managed-vs-self-hosted"></a> Versioni gestite e self-hosted
 
 È possibile creare il portale per sviluppatori in due modi:
 
@@ -71,23 +71,23 @@ Il portale è basato su un fork adattato del [Framework Paperbits](https://paper
 
 In questa sezione vengono riportate le risposte alle domande comuni sul portale per sviluppatori, che sono di natura generale. Per domande specifiche per la versione self-hosted, vedere [la sezione wiki del repository GitHub](https://github.com/Azure/api-management-developer-portal/wiki).
 
-### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"></a>Come è possibile eseguire la migrazione dalla versione di anteprima del portale?
+### <a name="how-can-i-migrate-from-the-preview-version-of-the-portal"></a><a id="preview-to-ga"></a> Come è possibile eseguire la migrazione dalla versione di anteprima del portale?
 
-Usando la versione di anteprima del portale per sviluppatori, è stato effettuato il provisioning del contenuto di anteprima nel servizio gestione API. Il contenuto predefinito è stato modificato in modo significativo nella versione disponibile a livello generale per migliorare l'esperienza utente. Include anche nuovi widget.
+Quando è stata avviata per la prima volta la versione di anteprima del portale per sviluppatori, è stato effettuato il provisioning della versione di anteprima del contenuto predefinito nel servizio gestione API. Il contenuto predefinito è stato modificato in modo significativo nella versione disponibile a livello generale. Ad esempio, la versione di anteprima del contenuto predefinito non include i pulsanti OAuth nelle pagine di accesso, USA widget diversi per la visualizzazione delle API e si basa su funzionalità limitate per la strutturazione delle pagine del portale per sviluppatori. Anche se sono presenti differenze nel contenuto, il motore del portale (inclusi i widget sottostanti) viene automaticamente aggiornato ogni volta che si pubblica il portale per sviluppatori.
 
-Se si usa la versione gestita, reimpostare il contenuto del portale facendo clic su **Reimposta contenuto** nella sezione del menu **operazioni** . Se si conferma questa operazione, verrà rimosso tutto il contenuto del portale ed eseguito il provisioning del nuovo contenuto predefinito. Il motore del portale è stato aggiornato automaticamente nel servizio gestione API.
+Se il portale è stato personalizzato in modo significativo in base alla versione di anteprima del contenuto, è possibile continuare a usarlo così com'è e posizionare manualmente i nuovi widget nelle pagine del portale. In caso contrario, è consigliabile sostituire il contenuto del portale con il nuovo contenuto predefinito.
+
+Per reimpostare il contenuto in un portale gestito, fare clic su **Reimposta contenuto** nella sezione del menu **operazioni** . Questa operazione rimuoverà tutto il contenuto del portale ed effettuerà il provisioning del nuovo contenuto predefinito. Tutte le personalizzazioni e le modifiche del portale per sviluppatori andranno perse. **Non è possibile annullare questa azione**.
 
 ![Reimposta contenuto portale](media/api-management-howto-developer-portal/reset-content.png)
 
-Se si usa la versione self-hosted, usare `scripts/cleanup.bat` e `scripts/generate.bat` dal repository GitHub per rimuovere il contenuto esistente ed effettuare il provisioning di nuovo contenuto. Assicurarsi di aggiornare il codice del portale alla versione più recente dal repository GitHub in anticipo.
+Se si usa la versione self-hosted, eseguire `scripts.v2/cleanup.bat` gli `scripts.v2/generate.bat` script e dal repository GitHub per rimuovere il contenuto esistente ed effettuare il provisioning di nuovo contenuto. Assicurarsi di aggiornare il codice del portale alla versione più recente dal repository GitHub in anticipo.
 
-Se non si vuole reimpostare il contenuto del portale, è possibile prendere in considerazione l'uso di widget appena disponibili in tutte le pagine. I widget esistenti sono stati aggiornati automaticamente alle versioni più recenti.
-
-Se il provisioning del portale è stato eseguito dopo l'annuncio della disponibilità generale, dovrebbe già presentare il nuovo contenuto predefinito. Non è richiesta alcuna azione da parte dell'utente.
+Se si accede per la prima volta al portale dopo l'annuncio relativo alla disponibilità generale nel 2019 novembre, il nuovo contenuto predefinito dovrebbe essere già disponibile e non è necessaria alcuna azione aggiuntiva.
 
 ### <a name="does-the-portal-have-all-the-features-of-the-legacy-portal"></a>Il portale ha tutte le funzionalità del portale legacy?
 
-Il portale per sviluppatori non supporta più *applicazioni* e *problemi*.
+Il portale per sviluppatori non supporta più *le applicazioni*, i *problemi*e l'integrazione diretta con Facebook, Microsoft, Twitter e Google come provider di identità. è invece possibile usare Azure ad B2C.
 
 ### <a name="has-the-legacy-portal-been-deprecated"></a>Il portale legacy è stato deprecato?
 
@@ -145,7 +145,7 @@ Dopo aver configurato la delega, è necessario [ripubblicare il portale](api-man
 
 Per la maggior parte delle modifiche di configurazione, ad esempio VNet, accesso e termini del prodotto, è necessario [ripubblicare il portale](api-management-howto-developer-portal-customize.md#publish).
 
-### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a><a name="cors"></a>Viene ricevuto un errore CORS quando si usa la console interattiva
+### <a name="im-getting-a-cors-error-when-using-the-interactive-console"></a><a name="cors"></a> Viene ricevuto un errore CORS quando si usa la console interattiva
 
 La console interattiva esegue una richiesta API sul lato client dal browser. Risolvere il problema CORS aggiungendo [un criterio CORS](api-management-cross-domain-policies.md#CORS) sulle API.
 
@@ -212,7 +212,7 @@ L'errore di chiamata può anche essere causato da un certificato TLS/SSL, che è
 
 ### <a name="whats-the-browser-support-for-the-portal"></a>Qual è il supporto del browser per il portale?
 
-| Browser                     | Supportato       |
+| Browser                     | Funzionalità supportata       |
 |-----------------------------|-----------------|
 | Apple Safari                | Sì<sup>1</sup> |
 | Google Chrome               | Sì<sup>1</sup> |

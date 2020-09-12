@@ -1,17 +1,17 @@
 ---
-title: Iperledger Fabric Consortium in Azure Kubernetes Service (AKS)
+title: Distribuire il Consorzio di infrastruttura iperledger nel servizio Azure Kubernetes
 description: Come distribuire e configurare una rete del Consorzio di infrastruttura iperledger nel servizio Azure Kubernetes
 ms.date: 08/06/2020
 ms.topic: how-to
 ms.reviewer: ravastra
-ms.openlocfilehash: d23a0120aafb4dc3e6952b40959a20f9a3456614
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 081c7a10ee091f573e8f999c94588ef85c784f74
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226872"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651567"
 ---
-# <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Iperledger Fabric Consortium in Azure Kubernetes Service (AKS)
+# <a name="deploy-hyperledger-fabric-consortium-on-azure-kubernetes-service"></a>Distribuire il Consorzio di infrastruttura iperledger nel servizio Azure Kubernetes
 
 È possibile usare l'infrastruttura di iperledger nel modello di servizio Azure Kubernetes per distribuire e configurare una rete del Consorzio di infrastruttura iperledger in Azure.
 

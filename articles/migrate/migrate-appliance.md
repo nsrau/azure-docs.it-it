@@ -3,12 +3,12 @@ title: Appliance Azure Migrate
 description: Offre una panoramica dell'appliance di Azure Migrate usata per la valutazione e la migrazione del server.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: a313d7b964e6ea849acb5b034ed55975b8c5b524
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: f0bba2f2d200ffc84855ff8fc7f634bd8b71ceb6
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927510"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514357"
 ---
 # <a name="azure-migrate-appliance"></a>Appliance Azure Migrate
 
@@ -121,7 +121,7 @@ download.microsoft.com/download | Consentire i download dal download Microsoft.
 graph.windows.net | Accedere alla sottoscrizione di Azure.
 login.microsoftonline.us  | Creare app Azure Active Directory (AD) affinché l'appliance comunichi con Azure Migrate.
 management.usgovcloudapi.net | Creare app Azure AD affinché l'appliance comunichi con il servizio Azure Migrate.
-dc.services.visualstudio.com | Caricare i log delle app usati per il monitoraggio interno.
+*.services.visualstudio.com | Caricare i log delle app usati per il monitoraggio interno.
 *.vault.usgovcloudapi.net | Gestire i segreti in Azure Key Vault.
 aka.ms/* | Consentire l'accesso ai collegamenti aka. Usato per gli aggiornamenti dell'appliance di Azure Migrate.
 download.microsoft.com/download | Consentire i download dal download Microsoft.
@@ -219,7 +219,7 @@ Ecco i dati dell'applicazione installati raccolti dal dispositivo da ogni macchi
 --- | --- | ---
 Nome dell'applicazione  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
 Version  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
-Provider  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Publisher
+Provider  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Editore
 
 #### <a name="windows-vm-features-data"></a>Dati delle funzionalità della VM Windows
 
@@ -246,7 +246,7 @@ Version  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \s
 
 Ecco i dati del sistema operativo che l'appliance raccoglie ogni macchina virtuale abilitata per l'individuazione delle applicazioni. Questi dati vengono inviati ad Azure.
 
-Dati  | classe WMI  | Proprietà della classe WMI
+Data  | classe WMI  | Proprietà della classe WMI
 --- | --- | ---
 Nome  | Win32_operatingsystem  | Sottotitolo
 Version  | Win32_operatingsystem  | Version
@@ -256,7 +256,7 @@ Architecture  | Win32_operatingsystem  | OSArchitecture
 
 Ecco i dati dell'applicazione installati raccolti dal dispositivo da ogni macchina virtuale abilitata per l'individuazione delle applicazioni. In base al sistema operativo della macchina virtuale, vengono eseguiti uno o più comandi. Questi dati vengono inviati ad Azure.
 
-Dati  | Comando
+Data  | Comando
 --- | --- 
 Nome | rpm, dpkg-query, snap
 Version | rpm, dpkg-query, snap

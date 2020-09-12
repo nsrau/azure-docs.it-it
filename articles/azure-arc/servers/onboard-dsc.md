@@ -3,12 +3,12 @@ title: Installare l'agente del computer connesso usando Windows PowerShell DSC
 description: Questo articolo illustra come connettere i computer ad Azure usando i server abilitati per Azure Arc (anteprima) con Windows PowerShell DSC.
 ms.date: 03/12/2020
 ms.topic: conceptual
-ms.openlocfilehash: 25d6e435c261a83bf81c15d5dd445a936d48a08b
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 675258ff95829c2dc9922571db5014b2ba93d336
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213086"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89565821"
 ---
 # <a name="how-to-install-the-connected-machine-agent-using-windows-powershell-dsc"></a>Come installare l'agente del computer connesso usando Windows PowerShell DSC
 
@@ -82,7 +82,7 @@ Dopo aver installato l'agente e configurato per la connessione ai server abilita
 
 Questa risorsa può essere aggiunta alle configurazioni DSC esistenti per rappresentare una configurazione end-to-end per un computer. Ad esempio, potrebbe essere necessario aggiungere questa risorsa a una configurazione che imposta impostazioni del sistema operativo sicure.
 
-Il modulo [CompsiteResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) del PowerShell Gallery può essere usato per creare una [risorsa composita](/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) della configurazione di esempio, per semplificare ulteriormente la combinazione delle configurazioni.
+Il modulo [CompositeResource](https://www.powershellgallery.com/packages/compositeresource/0.4.0) del PowerShell Gallery può essere usato per creare una [risorsa composita](/powershell/scripting/dsc/resources/authoringResourceComposite?view=powershell-7) della configurazione di esempio, per semplificare ulteriormente la combinazione delle configurazioni.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

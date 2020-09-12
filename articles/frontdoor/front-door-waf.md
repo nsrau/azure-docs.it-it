@@ -1,22 +1,22 @@
 ---
 title: Ridimensionare rapidamente e proteggere un'applicazione Web tramite Frontdoor di Azure e Azure Web Application Firewall (WAF) | Microsoft Docs
-description: Questo articolo aiuta a capire come usare Web Application Firewall con il servizio Frontdoor di Azure
+description: Questo articolo illustra come usare il Web Application Firewall con il servizio Azure front door
 services: frontdoor
 documentationcenter: ''
-author: tremansdoerfer
+author: duongau
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/06/2020
-ms.author: rimansdo
-ms.openlocfilehash: 6f91a98372aa85a52a6013a121235ca354004a84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: a0252004b01e64b195b372d72682f6b777012258
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743542"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535432"
 ---
 # <a name="quickly-scale-and-protect-a-web-application-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Ridimensionare rapidamente e proteggere un'applicazione Web tramite Frontdoor di Azure e Azure Web Application Firewall (WAF)
 
@@ -119,7 +119,7 @@ Il nome di dominio personalizzato dell'applicazione Web (quello che i clienti us
 
 I passaggi specifici per aggiornare i record DNS dipendono dal provider di servizi DNS, ma se si usa DNS di Azure per ospitare il nome DNS, è possibile fare riferimento alla documentazione per i [passaggi per aggiornare un record DNS](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli) e per fare in modo che punti al nome host di Frontdoor di Azure. 
 
-Un aspetto fondamentale da tenere presente è che, se è necessario che gli utenti accedano al sito Web usando il dominio radice, ad esempio contoso.com, si deve usare DNS di Azure e il [tipo di record ALIAS](https://docs.microsoft.com/azure/dns/dns-alias) corrispondente per ospitare il nome DNS. 
+Un aspetto fondamentale da tenere presente è che, se è necessario che gli utenti accedano al sito Web usando il vertice della zona, ad esempio contoso.com, è necessario usare DNS di Azure e il [tipo di record alias](https://docs.microsoft.com/azure/dns/dns-alias) per ospitare il nome DNS. 
 
 È anche necessario aggiornare la configurazione di Frontdoor di Azure [aggiungendovi il dominio personalizzato](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain) in modo da renderlo noto a Frontdoor di Azure.
 
