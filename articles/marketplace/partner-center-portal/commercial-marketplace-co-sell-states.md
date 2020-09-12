@@ -6,13 +6,13 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 04/01/2020
-ms.openlocfilehash: 7dd28ab23894988a1ee193f2f8d72cb83b7aafe8
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/02/2020
+ms.openlocfilehash: 44f06773eec965fad610da1a4286bdf224e3a88b
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120518"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321481"
 ---
 # <a name="co-sell-state-and-province-codes-in-azure-marketplace"></a>Co-selling di codici di stato e provincia in Azure Marketplace
 
@@ -78,7 +78,7 @@ Questo articolo elenca i codici di stato e provincia disponibili quando si forni
 | Isole Marianne Settentrionali            | US-MP     |
 | Portorico                         | US-PR     |
 | Altre isole minori degli Stati Uniti | US-UM    |
-| Isole Vergini americane                 | US-VI    |
+| U.S. Vergini Americane                 | US-VI    |
 
 ## <a name="canadian-provinces-and-territories"></a>Province e territori canadesi
 

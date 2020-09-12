@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 5653fa7c67d36dbf2ee71f51f182168bccb69105
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab4e9f7410954292290b6acf0895197ff013b1d8
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79298615"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321668"
 ---
 # <a name="azure-active-directory-identity-and-access-management-operations-reference-guide"></a>Guida di riferimento alle operazioni di gestione delle identità e degli accessi Azure Active Directory
 
@@ -45,14 +45,14 @@ Quando si esamina l'elenco, è possibile che sia necessario assegnare un proprie
 
 #### <a name="assigning-owners-recommended-reading"></a>Assegnazione dei proprietari consigliata per la lettura
 
-- [Assegnazione dei ruoli di amministratore in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
-- [Governance in Azure](https://docs.microsoft.com/azure/security/governance-in-azure)
+- [Assegnazione dei ruoli di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Governance in Azure](../../governance/index.yml)
 
 ## <a name="on-premises-identity-synchronization"></a>Sincronizzazione delle identità locale
 
 ### <a name="identify-and-resolve-synchronization-issues"></a>Identificare e risolvere i problemi di sincronizzazione
 
-Microsoft consiglia di disporre di una linea di base e di informazioni sui problemi nell'ambiente locale che possono causare problemi di sincronizzazione nel cloud. Poiché gli strumenti automatici come [IdFix](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) e [Azure ad Connect Health](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect#why-use-azure-ad-connect-health) possono generare un volume elevato di falsi positivi, è consigliabile identificare gli errori di sincronizzazione che non sono stati indirizzati per più di 100 giorni, eliminando gli oggetti in errore. Gli errori di sincronizzazione non risolti a lungo termine possono generare interventi di supporto. Per la risoluzione degli errori [durante la sincronizzazione](https://docs.microsoft.com/azure/active-directory/hybrid/tshoot-connect-sync-errors) viene fornita una panoramica dei diversi tipi di errori di sincronizzazione, alcuni dei possibili scenari che provocano tali errori e potenziali modi per correggere gli errori.
+Microsoft consiglia di disporre di una linea di base e di informazioni sui problemi nell'ambiente locale che possono causare problemi di sincronizzazione nel cloud. Poiché gli strumenti automatici come [IdFix](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix) e [Azure ad Connect Health](../hybrid/whatis-azure-ad-connect.md#why-use-azure-ad-connect-health) possono generare un volume elevato di falsi positivi, è consigliabile identificare gli errori di sincronizzazione che non sono stati indirizzati per più di 100 giorni, eliminando gli oggetti in errore. Gli errori di sincronizzazione non risolti a lungo termine possono generare interventi di supporto. Per la risoluzione degli errori [durante la sincronizzazione](../hybrid/tshoot-connect-sync-errors.md) viene fornita una panoramica dei diversi tipi di errori di sincronizzazione, alcuni dei possibili scenari che provocano tali errori e potenziali modi per correggere gli errori.
 
 ### <a name="azure-ad-connect-sync-configuration"></a>Configurazione della sincronizzazione Azure AD Connect
 
@@ -81,7 +81,7 @@ Esempi di oggetti da escludere sono:
 > [!NOTE]
 > Se per una singola identità umana sono presenti più account di cui è stato effettuato il provisioning da elementi come la migrazione, la fusione o l'acquisizione di un dominio legacy, è necessario sincronizzare solo l'account utilizzato dall'utente quotidianamente, ad esempio, ciò che usano per accedere al proprio computer.
 
-Idealmente, è opportuno raggiungere un equilibrio tra la riduzione del numero di oggetti da sincronizzare e la complessità delle regole. In genere, una combinazione tra [filtro](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering) ou/contenitore e un semplice mapping di attributi all'attributo cloudFiltered è una combinazione di filtri efficace.
+Idealmente, è opportuno raggiungere un equilibrio tra la riduzione del numero di oggetti da sincronizzare e la complessità delle regole. In genere, una combinazione tra [filtro](../hybrid/how-to-connect-sync-configure-filtering.md) ou/contenitore e un semplice mapping di attributi all'attributo cloudFiltered è una combinazione di filtri efficace.
 
 > [!IMPORTANT]
 > Se si usa il filtro di gruppo in produzione, è consigliabile passare a un altro approccio di filtro.
@@ -105,7 +105,7 @@ Se la versione del Azure AD Connect è superiore a sei mesi dopo, è necessario 
 
 #### <a name="source-anchor"></a>Ancoraggio di origine
 
-L'uso di **ms-DS-consistencyguid** come [ancoraggio di origine](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-design-concepts) consente una migrazione più semplice di oggetti tra foreste e domini, che è comune nel consolidamento/pulizia di un dominio di Active Directory, fusioni, acquisizioni e dismissioni.
+L'uso di **ms-DS-consistencyguid** come [ancoraggio di origine](../hybrid/plan-connect-design-concepts.md) consente una migrazione più semplice di oggetti tra foreste e domini, che è comune nel consolidamento/pulizia di un dominio di Active Directory, fusioni, acquisizioni e dismissioni.
 
 Se attualmente si usa **objectGUID** come ancoraggio di origine, si consiglia di passare all'uso di **ms-DS-ConsistencyGuid**.
 
@@ -138,7 +138,7 @@ Il [documento di Azure ad Connect Configuration](https://github.com/Microsoft/AA
 
 ### <a name="group-based-licensing-for-microsoft-cloud-services"></a>Licenze basate sui gruppi per i servizi cloud Microsoft
 
-Azure Active Directory semplifica la gestione delle licenze tramite le [licenze basate sui gruppi](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-licensing-whatis-azure-portal) per i servizi cloud Microsoft. In questo modo, IAM fornisce l'infrastruttura del gruppo e la gestione delegata di tali gruppi ai team appropriati delle organizzazioni. Esistono diversi modi per configurare l'appartenenza dei gruppi in Azure AD, tra cui:
+Azure Active Directory semplifica la gestione delle licenze tramite le [licenze basate sui gruppi](./active-directory-licensing-whatis-azure-portal.md) per i servizi cloud Microsoft. In questo modo, IAM fornisce l'infrastruttura del gruppo e la gestione delegata di tali gruppi ai team appropriati delle organizzazioni. Esistono diversi modi per configurare l'appartenenza dei gruppi in Azure AD, tra cui:
 
 - La **sincronizzazione da gruppi locali** può provenire da directory locali, che possono essere una scelta ottimale per le organizzazioni che hanno stabilito processi di gestione dei gruppi che possono essere estesi per assegnare le licenze in Office 365.
 
@@ -157,26 +157,26 @@ Usare le linee guida seguenti per definire i piani di servizio agli utenti:
 - Facoltativamente, è possibile definire un attributo per contenere i pacchetti per gli utenti.
 
 > [!IMPORTANT]
-> Le licenze basate sui gruppi in Azure AD introducono il concetto di utenti in stato di errore di licenza. Se si notano errori di licenza, è necessario [identificare e risolvere](https://docs.microsoft.com/azure/active-directory/users-groups-roles/licensing-groups-resolve-problems) immediatamente eventuali problemi di assegnazione delle licenze.
+> Le licenze basate sui gruppi in Azure AD introducono il concetto di utenti in stato di errore di licenza. Se si notano errori di licenza, è necessario [identificare e risolvere](../users-groups-roles/licensing-groups-resolve-problems.md) immediatamente eventuali problemi di assegnazione delle licenze.
 
 ![Schermata di una descrizione della schermata del computer generata automaticamente](./media/active-directory-ops-guide/active-directory-ops-img2.png)
 
 #### <a name="lifecycle-management"></a>Gestione del ciclo di vita
 
-Se attualmente si usa uno strumento, ad esempio [Microsoft Identity Manager](https://docs.microsoft.com/microsoft-identity-manager/) o un sistema di terze parti, che si basa su un'infrastruttura locale, è consigliabile eseguire l'offload dell'assegnazione dallo strumento esistente, implementare le licenze basate sui gruppi e definire una gestione del ciclo di vita del gruppo in base ai [gruppi](https://docs.microsoft.com/azure/active-directory/users-groups-roles/licensing-group-advanced#use-group-based-licensing-with-dynamic-groups). Analogamente, se il processo esistente non tiene conto dei nuovi dipendenti o dipendenti che lasciano l'organizzazione, è consigliabile distribuire le licenze basate sui gruppi in base ai gruppi dinamici e definire il ciclo di vita dell'appartenenza a un gruppo. Infine, se le licenze basate sui gruppi vengono distribuite in gruppi locali che non dispongono di gestione del ciclo di vita, è consigliabile usare i gruppi cloud per abilitare funzionalità come la proprietà delegata o l'appartenenza dinamica basata su attributi.
+Se attualmente si usa uno strumento, ad esempio [Microsoft Identity Manager](/microsoft-identity-manager/) o un sistema di terze parti, che si basa su un'infrastruttura locale, è consigliabile eseguire l'offload dell'assegnazione dallo strumento esistente, implementare le licenze basate sui gruppi e definire una gestione del ciclo di vita del gruppo in base ai [gruppi](../users-groups-roles/licensing-group-advanced.md#use-group-based-licensing-with-dynamic-groups). Analogamente, se il processo esistente non tiene conto dei nuovi dipendenti o dipendenti che lasciano l'organizzazione, è consigliabile distribuire le licenze basate sui gruppi in base ai gruppi dinamici e definire il ciclo di vita dell'appartenenza a un gruppo. Infine, se le licenze basate sui gruppi vengono distribuite in gruppi locali che non dispongono di gestione del ciclo di vita, è consigliabile usare i gruppi cloud per abilitare funzionalità come la proprietà delegata o l'appartenenza dinamica basata su attributi.
 
 ### <a name="assignment-of-apps-with-all-users-group"></a>Assegnazione delle app con il gruppo "tutti gli utenti"
 
 I proprietari delle risorse possono ritenere che il gruppo **tutti gli utenti** contenga solo i **dipendenti aziendali** quando possono effettivamente contenere sia i **dipendenti aziendali** che i **Guest**. Di conseguenza, è necessario prestare particolare attenzione quando si utilizza il gruppo **tutti gli utenti** per l'assegnazione dell'applicazione e si concede l'accesso a risorse quali il contenuto o le applicazioni di SharePoint.
 
 > [!IMPORTANT]
-> Se il gruppo **tutti gli utenti** è abilitato e usato per i criteri di accesso condizionale, l'assegnazione di app o risorse, assicurarsi di [proteggere il gruppo](https://docs.microsoft.com/azure/active-directory/b2b/use-dynamic-groups) se non si vuole includere utenti guest. Inoltre, è necessario correggere le assegnazioni di licenze creando e assegnando a gruppi che contengono solo **dipendenti aziendali** . D'altra parte, se si rileva che il gruppo **tutti gli utenti** è abilitato ma non usato per concedere l'accesso alle risorse, assicurarsi che le linee guida operative dell'organizzazione usino intenzionalmente tale gruppo, che include i **dipendenti aziendali** e i **Guest**.
+> Se il gruppo **tutti gli utenti** è abilitato e usato per i criteri di accesso condizionale, l'assegnazione di app o risorse, assicurarsi di [proteggere il gruppo](../external-identities/use-dynamic-groups.md) se non si vuole includere utenti guest. Inoltre, è necessario correggere le assegnazioni di licenze creando e assegnando a gruppi che contengono solo **dipendenti aziendali** . D'altra parte, se si rileva che il gruppo **tutti gli utenti** è abilitato ma non usato per concedere l'accesso alle risorse, assicurarsi che le linee guida operative dell'organizzazione usino intenzionalmente tale gruppo, che include i **dipendenti aziendali** e i **Guest**.
 
 ### <a name="automated-user-provisioning-to-apps"></a>Provisioning utenti automatizzato per le app
 
-Il [provisioning utenti automatizzato](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) per le applicazioni è il modo migliore per creare un provisioning coerente, il deprovisioning e il ciclo di vita delle identità in più sistemi.
+Il [provisioning utenti automatizzato](../app-provisioning/user-provisioning.md) per le applicazioni è il modo migliore per creare un provisioning coerente, il deprovisioning e il ciclo di vita delle identità in più sistemi.
 
-Se si effettua il provisioning di app in modo ad hoc o si usano elementi come file CSV, JIT o una soluzione locale che non risolve la gestione del ciclo di vita, è consigliabile [implementare il provisioning](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#how-do-i-set-up-automatic-provisioning-to-an-application) delle applicazioni con Azure ad per le applicazioni supportate e definire un modello coerente per le applicazioni che non sono ancora supportate da Azure ad.
+Se si effettua il provisioning di app in modo ad hoc o si usano elementi come file CSV, JIT o una soluzione locale che non risolve la gestione del ciclo di vita, è consigliabile [implementare il provisioning](../app-provisioning/user-provisioning.md#how-do-i-set-up-automatic-provisioning-to-an-application) delle applicazioni con Azure ad per le applicazioni supportate e definire un modello coerente per le applicazioni che non sono ancora supportate da Azure ad.
 
 ![Servizio di provisioning Azure AD](./media/active-directory-ops-guide/active-directory-ops-img3.png)
 
@@ -184,14 +184,14 @@ Se si effettua il provisioning di app in modo ad hoc o si usano elementi come fi
 
 È importante comprendere il volume delle modifiche all'interno dell'organizzazione e assicurarsi che non si stia impiegando troppo tempo per avere un tempo di sincronizzazione prevedibile.
 
-La frequenza di [sincronizzazione delta predefinita](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-scheduler) è 30 minuti. Se la sincronizzazione Delta impiega più di 30 minuti in modo coerente o si verificano discrepanze significative tra le prestazioni di sincronizzazione Delta di gestione temporanea e produzione, è consigliabile analizzare e verificare i [fattori che influenzano le prestazioni di Azure ad Connect](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors).
+La frequenza di [sincronizzazione delta predefinita](../hybrid/how-to-connect-sync-feature-scheduler.md) è 30 minuti. Se la sincronizzazione Delta impiega più di 30 minuti in modo coerente o si verificano discrepanze significative tra le prestazioni di sincronizzazione Delta di gestione temporanea e produzione, è consigliabile analizzare e verificare i [fattori che influenzano le prestazioni di Azure ad Connect](../hybrid/plan-connect-performance-factors.md).
 
 #### <a name="azure-ad-connect-troubleshooting-recommended-reading"></a>Lettura consigliata per la risoluzione dei problemi Azure AD Connect
 
-- [Preparare gli attributi di directory per la sincronizzazione con Office 365 usando lo strumento IdFix-Office 365](https://docs.microsoft.com/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
-- [Azure AD Connect: risoluzione degli errori durante la sincronizzazione](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-troubleshoot-sync-errors)
+- [Preparare gli attributi di directory per la sincronizzazione con Office 365 usando lo strumento IdFix-Office 365](/office365/enterprise/prepare-directory-attributes-for-synch-with-idfix)
+- [Azure AD Connect: risoluzione degli errori durante la sincronizzazione](../hybrid/tshoot-connect-sync-errors.md)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Esistono cinque aspetti di un'infrastruttura di identità sicura. Questo elenco ti aiuterà a trovare e intraprendere rapidamente le azioni necessarie per proteggere e gestire il ciclo di vita delle identità e dei rispettivi diritti nell'organizzazione.
 

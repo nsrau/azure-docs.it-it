@@ -8,12 +8,12 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e6702ab3753604af50e21f931dd23f63de3c1451
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 4c5389e322fdf44e8a71baa8770f87c276c076c9
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88936198"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400399"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Estensione macchina virtuale di Key Vault per Linux
 
@@ -206,7 +206,7 @@ Per distribuire l'estensione macchina virtuale di Key Vault in una macchina virt
 Tenere presenti le restrizioni e i requisiti seguenti:
 - Restrizioni relative all'insieme di credenziali:
   - Deve essere già presente al momento della distribuzione 
-  - Il criterio di accesso all'insieme di credenziali delle chiavi deve essere impostato per l'identità della macchina virtuale o del set di scalabilità di macchine virtuali usando un'identità gestita. Vedere [Fornire l'autenticazione a Key Vault con un'identità gestita](../../key-vault/general/managed-identity.md)
+  - I criteri di accesso Key Vault devono essere impostati per l'identità VM/VMSS usando un'identità gestita. Vedere [come eseguire l'autenticazione a Key Vault](/azure/key-vault/general/authentication) e [assegnare un criterio di accesso key Vault](/azure/key-vault/general/assign-access-policy-cli).
 
 
 ## <a name="troubleshoot-and-support"></a>Risoluzione dei problemi e supporto

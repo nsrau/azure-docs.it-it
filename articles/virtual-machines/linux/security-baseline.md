@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 07/13/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 8ac7bec3065299ea62daae11adeeb1363f98d450
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 627c0c77cc206cd1b3210fcfc7b2a9bbc3c6daea
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231198"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401096"
 ---
 # <a name="azure-security-baseline-for-linux-virtual-machines"></a>Baseline della sicurezza di Azure per macchine virtuali Linux
 
@@ -980,7 +980,9 @@ Per la maggior parte degli scenari, i modelli di VM di base Microsoft combinati 
 
 * [Come creare una Key Vault](../../key-vault/secrets/quick-create-portal.md)
 
-* [Come fornire l'autenticazione Key Vault con un'identità gestita](../../key-vault/general/managed-identity.md)
+* [Come eseguire l'autenticazione a Key Vault](../../key-vault/general/authentication.md)
+
+* [Come assegnare un criterio di accesso Key Vault](../../key-vault/general/assign-access-policy-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Sì
 

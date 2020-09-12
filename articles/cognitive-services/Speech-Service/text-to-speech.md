@@ -1,27 +1,29 @@
 ---
-title: Servizio sintesi vocale
+title: Panoramica di sintesi vocale-servizio riconoscimento vocale
 titleSuffix: Azure Cognitive Services
-description: La funzionalità di sintesi vocale nel servizio di riconoscimento vocale consente a applicazioni, strumenti o dispositivi di convertire testo in sintesi vocale naturale, ad esempio. Scegliere le voci predefinite o creare una voce personalizzata.
+description: La funzionalità di sintesi vocale nel servizio di riconoscimento vocale consente a applicazioni, strumenti o dispositivi di convertire testo in sintesi vocale naturale, ad esempio. Questo articolo offre una panoramica dei vantaggi e delle funzionalità del servizio di sintesi vocale.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 03/23/2020
+ms.date: 09/01/2020
 ms.author: trbye
-ms.openlocfilehash: 42d5ca12e91de5e0e906fb017183ea684b63b49c
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.custom: cog-serv-seo-aug-2020
+keywords: sintesi vocale
+ms.openlocfilehash: 8b8430135ffd15e8331b654628236a315f10cce3
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167709"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401181"
 ---
 # <a name="what-is-text-to-speech"></a>Che cos'è la sintesi vocale?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
-Sintesi vocale dal servizio di riconoscimento vocale consente a applicazioni, strumenti o dispositivi di convertire testo in sintesi vocale. È possibile scegliere tra le voci standard e neurali oppure creare una voce personalizzata univoca per il prodotto o il marchio. sono disponibili più di 75 voci standard in più di 45 lingue e impostazioni locali e 5 voci neurali sono disponibili in un numero selezionato di lingue e impostazioni locali. Per un elenco completo delle voci, dei linguaggi e delle impostazioni locali supportate, vedere [linguaggi supportati](language-support.md#text-to-speech).
+In questa panoramica vengono illustrati i vantaggi e le funzionalità del servizio di sintesi vocale, che consente a applicazioni, strumenti o dispositivi di convertire testo in sintesi vocale. È possibile scegliere tra le voci standard e neurali oppure creare una voce personalizzata univoca per il prodotto o il marchio. sono disponibili più di 75 voci standard in più di 45 lingue e impostazioni locali e 5 voci neurali sono disponibili in un numero selezionato di lingue e impostazioni locali. Per un elenco completo delle voci, dei linguaggi e delle impostazioni locali supportate, vedere [linguaggi supportati](language-support.md#text-to-speech).
 
 > [!NOTE]
 > Il riconoscimento vocale Bing è stato ritirato il 15 ottobre 2019. Se le applicazioni, gli strumenti o i prodotti usano le API riconoscimento vocale Bing o Riconoscimento vocale personalizzato, sono state create guide che consentono di eseguire la migrazione al servizio di riconoscimento vocale.

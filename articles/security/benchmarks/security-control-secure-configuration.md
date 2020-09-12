@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: ac538d71f854643cb59390447be360bc541142ac
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 347a63cc77c565d800328c19d1d543c2c9efafc0
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89077229"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400093"
 ---
 # <a name="security-control-secure-configuration"></a>Controllo di sicurezza: configurazione sicura
 
@@ -22,7 +22,7 @@ Consente di stabilire, implementare e gestire attivamente (rilevare, segnalare, 
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 7.1 | 5,1 | Cliente |
+| 7.1 | 5,1 | Customer |
 
 Usare gli alias di criteri di Azure per creare criteri personalizzati per controllare o applicare la configurazione delle risorse di Azure. È anche possibile usare le definizioni di criteri di Azure predefinite.
 
@@ -42,7 +42,7 @@ Inoltre, Azure Resource Manager è in grado di esportare il modello in JavaScrip
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 7.2 | 5,1 | Cliente |
+| 7.2 | 5,1 | Customer |
 
 Usare le raccomandazioni del Centro sicurezza di Azure per gestire le configurazioni di sicurezza in tutte le risorse di calcolo.  Inoltre, è possibile usare immagini del sistema operativo personalizzate o la configurazione dello stato di automazione di Azure per stabilire la configurazione di sicurezza del sistema operativo richiesto dall'organizzazione.
 
@@ -60,7 +60,7 @@ Usare le raccomandazioni del Centro sicurezza di Azure per gestire le configuraz
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 7.3 | 5,2 | Cliente |
+| 7.3 | 5,2 | Customer |
 
 Usare criteri di Azure [deny] e [Distribuisci se non esistono] per applicare impostazioni sicure tra le risorse di Azure.  Inoltre, è possibile usare i modelli di Azure Resource Manager per gestire la configurazione di sicurezza delle risorse di Azure richieste dall'organizzazione. 
 
@@ -74,7 +74,7 @@ Usare criteri di Azure [deny] e [Distribuisci se non esistono] per applicare imp
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 7,4 | 5,2 | Condiviso |
+| 7.4 | 5,2 | Shared |
 
 Seguire le raccomandazioni del Centro sicurezza di Azure per l'esecuzione di valutazioni delle vulnerabilità nelle risorse di calcolo di Azure.  Inoltre, è possibile usare modelli di Azure Resource Manager, immagini del sistema operativo personalizzate o la configurazione dello stato di automazione di Azure per mantenere la configurazione di sicurezza del sistema operativo richiesto dall'organizzazione.   I modelli di macchina virtuale Microsoft combinati con la configurazione dello stato desiderato di automazione di Azure possono contribuire alla riunione e alla gestione dei requisiti di sicurezza. 
 
@@ -96,7 +96,7 @@ Si noti inoltre che le immagini di macchine virtuali di Azure Marketplace pubbli
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 7.5 | 5.3 | Cliente |
+| 7.5 | 5.3 | Customer |
 
 USA Azure DevOps per archiviare e gestire in modo sicuro il codice, ad esempio criteri personalizzati di Azure, Azure Resource Manager modelli e gli script di configurazione dello stato desiderato. Per accedere alle risorse gestite in Azure DevOps, è possibile concedere o negare autorizzazioni a utenti specifici, gruppi di sicurezza incorporati o gruppi definiti in Azure Active Directory (Azure AD) se integrati con Azure DevOps oppure Active Directory se integrati con TFS.
 
@@ -108,7 +108,7 @@ USA Azure DevOps per archiviare e gestire in modo sicuro il codice, ad esempio c
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 7.6 | 5.3 | Cliente |
+| 7.6 | 5.3 | Customer |
 
 Se si usano immagini personalizzate, usare il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) per garantire che solo gli utenti autorizzati possano accedere alle immagini. Usando una raccolta di immagini condivise è possibile condividere le immagini con utenti diversi, entità servizio o gruppi di Active Directory all'interno dell'organizzazione.  Per le immagini contenitore, archiviarle in Azure Container Registry e sfruttare il controllo degli accessi in base al ruolo di Azure per garantire che solo gli utenti autorizzati possano accedere alle immagini.  
 
@@ -124,7 +124,7 @@ Se si usano immagini personalizzate, usare il controllo degli accessi in base al
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 7.7 | 5.4 | Cliente |
+| 7.7 | 5.4 | Customer |
 
 Definire e implementare configurazioni di sicurezza standard per le risorse di Azure usando i criteri di Azure. Usare gli alias di criteri di Azure per creare criteri personalizzati per controllare o applicare la configurazione di rete delle risorse di Azure. È anche possibile usare le definizioni di criteri predefinite correlate alle risorse specifiche.  Inoltre, è possibile usare automazione di Azure per distribuire le modifiche di configurazione.
 
@@ -136,7 +136,7 @@ Definire e implementare configurazioni di sicurezza standard per le risorse di A
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 7,8 | 5.4 | Cliente |
+| 7.8 | 5.4 | Customer |
 
 La configurazione dello stato di automazione di Azure è un servizio di gestione della configurazione per i nodi DSC (Desired state Configuration) in qualsiasi Data Center nel cloud o in locale. È possibile caricare facilmente i computer, assegnare agli stessi configurazioni dichiarative e visualizzare report che mostrano la conformità di ogni computer con lo stato desiderato specificato. 
 
@@ -146,7 +146,7 @@ La configurazione dello stato di automazione di Azure è un servizio di gestione
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 7.9 | 5.5 | Cliente |
+| 7.9 | 5.5 | Customer |
 
 Usare il Centro sicurezza di Azure per eseguire analisi di base per le risorse di Azure.  Usare inoltre i criteri di Azure per inviare avvisi e controllare le configurazioni delle risorse di Azure.
 
@@ -156,7 +156,7 @@ Usare il Centro sicurezza di Azure per eseguire analisi di base per le risorse d
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 7.10 | 5.5 | Cliente |
+| 7.10 | 5.5 | Customer |
 
 Usare il Centro sicurezza di Azure per eseguire analisi di base per le impostazioni del sistema operativo e Docker per i contenitori.
 
@@ -166,7 +166,7 @@ Usare il Centro sicurezza di Azure per eseguire analisi di base per le impostazi
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 7.11 | 13.1 | Cliente |
+| 7.11 | 13.1 | Customer |
 
 Usare identità del servizio gestita insieme a Azure Key Vault per semplificare e proteggere la gestione dei segreti per le applicazioni cloud.
 
@@ -174,13 +174,15 @@ Usare identità del servizio gestita insieme a Azure Key Vault per semplificare 
 
 - [Come creare una Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-- [Come fornire l'autenticazione Key Vault con un'identità gestita](https://docs.microsoft.com/azure/key-vault/managed-identity)
+- [Come eseguire l'autenticazione a Key Vault](../../key-vault/general/authentication.md)
+
+- [Come assegnare un criterio di accesso Key Vault](../../key-vault/general/assign-access-policy-portal.md)
 
 ## <a name="712-manage-identities-securely-and-automatically"></a>7.12: gestire le identità in modo sicuro e automatico
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 7.12 | 4.1 | Cliente |
+| 7.12 | 4.1 | Customer |
 
 Usare identità gestite per fornire ai servizi di Azure un'identità gestita automaticamente in Azure AD. Le identità gestite consentono di eseguire l'autenticazione per qualsiasi servizio che supporti l'autenticazione di Azure AD, incluso Key Vault, senza inserire credenziali nel codice.
 
@@ -190,7 +192,7 @@ Usare identità gestite per fornire ai servizi di Azure un'identità gestita aut
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 7,13 | 18,1, 18,7 | Cliente |
+| 7,13 | 18,1, 18,7 | Customer |
 
 Implementare Credential scanner per identificare le credenziali all'interno del codice. Tale strumento inoltre incoraggerà a spostare le credenziali rilevate in posizioni più sicure, ad esempio Azure Key Vault. 
 

@@ -1,44 +1,42 @@
 ---
-title: includere file
+title: Includere file
 description: file di inclusione per le pagine di destinazione dello scenario client riservato (daemon, app Web, API Web)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
 manager: CelesteDG
-editor: ''
 ms.service: active-directory
 ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/15/2020
+ms.date: 08/14/2020
 ms.author: jmprieur
-ms.custom: include file
-ms.openlocfilehash: a3acdbb93dd20f0b89e4f99d64f5f7a30ce40623
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 42102f38959911388cefcc141d949e59f24a2c31
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87102757"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436469"
 ---
-## <a name="register-secrets-or-certificates"></a>Registrare segreti o certificati
+## <a name="add-a-client-secret-or-certificate"></a>Aggiungere un certificato o un segreto client
 
-Per le applicazioni client riservate, è necessario registrare un segreto o un certificato. È possibile registrare i segreti dell'applicazione tramite l'esperienza interattiva nel [portale di Azure](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredAppsPreview) o usando gli strumenti da riga di comando (ad esempio PowerShell).
+Come per qualsiasi applicazione client riservata, è necessario aggiungere un segreto o un certificato che funga da *credenziali* dell'applicazione in modo che possa autenticarsi come se stesso, senza l'interazione dell'utente.
 
-### <a name="register-client-secrets-by-using-the-application-registration-portal"></a>Registrare i segreti client usando il portale di registrazione delle applicazioni
+È possibile aggiungere credenziali alla registrazione dell'app client usando il [portale di Azure](#add-client-credentials-by-using-the-azure-portal) o usando uno strumento da riga di comando come [PowerShell](#add-client-credentials-by-using-powershell).
 
-La gestione delle credenziali client viene eseguita nella pagina **certificati & segreti** di un'applicazione:
+### <a name="add-client-credentials-by-using-the-azure-portal"></a>Aggiungere le credenziali client usando il portale di Azure
 
-![Pagina certificati & segreti](../articles/active-directory/develop/media/quickstart-update-azure-ad-app-preview/credentials-certificates-secrets.png)
+Per aggiungere credenziali alla registrazione dell'app riservata dell'applicazione client, seguire i passaggi in [Guida introduttiva: registrare un'applicazione con la piattaforma di identità Microsoft](../articles/active-directory/develop/quickstart-register-app.md) per il tipo di credenziale da aggiungere:
 
-- Per creare un *segreto client* , selezionare **nuovo segreto client** nella registrazione dell'app nel portale di Azure. Quando si crea un segreto client, è _necessario_ registrare la stringa del segreto prima di uscire dal riquadro **certificati & segreti** . La stringa del segreto non viene mai visualizzata di nuovo.
-- Durante la registrazione dell'applicazione, usare il pulsante **Carica certificato** per caricare il certificato. Azure AD supporta solo i certificati che sono registrati direttamente nell'applicazione e non seguono le catene di certificati.
+* [Aggiungere un segreto client](../articles/active-directory/develop/quickstart-register-app.md#add-a-client-secret)
+* [Aggiungere un certificato](../articles/active-directory/develop/quickstart-register-app.md#add-a-certificate)
 
-Per informazioni dettagliate, vedere [Guida introduttiva: configurare un'applicazione client per accedere alle API Web | Aggiungere le credenziali all'applicazione](../articles/active-directory/develop/quickstart-configure-app-access-web-apis.md#add-credentials-to-your-web-application).
+### <a name="add-client-credentials-by-using-powershell"></a>Aggiungere credenziali client tramite PowerShell
 
-### <a name="register-client-secrets-by-using-powershell"></a>Registrare i segreti client usando PowerShell
+In alternativa, è possibile aggiungere le credenziali quando si registra l'applicazione con la piattaforma di identità Microsoft usando PowerShell.
 
-In alternativa, è possibile registrare l'applicazione con Azure AD usando gli strumenti da riga di comando. L'esempio [Active-Directory-dotnetcore-Daemon-V2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) Mostra come registrare un segreto o un certificato dell'applicazione con un'applicazione Azure ad:
+L'esempio di codice [Active-Directory-dotnetcore-Daemon-V2](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2) in GitHub Mostra come aggiungere un segreto o un certificato dell'applicazione durante la registrazione di un'applicazione:
 
-- Per informazioni dettagliate su come registrare un segreto dell'applicazione, vedere [AppCreationScripts/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts/Configure.ps1#L190).
-- Per informazioni dettagliate su come registrare un certificato con un'applicazione, vedere [AppCreationScripts-withCert/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts-withCert/Configure.ps1#L162-L178).
+- Per informazioni dettagliate su come aggiungere un **segreto client** con PowerShell, vedere [AppCreationScripts/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts/Configure.ps1#L190).
+- Per informazioni dettagliate su come aggiungere un **certificato** con PowerShell, vedere [AppCreationScripts-withCert/Configure.ps1](https://github.com/Azure-Samples/active-directory-dotnetcore-daemon-v2/blob/5199032b352a912e7cc0fce143f81664ba1a8c26/AppCreationScripts-withCert/Configure.ps1#L162-L178).

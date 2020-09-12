@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 3e1cfa13a3fd568ab2f1253c015880c57f99ce7e
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 83c0fd796b7527c6f5e396a813def984b88ee9ac
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87012486"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440355"
 ---
 # <a name="data-platforms-supported-on-the-data-science-virtual-machine"></a>Piattaforme dati supportate nella Data Science Virtual Machine
 
@@ -37,7 +37,7 @@ I seguenti strumenti della piattaforma dati sono supportati in DSVM.
 > È possibile utilizzare SQL Server Developer Edition solo a scopo di sviluppo e test. È necessaria una licenza oppure si deve eseguire una delle macchine virtuali di SQL Server nell'ambiente di produzione.
 
 
-### <a name="setup"></a>Installazione
+### <a name="setup"></a>Configurazione
 
 Il server di database è già preconfigurato e i servizi Windows correlati a SQL Server ( `SQL Server (MSSQLSERVER)` ad esempio) sono impostati per l'esecuzione automatica. L'unico passaggio manuale prevede l'abilitazione di analisi nel database tramite Microsoft Machine Learning Server. È possibile abilitare l'analisi eseguendo il comando seguente come azione monouso in SQL Server Management Studio (SSMS). Eseguire questo comando dopo l'accesso come amministratore del computer, aprire una nuova query in SSMS e verificare che il database selezionato sia `master` :
 
@@ -53,7 +53,7 @@ Per eseguire SQL Server Management Studio, è possibile cercare "SQL Server Mana
 
 Per impostazione predefinita, il server di database con l'istanza di database predefinita viene eseguito automaticamente. È possibile usare strumenti quali SQL Server Management Studio nella macchina virtuale per accedere al database SQL Server in locale. Gli account amministratore locale dispongono dell'accesso amministrativo al database.
 
-Inoltre, DSVM include driver ODBC e JDBC per comunicare con SQL Server, database SQL di Azure e Azure SQL Data Warehouse da applicazioni scritte in più linguaggi, tra cui Python e Machine Learning Server.
+Inoltre, DSVM include driver ODBC e JDBC per comunicare con SQL Server, i database SQL di Azure e Azure sinapsi Analytics da applicazioni scritte in più linguaggi, tra cui Python e Machine Learning Server.
 
 ### <a name="how-is-it-configured-and-installed-on-the-dsvm"></a>Come viene configurato e installato in DSVM? 
 
@@ -75,7 +75,7 @@ Inoltre, DSVM include driver ODBC e JDBC per comunicare con SQL Server, database
 
 È possibile usare Spark da R usando librerie come Sparkr, Sparklyr e Microsoft Machine Learning Server, che sono disponibili in DSVM. Vedere i puntatori agli esempi nella tabella precedente.
 
-### <a name="setup"></a>Installazione
+### <a name="setup"></a>Configurazione
 Prima di essere eseguito in un contesto Spark in Microsoft Machine Learning Server in Ubuntu Linux edizione DSVM, è necessario completare un unico passaggio di configurazione per abilitare un singolo nodo locale Hadoop HDFS e l'istanza Yarn. Per impostazione predefinita, i servizi Hadoop sono installati ma disabilitati su DSVM. Per abilitarli, eseguire i comandi seguenti come radice la prima volta:
 
 ```bash

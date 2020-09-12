@@ -2,17 +2,17 @@
 title: 'Gateway VPN: client VPN per le connessioni del protocollo OpenVPN P2S: autenticazione Azure AD'
 description: È possibile usare la VPN P2S per connettersi alla VNet usando l'autenticazione Azure AD
 services: vpn-gateway
-author: kumudD
+author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 06/25/2020
+ms.date: 09/03/2020
 ms.author: alzam
-ms.openlocfilehash: c14d300e2c09316e0665ece3f3e15f7036d5b9a1
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 781d3aeea6a5568aec065ec4b1cbcfacb74836a6
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525076"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434674"
 ---
 # <a name="azure-active-directory-authentication-configure-a-vpn-client-for-p2s-openvpn-protocol-connections"></a>Autenticazione Azure Active Directory: configurare un client VPN per le connessioni del protocollo OpenVPN P2S
 
@@ -20,6 +20,8 @@ Questo articolo illustra come configurare un client VPN per connettersi a una re
 
 > [!NOTE]
 > L'autenticazione di Azure AD è supportata solo per le connessioni tramite il protocollo OpenVPN®.
+>
+> Per l'autenticazione Azure AD è necessario il client VPN di Azure, disponibile solo per Windows 10.
 >
 
 ## <a name="working-with-client-profiles"></a><a name="profile"></a>Utilizzo dei profili client
@@ -88,11 +90,11 @@ Quando si dispone di un profilo di lavoro ed è necessario distribuirlo ad altri
 
 1. Selezionare i puntini di sospensione accanto al profilo client che si desidera eliminare. Selezionare quindi **Rimuovi**.
 
-    ![eliminazione](./media/openvpn-azure-ad-client/delete/delete1.jpg)
+    ![eliminare](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
 2. Per procedere all'eliminazione, selezionare **Rimuovi**.
 
-    ![eliminazione](./media/openvpn-azure-ad-client/delete/delete2.jpg)
+    ![eliminare](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="create-a-connection"></a><a name="connection"></a>Creare una connessione
 

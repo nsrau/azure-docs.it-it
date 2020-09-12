@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: f25abb70a95f559cf0cc14efa6cf9f0e81ec9ec0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b45a0608d78330eafd6afc3656f8a4addbdffd3b
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80876293"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321719"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guida di riferimento per le operazioni di gestione dell'autenticazione Azure Active Directory
 
@@ -48,8 +48,8 @@ Quando si esamina l'elenco, è possibile che sia necessario assegnare un proprie
 
 #### <a name="owner-recommended-reading"></a>Lettura consigliata dal proprietario
 
-- [Assegnazione dei ruoli di amministratore in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-assign-admin-roles-azure-portal)
-- [Governance in Azure](https://docs.microsoft.com/azure/security/governance-in-azure)
+- [Assegnazione dei ruoli di amministratore in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md)
+- [Governance in Azure](../../governance/index.yml)
 
 ## <a name="credentials-management"></a>Gestione di credenziali
 
@@ -61,13 +61,13 @@ Usare la tabella seguente per trovare la soluzione consigliata per attenuare il 
 
 | Problema | Recommendation |
 | :- | :- |
-| Nessun meccanismo per la protezione da password vulnerabili | Abilita Azure AD la [reimpostazione della password self-service (SSPR)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks) e la [protezione con password](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) |
-| Nessun meccanismo per rilevare le password perse | Abilitare la [sincronizzazione dell'hash delle password](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) (pH) per ottenere informazioni dettagliate |
-| Uso di AD FS e non è possibile passare all'autenticazione gestita | Abilita [ad FS blocco intelligente Extranet](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) e/o [Azure ad blocco intelligente](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-smart-lockout) |
-| Il criterio password usa regole basate sulla complessità, ad esempio lunghezza, più set di caratteri o scadenza | Riconsiderare a favore delle [procedure consigliate di Microsoft](https://www.microsoft.com/research/publication/password-guidance/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F265143%2Fmicrosoft_password_guidance.pdf) e cambiare l'approccio alla gestione delle password e distribuire [Azure ad la protezione delle password](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad). |
-| Gli utenti non sono registrati per l'uso di multi-factor authentication | [Registrare tutte le informazioni di sicurezza dell'utente](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-mfa-policy) in modo che possano essere usate come meccanismo per verificare l'identità dell'utente insieme alla password |
-| Non esiste alcuna revoca delle password in base al rischio dell'utente | Distribuire i [criteri di rischio utente di Azure ad Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy) per forzare le modifiche delle password sulle credenziali perse usando SSPR |
-| Non esiste un meccanismo di blocco intelligente per proteggere l'autenticazione dannosa da attori non validi provenienti da indirizzi IP identificati | Distribuire l'autenticazione gestita dal cloud con la sincronizzazione dell'hash delle password o [l'autenticazione pass-through](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-pta-quick-start) (PTA) |
+| Nessun meccanismo per la protezione da password vulnerabili | Abilita Azure AD la [reimpostazione della password self-service (SSPR)](../authentication/concept-sspr-howitworks.md) e la [protezione con password](../authentication/concept-password-ban-bad-on-premises.md) |
+| Nessun meccanismo per rilevare le password perse | Abilitare la [sincronizzazione dell'hash delle password](../hybrid/how-to-connect-password-hash-synchronization.md) (pH) per ottenere informazioni dettagliate |
+| Uso di AD FS e non è possibile passare all'autenticazione gestita | Abilita [ad FS blocco intelligente Extranet](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) e/o [Azure ad blocco intelligente](../authentication/howto-password-smart-lockout.md) |
+| Il criterio password usa regole basate sulla complessità, ad esempio lunghezza, più set di caratteri o scadenza | Riconsiderare a favore delle [procedure consigliate di Microsoft](https://www.microsoft.com/research/publication/password-guidance/?from=http%3A%2F%2Fresearch.microsoft.com%2Fpubs%2F265143%2Fmicrosoft_password_guidance.pdf) e cambiare l'approccio alla gestione delle password e distribuire [Azure ad la protezione delle password](../authentication/concept-password-ban-bad.md). |
+| Gli utenti non sono registrati per l'uso di multi-factor authentication | [Registrare tutte le informazioni di sicurezza dell'utente](../identity-protection/howto-identity-protection-configure-mfa-policy.md) in modo che possano essere usate come meccanismo per verificare l'identità dell'utente insieme alla password |
+| Non esiste alcuna revoca delle password in base al rischio dell'utente | Distribuire i [criteri di rischio utente di Azure ad Identity Protection](../identity-protection/howto-identity-protection-configure-risk-policies.md) per forzare le modifiche delle password sulle credenziali perse usando SSPR |
+| Non esiste un meccanismo di blocco intelligente per proteggere l'autenticazione dannosa da attori non validi provenienti da indirizzi IP identificati | Distribuire l'autenticazione gestita dal cloud con la sincronizzazione dell'hash delle password o [l'autenticazione pass-through](../hybrid/how-to-connect-pta-quick-start.md) (PTA) |
 
 #### <a name="password-policies-recommended-reading"></a>Lettura consigliata per i criteri password
 
@@ -77,19 +77,19 @@ Usare la tabella seguente per trovare la soluzione consigliata per attenuare il 
 
 Gli utenti che hanno la necessità di modificare o reimpostare le password sono una delle principali fonti di volume e i costi delle chiamate help desk. Oltre ai costi, la modifica della password come strumento per attenuare i rischi per gli utenti è un passaggio fondamentale per migliorare il comportamento di sicurezza dell'organizzazione.
 
-Come minimo, è consigliabile distribuire Azure AD la [reimpostazione della password self-service](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks) (SSPR) e la protezione delle [password](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy) locale per eseguire le operazioni seguenti:
+Come minimo, è consigliabile distribuire Azure AD la [reimpostazione della password self-service](../authentication/concept-sspr-howitworks.md) (SSPR) e la protezione delle [password](../authentication/howto-password-ban-bad-on-premises-deploy.md) locale per eseguire le operazioni seguenti:
 
 - Devia help desk le chiamate.
 - Sostituire l'uso di password temporanee.
 - Sostituire tutte le soluzioni di gestione delle password self-service esistenti che si basano su una soluzione locale.
-- [Eliminare le password vulnerabili](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad) nell'organizzazione.
+- [Eliminare le password vulnerabili](../authentication/concept-password-ban-bad.md) nell'organizzazione.
 
 > [!NOTE]
-> Per le organizzazioni con una sottoscrizione Azure AD Premium P2, è consigliabile distribuire SSPR e usarlo come parte di un [criterio di rischio utente Identity Protection](https://docs.microsoft.com/azure/active-directory/identity-protection/howto-user-risk-policy).
+> Per le organizzazioni con una sottoscrizione Azure AD Premium P2, è consigliabile distribuire SSPR e usarlo come parte di un [criterio di rischio utente Identity Protection](../identity-protection/howto-identity-protection-configure-risk-policies.md).
 
 ### <a name="strong-credential-management"></a>Gestione delle credenziali avanzata
 
-Le password non sono sufficientemente sicure per impedire agli attori malintenzionati di ottenere l'accesso all'ambiente. Come minimo, qualsiasi utente con un account con privilegi deve essere abilitato per multi-factor authentication. Idealmente, è consigliabile abilitare la [registrazione combinata](https://docs.microsoft.com/azure/active-directory/authentication/concept-registration-mfa-sspr-combined) e richiedere a tutti gli utenti di registrarsi per l'autenticazione a più fattori e SSPR usando l' [esperienza di registrazione combinata](https://docs.microsoft.com/azure/active-directory/user-help/user-help-security-info-overview). Infine, è consigliabile adottare una strategia per [fornire resilienza](https://docs.microsoft.com/azure/active-directory/authentication/concept-resilient-controls) per ridurre il rischio di blocco a causa di circostanze impreviste.
+Le password non sono sufficientemente sicure per impedire agli attori malintenzionati di ottenere l'accesso all'ambiente. Come minimo, qualsiasi utente con un account con privilegi deve essere abilitato per multi-factor authentication. Idealmente, è consigliabile abilitare la [registrazione combinata](../authentication/concept-registration-mfa-sspr-combined.md) e richiedere a tutti gli utenti di registrarsi per l'autenticazione a più fattori e SSPR usando l' [esperienza di registrazione combinata](../user-help/security-info-setup-signin.md). Infine, è consigliabile adottare una strategia per [fornire resilienza](../authentication/concept-resilient-controls.md) per ridurre il rischio di blocco a causa di circostanze impreviste.
 
 ![Flusso dell'esperienza utente combinata](./media/active-directory-ops-guide/active-directory-ops-img4.png)
 
@@ -127,7 +127,7 @@ Come gli utenti dell'organizzazione, anche i dispositivi rappresentano identità
 
 È possibile portare a termine questo obiettivo portando le identità dei dispositivi e gestendo tali identità in Azure AD usando uno dei metodi seguenti:
 
-- Le organizzazioni possono usare [Microsoft Intune](https://docs.microsoft.com/intune/what-is-intune) per gestire il dispositivo e applicare i criteri di conformità, attestare l'integrità del dispositivo e impostare i criteri di accesso condizionale a seconda che il dispositivo sia conforme. Microsoft Intune possibile gestire i dispositivi iOS, i desktop Mac (tramite l'integrazione con JAMF), i desktop Windows (usando in modo nativo la gestione dei dispositivi mobili per Windows 10 e la co-gestione con Microsoft endpoint Configuration Manager) e i dispositivi mobili Android.
+- Le organizzazioni possono usare [Microsoft Intune](/intune/what-is-intune) per gestire il dispositivo e applicare i criteri di conformità, attestare l'integrità del dispositivo e impostare i criteri di accesso condizionale a seconda che il dispositivo sia conforme. Microsoft Intune possibile gestire i dispositivi iOS, i desktop Mac (tramite l'integrazione con JAMF), i desktop Windows (usando in modo nativo la gestione dei dispositivi mobili per Windows 10 e la co-gestione con Microsoft endpoint Configuration Manager) e i dispositivi mobili Android.
 - [Azure ad ibrido join](../devices/hybrid-azuread-join-managed-domains.md) fornisce la gestione con criteri di gruppo o Microsoft endpoint Configuration Manager in un ambiente con Active Directory dispositivi di computer aggiunti a un dominio. Le organizzazioni possono distribuire un ambiente gestito tramite pH o PTA con seamless SSO. I dispositivi Azure AD massimizzano la produttività degli utenti tramite SSO nelle risorse cloud e locali, consentendo al tempo stesso di proteggere l'accesso alle risorse cloud e locali con [accesso condizionale](../conditional-access/overview.md)   .
 
 Se si dispone di dispositivi Windows aggiunti a un dominio che non sono registrati nel cloud o di dispositivi Windows aggiunti a un dominio registrati nel cloud ma senza criteri di accesso condizionale, è necessario registrare i dispositivi non registrati e, in entrambi i casi, [usare Azure ad ibrido join come controllo](../conditional-access/require-managed-devices.md) nei criteri di accesso condizionale.
@@ -141,11 +141,11 @@ Se si gestiscono dispositivi con MDM o Microsoft Intune, ma non si usano control
 #### <a name="device-trust-access-policies-recommended-reading"></a>Lettura consigliata criteri di accesso attendibilità dispositivo
 
 - [Procedura: Pianificare l'implementazione dell'aggiunta ad Azure Active Directory ibrido](../devices/hybrid-azuread-join-plan.md)
-- [Configurazioni di identità e accesso dei dispositivi](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [Configurazioni di identità e accesso dei dispositivi](/microsoft-365/enterprise/microsoft-365-policies-configurations)
 
 ### <a name="windows-hello-for-business"></a>Windows Hello for Business
 
-In Windows 10, [Windows Hello for business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification) sostituisce le password con l'autenticazione a due fattori avanzata nei PC. Windows Hello for business offre un'esperienza multi-factor authentication semplificata per gli utenti e riduce la dipendenza dalle password. Se non si è iniziato a implementare i dispositivi Windows 10 o se ne sono stati distribuiti solo parzialmente, è consigliabile eseguire l'aggiornamento a Windows 10 e [abilitare Windows Hello for business](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) in tutti i dispositivi.
+In Windows 10, [Windows Hello for business](/windows/security/identity-protection/hello-for-business/hello-identity-verification) sostituisce le password con l'autenticazione a due fattori avanzata nei PC. Windows Hello for business offre un'esperienza multi-factor authentication semplificata per gli utenti e riduce la dipendenza dalle password. Se non si è iniziato a implementare i dispositivi Windows 10 o se ne sono stati distribuiti solo parzialmente, è consigliabile eseguire l'aggiornamento a Windows 10 e [abilitare Windows Hello for business](/windows/security/identity-protection/hello-for-business/hello-manage-in-organization) in tutti i dispositivi.
 
 Per ulteriori informazioni sull'autenticazione senza password, vedere [un mondo senza password con Azure Active Directory](../authentication/concept-authentication-passwordless.md).
 
@@ -184,28 +184,28 @@ Per [assegnare gli utenti alle applicazioni](../manage-apps/assign-user-or-group
 - Definire gruppi dinamici se gli attributi utente possono determinare in modo coerente l'accesso alle applicazioni.
 - Implementare l'attestazione per i gruppi usati per l'accesso alle applicazioni usando le verifiche di [accesso Azure ad](../governance/access-reviews-overview.md).
 
-D'altra parte, se si trovano applicazioni con assegnazione a singoli utenti, assicurarsi di implementare la [governance](https://docs.microsoft.com/azure/active-directory/governance/index) per tali applicazioni.
+D'altra parte, se si trovano applicazioni con assegnazione a singoli utenti, assicurarsi di implementare la [governance](../governance/index.yml) per tali applicazioni.
 
 #### <a name="assign-users-to-applications-recommended-reading"></a>Assegnare gli utenti alle applicazioni consigliate per la lettura
 
-- [Assegnare utenti e gruppi a un'applicazione in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups)
-- [Delegare le autorizzazioni di registrazione all'app in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/roles-delegate-app-roles)
-- [Regole di appartenenza dinamica per i gruppi in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership)
+- [Assegnare utenti e gruppi a un'applicazione in Azure Active Directory](../manage-apps/assign-user-or-group-access-portal.md)
+- [Delegare le autorizzazioni di registrazione all'app in Azure Active Directory](../users-groups-roles/roles-delegate-app-roles.md)
+- [Regole di appartenenza dinamica per i gruppi in Azure Active Directory](../users-groups-roles/groups-dynamic-membership.md)
 
 ## <a name="access-policies"></a>Criteri di accesso
 
 ### <a name="named-locations"></a>Posizioni specifiche
 
-Con le [località denominate](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations) in Azure ad, è possibile etichettare gli intervalli di indirizzi IP attendibili nell'organizzazione. Azure AD usa le località denominate per:
+Con le [località denominate](../reports-monitoring/quickstart-configure-named-locations.md) in Azure ad, è possibile etichettare gli intervalli di indirizzi IP attendibili nell'organizzazione. Azure AD usa le località denominate per:
 
 - Impedisci falsi positivi negli eventi di rischio. L'accesso da un percorso di rete attendibile riduce il rischio di accesso di un utente.
-- Configurare l'[Accesso condizionale basato sulla località](https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations).
+- Configurare l'[Accesso condizionale basato sulla località](../reports-monitoring/quickstart-configure-named-locations.md).
 
 ![Località denominate](./media/active-directory-ops-guide/active-directory-ops-img10.png)
 
 In base alla priorità, usare la tabella seguente per trovare la soluzione consigliata che meglio soddisfa le esigenze dell'organizzazione:
 
-| **Priority** | **Scenario** | **Consiglio** |
+| **Priorità** | **Scenario** | **Consiglio** |
 | ------------ | -------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
 | 1 | Se si usa pH o PTA e le località denominate non sono state definite | Definire le località denominate per migliorare il rilevamento degli eventi di rischio |
 | 2 | Se si è federati e non si usa l'attestazione "insideCorporateNetwork" e le località denominate non sono state definite | Definire le località denominate per migliorare il rilevamento degli eventi di rischio |
@@ -255,10 +255,10 @@ L'accesso condizionale è uno strumento essenziale per migliorare il comportamen
 
 #### <a name="conditional-access-recommended-reading"></a>Lettura consigliata per l'accesso condizionale
 
-- [Procedure consigliate per l'accesso condizionale in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/best-practices)
-- [Configurazioni di identità e accesso dei dispositivi](https://docs.microsoft.com/microsoft-365/enterprise/microsoft-365-policies-configurations)
-- [Informazioni di riferimento sulle impostazioni di accesso condizionale Azure Active Directory](https://docs.microsoft.com/azure/active-directory/conditional-access/technical-reference)
-- [Criteri comuni di accesso condizionale](https://docs.microsoft.com/azure/active-directory/conditional-access/concept-conditional-access-policy-common)
+- [Procedure consigliate per l'accesso condizionale in Azure Active Directory](../conditional-access/best-practices.md)
+- [Configurazioni di identità e accesso dei dispositivi](/microsoft-365/enterprise/microsoft-365-policies-configurations)
+- [Informazioni di riferimento sulle impostazioni di accesso condizionale Azure Active Directory](../conditional-access/concept-conditional-access-conditions.md)
+- [Criteri comuni di accesso condizionale](../conditional-access/concept-conditional-access-policy-common.md)
 
 ## <a name="access-surface-area"></a>Area di superficie di accesso
 
@@ -273,9 +273,9 @@ L'autenticazione legacy è un termine che fa riferimento ai protocolli di autent
 
 Poiché gli utenti malintenzionati preferiscono questi protocolli, quasi il [100% degli attacchi con spray per la password](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Your-Pa-word-doesn-t-matter/ba-p/731984) usa protocolli di autenticazione legacy. Gli hacker usano i protocolli di autenticazione legacy, perché non supportano l'accesso interattivo, che è necessario per ulteriori problemi di sicurezza, ad esempio l'autenticazione a più fattori e l'autenticazione del dispositivo.
 
-Se l'autenticazione legacy viene ampiamente utilizzata nell'ambiente in uso, è consigliabile pianificare la migrazione dei client legacy ai client che supportano [l'autenticazione moderna](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) appena possibile. Nello stesso token, se si dispone già di alcuni utenti che usano l'autenticazione moderna, ma altri ancora usano l'autenticazione legacy, è necessario seguire questa procedura per bloccare i client di autenticazione legacy:
+Se l'autenticazione legacy viene ampiamente utilizzata nell'ambiente in uso, è consigliabile pianificare la migrazione dei client legacy ai client che supportano [l'autenticazione moderna](/office365/enterprise/modern-auth-for-office-2013-and-2016) appena possibile. Nello stesso token, se si dispone già di alcuni utenti che usano l'autenticazione moderna, ma altri ancora usano l'autenticazione legacy, è necessario seguire questa procedura per bloccare i client di autenticazione legacy:
 
-1. Usare i [report delle attività di accesso](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-sign-ins) per identificare gli utenti che usano ancora l'autenticazione legacy e la correzione dei piani:
+1. Usare i [report delle attività di accesso](../reports-monitoring/concept-sign-ins.md) per identificare gli utenti che usano ancora l'autenticazione legacy e la correzione dei piani:
 
    a. Eseguire l'aggiornamento ai client che supportano l'autenticazione moderna per gli utenti interessati.
    
@@ -288,7 +288,7 @@ Se l'autenticazione legacy viene ampiamente utilizzata nell'ambiente in uso, è 
 
 #### <a name="legacy-authentication-recommended-reading"></a>Lettura consigliata per l'autenticazione legacy
 
-- [Abilitare o disabilitare l'accesso POP3 o IMAP4 alle cassette postali in Exchange Server](https://docs.microsoft.com/exchange/clients/pop3-and-imap4/configure-mailbox-access?view=exchserver-2019)
+- [Abilitare o disabilitare l'accesso POP3 o IMAP4 alle cassette postali in Exchange Server](/exchange/clients/pop3-and-imap4/configure-mailbox-access?view=exchserver-2019)
 
 ### <a name="consent-grants"></a>Concessioni di consenso
 
@@ -316,11 +316,11 @@ Di seguito è riportato un elenco di app con autorizzazioni che possono essere e
 | API Microsoft Graph| Directory.AccessAsUser.All |
 | API REST di Azure | user_impersonation |
 
-Per evitare questo scenario, è necessario fare riferimento a [rilevare e correggere le concessioni di consenso illecito in Office 365](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) per identificare e correggere le applicazioni con concessioni illecite o applicazioni che dispongono di più concessioni rispetto a quelle necessarie. A questo punto, [rimuovere completamente il self-service](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-user-consent) e [stabilire le procedure di governance](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow). Infine, pianificare le verifiche regolari delle autorizzazioni dell'app e rimuoverle quando non sono necessarie.
+Per evitare questo scenario, è necessario fare riferimento a [rilevare e correggere le concessioni di consenso illecito in Office 365](/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) per identificare e correggere le applicazioni con concessioni illecite o applicazioni che dispongono di più concessioni rispetto a quelle necessarie. A questo punto, [rimuovere completamente il self-service](../manage-apps/configure-user-consent.md) e [stabilire le procedure di governance](../manage-apps/configure-admin-consent-workflow.md). Infine, pianificare le verifiche regolari delle autorizzazioni dell'app e rimuoverle quando non sono necessarie.
 
 #### <a name="consent-grants-recommended-reading"></a>Concessioni di consenso consigliate
 
-- [Autorizzazioni API Microsoft Graph](https://docs.microsoft.com/graph/permissions-reference)
+- [Autorizzazioni API Microsoft Graph](/graph/permissions-reference)
 
 ### <a name="user-and-group-settings"></a>Impostazioni utente e gruppo
 
@@ -328,7 +328,7 @@ Di seguito sono elencate le impostazioni di utenti e gruppi che possono essere b
 
 #### <a name="user-settings"></a>Impostazioni utente
 
-- **Utenti esterni** : la collaborazione esterna può avvenire a livello organico nell'azienda con servizi quali team, Power bi, SharePoint Online e Azure Information Protection. Se si dispone di vincoli espliciti per controllare la collaborazione esterna avviata dall'utente, è consigliabile abilitare gli utenti esterni usando [Azure ad gestione dei diritti](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview) o un'operazione controllata, ad esempio tramite la help desk. Se non si vuole consentire la collaborazione esterna biologica per i servizi, è possibile [impedire ai membri di invitare completamente gli utenti esterni](https://docs.microsoft.com/azure/active-directory/b2b/delegate-invitations). In alternativa, è anche possibile [consentire o bloccare domini specifici](https://docs.microsoft.com/azure/active-directory/b2b/allow-deny-list) negli inviti degli utenti esterni.
+- **Utenti esterni** : la collaborazione esterna può avvenire a livello organico nell'azienda con servizi quali team, Power bi, SharePoint Online e Azure Information Protection. Se si dispone di vincoli espliciti per controllare la collaborazione esterna avviata dall'utente, è consigliabile abilitare gli utenti esterni usando [Azure ad gestione dei diritti](../governance/entitlement-management-overview.md) o un'operazione controllata, ad esempio tramite la help desk. Se non si vuole consentire la collaborazione esterna biologica per i servizi, è possibile [impedire ai membri di invitare completamente gli utenti esterni](../external-identities/delegate-invitations.md). In alternativa, è anche possibile [consentire o bloccare domini specifici](../external-identities/allow-deny-list.md) negli inviti degli utenti esterni.
 - **Registrazioni** per l'app: quando registrazioni app sono abilitate, gli utenti finali possono caricare le applicazioni e concedere l'accesso ai dati. Un esempio tipico di registrazione delle app è costituito dagli utenti che consentono i plug-in di Outlook o da assistenti vocali come Alexa e Siri per leggere la posta elettronica e il calendario o inviare messaggi di posta elettronica per loro conto. Se il cliente decide di disattivare la registrazione dell'app, è necessario che i team InfoSec e IAM siano interessati alla gestione delle eccezioni (registrazioni di app necessarie in base ai requisiti aziendali), perché dovrebbero registrare le applicazioni con un account amministratore e molto probabilmente richiedono la progettazione di un processo per rendere operativo il processo.
 - **Portale di amministrazione** : le organizzazioni possono bloccare il pannello Azure AD nel portale di Azure in modo che gli amministratori non possano accedere alla gestione Azure AD nel portale di Azure e confonderli. Passare alle impostazioni utente nel portale di gestione di Azure AD per limitare l'accesso:
 
@@ -343,36 +343,36 @@ Di seguito sono elencate le impostazioni di utenti e gruppi che possono essere b
 
 #### <a name="groups-recommended-reading"></a>Gruppi consigliati per la lettura
 
-- [Informazioni su Collaborazione B2B di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-b2b-what-is-azure-ad-b2b)
-- [Integrazione di applicazioni con Azure Active Directory](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications)
-- [App, autorizzazioni e consenso in Azure Active Directory.](https://docs.microsoft.com/azure/active-directory/active-directory-apps-permissions-consent)
-- [Usare i gruppi per gestire l'accesso alle risorse in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
-- [Impostazione della gestione self-service dell'accesso alle applicazioni in Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management)
+- [Informazioni su Collaborazione B2B di Azure Active Directory](../external-identities/what-is-b2b.md)
+- [Integrazione di applicazioni con Azure Active Directory](../develop/quickstart-register-app.md)
+- [App, autorizzazioni e consenso in Azure Active Directory.](../develop/quickstart-register-app.md)
+- [Usare i gruppi per gestire l'accesso alle risorse in Azure Active Directory](./active-directory-manage-groups.md)
+- [Impostazione della gestione self-service dell'accesso alle applicazioni in Azure Active Directory](../users-groups-roles/groups-self-service-management.md)
 
 ### <a name="traffic-from-unexpected-locations"></a>Traffico proveniente da posizioni impreviste
 
-Gli utenti malintenzionati provengono da varie parti del mondo. Gestire questo rischio usando i criteri di accesso condizionale con la posizione come condizione. La [condizione della posizione](https://docs.microsoft.com/azure/active-directory/conditional-access/location-condition) di un criterio di accesso condizionale consente di bloccare l'accesso per le posizioni da cui non esiste alcun motivo aziendale per accedere.
+Gli utenti malintenzionati provengono da varie parti del mondo. Gestire questo rischio usando i criteri di accesso condizionale con la posizione come condizione. La [condizione della posizione](../conditional-access/location-condition.md) di un criterio di accesso condizionale consente di bloccare l'accesso per le posizioni da cui non esiste alcun motivo aziendale per accedere.
 
 ![Crea una nuova posizione denominata](./media/active-directory-ops-guide/active-directory-ops-img14.png)
 
-Se disponibile, usare una soluzione di gestione di informazioni ed eventi di sicurezza (SIEM) per analizzare e trovare i modelli di accesso tra le aree. Se non si usa un prodotto SIEM o non si inseriscono informazioni di autenticazione da Azure AD, è consigliabile usare [monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/overview) per identificare i modelli di accesso tra le aree.
+Se disponibile, usare una soluzione di gestione di informazioni ed eventi di sicurezza (SIEM) per analizzare e trovare i modelli di accesso tra le aree. Se non si usa un prodotto SIEM o non si inseriscono informazioni di autenticazione da Azure AD, è consigliabile usare [monitoraggio di Azure](../../azure-monitor/overview.md) per identificare i modelli di accesso tra le aree.
 
 ## <a name="access-usage"></a>Accesso all'utilizzo
 
 ### <a name="azure-ad-logs-archived-and-integrated-with-incident-response-plans"></a>Log Azure AD archiviati e integrati con i piani di risposta agli eventi imprevisti
 
-L'accesso a attività di accesso, controlli ed eventi di rischio per Azure AD è fondamentale per la risoluzione dei problemi, l'analisi dell'utilizzo e le indagini forensi. Azure AD fornisce l'accesso a queste origini tramite le API REST con un periodo di conservazione limitato. Un sistema SIEM (Security Information and Event Management) o una tecnologia di archiviazione equivalente è la chiave per l'archiviazione a lungo termine dei controlli e del supporto. Per abilitare l'archiviazione a lungo termine dei log di Azure AD, è necessario aggiungerli alla soluzione SIEM esistente o usare [monitoraggio di Azure](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-activity-logs-azure-monitor). Log di archiviazione che possono essere usati nell'ambito dei piani di risposta agli eventi imprevisti e delle indagini.
+L'accesso a attività di accesso, controlli ed eventi di rischio per Azure AD è fondamentale per la risoluzione dei problemi, l'analisi dell'utilizzo e le indagini forensi. Azure AD fornisce l'accesso a queste origini tramite le API REST con un periodo di conservazione limitato. Un sistema SIEM (Security Information and Event Management) o una tecnologia di archiviazione equivalente è la chiave per l'archiviazione a lungo termine dei controlli e del supporto. Per abilitare l'archiviazione a lungo termine dei log di Azure AD, è necessario aggiungerli alla soluzione SIEM esistente o usare [monitoraggio di Azure](../reports-monitoring/concept-activity-logs-azure-monitor.md). Log di archiviazione che possono essere usati nell'ambito dei piani di risposta agli eventi imprevisti e delle indagini.
 
 #### <a name="logs-recommended-reading"></a>Letture consigliate per i log
 
-- [Informazioni di riferimento sull'API di controllo di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-audit-reference)
-- [Riferimento API del report sull'attività di accesso di Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-sign-in-activity-reference)
-- [Ottenere dati con l'API di creazione report di Azure AD con i certificati](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-with-certificates)
-- [Microsoft Graph per Azure Active Directory Identity Protection](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection-graph-getting-started)
-- [Informazioni di riferimento sull'API di gestione di Office 365](https://msdn.microsoft.com/office-365/office-365-management-activity-api-reference)
+- [Informazioni di riferimento sull'API di controllo di Azure Active Directory](/graph/api/resources/directoryaudit?view=graph-rest-beta%3fview%3dgraph-rest-beta)
+- [Riferimento API del report sull'attività di accesso di Azure Active Directory](/graph/api/resources/signin?view=graph-rest-beta%3fview%3dgraph-rest-beta)
+- [Ottenere dati con l'API di creazione report di Azure AD con i certificati](../reports-monitoring/tutorial-access-api-with-certificates.md)
+- [Microsoft Graph per Azure Active Directory Identity Protection](../identity-protection/howto-identity-protection-graph-api.md)
+- [Informazioni di riferimento sull'API di gestione di Office 365](/office/office-365-management-api/office-365-management-activity-api-reference)
 - [Come usare il pacchetto di contenuto Azure Active Directory Power BI](../reports-monitoring/howto-use-azure-monitor-workbooks.md)
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Esistono 12 aspetti di un'infrastruttura di identità sicura. Questo elenco consente di proteggere e gestire ulteriormente le credenziali, definire l'esperienza di autenticazione, assegnare i delegati, misurare l'utilizzo e definire i criteri di accesso in base al comportamento di sicurezza dell'organizzazione.
 

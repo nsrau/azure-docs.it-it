@@ -3,20 +3,20 @@ title: Tipi di endpoint di Gestione traffico | Documentazione Microsoft
 description: Questo articolo illustra tipi diversi di endpoint che è possibile usare con Gestione traffico di Azure
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
-ms.author: rohink
-ms.openlocfilehash: cd5c6968425c64bd670e56bbe7ae016c59662169
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 692c63849bc9e92ded43db3bf22ce14384f2b68d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698666"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401283"
 ---
 # <a name="traffic-manager-endpoints"></a>Endpoint di Gestione traffico
 
@@ -24,11 +24,11 @@ Gestione traffico di Microsoft Azure consente di controllare la distribuzione de
 
 Gli endpoint supportati da Gestione traffico sono di tre tipi:
 
-* **Endpoint di Azure** , usati per i servizi ospitati in Azure.
+* **Endpoint di Azure**, usati per i servizi ospitati in Azure.
 * **Endpoint esterni**, usati per gli indirizzi IPv4/IPv6, FQDN o per i servizi ospitati all'esterno di Azure, in locale o da un provider di hosting diverso.
-* Gli **endpoint annidati** vengono usati per combinare i profili di gestione traffico per creare schemi di routing del traffico più flessibili per supportare le esigenze di distribuzioni più grandi e complesse.
+* **Endpoint annidati**, usati per combinare i profili di Gestione traffico e creare schemi di routing del traffico più flessibili, per supportare le esigenze di distribuzioni più grandi e complesse.
 
-Non ci sono limitazioni al modo in cui è possibile combinare tipi di endpoint diversi in un unico profilo di Gestione traffico. Ogni profilo può contenere qualsiasi combinazione di tipi di endpoint.
+Non esiste alcuna restrizione alla modalità di combinazione di endpoint di tipi diversi in un singolo profilo di Gestione traffico. Ogni profilo può contenere qualsiasi combinazione di tipi di endpoint.
 
 Le sezioni seguenti descrivono i singoli tipi di endpoint in modo più approfondito.
 

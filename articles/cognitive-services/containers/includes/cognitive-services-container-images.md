@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/24/2020
 ms.author: aahi
-ms.openlocfilehash: ac8e49c85147576e489b16a3a421c75d60ad4aee
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ff039d6d5879e036aecc63b46359d84673f84a0e
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104411"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89424642"
 ---
 ### <a name="container-repositories-and-images"></a>Repository e immagini del contenitore
 
@@ -73,4 +73,5 @@ I seguenti contenitori di anteprima gestita sono ospitati nel registro di antepr
 | [API servizio Voce](../../speech-service/speech-container-howto.md?tab=cstt) | Da Riconoscimento vocale personalizzato a testo | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-speech-to-text` |
 | [API servizio Voce](../../speech-service/speech-container-howto.md?tab=tts) | Sintesi vocale | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech` |
 | [API servizio Voce](../../speech-service/speech-container-howto.md?tab=ctts) | Sintesi vocale personalizzata | `containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech` |
-| [Analisi del testo per l'integrità](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | Analisi del testo per l'integrità | `containerpreview.azurecr.io/microsoft/cognitive-services-healthcare` |
+| [API servizio Voce](../../speech-service/speech-container-howto.md?tab=ntts) | Sintesi vocale neurale | `containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech` |
+| [Analisi del testo per l'integrità](../../text-analytics/how-tos/text-analytics-how-to-install-containers.md?tabs=health) | Analisi del testo per la sanità | `containerpreview.azurecr.io/microsoft/cognitive-services-healthcare` |

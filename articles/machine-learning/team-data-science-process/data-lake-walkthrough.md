@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 48e6d8870baad60c79cf392894db8b71003bb875
-ms.sourcegitcommit: 0b2367b4a9171cac4a706ae9f516e108e25db30c
+ms.openlocfilehash: b45cc87c525ab66a3807f71901728e60d086ea74
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86276968"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440406"
 ---
 # <a name="scalable-data-science-with-azure-data-lake-an-end-to-end-walkthrough"></a>Analisi scientifica dei dati scalabile in Azure Data Lake: procedura dettagliata end-to-end
 Questa procedura dettagliata illustra come usare Azure Data Lake per eseguire attività di esplorazione dei dati e di classificazione binaria su un campione del set di dati relativo alle corse e alle tariffe dei taxi di NYC, in modo da prevedere se un passeggero pagherà la mancia. Vengono esaminati i passaggi del [processo di analisi scientifica dei dati del team](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/), end-to-end, dall'acquisizione dei dati al training modello e quindi alla distribuzione di un servizio Web che pubblica il modello.
@@ -34,7 +34,7 @@ Queste tecnologie vengono usate in questa procedura dettagliata.
 ### <a name="azure-data-lake-analytics"></a>Azure Data Lake Analytics.
 [Microsoft Azure Data Lake](https://azure.microsoft.com/solutions/data-lake/) include tutte le funzionalità che consentono ai data scientist di archiviare con facilità dati di qualsiasi dimensione, forma e velocità e di eseguire attività di elaborazione di dati, analisi avanzate e modellazione di Machine Learning con scalabilità elevata e costi contenuti.   Il pagamento viene effettuato per i singoli processi, solo quando i dati vengono effettivamente elaborati. Analisi Azure Data Lake include U-SQL, un linguaggio che unisce la natura dichiarativa di SQL all'efficacia espressiva di C# per offrire funzionalità di query distribuite e scalabili. Consente di elaborare dati non strutturati applicando lo schema in fase di lettura, nonché di inserire logica e funzioni UDF personalizzate e aggiungere estensibilità per permettere il controllo granulare sulle modalità di esecuzione in scala. Per altre informazioni sulla filosofia di progettazione alla base di U-SQL, vedere questo [post di blog su Visual Studio](https://blogs.msdn.microsoft.com/visualstudio/2015/09/28/introducing-u-sql-a-language-that-makes-big-data-processing-easy/).
 
-Analisi Data Lake è anche un componente chiave di Cortana Analytics Suite e si integra con Azure SQL Data Warehouse, Power BI e Data Factory, Questa combinazione offre una piattaforma di analisi avanzata e Big Data cloud completa.
+Data Lake Analytics è anche un componente chiave di Cortanana Analytics suite e funziona con l'analisi delle sinapsi di Azure, Power BI e Data Factory. Questa combinazione offre una piattaforma di analisi avanzata e Big Data cloud completa.
 
 Questa procedura dettagliata descrive prima di tutto come installare i prerequisiti e le risorse necessari per completare le attività del processo di data science. Descrive quindi i passaggi di elaborazione dei dati con U-SQL e termina mostrando come usare Python e hive con Azure Machine Learning Studio (classico) per compilare e distribuire i modelli predittivi.
 
@@ -181,7 +181,7 @@ FROM "wasb://container_name@blob_storage_account_name.blob.core.windows.net/nyct
 USING Extractors.Csv();
 ```
 
-Poiché la prima riga include intestazioni, è necessario rimuovere le intestazioni e cambiare i tipi di colonna specificando i tipi appropriati. È possibile salvare i dati elaborati in Azure Data Lake Storage usando **swebhdfs://data_lake_storage_name. azuredatalakestorage. NET/Folder_Name/file_name**_ o nell'account di archiviazione BLOB di Azure usando **wasb://container_name \@ blob_storage_account_name. blob. Core. windows. NET/BLOB_NAME**.
+Poiché la prima riga include intestazioni, è necessario rimuovere le intestazioni e cambiare i tipi di colonna specificando i tipi appropriati. È possibile salvare i dati elaborati in Azure Data Lake Storage usando **swebhdfs://data_lake_storage_name. azuredatalakestorage. NET/Folder_Name/file_name**_ o nell'account di archiviazione BLOB di Azure usando  **wasb://container_name \@ blob_storage_account_name. blob. Core. windows. NET/BLOB_NAME**.
 
 ```sql
 // change data types
@@ -299,7 +299,7 @@ TO "wasb://container_name@blob_storage_account_name.blob.core.windows.net/demo_e
 USING Outputters.Csv();
 ```
 
-### <a name="data-exploration"></a><a name="explore"></a>Esplorazione dei dati
+### <a name="data-exploration"></a><a name="explore"></a>Esplorazione dati
 Per ottenere una migliore comprensione dei dati, è possibile esplorarli usando gli script seguenti.
 
 È possibile trovare la distribuzione di corse associate o non associate alla mancia:
@@ -512,7 +512,7 @@ from azureml import services
 ```
 
 ### <a name="read-in-the-data-from-blob"></a>Leggere i dati dal BLOB
-* Connection String
+* Connection String (Stringa di connessione)
 
   ```text
   CONTAINERNAME = 'test1'
@@ -613,7 +613,7 @@ In questo passaggio viene creato un modello di classificazione binaria per preve
   print metrics.confusion_matrix(Y_test,Y_test_pred)
   ```
 
-    ![C2](./media/data-lake-walkthrough/c2-py-logit-evaluation.PNG)
+    ![c2](./media/data-lake-walkthrough/c2-py-logit-evaluation.PNG)
 
 ### <a name="build-web-service-api-and-consume-it-in-python"></a>Compilare l'API del servizio Web e utilizzarla in Python
 Si vuole rendere operativo il modello di Machine Learning dopo la compilazione. In questa sezione viene usato come esempio il modello logistico binario. Verificare che la versione di Scikit-learn nel computer locale sia 0.15.1 (Azure Machine Learning Studio è già presente almeno in questa versione).
@@ -660,7 +660,7 @@ Si vuole rendere operativo il modello di Machine Learning dopo la compilazione. 
   NYCTAXIPredictor(1,2,1,0,0,0,0,0,1)
   ```
 
-    ![C4](./media/data-lake-walkthrough/c4-call-API.PNG)
+    ![c4](./media/data-lake-walkthrough/c4-call-API.PNG)
 
 ## <a name="option-2-create-and-deploy-models-directly-in-azure-machine-learning"></a>Opzione 2: Creare e distribuire modelli direttamente in Azure Machine Learning
 Azure Machine Learning Studio (classico) può leggere i dati direttamente da Azure Data Lake Storage e quindi usarli per creare e distribuire i modelli. Questo approccio usa una tabella hive che fa riferimento al Azure Data Lake Storage. È necessario eseguire il provisioning di un cluster HDInsight di Azure separato per la tabella hive. 
@@ -756,7 +756,7 @@ Completando questa procedura dettagliata, è stato creato un ambiente di data sc
 ## <a name="whats-next"></a>Passaggi successivi
 Nel percorso di apprendimento relativo al [Processo di analisi scientifica dei dati per i team (TDSP)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/) sono inclusi alcuni collegamenti ad argomenti che descrivono ogni passaggio del processo di analisi avanzata. È disponibile una serie di procedure dettagliate collegate alla pagina [Processo di analisi scientifica dei dati per i team](walkthroughs.md) che illustrano come usare risorse e servizi nei vari scenari di analisi predittiva:
 
-* [Processo di analisi scientifica dei dati per i team in azione: uso di SQL Data Warehouse](sqldw-walkthrough.md)
+* [Processo di analisi scientifica dei dati per i team in azione: uso di Azure sinapsi Analytics](sqldw-walkthrough.md)
 * [Processo di analisi scientifica dei dati per i team in azione: uso dei cluster Hadoop di HDInsight](hive-walkthrough.md)
 * [Processo di analisi scientifica dei dati per i team: uso di SQL Sever](sql-walkthrough.md)
 * [Panoramica del Processo di analisi scientifica dei dati con Spark in Azure HDInsight](spark-overview.md)
