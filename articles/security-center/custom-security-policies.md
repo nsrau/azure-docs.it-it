@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 04/22/2020
 ms.author: memildin
-ms.openlocfilehash: 6f11de7f38ff97b1141afa48c26788a171727cb6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 065c6661ffc9f618a5dfd32a9f45d26569a56003
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85559567"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278174"
 ---
 # <a name="using-custom-security-policies"></a>Usare criteri di sicurezza personalizzati
 
@@ -69,7 +69,7 @@ Come illustrato nella [documentazione sui criteri di Azure](https://docs.microso
 
     [![Raccomandazioni personalizzate](media/custom-security-policies/custom-policy-recommendations.png)](media/custom-security-policies/custom-policy-recommendations-in-context.png#lightbox)
 
-## <a name="enhancing-your-custom-recommendations-with-detailed-information"></a>Ottimizzazione delle raccomandazioni personalizzate con informazioni dettagliate
+## <a name="enhance-your-custom-recommendations-with-detailed-information"></a>Migliora le tue raccomandazioni personalizzate con informazioni dettagliate
 
 Le raccomandazioni predefinite integrate nel Centro sicurezza di Azure includono dettagli come i livelli di gravità e istruzioni per la correzione. Per aggiungere questo tipo di informazioni alle raccomandazioni personalizzate in modo che vengano visualizzate nel portale di Azure o in qualsiasi altra posizione da cui si accede alle raccomandazioni, è necessario usare l'API REST. 
 

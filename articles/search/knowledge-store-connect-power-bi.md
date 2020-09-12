@@ -8,12 +8,12 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: 5be97414a2e4270870d976a9922415b227c66e27
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 91e75b60f5324288c9f1adac59e31b9c1a1b0e9e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924351"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289172"
 ---
 # <a name="connect-a-knowledge-store-with-power-bi"></a>Connettere un archivio conoscenze con Power BI
 
@@ -45,7 +45,7 @@ Fare clic su **Scarica modello di Power BI** nella pagina **Aggiungi competenze 
 
 1. Nella finestra **Recupera dati** selezionare **Azure** e quindi **Archiviazione tabelle di Azure**.
 
-1. Fare clic su **Connect** (Connetti).
+1. Fare clic su **Connetti**.
 
 1. In **Nome dell'account o URL** immettere il nome dell'account di archiviazione di Azure. L'URL completo verrà creato automaticamente.
 
@@ -68,7 +68,7 @@ Fare clic su **Scarica modello di Power BI** nella pagina **Aggiungi competenze 
 
 1. Fare clic sull'icona con le frecce opposte sul lato superiore destro della tabella per espandere *Contenuto*. Quando viene visualizzato l'elenco delle colonne, selezionare tutte le colonne e quindi deselezionare le colonne che iniziano con "metadata". Fare clic su **OK** per visualizzare le colonne selezionate.
 
-   ![Modifica tabelle](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "Espandere il contenuto")
+   ![Espandere il contenuto](media/knowledge-store-connect-power-bi/powerbi-expand-content-table.png "Espandere il contenuto")
 
 1. Cambiare il tipo di dati delle colonne seguenti facendo clic sull'icona ABC-123 nell'angolo superiore sinistro della colonna.
 

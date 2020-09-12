@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d27018a19db85e8544029db4f1b638ef7cae448a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1d0507f7751305af5e626cbd7dd6e0dfd1a63a74
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358141"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279483"
 ---
 # <a name="azure-active-directory-pass-through-authentication-upgrade-preview-authentication-agents"></a>Autenticazione pass-through di Azure Active Directory - Aggiornare gli agenti di autenticazione di anteprima
 
@@ -60,7 +60,7 @@ Per controllare le versioni degli agenti di autenticazione, in ogni server ident
 
 Prima dell'aggiornamento, assicurarsi di disporre degli elementi seguenti:
 
-1. **Creare un account di amministratore globale solo cloud**: non effettuare l'aggiornamento senza disporre di un account di amministratore globale solo cloud da usare in situazioni di emergenza, in cui gli agenti di autenticazione pass-through non funzionano correttamente. Informazioni sull' [aggiunta di un account amministratore globale solo cloud](../active-directory-users-create-azure-portal.md). L'esecuzione di questo passaggio è fondamentale ed evita di rimanere bloccati fuori dal tenant.
+1. **Creare un account di amministratore globale solo cloud**: non effettuare l'aggiornamento senza disporre di un account di amministratore globale solo cloud da usare in situazioni di emergenza, in cui gli agenti di autenticazione pass-through non funzionano correttamente. Informazioni sull' [aggiunta di un account amministratore globale solo cloud](../fundamentals/add-users-azure-active-directory.md). L'esecuzione di questo passaggio è fondamentale ed evita di rimanere bloccati fuori dal tenant.
 2.  **Verificare la disponibilità elevata**: se l'operazione non è stata completata in precedenza, installare un secondo agente di autenticazione autonomo per garantire disponibilità elevata per le richieste di accesso, usando queste [istruzioni](how-to-connect-pta-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="upgrading-the-authentication-agent-on-your-azure-ad-connect-server"></a>Aggiornamento dell'agente di autenticazione nel server di Azure AD Connect

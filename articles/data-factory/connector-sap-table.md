@@ -10,15 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/03/2020
-ms.openlocfilehash: a6eaa5519607d5d5e9a49851e1c55f9b60b554ea
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.date: 09/01/2020
+ms.openlocfilehash: 608694c07894c8bdff8b1101d607e07ea4383764
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87529722"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279832"
 ---
 # <a name="copy-data-from-an-sap-table-by-using-azure-data-factory"></a>Copiare dati da una tabella SAP usando Azure Data Factory
+
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare dati da una tabella SAP. Per altre informazioni, vedere [Panoramica dell'attività di copia](copy-activity-overview.md).
@@ -48,6 +49,12 @@ In particolare, questo connettore di tabella SAP supporta:
 - La copia dei dati tramite l'autenticazione di base o le comunicazioni di rete sicure (SNC), se è configurata la SNC.
 - Connessione a un server applicazioni SAP o a un server di messaggi SAP.
 - Recupero di dati tramite RFC predefinito o personalizzato.
+
+La versione 7,01 o successiva si riferisce alla versione di SAP NetWeaver invece che alla versione SAP ECC. Ad esempio, SAP ECC 6,0 EHP 7 in generale presenta NetWeaver Version >= 7,4. Se non si è certi dell'ambiente, di seguito sono riportati i passaggi per confermare la versione dal sistema SAP:
+1.  Usare l'interfaccia utente grafica SAP per connettersi al sistema SAP. 
+2.  Passare a **System**  ->  **stato**del sistema. 
+3.  Controllare la versione del SAP_BASIS, verificare che sia uguale o maggiore di 701.  
+      ![Controlla SAP_BASIS](./media/connector-sap-table/sap-basis.png)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -214,14 +221,14 @@ Per un elenco completo delle sezioni e delle proprietà per la definizione delle
 
 Per copiare dati da una tabella SAP, sono supportate le proprietà seguenti:
 
-| Proprietà                         | Description                                                  | Obbligatoria |
+| Proprietà                         | Descrizione                                                  | Obbligatoria |
 | :------------------------------- | :----------------------------------------------------------- | :------- |
 | `type`                             | La proprietà `type` deve essere impostata su `SapTableSource`.         | Sì      |
 | `rowCount`                         | Numero di righe da recuperare.                              | No       |
 | `rfcTableFields`                 | Campi (colonne) da copiare dalla tabella SAP. Ad esempio: `column0, column1`. | No       |
 | `rfcTableOptions`                | Opzioni per filtrare le righe in una tabella SAP. Ad esempio: `COLUMN0 EQ 'SOMEVALUE'`. Vedere anche la tabella degli operatori di query SAP più avanti in questo articolo. | No       |
 | `customRfcReadTableFunctionModule` | Un modulo della funzione RFC personalizzato che può essere usato per leggere i dati da una tabella SAP.<br>È possibile usare un modulo della funzione RFC personalizzato per definire il modo in cui i dati vengono recuperati dal sistema SAP e restituiti a Data Factory. Il modulo della funzione personalizzata deve disporre di un'interfaccia implementata (importazione, esportazione, tabelle) simile a `/SAPDS/RFC_READ_TABLE2` , ovvero l'interfaccia predefinita utilizzata da data factory.<br>Data Factory | No       |
-| `partitionOption`                  | Meccanismo di partizione per la lettura da una tabella SAP. Le opzioni supportate includono: <ul><li>`None`</li><li>`PartitionOnInt`(valori integer o Integer normali con riempimento zero a sinistra, ad esempio `0000012345` )</li><li>`PartitionOnCalendarYear`(4 cifre nel formato "aaaa")</li><li>`PartitionOnCalendarMonth`(6 cifre nel formato "YYYYMM")</li><li>`PartitionOnCalendarDate`(8 cifre nel formato "AAAAMMGG")</li></ul> | No       |
+| `partitionOption`                  | Meccanismo di partizione per la lettura da una tabella SAP. Le opzioni supportate includono: <ul><li>`None`</li><li>`PartitionOnInt` (valori integer o Integer normali con riempimento zero a sinistra, ad esempio `0000012345` )</li><li>`PartitionOnCalendarYear` (4 cifre nel formato "aaaa")</li><li>`PartitionOnCalendarMonth` (6 cifre nel formato "YYYYMM")</li><li>`PartitionOnCalendarDate` (8 cifre nel formato "AAAAMMGG")</li></ul> | No       |
 | `partitionColumnName`              | Nome della colonna utilizzata per partizionare i dati.                | No       |
 | `partitionUpperBound`              | Valore massimo della colonna specificata in `partitionColumnName` che verrà utilizzato per continuare con il partizionamento. | No       |
 | `partitionLowerBound`              | Valore minimo della colonna specificata in `partitionColumnName` che verrà utilizzato per continuare con il partizionamento. (Nota: `partitionLowerBound` non può essere "0" se l'opzione di partizione è `PartitionOnInt` ) | No       |
@@ -245,8 +252,8 @@ In `rfcTableOptions` è possibile utilizzare gli operatori di query SAP comuni s
 | `LE` | Minore o uguale a |
 | `GT` | Maggiore di |
 | `GE` | Maggiore o uguale a |
-| `IN` | Come in`TABCLASS IN ('TRANSP', 'INTTAB')` |
-| `LIKE` | Come in`LIKE 'Emma%'` |
+| `IN` | Come in `TABCLASS IN ('TRANSP', 'INTTAB')` |
+| `LIKE` | Come in `LIKE 'Emma%'` |
 
 ### <a name="example"></a>Esempio
 
@@ -293,14 +300,14 @@ Quando si copiano dati da una tabella SAP, vengono usati i mapping seguenti tra 
 
 | Tipo SAP ABAP | Tipo di dati provvisorio di Data Factory |
 |:--- |:--- |
-| `C`Stringa | `String` |
-| `I`Intero | `Int32` |
-| `F`Float | `Double` |
-| `D`Data | `String` |
-| `T`Tempo | `String` |
-| `P`(BCD compresso, Currency, Decimal, Qty) | `Decimal` |
-| `N`Numerico | `String` |
-| `X`(Binario e non elaborato) | `String` |
+| `C` Stringa | `String` |
+| `I` Intero | `Int32` |
+| `F` Float | `Double` |
+| `D` Data | `String` |
+| `T` Tempo | `String` |
+| `P` (BCD compresso, Currency, Decimal, Qty) | `Decimal` |
+| `N` Numerico | `String` |
+| `X` (Binario e non elaborato) | `String` |
 
 ## <a name="lookup-activity-properties"></a>Proprietà dell'attività Lookup
 

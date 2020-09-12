@@ -13,12 +13,12 @@ ms.date: 03/21/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0e52083b2413f28b0c95b3a86be44c501e97cfd7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fd16dd5a20a677568c928f805c1aaa5f2c222f24
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85359756"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279942"
 ---
 # <a name="fix-modified-default-rules-in-azure-ad-connect"></a>Correzione delle regole predefinite modificate in Azure AD Connect
 
@@ -89,7 +89,7 @@ Mantieni **filtro ambito** vuoto. Ciò significa che la regola si applica a tutt
 
 Mantiene vuote **le regole di join** . Questo significa che questa regola utilizza la condizione di join definita nella regola predefinita standard. Questo è un altro motivo per non disabilitare o eliminare la regola predefinita standard. Se non è presente alcuna condizione di join, l'attributo non verrà propagata. 
 
-Aggiungere le trasformazioni appropriate per l'attributo. È possibile assegnare una costante per far passare un valore costante all'attributo di destinazione. È possibile utilizzare il mapping diretto tra l'attributo di origine o di destinazione. In alternativa, è possibile usare un'espressione per l'attributo. Di seguito sono riportate varie [funzioni di espressione](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-sync-functions-reference) che è possibile usare.
+Aggiungere le trasformazioni appropriate per l'attributo. È possibile assegnare una costante per far passare un valore costante all'attributo di destinazione. È possibile utilizzare il mapping diretto tra l'attributo di origine o di destinazione. In alternativa, è possibile usare un'espressione per l'attributo. Di seguito sono riportate varie [funzioni di espressione](./reference-connect-sync-functions-reference.md) che è possibile usare.
 
 #### <a name="add-an-outbound-sync-rule"></a>Aggiungere una regola di sincronizzazione in uscita
 Per collegare l'attributo alla directory di destinazione, è necessario creare una regola in uscita. Ciò significa che l'origine è il metaverse e la destinazione è il sistema connesso. Per creare una regola in uscita, avviare l' **Editor delle regole di sincronizzazione**, modificare la **direzione** in **uscita**e selezionare **Aggiungi nuova regola**. 
@@ -102,7 +102,7 @@ Come per la regola in ingresso, è possibile usare una convenzione di denominazi
 
 Mantieni il **filtro di ambito** e **le regole di join** vuote. Compilare la trasformazione come costante, diretta o espressione. 
 
-A questo punto è possibile creare un nuovo attributo per un flusso di oggetti utente da Active Directory a Azure Active Directory. È possibile usare questi passaggi per eseguire il mapping di qualsiasi attributo da qualsiasi oggetto a origine e destinazione. Per altre informazioni, vedere [creazione di regole di sincronizzazione personalizzate](how-to-connect-create-custom-sync-rule.md) e [preparare il provisioning degli utenti](https://docs.microsoft.com/office365/enterprise/prepare-for-directory-synchronization).
+A questo punto è possibile creare un nuovo attributo per un flusso di oggetti utente da Active Directory a Azure Active Directory. È possibile usare questi passaggi per eseguire il mapping di qualsiasi attributo da qualsiasi oggetto a origine e destinazione. Per altre informazioni, vedere [creazione di regole di sincronizzazione personalizzate](how-to-connect-create-custom-sync-rule.md) e [preparare il provisioning degli utenti](/office365/enterprise/prepare-for-directory-synchronization).
 
 ### <a name="override-the-value-of-an-existing-attribute"></a>Eseguire l'override del valore di un attributo esistente
 Potrebbe essere necessario eseguire l'override del valore di un attributo di cui è già stato eseguito il mapping. Se, ad esempio, si desidera impostare sempre un valore null su un attributo in Azure AD, è sufficiente creare solo una regola in ingresso. Fare in modo che il valore della costante, `AuthoritativeNull` , fluisca all'attributo di destinazione. 
@@ -194,6 +194,3 @@ Per correggere le regole per ripristinare le impostazioni predefinite, eliminare
 - [Hardware e prerequisiti](how-to-connect-install-prerequisites.md) 
 - [Impostazioni rapide](how-to-connect-install-express.md)
 - [Impostazioni personalizzate](how-to-connect-install-custom.md)
-
-
-

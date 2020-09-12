@@ -10,12 +10,12 @@ ms.date: 06/03/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e260ff55c3039b7943137ff1656068e9b5b9cb28
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 8f800c11bb878ca1788c7258cde25266847e2a90
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053222"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278582"
 ---
 # <a name="migrate-to-cloud-authentication-using-staged-rollout-preview"></a>Eseguire la migrazione all'autenticazione cloud tramite un'implementazione a fasi (anteprima)
 
@@ -25,7 +25,7 @@ L'implementazione di gestione temporanea consente di testare in modo selettivo g
 -  Si usano smart card per l'autenticazione. 
 -  Il server corrente offre alcune funzionalità solo per la federazione.
 
-Prima di provare questa funzionalità, è consigliabile rivedere la guida relativa alla scelta del metodo di autenticazione appropriato. Per altre informazioni, vedere la tabella "Confronto dei metodi" in [Scegliere il metodo di autenticazione appropriato per la soluzione ibrida di gestione delle identità di Azure Active Directory](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn#comparing-methods).
+Prima di provare questa funzionalità, è consigliabile rivedere la guida relativa alla scelta del metodo di autenticazione appropriato. Per altre informazioni, vedere la tabella "Confronto dei metodi" in [Scegliere il metodo di autenticazione appropriato per la soluzione ibrida di gestione delle identità di Azure Active Directory](./choose-ad-authn.md#comparing-methods).
 
 Per una panoramica della funzionalità, vedere il video seguente sull'implementazione a fasi in Azure Active Directory.
 
@@ -91,7 +91,7 @@ Per l'implementazione a fasi non sono supportati gli scenari riportati di seguit
 
 Per testare l'accesso tramite*sincronizzazione dell'hash delle password* usando l'implementazione a fasi, seguire le istruzioni preliminari illustrate nella sezione successiva.
 
-Per informazioni sui cmdlet PowerShell da usare, vedere [Anteprima di Azure AD 2.0](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+Per informazioni sui cmdlet PowerShell da usare, vedere [Anteprima di Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## <a name="pre-work-for-password-hash-sync"></a>Istruzioni preliminari per la sincronizzazione dell'hash delle password
 
@@ -225,7 +225,7 @@ Per verificare l'accesso tramite *accesso Single Sign-On facile*:
 
 1. Verificare che l'accesso venga visualizzato nel [report delle attività di accesso di Azure AD](../reports-monitoring/concept-sign-ins.md), usando UserPrincipalName come filtro.
 
-   Per tenere traccia degli accessi utente eseguiti ancora in Active Directory Federation Services (AD FS) per gli utenti selezionati per l'implementazione a fasi, seguire le istruzioni riportate in [Risoluzione dei problemi di AD FS: eventi e registrazione](https://docs.microsoft.com/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Vedere la documentazione del fornitore per informazioni su come eseguire il controllo in provider di federazione di terze parti.
+   Per tenere traccia degli accessi utente eseguiti ancora in Active Directory Federation Services (AD FS) per gli utenti selezionati per l'implementazione a fasi, seguire le istruzioni riportate in [Risoluzione dei problemi di AD FS: eventi e registrazione](/windows-server/identity/ad-fs/troubleshooting/ad-fs-tshoot-logging#types-of-events). Vedere la documentazione del fornitore per informazioni su come eseguire il controllo in provider di federazione di terze parti.
 
 ## <a name="remove-a-user-from-staged-rollout"></a>Rimuovere un utente dall'implementazione a fasi
 
@@ -243,7 +243,7 @@ A: No, questa funzionalità è progettata per eseguire la migrazione dall'autent
 
 **D: È possibile usare PowerShell per eseguire l'implementazione a fasi?**
 
-A: Sì. Per informazioni su come usare PowerShell per eseguire l'implementazione a fasi, vedere [Anteprima di Azure AD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
+A: Sì. Per informazioni su come usare PowerShell per eseguire l'implementazione a fasi, vedere [Anteprima di Azure AD](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout).
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Anteprima di Azure AD 2.0](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )
+- [Anteprima di Azure AD 2.0](/powershell/module/azuread/?view=azureadps-2.0-preview#staged_rollout )

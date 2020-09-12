@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/06/2019
 ms.author: terrylan
-ms.openlocfilehash: 496d99b3d871c66e2557e1f384bb4480cd8b0831
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 13b3d483e271ac220ae254891fe362e932746e87
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423151"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279500"
 ---
 # <a name="azure-operational-security-best-practices"></a>Procedure consigliate per la sicurezza operativa di Azure
 Questo articolo fornisce un set di procedure consigliate operative per la protezione di dati, applicazioni e altre risorse in Azure.
@@ -116,7 +116,7 @@ Il Punteggio sicuro, che si basa su controlli di sicurezza di rete per Internet 
 **Dettagli**: seguire le [raccomandazioni](../../security-center/security-center-recommendations.md) per la sicurezza nel centro sicurezza di avvio con gli elementi con la priorità più alta.
 
 **Procedura consigliata**: integrare gli avvisi del Centro sicurezza nella soluzione di gestione delle informazioni e degli eventi di sicurezza (Siem).   
-**Dettagli**: la maggior parte delle organizzazioni con Siem lo usa come centrale per gli avvisi di sicurezza che richiedono una risposta analista. Gli eventi elaborati generati dal centro sicurezza vengono pubblicati nel log attività di Azure, uno dei log disponibili tramite monitoraggio di Azure. Monitoraggio di Azure offre una pipeline consolidata per eseguire il routing dei dati di monitoraggio in uno strumento SIEM. Per istruzioni, vedere [esportare avvisi di sicurezza e consigli](../../security-center/continuous-export.md#configuring-siem-integration-via-azure-event-hubs) . Se si usa Azure Sentinel, vedere [connettere il Centro sicurezza di Azure](../../sentinel/connect-azure-security-center.md).
+**Dettagli**: la maggior parte delle organizzazioni con Siem lo usa come centrale per gli avvisi di sicurezza che richiedono una risposta analista. Gli eventi elaborati generati dal centro sicurezza vengono pubblicati nel log attività di Azure, uno dei log disponibili tramite monitoraggio di Azure. Monitoraggio di Azure offre una pipeline consolidata per eseguire il routing dei dati di monitoraggio in uno strumento SIEM. Per istruzioni, vedere [esportare avvisi di sicurezza e consigli](../../security-center/continuous-export.md#configure-siem-integration-via-azure-event-hubs) . Se si usa Azure Sentinel, vedere [connettere il Centro sicurezza di Azure](../../sentinel/connect-azure-security-center.md).
 
 **Procedura consigliata**: integrare i log di Azure con Siem.   
 **Dettagli**: usare [monitoraggio di Azure per raccogliere ed esportare dati](/azure/azure-monitor/overview#integrate-and-export-data). Questa procedura è fondamentale per l'abilitazione dell'analisi degli eventi imprevisti della sicurezza e la conservazione dei log online è limitata. Se si usa Sentinel di Azure, vedere [connettere le origini dati](../../sentinel/connect-data-sources.md).
@@ -149,7 +149,7 @@ Usare le seguenti procedure consigliate di DevOps per assicurarsi che i team e l
 È possibile usare [Azure Resource Manager](https://azure.microsoft.com/documentation/articles/resource-group-authoring-templates/) per effettuare il provisioning delle applicazioni usando un modello dichiarativo. In un unico modello, è possibile distribuire più servizi con le relative dipendenze. Lo stesso modello viene usato per distribuire ripetutamente l'applicazione in ogni fase del ciclo di vita dell'applicazione.
 
 **Procedura consigliata**: compilare e distribuire automaticamente app Web o servizi cloud di Azure.  
-**Dettagli**: è possibile configurare il Azure DevOps Projects per la [compilazione e la distribuzione automatiche](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) in app Web o servizi cloud di Azure. Azure DevOps distribuisce automaticamente i file binari dopo una compilazione in Azure dopo ogni archiviazione del codice. Il processo di compilazione del pacchetto equivale al comando Pacchetto di Visual Studio, mentre i passaggi per la pubblicazione equivalgono al comando Pubblica di Visual Studio.
+**Dettagli**: è possibile configurare il Azure DevOps Projects per la  [compilazione e la distribuzione automatiche](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) in app Web o servizi cloud di Azure. Azure DevOps distribuisce automaticamente i file binari dopo una compilazione in Azure dopo ogni archiviazione del codice. Il processo di compilazione del pacchetto equivale al comando Pacchetto di Visual Studio, mentre i passaggi per la pubblicazione equivalgono al comando Pubblica di Visual Studio.
 
 **Procedura consigliata**: automatizzare la gestione del rilascio.  
 **Dettaglio**: [Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/index?azure-devops) è una soluzione per automatizzare la distribuzione in più fasi e la gestione del processo di rilascio. È possibile creare pipeline gestite di distribuzione continua per rilasciare versioni in modo rapido, semplice e frequente. Con Azure Pipelines è possibile automatizzare il processo di rilascio e definire flussi di lavoro predefiniti per l'approvazione. Sono supportate la distribuzione locale e nel cloud, l'estensione e la personalizzazione in base alle specifiche esigenze.

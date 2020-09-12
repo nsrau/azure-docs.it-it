@@ -1,6 +1,6 @@
 ---
-title: INTERFACCIA della riga di comando-creare un'immagine da uno snapshot o un disco rigido virtuale in una raccolta di immagini condivise
-description: Informazioni su come creare un'immagine da uno snapshot o un disco rigido virtuale in una raccolta di immagini condivise usando l'interfaccia della riga di comando di Azure.
+title: INTERFACCIA della riga di comando-creare un'immagine da uno snapshot o da un disco gestito in una raccolta di immagini condivise
+description: Informazioni su come creare un'immagine da uno snapshot o da un disco gestito in una raccolta di immagini condivise usando l'interfaccia della riga di comando di Azure.
 author: cynthn
 ms.service: virtual-machines
 ms.subservice: imaging
@@ -9,16 +9,16 @@ ms.workload: infrastructure
 ms.date: 06/30/2020
 ms.author: cynthn
 ms.reviewer: akjosh
-ms.openlocfilehash: b5dcadd2381596509a3d2f512d0f4ebbbfbba893
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: e694630d8bcd7879d9405152c4141fb6e5bad4e2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86502878"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297094"
 ---
-# <a name="create-an-image-from-a-vhd-or-snapshot-in-a-shared-image-gallery-using-the-azure-cli"></a>Creare un'immagine da un VHD o da uno snapshot in una raccolta di immagini condivise usando l'interfaccia della riga di comando di Azure
+# <a name="create-an-image-from-a-managed-disk-or-snapshot-in-a-shared-image-gallery-using-the-azure-cli"></a>Creare un'immagine da un disco gestito o da uno snapshot in una raccolta di immagini condivise usando l'interfaccia della riga di comando di Azure
 
-Se si ha uno snapshot o un disco rigido virtuale esistente di cui si vuole eseguire la migrazione in una raccolta di immagini condivise, è possibile creare un'immagine della raccolta di immagini condivise direttamente dal disco rigido virtuale o dallo snapshot. Dopo aver testato la nuova immagine, è possibile eliminare il disco rigido virtuale o lo snapshot di origine. È anche possibile creare un'immagine da un disco rigido virtuale o da uno snapshot in una raccolta di immagini condivise usando il [Azure PowerShell](image-version-snapshot-powershell.md).
+Se si ha uno snapshot o un disco gestito esistente di cui si vuole eseguire la migrazione in una raccolta di immagini condivise, è possibile creare un'immagine della raccolta di immagini condivise direttamente dal disco gestito o dallo snapshot. Dopo aver testato la nuova immagine, è possibile eliminare il disco gestito o lo snapshot di origine. È anche possibile creare un'immagine da un disco gestito o da uno snapshot in una raccolta di immagini condivise usando il [Azure PowerShell](image-version-snapshot-powershell.md).
 
 Le immagini in una raccolta immagini hanno due componenti, che verrà creato in questo esempio:
 - Una **definizione di immagine** contiene informazioni sull'immagine e sui requisiti per l'utilizzo. Questo include la possibilità di specificare se l'immagine è Windows o Linux, le note sulla versione e i requisiti di memoria minimi e massimi. Si tratta della definizione di un tipo di immagine. 
@@ -27,13 +27,13 @@ Le immagini in una raccolta immagini hanno due componenti, che verrà creato in 
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-Per completare questo articolo, è necessario avere uno snapshot o un disco rigido virtuale. 
+Per completare questo articolo, è necessario avere uno snapshot o un disco gestito. 
 
 Se si desidera includere un disco dati, le dimensioni del disco dati non possono superare 1 TB.
 
 Quando si lavora in questo articolo, sostituire i nomi delle risorse laddove necessario.
 
-## <a name="find-the-snapshot-or-vhd"></a>Trovare lo snapshot o il disco rigido virtuale 
+## <a name="find-the-snapshot-or-managed-disk"></a>Trovare lo snapshot o il disco gestito 
 
 È possibile visualizzare un elenco di snapshot disponibili in un gruppo di risorse usando [AZ snapshot list](/cli/azure/snapshot#az-snapshot-list). 
 
@@ -41,13 +41,13 @@ Quando si lavora in questo articolo, sostituire i nomi delle risorse laddove nec
 az snapshot list --query "[].[name, id]" -o tsv
 ```
 
-È anche possibile usare un VHD anziché uno snapshot. Per ottenere un disco rigido virtuale, usare [AZ disk list](/cli/azure/disk#az-disk-list). 
+È anche possibile usare un disco gestito anziché uno snapshot. Per ottenere un disco gestito, usare [AZ disk list](/cli/azure/disk#az-disk-list). 
 
 ```azurecli-interactive
 az disk list --query "[].[name, id]" -o tsv
 ```
 
-Una volta ottenuto l'ID dello snapshot o del disco rigido virtuale e assegnarlo a una variabile denominata `$source` da usare in un secondo momento.
+Una volta ottenuto l'ID dello snapshot o del disco gestito e assegnarlo a una variabile denominata `$source` da usare in un secondo momento.
 
 È possibile usare lo stesso processo per ottenere tutti i dischi dati che si desidera includere nell'immagine. Assegnarli alle variabili, quindi usare tali variabili in un secondo momento quando si crea la versione dell'immagine.
 
@@ -67,7 +67,7 @@ az sig list -o table
 
 Le definizioni di immagini creano un raggruppamento logico per le immagini. Vengono usati per gestire le informazioni sull'immagine. I nomi delle definizioni di immagini possono essere costituiti da lettere maiuscole o minuscole, numeri, trattini e punti. 
 
-Quando si crea la definizione dell'immagine, assicurarsi che disponga di tutte le informazioni corrette. In questo esempio si presuppone che lo snapshot o il disco rigido virtuale provenga da una macchina virtuale in uso e che non sia stato generalizzato. Se il disco rigido virtuale o lo snapshot è stato ricavato da un sistema operativo generalizzato (dopo l'esecuzione di Sysprep per Windows o [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` o `-deprovision+user` per Linux), modificare `-OsState` in `generalized` . 
+Quando si crea la definizione dell'immagine, assicurarsi che disponga di tutte le informazioni corrette. In questo esempio si presuppone che lo snapshot o il disco gestito provenga da una macchina virtuale in uso e non è stato generalizzato. Se il disco gestito o lo snapshot è stato ricavato da un sistema operativo generalizzato (dopo l'esecuzione di Sysprep per Windows o [waagent](https://github.com/Azure/WALinuxAgent) `-deprovision` o `-deprovision+user` per Linux), modificare `-OsState` in `generalized` . 
 
 Per altre informazioni sui valori che è possibile specificare per la definizione di immagine, vedere [Definizioni di immagini](./linux/shared-image-galleries.md#image-definitions).
 
@@ -99,9 +99,9 @@ Creare una versione dell'immagine usando [AZ Image Gallery create-Image-Version]
 
 I caratteri consentiti per le versioni delle immagini sono numeri e punti. I numeri devono essere compresi nell'intervallo di un valore Integer a 32 bit. Formato: *MajorVersion*.*MinorVersion*.*Patch*.
 
-In questo esempio, la versione dell'immagine è *1.0.0* e verrà creata una replica nell'area *Stati Uniti centro-meridionali* e una replica nell'area *Stati Uniti orientali 2* usando l'archiviazione con ridondanza della zona. Quando si scelgono le aree di destinazione per la replica, tenere presente che è necessario includere anche l'area di *origine* del disco rigido virtuale o dello snapshot come destinazione per la replica.
+In questo esempio, la versione dell'immagine è *1.0.0* e verrà creata una replica nell'area *Stati Uniti centro-meridionali* e una replica nell'area *Stati Uniti orientali 2* usando l'archiviazione con ridondanza della zona. Quando si scelgono le aree di destinazione per la replica, tenere presente che è necessario includere anche l'area di *origine* del disco gestito o dello snapshot come destinazione per la replica.
 
-Passare l'ID dello snapshot o del disco rigido virtuale nel `--os-snapshot` parametro.
+Passare l'ID dello snapshot o del disco gestito nel `--os-snapshot` parametro.
 
 
 ```azurecli-interactive 

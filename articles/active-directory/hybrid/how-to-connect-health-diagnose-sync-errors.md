@@ -15,12 +15,12 @@ ms.topic: how-to
 ms.date: 05/11/2018
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2d48483697970333c542f140567ca6a6d3fcf7d2
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: c2bd2e72b05cc01b1a351880d565323662635364
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179148"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278684"
 ---
 # <a name="diagnose-and-remediate-duplicated-attribute-sync-errors"></a>Diagnosticare e correggere gli errori di sincronizzazione di attributi duplicati
 
@@ -133,7 +133,7 @@ Dopo i passaggi precedenti, l'utente può accedere alla risorsa originale, ovver
 
 ## <a name="failures-and-error-messages"></a>Errori e messaggi di errore
 **L'utente con attributo in conflitto viene eliminato temporaneamente nell'Azure Active Directory. Assicurarsi che l'utente sia stato eliminato definitivamente prima di riprovare.**  
-L'utente con attributo in conflitto in Azure AD deve essere rimosso prima di applicare la correzione. Vedere [come eliminare in modo permanente l'utente in Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore) prima di riprovare ad applicare la correzione. L'utente verrà anche eliminato automaticamente in modo permanente dopo 30 giorni in cui si trova nello stato di eliminazione temporanea. 
+L'utente con attributo in conflitto in Azure AD deve essere rimosso prima di applicare la correzione. Vedere [come eliminare in modo permanente l'utente in Azure AD](../fundamentals/active-directory-users-restore.md) prima di riprovare ad applicare la correzione. L'utente verrà anche eliminato automaticamente in modo permanente dopo 30 giorni in cui si trova nello stato di eliminazione temporanea. 
 
 **L'aggiornamento dell'ancoraggio di origine in un utente basato sul cloud nel tenant non è supportato.**  
 L'utente basato su cloud in Azure AD non deve avere l'ancoraggio di origine. In questo caso l'aggiornamento dell'ancoraggio di origine non è supportato. La correzione manuale è necessaria in locale. 

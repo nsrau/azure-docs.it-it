@@ -7,12 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: 8a3677ba285f5b02407ca3d176979bf6c016ef9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efd19d9dc1fdc857a51d7af34c54bbe2d6077767
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74974837"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294391"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Come eseguire il deprovisioning di dispositivi di cui in precedenza è stato eseguito il provisioning automatico 
 
@@ -57,22 +57,10 @@ Per visualizzare l'elenco dei dispositivi di cui è stato effettuato il provisio
 Con i gruppi di registrazione sono possibili due scenari:
 
 - Per effettuare il deprovisioning di tutti i dispositivi sottoposti a provisioning tramite un gruppo di registrazioni:
-  1. Disabilitare il gruppo di registrazioni per impedirne il certificato di firma. 
+  1. Disabilitare il gruppo di registrazioni per non consentire il certificato di firma. 
   2. Usare l'elenco dei dispositivi sottoposti a provisioning per il gruppo di registrazioni per disabilitare o eliminare ogni dispositivo dal registro delle identità del rispettivo hub IoT. 
   3. Dopo aver disabilitato o eliminato tutti i dispositivi dai rispettivi hub IoT, è possibile facoltativamente eliminare anche il gruppo di registrazione. Tenere presente tuttavia che, se si elimina il gruppo di registrazione ma è presente un gruppo di registrazione abilitato per un certificato di firma che si trova a un livello superiore nella catena dei certificati di uno o più dispositivi, è possibile eseguire di nuovo la registrazione di tali dispositivi. 
 
 - Per effettuare il deprovisioning di un singolo dispositivo da un gruppo di registrazioni:
   1. Creare una registrazione singola disabilitata per il certificato (dispositivo) foglia. In questo modo, viene revocato l'accesso al servizio di provisioning solo per quel dispositivo e non per gli altri dispositivi che dispongono nella propria catena del certificato di firma del gruppo di registrazione. Non eliminare la registrazione individuale disabilitata relativa al dispositivo, poiché questa operazione consentirebbe di eseguire nuovamente la registrazione del dispositivo tramite il gruppo di registrazione. 
   2. Usare l'elenco dei dispositivi sottoposti a provisioning per il gruppo di registrazioni per trovare l'hub IoT in cui è stato effettuato il provisioning del dispositivo e disabilitarlo o eliminarlo dal registro delle identità dell'hub. 
-  
-  
-
-
-
-
-
-
-
-
-
-

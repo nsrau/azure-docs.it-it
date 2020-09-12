@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: d4ed88dea0d230fd3488621c217ef9ea086310d5
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 8ee9712c01c8ab6b36f595829c3ccc5ae392ff35
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88691480"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276763"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Usare i controlli delle applicazioni adattivi per ridurre la superficie di attacco dei computer
 
@@ -76,7 +76,7 @@ Selezionare la raccomandazione oppure aprire la pagina controlli applicazione ad
     - **Consigliato** : gruppi di computer che eseguono in modo coerente le stesse applicazioni e non hanno un elenco di consentiti configurati. Si consiglia di abilitare i controlli delle applicazioni adattivi per questi gruppi.
     
       > [!TIP]
-      > Se viene visualizzato il prefisso "REVIEWGROUP", il nome del gruppo contiene i computer con un elenco parzialmente coerente di applicazioni. Il Centro sicurezza non può visualizzare un modello, ma consiglia di rivedere questo gruppo per verificare se _è_ possibile definire manualmente alcune regole di controllo delle applicazioni adattive come descritto in [modifica della regola di controllo delle applicazioni adattive di un gruppo](#editing-a-groups-adaptive-application-controls-rule).
+      > Se viene visualizzato il prefisso "REVIEWGROUP", il nome del gruppo contiene i computer con un elenco parzialmente coerente di applicazioni. Il Centro sicurezza non può visualizzare un modello, ma consiglia di rivedere questo gruppo per verificare se _è_ possibile definire manualmente alcune regole di controllo delle applicazioni adattive come descritto in [modifica della regola di controllo delle applicazioni adattive di un gruppo](#edit-a-groups-adaptive-application-controls-rule).
       >
       > È anche possibile spostare i computer da questo gruppo in altri gruppi, come descritto in [spostare un computer da un gruppo a un altro](#move-a-machine-from-one-group-to-another).
 
@@ -115,7 +115,7 @@ Selezionare la raccomandazione oppure aprire la pagina controlli applicazione ad
 
 
 
-## <a name="editing-a-groups-adaptive-application-controls-rule"></a>Modifica della regola di controllo delle applicazioni adattive di un gruppo
+## <a name="edit-a-groups-adaptive-application-controls-rule"></a>Modificare la regola di controllo delle applicazioni adattive di un gruppo
 
 È possibile decidere di modificare l'elenco Consenti per un gruppo di computer a causa di modifiche note nell'organizzazione. 
 
@@ -150,7 +150,7 @@ Per modificare le regole per un gruppo di computer:
 
 
 
-## <a name="responding-to-the-allowlist-rules-in-your-adaptive-application-control-policy-should-be-updated-recommendation"></a>È necessario aggiornare la raccomandazione "regole di consenso nel criterio di controllo delle applicazioni adattivo".
+## <a name="respond-to-the-allowlist-rules-in-your-adaptive-application-control-policy-should-be-updated-recommendation"></a>Rispondere alle raccomandazioni "Consenti regole consentite nel criterio di controllo delle applicazioni adattivo"
 
 Questa raccomandazione viene visualizzata quando Machine Learning del Centro sicurezza identifica un comportamento potenzialmente legittimo che non è stato precedentemente consentito. La raccomandazione suggerisce nuove regole per le definizioni esistenti per ridurre il numero di avvisi falsi positivi.
 
@@ -167,7 +167,7 @@ Per correggere i problemi:
 
 
 
-## <a name="auditing-alerts-and-violations"></a>Controllo di avvisi e violazioni
+## <a name="audit-alerts-and-violations"></a>Controlla avvisi e violazioni
 
 1. Dal menu del Centro sicurezza selezionare **controlli applicazione adattivi**.
 
@@ -199,7 +199,7 @@ Quando si sposta un computer da un gruppo a un altro, il criterio di controllo d
 
 
 
-## <a name="managing-application-controls-via-the-rest-api"></a>Gestione dei controlli delle applicazioni tramite l'API REST 
+## <a name="manage-application-controls-via-the-rest-api"></a>Gestire i controlli delle applicazioni tramite l'API REST 
 
 Per gestire i controlli applicazione adattivi a livello, usare l'API REST. 
 

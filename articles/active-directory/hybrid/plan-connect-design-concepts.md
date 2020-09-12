@@ -17,12 +17,12 @@ ms.date: 08/10/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bb41e14a7ecf41a2698a063c3067a98d8acf8f07
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: baa03499cc11bda24ead986dd64621572484cbb1
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84698598"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279653"
 ---
 # <a name="azure-ad-connect-design-concepts"></a>Azure AD Connect: Concetti relativi alla progettazione
 L'obiettivo di questo documento consiste nell'illustrare le aree da esaminare durante la progettazione dell'implementazione di Azure AD Connect. Si tratta di un'analisi approfondita di determinate aree e questi concetti vengono illustrati brevemente anche in altri documenti.
@@ -165,7 +165,7 @@ Durante l'analisi, al passaggio 4, se l'attributo è configurato su uno o più o
 ### <a name="impact-on-ad-fs-or-third-party-federation-configuration"></a>Impatto su AD FS o configurazione della federazione di terze parti
 Se si usa Azure AD Connect per gestire la distribuzione di AD FS locale, Azure AD Connect aggiorna automaticamente le regole attestazioni per usare lo stesso attributo di AD come sourceAnchor. Ciò garantisce che l'attestazione ImmutableID generata da AD FS sia coerente con i valori di sourceAnchor esportati in Azure AD.
 
-Se si gestisce AD FS dall'esterno di Azure AD Connect o se per l'autenticazione si usano server federativi di terze parti, è necessario aggiornare manualmente le regole attestazioni affinché l'attestazione ImmutableID sia coerente con i valori di sourceAnchor esportati in Azure AD, come descritto nella sezione dell'articolo [Modificare le regole attestazioni per AD FS](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-management#modclaims). Al termine dell'installazione, viene visualizzato l'avviso seguente:
+Se si gestisce AD FS dall'esterno di Azure AD Connect o se per l'autenticazione si usano server federativi di terze parti, è necessario aggiornare manualmente le regole attestazioni affinché l'attestazione ImmutableID sia coerente con i valori di sourceAnchor esportati in Azure AD, come descritto nella sezione dell'articolo [Modificare le regole attestazioni per AD FS](./how-to-connect-fed-management.md#modclaims). Al termine dell'installazione, viene visualizzato l'avviso seguente:
 
 ![Configurazione della federazione di terze parti](./media/plan-connect-design-concepts/consistencyGuid-03.png)
 
@@ -193,7 +193,7 @@ John è un utente di contoso.com. Si vuole fare in modo che John usi l'UPN local
 ### <a name="non-routable-on-premises-domains-and-upn-for-azure-ad"></a>Domini locali non instradabili e UPN per Azure AD
 Alcune organizzazioni usano domini non instradabili, ad esempio contoso.local, o domini semplici con etichetta singola come contoso. In Azure AD non è possibile verificare un dominio non instradabile. Azure AD Connect è in grado eseguire la sincronizzazione con un solo dominio verificato in Azure AD. Quando si crea una directory di Azure AD, viene creato un dominio instradabile che diventa dominio predefinito per Azure AD, ad esempio contoso.onmicrosoft.com. Si rende quindi necessario verificare eventuali altri domini instradabili nello stesso scenario, nel caso in cui non si voglia eseguire la sincronizzazione con il dominio .onmicrosoft.com predefinito.
 
-Per altre informazioni sull'aggiunta e la verifica dei domini, vedere [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](../active-directory-domains-add-azure-portal.md) .
+Per altre informazioni sull'aggiunta e la verifica dei domini, vedere [Aggiungere un nome di dominio personalizzato ad Azure Active Directory](../fundamentals/add-custom-domain.md) .
 
 Azure AD Connect rileva se l'esecuzione avviene in un ambiente di dominio non instradabile e avvisa che è opportuno non proseguire con le impostazioni rapide. Se si opera in un dominio non instradabile, è probabile che anche l'UPN degli utenti abbia suffissi non instradabili. Ad esempio, se si opera in contoso.local, Azure AD Connect suggerisce di usare le impostazioni personalizzate anziché le impostazioni rapide. Con le impostazioni personalizzate è possibile specificare l'attributo che deve essere usato come nome UPN per l'accesso ad Azure dopo la sincronizzazione degli utenti con Azure AD.
 

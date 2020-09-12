@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/17/2016
 ms.author: akjosh
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fda228f6a24e981bb848fbb106709aaa3d8e8613
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 2237b0b0d0c1f6e95e100743b377f9c04f57210f
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87269122"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279704"
 ---
 # <a name="understanding-and-using-the-azure-linux-agent"></a>Informazioni e uso dell'agente Linux di Azure
 
@@ -53,7 +53,7 @@ L'agente Linux di Microsoft Azure (waagent) gestisce il provisioning di Linux e 
 * **Estensione VM**
   
   * Inserire il componente creato da Microsoft e partner in VM Linux (IaaS) per attivare il software e l'automazione di configurazione
-  * Implementazione di riferimento dell'estensione della macchina virtuale in[https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
+  * Implementazione di riferimento dell'estensione della macchina virtuale in [https://github.com/Azure/azure-linux-extensions](https://github.com/Azure/azure-linux-extensions)
 
 ## <a name="communication"></a>Comunicazione
 Il flusso di informazioni dalla piattaforma all'agente avviene tramite due canali:
@@ -93,6 +93,9 @@ Per il corretto funzionamento dell'agente Linux sono necessari alcuni package di
 * Strumenti di rete: ip-route
 * Supporto di kernel per l'installazione di file system UDF.
 
+Assicurarsi che la macchina virtuale abbia accesso all'indirizzo IP 168.63.129.16. Per ulteriori informazioni, vedere la pagina relativa all' [indirizzo IP 168.63.129.16](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16).
+
+
 ## <a name="installation"></a>Installazione
 Il metodo preferito per l'installazione e l'aggiornamento dell'agente Linux di Azure prevede l'installazione tramite un pacchetto RPM o DEB dal repository di pacchetti della distribuzione. Tutti i [provider di distribuzione supportati](../linux/endorsed-distros.md) integrano il pacchetto agente Linux di Azure nelle immagini e nei repository.
 
@@ -103,7 +106,7 @@ Leggere la documentazione nel [repository dell'agente Linux di Azure su GitHub](
 * verbose: aumenta il livello di dettaglio del comando specificato
 * force: ignora la conferma interattiva per determinati comandi
 
-### <a name="commands"></a>Comandi:
+### <a name="commands"></a>Comandi
 * help: elenca i flag e i comandi supportati.
 * deprovision: tenta di pulire il sistema per renderlo idoneo per un nuovo provisioning. L'operazione seguente elimina:
   

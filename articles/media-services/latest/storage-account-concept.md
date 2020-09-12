@@ -9,15 +9,15 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 120bd403d84f9912bd309f965f3b69306fabcc24
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: f37b453a294a0d0a7b9a99bfebe8f3eff09e8956
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267072"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291195"
 ---
 # <a name="azure-storage-accounts"></a>Account di archiviazione di Azure
 
@@ -47,7 +47,7 @@ In servizi multimediali V3, le API di archiviazione vengono usate per caricare f
 
 Per proteggere gli asset inattivi, gli asset devono essere crittografati tramite la crittografia lato archiviazione. La tabella seguente illustra il funzionamento della crittografia lato archiviazione in Servizi multimediali versione 3:
 
-|Opzione di crittografia|Description|Servizi multimediali v3|
+|Opzione di crittografia|Descrizione|Servizi multimediali v3|
 |---|---|---|
 |Crittografia di archiviazione di servizi multimediali| Crittografia AES-256, chiave gestita da servizi multimediali. |Non supportato. <sup>(1)</sup>|
 |[Crittografia del servizio di archiviazione per i dati inattivi](../../storage/common/storage-service-encryption.md)|Crittografia lato server offerta da archiviazione di Azure, chiave gestita da Azure o dal cliente.|Supportata.|

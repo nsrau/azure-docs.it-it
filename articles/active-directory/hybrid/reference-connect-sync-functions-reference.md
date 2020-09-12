@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 327d365cd1b110a6b57b11f92e70d221d3712cfb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6d8ec8eec28d66cf93608393ddca45f78460d831
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85550180"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279772"
 ---
 # <a name="azure-ad-connect-sync-functions-reference"></a>Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni
 In Azure AD Connect le funzioni vengono usate per modificare il valore di un attributo durante la sincronizzazione.  
@@ -98,7 +98,7 @@ Le funzioni con i tipi **mvbin**, **mvstr** e **mvref** possono operare solo con
   * [DNComponent](#dncomponent)
   * [DNComponentRev](#dncomponentrev)
   * [EscapeDNComponent](#escapedncomponent)
-* **Valutazione**
+* **Versione di valutazione**
   * [IsBitSet](#isbitset)
   * [IsDate](#isdate)
   * [IsEmpty](#isempty)
@@ -117,17 +117,17 @@ Le funzioni con i tipi **mvbin**, **mvstr** e **mvref** possono operare solo con
   * [Numero](#count)
   * [Elemento](#item)
   * [ItemOrNull](#itemornull)
-  * [Join](#join)
+  * [Join](#join).
   * [RemoveDuplicates](#removeduplicates)
   * [Split](#split)
 * **Flusso del programma**
-  * [Errore](#error)
+  * [Error (Errore) (Error (Errore)e)](#error)
   * [IIF](#iif)
   * [Select](#select)
-  * [Opzione](#switch)
-  * [In cui](#where)
+  * [Switch](#switch)
+  * [Where](#where)
   * [Con](#with)
-* **Testo**
+* **Text**
   * [GUID](#guid)
   * [InStr](#instr)
   * [InStrRev](#instrrev)
@@ -139,7 +139,7 @@ Le funzioni con i tipi **mvbin**, **mvstr** e **mvref** possono operare solo con
   * [PadLeft](#padleft)
   * [PadRight](#padright)
   * [PCase](#pcase)
-  * [Sostituire](#replace)
+  * [Replace](#replace)
   * [ReplaceChars](#replacechars)
   * [Ok](#right)
   * [RTrim](#rtrim)
@@ -660,7 +660,7 @@ Se dn è "cn=Joe,ou=Atlanta,ou=GA,ou=US, dc=contoso,dc=com", allora
 * format: stringa che rappresenta il formato in cui effettuare la conversione.
 
 **Osservazioni**  
-I valori possibili per il formato sono disponibili qui: [formati di data e ora personalizzati per la funzione Format](https://docs.microsoft.com/dax/custom-date-and-time-formats-for-the-format-function).
+I valori possibili per il formato sono disponibili qui: [formati di data e ora personalizzati per la funzione Format](/dax/custom-date-and-time-formats-for-the-format-function).
 
 **Esempio:**  
 
@@ -868,7 +868,7 @@ La funzione inversa di questa funzione è denominata IsPresent.
 `Switch(IsPresent([directManager]),[directManager], IsPresent([skiplevelManager]),[skiplevelManager], IsPresent([director]),[director])`
 
 ---
-### <a name="item"></a>Item
+### <a name="item"></a>Elemento
 **Descrizione:**  
  La funzione Item restituisce un elemento da una stringa o un attributo multivalore.
 
@@ -1130,7 +1130,7 @@ Se nella stringa non ci sono caratteri numChar rimanenti dalla posizione start, 
  Restituisce un attributo proxyAddress purificato in cui sono stati rimossi tutti i valori duplicati.
 
 ---
-### <a name="replace"></a>Replace
+### <a name="replace"></a>Sostituisci
 **Descrizione:**  
  La funzione Replace sostituisce tutte le occorrenze di una stringa in un'altra stringa.
 
@@ -1242,7 +1242,7 @@ Elabora tutti i valori in un attributo multivalore, o nell'output di un'espressi
 Restituisce tutti i valori dell'attributo multivalore otherPhone dopo che sono stati rimossi i trattini (-).
 
 ---
-### <a name="split"></a>Split
+### <a name="split"></a>Doppia visualizzazione
 **Descrizione:**  
  La funzione Split accetta una stringa con valori separati da delimitatore e la converte in una stringa multivalore.
 
@@ -1275,7 +1275,7 @@ Restituisce tutti i valori dell'attributo multivalore otherPhone dopo che sono s
 `str StringFromSid(bin ObjectSID)`  
 
 ---
-### <a name="switch"></a>Opzione
+### <a name="switch"></a>Commutatore
 **Descrizione:**  
  La funzione Switch viene usata per restituire un singolo valore basato sulle condizioni valutate.
 

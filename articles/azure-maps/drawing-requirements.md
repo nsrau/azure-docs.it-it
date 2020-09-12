@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philMea
-ms.openlocfilehash: 4a57719ec9e7b22ed81ee6f07a568a993846de42
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: af7238ca4229bac678061c742f13953299a96ba4
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374321"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290022"
 ---
 # <a name="drawing-package-requirements"></a>Requisiti del pacchetto di disegni
 
@@ -208,17 +208,17 @@ Le sezioni successive illustrano in dettaglio i requisiti per ogni oggetto.
 
 L'oggetto `buildingLevels` contiene una matrice JSON di livelli di edifici.
 
-| Proprietà  | Type | Obbligatorio | Descrizione |
+| Proprietà  | Type | Obbligatoria | Descrizione |
 |-----------|------|----------|-------------|
-|levelName    |Stringa    |true |    Nome descrittivo del livello. Ad esempio: primo piano, atrio, parcheggio blu, seminterrato e così via.|
+|levelName    |string    |true |    Nome descrittivo del livello. Ad esempio: primo piano, atrio, parcheggio blu, seminterrato e così via.|
 |ordinal | integer |    true | Viene usato per determinare l'ordine verticale dei livelli. Ogni struttura deve avere un livello con ordinal 0. |
 |heightAboveFacilityAnchor | NUMERIC | false |    Altezza del livello superiore all'ancoraggio in metri. |
 | verticalExtent | NUMERIC | false | Altezza da pavimento a soffitto (spessore) del livello, in metri. |
-|filename |    Stringa |    true |    Percorso del file system del disegno CAD per un livello dell'edificio. Deve essere relativo alla radice del file ZIP dell'edificio. |
+|filename |    string |    true |    Percorso del file system del disegno CAD per un livello dell'edificio. Deve essere relativo alla radice del file ZIP dell'edificio. |
 
 ### <a name="georeference"></a>georeference
 
-| Proprietà  | Type | Obbligatorio | Descrizione |
+| Proprietà  | Type | Obbligatoria | Descrizione |
 |-----------|------|----------|-------------|
 |lat    | NUMERIC |    true |    Rappresentazione decimale della latitudine in gradi in corrispondenza dell'origine del disegno della struttura. Le coordinate dell'origine devono essere espresse in WGS84 Web Mercator (`EPSG:3857`).|
 |lon    |NUMERIC|    true|    Rappresentazione decimale della longitudine in gradi in corrispondenza dell'origine del disegno della struttura. Le coordinate dell'origine devono essere espresse in WGS84 Web Mercator (`EPSG:3857`). |
@@ -226,7 +226,7 @@ L'oggetto `buildingLevels` contiene una matrice JSON di livelli di edifici.
 
 ### <a name="dwglayers"></a>dwgLayers
 
-| Proprietà  | Type | Obbligatorio | Descrizione |
+| Proprietà  | Type | Obbligatoria | Descrizione |
 |-----------|------|----------|-------------|
 |exterior    |Matrice di stringhe|    true|    Nomi dei livelli che definiscono il profilo della facciata dell'edificio.|
 |unit|    Matrice di stringhe|    true|    Nomi dei livelli che definiscono le unità.|
@@ -240,9 +240,9 @@ L'oggetto `buildingLevels` contiene una matrice JSON di livelli di edifici.
 
 L'oggetto `unitProperties` contiene una matrice JSON di proprietà delle unità.
 
-| Proprietà  | Type | Obbligatorio | Descrizione |
+| Proprietà  | Type | Obbligatoria | Descrizione |
 |-----------|------|----------|-------------|
-|unitName    |Stringa    |true    |Nome dell'unità da associare al record `unitProperty`. Questo record è valido solo quando nei livelli `unitLabel` è disponibile un'etichetta corrispondente `unitName`. |
+|unitName    |string    |true    |Nome dell'unità da associare al record `unitProperty`. Questo record è valido solo quando nei livelli `unitLabel` è disponibile un'etichetta corrispondente `unitName`. |
 |categoryName|    string|    false    |Nome della categoria. Per un elenco completo di categorie, vedere [Categorie](https://aka.ms/pa-indoor-spacecategories). |
 |navigableBy| Matrice di stringhe |    false    |Indica i tipi di agenti mobili che possono attraversare l'unità. Ad esempio, "pedone". Questa proprietà informa le funzionalità di orientamento.  I valori consentiti sono `pedestrian`, `wheelchair`, `machine`, `bicycle`, `automobile`, `hiredAuto`, `bus`, `railcar`, `emergency`, `ferry`, `boat` e `disallowed`.|
 |routeThroughBehavior|    string|    false    |Il comportamento del percorso attraverso l'unità. I calori consentiti sono `disallowed`, `allowed` e `preferred`. Il valore predefinito è `allowed`.|
@@ -260,9 +260,9 @@ L'oggetto `unitProperties` contiene una matrice JSON di proprietà delle unità.
 
 L'oggetto `zoneProperties` contiene una matrice JSON di proprietà delle zone.
 
-| Proprietà  | Type | Obbligatorio | Descrizione |
+| Proprietà  | Type | Obbligatoria | Descrizione |
 |-----------|------|----------|-------------|
-|zoneName        |Stringa    |true    |Nome della zona da associare al record `zoneProperty`. Questo record è valido solo quando nel livello `zoneLabel` della zona è disponibile un'etichetta corrispondente `zoneName`.  |
+|zoneName        |string    |true    |Nome della zona da associare al record `zoneProperty`. Questo record è valido solo quando nel livello `zoneLabel` della zona è disponibile un'etichetta corrispondente `zoneName`.  |
 |categoryName|    string|    false    |Nome della categoria. Per un elenco completo di categorie, vedere [Categorie](https://aka.ms/pa-indoor-spacecategories). |
 |zoneNameAlt|    string|    false    |Nome alternativo della zona.  |
 |zoneNameSubtitle|    string |    false    |Sottotitolo della zona. |
@@ -359,7 +359,6 @@ Di seguito è riportato un file manifesto di esempio per il pacchetto di disegni
             "nameAlt": "Basement01", 
             "nameSubtitle": "01", 
             "addressRoomNumber": "B01", 
-            "nonWheelchairAccessible": false, 
             "nonPublic": true, 
             "isRoutable": true, 
             "isOpenArea": true 

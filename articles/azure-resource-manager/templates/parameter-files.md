@@ -2,13 +2,13 @@
 title: Creare il file di parametri
 description: Creare il file di parametri per passare i valori durante la distribuzione di un modello di Azure Resource Manager
 ms.topic: conceptual
-ms.date: 08/31/2020
-ms.openlocfilehash: ff5fa74f8b4b7f0ce7dfe2164a369cfd5eedb4d9
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.date: 09/01/2020
+ms.openlocfilehash: 2b6d942b21594fa608127bb8f403e72295671005
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179624"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276644"
 ---
 # <a name="create-resource-manager-parameter-file"></a>Creare il file di parametri di Resource Manager
 
@@ -147,6 +147,8 @@ Esaminare infine i valori consentiti ed eventuali restrizioni come la lunghezza 
   }
 }
 ```
+
+Il file dei parametri può contenere solo valori per i parametri definiti nel modello. Se il file di parametri contiene parametri aggiuntivi che non corrispondono a parametri nel modello, viene visualizzato un errore.
 
 ## <a name="parameter-type-formats"></a>Formati dei tipi di parametro
 

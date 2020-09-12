@@ -11,12 +11,12 @@ ms.date: 04/14/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39acc0373f5748f57f4fef5a5cee5fb038071523
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: c083b319b11807a88461b2464153821fa2ad0b67
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080182"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89276185"
 ---
 # <a name="hybrid-identity-considerations-for-the-azure-government-cloud"></a>Considerazioni sulle identità ibride per il cloud di Azure per enti pubblici
 
@@ -25,7 +25,7 @@ Questo articolo contiene considerazioni per l'integrazione di un ambiente ibrido
 > [!NOTE]
 > Per integrare un ambiente locale di Microsoft Azure Active Directory (Azure AD) con il cloud di Azure per enti pubblici, è necessario eseguire l'aggiornamento alla versione più recente di [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594).
 
-Per un elenco completo degli endpoint del Dipartimento della Difesa del governo degli Stati Uniti, vedere la [documentazione](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints).
+Per un elenco completo degli endpoint del Dipartimento della Difesa del governo degli Stati Uniti, vedere la [documentazione](/office365/enterprise/office-365-u-s-government-dod-endpoints).
 
 ## <a name="azure-ad-pass-through-authentication"></a>Autenticazione pass-through di Azure AD
 

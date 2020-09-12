@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 6f09a0ab88273aa10bb5f3cb55f89d014897df12
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 8cfbe26458de630aaf411aade4a31cb4e9c72b17
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268452"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295428"
 ---
 # <a name="diagnostic-logs-schemas"></a>Schemi dei log di diagnostica
 
@@ -40,7 +40,7 @@ Per una descrizione dettagliata dello schema dei log di diagnostica di primo liv
 
 Queste proprietà sono specifiche dello schema del log di distribuzione delle chiavi.
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |keyId|ID della chiave richiesta.|
 |keyType|Può essere uno dei valori seguenti: "Clear" (nessuna crittografia), "FairPlay", "PlayReady" o "Widevine".|

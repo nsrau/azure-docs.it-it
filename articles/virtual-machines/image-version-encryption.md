@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: cynthn
-ms.openlocfilehash: 21e6dc5a975f43456a077559eebafd975cea66a1
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 91f485d03717ab80bac26abd16da165d7b0dead7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816491"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291926"
 ---
 # <a name="preview-use-customer-managed-keys-for-encrypting-images"></a>Anteprima: Usare le chiavi gestite dal cliente per crittografare le immagini
 
@@ -149,7 +149,7 @@ az provider register -n Microsoft.Compute
 ```
 
 
-Per specificare un set di crittografia dischi per una versione dell'immagine, usare [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create) con il parametro `--target-region-encryption`. Il formato per `--target-region-encryption` è un elenco di chiavi separate da spazi per la crittografia del sistema operativo e dei dischi dati. L'aspetto dovrebbe risultare simile al seguente: `<encryption set for the OS disk>,<Lun number of the data disk>, <encryption set for the data disk>, <Lun number for the second data disk>, <encryption set for the second data disk>`. 
+Per specificare un set di crittografia dischi per una versione dell'immagine, usare [az image gallery create-image-version](/cli/azure/sig/image-version#az-sig-image-version-create) con il parametro `--target-region-encryption`. Il formato per `--target-region-encryption` è un elenco delimitato da virgole di chiavi per la crittografia del sistema operativo e dei dischi dati. L'aspetto dovrebbe risultare simile al seguente: `<encryption set for the OS disk>,<Lun number of the data disk>,<encryption set for the data disk>,<Lun number for the second data disk>,<encryption set for the second data disk>`. 
 
 Se l'origine per il disco del sistema operativo è un disco gestito o una macchina virtuale, usare `--managed-image` per specificare l'origine per la versione dell'immagine. In questo esempio l'origine è un'immagine gestita con un disco del sistema operativo e un disco dati in LUN 0. Il disco del sistema operativo verrà crittografato con DiskEncryptionSet1 e il disco dati verrà crittografato con DiskEncryptionSet2.
 

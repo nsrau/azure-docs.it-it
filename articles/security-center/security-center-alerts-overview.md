@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: memildin
-ms.openlocfilehash: 25b5569c123a4c7376aecd01b8e36f68b0a8e9b5
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: bd52cb9ba10cbbc7823cf631cea146cdccdad4e1
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519608"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278140"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Avvisi di sicurezza nel Centro sicurezza di Azure
 
@@ -23,7 +23,7 @@ Nel Centro sicurezza di Azure sono disponibili diversi avvisi per molti tipi di 
 
 Gli avvisi di sicurezza vengono attivati da rilevamenti avanzati e sono disponibili solo nel livello standard del Centro sicurezza di Azure. È disponibile una versione di valutazione gratuita. È possibile eseguire l'aggiornamento dalla pagina dei **prezzi & impostazioni** . Altre informazioni sui [prezzi del Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
 
-## <a name="responding-to-todays-threats"></a>Rispondere alle minacce attuali <a name="respond-threats"> </a>
+## <a name="respond-to-todays-threats"></a>Rispondi alle minacce <a name="respond-threats"> </a> attuali
 
 Negli ultimi 20 anni sono state introdotte modifiche significative nel panorama delle minacce . In passato, le aziende dovevano in genere preoccuparsi solo del danneggiamento del sito Web da parte di singoli utenti malintenzionati, interessati soprattutto a dar prova di sé. Oggi gli utenti malintenzionati sono molto più sofisticati e organizzati. Hanno spesso obiettivi finanziari e strategici specifici, inoltre hanno a disposizione più risorse, perché possono essere finanziati da stati o da organizzazioni criminali.
 

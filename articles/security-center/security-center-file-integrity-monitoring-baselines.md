@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/29/2019
 ms.author: memildin
-ms.openlocfilehash: bb45e1d1ee17a6daf16bd688982f79fda986bde5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d336c58971b16875d9861f85dde9529de8c734e2
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73664401"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278086"
 ---
 # <a name="compare-baselines-using-file-integrity-monitoring-fim"></a>Confrontare le baseline con il monitoraggio dell'integrità dei file
 
@@ -41,7 +41,7 @@ Le impostazioni predefinite hive del registro di sistema FIM rappresentano un mo
 >[!NOTE]
 > I controlli ricorsivi si applicano solo agli hive di sicurezza consigliati e non ai percorsi del registro di sistema personalizzati.  
 
-## <a name="adding-a-custom-registry-check"></a>Aggiunta di un controllo del registro di sistema personalizzato
+## <a name="add-a-custom-registry-check"></a>Aggiungere un controllo del registro di sistema personalizzato
 
 Le basi di riferimento FIM iniziano con l'identificazione delle caratteristiche di uno stato valido noto per il sistema operativo e l'applicazione di supporto.  Per questo esempio, si concentreranno le configurazioni dei criteri password per Windows Server 2008 e versioni successive.
 
@@ -73,14 +73,14 @@ Le basi di riferimento FIM iniziano con l'identificazione delle caratteristiche 
 
       ![Abilitare FIM in un registro](./media/security-center-file-integrity-monitoring-baselines/baselines-add-registry.png)
 
-## <a name="tracking-changes-to-windows-files"></a>Rilevamento delle modifiche apportate ai file di Windows
+## <a name="track-changes-to-windows-files"></a>Tenere traccia delle modifiche apportate ai file di Windows
 
 1. Nella finestra di dialogo **Aggiungi file di Windows per rilevamento modifiche** , nella casella di testo **immettere il percorso** immettere la cartella che contiene i file che si desidera rilevare. Nell'esempio riportato nella figura seguente, l' **app Web di Contoso** risiede nella D:\ unità all'interno della struttura di cartelle **ContosWebApp** .  
 1. Creare una voce di file di Windows personalizzata fornendo un nome della classe di impostazioni, abilitando la ricorsione e specificando la cartella top con un suffisso (*) con carattere jolly.
 
     ![Abilitare FIM in un file](./media/security-center-file-integrity-monitoring-baselines/baselines-add-file.png)
 
-## <a name="retrieving-change-data"></a>Recupero dei dati delle modifiche
+## <a name="retrieve-change-data"></a>Recuperare i dati delle modifiche
 
 I dati di monitoraggio dell'integrità dei file si trovano nel set di tabelle Log Analytics/ConfigurationChange di Azure.  
 

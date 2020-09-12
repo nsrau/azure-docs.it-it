@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 3ead0ea58c6860519f027eb6a7450df37396bd89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 60e4ca80faa2c8787a13d87ab06cad9243299e50
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80885175"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291952"
 ---
 # <a name="scenario-single-page-application"></a>Scenario: applicazione a pagina singola
 
@@ -35,11 +35,17 @@ Scopri tutto quello che ti serve per creare un'applicazione a singola pagina (SP
 
 ## <a name="overview"></a>Panoramica
 
-Molte applicazioni Web moderne sono compilate come applicazioni a singola pagina sul lato client. Gli sviluppatori li scrivono usando JavaScript o un Framework di applicazione a singola pagina, ad esempio angolare, Vue.js e React.js. Queste applicazioni vengono eseguite in un browser Web e presentano caratteristiche di autenticazione diverse rispetto alle applicazioni Web tradizionali sul lato server. 
+Molte applicazioni Web moderne sono compilate come applicazioni a singola pagina sul lato client. Gli sviluppatori li scrivono usando JavaScript o un Framework di applicazione a singola pagina, ad esempio angolare, VME e React. Queste applicazioni vengono eseguite in un browser Web e presentano caratteristiche di autenticazione diverse rispetto alle applicazioni Web tradizionali sul lato server. 
 
-La piattaforma Microsoft Identity consente alle applicazioni a singola pagina di accedere agli utenti e ottenere i token per accedere ai servizi back-end o alle API Web usando il [flusso implicito OAuth 2,0](./v2-oauth2-implicit-grant-flow.md). Il flusso implicito consente all'applicazione di ottenere i token ID per rappresentare l'utente autenticato e anche i token di accesso necessari per chiamare le API protette.
+La piattaforma Microsoft Identity offre **due** opzioni per consentire alle applicazioni a singola pagina di accedere agli utenti e ottenere i token per accedere ai servizi back-end o alle API Web:
 
-![Applicazioni a pagina singola](./media/scenarios/spa-app.svg)
+- [Flusso del codice di autorizzazione OAuth 2,0 (con PKCE)](./v2-oauth2-auth-code-flow.md). Il flusso del codice di autorizzazione consente all'applicazione di scambiare un codice di autorizzazione per i token **ID** per rappresentare l'utente autenticato e i token di **accesso** necessari per chiamare le API protette. Restituisce inoltre i token di **aggiornamento** che forniscono l'accesso a lungo termine alle risorse per conto degli utenti senza richiedere l'interazione con tali utenti. Questo è l'approccio **consigliato** .
+
+![Applicazioni a pagina singola-autenticazione](./media/scenarios/spa-app-auth.svg)
+
+- [Flusso implicito OAuth 2,0](./v2-oauth2-implicit-grant-flow.md). Il flusso di concessione implicita consente all'applicazione di ottenere i token di **accesso** e **ID** . A differenza del flusso del codice di autorizzazione, il flusso di concessione implicita non restituisce un **token di aggiornamento**.
+
+![Applicazioni a pagina singola-implicite](./media/scenarios/spa-app.svg)
 
 Questo flusso di autenticazione non include scenari di applicazioni che usano framework JavaScript multipiattaforma, ad esempio Electron e React-native. Sono necessarie altre funzionalità per l'interazione con le piattaforme native.
 
@@ -47,9 +53,9 @@ Questo flusso di autenticazione non include scenari di applicazioni che usano fr
 
 Per abilitare questo scenario per l'applicazione, è necessario:
 
-* Registrazione dell'applicazione con Azure Active Directory (Azure AD). Questa registrazione comporta l'abilitazione del flusso implicito e l'impostazione di un URI di reindirizzamento a cui vengono restituiti i token.
+* Registrazione dell'applicazione con Azure Active Directory (Azure AD). I passaggi di registrazione differiscono tra il flusso di concessione implicito e il flusso del codice di autorizzazione.
 * Configurazione dell'applicazione con le proprietà dell'applicazione registrate, ad esempio l'ID applicazione.
-* Usare Microsoft Authentication Library (MSAL) per eseguire il flusso di autenticazione per l'accesso e l'acquisizione di token.
+* Uso di Microsoft Authentication Library per JavaScript (MSAL.js) per eseguire il flusso di autenticazione per l'accesso e l'acquisizione di token.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

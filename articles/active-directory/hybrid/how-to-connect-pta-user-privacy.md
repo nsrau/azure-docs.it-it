@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c915898d3eec4494b6a300e88ffde216f21d5d68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 396344ba90aa3850d7d23dc40d6df95f6d1f6c3f
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358124"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279517"
 ---
 # <a name="user-privacy-and-azure-active-directory-pass-through-authentication"></a>Privacy dell'utente e autenticazione pass-through di Azure Active Directory
 
@@ -67,7 +67,7 @@ Per altre informazioni sui requisiti GDPR per Azure AD Connect correlati, vedere
 
 ### <a name="delete-authentication-agent-event-logs"></a>Eliminare i log eventi dell'agente di autenticazione
 
-Questo prodotto potrebbe anche creare **log eventi di Windows**. Per altre informazioni, vedere [questo articolo](https://msdn.microsoft.com/library/windows/desktop/aa385780(v=vs.85).aspx).
+Questo prodotto potrebbe anche creare **log eventi di Windows**. Per altre informazioni, vedere [questo articolo](/windows/win32/wes/windows-event-log).
 
 Per visualizzare i log correlati all'agente di autenticazione pass-through, aprire l'applicazione **Visualizzatore eventi** nel server e controllare in **Registri applicazioni e servizi\Microsoft\AzureAdConnect\AuthenticationAgent\Admin**.
 
@@ -103,7 +103,7 @@ Per pianificare l'esecuzione di questo script ogni 48 ore, seguire questa proced
  
 ### <a name="note-about-domain-controller-logs"></a>Nota sui log del controller di dominio
 
-Se è abilitata la registrazione di controllo, questo prodotto può generare log di sicurezza per i controller di dominio. Per altre informazioni sulla configurazione dei criteri di controllo, leggere questo [articolo](https://technet.microsoft.com/library/dd277403.aspx).
+Se è abilitata la registrazione di controllo, questo prodotto può generare log di sicurezza per i controller di dominio. Per altre informazioni sulla configurazione dei criteri di controllo, leggere questo [articolo](/previous-versions/tn-archive/dd277403(v=technet.10)).
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Consultare l'Informativa sulla privacy Microsoft nel Trust Center](https://www.microsoft.com/trustcenter)

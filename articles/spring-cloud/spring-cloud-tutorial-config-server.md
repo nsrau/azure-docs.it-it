@@ -7,12 +7,12 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 38ef1188503d0076cfd98843f6f68c990fba7463
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 665d508a7d95e177d0db09ad86e2a5f0ee4d605b
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762370"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291297"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configurare un'istanza del server di configurazione Spring Cloud per il servizio
 
@@ -22,7 +22,7 @@ Spring Cloud Config fornisce il supporto lato client e lato server per una confi
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
-* Un servizio Azure Spring Cloud in esecuzione di cui è già stato effettuato il provisioning. Per configurare e avviare un servizio Azure Spring Cloud, vedere [Avvio rapido: Avviare un'applicazione Java Spring tramite l'interfaccia della riga di comando di Azure](spring-cloud-quickstart-launch-app-cli.md).
+* Un servizio Azure Spring Cloud in esecuzione di cui è già stato effettuato il provisioning. Per configurare e avviare un servizio Azure Spring Cloud, vedere [Avvio rapido: Avviare un'applicazione Java Spring tramite l'interfaccia della riga di comando di Azure](spring-cloud-quickstart.md).
 
 ## <a name="restriction"></a>Restrizione
 
@@ -216,7 +216,7 @@ Il cloud Spring di Azure può accedere ai repository git pubblici, protetti da S
 
 1. Selezionare il servizio da configurare.
 
-1. Nel riquadro sinistro della pagina servizio, in **Impostazioni**, selezionare la scheda **server di configurazione** . configurare il repository creato in precedenza:
+1. Nel riquadro sinistro della pagina servizio, in **Impostazioni**, selezionare la scheda **server di configurazione** . Configurare il repository creato in precedenza:
    - Aggiungere l'URL del repository salvato nella sezione precedente
    - Fare clic su `Authentication` e selezionare `HTTP Basic`
    - Il __nome utente__ è il nome utente salvato nella sezione precedente

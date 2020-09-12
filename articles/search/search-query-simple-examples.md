@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: afc9f8e29cf27734787da9cab3e3456e5414d9ac
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3c469d7274bb90e194478af2464cb352efe7490c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918027"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294867"
 ---
 # <a name="create-a-simple-query-in-azure-cognitive-search"></a>Creare una query semplice in Azure ricerca cognitiva
 
@@ -37,13 +37,13 @@ Negli esempi seguenti viene usato l'indice di ricerca NYC Jobs contenente le opp
 
 Dopo aver specificato l'intestazione della richiesta, è possibile riusarla per tutte le query in questo articolo, scambiando solo la stringa **search=**. 
 
-  ![Intestazione della richiesta Postman](media/search-query-lucene-examples/postman-header.png)
+  ![Parametri impostati per l'intestazione della richiesta post](media/search-query-lucene-examples/postman-header.png)
 
 ### <a name="set-the-request-url"></a>Impostare l'URL della richiesta
 
 Request è un comando GET associato a un URL contenente l'endpoint di Azure ricerca cognitiva e la stringa di ricerca.
 
-  ![Intestazione della richiesta Postman](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
+  ![GET dell'intestazione della richiesta post](media/search-query-lucene-examples/postman-basic-url-request-elements.png)
 
 La composizione dell'URL presenta i seguenti elementi:
 

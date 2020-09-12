@@ -16,12 +16,12 @@ ms.date: 06/09/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ac36650e285c371457b89f7a362b51fa74d7d47c
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 7046ab3c30e120aaaf285c32e25fce03524a0cf4
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89071432"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280163"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Autenticazione pass-through di Azure Active Directory: domande frequenti
 
@@ -29,7 +29,7 @@ Questo articolo risponde alle domande frequenti sull'autenticazione pass-through
 
 ## <a name="which-of-the-methods-to-sign-in-to-azure-ad-pass-through-authentication-password-hash-synchronization-and-active-directory-federation-services-ad-fs-should-i-choose"></a>Quale metodo di accesso a Azure AD è preferibile usare tra autenticazione pass-through, sincronizzazione dell'hash delle password e Active Directory Federation Services (AD FS)?
 
-Riesaminare [questa guida](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn) per confrontare i vari metodi di accesso di Azure AD e per scoprire come scegliere il metodo di accesso appropriato per l'organizzazione.
+Riesaminare [questa guida](./choose-ad-authn.md) per confrontare i vari metodi di accesso di Azure AD e per scoprire come scegliere il metodo di accesso appropriato per l'organizzazione.
 
 ## <a name="is-pass-through-authentication-a-free-feature"></a>L'autenticazione pass-through è una funzionalità gratuita?
 
@@ -39,7 +39,7 @@ L'autenticazione pass-through è una funzionalità gratuita. Per usare Azure AD 
 
 No. L'autenticazione pass-through è disponibile solo nell'istanza di Azure AD a livello mondiale.
 
-## <a name="does-conditional-access-work-with-pass-through-authentication"></a>[L'accesso condizionale](../active-directory-conditional-access-azure-portal.md) funziona con l'autenticazione pass-through?
+## <a name="does-conditional-access-work-with-pass-through-authentication"></a>[L'accesso condizionale](../conditional-access/overview.md) funziona con l'autenticazione pass-through?
 
 Sì. Tutte le funzionalità di accesso condizionale, tra cui Azure Multi-Factor Authentication, funzionano con l'autenticazione pass-through.
 
@@ -148,7 +148,7 @@ No, questo scenario _non_ è supportato.
 
 ## <a name="why-do-i-need-a-cloud-only-global-administrator-account-to-enable-pass-through-authentication"></a>Perché è necessario un account amministratore globale solo cloud per abilitare l'autenticazione pass-through?
 
-È consigliabile abilitare o disabilitare l'autenticazione pass-through con un account amministratore globale solo cloud. Informazioni sull' [aggiunta di un account amministratore globale solo cloud](../active-directory-users-create-azure-portal.md). Questa procedura è fondamentale per evitare di rimanere bloccati fuori dal tenant.
+È consigliabile abilitare o disabilitare l'autenticazione pass-through con un account amministratore globale solo cloud. Informazioni sull' [aggiunta di un account amministratore globale solo cloud](../fundamentals/add-users-azure-active-directory.md). Questa procedura è fondamentale per evitare di rimanere bloccati fuori dal tenant.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>Come si disabilita l'autenticazione pass-through?
 
@@ -184,4 +184,3 @@ I tenant creati dopo il 15 giugno 2015 prevedono come comportamento predefinito 
 - [Approfondimento sulla sicurezza](how-to-connect-pta-security-deep-dive.md): ottenere informazioni tecniche approfondite sulla funzionalità di autenticazione pass-through.
 - [Accesso Single Sign-On facile di Azure AD](how-to-connect-sso.md): ottenere altre informazioni su questa funzionalità complementare.
 - [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect): usare il forum di Azure Active Directory per inviare richieste di nuove funzionalità.
-

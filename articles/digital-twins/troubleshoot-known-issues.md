@@ -6,12 +6,12 @@ ms.author: baanders
 ms.topic: troubleshooting
 ms.service: digital-twins
 ms.date: 07/14/2020
-ms.openlocfilehash: 01d962db45a58781ca5f2ba494de16ad420b0807
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: e152c0227008dd12088660b2390a8d0a5f54de96
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88921070"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89290779"
 ---
 # <a name="known-issues-in-azure-digital-twins"></a>Problemi noti nei dispositivi gemelli digitali di Azure
 
@@ -21,19 +21,28 @@ Questo articolo fornisce informazioni sui problemi noti associati ai dispositivi
 
 I comandi in Cloud Shell possono avere esito negativo a intermittenza con l'errore "400 errore del client: richiesta non valida per l'URL: http://localhost:50342/oauth2/token " seguita dall'analisi dello stack completo.
 
+Per i dispositivi gemelli digitali di Azure in particolare, questo influisca sui gruppi di comandi seguenti:
+* `az dt route`
+* `az dt model`
+* `az dt twin`
+
 ### <a name="troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi
 
-Per risolvere il problema, eseguire nuovamente il `az login` comando e completare i passaggi di accesso successivi.
+Per risolvere il problema, eseguire nuovamente il `az login` comando in cloud Shell e completare i passaggi di accesso successivi. Successivamente, dovrebbe essere possibile eseguire di nuovo il comando.
 
-Al termine, sarà possibile eseguire di nuovo il comando.
+Una soluzione alternativa consiste nell' [installare l'interfaccia della](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) riga di comando di Azure nel computer in modo da poter eseguire localmente i comandi dell'interfaccia della riga di comando Questo problema non viene riscontrato nell'interfaccia della riga di comando locale.
 
 ### <a name="possible-causes"></a>Possibili cause
 
 Questo è il risultato di un problema noto nel Cloud Shell: il [*recupero del token da cloud Shell intermitted ha esito negativo con errore del Client 400: richiesta non valida*](https://github.com/Azure/azure-cli/issues/11749).
 
+Si presenta un problema con i token di autenticazione dell'istanza di Azure Digital gemelli e con l'autenticazione basata su [identità gestita](../active-directory/managed-identities-azure-resources/overview.md) predefinita di cloud Shell. Il passaggio per la risoluzione dei problemi di esecuzione `az login` consente di passare dall'autenticazione di identità gestita, in modo da eseguire il debug di questo problema.
+
+Questo non influisce sui comandi di Azure Digital gemelli dei `az dt` `az dt endpoint` gruppi di comandi o, perché usano un tipo diverso di token di autenticazione (basato su ARM), che non ha un problema con l'autenticazione di identità gestita del cloud Shell.
+
 ## <a name="missing-role-assignment-after-scripted-setup"></a>Assegnazione di ruolo mancante dopo l'installazione tramite script
 
-Alcuni utenti potrebbero riscontrare problemi con la parte dell'assegnazione di ruolo di [*procedura: configurare un'istanza e l'autenticazione (con script)*](how-to-set-up-instance-scripted.md). Lo script non indica errori, ma il ruolo *proprietario (anteprima) di Azure Digital Twins* non è stato assegnato correttamente all'utente e questo avrà un effetto sulla possibilità di creare altre risorse.
+Alcuni utenti potrebbero riscontrare problemi con la parte dell'assegnazione di ruolo di [*procedura: configurare un'istanza e l'autenticazione (con script)*](how-to-set-up-instance-scripted.md). Lo script non indica errori, ma il ruolo *proprietario (anteprima) di Azure Digital Twins* non è stato assegnato correttamente all'utente e questo problema influirà sulla capacità di creare altre risorse.
 
 Per determinare se l'assegnazione di ruolo è stata configurata correttamente dopo l'esecuzione dello script, seguire le istruzioni riportate nella sezione [*verificare l'assegnazione del ruolo utente*](how-to-set-up-instance-scripted.md#verify-user-role-assignment) dell'articolo di installazione. Se l'utente non viene visualizzato con questo ruolo, questo problema ha effetto.
 
@@ -47,7 +56,7 @@ Seguire queste istruzioni:
 
 ### <a name="possible-causes"></a>Possibili cause
 
-Per gli utenti che hanno effettuato l'accesso con un [account Microsoft personale (MSA)](https://account.microsoft.com/account), l'ID principale dell'utente che identifica l'utente in comandi come questo può essere diverso dall'indirizzo di posta elettronica di accesso dell'utente, rendendo difficile l'individuazione e l'utilizzo da parte dello script per assegnare il ruolo in modo appropriato.
+Per gli utenti che hanno effettuato l'accesso con un [account Microsoft personale (MSA)](https://account.microsoft.com/account), l'ID principale dell'utente che identifica l'utente in comandi come questo può essere diverso dal messaggio di posta elettronica di accesso dell'utente, rendendo difficile l'individuazione e l'utilizzo da parte dello script per assegnare il ruolo in modo appropriato.
 
 ## <a name="issue-with-interactive-browser-authentication"></a>Problemi con l'autenticazione interattiva del browser
 
@@ -64,11 +73,11 @@ Il problema include una risposta di errore "Azure. Identity. AuthenticationFaile
 
 ### <a name="troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi
 
-Per risolvere il, aggiornare le applicazioni per usare Azure. Identity versione **1.2.2**. Con questa versione della libreria, il browser dovrebbe caricare e autenticarsi come previsto.
+Per risolvere il, aggiornare le applicazioni in modo da usare la `Azure.Identity` versione **1.2.2**. Con questa versione della libreria, il browser dovrebbe caricare e autenticarsi come previsto.
 
 ### <a name="possible-causes"></a>Possibili cause
 
-Questo problema è correlato a un problema aperto con la versione più recente di Azure. Identity Library (versione **1.2.0**): [*non è possibile eseguire l'autenticazione quando si usa InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).
+Questo problema è correlato a un problema aperto con la versione più recente della `Azure.Identity` libreria (versione **1.2.0**): [*non è possibile eseguire l'autenticazione quando si usa InteractiveBrowserCredential*](https://github.com/Azure/azure-sdk-for-net/issues/13940).
 
 Questo problema verrà visualizzato se si usa la versione **1.2.0** nell'applicazione Digital gemelli di Azure o se si aggiunge la libreria al progetto senza specificare una versione (come per impostazione predefinita la versione più recente).
 

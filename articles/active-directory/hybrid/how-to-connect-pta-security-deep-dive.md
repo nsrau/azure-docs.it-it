@@ -15,12 +15,12 @@ ms.date: 05/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ce5f47fe662092219180064f7ea49f5573b27818
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08a73c2b1be4b17136ba19e7efb71c2b21359fdf
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85358243"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280146"
 ---
 # <a name="azure-active-directory-pass-through-authentication-security-deep-dive"></a>Approfondimento di sicurezza sull'autenticazione pass-through di Azure Active Directory
 
@@ -38,14 +38,14 @@ Gli argomenti trattati includono:
 Di seguito sono elencati gli aspetti principali realtivi alla sicurezza di questa funzionalità:
 - È stata progettata su un'architettura sicura multi-tenant che offre l'isolamento delle richieste di accesso tra tenant.
 - Le password locali non vengono mai archiviate nel cloud in alcuna forma.
-- Gli agenti di autenticazione locale, che restano in ascolto e rispondono alle richieste di convalida delle password, creano solo connessioni in uscita dalla rete. Non viene richiesto di installare gli agenti di autenticazione in una rete perimetrale. Come procedura ottimale, considerare tutti i server che eseguono gli agenti di autenticazione come sistemi di livello 0 (vedere [riferimento](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
+- Gli agenti di autenticazione locale, che restano in ascolto e rispondono alle richieste di convalida delle password, creano solo connessioni in uscita dalla rete. Non viene richiesto di installare gli agenti di autenticazione in una rete perimetrale. Come procedura ottimale, considerare tutti i server che eseguono gli agenti di autenticazione come sistemi di livello 0 (vedere [riferimento](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material)).
 - Solo le porte standard, ovvero le porte 80 e 443, vengono usate per le comunicazioni in uscita dagli agenti di autenticazione ad Azure AD. Non è necessario aprire porte in ingresso nel firewall. 
   - La porta 443 viene usata per tutte le comunicazioni in uscita autenticate.
   - La porta 80 viene usata solo per il download degli elenchi di revoche di certificati per verificare che nessun certificato utilizzato dalla funzionalità sia stato revocato.
   - Per un elenco completo dei requisiti di rete, vedere [Azure Active Directory autenticazione pass-through: Guida introduttiva](how-to-connect-pta-quick-start.md#step-1-check-the-prerequisites).
 - Le password fornite dagli utenti durante l'accesso vengono crittografate nel cloud prima di essere accettate dagli agenti di autenticazione locale per la convalida con Active Directory.
 - Il canale HTTPS tra Azure AD e un agente di autenticazione locale viene protetto mediante l'autenticazione reciproca.
-- Consente di proteggere gli account utente operando senza problemi con i [criteri di accesso condizionale di Azure AD](../active-directory-conditional-access-azure-portal.md), tra cui l'autenticazione a più fattori (MFA)[ e l'autenticazione legacy di blocco](../conditional-access/concept-conditional-access-conditions.md), e [impedendo attacchi di forza bruta alle password](../authentication/howto-password-smart-lockout.md).
+- Consente di proteggere gli account utente operando senza problemi con i [criteri di accesso condizionale di Azure AD](../conditional-access/overview.md), tra cui l'autenticazione a più fattori (MFA)[ e l'autenticazione legacy di blocco](../conditional-access/concept-conditional-access-conditions.md), e [impedendo attacchi di forza bruta alle password](../authentication/howto-password-smart-lockout.md).
 
 ## <a name="components-involved"></a>Componenti coinvolti
 
@@ -59,8 +59,8 @@ Per informazioni generali sui Azure AD sicurezza operativa, di servizio e dei da
 ## <a name="installation-and-registration-of-the-authentication-agents"></a>Installazione e registrazione degli agenti di autenticazione
 
 Gli agenti di autenticazione vengono installati e registrati con Azure AD quando si esegue una delle seguenti operazioni:
-   - [Abilitare l'autenticazione pass-through tramite Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start#step-2-enable-the-feature)
-   - [Si aggiungono altri agenti di autenticazione per garantire la disponibilità elevata delle richieste di accesso](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-quick-start#step-4-ensure-high-availability) 
+   - [Abilitare l'autenticazione pass-through tramite Azure AD Connect](./how-to-connect-pta-quick-start.md#step-2-enable-the-feature)
+   - [Si aggiungono altri agenti di autenticazione per garantire la disponibilità elevata delle richieste di accesso](./how-to-connect-pta-quick-start.md#step-4-ensure-high-availability) 
    
 Il funzionamento di un agente di autenticazione prevede tre fasi principali:
 
@@ -73,11 +73,11 @@ Le sezioni seguenti illustrano queste fasi in modo dettagliato.
 ### <a name="authentication-agent-installation"></a>Installazione dell'agente di autenticazione
 
 Solo gli amministratori globali possono installare un agente di autenticazione, usando Azure AD Connect o in modo autonomo, in un server locale. L'installazione aggiunge due nuove voci all' **Control Panel**  >  elenco**programmi**  >  **e funzionalità** del pannello di controllo:
-- L'applicazione dell'agente di autenticazione, Questa applicazione viene eseguita con privilegi [NetworkService](https://msdn.microsoft.com/library/windows/desktop/ms684272.aspx).
-- L'applicazione di aggiornamento utilizzata per aggiornare automaticamente l'agente di autenticazione. Questa applicazione viene eseguita con privilegi [LocalSystem](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx).
+- L'applicazione dell'agente di autenticazione, Questa applicazione viene eseguita con privilegi [NetworkService](/windows/win32/services/networkservice-account).
+- L'applicazione di aggiornamento utilizzata per aggiornare automaticamente l'agente di autenticazione. Questa applicazione viene eseguita con privilegi [LocalSystem](/windows/win32/services/localsystem-account).
 
 >[!IMPORTANT]
->Dal punto di vista della sicurezza, gli amministratori devono considerare il server che esegue l'agente PTA come se fosse un controller di dominio.  È necessario finalizzare i server agenti PTA lungo le stesse righe, come descritto in [protezione dei controller di dominio da attacchi](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack)
+>Dal punto di vista della sicurezza, gli amministratori devono considerare il server che esegue l'agente PTA come se fosse un controller di dominio.  È necessario finalizzare i server agenti PTA lungo le stesse righe, come descritto in [protezione dei controller di dominio da attacchi](/windows-server/identity/ad-ds/plan/security-best-practices/securing-domain-controllers-against-attack)
 
 ### <a name="authentication-agent-registration"></a>Registrazione dell'agente di autenticazione
 
@@ -107,7 +107,7 @@ Gli agenti di autenticazione usano la procedura seguente per registrarsi con Azu
     -  Nessuno degli altri servizi di Azure Active Directory usa questa autorità di certificazione.
     - Il soggetto del certificato, ovvero il nome distinto o DN, è impostato sul proprio ID tenant. Questo DN è un GUID che identifica il tenant in modo univoco. Questo DN stabilisce che l'ambito di utilizzo del certificato è il solo tenant.
 6. Azure AD archivia la chiave pubblica dell'agente di autenticazione in un database nel database SQL di Azure, a cui solo Azure AD ha accesso.
-7. Il certificato, emesso al passaggio 5, viene archiviato sul server locale nell'archivio certificati Windows, in particolare nel percorso [CERT_SYSTEM_STORE_LOCAL_MACHINE](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_LOCAL_MACHINE). Viene usato sia dall'agente di autenticazione che dalle applicazioni di aggiornamento.
+7. Il certificato, emesso al passaggio 5, viene archiviato sul server locale nell'archivio certificati Windows, in particolare nel percorso [CERT_SYSTEM_STORE_LOCAL_MACHINE](/windows/win32/seccrypto/system-store-locations#CERT_SYSTEM_STORE_LOCAL_MACHINE). Viene usato sia dall'agente di autenticazione che dalle applicazioni di aggiornamento.
 
 ### <a name="authentication-agent-initialization"></a>Inizializzazione dell'agente di autenticazione
 
@@ -144,7 +144,7 @@ L'autenticazione pass-through gestisce una richiesta di accesso utente nel segue
 8. STS di Azure AD inserisce la richiesta di convalida della password, che consiste dei valori del nome utente e della password crittografata, nella coda del bus di servizio specifica per il tenant.
 9. Poiché gli agenti di autenticazione inizializzati sono connessi in modo permanente alla coda del bus di servizio, uno degli agenti di autenticazione disponibili recupera la richiesta di convalida della password.
 10. L'agente di autenticazione individua il valore password crittografata specifico per la chiave pubblica usando un identificatore e lo decrittografa con la chiave privata.
-11. L'agente di autenticazione tenta di convalidare il nome utente e la password in Active Directory locale usando l'[API LogonUser Win32](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx) con il paramento **dwLogonType** impostato su **LOGON32_LOGON_NETWORK**. 
+11. L'agente di autenticazione tenta di convalidare il nome utente e la password in Active Directory locale usando l'[API LogonUser Win32](/windows/win32/api/winbase/nf-winbase-logonusera) con il paramento **dwLogonType** impostato su **LOGON32_LOGON_NETWORK**. 
     - Si tratta della stessa API utilizzata da Active Directory Federation Services per consentire agli utenti di effettuare l'accesso in uno scenario di accesso federato.
     - Questa API fa affidamento sul processo di risoluzione standard in Windows Server per individuare il controller di dominio.
 12. L'agente di autenticazione riceve il risultato da Active Directory, ad esempio risultati come operazione riuscita, nome utente o password errata o password scaduta.
@@ -179,7 +179,7 @@ Per rinnovare l'attendibilità di un agente di autenticazione con Azure AD:
     - Usare l'autorità di certificazione radice di Azure AD per firmare il certificato.
     - Impostare il soggetto del certificato, ovvero il nome distinto o DN, sul proprio ID tenant, un GUID che identifica in modo univoco il tenant. Il DN stabilisce come ambito del certificato il solo tenant.
 6. Azure AD archivia la nuova chiave pubblica dell'agente di autenticazione in un database nel database SQL di Azure a cui ha accesso solo. invalida la chiave pubblica "precedente" associata all'agente di autenticazione.
-7. Il nuovo certificato, emesso al passaggio 5, verrà quindi archiviato sul server nell'archivio certificati Windows, in particolare nel percorso [CERT_SYSTEM_STORE_CURRENT_USER](https://msdn.microsoft.com/library/windows/desktop/aa388136.aspx#CERT_SYSTEM_STORE_CURRENT_USER).
+7. Il nuovo certificato, emesso al passaggio 5, verrà quindi archiviato sul server nell'archivio certificati Windows, in particolare nel percorso [CERT_SYSTEM_STORE_CURRENT_USER](/windows/win32/seccrypto/system-store-locations#CERT_SYSTEM_STORE_CURRENT_USER).
     - Poiché la procedura di rinnovo dell'attendibilità si verifica in modo non interattivo, ovvero senza la presenza di un amministratore globale, l'agente di autenticazione non avrà più accesso per aggiornare il certificato esistente nel percorso CERT_SYSTEM_STORE_LOCAL_MACHINE. 
     
    > [!NOTE]
@@ -190,7 +190,7 @@ Per rinnovare l'attendibilità di un agente di autenticazione con Azure AD:
 
 L'applicazione di aggiornamento aggiorna automaticamente l'agente di autenticazione quando viene rilasciata una nuova versione (con correzioni di bug o miglioramenti delle prestazioni). L'applicazione di aggiornamento non gestisce le richieste di convalida delle password per il tenant.
 
-Azure AD ospita la nuova versione del software come **pacchetto di Windows Installer firmato (MSI)**. Il pacchetto di Windows Installer viene firmato usando [Microsoft Authenticode](https://msdn.microsoft.com/library/ms537359.aspx) con SHA256 come algoritmo di digest. 
+Azure AD ospita la nuova versione del software come **pacchetto di Windows Installer firmato (MSI)**. Il pacchetto di Windows Installer viene firmato usando [Microsoft Authenticode](/previous-versions/windows/internet-explorer/ie-developer/platform-apis/ms537359(v=vs.85)) con SHA256 come algoritmo di digest. 
 
 ![Aggiornamento automatico](./media/how-to-connect-pta-security-deep-dive/pta5.png)
 
@@ -203,7 +203,7 @@ Per eseguire l'aggiornamento automatico degli agenti di autenticazione:
 4. Lo strumento di aggiornamento esegue il pacchetto di Windows Installer. Questa azione include i passaggi seguenti:
 
    > [!NOTE]
-   > L'applicazione di aggiornamento viene eseguita con privilegi [sistema locale](https://msdn.microsoft.com/library/windows/desktop/ms684190.aspx).
+   > L'applicazione di aggiornamento viene eseguita con privilegi [sistema locale](/windows/win32/services/localsystem-account).
 
     - Arresta il servizio agente di autenticazione
     - Installa la nuova versione dell'agente di autenticazione nel server

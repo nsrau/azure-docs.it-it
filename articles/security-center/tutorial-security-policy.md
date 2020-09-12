@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 52488eb43377978d7f936ba0aa452cc872f8d899
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 94a0c0af5071397ee4deb859f8f58f2ed1c73a77
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519355"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277664"
 ---
 # <a name="working-with-security-policies"></a>Uso dei criteri di sicurezza
 
@@ -40,7 +40,7 @@ Il Centro sicurezza offre le opzioni seguenti per l'uso dei criteri di sicurezza
 * **Aggiungere i criteri di conformità normativi** : il dashboard di conformità normativa del Centro sicurezza Mostra lo stato di tutte le valutazioni all'interno dell'ambiente nel contesto di uno standard o di una norma particolare, ad esempio Azure CIS, NIST SP 800-53 R4, Swift CSP CSCF-V2020. Per ulteriori informazioni, vedere [migliorare la conformità alle normative](security-center-compliance-dashboard.md).
 
 
-## <a name="managing-your-security-policies"></a>Gestione dei criteri di sicurezza
+## <a name="manage-your-security-policies"></a>Gestire i criteri di sicurezza
 
 Per visualizzare i criteri di sicurezza nel Centro sicurezza:
 
@@ -54,7 +54,7 @@ Per visualizzare i criteri di sicurezza nel Centro sicurezza:
 
 1. Verrà visualizzata la pagina Criteri di sicurezza per la sottoscrizione o il gruppo di gestione. Mostra i criteri disponibili e assegnati.
 
-   ![Schermata dei criteri](./media/tutorial-security-policy/security-policy-page.png)
+   ![pagina dei criteri](./media/tutorial-security-policy/security-policy-page.png)
 
     > [!NOTE]
     > Se è presente un'etichetta "MG ereditato" insieme ai criteri predefiniti, significa che il criterio è stato assegnato a un gruppo di gestione e ereditato dalla sottoscrizione che si sta visualizzando.
@@ -111,11 +111,11 @@ Per ulteriori informazioni sulle raccomandazioni, vedere [gestione delle raccoma
 
 1. Selezionare **Visualizza criteri validi**.
 
-   ![disabilitare i criteri](./media/tutorial-security-policy/view-effective-policy.png)
+   ![Visualizza criteri](./media/tutorial-security-policy/view-effective-policy.png)
 
 1. Selezionare i criteri assegnati.
 
-   ![disabilitare i criteri](./media/tutorial-security-policy/security-policy.png)
+   ![Seleziona criteri](./media/tutorial-security-policy/security-policy.png)
 
 1. Nella sezione **parametri** cercare i criteri che richiamano la raccomandazione che si desidera disabilitare e nell'elenco a discesa selezionare **disabilitato**
 

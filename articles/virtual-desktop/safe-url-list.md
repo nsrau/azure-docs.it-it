@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/12/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: d75d6ecf73dece6dad43367a7f869a1b8ec3d86b
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: f9f68d3734cd7de83a2ddd376caefa410c619d61
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135862"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291110"
 ---
 # <a name="safe-url-list"></a>Elenco degli URL sicuri
 
@@ -60,7 +60,7 @@ La tabella seguente elenca gli URL facoltativi accessibili alle macchine virtual
 >
 >1. Registrare le macchine virtuali nel pool di host di Desktop virtuale Windows.
 >2. Aprire il **Visualizzatore eventi**, quindi passare a **Windows Logs**  >  **Application**  >  **Wvd-Agent** e cercare l'ID evento 3701.
->3. Inserire nell'elenco elementi consentiti gli URL trovati nell'evento con ID 3701. Gli URL nell'evento con ID 3701 sono specifici dell'area. È necessario ripetere il processo di sblocco con gli URL pertinenti per ogni area in cui si vogliono distribuire le macchine virtuali.
+>3. Sbloccare gli URL trovati nell'evento con ID 3701. Gli URL nell'evento con ID 3701 sono specifici dell'area. È necessario ripetere il processo di sblocco con gli URL pertinenti per ogni area in cui si vogliono distribuire le macchine virtuali.
 
 ## <a name="remote-desktop-clients"></a>Client Desktop remoto
 

@@ -13,12 +13,12 @@ ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e0b641cb05b25486bd1b11c2d313898d694f8c2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3e2c09bcd43b08778324a32cc052fad5b85714c4
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85253495"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279585"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Fattori che influenzano le prestazioni di Azure AD Connect
 
@@ -43,7 +43,7 @@ Il diagramma seguente mostra un'architettura generale del motore di provisioning
 
 ![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
-Il motore di provisioning si connette a ogni foresta di Active Directory e ad Azure AD. Il processo di lettura delle informazioni da ogni directory viene chiamato importazione. L'esportazione è invece l'aggiornamento delle directory dal motore di provisioning. La sincronizzazione valuta le regole relative a come gli oggetti si sposteranno all'interno del motore di provisioning. Per un approfondimento, è possibile vedere [Servizio di sincronizzazione Azure AD Connect: informazioni sull'architettura](https://docs.microsoft.com/azure/active-directory/hybrid/concept-azure-ad-connect-sync-architecture).
+Il motore di provisioning si connette a ogni foresta di Active Directory e ad Azure AD. Il processo di lettura delle informazioni da ogni directory viene chiamato importazione. L'esportazione è invece l'aggiornamento delle directory dal motore di provisioning. La sincronizzazione valuta le regole relative a come gli oggetti si sposteranno all'interno del motore di provisioning. Per un approfondimento, è possibile vedere [Servizio di sincronizzazione Azure AD Connect: informazioni sull'architettura](./concept-azure-ad-connect-sync-architecture.md).
 
 Per consentire la sincronizzazione da Active Directory ad Azure AD, Azure AD Connect usa le aree, le regole e i processi di staging seguenti:
 
@@ -52,7 +52,7 @@ Per consentire la sincronizzazione da Active Directory ad Azure AD, Azure AD Con
 * **Regole di sincronizzazione**: determinano quali oggetti verranno creati (proiettati) o connessi (aggiunti) negli oggetti del metaverse. Le regole di sincronizzazione determinano anche quali valori degli attributi verranno copiati o trasformati in e dalle directory.
 * **Profili di esecuzione**: aggregano i passaggi del processo di copia degli oggetti e dei valori degli attributi in base alle regole di sincronizzazione tra le aree di staging e le directory connesse.
 
-Esistono profili di esecuzione diversi per ottimizzare le prestazioni del motore di provisioning. La maggior parte delle organizzazioni userà le pianificazioni e i profili di esecuzione predefiniti per le normali operazioni, ma per alcune organizzazioni potrebbe essere necessario [modificare la pianificazione](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-feature-scheduler) o attivare altri profili di esecuzione per gestire situazioni non comuni. Sono disponibili i seguenti profili di esecuzione:
+Esistono profili di esecuzione diversi per ottimizzare le prestazioni del motore di provisioning. La maggior parte delle organizzazioni userà le pianificazioni e i profili di esecuzione predefiniti per le normali operazioni, ma per alcune organizzazioni potrebbe essere necessario [modificare la pianificazione](./how-to-connect-sync-feature-scheduler.md) o attivare altri profili di esecuzione per gestire situazioni non comuni. Sono disponibili i seguenti profili di esecuzione:
 
 ### <a name="initial-sync-profile"></a>Profilo di sincronizzazione iniziale
 
@@ -109,7 +109,7 @@ Il runtime del processo di sincronizzazione ha le caratteristiche di prestazioni
 
 Le dimensioni della topologia di Active Directory da importare è il fattore principale che influenza le prestazioni e il tempo complessivo richiesto dai componenti interni del motore di provisioning.
 
-È consigliabile usare i [filtri](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-configure-filtering) per ridurre gli oggetti a quelli da sincronizzare, evitando così di elaborare ed esportare in Azure AD oggetti non necessari. Sono disponibili le seguenti tecniche di filtro, in ordine di preferenza:
+È consigliabile usare i [filtri](./how-to-connect-sync-configure-filtering.md) per ridurre gli oggetti a quelli da sincronizzare, evitando così di elaborare ed esportare in Azure AD oggetti non necessari. Sono disponibili le seguenti tecniche di filtro, in ordine di preferenza:
 
 
 
@@ -130,7 +130,7 @@ Molti [oggetti sezionatore](concept-azure-ad-connect-sync-architecture.md#relati
 
 ### <a name="attribute-flows"></a>Flussi di attributi
 
-I flussi di attributi sono i processi di copia o trasformazione dei valori degli attributi degli oggetti da una directory connessa a un'altra directory connessa. Vengono definiti come parte delle regole di sincronizzazione. Quando ad esempio il numero di telefono di un utente viene modificato in Active Directory, verrà aggiornato anche in Azure AD. Le organizzazioni possono [modificare i flussi di attributi](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-change-the-configuration) in base ai vari requisiti. È consigliabile copiare i flussi di attributi esistenti prima di modificarli.
+I flussi di attributi sono i processi di copia o trasformazione dei valori degli attributi degli oggetti da una directory connessa a un'altra directory connessa. Vengono definiti come parte delle regole di sincronizzazione. Quando ad esempio il numero di telefono di un utente viene modificato in Active Directory, verrà aggiornato anche in Azure AD. Le organizzazioni possono [modificare i flussi di attributi](./how-to-connect-sync-change-the-configuration.md) in base ai vari requisiti. È consigliabile copiare i flussi di attributi esistenti prima di modificarli.
 
 I semplici reindirizzamenti, ad esempio il trasferimento di un valore di attributo a un attributo diverso, non hanno un impatto sostanziale sulle prestazioni. Un esempio di un reindirizzamento è il trasferimento di un numero di cellulare in Active Directory al numero di telefono dell'ufficio in Azure AD.
 
@@ -181,7 +181,7 @@ Per ottimizzare le prestazioni dell'implementazione di Azure AD Connect, tenere 
 
 
 - Usare la [configurazione hardware consigliata](how-to-connect-install-prerequisites.md) in base alle dimensioni dell'implementazione per il server di Azure AD Connect.
-- Quando si aggiorna Azure AD Connect in distribuzioni su larga scala, valutare l'uso del [metodo di migrazione swing](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration), per assicurarsi che il tempo di inattività sia minimo e l'affidabilità sia ottimale. 
+- Quando si aggiorna Azure AD Connect in distribuzioni su larga scala, valutare l'uso del [metodo di migrazione swing](./how-to-upgrade-previous-version.md#swing-migration), per assicurarsi che il tempo di inattività sia minimo e l'affidabilità sia ottimale. 
 - Usare un'unità SSD per il database SQL per ottenere prestazioni di scrittura ottimali.
 - Filtrare l'ambito di Active Directory per includere solo gli oggetti di cui è necessario effettuare il provisioning in Azure AD, in base a dominio, unità organizzativa o attributo.
 - Se è necessario modificare le regole del flusso di attributi predefinite, copiare prima una regola, quindi modificare la copia e disabilitare la regola originale. Ricordare di eseguire di nuovo una sincronizzazione completa.

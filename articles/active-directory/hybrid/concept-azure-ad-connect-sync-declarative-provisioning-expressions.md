@@ -16,19 +16,19 @@ ms.date: 07/18/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cdc7c9dba49bf37db1f039d43b0450c65884c74b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 02490839a9e35695ae2e8b3f750e139ad7413aa4
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60245512"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89280214"
 ---
 # <a name="azure-ad-connect-sync-understanding-declarative-provisioning-expressions"></a>Servizio di sincronizzazione Azure AD Connect: Informazioni sulle espressioni di provisioning dichiarativo
 Il servizio di sincronizzazione Azure AD Connect si basa sul provisioning dichiarativo introdotto inizialmente in Forefront Identity Manager 2010. Consente di implementare la logica di business completa per l'integrazione delle identità senza dover scrivere codice compilato.
 
 Una parte essenziale del provisioning dichiarativo è il linguaggio delle espressioni usato nei flussi di attributi. Il linguaggio usato è un subset di Microsoft® Visual Basic®, Applications Edition (VBA). Questo linguaggio viene usato in Microsoft Office e verrà riconosciuto anche dagli utenti con esperienza in VBScript. Il linguaggio delle espressioni di provisioning dichiarativo usa solo funzioni e non è un linguaggio strutturato, né include metodi o istruzioni. Le funzioni sono invece annidate per esprimere il flusso dei programmi.
 
-Per altre informazioni dettagliate, vedere i [riferimenti per il linguaggio Visual Basic, Applications Edition per Office 2013](https://msdn.microsoft.com/library/gg264383.aspx).
+Per altre informazioni dettagliate, vedere i [riferimenti per il linguaggio Visual Basic, Applications Edition per Office 2013](/office/vba/api/overview/language-reference).
 
 Gli attributi sono fortemente tipizzati. Una funzione accetta solo gli attributi del tipo corretto. Fa anche distinzione tra maiuscole e minuscole. Se per i nomi delle funzioni e degli attributi non viene rispettata correttamente la distinzione maiuscole/minuscole, viene generato un errore.
 
@@ -100,4 +100,3 @@ Ad esempio:
 **Argomenti di riferimento**
 
 * [Servizio di sincronizzazione Azure AD Connect: Riferimento alle funzioni](reference-connect-sync-functions-reference.md)
-

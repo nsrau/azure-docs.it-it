@@ -5,15 +5,15 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 8/26/2019
+ms.date: 09/01/2020
 ms.author: abnarain
 ms.reviewer: craigg
-ms.openlocfilehash: 568739ebdce632ae955da5e1cec12635c86af57c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 783e48139cf057bb17278d98e3683cb2b4cbad89
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522857"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89279551"
 ---
 # <a name="troubleshoot-azure-data-factory"></a>Risoluzione dei problemi di Azure Data Factory
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
@@ -821,7 +821,7 @@ La tabella seguente si applica a Azure Batch.
 
 - **Messaggio**: `User name and password cannot be null or empty to connect to the HDInsight cluster.`
 
-- **Causa**: nome utente o password mancanti.
+- **Motivo**: il nome utente o la password è vuota.
 
 - **Raccomandazione**: specificare le credenziali corrette per la connessione a HDI e riprovare.
 
@@ -1053,6 +1053,11 @@ Uso di **Fiddler** per creare una sessione HTTP dell'applicazione Web monitorata
 1. Passare a: **File** > **Save** (Salva) > **All Sessions** (Tutte le sessioni).
 
 Per altre informazioni, vedere [Getting started with Fiddler](https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/ConfigureFiddler) (Introduzione a Fiddler).
+
+## <a name="general"></a>Generale
+
+### <a name="activity-stuck-issue"></a>Problema relativo all'attività bloccata
+Quando si osserva che l'attività è in esecuzione molto più a lungo rispetto alle normali esecuzioni senza lo stato di avanzamento, è possibile che si verifichino blocchi. È possibile provare ad annullarla e riprovare a verificare se è utile. Se si tratta di un'attività di copia, è possibile ottenere informazioni sul monitoraggio delle prestazioni e la risoluzione dei problemi da risolvere i problemi relativi alle [prestazioni dell'attività di copia](copy-activity-performance-troubleshooting.md) Se si tratta di un flusso di dati, vedere la Guida alle prestazioni e all'ottimizzazione dei [flussi di dati di mapping](concepts-data-flow-performance.md) .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

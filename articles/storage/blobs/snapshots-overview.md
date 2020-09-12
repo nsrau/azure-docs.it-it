@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 08/27/2020
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: 8a1c61b77ab799cead319bfaf6cfa7ebd6af431b
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ab4c152f30ab96fe5e221a605a2339c773e32547
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230333"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89295402"
 ---
 # <a name="blob-snapshots"></a>Snapshot BLOB
 
@@ -90,25 +90,25 @@ Negli scenari seguenti viene illustrato il modo in cui gli addebiti si accumulan
 
 Nello Scenario 1, il BLOB di base non è stato aggiornato da quanto è stato scattato lo snapshot, pertanto i costi sono relativi sono ai blocchi univoci 1, 2 e 3.
 
-![Diagramma 1 che mostra la fatturazione per blocchi univoci nel BLOB di base e nello snapshot](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-1.png)
+![Diagramma 1 che mostra la fatturazione per blocchi univoci nel BLOB di base e nello snapshot.](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-1.png)
 
 #### <a name="scenario-2"></a>Scenario 2
 
 Nello Scenario 2, il BLOB di base è stato aggiornato, ma lo snapshot no. Il blocco 3 è stato aggiornato, e sebbene contenga gli stessi dati e lo stesso ID, non è lo stesso del blocco 3 nello snapshot. Di conseguenza, all'account vengono addebitati quattro blocchi.
 
-![Diagramma 2 visualizzazione della fatturazione per blocchi univoci nel BLOB di base e nello snapshot](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-2.png)
+![Diagramma 2 che mostra la fatturazione per blocchi univoci nel BLOB di base e nello snapshot.](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-2.png)
 
 #### <a name="scenario-3"></a>Scenario 3
 
 Nello Scenario 3, il BLOB di base è stato aggiornato, ma lo snapshot no. Il blocco 3 è stato sostituito con il blocco 4 nel BLOB di base, ma lo snapshot continua a riflettere il blocco 3. Di conseguenza, all'account vengono addebitati quattro blocchi.
 
-![Diagramma 3 che mostra la fatturazione per blocchi univoci nel BLOB di base e nello snapshot](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-3.png)
+![Diagramma 3 che mostra la fatturazione per blocchi univoci nel BLOB di base e nello snapshot.](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-3.png)
 
 #### <a name="scenario-4"></a>Scenario 4
 
 Nello Scenario 4, il BLOB di base è stato completamente aggiornato e non contiene nessuno dei blocchi originali. Di conseguenza, all'account vengono addebitati tutti gli otto blocchi univoci.
 
-![Diagramma 4 che mostra la fatturazione per blocchi univoci nel BLOB di base e nello snapshot](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-4.png)
+![Diagramma 4 che mostra la fatturazione per blocchi univoci nel BLOB di base e nello snapshot.](./media/snapshots-overview/storage-blob-snapshots-billing-scenario-4.png)
 
 > [!TIP]
 > Evitare di chiamare metodi che sovrascrivono l'intero BLOB e aggiornare invece singoli blocchi per ridurre i costi.
@@ -128,6 +128,10 @@ La tabella seguente descrive il comportamento di fatturazione per un BLOB o uno 
 | Uno snapshot | Lo snapshot nel nuovo livello e il BLOB di base nel livello originale, più tutti i blocchi univoci in altri snapshot. <sup>1</sup> |
 
 <sup>1</sup> Se sono presenti altre versioni o snapshot precedenti che non sono stati spostati dal livello originale, le versioni o gli snapshot vengono addebitati in base al numero di blocchi univoci che contengono, come descritto in [fatturazione quando il livello BLOB non è stato impostato in modo esplicito](#billing-when-the-blob-tier-has-not-been-explicitly-set).
+
+Il diagramma seguente illustra il modo in cui gli oggetti vengono fatturati quando un BLOB con snapshot viene spostato in un livello diverso.
+
+:::image type="content" source="media/snapshots-overview/snapshot-billing-tiers.png" alt-text="Diagramma che illustra il modo in cui gli oggetti vengono fatturati quando un BLOB con snapshot è in modo esplicito a livelli.":::
 
 L'impostazione esplicita del livello per un BLOB, una versione o uno snapshot non può essere annullata. Se si sposta un BLOB in un nuovo livello e quindi lo si sposta di nuovo al livello originale, viene addebitata la lunghezza totale del contenuto dell'oggetto anche se condivide blocchi con altri oggetti nel livello originale.
 

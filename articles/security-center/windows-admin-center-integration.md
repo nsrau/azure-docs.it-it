@@ -1,21 +1,21 @@
 ---
-title: Come integrare l'interfaccia di amministrazione di Windows con il Centro sicurezza di Azure | Microsoft Docs
+title: Come proteggere i server dell'interfaccia di amministrazione di Windows con il Centro sicurezza di Azure
 description: Questo articolo illustra come integrare il Centro sicurezza di Azure con l'interfaccia di amministrazione di Windows
 services: security-center
 author: memildin
 manager: rkarlin
 ms.service: security-center
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 08/31/2020
 ms.author: memildin
-ms.openlocfilehash: 9eae210818cf623078090503deefc6295dab7164
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 90c1132091f543b84fc764522dfa95672f2e2aef
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076362"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89277494"
 ---
-# <a name="integrate-azure-security-center-with-windows-admin-center"></a>Integrare il Centro sicurezza di Azure con l'interfaccia di amministrazione di Windows
+# <a name="protect-windows-admin-center-resources-with-security-center"></a>Proteggi le risorse dell'interfaccia di amministrazione di Windows con il Centro sicurezza
 
 Centro di amministrazione di Windows è uno strumento di gestione per i server Windows. Si tratta di un'unica posizione per gli amministratori di sistema per accedere alla maggior parte degli strumenti di amministrazione usati più di frequente. Nell'interfaccia di amministrazione di Windows è possibile caricare direttamente i server locali nel centro sicurezza di Azure. È quindi possibile visualizzare un riepilogo delle raccomandazioni e degli avvisi di sicurezza direttamente nell'esperienza dell'interfaccia di amministrazione di Windows.
 
@@ -31,7 +31,7 @@ Dopo aver caricato un server dall'interfaccia di amministrazione di Windows al c
 
 Combinando questi due strumenti, il Centro sicurezza diventa il singolo riquadro di vetro per visualizzare tutte le informazioni di sicurezza, indipendentemente dalla risorsa: la protezione dei server locali gestiti dall'interfaccia di amministrazione di Windows, delle macchine virtuali e di eventuali carichi di lavoro PaaS aggiuntivi.
 
-## <a name="onboarding-windows-admin-center-managed-servers-into-security-center"></a>Caricamento dei server gestiti dal centro di amministrazione di Windows nel centro sicurezza
+## <a name="onboard-windows-admin-center-managed-servers-into-security-center"></a>Caricare i server gestiti dall'interfaccia di amministrazione di Windows nel centro sicurezza
 
 1. Dall'interfaccia di amministrazione di Windows selezionare uno dei server e nel riquadro **strumenti** selezionare l'estensione del Centro sicurezza di Azure:
 
@@ -54,16 +54,16 @@ Combinando questi due strumenti, il Centro sicurezza diventa il singolo riquadro
     > La visualizzazione delle indicazioni potrebbe richiedere del tempo dopo l'onboarding. Infatti, a seconda dell'attività del server, è possibile che non si riceva *alcun* avviso. Per generare avvisi di test per verificare che gli avvisi funzionino correttamente, seguire le istruzioni riportate nella [procedura di convalida degli](security-center-alert-validation.md)avvisi.
 
 
-## <a name="viewing-security-recommendations-and-alerts-in-windows-admin-center"></a>Visualizzazione di avvisi e raccomandazioni sulla sicurezza nell'interfaccia di amministrazione di Windows
+## <a name="view-security-recommendations-and-alerts-in-windows-admin-center"></a>Visualizzare le raccomandazioni e gli avvisi relativi alla sicurezza nell'interfaccia di amministrazione di Windows
 
 Al termine dell'onboarding, è possibile visualizzare gli avvisi e le raccomandazioni direttamente nell'area del Centro sicurezza di Azure dell'interfaccia di amministrazione di Windows. Fare clic su una raccomandazione o un avviso per visualizzarli nel portale di Azure. In questa pagina sono disponibili informazioni aggiuntive e viene illustrato come correggere i problemi.
 
 [![Raccomandazioni e avvisi del Centro sicurezza come visualizzato nell'interfaccia di amministrazione di Windows](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png)](media/windows-admin-center-integration/asc-recommendations-and-alerts-in-wac.png#lightbox)
 
-## <a name="viewing-security-recommendations-and-alerts-for-windows-admin-center-managed-servers-in-security-center"></a>Visualizzazione di avvisi e raccomandazioni sulla sicurezza per i server gestiti dall'interfaccia di amministrazione di Windows nel centro sicurezza
+## <a name="view-security-recommendations-and-alerts-for-windows-admin-center-managed-servers-in-security-center"></a>Visualizzare le raccomandazioni e gli avvisi relativi alla sicurezza per i server gestiti dall'interfaccia di amministrazione di Windows nel centro sicurezza
 Dal centro sicurezza di Azure:
 
-* Per visualizzare le raccomandazioni sulla sicurezza per tutti i server dell'interfaccia di amministrazione di Windows, aprire **calcolo & app** e fare clic sulla scheda **VM e computer** . filtrare l'elenco in base alla risorsa "Server", come illustrato di seguito:
+* Per visualizzare le raccomandazioni sulla sicurezza per tutti i server dell'interfaccia di amministrazione di Windows, aprire **calcolo & app** e fare clic sulla scheda **VM e computer** . Filtrare l'elenco in base alla risorsa "Server", come illustrato di seguito:
 
     [![Visualizzare le raccomandazioni sulla sicurezza per i server gestiti dall'interfaccia di amministrazione di Windows](media/windows-admin-center-integration/viewing-recommendations-wac.png)](media/windows-admin-center-integration/viewing-recommendations-wac.png#lightbox)
 

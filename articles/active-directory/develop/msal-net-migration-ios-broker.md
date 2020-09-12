@@ -28,7 +28,7 @@ Da dove iniziare? Questo articolo illustra come eseguire la migrazione dell'app 
 ## <a name="prerequisites"></a>Prerequisiti
 Questo articolo presuppone che sia già presente un'app Novell iOS integrata con il broker iOS. In caso contrario, passare direttamente a MSAL.NET e iniziare l'implementazione del broker. Per informazioni su come richiamare il broker iOS in MSAL.NET con una nuova applicazione, vedere [questa documentazione](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS#why-use-brokers-on-xamarinios-and-xamarinandroid-applications).
 
-## <a name="background"></a>Sfondo
+## <a name="background"></a>Informazioni di base
 
 ### <a name="what-are-brokers"></a>Che cosa sono i broker?
 

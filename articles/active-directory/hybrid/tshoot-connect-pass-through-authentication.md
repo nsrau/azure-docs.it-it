@@ -16,19 +16,19 @@ ms.date: 07/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f480118aaabf24bd7c5ca472bf04b12ee1405010
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 99ebac32193f764059bea2a30b6ddbce879938a6
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447000"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89275924"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Risolvere i problemi di autenticazione pass-through di Azure Active Directory
 
 Questo articolo consente di trovare informazioni utili per risolvere i problemi comuni relativi all'autenticazione pass-through di Azure AD.
 
 >[!IMPORTANT]
->Se si verificano problemi di accesso utente con l'autenticazione pass-through, non disabilitare la funzionalità o disinstallare gli agenti di autenticazione pass-through se non è disponibile un account amministratore globale solo cloud per eseguire il fallback. Informazioni sull' [aggiunta di un account amministratore globale solo cloud](../active-directory-users-create-azure-portal.md). L'esecuzione di questo passaggio è fondamentale ed evita di rimanere bloccati fuori dal tenant.
+>Se si verificano problemi di accesso utente con l'autenticazione pass-through, non disabilitare la funzionalità o disinstallare gli agenti di autenticazione pass-through se non è disponibile un account amministratore globale solo cloud per eseguire il fallback. Informazioni sull' [aggiunta di un account amministratore globale solo cloud](../fundamentals/add-users-azure-active-directory.md). L'esecuzione di questo passaggio è fondamentale ed evita di rimanere bloccati fuori dal tenant.
 
 ## <a name="general-issues"></a>Problemi generali
 
@@ -72,10 +72,10 @@ Per confermare che questo è il problema, verificare innanzitutto che l'agente d
  ``` 
 4. Quando viene richiesto di immettere le credenziali, immettere lo stesso nome utente e la stessa password usati per accedere a ( https://login.microsoftonline.com) .
 
-Se si ottiene lo stesso errore di nome utente/password, questo significa che l'agente di autenticazione pass-through funziona correttamente e il problema potrebbe essere che l'UPN locale non è instradabile. Per altre informazioni, vedere [configurazione dell'ID di accesso alternativo]( https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
+Se si ottiene lo stesso errore di nome utente/password, questo significa che l'agente di autenticazione pass-through funziona correttamente e il problema potrebbe essere che l'UPN locale non è instradabile. Per altre informazioni, vedere [configurazione dell'ID di accesso alternativo]( /windows-server/identity/ad-fs/operations/configuring-alternate-login-id#:~:text=%20Configuring%20Alternate%20Login%20ID,See%20Also.%20%20More).
 
 > [!IMPORTANT]
-> Se il server Azure AD Connect non è aggiunto a un dominio, un requisito indicato in [Azure ad Connect: prerequisiti](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-install-prerequisites#installation-prerequisites), si verifica il problema di nome utente/password non valido.
+> Se il server Azure AD Connect non è aggiunto a un dominio, un requisito indicato in [Azure ad Connect: prerequisiti](./how-to-connect-install-prerequisites.md#installation-prerequisites), si verifica il problema di nome utente/password non valido.
 
 ### <a name="sign-in-failure-reasons-on-the-azure-active-directory-admin-center-needs-premium-license"></a>Motivi degli errori di accesso nell'interfaccia di amministrazione di Azure Active Directory (necessaria licenza Premium)
 
@@ -98,7 +98,7 @@ Passare a **Azure Active Directory**  ->  **accessi** nell'interfaccia di [ammin
 | 80011 | L'agente di autenticazione non è in grado di recuperare la chiave di decrittografia. | Se il problema è riproducibile in modo coerente, installare e registrare un nuovo agente di autenticazione. E disinstallare quello corrente.
 
 >[!IMPORTANT]
->Gli agenti di autenticazione pass-through autenticano Azure AD utenti convalidando i nomi utente e le password rispetto Active Directory chiamando l' [API Win32 LogonUser](https://msdn.microsoft.com/library/windows/desktop/aa378184.aspx). Di conseguenza, se è stata impostata l'impostazione "Logon to" (accesso a) in Active Directory per limitare l'accesso alla workstation, sarà necessario aggiungere i server che ospitano gli agenti di autenticazione pass-through all'elenco dei server "Logon to". In caso contrario, gli utenti non riusciranno ad accedere Azure AD.
+>Gli agenti di autenticazione pass-through autenticano Azure AD utenti convalidando i nomi utente e le password rispetto Active Directory chiamando l' [API Win32 LogonUser](/windows/win32/api/winbase/nf-winbase-logonusera). Di conseguenza, se è stata impostata l'impostazione "Logon to" (accesso a) in Active Directory per limitare l'accesso alla workstation, sarà necessario aggiungere i server che ospitano gli agenti di autenticazione pass-through all'elenco dei server "Logon to". In caso contrario, gli utenti non riusciranno ad accedere Azure AD.
 
 ## <a name="authentication-agent-installation-issues"></a>Problemi di installazione dell'agente di autenticazione
 

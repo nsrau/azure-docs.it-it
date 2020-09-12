@@ -10,15 +10,15 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: ne
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
-ms.openlocfilehash: 8cc3bc176798efda46f03c80fe9cce2edd7daf6b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: bb5561ced93c3f5a899c6e48fdab0f14e52914bb
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89262635"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89291552"
 ---
 # <a name="filters"></a>Filtri
 
@@ -49,7 +49,7 @@ A seconda dello scenario, decidere quale tipo di filtro è più adatto (asset o 
 
 Utilizzare le seguenti proprietà per descrivere i filtri. 
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |firstQuality|La prima velocità in bit di qualità del filtro.|
 |presentationTimeRange|L’intervallo di tempo di presentazione. Questa proprietà viene utilizzata per filtrare i punti di inizio/fine del manifesto, la lunghezza della finestra di presentazione e la posizione iniziale live. <br/>Per altre informazioni, vedere [Intervallo di tempo di presentazione](#presentationtimerange).|
@@ -59,7 +59,7 @@ Utilizzare le seguenti proprietà per descrivere i filtri.
 
 Utilizzare questa proprietà con i **filtri asset**. Non è consigliabile impostare la proprietà per i **filtri account**.
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |**endTimestamp**|È adatto per i video on demand (VoD).<br/>Per la presentazione in streaming live, viene ignorato e applicato automaticamente al termine della presentazione e il flusso diventa VoD.<br/>Si tratta di un valore Long che rappresenta un punto finale assoluto della presentazione, arrotondato all'inizio GOP successivo più vicino. L'unità è la scala cronologica, quindi un endTimestamp di 1,8 miliardi sarà per 3 minuti.<br/>Usare startTimestamp e endTimestamp per tagliare i frammenti che saranno presenti nella playlist (manifesto).<br/>Ad esempio, startTimestamp = 40000000 e endTimestamp = 100000000 usando la scala cronologica predefinita genereranno una playlist che contiene frammenti compresi tra 4 secondi e 10 secondi della presentazione VoD. Se un frammento attraversa il limite, l'intero frammento verrà incluso nel manifesto.|
 |**forceEndTimestamp**|Si applica solo a Live streaming.<br/>Indica se la proprietà endTimestamp deve essere presente. Se true, è necessario specificare endTimestamp o viene restituito un codice di richiesta non valido.<br/>Valori consentiti: false, true.|
@@ -74,7 +74,7 @@ Si specifica un elenco di condizioni di proprietà del rilevamento dei filtri (F
 
 Le condizioni delle proprietà di filtro indicano i tipi di brano, i valori (descritti nella tabella seguente) e le operazioni (Uguale, DiversoDa). 
 
-|Nome|Description|
+|Nome|Descrizione|
 |---|---|
 |**Bitrate**|Usare la velocità in bit del brano per il filtro.<br/><br/>Il valore consigliato è un intervallo di velocità in bit, in bit al secondo. Ad esempio, "0-2427000".<br/><br/>Nota: anche se è possibile usare un valore di velocità in bit specifico, ad esempio 250000 (bit al secondo), questo approccio è sconsigliato, perché la velocità in bit esatta può variare da un asset a un altro.|
 |**FourCC**|Usare il valore FourCC del brano come filtro.<br/><br/>Il valore è il primo elemento di formato codec, come specificato in [RFC 6381](https://tools.ietf.org/html/rfc6381). Attualmente sono supportati i seguenti codec: <br/>Per i video: "avc1", "hev1", "hvc1"<br/>Per l’audio: "mp4a", "ec-3"<br/><br/>Per determinare i valori di FourCC per i brani in un asset, ottenere ed esaminare il file manifesto.|

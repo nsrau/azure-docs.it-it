@@ -7,12 +7,12 @@ ms.service: storsimple
 ms.topic: how-to
 ms.date: 06/12/2019
 ms.author: alkohli
-ms.openlocfilehash: 3ce84d3c03c2a24406629b8687c4fb8973809166
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 75ccfe7a8e62e519b1df89792211433260a6abf6
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88183634"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89294714"
 ---
 # <a name="configure-mpio-on-a-storsimple-host-running-centos"></a>Configurare MPIO in un host di StorSimple che esegue CentOS
 Questo articolo illustra i passaggi necessari a configurare l'I/O a percorsi multipli (MPIO) nel server host CentOS 6.6. Il server host è connesso al dispositivo Microsoft Azure StorSimple per la disponibilità elevata attraverso gli iniziatori iSCSI. L'articolo descrive in dettaglio il rilevamento automatico dei dispositivi con percorsi multipli e la configurazione specifica solo per i volumi StorSimple.
@@ -336,23 +336,23 @@ Questa sezione contiene alcuni suggerimenti utili in caso di problemi durante la
 
 Q. Le modifiche apportate al file `multipath.conf` non hanno effetto.
 
-A. Se sono state apportate modifiche al file `multipath.conf` , è necessario riavviare il servizio di percorsi multipli. Digitare il comando seguente:
+R. Se sono state apportate modifiche al file `multipath.conf` , è necessario riavviare il servizio di percorsi multipli. Digitare il comando seguente:
 
 `service multipathd restart`
 
 Q. Sono state abilitate due interfacce di rete sul dispositivo StorSimple e due interfacce di rete sull'host. Nell'elenco dei percorsi disponibili sono visibili solo due percorsi, mentre dovrebbero essercene quattro.
 
-A. Assicurarsi che i due percorsi siano nella stessa subnet e instradabili. Se le interfacce di rete si trovano su VLAN diverse e non sono instradabili, verranno visualizzati solo due percorsi. Un modo per verificare questa condizione è assicurarsi che sia possibile raggiungere entrambe le interfacce host da un'interfaccia di rete nel dispositivo StorSimple. Sarà necessario [contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) perché questa verifica può essere eseguita solo in una sessione di supporto.
+R. Assicurarsi che i due percorsi siano nella stessa subnet e instradabili. Se le interfacce di rete si trovano su VLAN diverse e non sono instradabili, verranno visualizzati solo due percorsi. Un modo per verificare questa condizione è assicurarsi che sia possibile raggiungere entrambe le interfacce host da un'interfaccia di rete nel dispositivo StorSimple. Sarà necessario [contattare il supporto tecnico Microsoft](storsimple-8000-contact-microsoft-support.md) perché questa verifica può essere eseguita solo in una sessione di supporto.
 
 Q. Nell'elenco dei percorsi disponibili non è visualizzato alcun output.
 
-A. In genere, non viene visualizzato alcun percorso multipercorso che suggerisce un problema con il daemon percorsi multipli ed è molto probabile che qualsiasi problema si trovi nel `multipath.conf` file.
+R. In genere, non viene visualizzato alcun percorso multipercorso che suggerisce un problema con il daemon percorsi multipli ed è molto probabile che qualsiasi problema si trovi nel `multipath.conf` file.
 
 Sarebbe anche opportuno verificare che sia possibile visualizzare alcuni dischi dopo la connessione alla destinazione, poiché nessuna risposta dalle liste a percorsi multipli potrebbe significare che non sono presenti dischi.
 
 * Per ripetere la scansione del bus iSCSI, usare il comando seguente:
   
-    `$ rescan-scsi-bus.sh`(parte del pacchetto sg3_utils)
+    `$ rescan-scsi-bus.sh` (parte del pacchetto sg3_utils)
 * Digitare i comandi seguenti:
   
     `$ dmesg | grep sd*`
@@ -377,9 +377,9 @@ Ripetere questo comando per tutte le interfacce di rete connesse nella destinazi
 `iscsiadm -m node --login -T <TARGET_IQN>`
 
 
-Q. Come è possibile verificare che il dispositivo sia incluso nell'elenco dei dispositivi consentiti?
+Q. Non so se il mio dispositivo è consentito.
 
-A. Per verificare che il dispositivo sia incluso nell'elenco dei dispositivi consentiti, usare il comando interattivo di risoluzione dei problemi seguente:
+R. Per verificare se il dispositivo è consentito, usare il seguente comando interattivo per la risoluzione dei problemi:
 
 ```console
 multipathd -k
@@ -423,7 +423,7 @@ dm-3 devnode blacklisted, unmonitored
 Per ulteriori informazioni, vedere [la pagina relativa alla risoluzione dei problemi per percorsi multipli](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/mpio_admin-troubleshoot).
 
 ## <a name="list-of-useful-commands"></a>Elenco di comandi utili
-| Tipo | Comando | Descrizione |
+| Type | Comando | Descrizione |
 | --- | --- | --- |
 | **iSCSI** |`service iscsid start` |Avviare il servizio iSCSI |
 | &nbsp; |`service iscsid stop` |Arrestare il servizio iSCSI |
@@ -449,4 +449,3 @@ Nella configurazione di MPIO sull'host Linux può anche essere necessario consul
 
 * [Configurazione di MPIO su CentOS](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/6/html/dm_multipath/index)
 * [Guida alla formazione Linux](http://linux-training.be/linuxsys.pdf)
-

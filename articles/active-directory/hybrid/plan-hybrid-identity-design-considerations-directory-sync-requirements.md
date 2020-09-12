@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21558c4eccf0cd1f4e9e1d630f0e89dbb6f01c51
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 500d226fcb60646becc49144f206dcb0dee49bd8
+ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "60381162"
+ms.lasthandoff: 09/01/2020
+ms.locfileid: "89278395"
 ---
 # <a name="determine-directory-synchronization-requirements"></a>Determinare i requisiti di sincronizzazione delle directory
 La sincronizzazione consiste nel fornire agli utenti un'identità nel cloud basata sulla rispettiva identità locale. Gli utenti, infatti, devono necessariamente disporre di un'identità nel cloud, indipendentemente dal fatto che per autenticarsi si avvalgano di un account sincronizzato o di un'autenticazione federata.  L'identità dovrà inoltre essere gestita e aggiornata periodicamente.  Gli aggiornamenti possono assumere molte forme, tra cui modifiche al titolo o alla password.  
@@ -64,7 +64,7 @@ Dopo aver individuato i requisiti di sincronizzazione e lo strumento corretto pe
   * Sarà possibile aprire le porte del firewall necessarie per supportare la sincronizzazione?
 * È stato definito un piano di ripristino di emergenza per il server di sincronizzazione?
 * Si dispone di un account con le autorizzazioni appropriate per tutte le foreste con cui si desidera eseguire la sincronizzazione?
-  * Se non si conosce la risposta a questa domanda, consultare la sezione "Autorizzazioni per la sincronizzazione delle password" dell'articolo [Installare il servizio Azure Active Directory Sync](https://msdn.microsoft.com/library/azure/dn757602.aspx#BKMK_CreateAnADAccountForTheSyncService) e verificare se si dispone già di un account con queste autorizzazioni o se è necessario crearne uno.
+  * Se non si conosce la risposta a questa domanda, consultare la sezione "Autorizzazioni per la sincronizzazione delle password" dell'articolo [Installare il servizio Azure Active Directory Sync](/previous-versions/azure/azure-services/dn757602(v=azure.100)#BKMK_CreateAnADAccountForTheSyncService) e verificare se si dispone già di un account con queste autorizzazioni o se è necessario crearne uno.
 * Se è prevista la sincronizzazione con più foreste, il server di sincronizzazione è in grado di accedere a ognuna di esse?
 
 > [!NOTE]
@@ -77,4 +77,3 @@ Dopo aver individuato i requisiti di sincronizzazione e lo strumento corretto pe
 
 ## <a name="see-also"></a>Vedere anche
 [Panoramica delle considerazioni di progettazione](plan-hybrid-identity-design-considerations-overview.md)
-

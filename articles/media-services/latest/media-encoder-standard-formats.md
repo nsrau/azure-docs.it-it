@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.reviewer: anilmur
-ms.openlocfilehash: c8c111d046bfaefac11df576e455162d20acecd0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: f6e9c0a3d9100bc447314f5874107363c6bf5d8a
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266562"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89289444"
 ---
 # <a name="standard-encoder-formats-and-codecs"></a>Formati e codec standard del codificatore
 
@@ -29,7 +29,7 @@ Questo articolo contiene un elenco dei formati di file di importazione ed esport
 
 ## <a name="input-containerfile-formats"></a>Contenitore di input/formati di file
 
-| Formato di file (estensioni di file) | Supportato |
+| Formato di file (estensioni di file) | Funzionalità supportata |
 | --- | --- |
 | FLV (con codec H. 264 e AAC) (.flv) |Sì |
 | MXF    (.mxf) |Sì |
@@ -54,7 +54,7 @@ oppure
 * File MXF, GXF e QuickTime in cui l'audio viene trasportato in tracce PCM separate, ma il mapping del canale (in stereo o 5.1) può essere dedotto dai metadati del file
 
 ## <a name="input-video-codecs"></a>Codec video di input
-| Codec video di input | Supportato |
+| Codec video di input | Funzionalità supportata |
 | --- | --- |
 | AVC 8 bit/10 bit, fino a 4:2:2, incluso AVCIntra |4:2:0 e 4:2:2 a 8 bit |
 | Avid DNxHD (in MXF) |Sì |
@@ -77,7 +77,7 @@ oppure
 | HEVC/H.265| Main Profile|
 
 ## <a name="input-audio-codecs"></a>Codec audio di input
-| Codec audio di input | Supportato |
+| Codec audio di input | Funzionalità supportata |
 | --- | --- |
 | AAC (AAC-LC, AAC-HE e AAC-HEv2; fino a 5.1) |Sì |
 | MPEG Layer 2 |Sì |
