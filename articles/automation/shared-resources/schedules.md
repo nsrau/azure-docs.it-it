@@ -2,19 +2,15 @@
 title: Gestire le pianificazioni in Automazione di Azure
 description: Questo articolo descrive come creare e usare una pianificazione in Automazione di Azure.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
-ms.date: 04/04/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: 8bd988029b8d78a29de38e995c36ee1860d8cda9
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: 844a45c9b596522b949443b6edc311308da7806c
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86187354"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004613"
 ---
 # <a name="manage-schedules-in-azure-automation"></a>Gestire le pianificazioni in Automazione di Azure
 
@@ -28,17 +24,17 @@ Per pianificare un runbook in Automazione di Azure per l'avvio a un'ora specific
 
 ## <a name="powershell-cmdlets-used-to-access-schedules"></a>Cmdlet di PowerShell usati per accedere alle pianificazioni
 
-I cmdlet nella tabella seguente consentono di creare e gestire le pianificazioni di Automazione con PowerShell. Sono inclusi nei [moduli Az](modules.md#az-modules). 
+I cmdlet nella tabella seguente consentono di creare e gestire le pianificazioni di Automazione con PowerShell. Sono inclusi nei [moduli Az](modules.md#az-modules).
 
 | Cmdlet | Descrizione |
 |:--- |:--- |
-| [Get-AzAutomationSchedule](/powershell/module/Az.Automation/Get-AzAutomationSchedule?view=azps-3.7.0) |Recupera una pianificazione. |
-| [Get-AzAutomationScheduledRunbook](/powershell/module/az.automation/get-azautomationscheduledrunbook?view=azps-3.7.0) |Recupera i runbook pianificati. |
-| [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) |Crea una nuova pianificazione. |
-| [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) |Associa un runbook a una pianificazione. |
-| [Remove-AzAutomationSchedule](/powershell/module/Az.Automation/Remove-AzAutomationSchedule?view=azps-3.7.0) |Rimuove una pianificazione. |
-| [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) |Imposta le proprietà di una pianificazione esistente. |
-| [Unregister-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook?view=azps-3.7.0) |Annulla l'associazione di un runbook a una pianificazione. |
+| [Get-AzAutomationSchedule](/powershell/module/Az.Automation/Get-AzAutomationSchedule) |Recupera una pianificazione. |
+| [Get-AzAutomationScheduledRunbook](/powershell/module/az.automation/get-azautomationscheduledrunbook) |Recupera i runbook pianificati. |
+| [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule) |Crea una nuova pianificazione. |
+| [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook) |Associa un runbook a una pianificazione. |
+| [Remove-AzAutomationSchedule](/powershell/module/Az.Automation/Remove-AzAutomationSchedule) |Rimuove una pianificazione. |
+| [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule) |Imposta le proprietà di una pianificazione esistente. |
+| [Unregister-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Unregister-AzAutomationScheduledRunbook) |Annulla l'associazione di un runbook a una pianificazione. |
 
 ## <a name="create-a-schedule"></a>Creare una pianificazione
 
@@ -49,23 +45,33 @@ I cmdlet nella tabella seguente consentono di creare e gestire le pianificazioni
 
 ### <a name="create-a-new-schedule-in-the-azure-portal"></a>Creare una nuova pianificazione nel portale di Azure
 
-1. Dall'account di automazione nel portale di Azure, selezionare **Pianificazioni** nella sezione **Risorse condivise** a sinistra.
-1. Selezionare **Aggiungi pianificazione** nella parte superiore della pagina.
-1. Nel riquadro **Nuova pianificazione** immettere un nome e facoltativamente una descrizione per la nuova pianificazione.
-1. Specificare se la pianificazione verrà eseguita una volta o in modo ricorrente selezionando **Una sola volta** o **Ricorrente**. Se si seleziona **Una sola volta** specificare un'ora di inizio e quindi selezionare **Crea**. Se si seleziona **Ricorrente** specificare un'ora di inizio. Per **Ricorre ogni** selezionare la frequenza con cui si vuole ripetere l'esecuzione del runbook. Selezionare ora, giorno, settimana o mese.
-    1. Se si seleziona **Settimana** verranno visualizzati i giorni della settimana tra cui scegliere. Selezionare tutti i giorni necessari. La prima esecuzione della pianificazione avverrà il primo giorno selezionato all'ora di inizio. Ad esempio, per scegliere una pianificazione nel weekend, selezionare sabato e domenica.
-    
-       ![Impostazione di una pianificazione ricorrente nel weekend](../media/schedules/week-end-weekly-recurrence.png)
+1. Nell'account di automazione, nel riquadro a sinistra, selezionare **pianificazioni** in **risorse condivise**.
+2. Nella pagina **pianificazioni** selezionare **Aggiungi pianificazione**.
+3. Nella pagina **nuova pianificazione** immettere un nome e, facoltativamente, immettere una descrizione per la nuova pianificazione.
 
-    2. Se si seleziona **Mese** sono disponibili opzioni diverse. In **Occorrenze mensili** selezionare **Giorni del mese** oppure **Giorni della settimana**. Se si seleziona **Giorni del mese** viene visualizzato un calendario in cui è possibile scegliere il numero di giorni desiderato. Se si sceglie una data, ad esempio il 31, che non è contemplata nel mese corrente, la pianificazione non verrà eseguita. Se si vuole che la pianificazione venga eseguita l'ultimo giorno, selezionare **Sì** in **Esegui nell'ultimo giorno del mese**. Se si seleziona **Giorni della settimana** viene visualizzata l'opzione **Ricorre ogni**. Selezionare **Primo**, **Secondo**, **Terzo**, **Quarto** o **Ultimo**. Scegliere infine il giorno della ripetizione.
+    >[!NOTE]
+    >Le pianificazioni di automazione attualmente non supportano l'uso di caratteri speciali nel nome della pianificazione.
+    >
 
-       ![Pianificazione mensile per il primo, il quindicesimo e l'ultimo giorno del mese](../media/schedules/monthly-first-fifteenth-last.png)
+4. Consente di indicare se la pianificazione viene eseguita una volta o in base a una pianificazione ricorrente selezionando **una sola volta** o **ricorrendo**. Se si seleziona **Una sola volta** specificare un'ora di inizio e quindi selezionare **Crea**. Se si seleziona **Ricorrente** specificare un'ora di inizio. Per **Ricorre ogni** selezionare la frequenza con cui si vuole ripetere l'esecuzione del runbook. Selezionare ora, giorno, settimana o mese.
 
-1. Al termine, selezionare **Crea**.
+    * Se si seleziona **Settimana** verranno visualizzati i giorni della settimana tra cui scegliere. Selezionare tutti i giorni necessari. La prima esecuzione della pianificazione avverrà il primo giorno selezionato all'ora di inizio. Ad esempio, per scegliere una pianificazione nel weekend, selezionare sabato e domenica.
+
+    ![Impostazione di una pianificazione ricorrente nel weekend](../media/schedules/week-end-weekly-recurrence.png)
+
+    * Se si seleziona **Mese** sono disponibili opzioni diverse. In **Occorrenze mensili** selezionare **Giorni del mese** oppure **Giorni della settimana**. Se si seleziona **Giorni del mese** viene visualizzato un calendario in cui è possibile scegliere il numero di giorni desiderato. Se si sceglie una data, ad esempio il 31, che non è contemplata nel mese corrente, la pianificazione non verrà eseguita. Se si vuole che la pianificazione venga eseguita l'ultimo giorno, selezionare **Sì** in **Esegui nell'ultimo giorno del mese**. Se si seleziona **Giorni della settimana** viene visualizzata l'opzione **Ricorre ogni**. Selezionare **Primo**, **Secondo**, **Terzo**, **Quarto** o **Ultimo**. Scegliere infine il giorno della ripetizione.
+
+    ![Pianificazione mensile per il primo, il quindicesimo e l'ultimo giorno del mese](../media/schedules/monthly-first-fifteenth-last.png)
+
+5. Al termine, selezionare **Crea**.
 
 ### <a name="create-a-new-schedule-with-powershell"></a>Creare una nuova pianificazione con PowerShell
 
-Usare il cmdlet [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule?view=azps-3.7.0) per creare le pianificazioni. Specificare l'ora di inizio per la pianificazione e la frequenza di esecuzione. Negli esempi seguenti viene illustrato come creare diversi scenari di pianificazione.
+Usare il cmdlet [New-AzAutomationSchedule](/powershell/module/Az.Automation/New-AzAutomationSchedule) per creare le pianificazioni. Specificare l'ora di inizio per la pianificazione e la frequenza di esecuzione. Negli esempi seguenti viene illustrato come creare diversi scenari di pianificazione.
+
+>[!NOTE]
+>Le pianificazioni di automazione attualmente non supportano l'uso di caratteri speciali nel nome della pianificazione.
+>
 
 #### <a name="create-a-one-time-schedule"></a>Creare una pianificazione occasionale
 
@@ -128,7 +134,7 @@ Un runbook può essere collegato a più pianificazioni e a una pianificazione po
 
 ### <a name="link-a-schedule-to-a-runbook-with-powershell"></a>Collegare una pianificazione a un runbook con PowerShell
 
-È possibile usare il cmdlet [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook?view=azps-3.7.0) per collegare una pianificazione. È possibile specificare i valori per i parametri del runbook con il parametro Parameters. Per altre informazioni su come specificare i valori dei parametri, vedere [Avvio di un runbook in Automazione di Azure](../start-runbooks.md).
+È possibile usare il cmdlet [Register-AzAutomationScheduledRunbook](/powershell/module/Az.Automation/Register-AzAutomationScheduledRunbook) per collegare una pianificazione. È possibile specificare i valori per i parametri del runbook con il parametro Parameters. Per altre informazioni su come specificare i valori dei parametri, vedere [Avvio di un runbook in Automazione di Azure](../start-runbooks.md).
 L'esempio seguente illustra come collegare una pianificazione a un runbook usando un cmdlet di Azure Resource Manager con parametri.
 
 ```azurepowershell-interactive
@@ -155,7 +161,7 @@ Quando si disabilita una pianificazione, i runbook a essa collegati non vengono 
 
 ### <a name="disable-a-schedule-from-the-azure-portal"></a>Disabilitare una pianificazione dal portale di Azure
 
-1. Nell'account di Automazione selezionare **Pianificazioni** in **Risorse condivise**.
+1. Nel riquadro sinistro dell'account di automazione selezionare **pianificazioni** in **risorse condivise**.
 1. Selezionare il nome di una pianificazione per aprire il rispettivo riquadro dei dettagli.
 1. Impostare **Abilitata** su **No**.
 
@@ -164,7 +170,7 @@ Quando si disabilita una pianificazione, i runbook a essa collegati non vengono 
 
 ### <a name="disable-a-schedule-with-powershell"></a>Disabilitare una pianificazione con PowerShell
 
-È possibile usare il cmdlet [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule?view=azps-3.7.0) per modificare le proprietà di una pianificazione esistente. Per disabilitare la pianificazione, specificare false per il parametro `IsEnabled`.
+È possibile usare il cmdlet [Set-AzAutomationSchedule](/powershell/module/Az.Automation/Set-AzAutomationSchedule) per modificare le proprietà di una pianificazione esistente. Per disabilitare la pianificazione, specificare false per il parametro `IsEnabled`.
 
 L'esempio seguente illustra come disabilitare una pianificazione per un runbook usando un cmdlet di Azure Resource Manager.
 
@@ -181,13 +187,13 @@ Quando si è pronti per rimuovere le pianificazioni, è possibile usare il porta
 
 ### <a name="remove-a-schedule-using-the-azure-portal"></a>Rimuovere una pianificazione usando il portale di Azure
 
-1. Nell'account di Automazione selezionare **Pianificazioni** in **Risorse condivise**.
-2. Fare clic sul nome di una pianificazione per aprire il rispettivo riquadro dei dettagli.
+1. Nel riquadro sinistro dell'account di automazione selezionare **pianificazioni** in **risorse condivise**.
+2. Selezionare il nome di una pianificazione per aprire il rispettivo riquadro dei dettagli.
 3. Fare clic su **Elimina**.
 
 ### <a name="remove-a-schedule-with-powershell"></a>Rimuovere una pianificazione con PowerShell
 
-È possibile usare il cmdlet `Remove-AzAutomationSchedule` come illustrato di seguito per eliminare una pianificazione esistente. 
+È possibile usare il cmdlet `Remove-AzAutomationSchedule` come illustrato di seguito per eliminare una pianificazione esistente.
 
 ```azurepowershell-interactive
 $automationAccountName = "MyAutomationAccount"

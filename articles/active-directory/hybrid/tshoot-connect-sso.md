@@ -13,12 +13,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5b35815e42b6c9fa5cbd874c0a58f5285c99539
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bdaa84d54bbd5558c995014aa4621b0051a36e97
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355914"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016266"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Risolvere i problemi relativi all'accesso Single Sign-On facile di Azure Active Directory
 
@@ -29,7 +29,7 @@ Questo articolo consente di trovare informazioni utili per risolvere i problemi 
 - In alcuni casi, l'abilitazione dell'accesso Single Sign-On facile può richiedere fino a 30 minuti.
 - Se si disabilita e si abilita di nuovo l'accesso Single Sign-On facile nel tenant, gli utenti non potranno usare l'accesso Single Sign-On fino alla scadenza dei ticket Kerberos memorizzati nella cache, validi in genere per 10 ore.
 - Se l'accesso SSO facile ha esito positivo, l'utente non ha la possibilità di scegliere **Mantieni l'accesso**. A causa di questo comportamento, gli [scenari di mapping di SharePoint e OneDrive](https://support.microsoft.com/help/2616712/how-to-configure-and-to-troubleshoot-mapped-network-drives-that-connec) non funzionano.
-- I client Office 365 Win32 (Outlook, Word, Excel e altri) con le versioni 16.0.8730.xxxx e successive sono supportati tramite un flusso non interattivo. Altre versioni non sono supportate. In tali versioni, per effettuare l'accesso gli utenti immetteranno i nomi utente, ma non le password. Per OneDrive, è necessario attivare la [funzionalità di configurazione automatica di OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) per un'esperienza di accesso automatico.
+- Microsoft 365 client Win32 (Outlook, Word, Excel e altri) con le versioni 16.0.8730. xxxx e successive sono supportati usando un flusso non interattivo. Altre versioni non sono supportate. In tali versioni, per effettuare l'accesso gli utenti immetteranno i nomi utente, ma non le password. Per OneDrive, è necessario attivare la [funzionalità di configurazione automatica di OneDrive](https://techcommunity.microsoft.com/t5/Microsoft-OneDrive-Blog/Previews-for-Silent-Sync-Account-Configuration-and-Bandwidth/ba-p/120894) per un'esperienza di accesso automatico.
 - L'accesso SSO facile non funziona in modalità di esplorazione privata in Firefox.
 - L'accesso Single Sign-On facile non funziona in Internet Explorer quando è attiva la modalità di protezione avanzata.
 - L'accesso Single Sign-On facile non funziona nei browser per dispositivi mobili basati su iOS e Android.
@@ -74,9 +74,9 @@ Passare a **Azure Active Directory**  >  **accessi** nell'interfaccia di [ammini
 Per la risoluzione dei problemi dell'accesso SSO facile, usare il seguente elenco di controllo:
 
 - Verificare se l'accesso SSO facile è abilitato in Azure AD Connect. Se non è possibile abilitare la funzionalità, ad esempio a causa di una porta bloccata, verificare che tutti i [prerequisiti](how-to-connect-sso-quick-start.md#step-1-check-the-prerequisites) siano soddisfatti.
-- Se nel tenant sono stati abilitati sia [Aggiunta ad Azure AD](../active-directory-azureadjoin-overview.md) che l'accesso Single Sign-On facile, assicurarsi che il problema non dipenda da Aggiunta ad Azure AD. SSO da Aggiunta ad Azure AD ha la precedenza su SSO facile se il dispositivo è sia registrato con Azure AD che aggiunto a un dominio. Con SSO da Aggiunta ad Azure AD l'utente visualizza un riquadro di accesso con il messaggio "Connesso a Windows".
+- Se nel tenant sono stati abilitati sia [Aggiunta ad Azure AD](../devices/overview.md) che l'accesso Single Sign-On facile, assicurarsi che il problema non dipenda da Aggiunta ad Azure AD. SSO da Aggiunta ad Azure AD ha la precedenza su SSO facile se il dispositivo è sia registrato con Azure AD che aggiunto a un dominio. Con SSO da Aggiunta ad Azure AD l'utente visualizza un riquadro di accesso con il messaggio "Connesso a Windows".
 - Verificare che l'URL Azure AD ( `https://autologon.microsoftazuread-sso.com` ) faccia parte delle impostazioni dell'area Intranet dell'utente.
-- Verificare che il dispositivo aziendale sia aggiunto al dominio Active Directory. Per poter usare l'accesso Single Sign-on facile, _non_ è necessario che il dispositivo sia [aggiunto ad Azure AD](../active-directory-azureadjoin-overview.md).
+- Verificare che il dispositivo aziendale sia aggiunto al dominio Active Directory. Per poter usare l'accesso Single Sign-on facile, _non_ è necessario che il dispositivo sia [aggiunto ad Azure AD](../devices/overview.md).
 - Verificare che l'utente sia connesso al dispositivo tramite un account di dominio di Active Directory.
 - Verificare che l'account dell'utente sia presente in una foresta di Active Directory in cui è stato configurato l'accesso SSO facile.
 - Verificare che il dispositivo sia connesso alla rete aziendale.
@@ -106,7 +106,7 @@ Se il problema persiste, è possibile reimpostare manualmente la funzionalità n
 
 ### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Passaggio 1: importare il modulo di PowerShell per l'accesso SSO facile
 
-1. Prima, scaricare e installare [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+1. Prima, scaricare e installare [Azure AD PowerShell](/powershell/azure/active-directory/overview).
 2. Passare alla cartella `%programfiles%\Microsoft Azure Active Directory Connect`.
 3. Importare il modulo di PowerShell Seamless SSO usando il comando seguente: `Import-Module .\AzureADSSO.psd1`.
 

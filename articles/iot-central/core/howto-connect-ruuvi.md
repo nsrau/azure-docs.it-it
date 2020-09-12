@@ -10,16 +10,16 @@ ms.custom:
 ms.author: avneets
 author: avneet723
 ms.date: 11/27/2019
-ms.openlocfilehash: 93e4d3d0bed9090573d2b6ee87a29b86ccd72e42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7cf0d31895eaeaa41c23f9f07664b27bed1d3126
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81758947"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016759"
 ---
 # <a name="connect-a-ruuvitag-sensor-to-your-azure-iot-central-application"></a>Connettere un sensore RuuviTag all'applicazione IoT Central di Azure
 
-*Le informazioni di questo articolo sono destinate a generatori di soluzioni e sviluppatori di dispositivi.*
+*Le informazioni di questo articolo sono destinate ai generatori di soluzioni.*
 
 Questo articolo descrive come un generatore di soluzioni può connettere un sensore RuuviTag all'applicazione Microsoft Azure IoT Central.
 
@@ -45,8 +45,8 @@ Per caricare un sensore RuuviTag nell'istanza dell'applicazione IoT Central di A
 
 Per aggiungere un modello di dispositivo RuuviTag:
 
-1. Passare alla scheda ***modelli di dispositivo*** nel riquadro sinistro, selezionare **+ nuovo**: ![ Crea nuovo modello di dispositivo. ](./media/howto-connect-ruuvi/devicetemplate-new.png) la pagina offre un'opzione per ***creare un modello personalizzato*** o ***usare un modello di dispositivo preconfigurato***
-1. Selezionare il modello di dispositivo RuuviTag dall'elenco dei modelli di dispositivo preconfigurati, come illustrato di seguito: ![ selezionare il modello di dispositivo RuuviTag](./media/howto-connect-ruuvi/devicetemplate-preconfigured.png)
+1. Passare alla scheda ***modelli di dispositivo*** nel riquadro sinistro, selezionare **+ nuovo**:  ![ Crea nuovo modello di dispositivo. ](./media/howto-connect-ruuvi/devicetemplate-new.png) la pagina offre un'opzione per ***creare un modello personalizzato*** o ***usare un modello di dispositivo preconfigurato***
+1. Selezionare il modello di dispositivo RuuviTag dall'elenco dei modelli di dispositivo preconfigurati, come illustrato di seguito:  ![ selezionare il modello di dispositivo RuuviTag](./media/howto-connect-ruuvi/devicetemplate-preconfigured.png)
 1. Selezionare ***Avanti: Personalizza*** per continuare con il passaggio successivo.
 1. Nella schermata successiva selezionare ***Crea*** per caricare il modello di dispositivo C500 nell'applicazione IoT Central.
 

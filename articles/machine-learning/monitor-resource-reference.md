@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 04/27/2020
-ms.openlocfilehash: e9a43f4a7da39869e002e2da9fb9638381e57cb8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 405b0aa051d0d1142d7dd4ccbf2bca4ef9cc3545
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82856027"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650592"
 ---
 # <a name="azure-machine-learning-monitoring-data-reference"></a>Riferimento ai dati di monitoraggio di Azure Machine Learning
 
@@ -73,10 +73,10 @@ La tabella seguente elenca le proprietà per i log delle risorse Azure Machine L
 | MinimumNodeCount | Numero minimo di nodi del cluster |
 | MaximumNodeCount | Numero massimo di nodi del cluster |
 | NodeDeallocationOption | Come deallocare il nodo |
-| Publisher | Server di pubblicazione del tipo di cluster |
+| Editore | Server di pubblicazione del tipo di cluster |
 | Offerta | Offerta con cui viene creato il cluster |
 | Sku | SKU del nodo/VM creato nel cluster |
-| Versione | Versione dell'immagine usata durante la creazione del nodo o della VM |
+| Version | Versione dell'immagine usata durante la creazione del nodo o della VM |
 | SubnetId | SubnetId del cluster |
 | AllocationState | Stato di allocazione cluster |
 | CurrentNodeCount | Numero corrente di nodi del cluster |
@@ -109,10 +109,10 @@ La tabella seguente elenca le proprietà per i log delle risorse Azure Machine L
 | VmSize | Dimensioni della macchina virtuale del nodo |
 | VmFamilyName | Famiglia di macchine virtuali a cui appartiene il nodo |
 | VmPriority | Priorità del nodo creato/LowPriority dedicato |
-| Publisher | Autore dell'immagine della macchina virtuale, ad esempio Microsoft-dsvm |
+| Editore | Autore dell'immagine della macchina virtuale, ad esempio Microsoft-dsvm |
 | Offerta | Offerta associata alla creazione della macchina virtuale |
 | Sku | SKU del nodo o della macchina virtuale creata |
-| Versione | Versione dell'immagine usata durante la creazione del nodo o della VM |
+| Version | Versione dell'immagine usata durante la creazione del nodo o della VM |
 | ClusterCreationTime | Ora di creazione del cluster |
 | ResizeStartTime | Ora di inizio/discesa della scalabilità del cluster |
 | ResizeEndTime | Ora di fine della scalabilità verticale del cluster |
@@ -158,7 +158,7 @@ Le informazioni sulle quote sono destinate solo ai Azure Machine Learning di cal
 
 Di seguito sono riportate le dimensioni che possono essere usate per filtrare le metriche delle quote:
 
-| Dimension | Metriche disponibili con | Descrizione |
+| Dimensione | Metriche disponibili con | Descrizione |
 | ---- | ---- | ---- |
 | Cluster Name | Tutte le metriche della quota | Nome dell'istanza di calcolo. |
 | Nome della famiglia di macchine virtuali | Percentuale di utilizzo della quota | Nome della famiglia di macchine virtuali usata dal cluster. |
@@ -173,10 +173,10 @@ Di seguito sono riportate le dimensioni che possono essere usate per filtrare le
 
 Di seguito sono riportate le dimensioni che possono essere usate per filtrare le metriche delle risorse:
 
-| Dimension | Descrizione |
+| Dimensione | Descrizione |
 | ----- | ----- |
 | CreatedTime | |
-| deviceId | ID del dispositivo (GPU). Disponibile solo per GpuUtilization. |
+| DeviceId | ID del dispositivo (GPU). Disponibile solo per GpuUtilization. |
 | NodeId | ID del nodo creato in cui è in esecuzione il processo. |
 | RunId | ID dell'esecuzione/processo. |
 
@@ -192,16 +192,16 @@ Informazioni sulle esecuzioni di training.
 
 Di seguito sono riportate le dimensioni che possono essere usate per filtrare le metriche di esecuzione:
 
-| Dimension | Descrizione |
+| Dimensione | Descrizione |
 | ---- | ---- |
 | ComputeType | Tipo di calcolo utilizzato dall'esecuzione. |
-| PipelineStepType | Tipo di [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py) utilizzato nell'esecuzione. |
+| PipelineStepType | Tipo di [PipelineStep](https://docs.microsoft.com/python/api/azureml-pipeline-core/azureml.pipeline.core.pipelinestep?view=azure-ml-py&preserve-view=true) utilizzato nell'esecuzione. |
 | PublishedPipelineId | ID della pipeline pubblicata utilizzata nell'esecuzione. |
 | RunType | Tipo di esecuzione. |
 
 I valori validi per la dimensione RunType sono i seguenti:
 
-| valore | Descrizione |
+| Valore | Descrizione |
 | ----- | ----- |
 | Esperimento | Esecuzioni non pipeline. |
 | PipelineRun | Esecuzione di una pipeline, che è l'elemento padre di un StepRun. |

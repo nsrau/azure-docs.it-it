@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: 1e6abeff8998e55eb7cbf450d1c3cc32f233e382
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 65b6b1f783dbabc9ad2e1a4bf79008240d1b2726
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87065972"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659919"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Connettersi a file system locali dalle App per la logica di Azure
 
@@ -35,7 +35,7 @@ Questo articolo illustra come connettersi a un file system locale come descritto
 
 * Accedere al computer in cui è presente il file system che si desidera utilizzare. Se, ad esempio, si installa il gateway dati nello stesso computer del file system, sono necessarie le credenziali dell'account per tale computer.
 
-* Un account di posta elettronica da un provider supportato da App per la logica, ad esempio Office 365 Outlook, Outlook.com o Gmail. Per altri provider, [vedere qui l'elenco dei connettori](/connectors/). Questa app per la logica usa un account Office 365 Outlook. Se si usa un altro account di posta elettronica, la procedura generale resta invariata, ma l'interfaccia utente potrebbe essere leggermente diversa.
+* Un account di posta elettronica da un provider supportato da App per la logica, ad esempio Office 365 Outlook, Outlook.com o Gmail. Per altri provider, [vedere qui l'elenco dei connettori](/connectors/). Questa app per la logica usa un account aziendale o dell'Istituto di istruzione. Se si usa un altro account di posta elettronica, la procedura generale resta invariata, ma l'interfaccia utente potrebbe essere leggermente diversa.
 
   > [!IMPORTANT]
   > Se si vuole usare il connettore Gmail, solo gli account G Suite Business possono usare questo connettore senza restrizioni nelle app per la logica. Se si dispone di un account Gmail consumer, è possibile usare questo connettore solo con servizi approvati da Google specifici oppure è possibile [creare un'app client Google da usare per l'autenticazione con il connettore Gmail](/connectors/gmail/#authentication-and-bring-your-own-application). Per altre informazioni, vedere [Informative sulla privacy e sulla sicurezza dei dati per i connettori Google in App per la logica di Azure](../connectors/connectors-google-data-security-privacy-policy.md).
@@ -75,7 +75,7 @@ Questo articolo illustra come connettersi a un file system locale come descritto
    | **Tipo di autenticazione** | No | <*tipo di autenticazione*> | Tipo di autenticazione usato dal file system: **Windows** |
    | **Nome utente** | Sì | <*domain* > \\ dominio < *nome utente*> <p>-oppure- <p><*computer* > \\ locale < *nome utente*> | Nome utente del computer in cui è presente la cartella file system. <p>Se la cartella file System si trova nello stesso computer del gateway dati locale, è possibile usare <nome utente *del computer locale* > \\ < *username*>. |
    | **Password** | Sì | <*password*> | La password per il computer in cui è presente il file system |
-   | **Gateway** | Sì | <*installato-Gateway-Name*> | Il nome del gateway installato in precedenza |
+   | **gateway** | Sì | <*installato-Gateway-Name*> | Il nome del gateway installato in precedenza |
    |||||
 
 1. Al termine dell'operazione, scegliere **Crea**.

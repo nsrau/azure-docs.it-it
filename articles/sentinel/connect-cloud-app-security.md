@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/24/2020
 ms.author: yelevin
-ms.openlocfilehash: 8439c8f7aa4e75abd727d2ce2e80d98e6fce5411
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6be2805cab1bcaadb7878be69399e14ffe59d7b0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563951"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659739"
 ---
 # <a name="connect-data-from-microsoft-cloud-app-security"></a>Connettere i dati da Microsoft Cloud App Security 
 
@@ -48,7 +48,7 @@ Se Cloud App Security viene distribuita e si inseriscono i dati, i dati dell'avv
 
 1. Fare clic su **Applica modifiche**.
 
-1. È possibile scegliere se si desidera che gli avvisi del Centro sicurezza di Azure generino automaticamente gli eventi imprevisti in Sentinel di Azure. In **crea eventi imprevisti**selezionare **abilitato** per attivare la regola di analisi predefinita che crea automaticamente gli eventi imprevisti dagli avvisi. È quindi possibile modificare questa regola in **Analytics**, nella scheda **regole attive** .
+1. È possibile scegliere se si desidera che gli avvisi di Azure Defender (in precedenza il Centro sicurezza di Azure) possano generare automaticamente eventi imprevisti in Sentinel di Azure. In **crea eventi imprevisti**selezionare **abilitato** per attivare la regola di analisi predefinita che crea automaticamente gli eventi imprevisti dagli avvisi. È quindi possibile modificare questa regola in **Analytics**, nella scheda  **regole attive** .
 
 1. Per utilizzare lo schema pertinente in Log Analytics per gli avvisi di Cloud App Security, digitare `SecurityAlert` nella finestra query. Per lo schema dei log di Cloud Discovery, digitare `McasShadowItReporting` .
 

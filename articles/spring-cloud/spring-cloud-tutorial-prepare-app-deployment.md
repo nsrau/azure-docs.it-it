@@ -7,18 +7,18 @@ ms.topic: how-to
 ms.date: 02/03/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 79d3829eaea15c8e7909b98b83d1327cd90e4544
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 59318cca33ba1607498546161764aa3aaaaea13e
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260324"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90014940"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Preparare un'applicazione Java Spring per la distribuzione in Azure Spring Cloud
 
 Questo argomento illustra come preparare un'applicazione Java Spring esistente per la distribuzione in Azure Spring Cloud. Se correttamente configurato, Azure Spring Cloud offre servizi affidabili per il monitoraggio, il ridimensionamento e l'aggiornamento dell'applicazione Java Spring Cloud.
 
-Prima di eseguire questo esempio, è possibile provare la [Guida introduttiva di base](spring-cloud-quickstart.md).
+Prima di eseguire questo esempio, è possibile provare la [guida di avvio rapido di base](spring-cloud-quickstart.md).
 
 Altri esempi illustrano come distribuire un'applicazione in Azure Spring Cloud quando viene configurato il file POM. 
 * [Avviare la prima app](spring-cloud-quickstart.md)
@@ -128,9 +128,9 @@ La tabella seguente elenca le versioni di Azure Spring Cloud corrette per l'app 
 
 Versione di Spring Boot | Versione di Spring Cloud | Versione iniziale del client Azure Spring cloud
 ---|---|---
-2.1 | Greenwich.RELEASE | 2.1.2
-2.2 | Hoxton. SR8 | Non necessaria
-2.3 | Hoxton. SR8 | Non necessaria
+2.1.x | Greenwich.RELEASE | 2.1.2
+2.2. x | Hoxton. SR8 | Non necessaria
+2.3. x | Hoxton. SR8 | Non necessaria
 
 Se si usa Spring Boot 2,1, includere il dependenciy seguente nel file di pom.xml.
 

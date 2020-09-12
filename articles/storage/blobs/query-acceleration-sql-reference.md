@@ -1,28 +1,25 @@
 ---
-title: Guida di riferimento al linguaggio SQL per l'accelerazione delle query (anteprima)
+title: Informazioni di riferimento sul linguaggio SQL di accelerazione query
 titleSuffix: Azure Storage
 description: Informazioni su come usare la sintassi SQL di accelerazione query.
 services: storage
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 04/21/2020
+ms.date: 09/09/2020
 ms.author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: ereilebr
-ms.openlocfilehash: 3408970bcf5e34ce9f0f0afe9e723b4877dcd694
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: affddf7367f58107106ae07a07b8baedac73e251
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84193396"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659557"
 ---
-# <a name="query-acceleration-sql-language-reference-preview"></a>Guida di riferimento al linguaggio SQL per l'accelerazione delle query (anteprima)
+# <a name="query-acceleration-sql-language-reference"></a>Informazioni di riferimento sul linguaggio SQL di accelerazione query
 
 L'accelerazione delle query supporta un linguaggio simile a SQL ANSI per l'espressione di query sul contenuto del BLOB.  Il sottolinguaggio SQL per l'accelerazione delle query è un subset di ANSI SQL con un set limitato di tipi di dati supportati, operatori e così via, ma si espande anche in ANSI SQL per supportare le query su formati di dati semistrutturati gerarchici come JSON. 
-
-> [!NOTE]
-> La funzionalità di accelerazione delle query è in anteprima pubblica ed è disponibile nelle aree Canada centrale e Francia centrale. Per esaminare le limitazioni, vedere l'articolo relativo ai [problemi noti](data-lake-storage-known-issues.md) . Per iscriversi all'anteprima, vedere [questo modulo](https://aka.ms/adls/qa-preview-signup). 
 
 ## <a name="select-syntax"></a>Seleziona sintassi
 
@@ -66,7 +63,7 @@ SELECT sys.split(split_size)FROM BlobStorage
 |timestamp|Un momento specifico.                           |
 |BOOLEAN  |True o false.                             |
 
-Durante la lettura di valori da dati in formato CSV, tutti i valori vengono letti come stringhe.  I valori stringa possono essere convertiti in altri tipi usando le espressioni CAST.  È possibile eseguire il cast implicito dei valori ad altri tipi a seconda del contesto. per altre informazioni, vedere [precedenza dei tipi di dati (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-2017).
+Durante la lettura di valori da dati in formato CSV, tutti i valori vengono letti come stringhe.  I valori stringa possono essere convertiti in altri tipi usando le espressioni CAST.  È possibile eseguire il cast implicito dei valori ad altri tipi a seconda del contesto. per altre informazioni, vedere [precedenza dei tipi di dati (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql).
 
 ## <a name="expressions"></a>Espressioni
 
@@ -80,15 +77,36 @@ Nei dati in formato CSV, è possibile fare riferimento ai campi anche in base al
 
 Sono supportati gli operatori SQL standard seguenti:
 
-``=``, ``!=``, ``<>``, ``<``, ``<=``, ``>``, ``>=``, ``+``, ``-``, ``/``, ``*``, ``%``, ``AND``, ``OR``, ``NOT``, ``CAST``, ``BETWEEN``, ``IN``, ``NULLIF``, ``COALESCE``
+|Operatore|Descrizione|
+|--|--|
+|[=](https://docs.microsoft.com/sql/t-sql/language-elements/equals-transact-sql)    |Esegue un confronto per determinare se due espressioni sono uguali (operatore di confronto).|
+|[!=](https://docs.microsoft.com/sql/t-sql/language-elements/not-equal-to-transact-sql-exclamation)    |Verifica se un'espressione è diversa da un'altra espressione (operatore di confronto).|
+|[<>](https://docs.microsoft.com/sql/t-sql/language-elements/not-equal-to-transact-sql-traditional)    |Confronta due espressioni non uguali a (operatore di confronto).|
+|[<](https://docs.microsoft.com/sql/t-sql/language-elements/less-than-transact-sql)    |Confronta due espressioni per un valore minore di (operatore di confronto).|
+|[<=](https://docs.microsoft.com/sql/t-sql/language-elements/less-than-or-equal-to-transact-sql)    |Confronta due espressioni per un valore minore o uguale a (operatore di confronto).|
+|[>](https://docs.microsoft.com/sql/t-sql/language-elements/greater-than-transact-sql)    |Confronta due espressioni per maggiore di (un operatore di confronto). |
+|[>=](https://docs.microsoft.com/sql/t-sql/language-elements/greater-than-or-equal-to-transact-sql)    |Confronta due espressioni e verifica la presenza di valori maggiori o uguali (operatore di confronto).|
+|[+](https://docs.microsoft.com/sql/t-sql/language-elements/add-transact-sql)    |Esegue la somma di due numeri. Questo operatore aritmetico di addizione consente inoltre di aggiungere un numero, espresso in giorni, a una data.|
+|[-](https://docs.microsoft.com/sql/t-sql/language-elements/subtract-transact-sql)    |Sottrae due numeri (operatore aritmetico di sottrazione). |
+|[/](https://docs.microsoft.com/sql/t-sql/language-elements/divide-transact-sql)    |Divide un numero per un altro (operatore aritmetico di divisione).|
+|[*](https://docs.microsoft.com/sql/t-sql/language-elements/multiply-transact-sql)    |Moltiplica due espressioni (operatore aritmetico di moltiplicazione).|
+|[%](https://docs.microsoft.com/sql/t-sql/language-elements/modulo-transact-sql)    |Viene restituito il resto di una divisione.|
+|[AND](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-and-transact-sql)    |Esegue un'operazione con AND logico bit per bit tra due valori integer.|
+|[OR](https://docs.microsoft.com/sql/t-sql/language-elements/bitwise-or-transact-sql)    |Esegue un'operazione con OR logico bit per bit tra due valori integer specificati convertiti in espressioni binarie in istruzioni Transact-SQL.|
+|[NOT](https://docs.microsoft.com/sql/t-sql/language-elements/not-transact-sql)    |Nega un input booleano.|
+|[CAST](https://docs.microsoft.com/sql/t-sql/functions/cast-and-convert-transact-sql)    |Consente di convertire un'espressione da un tipo di dati a un altro.|
+|[BETWEEN](https://docs.microsoft.com/sql/t-sql/language-elements/between-transact-sql)    |Specifica un intervallo da testare.|
+|[IN](https://docs.microsoft.com/sql/t-sql/language-elements/in-transact-sql)    |Determina se il valore specificato corrisponde a un valore in una sottoquery o in un elenco.|
+|[NULLIF](https://docs.microsoft.com/sql/t-sql/language-elements/nullif-transact-sql)    |Restituisce un valore Null se le due espressioni specificate sono uguali.|
+|[COALESCE](https://docs.microsoft.com/sql/t-sql/language-elements/coalesce-transact-sql)    |Valuta gli argomenti nell'ordine e restituisce il valore corrente della prima espressione che inizialmente non restituisce NULL.|
 
-Se i tipi di dati a sinistra e a destra di un operatore sono diversi, la conversione automatica verrà eseguita in base alle regole specificate qui: [precedenza dei tipi di dati (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql?view=sql-server-2017).
+Se i tipi di dati a sinistra e a destra di un operatore sono diversi, la conversione automatica verrà eseguita in base alle regole specificate qui: [precedenza dei tipi di dati (Transact-SQL)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-precedence-transact-sql).
 
 Il linguaggio SQL di accelerazione query supporta solo un subset molto piccolo dei tipi di dati descritti in questo articolo.  Vedere la sezione [tipi di dati](#data-types) di questo articolo.
 
 ### <a name="casts"></a>Cast
 
-Il linguaggio SQL di accelerazione query supporta l'operatore CAST, in base alle regole seguenti: [conversione del tipo di dati (motore di database)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-conversion-database-engine?view=sql-server-2017).  
+Il linguaggio SQL di accelerazione query supporta l'operatore CAST, in base alle regole seguenti: [conversione del tipo di dati (motore di database)](https://docs.microsoft.com/sql/t-sql/data-types/data-type-conversion-database-engine).  
 
 Il linguaggio SQL di accelerazione query supporta solo un piccolo subset dei tipi di dati descritti in questo articolo.  Vedere la sezione [tipi di dati](#data-types) di questo articolo.
 
@@ -96,7 +114,16 @@ Il linguaggio SQL di accelerazione query supporta solo un piccolo subset dei tip
 
 Il linguaggio SQL per l'accelerazione delle query supporta le seguenti funzioni di stringa SQL standard:
 
-``LIKE``, ``CHAR_LENGTH``, ``CHARACTER_LENGTH``, ``LOWER``, ``UPPER``, ``SUBSTRING``, ``TRIM``, ``LEADING``, ``TRAILING``.
+|Funzione|Descrizione|
+|--|--|
+|CHAR_LENGTH    | Restituisce la lunghezza in caratteri dell'espressione stringa, se l'espressione stringa è di un tipo di dati character. in caso contrario, restituisce la lunghezza in byte dell'espressione stringa (il valore integer più piccolo non inferiore al numero di bit diviso per 8). Questa funzione corrisponde alla funzione CHARACTER_LENGTH.|
+|CHARACTER_LENGTH    |Restituisce la lunghezza in caratteri dell'espressione stringa, se l'espressione stringa è di un tipo di dati character. in caso contrario, restituisce la lunghezza in byte dell'espressione stringa (il valore integer più piccolo non inferiore al numero di bit diviso per 8). Questa funzione corrisponde alla funzione CHAR_LENGTH|
+|[LOWER](https://docs.microsoft.com/sql/t-sql/functions/lower-transact-sql)    |Restituisce un'espressione di caratteri dopo aver convertito i caratteri maiuscoli in caratteri minuscoli.|
+|[UPPER](https://docs.microsoft.com/sql/t-sql/functions/upper-transact-sql)    |Restituisce un'espressione di caratteri con dati di tipo carattere minuscoli convertiti in maiuscolo.|
+|[SUBSTRING](https://docs.microsoft.com/sql/t-sql/functions/substring-transact-sql)    |Restituisce parte di un'espressione di tipo carattere, binario, testo o immagine in SQL Server.|
+|[TRIM](https://docs.microsoft.com/sql/t-sql/functions/trim-transact-sql)    |Rimuove il carattere spazio (32) o altri caratteri specificati dall'inizio e dalla fine di una stringa.|
+|LEADING    |Descrizione|
+|TRAILING    |Descrizione|
 
 Ecco alcuni esempi:
 
@@ -108,16 +135,6 @@ Ecco alcuni esempi:
 |UPPER|``SELECT UPPER('AbCdEfG') from BlobStorage``|``ABCDEFG``|
 |SUBSTRING|``SUBSTRING('123456789', 1, 5)``|``23456``|
 |TRIM|``TRIM(BOTH '123' FROM '1112211Microsoft22211122')``|``Microsoft``|
-
-La funzione [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) consente di cercare un modello. Di seguito sono riportati alcuni esempi che usano la funzione [like](https://docs.microsoft.com/sql/t-sql/language-elements/like-transact-sql?view=sql-server-ver15) per cercare la stringa di dati ``abc,abd,cd\ntest,test2,test3\na_bc,xc%d^e,gh[i `` .
-
-|Query|Esempio|
-|--|--|
-|``SELECT _1, _2, _3 from BlobStorage where _2 LIKE 'a%'``|``abc,abd,cd\n``|
-|``SELECT * from BlobStorage where _1 LIKE 'a[bcd]c``|``abc,abd,cd\n``|
-|``SELECT _1 from BlobStorage where _2 LIKE '[^xyz]%'``|``abc\ntest\n``|
-|``SELECT * from BlobStorage where _1 LIKE 'a_``|``abc,abd,cd\n``|
-|``SELECT _2,_3 from BlobStorage where _3 LIKE '[g-h]_![[a-j]' Escape '!'``|``xc%d^e,gh[i\n``|
 
 ### <a name="date-functions"></a>Funzioni di data
 
@@ -133,14 +150,12 @@ Il linguaggio SQL per l'accelerazione delle query supporta anno, mese, giorno, o
 
 Esempi:
 
-```sql
-DATE_ADD(datepart, quantity, timestamp)
-DATE_ADD('minute', 1, CAST('2017-01-02T03:04:05.006Z' AS TIMESTAMP)
+'' SQL DATE_ADD (DatePart, Quantity, timestamp) DATE_ADD (' minute ', 1, CAST (' 2017-01-02T03:04:05.006 Z ' come TIMESTAMP)
 ```
 
-#### <a name="date_diff-function"></a>Funzione DATE_DIFF
+#### DATE_DIFF function
 
-Il linguaggio SQL per l'accelerazione delle query supporta anno, mese, giorno, ora, minuto e secondo per la ``DATE_DIFF`` funzione.
+The query acceleration SQL language supports year, month, day, hour, minute, second for the ``DATE_DIFF`` function.
 
 ```sql
 DATE_DIFF(datepart, timestamp, timestamp)
@@ -220,12 +235,12 @@ Un'istruzione SELECT può contenere una o più espressioni di proiezione o una s
 
 |Expression|Descrizione|
 |--|--|
-|[CONTEGGIO ( \* )](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Restituisce il numero di record che corrispondono all'espressione del predicato.|
-|[CONTEGGIO (espressione)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql?view=sql-server-ver15)    |Restituisce il numero di record per i quali Expression è diverso da null.|
-|[MEDIA (espressione)](https://docs.microsoft.com/sql/t-sql/functions/avg-transact-sql?view=sql-server-ver15)    |Restituisce la media dei valori non null dell'espressione.|
-|[MIN (espressione)](https://docs.microsoft.com/sql/t-sql/functions/min-transact-sql?view=sql-server-ver15)    |Restituisce il valore minimo non null dell'espressione.|
-|[Max (espressione](https://docs.microsoft.com/sql/t-sql/functions/max-transact-sql?view=sql-server-ver15))    |Restituisce il valore massimo non null dell'espressione.|
-|[SUM (espressione)](https://docs.microsoft.com/sql/t-sql/functions/sum-transact-sql?view=sql-server-ver15)    |Restituisce la somma di tutti i valori non null dell'espressione.|
+|[CONTEGGIO ( \* )](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql)    |Restituisce il numero di record che corrispondono all'espressione del predicato.|
+|[CONTEGGIO (espressione)](https://docs.microsoft.com/sql/t-sql/functions/count-transact-sql)    |Restituisce il numero di record per i quali Expression è diverso da null.|
+|[MEDIA (espressione)](https://docs.microsoft.com/sql/t-sql/functions/avg-transact-sql)    |Restituisce la media dei valori non null dell'espressione.|
+|[MIN (espressione)](https://docs.microsoft.com/sql/t-sql/functions/min-transact-sql)    |Restituisce il valore minimo non null dell'espressione.|
+|[MAX (espressione](https://docs.microsoft.com/sql/t-sql/functions/max-transact-sql)    |Restituisce il valore massimo non null dell'espressione.|
+|[SUM (espressione)](https://docs.microsoft.com/sql/t-sql/functions/sum-transact-sql)    |Restituisce la somma di tutti i valori non null dell'espressione.|
 
 ### <a name="missing"></a>MANCANTE
 
@@ -321,8 +336,8 @@ Nella maggior parte dei casi, la dimensione di ogni batch sarà leggermente supe
 >[!NOTE]
 > Il split_size deve essere almeno 10 MB (10485760).
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
-- [Accelerazione query Azure Data Lake Storage (anteprima)](data-lake-storage-query-acceleration.md)
-- [Filtrare i dati usando Azure Data Lake Storage Acceleration query (anteprima)](data-lake-storage-query-acceleration-how-to.md)
+- [Accelerazione query Azure Data Lake Storage](data-lake-storage-query-acceleration.md)
+- [Filtrare i dati tramite Azure Data Lake Storage accelerazione query](data-lake-storage-query-acceleration-how-to.md)
 

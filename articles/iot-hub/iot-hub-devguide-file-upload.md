@@ -12,12 +12,12 @@ ms.custom:
 - mqtt
 - 'Role: Cloud Development'
 - 'Role: IoT Device'
-ms.openlocfilehash: c80823513dd65d68d74be62ca1194f843623d2dc
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 3286b464051b8fea88d2797d4f82b20fe432b4b8
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87323027"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019530"
 ---
 # <a name="upload-files-with-iot-hub"></a>Caricare file con l'hub IoT
 
@@ -28,6 +28,8 @@ I messaggi non vengono negoziati tramite l'hub IoT, che funge invece da strument
 Prima di caricare un file in un hub IoT da un dispositivo, è necessario configurare l'hub [associando un account di archiviazione di Azure](iot-hub-devguide-file-upload.md#associate-an-azure-storage-account-with-iot-hub) all'hub.
 
 Il dispositivo può quindi [inizializzare un'operazione di caricamento](iot-hub-devguide-file-upload.md#initialize-a-file-upload) e quindi [Inviare una notifica all'hub IoT](iot-hub-devguide-file-upload.md#notify-iot-hub-of-a-completed-file-upload) al termine del caricamento. Facoltativamente, quando un dispositivo comunica all'hub IoT che il caricamento è completo, il servizio può generare un [messaggio di notifica](iot-hub-devguide-file-upload.md#file-upload-notifications).
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ### <a name="when-to-use"></a>Utilizzo
 

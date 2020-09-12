@@ -8,14 +8,14 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: mbullwin
-ms.openlocfilehash: 1d85f011289bfa27bcf1e94d8da8cd7a32092c2c
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 18e757ccac56d2165a1b46bb73a698ac754177b7
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799566"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657955"
 ---
-# <a name="azure-monitor-workbooks"></a>Cartelle di lavoro di Monitoraggio di Azure
+# <a name="azure-monitor-workbooks"></a>Cartelle di lavoro di monitoraggio di Azure
 
 Le cartelle di lavoro di forniscono un'area di disegno flessibile per l'analisi dei dati e la creazione di report visivi avanzati all'interno del portale di Azure. Consentono di accedere a più origini dati da Azure e combinarle in esperienze interattive unificate. 
 
@@ -43,16 +43,17 @@ Le cartelle di lavoro sono attualmente compatibili con le origini dati seguenti:
 
 Le cartelle di lavoro di offrono un set completo di funzionalità per la visualizzazione dei dati. Per esempi dettagliati di ogni tipo di visualizzazione, è possibile consultare i collegamenti di esempio seguenti:
 
-* [Text](workbooks-visualizations.md#text)
-* [Grafici](workbooks-visualizations.md#charts)
-* [Griglie](workbooks-visualizations.md#grids)
-* [Riquadri](workbooks-visualizations.md#tiles)
-* [Trees](workbooks-visualizations.md#trees)
-* [Grafici](workbooks-visualizations.md#graphs)
+* [Text](workbooks-text-visualizations.md)
+* [Grafici](workbooks-chart-visualizations.md)
+* [Griglie](workbooks-grid-visualizations.md)
+* [Riquadri](workbooks-tile-visualizations.md)
+* [Trees](workbooks-tree-visualizations.md)
+* [Grafici](workbooks-graph-visualizations.md)
+* [Barra composita](workbooks-composite-bar.md)
 
 ![Visualizzazioni di cartelle di lavoro di esempio](./media/workbooks-overview/visualizations.png)
 
-## <a name="getting-started"></a>Guida introduttiva
+## <a name="getting-started"></a>Introduzione
 
 Per esplorare l'esperienza delle cartelle di lavoro, passare prima al servizio monitoraggio di Azure. Questa operazione può essere eseguita digitando **monitoraggio** nella casella cerca della portale di Azure.
 
@@ -86,9 +87,9 @@ Nel caso di questa particolare cartella di lavoro, l'esperienza è interattiva. 
 
 ### <a name="editing-mode"></a>Modalità di modifica
 
-Per comprendere il modo in cui il modello di cartella di lavoro viene combinato, è necessario passare alla modalità di modifica selezionando **modifica**. 
+Per comprendere il modo in cui il modello di cartella di lavoro viene combinato, è necessario passare alla modalità di modifica selezionando **modifica**.
 
-![Screenshot del modello di analisi degli errori dell'applicazione](./media/workbooks-overview/edit.png)
+![Screenshot del pulsante modifica nelle cartelle di lavoro di.](./media/workbooks-overview/edit.png)
 
 Dopo aver impostato la modalità di modifica, si noterà che un numero di caselle di **modifica** viene visualizzato a destra corrispondente a ogni singolo aspetto della cartella di lavoro.
 

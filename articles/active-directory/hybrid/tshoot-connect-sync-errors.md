@@ -15,12 +15,12 @@ ms.date: 10/29/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ca2600101c302cee1da4d22a3f098436ecb71e7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5bd779c26cd523bbf33fa1be6c87f21b4415c152
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85355897"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016419"
 ---
 # <a name="troubleshooting-errors-during-synchronization"></a>Risoluzione degli problemi durante la sincronizzazione
 Gli errori potrebbero verificarsi durante la sincronizzazione dei dati dell'identità da Windows Server Active Directory (AD DS) ad Azure Active Directory (Azure AD). L'articolo offre una panoramica delle diverse tipologie di errori di sincronizzazione, di alcuni scenari possibili che causano tali errori e delle possibili soluzioni per correggere questi errori. In questo articolo vengono descritti soltanto gli errori più comuni.
@@ -106,17 +106,17 @@ I report sugli errori di sincronizzazione all'interno di Azure AD Connect Health
 >
 
 #### <a name="related-articles"></a>Articoli correlati
-* [Gli attributi duplicati o non validi impediscono la sincronizzazione delle directory in Office 365](https://support.microsoft.com/kb/2647098)
+* [Gli attributi duplicati o non validi impediscono la sincronizzazione della directory in Microsoft 365](https://support.microsoft.com/kb/2647098)
 
 ### <a name="objecttypemismatch"></a>ObjectTypeMismatch
 #### <a name="description"></a>Descrizione
 Quando Azure AD tenta una corrispondenza flessibile tra due oggetti, è possibile che i due oggetti appartenenti a una "tipologia di oggetto" differente (ad esempio, utente, gruppo, contatto e così via) abbiano gli stessi valori per gli attributi usati per eseguire tale corrispondenza. Poiché la duplicazione di questi attributi non è consentita in Azure AD, l'operazione può portare alla restituzione di un errore di sincronizzazione "ObjectTypeMismatch".
 
 #### <a name="example-scenarios-for-objecttypemismatch-error"></a>Scenari di esempio per l'errore ObjectTypeMismatch
-* In Office 365 viene creato un gruppo di protezione abilitato alla posta elettronica. L'amministratore aggiunge un nuovo utente o contatto all'Active Directory locale (che non è ancora stato sincronizzato con Azure AD) con lo stesso valore per l'attributo ProxyAddresses del gruppo di Office 365.
+* In Microsoft 365 viene creato un gruppo di sicurezza abilitato alla posta elettronica. L'amministratore aggiunge un nuovo utente o un contatto in AD locale (che non è ancora sincronizzato con Azure AD) con lo stesso valore per l'attributo ProxyAddresses del gruppo di Microsoft 365.
 
 #### <a name="example-case"></a>Caso di esempio
-1. L'amministratore crea un nuovo gruppo di sicurezza abilitato alla posta elettronica in Office 365 per il reparto addetto alle imposte e mette a disposizione un indirizzo di posta elettronica come tax@contoso.com. A questo gruppo viene assegnato il valore dell'attributo ProxyAddresses di **SMTP: tax \@ contoso.com**
+1. L'amministratore crea un nuovo gruppo di sicurezza abilitato alla posta elettronica in Microsoft 365 per il reparto fiscale e fornisce un indirizzo di posta elettronica come tax@contoso.com . A questo gruppo viene assegnato il valore dell'attributo ProxyAddresses di **SMTP: tax \@ contoso.com**
 2. Un nuovo utente si aggiunge Contoso.com e viene creato un account per l'utente locale con il proxyAddress come **SMTP: tax \@ contoso.com**
 3. Quando Azure AD Connect sincronizzerà il nuovo account utente, verrà restituito l'errore "ObjectTypeMismatch".
 
@@ -164,7 +164,7 @@ La causa più comune dell'errore AttributeValueMustBeUnique è che due oggetti c
 4. Se si apporta la modifica nell'Active Directory locale, consentire ad Azure AD Connect di sincronizzare la modifica per correggere l'errore.
 
 #### <a name="related-articles"></a>Articoli correlati
--[Gli attributi duplicati o non validi impediscono la sincronizzazione delle directory in Office 365](https://support.microsoft.com/kb/2647098)
+-[Gli attributi duplicati o non validi impediscono la sincronizzazione della directory in Microsoft 365](https://support.microsoft.com/kb/2647098)
 
 ## <a name="data-validation-failures"></a>Errori di convalida dei dati
 ### <a name="identitydatavalidationfailed"></a>IdentityDataValidationFailed
@@ -179,7 +179,7 @@ b. L'attributo UserPrincipalName non è conforme al formato richiesto.
 a. Assicurarsi che l'attributo userPrincipalName contenga caratteri supportati e rispetti il formato richiesto.
 
 #### <a name="related-articles"></a>Articoli correlati
-* [Preparazione per il provisioning degli utenti tramite la sincronizzazione delle directory a Office 365](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
+* [Preparare il provisioning degli utenti tramite la sincronizzazione della directory Microsoft 365](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
 
 ### <a name="federateddomainchangeerror"></a>FederatedDomainChangeError
 #### <a name="description"></a>Descrizione
@@ -190,11 +190,11 @@ Per un utente sincronizzato, il suffisso dell'attributo UserPrincipalName è sta
 
 #### <a name="example"></a>Esempio
 1. Bob Smith, un account di Contoso.com, viene aggiunto come nuovo utente in Active Directory con l'attributo UserPrincipalName bob@contoso.com
-2. Bob passa a una divisione diversa di Contoso.com denominata Fabrikam.com e i relativi UserPrincipalName vengono modificati inbob@fabrikam.com
+2. Bob passa a una divisione diversa di Contoso.com denominata Fabrikam.com e i relativi UserPrincipalName vengono modificati in bob@fabrikam.com
 3. Entrambi i domini di contoso.com e fabrikam.com sono domini federati con Azure Active Directory.
 4. L'attributo userPrincipalName di Bob non viene aggiornato e si verifica l'errore di sincronizzazione "FederatedDomainChangeError".
 
-#### <a name="how-to-fix"></a>Modalità di correzione
+#### <a name="how-to-fix"></a>Procedura di correzione
 Se il suffisso UserPrincipalName di un utente è stato aggiornato da bob@**contoso.com** a Bob \@ **Fabrikam.com**, in cui sia **contoso.com** che **Fabrikam.com** sono **domini federati**, attenersi alla procedura seguente per correggere l'errore di sincronizzazione
 
 1. Aggiornare l'attributo UserPrincipalName dell'utente in Azure AD da bob@contoso.com a bob@contoso.onmicrosoft.com. È possibile utilizzare il comando PowerShell seguente con il modulo di Azure AD PowerShell: `Set-MsolUserPrincipalName -UserPrincipalName bob@contoso.com -NewUserPrincipalName bob@contoso.onmicrosoft.com`
@@ -218,7 +218,7 @@ Quando un attributo supera il limite di dimensioni consentite, di lunghezza o di
 3. L'attributo thumbnailPhoto di Bob impostato in Active Directory è troppo grande per essere sincronizzato in Azure AD.
 4. Durante il popolamento automatico dell'attributo ProxyAddresses in Active Directory a un oggetto sono stati assegnati troppi elementi ProxyAddresses.
 
-### <a name="how-to-fix"></a>Modalità di correzione
+### <a name="how-to-fix"></a>Procedura di correzione
 1. Verificare che l'attributo che ha causato l'errore non superi il limite consentito.
 
 ## <a name="existing-admin-role-conflict"></a>Conflitto tra ruoli di amministratore esistenti
@@ -234,7 +234,7 @@ Azure AD Connect non è autorizzato a stabilire una corrispondenza flessibile di
 ![Amministratore esistente](media/tshoot-connect-sync-errors/existingadmin.png)
 
 
-### <a name="how-to-fix"></a>Modalità di correzione
+### <a name="how-to-fix"></a>Procedura di correzione
 Per risolvere il problema, eseguire questi passaggi:
 
 1. Rimuovere l'account Azure AD (proprietario) da tutti i ruoli di amministratore. 
@@ -246,5 +246,5 @@ Per risolvere il problema, eseguire questi passaggi:
 >Dopo aver stabilito la corrispondenza flessibile tra i due oggetti, sarà possibile assegnare nuovamente il ruolo amministrativo all'oggetto utente esistente.
 
 ## <a name="related-links"></a>Collegamenti correlati
-* [Individuare oggetti Active Directory in Centro di amministrazione di Active Directory](https://technet.microsoft.com/library/dd560661.aspx)
-* [Come eseguire una query di Azure Active Directory per un oggetto usando Azure Active Directory PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx)
+* [Individuare oggetti Active Directory in Centro di amministrazione di Active Directory](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd560661(v=ws.10))
+* [Come eseguire una query di Azure Active Directory per un oggetto usando Azure Active Directory PowerShell](/previous-versions/azure/jj151815(v=azure.100))

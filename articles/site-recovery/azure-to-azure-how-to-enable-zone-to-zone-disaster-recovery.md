@@ -5,16 +5,16 @@ author: sideeksh
 manager: gaggupta
 ms.service: site-recovery
 ms.topic: article
-ms.date: 04/28/2020
+ms.date: 04/28/2019
 ms.author: sideeksh
-ms.openlocfilehash: a1952f6dccf12de4cb1571dacabecf78c65cd01b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 001ac4918ed5d87bdb801d1bf918a4450e7cf8e0
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87021648"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007792"
 ---
-# <a name="enable-zone-to-zone-disaster-recovery-for-azure-virtual-machines"></a>Abilitare il ripristino di emergenza da zona a zona per le macchine virtuali di Azure
+# <a name="enable-azure-vm-disaster-recovery-between-availability-zones"></a>Abilitare il ripristino di emergenza delle VM di Azure tra le zone di disponibilità
 
 Questo articolo descrive come eseguire la replica, il failover e il failback di macchine virtuali di Azure da una zona di disponibilità a un'altra all'interno della stessa area di Azure.
 
@@ -27,6 +27,8 @@ Site Recovery servizio contribuisce alla strategia di continuità aziendale e ri
 
 Le zone di disponibilità sono località fisiche esclusive all'interno di un'area di Azure. Ogni zona ha uno o più data center. 
 
+Se si vuole spostare le macchine virtuali in una zona di disponibilità in un'area diversa, [vedere questo articolo](../resource-mover/move-region-availability-zone.md).
+
 ## <a name="using-availability-zones-for-disaster-recovery"></a>Uso di zone di disponibilità per il ripristino di emergenza 
 
 In genere, zone di disponibilità vengono usati per distribuire macchine virtuali in una configurazione a disponibilità elevata. Potrebbero essere troppo vicini tra loro per fungere da soluzione di ripristino di emergenza in caso di calamità naturale.
@@ -37,7 +39,7 @@ In alcuni scenari, tuttavia, è possibile sfruttare zone di disponibilità per i
 
 - Molti altri clienti hanno un'infrastruttura di rete complessa e non vogliono ricrearla in un'area secondaria a causa dei costi e della complessità associati. Il ripristino di emergenza da zona a zona riduce la complessità poiché sfrutta i concetti di rete ridondanti in zone di disponibilità rendendo molto più semplice la configurazione. Questi clienti preferiscono la semplicità e possono anche usare zone di disponibilità per il ripristino di emergenza.
 
-- In alcune aree che non dispongono di un'area abbinata all'interno della stessa giurisdizione legale (ad esempio, Asia sudorientale), il ripristino di emergenza da zona a zona può fungere da soluzione di ripristino di emergenza, poiché consente di garantire la conformità legale, poiché le applicazioni e i dati non superano i limiti nazionali. 
+- In alcune aree che non dispongono di un'area abbinata all'interno della stessa giurisdizione legale (ad esempio, Asia sudorientale), il ripristino di emergenza da zona a zona può fungere da soluzione di ripristino di emergenza, poiché consente di garantire la conformità legale, poiché le applicazioni e i dati non passano oltre i confini nazionali. 
 
 - Il ripristino di emergenza da zona a zona implica la replica dei dati tra distanze più brevi rispetto al ripristino di emergenza da Azure ad Azure e pertanto è possibile che si verifichi una latenza più bassa e, di conseguenza, RPO inferiori.
 
@@ -65,13 +67,13 @@ Come indicato in precedenza, il ripristino di emergenza da zona a zona riduce la
 
 Prima di distribuire il ripristino di emergenza da zona a zona per le macchine virtuali, è importante assicurarsi che altre funzionalità abilitate nella VM siano interoperabili con il ripristino di emergenza da zona a zona.
 
-|Funzionalità  | Informativa sul supporto  |
+|Feature  | Informativa sul supporto  |
 |---------|---------|
-|Macchine virtuali classiche   |     Non supportato    |
+|Macchine virtuali classiche   |     Non supportate    |
 |VM ARM    |    Funzionalità supportata    |
-|Crittografia dischi di Azure V1 (doppio passaggio, con AAD)     |     Funzionalità supportata |
-|Crittografia dischi di Azure V2 (Single Pass, senza AAD)    |    Funzionalità supportata    |
-|Dischi non gestiti    |    Non supportato    |
+|Crittografia dischi di Azure V1 (doppio passaggio, con Azure Active Directory (Azure AD))     |     Funzionalità supportata   |
+|Crittografia dischi di Azure V2 (Single Pass, senza Azure AD)    |    Funzionalità supportata    |
+|Dischi non gestiti    |    Non supportate    |
 |Dischi gestiti    |    Funzionalità supportata    |
 |Chiavi gestite dal cliente    |    Funzionalità supportata    |
 |Gruppi di selezione host di prossimità    |    Funzionalità supportata    |
@@ -119,7 +121,7 @@ Il team di Site Recovery e il team di gestione della capacità di Azure pianific
 Il ripristino di emergenza da zona a zona supporta gli stessi sistemi operativi di Azure per il ripristino di emergenza di Azure. Vedere la matrice di supporto [qui](./azure-to-azure-support-matrix.md).
 
 **5. i gruppi di risorse di origine e di destinazione possono essere uguali?**
-No, è necessario eseguire il failover in un gruppo di risorse diverso.
+No, è necessario eseguire il failover su un gruppo di risorse diverso.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

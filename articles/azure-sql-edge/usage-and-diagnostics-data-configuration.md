@@ -8,12 +8,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 08/04/2020
-ms.openlocfilehash: 8547c07214e94176babe4909504b9292d45c06f9
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: af4353e5b0991f7ce2f6fe8ff940e916717b0579
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759615"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650473"
 ---
 # <a name="azure-sql-edge-usage-and-diagnostics-data-configuration"></a>Configurazione dei dati di utilizzo e diagnostica di Azure SQL Edge
 
@@ -72,7 +72,7 @@ Per disabilitare la raccolta dei dati di utilizzo e diagnostica in Azure SQL Edg
 
 ### <a name="disable-usage-and-diagnostics-using-mssqlconf-file"></a>Disabilitare l'utilizzo e la diagnostica tramite il file MSSQL. conf
 
-Per disabilitare la raccolta dei dati di utilizzo e diagnostica in Azure SQL Edge, aggiungere i file seguenti nel file MSSQL. conf nell'unità di archiviazione persistente di cui è stato eseguito il mapping alla cartella/var/opt/MSSQL/nel modulo SQL Edge. Per altre informazioni sulla configurazione di Azure SQL Edge tramite il file MSSQL. conf, vedere [configurare usando il file MSSQL. conf](configure.md#configure-by-using-an-mssqlconf-file).
+Per disabilitare la raccolta dei dati di utilizzo e diagnostica in Azure SQL Edge, aggiungere le righe seguenti nel file MSSQL. conf nell'unità di archiviazione persistente mappata alla cartella/var/opt/MSSQL/nel modulo SQL Edge. Per altre informazioni sulla configurazione di Azure SQL Edge tramite il file MSSQL. conf, vedere [configurare usando il file MSSQL. conf](configure.md#configure-by-using-an-mssqlconf-file).
 
 ```ini
 [telemetry]

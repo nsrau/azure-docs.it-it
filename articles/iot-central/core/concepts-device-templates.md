@@ -7,12 +7,13 @@ ms.date: 05/21/2020
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 1eab1022e9b0f03597c108c3c927909aa9bb2712
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.custom: device-developer
+ms.openlocfilehash: cdc85029ec004060abf69b111d8a0ebca42147a4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337110"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015093"
 ---
 # <a name="what-are-device-templates"></a>Che cosa sono i modelli di dispositivo?
 
@@ -160,10 +161,10 @@ Nell'esempio seguente viene illustrata la definizione dell'interfaccia del senso
 
 Questo esempio mostra due proprietà, un tipo di telemetria e due comandi. Una descrizione del campo minima presenta:
 
-- `@type`per specificare il tipo di funzionalità: `Telemetry` , `Property` o `Command` .  In alcuni casi, il tipo include un tipo semantico per consentire IoT Central di fare alcune ipotesi sulla gestione del valore.
-- `name`per il valore di telemetria.
-- `schema`per specificare il tipo di dati per la telemetria o la proprietà. Questo valore può essere un tipo primitivo, ad esempio Double, Integer, Boolean o String. Sono supportati anche tipi di oggetti complessi, matrici e mappe.
-- `commandType`per specificare come gestire il comando.
+- `@type` per specificare il tipo di funzionalità: `Telemetry` , `Property` o `Command` .  In alcuni casi, il tipo include un tipo semantico per consentire IoT Central di fare alcune ipotesi sulla gestione del valore.
+- `name` per il valore di telemetria.
+- `schema` per specificare il tipo di dati per la telemetria o la proprietà. Questo valore può essere un tipo primitivo, ad esempio Double, Integer, Boolean o String. Sono supportati anche tipi di oggetti complessi, matrici e mappe.
+- `commandType` per specificare come gestire il comando.
 
 I campi facoltativi, ad esempio nome visualizzato e descrizione, consentono di aggiungere ulteriori dettagli all'interfaccia e alle funzionalità.
 
@@ -185,7 +186,7 @@ IoT Central consente di visualizzare i dati di telemetria nei dashboard e nei gr
 
 È possibile usare la funzionalità di esportazione dei dati IoT Central per trasmettere i dati di telemetria ad altre destinazioni, ad esempio archiviazione o hub eventi.
 
-### <a name="commands"></a>Comandi:
+### <a name="commands"></a>Comandi
 
 I comandi sono sincroni o asincroni. Per impostazione predefinita, un comando sincrono deve essere eseguito entro 30 secondi e il dispositivo deve essere connesso all'arrivo del comando. Se il dispositivo risponde nel tempo o il dispositivo non è connesso, il comando ha esito negativo.
 

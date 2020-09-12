@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: b0684735b32e03abe525b19dce6d9d887afe513b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4cfeda0d06c1e6956c7bbc953f1082a3510e8712
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84194074"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005021"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Criteri password e limitazioni dell'account in Azure Active Directory
 
@@ -43,13 +43,13 @@ La tabella seguente descrive i criteri del nome utente che si applicano sia agli
 
 I criteri password vengono applicati a tutti gli account utente creati e gestiti direttamente in Azure AD. Questo criterio password non può essere modificato, anche se è possibile [configurare password vietate personalizzate per Azure ad la protezione delle password](tutorial-configure-custom-password-protection.md).
 
-Il criterio password non si applica agli account utente sincronizzati da un ambiente Active Directory Domain Services locale usando Azure AD Connect.
+Il criterio password non si applica agli account utente sincronizzati da un ambiente Active Directory Domain Services locale usando Azure AD Connect, a meno che non si abiliti EnforceCloudPasswordPolicyForPasswordSyncedUsers.
 
 Sono definite le seguenti opzioni relative ai criteri password:
 
 | Proprietà | Requisiti |
 | --- | --- |
-| Caratteri consentiti |<ul><li>A-Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [] {} &#124; \:',. ? / \`~ " ( ) ;</li> <li>spazio vuoto</li></ul> |
+| Caratteri consentiti |<ul><li>A-Z</li><li>a - z</li><li>0 – 9</li> <li>@ # $ % ^ & * - _ ! + = [] {} &#124; \:',. ? / \` ~ " ( ) ;</li> <li>spazio vuoto</li></ul> |
 | Caratteri non consentiti | Caratteri Unicode. |
 | Restrizioni per le password |<ul><li>Un minimo di 8 caratteri e un massimo di 256 caratteri.</li><li>è necessario soddisfare tre dei quattro requisiti seguenti:<ul><li>Caratteri minuscoli.</li><li>Caratteri maiuscoli.</li><li>Numeri (da 0 a 9).</li><li>Simboli (vedere le restrizioni per le password elencate sopra).</li></ul></li></ul> |
 | Durata scadenza password (validità massima password) |<ul><li>Valore predefinito: **90** giorni.</li><li>Il valore può essere configurato con il cmdlet `Set-MsolPasswordPolicy` del modulo di Azure Active Directory per Windows PowerShell.</li></ul> |
@@ -81,7 +81,7 @@ Il criterio a due gate richiede tre tipi di dati di autenticazione, ad esempio u
   * Amministratore di SharePoint
   * Amministratore di conformità
   * Amministratore di applicazioni
-  * Amministratore della protezione
+  * Amministratore della sicurezza
   * Amministratore dei ruoli con privilegi
   * Amministratore di Intune
   * Amministratore del servizio proxy di applicazione

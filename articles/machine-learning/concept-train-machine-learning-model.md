@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: d0341e5a4d5dc036a4c3f90b2a25003137602694
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 6b40130fb1d965abf76ba9ed1f6ebd45d94c8e01
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144839"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651016"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Eseguire il training di modelli con Azure Machine Learning
 
@@ -42,13 +42,13 @@ Ognuno di questi metodi consente l'uso di diversi tipi di risorse di calcolo per
 
 Azure Machine Learning SDK per Python consente di creare ed eseguire flussi di lavoro di Machine Learning con Azure Machine Learning. È possibile interagire con il servizio da una sessione interattiva di Python, notebook Jupyter, Visual Studio Code o altro IDE.
 
-* [Informazioni su Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
-* [Installare/aggiornare l'SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+* [Informazioni su Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)
+* [Installare/aggiornare l'SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
 * [Configurare un ambiente di sviluppo per Azure Machine Learning](how-to-configure-environment.md)
 
 ### <a name="run-configuration"></a>Configurazione di esecuzione
 
-È possibile definire un processo di training generico con Azure Machine Learning usando [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py). La configurazione di esecuzione viene quindi usata insieme agli script di training per eseguire il training di un modello su una destinazione di calcolo.
+È possibile definire un processo di training generico con Azure Machine Learning usando [RunConfiguration](https://docs.microsoft.com/python/api/azureml-core/azureml.core.runconfiguration?view=azure-ml-py&preserve-view=true). La configurazione di esecuzione viene quindi usata insieme agli script di training per eseguire il training di un modello su una destinazione di calcolo.
 
 È possibile iniziare con una configurazione di esecuzione per il computer locale e quindi passare a una configurazione per una destinazione di calcolo basata sul cloud in base alle proprie esigenze. Modificando la destinazione di calcolo, si modifica solo la configurazione di esecuzione in uso. Un'esecuzione registra inoltre le informazioni sul processo di training, ad esempio input, output e log.
 

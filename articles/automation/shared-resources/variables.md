@@ -2,19 +2,15 @@
 title: Gestire variabili in Automazione di Azure
 description: Questo articolo descrive come usare le variabili nei runbook e nelle configurazioni DSC.
 services: automation
-ms.service: automation
 ms.subservice: shared-capabilities
-author: mgoedtel
-ms.author: magoedte
-ms.date: 05/14/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
-manager: carmonm
-ms.openlocfilehash: ee49ae905622b4b76d782f6a31e0c2333b6d54be
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: 300bfa2ed801b810bcaaeb5bc4d04775d590015b
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88055293"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004564"
 ---
 # <a name="manage-variables-in-azure-automation"></a>Gestire variabili in Automazione di Azure
 
@@ -30,7 +26,7 @@ Le variabili di automazione sono utili per gli scenari seguenti:
 
 Automazione di Azure salva in modo permanente le variabili e le rende disponibili anche in caso di errore per un runbook o una configurazione DSC. Questo comportamento consente a un runbook o a una configurazione DSC di impostare un valore che viene quindi usato da un altro runbook o dallo stesso runbook o dalla stessa configurazione DSC alla successiva esecuzione.
 
-Automazione di Azure archivia in modo sicuro ogni variabile crittografata. Quando si crea una variabile, è possibile specificarne la crittografia e l'archiviazione da automazione di Azure come asset protetto. Dopo aver creato la variabile, non è possibile modificarne lo stato di crittografia senza ricreare la variabile. Una raccomandazione del Centro sicurezza di Azure consiste nel crittografare tutte le variabili di automazione di Azure, come descritto in [automazione delle variabili dell'account di automazione](../../security-center/recommendations-reference.md#recs-computeapp). 
+Automazione di Azure archivia in modo sicuro ogni variabile crittografata. Quando si crea una variabile, è possibile specificarne la crittografia e l'archiviazione da automazione di Azure come asset protetto. Dopo aver creato la variabile, non è possibile modificarne lo stato di crittografia senza ricreare la variabile. Una raccomandazione del Centro sicurezza di Azure consiste nel crittografare tutte le variabili di automazione di Azure, come descritto in [automazione delle variabili dell'account di automazione](../../security-center/recommendations-reference.md#recs-computeapp).
 
 >[!NOTE]
 >Gli asset sicuri in Automazione di Azure includono credenziali, certificati, connessioni e variabili crittografate. Tali asset vengono crittografati e archiviati in Automazione di Azure usando una chiave univoca generata per ogni account di Automazione. Automazione di Azure memorizza la chiave nel Key Vault gestito dal sistema. Prima di archiviare un asset sicuro, Automazione carica la chiave da Key Vault e quindi la usa per crittografare l'asset. 
@@ -45,7 +41,7 @@ Quando si crea una variabile con il portale di Azure, è necessario selezionare 
 * Boolean
 * Null
 
-La variabile non è limitata al tipo di dati specificato. È necessario impostarla usando Windows PowerShell se si vuole specificare un valore di tipo diverso. Se si indica `Not defined`, il valore della variabile viene impostato su Null. È necessario impostare il valore con il cmdlet [Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0) o il cmdlet interno `Set-AutomationVariable`.
+La variabile non è limitata al tipo di dati specificato. È necessario impostarla usando Windows PowerShell se si vuole specificare un valore di tipo diverso. Se si indica `Not defined`, il valore della variabile viene impostato su Null. È necessario impostare il valore con il cmdlet [Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable) o il cmdlet interno `Set-AutomationVariable`.
 
 Non è possibile usare il portale di Azure per creare o modificare il valore per un tipo di variabile complesso. Tuttavia, è possibile fornire un valore di qualsiasi tipo usando Windows PowerShell. I tipi complessi verranno recuperati come [PSCustomObject](/dotnet/api/system.management.automation.pscustomobject).
 
@@ -60,10 +56,10 @@ I cmdlet nella tabella seguente vengono usati per creare e gestire le variabili 
 
 | Cmdlet | Descrizione |
 |:---|:---|
-|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable?view=azps-3.5.0) | Recupera il valore di una variabile esistente. Se il valore è di tipo semplice, verrà recuperato lo stesso tipo. Se è un tipo complesso, viene recuperato un tipo `PSCustomObject`. <br>**Nota:**  non è possibile usare questo cmdlet per recuperare il valore di una variabile crittografata. L'unico modo per eseguire questa operazione consiste nell'usare il cmdlet `Get-AutomationVariable` interno in un runbook o una configurazione DSC. Vedere [Cmdlet interni per accedere alle variabili](#internal-cmdlets-to-access-variables). |
-|[New-AzAutomationVariable](/powershell/module/az.automation/new-azautomationvariable?view=azps-3.5.0) | Crea una nuova variabile e ne imposta il valore.|
-|[Remove-AzAutomationVariable](/powershell/module/az.automation/remove-azautomationvariable?view=azps-3.5.0)| Rimuove una variabile esistente.|
-|[Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable?view=azps-3.5.0)| Imposta il valore di una variabile esistente. |
+|[Get-AzAutomationVariable](/powershell/module/az.automation/get-azautomationvariable) | Recupera il valore di una variabile esistente. Se il valore è di tipo semplice, verrà recuperato lo stesso tipo. Se è un tipo complesso, viene recuperato un tipo `PSCustomObject`. <br>**Nota:**  non è possibile usare questo cmdlet per recuperare il valore di una variabile crittografata. L'unico modo per eseguire questa operazione consiste nell'usare il cmdlet `Get-AutomationVariable` interno in un runbook o una configurazione DSC. Vedere [Cmdlet interni per accedere alle variabili](#internal-cmdlets-to-access-variables). |
+|[New-AzAutomationVariable](/powershell/module/az.automation/new-azautomationvariable) | Crea una nuova variabile e ne imposta il valore.|
+|[Remove-AzAutomationVariable](/powershell/module/az.automation/remove-azautomationvariable)| Rimuove una variabile esistente.|
+|[Set-AzAutomationVariable](/powershell/module/az.automation/set-azautomationvariable)| Imposta il valore di una variabile esistente. |
 
 ## <a name="internal-cmdlets-to-access-variables"></a>Cmdlet interni per accedere alle variabili
 
@@ -103,16 +99,16 @@ Le funzioni nella tabella seguente vengono usate per accedere alle variabili in 
 
 ### <a name="create-and-get-a-variable-using-the-azure-portal"></a>Creare e ottenere una variabile usando il portale di Azure
 
-1. Dall'account di Automazione fare clic sul riquadro **Asset**, quindi sul pannello **Asset** e infine selezionare **Variabili**.
-2. Nel riquadro **Variabili** selezionare **Aggiungi variabile**.
-3. Completare le opzioni nel pannello **Nuova variabile** e quindi fare clic su **Crea** per salvare la nuova variabile.
+1. Nell'account di automazione, nel riquadro a sinistra, selezionare **variabili** in **risorse condivise**.
+2. Nella pagina **variabili** selezionare **Aggiungi variabile**.
+3. Completare le opzioni nella pagina **nuova variabile** e quindi selezionare **Crea** per salvare la nuova variabile.
 
 > [!NOTE]
 > Dopo averla salvata, una variabile crittografata non può essere visualizzata nel portale. Può essere solo aggiornata.
 
 ### <a name="create-and-get-a-variable-in-windows-powershell"></a>Creare e ottenere una variabile in Windows PowerShell
 
-Il runbook o la configurazione DSC usa il cmdlet `New-AzAutomationVariable` per creare una nuova variabile e impostarne il valore iniziale. Se la variabile è crittografata, la chiamata deve usare il parametro `Encrypted`. Lo script può recuperare il valore della variabile usando `Get-AzAutomationVariable`. 
+Il runbook o la configurazione DSC usa il cmdlet `New-AzAutomationVariable` per creare una nuova variabile e impostarne il valore iniziale. Se la variabile è crittografata, la chiamata deve usare il parametro `Encrypted`. Lo script può recuperare il valore della variabile usando `Get-AzAutomationVariable`.
 
 >[!NOTE]
 >Uno script di PowerShell non può recuperare un valore crittografato. L'unico modo per eseguire questa operazione consiste nell'usare il cmdlet `Get-AutomationVariable` interno.
@@ -127,7 +123,7 @@ $string = (Get-AzAutomationVariable -ResourceGroupName "ResourceGroup01" `
 –AutomationAccountName "MyAutomationAccount" –Name 'MyStringVariable').Value
 ```
 
-L'esempio seguente illustra come creare una variabile di tipo complesso e quindi recuperarne le proprietà. In questo caso, viene usato un oggetto macchina virtuale recuperato da [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM?view=azps-3.5.0).
+L'esempio seguente illustra come creare una variabile di tipo complesso e quindi recuperarne le proprietà. In questo caso, viene usato un oggetto macchina virtuale recuperato da [Get-AzVM](/powershell/module/Az.Compute/Get-AzVM).
 
 ```powershell
 $vm = Get-AzVM -ResourceGroupName "ResourceGroup01" –Name "VM01"

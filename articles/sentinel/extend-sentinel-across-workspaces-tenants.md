@@ -1,6 +1,6 @@
 ---
 title: Estendere la sentinella di Azure tra le aree di lavoro e i tenant | Microsoft Docs
-description: Come usare più tenant in Sentinel di Azure per i provider di servizi MSSP.
+description: Come estendere le funzionalità di analisi di Azure Sentinel tra aree di lavoro e tenant.
 services: sentinel
 documentationcenter: na
 author: yelevin
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/11/2020
+ms.date: 09/11/2020
 ms.author: yelevin
-ms.openlocfilehash: 596d0f4870d9331a332dfb81bd7d2d224964a593
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 9e0fe46e0a7382c0adcfa1f1f781f282e9e77942
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519014"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019326"
 ---
 # <a name="extend-azure-sentinel-across-workspaces-and-tenants"></a>Estendere Azure Sentinel tra più aree di lavoro e tenant
 
@@ -94,6 +94,13 @@ Una funzione può anche semplificare un'Unione di uso comune. Ad esempio, è pos
 
 È quindi possibile scrivere una query in entrambe le aree di lavoro iniziando da `unionSecurityEvent | where ...` .
 
+#### <a name="scheduled-alerts"></a>Avvisi pianificati
+
+È ora possibile includere le query tra aree di lavoro negli avvisi pianificati nelle regole di analisi, in base alle limitazioni seguenti:
+
+- In una singola query è possibile includere fino a 10 aree di lavoro.
+- Azure Sentinel deve essere distribuito in ogni area di lavoro a cui viene fatto riferimento nella query.
+
 > [!NOTE] 
 > L'esecuzione di query su più aree di lavoro nella stessa query può influire sulle prestazioni ed è quindi consigliabile solo quando la logica richiede questa funzionalità.
 
@@ -121,13 +128,6 @@ Le funzionalità di ricerca tra aree di lavoro consentono ai cacciatori di minac
 Per configurare e gestire più aree di lavoro di Sentinel di Azure, sarà necessario automatizzare l'uso dell'API di gestione di Sentinel di Azure. Per altre informazioni su come automatizzare la distribuzione delle risorse di Azure Sentinel, incluse le regole di avviso, la ricerca di query, cartelle di lavoro e PlayBook, vedere [estensione di Azure Sentinel: API, integrazione e automazione di gestione](https://techcommunity.microsoft.com/t5/azure-sentinel/extending-azure-sentinel-apis-integration-and-management/ba-p/1116885).
 
 Vedere anche [distribuzione e gestione di Azure Sentinel come codice](https://techcommunity.microsoft.com/t5/azure-sentinel/deploying-and-managing-azure-sentinel-as-code/ba-p/1131928) e [combinazione di Azure Lighthouse con le funzionalità di DevOps di Sentinel](https://techcommunity.microsoft.com/t5/azure-sentinel/combining-azure-lighthouse-with-sentinel-s-devops-capabilities/ba-p/1210966) per una metodologia consolidata, fornita dalla community per la gestione di Azure Sentinel come codice e per la distribuzione e la configurazione delle risorse da un repository GitHub privato. 
-
-
-## <a name="whats-not-supported-across-workspaces"></a>Cosa non è supportato tra le aree di lavoro?
-
-Le funzionalità seguenti non sono supportate tra le aree di lavoro:
-
-- Una regola di avviso pianificata non può essere eseguita tra aree di lavoro usando una query tra aree di lavoro.
 
 ## <a name="managing-workspaces-across-tenants-using-azure-lighthouse"></a>Gestione delle aree di lavoro tra tenant con Azure Lighthouse
 

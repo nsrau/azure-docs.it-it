@@ -1,10 +1,10 @@
 ---
 title: Connettere origini dati ad Azure Sentinel | Microsoft Docs
-description: Informazioni su come connettere origini dati come Microsoft Threat Protection, Microsoft 365 e Office 365, Azure AD, ATP e Cloud App Security ad Azure Sentinel.
+description: Informazioni su come connettere origini dati come Microsoft 365 Defender (in precedenza Microsoft Threat Protection), Microsoft 365 e Office 365, Azure AD, ATP e Cloud App Security ad Azure Sentinel.
 services: sentinel
 documentationcenter: na
 author: yelevin
-manager: angrobe
+manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
@@ -13,32 +13,31 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/04/2019
+ms.date: 09/08/2020
 ms.author: yelevin
-ms.openlocfilehash: a2b9c1602ead56b35c46508ef4d414145eb07432
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4618bb4ba65c48808bc738b51c90a6fd04f0eca3
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555518"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659634"
 ---
 # <a name="connect-data-sources"></a>Connettere le origini dati
 
-Una volta abilitata la funzionalità Sentinel di Azure, è prima di tutto necessario connettere le origini dati. Azure Sentinel è dotato di un numero di connettori per le soluzioni Microsoft, disponibile in modalità predefinita e fornisce integrazione in tempo reale, incluse soluzioni di protezione dalle minacce Microsoft, Microsoft 365 origini (incluso Office 365), Azure AD, Azure ATP, Microsoft Cloud App Security e altro ancora. Inoltre, sono presenti connettori predefiniti a soluzioni non Microsoft, per l'ecosistema di sicurezza allargato. È anche possibile usare il formato CEF (Common Event Format), syslog o REST-API per connettere le origini dati a Sentinel di Azure.
+Una volta abilitata la funzionalità Sentinel di Azure, è prima di tutto necessario connettere le origini dati. Azure Sentinel è dotato di un numero di connettori per le soluzioni Microsoft, disponibile in modalità predefinita e fornisce l'integrazione in tempo reale, incluse soluzioni Microsoft 365 Defender (in precedenza Microsoft Threat Protection), origini Microsoft 365 (incluso Office 365), Azure AD, Microsoft Defender per Identity (in precedenza Azure ATP), Microsoft Cloud App Security e altro ancora. Inoltre, sono presenti connettori predefiniti a soluzioni non Microsoft, per l'ecosistema di sicurezza allargato. Per connettere le origini dati con Azure Sentinel è anche possibile usare CEF (Common Event Format), Syslog o API REST.
 
 1. Nel menu selezionare **Data connectors** (Connettori dati). Questa pagina consente di visualizzare l'elenco completo dei connettori forniti da Azure Sentinel e il relativo stato. Selezionare il connettore che si vuole connettere e scegliere **Open connector page** (Apri la pagina del connettore). 
 
-   ![Agenti di raccolta dati](./media/collect-data/collect-data-page.png)
+   ![Raccolta di connettori dati](./media/collect-data/collect-data-page.png)
 
 1. Nella pagina del connettore specifico assicurarsi di aver soddisfatto tutti i prerequisiti e seguire le istruzioni per connettere i dati ad Azure Sentinel. L'avvio della sincronizzazione dei log con Azure Sentinel potrebbe richiedere tempo. Dopo la connessione viene visualizzato un riepilogo dei dati nel grafico **Data received** (Dati ricevuti), oltre allo stato di connettività dei tipi di dati.
 
-   ![Connettere gli agenti di raccolta](./media/collect-data/opened-connector-page.png)
+   ![Configurare i connettori dati](./media/collect-data/opened-connector-page.png)
   
 1. Fare clic sulla scheda **Next steps** (Passaggi successivi) per ottenere un elenco del contenuto predefinito fornito da Azure Sentinel per il tipo di dati specifico.
 
-   ![Agenti di raccolta dati](./media/collect-data/data-insights.png)
+   ![Passaggi successivi per i connettori](./media/collect-data/data-insights.png)
  
-
 ## <a name="data-connection-methods"></a>Metodi di connessione dati
 
 Azure Sentinel supporta i metodi di connessione dati seguenti:
@@ -48,13 +47,13 @@ Azure Sentinel supporta i metodi di connessione dati seguenti:
     - [Attività di Azure](connect-azure-activity.md)
     - Log di controllo [Azure Active Directory](connect-azure-active-directory.md) e log di accesso
     - [Azure AD Identity Protection](connect-azure-ad-Identity-protection.md)
-    - [Azure Advanced Threat Protection](connect-azure-atp.md)
+    - [Microsoft Defender per Identity](connect-azure-atp.md) (in precedenza Azure Advanced Threat Protection)
     - [Azure Information Protection](connect-azure-information-protection.md)
-    - [Centro sicurezza di Azure](connect-azure-security-center.md)
+    - [Azure Defender](connect-azure-security-center.md) (in precedenza Centro sicurezza di Azure)
     - [Cloud App Security](connect-cloud-app-security.md)
     - [Domain Name Server](connect-dns.md)
     - [Office 365](connect-office-365.md)
-    - [Microsoft Defender ATP](connect-microsoft-defender-advanced-threat-protection.md)
+    - [Microsoft Defender per endpoint](connect-microsoft-defender-advanced-threat-protection.md) (in precedenza Microsoft Defender Advanced Threat Protection)
     - [Microsoft web application firewall](connect-microsoft-waf.md)
     - [Windows Firewall](connect-windows-firewall.md)
     - [Eventi di sicurezza di Windows](connect-windows-security-events.md)
@@ -135,8 +134,8 @@ In alternativa, è possibile distribuire l'agente manualmente in una macchina vi
 | WireData | [Connettere Dati in transito](../azure-monitor/insights/wire-data.md) | &#10007; | |
 | WindowsFirewall | [Connettere Windows Firewall](connect-windows-firewall.md) | &#10003; | |
 | SecurityAlert per Azure AD Identity Protection  | [Connettere Azure AD Identity Protection](connect-azure-ad-identity-protection.md)  | &#10003; | |
-| SecurityAlert per Azure ATP  | [Connettere Azure ATP](connect-azure-atp.md) | &#10003; | |
-| SecurityAlert per Centro sicurezza di Azure  | [Connettere il Centro sicurezza di Azure](connect-azure-security-center.md)  | &#10003; | |
+| SecurityAlert per Azure ATP  | [Connettere Microsoft Defender per Identity](connect-azure-atp.md) (in precedenza Azure ATP) | &#10003; | |
+| SecurityAlert per Centro sicurezza di Azure  | [Connettere Azure Defender](connect-azure-security-center.md) (in precedenza Centro sicurezza di Azure)  | &#10003; | |
 | SecurityAlert per Microsoft Cloud App Security  | [Connettere Microsoft Cloud App Security](connect-cloud-app-security.md)  | &#10003; | |
 | SecurityAlert | | | |
 | Sysmon (evento) | [Connettere Sysmon](https://azure.microsoft.com/blog/detecting-in-memory-attacks-with-sysmon-and-azure-security-center)<br> [Connettere Eventi Windows](../azure-monitor/platform/data-sources-windows-events.md) <br> [Ottenere il parser Sysmon](https://github.com/Azure/Azure-Sentinel/blob/master/Parsers/Sysmon/Sysmon-v10.42-Parser.txt)| &#10007; | La raccolta Sysmon non è installata per impostazione predefinita nelle macchine virtuali. Per altre informazioni su come installare l'agente Sysmon, vedere [Sysmon](https://docs.microsoft.com/sysinternals/downloads/sysmon). |

@@ -16,12 +16,12 @@ ms.custom:
 - 'Role: Operations'
 - devx-track-javascript
 - devx-track-csharp
-ms.openlocfilehash: f8971faec53830746c76d09a6cf7f22d2c80c45a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3e1de8b5c35c2f62c65b2bdd4751df86127010ad
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017686"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015127"
 ---
 # <a name="control-access-to-iot-hub"></a>Controllare l'accesso all'hub IoT
 
@@ -361,7 +361,12 @@ I certificati supportati includono:
 
 Un dispositivo può usare un certificato X.509 o un token di sicurezza per l'autenticazione, ma non per entrambi.
 
-Per altre informazioni sull'autenticazione tramite l'autorità di certificazione, vedere [Autenticazione dei dispositivi con i certificati della CA X.509](iot-hub-x509ca-overview.md).
+Le funzionalità seguenti non sono supportate per i dispositivi che usano l'autenticazione della CA X. 509:
+
+* HTTPS, MQTT su WebSocket e AMQP su protocolli WebSocket.
+* Caricamenti di file (tutti i protocolli).
+
+Per altre informazioni sull'autenticazione tramite l'autorità di certificazione, vedere [Autenticazione dei dispositivi con i certificati della CA X.509](iot-hub-x509ca-overview.md). Per informazioni su come caricare e verificare un'autorità di certificazione con l'hub Internet delle cose, vedere [configurare la sicurezza X. 509 nell'hub Azure](iot-hub-security-x509-get-started.md).
 
 ### <a name="register-an-x509-certificate-for-a-device"></a>Registrare un certificato X.509 per un dispositivo
 

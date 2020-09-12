@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 02/05/2020
 ms.author: Zhchia
-ms.openlocfilehash: 1397aa350ccc3114954902a6bfd02826cdff965f
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 4983a4a637ae636c6a3ef4a485c1777fc9b8a77a
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88553283"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015146"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>Esercitazione: configurare PureCloud by Genesys per il provisioning utenti automatico
 
@@ -111,6 +111,8 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
      |phoneNumbers[type eq "work"].value|string|
      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|string|
      |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Informazioni di riferimento|
+     |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:employeeNumber|string|
+     
 
 10. Nella sezione **mapping** selezionare **Synchronize Azure Active Directory groups to PureCloud by Genesys**.
 
@@ -144,6 +146,10 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 * Usare i [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
 * Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
 * Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+
+## <a name="change-log"></a>Registro delle modifiche
+
+09/10-è stato aggiunto il supporto per l'attributo Enterprise "employeeNumber".
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

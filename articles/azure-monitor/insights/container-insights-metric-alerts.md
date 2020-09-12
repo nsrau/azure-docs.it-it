@@ -3,12 +3,12 @@ title: Avvisi relativi alle metriche da monitoraggio di Azure per i contenitori 
 description: Questo articolo esamina gli avvisi della metrica consigliati disponibili da monitoraggio di Azure per i contenitori in anteprima pubblica.
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: 1826896ad2d5c64d389219018f51238826c840d0
-ms.sourcegitcommit: 97a0d868b9d36072ec5e872b3c77fa33b9ce7194
+ms.openlocfilehash: aace260ff22d63211424f2ce4a7319bf577436f4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87563365"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90019887"
 ---
 # <a name="recommended-metric-alerts-preview-from-azure-monitor-for-containers"></a>Avvisi metrica consigliati (anteprima) da monitoraggio di Azure per i contenitori
 
@@ -39,7 +39,7 @@ Prima di iniziare, verificare quanto segue:
 
 Per segnalare gli aspetti importanti, monitoraggio di Azure per i contenitori include gli avvisi delle metriche seguenti per i cluster AKS:
 
-|Nome| Description |Soglia predefinita |
+|Nome| Descrizione |Soglia predefinita |
 |----|-------------|------------------|
 |% CPU del contenitore media |Calcola la CPU media usata per ogni contenitore.|Quando l'utilizzo medio della CPU per ogni contenitore è maggiore del 95%.| 
 |Percentuale media memoria working set contenitore |Calcola la memoria working set media utilizzata per ogni contenitore.|Quando l'utilizzo medio working set memoria per contenitore è maggiore del 95%. |
@@ -144,9 +144,9 @@ I passaggi di base sono i seguenti:
 
 2. Per distribuire un modello personalizzato tramite il portale, selezionare **Crea una risorsa** dal [portale di Azure](https://portal.azure.com).
 
-3. Cercare il **modello**, quindi selezionare **modello**. distribuzione.
+3. Cercare il **modello**, quindi selezionare **distribuzione modelli**.
 
-4. Selezionare **Crea**.
+4. Selezionare **Create** (Crea).
 
 5. Sono disponibili diverse opzioni per la creazione di un modello, selezionare **Compila un modello personalizzato nell'editor**.
 

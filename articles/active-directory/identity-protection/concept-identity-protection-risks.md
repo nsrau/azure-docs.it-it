@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 09/10/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sahandle
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 629173612f091319f6dec57b1cdfcfea41033bfc
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: e3dd4d5f413238e0d0da79ff43deeee6245681f4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89047106"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016402"
 ---
 # <a name="what-is-risk"></a>Che cosa sono i rischi?
 
@@ -29,6 +29,8 @@ Identity Protection consente alle organizzazioni di accedere a risorse potenti p
 ## <a name="risk-types-and-detection"></a>Tipi di rischio e rilevamento
 
 Esistono due tipi di **utente** di rischio e di **accesso** e due tipi di rilevamento o calcolo in **tempo reale** e **offline**.
+
+I rilevamenti in tempo reale potrebbero non essere visualizzati nella creazione di report da cinque a dieci minuti. I rilevamenti offline potrebbero non essere visualizzati nella creazione di report per due o quattro ore.
 
 ### <a name="user-risk"></a>Rischio utente
 
@@ -56,7 +58,7 @@ Questi rischi possono essere calcolati in tempo reale o calcolati offline usando
 | Utente confermato dall'amministratore compromesso | Offline | Questo rilevamento indica che un amministratore ha selezionato ' conferma utente compromesso ' nell'interfaccia utente Risky Users o usando l'API riskyUsers. Per verificare quale amministratore ha confermato la compromissione dell'utente, controllare la cronologia dei rischi dell'utente (tramite interfaccia utente o API). |
 | Indirizzo IP dannoso | Offline | Questo rilevamento indica l'accesso da un indirizzo IP dannoso. Un indirizzo IP viene considerato dannoso in base a frequenze di errore elevate a causa di credenziali non valide ricevute dall'indirizzo IP o da altre origini della reputazione IP. |
 | Regole di manipolazione della posta in arrivo sospette | Offline | Questo rilevamento viene individuato da [Microsoft cloud app Security (MCAS)](/cloud-app-security/anomaly-detection-policy#suspicious-inbox-manipulation-rules). Questo criterio di rilevamento profila l'ambiente e genera avvisi quando nella Posta in arrivo di un utente vengono configurate regole sospette per eliminare o spostare messaggi o cartelle. Questo rilevamento può indicare che l'account dell'utente è compromesso, che i messaggi sono intenzionalmente nascosti e che la cassetta postale viene utilizzata per distribuire posta indesiderata o malware nell'organizzazione. |
-| Spray password | Offline | Un attacco con spray per la password è la posizione in cui vengono attaccati più nomi utente usando password comuni in modo unificato per la forza bruta per ottenere accessi non autorizzati. Questo rilevamento del rischio viene attivato quando viene eseguito un attacco di spray per la password. |
+| Password spraying | Offline | Un attacco con spray per la password è la posizione in cui vengono attaccati più nomi utente usando password comuni in modo unificato per la forza bruta per ottenere accessi non autorizzati. Questo rilevamento del rischio viene attivato quando viene eseguito un attacco di spray per la password. |
 | Comunicazione impossibile | Offline | Questo rilevamento viene individuato da [Microsoft cloud app Security (MCAS)](/cloud-app-security/anomaly-detection-policy#impossible-travel). Questo rilevamento identifica due attività utente (in una singola sessione o in più sessioni) provenienti da località geograficamente distanti e realizzate in un intervallo di tempo più breve rispetto a quello che sarebbe stato necessario all'utente per spostarsi dalla prima alla seconda località. Si tratta pertanto di un altro utente che sta usando le stesse credenziali. |
 
 ### <a name="other-risk-detections"></a>Altri rilevamenti di rischio

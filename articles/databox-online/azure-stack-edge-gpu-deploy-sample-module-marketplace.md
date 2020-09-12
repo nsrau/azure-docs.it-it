@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/25/2020
+ms.date: 09/09/2020
 ms.author: alkohli
-ms.openlocfilehash: ac9ff084476f37348b72bdb42b9b74660132b762
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 7d29408c126844615666a4ab217027b6ae1d037d
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254629"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659948"
 ---
 # <a name="deploy-a-gpu-enabled-iot-module-from-azure-marketplace-on-azure-stack-edge-gpu-device"></a>Distribuire un modulo Internet delle cose abilitate per la GPU da Azure Marketplace sul dispositivo GPU Azure Stack Edge
 
@@ -33,9 +33,7 @@ Il modulo di esempio GPU in questo articolo include il codice di esempio PyTorch
 Prima di iniziare, verificare di avere:
 
 - È possibile accedere a un dispositivo Azure Stack Edge a 1 nodo abilitato per GPU. Questo dispositivo viene attivato con una risorsa in Azure. 
-- Il calcolo è stato configurato in questo dispositivo. 
-    - Eseguire la procedura descritta in [esercitazione: configurare il calcolo nel dispositivo Azure stack Edge](azure-stack-edge-gpu-deploy-configure-compute.md).
-    - Assicurarsi di 
+- Il calcolo è stato configurato in questo dispositivo. Eseguire la procedura descritta in [esercitazione: configurare il calcolo nel dispositivo Azure stack Edge](azure-stack-edge-gpu-deploy-configure-compute.md).
 - Le risorse di sviluppo seguenti in un client Windows:
     - [Visual Studio Code](https://code.visualstudio.com/)  
     - [Estensione Azure IOT Edge per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge).   

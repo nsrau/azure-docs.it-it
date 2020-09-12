@@ -3,13 +3,13 @@ title: Risolvere gli errori di distribuzione comuni
 description: Descrive come risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager.
 tags: top-support-issue
 ms.topic: troubleshooting
-ms.date: 08/07/2020
-ms.openlocfilehash: 1ab493b0ba2199d8e6778252cf50d963fbd2f387
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/09/2020
+ms.openlocfilehash: a24a95bbf3b3a338102d42fcee06b5e4bd59dd83
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88008169"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650947"
 ---
 # <a name="troubleshoot-common-azure-deployment-errors-with-azure-resource-manager"></a>Risolvere errori comuni durante la distribuzione di risorse in Azure con Azure Resource Manager
 
@@ -25,7 +25,7 @@ Se si cercano informazioni su un codice di errore non riportato in questo artico
 | AccountPropertyCannotBeSet | Controllare le proprietà dell'account di archiviazione disponibili. | [storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |
 | AllocationFailed | Il cluster o l'area non ha risorse disponibili o non può supportare le dimensioni di macchina virtuale richieste. Ripetere la richiesta in un secondo momento oppure richiedere una dimensione di macchina virtuale diversa. | [Problemi di provisioning e allocazione per Linux](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-linux.md), [Problemi di provisioning e allocazione per Windows](../../virtual-machines/troubleshooting/troubleshoot-deployment-new-vm-windows.md) e [Risolvere i problemi relativi agli errori di allocazione](../../virtual-machines/troubleshooting/allocation-failure.md)|
 | AnotherOperationInProgress | Attendere il completamento dell'operazione simultanea. | |
-| AuthorizationFailed | L'account o l'entità servizio non dispone dell'accesso sufficiente per completare la distribuzione. Selezionare il ruolo a cui appartiene l'account e il relativo accesso per l'ambito della distribuzione.<br><br>Questo errore può essere visualizzato quando un provider di risorse richiesto non è registrato. | [Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/role-assignments-portal.md)<br><br>[Risoluzione degli errori di registrazione del provider di risorse](error-register-resource-provider.md) |
+| AuthorizationFailed | L'account o l'entità servizio non dispone dell'accesso sufficiente per completare la distribuzione. Selezionare il ruolo a cui appartiene l'account e il relativo accesso per l'ambito della distribuzione.<br><br>Questo errore può essere visualizzato quando un provider di risorse richiesto non è registrato. | [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/role-assignments-portal.md)<br><br>[Risoluzione degli errori di registrazione del provider di risorse](error-register-resource-provider.md) |
 | BadRequest | I valori della distribuzione inviati non corrispondono ai valori previsti da Resource Manager. Per informazioni sulla risoluzione dei problemi, controllare il messaggio di stato interno. | [Informazioni di riferimento sul modello](/azure/templates/) e [Località supportate](resource-location.md) |
 | Conflitto | Si sta richiedendo un'operazione non consentita nello stato corrente della risorsa. Il ridimensionamento del disco, ad esempio, è consentito solo quando viene creata o deallocata una macchina virtuale. | |
 | DeploymentActiveAndUneditable | Attendere il completamento della distribuzione simultanea al gruppo di risorse. | |
@@ -75,7 +75,7 @@ Se si cercano informazioni su un codice di errore non riportato in questo artico
 | StorageAccountNotFound | Controllare la sottoscrizione, il gruppo di risorse e il nome dell'account di archiviazione che si sta tentando di usare. | |
 | SubnetsNotInSameVnet | Una macchina virtuale può avere solo una rete virtuale. Quando si distribuiscono più schede di interfaccia di rete, assicurarsi che appartengano alla stessa rete virtuale. | [Più schede di interfaccia di rete](../../virtual-machines/windows/multiple-nics.md) |
 | SubscriptionNotFound | Non è possibile accedere a una sottoscrizione specificata per la distribuzione. È possibile che l'ID sottoscrizione sia errato, che l'utente che distribuisce il modello non disponga di autorizzazioni adeguate per la distribuzione nella sottoscrizione oppure che il formato dell'ID sottoscrizione sia errato. Quando si utilizzano distribuzioni nidificate per la [distribuzione tra ambiti](cross-scope-deployment.md), fornire il GUID per la sottoscrizione. | |
-| SubscriptionNotRegistered | Quando si distribuiscono le risorse di rete, il provider di risorse Microsoft. Network viene registrato automaticamente nella sottoscrizione. In alcuni casi, la registrazione automatica non viene completata nel tempo. Per evitare questo errore intermittente, registrare il provider di risorse Microsoft. Network prima della distribuzione. | [Risoluzione degli errori di registrazione del provider di risorse](error-register-resource-provider.md) |
+| SubscriptionNotRegistered | Quando si distribuisce una risorsa, il provider di risorse deve essere registrato per la sottoscrizione. Quando si usa un modello di Azure Resource Manager per la distribuzione, il provider di risorse viene registrato automaticamente nella sottoscrizione. In alcuni casi, la registrazione automatica non viene completata nel tempo. Per evitare questo errore intermittente, registrare il provider di risorse prima della distribuzione. | [Risoluzione degli errori di registrazione del provider di risorse](error-register-resource-provider.md) |
 | TemplateResourceCircularDependency | Rimuovere le dipendenze non necessarie. | [Risolvere le dipendenze circolari](error-invalid-template.md#circular-dependency) |
 | TooManyTargetResourceGroups | Ridurre il numero di gruppi di risorse per una distribuzione singola. | [Distribuzione con ambito incrociato](cross-scope-deployment.md) |
 

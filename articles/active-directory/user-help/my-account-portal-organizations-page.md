@@ -1,6 +1,6 @@
 ---
 title: Gestire le organizzazioni dal portale Account personale - Azure AD
-description: Come visualizzare e mantenere connesse le organizzazioni all'account aziendale o dell'istituto di istruzione dalla pagina Organizzazioni del portale Account personale.
+description: Come visualizzare e lasciare le organizzazioni a cui si ha accesso dalla pagina organizzazioni del portale account personale.
 services: active-directory
 author: curtand
 manager: daveba
@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 07/29/2020
+ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: bb0f0b93f3890a06f4ecbdc6cf39a173ea048940
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 8b8abe60503c68f06a97782ea09d418ebf659216
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798177"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005072"
 ---
-# <a name="manage-your-connected-organizations-from-the-organizations-page"></a>Gestire le organizzazioni connesse dalla pagina Organizzazioni
+# <a name="manage-organizations-you-have-access-to-in-the-my-account-portal"></a>Gestire le organizzazioni a cui si ha accesso nel portale account personale
 
-La pagina **Organizzazioni** del portale **Account personale** consente di gestire le organizzazioni (in genere, il nome dell'organizzazione) connesse all'account aziendale o dell'istituto di istruzione. Nella pagina **Organizzazioni** sono visualizzati due tipi di organizzazioni:
+La pagina **organizzazioni** del portale **account personale** consente di gestire le organizzazioni (in genere, il nome dell'organizzazione) a cui si ha accesso. Nella pagina **Organizzazioni** sono visualizzati due tipi di organizzazioni:
 
 - **Organizzazione principale.** L'organizzazione principale è l'organizzazione titolare dell'account aziendale o dell'istituto di istruzione. Non è possibile lasciare l'organizzazione principale.
 
@@ -30,7 +30,7 @@ La pagina **Organizzazioni** del portale **Account personale** consente di gesti
 - **Altre organizzazioni.** Le altre organizzazioni sono costituite da qualsiasi gruppo a cui ci si è connessi in precedenza usando il proprio account aziendale o dell'istituto di istruzione. È possibile uscire da queste organizzazioni in qualsiasi momento.
 
 >[!Important]
->Questo articolo è destinato agli utenti che tentano di aggiornare le informazioni sull'organizzazione connessa a un account aziendale o dell'istituto di istruzione esistente. Se si è un amministratore alla ricerca di informazioni sulla gestione di utenti e gruppi per i dipendenti e altri utenti, vedere la [documentazione relativa alla gestione degli utenti aziendali](../users-groups-roles/index.yml).
+>Questo articolo è destinato agli utenti che tentano di aggiornare le informazioni dell'organizzazione accessibili da un account aziendale o dell'Istituto di istruzione. Se si è un amministratore alla ricerca di informazioni sulla gestione di utenti e gruppi per i dipendenti e altri utenti, vedere la [documentazione relativa alla gestione degli utenti aziendali](../users-groups-roles/index.yml).
 
 ## <a name="view-your-organizations"></a>Visualizzare le organizzazioni
 
@@ -44,7 +44,7 @@ La pagina **Organizzazioni** del portale **Account personale** consente di gesti
 
     ![Pagina Organizzazioni](media/my-account-portal/my-account-portal-organization-page.png)
 
-4. Verificare le altre organizzazioni associate, assicurandosi di riconoscere tutte le organizzazioni connesse al proprio account.
+4. Esaminare le altre organizzazioni, assicurandosi di riconoscere tutte le organizzazioni a cui si ha accesso.
 
 ## <a name="leave-an-organization"></a>Uscire da un'organizzazione
 

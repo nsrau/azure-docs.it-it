@@ -7,12 +7,12 @@ author: mimckitt
 ms.author: mimckitt
 ms.topic: conceptual
 ms.date: 08/04/2020
-ms.openlocfilehash: d425953b278a98af35a172d8777ab758db52709e
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 0b3e1b3bc296676c44eddf34b35a0d4e06d3b8c4
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89257756"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007333"
 ---
 # <a name="azure-boot-diagnostics"></a>Diagnostica di avvio di Azure
 
@@ -24,7 +24,7 @@ Quando si crea una macchina virtuale in portale di Azure, la diagnostica di avvi
 Un'esperienza di diagnostica di avvio alternativa consiste nell'usare un account di archiviazione gestito dall'utente. Un utente può creare un nuovo account di archiviazione o utilizzarne uno esistente.
 
 > [!IMPORTANT]
-> Ai clienti di Azure non verranno addebitati i costi di archiviazione associted con la diagnostica di avvio usando un account di archiviazione gestito fino al 2020 ottobre.
+> Ai clienti di Azure non verranno addebitati i costi di archiviazione associati alla diagnostica di avvio usando un account di archiviazione gestito fino al 2020 ottobre.
 
 ## <a name="boot-diagnostics-view"></a>Visualizzazione diagnostica di avvio
 Nel pannello della macchina virtuale l'opzione diagnostica di avvio si trova nella sezione *supporto e risoluzione dei problemi* del portale di Azure. Selezionando diagnostica di avvio vengono visualizzate una schermata e informazioni sul log seriale. Il log seriale contiene la messaggistica del kernel e lo screenshot è uno snapshot dello stato corrente delle macchine virtuali. A seconda che la macchina virtuale esegua Windows o Linux, determina come dovrebbe apparire lo screenshot previsto. Per Windows, gli utenti visualizzeranno uno sfondo del desktop e per Linux, gli utenti visualizzeranno una richiesta di accesso.
@@ -36,6 +36,7 @@ Nel pannello della macchina virtuale l'opzione diagnostica di avvio si trova nel
 ## <a name="limitations"></a>Limitazioni
 - La diagnostica di avvio è disponibile solo per le macchine virtuali Azure Resource Manager. 
 - La diagnostica di avvio non supporta gli account di archiviazione Premium, se viene usato un account di archiviazione Premium per la diagnostica di avvio, gli utenti riceveranno un `StorageAccountTypeNotSupported` errore all'avvio della macchina virtuale. 
+- Gli account di archiviazione gestiti sono supportati nella versione API Gestione risorse "2020-06-01" e versioni successive.
 - La console seriale di Azure non è attualmente compatibile con un account di archiviazione gestito per la diagnostica di avvio. Scopri di più sulla [console seriale di Azure](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/serial-console-overview).
 
 ## <a name="next-steps"></a>Passaggi successivi
