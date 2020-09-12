@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere gli errori riscontrati con 
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: aa9b5a3f6f7ca935e4e6b3645c58da5516384072
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: a574c43c02c759529c5a0907682c06d4d40fb85a
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178012"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376180"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Risoluzione degli errori di backup nelle macchine virtuali di Azure
 
@@ -198,7 +198,7 @@ L'operazione di backup non è riuscita a causa dello stato non coerente dell'est
 
 * Verificare che l'agente Guest sia installato e reattivo
 * Nel portale di Azure passare a **Macchina virtuale** > **Tutte le impostazioni** > **Estensioni**
-* Selezionare l'estensione di backup VmSnapshot o VmSnapshotLinux e fare clic su **Disinstalla**
+* Selezionare l'estensione di backup VmSnapshot o VmSnapshotLinux e selezionare **Disinstalla**.
 * Dopo aver eliminato l'estensione di backup, ripetere l'operazione di backup
 * L'operazione di backup successiva installerà la nuova estensione nello stato desiderato
 

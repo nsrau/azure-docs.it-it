@@ -3,12 +3,12 @@ title: Eseguire il backup dello stato del sistema Windows in Azure
 description: Informazioni su come eseguire il backup dello stato del sistema dei computer Windows Server in Azure.
 ms.topic: conceptual
 ms.date: 05/23/2018
-ms.openlocfilehash: 14ca17284d48355260cdeda6ef3b20b4794a0c4f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 10d37bbafab6aa96986a5d7af88a509d4c8eac25
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181630"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376491"
 ---
 # <a name="back-up-windows-system-state-to-azure"></a>Eseguire il backup dello stato del sistema Windows in Azure
 
@@ -62,7 +62,7 @@ Dopo aver creato un insieme di credenziali, configurarlo per il backup dello sta
 
     ![Configurazione di file e cartelle](./media/backup-azure-system-state/backup-goal-system-state.png)
 
-    Dopo aver fatto clic su OK, viene visualizzato un segno di spunta accanto a **obiettivo di backup**e viene aperto il riquadro **prepara infrastruttura** .
+    Dopo aver selezionato **OK**, viene visualizzato un segno di spunta accanto a **obiettivo di backup**e viene aperto il riquadro **prepara infrastruttura** .
 
     ![Preparare l'infrastruttura dopo aver configurato l'obiettivo del backup](./media/backup-try-azure-backup-in-10-mins/backup-goal-configed.png)
 
@@ -152,7 +152,7 @@ Per completare il backup iniziale, usare l'agente di Servizi di ripristino di Mi
 
 5. Selezionare **stato del sistema** , quindi fare clic su **OK**.
 
-6. Selezionare **Avanti**.
+6. Selezionare **Next** (Avanti).
 
 7. Nelle pagine successive, selezionare la frequenza e i criteri di conservazione del backup per i backup dello stato del sistema.
 

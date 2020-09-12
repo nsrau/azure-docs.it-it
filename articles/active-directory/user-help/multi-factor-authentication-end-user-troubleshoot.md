@@ -9,33 +9,33 @@ ms.workload: identity
 ms.service: active-directory
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 08/20/2020
+ms.date: 09/01/2020
 ms.author: curtand
 ms.reviewer: kexia
 metadata ms.custom: contperfq1
-ms.openlocfilehash: 61ba06054e86d544ae4ab1edbdef8d86667ef3b2
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 3d95ad4aa100b0a185bde015dfe34d747fc77ec9
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796579"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322603"
 ---
 # <a name="common-problems-with-two-factor-verification-and-your-work-or-school-account"></a>Problemi comuni con la verifica a due fattori e l'account aziendale o dell'istituto di istruzione
 
-L'organizzazione Azure Active Directory (Azure AD) può attivare la verifica a due fattori (2FV). Ci sono alcuni problemi comuni di 2FV che sembrano verificarsi più spesso di quanto ci si voglia. Questo articolo è stato raccolto per descrivere le correzioni per i problemi più comuni.
+Alcuni problemi comuni di verifica a due fattori sembrano presentarsi con maggiore frequenza rispetto al previsto. Questo articolo è stato raccolto per descrivere le correzioni per i problemi più comuni.
 
-Quando 2FV è on, l'accesso dell'account richiede una combinazione dei dati seguenti:
+L'organizzazione Azure Active Directory (Azure AD) può attivare la verifica a due fattori per l'account. Quando la verifica a due fattori è attiva, l'accesso dell'account richiede una combinazione dei dati seguenti:
 
 - Il proprio nome utente.
 - Password
 - Un dispositivo mobile o un telefono
 
-2FV è più sicuro di una semplice password, perché 2FV richiede un elemento che si _conosce_ più qualcosa di cui si _dispone_. Nessun pirata informatico ha il telefono fisico.
+La verifica a due fattori è più sicura rispetto alla sola password, perché la verifica a due fattori richiede un _elemento che si_ _conosce_ più. Nessun pirata informatico ha il telefono fisico.
 
 >[!Important]
 >Gli amministratori possono trovare altre informazioni su come configurare e gestire l'ambiente Azure AD nella [documentazione di Azure AD](../index.yml).
 
-Questo contenuto è concepito come supporto per l'account aziendale o dell'Istituto di istruzione, che corrisponde all'account fornito dall'organizzazione, ad esempio dritan@contoso.com . Se si verificano problemi con la verifica a due fattori su un account Microsoft personale, ovvero un account configurato autonomamente (ad esempio, danielle@outlook.com ), vedere [attivazione o disattivazione della verifica a due fattori per l'account Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
+Questo contenuto può essere utile per l'account aziendale o dell'Istituto di istruzione, che corrisponde all'account fornito dall'organizzazione, ad esempio dritan@contoso.com . Se si verificano problemi con la verifica a due fattori su un account Microsoft personale, ovvero un account configurato autonomamente (ad esempio, danielle@outlook.com ), vedere [attivazione o disattivazione della verifica a due fattori per l'account Microsoft](https://support.microsoft.com/help/4028586/microsoft-account-turning-two-step-verification-on-or-off).
 
 ## <a name="i-dont-have-my-mobile-device-with-me"></a>Non si ha il dispositivo mobile con sé
 
@@ -51,7 +51,15 @@ Può accadere. Il dispositivo mobile è stato lasciato a casa e ora non è possi
 
 2. Scegliere il metodo di verifica alternativo e continuare il processo di verifica a due fattori.
 
-## <a name="i-lost-my-mobile-device-or-it-was-stolen"></a>Il dispositivo mobile è stato smarrito o rubato
+## <a name="i-cant-turn-two-factor-verification-off"></a>Non è possibile disabilitare la verifica a due fattori
+
+- Se si usa la verifica a due fattori con un account personale per un servizio Microsoft, ad esempio alain@outlook.com , è possibile [attivare e disattivare la funzionalità](https://account.live.com/proofs/Manage).
+
+- Se si usa la verifica a due fattori con l'account aziendale o dell'Istituto di istruzione, molto probabilmente significa che l'organizzazione ha deciso di usare questa funzionalità di sicurezza aggiuntiva. Non è possibile disattivarla singolarmente.
+
+Se non è possibile disabilitare la verifica a due fattori, il problema potrebbe dipendere anche dalle impostazioni predefinite di sicurezza applicate a livello di organizzazione. Per altre informazioni sulle impostazioni predefinite di sicurezza, vedere [Che cosa sono le impostazioni predefinite della sicurezza?](../fundamentals/concept-fundamentals-security-defaults.md)
+
+## <a name="my-device-was-lost-or-stolen"></a>Il dispositivo è stato smarrito o rubato
 
 In caso di smarrimento o di furto del dispositivo mobile, è possibile eseguire una delle operazioni seguenti:
 
@@ -72,14 +80,14 @@ Verificare che le notifiche siano abilitate | Verificare che nel dispositivo mob
 Assicurarsi che il dispositivo riceva il segnale e di disporre di una connessione Internet | Assicurarsi che il dispositivo mobile riceva le telefonate e gli SMS. Chiedere a un amico di telefonare e inviare un SMS per assicurarsi di ricevere entrambi. Se non si riceve la chiamata o il testo, verificare prima di tutto che il dispositivo mobile sia attivato. Se il dispositivo è acceso, ma non viene ancora ricevuta la chiamata o il testo, probabilmente si è verificato un problema con la rete. È necessario comunicare con il provider. Se si verificano spesso problemi di segnale, è consigliabile usare l'[app Microsoft Authenticator](user-help-auth-app-download-install.md) sul dispositivo mobile. Questa app può generare codici di sicurezza casuali per l'accesso, senza richiedere alcun segnale di rete né alcuna connessione Internet.
 Disabilitare Non disturbare | Assicurarsi di non aver abilitato la funzionalità **Non disturbare** per il dispositivo mobile. Quando questa funzionalità è abilitata, non è consentito l'invio di notifiche al dispositivo mobile. Per istruzioni su come disabilitare questa funzionalità, vedere il manuale del dispositivo mobile.
 Sbloccare i numeri di telefono | Nel Stati Uniti le chiamate vocali da Microsoft provengono dai numeri seguenti: +1 (866) 539 4191, +1 (855) 330 8653 e +1 (877) 668 6536.
-Controllare le impostazioni relative alla batteria | Questo sembra un po' dispari sulla superficie. Tuttavia, se è stata configurata l'ottimizzazione della batteria per arrestare le app meno utilizzate rimanenti attive in background, è probabile che il sistema di notifica sia interessato. Per tentare di risolvere il problema, disattivare l'ottimizzazione della batteria per l'app di autenticazione e per l'app di messaggistica. Provare quindi ad accedere di nuovo all'account.
-Disabilitare le app di sicurezza di terze parti | Alcune app per la sicurezza del telefono bloccano i messaggi di testo e le telefonate da chiamanti sconosciuti. Tali app potrebbero impedire al telefono di ricevere il codice di verifica. Provare a disabilitare eventuali app per la sicurezza di terze parti sul telefono, quindi richiedere l'invio di un altro codice di verifica.
+Controllare le impostazioni relative alla batteria | Se si imposta l'ottimizzazione della batteria per arrestare le app usate meno di frequente rimanenti attive in background, è probabile che il sistema di notifica sia interessato. Provare a disattivare l'ottimizzazione della batteria per l'app di autenticazione e per l'app di messaggistica. Provare quindi ad accedere di nuovo all'account.
+Disabilitare le app di sicurezza di terze parti | Alcune app per la sicurezza del telefono bloccano i messaggi di testo e le telefonate da chiamanti sconosciuti. Un'app di sicurezza potrebbe impedire al telefono di ricevere il codice di verifica. Provare a disabilitare eventuali app per la sicurezza di terze parti sul telefono, quindi richiedere l'invio di un altro codice di verifica.
 
 ## <a name="im-not-being-prompted-for-my-second-verification-information"></a>Non vengono richieste le seconde informazioni di verifica
 
 Per accedere all'account aziendale o dell'Istituto di istruzione, usare il nome utente e la password. Verranno quindi richieste le informazioni di verifica aggiuntive sulla sicurezza. Se non viene richiesto, forse non è stato ancora configurato il dispositivo. Il dispositivo mobile deve essere configurato per l'uso del metodo specifico di verifica di sicurezza aggiuntiva.
 
-Per assicurarsi che il dispositivo mobile sia acceso e disponibile, vedere l'articolo [gestire le impostazioni del metodo di verifica a due fattori](multi-factor-authentication-end-user-manage-settings.md) . Se si è certi di non aver configurato il dispositivo o l'account, è possibile eseguire la configurazione seguendo la procedura illustrata nell'articolo [Configurare l'account per la verifica in due passaggi](multi-factor-authentication-end-user-first-time.md).
+Forse non è stato ancora configurato il dispositivo. Il dispositivo mobile deve essere configurato per funzionare con un metodo di verifica di sicurezza aggiuntivo specifico. Per i passaggi per rendere il dispositivo mobile disponibile per l'uso con il metodo di verifica, vedere [gestire le impostazioni del metodo di verifica a due fattori](multi-factor-authentication-end-user-manage-settings.md). Se si è certi che il dispositivo o l'account non è ancora stato configurato, è possibile seguire la procedura descritta nell'articolo [configurare l'account per la verifica in due passaggi](multi-factor-authentication-end-user-first-time.md) .
 
 ## <a name="i-have-a-new-phone-number-and-i-want-to-add-it"></a>Ho un nuovo numero di telefono che desidero aggiungere
 
@@ -95,13 +103,13 @@ Se si dispone di un nuovo dispositivo mobile, è necessario configurarlo in modo
 
 Passaggi facoltativi:
 
-- Installare e configurare l'app Microsoft Authenticator nel dispositivo mobile. Eseguire l'installazione seguendo i passaggi descritti nell'articolo [scaricare e installare l'app Microsoft Authenticator](user-help-auth-app-download-install.md) .
+- Installare l'app Microsoft Authenticator nel dispositivo mobile attenendosi alla procedura descritta nell'articolo [scaricare e installare l'app Microsoft Authenticator](user-help-auth-app-download-install.md) .
 
-- Attivare la verifica a due fattori (2FV) per i dispositivi attendibili. Attivare 2FV seguendo i passaggi illustrati nella sezione **attivare le richieste di verifica a due fattori in un dispositivo attendibile** dell'articolo [gestire le impostazioni del metodo di verifica a due fattori](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device) .
+- Abilitare la verifica a due fattori per i dispositivi attendibili seguendo la procedura illustrata nella sezione **Abilitare richieste di verifica a due fattori su un dispositivo attendibile** nell'articolo [Gestire le impostazioni del metodo di verifica a due fattori](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device).
 
 ## <a name="im-having-problems-signing-in-on-my-mobile-device-while-traveling"></a>Si verificano problemi durante l'accesso al dispositivo mobile mentre si è in viaggio
 
-Mentre ci si trova è in una località internazionale, potrebbe risultare più difficile usare un metodo di verifica correlato ai dispositivi mobili, ad esempio l'invio di SMS. È anche possibile che il dispositivo mobile possa comportare addebiti per il roaming. Per questa situazione, è consigliabile usare l'app Microsoft Authenticator, con l'opzione per connettersi a un hotspot Wi-Fi. Per altre informazioni su come configurare l'app Microsoft Authenticator sul dispositivo mobile, vedere l'articolo [scaricare e installare l'app Microsoft Authenticator](user-help-auth-app-download-install.md) .
+Mentre ci si trova è in una località internazionale, potrebbe risultare più difficile usare un metodo di verifica correlato ai dispositivi mobili, ad esempio l'invio di SMS. È anche possibile che il dispositivo mobile possa comportare addebiti per il roaming. Per questa situazione, è consigliabile usare l'app Microsoft Authenticator, con l'opzione per connettersi a un area sensibile Wi-Fi. Per altre informazioni su come configurare l'app Microsoft Authenticator sul dispositivo mobile, vedere l'articolo [scaricare e installare l'app Microsoft Authenticator](user-help-auth-app-download-install.md) .
 
 ## <a name="i-cant-get-my-app-passwords-to-work"></a>Le password per le app non funzionano
 

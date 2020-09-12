@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: seodec18
-ms.openlocfilehash: f1c5fb04597ec274eaf2b4a4e7a5e2b96f1816f1
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 05accd69f1868b8b0e0f6dbd4fb5c21ee843ec5e
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258827"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297721"
 ---
 #  <a name="encode-with-an-auto-generated-bitrate-ladder"></a>Codificare con una tabella di coppie velocità in bit-risoluzione generata automaticamente
 
@@ -62,7 +62,7 @@ L'origine con altezza "720" e una frequenza frame "23.970" produce 5 livelli vid
 |4|270|480|600|
 |5|180|320|320|
 
-### <a name="example-3"></a>Esempio 3:
+### <a name="example-3"></a>Esempio 3
 L'origine con altezza "360" e una frequenza frame "29.970" produce 3 livelli video:
 
 |Livello|Altezza|Larghezza|Velocità in bit (kbps)|

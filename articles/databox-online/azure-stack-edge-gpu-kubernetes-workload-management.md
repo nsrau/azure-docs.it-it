@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 09/01/2020
 ms.author: alkohli
-ms.openlocfilehash: 38c46bdcce64f726b3a7ddf74e0cfd10a14ba663
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 53bd7a404e4635833b03507e8b5ae93ae40b1c61
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268032"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318982"
 ---
 # <a name="kubernetes-workload-management-on-your-azure-stack-edge-device"></a>Gestione del carico di lavoro Kubernetes sul dispositivo Azure Stack Edge
 
@@ -47,7 +47,7 @@ Esistono tre modi principali per distribuire i carichi di lavoro. Ognuna di ques
 
 ![Distribuzione del carico di lavoro Kubernetes](./media/azure-stack-edge-gpu-kubernetes-workload-management/kubernetes-workload-management-1.png)
 
-- **Distribuzione locale**: si tratta dello strumento di accesso da riga di comando, ad esempio, `kubectl` che consente di distribuire Kubernetes `yamls` . È possibile connettersi al cluster Kubernetes nel Azure Stack Edge creato usando il `kubeconfig` file. Per altre informazioni, vedere [accedere a un cluster Kubernetes tramite kubectl](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+- **Distribuzione locale**: questa distribuzione è tramite lo strumento di accesso da riga di comando, ad esempio, `kubectl` che consente di distribuire Kubernetes `yamls` . È possibile accedere al cluster Kubernetes nel Azure Stack Edge tramite un `kubeconfig` file. Per altre informazioni, vedere [accedere a un cluster Kubernetes tramite kubectl](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
 - **Distribuzione di IOT Edge**: questa operazione viene eseguita tramite IOT Edge, che si connette all'hub Azure. Ci si connette al cluster Kubernetes nel dispositivo Azure Stack Edge tramite lo `iotedge` spazio dei nomi. Gli agenti IoT Edge distribuiti in questo spazio dei nomi sono responsabili della connettività ad Azure. Si applica la `IoT Edge deployment.json` configurazione usando ci/CD di Azure DevOps. La gestione dello spazio dei nomi e IoT Edge viene eseguita tramite l'operatore cloud.
 
@@ -59,9 +59,9 @@ Durante la distribuzione delle applicazioni, tenere presenti le seguenti informa
 
 - **Tipi singoli o multipli**: è possibile scegliere una singola opzione di distribuzione o una combinazione di opzioni di distribuzione diverse.
 - **Cloud rispetto alla lingua locale**: a seconda delle applicazioni, è possibile scegliere la distribuzione locale tramite kubectl o la distribuzione cloud tramite IOT Edge e Azure Arc. 
-    - La distribuzione locale è più adatta per gli scenari di sviluppo. Quando si sceglie una distribuzione locale, si è limitati alla rete in cui viene distribuito il dispositivo Azure Stack Edge.
+    - Quando si sceglie una distribuzione locale, si è limitati alla rete in cui viene distribuito il dispositivo Azure Stack Edge.
     - Se si dispone di un agente cloud che è possibile distribuire, è necessario distribuire l'operatore cloud e usare la gestione cloud.
-- Internet delle cose e **Azure Arc**: la scelta della distribuzione dipende anche dallo scopo dello scenario del prodotto. Se si distribuiscono applicazioni o contenitori con una maggiore integrazione con l'ecosistema Internet delle cose o degli altri, è consigliabile scegliere il IoT Edge modo per distribuire le applicazioni. Se si dispone di distribuzioni Kubernetes esistenti, Azure Arc è la scelta migliore.
+- Internet delle cose e **Azure Arc**: la scelta della distribuzione dipende anche dallo scopo dello scenario del prodotto. Se si distribuiscono applicazioni o contenitori con una maggiore integrazione con l'ecosistema Internet delle cose o degli altri, selezionare IoT Edge per distribuire le applicazioni. Se si dispone di distribuzioni Kubernetes esistenti, Azure Arc è la scelta migliore.
 
 
 ## <a name="next-steps"></a>Passaggi successivi
@@ -76,4 +76,4 @@ Per distribuire un'app tramite IoT Edge, vedere:
 
 Per distribuire un'app tramite Azure Arc, vedere:
 
-- [Distribuire un'applicazione con Azure Arc](azure-stack-edge-gpu-deploy-sample-module.md).
+- [Distribuire un'applicazione con Azure Arc](azure-stack-edge-gpu-deploy-arc-kubernetes-cluster.md).

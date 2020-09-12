@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: aahi
-ms.openlocfilehash: 4ba7aa530699ab0e06ac42e3701265254b617f73
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 5bb244796414c828e1535e4874fc85aa83f182dc
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88167692"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300069"
 ---
 # <a name="how-to-use-text-analytics-for-health-preview"></a>Procedura: usare Analisi del testo per l'integrità (anteprima)
 
@@ -91,7 +91,7 @@ Compilare e inviare il [modulo di richiesta di contenitori di servizi cognitivi]
 Azure [app Web per contenitori](https://azure.microsoft.com/services/app-service/containers/) è una risorsa di Azure dedicata all'esecuzione di contenitori nel cloud. Offre funzionalità predefinite, come la scalabilità automatica, il supporto di contenitori Docker e Docker compose, il supporto HTTPS e molto altro ancora.
 
 > [!NOTE]
-> Con l'app Web di Azure verrà automaticamente ottenuto un dominio nel formato`<appservice_name>.azurewebsites.net`
+> Con l'app Web di Azure verrà automaticamente ottenuto un dominio nel formato `<appservice_name>.azurewebsites.net`
 
 Eseguire questo script di PowerShell usando l'interfaccia della riga di comando di Azure per creare una app Web per contenitori, usando la sottoscrizione e l'immagine del contenitore su HTTPS. Attendere il completamento dello script (circa 25-30 minuti) prima di inviare la prima richiesta.
 
@@ -161,11 +161,11 @@ Per impostazione predefinita, quando si usa ACI con l'API contenitore non viene 
 
 #### <a name="set-up-nginx-as-an-ingress-gateway"></a>Configurare NGINX come gateway di ingresso
 
-NGINX USA [i file di configurazione](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) per abilitare le funzionalità in fase di esecuzione. Per abilitare la terminazione TLS per un altro servizio, è necessario specificare un certificato SSL per terminare la connessione TLS e `proxy_pass` specificare un indirizzo per il servizio. Di seguito è riportato un esempio.
+NGINX USA [i file di configurazione](https://docs.nginx.com/nginx/admin-guide/basic-functionality/managing-configuration-files/) per abilitare le funzionalità in fase di esecuzione. Per abilitare la terminazione TLS per un altro servizio, è necessario specificare un certificato SSL per terminare la connessione TLS e  `proxy_pass` specificare un indirizzo per il servizio. Di seguito è riportato un esempio.
 
 
 > [!NOTE]
-> `ssl_certificate`prevede che un percorso sia specificato all'interno del file system locale del contenitore NGINX. L'indirizzo specificato per `proxy_pass` deve essere disponibile nella rete del contenitore nginx.
+> `ssl_certificate` prevede che un percorso sia specificato all'interno del file system locale del contenitore NGINX. L'indirizzo specificato per `proxy_pass` deve essere disponibile nella rete del contenitore nginx.
 
 Il contenitore NGINX caricherà tutti i file in `_.conf_` montati nel `/etc/nginx/conf.d/` percorso di configurazione http.
 
@@ -399,22 +399,19 @@ L'output dell'estrazione della relazione contiene riferimenti URI all' *origine*
 
 ```json
 "relations": [
-  {
-      "relationType": "DosageOfMedication",
-      "score": 1.0,
-      "bidirectional": false,
-      "source": "#/documents/2/entities/0",
-      "target": "#/documents/2/entities/1",
-      "entities": [
-          {
-              "id": "0",
-              "role": "ATTRIBUTE"
-          },
-          {
-              "id": "1",
-              "role": "ENTITY"
-          }
-      ]
+                {
+                    "relationType": "DosageOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/0",
+                    "target": "#/documents/1/entities/1"
+                },
+                {
+                    "relationType": "FrequencyOfMedication",
+                    "bidirectional": false,
+                    "source": "#/documents/1/entities/2",
+                    "target": "#/documents/1/entities/1"
+                }
+            ]
   },
 ...
 ]

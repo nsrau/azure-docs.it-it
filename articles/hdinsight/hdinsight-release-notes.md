@@ -8,12 +8,12 @@ ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 0587a179b98a410cdba46b7817d86567f275f25d
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: fd0412459e7d6e51b6abdccbc8782d157acee6b9
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826821"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319798"
 ---
 # <a name="azure-hdinsight-release-notes"></a>Note sulla versione di Azure HDInsight
 
@@ -49,7 +49,7 @@ A partire dal 1° luglio 2020, i clienti non potranno creare nuovi cluster Kafka
 
 ## <a name="behavior-changes"></a>Modifiche del comportamento
 ### <a name="ambari-stack-version-change"></a>Modifica della versione dello stack di Ambari
-Da questa versione, la versione di Ambari è cambiata da 2. x. x. x a 4,1. È possibile ottenere la versione di Ambari dall'interfaccia utente di Ambari > informazioni su.
+In questa versione, la versione di Ambari passa da 2. x.x. x a 4,1. È possibile verificare la versione dello stack (HDInsight 4,1) in Ambari: Ambari > utente > versioni.
 
 ## <a name="upcoming-changes"></a>Modifiche imminenti
 Nessun imminente cambiamento di rilievo a cui è necessario prestare attenzione.
@@ -75,4 +75,4 @@ Questa release non prevede alcuna modifica della versione dei componenti. È pos
 
 ## <a name="known-issues"></a>Problemi noti
 
-È stato risolto un problema nel portale di Azure, in cui si è verificato un errore durante la creazione di un cluster HDInsight di Azure con un tipo di autenticazione SSH di chiave pubblica. Quando si fa clic su **Verifica + crea**, gli utenti riceveranno l'errore "non deve contenere tre caratteri consecutivi dal nome utente SSH". Questo problema è stato risolto, ma potrebbe essere necessario aggiornare la cache del browser premendo CTRL + F5 per caricare la visualizzazione corretta. La soluzione alternativa a questo problema consiste nel creare un cluster con un modello ARM. 
+È stato risolto un problema nel portale di Azure, secondo il quale gli utenti riscontravano un errore durante la creazione di un cluster di Azure HDInsight tramite un tipo di autenticazione SSH della chiave pubblica. Facendo clic su **Rivedi e crea**, gli utenti visualizzavano l'errore "Non deve contenere alcuna sequenza di tre caratteri consecutivi del nome utente SSH". Questo problema è stato risolto, ma potrebbe essere necessario aggiornare la cache del browser premendo CTRL + F5 per caricare la vista corretta. La soluzione alternativa a questo problema consiste nel creare un cluster con un modello di Resource Manager. 

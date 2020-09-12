@@ -12,12 +12,12 @@ ms.date: 06/05/2020
 ms.author: celested
 ms.reviewer: asteen, jlu, hirsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd24e6847dbf02bc7efe5d9e6ea02043879f720b
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: bed6bc43dfc15abf2bdf9f38a5de2240d348d6fb
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86054713"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320257"
 ---
 # <a name="configure-the-stay-signed-in-prompt-for-azure-ad-accounts"></a>Configurare il ' rimanere connesso?' Richiedi account Azure AD
 
@@ -57,7 +57,7 @@ I dettagli sull'errore di accesso sono i seguenti e sono evidenziati nell'esempi
 
 È possibile impedire agli utenti di visualizzare l'interrupt impostando l' **opzione Mostra per mantenere l'accesso** impostato su **No** nelle impostazioni di personalizzazione avanzate. In questo modo viene disabilitato il prompt KMSI per tutti gli utenti nella directory Azure AD.
 
-È anche possibile usare i controlli della sessione del browser permanenti nell'accesso condizionale per impedire agli utenti di visualizzare il prompt KMSI. Questa opzione consente di disabilitare il prompt KMSI per un gruppo selezionato di utenti, ad esempio gli amministratori globali, senza influire sul comportamento di accesso per gli altri utenti nella directory. Per altre informazioni, vedere [frequenza di accesso utente](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime). 
+È anche possibile usare i controlli della sessione del browser permanenti nell'accesso condizionale per impedire agli utenti di visualizzare il prompt KMSI. Questa opzione consente di disabilitare il prompt KMSI per un gruppo selezionato di utenti, ad esempio gli amministratori globali, senza influire sul comportamento di accesso per gli altri utenti nella directory. Per altre informazioni, vedere [frequenza di accesso utente](../conditional-access/howto-conditional-access-session-lifetime.md). 
 
 Per assicurarsi che il prompt KMSI venga visualizzato solo quando può trarre vantaggio dall'utente, il prompt di KMSI non viene intenzionalmente visualizzato negli scenari seguenti:
 
@@ -72,6 +72,6 @@ Per assicurarsi che il prompt KMSI venga visualizzato solo quando può trarre va
 
 Informazioni sulle altre impostazioni che influiscono sul timeout della sessione di accesso:
 
-* Microsoft 365- [timeout della sessione inattiva](https://docs.microsoft.com/sharepoint/sign-out-inactive-users)
-* Azure AD l'accesso condizionale- [frequenza di accesso utente](https://docs.microsoft.com/azure/active-directory/conditional-access/howto-conditional-access-session-lifetime)
-* Portale di Azure: [timeout di inattività a livello di directory](https://docs.microsoft.com/azure/azure-portal/admin-timeout)
+* Microsoft 365- [timeout della sessione inattiva](/sharepoint/sign-out-inactive-users)
+* Azure AD l'accesso condizionale- [frequenza di accesso utente](../conditional-access/howto-conditional-access-session-lifetime.md)
+* Portale di Azure: [timeout di inattività a livello di directory](../../azure-portal/set-preferences.md#change-the-directory-timeout-setting-admin)

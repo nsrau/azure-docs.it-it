@@ -10,12 +10,12 @@ ms.subservice: bing-spell-check
 ms.topic: conceptual
 ms.date: 06/27/2019
 ms.author: aahi
-ms.openlocfilehash: fe540dbb230f033f139e82325bf8e20846f5bfe3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: de232ab6c52afa45b40ef7863a0cb35d7b40531f
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85832543"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299117"
 ---
 # <a name="sending-requests-to-the-bing-spell-check-api"></a>Invio di richieste all'API Controllo ortografico Bing
 
@@ -42,7 +42,7 @@ Per un elenco di tutte le intestazioni di richiesta e risposta, vedere [Headers]
 
 Quando si chiama l'API Controllo ortografico Bing tramite JavaScript, le funzionalità di sicurezza predefinite del browser potrebbero impedire l'accesso ai valori di queste intestazioni.
 
-Per risolvere il problema, è possibile inviare la richiesta all'API Controllo ortografico Bing tramite un proxy CORS. La risposta da un proxy di questo tipo contiene un'intestazione `Access-Control-Expose-Headers` che inserisce le intestazioni della risposta nell'elenco elementi consentiti e le rende disponibili per JavaScript.
+Per risolvere il problema, è possibile inviare la richiesta all'API Controllo ortografico Bing tramite un proxy CORS. La risposta da un proxy di questo tipo ha un' `Access-Control-Expose-Headers` intestazione che filtra le intestazioni di risposta e le rende disponibili a JavaScript.
 
 Si può installare facilmente un proxy CORS per consentire all'[app dell'esercitazione](../tutorials/spellcheck.md) di accedere alle intestazioni client facoltative. Per prima cosa [installare Node.js](https://nodejs.org/en/download/), se non è già disponibile. Immettere quindi il comando seguente al prompt dei comandi.
 

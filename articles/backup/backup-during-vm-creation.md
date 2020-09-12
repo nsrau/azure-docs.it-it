@@ -3,12 +3,12 @@ title: Abilitare il backup quando si crea una macchina virtuale di Azure
 description: Viene descritto come abilitare il backup quando si crea una macchina virtuale di Azure con backup di Azure.
 ms.topic: conceptual
 ms.date: 06/13/2019
-ms.openlocfilehash: bbc00239a34fc0eb88991fcabd91c5a0eb7dbea7
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: ad81300545686d61f42cdd8684e502c937b4fd43
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892304"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377336"
 ---
 # <a name="enable-backup-when-you-create-an-azure-vm"></a>Abilitare il backup quando si crea una macchina virtuale di Azure
 
@@ -26,14 +26,14 @@ Se non è già stato effettuato l'accesso al proprio account, accedere al [porta
 
 ## <a name="create-a-vm-with-backup-configured"></a>Creare una VM con il backup configurato
 
-1. In portale di Azure fare clic su **Crea una risorsa**.
+1. Nella portale di Azure selezionare **Crea una risorsa**.
 
-2. In Azure Marketplace fare clic su **calcolo**e quindi selezionare un'immagine di macchina virtuale.
+2. In Azure Marketplace selezionare **calcolo**, quindi selezionare un'immagine di macchina virtuale.
 
 3. Configurare la VM in base alle istruzioni di [Windows](../virtual-machines/windows/quick-create-portal.md) o [Linux](../virtual-machines/linux/quick-create-portal.md) .
 
-4. Nella scheda **gestione** , in **Abilita backup**, fare clic **su attiva**.
-5. Backup di backup di Azure in un insieme di credenziali di servizi di ripristino. Se non si dispone di un insieme di credenziali esistente, fare clic su **Crea nuovo** .
+4. Nella scheda **gestione** , in **Abilita backup**, selezionare **on**.
+5. Backup di backup di Azure in un insieme di credenziali di servizi di ripristino. Selezionare **Crea nuovo** se non si dispone di un insieme di credenziali esistente.
 6. Accettare il nome dell'insieme di credenziali suggerito o specificarne di personalizzati.
 7. Specificare o creare un gruppo di risorse in cui risiederà l'insieme di credenziali. L'insieme di credenziali del gruppo di risorse può essere diverso dal gruppo di risorse VM.
 
@@ -76,8 +76,8 @@ Il backup della macchina virtuale viene eseguito in base ai criteri di backup. T
 
 Dopo aver creato la macchina virtuale, eseguire le operazioni seguenti:
 
-1. Nelle proprietà della macchina virtuale fare clic su **backup**. Lo stato della macchina virtuale è il backup iniziale in sospeso fino a quando non viene eseguito il backup iniziale
-2. Fare clic su Esegui backup **ora** per eseguire un backup su richiesta.
+1. Nelle proprietà della macchina virtuale selezionare **backup**. Lo stato della macchina virtuale è il backup iniziale in sospeso fino a quando non viene eseguito il backup iniziale.
+2. Selezionare Esegui backup **ora** per eseguire un backup su richiesta.
 
     ![Eseguire un backup su richiesta](./media/backup-during-vm-creation/run-backup.png)
 

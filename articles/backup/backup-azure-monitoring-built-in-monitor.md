@@ -4,12 +4,12 @@ description: Questo articolo illustra le funzionalità di monitoraggio e notific
 ms.topic: conceptual
 ms.date: 03/05/2019
 ms.assetid: 86ebeb03-f5fa-4794-8a5f-aa5cbbf68a81
-ms.openlocfilehash: 0e1e50f27c6d0563ab51a74bbfa22d2a7f54ecd3
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d04f57c19e31b946f7c360edb796bc4f0f5fcf71
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000737"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377404"
 ---
 # <a name="monitoring-azure-backup-workloads"></a>Monitoraggio dei carichi di lavoro di backup di Azure
 
@@ -63,7 +63,7 @@ Per le soluzioni di backup del carico di lavoro di Azure, ad esempio SQL e SAP H
 
 ### <a name="exceptions-when-an-alert-is-not-raised"></a>Eccezioni quando non viene generato un avviso
 
-Quando un avviso non viene generato in caso di errore, si verificano alcune eccezioni. I peering sono i seguenti:
+Quando un avviso non viene generato in caso di errore, si verificano alcune eccezioni. ovvero:
 
 - L'utente ha annullato esplicitamente il processo in esecuzione
 - Il processo ha esito negativo perché è in corso un altro processo di backup (non è necessario agire da qui perché è sufficiente attendere il completamento del processo precedente)
@@ -100,7 +100,7 @@ Se la frequenza è stata impostata su un digest orario e un avviso viene generat
 
 ## <a name="inactivating-alerts"></a>Inattivazione degli avvisi
 
-Per disattivare o risolvere un avviso attivo, è possibile selezionare l'elemento di elenco corrispondente all'avviso che si desidera disattivare. Verrà visualizzata una schermata in cui sono visualizzate informazioni dettagliate sull'avviso, con un pulsante di **disattivazione** nella parte superiore. Se si fa clic su questo pulsante, lo stato dell'avviso verrà modificato su **inattivo**. È anche possibile disattivare un avviso facendo clic con il pulsante destro del mouse sull'elemento dell'elenco corrispondente a tale avviso e selezionando **Disattiva**.
+Per disattivare o risolvere un avviso attivo, è possibile selezionare l'elemento di elenco corrispondente all'avviso che si desidera disattivare. Verrà visualizzata una schermata in cui sono visualizzate informazioni dettagliate sull'avviso, con un pulsante di **disattivazione** nella parte superiore. Se si seleziona questo pulsante, lo stato dell'avviso verrà modificato su **inattivo**. È anche possibile disattivare un avviso facendo clic con il pulsante destro del mouse sull'elemento dell'elenco corrispondente a tale avviso e selezionando **Disattiva**.
 
 ![Inattivazione avviso di insieme di credenziali RS](media/backup-azure-monitoring-laworkspace/vault-alert-inactivation.png)
 

@@ -4,14 +4,14 @@ description: Informazioni su come abilitare Collegamento a Synapse per account A
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 05/19/2020
+ms.date: 08/31/2020
 ms.author: rosouz
-ms.openlocfilehash: 4c5f812bf1a5a60a6d1344d6a39fbd95898f55fc
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: d77922d5957a0f6602e00621ebbabeaa3f3ac8f9
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815573"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322467"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configurare e usare Collegamento ad Azure Synapse per Azure Cosmos DB (anteprima)
 
@@ -228,4 +228,4 @@ Per altre informazioni, vedere la documentazione seguente:
 
 * [Apache Spark in Azure Synapse Analytics](../synapse-analytics/spark/apache-spark-concepts.md).
 
-* [SQL serverless/su richiesta in Azure Synapse Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md).
+* [Supporto del runtime di SQL Server in Azure sinapsi Analytics](../synapse-analytics/sql/on-demand-workspace-overview.md).

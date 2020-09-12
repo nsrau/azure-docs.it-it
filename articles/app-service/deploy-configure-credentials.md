@@ -5,12 +5,12 @@ ms.topic: article
 ms.date: 08/14/2019
 ms.reviewer: byvinyal
 ms.custom: seodec18
-ms.openlocfilehash: 45d2ec6cf4b2a54b899036d932bc310caede3c29
-ms.sourcegitcommit: f844603f2f7900a64291c2253f79b6d65fcbbb0c
+ms.openlocfilehash: 739325f66594667c6973df356e2bcf26a3eb056d
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/10/2020
-ms.locfileid: "86223857"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300273"
 ---
 # <a name="configure-deployment-credentials-for-azure-app-service"></a>Configurazione delle credenziali per la distribuzione del Servizio app di Azure
 Il [Servizio app di Azure](https://go.microsoft.com/fwlink/?LinkId=529714) supporta due tipi di credenziali per la [distribuzione di GIT locale](deploy-local-git.md) e la [distribuzione FTP/S](deploy-ftp.md). Queste credenziali sono diverse dalle credenziali della sottoscrizione di Azure.
@@ -73,6 +73,36 @@ Per ottenere le credenziali a livello di app:
 2. Fare clic su **Credenziali dell'app** e selezionare il collegamento **Copia** per copiare nome utente o password.
 
 Per reimpostare le credenziali a livello di app, selezionare **Reimposta credenziali** nella stessa finestra di dialogo.
+
+## <a name="disable-basic-authentication"></a>Disabilitare l'autenticazione di base
+
+Alcune organizzazioni devono soddisfare i requisiti di sicurezza e piuttosto disabilitare l'accesso tramite FTP o WebDeploy. In questo modo, i membri dell'organizzazione possono accedere ai propri servizi app solo tramite le API controllate da Azure Active Directory (Azure AD).
+
+### <a name="ftp"></a>FTP
+
+Per disabilitare l'accesso FTP al sito, eseguire il comando dell'interfaccia della riga di comando seguente. Sostituire i segnaposto con il gruppo di risorse e il nome del sito. 
+
+```bash
+az resource update --resource-group <resource-group> --name ftp --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
+```
+
+Per verificare che l'accesso FTP sia bloccato, è possibile provare a eseguire l'autenticazione usando un client FTP come FileZilla. Per recuperare le credenziali di pubblicazione, passare al pannello panoramica del sito e fare clic su Scarica profilo di pubblicazione. Usare il nome host FTP del file, il nome utente e la password per l'autenticazione e verrà restituita una risposta di errore 401, che indica che l'utente non è autorizzato.
+
+### <a name="webdeploy-and-scm"></a>WebDeploy e SCM
+
+Per disabilitare l'accesso con autenticazione di base alla porta WebDeploy e al sito SCM, eseguire il comando dell'interfaccia della riga di comando seguente. Sostituire i segnaposto con il gruppo di risorse e il nome del sito. 
+
+```bash
+az resource update --resource-group <resource-group> --name scm --namespace Microsoft.Web --resource-type basicPublishingCredentialsPolicies --parent sites/<site-name> --set properties.allow=false
+```
+
+Per verificare che le credenziali del profilo di pubblicazione siano bloccate su WebDeploy, provare a [pubblicare un'app Web con Visual Studio 2019](https://docs.microsoft.com/visualstudio/deployment/quickstart-deploy-to-azure?view=vs-2019).
+
+### <a name="disable-access-to-the-api"></a>Disabilitare l'accesso all'API
+
+L'API nella sezione precedente è supportata dal controllo degli accessi in base al ruolo di Azure (RBAC), che significa che è possibile [creare un ruolo personalizzato](https://docs.microsoft.com/azure/role-based-access-control/custom-roles#steps-to-create-a-custom-role) e assegnare utenti priveldged al ruolo in modo da non consentire l'autenticazione di base in tutti i siti. Per configurare il ruolo personalizzato, [seguire queste istruzioni](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#create-a-custom-rbac-role).
+
+È anche possibile usare [monitoraggio di Azure](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#audit-with-azure-monitor) per controllare le richieste di autenticazione riuscite e usare i [criteri di Azure](https://azure.github.io/AppService/2020/08/10/securing-data-plane-access.html#enforce-compliance-with-azure-policy) per applicare questa configurazione per tutti i siti nella sottoscrizione.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

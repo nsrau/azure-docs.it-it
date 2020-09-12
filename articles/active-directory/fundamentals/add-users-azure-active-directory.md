@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b6d8e6ed412a0e71e8c85827cfc8fc05cd744e3d
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 9fbdccfa7ff16bd63dda1f7c21c07e6d20e086e1
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797101"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321090"
 ---
 # <a name="add-or-delete-users-using-azure-active-directory"></a>Aggiungere o eliminare utenti tramite Azure Active Directory
 
@@ -54,13 +54,13 @@ Per aggiungere un nuovo utente, attenersi alla seguente procedura:
 
 1. Copiare la password generata automaticamente specificata nella casella **password** . Sarà necessario assegnare questa password all'utente per accedere per la prima volta.
 
-1. Selezionare **Crea**.
+1. Selezionare **Create** (Crea).
 
 L'utente viene creato e aggiunto all'organizzazione Azure AD.
 
 ## <a name="add-a-new-guest-user"></a>Aggiungere un nuovo utente Guest
 
-È anche possibile invitare un nuovo utente Guest per collaborare con l'organizzazione selezionando **invita utente** nella pagina **nuovo utente** . Se vengono configurate le impostazioni di collaborazione esterna dell'organizzazione in modo che sia possibile invitare i guest, l'utente verrà inviato tramite posta elettronica a un invito che deve accettare per iniziare la collaborazione. Per ulteriori informazioni sull'invito di utenti di collaborazione B2B, vedere [invitare utenti B2B a Azure Active Directory](../b2b/add-users-administrator.md)
+È anche possibile invitare un nuovo utente Guest per collaborare con l'organizzazione selezionando **invita utente** nella pagina **nuovo utente** . Se vengono configurate le impostazioni di collaborazione esterna dell'organizzazione in modo che sia possibile invitare i guest, l'utente verrà inviato tramite posta elettronica a un invito che deve accettare per iniziare la collaborazione. Per ulteriori informazioni sull'invito di utenti di collaborazione B2B, vedere [invitare utenti B2B a Azure Active Directory](../external-identities/add-users-administrator.md)
 
 ## <a name="add-a-consumer-user"></a>Aggiungere un utente consumer
 
@@ -105,4 +105,4 @@ Una volta aggiunti gli utenti, è possibile eseguire i processi di base seguenti
 
 - [Utilizzare gruppi e utenti dinamici](../users-groups-roles/groups-create-rule.md)
 
-In alternativa, è possibile eseguire altre attività di gestione degli utenti, ad esempio l' [aggiunta di utenti Guest da un'altra directory](../b2b/what-is-b2b.md) o [il ripristino di un utente eliminato](active-directory-users-restore.md). Per altre informazioni sulle altre azioni disponibili, vedere [Documentazione sulla gestione degli utenti in Azure Active Directory](../users-groups-roles/index.yml).
+In alternativa, è possibile eseguire altre attività di gestione degli utenti, ad esempio l' [aggiunta di utenti Guest da un'altra directory](../external-identities/what-is-b2b.md) o [il ripristino di un utente eliminato](active-directory-users-restore.md). Per altre informazioni sulle altre azioni disponibili, vedere [Documentazione sulla gestione degli utenti in Azure Active Directory](../users-groups-roles/index.yml).

@@ -3,12 +3,12 @@ title: Configurare le impostazioni di diagnostica dell'insieme di credenziali su
 description: Configurare le impostazioni di diagnostica Log Analytics per tutti gli insiemi di credenziali in un determinato ambito usando criteri di Azure
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 751ce0233fb232ef5d276c88a8c2429a2975b2f9
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 25946bb742c7666e7d394477318f647009b2f50e
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179981"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378050"
 ---
 # <a name="configure-vault-diagnostics-settings-at-scale"></a>Configurare le impostazioni di diagnostica dell'insieme di credenziali su larga scala
 
@@ -22,7 +22,7 @@ Per semplificare la creazione di impostazioni di diagnostica su larga scala (con
 
 * I criteri possono essere applicati contemporaneamente a tutti gli insiemi di credenziali di servizi di ripristino in una sottoscrizione specifica o a un gruppo di risorse all'interno della sottoscrizione. L'utente che assegna i criteri deve disporre dell'accesso **proprietario** alla sottoscrizione a cui è assegnato il criterio.
 
-* L'area di lavoro LA come specificato dall'utente (a cui verranno inviati i dati di diagnostica) può trovarsi in una sottoscrizione diversa dagli insiemi di credenziali a cui è assegnato il criterio. L'utente deve disporre dell'accesso **Reader**, **collaboratore** o **proprietario** alla sottoscrizione in cui è presente l'area di lavoro la specificata.
+* L'area di lavoro LA come specificato dall'utente (a cui verranno inviati i dati di diagnostica) può trovarsi in una sottoscrizione diversa dagli insiemi di credenziali a cui è assegnato il criterio. L'utente deve disporre dell'accesso a **Reader**, **collaboratore**o **proprietario** per la sottoscrizione in cui è presente l'area di lavoro la specificata.
 
 * Ambito del gruppo di gestione attualmente non supportato.
 

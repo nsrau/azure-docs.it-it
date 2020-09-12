@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 1e17421b27082a079d078f53c38d0c942db7ae71
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: b50c942d2e05d7f5234a17f1cf36137309c7ce97
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200543"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320954"
 ---
 # <a name="blocking-legacy-authentication"></a>Bloccare l'autenticazione legacy
  
@@ -50,7 +50,7 @@ Questa sezione fornisce una panoramica dettagliata su come aggiornare l'ambiente
 
 Il primo passaggio per abilitare l'autenticazione moderna è verificare che questa sia supportata dalla directory. L'autenticazione moderna è abilitata per impostazione predefinita per le directory create successivamente al 1 agosto 2017 compreso. Se la directory è stata creata in una data precedente a quella indicata, sarà necessario abilitare l'autenticazione moderna manualmente seguendo i passaggi seguenti:
 
-1. Verificare che la directory supporti già l'autenticazione moderna eseguendo `Get-CsOAuthConfiguration` dal modulo [PowerShell di Skype for Business Online](https://docs.microsoft.com/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
+1. Verificare che la directory supporti già l'autenticazione moderna eseguendo `Get-CsOAuthConfiguration` dal modulo [PowerShell di Skype for Business Online](/office365/enterprise/powershell/manage-skype-for-business-online-with-office-365-powershell).
 1. Se il comando restituisce una proprietà `OAuthServers`  vuota, l'autenticazione moderna è disabilitata. Aggiornare l'impostazione per abilitare l'autenticazione moderna usando `Set-CsOAuthConfiguration`. Se la proprietà `OAuthServers`  contiene una voce, l'operazione è terminata.
 
 Assicurarsi di completare questo passaggio prima di procedere. È fondamentale che le configurazioni della directory vengano modificate per prime in quanto stabiliscono il protocollo che verrà usato da tutti i client Office. Anche se si usano client Office che supportano l'autenticazione moderna, se nella directory questa è disabilitata verranno usati i protocolli legacy per impostazione predefinita.
@@ -59,7 +59,7 @@ Assicurarsi di completare questo passaggio prima di procedere. È fondamentale c
 
 Dopo aver abilitato l'autenticazione moderna nella directory, è possibile avviare l'aggiornamento delle applicazioni abilitando l'autenticazione moderna per i client Office. I client Office 2016 o successivi supportano l'autenticazione moderna per impostazione predefinita. Non sono necessari altri passaggi.
 
-Se si usano client Windows Office 2013 o precedenti, è consigliabile eseguire l'aggiornamento a Office 2016 o versione successiva. Anche dopo aver completato il passaggio precedente dell'abilitazione dell'autenticazione moderna nella directory, le applicazioni Office precedenti continueranno a usare i protocolli di autenticazione legacy. Se si usano i client Office 2013 e non è possibile eseguire immediatamente l'aggiornamento a Office 2016 o versione successiva, seguire i passaggi illustrati nell'articolo seguente per [abilitare l'autenticazione moderna per Office 2013 su dispositivi Windows](https://docs.microsoft.com/office365/admin/security-and-compliance/enable-modern-authentication). Come altra misura di protezione dell'account mentre si usa l'autenticazione legacy, è consigliabile usare password complesse in tutta la directory. Consultare [protezione delle password di Azure AD](../authentication/concept-password-ban-bad.md) per impedire l'uso di password vulnerabili nella directory.
+Se si usano client Windows Office 2013 o precedenti, è consigliabile eseguire l'aggiornamento a Office 2016 o versione successiva. Anche dopo aver completato il passaggio precedente dell'abilitazione dell'autenticazione moderna nella directory, le applicazioni Office precedenti continueranno a usare i protocolli di autenticazione legacy. Se si usano i client Office 2013 e non è possibile eseguire immediatamente l'aggiornamento a Office 2016 o versione successiva, seguire i passaggi illustrati nell'articolo seguente per [abilitare l'autenticazione moderna per Office 2013 su dispositivi Windows](/office365/admin/security-and-compliance/enable-modern-authentication). Come altra misura di protezione dell'account mentre si usa l'autenticazione legacy, è consigliabile usare password complesse in tutta la directory. Consultare [protezione delle password di Azure AD](../authentication/concept-password-ban-bad.md) per impedire l'uso di password vulnerabili nella directory.
 
 Office 2010 non supporta l'autenticazione moderna. È necessario aggiornare eventuali utenti con Office 2010 a una versione più recente. È consigliabile eseguire l'aggiornamento a Office 2016 o versioni successive poiché bloccano l'autenticazione legacy per impostazione predefinita.
 
@@ -69,13 +69,13 @@ Se si usa macOS, è consigliabile eseguire l'aggiornamento a Office per Mac 2016
 
 Per consentire ai client Outlook basati su Windows di usare l'autenticazione moderna, anche Exchange Online deve essere abilitato per l'autenticazione moderna. Se l'autenticazione moderna è disabilitata per Exchange Online, i client Outlook basati su Windows che supportano l'autenticazione moderna (Outlook 2013 o versione successiva) useranno l'autenticazione di base per connettersi alle cassette postali di Exchange Online.
 
-In SharePoint Online l'autenticazione moderna è abilitata per impostazione predefinita. In Exchange Online l'autenticazione moderna è abilitata per impostazione predefinita per le directory create successivamente al 1 agosto 2017 compreso. Tuttavia, se in precedenza l'autenticazione moderna è stata disabilitata o si sta usando una directory creata prima della data indicata, seguire i passaggi descritti nell'articolo seguente per [abilitare l'autenticazione moderna in Exchange Online](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
+In SharePoint Online l'autenticazione moderna è abilitata per impostazione predefinita. In Exchange Online l'autenticazione moderna è abilitata per impostazione predefinita per le directory create successivamente al 1 agosto 2017 compreso. Tuttavia, se in precedenza l'autenticazione moderna è stata disabilitata o si sta usando una directory creata prima della data indicata, seguire i passaggi descritti nell'articolo seguente per [abilitare l'autenticazione moderna in Exchange Online](/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 ### <a name="step-4-skype-for-business"></a>Passaggio 4: Skype for Business Online
 
 Per evitare richieste di autenticazione legacy effettuate da Skype for Business, è necessario abilitare l'autenticazione moderna per Skype for Business Online. In Skype for Business l'autenticazione moderna è abilitata per impostazione predefinita per le directory create successivamente al 1 agosto 2017 compreso.
 
-Si consiglia di eseguire la transizione a Microsoft Teams, che supporta l'autenticazione moderna per impostazione predefinita. Tuttavia, se non è possibile eseguire la migrazione in questo momento, sarà necessario abilitare l'autenticazione moderna per Skype for Business Online in modo che i relativi client inizino a usare l'autenticazione moderna. Per abilitare l'autenticazione moderna per Skype for Business, seguire la procedura descritta in questo articolo: [Topologie di Skype for Business supportate con l'autenticazione moderna](https://docs.microsoft.com/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported).
+Si consiglia di eseguire la transizione a Microsoft Teams, che supporta l'autenticazione moderna per impostazione predefinita. Tuttavia, se non è possibile eseguire la migrazione in questo momento, sarà necessario abilitare l'autenticazione moderna per Skype for Business Online in modo che i relativi client inizino a usare l'autenticazione moderna. Per abilitare l'autenticazione moderna per Skype for Business, seguire la procedura descritta in questo articolo: [Topologie di Skype for Business supportate con l'autenticazione moderna](/skypeforbusiness/plan-your-deployment/modern-authentication/topologies-supported).
 
 Oltre ad abilitare l'autenticazione moderna per Skype for Business Online, è consigliabile eseguire la stessa operazione anche per Exchange Online quando la si abilita per Skype for Business. Questo processo consente di sincronizzare lo stato dell'autenticazione moderna in Exchange Online e Skype for Business Online e di impedire più richieste di accesso per i client Skype for Business.
 
@@ -93,11 +93,11 @@ Prima di poter abilitare l'autenticazione moderna in locale, verificare di soddi
 
 I passaggi per l'abilitazione dell'autenticazione moderna sono disponibili negli articoli seguenti:
 
-* [Come configurare Exchange Server locale per l'uso dell'autenticazione moderna ibrida](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
-* [Come usare l'autenticazione moderna (ADAL) con Skype for Business](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
+* [Come configurare Exchange Server locale per l'uso dell'autenticazione moderna ibrida](/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
+* [Come usare l'autenticazione moderna (ADAL) con Skype for Business](/skypeforbusiness/manage/authentication/use-adal)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Come configurare Exchange Server locale per l'uso dell'autenticazione moderna ibrida](https://docs.microsoft.com/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
-- [Come usare l'autenticazione moderna (ADAL) con Skype for Business](https://docs.microsoft.com/skypeforbusiness/manage/authentication/use-adal)
+- [Come configurare Exchange Server locale per l'uso dell'autenticazione moderna ibrida](/office365/enterprise/configure-exchange-server-for-hybrid-modern-authentication)
+- [Come usare l'autenticazione moderna (ADAL) con Skype for Business](/skypeforbusiness/manage/authentication/use-adal)
 - [Bloccare l'autenticazione legacy](../conditional-access/block-legacy-authentication.md)

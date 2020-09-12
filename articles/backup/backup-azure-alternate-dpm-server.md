@@ -3,12 +3,12 @@ title: Recuperare dati da un server di Backup di Azure
 description: Recuperare i dati che sono stati protetti in un insieme di credenziali di Servizi di ripristino da qualsiasi server di Backup di Azure registrato in tale insieme di credenziali.
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 531de9226be05bf50f887cfd0410842dadb68178
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0cce45fbaaedad4cfcee0cda768aae2fa294312b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89012008"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378067"
 ---
 # <a name="recover-data-from-azure-backup-server"></a>Ripristinare i dati da un server di Backup di Azure
 
@@ -21,7 +21,7 @@ ms.locfileid: "89012008"
 
 Per ripristinare i dati da un server di Backup di Azure:
 
-1. Dalla scheda **Ripristino** della console di gestione del server di Backup di Azure, fare clic su **"Aggiungi DPM Esterno"** (nella parte superiore sinistra della schermata).
+1. Dalla scheda **ripristino** della console di gestione server di backup di Azure selezionare **"Aggiungi DPM esterno"** (nella parte superiore sinistra della schermata).
 
     ![Aggiungi DPM esterno](./media/backup-azure-alternate-dpm-server/add-external-dpm.png)
 2. Scaricare il nuovo **insieme di credenziali** da quello associato al **server di Backup di Azure** i cui dati sono in fase di ripristino, scegliere il server di Backup di Azure dall'elenco di server di Backup di Azure registrati con l'insieme delle credenziali per Servizi di ripristino e fornire la **passphrase di crittografia** associata al server i cui dati sono in fase di ripristino.
@@ -42,10 +42,10 @@ Per ripristinare i dati da un server di Backup di Azure:
     Viene visualizzato un elenco di file e cartelle nel riquadro inferiore che può essere esplorato e ripristinato in qualsiasi posizione.
 
     ![Punti di ripristino del Server DPM esterno](./media/backup-azure-alternate-dpm-server/external-dpm-recoverypoint.png)
-5. Fare clic con il pulsante destro del mouse sull'elemento appropriato e scegliere **Ripristina**.
+5. Fare clic con il pulsante destro del mouse sull'elemento appropriato e selezionare **Ripristina**.
 
     ![Ripristino DPM esterno](./media/backup-azure-alternate-dpm-server/recover.png)
-6. Verificare la **Selezione ripristino**. Verificare la data e ora della copia di backup da ripristinare, nonché l'origine da cui è stata creata la copia di backup. Se la selezione non è corretta, fare clic su **Annulla** per tornare alla scheda di ripristino e selezionare un punto di ripristino appropriato. Se la selezione è corretta, fare clic su **Avanti**.
+6. Verificare la **Selezione ripristino**. Verificare la data e ora della copia di backup da ripristinare, nonché l'origine da cui è stata creata la copia di backup. Se la selezione non è corretta, selezionare **Annulla** per tornare alla scheda ripristino per selezionare il punto di ripristino appropriato. Se la selezione è corretta, fare clic su **Avanti**.
 
     ![Riepilogo del ripristino DPM esterno](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-summary.png)
 7. Selezionare **Ripristina in un percorso alternativo**. **Cercare** la posizione corretta per il ripristino.
@@ -62,7 +62,7 @@ Per ripristinare i dati da un server di Backup di Azure:
      Identificare se viene inviata una **Notifica** dopo che il ripristino è stato completato correttamente.
 
      ![Notifiche di ripristino DPM esterno](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-notifications.png)
-9. La schermata di **Riepilogo** elenca le opzioni scelte finora. Quando si fa clic su **"Ripristina"**, i dati vengono ripristinati nel percorso locale appropriato.
+9. La schermata di **Riepilogo** elenca le opzioni scelte finora. Dopo aver selezionato **Ripristina**, i dati vengono ripristinati nel percorso locale appropriato.
 
     ![Riepilogo opzioni di ripristino DPM esterno](./media/backup-azure-alternate-dpm-server/external-dpm-recovery-options-summary.png)
 
@@ -72,7 +72,7 @@ Per ripristinare i dati da un server di Backup di Azure:
    >
 
     ![Monitoraggio del ripristino](./media/backup-azure-alternate-dpm-server/monitoring-recovery.png)
-10. È possibile fare clic su **Deselezionare DPM esterno** nella scheda **Ripristino** del server DPM per rimuovere la visualizzazione del server DPM esterno.
+10. È possibile selezionare **Cancella DPM esterno** nella scheda **ripristino** del server DPM per rimuovere la visualizzazione del server DPM esterno.
 
     ![Deselezionare DPM esterno](./media/backup-azure-alternate-dpm-server/clear-external-dpm.png)
 

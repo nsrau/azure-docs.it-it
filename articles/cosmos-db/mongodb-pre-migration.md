@@ -5,14 +5,14 @@ author: LuisBosquez
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
-ms.date: 06/04/2020
+ms.date: 09/01/2020
 ms.author: lbosq
-ms.openlocfilehash: ffa30b0fa42abc69c19b5e6c32f4224f3ad1c95a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be38b1cfa698907f44c6deee77bb9b8ca88b77b7
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85263059"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318217"
 ---
 # <a name="pre-migration-steps-for-data-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>Passaggi di pre-migrazione per la migrazione dei dati da MongoDB all'API di Azure Cosmos DB per MongoDB
 
@@ -44,11 +44,10 @@ Il [servizio Migrazione del database di Azure per l'API di Azure Cosmos DB per M
 
 |**Tipo di migrazione**|**Soluzione**|**Considerazioni**|
 |---------|---------|---------|
-|Offline|[Strumento di migrazione dati](https://docs.microsoft.com/azure/cosmos-db/import-data)|&bull; Facile da configurare e in grado di supportare più origini <br/>&bull; Non adatto per set di dati di grandi dimensioni.|
-|Offline|[Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db)|&bull; Facile da configurare e in grado di supportare più origini <br/>&bull; Usa la libreria dell'executor bulk di Azure Cosmos DB <br/>&bull; Adatto per set di dati di grandi dimensioni. <br/>&bull; La mancanza di checkpoint significa che qualsiasi problema durante il processo di migrazione richiederebbe il riavvio dell'intero processo di migrazione<br/>&bull; La mancanza di una coda di messaggi non recapitabili significa che alcuni file non corretti potrebbero arrestare l'intero processo di migrazione <br/>&bull; Richiede codice personalizzato per aumentare la velocità effettiva di lettura per alcune origini dati|
+|Online|[Servizio Migrazione del database di Azure](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; Usa la libreria dell'executor bulk di Azure Cosmos DB <br/>&bull; Adatto per set di dati di grandi dimensioni e capace di replicare modifiche in tempo reale <br/>&bull; Compatibile con altre origini MongoDB|
+|Offline|[Servizio Migrazione del database di Azure](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; Usa la libreria dell'executor bulk di Azure Cosmos DB <br/>&bull; Adatto per set di dati di grandi dimensioni e capace di replicare modifiche in tempo reale <br/>&bull; Compatibile con altre origini MongoDB|
+|Offline|[Azure Data Factory](../data-factory/connector-azure-cosmos-db.md)|&bull; Facile da configurare e in grado di supportare più origini <br/>&bull; Usa la libreria dell'executor bulk di Azure Cosmos DB <br/>&bull; Adatto per set di dati di grandi dimensioni. <br/>&bull; La mancanza di checkpoint significa che qualsiasi problema durante il processo di migrazione richiederebbe il riavvio dell'intero processo di migrazione<br/>&bull; La mancanza di una coda di messaggi non recapitabili significa che alcuni file non corretti potrebbero arrestare l'intero processo di migrazione <br/>&bull; Richiede codice personalizzato per aumentare la velocità effettiva di lettura per alcune origini dati|
 |Offline|[ Strumenti Mongo esistenti (mongodump, mongorestore, Studio3T)](https://azure.microsoft.com/resources/videos/using-mongodb-tools-with-azure-cosmos-db/)|&bull; Facile da configurare e integrare <br/>&bull; Richiede una gestione personalizzata per le limitazioni|
-|Online|[Servizio Migrazione del database di Azure](../dms/tutorial-mongodb-cosmos-db-online.md)|&bull; Servizio di migrazione completamente gestito.<br/>&bull; Fornisce soluzioni di hosting e monitoraggio per l'attività di migrazione. <br/>&bull; Adatto per set di dati di grandi dimensioni e capace di replicare modifiche in tempo reale <br/>&bull; Compatibile con altre origini MongoDB|
-
 
 ## <a name="estimate-the-throughput-need-for-your-workloads"></a><a id="estimate-throughput"></a> Stimare la velocità effettiva necessaria per i carichi di lavoro
 
@@ -71,16 +70,16 @@ Con questo comando verrà restituito un documento JSON simile al seguente:
 
 ```{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}```
 
-È anche possibile usare le [impostazioni di diagnostica](cosmosdb-monitor-resource-logs.md) per conoscere la frequenza e i modelli delle query eseguite in Azure Cosmos DB. I risultati dei log di diagnostica possono essere inviati a un account di archiviazione, un'istanza di EventHub o [Azure Log Analytics](https://docs.microsoft.com/azure/azure-monitor/log-query/get-started-portal).  
+È anche possibile usare le [impostazioni di diagnostica](cosmosdb-monitor-resource-logs.md) per conoscere la frequenza e i modelli delle query eseguite in Azure Cosmos DB. I risultati dei log di diagnostica possono essere inviati a un account di archiviazione, un'istanza di EventHub o [Azure Log Analytics](../azure-monitor/log-query/get-started-portal.md).  
 
 ## <a name="choose-your-partition-key"></a><a id="partitioning"></a>Scegliere la chiave di partizione
 Il partizionamento, o meglio il partizionamento orizzontale, è un punto essenziale di cui tenere conto prima della migrazione dei dati. Azure Cosmos DB usa il partizionamento completamente gestito per aumentare la capacità di un database in modo da soddisfare i requisiti di archiviazione e di velocità effettiva. Per questa funzionalità non è necessario l'hosting o la configurazione di server di routing.   
 
-In modo analogo, la funzionalità di partizionamento aggiunge automaticamente capacità e ri-bilancia i dati di conseguenza. Per informazioni dettagliate e raccomandazioni sulla scelta della chiave di partizione corretta per i dati, vedere l'articolo [Scelta di una chiave di partizione](https://docs.microsoft.com/azure/cosmos-db/partitioning-overview#choose-partitionkey). 
+In modo analogo, la funzionalità di partizionamento aggiunge automaticamente capacità e ri-bilancia i dati di conseguenza. Per informazioni dettagliate e raccomandazioni sulla scelta della chiave di partizione corretta per i dati, vedere l'articolo [Scelta di una chiave di partizione](partitioning-overview.md#choose-partitionkey). 
 
 ## <a name="index-your-data"></a><a id="indexing"></a>Indicizzare i dati
 
-L'API Azure Cosmos DB per MongoDB Server versione 3,6 indicizza automaticamente solo il `_id` campo. Questo campo non può essere eliminato. Viene automaticamente applicata l'univocità del `_id` campo per ogni chiave di partizione. Per indicizzare campi aggiuntivi, applicare i comandi di gestione degli indici MongoDB. Questo criterio di indicizzazione predefinito è diverso dall'API di Azure Cosmos DB SQL, che indicizza tutti i campi per impostazione predefinita.
+L'API Azure Cosmos DB per MongoDB Server versione 3,6 indicizza automaticamente solo il `_id` campo. Questo campo non può essere eliminato. Viene automaticamente applicata l'univocità del `_id` campo per ogni chiave di partizione. Per indicizzare campi aggiuntivi, applicare i comandi di gestione dell'indice MongoDB. Questo criterio di indicizzazione predefinito differisce dall'API di Azure Cosmos DB SQL, che indicizza tutti i campi per impostazione predefinita.
 
 Le funzionalità di indicizzazione fornite da Azure Cosmos DB includono l'aggiunta di indici composti, indici univoci e indici TTL (time-to-Live). Viene eseguito il mapping dell'interfaccia di gestione degli indici al comando `createIndex()`. Per altre informazioni, vedere l'articolo sull' [indicizzazione nell'API Azure Cosmos DB per MongoDB](mongodb-indexing.md).
 

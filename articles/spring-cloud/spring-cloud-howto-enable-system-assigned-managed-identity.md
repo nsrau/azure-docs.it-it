@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 05/13/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 1b9d7326ec13176fbe65ba430a8a33bb93a48f74
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 0c092052e05f355838f3853fa7376b46ef743de7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87091454"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299646"
 ---
 # <a name="how-to-enable-system-assigned-managed-identity-for-azure-spring-cloud-application"></a>Come abilitare l'identità gestita assegnata dal sistema per l'applicazione Azure Spring Cloud
 Le identità gestite per le risorse di Azure forniscono un'identità gestita automaticamente in Azure Active Directory a una risorsa di Azure, ad esempio l'applicazione Azure Spring cloud. È possibile usare questa identità per l'autenticazione a qualsiasi servizio che supporti l'autenticazione di Azure AD senza dover inserire le credenziali nel codice.
@@ -21,7 +21,7 @@ Questo articolo illustra come abilitare e disabilitare le identità gestite asse
 
 ## <a name="prerequisites"></a>Prerequisiti
 Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione Panoramica](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview).
-È necessaria un'istanza distribuita di Azure Spring cloud. Seguire la [Guida introduttiva per la distribuzione tramite l'interfaccia della riga di](spring-cloud-quickstart-launch-app-cli.md)comando di Azure.
+È necessaria un'istanza distribuita di Azure Spring cloud. Seguire la [Guida introduttiva per la distribuzione tramite l'interfaccia della riga di](spring-cloud-quickstart.md)comando di Azure.
 
 ## <a name="add-a-system-assigned-identity"></a>Aggiungere un'identità assegnata dal sistema
 La creazione di un'app con un'identità assegnata dal sistema richiede l'impostazione di una proprietà aggiuntiva nell'applicazione.
@@ -72,7 +72,7 @@ Per rimuovere l'identità gestita assegnata dal sistema da un'app che non è pi�
 1. Passare alla macchina virtuale desiderata e selezionare **Identità**.
 1. In **stato assegnato al sistema** / **Status**selezionare **disattivato** , quindi fare clic su **Salva**:
 
- ![Identità gestita nel portale](./media/spring-cloud-managed-identity/remove-identity.png)
+ ![Identità gestita](./media/spring-cloud-managed-identity/remove-identity.png)
 
 ### <a name="using-azure-cli"></a>Utilizzare l'interfaccia della riga di comando di Azure
 Per rimuovere l'identità gestita assegnata dal sistema da un'app che non è più necessaria, usare il comando seguente:

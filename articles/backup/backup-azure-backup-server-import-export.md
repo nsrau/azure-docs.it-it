@@ -3,12 +3,12 @@ title: Backup offline per DPM e server di Backup di Azure
 description: Con backup di Azure è possibile inviare dati fuori rete usando il servizio importazione/esportazione di Azure. Questo articolo illustra il flusso di lavoro di backup offline per DPM e server di Backup di Azure.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: 909c7cc85590005afd3b6bd32a94020937f96c32
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 368ae846a24ec04ee4b7da9b5971c00180be611d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002012"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378458"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server-mabs"></a>Flusso di lavoro di backup offline per DPM e server di Backup di Azure (MAB)
 
@@ -51,10 +51,10 @@ Prima di avviare il flusso di lavoro di backup offline, verificare che siano sod
 * Creare un account di Archiviazione di Azure nella stessa sottoscrizione dell'insieme di credenziali di Servizi di ripristino.
 * Assicurarsi di avere le [autorizzazioni necessarie](../active-directory/develop/howto-create-service-principal-portal.md) per creare l'applicazione Azure Active Directory. Il flusso di lavoro di backup offline crea un'applicazione Azure Active Directory nella sottoscrizione associata all'account di Archiviazione di Azure. L'obiettivo dell'applicazione è offrire a Backup di Azure un accesso protetto e dotato di ambito al servizio di importazione di Azure, necessario per il flusso di lavoro di backup offline.
 * Registrare il provider di risorse Microsoft.ImportExport con la sottoscrizione che contiene l'account di Archiviazione di Azure. Per registrare il provider di risorse:
-    1. Nel menu principale fare clic su **Sottoscrizioni**.
+    1. Nel menu principale selezionare **sottoscrizioni**.
     2. Se si è effettuata la sottoscrizione a più sottoscrizioni, selezionare la sottoscrizione in uso per il backup offline. Se si usa una sola sottoscrizione, viene visualizzata la sottoscrizione in uso.
-    3. Nel menu della sottoscrizione fare clic su **Provider di risorse** per visualizzare l'elenco dei provider.
-    4. Nell'elenco dei provider scorrere verso il basso fino a Microsoft.ImportExport. Se lo stato è NotRegistered, fare clic su **Registra**.
+    3. Nel menu sottoscrizione selezionare provider di **risorse** per visualizzare l'elenco dei provider.
+    4. Nell'elenco dei provider scorrere verso il basso fino a Microsoft.ImportExport. Se lo stato è NotRegistered, selezionare **registra**.
 
        ![Registrazione del provider di risorse](./media/backup-azure-backup-server-import-export/register-import-export.png)
 
@@ -68,7 +68,7 @@ Le informazioni incluse in questa sezione assistono nel completamento del flusso
 
 ## <a name="initiate-offline-backup"></a>Avviare il backup offline
 
-1. Quando si crea un nuovo gruppo protezione dati con protezione online o si aggiunge la protezione online a un gruppo protezione dati esistente, viene visualizzata la schermata seguente. Per selezionare il metodo di replica online iniziale, selezionare **Trasferimento con dischi personali** e fare clic su **Avanti**.
+1. Quando si crea un nuovo gruppo protezione dati con protezione online o si aggiunge la protezione online a un gruppo protezione dati esistente, viene visualizzata la schermata seguente. Per selezionare il metodo di replica online iniziale, selezionare **Trasferisci usando il disco personale** e fare clic su **Avanti**.
 
     ![Schermata di importazione](./media/backup-azure-backup-server-import-export/create-new-protection-group.png)
 
@@ -160,7 +160,7 @@ La procedura seguente aggiorna i dettagli di spedizione del processo di importaz
 * dettagli della spedizione per reso dei dischi
 
    1. Accedere alla sottoscrizione di Azure.
-   2. Nel menu principale fare clic su **Tutti i servizi** e nella finestra di dialogo Tutti i servizi digitare Import. Quando viene visualizzata l'opzione **Processi di importazione/esportazione** fare clic su di essa.
+   2. Nel menu principale selezionare tutti i **Servizi** e nella finestra di dialogo tutti i servizi digitare Import. Quando vengono visualizzati i **processi di importazione/esportazione**, selezionarli.
        ![Immissione delle informazioni di spedizione](./media/backup-azure-backup-server-import-export/search-import-job.png)
 
        Viene visualizzato il menu **Processi di importazione/esportazione** con l'elenco dei processi di importazione/esportazione della sottoscrizione selezionata.
@@ -169,11 +169,11 @@ La procedura seguente aggiorna i dettagli di spedizione del processo di importaz
 
        ![Esaminare le informazioni sulla spedizione](./media/backup-azure-backup-server-import-export/import-job-found.png)
 
-   4. Nel menu Impostazioni del processo di importazione fare clic su **Gestisci informazioni sulla spedizione** e immettere i dettagli relativi alla spedizione per reso.
+   4. Nel menu impostazioni del processo di importazione selezionare **Gestisci informazioni di spedizione** e immettere i dettagli relativi alla spedizione di ritorno.
 
        ![Archiviazione delle informazioni di spedizione](./media/backup-azure-backup-server-import-export/shipping-info.png)
 
-   5. Quando si ha il numero di registrazione del vettore di spedizione, fare clic sull'intestazione nella pagina di panoramica del processo di importazione di Azure e immettere i dettagli seguenti:
+   5. Quando si dispone del numero di tracciabilità del vettore di spedizione, selezionare il banner nella pagina Panoramica del processo di importazione di Azure e immettere i dettagli seguenti:
 
       > [!IMPORTANT]
       > Verificare che le informazioni del vettore e il numero di registrazione siano aggiornati entro due settimane dalla creazione del processo di importazione di Azure. Se non si verificano le informazioni entro due settimane è possibile che il processo venga eliminato e che le unità non vengano elaborate.

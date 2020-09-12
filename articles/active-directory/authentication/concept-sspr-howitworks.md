@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fce07575fe95ffbd4fd906bcde7d76d89e50d48b
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 393ed336018c7a0272c15adaa72633abd6b95d2f
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716317"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377200"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funzionamento: reimpostazione self-service della password di Azure AD
 
@@ -27,7 +27,7 @@ La reimpostazione della password self-service di Azure Active Directory (Azure A
 >
 > Se il team IT non ha abilitato la funzionalità per reimpostare la propria password, rivolgersi al supporto tecnico per assistenza aggiuntiva.
 
-## <a name="how-does-the-password-reset-portal-work"></a>Funzionamento del portale di reimpostazione delle password
+## <a name="how-does-the-password-reset-process-work"></a>Come funziona il processo di reimpostazione della password?
 
 Un utente può reimpostare o modificare la password tramite il [portale SSPR](https://aka.ms/sspr). Devono innanzitutto registrare i metodi di autenticazione desiderati. Quando un utente accede al portale di SSPR, la piattaforma Azure considera i fattori seguenti:
 
@@ -58,6 +58,11 @@ Quando il portale di SSPR viene visualizzato nella lingua richiesta, all'utente 
   * Se il writeback del SSPR non viene distribuito e la password dell'utente viene gestita in locale, all'utente viene richiesto di contattare l'amministratore per reimpostare la password.
 
 Se tutti i controlli precedenti sono stati completati correttamente, l'utente viene guidato nel processo di reimpostazione o modifica della password.
+
+> [!NOTE]
+> SSPR può inviare notifiche tramite posta elettronica agli utenti come parte del processo di reimpostazione della password. Questi messaggi di posta elettronica vengono inviati tramite il servizio di inoltro SMTP, che opera in modalità attivo-attivo in diverse aree.
+>
+> I servizi di inoltro SMTP ricevono ed elaborano il corpo del messaggio di posta elettronica, ma non lo archiviano. Il corpo del messaggio di posta elettronica SSPR che potrebbe potenzialmente contenere informazioni fornite dal cliente non viene archiviato nei log del servizio di inoltro SMTP. I log contengono solo i metadati del protocollo.
 
 Per iniziare a usare SSPR, completare l'esercitazione seguente:
 

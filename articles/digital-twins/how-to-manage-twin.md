@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 4/10/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 995d621ffbabd6743d248812c88ebe7e65da24ca
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: b88d017110f4d7b9859f2d801c5405ecee1589c5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796953"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297468"
 ---
 # <a name="manage-digital-twins"></a>Gestire i gemelli digitali
 
@@ -275,7 +275,7 @@ Si consideri, ad esempio, il documento di patch JSON seguente che sostituisce il
 
 Questa operazione avrà esito positivo solo se il dispositivo gemello digitale modificato dalla patch è conforme al nuovo modello. 
 
-Prendere in considerazione gli esempi seguenti:
+Si consideri l'esempio seguente:
 1. Immaginate un dispositivo gemello digitale con un modello di *foo_old*. *foo_old* definisce una *massa*di proprietà obbligatoria.
 2. Il nuovo modello *foo_new* definisce una massa della proprietà e aggiunge una nuova *temperatura*della proprietà richiesta.
 3. Dopo la patch, il dispositivo gemello digitale deve avere una proprietà di massa e di temperatura. 
@@ -381,6 +381,8 @@ Per un esempio di come eliminare tutti i dispositivi gemelli contemporaneamente,
 ## <a name="manage-twins-with-cli"></a>Gestire i dispositivi gemelli con CLI
 
 I dispositivi gemelli possono essere gestiti anche tramite l'interfaccia della riga di comando di Azure Digital Twins È possibile trovare i comandi in [*procedura: usare l'interfaccia della riga di comando di Azure Digital gemelli*](how-to-use-cli.md).
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 

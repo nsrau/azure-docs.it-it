@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/10/2019
-ms.openlocfilehash: 5b450254648cb253d6631397d703430401009f14
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: cff2e918c7b67f6d3bccb9b56366cbf034ed1bb5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87925635"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300103"
 ---
 # <a name="manage-access-to-log-data-and-workspaces-in-azure-monitor"></a>Gestire l'accesso ai dati di log e alle aree di lavoro in Monitoraggio di Azure
 
@@ -106,7 +106,7 @@ A ogni area di lavoro possono essere associati più account, ognuno dei quali pu
 
 Le attività seguenti richiedono anche le autorizzazioni di Azure:
 
-|Action |Autorizzazioni di Azure necessarie |Note |
+|Azione |Autorizzazioni di Azure necessarie |Note |
 |-------|-------------------------|------|
 | Aggiunta e rimozione di soluzioni di monitoraggio | `Microsoft.Resources/deployments/*` <br> `Microsoft.OperationalInsights/*` <br> `Microsoft.OperationsManagement/*` <br> `Microsoft.Automation/*` <br> `Microsoft.Resources/deployments/*/write` | Queste autorizzazioni devono essere concesse a livello di gruppo di risorse o di sottoscrizione. |
 | Modifica del piano tariffario | `Microsoft.OperationalInsights/workspaces/*/write` | |
@@ -137,9 +137,9 @@ Il ruolo di lettore di Log Analytics include le azioni di Azure seguenti:
 | Type    | Autorizzazione | Descrizione |
 | ------- | ---------- | ----------- |
 | Azione | `*/read`   | Consente di visualizzare tutte le risorse di Azure e la configurazione delle risorse. Include la visualizzazione di: <br> Stato dell'estensione macchina virtuale <br> Configurazione della diagnostica di Azure nelle risorse <br> Tutte le proprietà e le impostazioni di tutte le risorse. <br> Per le aree di lavoro, consente autorizzazioni complete senza restrizioni per leggere le impostazioni dell'area di lavoro ed eseguire query sui dati. Vedere le opzioni più granulari precedenti. |
-| Action | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Deprecato, non è necessario assegnarli agli utenti. |
-| Action | `Microsoft.OperationalInsights/workspaces/search/action` | Deprecato, non è necessario assegnarli agli utenti. |
-| Action | `Microsoft.Support/*` | Consente di aprire casi di supporto |
+| Azione | `Microsoft.OperationalInsights/workspaces/analytics/query/action` | Deprecato, non è necessario assegnarli agli utenti. |
+| Azione | `Microsoft.OperationalInsights/workspaces/search/action` | Deprecato, non è necessario assegnarli agli utenti. |
+| Azione | `Microsoft.Support/*` | Consente di aprire casi di supporto |
 |Non azione | `Microsoft.OperationalInsights/workspaces/sharedKeys/read` | Impedisce la lettura della chiave dell'area di lavoro, necessaria per l'uso dell'API di raccolta dati e per l'installazione degli agenti. Ciò impedisce all'utente di aggiungere nuove risorse all'area di lavoro |
 
 I membri del ruolo *Collaboratore di Log Analytics* possono eseguire queste operazioni:
@@ -228,14 +228,14 @@ Per creare un controllo di accesso diverso per diverse tabelle, vedere [definizi
 
     * Concedere agli utenti le seguenti autorizzazioni per l'area di lavoro: 
 
-        * `Microsoft.OperationalInsights/workspaces/read`: obbligatorio in modo che l'utente possa enumerare l'area di lavoro e aprire il pannello dell'area di lavoro nella portale di Azure
-        * `Microsoft.OperationalInsights/workspaces/query/read`: obbligatorio per ogni utente che può eseguire query
-        * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read`-per poter leggere i log di accesso Azure AD
-        * `Microsoft.OperationalInsights/workspaces/query/Update/read`-per poter leggere i log della soluzione Gestione aggiornamenti
-        * `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read`-per poter leggere i log della soluzione Gestione aggiornamenti
-        * `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read`-per poter leggere i log di gestione aggiornamenti
-        * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read`: necessario per poter usare Gestione aggiornamenti soluzione
-        * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read`: necessario per poter usare Gestione aggiornamenti soluzione
+        * `Microsoft.OperationalInsights/workspaces/read` : obbligatorio in modo che l'utente possa enumerare l'area di lavoro e aprire il pannello dell'area di lavoro nella portale di Azure
+        * `Microsoft.OperationalInsights/workspaces/query/read` : obbligatorio per ogni utente che può eseguire query
+        * `Microsoft.OperationalInsights/workspaces/query/SigninLogs/read` -per poter leggere i log di accesso Azure AD
+        * `Microsoft.OperationalInsights/workspaces/query/Update/read` -per poter leggere i log della soluzione Gestione aggiornamenti
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read` -per poter leggere i log della soluzione Gestione aggiornamenti
+        * `Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read` -per poter leggere i log di gestione aggiornamenti
+        * `Microsoft.OperationalInsights/workspaces/query/Heartbeat/read` : necessario per poter usare Gestione aggiornamenti soluzione
+        * `Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read` : necessario per poter usare Gestione aggiornamenti soluzione
 
     * Concedere agli utenti le seguenti autorizzazioni per le risorse: `*/read` , assegnate al ruolo Reader o `Microsoft.Insights/logs/*/read` . 
 
@@ -270,7 +270,7 @@ Per creare un ruolo con accesso solo alla tabella _SecurityBaseline_ , creare un
     "Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read"
 ],
 ```
-Negli esempi precedenti viene definito un elenco di tabelle consentite. Questo esempio mostra la definizione della blacklist quando un utente può accedere a tutte le tabelle, ma la tabella _SecurityAlert_ :
+Gli esempi precedenti definiscono un elenco di tabelle consentite. Questo esempio mostra la definizione di elenco bloccati quando un utente può accedere a tutte le tabelle, ma la tabella _SecurityAlert_ :
 
 ```
 "Actions":  [

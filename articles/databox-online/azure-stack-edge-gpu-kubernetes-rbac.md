@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 08/31/2020
 ms.author: alkohli
-ms.openlocfilehash: 697c686b61a86cb01327364ad73f30f88e2e151d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 285a41230175392dafb69a99ca08be1f72339439
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268075"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318965"
 ---
 # <a name="kubernetes-role-based-access-control-on-your-azure-stack-edge-gpu-device"></a>Controllo degli accessi in base al ruolo Kubernetes sul dispositivo GPU Azure Stack Edge
 
@@ -32,10 +32,7 @@ Quando si configura il cluster Kubernetes, viene creato un singolo utente corris
 
 Le risorse Kubernetes, ad esempio pod e distribuzioni, sono raggruppate logicamente in uno spazio dei nomi. Questi raggruppamenti consentono di dividere logicamente un cluster Kubernetes e di limitare l'accesso per creare, visualizzare o gestire le risorse. Gli utenti possono interagire solo con le risorse all'interno degli spazi dei nomi assegnati.
 
-Gli spazi dei nomi sono destinati all'uso in ambienti con molti utenti distribuiti in più team o progetti. Per i cluster con pochi o dieci utenti, non è necessario creare o considerare gli spazi dei nomi. Iniziare a usare gli spazi dei nomi quando sono necessarie le funzionalità che forniscono.
-
-Per altre informazioni, vedere [Spazi dei nomi di Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
-
+Gli spazi dei nomi sono destinati all'uso in ambienti con molti utenti distribuiti in più team o progetti. Per altre informazioni, vedere [Spazi dei nomi di Kubernetes](https://kubernetes.io/docs/concepts/overview/working-with-objects/namespaces/).
 
 Il dispositivo Azure Stack Edge presenta gli spazi dei nomi seguenti:
 
@@ -47,20 +44,18 @@ Il dispositivo Azure Stack Edge presenta gli spazi dei nomi seguenti:
     - DBE-spazio dei nomi
     - default
     - kubernetes-dashboard
-    - default
     - Kube-node-lease
     - Kube-pubblico
-    - iotedge
-    - Azure-Arc
+
 
     Assicurarsi di non usare nomi riservati per gli spazi dei nomi utente creati. 
 <!--- **default namespace** - This namespace is where pods and deployments are created by default when none is provided and you have admin access to this namespace. When you interact with the Kubernetes API, such as with `kubectl get pods`, the default namespace is used when none is specified.-->
 
-- **Spazio dei nomi utente** : questi spazi dei nomi che è possibile creare tramite **kubectl** per distribuire localmente le applicazioni.
+- **Spazio dei nomi utente** : si tratta degli spazi dei nomi che è possibile creare tramite **kubectl** o tramite l'interfaccia di PowerShell del dispositivo per distribuire le applicazioni in locale.
  
-- **IOT Edge spazio dei nomi** : è possibile connettersi a questo `iotedge` spazio dei nomi per distribuire le applicazioni tramite IOT Edge.
+- **IOT Edge spazio dei nomi** : è possibile connettersi a questo `iotedge` spazio dei nomi per gestire le applicazioni distribuite tramite IOT Edge.
 
-- **Spazio dei nomi di Azure Arc** : è possibile connettersi a questo `azure-arc` spazio dei nomi per distribuire le applicazioni tramite Azure Arc. 
+- **Spazio dei nomi di Azure Arc** : è possibile connettersi a questo `azure-arc` spazio dei nomi per gestire le applicazioni distribuite tramite Azure Arc. Con Azure Arc è inoltre possibile distribuire applicazioni in altri spazi dei nomi utente. 
 
 ## <a name="namespaces-and-users"></a>Spazi dei nomi e utenti
 
@@ -96,7 +91,7 @@ Di seguito è riportato un diagramma che illustra l'implementazione di RBAC sul 
 
 In questo diagramma Alice, Bob e Chuck hanno accesso solo agli spazi dei nomi utente assegnati, che in questo caso sono `ns1` rispettivamente, `ns2` e `ns3` . All'interno di questi spazi dei nomi, l'accesso è amministratore. L'amministratore del cluster d'altra parte dispone di accesso amministrativo agli spazi dei nomi di sistema e alle risorse a livello di cluster.
 
-È possibile utilizzare `kubectl` i comandi per creare spazi dei nomi, assegnare utenti, assegnare utenti o `kubeconfig` scaricare file. Di seguito è riportato un flusso di lavoro di alto livello:
+È possibile utilizzare `kubectl` i comandi per creare spazi dei nomi e utenti, assegnare utenti a spazi dei nomi o scaricare `kubeconfig` file. Di seguito è riportato un flusso di lavoro di alto livello:
 
 1. Creare uno spazio dei nomi e un utente.  
 
@@ -123,7 +118,7 @@ Quando si lavora con gli spazi dei nomi e gli utenti nei dispositivi Azure Stack
 - È possibile creare spazi dei nomi utente e all'interno di tali spazi dei nomi creare utenti aggiuntivi e concedere o revocare l'accesso allo spazio dei nomi a tali utenti.
 - Non è possibile creare spazi dei nomi con nomi identici a quelli per qualsiasi spazio dei nomi di sistema. I nomi degli spazi dei nomi di sistema sono riservati.  
 - Non è possibile creare spazi dei nomi utente con nomi già utilizzati da altri spazi dei nomi utente. Se, ad esempio, si dispone di un oggetto `test-ns` creato, non è possibile creare un altro `test-ns` spazio dei nomi.
-- Non è consentito creare utenti con nomi già riservati. Ad esempio, `aseuser` è un amministratore del cluster riservato e non può essere usato.
+- Non è consentito creare utenti con nomi già riservati. Ad esempio, `aseuser` è un utente riservato e non può essere utilizzato.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

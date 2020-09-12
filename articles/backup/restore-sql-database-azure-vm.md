@@ -3,12 +3,12 @@ title: Ripristinare i database di SQL Server in una macchina virtuale di Azure
 description: Questo articolo descrive come ripristinare SQL Server database in esecuzione in una macchina virtuale di Azure e di cui viene eseguito il backup con backup di Azure.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 682540e498c7531777032b5375f0105c03ce4ec6
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: afb3ef7ac1d161c073ef715a9f7b1ec83bd8410a
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88826557"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377982"
 ---
 # <a name="restore-sql-server-databases-on-azure-vms"></a>Ripristinare il backup di database SQL Server in macchine virtuali di Azure
 
@@ -98,7 +98,7 @@ Per eseguire il ripristino, sono necessarie le autorizzazioni seguenti:
 
         ![Immettere i percorsi di destinazione](./media/backup-azure-sql-database/target-paths.png)
 
-1. Fare clic su **OK** per attivare il ripristino. Tenere traccia dello stato di avanzamento del ripristino nell'area **notifiche** o tenerne traccia nella visualizzazione **processi di backup** nell'insieme di credenziali.
+1. Selezionare **OK** per attivare il ripristino. Tenere traccia dello stato di avanzamento del ripristino nell'area **notifiche** o tenerne traccia nella visualizzazione **processi di backup** nell'insieme di credenziali.
 
     > [!NOTE]
     > Il ripristino temporizzato è disponibile solo per i backup del log per i database in modalità di recupero con registrazione completa e con registrazione minima delle operazioni bulk.
@@ -150,7 +150,7 @@ Se si è scelto **log (punto temporizzato)** come tipo di ripristino, eseguire l
     ![Apri il calendario](./media/backup-azure-sql-database/recovery-point-logs-calendar.png)
 
 1. Dopo aver selezionato una data, il grafico della sequenza temporale indica i punti di recupero disponibili in un intervallo continuo.
-1. Specificare un'ora per il ripristino nel grafico della sequenza temporale oppure selezionare un'ora. Selezionare **OK**.
+1. Specificare un'ora per il ripristino nel grafico della sequenza temporale oppure selezionare un'ora. Quindi scegliere **OK**.
 
 ### <a name="restore-to-a-specific-restore-point"></a>Ripristinare uno specifico punto di ripristino
 
@@ -161,7 +161,7 @@ Se si è scelto **Completo e differenziale** come tipo di ripristino, eseguire l
     ![Scegliere un punto di ripristino con registrazione completa](./media/backup-azure-sql-database/choose-full-recovery-point.png)
 
     >[!NOTE]
-    > Per impostazione predefinita, vengono visualizzati i punti di ripristino degli ultimi 30 giorni. È possibile visualizzare i punti di ripristino più vecchi di 30 giorni facendo clic su **filtro** e selezionando un intervallo personalizzato.
+    > Per impostazione predefinita, vengono visualizzati i punti di ripristino degli ultimi 30 giorni. È possibile visualizzare i punti di ripristino più vecchi di 30 giorni selezionando **filtro** e selezionando un intervallo personalizzato.
 
 ### <a name="restore-databases-with-large-number-of-files"></a>Ripristinare i database con un numero elevato di file
 

@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 7/23/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 5d41a9b638ab023d045060e14488e91dca07b10f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 63bc46f679b71f6965cda8f9db800a125683c093
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181375"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298284"
 ---
 # <a name="set-up-an-azure-digital-twins-instance-and-authentication-scripted"></a>Configurare un'istanza di Azure Digital Twins e l'autenticazione (con script)
 
@@ -58,6 +58,13 @@ Ecco i passaggi per eseguire lo script di distribuzione in Cloud Shell.
     * Per la registrazione dell'app: *URL di risposta dell'applicazione Azure ad* per l'applicazione Azure ad. Usare `http://localhost`. Lo script configurerà un URI *pubblico client/nativo (mobile & desktop)* .
 
 Lo script creerà un'istanza di Azure Digital Twins, assegna all'utente di Azure il ruolo *proprietario (anteprima) di Azure Digital gemelli (anteprima)* nell'istanza e configura una registrazione dell'app Azure ad per l'uso da parte dell'app client.
+
+>[!NOTE]
+>Attualmente esiste un **problema noto** con la configurazione con script, in cui alcuni utenti (in particolare gli utenti degli [account Microsoft personali (MSAS)](https://account.microsoft.com/account)) potrebbero trovare l' **assegnazione di ruolo al _proprietario di Azure Digital gemelli (anteprima)_ non è stato creato**.
+>
+>È possibile verificare l'assegnazione di ruolo con la sezione [*verificare l'assegnazione del ruolo utente*](#verify-user-role-assignment) più avanti in questo articolo e, se necessario, configurare manualmente l'assegnazione di ruolo usando il [portale di Azure](how-to-set-up-instance-portal.md#set-up-user-access-permissions) o l' [interfaccia](how-to-set-up-instance-cli.md#set-up-user-access-permissions)della riga di comando.
+>
+>Per informazioni dettagliate su questo problema, vedere [*risoluzione dei problemi: problemi noti nei dispositivi gemelli digitali di Azure*](troubleshoot-known-issues.md#missing-role-assignment-after-scripted-setup).
 
 Di seguito è riportato un estratto del log di output dello script:
 
@@ -127,5 +134,9 @@ Prima di tutto, verificare che le impostazioni delle autorizzazioni di Azure Dig
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere come connettere l'applicazione client all'istanza scrivendo il codice di autenticazione dell'app client:
+Testare le singole chiamate API REST nell'istanza usando i comandi dell'interfaccia della riga di comando di Azure Digital gemelli: 
+* [riferimento AZ DT](https://docs.microsoft.com/cli/azure/ext/azure-iot/dt?view=azure-cli-latest)
+* [*Procedura: Usare l'interfaccia della riga di comando di Gemelli digitali di Azure*](how-to-use-cli.md)
+
+In alternativa, vedere come connettere l'applicazione client all'istanza scrivendo il codice di autenticazione dell'app client:
 * [*Procedura: scrivere codice di autenticazione dell'app*](how-to-authenticate-client.md)

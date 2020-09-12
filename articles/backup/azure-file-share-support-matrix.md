@@ -4,12 +4,12 @@ description: Informazioni riepilogative su impostazioni e limitazioni del suppor
 ms.topic: conceptual
 ms.date: 5/07/2020
 ms.custom: references_regions
-ms.openlocfilehash: 7d01f0f64fd183204fb7617040325e7d1b6e553e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6381170df93fdf52c2d0dc7059ad47bbff734025
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87289510"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378033"
 ---
 # <a name="support-matrix-for-azure-file-share-backup"></a>Matrice di supporto per il backup di condivisioni file di Azure
 
@@ -25,7 +25,7 @@ Il backup delle condivisioni file di Azure è disponibile in tutte le aree **ad 
 
 | Dettagli dell'account di archiviazione | Supporto                                                      |
 | ------------------------ | ------------------------------------------------------------ |
-| Tipo di account            | Backup di Azure supporta le condivisioni file di Azure presenti negli account di archiviazione per uso generico V1, per uso generico V2 e account di archiviazione di tipo archiviazione file |
+| Tipo di account            | Backup di Azure supporta le condivisioni file di Azure presenti negli account di archiviazione per utilizzo generico V1, utilizzo generico V2 e tipo di archiviazione file |
 | Prestazioni              | Backup di Azure supporta le condivisioni file negli account di archiviazione Standard e Premium |
 | Replica              | Sono supportate le condivisioni file di Azure negli account di archiviazione con qualsiasi tipo di replica |
 | Firewall abilitato         | Le condivisioni file di Azure negli account di archiviazione con regole del firewall che consentono ai servizi Microsoft Azure di accedere all'account di archiviazione sono supportate|

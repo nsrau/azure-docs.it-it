@@ -1,0 +1,268 @@
+---
+title: Paesi e aree di pubblicazione supportati
+description: Elenco di paesi in cui è possibile pubblicare un'offerta in Microsoft Commercial Marketplace.
+ms.reviewer: nanef
+ms.service: marketplace
+ms.subservice: partnercenter-marketplace-publisher
+ms.custom: references_regions
+ms.topic: how-to
+author: mingshen-ms
+ms.author: mingshen
+ms.date: 09/02/2020
+ms.openlocfilehash: 393b71e78c59d126b24da2f1fd354ccfadf6825a
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322940"
+---
+# <a name="supported-publisher-countries-and-regions"></a>Paesi e aree di pubblicazione supportati
+
+Per pubblicare un'offerta in Microsoft Commercial Marketplace, è necessario avere la residenza in uno dei paesi o aree geografiche seguenti.
+
+- Afghanistan
+- Isole Åland
+- Albania
+- Algeria
+- Samoa americane
+- Andorra
+- Angola
+- Anguilla
+- Antartide
+- Antigua e Barbuda
+- Argentina
+- Armenia
+- Aruba
+- Australia
+- Austria
+- Azerbaigian
+- Bahamas
+- Bahrein
+- Bangladesh
+- Barbados
+- Bielorussia
+- Belgio
+- Belize
+- Benin
+- Bermuda
+- Bhutan
+- Bolivia
+- Bonaire, Sint Eustatius e Saba
+- Bosnia ed Erzegovina
+- Botswana
+- Isola Bouvet
+- Brasile
+- Territorio britannico dell'Oceano indiano
+- Isole Vergini Britanniche
+- Brunei
+- Bulgaria
+- Burkina Faso
+- Burundi
+- Cabo Verde
+- Cambogia
+- Camerun
+- Canada
+- Isole Cayman
+- Repubblica Centrafricana
+- Ciad
+- Cile
+- Cina
+- Isola Christmas
+- Isole Cocos (Keeling)
+- Colombia
+- Comore
+- Congo
+- Congo (RDC)
+- Isole Cook
+- Costa Rica
+- Croazia
+- Curaçao
+- Cipro
+- Côte d'Ivoire (Costa d'Avorio)
+- Cechia
+- Danimarca
+- Gibuti
+- Dominica
+- Repubblica Dominicana
+- Ecuador
+- Egitto
+- El Salvador
+- Guinea Equatoriale
+- Eritrea
+- Estonia
+- Etiopia
+- Isole Falkland
+- Isole Fær Øer
+- Figi
+- Finlandia
+- Francia
+- Guayana francese
+- Polinesia Francese
+- Terre Australi Francesi
+- Gabon
+- Gambia
+- Georgia
+- Germania
+- Ghana
+- Gibilterra
+- Grecia
+- Groenlandia
+- Grenada
+- Guadalupa
+- Guam
+- Guatemala
+- Guernsey
+- Guinea
+- Guinea-Bissau
+- Guyana
+- Haiti
+- Heard e McDonald
+- Honduras
+- RAS di Hong Kong
+- Ungheria
+- Islanda
+- India
+- Indonesia
+- Iraq
+- Irlanda
+- Isola di Man
+- Israele
+- Italia
+- Giamaica
+- Giappone
+- Jersey
+- Giordania
+- Kazakhstan
+- Kenya
+- Kiribati
+- Corea del Sud
+- Kosovo
+- Kuwait
+- Kirghizistan
+- Laos
+- Lettonia
+- Libano
+- Lesotho
+- Liberia
+- Libia
+- Liechtenstein
+- Lituania
+- Lussemburgo
+- RAS di Macao
+- Madagascar
+- Malawi
+- Malaysia
+- Maldive
+- Mali
+- Malta
+- Isole Marshall
+- Martinica
+- Mauritania
+- Mauritius
+- Mayotte
+- Messico
+- Micronesia
+- Moldova
+- Monaco
+- Mongolia
+- Montenegro
+- Montserrat
+- Marocco
+- Mozambico
+- Myanmar
+- Namibia
+- Nauru
+- Nepal
+- Paesi Bassi
+- Nuova Caledonia
+- Nuova Zelanda
+- Nicaragua
+- Niger
+- Nigeria
+- Niue
+- Isola Norfolk
+- Macedonia del Nord
+- Isole Marianne Settentrionali
+- Norvegia
+- Oman
+- Pakistan
+- Palau
+- Autorità Palestinese
+- Panama
+- Papua Nuova Guinea
+- Paraguay
+- Perù
+- Filippine
+- Isole Pitcairn
+- Polonia
+- Portogallo
+- Portorico
+- Qatar
+- Romania
+- Russia
+- Ruanda
+- Riunione
+- Saba
+- Saint Barthélemy
+- Saint Kitts e Nevis
+- Saint Lucia
+- Saint Martin
+- Saint Pierre e Miquelon
+- Saint Vincent e Grenadine
+- Samoa
+- San Marino
+- Arabia Saudita
+- Senegal
+- Serbia
+- Seychelles
+- Sierra Leone
+- Singapore
+- Sint Eustatius
+- Sint Maarten
+- Slovacchia
+- Slovenia
+- Isole Salomone
+- Somalia
+- Sudafrica
+- Georgia del Sud e Isole Sandwich Australi
+- Sud Sudan
+- Spagna
+- Sri Lanka
+- Sant'Elena, Ascensione, Tristan da Cunha
+- Suriname
+- Svalbard e Jan Mayen
+- Swaziland
+- Svezia
+- Svizzera
+- São Tomé e Príncipe
+- Taiwan
+- Tagikistan
+- Tanzania
+- Thailandia
+- Timor Leste
+- Togo
+- Tokelau
+- Tonga
+- Trinidad e Tobago
+- Tunisia
+- Turchia
+- Turkmenistan
+- Isole Turks e Caicos
+- Tuvalu
+- Stati Uniti Altre isole americane del Pacifico
+- U.S. Vergini Americane
+- Uganda
+- Ucraina
+- Emirati Arabi Uniti
+- Regno Unito
+- Stati Uniti
+- Uruguay
+- Uzbekistan
+- Vanuatu
+- Città del Vaticano
+- Venezuela
+- Vietnam
+- Wallis e Futuna
+- Yemen
+- Zambia
+- Zimbabwe

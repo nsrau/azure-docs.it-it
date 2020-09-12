@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 713afb7b277fba65dc4c860e8bdd6b62b4e0147d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8e0e0ad9086a7945201b1752126253f12eb751bf
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82204949"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320036"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Rispondere rapidamente a identità sicure con Azure AD
 
@@ -38,7 +38,7 @@ Questo elenco di controllo permette di distribuire rapidamente le azioni critich
 
 Questa guida presuppone che le identità solo cloud o ibride siano state stabilite in Azure AD già. Per informazioni sulla scelta del tipo di identità, vedere l'articolo [scegliere il metodo di autenticazione appropriato per la soluzione di identità ibrida Azure Active Directory](../hybrid/choose-ad-authn.md) 
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 Ci sono molti aspetti di un'infrastruttura di identità sicura, ma questo elenco di controllo è incentrato su un'infrastruttura di identità sicura e sicura che consente agli utenti di lavorare in modalità remota. La protezione dell'identità è solo una parte della storia della sicurezza, ma anche la protezione dei dati, delle applicazioni e dei dispositivi.
 
@@ -51,11 +51,11 @@ Per proteggere le identità utente, è necessario che Azure AD Free o i clienti 
 - Microsoft 365 (M365 business, a1)
 - Azure AD Free (incluso con Azure, Dynamics 365, Intune e Power Platform)
 
-| Azione consigliata | Dettaglio |
+| Azione consigliata | Dettagli |
 | --- | --- |
 | [Abilita impostazioni predefinite sicurezza](concept-fundamentals-security-defaults.md) | Proteggi tutte le identità utente e le applicazioni abilitando l'autenticazione a più fattori e bloccando l'autenticazione legacy |
 | [Abilitare la sincronizzazione dell'hash delle password](../hybrid/how-to-connect-password-hash-synchronization.md) (se si usano le identità ibride) | Fornire ridondanza per l'autenticazione e migliorare la sicurezza (inclusi il blocco intelligente, il blocco IP e la possibilità di individuare le credenziali perse). |
-| [Abilita blocco intelligente ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) (se applicabile) | Protegge gli utenti dall'esperienza di blocco degli account Extranet da attività dannose. |
+| [Abilita blocco intelligente ADFS](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) (se applicabile) | Protegge gli utenti dall'esperienza di blocco degli account Extranet da attività dannose. |
 | [Abilita Azure Active Directory blocco intelligente](../authentication/howto-password-smart-lockout.md) (se si usano le identità gestite) | Il blocco Smart consente di bloccare gli attori malintenzionati che tentano di indovinare le password degli utenti o di usare metodi di forza bruta per ottenere. |
 | [Disabilitare il consenso dell'utente finale per le applicazioni](../manage-apps/configure-user-consent.md) | Il flusso di lavoro di consenso dell'amministratore offre agli amministratori un modo sicuro per concedere l'accesso alle applicazioni che richiedono l'approvazione dell'amministratore, in modo che gli utenti finali non espongano dati aziendali. Per ridurre l’area di azione e mitigare questo rischio, Microsoft consiglia di disabilitare le future operazioni di consenso degli utenti. |
 | [Integrare le applicazioni SaaS supportate dalla raccolta per Azure AD e abilitare Single Sign-on](../manage-apps/add-application-portal.md) | Azure AD offre una raccolta contenente migliaia di applicazioni preintegrate. Alcune applicazioni usate dall'organizzazione sono probabilmente incluse nella raccolta accessibile direttamente dal portale di Azure. Fornire l'accesso alle applicazioni SaaS aziendali in modalità remota e sicura con esperienza utente migliorata (SSO) |
@@ -74,7 +74,7 @@ Nella tabella seguente vengono evidenziate le azioni principali per le seguenti 
 - Enterprise Mobility + Security (EMS E3)
 - Microsoft 365 (M365 E3, a3, F1, F3)
 
-| Azione consigliata | Dettaglio |
+| Azione consigliata | Dettagli |
 | --- | --- |
 | [Abilitare l'esperienza di registrazione combinata per Azure multi-factor authentication e SSPR per semplificare l'esperienza di registrazione utente](../authentication/howto-registration-mfa-sspr-combined.md) | Consentire agli utenti di registrarsi da un'esperienza comune sia per Azure Multi-Factor Authentication che per la reimpostazione della password self-service. |
 | [Configurare le impostazioni dell'autenticazione a più fattori per l'organizzazione](../authentication/howto-mfa-getstarted.md) | Assicurarsi che gli account siano protetti da compromessi con l'autenticazione a più fattori |
@@ -82,7 +82,7 @@ Nella tabella seguente vengono evidenziate le azioni principali per le seguenti 
 | [Implementare il writeback delle password](../authentication/tutorial-enable-sspr-writeback.md) (se si usano le identità ibride) | Consentire il writeback delle modifiche delle password nel cloud in un ambiente di Windows Server Active Directory locale. |
 | Creare e abilitare i criteri di accesso condizionale | [Autenticazione a più fattori per gli amministratori per proteggere gli account a cui sono assegnati diritti amministrativi.](../conditional-access/howto-conditional-access-policy-admin-mfa.md) <br><br> [Blocca i protocolli di autenticazione legacy a causa del maggiore rischio associato ai protocolli di autenticazione legacy.](../conditional-access/howto-conditional-access-policy-block-legacy.md) <br><br> [Autenticazione a più fattori per tutti gli utenti e le applicazioni per creare criteri di autenticazione a più fattori bilanciati per l'ambiente, proteggendo utenti e applicazioni.](../conditional-access/howto-conditional-access-policy-all-users-mfa.md) <br><br> [Richiedi autenticazione a più fattori per la gestione di Azure per proteggere le tue risorse con privilegi richiedendo l'autenticazione a più fattori per tutti gli utenti che accedono alle risorse di Azure.](../conditional-access/howto-conditional-access-policy-azure-management.md) |
 | [Abilitare la sincronizzazione dell'hash delle password](../hybrid/how-to-connect-password-hash-synchronization.md) (se si usano le identità ibride) | Fornire ridondanza per l'autenticazione e migliorare la sicurezza (inclusi il blocco intelligente, il blocco IP e la possibilità di individuare le credenziali perse). |
-| [Abilita blocco intelligente ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) (se applicabile) | Protegge gli utenti dall'esperienza di blocco degli account Extranet da attività dannose. |
+| [Abilita blocco intelligente ADFS](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) (se applicabile) | Protegge gli utenti dall'esperienza di blocco degli account Extranet da attività dannose. |
 | [Abilita Azure Active Directory blocco intelligente](../authentication/howto-password-smart-lockout.md) (se si usano le identità gestite) | Il blocco Smart consente di bloccare gli attori malintenzionati che tentano di indovinare le password degli utenti o di usare metodi di forza bruta per ottenere. |
 | [Disabilitare il consenso dell'utente finale per le applicazioni](../manage-apps/configure-user-consent.md) | Il flusso di lavoro di consenso dell'amministratore offre agli amministratori un modo sicuro per concedere l'accesso alle applicazioni che richiedono l'approvazione dell'amministratore, in modo che gli utenti finali non espongano dati aziendali. Per ridurre l’area di azione e mitigare questo rischio, Microsoft consiglia di disabilitare le future operazioni di consenso degli utenti. |
 | [Abilitare l'accesso remoto alle applicazioni legacy locali con il proxy di applicazione](../manage-apps/application-proxy-add-on-premises-application.md) | Abilitare Azure AD proxy di applicazione e integrarsi con le app legacy per consentire agli utenti di accedere in modo sicuro alle applicazioni locali accedendo con il proprio account di Azure AD. |
@@ -94,7 +94,7 @@ Nella tabella seguente vengono evidenziate le azioni principali per le seguenti 
 | [Designare più di un amministratore globale](../users-groups-roles/directory-emergency-access.md) | Assegnare almeno due account amministratore globale permanenti solo cloud da usare in caso di emergenza. Questi account non sono destinati all'uso quotidiano e devono usare password lunghe e complesse. Gli account break Glass assicurano che sia possibile accedere al servizio in situazioni di emergenza. |
 | [Dove possibile, usare ruoli amministrativi non globali](../users-groups-roles/directory-assign-admin-roles.md) | Concedere agli amministratori solo l'accesso necessario esclusivamente alle aree a cui devono accedere. Non tutti gli amministratori devono essere amministratori globali. |
 | [Implementare le linee guida per le password di Microsoft](https://www.microsoft.com/research/publication/password-guidance/) | Smettere di richiedere agli utenti di modificare la password in base a una pianificazione specifica e disabilitare i requisiti di complessità: gli utenti saranno più propensi a ricordare le loro password e a mantenerle in sicurezza. |
-| [Creare un piano per l'accesso degli utenti guest](../b2b/what-is-b2b.md) | Collaborare con gli utenti Guest consentendo loro di accedere alle app e ai servizi con le proprie identità aziendali, scolastiche o sociali. |
+| [Creare un piano per l'accesso degli utenti guest](../external-identities/what-is-b2b.md) | Collaborare con gli utenti Guest consentendo loro di accedere alle app e ai servizi con le proprie identità aziendali, scolastiche o sociali. |
 
 ### <a name="guidance-for-azure-ad-premium-plan-2-customers"></a>Linee guida per i clienti Azure AD Premium piano 2.
 
@@ -104,7 +104,7 @@ Nella tabella seguente vengono evidenziate le azioni principali per le seguenti 
 - Enterprise Mobility + Security (EMS E5)
 - Microsoft 365 (M365 E5, a5)
 
-| Azione consigliata | Dettaglio |
+| Azione consigliata | Dettagli |
 | --- | --- |
 | [Abilitare l'esperienza di registrazione combinata per Azure multi-factor authentication e SSPR per semplificare l'esperienza di registrazione utente](../authentication/howto-registration-mfa-sspr-combined.md) | Consentire agli utenti di registrarsi da un'esperienza comune sia per Azure Multi-Factor Authentication che per la reimpostazione della password self-service. |
 | [Configurare le impostazioni dell'autenticazione a più fattori per l'organizzazione](../authentication/howto-mfa-getstarted.md) | Assicurarsi che gli account siano protetti da compromessi con l'autenticazione a più fattori |
@@ -114,7 +114,7 @@ Nella tabella seguente vengono evidenziate le azioni principali per le seguenti 
 | [Abilitare gli utenti di Identity Protection e i criteri di rischio di accesso](../identity-protection/howto-identity-protection-configure-risk-policies.md) | Abilitare l'utente e i criteri di accesso di Identity Protection. Il criterio di accesso consigliato è quello di individuare gli accessi a rischio medio e richiedere l'autenticazione a più fattori. Per i criteri utente dovrebbe essere destinato a utenti ad alto rischio che richiedono l'azione di modifica della password. |
 | Creare e abilitare i criteri di accesso condizionale | [Autenticazione a più fattori per gli amministratori per proteggere gli account a cui sono assegnati diritti amministrativi.](../conditional-access/howto-conditional-access-policy-admin-mfa.md) <br><br> [Blocca i protocolli di autenticazione legacy a causa del maggiore rischio associato ai protocolli di autenticazione legacy.](../conditional-access/howto-conditional-access-policy-block-legacy.md) <br><br> [Richiedi autenticazione a più fattori per la gestione di Azure per proteggere le tue risorse con privilegi richiedendo l'autenticazione a più fattori per tutti gli utenti che accedono alle risorse di Azure.](../conditional-access/howto-conditional-access-policy-azure-management.md) |
 | [Abilitare la sincronizzazione dell'hash delle password](../hybrid/how-to-connect-password-hash-synchronization.md) (se si usano le identità ibride) | Fornire ridondanza per l'autenticazione e migliorare la sicurezza (inclusi il blocco intelligente, il blocco IP e la possibilità di individuare le credenziali perse). |
-| [Abilita blocco intelligente ADFS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) (se applicabile) | Protegge gli utenti dall'esperienza di blocco degli account Extranet da attività dannose. |
+| [Abilita blocco intelligente ADFS](/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-smart-lockout-protection) (se applicabile) | Protegge gli utenti dall'esperienza di blocco degli account Extranet da attività dannose. |
 | [Abilita Azure Active Directory blocco intelligente](../authentication/howto-password-smart-lockout.md) (se si usano le identità gestite) | Il blocco Smart consente di bloccare gli attori malintenzionati che tentano di indovinare le password degli utenti o di usare metodi di forza bruta per ottenere. |
 | [Disabilitare il consenso dell'utente finale per le applicazioni](../manage-apps/configure-user-consent.md) | Il flusso di lavoro di consenso dell'amministratore offre agli amministratori un modo sicuro per concedere l'accesso alle applicazioni che richiedono l'approvazione dell'amministratore, in modo che gli utenti finali non espongano dati aziendali. Per ridurre l’area di azione e mitigare questo rischio, Microsoft consiglia di disabilitare le future operazioni di consenso degli utenti. |
 | [Abilitare l'accesso remoto alle applicazioni legacy locali con il proxy di applicazione](../manage-apps/application-proxy-add-on-premises-application.md) | Abilitare Azure AD proxy di applicazione e integrarsi con le app legacy per consentire agli utenti di accedere in modo sicuro alle applicazioni locali accedendo con il proprio account di Azure AD. |
@@ -126,7 +126,7 @@ Nella tabella seguente vengono evidenziate le azioni principali per le seguenti 
 | [Designare più di un amministratore globale](../users-groups-roles/directory-emergency-access.md) | Assegnare almeno due account amministratore globale permanenti solo cloud da usare in caso di emergenza. Questi account non sono destinati all'uso quotidiano e devono usare password lunghe e complesse. Gli account break Glass assicurano che sia possibile accedere al servizio in situazioni di emergenza. |
 | [Dove possibile, usare ruoli amministrativi non globali](../users-groups-roles/directory-assign-admin-roles.md) | Concedere agli amministratori solo l'accesso necessario esclusivamente alle aree a cui devono accedere. Non tutti gli amministratori devono essere amministratori globali. |
 | [Implementare le linee guida per le password di Microsoft](https://www.microsoft.com/research/publication/password-guidance/) | Smettere di richiedere agli utenti di modificare la password in base a una pianificazione specifica e disabilitare i requisiti di complessità: gli utenti saranno più propensi a ricordare le loro password e a mantenerle in sicurezza. |
-| [Creare un piano per l'accesso degli utenti guest](../b2b/what-is-b2b.md) | Collaborare con gli utenti Guest consentendo loro di accedere alle app e ai servizi con le proprie identità aziendali, scolastiche o sociali. |
+| [Creare un piano per l'accesso degli utenti guest](../external-identities/what-is-b2b.md) | Collaborare con gli utenti Guest consentendo loro di accedere alle app e ai servizi con le proprie identità aziendali, scolastiche o sociali. |
 | [Abilita Privileged Identity Management](../privileged-identity-management/pim-configure.md) | Consente di gestire, controllare e monitorare l'accesso a risorse importanti all'interno dell'organizzazione, garantendo agli amministratori l'accesso solo quando necessario e con approvazione |
 
 ## <a name="next-steps"></a>Passaggi successivi

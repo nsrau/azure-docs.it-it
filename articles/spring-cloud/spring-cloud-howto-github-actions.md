@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/15/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 960e480bc3271a24f1fa898e1af6c55bcaaada7b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 3f004be0afc6c73fdabe57e568cd57b51e9abcc5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87037560"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299683"
 ---
 # <a name="azure-spring-cloud-cicd-with-github-actions"></a>Integrazione continua e distribuzione continua del cloud di Azure con azioni GitHub
 
@@ -42,7 +42,7 @@ Il comando deve restituire un oggetto JSON:
 }
 ```
 
-Questo esempio usa l'esempio di [metrica Piggy](https://github.com/Azure-Samples/piggymetrics) su GitHub.  Creare un fork dell'esempio, aprire il repository GitHub e fare clic sulla scheda **Impostazioni** . Aprire il menu **Secrets** e fare clic su **Aggiungi un nuovo segreto**:
+Questo esempio usa l'esempio di [metrica Piggy](https://github.com/Azure-Samples/piggymetrics) su GitHub.  Creare un fork dell'esempio, aprire la pagina del repository GitHub e fare clic sulla scheda **Settings (impostazioni** ). Aprire il menu **Secrets** e fare clic su **Add a New Secret**:
 
  ![Aggiungi nuovo segreto](./media/github-actions/actions1.png)
 
@@ -164,7 +164,7 @@ jobs:
 ```
 
 ## <a name="deploy-with-maven-plugin"></a>Eseguire la distribuzione con il plug-in Maven
-Un'altra opzione consiste nell'usare il plug-in [Maven](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-maven) per la distribuzione del file jar e l'aggiornamento delle impostazioni dell'app. Il comando `mvn azure-spring-cloud:deploy` è idempotente e creerà automaticamente le app, se necessario. Non è necessario creare in anticipo le applicazioni corrispondenti.
+Un'altra opzione consiste nell'usare il plug-in [Maven](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart) per la distribuzione del file jar e l'aggiornamento delle impostazioni dell'app. Il comando `mvn azure-spring-cloud:deploy` è idempotente e creerà automaticamente le app, se necessario. Non è necessario creare in anticipo le applicazioni corrispondenti.
 
 ```
 name: AzureSpringCloud

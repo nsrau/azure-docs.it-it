@@ -4,12 +4,12 @@ description: Questo articolo illustra come risolvere i problemi relativi al back
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/22/2019
-ms.openlocfilehash: 7eb596853bfe17ec5bf14c8830c1b95bde5b7c98
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7c8e68da1c5da7b25d1385a82bf7dcc2f876306d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022361"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376282"
 ---
 # <a name="troubleshoot-system-state-backup"></a>Risolvere i problemi di backup dello stato del sistema
 
@@ -66,7 +66,7 @@ Per installare Windows Server Backup usando PowerShell, eseguire il comando segu
 
 Per installare Windows Server Backup usando Server Manager, seguire questa procedura:
 
-1. In **Server Manager**fare clic su **Aggiungi ruoli e funzionalità**. Verrà visualizzata la **procedura guidata Aggiungi ruoli e funzionalità** .
+1. In **Server Manager**selezionare **Aggiungi ruoli e funzionalità**. Verrà visualizzata la **procedura guidata Aggiungi ruoli e funzionalità** .
 
     ![Dashboard](./media/backup-azure-system-state-troubleshoot/server_management.jpg)
 
@@ -74,12 +74,12 @@ Per installare Windows Server Backup usando Server Manager, seguire questa proce
 
     ![Tipo di installazione](./media/backup-azure-system-state-troubleshoot/install_type.jpg)
 
-3. Selezionare un server dal pool di server e fare clic su **Avanti**. Nel ruolo del server lasciare la selezione predefinita e fare clic su **Avanti**.
-4. Selezionare **Windows Server Backup** nella scheda **funzionalità** e fare clic su **Avanti**.
+3. Selezionare un server dal pool di server e fare clic su **Avanti**. Nel ruolo del server lasciare la selezione predefinita e selezionare **Avanti**.
+4. Selezionare **Windows Server Backup** nella scheda **funzionalità** e selezionare **Avanti**.
 
     ![Selezionare la finestra funzionalità](./media/backup-azure-system-state-troubleshoot/features.png)
 
-5. Nella scheda **conferma** fare clic su **Installa** per avviare il processo di installazione.
+5. Nella scheda **conferma** selezionare **Installa** per avviare il processo di installazione.
 6. Nella scheda **risultati** verrà visualizzata la funzionalità Windows Server backup viene installata correttamente in Windows Server.
 
     ![Risultati dell'installazione](./media/backup-azure-system-state-troubleshoot/results.jpg)
@@ -129,19 +129,19 @@ Se il processo ha esito negativo, indica un problema di WSB che comporterebbe un
 
 ### <a name="vss-writer-timeout-error"></a>Errore di timeout del writer VSS
 
-| Sintomo | Causa | Risoluzione
+| Sintomo | Causa | Soluzione
 | -- | -- | --
 | -L'agente MARS ha esito negativo con messaggio di errore: "processo WSB non riuscito con errori VSS. Controllare i registri eventi VSS per risolvere l'errore "<br/><br/> -Il log degli errori seguente è presente nei registri eventi dell'applicazione VSS: "un VSS writer ha rifiutato un evento con errore 0x800423f2, il timeout del writer è scaduto tra gli eventi Freeze e scongela".| Non è possibile completare il VSS writer nel tempo a causa della mancanza di risorse di CPU e memoria nel computer <br/><br/> Un altro software di backup sta già usando il VSS writer, perché non è stato possibile completare l'operazione di snapshot dei risultati per questo backup | Attendere che la CPU/memoria venga liberata nel sistema o interrompere i processi che richiedono una quantità eccessiva di memoria/CPU, quindi ripetere l'operazione. <br/><br/>  Attendere il completamento del backup in corso e riprovare a eseguire l'operazione in un secondo momento, se nel computer non è in esecuzione alcun backup.
 
 ### <a name="insufficient-disk-space-to-grow-shadow-copies"></a>Spazio su disco insufficiente per l'aumento delle copie shadow
 
-| Sintomo | Risoluzione
+| Sintomo | Soluzione
 | -- | --
 | -Errore dell'agente MARS con messaggio di errore: il backup non è riuscito perché non è possibile aumentare il volume della copia shadow a causa di spazio su disco insufficiente nei volumi che contengono file di sistema <br/><br/> -Il registro errori/avvisi seguente è presente nei registri eventi di sistema di VolSnap: "spazio su disco insufficiente nel volume C: per aumentare l'archiviazione delle copie shadow per le copie shadow di C: a causa di questo errore, tutte le copie shadow del volume C: rischiano di essere eliminate" | -Liberare spazio nel volume evidenziato nel registro eventi, in modo che sia disponibile spazio sufficiente per la crescita delle copie shadow mentre è in corso il backup. <br/><br/> -Durante la configurazione dello spazio di copia shadow è possibile limitare la quantità di spazio usata per la copia shadow. Per altre informazioni, vedere questo [articolo](/windows-server/administration/windows-commands/vssadmin-resize-shadowstorage)
 
 ### <a name="efi-partition-locked"></a>Partizione EFI bloccata
 
-| Sintomo | Risoluzione
+| Sintomo | Soluzione
 | -- | --
 | Errore dell'agente MARS con messaggio di errore: "il backup dello stato del sistema non è riuscito perché la partizione di sistema EFI è bloccata. Questo problema può essere dovuto all'accesso alla partizione di sistema da parte di una sicurezza di terze parti o di un backup software " | -Se il problema è dovuto a un software di protezione di terze parti, è necessario contattare il fornitore dell'antivirus in modo da consentire l'uso dell'agente MARS <br/><br/> -Se è in esecuzione un software di backup di terze parti, attenderne il completamento, quindi riprovare a eseguire il backup
 

@@ -11,20 +11,18 @@ ms.date: 10/10/2019
 ms.author: xiaoyul
 ms.reviewer: nidejaco;
 ms.custom: azure-synapse
-ms.openlocfilehash: 919f3105c1ee9cc8cbdfaf413be56f6dd6291683
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2c29ad48e8dc626617786e519e84c92875bc6170
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212684"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378526"
 ---
 # <a name="performance-tuning-with-result-set-caching"></a>Ottimizzazione delle prestazioni con memorizzazione nella cache dei set di risultati
 
 Quando è abilitata la memorizzazione nella cache dei set di risultati, Synapse SQL memorizza automaticamente i risultati delle query nel database dell'utente per l'uso ricorrente.  In questo modo, le esecuzioni di query successive ottengono risultati direttamente dalla cache permanente, rendendo superfluo il ricalcolo.   La memorizzazione nella cache dei set di risultati migliora le prestazioni delle query e riduce l'utilizzo delle risorse di calcolo.  Inoltre, le query che usano set di risultati memorizzati nella cache non usano slot di concorrenza e pertanto non vengono prese in considerazione per i limiti di concorrenza esistenti. Per motivi di sicurezza, gli utenti possono accedere solo ai risultati memorizzati nella cache se hanno le stesse autorizzazioni di accesso ai dati degli utenti che hanno creato i risultati memorizzati nella cache.  
 
 ## <a name="key-commands"></a>Comandi principali
-
-[Attivare/disattivare la memorizzazione nella cache dei set di risultati per un database utente](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 
 [Attivare/disattivare la memorizzazione nella cache dei set di risultati per un database utente](/sql/t-sql/statements/alter-database-transact-sql-set-options?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest)
 

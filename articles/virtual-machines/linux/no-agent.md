@@ -6,15 +6,15 @@ ms.service: virtual-machines-linux
 ms.subservice: imaging
 ms.topic: how-to
 ms.workload: infrastructure
-ms.date: 07/06/2020
+ms.date: 09/01/2020
 ms.author: danis
 ms.reviewer: cynthn
-ms.openlocfilehash: d177e7fd7d18b24f9d8fd7f3e6662abe16bba317
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 63bc3caf97e1325c365171ba3f8e6353885d9b68
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045332"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322552"
 ---
 # <a name="creating-generalized-images-without-a-provisioning-agent"></a>Creazione di immagini generalizzate senza un agente di provisioning
 
@@ -174,7 +174,7 @@ Se la macchina virtuale non dispone di Python installato o disponibile, è possi
    </Health>
    ```
 
-3. Inserire i dati in WireServer:`curl -X POST -H 'x-ms-version: 2012-11-30' -H "x-ms-agent-name: WALinuxAgent" -H "Content-Type: text/xml;charset=utf-8" -d "$REPORT_READY_XML" http://168.63.129.16/machine?comp=health`
+3. Inserire i dati in WireServer: `curl -X POST -H 'x-ms-version: 2012-11-30' -H "x-ms-agent-name: WALinuxAgent" -H "Content-Type: text/xml;charset=utf-8" -d "$REPORT_READY_XML" http://168.63.129.16/machine?comp=health`
 
 ### <a name="automating-running-the-code-at-first-boot"></a>Automazione dell'esecuzione del codice al primo avvio
 
@@ -199,7 +199,7 @@ WantedBy=multi-user.target
 Questo servizio systemd esegue tre operazioni per il provisioning di base:
 
 1. Report pronti ad Azure (per indicare che l'operazione è stata completata correttamente).
-1. Rinomina la macchina virtuale in base al nome della macchina virtuale fornito dall'utente effettuando il pull dei dati da IMDS.
+1. Rinomina la macchina virtuale in base al nome della macchina virtuale fornita dall'utente effettuando il pull dei dati dal [servizio metadati dell'istanza di Azure (IMDS)](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service). **Nota** IMDS fornisce anche altri [metadati dell'istanza](https://docs.microsoft.com/azure/virtual-machines/linux/instance-metadata-service#accessing-azure-instance-metadata-service), ad esempio le chiavi pubbliche SSH, in modo che sia possibile impostare più di un nome host.
 1. Viene disabilitato in modo che venga eseguito solo al primo avvio e non ai successivi riavvii.
 
 Con l'unità nel file System, eseguire il comando seguente per abilitarlo:

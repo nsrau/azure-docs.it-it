@@ -1,5 +1,5 @@
 ---
-title: Creare uno snapshot di un disco rigido virtuale in Azure
+title: Creare uno snapshot di un disco rigido virtuale usando l'interfaccia della riga di comando di Azure
 description: Informazioni su come creare una copia di un disco rigido virtuale in Azure come backup o per la risoluzione dei problemi.
 author: roygara
 manager: twooley
@@ -9,14 +9,14 @@ ms.topic: how-to
 ms.date: 07/11/2018
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 7f4489b3073462a93319886ee5560ed5a6660111
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 6374108247b9bfb950c42495b13b501ded8a02d2
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84659958"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89317996"
 ---
-# <a name="create-a-snapshot"></a>Creare uno snapshot 
+# <a name="create-a-snapshot-using-the-portal-or-azure-cli"></a>Creare uno snapshot usando il portale o l'interfaccia della riga di comando di Azure
 
 Fare uno snapshot di un sistema operativo o di un disco dati per il backup o per risolvere i problemi della macchina virtuale. Uno snapshot è una copia completa di sola lettura di un disco rigido virtuale. 
 

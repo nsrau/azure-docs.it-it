@@ -3,12 +3,12 @@ title: Ripristinare lo stato del sistema per Windows Server
 description: Spiegazione dettagliata del ripristino dello stato del sistema di Windows Server da un backup in Azure.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d3fb88ddbb02327db4388de18d2645519e13d2ec
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 824ed5e71934af370211bfa8b4c266fe4323b4ad
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178587"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377438"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Ripristinare lo stato del sistema per Windows Server
 
@@ -56,7 +56,7 @@ La procedura seguente illustra come eseguire il rollback della configurazione di
 
 8. Verificare i dettagli del ripristino nel riquadro **conferma** e selezionare **Ripristina**.
 
-   ![Fare clic su Ripristina per confermare l'azione di ripristino](./media/backup-azure-restore-system-state/confirm-recovery.png)
+   ![Selezionare Ripristina per confermare l'azione di ripristino](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 9. Copiare la directory *WindowsImageBackup* nella destinazione di ripristino in un volume non critico del server. Il volume del sistema operativo Windows è in genere il volume critico.
 
@@ -104,7 +104,7 @@ Include la terminologia utilizzata in questi passaggi:
 
 11. Verificare i dettagli del ripristino nel riquadro conferma e selezionare **Ripristina**.
 
-    ![Fare clic sul pulsante Ripristina per confermare il processo di ripristino](./media/backup-azure-restore-system-state/confirm-recovery.png)
+    ![Selezionare il pulsante Ripristina per confermare il processo di ripristino](./media/backup-azure-restore-system-state/confirm-recovery.png)
 
 12. Copiare la directory *WindowsImageBackup* in un volume non critico del server, ad esempio D:\). Il volume del sistema operativo Windows è in genere il volume critico.
 

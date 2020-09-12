@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dfc60eacd70576d9cfa79dbc03368c8e8c4a8636
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: f47ae9b087615a77f6bd4d3f14f1b0052037cba6
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87797394"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321974"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Aggiungere le informazioni sulla privacy dell'organizzazione tramite Azure Active Directory
 Questo articolo illustra in che modo un amministratore tenant può aggiungere informazioni relative alla privacy al tenant Azure Active Directory (Azure AD) di un'organizzazione, tramite il portale di Azure.
@@ -56,5 +56,5 @@ Aggiungere le informazioni sulla privacy dell'organizzazione nella sezione **Pro
 4. Selezionare **Salva**.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Riscatto dell'invito di Collaborazione B2B di Azure Active Directory](../b2b/redemption-experience.md)
+- [Riscatto dell'invito di Collaborazione B2B di Azure Active Directory](../external-identities/redemption-experience.md)
 - [Aggiungere o modificare informazioni sul profilo per un utente in Azure Active Directory](active-directory-users-profile-azure-portal.md)

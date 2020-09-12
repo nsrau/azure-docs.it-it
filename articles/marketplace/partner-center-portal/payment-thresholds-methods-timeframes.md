@@ -6,13 +6,13 @@ ms.author: mingshen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 04/24/2020
-ms.openlocfilehash: f5614da7eac0717894d2bcb3c9cfdd959cb57f72
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.date: 09/02/2020
+ms.openlocfilehash: 0d98afb97113f222b9ff0edc8405ea75ad10a3fb
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88607284"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89322076"
 ---
 # <a name="payment-thresholds-methods-and-time-frames"></a>Soglie, metodi e intervalli di pagamento
 
@@ -78,7 +78,7 @@ Per tutti i marketplace di questi paesi e aree geografiche vengono usati i metod
 | Costa d'Avorio | Sì | Sì | Sì | No |
 | Croazia | Sì | Sì | Sì | No |
 | Cipro | Sì | Sì | Sì | Sì |
-| Repubblica ceca | Sì | Sì | Sì | Sì |
+| Cechia | Sì | Sì | Sì | Sì |
 | Danimarca | Sì | Sì | Sì | Sì |
 | Dominica | Sì | Sì | No | Sì |
 | Repubblica dominicana | Sì | Sì | Sì | Sì |
@@ -123,7 +123,6 @@ Per tutti i marketplace di questi paesi e aree geografiche vengono usati i metod
 | Liechtenstein | Sì | Sì | Sì | Sì |
 | Lituania | Sì | Sì | Sì | No |
 | Lussemburgo | Sì | Sì | Sì | Sì |
-| Macedonia del Nord | No | Sì | Sì | No |
 | Madagascar | Sì | Sì | Sì | No |
 | Malawi | Sì | Sì | Sì | Sì |
 | Malaysia | Sì | Sì | Sì | Sì |
@@ -142,6 +141,7 @@ Per tutti i marketplace di questi paesi e aree geografiche vengono usati i metod
 | Nicaragua | Sì | Sì | Sì | Sì |
 | Niger | Sì | Sì | Sì | No |
 | Nigeria | Sì | Sì | Sì | No |
+| Macedonia del Nord | No | Sì | Sì | No |
 | Norvegia | Sì | Sì | Sì | Sì |
 | Oman | Sì | Sì | Sì | Sì |
 | Pakistan | Sì | Sì | Sì | No |

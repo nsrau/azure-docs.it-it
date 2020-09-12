@@ -1,5 +1,5 @@
 ---
-title: Sicurezza di Azure Key Vault | Microsoft Docs
+title: Sicurezza di Azure Key Vault
 description: Gestire le autorizzazioni di accesso per Azure Key Vault, chiavi e segreti. L'articolo riguarda il modello di autenticazione e autorizzazione per Key Vault e offre informazioni su come proteggere l'insieme di credenziali delle chiavi.
 services: key-vault
 author: msmbaldwin
@@ -10,17 +10,16 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 04/18/2019
 ms.author: mbaldwin
-Customer intent: As a key vault administrator, I want to learn the options available to secure my vaults
-ms.openlocfilehash: edef64c215f96b34cd0efbff4521a7d5adb98885
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4c0430f96934c16a26ca3ab908da6aa017810ad0
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870579"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377574"
 ---
 # <a name="azure-key-vault-security"></a>Sicurezza di Azure Key Vault
 
-È necessario proteggere le chiavi di crittografia e i segreti, ad esempio certificati, stringhe di connessione e password nel cloud, quindi si usa Azure Key Vault. Poiché si archiviano dati sensibili e aziendali critici, è necessario eseguire le operazioni appropriate per ottimizzare la sicurezza degli insiemi di credenziali e dei dati archiviati al loro interno. Questo articolo illustra alcuni dei concetti che è opportuno considerare quando si progetta la sicurezza di Azure Key Vault.
+Si usa Azure Key Vault per proteggere le chiavi di crittografia e i segreti come certificati, stringhe di connessione e password nel cloud. Quando si archiviano dati sensibili e aziendali critici, è necessario eseguire le operazioni necessarie per ottimizzare la sicurezza degli insiemi di credenziali e i dati archiviati.
 
 ## <a name="identity-and-access-management"></a>Gestione delle identità e dell'accesso
 
@@ -65,7 +64,7 @@ I criteri di accesso di Key Vault concedono autorizzazioni separate per chiavi, 
 > [!IMPORTANT]
 > I criteri di accesso dell'insieme di credenziali delle chiavi non supportano le autorizzazioni granulari a livello di oggetto, ad esempio una chiave, un segreto o un certificato specifico. Quando a un utente viene concessa l'autorizzazione per creare ed eliminare chiavi, può eseguire tali operazioni su tutte le chiavi dell'insieme di credenziali.
 
-Per impostare i criteri di accesso per un insieme di credenziali delle chiavi, usare il [portale di Azure](https://portal.azure.com/), l'[interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli?view=azure-cli-latest), [Azure PowerShell](/powershell/azure/) o le [API REST di gestione di Key Vault](/rest/api/keyvault/).
+È possibile impostare i criteri di accesso per un insieme di credenziali delle chiavi usando il [portale di Azure](assign-access-policy-portal.md), l'interfaccia della riga di comando di [Azure](assign-access-policy-cli.md), [Azure PowerShell](assign-access-policy-powershell.md)o le [API REST di gestione Key Vault](/rest/api/keyvault/).
 
 È possibile limitare l'accesso al piano dati usando gli [endpoint servizio di rete virtuale per Azure Key Vault](overview-vnet-service-endpoints.md). È possibile configurare [firewall e regole di rete virtuale](network-security.md) per un ulteriore livello di sicurezza.
 
@@ -93,7 +92,7 @@ La funzionalità di registrazione di Key Vault salva le informazioni sulle attiv
 - Usare i metodi di controllo di accesso standard di Azure per proteggere i log limitando l'accesso agli utenti specificati.
 - Eliminare i log che non è più necessario mantenere nell'account di archiviazione.
 
-Per consigli sulla gestione sicura degli account di archiviazione, vedere la [Guida alla sicurezza di Archiviazione di Azure](../../storage/blobs/security-recommendations.md)
+Per consigli sulla gestione sicura degli account di archiviazione, vedere la [Guida alla sicurezza di archiviazione di Azure](../../storage/blobs/security-recommendations.md)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

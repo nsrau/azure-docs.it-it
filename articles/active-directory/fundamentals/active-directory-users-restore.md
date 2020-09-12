@@ -13,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: jeffsta
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a1822e41c8cfb3646ab43fde1b9a86569ce2c399
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 718a01abacf6f2c3cbc9523cc644aca02dc5ff49
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87796761"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321192"
 ---
 # <a name="restore-or-remove-a-recently-deleted-user-using-azure-active-directory"></a>Ripristinare o rimuovere un utente eliminato di recente con Azure Active Directory
 Dopo aver eliminato un utente, l'account rimane in uno stato di sospensione per 30 giorni. Durante tale intervallo di 30 giorni, l'account utente può essere ripristinato, con tutte le relative proprietà. Dopo il superamento di tale periodo di 30 giorni, l'utente viene automaticamente e definitivamente eliminato.
@@ -88,6 +88,6 @@ Dopo aver ripristinato o eliminato gli utenti, è possibile eseguire i processi 
 
 - [Aggiungere o modificare le informazioni sul profilo utente](active-directory-users-profile-azure-portal.md)
 
-- [Aggiungere utenti Guest da un'altra organizzazione](../b2b/what-is-b2b.md)
+- [Aggiungere utenti Guest da un'altra organizzazione](../external-identities/what-is-b2b.md)
 
 Per ulteriori informazioni sulle altre attività di gestione utente disponibili, [Azure ad documentazione sulla gestione degli utenti](../users-groups-roles/index.yml).

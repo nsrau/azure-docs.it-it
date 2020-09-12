@@ -3,12 +3,12 @@ title: Ripristinare le condivisioni file di Azure
 description: Informazioni su come usare la portale di Azure per ripristinare un'intera condivisione file o file specifici da un punto di ripristino creato da backup di Azure.
 ms.topic: conceptual
 ms.date: 01/12/2020
-ms.openlocfilehash: bb846c4615377259a1c17653cc26e96f37dc32ec
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 35ca0936ae6efba716adb51f43326cdd5bfa2d98
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762824"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376775"
 ---
 # <a name="restore-azure-file-shares"></a>Ripristinare le condivisioni file di Azure
 
@@ -50,16 +50,16 @@ Per eseguire un'operazione di ripristino, attenersi alla seguente procedura.
 
    ![Selezionare la condivisione di ripristino](./media/restore-afs/restore-share.png)
 
-1. Dopo aver selezionato **Ripristina condivisione**, viene aperto il riquadro **ripristino** . Per selezionare il punto di ripristino che si desidera utilizzare per eseguire l'operazione di ripristino, fare clic sul testo del collegamento **Seleziona** sotto la casella di testo **punto di ripristino** .
+1. Dopo aver selezionato **Ripristina condivisione**, viene aperto il riquadro **ripristino** . Per selezionare il punto di ripristino che si vuole usare per eseguire l'operazione di ripristino, scegliere il testo del collegamento **selezionare** sotto la casella di testo **punto di ripristino** .
 
-    ![Selezionare punto di ripristino facendo clic su Seleziona](./media/restore-afs/select-restore-point.png)
+    ![Selezionare punto di ripristino scegliendo Seleziona](./media/restore-afs/select-restore-point.png)
 
 1. Verrà visualizzato il riquadro del contesto **Seleziona punto di ripristino** a destra, in cui sono elencati i punti di ripristino disponibili per la condivisione file selezionata. Selezionare il punto di ripristino che si desidera utilizzare per eseguire l'operazione di ripristino e selezionare **OK**.
 
     ![Seleziona punto di ripristino](./media/restore-afs/restore-point.png)
 
     >[!NOTE]
-    >Per impostazione predefinita, nel riquadro **Seleziona punto di ripristino** sono elencati i punti di ripristino degli ultimi 30 giorni. Se si desidera esaminare i punti di ripristino creati durante una durata specifica, specificare l'intervallo selezionando l'ora di **inizio** e l' **ora di fine** appropriate e quindi fare clic sul pulsante **Aggiorna** .
+    >Per impostazione predefinita, nel riquadro **Seleziona punto di ripristino** sono elencati i punti di ripristino degli ultimi 30 giorni. Se si desidera esaminare i punti di ripristino creati durante una durata specifica, specificare l'intervallo selezionando l'ora di **inizio** e l' **ora di fine** appropriate e selezionare il pulsante **Aggiorna** .
 
 1. Il passaggio successivo consiste nel scegliere il **percorso di ripristino**. Nella sezione **destinazione ripristino** specificare dove o come ripristinare i dati. Selezionare una delle due opzioni seguenti utilizzando l'interruttore:
 
@@ -93,9 +93,9 @@ Per eseguire un'operazione di ripristino, attenersi alla seguente procedura.
 
     ![Seleziona ripristino file](./media/restore-afs/file-recovery.png)
 
-1. Dopo aver selezionato il **ripristino del file**, viene aperto il riquadro **ripristino** . Per selezionare il punto di ripristino che si desidera utilizzare per eseguire l'operazione di ripristino, fare clic sul testo del collegamento **Seleziona** sotto la casella di testo **punto di ripristino** .
+1. Dopo aver selezionato il **ripristino del file**, viene aperto il riquadro **ripristino** . Per selezionare il punto di ripristino che si vuole usare per eseguire l'operazione di ripristino, selezionare il testo del collegamento **selezionare** sotto la casella di testo **punto di ripristino** .
 
-    ![Selezionare punto di ripristino facendo clic su Seleziona](./media/restore-afs/select-restore-point.png)
+    ![Selezionare punto di ripristino scegliendo il collegamento Seleziona](./media/restore-afs/select-restore-point.png)
 
 1. Verrà visualizzato il riquadro del contesto **Seleziona punto di ripristino** a destra, in cui sono elencati i punti di ripristino disponibili per la condivisione file selezionata. Selezionare il punto di ripristino che si desidera utilizzare per eseguire l'operazione di ripristino e selezionare **OK**.
 
@@ -112,7 +112,7 @@ Per eseguire un'operazione di ripristino, attenersi alla seguente procedura.
 
     ![Percorso originale per il ripristino a livello di elemento](./media/restore-afs/original-location-item-level.png)
 
-1. Per selezionare i file o le cartelle che si desidera ripristinare, fare clic sul pulsante **Aggiungi file** . Verrà aperto un riquadro di contesto a destra, in cui viene visualizzato il contenuto del punto di ripristino della condivisione file selezionato per il ripristino.
+1. Per selezionare i file o le cartelle che si desidera ripristinare, selezionare il pulsante **Aggiungi file** . Verrà aperto un riquadro di contesto a destra, in cui viene visualizzato il contenuto del punto di ripristino della condivisione file selezionato per il ripristino.
 
     ![Scegliere Aggiungi file](./media/restore-afs/add-file.png)
 
@@ -132,7 +132,7 @@ Per eseguire un'operazione di ripristino, attenersi alla seguente procedura.
 1. L'elenco a discesa **Seleziona condivisione file** consente di visualizzare le condivisioni file presenti nell'account di archiviazione selezionato nel passaggio 2. Selezionare la condivisione file in cui si desidera ripristinare il contenuto di cui è stato eseguito il backup.
 1. Nella casella **nome cartella** specificare il nome della cartella che si desidera creare nella condivisione file di destinazione con il contenuto ripristinato.
 1. Selezionare se ignorare o sovrascrivere se sono presenti conflitti.
-1. Per selezionare i file o le cartelle che si desidera ripristinare, fare clic sul pulsante **Aggiungi file** . Verrà aperto un riquadro del contesto a destra in cui è visualizzato il contenuto del punto di ripristino della condivisione file selezionato per il ripristino.
+1. Per selezionare i file o le cartelle che si desidera ripristinare, selezionare il pulsante **Aggiungi file** . Verrà aperto un riquadro del contesto a destra in cui è visualizzato il contenuto del punto di ripristino della condivisione file selezionato per il ripristino.
 
     ![Selezionare gli elementi da ripristinare in un percorso alternativo](./media/restore-afs/restore-to-alternate-location.png)
 

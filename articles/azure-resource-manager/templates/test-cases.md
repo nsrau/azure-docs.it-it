@@ -2,15 +2,15 @@
 title: Test case per test Toolkit
 description: Descrive i test eseguiti da ARM template test Toolkit.
 ms.topic: conceptual
-ms.date: 06/19/2020
+ms.date: 09/02/2020
 ms.author: tomfitz
 author: tfitzmac
-ms.openlocfilehash: 5c18a2658ba1af9370699004860d1743603e8143
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dda8e92c17029126e7f473a6aee03acfc970e04b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85255776"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89378118"
 ---
 # <a name="default-test-cases-for-arm-template-test-toolkit"></a>Test case predefiniti per ARM template test Toolkit
 
@@ -100,6 +100,37 @@ L'esempio seguente **supera** il test:
         "type": "SecureString"
     }
 }
+```
+
+## <a name="environment-urls-cant-be-hardcoded"></a>Gli URL dell'ambiente non possono essere hardcoded
+
+Nome test: **DeploymentTemplate non deve contenere URI hardcoded**
+
+Non impostare come hardcoded gli URL di ambiente nel modello. Usare invece la [funzione Environment](template-functions-deployment.md#environment) per ottenere in modo dinamico questi URL durante la distribuzione. Per un elenco degli host URL bloccati, vedere la [test case](https://github.com/Azure/arm-ttk/blob/master/arm-ttk/testcases/deploymentTemplate/DeploymentTemplate-Must-Not-Contain-Hardcoded-Uri.test.ps1).
+
+Nell'esempio seguente il test **non viene superato** perché l'URL è hardcoded.
+
+```json
+"variables":{
+    "AzureURL":"https://management.azure.com"
+}
+```
+
+Anche il test ha **esito negativo** se usato con [Concat](template-functions-string.md#concat) o [URI](template-functions-string.md#uri).
+
+```json
+"variables":{
+    "AzureSchemaURL1": "[concat('https://','gallery.azure.com')]",
+    "AzureSchemaURL2": "[uri('gallery.azure.com','test')]"
+}
+```
+
+Nell'esempio seguente viene **passato** questo test.
+
+```json
+"variables": {
+    "AzureSchemaURL": "[environment().gallery]"
+},
 ```
 
 ## <a name="location-uses-parameter"></a>Il percorso usa il parametro
@@ -203,7 +234,7 @@ Nome test: **le risorse devono avere il percorso**
 
 Il percorso di una risorsa deve essere impostato su un' [espressione di modello](template-expressions.md) o `global` . L'espressione modello USA in genere il parametro location descritto nel test precedente.
 
-Nell'esempio seguente il test non viene **superato** perché il percorso non è un'espressione o `global` .
+Nell'esempio seguente il test **non viene superato** perché il percorso non è un'espressione o `global` .
 
 ```json
 {
@@ -351,18 +382,18 @@ Questo avviso viene visualizzato anche se si specifica un valore minimo o massim
 
 ## <a name="artifacts-parameter-defined-correctly"></a>Parametro degli artefatti definito correttamente
 
-Nome test: **artefatti-parametro**
+Nome test: **parametro artefatti**
 
 Quando si includono parametri per `_artifactsLocation` e `_artifactsLocationSasToken` , utilizzare i tipi e le impostazioni predefinite corretti. Per superare il test, è necessario che siano soddisfatte le condizioni seguenti:
 
 * Se si specifica un parametro, è necessario fornire l'altro
-* `_artifactsLocation`deve essere una **stringa**
-* `_artifactsLocation`deve avere un valore predefinito nel modello principale
-* `_artifactsLocation`non è possibile avere un valore predefinito in un modello annidato 
-* `_artifactsLocation`deve avere `"[deployment().properties.templateLink.uri]"` o l'URL del repository non elaborato per il valore predefinito
-* `_artifactsLocationSasToken`deve essere un oggetto **secureString**
-* `_artifactsLocationSasToken`può avere solo una stringa vuota per il valore predefinito
-* `_artifactsLocationSasToken`non è possibile avere un valore predefinito in un modello annidato 
+* `_artifactsLocation` deve essere una **stringa**
+* `_artifactsLocation` deve avere un valore predefinito nel modello principale
+* `_artifactsLocation` non è possibile avere un valore predefinito in un modello annidato 
+* `_artifactsLocation` deve avere `"[deployment().properties.templateLink.uri]"` o l'URL del repository non elaborato per il valore predefinito
+* `_artifactsLocationSasToken` deve essere un oggetto **secureString**
+* `_artifactsLocationSasToken` può avere solo una stringa vuota per il valore predefinito
+* `_artifactsLocationSasToken` non è possibile avere un valore predefinito in un modello annidato 
 
 ## <a name="declared-variables-must-be-used"></a>È necessario usare le variabili dichiarate
 
@@ -514,9 +545,9 @@ Questo test si applica a:
 
 Per `reference` e `list*` , il test ha **esito negativo** quando si usa `concat` per costruire l'ID risorsa.
 
-## <a name="dependson-cant-be-conditional"></a>dependsOn non può essere condizionale
+## <a name="dependson-best-practices"></a>procedure consigliate per dependsOn
 
-Nome del test: **DependsOn non deve essere condizionale**
+Nome test: **DependsOn Best Practices**
 
 Quando si impostano le dipendenze di distribuzione, non usare la funzione [if](template-functions-logical.md#if) per testare una condizione. Se una risorsa dipende da una risorsa [distribuita in modo condizionale](conditional-resource-deployment.md), impostare la dipendenza come si farebbe con qualsiasi risorsa. Quando una risorsa condizionale non viene distribuita, Azure Resource Manager la rimuove automaticamente dalle dipendenze richieste.
 
@@ -572,7 +603,7 @@ Se il modello include una macchina virtuale con un'immagine, assicurarsi che usi
 
 ## <a name="use-stable-vm-images"></a>Usare immagini di VM stabili
 
-Nome test: **virtual-machines-should-not-be-Preview**
+Nome test: le **macchine virtuali non devono essere in anteprima**
 
 Le macchine virtuali non devono usare immagini di anteprima.
 

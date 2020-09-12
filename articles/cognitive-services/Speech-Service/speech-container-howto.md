@@ -8,20 +8,20 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/05/2020
+ms.date: 09/02/2020
 ms.author: aahi
-ms.openlocfilehash: 80b7d5ca67751cf7ece775331cc13cfbac10395b
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: b242530b09f399a84f10a40ea35e21c1119f52b1
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182395"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89321035"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>Installare ed eseguire i contenitori dei servizi vocali (anteprima)
 
 I contenitori consentono di eseguire alcune delle API del servizio Voce nell'ambiente in uso. I contenitori sono ottimi per requisiti specifici di sicurezza e governance dei dati. In questo articolo si apprenderà come scaricare, installare ed eseguire un contenitore del servizio Voce.
 
-I contenitori del servizio Voce permettono ai clienti di creare un'architettura per le applicazioni ottimizzata sia per le funzionalità cloud avanzate e che per la posizione fisica dei dispositivi perimetrali. Sono disponibili quattro contenitori diversi. I due contenitori standard sono **sintesi vocale** e sintesi **vocale**. I due contenitori personalizzati sono da **riconoscimento vocale personalizzato a testo** e **da sintesi vocale personalizzata**. I contenitori di riconoscimento vocale hanno lo stesso [Prezzo](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) dei servizi di riconoscimento vocale di Azure basati sul cloud.
+I contenitori del servizio Voce permettono ai clienti di creare un'architettura per le applicazioni ottimizzata sia per le funzionalità cloud avanzate e che per la posizione fisica dei dispositivi perimetrali. Sono disponibili cinque contenitori diversi. I due contenitori standard sono **sintesi vocale**e sintesi **vocale**. I due contenitori personalizzati sono da **riconoscimento vocale personalizzato a testo** e **da sintesi vocale personalizzata**. Il **testo neurale da sintesi vocale** fornisce inoltre espressioni più naturali, tramite l'utilizzo di un modello più avanzato. I contenitori di riconoscimento vocale hanno lo stesso [Prezzo](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/) dei servizi di riconoscimento vocale di Azure basati sul cloud.
 
 > [!IMPORTANT]
 > Tutti i contenitori di riconoscimento vocale sono attualmente offerti come parte di un' [anteprima pubblica "gestita"](../cognitive-services-container-support.md#container-availability-in-azure-cognitive-services). Verrà creato un annuncio quando i contenitori di riconoscimento vocale sono in stato di disponibilità generale.
@@ -32,6 +32,7 @@ I contenitori del servizio Voce permettono ai clienti di creare un'architettura 
 | Da Riconoscimento vocale personalizzato a testo | Usando un modello personalizzato dal [portale di riconoscimento vocale personalizzato](https://speech.microsoft.com/customspeech), le registrazioni audio continue in tempo reale o batch vengono trascritte in testo con risultati intermedi. | 2.4.0 |
 | Sintesi vocale | Converte il testo in sintesi vocale naturale con input di testo normale o linguaggio di markup sintesi vocale (SSML). | 1.6.0 |
 | Sintesi vocale personalizzata | Usando un modello personalizzato dal [portale vocale personalizzato](https://aka.ms/custom-voice-portal), converte il testo in un discorso di suono naturale con input di testo normale o SSML (Speech Synthesis Markup Language). | 1.6.0 |
+| Sintesi vocale neurale | Converte il testo in sintesi vocale naturale usando la tecnologia di rete neurale profonda, consentendo una sintesi vocale più naturale. | 1.1.0 |
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/cognitive-services/) prima di iniziare.
 
@@ -39,11 +40,12 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 I prerequisiti seguenti prima di usare i contenitori di sintesi vocale:
 
-| Necessario | Scopo |
+| Obbligatoria | Scopo |
 |--|--|
 | Motore Docker | È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br> |
 | Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base. |
 | Risorsa vocale | Per usare questi contenitori, è necessario avere:<br><br>Una risorsa _vocale_ di Azure per ottenere la chiave API e l'URI dell'endpoint associati. Entrambi i valori sono disponibili nelle pagine relative alla panoramica e alle chiavi del **discorso** del portale di Azure. Sono entrambi necessari per avviare il contenitore.<br><br>**{API_KEY}**: una delle due chiavi di risorsa disponibili nella pagina **chiavi**<br><br>**{ENDPOINT_URI}**: endpoint fornito nella pagina **Panoramica** |
+
 
 ## <a name="request-access-to-the-container-registry"></a>Richiedere l'accesso al registro contenitori
 
@@ -74,31 +76,13 @@ grep -q avx2 /proc/cpuinfo && echo AVX2 supported || echo No AVX2 support detect
 
 La tabella seguente descrive l'allocazione minima e consigliata delle risorse per ogni contenitore vocale.
 
-# <a name="speech-to-text"></a>[Riconoscimento vocale](#tab/stt)
-
 | Contenitore | Minima | Consigliato |
 |-----------|---------|-------------|
 | Riconoscimento vocale | 2 Core, 2 GB di memoria | 4 core, 4 GB di memoria |
-
-# <a name="custom-speech-to-text"></a>[Da Riconoscimento vocale personalizzato a testo](#tab/cstt)
-
-| Contenitore | Minima | Consigliato |
-|-----------|---------|-------------|
 | Da Riconoscimento vocale personalizzato a testo | 2 Core, 2 GB di memoria | 4 core, 4 GB di memoria |
-
-# <a name="text-to-speech"></a>[Sintesi vocale](#tab/tts)
-
-| Contenitore | Minima | Consigliato |
-|-----------|---------|-------------|
 | Sintesi vocale | 1 core, 2 GB di memoria | 2 Core, 3 GB di memoria |
-
-# <a name="custom-text-to-speech"></a>[Sintesi vocale personalizzata](#tab/ctts)
-
-| Contenitore | Minima | Consigliato |
-|-----------|---------|-------------|
 | Sintesi vocale personalizzata | 1 core, 2 GB di memoria | 2 Core, 3 GB di memoria |
-
-***
+| Sintesi vocale neurale | 6 core, 12 GB di memoria | 8 core, 16 GB di memoria |
 
 * Ogni core deve essere di almeno 2,6 gigahertz (GHz) o superiore.
 
@@ -128,6 +112,12 @@ Le immagini del contenitore per la sintesi vocale sono disponibili nelle Contain
 | Contenitore | Archivio |
 |-----------|------------|
 | Sintesi vocale | `containerpreview.azurecr.io/microsoft/cognitive-services-text-to-speech:latest` |
+
+# <a name="neural-text-to-speech"></a>[Sintesi vocale neurale](#tab/ntts)
+
+| Contenitore | Archivio |
+|-----------|------------|
+| Sintesi vocale neurale | `containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech:latest` |
 
 # <a name="custom-text-to-speech"></a>[Sintesi vocale personalizzata](#tab/ctts)
 
@@ -213,7 +203,39 @@ Il seguente tag è un esempio del formato:
 Per tutte le impostazioni locali supportate e le voci corrispondenti del contenitore di **sintesi vocale** , vedere [tag di immagine da testo a voce](../containers/container-image-tags.md#text-to-speech).
 
 > [!IMPORTANT]
-> Quando si crea un POST HTTP *di tipo text-to-Speech standard* , il messaggio [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md) richiede un `voice` elemento con un `name` attributo. Il valore corrisponde alle impostazioni locali del contenitore e alla voce corrispondenti, nota anche come ["nome breve"](language-support.md#standard-voices). Ad esempio, il `latest` tag avrebbe il nome della voce `en-US-AriaRUS` .
+> Quando si crea un POST HTTP *di sintesi vocale* , il messaggio [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md) richiede un `voice` elemento con un `name` attributo. Il valore corrisponde alle impostazioni locali del contenitore e alla voce corrispondenti, nota anche come ["nome breve"](language-support.md#standard-voices). Ad esempio, il `latest` tag avrebbe il nome della voce `en-US-AriaRUS` .
+
+# <a name="neural-text-to-speech"></a>[Sintesi vocale neurale](#tab/ntts)
+
+#### <a name="docker-pull-for-the-neural-text-to-speech-container"></a>Pull Docker per il contenitore da testo a voce neurale
+
+Usare il comando [Docker pull](https://docs.docker.com/engine/reference/commandline/pull/) per scaricare un'immagine del contenitore dal registro di anteprima del contenitore.
+
+```Docker
+docker pull containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech:latest
+```
+
+> [!IMPORTANT]
+> Il `latest` tag estrae le `en-US` impostazioni locali e la `arianeural` voce. Per altre impostazioni locali vedere [impostazioni locali di sintesi vocale neurali](#neural-text-to-speech-locales).
+
+#### <a name="neural-text-to-speech-locales"></a>Impostazioni locali neurali per sintesi vocale
+
+Tutti i tag, ad eccezione di, `latest` sono nel formato seguente e fanno distinzione tra maiuscole e minuscole:
+
+```
+<major>.<minor>.<patch>-<platform>-<locale>-<voice>-<prerelease>
+```
+
+Il seguente tag è un esempio del formato:
+
+```
+1.1.0-amd64-en-us-arianeural-preview
+```
+
+Per tutte le impostazioni locali supportate e le voci corrispondenti del contenitore **da testo a voce neurale** , vedere [tag di immagine neurale da sintesi vocale](../containers/container-image-tags.md#neural-text-to-speech).
+
+> [!IMPORTANT]
+> Quando si crea un POST HTTP *neurale da sintesi vocale* , il messaggio [SSML (Speech Synthesis Markup Language)](speech-synthesis-markup.md) richiede un `voice` elemento con un `name` attributo. Il valore corrisponde alle impostazioni locali del contenitore e alla voce corrispondenti, nota anche come ["nome breve"](language-support.md#neural-voices). Ad esempio, il `latest` tag avrebbe il nome della voce `en-US-AriaNeural` .
 
 # <a name="custom-text-to-speech"></a>[Sintesi vocale personalizzata](#tab/ctts)
 
@@ -243,7 +265,7 @@ Usare il comando [docker run](https://docs.docker.com/engine/reference/commandli
 
 # <a name="speech-to-text"></a>[Riconoscimento vocale](#tab/stt)
 
-Per eseguire il contenitore *vocale-testo* , eseguire il `docker run` comando seguente.
+Per eseguire il contenitore *vocale* standard, eseguire il `docker run` comando seguente.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 4g --cpus 4 \
@@ -341,7 +363,7 @@ Questo comando:
 
 # <a name="text-to-speech"></a>[Sintesi vocale](#tab/tts)
 
-Per eseguire il contenitore *sintesi vocale* , eseguire il `docker run` comando seguente.
+Per eseguire il contenitore *di sintesi vocale* standard, eseguire il `docker run` comando seguente.
 
 ```bash
 docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
@@ -353,8 +375,27 @@ ApiKey={API_KEY}
 
 Questo comando:
 
-* Esegue un contenitore da *sintesi vocale* dall'immagine del contenitore.
+* Esegue un contenitore da *sintesi vocale* standard dall'immagine del contenitore.
 * Alloca 1 core CPU e 2 gigabyte (GB) di memoria.
+* Espone la porta TCP 5000 e alloca un pseudo terminale TTY per il contenitore.
+* Rimuove automaticamente il contenitore dopo la chiusura. L'immagine del contenitore rimane disponibile nel computer host.
+
+# <a name="neural-text-to-speech"></a>[Sintesi vocale neurale](#tab/ntts)
+
+Per eseguire il contenitore *di sintesi vocale neurale* , eseguire il comando seguente `docker run` .
+
+```bash
+docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
+containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+Questo comando:
+
+* Esegue un contenitore da *testo a voce neurale* dall'immagine del contenitore.
+* Alloca 6 core CPU e 12 gigabyte (GB) di memoria.
 * Espone la porta TCP 5000 e alloca un pseudo terminale TTY per il contenitore.
 * Rimuove automaticamente il contenitore dopo la chiusura. L'immagine del contenitore rimane disponibile nel computer host.
 
@@ -413,10 +454,12 @@ Questo comando:
 
 | Contenitori | URL host SDK | Protocollo |
 |--|--|--|
-| Riconoscimento vocale e da Riconoscimento vocale personalizzato a testo | `ws://localhost:5000` | WS |
-| Sintesi vocale e sintesi vocale personalizzata | `http://localhost:5000` | HTTP |
+| Sintesi vocale standard e da Riconoscimento vocale personalizzato a testo | `ws://localhost:5000` | WS |
+| Sintesi vocale (incluso standard, personalizzato e neurale) | `http://localhost:5000` | HTTP |
 
 Per ulteriori informazioni sull'utilizzo di protocolli WSS e HTTPS, vedere [sicurezza dei contenitori](../cognitive-services-container-support.md#azure-cognitive-services-container-security).
+
+### <a name="speech-to-text-standard-and-custom"></a>Riconoscimento vocale (standard e personalizzato)
 
 [!INCLUDE [Query Speech-to-text container endpoint](includes/speech-to-text-container-query-endpoint.md)]
 
@@ -537,7 +580,7 @@ speech_config.set_service_property(
 )
 ```
 
-### <a name="text-to-speech-or-custom-text-to-speech"></a>Sintesi vocale o sintesi vocale personalizzata
+### <a name="text-to-speech-standard-neural-and-custom"></a>Sintesi vocale (standard, neurale e personalizzata)
 
 [!INCLUDE [Query Text-to-speech container endpoint](includes/text-to-speech-container-query-endpoint.md)]
 
@@ -580,6 +623,7 @@ In questo articolo sono stati appresi concetti e flussi di lavoro per il downloa
   * *Da Riconoscimento vocale personalizzato a testo*
   * *Sintesi vocale*
   * *Sintesi vocale personalizzata*
+  * *Sintesi vocale neurale*
 * Le immagini del contenitore vengono scaricate dal registro contenitori in Azure.
 * Le immagini dei contenitori vengono eseguite in Docker.
 * Se si usa l'API REST (solo sintesi vocale) o l'SDK (sintesi vocale o sintesi vocale), si specifica l'URI host del contenitore. 

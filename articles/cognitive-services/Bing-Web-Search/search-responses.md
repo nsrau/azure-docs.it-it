@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 06/25/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 284f8c8432d732fdfa7e16b43a47578437bcf0ba
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: a5e69fe855f0c1e99dc3672425d9aeea13d4e827
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86202237"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297791"
 ---
 # <a name="bing-web-search-api-response-structure-and-answer-types"></a>Tipi e struttura delle risposte dell'API Ricerca Web Bing  
 
@@ -445,7 +445,7 @@ Le risposte dell'API Ricerca Web Bing possono contenere le intestazioni seguenti
 
 Tuttavia, quando si chiama l'API Ricerca Web Bing da JavaScript, le funzionalità di sicurezza predefinite del browser potrebbero impedire l'accesso ai valori di queste intestazioni.
 
-Per poter accedere alle intestazioni, è possibile effettuare la richiesta dell'API Ricerca Web Bing tramite un proxy CORS. La risposta da un proxy di questo tipo ha un'intestazione `Access-Control-Expose-Headers` che inserisce le intestazioni di risposta in un elenco elementi consentiti e le rende disponibili a JavaScript.
+Per poter accedere alle intestazioni, è possibile effettuare la richiesta dell'API Ricerca Web Bing tramite un proxy CORS. La risposta da un proxy di questo tipo ha un' `Access-Control-Expose-Headers` intestazione che filtra le intestazioni di risposta e le rende disponibili a JavaScript.
 
 Si può installare facilmente un proxy CORS per consentire all'[app dell'esercitazione](tutorial-bing-web-search-single-page-app.md) di accedere alle intestazioni client facoltative. Per prima cosa [installare Node.js](https://nodejs.org/en/download/), se non è già disponibile. Immettere quindi il comando seguente al prompt dei comandi.
 

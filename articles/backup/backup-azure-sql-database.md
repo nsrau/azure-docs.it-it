@@ -3,12 +3,12 @@ title: Eseguire un backup dei database SQL Server in Azure
 description: Questo articolo illustra come eseguire il backup di SQL Server in Azure. L'articolo spiega inoltre il recupero di SQL Server.
 ms.topic: conceptual
 ms.date: 06/18/2019
-ms.openlocfilehash: d8cdafe215d9271151d8dacee114d40108e907bd
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: 3627162ef2f4330a4b6a78625b5e07bdcf56419b
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88892440"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376537"
 ---
 # <a name="about-sql-server-backup-in-azure-vms"></a>Informazioni sul backup di SQL Server in macchine virtuali di Azure
 
@@ -66,11 +66,11 @@ Per tutte le altre versioni, correggere le autorizzazioni con i passaggi seguent
 
       ![Nella finestra di dialogo Account di accesso - Nuovo selezionare Cerca](./media/backup-azure-sql-database/new-login-search.png)
 
-  4. L'account di servizio virtuale di Windows **NT SERVICE\AzureWLBackupPluginSvc** è stato creato durante la fase di registrazione della macchina virtuale e di individuazione SQL. Immettere il nome dell'account come mostrato nella casella **Immettere il nome dell'oggetto da selezionare**. Selezionare **Controlla nomi** per risolvere il nome. Fare clic su **OK**.
+  4. L'account di servizio virtuale di Windows **NT SERVICE\AzureWLBackupPluginSvc** è stato creato durante la fase di registrazione della macchina virtuale e di individuazione SQL. Immettere il nome dell'account come mostrato nella casella **Immettere il nome dell'oggetto da selezionare**. Selezionare **Controlla nomi** per risolvere il nome. Selezionare **OK**.
 
       ![Selezionare Controlla nomi per risolvere il nome del servizio sconosciuto](./media/backup-azure-sql-database/check-name.png)
 
-  5. In **Ruoli server** assicurarsi che sia selezionato il ruolo **sysadmin**. Fare clic su **OK**. Le autorizzazioni necessarie a questo punto devono essere presenti.
+  5. In **Ruoli server** assicurarsi che sia selezionato il ruolo **sysadmin**. Selezionare **OK**. Le autorizzazioni necessarie a questo punto devono essere presenti.
 
       ![Verificare che sia selezionato il ruolo del server sysadmin](./media/backup-azure-sql-database/sysadmin-server-role.png)
 
@@ -91,13 +91,13 @@ Aggiungere gli account di accesso **NT AUTHORITY\SYSTEM** e **NT Service\AzureWL
 
 1. Passare all'istanza di SQL Server in Esplora oggetti.
 2. Passare a Sicurezza -> Account di accesso
-3. Fare clic con il pulsante destro del mouse su Account di accesso e scegliere *Nuovo account di accesso*.
+3. Fare clic con il pulsante destro del mouse sugli account di accesso e scegliere *nuovo account di accesso...*
 
     ![Nuovo account di accesso con SSMS](media/backup-azure-sql-database/sql-2k8-new-login-ssms.png)
 
 4. Passare alla scheda Generale e immettere **NT AUTHORITY\SYSTEM** come ID di accesso.
 
-    ![ID di accesso per SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
+    ![Nome dell'account di accesso per SSMS](media/backup-azure-sql-database/sql-2k8-nt-authority-ssms.png)
 
 5. Passare a *Ruoli del server* e scegliere i ruoli *public* e *sysadmin*.
 
@@ -107,7 +107,7 @@ Aggiungere gli account di accesso **NT AUTHORITY\SYSTEM** e **NT Service\AzureWL
 
     ![Concedere le autorizzazioni in SSMS](media/backup-azure-sql-database/sql-2k8-grant-permission-ssms.png)
 
-7. Fare clic su OK.
+7. Selezionare OK.
 8. Ripetere la stessa procedura (passaggi da 1 a 7 precedenti) per aggiungere l'account di accesso NT Service\AzureWLBackupPluginSvc all'istanza di SQL Server. Se l'account di accesso esiste già, assicurarsi che abbia il ruolo del server sysadmin e che in Stato siano selezionate l'opzione Concedi per Autorizzazione per la connessione al motore di database e l'opzione Abilitato per Account di accesso.
 9. Dopo aver concesso l'autorizzazione, **riindividuare** i database nel portale: **->** **->** carico di lavoro infrastruttura di backup dell'insieme di credenziali nella macchina virtuale di Azure:
 

@@ -3,12 +3,12 @@ title: Risolvere i problemi relativi agli errori di backup dei database SAP HANA
 description: Viene descritto come risolvere i problemi relativi agli errori comuni che possono verificarsi quando si usa Backup di Azure per eseguire il backup di database SAP HANA.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 4958a5e93e27c34772c7c3285470abbc31f5b089
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5cdad55ef849b9ced31646466e2c2c170ebf0827
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004171"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377685"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Risolvere i problemi relativi al backup di database SAP HANA in Azure
 
@@ -97,7 +97,7 @@ Tenere presente quanto segue:
 
 - Per impostazione predefinita, il nome del database ripristinato verrà popolato con il nome dell'elemento di backup, in questo caso h21(sdc).
 - Se si seleziona la destinazione come H11, il nome del database ripristinato non verrà modificato automaticamente. **Deve essere modificato in h11(sdc)** . Per quanto riguarda SDC, il nome del database ripristinato corrisponderà all'ID istanza di destinazione scritto in lettere minuscole e con il suffisso 'sdc' racchiuso tra parentesi quadre.
-- Poiché il contenitore SDC può includere un solo database singolo, è anche necessario fare clic sulla casella di controllo per consentire l'override dei dati del database esistenti con i dati del punto di ripristino.
+- Poiché la DSC può avere un solo database singolo, è necessario selezionare la casella di controllo per consentire l'override dei dati del database esistenti con i dati del punto di ripristino.
 - Linux fa distinzione tra maiuscole e minuscole, di conseguenza prestare attenzione a rispettare tale distinzione.
 
 ### <a name="multiple-container-database-mdc-restore"></a>Ripristino di un contenitore di più database (MDC)
@@ -165,7 +165,7 @@ Gli aggiornamenti da SDC a MDC che non implicano una modifica del SID possono es
 - Eseguire l'aggiornamento. Al termine, il sistema HANA risulta di tipo MDC e include un database di sistema e database tenant
 - Eseguire di nuovo lo [script di pre-registrazione](https://aka.ms/scriptforpermsonhana)
 - Ripetere la registrazione dell'estensione per lo stesso computer nel portale di Azure (**Backup** -> **Visualizza dettagli** -> Selezionare la macchina virtuale di Azure pertinente -> Ripeti registrazione)
-- Fare clic su **Individua di nuovo i database** per la stessa macchina virtuale. Con questa azione i nuovi database del passaggio 3 dovrebbero essere SYSTEMDB e tenant DB, non SDC
+- Selezionare **riindividuare** i database per la stessa macchina virtuale. Con questa azione i nuovi database del passaggio 3 dovrebbero essere SYSTEMDB e tenant DB, non SDC
 - Il database SDC meno recente continuerà a esistere nell'insieme di credenziali e i dati di backup obsoleti verranno conservati in base ai criteri
 - Configurare il backup per questi database
 
@@ -178,7 +178,7 @@ Gli aggiornamenti da SDC a MDC che implicano una modifica del SID possono essere
 - Eseguire l'aggiornamento. Al termine, il sistema HANA risulta di tipo MDC e include un database di sistema e database tenant
 - Eseguire di nuovo lo [script di pre-registrazione](https://aka.ms/scriptforpermsonhana) con i dettagli corretti (nuovo SID e MDC). In seguito a una modifica del SID, potrebbero verificarsi problemi durante l'esecuzione dello script. Se si verificano problemi, contattare il supporto di Backup di Azure.
 - Ripetere la registrazione dell'estensione per lo stesso computer nel portale di Azure (**Backup** -> **Visualizza dettagli** -> Selezionare la macchina virtuale di Azure pertinente -> Ripeti registrazione)
-- Fare clic su **Individua di nuovo i database** per la stessa macchina virtuale. Con questa azione i nuovi database del passaggio 3 dovrebbero essere SYSTEMDB e tenant DB, non SDC
+- Selezionare **riindividuare** i database per la stessa macchina virtuale. Con questa azione i nuovi database del passaggio 3 dovrebbero essere SYSTEMDB e tenant DB, non SDC
 - Il database SDC meno recente continuerà a esistere nell'insieme di credenziali e i dati di backup obsoleti verranno conservati in base ai criteri
 - Configurare il backup per questi database
 

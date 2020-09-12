@@ -3,12 +3,12 @@ title: Eseguire il backup di macchine virtuali Hyper-V con MAB
 description: Questo articolo contiene le procedure per il backup e il ripristino di macchine virtuali con Backup di Microsoft Azure Server (MAB).
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: d3648bf6c980049a2e3ccfa90a777bddc1748dc9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: fc4e34e11e2474521082b1c23f600e9a5ca7a9fe
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011940"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377999"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Eseguire il backup di macchine virtuali Hyper-V con server di Backup di Azure
 
@@ -78,7 +78,7 @@ Questi sono i prerequisiti per il backup di macchine virtuali Hyper-V con MAB:
 
 2. Configurare l'agente protezione di MAB nel server Hyper-V o nei nodi del cluster Hyper-V. Se si esegue un backup a livello di Guest, l'agente verrà installato nelle macchine virtuali di cui si vuole eseguire il backup a livello di Guest.
 
-3. Nella console di amministrazione di MAB fare clic su **protezione**dati  >  **Crea gruppo protezione** dati per aprire la procedura guidata **Crea nuovo gruppo protezione** dati.
+3. Nella console di amministrazione di MAB selezionare **protezione**  >  **Crea gruppo protezione** dati per aprire la procedura guidata **Crea nuovo gruppo protezione** dati.
 
 4. Nella pagina **Selezione membri del gruppo** selezionare le macchine virtuali da proteggere dai server host Hyper-V in cui si trovano. È consigliabile includere tutte le macchine virtuali che avranno gli stessi criteri di protezione in un unico gruppo protezione dati. Per un uso efficiente dello spazio, abilitare la condivisione percorso. La condivisione percorso consente di individuare i dati da diversi gruppi protezione dati nello stesso disco o nella stessa archiviazione su nastro in modo che più origini dati abbiano soltanto una replica e un volume del punto di ripristino.
 
@@ -110,7 +110,7 @@ Se MAB è in esecuzione in Windows Server 2012 R2 o versione successiva, è poss
 
 **Si abilita il backup di host**: è possibile usare un data center ospitato come sito di replica, senza che sia necessario un data center secondario. In questo caso, il contratto di Service del provider di hosting richiede il backup coerente delle macchine virtuali di replica.
 
-Una macchina virtuale di replica è disattivata fino a quando non viene avviato un failover e il servizio Copia Shadow del volume non può garantire un backup coerente con le applicazioni per una macchina virtuale di replica. Il backup di una macchina virtuale di replica sarà quindi solo coerente con un arresto anomalo del sistema. Se non è possibile garantire la coerenza con un arresto anomalo del sistema, il backup avrà esito negativo. Questa situazione può verificarsi in una serie di condizioni:
+Una macchina virtuale di replica è disattivata fino a quando non viene avviato un failover e il servizio Copia Shadow del volume non può garantire un backup coerente con le applicazioni per una macchina virtuale di replica. Il backup di una macchina virtuale di replica sarà quindi solo coerente con l'arresto anomalo del sistema. Se non è possibile garantire la coerenza con un arresto anomalo del sistema, il backup avrà esito negativo. Questa situazione può verificarsi in una serie di condizioni:
 
 - La macchina virtuale di replica non è integra e si trova in uno stato critico.
 
@@ -128,13 +128,13 @@ Quando è possibile ripristinare una macchina virtuale sottoposto a backup, usar
 
 1. Nella console di amministrazione di MAB digitare il nome della macchina virtuale oppure espandere l'elenco degli elementi protetti e selezionare la macchina virtuale che si desidera ripristinare.
 
-2. Nel riquadro **Punti di ripristino per**, nel calendario, fare clic su una data per visualizzare i punti di ripristino disponibili. Quindi nel riquadro **Percorso** selezionare il punto di ripristino da usare nel Ripristino guidato.
+2. Nel riquadro **punti di ripristino per** del calendario selezionare una data per visualizzare i punti di ripristino disponibili. Quindi nel riquadro **Percorso** selezionare il punto di ripristino da usare nel Ripristino guidato.
 
-3. Nel menu **Azioni** fare clic su **Ripristina** per aprire il Ripristino guidato.
+3. Scegliere **Ripristina** dal menu **azioni** per aprire il ripristino guidato.
 
-    La macchina virtuale e il punto di ripristino selezionato vengono visualizzati nella schermata **Verifica selezione per ripristino**. Fare clic su **Next** (Avanti).
+    La macchina virtuale e il punto di ripristino selezionato vengono visualizzati nella schermata **Verifica selezione per ripristino**. Selezionare **Next** (Avanti).
 
-4. Nella schermata **Selezione tipo di ripristino** selezionare la posizione in cui si vuole ripristinare i dati e quindi fare clic su **Avanti**.
+4. Nella schermata **Selezione tipo di ripristino** selezionare la posizione in cui si desidera ripristinare i dati e quindi fare clic su **Avanti**.
 
     - **Ripristina nell'istanza originale**: quando viene ripristinato nel percorso originale, il file VHD originale viene eliminato. MAB Recupera il VHD e altri file di configurazione nel percorso originale usando Hyper-V VSS writer. Alla fine del processo di ripristino le macchine virtuali risultano ancora a disponibilità elevata.
         Per il ripristino, è necessario che sia presente il gruppo di risorse. Se non è disponibile, eseguire il ripristino in un percorso alternativo e quindi rendere la macchina virtuale a disponibilità elevata.
@@ -143,13 +143,13 @@ Quando è possibile ripristinare una macchina virtuale sottoposto a backup, usar
 
     - **Copia in una cartella di rete**: MAB supporta il ripristino a livello di elemento (ILR), che consente di eseguire il ripristino a livello di elemento di file, cartelle, volumi e dischi rigidi virtuali (VHD) da un backup a livello di host di macchine virtuali Hyper-V in una condivisione di rete o in un volume di un server protetto da MAB. Non è necessario installare l'agente protezione di MAB nel guest per eseguire il ripristino a livello di elemento. Se si sceglie questa opzione, il Ripristino guidato visualizza una schermata aggiuntiva per identificare la destinazione e il percorso di destinazione.
 
-5. In **Specifica opzioni di ripristino** configurare le opzioni di ripristino e fare clic su **Avanti**:
+5. In **specificare le opzioni di ripristino** configurare le opzioni di ripristino e selezionare **Avanti**:
 
-    - Se si ripristina una macchina virtuale sulla larghezza di banda ridotta, fare clic su **Modifica** per abilitare **Limitazione all'utilizzo della larghezza di banda**. Dopo aver attivato l'opzione di limitazione, è possibile specificare la quantità di larghezza di banda che si vuole rendere disponibile e l'ora in cui deve essere disponibile.
-    - Selezionare **Abilita recupero basato su SAN tramite snapshot dell'hardware** se è stata configurata la rete.
+    - Se si esegue il ripristino di una macchina virtuale su una larghezza di banda ridotta, selezionare **modifica** per abilitare la **limitazione all'utilizzo della larghezza di banda di rete**. Dopo aver attivato l'opzione di limitazione, è possibile specificare la quantità di larghezza di banda che si vuole rendere disponibile e l'ora in cui deve essere disponibile.
+    - Selezionare **Abilita ripristino basato su San tramite snapshot dell'hardware** se la rete è stata configurata.
     - Selezionare **Invia messaggio di posta elettronica al termine del ripristino** e quindi specificare gli indirizzi di posta elettronica, se si vuole che le notifiche di posta elettronica vengano inviate al termine del processo di ripristino.
 
-6. Nella schermata di riepilogo, verificare che tutti i dettagli siano corretti. Se i dettagli non sono corretti o si vuole apportare una modifica, fare clic su **Indietro**. Se si è soddisfatti delle impostazioni, fare clic su **Ripristina** per avviare il processo di ripristino.
+6. Nella schermata di riepilogo, verificare che tutti i dettagli siano corretti. Se i dettagli non sono corretti o si vuole apportare una modifica, selezionare **indietro**. Se si è soddisfatti delle impostazioni, selezionare **Ripristina** per avviare il processo di ripristino.
 
 7. La schermata **Stato ripristino** fornisce informazioni sul processo di ripristino.
 

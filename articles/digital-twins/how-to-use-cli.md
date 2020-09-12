@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 05/25/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 7f13dc3e86b21a3f4113a7a7c6f477f239315a27
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 2c642b2441d1f30c31e707a237732e028f548ac5
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87499093"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89298182"
 ---
 # <a name="use-the-azure-digital-twins-cli"></a>Usare l'interfaccia della riga di comando di Gemelli digitali di Azure
 
@@ -24,6 +24,8 @@ Oltre a gestire l'istanza di Azure Digital Twins nell'portale di Azure, i dispos
 * Configurazione degli endpoint
 * Gestione delle [Route](concepts-route-events.md)
 * Configurazione della [sicurezza](concepts-security.md) tramite il controllo degli accessi in base al ruolo (RBAC)
+
+[!INCLUDE [digital-twins-known-issue-cloud-shell](../../includes/digital-twins-known-issue-cloud-shell.md)]
 
 ## <a name="uses-deploy-and-validate"></a>Usi (Deploy e Validate)
 

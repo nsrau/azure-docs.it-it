@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: v-miegge
-ms.openlocfilehash: e55fa377f28572901202b4d722bea70786edae22
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: bc41783bf977806b5f9bba5b953f1f581ad07f18
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88942127"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299525"
 ---
 # <a name="virtual-machine-is-unresponsive-while-applying-audit-policy-configuration-policy"></a>La macchina virtuale non risponde durante l'applicazione dei criteri di configurazione dei criteri di controllo
 
@@ -27,7 +27,7 @@ Questo articolo illustra la procedura per risolvere i problemi in cui la macchin
 
 ## <a name="symptom"></a>Sintomo
 
-Quando si usa la [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) per visualizzare lo screenshot della macchina virtuale, si noterà che lo screenshot Visualizza che il sistema operativo (sistema operativo) si è bloccato durante l'avvio con il messaggio applicazione dei criteri di configurazione dei criteri di **controllo**.
+Quando si usa la [diagnostica di avvio](https://docs.microsoft.com/azure/virtual-machines/troubleshooting/boot-diagnostics) per visualizzare lo screenshot della macchina virtuale, si noterà che lo screenshot Visualizza che il sistema operativo non risponde durante un avvio con il messaggio applicazione dei criteri di configurazione dei criteri di **controllo**.
 
   ![Avvio del sistema operativo con il messaggio: "applicazione dei criteri di configurazione dei criteri di controllo"](./media/vm-unresponsive-applying-audit-configuration-policy/1.png)
 

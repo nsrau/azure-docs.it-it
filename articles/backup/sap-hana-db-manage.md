@@ -3,12 +3,12 @@ title: Gestire i backup dei database SAP HANA su macchine virtuali di Azure
 description: Questo articolo illustra alcune attività comuni per la gestione e il monitoraggio di database SAP HANA in esecuzione su macchine virtuali di Azure.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: 40761415042cc619893ab3a712a763d4fb046e38
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e257aa7771f6f76a4d53f16255c2f3cbb80c8967
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267480"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89377455"
 ---
 # <a name="manage-and-monitor-backed-up-sap-hana-databases"></a>Gestire e monitorare i database SAP HANA di cui è stato eseguito il backup
 
@@ -41,7 +41,7 @@ Gli avvisi rappresentano un modo semplice per monitorare i backup dei database S
 
   ![Elenco di avvisi di backup](./media/sap-hana-db-manage/backup-alerts-list.png)
 
-* Fare clic sugli avvisi per visualizzare altri dettagli:
+* Selezionare gli avvisi per visualizzare altri dettagli:
 
   ![Dettagli dell'avviso](./media/sap-hana-db-manage/alert-details.png)
 
@@ -61,9 +61,9 @@ Backup di Azure consente di semplificare la gestione di un database SAP HANA sot
 
 I backup vengono eseguiti in base alla pianificazione dei criteri. È possibile eseguire un backup su richiesta nel modo seguente:
 
-1. Selezionare **Elementi di backup** dal menu dell'insieme di credenziali.
-2. In **Elementi di backup** selezionare la macchina virtuale che esegue il database SAP HANA, quindi fare clic su **Esegui backup**.
-3. In **backup ora**scegliere il tipo di backup che si desidera eseguire. Fare quindi clic su **OK**. Questo backup verrà mantenuto in base ai criteri associati a questo elemento di backup.
+1. Nel menu dell'insieme di credenziali selezionare **elementi di backup**.
+2. In **elementi di backup**selezionare la macchina virtuale che esegue il database di SAP Hana, quindi selezionare **Esegui backup ora**.
+3. In **backup ora**scegliere il tipo di backup che si desidera eseguire. Quindi scegliere **OK**. Questo backup verrà mantenuto in base ai criteri associati a questo elemento di backup.
 4. Monitorare le notifiche del portale. È possibile monitorare l'avanzamento del processo nel dashboard dell'insieme di credenziali > **Processi di Backup** > **In corso**. A seconda delle dimensioni del database, la creazione del backup iniziale potrebbe richiedere un po' di tempo.
 
 Per impostazione predefinita, la conservazione dei backup su richiesta è di 45 giorni.
@@ -114,7 +114,7 @@ Per eseguire il backup locale (tramite HANA Studio/Cockpit) di un database di cu
   ![Scegliere SAP HANA in una macchina virtuale di Azure](./media/sap-hana-db-manage/sap-hana-in-azure-vm.png)
 
 * Scegliere l'elemento di backup di cui si desidera modificare i criteri sottostanti
-* Fare clic sui criteri di backup esistenti
+* Selezionare i criteri di backup esistenti.
 
   ![Selezionare i criteri di backup esistenti](./media/sap-hana-db-manage/existing-backup-policy.png)
 
@@ -173,7 +173,7 @@ Occasionalmente, un'operazione di modifica dei criteri può comportare una versi
 
 Se si sceglie di lasciare invariati i punti di ripristino, tenere presente quanto segue:
 
-* Tutti i punti di ripristino rimarranno intatti per sempre e tutte le eliminazioni si arresteranno in arresto della protezione con Mantieni dati.
+* Tutti i punti di ripristino rimarranno invariati per sempre e tutte le eliminazioni verranno arrestate in caso di arresto della protezione con conservazione dei dati.
 * Verranno addebitati i costi per l'istanza protetta e lo spazio di archiviazione utilizzato. Per altre informazioni, vedere [Prezzi di Backup di Azure](https://azure.microsoft.com/pricing/details/backup/).
 * Se si elimina un'origine dati senza arrestare i backup, i nuovi backup avranno esito negativo.
 

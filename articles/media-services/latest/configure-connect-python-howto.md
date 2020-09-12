@@ -10,16 +10,16 @@ ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel
 ms.custom: devx-track-python
-ms.openlocfilehash: 42fea1a4363684667ccb41f0406bb66ef00d5485
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 68620b644ef85f7b627b7b6380c16959b25299f0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89265576"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297332"
 ---
 # <a name="connect-to-media-services-v3-api---python"></a>Connettersi all'API di servizi multimediali V3-Python
 
@@ -31,8 +31,8 @@ Questo articolo illustra come connettersi a servizi multimediali di Azure V3 Pyt
 
 - Scaricare Python da [Python.org](https://www.python.org/downloads/)
 - Assicurarsi di impostare la `PATH` variabile di ambiente
-- [Creare un account di Servizi multimediali di Azure](./create-account-howto.md). Assicurarsi di ricordare il nome del gruppo di risorse e il nome dell'account di servizi multimediali.
-- Seguire i passaggi nell'argomento [Access Apis (API di accesso](./access-api-howto.md) ). Registrare l'ID sottoscrizione, l'ID applicazione (ID client), la chiave di autenticazione (segreto) e l'ID tenant necessario nel passaggio successivo.
+- [Creare un account di Servizi multimediali di Azure](./create-account-howto.md). Assicurarsi di ricordare il nome del gruppo di risorse e quello dell'account di Servizi multimediali.
+- Seguire la procedura descritta nell'argomento [Accedere alle API](./access-api-howto.md). Registrare l'ID sottoscrizione, l'ID applicazione (ID client), la chiave di autenticazione (segreto) e l'ID tenant necessario nel passaggio successivo.
 
 > [!IMPORTANT]
 > Vedere [Convenzioni di denominazione](media-services-apis-overview.md#naming-conventions).

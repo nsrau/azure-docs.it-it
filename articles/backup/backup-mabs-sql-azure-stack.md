@@ -3,12 +3,12 @@ title: Eseguire il backup di carichi di lavoro di SQL Server in Azure Stack
 description: Questo articolo illustra come configurare Backup di Microsoft Azure Server (MAB) per proteggere i database di SQL Server in Azure Stack.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: e56b29f886224617a9ae13d58c8b3dd8dda0dcf8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 912e6f10b689217303786b20ec6315fca595a8c2
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017958"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376333"
 ---
 # <a name="back-up-sql-server-on-azure-stack"></a>Eseguire il backup di SQL Server in Azure Stack
 
@@ -54,29 +54,29 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
 
 ## <a name="create-a-backup-policy-to-protect-sql-server-databases-to-azure"></a>Creare un criterio di backup per proteggere i database SQL Server in Azure.
 
-1. Nell'interfaccia utente del server di Backup di Azure fare clic sull'area di lavoro **Protezione**.
+1. Nell'interfaccia utente di server di Backup di Azure selezionare l'area di lavoro **protezione** .
 
-2. Nella barra degli strumenti, fare clic su **Nuovo** per creare un nuovo gruppo di protezione.
+2. Nella barra multifunzione dello strumento selezionare **nuovo** per creare un nuovo gruppo protezione dati.
 
     ![Creazione di un gruppo di protezione](./media/backup-azure-backup-sql/protection-group.png)
 
-    Il server di Backup di Azure avvia la procedura guidata Crea nuovo gruppo protezione dati, che guida l'utente nei passaggi necessari per creare un **gruppo protezione dati**. Fare clic su **Next** (Avanti).
+    Il server di Backup di Azure avvia la procedura guidata Crea nuovo gruppo protezione dati, che guida l'utente nei passaggi necessari per creare un **gruppo protezione dati**. Selezionare **Next** (Avanti).
 
 3. Nella schermata **Selezione tipo di gruppo protezione dati** selezionare **Server**.
 
     ![Selezione del tipo di gruppo di protezione "Server"](./media/backup-azure-backup-sql/pg-servers.png)
 
-4. Nell'elenco Membri disponibili della schermata **Selezione membri del gruppo** sono visualizzate le varie origini dati. Fare clic **+** per espandere una cartella e visualizzare le sottocartelle. Fare clic sulla casella di controllo per selezionare un elemento.
+4. Nell'elenco Membri disponibili della schermata **Selezione membri del gruppo** sono visualizzate le varie origini dati. Selezionare **+** questa finestra per espandere una cartella e visualizzare le sottocartelle. Selezionare la casella di controllo per selezionare un elemento.
 
     ![Selezione del database SQL](./media/backup-azure-backup-sql/pg-databases.png)
 
-    Tutti gli elementi selezionati vengono visualizzati nell'elenco Membri selezionati. Dopo aver selezionato i server o i database da proteggere, fare clic su **Avanti**.
+    Tutti gli elementi selezionati vengono visualizzati nell'elenco Membri selezionati. Dopo aver selezionato i server o i database che si desidera proteggere, selezionare **Avanti**.
 
 5. Nella schermata **Seleziona metodo protezione dati** specificare un nome per il gruppo di protezione e selezionare la casella di controllo **Desidero la protezione dati online**.
 
     ![Metodo di protezione dei dati - disco a breve termine e online in Azure](./media/backup-azure-backup-sql/pg-name.png)
 
-6. Nella schermata **Specifica obiettivi a breve termine** includere gli input necessari per creare punti di backup sul disco e fare clic su **Avanti**.
+6. Nella schermata **Specifica obiettivi a breve termine** includere gli input necessari per creare punti di backup su disco e fare clic su **Avanti**.
 
     Nell'esempio l'**intervallo di conservazione** è **5 giorni**, la **frequenza di sincronizzazione** è una volta ogni **15 minuti**, che è la frequenza di backup. **Backup completo rapido** è impostato su **8.00 PM**.
 
@@ -87,9 +87,9 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
    >
    >
 
-7. Nella schermata **Verifica allocazione dischi** verificare lo spazio di archiviazione complessivo disponibile e il potenziale spazio su disco. Fare clic su **Next** (Avanti).
+7. Nella schermata **Verifica allocazione dischi** verificare lo spazio di archiviazione complessivo disponibile e il potenziale spazio su disco. Selezionare **Next** (Avanti).
 
-8. In **Scelta del metodo per la creazione della replica** scegliere la modalità di creazione del primo punto di recupero. Il backup iniziale (fuori rete) può essere trasferito manualmente per evitare la congestione della larghezza di banda o attraverso la rete. Se si sceglie di attendere prima di trasferire il primo backup, è possibile specificare l'orario del trasferimento iniziale. Fare clic su **Next** (Avanti).
+8. In **Scelta del metodo per la creazione della replica** scegliere la modalità di creazione del primo punto di recupero. Il backup iniziale (fuori rete) può essere trasferito manualmente per evitare la congestione della larghezza di banda o attraverso la rete. Se si sceglie di attendere prima di trasferire il primo backup, è possibile specificare l'orario del trasferimento iniziale. Selezionare **Next** (Avanti).
 
     ![Metodo di replica iniziale](./media/backup-azure-backup-sql/pg-manual.png)
 
@@ -97,7 +97,7 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
 
     Una volta completato il backup iniziale, quelli successivi saranno backup incrementali della copia di backup iniziale. I backup incrementali tendono a essere di piccole dimensioni e facilmente trasferibili sulla rete.
 
-9. Scegliere quando si vuole eseguire la verifica della coerenza e fare clic su **Avanti**.
+9. Scegliere quando si desidera eseguire la verifica della coerenza e selezionare **Avanti**.
 
     ![Verifica coerenza](./media/backup-azure-backup-sql/pg-consistent.png)
 
@@ -130,9 +130,9 @@ La gestione delle operazioni di backup del database SQL server in Azure e di rip
     * Il backup di sabato alle ore 12:00 P.M. viene conservato per 104 settimane
     * Il backup dell'ultimo sabato alle 12.00 P.M. viene conservato per 60 mesi
     * Il backup dell'ultimo sabato di marzo alle 12.00 P.M. viene conservato per 10 anni
-13. Fare clic su **Avanti** e selezionare l'opzione appropriata per il trasferimento in Azure della copia di backup iniziale. È possibile scegliere **Automaticamente tramite la rete**
+13. Selezionare **Avanti** e selezionare l'opzione appropriata per trasferire la copia di backup iniziale in Azure. È possibile scegliere **Automaticamente tramite la rete**
 
-14. Dopo aver esaminato i dettagli dei criteri nella schermata **Riepilogo**, fare clic su **Crea gruppo** per completare il flusso di lavoro. È possibile fare clic su **Chiudi** e monitorare l'avanzamento del processo nell'area di lavoro Monitoraggio.
+14. Dopo aver esaminato i dettagli dei criteri nella schermata **Riepilogo** , selezionare **Crea gruppo** per completare il flusso di lavoro. È possibile selezionare **Chiudi** e monitora lo stato di avanzamento del processo nell'area di lavoro monitoraggio.
 
     ![Creazione di un gruppo di protezione in corso](./media/backup-azure-backup-sql/pg-summary.png)
 
@@ -146,7 +146,7 @@ Mentre nei passaggi precedenti sono stati creati i criteri di backup, un "punto 
 2. Fare clic con il pulsante destro del mouse sul database e scegliere **Crea punto di ripristino**.
 
     ![Creazione di un punto di ripristino online](./media/backup-azure-backup-sql/sqlbackup-createrp.png)
-3. Scegliere **Protezione dati online** nel menu a discesa e fare clic su **OK** per avviare la creazione di un punto di recupero in Azure.
+3. Scegliere **protezione dati online** dal menu a discesa e selezionare **OK** per avviare la creazione di un punto di ripristino in Azure.
 
     ![Crea punto di ripristino](./media/backup-azure-backup-sql/sqlbackup-azure.png)
 4. Visualizzare lo stato del processo nell'area di lavoro **Monitoraggio**.
@@ -163,17 +163,17 @@ I passaggi seguenti sono necessari per ripristinare un'entità protetta (databas
 2. Fare clic con il pulsante destro del mouse sul nome del database e scegliere **Ripristina**.
 
     ![Ripristino da Azure](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. MABS mostra i dettagli del punto di ripristino. Fare clic su **Next** (Avanti). Per sovrascrivere il database, selezionare il tipo di ripristino **Ripristina nell'istanza originale di SQL Server**. Fare clic su **Next** (Avanti).
+3. MABS mostra i dettagli del punto di ripristino. Selezionare **Next** (Avanti). Per sovrascrivere il database, selezionare il tipo di ripristino **Ripristina nell'istanza originale di SQL Server**. Selezionare **Next** (Avanti).
 
     ![Ripristino nel percorso originale](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
     In questo esempio MABS recupera il database in un'altra istanza di SQL server o in una cartella di rete autonoma.
 
-4. Nella schermata **Specifica opzioni di ripristino** è possibile selezionare le opzioni di ripristino, ad esempio Limitazione all'utilizzo della larghezza di banda per controllare la larghezza di banda usata dal processo di ripristino. Fare clic su **Next** (Avanti).
+4. Nella schermata **Specifica opzioni di ripristino** è possibile selezionare le opzioni di ripristino, ad esempio Limitazione all'utilizzo della larghezza di banda per controllare la larghezza di banda usata dal processo di ripristino. Selezionare **Next** (Avanti).
 
-5. Nella schermata **Riepilogo** vengono visualizzate le configurazioni di ripristino impostate finora. Fare clic su **Ripristina**.
+5. Nella schermata **Riepilogo** vengono visualizzate le configurazioni di ripristino impostate finora. Selezionare **Ripristina**.
 
-    In Stato ripristino è visualizzato il database in corso di ripristino. È possibile fare clic **Chiudi** per chiudere la procedura guidata e visualizzare lo stato di avanzamento nell'area di lavoro **Monitoraggio**.
+    In Stato ripristino è visualizzato il database in corso di ripristino. È possibile selezionare **Chiudi** per chiudere la procedura guidata e visualizzare lo stato di avanzamento nell'area di lavoro **monitoraggio** .
 
     ![Avvio del processo di ripristino](./media/backup-azure-backup-sql/sqlbackup-recoverying.png)
 

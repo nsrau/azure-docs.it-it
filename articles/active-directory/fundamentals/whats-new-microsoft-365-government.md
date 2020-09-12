@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 48a7e5e810e509a97b6010218532f6e7dff0b73f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a0efc4bc8f89b0fbefbba171d80a3f8a1ed5e7f6
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77425545"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89318931"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Novità relative a Azure Active Directory in Microsoft 365 Government
 
@@ -53,22 +53,22 @@ La tabella seguente Mostra gli endpoint per tutti i clienti:
 
 | Nome | Dettagli endpoint |
 |------|------------------|
-| Portali |Microsoft Azure per enti pubblici:https://portal.azure.us<p>Microsoft 365 Government-GCC High:https://portal.office365.us<p>Microsoft 365 Government-DoD:https://portal.apps.mil |
+| Portali |Microsoft Azure per enti pubblici: https://portal.azure.us<p>Microsoft 365 Government-GCC High: https://portal.office365.us<p>Microsoft 365 Government-DoD: https://portal.apps.mil |
 | Endpoint autorità Azure Active Directory | https://login.microsoftonline.us |
 | API Microsoft Graph per Microsoft 365 Government-GCC High | https://graph.microsoft.us |
 | API Microsoft Graph per Microsoft 365 Government-DoD | https://dod-graph.microsoft.us |
-| Endpoint dei servizi di Azure per enti pubblici | Per informazioni dettagliate, vedere Guida per gli [sviluppatori di Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) |
-| Microsoft 365 Government-endpoint GCC High | Per informazioni dettagliate, vedere [Office 365 US Government GCC High Endpoints](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) |
-| Microsoft 365 Government-DoD | Per informazioni dettagliate, vedere gli [endpoint DOD di Office 365 per enti pubblici statunitensi](https://docs.microsoft.com/office365/enterprise/office-365-u-s-government-dod-endpoints) |
+| Endpoint dei servizi di Azure per enti pubblici | Per informazioni dettagliate, vedere Guida per gli [sviluppatori di Azure per enti pubblici](../../azure-government/documentation-government-developer-guide.md) |
+| Microsoft 365 Government-endpoint GCC High | Per informazioni dettagliate, vedere [Office 365 US Government GCC High Endpoints](/office365/enterprise/office-365-u-s-government-gcc-high-endpoints) |
+| Microsoft 365 Government-DoD | Per informazioni dettagliate, vedere gli [endpoint DOD di Office 365 per enti pubblici statunitensi](/office365/enterprise/office-365-u-s-government-dod-endpoints) |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni, vedere questi articoli:
 
-- [Informazioni su Azure per enti pubblici](https://docs.microsoft.com/azure/azure-government/documentation-government-welcome)
+- [Informazioni su Azure per enti pubblici](../../azure-government/documentation-government-welcome.md)
 
 - [Aggiornamento endpoint autorità AAD di Azure per enti pubblici](https://devblogs.microsoft.com/azuregov/azure-government-aad-authority-endpoint-update/)
 
 - [Microsoft Graph endpoint nel cloud per enti pubblici degli Stati Uniti](https://developer.microsoft.com/graph/blogs/new-microsoft-graph-endpoints-in-us-government-cloud/)
 
-- [Office 365 US Government GCC High e DoD](https://docs.microsoft.com/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)
+- [Office 365 US Government GCC High e DoD](/office365/servicedescriptions/office-365-platform-service-description/office-365-us-government/gcc-high-and-dod)

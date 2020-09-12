@@ -8,27 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 04/01/2020
+ms.date: 08/31/2020
 ms.author: aahi
-ms.openlocfilehash: 5c74aa48b18661236eb55278d1e5a05215b2432c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: 0feeec3b5b87e415f25f4cb75e53d9001b022445
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80877576"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319254"
 ---
 # <a name="configure-speech-service-containers"></a>Configurare i contenitori di servizi vocali
 
-I contenitori di sintesi vocale consentono ai clienti di creare un'architettura di applicazione vocale ottimizzata per sfruttare le funzionalità cloud affidabili e la località perimetrale. I quattro contenitori di sintesi vocale supportati sono ora, **sintesi**vocale, riconoscimento **vocale personalizzato**, sintesi vocale e sintesi vocale. **text-to-speech**....... **custom-text-to-speech**
+I contenitori di sintesi vocale consentono ai clienti di creare un'architettura di applicazione vocale ottimizzata per sfruttare le funzionalità cloud affidabili e la località perimetrale. I cinque contenitori di sintesi vocale supportati sono ora **, sintesi**vocale, riconoscimento **vocale personalizzato**, sintesi vocale, da sintesi vocale **text-to-speech**, **da** sintesi vocale e da testo a discorso **e da sintesi**vocale.
 
-L'ambiente di runtime del contenitore **vocale** viene configurato `docker run` usando gli argomenti del comando. Questo contenitore ha diverse impostazioni obbligatorie e alcune impostazioni facoltative. Sono disponibili numerosi [esempi](#example-docker-run-commands) del comando. Le impostazioni specifiche del contenitore sono le impostazioni di fatturazione.
+L'ambiente di runtime del contenitore **vocale** viene configurato usando gli `docker run` argomenti del comando. Questo contenitore ha diverse impostazioni obbligatorie e alcune impostazioni facoltative. Sono disponibili numerosi [esempi](#example-docker-run-commands) del comando. Le impostazioni specifiche del contenitore sono le impostazioni di fatturazione.
 
 ## <a name="configuration-settings"></a>Impostazioni di configurazione
 
 [!INCLUDE [Container shared configuration settings table](../../../includes/cognitive-services-containers-configuration-shared-settings-table.md)]
 
 > [!IMPORTANT]
-> Le [`ApiKey`](#apikey-configuration-setting)impostazioni [`Billing`](#billing-configuration-setting), e [`Eula`](#eula-setting) vengono utilizzate insieme ed è necessario fornire valori validi per tutti e tre gli elementi; in caso contrario, il contenitore non verrà avviato. Per altre informazioni sull'uso di queste impostazioni di configurazione per creare un'istanza di un contenitore, vedere [Billing](speech-container-howto.md#billing) (Fatturazione).
+> Le [`ApiKey`](#apikey-configuration-setting) [`Billing`](#billing-configuration-setting) Impostazioni, e [`Eula`](#eula-setting) vengono usate insieme ed è necessario fornire valori validi per tutti e tre gli elementi; in caso contrario, il contenitore non verrà avviato. Per altre informazioni sull'uso di queste impostazioni di configurazione per creare un'istanza di un contenitore, vedere [Billing](speech-container-howto.md#billing) (Fatturazione).
 
 ## <a name="apikey-configuration-setting"></a>Impostazione di configurazione ApiKey
 
@@ -48,9 +48,9 @@ L' `Billing` impostazione specifica l'URI dell'endpoint della risorsa _vocale_ i
 
 Questa impostazione è disponibile nelle posizioni seguenti:
 
-- Portale di Azure: Panoramica **vocale** , con etichetta`Endpoint`
+- Portale di Azure: Panoramica **vocale** , con etichetta `Endpoint`
 
-| Obbligatoria | Name | Tipo di dati | Descrizione |
+| Obbligatoria | Nome | Tipo di dati | Descrizione |
 | -------- | ---- | --------- | ----------- |
 | Sì | `Billing` | string | URI dell'endpoint di fatturazione. Per ulteriori informazioni su come ottenere l'URI di fatturazione, vedere [raccolta dei parametri obbligatori](speech-container-howto.md#gathering-required-parameters). Per altre informazioni e per un elenco completo degli endpoint a livello di area, vedere [Nomi di sottodomini personalizzati per Servizi cognitivi](../cognitive-services-custom-subdomains.md). |
 
@@ -78,18 +78,18 @@ I contenitori di sintesi vocale standard non usano i montaggi di input o output 
 
 La sintassi esatta della posizione di montaggio host varia a seconda del sistema operativo host. Inoltre, il percorso di montaggio del [computer host](speech-container-howto.md#the-host-computer)potrebbe non essere accessibile a causa di un conflitto tra le autorizzazioni utilizzate dall'account del servizio Docker e le autorizzazioni del percorso di montaggio dell'host.
 
-| Facoltativo | Name | Tipo di dati | Descrizione |
+| Facoltativo | Nome | Tipo di dati | Descrizione |
 | -------- | ---- | --------- | ----------- |
-| Non consentito | `Input` | Stringa | I contenitori di sintesi vocale standard non lo usano. I contenitori di riconoscimento vocale personalizzati utilizzano i [montaggi del volume](#volume-mount-settings).                                                                                    |
-| Facoltativo | `Output` | Stringa | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output` |
+| Non consentito | `Input` | string | I contenitori di sintesi vocale standard non lo usano. I contenitori di riconoscimento vocale personalizzati utilizzano i [montaggi del volume](#volume-mount-settings).                                                                                    |
+| Facoltativo | `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output` |
 
 ## <a name="volume-mount-settings"></a>Impostazioni di montaggio del volume
 
-I contenitori di riconoscimento vocale personalizzati utilizzano i [montaggi del volume](https://docs.docker.com/storage/volumes/) per salvare in modo permanente i modelli personalizzati. È possibile specificare un montaggio del volume aggiungendo l' `-v` opzione ( `--volume`o) al comando [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) .
+I contenitori di riconoscimento vocale personalizzati utilizzano i [montaggi del volume](https://docs.docker.com/storage/volumes/) per salvare in modo permanente i modelli personalizzati. È possibile specificare un montaggio del volume aggiungendo l' `-v` opzione (o `--volume` ) al comando [Docker Run](https://docs.docker.com/engine/reference/commandline/run/) .
 
-I modelli personalizzati vengono scaricati la prima volta che un nuovo modello viene inserito come parte del comando Docker Run del contenitore vocale personalizzato. Le esecuzioni sequenziali `ModelId` dello stesso per un contenitore vocale personalizzato utilizzeranno il modello scaricato in precedenza. Se non viene fornito il montaggio del volume, i modelli personalizzati non possono essere resi permanente.
+I modelli personalizzati vengono scaricati la prima volta che un nuovo modello viene inserito come parte del comando Docker Run del contenitore vocale personalizzato. Le esecuzioni sequenziali dello stesso `ModelId` per un contenitore vocale personalizzato utilizzeranno il modello scaricato in precedenza. Se non viene fornito il montaggio del volume, i modelli personalizzati non possono essere resi permanente.
 
-L'impostazione di montaggio del volume è costituita da tre campi separati da colori `:` :
+L'impostazione di montaggio del volume è costituita da tre `:` campi separati da colori:
 
 1. Il primo campo è il nome del volume nel computer host, ad esempio _C:\input_.
 2. Il secondo campo è la directory nel contenitore, ad esempio _/usr/local/Models_.
@@ -104,20 +104,20 @@ L'impostazione di montaggio del volume è costituita da tre campi separati da co
 Questo comando monta la directory _C:\input_ del computer host nella directory _/usr/local/Models_ dei contenitori.
 
 > [!IMPORTANT]
-> Le impostazioni di montaggio del volume sono valide solo per i contenitori da **riconoscimento vocale personalizzato a testo** e **da testo a voce personalizzato** . I contenitori **di sintesi vocale** e **sintesi vocale standard** non usano i montaggi del volume.
+> Le impostazioni di montaggio del volume sono valide solo per i contenitori da **riconoscimento vocale personalizzato a testo** e **da testo a voce personalizzato** . I contenitori di sintesi **vocale, sintesi vocale e** **sintesi vocale non** usano i montaggi **di**volumi, né i contenitori di sintesi vocale.
 
 ## <a name="example-docker-run-commands"></a>Comandi docker run di esempio
 
 Gli esempi seguenti usano le impostazioni di configurazione per illustrare come scrivere e usare i comandi `docker run`. Quando è in esecuzione, il contenitore continua l'esecuzione finché non lo si [arresta](speech-container-howto.md#stop-the-container).
 
-- **Carattere di continuazione di riga**: i comandi di Docker nelle sezioni seguenti usano la barra `\`rovesciata,, come carattere di continuazione di riga. Sostituirla o rimuoverla in base ai requisiti del sistema operativo host.
+- **Carattere di continuazione di riga**: i comandi di Docker nelle sezioni seguenti usano la barra rovesciata, `\` , come carattere di continuazione di riga. Sostituirla o rimuoverla in base ai requisiti del sistema operativo host.
 - **Ordine**degli argomenti: non modificare l'ordine degli argomenti a meno che non si abbia familiarità con i contenitori docker.
 
 Sostituire {_nome_argomento_} con i propri valori:
 
 | Segnaposto | Valore | Formato o esempio |
 | ----------- | ----- | ----------------- |
-| **{API_KEY}** | Chiave dell'endpoint della `Speech` risorsa nella pagina chiavi di `Speech` Azure.   | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`                                                                                  |
+| **{API_KEY}** | Chiave dell'endpoint della `Speech` risorsa nella `Speech` pagina chiavi di Azure.   | `xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx`                                                                                  |
 | **{ENDPOINT_URI}** | Il valore dell'endpoint di fatturazione è disponibile nella `Speech` pagina Panoramica di Azure. | Vedere [raccolta di parametri obbligatori](speech-container-howto.md#gathering-required-parameters) per esempi espliciti. |
 
 [!INCLUDE [subdomains-note](../../../includes/cognitive-services-custom-subdomains-note.md)]
@@ -224,6 +224,29 @@ docker run --rm -it -p 5000:5000 --memory 2g --cpus 1 \
 -v {VOLUME_MOUNT}:/usr/local/models \
 containerpreview.azurecr.io/microsoft/cognitive-services-custom-text-to-speech \
 ModelId={MODEL_ID} \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY} \
+Logging:Console:LogLevel:Default=Information
+```
+
+## <a name="neural-text-to-speech"></a>[Sintesi vocale neurale](#tab/ntts)
+
+### <a name="basic-example-for-neural-text-to-speech"></a>Esempio di base per sintesi vocale neurale
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
+containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech \
+Eula=accept \
+Billing={ENDPOINT_URI} \
+ApiKey={API_KEY}
+```
+
+### <a name="logging-example-for-neural-text-to-speech"></a>Esempio di registrazione per sintesi vocale neurale
+
+```Docker
+docker run --rm -it -p 5000:5000 --memory 12g --cpus 6 \
+containerpreview.azurecr.io/microsoft/cognitive-services-neural-text-to-speech \
 Eula=accept \
 Billing={ENDPOINT_URI} \
 ApiKey={API_KEY} \

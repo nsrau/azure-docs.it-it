@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 06/10/2020
 ms.author: swmachan
-ms.openlocfilehash: d8e6a4e769b08d674b355f6f88a0967316e95c63
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 9c745395026b8b7e8c58fcb4b7cc67971d971a7c
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782329"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300222"
 ---
 # <a name="language-and-region-support-for-text-and-speech-translation"></a>Supporto della lingua e dell'area per la traduzione testuale e vocale
 
@@ -28,7 +28,7 @@ Usare Translator per tradurre in e da uno dei più di 70 linguaggi di traduzione
 ## <a name="text-translation"></a>Traduzione testuale
 La traduzione del testo è disponibile tramite l'operazione di conversione da o verso qualsiasi lingua disponibile in Translator. L'API offre anche il rilevamento del linguaggio usando l'operazione di rilevamento, la traslitterazione usando l'operazione transliterate e i dizionari bilingui usando le operazioni Dictionary Lookup e Dictionary examples. Di seguito sono elencate le lingue disponibili per ciascuna di queste operazioni. 
 
-### <a name="translate"></a>Translate
+### <a name="translate"></a>Traduci
 
 Translator supporta le seguenti lingue per la traduzione da testo a testo. 
 
@@ -155,6 +155,7 @@ Translator rileva le seguenti lingue per la conversione e la traslitterazione.
 |Kiswahili| `sw`    |
 |Klingon|   `tlh-Latn`  |
 |Coreano |`ko`   |
+|Curdo (centrale)  |`ku-Arab`  |
 |Lettone|   `lv`    |
 |Lituano|    `lt`    |
 |Malese| `ms`        |
@@ -283,10 +284,12 @@ Le lingue seguenti sono disponibili per la personalizzazione da o verso l'ingles
 
 | Linguaggio    | Codice lingua |
 |:----------- |:-------------:|
+|Afrikaans| `af`|
 | Arabo       | `ar`          |
 | Bengalese      | `bn`          |
 | Bosniaco (latino)      | `bs`          |
 | Bulgaro      | `bg`          |
+|Catalano|   `ca`    |
 | Cinese semplificato      | `zh-Hans`          |
 |Cinese tradizionale|   `zh-Hant`   |
 | Croato      | `hr`          |
@@ -295,6 +298,8 @@ Le lingue seguenti sono disponibili per la personalizzazione da o verso l'ingles
 | Olandese      | `nl`          |
 | Inglese    | `en`     |
 | Estone      | `et`          |
+|Figiano|    `fj`    |
+|Filippino|  `fil`   |
 | Finlandese      | `fi`          |
 | Francese      | `fr`          |
 | Tedesco      | `de`          |
@@ -308,12 +313,14 @@ Le lingue seguenti sono disponibili per la personalizzazione da o verso l'ingles
 | Irlandese | `ga`  |
 | Italiano      | `it`          |
 | Giapponese      | `ja`          |
+|Kannada|`kn`|
 | Kiswahili|    `sw`    |
 | Coreano      | `ko`          |
 | Lettone      | `lv`          |
 | Lituano      | `lt`          |
 | Malgascio| `mg`    |
 | Malese|    `ms`        |
+|Maltese|   `mt`    |
 | Maori| `mi`  |
 | Marathi| `mr`  |
 | Norvegese      | `nb`          |
@@ -329,7 +336,9 @@ Le lingue seguenti sono disponibili per la personalizzazione da o verso l'ingles
 | Sloveno      | `sl`          |
 | Spagnolo      | `es`          |
 | Svedese      | `sv`          |
+|Tahitiano|  `ty`    |
 | Thai      | `th`          |
+|Tongano|    `to`    |
 | Turco      | `tr`          |
 | Ucraino      | `uk`          |
 | Urdu| `ur`    |

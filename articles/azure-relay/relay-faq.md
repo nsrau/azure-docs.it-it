@@ -3,12 +3,12 @@ title: Domande frequenti sul servizio di inoltro di Azure | Microsoft Docs
 description: Questo articolo fornisce le risposte ad alcune domande frequenti sul servizio di inoltro di Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 40e6f830e2314f7c8f36fcd25d24a41cc256bef2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 9d967d926c6ab59e027fe4d4cf98e8418a8ff9bc
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85317031"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299287"
 ---
 # <a name="azure-relay-faqs"></a>Domande frequenti sul servizio di inoltro di Azure
 
@@ -18,7 +18,7 @@ Questo articolo contiene le risposte ad alcune domande frequenti sul [servizio d
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-questions"></a>Domande generali
-### <a name="what-is-azure-relay"></a>Che cos'è il servizio di inoltro di Azure?
+### <a name="what-is-azure-relay"></a>Che cos'è Inoltro di Azure?
 Il [servizio di inoltro di Azure](relay-what-is-it.md) facilita le applicazioni ibride grazie alla possibilità di esporre in modo sicuro i servizi che risiedono all'interno di una rete aziendale nel cloud pubblico. È possibile esporre i servizi senza dover aprire una connessione firewall e senza richiedere modifiche di notevole impatto a un'infrastruttura di rete aziendale.
 
 ### <a name="what-is-a-relay-namespace"></a>Che cos'è uno spazio dei nomi di inoltro?
@@ -119,8 +119,8 @@ Per una descrizione di eccezioni comuni e delle azioni consigliate, vedere [Ecce
 ### <a name="what-is-a-shared-access-signature-and-which-languages-can-i-use-to-generate-a-signature"></a>Cos'è una firma di accesso condiviso e quali linguaggi è possibile usare per generare una firma?
 Le firme di accesso condiviso sono un meccanismo di autenticazione basato su hash sicuri SHA-256 o URI. Per informazioni su come generare le proprie firme in Node.js, PHP, Python, Java, C e C#, vedere autenticazione del [bus di servizio con firme di accesso condiviso][Shared Access Signatures].
 
-### <a name="is-it-possible-to-whitelist-relay-endpoints"></a>È possibile aggiungere all'elenco elementi consentiti gli endpoint di inoltro?
-Sì. Il client di inoltro stabilisce connessioni al servizio di inoltro di Azure usando nomi di dominio completi. I clienti possono quindi aggiungere una voce per `*.servicebus.windows.net` nei firewall che supportano l'aggiunta all'elenco elementi consentiti per DNS.
+### <a name="is-it-possible-to-allow-only-some-relay-endpoints"></a>È possibile consentire solo alcuni endpoint di inoltro?
+Sì. Il client di inoltro stabilisce connessioni al servizio di inoltro di Azure usando nomi di dominio completi. I clienti possono aggiungere una voce per `*.servicebus.windows.net` nei firewall che supportano l'elenco di approvazione DNS.
 
 ## <a name="next-steps"></a>Passaggi successivi
 * [Creare uno spazio dei nomi](relay-create-namespace-portal.md)

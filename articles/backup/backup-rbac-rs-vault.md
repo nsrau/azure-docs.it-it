@@ -4,12 +4,12 @@ description: Usare il controllo degli accessi in base al ruolo per gestire l'acc
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/24/2019
-ms.openlocfilehash: 1a4bb617511f5d5ccf882ccb11e7d88eb7a848ea
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: c24d075dcb9ac36ce741db746d69aa9e61fac39d
+ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017805"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89376129"
 ---
 # <a name="use-role-based-access-control-to-manage-azure-backup-recovery-points"></a>Usare il controllo degli accessi in base al ruolo per gestire i punti di ripristino di Backup di Azure
 
@@ -37,7 +37,7 @@ La tabella seguente acquisisce le azioni di gestione del backup e il ruolo di Az
 | | Collaboratore macchine virtuali | Risorsa della VM |
 | Backup su richiesta della VM | Operatore di backup | Insieme di credenziali di Servizi di ripristino |
 | Ripristino della VM | Operatore di backup | Insieme di credenziali di Servizi di ripristino |
-| | Autore di contributi | Gruppo di risorse in cui verrà distribuita la VM |
+| | Collaboratore | Gruppo di risorse in cui verrà distribuita la VM |
 | | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup |
 | Ripristinare dischi non gestiti dal backup delle VM | Operatore di backup | Insieme di credenziali di Servizi di ripristino |
 | | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup |
@@ -45,7 +45,7 @@ La tabella seguente acquisisce le azioni di gestione del backup e il ruolo di Az
 | Ripristinare dischi gestiti dal backup delle VM | Operatore di backup | Insieme di credenziali di Servizi di ripristino |
 | | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup |
 | | Collaboratore account di archiviazione | Account di archiviazione temporaneo selezionato come parte del ripristino per contenere i dati dall'insieme di credenziali prima di convertirli in dischi gestiti |
-| | Autore di contributi | Gruppo di risorse in cui verranno ripristinati i dischi gestiti |
+| | Collaboratore | Gruppo di risorse in cui verranno ripristinati i dischi gestiti |
 | Ripristinare singoli file dal backup delle VM | Operatore di backup | Insieme di credenziali di Servizi di ripristino |
 | | Collaboratore macchine virtuali | VM di origine di cui è stato eseguito il backup |
 | Creare criteri di backup per il backup di VM di Azure | Collaboratore di backup | Insieme di credenziali di Servizi di ripristino |
@@ -56,7 +56,7 @@ La tabella seguente acquisisce le azioni di gestione del backup e il ruolo di Az
 | Eliminare Windows Server/client/SCDPM locale o server di Backup di Azure registrato | Collaboratore di backup | Insieme di credenziali di Servizi di ripristino |
 
 > [!IMPORTANT]
-> Se si specifica Collaboratore di VM in un ambito di risorsa di macchina virtuale e si fa clic su Backup come parte delle impostazioni della macchina virtuale, si aprirà la schermata "Abilita backup" anche se il backup della macchina virtuale viene già eseguito, in quanto la chiamata per verificare lo stato del backup funziona solo a livello di sottoscrizione. Per evitare questo problema, accedere all'insieme di credenziali e aprire la vista degli elementi di backup della macchina virtuale o specificare il ruolo Collaboratore di VM a livello di sottoscrizione.
+> Se si specifica collaboratore macchina virtuale in un ambito di risorse VM e si seleziona **backup** come parte delle impostazioni della macchina virtuale, verrà visualizzata la schermata **Abilita backup** , anche se è già stato eseguito il backup della macchina virtuale. Questo perché la chiamata per verificare lo stato del backup funziona solo a livello di sottoscrizione. Per evitare questo problema, passare all'insieme di credenziali e aprire la visualizzazione dell'elemento di backup della VM o specificare il ruolo Collaboratore macchina virtuale a livello di sottoscrizione.
 
 ## <a name="minimum-role-requirements-for-the-azure-file-share-backup"></a>Requisiti minimi del ruolo per il backup della condivisione file di Azure
 

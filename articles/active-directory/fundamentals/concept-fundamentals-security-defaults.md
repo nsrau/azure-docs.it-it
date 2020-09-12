@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 7c5015cb6328dba70fed40053bc234966572ae98
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: 64ee8f2daddd53d37aeaf0f02208e02500b48f57
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87873722"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320869"
 ---
 # <a name="what-are-security-defaults"></a>Cosa sono le impostazioni predefinite per la sicurezza?
 
@@ -92,7 +92,7 @@ Una volta abilitate le impostazioni predefinite per la sicurezza nel tenant, tut
 > [!WARNING]
 > Prima di abilitare le impostazioni predefinite per la sicurezza, assicurarsi che gli amministratori non usino protocolli di autenticazione precedenti. Per altre informazioni, vedere [Come passare dall'autenticazione legacy a un'altra autenticazione](concept-fundamentals-block-legacy-authentication.md).
 
-- [Come configurare un dispositivo multifunzione o un'applicazione per l'invio di messaggi di posta elettronica tramite Office 365 e Microsoft 365](https://docs.microsoft.com/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
+- [Come configurare un dispositivo multifunzione o un'applicazione per l'invio di messaggi di posta elettronica tramite Office 365 e Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
 
 ### <a name="protecting-privileged-actions"></a>Protezione delle azioni con privilegi
 
@@ -109,7 +109,7 @@ L'uso di Azure Resource Manager per gestire i servizi è un'azione con privilegi
 Dopo aver abilitato le impostazioni predefinite per la sicurezza nel tenant, gli utenti che accedono al portale di Azure, ad Azure PowerShell o all'interfaccia della riga di comando di Azure dovranno completare l'autenticazione aggiuntiva. Questo criterio si applica a tutti gli utenti che accedono ad Azure Resource Manager, che si tratti di un amministratore o di un utente. 
 
 > [!NOTE]
-> Per i tenant di Exchange Online precedenti al 2017, l'autenticazione moderna è disabilitata per impostazione predefinita. Per evitare la possibilità di un ciclo di accesso durante l'autenticazione tramite questi tenant, è necessario [abilitare l'autenticazione moderna](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
+> Per i tenant di Exchange Online precedenti al 2017, l'autenticazione moderna è disabilitata per impostazione predefinita. Per evitare la possibilità di un ciclo di accesso durante l'autenticazione tramite questi tenant, è necessario [abilitare l'autenticazione moderna](/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online).
 
 > [!NOTE]
 > L'account di sincronizzazione Azure AD Connect viene escluso dalle impostazioni predefinite per la sicurezza e non verrà richiesto di eseguire la registrazione o l'autenticazione a più fattori. Le organizzazioni non devono usare questo account per altri scopi.

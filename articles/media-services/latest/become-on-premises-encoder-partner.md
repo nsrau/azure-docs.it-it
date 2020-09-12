@@ -6,14 +6,14 @@ author: johndeu
 manager: johndeu
 ms.author: johndeu
 ms.date: 08/31/2020
-ms.topic: article
+ms.topic: how-to
 ms.service: media-services
-ms.openlocfilehash: 5af6a7fc988271fc350ecc6e8be19742ede8ecee
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 1383b6afac9ad2332169328ef71981e23e86bdcc
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89258640"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89297451"
 ---
 # <a name="how-to-verify-your-on-premises-live-streaming-encoder"></a>Come verificare il codificatore Live streaming locale
 

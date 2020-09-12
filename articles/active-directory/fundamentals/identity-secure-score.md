@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f75dea2cffbe710bf2778ceab5eacc91ffcca9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 77c673ec52873d854647cf49c0efcbd650fb6aa8
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77523110"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320648"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Informazioni su Identity Secure Score in Azure Active Directory
 
@@ -66,7 +66,7 @@ Il punteggio di sicurezza consente di:
 - Pianificare miglioramenti per la sicurezza delle identità
 - Verificare il successo dei miglioramenti apportati
 
-## <a name="what-you-should-know"></a>Informazioni utili
+## <a name="what-you-should-know"></a>Informazioni importanti
 
 ### <a name="who-can-use-the-identity-secure-score"></a>Chi può usare Identity Secure Score?
 
@@ -104,7 +104,7 @@ Per visualizzare la cronologia dei punteggi, passare al [Centro sicurezza Micros
 
 ### <a name="how-does-the-identity-secure-score-relate-to-the-office-365-secure-score"></a>In che modo il punteggio Identity Secure Score è correlato al punteggio Office 365 Secure Score?
 
-Il [Punteggio Microsoft Secure](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score) contiene cinque categorie di controllo e Punteggio distinte:
+Il [Punteggio Microsoft Secure](/office365/securitycompliance/microsoft-secure-score) contiene cinque categorie di controllo e Punteggio distinte:
 
 - Identità
 - Data
@@ -116,4 +116,4 @@ Il Punteggio Identity Secure rappresenta la parte Identity del Punteggio Microso
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Scopri di più su Microsoft Secure Score](https://docs.microsoft.com/office365/securitycompliance/microsoft-secure-score)
+[Scopri di più su Microsoft Secure Score](/office365/securitycompliance/microsoft-secure-score)

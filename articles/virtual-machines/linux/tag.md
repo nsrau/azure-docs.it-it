@@ -1,25 +1,20 @@
 ---
-title: Come assegnare un tag a una macchina virtuale Linux di Azure
-description: Informazioni sull'assegnazione di tag a una macchina virtuale Linux creata in Azure con il modello di distribuzione di Resource Manager.
-services: virtual-machines-linux
-documentationcenter: ''
-author: mmccrory
-manager: gwallace
-tags: azure-resource-manager
-ms.assetid: ca0e17e5-d78e-42e6-9dad-c1e8f1c58027
-ms.service: virtual-machines-linux
+title: Come assegnare un tag a una macchina virtuale di Azure tramite l'interfaccia della riga di comando
+description: Informazioni sull'assegnazione di tag a una macchina virtuale tramite l'interfaccia della riga di comando di Azure.
+services: virtual-machines
+author: cynthn
+ms.service: virtual-machines
 ms.topic: how-to
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
-ms.author: memccror
+ms.author: cynthn
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: a830f6eb604bb1173a7a552ad5f81c936f02d5fd
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 1a417e7cff4c7afb601861ddfe09eec171f0cf15
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500522"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89320614"
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Come contrassegnare una macchina virtuale Linux in Azure
 Questo articolo descrive diversi modi per contrassegnare una macchina virtuale Linux in Azure tramite il modello di distribuzione Resource Manager. I tag sono coppie chiave/valore definite dall'utente che possono essere inserite direttamente in una risorsa o un gruppo di risorse. Azure supporta attualmente fino a 50 tag per risorsa e gruppo di risorse. I tag possono essere posizionati su una risorsa al momento della creazione o aggiunti a una risorsa esistente. Si noti che i tag sono supportati solo per le risorse create tramite il modello di distribuzione Resource Manager.
@@ -62,5 +57,5 @@ Dopo aver applicato i tag alle risorse tramite l'interfaccia della riga di coman
 [Azure CLI environment]: ../../azure-resource-manager/management/manage-resources-cli.md
 [Azure Resource Manager Overview]: ../../azure-resource-manager/management/overview.md
 [Using Tags to organize your Azure Resources]: ../../azure-resource-manager/management/tag-resources.md
-[Understanding your Azure Bill]:../../cost-management-billing/understand/review-individual-bill.md
-[Gain insights into your Microsoft Azure resource consumption]:../../cost-management-billing/manage/usage-rate-card-overview.md
+[Understanding your Azure Bill]: ../../cost-management-billing/understand/review-individual-bill.md
+[Gain insights into your Microsoft Azure resource consumption]: ../../cost-management-billing/manage/usage-rate-card-overview.md
