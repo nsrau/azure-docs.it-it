@@ -1,5 +1,5 @@
 ---
-title: Visualizzare i dati in TSI Explorer-Azure Time Series Insights Gen2 | Microsoft Docs
+title: Visualizzare i dati in Esplora Time Series Insights-Azure Time Series Insights Gen2 | Microsoft Docs
 description: Informazioni sulle funzionalità e le opzioni disponibili in Esplora Azure Time Series Insights.
 author: deepakpalled
 ms.author: dpalled
@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/27/2020
+ms.date: 08/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 31ed5f93fc7d1b44ae8a4afb1f4368d0b52eb2fd
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 0933e34e5bdd8469b827ed03c0eff51a4ecba0d5
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227050"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488168"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Strumento di esplorazione di Azure Time Series Insights
 
@@ -47,7 +47,7 @@ Esplora Azure Time Series Insights è costituito dai sette elementi seguenti:
 
 ## <a name="1-environment-panel"></a>1. pannello ambiente
 
-Il pannello Environment (ambiente) Visualizza tutti gli ambienti di Azure Time Series Insights Gen2 a cui si ha accesso. L'elenco include gli ambienti Gen2 e gli ambienti di generazione 1. È sufficiente selezionare l'ambiente che si vuole usare immediatamente.
+Il pannello Environment (ambiente) Visualizza tutti gli ambienti di Azure Time Series Insights Gen2 a cui si ha accesso. L'elenco include gli ambienti Gen2 e gli ambienti Gen1. È sufficiente selezionare l'ambiente che si vuole usare immediatamente.
 
 1. Selezionare la freccia a discesa accanto all'ambiente visualizzato.
 
@@ -200,11 +200,11 @@ Azure Time Series Insights Explorer supporta due temi:
 
   [![Tema scuro selezionato](media/v2-update-explorer/tsi-preview-dark-theme-selected.png)](media/v2-update-explorer/tsi-preview-dark-theme-selected.png#lightbox)
 
-## <a name="gen-1-environment-controls"></a>Controlli dell'ambiente di generazione 1
+## <a name="gen1-environment-controls"></a>Controlli dell'ambiente Gen1
 
 ### <a name="gen2-terms-panel"></a>Pannello termini di Gen2
 
-Questa sezione si applica solo agli ambienti di generazione 1 esistenti che tentano di utilizzare Esplora risorse nell'interfaccia utente aggiornata. Potrebbe essere necessario utilizzare il prodotto di generazione 1 e il prodotto Gen2 in combinazione. Sono state aggiunte alcune funzionalità dall'interfaccia utente esistente alla finestra di esplorazione aggiornata, ma è possibile ottenere l'intera esperienza dell'interfaccia utente per un ambiente di generazione 1 nel nuovo Azure Time Series Insights Explorer.
+Questa sezione si applica solo agli ambienti Gen1 esistenti che tentano di usare Esplora risorse nell'interfaccia utente aggiornata. Potrebbe essere necessario usare il prodotto Gen1 e il prodotto Gen2 in combinazione. Sono state aggiunte alcune funzionalità dall'interfaccia utente esistente alla finestra di esplorazione aggiornata, ma è possibile ottenere l'intera esperienza dell'interfaccia utente per un ambiente Gen1 nel nuovo Azure Time Series Insights Explorer.
 
 Al posto della gerarchia, viene visualizzato il pannello Azure Time Series Insights termini di Gen2. Il pannello termini consente di definire query nell'ambiente in uso. Utilizzarlo anche per filtrare i dati in base a un predicato.
 
@@ -219,7 +219,7 @@ Il pannello dell'editor dei termini Azure Time Series Insights Gen2 accetta i pa
 | `<`, `>`, `<=`, `>=` | Double, DateTime, TimeSpan | |
 | `=`, `!=`, `<>` | String, Bool, Double, DateTime, TimeSpan, NULL |
 | `IN` | String, Bool, Double, DateTime, TimeSpan, NULL | Tutti gli operandi devono essere dello stesso tipo o essere una costante NULL. |
-| `HAS` | Stringa | Sul lato destro sono consentiti solo valori letterali stringa costanti. Non sono consentite stringhe vuote e NULL. |
+| `HAS` | string | Sul lato destro sono consentiti solo valori letterali stringa costanti. Non sono consentite stringhe vuote e NULL. |
 
 Per ulteriori informazioni sulle operazioni di query e sui tipi di dati supportati, leggere [espressione Time Series (TSX)](https://docs.microsoft.com/rest/api/time-series-insights/reference-time-series-expression-syntax).
 

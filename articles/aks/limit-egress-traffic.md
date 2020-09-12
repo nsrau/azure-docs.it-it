@@ -7,18 +7,18 @@ ms.author: jpalma
 ms.date: 06/29/2020
 ms.custom: fasttrack-edit
 author: palma21
-ms.openlocfilehash: 51b457b99afc478631ce9b39a4a7d51ffd57401c
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 00a20ece2358f0054e4490ffb914f78b82d9c509
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88003166"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594260"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Controllare il traffico in uscita per i nodi del cluster nel servizio Azure Kubernetes
 
 Questo articolo fornisce i dettagli necessari che consentono di proteggere il traffico in uscita dal servizio Azure Kubernetes (AKS). Contiene i requisiti del cluster per una distribuzione di base AKS e requisiti aggiuntivi per le funzionalità e gli addons facoltativi. [Verrà fornito un esempio alla fine di come configurare questi requisiti con il firewall di Azure](#restrict-egress-traffic-using-azure-firewall). Tuttavia, è possibile applicare queste informazioni a qualsiasi dispositivo o metodo di restrizione in uscita.
 
-## <a name="background"></a>Background
+## <a name="background"></a>Informazioni di base
 
 I cluster AKS vengono distribuiti in una rete virtuale. Questa rete può essere gestita (creata da AKS) o personalizzata (precedentemente configurata dall'utente). In entrambi i casi, il cluster ha dipendenze in **uscita** da servizi esterni a tale rete virtuale (il servizio non ha dipendenze in ingresso).
 
@@ -49,8 +49,8 @@ Le regole di rete e le dipendenze degli indirizzi IP richieste sono le seguenti:
 
 | Endpoint di destinazione                                                             | Protocollo | Porta    | Uso  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *O* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *O* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *O* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
-| **`*:9000`** <br/> *O* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *O* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *O* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
+| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
 | **`*:123`** o **`ntp.ubuntu.com:123`** (se si usano le regole di rete del firewall di Azure)  | UDP      | 123     | Obbligatorio per la sincronizzazione dell'ora NTP (Network Time Protocol) nei nodi Linux.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | Se si usano server DNS personalizzati, è necessario assicurarsi che siano accessibili dai nodi del cluster. |
 | **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Obbligatorio se i pod/distribuzioni in esecuzione che accedono al server API, tali Pod/distribuzioni utilizzeranno l'IP dell'API.  |
@@ -76,9 +76,9 @@ Le regole di rete e le dipendenze degli indirizzi IP richieste sono le seguenti:
 
 | Endpoint di destinazione                                                             | Protocollo | Porta    | Uso  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *O* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.Region:1194`** <br/> *O* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *O* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
-| **`*:9000`** <br/> *O* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *O* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *O* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
-| **`*:22`** <br/> *O* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:22`** <br/> *O* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:22`** <br/> *O* <br/> **`APIServerIP:22`** `(only known after cluster creation)`  | TCP           | 22      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.Region:1194`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
+| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
+| **`*:22`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:22`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:22`** <br/> *Or* <br/> **`APIServerIP:22`** `(only known after cluster creation)`  | TCP           | 22      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
 | **`*:123`** o **`ntp.ubuntu.com:123`** (se si usano le regole di rete del firewall di Azure)  | UDP      | 123     | Obbligatorio per la sincronizzazione dell'ora NTP (Network Time Protocol) nei nodi Linux.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | Se si usano server DNS personalizzati, è necessario assicurarsi che siano accessibili dai nodi del cluster. |
 | **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Obbligatorio se si eseguono Pod/distribuzioni che accedono al server API, tali Pod/distribuzioni utilizzeranno l'IP dell'API.  |
@@ -105,8 +105,8 @@ Le regole di rete e le dipendenze degli indirizzi IP richieste sono le seguenti:
 
 | Endpoint di destinazione                                                             | Protocollo | Porta    | Uso  |
 |----------------------------------------------------------------------------------|----------|---------|------|
-| **`*:1194`** <br/> *O* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *O* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *O* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
-| **`*:9000`** <br/> *O* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *O* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *O* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
+| **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
+| **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
 | **`*:123`** o **`ntp.ubuntu.com:123`** (se si usano le regole di rete del firewall di Azure)  | UDP      | 123     | Obbligatorio per la sincronizzazione dell'ora NTP (Network Time Protocol) nei nodi Linux.                 |
 | **`CustomDNSIP:53`** `(if using custom DNS servers)`                             | UDP      | 53      | Se si usano server DNS personalizzati, è necessario assicurarsi che siano accessibili dai nodi del cluster. |
 | **`APIServerIP:443`** `(if running pods/deployments that access the API Server)` | TCP      | 443     | Obbligatorio se i pod/distribuzioni in esecuzione che accedono al server API, tali Pod/distribuzioni utilizzeranno l'IP dell'API.  |
@@ -280,7 +280,7 @@ Effettuare il provisioning di una rete virtuale con due subnet separate, una per
 
 Creare un gruppo di risorse che conterrà tutte le risorse.
 
-```azure-cli
+```azurecli
 # Create Resource Group
 
 az group create --name $RG --location $LOC
@@ -294,6 +294,7 @@ Creare una rete virtuale con due subnet per ospitare il cluster AKS e il firewal
 az network vnet create \
     --resource-group $RG \
     --name $VNET_NAME \
+    --location $LOC \
     --address-prefixes 10.42.0.0/16 \
     --subnet-name $AKSSUBNET_NAME \
     --subnet-prefix 10.42.1.0/24
@@ -320,12 +321,12 @@ az network vnet subnet create \
 
 Creare una risorsa IP pubblico con SKU standard che verrà usata come indirizzo front-end del firewall di Azure.
 
-```azure-cli
+```azurecli
 az network public-ip create -g $RG -n $FWPUBLICIP_NAME -l $LOC --sku "Standard"
 ```
 
 Registrare l'estensione dell'interfaccia della riga di comando di anteprima per creare un'istanza di Firewall di Azure.
-```azure-cli
+```azurecli
 # Install Azure Firewall preview CLI extension
 
 az extension add --name azure-firewall
@@ -340,7 +341,7 @@ az network firewall create -g $RG -n $FWNAME -l $LOC --enable-dns-proxy true
 > La configurazione dell'indirizzo IP pubblico per il firewall di Azure può richiedere alcuni minuti.
 > Per sfruttare il nome di dominio completo sulle regole di rete, è necessario abilitare il proxy DNS, se abilitato, il firewall resterà in ascolto sulla porta 53 e inoltrerà le richieste DNS al server DNS specificato in precedenza. Questo consentirà al firewall di tradurre automaticamente il nome di dominio completo.
 
-```azure-cli
+```azurecli
 # Configure Firewall IP Config
 
 az network firewall ip-config create -g $RG -f $FWNAME -n $FWIPCONFIG_NAME --public-ip-address $FWPUBLICIP_NAME --vnet-name $VNET_NAME
@@ -364,10 +365,10 @@ Azure effettua il routing automatico del traffico tra subnet di Azure, reti virt
 
 Creare una tabella di route vuota da associare a una determinata subnet. Firewall di Azure creato in precedenza verrà impostato come hop successivo nella tabella di route. A ogni subnet può essere associata una o nessuna tabella di route.
 
-```azure-cli
+```azurecli
 # Create UDR and add a route for Azure Firewall
 
-az network route-table create -g $RG -$LOC --name $FWROUTE_TABLE_NAME
+az network route-table create -g $RG -l $LOC --name $FWROUTE_TABLE_NAME
 az network route-table route create -g $RG --name $FWROUTE_NAME --route-table-name $FWROUTE_TABLE_NAME --address-prefix 0.0.0.0/0 --next-hop-type VirtualAppliance --next-hop-ip-address $FWPRIVATE_IP --subscription $SUBID
 az network route-table route create -g $RG --name $FWROUTE_NAME_INTERNET --route-table-name $FWROUTE_TABLE_NAME --address-prefix $FWPUBLIC_IP/32 --next-hop-type Internet
 ```
@@ -398,7 +399,7 @@ Per altre informazioni sul servizio Firewall di Azure, vedere la [documentazione
 
 Per associare il cluster al firewall, la subnet dedicata per la subnet del cluster deve fare riferimento alla tabella di route creata in precedenza. È possibile eseguire l'associazione inviando un comando alla rete virtuale che contiene sia il cluster che il firewall per aggiornare la tabella di route della subnet del cluster.
 
-```azure-cli
+```azurecli
 # Associate route table with next hop to Firewall to the AKS subnet
 
 az network vnet subnet update -g $RG --vnet-name $VNET_NAME --name $AKSSUBNET_NAME --route-table $FWROUTE_TABLE_NAME
@@ -414,7 +415,7 @@ A questo punto è possibile distribuire un cluster AKS nella rete virtuale esist
 
 Il servizio Azure Kubernetes usa un'entità servizio per creare le risorse cluster. L'entità servizio passata al momento della creazione viene usata per creare risorse AKS sottostanti, ad esempio le risorse di archiviazione, gli IP e i servizi di bilanciamento del carico usati da AKS (si può anche usare un' [identità gestita](use-managed-identity.md) ). Se non vengono concesse le autorizzazioni appropriate, non sarà possibile effettuare il provisioning del cluster AKS.
 
-```azure-cli
+```azurecli
 # Create SP and Assign Permission to Virtual Network
 
 az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
@@ -422,7 +423,7 @@ az ad sp create-for-rbac -n "${PREFIX}sp" --skip-assignment
 
 A questo punto, sostituire `APPID` e `PASSWORD` nell'esempio seguente con i valori di ID app e password dell'entità servizio generati automaticamente dall'output del comando precedente. Si farà riferimento all'ID della risorsa VNET per concedere le autorizzazioni all'entità servizio in modo che AKS possa distribuire le risorse al suo interno.
 
-```azure-cli
+```azurecli
 APPID="<SERVICE_PRINCIPAL_APPID_GOES_HERE>"
 PASSWORD="<SERVICEPRINCIPAL_PASSWORD_GOES_HERE>"
 VNETID=$(az network vnet show -g $RG --name $VNET_NAME --query id -o tsv)
@@ -460,7 +461,7 @@ Si definirà il tipo in uscita per usare il UDR già esistente nella subnet. Que
 >
 > È possibile aggiungere la funzionalità AKS per gli [**intervalli IP autorizzati del server API**](api-server-authorized-ip-ranges.md) per limitare l'accesso al server API solo all'endpoint pubblico del firewall. La funzionalità degli intervalli IP autorizzati è indicata come facoltativa nel diagramma. Quando si abilita la funzionalità degli intervalli IP autorizzati per limitare l'accesso al server API, gli strumenti di sviluppo devono usare un JumpBox dalla rete virtuale del firewall oppure è necessario aggiungere tutti gli endpoint sviluppatore all'intervallo di indirizzi IP autorizzati.
 
-```azure-cli
+```azurecli
 az aks create -g $RG -n $AKSNAME -l $LOC \
   --node-count 3 --generate-ssh-keys \
   --network-plugin $PLUGIN \
@@ -491,7 +492,7 @@ az aks update -g $RG -n $AKSNAME --api-server-authorized-ip-ranges $CURRENT_IP/3
 
  Usare il comando [AZ AKS Get-credentials] [AZ-AKS-Get-credentials] per configurare `kubectl` la connessione al cluster Kubernetes appena creato. 
 
- ```azure-cli
+ ```azurecli
  az aks get-credentials -g $RG -n $AKSNAME
  ```
 
@@ -754,7 +755,7 @@ SERVICE_IP=$(k get svc voting-app -o jsonpath='{.status.loadBalancer.ingress[*].
 ```
 
 Aggiungere la regola NAT eseguendo:
-```azure-cli
+```azurecli
 az network firewall nat-rule create --collection-name exampleset --destination-addresses $FWPUBLIC_IP --destination-ports 80 --firewall-name $FWNAME --name inboundrule --protocols Any --resource-group $RG --source-addresses '*' --translated-port 80 --action Dnat --priority 100 --translated-address $SERVICE_IP
 ```
 
@@ -772,7 +773,7 @@ Verrà visualizzata l'app AKS vote. In questo esempio, l'indirizzo IP pubblico d
 
 Per pulire le risorse di Azure, eliminare il gruppo di risorse del servizio Azure Kubernetes.
 
-```azure-cli
+```azurecli
 az group delete -g $RG
 ```
 

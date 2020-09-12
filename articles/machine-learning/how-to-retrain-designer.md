@@ -10,12 +10,12 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 181d79c6aef87999bc1b4242a70870edf60ad7df
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 11e04d0aa313a005cfd13bca134c75bb712fd234
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319627"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661621"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Ripetere il training dei modelli con la finestra di progettazione di Azure Machine Learning (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -41,7 +41,7 @@ Questo articolo presuppone anche che l'utente abbia una conoscenza di base della
 
 ### <a name="sample-pipeline"></a>Pipeline di esempio
 
-La pipeline usata in questo articolo è una versione modificata di [Sample 3: Income prediction](samples-designer.md#classification) (Esempio 3: Previsione del reddito). La pipeline usa il modulo [Import Data](algorithm-module-reference/import-data.md) (Importare dati) anziché il set di dati di esempio per illustrare come eseguire il training dei modelli con i propri dati.
+La pipeline usata in questo articolo è una versione modificata di una stima del [reddito](samples-designer.md#classification) della pipeline di esempio nella Home page della finestra di progettazione. La pipeline usa il modulo [Import Data](algorithm-module-reference/import-data.md) (Importare dati) anziché il set di dati di esempio per illustrare come eseguire il training dei modelli con i propri dati.
 
 ![Screenshot che mostra la pipeline di esempio modificata con un riquadro che evidenzia il modulo Import Data (Importare dati)](./media/how-to-retrain-designer/modified-sample-pipeline.png)
 
@@ -83,7 +83,8 @@ La finestra di progettazione salva tutti gli output della pipeline, inclusi i mo
 1. È possibile trovare il modello in **Other outputs** (Altri output) insieme ai log di esecuzione.
 1. In alternativa, selezionare l'icona **View output** (Visualizza output). Da qui è possibile seguire le istruzioni nella finestra di dialogo per passare direttamente all'archivio dati. 
 
-![Schermata che illustra come scaricare il modello di cui è stato eseguito il training](./media/how-to-retrain-designer/trained-model-view-output.png)
+> [!div class="mx-imgBorder"]
+> ![Schermata che illustra come scaricare il modello di cui è stato eseguito il training](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="publish-a-training-pipeline"></a>Pubblicare una pipeline di training
 
@@ -101,9 +102,9 @@ Pubblicare una pipeline in un endpoint della pipeline per riutilizzare facilment
 
 Ora che è disponibile una pipeline di training pubblicata, è possibile usarla per ripetere il training del modello con i nuovi dati. È possibile avviare le esecuzioni da un endpoint della pipeline dall'area di lavoro di Studio o a livello di codice.
 
-### <a name="submit-runs-by-using-the-designer"></a>Avviare le esecuzioni tramite la finestra di progettazione
+### <a name="submit-runs-by-using-the-studio-portal"></a>Inviare le esecuzioni tramite il portale di studio
 
-Usare la procedura seguente per avviare l'esecuzione di un endpoint della pipeline con parametri dalla finestra di progettazione:
+Usare la procedura seguente per inviare un endpoint della pipeline con parametri eseguito dal portale di studio:
 
 1. Passare alla pagina **Endpoints** (Endpoint) nell'area di lavoro di Studio.
 1. Selezionare la scheda **Pipeline endpoints** (Endpoint pipeline). Quindi selezionare l'endpoint della pipeline.

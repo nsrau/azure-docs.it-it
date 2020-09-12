@@ -1,6 +1,6 @@
 ---
 title: Guida introduttiva a StriIm
-description: Informazioni su come iniziare rapidamente a usare Striim e Azure SQL Data Warehouse.
+description: Inizia rapidamente a usare StriIm e Azure sinapsi Analytics.
 services: synapse-analytics
 author: mlee3gsd
 manager: craigg
@@ -11,18 +11,18 @@ ms.date: 10/12/2018
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 945bcd03bc3bf13517836e7a5624bd5142782183
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d6b5fa1a42201479c5d426a5bbb9188d0cb8e03d
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208553"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485975"
 ---
-# <a name="striim-azure-sql-dw-marketplace-offering-install-guide"></a>Guida all'installazione dell'offerta Striim nel marketplace di Azure SQL DW
+# <a name="striim-azure-synapse-analytics-marketplace-offering-install-guide"></a>Guida all'installazione dell'offerta StriIm di Azure sinapsi Analytics Marketplace
 
-Questa guida introduttiva presuppone che l'utente abbia già un'istanza pre-esistente di SQL Data Warehouse.
+Questa Guida introduttiva presuppone che sia già presente un'istanza preesistente di Azure sinapsi Analytics.
 
-Eseguire la ricerca di Striim in Azure Marketplace e selezionare l'opzione Striim for Data Integration to SQL Data Warehouse (Staged) (Striim per l'integrazione di dati in SQL Data Warehouse - Gestione temporanea) 
+Cercare StriIm in Azure Marketplace e selezionare l'opzione StriIm per l'integrazione dei dati in Azure sinapsi Analytics (staging) 
 
 ![Installare Striim][install]
 
@@ -32,7 +32,7 @@ Configurare la macchina virtuale di Striim con le proprietà specificate, prende
 
 Al termine della distribuzione, fare clic su \<VM Name>-masternode nel portale di Azure, fare clic su Connetti e copiare l'account di accesso usando l'account locale della macchina virtuale 
 
-![Collegare Striim a SQL Data Warehouse][connect]
+![Connettere StriIm ad Azure sinapsi Analytics][connect]
 
 Scaricare il file sqljdbc42.jar da <https://www.microsoft.com/en-us/download/details.aspx?id=54671> nel computer locale. 
 

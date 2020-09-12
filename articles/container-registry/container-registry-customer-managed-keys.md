@@ -2,14 +2,14 @@
 title: Crittografia dati inattivi con chiave gestita dal cliente
 description: Informazioni sulla crittografia al resto del registro contenitori di Azure e su come crittografare il registro di sistema Premium con una chiave gestita dal cliente archiviata in Azure Key Vault
 ms.topic: article
-ms.date: 05/01/2020
+ms.date: 08/26/2020
 ms.custom: ''
-ms.openlocfilehash: 67fb58d0e11709b3d801a81f15d856e9b3db922b
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 0e1810c8e3da334570dd1c4d6adb500e2cfa95e3
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225887"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89487233"
 ---
 # <a name="encrypt-registry-using-a-customer-managed-key"></a>Crittografare il registro usando una chiave gestita dal cliente
 
@@ -22,10 +22,14 @@ Questa funzionalità è disponibile nel livello di servizio **Premium** del regi
 
 ## <a name="things-to-know"></a>Informazioni importanti
 
-* Attualmente è possibile abilitare una chiave gestita dal cliente solo quando si crea un registro.
-* Dopo aver abilitato una chiave gestita dal cliente per un registro, non è possibile disabilitarla.
+* Attualmente è possibile abilitare una chiave gestita dal cliente solo quando si crea un registro. Quando si Abilita la chiave, viene configurata un'identità gestita *assegnata dall'utente* per accedere all'insieme di credenziali delle chiavi.
+* Dopo aver abilitato la crittografia con una chiave gestita dal cliente in un registro, non è possibile disabilitare la crittografia.  
 * L'[attendibilità del contenuto](container-registry-content-trust.md) non è attualmente supportata in un registro crittografato con una chiave gestita dal cliente.
 * In un registro crittografato con una chiave gestita dal cliente, i log di esecuzione per le [Attività del Registro Azure Container](container-registry-tasks-overview.md) attualmente vengono conservati solo per 24 ore. Se è necessario conservare i log per un periodo di tempo più lungo, vedere le istruzioni per [esportare e archiviare i log di esecuzione delle attività](container-registry-tasks-logs.md#alternative-log-storage).
+
+
+> [!NOTE]
+> Se l'accesso all'insieme di credenziali delle chiavi di Azure viene limitato usando una rete virtuale con un [firewall di Key Vault](../key-vault/general/network-security.md), sono necessari passaggi di configurazione aggiuntivi. Dopo la creazione del registro di sistema e l'abilitazione della chiave gestita dal cliente, configurare l'accesso alla chiave utilizzando l'identità gestita *assegnata dal sistema* del registro di sistema e configurare il registro di sistema in modo da ignorare il firewall Key Vault. Attenersi alla procedura descritta in questo articolo per abilitare la crittografia con una chiave gestita dal cliente e quindi vedere le linee guida per [uno scenario avanzato: Key Vault firewall](#advanced-scenario-key-vault-firewall) più avanti in questo articolo.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -372,7 +376,7 @@ Dopo aver abilitato una chiave gestita dal cliente in un registro, è possibile 
 
 ## <a name="rotate-key"></a>Ruotare la chiave
 
-Ruotare una chiave gestita dal cliente usata per la crittografia del registro nei criteri di conformità. Creare una nuova chiave o aggiornare una versione della chiave, quindi aggiornare il registro per crittografare i dati usando la chiave. È possibile eseguire questi passaggi usando l'interfaccia della riga di comando di Azure o il portale.
+Ruotare una chiave gestita dal cliente utilizzata per la crittografia del registro di sistema in base ai criteri di conformità. Creare una nuova chiave o aggiornare una versione della chiave, quindi aggiornare il registro per crittografare i dati usando la chiave. È possibile eseguire questi passaggi usando l'interfaccia della riga di comando di Azure o il portale.
 
 Quando si ruota una chiave, in genere si specifica la stessa identità usata durante la creazione del registro. Facoltativamente, configurare una nuova identità assegnata dall'utente per l'accesso alla chiave o abilitare e specificare l'identità assegnata dal sistema del registro.
 
@@ -439,9 +443,15 @@ az keyvault delete-policy \
 
 La revoca della chiave blocca efficacemente l'accesso a tutti i dati del registro, poiché il registro non può accedere alla chiave di crittografia. Se l'accesso alla chiave è abilitato o viene ripristinata la chiave eliminata, il registro selezionerà la chiave in modo che sia possibile accedere di nuovo ai dati crittografati del registro.
 
-## <a name="advanced-scenarios"></a>Scenari avanzati
+## <a name="advanced-scenario-key-vault-firewall"></a>Scenario avanzato: firewall Key Vault
 
-### <a name="system-assigned-identity"></a>Identità assegnata dal sistema
+Se l'insieme di credenziali delle chiavi di Azure viene distribuito in una rete virtuale con un firewall Key Vault, seguire questa procedura aggiuntiva dopo aver abilitato la crittografia delle chiavi gestita dal cliente nel registro di sistema.
+
+1. Configurare la crittografia del registro di sistema per usare l'identità assegnata dal sistema del registro di sistema
+1. Abilitare il registro di sistema per ignorare il firewall Key Vault
+1. Ruotare la chiave gestita dal cliente
+
+### <a name="configure-system-assigned-identity"></a>Configurare l'identità assegnata dal sistema
 
 È possibile configurare l'identità gestita assegnata dal sistema di un registro per accedere all'insieme di credenziali delle chiavi per le chiavi di crittografia. Se non si ha familiarità con i diversi tipi di identità gestita per le risorse di Azure, vedere la [panoramica](../active-directory/managed-identities-azure-resources/overview.md).
 
@@ -466,14 +476,18 @@ Per aggiornare le impostazioni di crittografia del registro per l'uso dell'ident
 1. In **Impostazioni** selezionare **Crittografia** > **Modifica chiave**.
 1. In **Identità** selezionare **Assegnata dal sistema** e selezionare **Salva**.
 
-### <a name="key-vault-firewall"></a>Firewall di Key Vault
+### <a name="enable-key-vault-bypass"></a>Abilitare il bypass del Key Vault
 
-Se l'insieme di credenziali delle chiavi di Azure è distribuito in una rete virtuale con un firewall di Key Vault, seguire questa procedura:
+Per accedere a un insieme di credenziali delle chiavi configurato con un firewall Key Vault, il registro di sistema deve ignorare il firewall. Configurare l'insieme di credenziali delle chiavi per consentire l'accesso da parte di qualsiasi [servizio considerato attendibile](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services). Azure Container Registry è uno dei servizi attendibili.
 
-1. Configurare la crittografia del registro per l'uso dell'identità assegnata dal sistema del registro. Vedere la sezione precedente.
-2. Configurare l'insieme di credenziali delle chiavi per consentire l'accesso da parte di qualsiasi [servizio considerato attendibile](../key-vault/general/overview-vnet-service-endpoints.md#trusted-services).
+1. Nel portale passare all'insieme di credenziali delle chiavi.
+1. Selezionare **Impostazioni**  >  **rete**.
+1. Confermare, aggiornare o aggiungere le impostazioni della rete virtuale. Per la procedura dettagliata, vedere [Configurare reti virtuali e firewall di Azure Key Vault](../key-vault/general/network-security.md).
+1. In **Consenti a Microsoft Trusted Services di ignorare questo firewall**, selezionare **Sì**. 
 
-Per la procedura dettagliata, vedere [Configurare reti virtuali e firewall di Azure Key Vault](../key-vault/general/network-security.md).
+### <a name="rotate-the-customer-managed-key"></a>Ruotare la chiave gestita dal cliente
+
+Dopo aver completato i passaggi precedenti, ruotare la chiave in una nuova chiave nell'insieme di credenziali delle chiavi protetto da un firewall. Per la procedura, vedere [ruotare la chiave](#rotate-key) in questo articolo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

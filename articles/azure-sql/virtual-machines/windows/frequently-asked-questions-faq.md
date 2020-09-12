@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/05/2019
 ms.author: mathoma
-ms.openlocfilehash: f382e3cf0f5d2d60c2868c6698b1ea901fbac023
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: a5f4ff3dade381cf1a68ac5e9e820be153acf5ee
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121443"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483746"
 ---
 # <a name="frequently-asked-questions-for-sql-server-on-azure-vms"></a>Domande frequenti per SQL Server in macchine virtuali di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -164,6 +164,9 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 
    Sì. Il supporto di installazione di SQL Server si trova in una cartella nell'unità **C** . Eseguire **Setup.exe** da tale percorso per aggiungere nuove istanze di SQL Server o per modificare altre funzionalità di SQL Server installate nella macchina virtuale. Si noti che alcune funzionalità, ad esempio Backup automatizzato, Applicazione automatica delle patch e Integrazione di Azure Key Vault, funzionano solo nell'istanza predefinita o per un'istanza denominata che è stata adeguatamente configurata (vedere la domanda 3). I clienti che usano [Software Assurance tramite il vantaggio Azure Hybrid](licensing-model-azure-hybrid-benefit-ahb-change.md) o il modello di gestione delle licenze con **pagamento in base** al consumo possono installare più istanze di SQL Server nella macchina virtuale senza sostenere costi aggiuntivi per le licenze. Altre istanze di SQL Server possono filtrare le risorse di sistema a meno che non siano configurate correttamente 
 
+1. **Qual è il numero massimo di istanze in una macchina virtuale?**
+   SQL Server 2012 SQL Server 2019 può supportare le [istanze 50](/sql/sql-server/editions-and-components-of-sql-server-version-15#RDBMSSP) in un server autonomo. Si tratta dello stesso limite indipendentemente da Azure in locale. Vedere le [procedure consigliate](performance-guidelines-best-practices.md#multiple-instances) per apprendere come preparare meglio l'ambiente. 
+
 1. **È possibile disinstallare l'istanza predefinita di SQL Server?**
 
    Sì, ma ci sono alcune considerazioni di cui tenere conto. Per prima cosa, la fatturazione associata a SQL Server può continuare a essere eseguita in base al modello di licenza della macchina virtuale. Come indicato nella risposta precedente, esistono funzionalità che si basano sull'[estensione SQL Server IaaS Agent](sql-server-iaas-agent-extension-automate-management.md). Se si disinstalla l'istanza predefinita senza rimuovere anche l'estensione IaaS, l'estensione continua a cercare l'istanza predefinita e può generare errori del log eventi. Questi errori provengono dalle due origini seguenti: **Microsoft SQL Server Credential Management** e **Microsoft SQL Server IaaS Agent**. Uno degli errori potrebbe essere simile al seguente:
@@ -179,6 +182,9 @@ Questo articolo fornisce le risposte ad alcune delle domande più comuni sull'es
 1. **Posso rimuovere completamente SQL Server da una macchina virtuale di SQL Server?**
 
    Sì, ma continueranno a essere addebitati i costi per la VM di SQL Server, come descritto in [Pricing guidance for SQL Server Azure VMs](pricing-guidance.md) (Guida ai prezzi per le VM di SQL Server in Azure). Se SQL Server non è più necessario, è possibile distribuire una nuova macchina virtuale ed eseguire la migrazione di dati e applicazioni alla nuova macchina virtuale. Sarà quindi possibile rimuovere la macchina virtuale di SQL Server.
+
+1. **È possibile usare il portale di Azure per gestire più istanze nella stessa macchina virtuale?**
+   No. La gestione del portale viene fornita dal provider di risorse VM SQL, che si basa sull'estensione SQL Server agente IaaS. Di conseguenza, le stesse limitazioni si applicano al provider di risorse come estensione. Il portale può gestire solo un'istanza predefinita o un'istanza denominata purché sia configurata correttamente. Per altre informazioni, vedere [SQL Server estensione dell'agente IaaS](sql-server-iaas-agent-extension-automate-management.md) 
    
 ## <a name="updating-and-patching"></a>Aggiornamento e applicazione di patch
 

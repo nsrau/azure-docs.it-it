@@ -12,18 +12,18 @@ ms.workload: big-data
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.custom: seodec18
-ms.openlocfilehash: e78b5118a2525fbf10a3089712f75e44cb7deceb
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 1bcf8ec2395dbc94154072c1c4d839bf45125a3e
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87080693"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89487301"
 ---
 # <a name="azure-time-series-insights-gen1-explorer"></a>Azure Time Series Insights Esplora Gen1
 
 Questo articolo descrive le funzionalità e le opzioni per l' [app web](https://insights.timeseries.azure.com/)Azure Time Series Insights Gen1 Explorer. Esplora Azure Time Series Insights illustra le potenti funzionalità di visualizzazione dei dati fornite dal servizio ed è possibile accedervi all'interno dell'ambiente.
 
-Azure Time Series Insights è un servizio completamente gestito per analisi, archiviazione e visualizzazione, che semplifica l'esplorazione e l'analisi di miliardi di eventi IoT contemporaneamente. Offre una visualizzazione globale dei dati e consente di convalidare rapidamente le soluzioni IoT e di evitare così costosi periodi di inattività per i dispositivi di importanza strategica. È possibile individuare tendenze nascoste e anomalie, nonché eseguire analisi della causa radice. 
+Azure Time Series Insights è un servizio completamente gestito per analisi, archiviazione e visualizzazione, che semplifica l'esplorazione e l'analisi di miliardi di eventi IoT contemporaneamente. Offre una visualizzazione globale dei dati e consente di convalidare rapidamente le soluzioni IoT e di evitare così costosi periodi di inattività per i dispositivi di importanza strategica. È possibile individuare tendenze nascoste e anomalie, nonché eseguire analisi della causa radice.
 
 > [!TIP]
 > Per una presentazione guidata dell'ambiente demo, vedere la [Guida introduttiva Azure Time Series Insights](time-series-quickstart.md).
@@ -41,7 +41,7 @@ Azure Time Series Insights è un servizio completamente gestito per analisi, arc
 
 Prima di poter usare Azure Time Series Insights Explorer, è necessario:
 
-- Creare un ambiente di Azure Time Series Insights. Per altre informazioni, vedere [come iniziare a usare Azure Time Series Insights](./time-series-insights-get-started.md).
+- Creare un ambiente Azure Time Series Insights. Per altre informazioni, vedere [come iniziare a usare Azure Time Series Insights](./time-series-insights-get-started.md).
 - [Fornire l'accesso](time-series-insights-data-access.md) all'account nell'ambiente.
 - Aggiungere un' [origine eventi dell'hub](time-series-insights-how-to-add-an-event-source-iothub.md) eventi o dell' [Hub eventi](time-series-insights-how-to-add-an-event-source-eventhub.md) .
 
@@ -74,7 +74,7 @@ Entro pochi minuti dalla connessione dell'origine evento all'ambiente di Azure T
          |Operazione  |Tipi supportati  |Note  |
          |---------|---------|---------|
          |**<**, **>**, **<=**, **>=**    |  **Double**, **DateTime**, **TimeSpan**       |         |
-         |**=**, **!=**,**<>**     | **String**, **bool**, **Double**, **DateTime**, **TimeSpan**, **null**        |         |
+         |**=**, **!=**, **<>**     | **String**, **bool**, **Double**, **DateTime**, **TimeSpan**, **null**        |         |
          |**IN**     | **String**, **bool**, **Double**, **DateTime**, **TimeSpan**, **null**        |  Tutti gli operandi devono essere dello stesso tipo o essere una costante **null** .        |
          |**HAS**     | **Stringa**        |  Sul lato destro sono consentiti solo valori letterali stringa costanti. Non sono consentite stringhe vuote e **null** .       |
 
@@ -108,7 +108,7 @@ Entro pochi minuti dalla connessione dell'origine evento all'ambiente di Azure T
 
 1. Usare **mappa termica** per individuare in modo rapido la serie di dati univoca o anomala in una determinata query. È possibile visualizzare come mappa termica solo un termine di ricerca.
 
-    [![Grafici mappa termica di Gen1 Explorer](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
+    [![Creazione di grafici mappa termica in Esplora Time Series Insights ](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png)](media/time-series-insights-explorer/tsi-ga-example-heatmap-charting.png#lightbox)
 
 1. Quando si esplorano gli eventi selezionando o facendo clic con il pulsante destro del mouse, viene reso disponibile il pannello **eventi** . Qui è possibile esaminare tutti gli eventi non elaborati ed esportare gli eventi come file JSON o CSV. Azure Time Series Insights archivia tutti i dati non elaborati.
 

@@ -16,12 +16,12 @@ ms.date: 10/07/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea5c3e0ffc000d3d239e87e9771d1b49d98fd206
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3d72b70248e317d1caee4527be38fe304cfe7f16
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589045"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658344"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Accesso Single Sign-On facile di Azure Active Directory: Domande frequenti
 
@@ -37,7 +37,7 @@ L'accesso SSO facile è una funzionalità gratuita e non serve alcuna delle ediz
 
 **D: L'accesso SSO facile è disponibile nel [cloud Microsoft Azure Germania](https://www.microsoft.de/cloud-deutschland) e nel [cloud Microsoft Azure per enti pubblici](https://azure.microsoft.com/features/gov/)?**
 
-L'accesso SSO facile è disponibile per il cloud di Azure per enti pubblici. Per informazioni dettagliate, vedere [Considerazioni sulle identità ibride per Azure per enti pubblici](https://docs.microsoft.com/azure/active-directory/hybrid/reference-connect-government-cloud).
+L'accesso SSO facile è disponibile per il cloud di Azure per enti pubblici. Per informazioni dettagliate, vedere [Considerazioni sulle identità ibride per Azure per enti pubblici](./reference-connect-government-cloud.md).
 
 **D: Quali applicazioni possono sfruttare le capacità dei parametri `domain_hint` e `login_hint` dell'accesso SSO facile?**
 
@@ -62,11 +62,11 @@ Se si desidera che altre applicazioni utilizzino la nostra esperienza di accesso
 
 **D: L'accesso SSO facile supporta `Alternate ID` invece di `userPrincipalName` come nome utente?**
 
-Sì. L'accesso SSO facile supporta `Alternate ID` come nome utente quando è configurato in Azure AD Connect, come illustrato [qui](how-to-connect-install-custom.md). Non tutte le applicazioni di Office 365 supportano `Alternate ID`. Fare riferimento alla documentazione dell'applicazione specifica per sapere se è supportato.
+Sì. L'accesso SSO facile supporta `Alternate ID` come nome utente quando è configurato in Azure AD Connect, come illustrato [qui](how-to-connect-install-custom.md). Non tutte le applicazioni Microsoft 365 supportano `Alternate ID` . Fare riferimento alla documentazione dell'applicazione specifica per sapere se è supportato.
 
-**D: Qual è la differenza tra l'esperienza di accesso Single Sign-On offerta da [Aggiunta ad Azure AD](../active-directory-azureadjoin-overview.md) e dall'accesso SSO facile?**
+**D: Qual è la differenza tra l'esperienza di accesso Single Sign-On offerta da [Aggiunta ad Azure AD](../devices/overview.md) e dall'accesso SSO facile?**
 
-[Aggiunta ad Azure AD](../active-directory-azureadjoin-overview.md) offre l'accesso SSO agli utenti se i dispositivi sono registrati con Azure AD. Questi dispositivi non devono necessariamente essere aggiunti a un dominio. L'accesso SSO viene fornito usando *token di aggiornamento primari* o *PRT* e non Kerberos. L'esperienza utente è ottimale sui dispositivi Windows 10. L'accesso SSO viene eseguito automaticamente nel browser Microsoft Edge. Funziona anche in Chrome con l'uso di un'estensione del browser.
+[Aggiunta ad Azure AD](../devices/overview.md) offre l'accesso SSO agli utenti se i dispositivi sono registrati con Azure AD. Questi dispositivi non devono necessariamente essere aggiunti a un dominio. L'accesso SSO viene fornito usando *token di aggiornamento primari* o *PRT* e non Kerberos. L'esperienza utente è ottimale sui dispositivi Windows 10. L'accesso SSO viene eseguito automaticamente nel browser Microsoft Edge. Funziona anche in Chrome con l'uso di un'estensione del browser.
 
 È possibile usare sia Aggiunta ad Azure AD che Single Sign-On facile nel tenant. Queste due funzionalità sono complementari. Se entrambe le funzionalità sono attivate, l'accesso SSO di Aggiunta ad Azure AD ha la precedenza su Single Sign-On facile.
 
@@ -85,7 +85,7 @@ Seguire questa procedura nel server locale in cui si esegue Azure AD Connect:
 
    **Passaggio 1. Ottenere l'elenco delle foreste di Active Directory in cui è stata abilitato l'accesso SSO facile**
 
-   1. Prima, scaricare e installare [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   1. Prima, scaricare e installare [Azure AD PowerShell](/powershell/azure/active-directory/overview).
    2. Passare alla cartella `%programfiles%\Microsoft Azure Active Directory Connect`.
    3. Importare il modulo di PowerShell Seamless SSO usando il comando seguente: `Import-Module .\AzureADSSO.psd1`.
    4. Eseguire PowerShell come amministratore. In PowerShell eseguire la chiamata a `New-AzureADSSOAuthenticationContext`. Il comando dovrebbe far sì che venga visualizzata una finestra popup per l'immissione delle credenziali dell'amministratore globale del tenant.
@@ -130,7 +130,7 @@ Seguire questa procedura nel server locale in cui si esegue Azure AD Connect:
 
    Seguire questa procedura nel server locale in cui si esegue Azure AD Connect:
 
-   1. Prima, scaricare e installare [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   1. Prima, scaricare e installare [Azure AD PowerShell](/powershell/azure/active-directory/overview).
    2. Passare alla cartella `%programfiles%\Microsoft Azure Active Directory Connect`.
    3. Importare il modulo di PowerShell Seamless SSO usando il comando seguente: `Import-Module .\AzureADSSO.psd1`.
    4. Eseguire PowerShell come amministratore. In PowerShell eseguire la chiamata a `New-AzureADSSOAuthenticationContext`. Il comando dovrebbe far sì che venga visualizzata una finestra popup per l'immissione delle credenziali dell'amministratore globale del tenant.
@@ -145,7 +145,7 @@ Seguire questa procedura nel server locale in cui si esegue Azure AD Connect:
 
    Seguire le attività da 1 a 4 se l'accesso Single Sign-On facile è stato disabilitato tramite Azure AD Connect. Se invece l'accesso Single Sign-On facile è stato disabilitato tramite PowerShell, passare all'attività 5.
 
-   1. Prima, scaricare e installare [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+   1. Prima, scaricare e installare [Azure AD PowerShell](/powershell/azure/active-directory/overview).
    2. Passare alla cartella `%programfiles%\Microsoft Azure Active Directory Connect`.
    3. Importare il modulo di PowerShell Seamless SSO usando il comando seguente: `Import-Module .\AzureADSSO.psd1`.
    4. Eseguire PowerShell come amministratore. In PowerShell eseguire la chiamata a `New-AzureADSSOAuthenticationContext`. Il comando dovrebbe far sì che venga visualizzata una finestra popup per l'immissione delle credenziali dell'amministratore globale del tenant.

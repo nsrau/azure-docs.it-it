@@ -2,13 +2,13 @@
 title: Provider di risorse per servizi di Azure
 description: Elenca tutti gli spazi dei nomi del provider di risorse per Azure Resource Manager e Mostra il servizio di Azure per lo spazio dei nomi.
 ms.topic: conceptual
-ms.date: 06/05/2020
-ms.openlocfilehash: 6c57f3523ca8f3f4ad1565d18791d24c0e698ad6
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.date: 09/04/2020
+ms.openlocfilehash: 34b2476b8194b8ad6f8e7e86e2644a1c0d0bbb4b
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87808338"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484002"
 ---
 # <a name="resource-providers-for-azure-services"></a>Provider di risorse per i servizi di Azure
 
@@ -18,7 +18,7 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 
 | Spazio dei nomi del provider di risorse | Servizio di Azure |
 | --------------------------- | ------------- |
-| Microsoft.AAD | [Servizi di dominio Azure Active Directory](../../active-directory-domain-services/index.yml) |
+| Microsoft.AAD | [Azure Active Directory Domain Services](../../active-directory-domain-services/index.yml) |
 | Microsoft.Addons | core |
 | Microsoft. ADHybridHealthService<sup>1</sup> | [Azure Active Directory](../../active-directory/index.yml) |
 | Microsoft.Advisor | [Azure Advisor](../../advisor/index.yml) |
@@ -43,7 +43,7 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.BlockchainTokens | [Token di blockchain di Azure](https://azure.microsoft.com/services/blockchain-tokens/) |
 | Microsoft.Blueprint | [Azure Blueprint](../../governance/blueprints/index.yml) |
 | Microsoft.BotService | [Servizio Azure Bot](/azure/bot-service/) |
-| Microsoft.Cache | [Cache Redis di Azure](../../azure-cache-for-redis/index.yml) |
+| Microsoft.Cache | [Cache di Azure per Redis](../../azure-cache-for-redis/index.yml) |
 | Microsoft.Capacity | core |
 | Microsoft.Cdn | [Rete per la distribuzione di contenuti (CDN)](../../cdn/index.yml) |
 | Microsoft.CertificateRegistration | [Certificati del servizio app](../../app-service/configure-ssl-certificate.md#import-an-app-service-certificate) |
@@ -57,8 +57,8 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft. Commerce<sup>1</sup> | core |
 | Microsoft.Compute | [Macchine virtuali](../../virtual-machines/index.yml)<br />[Set di scalabilità di macchine virtuali](../../virtual-machine-scale-sets/index.yml) |
 | Microsoft. consumo<sup>1</sup> | [Gestione costi](/azure/cost-management/) |
-| Microsoft.ContainerInstance | [Istanze di Container](../../container-instances/index.yml) |
-| Microsoft.ContainerRegistry | [Registro Container](../../container-registry/index.yml) |
+| Microsoft.ContainerInstance | [Istanze di contenitore](../../container-instances/index.yml) |
+| Microsoft.ContainerRegistry | [Registro contenitori](../../container-registry/index.yml) |
 | Microsoft.ContainerService | [Servizio Azure Kubernetes](../../aks/index.yml) |
 | Microsoft. CostManagement<sup>1</sup> | [Gestione costi](/azure/cost-management/) |
 | Microsoft.CostManagementExports | [Gestione costi](/azure/cost-management/) |
@@ -72,7 +72,7 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.DataLakeAnalytics | [Data Lake Analytics](../../data-lake-analytics/index.yml) |
 | Microsoft.DataLakeStore | [Azure Data Lake Storage Gen2](../../storage/blobs/data-lake-storage-introduction.md) |
 | Microsoft.DataMigration | [Servizio Migrazione del database di Azure](../../dms/index.yml) |
-| Microsoft.DataProtection | Protezione dei dati |
+| Microsoft.DataProtection | Protezione dati |
 | Microsoft.DataShare | [Condivisione dati di Azure](../../data-share/index.yml) |
 | Microsoft.DBforMariaDB | [Database di Azure per MariaDB](../../mariadb/index.yml) |
 | Microsoft.DBforMySQL | [Database di Azure per MySQL](../../mysql/index.yml) |
@@ -86,6 +86,7 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.DigitalTwins | [Gemelli digitali di Azure](../../digital-twins/overview.md) |
 | Microsoft.DocumentDB | [Azure Cosmos DB](../../cosmos-db/index.yml) |
 | Microsoft.DomainRegistration | [Servizio app](../../app-service/index.yml) |
+| Microsoft.DynamicsLcs | [Servizi del ciclo di vita](https://lcs.dynamics.com/Logon/Index ) |
 | Microsoft.EnterpriseKnowledgeGraph | Grafico Knowledge base Enterprise |
 | Microsoft.EventGrid | [Griglia di eventi](../../event-grid/index.yml) |
 | Microsoft.EventHub | [Hub eventi](../../event-hubs/index.yml) |
@@ -97,10 +98,12 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.HealthcareApis | [API di Azure per FHIR](../../healthcare-apis/index.yml) |
 | Microsoft.HybridCompute | [Azure Arc](../../azure-arc/index.yml) |
 | Microsoft.HybridData | [StorSimple](../../storsimple/index.yml) |
+| Microsoft. HybridNetwork  | Supporto dello stack Edge |
 | Microsoft.ImportExport | [Importazione/Esportazione di Azure](../../storage/common/storage-import-export-service.md) |
 | microsoft.insights | [Monitoraggio di Azure](../../azure-monitor/index.yml) |
 | Microsoft.IoTCentral | [Azure IoT Central](../../iot-central/index.yml) |
 | Microsoft.IoTSpaces | [Gemelli digitali di Azure](../../digital-twins/index.yml) |
+| Microsoft.Intune | [Monitoraggio di Azure](../../azure-monitor/index.yml) |
 | Microsoft.KeyVault | [Insieme di credenziali di chiave](../../key-vault/index.yml) |
 | Microsoft.Kubernetes | [Servizio Azure Kubernetes](../../aks/index.yml) |
 | Microsoft.KubernetesConfiguration | [Servizio Azure Kubernetes](../../aks/index.yml) |
@@ -111,6 +114,7 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.MachineLearningServices | [Azure Machine Learning](../../machine-learning/index.yml) |
 | Microsoft.Maintenance | [Manutenzione di Azure](../../virtual-machines/maintenance-control-cli.md) |
 | Microsoft.ManagedIdentity | [Identità gestite per le risorse di Azure](../../active-directory/managed-identities-azure-resources/index.yml) |
+| Microsoft.ManagedNetwork | Reti virtuali gestite da servizi PaaS |
 | Microsoft.ManagedServices | [Azure Lighthouse](../../lighthouse/index.yml) |
 | Microsoft.Management | [Gruppi di gestione](../../governance/management-groups/index.yml) |
 | Microsoft.Maps | [Mappe di Azure](../../azure-maps/index.yml) |
@@ -118,10 +122,12 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.MarketplaceApps | core |
 | Microsoft. MarketplaceOrdering<sup>1</sup> | core |
 | Microsoft.Media | [Servizi multimediali](../../media-services/index.yml) |
+| Microsoft.Microservices4Spring | [Azure Spring Cloud](../../spring-cloud/spring-cloud-overview.md) |
 | Microsoft.Migrate | [Azure Migrate](../../migrate/migrate-services-overview.md) |
 | Microsoft.MixedReality | [Ancoraggi nello spazio di Azure](../../spatial-anchors/index.yml) |
 | Microsoft.NetApp | [Azure NetApp Files](../../azure-netapp-files/index.yml) |
 | Microsoft.Network | [Gateway applicazione](../../application-gateway/index.yml)<br />[Azure Bastion](../../bastion/index.yml)<br />[Protezione DDoS di Azure](../../virtual-network/ddos-protection-overview.md)<br />[DNS di Azure](../../dns/index.yml)<br />[Azure ExpressRoute](../../expressroute/index.yml)<br />[Firewall di Azure](../../firewall/index.yml)<br />[Servizio Frontdoor di Azure](../../frontdoor/index.yml)<br />[Collegamento privato di Azure](../../private-link/index.yml)<br />[Bilanciamento del carico](../../load-balancer/index.yml)<br />[Network Watcher](../../network-watcher/index.yml)<br />[Gestione traffico](../../traffic-manager/index.yml)<br />[Rete virtuale](../../virtual-network/index.yml)<br />[Rete WAN virtuale](../../virtual-wan/index.yml)<br />[Gateway VPN](../../vpn-gateway/index.yml)<br /> |
+| Microsoft. Notebooks | [Azure Notebooks](https://notebooks.azure.com/help/introduction) |
 | Microsoft.NotificationHubs | [Hub di notifica di Azure](../../notification-hubs/index.yml) |
 | Microsoft.ObjectStore | Archivio oggetti |
 | Microsoft.OffAzure | [Azure Migrate](../../migrate/migrate-services-overview.md) |
@@ -133,6 +139,7 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.PowerBI | [Power BI](/power-bi/power-bi-overview) |
 | Microsoft.PowerBIDedicated | [Power BI Embedded](/azure/power-bi-embedded/) |
 | Microsoft. PowerPlatform | [Power Platform](/power-platform/) |
+| Microsoft.ProjectBabylon | [Azure Data Catalog](../../data-catalog/overview.md) |
 | Microsoft.Quantum | [Quantum di Azure](https://azure.microsoft.com/services/quantum/) |
 | Microsoft.RecoveryServices | [Azure Site Recovery](../../site-recovery/index.yml) |
 | Microsoft.RedHatOpenShift | [Azure Red Hat OpenShift](../../virtual-machines/linux/openshift-get-started.md) |
@@ -144,6 +151,7 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.Scheduler | [Utilità di pianificazione](../../scheduler/index.yml) |
 | Microsoft.Search | [Ricerca cognitiva di Azure](../../search/index.yml) |
 | Microsoft.Security | [Centro sicurezza](../../security-center/index.yml) |
+| Microsoft.SecurityGraph | [Centro sicurezza](../../security-center/index.yml) |
 | Microsoft.SecurityInsights | [Azure Sentinel](../../sentinel/index.yml) |
 | Microsoft. SerialConsole<sup>1</sup> | [Console seriale di Azure per Windows](../../virtual-machines/troubleshooting/serial-console-windows.md) |
 | Microsoft.ServiceBus | [Bus di servizio](/azure/service-bus/) |
@@ -154,11 +162,12 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.SoftwarePlan | Licenza |
 | Microsoft.Solutions | [Applicazioni gestite di Azure](../managed-applications/index.yml) |
 | Microsoft.Sql | [Database SQL di Azure](../../azure-sql/database/index.yml)<br /> [Istanza gestita di database SQL di Azure](../../azure-sql/managed-instance/index.yml) <br />[Azure Synapse Analytics](/azure/sql-data-warehouse/) |
-| Microsoft.SqlVirtualMachine | [SQL Server in Macchine virtuali di Azure](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
-| Microsoft.Storage | [Storage](../../storage/index.yml) |
-| Microsoft.StorageSync | [Storage](../../storage/index.yml) |
+| Microsoft.SqlVirtualMachine | [SQL Server in macchine virtuali di Azure](../../azure-sql/virtual-machines/windows/sql-server-on-azure-vm-iaas-what-is-overview.md) |
+| Microsoft.Storage | [Archiviazione](../../storage/index.yml) |
+| Microsoft.StorageCache | [Cache HPC di Azure](../../hpc-cache/index.yml) |
+| Microsoft.StorageSync | [Archiviazione](../../storage/index.yml) |
 | Microsoft.StorSimple | [StorSimple](../../storsimple/index.yml) |
-| Microsoft.StreamAnalytics | [Analisi di flusso di Azure](../../stream-analytics/index.yml) |
+| Microsoft.StreamAnalytics | [Azure Stream Analytics](../../stream-analytics/index.yml) |
 | Microsoft.Subscription | core |
 | Microsoft. support<sup>1</sup> | core |
 | Microsoft.Synapse | [Azure Synapse Analytics](/azure/sql-data-warehouse/) |
@@ -170,6 +179,7 @@ Questo articolo illustra come eseguire il mapping degli spazi dei nomi del provi
 | Microsoft.VMwareCloudSimple | [Soluzione Azure VMware di CloudSimple](../../vmware-cloudsimple/index.md) |
 | Microsoft.VSOnline | [Azure DevOps](/azure/devops/?view=azure-devops) |
 | Microsoft.Web | [Servizio app](../../app-service/index.yml)<br />[Funzioni di Azure](../../azure-functions/index.yml) |
+| Microsoft.WindowsDefenderATP | [Microsoft Defender Advanced Threat Protection](../../security-center/security-center-wdatp.md) |
 | Microsoft.WindowsESU | Aggiornamenti della sicurezza estesi |
 | Microsoft.WindowsIoT | [Servizi Windows 10 IoT Core](/windows-hardware/manufacture/iot/iotcoreservicesoverview) |
 | Microsoft. WorkloadMonitor<sup>1</sup> | [Monitoraggio di Azure](../../azure-monitor/index.yml) |

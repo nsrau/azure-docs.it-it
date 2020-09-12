@@ -6,25 +6,28 @@ ms.service: storage
 ms.topic: how-to
 ms.author: normesta
 ms.reviewer: dineshm
-ms.date: 05/14/2020
+ms.date: 09/04/2020
 ms.subservice: blobs
 ms.custom: devx-track-javascript
-ms.openlocfilehash: b8864201fc5bf86a5451c790a51141cee46bffeb
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 72ffad3724ba9c981984ef8410fc9dd9556d8b8e
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432512"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89486859"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Hosting di siti Web statici in Archiviazione di Azure
 
-È possibile gestire contenuto statico (file di immagine, HTML, CSS e JavaScript) direttamente da un contenitore di archiviazione denominato *$web*. L'hosting del contenuto in Archiviazione di Azure consente di usare architetture serverless che includono [Funzioni di Azure](/azure/azure-functions/functions-overview) e altri servizi di piattaforma distribuita come servizio (PaaS).
+È possibile gestire contenuto statico (file di immagine, HTML, CSS e JavaScript) direttamente da un contenitore di archiviazione denominato *$web*. L'hosting del contenuto in Archiviazione di Azure consente di usare architetture serverless che includono [Funzioni di Azure](/azure/azure-functions/functions-overview) e altri servizi di piattaforma distribuita come servizio (PaaS). L'hosting di siti web statici di archiviazione di Azure è un'ottima opzione nei casi in cui non è necessario un server Web per il rendering del contenuto.
+
+App [Web statiche del servizio app](https://azure.microsoft.com/services/app-service/static/) è un'ottima alternativa all'hosting di siti web statici di archiviazione di Azure ed è anche appropriata nei casi in cui non è necessario un server Web per il rendering del contenuto. App Web statiche del servizio app offre un flusso di lavoro di integrazione continua e recapito continuo completamente gestito dall'origine GitHub alla distribuzione globale.
+
+Se è necessario un server Web per il rendering del contenuto, è possibile usare [app Azure servizio](https://azure.microsoft.com/services/app-service/).
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
 > [!NOTE]
-> Se il sito dipende dal codice sul lato server, usare invece il [Servizio app di Azure](/azure/app-service/overview).
-Assicurarsi di creare un account di archiviazione standard per utilizzo generico V2. I siti Web statici non sono disponibili in nessun altro tipo di account di archiviazione.
+> Assicurarsi di creare un account di archiviazione standard per utilizzo generico V2. I siti Web statici non sono disponibili in nessun altro tipo di account di archiviazione.
 
 ## <a name="setting-up-a-static-website"></a>Configurazione di un sito Web statico
 
@@ -103,6 +106,11 @@ Se l'account di archiviazione è configurato per [richiedere il trasferimento si
 Non è possibile configurare le intestazioni come parte della funzionalità dei siti Web statici. Tuttavia, è possibile usare Rete CDN di Azure per aggiungere intestazioni e accodare (o sovrascrivere) valori di intestazione. Vedere [Informazioni di riferimento sul motore regole standard per la rete CDN di Azure](https://docs.microsoft.com/azure/cdn/cdn-standard-rules-engine-reference).
 
 Per usare intestazioni al fine di controllare la memorizzazione nella cache, vedere [Controllare il comportamento di memorizzazione nella cache della rete CDN di Azure con regole](https://docs.microsoft.com/azure/cdn/cdn-caching-rules).
+
+## <a name="multi-region-website-hosting"></a>Hosting di siti Web in più aree
+
+Se si prevede di ospitare un sito Web in più aree geografiche, è consigliabile usare una rete per la [distribuzione di contenuti](https://docs.microsoft.com/azure/cdn/) per la memorizzazione nella cache a livello di area. Usare lo [sportello anteriore di Azure](https://docs.microsoft.com/azure/frontdoor/) se si vuole gestire contenuti diversi in ogni area. Fornisce anche funzionalità di failover. [Gestione traffico di Azure](https://docs.microsoft.com/azure/traffic-manager/) non è consigliato se si prevede di usare un dominio personalizzato. Possono verificarsi problemi a causa del modo in cui archiviazione di Azure verifica i nomi di dominio personalizzati.
+
 
 ## <a name="pricing"></a>Prezzi
 

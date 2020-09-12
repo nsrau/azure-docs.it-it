@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 07/15/2020
-ms.openlocfilehash: 14a3a76ef4fefb7a33b272b846e1f1cb66644c3e
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 0553cb47ba0119cf1bc5e744b689b6c510ba8396
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88225683"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594357"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Rete virtuale gestita Azure Data Factory (anteprima)
 
@@ -59,7 +59,7 @@ L'endpoint privato usa un indirizzo IP privato nella rete virtuale gestita per p
 > È consigliabile creare endpoint privati gestiti per connettersi a tutte le origini dati di Azure. 
  
 > [!WARNING]
-> Se un archivio dati PaaS (BLOB, ADLS Gen2, SQL DW) dispone di un endpoint privato già creato su di esso e anche se consente l'accesso da tutte le reti, ADF può accedervi solo tramite endpoint privato gestito. Assicurarsi di creare un endpoint privato in questi scenari. 
+> Se un archivio dati PaaS (BLOB, ADLS Gen2, Azure sinapsi Analytics) ha un endpoint privato già creato su di esso e anche se consente l'accesso da tutte le reti, ADF può accedervi solo tramite endpoint privato gestito. Assicurarsi di creare un endpoint privato in questi scenari. 
 
 Quando si crea un endpoint privato gestito in Azure Data Factory, viene creata una connessione all'endpoint privato in stato "in sospeso". Viene avviato un flusso di lavoro di approvazione. Il proprietario della risorsa del collegamento privato ha la responsabilità di approvare la connessione.
 
@@ -83,6 +83,23 @@ Le origini dati seguenti sono supportate per la connessione tramite un collegame
 - SQL di Azure CosmosDB
 - Insieme di credenziali chiave di Azure
 - Servizio di collegamento privato di Azure
+- Ricerca di Azure
+- Database di Azure per MySQL
+- Database di Azure per PostgreSQL
+- Database di Azure per MariaDB
+
+### <a name="supported-regions"></a>Aree supportate
+- Stati Uniti orientali
+- Stati Uniti orientali 2
+- Stati Uniti centro-occidentali
+- West US 2
+- Stati Uniti centro-meridionali
+- Stati Uniti centrali
+- Europa settentrionale
+- Europa occidentale
+- Regno Unito meridionale
+- Asia sud-orientale
+- Australia orientale
 
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicazioni in uscita tramite endpoint pubblico da rete virtuale gestita da ADF
 - Solo la porta 443 è aperta per le comunicazioni in uscita.

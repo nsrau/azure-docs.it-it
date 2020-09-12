@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/18/2020
 ms.author: yelevin
-ms.openlocfilehash: 87ca322cbdfdd8a53a3ecefcb120a961ea1bb936
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f415294c77b743996993f1f00be45e36f9d6002
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77587924"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660674"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Rilevamento avanzato degli attacchi multifase in Sentinel di Azure
 
@@ -51,13 +51,13 @@ I modelli di regole non sono applicabili per il rilevamento degli attacchi multi
 > [!NOTE]
 > Azure Sentinel usa attualmente i dati cronologici per 30 giorni per eseguire il training dei sistemi di machine learning. Questi dati vengono sempre crittografati usando le chiavi di Microsoft mentre passano attraverso la pipeline di machine learning. Tuttavia, i dati di training non vengono crittografati con le [chiavi gestite dal cliente (CMK)](customer-managed-keys.md) se è stato abilitato CMK nell'area di lavoro di Azure Sentinel. Per rifiutare esplicitamente la fusione, passare ad **Azure Sentinel**   \>  **Configuration**   \>  **Analytics \> Active rules \> Advanced MultiStage Attack Detection** e nella colonna **stato** selezionare **Disable (Disabilita).**
 
-## <a name="fusion-using-palo-alto-networks-and-microsoft-defender-atp"></a>Fusion con Palo Alto Networks e Microsoft Defender ATP
+## <a name="fusion-using-palo-alto-networks-and-microsoft-defender-for-endpoint-formerly-microsoft-defender-atp"></a>Fusion using Palo Alto Networks e Microsoft Defender for endpoint (in precedenza Microsoft Defender ATP)
 
-Questi scenari combinano due dei log fondamentali usati dagli analisti della sicurezza: i log del firewall da Palo Alto Networks e i log di rilevamento dei punti finali da Microsoft Defender ATP. In tutti gli scenari elencati di seguito, viene rilevata un'attività sospetta nell'endpoint che coinvolge un indirizzo IP esterno, quindi questo è seguito da un traffico anomalo dall'indirizzo IP esterno al firewall. Nei registri di palo alto, Azure Sentinel si concentra sui [log delle minacce](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs)e il traffico viene considerato sospetto quando sono consentite le minacce (dati sospetti, file, inondazioni, pacchetti, analisi, spyware, URL, virus, vulnerabilità, incendi-virus, incendi).
+Questi scenari combinano due dei log fondamentali usati dagli analisti della sicurezza: i log del firewall da Palo Alto Networks e i log di rilevamento dei punti finali da Microsoft Defender per endpoint. In tutti gli scenari elencati di seguito, viene rilevata un'attività sospetta nell'endpoint che coinvolge un indirizzo IP esterno, quindi questo è seguito da un traffico anomalo dall'indirizzo IP esterno al firewall. Nei registri di palo alto, Azure Sentinel si concentra sui [log delle minacce](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs)e il traffico viene considerato sospetto quando sono consentite le minacce (dati sospetti, file, inondazioni, pacchetti, analisi, spyware, URL, virus, vulnerabilità, incendi-virus, incendi).
 
 ### <a name="network-request-to-tor-anonymization-service-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Richiesta di rete al servizio TOR anonimato dei seguita da traffico anomalo contrassegnato da Palo Alto Networks firewall.
 
-In questo scenario, Sentinel di Azure rileva prima di tutto un avviso che Microsoft Defender Advanced Threat Protection ha rilevato una richiesta di rete a un servizio TOR anonimato dei che causa un'attività anomala. Questa operazione è stata avviata nell'account {nome account} con ID SID {SID} alle {time}. L'indirizzo IP in uscita per la connessione è {IndividualIp}.
+In questo scenario, Azure Sentinel rileva prima di tutto un avviso che Microsoft Defender for endpoint (in precedenza Microsoft Defender per ATP) ha rilevato una richiesta di rete a un servizio TOR anonimato dei che causa un'attività anomala. Questa operazione è stata avviata nell'account {nome account} con ID SID {SID} alle {time}. L'indirizzo IP in uscita per la connessione è {IndividualIp}.
 Quindi, l'attività insolita è stata rilevata dal firewall Palo Alto Networks in {TimeGenerated}. Ciò indica che il traffico dannoso è stato immesso nella rete. l'indirizzo IP di destinazione per il traffico di rete è {DestinationIP}.
 
 Questo scenario è attualmente disponibile in anteprima pubblica.
@@ -65,13 +65,13 @@ Questo scenario è attualmente disponibile in anteprima pubblica.
 
 ### <a name="powershell-made-a-suspicious-network-connection-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>PowerShell ha effettuato una connessione di rete sospetta seguita da traffico anomalo contrassegnato da Palo Alto Networks firewall.
 
-In questo scenario, Sentinel di Azure rileva prima di tutto un avviso che Microsoft Defender Advanced Threat Protection ha rilevato che PowerShell ha rilevato una connessione di rete sospetta che causa un'attività anomala rilevata da un firewall di rete palo alto. Questa operazione è stata avviata dall'account {nome account} con ID SID {SID} alle {time}. L'indirizzo IP in uscita per la connessione è {IndividualIp}. Quindi, l'attività insolita è stata rilevata dal firewall Palo Alto Networks in {TimeGenerated}. Ciò indica che il traffico dannoso è stato inserito nella rete. L'indirizzo IP di destinazione per il traffico di rete è {DestinationIP}.
+In questo scenario, Sentinel di Azure rileva prima di tutto un avviso che Microsoft Defender for endpoint (in precedenza Microsoft Defender per ATP) ha rilevato che PowerShell ha rilevato una connessione di rete sospetta che causa un'attività anomala rilevata da un network firewall di palo alto. Questa operazione è stata avviata dall'account {nome account} con ID SID {SID} alle {time}. L'indirizzo IP in uscita per la connessione è {IndividualIp}. Quindi, l'attività insolita è stata rilevata dal firewall Palo Alto Networks in {TimeGenerated}. Ciò indica che il traffico dannoso è stato inserito nella rete. L'indirizzo IP di destinazione per il traffico di rete è {DestinationIP}.
 
 Questo scenario è attualmente disponibile in anteprima pubblica.
 
 ### <a name="outbound-connection-to-ip-with-a-history-of-unauthorized-access-attempts-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Connessione in uscita a IP con una cronologia di tentativi di accesso non autorizzati seguito da traffico anomalo contrassegnato da Palo Alto Networks firewall
 
-In questo scenario, Sentinel di Azure rileva un avviso che Microsoft Defender Advanced Threat Protection ha rilevato una connessione in uscita a un indirizzo IP con una cronologia dei tentativi di accesso non autorizzati che hanno causato un'attività anomala rilevata dal firewall Palo Alto Networks. Questa operazione è stata avviata dall'account {nome account} con ID SID {SID} alle {time}. L'indirizzo IP in uscita per la connessione è {IndividualIp}. Dopo questa operazione, è stata rilevata un'attività insolita da Palo Alto Networks firewall in {TimeGenerated}. Ciò indica che il traffico dannoso è stato inserito nella rete. L'indirizzo IP di destinazione per il traffico di rete è {DestinationIP}.
+In questo scenario, Sentinel di Azure rileva un avviso che Microsoft Defender for endpoint (noto in precedenza come Microsoft Defender per ATP) ha rilevato una connessione in uscita a un indirizzo IP con una cronologia di tentativi di accesso non autorizzati che causano un'attività anomala rilevata dal firewall Palo Alto Networks. Questa operazione è stata avviata dall'account {nome account} con ID SID {SID} alle {time}. L'indirizzo IP in uscita per la connessione è {IndividualIp}. Dopo questa operazione, è stata rilevata un'attività insolita da Palo Alto Networks firewall in {TimeGenerated}. Ciò indica che il traffico dannoso è stato inserito nella rete. L'indirizzo IP di destinazione per il traffico di rete è {DestinationIP}.
 
 Questo scenario è attualmente disponibile in anteprima pubblica.
 
@@ -97,7 +97,7 @@ Ci sono sette possibili eventi imprevisti di Azure Sentinel che combinano la tra
 
 - **Trasferimento Impossibile a posizioni atipiche che portano alla cassetta postale di Office 365 exfiltration**
     
-    Questo avviso indica un evento di accesso da \<*account name*> un percorso non possibile a un \<*location*> percorso atipico, seguito da una regola di invio della posta in arrivo sospetta impostata nella posta in arrivo di un utente.
+    Questo avviso indica un evento di accesso da \<*account name*>  un percorso non possibile a un \<*location*> percorso atipico, seguito da una regola di invio della posta in arrivo sospetta impostata nella posta in arrivo di un utente.
     
     Questo può indicare che l'account è compromesso e che la cassetta postale viene utilizzata per sottrarre le informazioni dell'organizzazione. L'utente ha \<*account name*> creato o aggiornato una regola di invio della posta in arrivo che invia tutti i messaggi di posta elettronica in arrivo all'indirizzo esterno \<*email address*> .
 

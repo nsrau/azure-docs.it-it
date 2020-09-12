@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/29/2020
+ms.date: 09/09/2020
 ms.author: hirsin
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
 ms:custom: fasttrack-edit
-ms.openlocfilehash: 66855260bd44ef83972fa251d076d0204cba32da
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 2059c473c8429e7498992e26c0a2c90ea835c537
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795238"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646604"
 ---
 # <a name="microsoft-identity-platform-id-tokens"></a>Token ID piattaforma Microsoft Identity
 
@@ -85,6 +85,8 @@ Questo elenco Mostra le attestazioni JWT che si trovano nella maggior parte dei 
 |`unique_name` | string | Fornisce un valore leggibile che identifica l'oggetto del token. Questo valore è univoco in un determinato momento, ma quando è possibile riutilizzare i messaggi di posta elettronica e altri identificatori, questo valore può essere visualizzato nuovamente in altri account e deve pertanto essere utilizzato solo a scopo di visualizzazione. Generato solo negli `id_tokens` v1.0. |
 |`uti` | Stringa opaca | Attestazione interna usata da Azure per riconvalidare i token. Deve essere ignorata. |
 |`ver` | Stringa, 1.0 o 2.0 | Indica la versione dell'id_token. |
+|`hasgroups`|Boolean|Se presente, sempre true, che indica che l'utente è incluso in almeno un gruppo. Usato al posto dell'attestazione Groups per token JWT nei flussi di concessione implicita se l'attestazione dei gruppi completi estenderebbe il frammento URI oltre i limiti di lunghezza dell'URL (attualmente 6 o più gruppi). Indica che il client deve usare l'API Microsoft Graph per determinare i gruppi dell'utente (`https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects`).|
+|`groups:src1`|Oggetto JSON | Per le richieste di token che non hanno un limite di lunghezza (vedere `hasgroups` più indietro), ma sono comunque troppo grandi per il token, verrà incluso un collegamento all'elenco di gruppi completo per l'utente. Per i token JWT come un'attestazione distribuita, per SAML come una nuova attestazione invece dell'attestazione `groups`. <br><br>**Valore token JWT di esempio**: <br> `"groups":"src1"` <br> `"_claim_sources`: `"src1" : { "endpoint" : "https://graph.microsoft.com/v1.0/users/{userID}/getMemberObjects" }`<br><br> Per ulteriori informazioni, vedere [gruppi di attestazione in eccedenza](#groups-overage-claim).|
 
 > [!NOTE]
 > Le id_token v 1.0 e v 2.0 presentano differenze nella quantità di informazioni che verranno riportate come illustrato negli esempi precedenti. La versione è basata sull'endpoint dal quale è stata richiesta. Sebbene le applicazioni esistenti usino probabilmente l'endpoint Azure AD, le nuove applicazioni devono usare l'endpoint della versione 2.0 "piattaforma di identità Microsoft".
@@ -102,6 +104,26 @@ Per archiviare correttamente le informazioni per utente, usare `sub` o `oid` da 
 > Non usare l' `idp` attestazione per archiviare le informazioni relative a un utente nel tentativo di correlare gli utenti tra i tenant.  Non funzionerà, poiché le `oid` `sub` attestazioni e per un utente cambiano tra i tenant, da progettazione, per garantire che le applicazioni non possano tenere traccia degli utenti tra i tenant.  
 >
 > Gli scenari Guest, in cui un utente è ospitato in un tenant, ed esegue l'autenticazione in un altro, devono considerare l'utente come un nuovo utente del servizio.  I documenti e i privilegi nel tenant Contoso non devono essere applicati al tenant di Fabrikam. Questo è importante per evitare la perdita accidentale dei dati tra i tenant.
+
+### <a name="groups-overage-claim"></a>Attestazione di eccedenza dei gruppi
+Per assicurarsi che le dimensioni del token non superino i limiti delle dimensioni dell'intestazione HTTP, Azure AD limita il numero di ID oggetto inclusi nell' `groups` attestazione. Se un utente è membro di più gruppi rispetto al limite di eccedenza (150 per i token SAML, 200 per i token JWT), Azure AD non emette l'attestazione basata su gruppi nel token. Include invece un'attestazione di eccedenza nel token, che indica all'applicazione di eseguire una query sull'API Microsoft Graph per recuperare l'appartenenza al gruppo dell'utente.
+
+```json
+{
+  ...
+  "_claim_names": {
+   "groups": "src1"
+    },
+    {
+  "_claim_sources": {
+    "src1": {
+        "endpoint":"[Url to get this user's group membership from]"
+        }
+       }
+     }
+  ...
+ }
+```
 
 ## <a name="validating-an-id_token"></a>Convalida di un id_token
 

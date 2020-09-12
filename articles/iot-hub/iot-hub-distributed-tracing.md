@@ -11,12 +11,14 @@ ms.author: jlian
 ms.custom:
 - amqp
 - mqtt
-ms.openlocfilehash: 2b1dc7873140f885ec3efac11dec5fbf6aab7aa9
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+- fasttrack-edit
+- iot
+ms.openlocfilehash: 3e3dd49c622c1a35571fdb53af470789dc9a26bb
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81732568"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462037"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>Tracciare i messaggi da un dispositivo al cloud di Azure IoT con la traccia distribuita (anteprima)
 
@@ -39,7 +41,7 @@ In questo articolo si usa [Azure IoT SDK per dispositivi per C](iot-hub-device-s
 
   - **Europa settentrionale**
   - **Asia sud-orientale**
-  - **Stati Uniti occidentali 2**
+  - **West US 2**
 
 - Questo articolo presuppone che si abbia familiarità con l'invio di messaggi di telemetria a un hub IoT. Assicurarsi di aver completato i passaggi descritti in [Avvio rapido per l'invio dei dati di telemetria in C](quickstart-send-telemetry-c.md).
 
@@ -307,10 +309,10 @@ Dopo l'abilitazione, il supporto della traccia distribuita per l'hub IoT seguir�
 
 1. Viene generato un messaggio nel dispositivo IoT.
 1. Il dispositivo IoT decide (con l'aiuto del cloud) che il messaggio deve essere assegnato con un contesto di traccia.
-1. L'SDK aggiunge `tracestate` alla proprietà dell'applicazione del messaggio, che contiene il timestamp di creazione del messaggio.
+1. L'SDK aggiunge un `tracestate` alla proprietà Message contenente il timestamp di creazione del messaggio.
 1. Il dispositivo IoT invia il messaggio all'hub IoT.
 1. Il messaggio arriva al gateway dell'hub IoT.
-1. L'hub IoT cerca `tracestate` nelle proprietà dell'applicazione del messaggio e verifica che sia nel formato corretto.
+1. L'hub Internet ricerca le informazioni `tracestate` nelle proprietà del messaggio e verifica se il formato è corretto.
 1. In tal caso, l'hub Internet genera un univoco globale `trace-id` per il messaggio, un `span-id` per il "hop" e li registra nei log di diagnostica di monitoraggio di Azure durante l'operazione `DiagnosticIoTHubD2C` .
 1. Al termine dell'elaborazione del messaggio, l'hub Internet genera un altro `span-id` e lo registra insieme a quello esistente `trace-id` sotto l'operazione `DiagnosticIoTHubIngress` .
 1. Se è abilitato il routing del messaggio, l'hub IoT lo scrive nell'endpoint personalizzato e registra un altro `span-id` con lo stesso `trace-id` nella categoria `DiagnosticIoTHubEgress`.

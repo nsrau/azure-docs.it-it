@@ -11,12 +11,12 @@ ms.date: 04/19/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: d7fa9336a7a90ab73d3dc60c6c865ebadfb2af1e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ddb6dbde941d5a2f399aba55eec415c879e74384
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85213500"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461206"
 ---
 # <a name="optimizing-transactions-in-synapse-sql"></a>Ottimizzazione delle transazioni in sinapsi SQL
 
@@ -72,7 +72,7 @@ CTAS e INSERT...SELECT sono entrambe operazioni di caricamento bulk. Tuttavia, e
 | Heap |Qualsiasi |**Minima** |
 | Indice cluster |Tabella di destinazione vuota |**Minima** |
 | Indice cluster |Le righe caricate non si sovrappongono alle pagine esistenti nella destinazione |**Minima** |
-| Indice cluster |Le righe caricate si sovrappongono alle pagine esistenti nella destinazione |Completo |
+| Indice cluster |Le righe caricate si sovrappongono alle pagine esistenti nella destinazione |Full |
 | Indice columnstore cluster |Dimensioni batch >= 102.400 per ogni distribuzione allineata alle partizioni |**Minima** |
 | Indice columnstore cluster |Dimensioni batch < 102.400 per ogni distribuzione allineata alle partizioni |Full |
 
@@ -419,4 +419,4 @@ Lo scenario migliore sarebbe consentire il completamento delle transazioni di mo
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Vedere [transazioni in sinapsi SQL](sql-data-warehouse-develop-transactions.md) per altre informazioni sui livelli di isolamento e sui limiti transazionali.  Per una panoramica delle altre procedure consigliate, vedere [Procedure consigliate per SQL Data Warehouse](sql-data-warehouse-best-practices.md).
+Vedere [transazioni in sinapsi SQL](sql-data-warehouse-develop-transactions.md) per altre informazioni sui livelli di isolamento e sui limiti transazionali.  Per una panoramica delle altre procedure consigliate, vedere procedure consigliate per l' [analisi delle sinapsi di Azure](sql-data-warehouse-best-practices.md).

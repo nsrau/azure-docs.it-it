@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdiseo17may2017,seoapr2020
 ms.date: 04/27/2020
-ms.openlocfilehash: d642397ef42227e530bd9eff14c3da6078241281
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: b678e4de76619ff17703caecfa7a52682e835674
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085872"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462565"
 ---
 # <a name="upload-data-for-apache-hadoop-jobs-in-hdinsight"></a>Caricare dati per processi Apache Hadoop in HDInsight
 
@@ -31,7 +31,7 @@ Prima di iniziare, tenere presenti i requisiti seguenti:
 
 ## <a name="upload-data-to-azure-storage"></a>Caricare i dati in Archiviazione di Azure
 
-### <a name="utilities"></a>Servizi pubblici
+### <a name="utilities"></a>Utilità
 
 Microsoft fornisce le utilità seguenti da usare con Archiviazione di Azure:
 
@@ -58,17 +58,17 @@ Dopo essersi connessi, è possibile usare la sintassi seguente per caricare un f
 hadoop fs -copyFromLocal <localFilePath> <storageFilePath>
 ```
 
-Ad esempio: `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
+Ad esempio, usare `hadoop fs -copyFromLocal data.txt /example/data/data.txt`
 
 Poiché il file system predefinito per HDInsight è in archiviazione di Azure,/example/data/data.txt è in realtà in archiviazione di Azure. È inoltre possibile fare riferimento al file come segue:
 
 `wasbs:///example/data/data.txt`
 
-o
+oppure
 
 `wasbs://<ContainerName>@<StorageAccountName>.blob.core.windows.net/example/data/davinci.txt`
 
-Per un elenco di altri comandi Hadoop che funzionano con i file, vedere[https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
+Per un elenco di altri comandi Hadoop che funzionano con i file, vedere [https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html](https://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/FileSystemShell.html)
 
 > [!WARNING]  
 > Nei cluster Apache HBase la dimensione di blocco predefinita usata per la scrittura dei dati è 256 KB. Questa impostazione non costituisce un problema quando si usano API HBase o REST, ma l'uso dei comandi `hadoop` o `hdfs dfs` per scrivere dati di dimensioni superiori a ~12 GB provoca un errore. Per altre informazioni, vedere [eccezione di archiviazione per la scrittura nel BLOB](hdinsight-troubleshoot-hdfs.md#storage-exception-for-write-on-blob).
@@ -88,7 +88,7 @@ Esistono diverse applicazioni che forniscono un'interfaccia grafica per usare Ar
 
 ## <a name="mount-azure-storage-as-local-drive"></a>Montare Archiviazione di Azure come unità locale
 
-Vedere [Montare Archiviazione di Azure come unità locale](https://blogs.msdn.com/b/bigdatasupport/archive/2014/01/09/mount-azure-blob-storage-as-local-drive.aspx).
+Vedere [Montare Archiviazione di Azure come unità locale](https://docs.microsoft.com/archive/blogs/bigdatasupport/mount-azure-blob-storage-as-local-drive).
 
 ## <a name="upload-using-services"></a>Caricamento tramite servizi
 

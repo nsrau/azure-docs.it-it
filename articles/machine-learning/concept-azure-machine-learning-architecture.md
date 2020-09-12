@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: c3abd6a57eac851a5440ecdef6185cb310305434
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: c24e9f58154b1523496a82761a8c48ba06dea46c
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146777"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651264"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Modalità di funzionamento di Azure Machine Learning: Architettura e concetti
 
@@ -110,7 +110,7 @@ Ad esempio, eseguire le configurazioni, vedere [usare una destinazione di calcol
 
 ### <a name="estimators"></a>Oggetti estimator
 
-Per facilitare il training dei modelli con i framework più diffusi, la classe di stima consente di costruire facilmente configurazioni di esecuzione. È possibile creare e usare un oggetto [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py) generico per inviare script di training che usano qualsiasi framework di apprendimento scelto, ad esempio scikit-learn.
+Per facilitare il training dei modelli con i framework più diffusi, la classe di stima consente di costruire facilmente configurazioni di esecuzione. È possibile creare e usare un oggetto [Estimator](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py&preserve-view=true) generico per inviare script di training che usano qualsiasi framework di apprendimento scelto, ad esempio scikit-learn.
 
 Per altre informazioni sugli estimatori, vedere [training di modelli ml con estimatori](how-to-train-ml-models.md).
 
@@ -123,7 +123,9 @@ Quando si invia un'esecuzione, Azure Machine Learning consente di comprimere la 
 
 ### <a name="logging"></a>Registrazione
 
-Quando si sviluppa la soluzione, usare Python SDK di Azure Machine Learning nello script di Python per registrare metriche arbitrarie. Dopo l'esecuzione, eseguire query sulle metriche per determinare se l'esecuzione ha prodotto il modello che si desidera distribuire.
+Azure Machine Learning registra automaticamente le metriche di esecuzione standard. Tuttavia, è anche possibile [usare Python SDK per registrare metriche arbitrarie](how-to-track-experiments.md).
+
+Sono disponibili diversi modi per visualizzare i log: il monitoraggio dello stato di esecuzione in tempo reale o la visualizzazione dei risultati dopo il completamento. Per altre informazioni, vedere [monitorare e visualizzare i log di esecuzione di ml](how-to-monitor-view-training-logs.md).
 
 
 > [!NOTE]
@@ -189,6 +191,17 @@ Se è stata abilitata la scalabilità automatica, la distribuzione verrà ridime
 
 Per un esempio di distribuzione di un modello come servizio Web, vedere [Distribuire un modello di classificazione delle immagini in Istanze di Azure Container](tutorial-deploy-models-with-aml.md).
 
+#### <a name="real-time-endpoints"></a>Endpoint in tempo reale
+
+Quando si distribuisce un modello sottoposto a training nella finestra di progettazione (anteprima), è possibile [distribuire il modello come endpoint in tempo reale](tutorial-designer-automobile-price-deploy.md). Un endpoint in tempo reale riceve una singola richiesta tramite l'endpoint REST e restituisce una stima in tempo reale. Questo si differenzia dall'elaborazione batch, che elabora contemporaneamente più valori e salva i risultati dopo il completamento in un archivio dati.
+
+#### <a name="pipeline-endpoints"></a>Endpoint della pipeline
+
+Gli endpoint della pipeline consentono di chiamare le [pipeline di ml](#ml-pipelines) a livello tramite un endpoint REST. Gli endpoint della pipeline consentono di automatizzare i flussi di lavoro della pipeline.
+
+Un endpoint della pipeline è una raccolta di pipeline pubblicate. Questa organizzazione logica consente di gestire e chiamare più pipeline utilizzando lo stesso endpoint. Ogni pipeline pubblicata in un endpoint della pipeline è con versione. È possibile selezionare una pipeline predefinita per l'endpoint o specificare una versione nella chiamata REST.
+ 
+
 #### <a name="iot-module-endpoints"></a>Endpoint del modulo IoT
 
 Un endpoint del modulo IoT distribuito è un contenitore Docker che include il modello, lo script/associazione associato e qualsiasi altra dipendenza. Questi moduli vengono distribuiti tramite Azure IoT Edge nei dispositivi perimetrali.
@@ -212,12 +225,13 @@ I passaggi della pipeline sono riutilizzabili e possono essere eseguiti senza ri
 
 ### <a name="studio"></a>Studio
 
-[Azure Machine Learning Studio](https://ml.azure.com) fornisce una visualizzazione Web di tutti gli elementi nell'area di lavoro.  È possibile visualizzare i risultati e i dettagli di set di dati, esperimenti, pipeline, modelli ed endpoint.  È anche possibile gestire le risorse di calcolo e gli archivi dati in studio.
+[Azure Machine Learning Studio](overview-what-is-machine-learning-studio.md) fornisce una visualizzazione Web di tutti gli elementi nell'area di lavoro.  È possibile visualizzare i risultati e i dettagli di set di dati, esperimenti, pipeline, modelli ed endpoint.  È anche possibile gestire le risorse di calcolo e gli archivi dati in studio.
 
 Studio consente anche di accedere agli strumenti interattivi che fanno parte di Azure Machine Learning:
 
 + [Progettazione Azure Machine Learning (anteprima)](concept-designer.md) per eseguire i passaggi del flusso di lavoro senza scrivere codice
 + Esperienza Web per [Machine Learning automatizzato](concept-automated-ml.md)
++ [Azure Machine Learning notebook](how-to-run-jupyter-notebooks.md) per scrivere ed eseguire il proprio codice in server Jupyter notebook integrati.
 + [Assegnazione di etichette ai progetti](how-to-create-labeling-projects.md) per creare, gestire e monitorare i progetti per etichettare i dati
 
 ### <a name="programming-tools"></a>Strumenti di programmazione
@@ -226,7 +240,7 @@ Studio consente anche di accedere agli strumenti interattivi che fanno parte di 
 > Gli strumenti contrassegnati (anteprima) di seguito sono attualmente disponibili in anteprima pubblica.
 > La versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-+  Interagire con il servizio in qualsiasi ambiente Python con l'[SDK Azure Machine Learning per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
++  Interagire con il servizio in qualsiasi ambiente Python con l'[SDK Azure Machine Learning per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 + Interagisci con il servizio in qualsiasi ambiente R con [Azure Machine Learning SDK per r](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (anteprima).
 + Usare [Azure Machine Learning interfaccia](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) della riga di comando per l'automazione.
 + L’[acceleratore di soluzione molti modelli](https://aka.ms/many-models) (anteprima) si basa su Azure Machine Learning consente di eseguire il training, utilizzare e gestire centinaia o addirittura migliaia di modelli di Machine Learning.

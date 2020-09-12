@@ -10,18 +10,18 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.openlocfilehash: 2b106a28514179d9be43b3c56ea8030eaf7ba13f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 294652a42d3b6a2468f024ce7ebdbdfc3615f9e1
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87494996"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647877"
 ---
 # <a name="use-stored-procedures-in-sql-pool"></a>Usare stored procedure nel pool SQL
 
 Suggerimenti per l'implementazione di stored procedure nel pool SQL sinapsi (data warehouse) per lo sviluppo di soluzioni.
 
-## <a name="what-to-expect"></a>Cosa aspettarsi
+## <a name="what-to-expect"></a>Risultati previsti
 
 Il pool SQL supporta molte delle funzionalità T-SQL usate in SQL Server. Ancora più importanti sono le funzionalità di scale-out specifiche, che si possono usare per migliorare le prestazioni della soluzione.
 
@@ -62,7 +62,7 @@ Se la seconda routine esegue poi istruzioni in SQL dinamico, il livello di annid
 ```sql
 CREATE PROCEDURE prc_nesting_2
 AS
-EXEC sp_executesql 'SELECT 'another nest level'  -- This call is nest level 2
+EXEC sp_executesql N'SELECT ''another nest level'''  -- This call is nest level 2
 GO
 EXEC prc_nesting
 ```

@@ -3,12 +3,12 @@ title: Aggiornare un'assegnazione esistente dal portale
 description: Informazioni sul meccanismo per l'aggiornamento di un'assegnazione di progetto esistente dal portale nei progetti di Azure.
 ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 888ebbf0149f8f75f867bb17115988cb20d25df2
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: ddaac8110885d817bc96745965c1af7e522b1919
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051424"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651383"
 ---
 # <a name="how-to-update-an-existing-blueprint-assignment"></a>Come aggiornare un'assegnazione di progetto esistente
 
@@ -26,17 +26,17 @@ Quando viene assegnato un progetto, l'assegnazione può essere aggiornata. Esist
 
 1. Nell'elenco dei progetti selezionare l'assegnazione del progetto. Usare quindi il pulsante di **assegnazione aggiornamento** oppure fare clic con il pulsante destro del mouse sull'assegnazione del progetto e selezionare **Aggiorna assegnazione**.
 
-   :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Aggiornare un'assegnazione di progetto esistente" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/update-assignment.png" alt-text="Screenshot della pagina assegnazione progetto con il pulsante ' assegnazione aggiornamento ' evidenziato." border="false":::
 
 1. La pagina **assegna progetto** carica precompilata con tutti i valori dall'assegnazione originale. È possibile modificare la **versione della definizione di progetto**, lo stato di **Blocca assegnazione** e i parametri dinamici presenti nella definizione del progetto. Al termine delle modifiche, selezionare **assegna** .
 
 1. Nella pagina dei dettagli dell'assegnazione aggiornata, vedere il nuovo stato. In questo esempio, è stato aggiunto il parametro **Blocco** all'assegnazione.
 
-   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="È stata aggiornata una modalità di blocco assegnazione progetto esistente modificata" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/updated-assignment.png" alt-text="Screenshot di un'assegnazione di progetto aggiornata che mostra la modalità di blocco modificata." border="false":::
 
 1. Esplorare i dettagli relativi ad altre **operazioni di assegnazione** usando l'elenco a discesa. La tabella di **risorse gestite** viene aggiornata dall'operazione di assegnazione selezionata.
 
-   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Operazioni di assegnazione di un'assegnazione di progetto" border="false":::
+   :::image type="content" source="../media/update-existing-assignments/assignment-operations.png" alt-text="Screenshot di un'assegnazione di progetto aggiornata che mostra le operazioni di assegnazione e il relativo stato." border="false":::
 
 ## <a name="rules-for-updating-assignments"></a>Regole per l'aggiornamento delle assegnazioni
 

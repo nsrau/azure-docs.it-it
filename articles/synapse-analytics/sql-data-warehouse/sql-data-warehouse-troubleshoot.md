@@ -11,12 +11,12 @@ ms.date: 02/04/2019
 ms.author: kevin
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 44755ab13b95db1ffec8183d00a4054e291c5a50
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: bce5e14db133ad55a2035c0c8074486ed1b8a6ec
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039025"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460508"
 ---
 # <a name="troubleshooting-synapse-sql-in-azure-synapse-analytics"></a>Risoluzione dei problemi relativi a Synapse SQL in Azure Synapse Analytics
 
@@ -37,7 +37,7 @@ Questo articolo illustra la risoluzione dei problemi comuni in Synapse SQL.
 | Problema                                                        | Risoluzione                                                   |
 | :----------------------------------------------------------- | :----------------------------------------------------------- |
 | In Esplora oggetti di Visual Studio mancano utenti di Azure AD           | Questo è un problema noto  Come soluzione alternativa è possibile visualizzare gli utenti in [sys.database_principals](/sql/relational-databases/system-catalog-views/sys-database-principals-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).  Per altre informazioni sull'uso di Azure Active Directory con il pool SQL Synapse, vedere [Autenticazione in Azure Synapse](sql-data-warehouse-authentication.md). |
-| L'esecuzione manuale di script, l'uso della creazione guidata script o la connessione tramite SSMS sono lenti, si bloccano o generano errori | Assicurarsi che gli utenti siano stati creati nel database master. Nelle opzioni di scripting, assicurarsi inoltre che l'edizione del motore impostata sia "Edizione Microsoft Azure SQL Data Warehouse" e che il tipo di motore sia "Database SQL di Microsoft Azure". |
+| L'esecuzione manuale di script, l'uso della creazione guidata script o la connessione tramite SSMS sono lenti, si bloccano o generano errori | Assicurarsi che gli utenti siano stati creati nel database master. In opzioni di scripting verificare anche che l'edizione del motore sia impostata come "Microsoft Azure sinapsi Analytics Edition" e che il tipo di motore sia "database SQL di Microsoft Azure". |
 | Errore della generazione di script in SSMS                               | La generazione di uno script per il pool SQL Synapse ha esito negativo se l'opzione "Genera script per oggetti dipendenti" è impostata su "True". Per risolvere il problema, gli utenti devono passare manualmente a **Strumenti -> Opzioni -> Esplora oggetti di SQL Server -> Genera script per oggetti dipendenti e impostare l'opzione su false** |
 
 ## <a name="performance"></a>Prestazioni

@@ -2,19 +2,19 @@
 title: Abilitazione di Gestione aggiornamenti di Automazione di Azure da un account di Automazione
 description: Questo articolo illustra come abilitare Gestione aggiornamenti da un account di Automazione.
 services: automation
-ms.date: 07/28/2020
+ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: mvc
-ms.openlocfilehash: 930861c61843c5963c83d8fa6dc1efdce20853f4
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 787338be06c2e30aabb6421a42e7cb3aaabf8a2a
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87450658"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669500"
 ---
 # <a name="enable-update-management-from-an-automation-account"></a>Abilitare Gestione aggiornamenti da un account di Automazione
 
-Questo articolo descrive come usare il proprio account di Automazione per abilitare la funzionalità [Gestione aggiornamenti](update-mgmt-overview.md) per le macchine virtuali dell'ambiente. Per abilitare le macchine virtuali di Azure su larga scala, è necessario abilitare una macchina virtuale esistente usando Gestione aggiornamenti.
+Questo articolo descrive come usare l'account di automazione per abilitare la funzionalità [Gestione aggiornamenti](update-mgmt-overview.md) per le macchine virtuali nell'ambiente, inclusi i computer o i server registrati con i [server abilitati per Azure Arc](../../azure-arc/servers/overview.md) (anteprima). Per abilitare le macchine virtuali di Azure su larga scala, è necessario abilitare una macchina virtuale di Azure esistente usando Gestione aggiornamenti.
 
 > [!NOTE]
 > Quando si abilita Gestione aggiornamenti, sono supportate solo determinate aree per il collegamento di un'area di lavoro Log Analytics e un account di Automazione. Per un elenco delle coppie di mapping supportate, vedere [Mapping delle aree per l'account di Automazione e l'area di lavoro Log Analytics](../how-to/region-mappings.md).
@@ -23,7 +23,7 @@ Questo articolo descrive come usare il proprio account di Automazione per abilit
 
 * Sottoscrizione di Azure. Se non si ha ancora una sottoscrizione, è possibile [attivare i vantaggi dell'abbonamento MSDN](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) oppure iscriversi per ottenere un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * [Account di Automazione](../index.yml) per gestire i computer.
-* Una [macchina virtuale](../../virtual-machines/windows/quick-create-portal.md).
+* Una [macchina virtuale di Azure](../../virtual-machines/windows/quick-create-portal.md)o una VM o un server registrato con i server abilitati per Arc (anteprima). Per le macchine virtuali o i server non di Azure è necessario che l' [agente di log Analytics](../../azure-monitor/platform/log-analytics-agent.md) per Windows o Linux sia installato e che la creazione di report nell'area di lavoro collegata all'account di automazione gestione aggiornamenti sia abilitata in. L'agente può essere installato nei server abilitati per Arc distribuendo [azure log Analytics VM Extension](../../azure-arc/servers/manage-vm-extensions.md) con Azure Arc.
 
 ## <a name="sign-in-to-azure"></a>Accedere ad Azure
 
@@ -65,16 +65,21 @@ I computer installati manualmente o che inviano già report all'area di lavoro d
 
     ![Ricerche salvate](media/update-mgmt-enable-automation-account/managemachines.png)
 
-3. Per abilitare Gestione aggiornamenti per tutti i computer disponibili selezionare **Abilita in tutti i computer disponibili** nella pagina Gestisci computer. Con questa azione viene disabilitato il controllo per aggiungere computer singolarmente. Questa attività aggiunge tutti i nomi dei computer che inviano report all'area di lavoro alla query di ricerca salvata nel gruppo di computer. Se l'opzione è selezionata, il pulsante **Gestisci computer** viene disabilitato.
+3. Per abilitare Gestione aggiornamenti per tutti i computer disponibili che inviano report all'area di lavoro, selezionare **Abilita in tutti i computer disponibili** nella pagina Gestisci computer. Con questa azione viene disabilitato il controllo per aggiungere computer singolarmente. Questa attività aggiunge tutti i nomi dei computer che inviano report all'area di lavoro alla query di ricerca salvata nel gruppo di computer `MicrosoftDefaultComputerGroup` . Se l'opzione è selezionata, il pulsante **Gestisci computer** viene disabilitato.
 
-4. Per abilitare la funzionalità per tutti i computer disponibili e per tutti i computer futuri, selezionare **Abilita in tutti i computer disponibili e futuri**. Questa opzione elimina le ricerche salvate e le configurazioni dell'ambito dall'area di lavoro e avvia la funzionalità per tutti i computer Azure e non Azure che inviano report all'area di lavoro. Se selezionata, questa azione disabilita il pulsante **Gestisci computer** in modo permanente perché non è più presente alcuna configurazione dell'ambito.
+4. Per abilitare la funzionalità per tutti i computer disponibili e per tutti i computer futuri, selezionare **Abilita in tutti i computer disponibili e futuri**. Questa opzione Elimina la configurazione di ricerca e ambito salvata dall'area di lavoro e consente alla funzionalità di includere tutti i computer Azure e non Azure attualmente o in futuro, che possono essere segnalati all'area di lavoro. Quando questa opzione è selezionata, il pulsante **Gestisci computer** viene disabilitato in modo permanente, perché non è disponibile alcuna configurazione dell'ambito.
 
-5. Se necessario è possibile aggiungere di nuovo le configurazioni dell'ambito aggiungendo nuovamente le ricerche salvate iniziali. Per altre informazioni, vedere [Limitare l'ambito di distribuzione di Gestione aggiornamenti](update-mgmt-scope-configuration.md).
+    > [!NOTE]
+    > Poiché questa opzione Elimina le ricerche salvate e le configurazioni dell'ambito all'interno Log Analytics, è importante rimuovere i blocchi di eliminazione nell'area di lavoro Log Analytics prima di selezionare questa opzione. In caso contrario, l'opzione non riuscirà a rimuovere le configurazioni ed è necessario rimuoverle manualmente.
+
+5. Se necessario, è possibile aggiungere di nuovo le configurazioni dell'ambito aggiungendo nuovamente la query di ricerca salvata iniziale. Per altre informazioni, vedere [Limitare l'ambito di distribuzione di Gestione aggiornamenti](update-mgmt-scope-configuration.md).
 
 6. Per abilitare la funzionalità per uno o più computer, selezionare **Abilita nei computer selezionati** e selezionare **Aggiungi** accanto a ogni computer. Questa attività aggiunge i nomi dei computer selezionati alla query di ricerca salvata nel gruppo di computer per la funzionalità.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Per usare Gestione aggiornamenti per le macchine virtuali, vedere [gestire gli aggiornamenti e le patch per le macchine virtuali](update-mgmt-manage-updates-for-vm.md).
+
+* Quando non è più necessario gestire macchine virtuali o server con Gestione aggiornamenti, vedere [rimuovere VM da Gestione aggiornamenti](update-mgmt-remove-vms.md).
 
 * Per risolvere gli errori generali di Gestione aggiornamenti, vedere [Risolvere i problemi relativi a Gestione aggiornamenti](../troubleshoot/update-management.md).

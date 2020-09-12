@@ -14,12 +14,12 @@ ms.date: 01/04/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 1359acfb768f7ac2fa3527afd041595d313249d0
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8d1dedfcd4a93446b615d84e86666059fd210c18
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669240"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89485754"
 ---
 # <a name="use-azure-quickstart-templates-to-configure-an-availability-group-for-sql-server-on-azure-vm"></a>Usare modelli di avvio rapido di Azure per configurare un gruppo di disponibilità per SQL Server in una macchina virtuale di Azure
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -49,7 +49,7 @@ Per configurare il gruppo di disponibilità Always On usando i modelli di avvio 
 - L'account utente di dominio che controlla SQL Server. 
 
 
-## <a name="step-1-create-the-failover-cluster-and-join-sql-server-vms-to-the-cluster-by-using-a-quickstart-template"></a>Passaggio 1: Creare il cluster di failover e aggiungere a esso VM di SQL Server usando il modello di avvio rapido 
+## <a name="create-cluster"></a>Creare cluster
 Dopo aver registrato le VM di SQL Server per il provider di risorse di macchine virtuali di SQL, è possibile aggiungere tali macchine virtuali in *SqlVirtualMachineGroups*. Questa risorsa definisce i metadati del cluster di failover di Windows, tra cui versione, edizione, nome di dominio completo, account Active Directory per gestire sia il cluster sia l'istanza di SQL Server e l'account di archiviazione come cloud di controllo. 
 
 L'aggiunta delle macchine virtuali di SQL Server al gruppo di risorse *SqlVirtualMachineGroups* esegue il bootstrap del servizio Cluster di failover di Windows per creare il cluster e quindi aggiunge le macchine virtuali di SQL Server a tale cluster. Questo passaggio viene automatizzato con il modello di avvio rapido **101-sql-vm-ag-setup**. È possibile procedere con l'implementazione seguendo questa procedura:
@@ -83,14 +83,26 @@ L'aggiunta delle macchine virtuali di SQL Server al gruppo di risorse *SqlVirtua
 > Le credenziali specificate durante la distribuzione del modello vengono archiviate solo per la durata della distribuzione. Al termine della distribuzione, le password vengono rimosse. Se si aggiungono altre VM di SQL Server al cluster, verrà richiesto di fornirle nuovamente. 
 
 
-## <a name="step-2-manually-create-the-availability-group"></a>Passaggio 2: Creare manualmente il gruppo di disponibilità 
+
+## <a name="validate-cluster"></a>Convalida cluster 
+
+Affinché un cluster di failover sia supportato da Microsoft, deve superare la convalida del cluster. Connettersi alla macchina virtuale usando il metodo preferito, ad esempio Remote Desktop Protocol (RDP) e verificare che il cluster superi la convalida prima di procedere. In caso contrario, il cluster rimane in uno stato non supportato. 
+
+È possibile convalidare il cluster usando Gestione cluster di failover (FCM) o il comando di PowerShell seguente:
+
+   ```powershell
+   Test-Cluster –Node ("<node1>","<node2>") –Include "Inventory", "Network", "System Configuration"
+   ```
+
+
+## <a name="create-availability-group"></a>Creare un gruppo di disponibilità 
 Creare manualmente il gruppo di disponibilità come di consueto, usando [SQL Server Management Studio](/sql/database-engine/availability-groups/windows/use-the-availability-group-wizard-sql-server-management-studio), [PowerShell](/sql/database-engine/availability-groups/windows/create-an-availability-group-sql-server-powershell) o [Transact-SQL](/sql/database-engine/availability-groups/windows/create-an-availability-group-transact-sql). 
 
 >[!IMPORTANT]
 > *Non* creare un listener in questo momento perché non viene eseguito automaticamente dal modello di avvio rapido **101-sql-vm-aglistener-setup** nel passaggio 4. 
 
-## <a name="step-3-manually-create-the-internal-load-balancer"></a>Passaggio 3: Creare manualmente il servizio di bilanciamento del carico interno (ILB)
-Il listener del gruppo di disponibilità Always On richiede un'istanza interna di Azure Load Balancer. Il bilanciamento del carico interno fornisce un indirizzo IP "mobile" per il listener del gruppo di disponibilità che consente la riconnessione e failover più rapido. Se le VM di SQL Server in un gruppo di disponibilità fanno parte dello stesso set di disponibilità, è possibile usare un'istanza di Load Balancer Basic. In caso contrario, è necessario usare Load Balancer Standard. 
+## <a name="create-load-balancer"></a>Creare un servizio di bilanciamento del carico
+Il listener del gruppo di disponibilità AlwaysOn richiede un'istanza interna di Azure Load Balancer. Il bilanciamento del carico interno specifica un indirizzo IP "mobile" per il listener del gruppo di disponibilità che consente la riconnessione e il failover più rapidi. Se le VM di SQL Server in un gruppo di disponibilità fanno parte dello stesso set di disponibilità, è possibile usare Load Balancer Basic. In caso contrario, è necessario usare Load Balancer Standard. 
 
 > [!IMPORTANT]
 > Il servizio di bilanciamento del carico interno deve trovarsi nella stessa rete virtuale delle istanze di VM SQL Server. 
@@ -103,7 +115,7 @@ Il listener del gruppo di disponibilità Always On richiede un'istanza interna d
 4. Nel pannello **Bilanciamento del carico** selezionare **Crea**.
 5. Bella finestra di dialogo **Crea servizio di bilanciamento del carico** configurare il servizio di bilanciamento del carico come segue:
 
-   | Impostazione | valore |
+   | Impostazione | Valore |
    | --- | --- |
    | **Nome** |Immettere un nome di testo che rappresenti il bilanciamento del carico. Immettere ad esempio **sqlLB**. |
    | **Tipo** |**Interna**: La maggior parte delle implementazioni usa un servizio di bilanciamento del carico interno, che consente alle applicazioni all'interno della stessa rete virtuale di connettersi al gruppo di disponibilità.  </br> **Esterna**: consente alle applicazioni di connettersi al gruppo di disponibilità tramite una connessione Internet pubblica. |
@@ -122,7 +134,7 @@ Il listener del gruppo di disponibilità Always On richiede un'istanza interna d
 >[!IMPORTANT]
 > La risorsa IP pubblico per ogni VM di SQL Server deve avere uno SKU Standard per essere compatibile con Load Balancer Standard. Per determinare lo SKU della risorsa IP pubblico della VM, andare a **Gruppo di risorse**, selezionare la risorsa **Indirizzo IP pubblico** per la VM di SQL Server e individuare il valore in **SKU**  nel pannello **Panoramica**. 
 
-## <a name="step-4-create-the-availability-group-listener-and-configure-the-internal-load-balancer-by-using-the-quickstart-template"></a>Passaggio 4: Creare il listener del gruppo di disponibilità e configurare il servizio di bilanciamento del carico interno usando il modello di avvio rapido.
+## <a name="create-listener"></a>Creare un listener 
 
 Creare il listener del gruppo di disponibilità e configurare il servizio di bilanciamento del carico interno usando il modello di avvio rapido **101-sql-vm-aglistener-setup**. Il modello effettua il provisioning della risorsa Microsoft.SqlVirtualMachine/SqlVirtualMachineGroups/AvailabilityGroupListener. Il modello di avvio rapido**101-sql-vm-aglistener-setup**, tramite il provider di risorse di macchine virtuali SQL, esegue le azioni seguenti:
 
@@ -159,9 +171,9 @@ Per configurare il servizio di bilanciamento del carico interno e creare il list
 1. Per monitorare la distribuzione, selezionare la distribuzione dall'icona a forma di campanello **Notifiche** nel banner di spostamento superiore o passare a **Gruppo di risorse** nel portale di Azure. Selezionare **Distribuzioni** in **Impostazioni** e scegliere la distribuzione **Microsoft.Template**. 
 
 >[!NOTE]
->Se la distribuzione si interrompe a metà, sarà necessario [rimuovere il listener appena creato](#remove-the-availability-group-listener) manualmente tramite PowerShell prima di ridistribuire il modello di avvio rapido **101-sql-vm-aglistener-setup**. 
+>Se la distribuzione si interrompe a metà, sarà necessario [rimuovere il listener appena creato](#remove-listener) manualmente tramite PowerShell prima di ridistribuire il modello di avvio rapido **101-sql-vm-aglistener-setup**. 
 
-## <a name="remove-the-availability-group-listener"></a>Rimuovere il listener del gruppo di disponibilità
+## <a name="remove-listener"></a>Rimuovere un listener
 Se in un secondo momento è necessario rimuovere il listener del gruppo di disponibilità configurato dal modello, è necessario passare attraverso il provider di risorse di macchine virtuali di SQL. Poiché il listener è stato registrato tramite il provider di risorse di macchine virtuali di SQL, eliminarlo semplicemente tramite SQL Server Management Studio non è sufficiente. 
 
 Il metodo migliore consiste nell'eliminarlo tramite il provider di risorse VM di SQL, usando il frammento di codice seguente in PowerShell. Questa operazione rimuove i metadati del listener del gruppo di disponibilità dal provider di risorse di macchine virtuali di SQL ed elimina fisicamente il listener dal gruppo di disponibilità. 
@@ -175,19 +187,15 @@ Remove-AzResource -ResourceId '/subscriptions/<SubscriptionID>/resourceGroups/<r
 ## <a name="common-errors"></a>Errori comuni
 Questa sezione descrive alcuni problemi noti e le possibili risoluzioni. 
 
-### <a name="availability-group-listener-for-availability-group-ag-name-already-exists"></a>Il listener del gruppo di disponibilità per il gruppo di disponibilità "\<AG-Name>" esiste già
-Il gruppo di disponibilità selezionato usato nel modello di avvio rapido di Azure per il listener del gruppo di disponibilità contiene già un listener. È presente fisicamente all'interno del gruppo di disponibilità oppure i relativi metadati rimangono all'interno del provider di risorse della macchina virtuale di SQL. Rimuovere il listener usando [PowerShell](#remove-the-availability-group-listener) prima di ridistribuire il modello di avvio rapido **101-sql-vm-aglistener-setup**. 
+Il **listener del gruppo di disponibilità per il gruppo di disponibilità' \<AG-Name> ' esiste già** . il gruppo di disponibilità selezionato usato nel modello di avvio rapido di Azure per il listener del gruppo di disponibilità contiene già un listener. È presente fisicamente all'interno del gruppo di disponibilità oppure i relativi metadati rimangono all'interno del provider di risorse della macchina virtuale di SQL. Rimuovere il listener usando [PowerShell](#remove-listener) prima di ridistribuire il modello di avvio rapido **101-sql-vm-aglistener-setup**. 
 
-### <a name="connection-only-works-from-primary-replica"></a>La connessione funziona solo dalla replica primaria
-Questo comportamento è probabilmente causato da una distribuzione non riuscita del modello **101-sql-vm-aglistener-setup**, che ha lasciato la configurazione del servizio di bilanciamento del carico interno in uno stato incoerente. Verificare che il pool back-end elenchi il set di disponibilità e che esistano regole per il probe di integrità e per le regole di bilanciamento del carico. Se non è presente alcun elemento, la configurazione del servizio di bilanciamento del carico interno è uno stato incoerente. 
+La **connessione funziona solo dalla replica primaria** Questo comportamento è probabilmente da una distribuzione del modello **101-SQL-VM-aglistener-Setup** non riuscita che ha lasciato la configurazione del servizio di bilanciamento del carico interno in uno stato incoerente. Verificare che il pool back-end elenchi il set di disponibilità e che esistano regole per il probe di integrità e per le regole di bilanciamento del carico. Se non è presente alcun elemento, la configurazione del servizio di bilanciamento del carico interno è uno stato incoerente. 
 
-Per risolvere questo problema, rimuovere il listener usando [PowerShell](#remove-the-availability-group-listener), eliminare il servizio di bilanciamento del carico interno tramite il portale di Azure e ricominciare dal Passaggio 3. 
+Per risolvere questo problema, rimuovere il listener usando [PowerShell](#remove-listener), eliminare il servizio di bilanciamento del carico interno tramite il portale di Azure e ricominciare dal Passaggio 3. 
 
-### <a name="badrequest---only-sql-virtual-machine-list-can-be-updated"></a>Richiesta non valida - È possibile aggiornare solo l'elenco di macchine virtuali SQL
-Questo errore può verificarsi quando si distribuisce il modello **101-sql-vm-aglistener-setup** se il listener è stato eliminato tramite SQL Server Management Studio (SSMS), ma non è stato eliminato dal provider di risorse di macchine virtuali di SQL. L'eliminazione del listener tramite SSMS non comporta la rimozione dei metadati del listener dal provider di risorse della macchina virtuale di SQL. Il listener deve essere eliminato dal provider di risorse tramite [PowerShell](#remove-the-availability-group-listener). 
+**Richiesta non valida: è possibile aggiornare solo l'elenco di macchine virtuali SQL** Questo errore può verificarsi quando si distribuisce il modello **101-SQL-VM-aglistener-Setup** se il listener è stato eliminato tramite SQL Server Management Studio (SSMS), ma non è stato eliminato dal provider di risorse della macchina virtuale SQL. L'eliminazione del listener tramite SSMS non comporta la rimozione dei metadati del listener dal provider di risorse della macchina virtuale di SQL. Il listener deve essere eliminato dal provider di risorse tramite [PowerShell](#remove-listener). 
 
-### <a name="domain-account-does-not-exist"></a>L'account di dominio non esiste
-Questo errore può avere due cause. L'account di dominio specificato non esiste o mancano i dati del [nome dell'entità utente (UPN)](/windows/desktop/ad/naming-properties#userprincipalname). Il modello **101-sql-vm-ag-setup** prevede un account di dominio nel formato UPN, ad esempio user@domain.com, ma potrebbe mancare in alcuni account di dominio. Ciò si verifica in genere quando non viene eseguita la migrazione di un utente locale come primo account di amministratore di dominio quando il server viene alzato di livello a controller di dominio o quando un utente viene creato tramite PowerShell. 
+L' **account di dominio non esiste** Questo errore può avere due cause. L'account di dominio specificato non esiste o mancano i dati del [nome dell'entità utente (UPN)](/windows/desktop/ad/naming-properties#userprincipalname). Il modello **101-sql-vm-ag-setup** prevede un account di dominio nel formato UPN, ad esempio user@domain.com, ma potrebbe mancare in alcuni account di dominio. Ciò si verifica in genere quando non viene eseguita la migrazione di un utente locale come primo account di amministratore di dominio quando il server viene alzato di livello a controller di dominio o quando un utente viene creato tramite PowerShell. 
 
 Verificare che l'account esista. Se esiste, potrebbe trattarsi del secondo caso. Per risolvere il problema, seguire questa procedura:
 
@@ -204,12 +212,11 @@ Verificare che l'account esista. Se esiste, potrebbe trattarsi del secondo caso.
 Dopo aver apportato queste modifiche, provare a distribuire il modello di avvio rapido di Azure ancora una volta. 
 
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 Per altre informazioni, vedere gli articoli seguenti: 
 
-* [Panoramica delle macchine virtuali di SQL Server](sql-server-on-azure-vm-iaas-what-is-overview.md)
+* [Panoramica delle VM di SQL Server](sql-server-on-azure-vm-iaas-what-is-overview.md)
 * [Domande frequenti sulle macchine virtuali di SQL Server](frequently-asked-questions-faq.md)
 * [Guida ai prezzi per le macchine virtuali di SQL Server](pricing-guidance.md)
 * [Note sulla versione delle le macchine virtuali di SQL Server](../../database/doc-changes-updates-release-notes.md)

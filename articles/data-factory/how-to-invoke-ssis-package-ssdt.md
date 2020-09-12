@@ -11,13 +11,13 @@ author: swinarko
 ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
-ms.date: 08/10/2020
-ms.openlocfilehash: 006b7db9f63f5ba74fee936383206b18c42aa038
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.date: 09/06/2020
+ms.openlocfilehash: fb5b5cb0ac4a9ace7b5de5e92308da58fd2b1fec
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041851"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504945"
 ---
 # <a name="execute-ssis-packages-in-azure-from-ssdt"></a>Eseguire pacchetti SSIS in Azure da SSDT
 
@@ -45,7 +45,7 @@ Dopo aver creato il progetto abilitato per Azure, verrà richiesto di connetters
 
 Per connettersi immediatamente alla Azure-SSIS IR, vedere la pagina relativa alla [connessione a Azure-SSIS IR](#connectssisir) per altri dettagli. È anche possibile connettersi in un secondo momento facendo clic con il pulsante destro del mouse sul nodo del progetto nella finestra Esplora soluzioni di SSDT per visualizzare un menu. Selezionare quindi il sottomenu **Connetti a SSIS in Azure Data Factory** elemento in **SSIS nel Azure Data Factory** .
 
-### <a name="azure-enabling-existing-ssis-projects"></a><a name="azureenableproject"></a>Azure-abilitazione di progetti SSIS esistenti
+### <a name="azure-enabling-existing-ssis-projects"></a><a name="azureenableproject"></a> Azure-abilitazione di progetti SSIS esistenti
 
 Per i progetti SSIS esistenti, è possibile abilitarli in Azure attenendosi alla procedura seguente:
 
@@ -57,13 +57,13 @@ Per i progetti SSIS esistenti, è possibile abilitarli in Azure attenendosi alla
 
    ![Selezionare la configurazione di Visual Studio](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-select-visual-studio-configurations.png)
 
-3. Per abilitare Azure per i progetti SSIS esistenti è necessario impostare la versione del server di destinazione in modo che sia la versione più recente supportata da Azure-SSIS IR. Attualmente, Azure-SSIS IR dispone di un livello di compatibilità predefinito pari a 140, che corrisponde a **SQL Server 2017**. Assicurarsi che i pacchetti non contengano componenti aggiuntivi non supportati in SQL Server 2017. Assicurarsi inoltre che tutti i componenti aggiuntivi compatibili siano stati installati anche nella Azure-SSIS IR tramite le configurazioni personalizzate, vedere [personalizzazione del Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup). Selezionare il pulsante **Avanti** per continuare.
+3. Per abilitare Azure per i progetti SSIS esistenti è necessario impostare la versione del server di destinazione in modo che sia la versione più recente supportata da Azure-SSIS IR. Azure-SSIS IR è attualmente basato su **SQL Server 2017**. Assicurarsi che i pacchetti non contengano componenti aggiuntivi non supportati in SQL Server 2017. Assicurarsi inoltre che tutti i componenti aggiuntivi compatibili siano stati installati anche nella Azure-SSIS IR tramite le configurazioni personalizzate, vedere [personalizzazione del Azure-SSIS IR](https://docs.microsoft.com/azure/data-factory/how-to-configure-azure-ssis-ir-custom-setup). Selezionare il pulsante **Avanti** per continuare.
 
    ![Cambia versione del server di destinazione](media/how-to-invoke-ssis-package-ssdt/ssdt-azure-enabled-switch-target-server-version-step.png)
 
 4. Vedere [connessione a Azure-SSIS IR](#connectssisir) per completare la connessione del progetto al Azure-SSIS IR.
 
-## <a name="connect-azure-enabled-projects-to-ssis-in-azure-data-factory"></a><a name="connectssisir"></a>Connettere i progetti abilitati per Azure a SSIS in Azure Data Factory
+## <a name="connect-azure-enabled-projects-to-ssis-in-azure-data-factory"></a><a name="connectssisir"></a> Connettere i progetti abilitati per Azure a SSIS in Azure Data Factory
 
 Connettendo i progetti abilitati per Azure a SSIS in ADF, è possibile caricare i pacchetti in File di Azure ed eseguirli su Azure-SSIS IR. Questa operazione può essere eseguita attenendosi alla procedura seguente:
 
@@ -117,7 +117,7 @@ Quando si è certi che alcuni potenziali problemi di compatibilità del cloud no
 
 ## <a name="execute-ssis-packages-in-azure"></a>Esecuzione di pacchetti SSIS in Azure
 
-### <a name="configuring-azure-enabled-settings"></a><a name="azureenabledsettings"></a>Configurazione delle impostazioni abilitate per Azure
+### <a name="configuring-azure-enabled-settings"></a><a name="azureenabledsettings"></a> Configurazione delle impostazioni abilitate per Azure
 
 Prima di eseguire i pacchetti in Azure, è possibile configurare le impostazioni abilitate per Azure. Ad esempio, è possibile abilitare l'autenticazione di Windows sul Azure-SSIS IR per accedere agli archivi dati locali o cloud attenendosi alla procedura seguente:
 
@@ -151,7 +151,7 @@ Dopo la connessione dei progetti abilitati per Azure a SSIS in ADF, la valutazio
 
 Se i pacchetti contengono attività Esegui pacchetto che fanno riferimento a pacchetti figlio archiviati in file system locali, attenersi alla procedura seguente:
 
-1. Caricare i pacchetti figlio in File di Azure nello stesso account di archiviazione di Azure connesso ai progetti e ottenere il nuovo percorso di Universal Naming Convention (UNC), ad esempio`\\YourStorageAccountName.file.core.windows.net\ssdtexecution\YourChildPackage1.dtsx`
+1. Caricare i pacchetti figlio in File di Azure nello stesso account di archiviazione di Azure connesso ai progetti e ottenere il nuovo percorso di Universal Naming Convention (UNC), ad esempio `\\YourStorageAccountName.file.core.windows.net\ssdtexecution\YourChildPackage1.dtsx`
 
 2. Sostituire il percorso del file dei pacchetti figlio nella gestione connessione file delle attività Esegui pacchetto con il nuovo percorso UNC
    - Se il computer locale che esegue SSDT non è in grado di accedere al nuovo percorso UNC, è possibile immetterlo nel pannello Proprietà di gestione connessione file
@@ -168,7 +168,7 @@ L'esecuzione di pacchetti SSIS in Azure non **EncryptSensitiveWithUserKey**suppo
 
 Se i pacchetti sono già configurati per l'uso dei livelli di protezione EncryptAllWithPassword di **EncryptSensitiveWithPassword** / **EncryptAllWithPassword** , questi verranno mantenuti invariati. Verranno comunque generate in modo casuale le password di crittografia quando si caricano i pacchetti in File di Azure per le esecuzioni nel Azure-SSIS IR.
 
-### <a name="switching-package-execution-environments"></a><a name="switchenvironment"></a>Cambio di ambienti di esecuzione del pacchetto
+### <a name="switching-package-execution-environments"></a><a name="switchenvironment"></a> Cambio di ambienti di esecuzione del pacchetto
 
 Se si parametrizzano il progetto o i pacchetti nel modello di distribuzione del progetto, è possibile creare più configurazioni di Visual Studio per cambiare gli ambienti di esecuzione dei pacchetti. In questo modo, è possibile assegnare valori specifici dell'ambiente ai parametri di progetto/pacchetto in fase di esecuzione. Si consiglia di disporre di almeno due diverse configurazioni di Visual Studio per le esecuzioni di pacchetti negli ambienti locali e cloud, in modo da consentire l'abilitazione di Azure per i progetti rispetto alla configurazione cloud. Ecco un esempio dettagliato di cambio di ambienti di esecuzione dei pacchetti tra il computer locale e Azure:
 

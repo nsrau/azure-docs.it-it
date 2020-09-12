@@ -11,17 +11,20 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 08/14/2020
-ms.openlocfilehash: 72d0745e5a885ddbc57a9a849a7537a40e0b1215
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 3d8bf3f087592a7d629a247b1c10721237699fdc
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590065"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613528"
 ---
 # <a name="what-is-azure-sql-managed-instance"></a>Che cos'è Istanza gestita SQL di Azure?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Azure SQL Istanza gestita è il servizio di database cloud intelligente e scalabile che combina la più ampia compatibilità del motore di database SQL Server con tutti i vantaggi di una piattaforma distribuita come servizio completamente gestita e sempreverde. SQL Istanza gestita ha una compatibilità quasi al 100% con il motore di database di SQL Server (Enterprise Edition) più recente, offrendo un'implementazione di [rete virtuale nativa (VNet)](../../virtual-network/virtual-networks-overview.md) che risolve i problemi di sicurezza più comuni e un [modello aziendale](https://azure.microsoft.com/pricing/details/sql-database/) favorevole per i clienti esistenti di SQL Server. SQL Istanza gestita consente ai clienti SQL Server esistenti di trasferire e spostare le applicazioni locali nel cloud con modifiche minime all'applicazione e al database. Allo stesso tempo, SQL Istanza gestita conserva tutte le funzionalità di PaaS (applicazione automatica di patch e aggiornamenti della versione, [backup automatici](../database/automated-backups-overview.md), [disponibilità elevata](../database/high-availability-sla.md)) che riducono drasticamente il sovraccarico di gestione e il TCO.
+
+Se non si ha familiarità con Istanza gestita SQL di Azure, vedere il video di *Azure sql istanza gestita* dalla [serie di video di Azure SQL](https://channel9.msdn.com/Series/Azure-SQL-for-Beginners?WT.mc_id=azuresql4beg_azuresql-ch9-niner)approfondita:
+> [!VIDEO https://channel9.msdn.com/Series/Azure-SQL-for-Beginners/Azure-SQL-Managed-Instance-Overview-6-of-61/player]
 
 > [!IMPORTANT]
 > Per un elenco delle aree in cui sono attualmente disponibili SQL Istanza gestita, vedere [aree supportate](resource-limits.md#supported-regions).
@@ -41,7 +44,7 @@ SQL Istanza gestita combina le funzionalità migliori disponibili sia nel databa
 
 | **Vantaggi di PaaS** | **Continuità aziendale** |
 | --- | --- |
-|Acquisto e gestione di hardware non necessari <br>Nessun sovraccarico per la gestione dell'infrastruttura sottostante <br>Provisioning rapido e scalabilità del servizio <br>Applicazione automatica di patch e aggiornamento della versione <br>Integrazione con altri servizi dati PaaS |Contratto di servizio relativo al tempo di attività 99,99%  <br>[Disponibilità elevata](../database/high-availability-sla.md) incorporata <br>Dati protetti con [backup automatici](../database/automated-backups-overview.md) <br>Periodo di conservazione dei backup configurabile dal cliente <br>[Backup](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current) avviati dall'utente <br>Funzionalità [di ripristino temporizzato del database](../database/recovery-using-backups.md#point-in-time-restore) |
+|Acquisto e gestione di hardware non necessari <br>Nessun sovraccarico per la gestione dell'infrastruttura sottostante <br>Provisioning rapido e scalabilità del servizio <br>Applicazione automatica di patch e aggiornamento della versione <br>Integrazione con altri servizi dati PaaS |Contratto di servizio relativo al tempo di attività 99,99%  <br>[Disponibilità elevata](../database/high-availability-sla.md) incorporata <br>Dati protetti con [backup automatici](../database/automated-backups-overview.md) <br>Periodo di conservazione dei backup configurabile dal cliente <br>[Backup](https://docs.microsoft.com/sql/t-sql/statements/backup-transact-sql?view=azuresqldb-mi-current&preserve-view=true) avviati dall'utente <br>Funzionalità [di ripristino temporizzato del database](../database/recovery-using-backups.md#point-in-time-restore) |
 |**Sicurezza e conformità** | **Gestione**|
 |Ambiente isolato ([integrazione della rete virtuale](connectivity-architecture-overview.md), servizio a tenant singolo, calcolo e archiviazione dedicati) <br>[Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql)<br>[Autenticazione Azure Active Directory (Azure ad)](../database/authentication-aad-overview.md), supporto per Single Sign-on <br> <a href="/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current">Entità di Azure AD server (account di accesso)</a>  <br>Rispetta gli standard di conformità del database SQL di Azure <br>[Controllo SQL](auditing-configure.md) <br>[Advanced Threat Protection](threat-detection-configure.md) |API di Azure Resource Manager per l'automazione del provisioning e della scalabilità del servizio <br>Funzionalità del portale di Azure per provisioning e scalabilità del servizio manuali <br>Servizio di migrazione dei dati
 
@@ -50,7 +53,7 @@ SQL Istanza gestita combina le funzionalità migliori disponibili sia nel databa
 
 Le funzionalità principali di SQL Istanza gestita sono illustrate nella tabella seguente:
 
-|Funzionalità | Descrizione|
+|Feature | Descrizione|
 |---|---|
 | SQL Server versione/compilazione | Motore di database SQL Server (versione stabile più recente) |
 | Backup automatici gestiti | Sì |
@@ -182,7 +185,7 @@ SQL Istanza gestita è destinato a scenari utente con migrazione di database di 
 
 ### <a name="backup-and-restore"></a>Backup e ripristino  
 
-L'approccio di migrazione sfrutta i backup di SQL per l'archiviazione BLOB di Azure. I backup archiviati in un BLOB di archiviazione di Azure possono essere ripristinati direttamente in un'istanza gestita usando il [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current).
+L'approccio di migrazione sfrutta i backup di SQL per l'archiviazione BLOB di Azure. I backup archiviati in un BLOB di archiviazione di Azure possono essere ripristinati direttamente in un'istanza gestita usando il [comando T-SQL RESTORE](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current&preserve-view=true).
 
 - Per una guida introduttiva che illustra come ripristinare il file di backup di database Wide World Importers, vedere [ripristinare un file di backup in un'istanza gestita](restore-sample-database-quickstart.md). Questa Guida introduttiva mostra che è necessario caricare un file di backup nell'archiviazione BLOB di Azure e proteggerlo usando una chiave di firma di accesso condiviso (SAS).
 - Per informazioni sul ripristino dall'URL, vedere [Ripristino nativo da URL](migrate-to-instance-from-sql-server.md#native-restore-from-url).
@@ -202,7 +205,7 @@ SQL Istanza gestita supporta la compatibilità con le versioni precedenti dei da
   
 Il diagramma seguente illustra la compatibilità della superficie di attacco in SQL Istanza gestita:  
 
-![Migrazione](./media/sql-managed-instance-paas-overview/migration.png)
+![compatibilità superficie di attacco](./media/sql-managed-instance-paas-overview/migration.png)
 
 ### <a name="key-differences-between-sql-server-on-premises-and-sql-managed-instance"></a>Differenze principali tra SQL Server locali e SQL Istanza gestita
 
@@ -227,7 +230,7 @@ Per ulteriori informazioni, vedere [l'elenco delle funzionalità di sql istanza 
 
 La tabella seguente illustra diverse proprietà, accessibili tramite Transact-SQL, che è possibile usare per rilevare che l'applicazione funziona con SQL Istanza gestita e recuperare le proprietà importanti.
 
-|Proprietà|valore|Commento|
+|Proprietà|Valore|Commento|
 |---|---|---|
 |`@@VERSION`|Microsoft SQL Azure (RTM) - 12.0.2000.8 2018-03-07 Copyright (C) 2018 Microsoft Corporation.|Questo valore è uguale a quello del database SQL. Questa operazione **non** indica il motore SQL versione 12 (SQL Server 2014). SQL Istanza gestita esegue sempre la versione più recente del motore SQL stabile, che è uguale o superiore alla versione RTM più recente disponibile di SQL Server.  |
 |`SERVERPROPERTY ('Edition')`|SQL Azure|Questo valore è uguale a quello del database SQL.|

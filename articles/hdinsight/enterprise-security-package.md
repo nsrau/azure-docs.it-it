@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: 07210350826001bd3e0be6e04be211c9de43695a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 91fa6a8da555d0b0cc79b262a83306c1f72aa68a
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82997256"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567096"
 ---
 # <a name="enterprise-security-package-for-azure-hdinsight"></a>Enterprise Security Package per Azure HDInsight
 
@@ -20,7 +20,7 @@ Si tratta di un pacchetto opzionale che è possibile aggiungere al cluster HDIns
 
 * Integrazione con Active Directory per l'autenticazione.
 
-    In passato è stato creato un cluster HDInsight con un utente amministratore locale e un utente SSH locale. L'utente amministratore locale poteva accedere a tutti i file, cartelle, tabelle e colonne.  Con Enterprise Security Package, è possibile abilitare il controllo degli accessi in base al ruolo integrando HDInsight con il Active Directory. Che include Active Directory locali, Azure Active Directory Domain Services. Oppure Active Directory nella macchina virtuale IaaS. L'amministratore di dominio nel cluster può concedere agli utenti l'uso del nome utente e della password aziendali (dominio).
+    In passato è stato creato un cluster HDInsight con un utente amministratore locale e un utente SSH locale. L'utente amministratore locale poteva accedere a tutti i file, cartelle, tabelle e colonne.  Con Enterprise Security Package, è possibile abilitare il controllo degli accessi in base al ruolo integrando HDInsight con il Azure Active Directory Domain Services.
 
     Per altre informazioni, vedere:
 

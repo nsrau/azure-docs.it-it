@@ -12,12 +12,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 54eb9b1b28de562395b4926c599bc5cb157fc63b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c49f751bae048d2faf7047e538eebcac5d818b5
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708842"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658735"
 ---
 # <a name="what-is-an-azure-sql-managed-instance-pool-preview"></a>Che cos'è un pool di Istanza gestita SQL di Azure (anteprima)?
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -79,6 +79,7 @@ Esistono diverse limitazioni delle risorse relative ai pool di istanze e alle is
 - Oltre ai limiti a livello di istanza, *a livello di pool di istanze sono stati*imposti anche due limiti:
   - Dimensioni totali dello spazio di archiviazione per pool (8 TB).
   - Numero totale di database per pool (100).
+- Non è possibile impostare l'amministratore di AAD per le istanze distribuite nel pool di istanze, pertanto non è possibile usare l'autenticazione AAD.
 
 L'allocazione totale dello spazio di archiviazione e il numero di database in tutte le istanze devono essere inferiori o uguali ai limiti esposti dai pool di istanze.
 

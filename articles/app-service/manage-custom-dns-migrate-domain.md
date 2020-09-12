@@ -6,12 +6,12 @@ ms.assetid: 10da5b8a-1823-41a3-a2ff-a0717c2b5c2d
 ms.topic: article
 ms.date: 08/25/2020
 ms.custom: seodec18
-ms.openlocfilehash: c51745b7760573aa3c6ae067e9a6c1cc315f8e56
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: e1b50675bef0f883ff617b3098a742d3491b3c13
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871395"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484300"
 ---
 # <a name="migrate-an-active-dns-name-to-azure-app-service"></a>Eseguire la migrazione di un nome DNS attivo al Servizio app di Azure
 
@@ -40,7 +40,7 @@ Dopo aver eseguito la migrazione del nome DNS personalizzato dal sito precedente
 
 ### <a name="get-domain-verification-id"></a>Ottenere l'ID verifica del dominio
 
-Per ottenere l'ID di verifica del dominio per l'app, seguire la procedura descritta in [ottenere l'ID di verifica del dominio](app-service-web-tutorial-custom-domain.md#get-domain-verification-id).
+Per ottenere l'ID di verifica del dominio per l'app, seguire la procedura descritta in [ottenere l'ID di verifica del dominio](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id).
 
 ### <a name="create-domain-verification-record"></a>Creare un record di verifica del dominio
 
@@ -48,9 +48,9 @@ Per verificare la proprietà del dominio, aggiungere un record TXT per la verifi
 
 | Esempio di record DNS | Host TXT | Valore TXT |
 | - | - | - |
-| \@ (radice) | _asuid_ | [ID di verifica del dominio per l'app](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
-| www (sottodominio) | _asuid. www_ | [ID di verifica del dominio per l'app](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
-| \* (wildcard) | _asuid_ | [ID di verifica del dominio per l'app](app-service-web-tutorial-custom-domain.md#get-domain-verification-id) |
+| \@ (radice) | _asuid_ | [ID di verifica del dominio per l'app](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
+| www (sottodominio) | _asuid. www_ | [ID di verifica del dominio per l'app](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
+| \* (wildcard) | _asuid_ | [ID di verifica del dominio per l'app](app-service-web-tutorial-custom-domain.md#get-a-domain-verification-id) |
 
 Nella pagina dei record DNS prendere nota del tipo di record del nome DNS di cui si vuole eseguire la migrazione. Il servizio app supporta i mapping da record CNAME e A.
 

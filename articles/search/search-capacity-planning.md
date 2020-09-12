@@ -7,32 +7,48 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 03/30/2020
-ms.openlocfilehash: 476af7dd40cd1f31d03f3bd80affac0ce10ef900
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/08/2020
+ms.openlocfilehash: 76084a9ddd6842194bb4c6b25d62e62c2ed2d4a8
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88927205"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660293"
 ---
-# <a name="adjust-capacity-in-azure-cognitive-search"></a>Modificare la capacità in Azure ricerca cognitiva
+# <a name="adjust-the-capacity-of-an-azure-cognitive-search-service"></a>Modificare la capacità di un servizio ricerca cognitiva di Azure
 
-Prima di eseguire il [provisioning di un servizio di ricerca](search-create-service-portal.md) e il blocco in un piano tariffario specifico, è necessario attendere alcuni minuti per comprendere il ruolo delle repliche e delle partizioni in un servizio e come è possibile modificare un servizio per gestire picchi e cali nella richiesta di risorse.
+Prima di eseguire il [provisioning di un servizio di ricerca](search-create-service-portal.md) e il blocco in un piano tariffario specifico, è necessario attendere alcuni minuti per comprendere il funzionamento della capacità e come modificare le repliche e le partizioni per gestire la fluttuazione del carico di lavoro.
 
-La capacità è una funzione del [livello scelto](search-sku-tier.md) (i livelli determinano le caratteristiche hardware) e la combinazione di replica e partizione necessaria per i carichi di lavoro proiettati. A seconda del livello e della dimensione della regolazione, l'aggiunta o la riduzione della capacità può richiedere da 15 minuti a diverse ore. 
+La capacità è una funzione del [livello scelto](search-sku-tier.md) (i livelli determinano le caratteristiche hardware) e la combinazione di replica e partizione necessaria per i carichi di lavoro proiettati. È possibile aumentare o ridurre il numero di repliche o partizioni singolarmente. A seconda del livello e della dimensione della regolazione, l'aggiunta o la riduzione della capacità può richiedere da 15 minuti a diverse ore.
 
 Quando si modifica l'allocazione delle repliche e delle partizioni, è consigliabile usare la portale di Azure. Il portale impone limiti per le combinazioni consentite che sono inferiori ai limiti massimi di un livello. Tuttavia, se è necessario un approccio di provisioning basato su script o basato su codice, l' [Azure PowerShell](search-manage-powershell.md) o l' [API REST di gestione](/rest/api/searchmanagement/services) sono soluzioni alternative.
 
-## <a name="terminology-replicas-and-partitions"></a>Terminologia: repliche e partizioni
+## <a name="concepts-search-units-replicas-partitions-shards"></a>Concetti: unità di ricerca, repliche, partizioni, partizioni
 
-|||
-|-|-|
-|*Partizioni* | Offre l'archiviazione degli indici e l'I/O per le operazioni di lettura e scrittura, ad esempio durante la compilazione o l'aggiornamento di un indice. Ogni partizione dispone di una condivisione dell'indice totale. Se si allocano tre partizioni, l'indice è suddiviso in terze parti. |
-|*Repliche* | Istanze del servizio di ricerca, utilizzate principalmente per il bilanciamento di carico delle operazioni di query. Ogni replica è una copia di un indice. Se si allocano tre repliche, saranno disponibili tre copie di un indice per la manutenzione delle richieste di query.|
+La capacità è espressa *in unità di ricerca* che possono essere allocate in combinazioni di *partizioni* e *repliche*, usando un meccanismo di *partizionamento orizzontale* sottostante per supportare configurazioni flessibili:
+
+| Concetto  | Definizione|
+|----------|-----------|
+|*Unità di ricerca* | Un singolo incremento della capacità totale disponibile (36 unità). È anche l'unità di fatturazione per un servizio ricerca cognitiva di Azure. Per eseguire il servizio è necessario almeno un'unità.|
+|*Replica* | Istanze del servizio di ricerca, utilizzate principalmente per il bilanciamento di carico delle operazioni di query. Ogni replica ospita una copia di un indice. Se si allocano tre repliche, saranno disponibili tre copie di un indice per la manutenzione delle richieste di query.|
+|*Partizione* | Archiviazione fisica e I/O per le operazioni di lettura/scrittura, ad esempio per la ricompilazione o l'aggiornamento di un indice. Ogni partizione dispone di una sezione dell'indice totale. Se si allocano tre partizioni, l'indice è suddiviso in terze parti. |
+|*Partizione* | Un blocco di un indice. Azure ricerca cognitiva divide ogni indice in partizioni per rendere più veloce il processo di aggiunta delle partizioni (spostando le partizioni in nuove unità di ricerca).|
+
+Il diagramma seguente illustra la relazione tra le repliche, le partizioni, le partizioni e le unità di ricerca. Viene illustrato un esempio di come un singolo indice viene esteso in quattro unità di ricerca in un servizio con due repliche e due partizioni. Ognuna delle quattro unità di ricerca archivia solo la metà delle partizioni dell'indice. Le unità di ricerca nella colonna a sinistra archiviano la prima metà delle partizioni, che comprendono la prima partizione, mentre quelle nella colonna destra archiviano la seconda metà delle partizioni, che comprende la seconda partizione. Poiché sono presenti due repliche, sono presenti due copie di ogni partizione dell'indice. Le unità di ricerca nella parte superiore archiviano una copia, che comprende la prima replica, mentre quelle nella riga inferiore archiviano un'altra copia, che comprende la seconda replica.
+
+:::image type="content" source="media/search-capacity-planning/shards.png" alt-text="Gli indici di ricerca sono partizionati tra le partizioni.":::
+
+Il diagramma precedente è solo un esempio. Sono possibili molte combinazioni di partizioni e repliche, fino a un massimo di 36 unità di ricerca totali.
+
+In ricerca cognitiva, la gestione delle partizioni è un dettaglio di implementazione e non configurabile, ma la conoscenza del partizionamento di un indice consente di comprendere le anomalie occasionali nei comportamenti di classificazione e completamento automatico:
+
++ Anomalie di classificazione: i punteggi di ricerca vengono calcolati a livello di partizione prima e quindi aggregati in un unico set di risultati. A seconda delle caratteristiche del contenuto della partizione, le corrispondenze di una partizione possono essere classificate in un livello superiore rispetto alle corrispondenze in un altro. Se si notano classificazioni non intuitive nei risultati della ricerca, è molto probabile che si verifichino gli effetti del partizionamento orizzontale, soprattutto se gli indici sono di dimensioni ridotte. È possibile evitare queste anomalie di rango scegliendo di [calcolare i punteggi a livello globale nell'intero indice](index-similarity-and-scoring.md#scoring-statistics-and-sticky-sessions), ma in questo modo si ridurrà una riduzione delle prestazioni.
+
++ Anomalie di completamento automatico: le query con completamento automatico, in cui vengono eseguite corrispondenze sui primi caratteri di un termine parzialmente immesso, accettano un parametro fuzzy che perdona le piccole deviazioni nell'ortografia. Per il completamento automatico, la corrispondenza fuzzy è vincolata a termini all'interno della partizione corrente. Se, ad esempio, una partizione contiene "Microsoft" e viene immesso un termine parziale di "micor", il motore di ricerca corrisponderà a "Microsoft" nella partizione, ma non in altre partizioni che contengono le parti rimanenti dell'indice.
 
 ## <a name="when-to-add-nodes"></a>Quando aggiungere nodi
 
-Inizialmente, a un servizio viene allocato un livello minimo di risorse costituito da una partizione e una replica. 
+Inizialmente, a un servizio viene allocato un livello minimo di risorse costituito da una partizione e una replica.
 
 Un singolo servizio deve disporre di risorse sufficienti per gestire tutti i carichi di lavoro (indicizzazione e query). Nessuno dei due carichi di lavoro viene eseguito in background. È possibile pianificare l'indicizzazione per i periodi in cui le richieste di query sono naturalmente meno frequenti, ma il servizio non assegna priorità a un'attività rispetto a un'altra. Inoltre, una certa quantità di ridondanza smussa le prestazioni delle query quando i servizi o i nodi vengono aggiornati internamente.
 
@@ -59,7 +75,7 @@ Come regola generale, le applicazioni di ricerca tendono a avere più repliche r
 
    ![Aggiungere repliche e partizioni](media/search-capacity-planning/2-add-2-each.png "Aggiungere repliche e partizioni")
 
-1. Fare clic su **Salva** per confermare le modifiche.
+1. Selezionare **Save (Salva** ) per confermare le modifiche.
 
    ![Confermare le modifiche per la scalabilità e la fatturazione](media/search-capacity-planning/3-save-confirm.png "Confermare le modifiche per la scalabilità e la fatturazione")
 
@@ -91,7 +107,7 @@ Tutti i servizi di ricerca standard e ottimizzati per l'archiviazione possono pr
 | **6 repliche** |6 unità di ricerca |12 unità di ricerca |18 unità di ricerca |24 unità di ricerca |36 unità di ricerca |N/D |
 | **12 repliche** |12 unità di ricerca |24 unità di ricerca |36 unità di ricerca |N/D |N/D |N/D |
 
-Le unità di ricerca, i prezzi e le capacità sono illustrati in dettaglio nel sito web di Azure. Per altre informazioni, vedere i [dettagli sui prezzi](https://azure.microsoft.com/pricing/details/search/).
+Le unità di ricerca, i prezzi e le capacità sono illustrati in dettaglio nel sito web di Azure. Per ulteriori informazioni, vedere la pagina relativa ai [Dettagli sui prezzi](https://azure.microsoft.com/pricing/details/search/).
 
 > [!NOTE]
 > Il numero di repliche e partizioni divide equamente per 12 (in particolare 1, 2, 3, 4, 6, 12). Questo perché Azure ricerca cognitiva suddivide ogni indice in 12 partizioni in modo che sia possibile distribuirlo in parti uguali tra tutte le partizioni. Ad esempio, se il servizio ha tre partizioni e si crea un indice, ogni partizione conterrà quattro partizioni dell'indice. La modalità di partizionamento di un indice in Azure ricerca cognitiva è un dettaglio di implementazione, soggetta a modifiche nelle versioni future. Sebbene il numero attualmente sia 12, tale numero potrebbe non essere 12 in futuro.

@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 07/08/2020
 ms.reviewer: mahender
 ms.custom: seodec18, fasttrack-edit, has-adal-ref
-ms.openlocfilehash: 19d6a646df22e2f8c9bdfc03f15453a520e527a4
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: e984332e6e93fc9a42123d06f320a66073585bff
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962826"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89596040"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-and-azure-functions"></a>Autenticazione e autorizzazione nel servizio app Azure e funzioni di Azure
 
@@ -33,7 +33,7 @@ Per consentire processi sicuri di autenticazione e autorizzazione, è necessario
 
 Per informazioni specifiche per le app per dispositivi mobili native, vedere [Autenticazione e autorizzazione per le app per dispositivi mobili in Servizio app di Azure](/previous-versions/azure/app-service-mobile/app-service-mobile-auth).
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 ### <a name="on-windows"></a>In Windows
 
@@ -149,11 +149,11 @@ Con questa opzione non è necessario scrivere codice di autenticazione nell'app.
 
 ## <a name="more-resources"></a>Altre risorse
 
-[Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel servizio app di Azure (Windows)](tutorial-auth-aad.md)  
-[Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel servizio app di Azure per Linux](./tutorial-auth-aad.md?pivots=platform-linux%3fpivots%3dplatform-linux)  
-[Personalizzare l'autenticazione e l'autorizzazione nel servizio app](app-service-authentication-how-to.md) 
- [Integrazione di .NET Core di Azure AppService EasyAuth (terze parti)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth) 
- [Come usare l'autenticazione del servizio app Azure con .NET Core (terze parti)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
+* [Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel servizio app di Azure (Windows)](tutorial-auth-aad.md)  
+* [Esercitazione: Autenticare e autorizzare gli utenti end-to-end nel servizio app di Azure per Linux](./tutorial-auth-aad.md?pivots=platform-linux%3fpivots%3dplatform-linux)  
+* [Personalizzare l'autenticazione e l'autorizzazione nel servizio app](app-service-authentication-how-to.md)
+* [Integrazione di .NET Core di Azure AppService EasyAuth (terze parti)](https://github.com/MaximRouiller/MaximeRouiller.Azure.AppService.EasyAuth)
+* [Come usare l'autenticazione del servizio app Azure con .NET Core (terze parti)](https://github.com/kirkone/KK.AspNetCore.EasyAuthAuthentication)
 
 Guide alle procedure specifiche del provider:
 

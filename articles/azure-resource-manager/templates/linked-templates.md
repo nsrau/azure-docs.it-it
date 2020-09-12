@@ -2,13 +2,13 @@
 title: Collegare i modelli per la distribuzione
 description: Descrive come usare i modelli collegati in un modello di Azure Resource Manager per creare una soluzione basata su un modello modulare. Mostra come passare i valori dei parametri, specificare un file di parametri e gli URL creati in modo dinamico.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: 40da2443828a07f2171922fcc6d8976d464d0ad4
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/08/2020
+ms.openlocfilehash: f1fe07faeaddae3367fb1f8b4a37f7b0630b6e83
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086813"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535559"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Uso di modelli collegati e annidati nella distribuzione di risorse di Azure
 
@@ -19,7 +19,9 @@ Per le piccole e medie soluzioni, un modello singolo è più facile da comprende
 Per un'esercitazione, vedere [Esercitazione: Creare modelli collegati di Azure Resource Manager](./deployment-tutorial-linked-template.md).
 
 > [!NOTE]
-> Per modelli collegati o annidati, è possibile usare solo la modalità di distribuzione [Incrementale](deployment-modes.md).
+> Per i modelli collegati o annidati, è possibile impostare la modalità di distribuzione solo come [incrementale](deployment-modes.md). Tuttavia, il modello principale può essere distribuito in modalità completa. Se si distribuisce il modello principale in modalità completa e il modello collegato o annidato è destinato allo stesso gruppo di risorse, le risorse distribuite nel modello collegato o annidato sono incluse nella valutazione per la distribuzione in modalità completa. La raccolta combinata di risorse distribuite nel modello principale e nei modelli collegati o annidati viene confrontata con le risorse esistenti nel gruppo di risorse. Tutte le risorse non incluse in questa raccolta combinata verranno eliminate.
+>
+> Se il modello collegato o annidato è destinato a un gruppo di risorse diverso, la distribuzione usa la modalità incrementale.
 >
 
 ## <a name="nested-template"></a>Modello annidato
@@ -160,7 +162,7 @@ Il modello seguente illustra come vengono risolte le espressioni di modello in b
 
 Il valore di `exampleVar` cambia a seconda del valore della `scope` Proprietà in `expressionEvaluationOptions` . Nella tabella seguente vengono illustrati i risultati di entrambi gli ambiti.
 
-| `expressionEvaluationOptions`ambito | Output |
+| `expressionEvaluationOptions` ambito | Output |
 | ----- | ------ |
 | interno | da modello annidato |
 | Outer (o predefinito) | dal modello padre |
@@ -312,14 +314,9 @@ Quando si fa riferimento a un modello collegato, il valore di `uri` non deve ess
 
 > [!NOTE]
 >
-> È possibile fare riferimento a modelli usando parametri che in definitiva si risolvono in un elemento che usa **http** o **https**, ad esempio, usando il `_artifactsLocation` parametro come segue:`"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
+> È possibile fare riferimento a modelli usando parametri che in definitiva si risolvono in un elemento che usa **http** o **https**, ad esempio, usando il `_artifactsLocation` parametro come segue: `"uri": "[concat(parameters('_artifactsLocation'), '/shared/os-disk-parts-md.json', parameters('_artifactsLocationSasToken'))]",`
 
 Il servizio Resource Manager deve poter accedere al modello. È possibile inserire il modello collegato in un account di archiviazione e usare l'URI per tale elemento.
-
-Le [specifiche del modello](./template-specs.md) , attualmente in anteprima privata, consentono di condividere i modelli ARM con altri utenti nell'organizzazione. Le specifiche dei modelli possono anche essere usate per creare un pacchetto di un modello principale e dei relativi modelli collegati. Per altre informazioni, vedere:
-
-- [Esercitazione: creare una specifica di modello con i modelli collegati](./template-specs-create-linked.md).
-- [Esercitazione: distribuire una specifica di modello come modello collegato](./template-specs-deploy-linked-template.md).
 
 ### <a name="parameters-for-linked-template"></a>Parametri per il modello collegato
 
@@ -369,6 +366,15 @@ Per passare i valori dei parametri inline, utilizzare la proprietà **Parameters
 ```
 
 Non è possibile usare i parametri inline e un collegamento a un file di parametri. La distribuzione ha esito negativo con un errore quando vengono specificati sia `parametersLink` che `parameters`.
+
+## <a name="template-specs"></a>Specifiche dei modelli
+
+Anziché gestire i modelli collegati in un endpoint accessibile, è possibile creare una [specifica del modello](template-specs.md) che inserisce il modello principale e i relativi modelli collegati in una singola entità che è possibile distribuire. La specifica del modello è una risorsa nella sottoscrizione di Azure. Consente di condividere in modo sicuro il modello con gli utenti dell'organizzazione. Usare il controllo degli accessi in base al ruolo (RBAC) per concedere l'accesso alla specifica del modello. Questa funzionalità è attualmente disponibile in anteprima.
+
+Per altre informazioni, vedere:
+
+- [Esercitazione: creare una specifica di modello con i modelli collegati](./template-specs-create-linked.md).
+- [Esercitazione: distribuire una specifica di modello come modello collegato](./template-specs-deploy-linked-template.md).
 
 ## <a name="contentversion"></a>contentVersion
 
@@ -723,6 +729,9 @@ Anche se il modello collegato deve essere disponibile esternamente, non è neces
 È anche possibile limitare l'accesso al file dei parametri solo tramite un token di firma di accesso condiviso.
 
 Attualmente, non è possibile collegarsi a un modello in un account di archiviazione che si trova dietro un [firewall di archiviazione di Azure](../../storage/common/storage-network-security.md).
+
+> [!IMPORTANT]
+> Anziché proteggere il modello collegato con un token di firma di accesso condiviso, provare a creare una [specifica del modello](template-specs.md). La specifica del modello archivia in modo sicuro il modello principale e i relativi modelli collegati come risorsa nella sottoscrizione di Azure. Utilizzare RBAC per concedere l'accesso agli utenti che devono distribuire il modello.
 
 L'esempio seguente mostra come passare un token di firma di accesso condiviso quando si stabilisce un collegamento a un modello:
 

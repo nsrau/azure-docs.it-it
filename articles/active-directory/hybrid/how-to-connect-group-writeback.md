@@ -11,21 +11,21 @@ ms.date: 06/11/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c8fb54261f51d74f02b7b79c27f7a2043426686
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: e2e24246c749978cd2bbb5b3d0821eea6d7dfb4b
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385144"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660878"
 ---
 # <a name="azure-ad-connect-group-writeback"></a>Writeback del gruppo di Azure AD Connect
 
-Il writeback dei gruppi consente ai clienti di sfruttare i gruppi di cloud per le proprie esigenze ibride. Se si usa la funzionalità Office 365 Groups , i gruppi possono essere rappresentati nell'istanza locale di Active Directory. Questa opzione è disponibile **solo** se si dispone di Exchange presente nell'Active Directory locale.
+Il writeback dei gruppi consente ai clienti di sfruttare i gruppi di cloud per le proprie esigenze ibride. Se si usa la funzionalità gruppi di Microsoft 365, è possibile che questi gruppi siano rappresentati nell'Active Directory locale. Questa opzione è disponibile **solo** se si dispone di Exchange presente nell'Active Directory locale.
 
 ## <a name="pre-requisites"></a>Prerequisiti
 Per abilitare il writeback del gruppo, è necessario soddisfare i prerequisiti seguenti.
 - Azure Active Directory Premium licenze per il tenant.
-- Una distribuzione ibrida configurata tra l'organizzazione di Exchange locale e Office 365 e verificarne il corretto funzionamento.
+- Una distribuzione ibrida configurata tra l'organizzazione di Exchange locale e Microsoft 365 e verificato che funzioni correttamente.
 - Installata una versione supportata di Exchange locale
 - Configurata Single Sign-On tramite Azure Active Directory Connect 
 
@@ -37,7 +37,7 @@ Per abilitare il writeback del gruppo, attenersi alla procedura seguente:
 3. Nella pagina **Connetti a Azure ad** immettere le credenziali. Fare clic su **Avanti**.
 4. Nella pagina **funzionalità facoltative** verificare che le opzioni configurate in precedenza siano ancora selezionate.
 5. Selezionare **writeback del gruppo** e quindi fare clic su **Avanti**.
-6. Nella **pagina writeback**selezionare un Active Directory unità organizzativa (OU) per archiviare gli oggetti sincronizzati da Office 365 all'organizzazione locale, quindi fare clic su **Avanti**.
+6. Nella **pagina writeback**selezionare un'unità organizzativa Active Directory per archiviare gli oggetti sincronizzati da Microsoft 365 all'organizzazione locale, quindi fare clic su **Avanti**.
 7. Nella pagina **pronto** per la configurazione fare clic su **Configura**.
 8. Al termine della procedura guidata, fare clic su **Esci** nella pagina Configurazione completata.
 9. Aprire Windows PowerShell come amministratore nel server Azure Active Directory Connect ed eseguire i comandi seguenti.
@@ -48,7 +48,7 @@ Import-Module "C:\Program Files\Microsoft Azure Active Directory Connect\AdSyncC
 Set-ADSyncUnifiedGroupWritebackPermissions -ADConnectorAccountDN $AzureADConnectSWritebackAccountDN
 ```
 
-Per ulteriori informazioni sulla configurazione dei gruppi di Office 365, vedere [Configure Microsoft 365 groups with on-premises Exchange Hybrid](https://docs.microsoft.com/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect).
+Per altre informazioni sulla configurazione dei gruppi di Microsoft 365 vedere [configurare gruppi di Microsoft 365 con Exchange ibrido locale](/exchange/hybrid-deployment/set-up-microsoft-365-groups#enable-group-writeback-in-azure-ad-connect).
 
 ## <a name="disabling-group-writeback"></a>Disabilitazione del writeback del gruppo
 Per disabilitare il writeback del gruppo, attenersi alla procedura seguente: 

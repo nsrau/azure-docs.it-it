@@ -13,18 +13,18 @@ ms.topic: how-to
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/23/2019
+ms.date: 09/07/2020
 ms.author: yelevin
-ms.openlocfilehash: 1593b96ae8412632120e8977635a4193996ca88d
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: f4c631360417afda41b7f48a46b618e7a4328aef
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "82025119"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89660707"
 ---
 # <a name="automatically-create-incidents-from-microsoft-security-alerts"></a>Creare automaticamente eventi imprevisti dagli avvisi di sicurezza Microsoft
 
-Gli avvisi generati nelle soluzioni di sicurezza Microsoft connesse ad Azure Sentinel, ad esempio Microsoft Cloud App Security e Azure Advanced Threat Protection, non creano automaticamente eventi imprevisti in Azure Sentinel. Per impostazione predefinita, quando si connette una soluzione Microsoft ad Azure Sentinel, tutti gli avvisi generati in tale servizio verranno archiviati come dati non elaborati in Azure Sentinel e più precisamente nella tabella Avviso di sicurezza dell'area di lavoro di Azure Sentinel. È quindi possibile usare tali dati come tutti gli altri dati non elaborati connessi in Sentinel.
+Gli avvisi attivati nelle soluzioni di sicurezza Microsoft connesse ad Azure Sentinel, ad esempio Microsoft Cloud App Security e Microsoft Defender per l'identità (in precedenza Azure ATP), non creano automaticamente eventi imprevisti in Sentinel di Azure. Per impostazione predefinita, quando si connette una soluzione Microsoft ad Azure Sentinel, tutti gli avvisi generati in tale servizio verranno archiviati come dati non elaborati in Azure Sentinel e più precisamente nella tabella Avviso di sicurezza dell'area di lavoro di Azure Sentinel. È quindi possibile usare tali dati come tutti gli altri dati non elaborati connessi in Sentinel.
 
 È possibile configurare facilmente Azure Sentinel in modo da creare automaticamente eventi imprevisti ogni volta che viene attivato un avviso in una soluzione di sicurezza Microsoft connessa, seguendo le istruzioni riportate in questo articolo.
 
@@ -33,7 +33,7 @@ Per abilitare la creazione degli eventi imprevisti da avvisi del servizio di sic
 
 ## <a name="using-microsoft-security-incident-creation-analytic-rules"></a>Uso delle regole di analisi per la creazione di eventi imprevisti per la sicurezza Microsoft
 
-Usare le regole predefinite disponibili in Azure Sentinel per scegliere le soluzioni di sicurezza Microsoft connesse che dovrebbero creare automaticamente gli eventi imprevisti di Azure Sentinel in tempo reale. È anche possibile modificare le regole per definire opzioni più specifiche per filtrare quali avvisi generati dalla soluzione di sicurezza Microsoft devono creare eventi imprevisti in Azure Sentinel. Ad esempio, è possibile scegliere di creare automaticamente eventi imprevisti di Azure Sentinel solo da avvisi con gravità alta del Centro sicurezza di Azure.
+Usare le regole predefinite disponibili in Azure Sentinel per scegliere le soluzioni di sicurezza Microsoft connesse che dovrebbero creare automaticamente gli eventi imprevisti di Azure Sentinel in tempo reale. È anche possibile modificare le regole per definire opzioni più specifiche per filtrare quali avvisi generati dalla soluzione di sicurezza Microsoft devono creare eventi imprevisti in Azure Sentinel. Ad esempio, è possibile scegliere di creare automaticamente gli eventi imprevisti di Sentinel di Azure solo da avvisi ad alta gravità di Azure Defender (in precedenza Centro sicurezza di Azure).
 
 1. Nella portale di Azure in Azure Sentinel selezionare**Analisi**.
 
@@ -47,7 +47,7 @@ Usare le regole predefinite disponibili in Azure Sentinel per scegliere le soluz
 
 1. È possibile modificare i dettagli della regola e scegliere di filtrare gli avvisi che creeranno gli eventi imprevisti in base alla gravità dell'avviso o al testo contenuto nel nome dell'avviso.  
       
-    Ad esempio, se si sceglie **Centro sicurezza di Azure** nel campo **Microsoft security service** (Servizio di sicurezza Microsoft) e si sceglie **High** (Alta) nel campo **Filter by severity** (Filtra per gravità), solo gli avvisi del Centro sicurezza di Azure con gravità alta creeranno automaticamente eventi imprevisti in Azure Sentinel.  
+    Ad esempio, se si sceglie **Azure Defender** (potrebbe essere ancora chiamato Centro sicurezza di Azure) nel campo **servizio di sicurezza di Microsoft** e si sceglie **alta** nel campo **Filtra per gravità** , solo gli avvisi di Azure Defender con gravità elevata creeranno automaticamente gli eventi imprevisti in Sentinel di Azure.  
 
     ![Creazione guidata regole](media/incidents-from-alerts/create-rule-wizard.png)
 

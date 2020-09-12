@@ -16,12 +16,12 @@ ms.date: 04/16/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc955fe64ae68cb1248b0e616357bccf82f5f036
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: f137b61f36ee425bdfecf3135370fded04242335
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87115763"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658752"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quickstart"></a>Azure Active Directory Single Sign-on facile: avvio rapido
 
@@ -40,7 +40,7 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
    - Se il firewall o il proxy consente, aggiungere le connessioni all'elenco di indirizzi consentiti per gli URL ** \* . msappproxy.NET** sulla porta 443. In caso contrario, è necessario consentire l'accesso agli [intervalli IP del data center di Azure](https://www.microsoft.com/download/details.aspx?id=41653), che vengono aggiornati ogni settimana. Questo prerequisito è applicabile solo quando si abilita la funzionalità. Non è necessario per gli accessi utente effettivi.
 
     >[!NOTE]
-    >Le versioni 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 di Azure AD Connect presentano un problema correlato alla sincronizzazione dell'hash delle password. Se _non_ si prevede di usare la sincronizzazione dell'hash delle password in combinazione con l'autenticazione pass-through, leggere le [note sulla versione Azure ad Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) per altre informazioni.
+    >Le versioni 1.1.557.0, 1.1.558.0, 1.1.561.0 e 1.1.614.0 di Azure AD Connect presentano un problema correlato alla sincronizzazione dell'hash delle password. Se _non_ si prevede di usare la sincronizzazione dell'hash delle password in combinazione con l'autenticazione pass-through, leggere le [note sulla versione Azure ad Connect](./reference-connect-version-history.md) per altre informazioni.
 
 * **Usare una topologia di Azure AD Connect supportata**: assicurarsi di usare una delle topologie supportate di Azure AD Connect descritte [qui](plan-connect-topologies.md).
 
@@ -51,9 +51,9 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
     * Si sincronizza con Azure AD tramite Azure AD Connect.
     * Contiene gli utenti che si intende abilitare per l'accesso SSO facile.
     
-* **Abilitare l'autenticazione moderna**: per eseguire questa funzionalità è necessario abilitare l'[autenticazione moderna](https://docs.microsoft.com/office365/enterprise/modern-auth-for-office-2013-and-2016) sul proprio tenant.
+* **Abilitare l'autenticazione moderna**: per eseguire questa funzionalità è necessario abilitare l'[autenticazione moderna](/office365/enterprise/modern-auth-for-office-2013-and-2016) sul proprio tenant.
 
-* **Usare le versioni più recenti dei client di Office 365**: per ottenere un'esperienza di accesso invisibile all'utente con i client di Office 365 (Outlook, Word, Excel e altri), gli utenti devono usare le versioni 16.0.8730.xxxx o successive.
+* **Usare le versioni più recenti dei client di Microsoft 365**: per ottenere un'esperienza di accesso invisibile all'utente con Microsoft 365 client (Outlook, Word, Excel e altri), gli utenti devono usare le versioni 16.0.8730. xxxx o versioni successive.
 
 ## <a name="step-2-enable-the-feature"></a>Passaggio 2: Abilitare la funzionalità
 
@@ -142,15 +142,15 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 
 5. Selezionare **OK** e quindi di nuovo **OK**.
 
-    ![Accesso Single Sign-On](./media/how-to-connect-sso-quick-start/sso7.png)
+    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso7.png)
 
 6. Passare a criteri di **Configurazione utente**  >  **Policy**  >  **modelli amministrativi**  >  **componenti di Windows**  >  **Internet Explorer**  >  pagina sicurezza**Pannello di controllo Internet**  >  **Security Page**  >  **area Intranet**. Selezionare quindi **Consenti aggiornamenti alla barra di stato tramite script**.
 
-    ![Accesso Single Sign-On](./media/how-to-connect-sso-quick-start/sso11.png)
+    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso11.png)
 
 7. Abilitare l'impostazione del criterio e quindi fare clic su **OK**.
 
-    ![Accesso Single Sign-On](./media/how-to-connect-sso-quick-start/sso12.png)
+    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso12.png)
 
 ### <a name="group-policy-preference-option---detailed-steps"></a>Opzione "Preferenza di Criteri di gruppo" - Procedura dettagliata
 
@@ -158,7 +158,7 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
 2. Modificare i criteri di gruppo applicati a tutti gli utenti o solo ad alcuni. Questo esempio è basato su **Criterio dominio predefinito**.
 3. Passare a **Preferenze configurazione utente**  >  **Preferences**  >  **impostazioni di Windows**  >  **Registro**di sistema  >  **nuovo**  >  **elemento del registro di sistema**.
 
-    ![Accesso Single Sign-On](./media/how-to-connect-sso-quick-start/sso15.png)
+    ![Single sign-on](./media/how-to-connect-sso-quick-start/sso15.png)
 
 4. Immettere i valori seguenti nei campi appropriati e fare clic su **OK**.
    - **Percorso chiave**: ***Software\Microsoft\Windows\CurrentVersion\Internet Settings\ZoneMap\Domains\microsoftazuread-sso.com\autologon***
@@ -166,9 +166,9 @@ Per impostazione predefinita, il browser calcola automaticamente l'area corretta
    - **Tipo di valore**: ***REG_DWORD***
    - **Dati valore**: ***00000001***
  
-     ![Accesso Single Sign-On](./media/how-to-connect-sso-quick-start/sso16.png)
+     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso16.png)
  
-     ![Accesso Single Sign-On](./media/how-to-connect-sso-quick-start/sso17.png)
+     ![Single sign-on](./media/how-to-connect-sso-quick-start/sso17.png)
 
 ### <a name="browser-considerations"></a>Considerazioni sui browser
 
@@ -187,11 +187,11 @@ Verificare che il computer che esegue macOS sia stato aggiunto ad AD. Le istruzi
 
 #### <a name="microsoft-edge-based-on-chromium-all-platforms"></a>Microsoft Edge basato su Chromium (tutte le piattaforme)
 
-Se sono state sostituite le impostazioni dei criteri [AuthNegotiateDelegateAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) o [AuthServerAllowlist](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) nell'ambiente in uso, assicurarsi di aggiungervi anche l'URL di Azure ad ( `https://autologon.microsoftazuread-sso.com` ).
+Se sono state sostituite le impostazioni dei criteri [AuthNegotiateDelegateAllowlist](/DeployEdge/microsoft-edge-policies#authnegotiatedelegateallowlist) o [AuthServerAllowlist](/DeployEdge/microsoft-edge-policies#authserverallowlist) nell'ambiente in uso, assicurarsi di aggiungervi anche l'URL di Azure ad ( `https://autologon.microsoftazuread-sso.com` ).
 
 #### <a name="microsoft-edge-based-on-chromium-macos-and-other-non-windows-platforms"></a>Microsoft Edge basato su Chromium (macOS e altre piattaforme non Windows)
 
-Per Microsoft Edge basato su Chromium in macOS e altre piattaforme non Windows, fare riferimento all' [elenco Microsoft Edge basato su criteri di cromo](https://docs.microsoft.com/DeployEdge/microsoft-edge-policies#authserverallowlist) per informazioni su come aggiungere l'URL di Azure ad per l'autenticazione integrata all'elenco di consentiti.
+Per Microsoft Edge basato su Chromium in macOS e altre piattaforme non Windows, fare riferimento all' [elenco Microsoft Edge basato su criteri di cromo](/DeployEdge/microsoft-edge-policies#authserverallowlist) per informazioni su come aggiungere l'URL di Azure ad per l'autenticazione integrata all'elenco di consentiti.
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (tutte le piattaforme)
 
@@ -211,7 +211,7 @@ L'accesso SSO facile non funziona in modalità di esplorazione privata nei brows
 
 Per testare la funzionalità per un utente specifico, verificare che siano soddisfatte tutte le condizioni seguenti:
   - L'utente esegue l'accesso da un dispositivo aziendale.
-  - Il dispositivo è aggiunto al dominio di Active Directory. _Non_ è necessario che il dispositivo sia [aggiunto ad Azure AD](../active-directory-azureadjoin-overview.md).
+  - Il dispositivo è aggiunto al dominio di Active Directory. _Non_ è necessario che il dispositivo sia [aggiunto ad Azure AD](../devices/overview.md).
   - Il dispositivo ha una connessione diretta al controller di dominio, nella rete aziendale cablata o wireless oppure tramite una connessione di accesso remoto, ad esempio di tipo VPN.
   - La [funzionalità è stata distribuita](#step-3-roll-out-the-feature) all'utente tramite Criteri di gruppo.
 

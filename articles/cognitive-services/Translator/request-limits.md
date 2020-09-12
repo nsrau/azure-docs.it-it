@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: 9ce2ea7da562372e5c1c25d4c0fe9ab410b02a1d
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: dff69f00833cc3f8004befd330d144f4da0e332d
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903408"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566586"
 ---
 # <a name="request-limits-for-translator"></a>Limiti delle richieste per il traduttore
 
@@ -29,9 +29,9 @@ Nella tabella seguente sono elencati i limiti degli elementi e dei caratteri del
 
 | Operazione | Dimensione massima dell'elemento della matrice |    Numero massimo di elementi di matrice |    Dimensioni massime richiesta (caratteri) |
 |:----|:----|:----|:----|
-| Translate | 10,000    | 100   | 10,000 |
+| Traduci | 10,000    | 100   | 10,000 |
 | Transliterate | 5\.000 | 10    | 5\.000 |
-| Detect | 10,000 | 100 |   50.000 |
+| Detect | 50.000 | 100 |   50.000 |
 | BreakSentence | 50.000    | 100 | 50.000 |
 | Ricerca nel dizionario| 100 |  10  | 1\.000 |
 | Esempi di dizionari | 100 per il testo e 100 per la traduzione (200 totali)| 10|   2\.000 |

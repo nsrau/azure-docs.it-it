@@ -3,12 +3,12 @@ title: Configurare un contenitore Linux personalizzato
 description: Informazioni su come configurare un contenitore Linux personalizzato nel servizio app Azure. Questo articolo illustra le attività di configurazione più comuni.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 2f26f1b041b2d369b68aeb11755c8e8053862b16
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 9a27abe5457cf8adf2963db545c629134ae53709
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88083019"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566977"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Configurare un contenitore Linux personalizzato per il servizio app Azure
 
@@ -54,7 +54,7 @@ az webapp config appsettings set --resource-group <resource-group-name> --name <
 SSH consente la comunicazione sicura tra un contenitore e un client. Per consentire a un contenitore personalizzato di supportare SSH, è necessario aggiungerlo alla Dockerfile stessa.
 
 > [!TIP]
-> Tutti i contenitori Linux predefiniti hanno aggiunto le istruzioni SSH nei repository di immagini. È possibile seguire le istruzioni seguenti con il [repositoryNode.js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14) per vedere come è abilitato.
+> Tutti i contenitori Linux predefiniti hanno aggiunto le istruzioni SSH nei repository di immagini. È possibile seguire le istruzioni seguenti con il [ repositoryNode.js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14) per vedere come è abilitato.
 
 - Usare l'istruzione [Run](https://docs.docker.com/engine/reference/builder/#run) per installare il server SSH e impostare la password per l'account radice su `"Docker!"` . Per un'immagine basata su [Alpine Linux](https://hub.docker.com/_/alpine), ad esempio, sono necessari i comandi seguenti:
 
@@ -88,7 +88,7 @@ SSH consente la comunicazione sicura tra un contenitore e un client. Per consent
     /usr/sbin/sshd
     ```
 
-    Per un esempio, vedere come il [contenitore predefinitoNode.js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14/startup/init_container.sh) avvia il server SSH.
+    Per un esempio, vedere come il [ contenitore predefinitoNode.js 10,14](https://github.com/Azure-App-Service/node/blob/master/10.14/startup/init_container.sh) avvia il server SSH.
 
 ## <a name="access-diagnostic-logs"></a>Accedere ai log di diagnostica
 
@@ -147,6 +147,7 @@ Il multicontenitore è attualmente in fase di anteprima. Le funzionalità della 
 
 - Autenticazione/Autorizzazione
 - Identità gestite
+- CORS
 
 ### <a name="docker-compose-options"></a>Opzioni di Docker Compose
 

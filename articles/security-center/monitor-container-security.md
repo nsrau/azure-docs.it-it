@@ -8,19 +8,19 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/30/2020
 ms.author: memildin
-ms.openlocfilehash: 5f558aaa367d156a8a4fa8633f113c6480236f5b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8ec06fc23b147eb3e4a5922242aa922063f4172c
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87038615"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514153"
 ---
 # <a name="monitor-the-security-of-your-containers"></a>Monitorare la sicurezza dei contenitori
 
 Questa pagina illustra come usare le funzionalità di sicurezza del contenitore descritte nell' [articolo sulla sicurezza dei contenitori](container-security.md) nella sezione concetti.
 
 
-## <a name="scanning-your-arm-based-container-registries-for-vulnerabilities"></a>Analisi dei registri di contenitori basati su ARM per le vulnerabilità 
+## <a name="scan-your-arm-based-container-registries-for-vulnerabilities"></a>Eseguire la scansione dei registri di contenitori basati su ARM per individuare le vulnerabilità 
 
 1. Per abilitare le analisi delle vulnerabilità delle immagini del Container Registry di Azure:
 
@@ -30,13 +30,13 @@ Questa pagina illustra come usare le funzionalità di sicurezza del contenitore 
 
         Il Centro sicurezza è ora pronto per analizzare le immagini che vengono inserite nel registro di sistema. 
 
-        >[!NOTE]
-        >Questa funzionalità viene addebitata per ogni immagine.
+      >[!NOTE]
+      >Questa funzionalità viene addebitata per ogni immagine.
 
 
 1. Per attivare l'analisi di un'immagine, eseguirne il push nel registro. 
 
-    Al termine dell'analisi (in genere dopo circa 2 minuti, ma può essere fino a 15 minuti), i risultati sono disponibili come raccomandazioni del Centro sicurezza, come indicato di seguito:
+    Al termine dell'analisi (in genere dopo circa 2 minuti, ma può essere fino a 15 minuti), i risultati sono disponibili come raccomandazioni del Centro sicurezza.
 
 1. Per visualizzare i risultati, passare alla pagina **raccomandazioni** . Se sono stati rilevati problemi, verrà visualizzata la raccomandazione seguente:
 
@@ -86,7 +86,7 @@ Questa pagina illustra come usare le funzionalità di sicurezza del contenitore 
     1. Quando si è certi che l'immagine aggiornata è stata sottoposta a push, analizzata e non viene più visualizzata nella raccomandazione, eliminare l'immagine vulnerabile "obsoleta" dal registro di sistema.
 
 
-## <a name="hardening-your-containers-docker-hosts"></a>Protezione avanzata degli host Docker dei contenitori
+## <a name="harden-your-containers-docker-hosts"></a>Rafforzare gli host Docker dei contenitori
 
 Il Centro sicurezza monitora costantemente la configurazione degli host Docker e genera raccomandazioni sulla sicurezza che riflettono gli standard di settore.
 

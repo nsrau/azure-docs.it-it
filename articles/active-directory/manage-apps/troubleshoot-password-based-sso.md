@@ -1,6 +1,6 @@
 ---
-title: Risolvere i problemi di Single Sign-On basata su password in Azure AD
-description: Come risolvere i problemi relativi a un'app Azure AD configurata per Single Sign-On basati su password.
+title: Risolvere i problemi di Single Sign-On basata su password in Azure Active Directory
+description: Risolvere i problemi relativi a un'app Azure AD configurata per Single Sign-On basati su password.
 author: kenwith
 manager: celestedg
 ms.service: active-directory
@@ -10,12 +10,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: asteen
-ms.openlocfilehash: 436fbdde1283bd8406e631fd37b559bfe11e234e
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 0534c85548b1d8b6203aaac4911dc851dd49d81a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89051942"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460355"
 ---
 # <a name="troubleshoot-password-based-single-sign-on-in-azure-ad"></a>Risolvere i problemi di Single Sign-On basata su password in Azure AD
 

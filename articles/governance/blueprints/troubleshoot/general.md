@@ -3,12 +3,12 @@ title: Risoluzione dei problemi comuni
 description: Informazioni su come risolvere i problemi relativi alla creazione, all'assegnazione e alla rimozione di progetti quali violazioni dei criteri e funzioni di parametri del progetto.
 ms.date: 06/29/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: d1dcd88fd6f7a9ab5035a5977ab5d50f3e6caf54
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: e8362e2a22317d73e0fd392bd497cd9f2c5ffe4f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85557503"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651327"
 ---
 # <a name="troubleshoot-errors-using-azure-blueprints"></a>Risoluzione errori con Azure Blueprint
 
@@ -22,9 +22,9 @@ L'assegnazione di un progetto a un ambito comporta una serie di errori. Quando s
 
 1. Selezionare **progetti assegnati** dalla pagina a sinistra e usare la casella di ricerca per filtrare le assegnazioni di progetto per trovare l'assegnazione non riuscita. È inoltre possibile ordinare la tabella delle assegnazioni tramite la colonna **Stato di provisioning** per visualizzare tutte le assegnazioni non riuscite raggruppate.
 
-1. Fare clic con il pulsante destro del mouse sul progetto con lo stato _non riuscito_ oppure fare clic con il pulsante destro del mouse e selezionare **Visualizza Dettagli assegnazione**.
+1. Selezionare il progetto con lo stato _non riuscito_ o fare clic con il pulsante destro del mouse e selezionare **Visualizza Dettagli assegnazione**.
 
-1. Nella parte superiore della pagina di assegnazione del progetto viene visualizzato un banner rosso che avvisa dell'esito negativo dell'assegnazione. Fare clic sul banner per ottenere altri dettagli.
+1. Nella parte superiore della pagina di assegnazione del progetto viene visualizzato un banner rosso che avvisa dell'esito negativo dell'assegnazione. Per ottenere altri dettagli, selezionare un punto qualsiasi nel banner.
 
 In genere l'errore è dovuto a un artefatto e non al progetto stesso. Se un artefatto crea un insieme di credenziali delle chiavi e Criteri di Azure impedisce la creazione di tale insieme, l'intera assegnazione ha esito negativo.
 

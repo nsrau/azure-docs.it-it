@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/21/2019
-ms.openlocfilehash: c3d487c1595a077ac8609813a41d15e28ede0e0b
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: b82dd4ea8a74c51606b7a388b8d6ede07b1057c4
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903324"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461545"
 ---
 # <a name="azure-stream-analytics-solution-patterns"></a>Modelli di soluzioni di Analisi di flusso di Azure
 
@@ -102,7 +102,7 @@ La maggior parte delle attività di data science e analisi si verifica ancora of
 
 ## <a name="use-reference-data-for-enrichment"></a>Usare i dati di riferimento per l'arricchimento
 
-L'arricchimento dei dati è spesso un requisito per i motori ETL. Analisi di flusso di Azure supporta l'arricchimento dei dati con [i dati di riferimento](stream-analytics-use-reference-data.md) sia dal database SQL che dall'archiviazione BLOB di Azure. L'arricchimento dei dati può essere eseguito per l'atterraggio dei dati sia Azure Data Lake che SQL Data Warehouse.
+L'arricchimento dei dati è spesso un requisito per i motori ETL. Analisi di flusso di Azure supporta l'arricchimento dei dati con [i dati di riferimento](stream-analytics-use-reference-data.md) sia dal database SQL che dall'archiviazione BLOB di Azure. L'arricchimento dei dati può essere eseguito per l'atterraggio dei dati sia in Azure Data Lake che in Azure sinapsi Analytics.
 
 
 ![Analisi offline ASA con arricchimento dei dati](media/stream-analytics-solution-patterns/offline-analytics-enriched.png)
@@ -115,7 +115,7 @@ Se si combina il modello di analisi offline con il modello di applicazione quasi
 
 ## <a name="how-to-monitor-asa-jobs"></a>Come monitorare i processi ASA
 
-È possibile eseguire un processo di analisi di flusso di Azure 24/7 per elaborare continuamente gli eventi in ingresso in tempo reale. La garanzia del tempo di esecuzione è fondamentale per l'integrità dell'applicazione complessiva. Anche se analisi di flusso è l'unico servizio di analisi di flusso nel settore che offre una [garanzia di disponibilità del 99,9%](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/), è comunque possibile che si verifichi un certo livello di tempo di inattività. Nel corso degli anni, analisi di flusso ha introdotto metriche, log e Stati del processo per riflettere l'integrità dei processi. Tutti i servizi vengono esposti tramite il servizio monitoraggio di Azure e possono essere esportati a OMS. Per altre informazioni, vedere informazioni sul [monitoraggio dei processi di analisi di flusso e su come monitorare le query](stream-analytics-monitoring.md).
+È possibile eseguire un processo di analisi di flusso di Azure 24/7 per elaborare continuamente gli eventi in ingresso in tempo reale. La garanzia del tempo di esecuzione è fondamentale per l'integrità dell'applicazione complessiva. Anche se analisi di flusso è l'unico servizio di analisi di flusso nel settore che offre una  [garanzia di disponibilità del 99,9%](https://azure.microsoft.com/support/legal/sla/stream-analytics/v1_0/), è comunque possibile che si verifichi un certo livello di tempo di inattività. Nel corso degli anni, analisi di flusso ha introdotto metriche, log e Stati del processo per riflettere l'integrità dei processi. Tutti i servizi vengono esposti tramite il servizio monitoraggio di Azure e possono essere esportati a OMS. Per altre informazioni, vedere informazioni sul [monitoraggio dei processi di analisi di flusso e su come monitorare le query](stream-analytics-monitoring.md).
 
 ![Monitoraggio ASA](media/stream-analytics-solution-patterns/monitoring.png)
 

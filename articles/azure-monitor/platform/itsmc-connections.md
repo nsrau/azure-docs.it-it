@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: bf1721b45ff63c225c378e50bff9040948820c8b
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 57a981f4967bc58ca39067f94abdcf64d764ab87
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88035026"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536192"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connettere prodotti e servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT
 Questo articolo fornisce informazioni su come configurare la connessione tra un prodotto o servizio di Gestione dei servizi IT e Connettore di Gestione dei servizi IT in Log Analytics per gestire da una posizione centrale gli elementi di lavoro. Per altre informazioni su Connettore di Gestione dei servizi IT, vedere [Panoramica](./itsmc-overview.md).
@@ -298,6 +298,10 @@ Al termine della creazione dell'utente, lo stato di **Check Installation Checkli
 
 Le sezioni seguenti forniscono informazioni dettagliate su come connettere il prodotto Provance a Connettore di Gestione dei servizi IT in Azure.
 
+> [!NOTE]
+> 
+> A partire da 1-Oct-2020, l'integrazione di ITSM Provence con Azure Alert non verrà più abilitata per i nuovi clienti. Le nuove connessioni ITSM non saranno supportate. 
+> Saranno supportate le connessioni ITSM esistenti.
 
 ### <a name="prerequisites"></a>Prerequisiti
 
@@ -352,6 +356,11 @@ Altre informazioni: [Creare elementi di lavoro di Connettore di Gestione dei ser
 
 Le sezioni seguenti forniscono informazioni dettagliate su come connettere il prodotto Cherwell a Connettore di Gestione dei servizi IT in Azure.
 
+> [!NOTE]
+> 
+> Da 1-ott-2020 l'integrazione di Cherwell ITSM con Azure Alert non verrà più abilitata per i nuovi clienti. Le nuove connessioni ITSM non saranno supportate. 
+> Saranno supportate le connessioni ITSM esistenti.
+
 ### <a name="prerequisites"></a>Prerequisiti
 
 Accertarsi di aver soddisfatto i prerequisiti seguenti:
@@ -362,7 +371,7 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
 
 ### <a name="connection-procedure"></a>Procedura di connessione
 
-Seguire questa procedura per creare una connessione Provance:
+Seguire questa procedura per creare una connessione Cherwell:
 
 1. Nel portale di Azure passare a **Tutte le risorse** e cercare **ServiceDesk(NomeAreaDiLavoro)**
 

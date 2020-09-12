@@ -3,15 +3,15 @@ title: Bilanciamento del carico del pool host del desktop virtuale Windows-Azure
 description: Informazioni sui metodi di bilanciamento del carico del pool host per un ambiente desktop virtuale di Windows.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 09/04/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: ee8cb5f2297851d2c2b2f34be3d90573fdcf2530
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 2b977d64dea1cef3b8142758e57d91e92e5bcc02
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88007438"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461120"
 ---
 # <a name="host-pool-load-balancing-methods"></a>Metodo di bilanciamento del carico per i pool di host
 
@@ -34,7 +34,7 @@ Ogni pool host può configurare solo un tipo di bilanciamento del carico specifi
 
 Il metodo di bilanciamento del carico con la prima larghezza consente di distribuire le connessioni utente per ottimizzare questo scenario. Questo metodo è ideale per le organizzazioni che desiderano offrire la migliore esperienza per gli utenti che si connettono al proprio ambiente di desktop virtuale in pool.
 
-Il metodo di primo respiro esegue prima una query sugli host di sessione che consentono nuove connessioni. Il metodo seleziona quindi l'host della sessione con il minor numero di sessioni. Se è presente una cravatta, il metodo seleziona il primo host sessione nella query.
+Il metodo di primo respiro esegue prima una query sugli host di sessione che consentono nuove connessioni. Il metodo seleziona quindi un host sessione in modo casuale dalla metà del set di host di sessione con il minor numero di sessioni. Se ad esempio sono presenti nove macchine con 11, 12, 13, 14, 15, 16, 17, 18 e 19 sessioni, una nuova sessione creata non verrà automaticamente inviata al primo computer. Al contrario, può passare a uno dei primi cinque computer con il numero più basso di sessioni (11, 12, 13, 14, 15).
 
 ## <a name="depth-first-load-balancing-method"></a>Metodo di bilanciamento del carico depth-first
 

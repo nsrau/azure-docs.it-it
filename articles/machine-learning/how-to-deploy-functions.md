@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 03/06/2020
 ms.topic: conceptual
 ms.custom: how-to, racking-python
-ms.openlocfilehash: 8d1ea9b0989a71268b98f0b2fd1d95d5671f996b
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: ff327372a0ec22ca6291615ca64f01a4aa5807be
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325798"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646230"
 ---
 # <a name="deploy-a-machine-learning-model-to-azure-functions-preview"></a>Distribuire un modello di Machine Learning in funzioni di Azure (anteprima)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -37,9 +37,9 @@ Con Azure Machine Learning, è possibile creare immagini Docker da modelli di ap
     > [!IMPORTANT]
     > I frammenti di codice in questo articolo presuppongono che siano state impostate le variabili seguenti:
     >
-    > * `ws`-L'area di lavoro Azure Machine Learning.
-    > * `model`: Modello registrato che verrà distribuito.
-    > * `inference_config`-Configurazione dell'inferenza per il modello.
+    > * `ws` -L'area di lavoro Azure Machine Learning.
+    > * `model` : Modello registrato che verrà distribuito.
+    > * `inference_config` -Configurazione dell'inferenza per il modello.
     >
     > Per altre informazioni sull'impostazione di queste variabili, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
 
@@ -63,7 +63,7 @@ Per altre informazioni sullo script di immissione, vedere [definire il codice](h
 Queste entità sono incapsulate in una __configurazione di inferenza__. La configurazione di inferenza fa riferimento allo script di avvio e ad altre dipendenze.
 
 > [!IMPORTANT]
-> Quando si crea una configurazione di inferenza da usare con funzioni di Azure, è necessario usare un oggetto [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py) . Si noti che se si definisce un ambiente personalizzato, è necessario aggiungere azureml-defaults con Version >= 1.0.45 come dipendenza PIP. Questo pacchetto contiene le funzionalità necessarie per ospitare il modello come servizio Web. Nell'esempio seguente viene illustrata la creazione di un oggetto ambiente e il relativo utilizzo con una configurazione di inferenza:
+> Quando si crea una configurazione di inferenza da usare con funzioni di Azure, è necessario usare un oggetto [Environment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment%28class%29?view=azure-ml-py&preserve-view=true) . Si noti che se si definisce un ambiente personalizzato, è necessario aggiungere azureml-defaults con Version >= 1.0.45 come dipendenza PIP. Questo pacchetto contiene le funzionalità necessarie per ospitare il modello come servizio Web. Nell'esempio seguente viene illustrata la creazione di un oggetto ambiente e il relativo utilizzo con una configurazione di inferenza:
 >
 > ```python
 > from azureml.core.environment import Environment
@@ -96,7 +96,7 @@ pip install azureml-contrib-functions
 
 ## <a name="create-the-image"></a>Creare l'immagine
 
-Per creare l'immagine Docker distribuita in funzioni di Azure, usare [azureml. contrib. Functions. Package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py) o la funzione specifica del pacchetto per il trigger che si vuole usare. Il frammento di codice seguente illustra come creare un nuovo pacchetto con un trigger di BLOB dal modello e dalla configurazione dell'inferenza:
+Per creare l'immagine Docker distribuita in funzioni di Azure, usare [azureml. contrib. Functions. Package](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true) o la funzione specifica del pacchetto per il trigger che si vuole usare. Il frammento di codice seguente illustra come creare un nuovo pacchetto con un trigger di BLOB dal modello e dalla configurazione dell'inferenza:
 
 > [!NOTE]
 > Il frammento di codice presuppone che `model` contenga un modello registrato e che `inference_config` contenga la configurazione per l'ambiente di inferenza. Per altre informazioni, vedere [distribuire modelli con Azure Machine Learning](how-to-deploy-and-where.md).
@@ -184,7 +184,7 @@ Quando `show_output=True` viene visualizzato l'output del processo di compilazio
     ```azurecli-interactiv
     az storage account show-connection-string --resource-group myresourcegroup --name <triggerStorage> --query connectionString --output tsv
     ```
-    Registrare la stringa di connessione da fornire all'app per le funzioni. Verrà usato in un secondo momento per richiedere`<triggerConnectionString>`
+    Registrare la stringa di connessione da fornire all'app per le funzioni. Verrà usato in un secondo momento per richiedere `<triggerConnectionString>`
 
 1. Creare i contenitori per l'input e l'output nell'account di archiviazione. Sostituire `<triggerConnectionString>` con la stringa di connessione restituita in precedenza:
 
@@ -301,4 +301,4 @@ Per altre informazioni sull'uso dei trigger BLOB, vedere l'articolo [creare una 
 * Altre informazioni sull'archiviazione BLOB attiva i [binding dell'archiviazione BLOB di Azure](https://docs.microsoft.com/azure/azure-functions/functions-bindings-storage-blob).
 * [Distribuire il modello nel servizio app Azure](how-to-deploy-app-service.md).
 * [Usare un modello di Machine Learning distribuito come servizio Web](how-to-consume-web-service.md)
-* [Riferimento API](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py)
+* [Riferimento API](https://docs.microsoft.com/python/api/azureml-contrib-functions/azureml.contrib.functions?view=azure-ml-py&preserve-view=true)

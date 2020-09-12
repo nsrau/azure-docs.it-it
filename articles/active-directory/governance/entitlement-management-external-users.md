@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef88a15286389c98bb77f982afbc54358897eef4
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 72ed8fede56385248415caf0438b190d5c191bbc
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783859"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460865"
 ---
 # <a name="govern-access-for-external-users-in-azure-ad-entitlement-management"></a>Governare l'accesso per gli utenti esterni in Azure AD gestione dei diritti
 
@@ -105,7 +105,7 @@ Per assicurarsi che gli utenti esterni all'organizzazione possano richiedere pac
 
 ### <a name="review-your-microsoft-365-group-sharing-settings"></a>Esaminare le impostazioni di condivisione del gruppo di Microsoft 365
 
-- Se si desidera includere Microsoft 365 gruppi nei pacchetti di accesso per gli utenti esterni, assicurarsi che l'impostazione Consenti **agli utenti di aggiungere nuovi Guest all'organizzazione** sia impostata **su on** per consentire l'accesso guest. Per ulteriori informazioni, vedere [gestire l'accesso Guest ai gruppi di Microsoft 365](/office365/admin/create-groups/manage-guest-access-in-groups?view=o365-worldwide#manage-groups-guest-access).
+- Se si desidera includere Microsoft 365 gruppi nei pacchetti di accesso per gli utenti esterni, assicurarsi che l'impostazione Consenti **agli utenti di aggiungere nuovi Guest all'organizzazione** sia impostata **su on** per consentire l'accesso guest. Per ulteriori informazioni, vedere [gestire l'accesso Guest ai gruppi di Microsoft 365](/Microsoft 365/admin/create-groups/manage-guest-access-in-groups?view=Microsoft 365-worldwide#manage-groups-guest-access).
 
 - Se si desidera che gli utenti esterni siano in grado di accedere al sito di SharePoint Online e alle risorse associate a un gruppo Microsoft 365, assicurarsi di attivare la condivisione esterna di SharePoint Online. Per altre informazioni, vedere [attivare o disattivare la condivisione esterna](/sharepoint/turn-external-sharing-on-or-off#change-the-organization-level-external-sharing-setting).
 

@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: conceptual
-ms.date: 08/25/2020
-ms.openlocfilehash: 624668ad80d72933d6dd1e67fcac799fd210d659
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/10/2020
+ms.openlocfilehash: 41fdc342d82b07e82bb6e7b32e1a4f98f94d2a8e
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816661"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647549"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>Connettere le reti virtuali di Azure da App per la logica di Azure usando un ambiente del servizio di integrazione (ISE)
 
@@ -44,7 +44,14 @@ Questo articolo spiega come completare queste attività usando il portale di Azu
   > [!IMPORTANT]
   > Le app per la logica, i trigger predefiniti, le azioni predefinite e i connettori eseguiti nell'ambiente del servizio di integrazione usano un piano tariffario diverso da quello con pagamento in base al consumo. Per informazioni sul funzionamento dei prezzi e della fatturazione per gli ISE, vedere il [Modello di determinazione prezzi delle app per la logica](../logic-apps/logic-apps-pricing.md#fixed-pricing). Per informazioni sui prezzi, vedere [Prezzi di App per la logica](../logic-apps/logic-apps-pricing.md).
 
-* Una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). La rete virtuale deve avere quattro subnet *vuote* , necessarie per la creazione e la distribuzione di risorse in ISE, e vengono usate dai componenti interni delle app per la logica, ad esempio i connettori e la memorizzazione nella cache per le prestazioni. È possibile creare le subnet in anticipo, oppure è possibile attendere fino a quando non si crea ISE per poter creare le subnet nello stesso momento. Tuttavia, prima di creare le subnet, esaminare i [requisiti della subnet](#create-subnet).
+* Una [rete virtuale di Azure](../virtual-network/virtual-networks-overview.md). La rete virtuale deve avere quattro subnet *vuote* , necessarie per la creazione e la distribuzione di risorse in ISE e usate da questi componenti interni e nascosti:
+
+  * Calcolo di app per la logica
+  * Ambiente del servizio app interno (connettori)
+  * Gestione API interna (connettori)
+  * Redis interni per la memorizzazione nella cache e le prestazioni
+  
+  È possibile creare le subnet in anticipo, oppure è possibile attendere fino a quando non si crea ISE per poter creare le subnet nello stesso momento. Tuttavia, prima di creare le subnet, esaminare i [requisiti della subnet](#create-subnet).
 
   > [!IMPORTANT]
   >

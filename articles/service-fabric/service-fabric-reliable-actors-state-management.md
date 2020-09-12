@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 92abfa9937c1ac3f7d4ba68e9228b29e0211e1af
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 9d5859886dbd1211f929be1031237f7e7d9b1fc1
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007792"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89611708"
 ---
 # <a name="reliable-actors-state-management"></a>Gestione dello stato di Reliable Actors
 I Reliable Actors sono oggetti a thread singolo che possono incapsulare sia la logica che lo stato. Poiché gli attori vengono eseguiti nei servizi Reliable Services, possono mantenere lo stato in modo affidabile con gli stessi meccanismi di persistenza e replica. In questo modo, gli attori non perdono il proprio stato dopo gli errori, dopo la riattivazione in seguito a un'operazione di garbage collection o quando vengono spostati tra i nodi di un cluster a causa del bilanciamento delle risorse o degli aggiornamenti.
@@ -115,7 +115,7 @@ Questo è un aspetto cruciale per le prestazioni e l'utilizzo delle risorse dell
 ### <a name="correctly-manage-the-actors-life-cycle"></a>Gestire correttamente il ciclo di vita dell'attore
 È necessario definire criteri chiari per la gestione delle dimensioni dello stato in ogni partizione di un servizio Actor. Il servizio Actor deve avere un numero fisso di attori e riusarli il più possibile. Se si creano continuamente nuovi attori, è necessario eliminarli quando hanno terminato le operazioni. Il framework del servizio Actor archivia alcuni metadati per ogni attore esistente. L'eliminazione di tutto lo stato di un attore non comporta la rimozione dei relativi metadati. È necessario eliminare l'attore (vedere [Eliminazione di attori e del relativo stato](service-fabric-reliable-actors-lifecycle.md#manually-deleting-actors-and-their-state)) per rimuovere tutte le informazioni su tale attore archiviate nel sistema. A titolo di controllo aggiuntivo, è necessario eseguire query sul servizio Actor (vedere [Enumerare gli attori](service-fabric-reliable-actors-enumerate.md)) regolarmente per assicurarsi che il numero di attori sia compreso nell'intervallo previsto.
  
-Se si riscontra un aumento delle dimensioni del file di database di un servizio Actor oltre il limite previsto, assicurarsi di seguire le linee guida precedenti. Se si seguono queste linee guida ed esistono comunque problemi di dimensioni del file di database, è necessario [aprire un ticket di supporto](service-fabric-support.md) per richiedere assistenza al team del prodotto.
+Se si riscontra un aumento delle dimensioni del file di database di un servizio Actor oltre il limite previsto, assicurarsi di seguire le linee guida precedenti. Se si seguono queste linee guida e si verificano ancora problemi di dimensioni dei file di database, è necessario [aprire un ticket di supporto](service-fabric-support.md) con il team del prodotto per ottenere assistenza.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

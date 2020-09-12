@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: fd45db779b7a828d247f09cae38f90fc20d12c16
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7df783f15280d9f5ba3330afaf504f3259aeccf3
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456591"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89646256"
 ---
 # <a name="convert-to-dataset"></a>Eseguire la conversione in set di dati
 
@@ -35,13 +35,13 @@ Si consiglia di salvare i dati nel formato del set di dati se è stato eseguito 
 
 2. Connetterlo a qualsiasi modulo che restituisce un set di dati.   
 
-    Fino a quando i dati sono [tabulari](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py), è possibile convertirli in un set di dati. Sono inclusi i dati caricati tramite l' [importazione dati](import-data.md), i dati creati tramite [immissione manuale dei dati](enter-data-manually.md)o i set di dati trasformati tramite [Applica trasformazione](apply-transformation.md).
+    Fino a quando i dati sono [tabulari](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py&preserve-view=true), è possibile convertirli in un set di dati. Sono inclusi i dati caricati tramite l' [importazione dati](import-data.md), i dati creati tramite [immissione manuale dei dati](enter-data-manually.md)o i set di dati trasformati tramite [Applica trasformazione](apply-transformation.md).
 
 3.  Nell'elenco a discesa **azione** indicare se si desidera eseguire una pulizia dei dati prima di salvare il set di dati:  
   
     - **None**: usare i dati così come sono.  
   
-    - **SetMissingValue**: impostare un valore specifico su un valore mancante nel set di dati. Il segnaposto predefinito è il carattere punto interrogativo (?), ma è possibile usare l'opzione **Custom missing value** per immettere un valore diverso. Ad esempio, se si immette un **taxi** per un **valore mancante personalizzato**, tutte le istanze di **taxi** nel set di dati verranno modificate nel valore mancante.
+    - **SetMissingValue**: impostare un valore specifico su un valore mancante nel set di dati. Il segnaposto predefinito è il carattere punto interrogativo (?), ma è possibile usare l'opzione  **Custom missing value** per immettere un valore diverso. Ad esempio, se si immette un **taxi** per un **valore mancante personalizzato**, tutte le istanze di **taxi** nel set di dati verranno modificate nel valore mancante.
   
     - **ReplaceValues**: usare questa opzione per specificare un singolo valore esatto da sostituire con qualsiasi altro valore esatto. È possibile sostituire i valori mancanti o i valori personalizzati impostando il metodo **Replace** :
 

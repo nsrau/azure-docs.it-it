@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: e9e67dc0da7f81f73d8237769e7aea90f9bc1585
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 45d3ec8dc5d819464046e40bab22491a4bccde63
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833420"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461324"
 ---
 # <a name="planning-and-operations-guide"></a>Guida alla pianificazione e alle operazioni
 Questa guida è destinata a professionisti IT, architetti IT, analisti della sicurezza delle informazioni e amministratori cloud che pianificano l'uso del Centro sicurezza di Azure.
@@ -170,7 +170,7 @@ Dopo la configurazione iniziale e l'applicazione delle raccomandazioni del Centr
 
 La panoramica del Centro sicurezza fornisce una visualizzazione unificata della sicurezza per tutte le risorse di Azure ed eventuali risorse non Azure connesse. L'esempio seguente mostra un ambiente con molti problemi da risolvere:
 
-![dashboard](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig11.png)
+![Dashboard](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig11.png)
 
 > [!NOTE]
 > Il Centro sicurezza non interferisce con le normali procedure operative, esegue un monitoraggio passivo delle distribuzioni e fornisce raccomandazioni in base ai criteri di sicurezza abilitati.
@@ -237,4 +237,4 @@ In questo documento è stato descritto come pianificare l'adozione del Centro si
 * [Monitoraggio dell'integrità della sicurezza nel centro sicurezza di Azure](security-center-monitoring.md) : informazioni su come monitorare l'integrità delle risorse di Azure.
 * [Monitoraggio delle soluzioni dei partner con il Centro sicurezza di Azure](security-center-partner-solutions.md) : informazioni su come monitorare l'integrità delle soluzioni dei partner.
 * Domande frequenti sul [Centro sicurezza di Azure](faq-general.md) : domande frequenti sull'uso del servizio.
-* [Blog sulla sicurezza di Azure](https://blogs.msdn.com/b/azuresecurity/) : post di Blog sulla sicurezza e sulla conformità di Azure.
+* [Blog sulla sicurezza di Azure](https://docs.microsoft.com/archive/blogs/azuresecurity/) : post di Blog sulla sicurezza e sulla conformità di Azure.

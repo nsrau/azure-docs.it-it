@@ -9,13 +9,13 @@ author: djpmsft
 ms.author: daperlov
 ms.reviewer: ''
 manager: anandsub
-ms.date: 05/15/2020
-ms.openlocfilehash: ac51fd63adcc0328ff67f5fbe13dbfdb768f4bfe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/08/2020
+ms.openlocfilehash: 6f8d74ade382db9bfa28c3ab6f03b95b5ac7947c
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84343115"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567121"
 ---
 # <a name="visual-authoring-in-azure-data-factory"></a>Creazione di oggetti visivi in Azure Data Factory
 
@@ -39,9 +39,17 @@ L'esperienza di creazione di oggetti visivi predefinita funziona direttamente co
 
 Per le risorse di livello superiore, ad esempio pipeline, i set di dati e i flussi di dati, le proprietà di alto livello sono modificabili nel riquadro delle proprietà sul lato destro dell'area di disegno. Il riquadro delle proprietà contiene proprietà quali nome, descrizione, annotazioni e altre proprietà di alto livello. Le risorse secondarie quali le attività della pipeline e le trasformazioni del flusso di dati vengono modificate utilizzando il pannello nella parte inferiore dell'area di disegno. 
 
-![Area di disegno di creazione](media/author-visually/properties-pane.png)
+![riquadro Proprietà](media/author-visually/properties-pane.png)
 
 Il riquadro delle proprietà si apre per impostazione predefinita solo per la creazione di risorse. Per modificarlo, fare clic sull'icona del riquadro delle proprietà che si trova nell'angolo in alto a destra dell'area di disegno.
+
+### <a name="related-resources"></a>Risorse correlate
+
+Nel riquadro proprietà è possibile visualizzare le risorse che dipendono dalla risorsa selezionata selezionando la scheda **correlata** . Tutte le risorse che fanno riferimento alla risorsa corrente verranno elencate qui.
+
+![Risorse correlate](media/author-visually/related-resources.png)
+
+Nell'immagine precedente, ad esempio, una pipeline e due flussi di dati utilizzano il set di dati attualmente selezionato.
 
 ## <a name="management-hub"></a>Hub di gestione
 

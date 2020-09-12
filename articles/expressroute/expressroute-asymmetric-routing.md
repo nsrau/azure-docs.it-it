@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: routing asimmetrico'
 description: Questo articolo illustra i problemi che si possono riscontrare con il routing asimmetrico in una rete che ha più collegamenti a una destinazione.
 services: expressroute
-author: osamazia
+author: duongau
 ms.service: expressroute
 ms.topic: article
 ms.date: 10/10/2016
-ms.author: osamam
-ms.openlocfilehash: 8adfcc6559e3e2d48aabd3cfeec4fe20541917c3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: ee96abb51e03fb1dc567b66d180cb520de299d95
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74072148"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566535"
 ---
 # <a name="asymmetric-routing-with-multiple-network-paths"></a>Routing asimmetrico con più percorsi di rete
 Questo articolo illustra il modo in cui il traffico di rete di inoltro e di ritorno può seguire route diverse quando sono disponibili più percorsi tra l'origine e la destinazione di rete.
@@ -53,7 +53,7 @@ Se si sceglie di annunciare lo stesso pool di Network Address Translation (NAT) 
 ## <a name="asymmetric-routing-solutions"></a>Soluzioni per il routing asimmetrico
 Sono disponibili due opzioni principali per risolvere il problema del routing asimmetrico, ovvero il routing e l'uso di Source NAT.
 
-### <a name="routing"></a>Routing
+### <a name="routing"></a>Routing.
 Assicurarsi che gli indirizzi IP pubblici vengano annunciati ai collegamenti WAN (Wide Area Network) appropriati. Se ad esempio si vuole usare Internet per il traffico di autenticazione ed ExpressRoute per il traffico di posta elettronica, è necessario non annunciare gli indirizzi IP pubblici di Active Directory Federation Services (AD FS) tramite ExpressRoute. È analogamente necessario non esporre alcun server AD FS locale per gli indirizzi IP ricevuti dal router tramite ExpressRoute. Le route ricevute tramite ExpressRoute sono più specifiche. Questo fa di ExpressRoute il percorso preferito per il traffico di autenticazione diretto a Microsoft, dando luogo al routing asimmetrico.
 
 Per usare ExpressRoute per l'autenticazione, è necessario assicurarsi che gli indirizzi IP pubblici AD FS vengano annunciati tramite ExpressRoute senza NAT. In questo modo il traffico proveniente da Microsoft e diretto a un server AD FS locale passa attraverso ExpressRoute. Il traffico di ritorno dal cliente a Microsoft usa ExpressRoute perché questa è la route predefinita su Internet.
@@ -64,5 +64,5 @@ Per usare ExpressRoute per l'autenticazione, è necessario assicurarsi che gli i
 ![Configurazione della rete con Source NAT](./media/expressroute-asymmetric-routing/AsymmetricRouting2.png)
 
 ## <a name="asymmetric-routing-detection"></a>Rilevamento del routing asimmetrico
-Il modo migliore per assicurarsi che il traffico attraversi il percorso previsto è il comando traceroute. Se il traffico dal server SMTP locale a Microsoft deve passare per Internet, eseguire il comando traceroute dal server SMTP a Office 365. Il risultato permette di verificare che il traffico in uscita dalla rete sia effettivamente diretto verso Internet e non verso ExpressRoute.
+Il modo migliore per assicurarsi che il traffico attraversi il percorso previsto è il comando traceroute. Se si prevede che il traffico dal server SMTP locale a Microsoft riceva il percorso Internet, il traceroute previsto viene dal server SMTP a Microsoft 365. Il risultato permette di verificare che il traffico in uscita dalla rete sia effettivamente diretto verso Internet e non verso ExpressRoute.
 

@@ -10,13 +10,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 08/24/2020
-ms.openlocfilehash: 7a0b4e52d729c3f13d5ac425627970d67b87979e
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.date: 09/09/2020
+ms.openlocfilehash: e75921e5ee5b148d81c637800f46403d3d410f42
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795882"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613479"
 ---
 # <a name="lookup-activity-in-azure-data-factory"></a>Attività Lookup in Azure Data Factory
 
@@ -29,7 +29,9 @@ L'attività Lookup legge e restituisce il contenuto di un file di configurazione
 
 ## <a name="supported-capabilities"></a>Funzionalità supportate
 
-Per l'attività Lookup attualmente sono supportate le origini dati seguenti. Il numero massimo di righe restituite dall'attività Lookup è 5.000 e la dimensione massima è 2 MB. Attualmente, la durata massima per l'attività Lookup prima del timeout è un'ora.
+Per l'attività Lookup attualmente sono supportate le origini dati seguenti. 
+
+L'attività Lookup può restituire fino a 5000 righe; Se il set di risultati contiene più record, verranno restituite le prime 5000 righe. L'output dell'attività di ricerca supporta fino a 2 MB di dimensioni. l'attività avrà esito negativo se le dimensioni superano il limite. Attualmente, la durata massima per l'attività Lookup prima del timeout è un'ora.
 
 [!INCLUDE [data-factory-v2-supported-data-stores](../../includes/data-factory-v2-supported-data-stores-for-lookup-activity.md)]
 

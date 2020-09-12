@@ -11,12 +11,12 @@ ms.author: abnarain
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 06/09/2020
-ms.openlocfilehash: 23563074bc8bbf02b36e86ff6c78acf3034670a6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cac7b4f376300722762b1cedbf52a5c2e0ecb6e4
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84655881"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89596117"
 ---
 # <a name="create-and-configure-a-self-hosted-integration-runtime"></a>Creare e configurare un runtime di integrazione self-hosted
 
@@ -36,7 +36,7 @@ Per creare e configurare un runtime di integrazione self-hosted, attenersi alle 
 
 ### <a name="create-a-self-hosted-ir-via-azure-powershell"></a>Creare un runtime di integrazione self-hosted tramite Azure PowerShell
 
-1. Per questa attività è possibile usare Azure PowerShell. Esempio:
+1. Per questa attività è possibile usare Azure PowerShell. Ecco un esempio:
 
     ```powershell
     Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
@@ -157,11 +157,11 @@ Di seguito è riportato un riepilogo di alto livello dei passaggi del flusso di 
 
 - Le versioni supportate di Windows sono:
   + Windows 7 Service Pack 1
-  + Windows 8.1
+  + Windows 8,1
   + Windows 10
   + Windows Server 2008 R2 SP1
   + Windows Server 2012
-  + R2 per Windows Server 2012
+  + Windows Server 2012 R2
   + Windows Server 2016
   + Windows Server 2019
    
@@ -320,6 +320,7 @@ A livello di firewall aziendale è necessario configurare le porte in uscita e i
 
 [!INCLUDE [domain-and-outbound-port-requirements](../../includes/domain-and-outbound-port-requirements.md)]
 
+
 A livello di computer o di Windows Firewall queste porte in uscita sono normalmente abilitate. In caso affermativo, è possibile configurare i domini e le porte in un computer del runtime di integrazione self-hosted.
 
 > [!NOTE]
@@ -331,13 +332,13 @@ A livello di computer o di Windows Firewall queste porte in uscita sono normalme
 
 Assicurarsi di abilitare correttamente le regole del firewall nel firewall aziendale, Windows Firewall del computer del runtime di integrazione self-hosted e l'archivio dati. L'abilitazione di queste regole consente al runtime di integrazione self-hosted di connettersi all'origine e al sink. Abilitare le regole per ogni archivio dati interessato dall'operazione di copia.
 
-Ad esempio, per eseguire la copia da un archivio dati locale a un sink di database SQL o a un sink di Azure SQL Data Warehouse, seguire questa procedura:
+Ad esempio, per eseguire la copia da un archivio dati locale a un sink di database SQL o un sink di Azure sinapsi Analytics (in precedenza SQL Data Warehouse), seguire questa procedura:
 
 1. Consente la comunicazione TCP in uscita sulla porta 1433 per Windows Firewall e il firewall aziendale.
 1. Configurare le impostazioni del firewall del database SQL per aggiungere l'indirizzo IP del computer del runtime di integrazione self-hosted all'elenco degli indirizzi IP consentiti.
 
 > [!NOTE]
-> Se il firewall non consente la porta in uscita 1433, il runtime di integrazione self-hosted non può accedere direttamente al database SQL. In questo caso, è possibile usare una [copia](copy-activity-performance.md) di gestione temporanea nel database SQL e SQL data warehouse. In questo scenario è necessario solo HTTPS (porta 443) per lo spostamento dei dati.
+> Se il firewall non consente la porta in uscita 1433, il runtime di integrazione self-hosted non può accedere direttamente al database SQL. In questo caso, è possibile usare una [copia](copy-activity-performance.md) di gestione temporanea nel database SQL e in Azure sinapsi Analytics. In questo scenario è necessario solo HTTPS (porta 443) per lo spostamento dei dati.
 
 ## <a name="proxy-server-considerations"></a>Considerazioni sui server proxy
 
@@ -360,9 +361,9 @@ Il servizio host di Integration Runtime viene riavviato automaticamente dopo ave
 Dopo aver registrato il runtime di integrazione self-hosted, se si desidera visualizzare o aggiornare le impostazioni proxy, utilizzare Microsoft Integration Runtime Configuration Manager.
 
 1. Aprire **Gestione configurazione di Microsoft Integration Runtime**.
-1. Selezionare la scheda **Impostazioni** .
+1. Selezionare la scheda **Settings** (Impostazioni).
 1. In **proxy http**selezionare il collegamento **Cambia** per aprire la finestra di dialogo **Imposta proxy http** .
-1. Selezionare **Avanti**. Viene quindi visualizzato un avviso che richiede l'autorizzazione per salvare l'impostazione del proxy e riavviare il servizio host di Integration Runtime.
+1. Selezionare **Next** (Avanti). Viene quindi visualizzato un avviso che richiede l'autorizzazione per salvare l'impostazione del proxy e riavviare il servizio host di Integration Runtime.
 
 È possibile utilizzare lo strumento Gestione configurazione per visualizzare e aggiornare il proxy HTTP.
 

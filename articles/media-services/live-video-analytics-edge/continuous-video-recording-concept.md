@@ -3,12 +3,12 @@ title: Registrazione video continua-Azure
 description: La registrazione video continua (CVR) si riferisce al processo di registrazione continua del video da un'origine video. In questo argomento viene illustrata la CVR.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: 76af97fe1398421f5f37cfca32127d926ce56bac
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 04f09f1968e647c57ba0913a9e7f9e601d045771
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043302"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566696"
 ---
 # <a name="continuous-video-recording"></a>Registrazione continua di video  
 
@@ -21,7 +21,8 @@ ms.locfileid: "87043302"
 
 La registrazione video continua (CVR) si riferisce al processo di registrazione continua del video da un'origine video. Analisi video in tempo reale su IoT Edge supporta la registrazione continua dei video, su base 24x7, da una fotocamera CCTV tramite un [grafico multimediale](media-graph-concept.md) costituito da un nodo di origine RTSP e da un nodo di sink di asset. Il diagramma seguente illustra una rappresentazione grafica di un grafico multimediale di questo tipo. La rappresentazione JSON della [topologia Graph](media-graph-concept.md?branch=release-preview-media-services-lva#media-graph-topologies-and-instances) di tale grafico multimediale è disponibile [qui](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset).
 
-![Registrazione continua di video](./media/continuous-video-recording/continuous-video-recording-overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/continuous-video-recording/continuous-video-recording-overview.svg" alt-text="Registrazione continua di video":::
 
 Il grafico multimediale illustrato in precedenza può essere eseguito in un dispositivo perimetrale, con il video di registrazione del sink di asset in un [Asset](terminology.md#asset)di servizi multimediali di Azure. Il video verrà registrato fino a quando il grafico multimediale rimane nello stato attivato. Poiché il video viene registrato come asset, è possibile riprodurlo usando le funzionalità di streaming esistenti di servizi multimediali. Per altri dettagli, vedere [riproduzione del contenuto registrato](video-playback-concept.md) .
 
@@ -30,10 +31,11 @@ Il grafico multimediale illustrato in precedenza può essere eseguito in un disp
 L'analisi di video in tempo reale su IoT Edge supporta il funzionamento in condizioni di rete meno-perfette, in cui il dispositivo perimetrale può occasionalmente perdere la connettività con il cloud o subire un calo della larghezza di banda disponibile. Per tenere conto di questo problema, il video dell'origine viene registrato localmente in una cache e viene sincronizzato automaticamente con l'asset con cadenza periodica. Se si esamina la [topologia Graph JSON](https://github.com/Azure/live-video-analytics/tree/master/MediaGraph/topologies/cvr-asset/topology.json), si noterà che sono definite le proprietà seguenti:
 
 ```
-    "segmentLength": "PT30S",
-    "localMediaCacheMaximumSizeMiB": "2048",
-    "localMediaCachePath": "/var/lib/azuremediaservices/tmp/",
+"segmentLength": "PT30S",
+"localMediaCacheMaximumSizeMiB": "2048",
+"localMediaCachePath": "/var/lib/azuremediaservices/tmp/",
 ```
+
 Le ultime due proprietà sono rilevanti per la registrazione resiliente (entrambe sono anche proprietà obbligatorie per un nodo sink di asset). La proprietà localMediaCachePath indica al sink di asset di usare il percorso della cartella per memorizzare i dati multimediali prima del caricamento nell'asset. [Questo](../../iot-edge/how-to-access-host-storage-from-module.md) articolo illustra come il modulo Edge può usare la risorsa di archiviazione locale del dispositivo. La proprietà localMediaCacheMaximumSizeMiB definisce la quantità di spazio su disco che il sink di asset può usare come cache (1 MiB = 1024 * 1024 byte). 
 
 Se il modulo perimetrale perde la connettività per un periodo di tempo molto lungo e il contenuto archiviato nella cartella della cache raggiunge il valore localMediaCacheMaximumSizeMiB, il sink di asset avvierà l'eliminazione dei dati dalla cache, a partire dai dati meno recenti. Ad esempio, se il dispositivo ha perso la connettività alle ore 10.00 e la cache raggiunge il limite massimo alle 18.00, il sink di asset inizia a eliminare i dati registrati alle 10.00. 
@@ -48,15 +50,13 @@ Come illustrato in precedenza, il nodo sink di asset registrerà il video in una
 
 La proprietà segmentLength garantisce che il modulo Edge caricherà il video al massimo una volta per ogni segmentLength secondi. Questa proprietà ha un valore minimo di 30 secondi (impostazione predefinita) e può essere aumentata di 30 secondi incrementi fino a un massimo di 5 minuti.
 
->[!NOTE]
->Vedere [questo](playback-recordings-how-to.md) articolo per l'effetto di segmentLength sulla riproduzione.
+> [!NOTE]
+> Vedere l'articolo relativo alle registrazioni per la [riproduzione](playback-recordings-how-to.md) per l'effetto di segmentLength sulla riproduzione.
 
-
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Registrazione di video basata su eventi](event-based-video-recording-concept.md)
 * [Riproduzione del contenuto registrato](video-playback-concept.md)
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 

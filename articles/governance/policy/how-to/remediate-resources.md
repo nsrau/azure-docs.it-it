@@ -3,12 +3,12 @@ title: Correggere le risorse non conformi
 description: Questa guida descrive come correggere le risorse che non sono conformi ai criteri di Criteri di Azure.
 ms.date: 08/27/2020
 ms.topic: how-to
-ms.openlocfilehash: 1274b049d7ce19601968697b22da38f0eb2cb5ff
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 52d8ef6dd66c52edd574b2ccfa51da16623a1afb
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958746"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651351"
 ---
 # <a name="remediate-non-compliant-resources-with-azure-policy"></a>Correggere le risorse non conformi con Criteri di Azure
 
@@ -19,7 +19,7 @@ Le risorse che non sono conformi ai criteri **deployIfNotExists** o **modify** p
 Quando il servizio Criteri di Azure esegue il modello nella definizione dei criteri **deployIfNotExists**, usa un'[identità gestita](../../../active-directory/managed-identities-azure-resources/overview.md).
 Il servizio Criteri di Azure crea un'identità gestita per ogni assegnazione, ma è necessario specificare i dettagli su quali ruoli concedere all'identità gestita. Se all'identità gestita non sono assegnati ruoli, viene visualizzato questo errore durante l'assegnazione dei criteri o un'iniziativa. Quando si usa il portale, il servizio Criteri di Azure concede automaticamente all'identità gestita i ruoli elencati dopo l'inizio dell'assegnazione. Il _percorso_ dell'identità gestita non ha alcun effetto sull'operazione con i criteri di Azure.
 
-:::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Entità gestita - ruolo mancante" border="false":::
+:::image type="content" source="../media/remediate-resources/missing-role.png" alt-text="Screenshot di un criterio deployIfNotExists in cui manca un'autorizzazione definita per l'identità gestita." border="false":::
 
 > [!IMPORTANT]
 > Se una risorsa modificata tramite **deployIfNotExists** o **modify** non rientra nell'ambito dell'assegnazione di criteri o il modello accede a proprietà in risorse che non rientrano nell'ambito dell'assegnazione di criteri, all'identità gestita dell'assegnazione deve essere [concesso l'accesso manualmente](#manually-configure-the-managed-identity), altrimenti la distribuzione della correzione avrà esito negativo.
@@ -90,15 +90,15 @@ if ($roleDefinitionIds.Count -gt 0)
 
 ### <a name="grant-defined-roles-through-portal"></a>Concedere ruoli definiti tramite il portale
 
-Esistono due modi per concedere a un'identità gestita di un'assegnazione i ruoli definiti tramite il portale: usando il collegamento **Controllo di accesso (IAM)** o modificando l'assegnazione dei criteri o dell'iniziativa e facendo clic su **Salva**.
+Esistono due modi per concedere a un'identità gestita di un'assegnazione i ruoli definiti tramite il portale, usando il **controllo di accesso (IAM)** o modificando l'assegnazione di criteri o iniziative e selezionando **Salva**.
 
 Per aggiungere un ruolo all'identità gestita dell'assegnazione, seguire questa procedura:
 
-1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri**.
+1. Avviare il servizio criteri di Azure nel portale di Azure selezionando **tutti i servizi**, quindi cercando e selezionando **criteri**.
 
 1. Selezionare **Assegnazioni** a sinistra nella pagina Criteri di Azure.
 
-1. Individuare l'assegnazione con un'identità gestita e fare clic sul nome.
+1. Individuare l'assegnazione che ha un'identità gestita e selezionare il nome.
 
 1. Individuare la proprietà **ID assegnazione** nella pagina di modifica. L'ID assegnazione sarà simile al seguente:
 
@@ -110,10 +110,10 @@ Per aggiungere un ruolo all'identità gestita dell'assegnazione, seguire questa 
 
 1. Passare alla risorsa o al contenitore padre delle risorse (gruppo di risorse, sottoscrizione, gruppo di gestione) per il quale è necessario aggiungere la definizione di ruolo manualmente.
 
-1. Fare clic sul collegamento **Controllo di accesso (IAM)** nella pagina delle risorse e quindi su **+ Aggiungi assegnazione di ruolo** nella parte superiore della pagina del controllo di accesso.
+1. Selezionare il collegamento **controllo di accesso (IAM)** nella pagina risorse e quindi selezionare **+ Aggiungi assegnazione ruolo** nella parte superiore della pagina controllo di accesso.
 
 1. Nella definizione dei criteri selezionare il ruolo appropriato che corrisponde a un **roleDefinitionIds**.
-   Lasciare **Assegna accesso a** impostato sul valore predefinito di 'utente, gruppo o applicazione di Azure AD'. Nella casella **Seleziona** incollare o digitare la parte dell'ID di risorsa di assegnazione individuata precedentemente. Al termine della ricerca fare clic sull'oggetto con lo stesso nome per selezionare l'ID e fare clic su **Salva**.
+   Lasciare **Assegna accesso a** impostato sul valore predefinito di 'utente, gruppo o applicazione di Azure AD'. Nella casella **Seleziona** incollare o digitare la parte dell'ID di risorsa di assegnazione individuata precedentemente. Al termine della ricerca, selezionare l'oggetto con lo stesso nome per selezionare ID e selezionare **Salva**.
 
 ## <a name="create-a-remediation-task"></a>Creare un'attività di correzione
 
@@ -123,32 +123,32 @@ Durante la valutazione l'assegnazione dei criteri con gli effetti **deployIfNotE
 
 Per creare un'**attività di correzione**, seguire questa procedura:
 
-1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri**.
+1. Avviare il servizio criteri di Azure nel portale di Azure selezionando **tutti i servizi**, quindi cercando e selezionando **criteri**.
 
-   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Cercare Criteri in Tutti i servizi" border="false":::
+   :::image type="content" source="../media/remediate-resources/search-policy.png" alt-text="Screenshot della ricerca dei criteri in tutti i servizi." border="false":::
 
 1. Nella parte sinistra della pagina di Criteri di Azure selezionare **Correzione**.
 
-   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Selezionare la correzione nella pagina Criteri" border="false":::
+   :::image type="content" source="../media/remediate-resources/select-remediation.png" alt-text="Screenshot del nodo di monitoraggio e aggiornamento nella pagina dei criteri." border="false":::
 
-1. Tutte le assegnazioni dei criteri **deployIfNotExists** e **modify** con risorse non conformi vengono incluse nella scheda **Criteri da correggere** nella tabella di dati. Fare clic sui criteri con risorse non conformi. Verrà visualizzata la pagina **Nuova attività di correzione**.
+1. Tutte le assegnazioni dei criteri **deployIfNotExists** e **modify** con risorse non conformi vengono incluse nella scheda **Criteri da correggere** nella tabella di dati. Selezionare un criterio con risorse non conformi. Verrà visualizzata la pagina **Nuova attività di correzione**.
 
    > [!NOTE]
-   > Un modo alternativo per aprire la pagina dell'**attività di correzione** consiste nell'individuare e selezionare i criteri nella pagina **Conformità** e quindi fare clic sul pulsante **Crea attività di correzione**.
+   > Un modo alternativo per aprire la pagina **attività di monitoraggio e aggiornamento** consiste nel trovare e selezionare i criteri nella pagina **conformità** , quindi selezionare il pulsante **Crea attività di correzione** .
 
 1. Nella pagina **Nuova attività di correzione** filtrare le risorse da correggere facendo clic sui puntini di sospensione di **Ambito** per selezionare le risorse figlio da cui sono stati assegnati i criteri (fino ai singoli oggetti risorsa). Usare inoltre il menu a discesa **Percorsi** per filtrare ulteriormente le risorse. Verranno corrette solo le risorse elencate nella tabella.
 
-   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Correggere: selezionare le risorse da correggere" border="false":::
+   :::image type="content" source="../media/remediate-resources/select-resources.png" alt-text="Screenshot del nodo di correzione e della griglia delle risorse da correggere." border="false":::
 
-1. Avviare l'attività di correzione dopo che le risorse sono state filtrate facendo clic su **Correggi**. Si apre la scheda **Attività di correzione** della pagina di conformità dei criteri per mostrare lo stato di avanzamento delle attività. Le distribuzioni create dall'attività di correzione iniziano immediatamente.
+1. Avviare l'attività di monitoraggio e aggiornamento dopo avere filtrato le risorse selezionando **monitora e aggiorna**. Si apre la scheda **Attività di correzione** della pagina di conformità dei criteri per mostrare lo stato di avanzamento delle attività. Le distribuzioni create dall'attività di correzione iniziano immediatamente.
 
-   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Correggere: avanzamento delle attività di correzione" border="false":::
+   :::image type="content" source="../media/remediate-resources/task-progress.png" alt-text="Screenshot della scheda attività di correzione e stato di avanzamento delle attività di correzione esistenti." border="false":::
 
-1. Fare clic sull'**attività di correzione** nella pagina di conformità dei criteri per visualizzare i dettagli sull'avanzamento. Il filtro usato per l'attività viene visualizzato insieme a un elenco delle risorse da correggere.
+1. Selezionare l' **attività di monitoraggio e aggiornamento** nella pagina conformità criteri per ottenere informazioni dettagliate sullo stato di avanzamento. Il filtro usato per l'attività viene visualizzato insieme a un elenco delle risorse da correggere.
 
-1. Nella pagina dell'**attività di correzione** fare clic con il pulsante destro del mouse su una risorsa per visualizzare la distribuzione dell'attività di correzione o la risorsa. Alla fine della riga fare clic su **Eventi correlati** per visualizzare i dettagli, ad esempio un messaggio di errore.
+1. Nella pagina **attività di correzione** , fare clic con il pulsante destro del mouse su una risorsa per visualizzare la distribuzione dell'attività di correzione o la risorsa. Alla fine della riga selezionare **gli eventi correlati** per visualizzare i dettagli, ad esempio un messaggio di errore.
 
-   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Correggere: menu di scelta rapida delle attività della risorsa" border="false":::
+   :::image type="content" source="../media/remediate-resources/resource-task-context-menu.png" alt-text="Screenshot del menu di scelta rapida per una risorsa nella scheda attività di correzione." border="false":::
 
 Le risorse distribuite tramite un'**attività di correzione** vengono aggiunte nella scheda **Risorse distribuite** della pagina di conformità dei criteri.
 

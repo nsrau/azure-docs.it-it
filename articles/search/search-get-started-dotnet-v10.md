@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5a9cc1ebbe8cfea2548f61ee1d88180ed39a75eb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: ce676c8966f67aeb233b2b9daf3f8f1c57327e6a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002437"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462089"
 ---
 # <a name="quickstart-create-a-search-index-using-the-microsoftazuresearch-v10-client-library"></a>Guida introduttiva: creare un indice di ricerca usando la libreria client di Microsoft. Azure. search V10
 
@@ -27,7 +27,7 @@ Per le nuove soluzioni, è consigliabile usare la nuova libreria Azure.Search.Do
 
 Creare un'applicazione console .NET Core in C# che crea, carica ed esegue query in un indice di ricerca cognitiva di Azure usando Visual Studio e le [librerie client Microsoft. Azure. search](/dotnet/api/overview/azure/search/client10?view=azure-dotnet). 
 
-Questo articolo illustra come creare l'applicazione. È anche possibile [scaricare ed eseguire l'applicazione completa](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart-v10).
+Questo articolo illustra come creare l'applicazione. È anche possibile [scaricare ed eseguire l'applicazione completa](https://github.com/Azure-Samples/azure-search-dotnet-samples/tree/master/quickstart/v10).
 
 > [!NOTE]
 > Il codice dimostrativo in questo articolo usa i metodi sincroni di Azure ricerca cognitiva versione 10 .NET SDK per semplicità. Per scenari di produzione, è però consigliabile usare i metodi asincroni nelle proprie applicazioni per mantenerle scalabili e reattive. È ad esempio possibile usare `CreateAsync` e `DeleteAsync` invece di `Create` e `Delete`.
@@ -107,9 +107,9 @@ Questo passaggio è necessario per produrre un output significativo nella consol
 
 1. Aggiungere due definizioni di classe vuota al progetto: Address.Methods.cs, Hotel.Methods.cs
 
-1. In Address.Methods.cs sovrascrivere il contenuto predefinito con il codice seguente alle [righe 1-25](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart-v10/AzureSearchQuickstart/Address.Methods.cs#L1-L25).
+1. In Address.Methods.cs sovrascrivere il contenuto predefinito con il codice seguente alle [righe 1-25](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart/v10/AzureSearchQuickstart/Address.Methods.cs#L1-L25).
 
-1. In Hotel.Methods.cs copiare le [righe 1-68](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart-v10/AzureSearchQuickstart/Hotel.Methods.cs#L1-L68).
+1. In Hotel.Methods.cs copiare le [righe 1-68](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/quickstart/v10/AzureSearchQuickstart/Hotel.Methods.cs#L1-L68).
 
 ## <a name="1---create-index"></a>1 - Creare l'indice
 

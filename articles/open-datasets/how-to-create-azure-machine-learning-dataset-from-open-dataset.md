@@ -8,12 +8,12 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 00718e15b069e9be25abdaf0e4460eae20c6afd0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0725a97aecab5d03c2f5e3937c181a95a7b97c2a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88998074"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461511"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Creare set di impostazioni di Azure Machine Learning da Azure Open DataSet
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -111,7 +111,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
     ![Scegliere il set di dati](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-1. Scegliere un nome con cui registrare il set di dati e, facoltativamente, filtrare i dati usando i filtri disponibili. In questo caso, per il set di dati **Public Holidays** è possibile filtrare il periodo di tempo a un anno e il codice paese solo negli Stati Uniti. Vedere il [Catalogo dei set](https://azure.microsoft.com/services/op[en-datasets/catalog/) di dati aperti di Azure per informazioni dettagliate sui dati, ad esempio le descrizioni dei campi e gli intervalli di date. Selezionare **Create** (Crea).
+1. Scegliere un nome con cui registrare il set di dati e, facoltativamente, filtrare i dati usando i filtri disponibili. In questo caso, per il set di dati **Public Holidays** è possibile filtrare il periodo di tempo a un anno e il codice paese solo negli Stati Uniti. Vedere il [Catalogo dei set](https://azure.microsoft.com/services/open-datasets/catalog) di dati aperti di Azure per informazioni dettagliate sui dati, ad esempio le descrizioni dei campi e gli intervalli di date. Selezionare **Create** (Crea).
 
     ![Imposta parametri set di dati e crea set di dati](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
 

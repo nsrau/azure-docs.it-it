@@ -4,12 +4,12 @@ description: Questo articolo illustra come configurare, avviare e gestire le ope
 ms.topic: conceptual
 ms.date: 08/03/2018
 ms.assetid: b80b3a41-87bf-49ca-8ef2-68e43c04c1a3
-ms.openlocfilehash: aa072cb48e12ac89af3be28a9633a82b50122275
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 42af6ae69699be7eefac0aca2bcd22b1e25720b2
+ms.sourcegitcommit: 655e4b75fa6d7881a0a410679ec25c77de196ea3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89006296"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89506628"
 ---
 # <a name="back-up-an-azure-vm-using-azure-backup-via-rest-api"></a>Eseguire il backup di una macchina virtuale di Azure con Backup di Azure tramite l'API REST
 
@@ -41,7 +41,7 @@ L'operazione di aggiornamento è un'[operazione asincrona](../azure-resource-man
 
 L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|Nome  |Tipo  |Descrizione  |
+|Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |204 No Content (Nessun contenuto)     |         |  OK senza alcun contenuto restituito      |
 |202 - Accettato     |         |     Accettato    |
@@ -104,7 +104,7 @@ All'URI *GET* sono associati tutti i parametri obbligatori. Non è necessario al
 
 #### <a name="responses-to-get-operation"></a>Risposte per l'operazione Get
 
-|Nome  |Tipo  |Descrizione  |
+|Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     | [WorkloadProtectableItemResourceList](/rest/api/backup/backupprotectableitems/list#workloadprotectableitemresourcelist)        |       OK |
 
@@ -180,7 +180,7 @@ PUT https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 Di seguito vengono indicati i componenti del corpo della richiesta necessari per creare un elemento protetto.
 
-|Nome  |Tipo  |Descrizione  |
+|Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |properties     | AzureIaaSVMProtectedItem        |Proprietà delle risorse ProtectedItem         |
 
@@ -208,7 +208,7 @@ La creazione di un elemento protetto è un'[operazione asincrona](../azure-resou
 
 L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|Nome  |Tipo  |Descrizione  |
+|Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |200 - OK     |    [ProtectedItemResource](/rest/api/backup/protecteditemoperationresults/get#protecteditemresource)     |  OK       |
 |202 - Accettato     |         |     Accettato    |
@@ -274,6 +274,35 @@ Dopo che è stata completata, l'operazione restituisce 200 (OK) con il contenuto
 
 In questo modo viene confermata l'abilitazione della protezione per la macchina virtuale e il primo backup viene attivato in base alla pianificazione dei criteri.
 
+### <a name="excluding-disks-in-azure-vm-backup"></a>Esclusione di dischi nel backup di macchine virtuali di Azure
+
+Backup di Azure consente anche di eseguire il backup in modo selettivo di un subset di dischi nella macchina virtuale di Azure. Altre informazioni sono disponibili [qui](selective-disk-backup-restore.md). Per eseguire il backup selettivo di pochi dischi durante l'abilitazione della protezione, il frammento di codice seguente deve essere il [corpo della richiesta durante l'abilitazione della protezione](#example-request-body).
+
+```json
+{
+"properties": {
+    "protectedItemType": "Microsoft.Compute/virtualMachines",
+    "sourceResourceId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testRG/providers/Microsoft.Compute/virtualMachines/testVM",
+    "policyId": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/microsoft.recoveryservices/vaults/testVault/backupPolicies/DefaultPolicy",
+    "extendedProperties":  {
+      "diskExclusionProperties":{
+          "diskLunList":[0,1],
+          "isInclusionList":true
+        }
+    }
+}
+}
+```
+
+Nel corpo della richiesta precedente, l'elenco dei dischi di cui eseguire il backup viene fornito nella sezione proprietà estese.
+
+|Proprietà  |Valore  |
+|---------|---------|
+|diskLunList     | L'elenco di LUN del disco è un elenco di *lun di dischi dati*. **Viene sempre eseguito il backup del disco del sistema operativo e non è necessario citarlo**.        |
+|Di inclusione     | Deve essere **true** per i LUN da includere durante il backup. Se è **false**, i LUN sopra indicati verranno esclusi.         |
+
+Quindi, se il requisito consiste nel eseguire il backup solo del disco del sistema operativo, è necessario escludere _tutti_ i dischi dati. Un modo più semplice è quello di indicare che non deve essere incluso alcun disco dati. Quindi, l'elenco di LUN del disco sarà vuoto e l'elenco di **inclusione** sarà **true**. Analogamente, è possibile considerare il modo più semplice per selezionare un subset: è sempre necessario escludere alcuni dischi oppure è sempre necessario includere alcuni dischi. Scegliere di conseguenza l'elenco di LUN e il valore della variabile booleana.
+
 ## <a name="trigger-an-on-demand-backup-for-a-protected-azure-vm"></a>Attivare un backup su richiesta per una macchina virtuale di Azure protetta
 
 Una volta configurata una macchina virtuale di Azure per il backup, i backup vengono eseguiti in base alla pianificazione dei criteri. È possibile attendere il primo backup pianificato o attivare un backup su richiesta in qualsiasi momento. La conservazione dei backup su richiesta è separata da quella dei criteri di backup e può essere specificata per una determinata data e ora. Se non specificato, si presuppone che la durata della conservazione sia di 30 giorni a partire dal giorno del trigger di backup su richiesta.
@@ -294,7 +323,7 @@ POST https://management.azure.com/Subscriptions/00000000-0000-0000-0000-00000000
 
 Di seguito vengono indicati i componenti del corpo della richiesta necessari per attivare un backup su richiesta.
 
-|Nome  |Tipo  |Descrizione  |
+|Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |properties     | [IaaSVMBackupRequest](/rest/api/backup/backups/trigger#iaasvmbackuprequest)        |Proprietà BackupRequestResource         |
 
@@ -319,7 +348,7 @@ L'attivazione di un backup su richiesta è un'[operazione asincrona](../azure-re
 
 L'operazione restituisce due risposte: 202 (Accettata) quando viene creata un'altra operazione e 200 (OK) quando tale operazione viene completata.
 
-|Nome  |Tipo  |Descrizione  |
+|Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |202 - Accettato     |         |     Accettato    |
 
@@ -389,7 +418,7 @@ Poiché il processo di backup è un'operazione con esecuzione prolungata, ne dev
 
 Per modificare i criteri con cui la macchina virtuale è protetta, è possibile usare lo stesso formato usato per [l'abilitazione della protezione](#enabling-protection-for-the-azure-vm). È sufficiente fornire il nuovo ID criteri nel [corpo della richiesta](#example-request-body) e inviare la richiesta. Ad esempio: per modificare i criteri di testVM da' DefaultPolicy ' a' ProdPolicy ', specificare l'ID ' ProdPolicy ' nel corpo della richiesta.
 
-```http
+```json
 {
   "properties": {
     "protectedItemType": "Microsoft.Compute/virtualMachines",
@@ -400,6 +429,15 @@ Per modificare i criteri con cui la macchina virtuale è protetta, è possibile 
 ```
 
 Il formato della risposta è analogo a quello indicato [per l'abilitazione della protezione](#responses-to-create-protected-item-operation)
+
+#### <a name="excluding-disks-during-azure-vm-protection"></a>Esclusione di dischi durante la protezione delle macchine virtuali di Azure
+
+Se è già stato eseguito il backup della macchina virtuale di Azure, è possibile specificare l'elenco dei dischi di cui eseguire il backup o l'esclusione modificando il criterio di protezione. È sufficiente preparare la richiesta nello stesso formato in cui [escludere i dischi durante l'abilitazione della protezione](#excluding-disks-in-azure-vm-backup)
+
+> [!IMPORTANT]
+> Il corpo della richiesta precedente è sempre la copia finale dei dischi dati da escludere o includere. Questa operazione non viene *aggiunta* alla configurazione precedente. Ad esempio, se si aggiorna la protezione per la prima volta come "Escludi disco dati 1" e si ripete con "Escludi disco dati 2", *solo i dati del disco 2 verranno esclusi* nei backup successivi e verrà incluso il disco dati 1. Si tratta sempre dell'elenco finale che verrà incluso/escluso nei backup successivi.
+
+Per ottenere l'elenco corrente dei dischi esclusi o inclusi, ottenere le informazioni sull'elemento protetto come indicato [qui](https://docs.microsoft.com/rest/api/backup/protecteditems/get). La risposta fornirà l'elenco dei LUN del disco dati e indicherà se sono inclusi o esclusi.
 
 ### <a name="stop-protection-but-retain-existing-data"></a>Arrestare la protezione dati, ma conservare i dati esistenti
 
@@ -439,7 +477,7 @@ L'operazione *DELETE* applicata alla protezione è un'[operazione asincrona](../
 
 L'operazione restituisce due risposte: 202 (accettazione) quando viene creata un'altra operazione e 204 (nessun contenuto restituito) quando tale operazione viene completata.
 
-|Nome  |Tipo  |Descrizione  |
+|Nome  |Type  |Descrizione  |
 |---------|---------|---------|
 |204 NoContent (Nessun contenuto)     |         |  Nessun contenuto restituito       |
 |202 - Accettato     |         |     Accettato    |

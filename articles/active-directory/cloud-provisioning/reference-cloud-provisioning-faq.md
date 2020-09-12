@@ -11,12 +11,12 @@ ms.date: 06/25/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: efcf2df4e472d022fcdec0c9b7c69c73192c503f
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
-ms.translationtype: HT
+ms.openlocfilehash: 622d38e09f65d05d7cba7a34f30a070c27d3fd37
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86518471"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658375"
 ---
 # <a name="azure-active-directory-connect-cloud-provisioning-faq"></a>Domande frequenti sul provisioning di Azure Active Directory Connect Cloud
 
@@ -74,7 +74,7 @@ Quando si elimina la configurazione, il provisioning del cloud non rimuove autom
 
 **D:  Cosa significa che la distribuzione ibrida di Exchange non è supportata?**
 
-La funzionalità Distribuzione ibrida di Exchange consente la coesistenza di cassette postali di Exchange in locale e in Office 365. Azure AD Connect sincronizza un set specifico di attributi da Azure AD alla directory locale.  L'agente di provisioning cloud non sincronizza attualmente questi attributi nella directory locale e quindi non può essere usato in sostituzione di Azure AD Connect.
+La funzionalità di distribuzione ibrida di Exchange consente la coesistenza di cassette postali di Exchange sia in locale che in Microsoft 365. Azure AD Connect sincronizza un set specifico di attributi da Azure AD alla directory locale.  L'agente di provisioning cloud non sincronizza attualmente questi attributi nella directory locale e quindi non può essere usato in sostituzione di Azure AD Connect.
 
 **D:  È possibile installare l'agente di provisioning cloud in Windows Server Core?**
 

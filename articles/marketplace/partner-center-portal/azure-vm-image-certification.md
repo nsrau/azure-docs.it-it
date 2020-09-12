@@ -3,16 +3,16 @@ title: Convalida dell'immagine della macchina virtuale di Azure-Azure Marketplac
 description: Informazioni su come testare e inviare un'offerta di macchina virtuale nel marketplace commerciale.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
-ms.topic: article
+ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
 ms.date: 08/14/2020
-ms.openlocfilehash: fd8f41f88b6184eee15477c460dc9d2e521d25e6
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 2d19098ec82fe9361154d798b981341a86decf97
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144188"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647817"
 ---
 # <a name="azure-virtual-machine-image-validation"></a>Convalida dell'immagine della macchina virtuale di Azure
 
@@ -589,7 +589,7 @@ Lo strumento di test di certificazione per Azure Certified viene eseguito in un 
 
     :::image type="content" source="media/vm/azure-vm-cert-4.png" alt-text="Mostra la selezione del nome utente e della password della macchina virtuale.":::
 
-6. Selezionare **Avanti**.
+6. Selezionare **Next** (Avanti).
 
 #### <a name="run-a-certification-test"></a>Eseguire un test di certificazione
 

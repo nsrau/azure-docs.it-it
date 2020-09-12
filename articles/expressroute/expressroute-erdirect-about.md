@@ -2,17 +2,17 @@
 title: Informazioni su Azure ExpressRoute Direct
 description: Scopri le funzionalità chiave di Azure ExpressRoute Direct e le informazioni necessarie per l'onboarding in ExpressRoute Direct, come gli SKU disponibili e i requisiti tecnici.
 services: expressroute
-author: jaredr80
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.author: jaredro
-ms.openlocfilehash: f0faa4992b025783e4e5448dcf04fcfa958ba5ed
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.author: duau
+ms.openlocfilehash: 0cc07f9647c4f7836438adbe2b4cf9fa24a1c890
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192350"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566399"
 ---
 # <a name="about-expressroute-direct"></a>Informazioni su ExpressRoute Direct
 
@@ -44,7 +44,7 @@ Prima di usare ExpressRoute Direct, è necessario prima registrare la sottoscriz
 
 ## <a name="expressroute-direct-circuits"></a>Circuiti di ExpressRoute Direct
 
-Microsoft Azure ExpressRoute consente di estendere le reti locali nel cloud Microsoft tramite una connessione privata fornita da un provider di connettività. Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, ad esempio Microsoft Azure e Office 365.
+Microsoft Azure ExpressRoute consente di estendere le reti locali nel cloud Microsoft tramite una connessione privata fornita da un provider di connettività. Con ExpressRoute è possibile stabilire connessioni ai servizi cloud Microsoft, ad esempio Microsoft Azure e Microsoft 365.
 
 Ogni località peer ha accesso alla rete globale di Microsoft e può accedere a qualsiasi area in una regione geopolitica per impostazione predefinita e a tutte le aree globali con un circuito premium.  
 

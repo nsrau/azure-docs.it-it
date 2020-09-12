@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 08/06/2020
 ms.author: swmachan
-ms.openlocfilehash: a853a28cf7633b5e81bfec2865cc8dc91f2d2f40
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: 59e064dc2b9d33bda966eb50544c8383b0394dd3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903987"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566603"
 ---
 # <a name="translator-30-translate"></a>Translator 3,0: Traduci
 
@@ -43,7 +43,7 @@ I parametri della richiesta inviati a una stringa di query sono:
     <td><em>Parametro obbligatorio</em>.<br/>Versione dell'API richiesta dal client. Il valore deve essere <code>3.0</code>.</td>
   </tr>
   <tr>
-    <td>in</td>
+    <td>su</td>
     <td><em>Parametro obbligatorio</em>.<br/>Specifica la lingua del testo di output. La lingua di destinazione deve essere una delle <a href="./v3-0-languages.md">lingue supportate</a> incluse nell'ambito <code>translation</code>. Ad esempio, usare <code>to=de</code> per la traduzione in tedesco.<br/>È possibile tradurre in più lingue contemporaneamente ripetendo il parametro nella stringa di query. Ad esempio, usare <code>to=de&to=it</code> per la traduzione in tedesco e in italiano.</td>
   </tr>
 </table>
@@ -104,7 +104,7 @@ Le intestazioni della richiesta includono:
 
 <table width="100%">
   <th width="20%">Intestazioni</th>
-  <th>Description</th>
+  <th>Descrizione</th>
   <tr>
     <td>Intestazione/e di autenticazione</td>
     <td><em>Intestazione della richiesta obbligatoria</em>.<br/>Vedere le <a href="https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#authentication">opzioni disponibili per l'autenticazione</a>.</td>
@@ -182,7 +182,7 @@ Nella sezione [Esempi](#examples) è disponibile un esempio di risposte JSON.
 
 <table width="100%">
   <th width="20%">Intestazioni</th>
-  <th>Description</th>
+  <th>Descrizione</th>
     <tr>
     <td>X-RequestId</td>
     <td>Valore generato dal servizio per identificare la richiesta. Viene usato per la risoluzione dei problemi.</td>
@@ -280,7 +280,7 @@ Il corpo della risposta è:
     }
 ]
 ```
-La risposta è simile a quella dell'esempio precedente. Poiché è stato richiesto il rilevamento automatico della lingua, la risposta include anche informazioni sulla lingua rilevata per il testo di input. 
+La risposta è simile a quella dell'esempio precedente. Poiché è stato richiesto il rilevamento automatico della lingua, la risposta include anche informazioni sulla lingua rilevata per il testo di input. Il rilevamento automatico della lingua funziona meglio con testo di input più lungo.
 
 ### <a name="translate-with-transliteration"></a>Tradurre con traslitterazione
 
@@ -364,7 +364,7 @@ Se si vuole evitare la presenza di contenuto volgare nella traduzione, indipende
 
 <table width="100%">
   <th width="20%">ProfanityAction</th>
-  <th>Action</th>
+  <th>Azione</th>
   <tr>
     <td><code>NoAction</code></td>
     <td>Questo è il comportamento predefinito. Il contenuto volgare passerà dall'origine alla destinazione.<br/><br/>

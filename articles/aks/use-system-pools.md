@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 06/18/2020
 ms.author: mlearned
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e068984e02a468169f286ab5b783e531a54bd6ed
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: b8d985587dc436d55e17c69e25295b5a58cb15b0
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949780"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89647505"
 ---
 # <a name="manage-system-node-pools-in-azure-kubernetes-service-aks"></a>Gestire i pool di nodi di sistema in Azure Kubernetes Service (AKS)
 
@@ -46,6 +46,7 @@ I pool di nodi di sistema presentano le restrizioni seguenti:
 * I pool di nodi di sistema richiedono uno SKU di VM di almeno 2 vCPU e 4 GB di memoria.
 * I pool di nodi di sistema devono supportare almeno 30 POD come descritto dalla [formula valore minimo e massimo per i pod][maximum-pods].
 * I pool di nodi spot richiedono pool di nodi utente.
+* L'aggiunta di un pool di nodi di sistema aggiuntivo o la modifica del pool di nodi in un pool di nodi di sistema *non* sposterà automaticamente i pod di sistema. I pod di sistema possono continuare a essere eseguiti nello stesso pool di nodi anche se vengono modificati in un pool di nodi utente. Se si elimina o si ridimensiona un pool di nodi che esegue i pod di sistema che in precedenza era un pool di nodi di sistema, i pod di sistema vengono ridistribuiti con la pianificazione preferita nel nuovo pool di nodi di sistema.
 
 Con i pool di nodi è possibile eseguire le operazioni seguenti:
 

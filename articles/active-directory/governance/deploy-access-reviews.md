@@ -16,12 +16,12 @@ ms.date: 08/14/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7eb39f1053abeb201c413db7c6bbd3e9f261bd95
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7154bc1f033806d359726cff8ed227f2219559ec
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011345"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461035"
 ---
 # <a name="planning-azure-active-directory-access-reviews-deployment"></a>Pianificazione della distribuzione delle verifiche di accesso Azure Active Directory
 
@@ -93,7 +93,7 @@ Per le verifiche di accesso, è probabile che si includano i rappresentanti dei 
 
 * L' **amministrazione it** gestisce l'infrastruttura IT e amministra gli investimenti per il cloud e le app SaaS (software as a Service). Questo team:
 
-   * Esaminare l'accesso con privilegi per l'infrastruttura e le app, tra cui Office 365 e Azure AD.
+   * Esaminare l'accesso con privilegi all'infrastruttura e alle app, inclusi Microsoft 365 e Azure AD.
 
    * Pianificare ed eseguire verifiche di accesso sui gruppi usati per gestire elenchi di eccezioni o progetti pilota IT, per mantenere aggiornati gli elenchi di accesso.
 
@@ -180,7 +180,7 @@ Le destinazioni tipiche per la revisione includono:
 
 * [Applicazioni integrate con Azure ad per l'accesso Single Sign-on](../manage-apps/what-is-application-management.md) (ad esempio Saas, line-of-business).
 
-* [Appartenenza](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) a un gruppo (sincronizzato con Azure ad o creato in Azure ad o Office 365, incluso Microsoft Teams).
+* [Appartenenza](../fundamentals/active-directory-manage-groups.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context) a un gruppo (sincronizzato con Azure ad o creato in Azure AD o Microsoft 365, incluso Microsoft Teams).
 
 * Consente di [accedere al pacchetto](/azure/active-directory/governance/entitlement-management-overview) che raggruppa le risorse (gruppi, app e siti) in un unico pacchetto per gestire l'accesso.
 
@@ -304,7 +304,7 @@ Aprire la scheda ciclo di vita per scorrere verso il basso fino a verifiche di a
 
 ## <a name="plan-access-reviews-for-groups"></a>Pianificare le verifiche di accesso per i gruppi
 
-Oltre ad accedere ai pacchetti, la revisione dell'appartenenza al gruppo è il modo più efficace per gestire l'accesso. È consigliabile che l'accesso alle risorse sia assegnato tramite [gruppi di sicurezza o gruppi di Office 365](../fundamentals/active-directory-manage-groups.md)e che gli utenti vengano aggiunti a tali gruppi per ottenere l'accesso.
+Oltre ad accedere ai pacchetti, la revisione dell'appartenenza al gruppo è il modo più efficace per gestire l'accesso. È consigliabile che l'accesso alle risorse venga assegnato tramite [gruppi di sicurezza o gruppi di Microsoft 365](../fundamentals/active-directory-manage-groups.md)e che gli utenti vengano aggiunti a tali gruppi per ottenere l'accesso.
 
 A un singolo gruppo è possibile concedere l'accesso a tutte le risorse appropriate. È possibile assegnare al gruppo l'accesso a singole risorse o a un pacchetto di accesso che raggruppa le applicazioni e altre risorse. Con questo metodo è possibile esaminare l'accesso al gruppo anziché l'accesso di un utente a ogni applicazione. 
 
@@ -322,9 +322,9 @@ L'appartenenza al gruppo può essere esaminata da:
 
 È consigliabile che i proprietari del gruppo rivedano l'appartenenza, perché sono più adatti per conoscere chi necessita di accesso. La proprietà dei gruppi è diversa dal tipo di gruppo:
 
-I gruppi creati in Office 365 e Azure AD hanno uno o più proprietari ben definiti. Nella maggior parte dei casi, questi proprietari eseguono revisori perfetti per i propri gruppi, in quanto sanno chi deve avere accesso. 
+I gruppi creati in Microsoft 365 e Azure AD hanno uno o più proprietari ben definiti. Nella maggior parte dei casi, questi proprietari eseguono revisori perfetti per i propri gruppi, in quanto sanno chi deve avere accesso. 
 
-Ad esempio, Microsoft teams USA i gruppi di Office 365 come modello di autorizzazione sottostante per concedere agli utenti l'accesso alle risorse presenti in SharePoint, Exchange, OneNote o altri servizi di Office 365. L'autore del team diventa automaticamente un proprietario e deve essere responsabile dell'attestazione dell'appartenenza a tale gruppo. 
+Microsoft teams, ad esempio, USA i gruppi di Microsoft 365 come modello di autorizzazione sottostante per concedere agli utenti l'accesso alle risorse che si trovano in SharePoint, Exchange, OneNote o altri servizi di Microsoft 365. L'autore del team diventa automaticamente un proprietario e deve essere responsabile dell'attestazione dell'appartenenza a tale gruppo. 
 
 I gruppi creati manualmente nel portale di Azure AD o tramite scripting tramite Microsoft Graph potrebbero non avere necessariamente i proprietari definiti. È consigliabile definirli tramite il portale di Azure AD nella sezione "owners" del gruppo o tramite Graph.
 
@@ -403,7 +403,7 @@ Le verifiche di accesso consentono ai revisori di attestare se gli utenti devono
 
 * Amministratore della protezione
 
-* Tutti i ruoli di amministrazione dei servizi di Office 365 e Dynamics
+* Tutti i ruoli di amministrazione del servizio Microsoft 365 e Dynamics
 
 I ruoli selezionati includono ruolo permanente e idoneo. 
 

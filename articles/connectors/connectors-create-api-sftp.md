@@ -1,21 +1,22 @@
 ---
-title: Connettersi all'account SFTP
-description: Automatizzare le attività e i processi che monitorano, creano, gestiscono, inviano e ricevono file per un server SFTP tramite SSH usando App per la logica di Azure
+title: Connetti all'account SFTP (deprecato)
+description: Automatizzare le attività e i processi che monitorano, creano, gestiscono, inviano e ricevono file per un server SFTP usando app per la logica di Azure
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
-ms.reviewer: divswa, klam, logicappspm
+ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 11/01/2019
 tags: connectors
-ms.openlocfilehash: d0da98070fa8da5403677e1a67bda75456c74d80
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ROBOTS: NOINDEX
+ms.openlocfilehash: 817c17b0e05180f5c7a616320a25c2bc3c21c5f8
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74789274"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651401"
 ---
-# <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Monitorare, creare e gestire i file SFTP usando App per la logica di Azure
+# <a name="monitor-create-and-manage-sftp-files-in-azure-logic-apps"></a>Monitorare, creare e gestire file SFTP in app per la logica di Azure
 
 > [!IMPORTANT]
 > Usare il [connettore SFTP-SSH](../connectors/connectors-sftp-ssh.md) perché il connettore SFTP è deprecato. Non è più possibile selezionare trigger e azioni SFTP nella finestra di progettazione dell'app per la logica.
@@ -55,7 +56,7 @@ Il connettore SFTP gestisce solo i file di *50 MB o inferiori* e non supporta la
 
 I trigger SFTP funzionano eseguendo il polling del file system SFTP e cercando eventuali file modificati dopo l'ultimo polling. Alcuni strumenti consentono di mantenere il timestamp quando i file vengono modificati. In questi casi è necessario disabilitare questa funzionalità per consentire il funzionamento del trigger. Ecco alcune delle impostazioni comuni:
 
-| Client SFTP | Action |
+| Client SFTP | Azione |
 |-------------|--------|
 | Winscp | Vai a **Opzioni**  >  **Preferenze**  >  **trasferimento**  >  **modifica**  >  **Mantieni timestamp**  >  **Disabilita** |
 | FileZilla | Vai al **trasferimento**  >  **Mantieni i timestamp dei file trasferiti**  >  **Disabilita** |
@@ -113,10 +114,6 @@ Questo trigger avvia il flusso di lavoro di un'app per la logica quando viene ag
 ### <a name="sftp-action-get-content"></a>Azione SFTP: recuperare il contenuto
 
 Questa operazione recupera il contenuto da un file in un server SFTP. Ad esempio, è possibile aggiungere il trigger dell'esempio precedente e una condizione che il contenuto del file deve soddisfare. Se la condizione è true, è possibile eseguire l'azione che recupera il contenuto.
-
-## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
-
-Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/connectors/sftpconnector/) del connettore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

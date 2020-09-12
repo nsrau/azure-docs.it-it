@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/01/2019
 ms.author: swmachan
-ms.openlocfilehash: adfd91a3f82a83f6bb5e076247f1539029d5a04e
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: eb20fe91a54007f24c56a95e67942728674471ea
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83592288"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566637"
 ---
 # <a name="translator-30-detect"></a>Translator 3,0: rilevamento
 
@@ -65,9 +65,9 @@ Le intestazioni della richiesta includono:
   </tr>
 </table> 
 
-## <a name="request-body"></a>Testo della richiesta
+## <a name="request-body"></a>Corpo della richiesta
 
-Il corpo della richiesta è una matrice JSON. Ogni elemento della matrice è un oggetto JSON con una proprietà stringa denominata `Text`. Il rilevamento della lingua viene applicato al valore della proprietà `Text`. Un esempio di corpo della richiesta ha un aspetto simile al seguente:
+Il corpo della richiesta è una matrice JSON. Ogni elemento della matrice è un oggetto JSON con una proprietà stringa denominata `Text`. Il rilevamento della lingua viene applicato al valore della proprietà `Text`. Il rilevamento automatico della lingua funziona meglio con testo di input più lungo. Un esempio di corpo della richiesta ha un aspetto simile al seguente:
 
 ```json
 [
@@ -78,7 +78,6 @@ Il corpo della richiesta è una matrice JSON. Ogni elemento della matrice è un 
 Si applicano le limitazioni seguenti:
 
 * La matrice deve essere composta al massimo da 100 elementi.
-* Il valore di testo di un elemento della matrice non può superare 10.000 caratteri spazi inclusi.
 * L'intero testo incluso nella richiesta non può superare 50.000 caratteri spazi inclusi.
 
 ## <a name="response-body"></a>Corpo della risposta
@@ -122,7 +121,7 @@ Una risposta JSON di esempio è:
 ]
 ```
 
-## <a name="response-headers"></a>Intestazioni della risposta
+## <a name="response-headers"></a>Intestazioni di risposta
 
 <table width="100%">
   <th width="20%">Intestazioni</th>
@@ -172,7 +171,7 @@ Di seguito sono riportati i possibili codici di stato HTTP restituiti da una ric
 
 Se si verifica un errore, la richiesta restituirà anche una risposta di errore JSON. Il codice errore è un numero a 6 cifre che combina il codice di stato HTTP a 3 cifre seguito da un numero a 3 cifre per classificare ulteriormente l'errore. I codici di errore comuni sono disponibili nella [pagina di riferimento del convertitore V3](https://docs.microsoft.com/azure/cognitive-services/translator/reference/v3-0-reference#errors). 
 
-## <a name="examples"></a>Esempio
+## <a name="examples"></a>Esempi
 
 L'esempio seguente mostra come recuperare le lingue supportate per la traduzione del testo.
 

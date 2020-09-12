@@ -4,12 +4,12 @@ description: Informazioni su come individuare e risolvere i problemi comuni quan
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: a65e5e2b507f45fe51a8f6406edae4d96affe227
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 4a28ebd047e4d5e610ea0c895063eb87ce051d45
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87056509"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89460321"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
 
@@ -82,7 +82,7 @@ AKS dispone di piani di controllo a disponibilità elevata che si ridimensionano
     - https://github.com/helm/helm/issues/4543
 - **[Il traffico interno tra i nodi viene bloccato?](#im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout)**
 
-## <a name="im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout"></a>Ricevo `TCP timeouts` , ad esempio`dial tcp <Node_IP>:10250: i/o timeout`
+## <a name="im-receiving-tcp-timeouts-such-as-dial-tcp-node_ip10250-io-timeout"></a>Ricevo `TCP timeouts` , ad esempio `dial tcp <Node_IP>:10250: i/o timeout`
 
 Questi timeout possono essere correlati al traffico interno tra i nodi bloccati. Verificare che il traffico non venga bloccato, ad esempio da [gruppi di sicurezza di rete](concepts-security.md#azure-network-security-groups) nella subnet per i nodi del cluster.
 
@@ -97,6 +97,10 @@ Il motivo degli avvisi è che il cluster è abilitato per il controllo degli acc
 ## <a name="i-cant-get-logs-by-using-kubectl-logs-or-i-cant-connect-to-the-api-server-im-getting-error-from-server-error-dialing-backend-dial-tcp-what-should-i-do"></a>Non è possibile ottenere i log usando i log di kubectl o non è possibile connettersi al server API. Viene visualizzato un errore simile a "Errore del server: errore durante il contatto con il back-end: contattare tcp…". Cosa devo fare?
 
 Verificare che le porte 22, 9000 e 1194 siano aperte per la connessione al server API. Controllare se il pod `tunnelfront` o `aks-link` è in esecuzione nello spazio dei nomi *kube-system* usando il comando `kubectl get pods --namespace kube-system`. In caso contrario, forzare l’eliminazione del pod per riavviarlo.
+
+## <a name="im-getting-tls-client-offered-only-unsupported-versions-from-my-client-when-connecting-to-aks-api-what-should-i-do"></a>Ricevo `"tls: client offered only unsupported versions"` dal client quando ci si connette all'API AKS. Cosa devo fare?
+
+La versione minima supportata di TLS in AKS è TLS 1,2.
 
 ## <a name="im-trying-to-upgrade-or-scale-and-am-getting-a-changing-property-imagereference-is-not-allowed-error-how-do-i-fix-this-problem"></a>Errore `"Changing property 'imageReference' is not allowed"` durante l'aggiornamento o il ridimensionamento. Come si risolve il problema?
 
@@ -176,9 +180,9 @@ Per questo problema, usare le soluzioni alternative seguenti:
 * Se si usano gli script di automazione, aggiungere i ritardi di tempo tra la creazione dell'entità servizio e la creazione del cluster del servizio Azure Kubernetes.
 * Se si usa il portale di Azure, tornare alle impostazioni del cluster durante la creazione e ripetere la pagina di convalida dopo alcuni minuti.
 
+## <a name="im-getting-aadsts7000215-invalid-client-secret-is-provided-when-using-aks-api-what-should-i-do"></a>Ricevo quando si `"AADSTS7000215: Invalid client secret is provided."` Usa l'API AKS. Cosa devo fare?
 
-
-
+Questa operazione è in genere dovuta alla scadenza delle credenziali dell'entità servizio. [Aggiornare le credenziali per un cluster AKS.](update-credentials.md)
 
 ## <a name="im-receiving-errors-after-restricting-egress-traffic"></a>Errori dopo la limitazione del traffico in uscita
 

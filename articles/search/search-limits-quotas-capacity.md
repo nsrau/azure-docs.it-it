@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 08/21/2020
-ms.openlocfilehash: 62a0b0ec5312b4d00724fe7c13a5e20b5d35e34f
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b541af5351a0dd98e782c584d869de0d98445b74
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926865"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462514"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Limiti del servizio in Ricerca cognitiva di Azure
 
@@ -96,10 +96,26 @@ Sono previsti tempi di esecuzione massimi per garantire il bilanciamento e la st
 
 <sup>4</sup> Numero massimo di 30 competenze per set di competenze.
 
-<sup>5</sup> L'arricchimento tramite intelligenza artificiale e l'analisi delle immagini sono attività complesse e usano una quantità estremamente elevata di potenza di elaborazione disponibile. Il tempo di esecuzione per questi carichi di lavoro è stato abbreviato per offrire maggiori possibilità di eseguire altri processi nella coda.  
+<sup>5</sup> L'arricchimento tramite intelligenza artificiale e l'analisi delle immagini sono attività complesse e usano una quantità estremamente elevata di potenza di elaborazione disponibile. Il tempo di esecuzione per questi carichi di lavoro è stato abbreviato per offrire maggiori possibilità di eseguire altri processi nella coda.
 
 > [!NOTE]
 > Come indicato in [Limiti per gli indici](#index-limits), gli indicizzatori applicheranno anche il limite superiore di 3000 elementi in tutte le raccolte complesse per documento a partire dalla versione più recente dell'API disponibile a livello generale che supporta i tipi complessi (`2019-05-06`). Se l'indicizzatore è stato creato con una versione precedente dell'API, non sarà soggetto a questo limite. Per mantenere la massima compatibilità, un indicizzatore creato con una versione precedente dell'API e quindi aggiornato con una versione dell'API `2019-05-06` o successiva verrà comunque **escluso** dai limiti. I clienti devono essere consapevoli dell'impatto negativo della presenza di raccolte complesse di grandi dimensioni (come indicato in precedenza) ed è consigliabile creare nuovi indicizzatori con la versione più recente dell'API disponibile a livello generale.
+
+### <a name="shared-private-link-resource-limits"></a>Limiti delle risorse di collegamento privato condiviso
+
+> [!NOTE]
+> Gli indicizzatori possono accedere alle risorse in modo sicuro sugli endpoint privati gestiti tramite l' [API di risorse di collegamento privato condiviso](https://docs.microsoft.com/rest/api/searchmanagement/sharedprivatelinkresources) , come descritto in [questa guida alle procedure](search-indexer-howto-access-private.md)
+
+| Risorsa | Gratuito | Basic | S1 | S2 | S3 | S3 HD | L1 | L2
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| Supporto dell'indicizzatore di endpoint privato | No | Sì | Sì | Sì | Sì | No | Sì | Sì |
+| Supporto degli endpoint privati per gli indicizzatori con un insieme di competenze<sup>1</sup> | No | No | No | Sì | Sì | No | Sì | Sì |
+| Numero massimo di endpoint privati | N/D | 10 o 30 | 100 | 400 | 400 | N/D | 20 | 20 |
+| Numero massimo di tipi di risorse distinti<sup>2</sup> | N/D | 4 | 7 | 15 | 15 | N/D | 4 | 4 |
+
+<sup>1</sup> le funzionalità di arricchimento e analisi delle immagini per intelligenza artificiale sono a elevato utilizzo di calcolo e consumano una quantità sproporzionata di potenza di elaborazione disponibile e pertanto per i livelli di servizio di ricerca più bassi che li configurano per l'esecuzione nell'ambiente privato potrebbe avere un impatto negativo sulle prestazioni e la stabilità del servizio di ricerca.
+
+<sup>2</sup> il numero di tipi di risorse distinti viene calcolato come numero di valori univoci `groupId` usati in tutte le risorse di collegamento privato condivise per un determinato servizio di ricerca, indipendentemente dallo stato della risorsa.
 
 ## <a name="synonym-limits"></a>Limiti per i sinonimi
 
@@ -116,7 +132,7 @@ Le stime di query al secondo devono essere sviluppate in modo indipendente da og
 
 Le stime sono più prevedibili se vengono calcolate su servizi in esecuzione su risorse dedicate (livelli Basic e Standard). In questo caso, infatti, è possibile stimare in modo più preciso il numero di query al secondo, poiché si ha il controllo di un numero maggiore di parametri. Per informazioni su come eseguire la stima, vedere [Considerazioni sulle prestazioni e sull'ottimizzazione di Ricerca cognitiva di Azure](search-performance-optimization.md).
 
-Per i livelli Ottimizzato per l'archiviazione (L1 e L2), sono previste una velocità effettiva delle query inferiore e una latenza superiore rispetto ai livelli Standard. 
+Per i livelli Ottimizzato per l'archiviazione (L1 e L2), sono previste una velocità effettiva delle query inferiore e una latenza superiore rispetto ai livelli Standard.
 
 ## <a name="data-limits-ai-enrichment"></a>Limiti dei dati (arricchimento tramite intelligenza artificiale)
 

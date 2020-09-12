@@ -7,12 +7,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.custom: subject-armqs
 ms.date: 08/18/2020
-ms.openlocfilehash: 3c2d13794f2fc3af4541032d1f94967681c0deee
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: a2ab400158f77af7934ca3f9f7c811d5fe2bd340
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078419"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461239"
 ---
 # <a name="create-an-azure-cache-for-redis-using-a-resource-manager-template"></a>Creare una cache di Azure per Redis usando un modello di Gestione risorse
 
@@ -27,7 +27,7 @@ Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli
 ## <a name="prerequisites"></a>Prerequisiti
 
 * **Sottoscrizione di Azure**: Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
-* **Un account di archiviazione**: per crearne uno, vedere [creare un account di archiviazione di Azure](/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=template). L'account di archiviazione viene usato per i dati di diagnostica.
+* **Un account di archiviazione**: per crearne uno, vedere [creare un account di archiviazione di Azure](/azure/storage/common/storage-account-create?tabs=azure-portal). L'account di archiviazione viene usato per i dati di diagnostica.
 
 ## <a name="review-the-template"></a>Rivedere il modello
 
@@ -38,7 +38,7 @@ Il modello usato in questo avvio rapido proviene dai [modelli di avvio rapido di
 Nel modello sono definite le risorse seguenti:
 
 * [Microsoft. cache/Redis](/azure/templates/microsoft.cache/redis)
-* [Microsoft. Insights/DiagnosticSettings](/azure/templates/diagnosticsettings)
+* [Microsoft. Insights/DiagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings)
 
 Sono disponibili anche modelli di Gestione risorse per il nuovo [livello Premium](cache-overview.md#service-tiers) .
 

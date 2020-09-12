@@ -7,13 +7,13 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 08/16/2020
-ms.openlocfilehash: 0a691b562ebf030712eb0c13a688ea9a52fdb164
-ms.sourcegitcommit: 64ad2c8effa70506591b88abaa8836d64621e166
+ms.date: 09/08/2020
+ms.openlocfilehash: 6f2bf98e1c527be27ba0f08a43785ae7d3aea726
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88263470"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594152"
 ---
 # <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Risolvere problemi relativi ai flussi di dati in Azure Data Factory
 
@@ -45,6 +45,8 @@ Questo articolo illustra i metodi più comuni per la risoluzione di problemi rel
 - **Messaggio**: Broadcast join timeout error, make sure broadcast stream produces data within 60 secs in debug runs and 300 secs in job runs (errore di timeout del join di trasmissione. Assicurarsi che il flusso di trasmissione generi i dati entro 60 secondi nelle esecuzioni di debug ed entro 300 secondi nelle esecuzioni di processi)
 - **Cause**: la trasmissione ha un timeout predefinito di 60 secondi nelle esecuzioni di debug e di 300 secondi nelle esecuzioni di processi. Il flusso scelto per la trasmissione sembra di dimensioni troppo grandi per generare i dati entro questo limite.
 - **Raccomandazione**: selezionare la scheda Optimize (Ottimizza) per le trasformazioni del flusso di dati per Join, Exists (Esistente) e Lookup (Ricerca). L'opzione predefinita per la trasmissione è "Auto". Se è impostata questa opzione o se si imposta manualmente il lato sinistro o destro per eseguire una trasmissione di tipo fisso, è possibile impostare una configurazione di Azure Integration Runtime di dimensioni più grandi o disattivare la trasmissione. L'approccio consigliato per ottenere prestazioni ottimali nei flussi di dati consiste nel consentire a Spark di eseguire la trasmissione tramite l'opzione "Auto" e usare Azure IR ottimizzato per la memoria.
+
+Se si esegue il flusso di dati in un'esecuzione di test di debug da un'esecuzione di pipeline di debug, è possibile che si verifichi questa condizione con maggiore frequenza. Questo perché ADF limita il timeout di trasmissione a 60 secondi per mantenere un'esperienza di debug più veloce. Se si vuole estendere questo valore al timeout di 300 secondi da un'esecuzione attivata, è possibile usare l'opzione debug > use Activity Runtime per utilizzare le Azure IR definite nell'attività Esegui pipeline flusso di dati.
 
 ### <a name="error-code-df-executor-conversion"></a>Codice errore: DF-Executor-Conversion
 
