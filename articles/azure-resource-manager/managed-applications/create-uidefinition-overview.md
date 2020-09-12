@@ -5,12 +5,12 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: tomfitz
-ms.openlocfilehash: 0e2aee194d3c97655dd4ec5aaeea46fb607c4c5e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 327fa1d7eb73d8e65bb4f81c1dff0fe2bec2913b
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88210964"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319569"
 ---
 # <a name="createuidefinitionjson-for-azure-managed-applications-create-experience"></a>CreateUiDefinition.json per l'esperienza di creazione di un'applicazione gestita di Azure
 
@@ -25,6 +25,7 @@ Il modello è il seguente:
     "version": "0.1.2-preview",
     "parameters": {
         "config": {
+            "isWizard": false,
             "basics": { }
         },
         "basics": [ ],
@@ -35,49 +36,27 @@ Il modello è il seguente:
 }
 ```
 
-CreateUiDefinition contiene sempre tre proprietà: 
+Un oggetto `CreateUiDefinition` contiene sempre tre proprietà:
 
 * gestore
 * version
-* parameters
+* parametri
 
 Il gestore deve essere sempre `Microsoft.Azure.CreateUIDef` e la versione supportata più recente è `0.1.2-preview` .
 
-Lo schema della proprietà parameters dipende dalla combinazione delle proprietà handler e version specificate. Per le applicazioni gestite, le proprietà supportate sono `basics` ,, `steps` `outputs` e `config` . Le proprietà basics e steps contengono [elementi](create-uidefinition-elements.md), ad esempio caselle di testo ed elenchi a discesa, da visualizzare nel portale di Azure. La proprietà Outputs viene utilizzata per eseguire il mapping dei valori di output degli elementi specificati ai parametri del modello di Azure Resource Manager. Usare `config` solo quando è necessario eseguire l'override del comportamento predefinito del `basics` passaggio.
+Lo schema della proprietà parameters dipende dalla combinazione delle proprietà handler e version specificate. Per le applicazioni gestite, le proprietà supportate sono `config` ,, `basics` `steps` e `outputs` . Usare `config` solo quando è necessario eseguire l'override del comportamento predefinito del `basics` passaggio. Le proprietà basics e steps contengono [elementi](create-uidefinition-elements.md), ad esempio caselle di testo ed elenchi a discesa, da visualizzare nel portale di Azure. La proprietà Outputs viene utilizzata per eseguire il mapping dei valori di output degli elementi specificati ai parametri del modello di Azure Resource Manager.
 
 L'inclusione di `$schema` è consigliata ma facoltativa. Se specificato, il valore per la proprietà `version` deve corrispondere alla versione nell'URI di `$schema`.
 
 È possibile usare un editor JSON per creare il createUiDefinition, quindi testarlo nella [sandbox createUiDefinition](https://portal.azure.com/?feature.customPortal=false&#blade/Microsoft_Azure_CreateUIDef/SandboxBlade) per visualizzarne l'anteprima. Per altre informazioni sulla sandbox, vedere [testare l'interfaccia del portale per le applicazioni gestite di Azure](test-createuidefinition.md).
 
-## <a name="basics"></a>Operazioni di base
-
-Il passaggio di **base** è il primo passaggio generato quando il portale di Azure analizza il file. Per impostazione predefinita, il passaggio di base consente agli utenti di scegliere la sottoscrizione, il gruppo di risorse e la località per la distribuzione.
-
-:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Principi predefiniti":::
-
-È possibile aggiungere altri elementi in questa sezione. Quando possibile, aggiungere elementi che eseguono query sui parametri a livello di distribuzione, ad esempio il nome di un cluster o le credenziali di amministratore.
-
-Nell'esempio seguente viene illustrata una casella di testo aggiunta agli elementi predefiniti.
-
-```json
-"basics": [
-    {
-        "name": "textBox1",
-        "type": "Microsoft.Common.TextBox",
-        "label": "Textbox on basics",
-        "defaultValue": "my text value",
-        "toolTip": "",
-        "visible": true
-    }
-]
-```
-
 ## <a name="config"></a>File di configurazione
 
-Specificare l'elemento config quando è necessario eseguire l'override del comportamento predefinito per i passaggi di base. Nell'esempio seguente vengono illustrate le proprietà disponibili.
+La proprietà `config` è facoltativa. Utilizzarlo per eseguire l'override del comportamento predefinito del passaggio di base o per impostare l'interfaccia come procedura dettagliata. Se `config` si usa, si tratta della prima proprietà nella sezione **createUiDefinition.js** nella sezione del file `parameters` . Nell'esempio seguente vengono illustrate le proprietà disponibili.
 
 ```json
 "config": {
+    "isWizard": false,
     "basics": {
         "description": "Customized description with **markdown**, see [more](https://www.microsoft.com).",
         "subscription": {
@@ -124,15 +103,50 @@ Specificare l'elemento config quando è necessario eseguire l'override del compo
 },
 ```
 
-Per `description` , specificare una stringa abilitata per Markdown che descrive la risorsa. Sono supportati il formato a più righe e i collegamenti.
+### <a name="wizard"></a>Procedura guidata
 
-Per `location` , specificare le proprietà per il controllo del percorso di cui si desidera eseguire l'override. Le proprietà di cui non è stato eseguito l'override sono impostate sui valori predefiniti. `resourceTypes` accetta una matrice di stringhe contenenti nomi di tipi di risorse completi. Le opzioni relative al percorso sono limitate solo alle aree che supportano i tipi di risorse.  `allowedValues`   accetta una matrice di stringhe di area. Nell'elenco a discesa vengono visualizzate solo le aree.È possibile impostare sia `allowedValues`   che  `resourceTypes` . Il risultato è l'intersezione di entrambi gli elenchi. Infine, la `visible` proprietà può essere usata per disabilitare in modo condizionale o completamente l'elenco a discesa percorso.  
+La `isWizard` proprietà consente di richiedere la convalida corretta di ogni passaggio prima di procedere al passaggio successivo. Quando la `isWizard` proprietà non è specificata, il valore predefinito è **false**e la convalida dettagliata non è obbligatoria.
+
+Quando `isWizard` è abilitato, impostare su **true**, la scheda **nozioni di base** è disponibile e tutte le altre schede sono disabilitate. Quando si seleziona il pulsante **Avanti** , l'icona della scheda indica se la convalida di una scheda è stata superata o non riuscita. Dopo che i campi obbligatori della scheda sono stati completati e convalidati, il pulsante **Avanti** consente la navigazione alla scheda successiva. Quando tutte le schede passano la convalida, è possibile passare alla pagina **Verifica e crea** e selezionare il pulsante **Crea** per avviare la distribuzione.
+
+:::image type="content" source="./media/create-uidefinition-overview/tab-wizard.png" alt-text="Creazione guidata scheda":::
+
+### <a name="override-basics"></a>Nozioni fondamentali sull'override
+
+La configurazione di base consente di personalizzare il passaggio di base.
+
+Per `description` , specificare una stringa abilitata per Markdown che descrive la risorsa. Sono supportati il formato a più righe e i collegamenti.
 
 Gli `subscription` `resourceGroup` elementi e consentono di specificare convalide aggiuntive. La sintassi per specificare le convalide è identica alla [casella di testo](microsoft-common-textbox.md)convalida personalizzata. È anche possibile specificare `permission` convalide per la sottoscrizione o il gruppo di risorse.  
 
 Il controllo della sottoscrizione accetta un elenco di spazi dei nomi del provider di risorse. Ad esempio, è possibile specificare **Microsoft. Compute**. Viene visualizzato un messaggio di errore quando l'utente seleziona una sottoscrizione che non supporta il provider di risorse. L'errore si verifica quando il provider di risorse non è registrato nella sottoscrizione e l'utente non è autorizzato a registrare il provider di risorse.  
 
 Il controllo del gruppo di risorse dispone di un'opzione per `allowExisting` . Se `true` , gli utenti possono selezionare i gruppi di risorse che dispongono già di risorse. Questo flag è più applicabile ai modelli di soluzione, in cui il comportamento predefinito impone agli utenti di selezionare un gruppo di risorse nuovo o vuoto. Nella maggior parte degli altri scenari, non è necessario specificare questa proprietà.  
+
+Per `location` , specificare le proprietà per il controllo del percorso di cui si desidera eseguire l'override. Le proprietà di cui non è stato eseguito l'override sono impostate sui valori predefiniti. `resourceTypes` accetta una matrice di stringhe contenenti nomi di tipi di risorse completi. Le opzioni relative al percorso sono limitate solo alle aree che supportano i tipi di risorse.  `allowedValues`   accetta una matrice di stringhe di area. Nell'elenco a discesa vengono visualizzate solo le aree.È possibile impostare sia `allowedValues`   che  `resourceTypes` . Il risultato è l'intersezione di entrambi gli elenchi. Infine, la `visible` proprietà può essere usata per disabilitare in modo condizionale o completamente l'elenco a discesa percorso.  
+
+## <a name="basics"></a>Nozioni di base
+
+Il passaggio di **base** è il primo passaggio generato quando il portale di Azure analizza il file. Per impostazione predefinita, il passaggio di base consente agli utenti di scegliere la sottoscrizione, il gruppo di risorse e la località per la distribuzione.
+
+:::image type="content" source="./media/create-uidefinition-overview/basics.png" alt-text="Principi predefiniti":::
+
+È possibile aggiungere altri elementi in questa sezione. Quando possibile, aggiungere elementi che eseguono query sui parametri a livello di distribuzione, ad esempio il nome di un cluster o le credenziali di amministratore.
+
+Nell'esempio seguente viene illustrata una casella di testo aggiunta agli elementi predefiniti.
+
+```json
+"basics": [
+    {
+        "name": "textBox1",
+        "type": "Microsoft.Common.TextBox",
+        "label": "Textbox on basics",
+        "defaultValue": "my text value",
+        "toolTip": "",
+        "visible": true
+    }
+]
+```
 
 ## <a name="steps"></a>Passaggi
 

@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 08/12/2020
-ms.openlocfilehash: cf91dd0b7f16bf0dcd3d84da1b942b2353ec5bd0
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 51d9880c654a6ecabbbab294016293113bffb655
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212030"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434232"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>Guida alle prestazioni e all'ottimizzazione dei flussi di dati per mapping
 
@@ -126,7 +126,7 @@ Ai flussi di dati viene addebitato il prezzo di Vcore-HRS, ovvero le dimensioni 
 
 ### <a name="time-to-live"></a>Durata (TTL)
 
-Per impostazione predefinita, ogni attività del flusso di dati avvia un nuovo cluster basato sulla configurazione IR. Il tempo di avvio del cluster richiede alcuni minuti e l'elaborazione dei dati non può essere avviata finché non viene completata. Se le pipeline contengono più flussi di dati **sequenziali** , è possibile abilitare un valore TTL (time to Live). La specifica di un valore di durata (TTL) mantiene attivo un cluster per un determinato periodo di tempo dopo il completamento dell'esecuzione. Se un nuovo processo inizia a usare il runtime di integrazione nel tempo TTL, riutilizzerà il cluster esistente e il tempo di avvio sarà in secondi anziché in minuti. Al termine del secondo processo, il cluster resterà attivo per il tempo TTL.
+Per impostazione predefinita, ogni attività del flusso di dati avvia un nuovo cluster basato sulla configurazione IR. Il tempo di avvio del cluster richiede alcuni minuti e l'elaborazione dei dati non può essere avviata finché non viene completata. Se le pipeline contengono più flussi di dati **sequenziali** , è possibile abilitare un valore TTL (time to Live). La specifica di un valore di durata (TTL) mantiene attivo un cluster per un determinato periodo di tempo dopo il completamento dell'esecuzione. Se un nuovo processo inizia a usare il runtime di integrazione nel tempo TTL, riutilizzerà il cluster esistente e il tempo di avvio sarà notevolmente ridotto. Al termine del secondo processo, il cluster resterà attivo per il tempo TTL.
 
 È possibile eseguire un solo processo in un singolo cluster alla volta. Se è presente un cluster disponibile, ma vengono avviati due flussi di dati, solo uno utilizzerà il cluster attivo. Il secondo processo creerà il proprio cluster isolato.
 

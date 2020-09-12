@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/25/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 12deb51cb2c0efc1bef77a3ff2c8d5150ba13cde
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 785b42ab963c3784e63cd00eb0baa62b20952a8a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84196113"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441086"
 ---
 # <a name="copy-activity-performance-and-tuning-guide"></a>Guida alle prestazioni dell'attività di copia e all'ottimizzazione
 
@@ -32,7 +32,7 @@ L'attività di copia di Azure Data Factory offre una soluzione di caricamento de
 
 Azure fornisce un set di soluzioni di archiviazione dei dati e data warehouse di livello aziendale, e l'attività di copia offre un'esperienza di caricamento dei dati altamente ottimizzata, facile da configurare e impostare. Con un'unica attività di copia, è possibile ottenere:
 
-* Caricamento dei dati in **Azure SQL Data Warehouse** a **1,2 GBps**. Per la procedura dettagliata con un caso d'uso, vedere [Caricare 1 TB di dati in Azure SQL Data Warehouse in meno di 15 minuti con Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+* Caricamento dei dati in **Azure sinapsi Analytics** a **1,2 Gbps**. Per una procedura dettagliata con un caso d'uso, vedere [caricare 1 TB in Azure sinapsi Analytics (in precedenza SQL Data Warehouse) meno di 15 minuti con Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 * Caricamento dei dati nell'**Archiviazione BLOB di Azure** a **1 GBps**
 * Caricamento dei dati in **Azure Data Lake Store** a **1 GBps**
 
@@ -66,7 +66,7 @@ Come riferimento, la tabella sotto mostra la velocità effettiva di copia in MBp
         <td>Intel Xeon E5-2660 v2 da 32 core a 2,20 GHz</td>
     </tr>
     <tr>
-        <td>Memory</td>
+        <td>Memoria</td>
         <td>128 GB</td>
     </tr>
     <tr>
@@ -183,9 +183,9 @@ Per usare al meglio queste due proprietà e per migliorare la velocità effettiv
 ## <a name="staged-copy"></a>copia di staging
 Quando si copiano dati da un archivio dati di origine a un archivio dati sink, è possibile scegliere di usare un archivio BLOB come archivio di staging provvisorio. La funzionalità di staging è particolarmente utile nei casi seguenti:
 
-1. **Si inseriscono dati da vari archivi dati in SQL Data Warehouse tramite PolyBase**. SQL Data Warehouse fa uso di PolyBase come meccanismo a velocità effettiva elevata per il caricamento di grandi quantità di dati in SQL Data Warehouse. Tuttavia, i dati di origine devono essere in un archivio BLOB e devono soddisfare criteri aggiuntivi. Quando si caricano dati da un archivio dati non BLOB, è possibile attivare la copia di dati tramite un archivio BLOB di staging provvisorio. In tal caso, Data Factory esegue le trasformazioni di dati necessarie per garantire che vengano soddisfatti i requisiti di PolyBase. Quindi usa PolyBase per caricare i dati in SQL Data Warehouse. Per maggiori dettagli, vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse). Per la procedura dettagliata con un caso d'uso, vedere [Caricare 1 TB di dati in Azure SQL Data Warehouse in meno di 15 minuti con Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+1. **Si vuole inserire dati da diversi archivi dati in Azure sinapsi Analytics tramite la polibase**. Azure sinapsi Analytics usa la polibase come meccanismo di velocità effettiva elevata per caricare una grande quantità di dati in Azure sinapsi Analytics. Tuttavia, i dati di origine devono essere in un archivio BLOB e devono soddisfare criteri aggiuntivi. Quando si caricano dati da un archivio dati non BLOB, è possibile attivare la copia di dati tramite un archivio BLOB di staging provvisorio. In tal caso, Data Factory esegue le trasformazioni di dati necessarie per garantire che vengano soddisfatti i requisiti di PolyBase. USA quindi la polibase per caricare i dati in Azure sinapsi Analytics. Per altri dettagli, vedere [usare la polibase per caricare i dati in Azure sinapsi Analytics](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics). Per una procedura dettagliata con un caso d'uso, vedere [Caricare 1 TB di dati in Azure Synapse Analytics in meno di 15 minuti con Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 2. **A volte occorre tempo per eseguire uno spostamento dati ibrido, ovvero la copia tra un archivio dati locale e un archivio dati cloud, su una connessione di rete lenta**. Per migliorare le prestazioni, è possibile comprimere i dati in locale in modo che sia necessario meno tempo per spostare i dati nell'archivio dati di staging nel cloud. È quindi possibile decomprimere i dati nell'archivio di staging prima di caricarli nell'archivio dati di destinazione.
-3. **Non si vuole aprire porte diverse dalla porta 80 e dalla porta 443 nel firewall, a causa dei criteri IT aziendali**. Ad esempio, quando si copiano dati da un archivio dati locale a un sink del database SQL di Azure o un sink di Azure SQL Data Warehouse, è necessario attivare le comunicazioni TCP in uscita sulla porta 1433 per Windows Firewall e per il firewall aziendale. In questo scenario, sfruttare il gateway prima di tutto per copiare i dati in un'istanza di staging dell'archivio BLOB tramite HTTP o HTTPS sulla porta 443. Quindi, caricare i dati nel database SQL o in SQL Data Warehouse dall'archivio BLOB di staging. In questo flusso non è necessario abilitare la porta 1433.
+3. **Non si vuole aprire porte diverse dalla porta 80 e dalla porta 443 nel firewall, a causa dei criteri IT aziendali**. Ad esempio, quando si copiano dati da un archivio dati locale a un sink di database SQL di Azure o a un sink di Azure sinapsi Analytics, è necessario attivare la comunicazione TCP in uscita sulla porta 1433 per Windows Firewall e il firewall aziendale. In questo scenario, sfruttare il gateway prima di tutto per copiare i dati in un'istanza di staging dell'archivio BLOB tramite HTTP o HTTPS sulla porta 443. Quindi, caricare i dati nel database SQL o in Azure sinapsi Analytics dalla gestione temporanea dell'archiviazione BLOB. In questo flusso non è necessario abilitare la porta 1433.
 
 ### <a name="how-staged-copy-works"></a>Come funziona la copia di staging
 Quando si attiva la funzionalità di staging, i dati vengono prima copiati dall'archivio dati di origine nell'archivio dati di staging personale. Successivamente, vengono copiati dall'archivio dati di staging nell'archivio dati sink. Data Factory gestisce automaticamente il flusso in due fasi ed elimina i dati temporanei dall'archivio di staging al termine dello spostamento dati.
@@ -205,10 +205,10 @@ Attualmente non è possibile copiare dati tra due archivi dati locali usando un 
 ### <a name="configuration"></a>Configurazione
 Configurare l'impostazione **enableStaging** nell'attività di copia per specificare se i dati devono essere inseriti in un archivio BLOB di Azure di staging prima del caricamento in un archivio dati di destinazione. Se si imposta **enableStaging** su TRUE, specificare le proprietà aggiuntive elencate nella tabella seguente. Se non è già disponibile, è necessario creare un servizio collegato alla firma di accesso condiviso di archiviazione o di Archiviazione di Azure per lo staging.
 
-| Proprietà | Descrizione | Valore predefinito | Necessario |
+| Proprietà | Descrizione | Valore predefinito | Obbligatoria |
 | --- | --- | --- | --- |
 | **enableStaging** |Specificare se si vuole copiare i dati tramite un archivio di staging provvisorio. |False |No |
-| **linkedServiceName** |Specificare il nome di un servizio collegato [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) o [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) che fa riferimento all'istanza di archiviazione usata come archivio di staging provvisorio. <br/><br/>  L'archiviazione non può essere usata con una firma di accesso condiviso per caricare dati in SQL Data Warehouse tramite PolyBase. Può essere usata in tutti gli altri scenari. |N/D |Sì, quando **enableStaging** è impostato su TRUE |
+| **linkedServiceName** |Specificare il nome di un servizio collegato [AzureStorage](data-factory-azure-blob-connector.md#azure-storage-linked-service) o [AzureStorageSas](data-factory-azure-blob-connector.md#azure-storage-sas-linked-service) che fa riferimento all'istanza di archiviazione usata come archivio di staging provvisorio. <br/><br/> Non è possibile usare l'archiviazione con una firma di accesso condiviso per caricare i dati in Azure sinapsi Analytics tramite la polibase. Può essere usata in tutti gli altri scenari. |N/D |Sì, quando **enableStaging** è impostato su TRUE |
 | **path** |Specificare il percorso dell'archivio BLOB che deve contenere i dati di staging. Se non si specifica un percorso, il servizio crea un contenitore in cui archiviare i dati temporanei. <br/><br/>  Specificare un percorso solo se si usa l'archiviazione con una firma di accesso condiviso o se i dati temporanei devono trovarsi in un percorso specifico. |N/D |No |
 | **enableCompression** |Specifica se è necessario comprimere i dati prima di copiarli nella destinazione. Questa impostazione ridurre il volume dei dati da trasferire. |False |No |
 
@@ -262,7 +262,7 @@ Per ottimizzare le prestazioni del servizio Data Factory con l'attività di copi
      * [Unità di spostamento dati cloud](#cloud-data-movement-units)
      * [copia di staging](#staged-copy)
      * [Scalabilità di Gateway di gestione dati](data-factory-data-management-gateway-high-availability-scalability.md)
-   * [Gateway Gestione dati](#considerations-for-data-management-gateway)
+   * [Gateway di gestione dati](#considerations-for-data-management-gateway)
    * [Origine](#considerations-for-the-source)
    * [Sink](#considerations-for-the-sink)
    * [Serializzazione e deserializzazione](#considerations-for-serialization-and-deserialization)
@@ -282,7 +282,7 @@ Assicurarsi che l'archivio dati sottostante non sia sovraccarico a causa di altr
 
 Per gli archivi dati Microsoft, vedere gli [argomenti sul monitoraggio e l'ottimizzazione](#performance-reference) specifici degli archivi dati, per comprendere meglio le caratteristiche delle prestazioni degli archivi dati e come ridurre al minimo i tempi di risposta e ottimizzare la velocità effettiva.
 
-Se si copiano dati da un archivio BLOB a SQL Data Warehouse, valutare l'uso di **PolyBase** per migliorare le prestazioni. Per altre informazioni, vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) . Per la procedura dettagliata con un caso d'uso, vedere [Caricare 1 TB di dati in Azure SQL Data Warehouse in meno di 15 minuti con Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+Se si copiano dati da un archivio BLOB ad Azure sinapsi Analytics, provare a usare la **polibase** per migliorare le prestazioni. Per informazioni dettagliate, vedere [usare la polibase per caricare i dati in Azure sinapsi Analytics](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) . Per una procedura dettagliata con un caso d'uso, vedere [Caricare 1 TB di dati in Azure Synapse Analytics in meno di 15 minuti con Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
 ### <a name="file-based-data-stores"></a>Archivi dati basati su file
 *Inclusi archiviazione BLOB, Data Lake Store, Amazon S3, file system locali e HDFS locale*
@@ -292,7 +292,7 @@ Se si copiano dati da un archivio BLOB a SQL Data Warehouse, valutare l'uso di *
 * Per scenari di **file system locali** in cui è necessario usare **Gateway di gestione dati**, vedere la sezione [Considerazioni su Gateway di gestione dati](#considerations-for-data-management-gateway).
 
 ### <a name="relational-data-stores"></a>Archivi dati relazionali
-*Inclusi database SQL, SQL Data Warehouse, Amazon Redshift, database SQL Server e database Oracle, MySQL, DB2, Teradata, Sybase e PostgreSQL*
+*(Include il database SQL; Analisi delle sinapsi di Azure; Amazon, Database SQL Server; e i database Oracle, MySQL, DB2, Teradata, Sybase e PostgreSQL e così via.*
 
 * **Modello di dati**: lo schema di tabella influisce sulla velocità effettiva di copia. Una riga di grandi dimensioni offre migliori prestazioni rispetto a una riga di piccole dimensioni per copiare la stessa quantità di dati. Questo perché il database è in grado di recuperare in modo più efficiente un minor numero di batch di dati che contengono meno righe.
 * **Query o stored procedure**: ottimizzare la logica della query o della stored procedure specificata nell'origine dell'attività di copia per recuperare i dati in modo più efficiente.
@@ -304,7 +304,7 @@ Assicurarsi che l'archivio dati sottostante non sia sovraccarico a causa di altr
 
 Per gli archivi dati Microsoft, vedere gli [argomenti sul monitoraggio e l'ottimizzazione](#performance-reference) specifici per gli archivi dati, per comprendere meglio le caratteristiche delle prestazioni degli archivi dati e come ridurre al minimo i tempi di risposta e ottimizzare la velocità effettiva.
 
-Se si copiano dati da un **archivio BLOB** a **SQL Data Warehouse**, valutare l'uso di **PolyBase** per migliorare le prestazioni. Per altre informazioni, vedere la sezione [Usare PolyBase per caricare dati in Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-sql-data-warehouse) . Per la procedura dettagliata con un caso d'uso, vedere [Caricare 1 TB di dati in Azure SQL Data Warehouse in meno di 15 minuti con Azure Data Factory](data-factory-load-sql-data-warehouse.md).
+Se si copiano dati da un **Archivio BLOB** ad **Azure sinapsi Analytics**, provare a usare la **polibase** per migliorare le prestazioni. Per informazioni dettagliate, vedere [usare la polibase per caricare i dati in Azure sinapsi Analytics](data-factory-azure-sql-data-warehouse-connector.md#use-polybase-to-load-data-into-azure-synapse-analytics) . Per una procedura dettagliata con un caso d'uso, vedere [Caricare 1 TB di dati in Azure Synapse Analytics in meno di 15 minuti con Azure Data Factory](data-factory-load-sql-data-warehouse.md).
 
 ### <a name="file-based-data-stores"></a>Archivi dati basati su file
 *Inclusi archiviazione BLOB, Data Lake Store, Amazon S3, file system locali e HDFS locale*
@@ -315,7 +315,7 @@ Se si copiano dati da un **archivio BLOB** a **SQL Data Warehouse**, valutare l'
 * Per scenari di **file system locali** in cui è necessario usare **Gateway di gestione dati**, vedere la sezione [Considerazioni su Gateway di gestione dati](#considerations-for-data-management-gateway).
 
 ### <a name="relational-data-stores"></a>Archivi dati relazionali
-*Inclusi database SQL, SQL Data Warehouse, database SQL Server e database Oracle*
+*(Include database SQL, Azure sinapsi Analytics, database SQL Server e database Oracle)*
 
 * **Comportamento di copia**: a seconda delle proprietà configurate per **sqlSink**, l'attività di copia scrive i dati nel database di destinazione in modi diversi.
   * Per impostazione predefinita, il servizio di spostamento dati usa l'API per la copia bulk per inserire i dati in modalità Append, che offre le prestazioni migliori.
@@ -419,7 +419,7 @@ Di seguito sono riportati alcuni riferimenti sul monitoraggio e l'ottimizzazione
 * Archiviazione BLOB di Azure: [obiettivi di scalabilità e prestazioni per](../../storage/blobs/scalability-targets.md) l'archiviazione BLOB e l' [elenco di controllo di prestazioni e scalabilità per l'archiviazione BLOB](../../storage/blobs/storage-performance-checklist.md).
 * Archiviazione tabelle di Azure: [obiettivi di scalabilità e prestazioni per](../../storage/tables/scalability-targets.md) l'archiviazione tabelle e l' [elenco di controllo di prestazioni e scalabilità per l'archiviazione tabelle](../../storage/tables/storage-performance-checklist.md).
 * Database SQL di Azure: è possibile [monitorare le prestazioni](../../sql-database/sql-database-single-database-monitor.md) e controllare la percentuale di DTU (Database Transaction Unit).
-* Azure SQL Data Warehouse: la funzionalità viene misurata in unità data warehouse (DWU). Vedere in proposito [Gestire la potenza di calcolo in Azure SQL Data Warehouse (Panoramica)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
+* Analisi delle sinapsi di Azure: la relativa funzionalità viene misurata in unità di data warehouse (DWU); vedere [gestire la potenza di calcolo in Azure sinapsi Analytics (panoramica)](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md)
 * Azure Cosmos DB: [livelli di prestazioni in Azure Cosmos DB](../../cosmos-db/performance-levels.md)
 * SQL Server locale: [Monitoraggio e ottimizzazione delle prestazioni](https://msdn.microsoft.com/library/ms189081.aspx)
 * File server locale: [Performance Tuning for File Servers](https://msdn.microsoft.com/library/dn567661.aspx)

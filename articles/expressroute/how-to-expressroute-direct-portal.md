@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: configurare ExpressRoute Direct: portale'
 description: Questa pagina consente di configurare ExpressRoute Direct usando il portale.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 08/06/2020
-ms.author: cherylmc
-ms.openlocfilehash: 475b2aa99296995c3adb51eca2d6bdb53616670e
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.author: duau
+ms.openlocfilehash: 09d3723224f9c678e41a6cbc86b5f8f9655173c8
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87903596"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401470"
 ---
 # <a name="create-expressroute-direct-using-the-azure-portal"></a>Creare ExpressRoute direttamente usando il portale di Azure
 
@@ -63,7 +63,7 @@ Verificare che il provider di risorse **Microsoft. Network** sia registrato nell
 
     :::image type="content" source="./media/how-to-expressroute-direct-portal/validate.png" alt-text="Rivedi e crea":::
 
-1. Selezionare **Crea**. Verrà visualizzato un messaggio che informa che la distribuzione è in corso. Lo stato verrà visualizzato in questa pagina durante la creazione delle risorse. 
+1. Selezionare **Create** (Crea). Verrà visualizzato un messaggio che informa che la distribuzione è in corso. Lo stato verrà visualizzato in questa pagina durante la creazione delle risorse. 
 
 ## <a name="2-change-admin-state-of-links"></a><a name="state"></a>2. modificare lo stato di amministrazione dei collegamenti
 
@@ -107,7 +107,7 @@ La procedura seguente consente di creare un circuito ExpressRoute dal flusso di 
 
    :::image type="content" source="./media/how-to-expressroute-direct-portal/review.png" alt-text="Rivedi e crea":::
 
-1. Selezionare **Crea**. Verrà visualizzato un messaggio che informa che la distribuzione è in corso. Lo stato verrà visualizzato in questa pagina durante la creazione delle risorse. 
+1. Selezionare **Create** (Crea). Verrà visualizzato un messaggio che informa che la distribuzione è in corso. Lo stato verrà visualizzato in questa pagina durante la creazione delle risorse. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

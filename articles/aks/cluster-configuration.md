@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/06/2020
 ms.author: jpalma
 author: palma21
-ms.openlocfilehash: daffcbf0a2ceb6f28cbb539906d4c6387840aa20
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 5b26054ae8dfb73dea8d064292beb73220be5e09
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752091"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433450"
 ---
 # <a name="configure-an-aks-cluster"></a>Configurare un cluster del servizio Azure Kubernetes
 
@@ -218,7 +218,7 @@ az extension update --name aks-preview
 ### <a name="use-gen2-vms-on-new-clusters-preview"></a>Usare macchine virtuali Gen2 in nuovi cluster (anteprima)
 Configurare il cluster per l'uso di macchine virtuali Gen2 per lo SKU selezionato quando viene creato il cluster. Usare il `--aks-custom-headers` flag per impostare Gen2 come generazione di VM in un nuovo cluster.
 
-```azure-cli
+```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_D2s_v3 --aks-custom-headers usegen2vm=true
 ```
 
@@ -227,7 +227,7 @@ Se si vuole creare un cluster normale usando macchine virtuali di generazione 1 
 ### <a name="use-gen2-vms-on-existing-clusters-preview"></a>Usare macchine virtuali Gen2 in cluster esistenti (anteprima)
 Configurare un nuovo pool di nodi per l'uso di macchine virtuali Gen2. Usare il `--aks-custom-headers` flag per impostare Gen2 come generazione di VM per il pool di nodi.
 
-```azure-cli
+```azurecli
 az aks nodepool add --name gen2 --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_D2s_v3 --aks-custom-headers usegen2vm=true
 ```
 
@@ -276,7 +276,7 @@ az extension update --name aks-preview
 
 Configurare il cluster per l'uso di dischi del sistema operativo temporanei quando viene creato il cluster. Usare il `--aks-custom-headers` flag per impostare il sistema operativo temporaneo come tipo di disco del sistema operativo per il nuovo cluster.
 
-```azure-cli
+```azurecli
 az aks create --name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
 ```
 
@@ -285,7 +285,7 @@ Se si vuole creare un cluster normale usando dischi del sistema operativo colleg
 ### <a name="use-ephemeral-os-on-existing-clusters-preview"></a>USA sistema operativo temporaneo nei cluster esistenti (anteprima)
 Configurare un nuovo pool di nodi per l'uso di dischi del sistema operativo temporanei. Usare il `--aks-custom-headers` flag per impostare come tipo di disco del sistema operativo come tipo di disco del sistema operativo per il pool di nodi.
 
-```azure-cli
+```azurecli
 az aks nodepool add --name ephemeral --cluster-name myAKSCluster --resource-group myResourceGroup -s Standard_DS3_v2 --aks-custom-headers EnableEphemeralOSDisk=true
 ```
 

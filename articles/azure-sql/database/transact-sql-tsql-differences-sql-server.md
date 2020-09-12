@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/03/2018
-ms.openlocfilehash: c4c340282becf34ae34bf9e48bceeb86d68f237b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: fa10f97d0eb2f48e80d20f90a254c44c6e95a8e8
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84345326"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436970"
 ---
 # <a name="resolving-transact-sql-differences-during-migration-to-sql-database"></a>Risoluzione delle differenze di Transact-SQL durante la migrazione al database SQL
 
@@ -45,7 +45,7 @@ Sono disponibili le istruzioni DDL (data definition language) di base, tuttavia 
 Oltre alle istruzioni Transact-SQL correlate alle funzionalità non supportate descritte in confronto tra le [funzionalità del database SQL di Azure](features-comparison.md), le istruzioni e i gruppi di istruzioni seguenti non sono supportati. Di conseguenza, se il database di cui deve essere eseguita la migrazione usa le funzionalità seguenti, è necessario riprogettare T-SQL in modo da eliminare queste funzionalità e istruzioni T-SQL.
 
 - Regole di confronto di oggetti di sistema
-- Connessione correlata: istruzioni di endpoint. Il database SQL non supporta l'autenticazione di Windows, ma supporta l'autenticazione Azure Active Directory simile. Alcuni tipi di autenticazione richiedono l'ultima versione di SQL Server Management Studio. Per altre informazioni, vedere [connessione al database SQL o Azure SQL data warehouse usando l'autenticazione di Azure Active Directory](authentication-aad-overview.md).
+- Connessione correlata: istruzioni di endpoint. Il database SQL non supporta l'autenticazione di Windows, ma supporta l'autenticazione Azure Active Directory simile. Alcuni tipi di autenticazione richiedono l'ultima versione di SQL Server Management Studio. Per altre informazioni, vedere [connessione al database SQL o ad Azure sinapsi Analytics (in precedenza SQL Data Warehouse) usando l'autenticazione di Azure Active Directory](authentication-aad-overview.md).
 - Query tra database mediante nomi composti da tre o quattro parti. Le query tra database di sola lettura sono supportate mediante [query di database elastici](elastic-query-overview.md).
 - Concatenamento della proprietà tra database, impostazione `TRUSTWORTHY`
 - `EXECUTE AS LOGIN` Usare invece 'EXECUTE AS USER'.
@@ -82,7 +82,7 @@ Per ulteriori informazioni sulla grammatica, sull'utilizzo e sugli esempi di Tra
 
 ### <a name="about-the-applies-to-tags"></a>Informazioni sui tag "Si applica a"
 
-Le informazioni di riferimento su Transact-SQL includono articoli correlati alle versioni di SQL Server dalla 2008 a quella attuale. Sotto il titolo dell'articolo è presente una barra delle icone, che elenca le quattro piattaforme SQL Server e indica l'applicabilità. Ad esempio, i gruppi di disponibilità sono stati introdotti in SQL Server 2012. L'articolo [creare un gruppo](https://msdn.microsoft.com/library/ff878399.aspx)   di disponibilità indica che l'istruzione si applica a **SQL Server (a partire da 2012)**. L'istruzione non si applica a SQL Server 2008, SQL Server 2008 R2, database SQL di Azure, Azure SQL Data Warehouse o data warehouse paralleli.
+Le informazioni di riferimento su Transact-SQL includono articoli correlati alle versioni di SQL Server dalla 2008 a quella attuale. Sotto il titolo dell'articolo è presente una barra delle icone, che elenca le quattro piattaforme SQL Server e indica l'applicabilità. Ad esempio, i gruppi di disponibilità sono stati introdotti in SQL Server 2012. L'articolo [creare un gruppo](https://msdn.microsoft.com/library/ff878399.aspx)   di disponibilità indica che l'istruzione si applica a **SQL Server (a partire da 2012)**. L'istruzione non si applica a SQL Server 2008, SQL Server 2008 R2, al database SQL di Azure, ad Azure sinapsi Analytics (in precedenza SQL Data Warehouse) o data warehouse paralleli.
 
 In alcuni casi, l'oggetto generale di un articolo può essere usato in un prodotto, ma esistono differenze minime tra i prodotti. Le differenze sono indicate in punti centrali nell'articolo come appropriato. In alcuni casi, l'oggetto generale di un articolo può essere usato in un prodotto, ma esistono differenze minime tra i prodotti. Le differenze sono indicate in punti centrali nell'articolo come appropriato. Ad esempio, l'articolo creare TRIGGER è disponibile nel database SQL. Tuttavia, l'opzione **all Server** per i trigger a livello di server indica che i trigger a livello di server non possono essere utilizzati nel database SQL. Usare i trigger a livello di database.
 

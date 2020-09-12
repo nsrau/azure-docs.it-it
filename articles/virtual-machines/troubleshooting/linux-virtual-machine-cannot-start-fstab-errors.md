@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: cf27a842d37e96c82370e9b9b81763c8a5d1f7c9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fd49993e6825c47bbae8f034715c03191e06ab2d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86509053"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441664"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-fstab-errors"></a>Risolvere i problemi di avvio della macchina virtuale Linux a causa di errori fstab
 
@@ -98,7 +98,7 @@ Give root password for maintenance
 
 Questo problema può verificarsi se la sintassi fstab (file System Table) non è corretta o se un disco dati richiesto di cui è stato eseguito il mapping a una voce nel file "/etc/fstab" non è collegato alla macchina virtuale.
 
-## <a name="resolution"></a>Risoluzione
+## <a name="resolution"></a>Soluzione
 
 Per risolvere questo problema, avviare la macchina virtuale in modalità di emergenza usando la console seriale per le macchine virtuali di Azure. Usare quindi lo strumento per ripristinare la file system. Se la console seriale non è abilitata nella macchina virtuale, passare alla sezione [ripristinare la macchina virtuale offline](#repair-the-vm-offline) .
 
@@ -107,7 +107,7 @@ Per risolvere questo problema, avviare la macchina virtuale in modalità di emer
 ### <a name="using-single-user-mode"></a>Uso della modalità utente singolo
 
 1. Connettersi alla [console seriale](./serial-console-linux.md).
-2. Usare la console seriale per eseguire la modalità [utente](../linux/serial-console-grub-single-user-mode.md) singolo in modalità utente singolo
+2. Usare la console seriale per eseguire la modalità [utente](serial-console-grub-single-user-mode.md) singolo in modalità utente singolo
 3. Quando la macchina virtuale è stata avviata in modalità utente singolo. Utilizzare l'editor di testo preferito per aprire il file fstab. 
 
    ```
@@ -235,7 +235,7 @@ Per risolvere questo problema, avviare la macchina virtuale in modalità di emer
 13. Dopo aver creato di nuovo la macchina virtuale ed è possibile connettersi tramite SSH, intraprendere le azioni seguenti:
     * Esaminare le righe fstab modificate o impostate come commenti durante il ripristino.
     * Assicurarsi di usare UUID e l'opzione nofail in modo appropriato.
-    * Testare le modifiche fstab prima di riavviare la macchina virtuale. A tale scopo, utilizzare il comando seguente:``$ sudo mount -a``
+    * Testare le modifiche fstab prima di riavviare la macchina virtuale. A tale scopo, utilizzare il comando seguente: ``$ sudo mount -a``
     * Creare una copia aggiuntiva del file fstab corretto da usare negli scenari di ripristino futuri.
 
 ## <a name="next-steps"></a>Passaggi successivi

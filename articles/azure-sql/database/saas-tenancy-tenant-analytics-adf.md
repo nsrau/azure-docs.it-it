@@ -11,19 +11,19 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: fff308f241a29cbf40bf2884fc412acf5942497b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2f4f81f8159e5800da7dfec58c01f474cb1c0d07
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84036482"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437446"
 ---
 # <a name="explore-saas-analytics-with-azure-sql-database-azure-synapse-analytics-data-factory-and-power-bi"></a>Esplora le analisi SaaS con database SQL di Azure, Azure sinapsi Analytics, Data Factory e Power BI
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Questa esercitazione illustra in dettaglio uno scenario di analisi end-to-end. Lo scenario dimostra come l'analisi sui dati dei tenant possa consentire ai fornitori di software di prendere decisioni oculate. Con i dati estratti dal database di ogni tenant, si usa l'analisi per ottenere informazioni dettagliate sul comportamento dei tenant, ad esempio sul rispettivo uso dell'applicazione SaaS Wingtip Tickets di esempio. Questo scenario include tre passaggi:
 
-1. **Estrarre i dati** da ogni database tenant a un archivio di analisi, in questo caso un'istanza di SQL Data Warehouse.
+1. **Estrarre i dati** da ogni database tenant in un archivio di analisi, in questo caso un pool SQL.
 2. **Ottimizzare i dati estratti** per l'elaborazione dell'analisi.
 3. Usare strumenti di **business intelligence** per ottenere informazioni dettagliate utili su cui basare il processo decisionale.
 
@@ -45,7 +45,7 @@ Le applicazioni SaaS contengono una quantità potenzialmente elevata di dati dei
 
 L'accesso ai dati per tutti i tenant è semplice quando tutti i dati si trovano in un unico database multi-tenant. È invece più complesso quando sono distribuiti su larga scala in migliaia di database. Un modo per superare tale complessità consiste nell'estrarre i dati in un database o un data warehouse di analisi per l'esecuzione di query.
 
-Questa esercitazione presenta uno scenario di analisi end-to-end per l'applicazione Wingtip Tickets. Per prima cosa viene usato [Azure Data Factory](../../data-factory/introduction.md) come strumento di orchestrazione per estrarre i dati sulle vendite di biglietti e i dati correlati da ogni database tenant. Questi dati vengono caricati in tabelle di staging in un archivio di analisi, L'archivio di analisi può essere un database SQL o un SQL Data Warehouse. In questa esercitazione, come archivio di analisi viene usato [SQL Data Warehouse](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is).
+Questa esercitazione presenta uno scenario di analisi end-to-end per l'applicazione Wingtip Tickets. Per prima cosa viene usato [Azure Data Factory](../../data-factory/introduction.md) come strumento di orchestrazione per estrarre i dati sulle vendite di biglietti e i dati correlati da ogni database tenant. Questi dati vengono caricati in tabelle di staging in un archivio di analisi, L'archivio di analisi può essere un database SQL o un pool SQL. Questa esercitazione USA [Azure sinapsi Analytics (in precedenza SQL Data Warehouse)](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-overview-what-is) come archivio di analisi.
 
 Successivamente, i dati estratti vengono trasformati in un set di tabelle con [schema star](https://www.wikipedia.org/wiki/Star_schema). Le tabelle sono costituite da una tabella dei fatti centrale e dalle tabelle delle dimensioni correlate:
 
@@ -83,11 +83,11 @@ Questa esercitazione esplora l'analisi sui dati relativi alle vendite di bigliet
     - **$DemoScenario**  =  **1** acquistare i ticket per gli eventi in tutte le sedi
 2. Premere **F5** per eseguire lo script e creare la cronologia di acquisto dei biglietti per tutte le sedi. Con 20 tenant, lo script genera decine di migliaia di biglietti e può impiegare 10 minuti o più.
 
-### <a name="deploy-sql-data-warehouse-data-factory-and-blob-storage"></a>Distribuire SQL Data Warehouse, Data Factory e l'archivio BLOB
+### <a name="deploy-azure-synapse-analytics-data-factory-and-blob-storage"></a>Distribuire Azure sinapsi Analytics, Data Factory e archiviazione BLOB
 
-Nell'app Wingtip Tickets, i dati transazionali dei tenant sono distribuiti in più database. Azure Data Factory viene usato per orchestrare l'estrazione, il caricamento e la trasformazione di tali dati nel data warehouse. Per caricare i dati in SQL Data Warehouse nel modo più efficiente, Azure Data Factory estrae i dati in file BLOB intermedi e quindi usa [PolyBase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) per caricare i dati nel data warehouse.
+Nell'app Wingtip Tickets, i dati transazionali dei tenant sono distribuiti in più database. Azure Data Factory viene usato per orchestrare l'estrazione, il caricamento e la trasformazione di tali dati nel data warehouse. Per caricare i dati in Azure sinapsi Analytics (in precedenza SQL Data Warehouse) in modo più efficiente, ADF estrae i dati in file BLOB intermedi, quindi usa la [polibase](https://docs.microsoft.com/azure/sql-data-warehouse/design-elt-data-loading) per caricare i dati nel data warehouse.
 
-In questo passaggio vengono distribuite le risorse aggiuntive usate nell'esercitazione: un SQL Data Warehouse denominato _tenantanalytics_, una Azure Data Factory denominata _ \<user\> dbtodwload_e un account di archiviazione di Azure denominato _wingtipstaging \<user\> _. L'account di archiviazione viene usato per inserirvi temporaneamente i file di dati estratti come BLOB prima di caricarli nel data warehouse. Questo passaggio include anche la distribuzione dello schema del data warehouse e la definizione delle pipeline di Azure Data Factory che orchestrano il processo di estrazione, caricamento e trasformazione.
+In questo passaggio vengono distribuite le risorse aggiuntive usate nell'esercitazione: un pool SQL denominato _tenantanalytics_, un Azure Data Factory denominato _ \<user\> dbtodwload_e un account di archiviazione di Azure denominato _wingtipstaging \<user\> _. L'account di archiviazione viene usato per inserirvi temporaneamente i file di dati estratti come BLOB prima di caricarli nel data warehouse. Questo passaggio include anche la distribuzione dello schema del data warehouse e la definizione delle pipeline di Azure Data Factory che orchestrano il processo di estrazione, caricamento e trasformazione.
 
 1. In PowerShell ISE aprire *…\Learning Modules\Operational Analytics\Tenant Analytics DW\Demo-TenantAnalyticsDW.ps1* e impostare:
     - **$DemoScenario**  =  **2** distribuire data warehouse di analisi tenant, archiviazione blob e data factory
@@ -159,7 +159,7 @@ La **pipeline 2, DBCopy**, cerca i nomi delle tabelle e delle colonne di origine
 
 La **pipeline 3, TableCopy**, usa i numeri di versione di riga nel database SQL (_rowversion_) per identificare le righe che sono state modificate o aggiornate. Questa attività cerca la versione di riga iniziale e finale per l'estrazione delle righe dalle tabelle di origine. La tabella **CopyTracker** archiviata in ogni database tenant tiene traccia dell'ultima riga estratta da ogni tabella di origine in ogni esecuzione. Le righe nuove o modificate vengono copiate nelle tabelle di staging corrispondenti nel data warehouse: **raw_Tickets**, **raw_Customers**, **raw_Venues** e **raw_Events**. L'ultima versione di riga viene infine salvata nella tabella **CopyTracker** e verrà usata come versione di riga iniziale per l'estrazione successiva.
 
-Sono anche presenti tre servizi collegati con parametri che collegano la data factory ai database SQL di origine, all'istanza di SQL Data Warehouse di destinazione e all'archivio BLOB intermedio. Nella scheda di **creazione** fare clic su **Connessioni** per esaminare i servizi collegati, come illustrato nell'immagine seguente:
+Sono inoltre disponibili tre servizi collegati con parametri che collegano i data factory ai database SQL di origine, al pool SQL di destinazione e all'archiviazione BLOB intermedia. Nella scheda di **creazione** fare clic su **Connessioni** per esaminare i servizi collegati, come illustrato nell'immagine seguente:
 
 ![adf_linkedservices](./media/saas-tenancy-tenant-analytics-adf/linkedservices.JPG)
 
@@ -167,7 +167,7 @@ Tre set di dati corrispondenti ai tre servizi collegati fanno riferimento ai dat
   
 ### <a name="data-warehouse-pattern-overview"></a>Panoramica del modello del data warehouse
 
-La sinapsi di Azure (in precedenza Azure SQL Data Warehouse) viene usata come archivio di analisi per eseguire l'aggregazione sui dati del tenant. In questo esempio, polibase viene usato per caricare i dati nel data warehouse. I dati non elaborati vengono caricati in tabelle di staging che includono una colonna Identity per tenere traccia delle righe che sono state trasformate nelle tabelle dello schema star. L'immagine seguente illustra il modello di caricamento: ![loadingpattern](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
+La sinapsi di Azure (in precedenza SQL Data Warehouse) viene usata come archivio di analisi per eseguire l'aggregazione sui dati del tenant. In questo esempio, polibase viene usato per caricare i dati nel data warehouse. I dati non elaborati vengono caricati in tabelle di staging che includono una colonna Identity per tenere traccia delle righe che sono state trasformate nelle tabelle dello schema star. L'immagine seguente illustra il modello di caricamento: ![loadingpattern](./media/saas-tenancy-tenant-analytics-adf/loadingpattern.JPG)
 
 In questo esempio vengono usate tabelle delle dimensioni a modifica lenta di tipo 1. Ogni dimensione ha una chiave sostitutiva definita con una colonna Identity. Come procedura consigliata, la tabella delle dimensioni di data viene prepopolata per risparmiare tempo. Per le altre tabelle delle dimensioni, un CREATE TABLE come SELECT... L'istruzione (CTAS) viene utilizzata per creare una tabella temporanea contenente le righe modificate e non modificate esistenti, insieme alle chiavi surrogate. A questo scopo viene usato IDENTITY_INSERT=ON. Le nuove righe vengono quindi inserite nella tabella con IDENTITY_INSERT=OFF. Per facilitare il rollback, la tabella delle dimensioni esistente viene rinominata e la tabella temporanea viene a propria volta rinominata in modo da diventare la nuova tabella delle dimensioni. Prima di ogni esecuzione, la tabella delle dimensioni precedente viene eliminata.
 

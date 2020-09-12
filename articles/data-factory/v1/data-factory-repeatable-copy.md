@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: 7188cb5774699fc6e31fc3b8c78068bb33c6f552
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 10476544e513b52567eb0ca0182039f2c5f482c3
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84707294"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441630"
 ---
 # <a name="repeatable-copy-in-azure-data-factory"></a>Copia ripetibile in Azure Data Factory
 
@@ -104,7 +104,7 @@ L'attività di copia ha eseguito lo script di pulizia per eliminare i dati corri
 
 ### <a name="mechanism-2-using-sliceidentifiercolumnname"></a>Meccanismo 2: uso di sliceIdentifierColumnName
 > [!IMPORTANT]
-> Attualmente sliceIdentifierColumnName non è supportato per Azure SQL Data Warehouse. 
+> Attualmente, sliceIdentifierColumnName non è supportato per l'analisi delle sinapsi di Azure (in precedenza SQL Data Warehouse). 
 
 Il secondo meccanismo per ottenere la ripetibilità prevede la disponibilità di una colonna dedicata (sliceIdentifierColumnName) nella tabella di destinazione. Questa colonna viene usata da Data factory di Azure per garantire che l'origine e la destinazione rimangano sincronizzate. Questo approccio può essere usato solo quando è disponibile una certa flessibilità nella modifica o nella definizione dello schema della tabella SQL di destinazione. 
 
@@ -151,5 +151,5 @@ Analogamente al meccanismo 1, l'attività di copia cancella automaticamente i da
 Rivedere gli articoli seguenti sul connettore per gli esempi JSON completi: 
 
 - [Database SQL di Azure](data-factory-azure-sql-connector.md)
-- [Azure SQL Data Warehouse](data-factory-azure-sql-data-warehouse-connector.md)
+- [Azure Synapse Analytics](data-factory-azure-sql-data-warehouse-connector.md)
 - [SQL Server](data-factory-sqlserver-connector.md)

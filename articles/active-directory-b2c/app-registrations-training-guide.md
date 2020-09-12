@@ -11,12 +11,12 @@ ms.date: 05/25/2020
 ms.custom: project-no-code
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f9b493e862ed70bbeab9ac509c79003a535366d0
-ms.sourcegitcommit: 0820c743038459a218c40ecfb6f60d12cbf538b3
+ms.openlocfilehash: eed0527b69dcaacd3a8cd0cf7cd178aa2aca3468
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87116537"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433909"
 ---
 # <a name="the-new-app-registrations-experience-for-azure-active-directory-b2c"></a>La nuova esperienza Registrazioni app per Azure Active Directory B2C
 
@@ -32,7 +32,7 @@ La nuova esperienza Mostra tutte le registrazioni di app Azure AD B2C e Azure AD
 L'esperienza di Azure AD B2C Registrazioni app si basa sull' [esperienza di registrazione delle app](https://developer.microsoft.com/identity/blogs/new-app-registrations-experience-is-now-generally-available/) generale per qualsiasi tenant Azure ad, ma è adattata per Azure ad B2C tenant.
 
 ## <a name="whats-not-changing"></a>Cosa non cambia?
-- Le applicazioni e le configurazioni correlate possono essere trovate così come sono nella nuova esperienza. Non è necessario registrare di nuovo le applicazioni e gli utenti delle applicazioni non dovranno eseguire di nuovo l'accesso. 
+- Le applicazioni e le configurazioni correlate possono essere trovate così come sono nella nuova esperienza. Non è necessario registrare di nuovo le applicazioni e gli utenti delle applicazioni non dovranno eseguire di nuovo l'accesso.
 
 > [!NOTE]
 > Per visualizzare tutte le applicazioni create in precedenza, passare al pannello **registrazioni app** e selezionare la scheda **tutte le applicazioni** . Verranno visualizzate le app create nell'esperienza legacy, la nuova esperienza e quelle create nel servizio Azure AD.
@@ -43,7 +43,7 @@ L'esperienza di Azure AD B2C Registrazioni app si basa sull' [esperienza di regi
 
 -   La **registrazione combinata delle app** consente di registrare rapidamente un'app, che si tratti di un'app per il cliente o di un'app per accedere Microsoft Graph.
 
-- Il riquadro **endpoint** consente di identificare rapidamente gli endpoint pertinenti per lo scenario, tra cui la configurazione di OpenID Connect, i metadati SAML, l'API Microsoft Graph e gli [endpoint del flusso utente OAuth 2,0](tokens-overview.md#endpoints). 
+- Il riquadro **endpoint** consente di identificare rapidamente gli endpoint pertinenti per lo scenario, tra cui la configurazione di OpenID Connect, i metadati SAML, l'API Microsoft Graph e gli [endpoint del flusso utente OAuth 2,0](tokens-overview.md#endpoints).
 
 - Le **autorizzazioni API** ed **esporre un'API forniscono la** gestione di ambito, autorizzazioni e consenso più ampia. È ora possibile assegnare anche le autorizzazioni di Microsoft Graph e Azure AD Graph a un'app.
 
@@ -57,20 +57,20 @@ Nella nuova esperienza è possibile selezionare un tipo di account di supporto d
 - Account in qualsiasi directory organizzativa (qualsiasi Azure AD directory – multi-tenant).
 - Account in qualsiasi directory organizzativa o provider di identità. Per l'autenticazione degli utenti con Azure AD B2C.
 
-Per comprendere i diversi tipi di account, selezionare **help me choose** in the Creation Experience. 
+Per comprendere i diversi tipi di account, selezionare **help me choose** in the Creation Experience.
 
 Nell'esperienza legacy, le app sono state create sempre come applicazioni rivolte ai clienti. Per queste app, il tipo di account è impostato su **account in qualsiasi directory organizzativa o provider di identità. Per l'autenticazione degli utenti con Azure AD B2C**.
 > [!NOTE]
 > Questa opzione è necessaria per poter eseguire Azure AD B2C flussi utente per autenticare gli utenti per questa applicazione. Informazioni [su come registrare un'applicazione per l'uso con i flussi utente.](tutorial-register-applications.md)
 
-È anche possibile usare questa opzione per usare Azure AD B2C come provider di servizi SAML. [Altre informazioni](identity-provider-adfs2016-custom.md)
+È anche possibile usare questa opzione per usare Azure AD B2C come provider di servizi SAML. [Altre informazioni](identity-provider-adfs2016-custom.md).
 
 ## <a name="applications-for-devops-scenarios"></a>Applicazioni per scenari DevOps
 È possibile usare gli altri tipi di account per creare un'app per gestire gli scenari DevOps, ad esempio l'uso di Microsoft Graph per caricare i criteri del Framework dell'esperienza di identità o il provisioning degli utenti. Informazioni [su come registrare un'applicazione Microsoft Graph per gestire le risorse Azure ad B2C](microsoft-graph-get-started.md).
 
-È possibile che non vengano visualizzate tutte le autorizzazioni Microsoft Graph, perché molte di queste autorizzazioni non si applicano agli utenti del consumer di Azure B2C. [Altre informazioni sulla gestione degli utenti con Microsoft Graph](manage-user-accounts-graph-api.md).  
+È possibile che non vengano visualizzate tutte le autorizzazioni Microsoft Graph, perché molte di queste autorizzazioni non si applicano agli utenti del consumer di Azure B2C. [Altre informazioni sulla gestione degli utenti con Microsoft Graph](manage-user-accounts-graph-api.md).
 
-## <a name="admin-consent-and-offline_accessopenid-scopes"></a>Consenso dell'amministratore e offline_access + ambiti OpenID  
+## <a name="admin-consent-and-offline_accessopenid-scopes"></a>Consenso dell'amministratore e offline_access + ambiti OpenID
 <!-- Azure AD B2C doesn't support user consent. That is, when a user signs into an application, the user doesn't see a screen requesting consent for the application permissions. All permissions have to be granted through admin consent.  -->
 
 L'ambito **OpenID** è necessario in modo che Azure ad B2C possa consentire agli utenti di accedere a un'app. L'ambito **offline_access** è necessario per emettere token di aggiornamento per un utente. Questi ambiti sono stati aggiunti in precedenza e il consenso dell'amministratore è stato specificato per impostazione predefinita. A questo punto, è possibile aggiungere facilmente le autorizzazioni per questi ambiti durante il processo di creazione assicurando che sia selezionata l'opzione **concedi il consenso dell'amministratore per OpenID e offline_access autorizzazioni** . In caso contrario, è possibile aggiungere le autorizzazioni di Microsoft Graph con il consenso dell'amministratore nelle impostazioni delle **autorizzazioni API** per un'app esistente.
@@ -78,11 +78,11 @@ L'ambito **OpenID** è necessario in modo che Azure ad B2C possa consentire agli
 Altre informazioni sulle [autorizzazioni e il consenso](../active-directory/develop/v2-permissions-and-consent.md).
 
 ## <a name="platformsauthentication-reply-urlsredirect-uris"></a>Piattaforme/autenticazione: URL di risposta/URI di Reindirizzamento
-Nell'esperienza legacy, i vari tipi di piattaforma sono stati gestiti in **Proprietà** come URL di risposta per le app Web/API e l'URI di reindirizzamento per i client nativi. "Native clients" sono noti anche come "client pubblici" e includono app per iOS, macOS, Android e altri tipi di applicazioni per dispositivi mobili e desktop. 
+Nell'esperienza legacy, i vari tipi di piattaforma sono stati gestiti in **Proprietà** come URL di risposta per le app Web/API e l'URI di reindirizzamento per i client nativi. "Native clients" sono noti anche come "client pubblici" e includono app per iOS, macOS, Android e altri tipi di applicazioni per dispositivi mobili e desktop.
 
-Nella nuova esperienza gli URL di risposta e gli URI di reindirizzamento sono entrambi denominati URI di reindirizzamento ed è possibile trovarli nella sezione di **autenticazione** di un'app. Registrazioni app non sono limitati a essere un'app Web o un'applicazione nativa. È possibile usare la stessa registrazione dell'app per tutti questi tipi di piattaforma registrando i rispettivi URI di reindirizzamento. 
+Nella nuova esperienza gli URL di risposta e gli URI di reindirizzamento sono entrambi denominati URI di reindirizzamento ed è possibile trovarli nella sezione di **autenticazione** di un'app. Registrazioni app non sono limitati a essere un'app Web o un'applicazione nativa. È possibile usare la stessa registrazione dell'app per tutti questi tipi di piattaforma registrando i rispettivi URI di reindirizzamento.
 
-Gli URI di reindirizzamento devono essere associati a un tipo di app, ovvero Web o pubblico (per dispositivi mobili e desktop). [Altre informazioni sugli URI di Reindirizzamento](../active-directory/develop/quickstart-configure-app-access-web-apis.md#add-redirect-uris-to-your-application)
+Gli URI di reindirizzamento devono essere associati a un tipo di app, ovvero Web o pubblico (per dispositivi mobili e desktop). [Altre informazioni sugli URI di Reindirizzamento](../active-directory/develop/quickstart-register-app.md#add-a-redirect-uri)
 
 <!-- Whether an application should be treated as a public client is inferred at run-time from the Redirect URI platform type, if possible. The **Treat application as a public client** setting should be set to **Yes** for flows that might not use a redirect URI, such as ROPC flows. -->
 

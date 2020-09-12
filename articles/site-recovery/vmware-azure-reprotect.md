@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: mayg
-ms.openlocfilehash: 8a78ed25be80cbf083467209f764109a26782278
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 6a11e3d0cb41383b44b76975ecbd1c2ae2825015
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87292783"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441494"
 ---
 # <a name="reprotect-from-azure-to-on-premises"></a>Riprotezione da Azure al sito locale
 
@@ -46,6 +46,9 @@ Abilitare la replica. È possibile riproteggere le macchine virtuali specifiche 
 
 - Se si riprotegge un piano di ripristino, è necessario fornire i valori per ogni computer protetto.
 - Se le macchine virtuali appartengono a un gruppo di replica per la coerenza tra più macchine virtuali, possono essere riprotette solo usando un piano di ripristino. Le macchine virtuali in un gruppo di replica devono usare lo stesso server di destinazione master
+
+>[!NOTE]
+>La quantità di dati inviati da Azure all'origine precedente durante la riprotezione, può essere qualsiasi valore compreso tra 0 e la somma delle dimensioni del disco per tutte le macchine protette e non può essere calcolato.
 
 ### <a name="before-you-start"></a>Prima di iniziare
 

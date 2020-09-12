@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: infrastructure-services
 ms.date: 06/04/2018
 ms.author: kumud
-ms.openlocfilehash: c56b5ac1c1aa6fa5894d1aedcb94fe4694c2db28
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 221f7577b3181b1535ab9f544073dac4d031fe66
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84696032"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319441"
 ---
 # <a name="resource-logging-for-a-network-security-group"></a>Registrazione delle risorse per un gruppo di sicurezza di rete
 
@@ -24,7 +24,7 @@ Un gruppo di sicurezza di rete (NSG) include regole che consentono o negano il t
 Quando si Abilita la registrazione per un NSG, è possibile raccogliere i tipi di informazioni del log delle risorse seguenti:
 
 * **Evento:** vengono registrate voci relative alle regole dei gruppi di sicurezza di rete applicate alle macchine virtuali in base all'indirizzo MAC.
-* **Contenitore di regole:** contiene voci per sapere quante volte ogni regola dei gruppi di sicurezza di rete è stata applicata per rifiutare o consentire il traffico. Lo stato di queste regole viene raccolto ogni 60 secondi.
+* **Contenitore di regole:** contiene voci per sapere quante volte ogni regola dei gruppi di sicurezza di rete è stata applicata per rifiutare o consentire il traffico. Lo stato di queste regole viene raccolto ogni 300 secondi.
 
 I log delle risorse sono disponibili solo per gruppi distribuiti tramite il modello di distribuzione Azure Resource Manager. Non è possibile abilitare la registrazione delle risorse per gruppi distribuite tramite il modello di distribuzione classica. Per altre informazioni sui due modelli, vedere le [informazioni sui modelli di distribuzione di Azure](../resource-manager-deployment-model.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 
@@ -45,7 +45,7 @@ Per abilitare la registrazione delle risorse, è possibile usare il [portale di 
 
 5. In **Impostazioni di diagnostica** immettere o selezionare le informazioni seguenti e quindi selezionare **Salva**:
 
-    | Impostazione                                                                                     | valore                                                          |
+    | Impostazione                                                                                     | Valore                                                          |
     | ---------                                                                                   |---------                                                       |
     | Nome                                                                                        | Un nome di propria scelta.  Ad esempio: *DiagnosticaGsr*      |
     | **Archivia in un account di archiviazione**, **Streaming in un hub eventi** e **Invia a Log Analytics** | È possibile selezionare tutte le destinazioni desiderate. Per altre informazioni su ognuna, vedere [Destinazioni dei log](#log-destinations).                                                                                                                                           |

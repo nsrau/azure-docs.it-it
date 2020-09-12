@@ -3,20 +3,20 @@ title: Configurare il routing del traffico della subnet-gestione traffico di Azu
 description: Questo articolo descrive come configurare Gestione traffico per instradare il traffico da subnet specifiche.
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
-ms.author: rohink
-ms.openlocfilehash: fe65e2e2a05c3c1d936bcdfa94bbe8cc310f7c68
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: b1901ddce2eb9c8ff5ec9ac90a56379e74c11aa6
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711783"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401368"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Indirizzare il traffico a endpoint specifici basati sulla subnet dell'utente usando Gestione traffico
 
@@ -49,12 +49,12 @@ In questa sezione si creano due VM *myEndopointVMEastUS* e *myEndpointVMWEurope*
 1. Nell'angolo superiore sinistro del portale di Azure selezionare **Crea una risorsa**  >  **calcolo**  >  **macchina virtuale Windows Server 2016**.
 2. Immettere o selezionare le informazioni seguenti in **Basics** (Generale), accettare le impostazioni predefinite rimanenti e quindi selezionare **Crea**:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |---|---|
     |Nome|myIISVMEastUS|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Resource group| Selezionare **Nuovo** e quindi digitare *myResourceGroupTM1*.|
+    |Gruppo di risorse| Selezionare **Nuovo** e quindi digitare *myResourceGroupTM1*.|
     |Location| Selezionare **Stati Uniti orientali**.|
     |||
 
@@ -72,9 +72,9 @@ In questa sezione si creano due VM *myEndopointVMEastUS* e *myEndpointVMWEurope*
 
 7. Ripetere i passaggi da 1 a 6, con le modifiche seguenti:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |---|---|
-    |Resource group | Selezionare **Nuovo** e quindi digitare *myResourceGroupTM2*|
+    |Gruppo di risorse | Selezionare **Nuovo** e quindi digitare *myResourceGroupTM2*|
     |Location|Europa occidentale|
     |Nome macchina virtuale | myIISVMWEurope|
     |Rete virtuale | Selezionare **Rete virtuale** in **Crea rete virtuale**, immettere **myVNet2** per *Nome* e *mySubnet* per la subnet.|
@@ -135,12 +135,12 @@ In questa sezione si crea una VM (*mVMEastUS* e *myVMWestEurope*) in ogni area d
 1. Nell'angolo superiore sinistro del portale di Azure selezionare **Crea una risorsa**  >  **calcolo**  >  **macchina virtuale Windows Server 2016**.
 2. Immettere o selezionare le informazioni seguenti in **Basics** (Generale), accettare le impostazioni predefinite rimanenti e quindi selezionare **Crea**:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |---|---|
     |Nome|myVMEastUS|
     |Nome utente| Immettere un nome utente a scelta.|
     |Password| Immettere una password a scelta. La password deve contenere almeno 12 caratteri e soddisfare i [requisiti di complessità definiti](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
-    |Resource group| Selezionare **Esistente** e quindi *myResourceGroupTM1*.|
+    |Gruppo di risorse| Selezionare **Esistente** e quindi *myResourceGroupTM1*.|
     |||
 
 4. Selezionare le dimensioni della macchina virtuale in **Scegli una dimensione**.
@@ -157,10 +157,10 @@ In questa sezione si crea una VM (*mVMEastUS* e *myVMWestEurope*) in ogni area d
 
 7. Ripetere i passaggi da 1 a 5, con le modifiche seguenti:
 
-    |Impostazione|valore|
+    |Impostazione|Valore|
     |---|---|
     |Nome macchina virtuale | *myVMWEuropa*|
-    |Resource group | Selezionare **Esistente** e quindi digitare *myResourceGroupTM2*.|
+    |Gruppo di risorse | Selezionare **Esistente** e quindi digitare *myResourceGroupTM2*.|
     |Rete virtuale | Selezionare **Rete virtuale**, nella sezione **Creare rete virtuale**, per il **Nome** immettere *myVNet4*, per la subnet immettere *mySubnet4*.|
     |||
 
@@ -172,7 +172,7 @@ Creare un profilo di Gestione traffico che consente di restituire specifici endp
 1. Sul lato superiore sinistro della schermata selezionare **Crea una risorsa**  >  **rete**  >  **profilo di gestione traffico**  >  **Crea**.
 2. In **Crea profilo di Gestione traffico** immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite per le impostazioni rimanenti e quindi selezionare **Crea**:
 
-    | Impostazione                 | valore                                              |
+    | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
     | Nome                   | Questo nome deve essere univoco all'interno della zona trafficmanager.net e determina il nome DNS, trafficmanager.net, che viene usato per accedere al profilo di Gestione traffico.                                   |
     | Metodo di routing          | Selezionare il metodo di routing **Subnet**.                                       |
@@ -191,7 +191,7 @@ Aggiungere le due macchine virtuali che eseguono i server IIS- *myIISVMEastUS*  
 2. In **Profilo di Gestione traffico**, nella sezione **Impostazioni**, fare clic su **Endpoint** e quindi su **Aggiungi**.
 3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi scegliere **OK**:
 
-    | Impostazione                 | valore                                              |
+    | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
     | Type                    | Endpoint di Azure                                   |
     | Nome           | myTestWebSiteEndpoint                                        |

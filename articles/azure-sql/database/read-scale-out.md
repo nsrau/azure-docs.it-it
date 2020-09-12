@@ -10,18 +10,18 @@ ms.topic: conceptual
 author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
-ms.date: 06/26/2020
-ms.openlocfilehash: cf9f48b0907d3bfe1d07dcffcc0d0b9534f74c83
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.date: 09/03/2020
+ms.openlocfilehash: 2e7c931d6d99187b4ee7985be19374048c226312
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86135896"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442191"
 ---
 # <a name="use-read-only-replicas-to-offload-read-only-query-workloads"></a>Usare le repliche di sola lettura per l'offload dei carichi di lavoro di query di sola lettura
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 
-Come parte dell' [architettura a disponibilità elevata](high-availability-sla.md#premium-and-business-critical-service-tier-availability), per ogni database e istanza gestita nel livello di servizio Premium e business critical viene effettuato automaticamente il provisioning con una replica di lettura/scrittura primaria e diverse repliche secondarie di sola lettura. Le repliche secondarie vengono sottoposte a provisioning con le stesse dimensioni di calcolo della replica primaria. La funzionalità di *scalabilità in lettura* consente di eseguire l'offload dei carichi di lavoro di sola lettura usando la capacità di calcolo di una delle repliche di sola lettura, anziché eseguirli nella replica di lettura/scrittura. In questo modo, alcuni carichi di lavoro di sola lettura possono essere isolati dai carichi di lavoro di lettura/scrittura e non influiscono sulle prestazioni. Questa funzionalità è destinata alle applicazioni che includono carichi di lavoro di sola lettura separati logicamente, ad esempio l'analisi. Nei livelli di servizio Premium e business critical, le applicazioni possono ottenere vantaggi in termini di prestazioni grazie a questa capacità aggiuntiva senza costi aggiuntivi.
+Come parte dell' [architettura a disponibilità elevata](high-availability-sla.md#premium-and-business-critical-service-tier-availability), ogni database singolo, database del pool elastico e istanza gestita nel livello di servizio Premium e business critical viene sottoposto automaticamente a provisioning con una replica primaria di lettura e scrittura e diverse repliche secondarie di sola lettura. Le repliche secondarie vengono sottoposte a provisioning con le stesse dimensioni di calcolo della replica primaria. La funzionalità di *scalabilità in lettura* consente di eseguire l'offload dei carichi di lavoro di sola lettura usando la capacità di calcolo di una delle repliche di sola lettura, anziché eseguirli nella replica di lettura/scrittura. In questo modo, alcuni carichi di lavoro di sola lettura possono essere isolati dai carichi di lavoro di lettura/scrittura e non influiscono sulle prestazioni. Questa funzionalità è destinata alle applicazioni che includono carichi di lavoro di sola lettura separati logicamente, ad esempio l'analisi. Nei livelli di servizio Premium e business critical, le applicazioni possono ottenere vantaggi in termini di prestazioni grazie a questa capacità aggiuntiva senza costi aggiuntivi.
 
 La funzionalità di *scalabilità in lettura* è disponibile anche nel livello di servizio di iperscalabilità quando viene creata almeno una replica secondaria. È possibile usare più repliche secondarie per il bilanciamento del carico dei carichi di lavoro di sola lettura che richiedono più risorse rispetto a quelle disponibili in una replica secondaria.
 
@@ -45,7 +45,7 @@ Se si desidera assicurarsi che l'applicazione si connetta alla replica primaria 
 
 ## <a name="data-consistency"></a>Coerenza dei dati
 
-Uno dei vantaggi delle repliche è che sono sempre in uno stato coerente a livello di transazione. Per temporizzazioni diverse potrebbe però verificarsi una breve latenza tra le diverse repliche. La scalabilità in lettura supporta la coerenza a livello di sessione. Ciò significa che se la sessione di sola lettura si riconnette dopo un errore di connessione causato dalla mancata disponibilità della replica, può essere reindirizzata a una replica che non è aggiornata al 100% con la replica di lettura/scrittura. Analogamente, se un'applicazione scrive i dati usando una sessione di lettura/scrittura e li legge immediatamente usando una sessione di sola lettura, è possibile che gli aggiornamenti più recenti non siano immediatamente visibili nella replica. La latenza è causata da un'operazione asincrona di rollforward del log delle transazioni.
+Uno dei vantaggi delle repliche è che sono sempre in uno stato coerente a livello di transazione. Per temporizzazioni diverse potrebbe però verificarsi una breve latenza tra le diverse repliche. La scalabilità in lettura supporta la coerenza a livello di sessione. Ciò significa che se la sessione di sola lettura si riconnette dopo un errore di connessione causato dalla mancata disponibilità della replica, può essere reindirizzata a una replica che non è aggiornata al 100% con la replica di lettura/scrittura. Analogamente, se un'applicazione scrive i dati usando una sessione di lettura/scrittura e li legge immediatamente usando una sessione di sola lettura, è possibile che gli aggiornamenti più recenti non siano immediatamente visibili nella replica. La latenza è causata da un'operazione di rollforward asincrona del log delle transazioni.
 
 > [!NOTE]
 > Le latenze di replica all'interno dell'area sono basse e questa situazione è rara. Per monitorare la latenza di replica, vedere [monitoraggio e risoluzione dei problemi della replica](#monitoring-and-troubleshooting-read-only-replicas)di sola lettura.

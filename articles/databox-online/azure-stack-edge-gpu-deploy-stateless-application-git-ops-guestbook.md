@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/25/2020
 ms.author: alkohli
-ms.openlocfilehash: 83ac012c861a0d066bdc47d8e15cbe7ac398aa23
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 7fdd9b8ca0fd62d55f5a9412af9486bfb2b942c1
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254220"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319293"
 ---
 # <a name="deploy-a-php-guestbook-stateless-application-with-redis-on-arc-enabled-kubernetes-cluster-on-azure-stack-edge-gpu"></a>Distribuire un'applicazione PHP Guestbook senza stato con Redis on Arc il cluster Kubernetes abilitato sulla GPU Azure Stack Edge
 
@@ -57,7 +57,7 @@ Prima di poter distribuire l'applicazione senza stato, verificare di aver comple
       - Nell'interfaccia utente locale del dispositivo Azure Stack Edge passare a **Panoramica** e prendere nota del numero di software Kubernetes. 
       - Verificare che queste due versioni siano compatibili con il mapping fornito nella versione supportata di Kubernetes <!--insert link-->.
 
-1. Si dispone [di una configurazione GitOps che è possibile usare per eseguire una distribuzione di Azure Arc](https://github.com/kagoyal/dbehaikudemo). `yaml`Per la distribuzione nel dispositivo Azure stack Edge si useranno i file seguenti.
+1. Si dispone [di una configurazione GitOps che è possibile usare per eseguire una distribuzione di Azure Arc](https://github.com/kagoyal/dbehaikudemo). In questo esempio si useranno i file seguenti `yaml` per eseguire la distribuzione nel dispositivo Azure stack Edge.
 
     - `frontend-deployment.yaml`<!-- - The guestbook application has a web frontend serving the HTTP requests written in PHP. It is configured to connect to the redis-master Service for write requests and the redis-slave service for Read requests. This file describes a deployment that runs the frontend of the guestbook application.-->
     - `frontend-service.yaml` <!-- - This allows you to configure an externally visible frontend Service that can be accessed from outside the Kubernetes cluster on your device.-->
@@ -83,7 +83,7 @@ Seguire questa procedura per configurare la risorsa di Azure Arc per distribuire
 
 1. In **Aggiungi configurazione**immettere i valori appropriati per i campi e selezionare **applica**.
 
-    |Parametro  |Description |
+    |Parametro  |Descrizione |
     |---------|---------|
     |Nome configurazione     | Nome della risorsa di configurazione.        |
     |Nome dell'istanza dell'operatore     |Nome dell'istanza dell'operatore per identificare una configurazione specifica. Il nome è una stringa costituita da un massimo di 253 caratteri che devono essere di solo minuscolo, alfanumerico, trattino e punto.         |
@@ -132,7 +132,7 @@ La distribuzione tramite la configurazione GitOps crea uno `demotestguestbook` s
     [10.128.44.240]: PS>
     ```  
 
-1. In questo esempio il servizio front-end è stato distribuito come tipo: LoadBalancer. Per visualizzare il Guestbook, sarà necessario trovare l'indirizzo IP del servizio. Eseguire il seguente comando.
+1. In questo esempio il servizio front-end è stato distribuito come tipo: LoadBalancer. Per visualizzare il Guestbook, sarà necessario trovare l'indirizzo IP del servizio. Eseguire il comando seguente.
 
     `kubectl get service -n <your-namespace>`
     

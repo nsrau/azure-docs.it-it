@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: twooley
-ms.openlocfilehash: 3d6f3a7a5fafc643b346d3df1306820114827049
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 058862f2b274ef4e956c82fbcc44dec92a270d32
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84193681"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441052"
 ---
 # <a name="using-azure-data-lake-storage-gen1-for-big-data-requirements"></a>Uso di Azure Data Lake Storage Gen1 per i requisiti di Big Data
 
@@ -41,7 +41,7 @@ Si tratta di set di dati di piccole dimensioni usati per la creazione del protot
 | origine dati | Inserire usando |
 | --- | --- |
 | Computer locale |<ul> <li>[Azure portal](data-lake-store-get-started-portal.md)</li> <li>[Azure PowerShell](data-lake-store-get-started-powershell.md)</li> <li>[Interfaccia della riga di comando di Azure](data-lake-store-get-started-cli-2.0.md)</li> <li>[Usare Strumenti di Data Lake per Visual Studio](../data-lake-analytics/data-lake-analytics-data-lake-tools-get-started.md) </li></ul> |
-| BLOB di Archiviazione di Azure |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[Strumento AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp in esecuzione nel cluster HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
+| BLOB del servizio di archiviazione di Azure |<ul> <li>[Azure Data Factory](../data-factory/connector-azure-data-lake-store.md)</li> <li>[Strumento AdlCopy](data-lake-store-copy-data-azure-storage-blob.md)</li><li>[DistCp in esecuzione nel cluster HDInsight](data-lake-store-copy-data-wasb-distcp.md)</li> </ul> |
 
 ### <a name="streamed-data"></a>Dati di streaming
 Rappresenta i dati che possono essere generati da varie origini, ad esempio applicazioni, dispositivi, sensori e così via. Questi dati possono essere inseriti in Data Lake Storage Gen1 da un'ampia gamma di strumenti. Questi strumenti in genere acquisiscono ed elaborano i dati dei singoli eventi in tempo reale e quindi scrivono gli eventi in batch in Data Lake Storage Gen1 affinché possano essere elaborati ulteriormente.
@@ -130,5 +130,5 @@ In questi casi, è possibile usare le opzioni seguenti:
 
 ![Visualizzare i dati in Data Lake Storage Gen1](./media/data-lake-store-data-scenarios/visualize-data.png "Visualizzare i dati in Data Lake Storage Gen1")
 
-* Iniziare usando [Azure Data Factory per spostare i dati da Data Lake Storage Gen1 ad Azure SQL Data Warehouse](../data-factory/copy-activity-overview.md)
-* Successivamente è possibile [integrare Power BI con Azure SQL Data Warehouse](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) per creare la rappresentazione visiva dei dati.
+* È possibile iniziare usando [Azure Data Factory per spostare i dati da data Lake storage Gen1 ad Azure sinapsi Analytics (in precedenza SQL Data Warehouse)](../data-factory/copy-activity-overview.md)
+* Successivamente, è possibile [integrare Power bi con Azure sinapsi Analytics](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-get-started-visualize-with-power-bi.md) per creare una rappresentazione visiva dei dati.

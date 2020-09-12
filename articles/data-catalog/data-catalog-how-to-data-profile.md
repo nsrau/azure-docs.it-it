@@ -6,12 +6,12 @@ ms.author: jasonh
 ms.service: data-catalog
 ms.topic: how-to
 ms.date: 08/01/2019
-ms.openlocfilehash: 0d0f3a45842638915947f5df04e06e2c81a7f5f1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: b27ff631ce13d70d15a6fd2b6dd5ad5bccaf5450
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87081186"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442072"
 ---
 # <a name="how-to-data-profile-data-sources-in-azure-data-catalog"></a>Come profilare origini dati in Azure Data Catalog
 
@@ -29,7 +29,7 @@ Il profiling dati esamina i dati nell'origine dati di cui è in corso la registr
 
 Le origini dati seguenti supportano il profiling dati:
 
-* Viste e tabelle di SQL Server, inclusi database SQL di Azure e Azure SQL Data Warehouse.
+* SQL Server (incluse le tabelle e le viste del database SQL di Azure e di analisi delle sinapsi di Azure)
 * Viste e tabelle di Oracle
 * Viste e tabelle di Teradata
 * Tabelle Hive

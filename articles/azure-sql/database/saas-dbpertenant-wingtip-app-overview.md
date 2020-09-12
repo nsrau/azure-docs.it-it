@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 09/24/2018
-ms.openlocfilehash: edf66af2df56785977418a118847991165ab3702
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d291adcf53469825f32b664cb7f4ffdb0bbf244b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84025632"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441018"
 ---
 # <a name="introduction-to-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-azure-sql-database"></a>Introduzione a un'app SaaS multi-tenant che usa il modello di database per tenant con il database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -37,7 +37,7 @@ Mentre si eseguono le esercitazioni e si usa l'app, è importante concentrarsi s
 
 ## <a name="sql-database-wingtip-saas-tutorials"></a>Esercitazioni su SaaS con l'applicazione Wingtip e database SQL
 
-Dopo avere distribuito l'app, sfogliare le esercitazioni seguenti, che si basano sull'implementazione iniziale. Queste esercitazioni illustrano i comuni modelli SaaS che sfruttano le funzionalità predefinite del database SQL, di Azure SQL Data Warehouse e di altri servizi di Azure. Le esercitazioni includono script di PowerShell con spiegazioni dettagliate. Le spiegazioni semplificano la comprensione e l'implementazione degli stessi criteri di gestione SaaS nelle applicazioni.
+Dopo avere distribuito l'app, sfogliare le esercitazioni seguenti, che si basano sull'implementazione iniziale. Queste esercitazioni illustrano i comuni modelli SaaS che sfruttano le funzionalità predefinite del database SQL, Azure sinapsi Analytics (in precedenza SQL Data Warehouse) e altri servizi di Azure. Le esercitazioni includono script di PowerShell con spiegazioni dettagliate. Le spiegazioni semplificano la comprensione e l'implementazione degli stessi criteri di gestione SaaS nelle applicazioni.
 
 
 | Esercitazione | Descrizione |

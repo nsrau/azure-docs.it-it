@@ -7,12 +7,12 @@ ms.topic: how-to
 ms.date: 07/19/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: f2c8dbebce685eea67672a2b8c93d51e356ac69c
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 834b3b60a887dadd75e00a7a33abaff15e1a9407
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88226048"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441477"
 ---
 # <a name="deploy-azure-file-sync"></a>Distribuire Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -404,6 +404,9 @@ az storagesync sync-group cloud-endpoint create --resource-group myResourceGroup
 ## <a name="create-a-server-endpoint"></a>Creare un endpoint server
 Un endpoint server rappresenta una posizione specifica in un server registrato, ad esempio una cartella in un volume del server. Un endpoint server deve essere un percorso in un server registrato (diverso da una condivisione montata) e per usare la suddivisione in livelli cloud il percorso deve trovarsi in un volume non di sistema. L'archiviazione NAS (Network Attached Storage) non è supportata.
 
+> [!NOTE]
+> La modifica del percorso o della lettera di unità dopo aver stabilito un endpoint server in un volume non è supportata. Assicurarsi di usare un percorso finale sul server registrato.
+
 # <a name="portal"></a>[Portale](#tab/azure-portal)
 Per aggiungere un endpoint server, passare al gruppo di sincronizzazione appena creato e quindi selezionare **Aggiungi endpoint server**.
 
@@ -571,7 +574,7 @@ Tuttavia, se si modifica la pianificazione in modo che venga generato uno snapsh
 
 Il numero massimo predefinito di snapshot VSS per volume (64), nonché la pianificazione predefinita per l'esecuzione, comporta un massimo di 45 giorni di versioni precedenti di cui un Information Worker può eseguire il ripristino, a seconda del numero di snapshot VSS che è possibile archiviare nel volume.
 
-Se il valore è max. 64 gli snapshot VSS per volume non sono l'impostazione corretta, è possibile [modificare tale valore tramite una chiave del registro di sistema](https://docs.microsoft.com/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
+Se gli snapshot VSS max. 64 per volume non sono l'impostazione corretta, è possibile [modificare tale valore tramite una chiave del registro di sistema](https://docs.microsoft.com/windows/win32/backup/registry-keys-for-backup-and-restore#maxshadowcopies).
 Per rendere effettive le nuove limitazioni, è necessario eseguire di nuovo il cmdlet per abilitare la compatibilità delle versioni precedente in ogni volume precedentemente abilitato, con il flag-Force per prendere in considerazione il nuovo numero massimo di snapshot VSS per volume. Verrà generato un numero di giorni compatibili appena calcolato. Si noti che questa modifica avrà effetto solo sui nuovi file a livelli e sovrascriverà le personalizzazioni della pianificazione VSS che potrebbero essere state apportate.
 
 <a id="proactive-recall"></a>

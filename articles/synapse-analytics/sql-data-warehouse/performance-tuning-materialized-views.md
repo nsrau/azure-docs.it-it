@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: e624cf343209af722bfd007bd66a5e48b56eaff2
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: ddab106e11340dd040b99d1e8abf9d93e9338ab7
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956390"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441205"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Ottimizzazione delle prestazioni con viste materializzate
 
@@ -52,7 +52,7 @@ Una vista materializzata progettata in modo corretto offre i vantaggi seguenti:
 
 Le viste materializzate implementate nel pool SQL offrono anche gli ulteriori vantaggi elencati di seguito.
 
-Rispetto ad altri provider di data warehouse, le viste materializzate implementate in Azure SQL Data Warehouse offrono anche i vantaggi seguenti:
+Il confronto con altri provider di data warehouse, le viste materializzate implementate in Azure sinapsi Analytics offrono anche i seguenti vantaggi aggiuntivi:
 
 - Aggiornamento automatico e sincrono dei dati con le modifiche apportate ai dati nelle tabelle di base. Non è richiesta alcuna azione da parte dell'utente.
 - Ampio supporto delle funzioni di aggregazione. Vedere [CREATE MATERIALIZED VIEW AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest).

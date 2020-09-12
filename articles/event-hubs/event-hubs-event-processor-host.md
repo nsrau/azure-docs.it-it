@@ -4,12 +4,12 @@ description: Questo articolo descrive l'host del processore di eventi in Hub eve
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 27b587e6562b5ba0c9bf28a52a00a9d8e7d9201c
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a05f2172b266301919d0a800fb863b8f0dbe5884
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89010461"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89319503"
 ---
 # <a name="event-processor-host"></a>Host processore di eventi
 > [!NOTE]
@@ -87,6 +87,8 @@ Quindi, creare un'istanza di [EventProcessorHost](/dotnet/api/microsoft.azure.ev
 
 Infine, il consumer registra le istanze di [EventProcessorHost](/dotnet/api/microsoft.azure.eventhubs.processor.eventprocessorhost) con il servizio Hub eventi. La registrazione di una classe del processore di eventi con un'istanza di EventProcessorHost avvia l'elaborazione di eventi. La registrazione indica al servizio Hub eventi di prevedere che l'app consumer faccia uso degli eventi provenienti da alcune delle sue partizioni e richiami il codice di implementazione di [IEventProcessor](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor) ogniqualvolta effettui il push di eventi da usare. 
 
+> [!NOTE]
+> ConsumerGroupName fa distinzione tra maiuscole e minuscole.  Le modifiche apportate a consumerGroupName possono determinare la lettura di tutte le partizioni dall'inizio del flusso.
 
 ### <a name="example"></a>Esempio
 

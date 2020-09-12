@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 12/18/2018
-ms.openlocfilehash: cc748e8a816b944a20a12c8e8e345dca21dfaabd
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 80658839e804112ae9c8a049943bca54441b015b
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86043513"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437395"
 ---
 # <a name="cross-tenant-analytics-using-extracted-data---single-tenant-app"></a>Analisi su più tenant con dati estratti in un'app a singolo tenant
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -44,7 +44,7 @@ Le applicazioni SaaS multi-tenant in genere hanno un'elevata quantità di dati d
 
 L'accesso ai dati per tutti i tenant è semplice quando tutti i dati si trovano in un unico database multi-tenant. È invece più complesso quando sono distribuiti su larga scala in potenzialmente migliaia di database. Un modo per superare tale complessità e per ridurre l'impatto delle query di analisi sui dati transazionali consiste nell'estrarre i dati in un database o un data warehouse di analisi progettato specificatamente.
 
-Questa esercitazione presenta uno scenario di analisi completo per l'applicazione SaaS Wingtip Tickets. Prima viene usato *Processi elastici* per estrarre i dati da ogni database tenant e caricarli nelle tabelle di staging in un archivio di analitica, che può essere un database SQL o un'istanza di SQL Data Warehouse. Per l'estrazione di dati su larga scala, è consigliabile usare [Azure Data Factory](../../data-factory/introduction.md).
+Questa esercitazione presenta uno scenario di analisi completo per l'applicazione SaaS Wingtip Tickets. Prima viene usato *Processi elastici* per estrarre i dati da ogni database tenant e caricarli nelle tabelle di staging in un archivio di analitica, L'archivio di analisi può essere un database SQL o un pool SQL. Per l'estrazione di dati su larga scala, è consigliabile usare [Azure Data Factory](../../data-factory/introduction.md).
 
 I dati aggregati vengono quindi trasformati in un set di tabelle con [schema star](https://www.wikipedia.org/wiki/Star_schema). Le tabelle sono costituite da una tabella dei fatti centrale e dalle tabelle delle dimensioni correlate.  Per Wingtip Tickets:
 

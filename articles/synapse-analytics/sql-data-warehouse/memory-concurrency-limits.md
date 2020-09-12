@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
-ms.openlocfilehash: 443ac9ee1c2f05cf90e866793449220d71e37b89
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b72694f93ed5b712a0f684887df5b69a7b35c72
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85210662"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441681"
 ---
 # <a name="memory-and-concurrency-limits-for-azure-synapse-analytics"></a>Limiti di concorrenza e memoria per Azure Synapse Analytics
 
@@ -125,7 +125,7 @@ La tabella seguente illustra il numero massimo di query simultanee e di slot di 
 | DW15000c      | 32                         |  600                        | 18                    | 60                     | 132                   | 420                    |
 | DW30000c      | 32                         | 1200                        | 36                    | 120                    | 264                   | 840                    |
 
-Se non sono disponibili slot di concorrenza sufficienti per avviare l'esecuzione delle query, queste vengono accodate ed eseguite in base all'importanza.  In caso di importanza equivalente, le query vengono eseguite in base al principio First-In, First-Out.  Al termine dell'esecuzione delle query e quando il numero di query e di slot risulta inferiore ai limiti, SQL Data Warehouse rilascia le query accodate.
+Se non sono disponibili slot di concorrenza sufficienti per avviare l'esecuzione delle query, queste vengono accodate ed eseguite in base all'importanza.  In caso di importanza equivalente, le query vengono eseguite in base al principio First-In, First-Out.  Quando le query vengono completate e il numero di query e slot scende al di sotto dei limiti, Azure sinapsi Analytics rilascia le query in coda.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

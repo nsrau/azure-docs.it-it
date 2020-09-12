@@ -5,12 +5,12 @@ services: container-service
 ms.topic: article
 ms.date: 07/06/2020
 author: jluk
-ms.openlocfilehash: 18947f409ebcef570998671f9f421f8228e9692d
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: e1c5f32e8e5df69a9c4b1eeeda46caf9d8b51f6e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87987359"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440877"
 ---
 # <a name="secure-pods-with-azure-policy-preview"></a>Proteggere i pod con criteri di Azure (anteprima)
 
@@ -28,8 +28,8 @@ Per proteggere il servizio contenitore di Azure tramite criteri di Azure, è nec
 
 In questo documento si presuppone che siano stati distribuiti i seguenti elementi nella procedura dettagliata collegata.
 
-* Registrazione dei `Microsoft.ContainerService` `Microsoft.PolicyInsights` provider di risorse e con`az provider register`
-* Flag di `AKS-AzurePolicyAutoApprove` funzionalità di anteprima registrato utilizzando`az feature register`
+* Registrazione dei `Microsoft.ContainerService` `Microsoft.PolicyInsights` provider di risorse e con `az provider register`
+* Flag di `AKS-AzurePolicyAutoApprove` funzionalità di anteprima registrato utilizzando `az feature register`
 * INTERFACCIA della riga di comando di Azure installata con l' `aks-preview` estensione 0.4.53 o versione successiva
 * Un cluster del servizio contenitore di Azure in una versione supportata di 1,15 o superiore installato con il componente aggiuntivo criteri di Azure
 
@@ -82,13 +82,13 @@ Entrambe le iniziative predefinite sono compilate dalle definizioni usate nei [c
 |Limitare l'utilizzo della rete e delle porte dell'host|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F82985f06-dc18-4a48-bc1c-b9f4f0098cfe)| Sì | Sì
 |Limitare l'utilizzo del file System host|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F098fc59e-46c7-4d99-9b16-64990e543d75)| Sì | Sì
 |Limitare le funzionalità di Linux al [set predefinito](https://docs.docker.com/engine/reference/run/#runtime-privilege-and-linux-capabilities)|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fc26596ff-4d70-4e6a-9a30-c2506bd2f80c) | Sì | Sì
-|Limitare l'utilizzo dei tipi di volume definiti|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F16697877-1118-4fb1-9b65-9898ec2509ec)| - | Sì: i tipi di volume consentiti sono `configMap` , `emptyDir` , `projected` , `downwardAPI` ,`persistentVolumeClaim`|
+|Limitare l'utilizzo dei tipi di volume definiti|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F16697877-1118-4fb1-9b65-9898ec2509ec)| - | Sì: i tipi di volume consentiti sono `configMap` , `emptyDir` , `projected` , `downwardAPI` , `persistentVolumeClaim`|
 |Escalation dei privilegi alla radice|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F1c6e92c9-99f0-4e55-9cf2-0c234dc48f99) | - | Sì |
 |Limitare gli ID utente e gruppo del contenitore|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Sì|
 |Limitare l'allocazione di un FSGroup proprietario dei volumi del Pod|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Ff06ddb64-5fa3-4b77-b166-acb36f7f6042) | - | Sì: le regole consentite sono `runAsUser: mustRunAsNonRoot` ,, `supplementalGroup: mustRunAs 1:65536` `fsGroup: mustRunAs 1:65535` , `runAsGroup: mustRunAs 1:65535` .  |
-|Richiede il profilo seccomp|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F975ce327-682c-4f2e-aa46-b9598289b86c) | - | Sì, allowedProfiles sono * `docker/default` o`runtime/default` |
+|Richiede il profilo seccomp|[Cloud pubblico](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F975ce327-682c-4f2e-aa46-b9598289b86c) | - | Sì, allowedProfiles sono * `docker/default` o `runtime/default` |
 
-\*Docker/default è deprecato in Kubernetes dalla versione 1.11
+\* Docker/default è deprecato in Kubernetes dalla versione 1.11
 
 ### <a name="additional-optional-policies"></a>Criteri facoltativi aggiuntivi
 
@@ -258,7 +258,7 @@ Per rimuovere l'iniziativa Baseline:
 
 Per disabilitare il componente aggiuntivo criteri di Azure, usare il comando [AZ AKS Disable-addons][az-aks-disable-addons] .
 
-```azure-cli
+```azurecli
 az aks disable-addons --addons azure-policy --name MyAKSCluster --resource-group MyResourceGroup
 ```
 
@@ -285,7 +285,7 @@ Di seguito è riportato un riepilogo delle modifiche del comportamento tra i cri
 | Ambito dei criteri | I criteri di sicurezza Pod non sono spazio dei nomi | I modelli di vincolo usati dai criteri di Azure non sono spazio dei nomi.
 | Azione di negazione/controllo/mutazione | I criteri di sicurezza Pod supportano solo le azioni di negazione. La mutazione può essere eseguita con i valori predefiniti per le richieste di creazione. La convalida può essere eseguita durante le richieste di aggiornamento.| Criteri di Azure supporta entrambe le azioni di controllo & negazione. La mutazione non è ancora supportata, ma è pianificata.
 | Conformità dei criteri di sicurezza Pod | Non esiste visibilità sulla conformità dei Pod esistenti prima di abilitare i criteri di sicurezza di Pod. I Pod non conformi creati dopo l'abilitazione di criteri di sicurezza pod sono negati. | I Pod non conformi esistenti prima di applicare i criteri di Azure verranno visualizzati nelle violazioni dei criteri. I Pod non conformi creati dopo l'abilitazione di criteri di Azure vengono negati se i criteri vengono impostati con un effetto di negazione.
-| Come visualizzare i criteri nel cluster | `kubectl get psp` | `kubectl get constrainttemplate`-Vengono restituiti tutti i criteri.
+| Come visualizzare i criteri nel cluster | `kubectl get psp` | `kubectl get constrainttemplate` -Vengono restituiti tutti i criteri.
 | Criteri di sicurezza Pod standard-con privilegi | Quando si Abilita la funzionalità, per impostazione predefinita viene creata una risorsa di criteri di sicurezza di Pod con privilegi. | La modalità con privilegi non implica alcuna restrizione, di conseguenza è equivalente all'assenza di un'assegnazione di criteri di Azure.
 | [Criteri di sicurezza Pod standard-Baseline/default](https://kubernetes.io/docs/concepts/security/pod-security-standards/#baseline-default) | L'utente installa una risorsa di base dei criteri di sicurezza pod. | Criteri di Azure fornisce un' [iniziativa di base predefinita](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2Fa8640138-9b0a-4a28-b8cb-1666c838647d) che esegue il mapping ai criteri di sicurezza pod di base.
 | [Criteri di sicurezza Pod standard-con restrizioni](https://kubernetes.io/docs/concepts/security/pod-security-standards/#restricted) | L'utente installa una risorsa con restrizioni dei criteri di sicurezza pod. | Criteri di Azure fornisce un' [iniziativa limitata incorporata](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicySetDefinitions%2F42b8ef37-b724-4e24-bbc8-7a7708edfe00) che esegue il mapping ai criteri di sicurezza di Pod limitati.

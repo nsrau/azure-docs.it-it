@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: eb7f642e36bd72f963481cb392d7e3a6c2555816
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 4d5cff416c1ac54e54d06e8def121db65bb7d191
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612385"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89433934"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Esportare avvisi e raccomandazioni di sicurezza
 
@@ -36,12 +36,12 @@ Con questi strumenti è possibile:
 |Stato versione:|Disponibile a livello generale|
 |Prezzi|Livello gratuito|
 |Ruoli e autorizzazioni necessari:|**Ruolo di amministratore della sicurezza** nel gruppo di risorse (o **proprietario**)<br>Deve disporre anche delle autorizzazioni di scrittura per la risorsa di destinazione|
-|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Gov per la Cina, altri gov|
+|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![Sì](./media/icons/yes-icon.png) Gov Cina (per hub eventi), altri gov|
 |||
 
 
 
-## <a name="setting-up-a-continuous-export"></a>Impostazione di un'esportazione continua
+## <a name="set-up-a-continuous-export"></a>Configurare un'esportazione continua
 
 I passaggi seguenti sono necessari se si sta configurando un'esportazione continua in Log Analytics area di lavoro o hub eventi di Azure.
 
@@ -55,12 +55,24 @@ I passaggi seguenti sono necessari se si sta configurando un'esportazione contin
 
 1. Selezionare il tipo di dati che si desidera esportare e scegliere tra i filtri in ogni tipo (ad esempio, esportare solo gli avvisi con livello di gravità elevato).
 
+1. Facoltativamente, se la selezione include una di queste quattro raccomandazioni, è possibile includere i risultati della valutazione della vulnerabilità insieme ad essi:
+
+    - È necessario correggere i risultati della valutazione della vulnerabilità nei database SQL
+    - I risultati della valutazione della vulnerabilità nei computer SQL Server devono essere corretti (anteprima)
+    - È consigliabile correggere le vulnerabilità delle immagini del Registro Azure Container (con tecnologia Qualys)
+    - È necessario correggere le vulnerabilità nelle macchine virtuali
+
+    Per includere i risultati con questi consigli, abilitare l'opzione **Includi risultati di sicurezza** .
+
+    :::image type="content" source="./media/continuous-export/include-security-findings-toggle.png" alt-text="Includi risultati di sicurezza/Nascondi nella configurazione dell'esportazione continua" :::
+
+
 1. Dall'area "Esporta destinazione" scegliere il percorso in cui salvare i dati. I dati possono essere salvati in una destinazione in una sottoscrizione diversa, ad esempio in un'istanza centrale dell'hub eventi o in un'area di lavoro centrale Log Analytics.
 
 1. Selezionare **Salva**.
 
 
-## <a name="setting-up-continuous-export-via-the-rest-api"></a>Impostazione dell'esportazione continua tramite l'API REST
+## <a name="set-up-continuous-export-via-the-rest-api"></a>Configurare l'esportazione continua tramite l'API REST
 
 La funzionalità di esportazione continua può essere configurata e gestita tramite l' [API di automazione](https://docs.microsoft.com/rest/api/securitycenter/automations)del Centro sicurezza di Azure. Usare questa API per creare o aggiornare le automazioni per l'esportazione in una delle destinazioni possibili seguenti:
 
@@ -83,7 +95,7 @@ Altre informazioni sull'API Automations sono disponibili nella [documentazione d
 
 
 
-## <a name="configuring-siem-integration-via-azure-event-hubs"></a>Configurazione dell'integrazione SIEM tramite hub eventi di Azure
+## <a name="configure-siem-integration-via-azure-event-hubs"></a>Configurare l'integrazione SIEM tramite hub eventi di Azure
 
 Hub eventi di Azure è un'ottima soluzione per a livello che utilizzano i dati di streaming. Per gli avvisi e le raccomandazioni del Centro sicurezza di Azure, si tratta del metodo preferito per l'integrazione con SIEM di terze parti.
 

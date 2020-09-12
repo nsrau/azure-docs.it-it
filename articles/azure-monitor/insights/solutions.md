@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/07/2020
-ms.openlocfilehash: 04f2d11b9fc8bbd61319a057c091cddbf140b9db
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 013d8b77a16a4c7cd0efdadce25fd141793070be
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135531"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459522"
 ---
 # <a name="monitoring-solutions-in-azure-monitor"></a>Soluzioni di monitoraggio in Monitoraggio di Azure
 
@@ -97,7 +97,7 @@ I membri della community possono inviare le soluzioni di gestione come modelli d
 
    È necessario [installare l'interfaccia della](/cli/azure/install-azure-cli) riga di comando di Azure prima di eseguire i comandi di riferimento cli.  Se si preferisce, è anche possibile usare Azure Cloud Shell per completare la procedura descritta in questo articolo.  Azure Cloud Shell è un ambiente shell interattivo utilizzato dal browser.  Avviare Cloud Shell usando uno dei metodi seguenti:
 
-   - Per aprire Cloud Shell, passare a[https://shell.azure.com](https://shell.azure.com)
+   - Per aprire Cloud Shell, passare a [https://shell.azure.com](https://shell.azure.com)
 
    - Selezionare il pulsante **cloud Shell** sulla barra dei menu nell'angolo superiore destro della [portale di Azure](https://portal.azure.com)
 
@@ -109,18 +109,18 @@ I membri della community possono inviare le soluzioni di gestione come modelli d
     az login
     ```
 
-1. Installare l'estensione `log-analytics`
+1. Installare l'estensione `log-analytics-solution`
 
-   `log-analytics`Si tratta di un'estensione sperimentale dell'interfaccia della riga di comando di Azure core. Per altre informazioni sui riferimenti all'estensione, vedere [usare l'estensione con l'interfaccia](/cli/azure/azure-cli-extensions-overview?)della riga di comando
+   `log-analytics-solution`Si tratta di un'estensione sperimentale dell'interfaccia della riga di comando di Azure core. Per altre informazioni sui riferimenti all'estensione, vedere [usare l'estensione con l'interfaccia](/cli/azure/azure-cli-extensions-overview?)della riga di comando
 
    ```azurecli
-   az extension add --name log-analytics
+   az extension add --name log-analytics-solution
    ```
 
    È previsto il seguente avviso.
 
    ```output
-   The installed extension `log-analytics` is experimental and not covered by customer support.  Please use with discretion.
+   The installed extension `log-analytics-solution` is experimental and not covered by customer support.  Please use with discretion.
    ```
 
 ### <a name="install-a-solution-with-the-azure-cli"></a>Installare una soluzione con l'interfaccia della riga di comando di Azure
@@ -159,7 +159,6 @@ Tutte le soluzioni di monitoraggio richiedono un'[area di lavoro Log Analytics](
 
 * Ogni installazione di una soluzione può usare solo un'area di lavoro Log Analytics e un account di Automazione. È possibile installare la soluzione separatamente in più aree di lavoro.
 * Se una soluzione richiede un account di Automazione, l'area di lavoro Log Analytics e l'account di Automazione devono essere collegati tra loro. Un'area di lavoro Log Analytics può essere collegata a un solo account di Automazione e un account di Automazione può essere collegato a una sola area di lavoro Log Analytics.
-* L'area di lavoro Log Analytics e l'account di Automazione devono riferirsi alla stessa sottoscrizione, ma possono essere inclusi in gruppi di risorse diversi distribuiti nella stessa area. L'eccezione è rappresentata da un'area di lavoro nell'area Stati Uniti orientali e un account di Automazione nell'area Stati Uniti orientali 2.
 
 Quando si installa una soluzione tramite Azure Marketplace, viene chiesto di specificare un'area di lavoro e un account di Automazione. Se non sono già collegati, viene creato il collegamento tra di essi.
 

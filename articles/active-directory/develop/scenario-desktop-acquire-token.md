@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 300bc6acbe7821841b578dcc2166ecfc498ad750
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 0d1946862ec8af6a107ca4f5f963efbcb8912a5e
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141296"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440933"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>App desktop che chiama le API Web: Acquisire un token
 
@@ -38,7 +38,7 @@ L'API Web è definita dai relativi ambiti: `scopes`. Indipendentemente dall'espe
 AuthenticationResult result;
 var accounts = await app.GetAccountsAsync();
 IAccount account = ChooseAccount(accounts); // for instance accounts.FirstOrDefault
-                                            // if the app manages is at most one account  
+                                            // if the app manages is at most one account
 try
 {
  result = await app.AcquireTokenSilent(scopes, account)
@@ -370,7 +370,7 @@ if accounts:
 if not result:
     result = app.acquire_token_by_authorization_code(
          request.args['code'],
-         scopes=config["scope"])    
+         scopes=config["scope"])
 
 ```
 
@@ -433,7 +433,7 @@ Per l'accesso di un utente di dominio a un dominio o a un computer aggiunto ad A
   - In alternativa, l'amministratore del tenant deve avere precedentemente fornito il consenso per l'uso dell'applicazione per tutti gli utenti del tenant.
   - In altre parole:
     - Lo sviluppatore ha selezionato il pulsante **Concedi** nel portale di Azure per se stesso.
-    - In alternativa, un amministratore del tenant ha selezionato **Fornisci/Revoca il consenso amministratore per {dominio tenant}** nella scheda **Autorizzazioni API** della registrazione per l'applicazione. Per altre informazioni, vedere [Aggiungere le autorizzazioni per accedere alle API Web](./quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis).
+    - In alternativa, un amministratore del tenant ha selezionato **Fornisci/Revoca il consenso amministratore per {dominio tenant}** nella scheda **Autorizzazioni API** della registrazione per l'applicazione. Per altre informazioni, vedere [aggiungere autorizzazioni per accedere all'API Web](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-your-web-api).
     - In alternativa, è stato fornito un modo per consentire agli utenti di fornire il consenso per l'applicazione. Per altre informazioni, vedere [Richiesta di consenso per un singolo utente](./v2-permissions-and-consent.md#requesting-individual-user-consent).
     - In alternativa, è stato fornito un modo per consentire all'amministratore del tenant di fornire il consenso per l'applicazione. Per altre informazioni, vedere [Consenso amministratore](./v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant).
 
@@ -925,7 +925,7 @@ Questo flusso non è supportato in MSAL per macOS.
 
 Se si sta scrivendo uno strumento da riga di comando che non dispone di controlli Web e non è possibile o non si vuole usare i flussi precedenti, è necessario usare il flusso del codice del dispositivo.
 
-L'autenticazione interattiva con Azure AD richiede un Web browser. Per altre informazioni, vedere [Utilizzo dei Web browser](https://aka.ms/msal-net-uses-web-browser). Per autenticare gli utenti nei dispositivi o nei sistemi operativi che non forniscono un Web browser, il flusso del codice del dispositivo consente all'utente di usare un altro dispositivo, ad esempio un computer o un telefono cellulare, per eseguire l'accesso in modo interattivo. Usando il flusso del codice del dispositivo, l'applicazione ottiene i token tramite un processo in due passaggi appositamente progettato per questi dispositivi o sistemi operativi. Esempi di applicazioni di questo tipo sono le applicazioni in esecuzione in ambienti IoT o gli strumenti da riga di comando (interfaccia della riga di comando). L'idea è la seguente:
+L'autenticazione interattiva con Azure AD richiede un Web browser. Per altre informazioni, vedere [Utilizzo dei Web browser](https://aka.ms/msal-net-uses-web-browser). Per autenticare gli utenti nei dispositivi o nei sistemi operativi che non forniscono un Web browser, il flusso del codice del dispositivo consente all'utente di usare un altro dispositivo, ad esempio un computer o un telefono cellulare, per eseguire l'accesso in modo interattivo. Usando il flusso del codice del dispositivo, l'applicazione ottiene i token tramite un processo in due passaggi progettato per questi dispositivi o sistemi operativi. Esempi di applicazioni di questo tipo sono le applicazioni in esecuzione in ambienti IoT o gli strumenti da riga di comando (interfaccia della riga di comando). L'idea è la seguente:
 
 1. Ogni volta che è necessaria l'autenticazione utente, l'app fornisce un codice per l'utente. All'utente viene richiesto di usare un altro dispositivo, ad esempio uno smartphone connesso a Internet, per passare a un URL, ad esempio `https://microsoft.com/devicelogin`. All'utente viene quindi richiesto di immettere il codice. Una volta immesso, la pagina Web guida l'utente attraverso una normale esperienza di autenticazione, che include le richieste di consenso e l'autenticazione a più fattori, se necessario.
 
@@ -978,7 +978,7 @@ static async Task<AuthenticationResult> GetATokenForGraph()
         // If you want to provide a more complex user experience, check out ex.Classification
 
         return await AcquireByDeviceCodeAsync(pca);
-    }         
+    }
 }
 
 private async Task<AuthenticationResult> AcquireByDeviceCodeAsync(IPublicClientApplication pca)

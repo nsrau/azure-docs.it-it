@@ -13,19 +13,19 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
 ms.date: 03/23/2020
-ms.openlocfilehash: 8408025478e2776423b0d1f10cc70828e408f87e
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 891d5907ee8c964ebe7e281f6298205712ce1186
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290105"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441171"
 ---
 # <a name="authorize-database-access-to-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Autorizzare l'accesso al database SQL, SQL Istanza gestita e Azure sinapsi Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 In questo articolo vengono fornite informazioni su:
 
-- Opzioni per la configurazione di database SQL di Azure, Azure SQL Istanza gestita e Azure sinapsi Analytics (in precedenza Azure SQL Data Warehouse) per consentire agli utenti di eseguire attività amministrative e di accedere ai dati archiviati in questi database.
+- Opzioni per la configurazione di database SQL di Azure, Azure SQL Istanza gestita e Azure sinapsi Analytics (in precedenza SQL Data Warehouse) per consentire agli utenti di eseguire attività amministrative e di accedere ai dati archiviati in questi database.
 - Configurazione dell'accesso e dell'autorizzazione dopo la creazione iniziale di un nuovo server.
 - Come aggiungere account di accesso e account utente nel database master e negli account utente, quindi concedere a tali account le autorizzazioni amministrative.
 - Come aggiungere gli account utente nei database utente, associati ad account di accesso o come account utente indipendenti.
@@ -42,13 +42,13 @@ Quando un utente tenta di connettersi a un database, fornisce un account utente 
 - [Autenticazione SQL](https://docs.microsoft.com/sql/relational-databases/security/choose-an-authentication-mode#connecting-through-sql-server-authentication).
 
   Con questo metodo di autenticazione, l'utente invia un nome di account utente e la password associata per stabilire una connessione. Questa password viene archiviata nel database master per gli account utente collegati a un account di accesso o archiviati nel database contenente gli account utente *non* collegati a un account di accesso.
-- [Autenticazione Azure Active Directory](authentication-aad-overview.md)
+- [Autenticazione di Azure Active Directory](authentication-aad-overview.md)
 
   Con questo metodo di autenticazione, l'utente invia un nome di account utente e richiede che il servizio utilizzi le informazioni sulle credenziali archiviate nel Azure Active Directory (Azure AD).
 
 Account di **accesso e utenti**: un account utente in un database può essere associato a un account di accesso archiviato nel database master oppure può essere un nome utente archiviato in un singolo database.
 
-- Un account di **accesso** è un account singolo nel database master, al quale è possibile collegare un account utente in uno o più database. Con un account di accesso di, le informazioni sulle credenziali per l'account utente vengono archiviate con l'account di accesso.
+- Un account di **accesso** è un account singolo nel database master, al quale è possibile collegare un account utente in uno o più database. Con un account di accesso, le informazioni sulle credenziali per l'account utente vengono archiviate con l'account di accesso.
 - Un **account utente** è un account singolo in qualsiasi database che può essere, ma non deve essere collegato a un account di accesso. Con un account utente non collegato a un account di accesso, le informazioni sulle credenziali vengono archiviate con l'account utente.
 
 L' [**autorizzazione**](security-overview.md#authorization) per accedere ai dati ed eseguire varie azioni viene gestita tramite ruoli del database e autorizzazioni esplicite. L'autorizzazione si riferisce alle autorizzazioni assegnate a un utente e determina le operazioni che l'utente è autorizzato a eseguire. L'autorizzazione viene controllata dalle [appartenenze ai ruoli](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles) del database e dalle [autorizzazioni a livello di oggetto](https://docs.microsoft.com/sql/relational-databases/security/permissions-database-engine)dell'account utente. È consigliabile concedere agli utenti i privilegi minimi necessari.
@@ -94,7 +94,7 @@ A questo punto, il server o l'istanza gestita viene configurata per l'accesso so
   - Aggiungere l'account utente a `dbmanager` , il `loginmanager` ruolo o entrambi nel `master` database usando l'istruzione [ALTER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql) (per la sinapsi di Azure, usare l'istruzione [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) ).
 
   > [!NOTE]
-  > `dbmanager`i `loginmanager` ruoli e **non** riguardano le distribuzioni di SQL istanza gestita.
+  > `dbmanager` i `loginmanager` ruoli e **non** riguardano le distribuzioni di SQL istanza gestita.
 
   I membri di questi [speciali ruoli del database master](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/database-level-roles#special-roles-for--and-) per il database SQL di Azure hanno l'autorità per creare e gestire i database o per creare e gestire gli account di accesso. Nei database creati da un utente membro del `dbmanager` ruolo, il membro viene mappato al `db_owner` ruolo predefinito del database e può accedere a tale database e gestirlo utilizzando l' `dbo` account utente. Questi ruoli non dispongono di autorizzazioni esplicite al di fuori del database master.
 
@@ -105,7 +105,7 @@ A questo punto, il server o l'istanza gestita viene configurata per l'accesso so
 
 È possibile creare account per utenti non amministrativi usando uno dei due metodi seguenti:
 
-- **Creazione di un account di accesso**
+- **Crea un accesso**
 
   Creare un account di accesso SQL nel database master. Creare quindi un account utente in ogni database a cui l'utente deve accedere e associare l'account utente a tale account. Questo approccio è preferibile quando l'utente deve accedere a più database e si desidera che le password vengano sincronizzate. Questo approccio, tuttavia, presenta complessità quando viene usato con la replica geografica perché è necessario creare l'account di accesso sia nel server primario che nel server secondario. Per altre informazioni, vedere [configurare e gestire la sicurezza del database SQL di Azure per il ripristino geografico o il failover](active-geo-replication-security-configure.md).
 - **Creare un account utente**

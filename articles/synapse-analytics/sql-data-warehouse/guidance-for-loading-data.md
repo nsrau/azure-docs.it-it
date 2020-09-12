@@ -11,12 +11,12 @@ ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: azure-synapse
-ms.openlocfilehash: 10a6c2e4f6f9dcbb29eb16cbfabd8fba31668f06
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 34a536ea535fa222340bd004253ee54b9c13bea9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85201634"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441222"
 ---
 # <a name="best-practices-for-loading-data-using-synapse-sql-pool"></a>Procedure consigliate per il caricamento di dati tramite il pool di sinapsi SQL
 
@@ -175,6 +175,6 @@ Non sono necessarie altre modifiche alle origini dati esterne.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sull'istruzione di copia o sulla polibase durante la progettazione di un processo di estrazione, caricamento e trasformazione (ELT), vedere [progettare ELT per SQL data warehouse](design-elt-data-loading.md).
+- Per altre informazioni sull'istruzione COPY o sulla polibase durante la progettazione di un processo di estrazione, caricamento e trasformazione (ELT), vedere [progettare ELT per l'analisi delle sinapsi di Azure](design-elt-data-loading.md).
 - Per un'esercitazione sul caricamento, [usare l'istruzione Copy per caricare dati dall'archivio BLOB di Azure a sinapsi SQL](load-data-from-azure-blob-storage-using-polybase.md).
 - Per monitorare il caricamento dei dati, vedere [Monitoraggio del carico di lavoro mediante DMV](sql-data-warehouse-manage-monitor.md).

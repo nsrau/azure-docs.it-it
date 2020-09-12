@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/25/2020
+ms.date: 09/03/2020
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin, keyam
 ms.custom: aaddev
-ms.openlocfilehash: e53cf38c9544884caddfdf03c2615217c49ec3d0
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 2d895a6703123d8725a375e29e2e26b64b621f23
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068727"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436851"
 ---
 # <a name="how-to-provide-optional-claims-to-your-app"></a>Procedura: fornire attestazioni facoltative all'app
 
@@ -130,7 +130,7 @@ Questo oggetto OptionalClaims fa in modo che il token ID restituito al client in
 
 **Configurazione di attestazioni facoltative tramite l'interfaccia utente:**
 
-[![Mostra come configurare le attestazioni facoltative tramite l'interfaccia utente](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
+[![Configurare attestazioni facoltative nell'interfaccia utente](./media/active-directory-optional-claims/token-configuration.png)](./media/active-directory-optional-claims/token-configuration.png)
 
 1. Nella sezione **Gestisci** selezionare **Configurazione del token**.
 1. Selezionare **Aggiungi un'attestazione facoltativa**.
@@ -182,7 +182,7 @@ Dichiara le attestazioni facoltative richieste da un'applicazione. Un'applicazio
 
 **Tabella 5: proprietà del tipo OptionalClaims**
 
-| Nome          | Tipo                       | Descrizione                                           |
+| Nome          | Type                       | Descrizione                                           |
 |---------------|----------------------------|-------------------------------------------------------|
 | `idToken`     | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token ID JWT.     |
 | `accessToken` | Raccolta (OptionalClaim) | Attestazioni facoltative restituite nel token di accesso JWT. |
@@ -195,7 +195,7 @@ Se supportato da un'attestazione specifica, è inoltre possibile modificare il c
 
 **Tabella 6: proprietà del tipo OptionalClaim**
 
-| Nome                   | Tipo                    | Descrizione                                                                                                                                                                                                                                                                                                   |
+| Nome                   | Type                    | Descrizione                                                                                                                                                                                                                                                                                                   |
 |------------------------|-------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `name`                 | Edm.String              | Nome dell'attestazione facoltativa.                                                                                                                                                                                                                                                                               |
 | `source`               | Edm.String              | Origine (oggetto directory) dell'attestazione. Sono presenti attestazioni predefinite e attestazioni definite dall'utente dalla proprietà delle estensioni. Se il valore di origine è Null, l'attestazione è un'attestazione facoltativa predefinita. Se il valore di origine è user, il valore della proprietà name è la proprietà dell'estensione dall'oggetto utente. |
@@ -238,7 +238,7 @@ In questa sezione vengono illustrate le opzioni di configurazione delle attestaz
 1. Selezionare l'applicazione per cui si vogliono configurare le attestazioni facoltative nell'elenco
 1. Nella sezione **Gestisci** selezionare **Configurazione del token**
 1. Selezionare **Aggiungi un'attestazione basata su gruppi**
-1. Selezionare i tipi di gruppo da restituire (**Tutti i gruppi**, **SecurityGroup** o **DirectoryRole**). L'opzione **Tutti i gruppi** include **SecurityGroup**, **DirectoryRole** e **DistributionList**
+1. Selezionare i tipi di gruppo da restituire **(gruppi di sicurezza**o ruoli della **directory**, **tutti i gruppi**e/o i **gruppi assegnati all'applicazione**). I **gruppi assegnati all'** opzione dell'applicazione includono solo i gruppi assegnati all'applicazione. L' **opzione tutti i gruppi** include **SecurityGroup**, **DirectoryRole**e **Distribution**, ma non **i gruppi assegnati all'applicazione**. 
 1. Facoltativo: selezionare le proprietà specifiche del tipo di token per modificare il valore dell'attestazione dei gruppi in modo che contenga gli attributi del gruppo locale o per modificare il tipo di attestazione in un ruolo
 1. Selezionare **Salva**
 
@@ -256,6 +256,7 @@ In questa sezione vengono illustrate le opzioni di configurazione delle attestaz
    - "Tutti" (questa opzione include SecurityGroup, DirectoryRole e DistributionList)
    - "SecurityGroup"
    - "DirectoryRole"
+   - "ApplicationGroup" (questa opzione include solo i gruppi assegnati all'applicazione)
 
    Ad esempio:
 
@@ -307,7 +308,7 @@ In questa sezione vengono illustrate le opzioni di configurazione delle attestaz
 
     **Configurazione dell'interfaccia utente:**
 
-    [![Mostra come configurare le attestazioni facoltative tramite l'interfaccia utente](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
+    [![Configurare le attestazioni facoltative](./media/active-directory-optional-claims/groups-example-1.png)](./media/active-directory-optional-claims/groups-example-1.png)
 
     **Voce del manifesto dell'applicazione:**
 
@@ -328,7 +329,7 @@ In questa sezione vengono illustrate le opzioni di configurazione delle attestaz
 
     **Configurazione dell'interfaccia utente:**
 
-    [![Mostra come configurare le attestazioni facoltative tramite l'interfaccia utente](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
+    [![Attestazioni facoltative nel manifesto](./media/active-directory-optional-claims/groups-example-2.png)](./media/active-directory-optional-claims/groups-example-2.png)
 
     **Voce del manifesto dell'applicazione:**
 
@@ -394,7 +395,7 @@ Nell'esempio seguente si userà l'interfaccia utente di **Configurazione del tok
 
 1. Selezionare **Aggiungi un'attestazione facoltativa**, selezionare il tipo di token **SAML**, selezionare **extn.skypeID** dall'elenco di attestazioni (applicabile solo se è stato creato un oggetto utente Azure AD denominato skypeID) e infine fare clic su **Aggiungi**.
 
-    [![Mostra come configurare le attestazioni facoltative tramite l'interfaccia utente](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
+    [![Attestazioni facoltative per il token SAML](./media/active-directory-optional-claims/token-config-example.png)](./media/active-directory-optional-claims/token-config-example.png)
 
 **Configurazione del manifesto:**
 

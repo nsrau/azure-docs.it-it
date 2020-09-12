@@ -12,18 +12,18 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 08/26/2020
+ms.date: 09/04/2020
 ms.author: b-juche
-ms.openlocfilehash: d70558efb1ea54f069981062e5379d995dbeddd2
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 405d872c178a3172454943b7d40ea276ea5c017e
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88950341"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459087"
 ---
 # <a name="manage-snapshots-by-using-azure-netapp-files"></a>Gestire gli snapshot tramite Azure NetApp Files
 
-Azure NetApp Files supporta la creazione di snapshot su richiesta e l'uso di criteri snapshot per pianificare la creazione automatica di snapshot.  È anche possibile ripristinare uno snapshot in un nuovo volume.  
+Azure NetApp Files supporta la creazione di snapshot su richiesta e l'uso di criteri snapshot per pianificare la creazione automatica di snapshot.  È anche possibile ripristinare uno snapshot in un nuovo volume o ripristinare un singolo file usando un client.  
 
 ## <a name="create-an-on-demand-snapshot-for-a-volume"></a>Creare uno snapshot su richiesta per un volume
 
@@ -122,7 +122,7 @@ Se si vuole che un volume usi un criterio snapshot creato, è necessario applica
  
 1.  Dalla visualizzazione dell'account NetApp fare clic su **criteri snapshot**.
 
-2.  Fare clic con il pulsante destro del mouse sui criteri di snapshot da modificare, quindi scegliere **modifica**.
+2.  Fare clic con il pulsante destro del mouse sui criteri di snapshot che si desidera modificare, quindi scegliere **modifica**.
 
     ![Menu di scelta rapida per i criteri snapshot](../media/azure-netapp-files/snapshot-policy-right-click-menu.png) 
 
@@ -165,7 +165,62 @@ Attualmente, è possibile ripristinare uno snapshot solo in un nuovo volume.
     Il nuovo volume usa lo stesso protocollo usato dallo snapshot.   
     Il nuovo volume in cui viene ripristinato lo snapshot viene visualizzato nel pannello Volumi.
 
+## <a name="restore-a-file-from-a-snapshot-using-a-client"></a>Ripristinare un file da uno snapshot usando un client
+
+Se non si vuole [ripristinare l'intero snapshot in un volume](#restore-a-snapshot-to-a-new-volume), è possibile scegliere di ripristinare un file da uno snapshot usando un client in cui è installato il volume.  
+
+Il volume montato contiene una directory snapshot denominata  `.snapshot` (nei client NFS) o `~snapshot` (nei client SMB) accessibile al client. La directory snapshot contiene sottodirectory corrispondenti agli snapshot del volume. Ogni sottodirectory contiene i file dello snapshot. Se si elimina o sovrascrive accidentalmente un file, è possibile ripristinare il file nella directory padre di lettura/scrittura copiando il file da una sottodirectory snapshot alla directory di lettura/scrittura. 
+
+Se è stata selezionata la casella di controllo Nascondi percorso snapshot al momento della creazione del volume, la directory snapshot viene nascosta. È possibile visualizzare lo stato Nascondi percorso snapshot del volume selezionando il volume. È possibile modificare l'opzione Nascondi percorso snapshot facendo clic su **modifica** nella pagina del volume.  
+
+![Modifica opzioni snapshot del volume](../media/azure-netapp-files/volume-edit-snapshot-options.png) 
+
+### <a name="restore-a-file-by-using-a-linux-nfs-client"></a>Ripristinare un file usando un client NFS Linux 
+
+1. Usare il `ls` comando Linux per elencare il file che si vuole ripristinare dalla `.snapshot` Directory. 
+
+    Ad esempio:
+
+    `$ ls my.txt`   
+    `ls: my.txt: No such file or directory`   
+
+    `$ ls .snapshot`   
+    `daily.2020-05-14_0013/              hourly.2020-05-15_1106/`   
+    `daily.2020-05-15_0012/              hourly.2020-05-15_1206/`   
+    `hourly.2020-05-15_1006/             hourly.2020-05-15_1306/`   
+
+    `$ ls .snapshot/hourly.2020-05-15_1306/my.txt`   
+    `my.txt`
+
+2. Usare il `cp` comando per copiare il file nella directory padre.  
+
+    Ad esempio: 
+
+    `$ cp .snapshot/hourly.2020-05-15_1306/my.txt .`   
+
+    `$ ls my.txt`   
+    `my.txt`   
+
+### <a name="restore-a-file-by-using-a-windows-client"></a>Ripristinare un file usando un client Windows 
+
+1. Se la `~snapshot` directory del volume è nascosta, [visualizzare gli elementi nascosti](https://support.microsoft.com/help/4028316/windows-view-hidden-files-and-folders-in-windows-10) nella directory padre da visualizzare `~snapshot` .
+
+    ![Mostra elementi nascosti](../media/azure-netapp-files/snapshot-show-hidden.png) 
+
+2. Passare alla sottodirectory in `~snapshot` per trovare il file che si desidera ripristinare.  Fare clic con il pulsante destro del mouse sul file. Selezionare **Copia**.  
+
+    ![Copia file da ripristinare](../media/azure-netapp-files/snapshot-copy-file-restore.png) 
+
+3. Tornare alla directory padre. Fare clic con il pulsante destro del mouse nella directory padre e scegliere `Paste` di incollare il file nella directory.
+
+    ![Incolla il file da ripristinare](../media/azure-netapp-files/snapshot-paste-file-restore.png) 
+
+4. È anche possibile fare clic con il pulsante destro del mouse sulla directory padre, scegliere **Proprietà**, fare clic sulla scheda **versioni precedenti** per visualizzare l'elenco degli snapshot e selezionare **Ripristina** per ripristinare un file.  
+
+    ![Proprietà versioni precedenti](../media/azure-netapp-files/snapshot-properties-previous-version.png) 
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 * [Informazioni sulla gerarchia di archiviazione di Azure NetApp Files](azure-netapp-files-understand-storage-hierarchy.md)
 * [Limiti delle risorse per Azure NetApp Files](azure-netapp-files-resource-limits.md)
+* [Video snapshot di Azure NetApp Files 101](https://www.youtube.com/watch?v=uxbTXhtXCkw&feature=youtu.be)

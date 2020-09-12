@@ -1,36 +1,36 @@
 ---
-title: 'Gateway VPN di Azure: configurare le acquisizioni di pacchetti'
-description: Informazioni sulle funzionalità di acquisizione di pacchetti che è possibile usare nei gateway VPN.
+title: "Gateway VPN di Azure: configurare l'acquisizione di pacchetti"
+description: Informazioni sulle funzionalità di acquisizione di pacchetti che è possibile usare nei gateway VPN per limitare la causa di un problema.
 services: vpn-gateway
 author: radwiv
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 10/15/2019
+ms.date: 09/03/2020
 ms.author: radwiv
-ms.openlocfilehash: 3ba3046367ceece6bf0ddf157451025c79977324
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 486ac23f26a7eee6b31322de79bfb68076a598ec
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077213"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441596"
 ---
-# <a name="configure-packet-captures-for-vpn-gateways"></a>Configurare le acquisizioni di pacchetti per i gateway VPN
+# <a name="configure-packet-capture-for-vpn-gateways"></a>Configurare l'acquisizione di pacchetti per i gateway VPN
 
-La connettività e i problemi relativi alle prestazioni sono spesso complessi e importano una notevole quantità di tempo e impegno solo per limitare la causa del problema. La possibilità di acquisire pacchetti consente di ridurre notevolmente il tempo necessario per limitare l'ambito del problema a determinate parti della rete, ad esempio se il problema si trova sul lato cliente della rete, sul lato Azure della rete o in un punto qualsiasi. Una volta che il problema è stato ridotto, è molto più efficiente eseguire il debug e intraprendere azioni correttive.
+La connettività e i problemi relativi alle prestazioni sono spesso complessi. Per limitare la causa del problema, può essere necessario molto tempo e fatica. L'acquisizione di pacchetti consente di limitare l'ambito di un problema a determinate parti della rete. Può essere utile per determinare se il problema riguarda il lato cliente della rete, il lato Azure della rete o in un punto qualsiasi. Quando si restringe il problema, è più efficiente eseguire il debug e intraprendere azioni correttive.
 
-Sono disponibili alcuni strumenti comuni per l'acquisizione di pacchetti. Ottenere le acquisizioni di pacchetti pertinenti con questi strumenti può risultare complesso, soprattutto quando si lavora con scenari di traffico con volumi elevati. Il filtraggio delle funzionalità fornite da un'acquisizione di pacchetti del gateway VPN diventa un fattore di differenziazione principale. È possibile usare un'acquisizione di pacchetti del gateway VPN oltre agli strumenti di acquisizione di pacchetti comunemente disponibili.
+Sono disponibili alcuni strumenti di acquisizione pacchetti di uso comune. Ottenere le acquisizioni di pacchetti pertinenti con questi strumenti può essere complicato, soprattutto in scenari di traffico con volumi elevati. Le funzionalità di filtro fornite dall'acquisizione di pacchetti del gateway VPN di Azure sono una differenziazione principale. È possibile usare l'acquisizione di pacchetti del gateway VPN insieme agli strumenti di acquisizione pacchetti disponibili in genere.
 
 ## <a name="vpn-gateway-packet-capture-filtering-capabilities"></a>Funzionalità di filtro di acquisizione pacchetti del gateway VPN
 
-Le acquisizioni di pacchetti del gateway VPN possono essere eseguite nel gateway o in una connessione specifica a seconda delle esigenze del cliente. È anche possibile eseguire acquisizioni di pacchetti su più tunnel contemporaneamente. È possibile acquisire il traffico singolo o bidirezionale, il traffico IKE e ESP e i pacchetti interni insieme al filtro in un gateway VPN.
+È possibile eseguire l'acquisizione di pacchetti del gateway VPN sul gateway o su una connessione specifica, a seconda delle esigenze. È anche possibile eseguire l'acquisizione di pacchetti su più tunnel contemporaneamente. È possibile acquisire il traffico unidirezionale o bidirezionale, il traffico IKE e ESP e i pacchetti interni insieme al filtro in un gateway VPN.
 
-L'uso di un filtro a cinque Tuple (subnet di origine, subnet di destinazione, porta di origine, porta di destinazione, protocollo) e flag TCP (SYN, ACK, pinna, URG, PSH, RST) è utile quando si isolano i problemi in un traffico di volume elevato.
+È utile usare un filtro a cinque Tuple (subnet di origine, subnet di destinazione, porta di origine, porta di destinazione, protocollo) e flag TCP (SYN, ACK, pinna, URG, PSH, RST) quando si isolano i problemi nel traffico di volumi elevati.
 
-Vedere di seguito un esempio di schema JSON e JSON con la spiegazione di ogni proprietà. Prendere nota anche di alcune limitazioni durante l'esecuzione delle acquisizioni di pacchetti:
-- Nello schema il filtro viene visualizzato come una matrice, ma è possibile utilizzare un solo filtro alla volta.
-- Non sono consentite più acquisizioni di pacchetti a livello di gateway allo stesso tempo.
-- Non sono consentite più acquisizioni di pacchetti nella stessa connessione nello stesso momento. È possibile eseguire le acquisizioni di pacchetti in connessioni diverse contemporaneamente.
-- Un massimo di cinque acquisizioni di pacchetti può essere eseguito in parallelo per ogni gateway. Queste acquisizioni di pacchetti possono essere una combinazione di acquisizione di pacchetti a livello di gateway o di acquisizione di pacchetti per connessione.
+Gli esempi seguenti di JSON e di uno schema JSON forniscono spiegazioni di ogni proprietà. Di seguito sono riportate alcune limitazioni da tenere presenti quando si eseguono le acquisizioni di pacchetti:
+- Nello schema riportato di seguito, il filtro è una matrice, ma attualmente è possibile usare solo un filtro alla volta.
+- Non è possibile eseguire contemporaneamente più acquisizioni di pacchetti a livello di gateway.
+- Non è possibile eseguire contemporaneamente più acquisizioni di pacchetti su una singola connessione. È possibile eseguire più acquisizioni di pacchetti su connessioni diverse nello stesso momento.
+- Un massimo di cinque acquisizioni di pacchetti può essere eseguito in parallelo per ogni gateway. Queste acquisizioni di pacchetti possono essere una combinazione di acquisizioni di pacchetti a livello di gateway e acquisizioni di pacchetti per connessione.
 
 ### <a name="example-json"></a>JSON di esempio
 ```JSON-interactive
@@ -316,9 +316,9 @@ Vedere di seguito un esempio di schema JSON e JSON con la spiegazione di ogni pr
 }
 ```
 
-## <a name="setup-packet-capture-using-powershell"></a>Configurare l'acquisizione di pacchetti con PowerShell
+## <a name="set-up-packet-capture-by-using-powershell"></a>Configurare l'acquisizione di pacchetti tramite PowerShell
 
-Vedere gli esempi seguenti per i comandi di PowerShell per avviare e arrestare le acquisizioni di pacchetti. Per ulteriori informazioni sulle opzioni dei parametri, vedere questo [documento](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture)di PowerShell.
+Gli esempi seguenti mostrano i comandi di PowerShell che avviano e arrestano le acquisizioni di pacchetti. Per ulteriori informazioni sulle opzioni dei parametri, vedere [questo documento di PowerShell](https://docs.microsoft.com/powershell/module/az.network/start-azvirtualnetworkgatewaypacketcapture).
 
 ### <a name="start-packet-capture-for-a-vpn-gateway"></a>Avviare l'acquisizione pacchetti per un gateway VPN
 
@@ -326,7 +326,7 @@ Vedere gli esempi seguenti per i comandi di PowerShell per avviare e arrestare l
 Start-AzVirtualnetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayName"
 ```
 
-Parametro facoltativo **-FilterData** può essere usato per applicare il filtro.
+È possibile utilizzare il parametro facoltativo `-FilterData` per applicare un filtro.
 
 ### <a name="stop-packet-capture-for-a-vpn-gateway"></a>Arrestare l'acquisizione di pacchetti per un gateway VPN
 
@@ -340,7 +340,7 @@ Stop-AzVirtualNetworkGatewayPacketCapture -ResourceGroupName "YourResourceGroupN
 Start-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourResourceGroupName" -Name "YourVPNGatewayConnectionName"
 ```
 
-Parametro facoltativo **-FilterData** può essere usato per applicare il filtro.
+È possibile utilizzare il parametro facoltativo `-FilterData` per applicare un filtro.
 
 ### <a name="stop-packet-capture-on-a-vpn-gateway-connection"></a>Arrestare l'acquisizione di pacchetti in una connessione gateway VPN
 
@@ -350,10 +350,11 @@ Stop-AzVirtualNetworkGatewayConnectionPacketCapture -ResourceGroupName "YourReso
 
 ## <a name="key-considerations"></a>Considerazioni essenziali
 
-- L'esecuzione di acquisizioni di pacchetti può influire sulle prestazioni. Ricordarsi di arrestare l'acquisizione di pacchetti quando non è necessaria.
-- La durata di acquisizione pacchetti minima suggerita è di 600 secondi. La durata dell'acquisizione di pacchetti più breve potrebbe non fornire dati completi a causa della sincronizzazione di problemi tra più componenti del percorso.
+- L'esecuzione dell'acquisizione di pacchetti può influire sulle prestazioni. Ricordarsi di arrestare l'acquisizione di pacchetti quando non è necessaria.
+- La durata di acquisizione pacchetti minima suggerita è di 600 secondi. A causa dei problemi di sincronizzazione tra più componenti del percorso, le acquisizioni di pacchetti più brevi potrebbero non fornire dati completi.
 - I file di dati di acquisizione di pacchetti vengono generati nel formato PCAP. Usare Wireshark o altre applicazioni comunemente disponibili per aprire i file PCAP.
+- Le acquisizioni di pacchetti non sono supportate nei gateway basati su criteri.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sul gateway VPN, vedere [informazioni sul gateway VPN](vpn-gateway-about-vpngateways.md)
+Per altre informazioni sul gateway VPN, vedere [che cos'è il gateway VPN?](vpn-gateway-about-vpngateways.md).

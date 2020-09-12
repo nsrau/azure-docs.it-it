@@ -8,12 +8,12 @@ ms.service: load-balancer
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 97d2cd8e9ba51e4fc6ebab8459b04f4f37e876d3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eec032ad56d00778627fc147761f61c03ba8bafd
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84668424"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442089"
 ---
 # <a name="security-controls-for-azure-sql-database-and-sql-managed-instance"></a>Controlli di sicurezza per il database SQL di Azure e SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -69,7 +69,7 @@ Questo articolo descrive i controlli di sicurezza incorporati nel database SQL d
 | Controllo di sicurezza | Sì/No | Note|
 |---|---|--|
 | Prevenzione: valutazione della vulnerabilità | Sì | Vedere [servizio di valutazione della vulnerabilità SQL consente di identificare le vulnerabilità del database](sql-vulnerability-assessment.md). |
-| Prevenzione: individuazione e classificazione dei dati  | Sì | Vedere [database SQL di Azure e SQL data warehouse individuazione dati & classificazione](data-discovery-and-classification-overview.md). |
+| Prevenzione: individuazione e classificazione dei dati  | Sì | Vedere [database SQL di Azure e individuazione dei dati di analisi delle sinapsi di azure & classificazione](data-discovery-and-classification-overview.md). |
 | Rilevamento: rilevamento minacce | Sì | Vedere [Advanced Threat Protection per il database SQL di Azure](threat-detection-overview.md). |
 
 ## <a name="next-steps"></a>Passaggi successivi

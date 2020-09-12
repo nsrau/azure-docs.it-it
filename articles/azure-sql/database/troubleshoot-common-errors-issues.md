@@ -10,12 +10,12 @@ author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: carlrab,vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: e1a018b06b7ee7230612d2ee6a582214a817547b
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 4a1cfcbf110ab375a0fb357c1856fd0567a1c57a
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985225"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89459420"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-azure-sql-database-and-azure-sql-managed-instance"></a>Risoluzione dei problemi di connettività e di altri errori con il database SQL di Azure e Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -28,7 +28,7 @@ L'infrastruttura Azure è in grado di riconfigurare dinamicamente i server quand
 
 ### <a name="list-of-transient-fault-error-codes"></a>Elenco di codici di errore di errore temporanei
 
-| Codice di errore | Gravità | Descrizione |
+| Codice errore | Gravità | Descrizione |
 | ---:| ---:|:--- |
 | 4060 |16 |Impossibile aprire il database "%.&#x2a;ls" richiesto dall'account di accesso. Accesso non riuscito. Per ulteriori informazioni, vedere gli [errori 4000 in 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999)|
 | 40197 |17 |Il servizio ha rilevato un errore durante l'elaborazione della richiesta. Riprova. Codice di errore %d.<br/><br/>Questo errore viene visualizzato quando il servizio non è disponibile a causa di aggiornamenti software o hardware, guasti hardware o altri problemi di failover. Nel codice di errore (%d) incorporato nel messaggio di errore 40197 sono contenute ulteriori informazioni sul tipo di errore o failover che si è verificato. Alcuni esempi dei codici di errore incorporati nel messaggio di errore 40197 sono 40020, 40143, 40166 e 40540.<br/><br/>La riconnessione si connette automaticamente a una copia integra del database. L'applicazione deve rilevare l'errore 40197, registrare il codice di errore incorporato (%d) nel messaggio per la risoluzione dei problemi e tentare la riconnessione al database SQL finché le risorse non saranno disponibili e la connessione non sarà stata ristabilita. Per ulteriori informazioni, vedere [errori temporanei](troubleshoot-common-connectivity-issues.md#transient-errors-transient-faults).|
@@ -119,7 +119,7 @@ In genere, l'amministratore del servizio può utilizzare la procedura seguente p
 4. Se il nome utente dell'account di accesso SQL non esiste, crearlo attenendosi alla procedura seguente:
 
    1. In SSMS fare doppio clic su **sicurezza** per espanderla.
-   2. Fare clic con il pulsante destro del mouse su **Account di accesso** e scegliere **Nuovo account di accesso**.
+   2. Fare clic con il pulsante destro del mouse su **accessi**, quindi scegliere **nuovo account di accesso**.
    3. Nello script generato con segnaposto modificare ed eseguire la query SQL seguente:
 
    ```sql
@@ -128,9 +128,9 @@ In genere, l'amministratore del servizio può utilizzare la procedura seguente p
    GO
    ```
 
-5. Fare doppio clic su **Database**.
+5. Fare doppio clic su **database**.
 6. Selezionare il database a cui si desidera concedere l'autorizzazione utente.
-7. Fare doppio clic su **Sicurezza**.
+7. Fare doppio clic su **sicurezza**.
 8. Fare clic con il pulsante destro del mouse su **utenti**e quindi scegliere **nuovo utente**.
 9. Nello script generato con segnaposto modificare ed eseguire la query SQL seguente:
 
@@ -194,13 +194,13 @@ Per risolvere questo problema, provare con uno dei metodi seguenti:
 2. Determinare il **buffer di input** per il blocco Head.
 3. Ottimizzare la query del blocco Head.
 
-   Per una procedura dettagliata per la risoluzione dei problemi, vedere la pagina relativa all'esecuzione di una [query nel cloud](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+   Per una procedura dettagliata per la risoluzione dei problemi, vedere la pagina relativa all'esecuzione di una [query nel cloud](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 Se il database raggiunge costantemente il limite nonostante l'indirizzamento delle query di blocco e con esecuzione prolungata, provare a eseguire l'aggiornamento a un'edizione con più [edizioni](https://azure.microsoft.com/pricing/details/sql-database/)di risorse.
 
 Per altre informazioni sulle viste a gestione dinamica, vedere [viste a gestione dinamica del sistema](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/system-dynamic-management-views).
 
-Per ulteriori informazioni sui limiti dei database, vedere [limiti delle risorse del database SQL per i server](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server).
+Per ulteriori informazioni sui limiti dei database, vedere  [limiti delle risorse del database SQL per i server](https://docs.microsoft.com/azure/sql-database/sql-database-resource-limits-database-server).
 
 ### <a name="error-10929-resource-id-1"></a>Errore 10929: ID risorsa: 1
 
@@ -261,7 +261,7 @@ Se si verifica ripetutamente questo errore, provare a risolvere il problema atte
 
 Prendere in considerazione anche l'invio in batch delle query. Per informazioni sull'invio in batch, vedere [come usare l'invio in batch per migliorare le prestazioni delle applicazioni del database SQL](https://docs.microsoft.com/azure/sql-database/sql-database-use-batching-to-improve-performance).
 
-Per una procedura dettagliata per la risoluzione dei problemi, vedere la pagina relativa all'esecuzione di una [query nel cloud](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+Per una procedura dettagliata per la risoluzione dei problemi, vedere la pagina relativa all'esecuzione di una [query nel cloud](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ### <a name="error-40551-the-session-has-been-terminated-because-of-excessive-tempdb-usage"></a>Errore 40551: la sessione è stata terminata a causa di un utilizzo eccessivo di TEMPDB
 
@@ -292,11 +292,11 @@ Provare a ridurre il numero di righe utilizzate immediatamente implementando la 
 
 Per risolvere il problema, provare a ottimizzare la query.
 
-Per una procedura dettagliata per la risoluzione dei problemi, vedere la pagina relativa all'esecuzione di una [query nel cloud](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+Per una procedura dettagliata per la risoluzione dei problemi, vedere la pagina relativa all'esecuzione di una [query nel cloud](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ### <a name="table-of-additional-resource-governance-error-messages"></a>Tabella dei messaggi di errore di governance delle risorse aggiuntivi
 
-| Codice di errore | Gravità | Descrizione |
+| Codice errore | Gravità | Descrizione |
 | ---:| ---:|:--- |
 | 10928 |20 |ID risorsa: %d. Il limite di %s per il database è %d ed è stato raggiunto. Per altre informazioni, vedere [Limiti delle risorse del database SQL per database singoli e in pool](resource-limits-logical-server.md).<br/><br/>L'ID risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2.<br/><br/>Per altre informazioni su questo errore e su come risolverlo, vedere: <br/>&bull;&nbsp; [Limiti delle risorse di SQL Server logiche](resource-limits-logical-server.md)<br/>&bull;&nbsp; [Limiti basati su DTU per database singoli](service-tiers-dtu.md)<br/>&bull;&nbsp; [Limiti basati su DTU per i pool elastici](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limiti basati su vCore per database singoli](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [limiti basati su vCore per i pool elastici](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Limiti delle risorse di Azure SQL istanza gestita](../managed-instance/resource-limits.md). |
 | 10929 |20 |ID risorsa: %d. La %s di garanzia minima è %d, il limite massimo è %d e l'uso corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. L'ID risorsa indica la risorsa che ha raggiunto il limite. Per i thread di lavoro, l’ID risorsa = 1. Per le sessioni, l'ID risorsa = 2. Per altre informazioni, vedere: <br/>&bull;&nbsp; [Limiti delle risorse di SQL Server logiche](resource-limits-logical-server.md)<br/>&bull;&nbsp; [Limiti basati su DTU per database singoli](service-tiers-dtu.md)<br/>&bull;&nbsp; [Limiti basati su DTU per i pool elastici](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limiti basati su vCore per database singoli](resource-limits-vcore-single-databases.md)<br/>&bull;&nbsp; [limiti basati su vCore per i pool elastici](resource-limits-vcore-elastic-pools.md)<br/>&bull;&nbsp; [Limiti delle risorse di Azure SQL istanza gestita](../managed-instance/resource-limits.md). <br/>In caso contrario, riprovare più tardi. |
@@ -311,7 +311,7 @@ Per una procedura dettagliata per la risoluzione dei problemi, vedere la pagina 
 
 Di seguito sono elencati gli errori riguardanti la creazione e l'uso di pool elastici:
 
-| Codice di errore | Gravità | Descrizione | Azione correttiva |
+| Codice errore | Gravità | Descrizione | Azione correttiva |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |Il pool elastico ha raggiunto il limite di archiviazione. L'utilizzo dell'archiviazione per il pool elastico non può superare (%d) MB. Tentativo di scrittura dei dati in un database quando viene raggiunto il limite di archiviazione del pool elastico. Per informazioni sui limiti delle risorse, vedere: <br/>&bull;&nbsp; [Limiti basati su DTU per i pool elastici](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limiti basati su vCore per i pool elastici](resource-limits-vcore-elastic-pools.md). <br/> |Prendere in considerazione l'aumento delle DTU e/o l'aggiunta di risorse di archiviazione al pool elastico, se possibile, per aumentare il limite di archiviazione, ridurre le risorse di archiviazione usate dai singoli database all'interno del pool elastico o rimuovere database dal pool elastico. Per il ridimensionamento dei pool elastici, vedere [ridimensionare le risorse del pool elastico](elastic-pool-scale.md).|
 | 10929 | 16 |La %s di garanzia minima è %d, il limite massimo è %d e l'uso corrente per il database è %d. Tuttavia, il server attualmente è troppo occupato per supportare richieste superiori a %d per questo database. Per informazioni sui limiti delle risorse, vedere: <br/>&bull;&nbsp; [Limiti basati su DTU per i pool elastici](resource-limits-dtu-elastic-pools.md)<br/>&bull;&nbsp; [limiti basati su vCore per i pool elastici](resource-limits-vcore-elastic-pools.md). <br/> In caso contrario, riprovare più tardi. Numero minimo DTU/vCore per database; numero massimo DTU/vCore per database. Il numero totale dei processi di lavoro simultanei (richieste) in tutti i database nel pool elastico ha tentato di superare il limite del pool. |Prendere in considerazione l'aumento delle DTU o dei vCore del pool elastico, se possibile, per aumentare il limite del ruolo di lavoro, o rimuovere database dal pool elastico. |
@@ -356,7 +356,7 @@ System.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry)
 ClientConnectionId:<Client connection ID>
 ```
 
-Quando l'eccezione viene attivata dai problemi di query, si noterà uno stack di chiamate simile al seguente (si noti il riferimento alla classe **SqlCommand** ). In questa situazione, [ottimizzare le query](https://blogs.msdn.com/b/sqlblog/archive/2013/11/01/is-my-query-running-fine-in-the-cloud.aspx).
+Quando l'eccezione viene attivata dai problemi di query, si noterà uno stack di chiamate simile al seguente (si noti il riferimento alla classe **SqlCommand** ). In questa situazione, [ottimizzare le query](https://docs.microsoft.com/archive/blogs/sqlblog/is-my-query-running-fine-in-the-cloud).
 
 ```
   at System.Data.SqlClient.SqlCommand.ExecuteReader()

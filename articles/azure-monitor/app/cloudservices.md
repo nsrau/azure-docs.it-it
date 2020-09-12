@@ -4,12 +4,12 @@ description: Monitorare i ruoli Web e di lavoro in modo efficace con Application
 ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 09/05/2018
-ms.openlocfilehash: 2de853655524e99e958f043b7801ee73e937e7ad
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 1662b45d8243217357d1e69124832c499d587812
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88923858"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437327"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights per i servizi cloud di Azure
 [Application Insights][start] può monitorare le [app del servizio cloud di Microsoft Azure](https://azure.microsoft.com/services/cloud-services/) in termini di disponibilità, prestazioni, errori e utilizzo combinando i dati degli SDK di Application Insights con i dati di [Diagnostica di Azure](../platform/diagnostics-extension-overview.md) provenienti dai servizi cloud. Con il feedback ottenuto sulle prestazioni e sull'efficacia dell'app in circostanze normali, è possibile prendere decisioni informate sulla direzione della progettazione in ogni ciclo di vita di sviluppo.
@@ -66,6 +66,8 @@ Se si sviluppano eventi personalizzati per la funzionalità successiva mentre è
 Per evitare questa situazione, creare risorse separate per ogni configurazione della build o "timbro" (sviluppo, test, produzione e così via) del sistema. Inserire le risorse per ogni configurazione della build in un gruppo di risorse separato. 
 
 Per inviare i dati di telemetria alle risorse appropriate, è possibile configurare Application Insights SDK in modo che selezioni una chiave di strumentazione diversa a seconda della configurazione della build. 
+
+Informazioni su come [impostare dinamicamente la chiave di strumentazione](https://docs.microsoft.com/azure/azure-monitor/app/separate-resources#dynamic-ikey) per diverse fasi. 
 
 ## <a name="create-an-application-insights-resource-for-each-role"></a>Creare una risorsa di Application Insights per ogni ruolo
 

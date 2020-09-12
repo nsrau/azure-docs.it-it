@@ -13,19 +13,19 @@ ms.author: ronmat
 ms.reviewer: vanto, carlrab
 ms.date: 02/05/2020
 tags: azure-synapse
-ms.openlocfilehash: 822d4267d5b163ddda50302e2caea5c3ade3b7c4
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 07a39edcb7a5605759ae70a014549863a038de1c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85985372"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437055"
 ---
 # <a name="advanced-threat-protection-for-azure-sql-database-sql-managed-instance-and-azure-synapse-analytics"></a>Advanced Threat Protection per database SQL di Azure, SQL Istanza gestita e Azure sinapsi Analytics
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
 
 Advanced Threat Protection per il [database SQL di Azure](sql-database-paas-overview.md), [Azure SQL istanza gestita](../managed-instance/sql-managed-instance-paas-overview.md) e [Azure sinapsi Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere ai database o sfruttarli.
 
-Advanced Threat Protection fa parte dell'offerta [avanzata di sicurezza dei dati](advanced-data-security.md) , un pacchetto unificato per le funzionalità avanzate di sicurezza di SQL. È possibile accedere e gestire Advanced Threat Protection tramite il portale centrale Sicurezza dei dati avanzata di SQL.
+Advanced Threat Protection fa parte dell'offerta [avanzata di sicurezza dei dati](advanced-data-security.md) , un pacchetto unificato per le funzionalità avanzate di sicurezza di SQL. È possibile accedere ad Advanced Threat Protection e gestire il servizio tramite il portale centrale Sicurezza dei dati avanzata di SQL.
 
 ## <a name="overview"></a>Panoramica
 
@@ -35,7 +35,7 @@ Per un'esperienza di analisi completa, è consigliabile abilitare il controllo, 
 
 ## <a name="alerts"></a>Avvisi
 
-Advanced Threat Protection per il database SQL di Azure rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database. Per un elenco degli avvisi per il database SQL di Azure, vedere gli [avvisi per il database SQL e SQL data warehouse nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-sql-db-and-warehouse).
+Advanced Threat Protection per il database SQL di Azure rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accedere o sfruttare i database. Per un elenco degli avvisi per il database SQL di Azure, vedere gli [avvisi per il database SQL e Azure sinapsi Analytics (in precedenza SQL Data Warehouse) nel centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-sql-db-and-warehouse).
 
 ## <a name="explore-detection-of-a-suspicious-event"></a>Esplorazione del rilevamento di un evento sospetto
 

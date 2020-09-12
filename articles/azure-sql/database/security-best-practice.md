@@ -10,12 +10,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 6630b924decacc5ff59611c657e1d7e38b1813a7
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: e720a95007ff06a954affe03f43f386be3bed39f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541720"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442106"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>PlayBook per soddisfare i requisiti di sicurezza comuni con il database SQL di Azure e Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -33,7 +33,7 @@ Questo documento fornisce indicazioni su come risolvere i requisiti di sicurezza
 
 ### <a name="deployment-offers-not-covered-in-this-guide"></a>Offerte di distribuzione non descritte in questa guida
 
-- Azure SQL Data Warehouse
+- Azure Synapse Analytics (in precedenza SQL Data Warehouse)
 - Macchine virtuali SQL di Azure (IaaS)
 - SQL Server
 
@@ -47,7 +47,7 @@ I destinatari di questa guida sono i clienti che rivolti a domande su come prote
 - Responsabili della privacy
 - Ingegneri della sicurezza
 
-### <a name="using-this-guide"></a><a id="using"></a>Utilizzo di questa guida
+### <a name="using-this-guide"></a><a id="using"></a> Utilizzo di questa guida
 
 Questo documento è concepito come complemento alla documentazione [sulla sicurezza del database SQL di Azure](security-overview.md) esistente.
 
@@ -228,7 +228,7 @@ Assegnare solo le [autorizzazioni](https://docs.microsoft.com/sql/relational-dat
 - Nei database SQL:
   - Usare autorizzazioni granulari e ruoli del database definiti dall'utente (o ruoli del server in Istanza gestita):
     1. Creare i ruoli necessari
-       - [CREATE ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
+       - [CREA RUOLO](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
        - [CREATE SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-server-role-transact-sql)
     1. Creare gli utenti necessari
        - [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)
@@ -255,7 +255,7 @@ Le procedure consigliate seguenti sono facoltative, ma comporteranno una miglior
 - Creare e utilizzare ruoli personalizzati con le autorizzazioni esatte necessarie. Ruoli tipici usati in pratica:
   - Distribuzione della sicurezza
   - Amministratore
-  - Sviluppo
+  - Sviluppatore
   - Personale di supporto
   - Revisore
   - Processi automatizzati
@@ -501,7 +501,7 @@ Procedure consigliate su come impedire la connessione al database SQL di Azure e
 
 **Come implementare**:
 
-- Assicurarsi che i computer client che si connettono al database SQL di Azure e a SQL Istanza gestita utilizzino [Transport Layer Security (TLS)](security-overview.md#transport-layer-security-encryption-in-transit).
+- Assicurarsi che i computer client che si connettono al database SQL di Azure e a SQL Istanza gestita utilizzino  [Transport Layer Security (TLS)](security-overview.md#transport-layer-security-encryption-in-transit).
 
 **Procedure consigliate**:
 
@@ -742,7 +742,7 @@ Consente di monitorare l'accesso ai dati sensibili e l'acquisizione di query sui
 
 **Come implementare**:
 
-- Usare il controllo SQL e la classificazione dei dati in combinazione.
+- Usare SQL Audit e Classificazione dati in combinazione.
   - Nel log di [controllo del database SQL](../../azure-sql/database/auditing-overview.md) è possibile tenere traccia dell'accesso in modo specifico ai dati sensibili. È anche possibile visualizzare informazioni quali i dati a cui è stato eseguito l'accesso, nonché l'etichetta di riservatezza. Per altre informazioni, vedere [individuazione dei dati e classificazione](data-discovery-and-classification-overview.md) e [controllo dell'accesso ai dati sensibili](data-discovery-and-classification-overview.md#audit-sensitive-data).
 
 **Procedure consigliate**:

@@ -12,12 +12,12 @@ ms.topic: article
 ms.subservice: sql-dw
 ms.date: 01/21/2020
 ms.custom: seo-lt-2019, azure-synapse
-ms.openlocfilehash: 71219abaf6493d6dce03f05ad0e61fb71bff1745
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eebde4470ba2635a5287cb3b0103fa49e0e243e0
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85207720"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441001"
 ---
 # <a name="upgrade-your-sql-pool-to-gen2"></a>Aggiornare il pool SQL a Gen2
 
@@ -79,7 +79,7 @@ Per altre informazioni, vedere [Aggiornamento a Gen2](upgrade-to-latest-generati
 
 **D: il costo di Gen2 è uguale a quello di Gen1?**
 
-- A: Sì.
+- R: Sì.
 
 **D: in che modo gli aggiornamenti interessano gli script di automazione?**
 
@@ -118,7 +118,7 @@ Per altre informazioni, vedere [Aggiornamento a Gen2](upgrade-to-latest-generati
 
 **D: Gen2 supporta le finestre di manutenzione?**
 
-- A: Sì.
+- R: Sì.
 
 **D: sarà possibile creare una nuova istanza di Gen1 dopo l'aggiornamento dell'area?**
 
@@ -133,4 +133,4 @@ Per altre informazioni, vedere [Aggiornamento a Gen2](upgrade-to-latest-generati
 - [Aggiornamento sul posto e aggiornamento da un punto di ripristino](upgrade-to-latest-generation.md)
 - [Creare un punto di ripristino definito dall'utente](sql-data-warehouse-restore-points.md)
 - [Informazioni su come eseguire il ripristino a Gen2](sql-data-warehouse-restore-active-paused-dw.md)
-- [Aprire una richiesta di supporto per SQL Data Warehouse](https://go.microsoft.com/fwlink/?linkid=857950)
+- [Aprire una richiesta di supporto di Azure sinapsi Analytics](https://go.microsoft.com/fwlink/?linkid=857950)

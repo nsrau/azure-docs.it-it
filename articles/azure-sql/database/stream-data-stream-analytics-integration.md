@@ -11,12 +11,12 @@ author: ajetasin
 ms.author: ajetasi
 ms.reviewer: sstein
 ms.date: 11/04/2019
-ms.openlocfilehash: 945e9019d75f9597d89a63c9322cbd4a8d502f15
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 7f3ae912b12f85be16d3df49dc10c022358f3af8
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88869865"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437072"
 ---
 # <a name="stream-data-into-azure-sql-database-using-azure-stream-analytics-integration-preview"></a>Trasmettere i dati nel database SQL di Azure tramite l'integrazione di analisi di flusso di Azure (anteprima)
 
@@ -31,7 +31,7 @@ Ora gli utenti possono inserire, elaborare, visualizzare e analizzare i dati in 
 - Maggiore facilità di utilizzo con i dati di anteprima: visualizzare l'anteprima dei dati in arrivo dall'origine eventi (hub eventi/hub degli eventi) nel contesto della tabella selezionata
 
 > [!IMPORTANT]
-> Un processo di analisi di flusso di Azure può restituire il database SQL di Azure, Azure SQL Istanza gestita o Azure sinapsi Analytics (in precedenza Azure SQL Data Warehouse). Per ulteriori informazioni, vedere [output](../../stream-analytics/sql-database-output.md).
+> Un processo di analisi di flusso di Azure può restituire il database SQL di Azure, Azure SQL Istanza gestita o Azure sinapsi Analytics (in precedenza SQL Data Warehouse). Per ulteriori informazioni, vedere [output](../../stream-analytics/stream-analytics-define-outputs.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
