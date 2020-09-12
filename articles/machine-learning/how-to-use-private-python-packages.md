@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 07/10/2020
-ms.openlocfilehash: 314f6a45bf688125e79f0b8ce0099a8326b339dc
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 2af6749565a7fefd2892b82bcd5dff203eccdedc
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88958151"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661216"
 ---
 # <a name="use-private-python-packages-with-azure-machine-learning"></a>Usare pacchetti Python privati con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -31,12 +31,12 @@ I pacchetti privati vengono utilizzati tramite la classe [Environment](https://d
 
 ## <a name="prerequisites"></a>Prerequisiti
 
- * [SDK Azure Machine Learning per Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
+ * [SDK Azure Machine Learning per Python](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)
  * [Area di lavoro Azure Machine Learning](how-to-manage-workspace.md)
 
 ## <a name="use-small-number-of-packages-for-development-and-testing"></a>Usare un numero ridotto di pacchetti per lo sviluppo e il test
 
-Per un numero ridotto di pacchetti privati per una singola area di lavoro, usare il [`Environment.add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#add-private-pip-wheel-workspace--file-path--exist-ok-false-) metodo statico. Questo approccio consente di aggiungere rapidamente un pacchetto privato all'area di lavoro ed è particolarmente adatto a scopo di sviluppo e test.
+Per un numero ridotto di pacchetti privati per una singola area di lavoro, usare il [`Environment.add_private_pip_wheel()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py#&preserve-view=trueadd-private-pip-wheel-workspace--file-path--exist-ok-false-) metodo statico. Questo approccio consente di aggiungere rapidamente un pacchetto privato all'area di lavoro ed è particolarmente adatto a scopo di sviluppo e test.
 
 Puntare l'argomento del percorso del file a un file della rotellina locale ed eseguire il ```add_private_pip_wheel``` comando. Il comando restituisce un URL utilizzato per tenere traccia del percorso del pacchetto all'interno dell'area di lavoro. Acquisire l'URL di archiviazione e passargli il `add_pip_package()` metodo.
 
@@ -58,7 +58,7 @@ Questo approccio usa il token di accesso personale per l'autenticazione nel repo
 
  1. [Creare un token di accesso personale (Pat)](https://docs.microsoft.com/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&tabs=preview-page#create-a-pat) per l'istanza di Azure DevOps. Consente di impostare l'ambito del token per la creazione di __pacchetti > lettura__. 
 
- 2. Aggiungere le proprietà URL DevOps di Azure e PAT come area di lavoro usando il metodo [Workspace. set_Connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#set-connection-name--category--target--authtype--value-) .
+ 2. Aggiungere le proprietà URL DevOps di Azure e PAT come area di lavoro usando il metodo [Workspace. set_Connection](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py#&preserve-view=trueset-connection-name--category--target--authtype--value-) .
 
      ```python
     from azureml.core import Workspace
@@ -91,16 +91,10 @@ L'ambiente è ora pronto per essere usato nelle esecuzioni di training o nelle d
 
 È possibile utilizzare i pacchetti da un account di archiviazione di Azure all'interno del firewall dell'organizzazione. L'account di archiviazione può avere un set curato di pacchetti o un mirror interno dei pacchetti disponibili pubblicamente.
 
-Per configurare tale archiviazione privata:
+Per configurare tale archiviazione privata, vedere [proteggere un'area di lavoro di Azure Machine Learning e le risorse associate](how-to-secure-workspace-vnet.md#secure-azure-storage-accounts). È anche necessario [inserire il container Registry di Azure (ACR) dietro la VNet](how-to-secure-workspace-vnet.md#enable-azure-container-registry-acr).
 
-1. [Posizionare l'area di lavoro all'interno di una rete virtuale (VNet)](how-to-enable-virtual-network.md).
-1. Creare un account di archiviazione e non [consentire l'accesso pubblico](https://docs.microsoft.com/azure/storage/common/storage-network-security).
-1. Inserire i pacchetti Python che si vuole usare in un contenitore all'interno dell'account di archiviazione 
-1. [Consenti l'accesso all'account di archiviazione dall'area di lavoro VNet](https://docs.microsoft.com/azure/storage/common/storage-network-security#grant-access-from-a-virtual-network)
-1. [Inserire il container Registry di Azure (ACR) per l'area di lavoro dietro la VNet](how-to-enable-virtual-network.md#azure-container-registry).
-
-    > [!IMPORTANT]
-    > È necessario completare questo passaggio per essere in grado di eseguire il training o la distribuzione di modelli tramite il repository dei pacchetti privati.
+> [!IMPORTANT]
+> È necessario completare questo passaggio per essere in grado di eseguire il training o la distribuzione di modelli tramite il repository dei pacchetti privati.
 
 Al termine di queste configurazioni, è possibile fare riferimento ai pacchetti nella definizione dell'ambiente Azure Machine Learning in base all'URL completo nell'archivio BLOB di Azure.
 

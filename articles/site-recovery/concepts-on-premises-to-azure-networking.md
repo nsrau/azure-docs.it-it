@@ -1,18 +1,18 @@
 ---
 title: Connettersi al failover locale di macchine virtuali di Azure con Azure Site Recovery
 description: Descrive come connettersi alle macchine virtuali di Azure dopo il failover da locale ad Azure usando Azure Site Recovery
-author: mayurigupta13
+author: Harsha-CS
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 10/13/2019
-ms.author: mayg
-ms.openlocfilehash: 33dafaff396ce378dfa9eab0158e1b2fd9c10da6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: harshacs
+ms.openlocfilehash: 123a68885346062b9e8a53b8d5066204b6b20f5e
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84770493"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568779"
 ---
 # <a name="connect-to-azure-vms-after-failover-from-on-premises"></a>Connettersi alle macchine virtuali di Azure dopo il failover da locale 
 
@@ -96,19 +96,19 @@ Per mantenere gli indirizzi IP sono necessari i passaggi seguenti:
 
 ### <a name="failover-example"></a>Esempio di failover
 
-Ecco un esempio.
+Di seguito è descritto un esempio.
 
 - La società fittizia Woodgrove Bank ospita le app aziendali locali che ospitano le app per dispositivi mobili in Azure.
 - Si connettono da locale ad Azure tramite VPN da sito a sito. 
 - Woodgrove USA Site Recovery per replicare i computer locali in Azure.
 - Le app locali usano indirizzi IP hardcoded, quindi vogliono mantenere gli stessi indirizzi IP in Azure.
 - I computer locali che eseguono le app sono in esecuzione in tre subnet:
-    - 192.168.1.0/24.
+    - 192.168.1.0/24
     - 192.168.2.0/24
     - 192.168.3.0/24
 - Le app in esecuzione in Azure si trovano nella **rete** Azure VNet di Azure in due subnet:
-- 172.16.1.0/24
-- 172.16.2.0/24.
+    - 172.16.1.0/24
+    - 172.16.2.0/24
 
 Per mantenere gli indirizzi, ecco cosa accade.
 

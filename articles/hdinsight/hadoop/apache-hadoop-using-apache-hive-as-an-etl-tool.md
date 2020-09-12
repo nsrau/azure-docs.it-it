@@ -1,19 +1,19 @@
 ---
 title: Uso di Apache Hive come strumento ETL - Azure HDInsight
 description: Usare Apache Hive per estrarre, trasformare e caricare i dati in Azure HDInsight.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: 1627fccb49f0ddbf7a3a0a42f5a483059101dae2
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 9b9dcd683915c17ae6909ebb88927d275e9a5896
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86076063"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505285"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Usare Apache Hive come strumento per estrazione, trasformazione e caricamento (ETL, Extract, Transform, and Load)
 
@@ -69,7 +69,7 @@ Le origini dati in genere sono rappresentate da dati esterni corrispondenti a da
 È possibile usare hive per restituire dati a diversi tipi di destinazioni, tra cui:
 
 * Un database relazionale, ad esempio SQL Server o un database SQL di Azure.
-* Un data warehouse, ad esempio Azure SQL Data Warehouse.
+* Un data warehouse, ad esempio Azure sinapsi Analytics.
 * Excel.
 * Una tabella e un archivio BLOB di Azure.
 * Applicazioni o servizi che richiedono l'elaborazione dei dati in formati specifici, oppure file che contengono tipi specifici di struttura delle informazioni.
@@ -79,9 +79,9 @@ Le origini dati in genere sono rappresentate da dati esterni corrispondenti a da
 
 Il modello ETL in genere viene usato per:
 
-`*`Caricare dati di flusso o grandi volumi di dati semistrutturati o non strutturati da origini esterne a un database o a un sistema informativo esistente.
-`*`Pulire, trasformare e convalidare i dati prima di caricarli, probabilmente usando più di una trasformazione passa attraverso il cluster.
-`*`Generare report e visualizzazioni aggiornati regolarmente. Ad esempio, se la generazione di un report richiede troppo tempo durante il giorno, è possibile pianificarne l'esecuzione durante la notte. Per eseguire automaticamente una query hive, è possibile usare [app](../../logic-apps/logic-apps-overview.md) per la logica di Azure e PowerShell.
+`*` Caricare dati di flusso o grandi volumi di dati semistrutturati o non strutturati da origini esterne a un database o a un sistema informativo esistente.
+`*` Pulire, trasformare e convalidare i dati prima di caricarli, probabilmente usando più di una trasformazione passa attraverso il cluster.
+`*` Generare report e visualizzazioni aggiornati regolarmente. Ad esempio, se la generazione di un report richiede troppo tempo durante il giorno, è possibile pianificarne l'esecuzione durante la notte. Per eseguire automaticamente una query hive, è possibile usare [app](../../logic-apps/logic-apps-overview.md) per la logica di Azure e PowerShell.
 
 Se la destinazione per i dati non è un database, è possibile generare un file nel formato appropriato all'interno della query, ad esempio un volume condiviso cluster. Questo file può essere quindi importato in Excel o in Power BI.
 

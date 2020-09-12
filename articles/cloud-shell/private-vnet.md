@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/15/2020
 ms.author: damaerte
-ms.openlocfilehash: 1cb5716e2f02a99e4d39a4041a2e54e87cf43568
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 722d935c242a51ddfc01377676f026b71a8951b8
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88114660"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468539"
 ---
 # <a name="deploy-cloud-shell-into-an-azure-virtual-network"></a>Distribuire Cloud Shell in una rete virtuale di Azure
 > [!NOTE]
@@ -52,7 +52,7 @@ All'interno della rete virtuale selezionata è necessario usare una subnet dedic
 Un profilo di rete è un modello di configurazione di rete per le risorse di Azure che specifica determinate proprietà di rete per la risorsa.
 
 ### <a name="azure-relay"></a>Servizio di inoltro di Azure
-Un [inoltro di Azure](https://docs.microsoft.com/azure/azure-relay/relay-what-is-it) consente due endpoint che non sono direttamente raggiungibili per la comunicazione. In questo caso, viene usato per consentire al browser dell'amministratore di comunicare con il contenitore nella rete privata.
+Un [inoltro di Azure](../azure-relay/relay-what-is-it.md) consente due endpoint che non sono direttamente raggiungibili per la comunicazione. In questo caso, viene usato per consentire al browser dell'amministratore di comunicare con il contenitore nella rete privata.
 
 L'istanza di inoltro di Azure usata per Cloud Shell può essere configurata in modo da controllare le reti che possono accedere alle risorse del contenitore: 
 - Accessibile dalla rete Internet pubblica: in questa configurazione Cloud Shell fornisce un modo per raggiungere le risorse interne altrimenti dall'esterno. 
@@ -66,7 +66,7 @@ Come nel Cloud Shell standard, è necessario un account di archiviazione durante
 
 * Durante l'anteprima, sono supportate meno aree per Cloud Shell in una rete virtuale. Questo è attualmente limitato a: Westus e WestCentralUS.
 
-* Il servizio di [inoltro di Azure](https://docs.microsoft.com/azure/azure-relay/relay-what-is-it) non è gratuito. Visualizza i [prezzi](https://azure.microsoft.com/pricing/details/service-bus/). Nello scenario Cloud Shell viene utilizzata una connessione ibrida per ogni amministratore durante l'utilizzo di Cloud Shell. La connessione verrà arrestata automaticamente dopo il completamento della sessione di Cloud Shell.
+* Il servizio di [inoltro di Azure](../azure-relay/relay-what-is-it.md) non è gratuito. Visualizza i [prezzi](https://azure.microsoft.com/pricing/details/service-bus/). Nello scenario Cloud Shell viene utilizzata una connessione ibrida per ogni amministratore durante l'utilizzo di Cloud Shell. La connessione verrà arrestata automaticamente dopo il completamento della sessione di Cloud Shell.
 
 ## <a name="register-the-resource-provider"></a>Registrare il provider di risorse
 
@@ -114,4 +114,4 @@ Connetti a Cloud Shell ti verrà richiesto di eseguire la prima esecuzione. Sele
 ![Viene illustrata l'Cloud Shell impostazioni di prima esperienza VNET isolate.](media/private-vnet/vnet-settings.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
-[Informazioni sulle reti virtuali di Azure](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+[Informazioni sulle reti virtuali di Azure](../virtual-network/virtual-networks-overview.md)

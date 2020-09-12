@@ -8,13 +8,13 @@ ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
-ms.date: 07/13/2020
-ms.openlocfilehash: 70a54f52470a715df1011199d5cbd6aa5030094d
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.date: 09/03/2020
+ms.openlocfilehash: 87ccb28f527082dccee338396b460124652c0e76
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539211"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462701"
 ---
 # <a name="supported-features-of-azure-sql-edge-preview"></a>Funzionalità supportate di SQL Edge di Azure (anteprima) 
 
@@ -67,8 +67,8 @@ L'elenco seguente include le SQL Server 2019 in funzionalità Linux che non sono
 | Area | Funzionalità o servizio non supportato |
 |-----|-----|
 | **Progettazione di database** | OLTP in memoria e comandi DDL correlati e funzioni Transact-SQL, viste del catalogo e viste a gestione dinamica. |
-| &nbsp; | `HierarchyID`tipo di dati e comandi DDL correlati e funzioni Transact-SQL, viste del catalogo e viste a gestione dinamica. |
-| &nbsp; | `Spatial`tipo di dati e comandi DDL correlati e funzioni Transact-SQL, viste del catalogo e viste a gestione dinamica. |
+| &nbsp; | `HierarchyID` tipo di dati e comandi DDL correlati e funzioni Transact-SQL, viste del catalogo e viste a gestione dinamica. |
+| &nbsp; | `Spatial` tipo di dati e comandi DDL correlati e funzioni Transact-SQL, viste del catalogo e viste a gestione dinamica. |
 | &nbsp; | Stretch DB, nonché comandi DDL correlati e funzioni Transact-SQL, viste del catalogo e viste a gestione dinamica. |
 | &nbsp; | Ricerca e indici full-text, nonché comandi DDL correlati, funzioni Transact-SQL, viste del catalogo e viste a gestione dinamica.|
 | &nbsp; | `FileTable`, `FILESTREAM` e comandi DDL correlati, funzioni Transact-SQL, viste del catalogo e viste a gestione dinamica.|
@@ -89,6 +89,10 @@ L'elenco seguente include le SQL Server 2019 in funzionalità Linux che non sono
 | &nbsp; | Viste, funzioni e clausole di query del catalogo di data e ora dipendenti da CLR. |
 | &nbsp; | Estensione del pool di buffer. |
 | &nbsp; | Posta elettronica database. |
+| &nbsp; | Broker di servizio |
+| &nbsp; | Gestione basata su criteri |
+| &nbsp; | data warehouse di gestione |
+| &nbsp; | Database indipendenti |
 | **SQL Server Agent** |  Sottosistemi: CmdExec, PowerShell, lettura coda, SSIS, SSAS e SSRS. |
 | &nbsp; | Avvisi. |
 | &nbsp; | Backup gestito. |

@@ -15,12 +15,12 @@ ms.date: 06/17/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5b672cca97e70c97a5dccb1ca54daccd6c171932
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: efab031ac2ad96524ce12e6d1c4a942f01ce2344
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85077977"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299967"
 ---
 # <a name="review-access-to-groups-and-applications-in-azure-ad-access-reviews"></a>Esaminare l'accesso ai gruppi e alle applicazioni nelle verifiche di accesso Azure AD
 
@@ -33,7 +33,7 @@ Azure Active Directory (Azure AD) semplifica il modo in cui le aziende gestiscon
 - **Posta elettronica**:
 
 >[!IMPORTANT]
-> Potrebbero verificarsi ritardi nella ricezione della posta elettronica e in alcuni casi potrebbero essere necessarie fino a 24 ore. Whitelist azure-noreply@microsoft.com per assicurarsi di ricevere tutti i messaggi di posta elettronica.
+> Potrebbero verificarsi ritardi nella ricezione della posta elettronica e in alcuni casi potrebbero essere necessarie fino a 24 ore. Aggiungere azure-noreply@microsoft.com all'elenco dei destinatari sicuri per assicurarsi di ricevere tutti i messaggi di posta elettronica.
 
 1. Cercare un messaggio di posta elettronica da Microsoft in cui viene chiesto di verificare l'accesso. Di seguito è riportato un esempio di messaggio di posta elettronica per esaminare l'accesso per un gruppo.
 
@@ -126,10 +126,10 @@ Per semplificare e velocizzare le verifiche di accesso, sono disponibili anche c
 
 3. Fare clic su **prova!** nel banner nella parte superiore della pagina. Verrà visualizzata la nuova esperienza di accesso.
   
-### <a name="email"></a>Posta elettronica
+### <a name="email"></a>E-mail
 
   >[!IMPORTANT]
-> Potrebbero verificarsi ritardi nella ricezione della posta elettronica e in alcuni casi potrebbero essere necessarie fino a 24 ore. Whitelist azure-noreply@microsoft.com per assicurarsi di ricevere tutti i messaggi di posta elettronica.
+> Potrebbero verificarsi ritardi nella ricezione della posta elettronica e in alcuni casi potrebbero essere necessarie fino a 24 ore. Aggiungere azure-noreply@microsoft.com all'elenco dei destinatari sicuri per assicurarsi di ricevere tutti i messaggi di posta elettronica.
 
    1. Cercare un messaggio di posta elettronica da Microsoft in cui viene chiesto di verificare l'accesso. È possibile visualizzare un esempio di messaggio di posta elettronica di seguito:
 
@@ -144,7 +144,7 @@ Per semplificare e velocizzare le verifiche di accesso, sono disponibili anche c
 
 È anche possibile visualizzare le verifiche di accesso in sospeso usando il browser per aprire l'accesso.
 
-1. Accedere a My Access athttps://myaccess.microsoft.com/
+1. Accedere a My Access at https://myaccess.microsoft.com/
 
 2. Selezionare verifiche di **accesso** dal menu sulla barra laterale sinistra per visualizzare un elenco delle verifiche di accesso in sospeso assegnate all'utente.
 
@@ -206,4 +206,3 @@ Per accettare raccomandazioni per tutti gli utenti, assicurarsi che non sia sele
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Completare una verifica di accesso di gruppi o applicazioni](complete-access-review.md)
-

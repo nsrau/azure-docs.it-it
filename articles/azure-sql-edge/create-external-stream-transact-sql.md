@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: d4ad11d156fd3a672e93b5e039c82d16b2aebdc3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 17783662ba91f227a7b0bf69203bf21dd8342277
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321735"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489545"
 ---
 # <a name="create-external-stream-transact-sql"></a>CREATE EXTERNAL STREAM (Transact-SQL)
 
@@ -141,7 +141,7 @@ WITH  ( <with_options> )
   - MAXIMUM_BATCH_COUNT:  
     numero massimo di eventi inviati alla funzione per ogni chiamata. Il valore predefinito è 100. Per il database SQL, rappresenta il numero massimo di record inviati con ogni transazione di inserimento bulk. Il valore predefinito è 10.000. 
     - Si applica a tutti gli output basati su SQL 
-  - STAGING_AREA: Oggetto EXTERNAL DATA SOURCE per Archiviazione BLOB. Area di staging per l'inserimento dei dati a velocità effettiva elevata in SQL Data Warehouse 
+  - STAGING_AREA: oggetto origine dati esterna per l'archiviazione BLOB nell'area di gestione temporanea per l'inserimento di dati a velocità effettiva elevata in Azure sinapsi Analytics 
     - Riservato per un utilizzo futuro. Non si applica a Azure SQL Edge.
 
 

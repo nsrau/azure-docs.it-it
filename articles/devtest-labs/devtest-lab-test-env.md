@@ -3,12 +3,12 @@ title: Usare Azure DevTest Labs per macchine virtuali e ambienti di test PaaS | 
 description: Informazioni su come usare Azure DevTest Labs per macchine virtuali scenari di ambienti di test PaaS.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 9207c070c13c5e276a6ab95e3bcf1bb8671dc382
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 978071aa160098612a5effebfb30d5d58b777df7
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87272896"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89299831"
 ---
 # <a name="use-azure-devtest-labs-for-vm-and-paas-test-environments"></a>Usare Azure DevTest Labs per macchine virtuali e ambienti di test PaaS
 
@@ -46,7 +46,7 @@ Questo articolo illustra le diverse funzionalità di Azure DevTest Labs usate pe
    
    | Attività | Contenuto dell'esercitazione |
    | --- | --- |
-   | [Configurare le immagini di Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Informazioni su come aggiungere all'elenco elementi consentiti le immagini di Azure Marketplace, rendendo disponibili per la selezione solo quelle che si vuole usare per i tester.|
+   | [Configurare le immagini di Azure Marketplace](devtest-lab-configure-marketplace-images.md) |Informazioni su come è possibile consentire alle immagini di Azure Marketplace, rendendo disponibili per la selezione solo le immagini desiderate per i tester.|
    | [Creare un'immagine personalizzata](devtest-lab-create-template.md) |Creare un'immagine personalizzata preinstallando il software necessario in modo che i tester possano creare rapidamente una macchina virtuale usando l'immagine personalizzata.|
    | [Learn about image factory](./devtest-lab-faq.md#blog-post) (Informazioni sulla factory di immagini) |Guardare un video che descrive come configurare e usare una factory di immagini.|
 

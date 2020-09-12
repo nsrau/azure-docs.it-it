@@ -4,16 +4,16 @@ description: Informazioni su come connettersi e ottenere dati da un server di An
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 04/17/2020
+ms.date: 09/04/2020
 ms.author: owend
 ms.reviewer: minewiskan
 ms.custom: references_regions
-ms.openlocfilehash: 170cf0081e6671451ece6dc2924ae7e418f520a2
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 71caad8ce650b86f4350b32974bb8d980538b223
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86506775"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489018"
 ---
 # <a name="connecting-to-servers"></a>Connessione ai server
 
@@ -76,6 +76,24 @@ Usare l'account di Windows su cui è in esecuzione il processo corrente.
 ## <a name="connect-using-an-odc-file"></a>Connettersi usando un file con estensione odc
 
 Con le versioni precedenti di Excel, gli utenti possono connettersi a un server di Azure Analysis Services usando un file Office Data Connection, con estensione odc. Per altre informazioni, vedere [Creare un file Office Data Connection (con estensione odc)](analysis-services-odc.md).
+
+## <a name="connect-as-a-linked-server-from-sql-server"></a>Connettersi come server collegato da SQL Server
+
+SQL Server possibile connettersi a una risorsa Azure Analysis Services come [server collegato](https://docs.microsoft.com/sql/relational-databases/linked-servers/create-linked-servers-sql-server-database-engine) specificando MSOLAP come provider dell'origine dati. Prima di configurare una connessione a un server collegato, assicurarsi di installare la [libreria client di MSOLAP](https://docs.microsoft.com/analysis-services/client-libraries?view=azure-analysis-services-current) più recente (provider). 
+
+Per le connessioni del server collegato a Azure Analysis Services, è necessario creare un'istanza del provider MSOLAP all'esterno del processo di SQL Server. Quando si configurano le opzioni del server collegato, assicurarsi che l'opzione Consenti in- **Process** **non sia selezionata**.
+
+Se è selezionata l'opzione Consenti in- **Process** e viene creata un'istanza del provider nel processo di SQL Server, viene restituito l'errore seguente:
+
+```
+OLE DB provider "MSOLAP" for linked server "(null)" returned message "The following system error occurred: ".
+
+OLE DB provider "MSOLAP" for linked server "(null)" returned message "The connection failed because user credentials are needed and Sign-In UI is not allowed.".
+
+Msg 7303, Level 16, State 1, Line 2
+Cannot initialize the data source object of OLE DB provider "MSOLAP" for linked server "(null)".
+```
+
 
 
 ## <a name="next-steps"></a>Passaggi successivi

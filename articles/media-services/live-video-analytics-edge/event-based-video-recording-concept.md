@@ -3,12 +3,12 @@ title: Registrazione video basata su eventi-Azure
 description: Per registrazione video basata su eventi (EVR) si intende il processo di registrazione video attivato da un evento. L'evento in questione potrebbe avere origine a causa dell'elaborazione del segnale video stesso (ad esempio, il rilevamento sul movimento) o da un'origine indipendente (ad esempio, l'apertura di una porta).  In questo articolo sono descritti alcuni casi d'uso correlati alla registrazione video basata su eventi.
 ms.topic: conceptual
 ms.date: 05/27/2020
-ms.openlocfilehash: 0a6f7ca4233c195c7494fc6f63e7dfb5bf654c17
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f3efd2b9be41928ab4721d6db4aa84c0f1f57e2f
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84260744"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89568498"
 ---
 # <a name="event-based-video-recording"></a>Registrazione di video basata su eventi  
  
@@ -34,7 +34,8 @@ In questo caso di utilizzo, è possibile registrare clip video solo quando viene
 
 Il diagramma seguente illustra una rappresentazione grafica di un grafico multimediale che risolve questo caso d'uso. La rappresentazione JSON della topologia Graph di tale grafico multimediale è disponibile [qui](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-motion-assets/topology.json).
 
-![Registrazione video basata sul rilevamento del movimento](./media/event-based-video-recording/motion-detection.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording/motion-detection.svg" alt-text="Registrazione video basata sul rilevamento del movimento":::
 
 Nel diagramma il nodo di origine RTSP acquisisce il feed video live dalla fotocamera e lo recapita a un nodo del [processore di rilevamento del movimento](media-graph-concept.md#motion-detection-processor) . Al momento del rilevamento del movimento nel video in tempo reale, il nodo del processore di rilevamento del movimento genera un evento che va al nodo del [processore del Gate del segnale](media-graph-concept.md#signal-gate-processor) , oltre che al nodo del sink di messaggi dell'hub. Il secondo nodo invia gli eventi all'hub IoT Edge, da dove possono essere indirizzati ad altre destinazioni per attivare gli avvisi. 
 
@@ -44,7 +45,8 @@ Un evento del nodo del rilevamento del movimento attiverà il nodo del processor
 
 In questo caso di utilizzo, è possibile usare i segnali di un altro sensore Internet per attivare la registrazione del video. Il diagramma seguente illustra una rappresentazione grafica di un grafico multimediale che risolve questo caso d'uso. La rappresentazione JSON della topologia Graph di tale grafico multimediale è disponibile [qui](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-hubMessage-files/topology.json).
 
-![Registrazione video basata sugli eventi di altre origini](./media/event-based-video-recording/other-sources.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording/other-sources.svg" alt-text="Registrazione video basata sugli eventi di altre origini":::
 
 Nel diagramma il sensore esterno invia gli eventi all'hub IoT Edge. Gli eventi vengono quindi indirizzati al nodo del processore del Gate del segnale tramite il nodo di [origine del messaggio dell'hub](media-graph-concept.md#iot-hub-message-source) Internet. Il comportamento del nodo del processore del controllo del segnale è identico a quello del caso di utilizzo precedente. verrà aperto e il flusso del feed video in tempo reale passerà dal nodo di origine RTSP al nodo sink di file (o al nodo sink di asset) quando viene attivato dall'evento esterno. 
 
@@ -54,7 +56,8 @@ Se si usa un nodo di sink di file, il video verrà registrato nella file system 
 
 In questo caso di utilizzo è possibile registrare clip video in base a un segnale da un sistema di logica esterno. Un esempio di questo caso d'uso potrebbe essere la registrazione di un clip video solo quando viene rilevato un camion nel feed video di traffico su un'autostrada. Il diagramma seguente illustra una rappresentazione grafica di un grafico multimediale che risolve questo caso d'uso. La rappresentazione JSON della topologia Graph di tale grafico multimediale è disponibile [qui](https://github.com/Azure/live-video-analytics/blob/master/MediaGraph/topologies/evr-hubMessage-assets/topology.json).
 
-![Registrazione video basata su un modulo esterno di inferenza](./media/event-based-video-recording/external-inferencing-module.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/event-based-video-recording/external-inferencing-module.svg" alt-text="Registrazione video basata su un modulo esterno di inferenza":::
 
 Nel diagramma il nodo di origine RTSP acquisisce il feed video live dalla fotocamera e lo recapita a due rami: uno ha un nodo del [processore](media-graph-concept.md#signal-gate-processor) di controllo del segnale e l'altro usa un nodo di [estensione http](media-graph-concept.md) per inviare dati a un modulo logico esterno. Il nodo estensione HTTP consente al grafico multimediale di inviare fotogrammi immagine (in formati JPEG, BMP o PNG) a un servizio di inferenza esterno su REST. Questo percorso del segnale può in genere supportare solo frequenze di fotogrammi insufficienti (<5fps). È possibile usare il nodo [processore filtro frequenza frame](media-graph-concept.md#frame-rate-filter-processor) per abbassare la frequenza dei fotogrammi del video che passa al nodo estensione http.
 

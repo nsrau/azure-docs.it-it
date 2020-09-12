@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 08/18/2020
+ms.date: 09/06/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2b3a838e52bb0b9f3a3be7195bd528c08e499c0
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: f8598e77940bd2b33a9d8ba2c5a56348be841f7b
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783655"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505106"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Creare una verifica di accesso dei gruppi e delle applicazioni nelle verifiche di accesso Azure AD
 
@@ -100,22 +100,31 @@ Per altre informazioni, vedere [Requisiti relativi alle licenze](access-reviews-
 
 1. Per specificare cosa succede dopo il completamento di una verifica, espandere la sezione **Impostazioni al completamento**.
 
-    ![Creare una verifica di accesso-dopo le impostazioni di completamento](./media/create-access-review/upon-completion-settings.png)
+    ![Creare una verifica di accesso-dopo le impostazioni di completamento](./media/create-access-review/upon-completion-settings-new.png)
 
-1. Se si vuole rimuovere automaticamente l'accesso per gli utenti non autorizzati, impostare **auto Apply results to Resource** to **Enable**. Per applicare manualmente i risultati al termine della verifica, impostare l'opzione su **Disabilita**.
+2. Se si vuole rimuovere automaticamente l'accesso per gli utenti non autorizzati, impostare **auto Apply results to Resource** to **Enable**. Per applicare manualmente i risultati al termine della verifica, impostare l'opzione su **Disabilita**.
 
-1. Usare l'elenco **In caso di mancata risposta del revisore** per specificare cosa accade per gli utenti non sottoposti a verifica dal revisore entro il periodo di verifica. Questa impostazione non ha alcun impatto sugli utenti che sono stati sottoposti a verifica manualmente dai revisori. Se la decisione finale del revisore è il rifiuto, l'accesso dell'utente verrà rimosso.
+3. Usare l'elenco **se i revisori non rispondono** per specificare cosa accade per gli utenti che non vengono esaminati dal revisore entro il periodo di revisione. Questa impostazione non ha alcun impatto sugli utenti che sono stati sottoposti a verifica manualmente dai revisori. Se la decisione finale del revisore è il rifiuto, l'accesso dell'utente verrà rimosso.
 
     - **Nessuna modifica**: non viene apportata alcuna modifica all'accesso dell'utente
     - **Rimuovi accesso**: l'accesso dell'utente viene rimosso
     - **Approva accesso**: l'accesso dell'utente viene approvato
     - **Accetta i consigli**: vengono applicati i consigli del sistema per rifiutare o approvare l'accesso continuo dell'utente
 
+4. Anteprima Usare l'azione da applicare agli utenti negati per specificare cosa accade agli utenti Guest se vengono negati.
+    - L' **opzione 1** rimuoverà l'accesso dell'utente negato al gruppo o all'applicazione da rivedere, sarà comunque in grado di accedere al tenant. 
+    - L' **opzione 2** impedirà agli utenti negati di accedere al tenant, indipendentemente dal fatto che abbiano accesso ad altre risorse. Se si è verificato un errore o se un amministratore decide di riabilitare l'accesso di un utente, può eseguire questa operazione entro 30 giorni dopo che l'utente è stato disabilitato. Se non viene eseguita alcuna azione sugli utenti disabilitati, questi verranno eliminati dal tenant.
+
+Per ulteriori informazioni sulle procedure consigliate per la rimozione degli utenti guest che non hanno più accesso alle risorse dell'organizzazione, leggere l'articolo intitolato [usare Azure ad Identity governance per rivedere e rimuovere gli utenti esterni che non hanno più accesso alle risorse.](access-reviews-external-users.md)
+
+>[!NOTE]
+> L'azione da applicare agli utenti negati funziona solo se in precedenza è stata eseguita una verifica per gli utenti guest. vedere **creare una o più** verifiche di accesso sezione passaggio 8.
+
 ### <a name="advanced-settings"></a>Impostazioni avanzate
 
 1. Per specificare impostazioni aggiuntive, espandere la sezione **Impostazioni avanzate**.
 
-    ![Creare una verifica di accesso-impostazioni avanzate](./media/create-access-review/advanced-settings-preview.png)
+    ![Creare una verifica di accesso-impostazioni avanzate](./media/create-access-review/advanced-settings-preview-new.png)
 
 1. Impostare **Mostra i consigli** su **Abilita** per mostrare ai revisori i consigli del sistema basati sulle informazioni di accesso dell'utente.
 

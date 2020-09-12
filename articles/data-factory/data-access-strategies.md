@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 05/28/2020
-ms.openlocfilehash: 015feac819467cf60bfb2faab27af769fadc3cfa
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 76181f089511a6645a51707f9a8537c1589d82bf
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86522874"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484953"
 ---
 # <a name="data-access-strategies"></a>Strategie di accesso ai dati
 
@@ -55,7 +55,7 @@ Per ulteriori informazioni sui meccanismi di sicurezza di rete supportati negli 
     |                              | Database di Azure per MariaDB, MySQL, PostgreSQL       | -                | -                   | Sì             | -            | Sì                  |
     |                              | Archiviazione file di Azure                                  | Sì              | -                   | Sì             | -            | .                    |
     |                              | Archiviazione di Azure (BLOB, ADLS Gen2)                     | Sì              | Sì (solo autenticazione MSI) | Sì             | -            | .                    |
-    |                              | Azure SQL DB, SQL DW (Synapse Analytics), SQL   Ml  | Sì (solo database SQL di Azure/DW)        | -                   | Sì             | -            | Sì                  |
+    |                              | DATABASE SQL di Azure, Azure sinapsi Analytics), SQL ml  | Sì (solo database SQL di Azure/DW)        | -                   | Sì             | -            | Sì                  |
     |                              | Azure Key Vault (per il recupero di segreti/stringa di connessione) | sì      | Sì                 | Sì             | -            | -                    |
     | Altri archivi dati PaaS/SaaS | AWS   S3, SalesForce, Google Cloud Storage, ecc.    | -                | -                   | Sì             | -            | -                    |
     | laaS Azure                   | SQL Server, Oracle, ecc.                          | -                | -                   | Sì             | Sì          | -                    |
@@ -73,7 +73,7 @@ Per ulteriori informazioni sui meccanismi di sicurezza di rete supportati negli 
     |                                | Database di Azure per MariaDB, MySQL, PostgreSQL               | Sì       | -                   |
     |                                | Archiviazione file di Azure                                            | Sì       | -                   |
     |                                | Archiviazione di Azure (Blog,   ADLS Gen2)                             | Sì       | Sì (solo autenticazione MSI) |
-    |                                | Azure SQL DB, SQL DW   (Synapse Analytics), SQL   Ml          | Sì       | -                   |
+    |                                | DATABASE SQL di Azure, Azure sinapsi Analytics), SQL ml          | Sì       | -                   |
     |                                | Azure Key Vault (per il recupero di segreti/stringa di connessione) | Sì       | Sì                 |
     | Altri archivi dati PaaS/SaaS | AWS   S3, SalesForce, Google Cloud Storage, ecc.              | Sì       | -                   |
     | laaS Azure                     | SQL Server,   Oracle,   ecc.                                  | Sì       | -                   |

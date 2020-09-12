@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 77964eed6960a79920f359a03c65102ad949a210
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 51d8b740ba1275b23bc17a58284141dce0d48fe0
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89004664"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89300001"
 ---
 # <a name="security-frame-authorization--mitigations"></a>Infrastruttura di sicurezza: autorizzazione - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -205,7 +205,7 @@ Si noti che la sicurezza a livello di riga come funzionalità di database predef
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | [Panoramica del modello di sicurezza e autenticazione di Hub eventi](https://azure.microsoft.com/documentation/articles/event-hubs-authentication-and-security-model-overview/) |
-| **Passaggi** | Non assegnare al dispositivo un token che concede l'accesso diretto all'hub eventi. L'uso di un token con privilegi minimi per il dispositivo che fornisce l'accesso solo a un server di pubblicazione consente di identificare e aggiungere il dispositivo alla blacklist se ritenuto non autorizzato o compromesso.|
+| **Passaggi** | Non assegnare al dispositivo un token che concede l'accesso diretto all'hub eventi. L'uso di un token con privilegi minimi per il dispositivo che fornisce l'accesso solo a un server di pubblicazione consente di identificare e non consentire l'accesso se il dispositivo è danneggiato o compromesso.|
 
 ## <a name="connect-to-event-hub-using-sas-keys-that-have-the-minimum-permissions-required"></a><a id="sas-minimum-permissions"></a>Connettersi all'hub eventi tramite chiavi di firma di accesso condiviso aventi solo le autorizzazioni minime necessarie
 

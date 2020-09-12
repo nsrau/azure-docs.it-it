@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
-ms.openlocfilehash: e33e012480c876dc5befbb93404bdb131ea9329a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ddce7e2f073914e9393eabf12e8b0f4ef347828
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022147"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613645"
 ---
 # <a name="scene-lighting"></a>Illuminazione della scena
 
@@ -69,6 +69,17 @@ Non sono presenti proprietà aggiuntive.
 ## <a name="performance-considerations"></a>Considerazioni sulle prestazioni
 
 Le fonti di luce hanno un impatto significativo sulle prestazioni di rendering. Usarle attentamente e solo se richiesto dall'applicazione. Qualsiasi condizione di illuminazione globale statica, incluso un componente direzionale statico, può essere realizzata con una [trama Sky personalizzata](sky.md), senza costi di rendering aggiuntivi.
+
+## <a name="api-documentation"></a>Documentazione dell'API
+
+* [C# LightComponentBase (classe)](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.lightcomponentbase)
+* [C# PointLightComponent (classe)](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.pointlightcomponent)
+* [C# SpotLightComponent (classe)](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.spotlightcomponent)
+* [C# DirectionalLightComponent (classe)](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.directionallightcomponent)
+* [Classe C++ LightComponentBase](https://docs.microsoft.com/cpp/api/remote-rendering/lightcomponentbase)
+* [Classe C++ PointLightComponent](https://docs.microsoft.com/cpp/api/remote-rendering/pointlightcomponent)
+* [Classe C++ SpotLightComponent](https://docs.microsoft.com/cpp/api/remote-rendering/spotlightcomponent)
+* [Classe C++ DirectionalLightComponent](https://docs.microsoft.com/cpp/api/remote-rendering/directionallightcomponent)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -2,13 +2,13 @@
 title: Distribuire risorse in una sottoscrizione
 description: Questo articolo descrive come creare un gruppo di risorse in un modello di Azure Resource Manager. Illustra anche come distribuire le risorse nell'ambito della sottoscrizione di Azure.
 ms.topic: conceptual
-ms.date: 07/27/2020
-ms.openlocfilehash: aca1aaf9d7d0c8a97bf2dad437953ccadc02a924
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.date: 09/04/2020
+ms.openlocfilehash: ef4f92d2e113e7cd393c50ba4eb8b47eb4ad9d08
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88002780"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468641"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creare gruppi di risorse e risorse a livello di sottoscrizione
 
@@ -115,7 +115,7 @@ Per ogni nome di distribuzione il percorso non è modificabile. Non è possibile
 
 ## <a name="deployment-scopes"></a>Ambiti di distribuzione
 
-Quando si esegue la distribuzione in una sottoscrizione, è possibile specificare come destinazione la sottoscrizione o qualsiasi gruppo di risorse all'interno della sottoscrizione. L'utente che distribuisce il modello deve avere accesso all'ambito specificato.
+Quando si esegue la distribuzione in una sottoscrizione, è possibile fare riferimento a una sottoscrizione e a tutti i gruppi di risorse all'interno della sottoscrizione. Non è possibile eseguire la distribuzione in una sottoscrizione diversa dalla sottoscrizione di destinazione. L'utente che distribuisce il modello deve avere accesso all'ambito specificato.
 
 Le risorse definite nella sezione Resources del modello vengono applicate alla sottoscrizione.
 
@@ -145,7 +145,7 @@ Per fare riferimento a un gruppo di risorse all'interno della sottoscrizione, ag
             "properties": {
                 "mode": "Incremental",
                 "template": {
-                    nested-template
+                    nested-template-with-resource-group-resources
                 }
             }
         }
@@ -154,15 +154,19 @@ Per fare riferimento a un gruppo di risorse all'interno della sottoscrizione, ag
 }
 ```
 
+In questo articolo sono disponibili modelli che illustrano come distribuire le risorse in diversi ambiti. Per un modello che crea un gruppo di risorse e distribuisce un account di archiviazione, vedere [creare un gruppo di risorse e le risorse](#create-resource-group-and-resources). Per un modello che crea un gruppo di risorse, applica un blocco e assegna un ruolo per il gruppo di risorse, vedere controllo di [accesso](#access-control).
+
 ## <a name="use-template-functions"></a>Usare le funzioni di modello
 
 Per le distribuzioni a livello di sottoscrizione, esistono alcune considerazioni importanti quando si usano funzioni di modello:
 
 * La funzione [resourceGroup()](template-functions-resource.md#resourcegroup)**non** è supportata.
 * Le funzioni [reference()](template-functions-resource.md#reference) e [list()](template-functions-resource.md#list) sono supportate.
-* Usare la funzione [subscriptionResourceId()](template-functions-resource.md#subscriptionresourceid) per ottenere l'ID risorsa per le risorse distribuite a livello di sottoscrizione.
+* Non usare [ResourceID ()](template-functions-resource.md#resourceid) per ottenere l'ID risorsa per le risorse distribuite a livello di sottoscrizione.
 
-  Ad esempio, per ottenere l'ID risorsa per una definizione di criteri usare:
+  Usare invece la funzione [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) .
+
+  Ad esempio, per ottenere l'ID risorsa per una definizione di criteri distribuita in una sottoscrizione, usare:
 
   ```json
   subscriptionResourceId('Microsoft.Authorization/roleDefinitions/', parameters('roleDefinition'))
@@ -420,7 +424,7 @@ New-AzSubscriptionDeployment `
       ],
       "properties": {
         "scope": "[subscription().id]",
-        "policyDefinitionId": "[resourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
+        "policyDefinitionId": "[subscriptionResourceId('Microsoft.Authorization/policyDefinitions', 'locationpolicy')]"
       }
     }
   ]

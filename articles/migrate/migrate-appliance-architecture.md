@@ -3,12 +3,12 @@ title: Architettura dell'appliance di Azure Migrate
 description: Offre una panoramica dell'appliance di Azure Migrate usata per la valutazione e la migrazione del server.
 ms.topic: conceptual
 ms.date: 06/09/2020
-ms.openlocfilehash: a83e044acc329572a5f3bfd4856f90379319ba1d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 623790568fb8d86d8065711439f148211fc7fd6b
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88919744"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514569"
 ---
 # <a name="azure-migrate-appliance-architecture"></a>Architettura dell'appliance di Azure Migrate
 
@@ -62,15 +62,15 @@ I dati raccolti dal client per tutti gli scenari di distribuzione sono riepiloga
 
 ## <a name="discovery-and-collection-process"></a>Processo di individuazione e raccolta
 
-![Architecture](./media/migrate-appliance-architecture/architecture.png)
+![Architecture](./media/migrate-appliance-architecture/architecture1.png)
 
 L'appliance comunica con i server vCenter e gli host/cluster Hyper-V usando il processo seguente.
 
 1. **Avvia individuazione**:
-    - Quando si avvia l'individuazione nell'appliance Hyper-V, comunica con gli host Hyper-V sulle porte WinRM 5985 (HTTP) e 5986 (HTTPS).
+    - Quando si avvia l'individuazione nell'appliance Hyper-V, la comunicazione con gli host Hyper-V sulla porta WinRM 5985 (HTTP) viene comunicata.
     - Quando si avvia l'individuazione nell'appliance VMware, per impostazione predefinita comunica con il server vCenter sulla porta TCP 443. Se il server vCenter è in ascolto su una porta diversa, è possibile configurarla nell'app Web Appliance.
 2. **Raccogliere i metadati e i dati sulle prestazioni**:
-    - L'appliance usa una sessione di Common Information Model (CIM) per raccogliere i dati delle macchine virtuali Hyper-V dall'host Hyper-V sulle porte 5985 e 5986.
+    - L'appliance usa una sessione di Common Information Model (CIM) per raccogliere i dati delle macchine virtuali Hyper-V dall'host Hyper-V sulla porta 5985.
     - Per impostazione predefinita, l'appliance comunica con la porta 443 per raccogliere i dati delle macchine virtuali VMware dal server vCenter.
 3. **Invia dati**: il dispositivo invia i dati raccolti a Azure migrate server Assessment e Azure migrate migrazione del server sulla porta SSL 443. Il dispositivo è in grado di connettersi ad Azure tramite Internet oppure è possibile usare ExpressRoute con peering pubblico/Microsoft.
     - Per i dati sulle prestazioni, l'appliance raccoglie i dati di utilizzo in tempo reale.
@@ -81,17 +81,12 @@ L'appliance comunica con i server vCenter e gli host/cluster Hyper-V usando il p
     - Per la migrazione del server, l'appliance avvia la raccolta dei dati della macchina virtuale e la replica in Azure.
 4. Valutazione **e migrazione**: è ora possibile creare valutazioni dei metadati raccolti dal dispositivo usando Azure migrate Assessment server. Inoltre, è possibile avviare la migrazione di macchine virtuali VMware con Azure Migrate migrazione del server per orchestrare la replica di VM senza agenti.
 
-
-
-
-
 ## <a name="appliance-upgrades"></a>Aggiornamenti dell'appliance
 
 L'appliance viene aggiornata quando vengono aggiornati gli agenti di Azure Migrate in esecuzione nell'appliance. Questa operazione viene eseguita automaticamente perché per impostazione predefinita l'aggiornamento automatico è abilitato nell'appliance. È possibile modificare questa impostazione predefinita per aggiornare manualmente gli agenti.
 
 Per disattivare l'aggiornamento automatico nel registro di sistema, impostare la chiave HKEY_LOCAL_MACHINE \SOFTWARE\Microsoft\AzureAppliance "AutoUpdate" su 0 (DWORD).
 
- 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

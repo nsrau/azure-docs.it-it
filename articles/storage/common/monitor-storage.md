@@ -1,5 +1,5 @@
 ---
-title: Monitoraggio di Archiviazione di Azure | Microsoft Docs
+title: Monitoraggio di archiviazione di Azure | Microsoft Docs
 description: Informazioni su come monitorare le prestazioni e la disponibilità di Archiviazione di Azure. Monitora i dati di archiviazione di Azure, informazioni sulla configurazione e analizza i dati di metrica e di log.
 author: normesta
 services: storage
@@ -9,14 +9,14 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 2cc275028b64c3df06e2c0275bc0f4ac21fa0f6e
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0edb50fd72622d3d7d628e0e02ef2c3737f8713a
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020151"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500420"
 ---
-# <a name="monitor-azure-storage"></a>Monitoraggio di Archiviazione di Azure
+# <a name="monitoring-azure-storage"></a>Monitoraggio di archiviazione di Azure
 
 Quando si usano applicazioni e processi aziendali critici basati sulle risorse di Azure, è consigliabile monitorare tali risorse per verificarne disponibilità, prestazioni e funzionamento. Questo articolo descrive i dati di monitoraggio generati da Archiviazione di Azure e come è possibile utilizzare le funzionalità di Monitoraggio di Azure per analizzare gli avvisi relativi a tali dati.
 
@@ -30,7 +30,7 @@ La pagina **Panoramica** nel portale di Azure per ogni risorsa di archiviazione 
 ## <a name="what-is-azure-monitor"></a>Informazioni su Monitoraggio di Azure
 Archiviazione di Azure crea i dati di monitoraggio usando [Monitoraggio di Azure](../../azure-monitor/overview.md), un servizio di monitoraggio completo dello stack di Azure. Monitoraggio di Azure offre un set completo di funzionalità per monitorare le risorse e di Azure e le risorse che si trovano in altri cloud e in locale. 
 
-Per altre informazioni su Monitoraggio di Azure, vedere [Monitorare le risorse di Azure con monitoraggio di Azure](../../azure-monitor/insights/monitor-azure-resource.md). Questo articolo tratta gli argomenti seguenti:
+Iniziare con l'articolo [monitoraggio delle risorse di Azure con monitoraggio di Azure](../../azure-monitor/insights/monitor-azure-resource.md) , che descrive quanto segue:
 
 - Informazioni su Monitoraggio di Azure
 - Costi associati al monitoraggio
@@ -40,7 +40,7 @@ Per altre informazioni su Monitoraggio di Azure, vedere [Monitorare le risorse d
 
 Le sezioni seguenti si basano su questo articolo descrivendo i dati specifici raccolti da Archiviazione di Azure. Gli esempi mostrano come configurare la raccolta dati e analizzare tali dati con gli strumenti di Azure.
 
-## <a name="monitor-data-from-azure-storage"></a>Monitoraggio dei dati di Archiviazione di Azure
+## <a name="monitoring-data-from-azure-storage"></a>Monitoraggio dei dati da archiviazione di Azure
 
 Archiviazione di Azure raccoglie gli stessi tipi di dati di monitoraggio di altre risorse di Azure, che sono descritti in [Monitoraggio dei dati dalle risorse di Azure](../../azure-monitor/insights/monitor-azure-resource.md#monitoring-data). Per altre informazioni sui log e sulle metriche create da Archiviazione di Azure, vedere [Riferimento ai dati di monitoraggio archiviazione di Azure](monitor-storage-reference.md).
 
@@ -90,7 +90,7 @@ Una volta creata l'impostazione di diagnostica nel portale di Azure è possibile
 | StorageWrite | Operazioni di scrittura su oggetti. |
 | StorageDelete | Operazioni DELETE sugli oggetti. |
 
-## <a name="analyze-metric-data"></a>Analisi dei dati delle metriche
+## <a name="analyzing-metric-data"></a>Analisi dei dati delle metriche
 
 È possibile analizzare le metriche di Archiviazione di Azure con metriche di altri servizi di Azure usando Esplora metriche. Aprire Esplora metriche selezionando **Metrica** dal menu di **Monitoraggio di Azure**. Per informazioni dettagliate sull'uso di questo strumento, vedere [Introduzione a Esplora metriche di Azure](../../azure-monitor/platform/metrics-getting-started.md). 
 
@@ -115,7 +115,7 @@ Tutte le metriche per Archiviazione di Azure si trovano in questi spazi dei nomi
 Un elenco di tutte le metriche supportate da Monitoraggio di Azure e Archiviazione di Azure, vedere [metriche supportate con il monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-supported).
 
 
-### <a name="access-metrics"></a>Accedere alle metriche
+### <a name="accessing-metrics"></a>Accesso alle metriche
 
 > [!TIP]
 > Per visualizzare esempi dell'interfaccia della riga di comando di Azure o di .NET, scegliere le schede corrispondenti di seguito.
@@ -133,7 +133,7 @@ In questo esempio, sostituire il segnaposto `<resource-ID>` con l'ID risorsa del
    Get-AzMetricDefinition -ResourceId $resourceId
 ```
 
-#### <a name="read-metric-values"></a>Lettura dei valori della metrica
+#### <a name="reading-metric-values"></a>Lettura dei valori delle metriche
 
 È possibile leggere i valori della metrica a livello di account per il proprio account di archiviazione o per il singolo servizio di archiviazione, ad esempio BLOB, file, tabella o coda. Usare il cmdlet [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric?view=azps-3.3.0).
 
@@ -203,7 +203,7 @@ L'esempio seguente mostra come elencare le definizioni delle metriche a livello 
 
 ```
 
-#### <a name="read-account-level-metric-values"></a>Lettura dei valori di metrica a livello di account
+#### <a name="reading-account-level-metric-values"></a>Lettura dei valori delle metriche a livello di account
 
 L'esempio seguente mostra come leggere i dati di `UsedCapacity` a livello di account:
 
@@ -249,7 +249,7 @@ L'esempio seguente mostra come leggere i dati di `UsedCapacity` a livello di acc
 
 ```
 
-#### <a name="read-multidimensional-metric-values"></a>Lettura dei valori delle metriche multidimensionali
+#### <a name="reading-multidimensional-metric-values"></a>Lettura di valori di metrica multidimensionali
 
 Per leggere i dati di metriche multidimensionali in valori di dimensioni specifici è necessario definire i filtri dei metadati.
 
@@ -304,7 +304,7 @@ L'esempio seguente mostra come leggere i dati di metrica per le metriche che sup
 
 ---
 
-## <a name="analyze-log-data"></a>Analizzare i dati dei log
+## <a name="analyzing-log-data"></a>Analisi dei dati di log
 
 È possibile accedere ai log delle risorse come BLOB in un account di archiviazione, come dati degli eventi o tramite query di Log Analytics.
 
@@ -313,7 +313,7 @@ Per una spiegazione dettagliata dei campi visualizzati in questi log, vedere [Ri
 > [!NOTE]
 > I log di Archiviazione di Azure in Monitoraggio di Azure si trovano in anteprima pubblica ed è possibile verificare l'anteprima in tutte le aree del cloud pubblico. Per registrarsi all'anteprima, vedere [questa pagina](https://forms.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbRxW65f1VQyNCuBHMIMBV8qlUM0E0MFdPRFpOVTRYVklDSE1WUTcyTVAwOC4u). Questa anteprima abilita i log per BLOB (che includono Azure Data Lake Storage Gen2), file, code, tabelle, account di archiviazione Premium negli account di archiviazione per utilizzo generico v1 e utilizzo generico v2. Gli account di archiviazione della versione classica non sono supportati.
 
-### <a name="access-logs-in-a-storage-account"></a>Accesso ai log in un account di archiviazione
+### <a name="accessing-logs-in-a-storage-account"></a>Accesso ai log in un account di archiviazione
 
 I log vengono visualizzati come BLOB archiviati in un contenitore nell'account di archiviazione di destinazione. I dati vengono raccolti e archiviati all'interno di un singolo BLOB come payload JSON delimitato da righe. Il nome del BLOB si basa sulla convenzione di denominazione seguente:
 
@@ -323,7 +323,7 @@ Ad esempio:
 
 `https://mylogstorageaccount.blob.core.windows.net/insights-logs-storagewrite/resourceId=/subscriptions/`<br>`208841be-a4v3-4234-9450-08b90c09f4/resourceGroups/myresourcegroup/providers/Microsoft.Storage/storageAccounts/mystorageaccount/blobServices/default/y=2019/m=07/d=30/h=23/m=12/PT1H.json`
 
-### <a name="access-logs-in-an-event-hub"></a>Accesso ai log in un hub eventi
+### <a name="accessing-logs-in-an-event-hub"></a>Accesso ai log in un hub eventi
 
 I log inviati a un hub eventi non vengono archiviati come file, ma è possibile verificare che l'hub eventi abbia ricevuto le informazioni del log. Passare all'hub eventi nel portale di Azure e verificare che il numero di **Messaggi in arrivo** sia maggiore di zero. 
 
@@ -331,7 +331,7 @@ I log inviati a un hub eventi non vengono archiviati come file, ma è possibile 
 
 È possibile accedere e leggere i dati di log inviati all'hub eventi usando le informazioni di sicurezza e gli strumenti di monitoraggio e gestione degli eventi. Per altre informazioni, vedere [Quali operazioni si possono eseguire con i dati di monitoraggio inviati all'hub eventi?](https://docs.microsoft.com/azure/azure-monitor/platform/stream-monitoring-data-event-hubs#what-can-i-do-with-the-monitoring-data-being-sent-to-my-event-hub)
 
-### <a name="access-logs-in-a-log-analytics-workspace"></a>Accesso ai log in un'area di lavoro Log Analytics
+### <a name="accessing-logs-in-a-log-analytics-workspace"></a>Accesso ai log in un'area di lavoro Log Analytics
 
 È possibile accedere ai log inviati a un'area di lavoro Log Analytics usando le query di log di Monitoraggio di Azure.
 

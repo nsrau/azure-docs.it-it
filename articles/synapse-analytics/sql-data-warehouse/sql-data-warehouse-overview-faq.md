@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: b3ee3f729e1e2f03d7c72a72081ad2e3f0316cbb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 228fa18fef0f681437fd2c0c87e3114d14977a49
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85482531"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462650"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-frequently-asked-questions"></a>Domande frequenti su Azure sinapsi Analytics (noto in precedenza come SQL DW)
 
@@ -27,7 +27,7 @@ R. Azure sinapsi è un servizio di analisi che riunisce data warehouse e analisi
 
 Q. Che cosa è successo a Azure SQL Data Warehouse?
 
-R. La sinapsi di Azure è Azure SQL Data Warehouse (SQL DW) è stata sviluppata. Abbiamo adottato lo stesso data warehouse leader di settore per un nuovo livello di prestazioni e funzionalità. È possibile continuare a eseguire i carichi di lavoro di data warehouse esistenti in produzione con la sinapsi di Azure. Per altre informazioni, vedere informazioni su [Azure sinapsi Analytics](sql-data-warehouse-overview-what-is.md).
+R. La sinapsi di Azure è Azure SQL Data Warehouse evoluzione. Abbiamo adottato lo stesso data warehouse leader di settore per un nuovo livello di prestazioni e funzionalità. È possibile continuare a eseguire i carichi di lavoro di data warehouse esistenti in produzione con la sinapsi di Azure. Per altre informazioni, vedere [Informazioni su Azure Synapse Analytics](sql-data-warehouse-overview-what-is.md).
 
 Q. Che cos'è il pool SQL sinapsi?
 
@@ -75,7 +75,7 @@ R. [I ticket di supporto](sql-data-warehouse-get-started-create-support-ticket.m
 
 Q. Quali tipi di dati sono supportati?
 
-R. Vedere [tipi di dati](sql-data-warehouse-tables-data-types.md).
+R. Vedere  [tipi di dati](sql-data-warehouse-tables-data-types.md).
 
 Q. Quali funzionalità delle tabelle sono supportate?
 

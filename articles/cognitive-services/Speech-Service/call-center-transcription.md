@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: 77573ac4240eeded1f803d88f218aaf4d4c5a929
-ms.sourcegitcommit: ce44069e729fce0cf67c8f3c0c932342c350d890
+ms.openlocfilehash: 84a1e2edcbe9e9da93a158ebc11e7bf638dae100
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84636127"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462735"
 ---
 # <a name="speech-service-for-telephony-data"></a>Servizio di riconoscimento vocale per i dati di telefonia
 
@@ -60,7 +60,7 @@ Non è insolito per il 35% del tempo di una chiamata al supporto tecnico. Di seg
 
 ### <a name="translation"></a>Traduzione
 
-Alcune aziende sperimentano la fornitura di trascrizioni tradotte da chiamate al supporto per le lingue straniere, in modo che i responsabili della distribuzione possano comprendere l'esperienza globale dei clienti. Le nostre competenze di [traduzione](translation.md) non hanno rivali. Per un numero elevato di impostazioni locali è possibile convertire audio-audio o audio-testo.
+Alcune aziende sperimentano la fornitura di trascrizioni tradotte da chiamate al supporto per le lingue straniere, in modo che i responsabili della distribuzione possano comprendere l'esperienza globale dei clienti. Le nostre competenze di [traduzione](/azure/cognitive-services/speech-service/speech-translation) non hanno rivali. Per un numero elevato di impostazioni locali è possibile convertire audio-audio o audio-testo.
 
 ### <a name="text-to-speech"></a>Sintesi vocale
 
@@ -70,7 +70,7 @@ La latenza end-to-end è notevolmente bassa per le varie tecnologie interattive,
 
 Le nuove voci sono inoltre indistinguibili da quelle umane. Puoi usare le nostre voci per offrire al tuo bot la sua personalità univoca.
 
-### <a name="search"></a>Cerca
+### <a name="search"></a>Ricerca
 
 Un altro elemento di base dell'analisi consiste nell'identificare le interazioni in cui si è verificata un'esperienza o un evento specifico. Questa operazione viene in genere eseguita con uno dei due approcci seguenti: una ricerca ad hoc in cui l'utente digita semplicemente una frase e il sistema risponde oppure una query più strutturata in cui un analista può creare un set di istruzioni logiche che identificano uno scenario in una chiamata e quindi ogni chiamata può essere indicizzata in base a tale set di query. Un esempio di ricerca valido è la dichiarazione di conformità universale "questa chiamata verrà registrata per scopi qualitativi... ". Molte aziende desiderano assicurarsi che i loro agenti forniscano questa dichiarazione di non responsabilità ai clienti prima che la chiamata venga effettivamente registrata. La maggior parte dei sistemi di analisi è in grado di eseguire la tendenza dei comportamenti individuati dagli algoritmi di ricerca/query e questa segnalazione delle tendenze è in definitiva una delle funzioni più importanti di un sistema di analisi. Grazie alla [directory Servizi cognitivi](https://azure.microsoft.com/services/cognitive-services/directory/search/), la soluzione end-to-end può essere significativamente migliorata con funzionalità di indicizzazione e ricerca.
 

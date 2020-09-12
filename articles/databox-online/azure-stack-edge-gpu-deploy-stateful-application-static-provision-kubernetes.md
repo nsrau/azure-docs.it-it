@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/18/2020
 ms.author: alkohli
-ms.openlocfilehash: 17be54536f785049aef6831e01f1f12219225b90
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d9200b66d51292271f546eb111f3355649318b91
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254373"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462718"
 ---
 # <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-a-persistentvolume-on-your-azure-stack-edge-device"></a>Usare kubectl per eseguire un'applicazione con stato Kubernetes con un PersistentVolume sul dispositivo Azure Stack Edge
 
@@ -55,7 +55,10 @@ Si è pronti per distribuire un'applicazione con stato sul dispositivo Azure Sta
 
 ## <a name="provision-a-static-pv"></a>Effettuare il provisioning di un PV statico
 
-Per effettuare il provisioning statico di un PV, è necessario creare una condivisione nel dispositivo. Attenersi alla procedura seguente per eseguire il provisioning di un PV sulla condivisione SMB o NFS. 
+Per effettuare il provisioning statico di un PV, è necessario creare una condivisione nel dispositivo. Attenersi alla procedura seguente per eseguire il provisioning di un PV sulla condivisione SMB. 
+
+> [!NOTE]
+> L'esempio specifico usato in questo articolo sulle procedure non funziona con le condivisioni NFS. In generale, è possibile eseguire il provisioning delle condivisioni NFS sul dispositivo Azure Stack Edge con applicazioni non di database.
 
 1. Scegliere se si vuole creare una condivisione perimetrale o una condivisione locale perimetrale. Seguire le istruzioni in [aggiungere una condivisione](azure-stack-edge-manage-shares.md#add-a-share) per creare una condivisione. Assicurarsi di selezionare la casella di controllo **Usa condivisione con calcolo Edge**.
 
@@ -71,7 +74,7 @@ Per effettuare il provisioning statico di un PV, è necessario creare una condiv
 
         ![Montare una condivisione locale esistente per PV](./media/azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes/mount-edge-share-2.png)
 
-1. Prendere nota del nome della condivisione. Quando si crea questa condivisione, viene creato automaticamente un oggetto volume permanente nel cluster Kubernetes corrispondente alla condivisione SMB o NFS creata. 
+1. Prendere nota del nome della condivisione. Quando si crea questa condivisione, viene creato automaticamente un oggetto volume permanente nel cluster Kubernetes corrispondente alla condivisione SMB creata. 
 
 ## <a name="deploy-mysql"></a>Distribuire MySQL
 
@@ -147,7 +150,7 @@ Tutti i `kubectl` comandi usati per creare e gestire distribuzioni di applicazio
               claimName: mysql-pv-claim
     ```
     
-2. Copiare e salvare come `mysql-pv.yml` file nella stessa cartella in cui è stato salvato `mysql-deployment.yml` . Per usare la condivisione SMB o NFS creata in precedenza con `kubectl` , impostare il `volumeName` campo nell'oggetto PVC sul nome della condivisione. 
+2. Copiare e salvare come `mysql-pv.yml` file nella stessa cartella in cui è stato salvato `mysql-deployment.yml` . Per usare la condivisione SMB creata in precedenza con `kubectl` , impostare il `volumeName` campo nell'oggetto PVC sul nome della condivisione. 
 
     > [!NOTE] 
     > Verificare che i rientri dei file YAML siano corretti. È possibile verificare con la [lanugine YAML](http://www.yamllint.com/) per convalidare e quindi salvare.
@@ -158,8 +161,8 @@ Tutti i `kubectl` comandi usati per creare e gestire distribuzioni di applicazio
     metadata:
       name: mysql-pv-claim
     spec:
-      volumeName: <nfs-or-smb-share-name-here>
-      storageClassName: manual
+      volumeName: <smb-share-name-here>
+      storageClassName: ""
       accessModes:
         - ReadWriteOnce
       resources:
@@ -289,7 +292,6 @@ Tutti i `kubectl` comandi usati per creare e gestire distribuzioni di applicazio
 
 ## <a name="verify-mysql-is-running"></a>Verificare che MySQL sia in esecuzione
 
-Il file YAML precedente crea un servizio che consente a un pod nel cluster di accedere al database. L'opzione del servizio clusterIP: None consente la risoluzione del nome DNS del servizio direttamente nell'indirizzo IP del Pod. Questa operazione è ottimale quando si dispone di un solo pod dietro un servizio e non si intende aumentare il numero di Pod.
 
 Per eseguire un comando su un contenitore in un pod che esegue MySQL, digitare:
 

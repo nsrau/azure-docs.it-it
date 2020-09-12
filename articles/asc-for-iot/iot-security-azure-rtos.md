@@ -1,6 +1,6 @@
 ---
-title: Supporto di Azure RTO
-description: Informazioni sul supporto di Azure RTO nel centro sicurezza di Azure per il servizio Internet delle cose.
+title: Panoramica del modulo di sicurezza per Azure RTO
+description: Scopri di più sul modulo di sicurezza per il supporto e l'implementazione di Azure RTO come parte del Centro sicurezza di Azure per il servizio Internet delle cose.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -12,23 +12,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/15/2020
+ms.date: 09/07/2020
 ms.author: mlottner
-ms.openlocfilehash: af4579d25b94fc12f67cfc91d0f6a5af4b35c810
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bcf98f503b0f0c8bf76435d9884297d5f53d65e6
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097757"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514476"
 ---
-# <a name="azure-security-center-for-iot-security-solution-for-azure-rtos"></a>Centro sicurezza di Azure per la soluzione di sicurezza Internet per Azure RTO 
+# <a name="overview-security-module-for-azure-rtos-preview"></a>Panoramica: modulo di sicurezza per Azure RTO (anteprima)
 
-Il modulo di sicurezza del Centro sicurezza di Azure per l'it offre una soluzione di sicurezza completa per i dispositivi Azure RTO. Azure RTO viene fornito con un modulo di protezione incorporato che illustra le minacce comuni sui dispositivi del sistema operativo in tempo reale. 
+Il modulo di sicurezza del Centro sicurezza di Azure per RTO offre una soluzione di sicurezza completa per i dispositivi RTO di Azure. Azure RTO è ora disponibile con il modulo Azure Internet per la sicurezza e fornisce la copertura per le minacce comuni e le potenziali attività dannose nei dispositivi del sistema operativo in tempo reale. 
 
 ![Centro sicurezza di Azure per Azure RTO](./media/architecture/azure-rtos-security-monitoring.png)
 
 
-Il Centro sicurezza di Azure per il modulo di sicurezza Internet con il supporto di Azure RTO offre le funzionalità seguenti: 
+Il modulo Security per Azure RTO offre le funzionalità seguenti: 
 - Rilevamento di attività di rete dannose
 - Basata su avvisi personalizzati, linea di base del comportamento del dispositivo
 - Migliorare l'igiene della sicurezza dei dispositivi
@@ -43,20 +43,18 @@ La linea di base consente il clustering di dispositivi in gruppi di sicurezza e 
 
 ### <a name="improve-your-device-security-hygiene"></a>Migliorare l'igiene della sicurezza del dispositivo
 
-Sfruttando l'infrastruttura consigliata, il Centro sicurezza di Azure per l'it fornisce informazioni e informazioni approfondite sui problemi nell'ambiente che incidono e danneggiano il comportamento di sicurezza dei dispositivi. Il comportamento della sicurezza dei dispositivi scarsi può consentire potenziali attacchi se rimangono invariati, perché la sicurezza viene sempre misurata in base al collegamento più debole all'interno di qualsiasi organizzazione. 
+Sfruttando l'infrastruttura consigliata, il Centro sicurezza di Azure per l'it fornisce informazioni e informazioni approfondite sui problemi nell'ambiente che incidono e danneggiano il comportamento di sicurezza dei dispositivi. Il comportamento della sicurezza dei dispositivi è debole può consentire la riuscita di potenziali attacchi se non vengono modificati, perché la sicurezza viene sempre misurata in base al collegamento più debole all'interno di qualsiasi organizzazione. 
 
 ## <a name="get-started-protecting-azure-rtos-devices"></a>Inizia a proteggere i dispositivi RTO di Azure
 
-- Il Centro sicurezza di Azure per il modulo di sicurezza Internet per Azure RTO è disponibile come download gratuito per i dispositivi. Il Centro sicurezza di Azure per il servizio cloud è disponibile con una versione di valutazione di 30 giorni per ogni sottoscrizione di Azure. Per iniziare, scaricare il modulo di sicurezza del [Centro sicurezza di Azure per Azure RTO](https://github.com/azure-rtos/iot-security-module-preview) . 
+Il modulo Security per Azure RTO è disponibile come download gratuito per i dispositivi. Il Centro sicurezza di Azure per il servizio cloud è disponibile con una versione di valutazione di 30 giorni per ogni sottoscrizione di Azure. Per iniziare, scaricare il [modulo di sicurezza per Azure RTO](https://github.com/azure-rtos/iot-security-module-preview) . 
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questo articolo si è appreso come il Centro sicurezza di Azure per il supporto di Azure RTO. Per informazioni su come iniziare e abilitare la soluzione di sicurezza nell'hub Internet, vedere gli articoli seguenti:
+In questo articolo è stato illustrato il modulo di sicurezza per il servizio Azure RTO. Per altre informazioni sul modulo di sicurezza e per iniziare, vedere gli articoli seguenti:
 
-- [Prerequisiti del servizio](service-prerequisites.md)
-- [Introduzione](getting-started.md)
-- [Configurare la soluzione](quickstart-configure-your-solution.md)
-- [Abilitare la sicurezza nell'hub Internet](quickstart-onboard-iot-hub.md)
-- [Domande frequenti sul centro sicurezza di Azure](resources-frequently-asked-questions.md)
-- [Avvisi di sicurezza del Centro sicurezza di Azure per IoT](concept-security-alerts.md)
+- [Concetti relativi ai moduli di sicurezza di Azure RTO](concept-rtos-security-module.md)
+- [Guida introduttiva: modulo di sicurezza Azure RTO](quickstart-azure-rtos-security-module.md)
+
+

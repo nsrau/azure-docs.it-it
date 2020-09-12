@@ -12,16 +12,29 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: f8ed7dc2caf3ad471ea7d4bb2fc8213114aad109
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e1595d7e205c788f90177836f3c0370681b7747b
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089703"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569085"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Advanced Threat Protection con il Centro sicurezza di Azure
 
 Il Centro sicurezza di Azure si integra con [Microsoft Defender Advanced Threat Protection (ATP)](https://www.microsoft.com/microsoft-365/windows/microsoft-defender-atp) per fornire funzionalità complete di rilevamento e risposta degli endpoint.
+
+
+## <a name="availability"></a>Disponibilità
+
+|Aspetto|Dettagli|
+|----|:----|
+|Stato versione:|**Disponibilità generale**|
+|Prezzi|Livello Standard|
+|Computer supportati:|![Sì](./media/icons/yes-icon.png) Macchine virtuali di Azure che eseguono Windows<br>![Sì](./media/icons/yes-icon.png) Computer Azure Arc che eseguono Windows|
+|Ruoli e autorizzazioni necessari:|Per abilitare o disabilitare l'integrazione: **amministratore della sicurezza** o **proprietario**<br>Per visualizzare gli avvisi MDATP nel centro sicurezza: **lettore sicurezza**, **lettore**, **collaboratore gruppo di risorse**, **proprietario del gruppo di risorse**, amministratore della **sicurezza**, **proprietario della sottoscrizione**o **collaboratore della sottoscrizione**|
+|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali.<br>![No](./media/icons/no-icon.png) Clienti GCC che eseguono carichi di lavoro in cloud di Azure pubblici<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Gov per la Cina, altri gov|
+|||
+
 
 ## <a name="microsoft-defender-atp-features-in-security-center"></a>Funzionalità di Microsoft Defender ATP nel centro sicurezza
 
@@ -55,7 +68,7 @@ Quando si usa il Centro sicurezza di Azure per monitorare i server, viene creato
 Dopo averla configurata, non è possibile modificare la posizione in cui vengono archiviati i dati. Se è necessario spostare i dati in un altro percorso, contattare supporto tecnico Microsoft per reimpostare il tenant.
 
 
-## <a name="onboarding-servers-to-security-center"></a>Onboarding dei server al Centro sicurezza 
+## <a name="onboard-servers-to-security-center"></a>Eseguire l'onboarding di server nel centro sicurezza 
 
 Per caricare i server nel centro sicurezza, fare clic su **Vai al centro sicurezza di Azure per** caricare i server dall'onboarding del server Microsoft Defender ATP.
 

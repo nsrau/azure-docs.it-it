@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2020
 ms.author: memildin
-ms.openlocfilehash: e378ffe00be9215c692a832e232fac7e866ab3c9
-ms.sourcegitcommit: c6b9a46404120ae44c9f3468df14403bcd6686c1
+ms.openlocfilehash: faa61dc351bebd3d2a85ad229036e5b9fba9256e
+ms.sourcegitcommit: 7f62a228b1eeab399d5a300ddb5305f09b80ee14
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88890825"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89514612"
 ---
 # <a name="prevent-dangling-dns-entries-and-avoid-subdomain-takeover"></a>Impedisci le voci DNS in sospeso ed evita l'acquisizione di sottodomini
 
@@ -27,27 +27,33 @@ Questo articolo descrive le minacce alla sicurezza comuni di acquisizione dei so
 
 ## <a name="what-is-subdomain-takeover"></a>Che cos'è l'acquisizione di sottodomini?
 
-Le acquisizioni di sottodomini rappresentano una minaccia comune e a gravità elevata per le organizzazioni che creano regolarmente ed eliminano molte risorse. L'acquisizione di un sottodominio può verificarsi quando si dispone di un record DNS che punta a una risorsa di Azure di cui è stato effettuato il provisioning. Tali record DNS sono noti anche come voci "DNS in sospeso". I record CNAME sono particolarmente vulnerabili a questa minaccia.
+Le acquisizioni di sottodomini rappresentano una minaccia comune e a gravità elevata per le organizzazioni che creano regolarmente ed eliminano molte risorse. L'acquisizione di un sottodominio può verificarsi quando si dispone di un [record DNS](https://docs.microsoft.com/azure/dns/dns-zones-records#dns-records) che punta a una risorsa di Azure di cui è stato effettuato il provisioning. Tali record DNS sono noti anche come voci "DNS in sospeso". I record CNAME sono particolarmente vulnerabili a questa minaccia. Le acquisizioni di sottodominio consentono agli attori malintenzionati di reindirizzare il traffico destinato al dominio di un'organizzazione a un sito che esegue attività dannose.
 
 Uno scenario comune per l'acquisizione di sottodomini:
 
-1. Viene creato un sito Web. 
+1. **CREAZIONE**
 
-    In questo esempio, `app-contogreat-dev-001.azurewebsites.net`.
+    1. Si esegue il provisioning di una risorsa di Azure con un nome di dominio completo (FQDN) di `app-contogreat-dev-001.azurewebsites.net` .
 
-1. Una voce CNAME viene aggiunta al DNS che punta al sito Web. 
+    1. Si assegna un record CNAME nella zona DNS con il sottodominio `greatapp.contoso.com` che instrada il traffico alla risorsa di Azure.
 
-    In questo esempio è stato creato il nome descrittivo seguente: `greatapp.contoso.com` .
+1. **DEPROVISIONING**
 
-1. Dopo alcuni mesi, il sito non è più necessario, pertanto viene eliminato **senza** eliminare la voce DNS corrispondente. 
+    1. La risorsa di Azure viene sottoposta a deprovisioning o eliminata dopo che non è più necessaria. 
+    
+        A questo punto, il record CNAME `greatapp.contoso.com` *deve* essere rimosso dalla zona DNS. Se il record CNAME non viene rimosso, viene annunciato come dominio attivo, ma non instrada il traffico a una risorsa di Azure attiva. Si tratta della definizione di un record DNS "penzoloni".
 
-    La voce DNS CNAME è ora "penzoloni".
+    1. Il sottodominio penzoloni, `greatapp.contoso.com` , è ora vulnerabile e può essere preso in assegnazione a un'altra risorsa della sottoscrizione di Azure.
 
-1. Quasi immediatamente dopo l'eliminazione del sito, un attore di minacce individua il sito mancante e crea il proprio sito Web in `app-contogreat-dev-001.azurewebsites.net` .
+1. **ACQUISIZIONE**
 
-    A questo punto, il traffico destinato `greatapp.contoso.com` a passa al sito di Azure di Threat Actor e l'attore minaccia il controllo del contenuto visualizzato. 
+    1. Usando metodi e strumenti comunemente disponibili, un attore di minacce rileva il sottodominio in sospeso.  
 
-    Il DNS penzolante è stato sfruttato e il sottodominio di Contoso "GreatApp" è stato vittima dell'acquisizione del sottodominio. 
+    1. L'attore minaccia esegue il provisioning di una risorsa di Azure con lo stesso FQDN della risorsa precedentemente controllata. In questo esempio, `app-contogreat-dev-001.azurewebsites.net`.
+
+    1. Il traffico inviato al sottodominio `myapp.contoso.com` viene ora indirizzato alla risorsa dell'attore malintenzionato in cui controllano il contenuto.
+
+
 
 ![Acquisizione del sottodominio da un sito Web di cui è stato effettuato il deprovision](./media/subdomain-takeover/subdomain-takeover.png)
 
@@ -57,23 +63,91 @@ Uno scenario comune per l'acquisizione di sottodomini:
 
 Quando un record DNS punta a una risorsa che non è disponibile, il record stesso dovrebbe essere stato rimosso dalla zona DNS. Se non è stato eliminato, si tratta di un record DNS "penzolante" e crea la possibilità di acquisizione di sottodomini.
 
-Le voci DNS in sospeso consentono agli attori minaccia di assumere il controllo del nome DNS associato per ospitare un sito Web o un servizio dannoso. Le pagine e i servizi dannosi nel sottodominio di un'organizzazione possono produrre:
+Le voci DNS in sospeso consentono agli attori minaccia di assumere il controllo del nome DNS associato per ospitare un sito Web o un servizio dannoso. Le pagine e i servizi dannosi nel sottodominio di un'organizzazione possono causare:
 
 - **Perdita di controllo sul contenuto del sottodominio** : la pressione negativa sull'impossibilità di proteggere il contenuto dell'organizzazione, nonché il danneggiamento del marchio e la perdita di attendibilità.
 
 - **Cookie harvesting da visitatori non sospetti** : è comune per le app Web esporre i cookie di sessione ai sottodomini (*. contoso.com), di conseguenza qualsiasi sottodominio può accedervi. Gli attori di minaccia possono utilizzare l'acquisizione di sottodomini per creare una pagina di ricerca autenticata, ingannare gli utenti ignari e raccogliere i cookie (anche cookie sicuri). Un malinteso comune è che l'uso di certificati SSL protegge il sito e i cookie degli utenti, da un'acquisizione. Tuttavia, un attore minaccia può utilizzare il sottodominio dirottato per richiedere e ricevere un certificato SSL valido. I certificati SSL validi garantiscono l'accesso ai cookie protetti e possono aumentare ulteriormente la legittimità percepita del sito dannoso.
 
-- **Campagne di phishing** : i sottodomini con aspetto autentico possono essere usati nelle campagne di phishing. Questo vale per i siti dannosi e anche per i record MX che consentono all'attore minaccia di ricevere messaggi di posta elettronica destinati a un sottodominio legittimo di un marchio noto come affidabile.
+- **Campagne di phishing** : i sottodomini con aspetto autentico potrebbero essere usati nelle campagne di phishing. Questo vale per i siti dannosi e per i record MX che consentono all'attore minaccia di ricevere messaggi di posta elettronica destinati a un sottodominio legittimo di un marchio noto.
 
-- **Ulteriori rischi** : i siti dannosi possono essere usati per eseguire l'escalation in altri attacchi classici, ad esempio XSS, CSRF, CORS bypass e altro ancora.
+- **Ulteriori rischi** : i siti dannosi potrebbero essere usati per eseguire l'escalation in altri attacchi classici, ad esempio XSS, CSRF, CORS bypass e altro ancora.
 
 
 
-## <a name="preventing-dangling-dns-entries"></a>Prevenzione delle voci DNS in sospeso
+## <a name="identify-dangling-dns-entries"></a>Identificare le voci DNS in sospeso
+
+Per identificare le voci DNS all'interno dell'organizzazione che potrebbero essere tralasciate, usare gli strumenti di PowerShell ["Get-DanglingDnsRecords"](https://aka.ms/DanglingDNSDomains)ospitati da GitHub di Microsoft.
+
+Questo strumento consente ai clienti di Azure di elencare tutti i domini con un CNAME associato a una risorsa di Azure esistente creata nei rispettivi tenant o sottoscrizioni.
+
+Se i CNAME si trovano in altri servizi DNS e puntano a risorse di Azure, fornire i CNAME in un file di input allo strumento.
+
+Lo strumento supporta le risorse di Azure elencate nella tabella seguente. Lo strumento estrae o accetta come input tutti i CNAME del tenant.
+
+
+| Servizio                   | Type                                        | FQDNproperty                               | Esempio                         |
+|---------------------------|---------------------------------------------|--------------------------------------------|---------------------------------|
+| Frontdoor di Azure          | microsoft.network/frontdoors                | Properties. cName                           | `abc.azurefd.net`               |
+| Archiviazione BLOB di Azure        | microsoft.storage/storageaccounts           | Properties. primari. blob           | `abc. blob.core.windows.net`    |
+| Rete CDN di Azure                 | microsoft.cdn/profiles/endpoints            | Properties. hostName                        | `abc.azureedge.net`             |
+| Indirizzi IP pubblici       | microsoft.network/publicipaddresses         | Properties. dnsSettings. FQDN                | `abc.EastUs.cloudapp.azure.com` |
+| Gestione traffico di Azure     | microsoft.network/trafficmanagerprofiles    | Properties. dnsConfig. FQDN                  | `abc.trafficmanager.net`        |
+| Istanza di contenitore di Azure  | microsoft.containerinstance/containergroups | Properties. ipAddress. FQDN                  | `abc.EastUs.azurecontainer.io`  |
+| Gestione API di Azure      | microsoft.apimanagement/service             | Properties. hostnameConfigurations. hostName | `abc.azure-api.net`             |
+| Servizio app di Azure         | microsoft.web/sites                         | Properties. defaultHostName                 | `abc.azurewebsites.net`         |
+| Servizio app Azure-slot | microsoft.web/sites/slots                   | Properties. defaultHostName                 | `abc-def.azurewebsites.net`     |
+
+
+
+### <a name="prerequisites"></a>Prerequisiti
+
+Eseguire la query come utente che ha:
+
+- almeno l'accesso a livello di lettore alle sottoscrizioni di Azure
+- accesso in lettura al grafico delle risorse di Azure
+
+Se si è un amministratore globale del tenant dell'organizzazione, elevare il proprio account per accedere a tutte le sottoscrizioni dell'organizzazione usando le linee guida disponibili in [elevare l'accesso per gestire tutti i gruppi di gestione e le sottoscrizioni di Azure](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin).
+
+
+> [!TIP]
+> Azure Resource Graph presenta limiti di limitazione e paging da considerare se si dispone di un ambiente di Azure di grandi dimensioni. [Altre](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) informazioni sull'uso di set di dati di risorse di Azure di grandi dimensioni. 
+> 
+> Lo strumento usa la suddivisione in batch delle sottoscrizioni per evitare queste limitazioni.
+
+### <a name="run-the-script"></a>Eseguire lo script
+
+Esistono due versioni dello script, entrambe hanno gli stessi parametri di input e producono un output simile:
+
+|Script  |Informazioni  |
+|---------|---------|
+|**Get-DanglingDnsRecordsPsCore.ps1**    |La modalità parallela è supportata solo in PowerShell 7 e versioni successive. in caso contrario, verrà eseguita la modalità seriale.|
+|**Get-DanglingDnsRecordsPsDesktop.ps1** |Supportato solo in PowerShell desktop/versione precedente a 6, perché questo script usa [Windows Workflow](https://docs.microsoft.com/dotnet/framework/windows-workflow-foundation/overview).|
+
+Scopri di più e Scarica gli script di PowerShell da GitHub: https://aka.ms/DanglingDNSDomains .
+
+## <a name="remediate-dangling-dns-entries"></a>Correggere le voci DNS in sospeso 
+
+Esaminare le zone DNS e identificare i record CNAME che sono in sospeso o che sono stati rilevati. Se i sottodomini risultano sospesi o sono stati rilevati, rimuovere i sottodomini vulnerabili e attenuare i rischi con i passaggi seguenti:
+
+1. Dalla zona DNS, rimuovere tutti i record CNAME che puntano a FQDN di risorse senza più provisioning.
+
+1. Per consentire il routing del traffico alle risorse nel controllo, effettuare il provisioning di risorse aggiuntive con i nomi di dominio completi specificati nei record CNAME dei sottodomini in sospeso.
+
+1. Esaminare il codice dell'applicazione per i riferimenti a sottodomini specifici e aggiornare eventuali riferimenti a sottodomini non corretti o obsoleti.
+
+1. Verificare se si è verificata una compromissione e agire in base alle procedure di risposta agli eventi imprevisti dell'organizzazione. Suggerimenti e procedure consigliate per l'analisi di questo problema sono disponibili di seguito.
+
+    Se la logica dell'applicazione è tale che i segreti come le credenziali OAuth sono stati inviati al sottodominio in sospeso o che sono state inviate informazioni riservate alla privacy ai sottodomini sospesi, i dati potrebbero essere stati esposti a terze parti.
+
+1. Comprendere il motivo per cui il record CNAME non è stato rimosso dalla zona DNS quando è stato effettuato il deprovisioning della risorsa ed è stata eseguita la procedura per assicurarsi che i record DNS vengano aggiornati in modo appropriato quando le risorse di Azure vengono sottoposte a deprovisioning in futuro.
+
+
+## <a name="prevent-dangling-dns-entries"></a>Impedisci voci DNS in sospeso
 
 Assicurarsi che l'organizzazione abbia implementato i processi per impedire che le voci DNS in sospeso e le acquisizioni di sottodomini risultanti siano una parte essenziale del programma di sicurezza.
 
-Le misure preventive attualmente disponibili sono elencate di seguito.
+Alcuni servizi di Azure offrono funzionalità per semplificare la creazione di misure preventive e sono descritte in dettaglio di seguito. Altri metodi per evitare questo problema devono essere stabiliti tramite le procedure consigliate dell'organizzazione o le procedure operative standard.
 
 
 ### <a name="use-azure-dns-alias-records"></a>Usare i record di alias DNS di Azure
@@ -121,110 +195,6 @@ Spesso gli sviluppatori e i team operativi eseguono processi di pulizia per evit
         - Si è proprietari: confermare che si è proprietari di tutte le risorse a cui sono destinati i sottodomini DNS.
 
     - Mantenere un catalogo di servizi per gli endpoint del nome di dominio completo (FQDN) di Azure e i proprietari dell'applicazione. Per compilare il catalogo di servizi, eseguire lo script di query di Azure Resource Graph seguente. Questo script proietta le informazioni sull'endpoint FQDN delle risorse a cui si ha accesso e le restituisce in un file CSV. Se si ha accesso a tutte le sottoscrizioni per il tenant, lo script prende in considerazione tutte le sottoscrizioni, come illustrato nello script di esempio seguente. Per limitare i risultati a un set specifico di sottoscrizioni, modificare lo script come illustrato.
-
-        >[!IMPORTANT]
-        > **Autorizzazioni** : eseguire la query come un utente che ha accesso a tutte le sottoscrizioni di Azure. 
-        >
-        > **Limitazioni** : il grafico delle risorse di Azure presenta limiti di limitazione e paging da considerare se si dispone di un ambiente di Azure di grandi dimensioni. [Altre](https://docs.microsoft.com/azure/governance/resource-graph/concepts/work-with-data) informazioni sull'uso di set di dati di risorse di Azure di grandi dimensioni. Lo script di esempio seguente utilizza la suddivisione in batch delle sottoscrizioni per evitare queste limitazioni.
-
-        ```powershell
-        
-            # Fetch the full array of subscription IDs.
-            $subscriptions = Get-AzSubscription
-
-            $subscriptionIds = $subscriptions.Id
-                    # Output file path and names
-                    $date = get-date
-                    $fdate = $date.ToString("MM-dd-yyy hh_mm_ss tt")
-                    $fdate #log to console
-                    $rpath = [Environment]::GetFolderPath("MyDocuments") + '\' # Feel free to update your path.
-                    $rname = 'Tenant_FQDN_Report_' + $fdate + '.csv' # Feel free to update the document name.
-                    $fpath = $rpath + $rname
-                    $fpath #This is the output file of FQDN report.
-
-            # queries
-            $allTypesFqdnsQuery = "where type in ('microsoft.network/frontdoors',
-                                    'microsoft.storage/storageaccounts',
-                                    'microsoft.cdn/profiles/endpoints',
-                                    'microsoft.network/publicipaddresses',
-                                    'microsoft.network/trafficmanagerprofiles',
-                                    'microsoft.containerinstance/containergroups',
-                                    'microsoft.web/sites',
-                                    'microsoft.web/sites/slots')
-                        | extend FQDN = case(
-                            type =~ 'microsoft.network/frontdoors', properties['cName'],
-                            type =~ 'microsoft.storage/storageaccounts', parse_url(tostring(properties['primaryEndpoints']['blob'])).Host,
-                            type =~ 'microsoft.cdn/profiles/endpoints', properties['hostName'],
-                            type =~ 'microsoft.network/publicipaddresses', properties['dnsSettings']['fqdn'],
-                            type =~ 'microsoft.network/trafficmanagerprofiles', properties['dnsConfig']['fqdn'],
-                            type =~ 'microsoft.containerinstance/containergroups', properties['ipAddress']['fqdn'],
-                            type =~ 'microsoft.web/sites', properties['defaultHostName'],
-                            type =~ 'microsoft.web/sites/slots', properties['defaultHostName'],
-                            '')
-                        | project id, type, name, FQDN
-                        | where isnotempty(FQDN)";
-
-            $apiManagementFqdnsQuery = "where type =~ 'microsoft.apimanagement/service'
-                        | project id, type, name,
-                            gatewayUrl=parse_url(tostring(properties['gatewayUrl'])).Host,
-                            portalUrl =parse_url(tostring(properties['portalUrl'])).Host,
-                            developerPortalUrl = parse_url(tostring(properties['developerPortalUrl'])).Host,
-                            managementApiUrl = parse_url(tostring(properties['managementApiUrl'])).Host,
-                            gatewayRegionalUrl = parse_url(tostring(properties['gatewayRegionalUrl'])).Host,
-                            scmUrl = parse_url(tostring(properties['scmUrl'])).Host,
-                            additionaLocs = properties['additionalLocations']
-                        | mvexpand additionaLocs
-                        | extend additionalPropRegionalUrl = tostring(parse_url(tostring(additionaLocs['gatewayRegionalUrl'])).Host)
-                        | project id, type, name, FQDN = pack_array(gatewayUrl, portalUrl, developerPortalUrl, managementApiUrl, gatewayRegionalUrl, scmUrl,             
-                            additionalPropRegionalUrl)
-                        | mvexpand FQDN
-                        | where isnotempty(FQDN)";
-
-            $queries = @($allTypesFqdnsQuery, $apiManagementFqdnsQuery);
-
-            # Paging helper cursor
-            $Skip = 0;
-            $First = 1000;
-
-            # If you have large number of subscriptions, process them in batches of 2,000.
-            $counter = [PSCustomObject] @{ Value = 0 }
-            $batchSize = 2000
-            $response = @()
-
-            # Group the subscriptions into batches.
-            $subscriptionsBatch = $subscriptionIds | Group -Property { [math]::Floor($counter.Value++ / $batchSize) }
-
-            foreach($query in $queries)
-            {
-                # Run the query for each subscription batch with paging.
-                foreach ($batch in $subscriptionsBatch)
-                { 
-                    $Skip = 0; #Reset after each batch.
-
-                    $response += do { Start-Sleep -Milliseconds 500;   if ($Skip -eq 0) {$y = Search-AzGraph -Query $query -First $First -Subscription $batch.Group ; } `
-                    else {$y = Search-AzGraph -Query $query -Skip $Skip -First $First -Subscription $batch.Group } `
-                    $cont = $y.Count -eq $First; $Skip = $Skip + $First; $y; } while ($cont)
-                }
-            }
-
-            # View the completed results of the query on all subscriptions
-            $response | Export-Csv -Path $fpath -Append  
-
-        ```
-
-        Elenco di tipi e relativi `FQDNProperty` valori, come specificato nella query del grafico di risorse precedente:
-
-        |Nome risorsa  | `<ResourceType>`  | `<FQDNproperty>`  |
-        |---------|---------|---------|
-        |Frontdoor di Azure|microsoft.network/frontdoors|Properties. cName|
-        |Archiviazione BLOB di Azure|microsoft.storage/storageaccounts|Properties. primari. blob|
-        |Rete CDN di Azure|microsoft.cdn/profiles/endpoints|Properties. hostName|
-        |Indirizzi IP pubblici|microsoft.network/publicipaddresses|Properties. dnsSettings. FQDN|
-        |Gestione traffico di Azure|microsoft.network/trafficmanagerprofiles|Properties. dnsConfig. FQDN|
-        |Istanza di contenitore di Azure|microsoft.containerinstance/containergroups|Properties. ipAddress. FQDN|
-        |Gestione API di Azure|microsoft.apimanagement/service|Properties. hostnameConfigurations. hostName|
-        |Servizio app di Azure|microsoft.web/sites|Properties. defaultHostName|
-        |Servizio app Azure-slot|microsoft.web/sites/slots|Properties. defaultHostName|
 
 
 - **Creare procedure per la correzione:**

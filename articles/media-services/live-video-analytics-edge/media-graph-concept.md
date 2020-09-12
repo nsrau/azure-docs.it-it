@@ -3,12 +3,12 @@ title: Concetto di grafico multimediale-Azure
 description: Un grafico multimediale consente di definire la posizione in cui devono essere acquisiti i supporti, la modalità di elaborazione e la posizione in cui devono essere recapitati i risultati. Questo articolo fornisce una descrizione dettagliata del concetto di grafico multimediale.
 ms.topic: conceptual
 ms.date: 05/01/2020
-ms.openlocfilehash: 6be741ee38cc8f1980fe9aa96883f9aacc1be8e2
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 1e280d6fe8303a85bee41adf83ac54e7c96df304
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89048424"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567937"
 ---
 # <a name="media-graph"></a>Grafico multimediale
 
@@ -21,7 +21,8 @@ ms.locfileid: "89048424"
 
 Un grafico multimediale consente di definire la posizione in cui devono essere acquisiti i supporti, la modalità di elaborazione e la posizione in cui devono essere recapitati i risultati. A tale scopo, è necessario connettere componenti, o nodi, nel modo desiderato. Il diagramma seguente fornisce una rappresentazione grafica di un grafico multimediale.  
 
-![Rappresentazione grafica di un grafico multimediale](./media/media-graph/overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph/media-graph.svg" alt-text="Grafo multimediale":::
 
 Analisi video in tempo reale su IoT Edge supporta diversi tipi di origini, processori e sink.
 
@@ -39,7 +40,8 @@ I valori per i parametri nella topologia vengono specificati quando si creano is
 
 Nel diagramma di stato seguente viene illustrato il ciclo di vita delle topologie Graph e delle istanze Graph.
 
-![Ciclo di vita delle istanze Graph e Graph](./media/media-graph/graph-topology-lifecycle.svg)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph/graph-topology-lifecycle.svg" alt-text="Ciclo di vita delle istanze Graph e Graph":::
 
 Si inizia con [la creazione di una topologia Graph](direct-methods.md#graphtopologyset). Quindi, per ogni feed video attivo che si desidera elaborare con questa topologia, si [Crea un'istanza di Graph](direct-methods.md#graphinstanceset). 
 
@@ -88,11 +90,11 @@ Il nodo processore filtro frequenza frame consente di campionare i frame dal flu
 
 #### <a name="http-extension-processor"></a>Processore di estensione HTTP
 
-Il nodo processore di estensione HTTP consente di connettere il proprio modulo di IoT Edge a un grafico multimediale. Questo nodo accetta i fotogrammi video decodificati come input e inoltra tali frame a un endpoint HTTP REST esposto dal modulo. Questo nodo è in grado di eseguire l'autenticazione con l'endpoint REST, se necessario. Inoltre, il nodo dispone di un formattatore di immagine incorporato per la scalabilità e la codifica dei fotogrammi video prima che vengano inoltrati all'endpoint REST. Scaler dispone di opzioni per le proporzioni dell'immagine da mantenere, imbottire o allungare. Il codificatore di immagini supporta formati JPEG, PNG o BMP.
+Il nodo processore di estensione HTTP consente di connettere il proprio modulo di IoT Edge a un grafico multimediale. Questo nodo accetta i fotogrammi video decodificati come input e inoltra tali frame a un endpoint HTTP REST esposto dal modulo. Questo nodo è in grado di eseguire l'autenticazione con l'endpoint REST, se necessario. Inoltre, il nodo dispone di un formattatore di immagine incorporato per la scalabilità e la codifica dei fotogrammi video prima che vengano inoltrati all'endpoint REST. Scaler dispone di opzioni per le proporzioni dell'immagine da mantenere, imbottire o allungare. Il codificatore di immagini supporta formati JPEG, PNG o BMP. Altre informazioni sul processore sono disponibili [qui](media-graph-extension-concept.md#http-extension-processor).
 
-#### <a name="grpc-extension-processor"></a>processore di estensione gRPC
+#### <a name="grpc-extension-processor"></a>Processore di estensione gRPC
 
-Il nodo del processore di estensione gRPC accetta i fotogrammi video decodificati come input e inoltra tali frame a un endpoint [gRPC](terminology.md#grpc) esposto dal modulo. Inoltre, il nodo dispone di un formattatore di immagine incorporato per la scalabilità e la codifica dei fotogrammi video prima che vengano inoltrati all'endpoint gRPC. Scaler dispone di opzioni per le proporzioni dell'immagine da mantenere, imbottire o allungare. Il codificatore di immagini supporta formati JPEG, PNG o BMP.
+Il nodo del processore di estensione gRPC accetta i fotogrammi video decodificati come input e inoltra tali frame a un endpoint [gRPC](terminology.md#grpc) esposto dal modulo. Il nodo supporta il trasferimento dei dati mediante la [memoria condivisa](https://en.wikipedia.org/wiki/Shared_memory) o l'incorporamento diretto del contenuto nel corpo dei messaggi gRPC. Inoltre, il nodo dispone di un formattatore di immagine incorporato per la scalabilità e la codifica dei fotogrammi video prima che vengano inoltrati all'endpoint gRPC. Scaler dispone di opzioni per le proporzioni dell'immagine da mantenere, imbottire o allungare. Il codificatore di immagini supporta formati JPEG, PNG o BMP. Altre informazioni sul processore sono disponibili [qui](media-graph-extension-concept.md#grpc-extension-processor).
 
 #### <a name="signal-gate-processor"></a>Processore Gate Signal  
 

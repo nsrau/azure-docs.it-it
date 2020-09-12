@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: damaerte
-ms.openlocfilehash: 766245dcfe42c16106df6beed938fe2f04af05cc
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: f824bddf833a1e2c01a3b779abc2c5252d8e0547
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87286667"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468658"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Panoramica di Azure Cloud Shell
 
@@ -33,7 +33,7 @@ Azure Cloud Shell è una shell interattiva, autenticata e accessibile tramite br
 
     ![Icona per avviare il Cloud Shell dalla portale di Azure](media/overview/portal-launch-icon.png)
 
-- **Frammenti di codice**: in [docs.Microsoft.com](https://docs.microsoft.com) e [Microsoft Learn](https://docs.microsoft.com/learn/)selezionare il pulsante **prova** che viene visualizzato con l'interfaccia della riga di comando di Azure e i frammenti di codice Azure PowerShell:
+- **Frammenti di codice**: in [docs.Microsoft.com]() e [Microsoft Learn](/learn/)selezionare il pulsante **prova** che viene visualizzato con l'interfaccia della riga di comando di Azure e i frammenti di codice Azure PowerShell:
 
     ```azurecli-interactive
     az account show
@@ -87,8 +87,8 @@ Cloud Shell è uno strumento flessibile che può essere usato da:
 
 * [portal.azure.com](https://portal.azure.com)
 * [shell.azure.com](https://shell.azure.com)
-* [Documentazione dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure)
-* [Documentazione di Azure PowerShell](https://docs.microsoft.com/powershell/azure/)
+* [Documentazione dell'interfaccia della riga di comando di Azure](/cli/azure)
+* [Documentazione di Azure PowerShell](/powershell/azure/)
 * [App per dispositivi mobili di Azure](https://azure.microsoft.com/features/azure-portal/mobile-app/)
 * [Estensione Azure Account per Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
@@ -111,7 +111,7 @@ Per altre informazioni su come montare un [account di archiviazione nuovo o esis
 * Cloud Shell rende permanente $HOME usando un'immagine da 5 GB contenuta nella condivisione file
 * Vengono impostate le autorizzazioni per un normale utente Linux in Bash
 
-Ulteriori informazioni sulle funzionalità in [Bash in Cloud Shell](features.md) e [PowerShell in Cloud Shell](features-powershell.md).
+Ulteriori informazioni sulle funzionalità in [Bash in Cloud Shell](features.md) e [PowerShell in Cloud Shell](./features.md).
 
 ## <a name="pricing"></a>Prezzi
 

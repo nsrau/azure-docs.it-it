@@ -1,6 +1,6 @@
 ---
-title: Rinnovo del certificato per gli utenti di Office 365 e Azure AD. | Documentazione Microsoft
-description: In questo articolo viene illustrato agli utenti di Office 365 come risolvere i problemi con i messaggi e-mail contenenti la notifica sul rinnovo di un certificato.
+title: Rinnovo del certificato per gli utenti di Microsoft 365 e Azure AD | Microsoft Docs
+description: Questo articolo illustra come Microsoft 365 gli utenti come risolvere i problemi relativi ai messaggi di posta elettronica che notificano il rinnovo di un certificato.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,14 +16,14 @@ ms.date: 10/20/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f0c8134cdb72f8bff74fa68dff81fc9d6f1f5ccc
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 78dcd9d020923251439a05316569b559c19057d1
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85830452"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89661453"
 ---
-# <a name="renew-federation-certificates-for-office-365-and-azure-active-directory"></a>Rinnovare i certificati di federazione per Office 365 e Azure Active Directory
+# <a name="renew-federation-certificates-for-microsoft-365-and-azure-active-directory"></a>Rinnovare i certificati di federazione per Microsoft 365 e Azure Active Directory
 ## <a name="overview"></a>Panoramica
 Perché una federazione tra Azure Active Directory (Azure AD) e Active Directory Federation Services (AD FS) riesca, è necessario che i certificati usati da AD FS per la firma dei token di sicurezza in Azure AD corrispondano alle informazioni configurate in Azure AD. Eventuali informazioni non corrispondenti possono comportare l'interruzione del trust. Azure AD assicura che queste informazioni rimangano sincronizzate durante la distribuzione di AD FS e Proxy applicazione Web (per l'accesso Extranet).
 
@@ -34,7 +34,7 @@ Questo articolo fornisce informazioni aggiuntive per gestire i certificati per l
 * Si usa un provider di identità di terze parti.
 
 ## <a name="default-configuration-of-ad-fs-for-token-signing-certificates"></a>Configurazione predefinita di AD FS per i certificati per la firma di token
-I certificati di decrittografia token e per la firma di token sono in genere certificati autofirmati e sono validi per un anno. Per impostazione predefinita, AD FS include un processo di rinnovo automatico denominato **AutoCertificateRollover**. Se si usa AD FS 2.0 o versione successiva, Office 365 e Azure AD aggiornano automaticamente il certificato prima della scadenza.
+I certificati di decrittografia token e per la firma di token sono in genere certificati autofirmati e sono validi per un anno. Per impostazione predefinita, AD FS include un processo di rinnovo automatico denominato **AutoCertificateRollover**. Se si usa AD FS 2,0 o versione successiva, Microsoft 365 e Azure AD aggiornare automaticamente il certificato prima della scadenza.
 
 ### <a name="renewal-notification-from-the-microsoft-365-admin-center-or-an-email"></a>Notifica di rinnovo dall'interfaccia di amministrazione di Microsoft 365 o da un messaggio di posta elettronica
 > [!NOTE]
@@ -104,7 +104,7 @@ Se le identificazioni personali in entrambi gli output corrispondono, i certific
 ### <a name="step-3-check-if-your-certificate-is-about-to-expire"></a>Passaggio 3: Verificare se il certificato sta per scadere
 Nell'output di Get-MsolFederationProperty o Get-AdfsCertificate verificare la data in "Not after". Se mancano meno di 30 giorni alla scadenza, è consigliabile intervenire.
 
-| AutoCertificateRollover | Certificati sincronizzati con Azure AD | I metadati della federazione sono accessibili pubblicamente | Validità | Action |
+| AutoCertificateRollover | Certificati sincronizzati con Azure AD | I metadati della federazione sono accessibili pubblicamente | Validità | Azione |
 |:---:|:---:|:---:|:---:|:---:|
 | Sì |Sì |Sì |- |Non è richiesta alcuna azione. Vedere [Rinnovare automaticamente il certificato per la firma di token](#autorenew). |
 | Sì |No |- |Meno di 15 giorni |Rinnovare immediatamente. Vedere [Rinnovare manualmente il certificato per la firma di token](#manualrenew). |
@@ -135,12 +135,12 @@ Si può scegliere di rinnovare manualmente i certificati per la firma di token. 
 * I certificati per la firma di token non sono certificati autofirmati. Il motivo più comune è che l'organizzazione gestisce i certificati AD FS registrati da un'autorità di certificazione aziendale.
 * La sicurezza di rete non consente la disponibilità pubblica dei metadati della federazione.
 
-In questi scenari, ogni volta che si aggiornano i certificati per la firma di token, è necessario aggiornare anche il dominio di Office 365 con il comando di PowerShell Update-MsolFederatedDomain.
+In questi scenari, ogni volta che si aggiornano i certificati per la firma di token, è necessario aggiornare anche il dominio di Microsoft 365 usando il comando di PowerShell Update-MsolFederatedDomain.
 
 ### <a name="step-1-ensure-that-ad-fs-has-new-token-signing-certificates"></a>Passaggio 1: Verificare che in ADFS siamo disponibili nuovi certificati per la firma di token
 **Configurazione non predefinita**
 
-Se si usa una configurazione non predefinita di AD FS in cui **AutoCertificateRollover** è impostata su **False**, è probabile che siano in uso certificati personalizzati, ovvero non autofirmati. Per altre informazioni sul rinnovo dei certificati per la firma di token di AD FS, vedere [Linee guida per i clienti che non usano certificati autofirmati di AD FS](https://msdn.microsoft.com/library/azure/JJ933264.aspx#BKMK_NotADFSCert).
+Se si usa una configurazione non predefinita di AD FS in cui **AutoCertificateRollover** è impostata su **False**, è probabile che siano in uso certificati personalizzati, ovvero non autofirmati. Per ulteriori informazioni su come rinnovare i certificati per la firma di token AD FS, vedere [requisiti dei certificati per i server federati](/windows-server/identity/ad-fs/design/certificate-requirements-for-federation-servers).
 
 **I metadati della federazione non sono disponibili pubblicamente**
 
@@ -162,8 +162,8 @@ D'altra parte, se **AutoCertificateRollover** è impostata su **True**, ma i met
 
 A questo punto verranno elencati due certificati, uno dei quali ha una data **NotAfter** successiva di circa un anno e il valore **IsPrimary** è **False**.
 
-### <a name="step-2-update-the-new-token-signing-certificates-for-the-office-365-trust"></a>Passaggio 2: Aggiornare i nuovi certificati per la firma di token per il trust di Office 365
-Aggiornare Office 365 con i nuovi certificati per la firma di token da usare per il trust come indicato di seguito.
+### <a name="step-2-update-the-new-token-signing-certificates-for-the-microsoft-365-trust"></a>Passaggio 2: aggiornare i nuovi certificati per la firma di token per l'attendibilità Microsoft 365
+Aggiornare Microsoft 365 con i nuovi certificati per la firma di token da utilizzare per la relazione di trust, come indicato di seguito.
 
 1. Aprire il modulo di Microsoft Azure Active Directory per Windows PowerShell.
 2. Eseguire $cred=Get-Credential. Quando questo cmdlet richiede le credenziali, digitare le credenziali dell'account amministratore servizio cloud.
@@ -188,4 +188,4 @@ Per impostazione predefinita, AD FS è configurato per generare automaticamente 
 
 Azure AD tenta di recuperare un nuovo certificato dai metadati del servizio federativo 30 giorni prima della scadenza del certificato corrente. Se un nuovo certificato non è disponibile in quel momento, Azure AD continuerà a monitorare i metadati ogni giorno a intervalli regolari. Non appena il nuovo certificato è disponibile nei metadati, le impostazioni di federazione del dominio vengono aggiornate con le nuove informazioni del certificato. È possibile usare `Get-MsolDomainFederationSettings` per verificare se il nuovo certificato è presente nel NextSigningCertificate / SigningCertificate.
 
-Per altre informazioni sui certificati per la firma di token in AD FS, vedere [Obtain and Configure Token Signing and Token Decryption Certificates for AD FS](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ts-td-certs-ad-fs) (Ottenere e configurare i certificati per la firma di token e i certificati di decrittografia token per AD FS)
+Per altre informazioni sui certificati per la firma di token in AD FS, vedere [Obtain and Configure Token Signing and Token Decryption Certificates for AD FS](/windows-server/identity/ad-fs/operations/configure-ts-td-certs-ad-fs) (Ottenere e configurare i certificati per la firma di token e i certificati di decrittografia token per AD FS)

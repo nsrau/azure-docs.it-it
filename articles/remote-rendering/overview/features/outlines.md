@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/11/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a3b4ba62072e26f16a0e39416c9ae346d1acefd9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 5dd6d682c9db044763cad64eec420c1974d4ac03
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997524"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613695"
 ---
 # <a name="outline-rendering"></a>Rendering del contorno
 
@@ -29,7 +29,7 @@ La classe `OutlineSettings` include le impostazioni correlate alle proprietà de
 | `PulseRateHz`    | float   | Velocità di oscillazione del contorno al secondo|
 | `PulseIntensity` | float   | Intensità dell'impulso del contorno. Il valore deve essere compreso tra 0,0 (nessun impulso) e 1,0 (impulso completo). L'intensità imposta in modo implicito l'opacità minima del contorno come `MinOpacity = 1.0 - PulseIntensity`. |
 
-![Contorni](./media/outlines.png) Effetto della modifica del parametro `color` da giallo (a sinistra) a magenta (al centro) e di `pulseIntensity` da 0 a 0,8 (a destra).
+![Un oggetto di cui è stato eseguito il rendering tre volte con parametri di struttura diversi ](./media/outlines.png) l'effetto della modifica del `color` parametro da giallo (a sinistra) a Magenta (al centro) e `pulseIntensity` da 0 a 0,8 (destra).
 
 ## <a name="example"></a>Esempio
 
@@ -60,6 +60,11 @@ void SetOutlineParameters(ApiHandle<AzureSession> session)
 ## <a name="performance"></a>Prestazioni
 
 Il rendering del contorno può avere un impatto significativo sulle prestazioni di rendering. Questo impatto varia in base alla relazione spaziale nello spazio dello schermo tra gli oggetti selezionati e quelli non selezionati per un fotogramma specifico.
+
+## <a name="api-documentation"></a>Documentazione dell'API
+
+* [Proprietà C# RemoteManager. OutlineSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.outlinesettings)
+* [C++ RemoteManager:: OutlineSettings ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#outlinesettings)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
