@@ -1,51 +1,64 @@
 ---
-title: Grafici del flusso di dati
-description: Come usare data factory grafici del flusso di dati
+title: Gestione del grafico del flusso di dati di mapping
+description: Come gestire e modificare in modo efficace il grafico del flusso di dati di mapping
 author: kromerm
 ms.author: makromer
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 11/04/2019
-ms.openlocfilehash: 0d357c4c671070a5c5e9d4587e2f90b6628996f4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/02/2020
+ms.openlocfilehash: 0cdad47123d69ca7cee468c5bb0cea3268d73bfe
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81605363"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420112"
 ---
-# <a name="mapping-data-flow-graphs"></a>Mapping dei grafici del flusso di dati
+# <a name="managing-the-mapping-data-flow-graph"></a>Gestione del grafico del flusso di dati di mapping
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-L'area di progettazione flussi di dati di mapping è una superficie di "costruzione" in cui i flussi di dati vengono compilati dall'alto verso il basso e da sinistra verso destra. A ogni trasformazione contrassegnata da un segno più (+) è associata una casella degli strumenti. È possibile concentrarsi sulla logica di business invece di collegare i nodi tramite le estremità in un ambiente DAG in formato libero.
+I flussi di dati di mapping vengono creati utilizzando un'area di progettazione come il grafico del flusso di dati. Nel grafico, la logica di trasformazione viene compilata da sinistra a destra e vengono aggiunti altri flussi di dati dall'alto verso il basso. Per aggiungere una nuova trasformazione, selezionare il segno più in basso a destra di una trasformazione esistente.
 
-Di seguito sono riportati i meccanismi predefiniti per gestire il grafico del flusso di dati.
+![Canvas](media/data-flow/canvas2.png "Canvas")
 
-## <a name="move-nodes"></a>Spostamento di nodi
+Poiché i flussi di dati sono più complessi, utilizzare i meccanismi seguenti per esplorare e gestire in modo efficace il grafico del flusso di dati. 
 
-![Opzioni di trasformazione aggregazione](media/data-flow/agghead.png "Aggregator (intestazione)")
+## <a name="moving-transformations"></a>Trasferimento di trasformazioni
 
-Senza un paradigma di trascinamento della selezione, il modo per "spostare" un nodo di trasformazione consiste nel modificare il flusso in ingresso. Con questa funzionalità si possono invece spostare le trasformazioni nell'area di progettazione modificando il "flusso in ingresso".
+Nei flussi di dati di mapping, un set di logica di trasformazione connessa è noto come **flusso**. Il campo del **flusso in ingresso** determina quale flusso di dati sta inserendo la trasformazione corrente. Ogni trasformazione ha uno o due flussi in ingresso a seconda della funzione e rappresenta un flusso di output. Lo schema di output dei flussi in ingresso determina i metadati della colonna a cui è possibile fare riferimento dalla trasformazione corrente.
 
-## <a name="streams-of-data-inside-of-data-flow"></a>Flussi di dati all'interno del flusso di dati
+![Sposta nodo](media/data-flow/move-nodes.png "Sposta nodo")
 
-In Flusso di dati di Azure Data Factory lo spostamento delle trasformazioni viene rappresentato tramite flussi. Nel riquadro Impostazioni trasformazione verrà visualizzato un campo "flusso in ingresso". Nel campo è indicato il flusso di dati in ingresso destinato a tale trasformazione. È possibile modificare la posizione fisica del nodo della trasformazione nel grafico facendo clic sul nome del flusso in ingresso e selezionando un altro flusso di dati. La trasformazione corrente su tale flusso, insieme a tutte le trasformazioni successive, verranno così spostate nella nuova posizione.
-
-Se si sposta una trasformazione con una o più trasformazioni successive, la nuova posizione nel flusso di dati verrà unita tramite un nuovo ramo.
-
-Se dopo il nodo selezionato non sono presenti trasformazioni successive, nella nuova posizione verrà spostata solo la trasformazione associata a tale nodo.
+Diversamente dall'area di disegno della pipeline, le trasformazioni del flusso di dati non vengono modificate utilizzando un modello di trascinamento della selezione. Per modificare il flusso in ingresso o "spostare" una trasformazione, scegliere un valore diverso dall'elenco a discesa **flusso in ingresso** . Quando si esegue questa operazione, tutte le trasformazioni a valle vengono spostate insieme alla trasformazione modificata. Il grafico verrà aggiornato automaticamente per mostrare il nuovo flusso logico. Se si modifica il flusso in ingresso in una trasformazione che dispone già di una trasformazione a valle, verrà creato un nuovo flusso di dati di ramo o parallelo. Altre informazioni sui [nuovi rami nel flusso di dati di mapping](data-flow-new-branch.md).
 
 ## <a name="hide-graph-and-show-graph"></a>Nascondi grafico e Mostra grafico
 
-È presente un pulsante all'estrema destra del riquadro di configurazione inferiore, in cui è possibile espandere il riquadro inferiore fino a schermo intero quando si lavora con le configurazioni di trasformazione. Questo consentirà di usare i pulsanti "indietro" e "Avanti" per spostarsi tra le configurazioni del grafo. Per tornare alla visualizzazione grafico, fare clic sul pulsante giù e tornare alla schermata di divisione.
+Quando si modifica la trasformazione, è possibile espandere il pannello di configurazione in modo che occupi l'intera area di disegno, nascondendo il grafico. Fare clic sulla freccia di espansione verso l'alto posizionata sul lato destro dell'area di disegno.
 
-## <a name="search-graph"></a>Grafico di ricerca
+![Nascondi grafico](media/data-flow/hide-graph.png "Nascondi grafico")
 
-È possibile cercare il grafico con il pulsante Cerca nell'area di progettazione.
+Quando il grafico è nascosto, è possibile spostarsi tra le trasformazioni all'interno di un flusso facendo clic su **Avanti** o su **indietro**. Fare clic sulla freccia di espansione rivolta verso il basso per visualizzare il grafico.
 
-![Ricerca](media/data-flow/search001.png "Grafico di ricerca")
+![Mostra grafico](media/data-flow/show-graph.png "Mostra grafico")
+
+## <a name="searching-for-transformations"></a>Ricerca di trasformazioni
+
+Per trovare rapidamente una trasformazione nel grafico, fare clic sull'icona di **ricerca** sopra l'impostazione dello zoom.
+
+![Ricerca](media/data-flow/search-1.png "Grafico di ricerca")
+
+Per individuare una trasformazione, è possibile eseguire una ricerca in base al nome della trasformazione o alla descrizione.
+
+![Ricerca](media/data-flow/search-2.png "Grafico di ricerca")
+
+## <a name="hide-reference-nodes"></a>Nascondi nodi di riferimento
+
+Se il flusso di dati include le trasformazioni join, Lookup, EXISTS o Union, il flusso di dati Mostra i nodi di riferimento a tutti i flussi in ingresso. Se si desidera ridurre al minimo la quantità di spazio verticale, è possibile ridurre al minimo i nodi di riferimento. A tale scopo, fare clic con il pulsante destro del mouse sull'area di disegno e scegliere **Nascondi nodi di riferimento**.
+
+![Nascondi nodi di riferimento](media/data-flow/hide-reference-nodes.png "Nascondi nodi di riferimento")
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Dopo aver completato la progettazione del flusso di dati, attivare il pulsante debug e testarlo in modalità debug direttamente nella [finestra di progettazione del flusso di dati](concepts-data-flow-debug-mode.md) o nel debug della [pipeline](control-flow-execute-data-flow-activity.md).
+Dopo aver completato la logica del flusso di dati, attivare la [modalità di debug](concepts-data-flow-debug-mode.md) e testarla in un'anteprima dei dati.

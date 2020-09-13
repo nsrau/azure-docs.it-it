@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 08/12/2020
-ms.openlocfilehash: ad3fa9db5a15f68f0538b5de29d9a89858c472e9
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.date: 09/02/2020
+ms.openlocfilehash: b5042eb86f5d534655fd831147a9ab4ebb094e9b
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212056"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89419965"
 ---
 # <a name="mapping-data-flows-in-azure-data-factory"></a>Mapping di flussi di dati in Azure Data Factory
 
@@ -41,7 +41,7 @@ Il mapping di un flusso di dati dispone di un'area di disegno univoca progettata
 
 ### <a name="graph"></a>Grafico
 
-Il grafico mostra il flusso di trasformazione. Mostra la derivazione dei dati di origine durante il flusso in uno o più sink. Per aggiungere una nuova origine, selezionare **Aggiungi origine**. Per aggiungere una nuova trasformazione, selezionare il segno più in basso a destra di una trasformazione esistente.
+Il grafico mostra il flusso di trasformazione. Mostra la derivazione dei dati di origine durante il flusso in uno o più sink. Per aggiungere una nuova origine, selezionare **Aggiungi origine**. Per aggiungere una nuova trasformazione, selezionare il segno più in basso a destra di una trasformazione esistente. Altre informazioni su come [gestire il grafico del flusso di dati](concepts-data-flow-manage-graph.md).
 
 ![Canvas](media/data-flow/canvas2.png "Canvas")
 
@@ -109,7 +109,7 @@ I flussi di dati di mapping sono disponibili nelle aree geografiche seguenti:
 | Australia sud-orientale   | ✓ | ✓ |
 | Brasile meridionale  | ✓ |  |
 | Canada centrale | ✓ |  |
-| Central India | ✓ |   ✓ |
+| India centrale | ✓ |   ✓ |
 | Stati Uniti centrali    | ✓ |   ✓ |
 | Cina orientale |      | ✓ |
 | Cina orientale 2  |   |    |
@@ -155,7 +155,7 @@ I flussi di dati di mapping sono disponibili nelle aree geografiche seguenti:
 | Europa occidentale   | ✓ |   ✓ |
 | India occidentale | | |
 | Stati Uniti occidentali   | ✓ |   |
-| West US 2 | ✓ |   ✓ | 
+| Stati Uniti occidentali 2 | ✓ |   ✓ | 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

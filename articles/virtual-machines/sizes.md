@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 07/21/2020
 ms.author: jushiman
-ms.openlocfilehash: 234156186d045e21cc01cc4b407408f98268c790
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: d9377ba22f1461762e53b1004dfe5f06c2d7b972
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065472"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420218"
 ---
 # <a name="sizes-for-virtual-machines-in-azure"></a>Dimensioni delle macchine virtuali in Azure
 
@@ -28,7 +28,7 @@ Questo articolo descrive le dimensioni e le opzioni disponibili per le macchine 
 | [GPU](sizes-gpu.md) | NC, NCv2, NCv3, NCasT4_v3 (anteprima), ND, NDv2 (anteprima), NV, NVv3, NVv4 | Macchine virtuali specializzate ottimizzate per livelli intensivi di rendering della grafica e modifica di video, nonché per il training e l'inferenza dei modelli (ND) con apprendimento profondo. disponibili con GPU singole o più GPU. |
 | [High Performance Computing (HPC)](sizes-hpc.md) | HB, HBv2, HC, H | Le nostre macchine virtuali con CPU più veloci e potenti, con interfacce di rete ad alta velocità effettiva facoltative (RDMA). |
 
-- Per informazioni sui prezzi delle varie dimensioni, vedere le pagine relative ai prezzi per [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux) o [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows).
+- Per informazioni sui prezzi delle varie dimensioni, vedere le pagine relative ai prezzi per [Linux](https://azure.microsoft.com/pricing/details/virtual-machines/#Linux) o [Windows](https://azure.microsoft.com/pricing/details/virtual-machines/Windows/#Windows).
 - Per la disponibilità delle dimensioni di VM nelle aree di Azure, vedere [Prodotti disponibili in base all'area](https://azure.microsoft.com/regions/services/).
 - Per trovare i limiti generali delle VM di Azure, vedere [Sottoscrizione di Azure e limiti, quote e vincoli dei servizi](../azure-resource-manager/management/azure-subscription-service-limits.md).
 - Per altre informazioni sul modo in cui Azure denomina le proprie macchine virtuali, vedere [convenzioni di denominazione di macchine virtuali di Azure](./vm-naming-conventions.md).
