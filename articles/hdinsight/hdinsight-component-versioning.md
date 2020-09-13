@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017,seoapr2020
 ms.date: 08/13/2020
-ms.openlocfilehash: 5c3586e9ba405cb5a7338b8f7f22858a238b9271
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 15d7b11ed49880a81e52c48a93a72e1491a5b645
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717252"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394330"
 ---
 # <a name="apache-components-and-versions-available-for-azure-hdinsight"></a>Componenti e versioni di Apache disponibili per Azure HDInsight
 
@@ -78,7 +78,7 @@ La tabella seguente elenca le versioni di HDInsight disponibili nel portale di A
 | Versione HDInsight | Sistema operativo della macchina virtuale | Data di rilascio | Data di scadenza del supporto | Data di ritiro | Disponibilità elevata |  Disponibilità nel portale di Azure |
 | --- | --- | --- | --- | --- | --- | --- |
 | HDInsight 4.0 |Ubuntu 16.0.4 LTS |24 settembre 2018 | | |Sì |Sì |
-| HDInsight 3.6 |Ubuntu 16.0.4 LTS |4 aprile 2017      | * 31 giugno 2021 |31 giugno 2021 |Sì |Sì |
+| HDInsight 3.6 |Ubuntu 16.0.4 LTS |4 aprile 2017      | * 30 giugno 2021 |30 giugno 2021 |Sì |Sì |
 
 * Si sta estendendo l'intervallo di tempo del supporto per determinati tipi di cluster HDInsight 3,6
 
@@ -89,7 +89,7 @@ La tabella seguente elenca le versioni di HDInsight disponibili nel portale di A
 | HDInsight 3,6 Spark             | 2.2               | Ritirato il 30 giugno 2020          |                             |
 | HDInsight 3,6 Spark             | 2.1               | Ritirato il 30 giugno 2020          |                             |
 | HDInsight 3,6 Kafka             | 1.1               | 31 dicembre 2020                      | 30 giugno 2021               |
-| HDInsight 3,6 Kafka             | 1.0               | Ritirato il 30 giugno 2020.         |                             |
+| HDInsight 3,6 Kafka             | 1,0               | Ritirato il 30 giugno 2020.         |                             |
 | HDInsight 3,6 HBase             | 1.1               | 31 dicembre 2020                      | 30 giugno 2021               |
 | HDInsight 3,6-query interattiva | 2.1               | 31 dicembre 2020                      | 30 giugno 2021               |
 | HDInsight 3,6 Storm             | 1.1               | 31 dicembre 2020                      | 30 giugno 2021               |

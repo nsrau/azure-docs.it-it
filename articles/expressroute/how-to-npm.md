@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: configurare NPM per i circuiti'
 description: Configurare il monitoraggio di rete basato sul cloud per i circuiti Azure ExpressRoute. Illustra il monitoraggio su peering ExpressRoute privato e peering Microsoft.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/25/2019
-ms.author: cherylmc
-ms.openlocfilehash: 05c21f4f3f0af0de524db75ce9e6feb38d98c24e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 0783675450bb6ddf2de7d012a6870f5e4c90408d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738380"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393679"
 ---
 # <a name="configure-network-performance-monitor-for-expressroute"></a>Configurare Monitoraggio prestazioni rete per ExpressRoute
 
@@ -96,7 +96,7 @@ Creare un'area di lavoro nella sottoscrizione che includa il collegamento delle 
   >
 
 1. Eseguire **Installa** per installare l'agente in ogni server che si vuole usare per il monitoraggio di ExpressRoute. Il server usato per il monitoraggio può essere una macchina virtuale o un server locale e deve avere accesso a Internet. È necessario installare almeno un agente in locale e un agente in ogni segmento di rete che si vuole monitorare in Azure.
-2. Nella pagina di **benvenuto** fare clic su **Avanti**.
+2. Nella pagina **Benvenuti** fare clic su **Avanti**.
 3. Nella pagina **condizioni di licenza** leggere la licenza e **quindi fare clic su Accetto.**
 4. Nella pagina **cartella di destinazione** modificare o salvare la cartella di installazione predefinita e quindi fare clic su **Avanti**.
 5. Nella pagina **Opzioni di installazione dell'agente** è possibile scegliere di connettere l'agente ai log di monitoraggio di Azure o Operations Manager. In alternativa è possibile omettere le scelte se si desidera configurare l'agente in un secondo momento. Dopo aver eseguito le selezioni, fare clic su **Avanti**.

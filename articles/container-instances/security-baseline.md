@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/27/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 87421509326ef8837a9787ed01a70915c7c5aafa
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a26581b61a4b99bd11f48a3d431a1bb85148d66b
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230739"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89393429"
 ---
 # <a name="azure-security-baseline-for-container-instances"></a>Baseline della sicurezza di Azure per le istanze di contenitore
 
@@ -988,7 +988,9 @@ Usare i criteri di Azure per applicare restrizioni al tipo di risorse che è pos
 
 * [Come creare una Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-* [Come fornire l'autenticazione Key Vault con un'identità gestita](../key-vault/general/managed-identity.md)
+* [Come eseguire l'autenticazione a Key Vault](../key-vault/general/authentication.md)
+
+* [Come assegnare un criterio di accesso Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 * [Come usare identità gestite con Istanze di Azure Container](./container-instances-managed-identity.md)
 

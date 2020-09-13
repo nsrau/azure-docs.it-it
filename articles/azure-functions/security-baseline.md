@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 05/04/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 5609df554e78996e50dcc57e200bb1dc1282cfb0
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 21e2b197c31a30ab8a249e2e8e398072a624154c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230501"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394092"
 ---
 # <a name="azure-security-baseline-for-azure-functions"></a>Baseline della sicurezza di Azure per funzioni di Azure
 
@@ -960,7 +960,9 @@ Come creare un ambiente del servizio app interno:
 
 - [Come usare le identità gestite nel servizio app e in Funzioni di Azure](../app-service/overview-managed-identity.md)
 
-- [Come fornire l'autenticazione Key Vault con un'identità gestita](../key-vault/general/managed-identity.md)
+* [Come eseguire l'autenticazione a Key Vault](../key-vault/general/authentication.md)
+
+* [Come assegnare un criterio di accesso Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 - [Usare i riferimenti Key Vault per il servizio app e funzioni di Azure](../app-service/app-service-key-vault-references.md)
 
