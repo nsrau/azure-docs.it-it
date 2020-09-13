@@ -22,7 +22,7 @@ Informazioni di riferimento File di Azure API, pacchetti di librerie, file Leggi
 
 Nella tabella seguente sono elencati i riferimenti e la documentazione di esempio per File di Azure API .NET.
 
-|  Version  | Documentazione di riferimento | Pacchetto | Avvio rapido |
+|  Versione  | Documentazione di riferimento | Pacchetto | Avvio rapido |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [File di Azure libreria client V12 per .NET](/dotnet/api/overview/azure/storage.files.shares-readme) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Azure.Storage.Files/) | &nbsp; |
 | 11. x | [Spazio dei nomi Microsoft. Azure. storage. file](/dotnet/api/microsoft.azure.storage.file) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.File/) | [Sviluppare per File di Azure con .NET](/azure/storage/files/storage-dotnet-how-to-use-files) |
@@ -31,7 +31,7 @@ Nella tabella seguente sono elencati i riferimenti e la documentazione di esempi
 
 La tabella seguente elenca la documentazione di riferimento per le API .NET di gestione archiviazione di Azure.
 
-|  Version  | Documentazione di riferimento | Pacchetto |
+|  Versione  | Documentazione di riferimento | Pacchetto |
 | :-------: | ----------------------- | ------- |
 | 16. x | [Microsoft.Azure.Management.Storage](/dotnet/api/microsoft.azure.management.storage) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/) |
 
@@ -39,7 +39,7 @@ La tabella seguente elenca la documentazione di riferimento per le API .NET di g
 
 La tabella seguente elenca la documentazione di riferimento per le API .NET di spostamento dei dati di archiviazione di Azure.
 
-|  Version  | Documentazione di riferimento | Pacchetto |
+|  Versione  | Documentazione di riferimento | Pacchetto |
 | :-------: | ----------------------- | ------- |
 | 1.x | [Spostamento dati](/dotnet/api/microsoft.azure.storage.datamovement) | [Pacchetto (NuGet)](https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/) |
 
@@ -47,7 +47,7 @@ La tabella seguente elenca la documentazione di riferimento per le API .NET di s
 
 La tabella seguente elenca i riferimenti e la documentazione di esempio per File di Azure API Java.
 
-|  Version  | Documentazione di riferimento | Pacchetto | Avvio rapido |
+|  Versione  | Documentazione di riferimento | Pacchetto | Avvio rapido |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Libreria client di File di Azure per Java](/java/api/overview/azure/storage-file-share-readme) | [Pacchetto (Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-file-share) | &nbsp; |
 | 8. x | [com. Microsoft. Azure. storage. file](/java/api/com.microsoft.azure.storage.file) | [Pacchetto (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-storage) | [Eseguire lo sviluppo per File di Azure con Java](/azure/storage/files/storage-java-how-to-use-file-storage) |
@@ -56,7 +56,7 @@ La tabella seguente elenca i riferimenti e la documentazione di esempio per File
 
 La tabella seguente elenca la documentazione di riferimento per le API Java di gestione archiviazione di Azure.
 
-|  Version  | Documentazione di riferimento | Pacchetto |
+|  Versione  | Documentazione di riferimento | Pacchetto |
 | :-------: | ----------------------- | ------- |
 | 0.9. x | [com. Microsoft. Azure. Management. storage](/java/api/overview/azure/storage/management) | [Pacchetto (Maven)](https://mvnrepository.com/artifact/com.microsoft.azure/azure-svc-mgmt-storage) |
 
@@ -64,7 +64,7 @@ La tabella seguente elenca la documentazione di riferimento per le API Java di g
 
 La tabella seguente elenca i riferimenti e la documentazione di esempio per File di Azure le API Python.
 
-|  Version  | Documentazione di riferimento | Pacchetto | Avvio rapido |
+|  Versione  | Documentazione di riferimento | Pacchetto | Avvio rapido |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Librerie client di archiviazione di Azure V12 per Python](/azure/developer/python/sdk/storage/overview) | [Pacchetto (PyPI)](https://pypi.org/project/azure-storage-file/12.0.0b4/) | [esempi](/python/api/overview/azure/storage-file-share-readme#examples) |
 | 2.x | [Librerie client di archiviazione di Azure V2 per Python](/azure/developer/python/sdk/storage/overview?view=storage-py-v2&preserve-view=true) | [Pacchetto (PyPI)](https://pypi.org/project/azure-storage-file/2.1.0/) | [Eseguire lo sviluppo per File di Azure con Python](/azure/storage/files/storage-python-how-to-use-file-storage) |
@@ -73,7 +73,7 @@ La tabella seguente elenca i riferimenti e la documentazione di esempio per File
 
 Nella tabella seguente sono elencati i riferimenti e la documentazione di esempio per File di Azure API JavaScript.
 
-|  Version  | Documentazione di riferimento | Pacchetto | Avvio rapido |
+|  Versione  | Documentazione di riferimento | Pacchetto | Avvio rapido |
 | :-------: | ----------------------- | ------- | ---------- |
 | 12.x | [Libreria client di File di Azure per JavaScript](/javascript/api/overview/azure/storage-file-share-readme) | [Pacchetto (npm)](https://www.npmjs.com/package/@azure/storage-file-share) | [esempi](/javascript/api/overview/azure/storage-file-share-readme#examples) |
 | 10.x | [@azure/storage-file](/javascript/api/@azure/storage-file) | [Pacchetto (npm)](https://www.npmjs.com/package/@azure/storage-file) | &nbsp; |
@@ -104,7 +104,7 @@ L'elenco seguente contiene collegamenti a librerie per altri linguaggi di progra
 
 La tabella seguente contiene collegamenti alla versione più recente del contenuto di riferimento.
 
-| Version | Piattaforma |
+| Versione | Piattaforma |
 | ------- | -------- |
 |  4.x  | [PowerShell](/powershell/module/az.storage/?view=azps-4.6.1&preserve-view=true) |
 |  3.x  | [PowerShell](/powershell/module/az.storage/?view=azps-3.8.0&preserve-view=true) |

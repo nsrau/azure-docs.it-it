@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 09664de9ab2040ad04127ee1556c21244ac6bc2d
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 62628e4b85af96fd9c9ba4174d22d3f1f7c6540a
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269676"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006024"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -130,7 +130,7 @@ gli utenti con questo ruolo possono abilitare, disabilitare ed eliminare disposi
 
 ### <a name="compliance-administrator"></a>[Amministratore di conformità](#compliance-administrator-permissions)
 
-gli utenti con questo ruolo hanno le autorizzazioni necessarie per gestire le funzionalità relative alla conformità nel Centro conformità Microsoft 365, nell'interfaccia di amministrazione di Microsoft 365, in Azure e nel Centro sicurezza e conformità di Office 365. Gli assegnatari possono anche gestire tutte le funzionalità all'interno dell'interfaccia di amministrazione di Exchange e nelle interfacce di amministrazione di Teams e Skype for Business, nonché creare ticket di supporto per Azure e Microsoft 365. Per altre informazioni, vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+gli utenti con questo ruolo hanno le autorizzazioni necessarie per gestire le funzionalità relative alla conformità nel Centro conformità Microsoft 365, nell'interfaccia di amministrazione di Microsoft 365, in Azure e nel Centro sicurezza e conformità di Office 365. Gli assegnatari possono anche gestire tutte le funzionalità all'interno dell'interfaccia di amministrazione di Exchange e nelle interfacce di amministrazione di Teams e Skype for Business, nonché creare ticket di supporto per Azure e Microsoft 365. Per altre informazioni, vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d). [Questa documentazione](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center?view=o365-worldwide#permissions-needed-to-use-features-in-the-security--compliance-center) contiene informazioni dettagliate sulle differenze tra l'amministratore della conformità e l'amministratore dei dati di conformità. 
 
 In ingresso | Operazione consentita
 ----- | ----------
@@ -142,7 +142,7 @@ In ingresso | Operazione consentita
 
 ### <a name="compliance-data-administrator"></a>[Amministratore dei dati sulla conformità](#compliance-data-administrator-permissions)
 
-Gli utenti con questo ruolo hanno le autorizzazioni per tenere traccia dei dati nel Centro conformità Microsoft 365, nell'interfaccia di amministrazione di Microsoft 365 e in Azure. Gli utenti possono anche tenere traccia dei dati di conformità all'interno dell'interfaccia di amministrazione di Exchange, in Compliance Manager, nell'interfaccia di amministrazione di Teams e Skype for Business, nonché creare ticket di supporto per Azure e Microsoft 365.
+Gli utenti con questo ruolo hanno le autorizzazioni per tenere traccia dei dati nel Centro conformità Microsoft 365, nell'interfaccia di amministrazione di Microsoft 365 e in Azure. Gli utenti possono anche tenere traccia dei dati di conformità all'interno dell'interfaccia di amministrazione di Exchange, in Compliance Manager, nell'interfaccia di amministrazione di Teams e Skype for Business, nonché creare ticket di supporto per Azure e Microsoft 365. [Questa documentazione](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center?view=o365-worldwide#permissions-needed-to-use-features-in-the-security--compliance-center) contiene informazioni dettagliate sulle differenze tra l'amministratore della conformità e l'amministratore dei dati di conformità.
 
 In ingresso | Operazione consentita
 ----- | ----------
@@ -483,6 +483,10 @@ gli utenti con questo ruolo possono risolvere i problemi di comunicazione all'in
 
 gli utenti con questo ruolo possono risolvere i problemi di comunicazione all'interno di Microsoft Teams e Skype for Business tramite gli strumenti di risoluzione dei problemi relativi alle chiamate utente nell'interfaccia di amministrazione di Microsoft Teams e Skype for Business. Gli utenti con questo ruolo possono visualizzare i dettagli dell'utente nella chiamata per l'utente specifico cercato. Questo ruolo non ha accesso alle funzionalità per visualizzare, creare o gestire i ticket di supporto.
 
+### <a name="teams-devices-administrator"></a>[Amministratore dispositivi Teams](#teams-devices-administrator-permissions)
+
+Gli utenti con questo ruolo possono gestire i [dispositivi certificati](https://www.microsoft.com/microsoft-365/microsoft-teams/across-devices/devices) dai team dal centro di amministrazione dei team. Questo ruolo consente di visualizzare tutti i dispositivi a colpo d'occhio, con la possibilità di cercare e filtrare i dispositivi. L'utente può controllare i dettagli di ogni dispositivo, tra cui account di accesso, marca e modello del dispositivo. L'utente può modificare le impostazioni del dispositivo e aggiornare le versioni del software. Questo ruolo non concede le autorizzazioni per controllare l'attività dei team e la qualità della chiamata del dispositivo. 
+
 ### <a name="teams-service-administrator"></a>[Amministratore del servizio Teams](#teams-service-administrator-permissions)
 
 gli utenti in questo ruolo possono gestire tutti gli aspetti del carico di lavoro Microsoft Teams tramite l'interfaccia di amministrazione di Microsoft Teams e Skype for Business e i rispettivi moduli di PowerShell. Sono inclusi, tra le altre aree, tutti gli strumenti di gestione correlati a telefonia, messaggistica, riunioni e i team stessi. Questo ruolo concede inoltre la possibilità di creare e gestire tutti i gruppi di Microsoft 365, gestire i ticket di supporto e monitorare l'integrità dei servizi.
@@ -560,7 +564,7 @@ Può creare e gestire tutti gli aspetti delle registrazioni di app e delle app a
 | microsoft.directory/servicePrincipals/policies/update | Aggiornare la proprietà servicePrincipals.policies in Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Leggere tutte le proprietà (incluse quelle con privilegi) per signInReports in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 
@@ -584,7 +588,7 @@ Può creare registrazioni di applicazioni indipendentemente dall'impostazione 'G
 | microsoft.directory/users/invalidateAllRefreshTokens | Invalidare tutti i token di aggiornamento utente in Azure Active Directory. |
 | microsoft.directory/users/strongAuthentication/update | Aggiornare le proprietà dell'autenticazione avanzata, ad esempio le informazioni sulle credenziali MFA. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
@@ -616,7 +620,7 @@ Può gestire tutti gli aspetti del servizio Azure Information Protection.
 | --- | --- |
 | microsoft.azure.informationProtection/allEntities/allTasks | Gestisce tutti gli aspetti di Azure Information Protection. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 
@@ -649,7 +653,7 @@ Può eseguire attività comuni relative alla fatturazione, ad esempio aggiornare
 | --- | --- |
 | microsoft.directory/organization/basic/update | Aggiornare le proprietà di base sull'organizzazione in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.commerce.billing/allEntities/allTasks | Gestire tutti gli aspetti della fatturazione. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
@@ -694,7 +698,7 @@ Può creare e gestire tutti gli aspetti delle registrazioni di app e delle app a
 | microsoft.directory/servicePrincipals/policies/update | Aggiornare la proprietà servicePrincipals.policies in Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Leggere tutte le proprietà (incluse quelle con privilegi) per signInReports in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 
@@ -762,7 +766,7 @@ Può gestire tutti gli aspetti di Azure AD e dei servizi Microsoft che usano ide
 | microsoft.azure.advancedThreatProtection/allEntities/read | Leggere tutte le risorse in microsoft.azure.advancedThreatProtection. |
 | microsoft.azure.informationProtection/allEntities/allTasks | Gestisce tutti gli aspetti di Azure Information Protection. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.commerce.billing/allEntities/allTasks | Gestire tutti gli aspetti della fatturazione. |
 | microsoft.intune/allEntities/allTasks | Gestire tutti gli aspetti di Intune. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Gestire tutti gli aspetti di Office 365 Compliance Manager |
@@ -795,7 +799,7 @@ Può eseguire la lettura e gestire i report e la configurazione di conformità i
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Gestire tutti gli aspetti di Office 365 Compliance Manager |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
@@ -815,7 +819,7 @@ Creare e gestire i contenuti relativi alla conformità.
 | Microsoft. Directory. cloudAppSecurity/allEntities/allTasks | Leggere e configurare Microsoft Cloud App Security. |
 | microsoft.azure.informationProtection/allEntities/allTasks | Gestisce tutti gli aspetti di Azure Information Protection. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Gestire tutti gli aspetti di Office 365 Compliance Manager |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
@@ -848,7 +852,7 @@ Può gestire tutti gli aspetti del prodotto Dynamics 365.
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.powerApps.dynamics365/allEntities/allTasks | Gestire tutti gli aspetti di Dynamics 365. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
@@ -880,7 +884,7 @@ Può gestire Desktop Analytics, il Servizio criteri e lo Strumento di personaliz
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 | microsoft.office365.desktopAnalytics/allEntities/allTasks | Gestire tutti gli aspetti di Desktop Analytics. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
@@ -1031,7 +1035,7 @@ Può gestire tutti gli aspetti del prodotto Exchange.
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.directory/groups/unified/appRoleAssignments/update | Aggiornare la proprietà groups.unified in Azure Active Directory. |
 | microsoft.directory/groups/unified/basic/update | Aggiorna le proprietà di base dei gruppi di Microsoft 365. |
 | microsoft.directory/groups/unified/create | Creare gruppi di Microsoft 365. |
@@ -1156,7 +1160,7 @@ Può gestire tutti gli aspetti dei gruppi e delle impostazioni dei gruppi, ad es
 | microsoft.directory/groups/restore | Ripristinare gruppi in Azure Active Directory. |
 | microsoft.directory/groups/settings/update | Aggiornare la proprietà groups.settings in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.messageCenter/messages/read | Leggere i messaggi in microsoft.office365.messageCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
@@ -1187,7 +1191,7 @@ Può reimpostare le password per gli utenti non amministratori e gli amministrat
 | microsoft.directory/users/invalidateAllRefreshTokens | Invalidare tutti i token di aggiornamento utente in Azure Active Directory. |
 | microsoft.directory/users/password/update | Aggiornare le password per tutti gli utenti in Azure Active Directory. Per informazioni dettagliate, vedere la documentazione online. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
@@ -1199,7 +1203,7 @@ Abilitare, distribuire, configurare, gestire, monitorare e risolvere i problemi 
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.directory/applications/audience/update  | Aggiornare la proprietà applications.audience in Azure Active Directory. |
 | microsoft.directory/applications/authentication/update | Aggiornare la proprietà applications.authentication in Azure Active Directory.  |
 | microsoft.directory/applications/basic/update | Aggiornare le proprietà di base per le applicazioni in Azure Active Directory. |
@@ -1242,7 +1246,7 @@ Ha accesso sdministrative nell'app M365 Insights.
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | Microsoft. Insights/allEntities/allTasks | Gestire tutti gli aspetti delle informazioni dettagliate. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
@@ -1290,7 +1294,7 @@ Può gestire tutti gli aspetti del prodotto Intune.
 | microsoft.directory/users/appRoleAssignments/update | Aggiornare la proprietà users.appRoleAssignments in Azure Active Directory. |
 | microsoft.directory/users/basic/update | Aggiornare le proprietà di base su utenti in Azure Active Directory. |
 | microsoft.directory/users/manager/update | Aggiornare la proprietà users.manager in Azure Active Directory. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.intune/allEntities/allTasks | Gestire tutti gli aspetti di Intune. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
@@ -1334,7 +1338,7 @@ Può gestire tutti gli aspetti del prodotto Skype for Business.
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
 | microsoft.office365.skypeForBusiness/allEntities/allTasks | Gestire tutti gli aspetti di Skype for Business Online. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
@@ -1410,7 +1414,7 @@ Può gestire servizi cloud per app di Office, inclusa la gestione di criteri e i
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.messageCenter/messages/read | Leggere i messaggi in microsoft.office365.messageCenter. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
@@ -1445,7 +1449,7 @@ Non usare: non destinato all'uso generale.
 | microsoft.directory/users/restore | Ripristinare gli utenti eliminati in Azure Active Directory. |
 | microsoft.directory/users/userPrincipalName/update | Aggiornare la proprietà users.userPrincipalName in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
@@ -1480,7 +1484,7 @@ Non usare: non destinato all'uso generale.
 | microsoft.directory/users/restore | Ripristinare gli utenti eliminati in Azure Active Directory. |
 | microsoft.directory/users/userPrincipalName/update | Aggiornare la proprietà users.userPrincipalName in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
@@ -1505,7 +1509,7 @@ Può gestire tutti gli aspetti del prodotto Power BI.
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.powerApps.powerBI/allEntities/allTasks | Gestire tutti gli aspetti di Power BI. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
@@ -1523,7 +1527,7 @@ Può creare e gestire tutti gli aspetti di Microsoft Dynamics 365, PowerApps e M
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.dynamics365/allEntities/allTasks | Gestire tutti gli aspetti di Dynamics 365. |
 | microsoft.flow/allEntities/allTasks | Gestire tutti gli aspetti di Microsoft Flow. |
 | microsoft.powerApps/allEntities/allTasks | Gestire tutti gli aspetti di PowerApps. |
@@ -1568,7 +1572,7 @@ Può registrare e annullare la registrazione delle stampanti e aggiornare lo sta
 | microsoft.directory/users/invalidateAllRefreshTokens | Invalidare tutti i token di aggiornamento utente in Azure Active Directory. |
 | microsoft.directory/users/strongAuthentication/update | Aggiornare le proprietà dell'autenticazione avanzata, ad esempio le informazioni sulle credenziali MFA. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
@@ -1654,7 +1658,7 @@ Può leggere i report e le informazioni di sicurezza e gestire la configurazione
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.directory/applications/policies/update | Aggiornare la proprietà applications.policies in Azure Active Directory. |
 | microsoft.directory/auditLogs/allProperties/read | Leggere tutte le proprietà (incluse quelle con privilegi) per auditLogs in Azure Active Directory. |
 | microsoft.directory/devices/bitLockerRecoveryKeys/read | Leggere la proprietà devices.bitLockerRecoveryKeys in Azure Active Directory. |
@@ -1686,6 +1690,7 @@ Creare e gestire gli eventi di sicurezza.
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.azure.advancedThreatProtection/allEntities/read | Leggere e configurare Azure AD Advanced Threat Protection. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | Microsoft. directory/cloudAppSecurity/allProperties/allTasks | Leggere e configurare Microsoft Cloud App Security. |
 | Microsoft. directory/identityProtection/allProperties/Read | Eseguire la lettura di tutte le risorse in microsoft.aad.identityProtection. |
 | Microsoft. directory/privilegedIdentityManagement/allProperties/Read | Eseguire tutte le risorse in microsoft.aad.privilegedIdentityManagement. |
@@ -1728,7 +1733,7 @@ Può eseguire la lettura delle informazioni di integrità dei servizi e gestire 
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
@@ -1745,7 +1750,7 @@ Può gestire tutti gli aspetti del servizio SharePoint.
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.directory/groups/unified/appRoleAssignments/update | Aggiornare la proprietà groups.unified in Azure Active Directory. |
 | microsoft.directory/groups/unified/basic/update | Aggiorna le proprietà di base dei gruppi di Microsoft 365. |
 | microsoft.directory/groups/unified/create | Creare gruppi di Microsoft 365. |
@@ -1771,11 +1776,14 @@ Può gestire le funzionalità per chiamate e riunioni all'interno del servizio M
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 | microsoft.office365.usageReports/allEntities/read | Eseguire la lettura dei report sull'utilizzo di Office 365. |
+| Microsoft. teams/Meetings/allProperties/allTasks | Gestire riunioni, tra cui criteri per la riunione, configurazioni e Bridge di conferenze. |
+| Microsoft. teams/Voice/allProperties/allTasks | Gestire la voce, inclusi i criteri di chiamata e l'inventario e l'assegnazione di numeri di telefono. |
+| Microsoft. teams/callQuality/allProperties/Read | Leggere tutti i dati nel dashboard della qualità della chiamata (CQD). |
 
 ### <a name="teams-communications-support-engineer-permissions"></a>Autorizzazioni per il tecnico di supporto comunicazioni Teams
 
@@ -1791,6 +1799,7 @@ Può risolvere i problemi di comunicazione all'interno di Teams tramite strument
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| Microsoft. teams/callQuality/allProperties/Read | Leggere tutti i dati nel dashboard della qualità della chiamata (CQD). |
 
 ### <a name="teams-communications-support-specialist-permissions"></a>Autorizzazioni per lo specialista di supporto comunicazioni Teams
 
@@ -1806,6 +1815,21 @@ Può risolvere i problemi di comunicazione all'interno di Teams tramite strument
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| Microsoft. teams/callQuality/Basic/Read | Leggere i dati di base nel dashboard della qualità della chiamata (CQD). |
+
+### <a name="teams-devices-administrator-permissions"></a>Autorizzazioni di amministratore per i dispositivi Teams
+
+Consente di eseguire attività correlate alla gestione su dispositivi certificati da team.
+
+> [!NOTE]
+> Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
+>
+>
+
+| **Actions** | **Descrizione** |
+| --- | --- |
+| microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
+| Microsoft. teams/Devices/Basic/Read | Gestire tutti gli aspetti dei dispositivi certificati da team, inclusi i criteri di configurazione. |
 
 ### <a name="teams-service-administrator-permissions"></a>Autorizzazioni per l'amministratore del servizio Teams
 
@@ -1819,7 +1843,7 @@ Può gestire il servizio Microsoft Teams.
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.directory/groups/hiddenMembers/read | Eseguire la lettura della proprietà groups.hiddenMembers in Azure Active Directory. |
 | microsoft.directory/groups/unified/appRoleAssignments/update | Aggiornare la proprietà groups.unified in Azure Active Directory. |
 | microsoft.directory/groups/unified/basic/update | Aggiorna le proprietà di base dei gruppi di Microsoft 365. |
@@ -1832,6 +1856,7 @@ Può gestire il servizio Microsoft Teams.
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 | microsoft.office365.usageReports/allEntities/read | Eseguire la lettura dei report sull'utilizzo di Office 365. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
+| Microsoft. teams/allEntities/allProperties/allTasks | Gestire tutte le risorse nei team. |
 
 ### <a name="user-administrator-permissions"></a>Autorizzazioni per l'amministratore utenti
 Può gestire tutti gli aspetti di utenti e gruppi, inclusa la reimpostazione delle password per gli amministratori con limitazioni.
@@ -1865,7 +1890,7 @@ Può gestire tutti gli aspetti di utenti e gruppi, inclusa la reimpostazione del
 | microsoft.directory/users/restore | Ripristinare gli utenti eliminati in Azure Active Directory. |
 | microsoft.directory/users/userPrincipalName/update | Aggiornare la proprietà users.userPrincipalName in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 | microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
@@ -1940,6 +1965,7 @@ Amministratore del servizio SharePoint | Amministratore di SharePoint | f28a1f50
 Amministratore comunicazioni Teams | Amministratore comunicazioni Teams | baf37b3a-610e-45da-9e62-d9d1e5e8914b
 Tecnico di supporto comunicazioni Teams | Tecnico di supporto comunicazioni Teams | f70938a0-fc10-4177-9e90-2178f8765737
 Specialista di supporto comunicazioni Teams | Specialista di supporto comunicazioni Teams | fcf91098-03e3-41a9-b5ba-6f0ec8188a12
+Amministratore dispositivi Teams | Amministratore dispositivi Teams | 3d762c5a-1b6c-493f-843e-55a3b42923d4
 Amministratore del servizio Teams | Amministratore del servizio Teams | 69091246-20e8-4a56-aa4d-066075b2a7a8
 Utente | Non viene visualizzato perché non può essere usato | a0b1b346-4d3e-4e8b-98f8-753987be4970
 Amministratore account utente | Amministratore utenti | fe930be7-5e62-47db-91af-98c3a49a38b1

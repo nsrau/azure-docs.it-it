@@ -5,14 +5,14 @@ services: iot-hub
 author: jlian
 ms.service: iot-fundamentals
 ms.topic: conceptual
-ms.date: 06/18/2020
+ms.date: 09/01/2020
 ms.author: jlian
-ms.openlocfilehash: 8c52037684215d1672ed813389d0bbace9a03e42
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 08ecb766a1a9bd7ff75bf97647be811577212eb5
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85080622"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90006041"
 ---
 # <a name="tls-support-in-iot-hub"></a>Supporto TLS nell'hub IoT
 
@@ -22,7 +22,7 @@ Le versioni 1.0 e 1.1 di TLS sono considerate legacy e ne è prevista la depreca
 
 ## <a name="tls-12-enforcement-available-in-select-regions"></a>Imposizione di TLS 1,2 disponibile in aree selezionate
 
-Per una maggiore sicurezza, configurare gli hub Internet delle cose in modo da consentire *solo* le connessioni client che usano TLS versione 1,2 e per applicare l'uso di [crittografie consigliate](#recommended-ciphers). Questa funzionalità è supportata solo nelle aree geografiche seguenti:
+Per una maggiore sicurezza, configurare gli hub Internet per consentire *solo* le connessioni client che usano TLS versione 1,2 e per applicare l'uso di pacchetti di [crittografia](#cipher-suites). Questa funzionalità è supportata solo nelle aree geografiche seguenti:
 
 * Stati Uniti orientali
 * Stati Uniti centro-meridionali
@@ -55,23 +55,23 @@ A questo scopo, eseguire il provisioning di un nuovo hub IoT in una delle aree s
 }
 ```
 
-La risorsa dell'hub IoT creata con questa configurazione rifiuterà i client dei dispositivi e dei servizi che tentano di connettersi usando le versioni 1.0 e 1.1 di TLS. Analogamente, l'handshake TLS verrà rifiutato se nel messaggio HELLO del client non è indicata alcuna delle [crittografie consigliate](#recommended-ciphers).
+La risorsa dell'hub IoT creata con questa configurazione rifiuterà i client dei dispositivi e dei servizi che tentano di connettersi usando le versioni 1.0 e 1.1 di TLS. Analogamente, l'handshake TLS verrà rifiutato se il `ClientHello` messaggio non elenca alcuna [crittografia consigliata](#cipher-suites).
 
 > [!NOTE]
-> La proprietà `minTlsVersion` è di sola lettura e non è possibile modificarla in seguito alla creazione della risorsa dell'hub IoT. È pertanto essenziale testare e convalidare anticipatamente e in modo adeguato la compatibilità di *tutti* i dispositivi e i servizi IoT con TLS 1.2 e con le [crittografie consigliate](#recommended-ciphers).
+> La proprietà `minTlsVersion` è di sola lettura e non è possibile modificarla in seguito alla creazione della risorsa dell'hub IoT. È pertanto essenziale testare e convalidare anticipatamente e in modo adeguato la compatibilità di *tutti* i dispositivi e i servizi IoT con TLS 1.2 e con le [crittografie consigliate](#cipher-suites).
 > 
 > Al momento del failover, la proprietà `minTlsVersion` dell'hub IoT rimarrà valida nell'area abbinata in seguito al failover.
 
-## <a name="recommended-ciphers"></a>Crittografie consigliate
+## <a name="cipher-suites"></a>Pacchetti di crittografia
 
-Gli hub IoT configurati per accettare solo TLS 1.2 imporranno anche l'uso delle crittografie consigliate seguenti:
+Gli hub Internet delle cose configurati per accettare solo TLS 1,2 imporrà anche l'uso dei seguenti pacchetti di crittografia consigliati:
 
 * `TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256`
 * `TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384`
 * `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
 * `TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384`
 
-Per gli hub IoT non configurati per l'applicazione di TLS 1.2, quest'ultimo funziona comunque con le crittografie seguenti:
+Per gli hub Internet non configurati per l'imposizione di TLS 1,2, TLS 1,2 funziona comunque con i pacchetti di crittografia seguenti:
 
 * `TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256`
 * `TLS_DHE_RSA_WITH_AES_256_GCM_SHA384`
@@ -85,6 +85,8 @@ Per gli hub IoT non configurati per l'applicazione di TLS 1.2, quest'ultimo funz
 * `TLS_RSA_WITH_AES_256_CBC_SHA`
 * `TLS_RSA_WITH_AES_128_CBC_SHA`
 * `TLS_RSA_WITH_3DES_EDE_CBC_SHA`
+
+Un client può suggerire un elenco di pacchetti di crittografia più elevati da usare durante `ClientHello` . Tuttavia, alcune di esse potrebbero non essere supportate dall'hub Internet (ad esempio, `ECDHE-ECDSA-AES256-GCM-SHA384` ). In questo caso, l'hub Internet tenterà di seguire le preferenze del client, ma alla fine negozierà il pacchetto di crittografia con `ServerHello` .
 
 ## <a name="use-tls-12-in-your-iot-hub-sdks"></a>Usare TLS 1.2 negli SDK dell'hub IoT
 
@@ -102,3 +104,7 @@ Usare i collegamenti seguenti per configurare TLS 1.2 e le crittografie consenti
 ## <a name="use-tls-12-in-your-iot-edge-setup"></a>Usare TLS 1.2 nella configurazione di IoT Edge
 
 È possibile configurare l'uso di TLS 1.2 da parte dei dispositivi IoT Edge durante la comunicazione con l'hub IoT. A tale scopo, vedere la [pagina della documentazione di IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-modules/edgehub-proxy/README.md).
+
+## <a name="device-authentication"></a>Autenticazione del dispositivo
+
+Al termine di un handshake TLS riuscito, l'hub Internet può autenticare un dispositivo usando una chiave simmetrica o un certificato X. 509. Per l'autenticazione basata su certificati, può trattarsi di qualsiasi certificato X. 509, incluso ECC. L'hub Internet per la convalida del certificato viene convalidato in base all'identificazione personale o all'autorità di certificazione (CA) fornita. L'hub Internet delle cose non supporta ancora l'autenticazione reciproca basata su X. 509 (mTLS). Per altre informazioni, vedere [certificati X. 509 supportati](iot-hub-devguide-security.md#supported-x509-certificates).

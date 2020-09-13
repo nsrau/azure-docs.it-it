@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 46d692b81d24b6c5088ffc42644ed1dd7f45b2d2
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: f056b34df0a70374e8bae909f210bfabf107ed4a
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795314"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90005939"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Assegnare etichette di riservatezza ai gruppi di Microsoft 365 in Azure Active Directory
 
@@ -68,7 +68,7 @@ Per applicare le etichette pubblicate ai gruppi, è innanzitutto necessario abil
     Set-AzureADDirectorySetting -Id $Setting.Id -DirectorySetting $Setting
     ```
 
-È tutto. È stata abilitata la funzionalità ed è possibile applicare etichette pubblicate ai gruppi.
+Sarà inoltre necessario sincronizzare le etichette di riservatezza per Azure AD. Per istruzioni, vedere [come abilitare le etichette di riservatezza per i contenitori e sincronizzare le etichette](https://docs.microsoft.com/microsoft-365/compliance/sensitivity-labels-teams-groups-sites?view=o365-worldwide#how-to-enable-sensitivity-labels-for-containers-and-synchronize-labels).
 
 ## <a name="assign-a-label-to-a-new-group-in-azure-portal"></a>Assegnare un'etichetta a un nuovo gruppo in portale di Azure
 
@@ -113,7 +113,8 @@ Dopo aver abilitato questa funzionalità, le classificazioni "classiche" per i g
 L'opzione etichetta riservatezza viene visualizzata solo per i gruppi quando vengono soddisfatte tutte le condizioni seguenti:
 
 1. Le etichette vengono pubblicate nel centro di conformità Microsoft 365 per questa organizzazione Azure AD.
-1. La funzionalità è abilitata, EnableMIPLabels è impostato su true in PowerShell.
+1. La funzionalità è abilitata, EnableMIPLabels è impostato su true in dal modulo Azure AD PowerShell.
+1. Le etichette vengono sincronizzate con il Azure AD con il cmdlet Execute-AzureAdLabelSync nel modulo di PowerShell sicurezza & conformità.
 1. Il gruppo è un gruppo di Microsoft 365.
 1. L'organizzazione dispone di una licenza attiva Azure Active Directory Premium P1.
 1. L'utente corrente che ha eseguito l'accesso dispone di privilegi sufficienti per assegnare le etichette. È necessario che l'utente sia un amministratore globale, un amministratore del gruppo o il proprietario del gruppo.
