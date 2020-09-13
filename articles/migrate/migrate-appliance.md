@@ -218,7 +218,7 @@ Ecco i dati dell'applicazione installati raccolti dal dispositivo da ogni macchi
 **Dati** | **Percorso del registro** | **Chiave**
 --- | --- | ---
 Nome dell'applicazione  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\* <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayName
-Version  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
+Versione  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | DisplayVersion 
 Provider  | HKLM: \ Software\Microsoft\Windows\CurrentVersion\Uninstall\*  <br/> HKLM: \ Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\*  | Editore
 
 #### <a name="windows-vm-features-data"></a>Dati delle funzionalità della VM Windows
@@ -240,7 +240,7 @@ Ecco i metadati di SQL Server raccolti dall'appliance dalle macchine virtuali ch
 Nome  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL server\istanza Names\SQL  | installedInstance
 Edizione  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Edizione 
 Service Pack  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | SP
-Version  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Version 
+Versione  | HKLM: \ SOFTWARE\Microsoft\Microsoft SQL Server \\ \<InstanceName> \setup  | Versione 
 
 #### <a name="windows-vm-operating-system-data"></a>Dati del sistema operativo della VM Windows
 
@@ -249,7 +249,7 @@ Ecco i dati del sistema operativo che l'appliance raccoglie ogni macchina virtua
 Data  | classe WMI  | Proprietà della classe WMI
 --- | --- | ---
 Nome  | Win32_operatingsystem  | Sottotitolo
-Version  | Win32_operatingsystem  | Version
+Versione  | Win32_operatingsystem  | Versione
 Architecture  | Win32_operatingsystem  | OSArchitecture
 
 #### <a name="linux-vm-apps-data"></a>Dati delle app VM Linux
@@ -259,7 +259,7 @@ Ecco i dati dell'applicazione installati raccolti dal dispositivo da ogni macchi
 Data  | Comando
 --- | --- 
 Nome | rpm, dpkg-query, snap
-Version | rpm, dpkg-query, snap
+Versione | rpm, dpkg-query, snap
 Provider | rpm, dpkg-query, snap
 
 #### <a name="linux-vm-operating-system-data"></a>Dati del sistema operativo della VM Linux

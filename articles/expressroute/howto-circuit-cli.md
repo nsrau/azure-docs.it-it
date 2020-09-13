@@ -2,18 +2,18 @@
 title: 'Creare e modificare un circuito ExpressRoute: interfaccia della riga di comando di Azure'
 description: Questo articolo descrive le procedure di creazione, provisioning, verifica, aggiornamento, eliminazione e deprovisioning di un circuito ExpressRoute tramite l'interfaccia della riga di comando.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 11/13/2019
-ms.author: cherylmc
+ms.author: duau
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2d8ad6b90f533161835ab12a43865b177c24c14e
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5f3270bbed5042ef89d5818523005dfc31589945
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87503583"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566144"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-cli"></a>Creare e modificare un circuito ExpressRoute tramite l'interfaccia della riga di comando
 
@@ -21,12 +21,12 @@ ms.locfileid: "87503583"
 Questo articolo descrive la procedura di creazione di un circuito di Azure ExpressRoute usando l'interfaccia della riga di comando. Questo articolo descrive anche come controllare lo stato, eseguire l'aggiornamento o effettuare l'eliminazione e il deprovisioning di un circuito. Se si vuole usare un metodo diverso per operare con circuiti ExpressRoute, è possibile selezionare l'articolo appropriato nell'elenco seguente:
 
 > [!div class="op_single_selector"]
-> * [Portale di Azure](expressroute-howto-circuit-portal-resource-manager.md)
+> * [Azure portal](expressroute-howto-circuit-portal-resource-manager.md)
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Interfaccia della riga di comando di Azure](howto-circuit-cli.md)
 > * [Modello di Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
-> * [portale di Azure video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
-> * [PowerShell (versione classica)](expressroute-howto-circuit-classic.md)
+> * [Video - Portale di Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+> * [PowerShell (classic)](expressroute-howto-circuit-classic.md) (PowerShell (classico))
 >
 
 ## <a name="before-you-begin"></a>Prima di iniziare
@@ -142,7 +142,7 @@ L'esempio seguente illustra come creare un circuito ExpressRoute a 200 Mbps tram
 
 Verificare di aver specificato il livello e la famiglia SKU corretti:
 
-* Il livello SKU determina se un circuito ExpressRoute è [locale](expressroute-faqs.md#expressroute-local), standard o [Premium](expressroute-faqs.md#expressroute-premium). È possibile specificare *local*, *standard* o *Premium*.
+* Il livello SKU determina se un circuito ExpressRoute è [locale](expressroute-faqs.md#expressroute-local), standard o [Premium](expressroute-faqs.md#expressroute-premium). È possibile specificare *local*, *standard* o *Premium*. Non è possibile modificare lo SKU da *Standard/Premium* a *local*.
 * La famiglia SKU determina il tipo di fatturazione. È possibile specificare *Metereddata* per un piano dati a consumo e *Unlimiteddata* per un piano dati senza limiti. È possibile modificare il tipo di fatturazione da *Metereddata* a *Unlimiteddata*, ma *non* è possibile eseguire il passaggio *inverso*. Un circuito *locale* è solo *Unlimiteddata* .
 
 
@@ -280,7 +280,7 @@ Collegare quindi una rete virtuale al circuito ExpressRoute. Fare riferimento al
 
 È possibile modificare determinate proprietà di un circuito ExpressRoute senza conseguenze per la connettività. È possibile apportare le modifiche seguenti senza tempi di inattività:
 
-* Abilitare o disabilitare un componente aggiuntivo ExpressRoute Premium per il circuito ExpressRoute.
+* Abilitare o disabilitare un componente aggiuntivo ExpressRoute Premium per il circuito ExpressRoute. La modifica dello SKU da *Standard/Premium* a *local* non è supportata.
 * Aumentare la larghezza di banda del circuito ExpressRoute, a condizione che sulla porta sia disponibile capacità. Il downgrade della larghezza di banda di un circuito non è tuttavia supportato.
 * Modificare il piano di misurazione da Dati a consumo a Dati senza limiti. La modifica del piano di misurazione da Dati senza limiti a Dati a consumo non è tuttavia supportata.
 * È possibile abilitare e disabilitare l'opzione *Consenti operazioni classiche*.

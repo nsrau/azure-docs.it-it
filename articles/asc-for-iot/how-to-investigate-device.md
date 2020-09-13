@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/23/2019
+ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: f333f28dc0e02e8d010f5521f298d0f0b031dbf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ab9b396f72ddd35638519ab69f17e034479e0d5a
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81311041"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504911"
 ---
 # <a name="investigate-a-suspicious-iot-device"></a>Analizzare un dispositivo IoT sospetto
 
@@ -39,7 +39,7 @@ Per impostazione predefinita, il Centro sicurezza di Azure per le cose archivia 
 Per individuare l'area di lavoro Log Analytics per l'archiviazione dei dati:
 
 1. Aprire l'hub IoT.
-1. In **sicurezza**fare clic su **Panoramica**e quindi selezionare **Impostazioni**.
+1. In **sicurezza**selezionare **Impostazioni**, quindi selezionare **raccolta dati**.
 1. Modificare i dettagli di configurazione dell'area di lavoro Log Analytics.
 1. Fare clic su **Salva**.
 

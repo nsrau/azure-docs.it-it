@@ -1,19 +1,19 @@
 ---
 title: Caricamento bulk di dati in Apache Phoenix tramite psql - Azure HDInsight
 description: Usare lo strumento PSQL per caricare i dati di caricamento bulk in tabelle Apache Phoenix in Azure HDInsight
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive
 ms.date: 12/17/2019
-ms.openlocfilehash: c46b15c6744ba9d3f83260ffaac24c4ee1cdd776
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 513d48114d73b2c91ebecf06f9492a6ebf0ba1cf
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079480"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504707"
 ---
 # <a name="bulk-load-data-into-apache-phoenix-using-psql"></a>Caricamento bulk di dati in Apache Phoenix tramite psql
 

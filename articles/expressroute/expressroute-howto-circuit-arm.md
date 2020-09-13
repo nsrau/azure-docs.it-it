@@ -2,17 +2,17 @@
 title: 'Azure ExpressRoute: modificare un circuito: PowerShell'
 description: Creazione, provisioning, verifica, aggiornamento, eliminazione e deprovisioning di un circuito ExpressRoute.
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 01/08/2020
-ms.author: cherylmc
-ms.openlocfilehash: aba29c46a781c8e687c79a197d37758699a9acf5
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.author: duau
+ms.openlocfilehash: e9bf9dbe0f4146101513ab9786b298ac6b43b6a3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984466"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566298"
 ---
 # <a name="create-and-modify-an-expressroute-circuit-using-powershell"></a>Creare e modificare un circuito ExpressRoute mediante PowerShell
 > [!div class="op_single_selector"]
@@ -20,8 +20,8 @@ ms.locfileid: "85984466"
 > * [PowerShell](expressroute-howto-circuit-arm.md)
 > * [Interfaccia della riga di comando di Azure](howto-circuit-cli.md)
 > * [Modello di Azure Resource Manager](expressroute-howto-circuit-resource-manager-template.md)
-> * [portale di Azure video](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
-> * [PowerShell (versione classica)](expressroute-howto-circuit-classic.md)
+> * [Video - Portale di Azure](https://azure.microsoft.com/documentation/videos/azure-expressroute-how-to-create-an-expressroute-circuit)
+> * [PowerShell (classic)](expressroute-howto-circuit-classic.md) (PowerShell (classico))
 >
 
 Questo articolo include informazioni utili per creare un circuito ExpressRoute di Azure usando cmdlet di PowerShell e il modello di distribuzione di Azure Resource Manager. È anche possibile controllare lo stato, aggiornare, eliminare o effettuare il deprovisioning di un circuito.
@@ -73,7 +73,7 @@ New-AzExpressRouteCircuit -Name "ExpressRouteARMCircuit" -ResourceGroupName "Exp
 
 Verificare di aver specificato il livello e la famiglia SKU corretti:
 
-* Il livello SKU determina se un circuito ExpressRoute è [locale](expressroute-faqs.md#expressroute-local), standard o [Premium](expressroute-faqs.md#expressroute-premium). È possibile specificare *local*, *standard* o *Premium*.
+* Il livello SKU determina se un circuito ExpressRoute è [locale](expressroute-faqs.md#expressroute-local), standard o [Premium](expressroute-faqs.md#expressroute-premium). È possibile specificare *local*, *standard* o *Premium*. Non è possibile modificare lo SKU da *Standard/Premium* a *local*.
 * La famiglia SKU determina il tipo di fatturazione. È possibile specificare *Metereddata* per un piano dati a consumo e *Unlimiteddata* per un piano dati senza limiti. È possibile modificare il tipo di fatturazione da *Metereddata* a *Unlimiteddata*, ma *non* è possibile eseguire il passaggio *inverso*. Un circuito *locale* è sempre *Unlimiteddata*.
 
 > [!IMPORTANT]
@@ -306,7 +306,7 @@ get-help Get-AzExpressRouteCircuit -detailed
 
 È possibile eseguire le attività seguenti senza tempi di inattività:
 
-* Abilitare o disabilitare un componente aggiuntivo ExpressRoute Premium per il circuito ExpressRoute.
+* Abilitare o disabilitare un componente aggiuntivo ExpressRoute Premium per il circuito ExpressRoute. La modifica dello SKU da *Standard/Premium* a *local* non è supportata.
 * Aumentare la larghezza di banda del circuito ExpressRoute, a condizione che sulla porta sia disponibile capacità. Il downgrade della larghezza di banda di un circuito non è supportato.
 * Modificare il piano di misurazione da Dati a consumo a Dati senza limiti. La modifica del piano di misurazione da Dati senza limiti a Dati a consumo non è supportata.
 * È possibile abilitare e disabilitare l'opzione *Consenti operazioni classiche*.
@@ -391,8 +391,8 @@ Vedere le istruzioni contenute in [Spostare i circuiti ExpressRoute dal modello 
 Tenere presente quanto segue:
 
 * È necessario scollegare tutte le reti virtuali dal circuito ExpressRoute. Se l'operazione non riesce, controllare se sono presenti reti virtuali collegate al circuito.
-* Se lo stato di provisioning del provider di servizi del circuito ExpressRoute è il **provisioning o il** **provisioning** , è necessario collaborare con il provider di servizi per eseguire il deprovisioning del circuito sul lato. Le risorse continuano a essere riservate e la fatturazione continuerà a essere applicata finché il provider di servizi non avrà completato il deprovisioning del circuito e inviato una notifica a Microsoft.
-* Se il provider di servizi ha eseguito il deprovisioning del circuito (lo stato di provisioning del provider di servizi è impostato su **senza provisioning**), è possibile eliminare il circuito. Viene così interrotta la fatturazione per il circuito.
+* Se lo stato di provisioning del provider del servizio del circuito ExpressRoute è **Provisioning in corso** o **Provisioning eseguito**, è necessario collaborare con il provider di servizi per eseguire il deprovisioning del circuito sul lato del provider. Le risorse continuano a essere riservate e la fatturazione continuerà a essere applicata finché il provider di servizi non avrà completato il deprovisioning del circuito e inviato una notifica a Microsoft.
+* Se il provider di servizi ha eseguito il deprovisioning del circuito, ovvero lo stato di provisioning del provider di servizi è impostato su **Senza provisioning**, è possibile eliminare il circuito. Viene così interrotta la fatturazione per il circuito.
 
 È possibile eliminare un circuito ExpressRoute eseguendo questo comando:
 

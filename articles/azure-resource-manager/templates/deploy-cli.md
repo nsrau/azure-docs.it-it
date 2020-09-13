@@ -2,13 +2,13 @@
 title: Distribuire le risorse con l'interfaccia della riga di comando di Azure
 description: Usare Azure Resource Manager e l'interfaccia della riga di comando di Azure per distribuire le risorse in Azure. Le risorse sono definite in un modello di Resource Manager.
 ms.topic: conceptual
-ms.date: 07/21/2020
-ms.openlocfilehash: da865d3b425da6b5969e540a424b513d9a58bd9a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/08/2020
+ms.openlocfilehash: 7e8ae7e8c568f5f0ebb85f434e33f142b5fe94e8
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87040805"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566161"
 ---
 # <a name="deploy-resources-with-arm-templates-and-azure-cli"></a>Distribuire le risorse con i modelli di Azure Resource Manager e l'interfaccia della riga di comando di Azure
 
@@ -26,13 +26,13 @@ La distribuzione può essere destinata a un gruppo di risorse, una sottoscrizion
 
 A seconda dell'ambito della distribuzione, vengono usati comandi diversi.
 
-* Per eseguire la distribuzione in un **gruppo di risorse**, usare [AZ Deployment Group create](/cli/azure/deployment/group?view=azure-cli-latest#az-deployment-group-create):
+* Per eseguire la distribuzione in un **gruppo di risorse**, usare [AZ Deployment Group create](/cli/azure/deployment/group#az-deployment-group-create):
 
   ```azurecli-interactive
   az deployment group create --resource-group <resource-group-name> --template-file <path-to-template>
   ```
 
-* Per eseguire la distribuzione in una **sottoscrizione**, usare [AZ Deployment Sub create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create):
+* Per eseguire la distribuzione in una **sottoscrizione**, usare [AZ Deployment Sub create](/cli/azure/deployment/sub#az-deployment-sub-create):
 
   ```azurecli-interactive
   az deployment sub create --location <location> --template-file <path-to-template>
@@ -40,7 +40,7 @@ A seconda dell'ambito della distribuzione, vengono usati comandi diversi.
 
   Per altre informazioni sulle distribuzioni a livello di sottoscrizione, vedere [Creare gruppi di risorse e risorse a livello di sottoscrizione](deploy-to-subscription.md).
 
-* Per eseguire la distribuzione in un **gruppo di gestione**, usare [AZ Deployment mg create](/cli/azure/deployment/mg?view=azure-cli-latest#az-deployment-mg-create):
+* Per eseguire la distribuzione in un **gruppo di gestione**, usare [AZ Deployment mg create](/cli/azure/deployment/mg#az-deployment-mg-create):
 
   ```azurecli-interactive
   az deployment mg create --location <location> --template-file <path-to-template>
@@ -48,7 +48,7 @@ A seconda dell'ambito della distribuzione, vengono usati comandi diversi.
 
   Per altre informazioni sulle distribuzioni a livello di gruppo di gestione, vedere [Creare risorse a livello di gruppo di gestione](deploy-to-management-group.md).
 
-* Per eseguire la distribuzione in un **tenant**, usare [AZ Deployment tenant create](/cli/azure/deployment/tenant?view=azure-cli-latest#az-deployment-tenant-create):
+* Per eseguire la distribuzione in un **tenant**, usare [AZ Deployment tenant create](/cli/azure/deployment/tenant#az-deployment-tenant-create):
 
   ```azurecli-interactive
   az deployment tenant create --location <location> --template-file <path-to-template>
@@ -128,6 +128,35 @@ az deployment group create \
 
 L'esempio precedente richiede l'utilizzo di un URI accessibile pubblicamente per il modello, che funziona per la maggior parte degli scenari. Il proprio modello non deve infatti includere dati sensibili. Se è necessario specificare dati riservati, ad esempio una password di amministratore, passare il valore come parametro protetto. Se invece si preferisce che il modello usato non sia accessibile pubblicamente, è possibile proteggerlo archiviandolo in un contenitore di archiviazione privato. Per informazioni sulla distribuzione di un modello che richiede un token di firma di accesso condiviso (SAS), vedere [Distribuire un modello privato con un token di firma di accesso condiviso](secure-template-with-sas-token.md).
 
+## <a name="deploy-template-spec"></a>Distribuire la specifica di modello
+
+Anziché distribuire un modello locale o remoto, è possibile creare una [specifica del modello](template-specs.md). La specifica del modello è una risorsa nella sottoscrizione di Azure che contiene un modello ARM. Consente di condividere in modo sicuro il modello con gli utenti dell'organizzazione. Usare il controllo degli accessi in base al ruolo (RBAC) per concedere l'accesso alla specifica del modello. Questa funzionalità è attualmente disponibile in anteprima.
+
+Gli esempi seguenti illustrano come creare e distribuire una specifica del modello. Questi comandi sono disponibili solo se è stata effettuata [l'iscrizione per l'anteprima](https://aka.ms/templateSpecOnboarding).
+
+Per prima cosa, è necessario creare la specifica del modello fornendo il modello ARM.
+
+```azurecli
+az ts create \
+  --name storageSpec \
+  --version "1.0" \
+  --resource-group templateSpecRG \
+  --location "westus2" \
+  --template-file "./mainTemplate.json"
+```
+
+Ottenere quindi l'ID per la specifica del modello e distribuirlo.
+
+```azurecli
+id = $(az ts show --name storageSpec --resource-group templateSpecRG --version "1.0" --query "id")
+
+az deployment group create \
+  --resource-group demoRG \
+  --template-spec $id
+```
+
+Per altre informazioni, vedere [Azure Resource Manager specifiche del modello (anteprima)](template-specs.md).
+
 ## <a name="preview-changes"></a>Anteprima modifiche
 
 Prima di distribuire il modello, è possibile visualizzare in anteprima le modifiche che il modello apporterà all'ambiente. Usare l' [operazione](template-deploy-what-if.md) di simulazione per verificare che il modello apporti le modifiche previste. Cosa-se anche il modello viene convalidato per gli errori.
@@ -179,6 +208,28 @@ Il formato arrayContent.json è:
     "value2"
 ]
 ```
+
+Per passare un oggetto, ad esempio per impostare i tag, usare JSON. Ad esempio, il modello potrebbe includere un parametro come il seguente:
+
+```json
+    "resourceTags": {
+      "type": "object",
+      "defaultValue": {
+        "Cost Center": "IT Department"
+      }
+    }
+```
+
+In questo caso, è possibile passare una stringa JSON per impostare il parametro come illustrato nello script bash seguente:
+
+```bash
+tags='{"Owner":"Contoso","Cost Center":"2345-324"}'
+az deployment group create --name addstorage  --resource-group myResourceGroup \
+--template-file $templateFile \
+--parameters resourceName=abcdef4556 resourceTags="$tags"
+```
+
+Usare le virgolette doppie intorno al file JSON che si vuole passare all'oggetto.
 
 ### <a name="parameter-files"></a>File dei parametri
 

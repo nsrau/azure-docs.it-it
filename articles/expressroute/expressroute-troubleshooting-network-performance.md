@@ -179,7 +179,7 @@ Configurazione di test:
 
 | ExpressRoute<br/>Location|Azure<br/>Region | Distanza<br/>stimata (km) | Latenza|1 Sessione<br/>Larghezza di banda | Massimo<br/>Larghezza di banda |
 | ------------------------------------------ | --------------------------- |  - | - | - | - |
-| Seattle | West US 2        |    191 km |   5 ms | 262,0 Mbit/sec |  3,74 Gbit/sec |
+| Seattle | Stati Uniti occidentali 2        |    191 km |   5 ms | 262,0 Mbit/sec |  3,74 Gbit/sec |
 | Seattle | Stati Uniti occidentali          |  1.094 km |  18 ms |  82,3 Mbit/sec |  3,70 Gbit/sec |
 | Seattle | Stati Uniti centrali       |  2.357 km |  40 ms |  38,8 Mbit/sec |  2,55 Gbit/sec |
 | Seattle | Stati Uniti centro-meridionali |  2.877 km |  51 ms |  30,6 Mbit/sec |  2,49 Gbit/sec |

@@ -2,18 +2,18 @@
 title: 'ExpressRoute: filtri di route-peering Microsoft: Azure PowerShell'
 description: Questo articolo descrive come configurare i filtri di route per il peering Microsoft con PowerShell.
 services: expressroute
-author: charwen
+author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.author: charwen
+ms.author: duau
 ms.custom: seodec18
-ms.openlocfilehash: f5a294a051350c4b08b34356abcd883b7580164e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c4ca4362f10ea6ed2fa7cc39370fc9b4c764ff3b
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84729303"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566195"
 ---
 # <a name="configure-route-filters-for-microsoft-peering-powershell"></a>Configurare i filtri di route per il peering Microsoft: PowerShell
 > [!div class="op_single_selector"]
@@ -24,7 +24,7 @@ ms.locfileid: "84729303"
 
 I filtri di route rappresentano un modo per usare un subset di servizi supportati tramite il peering Microsoft. I passaggi descritti in questo articolo consentono di configurare e gestire i filtri di route per i circuiti ExpressRoute.
 
-I servizi di Office 365, ad esempio Exchange Online, SharePoint Online e Skype for business, e i servizi pubblici di Azure, ad esempio l'archiviazione e il database SQL, sono accessibili tramite il peering Microsoft. È possibile scegliere i servizi pubblici di Azure in base all'area geografica, ma non è possibile definirli in base al servizio pubblico.
+Microsoft 365 servizi, ad esempio Exchange Online, SharePoint Online e Skype for business, e i servizi pubblici di Azure, ad esempio archiviazione e database SQL, sono accessibili tramite il peering Microsoft. È possibile scegliere i servizi pubblici di Azure in base all'area geografica, ma non è possibile definirli in base al servizio pubblico.
 
 Quando si configura il peering Microsoft in un circuito ExpressRoute e si collega un filtro route, tutti i prefissi selezionati per questi servizi vengono annunciati tramite le sessioni BGP stabilite. A ogni prefisso viene associato un valore di community BGP per identificare il servizio offerto tramite il prefisso. Per un elenco dei valori di community BGP e i servizi a cui sono associati, vedere [community BGP](expressroute-routing.md#bgp).
 
@@ -40,7 +40,7 @@ Quando si configura il peering Microsoft nel circuito ExpressRoute, i router per
 
 Un filtro di route consente di identificare i servizi da usare tramite il peering Microsoft del circuito di ExpressRoute. Si tratta essenzialmente di un elenco di tutti i valori di community BGP consentiti. Dopo aver definito una risorsa filtro di route e averla associata a un circuito ExpressRoute, tutti i prefissi corrispondenti ai valori di community BGP vengono annunciati per la rete.
 
-Per poter associare i filtri di route ai servizi Office 365, è necessario essere autorizzati all'uso dei servizi Office 365 tramite ExpressRoute. Se non si è autorizzati a usare i servizi Office 365 tramite ExpressRoute, l'operazione di associazione dei filtri di route non riesce. Per altre informazioni sul processo di autorizzazione, vedere [Azure ExpressRoute per Office 365](https://support.office.com/article/Azure-ExpressRoute-for-Office-365-6d2534a2-c19c-4a99-be5e-33a0cee5d3bd).
+Per poter associare i filtri di route ai servizi di Microsoft 365, è necessario disporre dell'autorizzazione per l'utilizzo di Microsoft 365 Services tramite ExpressRoute. Se non si è autorizzati a utilizzare i servizi di Microsoft 365 tramite ExpressRoute, l'operazione di collegamento dei filtri di route non riesce. Per ulteriori informazioni sul processo di autorizzazione, vedere [Azure ExpressRoute per Microsoft 365](/microsoft-365/enterprise/azure-expressroute).
 
 > [!IMPORTANT]
 > Il peering Microsoft dei circuiti ExpressRoute che sono stati configurati prima del 1° agosto 2017, avranno tutti i prefissi di servizio pubblicati tramite il peering Microsoft, anche se non sono definiti i filtri di route. Il peering Microsoft dei circuiti ExpressRoute che vengono configurati dopo il 1° agosto 2017 non avrà alcun prefisso annunciato fino a quando non viene associato un filtro di route per il circuito.

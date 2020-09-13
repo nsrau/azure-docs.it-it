@@ -2,13 +2,13 @@
 title: Supporto per lo spostamento per tipo di risorsa
 description: Elenca i tipi di risorse di Azure che possono essere spostati in un nuovo gruppo di risorse o una sottoscrizione.
 ms.topic: conceptual
-ms.date: 07/13/2020
-ms.openlocfilehash: 16197210326d73284a4a83edc7876e4faddded86
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/08/2020
+ms.openlocfilehash: 69fcb271ac94df3faf8e9e37c1ef30a6c0681441
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87079499"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566127"
 ---
 # <a name="move-operation-support-for-resources"></a>Supporto per lo spostamento delle risorse
 
@@ -744,7 +744,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | quotas | No | No |
 > | resourcetypes | No | No |
 > | validatesubscriptionmoveavailability | No | No |
-> | virtualmachines | Sì | No |
+> | virtualmachines | Sì | Sì |
 > | virtualmachines/diagnosticsettings | No | No |
 > | virtualmachines/metricdefinitions | No | No |
 > | virtualmachines/metrics | No | No |
@@ -2789,7 +2789,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | locations/jobagentoperationresults | No | No |
 > | locations/longtermretentionbackupazureasyncoperation | No | No |
 > | locations/longtermretentionbackupoperationresults | No | No |
-> | locations/longtermretentionbackups | No | No |
+> | locations/longtermretentionbackups | Sì | Sì |
 > | locations/longtermretentionmanagedinstancebackupazureasyncoperation | No | No |
 > | locations/longtermretentionmanagedinstancebackupoperationresults | No | No |
 > | locations/longtermretentionmanagedinstancebackups | No | No |
@@ -2872,7 +2872,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | servers/databases/auditingsettings | No | No |
 > | servers/databases/auditrecords | No | No |
 > | servers/databases/automatictuning | No | No |
-> | servers/databases/backuplongtermretentionpolicies | No | No |
+> | servers/databases/backuplongtermretentionpolicies | Sì | Sì |
 > | servers/databases/backupshorttermretentionpolicies | No | No |
 > | servers/databases/connectionpolicies | No | No |
 > | servers/databases/datamaskingpolicies | No | No |

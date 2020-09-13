@@ -3,19 +3,19 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: include
-ms.date: 07/11/2019
+ms.date: 09/06/2020
 ms.author: alkohli
-ms.openlocfilehash: 948f5399ceb931d701341c2cf378482ede94979d
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: b9ff5968b4bb406f1a96780985b5c6fe64ca976c
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200318"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505910"
 ---
-| N. porta| In ingresso/In uscita | Ambito porta| Obbligatorio| Note |
+| N. porta| In ingresso/In uscita | Ambito porta| Obbligatoria| Note |
 |--------|-----|-----|-----------|----------|
-| TCP 80 (HTTP)|In|LAN|Sì|Questa porta viene usata per connettersi a Data Box le API REST di archiviazione Blog su HTTP. Se non ci si connette alle API REST, viene automaticamente reindirizzato all'interfaccia utente Web locale su 8443. |
-| TCP 443 (HTTPS)|In|LAN|Sì|Questa porta viene usata per connettersi a Data Box le API REST di archiviazione Blog su HTTPS. Se non ci si connette alle API REST, viene automaticamente reindirizzato all'interfaccia utente Web locale su 8443. |
+| TCP 80 (HTTP)|In|LAN|Sì|Questa porta viene usata per connettersi alle API REST dell'archiviazione BLOB Data Box su HTTP. Se non ci si connette alle API REST, viene automaticamente reindirizzato all'interfaccia utente Web locale su 8443. |
+| TCP 443 (HTTPS)|In|LAN|Sì|Questa porta viene usata per connettersi alle API REST dell'archiviazione BLOB Data Box su HTTPS. Se non ci si connette alle API REST, viene automaticamente reindirizzato all'interfaccia utente Web locale su 8443. |
 | TCP 8443 (HTTPS-ALT)|In|LAN|Sì|Si tratta di una porta alternativa per HTTPS e viene usata quando ci si connette all'interfaccia utente Web locale per la gestione dei dispositivi. |
 | TCP 445 (SMB)|Out/In|LAN|In alcuni casi<br>Vedere le note|Questa porta è obbligatoria solo se ci si connette tramite SMB. |
 | TCP 2049 (NFS)|Out/In|LAN|In alcuni casi<br>Vedere le note|Questa porta è obbligatoria solo se ci si connette tramite NFS. |
