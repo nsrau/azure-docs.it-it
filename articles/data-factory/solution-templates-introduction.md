@@ -11,12 +11,12 @@ author: djpmsft
 manager: anandsub
 ms.custom: seo-lt-2019
 ms.date: 01/04/2019
-ms.openlocfilehash: b5e4512030431b6d2e5d0f849e82a281c882b177
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 515de0fed987f412adb060a3ba58978f0400ae0d
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82628947"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441953"
 ---
 # <a name="templates"></a>Modelli
 
@@ -56,7 +56,7 @@ Data Factory usa modelli di Azure Resource Manager per salvare i modelli di pipe
 
     -   [Copia Delta dal database](solution-template-delta-copy-with-control-table.md)
 
-    -   Copia da \<source\> a\<destination\>
+    -   Copia da \<source\> a \<destination\>
 
         -   [Da Amazon S3 ad Azure Data Lake Storage di seconda generazione](solution-template-migration-s3-azure.md)
 
@@ -68,9 +68,9 @@ Data Factory usa modelli di Azure Resource Manager per salvare i modelli di pipe
 
         -   Da SQL Server locale al database SQL di Azure
 
-        -   Da SQL Server locale ad Azure SQL Data Warehouse
+        -   Da SQL Server locale ad Azure sinapsi Analytics (in precedenza SQL Data Warehouse)
 
-        -   Da Oracle locale ad Azure SQL Data Warehouse
+        -   Da Oracle locale ad Azure sinapsi Analytics (in precedenza SQL Data Warehouse)
 
 -   Modelli SSIS
 

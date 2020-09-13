@@ -5,12 +5,12 @@ author: gundarev
 ms.topic: how-to
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: 8a253723367681d947a9bd94c1505ab4cc156c08
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 33b8d3f62ef45c6078f10535c6376f611472f5a2
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612640"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441749"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Configura l'accelerazione GPU (Graphics Processing Unit) per Desktop virtuale Windows
 
@@ -67,7 +67,7 @@ Desktop remoto codifica tutti i grafici sottoposti a rendering dalle app e dai d
 
 2. Ora che i criteri di gruppo sono stati modificati, forzare un aggiornamento dei criteri di gruppo. Aprire il prompt dei comandi e digitare:
 
-    ```batch
+    ```cmd
     gpupdate.exe /force
     ```
 
@@ -80,7 +80,7 @@ Se si usano spesso applicazioni che producono contenuti con frequenza elevata, a
 1. Selezionare il criterio **Assegna priorità alla modalità grafica H.264/AVC 444 per le connessioni Desktop remoto** e impostarlo su **Abilitato**, per forzare il codec H.264/AVC 444 nella sessione remota.
 2. Ora che i criteri di gruppo sono stati modificati, forzare un aggiornamento dei criteri di gruppo. Aprire il prompt dei comandi e digitare:
 
-    ```batch
+    ```cmd
     gpupdate.exe /force
     ```
 

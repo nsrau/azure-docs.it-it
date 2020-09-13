@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: c097c14406349d973e905fadb806cc159d9b16d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 113c11b749b42bbaf9e5e40cdf63623288997a92
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76722102"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89440287"
 ---
 # <a name="agile-development-of-data-science-projects"></a>Sviluppo Agile di progetti di data science
 
@@ -42,7 +42,7 @@ Di seguito sono riportate le definizioni per i tipi di elemento di lavoro:
 - **Funzionalità**: una funzionalità corrisponde al coinvolgimento di un progetto. Diverse interazioni con un client sono funzionalità diverse ed è consigliabile considerare diverse fasi di un progetto come diverse funzionalità. Se si sceglie uno schema come *\<ClientName>-\<EngagementName>* per assegnare un nome alle funzionalità, è possibile riconoscere facilmente il contesto del progetto e il coinvolgimento dei nomi stessi.
   
 - **Storia utente**: le storie utente sono elementi di lavoro necessari per completare una funzionalità end-to-end. Esempi di storie utente includono:
-  - Recupera dati 
+  - Recuperare i dati 
   - Esplorare i dati 
   - Genera funzionalità
   - Creare modelli
@@ -51,7 +51,7 @@ Di seguito sono riportate le definizioni per i tipi di elemento di lavoro:
   
 - **Attività**: le attività sono elementi di lavoro assegnabili che devono essere eseguiti per completare una storia utente specifica. Ad esempio, le attività nella storia utente *ottengono i dati* :
   - Ottenere le credenziali SQL Server
-  - Caricare i dati in SQL Data Warehouse
+  - Caricare i dati in Azure sinapsi Analytics
   
 - **Bug**: i bug sono problemi nel codice o nei documenti esistenti che devono essere corretti per completare un'attività. Se i bug sono causati da elementi di lavoro mancanti, possono escalarsi per essere storie utente o attività. 
 
@@ -158,7 +158,7 @@ I data scientist possono essere più comodi usando un modello agile che sostitui
    
 1. Seguire gli stessi passaggi per rinominare le **funzionalità** in *fasi TDSP*e aggiungere i nuovi tipi di elemento di lavoro seguenti:
    
-   - *Informazioni aziendali*
+   - *Informazioni commerciali*
    - *Acquisizione dei dati*
    - *Modellazione*
    - *Distribuzione*

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: b506d56f8aff2204c705ae8685f475654c1b1705
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 827afbf811042acb2bf01f3e863408d5a6e9732f
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640481"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441919"
 ---
 # <a name="configure-saml-based-single-sign-on"></a>Configurare l'accesso Single Sign-On basato su SAML
 
@@ -51,7 +51,6 @@ Nella [serie di guide introduttive](view-applications-portal.md)è disponibile u
 | **URL di accesso** | Obbligatoria | Non specificare | Quando un utente apre questo URL, il provider di servizi esegue il reindirizzamento ad Azure AD per l'autenticazione e l'accesso dell'utente. Azure AD usa l'URL per avviare l'applicazione da Office 365 o Azure AD app personali. Se vuoto, Azure AD esegue un accesso avviato da IdP quando un utente avvia l'applicazione da Office 365, Azure AD app personali o l'URL Azure AD SSO.|
 | **Stato dell'inoltro** | Facoltativo | Facoltativo | Comunica all'applicazione dove reindirizzare l'utente al termine dell'autenticazione. In genere il valore è un URL valido per l'applicazione. Tuttavia, alcune applicazioni usano questo campo in modo diverso. Per altre informazioni, rivolgersi al fornitore dell'applicazione.
 | **URL di disconnessione** | Facoltativo | Facoltativo | Usato per restituire una risposta di disconnessione SAML all'applicazione.
-
 
 ## <a name="user-attributes-and-claims"></a>Attributi e attestazioni utente 
 
@@ -112,7 +111,7 @@ Dopo aver configurato l'applicazione per l'uso di Azure AD come provider di iden
 
 Selezionare **test** , quindi scegliere di eseguire il test con l'utente attualmente connesso o come un altro utente. 
 
-Se l'accesso riesce, è possibile assegnare utenti e gruppi all'applicazione SAML. Congratulazioni.
+Se l'accesso riesce, è possibile assegnare utenti e gruppi all'applicazione SAML. Congratulazioni!
 
 Se viene visualizzato un messaggio di errore, completare la procedura seguente:
 

@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8fa21cc690742a71100c53b4e5b6ce122d1a6147
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 76027275d6f0b838ed6fbb7275086f190701d286
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75864078"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89439828"
 ---
 # <a name="walkthroughs-executing-the-team-data-science-process"></a>Procedure dettagliate del processo di data science per i team
 
@@ -32,7 +32,7 @@ Di seguito sono riportate brevi descrizioni di quanto fornito da questi esempi d
 - [Procedure dettagliate di HDInsight Hadoop con Hive](walkthroughs-hdinsight-hadoop.md) Queste procedure dettagliate usano Hive con un cluster HDInsight Hadoop per eseguire analisi predittive.
 - [Procedure dettagliate di Azure Data Lake con U-SQL](walkthroughs-azure-data-lake.md) Queste procedure dettagliate usano U-SQL con Azure Data Lake per eseguire analisi predittive.
 - [SQL Server](walkthroughs-sql-server.md) Queste procedure dettagliate usano SQL Server, SQL Server R Services e SQL Server Python Services per eseguire analisi predittive.
-- [SQL Data Warehouse](walkthroughs-sql-data-warehouse.md) Queste procedure dettagliate usano SQL Data Warehouse per eseguire analisi predittive. 
+- [Analisi delle sinapsi di Azure](walkthroughs-sql-data-warehouse.md) Queste procedure dettagliate usano Azure sinapsi Analytics per eseguire analisi predittive. 
 
 
 

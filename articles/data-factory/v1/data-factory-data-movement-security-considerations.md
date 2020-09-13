@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: c22168aade11bbba66682efea0e2f5a1fcc2ac1f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19b37472d7decb46825da4760511f1761493c246
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84021501"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89441936"
 ---
 # <a name="azure-data-factory---security-considerations-for-data-movement"></a>Azure Data Factory: considerazioni sulla sicurezza dello spostamento dei dati
 
@@ -26,7 +26,7 @@ ms.locfileid: "84021501"
 ## <a name="introduction"></a>Introduzione
 Questo articolo descrive l'infrastruttura di sicurezza di base usata dai servizi di spostamento dei dati in Azure Data Factory per proteggere i dati. Le risorse di gestione di Azure Data Factory si basano sull'infrastruttura di sicurezza di Azure e ricorrono a tutte le misure di sicurezza offerte da Azure.
 
-In una soluzione Data Factory si creano una o più [pipeline](data-factory-create-pipelines.md)di dati. Una pipeline è un raggruppamento logico di attività che insieme eseguono un compito. Queste pipeline si trovano nell'area in cui è stata creata la data factory. 
+In una soluzione Data Factory si creano una o più [pipeline](data-factory-create-pipelines.md)di dati. Una pipeline è un raggruppamento logico di attività che insieme eseguono un'operazione. Queste pipeline si trovano nell'area in cui è stata creata la data factory. 
 
 Anche se Data Factory è disponibile solo nelle aree **Stati Uniti occidentali**, **Stati Uniti orientali** ed **Europa settentrionale**, il servizio di spostamento dei dati è disponibile [a livello globale](data-factory-data-movement-activities.md#global) in alcune aree. Il servizio Data Factory assicura che i dati non lascino un'area geografica/area a meno che non venga indicano esplicitamente al servizio di usare un'area alternativa nel caso in cui il servizio di spostamento dei dati non fosse stato ancora distribuito in tale area. 
 
@@ -42,7 +42,7 @@ Se si è interessati alla conformità di Azure e alle modalità di protezione de
 
 In questo articolo vengono prese in esame le considerazioni sulla sicurezza nei due scenari di spostamento di dati seguenti: 
 
-- **Scenario cloud**: in questo scenario, l'origine e la destinazione sono accessibili pubblicamente tramite internet. Sono inclusi i servizi di archiviazione cloud gestiti come Archiviazione di Azure, Azure SQL Data Warehouse, Database SQL di Azure, Azure Data Lake Store, Amazon S3, Amazon Redshift, i servizi SaaS come Salesforce e i protocolli Web, ad esempio FTP e OData. L'elenco completo delle origini dati supportate è disponibile [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
+- **Scenario cloud**: in questo scenario, l'origine e la destinazione sono accessibili pubblicamente tramite internet. Sono inclusi i servizi di archiviazione cloud gestiti come archiviazione di Azure, Azure sinapsi Analytics (in precedenza SQL Data Warehouse), il database SQL di Azure, Azure Data Lake Store, Amazon S3, Amazon spostamento, i servizi SaaS come Salesforce e i protocolli Web, ad esempio FTP e OData. L'elenco completo delle origini dati supportate è disponibile [qui](data-factory-data-movement-activities.md#supported-data-stores-and-formats).
 - **Scenario ibrido**: in questo scenario l'origine e la destinazione sono entrambe protette da un firewall o all'interno di una rete aziendale locale, oppure l'archivio dati è in una rete privata/virtuale (più spesso l'origine) e non vi si può accedere pubblicamente. Anche i server di database ospitati nelle macchine virtuali rientrano in questo scenario.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
@@ -55,15 +55,15 @@ Azure Data Factory protegge le credenziali dell'archivio dati **crittografandoli
 Se l'archivio dati cloud supporta HTTPS o TLS, tutti i trasferimenti di dati tra i servizi di spostamento dei dati in Data Factory e un archivio dati cloud avvengono tramite un canale TLS o HTTPS sicuro.
 
 > [!NOTE]
-> Tutte le connessioni al **database SQL di Azure** e ad **Azure SQL Data Warehouse** richiedono sempre la crittografia (SSL/TLS) quando i dati sono in transito da e verso il database. Durante la creazione di una pipeline con un editor JSON, aggiungere la proprietà **crittografia** e impostarla su **true** nella **stringa di connessione**. Quando si usa [Copia guidata](data-factory-azure-copy-wizard.md), la procedura guidata imposta questa proprietà per impostazione predefinita. Per **archiviazione di Azure**è possibile usare **https** nella stringa di connessione.
+> Tutte le connessioni al **database SQL di Azure** e a **Azure sinapsi Analytics** richiedono sempre la crittografia (SSL/TLS) mentre i dati sono in transito da e verso il database. Durante la creazione di una pipeline con un editor JSON, aggiungere la proprietà **crittografia** e impostarla su **true** nella **stringa di connessione**. Quando si usa [Copia guidata](data-factory-azure-copy-wizard.md), la procedura guidata imposta questa proprietà per impostazione predefinita. Per **archiviazione di Azure**è possibile usare **https** nella stringa di connessione.
 
 ### <a name="data-encryption-at-rest"></a>Crittografia di dati inattivi
 Alcuni archivi di dati supportano la crittografia dei dati inattivi. È consigliabile abilitare il meccanismo di crittografia dei dati per gli archivi dati. 
 
-#### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
-La funzionalità Transparent Data Encryption (TDE) di Azure SQL Data Warehouse consente di proteggersi da attività dannose eseguendo in tempo reale la crittografia e la decrittografia dei dati inattivi. Questo comportamento è trasparente per il client. Per altre informazioni, vedere [Proteggere un database in SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
+#### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
+Transparent Data Encryption (Transparent Data Encryption) in Azure sinapsi Analytics aiuta a proteggersi dalla minaccia di attività dannose eseguendo la crittografia e la decrittografia in tempo reale dei dati inattivi. Questo comportamento è trasparente per il client. Per altre informazioni, vedere [proteggere un database in sinapsi Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-manage-security.md).
 
-#### <a name="azure-sql-database"></a>database SQL di Azure
+#### <a name="azure-sql-database"></a>Database SQL di Azure
 Il database SQL di Azure supporta anche la funzionalità Transparent Data Encryption (TDE), che consente di proteggersi da attività dannose eseguendo in tempo reale la crittografia e la decrittografia dei dati, senza dover apportare modifiche all'applicazione. Questo comportamento è trasparente per il client. Per altre informazioni, vedere [Transparent Data Encryption con il database SQL di Azure](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-with-azure-sql-database). 
 
 #### <a name="azure-data-lake-store"></a>Archivio Azure Data Lake
@@ -154,11 +154,11 @@ La tabella seguente indica la **porta in uscita** e i requisiti di dominio per i
 | `*.servicebus.windows.net` | 443, 80 | Richieste dal gateway per connettersi ai servizi di spostamento dei dati in Data Factory |
 | `*.core.windows.net` | 443 | Usata dal gateway per connettersi all'account di Archiviazione di Azure quando si usa la funzionalità di [ copia temporanea](data-factory-copy-activity-performance.md#staged-copy). | 
 | `*.frontend.clouddatahub.net` | 443 | Richiesta dal gateway per connettersi al servizio di Azure Data Factory. | 
-| `*.database.windows.net` | 1433   | (OPZIONALE) necessaria quando la destinazione è il database SQL di Azure o Azure SQL Data Warehouse. Usare la funzionalità di copia temporanea per copiare i dati nel database SQL di Azure o in Azure SQL Data Warehouse senza aprire la porta 1433. | 
+| `*.database.windows.net` | 1433   | (Facoltativo) necessario quando la destinazione è il database SQL di Azure o l'analisi delle sinapsi di Azure. Usare la funzionalità di copia temporanea per copiare i dati nel database SQL di Azure o in Azure sinapsi Analytics senza aprire la porta 1433. | 
 | `*.azuredatalakestore.net` | 443 | (OPTIONALE) necessaria quando la destinazione è Azure Data Lake Store | 
 
 > [!NOTE] 
-> Potrebbe essere necessario gestire porte/domini di inserimento nell'elenco elementi consentiti a livello del firewall aziendale come richiesto dalle rispettive origini dati. Nella tabella sono riportati solo esempi di database SQL di Azure, Azure SQL Data Warehouse e Azure Data Lake Store.   
+> Potrebbe essere necessario gestire porte/domini di inserimento nell'elenco elementi consentiti a livello del firewall aziendale come richiesto dalle rispettive origini dati. Questa tabella usa solo il database SQL di Azure, Azure sinapsi Analytics, Azure Data Lake Store come esempi.   
 
 Nella tabella seguente vengono indicati i requisiti relativi alla **porta in ingresso** per il **firewall di Windows**.
 
@@ -174,8 +174,8 @@ Alcuni archivi dati nel cloud richiedono anche l'inserimento nell'elenco element
 Gli archivi dati cloud seguenti richiedono l'inserimento nell'elenco elementi consentiti dell'indirizzo IP del computer del gateway, ma, per impostazione predefinita, alcuni di questi archivi dati potrebbero non richiederlo. 
 
 - [Database SQL di Azure](../../azure-sql/database/firewall-configure.md) 
-- [Azure SQL Data Warehouse](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
-- [Archivio Azure Data Lake](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
+- [Azure Synapse Analytics](../../sql-data-warehouse/sql-data-warehouse-get-started-provision.md)
+- [Azure Data Lake Store](../../data-lake-store/data-lake-store-secure-data.md#set-ip-address-range-for-data-access)
 - [Azure Cosmos DB](../../cosmos-db/firewall-support.md)
 - [Amazon Redshift](https://docs.aws.amazon.com/redshift/latest/gsg/rs-gsg-authorize-cluster-access.html) 
 
@@ -185,7 +185,7 @@ Gli archivi dati cloud seguenti richiedono l'inserimento nell'elenco elementi co
 **Risposta:** questa funzionalità non è ancora supportata, ma Microsoft ci sta lavorando attivamente.
 
 **Domanda:** quali sono i requisiti di porta per poter usare il gateway?
-**Risposta:** il gateway stabilisce connessioni basate su HTTP per accedere a Internet. Le **porte in uscita 80 e 443** deve essere aperte per permettere al gateway di stabilire una connessione. Aprire la **porta in ingresso 8050** solo a livello di computer (non a livello di firewall aziendale) per l'applicazione di gestione delle credenziali. Se si usa il database SQL di Azure o Azure SQL Data Warehouse come origine o destinazione, allora sarà necessario aprire anche la porta **1433**. Per altre informazioni, vedere la sezione [Configurazioni del firewall e inserimento nell'elenco elementi consentiti degli indirizzi IP](#firewall-configurations-and-whitelisting-ip-address-of gateway). 
+**Risposta:** il gateway stabilisce connessioni basate su HTTP per accedere a Internet. Le **porte in uscita 80 e 443** deve essere aperte per permettere al gateway di stabilire una connessione. Aprire la **porta in ingresso 8050** solo a livello di computer (non a livello di firewall aziendale) per l'applicazione di gestione delle credenziali. Se il database SQL di Azure o l'analisi delle sinapsi di Azure viene usata come origine/destinazione, è necessario aprire anche la porta **1433** . Per altre informazioni, vedere la sezione [Configurazioni del firewall e inserimento nell'elenco elementi consentiti degli indirizzi IP](#firewall-configurations-and-whitelisting-ip-address-of gateway). 
 
 **Domanda:** quali sono i requisiti relativi al certificato per il gateway?
 **Risposta:** il gateway corrente richiede un certificato che viene usato dall'applicazione di gestione delle credenziali per impostare in modo sicuro le credenziali dell'archivio dati. Si tratta di un certificato autofirmato creato e configurato dal programma di installazione del gateway. È invece possibile usare il proprio certificato TLS/SSL. Per altre informazioni, vedere la sezione dedicata all'[applicazione di gestione delle credenziali con un solo clic](#click-once-credentials-manager-app). 
