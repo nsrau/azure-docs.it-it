@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: f75723aedae390a0d41956d63acadf6370f390d9
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: 0613af3d286a9c670d09b2e72c2807c018753455
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606515"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669239"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparare il computer di origine per l'installazione push dell'agente Mobility
 
@@ -25,8 +25,12 @@ In ogni computer Windows da proteggere eseguire le operazioni seguenti:
 1. Creare un account utilizzabile dal server di elaborazione per accedere al computer. L'account deve avere diritti di amministratore, locale o di dominio. Usarlo solo per l'installazione push e per gli aggiornamenti dell'agente.
 2. Se non si usa un account di dominio, disabilitare il controllo Accesso utente remoto nel computer locale seguendo questa procedura:
     - Nella chiave del Registro di sistema HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System aggiungere un nuovo valore DWORD: **LocalAccountTokenFilterPolicy**. Impostare il valore su **1**.
-    -  Per eseguire questa operazione in un prompt dei comandi, eseguire il comando seguente:  
-   `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d
+    -  Per eseguire questa operazione in un prompt dei comandi, eseguire il comando seguente:
+    
+       ```
+       REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1 /f
+       ```
+
 3. Nell'istanza di Windows Firewall del computer da proteggere selezionare **Allow an app or feature through Firewall** (Consenti app o funzionalità attraverso Firewall). Abilitare **Condivisione file e stampanti** e **Strumentazione gestione Windows (WMI)**. Per i computer appartenenti a un dominio, è possibile configurare le impostazioni del firewall con un oggetto Criteri di gruppo.
 
    ![Impostazioni del firewall](./media/vmware-azure-install-mobility-service/mobility1.png)

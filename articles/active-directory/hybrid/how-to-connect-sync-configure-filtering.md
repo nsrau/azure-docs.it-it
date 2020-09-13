@@ -16,20 +16,20 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1879df40122549ddc4c57557017fa2c84c883368
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: c539fd37116f8c55f336aecf1e8979355a40d61c
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88061507"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662555"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Servizio di sincronizzazione Azure AD Connect: Configurare il filtro
-L'applicazione di un filtro consente di controllare quali oggetti vengono visualizzati in Azure Active Directory (Azure AD) dalla directory locale. La configurazione predefinita considera tutti gli oggetti in tutti i domini delle foreste configurate. In generale, questa è la configurazione consigliata. Gli utenti che usano i carichi di lavoro di Office 365, come Exchange Online e Skype for Business, hanno a disposizione un elenco indirizzi globale completo per inviare messaggi di posta elettronica e chiamare chiunque. Con la configurazione predefinita possono usufruire della stessa esperienza resa disponibile da un'implementazione locale di Exchange o Lync.
+L'applicazione di un filtro consente di controllare quali oggetti vengono visualizzati in Azure Active Directory (Azure AD) dalla directory locale. La configurazione predefinita considera tutti gli oggetti in tutti i domini delle foreste configurate. In generale, questa è la configurazione consigliata. Gli utenti che usano carichi di lavoro Microsoft 365, ad esempio Exchange Online e Skype for business, traggono vantaggio da un elenco di indirizzi globale completo, in modo da poter inviare messaggi di posta elettronica e chiamare chiunque. Con la configurazione predefinita possono usufruire della stessa esperienza resa disponibile da un'implementazione locale di Exchange o Lync.
 
-In alcuni casi è tuttavia necessario apportare alcune modifiche alla configurazione predefinita. Di seguito sono riportati alcuni esempi:
+In alcuni casi è tuttavia necessario apportare alcune modifiche alla configurazione predefinita. Ecco alcuni esempi:
 
 * Si prevede di usare la [topologia con più directory di Azure AD](plan-connect-topologies.md#each-object-only-once-in-an-azure-ad-tenant). In tal caso è necessario applicare un filtro per controllare quali oggetti sincronizzare con una determinata directory di Azure AD.
-* Si esegue una distribuzione pilota per Azure o Office 365 e si vuole solo un subset di utenti in Azure AD. In una distribuzione pilota di dimensioni ridotte la disponibilità di un elenco indirizzi globale completo per illustrare la funzionalità non è importante.
+* Si esegue un progetto pilota per Azure o Microsoft 365 e si desidera solo un subset di utenti in Azure AD. In una distribuzione pilota di dimensioni ridotte la disponibilità di un elenco indirizzi globale completo per illustrare la funzionalità non è importante.
 * Si dispone di molti account del servizio e di altri account non personali non desiderati in Azure AD.
 * Per motivi di conformità, non si eliminano account utente locali, li si disabilita soltanto, ma si vuole che in Azure AD siano presenti solo account attivi.
 
@@ -217,7 +217,7 @@ I filtri in ingresso usano la configurazione predefinita in base alla quale per 
 Per determinare gli oggetti da sincronizzare o da non sincronizzare, durante l'applicazione del filtro in ingresso si usa l'**ambito** dove si apportano le modifiche necessarie per rispettare i requisiti dell'organizzazione. Nel modulo di ambito sono disponibili un **gruppo** e una **clausola** per determinare quando una regola di sincronizzazione è nell'ambito. Un gruppo contiene una o più clausole. Tra più clausole viene inserito un operatore AND logico e tra più gruppi un operatore OR logico.
 
 Ecco un esempio:   
-![Ambito](./media/how-to-connect-sync-configure-filtering/scope.png)  
+![Screenshot che illustra un esempio di aggiunta di filtri di ambito](./media/how-to-connect-sync-configure-filtering/scope.png)  
 Deve essere letto come **(department = IT) OR (department = Sales AND c = US)**.
 
 Negli esempi e nei passaggi seguenti viene usato l'oggetto utente come esempio, ma l'uso può essere esteso a tutti i tipi di oggetto.

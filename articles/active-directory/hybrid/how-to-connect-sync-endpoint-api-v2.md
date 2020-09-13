@@ -12,12 +12,12 @@ ms.date: 05/20/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a2e8bb6da4cf126a9dbd955b082d77965772f6f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1f4eba1b48b651c8efe9e9d737e226727cb244fb
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357580"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662468"
 ---
 # <a name="azure-ad-connect-sync-v2-endpoint-api-public-preview"></a>API dell'endpoint Sync V2 di Azure AD Connect (anteprima pubblica) 
 Microsoft ha distribuito un nuovo endpoint (API) per Azure AD Connect che consente di migliorare le prestazioni delle operazioni del servizio di sincronizzazione per Azure Active Directory. Usando il nuovo endpoint V2, si verificherà un notevole miglioramento delle prestazioni di esportazione e importazione in Azure AD. Questo nuovo endpoint supporta gli elementi seguenti:
@@ -26,14 +26,14 @@ Microsoft ha distribuito un nuovo endpoint (API) per Azure AD Connect che consen
  - miglioramento delle prestazioni di esportazione e importazione in Azure AD
  
 > [!NOTE]
-> Attualmente, il nuovo endpoint non ha un limite di dimensioni del gruppo configurato per i gruppi di O365 di cui è stato eseguito il writeback. Questo può influire sulle latenze del ciclo di Active Directory e della sincronizzazione.  È consigliabile aumentare le dimensioni del gruppo in modo incrementale.  
+> Attualmente, il nuovo endpoint non ha un limite di dimensioni del gruppo configurato per i gruppi di Microsoft 365 di cui è stato eseguito il writeback. Questo può influire sulle latenze del ciclo di Active Directory e della sincronizzazione. È consigliabile aumentare le dimensioni del gruppo in modo incrementale.  
 
 
 ## <a name="pre-requisites"></a>Prerequisiti  
 Per usare il nuovo endpoint V2, è necessario usare [Azure AD Connect versione 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) o versioni successive e seguire i passaggi di distribuzione indicati di seguito per abilitare l'endpoint V2 per il server Azure AD Connect.   
 
 >[!NOTE]
->Questa anteprima pubblica è attualmente disponibile solo nel cloud globale di Azure e non è disponibile per i [cloud nazionali](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud).
+>Questa anteprima pubblica è attualmente disponibile solo nel cloud globale di Azure e non è disponibile per i [cloud nazionali](../develop/authentication-national-cloud.md).
 
 ### <a name="public-preview-limitations"></a>Limiti dell'anteprima pubblica  
 Anche se questa versione è stata sottoposta a test approfonditi, è possibile che si verifichino problemi. Uno degli obiettivi di questa versione di anteprima pubblica è trovare e risolvere tali problemi.  
@@ -44,14 +44,14 @@ Anche se questa versione è stata sottoposta a test approfonditi, è possibile c
 ## <a name="deployment-guidance"></a>Linee guida per la distribuzione 
 Per usare l'endpoint V2, sarà necessario distribuire [Azure AD Connect versione 1.5.30.0](https://www.microsoft.com/download/details.aspx?id=47594) o successiva. Usare il collegamento fornito per il download. 
 
-Si consiglia di seguire il metodo della [migrazione swing](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-upgrade-previous-version#swing-migration) per implementare il nuovo endpoint nell'ambiente in uso. In questo modo verrà fornito un piano di emergenza chiaro qualora sia necessario un ripristino dello stato precedente principale. L'esempio seguente illustra come usare una migrazione swing in questo scenario. Per altre informazioni sul metodo di distribuzione migrazione swing, fare riferimento al collegamento fornito. 
+Si consiglia di seguire il metodo della [migrazione swing](./how-to-upgrade-previous-version.md#swing-migration) per implementare il nuovo endpoint nell'ambiente in uso. In questo modo verrà fornito un piano di emergenza chiaro qualora sia necessario un ripristino dello stato precedente principale. L'esempio seguente illustra come usare una migrazione swing in questo scenario. Per altre informazioni sul metodo di distribuzione migrazione swing, fare riferimento al collegamento fornito. 
 
 ### <a name="swing-migration-for-deploying-v2-endpoint"></a>Migrazione swing per la distribuzione dell'endpoint V2
 I passaggi seguenti consentiranno di distribuire l'endpoint V2 usando il metodo swing.
 
 1. Distribuire l'endpoint V2 sul server di staging corrente. Questo server sarà noto come **server V2** nei passaggi seguenti. Il server attivo corrente continuerà a elaborare il carico di lavoro di produzione usando l'endpoint V1, che verrà chiamato **server V1**.
 1. Verificare che il **server V2** stia ancora elaborando le importazioni come previsto. In questa fase, non verrà eseguito il provisioning di gruppi di grandi dimensioni in Azure AD o in AD locale, ma sarà possibile verificare che l'aggiornamento non abbia causato un altro effetto imprevisto per il processo di sincronizzazione esistente. 
-2. Al termine della convalida, impostare il **server v2** come server attivo e il **server V1** come server di staging. A questo punto, verrà eseguito il provisioning nella Azure AD di gruppi di grandi dimensioni che si trovano nell'ambito da sincronizzare, oltre a eseguire il provisioning di gruppi unificati di O365 di grandi dimensioni in AD, se il writeback del gruppo è abilitato.
+2. Al termine della convalida, impostare il **server v2** come server attivo e il **server V1** come server di staging. A questo punto, verrà eseguito il provisioning di gruppi di grandi dimensioni che si trovano nell'ambito da sincronizzare per la Azure AD, oltre a eseguire il provisioning di gruppi unificati di Microsoft 365 di grandi dimensioni in Active Directory, se il writeback del gruppo è abilitato.
 3. Verificare che il **server V2** stia eseguendo ed elaborando correttamente gruppi di grandi dimensioni. È possibile scegliere di rimanere in questo passaggio e monitorare il processo di sincronizzazione per un periodo di tempo.
   >[!NOTE]
   > Se è necessario eseguire la transizione alla configurazione precedente, è possibile eseguire nuovamente una migrazione swing dal **server V2** al **server V1**. Poiché l'endpoint V1 non supporta gruppi con oltre 50.000 membri, i gruppi di grandi dimensioni di cui è stato eseguito il provisioning da Azure AD Connect, in Azure AD o in AD locale, verranno eliminati successivamente. 
@@ -153,7 +153,7 @@ Durante gli aumenti successivi al limite dei membri del gruppo nella regola di s
  `Set-ADSyncSchedulerConnectorOverride -FullSyncRequired $false -ConnectorName "<AAD Connector Name>" `
  
 >[!NOTE]
-> Se sono presenti gruppi unificati di O365 con più di 50.000 membri, i gruppi verranno letti in Azure AD Connect e, se il writeback dei gruppi è abilitato, verranno scritti nell'AD locale. 
+> Se si dispone di Microsoft 365 gruppi unificati con più di 50.000 membri, i gruppi verranno letti in Azure AD Connect e, se il writeback dei gruppi è abilitato, verranno scritti nell'istanza locale di AD. 
 
 ## <a name="rollback"></a>Rollback 
 Se l'endpoint V2 è stato abilitato ed è necessario eseguire il ripristino dello stato precedente, attenersi ai passaggi seguenti: 
@@ -181,7 +181,7 @@ Se l'endpoint V2 è stato abilitato ed è necessario eseguire il ripristino dell
  `Set-ADSyncScheduler -SyncCycleEnabled $true`
  
 >[!NOTE]
-> Quando si passa dagli endpoint V2 agli endpoint V1, i gruppi sincronizzati con più di 50.000 membri verranno eliminati dopo l'esecuzione di una sincronizzazione completa, sia per i gruppi di AD di cui è stato effettuato il provisioning in Azure AD, che per i gruppi unificati di O365 sottoposti a provisioning in AD. 
+> Quando si torna dagli endpoint da V2 a V1, i gruppi sincronizzati con più di 50.000 membri verranno eliminati dopo l'esecuzione di una sincronizzazione completa, per entrambi i gruppi di Active Directory di cui è stato effettuato il provisioning per Azure AD e Microsoft 365 gruppi unificati sottoposti a provisioning in Active Directory. 
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti  
 **D: Un cliente può usare questa funzionalità nell'ambiente di produzione?**   

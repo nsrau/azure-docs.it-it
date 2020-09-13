@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7271c4de6d5c186c9e561aa37a140eaa04cbc0a
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: a61a298b3b1d9e129b0ef3bbfff12f34d0ba09a8
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87908921"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89668957"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Proprietà di un utente di Collaborazione B2B di Azure Active Directory
 
@@ -71,7 +71,7 @@ Questa proprietà indica la relazione tra l'utente e la tenancy host. I valori p
   > [!NOTE]
   > La proprietà UserType non ha alcun legame con la modalità di accesso, con il ruolo della directory dell'utente e così via. Questa proprietà indica semplicemente la relazione dell'utente con l'organizzazione host e consente all'organizzazione di applicare i criteri che dipendono da questa proprietà.
 
-### <a name="source"></a>Origine
+### <a name="source"></a>Source (Sorgente)
 Questa proprietà indica la modalità di accesso dell'utente.
 
 - Utente invitato: l'utente è stato invitato ma non ha ancora riscattato l'invito.
@@ -108,7 +108,7 @@ Sì. Per impostazione predefinita, gli oggetti guest non sono visibili nell'elen
 
 ## <a name="can-i-update-a-guest-users-email-address"></a>È possibile aggiornare l'indirizzo di posta elettronica di un utente Guest?
 
-Se un utente Guest accetta l'invito e successivamente modifica l'indirizzo di posta elettronica, il nuovo messaggio di posta elettronica non viene sincronizzato automaticamente con l'oggetto utente guest nella directory. La proprietà della posta elettronica viene creata tramite [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0). È possibile aggiornare la proprietà della posta elettronica tramite l'interfaccia di amministrazione di Exchange o [Exchange Online PowerShell](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps)e la modifica si rifletterà nell'oggetto utente Guest Azure ad.
+Se un utente Guest accetta l'invito e successivamente modifica l'indirizzo di posta elettronica, il nuovo messaggio di posta elettronica non viene sincronizzato automaticamente con l'oggetto utente guest nella directory. La proprietà della posta elettronica viene creata tramite [Microsoft Graph API](https://docs.microsoft.com/graph/api/resources/user?view=graph-rest-1.0). È possibile aggiornare la proprietà della posta elettronica tramite l'API di Microsoft Graph, l'interfaccia di amministrazione di Exchange o [PowerShell per Exchange Online](https://docs.microsoft.com/powershell/module/exchange/users-and-groups/set-mailuser?view=exchange-ps). La modifica si rifletterà nell'oggetto utente Guest Azure AD.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -6,12 +6,12 @@ ms.service: azure-resource-manager
 ms.topic: reference
 ms.date: 08/25/2020
 ms.author: raynew
-ms.openlocfilehash: 8c18a4d2fa6e5bdb211b77d4d7bb28af7e5b1c1a
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 608d9511b14ef8dd3815d6f9b45cda31e6b38b94
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948114"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90004307"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>Supporto per lo trasferimento di risorse di Azure tra aree
 
@@ -363,9 +363,9 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Spostamento area | 
 > | ------------- | ----------- |
-> | availabilitysets | No | 
+> | availabilitysets | Sì <br/><br/> Usare [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) per spostare i set di disponibilità. | 
 > | diskencryptionsets | No | 
-> | disks | No | 
+> | disks | Sì <br/><br/> Usare [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) per spostare le macchine virtuali di Azure e i dischi correlati. | 
 > | galleries | No | 
 > | galleries/images | No | 
 > | galleries/images/versions | No | 
@@ -377,7 +377,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | sharedvmimages | No | 
 > | sharedvmimages/versions | No | 
 > | snapshots | No | 
-> | virtualmachines | Sì | 
+> | virtualmachines | Sì <br/><br/> Usare [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) per spostare le macchine virtuali di Azure. | 
 > | virtualmachines/extensions | No | 
 > | virtualmachinescalesets | No | 
 
@@ -544,14 +544,14 @@ Passare a uno spazio dei nomi del provider di risorse:
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Spostamento area | 
 > | ------------- | ----------- |
-> | servers | È possibile utilizzare una replica di lettura tra aree per spostare un server esistente. [Altre informazioni](../../postgresql/howto-move-regions-portal.md)<br/><br/> Se viene eseguito il provisioning del servizio con archiviazione di backup con ridondanza geografica, è possibile usare il ripristino geografico per eseguire il ripristino in altre aree. [Altre informazioni](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage)
+> | servers | È possibile utilizzare una replica di lettura tra aree per spostare un server esistente. [Altre informazioni](../../postgresql/howto-move-regions-portal.md).<br/><br/> Se viene eseguito il provisioning del servizio con archiviazione di backup con ridondanza geografica, è possibile usare il ripristino geografico per eseguire il ripristino in altre aree. [Altre informazioni](../../mariadb/concepts-business-continuity.md#recover-from-an-azure-regional-data-center-outage).
 
 ## <a name="microsoftdbformysql"></a>Microsoft.DBforMySQL
 
 > [!div class="mx-tableFixed"]
 > | Tipo di risorsa | Spostamento area | 
 > | ------------- | ----------- |
-> | servers | È possibile utilizzare una replica di lettura tra aree per spostare un server esistente. [Altre informazioni](../../mysql/howto-move-regions-portal.md)
+> | servers | È possibile utilizzare una replica di lettura tra aree per spostare un server esistente. [Altre informazioni](../../mysql/howto-move-regions-portal.md).
 
 ## <a name="microsoftdbforpostgresql"></a>Microsoft.DBforPostgreSQL
 
@@ -908,13 +908,13 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | expressrouteports | No | 
 > | frontdoors | No | 
 > | frontdoorwebapplicationfirewallpolicies | No | 
-> | loadbalancers | Sì <br/><br/> È possibile esportare la configurazione esistente come modello e distribuire il modello nella nuova area. Informazioni su come spostare un servizio di bilanciamento del carico [esterno](../..//load-balancer/move-across-regions-external-load-balancer-portal.md) o [interno](../../load-balancer/move-across-regions-internal-load-balancer-portal.md) . |
+> | loadbalancers | Sì <br/><br/> Usare [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) per spostare i bilanciamenti del carico interno ed esterno. |
 > | localnetworkgateways |  No | 
 > | natgateways |  No | 
 > | networkintentpolicies |  No | 
-> | networkinterfaces | Sì | 
+> | networkinterfaces | Sì <br/><br/> Usare [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) per spostare le schede di rete. | 
 > | networkprofiles | No | 
-> | networksecuritygroups | Sì | 
+> | networksecuritygroups | Sì <br/><br/> Usare [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) per spostare i gruppi di sicurezza di rete (NGSs). | 
 > | networkwatchers |  No |  
 > | networkwatchers/connectionmonitors |  No | 
 > | networkwatchers/lenti |  No | 
@@ -924,7 +924,7 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | privatednszones/virtualnetworklinks |  No |  
 > | privateendpoints | No | 
 > | privatelinkservices | No | 
-> | publicipaddresses | Sì<br/><br/> È possibile esportare la configurazione degli indirizzi IP pubblici esistente come modello e distribuire il modello nella nuova area. [Altre](../../virtual-network/move-across-regions-publicip-portal.md) informazioni sullo stato di trasferimento di un indirizzo IP pubblico. |
+> | publicipaddresses | Sì<br/><br/> Usare [Azure Resource Mover](../../resource-mover/tutorial-move-region-virtual-machines.md) per spostare gli indirizzi IP pubblici. |
 > | publicipprefixes | No | 
 > | routefilters | No | 
 > | routetables |  No | 
@@ -1134,11 +1134,11 @@ Passare a uno spazio dei nomi del provider di risorse:
 > | Tipo di risorsa | Spostamento area | 
 > | ------------- | ----------- |
 > | instancepools | No | 
-> | managedinstances | Sì | 
+> | managedinstances | Sì <br/><br/> [Altre](/azure/azure-sql/database/move-resources-across-regions) informazioni sullo trasferimento di istanze gestite tra le aree. | 
 > | managedinstances/databases | Sì | 
 > | servers | Sì | 
-> | servers/databases | Sì | 
-> | servers/elasticpools | Sì | 
+> | servers/databases | Sì <br/><br/> [Altre](/azure/azure-sql/database/move-resources-across-regions) informazioni sullo stato di trasferimento dei database tra le aree.<br/><br/> [Altre](../../resource-mover/tutorial-move-region-sql.md) informazioni sull'uso di Azure Resource Mover per spostare i database SQL di Azure.  | 
+> | servers/elasticpools | Sì <br/><br/> [Altre](/azure/azure-sql/database/move-resources-across-regions) informazioni sullo stato di trasferimento dei pool elastici tra le aree.<br/><br/> [Altre](../../resource-mover/tutorial-move-region-sql.md) informazioni sull'uso di Azure Resource Mover per spostare i pool elastici SQL di Azure.  | 
 > | virtualclusters | Sì | 
 
 ## <a name="microsoftsqlvirtualmachine"></a>Microsoft.SqlVirtualMachine

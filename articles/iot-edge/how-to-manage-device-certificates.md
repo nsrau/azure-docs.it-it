@@ -8,12 +8,12 @@ ms.date: 06/02/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 4c49345f7036dfee7d1f37c15a4647202b3e5670
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 9e3925d2c14d51785ed4fe00a508ea353490e1cd
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86257842"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669030"
 ---
 # <a name="manage-certificates-on-an-iot-edge-device"></a>Gestire i certificati in un dispositivo IoT Edge
 
@@ -49,7 +49,7 @@ Per creare i file seguenti, è necessario usare la propria autorità di certific
 In questo articolo si fa riferimento alla *CA radice* non è l'autorità di certificazione in primo piano per un'organizzazione. Si tratta dell'autorità di certificazione superiore per lo scenario IoT Edge, che il modulo dell'hub IoT Edge, i moduli utente e tutti i dispositivi downstream usano per stabilire una relazione di trust tra loro.
 
 > [!NOTE]
-> Attualmente, una limitazione in libiothsm impedisce l'utilizzo di certificati che scadono il 1 ° gennaio 2050 o successivo.
+> Attualmente, una limitazione in libiothsm impedisce l'utilizzo di certificati che scadono il 1 ° gennaio 2038 o successivo.
 
 Per visualizzare un esempio di questi certificati, esaminare gli script che creano certificati demo in [gestione dei certificati della CA di test per esempi ed esercitazioni](https://github.com/Azure/iotedge/tree/master/tools/CACertificates).
 
@@ -59,9 +59,9 @@ Installare la catena di certificati nel dispositivo IoT Edge e configurare il ru
 
 Se, ad esempio, sono stati usati gli script di esempio per [creare i certificati demo](how-to-create-test-certificates.md), copiare i file seguenti nel dispositivo:
 
-* Certificato CA dispositivo:`<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
-* Chiave privata CA del dispositivo:`<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
-* CA radice:`<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
+* Certificato CA dispositivo: `<WRKDIR>\certs\iot-edge-device-MyEdgeDeviceCA-full-chain.cert.pem`
+* Chiave privata CA del dispositivo: `<WRKDIR>\private\iot-edge-device-MyEdgeDeviceCA.key.pem`
+* CA radice: `<WRKDIR>\certs\azure-iot-test-only.root.ca.cert.pem`
 
 1. Copiare i tre file di certificato e di chiave nel dispositivo IoT Edge.
 
@@ -72,7 +72,7 @@ Se, ad esempio, sono stati usati gli script di esempio per [creare i certificati
    * Windows: `C:\ProgramData\iotedge\config.yaml`
    * Linux: `/etc/iotedge/config.yaml`
 
-1. Impostare le proprietà del **certificato** in config. YAML sul percorso dell'URI del file del certificato e dei file di chiave nel dispositivo IOT Edge. Rimuovere il `#` carattere prima delle proprietà del certificato per rimuovere il commento dalle quattro righe. Verificare che la riga **certificati:** non includa spazi vuoti precedenti e che gli elementi nidificati siano rientrati in due spazi. ad esempio:
+1. Impostare le proprietà del **certificato** in config. YAML sul percorso dell'URI del file del certificato e dei file di chiave nel dispositivo IOT Edge. Rimuovere il `#` carattere prima delle proprietà del certificato per rimuovere il commento dalle quattro righe. Verificare che la riga **certificati:** non includa spazi vuoti precedenti e che gli elementi nidificati siano rientrati in due spazi. Ad esempio:
 
    * Windows:
 
@@ -96,9 +96,9 @@ Se, ad esempio, sono stati usati gli script di esempio per [creare i certificati
 
 1. Se sono stati usati altri certificati per IoT Edge sul dispositivo prima, eliminare i file nelle due directory seguenti prima di avviare o riavviare IoT Edge:
 
-   * Windows: `C:\ProgramData\iotedge\hsm\certs` e`C:\ProgramData\iotedge\hsm\cert_keys`
+   * Windows: `C:\ProgramData\iotedge\hsm\certs` e `C:\ProgramData\iotedge\hsm\cert_keys`
 
-   * Linux: `/var/lib/iotedge/hsm/certs` e`/var/lib/iotedge/hsm/cert_keys`
+   * Linux: `/var/lib/iotedge/hsm/certs` e `/var/lib/iotedge/hsm/cert_keys`
 
 ## <a name="customize-certificate-lifetime"></a>Personalizzare la durata del certificato
 
@@ -114,7 +114,9 @@ Per questi due certificati generati automaticamente, è possibile impostare il f
 >[!NOTE]
 >È disponibile un terzo certificato generato automaticamente creato dal gestore della sicurezza IoT Edge, il **certificato del server dell'hub IOT Edge**. Questo certificato ha sempre una durata di 90 giorni, ma viene rinnovato automaticamente prima della scadenza. Il valore di **auto_generated_ca_lifetime_days** non influisce sul certificato.
 
-Per configurare la scadenza del certificato a un valore diverso da quello predefinito di 90 giorni, aggiungere il valore in giorni alla sezione **certificati** del file config. yaml.
+Per configurare la scadenza del certificato a un valore diverso da quello predefinito di 90 giorni, aggiungere il valore in giorni alla sezione **certificati** del file **config. YAML** .
+
+Alla scadenza dopo il numero di giorni specificato, il daemon di sicurezza di IoT Edge deve essere riavviato per rigenerare il certificato della CA del dispositivo e non verrà rinnovato automaticamente.
 
 ```yaml
 certificates:
@@ -125,15 +127,13 @@ certificates:
 ```
 
 > [!NOTE]
-> Attualmente, una limitazione in libiothsm impedisce l'utilizzo di certificati che scadono il 1 ° gennaio 2050 o successivo.
+> Attualmente, una limitazione in libiothsm impedisce l'utilizzo di certificati che scadono il 1 ° gennaio 2038 o successivo.
 
-Se sono stati specificati i certificati della CA del dispositivo, questo valore viene comunque applicato al certificato della CA del carico di lavoro, purché il valore di durata impostato sia più breve della durata del certificato della CA del dispositivo.
-
-Dopo aver specificato il flag nel file config. YAML, seguire questa procedura:
+Dopo aver specificato il valore nel file config. YAML, seguire questa procedura:
 
 1. Elimina il contenuto della `hsm` cartella.
 
-   Windows: `C:\ProgramData\iotedge\hsm\certs and C:\ProgramData\iotedge\hsm\cert_keys` Linux:`/var/lib/iotedge/hsm/certs and /var/lib/iotedge/hsm/cert_keys`
+   Windows: `C:\ProgramData\iotedge\hsm\certs and C:\ProgramData\iotedge\hsm\cert_keys` Linux: `/var/lib/iotedge/hsm/certs and /var/lib/iotedge/hsm/cert_keys`
 
 1. Riavviare il servizio IoT Edge.
 

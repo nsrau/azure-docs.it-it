@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/07/2020
 ms.author: allensu
-ms.openlocfilehash: 55a86eeee4f819955e3f8adfcc0f55f24d58bed0
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 541aa7da3e804931c1793e455bcbfca83c809dae
+ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420312"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89669184"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer Standard e zone di disponibilità
 
@@ -67,7 +67,7 @@ Inoltre, è supportato l'uso diretto dei front-end di zona per gli endpoint con 
   <img src="./media/az-zonal/zonal-lb-1.svg" alt="Figure depicts three zonal standard load balancers each directing traffic in a zone to three different subnets in a zonal configuration." width="512" title="NAT di rete virtuale">
 </p>
 
-*Figura: bilanciamento del carico con ridondanza della zona*
+*Figura: bilanciamento del carico di zona*
 
 Per un approfondimento di questi concetti (con ridondanza della zona e di zona per lo stesso back-end), consultare [Più front-end per Azure Load Balancer](load-balancer-multivip-overview.md).
 
@@ -101,7 +101,7 @@ Quando si usano i front-end con ridondanza della zona, il servizio di bilanciame
 
 Altre zone che sono in grado di raggiungere questa macchina virtuale possono continuare a rendere disponibile la macchina virtuale dai rispettivi front-end. Durante gli eventi di errore, ogni zona può avere distribuzioni diverse di nuovi flussi proteggendo allo stesso tempo l'integrità complessiva del servizio.
 
-## <a name="design-considerations"></a><a name="design"></a>Considerazioni sulla progettazione
+## <a name="design-considerations"></a><a name="design"></a> Considerazioni sulla progettazione
 
 Il servizio di bilanciamento del carico è flessibile nel contesto delle zone di disponibilità. È possibile scegliere di allinearsi alle zone o essere con ridondanza della zona per ogni regola. Una maggiore disponibilità può essere il prezzo di una maggiore complessità. Progettazione per la disponibilità per ottenere prestazioni ottimali.
 

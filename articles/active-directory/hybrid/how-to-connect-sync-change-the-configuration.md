@@ -12,12 +12,12 @@ ms.date: 08/30/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea7f2fbd910f574a6486f1db2eaa9b99a4e3ca3e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 07c1405482f107e370327ffbc049c77f483c29bd
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357869"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662566"
 ---
 # <a name="azure-ad-connect-sync-make-a-change-to-the-default-configuration"></a>Servizio di sincronizzazione Azure AD Connect: apportare modifiche alla configurazione predefinita
 Questo articolo illustra in dettaglio come apportare modifiche alla configurazione predefinita nel servizio di sincronizzazione Azure Active Directory (Azure AD) Connect. Include i passaggi per alcuni scenari comuni. Con queste informazioni si potranno apportare semplici modifiche alla propria configurazione in base alle regole di business.
@@ -113,7 +113,7 @@ Se è tutto come previsto, è possibile abilitare di nuovo l'utilità di pianifi
 La sezione precedente descrive come apportare modifiche a un flusso dell'attributo. In questa sezione vengono forniti alcuni esempi aggiuntivi. La procedura per creare la regola di sincronizzazione è abbreviata, ma è possibile trovare quella completa nella sezione precedente.
 
 ### <a name="use-an-attribute-other-than-the-default"></a>Usare un attributo diverso da quello predefinito
-In questo scenario relativo a Fabrikam è disponibile una foresta in cui viene usato l'alfabeto locale per nome, cognome e nome visualizzato. La rappresentazione in caratteri latini di questi attributi è disponibile negli attributi dell'estensione. Per la compilazione dell'elenco indirizzi globale in Azure AD e Office 365, l'organizzazione vuole invece usare questi attributi.
+In questo scenario relativo a Fabrikam è disponibile una foresta in cui viene usato l'alfabeto locale per nome, cognome e nome visualizzato. La rappresentazione in caratteri latini di questi attributi è disponibile negli attributi dell'estensione. Per la compilazione di un elenco di indirizzi globale in Azure AD e Microsoft 365, l'organizzazione vuole usare questi attributi in alternativa.
 
 Con una configurazione predefinita, un oggetto della foresta locale avrà un aspetto simile al seguente:  
 ![Flusso dell'attributo 1](./media/how-to-connect-sync-change-the-configuration/attributeflowjp1.png)
@@ -200,7 +200,7 @@ Per impostazione predefinita, l'attributo UserType non è abilitato per la sincr
 
 - Azure AD accetta solo due valori per l'attributo UserType: **Membro** e **Guest**.
 - Se l'attributo UserType non è abilitato per la sincronizzazione in Azure AD Connect, gli utenti di Azure AD creati attraverso la sincronizzazione della directory avranno l'attributo UserType impostato su **Membro**.
-- Prima della versione1.5.30.0, Azure AD non consentiva ad Azure AD Connect di modificare l'attributo UserType per gli utenti esistenti di Azure AD. Nelle versioni precedenti questo poteva essere impostato solo durante la creazione degli utenti Azure AD e [modificato tramite PowerShell](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0).
+- Prima della versione1.5.30.0, Azure AD non consentiva ad Azure AD Connect di modificare l'attributo UserType per gli utenti esistenti di Azure AD. Nelle versioni precedenti può essere impostato solo durante la creazione del Azure AD utenti e [modificato tramite PowerShell](/powershell/module/azuread/set-azureaduser?view=azureadps-2.0).
 
 Per abilitare la sincronizzazione dell'attributo UserType, è prima necessario decidere in che modo tale attributo verrà ricavato da Active Directory locale. Di seguito sono descritti gli approcci più comuni:
 
