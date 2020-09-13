@@ -1,25 +1,22 @@
 ---
 title: Abilitare la replica per gli endpoint privati in Azure Site Recovery
 description: Questo articolo descrive come configurare la replica per le macchine virtuali con endpoint privati da un'area di Azure a un'altra usando Site Recovery.
-author: mayurigupta13
-ms.author: mayg
+author: Harsha-CS
+ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
 ms.custom: references_regions
-ms.openlocfilehash: 16cde1cf43c6463cbbe640d9e0a80a9ea88f1f1f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 37784c4a294ccf296818f2afb1a8a345cb9d813e
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87097897"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658251"
 ---
 # <a name="replicate-machines-with-private-endpoints"></a>Replicare i computer con endpoint privati
 
-Azure Site Recovery consente di usare endpoint privati di [collegamento privato di Azure](../private-link/private-endpoint-overview.md) per la replica dei computer dall'interno di una rete virtuale isolata. Il supporto per l'accesso a un endpoint privato a un insieme di credenziali di ripristino è supportato per le aree seguenti:
-
-- Azure commerciale: Stati Uniti centro-meridionali, Stati Uniti occidentali 2, Stati Uniti orientali
-- Azure per enti pubblici: US Gov Virginia, US Gov Arizona, US Gov Texas, US DoD (area orientale), US DoD (area centrale)
+Azure Site Recovery consente di usare endpoint privati di [collegamento privato di Azure](../private-link/private-endpoint-overview.md) per la replica dei computer dall'interno di una rete virtuale isolata. L'accesso dell'endpoint privato a un insieme di credenziali di ripristino è supportato in tutte le aree commerciali & governative di Azure.
 
 Questo articolo fornisce istruzioni per eseguire i passaggi seguenti:
 
@@ -176,7 +173,7 @@ Creare una zona DNS privata per consentire all'agente di mobilità di risolvere 
 
    1. Cercare "DNS privato zone" nella barra di ricerca **tutti i servizi** e selezionare "DNS privato Zones" dall'elenco a discesa.
 
-      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Mostra la ricerca della zona DNS privata nella pagina nuove risorse della portale di Azure.":::
+      :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/search-private-dns-zone.png" alt-text="Mostra la ricerca della "zona DNS privata" nella pagina nuove risorse della portale di Azure.":::
 
    1. Nella pagina "zone DNS privato" selezionare il pulsante ** \+ Aggiungi** per avviare la creazione di una nuova zona.
 
@@ -209,7 +206,7 @@ Creare una zona DNS privata per consentire all'agente di mobilità di risolvere 
 
    1. Nella pagina "Aggiungi set di record" visualizzata aggiungere una voce per ogni nome di dominio completo e IP privato come record _di_ tipo. È possibile ottenere l'elenco dei nomi di dominio completi e degli indirizzi IP dalla pagina "endpoint privato" in **Panoramica**. Come illustrato nell'esempio seguente, il primo nome di dominio completo dall'endpoint privato viene aggiunto al set di record nella zona DNS privata.
 
-      Questi nomi di dominio completi corrispondono al modello:`{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
+      Questi nomi di dominio completi corrispondono al modello: `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
 
       :::image type="content" source="./media/azure-to-azure-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Mostra la pagina per aggiungere un record di tipo DNS per il nome di dominio completo all'endpoint privato nel portale di Azure.":::
 
@@ -220,5 +217,5 @@ Creare una zona DNS privata per consentire all'agente di mobilità di risolvere 
 
 Ora che sono stati abilitati endpoint privati per la replica della macchina virtuale, vedere le altre pagine per informazioni aggiuntive e correlate:
 
-- [Replicare le VM di Azure in un'altra area di Azure](./azure-to-azure-how-to-enable-replication.md)
+- [Replica delle macchine virtuali di Azure in un'altra area di Azure](./azure-to-azure-how-to-enable-replication.md)
 - [Esercitazione: configurare il ripristino di emergenza per le macchine virtuali di Azure](./azure-to-azure-tutorial-enable-replication.md)

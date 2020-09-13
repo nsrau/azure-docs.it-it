@@ -11,12 +11,12 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 900d5cd435a913c0859c862d176fd30130e0a079
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 7a7b603efe376250607b4a48ff3ef2833f40a2bd
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321497"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650725"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configurare la suddivisione dei dati e la convalida incrociata in Machine Learning automatico
 
@@ -24,7 +24,7 @@ Questo articolo illustra le diverse opzioni per la configurazione di suddivision
 
 In Azure Machine Learning, quando si usa AutoML per compilare più modelli ML, ogni esecuzione figlio deve convalidare il modello correlato calcolando la metrica di qualità per tale modello, ad esempio l'accuratezza o l'AUC ponderata. Queste metriche vengono calcolate confrontando le stime effettuate con ogni modello con etichette reali dalle osservazioni precedenti nei dati di convalida. 
 
-Gli esperimenti AutoML eseguono automaticamente la convalida del modello. Le sezioni seguenti descrivono come è possibile personalizzare ulteriormente le impostazioni di convalida con [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py). 
+Gli esperimenti AutoML eseguono automaticamente la convalida del modello. Le sezioni seguenti descrivono come è possibile personalizzare ulteriormente le impostazioni di convalida con [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true). 
 
 Per un'esperienza di basso livello o senza codice, vedere [creare esperimenti automatici di Machine Learning in Azure Machine Learning Studio](how-to-use-automated-ml-for-ml-models.md). 
 
@@ -47,7 +47,7 @@ Per questo articolo è necessario,
 
 ## <a name="default--data-splits-and-cross-validation"></a>Suddivisione dei dati predefinita e convalida incrociata
 
-Usare l'oggetto [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py) per definire le impostazioni dell'esperimento e del training. Nel frammento di codice seguente si noti che sono definiti solo i parametri obbligatori, ovvero i parametri `n_cross_validation` per `validation_ data` o **non** sono inclusi.
+Usare l'oggetto [AutoMLConfig](https://docs.microsoft.com/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig?view=azure-ml-py&preserve-view=true) per definire le impostazioni dell'esperimento e del training. Nel frammento di codice seguente si noti che sono definiti solo i parametri obbligatori, ovvero i parametri `n_cross_validation` per `validation_ data` o **non** sono inclusi.
 
 ```python
 data = "https://automlsamplenotebookdata.blob.core.windows.net/automl-sample-notebook-data/creditcard.csv"
@@ -93,7 +93,7 @@ automl_config = AutoMLConfig(compute_target = aml_remote_compute,
 
 ## <a name="provide-validation-set-size"></a>Specificare le dimensioni del set di convalida
 
-In questo caso, per l'esperimento viene fornito solo un singolo set di dati. Ovvero il `validation_data` parametro **non** viene specificato e il set di dati fornito viene assegnato al `training_data` parametro.  Nell' `AutoMLConfig` oggetto è possibile impostare il parametro in `validation_size` modo da mantenere una parte dei dati di training per la convalida. Ciò significa che il set di convalida verrà suddiviso da AutoML dall'oggetto `training_data` fornito inizialmente. Questo valore deve essere compreso tra 0,0 e 1,0 non inclusivo (ad esempio, 0,2 significa che il 20% dei dati viene mantenuto per i dati di convalida).
+In questo caso, per l'esperimento viene fornito solo un singolo set di dati. Ovvero il `validation_data` parametro **non** viene specificato e il set di dati fornito viene assegnato al  `training_data` parametro.  Nell' `AutoMLConfig` oggetto è possibile impostare il parametro in `validation_size` modo da mantenere una parte dei dati di training per la convalida. Ciò significa che il set di convalida verrà suddiviso da AutoML dall'oggetto `training_data` fornito inizialmente. Questo valore deve essere compreso tra 0,0 e 1,0 non inclusivo (ad esempio, 0,2 significa che il 20% dei dati viene mantenuto per i dati di convalida).
 
 Vedere l'esempio di codice seguente:
 

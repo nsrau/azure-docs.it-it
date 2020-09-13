@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/05/2019
-ms.openlocfilehash: 8a72dff055f2733a07b6da705b66da939ad29bae
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 5bd637f4e4a786cd4cba0f70c4b2349e354469fd
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87495608"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657470"
 ---
 # <a name="create-loops-that-repeat-workflow-actions-or-process-arrays-in-azure-logic-apps"></a>Creare cicli che ripetono le azioni del flusso di lavoro o elaborano le matrici nelle App per la logica di Azure
 
@@ -45,7 +45,7 @@ per fare riferimento a ogni elemento nella matrice ed elaborarlo. Se si specific
 
 Questa app per la logica di esempio invia un riepilogo giornaliero per un feed RSS del sito Web. L'app usa un ciclo "Foreach" che invia un messaggio di posta elettronica per ogni nuovo elemento.
 
-1. [Creare questa app per la logica di esempio](../logic-apps/quickstart-create-first-logic-app-workflow.md) con un account Outlook.com o Office 365 Outlook.
+1. [Creare questa app](../logic-apps/quickstart-create-first-logic-app-workflow.md) per la logica di esempio con un account Outlook.com o un account aziendale o dell'Istituto di istruzione.
 
 2. Tra il trigger RSS e l'azione di invio del messaggio di posta elettronica, aggiungere un ciclo "Foreach". 
 
@@ -230,7 +230,7 @@ A partire dalle 8:00 di ogni giorno, questa app per la logica di esempio increme
 
       ![Configurare le proprietà del messaggio di posta elettronica](./media/logic-apps-control-flow-loops/do-until-loop-send-email-settings.png)
 
-      | Property | Valore | Description |
+      | Proprietà | Valore | Descrizione |
       | -------- | ----- | ----------- | 
       | **To** | *\<email-address\@domain>* | Indirizzo e-mail del destinatario. Per il test è possibile usare l'indirizzo di posta elettronica personale. | 
       | **Oggetto** | Il valore corrente per "Limite" è **Limite** | Specificare l'oggetto del messaggio di posta elettronica. Assicurarsi di includere in questo esempio la variabile **Limite**. | 

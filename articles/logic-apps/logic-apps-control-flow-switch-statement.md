@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 10/08/2018
-ms.openlocfilehash: d2c8271f0bc33bc47e64c85846061a9b77bbe66f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 62f147104cf9e0e1605b02a420cb6d20190361b8
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87066223"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657464"
 ---
 # <a name="create-switch-statements-that-run-workflow-actions-based-on-specific-values-in-azure-logic-apps"></a>Creare istruzioni switch che eseguono le azioni del flusso di lavoro in base a valori specifici nella App per la logica di Azure
 
@@ -27,7 +27,7 @@ Si supponga, ad esempio, che sia necessaria un'app per la logica che esegue pass
 
 * Una sottoscrizione di Azure. Se non si ha una sottoscrizione, è possibile [iscriversi per creare un account Azure gratuito](https://azure.microsoft.com/free/).
 
-* Per seguire l'esempio di questo articolo, [creare questa app per la logica di esempio](../logic-apps/quickstart-create-first-logic-app-workflow.md) con un account Outlook.com o Office 365 Outlook.
+* Per seguire l'esempio in questo articolo, [creare questa app](../logic-apps/quickstart-create-first-logic-app-workflow.md) per la logica di esempio con un account Outlook.com o un account aziendale o dell'Istituto di istruzione.
 
   1. Quando si aggiunge l'azione per inviare posta elettronica, individuare e selezionare invece l'azione **Invia messaggio di posta elettronica di approvazione**
 

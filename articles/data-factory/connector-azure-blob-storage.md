@@ -9,13 +9,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/31/2020
-ms.openlocfilehash: 34ddea1445ef8a8eb8554add3ee8920078a6e573
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.date: 09/10/2020
+ms.openlocfilehash: 883c88386e4796f8d0cd2631b7754c06ce13d141
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182565"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657275"
 ---
 # <a name="copy-and-transform-data-in-azure-blob-storage-by-using-azure-data-factory"></a>Copiare e trasformare i dati in archiviazione BLOB di Azure con Azure Data Factory
 
@@ -67,7 +67,7 @@ Questo connettore di archiviazione BLOB supporta i tipi di autenticazione seguen
 - [Identità gestite per l'autenticazione delle risorse di Azure](#managed-identity)
 
 >[!NOTE]
->Quando si usa la polibase per caricare i dati in Azure SQL Data Warehouse, se l'archiviazione BLOB di origine o di gestione temporanea è configurata con un endpoint di rete virtuale di Azure, è necessario usare l'autenticazione di identità gestita come richiesto da polibase. È anche necessario usare il runtime di integrazione self-hosted con la versione 3,18 o successiva. Per ulteriori prerequisiti di configurazione, vedere la sezione [autenticazione identità gestita](#managed-identity) .
+>Quando si usa la polibase per caricare i dati in Azure sinapsi Analytics (in precedenza SQL Data Warehouse), se l'archiviazione BLOB di origine o di gestione temporanea è configurata con un endpoint di rete virtuale di Azure, è necessario usare l'autenticazione di identità gestita come richiesto da polibase. È anche necessario usare il runtime di integrazione self-hosted con la versione 3,18 o successiva. Per ulteriori prerequisiti di configurazione, vedere la sezione [autenticazione identità gestita](#managed-identity) .
 
 >[!NOTE]
 >Azure HDInsight e le attività Azure Machine Learning supportano solo l'autenticazione che usa le chiavi dell'account di archiviazione BLOB di Azure.
@@ -234,6 +234,7 @@ Per un servizio collegato ad Archiviazione BLOB di Azure sono supportate queste 
 |:--- |:--- |:--- |
 | type | La proprietà **Type** deve essere impostata su **AzureBlobStorage**. |Sì |
 | serviceEndpoint | Specificare l'endpoint del servizio di Archiviazione BLOB di Azure con il criterio `https://<accountName>.blob.core.windows.net/`. |Sì |
+| accountKind | Specificare il tipo di account di archiviazione. I valori consentiti sono: **storage** (utilizzo generico V1), **archiviazione V2** (utilizzo generico v2), **BlobStorage**o **BlockBlobStorage**. <br/> Quando si usa il servizio collegato BLOB di Azure nel flusso di dati, l'identità gestita o l'autenticazione basata su entità servizio non è supportata quando il tipo di account è vuoto o "archiviazione". Specificare il tipo di account appropriato, scegliere un'autenticazione diversa oppure aggiornare l'account di archiviazione a utilizzo generico V2. |No |
 | servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì |
 | servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in data factory o [fare riferimento a un segreto archiviato nel Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
 | tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Recuperarla passando il mouse sull'angolo superiore destro della portale di Azure. | Sì |
@@ -252,6 +253,7 @@ Per un servizio collegato ad Archiviazione BLOB di Azure sono supportate queste 
         "type": "AzureBlobStorage",
         "typeProperties": {            
             "serviceEndpoint": "https://<accountName>.blob.core.windows.net/",
+            "accountKind": "StorageV2",
             "servicePrincipalId": "<service principal id>",
             "servicePrincipalKey": {
                 "type": "SecureString",
@@ -281,7 +283,7 @@ Per informazioni generali sull'autenticazione di archiviazione di Azure, vedere 
     - **Come sink**, in **controllo di accesso (IAM)** concedere almeno il ruolo di **collaboratore dati BLOB di archiviazione** .
 
 >[!IMPORTANT]
->Se si usa la polibase per caricare dati dall'archivio BLOB (come origine o come gestione temporanea) in SQL Data Warehouse, quando si usa l'autenticazione dell'identità gestita per l'archiviazione BLOB, assicurarsi di seguire anche i passaggi 1 e 2 in [questa guida](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Questa procedura consente di registrare il server con Azure AD e assegnare il ruolo di collaboratore dati BLOB di archiviazione al server. Data Factory gestisce il resto. Se l'archiviazione BLOB è stata configurata con un endpoint di rete virtuale di Azure, per usare la polibase per caricare i dati, è necessario usare l'autenticazione di identità gestita come richiesto da polibase.
+>Se si usa la polibase per caricare dati dall'archivio BLOB (come origine o come gestione temporanea) in Azure sinapsi Analytics (in precedenza SQL Data Warehouse), quando si usa l'autenticazione dell'identità gestita per l'archiviazione BLOB, assicurarsi di seguire anche i passaggi 1 e 2 in [questa guida](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage). Questa procedura consente di registrare il server con Azure AD e assegnare il ruolo di collaboratore dati BLOB di archiviazione al server. Data Factory gestisce il resto. Se l'archiviazione BLOB è stata configurata con un endpoint di rete virtuale di Azure, per usare la polibase per caricare i dati, è necessario usare l'autenticazione di identità gestita come richiesto da polibase.
 
 Per un servizio collegato ad Archiviazione BLOB di Azure sono supportate queste proprietà:
 
@@ -289,6 +291,7 @@ Per un servizio collegato ad Archiviazione BLOB di Azure sono supportate queste 
 |:--- |:--- |:--- |
 | type | La proprietà **Type** deve essere impostata su **AzureBlobStorage**. |Sì |
 | serviceEndpoint | Specificare l'endpoint del servizio di Archiviazione BLOB di Azure con il criterio `https://<accountName>.blob.core.windows.net/`. |Sì |
+| accountKind | Specificare il tipo di account di archiviazione. I valori consentiti sono: **storage** (utilizzo generico V1), **archiviazione V2** (utilizzo generico v2), **BlobStorage**o **BlockBlobStorage**. <br/> Quando si usa il servizio collegato BLOB di Azure nel flusso di dati, l'identità gestita o l'autenticazione basata su entità servizio non è supportata quando il tipo di account è vuoto o "archiviazione". Specificare il tipo di account appropriato, scegliere un'autenticazione diversa oppure aggiornare l'account di archiviazione a utilizzo generico V2. |No |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare il runtime di integrazione di Azure o il runtime di integrazione self-hosted (se l'archivio dati si trova in una rete privata). Se questa proprietà non è specificata, il servizio usa il runtime di integrazione di Azure predefinito. |No |
 
 > [!NOTE]
@@ -302,7 +305,8 @@ Per un servizio collegato ad Archiviazione BLOB di Azure sono supportate queste 
     "properties": {
         "type": "AzureBlobStorage",
         "typeProperties": {            
-            "serviceEndpoint": "https://<accountName>.blob.core.windows.net/"
+            "serviceEndpoint": "https://<accountName>.blob.core.windows.net/",
+            "accountKind": "StorageV2" 
         },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",

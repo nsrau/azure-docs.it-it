@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: a6e603ad5698e7a6a57799def8a0f2de28e0cada
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 8ad22abdf17c68c93a6189db839fe357e7acc91e
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89144890"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650831"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Configurare un ambiente di sviluppo per Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -63,7 +63,7 @@ Per altre informazioni sulle istanze di calcolo, inclusa la modalità di install
 
 Per arrestare i costi di calcolo, [arrestare l'istanza di calcolo](tutorial-1st-experiment-sdk-train.md#clean-up-resources).
 
-## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Data Science Virtual Machine
+## <a name="data-science-virtual-machine"></a><a id="dsvm"></a>Macchina virtuale di data science
 
 La Data Science Virtual Machine (DSVM) è un'immagine di macchina virtuale personalizzata. È stata progettata per operazioni di data science che sono preconfigurate con:
 
@@ -185,7 +185,7 @@ Quando si usa un computer locale (che potrebbe anche essere una macchina virtual
    >
    >   `pip install --upgrade azureml-sdk\[notebooks,automl\]`
 
-   L'installazione dell'SDK può richiedere diversi minuti. Per ulteriori informazioni sulle opzioni di installazione, vedere la [Guida](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)all'installazione.
+   L'installazione dell'SDK può richiedere diversi minuti. Per ulteriori informazioni sulle opzioni di installazione, vedere la [Guida](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true)all'installazione.
 
 1. Installare altri pacchetti per la sperimentazione di machine learning.
 
@@ -361,7 +361,7 @@ Per usare questo file dal codice, usare `ws=Workspace.from_config()`. Questo cod
 
 È possibile creare il file di configurazione in tre modi:
 
-* **Usare  [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)**: per scrivere un *config.jssul* file. che contiene le informazioni di configurazione per l'area di lavoro. È possibile scaricare o copiare il file *config.json* in altri ambienti di sviluppo.
+* **Usare  [ws. write_config](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)**: per scrivere un *config.jssul* file. che contiene le informazioni di configurazione per l'area di lavoro. È possibile scaricare o copiare il file *config.json* in altri ambienti di sviluppo.
 
 * **Scaricare il file**: nella [portale di Azure](https://ms.portal.azure.com)Selezionare  **Scarica config.js** da nella sezione **Panoramica** dell'area di lavoro.
 
@@ -389,4 +389,4 @@ Per usare questo file dal codice, usare `ws=Workspace.from_config()`. Questo cod
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Eseguire il [training di un modello](tutorial-train-models-with-aml.md) su Azure Machine Learning con il set di dati MNIST
-- Vedere la documentazione di riferimento di [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)
+- Vedere la documentazione di riferimento di [Azure Machine Learning SDK per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true)

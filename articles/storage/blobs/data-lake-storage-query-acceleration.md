@@ -1,26 +1,23 @@
 ---
-title: Accelerazione query Azure Data Lake Storage (anteprima)
-description: Accelerazione query (anteprima) è una nuova funzionalità per Azure Data Lake Storage che consente alle applicazioni e ai Framework di analisi di ottimizzare in modo significativo l'elaborazione dei dati recuperando solo i dati necessari per un'operazione di elaborazione.
+title: Accelerazione query Azure Data Lake Storage
+description: L'accelerazione delle query consente alle applicazioni e ai Framework di analisi di ottimizzare in modo significativo l'elaborazione dei dati recuperando solo i dati necessari per un'operazione di elaborazione.
 author: normesta
 ms.topic: conceptual
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.date: 04/21/2020
+ms.date: 09/09/2020
 ms.service: storage
 ms.subservice: data-lake-storage-gen2
-ms.openlocfilehash: 42eec4a0796a7f07c7e7d1c35571d9d4ddcf69d7
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ae92828f08ae4abf9cc28f18872cca27ce747be4
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82176703"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657648"
 ---
-# <a name="azure-data-lake-storage-query-acceleration-preview"></a>Accelerazione query Azure Data Lake Storage (anteprima)
+# <a name="azure-data-lake-storage-query-acceleration"></a>Accelerazione query Azure Data Lake Storage
 
-Accelerazione query (anteprima) è una nuova funzionalità per Azure Data Lake Storage che consente alle applicazioni e ai Framework di analisi di ottimizzare in modo significativo l'elaborazione dei dati recuperando solo i dati necessari per eseguire una determinata operazione. In questo modo si riduce il tempo e la potenza di elaborazione necessari per ottenere informazioni critiche sui dati archiviati.
-
-> [!NOTE]
-> La funzionalità di accelerazione delle query è in anteprima pubblica ed è disponibile nelle aree Canada centrale e Francia centrale. Per esaminare le limitazioni, vedere l'articolo relativo ai [problemi noti](data-lake-storage-known-issues.md) . Per iscriversi all'anteprima, vedere [questo modulo](https://aka.ms/adls/qa-preview-signup).  
+L'accelerazione delle query consente alle applicazioni e ai Framework di analisi di ottimizzare in modo significativo l'elaborazione dei dati recuperando solo i dati necessari per eseguire una determinata operazione. In questo modo si riduce il tempo e la potenza di elaborazione necessari per ottenere informazioni critiche sui dati archiviati.
 
 ## <a name="overview"></a>Panoramica
 
@@ -57,7 +54,7 @@ Per calcolare un valore aggregato, le applicazioni recuperano in genere **tutti*
 
 Anche se Azure offre una rete leader del settore, in termini di velocità effettiva e latenza, il trasferimento inutilmente dei dati attraverso la rete è ancora costoso per le prestazioni dell'applicazione. Filtrando i dati indesiderati durante la richiesta di archiviazione, l'accelerazione delle query elimina questo costo.
 
-Inoltre, il carico della CPU necessario per analizzare e filtrare i dati non necessari richiede che l'applicazione esegua il provisioning di un numero maggiore e di macchine virtuali di dimensioni maggiori per poter eseguire questa operazione. Trasferendo questo carico di calcolo all'accelerazione delle query, le applicazioni possono realizzare risparmi significativi in termini di costi.
+Inoltre, il carico della CPU necessario per analizzare e filtrare i dati non necessari richiede che l'applicazione esegua il provisioning di un numero maggiore e di macchine virtuali di dimensioni maggiori per poter eseguire le operazioni. Trasferendo questo carico di calcolo all'accelerazione delle query, le applicazioni possono realizzare risparmi significativi in termini di costi.
 
 ## <a name="applications-that-can-benefit-from-query-acceleration"></a>Applicazioni che possono trarre vantaggio dall'accelerazione delle query
 
@@ -77,8 +74,7 @@ Nonostante la modifica apportata al modello di fatturazione, il modello di deter
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Modulo di registrazione accelerazione query](https://aka.ms/adls/qa-preview-signup)    
-- [Filtrare i dati usando Azure Data Lake Storage Acceleration query (anteprima)](data-lake-storage-query-acceleration-how-to.md)
-- [Guida di riferimento al linguaggio SQL per l'accelerazione delle query (anteprima)](query-acceleration-sql-reference.md)
+- [Filtrare i dati tramite Azure Data Lake Storage accelerazione query](data-lake-storage-query-acceleration-how-to.md)
+- [Informazioni di riferimento sul linguaggio SQL di accelerazione query](query-acceleration-sql-reference.md)
 
 

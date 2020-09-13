@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: c899d14b6e0eea8135b996aadfe2a7388a8fcb89
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 886e45e92fb3a882de167b5c59a9b5ee09a9c430
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88861202"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657583"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Parità di Azure Machine Learning del cloud sovrano
 
@@ -34,7 +34,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 
 ## <a name="azure-government"></a>Azure Government 
 
-| Funzionalità | Stato del cloud pubblico  | Stati Uniti-Virginia | Stati Uniti-Arizona| 
+| Feature | Stato del cloud pubblico  | Stati Uniti-Virginia | Stati Uniti-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | **Machine Learning automatizzato** | | | |
 | Creare ed eseguire esperimenti nei notebook                                    | GA                   | YES                | YES         |
@@ -85,7 +85,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 | Integrazione di Visual Studio Code                                             | Anteprima pubblica       | NO                 | NO          |
 | Integrazione di Griglia di eventi                                                     | Anteprima pubblica       | NO                 | NO          |
 | Integrare Analisi di flusso di Azure con Azure Machine Learning               | Anteprima pubblica       | NO                 | NO          |
-| **Etichette** |   | | |
+| **Etichettatura** |   | | |
 | Assegnazione di etichette al progetto portale di gestione                                        | GA                   | YES                | YES         |
 | Portale etichettatore                                                            | GA                   | YES                | YES         |
 | Assegnazione di etichette con il personale privato                                          | GA                   | YES                | YES         |
@@ -96,7 +96,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 | Tag personalizzati in Azure Machine Learning per implementare i fogli dati              | GA                   | NO                 | NO          |
 | Integrazione con AzureML Equity                                               | Anteprima pubblica       | NO                 | NO          |
 | SDK per l'interpretazione                                                      | GA                   | YES                | YES         |
-| **Training** |   | | |
+| **Formazione** |   | | |
 | Streaming del log di sperimentazione                                              | GA                   | YES                | YES         |
 | Apprendimento per rinforzo                                                     | Anteprima pubblica       | NO                 | NO          |
 | Interfaccia utente di sperimentazione                                                         | GA                   | YES                | YES         |
@@ -136,7 +136,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 * Per Azure Machine Learning istanze di calcolo, la possibilità di aggiornare un token che dura più di 24 ore non è disponibile in Azure per enti pubblici.
 * La profilatura del modello non supporta 4 CPU nell'area Stati Uniti orientali.   
 * I notebook di esempio potrebbero non funzionare in Azure per enti pubblici se è necessario l'accesso ai dati pubblici.
-* Indirizzi IP: il comando CLI usato nelle istruzioni [VNet e tunneling forzato](how-to-enable-virtual-network.md#forced-tunneling) non restituisce gli intervalli IP. Usare invece gli [intervalli IP di Azure e i tag di servizio per Azure per enti pubblici](https://www.microsoft.com/download/details.aspx?id=57063) .
+* Indirizzi IP: il comando CLI usato nelle istruzioni [VNet e tunneling forzato](how-to-secure-training-vnet.md#forced-tunneling) non restituisce gli intervalli IP. Usare invece gli [intervalli IP di Azure e i tag di servizio per Azure per enti pubblici](https://www.microsoft.com/download/details.aspx?id=57063) .
 * Per le pipeline pianificate, viene fornito anche un meccanismo di trigger basato su BLOB. Questo meccanismo non è supportato per le aree di lavoro CMK. Per abilitare un trigger basato su BLOB per le aree di lavoro di CMK, è necessario eseguire un'installazione aggiuntiva. Per altre informazioni, vedere [attivare un'esecuzione di una pipeline di machine learning da un'app per la logica](how-to-trigger-published-pipeline.md).
 * Firewall: quando si usa un'area di Azure per enti pubblici, aggiungere gli host aggiuntivi seguenti all'impostazione del firewall:
 
@@ -147,7 +147,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 
 ## <a name="azure-china-21vianet"></a>Azure Cina 21Vianet 
 
-| Funzionalità                                       | Stato del cloud pubblico | CH-Est-2 | CH-Nord-3 |
+| Feature                                       | Stato del cloud pubblico | CH-Est-2 | CH-Nord-3 |
 |----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
 | **Machine Learning automatizzato** |    | | |
 | Creare ed eseguire esperimenti nei notebook                                    | GA               | YES       | N/D        |
@@ -198,7 +198,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 | Integrazione di Visual Studio Code                                             | Anteprima pubblica   | NO        | N/D        |
 | Integrazione di Griglia di eventi                                                     | Anteprima pubblica   | YES       | N/D        |
 | Integrare Analisi di flusso di Azure con Azure Machine Learning               | Anteprima pubblica   | NO        | N/D        |
-| **Etichette** |    | | |
+| **Etichettatura** |    | | |
 | Assegnazione di etichette al progetto portale di gestione                                        | GA               | YES       | N/D        |
 | Portale etichettatore                                                            | GA               | YES       | N/D        |
 | Assegnazione di etichette con il personale privato                                          | GA               | YES       | N/D        |
@@ -209,7 +209,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 | Tag personalizzati in Azure Machine Learning per implementare i fogli dati              | GA               | NO        | N/D        |
 | Integrazione con AzureML Equity                                               | Anteprima pubblica   | NO        | N/D        |
 | SDK per l'interpretazione                                                      | GA               | YES       | N/D        |
-| **Training** |    | | |
+| **Formazione** |    | | |
 | Streaming del log di sperimentazione                                              | GA               | YES       | N/D        |
 | Apprendimento per rinforzo                                                     | Anteprima pubblica   | NO        | N/D        |
 | Interfaccia utente di sperimentazione                                                         | GA               | YES       | N/D        |
@@ -236,7 +236,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
     | Azure Active Directory              | `https://login.microsoftonline.com`          | `https://login.chinacloudapi.cn`             |
 
 * È possibile che il notebook di esempio non funzioni, se è necessario accedere ai dati pubblici.
-* Intervalli di indirizzi IP: il comando CLI usato nelle istruzioni per il [tunneling forzato VNet](how-to-enable-virtual-network.md#forced-tunneling) non restituisce gli intervalli IP. Usare invece gli [intervalli IP di Azure e i tag di servizio per Azure Cina](https://www.microsoft.com//download/details.aspx?id=57062) .
+* Intervalli di indirizzi IP: il comando CLI usato nelle istruzioni per il [tunneling forzato VNet](how-to-secure-training-vnet.md#forced-tunneling) non restituisce gli intervalli IP. Usare invece gli [intervalli IP di Azure e i tag di servizio per Azure Cina](https://www.microsoft.com//download/details.aspx?id=57062) .
 * Azure Machine Learning l'anteprima delle istanze di calcolo non è supportata in un'area di lavoro in cui il collegamento privato è abilitato per il momento, ma nella successiva distribuzione per l'espansione del servizio in tutte le aree di AML.
 
 ## <a name="next-steps"></a>Passaggi successivi

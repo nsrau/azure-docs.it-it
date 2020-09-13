@@ -3,12 +3,12 @@ title: Opzioni di autenticazione del registro
 description: Opzioni di autenticazione per un registro contenitori di Azure privato, incluso l'accesso con un'identità di Azure Active Directory, l'uso di entità servizio e l'uso di credenziali di amministratore facoltative.
 ms.topic: article
 ms.date: 01/30/2020
-ms.openlocfilehash: 3d2379b2b2384342fb84ba1b610caa609300aa0c
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 7c8176d0cdca5d74ed3201071f83ed1181d94b8d
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87926321"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89657079"
 ---
 # <a name="authenticate-with-an-azure-container-registry"></a>Eseguire l'autenticazione con un Registro Azure Container
 
@@ -37,7 +37,7 @@ Quando si usa direttamente il registro di sistema, ad esempio il pull di immagin
 az acr login --name <acrName>
 ```
 
-Quando si accede con `az acr login`, l'interfaccia della riga di comando usa il token creato quando si è eseguito [az login](/cli/azure/reference-index#az-login) per l'autenticazione semplificata della sessione al registro. Per completare il flusso di autenticazione, è necessario che l'interfaccia della riga di comando Docker e il daemon Docker siano installati e in esecuzione nell'ambiente in uso. `az acr login`Usa il client Docker per impostare un token di Azure Active Directory nel `docker.config` file. Dopo aver effettuato l'accesso in questo modo, le credenziali vengono memorizzate nella cache e i successivi comandi `docker` nella sessione non richiedono il nome utente o la password.
+Quando si accede con `az acr login`, l'interfaccia della riga di comando usa il token creato quando si è eseguito [az login](/cli/azure/reference-index#az-login) per l'autenticazione semplificata della sessione al registro. Per completare il flusso di autenticazione, è necessario che l'interfaccia della riga di comando Docker e il daemon Docker siano installati e in esecuzione nell'ambiente in uso. `az acr login` Usa il client Docker per impostare un token di Azure Active Directory nel `docker.config` file. Dopo aver effettuato l'accesso in questo modo, le credenziali vengono memorizzate nella cache e i successivi comandi `docker` nella sessione non richiedono il nome utente o la password.
 
 > [!TIP]
 > Usare anche `az acr login` per autenticare una singola identità quando si desidera effettuare il push o il pull di elementi diversi dalle immagini Docker nel registro di sistema, ad esempio gli [artefatti OCI](container-registry-oci-artifacts.md).  
@@ -53,7 +53,7 @@ In alcuni casi, potrebbe essere necessario eseguire l'autenticazione con `az acr
 Per questo scenario, eseguire `az acr login` prima con il `--expose-token` parametro. Questa opzione espone un token di accesso anziché l'accesso tramite l'interfaccia della riga di comando di Docker.
 
 ```azurecli
-az acr login -name <acrName> --expose-token
+az acr login --name <acrName> --expose-token
 ```
 
 Output Visualizza il token di accesso, abbreviato qui:

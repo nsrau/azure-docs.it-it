@@ -76,7 +76,7 @@ La tabella seguente elenca le proprietà per i log delle risorse Azure Machine L
 | Editore | Server di pubblicazione del tipo di cluster |
 | Offerta | Offerta con cui viene creato il cluster |
 | Sku | SKU del nodo/VM creato nel cluster |
-| Version | Versione dell'immagine usata durante la creazione del nodo o della VM |
+| Versione | Versione dell'immagine usata durante la creazione del nodo o della VM |
 | SubnetId | SubnetId del cluster |
 | AllocationState | Stato di allocazione cluster |
 | CurrentNodeCount | Numero corrente di nodi del cluster |
@@ -112,7 +112,7 @@ La tabella seguente elenca le proprietà per i log delle risorse Azure Machine L
 | Editore | Autore dell'immagine della macchina virtuale, ad esempio Microsoft-dsvm |
 | Offerta | Offerta associata alla creazione della macchina virtuale |
 | Sku | SKU del nodo o della macchina virtuale creata |
-| Version | Versione dell'immagine usata durante la creazione del nodo o della VM |
+| Versione | Versione dell'immagine usata durante la creazione del nodo o della VM |
 | ClusterCreationTime | Ora di creazione del cluster |
 | ResizeStartTime | Ora di inizio/discesa della scalabilità del cluster |
 | ResizeEndTime | Ora di fine della scalabilità verticale del cluster |
