@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 21e242d0a6a5aa2efa011289200654e71bd58662
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 67d22535f44d4d1b39b6c305fa0670d2d08be0c3
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89071449"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595802"
 ---
 # <a name="create-an-application-gateway-with-tls-termination-using-azure-powershell"></a>Creare un gateway applicazione con terminazione TLS usando Azure PowerShell
 
@@ -22,11 +22,10 @@ ms.locfileid: "89071449"
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
-> [!div class="checklist"]
-> * Creare un certificato autofirmato
-> * Configurare una rete
-> * Creare un gateway applicazione con il certificato
-> * Creare un set di scalabilità di macchine virtuali con il pool back-end predefinito
+* Creare un certificato autofirmato
+* Configurare una rete
+* Creare un gateway applicazione con il certificato
+* Creare un set di scalabilità di macchine virtuali con il pool back-end predefinito
 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 

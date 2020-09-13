@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/13/2020
+ms.date: 09/09/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 51d7cb32ef2d1d7750a0bb53cfa3ccc111bd1302
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 836e01d3cd8fb25dda1616803d8b6f3e9ff4e06f
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89143734"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645752"
 ---
 # <a name="data-encryption-models"></a>Modelli di crittografia dei dati
 
@@ -157,7 +157,7 @@ I servizi di Azure che supportano ogni modello di crittografia:
 | QnA Maker                        | Sì                | Sì                | -                  |
 | Servizi Voce                  | Sì                | Sì                | -                  |
 | Traduzione testuale                  | Sì                | Sì                | -                  |
-| Power BI                         | Sì                | Anteprima, RSA a 2048 bit | -                  |
+| Power BI                         | Sì                | Sì, RSA 4096 bit  | -                  |
 | **Analisi**                    |                    |                    |                    |
 | Analisi di flusso di Azure           | Sì                | N/D\*              | -                  |
 | Hub eventi                       | Sì                | Sì                | -                  |

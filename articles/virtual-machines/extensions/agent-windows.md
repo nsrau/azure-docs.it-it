@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: 42470df5391a976e8023467758d2a3fd0890883e
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: d9939b706eb63e5681ddef438cde92f32786f889
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88041477"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612840"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Panoramica dell'agente di macchine virtuali di Azure
 L'agente di macchine virtuali di Microsoft Azure è un processo protetto e leggero che gestisce l'interazione delle macchine virtuali con il controller di infrastruttura di Azure. L'agente di macchine virtuali svolge un ruolo primario per l'abilitazione e l'esecuzione delle estensioni macchina virtuale di Azure. Le estensioni macchina virtuale rendono possibile la configurazione post-distribuzione della macchina virtuale, ad esempio l'installazione e la configurazione di software. Le estensioni macchina virtuale abilitano anche funzionalità di ripristino, ad esempio la reimpostazione della password amministrativa di una macchina virtuale. Senza l'agente di macchine virtuali di Azure, le estensioni macchina virtuale non possono essere eseguite.
@@ -70,7 +70,7 @@ $vm | Update-AzVM
 
 ### <a name="prerequisites"></a>Prerequisiti
 
-- L'agente di macchine virtuali Windows necessita almeno di Windows Server 2008 (64 bit) per l'esecuzione con .NET Framework 4,0. Vedere [supporto della versione minima per gli agenti di macchine virtuali in Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
+- L'agente di macchine virtuali Windows necessita almeno di Windows Server 2008 SP2 (64 bit) per l'esecuzione con .NET Framework 4,0. Vedere [supporto della versione minima per gli agenti di macchine virtuali in Azure](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support)
 
 - Assicurarsi che la macchina virtuale abbia accesso all'indirizzo IP 168.63.129.16. Per ulteriori informazioni, vedere la pagina relativa all' [indirizzo IP 168.63.129.16](../../virtual-network/what-is-ip-address-168-63-129-16.md).
 

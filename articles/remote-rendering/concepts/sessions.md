@@ -6,12 +6,12 @@ ms.author: jakras
 ms.date: 02/21/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 74fae6a8aa0c59043db0ab816e09b16affb63580
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 2e7f441a727bea8d1a5d401fb5e9757dee1044fc
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021834"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613809"
 ---
 # <a name="remote-rendering-sessions"></a>Sessioni di Rendering remoto
 
@@ -31,7 +31,7 @@ Una volta *stabilita la connessione* a una sessione attiva, le operazioni quali 
 
 ### <a name="managing-multiple-sessions-simultaneously"></a>Gestione simultanea di più sessioni
 
-Non è possibile stabilire una *connessione completa* a più sessioni da un dispositivo. Tuttavia, è possibile creare, osservare e arrestare tutte le sessioni desiderate da un'unica applicazione. Fintanto che l'app non è destinata a connettersi a una sessione, non è necessario neanche eseguirla in un dispositivo come HoloLens 2. Un caso d'uso per tale implementazione può essere rappresentato dalla necessità di controllare le sessioni tramite un meccanismo centrale. Ad esempio, è possibile creare un'app Web in cui sia possibile accedere a più tablet e dispositivi HoloLens. Quindi, l'app può visualizzare le opzioni sui tablet, ad esempio il modello CAD da visualizzare. Se un utente effettua una selezione, queste informazioni vengono comunicate a tutti i dispositivi HoloLens per creare un'esperienza condivisa.
+Non è possibile stabilire una *connessione completa* a più sessioni da un dispositivo. Tuttavia, è possibile creare, osservare e arrestare tutte le sessioni desiderate da un'unica applicazione. Fintanto che l'app non è destinata a connettersi a una sessione, non è necessario neanche eseguirla in un dispositivo come HoloLens 2. Un caso d'uso per tale implementazione può essere rappresentato dalla necessità di controllare le sessioni tramite un meccanismo centrale. Ad esempio, è possibile creare un'app Web, in cui è possibile accedere a più tablet e dispositivi HoloLens. Quindi, l'app può visualizzare le opzioni sui tablet, ad esempio il modello CAD da visualizzare. Se un utente effettua una selezione, queste informazioni vengono comunicate a tutti i dispositivi HoloLens per creare un'esperienza condivisa.
 
 ## <a name="session-phases"></a>Fasi della sessione
 
@@ -146,6 +146,15 @@ La durata di una macchina virtuale non è associata all'istanza di `AzureFronten
 L'ID sessione persistente può essere sottoposto a query tramite `AzureSession.SessionUUID()` e memorizzato nella cache in locale. Con questo ID, un'applicazione può chiamare `AzureFrontend.OpenSession` per eseguire l'associazione a tale sessione.
 
 Quando `AzureSession.IsConnected` è true, `AzureSession.Actions` restituisce un'istanza di `RemoteManager` che contiene le funzioni per [caricare modelli](models.md), modificare [entità](entities.md) ed [eseguire query di informazioni](../overview/features/spatial-queries.md) sulla scena di cui è stato eseguito il rendering.
+
+## <a name="api-documentation"></a>Documentazione dell'API
+
+* [C# AzureSession (classe)](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azuresession)
+* [C# AzureFrontend. CreateNewRenderingSessionAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azurefrontend.createnewrenderingsessionasync)
+* [C# AzureFrontend. OpenRenderingSession ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.azurefrontend.openrenderingsession)
+* [Classe C++ AzureSession](https://docs.microsoft.com/cpp/api/remote-rendering/azuresession)
+* [C++ AzureFrontend:: CreateNewRenderingSessionAsync](https://docs.microsoft.com/cpp/api/remote-rendering/azurefrontend#createnewrenderingsessionasync)
+* [C++ AzureFrontend:: OpenRenderingSession](https://docs.microsoft.com/cpp/api/remote-rendering/azurefrontend#openrenderingsession)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

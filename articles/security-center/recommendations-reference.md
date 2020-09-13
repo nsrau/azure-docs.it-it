@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/05/2020
 ms.author: memildin
-ms.openlocfilehash: 8a0ead681c8b6cfbfbf820b546f1bcb320871c70
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: c3351931013fb9b4d4de25d12e358fbe27f05472
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587362"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613511"
 ---
 # <a name="security-recommendations---a-reference-guide"></a>Raccomandazioni sulla sicurezza: una guida di riferimento
 
@@ -57,7 +57,6 @@ Il punteggio relativo alla sicurezza si basa sul numero di raccomandazioni del C
 |----|----|----|----|----|
 |**La soluzione Advanced Threat Protection deve essere abilitata nei cluster del servizio Azure Kubernetes**|Il Centro sicurezza offre protezione dalle minacce in tempo reale per gli ambienti basati su contenitori e genera avvisi per le attività sospette. È possibile usare queste informazioni per risolvere rapidamente i problemi di sicurezza e migliorare la sicurezza dei contenitori.<br>Importante: la correzione di questa raccomandazione comporta addebiti per la protezione dei cluster AKS. Se non sono presenti cluster AKS in questa sottoscrizione, non verrà addebitato alcun addebito. Se in futuro si crea un cluster AKS in questa sottoscrizione, questi saranno protetti automaticamente e i relativi addebiti verranno avviati in quel momento.<br>(Criteri correlati: [è necessario abilitare Advanced Threat Protection nei cluster dei servizi Kubernetes di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f523b5cd1-3e23-492f-a539-13118b6d1e3a))|Alto|**S**|Subscription|
 |**Gli intervalli IP autorizzati devono essere definiti nei servizi Kubernetes**|Limitare l'accesso all'API Gestione dei servizi Kubernetes concedendo l'accesso all'API solo agli indirizzi IP in intervalli specifici. È consigliabile configurare intervalli IP autorizzati affinché solo le applicazioni provenienti da reti autorizzate possano accedere al cluster.<br>(Criterio correlato: [Anteprima]: gli intervalli IP autorizzati devono essere definiti nei servizi Kubernetes)|Alto|N|Calcolo delle risorse (contenitori)|
-|**I criteri di sicurezza pod devono essere definiti per ridurre il vettore di attacco rimuovendo i privilegi delle applicazioni non necessari (Anteprima)**|Consente di definire i criteri di sicurezza pod per ridurre il vettore di attacco rimuovendo i privilegi delle applicazioni non necessari. È consigliabile configurare i criteri di sicurezza pod per consentire ai pod di accedere solo alle risorse per cui sono autorizzati.<br>(Criterio correlato: [Anteprima]: i criteri di sicurezza pod devono essere definiti nei servizi Kubernetes)|Media|N|Calcolo delle risorse (contenitori)|
 |**Il controllo degli accessi in base al ruolo deve essere usato per limitare l'accesso a un cluster del servizio Kubernetes**|Per garantire un filtro granulare delle azioni che gli utenti possono eseguire, usare il controllo degli accessi in base al ruolo per gestire le autorizzazioni nei cluster del servizio Kubernetes e configurare i criteri di autorizzazione pertinenti. Per altre informazioni, vedere [Controllo degli accessi in base al ruolo di Azure](https://docs.microsoft.com/azure/aks/concepts-identity#role-based-access-controls-rbac).<br>(Criterio correlato: [Anteprima]: nei servizi Kubernetes deve essere usato il controllo degli accessi in base al ruolo)|Media|N|Calcolo delle risorse (contenitori)|
 |**I servizi Kubernetes devono essere aggiornati alla versione di Kubernetes più recente**|Aggiornare i cluster del servizio Azure Kubernetes alla versione più recente di Kubernetes per trarre vantaggio dalle patch di vulnerabilità aggiornate. Per informazioni dettagliate su specifiche vulnerabilità di Kubernetes, vedere [CVE di Kubernetes](https://cve.mitre.org/cgi-bin/cvekey.cgi?keyword=kubernetes).<br>(Criterio correlato: [Anteprima]: i servizi Kubernetes devono essere aggiornati a una versione di Kubernetes non vulnerabile)|Alto|N|Calcolo delle risorse (contenitori)|
 |**La soluzione Advanced Threat Protection deve essere abilitata nei registri in Registro Azure Container**|Per creare carichi di lavoro in contenitori protetti, assicurarsi che le immagini su cui si basano siano prive di vulnerabilità note. Il Centro sicurezza analizza il registro di sistema per individuare le vulnerabilità di sicurezza in ogni immagine del contenitore push ed espone i risultati dettagliati per ogni immagine.<br>Importante: la correzione di questa raccomandazione comporta addebiti per la protezione dei registri ACR. Se non si dispone di registri ACR in questa sottoscrizione, non verrà addebitato alcun addebito. Se in futuro si crea un registro ACR in questa sottoscrizione, questi saranno protetti automaticamente e i relativi addebiti verranno avviati in quel momento.<br>(Criteri correlati: [è necessario abilitare Advanced Threat Protection nei registri di container Registry di Azure](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2fc25d9a16-bc35-4e15-a7e5-9db606bf9ed4))|Alto|**S**|Subscription|
@@ -191,7 +190,9 @@ Il punteggio relativo alla sicurezza si basa sul numero di raccomandazioni del C
 |----|----|----|----|----|
 |**L'accesso ai Servizi app deve essere limitato**|Limitare l'accesso a Servizi app modificando la configurazione di rete per negare il traffico in ingresso da intervalli troppo ampi.<br>(Criterio correlato: [Anteprima]: l'accesso ai Servizi app deve essere limitato)|Alto|N|Servizio app|
 |**È consigliabile applicare la protezione avanzata alle regole per le applicazioni Web nei gruppi di sicurezza di rete IaaS**|Rafforzare il gruppo di sicurezza di rete (NSG) delle macchine virtuali che eseguono applicazioni Web con regole NSG eccessivamente permissive per quanto concerne le porte dell'applicazione Web.<br>(Criterio correlato: le regole per i gruppi di sicurezza di rete delle applicazioni Web in IaaS devono essere rafforzate)|Alto|N|Macchina virtuale|
-
+|**I criteri di sicurezza pod devono essere definiti per ridurre il vettore di attacco rimuovendo i privilegi delle applicazioni non necessari (Anteprima)**|Consente di definire i criteri di sicurezza pod per ridurre il vettore di attacco rimuovendo i privilegi delle applicazioni non necessari. È consigliabile configurare i criteri di sicurezza pod per consentire ai pod di accedere solo alle risorse per cui sono autorizzati.<br>(Criterio correlato: [Anteprima]: i criteri di sicurezza pod devono essere definiti nei servizi Kubernetes)|Media|N|Calcolo delle risorse (contenitori)|
+|**Installare il Centro sicurezza di Azure per il modulo di sicurezza Internet per ottenere una maggiore visibilità sui dispositivi**|Installare il Centro sicurezza di Azure per il modulo di sicurezza Internet per ottenere una maggiore visibilità sui dispositivi.|Basso|N|Dispositivo IoT|
+||||
 
 
 ## <a name="next-steps"></a>Passaggi successivi

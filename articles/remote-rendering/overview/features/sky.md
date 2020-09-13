@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/07/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: f2a871e409761116182f67eb877f3727038fe0dc
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 39e3b41d49ad06e5dbe5164809a6743da8dedae5
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013640"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613750"
 ---
 # <a name="sky-reflections"></a>Riflessi del cielo
 
@@ -28,8 +28,8 @@ Le immagini seguenti illustrano i risultati dell'illuminazione di superfici dive
 
 | Rugosità  | 0                                        | 0,25                                          | 0.5                                          | 0,75                                          | 1                                          |
 |:----------:|:----------------------------------------:|:---------------------------------------------:|:--------------------------------------------:|:---------------------------------------------:|:------------------------------------------:|
-| Non metallico  | ![Dielectric0](media/dielectric-0.png)   | ![GreenPointPark](media/dielectric-0.25.png)  | ![GreenPointPark](media/dielectric-0.5.png)  | ![GreenPointPark](media/dielectric-0.75.png)  | ![GreenPointPark](media/dielectric-1.png)  |
-| Metallico      | ![GreenPointPark](media/metallic-0.png)  | ![GreenPointPark](media/metallic-0.25.png)    | ![GreenPointPark](media/metallic-0.5.png)    | ![GreenPointPark](media/metallic-0.75.png)    | ![GreenPointPark](media/metallic-1.png)    |
+| Non metallico  | ![Dielettrico, rugosità = 0](media/dielectric-0.png)   | ![Dielettrico, rugosità = 0,25](media/dielectric-0.25.png)  | ![Dielettrico, rugosità = 0,5](media/dielectric-0.5.png)  | ![Dielettrico, rugosità = 0,75](media/dielectric-0.75.png)  | ![Dielettrico, rugosità = 1](media/dielectric-1.png)  |
+| Metallico      | ![Metal, rugosità = 0](media/metallic-0.png)  | ![Metallo, rugosità = 0,25](media/metallic-0.25.png)    | ![Metallo, rugosità = 0,5](media/metallic-0.5.png)    | ![Metallo, rugosità = 0,75](media/metallic-0.75.png)    | ![Metal, rugosità = 1](media/metallic-1.png)    |
 
 Per altre informazioni sul modello di illuminazione, vedere il capitolo sui [materiali](../../concepts/materials.md).
 
@@ -84,7 +84,7 @@ void ChangeEnvironmentMap(ApiHandle<AzureSession> session)
             }
             else
             {
-                printf("Texture loading failed!");
+                printf("Texture loading failed!\n");
             }
         });
 }
@@ -121,20 +121,25 @@ Rendering remoto di Azure fornisce alcune mappe ambientali predefinite che sono 
 
 |Identificatore                         | Descrizione                                              | Illustrazione                                                      |
 |-----------------------------------|:---------------------------------------------------------|:-----------------------------------------------------------------:|
-|builtin://Autoshop                 | Varie bande di luce, illuminazione interna di base brillante    | ![Autoshop](media/autoshop.png)
-|builtin://BoilerRoom               | Illuminazione interna brillante, più sorgenti di luce naturale      | ![BoilerRoom](media/boiler-room.png)
-|builtin://ColorfulStudio           | Luci di vari colori in ambiente interno di media luminosità  | ![ColorfulStudio](media/colorful-studio.png)
-|builtin://Hangar                   | Illuminazione grande ambiente moderatamente luminoso                     | ![SmallHangar](media/hangar.png)
-|builtin://IndustrialPipeAndValve   | Illuminazione interna soffusa con contrasto chiaro/scuro              | ![IndustrialPipeAndValve](media/industrial-pipe-and-valve.png)
-|builtin://Lebombo                  | Luce diurna naturale, area della finestra con illuminazione brillante     | ![Lebombo](media/lebombo.png)
-|builtin://SataraNight              | Cielo notturno scuro e terreno con molte luci circostanti   | ![SataraNight](media/satara-night.png)
-|builtin://SunnyVondelpark          | Contrasto luce solare brillante e ombre                      | ![SunnyVondelpark](media/sunny-vondelpark.png)
-|builtin://Syferfontein             | Cielo chiaro con illuminazione del terreno moderata            | ![Syferfontein](media/syferfontein.png)
-|builtin://TearsOfSteelBridge       | Variazione moderata di sole e ombre                         | ![TearsOfSteelBridge](media/tears-of-steel-bridge.png)
-|builtin://VeniceSunset             | Luce di tramonto prossimo al crepuscolo                    | ![VeniceSunset](media/venice-sunset.png)
-|builtin://WhippleCreekRegionalPark | Toni luminosi di bianco e verde, terreno con luce soffusa | ![WhippleCreekRegionalPark](media/whipple-creek-regional-park.png)
-|builtin://WinterRiver              | Giorno con luce naturale molto brillante sul terreno                 | ![WinterRiver](media/winter-river.png)
-|builtin://DefaultSky               | Uguale a TearsOfSteelBridge                               | ![DefaultSky](media/tears-of-steel-bridge.png)
+|builtin://Autoshop                 | Varie bande di luce, illuminazione interna di base brillante    | ![Autoshop SKYBOX usato per la luce di un oggetto](media/autoshop.png)
+|builtin://BoilerRoom               | Illuminazione interna brillante, più sorgenti di luce naturale      | ![BoilerRoom SKYBOX usato per la luce di un oggetto](media/boiler-room.png)
+|builtin://ColorfulStudio           | Luci di vari colori in ambiente interno di media luminosità  | ![ColorfulStudio SKYBOX usato per la luce di un oggetto](media/colorful-studio.png)
+|builtin://Hangar                   | Illuminazione grande ambiente moderatamente luminoso                     | ![SmallHangar SKYBOX usato per la luce di un oggetto](media/hangar.png)
+|builtin://IndustrialPipeAndValve   | Illuminazione interna soffusa con contrasto chiaro/scuro              | ![IndustrialPipeAndValve SKYBOX usato per la luce di un oggetto](media/industrial-pipe-and-valve.png)
+|builtin://Lebombo                  | Luce diurna naturale, area della finestra con illuminazione brillante     | ![Lebombo SKYBOX usato per la luce di un oggetto](media/lebombo.png)
+|builtin://SataraNight              | Cielo notturno scuro e terreno con molte luci circostanti   | ![SataraNight SKYBOX usato per la luce di un oggetto](media/satara-night.png)
+|builtin://SunnyVondelpark          | Contrasto luce solare brillante e ombre                      | ![SunnyVondelpark SKYBOX usato per la luce di un oggetto](media/sunny-vondelpark.png)
+|builtin://Syferfontein             | Cielo chiaro con illuminazione del terreno moderata            | ![Syferfontein SKYBOX usato per la luce di un oggetto](media/syferfontein.png)
+|builtin://TearsOfSteelBridge       | Variazione moderata di sole e ombre                         | ![TearsOfSteelBridge SKYBOX usato per la luce di un oggetto](media/tears-of-steel-bridge.png)
+|builtin://VeniceSunset             | Luce di tramonto prossimo al crepuscolo                    | ![VeniceSunset SKYBOX usato per la luce di un oggetto](media/venice-sunset.png)
+|builtin://WhippleCreekRegionalPark | Toni luminosi di bianco e verde, terreno con luce soffusa | ![WhippleCreekRegionalPark SKYBOX usato per la luce di un oggetto](media/whipple-creek-regional-park.png)
+|builtin://WinterRiver              | Giorno con luce naturale molto brillante sul terreno                 | ![WinterRiver SKYBOX usato per la luce di un oggetto](media/winter-river.png)
+|builtin://DefaultSky               | Uguale a TearsOfSteelBridge                               | ![DefaultSky SKYBOX usato per la luce di un oggetto](media/tears-of-steel-bridge.png)
+
+## <a name="api-documentation"></a>Documentazione dell'API
+
+* [Proprietà C# RemoteManager. SkyReflectionSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.skyreflectionsettings)
+* [C++ RemoteManager:: SkyReflectionSettings ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#skyreflectionsettings)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

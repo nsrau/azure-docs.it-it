@@ -3,12 +3,12 @@ title: Anteprima - Informazioni su Criteri di Azure per Kubernetes
 description: Informazioni su come il servizio Criteri di Azure usa Rego e Open Policy Agent per gestire i cluster che eseguono Kubernetes in Azure o in locale. Questa è una funzionalità in anteprima.
 ms.date: 08/07/2020
 ms.topic: conceptual
-ms.openlocfilehash: e9da5caf13994e1c198345958feec43867c0b5f5
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: a824548cb45f886bcf82bedad6e5d5c216bb7fea
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88509876"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645601"
 ---
 # <a name="understand-azure-policy-for-kubernetes-clusters-preview"></a>Comprendere i criteri di Azure per i cluster Kubernetes (anteprima)
 
@@ -57,13 +57,13 @@ Prima di installare il componente aggiuntivo Criteri di Azure o di abilitare le 
 
      1. Registrare i provider di risorse **Microsoft.ContainerService** e **Microsoft.PolicyInsights**. Per le procedure, vedere [Provider e tipi di risorse](../../../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
-     1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri**.
+     1. Avviare il servizio criteri di Azure nel portale di Azure selezionando **tutti i servizi**, quindi cercando e selezionando **criteri**.
 
-        :::image type="content" source="../media/policy-for-kubernetes/search-policy.png" alt-text="Cercare Criteri in Tutti i servizi" border="false":::
+        :::image type="content" source="../media/policy-for-kubernetes/search-policy.png" alt-text="Screenshot della ricerca dei criteri in tutti i servizi." border="false":::
 
      1. Sul lato sinistro della pagina di Criteri di Azure selezionare **Partecipa all'anteprima**.
 
-        :::image type="content" source="../media/policy-for-kubernetes/join-aks-preview.png" alt-text="Partecipare all'anteprima di Criteri di Azure per il servizio Azure Kubernetes" border="false":::
+        :::image type="content" source="../media/policy-for-kubernetes/join-aks-preview.png" alt-text="Screenshot del nodo ' join Preview ' della pagina Policy." border="false":::
 
      1. Selezionare la riga della sottoscrizione che si vuole aggiungere all'anteprima.
 
@@ -120,17 +120,17 @@ Una volta completati i passaggi dei prerequisiti, installare il componente aggiu
 
 - Portale di Azure
 
-  1. Avviare il servizio Azure Kubernetes nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Servizi Kubernetes**.
+  1. Avviare il servizio AKS nel portale di Azure selezionando **tutti i servizi**, quindi cercando e selezionando **Servizi Kubernetes**.
 
   1. Selezionare uno dei cluster del servizio Azure Kubernetes.
 
   1. Selezionare **Criteri (anteprima)** sul lato sinistro della pagina del servizio Kubernetes.
 
-     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Definizioni dei criteri del cluster del servizio Azure Kubernetes" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Screenshot del nodo ' Policies (Preview)' nella pagina del servizio Kubernetes." border="false":::
 
   1. Nella pagina principale selezionare il pulsante **Abilita componente aggiuntivo**.
 
-     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Abilitare il componente aggiuntivo Criteri di Azure per il servizio Azure Kubernetes":::
+     :::image type="content" source="../media/policy-for-kubernetes/enable-policy-add-on.png" alt-text="Screenshot del pulsante ' Abilita il componente aggiuntivo ' nella pagina ' carica in criteri di Azure per i servizi Kubernetes di Azure (una K S).":::
 
      <a name="migrate-from-v1"></a>
      > [!NOTE]
@@ -460,17 +460,17 @@ Per rimuovere il componente aggiuntivo Criteri di Azure dal cluster del servizio
 
 - Portale di Azure
 
-  1. Avviare il servizio Azure Kubernetes nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Servizi Kubernetes**.
+  1. Avviare il servizio AKS nel portale di Azure selezionando **tutti i servizi**, quindi cercando e selezionando **Servizi Kubernetes**.
 
   1. Selezionare il cluster del servizio Azure Kubernetes in cui si vuole disabilitare il componente aggiuntivo Criteri di Azure.
 
   1. Selezionare **Criteri (anteprima)** sul lato sinistro della pagina del servizio Kubernetes.
 
-     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Definizioni dei criteri del cluster del servizio Azure Kubernetes" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/policies-preview-from-aks-cluster.png" alt-text="Screenshot del nodo ' Policies (Preview)' nella pagina del servizio Kubernetes." border="false":::
 
   1. Nella pagina principale selezionare il pulsante **Disabilita componente aggiuntivo**.
 
-     :::image type="content" source="../media/policy-for-kubernetes/disable-policy-add-on.png" alt-text="Disabilitare il componente aggiuntivo Criteri di Azure per il servizio Azure Kubernetes" border="false":::
+     :::image type="content" source="../media/policy-for-kubernetes/disable-policy-add-on.png" alt-text="Screenshot del pulsante ' Disabilita componente aggiuntivo ' nella pagina ' carica in criteri di Azure per i servizi Kubernetes di Azure (una K S)." border="false":::
 
 - Interfaccia della riga di comando di Azure
 

@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/05/2020
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 20c2951b601690beb9ec64040cf650bb5208d0e4
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: dc38b53705c24cb12a001237a9a80ec66ec33e14
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88997711"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89613780"
 ---
 # <a name="textures"></a>Trame
 
@@ -82,11 +82,19 @@ void LoadMyTexture(ApiHandle<AzureSession> session, std::string textureUri)
 }
 ```
 
-
 A seconda del tipo di trama da usare, è possibile che siano presenti restrizioni per il tipo di trama e il contenuto. La mappa di rugosità di un [materiale PBR](../overview/features/pbr-materials.md), ad esempio, deve essere in scala di grigi.
 
 > [!CAUTION]
 > Tutte le funzioni *asincrone* in ARR restituiscono oggetti di operazioni asincrone. È necessario quindi archiviare un riferimento a tali oggetti fino al completamento dell'operazione. In caso contrario, è possibile che il Garbage Collector C# elimini l'operazione in anticipo, che quindi non verrà mai completata. Nel codice di esempio precedente la variabile membro '_textureLoad ' viene usata per mantenere un riferimento fino a quando non viene *completato* l'evento.
+
+## <a name="api-documentation"></a>Documentazione dell'API
+
+* [Classe trama C#](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.texture)
+* [C# RemoteManager. LoadTextureAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadtextureasync)
+* [C# RemoteManager. LoadTextureFromSASAsync ()](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.loadtexturefromsasasync)
+* [Classe trama C++](https://docs.microsoft.com/cpp/api/remote-rendering/texture)
+* [C++ RemoteManager:: LoadTextureAsync ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadtextureasync)
+* [C++ RemoteManager:: LoadTextureFromSASAsync ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#loadtexturefromsasasync)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

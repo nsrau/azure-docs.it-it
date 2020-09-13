@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: absha
-ms.openlocfilehash: 1109dae90790c9667b3c60afb6416c20061a95fe
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: daf4c4ab56e23a212256c2629b7d0ae52a09e7c4
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808099"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595711"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configurare il servizio app con il gateway applicazione
 
@@ -23,10 +23,8 @@ Il gateway applicazione fornisce un'opzione denominata `Pick host name from back
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
-> [!div class="checklist"]
->
-> - Creare un pool back-end e aggiungervi un servizio app
-> - Creare le impostazioni HTTP e il probe personalizzato con le opzioni "pick hostname" abilitate
+- Creare un pool back-end e aggiungervi un servizio app
+- Creare le impostazioni HTTP e il probe personalizzato con le opzioni "pick hostname" abilitate
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -43,7 +41,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 4. In **destinazioni**fare clic sull'elenco a discesa e scegliere **Servizi app** come opzione.
 
-5. Verrà visualizzato un elenco a discesa immediatamente sotto l'elenco a discesa **destinazioni** che conterrà un elenco dei servizi app. Da questo elenco a discesa scegliere il servizio app che si vuole aggiungere come membro del pool back-end e fare clic su Aggiungi.
+5. Verrà visualizzato un elenco a discesa immediatamente sotto l'elenco a discesa **destinazioni**  che conterrà un elenco dei servizi app. Da questo elenco a discesa scegliere il servizio app che si vuole aggiungere come membro del pool back-end e fare clic su Aggiungi.
 
    ![Back-end del servizio app](./media/configure-web-app-portal/backendpool.png)
    
@@ -61,9 +59,9 @@ In questo articolo vengono illustrate le operazioni seguenti:
    > [!NOTE]
    > Se si seleziona HTTPS, non è necessario caricare un certificato di autenticazione o un certificato radice trusted per consentire il back-end del servizio app perché il servizio app è un servizio di Azure attendibile.
 
-4. Selezionare la casella da **usare per il servizio app** . Si noti che le opzioni `Create a probe with pick host name from backend address` e vengono `Pick host name from backend address` abilitate automaticamente.`Pick host name from backend address` eseguirà l'override dell'intestazione host nella richiesta con il nome host del back-end quando la richiesta viene instradata dal gateway applicazione al back-end.  
+4. Selezionare la casella da **usare per il servizio app** . Si noti che le opzioni  `Create a probe with pick host name from backend address` e vengono `Pick host name from backend address` abilitate automaticamente.`Pick host name from backend address` eseguirà l'override dell'intestazione host nella richiesta con il nome host del back-end quando la richiesta viene instradata dal gateway applicazione al back-end.  
 
-   `Create a probe with pick host name from backend address`creerà automaticamente un probe di integrità e lo associerà a questa impostazione HTTP. Non è necessario creare altri Probe di integrità per questa impostazione HTTP. È possibile verificare che sia stato aggiunto un nuovo probe con il nome <HTTP Setting name> <Unique GUID> nell'elenco di probe di integrità e che sia già presente l'opzione `Pick host name from backend http settings enabled` .
+   `Create a probe with pick host name from backend address` creerà automaticamente un probe di integrità e lo associerà a questa impostazione HTTP. Non è necessario creare altri Probe di integrità per questa impostazione HTTP. È possibile verificare che sia stato aggiunto un nuovo probe con il nome <HTTP Setting name> <Unique GUID> nell'elenco di probe di integrità e che sia già presente l'opzione `Pick host name from backend http settings enabled` .
 
    Se si dispone già di una o più impostazioni HTTP che vengono usate per il servizio app e se le impostazioni HTTP usano lo stesso protocollo che si sta usando in quello che si sta creando, anziché l' `Create a probe with pick host name from backend address` opzione, si otterrà un elenco a discesa per selezionare uno dei probe personalizzati. Questo perché poiché esiste già un'impostazione HTTP con il servizio app, è necessario che esista anche un probe di integrità con l'opzione `Pick host name from backend http settings enabled` . Scegliere il probe personalizzato dall'elenco a discesa.
 

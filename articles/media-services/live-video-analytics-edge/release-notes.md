@@ -3,12 +3,12 @@ title: Analisi di video in tempo reale su IoT Edge note sulla versione-Azure
 description: Questo argomento fornisce le note sulla versione di analisi video in tempo reale su IoT Edge versioni, miglioramenti, correzioni di bug e problemi noti.
 ms.topic: conceptual
 ms.date: 08/19/2020
-ms.openlocfilehash: 23c2362d46a0b9bfe2fc2fbe31e00d0a42f80cfa
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: feab7755dea69a932fe40df59e0dd35f3f826553
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055448"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89645829"
 ---
 # <a name="live-video-analytics-on-iot-edge-release-notes"></a>Note sulla versione di analisi video in tempo reale su IoT Edge
 
@@ -32,7 +32,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 > [!NOTE]
 > Nelle guide introduttive ed esercitazioni, i manifesti della distribuzione usano un tag 1 (Live-Video-Analytics: 1). Quindi, la semplice ridistribuzione di tali manifesti dovrebbe aggiornare il modulo sui dispositivi perimetrali >.
 
-## <a name="new-features"></a>Nuove funzionalità 
+### <a name="new-features"></a>Nuove funzionalità 
 
 * È ora possibile ottenere prestazioni elevate per il trasferimento di contenuti dati tra analisi video in tempo reale in IoT Edge e l'estensione personalizzata usando gRPC Framework. Per [iniziare](analyze-live-video-use-your-grpc-model-quickstart.md) , vedere.
 * Distribuzione a livello di area più ampia di analisi video in tempo reale e solo il servizio cloud è stato aggiornato.  
@@ -40,7 +40,7 @@ mcr.microsoft.com/media/live-video-analytics:1.0.3
 * La [configurazione](https://aka.ms/lva-edge/setup-resources-for-samples) per avvio rapido è stata aggiornata anche con il supporto di nuove aree.
     * Nessuna chiamata all'azione per chiunque abbia già configurato le risorse
 
-## <a name="bug-fixes"></a>Correzioni di bug 
+### <a name="bug-fixes"></a>Correzioni di bug 
 
 * Rimuovere l'uso di un'estensione di Azure deprecata nello script di configurazione
 

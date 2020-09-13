@@ -9,16 +9,17 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 05/12/2020
+ms.date: 09/09/2020
 ms.author: jingwang
-ms.openlocfilehash: 9fbf4062304dda7112e89ecd4abd5288533f28ff
-ms.sourcegitcommit: fdec8e8bdbddcce5b7a0c4ffc6842154220c8b90
+ms.openlocfilehash: 16f7a1481b15f280995bb71fa9e30ed3a129ab6d
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83635788"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612630"
 ---
 # <a name="copy-data-from-mysql-using-azure-data-factory"></a>Copiare i dati da MySQL mediante Azure Data Factory
+
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
 > * [Versione 1](v1/data-factory-onprem-mysql-connector.md)
 > * [Versione corrente](connector-mysql.md)
@@ -66,7 +67,9 @@ Una stringa di connessione tipica è `Server=<server>;Port=<port>;Database=<data
 
 | Proprietà | Descrizione | Opzioni | Obbligatoria |
 |:--- |:--- |:--- |:--- |
-| SSLMode | Questa opzione specifica se il driver usa la crittografia TLS e verifica la connessione a MySQL. Ad esempio,  `SSLMode=<0/1/2/3/4>`| DISABLED (0) / PREFERRED (1) **(impostazione predefinita)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
+| SSLMode | Questa opzione specifica se il driver usa la crittografia TLS e verifica la connessione a MySQL. Ad esempio,  `SSLMode=<0/1/2/3/4>` .| DISABLED (0) / PREFERRED (1) **(impostazione predefinita)** / REQUIRED (2) / VERIFY_CA (3) / VERIFY_IDENTITY (4) | No |
+| SSLCert | Percorso completo e nome di un file con estensione PEM contenente il certificato SSL utilizzato per dimostrare l'identità del client. <br/> Per specificare una chiave privata per crittografare questo certificato prima di inviarlo al server, utilizzare la `SSLKey` Proprietà.| | Sì, se si usa la verifica SSL bidirezionale. |
+| SSLKey | Percorso completo e nome di un file contenente la chiave privata utilizzata per crittografare il certificato sul lato client durante la verifica SSL bidirezionale.|  | Sì, se si usa la verifica SSL bidirezionale. |
 | UseSystemTrustStore | Questa opzione specifica se usare o meno un certificato CA dall'archivio di attendibilità di sistema o da un file PEM specificato. ad esempio `UseSystemTrustStore=<0/1>;`| Abilitato (1) / Disabilitato (0) **(impostazione predefinita)** | No |
 
 **Esempio:**

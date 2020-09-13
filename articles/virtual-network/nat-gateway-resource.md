@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/11/2020
 ms.author: allensu
-ms.openlocfilehash: f6e0009a1e1df57298884097cac076ef3a344714
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: ef1f8966497492f5a4969aca594c43abdf80945c
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88135828"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612909"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources"></a>Progettazione di reti virtuali con risorse gateway NAT
 
@@ -217,7 +217,7 @@ Se lo scenario richiede endpoint in ingresso, sono disponibili due opzioni:
 
 Non è possibile ottenere una promessa di zona con risorse gateway NAT quando le istanze di macchine virtuali vengono distribuite in più zone all'interno della stessa subnet.   Anche se sono presenti più gateway NAT di zona collegati a una subnet, l'istanza di macchina virtuale non riconosce la risorsa gateway NAT da selezionare.
 
-Una promessa di zona non esiste quando a) la zona di un'istanza di macchina virtuale e le zone di un gateway NAT di zona non sono allineate oppure b) viene usata una risorsa gateway NAT a livello di area con le istanze di macchine virtuali di zona.
+Una promessa di zona richiesto non esiste quando a) la zona di un'istanza di macchina virtuale e la zona di un gateway NAT di zona non sono allineate oppure b) viene usata una risorsa gateway NAT regionale con le istanze di macchine virtuali di zona.
 
 Anche se lo scenario sembra funzionare, il modello di integrità e la modalità di errore non sono definiti dal punto di vista della zona di disponibilità. È consigliabile adottare in alternativa gli stack di zona o tutto a livello di area.
 

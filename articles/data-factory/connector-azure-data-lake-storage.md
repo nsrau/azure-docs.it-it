@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 08/28/2020
-ms.openlocfilehash: 62c4813caa1d35f20824223c77fb3a652b0cc6b8
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.date: 09/09/2020
+ms.openlocfilehash: 06c09144fc112d6f095271c510fa33b816e8f906
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182582"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612642"
 ---
 # <a name="copy-and-transform-data-in-azure-data-lake-storage-gen2-using-azure-data-factory"></a>Copiare e trasformare dati in Azure Data Lake Storage Gen2 tramite Azure Data Factory
 
@@ -68,7 +68,7 @@ Il connettore Azure Data Lake Storage Gen2 supporta i tipi di autenticazione seg
 - [Autenticazione di identità gestite per le risorse di Azure](#managed-identity)
 
 >[!NOTE]
->Quando si usa PolyBase per caricare i dati in SQL Data Warehouse, se Data Lake Storage Gen2 di origine è configurato con l'endpoint di Rete virtuale, è necessario usare l'autenticazione dell'identità gestita come richiesto da PolyBase. Vedere la sezione sull'[autenticazione dell'identità gestita](#managed-identity) con altri prerequisiti di configurazione.
+>Quando si usa la polibase per caricare i dati in Azure sinapsi Analytics (in precedenza SQL Data Warehouse), se il Data Lake Storage Gen2 di origine è configurato con l'endpoint di rete virtuale, è necessario usare l'autenticazione di identità gestita come richiesto da polibase. Vedere la sezione sull'[autenticazione dell'identità gestita](#managed-identity) con altri prerequisiti di configurazione.
 
 ### <a name="account-key-authentication"></a>Autenticazione basata sulla chiave dell'account
 
@@ -131,12 +131,16 @@ Queste sono le proprietà supportate dal servizio collegato:
 | type | La proprietà type deve essere impostata su **AzureBlobFS**. |Sì |
 | url | Endpoint per Data Lake Storage Gen2 con il modello di `https://<accountname>.dfs.core.windows.net`. | Sì |
 | servicePrincipalId | Specificare l'ID client dell'applicazione. | Sì |
-| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come `SecureString`, per archiviare la chiave in modo sicuro in Data Factory. In alternativa, [fare riferimento a un segreto archiviato in Azure Key Vault](store-credentials-in-key-vault.md). | Sì |
+| servicePrincipalCredentialType | Tipo di credenziale da utilizzare per l'autenticazione dell'entità servizio. I valori consentiti sono **ServicePrincipalKey** e **ServicePrincipalCert**. | Sì |
+| servicePrincipalCredential | Credenziale dell'entità servizio. <br/> Quando si usa **ServicePrincipalKey** come tipo di credenziale, specificare la chiave dell'applicazione. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in data factory o [fare riferimento a un segreto archiviato nel Azure Key Vault](store-credentials-in-key-vault.md). <br/> Quando si usa **ServicePrincipalCert** come credenziale, fare riferimento a un certificato in Azure Key Vault. | Sì |
+| servicePrincipalKey | Specificare la chiave dell'applicazione. Contrassegnare questo campo come **SecureString** per archiviarlo in modo sicuro in data factory o [fare riferimento a un segreto archiviato nel Azure Key Vault](store-credentials-in-key-vault.md). <br/> Questa proprietà è ancora supportata così com'è per `servicePrincipalId`  +  `servicePrincipalKey` . Quando ADF aggiunge la nuova autenticazione del certificato dell'entità servizio, il nuovo modello per l'autenticazione dell'entità servizio è `servicePrincipalId`  +  `servicePrincipalCredentialType`  +  `servicePrincipalCredential` . | No |
 | tenant | Specificare le informazioni sul tenant (nome di dominio o ID tenant) in cui si trova l'applicazione. Recuperarlo passando il cursore del mouse sull'angolo superiore destro del portale di Azure. | Sì |
 | azureCloudType | Per l'autenticazione dell'entità servizio, specificare il tipo di ambiente cloud di Azure in cui è registrata l'applicazione Azure Active Directory. <br/> I valori consentiti sono **AzurePublic**, **AzureChina**, **AzureUsGovernment**e **AzureGermany**. Per impostazione predefinita, viene usato l'ambiente cloud del data factory. | No |
 | connectVia | [Runtime di integrazione](concepts-integration-runtime.md) da usare per la connessione all'archivio dati. È possibile usare Azure Integration Runtime o un runtime di integrazione self-hosted, se l'archivio dati si trova in una rete privata. Se non specificato, viene usato il runtime di integrazione di Azure predefinito. |No |
 
-**Esempio:**
+**Esempio: uso dell'autenticazione con chiave dell'entità servizio**
+
+È anche possibile archiviare la chiave dell'entità servizio in Azure Key Vault.
 
 ```json
 {
@@ -146,9 +150,38 @@ Queste sono le proprietà supportate dal servizio collegato:
         "typeProperties": {
             "url": "https://<accountname>.dfs.core.windows.net", 
             "servicePrincipalId": "<service principal id>",
-            "servicePrincipalKey": {
+            "servicePrincipalCredentialType": "ServicePrincipalKey",
+            "servicePrincipalCredential": {
                 "type": "SecureString",
                 "value": "<service principal key>"
+            },
+            "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>" 
+        },
+        "connectVia": {
+            "referenceName": "<name of Integration Runtime>",
+            "type": "IntegrationRuntimeReference"
+        }
+    }
+}
+```
+
+**Esempio: uso dell'autenticazione del certificato dell'entità servizio**
+```json
+{
+    "name": "AzureDataLakeStorageGen2LinkedService",
+    "properties": {
+        "type": "AzureBlobFS",
+        "typeProperties": {
+            "url": "https://<accountname>.dfs.core.windows.net", 
+            "servicePrincipalId": "<service principal id>",
+            "servicePrincipalCredentialType": "ServicePrincipalCert",
+            "servicePrincipalCredential": { 
+                "type": "AzureKeyVaultSecret", 
+                "store": { 
+                    "referenceName": "<AKV reference>", 
+                    "type": "LinkedServiceReference" 
+                }, 
+                "secretName": "<certificate name in AKV>" 
             },
             "tenant": "<tenant info, e.g. microsoft.onmicrosoft.com>" 
         },
@@ -177,7 +210,7 @@ Per usare le identità gestite per l'autenticazione delle risorse di Azure, eseg
 >Se si usa l'interfaccia utente di Data Factory per la creazione e l'identità gestita non è impostata con il ruolo "Lettore/Collaboratore dei dati dei BLOB di archiviazione" in IAM, quando si esegue la connessione di test o si esplorano le cartelle, scegliere "Test connection to file path" (Testa connessione al percorso file) o "Browse from specified path" (Sfoglia da percorso specificato) e specificare un percorso con le autorizzazioni **Read + Execute** per continuare.
 
 >[!IMPORTANT]
->Se si usa la funzione polibase per caricare i dati da Data Lake Storage Gen2 in SQL Data Warehouse, quando si usa l'autenticazione di identità gestita per Data Lake Storage Gen2, assicurarsi di seguire anche i passaggi 1 e 2 in [questa guida](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) a 1) registrare il con Azure Active Directory (Azure ad) e 2) assegnare il ruolo di collaboratore dati BLOB di archiviazione al server. il resto viene gestito da Data Factory. Se Data Lake Storage Gen2 è configurato con l'endpoint di Rete virtuale di Azure, per usare PolyBase per il caricamento dei dati dall'endpoint, è necessario usare l'autenticazione dell'identità gestita come richiesto da PolyBase.
+>Se si usa la funzione polibase per caricare dati da Data Lake Storage Gen2 in Azure sinapsi Analytics (in precedenza SQL Data Warehouse), quando si usa l'autenticazione di identità gestita per Data Lake Storage Gen2, assicurarsi di seguire anche i passaggi 1 e 2 in [questa guida](../azure-sql/database/vnet-service-endpoint-rule-overview.md#impact-of-using-vnet-service-endpoints-with-azure-storage) a 1) registrare il con Azure Active Directory (Azure ad) e 2) assegnare il ruolo di collaboratore dati BLOB di archiviazione al server. il resto viene gestito da Data Factory. Se Data Lake Storage Gen2 è configurato con l'endpoint di Rete virtuale di Azure, per usare PolyBase per il caricamento dei dati dall'endpoint, è necessario usare l'autenticazione dell'identità gestita come richiesto da PolyBase.
 
 Queste sono le proprietà supportate dal servizio collegato:
 
