@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 08/05/2020
+ms.date: 09/10/2020
 ms.author: abnarain
-ms.openlocfilehash: 49d173e0d0f2b96c385b4325335483d25e9a7c2d
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: a6a0a62bd857dff575e17f47f1e2394375b08c45
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800714"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033660"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Risolvere i problemi relativi al runtime di integrazione self-hosted
 
@@ -62,7 +62,7 @@ Nel caso precedente, l'utente usa il certificato con "microsoft.com" come ultimo
 
 Si tratta di un problema noto in WCF: la convalida TLS/SSL di WCF controlla solo gli ultimi DNSName nella SAN. 
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Il certificato con caratteri jolly è supportato nel runtime di integrazione self-hosted Azure Data Factory V2. Questo problema si verifica in genere perché il certificato SSL non è corretto. L'ultimo DNSName nella SAN deve essere valido. Attenersi alla procedura seguente per verificarlo. 
 1.  Aprire Management Console, controllare il nome del *soggetto* e il *nome alternativo del soggetto* dai dettagli del certificato. Nel caso precedente, ad esempio, l'ultimo elemento nel *nome alternativo del soggetto*, ovvero "DNS Name = Microsoft.com.com", non è legittimo.
@@ -98,7 +98,7 @@ Il nodo di lavoro IR self-hosted ha segnalato l'errore seguente:
 
 Quando si gestiscono i case correlati all'handshake SSL/TLS, potrebbero verificarsi alcuni problemi relativi alla verifica della catena di certificati. 
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 - Ecco un modo rapido e intuitivo per risolvere gli errori di compilazione della catena di certificati X. 509.
  
@@ -169,7 +169,7 @@ Se si esegue monitoraggio processi, è possibile visualizzare i risultati seguen
 
 ![Configurare i filtri](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 È possibile scoprire che la **System.ValueTuple.dll** si trova nella cartella *c:\Programmi\Microsoft Integration Runtime\4.0\Gateway\DataScan* Copiare il **System.ValueTuple.dll** nella cartella C:\Programmi\Microsoft *Integration Runtime\4.0\Gateway* per risolvere il problema.
 
@@ -190,7 +190,7 @@ Per ulteriori informazioni sulla GAC, vedere [questo articolo](https://docs.micr
 
 #### <a name="symptoms"></a>Sintomi
 
-Il runtime di integrazione self-hosted passa improvvisamente alla modalità offline senza chiave. di seguito viene visualizzato un messaggio di errore nel registro eventi:`Authentication Key is not assigned yet`
+Il runtime di integrazione self-hosted passa improvvisamente alla modalità offline senza chiave. di seguito viene visualizzato un messaggio di errore nel registro eventi: `Authentication Key is not assigned yet`
 
 ![Chiave di autenticazione mancante](media/self-hosted-integration-runtime-troubleshoot-guide/key-missing.png)
 
@@ -199,7 +199,7 @@ Il runtime di integrazione self-hosted passa improvvisamente alla modalità offl
 - Il nodo IR indipendente o il runtime di integrazione self-hosted logico nel portale viene eliminato.
 - È stata eseguita una disinstallazione pulita.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Se nessuna delle cause precedenti si applica, è possibile passare alla cartella: *%ProgramData%\Microsoft\Data Transfer\DataManagementGateway*e verificare se il file denominato **configurazioni** è stato eliminato. Se viene eliminata, seguire le istruzioni riportate [qui](https://www.netwrix.com/how_to_detect_who_deleted_file.html) per controllare chi elimina il file.
 
@@ -218,7 +218,7 @@ Il runtime di integrazione self-hosted è progettato come nodo centrale di un'at
  
 In precedenza, il servizio collegato per ogni archivio dati deve essere creato con lo stesso IR e il runtime di integrazione deve essere in grado di accedere a entrambi gli archivi dati attraverso la rete. Indipendentemente dal fatto che il runtime di integrazione sia installato con l'archivio dati di origine, con l'archivio dati di destinazione o in una terza macchina, se vengono creati due servizi collegati con un altro IRs, ma usati nella stessa attività di copia, verrà usato il runtime di integrazione di destinazione e i driver per entrambi gli archivi dati dovranno essere installati nel computer IR di destinazione.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Installare i driver sia per l'origine che per la destinazione nel runtime di integrazione di destinazione e assicurarsi che sia in grado di accedere all'archivio dati di origine.
  
@@ -235,7 +235,7 @@ Le credenziali dell'origine dati "XXXXXXXXXX" sono state eliminate dal nodo Inte
 
 Il runtime di integrazione self-hosted è compilato in modalità a disponibilità elevata con due nodi, ma non si trovano nello stato di sincronizzazione delle credenziali, il che significa che le credenziali archiviate nel nodo dispatcher non vengono sincronizzate con altri nodi di lavoro. Se si verifica un failover dal nodo Dispatcher al nodo di lavoro ma le credenziali erano presenti solo nel nodo Dispatcher precedente, l'attività non riuscirà quando si tenta di accedere alle credenziali e si verificherà un errore.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 L'unico modo per evitare questo problema consiste nel verificare che due nodi si trovino nello stato di sincronizzazione delle credenziali. In caso contrario, è necessario riimmettere le credenziali per il nuovo Dispatcher.
 
@@ -254,7 +254,7 @@ L'unico modo per evitare questo problema consiste nel verificare che due nodi si
 - L'account utente è con privilegi limitati e non può accedere alla chiave privata.
 - Il certificato è stato generato come firma ma non come scambio di chiave.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 1.  Usare un account con privilegi che può accedere alla chiave privata per il funzionamento dell'interfaccia utente.
 2.  Eseguire il comando seguente per importare il certificato:
@@ -282,7 +282,7 @@ Dopo aver modificato l'account del servizio nel pannello del servizio, è possib
 
 Sono disponibili molte risorse che vengono concesse solo all'account del servizio. Quando si modifica l'account del servizio in un altro account, l'autorizzazione di tutte le risorse dipendenti rimane invariata.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Per verificare l'errore, passare al registro eventi Integration Runtime.
 
@@ -351,9 +351,9 @@ Non è stato possibile trovare il pulsante **Register** nell'interfaccia utente 
 
 #### <a name="cause"></a>Causa
 
-Dal rilascio del *Integration Runtime 3,0*, il pulsante **registra** in un nodo Integration Runtime esistente è stato rimosso per consentire un ambiente più pulito e sicuro. Se un nodo è stato registrato in alcune Integration Runtime (in linea o meno), per registrarlo di nuovo in un altro Integration Runtime, è necessario disinstallare il nodo precedente, quindi installare e registrare il nodo.
+Dal rilascio del *Integration Runtime 3,0*, il pulsante **registra** in un nodo Integration Runtime esistente è stato rimosso per consentire un ambiente più pulito e sicuro. Se un nodo è stato registrato in alcuni Integration Runtime (online o meno), per registrarlo di nuovo in un altro Integration Runtime è necessario disinstallare il nodo precedente, quindi installare e registrare il nodo.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 1. Passare al pannello di controllo per disinstallare il Integration Runtime esistente.
 
@@ -366,7 +366,7 @@ Dal rilascio del *Integration Runtime 3,0*, il pulsante **registra** in un nodo 
 1. Installare il file MSI e registrare il Integration Runtime.
 
 
-### <a name="unable-to-register-the-self-hosted-ir-due-to-localhost"></a>Non è possibile registrare il runtime di integrazione self-hosted a causa di localhost    
+### <a name="unable-to-register-the-self-hosted-ir-due-to-localhost"></a>Impossibile registrare il runtime di integrazione self-hosted a causa di localhost    
 
 #### <a name="symptoms"></a>Sintomi
 
@@ -382,7 +382,7 @@ Si è verificato un errore irreversibile durante la ricerca nel database.
 
 Il problema si verifica in genere durante la risoluzione del localhost.
 
-#### <a name="resolution"></a>Risoluzione
+#### <a name="resolution"></a>Soluzione
 
 Usare localhost 127.0.0.1 per ospitare il file e risolvere il problema.
 
@@ -519,7 +519,7 @@ Questo comportamento si verifica quando i nodi non possono comunicare tra loro.
 
 ### <a name="connectivity-issue-between-self-hosted-ir-and-data-factory-or-self-hosted-ir-and-data-sourcesink"></a>Problema di connettività tra il runtime di integrazione self-hosted e Data Factory o il runtime di integrazione self-hosted e l'origine dati
 
-Per risolvere il problema relativo alla connettività di rete, è necessario sapere come [raccogliere la traccia di rete](#how-to-collect-netmon-trace), comprendere come utilizzarla e [analizzare la traccia Netmon](#how-to-analyze-netmon-trace) prima di applicare gli strumenti NetMon in casi reali dal runtime di integrazione self-hosted.
+Per risolvere il problema relativo alla connettività di rete, è necessario sapere come raccogliere la traccia di rete, comprendere come utilizzarla e [analizzare la traccia Netmon](#how-to-analyze-netmon-trace) prima di applicare gli strumenti NetMon in casi reali dal runtime di integrazione self-hosted.
 
 #### <a name="symptoms"></a>Sintomi
 
@@ -577,7 +577,7 @@ Eseguire la traccia Netmon e analizzarla ulteriormente.
 
 ### <a name="how-to-collect-netmon-trace"></a>Come raccogliere la traccia Netmon
 
-1.  Scaricare gli strumenti NetMon da [questo sito Web](https://www.microsoft.com/en-sg/download/details.aspx?id=4865)e installarli nel computer server (indipendentemente dal server in cui si verifica il problema) e dal client, ad esempio il runtime di integrazione self-hosted.
+1.  Scaricare gli strumenti NetMon da [questo sito Web](https://cnet-downloads.com/network-monitor)e installarli nel computer server (indipendentemente dal server in cui si verifica il problema) e dal client, ad esempio il runtime di integrazione self-hosted.
 
 2.  Creare una cartella, ad esempio, nel percorso seguente: *D:\Netmon*. Verificare che lo spazio disponibile sia sufficiente per salvare il log.
 
@@ -621,7 +621,10 @@ Eseguire la traccia Netmon e analizzarla ulteriormente.
 
 ### <a name="how-to-analyze-netmon-trace"></a>Come analizzare la traccia Netmon
 
-Quando si prova a usare telnet **8.8.8.8 888** con sopra la traccia Netmon raccolta, si dovrebbe vedere la traccia seguente:
+> [!NOTE] 
+> L'istruzione seguente è applicabile alla traccia Netmon. Poiché la traccia Netmon non è attualmente supportata, è possibile utilizzare Wireshark come lo stesso.
+
+Quando si prova a usare telnet **8.8.8.8 888** con la traccia Netmon raccolta, si dovrebbe vedere la traccia seguente:
 
 ![traccia Netmon 1](media/self-hosted-integration-runtime-troubleshoot-guide/netmon-trace-1.png)
 

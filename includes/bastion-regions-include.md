@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 08/14/2020
+ms.date: 09/11/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 48c18e08943e170fdd53f04b49b517424b511c62
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 74b5014b6590fc501291355ee4d142c52ceff129
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88246058"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90045184"
 ---
 >[!NOTE]
 >Ci stiamo impegnando ad aggiungere nuove aree. Le nuove aree verranno aggiunte a questo elenco.
@@ -66,4 +66,5 @@ ms.locfileid: "88246058"
 * US Gov Virginia
 
 **Azure per la Cina**
+* Cina orientale 2
 * Cina settentrionale 2
