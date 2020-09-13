@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/27/2019
+ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 98afd1eb1f8a73c2d6dd3f293a07cdb70780d238
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 2c76a79f09629b32767c1dcc78989dfa47c678fd
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004767"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504572"
 ---
 # <a name="pricing-and-associated-costs"></a>Prezzi e costi associati
 
@@ -48,13 +48,13 @@ Per modificare le impostazioni:
 
 1. Aprire l'hub Internet.
 
-1. In **sicurezza**fare clic su **Panoramica**.
+1. In **sicurezza**fare clic su **Impostazioni**.
 
-1. Fare clic su **Impostazioni**.
+1. Fare clic su **raccolta dati**.
 
 Nella tabella seguente viene fornito un riepilogo dei costi associati e delle implicazioni di ogni opzione.
 
-| Opzione | Utilizzo | Commento |
+| Opzione | Uso | Commento |
 | --- | --- | --- |
 | **Archiviazione Log Analytics** |  |
 | Suggerimenti e avvisi del dispositivo| Avvisi e avvisi di sicurezza generati dal servizio | Non facoltativo |
@@ -73,7 +73,7 @@ Nella tabella seguente viene fornito un riepilogo dei costi associati e delle im
 | | Informazioni dettagliate sulle analisi degli [avvisi](concept-security-alerts.md) e delle [raccomandazioni](concept-recommendations.md) non sono disponibili |
 |
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 - Accedere ai [dati di sicurezza non elaborati](how-to-security-data-access.md)
 - [Analizzare un dispositivo](how-to-investigate-device.md)

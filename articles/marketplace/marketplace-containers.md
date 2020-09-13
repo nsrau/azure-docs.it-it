@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: keferna
 ms.author: keferna
-ms.date: 04/15/2020
-ms.openlocfilehash: 81069b0340202a0a481522ef1920806026ebcbe1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/04/2020
+ms.openlocfilehash: c52fabcfc2ff22df2de6dd93f2543d625310baef
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86119396"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484342"
 ---
 # <a name="publishing-guide-for-container-offers"></a>Guida alla pubblicazione per le offerte di contenitori
 
 I contenitori offrono supporto per la pubblicazione dell'immagine del contenitore in Azure Marketplace. Usare questa guida per comprendere i requisiti per questa offerta. 
 
-Le offerte di contenitori sono offerte di transazioni distribuite e fatturate tramite Azure Marketplace. L'utente viene invitato all'azione tramite "Scarica adesso".
+Le offerte di contenitori sono offerte di transazioni distribuite e fatturate tramite Azure Marketplace. L'opzione di elenco visualizzata dall'utente è "Get it Now".
 
 Usare il tipo di offerta del *contenitore* quando la soluzione è un'immagine del contenitore Docker configurata come istanza del servizio contenitore di Azure basata su Kubernetes. 
 
@@ -35,7 +35,7 @@ Microsoft supporta attualmente i modelli di licenza BYOL (Bring Your Own License
 | Fatturazione e misurazione | Supporta il modello di fatturazione BYOL o di fatturazione gratuita.<br><br> |  
 | Immagine compilata da un Dockerfile | Le immagini del contenitore devono essere basate sulla specifica dell'immagine Docker e compilate da un Dockerfile.<br> <br>Per ulteriori informazioni sulla compilazione di immagini Docker, vedere la sezione relativa all'utilizzo di [Dockerfile Reference](https://docs.docker.com/engine/reference/builder/#usage).<br><br> |  
 | Hosting in un repository di Azure Container Registry | Le immagini del contenitore devono essere ospitate in un repository di Azure Container Registry.<br> <br>Per altre informazioni sull'uso di Azure Container Registry, vedere [Guida introduttiva: creare un registro contenitori privato usando il portale di Azure](../container-registry/container-registry-get-started-portal.md).<br><br> |  
-| Tag di immagine | Le immagini del contenitore devono contenere almeno un tag (numero massimo di Tag: 16).<br><br>Per ulteriori informazioni sull'assegnazione di tag a un'immagine, vedere la `docker tag` pagina nel sito della [documentazione di Docker](https://docs.docker.com/engine/reference/commandline/tag) .<br><br> |  
+| Assegnazione di tag alle immagini | Le immagini del contenitore devono contenere almeno un tag (numero massimo di Tag: 16).<br><br>Per ulteriori informazioni sull'assegnazione di tag a un'immagine, vedere la `docker tag` pagina nel sito della [documentazione di Docker](https://docs.docker.com/engine/reference/commandline/tag) .<br><br> |  
 
 ## <a name="next-steps"></a>Passaggi successivi
 

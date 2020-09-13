@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/04/2018
-ms.openlocfilehash: ce63da745fb84ebccd57b246fc934f595dd7cda1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a756a3cec5702570751e0bea09a4f59152accafc
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81418253"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484545"
 ---
 # <a name="copy-data-from-amazon-redshift-using-azure-data-factory"></a>Copiare dati da Amazon Redshift usando Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -164,11 +164,11 @@ Per altre informazioni su come usare UNLOAD per copiare in modo efficiente dati 
 
 [UNLOAD](https://docs.aws.amazon.com/redshift/latest/dg/r_UNLOAD.html) è un meccanismo fornito da Amazon Redshift, che consente di scaricare i risultati di una query in uno o più file in Amazon Simple Storage Service (Amazon S3). Si tratta del metodo consigliato da Amazon per la copia di set di dati di grandi dimensioni da Redshift.
 
-**Esempio: copiare dati da Amazon Redshift in Azure SQL Data Warehouse usando UNLOAD, la copia di staging e PolyBase**
+**Esempio: copiare dati da Amazon lo spostamento in Azure sinapsi Analytics (in precedenza SQL Data Warehouse) usando UNLOAD, la copia di staging e la polibase**
 
-Per questo caso d'uso di esempio, l'attività di copia scarica i dati da Amazon Redshift in Amazon S3 come configurato in "redshiftUnloadSettings", quindi copia i dati da Amazon S3 in BLOB di Azure, come specificato in "stagingSettings", e infine usa PolyBase per caricare i dati in SQL Data Warehouse. Tutto il formato provvisorio viene gestito correttamente dall'attività di copia.
+Per questo caso d'uso di esempio, l'attività di copia Scarica i dati da Amazon spostamento in Amazon S3 come configurato in "redshiftUnloadSettings" e quindi copia i dati da Amazon S3 al BLOB di Azure come specificato in "stagingSettings", infine usa la polibase per caricare i dati in Azure sinapsi Analytics (in precedenza SQL Data Warehouse). Tutto il formato provvisorio viene gestito correttamente dall'attività di copia.
 
-![Flusso di lavoro di copia da Redshift a SQL Data Warehouse](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
+![Flusso di lavoro per la copia di Azure sinapsi Analytics](media/copy-data-from-amazon-redshift/redshift-to-sql-dw-copy-workflow.png)
 
 ```json
 "activities":[

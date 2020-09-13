@@ -7,13 +7,13 @@ ms.reviewer: dannyevers
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 08/06/2020
-ms.openlocfilehash: 96e23c22568229ec5f5ba2365747e261b7e471ad
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.date: 09/04/2020
+ms.openlocfilehash: b01b482b967ba6db90aa80ba537457597fb91046
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921385"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488610"
 ---
 # <a name="build-the-landing-page-for-your-free-or-trial-saas-offer-in-the-commercial-marketplace"></a>Crea la pagina di destinazione per l'offerta SaaS gratuita o di valutazione nel Marketplace commerciale
 
@@ -21,13 +21,13 @@ Questo articolo illustra il processo di creazione di una pagina di destinazione 
 
 ## <a name="overview"></a>Panoramica
 
-È possibile considerare la pagina di destinazione come "lobby" per l'offerta di Software as a Service (SaaS). Quando il cliente sceglie di ottenere l'app, il Marketplace commerciale li indirizza alla pagina di destinazione per attivare e configurare la sottoscrizione per l'applicazione SaaS. Quando si crea un'offerta di Software as a Service (SaaS), nel centro per i partner è possibile scegliere se vendere o meno [tramite Microsoft](partner-center-portal/create-new-saas-offer.md). Se si vuole solo elencare l'offerta nel Marketplace commerciale Microsoft e non vendere tramite Microsoft, è possibile specificare il modo in cui i potenziali clienti possono interagire con l'offerta. Quando si Abilita l'opzione **Get it Now (free)** o **Free Trial** list, è necessario specificare un URL della pagina di destinazione a cui l'utente può accedere per accedere alla sottoscrizione o alla versione di valutazione gratuita.
+È possibile considerare la pagina di destinazione come "lobby" per l'offerta di Software as a Service (SaaS). Quando il cliente sceglie di ottenere l'app, il Marketplace commerciale li indirizza alla pagina di destinazione per attivare e configurare la sottoscrizione per l'applicazione SaaS. Quando si crea un'offerta di Software as a Service (SaaS), nel centro per i partner è possibile scegliere se vendere o meno [tramite Microsoft](plan-saas-offer.md#listing-options). Se si vuole solo elencare l'offerta nel Marketplace commerciale Microsoft e non vendere tramite Microsoft, è possibile specificare il modo in cui i potenziali clienti possono interagire con l'offerta. Quando si Abilita l'opzione **Get it Now (free)** o **Free Trial** list, è necessario specificare un URL della pagina di destinazione a cui l'utente può accedere per accedere alla sottoscrizione o alla versione di valutazione gratuita.
 
 Lo scopo della pagina di destinazione è semplicemente ricevere l'utente per poter attivare la versione di valutazione gratuita o la sottoscrizione gratuita. Utilizzando Azure Active Directory (Azure AD) e Microsoft Graph, sarà possibile abilitare Single Sign-On (SSO) per l'utente e ottenere informazioni importanti sull'utente che è possibile utilizzare per attivare la versione di valutazione gratuita o la sottoscrizione gratuita, inclusi il nome, l'indirizzo di posta elettronica e l'organizzazione.
 
 Poiché le informazioni necessarie per attivare la sottoscrizione sono limitate e fornite da Azure AD e Microsoft Graph, non è necessario richiedere informazioni che richiedono più del consenso di base. Se sono necessari i dettagli dell'utente che richiedono il consenso aggiuntivo per l'applicazione, è necessario richiedere queste informazioni dopo il completamento dell'attivazione della sottoscrizione. Questo consente l'attivazione di sottoscrizioni prive di attrito per l'utente e riduce il rischio di abbandono.
 
-La pagina di destinazione include in genere le seguenti informazioni e le chiamate all'azione:
+Nella pagina di destinazione sono in genere incluse le informazioni e le opzioni di elenco seguenti:
 
 - Presentare il nome e i dettagli della versione di valutazione gratuita o della sottoscrizione gratuita. Ad esempio, specificare i limiti di utilizzo o la durata di una versione di valutazione.
 - Presentare i dettagli dell'account dell'utente, ad esempio nome e cognome, organizzazione e indirizzo di posta elettronica.
@@ -43,7 +43,7 @@ Nelle sezioni seguenti di questo articolo verrà illustrato il processo di creaz
 
 ## <a name="create-an-azure-ad-app-registration"></a>Creare una registrazione dell'app Azure AD
 
-Il Marketplace commerciale è completamente integrato con Azure AD. Gli utenti arrivano al Marketplace autenticati con un [account Azure ad o un account Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Dopo aver acquisito una sottoscrizione di valutazione gratuita o gratuita tramite l'offerta di solo elenco, l'utente passa dal Marketplace commerciale all'URL della pagina di destinazione per attivare e gestire la propria sottoscrizione all'applicazione SaaS. È necessario consentire all'utente di accedere all'applicazione con Azure AD SSO. (L'URL della pagina di destinazione è specificato nella [pagina configurazione tecnica](partner-center-portal/offer-creation-checklist.md#technical-configuration-page)dell'offerta).
+Il Marketplace commerciale è completamente integrato con Azure AD. Gli utenti arrivano al Marketplace autenticati con un [account Azure ad o un account Microsoft (MSA)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis#terminology). Dopo aver acquisito una sottoscrizione di valutazione gratuita o gratuita tramite l'offerta di solo elenco, l'utente passa dal Marketplace commerciale all'URL della pagina di destinazione per attivare e gestire la propria sottoscrizione all'applicazione SaaS. È necessario consentire all'utente di accedere all'applicazione con Azure AD SSO. L'URL della pagina di destinazione viene specificato nella pagina [configurazione tecnica](plan-saas-offer.md#technical-information) dell'offerta.
 
 Il primo passaggio per usare l'identità è assicurarsi che la pagina di destinazione sia registrata come applicazione Azure AD. La registrazione dell'applicazione consente di usare Azure AD per autenticare gli utenti e richiedere l'accesso alle risorse utente. Può essere considerata la definizione dell'applicazione, che consente al servizio di ottenere informazioni su come rilasciare i token per l'app in base alle impostazioni dell'app.
 
@@ -103,4 +103,4 @@ La maggior parte delle app registrate con Azure AD concedere autorizzazioni dele
 > Gli account del tenant MSA (con ID tenant `9188040d-6c67-4c5b-b112-36a304b66dad` ) non restituiranno altre informazioni rispetto a quelle già raccolte con il token ID. È quindi possibile ignorare questa chiamata al API Graph per questi account.
 
 ## <a name="next-steps"></a>Passaggi successivi
-- [Creare un'offerta SaaS nel Marketplace commerciale](./partner-center-portal/create-new-saas-offer.md)
+- [Come creare un'offerta SaaS nel Marketplace commerciale](create-new-saas-offer.md)

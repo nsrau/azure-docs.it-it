@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 06/11/2020
-ms.openlocfilehash: 1bd3cb1c18d1bac078ac1344f574914dba73d07b
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 4876c5cb0490a96d5a77da9ced83e1650e98379a
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871565"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488831"
 ---
 # <a name="connectors-for-azure-logic-apps"></a>Connettori per App per la logica di Azure
 
@@ -308,7 +308,7 @@ Per le app per la logica create ed eseguite in un [ambiente di Integration Servi
         [![Connettore ISE del bus di ][azure-service-bus-icon]<br> **servizio <br> ** di Azure][azure-service-bus-doc]
     :::column-end:::
     :::column:::
-        [![Connettore Azure SQL Data Warehouse ISE ][azure-sql-data-warehouse-icon]<br> **Azure SQL data <br> Warehouse**][azure-sql-data-warehouse-doc]
+        [![Connettore Azure sinapsi Analytics ISE ][azure-sql-data-warehouse-icon]<br> **Azure SQL data <br> Warehouse**][azure-sql-data-warehouse-doc]
     :::column-end:::
     :::column:::
         [![Archiviazione tabelle di Azure connettore ISE ][azure-table-storage-icon]<br> ** <br> archiviazione tabelle di Azure**][azure-table-storage-doc]
@@ -572,7 +572,7 @@ Anche se si creano connessioni dall'interno di un'app per la logica, le connessi
 [azure-monitor-logs-doc]: /connectors/azuremonitorlogs/ "Eseguire query sui log di monitoraggio di Azure tra Log Analytics aree di lavoro e componenti Application Insights"
 [azure-queues-doc]: /connectors/azurequeues/ "Connettersi all'account di archiviazione di Azure in modo che sia possibile creare e gestire code e messaggi"
 [azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Inviare messaggi da code e argomenti del bus di servizio e ricevere messaggi da code e sottoscrizioni del bus di servizio"
-[azure-sql-data-warehouse-doc]: /connectors/sqldw/ "Connettersi a Azure SQL Data Warehouse in modo che sia possibile visualizzare i dati"
+[azure-sql-data-warehouse-doc]: /connectors/sqldw/ "Connettersi ad Azure sinapsi Analytics per poter visualizzare i dati"
 [azure-table-storage-doc]: /connectors/azuretables/ "Connettersi all'account di archiviazione di Azure in modo che sia possibile creare, aggiornare ed eseguire query sulle tabelle e altro ancora"
 [biztalk-server-doc]: /connectors/biztalk/ "Connettersi alla BizTalk Server in modo che sia possibile eseguire applicazioni basate su BizTalk affiancate ad app per la logica di Azure"
 [file-system-doc]: ../logic-apps/logic-apps-using-file-connector.md "Connettersi a un file system locale"

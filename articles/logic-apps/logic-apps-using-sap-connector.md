@@ -9,12 +9,12 @@ ms.reviewer: estfan, daviburg, logicappspm
 ms.topic: article
 ms.date: 07/21/2020
 tags: connectors
-ms.openlocfilehash: a0f6af706a81db537b9ed66dc49996282c4dbbaa
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 4afd6f0cc3b4b5e135d80b420d8260c50d9ca46c
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87833896"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488848"
 ---
 # <a name="connect-to-sap-systems-from-azure-logic-apps"></a>Connettersi a sistemi SAP con App per la logica di Azure
 
@@ -124,7 +124,7 @@ Questi prerequisiti si applicano quando le app per la logica vengono eseguite in
 
 ### <a name="sap-client-library-prerequisites"></a>Prerequisiti della libreria client SAP
 
-* Assicurarsi di installare la versione più recente, il [connettore SAP (NCo 3,0) per Microsoft .NET 3.0.22.0 compilato con .NET Framework 4,0-Windows 64-bit (x64)](https://softwaredownloads.sap.com/file/0020000001000932019). Le versioni precedenti possono causare problemi di compatibilità. Per altre informazioni, vedere [versioni della libreria client SAP](#sap-library-versions).
+* Assicurarsi di installare la versione più recente, il [connettore SAP (NCo 3,0) per Microsoft .NET 3.0.22.0 compilato con .NET Framework 4,0-Windows 64-bit (x64)](https://support.sap.com/en/product/connectors/msnet.html). Le versioni precedenti possono causare problemi di compatibilità. Per altre informazioni, vedere [versioni della libreria client SAP](#sap-library-versions).
 
 * Per impostazione predefinita, il programma di installazione di SAP inserisce i file di assembly nella cartella di installazione predefinita. È necessario copiare i file di assembly in un altro percorso, in base allo scenario seguente:
 
@@ -396,7 +396,7 @@ Questo esempio usa un'app per la logica che si attiva quando l'app riceve un mes
 
    In alternativa, è possibile specificare manualmente un'azione:
 
-   ![Immettere manualmente l'azione SAP](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
+   ![Immettere manualmente l'azione SAP che si vuole usare](media/logic-apps-using-sap-connector/manual-enter-SAP-action-trigger.png)
 
    Di seguito un esempio che illustra come viene visualizzata l'azione quando si configura il trigger per ricevere più messaggi.
 
@@ -606,11 +606,11 @@ Per gli ambienti di produzione, è necessario creare due profili partner. Il pri
 
 1. Per aprire lo **strumento di test per le impostazioni di elaborazione IDOC** , nell'interfaccia SAP usare il codice di transazione **We19** (codice T) con il prefisso **/n** .
 
-1. In **modello per test**selezionare **via messaggio**e immettere il tipo di messaggio, ad esempio **crema**. Selezionare **Crea**.
+1. In **modello per test**selezionare **via messaggio**e immettere il tipo di messaggio, ad esempio **crema**. Selezionare **Create** (Crea).
 
 1. Confermare il **tipo di IDOC?** messaggio selezionando **continua**.
 
-1. Selezionare il nodo **EDIDC** . Immettere i valori appropriati per le porte di ricezione e mittente. Seleziona **Continua**.
+1. Selezionare il nodo **EDIDC** . Immettere i valori appropriati per le porte di ricezione e mittente. Selezionare **Continua**.
 
 1. Selezionare **elaborazione in uscita standard**.
 
@@ -808,12 +808,12 @@ Per generare un XML Schema SAP IDoc normale, usare l'applicazione di **Accesso S
 
 In questo esempio vengono dichiarati il nodo radice e gli spazi dei nomi. L'URI nel codice di esempio, `http://Microsoft.LobServices.Sap/2007/03/Idoc/3/ORDERS05//700/Send` , dichiara la configurazione seguente:
 
-* `/IDoc`è la nota radice per tutti IDocs
-* `/3`versione dei tipi di record per le definizioni dei segmenti comuni
-* `/ORDERS05`è il tipo IDoc
-* `//`è un segmento vuoto, perché non esiste alcuna estensione IDoc
-* `/700`è la versione di SAP
-* `/Send`è l'azione per inviare le informazioni a SAP
+* `/IDoc` è la nota radice per tutti IDocs
+* `/3` versione dei tipi di record per le definizioni dei segmenti comuni
+* `/ORDERS05` è il tipo IDoc
+* `//` è un segmento vuoto, perché non esiste alcuna estensione IDoc
+* `/700` è la versione di SAP
+* `/Send` è l'azione per inviare le informazioni a SAP
 
 ```xml
 
@@ -1175,7 +1175,7 @@ Se si verifica un problema con IDocs duplicati inviati a SAP dall'app per la log
 1. Nell'editor per l'azione **conferma ID transazione**configurare le impostazioni seguenti. Salvare quindi le modifiche.
     1. Per **ID transazione**, immettere di nuovo il nome della variabile. Ad esempio: `IDOCtransferID`.
 
-## <a name="known-issues-and-limitations"></a>Problemi noti e limitazioni
+## <a name="known-issues-and-limitations"></a>Limitazioni e problemi noti
 
 Di seguito sono riportati i problemi e le limitazioni attualmente noti per il connettore SAP gestito (non ISE):
 

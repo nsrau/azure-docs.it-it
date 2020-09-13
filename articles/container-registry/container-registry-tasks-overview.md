@@ -2,13 +2,13 @@
 title: Panoramica delle Attività del Registro Azure Container
 description: Introduzione alle attività di ACR, una suite di funzionalità in Azure Container Registry che fornisce la compilazione, la gestione e l'applicazione di patch di immagini del contenitore sicure e automatizzate nel cloud.
 ms.topic: article
-ms.date: 01/22/2020
-ms.openlocfilehash: 4fda57c1d7c866f2e6f72b04d75e53f91e995baf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/12/2020
+ms.openlocfilehash: 24cc0415fe8756e900a8ea0ce7039f6b4710cf6f
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79087279"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488644"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>Automatizzare le compilazioni e la manutenzione delle immagini del contenitore con le attività ACR
 
@@ -56,7 +56,7 @@ Attivare una compilazione dell'immagine del contenitore o un'attività in più p
 
 Le attività ACR supportano i trigger seguenti quando si imposta un repository Git come contesto dell'attività:
 
-| Trigger | Abilitata per impostazione predefinita |
+| Trigger | Abilitato per impostazione predefinita |
 | ------- | ------------------ |
 | Commit | Sì |
 | Richiesta pull | No |
@@ -100,7 +100,7 @@ Altre informazioni sulle attività in più passaggi in [Run multi-step build, te
 
 ## <a name="context-locations"></a>Percorsi del contesto
 
-La tabella seguente mostra alcuni esempi di percorsi di contesto supportati per ACR Tasks:
+La tabella seguente illustra alcuni esempi di percorsi di contesto supportati per le attività ACR:
 
 | Posizione contesto | Descrizione | Esempio |
 | ---------------- | ----------- | ------- |
@@ -111,6 +111,7 @@ La tabella seguente mostra alcuni esempi di percorsi di contesto supportati per 
 | Commit di GitHub | Commit specifico in un repository GitHub pubblico o privato. Esempio mostra la combinazione di una specifica di commit hash (SHA) e della sottocartella. | `https://github.com/gituser/myapp-repo.git#git-commit-hash:myfolder` |
 | Sottocartella DevOps di Azure | File all'interno di una sottocartella in un repository di Azure pubblico o privato. Esempio mostra la combinazione di specifiche di Branch e sottocartelle. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | File tarball remoto | File in un archivio compresso in un server Web remoto. | `http://remoteserver/myapp.tar.gz` |
+| Artefatto nel registro contenitori | File di [artefatto OCI](container-registry-oci-artifacts.md) in un repository del registro contenitori. | `oci://myregistry.azurecr.io/myartifact:mytag` |
 
 > [!NOTE]
 > Quando si usa un repository git privato come contesto per un'attività, è necessario fornire un token di accesso personale (PAT).

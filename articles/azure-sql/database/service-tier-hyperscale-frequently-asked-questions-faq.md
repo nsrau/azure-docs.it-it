@@ -11,12 +11,12 @@ author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: ''
 ms.date: 03/03/2020
-ms.openlocfilehash: 359de25d2bdb57ad5c6386586f987942acc120ef
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: be8e38d38408bd7cf11608d71035bd7cf0808b60
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87500147"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89488967"
 ---
 # <a name="azure-sql-database-hyperscale-faq"></a>Domande frequenti sull'iperscalabilità del database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -40,7 +40,7 @@ Il livello di servizio Hyperscale è disponibile solo per i database singoli che
 
 I livelli di servizio basati su vCore sono differenziati in base alla disponibilità del database e al tipo di archiviazione, alle prestazioni e alle dimensioni massime, come descritto nella tabella seguente.
 
-| | Tipo di risorsa | Utilizzo generico |  Hyperscale | Business Critical |
+| | Tipo di risorsa | Utilizzo generico |  Iperscalabilità | Business critical |
 |:---:|:---:|:---:|:---:|:---:|
 | **Ideale per** |Tutti|Offre opzioni di calcolo e archiviazione bilanciate a prezzi convenienti.|La maggior parte dei carichi di lavoro aziendali. Ridimensionamento automatico delle dimensioni di archiviazione fino a 100 TB, scalabilità verticale e orizzontale rapida del calcolo, ripristino rapido del database.|Applicazioni OLTP con frequenza di transazione elevata e bassa latenza di i/o. Offre la massima resilienza agli errori e a failover rapidi usando più repliche aggiornate in modo sincrono.|
 |  **Tipo di risorsa** ||Database SQL/SQL Istanza gestita | Database singolo | Database SQL/SQL Istanza gestita |
@@ -54,7 +54,7 @@ I livelli di servizio basati su vCore sono differenziati in base alla disponibil
 |**Disponibilità**|Tutti|1 replica, nessuna scalabilità in lettura, nessuna cache locale | Più repliche, fino a 4 scalabilità in lettura, cache locale parziale | 3 repliche, 1 scalabilità in lettura, disponibilità elevata con ridondanza della zona, archiviazione locale completa |
 |**Backup**|Tutti|RA-GRS, conservazione di 7-35 giorni (7 giorni per impostazione predefinita)| RA-GRS, conservazione di 7 giorni, ripristino temporizzato temporizzato costante (ripristino temporizzato) | RA-GRS, conservazione di 7-35 giorni (7 giorni per impostazione predefinita) |
 
-\*I pool elastici non sono supportati nel livello di servizio con iperscalabilità
+\* I pool elastici non sono supportati nel livello di servizio con iperscalabilità
 
 ### <a name="who-should-use-the-hyperscale-service-tier"></a>Chi deve usare il livello di servizio Hyperscale
 
@@ -114,11 +114,11 @@ Sì. Il [vantaggio Azure Hybrid](https://azure.microsoft.com/pricing/hybrid-bene
 
 L'iperscalabilità supporta tutti i carichi di lavoro SQL Server, ma è ottimizzato principalmente per OLTP. È possibile importare anche carichi di lavoro ibridi (HTAP) e analitici (data mart).
 
-### <a name="how-can-i-choose-between-azure-sql-data-warehouse-and-azure-sql-database-hyperscale"></a>Come è possibile scegliere tra Azure SQL Data Warehouse e l'iperscalabilità del database SQL di Azure
+### <a name="how-can-i-choose-between-azure-synapse-analytics-and-azure-sql-database-hyperscale"></a>Come è possibile scegliere tra analisi sinapsi di Azure e iperscalabilità del database SQL di Azure
 
 Se si eseguono query di analisi interattive usando SQL Server come data warehouse, l'iperscalabilità è un'ottima opzione perché è possibile ospitare data warehouse di piccole e medie dimensioni, ad esempio pochi TB fino a 100 TB, a un costo inferiore ed è possibile eseguire la migrazione dei carichi di lavoro di data warehouse di SQL Server a iperscalabilità con modifiche minime al codice T-SQL.
 
-Se si esegue l'analisi dei dati su larga scala con query complesse e frequenze di inserimento prolungate superiori a 100 MB/s oppure si utilizzano Parallel data warehouse (PDW), Teradata o altri data warehouse di elaborazione parallela massiva (MPP), SQL Data Warehouse può essere la scelta migliore.
+Se si esegue l'analisi dei dati su larga scala con query complesse e frequenze di inserimento prolungate superiori a 100 MB/s, oppure usando Parallel data warehouse (PDW), Teradata o altri data warehouse di elaborazione parallela massiva (MPP), Azure sinapsi Analytics (in precedenza SQL Data Warehouse) potrebbe essere la scelta migliore.
   
 ## <a name="hyperscale-compute-questions"></a>Domande di calcolo con iperscalabilità
 
@@ -158,7 +158,7 @@ Il log delle transazioni con il livello Hyperscale è praticamente infinito. Non
 
 ### <a name="does-my-tempdb-scale-as-my-database-grows"></a>Aumenta la `tempdb` scalabilità del database
 
-Il `tempdb` database si trova nell'archivio SSD locale ed è dimensionato proporzionalmente alle dimensioni di calcolo di cui si esegue il provisioning. Il `tempdb` è ottimizzato per offrire i massimi vantaggi a livello di prestazioni. `tempdb`la dimensione non è configurabile e viene gestita per l'utente.
+Il `tempdb` database si trova nell'archivio SSD locale ed è dimensionato proporzionalmente alle dimensioni di calcolo di cui si esegue il provisioning. Il `tempdb` è ottimizzato per offrire i massimi vantaggi a livello di prestazioni. `tempdb` la dimensione non è configurabile e viene gestita per l'utente.
 
 ### <a name="does-my-database-size-automatically-grow-or-do-i-have-to-manage-the-size-of-data-files"></a>Le dimensioni del database aumentano automaticamente o è necessario gestire le dimensioni dei file di dati
 
@@ -229,7 +229,7 @@ Il tempo di inattività per la migrazione a iperscalabilità è uguale a quello 
 
 L'iperscalabilità è in grado di utilizzare 100 MB/s di dati nuovi o modificati, ma il tempo necessario per spostare i dati nei database nel database SQL di Azure è influenzato anche dalla velocità effettiva di rete disponibile, dalla velocità di lettura dell'origine e dall'obiettivo del livello di servizio del database di destinazione.
 
-### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-sql-data-warehouse"></a>È possibile leggere i dati dall'archivio BLOB e caricare rapidamente (ad esempio, la polibase in SQL Data Warehouse)
+### <a name="can-i-read-data-from-blob-storage-and-do-fast-load-like-polybase-in-azure-synapse-analytics"></a>È possibile leggere i dati dall'archivio BLOB e eseguire un caricamento rapido (ad esempio, la polibase in Azure sinapsi Analytics)
 
 È possibile fare in modo che un'applicazione client legga i dati da archiviazione di Azure e carichi i dati in un database con iperscalabilità (analogamente a qualsiasi altro database nel database SQL di Azure). La polibase non è attualmente supportata nel database SQL di Azure. Come alternativa per fornire un carico rapido, è possibile usare [Azure Data Factory](https://docs.microsoft.com/azure/data-factory/)o usare un processo spark in [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) con il [connettore Spark per SQL](spark-connector.md). Il connettore Spark per SQL supporta l'inserimento bulk.
 
@@ -269,7 +269,7 @@ Sì.
 
 ### <a name="what-is-the-recovery-point-objective-rporecovery-time-objective-rto-for-database-restore-in-hyperscale"></a>Qual è l'obiettivo del punto di ripristino (RPO)/Recovery Time Objective (RTO) per il ripristino del database in iperscalabilità
 
-Il valore di RPO è 0 min. L'obiettivo di RTO è inferiore a 10 minuti, indipendentemente dalle dimensioni del database.
+Il valore di RPO è 0 min. La maggior parte delle operazioni di ripristino viene completata entro 60 minuti indipendentemente dalle dimensioni del database. Il tempo di ripristino può essere più lungo per i database di dimensioni maggiori e se il database ha riscontrato un'attività di scrittura significativa prima e fino al punto di ripristino nel tempo.
 
 ### <a name="does-database-backup-affect-compute-performance-on-my-primary-or-secondary-replicas"></a>Il backup del database influisce sulle prestazioni di calcolo sulle repliche primarie o secondarie
 
@@ -345,9 +345,9 @@ La scalabilità verso l'alto o verso il basso comporta l'eliminazione delle conn
 
 Attivata dall'utente finale. Non è un'operazione automatica.  
 
-### <a name="does-the-size-of-my-tempdb-database-also-grow-as-the-compute-is-scaled-up"></a>Le dimensioni del `tempdb` database aumentano anche quando viene aumentata la scalabilità verticale del calcolo
+### <a name="does-the-size-of-my-tempdb-database-and-rbpex-cache-also-grow-as-the-compute-is-scaled-up"></a>Le dimensioni del `tempdb` database e della cache RBPEX aumentano anche con la scalabilità verticale del calcolo
 
-Sì. Il `tempdb` database verrà ridimensionato automaticamente in base alla crescita del calcolo.  
+Sì. Il `tempdb` database e le dimensioni della [cache RBPEX](service-tier-hyperscale.md#distributed-functions-architecture) nei nodi di calcolo aumenteranno automaticamente man via che aumenta il numero di core.
 
 ### <a name="can-i-provision-multiple-primary-compute-replicas-such-as-a-multi-master-system-where-multiple-primary-compute-heads-can-drive-a-higher-level-of-concurrency"></a>È possibile eseguire il provisioning di più repliche di calcolo primarie, ad esempio un sistema multimaster, in cui più teste di calcolo primarie possono guidare un livello più elevato di concorrenza
 
@@ -361,7 +361,7 @@ Per impostazione predefinita, viene creata una replica secondaria per i database
 
 ### <a name="how-do-i-connect-to-these-secondary-compute-replicas"></a>Ricerca per categorie connettersi alle repliche di calcolo secondarie
 
-È possibile connettersi a queste repliche di calcolo di sola lettura aggiuntive impostando l' `ApplicationIntent` argomento nella stringa di connessione su `ReadOnly` . Qualsiasi connessione contrassegnata con `ReadOnly` viene indirizzata automaticamente a una delle repliche di calcolo aggiuntive di sola lettura.  
+È possibile connettersi a queste repliche di calcolo di sola lettura aggiuntive impostando l' `ApplicationIntent` argomento nella stringa di connessione su `ReadOnly` . Qualsiasi connessione contrassegnata con `ReadOnly` viene indirizzata automaticamente a una delle repliche di calcolo aggiuntive di sola lettura. Per informazioni dettagliate, vedere [usare le repliche di sola lettura per l'offload dei carichi di lavoro di query di sola lettura](read-scale-out.md).
 
 ### <a name="how-do-i-validate-if-i-have-successfully-connected-to-secondary-compute-replica-using-ssms-or-other-client-tools"></a>Ricerca per categorie verificare se la connessione alla replica di calcolo secondaria è stata stabilita con SSMS o altri strumenti client?
 
@@ -390,7 +390,7 @@ No. I database con iperscalabilità includono spazio di archiviazione condiviso,
 
 ### <a name="how-much-delay-is-there-going-to-be-between-the-primary-and-secondary-compute-replicas"></a>Il ritardo tra le repliche di calcolo primarie e secondarie
 
-La latenza dei dati dal momento in cui viene eseguito il commit di una transazione nel database primario nel momento in cui è visibile in una replica secondaria dipende dalla frequenza di generazione del log corrente. La latenza dei dati tipica è di pochi millisecondi.
+La latenza dei dati dal momento in cui viene eseguito il commit di una transazione nel database primario nel momento in cui è leggibile in una replica secondaria dipende dalla frequenza di generazione del log corrente, dalle dimensioni delle transazioni, dal carico sulla replica e da altri fattori. La latenza dei dati tipica per le transazioni di piccole dimensioni è in decine di millisecondi, ma non esiste alcun limite superiore per la latenza dei dati. I dati di una determinata replica secondaria sono sempre coerenti a livello di transazione. Tuttavia, la latenza dei dati in un determinato momento può essere diversa per le diverse repliche secondarie. I carichi di lavoro che devono leggere immediatamente i dati sottoposte a commit devono essere eseguiti nella replica primaria.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

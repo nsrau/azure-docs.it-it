@@ -1,22 +1,22 @@
 ---
 title: Requisiti per la presentazione di offerte e servizi in Azure Marketplace
-description: Questo articolo illustra i requisiti e le linee guida per la presentazione di nuovi servizi e offerte in Azure Marketplace.
+description: Questo articolo illustra i requisiti e le linee guida per elencare nuove offerte, servizi e altre soluzioni IT in Azure Marketplace.
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 07/14/2020
-ms.openlocfilehash: 2f472f15f5f15fb48563aba90df273e31bb1b665
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.date: 09/04/2020
+ms.openlocfilehash: 51f226443e6f21b6c333cacf6c88f0d00208f5f2
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88812870"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484273"
 ---
 # <a name="azure-marketplace-listing-guidelines"></a>Linee guida per la presentazione in Azure Marketplace
 
-Questo articolo illustra i requisiti e le linee guida per la presentazione di nuovi servizi e offerte in Azure Marketplace. Tutte le offerte devono soddisfare i requisiti elencati nella sezione [elenco dei requisiti per tutte le offerte](#listing-requirements-for-all-offers) . Usare i collegamenti a destra per passare a requisiti ed elenchi di controllo per i tipi di elenco specifici.
+Questo articolo illustra i requisiti e le linee guida per la presentazione di nuovi servizi e offerte in Azure Marketplace. Tutte le offerte devono soddisfare i [requisiti](#listing-requirements-for-all-offers) elencati di seguito. Usare i collegamenti a destra per passare ad altri requisiti ed elenchi di controllo per i tipi di elenco specifici.
 
 ## <a name="listing-requirements-for-all-offers"></a>Requisiti di presentazione per tutte le offerte
 
@@ -29,7 +29,7 @@ Questo articolo illustra i requisiti e le linee guida per la presentazione di nu
 | 5 | Categorie e settori | <ul><li>Le categorie e le sottocategorie devono corrispondere alle funzionalità dell'offerta </li><li>Non selezionare categorie/sottocategorie che non rientrano nelle funzionalità dell'offerta. </li></ul> | <ul><li>Selezionare un massimo di due categorie, tra cui una categoria primaria e una secondaria (facoltativo).</li><li>Selezionare fino a due sottocategorie per ogni categoria primaria e/o secondaria. Se non è selezionata alcuna sottocategoria, l'offerta sarà comunque individuabile nella categoria selezionata.</li></ul> |
 | 6 | Immagini | <ul><li>I requisiti di immagine sono elencati nel centro per i partner.</li><li>Il testo incluso nello screenshot è leggibile e l'immagine è chiara. | La soluzione offerta è immediatamente comprensibile. |
 | 7 | Video | <ul><li>I video non sono obbligatori ma, se forniti, non devono presentare errori di riproduzione.</li><li>Se forniti, non devono contenere riferimenti a società concorrenti, *a meno che* non venga illustrata una soluzione di migrazione. |<ul><li>Preferibilmente, la durata minima è di 3 min.</li><li>La soluzione offerta è facilmente comprensibile con un video.</li><li>Viene fornita una demo delle funzionalità della soluzione. |
-| 8 | Stato (invito all'azione) | <ul><li>Deve essere contrassegnato da uno dei tipi seguenti: <ul><li>*Contattami*</li><li>*Versione di valutazione*/*Scarica ora la versione di valutazione*/*Avvia versione di valutazione*/*Test Drive*</li><li>*Acquista ora*/*Scarica ora*</li></ul></ul> | Il cliente può immediatamente capire quali sono i passaggi successivi: <ol><li>Provare la versione di valutazione.</li><li>Acquistare subito.</li><li>Mettersi in contatto tramite e-mail o telefonicamente per un appuntamento per un modello di verifica, una valutazione o un briefing.</li></ol> | 
+| 8 | Stato elenco (Opzioni elenco) | <ul><li>Deve essere contrassegnato da uno dei tipi seguenti: <ul><li>*Contattami*</li><li>*Versione di valutazione*/*Scarica ora la versione di valutazione*/*Avvia versione di valutazione*/*Test Drive*</li><li>*Acquista ora*/*Scarica ora*</li></ul></ul> | Il cliente può immediatamente capire quali sono i passaggi successivi: <ol><li>Provare la versione di valutazione.</li><li>Acquistare subito.</li><li>Mettersi in contatto tramite e-mail o telefonicamente per un appuntamento per un modello di verifica, una valutazione o un briefing.</li></ol> | 
 | 9 | Prezzi della soluzione | I prezzi della soluzione, sotto forma di scheda o descrizione dettagliata, sono obbligatori e devono essere espressi nella valuta locale del partner che offre la soluzione. | Devono essere disponibili più opzioni di fatturazione con diversi livelli di prezzo per offrire ai clienti opzioni di scelta. |
 | 10 | Altre informazioni | I collegamenti in basso (sotto la descrizione, distinti dai collegamenti di Azure Marketplace a sinistra) consentono di accedere ad altre informazioni sulla soluzione e devono essere disponibili pubblicamente e visualizzati correttamente. |    I collegamenti devono consentire l'accesso a elementi specifici (ad esempio, alle pagine delle specifiche nel sito Web del partner) e non solo alla home page del partner. | 
 | 11 | Supporto per la soluzione e guida | Inserire un collegamento ad almeno una delle informazioni seguenti: <ul><li>Numeri di telefono</li><li>Supporto tramite e-mail</li><li>Agenti di chat</li><li>Forum della community |<ul><li>Tutti i metodi di supporto devono essere elencati.</li><li>Il supporto a pagamento viene offerto gratuitamente durante il periodo di *prova* o *test drive*. |
@@ -40,7 +40,7 @@ Questo articolo illustra i requisiti e le linee guida per la presentazione di nu
 
 | No. | Elemento presentazione | Requisito base | Requisito ottimale | 
 |:--- |:--- |:--- |:--- |
-|  | Stato (invito all'azione) | Il collegamento deve consentire l'accesso a un'esperienza di *prova* gestita dal cliente. | Sono disponibili anche altri inviti all'azione, ad esempio *Acquista ora*. | 
+|  | Elenco stato (opzione elenco) | Il collegamento deve consentire l'accesso a un'esperienza di *prova* gestita dal cliente. | Sono disponibili anche altre opzioni di elenco (ad esempio, *Acquista adesso*). | 
 |||
 
 ## <a name="saas-application-requirements"></a>Requisiti delle applicazioni SaaS
@@ -78,7 +78,7 @@ Questo articolo illustra i requisiti e le linee guida per la presentazione di nu
 | 2 | Descrizione dell'offerta  |<ul><li>Verificare l'utilizzo appropriato dei [ nomi dei prodotti Microsoft](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks/en-us.aspx).</li><li>Offerte contrassegnate con *Prezzo: Stimato* devono essere accompagnate da una nota, all'inizio o alla fine, con la spiegazione degli elementi di variabilità (tragitto fino al client, numero di server di cui eseguire la migrazione e così via).</li><li>La descrizione di ogni tipo di offerta presenta i requisiti seguenti: <ul><li>Per i briefing sono necessari almeno quattro o cinque elenchi puntati, con informazioni sugli argomenti da trattare.</li><li>Per tutti i workshop è necessario un programma.</li><li>Tutti i programmi devono essere suddivisi per giorno o per settimana, a seconda della durata del workshop.</li><li>Per le valutazioni, i modelli di verifica, i workshop non di training e le offerte di implementazione sono necessari risultati finali.</li><li>Per i workshop di training non sono necessari risultati finali, ma è necessario un programma più dettagliato con gli argomenti che verranno trattati.</li></ul></ul> | <ul><li>Per tutte le offerte sono disponibili programma e risultati finali.</li><li>L'offerta include nella sezione superiore un paragrafo contenente il contesto dell'azienda che offre il servizio.</li><li>Tra le sezioni superiori, l'offerta include un paragrafo sul valore del servizio stesso. |
 | 3 | Formattazione Markdown  | Tutte le offerte devono usare la formattazione Markdown in modo che il rendering dell'offerta sia corretto quando viene eseguita la conversione in HTML.  |  |
 | 4 | Categorie e settori | Le categorie non sono pertinenti. |  | 
-| 5 | Stato (invito all'azione) | *Desidero essere contattato* (automatico). |  | 
+| 5 | Elenco stato (opzione elenco) | *Desidero essere contattato* (automatico). |  | 
 | 6 | Supporto per la soluzione e guida  | Il supporto e la guida non sono necessari.  | | 
 | 7 | Informativa sulla privacy e condizioni per l'utilizzo disponibili  |  Criteri o condizioni non sono necessari.  | | 
 | 8 | Tipi di servizio | Verificare che il tipo di servizio corrisponda al titolo. | |

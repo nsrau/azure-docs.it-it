@@ -5,7 +5,7 @@ services: active-directory
 author: curtand
 ms.author: curtand
 manager: daveba
-ms.date: 08/20/2020
+ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: active-directory
 ms.subservice: users-groups-roles
@@ -13,12 +13,12 @@ ms.workload: identity
 ms.custom: it-pro
 ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 28125ff55fe6ab3e68d56dc26a074d0498c2b413
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 6fb7a6654f5917c0651ffba6e672b41d14fdbe20
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798432"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489647"
 ---
 # <a name="restrict-guest-access-permissions-preview-in-azure-active-directory"></a>Limitare le autorizzazioni di accesso Guest (anteprima) in Azure Active Directory
 
@@ -40,10 +40,7 @@ Per configurare le impostazioni di collaborazione esterna, è necessario avere i
 
 Sono state apportate modifiche ai controlli portale di Azure esistenti per le autorizzazioni utente Guest.
 
-> [!IMPORTANT]
-> Per un breve periodo di tempo, i nuovi controlli del portale per le autorizzazioni utente Guest saranno visibili solo tramite l'URL [https://aka.ms/AADRestrictedGuestAccess](https://aka.ms/AADRestrictedGuestAccess) . PowerShell e Microsoft Graph possono comunque essere usati per impostare i controlli e le modifiche verranno rispettate dal portale.
-
-1. Accedere al centro di [amministrazione Azure ad](https://aka.ms/AADRestrictedGuestAccess) con autorizzazioni di amministratore globale.
+1. Accedere al centro di [amministrazione Azure ad](https://aad.portal.azure.com) con autorizzazioni di amministratore globale.
 1. Nella pagina Panoramica **Azure Active Directory** dell'organizzazione selezionare **impostazioni utente**.
 1. In **utenti esterni**selezionare **Gestisci impostazioni di collaborazione esterna**.
 1. Nella pagina **impostazioni di collaborazione esterna** selezionare **accesso utente Guest è limitato alle proprietà e alle appartenenze dell'opzione oggetti directory** .
@@ -150,7 +147,7 @@ Il servizio senza supporto tecnico corrente potrebbe avere problemi di compatibi
 - Moduli
 - Pianificazione nei team
 - App Planner
-- Progetto
+- Project
 - Yammer
 
 ## <a name="frequently-asked-questions-faq"></a>Domande frequenti

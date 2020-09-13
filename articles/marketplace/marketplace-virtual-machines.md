@@ -7,19 +7,19 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 04/15/2020
-ms.openlocfilehash: 9f408174b9a8dff925a9c834ea75bf725ec6f913
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.date: 09/04/2020
+ms.openlocfilehash: cc6b040731cbeb7271d7a7c0de1c32fa2d007013
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87837345"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89484189"
 ---
 # <a name="publishing-guide-for-virtual-machine-offers"></a>Guida alla pubblicazione per le offerte di macchine virtuali
 
 Le immagini della macchina virtuale (VM) di pubblicazione sono uno dei modi principali per pubblicare una soluzione in Azure Marketplace. Utilizzare questa guida per comprendere i requisiti per questo tipo di offerta. 
 
-Le offerte di macchine virtuali sono offerte di transazioni distribuite e fatturate tramite Azure Marketplace. La chiamata all'azione visualizzata da un utente è *ora*disponibile.
+Le offerte di macchine virtuali sono offerte di transazioni distribuite e fatturate tramite Azure Marketplace. L'opzione di elenco visualizzata da un utente è *Get Now*.
 
 ## <a name="free-trial"></a>Versione di prova gratuita 
 

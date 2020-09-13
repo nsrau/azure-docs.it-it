@@ -1,21 +1,21 @@
 ---
-title: Più origini dell'endpoint della rete CDN di Azure
+title: Più origini dell'endpoint della rete CDN di Azure (anteprima)
 description: Introduzione a più origini dell'endpoint della rete CDN di Azure.
 services: cdn
 author: asudbring
 manager: KumudD
 ms.service: azure-cdn
 ms.topic: how-to
-ms.date: 8/20/2020
+ms.date: 9/06/2020
 ms.author: allensu
-ms.openlocfilehash: c7e6733079dbd867255e604f6f8d4459f647cc93
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: f9293206526778f8c3de8a368a1916a2cb3f88c2
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88870459"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504674"
 ---
-# <a name="azure-cdn-endpoint-multi-origin"></a>Più origini dell'endpoint della rete CDN di Azure
+# <a name="azure-cdn-endpoint-multi-origin-preview"></a>Più origini dell'endpoint della rete CDN di Azure (anteprima)
 
 Il supporto di più origini Elimina i tempi di inattività e stabilisce la ridondanza globale. 
 
@@ -25,6 +25,10 @@ Configurare uno o più gruppi di origine e scegliere un gruppo di origine predef
 
 > [!NOTE]
 > Attualmente questa funzionalità è disponibile solo dalla rete CDN di Azure di Microsoft. 
+
+> [!IMPORTANT]
+> L'endpoint della rete CDN di Azure è attualmente disponibile in anteprima pubblica.
+> Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="create-the-origin-group"></a>Creare il gruppo di origine
 

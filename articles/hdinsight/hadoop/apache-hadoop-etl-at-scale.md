@@ -1,19 +1,19 @@
 ---
 title: Estrarre, trasformare e caricare (ETL) su larga scala - Azure HDInsight
 description: Informazioni su come usare il processo di estrazione, trasformazione e caricamento (ETL) in HDInsight con Apache Hadoop.
-author: ashishthaps
-ms.author: ashishth
+author: hrasheed-msft
+ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: hdinsightactive,seoapr2020
 ms.date: 04/28/2020
-ms.openlocfilehash: e048365ca589d452385607b902ee6b285de8165f
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: eb3c45c01b2e3ca1761e86f3ac991d67f7813856
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86084121"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89504316"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>Estrarre, trasformare e caricare (ETL) su larga scala
 
@@ -48,7 +48,7 @@ Usare Azure Data Factory per eseguire le operazioni seguenti:
 
 1. Creare e pianificare flussi di lavoro basati sui dati. In queste pipeline vengono inseriti dati provenienti da archivi diversi.
 1. Elaborare e trasformare i dati usando servizi di calcolo, ad esempio HDInsight o Hadoop. Per questo passaggio è anche possibile usare Spark, Azure Data Lake Analytics, Azure Batch o Azure Machine Learning.
-1. Pubblicare i dati di output in archivi dati, ad esempio Azure SQL Data Warehouse, per consentire alle applicazioni di business intelligence (BI) di utilizzarli.
+1. Pubblicare i dati di output in archivi dati, ad esempio Azure sinapsi Analytics, per l'utilizzo da applicazioni BI.
 
 Per altre informazioni su Azure Data Factory, vedere la [documentazione](../../data-factory/introduction.md).
 
@@ -84,11 +84,11 @@ Per il caricamento dei set di dati a livello di terabyte, la latenza di rete pu�
 
 - **Caricamento dei dati dalle unità disco rigido:** è possibile usare il [servizio Importazione/Esportazione di Azure](../../storage/common/storage-import-export-service.md) per inviare le unità disco rigido con i dati a un data center di Azure. I dati vengono caricati prima di tutto in Archiviazione BLOB di Azure. È quindi possibile usare Azure Data Factory o lo strumento AdlCopy per copiare i dati da Archiviazione BLOB di Azure in Data Lake Storage.
 
-### <a name="azure-sql-data-warehouse"></a>Azure SQL Data Warehouse
+### <a name="azure-synapse-analytics"></a>Azure Synapse Analytics
 
-Azure SQL Data Warehouse è una soluzione appropriata per archiviare i risultati preparati. È possibile usare Azure HDInsight per eseguire tali servizi per SQL Data Warehouse.
+Azure sinapsi Analytics è una scelta appropriata per archiviare i risultati preparati. È possibile usare Azure HDInsight per eseguire tali servizi per Zure sinapsi Analytics.
 
-Azure SQL Data Warehouse è un archivio database relazionale ottimizzato per carichi di lavoro analitici. Viene ridimensionato in base a tabelle che possono essere partizionate tra più nodi. I nodi vengono selezionati al momento della creazione. Successivamente possono essere ridimensionati, ma si tratta di un processo attivo che può richiedere lo spostamento dei dati. Per altre informazioni, vedere [Gestire le risorse di calcolo in SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
+Azure sinapsi Analytics è un archivio di database relazionali ottimizzato per carichi di lavoro analitici. Viene ridimensionato in base a tabelle che possono essere partizionate tra più nodi. I nodi vengono selezionati al momento della creazione. Successivamente possono essere ridimensionati, ma si tratta di un processo attivo che può richiedere lo spostamento dei dati. Per altre informazioni, vedere [Manage COMPUTE in Azure sinapsi Analytics](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-manage-compute-overview.md).
 
 ### <a name="apache-hbase"></a>Apache HBase
 

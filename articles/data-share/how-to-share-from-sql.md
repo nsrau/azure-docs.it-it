@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: how-to
 ms.date: 08/28/2020
-ms.openlocfilehash: 2cb06b6802fdc4cebd04f687266f5ac08dde82c0
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e813921727ee08bf9a76c0a2dbfe15f45fe4db79
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89270130"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89490072"
 ---
 # <a name="share-and-receive-data-from-azure-sql-database-and-azure-synapse-analytics"></a>Condividere e ricevere dati dal database SQL di Azure e da Azure sinapsi Analytics
 
@@ -34,7 +34,7 @@ Quando i dati vengono ricevuti nella tabella e se la tabella di destinazione non
 
 ### <a name="prerequisites-for-sql-source"></a>Prerequisiti per l'origine SQL
 
-* Database SQL di Azure o Azure Synapse Analytics (precedentemente noto come Azure SQL Data Warehouse) con tabelle e viste da condividere.
+* Un database SQL di Azure o Azure sinapsi Analytics (in precedenza SQL Data Warehouse) con tabelle e viste che si vuole condividere.
 * Autorizzazione per la scrittura nei database del server SQL, disponibile in *Microsoft.Sql/servers/databases/write*. Questa autorizzazione è presente nel ruolo Collaboratore.
 * Autorizzazione per la condivisione dati che deve accedere al data warehouse. A tale scopo, seguire questa procedura: 
     1. Impostare se stessi come amministratore di Azure Active Directory per il server SQL.
@@ -62,7 +62,7 @@ Accedere al [portale di Azure](https://portal.azure.com/).
 
 Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azure.
 
-1. Selezionare il pulsante di menu nell'angolo in alto a sinistra del portale, quindi selezionare **Crea una risorsa** (+).
+1. Selezionare il pulsante del menu nell'angolo superiore sinistro del portale e quindi selezionare **+ Crea una risorsa**.
 
 1. Cercare *Condivisione dati*.
 
@@ -90,17 +90,17 @@ Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azur
 
 1. Selezionare **Start sharing your data** (Inizia a condividere i dati).
 
-1. Selezionare **Crea**.   
+1. Selezionare **Create** (Crea).   
 
-1. Inserire i dettagli relativi alla condivisione. Specificare un nome, un tipo di condivisione, una descrizione del contenuto della condivisione e le condizioni per l'utilizzo (facoltativo). 
+1. Immettere i dettagli della condivisione. Specificare un nome, un tipo di condivisione, una descrizione del contenuto della condivisione e le condizioni per l'utilizzo (facoltativo). 
 
     ![Immettere i dettagli della condivisione](./media/enter-share-details.png "Immettere i dettagli della condivisione") 
 
 1. Selezionare **Continua**.
 
-1. Per aggiungere set di impostazioni alla condivisione, selezionare **Aggiungi set di impostazioni**. 
+1. Per aggiungere set di dati alla condivisione, selezionare **Aggiungi set di dati**. 
 
-    ![Aggiungere set di impostazioni alla condivisione](./media/datasets.png "Set di dati")
+    ![Aggiungere set di dati alla condivisione](./media/datasets.png "Set di dati")
 
 1. Selezionare il tipo di set di dati da aggiungere. Verrà visualizzato un elenco di tipi di set di dati diverso a seconda del tipo di condivisione (snapshot o sul posto) selezionato nel passaggio precedente. 
 
@@ -150,7 +150,7 @@ Se si sceglie di ricevere i dati in archiviazione di Azure, di seguito è riport
 Se si sceglie di ricevere dati nel database SQL di Azure, Azure sinapsi Analytics, di seguito è riportato l'elenco dei prerequisiti.
 
 * Autorizzazione per la scrittura nei database del server SQL, disponibile in *Microsoft.Sql/servers/databases/write*. Questa autorizzazione è presente nel ruolo Collaboratore. 
-* Autorizzazione per l'identità gestita della risorsa di condivisione dati per l'accesso al database SQL di Azure o ad Azure SQL Data Warehouse. A tale scopo, seguire questa procedura: 
+* Autorizzazione per l'identità gestita della risorsa di condivisione dati per accedere al database SQL di Azure o a Azure sinapsi Analytics. A tale scopo, seguire questa procedura: 
     1. Impostare se stessi come amministratore di Azure Active Directory per il server SQL.
     1. Connettersi al database SQL di Azure o ad Azure SQL Data Warehouse con Azure Active Directory.
     1. Usare l'Editor di query (anteprima) per eseguire lo script seguente in modo da aggiungere l'identità gestita di Condivisione dati come 'db_datareader, db_datawriter, db_ddladmin'. È necessario connettersi usando Active Directory e non l'autenticazione di SQL Server. 
