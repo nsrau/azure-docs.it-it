@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 9594e1ed14b017591ea2c4ddda59ba61feb81b0c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 91935e8c052a9130d0a40ed292ca466bc1ab5427
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88272281"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567625"
 ---
 # <a name="enhanced-secure-score-in-azure-security-center"></a>Punteggio sicuro migliorato nel centro sicurezza di Azure
 
@@ -45,17 +45,17 @@ La pagina Punteggio di sicurezza del Centro sicurezza include:
 > Le versioni precedenti del Centro sicurezza assegnavano punti a livello di raccomandazione: quando veniva corretta una raccomandazione relativa a una singola risorsa, il punteggio di sicurezza migliorava. Attualmente, il punteggio migliora solo se si correggono *tutte* le raccomandazioni relative a una singola risorsa all'interno di un controllo. Il punteggio migliora, quindi, solo quando viene migliorata la sicurezza di una risorsa.
 
 
-## <a name="accessing-your-secure-score"></a>Accesso al Punteggio sicuro
+## <a name="access-your-secure-score"></a>Accedi al tuo punteggio sicuro
 
 È possibile trovare il Punteggio sicuro complessivo, nonché il punteggio per ogni sottoscrizione, tramite il portale di Azure o a livello con l'API REST del Centro sicurezza di Azure.
 
-### <a name="getting-your-secure-score-from-the-portal"></a>Ottenere il Punteggio sicuro dal portale
+### <a name="get-your-secure-score-from-the-portal"></a>Ottenere il Punteggio sicuro dal portale
 
 Il Centro sicurezza Visualizza il punteggio in primo piano nel portale: è la prima cosa visualizzata nella pagina panoramica. Selezionando la pagina dedicata del punteggio di sicurezza, verrà visualizzato il punteggio suddiviso in base alla sottoscrizione. Fare clic su una singola sottoscrizione per visualizzare l'elenco dettagliato delle raccomandazioni con priorità e il potenziale impatto che la correzione avrà sul punteggio della sottoscrizione.
 
 ![Punteggio sicuro complessivo come illustrato nel portale](media/secure-score-security-controls/single-secure-score-via-ui.png)
 
-### <a name="getting-your-secure-score-from-the-rest-api"></a>Ottenere il Punteggio sicuro dall'API REST
+### <a name="get-your-secure-score-from-the-rest-api"></a>Ottenere il Punteggio sicuro dall'API REST
 
 È possibile accedere al Punteggio tramite l' [API per il Punteggio sicuro](https://docs.microsoft.com/rest/api/securitycenter/securescores/) (attualmente in anteprima). I metodi API offrono la flessibilità necessaria per eseguire query sui dati e creare un proprio meccanismo di creazione di report dei punteggi sicuri nel tempo. Ad esempio, è possibile usare l'API dei **punteggi sicuri** per ottenere il punteggio per una sottoscrizione specifica. Inoltre, è possibile usare l'API di **controllo del Punteggio sicuro** per elencare i controlli di sicurezza e il punteggio corrente delle sottoscrizioni.
 
@@ -91,13 +91,22 @@ Il punteggio massimo per il controllo Applica gli aggiornamenti del sistema, è 
 |**Punteggio di sicurezza**<br>Più sottoscrizioni|<br>Vengono aggiunti i punteggi correnti per tutte le risorse in tutte le sottoscrizioni e il calcolo corrisponde, quindi, a quello per una singola sottoscrizione.<br><br>Quando si visualizzano più sottoscrizioni, il punteggio di sicurezza valuta tutte le risorse all'interno dei criteri abilitati e raggruppa il loro effetto combinato sul punteggio massimo di ogni controllo di sicurezza.<br>![Punteggio di sicurezza di più sottoscrizioni con tutti i controlli abilitati](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>Il punteggio combinato **non** è una media. Si tratta, piuttosto, della posizione valutata dello stato di tutte le risorse in tutte le sottoscrizioni.<br>Anche in questo caso, se si passa alla pagina Consigli e si aggiungono i punti potenziali disponibili, si noterà che si tratta della differenza tra il punteggio corrente (24) e il punteggio massimo disponibile (60).|
 ||||
 
-## <a name="improving-your-secure-score"></a>Miglioramento del punteggio di sicurezza
+### <a name="which-recommendations-are-included-in-the-secure-score-calculations"></a>Quali raccomandazioni sono incluse nei calcoli di valutazione sicura?
+
+Solo le raccomandazioni predefinite hanno effetto sul punteggio di sicurezza.
+
+Inoltre, le raccomandazioni contrassegnate come **Anteprima** non sono incluse nei calcoli del Punteggio sicuro. Dovrebbero comunque essere corretti, laddove possibile, in modo che, al termine del periodo di anteprima, contribuiscano al punteggio.
+
+Esempio di raccomandazione per l'anteprima:
+
+:::image type="content" source="./media/secure-score-security-controls/example-of-preview-recommendation.png" alt-text="Raccomandazione con il flag di anteprima":::
+
+
+## <a name="improve-your-secure-score"></a>Migliorare il punteggio di sicurezza
 
 Per migliorare il punteggio di sicurezza, correggere le raccomandazioni sulla sicurezza presenti nell'elenco delle raccomandazioni. È possibile correggere ogni raccomandazione manualmente per ogni risorsa o usando l' opzione **Correzione rapida** (se disponibile) per applicare rapidamente una correzione per una raccomandazione a un gruppo di risorse. Per altre informazioni, vedere [Correggere le raccomandazioni](security-center-remediate-recommendations.md).
 
->[!IMPORTANT]
-> Solo le raccomandazioni predefinite hanno effetto sul punteggio di sicurezza.
-
+Un altro modo per migliorare il punteggio e assicurarsi che gli utenti non creino risorse che influiscono negativamente sul punteggio consiste nel configurare le opzioni Applica e nega sulle raccomandazioni pertinenti. Per altre informazioni, vedere [Impedisci configurazioni errate con le raccomandazioni Imponi/nega](prevent-misconfigurations.md).
 
 ## <a name="security-controls-and-their-recommendations"></a>Controlli di sicurezza e relative raccomandazioni
 
@@ -144,7 +153,7 @@ La tabella seguente elenca i controlli di sicurezza nel Centro sicurezza di Azur
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Correggere le configurazioni di sicurezza (punteggio massimo 4)</p></strong>Gli asset IT non configurati correttamente hanno un rischio maggiore di essere attaccati. Le azioni di protezione di base vengono spesso dimenticate quando si distribuiscono asset ed è necessario rispettare delle scadenze. I problemi di configurazione della sicurezza possono essere a qualsiasi livello nell'infrastruttura: dai sistemi operativi e dalle appliance di rete alle risorse cloud.<br>Il Centro sicurezza di Azure confronta continuamente la configurazione delle risorse con i requisiti di benchmark, normative e standard del settore. Una volta configurati i "pacchetti di conformità" pertinenti (standard e di base), rilevanti per l'organizzazione, eventuali mancanze determineranno raccomandazioni sulla sicurezza che includono l'identificatore CCEID e una spiegazione del potenziale impatto sulla sicurezza.<br>I pacchetti usati di frequente sono <a href="https://docs.microsoft.com/azure/security/benchmarks/introduction">Azure Security Benchmark</a> e <a href="https://www.cisecurity.org/benchmark/azure/">CIS Microsoft Azure Foundations Benchmark versione 1.1.0</a></td>
-    <td class="tg-lboi"; width=55%>- È necessario definire i criteri di sicurezza pod nei servizi Kubernetes<br>- È necessario correggere le vulnerabilità nelle configurazioni della sicurezza dei contenitori<br>- È necessario correggere le vulnerabilità nella configurazione di sicurezza dei computer<br>- È necessario correggere le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali<br>- È necessario installare l'agente di monitoraggio nelle macchine virtuali<br>- È necessario installare l'agente di monitoraggio nei computer<br>- Log Analytics Agent deve essere installato nei computer Azure Arc basati su Windows (anteprima)<br>- Log Analytics Agent deve essere installato nei computer Azure Arc basati su Linux (anteprima)<br>- È necessario installare l'agente di monitoraggio nei set di scalabilità di macchine virtuali<br>- È necessario risolvere i problemi di integrità dell'agente di monitoraggio nei computer</td>
+    <td class="tg-lboi"; width=55%>- È necessario correggere le vulnerabilità nelle configurazioni della sicurezza dei contenitori<br>- È necessario correggere le vulnerabilità nella configurazione di sicurezza dei computer<br>- È necessario correggere le vulnerabilità nella configurazione di sicurezza dei set di scalabilità di macchine virtuali<br>- È necessario installare l'agente di monitoraggio nelle macchine virtuali<br>- È necessario installare l'agente di monitoraggio nei computer<br>- Log Analytics Agent deve essere installato nei computer Azure Arc basati su Windows (anteprima)<br>- Log Analytics Agent deve essere installato nei computer Azure Arc basati su Linux (anteprima)<br>- È necessario installare l'agente di monitoraggio nei set di scalabilità di macchine virtuali<br>- È necessario risolvere i problemi di integrità dell'agente di monitoraggio nei computer</td>
   </tr>
   <tr>
     <td class="tg-lboi"><strong><p style="font-size: 16px">Limitare l'accesso non autorizzato alla rete (punteggio massimo 4)</p></strong>Gli endpoint all'interno di un'organizzazione forniscono una connessione diretta dalla rete virtuale ai servizi di Azure supportati. Le macchine virtuali in una subnet possono comunicare con tutte le risorse. Per limitare le comunicazioni verso e dalle risorse in una subnet, creare un gruppo di sicurezza di rete e associarlo alla subnet. Le organizzazioni possono limitare e proteggere da traffico non autorizzato creando regole in ingresso e in uscita.</td>

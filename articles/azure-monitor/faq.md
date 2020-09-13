@@ -7,16 +7,17 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: a78e1b9cc1d9ca8a815fdb586287983020232fd1
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 8ace82147f17e6ee7e888553c58f32ec6e5ba271
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782941"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569204"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di Azure
 
-La sezione Domande frequenti di Microsoft include un elenco di domande frequenti su Monitoraggio di Azure.
+La sezione Domande frequenti di Microsoft include un elenco di domande frequenti su Monitoraggio di Azure. Per eventuali domande aggiuntive, visitare il [Forum di discussione](https://docs.microsoft.com/answers/questions/topics/single/24223.html) e inserire le domande. Se una domanda viene posta più volte, viene aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
+
 
 ## <a name="general"></a>Generale
 
@@ -98,7 +99,7 @@ I pulsanti **Esplora query**, **Salva** e **Nuova regola di avviso** sono ora di
 ### <a name="why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-when-opening-log-analytics-from-a-vm"></a>Perché viene visualizzato l'errore "Register resource provider 'Microsoft.Insights' for this subscription to enable this query" (Registrare il provider di risorse 'Microsoft.Insights' per questa sottoscrizione per abilitare questa query) quando si apre Log Analytics da una macchina virtuale? 
 Molti provider di risorse sono registrati automaticamente. Tuttavia, alcuni potrebbero dover essere registrati manualmente. L'ambito per la registrazione è sempre la sottoscrizione. Per altre informazioni, vedere [Provider e tipi di risorse](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal).
 
-### <a name="why-am-i-am-getting-no-access-error-message-when-opening-log-analytics-from-a-vm"></a>Perché viene visualizzato un messaggio di errore di accesso quando si accede a Log Analytics da una macchina virtuale? 
+### <a name="why-am-i-getting-no-access-error-message-when-opening-log-analytics-from-a-vm"></a>Perché non viene ricevuto alcun messaggio di errore di accesso quando si apre Log Analytics da una macchina virtuale? 
 Per visualizzare i log della macchina virtuale, è necessario disporre dell'autorizzazione di lettura per le aree di lavoro in cui sono archiviati i log della macchina virtuale. In questi casi, l'amministratore deve concedere all'utente le autorizzazioni in Azure.
 
 ## <a name="metrics"></a>Metriche
@@ -523,9 +524,54 @@ Tuttavia, esistono ancora casi in cui anche quando il monitoraggio lato server �
 
 In questo scenario è possibile che a un client venga restituita una risposta 502 o 503 a causa di un problema al livello del proxy inverso e che questa non venga acquisita in modo predefinito da Application Insights. Per consentire il rilevamento di problemi a questo livello, potrebbe essere necessario inviare i log dal proxy inverso a Log Analytics e creare una regola personalizzata per verificare la presenza di 502/503 risposte. Per ulteriori informazioni sulle cause comuni degli errori 502 e 503, consultare l' [articolo sulla risoluzione dei problemi del servizio app Azure per "502 gateway non valido" e "servizio 503 non disponibile"](../app-service/troubleshoot-http-502-http-503.md).     
 
-## <a name="azure-monitor-for-containers"></a>Monitoraggio di Azure per contenitori
 
-Queste domande frequenti Microsoft sono un elenco di domande comuni su Monitoraggio di Azure per i container. Per altre domande sulla soluzione, visitare il [forum di discussione](https://feedback.azure.com/forums/34192--general-feedback) e inviare le proprie domande. Se una domanda viene posta più volte, viene aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
+## <a name="opentelemetry"></a>OpenTelemetry
+
+### <a name="what-is-opentelemetry"></a>Informazioni su OpenTelemetry
+
+Un nuovo standard open source per l'osservabilità. Ulteriori informazioni sono disponibili all'indirizzo [https://opentelemetry.io/](https://opentelemetry.io/) .
+
+### <a name="why-is-microsoft--azure-monitor-investing-in-opentelemetry"></a>Perché Microsoft/monitoraggio di Azure investe in OpenTelemetry?
+
+Microsoft ritiene che i clienti soddisfino meglio i nostri clienti per tre motivi:
+   1. Abilita il supporto per più scenari dei clienti.
+   2. Instrumentare senza temere il blocco del fornitore.
+   3. Aumentare la trasparenza e il coinvolgimento dei clienti.
+
+Si allinea inoltre alla strategia di Microsoft per [adottare Open Source](https://opensource.microsoft.com/).
+
+### <a name="what-additional-value-does-opentelemetry-give-me"></a>Quale valore aggiuntivo offre OpenTelemetry?
+
+Oltre ai motivi precedenti, OpenTelemetry è più efficiente su larga scala e offre funzionalità di progettazione/configurazione coerenti tra le varie lingue.
+
+### <a name="how-can-i-test-out-opentelemetry"></a>Come è possibile testare OpenTelemetry?
+
+Iscriversi per partecipare al Application Insights di monitoraggio di Azure early adopter community all'indirizzo [https://aka.ms/AzMonOtel](https://aka.ms/AzMonOtel) .
+
+### <a name="what-does-ga-mean-in-the-context-of-opentelemetry"></a>Cosa significa GA nel contesto di OpenTelemetry?
+
+La community di OpenTelemetry definisce disponibile a livello generale ( [GA).](https://medium.com/opentelemetry/ga-planning-f0f6d7b5302) Tuttavia, OpenTelemetry "GA" non significa la parità di funzionalità con gli SDK di Application Insights esistenti. Monitoraggio di Azure continuerà a consigliare gli attuali SDK di Application Insights per i clienti che richiedono funzionalità quali [metriche pre-aggregate](app/pre-aggregated-metrics-log-metrics.md#pre-aggregated-metrics), [metriche attive](app/live-stream.md), [campionamento adattivo](app/sampling.md#adaptive-sampling), [Profiler](app/profiler-overview.md)e [debugger snapshot](app/snapshot-debugger.md) finché gli SDK di OpenTelemetry non raggiungono la maturità delle funzionalità.
+
+### <a name="can-i-use-preview-builds-in-production-environments"></a>È possibile usare le compilazioni di anteprima negli ambienti di produzione?
+
+Non è consigliabile. Per ulteriori informazioni, vedere le [condizioni per l'utilizzo aggiuntive per Microsoft Azure anteprime](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) .
+
+### <a name="whats-the-difference-between-opentelemetry-sdk-and-auto-instrumentation"></a>Qual è la differenza tra OpenTelemetry SDK e la strumentazione automatica?
+
+La specifica OpenTelemetry definisce [SDK](https://github.com/open-telemetry/opentelemetry-specification/blob/master/specification/glossary.md#telemetry-sdk). In breve, "SDK" è un pacchetto specifico del linguaggio che raccoglie i dati di telemetria tra i vari componenti dell'applicazione e invia i dati a monitoraggio di Azure tramite un esportatore.
+
+Il concetto di strumentazione automatica (a volte definito inserimento di bytecode, senza codice o basato su agenti) si riferisce alla capacità di instrumentare l'applicazione senza modificare il codice. Ad esempio, per altre informazioni, vedere il [file Leggimi relativo alla strumentazione automatica di OpenTelemetry Java](https://github.com/open-telemetry/opentelemetry-java-instrumentation/blob/master/README.md) .
+
+### <a name="whats-the-opentelemetry-collector"></a>Che cos'è l'agente di raccolta OpenTelemetry?
+
+L'agente di raccolta OpenTelemetry è descritto nel [file Leggimi di GitHub](https://github.com/open-telemetry/opentelemetry-collector#opentelemetry-collector). Attualmente Microsoft non usa l'agente di raccolta OpenTelemetry e dipende dagli esportatori diretti che inviano al Application Insights di monitoraggio di Azure.
+
+### <a name="whats-the-difference-between-opencensus-and-opentelemetry"></a>Qual è la differenza tra OpenCensus e OpenTelemetry?
+
+[OpenCensus](https://opencensus.io/) è il precursore di [OpenTelemetry](https://opentelemetry.io/). Microsoft ha contribuito a riunire [OpenTracing](https://opentracing.io/) e OpenCensus per creare OpenTelemetry, un unico standard di osservabilità per il mondo. L' [SDK Python consigliato](app/opencensus-python.md) per la produzione di monitoraggio di Azure è basato su OpenCensus, ma alla fine tutti gli SDK di monitoraggio di Azure saranno basati su OpenTelemetry.
+
+
+## <a name="azure-monitor-for-containers"></a>Monitoraggio di Azure per contenitori
 
 ### <a name="health-feature-is-in-private-preview"></a>Questa funzionalità è in anteprima privata.
 
@@ -533,7 +579,7 @@ Intendiamo apportare una serie di modifiche per aggiungere funzionalità e soddi
 
 ### <a name="what-does-other-processes-represent-under-the-node-view"></a>Che cosa rappresenta *Altri processi* nella visualizzazione Nodo?
 
-**Altri processi** aiuta a riconoscere chiaramente la causa radice dell'utilizzo elevato delle risorse nel nodo. In questo modo, è possibile distinguere l'utilizzo tra processi in contenitori e processi non in contenitori.
+**Altri processi** consentono di comprendere chiaramente la causa principale dell'utilizzo elevato delle risorse nel nodo. In questo modo, è possibile distinguere l'utilizzo tra processi in contenitori e processi non in contenitori.
 
 Quali sono gli **Altri processi**? 
 
@@ -563,7 +609,7 @@ Per la versione dell'agente ciprod12042019 e versioni successive, per impostazio
 
 Unire altre tabelle per includere i valori delle proprietà nei risultati.
 
-Modificare le query in modo da includere le proprietà Image e ImageTag dalla tabella ```ContainerInventory``` tramite join alla proprietà ContainerID. È possibile includere la proprietà Name (come appare in precedenza nella tabella ```ContainerLog```) dal campo ContaineName della tabella KubepodInventory tramite join alla proprietà ContainerID. Questa è l'opzione consigliata.
+Modificare le query in modo da includere le proprietà Image e ImageTag dalla tabella ```ContainerInventory``` tramite join alla proprietà ContainerID. È possibile includere la proprietà Name, come in precedenza nella tabella, ```ContainerLog``` dal campo ContaineName della tabella KubepodInventory tramite join alla proprietà ContainerId. È consigliabile selezionare questa opzione.
 
 L'esempio seguente illustra una query dettagliata di esempio che spiega come ottenere questi valori di campo con i join.
 
@@ -660,12 +706,12 @@ Può essere visualizzato l'errore seguente: **The reply url specified in the req
 
 Se dopo aver abilitato Monitoraggio di Azure per i contenitori per un cluster del servizio Azure Kubernetes si elimina l'area di lavoro Log Analytics a cui il cluster stava inviando i dati, quando si tenta di aggiornare il cluster, l'operazione ha esito negativo. Per risolvere il problema, è necessario disabilitare il monitoraggio e quindi riabilitarlo facendo riferimento a un'altra area di lavoro valida nella sottoscrizione. Quando si tenta di eseguire di nuovo l'aggiornamento del cluster, il processo dovrebbe essere elaborato e completato correttamente.  
 
-### <a name="which-ports-and-domains-do-i-need-to-openwhitelist-for-the-agent"></a>Quali porte e domini è necessario aprire/inserire nell'elenco degli elementi consentiti per l'agente?
+### <a name="which-ports-and-domains-do-i-need-to-openallow-for-the-agent"></a>Quali porte e domini sono necessari per aprire o consentire l'agente?
 
 Per informazioni sulla configurazione del proxy e del firewall necessarie per l’agente in contenitore con i cloud Azure, Azure US Government e Azure China (21Vianet), vedere [Requisiti del firewall di rete](insights/container-insights-onboard.md#network-firewall-requirements).
 
+
 ## <a name="azure-monitor-for-vms"></a>Monitoraggio di Azure per le macchine virtuali
-Le Domande frequenti Microsoft sono un elenco di domande frequenti su Monitoraggio di Azure per le macchine virtuali. Per altre domande sulla soluzione, visitare il [forum di discussione](https://feedback.azure.com/forums/34192--general-feedback) e inviare le proprie domande. Se una domanda viene posta più volte, viene aggiunta a questo articolo per poter essere recuperata in modo rapido e semplice.
 
 ### <a name="can-i-onboard-to-an-existing-workspace"></a>È possibile eseguire l'onboarding in un'area di lavoro esistente?
 Se le macchine virtuali sono già connesse a un'area di lavoro di Log Analytics, è possibile continuare a usare tale area di lavoro durante l'onboarding per Monitoraggio di Azure per le macchine virtuali, purché si trovi in una delle [aree supportate](insights/vminsights-configure-workspace.md#supported-regions).

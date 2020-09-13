@@ -4,12 +4,12 @@ description: È disponibile una panoramica delle operazioni eseguibili con gli a
 ms.date: 08/16/2020
 ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: 035b68afed7383956beb13e367aa7a1f6dfcd070
-ms.sourcegitcommit: ef055468d1cb0de4433e1403d6617fede7f5d00e
+ms.openlocfilehash: 8e57ec698f96826f493d048490ac053672e45895
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/16/2020
-ms.locfileid: "88258435"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595564"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Comprendere il funzionamento degli avvisi delle metriche in Monitoraggio di Azure
 
@@ -137,13 +137,15 @@ Questa funzionalità è attualmente supportata per le metriche della piattaforma
 
 | Servizio | Public Azure (Azure pubblico) | Enti governativi | Cina |
 |:--------|:--------|:--------|:--------|
-| Macchine virtuali  | **Sì** | No | No |
+| Macchine virtuali<sup>1</sup>  | **Sì** | No | No |
 | Database di SQL Server | **Sì** | **Sì** | **Sì** |
 | Pool elastici di SQL Server | **Sì** | **Sì** | **Sì** |
 | Pool di capacità dei file NetApp | **Sì** | **Sì** | **Sì** |
 | Volumi di file NetApp | **Sì** | **Sì** | **Sì** |
 | Key Vault | **Sì** | **Sì** | **Sì** |
 | Dispositivi perimetrali data box | **Sì** | **Sì** | **Sì** |
+
+<sup>1</sup> non supportato per le metriche di rete della macchina virtuale (rete totale, totale di rete, flussi in ingresso, flussi in uscita, velocità di creazione massima dei flussi in ingresso, velocità di creazione massima dei flussi in uscita).
 
 È possibile specificare l'ambito di monitoraggio tramite una singola regola di avviso metrica in uno dei tre modi seguenti. Con le macchine virtuali, ad esempio, è possibile specificare l'ambito come:  
 

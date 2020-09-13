@@ -14,18 +14,18 @@ ms.date: 08/24/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bad5b0256ee445767689ea2752e918a1fbf5fae
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: ea8bf2407fb533870495dc501a2d740bff9ee968
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815998"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567351"
 ---
 # <a name="start-using-privileged-identity-management"></a>Iniziare a usare Privileged Identity Management
 
 Questo articolo descrive come abilitare Privileged Identity Management (PIM) e iniziare a usarlo.
 
-Usare Privileged Identity Management (PIM) per gestire, controllare e monitorare l'accesso all'interno dell'organizzazione di Azure Active Directory (Azure AD). Con PIM è possibile fornire l'accesso JIT (just-in-Time) alle risorse di Azure, Azure AD risorse e altri Servizi online Microsoft, ad esempio Office 365 o Microsoft Intune.
+Usare Privileged Identity Management (PIM) per gestire, controllare e monitorare l'accesso all'interno dell'organizzazione di Azure Active Directory (Azure AD). Con PIM è possibile fornire l'accesso JIT (just-in-Time) alle risorse di Azure, Azure AD risorse e altri Servizi online Microsoft, ad esempio Microsoft 365 o Microsoft Intune.
 
 ## <a name="prerequisites"></a>Prerequisiti
 

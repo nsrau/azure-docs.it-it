@@ -1,19 +1,19 @@
 ---
 title: Connettersi in privato a un'app Web usando un endpoint privato di Azure
-description: Connettersi in privato a un'app Web usando un endpoint privato di Azure
+description: Questo articolo illustra come connettersi privatamente a un'app Web usando un endpoint privato di Azure
 author: ericgre
 ms.assetid: b8c5c7f8-5e90-440e-bc50-38c990ca9f14
 ms.topic: how-to
-ms.date: 06/02/2020
+ms.date: 09/08/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: 1b3ac4c79ce92f591e74821a9f355717e4b22ea4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d547546c3c0e0bbcdde65a654bf373ab7407be3
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84737394"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569458"
 ---
 # <a name="connect-privately-to-a-web-app-using-azure-private-endpoint-preview"></a>Connettersi privatamente a un'app Web usando l'endpoint privato di Azure (anteprima)
 
@@ -35,11 +35,11 @@ In questa sezione si creeranno la rete virtuale e la subnet per ospitare la macc
 
 ### <a name="create-the-virtual-network"></a>Creare la rete virtuale
 
-Questa sezione illustra come creare una rete virtuale e una subnet.
+In questa sezione si crea una rete virtuale e una subnet.
 
 1. Sul lato superiore sinistro della schermata selezionare **Crea una risorsa**  >  **rete**  >  **rete virtuale** o Cerca **rete virtuale** nella casella di ricerca.
 
-1. In **Crea rete virtuale**immettere o selezionare queste informazioni nella scheda nozioni di base:
+1. In **Crea rete virtuale** immettere o selezionare queste informazioni nella scheda Generale:
 
    > [!div class="mx-imgBorder"]
    > ![Crea rete virtuale][1]
@@ -65,7 +65,7 @@ Questa sezione illustra come creare una rete virtuale e una subnet.
 1. In Creare una macchina virtuale - Informazioni di base, immettere o selezionare queste informazioni:
 
    > [!div class="mx-imgBorder"]
-   >![Macchina virtuale di base][4]
+   >![Macchina virtuale di base ][4]
 
 1. Selezionare **"Next: Disks"**
 
@@ -94,7 +94,7 @@ In questa sezione si creerà un'app Web privata con un endpoint privato.
 1. In Crea app Web-Nozioni di base immettere o selezionare queste informazioni:
 
    > [!div class="mx-imgBorder"]
-   >![App Web di base][6]
+   >![App Web di base ][6]
 
 1. Selezionare **"verifica + crea"**
 
@@ -138,13 +138,13 @@ In questa sezione si creerà un'app Web privata con un endpoint privato.
 
 1. Aprire il file downloaded.rdp.
 
-- Quando richiesto, selezionare Connetti.
-- Immettere il nome utente e la password specificati al momento della creazione della macchina virtuale.
+   - Quando richiesto, selezionare Connetti.
+   - Immettere il nome utente e la password specificati al momento della creazione della macchina virtuale.
 
-> [!Note]
-> Potrebbe essere necessario selezionare altre opzioni > usare un account diverso per specificare le credenziali immesse durante la creazione della macchina virtuale.
+   > [!Note]
+   > Potrebbe essere necessario selezionare altre opzioni > usare un account diverso per specificare le credenziali immesse durante la creazione della macchina virtuale.
 
-- Selezionare OK.
+   - Selezionare OK.
 
 1. Durante il processo di accesso potrebbe essere visualizzato un avviso relativo al certificato. Se si riceve un avviso relativo al certificato, selezionare Sì oppure Continua.
 
@@ -174,12 +174,21 @@ In questa sezione si effettuerà la connessione privata all'app Web usando l'end
 1. In myVM verificare che l'app Web non sia accessibile tramite l'indirizzo IP pubblico. Aprire un browser e incollare il nome dell'app Web. è necessario disporre di una pagina di errore 403-accesso negato
 
    > [!div class="mx-imgBorder"]
-   >![Non consentito][17]
+   >![errore non consentito durante il tentativo di usare l'indirizzo IP][17]
 
-> [!Important]
-> Poiché questa funzionalità è in anteprima, è necessario gestire manualmente la voce DNS.
+   > [!Important]
+   > Poiché questa funzionalità è in anteprima, è necessario gestire manualmente la voce DNS.
 
-1. Creare la voce host, aprire Esplora file e individuare il file hosts
+   Per il DNS sono disponibili due opzioni:
+   - usare il file host della macchina virtuale 
+   - in alternativa, usare il servizio di zona privata di DNS di Azure.
+
+1. Prima soluzione: è possibile creare una zona DNS privata denominata privatelink.azurewebsites.net e collegarla a VNet
+1. Quindi è necessario creare i due record A (nome dell'app e nome SCM) con l'indirizzo IP dell'endpoint privato
+   > [!div class="mx-imgBorder"]
+   >![Record zona privata DNS][21]
+
+1. Seconda soluzione: creare la voce host, aprire Esplora file e individuare il file hosts
 
    > [!div class="mx-imgBorder"]
    >![File hosts][18]
@@ -214,7 +223,7 @@ In questa Guida introduttiva è stata creata una VM in una rete virtuale, un'app
 [1]: ./media/create-private-endpoint-webapp-portal/createnetwork.png
 [2]: ./media/create-private-endpoint-webapp-portal/ipaddresses.png
 [3]: ./media/create-private-endpoint-webapp-portal/subnet.png
-[4]: ./media/create-private-endpoint-webapp-portal/virtualmachine.png
+[4]: ./media/create-private-endpoint-webapp-portal/virtual-machine.png
 [5]: ./media/create-private-endpoint-webapp-portal/vmnetwork.png
 [6]: ./media/create-private-endpoint-webapp-portal/webapp.png
 [7]: ./media/create-private-endpoint-webapp-portal/webappnetworking.png
@@ -231,6 +240,8 @@ In questa Guida introduttiva è stata creata una VM in una rete virtuale, un'app
 [18]: ./media/create-private-endpoint-webapp-portal/explorer.png
 [19]: ./media/create-private-endpoint-webapp-portal/hosts.png
 [20]: ./media/create-private-endpoint-webapp-portal/webappwithpe.png
+[21]: ./media/create-private-endpoint-webapp-portal/dns-private-zone-records.png
+
 
 <!--Links-->
 [privatenedpointwebapp]: https://docs.microsoft.com/azure/app-service/networking/private-endpoint

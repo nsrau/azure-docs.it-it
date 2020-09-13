@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: virtual-machines
 author: cynthn
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/30/2019
 ms.author: zivr
 ms.custom: include file
-ms.openlocfilehash: fb2eb2d237a1245627bbdb6f4f2eacbb9966a2c6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7e3c9292b53aeb073e11a5293459e39a22ca81d
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81422236"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89569989"
 ---
 L'inserimento di macchine virtuali in una singola area riduce la distanza fisica tra le istanze. L'inserimento di tali elementi all'interno di una singola zona di disponibilità li rende anche fisicamente più vicini. Tuttavia, man mano che il footprint di Azure cresce, una singola zona di disponibilità può estendersi su più data center fisici, causando una latenza di rete che influisca sull'applicazione. 
 
@@ -34,7 +34,7 @@ Un gruppo di posizionamento di prossimità è un raggruppamento logico usato per
 
 Un gruppo di posizionamento di prossimità è un nuovo tipo di risorsa in Azure. È necessario crearne uno prima di usarlo con altre risorse. Una volta creata, può essere usata con macchine virtuali, set di disponibilità o set di scalabilità di macchine virtuali. È possibile specificare un gruppo di posizionamento di prossimità quando si creano risorse di calcolo che forniscono l'ID del gruppo di posizionamento di prossimità. 
 
-È anche possibile spostare una risorsa esistente in un gruppo di posizionamento di prossimità. Quando si trasferisce una risorsa in un gruppo di posizionamento di prossimità, è necessario arrestare (deallocare) prima l'asset poiché verrà ridistribuito potenzialmente in una data center diversa nell'area, in modo da soddisfare il vincolo di condivisione percorso. 
+È anche possibile spostare una risorsa esistente in un gruppo di posizionamento di prossimità. Quando si trasferisce una risorsa in un gruppo di posizionamento di prossimità, è necessario arrestare (deallocare) l'asset prima che venga ridistribuito potenzialmente in un data center diverso dell'area per soddisfare il vincolo di condivisione percorso. 
 
 Nel caso dei set di disponibilità e dei set di scalabilità di macchine virtuali, è necessario impostare il gruppo di posizionamento vicino a livello di risorsa anziché le singole macchine virtuali. 
 

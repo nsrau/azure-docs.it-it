@@ -1,14 +1,14 @@
 ---
 title: Monitorare le modifiche della delega nel tenant di gestione
 description: Informazioni su come monitorare l'attività di delega dai tenant del cliente al tenant di gestione.
-ms.date: 08/18/2020
+ms.date: 09/08/2020
 ms.topic: how-to
-ms.openlocfilehash: 4d9d8b18634f94c355ea7fc0b5c125d631ec419c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 19c8cd4fa2b43961c46640a736a91e3fed3ac79d
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88589742"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89567606"
 ---
 # <a name="monitor-delegation-changes-in-your-managing-tenant"></a>Monitorare le modifiche della delega nel tenant di gestione
 
@@ -48,6 +48,9 @@ Poiché si tratta di un ampio livello di accesso, è consigliabile assegnare que
 - Assicurarsi che questa entità servizio non disponga dell'accesso alle risorse dei clienti Delegate.
 - [Usare un certificato per autenticare](../../active-directory/develop/howto-create-service-principal-portal.md#upload-a-certificate-or-create-a-secret-for-signing-in) e [archiviarlo in modo sicuro in Azure Key Vault](../../key-vault/general/best-practices.md).
 - Limitare gli utenti che dispongono dell'accesso per agire per conto dell'entità servizio.
+
+> [!NOTE]
+> È anche possibile assegnare il ruolo predefinito lettore di monitoraggio di Azure nell'ambito radice a singoli utenti o gruppi di utenti. Questa operazione può essere utile se si desidera che un utente sia in grado di [visualizzare le informazioni di delega direttamente nell'portale di Azure](#view-delegation-changes-in-the-azure-portal). In tal caso, tenere presente che si tratta di un ampio livello di accesso, che dovrebbe essere limitato al minor numero possibile di utenti.
 
 Usare uno dei metodi seguenti per effettuare le assegnazioni dell'ambito radice.
 
@@ -164,6 +167,15 @@ else {
 
 > [!TIP]
 > Sebbene si faccia riferimento ai provider di servizi e ai clienti in questo argomento, le [aziende che gestiscono più tenant](../concepts/enterprise.md) possono utilizzare gli stessi processi.
+
+## <a name="view-delegation-changes-in-the-azure-portal"></a>Visualizzare le modifiche di delega nel portale di Azure
+
+Gli utenti a cui è stato assegnato il ruolo predefinito lettore di monitoraggio di Azure nell'ambito radice possono visualizzare le modifiche della delega direttamente nel portale di Azure.
+
+1. Passare alla pagina **clienti personali** , quindi selezionare **log attività** dal menu di spostamento a sinistra.
+1. Verificare che l' **attività directory** sia selezionata nel filtro vicino alla parte superiore della schermata.
+
+Verrà visualizzato un elenco di modifiche della delega. È possibile selezionare **modifica colonne** per visualizzare o nascondere lo **stato**, **la categoria di eventi**, l' **ora**, il **timestamp**, la **sottoscrizione**, l' **evento avviato da**, il **gruppo di risorse**, il tipo di **risorsa**e i valori **delle risorse** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 
