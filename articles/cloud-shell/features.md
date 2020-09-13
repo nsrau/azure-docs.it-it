@@ -82,7 +82,7 @@ Cloud Shell include l'autenticazione preconfigurata per strumenti open source, a
 
 ## <a name="language-support"></a>Lingue supportate
 
-|Linguaggio   |Version   |
+|Linguaggio   |Versione   |
 |---|---|
 |.NET Core  |[3.1.302](https://github.com/dotnet/core/blob/master/release-notes/3.1/3.1.6/3.1.302-download.md)       |
 |Go         |1,9        |

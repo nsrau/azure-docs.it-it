@@ -2,13 +2,13 @@
 title: 'Funzioni di modello: risorse'
 description: Informazioni sulle funzioni da usare in un modello di Azure Resource Manager per recuperare i valori relativi alle risorse.
 ms.topic: conceptual
-ms.date: 06/18/2020
-ms.openlocfilehash: 7f485d258074959c4a0a17449c65c38fa9648502
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.date: 09/03/2020
+ms.openlocfilehash: 3f916be4431aa6b2b100967465450447ecc1d626
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661402"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468675"
 ---
 # <a name="resource-functions-for-arm-templates"></a>Funzioni delle risorse per i modelli di Azure Resource Manager
 
@@ -16,6 +16,7 @@ Resource Manager fornisce le funzioni seguenti per ottenere i valori delle risor
 
 * [extensionResourceId](#extensionresourceid)
 * [list*](#list)
+* [pickZones](#pickzones)
 * [provider](#providers)
 * [reference](#reference)
 * [resourceGroup](#resourcegroup)
@@ -101,6 +102,12 @@ L'esempio seguente restituisce l'ID della risorsa per un blocco del gruppo di ri
 }
 ```
 
+Una definizione di criteri personalizzata distribuita in un gruppo di gestione viene implementata come risorsa di estensione. Per creare e assegnare un criterio, distribuire il modello seguente in un gruppo di gestione.
+
+:::code language="json" source="~/quickstart-templates/managementgroup-deployments/mg-policy/azuredeploy.json":::
+
+Le definizioni dei criteri predefinite sono risorse a livello di tenant. Per un esempio di distribuzione di una definizione di criteri incorporata, vedere [tenantResourceId](#tenantresourceid).
+
 <a id="listkeys"></a>
 <a id="list"></a>
 
@@ -130,9 +137,16 @@ Gli utilizzi possibili della funzione list* sono visualizzati nella tabella segu
 
 | Tipo di risorsa | Nome della funzione |
 | ------------- | ------------- |
+| Microsoft. addons/supportProviders | listsupportplaninfo |
 | Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
+| Microsoft. ApiManagement/Service/authorizationServers | [listSecrets](/rest/api/apimanagement/2019-12-01/authorizationserver/listsecrets) |
+| Microsoft. ApiManagement/Service/gateway | [listKeys](/rest/api/apimanagement/2019-12-01/gateway/listkeys) |
+| Microsoft. ApiManagement/Service/non | [listSecrets](/rest/api/apimanagement/2019-12-01/identityprovider/listsecrets) |
+| Microsoft. ApiManagement/Service/namedValues | [listValue](/rest/api/apimanagement/2019-12-01/namedvalue/listvalue) |
+| Microsoft. ApiManagement/Service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2019-12-01/openidconnectprovider/listsecrets) |
 | Microsoft.AppConfiguration | [ListKeyValue](/rest/api/appconfiguration/configurationstores/listkeyvalue) |
-| Microsoft.AppConfiguration/configurationStores | ListKeys |
+| Microsoft.AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
+| Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringclould/services/listtestkeys) |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
 | Microsoft.Batch/batchAccounts | [listkeys](/rest/api/batchmanagement/batchaccount/getkeys) |
 | Microsoft.BatchAI/workspaces/experiments/jobs | [listoutputfiles](/rest/api/batchai/jobs/listoutputfiles) |
@@ -144,10 +158,15 @@ Gli utilizzi possibili della funzione list* sono visualizzati nella tabella segu
 | Microsoft.ContainerRegistry/registries | [listBuildSourceUploadUrl](/rest/api/containerregistry/registries%20(tasks)/getbuildsourceuploadurl) |
 | Microsoft.ContainerRegistry/registries | [listCredentials](/rest/api/containerregistry/registries/listcredentials) |
 | Microsoft.ContainerRegistry/registries | [listUsages](/rest/api/containerregistry/registries/listusages) |
+| Microsoft. ContainerRegistry/registri/agentpools | listQueueStatus |
+| Microsoft. ContainerRegistry/registri/buildTasks | listSourceRepositoryProperties |
+| Microsoft. ContainerRegistry/registris/buildTasks/Steps | listBuildArguments |
+| Microsoft. ContainerRegistry/registri/taskruns | listDetails |
 | Microsoft.ContainerRegistry/registries/webhooks | [listEvents](/rest/api/containerregistry/webhooks/listevents) |
 | Microsoft.ContainerRegistry/registries/runs | [listLogSasUrl](/rest/api/containerregistry/runs/getlogsasurl) |
 | Microsoft.ContainerRegistry/registries/tasks | [listDetails](/rest/api/containerregistry/tasks/getdetails) |
 | Microsoft.ContainerService/managedClusters | [listClusterAdminCredential](/rest/api/aks/managedclusters/listclusteradmincredentials) |
+| Microsoft.ContainerService/managedClusters | [listClusterMonitoringUserCredential](/rest/api/aks/managedclusters/listclustermonitoringusercredentials) |
 | Microsoft.ContainerService/managedClusters | [listClusterUserCredential](/rest/api/aks/managedclusters/listclusterusercredentials) |
 | Microsoft.ContainerService/managedClusters/accessProfiles | [listCredential](/rest/api/aks/managedclusters/getaccessprofile) |
 | Microsoft.DataBox/jobs | listCredentials |
@@ -168,6 +187,7 @@ Gli utilizzi possibili della funzione list* sono visualizzati nella tabella segu
 | Microsoft.DevTestLab/labs/virtualMachines | [ListApplicableSchedules](/rest/api/dtl/virtualmachines/listapplicableschedules) |
 | Microsoft.DocumentDB/databaseAccounts | [listConnectionStrings](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listconnectionstrings) |
 | Microsoft.DocumentDB/databaseAccounts | [listKeys](/rest/api/cosmos-db-resource-provider/2020-06-01-preview/databaseaccounts/listkeys) |
+| Microsoft.DocumentDB/databaseAccounts/notebookWorkspaces | [listConnectionInfo](/rest/api/cosmos-db-resource-provider/2020-04-01/notebookworkspaces/listconnectioninfo) |
 | Microsoft.DomainRegistration | [listDomainRecommendations](/rest/api/appservice/domains/listrecommendations) |
 | Microsoft.DomainRegistration/topLevelDomains | [listAgreements](/rest/api/appservice/topleveldomains/listagreements) |
 | Microsoft.EventGrid/domains | [listKeys](/rest/api/eventgrid/version2020-06-01/domains/listsharedaccesskeys) |
@@ -206,7 +226,9 @@ Gli utilizzi possibili della funzione list* sono visualizzati nella tabella segu
 | Microsoft.NotificationHubs/Namespaces/authorizationRules | [listkeys](/rest/api/notificationhubs/namespaces/listkeys) |
 | Microsoft.NotificationHubs/Namespaces/NotificationHubs/authorizationRules | [listkeys](/rest/api/notificationhubs/notificationhubs/listkeys) |
 | Microsoft.OperationalInsights/workspaces | [list](/rest/api/loganalytics/workspaces/list) |
+| Microsoft.OperationalInsights/workspaces | listKeys |
 | Microsoft.PolicyInsights/remediations | [listDeployments](/rest/api/policy-insights/remediations/listdeploymentsatresourcegroup) |
+| Microsoft. RedHatOpenShift/openShiftClusters | [listCredentials](/rest/api/openshift/openshiftclusters/listcredentials) |
 | Microsoft.Relay/namespaces/authorizationRules | [listkeys](/rest/api/relay/namespaces/listkeys) |
 | Microsoft.Relay/namespaces/disasterRecoveryConfigs/authorizationRules | listkeys |
 | Microsoft.Relay/namespaces/HybridConnections/authorizationRules | [listkeys](/rest/api/relay/hybridconnections/listkeys) |
@@ -225,6 +247,7 @@ Gli utilizzi possibili della funzione list* sono visualizzati nella tabella segu
 | Microsoft.StorSimple/managers/devices | [listFailoverTargets](/rest/api/storsimple/devices/listfailovertargets) |
 | Microsoft.StorSimple/managers | [listActivationKey](/rest/api/storsimple/managers/getactivationkey) |
 | Microsoft.StorSimple/managers | [listPublicEncryptionKey](/rest/api/storsimple/managers/getpublicencryptionkey) |
+| Microsoft. sinapsi/Workspaces/integrationRuntimes | [listAuthKeys](/rest/api/synapse/integrationruntimeauthkeys/list) |
 | Microsoft.Web/connectionGateways | ListStatus |
 | microsoft.web/connections | listconsentlinks |
 | Microsoft.Web/customApis | listWsdlInterfaces |
@@ -315,6 +338,94 @@ Nell'esempio seguente viene illustrata una funzione List che accetta un parametr
 ```
 
 Per un esempio della funzione listKeyValue, vedere [Avvio rapido: distribuzione automatizzata di macchine virtuali con Configurazione app e un modello di Resource Manager](../../azure-app-configuration/quickstart-resource-manager.md#deploy-vm-using-stored-key-values).
+
+## <a name="pickzones"></a>pickZones
+
+`pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
+
+Determina se un tipo di risorsa supporta le zone per un'area.
+
+### <a name="parameters"></a>Parametri
+
+| Parametro | Obbligatoria | Type | Descrizione |
+|:--- |:--- |:--- |:--- |
+| providerNamespace | Sì | string | Spazio dei nomi del provider di risorse per il tipo di risorsa per verificare il supporto delle zone. |
+| resourceType | Sì | string | Il tipo di risorsa per verificare il supporto della zona. |
+| posizione | Sì | string | Area in cui verificare il supporto della zona. |
+| numberOfZones | No | integer | Numero di zone logiche da restituire. Il valore predefinito è 1. Il numero deve essere un numero intero positivo compreso tra 1 e 3.  Usare 1 per le risorse in una singola area. Per le risorse in più zone, il valore deve essere minore o uguale al numero di zone supportate. |
+| offset | No | integer | Offset dalla zona logica iniziale. La funzione restituisce un errore se offset più numberOfZones supera il numero di zone supportate. |
+
+### <a name="return-value"></a>Valore restituito
+
+Matrice con le zone supportate. Quando si usano i valori predefiniti per offset e numberOfZones, un tipo di risorsa e un'area che supporta le zone restituiscono la seguente matrice:
+
+```json
+[
+    "1"
+]
+```
+
+Quando il `numberOfZones` parametro è impostato su 3, restituisce:
+
+```json
+[
+    "1",
+    "2",
+    "3"
+]
+```
+
+Quando il tipo di risorsa o l'area non supporta le zone, viene restituita una matrice vuota.
+
+```json
+[
+]
+```
+
+### <a name="pickzones-example"></a>esempio di pickZones
+
+Il modello seguente mostra tre risultati per l'uso della funzione pickZones.
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "parameters": {},
+    "functions": [],
+    "variables": {},
+    "resources": [],
+    "outputs": {
+        "supported": {
+            "type": "array",
+            "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'westus2')]"
+        },
+        "notSupportedRegion": {
+            "type": "array",
+            "value": "[pickZones('Microsoft.Compute', 'virtualMachines', 'northcentralus')]"
+        },
+        "notSupportedType": {
+            "type": "array",
+            "value": "[pickZones('Microsoft.Cdn', 'profiles', 'westus2')]"
+        }
+    }
+}
+```
+
+L'output degli esempi precedenti restituisce tre matrici.
+
+| Nome | Type | valore |
+| ---- | ---- | ----- |
+| supportato | array | ["1"] |
+| notSupportedRegion | array | [] |
+| notSupportedType | array | [] |
+
+È possibile usare la risposta di pickZones per determinare se fornire valori null per le zone o assegnare macchine virtuali a zone diverse. Nell'esempio seguente viene impostato un valore per l'area in base alla disponibilità delle zone.
+
+```json
+"zones": {
+    "value": "[if(not(empty(pickZones('Microsoft.Compute', 'virtualMachines', 'westus2'))), string(add(mod(copyIndex(),3),1)), json('null'))]"
+},
+```
 
 ## <a name="providers"></a>provider
 
@@ -740,23 +851,27 @@ Quando il modello viene distribuito nell'ambito di un gruppo di risorse, l'ID de
 /subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-Se usato in una [distribuzione a livello di sottoscrizione](deploy-to-subscription.md), l'ID della risorsa viene restituito nel formato seguente:
+È possibile utilizzare la funzione resourceId per altri ambiti di distribuzione, ma il formato dell'ID viene modificato.
+
+Se si usa resourceId durante la distribuzione in una sottoscrizione, l'ID risorsa viene restituito nel formato seguente:
 
 ```json
 /subscriptions/{subscriptionId}/providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-Se usato in una [distribuzione a livello di gruppo di gestione](deploy-to-management-group.md) o in una distribuzione a livello di tenant, l'ID della risorsa viene restituito nel formato seguente:
+Se si usa resourceId durante la distribuzione in un gruppo di gestione o in un tenant, l'ID risorsa viene restituito nel formato seguente:
 
 ```json
 /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-Per ottenere l'ID in altri formati, vedere:
+Per evitare confusione, è consigliabile non utilizzare resourceId quando si utilizzano risorse distribuite nella sottoscrizione, nel gruppo di gestione o nel tenant. Usare invece la funzione ID progettata per l'ambito.
 
-* [extensionResourceId](#extensionresourceid)
-* [subscriptionResourceId](#subscriptionresourceid)
-* [tenantResourceId](#tenantresourceid)
+Per [le risorse a livello di sottoscrizione](deploy-to-subscription.md), usare la funzione [subscriptionResourceId](#subscriptionresourceid) .
+
+Per [le risorse a livello di gruppo di gestione](deploy-to-management-group.md), usare la funzione [extensionResourceId](#extensionresourceid) per fare riferimento a una risorsa implementata come estensione di un gruppo di gestione. Ad esempio, le definizioni dei criteri personalizzati che vengono distribuite in un gruppo di gestione sono estensioni del gruppo di gestione. Usare la funzione [tenantResourceId](#tenantresourceid) per fare riferimento alle risorse distribuite nel tenant, ma disponibili nel gruppo di gestione. Le definizioni dei criteri predefinite, ad esempio, vengono implementate come risorse a livello di tenant.
+
+Per [le risorse a livello di tenant](deploy-to-tenant.md), usare la funzione [tenantResourceId](#tenantresourceid) . Usare tenantResourceId per le definizioni di criteri predefinite perché sono implementate a livello di tenant.
 
 ### <a name="remarks"></a>Osservazioni
 
@@ -1019,6 +1134,44 @@ L'identificatore viene restituito nel formato seguente:
 ### <a name="remarks"></a>Osservazioni
 
 Usare questa funzione per ottenere l'ID della risorsa di una risorsa distribuita nel tenant. L'ID restituito è diverso dai valori restituiti da altre funzioni dell'ID della risorsa in quanto non include i valori del gruppo di risorse o della sottoscrizione.
+
+### <a name="tenantresourceid-example"></a>esempio di tenantResourceId
+
+Le definizioni dei criteri predefinite sono risorse a livello di tenant. Per distribuire un'assegnazione di criteri che fa riferimento a una definizione di criteri incorporata, usare la funzione tenantResourceId.
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "policyAssignmentName": {
+      "type": "string",
+      "defaultValue": "[guid(parameters('policyDefinitionID'), resourceGroup().name)]",
+      "metadata": {
+        "description": "Specifies the name of the policy assignment, can be used defined or an idempotent name as the defaultValue provides."
+      }
+    },
+    "policyDefinitionID": {
+      "type": "string",
+      "defaultValue": "0a914e76-4921-4c19-b460-a2d36003525a",
+      "metadata": {
+        "description": "Specifies the ID of the policy definition or policy set definition being assigned."
+      }
+    }
+  },
+  "resources": [
+    {
+      "type": "Microsoft.Authorization/policyAssignments",
+      "name": "[parameters('policyAssignmentName')]",
+      "apiVersion": "2019-09-01",
+      "properties": {
+        "scope": "[subscriptionResourceId('Microsoft.Resources/resourceGroups', resourceGroup().name)]",
+        "policyDefinitionId": "[tenantResourceId('Microsoft.Authorization/policyDefinitions', parameters('policyDefinitionID'))]"
+      }
+    }
+  ]
+}
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

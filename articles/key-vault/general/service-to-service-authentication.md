@@ -5,16 +5,16 @@ keywords: credenziali locali di autenticazione azure key vault
 author: msmbaldwin
 services: key-vault
 ms.author: mbaldwin
-ms.date: 08/08/2020
+ms.date: 09/04/2020
 ms.topic: how-to
 ms.service: key-vault
 ms.subservice: general
-ms.openlocfilehash: 860f9b0e49423b5d144d56ecd965153f7a362d87
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 00799f7c5239bfd744268f7353e1bac6cb038294
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89180916"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483338"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Autenticazione da servizio a servizio ad Azure Key Vault usando .NET
 
@@ -54,7 +54,7 @@ Per le applicazioni .NET, il modo più semplice per usare l'identità del serviz
     string accessToken = await azureServiceTokenProvider2.GetAccessTokenAsync("https://management.azure.com/").ConfigureAwait(false);
     ```
 
-Non è necessario controllare la scadenza del token prima di chiamare il `GetAccessTokenAsync` metodo, perché `AzureServiceTokenProvider` memorizza nella cache il token in memoria e lo recupera da Azure ad immediatamente prima della scadenza. 
+La classe thread-safe `AzureServiceTokenProvider` memorizza nella cache il token in memoria e lo recupera da Azure ad immediatamente prima della scadenza. Ciò significa che non è mai necessario controllare la scadenza del token prima di chiamare il `GetAccessTokenAsync` metodo. 
 
 Il metodo `GetAccessTokenAsync` richiede un identificatore di risorsa. Per altre informazioni sui servizi di Microsoft Azure, vedere informazioni sulle [identità gestite per le risorse di Azure](../../active-directory/msi-overview.md).
 

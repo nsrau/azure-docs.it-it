@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 08/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: a0f1e7789c0cebdd1cb5b22f21151020a0be09c9
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: c05de0462dde2b09e0e01919dfc691a85df153fa
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855123"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89483270"
 ---
 # <a name="data-storage"></a>Archiviazione dati
 
@@ -24,7 +24,7 @@ Quando si crea un ambiente Azure Time Series Insights Gen2, si creano due risors
 * Un ambiente Azure Time Series Insights Gen2 che può essere configurato per l'archiviazione dei dati a caldo.
 * Un account di archiviazione di Azure per l'archiviazione dei dati a freddo.
 
-I dati nel negozio a caldo sono disponibili solo tramite le [API di query di serie temporali](./time-series-insights-update-tsq.md) e il [Azure Time Series Insights Esplora TSI](./time-series-insights-update-explorer.md). Il negozio caldo conterrà i dati recenti entro il [periodo di memorizzazione](./time-series-insights-update-plan.md#the-preview-environment) selezionato durante la creazione dell'ambiente di Azure Time Series Insights Gen2.
+I dati nell'archivio a caldo sono disponibili solo tramite le [API di query di serie temporali](./time-series-insights-update-tsq.md) e [Esplora Azure Time Series Insights](./time-series-insights-update-explorer.md). Il negozio caldo conterrà i dati recenti entro il [periodo di memorizzazione](./time-series-insights-update-plan.md#the-preview-environment) selezionato durante la creazione dell'ambiente di Azure Time Series Insights Gen2.
 
 Azure Time Series Insights Gen2 Salva i dati dell'archivio a freddo nell'archivio BLOB di Azure nel [formato di file parquet](#parquet-file-format-and-folder-structure). Azure Time Series Insights Gen2 gestisce esclusivamente i dati di archivio a freddo, ma è possibile leggerli direttamente come file parquet standard.
 
@@ -58,7 +58,7 @@ Per garantire le prestazioni delle query e la disponibilità dei dati, non modif
 
 #### <a name="accessing-cold-store-data"></a>Accesso ai dati dell'archivio freddo
 
-Oltre ad accedere ai dati dalle API di query di [Azure Time Series Insights TSI Explorer](./time-series-insights-update-explorer.md) e della [serie temporale](./time-series-insights-update-tsq.md), è anche possibile accedere ai dati direttamente dai file parquet archiviati nell'archivio a freddo. Ad esempio, è possibile leggere, trasformare e pulire i dati in un notebook di Jupyter, e poi usarli per eseguire il training del modello di Azure Machine Learning nello stesso flusso di lavoro Spark.
+Oltre ad accedere ai dati dalle API di query di [Azure Time Series Insights Explorer](./time-series-insights-update-explorer.md) e della [serie temporale](./time-series-insights-update-tsq.md), è anche possibile accedere ai dati direttamente dai file parquet archiviati nell'archivio a freddo. Ad esempio, è possibile leggere, trasformare e pulire i dati in un notebook di Jupyter, e poi usarli per eseguire il training del modello di Azure Machine Learning nello stesso flusso di lavoro Spark.
 
 Per accedere ai dati direttamente dall'account di archiviazione di Azure, è necessario l'accesso in lettura all'account usato per archiviare i dati di Azure Time Series Insights Gen2. È quindi possibile leggere i dati selezionati in base all'ora di creazione del file parquet presente nella cartella `PT=Time` descritta di seguito nella sezione dedicata al [formato di file parquet](#parquet-file-format-and-folder-structure).  Per altre informazioni sull'abilitazione dell'accesso in lettura all'account di archiviazione, vedere [Gestire l'accesso alle risorse dell'account di archiviazione](../storage/blobs/storage-manage-access-to-resources.md).
 

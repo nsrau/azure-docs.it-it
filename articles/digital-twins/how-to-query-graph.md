@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 3/26/2020
 ms.topic: conceptual
 ms.service: digital-twins
-ms.openlocfilehash: e6236d9ed5ed75b6b5e10914e668de545c48fc2c
-ms.sourcegitcommit: 420c30c760caf5742ba2e71f18cfd7649d1ead8a
+ms.openlocfilehash: 8d71cccfe0ebd049607d5b51e7211739c3a7209b
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89055635"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468709"
 ---
 # <a name="query-the-azure-digital-twins-twin-graph"></a>Eseguire una query sul grafico gemello di Azure Digital gemelli
 
@@ -174,6 +174,42 @@ AND Room.$dtId IN ['room1', 'room2']
 | Dai dispositivi disponibili nella *stanza 123* , restituire i dispositivi MxChip che svolgono il ruolo di operatore | `SELECT device`<br>`FROM DigitalTwins space`<br>`JOIN device RELATED space.has`<br>`WHERE space.$dtid = 'Room 123'`<br>`AND device.$metadata.model = 'dtmi:contosocom:DigitalTwins:MxChip:3'`<br>`AND has.role = 'Operator'` |
 | Ottenere i gemelli con una relazione denominata *Contains* con un altro gemello con ID *ID1* | `SELECT Room`<br>`FROM DIGITIALTWINS Room`<br>`JOIN Thermostat ON Room.Contains`<br>`WHERE Thermostat.$dtId = 'id1'` |
 | Ottenere tutte le stanze di questo modello di chat room contenute in *floor11* | `SELECT Room`<br>`FROM DIGITALTWINS Floor`<br>`JOIN Room RELATED Floor.Contains`<br>`WHERE Floor.$dtId = 'floor11'`<br>`AND IS_OF_MODEL(Room, 'dtmi:contosocom:DigitalTwins:Room;1')` |
+
+## <a name="reference-expressions-and-conditions"></a>Riferimento: espressioni e condizioni
+
+Questa sezione contiene informazioni di riferimento per gli operatori e le funzioni disponibili durante la scrittura di query dei dispositivi gemelli digitali di Azure.
+
+### <a name="operators"></a>Operatori
+
+Sono supportati gli operatori seguenti:
+
+| Famiglia | Operatori |
+| --- | --- |
+| Logico |AND, OR, NOT |
+| Confronto |=,! =, <, >, <=, >= |
+| Contiene | IN, NIN |
+
+### <a name="functions"></a>Funzioni
+
+Sono supportate le funzioni di controllo del tipo e di cast seguenti:
+
+| Funzione | Descrizione |
+| -------- | ----------- |
+| IS_DEFINED | Restituisce un valore booleano che indica se alla proprietà è stata assegnato un valore. Questa operazione è supportata solo quando il valore è un tipo primitivo. I tipi primitivi includono stringa, valore booleano, numerico o `null` . DateTime, i tipi di oggetto e le matrici non sono supportati. |
+| IS_OF_MODEL | Restituisce un valore booleano che indica se il gemello specificato corrisponde al tipo di modello specificato |
+| IS_BOOL | Restituisce un valore booleano che indica se il tipo di espressione specificata è un valore booleano. |
+| IS_NUMBER | Restituisce un valore booleano che indica se il tipo di espressione specificata è un numero. |
+| IS_STRING | Restituisce un valore booleano che indica se il tipo di espressione specificata è una stringa. |
+| IS_NULL | Restituisce un valore booleano che indica se il tipo di espressione specificata è nulla. |
+| IS_PRIMITIVE | Restituisce un valore booleano che indica se il tipo dell'espressione specificata è primitivo (stringa, valore booleano, numerico o `null`). |
+| IS_OBJECT | Restituisce un valore booleano che indica se il tipo di espressione specificata è un oggetto JSON. |
+
+Sono supportate le funzioni stringa seguenti:
+
+| Funzione | Descrizione |
+| -------- | ----------- |
+| STARTS_WITH(x, y) | Restituisce un valore booleano che indica se la prima espressione stringa inizia con il secondo. |
+| ENDS_WITH(x, y) | Restituisce un valore booleano che indica se la prima espressione stringa termina con il secondo. |
 
 ## <a name="run-queries-with-an-api-call"></a>Eseguire query con una chiamata API
 

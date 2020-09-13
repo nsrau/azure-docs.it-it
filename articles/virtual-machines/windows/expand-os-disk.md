@@ -1,28 +1,33 @@
 ---
 title: Espandere l'unità del sistema operativo di una macchina virtuale Windows in Azure
-description: Espandere la dimensione dell'unità del sistema operativo di una macchina virtuale tramite Azure PowerShell nel modello di distribuzione Resource Manager.
-author: mimckitt
-manager: vashan
+description: Espandere le dimensioni dell'unità del sistema operativo di una macchina virtuale utilizzando Azure PowerShell nel modello di distribuzione di Gestione risorse.
+services: virtual-machines-windows
+documentationcenter: ''
+author: kirpasingh
+manager: roshar
+editor: ''
+tags: azure-resource-manager
+ms.assetid: d9edfd9f-482f-4c0b-956c-0d2c2c30026c
 ms.service: virtual-machines-windows
-ms.topic: how-to
+ms.topic: article
+ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 07/05/2018
-ms.author: mimckitt
+ms.date: 09/02/2020
+ms.author: kirpas
 ms.subservice: disks
-ms.openlocfilehash: 5044993e04dabc363a7a4ee49abb66285bcd7521
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3f1c7fb08c3dcaa078de8f1ee0b90409289cfb43
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85338240"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89469243"
 ---
 # <a name="how-to-expand-the-os-drive-of-a-virtual-machine"></a>Come espandere l'unità del sistema operativo di una macchina virtuale
 
-Quando si crea una nuova macchina virtuale (VM) in un gruppo di risorse distribuendo un'immagine da [Azure Marketplace](https://azure.microsoft.com/marketplace/), l'unità del sistema operativo predefinita è spesso di 127 GB. Per impostazione predefinita. alcune immagini hanno dimensioni minori per il disco del sistema operativo. Anche se è possibile aggiungere dischi dati alla VM (il numero dipende dalla SKU scelta) ed è consigliabile installare applicazioni e carichi di lavoro con uso intensivo della CPU su tali dischi aggiuntivi, spesso i clienti devono espandere l'unità del sistema operativo per supportare determinati scenari, come i seguenti:
+Quando si crea una nuova macchina virtuale (VM) in un gruppo di risorse distribuendo un'immagine da [Azure Marketplace](https://azure.microsoft.com/marketplace/), l'unità del sistema operativo predefinita è spesso 127 GB (alcune immagini hanno dimensioni del disco del sistema operativo minori per impostazione predefinita). Anche se è possibile aggiungere dischi dati alla VM (il numero dipende dallo SKU scelto) ed è consigliabile installare applicazioni e carichi di lavoro con utilizzo intensivo della CPU su questi dischi addendum, spesso i clienti devono espandere l'unità del sistema operativo per supportare scenari specifici:
 
-- Supporto di applicazioni legacy che installano componenti nell'unità del sistema operativo.
-- Migrazione di un computer fisico o di una macchina virtuale locali a un'unità del sistema operativo più grande.
-
+- Per supportare le applicazioni legacy che installano componenti nell'unità del sistema operativo.
+- Per eseguire la migrazione di un computer fisico o di una macchina virtuale da locale con un'unità del sistema operativo più grande.
 
 > [!IMPORTANT]
 > Il ridimensionamento del disco del sistema operativo di una macchina virtuale di Azure richiede la deallocazione della macchina virtuale.
@@ -30,98 +35,131 @@ Quando si crea una nuova macchina virtuale (VM) in un gruppo di risorse distribu
 > Dopo l'espansione dei dischi è necessario [espandere il volume all'interno del sistema operativo](#expand-the-volume-within-the-os) per sfruttare i vantaggi del disco più grande.
 > 
 
+## <a name="resize-a-managed-disk-in-the-azure-portal"></a>Ridimensionare un disco gestito nel portale di Azure
+
+1. Nella [portale di Azure](https://portal.azure.com)passare alla macchina virtuale in cui si vuole espandere il disco. Selezionare **Arresta** per deallocare la VM.
+2. Quando la macchina virtuale viene arrestata, nel menu a sinistra in **Impostazioni**selezionare **dischi**.
+
+    :::image type="content" source="./media/expand-os-disk/select-disks.png" alt-text="Screenshot che mostra l'opzione dischi selezionata nella sezione impostazioni del menu.":::
 
  
+3. In **nome disco**selezionare il disco che si desidera ridimensionare.
+
+    :::image type="content" source="./media/expand-os-disk/disk-name.png" alt-text="Screenshot che mostra il riquadro dischi con un nome di disco selezionato.":::
+
+4. Nel menu a sinistra in **Impostazioni**selezionare **configurazione**.
+
+    :::image type="content" source="./media/expand-os-disk/configuration.png" alt-text="Screenshot che mostra l'opzione di configurazione selezionata nella sezione impostazioni del menu.":::
+
+5. In **dimensioni (GIB)** selezionare le dimensioni del disco desiderate.
+   
+   > [!WARNING]
+   > Le nuove dimensioni devono essere maggiori delle dimensioni del disco esistente. Il valore massimo consentito è 2.048 GB per i dischi del sistema operativo. È possibile espandere il BLOB VHD oltre tale dimensione, ma il sistema operativo funziona solo con i primi 2.048 GB di spazio.
+   > 
+
+    :::image type="content" source="./media/expand-os-disk/size.png" alt-text="Screenshot che mostra il riquadro di configurazione con le dimensioni del disco selezionate.":::
+
+6. Selezionare **Salva**.
+
+    :::image type="content" source="./media/expand-os-disk/save.png" alt-text="Screenshot che mostra il riquadro di configurazione con il pulsante Salva selezionato.":::
 
 
-## <a name="resize-a-managed-disk"></a>Ridimensionare un disco gestito
+## <a name="resize-a-managed-disk-by-using-powershell"></a>Ridimensionare un disco gestito usando PowerShell
 
-Aprire la finestra di Powershell ISE o Powershell in modalità amministrativa e seguire questa procedura:
+Aprire la finestra di PowerShell ISE o PowerShell in modalità amministrativa e attenersi alla procedura seguente:
 
-1. Accedere all'account Microsoft Azure in modalità Gestione risorse e selezionare la sottoscrizione come segue:
+1. Accedere al proprio account di Microsoft Azure in modalità gestione risorse e selezionare la sottoscrizione:
    
-   ```powershell
-   Connect-AzAccount
-   Select-AzSubscription –SubscriptionName 'my-subscription-name'
-   ```
-2. Impostare il nome del gruppo di risorse e il nome della VM come segue:
+    ```powershell
+    Connect-AzAccount
+    Select-AzSubscription –SubscriptionName 'my-subscription-name'
+    ```
+
+2. Impostare il nome del gruppo di risorse e il nome della macchina virtuale:
    
-   ```powershell
-   $rgName = 'my-resource-group-name'
-   $vmName = 'my-vm-name'
-   ```
-3. Ottenere un riferimento alla VM come segue:
+    ```powershell
+    $rgName = 'my-resource-group-name'
+    $vmName = 'my-vm-name'
+    ```
+
+3. Ottenere un riferimento alla macchina virtuale:
    
-   ```powershell
-   $vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
-   ```
-4. Arrestare la VM prima di ridimensionare il disco come segue:
+    ```powershell
+    $vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
+    ```
+
+4. Arrestare la macchina virtuale prima di ridimensionare il disco:
    
-    ```Powershell
+    ```powershell
     Stop-AzVM -ResourceGroupName $rgName -Name $vmName
     ```
-5. Ottenere un riferimento al disco del sistema operativo gestito. Impostare le dimensioni del disco del sistema operativo gestito sul valore desiderato e aggiornare il disco come segue:
+
+5. Ottenere un riferimento al disco del sistema operativo gestito. Impostare la dimensione del disco del sistema operativo gestito sul valore desiderato e aggiornare il disco:
    
-   ```Powershell
-   $disk= Get-AzDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name
-   $disk.DiskSizeGB = 1023
-   Update-AzDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
-   ```   
-   > [!WARNING]
-   > Le nuove dimensioni devono essere maggiori delle dimensioni del disco esistente. Il valore massimo consentito per i dischi del sistema operativo è 2048 GB. È possibile espandere il BLOB del disco rigido virtuale oltre tale dimensione, ma il sistema operativo potrà usare solo i primi 2048 GB di spazio.
-   > 
-   > 
-6. L'aggiornamento della VM potrebbe richiedere alcuni secondi. Al termine dell'esecuzione del comando, riavviare la VM come segue:
+    ```powershell
+    $disk= Get-AzDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.OsDisk.Name
+    $disk.DiskSizeGB = 1023
+    Update-AzDisk -ResourceGroupName $rgName -Disk $disk -DiskName $disk.Name
+    ```   
+    > [!WARNING]
+    > Le nuove dimensioni devono essere maggiori delle dimensioni del disco esistente. Il valore massimo consentito è 2.048 GB per i dischi del sistema operativo. È possibile espandere il BLOB VHD oltre tale dimensione, ma il sistema operativo funziona solo con i primi 2.048 GB di spazio.
+    > 
+         
+6. L'aggiornamento della macchina virtuale potrebbe richiedere alcuni secondi. Al termine dell'esecuzione del comando, riavviare la macchina virtuale:
    
-   ```Powershell
-   Start-AzVM -ResourceGroupName $rgName -Name $vmName
-   ```
+    ```powershell
+    Start-AzVM -ResourceGroupName $rgName -Name $vmName
+    ```
 
 L'operazione è terminata. Con il protocollo RDP applicato alla VM, aprire Gestione computer (o Gestione disco) ed espandere l'unità usando lo spazio appena allocato.
 
-## <a name="resize-an-unmanaged-disk"></a>Ridimensionare un disco non gestito
+## <a name="resize-an-unmanaged-disk-by-using-powershell"></a>Ridimensionare un disco non gestito usando PowerShell
 
-Aprire la finestra di Powershell ISE o Powershell in modalità amministrativa e seguire questa procedura:
+Aprire la finestra di PowerShell ISE o PowerShell in modalità amministrativa e attenersi alla procedura seguente:
 
-1. Accedere all'account Microsoft Azure in modalità Gestione risorse e selezionare la sottoscrizione come segue:
+1. Accedere al proprio account di Microsoft Azure in modalità gestione risorse e selezionare la sottoscrizione:
    
-   ```Powershell
-   Connect-AzAccount
-   Select-AzSubscription –SubscriptionName 'my-subscription-name'
-   ```
-2. Impostare il nome del gruppo di risorse e il nome della VM come segue:
+    ```powershell
+    Connect-AzAccount
+    Select-AzSubscription –SubscriptionName 'my-subscription-name'
+    ```
+
+2. Impostare il nome del gruppo di risorse e i nomi delle macchine virtuali:
    
-   ```Powershell
-   $rgName = 'my-resource-group-name'
-   $vmName = 'my-vm-name'
-   ```
-3. Ottenere un riferimento alla VM come segue:
+    ```powershell
+    $rgName = 'my-resource-group-name'
+    $vmName = 'my-vm-name'
+    ```
+
+3. Ottenere un riferimento alla macchina virtuale:
    
-   ```Powershell
-   $vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
-   ```
-4. Arrestare la VM prima di ridimensionare il disco come segue:
+    ```powershell
+    $vm = Get-AzVM -ResourceGroupName $rgName -Name $vmName
+    ```
+
+4. Arrestare la macchina virtuale prima di ridimensionare il disco:
    
-    ```Powershell
+    ```powershell
     Stop-AzVM -ResourceGroupName $rgName -Name $vmName
     ```
-5. Impostare le dimensioni del disco del sistema operativo non gestito sul valore desiderato e aggiornare la macchina virtuale come segue:
+
+5. Impostare la dimensione del disco del sistema operativo non gestito sul valore desiderato e aggiornare la macchina virtuale:
    
-   ```Powershell
-   $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
-   Update-AzVM -ResourceGroupName $rgName -VM $vm
-   ```
+    ```powershell
+    $vm.StorageProfile.OSDisk.DiskSizeGB = 1023
+    Update-AzVM -ResourceGroupName $rgName -VM $vm
+    ```
    
-   > [!WARNING]
-   > Le nuove dimensioni devono essere maggiori delle dimensioni del disco esistente. Il valore massimo consentito per i dischi del sistema operativo è 2048 GB. È possibile espandere il BLOB del disco rigido virtuale oltre tale dimensione, ma il sistema operativo potrà usare solo i primi 2048 GB di spazio.
-   > 
-   > 
+    > [!WARNING]
+    > Le nuove dimensioni devono essere maggiori delle dimensioni del disco esistente. Il valore massimo consentito è 2.048 GB per i dischi del sistema operativo. È possibile espandere il BLOB VHD oltre tale dimensione, ma il sistema operativo sarà in grado di funzionare solo con i primi 2.048 GB di spazio.
+    > 
+    > 
    
-6. L'aggiornamento della VM potrebbe richiedere alcuni secondi. Al termine dell'esecuzione del comando, riavviare la VM come segue:
+6. L'aggiornamento della macchina virtuale potrebbe richiedere alcuni secondi. Al termine dell'esecuzione del comando, riavviare la macchina virtuale:
    
-   ```Powershell
-   Start-AzVM -ResourceGroupName $rgName -Name $vmName
-   ```
+    ```powershell
+    Start-AzVM -ResourceGroupName $rgName -Name $vmName
+    ```
 
 
 ## <a name="scripts-for-os-disk"></a>Script per il disco del sistema operativo
@@ -131,7 +169,7 @@ Di seguito è riportato per riferimento lo script completo per i dischi gestiti 
 
 **Dischi gestiti**
 
-```Powershell
+```powershell
 Connect-AzAccount
 Select-AzSubscription -SubscriptionName 'my-subscription-name'
 $rgName = 'my-resource-group-name'
@@ -160,7 +198,7 @@ Start-AzVM -ResourceGroupName $rgName -Name $vmName
 
 ## <a name="resizing-data-disks"></a>Ridimensionamento dei dischi dati
 
-Sebbene questo articolo si concentri principalmente sull'espansione del disco del sistema operativo della macchina virtuale, lo script può comunque essere usato per l'espansione dei dischi dati collegati alla macchina virtuale. Se si espande solo un disco dati, **non** è necessario deallocare la macchina virtuale. Per espandere ad esempio il primo disco dati collegato alla VM, sostituire l'oggetto `OSDisk` di `StorageProfile` con la matrice `DataDisks` e usare un indice numerico per ottenere un riferimento al primo disco dati collegato, come illustrato di seguito:
+Sebbene questo articolo si concentri principalmente sull'espansione del disco del sistema operativo della macchina virtuale, lo script può comunque essere usato per l'espansione dei dischi dati collegati alla macchina virtuale. Per espandere ad esempio il primo disco dati collegato alla VM, sostituire l'oggetto `OSDisk` di `StorageProfile` con la matrice `DataDisks` e usare un indice numerico per ottenere un riferimento al primo disco dati collegato, come illustrato di seguito:
 
 **Dischi gestiti**
 
@@ -169,16 +207,13 @@ $disk= Get-AzDisk -ResourceGroupName $rgName -DiskName $vm.StorageProfile.DataDi
 $disk.DiskSizeGB = 1023
 ```
 
-
 **Dischi non gestiti**
 
 ```powershell
 $vm.StorageProfile.DataDisks[0].DiskSizeGB = 1023
 ```
 
-
-
-Analogamente è possibile fare riferimento agli altri dischi dati collegati alla macchina virtuale, usando un indice come quello illustrato in precedenza oppure la proprietà **Name** del disco:
+Analogamente, è possibile fare riferimento ad altri dischi dati collegati alla VM, usando un indice come illustrato in precedenza o la proprietà **Name** del disco:
 
 
 **Dischi gestiti**
@@ -195,17 +230,17 @@ Analogamente è possibile fare riferimento agli altri dischi dati collegati alla
 
 ## <a name="expand-the-volume-within-the-os"></a>Espandere il volume all'interno del sistema operativo
 
-Dopo aver espanso il disco della macchina virtuale è necessario passare nel sistema operativo ed espanderne il volume per includere il nuovo spazio. Esistono diversi metodi per l'espansione di una partizione. Questa sezione illustra la connessione alla macchina virtuale con una connessione RDP per espandere la partizione utilizzando **DiskPart**.
+Quando si espande il disco per la macchina virtuale, è necessario passare al sistema operativo ed espandere il volume per includere il nuovo spazio. Esistono diversi metodi per l'espansione di una partizione. Questa sezione illustra la connessione alla macchina virtuale con una connessione RDP per espandere la partizione utilizzando **DiskPart**.
 
 1. Aprire una connessione RDP alla macchina virtuale.
 
-2.  Aprire il prompt dei comandi e digitare **diskpart**.
+2. Aprire il prompt dei comandi e digitare **diskpart**.
 
-2.  Al prompt di **DISKPART** digitare `list volume`. Prendere nota del volume da estendere.
+3. Al prompt di **DISKPART** digitare `list volume`. Prendere nota del volume da estendere.
 
-3.  Al prompt di **DISKPART** digitare `select volume <volumenumber>`. Ciò consente di selezionare il volume *volumenumber* che si intende estendere nello spazio vuoto contiguo sullo stesso disco.
+4. Al prompt di **DISKPART** digitare `select volume <volumenumber>`. Ciò consente di selezionare il volume *volumenumber* che si intende estendere nello spazio vuoto contiguo sullo stesso disco.
 
-4.  Al prompt di **DISKPART** digitare `extend [size=<size>]`. Ciò consente di estende il volume selezionato nelle *dimensioni* in megabyte (MB).
+5. Al prompt di **DISKPART** digitare `extend [size=<size>]`. Ciò consente di estende il volume selezionato nelle *dimensioni* in megabyte (MB).
 
 
 ## <a name="next-steps"></a>Passaggi successivi

@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 03/12/2018
 ms.author: damaerte
-ms.openlocfilehash: 3001e814a5f31725bfc78385d2435bbb0e971d40
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 91b7c58890518559c046023bd78c9248e9840f9f
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86513021"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89468750"
 ---
 # <a name="quickstart-for-bash-in-azure-cloud-shell"></a>Guida introduttiva a Bash in Azure Cloud Shell
 
@@ -84,7 +84,7 @@ Il nome utente in questa VM sarà quello usato in Cloud Shell ($User@Azure:).
 Quando viene stabilita la connessione SSH, verrà visualizzato il prompt di benvenuto di Ubuntu. <br>
 ![Screenshot che illustra l'inizializzazione di Ubuntu e la richiesta di benvenuto dopo aver stabilito una connessione di S H.](media/quickstart/ubuntu-welcome.png)
 
-## <a name="cleaning-up"></a>Cleaning up 
+## <a name="cleaning-up"></a>Pulizia 
 1. Chiudere la sessione SSH.
    ```
    exit
@@ -97,5 +97,5 @@ Quando viene stabilita la connessione SSH, verrà visualizzato il prompt di benv
 
 ## <a name="next-steps"></a>Passaggi successivi
 [Informazioni sulla persistenza dei file per Bash all’interno di Cloud Shell.](persisting-shell-storage.md) <br>
-[Informazioni sull'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/) <br>
+[Informazioni sull'interfaccia della riga di comando di Azure](/cli/azure/) <br>
 [Informazioni sull'archiviazione di File di Azure](../storage/files/storage-files-introduction.md) <br>
