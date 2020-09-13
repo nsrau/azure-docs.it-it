@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 04/27/2020
-ms.openlocfilehash: 2503c26ac0348739bbf117c3538af797833ce8b8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f9dc11bd046bdc3a8913b4b05f1b68b84c9736c4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82857638"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438450"
 ---
 # <a name="transformation-with-azure-databricks"></a>Trasformazione con Azure Databricks
 
@@ -28,7 +28,7 @@ In questa esercitazione si creerà una pipeline end-to-end che contiene le attiv
 
 - **Copy Data** Duplica il set di dati di origine nell'archivio sink, montato come DBFS nel notebook di Azure Databricks. In questo modo, il set di dati può essere utilizzato direttamente da Spark.
 
-- **Notebook** avvia il notebook di databricks che trasforma il set di dati. Il set di dati viene inoltre aggiunto a una cartella elaborata o Azure SQL Data Warehouse.
+- **Notebook** avvia il notebook di databricks che trasforma il set di dati. Aggiunge anche il set di dati a una cartella elaborata o ad Azure sinapsi Analytics (in precedenza SQL Data Warehouse).
 
 Per semplicità, nel modello di questa esercitazione non viene creato un trigger pianificato. È possibile aggiungerne uno, se necessario.
 

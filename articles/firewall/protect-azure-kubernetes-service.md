@@ -1,20 +1,20 @@
 ---
-title: Usare il firewall di Azure per proteggere le distribuzioni di Azure Kubernetes Service (AKS)
+title: Usare Firewall di Azure per proteggere le distribuzioni del servizio Azure Kubernetes
 description: Informazioni su come usare il firewall di Azure per proteggere le distribuzioni di Azure Kubernetes Service (AKS)
 author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 09/03/2020
 ms.author: victorh
-ms.openlocfilehash: 602671f1052de2d9446f32946271cea2f9995044
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 43755b312a64c429b38a07c8c4fad8c85b08342a
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87412950"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437854"
 ---
-# <a name="use-azure-firewall-to-protect-azure-kubernetes-service-aks-deployments"></a>Usare il firewall di Azure per proteggere le distribuzioni di Azure Kubernetes Service (AKS)
+# <a name="use-azure-firewall-to-protect-azure-kubernetes-service-aks-deployments"></a>Usare Firewall di Azure per proteggere le distribuzioni del servizio Azure Kubernetes
 
 Azure Kubernetes Service (AKS) offre un cluster Kubernetes gestito in Azure. Riduce la complessità e il sovraccarico operativo della gestione di Kubernetes grazie all'offload di gran parte di tale responsabilità in Azure. AKS gestisce le attività critiche, ad esempio il monitoraggio dell'integrità e la manutenzione per l'utente e fornisce un cluster di livello aziendale e sicuro con governance semplificata.
 
@@ -47,7 +47,13 @@ Il firewall di Azure fornisce un tag FQDN AKS per semplificare la configurazione
    - TCP [*IPAddrOfYourAPIServer*]: 443 è necessario se si dispone di un'app che deve comunicare con il server API. Questa modifica può essere impostata dopo la creazione del cluster.
    - Porta TCP 9000 e porta UDP 1194 per il Pod anteriore del tunnel per comunicare con l'estremità del tunnel nel server API.
 
-      Per essere più specifici, vedere **. HPC. <location> azmk8s.io* e gli indirizzi nella tabella seguente.
+      Per essere più specifici, vedere **. HPC. <location> azmk8s.io* e gli indirizzi nella tabella seguente:
+
+   | Endpoint di destinazione                                                             | Protocollo | Porta    | Uso  |
+   |----------------------------------------------------------------------------------|----------|---------|------|
+   | **`*:1194`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:1194`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:1194`** <br/> *Or* <br/> **`APIServerIP:1194`** `(only known after cluster creation)`  | UDP           | 1194      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
+   | **`*:9000`** <br/> *Or* <br/> [ServiceTag](../virtual-network/service-tags-overview.md#available-service-tags) - **`AzureCloud.<Region>:9000`** <br/> *Or* <br/> [CIDRs regionali](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) - **`RegionCIDRs:9000`** <br/> *Or* <br/> **`APIServerIP:9000`** `(only known after cluster creation)`  | TCP           | 9000      | Per la comunicazione protetta con tunnel tra i nodi e il piano di controllo. |
+
    - Porta UDP 123 per la sincronizzazione dell'ora del protocollo NTP (Network Time Protocol) (nodi Linux).
    - Porta UDP 53 per DNS, necessaria se sono presenti pod che accedono direttamente al server API.
 

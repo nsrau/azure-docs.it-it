@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 57786aa343fd2ea863b17f65253e5d4a4a6b88ce
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 515cfd5267917f88131571adcb1bea0db274157c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226829"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89437939"
 ---
 # <a name="azure-security-baseline-for-azure-data-factory"></a>Baseline della sicurezza di Azure per Azure Data Factory
 
@@ -578,7 +578,7 @@ Se è disponibile un collegamento privato, usare endpoint privati per proteggere
 
 **Linee guida**: se l'archivio dati cloud supporta HTTPS o TLS, tutti i trasferimenti di dati tra i servizi di spostamento dei dati in data factory e un archivio dati cloud sono tramite il canale sicuro HTTPS o TLS. La versione TLS usata è 1.2.
 
-Tutte le connessioni al database SQL di Azure e ad Azure SQL Data Warehouse richiedono la crittografia (SSL/TLS) quando i dati sono in transito da e verso il database. Quando si crea una pipeline usando JSON, aggiungere la proprietà encryption e impostarla su true nella stringa di connessione. Per Archiviazione di Azure è possibile usare HTTPS nella stringa di connessione.
+Tutte le connessioni al database SQL di Azure e ad Azure sinapsi Analytics (in precedenza SQL Data Warehouse) richiedono la crittografia (SSL/TLS) mentre i dati sono in transito da e verso il database. Quando si crea una pipeline usando JSON, aggiungere la proprietà encryption e impostarla su true nella stringa di connessione. Per Archiviazione di Azure è possibile usare HTTPS nella stringa di connessione.
 
 * [Informazioni sulla crittografia in transito in Azure Data Factory](https://docs.microsoft.com/azure/data-factory/data-movement-security-considerations)
 
@@ -896,11 +896,11 @@ Si noti che questo vale solo se il Integration Runtime è in esecuzione in una m
 
 * [Informazioni sul firewall di Azure](https://docs.microsoft.com/azure/firewall/overview)
 
-* [Che cos'è Web Application Firewall di Azure?](https://docs.microsoft.com/azure/web-application-firewall/overview)
+* [Che cos'è il firewall applicazione Web di Azure?](https://docs.microsoft.com/azure/web-application-firewall/overview)
 
 * [Gruppi di sicurezza di rete](https://docs.microsoft.com/azure/virtual-network/security-overview)
 
-* [Che cos'è Rete virtuale di Azure?](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
+* [Che cos'è la rete virtuale di Azure?](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)
 
 * [Organizzare le risorse con i gruppi di gestione di Azure ](https://docs.microsoft.com/azure/governance/management-groups/overview)
 
@@ -1050,7 +1050,9 @@ Il ruolo Collaboratore Data Factory può essere usato per creare e gestire Data 
 
 * [Come creare una Key Vault](https://docs.microsoft.com/azure/key-vault/quick-create-portal)
 
-* [Come fornire l'autenticazione Key Vault con un'identità gestita](https://docs.microsoft.com/azure/key-vault/managed-identity)
+* [Come eseguire l'autenticazione a Key Vault](https://docs.microsoft.com/azure/key-vault/general/authentication)
+
+* [Come assegnare un criterio di accesso Key Vault](https://docs.microsoft.com/azure/key-vault/general/assign-access-policy-portal)
 
 * [Usare i segreti di Azure Key Vault nelle attività della pipeline](https://docs.microsoft.com/azure/data-factory/how-to-use-azure-key-vault-secrets-pipeline-activities)
 

@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 01/05/2018
 ms.author: jingwang
 robots: noindex
-ms.openlocfilehash: c7f91285b393734bce83785dde62fd573e94ac0f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a77a4808390f816bc3a6646520f4b542bee89d4c
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85254515"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89438518"
 ---
 # <a name="copy-data-to-or-from-azure-blob-storage-using-azure-data-factory"></a>Copiare i dati da e in Archiviazione BLOB di Azure mediante Azure Data Factory
 > [!div class="op_single_selector" title1="Selezionare uSelezionare la versione del servizio di Azure Data Factory in uso:"]
@@ -31,7 +31,7 @@ ms.locfileid: "85254515"
 Questo articolo illustra come usare l'attività di copia in Azure Data Factory per copiare i dati da e in Archiviazione BLOB di Azure. Si basa sull'articolo relativo alle [attività di spostamento dei dati](data-factory-data-movement-activities.md) , che offre una panoramica generale dello spostamento dei dati con l'attività di copia.
 
 ## <a name="overview"></a>Panoramica
-È possibile copiare i dati da qualsiasi archivio dati di origine supportato all'archivio BLOB di Azure o dall'archivio BLOB di Azure a qualsiasi archivio dati sink supportato. La tabella seguente contiene un elenco degli archivi dati supportati come origini o sink dall'attività di copia. Ad esempio, è possibile spostare i dati da un database SQL Server o **da** un database nel database SQL di Azure a un archivio BLOB **di** Azure. È anche possibile copiare dati **da** Archiviazione BLOB di Azure **a** un'istanza di Azure SQL Data Warehouse o una raccolta Azure Cosmos DB.
+È possibile copiare i dati da qualsiasi archivio dati di origine supportato all'archivio BLOB di Azure o dall'archivio BLOB di Azure a qualsiasi archivio dati sink supportato. La tabella seguente contiene un elenco degli archivi dati supportati come origini o sink dall'attività di copia. Ad esempio, è possibile spostare i dati da un database SQL Server o **da** un database nel database SQL di Azure a un archivio BLOB **di** Azure. È possibile copiare i dati **da** un archivio BLOB **di Azure ad** Azure sinapsi Analytics (in precedenza SQL Data Warehouse) o una raccolta di Azure Cosmos DB.
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -193,7 +193,7 @@ Ecco come copiare rapidamente i dati in/da una risorsa di archiviazione BLOB di 
     4. Selezionare una **località** per la data factory.
     5. Selezionare la casella di controllo **Aggiungi al dashboard** nella parte inferiore del pannello.
     6. Fare clic su **Crea**.
-3. Al termine della creazione, viene visualizzato il pannello **Data Factory** come illustrato nell'immagine seguente: ![ Data Factory Home page](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
+3. Al termine della creazione, viene visualizzato il pannello **Data Factory** come illustrato nell'immagine seguente:  ![ Data Factory Home page](./media/data-factory-azure-blob-connector/data-factory-home-page.png)
 
 ### <a name="copy-wizard"></a>Copia guidata
 1. Nella home page di Data Factory fare clic sul riquadro **Copia dati** per avviare **Copy Data Wizard** (Copia dati guidata).  
@@ -221,14 +221,14 @@ Ecco come copiare rapidamente i dati in/da una risorsa di archiviazione BLOB di 
 5. Nella pagina **Choose the input file or folder** (Scegliere il file o la cartella di input):
     1. Fare doppio clic su **adfblobcontainer**.
     2. Selezionare **input** e fare clic su **Scegli**. In questa procedura dettagliata si seleziona la cartella input. È anche possibile scegliere invece il file emp.txt nella cartella.
-        ![Strumento di copia - Scegliere il file o la cartella di input](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
+        ![Strumento di copia-scegliere il file o la cartella di input 1](./media/data-factory-azure-blob-connector/copy-tool-choose-input-file-or-folder.png)
 6. Nella pagina **Choose the input file or folder** (Scegliere il file o la cartella di input):
     1. Verificare che **File o cartella** sia impostato su **adfblobconnector/input**. Se i file sono in cartelle secondarie, ad esempio 2017/04/01, 2017/04/02 e così via, immettere adfblobconnector/input/{anno}/{mese}/{giorno} per il file o la cartella. Quando si preme TAB al di fuori della casella di testo, vengono visualizzati tre elenchi a discesa per selezionare i formati per anno (yyyy), mese (MM) e giorno (dd).
     2. Non impostare **Copy file recursively** (Copia file in modo ricorsivo). Selezionare questa opzione per cercare in modo ricorsivo nelle cartelle i file da copiare nella destinazione.
     3. Non selezionare l'opzione **binary copy** (Copia binaria). Selezionare questa opzione per eseguire una copia binaria del file di origine nella destinazione. Non selezionarla per questa procedura dettagliata per poter visualizzare altre opzioni nelle pagine successive.
     4. Verificare che **Tipo di compressione** sia impostato su **Nessuno**. Selezionare un valore per questa opzione se i file di origine sono compressi in uno dei formati supportati.
     5. Fare clic su **Avanti**.
-    ![Strumento di copia - Scegliere il file o la cartella di input](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
+    ![Strumento di copia-scegliere il file o la cartella di input 2](./media/data-factory-azure-blob-connector/chose-input-file-folder.png)
 7. Nella pagina **File format settings** (Impostazioni di formato file) vengono visualizzati i delimitatori e lo schema rilevati automaticamente dalla procedura guidata analizzando il file.
     1. Confermare le opzioni seguenti:  
         a. Il **formato file** è impostato su **Testo**. È possibile visualizzare tutti i formati supportati nell'elenco a discesa. Ad esempio: JSON, Avro, ORC, Parquet.
