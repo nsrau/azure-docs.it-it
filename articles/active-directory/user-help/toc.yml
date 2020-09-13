@@ -106,8 +106,6 @@
   items:
     - name: Accedere e usare il portale App personali
       href: my-apps-portal-end-user-access.md
-    - name: Aggiornare le informazioni su profilo e account
-      href: my-apps-portal-end-user-update-profile.md
     - name: Aggiornare le informazioni correlate ai gruppi
       href: my-apps-portal-end-user-groups.md
     - name: Organizzare le app con le raccolte

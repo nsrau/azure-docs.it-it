@@ -12,12 +12,12 @@ ms.workload: identity
 ms.date: 05/18/2020
 ms.author: jmprieur
 ms.custom: aaddev, devx-track-python
-ms.openlocfilehash: 0d1946862ec8af6a107ca4f5f963efbcb8912a5e
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: ab6842fe6787b9e1a61b3c25fabb6c64c2597b9a
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440933"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032810"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>App desktop che chiama le API Web: Acquisire un token
 
@@ -183,7 +183,7 @@ In Android è inoltre necessario specificare l'attività padre usando `.WithPare
 
 #### <a name="withparentactivityorwindow"></a>WithParentActivityOrWindow
 
-L'interfaccia utente è importante perché è interattiva. `AcquireTokenInteractive` prevede un parametro facoltativo specifico che può specificare, per le piattaforme che lo supportano, l'interfaccia utente padre. Quando viene usato in un'applicazione desktop, `.WithParentActivityOrWindow` ha un tipo diverso, che dipende dalla piattaforma.
+L'interfaccia utente è importante perché è interattiva. `AcquireTokenInteractive` prevede un parametro facoltativo specifico che può specificare, per le piattaforme che lo supportano, l'interfaccia utente padre. Quando viene usato in un'applicazione desktop, `.WithParentActivityOrWindow` ha un tipo diverso, che dipende dalla piattaforma. In alternativa, è possibile omettere il parametro facoltativo della finestra padre per creare una finestra, se non si desidera controllare la posizione di visualizzazione della finestra di dialogo di accesso sullo schermo. Questo sarebbe applicabile per le applicazioni che sono basate sulla riga di comando, utilizzate per passare le chiamate a qualsiasi altro servizio back-end e non necessitano di alcuna finestra per l'interazione dell'utente. 
 
 ```csharp
 // net45

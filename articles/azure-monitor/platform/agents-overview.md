@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/02/2020
-ms.openlocfilehash: 2a0c95e45dc529d779d6b06e1e5bdb32ba80b241
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 48d233dee063d8f9049e6e54baa2d744e1b8b058
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007537"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033456"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Panoramica degli agenti di monitoraggio di Azure
 
@@ -79,7 +79,7 @@ L' [agente di log Analytics](log-analytics-agent.md) raccoglie i dati di monitor
 Usare l'agente di Log Analytics se è necessario:
 
 * Raccogliere i log e i dati sulle prestazioni da macchine virtuali o fisiche all'interno o all'esterno di Azure. 
-* Inviare dati a un'area di lavoro di Log Analytics per sfruttare le funzionalità supportate dai [log di monitoraggio di Azure](data-platform-logs.md#what-can-you-do-with-azure-monitor-logs) , ad esempio le query di [log](../log-query/log-query-overview.md).
+* Inviare dati a un'area di lavoro di Log Analytics per sfruttare le funzionalità supportate dai [log di monitoraggio di Azure](data-platform-logs.md) , ad esempio le query di [log](../log-query/log-query-overview.md).
 * Usare [monitoraggio di Azure per le macchine virtuali](../insights/vminsights-overview.md) , che consente di monitorare le macchine virtuali su larga scala e monitora i processi e le dipendenze da altre risorse e processi esterni.  
 * Gestire la sicurezza delle macchine virtuali usando il [Centro sicurezza di Azure](../../security-center/security-center-intro.md)  o [Azure Sentinel](../../sentinel/overview.md).
 * Usare la [gestione degli aggiornamenti di automazione](../../automation/update-management/update-mgmt-overview.md)di Azure, la [configurazione dello stato di automazione](../../automation/automation-dsc-overview.md)di Azure o [rilevamento modifiche e l'inventario di automazione di Azure](../../automation/change-tracking.md) per offrire una gestione completa delle VM di Azure

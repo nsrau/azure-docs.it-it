@@ -6,16 +6,16 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 85b0137f8d89def2f38ffe82199950c9158888d0
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f4c61b43855e4a845956a937d9d9cfe738d6f47a
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070048"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032946"
 ---
 # <a name="design-decisions-and-coding-techniques-for-synapse-sql-features-in-azure-synapse-analytics"></a>Decisioni di progettazione e tecniche di codifica per le funzionalità di SQL sinapsi in Azure sinapsi Analytics
 In questo articolo è possibile trovare un elenco di risorse per il pool SQL e le funzioni SQL su richiesta (anteprima) di sinapsi SQL. Gli articoli consigliati sono suddivisi in due sezioni: decisioni di progettazione chiave e tecniche di sviluppo e codifica.
@@ -40,7 +40,7 @@ Gli articoli seguenti evidenziano i concetti e le decisioni di progettazione per
 | [CETAS](develop-tables-cetas.md)                     | Sì | Sì |
 
 
-## <a name="recommendations"></a>Indicazioni
+## <a name="recommendations"></a>Consigli
 
 Di seguito sono riportati gli articoli essenziali che evidenziano tecniche di codifica, suggerimenti e consigli per lo sviluppo specifici:
 

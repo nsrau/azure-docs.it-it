@@ -1,25 +1,25 @@
 ---
-title: Risolvere problemi relativi ai flussi di dati
+title: Risolvere i problemi di mapping dei flussi di dati
 description: Informazioni su come risolvere problemi relativi ai flussi di dati in Azure Data Factory.
 services: data-factory
 ms.author: makromer
 author: kromerm
-manager: anandsub
+ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/08/2020
-ms.openlocfilehash: 6f2bf98e1c527be27ba0f08a43785ae7d3aea726
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.date: 09/11/2020
+ms.openlocfilehash: e52432c01e649754116fcd0420fa52ae6c4e3733
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594152"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031858"
 ---
-# <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Risolvere problemi relativi ai flussi di dati in Azure Data Factory
+# <a name="troubleshoot-mapping-data-flows-in-azure-data-factory"></a>Risolvere i problemi relativi al mapping dei flussi di dati in Azure Data Factory
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Questo articolo illustra i metodi più comuni per la risoluzione di problemi relativi ai flussi di dati in Azure Data Factory.
+Questo articolo illustra i metodi comuni per la risoluzione dei problemi relativi al mapping dei flussi di dati in Azure Data Factory.
 
 ## <a name="common-errors-and-messages"></a>Errori comuni e messaggi
 
@@ -31,7 +31,7 @@ Questo articolo illustra i metodi più comuni per la risoluzione di problemi rel
 ### <a name="error-code-df-executor-systemimplicitcartesian"></a>Codice errore: DF-Executor-SystemImplicitCartesian
 
 - **Messaggio**: implicit cartesian product for INNER join is not supported, use CROSS JOIN instead (il prodotto cartesiano implicito per INNER JOIN non è supportato. Usare CROSS JOIN). Le colonne usate nel join devono creare una chiave univoca per le righe.
-- **Cause**: il prodotto cartesiano implicito per INNER JOIN tra i piani logici non è supportato. Se le colonne usate nel join creano la chiave univoca, è necessaria almeno una colonna da entrambi i lati della relazione.
+- **Cause**: il prodotto cartesiano implicito per INNER JOIN tra i piani logici non è supportato. Se le colonne utilizzate nel join creano la chiave univoca, sono necessarie almeno una colonna da entrambi i lati della relazione.
 - **Raccomandazione**: per i join basati sulla non uguaglianza è necessario scegliere un CROSS JOIN personalizzato.
 
 ### <a name="error-code-df-executor-systeminvalidjson"></a>Codice errore: DF-Executor-SystemInvalidJson
@@ -43,10 +43,10 @@ Questo articolo illustra i metodi più comuni per la risoluzione di problemi rel
 ### <a name="error-code-df-executor-broadcasttimeout"></a>Codice errore: DF-Executor-BroadcastTimeout
 
 - **Messaggio**: Broadcast join timeout error, make sure broadcast stream produces data within 60 secs in debug runs and 300 secs in job runs (errore di timeout del join di trasmissione. Assicurarsi che il flusso di trasmissione generi i dati entro 60 secondi nelle esecuzioni di debug ed entro 300 secondi nelle esecuzioni di processi)
-- **Cause**: la trasmissione ha un timeout predefinito di 60 secondi nelle esecuzioni di debug e di 300 secondi nelle esecuzioni di processi. Il flusso scelto per la trasmissione sembra di dimensioni troppo grandi per generare i dati entro questo limite.
-- **Raccomandazione**: selezionare la scheda Optimize (Ottimizza) per le trasformazioni del flusso di dati per Join, Exists (Esistente) e Lookup (Ricerca). L'opzione predefinita per la trasmissione è "Auto". Se è impostata questa opzione o se si imposta manualmente il lato sinistro o destro per eseguire una trasmissione di tipo fisso, è possibile impostare una configurazione di Azure Integration Runtime di dimensioni più grandi o disattivare la trasmissione. L'approccio consigliato per ottenere prestazioni ottimali nei flussi di dati consiste nel consentire a Spark di eseguire la trasmissione tramite l'opzione "Auto" e usare Azure IR ottimizzato per la memoria.
+- **Cause**: la trasmissione ha un timeout predefinito di 60 secondi nelle esecuzioni di debug e di 300 secondi durante l'esecuzione del processo. Il flusso scelto per la trasmissione sembra troppo grande per produrre dati entro questo limite.
+- **Raccomandazione**: selezionare la scheda Optimize (Ottimizza) per le trasformazioni del flusso di dati per Join, Exists (Esistente) e Lookup (Ricerca). L'opzione predefinita per la trasmissione è "Auto". Se è impostato "auto" o se si imposta manualmente il lato sinistro o destro su broadcast in "Fixed", è possibile impostare una configurazione di Azure Integration Runtime più grande o disattivare broadcast. L'approccio consigliato per ottenere prestazioni ottimali nei flussi di dati consiste nel consentire a Spark di eseguire la trasmissione tramite l'opzione "Auto" e usare Azure IR ottimizzato per la memoria.
 
-Se si esegue il flusso di dati in un'esecuzione di test di debug da un'esecuzione di pipeline di debug, è possibile che si verifichi questa condizione con maggiore frequenza. Questo perché ADF limita il timeout di trasmissione a 60 secondi per mantenere un'esperienza di debug più veloce. Se si vuole estendere questo valore al timeout di 300 secondi da un'esecuzione attivata, è possibile usare l'opzione debug > use Activity Runtime per utilizzare le Azure IR definite nell'attività Esegui pipeline flusso di dati.
+Se si esegue il flusso di dati in un'esecuzione di test di debug da un'esecuzione di pipeline di debug, è possibile che si verifichi questa condizione con maggiore frequenza. Questo perché ADF limita il timeout di trasmissione a 60 secondi per mantenere un'esperienza di debug più veloce. Se si desidera estendere il valore al timeout di 300 secondi da un'esecuzione attivata, è possibile utilizzare l'opzione debug > utilizza Runtime attività per utilizzare le Azure IR definite nell'attività Esegui pipeline flusso di dati.
 
 ### <a name="error-code-df-executor-conversion"></a>Codice errore: DF-Executor-Conversion
 
@@ -59,6 +59,46 @@ Se si esegue il flusso di dati in un'esecuzione di test di debug da un'esecuzion
 - **Messaggio**: column name needs to be specified in the query, set an alias if using a SQL function (specificare il nome della colonna nella query, impostare un alias se si usa una funzione SQL)
 - **Cause**: non è stato specificato un nome per la colonna
 - **Raccomandazione**: impostare un alias se si usa una funzione SQL, ad esempio min()/max() e così via.
+
+ ### <a name="error-code-df-executor-drivererror"></a>Codice di errore: DF-Executor-DriverError
+- **Messaggio**: INT96 è di tipo timestamp legacy che non è supportato dal flusso di file ADF. Si consiglia di aggiornare il tipo di colonna ai tipi più recenti.
+- **Cause**: errore del driver
+- **Raccomandazione**: INT96 è di tipo timestamp legacy, che non è supportato dal flusso di file ADF. Provare ad aggiornare il tipo di colonna ai tipi più recenti.
+
+ ### <a name="error-code-df-executor-blockcountexceedslimiterror"></a>Codice di errore: DF-Executor-BlockCountExceedsLimitError
+- **Messaggio**: il conteggio dei blocchi di cui non è stato eseguito il commit non può superare il limite massimo di 100.000 blocchi. Controllare la configurazione del BLOB.
+- **Cause**: possono essere presenti al massimo 100.000 blocchi di cui non è stato eseguito il commit in un BLOB.
+- **Consiglio**: per informazioni dettagliate, contattare il team del prodotto Microsoft in merito a questo problema
+
+ ### <a name="error-code-df-executor-partitiondirectoryerror"></a>Codice di errore: DF-Executor-PartitionDirectoryError
+- **Messaggio**: il percorso di origine specificato ha più directory partizionate, ad esempio <Source Path> /<directory radice della partizione 1>/a = 10/b = 20, <Source Path> /<directory radice partizione 2>/c = 10/d = 30) o directory partizionata con altro file o directory non partizionata (ad esempio <Source Path> /<directory radice partizione 1>/a = 10/b = 20, <Source Path> /Directory 2/file1), rimuovere la directory radice della partizione dal percorso di origine e leggerla tramite una trasformazione di origine separata.
+- **Cause**: il percorso di origine contiene più directory partizionate o una directory partizionata con altro file o directory non partizionata.
+- **Raccomandazione**: rimuovere la directory radice partizionata dal percorso di origine e leggerla tramite una trasformazione di origine separata.
+
+ ### <a name="error-code-df-executor-outofmemoryerror"></a>Codice di errore: DF-Executor-OutOfMemoryError
+- **Messaggio**: si è verificata un problema di memoria insufficiente durante l'esecuzione. riprovare a usare un runtime di integrazione con un numero di core maggiore e/o un tipo di calcolo con ottimizzazione per la memoria
+- **Cause**: memoria insufficiente per il cluster
+- **Raccomandazione**: i cluster di debug sono destinati a scopi di sviluppo. Sfruttare il campionamento dei dati, il tipo di calcolo appropriato e le dimensioni per eseguire il payload. Per ottenere prestazioni ottimali, vedere la [Guida alle prestazioni del flusso di dati di mapping](concepts-data-flow-performance.md) per l'ottimizzazione.
+
+ ### <a name="error-code-df-executor-illegalargument"></a>Codice di errore: DF-Executor-illegalArgument
+- **Messaggio**: assicurarsi che la chiave di accesso nel servizio collegato sia corretta
+- **Cause**: il nome dell'account o la chiave di accesso non è corretta
+- **Raccomandazione**: assicurarsi che il nome dell'account o la chiave di accesso specificata nel servizio collegato sia corretta. 
+
+ ### <a name="error-code-df-executor-invalidtype"></a>Codice di errore: DF-Executor-InvalidType
+- **Messaggio**: assicurarsi che il tipo di parametro corrisponda al tipo di valore passato. Il passaggio di parametri float dalle pipeline non è attualmente supportato.
+- **Cause**: tipi di dati non compatibili tra il tipo dichiarato e il valore del parametro effettivo
+- **Raccomandazione**: controllare che i valori dei parametri passati in un flusso di dati corrispondano al tipo dichiarato.
+
+ ### <a name="error-code-df-executor-columnunavailable"></a>Codice di errore: DF-Executor-ColumnUnavailable
+- **Messaggio**: il nome della colonna utilizzato nell'espressione non è disponibile o non è valido
+- **Cause**: nome di colonna non valido o non disponibile usato nelle espressioni
+- **Raccomandazione**: controllare i nomi di colonna usati nelle espressioni
+
+ ### <a name="error-code-df-executor-parseerror"></a>Codice di errore: DF-Executor-ParseError
+- **Messaggio**: non è possibile analizzare l'espressione
+- **Cause**: l'espressione presenta errori di analisi dovuti alla formattazione
+- **Raccomandazione**: controllare la formattazione nell'espressione
 
 ### <a name="error-code-getcommand-outputasync-failed"></a>Codice errore: GetCommand OutputAsync failed
 

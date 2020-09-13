@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 9/12/2019
-ms.openlocfilehash: c84616e8a9b9ff9722f5a104175c80c37dbcbcc3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 9/11/2020
+ms.openlocfilehash: 35d5b101f4ad5fe4498c0566227c5f0a9d102b60
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116914"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032562"
 ---
 # <a name="manage-firewall-rules-for-azure-database-for-postgresql---hyperscale-citus"></a>Gestire le regole del firewall per Database di Azure per PostgreSQL - Hyperscale (Citus)
 Le regole del firewall a livello di server possono essere usate per gestire l'accesso a un nodo coordinatore Hyperscale (Citus) da un indirizzo IP specificato o da un intervallo di indirizzi IP.
@@ -24,14 +24,14 @@ Per proseguire con questa guida, si richiedono:
 ## <a name="create-a-server-level-firewall-rule-in-the-azure-portal"></a>Creare una regola del firewall a livello di server nel portale di Azure
 
 > [!NOTE]
-> Queste impostazioni sono accessibili anche durante la creazione di un gruppo di server di Database di Azure per PostgreSQL - Hyperscale (Citus). Nella scheda **Rete** fare clic su **Endpoint pubblico**.
+> Queste impostazioni sono accessibili anche durante la creazione di un gruppo di server di Database di Azure per PostgreSQL - Hyperscale (Citus). Nella scheda **rete** fare clic su **accesso pubblico**.
 > ![Portale di Azure - Scheda Rete](./media/howto-hyperscale-manage-firewall-using-portal/0-create-public-access.png)
 
 1. Nella pagina del gruppo di server PostgreSQL, nell'intestazione Sicurezza, fare clic su **Rete** per aprire le regole del firewall.
 
    ![Portale di Azure - Selezione di Rete](./media/howto-hyperscale-manage-firewall-using-portal/1-connection-security.png)
 
-2. Fare clic su **Aggiungi IP client**, sulla barra degli strumenti (opzione A di seguito) o nel collegamento (opzione B). In entrambi i casi, viene creata automaticamente una regola del firewall con l'indirizzo IP pubblico del computer rilevato dal sistema Azure.
+2. Fare clic su **Aggiungi indirizzo IP client corrente** per creare una regola del firewall con l'indirizzo IP pubblico del computer, come percepito dal sistema Azure.
 
    ![Portale di Azure - Selezione di Aggiungi IP client](./media/howto-hyperscale-manage-firewall-using-portal/2-add-my-ip.png)
 
@@ -55,7 +55,7 @@ Esiste un modo semplice per concedere al database Hyperscale l'accesso alle appl
 
 ## <a name="manage-existing-server-level-firewall-rules-through-the-azure-portal"></a>Gestione delle regole del firewall a livello di server esistenti tramite il portale di Azure
 Ripetere i passaggi per gestire le regole del firewall.
-* Per aggiungere il computer corrente, fare clic sul pulsante + **Aggiungi IP client**. È consigliabile fare clic su **Salva** per salvare le modifiche.
+* Per aggiungere il computer corrente, fare clic sul pulsante per **aggiungere l'indirizzo IP del client corrente**. È consigliabile fare clic su **Salva** per salvare le modifiche.
 * Per aggiungere ulteriori indirizzi IP, digitare nome della regola, indirizzo IP iniziale e indirizzo IP finale. È consigliabile fare clic su **Salva** per salvare le modifiche.
 * Per modificare una regola esistente, fare clic su uno dei campi nella regola e modificare. È consigliabile fare clic su **Salva** per salvare le modifiche.
 * Per eliminare una regola esistente, fare clic sui puntini di sospensione […] e fare clic su **Elimina** per rimuovere la regola. È consigliabile fare clic su **Salva** per salvare le modifiche.

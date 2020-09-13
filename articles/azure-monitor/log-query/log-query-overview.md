@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/19/2019
-ms.openlocfilehash: 7e8e2015e7d0798542ff0c80d8eb39461918ad67
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5a47de51a90d926b47f6b465d6c10111407da9c6
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86539602"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033167"
 ---
 # <a name="overview-of-log-queries-in-azure-monitor"></a>Panoramica delle query di log in monitoraggio di Azure
 Le query di log consentono di sfruttare appieno il valore dei dati raccolti nei [log di monitoraggio di Azure](../platform/data-platform-logs.md). Un linguaggio di query avanzato consente di unire dati da più tabelle, aggregare set di dati di grandi dimensioni ed eseguire operazioni complesse con codice minimo. È possibile rispondere a qualsiasi domanda ed eseguire l'analisi fino a quando i dati di supporto sono stati raccolti e si comprende come costruire la query corretta.
@@ -38,10 +38,7 @@ Per una rapida procedura dettagliata del linguaggio usando i dati dei log di mon
 Vedere le [differenze del linguaggio di query del log di monitoraggio di Azure](data-explorer-difference.md) per le differenze minime nella versione di KQL usata da monitoraggio di Azure.
 
 ## <a name="what-data-is-available-to-log-queries"></a>Quali dati sono disponibili per le query di log?
-Tutti i dati raccolti nei log di monitoraggio di Azure sono disponibili per il recupero e l'analisi nelle query di log. Origini dati diverse scriveranno i dati in tabelle diverse, ma è possibile includere più tabelle in una singola query per analizzare i dati in più origini. Quando si compila una query, si inizia determinando le tabelle che contengono i dati che si stanno cercando, quindi è necessario avere almeno una conoscenza di base della struttura dei dati nei log di monitoraggio di Azure.
-
-Vedere [origini dei log di monitoraggio di Azure](../platform/data-platform-logs.md#sources-of-azure-monitor-logs)per un elenco di origini dati diverse che popolano i log di monitoraggio di Azure.<br>
-Per una spiegazione del modo in cui sono strutturati i dati, vedere [struttura dei log di monitoraggio di Azure](logs-structure.md) .
+Tutti i dati raccolti nei log di monitoraggio di Azure sono disponibili per il recupero e l'analisi nelle query di log. Origini dati diverse scriveranno i dati in tabelle diverse, ma è possibile includere più tabelle in una singola query per analizzare i dati in più origini. Quando si compila una query, è necessario innanzitutto determinare quali tabelle contengono i dati da cercare. Per una spiegazione del modo in cui sono strutturati i dati, vedere [struttura dei log di monitoraggio di Azure](logs-structure.md) .
 
 ## <a name="what-does-a-log-query-look-like"></a>Che aspetto ha una query di log?
 Una query può essere semplice come un nome di tabella singolo per recuperare tutti i record da tale tabella:

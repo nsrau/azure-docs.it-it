@@ -9,12 +9,12 @@ ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: b1b438dd9370e0f0d76e5c596176d9bd08cc76d5
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 79e108303575d5a9969e04f01bdeb126bf078762
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462004"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031484"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Monitorare, diagnosticare e risolvere i problemi dell'Archiviazione di Microsoft Azure
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -220,7 +220,7 @@ Storage Client Library per .NET consente di raccogliere i dati della registrazio
 È possibile acquisire il traffico tra client e server per fornire informazioni dettagliate sui dati scambiati da client e server e sulle condizione della rete sottostante. Sono disponibili alcuni strumenti utili per la registrazione in rete:
 
 * [Fiddler](https://www.telerik.com/fiddler) è un proxy di debug Web gratuito che consente di esaminare le intestazioni e i dati di payload dei messaggi HTTP e HTTPS di richiesta e risposta. Per altre informazioni, vedere [Appendice 1: Uso di Fiddler per l'acquisizione del traffico HTTP e HTTPS](#appendix-1).
-* [Microsoft Network Monitor (Netmon)](https://www.microsoft.com/download/details.aspx?id=4865) e [Wireshark](https://www.wireshark.org/) sono strumenti gratuiti per l'analisi dei protocolli di rete che consentono di visualizzare informazioni dettagliate sui pacchetti per un'ampia gamma di protocolli di rete. Per altre informazioni su Wireshark, vedere "[Appendice 2: Uso di Wireshark per l'acquisizione del traffico di rete](#appendix-2)".
+* [Microsoft Network Monitor (Netmon)](https://cnet-downloads.com/network-monitor) e [Wireshark](https://www.wireshark.org/) sono strumenti gratuiti per l'analisi dei protocolli di rete che consentono di visualizzare informazioni dettagliate sui pacchetti per un'ampia gamma di protocolli di rete. Per altre informazioni su Wireshark, vedere "[Appendice 2: Uso di Wireshark per l'acquisizione del traffico di rete](#appendix-2)".
 * Microsoft Message Analyzer è uno strumento di Microsoft che sostituisce Netmon e che, oltre ad acquisire i dati dei pacchetti di rete, consente di visualizzare e analizzare i dati di log acquisiti da altri strumenti. Per altre informazioni, vedere "[Appendice 3: Uso di Microsoft Message Analyzer per l'acquisizione del traffico di rete](#appendix-3)".
 * Per eseguire un test di base delle connessioni per verificare che il computer client sia in grado di connettersi al servizio di archiviazione Azure in rete, non è possibile utilizzare il normale strumento **ping** sul client. [Tuttavia, è possibile usare lo strumento **tcping**](https://www.elifulkerson.com/projects/tcping.php) per verificare la connettività.
 
@@ -346,7 +346,7 @@ L'illustrazione dello strumento di monitoraggio del [portale di Azure](https://p
 
 ![Illustrazione del portale di Azure che mostra un esempio in cui AverageE2ELatency è significativamente superiore rispetto a valore averageserverlatency.][4]
 
-Il servizio di archiviazione calcola solo la metrica **AverageE2ELatency** per le richieste eseguite correttamente e, a differenza di **AverageServerLatency**, include il tempo impiegato dal client per inviare i dati e ricevere una conferma dal servizio di archiviazione. Di conseguenza, una differenza tra **AverageE2ELatency** e **AverageServerLatency** potrebbe essere dovuta al fatto che l'applicazione è lenta a rispondere oppure alle condizioni della rete.
+Il servizio di archiviazione calcola solo la metrica **AverageE2ELatency** per le richieste riuscite e, a differenza di **valore averageserverlatency**, include il tempo impiegato dal client per inviare i dati e ricevere il riconoscimento dal servizio di archiviazione. Di conseguenza, una differenza tra **AverageE2ELatency** e **AverageServerLatency** potrebbe essere dovuta al fatto che l'applicazione è lenta a rispondere oppure alle condizioni della rete.
 
 > [!NOTE]
 > È anche possibile visualizzare i valori **E2ELatency** e **ServerLatency** per le singole operazioni di archiviazione nei dati del log della registrazione dell'archiviazione.
@@ -409,7 +409,7 @@ Se si riscontra un ritardo tra l'orario in cui un'applicazione aggiunge un messa
 
 * Verificare che l'applicazione aggiunga correttamente il messaggio alla coda. Verificare che l'applicazione non ripeta il metodo **AddMessage** più volte prima di ottenere l'esito positivo. I file di log di Storage Client Library mostrano tutti i tentativi ripetuti delle operazioni di archiviazione.
 * Verificare che non siano sfasamenti di orario tra il ruolo di lavoro che aggiunge il messaggio alla coda e il ruolo di lavoro che legge il messaggio dalla coda e che determina un apparente ritardo dell'elaborazione.
-* Verificare se il ruolo di lavoro che legge i messaggi dalla coda presenta degli errori. Se un client di accodamento chiama il metodo **GetMessage** ma non risponde con una conferma, il messaggio resterà invisibile nella coda fino alla scadenza del periodo **invisibilityTimeout**. A questo punto, il messaggio diventa di nuovo disponibile per l'elaborazione.
+* Verificare se il ruolo di lavoro che legge i messaggi dalla coda presenta degli errori. Se un client della coda chiama il metodo **GetMessage** ma non riesce a rispondere con un riconoscimento, il messaggio rimarrà invisibile nella coda fino alla scadenza del periodo **invisibilityTimeout** . A questo punto, il messaggio diventa di nuovo disponibile per l'elaborazione.
 * Verificare se la lunghezza della coda aumenta con il tempo. Ciò si può verificare se non sono disponibili ruoli di lavoro sufficienti per elaborare tutti i messaggi che altri ruoli di lavoro inseriscono nella coda. Controllare anche le metriche per verificare se le richieste di eliminazione hanno esito negativo, e il conteggio dei messaggi da rimuovere dalla coda, che potrebbe indicare l'esistenza di ripetuti tentativi non riusciti di eliminare il messaggio.
 * Esaminare i file di log della registrazione dell'archiviazione per verificare se esistono operazioni di accodamento con valori **E2ELatency** e **ServerLatency** su un periodo di tempo più lungo del normale.
 
@@ -617,9 +617,9 @@ I dettagli dell'eccezione nel client includono l'ID richiesta (7e84f12d…) asse
 
 Il log sul lato server contiene anche un'altra voce con lo stesso valore **client-request-id** (813ea74f…) in modo che venga eseguita correttamente l'eliminazione della stessa entità e dallo stesso client. L'operazione di eliminazione corretta viene eseguita poco prima della richiesta di eliminazione non riuscita.
 
-La causa più probabile di tale situazione è il fatto che il client ha inviato correttamente al servizio tabelle una richiesta di eliminazione per l'entità, ma non ha ricevuto alcuna conferma da parte del server (forse per un problema temporaneo della rete). Il client ha quindi ritentato l'operazione (utilizzando lo stesso valore **client-request-id**) e il nuovo tentativo non è riuscito perché l'entità è già stata eliminata.
+La causa più probabile di questo scenario è che il client ha inviato una richiesta DELETE per l'entità al servizio tabelle, che ha avuto esito positivo, ma non ha ricevuto un riconoscimento dal server (probabilmente a causa di un problema di rete temporaneo). Il client ha quindi ritentato l'operazione (utilizzando lo stesso valore **client-request-id**) e il nuovo tentativo non è riuscito perché l'entità è già stata eliminata.
 
-Se questo problema si verifica di frequente, è necessario capire perché il client non riesce a ricevere le risposte di conferma dal servizio tabelle. Se il problema è intermittente, occorre bloccare l'errore "HTTP (404) Non trovato" e registrarlo nel log del client, ma consentire al client di continuare.
+Se il problema si verifica di frequente, è necessario esaminare il motivo per cui il client non riesce a ricevere i riconoscimenti dal servizio tabelle. Se il problema è intermittente, occorre bloccare l'errore "HTTP (404) Non trovato" e registrarlo nel log del client, ma consentire al client di continuare.
 
 ### <a name="the-client-is-receiving-http-409-conflict-messages"></a><a name="the-client-is-receiving-409-messages"></a>Il client sta ricevendo messaggi HTTP 409 (Conflitto)
 La tabella seguente illustra un estratto del log sul lato server per due operazioni client: **DeleteIfExists** immediatamente seguita da **CreateIfNotExists** usando lo stesso nome del contenitore BLOB. Ogni operazione del client determina l'invio di due richieste al server, prima una richiesta **GetContainerProperties** per verificare se il contenitore esiste e successivamente una richiesta **DeleteContainer** o **CreateContainer**.
@@ -777,7 +777,7 @@ La traccia **Web Proxy** integrata in Microsoft Message Analyzer è basata su Fi
 #### <a name="diagnosing-network-issues-using-microsoft-message-analyzer"></a>Diagnosi dei problemi di rete con Microsoft Message Analyzer
 Oltre a usare la traccia **Web Proxy** di Microsoft Message Analyzer per acquisire i dettagli del traffico HTTP/HTTP tra l'applicazione client e il servizio di archiviazione, è anche possibile usare la traccia **Local Link Layer** integrata per acquisire le informazioni sui pacchetti di rete. Ciò consente di acquisire dati simili a quelli acquisiti con Wireshark e di diagnosticare eventuali problemi della rete, ad esempio i pacchetti interrotti.
 
-La schermata seguente illustra un esempio della traccia **Local Link Layer** con alcuni messaggi **informativi** nella colonna **DiagnosisTypes**. Facendo clic su un'icona nella colonna **DiagnosisTypes** verranno visualizzati i dettagli del messaggio. In questo esempio, il server ha ritrasmesso il messaggio #305 perché non riceveva una conferma dal client:
+La schermata seguente illustra un esempio della traccia **Local Link Layer** con alcuni messaggi **informativi** nella colonna **DiagnosisTypes**. Facendo clic su un'icona nella colonna **DiagnosisTypes** verranno visualizzati i dettagli del messaggio. In questo esempio, il messaggio ritrasmesso dal server #305 perché non ha ricevuto un riconoscimento dal client:
 
 ![Screenshot che mostra un esempio di traccia del livello di collegamento locale con alcuni messaggi informativi nella colonna DiagnosisTypes][9]
 

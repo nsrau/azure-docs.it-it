@@ -6,13 +6,13 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 11/04/2019
-ms.openlocfilehash: 0c7702c8832e22d889a5d785dad845430bfb7d17
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 07/27/2020
+ms.openlocfilehash: f08fb01cf26ddf73d31b575242b27d7d8b4017d9
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116880"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033277"
 ---
 # <a name="configure-hyperscale-citus-high-availability"></a>Configurare la disponibilità elevata di CITUS (iperscale)
 
@@ -21,7 +21,7 @@ Database di Azure per PostgreSQL-iperscalabilità (CITUS) fornisce disponibilit�
 > [!IMPORTANT]
 > Poiché HA raddoppiato il numero di server nel gruppo, il costo sarà anche doppio.
 
-È possibile abilitare la disponibilità elevata durante la creazione del gruppo di server o successivamente nella scheda **Configura** del gruppo di server nel portale di Azure. L'interfaccia utente è simile in entrambi i casi. Trascinare il dispositivo di scorrimento per la **disponibilità elevata** su Sì:
+L'abilitazione di disponibilità elevata è possibile durante la creazione del gruppo di server o successivamente nella scheda **calcolo + archiviazione** per il gruppo di server nel portale di Azure. L'interfaccia utente è simile in entrambi i casi. Trascinare il dispositivo di scorrimento per la **disponibilità elevata** da no a Sì:
 
 ![dispositivo di scorrimento a disponibilità elevata](./media/howto-hyperscale-high-availability/01-ha-slider.png)
 

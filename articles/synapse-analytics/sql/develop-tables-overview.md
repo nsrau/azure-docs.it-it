@@ -6,16 +6,16 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3bf180c2b70a686879082888e45e67936cdbec67
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d225511bb78a5773ce4ed5866f6ffc1257921e96
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799231"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032164"
 ---
 # <a name="design-tables-using-synapse-sql"></a>Progettare tabelle con sinapsi SQL
 
@@ -75,7 +75,7 @@ Per visualizzare l'organizzazione delle tabelle nel pool SQL, è possibile utili
 
 | Tabella WideWorldImportersDW  | Tipo di tabella. | Pool SQL |
 |:-----|:-----|:------|:-----|
-| city | Dimension | wwi.DimCity |
+| City | Dimensione | wwi.DimCity |
 | JSON | Fact | wwi.FactOrder |
 
 ## <a name="table-persistence"></a>Persistenza delle tabelle
@@ -143,7 +143,7 @@ La categoria di tabella determina spesso l'opzione ottimale per la distribuzione
 | Categoria di tabella | Opzione di distribuzione consigliata |
 |:---------------|:--------------------|
 | Fact           | Usare la distribuzione hash con indice columnstore cluster. Le prestazioni aumentano quando si crea un join tra due tabelle hash nella stessa colonna di distribuzione. |
-| Dimension      | Usare le tabelle replicate per le tabelle di dimensioni più piccole. Se le tabelle sono troppo grandi per essere archiviate in ogni nodo di calcolo, usare le tabelle con distribuzione hash. |
+| Dimensione      | Usare le tabelle replicate per le tabelle di dimensioni più piccole. Se le tabelle sono troppo grandi per essere archiviate in ogni nodo di calcolo, usare le tabelle con distribuzione hash. |
 | Gestione temporanea        | Usare una tabella round robin per la tabella di staging. Il carico con un'istruzione CTAS è veloce. Una volta che i dati sono presenti nella tabella di staging, usare INSERT... Selezionare questa finestra per spostare i dati nelle tabelle di produzione. |
 
 ## <a name="partitions"></a>Partizioni
@@ -360,9 +360,6 @@ SELECT *
 FROM size
 ;
 ```
-
->[!TIP]
-> Per migliorare le prestazioni in sinapsi SQL, provare a usare **sys. pdw_permanent_table_mappings** anziché **sys. pdw_table_mappings** su tabelle utente permanenti. Per ulteriori informazioni, vedere **[sys. pdw_permanent_table_mappings &#40;&#41;Transact-SQL ](/sql/relational-databases/system-catalog-views/sys-pdw-permanent-table-mappings-transact-sql?view=azure-sqldw-latest)** .
 
 ### <a name="table-space-summary"></a>Riepilogo dello spazio della tabella
 

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 08/28/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: b14dd4aa44620f2b13891a18fc473acbcb0f3245
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 760e0212d2d863e6b869c23c2e523a0e056a28ed
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89086515"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033031"
 ---
 # <a name="how-to-resolve-azure-advisor-recommendations"></a>Come risolvere Azure Advisor consigli
 
@@ -34,7 +34,7 @@ Per abilitare un ambiente di convalida:
 
 2. Selezionare quindi il pool host che si desidera modificare da un ambiente di produzione a un ambiente di convalida.
 
-3. Nel pool host selezionare la scheda **Proprietà** nella colonna sul lato destro dello schermo. Scorrere quindi verso il basso fino a visualizzare "ambiente di convalida". Selezionare **Sì**, quindi selezionare **applica**.
+3. Nel pool host selezionare **Proprietà** nella colonna a sinistra. Scorrere quindi verso il basso fino a visualizzare "ambiente di convalida". Selezionare **Sì**, quindi selezionare **applica**.
 
 >[!div class="mx-imgBorder"]
 >![Screenshot del menu proprietà. "Ambiente di convalida" è evidenziato in rosso e la bolla "Sì" è selezionata.](media/validation-yes.png)

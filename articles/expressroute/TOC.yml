@@ -8,6 +8,7 @@
   items:
     - name: Creare un circuito ExpressRoute - Modello di Resource Manager
       href: quickstart-create-expressroute-vnet-template.md
+  expanded: true
 - name: Esercitazioni
   items:
     - name: Creare e modificare un circuito

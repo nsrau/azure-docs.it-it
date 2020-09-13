@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 10/29/2018
 ms.author: robinsh
 ms.custom: devx-track-csharp
-ms.openlocfilehash: b4e7d8c5c518e4ba4a2a9116898be2bba7df0b06
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 77becbf4777d0668991adcd74b722cd28ac36f03
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89022446"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031178"
 ---
 # <a name="iot-hub-query-language-for-device-and-module-twins-jobs-and-message-routing"></a>Linguaggio di query dell'hub IoT per dispositivi e moduli gemelli, processi e routing di messaggi
 
@@ -234,7 +234,7 @@ L'oggetto query espone più valori **Next**, a seconda dell'opzione di deseriali
 ### <a name="limitations"></a>Limitazioni
 
 > [!IMPORTANT]
-> I risultati della query possono avere qualche minuto di ritardo rispetto ai valori più recenti nei dispositivi gemelli. Se si eseguono query sui singoli dispositivi gemelli in base all'ID, usare l' [API REST di Get gemelle](https://docs.microsoft.com/rest/api/iothub/service/twin/getdevicetwin). Questa API restituisce sempre i valori più recenti e ha limiti di limitazione più elevati. È possibile rilasciare direttamente l'API REST o usare la funzionalità equivalente in uno degli [SDK del servizio Hub Azure](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
+> I risultati della query possono avere qualche minuto di ritardo rispetto ai valori più recenti nei dispositivi gemelli. Se si eseguono query sui singoli dispositivi gemelli in base all'ID, usare l' [API REST di Get gemelle](https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device.devicetwin?view=azure-java-stable). Questa API restituisce sempre i valori più recenti e ha limiti di limitazione più elevati. È possibile rilasciare direttamente l'API REST o usare la funzionalità equivalente in uno degli [SDK del servizio Hub Azure](iot-hub-devguide-sdks.md#azure-iot-hub-service-sdks).
 
 I confronti sono attualmente supportati solo tra tipi primitivi (non oggetti), ad esempio `... WHERE properties.desired.config = properties.reported.config` è supportato solo se tali proprietà hanno valori primitivi.
 

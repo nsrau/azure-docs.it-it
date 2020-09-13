@@ -9,16 +9,16 @@ ms.subservice: ''
 ms.date: 04/15/2020
 ms.author: acomet
 ms.reviewer: jrasnick
-ms.openlocfilehash: 1ce127dbfd9984b3fb18e518701cbbd3a87f5988
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: f5a3c73d60f038820de100f99c554eec27fd6f55
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387243"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033184"
 ---
 # <a name="secure-a-linked-service-with-private-links"></a>Proteggere un servizio collegato con collegamenti privati 
 
-In questo articolo si apprenderà come proteggere un servizio collegato in sinapsi con un endpoint privato.
+Questo articolo illustra come proteggere un servizio collegato in sinapsi con un endpoint privato.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -33,18 +33,18 @@ In Azure Synapse Analytics si usano i servizi collegati per definire le informaz
 
 1. Aprire Azure sinapsi studio e passare alla scheda **Gestisci** .
 1. In **Connessioni esterne** selezionare **Servizi collegati**.
-1. Per aggiungere un servizio collegato, fare clic su **Nuovo**.
-1. Selezionare il riquadro Azure Data Lake Storage Gen2 nell'elenco e fare clic su **Continua**.
+1. Per aggiungere un servizio collegato, selezionare **nuovo**.
+1. Selezionare il riquadro Azure Data Lake Storage Gen2 dall'elenco e selezionare **continua**.
 1. Assicurarsi di abilitare **Interactive Authoring** (Creazione interattiva). L'abilitazione potrebbe richiedere circa 1 minuto. 
-1. Immettere le credenziali di autenticazione. I tipi di autenticazione attualmente supportati sono la chiave dell'account, l'entità servizio e l'identità gestita. Fare clic su Test connessione per verificare che le credenziali siano corrette.
-1. Selezionare **Test connessione**. l'operazione non riesce perché l'account di archiviazione non consente l'accesso al suo interno senza la creazione e l'approvazione di un endpoint privato. Nel messaggio di errore verrà visualizzato un collegamento per creare un **endpoint privato** che è possibile seguire per passare alla parte successiva. Se si segue tale collegamento, ignorare la parte successiva.
+1. Immettere le credenziali di autenticazione. I tipi di autenticazione attualmente supportati sono la chiave dell'account, l'entità servizio e l'identità gestita. Selezionare Test connessione per verificare che le credenziali siano corrette.
+1. Selezionare **Test connessione**perché l'account di archiviazione non consente l'accesso senza la creazione e l'approvazione di un endpoint privato. Nel messaggio di errore verrà visualizzato un collegamento per creare un **endpoint privato** che è possibile seguire per passare alla parte successiva. Se si segue tale collegamento, ignorare la parte successiva.
 1. Selezionare **Create** (Crea) al termine.
 
 ## <a name="create-a-managed-private-endpoint"></a>Creare un endpoint privato gestito
 
-Se non è stato fatto clic sul collegamento ipertestuale quando si testa la connessione precedente, seguire il percorso seguente. A questo punto è necessario creare un endpoint privato gestito che verrà connesso al servizio collegato creato in precedenza.
+Se non è stato selezionato nel collegamento ipertestuale durante il test della connessione precedente, seguire il percorso seguente. Creare un endpoint privato gestito che si connetterà al servizio collegato creato in precedenza.
 
-1. Passare alla scheda **Gestisci** .
+1. Passare alla scheda **Gestisci**.
 1. Passare alla sezione **reti virtuali gestite** .
 1. Selezionare **+ nuovo** in endpoint privato gestito.
 1. Selezionare il riquadro Azure Data Lake Storage Gen2 dall'elenco e selezionare **continua**.
@@ -55,7 +55,7 @@ Se non è stato fatto clic sul collegamento ipertestuale quando si testa la conn
 ## <a name="private-link-approval"></a>Approvazione collegamento privato
 1. Selezionare l'endpoint privato creato in precedenza. È possibile visualizzare un collegamento ipertestuale che consente di approvare l'endpoint privato a livello di account di archiviazione. *In alternativa, è possibile passare direttamente all'account di archiviazione portale di Azure e passare al pannello **connessioni endpoint privato** .*
 1. Selezionare l'endpoint privato creato in studio e selezionare **approva**.
-1. Aggiungere una descrizione e fare clic su **sì**
+1. Aggiungere una descrizione e selezionare **Sì**
 1. Tornare a sinapsi studio nella sezione **reti virtuali gestite** della scheda **Gestisci** .
 1. L'approvazione per l'endpoint privato dovrebbe richiedere circa 1 minuto.
 

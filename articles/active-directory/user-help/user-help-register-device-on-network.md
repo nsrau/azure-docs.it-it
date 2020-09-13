@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 01/04/2019
+ms.date: 08/31/2020
 ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: b59ebe0bdab66a5ce6bdb1eefe6d9ae4b47bba0c
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 0435b99525c34eb72d7cc5315ccb4359859cd528
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799401"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033048"
 ---
 # <a name="register-your-personal-device-on-your-organizations-network"></a>Registrare il dispositivo personale nella rete dell'organizzazione
 Registrare il dispositivo personale, in genere un telefono o tablet, nella rete dell'organizzazione. Dopo aver registrato il dispositivo, sarà possibile accedere alle risorse limitate della propria organizzazione.
@@ -31,7 +31,7 @@ Mentre si registra il dispositivo nella rete dell'organizzazione, si verifichera
 
 - Windows registra il dispositivo nella rete dell'organizzazione.
 
-- Facoltativamente, in base alle scelte dell'organizzazione, potrebbe essere richiesto di configurare la verifica in due passaggi tramite [Multi-Factor Authentication](multi-factor-authentication-end-user-first-time.md) oppure [info di sicurezza](./security-info-setup-signin.md).
+- Facoltativamente, in base alle scelte dell'organizzazione, potrebbe essere richiesto di configurare la verifica in due passaggi tramite [l'autenticazione a due fattori](multi-factor-authentication-end-user-first-time.md) o le [informazioni di sicurezza](./security-info-setup-signin.md).
 
 - Facoltativamente, in base alle scelte dell'organizzazione, il dispositivo potrebbe essere registrato automaticamente in una soluzione di gestione di dispositivi mobili, ad esempio Microsoft Intune. Per altre informazioni sulla registrazione in Microsoft Intune, vedere [Registrare il dispositivo in Intune](/intune-user-help/enroll-your-device-in-intune-all).
 

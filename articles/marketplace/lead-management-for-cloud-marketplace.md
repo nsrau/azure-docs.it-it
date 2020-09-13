@@ -7,24 +7,24 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 04/14/2020
-ms.openlocfilehash: b08324654a046b5a2296f6e533107c1b26a0e1fc
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: e3924e609091f4d0975901024f20db74efb6aac5
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88606897"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032708"
 ---
 # <a name="lead-management-for-the-commercial-marketplace"></a>Gestione dei lead per il Marketplace commerciale
 
 I clienti costituiscono il fulcro di qualsiasi attività valida. Nella trasformazione odierna delle acquisizioni di prodotti, gli addetti al marketing devono concentrarsi sulla connessione diretta con i clienti e la creazione di una relazione. Ecco perché la generazione di lead di alta qualità è uno strumento fondamentale per il ciclo di vendita. Dopo la presentazione dell'offerta nel [Centro per i partner](https://partner.microsoft.com/), sono disponibili strumenti che consentono di ricevere le informazioni di contatto del cliente a livello di codice immediatamente dopo che il cliente esprime interesse o distribuisce il prodotto nel marketplace. 
 
-## <a name="what-are-leads-in-the-marketplace"></a>Che cosa sono i lead nel marketplace?
+## <a name="what-are-leads-in-the-commercial-marketplace"></a>Che cosa sono i lead nel Marketplace commerciale?
 
-I lead provengono dai clienti che manifestano interesse per i prodotti o li distribuiscono dal Marketplace. Sia che si presenti il prodotto in Azure Marketplace o in AppSource, si potranno ricevere i lead dai clienti dopo aver configurato correttamente il prodotto dal sistema CRM all'area delle presentazioni nel Centro per i partner. 
+I lead sono da clienti che sono interessati o distribuiscono i prodotti dal Marketplace commerciale. Dopo aver connesso il CRM con le inserzioni nel centro per i partner, sarà possibile ricevere lead da Azure Marketplace e dai clienti di AppSource.
 
 ## <a name="how-to-connect-your-crm-system-with-partner-center"></a>Come connettere il sistema CRM con il Centro per i partner
 
-Per iniziare a ricevere i lead, il connettore di gestione lead nel Centro per i partner è progettato in modo da poter essere facilmente collegato con le informazioni del sistema CRM a un elenco dei sistemi CRM disponibili. A questo punto è possibile sfruttare facilmente i lead generati dal marketplace senza un notevole sforzo di progettazione per integrarli con un sistema esterno.
+Il connettore di gestione dei lead nel centro per i partner è stato progettato in modo che possa essere facilmente collegato con le informazioni di CRM a un elenco di sistemi CRM disponibili. A questo punto è possibile sfruttare facilmente i lead generati dal marketplace senza un notevole sforzo di progettazione per integrarli con un sistema esterno.
 
 Ecco le istruzioni dettagliate da seguire per connettere ognuna delle possibili destinazioni di lead:
 
@@ -38,25 +38,25 @@ Ecco le istruzioni dettagliate da seguire per connettere ognuna delle possibili 
 
 **Endpoint HTTPS**: vedere [Configurare la gestione dei lead con un endpoint HTTPS](./partner-center-portal/commercial-marketplace-lead-management-instructions-https.md) per istruzioni sulla configurazione dell'endpoint HTTPS per ottenere lead.
 
-Una volta configurate correttamente la destinazione dei lead e aver premuto Pubblica sull'offerta, verrà convalidata la connessione e inviato un lead di test all'utente. Quando si visualizza l'offerta prima della distribuzione, è inoltre possibile testare la connessione lead quando si tenta di acquisire l'offerta nell'ambiente di anteprima. È importante assicurarsi che le impostazioni dei lead rimangano aggiornate affinché nessun lead venga perso. Pertanto, assicurarsi di aggiornare le connessioni ogni volta che c'è una modifica da parte dell'utente.
+Dopo aver configurato correttamente la destinazione del lead e aver richiesto di pubblicare l'offerta, la connessione viene convalidata e viene inviato un lead di test. Quando si visualizza l'offerta prima della distribuzione, è inoltre possibile testare la connessione lead quando si tenta di acquisire l'offerta nell'ambiente di anteprima. È importante assicurarsi che le impostazioni dei lead rimangano aggiornate affinché nessun lead venga perso. Pertanto, assicurarsi di aggiornare le connessioni ogni volta che c'è una modifica da parte dell'utente.
 
 ### <a name="what-are-the-next-steps"></a>Passaggi successivi
 
-Dopo che è stata eseguita la configurazione tecnica, è necessario incorporare i lead nella strategia di vendita e marketing e nei processi operativi correnti. L'intento è quello di comprendere meglio il processo complessivo di vendita e di collaborare con l'utente per creare lead di alta qualità e dati sufficienti a garantire il successo dell'utente. Ogni commento su come ottimizzare e migliorare i lead inviati con dati aggiuntivi per contribuire ad avere clienti di successo è apprezzato. Sono graditi feedback e suggerimenti che consentano al team di vendita di sviluppare i lead del marketplace in modo ottimale.
+Dopo che è stata eseguita la configurazione tecnica, è necessario incorporare i lead nella strategia di vendita e marketing e nei processi operativi correnti. Siamo interessati a comprendere il processo di vendita globale e desideriamo collaborare con te per fornire lead di alta qualità e dati sufficienti per ottenere risultati ottimali. Ogni commento su come ottimizzare e migliorare i lead inviati con dati aggiuntivi per contribuire ad avere clienti di successo è apprezzato. Sono graditi feedback e suggerimenti che consentano al team di vendita di sviluppare i lead del marketplace commerciale in modo ottimale.
 
 ## <a name="common-lead-configuration-errors-during-publishing-in-partner-center"></a><a id="publishing-config-errors"></a> Errori comuni di configurazione dei lead durante la pubblicazione nel Centro per i partner
 
 **Non è stato possibile salvare il lead in Dynamics CRM. Controllare le impostazioni dell'account Dynamics CRM. LastCRMError: Non è possibile accedere a Dynamics CRM, LastCRMException:** 
 
-> Se è stata selezionata l'autenticazione di Office 365, verificare che l'account utente e la password siano validi. Se è stato selezionato AAD, verificare che l'ID tenant, l'ID applicazione e la chiave privata dell'applicazione corrispondano ai valori configurati in AAD. Seguire le istruzioni [qui](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md). Se il nome utente e la password dell'account sono validi, verificare che l'account abbia accesso a Dynamics 365 e disponga di una licenza (passaggi 11-15 se si usa Azure Active Directory o Impostazioni di sicurezza se si usa un utente di Office). 
+> Se è stata selezionata l'opzione Microsoft 365 autenticazione, controllare se l'account utente e la password sono validi. Se è stata selezionata l'opzione Azure Active Directory, controllare se l'ID tenant, l'ID applicazione e la chiave privata dell'applicazione corrispondono a quanto è stato configurato nel Azure Active Directory. Seguire le istruzioni [qui](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md). Se il nome utente e la password dell'account sono validi, verificare che l'account abbia accesso a Dynamics 365 e disponga di una licenza (passaggi 11-15 se si usa Azure Active Directory o Impostazioni di sicurezza se si usa un utente di Office). 
 
 **Non è stato possibile salvare il lead in Dynamics CRM. L'utente non ha le autorizzazioni di creazione per l'attributo leadsourcecode nell'entità lead** 
 
-> L'applicazione o l'utente non ha i ruoli di sicurezza su Microsoft Marketplace Lead Writer. Seguire i passaggi 11-15 se si usa Azure Active Directory oppure Impostazioni di sicurezza se si usa un utente di Office [qui](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md).
+> L'applicazione o l'utente non ha i ruoli di sicurezza su Microsoft Marketplace Lead Writer. Seguire i passaggi 11-15 se si usa Azure Active Directory o le impostazioni di sicurezza se si usa [un utente di](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md)Office.
 
 **Non è stato possibile salvare il lead in Dynamics CRM tramite AAD. Eccezione: tenant non trovato. Questa situazione può verificarsi se non sono presenti sottoscrizioni attive per il tenant.**  
 
-> L'ID directory specificato nella sezione relativa alla gestione dei lead non corrisponde a una directory valida. Ottenere l'ID directory seguendo le istruzioni del passaggio 2 (in Azure Active Directory, [qui](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md)).
+> L'ID directory specificato nella sezione relativa alla gestione dei lead non corrisponde a una directory valida. Ottenere l'ID di directory in base alle istruzioni nel passaggio 2 (in Azure Active Directory) [qui](./partner-center-portal/commercial-marketplace-lead-management-instructions-dynamics.md).
 
 **Non è stato possibile salvare il lead in Dynamics CRM. LastCRMError: SecLib::RetrievePrivilegeForUser non riuscito - nessun ruolo assegnato all'utente.**  
 
@@ -76,7 +76,7 @@ Dopo che è stata eseguita la configurazione tecnica, è necessario incorporare 
 
 **Non è stato possibile salvare il lead in Dynamics CRM. LastCRMError: si è verificato il timeout del canale di richiesta durante l'attesa di una risposta dopo 00:02:00. Aumentare il valore di timeout passato alla chiamata a Request o aumentare il valore di SendTimeout nell'elemento Binding. È possibile che il tempo allocato a questa operazione fosse incluso in un timeout più lungo.**  
 
-> Risoluzione: accedere al Centro per i partner e in Dettagli vetrina >> Destinazione del lead >> URL verificare che sia specificata un'istanza di Dynamic CRM valida.
+> Soluzione: accedere al centro per i partner, selezionare l'opzione per l'installazione >> clienti lead >> URL, controllare se si tratta di un'istanza dinamica di CRM valida.
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -139,7 +139,7 @@ I dati di ogni lead vengono passati in campi nella destinazione selezionata. I l
 - *Azioni:*
   - "INS": sta per essere installato. Si trova nel Marketplace di Azure o in AppSource ogni volta che un cliente preme il pulsante per acquistare il prodotto.
   - "PLT": sta per la versione di valutazione del LED partner. Si trova su AppSource ogni volta che un cliente preme il pulsante Contact me (Contattami).
-  - "DNC": sta per non contattare. Si trova in AppSource ogni volta che un partner che è stato elencato in modo incrociato nella pagina app riceve una richiesta per essere contattato. Viene condiviso l'annuncio che questo cliente è stato elencato nell'app, ma non deve essere contattato.
+  - "DNC": sta per non contattare. Si trova in AppSource ogni volta che un partner che è stato elencato in modo incrociato nella pagina app riceve una richiesta per essere contattato. Stiamo condividendo la testa che questo cliente è stato incrociato nell'app, ma non è necessario contattarlo.
   - "Crea": si trova all'interno portale di Azure solo e ogni volta che un cliente acquista l'offerta al proprio account.
   - "StartTestDrive": questa operazione è destinata solo a test drive e ogni volta che un cliente avvia la test drive.
 
@@ -190,4 +190,4 @@ A causa dei criteri relativi alla privacy, non è possibile condividere informaz
 
 **È stato configurato il servizio Archiviazione di Azure (BLOB/Tabella) come destinazione dei lead. Quanto costerà?** 
 
-I dati di generazione dei lead sono inferiori a 1 GB per quasi tutti gli editori. Il costo dipenderà dal numero di lead ricevuti. Se ad esempio si ricevono 1.000 lead in un mese, il costo è di circa 50 centesimi. 
+I dati di generazione dei lead sono bassi (<1 GB per quasi tutti i Publisher). Il costo dipenderà dal numero di lead ricevuti. Se ad esempio si ricevono 1.000 lead in un mese, il costo è di circa 50 centesimi. 

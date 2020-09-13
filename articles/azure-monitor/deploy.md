@@ -1,19 +1,19 @@
 ---
-title: Distribuire monitoraggio di Azure
+title: Distribuire Monitoraggio di Azure
 description: Vengono descritti i diversi passaggi necessari per un'implementazione completa di monitoraggio di Azure per monitorare tutte le risorse nella sottoscrizione di Azure.
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 34a048c702b62caeecaf21e710a9dcd9156e4aea
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 0a5c788b4429b5048a1b94fa8adfb2d9367982da
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87801567"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033473"
 ---
-# <a name="deploy-azure-monitor"></a>Distribuire monitoraggio di Azure
+# <a name="deploy-azure-monitor"></a>Distribuire Monitoraggio di Azure
 L'abilitazione di monitoraggio di Azure per monitorare tutte le risorse di Azure è una combinazione di configurazione dei componenti di monitoraggio di Azure e configurazione delle risorse di Azure per generare dati di monitoraggio per la raccolta di monitoraggio di Azure. Questo articolo descrive i diversi passaggi necessari per un'implementazione completa di monitoraggio di Azure con una configurazione comune per monitorare tutte le risorse nella sottoscrizione di Azure. Le descrizioni di base per ogni passaggio sono fornite con collegamenti ad altra documentazione per informazioni dettagliate sui requisiti di configurazione.
 
 > [!IMPORTANT]
@@ -48,7 +48,7 @@ Le funzionalità seguenti di monitoraggio di Azure sono abilitate senza alcuna c
 
 
 ### <a name="create-log-analytics-workspace"></a>Creare un'area di lavoro Log Analytics
-È necessario almeno un'area di lavoro di Log Analytics per abilitare i [log di monitoraggio di Azure](platform/data-platform-logs.md), necessaria per la raccolta di tali dati come log dalle risorse di Azure, la raccolta di dati dal sistema operativo guest di macchine virtuali di Azure e la maggior parte delle informazioni dettagliate di monitoraggio di Azure. Altri servizi, ad esempio Azure Sentinel e il Centro sicurezza di Azure, usano anche un'area di lavoro Log Analytics e possono condividere lo stesso valore usato per monitoraggio di Azure. È possibile iniziare con un'unica area di lavoro per supportare questo monitoraggio, ma vedere [progettazione della distribuzione dei log di monitoraggio di Azure](platform/design-logs-deployment.md) per indicazioni su quando usare più aree di lavoro.
+È necessario almeno un'area di lavoro di Log Analytics per abilitare i [log di monitoraggio di Azure](platform/data-platform-logs.md), necessaria per la raccolta di tali dati come log dalle risorse di Azure, la raccolta di dati dal sistema operativo guest di macchine virtuali di Azure e la maggior parte delle informazioni dettagliate di monitoraggio di Azure. Altri servizi, ad esempio Azure Sentinel e il Centro sicurezza di Azure, usano anche un'area di lavoro Log Analytics e possono condividere lo stesso valore usato per monitoraggio di Azure. È possibile iniziare con un'unica area di lavoro per supportare questo monitoraggio, ma vedere  [progettazione della distribuzione dei log di monitoraggio di Azure](platform/design-logs-deployment.md) per indicazioni su quando usare più aree di lavoro.
 
 Non è previsto alcun costo per la creazione di un'area di lavoro Log Analytics, ma è possibile che si verifichi un addebito quando si configurano i dati da raccogliere al suo interno. Per informazioni dettagliate, vedere [Gestire l'utilizzo e i costi con i log di Monitoraggio di Azure](platform/manage-cost-storage.md).  
 
@@ -118,9 +118,9 @@ Per informazioni dettagliate sull'installazione e la configurazione di questi ag
 Monitoraggio di Azure monitora le applicazioni personalizzate usando [Application Insights](app/app-insights-overview.md), che è necessario configurare per ogni applicazione che si vuole monitorare. Il processo di configurazione può variare a seconda del tipo di applicazione monitorato e del tipo di monitoraggio che si desidera eseguire. I dati raccolti da Application Insights vengono archiviati nelle metriche di monitoraggio di Azure, nei log di monitoraggio di Azure e nell'archiviazione BLOB di Azure, a seconda della funzionalità. I dati sulle prestazioni vengono archiviati sia nelle metriche di monitoraggio di Azure che nei log di monitoraggio di Azure, senza che sia necessaria alcuna configurazione aggiuntiva.
 
 ### <a name="create-an-application-resource"></a>Creare una risorsa dell'applicazione
-È necessario creare una risorsa in Application Insights per ogni applicazione che si intende monitorare. I dati di log raccolti da Application Insights vengono archiviati nei log di monitoraggio di Azure, ma sono distinti dall'area di lavoro di Log Analytics, come descritto in [come sono strutturati i dati nei log di monitoraggio di Azure?](platform/data-platform-logs.md#how-is-data-in-azure-monitor-logs-structured). Attualmente in anteprima, tuttavia, è possibile archiviare i dati dell'applicazione direttamente in un'area di lavoro di Log Analytics con altri dati. In questo modo si semplifica la configurazione e si consente all'applicazione di sfruttare tutte le funzionalità di un'area di lavoro Log Analytics.
+È necessario creare una risorsa in Application Insights per ogni applicazione che si intende monitorare. I dati di log raccolti da Application Insights vengono archiviati nei log di monitoraggio di Azure per un'applicazione basata sull'area di lavoro. I dati di log per le applicazioni classiche vengono archiviati separatamente dall'area di lavoro Log Analytics come descritto in [struttura dei dati](platform/data-platform-logs.md#structure-of-data).
 
- Quando si crea l'applicazione, è necessario scegliere se usare la versione classica o basata sull'area di lavoro (anteprima). Per creare un'applicazione classica, vedere [creare una risorsa Application Insights](app/create-new-resource.md) . Per creare un'applicazione basata su area di lavoro, vedere [risorse Application Insights basate sull'area di lavoro (anteprima)](app/create-workspace-resource.md) .
+ Quando si crea l'applicazione, è necessario scegliere se usare il modello classico o quello basato su area di lavoro. Per creare un'applicazione classica, vedere [creare una risorsa Application Insights](app/create-new-resource.md) . Per creare un'applicazione basata su area di lavoro, vedere [risorse Application Insights basate sull'area di lavoro (anteprima)](app/create-workspace-resource.md) .
 
 ### <a name="configure-codeless-or-code-based-monitoring"></a>Configurare il monitoraggio basato sul codice o sul codice
 Per abilitare il monitoraggio per un'applicazione, è necessario decidere se utilizzare il monitoraggio basato sul codice o sul codice. Il processo di configurazione varia in base a questa decisione e al tipo di applicazione che si intende monitorare.

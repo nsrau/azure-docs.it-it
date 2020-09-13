@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: a4b0cb9b53adbf6362d79766fcd7bce57f5441ac
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: fd68f720f372ee61f7c441ea83bd365bc2a6f36a
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322932"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032742"
 ---
 # <a name="azure-security-baseline-for-azure-monitor"></a>Baseline della sicurezza di Azure per monitoraggio di Azure
 
@@ -80,7 +80,7 @@ Quando si usa monitoraggio di Azure con collegamento privato, si ottiene l'acces
 
 - [Connettere i computer senza accesso a Internet usando il gateway Log Analytics in monitoraggio di Azure](platform/gateway.md) 
 
-- [Vedere la Guida introduttiva all'Application Insights](//azure/azure-monitor/app/app-insights-overview#get-started)
+- [Vedere la Guida introduttiva all'Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview#get-started)
 
 - [Come configurare i test Web di disponibilità](app/monitor-web-app-availability.md)
 

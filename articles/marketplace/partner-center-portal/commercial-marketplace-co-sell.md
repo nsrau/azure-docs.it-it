@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
 ms.date: 05/12/2020
-ms.openlocfilehash: ca1a1bd1f07bf30fd7e5cd57b617a823120e85ea
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 6088569efed56d4453e4f1b0806af68f206cd2e9
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/11/2020
-ms.locfileid: "90017371"
+ms.locfileid: "90033252"
 ---
 # <a name="co-sell-option-in-partner-center"></a>Opzione di co-selling nel Centro per i partner
 
@@ -66,7 +66,7 @@ Le aree della soluzione consentono di definire ulteriormente la soluzione.
 
 | **Documents** (Documenti)    | **Descrizione**  |
 | :------------------- | :-------------------|
-| *Un cercapersone del cliente* | Descrizione dell'offerta da parte del cliente. I team di vendita Microsoft possono condividere queste informazioni con i clienti per determinare se l'offerta potrebbe essere una scelta ottimale e per assicurarsi che sia pronta per i clienti. <br> <br> Usare uno dei modelli pertinenti disponibili nel centro per i partner: <br> <ul> <li> Microsoft Azure modello a un cercapersone </li> <li> Microsoft Dynamics 365 1-modello di cercapersone </li> <li> Office 365 1-modello di cercapersone </li> <li> Windows 10 1-modello di cercapersone </li> </ul> |
+| *Un cercapersone del cliente* | Descrizione dell'offerta da parte del cliente. I team di vendita Microsoft possono condividere queste informazioni con i clienti per determinare se l'offerta potrebbe essere una scelta ottimale e per assicurarsi che sia pronta per i clienti. <br> <br> Usare uno dei modelli pertinenti disponibili nel centro per i partner: <br> <ul> <li> Microsoft Azure modello a un cercapersone </li> <li> Microsoft Dynamics 365 1-modello di cercapersone </li> <li> Microsoft 365 1-modello di cercapersone </li> <li> Windows 10 1-modello di cercapersone </li> </ul> |
 | *Presentazione del cliente* | Slide deck per passare la soluzione e la relativa proposta di valore. Dopo aver verificato che l'offerta sia pronta per il cliente, i team di vendita Microsoft possono condividere la presentazione con i clienti per esprimere il valore che entrambe le aziende portano quando distribuiscono una soluzione congiunta. La presentazione dovrebbe comprendere le funzionalità della soluzione, il modo in cui può aiutare i clienti, i settori a cui è destinata la soluzione e il modo in cui vengono confrontati con le soluzioni in competizione. <br> <br> Usare il modello disponibile nel centro per i partner.|
 | *case study cliente* | Queste informazioni indicano a un potenziale cliente la distribuzione corretta di questa soluzione nei casi precedenti. <br> <br> Usare il modello disponibile nel centro per i partner. |
 | *WINS del cliente verificabile (facoltativo)* | Esempi specifici di successi dei clienti dopo la distribuzione della soluzione. |

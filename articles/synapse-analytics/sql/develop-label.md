@@ -6,17 +6,17 @@ author: filippopovic
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
-ms.subservice: ''
+ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
 ms.reviewer: jrasnick
 ms.custom: ''
-ms.openlocfilehash: 47b476cbc6997ca5ec63968bdc269e2273662100
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 596b18332fc490f72ad185699fc59bf4521eca69
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81430032"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032181"
 ---
 # <a name="use-query-labels-in-synapse-sql"></a>Usare le etichette delle query in sinapsi SQL
 Le informazioni contenute in questo articolo sono suggerimenti essenziali per l'uso delle etichette di query in sinapsi SQL.

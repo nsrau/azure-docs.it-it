@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 11/01/2019
 tags: connectors
 ROBOTS: NOINDEX
-ms.openlocfilehash: 817c17b0e05180f5c7a616320a25c2bc3c21c5f8
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: cd2f8ce45ef9270866941cdedb7c768529c3175f
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651401"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033303"
 ---
 # <a name="monitor-create-and-manage-sftp-files-in-azure-logic-apps"></a>Monitorare, creare e gestire file SFTP in app per la logica di Azure
 
@@ -114,6 +114,10 @@ Questo trigger avvia il flusso di lavoro di un'app per la logica quando viene ag
 ### <a name="sftp-action-get-content"></a>Azione SFTP: recuperare il contenuto
 
 Questa operazione recupera il contenuto da un file in un server SFTP. Ad esempio, è possibile aggiungere il trigger dell'esempio precedente e una condizione che il contenuto del file deve soddisfare. Se la condizione è true, è possibile eseguire l'azione che recupera il contenuto.
+
+## <a name="connector-reference"></a>Informazioni di riferimento sui connettori
+
+Per informazioni tecniche su trigger, azioni e limiti, illustrati dalla descrizione OpenAPI (in precedenza Swagger) del connettore, esaminare la [pagina di riferimento](/azure/data-factory/connector-sftp) del connettore.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

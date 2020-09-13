@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: a6b1bd016248212967a4fe78274d5ba72c5df0fe
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: deda5b9dab416258f9db1c76e9b41f781101e2fd
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400314"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90033014"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Quote del servizio Azure Cosmos DB
 
@@ -163,7 +163,17 @@ Cosmos DB usa HMAC per l'autorizzazione. È possibile usare una chiave master o 
 | Tempo di scadenza massimo del token di risorsa | 24 ore per impostazione predefinita. È possibile aumentarlo [presentando un ticket di supporto di Azure](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)|
 | Massimo sfasamento di orario per l'autorizzazione con token| 15 min |
 
-Cosmos DB supporta l'esecuzione di trigger durante le operazioni di scrittura. Il servizio supporta al massimo un pre-trigger e un post-trigger per ogni operazione di scrittura. 
+Cosmos DB supporta l'esecuzione di trigger durante le operazioni di scrittura. Il servizio supporta al massimo un pre-trigger e un post-trigger per ogni operazione di scrittura.
+
+## <a name="metadata-request-limits"></a>Limiti delle richieste di metadati
+
+Azure Cosmos DB gestisce i metadati di sistema per ogni account. Questi metadati consentono di enumerare le raccolte, i database, altre risorse Azure Cosmos DB e le relative configurazioni gratuitamente.
+
+| Risorsa | Limite predefinito |
+| --- | --- |
+|Velocità massima di creazione della raccolta (minuto RER)| 5|
+|Velocità massima di creazione database al minuto|   5|
+|Velocità massima di aggiornamento velocità effettiva con provisioning al minuto| 5|
 
 ## <a name="limits-for-autoscale-provisioned-throughput"></a>Limiti per la velocità effettiva con provisioning a scalabilità automatica
 

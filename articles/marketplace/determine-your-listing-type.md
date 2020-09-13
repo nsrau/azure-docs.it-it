@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 09/04/2020
-ms.openlocfilehash: 7acfd5e1a1b1c44a9a109bb2b8bc38c7fcc57593
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 4acdd8bfd567a317b954d58629468fa8cd929669
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89484868"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032385"
 ---
 # <a name="determine-your-publishing-option"></a>Determinare l'opzione di pubblicazione
 
@@ -45,7 +45,7 @@ La tabella seguente illustra le opzioni di pubblicazione per i tipi di offerta i
 
 &#42; Le offerte di transazioni per app SaaS in Microsoft AppSource sono attualmente disponibili solo tramite carta di credito.
 
-&#42;&#42; Le offerte di Microsoft 365 sono gratuite per l'installazione e possono essere monetizzate tramite l'offerta SaaS come servizio di licenza. Per altre informazioni, vedere [Monetizzare il componente aggiuntivo Office 365 tramite il marketplace commerciale Microsoft](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
+&#42;&#42; Le offerte di Microsoft 365 sono gratuite per l'installazione e possono essere monetizzate tramite l'offerta SaaS come servizio di licenza. Per ulteriori informazioni, vedere [monetizzare il componente aggiuntivo Microsoft 365 tramite Microsoft Commercial Marketplace](/office/dev/store/monetize-addins-through-microsoft-commercial-marketplace).
 
 ## <a name="choose-a-listing-option"></a>Scegliere un'opzione di elenco
 
