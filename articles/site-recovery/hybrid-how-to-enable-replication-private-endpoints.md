@@ -1,24 +1,21 @@
 ---
 title: Abilitare la replica per i computer locali con endpoint privati
 description: Questo articolo descrive come configurare la replica per i computer locali usando endpoint privati in Site Recovery.
-author: mayurigupta13
-ms.author: mayg
+author: Harsha-CS
+ms.author: harshacs
 ms.service: site-recovery
 ms.topic: article
 ms.date: 07/14/2020
-ms.openlocfilehash: 13c19f07ac21f986a5523407e46c59c050ebf96d
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 3d15f4039da85dfa926e7bc9ab96b2c48965d5f0
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142078"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89658802"
 ---
 # <a name="replicate-on-premises-machines-by-using-private-endpoints"></a>Eseguire la replica di computer locali usando endpoint privati
 
-Azure Site Recovery consente di usare endpoint privati di [collegamento privato di Azure](../private-link/private-endpoint-overview.md) per replicare i computer locali in una rete virtuale in Azure. Il supporto per l'accesso dell'endpoint privato a un insieme di credenziali di ripristino è supportato in queste aree:
-
-- Azure commerciale: Stati Uniti centro-meridionali, Stati Uniti occidentali 2, Stati Uniti orientali
-- Azure per enti pubblici: US Gov Virginia, US Gov Arizona, US Gov Texas, US DoD (area orientale), US DoD (area centrale)
+Azure Site Recovery consente di usare endpoint privati di [collegamento privato di Azure](../private-link/private-endpoint-overview.md) per replicare i computer locali in una rete virtuale in Azure. L'accesso dell'endpoint privato a un insieme di credenziali di ripristino è supportato in tutte le aree commerciali & governative di Azure.
 
 In questo articolo viene descritto come completare i passaggi seguenti:
 
@@ -210,7 +207,7 @@ Creare una zona DNS privata per consentire al provider Site Recovery (per comput
 
    1. Nella pagina **Aggiungi set di record** aggiungere una voce per ogni nome di dominio completo e IP privato come record **di** tipo. In **Panoramica**è possibile ottenere un elenco dei nomi di dominio completi e degli indirizzi IP nella pagina **endpoint privato** . Come si può notare nello screenshot seguente, il primo nome di dominio completo dall'endpoint privato viene aggiunto al set di record nella zona DNS privata.
 
-      Questi nomi di dominio completi corrispondono a questo modello:`{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
+      Questi nomi di dominio completi corrispondono a questo modello: `{Vault-ID}-asr-pod01-{type}-.{target-geo-code}.siterecovery.windowsazure.com`
 
       :::image type="content" source="./media/hybrid-how-to-enable-replication-private-endpoints/add-record-set.png" alt-text="Screenshot che mostra la pagina Aggiungi set di record.":::
 

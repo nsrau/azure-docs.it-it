@@ -16,12 +16,12 @@ ms.date: 11/08/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4dc1754eb8818df894e67c1748517b2e2f4356d6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cea26cb119f64679807bc6c5eaadb41b341e5d5a
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356866"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662383"
 ---
 # <a name="azure-ad-connect-sync-understand-and-customize-synchronization"></a>Servizio di sincronizzazione Azure AD Connect: Comprendere e personalizzare la sincronizzazione
 Il servizio di sincronizzazione Azure Active Directory Connect (servizio di sincronizzazione Azure AD Connect) è un componente importante di Azure AD Connect. Si occupa di tutte le operazioni che riguardano la sincronizzazione dei dati relativi alle identità tra l'ambiente locale e Azure AD. Il servizio di sincronizzazione Azure AD Connect è il successore di DirSync, Azure AD Sync e Forefront Identity Manager con il connettore Azure Active Directory configurato.
@@ -52,13 +52,13 @@ Il servizio di sincronizzazione è costituito da due componenti: la **sincronizz
 | [Implementare la sincronizzazione dell'hash delle password](how-to-connect-password-hash-synchronization.md) |Illustra il funzionamento della sincronizzazione password, spiega come implementarla, usarla e risolverne i problemi. |
 | [Writeback dei dispositivi](how-to-connect-device-writeback.md) |Illustra il funzionamento del writeback dei dispositivi in Azure AD Connect. |
 | [Estensioni della directory](how-to-connect-sync-feature-directory-extensions.md) |Illustra come estendere lo schema di Azure AD con i propri attributi personalizzati. |
-| [PreferredDataLocation di Office 365](how-to-connect-sync-feature-preferreddatalocation.md) |Descrive come inserire le risorse di Office 365 dell'utente nella stessa area dell'utente. |
+| [Microsoft 365 PreferredDataLocation](how-to-connect-sync-feature-preferreddatalocation.md) |Viene descritto come inserire le risorse di Microsoft 365 dell'utente nella stessa area dell'utente. |
 | **Servizio di sincronizzazione** | |
 | [Funzionalità del servizio di sincronizzazione di Azure AD Connect](how-to-connect-syncservice-features.md) |Descrive il servizio di sincronizzazione e la modifica delle impostazioni di sincronizzazione in Azure AD. |
 | [Duplicate attribute resiliency](how-to-connect-syncservice-duplicate-attribute-resiliency.md) |Descrive come abilitare e usare la resilienza dei valori di attributo duplicati **userPrincipalName** e **proxyAddresses**. |
 | **Operazioni e interfaccia utente** | |
 | [Synchronization Service Manager.](how-to-connect-sync-service-manager-ui.md) |Descrive l'interfaccia utente di Synchronization Service Manager, comprese le schede [Operations](how-to-connect-sync-service-manager-ui-operations.md) (Operazioni), [Connectors](how-to-connect-sync-service-manager-ui-connectors.md) (Connettori), [Metaverse Designer](how-to-connect-sync-service-manager-ui-mvdesigner.md) (Progettazione metaverse) e [Metaverse Search](how-to-connect-sync-service-manager-ui-mvsearch.md) (Ricerca metaverse). |
-| [Attività operative e considerazioni](how-to-connect-sync-operations.md) |Illustra aspetti operativi, ad esempio il ripristino di emergenza. |
+| [Attività operative e considerazioni](./how-to-connect-sync-staging-server.md) |Illustra aspetti operativi, ad esempio il ripristino di emergenza. |
 | **Come si fa...** | |
 | [Reimpostare l'account Azure AD](how-to-connect-azureadaccount.md) |Come reimpostare le credenziali dell'account del servizio usato per la connessione dal servizio di sincronizzazione Azure AD Connect ad Azure AD. |
 | **Altre informazioni e riferimenti** | |

@@ -1,6 +1,6 @@
 ---
 title: 'Progettazione di una soluzione ibrida di gestione delle identità: strategia di adozione in Azure | Microsoft Docs'
-description: Con il controllo degli accessi condizionali, Azure Active Directory controlla le condizioni specifiche selezionate durante l'autenticazione dell'utente e prima di consentire l'accesso all'applicazione. Se tali condizioni vengono soddisfatte, l'utente viene autenticato e gli viene consentito l'accesso all'applicazione.
+description: Con il controllo degli accessi condizionali, Azure AD controlla le condizioni specifiche selezionate durante l'autenticazione dell'utente e prima di consentire l'accesso all'applicazione.
 documentationcenter: ''
 services: active-directory
 author: billmath
@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.custom: seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7263d6a73a78b4b804cddd77f979898008ebadd6
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1608039b051cb17684ca77cf7f00c705c9a8e7b5
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85555384"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89659536"
 ---
 # <a name="define-a-hybrid-identity-adoption-strategy"></a>Definire una strategia di adozione della soluzione ibrida di gestione delle identità
 In questa attività viene definita la strategia di adozione della soluzione ibrida di gestione delle identità in modo che soddisfi i requisiti aziendali definiti in:
@@ -32,7 +32,7 @@ In questa attività viene definita la strategia di adozione della soluzione ibri
 * [Determinare i requisiti di autenticazione a più fattori](plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
 
 ## <a name="define-business-needs-strategy"></a>Definire la strategia in base alle esigenze aziendali
-Questa prima attività prevede la determinazione delle esigenze aziendali dell'organizzazione.  È necessario prestare particolare attenzione per non correre il rischio di ampliare eccessivamente l'ambito.  Iniziare da un progetto semplice che possa tuttavia essere adattato e modificato con facilità in futuro.  Indipendentemente dal tipo di progetto, semplice o estremamente complesso, Azure Active Directory è la piattaforma di gestione delle identità Microsoft che supporta Office 365, Microsoft Online Services e applicazioni compatibili con il cloud.
+Questa prima attività prevede la determinazione delle esigenze aziendali dell'organizzazione.  È necessario prestare particolare attenzione per non correre il rischio di ampliare eccessivamente l'ambito.  Iniziare da un progetto semplice che possa tuttavia essere adattato e modificato con facilità in futuro.  Indipendentemente dal fatto che si tratti di un progetto semplice o estremamente complesso, Azure Active Directory è la piattaforma di identità Microsoft che supporta Microsoft 365, Microsoft Online Services e applicazioni compatibili con il cloud.
 
 ## <a name="define-an-integration-strategy"></a>Definire una strategia di integrazione
 Microsoft ha previsto tre principali scenari di integrazione, ovvero identità cloud, identità sincronizzate e identità federate.  È necessario valutare l'adozione di una di queste strategie di integrazione.  La strategia scelta può variare e le decisioni che intervengono nel processo decisionale possono basarsi sul tipo di esperienza utente che si vuole offrire, sull'eventuale infrastruttura esistente e sulla soluzione più conveniente in termini di costi.  
@@ -55,7 +55,7 @@ La tabella seguente consente di determinare i vantaggi e gli svantaggi di ognuna
 | Strategia | Vantaggi | Svantaggi |
 | --- | --- | --- |
 | **Identità cloud** |Più facile da gestire per le organizzazioni di piccole dimensioni. <br> Non ci sono componenti da installare in locale. Non è necessario alcun hardware aggiuntivo.<br> Facile da disabilitare se l'utente lascia la società |Gli utenti devono eseguire l'accesso per usare i carichi di lavoro nel cloud <br>  Le password per le identità cloud e locale possono essere uguali oppure no |
-| **Sincronizzati** |La password locale consente di eseguire l'autenticazione sia alla directory locale che alla directory cloud <br>Più facile da gestire per le organizzazioni di piccole, medie o grandi dimensioni <br>Gli utenti possono usufruire dell'accesso Single Sign-On per alcune risorse <br> Metodo preferito di Microsoft per la sincronizzazione <br>  Più facile da gestire |Alcuni clienti possono essere riluttanti a sincronizzare le directory con il cloud a causa di criteri specifici della società |
+| **Identità sincronizzate** |La password locale consente di eseguire l'autenticazione sia alla directory locale che alla directory cloud <br>Più facile da gestire per le organizzazioni di piccole, medie o grandi dimensioni <br>Gli utenti possono usufruire dell'accesso Single Sign-On per alcune risorse <br> Metodo preferito di Microsoft per la sincronizzazione <br>  Più facile da gestire |Alcuni clienti possono essere riluttanti a sincronizzare le directory con il cloud a causa di criteri specifici della società |
 | **Federato** |Gli utenti possono usufruire dell'accesso Single Sign-On  <br>Se un utente cessa di lavorare in azienda, l'account viene disabilitato immediatamente e l'accesso revocato,<br> Supporta scenari avanzati che non sono disponibili con le identità sincronizzate |Altri passaggi di configurazione <br> Manutenzioni superiori <br> Può richiedere hardware aggiuntivo per l'infrastruttura del servizio token di sicurezza <br> Può richiedere hardware aggiuntivo per installare il server federativo. Se si usa AD FS, è necessario software aggiuntivo <br> È richiesta una configurazione estesa per SSO <br> Punto critico di errore se il server federativo è inattivo, gli utenti non potranno eseguire l'autenticazione |
 
 ### <a name="client-experience"></a>Esperienza client
@@ -158,7 +158,7 @@ Per questo scenario, devono essere vere le affermazioni seguenti:
 * Un dominio DNS può essere registrato solo in una singola directory di Azure AD, in modo che anche i nomi dell'entità utente (UPN) degli utenti nell'istanza locale di AD possano usare spazi dei nomi separati
 * Gli utenti in un'istanza di Azure AD potranno visualizzare solo gli utenti inclusi nella stessa istanza,  ma non quelli in altre istanze
 * Solo una delle directory di Azure AD può abilitare la distribuzione ibrida di Exchange con l'istanza locale di Active Directory
-* L'esclusione reciproca si applica anche al writeback.  Alcune funzionalità di writeback non sono quindi supportate con questa topologia, perché presuppongono una singola configurazione locale.  Ciò include:
+* L'esclusione reciproca si applica anche al writeback.  Alcune funzionalità di writeback non sono quindi supportate con questa topologia, perché presuppongono una singola configurazione locale.  ad esempio:
   * Writeback dei gruppi con la configurazione predefinita
   * Writeback dei dispositivi
 
@@ -171,7 +171,7 @@ Le funzionalità seguenti non sono supportate e non devono essere scelte come im
 * Come previsto da progettazione, le directory di Azure AD sono isolate. Non è supportata la modifica della configurazione del servizio di sincronizzazione Azure AD Connect in modo da leggere dati da un'altra directory di Azure AD nel tentativo di creare un elenco di indirizzi globale comune e unificato tra le directory. Non è inoltre supportata l'esportazione di utenti come contatti in un'altra istanza locale di AD mediante il servizio di sincronizzazione Azure AD Connect.
 
 > [!NOTE]
-> Se l'organizzazione impedisce ai computer inclusi nella rete di connettersi a Internet, questo articolo elenca gli endpoint (FQDN e intervalli di indirizzi IPv4 e IPv6) da includere nell'elenco delle connessioni in uscita e nell'area siti attendibili di Internet Explorer dei computer client per garantire che i computer possano usare Office 365. Per altre informazioni, vedere [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
+> Se l'organizzazione limita la connessione a Internet dei computer della rete, in questo articolo vengono elencati gli endpoint (FQDN, IPv4 e gli intervalli di indirizzi IPv6) che è necessario includere negli elenchi Consenti in uscita e siti attendibili di Internet Explorer di computer client per assicurarsi che i computer possano utilizzare correttamente Microsoft 365. Per altre informazioni, vedere [URL e intervalli di indirizzi IP per Office 365](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2?ui=en-US&rs=en-US&ad=US).
 > 
 > 
 
@@ -185,8 +185,8 @@ Opzioni di progettazione per l'autenticazione a più fattori:
 | App Microsoft |sì |sì |
 | App SaaS nella Raccolta di app |sì |sì |
 | Le applicazioni IIS pubblicate tramite proxy app per Azure AD |sì |sì |
-| Applicazioni IIS non pubblicate tramite il proxy applicazione Azure AD |no |sì |
-| Accesso remoto, ad esempio VPN, Gateway Desktop remoto |no |sì |
+| Applicazioni IIS non pubblicate tramite il proxy applicazione Azure AD |No |sì |
+| Accesso remoto, ad esempio VPN, Gateway Desktop remoto |No |sì |
 
 Anche se è già stata scelta una soluzione per la strategia, è comunque necessario riesaminare la valutazione riportata in precedenza a seconda di dove risiedono gli utenti  ed eventualmente cambiare il tipo di soluzione.  A questo scopo, usare la tabella seguente:
 

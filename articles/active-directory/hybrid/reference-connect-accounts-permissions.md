@@ -17,12 +17,12 @@ ms.date: 05/18/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f84724285dee6dfff4913b067daa651837787d4e
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 28fc05be7a5b54713aec8c4f830eeb2f7e6a251c
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86255779"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662328"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Account e autorizzazioni
 
@@ -55,7 +55,7 @@ Oltre a questi tre account usati per eseguire Azure AD Connect, per installare A
 > [!NOTE]
 > È supportata la gestione degli account amministrativi usati in Azure AD Connect da una foresta amministrativa ESAE (ESAE, Enhanced Security Administrative Environment), nota anche con il nome "Red forest".
 > Le foreste amministrative dedicate consentono alle organizzazioni di ospitare account amministrativi, workstation e gruppi in un ambiente che dispone di controlli di sicurezza più avanzati rispetto all'ambiente di produzione.
-> Per altre informazioni sulle foreste amministrative dedicate, vedere [Approccio per la progettazione della foresta amministrativa ESAE](https://docs.microsoft.com/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach).
+> Per altre informazioni sulle foreste amministrative dedicate, vedere [Approccio per la progettazione della foresta amministrativa ESAE](/windows-server/identity/securing-privileged-access/securing-privileged-access-reference-material#esae-administrative-forest-design-approach).
 
 > [!NOTE]
 > Il ruolo Amministratore globale non è necessario dopo l'installazione iniziale. L'unico account richiesto è l'account del ruolo **Account di sincronizzazione della directory**. Ciò non significa necessariamente che basterà rimuovere l'account con il ruolo Amministratore globale. È preferibile modificare il ruolo con uno che dispone di meno privilegi, poiché la rimozione completa dell'account può generare problemi nel caso in cui sia necessario eseguire nuovamente la procedura guidata. Se si riducono i privilegi del ruolo è sempre possibile elevarli nuovamente qualora fosse ancora necessario usare la procedura guidata di Azure AD Connect. 
@@ -147,9 +147,9 @@ Le autorizzazioni necessarie dipendono dalle funzionalità facoltative abilitate
 | Sincronizzazione dell'hash delle password |<li>Replica modifiche directory</li>  <li>Replica modifiche directory - Tutto |
 | Distribuzione ibrida di Exchange |Autorizzazioni di scrittura per gli attributi documentati in [Writeback della distribuzione ibrida Exchange](reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) per utenti, gruppi e contatti. |
 | Cartelle pubbliche della posta di Exchange |Autorizzazioni di lettura per gli attributi documentati in [Cartelle pubbliche della posta di Exchange](reference-connect-sync-attributes-synchronized.md#exchange-mail-public-folder) per le cartelle pubbliche. | 
-| writeback delle password |Autorizzazioni di scrittura per gli attributi documentati in [Introduzione alla gestione delle password](../authentication/howto-sspr-writeback.md) per gli utenti. |
+| writeback delle password |Autorizzazioni di scrittura per gli attributi documentati in [Introduzione alla gestione delle password](../authentication/tutorial-enable-sspr-writeback.md) per gli utenti. |
 | Writeback dispositivi |Autorizzazioni concesse con uno script di PowerShell come descritto in [Writeback dei dispositivi](how-to-connect-device-writeback.md). |
-| Writeback dei gruppi |Consente il writeback dei **gruppi di Office 365** in una foresta in cui è installato Exchange.|
+| Writeback dei gruppi |Consente di eseguire il writeback dei **gruppi di Microsoft 365** a una foresta con Exchange installato.|
 
 ## <a name="upgrade"></a>Aggiornamento
 Quando si aggiorna da una versione di Azure AD Connect a una nuova versione, è necessario avere le autorizzazioni seguenti:
@@ -197,8 +197,8 @@ Legenda:
 - Non in grassetto: opzione supportata
 - Account locale: account utente locale sul server
 - Account di dominio: account utente di dominio
-- sMSA: [account del servizio gestito autonomo](https://technet.microsoft.com/library/dd548356.aspx)
-- gMSA: [account del servizio gestito del gruppo](https://technet.microsoft.com/library/hh831782.aspx)
+- sMSA: [account del servizio gestito autonomo](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10))
+- gMSA: [account del servizio gestito del gruppo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11))
 
 | | DB locale</br>Express | DB/SQL locale</br>Personalizzato | SQL remoto</br>Personalizzato |
 | --- | --- | --- | --- |
@@ -215,11 +215,11 @@ L'account del servizio virtuale deve essere usato con scenari in cui il motore d
 Questa funzionalità richiede Windows Server 2008 R2 o versioni successive. Se si installa Azure AD Connect in Windows Server 2008, l'installazione ritorna all'uso di un [account utente](#user-account).
 
 #### <a name="group-managed-service-account"></a>Account del servizio gestito del gruppo
-Se si usa un server SQL remoto, è consigliabile usare un **account del servizio gestito del gruppo**. Per altre informazioni su come preparare Active Directory per l'account del servizio gestito del gruppo, vedere la [panoramica sugli account del servizio gestito del gruppo](https://technet.microsoft.com/library/hh831782.aspx).
+Se si usa un server SQL remoto, è consigliabile usare un **account del servizio gestito del gruppo**. Per altre informazioni su come preparare Active Directory per l'account del servizio gestito del gruppo, vedere la [panoramica sugli account del servizio gestito del gruppo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831782(v=ws.11)).
 
 Per usare questa opzione, nella pagina [Installazione dei componenti necessari](how-to-connect-install-custom.md#install-required-components) selezionare **Usa un account del servizio esistente** e quindi **Account del servizio gestito**.  
 ![VSA](./media/reference-connect-accounts-permissions/serviceaccount.png)  
-L'opzione è supportata anche per l'uso di un [account del servizio gestito autonomo](https://technet.microsoft.com/library/dd548356.aspx). Tuttavia l'opzione può essere usata solo nel computer locale e non offre alcun vantaggio se viene usata con un account del servizio virtuale predefinito.
+L'opzione è supportata anche per l'uso di un [account del servizio gestito autonomo](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd548356(v=ws.10)). Tuttavia l'opzione può essere usata solo nel computer locale e non offre alcun vantaggio se viene usata con un account del servizio virtuale predefinito.
 
 Questa funzionalità richiede Windows Server 2012 o versioni successive. Se è necessario usare un sistema operativo precedente e SQL remoto, usare un [account utente](#user-account).
 
@@ -252,7 +252,7 @@ In Azure AD esiste un limite di 20 account del servizio di sincronizzazione. Per
 Per rimuovere gli account del servizio Azure AD inutilizzati, eseguire il cmdlet di PowerShell per Azure AD seguente:`Remove-AzureADUser -ObjectId <ObjectId-of-the-account-you-wish-to-remove>`
 
 >[!NOTE]
->Prima di poter usare i comandi di PowerShell precedenti, è necessario installare il [modulo Azure Active Directory PowerShell per Graph](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) e connettere l'istanza di Azure AD tramite [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
+>Prima di poter usare i comandi di PowerShell precedenti, è necessario installare il [modulo Azure Active Directory PowerShell per Graph](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0#installing-the-azure-ad-module) e connettere l'istanza di Azure AD tramite [Connect-AzureAD](/powershell/module/azuread/connect-azuread?view=azureadps-2.0)
 
 Per altre informazioni su come gestire o reimpostare la password per l'account del connettore di Azure AD, vedere [Gestire l'account di Azure AD Connect](how-to-connect-azureadaccount.md)
 

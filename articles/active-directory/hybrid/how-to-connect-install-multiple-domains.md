@@ -1,6 +1,6 @@
 ---
 title: Domini multipli di Azure AD Connect
-description: Questo documento descrive l'impostazione e la configurazione di più domini di primo livello con Office 365 e Azure AD.
+description: Questo documento descrive l'installazione e la configurazione di più domini di primo livello con Microsoft 365 e Azure AD.
 services: active-directory
 documentationcenter: ''
 author: billmath
@@ -16,15 +16,15 @@ ms.date: 05/31/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7a49abdea9d5b80687c53fbaa3d41480825ed504
-ms.sourcegitcommit: cec9676ec235ff798d2a5cad6ee45f98a421837b
+ms.openlocfilehash: f913199e0c0ed438d4b95b879d4defc072c615aa
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85849946"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662432"
 ---
 # <a name="multiple-domain-support-for-federating-with-azure-ad"></a>Supporto di più domini per la federazione con Azure AD
-La documentazione seguente fornisce indicazioni su come usare più domini di primo livello e sottodomini durante la federazione con domini di Office 365 o Azure AD.
+La documentazione seguente fornisce indicazioni su come usare più domini di primo livello e sottodomini quando si esegue la Federazione con domini Microsoft 365 o Azure AD.
 
 ## <a name="multiple-top-level-domain-support"></a>Supporto di più domini di primo livello
 Per la federazione di più domini di primo livello con Azure AD sono necessarie alcune operazioni di configurazione aggiuntive che non sono obbligatorie per la federazione con un dominio di primo livello.
@@ -42,7 +42,7 @@ Quando un dominio è federato con Azure AD, alcune proprietà vengono impostate 
 
 Si verifica un problema quando si vogliono aggiungere più domini di primo livello.  Ad esempio, si supponga di avere configurato la federazione tra Azure AD e l'ambiente locale.  Per questo documento, il dominio bmcontoso.com è in uso.  Quindi è stato aggiunto un secondo dominio di primo livello, bmfabrikam.com.
 
-![Domains](./media/how-to-connect-install-multiple-domains/domains.png)
+![Screenshot che Mostra più domini di primo livello](./media/how-to-connect-install-multiple-domains/domains.png)
 
 Quando si prova a convertire il dominio bmfabrikam.com in modo che sia federato,si verifica un errore.  La causa dell'errore è un vincolo di Azure AD che non consente alla proprietà IssuerUri di avere lo stesso valore per più di un dominio.  
 
@@ -67,7 +67,7 @@ Se si esaminano le impostazioni del dominio bmfabrikam.com, si può notare quant
 
 `-SupportMultipleDomain` consente anche di assicurare che il sistema AD FS includa il valore Issuer appropriato nei token emessi per Azure AD, Questo valore è impostato selezionando la porzione relativa al dominio del valore UPN degli utenti e impostandola come dominio in IssuerUri, ovvero https://{upn suffix}/adfs/services/trust.
 
-In questo modo durante l'autenticazione in Azure AD oppure Office 365 l'elemento IssuerUri nel token dell'utente viene usato per individuare il dominio in Azure AD.  Se non viene rilevata una corrispondenza, l'autenticazione non riuscirà.
+Quindi, durante l'autenticazione per Azure AD o Microsoft 365, l'elemento IssuerUri nel token dell'utente viene usato per individuare il dominio in Azure AD. Se non viene rilevata una corrispondenza, l'autenticazione non riuscirà.
 
 Se ad esempio l'UPN di un utente è bsimon@bmcontoso.com, l'elemento IssuerUri nel token emesso da AD FS sarà impostato su `http://bmcontoso.com/adfs/services/trust`. Se questo elemento corrisponde alla configurazione di Azure AD, l'autenticazione avrà esito positivo.
 
@@ -106,14 +106,14 @@ Usare la procedura seguente per rimuovere il trust di Microsoft Online e aggiorn
 2. Sulla sinistra espandere **Relazioni di attendibilità** e **Attendibilità componente**
 3. Sulla destra eliminare la voce **Piattaforma delle identità di Microsoft Office 365** .
    ![Rimozione di Microsoft Online](./media/how-to-connect-install-multiple-domains/trust4.png)
-4. Nel computer in cui è installato il [Modulo di Microsoft Azure Active Directory per Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) eseguire il comando seguente: `$cred=Get-Credential`.  
+4. Nel computer in cui è installato il [Modulo di Microsoft Azure Active Directory per Windows PowerShell](/previous-versions/azure/jj151815(v=azure.100)) eseguire il comando seguente: `$cred=Get-Credential`.  
 5. Immettere il nome utente e la password di un amministratore globale di Azure AD con cui si esegue la federazione.
 6. In PowerShell, immettere `Connect-MsolService -Credential $cred`
 7. In PowerShell, immettere `Update-MSOLFederatedDomain -DomainName <Federated Domain Name> -SupportMultipleDomain`.  Questo aggiornamento è relativo al dominio originale.  Usando i domini precedenti, si ottiene quindi: `Update-MsolFederatedDomain -DomainName bmcontoso.com -SupportMultipleDomain`
 
 Usare la procedura seguente per aggiungere il nuovo dominio di primo livello tramite PowerShell
 
-1. Nel computer in cui è installato il [Modulo di Microsoft Azure Active Directory per Windows PowerShell](https://msdn.microsoft.com/library/azure/jj151815.aspx) eseguire il comando seguente: `$cred=Get-Credential`.  
+1. Nel computer in cui è installato il [Modulo di Microsoft Azure Active Directory per Windows PowerShell](/previous-versions/azure/jj151815(v=azure.100)) eseguire il comando seguente: `$cred=Get-Credential`.  
 2. Immettere il nome utente e la password di un amministratore globale di Azure AD con cui si esegue la federazione.
 3. In PowerShell, immettere `Connect-MsolService -Credential $cred`
 4. In PowerShell, immettere `New-MsolFederatedDomain –SupportMultipleDomain –DomainName`

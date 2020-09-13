@@ -16,12 +16,12 @@ ms.date: 04/25/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 582ec01a7a843358bef749aec693a59f88a1d655
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 9398fc9ee61bed41cd1e8c227fc4b4068e4b3e69
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640651"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662254"
 ---
 # <a name="azure-ad-connect-when-you-have-an-existing-tenant"></a>Azure AD Connect: quando si dispone di un tenant esistente
 La maggior parte degli argomenti che illustrano come usare Azure AD Connect presuppongono che si inizi con un nuovo tenant di Azure AD che non contiene utenti o altri oggetti. Questo argomento è utile se tuttavia si inizia con un tenant di Azure AD che contiene utenti e altri oggetti e si vuole usare Connect.
@@ -41,7 +41,7 @@ La corrispondenza viene valutata solo per i nuovi oggetti provenienti da Connect
 Se Azure AD rileva un oggetto in cui i valori di attributo sono gli stessi per un oggetto proveniente da Connect che è già presente in Azure AD, l'oggetto in Azure AD verrà acquisito da Connect. L'oggetto precedentemente gestito nel cloud viene contrassegnato come gestito in locale. Tutti gli attributi in Azure AD con un valore in AD locale vengono sovrascritti con il valore locale. L'eccezione si ha quando un attributo ha un valore **NULL** in locale. In questo caso, il valore in Azure AD viene conservato, ma può essere modificato solo in locale.
 
 > [!WARNING]
-> Poiché tutti gli attributi in Azure AD verranno sovrascritti con il valore locale, accertarsi che i dati locali siano corretti. Se ad esempio un indirizzo e-mail è stato gestito solo in Office 365, ma non è stato aggiornato nell'istanza di Active Directory Domain Services locale, i valori di Azure AD/Office 365 non presenti in Active Directory Domain Services andranno persi.
+> Poiché tutti gli attributi in Azure AD verranno sovrascritti con il valore locale, accertarsi che i dati locali siano corretti. Se, ad esempio, si dispone solo di un indirizzo di posta elettronica gestito in Microsoft 365 e non è stato aggiornato in servizi di dominio Active Directory in locale, si perderanno tutti i valori Azure AD/Microsoft 365 non presenti in servizi di dominio Active Directory.
 
 > [!IMPORTANT]
 > Se si usa la sincronizzazione delle password, opzione sempre usata dalle impostazioni rapide, la password in Azure AD verrà sovrascritta con la password dell'istanza di AD locale. Se gli utenti sono abituati a gestire più password, è necessario informarli che dovranno usare la password locale dopo aver installato Connect.

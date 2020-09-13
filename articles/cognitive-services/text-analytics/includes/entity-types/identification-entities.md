@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/29/2020
 ms.author: aahi
-ms.openlocfilehash: 6271cb449b6bbc80269dd325bd5acd7edd2e0a6d
-ms.sourcegitcommit: 25bb515efe62bfb8a8377293b56c3163f46122bf
+ms.openlocfilehash: 8e0798f75aaa79031ca7cc03814282daa049fbfe
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88011007"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662935"
 ---
 Questa categoria di entità include informazioni finanziarie e forme ufficiali di identificazione. Disponibile a partire dalla versione del modello `2019-10-01` . I sottotipi sono elencati di seguito. 
 
@@ -27,7 +27,7 @@ Questa categoria di entità include informazioni finanziarie e forme ufficiali d
 | International Banking Account Number (IBAN)                  | Codici IBAN per informazioni sulle istruzioni di pagamento.                            |
 
 
-### <a name="government-and-countryregion-specific-identification"></a>Identificazione specifica per enti pubblici e paesi/aree geografiche
+### <a name="government-and-countryregion-specific-identification"></a>Identificazione per enti pubblici e paesi/aree geografiche
 
 > [!NOTE]
 > Le entità finanziarie e specifiche del paese seguenti non vengono restituite con il `domain=phi` parametro:
