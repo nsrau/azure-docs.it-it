@@ -6,12 +6,12 @@ ms.topic: how-to
 ms.date: 09/24/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 2ca5a591d168e18181a29cf1c00a7d1fead54595
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: c8a4b22966c3d4db268e212bb3f2d1bbb78fee74
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226047"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400637"
 ---
 # <a name="connect-to-windows-virtual-desktop-with-the-web-client"></a>Connettersi al desktop virtuale Windows con il client Web
 
@@ -48,6 +48,25 @@ In un browser, passare alla versione integrata in Azure Resource Manager del cli
 >Se è già stato eseguito l'accesso con un account Azure Active Directory diverso da quello che si vuole usare per Desktop virtuale Windows, è necessario disconnettersi o usare una finestra del browser privata.
 
 Dopo l'accesso verrà visualizzato un elenco di risorse. Per avviare le risorse, è possibile selezionarle come si fa in una normale app nella scheda **Tutte le risorse**.
+
+## <a name="using-an-input-method-editor"></a>Uso di un editor del metodo di input
+
+Il client Web supporta l'utilizzo di un input Method Editor (IME) nella sessione remota nella versione **1.0.21.16 o successiva**. Il Language Pack per la tastiera che si vuole usare nella sessione remota deve essere installato nella macchina virtuale host. Per altre informazioni sulla configurazione dei Language Pack nella sessione remota, vedere Aggiungere i [Language Pack a un'immagine multisessione di Windows 10](language-packs.md).
+
+Per abilitare l'input IME utilizzando il client Web:
+
+1. Prima di connettersi alla sessione remota, passare al pannello **Impostazioni** client Web.
+
+2. Impostare l'opzione **Abilita input Method Editor** **su on**.
+
+3. Nel menu a discesa selezionare la tastiera da usare nella sessione remota.
+
+4. Connettersi alla sessione remota.
+
+Il client Web eliminerà la finestra IME locale quando si è concentrati sulla sessione remota. La modifica delle impostazioni di IME quando si è già connessi alla sessione remota non avrà alcun effetto.
+
+>[!NOTE]
+>Se il Language Pack non è installato nella macchina virtuale host, per impostazione predefinita la sessione remota utilizzerà la tastiera inglese (Stati Uniti).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

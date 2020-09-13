@@ -3,12 +3,12 @@ title: Configurare la propria chiave per la crittografia dei dati del bus di ser
 description: Questo articolo fornisce informazioni su come configurare una chiave personalizzata per la crittografia di REST di dati del bus di servizio di Azure.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: 97de8df336367a74f66628675569c06d7726f2a4
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: e3da167fcdd3bac53de86dae07242cf8bccb621c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067240"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400586"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-service-bus-data-at-rest-by-using-the-azure-portal"></a>Configurare chiavi gestite dal cliente per la crittografia dei dati del bus di servizio di Azure inattivi usando il portale di Azure
 Azure Service Bus Premium offre la crittografia dei dati inattivi con Azure crittografia del servizio di archiviazione (SSE di Azure). Il bus di servizio Premium si basa su archiviazione di Azure per archiviare i dati e, per impostazione predefinita, tutti i dati archiviati con archiviazione di Azure vengono crittografati con le chiavi gestite da Microsoft. 
@@ -28,7 +28,7 @@ L'abilitazione della funzionalità BYOK è un processo di configurazione una vol
 Questo articolo illustra come configurare un insieme di credenziali delle chiavi con chiavi gestite dal cliente usando il portale di Azure. Per informazioni su come creare un insieme di credenziali delle chiavi usando il portale di Azure, vedere [Guida introduttiva: impostare e recuperare un segreto da Azure Key Vault tramite il portale di Azure](../key-vault/secrets/quick-create-portal.md).
 
 > [!IMPORTANT]
-> L'uso delle chiavi gestite dal cliente con il bus di servizio di Azure richiede che nell'insieme di credenziali delle chiavi siano configurate due proprietà obbligatorie. Sono: **eliminazione** temporanea e **non ripulitura**. Queste proprietà sono abilitate per impostazione predefinita quando si crea un nuovo insieme di credenziali delle chiavi nel portale di Azure. Tuttavia, se è necessario abilitare queste proprietà in un insieme di credenziali delle chiavi esistente, è necessario usare PowerShell o l'interfaccia della riga di comando di Azure.
+> L'uso delle chiavi gestite dal cliente con il bus di servizio di Azure richiede che nell'insieme di credenziali delle chiavi siano configurate due proprietà obbligatorie. Sono:  **eliminazione** temporanea e **non ripulitura**. Queste proprietà sono abilitate per impostazione predefinita quando si crea un nuovo insieme di credenziali delle chiavi nel portale di Azure. Tuttavia, se è necessario abilitare queste proprietà in un insieme di credenziali delle chiavi esistente, è necessario usare PowerShell o l'interfaccia della riga di comando di Azure.
 
 ## <a name="enable-customer-managed-keys"></a>Abilitare chiavi gestite dal cliente
 Per abilitare le chiavi gestite dal cliente nel portale di Azure, attenersi alla procedura seguente:
@@ -82,12 +82,12 @@ Dopo aver abilitato le chiavi gestite dal cliente, è necessario associare la ch
     > 
     >   * Se il [ripristino di emergenza geografico](service-bus-geo-dr.md) è già abilitato per lo spazio dei nomi del bus di servizio e si sta cercando di abilitare la chiave gestita dal cliente, 
     >     * Interrompi l'associazione
-    >     * [Configurare i criteri di accesso](../key-vault/general/managed-identity.md) per l'identità gestita per gli spazi dei nomi primario e secondario nell'insieme di credenziali delle chiavi.
+    >     * [Configurare i criteri di accesso](../key-vault/general/assign-access-policy-portal.md) per l'identità gestita per gli spazi dei nomi primario e secondario nell'insieme di credenziali delle chiavi.
     >     * Configurare la crittografia nello spazio dei nomi primario.
     >     * Associare nuovamente gli spazi dei nomi primari e secondari.
     > 
     >   * Se si vuole abilitare il ripristino di emergenza geografico in uno spazio dei nomi del bus di servizio in cui è già configurata la chiave gestita dal cliente,
-    >     * [Configurare i criteri di accesso](../key-vault/general/managed-identity.md) per l'identità gestita per lo spazio dei nomi secondario nell'insieme di credenziali delle chiavi.
+    >     * [Configurare i criteri di accesso](../key-vault/general/assign-access-policy-portal.md) per l'identità gestita per lo spazio dei nomi secondario nell'insieme di credenziali delle chiavi.
     >     * Associare gli spazi dei nomi primari e secondari.
 
 
@@ -164,8 +164,8 @@ Questa sezione illustra come creare uno spazio dei nomi del bus di servizio di A
 
     > [!NOTE]
     > Sostituire i valori seguenti: 
-    > - `<ServiceBusNamespaceName>`: Nome dello spazio dei nomi del bus di servizio
-    > - `<Location>`-Percorso dello spazio dei nomi del bus di servizio
+    > - `<ServiceBusNamespaceName>` : Nome dello spazio dei nomi del bus di servizio
+    > - `<Location>` -Percorso dello spazio dei nomi del bus di servizio
 
     ```json
     {
@@ -287,10 +287,10 @@ In questo passaggio verrà aggiornato lo spazio dei nomi del bus di servizio con
 
     > [!NOTE]
     > Sostituire i valori seguenti: 
-    > - `<ServiceBusNamespaceName>`: Nome dello spazio dei nomi del bus di servizio
-    > - `<Location>`-Percorso dello spazio dei nomi del bus di servizio
-    > - `<KeyVaultName>`: Nome dell'insieme di credenziali delle chiavi
-    > - `<KeyName>`: Nome della chiave nell'insieme di credenziali delle chiavi  
+    > - `<ServiceBusNamespaceName>` : Nome dello spazio dei nomi del bus di servizio
+    > - `<Location>` -Percorso dello spazio dei nomi del bus di servizio
+    > - `<KeyVaultName>` : Nome dell'insieme di credenziali delle chiavi
+    > - `<KeyName>` : Nome della chiave nell'insieme di credenziali delle chiavi  
 
     ```json
     {

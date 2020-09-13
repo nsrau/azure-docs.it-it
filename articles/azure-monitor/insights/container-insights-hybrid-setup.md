@@ -3,12 +3,12 @@ title: Configurare cluster Kubernetes ibridi con monitoraggio di Azure per i con
 description: Questo articolo descrive come configurare monitoraggio di Azure per i contenitori per monitorare i cluster Kubernetes ospitati in Azure Stack o in un altro ambiente.
 ms.topic: conceptual
 ms.date: 06/30/2020
-ms.openlocfilehash: d2ca977f572ee9f60c1ca72fc472f3a6ee6c6362
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 26846148f3212699cecd6db3318cd2da2d9aa783
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86498900"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398382"
 ---
 # <a name="configure-hybrid-kubernetes-clusters-with-azure-monitor-for-containers"></a>Configurare cluster Kubernetes ibridi con monitoraggio di Azure per i contenitori
 
@@ -71,9 +71,11 @@ Prima di iniziare, verificare di disporre degli elementi seguenti:
 
 L'abilitazione di monitoraggio di Azure per i contenitori per il cluster Kubernetes ibrido prevede l'esecuzione dei passaggi seguenti nell'ordine.
 
-1. Configurare l'area di lavoro Log Analytics con la soluzione container Insights.
+1. Configurare l'area di lavoro Log Analytics con la soluzione container Insights.   
 
 2. Abilitare il grafico di monitoraggio di Azure per i contenitori HELM con Log Analytics area di lavoro.
+
+Per altre informazioni sulle soluzioni di monitoraggio in monitoraggio di Azure, vedere [qui](../../azure-monitor/insights/solutions.md).
 
 ### <a name="how-to-add-the-azure-monitor-containers-solution"></a>Come aggiungere la soluzione contenitori di monitoraggio di Azure
 
@@ -334,7 +336,7 @@ Dopo aver distribuito correttamente il grafico, è possibile esaminare i dati pe
 
 A partire dalla versione 2.7.1, il grafico supporterà la specifica dell'endpoint proxy con il `omsagent.proxy` parametro Chart. Ciò consente di comunicare tramite il server proxy. La comunicazione tra monitoraggio di Azure per l'agente contenitori e monitoraggio di Azure può essere un server proxy HTTP o HTTPS ed è supportata sia l'autenticazione anonima che quella di base (nome utente/password).
 
-Il valore di configurazione proxy ha la sintassi seguente:`[protocol://][user:password@]proxyhost[:port]`
+Il valore di configurazione proxy ha la sintassi seguente: `[protocol://][user:password@]proxyhost[:port]`
 
 > [!NOTE]
 >Se il server proxy non richiede l'autenticazione, è comunque necessario specificare un nome utente/password di pseudoclasse. Può trattarsi di qualsiasi nome utente o password.

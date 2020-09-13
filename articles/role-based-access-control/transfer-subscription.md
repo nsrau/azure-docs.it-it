@@ -10,12 +10,12 @@ ms.topic: how-to
 ms.workload: identity
 ms.date: 08/31/2020
 ms.author: rolyon
-ms.openlocfilehash: 9873bd8f94c80caccd75033e2a8a4bc2cffcde03
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ab004c11b46428c5fad28177b0d94edc04b95654
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89227033"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400545"
 ---
 # <a name="transfer-an-azure-subscription-to-a-different-azure-ad-directory-preview"></a>Trasferire una sottoscrizione di Azure a un'altra directory di Azure AD (anteprima)
 
@@ -224,7 +224,7 @@ Quando si crea un insieme di credenziali delle chiavi, questo viene automaticame
 > [!WARNING]
 > Se si usa la crittografia dei dati inattivi per una risorsa, ad esempio un account di archiviazione o un database SQL, che ha una dipendenza da un insieme di credenziali delle chiavi che **non** si trova nella stessa sottoscrizione da trasferire, può causare uno scenario irreversibile. In tal caso, è necessario eseguire i passaggi per usare un insieme di credenziali delle chiavi diverso o disabilitare temporaneamente le chiavi gestite dal cliente per evitare questo scenario irreversibile.
 
-- Se si dispone di un insieme di credenziali delle chiavi, usare [AZ Key Vault Show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) per elencare i criteri di accesso. Per altre informazioni, vedere [fornire Key Vault autenticazione con un criterio di controllo di accesso](../key-vault/key-vault-group-permissions-for-apps.md).
+- Se si dispone di un insieme di credenziali delle chiavi, usare [AZ Key Vault Show](https://docs.microsoft.com/cli/azure/keyvault#az-keyvault-show) per elencare i criteri di accesso. Per altre informazioni, vedere [assegnare un criterio di accesso key Vault](../key-vault/general/assign-access-policy-cli.md).
 
     ```azurecli
     az keyvault show --name MyKeyVault
@@ -318,7 +318,7 @@ In questo passaggio la sottoscrizione viene trasferita dalla directory di origin
 
 1. Disabilitare e riabilitare le identità gestite assegnate dal sistema.
 
-    | Servizio di Azure | Altre informazioni | 
+    | Servizio di Azure | Ulteriori informazioni | 
     | --- | --- |
     | Macchine virtuali | [Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#system-assigned-managed-identity) |
     | set di scalabilità di macchine virtuali | [Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#system-assigned-managed-identity) |
@@ -334,7 +334,7 @@ In questo passaggio la sottoscrizione viene trasferita dalla directory di origin
 
 1. Elimina, ricrea e Connetti identità gestite assegnate dall'utente.
 
-    | Servizio di Azure | Altre informazioni | 
+    | Servizio di Azure | Ulteriori informazioni | 
     | --- | --- |
     | Macchine virtuali | [Configurare le identità gestite per le risorse di Azure in una macchina virtuale di Azure tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md#user-assigned-managed-identity) |
     | set di scalabilità di macchine virtuali | [Configurare identità gestite per le risorse di Azure in un set di scalabilità di macchine virtuali tramite l'interfaccia della riga di comando di Azure](../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vmss.md#user-assigned-managed-identity) |

@@ -14,12 +14,12 @@ ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 3f1a9a2756d81765d82938651672e5a83edc48ed
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 11e8a2fd709b40c68b90e5ed139f18997e4cb29e
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078688"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396965"
 ---
 # <a name="register-a-sql-server-vm-in-azure-with-the-sql-vm-resource-provider-rp"></a>Registrare una macchina virtuale SQL Server in Azure con il provider di risorse VM SQL (RP)
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
@@ -353,7 +353,7 @@ az sql vm delete
 ```
 
 # <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
-Per annullare la registrazione della macchina virtuale SQL Server dal provider di risorse con l'interfaccia della riga di comando di Azure, usare il comando [New-AzSqlVM](/powershell/module/az.sqlvirtualmachine/new-azsqlvm). Verrà rimossa la *risorsa* della macchina virtuale SQL Server ma la macchina virtuale non verrà eliminata. 
+Per annullare la registrazione della macchina virtuale SQL Server dal provider di risorse con PowerShell, usare il comando [Remove-AzSqlVM](/powershell/module/az.sqlvirtualmachine/remove-azsqlvm). Verrà rimossa la *risorsa* della macchina virtuale SQL Server ma la macchina virtuale non verrà eliminata. 
 
 ```powershell-interactive
 Remove-AzSqlVM -ResourceGroupName <resource_group_name> -Name <VM_name>

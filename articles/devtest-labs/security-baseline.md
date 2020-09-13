@@ -3,12 +3,12 @@ title: Baseline della sicurezza di Azure per Azure DevTest Labs
 description: Baseline della sicurezza di Azure per Azure DevTest Labs
 ms.topic: conceptual
 ms.date: 07/23/2020
-ms.openlocfilehash: dc53eacf456d1e7c1926c6d7f20e343b3a84340d
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 49b07242068df5d7c46c602140c8b3e1f778e90c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078045"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398323"
 ---
 # <a name="azure-security-baseline-for-azure-devtest-labs"></a>Baseline della sicurezza di Azure per Azure DevTest Labs
 
@@ -693,7 +693,8 @@ Inoltre, le immagini di macchine virtuali di Azure Marketplace pubblicate da Mic
 - [Configurare l'identità gestita per distribuire ambienti Azure Resource Manager in DevTest Labs](use-managed-identities-environments.md)
 - [Configurare l'identità gestita per la distribuzione di macchine virtuali in DevTest Labs](enable-managed-identities-lab-vms.md)
 - [Come creare un insieme di credenziali delle chiavi](../key-vault/quick-create-portal.md)
-- [Come fornire l'autenticazione Key Vault con un'identità gestita](../key-vault/managed-identity.md)
+- [Come eseguire l'autenticazione a Key Vault](../key-vault/general/authentication.md)
+- [Come assegnare un criterio di accesso Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure:** Sì
 

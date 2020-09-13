@@ -6,19 +6,21 @@ ms.author: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 04/15/2020
-ms.openlocfilehash: 5608d0cd83e506bc6b30337db5148f344f59f80e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 08/11/2020
+ms.openlocfilehash: 112f915f533627ccdc0ac6efe38caacc80b254bc
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81410861"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89399957"
 ---
 # <a name="nsg-service-tags-for-azure-hdinsight"></a>Tag del servizio NSG per Azure HDInsight
 
 I tag del servizio HDInsight di Azure per i gruppi di sicurezza di rete (gruppi) sono gruppi di indirizzi IP per i servizi di gestione e integrità. Questi gruppi consentono di ridurre al minimo la complessità per la creazione delle regole di sicurezza. I [tag di servizio](../virtual-network/security-overview.md#service-tags) consentono il traffico in ingresso da indirizzi IP specifici senza immettere ciascuno degli [indirizzi IP di gestione](hdinsight-management-ip-addresses.md) nella gruppi.
 
 Il servizio HDInsight gestisce questi tag del servizio. Non è possibile creare un tag di servizio personalizzato o modificare un tag esistente. Microsoft gestisce i prefissi di indirizzo che corrispondono al tag del servizio e aggiorna automaticamente il tag di servizio in base alla modifica degli indirizzi.
+
+Se si vuole usare un'area specifica e il tag di servizio non è ancora documentato in questa pagina, è possibile usare l' [API di individuazione dei tag di servizio](../virtual-network/service-tags-overview.md#use-the-service-tag-discovery-api-public-preview) per trovare il tag del servizio. È anche possibile scaricare il [file JSON del tag di servizio](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files) e cercare l'area desiderata.
 
 ## <a name="get-started-with-service-tags"></a>Introduzione ai tag del servizio
 
@@ -54,7 +56,7 @@ Per informazioni sui tag di servizio da aggiungere per la propria area, vedere l
 
 Se il cluster si trova in un'area elencata in questa tabella, è sufficiente aggiungere un singolo tag di servizio regionale a NSG.
 
-| Paese | Region | Tag di servizio |
+| Country | Region | Tag di servizio |
 | ---- | ---- | ---- |
 | Australia | Australia orientale | HDInsight. AustraliaEast |
 | &nbsp; | Australia sud-orientale | HDInsight. AustraliaSoutheast |
@@ -62,7 +64,7 @@ Se il cluster si trova in un'area elencata in questa tabella, è sufficiente agg
 | Cina | Cina orientale 2 | HDInsight. ChinaEast2 |
 | &nbsp; | Cina settentrionale 2 | HDInsight. ChinaNorth2 |
 | Stati Uniti | Stati Uniti centro-settentrionali | HDInsight. NorthCentralUS |
-| &nbsp; | Stati Uniti occidentali 2 | HDInsight. WestUS2 |
+| &nbsp; | West US 2 | HDInsight. WestUS2 |
 | &nbsp; | Stati Uniti centro-occidentali | HDInsight. WestCentralUS |
 | Canada | Canada orientale | HDInsight. CanadaEast |
 | Brasile | Brasile meridionale | HDInsight. BrazilSouth |
@@ -94,7 +96,7 @@ Ad esempio, se il cluster viene creato nell' `East US 2` area, è necessario agg
 - `HDInsight.WestUS`
 - `HDInsight.EastUS`
 
-| Paese | Region | Tag di servizio |
+| Country | Region | Tag di servizio |
 | ---- | ---- | ---- |
 | Stati Uniti | Stati Uniti orientali 2 | HDInsight. EastUS2 |
 | &nbsp; | Stati Uniti centrali | HDInsight. Centralus |

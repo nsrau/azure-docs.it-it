@@ -3,20 +3,20 @@ title: Configurare il routing del traffico multivalore-gestione traffico di Azur
 description: Questo articolo descrive come configurare Gestione traffico per instradare il traffico agli endpoint A/AAAA.
 services: traffic-manager
 documentationcenter: ''
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: rohink
-ms.openlocfilehash: 3ac6d20acf32be9678818483e5929dee225501b1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: 85e088dda767a6f6c80ac0a9f6eed84e8802e5ee
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84706818"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89401045"
 ---
 # <a name="configure-multivalue-routing-method-in-traffic-manager"></a>Configurare il metodo di routing multivalore in Gestione traffico
 
@@ -40,7 +40,7 @@ Creare un profilo di Gestione traffico che indirizza il traffico degli utenti ve
 1. Sul lato superiore sinistro della schermata selezionare **Crea una risorsa**  >  **rete**  >  **profilo di gestione traffico**  >  **Crea**.
 2. In **Crea profilo di Gestione traffico** immettere o selezionare le informazioni seguenti, accettare i valori predefiniti per le impostazioni rimanenti e quindi selezionare **Crea**:
     
-    | Impostazione                 | valore                                              |
+    | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
     | Nome                   | Questo nome deve essere univoco all'interno della zona trafficmanager.net e determina il nome DNS, trafficmanager.net, che viene usato per accedere al profilo di Gestione traffico.                                   |
     | Metodo di routing          | Selezionare il metodo di routing **multivalore**.                                       |
@@ -59,7 +59,7 @@ Aggiungere due indirizzi IP come endpoint esterni al profilo multivalore di Gest
 2. In **Profilo di Gestione traffico**, nella sezione **Impostazioni**, fare clic su **Endpoint** e quindi su **Aggiungi**.
 3. Immettere o selezionare le informazioni seguenti, accettare le impostazioni predefinite rimanenti e quindi scegliere **OK**:
 
-    | Impostazione                 | valore                                              |
+    | Impostazione                 | Valore                                              |
     | ---                     | ---                                                |
     | Type                    | Endpoint esterno                                   |
     | Nome           | myEndpoint1                                        |

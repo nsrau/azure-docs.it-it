@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
 ms.author: akjosh
-ms.openlocfilehash: 6bf82e85bfe36466010ce1cc8914bbd1221fe51a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 7a0b2afa8b566ec82fc638291c43f3e0419f654c
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267854"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400688"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Usare l'estensione Diagnostica per Linux per monitorare le metriche e i log
 
@@ -70,7 +70,7 @@ Distribuzioni e versioni supportate:
 * **Agente Linux di Azure 2.2.0 o versione successiva**. La maggior parte delle immagini della raccolta Linux di macchine virtuali di Azure include la versione 2.2.7 o successive. Eseguire `/usr/sbin/waagent -version` per verificare la versione installata nella macchina virtuale. Se la macchina virtuale esegue una versione precedente dell'agente guest, seguire [queste istruzioni](./update-linux-agent.md) per aggiornarla.
 * **Interfaccia della riga di comando di Azure**. [Configurare l'ambiente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) nella macchina virtuale.
 * Il comando wget, se non è già disponibile: Eseguire `sudo apt-get install wget`.
-* Una sottoscrizione di Azure esistente e un account di archiviazione al suo interno per l'archiviazione dei dati.
+* Una sottoscrizione di Azure esistente e un account di archiviazione per utilizzo generico esistente in cui archiviare i dati.  Gli account di archiviazione per utilizzo generico supportano l'archiviazione tabelle, richiesta.  Un account di archiviazione BLOB non funzionerà.
 
 ### <a name="sample-installation"></a>Installazione di esempio
 

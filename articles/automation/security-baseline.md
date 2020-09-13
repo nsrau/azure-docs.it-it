@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/22/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: abc8ee3b79b43676ce114094af5614b1a2d945bf
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a57473a26d5fe809274f14c8767356914e0d4962
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89230994"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400518"
 ---
 # <a name="azure-security-baseline-for-automation"></a>Baseline della sicurezza di Azure per l'automazione
 
@@ -1042,7 +1042,9 @@ Quando si usa la funzionalità di ruolo di lavoro ibrido per Runbook, usare la c
 
 * [Come creare una Key Vault](../key-vault/secrets/quick-create-portal.md)
 
-* [Come fornire l'autenticazione Key Vault con un'identità gestita](../key-vault/general/managed-identity.md)
+* [Come eseguire l'autenticazione a Key Vault](../key-vault/general/authentication.md)
+
+* [Come assegnare un criterio di accesso Key Vault](../key-vault/general/assign-access-policy-portal.md)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

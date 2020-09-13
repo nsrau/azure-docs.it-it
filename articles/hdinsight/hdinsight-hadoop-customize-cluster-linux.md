@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: seoapr2020
-ms.date: 04/21/2020
-ms.openlocfilehash: 383c64c585f05869e1d01b5c99693fcf560cdedc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.date: 09/02/2020
+ms.openlocfilehash: b30a7822511dc6b4c3ae7e852cba49ebff6e24ad
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87006672"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400858"
 ---
 # <a name="customize-azure-hdinsight-clusters-by-using-script-actions"></a>Personalizzare i cluster Azure HDInsight con azioni script
 
@@ -66,13 +66,15 @@ Un'azione di script è uno script Bash eseguito sui nodi di un cluster HDInsight
 
     Le azioni script persistenti devono avere un nome univoco. Gli script persistenti vengono usati per personalizzare i nuovi nodi di lavoro aggiunti al cluster tramite operazioni di ridimensionamento. Uno script persistente può anche applicare modifiche a un altro tipo di nodo durante operazioni di ridimensionamento, ad esempio un nodo head.
 
-    `Ad hoc`gli script non sono salvati in permanenza. Le azioni script usate durante la creazione di un cluster vengono automaticamente rese persistenti. Non vengono infatti applicati ai nodi di lavoro aggiunti al cluster dopo l'esecuzione dello script. È quindi possibile innalzare `ad hoc` di livello uno script a uno script permanente o abbassare di livello uno script permanente in uno `ad hoc` script. Gli script che hanno esito negativo non vengono resi persistenti, anche in presenza di indicazioni specifiche in tal senso.
+    `Ad hoc` gli script non sono salvati in permanenza. Le azioni script usate durante la creazione di un cluster vengono automaticamente rese persistenti. Non vengono infatti applicati ai nodi di lavoro aggiunti al cluster dopo l'esecuzione dello script. È quindi possibile innalzare `ad hoc` di livello uno script a uno script permanente o abbassare di livello uno script permanente in uno `ad hoc` script. Gli script che hanno esito negativo non vengono resi persistenti, anche in presenza di indicazioni specifiche in tal senso.
 
 * Possono accettare parametri usati dallo script durante l'esecuzione.
 
 * Eseguire lo script con privilegi a livello radice nei nodi del cluster.
 
 * Può essere usato tramite l'portale di Azure, Azure PowerShell, l'interfaccia della riga di comando di Azure o HDInsight .NET SDK.
+
+* Le azioni script per la rimozione o la modifica dei file di servizio nella macchina virtuale possono influito sull'integrità e sulla disponibilità del servizio.
 
 Il cluster mantiene una cronologia di tutti gli script eseguiti. La cronologia è utile quando è necessario trovare l'ID di uno script per le operazioni di innalzamento o abbassamento di livello.
 

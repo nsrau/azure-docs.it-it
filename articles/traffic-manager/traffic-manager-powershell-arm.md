@@ -3,20 +3,20 @@ title: Uso di PowerShell per Gestione traffico in Azure
 description: Con questo percorso di apprendimento, iniziare a usare Azure PowerShell per gestione traffico.
 services: traffic-manager
 documentationcenter: na
-author: rohinkoul
+author: duongau
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: rohink
-ms.openlocfilehash: e9d995a69a4fc54d6f001ced7503a9138d737dbc
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.author: duau
+ms.openlocfilehash: 21076fe23301c189d9987f78706cc81691ce7a4f
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87089040"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400535"
 ---
 # <a name="using-powershell-to-manage-traffic-manager"></a>Uso di PowerShell per Gestione traffico
 
@@ -125,7 +125,7 @@ In ogni caso:
 * "Weight" è facoltativo ed è possibile scegliere se specificarlo. I pesi vengono usati solo se il profilo è configurato per l'uso del metodo di routing del traffico "Weighted". In caso contrario, vengono ignorate. Il valore deve essere un numero compreso tra 1 e 1000. il cui valore predefinito è 1.
 * "Priority" è facoltativo ed è possibile scegliere se specificarlo. Le priorità vengono usate solo se il profilo è configurato per l'uso del metodo di routing del traffico "Priority". In caso contrario, vengono ignorate. I valori validi sono compresi tra 1 e 1000 con i valori più bassi che indicano una priorità più alta. Se si specifica questo valore per un endpoint, sarà necessario specificarlo per tutti gli endpoint. Se questo valore viene omesso, verranno applicati i valori predefiniti a partire da "1" nell'ordine in cui sono elencati gli endpoint.
 
-### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>Esempio 1: aggiunta di endpoint del servizio app con`Add-AzTrafficManagerEndpointConfig`
+### <a name="example-1-adding-app-service-endpoints-using-add-aztrafficmanagerendpointconfig"></a>Esempio 1: aggiunta di endpoint del servizio app con `Add-AzTrafficManagerEndpointConfig`
 
 In questo esempio viene creato un profilo di Gestione traffico e vengono aggiunti due endpoint di servizio app usando il cmdlet `Add-AzTrafficManagerEndpointConfig`.
 

@@ -2,17 +2,17 @@
 title: Creare e gestire il peering pubblico di Azure ExpressRoute
 description: Informazioni e gestione del peering pubblico di Azure
 services: expressroute
-author: cherylmc
+author: duongau
 ms.service: expressroute
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.author: cherylmc
-ms.openlocfilehash: 8c1afac834fb9abb2cbf82f16f046a1624b251f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: duau
+ms.openlocfilehash: a5829399b70871903c8eb433b95e0cb09e5d2c60
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79481134"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398087"
 ---
 # <a name="create-and-manage-expressroute-public-peering"></a>Creare e gestire il peering pubblico di ExpressRoute
 

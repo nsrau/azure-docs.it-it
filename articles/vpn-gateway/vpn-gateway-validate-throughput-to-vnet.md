@@ -1,21 +1,21 @@
 ---
 title: Convalidare la velocità effettiva VPN in una Rete virtuale di Microsoft Azure
-description: Lo scopo di questo documento è quello di consentire a un utente di convalidare la velocità effettiva della rete dalle relative risorse locali a una macchina virtuale di Azure.
+description: Questo articolo consente di convalidare la velocità effettiva della rete dalle risorse locali a una macchina virtuale di Azure.
 titleSuffix: Azure VPN Gateway
 services: vpn-gateway
 author: cherylmc
 manager: dcscontentpm
 ms.service: vpn-gateway
 ms.topic: troubleshooting
-ms.date: 05/29/2019
+ms.date: 09/02/2020
 ms.author: radwiv
 ms.reviewer: chadmat;genli
-ms.openlocfilehash: 7d19cc4a474324ff3e88ec0c5353a47c157ec715
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d2347c0688ca58698831019a193d03fe2c6721e9
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "86998477"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398508"
 ---
 # <a name="how-to-validate-vpn-throughput-to-a-virtual-network"></a>Come convalidare la velocità effettiva della VPN verso una rete virtuale
 
@@ -127,7 +127,7 @@ Scaricare [iPerf](https://iperf.fr/download/iperf_3.1/iperf-3.1.2-win64.zip). Pe
 
 Scaricare la versione più recente di [Latte.exe](https://gallery.technet.microsoft.com/Latte-The-Windows-tool-for-ac33093b)
 
-Provare a inserire Latte.exe in una cartella separata, ad esempio`c:\tools`
+Provare a inserire Latte.exe in una cartella separata, ad esempio `c:\tools`
 
 ### <a name="allow-latteexe-through-the-windows-firewall"></a>Consenti Latte.exe tramite Windows Firewall
 
@@ -217,7 +217,7 @@ Make install è veloce
 
 > [!Note]
 > Assicurarsi che non siano presenti hop intermedi, ad esempio appliance virtuale, durante il test della velocità effettiva tra la macchina virtuale e il gateway.
-> Se sono presenti risultati scarsi (in termini di velocità effettiva complessiva) provenienti dai test iPERF/NTTTCP precedenti, vedere l'articolo seguente per comprendere i fattori chiave alla base delle possibili cause principali del problema:https://docs.microsoft.com/azure/virtual-network/virtual-network-tcpip-performance-tuning
+> Se sono presenti risultati scarsi (in termini di velocità effettiva complessiva) provenienti dai test iPERF/NTTTCP precedenti, vedere l'articolo seguente per comprendere i fattori chiave alla base delle possibili cause principali del problema: https://docs.microsoft.com/azure/virtual-network/virtual-network-tcpip-performance-tuning
 
 In particolare, l'analisi delle tracce di acquisizione pacchetti (Wireshark/Network Monitor) raccolte in parallelo da client e server durante tali test consentirà di valutare le prestazioni negative. Queste tracce possono includere perdite di pacchetti, latenza elevata, dimensioni MTU. frammentazione, finestra TCP 0, frammenti non ordinati e così via.
 
@@ -253,7 +253,7 @@ Una configurazione non appropriata può causare frequenti disconnessioni all'int
 
 * WinMTR
 * TCPTraceroute
-* `ping`e `psping` (questi strumenti possono fornire una stima corretta di RTT, ma non possono essere usati in tutti i casi).
+* `ping` e `psping` (questi strumenti possono fornire una stima corretta di RTT, ma non possono essere usati in tutti i casi).
 
 ![Verifica latenza](./media/vpn-gateway-validate-throughput-to-vnet/08checkinglatency.png)
 

@@ -1,6 +1,6 @@
 ---
 title: Pubblicare Desktop remoto con il proxy applicazione di Azure AD | Microsoft Docs
-description: Tratta i fondamenti dei connettori del proxy applicazione di Azure AD.
+description: Illustra come configurare il proxy applicazione con RDS
 services: active-directory
 documentationcenter: ''
 author: kenwith
@@ -16,12 +16,12 @@ ms.author: kenwith
 ms.custom: it-pro
 ms.reviewer: japere
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cba74c773e1f141db14e06cf0cda8b31d06ba4f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 7ffdccf9cf3b6de4ba15d6076d7a5b9e0a93f464
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87019523"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89396761"
 ---
 # <a name="publish-remote-desktop-with-azure-ad-application-proxy"></a>Pubblicare Desktop remoto con il proxy applicazione di Azure AD
 
@@ -135,7 +135,7 @@ La configurazione descritta in questo articolo è relativa all'accesso a Servizi
 
 | Metodo di autenticazione | Configurazione client supportata |
 | --------------------- | ------------------------------ |
-| Pre-autenticazione    | Web Desktop remoto-Windows 7/10 con Internet Explorer + componente aggiuntivo ActiveX di RDS |
+| Pre-autenticazione    | Web Desktop remoto-Windows 7/10 con Internet Explorer o la modalità di utilizzo di Microsoft [Edge Chromium](https://docs.microsoft.com/deployedge/edge-ie-mode) + RDS ActiveX |
 | Pre-autenticazione    | Client Web Desktop remoto: Web browser compatibile con HTML5, ad esempio Microsoft Edge, Internet Explorer 11, Google Chrome, Safari o Mozilla Firefox (v 55.0 e versioni successive) |
 | Pass-through | Qualsiasi altro sistema operativo che supporta l'applicazione Desktop remoto Microsoft |
 
