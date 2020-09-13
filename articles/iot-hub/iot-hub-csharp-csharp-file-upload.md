@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/04/2017
 ms.author: robinsh
 ms.custom: mqtt, devx-track-csharp
-ms.openlocfilehash: ae145f5a1ce462edb28171a1f5bb6f3ebb72f538
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7a80fb47122d21e078cf2724b805fa56c5a73aeb
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018213"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018128"
 ---
 # <a name="upload-files-from-your-device-to-the-cloud-with-iot-hub-net"></a>Caricare file da un dispositivo al cloud con l'hub IoT (.NET)
 
@@ -47,6 +47,8 @@ Al termine di questa esercitazione vengono eseguite due app console .NET:
 
 > [!NOTE]
 > L'hub IoT supporta numerose piattaforme e linguaggi, inclusi C, Java, Python e Javascript, tramite Azure IoT SDK per dispositivi. Vedere il [Centro per sviluppatori di IoT di Azure](https://azure.microsoft.com/develop/iot) per istruzioni dettagliate su come connettere il dispositivo all'Hub IoT di Azure.
+
+[!INCLUDE [iot-hub-include-x509-ca-signed-file-upload-support-note](../../includes/iot-hub-include-x509-ca-signed-file-upload-support-note.md)]
 
 ## <a name="prerequisites"></a>Prerequisiti
 

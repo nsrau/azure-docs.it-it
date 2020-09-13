@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/06/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: dbe3af30963791891f0ceee4e18c34e078c0ac7a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0e217676f5e1f4dcba24917cb140d9d4d8fcc422
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89013181"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024367"
 ---
 # <a name="z-fighting-mitigation"></a>Mitigazione dell'effetto Z-fighting
 
@@ -21,9 +21,9 @@ Quando due superfici si sovrappongono, non è chiaro di quale deve essere esegui
 
 |Situazione                        | Risultato                               |
 |---------------------------------|:-------------------------------------|
-|Effetto z-fighting normale               |![Z-fighting](./media/zfighting-0.png)|
-|Mitigazione dell'effetto Z-fighting abilitata    |![Z-fighting](./media/zfighting-1.png)|
-|Evidenziazione dell'effetto scacchiera abilitata|![Z-fighting](./media/zfighting-2.png)|
+|Effetto z-fighting normale               |![Nessuna precedenza deterministica tra i quad rossi e verdi](./media/zfighting-0.png)|
+|Mitigazione dell'effetto Z-fighting abilitata    |![Il quadrato rosso ha la precedenza](./media/zfighting-1.png)|
+|Evidenziazione dell'effetto scacchiera abilitata|![Preferenza per la selezione di un quadrato rosso e verde nel motivo a scacchi](./media/zfighting-2.png)|
 
 Il codice seguente abilita la funzionalità di mitigazione dell'effetto z-fighting:
 
@@ -53,7 +53,6 @@ void EnableZFightingMitigation(ApiHandle<AzureSession> session, bool highlight)
 }
 ```
 
-
 > [!NOTE]
 > La funzionalità di mitigazione dell'effetto z-fighting è un'impostazione globale che influisce su tutte le mesh sottoposte a rendering.
 
@@ -76,6 +75,11 @@ La funzionalità di mitigazione dell'effetto z-fighting è il risultato del prin
 
 * L'abilitazione della funzionalità di mitigazione dell'effetto z-fighting comporta un sovraccarico delle prestazioni minimo o nullo.
 * L'abilitazione aggiuntiva della sovraimpressione z-fighting comporta un sovraccarico delle prestazioni non indifferente, anche se variabile a seconda della scena.
+
+## <a name="api-documentation"></a>Documentazione dell'API
+
+* [Proprietà C# RemoteManager. ZFightingMitigationSettings](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.remotemanager.zfightingmitigationsettings)
+* [C++ RemoteManager:: ZFightingMitigationSettings ()](https://docs.microsoft.com/cpp/api/remote-rendering/remotemanager#zfightingmitigationsettings)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

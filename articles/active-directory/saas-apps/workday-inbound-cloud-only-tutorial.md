@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 69c3246c910a83d889151d6ad749e1be86340e8c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7d47c21da1279271b12933a2e4642abcce622600
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540967"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015484"
 ---
 # <a name="tutorial-configure-workday-to-azure-ad-user-provisioning"></a>Esercitazione: configurare la giornata lavorativa per il provisioning degli utenti Azure AD
 Questa esercitazione descrive la procedura da eseguire per effettuare il provisioning dei dati di lavoro da giorni lavorativi a Azure Active Directory. 
@@ -27,13 +27,13 @@ Questa esercitazione descrive la procedura da eseguire per effettuare il provisi
 
 Il [servizio di provisioning utenti di Azure Active Directory](../app-provisioning/user-provisioning.md) si integra con l'[API Human Resources di Workday](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) per il provisioning degli account utente. I flussi di lavoro di provisioning utenti di Workday supportati dal servizio di provisioning utenti di Azure AD consentono l'automazione dei seguenti scenari di gestione delle risorse umane e del ciclo di vita delle identità:
 
-* **Assunzione di nuovi dipendenti** : quando un nuovo dipendente viene aggiunto alla giornata lavorativa, viene creato automaticamente un account utente in Azure Active Directory e, facoltativamente, Office 365 e [altre applicazioni SaaS supportate da Azure ad](../app-provisioning/user-provisioning.md), con Write-back dell'indirizzo di posta elettronica per la giornata lavorativa.
+* **Assunzione di nuovi dipendenti** : quando un nuovo dipendente viene aggiunto alla giornata lavorativa, viene creato automaticamente un account utente in Azure Active Directory e, facoltativamente, Microsoft 365 e [altre applicazioni SaaS supportate da Azure ad](../app-provisioning/user-provisioning.md), con Write-back dell'indirizzo di posta elettronica per la giornata lavorativa.
 
-* **Aggiornamenti del profilo e dell'attributo del dipendente** : quando un record del dipendente viene aggiornato nella giornata lavorativa (ad esempio il nome, il titolo o il responsabile), il relativo account utente verrà aggiornato automaticamente Azure Active Directory e, facoltativamente, Office 365 e [altre applicazioni SaaS supportate da Azure ad](../app-provisioning/user-provisioning.md).
+* **Aggiornamenti del profilo e dell'attributo del dipendente** : quando un record del dipendente viene aggiornato nella giornata lavorativa (ad esempio, il nome, il titolo o il responsabile), il relativo account utente verrà aggiornato automaticamente Azure Active Directory e, facoltativamente, Microsoft 365 e [altre applicazioni SaaS supportate da Azure ad](../app-provisioning/user-provisioning.md).
 
-* **Interruzioni dei dipendenti** : quando un dipendente viene terminato nella giornata lavorativa, il relativo account utente viene disabilitato automaticamente in Azure Active Directory e, facoltativamente, Office 365 e [altre applicazioni SaaS supportate da Azure ad](../app-provisioning/user-provisioning.md).
+* **Interruzioni dei dipendenti** : quando un dipendente viene terminato nella giornata lavorativa, il relativo account utente viene disabilitato automaticamente in Azure Active Directory e, facoltativamente, Microsoft 365 e [altre applicazioni SaaS supportate da Azure ad](../app-provisioning/user-provisioning.md).
 
-* **Riassunzioni dei dipendenti** : quando un dipendente viene riassunto nella giornata lavorativa, il relativo account precedente può essere riattivato automaticamente o nuovamente sottoposto a provisioning (a seconda delle preferenze) per Azure Active Directory e, facoltativamente, Office 365 e [altre applicazioni SaaS supportate da Azure ad](../app-provisioning/user-provisioning.md).
+* **Riassunzioni dei dipendenti** : quando un dipendente viene riassunto nella giornata lavorativa, il relativo account precedente può essere riattivato automaticamente o nuovamente sottoposto a provisioning (a seconda delle preferenze) per Azure Active Directory e, facoltativamente, Microsoft 365 e [altre applicazioni SaaS supportate da Azure ad](../app-provisioning/user-provisioning.md).
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Per chi è più adatta questa soluzione di provisioning utenti?
 
@@ -45,7 +45,7 @@ Questa giornata lavorativa per Azure Active Directory soluzione di provisioning 
 
 * Organizzazioni che richiedono il provisioning degli utenti usando i dati ottenuti dalla giornata lavorativa
 
-* Organizzazioni che usano Office 365 per la posta elettronica
+* Organizzazioni che usano Microsoft 365 per la posta elettronica
 
 ## <a name="solution-architecture"></a>Architettura della soluzione
 

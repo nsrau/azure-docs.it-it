@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: c03459a86f521cafd792b9bf86b2b6b46bf3da9c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 62716d5061d7c5e6ed8c64a0ce00a780f35c10be
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88534106"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018000"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-active-directory-user-provisioning"></a>Esercitazione: configurare SAP SuccessFactors per il provisioning utenti Active Directory 
 Questa esercitazione descrive la procedura da eseguire per effettuare il provisioning degli utenti da SuccessFactors Employee Central a Active Directory (AD) e Azure AD, con Write-back facoltativo dell'indirizzo di posta elettronica in SuccessFactors. 
@@ -30,13 +30,13 @@ Il [servizio di provisioning utenti Azure Active Directory](../app-provisioning/
 
 I flussi di lavoro di provisioning utenti di SuccessFactors supportati dal servizio di provisioning utenti Azure AD consentono l'automazione dei seguenti scenari di gestione delle risorse umane e del ciclo di vita delle identità:
 
-* **Assunzione di nuovi dipendenti** : quando viene aggiunto un nuovo dipendente a SuccessFactors, un account utente viene creato automaticamente in Active Directory, Azure Active Directory e, facoltativamente, Office 365 e [altre applicazioni SaaS supportate da Azure ad](../app-provisioning/user-provisioning.md), con Write-back dell'indirizzo di posta elettronica a SuccessFactors.
+* **Assunzione di nuovi dipendenti** : quando viene aggiunto un nuovo dipendente a SuccessFactors, viene creato automaticamente un account utente in Active Directory, Azure Active Directory e, facoltativamente, Microsoft 365 e [altre applicazioni SaaS supportate da Azure ad](../app-provisioning/user-provisioning.md), con Write-back dell'indirizzo di posta elettronica in SuccessFactors.
 
-* **Aggiornamenti del profilo e dell'attributo del dipendente** : quando un record del dipendente viene aggiornato in SuccessFactors (ad esempio il nome, il titolo o il responsabile), il relativo account utente verrà aggiornato automaticamente in Active Directory, Azure Active Directory e, facoltativamente, Office 365 e [altre applicazioni SaaS supportate da Azure ad](../app-provisioning/user-provisioning.md).
+* **Aggiornamenti del profilo e dell'attributo del dipendente** : quando un record del dipendente viene aggiornato in SuccessFactors (ad esempio, il nome, il titolo o il responsabile), il relativo account utente verrà aggiornato automaticamente in Active Directory, Azure Active Directory e, facoltativamente, Microsoft 365 e [altre applicazioni SaaS supportate da Azure ad](../app-provisioning/user-provisioning.md).
 
-* **Interruzioni dei dipendenti** : quando un dipendente viene terminato in SuccessFactors, il relativo account utente viene disabilitato automaticamente in Active Directory, Azure Active Directory e, facoltativamente, Office 365 e [altre applicazioni SaaS supportate da Azure ad](../app-provisioning/user-provisioning.md).
+* **Interruzioni dei dipendenti** : quando un dipendente viene terminato in SuccessFactors, il relativo account utente viene disabilitato automaticamente in Active Directory, Azure Active Directory e, facoltativamente, Microsoft 365 e [altre applicazioni SaaS supportate da Azure ad](../app-provisioning/user-provisioning.md).
 
-* **Riassunzioni dei dipendenti** : quando un dipendente viene riassunto in SuccessFactors, il relativo account precedente può essere riattivato automaticamente o nuovamente sottoposto a provisioning (a seconda delle proprie preferenze) per Active Directory, Azure Active Directory e, facoltativamente, Office 365 e [altre applicazioni SaaS supportate da Azure ad](../app-provisioning/user-provisioning.md).
+* **Riassunzioni dei dipendenti** : quando un dipendente viene riassunto in SuccessFactors, il relativo account precedente può essere riattivato automaticamente o nuovamente sottoposto a provisioning (a seconda delle proprie preferenze) per Active Directory, Azure Active Directory e, facoltativamente, Microsoft 365 e [altre applicazioni SaaS supportate da Azure ad](../app-provisioning/user-provisioning.md).
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Per chi è più adatta questa soluzione di provisioning utenti?
 
@@ -50,7 +50,7 @@ Questo SuccessFactors per Active Directory soluzione di provisioning degli utent
 
 * Organizzazioni che richiedono l'aggiunta, lo stato di trasferimento e l'uscita degli utenti da sincronizzare a una o più Active Directory foreste, domini e unità organizzative basate solo su informazioni sulle modifiche rilevate in [SuccessFactors Employee Central (EC)](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html)
 
-* Organizzazioni che usano Office 365 per la posta elettronica
+* Organizzazioni che usano Microsoft 365 per la posta elettronica
 
 ## <a name="solution-architecture"></a>Architettura della soluzione
 
@@ -234,7 +234,7 @@ Trasferire il programma di installazione dell'agente scaricato nell'host del ser
    
 1. Verificare l'installazione dell'agente e accertarsi che sia in esecuzione aprendo lo snap-in "Servizi" e cercare il servizio denominato "Agente di provisioning Microsoft Azure Active Directory Connect"
   
-   ![Servizi](./media/workday-inbound-tutorial/services.png)
+   ![Screenshot della Microsoft Azure AD connettere l'agente di provisioning in esecuzione nei servizi](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-successfactors-and-active-directory"></a>Parte 3: nell'app di provisioning configurare la connettività a SuccessFactors e Active Directory
 In questo passaggio viene stabilita la connettività con SuccessFactors e Active Directory nel portale di Azure. 

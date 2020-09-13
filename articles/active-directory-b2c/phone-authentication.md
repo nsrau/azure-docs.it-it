@@ -1,5 +1,5 @@
 ---
-title: Iscrizione e accesso tramite telefono con criteri personalizzati (anteprima)
+title: Iscrizione e accesso tramite telefono con criteri personalizzati
 titleSuffix: Azure AD B2C
 description: Inviare password monouso (OTP) negli SMS ai telefoni degli utenti dell'applicazione con criteri personalizzati in Azure Active Directory B2C.
 services: active-directory-b2c
@@ -8,27 +8,85 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 02/25/2020
+ms.date: 09/01/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d432912cb0442744061500fc01bdd86a4c5d97ef
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4a429314d4a992ea93f4c068203371cda769a4ff
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85385349"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029161"
 ---
-# <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c-preview"></a>Configurare l'iscrizione e l'accesso tramite telefono con criteri personalizzati in Azure AD B2C (anteprima)
+# <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Configurare l'iscrizione e l'accesso tramite telefono con criteri personalizzati in Azure AD B2C
 
 L'iscrizione e l'accesso tramite telefono in Azure Active Directory B2C (Azure AD B2C) consente agli utenti di iscriversi e accedere alle applicazioni usando una password monouso (OTP) inviata in un messaggio di testo al telefono. Le password monouso consentono di ridurre al minimo il rischio che gli utenti dimentichino o abbiano compromessa la loro password.
 
 Attenersi alla procedura descritta in questo articolo per usare i criteri personalizzati per consentire ai clienti di iscriversi e accedere alle applicazioni usando una password monouso inviata al telefono.
 
-[!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
-
 ## <a name="pricing"></a>Prezzi
 
 Le password monouso vengono inviate agli utenti tramite SMS ed è possibile che vengano addebitati i costi per ogni messaggio inviato. Per informazioni sui prezzi, vedere la sezione relativa agli **addebiti separati** di [Azure Active Directory B2C prezzi](https://azure.microsoft.com/pricing/details/active-directory-b2c/).
+
+## <a name="user-experience-for-phone-sign-up-and-sign-in"></a>Esperienza utente per l'iscrizione e l'accesso tramite telefono
+
+Con l'iscrizione e l'accesso tramite telefono, l'utente può iscriversi all'app usando un numero di telefono come identificatore primario. L'esperienza dell'utente finale durante l'iscrizione e l'accesso è descritta di seguito.
+
+> [!NOTE]
+> È consigliabile includere le informazioni sul consenso nell'esperienza di iscrizione e accesso, in modo analogo al testo di esempio riportato di seguito. Questo testo di esempio è esclusivamente a scopo informativo. Per informazioni sul testo finale e sulla configurazione delle funzionalità per soddisfare le esigenze di conformità, vedere il breve manuale di monitoraggio del codice nel [sito Web CTIA](https://www.ctia.org/programs) e consultare i propri esperti legali o di conformità.
+>
+> *Specificando il numero di telefono, si acconsente alla ricezione di un codice di accesso monouso inviato da un SMS per consentire l'accesso a * &lt; Insert: &gt; nome dell'applicazione*. Potrebbero essere applicate le tariffe standard per i messaggi e i dati.*
+>
+> *&lt;Inserisci: un collegamento all'informativa sulla privacy&gt;*<br/>*&lt;Inserisci: un collegamento alle condizioni per il servizio&gt;*
+
+Per aggiungere le proprie informazioni di consenso, personalizzare l'esempio seguente e includerlo in LocalizedResources per il ContentDefinition usato dalla pagina autocertificata con il controllo di visualizzazione (il file Phone-Email-Base.xml nel pacchetto di avvio per l'iscrizione tramite telefono &):
+
+```xml
+<LocalizedResources Id="phoneSignUp.en">        
+    <LocalizedStrings>
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_msg_intro">By providing your phone number, you consent to receiving a one-time passcode sent by text message to help you sign into {insert your application name}. Standard messsage and data rates may apply.</LocalizedString>          
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_text">Privacy Statement</LocalizedString>                
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_1_url">{insert your privacy statement URL}</LocalizedString>          
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_2_text">Terms and Conditions</LocalizedString>             
+    <LocalizedString ElementType="DisplayControl" ElementId="phoneControl" StringId="disclaimer_link_2_url">{insert your terms and conditions URL}</LocalizedString>          
+    <LocalizedString ElementType="UxElement" StringId="initial_intro">Please verify your country code and phone number</LocalizedString>        
+    </LocalizedStrings>      
+</LocalizedResources>
+   ```
+
+### <a name="phone-sign-up-experience"></a>Esperienza di iscrizione tramite telefono
+
+Se l'utente non dispone già di un account per l'applicazione, è possibile crearne uno scegliendo il collegamento **Iscriviti ora** . Viene visualizzata una pagina di iscrizione, in cui l'utente seleziona il **paese**, immette il numero di telefono e seleziona **Invia codice**.
+
+![L'utente avvia l'iscrizione tramite telefono](media/phone-authentication/phone-signup-start.png)
+
+Viene inviato un codice di verifica monouso al numero di telefono dell'utente. L'utente immette il **codice di verifica** nella pagina di iscrizione, quindi seleziona **Verifica codice**. Se l'utente non è stato in grado di recuperare il codice, è possibile selezionare **Invia nuovo codice**.
+
+![L'utente verifica il codice durante l'iscrizione tramite telefono](media/phone-authentication/phone-signup-verify-code.png)
+
+ L'utente immette tutte le altre informazioni richieste nella pagina di iscrizione, ad esempio il **nome visualizzato**, il **nome**e il **Cognome** (paese e numero di telefono rimangono popolati). Se l'utente vuole usare un numero di telefono diverso, può scegliere **Cambia numero** per riavviare l'iscrizione. Al termine, l'utente seleziona **continua**.
+
+![L'utente fornisce informazioni aggiuntive](media/phone-authentication/phone-signup-additional-info.png)
+
+Successivamente, all'utente viene richiesto di fornire un messaggio di posta elettronica di ripristino. L'utente immette il proprio indirizzo di posta elettronica e quindi seleziona **Invia codice di verifica**. Viene inviato un codice alla posta in arrivo dell'utente, che è possibile recuperare e immettere nella casella **codice di verifica** . L'utente seleziona quindi **Verifica codice**. 
+
+Una volta verificato il codice, l'utente seleziona **Crea** per creare il proprio account. In alternativa, se l'utente vuole usare un indirizzo di posta elettronica diverso, può scegliere **modifica messaggio di posta elettronica**.
+
+![L'utente crea un account](media/phone-authentication/email-verification.png)
+
+### <a name="phone-sign-in-experience"></a>Esperienza di accesso tramite telefono
+
+Se l'utente dispone di un account esistente con numero di telefono come identificatore, l'utente immette il proprio numero di telefono e seleziona **continua**. Per confermare il paese e il numero di telefono, selezionare **continue (continua**). verrà inviato un codice di verifica una sola volta al telefono. L'utente immette il codice di verifica e seleziona **continua** per accedere.
+
+![Esperienza utente per l'accesso tramite telefono](media/phone-authentication/phone-signin-screens.png)
+
+## <a name="deleting-a-user-account"></a>Eliminare un account utente
+
+In alcuni casi potrebbe essere necessario eliminare un utente e i dati associati dalla directory Azure AD B2C. Per informazioni dettagliate su come eliminare un account utente tramite il portale di Azure, fare riferimento a [queste istruzioni](https://docs.microsoft.com/microsoft-365/compliance/gdpr-dsr-azure#step-5-delete). 
+
+[!INCLUDE [GDPR-related guidance](../../includes/gdpr-dsr-and-stp-note.md)]
+
+
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -94,12 +152,7 @@ GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-È possibile trovare lo Starter Pack per l'iscrizione e l'accesso ai criteri personalizzati (e altri Starter Pack) su GitHub:
-
-[Azure-Samples/Active-Directory-B2C-Custom-Policy-Starterpack/Scenarios/Phone-number-password][starter-pack-phone]
-
-I file dei criteri dello Starter Pack usano i profili tecnici di autenticazione a più fattori e le trasformazioni delle attestazioni del numero di telefono:
-
+È possibile trovare il pacchetto Starter Pack per l'iscrizione e l'accesso tramite telefono (e altri Starter Pack) su GitHub: [Azure-Samples/Active-Directory-B2C-Custom-Policy-Starterpack/Scenarios/Phone-number-password][starter-pack-phone] i file dei criteri dello Starter Pack usano i profili tecnici di autenticazione a più fattori e le trasformazioni delle attestazioni del numero di telefono:
 * [Definire un profilo tecnico Multi-Factor Authentication di Azure](multi-factor-auth-technical-profile.md)
 * [Definire le trasformazioni delle attestazioni del numero di telefono](phone-number-claims-transformations.md)
 

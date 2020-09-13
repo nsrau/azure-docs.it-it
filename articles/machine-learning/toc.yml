@@ -535,6 +535,9 @@
       href: reference-pipeline-yaml.md
     - name: Parità dei cloud sovrani
       href: reference-machine-learning-cloud-parity.md
+    - name: Criteri di Azure predefiniti
+      displayName: 'samples, policies, definitions'
+      href: ./policy-reference.md
 - name: Risorse
   items:
     - name: Note sulla versione

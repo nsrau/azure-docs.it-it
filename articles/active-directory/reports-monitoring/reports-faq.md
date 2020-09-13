@@ -16,18 +16,18 @@ ms.date: 05/12/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 352b4d46e1693580c386f11f7f4d949740f90cc6
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 1984e2f0bb55115c7d700b91f564d9f01c145151
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231045"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015331"
 ---
 # <a name="frequently-asked-questions-around-azure-active-directory-reports"></a>Domande frequenti sui report di Azure Active Directory
 
 Questo articolo include risposte alle domande frequenti sulla creazione di report in Azure Active Directory (Azure AD). Per altre informazioni, vedere [Creazione di report in Azure Active Directory](overview-reports.md). 
 
-## <a name="getting-started"></a>Guida introduttiva 
+## <a name="getting-started"></a>Introduzione 
 
 **D: attualmente si utilizzano le `https://graph.windows.net/<tenant-name>/reports/` API endpoint per eseguire il pull Azure ad i report di controllo e di utilizzo delle applicazioni integrati nei sistemi di report a livello di codice. Che cosa devo passare a?**
 
@@ -37,7 +37,7 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 **D: attualmente si usano le `https://graph.windows.net/<tenant-name>/reports/` API dell'endpoint per estrarre i report di sicurezza Azure ad (tipi specifici di rilevamento, ad esempio le credenziali perse o gli accessi da indirizzi IP anonimi) nei sistemi di report a livello di programmazione. Che cosa devo passare a?**
 
-**R:** È possibile usare l' [API di rilevamento dei rischi di Identity Protection](../identity-protection/howto-identity-protection-graph-api.md)   per accedere ai rilevamenti di sicurezza tramite Microsoft Graph. Questo nuovo formato offre maggiore flessibilità nel modo in cui è possibile eseguire query sui dati, con filtri avanzati, selezione dei campi e altro ancora, e standardizza i rilevamenti dei rischi in un unico tipo per semplificare l'integrazione in SIEM e altri strumenti di raccolta dati. Poiché i dati sono un formato diverso, non è possibile sostituire le query precedenti con una nuova query. Tuttavia, [la nuova API usa Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta), ovvero lo standard Microsoft per API come Office 365 o Azure AD. Il lavoro richiesto può quindi estendere gli attuali investimenti in Microsoft Graph o consentire di iniziare la transizione alla nuova piattaforma standard.
+**R:** È possibile usare l' [API di rilevamento dei rischi di Identity Protection](../identity-protection/howto-identity-protection-graph-api.md)   per accedere ai rilevamenti di sicurezza tramite Microsoft Graph. Questo nuovo formato offre maggiore flessibilità nel modo in cui è possibile eseguire query sui dati, con filtri avanzati, selezione dei campi e altro ancora, e standardizza i rilevamenti dei rischi in un unico tipo per semplificare l'integrazione in SIEM e altri strumenti di raccolta dati. Poiché i dati sono un formato diverso, non è possibile sostituire le query precedenti con una nuova query. Tuttavia, [la nuova API usa Microsoft Graph](/graph/api/resources/identityriskevent?view=graph-rest-beta), ovvero lo standard Microsoft per tali api come Microsoft 365 o Azure ad. Il lavoro richiesto può quindi estendere gli attuali investimenti in Microsoft Graph o consentire di iniziare la transizione alla nuova piattaforma standard.
 
 ---
 
@@ -81,15 +81,15 @@ Questo articolo include risposte alle domande frequenti sulla creazione di repor
 
 ---
 
-**D: È possibile ottenere informazioni sui log attività di Office 365 tramite il portale di Azure?**
+**D: è possibile ottenere Microsoft 365 informazioni sui log attività tramite la portale di Azure?**
 
-**R:** Anche se l'attività di Office 365 e i log attività Azure AD condividono numerose risorse della directory, se si desidera una visualizzazione completa dei log attività di Office 365, è necessario accedere all'interfaccia di [amministrazione di Microsoft 365](https://admin.microsoft.com) per ottenere informazioni sul log attività di Office 365.
+**R:** Anche se Microsoft 365 attività e i log attività Azure AD condividono numerose risorse della directory, se si desidera una visualizzazione completa dei log attività Microsoft 365, è necessario passare all'interfaccia di [amministrazione di Microsoft 365](https://admin.microsoft.com) per ottenere informazioni sul log attività di Office 365.
 
 ---
 
-**D: Quali API è necessario usare per ottenere informazioni sui log attività di Office 365?**
+**D: quali API si utilizzano per ottenere informazioni sui log attività Microsoft 365?**
 
-**R:** Usare le [API di gestione di office 365](/office/office-365-management-api/office-365-management-apis-overview) per accedere ai log attività di Office 365 tramite un'API.
+**R:** Usare le [API di gestione di Microsoft 365](/office/office-365-management-api/office-365-management-apis-overview) per accedere ai log attività Microsoft 365 tramite un'API.
 
 ---
 

@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 06/04/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: df8a75c2297dc68549b2788a2d78dd2c7f576bc2
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: e31fdec18ab4c6135031bf21d2387585141c2735
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89146845"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018221"
 ---
 # <a name="track-model-metrics-and-deploy-ml-models-with-mlflow-and-azure-machine-learning-preview"></a>Monitorare le metriche del modello e distribuire modelli di Machine Learning con MLflow e Azure Machine Learning (anteprima)
 
@@ -44,10 +44,10 @@ Il diagramma seguente illustra il rilevamento delle metriche di esecuzione di un
 
  La tabella seguente riepiloga i diversi client che possono usare Azure Machine Learning e le rispettive funzionalità.
 
- Rilevamento di MLflow offre funzionalità di registrazione delle metriche e di archiviazione degli artefatti disponibili in caso contrario solo tramite l'[SDK Python di Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py).
+ Rilevamento di MLflow offre funzionalità di registrazione delle metriche e di archiviazione degli artefatti disponibili in caso contrario solo tramite l'[SDK Python di Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 
 
-| Funzionalità | MLflow &nbsp; rilevamento & distribuzione | Python SDK di Azure Machine Learning |  Interfaccia della riga di comando di Azure Machine Learning | Azure Machine Learning Studio|
+| Funzionalità | MLflow rilevamento & distribuzione | Python SDK di Azure Machine Learning |  Interfaccia della riga di comando di Azure Machine Learning | Azure Machine Learning Studio|
 |---|---|---|---|---|
 | Gestire l'area di lavoro |   | ✓ | ✓ | ✓ |
 | Usare archivi dati  |   | ✓ | ✓ | |
@@ -62,7 +62,7 @@ Il diagramma seguente illustra il rilevamento delle metriche di esecuzione di un
 ## <a name="prerequisites"></a>Prerequisiti
 
 * [Installare MLflow.](https://mlflow.org/docs/latest/quickstart.html)
-* [Installare l'SDK di Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py) nel computer locale  L'SDK fornisce la connettività perché MLflow possa accedere all'area di lavoro.
+* [Installare l'SDK di Azure Machine Learning](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true) nel computer locale  L'SDK fornisce la connettività perché MLflow possa accedere all'area di lavoro.
 * [Creare un'area di lavoro di Azure Machine Learning](how-to-manage-workspace.md).
 
 ## <a name="track-local-runs"></a>Rilevare le esecuzioni locali
@@ -75,7 +75,7 @@ Installare il pacchetto `azureml-mlflow` per usare Rilevamento MLflow con Azure 
 pip install azureml-mlflow
 ```
 
-Importare le classi `mlflow` e [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py) per accedere all'URI di Rilevamento MLflow e configurare l'area di lavoro.
+Importare le classi `mlflow` e [`Workspace`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py&preserve-view=true) per accedere all'URI di Rilevamento MLflow e configurare l'area di lavoro.
 
 Nel codice seguente, il metodo `get_mlflow_tracking_uri()` assegna un indirizzo URI di rilevamento univoco all'area di lavoro, `ws`, mentre `set_tracking_uri()` punta l'URI di Rilevamento MLflow a tale indirizzo.
 
@@ -107,7 +107,7 @@ Rilevamento MLflow con Azure Machine Learning consente di archiviare le metriche
 
 Le esecuzioni remote consentono di eseguire il training dei modelli su calcoli più potenti, ad esempio macchine virtuali abilitate per la GPU o cluster dell'ambiente di calcolo di Machine Learning. Per informazioni sulle diverse opzioni di calcolo, vedere [usare le destinazioni di calcolo per il training del modello](how-to-set-up-training-targets.md) .
 
-Configurare l'ambiente di esecuzione di calcolo e training con la classe [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py). Includere i pacchetti PIP `mlflow` e `azureml-mlflow` nella sezione [`CondaDependencies`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py) dell'ambiente. Creare quindi [`ScriptRunConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py) con il calcolo remoto come destinazione di calcolo.
+Configurare l'ambiente di esecuzione di calcolo e training con la classe [`Environment`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true). Includere i pacchetti PIP `mlflow` e `azureml-mlflow` nella sezione [`CondaDependencies`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.conda_dependencies.condadependencies?view=azure-ml-py&preserve-view=true) dell'ambiente. Creare quindi [`ScriptRunConfig`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.script_run_config.scriptrunconfig?view=azure-ml-py&preserve-view=true) con il calcolo remoto come destinazione di calcolo.
 
 ```Python
 from azureml.core.environment import Environment
@@ -273,7 +273,7 @@ Specificare prima di tutto la configurazione della distribuzione. Istanza di con
 
 #### <a name="deploy-to-aci"></a>Distribuire in ACI
 
-Configurare la configurazione della distribuzione con il metodo [deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) . È anche possibile aggiungere tag e descrizioni per tenere traccia del servizio Web.
+Configurare la configurazione della distribuzione con il metodo [deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) . È anche possibile aggiungere tag e descrizioni per tenere traccia del servizio Web.
 
 ```python
 from azureml.core.webservice import AciWebservice, Webservice
@@ -286,7 +286,7 @@ aci_config = AciWebservice.deploy_configuration(cpu_cores=1,
                                                 location='eastus2')
 ```
 
-Quindi, registrare e distribuire il modello usando il metodo di [distribuzione](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) Azure Machine Learning SDK. 
+Quindi, registrare e distribuire il modello usando il metodo di [distribuzione](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) Azure Machine Learning SDK. 
 
 ```python
 (webservice,model) = mlflow.azureml.deploy( model_uri='runs:/{}/{}'.format(run.id, model_path),
@@ -300,7 +300,7 @@ webservice.wait_for_deployment(show_output=True)
 ```
 #### <a name="deploy-to-aks"></a>Distribuire in servizio Azure Kubernetes
 
-Per eseguire la distribuzione in AKS, creare prima un cluster AKS. Creare un cluster AKS usando il metodo [ComputeTarget. Create ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py#create-workspace--name--provisioning-configuration-) . La creazione di un nuovo cluster può richiedere 20-25 minuti.
+Per eseguire la distribuzione in AKS, creare prima un cluster AKS. Creare un cluster AKS usando il metodo [ComputeTarget. Create ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.computetarget?view=azure-ml-py#&preserve-view=truecreate-workspace--name--provisioning-configuration-) . La creazione di un nuovo cluster può richiedere 20-25 minuti.
 
 ```python
 from azureml.core.compute import AksCompute, ComputeTarget
@@ -320,7 +320,7 @@ aks_target.wait_for_completion(show_output = True)
 print(aks_target.provisioning_state)
 print(aks_target.provisioning_errors)
 ```
-Configurare la configurazione della distribuzione con il metodo [deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#deploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) . È anche possibile aggiungere tag e descrizioni per tenere traccia del servizio Web.
+Configurare la configurazione della distribuzione con il metodo [deploy_configuration ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.aciwebservice?view=azure-ml-py#&preserve-view=truedeploy-configuration-cpu-cores-none--memory-gb-none--tags-none--properties-none--description-none--location-none--auth-enabled-none--ssl-enabled-none--enable-app-insights-none--ssl-cert-pem-file-none--ssl-key-pem-file-none--ssl-cname-none--dns-name-label-none-) . È anche possibile aggiungere tag e descrizioni per tenere traccia del servizio Web.
 
 ```python
 from azureml.core.webservice import Webservice, AksWebservice
@@ -328,8 +328,9 @@ from azureml.core.webservice import Webservice, AksWebservice
 # Set the web service configuration (using default here with app insights)
 aks_config = AksWebservice.deploy_configuration(enable_app_insights=True, compute_target_name='aks-mlflow')
 
+```
 
-Then, deploy the image by using the Azure Machine Learning SDK [deploy()](Then, register and deploy the model by using the Azure Machine Learning SDK [deploy](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#deploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) method. 
+Quindi, distribuire l'immagine usando il Azure Machine Learning SDK [Deploy ()] (quindi, registrare e distribuire il modello usando il metodo di [distribuzione](/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) di Azure Machine Learning SDK. 
 
 ```python
 # Webservice creation using single command

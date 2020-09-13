@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 03/07/2020
+ms.date: 09/10/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: a8fa409a8ee66cd69016b7978f0d5f0194b338c4
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: d0f67f9052467e5d1a89fc4c520bd39821403bbe
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88959154"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90015450"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Creare un endpoint SCIM e configurare il provisioning utenti con Azure AD
 
@@ -147,7 +147,7 @@ Se si crea un'applicazione che supporta un'API SCIM 2.0 di gestione degli utenti
 Nell'ambito della [specifica del protocollo SCIM 2.0](http://www.simplecloud.info/#Specification), l'applicazione deve soddisfare i requisiti seguenti:
 
 * Supportare la creazione di utenti e facoltativamente anche di gruppi, come indicato nella [sezione 3.3 del protocollo SCIM](https://tools.ietf.org/html/rfc7644#section-3.3).  
-* Supportare la modifica di utenti o gruppi con richieste PATCH, come indicato nella [sezione 3.5.2 del protocollo SCIM](https://tools.ietf.org/html/rfc7644#section-3.5.2).  
+* Supportare la modifica di utenti o gruppi con richieste PATCH, come indicato nella [sezione 3.5.2 del protocollo SCIM](https://tools.ietf.org/html/rfc7644#section-3.5.2). Il supporto garantisce che i gruppi e gli utenti vengano sottoposti a provisioning in modo efficiente. 
 * Supportare il recupero di una risorsa nota per un utente o un gruppo creato in precedenza, come indicato nella [sezione 3.4.1 del protocollo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.1).  
 * Supportare l'esecuzione di query su utenti o gruppi, come indicato nella [sezione 3.4.2 del protocollo SCIM](https://tools.ietf.org/html/rfc7644#section-3.4.2).  Per impostazione predefinita, gli utenti vengono recuperati in base al valore di `id` e le query vengono eseguite in base a `username` e `externalId` per gli utenti e in base a `displayName` per i gruppi.  
 * Supportare query sugli utenti in base all'ID o al manager, come indicato nella sezione 3.4.2 del protocollo SCIM.  
@@ -746,7 +746,7 @@ Livello minimo dei pacchetti di crittografia TLS 1.2:
 - TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
 
 ### <a name="ip-ranges"></a>Intervalli IP
-Il servizio di provisioning Azure AD attualmente opera negli intervalli IP per AzureActiveDirectory e AzureActiveDirectoryDomainServices, come indicato di [seguito](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). Il lavoro è in corso per consolidare solo gli intervalli IP in AzureActiveDirectory. 
+Il servizio di provisioning Azure AD attualmente opera sotto gli intervalli IP per AzureActiveDirectory, come indicato di [seguito](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). È possibile aggiungere gli intervalli IP elencati sotto il tag AzureActiveDirectory per consentire il traffico dal servizio di provisioning Azure AD nell'applicazione. 
 
 ## <a name="step-3-build-a-scim-endpoint"></a>Passaggio 3: Creare un endpoint SCIM
 
@@ -1175,7 +1175,7 @@ Se si crea un'applicazione che verrà usata da più tenant, è possibile renderl
 Seguire questo elenco di controllo per completare rapidamente l'onboarding dell'applicazione e offrire ai clienti un'esperienza di distribuzione ottimale. Queste informazioni verranno raccolte durante l'onboarding nella raccolta. 
 > [!div class="checklist"]
 > * Supportare un endpoint [SCIM 2.0](#step-2-understand-the-azure-ad-scim-implementation) per gli utenti e per i gruppi (ne è necessario uno solo, ma è consigliabile usare entrambi)
-> * Supportare almeno 25 richieste al secondo per tenant (obbligatorio)
+> * Supporta almeno 25 richieste al secondo per ogni tenant, per garantire che utenti e gruppi vengano sottoposti a provisioning e deprovisioning senza ritardo (obbligatorio)
 > * Stabilire i contatti di progettazione e supporto tecnico per assistere i clienti dopo l'onboarding nella raccolta (obbligatorio)
 > * Usare 3 credenziali di test non in scadenza per l'applicazione (obbligatorio)
 > * Supportare la concessione del codice di autorizzazione OAuth o un token di lunga durata come descritto di seguito (obbligatorio)

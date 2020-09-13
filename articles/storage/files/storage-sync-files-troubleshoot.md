@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 6/12/2020
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: d266583a2bd73c92a58fad1882a1c572ed4f3769
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: a93c127d0b04667b0f28949f4b384f22769bace4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88056262"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018595"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Risolvere i problemi di Sincronizzazione file di Azure
 Usare Sincronizzazione file di Azure per centralizzare le condivisioni file dell'organizzazione in File di Azure senza rinunciare alla flessibilità, alle prestazioni e alla compatibilità di un file server locale. Il servizio Sincronizzazione file di Azure trasforma Windows Server in una cache rapida della condivisione file di Azure. Per accedere ai dati in locale, è possibile usare qualsiasi protocollo disponibile in Windows Server, inclusi SMB, NFS (Network File System) e FTPS (File Transfer Protocol Service). Si può usare qualsiasi numero di cache necessario in tutto il mondo.
@@ -1257,23 +1257,7 @@ Se si verificano problemi con Sincronizzazione file di Azure in un server, per p
 
 Se il problema non è risolto, eseguire lo strumento AFSDiag e inviare l'output del file con estensione zip al tecnico del supporto assegnato al caso per un'ulteriore diagnosi.
 
-Per la versione agente 11 e versioni successive:
-
-1. Aprire una finestra di PowerShell con privilegi elevati ed eseguire i comandi seguenti, premendo INVIO dopo ogni comando:
-
-    > [!NOTE]
-    >AFSDiag creerà la directory di output e una cartella temporanea al suo interno prima di raccogliere i log ed eliminerà la cartella temporanea dopo l'esecuzione. Specificare un percorso di output che non contenga dati.
-    
-    ```powershell
-    cd "c:\Program Files\Azure\StorageSyncAgent"
-    Import-Module .\afsdiag.ps1
-    Debug-AFS -OutputDirectory C:\output -KernelModeTraceLevel Verbose -UserModeTraceLevel Verbose
-    ```
-
-2. Riprodurre il problema. Al termine immettere **D**.
-3. Nella directory di output specificata verrà salvato un file con estensione zip contenente i log e i file di traccia. 
-
-Per la versione agente 10 e versioni precedenti:
+Per eseguire AFSDiag, seguire questa procedura:
 1. Creare una directory in cui verranno salvati i risultati di AFSDiag, ad esempio C:\Output.
     > [!NOTE]
     >AFSDiag eliminerà tutto il contenuto nella directory di output prima di raccogliere i log. Specificare un percorso di output che non contenga dati.

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 51ab05a995ba5b620b759f419fb5b4594873d2f5
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 0a025ad7857594b3117b1703a0e19ae47407d0fd
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88527809"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018102"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico
 
@@ -31,13 +31,13 @@ Questa esercitazione descrive la procedura da eseguire per effettuare il provisi
 
 Il [servizio di provisioning utenti di Azure Active Directory](../app-provisioning/user-provisioning.md) si integra con l'[API Human Resources di Workday](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) per il provisioning degli account utente. I flussi di lavoro di provisioning utenti di Workday supportati dal servizio di provisioning utenti di Azure AD consentono l'automazione dei seguenti scenari di gestione delle risorse umane e del ciclo di vita delle identità:
 
-* **Assunzione di nuovi dipendenti** : quando viene aggiunto un nuovo dipendente alla giornata lavorativa, viene creato automaticamente un account utente in Active Directory, Azure Active Directory e, facoltativamente, Office 365 e [altre applicazioni SaaS supportate da Azure ad](../app-provisioning/user-provisioning.md), con il writeback delle informazioni di contatto gestite dal servizio it per la giornata lavorativa.
+* **Assunzione di nuovi dipendenti** : quando un nuovo dipendente viene aggiunto alla giornata lavorativa, viene creato automaticamente un account utente in Active Directory, Azure Active Directory e, facoltativamente, Microsoft 365 e [altre applicazioni SaaS supportate da Azure ad](../app-provisioning/user-provisioning.md), con il writeback delle informazioni di contatto gestite dall'it alla giornata lavorativa.
 
-* **Aggiornamenti di attributi e profili dei dipendenti**: se il record di un dipendente viene aggiornato in Workday (ad esempio, il nome, il titolo o il manager), il relativo account utente verrà aggiornato automaticamente in Active Directory, Azure Active Directory e, facoltativamente, in Office 365 e [altre applicazioni SaaS supportate da Azure AD](../app-provisioning/user-provisioning.md).
+* **Aggiornamenti del profilo e dell'attributo del dipendente** : quando un record del dipendente viene aggiornato nella giornata lavorativa (ad esempio il nome, il titolo o il responsabile), il relativo account utente verrà aggiornato automaticamente in Active Directory, Azure Active Directory e, facoltativamente, Microsoft 365 e [altre applicazioni SaaS supportate da Azure ad](../app-provisioning/user-provisioning.md).
 
-* **Eliminazione di dipendenti**: quando un dipendente viene eliminato in Workday, il relativo account utente viene disabilitato automaticamente in Active Directory, Azure Active Directory e, facoltativamente, in Office 365 e [altre applicazioni SaaS supportate da Azure AD](../app-provisioning/user-provisioning.md).
+* **Interruzioni dei dipendenti** : quando un dipendente viene terminato nella giornata lavorativa, il relativo account utente viene disabilitato automaticamente in Active Directory, Azure Active Directory e, facoltativamente, Microsoft 365 e [altre applicazioni SaaS supportate da Azure ad](../app-provisioning/user-provisioning.md).
 
-* **Riassunzioni di dipendenti** - quando un dipendente viene nuovamente aggiunto in Workday, il relativo account utente precedente può essere automaticamente riattivato o sottoposto di nuovo a provisioning (a seconda delle proprie preferenze) in Active Directory, Azure Active Directory e, facoltativamente, in Office 365 e [altre applicazioni SaaS supportate da Azure AD](../app-provisioning/user-provisioning.md).
+* **Riassunzioni dei dipendenti** : quando un dipendente viene riassunto nella giornata lavorativa, il relativo account precedente può essere riattivato automaticamente o nuovamente sottoposto a provisioning (a seconda delle preferenze) per Active Directory, Azure Active Directory e, facoltativamente, Microsoft 365 e [altre applicazioni SaaS supportate da Azure ad](../app-provisioning/user-provisioning.md).
 
 ### <a name="whats-new"></a>Novità
 Questa sezione acquisisce i miglioramenti dell'integrazione con i giorni lavorativi recenti. Per un elenco di aggiornamenti completi, modifiche pianificate e archivi, visitare la pagina Novità [di Azure Active Directory?](../fundamentals/whats-new.md) 
@@ -60,7 +60,7 @@ Questa soluzione di provisioning utenti Workday è idealmente la più appropriat
 
 * Organizzazioni che richiedono l'aggiunta o lo spostamento degli utenti o che devono lasciare gli utenti sincronizzati con uno o più domini, foreste o unità organizzative di Active Directory solo in base alle informazioni sulle modifiche rilevate nel modulo Workday HCM. Vedere [Get_Workers](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html)
 
-* Organizzazioni che usano Office 365 per la posta elettronica
+* Organizzazioni che usano Microsoft 365 per la posta elettronica
 
 ## <a name="solution-architecture"></a>Architettura della soluzione
 
@@ -373,7 +373,7 @@ Trasferire il programma di installazione dell'agente scaricato nell'host del ser
 1. Verificare l'installazione dell'agente e accertarsi che sia in esecuzione aprendo lo snap-in "Servizi" e cercare il servizio denominato "Agente di provisioning Microsoft Azure Active Directory Connect"
 
    >[!div class="mx-imgBorder"]
-   >![Services](./media/workday-inbound-tutorial/services.png)
+   >![Screenshot della Microsoft Azure AD connettere l'agente di provisioning in esecuzione nei servizi](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Parte 3: Nell'app di provisioning, configurare la connettività in Workday e Active Directory
 In questo passaggio viene stabilita la connettività con Workday e Active Directory nel portale di Azure. 

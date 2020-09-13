@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 07/29/2020
+ms.date: 09/10/2020
 ms.author: tamram
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: 2439bec08c16ce109b271844dc72b8fd2569aa07
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 4c88791815d248cc20546d7942e7b0f107071186
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88755909"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90018578"
 ---
 # <a name="enforce-a-minimum-required-version-of-transport-layer-security-tls-for-requests-to-a-storage-account"></a>Applicare una versione minima richiesta di Transport Layer Security (TLS) per le richieste a un account di archiviazione
 
@@ -92,11 +92,13 @@ Quando si è certi che il traffico proveniente dai client che usano versioni pre
 Per configurare la versione minima di TLS per un account di archiviazione, impostare la versione di **MinimumTlsVersion** per l'account. Questa proprietà è disponibile per tutti gli account di archiviazione creati con il modello di distribuzione Azure Resource Manager. Per altre informazioni sul modello di distribuzione Azure Resource Manager, vedere [Panoramica dell'account di archiviazione](storage-account-overview.md).
 
 > [!NOTE]
-> Per impostazione predefinita, la proprietà **minimumTlsVersion** non viene impostata e non restituisce alcun valore finché non viene impostata in modo esplicito. L'account di archiviazione consente le richieste inviate con la versione 1,0 o successiva di TLS se il valore della proprietà è **null**.
+> La proprietà **MinimumTlsVersion** è attualmente disponibile solo per gli account di archiviazione nel cloud pubblico di Azure.
 
 # <a name="portal"></a>[Portale](#tab/portal)
 
-Per configurare la versione minima di TLS per un account di archiviazione con la portale di Azure, seguire questa procedura:
+Quando si crea un account di archiviazione con la portale di Azure, per impostazione predefinita la versione minima di TLS è impostata su 1,2.
+
+Per configurare la versione minima di TLS per un account di archiviazione esistente con la portale di Azure, attenersi alla seguente procedura:
 
 1. Passare all'account di archiviazione nel portale di Azure.
 1. Selezionare l'impostazione di **configurazione** .
@@ -108,6 +110,8 @@ Per configurare la versione minima di TLS per un account di archiviazione con la
 
 Per configurare la versione minima di TLS per un account di archiviazione con PowerShell, installare [Azure PowerShell versione 4.4.0](https://www.powershellgallery.com/packages/Az/4.4.0) o successiva. Successivamente, configurare la proprietà **MinimumTLSVersion** per un account di archiviazione nuovo o esistente. I valori validi per **MinimumTlsVersion** sono `TLS1_0` , `TLS1_1` e `TLS1_2` .
 
+Per impostazione predefinita, la proprietà **MinimumTlsVersion** non è impostata quando si crea un account di archiviazione con PowerShell. Questa proprietà non restituisce un valore fino a quando non viene impostata in modo esplicito. L'account di archiviazione consente le richieste inviate con la versione 1,0 o successiva di TLS se il valore della proprietà è **null**.
+
 L'esempio seguente crea un account di archiviazione e imposta il valore di **MinimumTLSVersion** su TLS 1,1, quindi aggiorna l'account e imposta **MinimumTLSVersion** su TLS 1,2. Nell'esempio viene recuperato anche il valore della proprietà in ogni caso. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
 
 ```powershell
@@ -116,18 +120,18 @@ $accountName = "<storage-account>"
 $location = "<location>"
 
 # Create a storage account with MinimumTlsVersion set to TLS 1.1.
-New-AzStorageAccount -ResourceGroupName $rgName \
-    -AccountName $accountName \
-    -Location $location \
-    -SkuName Standard_GRS \
+New-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
+    -Location $location `
+    -SkuName Standard_GRS `
     -MinimumTlsVersion TLS1_1
 
 # Read the MinimumTlsVersion property.
 (Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName).MinimumTlsVersion
 
 # Update the MinimumTlsVersion version for the storage account to TLS 1.2.
-Set-AzStorageAccount -ResourceGroupName $rgName \
-    -AccountName $accountName \
+Set-AzStorageAccount -ResourceGroupName $rgName `
+    -AccountName $accountName `
     -MinimumTlsVersion TLS1_2
 
 # Read the MinimumTlsVersion property.
@@ -137,6 +141,8 @@ Set-AzStorageAccount -ResourceGroupName $rgName \
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per configurare la versione minima di TLS per un account di archiviazione con l'interfaccia della riga di comando di Azure, installare l'interfaccia della riga di comando di Azure 2.9.0 Per altre informazioni, vedere [Installare l'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli). Successivamente, configurare la proprietà **minimumTlsVersion** per un account di archiviazione nuovo o esistente. I valori validi per **minimumTlsVersion** sono `TLS1_0` , `TLS1_1` e `TLS1_2` .
+
+Per impostazione predefinita, la proprietà **minimumTlsVersion** non è impostata quando si crea un account di archiviazione con l'interfaccia della riga di comando di Azure. Questa proprietà non restituisce un valore fino a quando non viene impostata in modo esplicito. L'account di archiviazione consente le richieste inviate con la versione 1,0 o successiva di TLS se il valore della proprietà è **null**.
 
 L'esempio seguente crea un account di archiviazione e imposta il valore di **minimumTLSVersion** su TLS 1,1. Aggiorna quindi l'account e imposta la proprietà **minimumTLSVersion** su TLS 1,2. Nell'esempio viene recuperato anche il valore della proprietà in ogni caso. Ricordarsi di sostituire i valori segnaposto tra parentesi con valori personalizzati:
 

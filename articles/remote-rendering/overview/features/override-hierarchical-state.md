@@ -6,16 +6,16 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 99f57c212dfc44d84640224b1526ab770fe97230
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a3f032ca973a188bf294155c73de3ca84f6ee30f
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89009458"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024401"
 ---
 # <a name="hierarchical-state-override"></a>Override dello stato gerarchico
 
-In molti casi, è necessario modificare dinamicamente l'aspetto delle parti di un [modello](../../concepts/models.md), ad esempio nascondere sottografi o applicare il rendering trasparente ad alcune parti. La modifica dei materiali di ogni parte coinvolta non è consigliabile perché richiede di eseguire l'iterazione sull’intero grafo della scena e gestire la clonazione e l’assegnazione dei materiali su ogni nodo.
+In molti casi, è necessario modificare dinamicamente l'aspetto delle parti di un [modello](../../concepts/models.md), ad esempio nascondendo sottografici o cambiando parti nel rendering trasparente. La modifica dei materiali di ogni parte coinvolta non è consigliabile perché richiede di eseguire l'iterazione sull’intero grafo della scena e gestire la clonazione e l’assegnazione dei materiali su ogni nodo.
 
 Per completare questo caso d'uso con il minor sovraccarico possibile, utilizzare `HierarchicalStateOverrideComponent`. Questo componente implementa gli aggiornamenti dello stato gerarchico in rami arbitrari del grafo della scena. Ciò significa che uno stato può essere definito a qualsiasi livello nel grafo della scena e scende a cascata nella gerarchia fino a quando non viene sostituito da un nuovo stato o applicato a un oggetto foglia.
 
@@ -31,20 +31,23 @@ Il set fisso di stati di cui è possibile eseguire l'override sono:
 * **`Hidden`**: Le maglie corrispondenti nel grafico della scena sono nascoste o visualizzate.
 * **`Tint color`**: Un oggetto di cui è stato eseguito il rendering può essere colorato con il colore della tinta e il peso della tinta singoli. L'immagine seguente mostra la colorazione del cerchione di una ruota.
   
-  ![Tinta del colore](./media/color-tint.png)
+  ![Colore tinta utilizzato per trasformare un oggetto in verde](./media/color-tint.png)
 
 * **`See-through`**: La geometria viene sottoposta a rendering in modo semi trasparente, ad esempio per rivelare le parti interne di un oggetto. Nell'immagine seguente viene mostrata l'intera automobile sottoposta a rendering in modalità trasparente, ad eccezione della pinza del freno rossa:
 
-  ![Trasparente](./media/see-through.png)
+  ![Modalità See-through utilizzata per rendere trasparente gli oggetti selezionati](./media/see-through.png)
 
   > [!IMPORTANT]
   > L'effetto trasparente funziona solo quando viene usata la [modalità di rendering](../../concepts/rendering-modes.md) *TileBasedComposition*.
 
 * **`Selected`**: La geometria viene sottoposta a rendering con una [struttura di selezione](outlines.md).
 
-  ![Struttura di selezione](./media/selection-outline.png)
+  ![Opzione di struttura utilizzata per evidenziare una parte selezionata](./media/selection-outline.png)
 
 * **`DisableCollision`**: La geometria è esentata dalle [query spaziali](spatial-queries.md). Il **`Hidden`** flag non influisce sul flag di stato di collisione, quindi questi due flag vengono spesso impostati insieme.
+
+> [!TIP]
+> In alternativa alla disattivazione delle query spaziali e di visibilità per un sottografico completo, `enabled` è possibile attivare/disattivare lo stato di un oggetto gioco. Se una gerarchia è disabilitata, avrà la preferenza su Any `HierarchicalStateOverrideComponent` .
 
 ## <a name="hierarchical-overrides"></a>Override gerarchici
 
@@ -95,6 +98,11 @@ L' `tint color` override è leggermente speciale in quanto è disponibile uno st
 Un'istanza di `HierarchicalStateOverrideComponent` non aggiunge molto sovraccarico in fase di esecuzione. Tuttavia, è sempre consigliabile fare in modo che il numero di componenti attivi sia basso. Ad esempio, quando si implementa un sistema di selezione che evidenzia l'oggetto selezionato, è consigliabile eliminare il componente quando l'evidenziazione viene rimossa. Il mantenimento di componenti con funzionalità neutre può aggiungere rapidamente sovraccarico.
 
 Il rendering trasparente aggiunge un carico di lavoro maggiore sulle GPU del server rispetto al rendering standard. Se parti di grandi dimensioni del grafo della scena sono impostate come *see-through*, con molti livelli di geometria visibili, si potrebbe verificare un collo di bottiglia nelle prestazioni. Lo stesso vale per gli oggetti con [strutture di selezione](../../overview/features/outlines.md#performance).
+
+## <a name="api-documentation"></a>Documentazione dell'API
+
+* [C# HierarchicalStateOverrideComponent (classe)](https://docs.microsoft.com/dotnet/api/microsoft.azure.remoterendering.hierarchicalstateoverridecomponent)
+* [Classe C++ HierarchicalStateOverrideComponent](https://docs.microsoft.com/cpp/api/remote-rendering/hierarchicalstateoverridecomponent)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

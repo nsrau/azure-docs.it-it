@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 08/05/2020
 ms.author: chmutali
-ms.openlocfilehash: 4b048053a553176f73b5bd199bcb6e28bc74cc6c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: b185f29cea61b9c366714a1af72648aeee35b61c
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88533997"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90017932"
 ---
 # <a name="tutorial-configure-attribute-write-back-from-azure-ad-to-sap-successfactors"></a>Esercitazione: configurare il writeback degli attributi da Azure AD a SAP SuccessFactors
 L'obiettivo di questa esercitazione è mostrare i passaggi per la scrittura di attributi da Azure AD a SAP SuccessFactors Employee Central. 
@@ -25,7 +25,7 @@ L'obiettivo di questa esercitazione è mostrare i passaggi per la scrittura di a
 È possibile configurare l'app writeback di SAP SuccessFactors per scrivere attributi specifici da Azure Active Directory a SAP SuccessFactors Employee Central. L'app di provisioning writeback SuccessFactors supporta l'assegnazione di valori ai seguenti attributi centrali dei dipendenti:
 
 * Indirizzo di posta elettronica aziendale
-* Username
+* Nome utente
 * Numero di telefono dell'ufficio (incluso il codice paese, il codice dell'area, il numero e l'estensione)
 * Flag primario numero di telefono aziendale
 * Numero di telefono cellulare (incluso il codice del paese, il codice di area, il numero)
@@ -40,7 +40,7 @@ L'obiettivo di questa esercitazione è mostrare i passaggi per la scrittura di a
 
 Questa soluzione di provisioning utenti writeback di SuccessFactors è ideale per:
 
-* Le organizzazioni che usano Office 365 che desiderano eseguire il writeback degli attributi autorevoli gestiti dall'IT (ad esempio indirizzo di posta elettronica, telefono, nome utente) a SuccessFactors Employee Central.
+* Le organizzazioni che usano Microsoft 365 che desiderano eseguire il writeback degli attributi autorevoli gestiti dall'IT (ad esempio indirizzo di posta elettronica, telefono, nome utente) a SuccessFactors Employee Central.
 
 ## <a name="configuring-successfactors-for-the-integration"></a>Configurazione di SuccessFactors per l'integrazione
 
@@ -253,7 +253,7 @@ In questa sezione verrà configurato il flusso dei dati utente da SuccessFactors
    | 3 | 8448 | emailType | Questo valore costante è il valore ID SuccessFactors associato alla posta elettronica aziendale. Aggiornare questo valore in modo che corrisponda all'ambiente SuccessFactors. Per la procedura per impostare questo valore, vedere la sezione [recuperare il valore costante per emailType](#retrieve-constant-value-for-emailtype) . |
    | 4 | true | emailIsPrimary | Usare questo attributo per impostare la posta elettronica aziendale come primaria in SuccessFactors. Se la posta elettronica aziendale non è primaria, impostare questo flag su false. |
    | 5 | userPrincipalName | [custom01 – custom15] | Utilizzando **Aggiungi nuovo mapping**, è possibile scrivere facoltativamente userPrincipalName o qualsiasi attributo Azure ad in un attributo personalizzato disponibile nell'oggetto utente SuccessFactors.  |
-   | 6 | samAccountName locale | nomeutente | Utilizzando **Aggiungi nuovo mapping**, è possibile eseguire facoltativamente il mapping di sAMAccountName locale all'attributo nome utente SuccessFactors. |
+   | 6 | samAccountName locale | username | Utilizzando **Aggiungi nuovo mapping**, è possibile eseguire facoltativamente il mapping di sAMAccountName locale all'attributo nome utente SuccessFactors. |
    | 7 | SSO | loginMethod | Se il tenant di SuccessFactors è configurato per l'accesso [SSO parziale](https://apps.support.sap.com/sap/support/knowledge/en/2320766), quindi si usa Aggiungi nuovo mapping, è possibile impostare facoltativamente loginMethod su un valore costante di "SSO" o "pwd". |
    | 8 | telephoneNumber | businessPhoneNumber | Usare questo mapping per eseguire il flusso di *telephoneNumber* da Azure ad a SuccessFactors numero di telefono aziendale/lavoro. |
    | 9 | 10605 | businessPhoneType | Questo valore costante è il valore ID SuccessFactors associato al telefono aziendale. Aggiornare questo valore in modo che corrisponda all'ambiente SuccessFactors. Per la procedura per impostare questo valore, vedere la sezione [recuperare il valore costante per PhoneType](#retrieve-constant-value-for-phonetype) . |
