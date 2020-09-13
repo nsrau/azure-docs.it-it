@@ -17,12 +17,12 @@ ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: b51eb7e59e32985363d83c3d515fa7f54babac1f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9e6686c69eb6dababb577e9c556a8a13ec42485a
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179455"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296465"
 ---
 # <a name="azure-ad-connect-health-agent-installation"></a>Installazione dell'agente di Azure AD Connect Health
 
@@ -39,20 +39,20 @@ La tabella seguente è un elenco di requisiti per l'uso di Azure AD Connect Heal
 | L'agente di Azure AD Connect Health è installato in ogni server di destinazione | Azure AD Connect Health richiede l'installazione e la configurazione degli agenti per l'integrità nei server di destinazione per ricevere i dati e fornire le funzionalità di monitoraggio e di analisi. <br /><br />Per ottenere i dati sull'infrastruttura di AD FS, ad esempio, l'agente deve essere installato nei server AD FS e nei server proxy applicazione Web. Analogamente, per poter ottenere i dati sull'infrastruttura locale di Servizi di dominio Active Directory, l'agente deve essere installato nei controller di dominio. <br /><br /> |
 | Connettività in uscita agli endpoint di servizio di Azure | Durante l'installazione e la fase di esecuzione, l'agente richiede la connettività agli endpoint di servizio di Azure AD Connect Health. Se la connettività in uscita è bloccata tramite firewall, verificare che gli endpoint seguenti siano aggiunti all'elenco elementi consentiti. Vedere [Endpoint di connettività in uscita](how-to-connect-health-agent-install.md#outbound-connectivity-to-the-azure-service-endpoints) |
 |Connettività in uscita in base agli indirizzi IP | Per informazioni sui filtri basati su indirizzo IP nei firewall, vedere [Intervalli di indirizzi IP di Azure](https://www.microsoft.com/download/details.aspx?id=41653).|
-| L'ispezione TLS per il traffico in uscita è filtrata o disabilitata | Il passaggio di registrazione dell'agente o le operazioni di caricamento dei dati potrebbero non riuscire se è presente l'ispezione o la terminazione di TLS per il traffico in uscita a livello di rete. Altre informazioni su [come configurare l'ispezione TLS](https://technet.microsoft.com/library/ee796230.aspx) |
-| Porte del firewall nel server che esegue l'agente |Per consentire la comunicazione dell'agente con gli endpoint di servizio Azure AD Connect Health è necessario che le porte del firewall seguenti siano aperte.<br /><br /><li>Porta TCP 443</li><li>Porta TCP 5671</li> <br />Si noti che la porta 5671 non è più necessaria per la versione più recente dell'agente. Eseguire l'aggiornamento alla versione più recente, in modo che sia necessaria solo la porta 443. Vedere altre informazioni sull'[abilitazione delle porte del firewall](https://technet.microsoft.com/library/ms345310(v=sql.100).aspx) |
+| L'ispezione TLS per il traffico in uscita è filtrata o disabilitata | Il passaggio di registrazione dell'agente o le operazioni di caricamento dei dati potrebbero non riuscire se è presente l'ispezione o la terminazione di TLS per il traffico in uscita a livello di rete. Altre informazioni su [come configurare l'ispezione TLS](/previous-versions/tn-archive/ee796230(v=technet.10)) |
+| Porte del firewall nel server che esegue l'agente |Per consentire la comunicazione dell'agente con gli endpoint di servizio Azure AD Connect Health è necessario che le porte del firewall seguenti siano aperte.<br /><br /><li>Porta TCP 443</li><li>Porta TCP 5671</li> <br />Si noti che la porta 5671 non è più necessaria per la versione più recente dell'agente. Eseguire l'aggiornamento alla versione più recente, in modo che sia necessaria solo la porta 443. Vedere altre informazioni sull'[abilitazione delle porte del firewall](/previous-versions/sql/sql-server-2008/ms345310(v=sql.100)) |
 | Consentire i siti Web seguenti se è abilitata la funzionalità Protezione avanzata di IE |Se la funzionalità Sicurezza avanzata di Internet Explorer è abilitata, nel server in cui verrà installato l'agente devono essere consentiti i siti Web seguenti.<br /><br /><li>https:\//login.microsoftonline.com</li><li>https:\//secure.aadcdn.microsoftonline-p.com</li><li>https:\//login.windows.net</li><li>https: \/ /aadcdn.msftauth.NET</li><li>Server federativo dell'organizzazione considerato attendibile da Azure Active Directory. Ad esempio: https:\//sts.contoso.com</li> Scopri di più su [come configurare IE](https://support.microsoft.com/help/815141/internet-explorer-enhanced-security-configuration-changes-the-browsing). Se si dispone di un proxy all'interno della rete, vedere la nota riportata di seguito.|
 | Assicurarsi che sia installato PowerShell v4.0 o versione successiva | <li>Windows Server 2008 R2 include PowerShell v2.0, che non è sufficiente per l'agente. Aggiornare PowerShell come illustrato di seguito in [Installazione dell'agente in server Windows Server 2008 R2](#agent-installation-on-windows-server-2008-r2-servers).</li><li>Windows Server 2012 include PowerShell v3.0, che non è sufficiente per l'agente.</li><li>Windows Server 2012 R2 e versioni successive includono una versione sufficientemente recente di PowerShell.</li>|
 |Disabilitare FIPS|La funzionalità FIPS non è supportata dagli agenti di Azure AD Connect Health.|
 
 
 > [!NOTE]
-> Se si dispone di un ambiente con sicurezza elevata e con restrizioni, è necessario inserire nell'elenco elementi consentiti gli URL indicati negli elenchi di endpoint di servizio seguenti, oltre a quelli elencati nella configurazione di sicurezza avanzata di IE consentita. 
+> Se si dispone di un ambiente con sicurezza elevata e con restrizioni, è necessario aggiungere gli URL indicati negli elenchi di endpoint di servizio riportati di seguito, oltre a quelli elencati nella configurazione di sicurezza avanzata di IE consentita sopra. 
 >
 
 ### <a name="outbound-connectivity-to-the-azure-service-endpoints"></a>Connettività in uscita agli endpoint di servizio di Azure
 
- Durante l'installazione e la fase di esecuzione, l'agente richiede la connettività agli endpoint di servizio di Azure AD Connect Health. Se la connettività in uscita è bloccata tramite firewall, verificare che gli URL seguenti non siano bloccati per impostazione predefinita. Non disabilitare il monitoraggio della sicurezza o l'ispezione degli URL, ma consentire tali URL come si farebbe con il resto del traffico Internet. Essi consentono la comunicazione con gli endpoint di servizio di Azure AD Connect Health. Informazioni su come [controllare la connettività in uscita con test-AzureADConnectHealthConnectivity](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-agent-install#test-connectivity-to-azure-ad-connect-health-service).
+ Durante l'installazione e la fase di esecuzione, l'agente richiede la connettività agli endpoint di servizio di Azure AD Connect Health. Se la connettività in uscita è bloccata tramite firewall, verificare che gli URL seguenti non siano bloccati per impostazione predefinita. Non disabilitare il monitoraggio della sicurezza o l'ispezione degli URL, ma consentire tali URL come si farebbe con il resto del traffico Internet. Essi consentono la comunicazione con gli endpoint di servizio di Azure AD Connect Health. Informazioni su come [controllare la connettività in uscita con test-AzureADConnectHealthConnectivity](#test-connectivity-to-azure-ad-connect-health-service).
 
 | Ambiente di dominio | Endpoint del servizio di Azure richiesti |
 | --- | --- |
@@ -170,7 +170,7 @@ Per poter usare questa funzionalità per raccogliere dati e analizzarli, l'agent
 9. Selezionare le caselle di controllo **Operazioni riuscite** e Operazioni non riuscite e quindi fare clic su **OK**. Questa opzione dovrebbe essere abilitata per impostazione predefinita.
 10. Aprire una finestra di PowerShell ed eseguire il comando seguente: ```Set-AdfsProperties -AuditLevel Verbose```.
 
-Si noti che il livello di controllo "di base" è abilitato per impostazione predefinita. Per altre informazioni, vedere [Miglioramenti del controllo AD FS in Windows Server 2016](https://docs.microsoft.com/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server)
+Si noti che il livello di controllo "di base" è abilitato per impostazione predefinita. Per altre informazioni, vedere [Miglioramenti del controllo AD FS in Windows Server 2016](/windows-server/identity/ad-fs/technical-reference/auditing-enhancements-to-ad-fs-in-windows-server)
 
 
 #### <a name="to-locate-the-ad-fs-audit-logs"></a>Per individuare i log di controllo di ADFS
@@ -394,7 +394,7 @@ Il parametro role accetta attualmente i valori seguenti:
 
 ## <a name="related-links"></a>Collegamenti correlati
 
-* [Azure AD Connect Health](whatis-hybrid-identity-health.md)
+* [Azure AD Connect Health](./whatis-azure-ad-connect.md)
 * [Operazioni di Azure AD Connect Health](how-to-connect-health-operations.md)
 * [Uso di Azure AD Connect Health con AD FS](how-to-connect-health-adfs.md)
 * [Uso di Azure AD Connect Health per la sincronizzazione](how-to-connect-health-sync.md)

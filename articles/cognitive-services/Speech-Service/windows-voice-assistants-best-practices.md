@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/1/2020
 ms.author: adamwa
-ms.openlocfilehash: a9145c7c26f4d6caa1679052035b36f1ae88f878
-ms.sourcegitcommit: 958f086136f10903c44c92463845b9f3a6a5275f
+ms.openlocfilehash: 948fbcd57514f4ef77483b05c60324e867e0e3ed
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83714781"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293643"
 ---
 # <a name="design-assistant-experiences-for-windows-10"></a>Esperienze di assistente progettazione per Windows 10
 
@@ -118,9 +118,9 @@ Molti PC sono portabili ma non sempre entro la portata del cliente. Possono esse
 
 Gli assistenti devono quindi seguire le istruzioni di questa sezione per garantire la protezione dell'esperienza. L'interazione sopra il blocco si verifica quando l'utente di Windows non è autenticato. Ciò significa che, in generale, **l'input per l'assistente deve essere considerato come non autenticato**.
 
-- Gli assistenti devono **implementare un elenco di elementi consentiti per identificare le competenze sicure e sicure per l'** accesso al blocco.
+- Gli assistenti devono **implementare un elenco di competenze consentite per identificare le competenze che vengono confermate sicure e sicure per l'** accesso al blocco.
 - Le tecnologie di ID altoparlante possono svolgere un ruolo per alleviare alcuni rischi, ma l'ID altoparlante non è un sostituto adatto per l'autenticazione di Windows.
-- L'elenco degli elementi consentiti per le competenze deve considerare tre classi di azioni o competenze:
+- L'elenco delle competenze consentite deve considerare tre classi di azioni o competenze:
 
 | **Classe Action** | **Descrizione** | **Esempi (non è un elenco completo)** |
 | --- | --- | --- |
@@ -130,7 +130,7 @@ Gli assistenti devono quindi seguire le istruzioni di questa sezione per garanti
 
 Per il caso di Contoso, le informazioni generali relative alle scorte pubbliche sono sicure senza autenticazione. È probabile che le informazioni specifiche del cliente, ad esempio il numero di condivisioni possedute, siano sicure con ID altoparlante. Tuttavia, l'acquisto o la vendita di scorte non dovrebbe mai essere consentito senza l'autenticazione di Windows.
 
-Per proteggere ulteriormente l'esperienza, i **collegamenti weblink o altri lanci da app a app verranno sempre bloccati da Windows fino a quando il cliente non effettuerà l'accesso.** Come ultima soluzione per la mitigazione, Microsoft si riserva il diritto di rimuovere un'applicazione dall'elenco elementi consentiti degli assistenti abilitati in caso di problemi di sicurezza gravi non vengono risolti in modo tempestivo.
+Per proteggere ulteriormente l'esperienza, i **collegamenti weblink o altri lanci da app a app verranno sempre bloccati da Windows fino a quando il cliente non effettuerà l'accesso.** Come ultima soluzione per la mitigazione, Microsoft si riserva il diritto di rimuovere un'applicazione dall'elenco degli assistenti abilitati in caso di problemi di sicurezza che non vengono risolti in modo tempestivo.
 
 ## <a name="design-guidance-for-voice-activation-preview"></a>Linee guida di progettazione per l'attivazione vocale anteprima
 

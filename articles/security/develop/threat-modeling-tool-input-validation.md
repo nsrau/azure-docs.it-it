@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a10dec01757fd344c9fa2bc92082082d2af085e9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 3bb944badfbdffd703672f9e78619c70a148aae2
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89000567"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89293354"
 ---
 # <a name="security-frame-input-validation--mitigations"></a>Infrastruttura di sicurezza: Convalida dell'input - Procedure di mitigazione 
 | Prodotto o servizio | Articolo |
@@ -397,7 +397,7 @@ Nell'esempio di codice precedente, la lunghezza del valore di input non può ess
 | **Tecnologie applicabili** | Generico, MVC 5, MVC 6 |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | [Adding Validation](https://www.asp.net/mvc/overview/getting-started/introduction/adding-validation) (Aggiunta della convalida), [Validating Model Data in an MVC Application](https://msdn.microsoft.com/library/dd410404(v=vs.90).aspx) (Convalida dei dati del modello in un'applicazione MVC), [Principi guida per le applicazioni ASP.NET MVC](https://msdn.microsoft.com/magazine/dd942822.aspx) |
-| **Passaggi** | <p>Tutti i parametri di input devono essere convalidati prima di essere usati nell'applicazione per garantire la protezione dell'applicazione da input utente dannosi. Convalidare i valori di input usando espressioni regolari sul lato server con una strategia di convalida tramite elenchi degli elementi consentiti. I parametri o gli input utente non purificati passati ai metodi possono causare vulnerabilità a code injection.</p><p>Per le applicazioni Web, i punti di ingresso possono includere anche campi modulo, stringhe di query, cookie, intestazioni HTTP e parametri del servizio Web.</p><p>All'associazione di modelli devono essere eseguiti i controlli di convalida dell'input seguenti:</p><ul><li>Nelle proprietà dei modelli deve essere usata l'annotazione RegularExpression, per l'accettazione dei caratteri e della lunghezza massima consentiti</li><li>I metodi del controller devono eseguire la convalida ModelState</li></ul>|
+| **Passaggi** | <p>Tutti i parametri di input devono essere convalidati prima di essere usati nell'applicazione per garantire la protezione dell'applicazione da input utente dannosi. Convalidare i valori di input utilizzando le convalide di espressioni regolari sul lato server con una strategia di convalida elenco consentita. I parametri o gli input utente non purificati passati ai metodi possono causare vulnerabilità a code injection.</p><p>Per le applicazioni Web, i punti di ingresso possono includere anche campi modulo, stringhe di query, cookie, intestazioni HTTP e parametri del servizio Web.</p><p>All'associazione di modelli devono essere eseguiti i controlli di convalida dell'input seguenti:</p><ul><li>Nelle proprietà dei modelli deve essere usata l'annotazione RegularExpression, per l'accettazione dei caratteri e della lunghezza massima consentiti</li><li>I metodi del controller devono eseguire la convalida ModelState</li></ul>|
 
 ## <a name="sanitization-should-be-applied-on-form-fields-that-accept-all-characters-eg-rich-text-editor"></a><a id="richtext"></a>Applicazione della purificazione nei campi modulo che accettano tutti i caratteri, ad esempio un editor di testo RTF
 
@@ -441,7 +441,7 @@ Non usare `innerHtml`. Usare invece `innerText`. Analogamente, usare `$("#elm").
 | **Tecnologie applicabili** | Generico |
 | **Attributes (Attributi)**              | N/D  |
 | **Riferimenti**              | [The OAuth 2.0 Authorization Framework - Open Redirectors](https://tools.ietf.org/html/rfc6749#section-10.15) (Framework di autorizzazione di OAuth 2.0 - Redirector aperti) |
-| **Passaggi** | <p>Se la progettazione dell'applicazione richiede il reindirizzamento a un percorso specificato dall'utente, è necessario vincolare le possibile destinazioni di reindirizzamento a un elenco "sicuro" predefinito di siti o domini. Tutti i reindirizzamenti nell'applicazione devono essere chiusi/sicuri.</p><p>A tale scopo, effettuare l'operazione seguente:</p><ul><li>Identificare tutti i reindirizzamenti</li><li>Implementare una procedura di mitigazione appropriata per ogni reindirizzamento. Le procedure di mitigazione appropriate includono un elenco elementi consentiti di reindirizzamento o la conferma dell'utente. Se un servizio o un sito Web con una vulnerabilità causata da reindirizzamenti aperti usa i provider di identità Facebook/OAuth/OpenID, un utente malintenzionato può rubare il token di accesso di un utente e rappresentare tale utente. Si tratta di un rischio intrinseco quando si usa OAuth, come documentato nella sezione 10.15 relativa ai reindirizzamenti aperti della specifica RFC 6749 del framework di autorizzazione di OAuth 2.0. Analogamente, le credenziali degli utenti possono essere compromesse da attacchi di spear phishing con reindirizzamenti aperti.</li></ul>|
+| **Passaggi** | <p>Se la progettazione dell'applicazione richiede il reindirizzamento a un percorso specificato dall'utente, è necessario vincolare le possibile destinazioni di reindirizzamento a un elenco "sicuro" predefinito di siti o domini. Tutti i reindirizzamenti nell'applicazione devono essere chiusi/sicuri.</p><p>A tale scopo, effettuare l'operazione seguente:</p><ul><li>Identificare tutti i reindirizzamenti</li><li>Implementare una procedura di mitigazione appropriata per ogni reindirizzamento. Le mitigazioni appropriate includono l'elenco di reindirizzamento consentito o la conferma dell'utente. Se un servizio o un sito Web con una vulnerabilità causata da reindirizzamenti aperti usa i provider di identità Facebook/OAuth/OpenID, un utente malintenzionato può rubare il token di accesso di un utente e rappresentare tale utente. Si tratta di un rischio intrinseco quando si usa OAuth, come documentato nella sezione 10.15 relativa ai reindirizzamenti aperti della specifica RFC 6749 del framework di autorizzazione di OAuth 2.0. Analogamente, le credenziali degli utenti possono essere compromesse da attacchi di spear phishing con reindirizzamenti aperti.</li></ul>|
 
 ## <a name="implement-input-validation-on-all-string-type-parameters-accepted-by-controller-methods"></a><a id="string-method"></a>Implementare la convalida dell'input in un tutti i parametri di tipo stringa accettati dai metodi del controller
 

@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 1ddcdfd9efddd050f996e5c2b953baba242967fa
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 9d4f30c5946e07b9f71c007d6f3f61efcae28637
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88640583"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89296516"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Risolvere i problemi relativi a Azure Migrate Appliance e all'individuazione
 
@@ -27,7 +27,7 @@ Questo articolo illustra come risolvere i problemi durante la distribuzione del 
 
 Se viene visualizzato l'errore "il file manifesto specificato non è valido: voce del manifesto OVF non valida", eseguire le operazioni seguenti:
 
-1. Verificare che il file OVA del dispositivo Azure Migrate venga scaricato correttamente controllando il relativo valore hash. [Altre informazioni](./tutorial-prepare-vmware.md) Se il valore hash non corrisponde, scaricare di nuovo il file OVA e riprovare la distribuzione.
+1. Verificare che il file OVA del dispositivo Azure Migrate venga scaricato correttamente controllando il relativo valore hash. [Altre informazioni](./tutorial-prepare-vmware.md). Se il valore hash non corrisponde, scaricare di nuovo il file OVA e riprovare la distribuzione.
 2. Se la distribuzione ha ancora esito negativo e si usa il client VMware vSphere per distribuire il file OVF, provare a distribuirlo tramite il client Web di vSphere. Se la distribuzione non riesce ancora, provare a usare un altro Web browser.
 3. Se si usa il client Web vSphere e si prova a distribuirlo in server vCenter 6,5 o 6,7, provare a distribuire gli OVA direttamente nell'host ESXi:
    - Connettersi direttamente all'host ESXi (invece di server vCenter) con il client Web (https://<*indirizzo IP host*>/UI).
@@ -38,7 +38,7 @@ Se viene visualizzato l'errore "il file manifesto specificato non è valido: voc
 
 Questo problema può verificarsi se il computer dell'appliance si trova dietro un proxy.
 
-- Assicurarsi di specificare le credenziali di autorizzazione se sono necessarie per il proxy.
+- Assicurarsi di specificare le credenziali di autorizzazione, se richieste dal proxy.
 - Se si usa un proxy firewall basato su URL per controllare la connettività in uscita, aggiungere [questi URL](migrate-appliance.md#url-access) a un elenco Consenti.
 - Se si usa un proxy di intercettazione per connettersi a Internet, importare il certificato proxy nella macchina virtuale dell'appliance seguendo [questa procedura](./migrate-appliance.md).
 
@@ -151,7 +151,7 @@ Se si attende che lo stato non cambia, selezionare **Aggiorna** nella scheda **S
 Se questa operazione non funziona e si stanno scoprendo i server VMware:
 
 - Verificare che l'account vCenter specificato disponga delle autorizzazioni impostate correttamente, con accesso ad almeno una macchina virtuale.
-- Azure Migrate non riesce a individuare le macchine virtuali VMware se l'account vCenter ha accesso concesso a livello di cartella della macchina virtuale vCenter. [Altre](set-discovery-scope.md) informazioni sull'individuazione dell'ambito.
+- Azure Migrate non riesce a individuare le macchine virtuali VMware se l'account vCenter ha accesso concesso a livello di cartella VM vCenter. [Altre](set-discovery-scope.md) informazioni sull'individuazione dell'ambito.
 
 ## <a name="vm-data-not-in-portal"></a>Dati della macchina virtuale non nel portale
 

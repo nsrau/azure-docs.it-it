@@ -45,7 +45,7 @@ Le [specifiche del Rest Luis](https://github.com/Azure/azure-rest-api-specs/tree
 
 Le API REST di creazione ed endpoint di stima sono disponibili nelle API REST:
 
-|Type|Version|
+|Type|Versione|
 |--|--|
 |Creazione|[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[Anteprima V3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
 |Stima|[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|

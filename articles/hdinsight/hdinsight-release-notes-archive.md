@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 08/09/2020
-ms.openlocfilehash: 29caccd666294add98882d080a2a0fd3bd9dd660
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: 827871bdac689d1f5e8acb64d3565ca3c6da39be
+ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036624"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89292521"
 ---
 # <a name="archived-release-notes"></a>Note sulla versione archiviate
 
@@ -779,7 +779,7 @@ Questa versione fornisce Hive 1.2.1 e Hive 2.1.0 oltre alle patch seguenti:
 
 -   [*HIVE-17621*](https://issues.apache.org/jira/browse/HIVE-17621): le impostazioni Hive-site vengono ignorate durante il calcolo della divisione HCatInputFormat.
 
--   [*HIVE-17629*](https://issues.apache.org/jira/browse/HIVE-17629): CachedStore: dispone di una configurazione di un elenco elementi consentiti/blacklist per consentire la memorizzazione selettiva nella cache delle tabelle/partizioni e consente la lettura durante la configurazione preliminare.
+-   [*Hive-17629*](https://issues.apache.org/jira/browse/HIVE-17629): CachedStore: una configurazione approvata/non approvata per consentire la memorizzazione nella cache selettiva di tabelle e partizioni e consentire la lettura durante il preriscaldamento.
 
 -   [*HIVE-17636*](https://issues.apache.org/jira/browse/HIVE-17636): aggiunta del test multiple\_agg.q per archivi BLOB.
 
@@ -1167,7 +1167,7 @@ Questa versione fornisce Spark 2.3.0 e le patch di Apache seguenti:
 
 Questa versione fornisce Sqoop 1.4.6 con nessuna patch Apache aggiuntiva.
 
-#### <a name="storm"></a>Tempesta
+#### <a name="storm"></a>Storm
 
 Questa versione fornisce Storm 1.1.1 e le patch di Apache seguenti:
 
@@ -1692,7 +1692,7 @@ I problemi risolti rappresentano problemi selezionati registrati in precedenza t
 
 |**Componente Apache**|**Apache JIRA**|**Summary**|**Dettagli**|
 |--|--|--|--|
-|**Spark 2.3** |**N/D** |**Modifiche come documentato nelle Note sulla versione di Apache Spark** |-È presente un documento "Deprecation" e una "modifica del comportamento",https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />-Per SQL part è disponibile un'altra guida dettagliata alla "migrazione" (da 2,2 a 2,3),https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
+|**Spark 2.3** |**N/D** |**Modifiche come documentato nelle Note sulla versione di Apache Spark** |-È presente un documento "Deprecation" e una "modifica del comportamento", https://spark.apache.org/releases/spark-release-2-3-0.html#deprecations<br /><br />-Per SQL part è disponibile un'altra guida dettagliata alla "migrazione" (da 2,2 a 2,3), https://spark.apache.org/docs/latest/sql-programming-guide.html#upgrading-from-spark-sql-22-to-23|
 |Spark |[**HIVE-12505**](https://issues.apache.org/jira/browse/HIVE-12505) |Il processo Spark viene completato correttamente, ma si verifica un errore di quota disco HDFS esaurita |**Scenario:** esecuzione di **insert overwrite** quando è impostata una quota nella cartella Cestino dell'utente che esegue il comando.<br /><br />**Comportamento precedente:** il processo ha esito positivo anche se non riesce a spostare i dati nel Cestino. Il risultato può erroneamente contenere alcuni dei dati presenti in precedenza nella tabella.<br /><br />**Nuovo comportamento:** quando il trasferimento nella cartella Cestino ha esito negativo, i file vengono eliminati definitivamente.|
 |**Kafka 1.0**|**N/D**|**Modifiche come documentato nelle Note sulla versione di Apache Spark** |https://kafka.apache.org/10/documentation.html#upgrade_100_notable|
 |**Hive / Ranger** | |Sono richiesti dei criteri Ranger Hive aggiuntivi per INSERT OVERWRITE |**Scenario:** sono richiesti dei criteri Ranger Hive aggiuntivi per **INSERT OVERWRITE**<br /><br />**Comportamento precedente:** le query **INSERT OVERWRITE** Hive completate correttamente come di consueto.<br /><br />**Nuovo comportamento:** le query **INSERT OVERWRITE** Hive hanno esito negativo in modo imprevisto dopo l'aggiornamento a HDP 2.6 con l'errore:<br /><br />Errore durante la compilazione dell'istruzione: FAILED: HiveAccessControlException Permission denied: user jdoe does not have WRITE privilege on /tmp/\*(state=42000,code=40000)<br /><br />A partire da HDP-2.6.0, le query **INSERT OVERWRITE** Hive richiedono un criterio URI Ranger per consentire operazioni di scrittura, anche se l'utente dispone del privilegio di scrittura concesso tramite il criterio HDFS.<br /><br />**Soluzione alternativa/Azione prevista del cliente:**<br /><br />1. creare un nuovo criterio nel repository hive.<br />2. nell'elenco a discesa in cui viene visualizzato database selezionare URI.<br />3. aggiornare il percorso (ad esempio:/tmp/*)<br />4. aggiungere gli utenti e il gruppo e salvare.<br />5. Ripetere la query di inserimento.|

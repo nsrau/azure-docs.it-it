@@ -1,6 +1,6 @@
 ---
-title: File di inclusione
-description: Includere file
+title: includere file
+description: includere file
 services: virtual-machines
 author: cynthn
 ms.service: virtual-machines
