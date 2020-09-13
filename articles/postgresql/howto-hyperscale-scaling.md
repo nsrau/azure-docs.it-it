@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 8/10/2020
-ms.openlocfilehash: 85a1f0dcc2e778a09cf0d19b2a85d6faf371f032
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: 10d253b3e470ea009944d4ccd756d4bbbe3766e7
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134522"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029818"
 ---
 # <a name="server-group-size"></a>Dimensioni del gruppo di server
 
@@ -40,7 +40,7 @@ Database di Azure per PostgreSQL-iperscalabilità (CITUS) offre la scalabilità 
 
 ### <a name="add-worker-nodes"></a>Aggiunta di nodi di lavoro
 
-Per aggiungere nodi, passare alla scheda **Configura** del gruppo di server di iperscalabilità (CITUS).  Quando si trascina il dispositivo di scorrimento per il **numero di nodi di lavoro** , viene modificato il valore
+Per aggiungere nodi, passare alla scheda **calcolo e archiviazione** nel gruppo di server di iperscalabilità (CITUS).  Quando si trascina il dispositivo di scorrimento per il **numero di nodi di lavoro** , viene modificato il valore
 
 ![Dispositivi di scorrimento delle risorse](./media/howto-hyperscale-scaling/01-sliders-workers.png)
 
@@ -66,7 +66,7 @@ La `rebalance_table_shards` funzione ribilancia tutte le tabelle nel gruppo [col
 
 Oltre ad aggiungere nuovi nodi, è possibile aumentare le capacità dei nodi esistenti. La regolazione della capacità di calcolo verso l'alto e verso il basso può essere utile per gli esperimenti sulle prestazioni, nonché per le modifiche a breve o a lungo termine delle richieste di traffico.
 
-Per modificare il vcore per tutti i nodi del ruolo di lavoro, modificare il dispositivo di scorrimento **Vcore** in **configurazione (per nodo**del ruolo di lavoro). Il vcore del nodo coordinatore può essere regolato in modo indipendente. Regolare il dispositivo di scorrimento **Vcore** in **configurazione (nodo coordinatore)**.
+Per modificare il vcore per tutti i nodi del ruolo di lavoro, modificare il dispositivo di scorrimento **Vcore** in **configurazione (per nodo**del ruolo di lavoro). Il vcore del nodo coordinatore può essere regolato in modo indipendente. Regolare il dispositivo di scorrimento **Vcore** in  **configurazione (nodo coordinatore)**.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

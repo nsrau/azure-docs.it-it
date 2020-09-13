@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 09/01/2020
-ms.openlocfilehash: a08c6abe52801e1fbafd517adcb8fd9a8b8b4aee
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 4de6d4ba019af75b0f6179b2794ddb6c1e35e0c1
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462293"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030073"
 ---
 # <a name="options-to-migrate-your-on-premises-or-cloud-data-to-azure-cosmos-db"></a>Opzioni per la migrazione dei dati locali o cloud a Azure Cosmos DB
 
@@ -47,7 +47,7 @@ Di seguito sono riportati i fattori che determinano la scelta dello strumento di
 |Offline|[Connettore Azure Cosmos DB Spark](spark-connector.md)|Azure Cosmos DB API SQL. <br/><br/>È possibile usare altre origini con connettori aggiuntivi dall'ecosistema Spark.| Azure Cosmos DB API SQL. <br/><br/>È possibile usare altre destinazioni con connettori aggiuntivi dall'ecosistema Spark.| &bull; Usa la libreria dell'executor Azure Cosmos DB bulk. <br/>&bull; Adatto per set di impostazioni di grandi dimensioni. <br/>&bull; Richiede una configurazione di Spark personalizzata. <br/>&bull; Spark è sensibile alle incoerenze dello schema e questo può costituire un problema durante la migrazione. |
 |Offline|[Strumento personalizzato con Cosmos DB libreria Executor bulk](migrate-cosmosdb-data.md)| L'origine dipende dal codice personalizzato | API SQL Azure Cosmos DB| &bull; Fornisce funzionalità di checkpoint e messaggi non recapitabili che aumentano la resilienza della migrazione. <br/>&bull; Adatto per set di impostazioni di grandi dimensioni (10 TB +).  <br/>&bull; Richiede l'installazione personalizzata di questo strumento in esecuzione come servizio app. |
 |Online|[Funzioni Cosmos DB + API offre](change-feed-functions.md)| API SQL Azure Cosmos DB | API SQL Azure Cosmos DB| &bull; Facile da configurare. <br/>&bull; Funziona solo se l'origine è un contenitore Azure Cosmos DB. <br/>&bull; Non adatto per set di dati di grandi dimensioni. <br/>&bull; Non acquisisce le eliminazioni dal contenitore di origine. |
-|Online|[Servizio di migrazione personalizzato con offre](https://github.com/nomiero/CosmosDBLiveETLSample)| API SQL Azure Cosmos DB | API SQL Azure Cosmos DB| &bull; Fornisce il rilevamento dello stato di avanzamento. <br/>&bull; Funziona solo se l'origine è un contenitore Azure Cosmos DB. <br/>&bull; Funziona anche per set di impostazioni di grandi dimensioni.<br/>&bull; Richiede all'utente di configurare un servizio app per ospitare il processore del feed delle modifiche. <br/>&bull; Non acquisisce le eliminazioni dal contenitore di origine.|
+|Online|[Servizio di migrazione personalizzato con offre](https://github.com/Azure-Samples/azure-cosmosdb-live-data-migrator)| API SQL Azure Cosmos DB | API SQL Azure Cosmos DB| &bull; Fornisce il rilevamento dello stato di avanzamento. <br/>&bull; Funziona solo se l'origine è un contenitore Azure Cosmos DB. <br/>&bull; Funziona anche per set di impostazioni di grandi dimensioni.<br/>&bull; Richiede all'utente di configurare un servizio app per ospitare il processore del feed delle modifiche. <br/>&bull; Non acquisisce le eliminazioni dal contenitore di origine.|
 |Online|[Striim](cosmosdb-sql-api-migrate-data-striim.md)| &bull;Oracle <br/>&bull;Apache Cassandra<br/><br/> Vedere il [sito Web StriIm](https://www.striim.com/sources-and-targets/) per altre origini supportate. |&bull;API SQL Azure Cosmos DB <br/>&bull; Azure Cosmos DB API Cassandra<br/><br/> Vedere il [sito Web StriIm](https://www.striim.com/sources-and-targets/) per altre destinazioni supportate. | &bull; Funziona con una vasta gamma di origini, ad esempio Oracle, DB2 SQL Server.<br/>&bull; Semplifica la creazione di pipeline ETL e fornisce un dashboard per il monitoraggio. <br/>&bull; Supporta set di impostazioni di grandi dimensioni. <br/>&bull; Poiché si tratta di uno strumento di terze parti, è necessario acquistarlo dal Marketplace e installarlo nell'ambiente dell'utente.|
 
 ## <a name="azure-cosmos-db-mongo-api"></a>Azure Cosmos DB l'API Mongo

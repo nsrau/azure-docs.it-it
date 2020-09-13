@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/10/2020
-ms.openlocfilehash: 0fc9139e9456a62bf3586fb358046e7c868b834a
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: ea2fae483da495bce9551899b9646868251f0454
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90005225"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030828"
 ---
 # <a name="azure-monitor-agent-overview-preview"></a>Panoramica dell'agente di monitoraggio di Azure (anteprima)
 L'agente di monitoraggio di Azure raccoglie i dati di monitoraggio dal sistema operativo guest delle macchine virtuali e li recapita a monitoraggio di Azure. Questo articolo fornisce una panoramica dell'agente di monitoraggio di Azure, tra cui come installarlo e come configurare la raccolta dei dati.
@@ -99,6 +99,8 @@ I sistemi operativi seguenti sono attualmente supportati dall'agente di monitora
 ## <a name="security"></a>Sicurezza
 L'agente di monitoraggio di Azure non richiede chiavi, ma richiede invece un' [identità gestita assegnata dal sistema](../../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#system-assigned-managed-identity). Prima di distribuire l'agente, è necessario che sia abilitata un'identità gestita assegnata dal sistema in ogni macchina virtuale.
 
+## <a name="networking"></a>Rete
+L'agente di monitoraggio di Azure supporta i tag dei servizi di Azure (sono necessari sia i tag AzureMonitor che AzureResourceManager) ma non funziona ancora con gli ambiti di collegamento privato di monitoraggio di Azure o con proxy diretti.
 
 ## <a name="install-the-azure-monitor-agent"></a>Installare l'agente di monitoraggio di Azure
 L'agente di monitoraggio di Azure viene implementato come [estensione della macchina virtuale di Azure](../../virtual-machines/extensions/overview.md) con i dettagli nella tabella seguente. 

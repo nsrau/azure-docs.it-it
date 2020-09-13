@@ -7,20 +7,24 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: f61773e693ad1276ef48b2f26ef6e3e8f59e2992
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: e97db598556d10538746242fa67449631394cd55
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612369"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030651"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usare le API e gli SDK di Gemelli digitali di Azure
 
-I dispositivi gemelli digitali di Azure sono dotati di API del **piano di controllo** e **API del piano dati** per gestire l'istanza e i relativi elementi. Questo articolo fornisce una panoramica delle API disponibili e i metodi per interagire con essi. È possibile usare le API REST direttamente con le loro spavalderia associate oppure tramite un SDK.
+I dispositivi gemelli digitali di Azure sono dotati di API del **piano di controllo** e **API del piano dati** per gestire l'istanza e i relativi elementi. 
+* Le API del piano di controllo sono [Azure Resource Manager (ARM)](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) e coprono le operazioni di gestione delle risorse come la creazione e l'eliminazione dell'istanza. 
+* Le API del piano dati sono API per i dispositivi gemelli digitali di Azure e vengono usate per operazioni di gestione dati come la gestione di modelli, gemelli e Graph.
+
+Questo articolo fornisce una panoramica delle API disponibili e i metodi per interagire con essi. È possibile usare le API REST direttamente con le loro spavalderia associate oppure tramite un SDK.
 
 ## <a name="overview-control-plane-apis"></a>Panoramica: API del piano di controllo
 
-Le API del piano di controllo vengono usate per gestire l'istanza di Azure Digital Twins nel suo complesso, in modo da coprire operazioni come la creazione o l'eliminazione dell'intera istanza. Questi vengono usati anche per creare ed eliminare gli endpoint.
+Le API del piano di controllo sono API [ARM](https://docs.microsoft.com/azure/azure-resource-manager/management/overview) usate per gestire l'istanza di dispositivi gemelli digitali di Azure nel suo complesso, in modo da coprire operazioni come la creazione o l'eliminazione dell'intera istanza. Questi vengono usati anche per creare ed eliminare gli endpoint.
 
 La versione più recente dell'API del piano di controllo per l'anteprima pubblica è _**2020-03-01-Preview**_.
 
@@ -37,7 +41,7 @@ Per usare le API del piano di controllo:
 
 ## <a name="overview-data-plane-apis"></a>Panoramica: API del piano dati
 
-Le API del piano dati vengono usate per gestire gli elementi all'interno dell'istanza di Azure Digital gemelli. Sono incluse operazioni come la creazione di route, il caricamento di modelli, la creazione di relazioni e la gestione dei dispositivi gemelli. Possono essere suddivise nelle categorie seguenti:
+Le API del piano dati sono le API di Azure Digital gemelli usate per gestire gli elementi all'interno dell'istanza di Azure Digital gemelli. Sono incluse operazioni come la creazione di route, il caricamento di modelli, la creazione di relazioni e la gestione dei dispositivi gemelli. Possono essere suddivise nelle categorie seguenti:
 * **DigitalTwinsModels** : la categoria DigitalTwinsModels contiene le API per gestire i [modelli](concepts-models.md) in un'istanza di dispositivi gemelli digitali di Azure. Le attività di gestione includono il caricamento, la convalida, il recupero e l'eliminazione di modelli creati in DTDL.
 * **DigitalTwins** : la categoria DigitalTwins contiene le API che consentono agli sviluppatori di creare, modificare ed eliminare i dispositivi [gemelli digitali](concepts-twins-graph.md) e le relative relazioni in un'istanza di dispositivi gemelli digitali di Azure.
 * **Query** : la categoria query consente agli sviluppatori [di individuare set di gemelli digitali nel grafico gemello tra le](how-to-query-graph.md) relazioni.

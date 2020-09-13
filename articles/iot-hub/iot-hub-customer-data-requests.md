@@ -7,12 +7,12 @@ ms.date: 05/16/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 0bb7b91cd31761b801ad469b8ce556b29e09fd3a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ebc73c75d9a23a53ac94f28208251dcff83e684a
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87074717"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030702"
 ---
 # <a name="customer-data-request-features-for-azure-iot-hub-devices"></a>Funzionalità di richiesta dei dati del cliente per i dispositivi dell'hub Azure
 
@@ -36,13 +36,13 @@ Se si usa la funzionalità di integrazione di Monitoraggio di Azure del servizio
 
 Gli amministratori tenant possono usare il pannello di dispositivi IoT dell'estensione dell'Hub IoT di Azure nel portale di Azure per eliminare un dispositivo, che elimina i dati associati al dispositivo.
 
-È anche possibile eseguire le operazioni di eliminazione per i dispositivi tramite le API REST. Per altre informazioni, vedere [Service - Delete Device](/rest/api/iothub/service/registrymanager/deletedevice) (Servizio - Delete Device).
+È anche possibile eseguire le operazioni di eliminazione per i dispositivi tramite le API REST. Per altre informazioni, vedere [Service - Delete Device](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-deletedevice) (Servizio - Delete Device).
 
 ## <a name="exporting-customer-data"></a>Esportazione dei dati dei clienti
 
 Gli amministratori tenant possono usare copia e incolla all'interno del riquadro dispositivi Internet delle cose dell'estensione Hub Azure Internet nel portale di Azure per esportare i dati associati a un dispositivo.
 
-È anche possibile eseguire le operazioni di esportazione per i dispositivi tramite le API REST. Per altre informazioni, vedere [Service - Delete Device](/rest/api/iothub/service/registrymanager/getdevice) (Servizio - Get Device).
+È anche possibile eseguire le operazioni di esportazione per i dispositivi tramite le API REST. Per altre informazioni, vedere [Service - Delete Device](/azure/iot-hub/iot-c-sdk-ref/iothub-registrymanager-h/iothubregistrymanager-getdevice) (Servizio - Get Device).
 
 > [!NOTE]
 > Quando si usano i servizi enterprise di Microsoft, Microsoft genera alcune informazioni note come log generati dal sistema. Alcuni log generati dal sistema dell'hub IoT di Azure non sono accessibili o esportabili dagli amministratori del tenant. Questi log costituiscono azioni pratiche eseguite nel servizio e i dati diagnostici relativi ai singoli dispositivi.

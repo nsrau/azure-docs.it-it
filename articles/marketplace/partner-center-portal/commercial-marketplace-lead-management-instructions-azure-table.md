@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 08/25/2020
-ms.openlocfilehash: db2bae9d9e1c9658937e725a04d919743ff9999e
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 2dca0ae02f2d079e98b51e1222114db1f2104b96
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855733"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030798"
 ---
 # <a name="use-azure-table-storage-to-manage-commercial-marketplace-leads"></a>Usare l'archiviazione tabelle di Azure per gestire i lead del marketplace commerciale
 
@@ -135,7 +135,7 @@ In questo esempio viene creato un flusso per l’invio automatico di una notific
    Nei passaggi successivi viene configurata l'azione da eseguire in base al risultato della condizione:
 
    * Se la condizione restituisce **Se no**, non eseguire alcuna operazione.
-   * Se la condizione restituisce **Se sì**, attivare un'azione che si connetta all'account di Office 365 per inviare un messaggio di posta elettronica.
+   * Se la condizione si risolve in in **caso affermativo**, attivare un'azione che connette l'account aziendale o dell'Istituto di istruzione per inviare un messaggio di posta elettronica. 
 
 1. Selezionare **Aggiungi un'azione** in **Se sì**.
 

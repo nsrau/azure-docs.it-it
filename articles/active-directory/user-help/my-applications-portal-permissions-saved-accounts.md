@@ -12,12 +12,12 @@ ms.topic: end-user-help
 ms.date: 02/03/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 8507a53959e7d28cbcec2dec6783b2470696d59b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 993e75f6a5a39e076a9e7161b62abba85d9b0eab
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798109"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031093"
 ---
 # <a name="edit-or-revoke-application-permissions-in-the-my-apps-portal"></a>Modificare o revocare le autorizzazioni delle applicazioni nel portale App personali
 
@@ -28,9 +28,9 @@ Quando si usano applicazioni aziendali nel portale **App personali**, spesso si 
 >[!Important]
 >Questo contenuto è destinato agli utenti. Gli amministratori possono trovare altre informazioni su come configurare e gestire le app basate sul cloud nella [documentazione di Gestione applicazioni](../manage-apps/access-panel-collections.md).
 
-## <a name="manage-app-permissions"></a>Gestire le autorizzazioni dell'app
+## <a name="manage-app-accounts"></a>Gestisci account App
 
-Per visualizzare le autorizzazioni concesse dall'utente o dall'amministratore, selezionare **...** quando si passa il mouse su un'app nel portale **App personali**, quindi selezionare **Gestione dell'applicazione**:
+Per visualizzare le app consentite dall'utente o dall'amministratore, selezionare **...** quando si passa il puntatore del mouse su un'app nel portale **app personali** , quindi selezionare **Gestisci l'applicazione**:
 
 ![Gestire un'applicazione nel portale App personali](media/my-applications-portal-permissions-saved-accounts/manage-your-application.png)
 

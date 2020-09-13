@@ -8,164 +8,120 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: end-user-help
-ms.date: 02/03/2020
+ms.date: 09/08/2020
 ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 78204be967bafdd7d01af4f9f286bd15347e4a9f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 245b7c63b3c459d545dfd39fe162df1ee4f816f5
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88798041"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90031042"
 ---
 # <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>Eseguire l'accesso e avviare le app dal portale App personali
 
 È possibile usare l'account aziendale o dell'istituto di istruzione con il portale **App personali** basato sul Web per:
 
 - Visualizzare e avviare molte delle app basate sul cloud dell'organizzazione
-- Aggiornare le informazioni su profilo e account
-- Visualizzare le informazioni sui **Gruppi**
-- Eseguire **verifiche di accesso** per app e gruppi
+- Vai al portale [ **gruppi personali**](https://account.activedirectory.windowsazure.com/r#/groups)
+- Vai al portale [ **account personale**](https://myaccount.microsoft.com/)
 
-Se non si ha accesso al portale **App personali**, è necessario contattare il supporto tecnico per l'autorizzazione.
+Se non si ha accesso al portale **app personali** , contattare il supporto tecnico dell'organizzazione per ottenere l'autorizzazione.
 
-[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
-
-> [!Important]
-> Questo contenuto è destinato agli utenti di App personali. Gli amministratori possono trovare altre informazioni su come configurare e gestire le app basate sul cloud nella [documentazione di Gestione applicazioni](../manage-apps/index.yml).
+> [!IMPORTANT]
+> Questo contenuto è destinato agli utenti di **App personali**. Gli amministratori possono trovare altre informazioni su come configurare e gestire le app basate sul cloud nella [documentazione di Gestione applicazioni](../manage-apps/index.yml).
 
 ## <a name="supported-browsers"></a>Browser supportati
 
 È possibile aprire il portale **App personali** dai Web browser seguenti:
 
+- Microsoft Edge (la versione per dispositivi mobili di Edge è attualmente l'unico browser mobile supportato)
 - Google Chrome
-
 - Mozilla Firefox, versione 26.0 o successiva
 
-- Microsoft Edge
-
-- Internet Explorer, versione 11 (supporto limitato)
-
-## <a name="download-and-install-the-my-apps-secure-sign-in-extension"></a>Scaricare e installare l'estensione My Apps Secure Sign-in
-
-Scaricare e installare l'estensione My Apps Secure Sign-in, se richiesto. Questa estensione consente di avviare tutte le app cloud dell'organizzazione che richiedono l'uso di un processo di accesso Single Sign-On. Se l'organizzazione ha già configurato l'accesso Single Sign-On per l'utente, l'estensione viene installata automaticamente ed è possibile ignorare questa sezione.
-
-Questa estensione consente di:
-
-- Accedere direttamente alle app dalla pagina di accesso.
-
-- Avviare tutte le app tramite la funzionalità **Ricerca rapida**.
-
-- Visualizzare le ultime app usate nella sezione **Usate di recente**.
-
-- Usare URL aziendali interne in modalità remota tramite [Proxy di applicazione](../manage-apps/application-proxy.md).
-
-### <a name="to-download-and-install-the-extension"></a>Per scaricare e installare l'estensione
-
-Scaricare e installare l'estensione in base al browser in uso:
-
-- **Google Chrome.** Da Chrome Web Store passare alla funzionalità [My Apps Secure Sign-in Extension](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) e quindi selezionare **Aggiungi a Chrome**.
-
-- **Mozilla Firefox**. Nella pagina **Componenti aggiuntivi** in Firefox passare alla funzionalità [My Apps Secure Sign-in Extension](https://addons.mozilla.org/firefox/addon/access-panel-extension/) e quindi selezionare **Aggiungi a Firefox**.
-
-- **Microsoft Edge**. In Microsoft Store passare alla funzionalità [My Apps Secure Sign-in Extension](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) e quindi selezionare **Ottieni** per scaricare l'estensione per il browser legacy Microsoft Edge.  
-Se si usa il nuovo browser Microsoft Edge (Chromium), è possibile ottenere l'estensione dallo [Store Estensioni per Microsoft Edge](https://microsoftedge.microsoft.com/addons/category/EdgeExtensionsEditorsPick).
-
-Verrà aggiunta un'icona a destra della barra degli **indirizzi** che consentirà di accedere e personalizzare l'estensione.
-
-## <a name="to-change-your-my-apps-portal-using-the-extension"></a>Per modificare il portale App personali usando l'estensione
-
-È possibile scegliere il numero di app da visualizzare nella sezione **Usate di recente** e decidere se consentire il reindirizzamento degli URL interni dell'organizzazione.
-
-1. Selezionare la nuova icona di **My Apps Secure Sign-in Extension** ![icona dell'estensione](media/my-apps-portal/my-apps-portal-extension-icon.png) a destra della barra degli **indirizzi** e quindi selezionare **Accedi** per iniziare.
-
-2. Fare clic con il pulsante destro del mouse sull'icona **Impostazioni** ![icona Impostazioni](media/my-apps-portal/my-apps-portal-extension-settings-icon.png), quindi scegliere **Impostazioni**.
-
-3. Nella casella **Impostazioni** selezionare il numero di app recenti da visualizzare nel portale e se consentire il reindirizzamento degli URL interni dell'organizzazione per poterli usare in modalità remota.
-
-    ![Pagina Impostazioni dell'estensione che mostra le personalizzazioni disponibili](media/my-apps-portal/my-apps-portal-extension-settings-page.png)
-
-## <a name="access-and-use-the-my-apps-portal-by-device"></a>Accedere e usare il portale App personali da un dispositivo
-
-È possibile accedere e usare il portale App personali nel computer, da un browser gestito da Intune o da un dispositivo mobile iOS o Android.
+È possibile accedere e usare il portale app personali nel computer o dalla versione mobile del browser Microsoft Edge in un dispositivo mobile iOS o Android.
 
 ![Pagina App nel portale App personali](media/my-apps-portal/my-apps-portal-apps-page.png)
 
-### <a name="access-and-use-the-my-apps-portal-on-your-computer"></a>Accedere e usare il portale App personali dal computer
+## <a name="access-and-use-the-my-apps-portal-on-your-computer"></a>Accedere e usare il portale App personali dal computer
 
 Se si è autorizzati ad accedere e a usare le app basate sul cloud dell'organizzazione, queste saranno disponibili tramite il portale **App personali**.
 
 1. Accedere all'account aziendale o dell'istituto di istruzione nel computer.
 
-2. In un Web browser supportato aprire e passare a https://myapps.microsoft.com oppure usare il collegamento fornito dall'organizzazione, se è previsto un indirizzamento dell'utente a una pagina personalizzata, ad esempio `https://myapps.microsoft.com/contoso.com`.
+1. In un Web browser supportato, accedere a https://myapps.microsoft.com o usare il collegamento fornito dall'organizzazione se indirizzare l'utente a una pagina personalizzata, ad esempio `https://myapps.microsoft.com/contoso.com` .
 
-    Verrà visualizzata la pagina **App**, che mostra tutte le app basate sul cloud di proprietà dell'organizzazione e disponibili per l'uso.
+   Verrà visualizzata la pagina **App**, che mostra tutte le app basate sul cloud di proprietà dell'organizzazione e disponibili per l'uso.
 
-3. Dalla pagina **App** selezionare l'app che si vuole iniziare a usare.
+1. Dalla pagina **App** selezionare l'app che si vuole iniziare a usare.
 
-    Verrà aperta una nuova pagina per l'app, in cui è possibile accedere (se necessario) o iniziare a usare l'app.
+   Verrà aperta una nuova pagina per l'app, in cui è possibile accedere (se necessario) o iniziare a usare l'app.
 
-### <a name="access-and-use-the-my-apps-portal-on-an-intune-managed-browser"></a>Accedere e usare il portale App personali in un browser gestito da Intune
+### <a name="download-and-install-the-my-apps-secure-sign-in-extension"></a>Scaricare e installare l'estensione My Apps Secure Sign-in
 
-È possibile visualizzare e usare le app dell'organizzazione da un'istanza di Intune Managed Browser nei dispositivi iOS e Android.
+Scaricare e installare l' **estensione per l'accesso sicuro alle app personali**, se richiesto. Questa estensione consente di usare il browser desktop per usare Single Sign-On con le app cloud dell'organizzazione. È sufficiente passare il puntatore del mouse su un'app nel portale **app personali** , selezionare **...** e quindi selezionare **Gestisci l'applicazione**.
 
-1. Nel dispositivo mobile scaricare e installare l'app Intune Managed Browser dall'App Store di Apple o da Google Play Store.
+Se l'organizzazione ha già configurato l'accesso Single Sign-On per l'utente, l'estensione viene installata automaticamente ed è possibile ignorare questa sezione.
 
-2. Aprire l'app Intune Managed Browser, passare a https://myapps.microsoft.com oppure usare il collegamento fornito dall'organizzazione, se è previsto un indirizzamento dell'utente a una pagina personalizzata, ad esempio https://myapps.microsoft.com/contoso.com.
+L' **estensione My Apps Secure Sign-in** consente di:
 
-    Verrà visualizzata la pagina **App**, che mostra tutte le app basate sul cloud di proprietà dell'organizzazione e disponibili per l'uso.
+- Accedere direttamente alle app dalla pagina di accesso.
+- Avviare tutte le app tramite la funzionalità **Ricerca rapida**.
+- Visualizzare le ultime app usate nella sezione **Usate di recente**.
+- Usare gli URL interni della società quando si usa il [proxy di applicazione](../manage-apps/application-proxy.md).
 
-3. Dalla pagina **App** selezionare l'app che si vuole iniziare a usare.
+### <a name="to-download-and-install-the-extension"></a>Per scaricare e installare l'estensione
 
-    Verrà aperta una nuova pagina per l'app, in cui è possibile accedere (se necessario) o iniziare a usare l'app.
+Scaricare e installare l'estensione in base al browser in uso.
 
-### <a name="access-and-use-the-my-apps-portal-on-an-ios-device"></a>Accedere e usare il portale App personali da un dispositivo iOS
+- **Microsoft Edge** : dalla Microsoft Store, passare alla funzionalità [app sicure di accesso alle app](https://microsoftedge.microsoft.com/addons/detail/my-apps-secure-signin-ex/gaaceiggkkiffbfdpmfapegoiohkiipl) e quindi selezionare **Ottieni** per ottenere l'estensione per il browser legacy Microsoft Edge.
 
-È possibile visualizzare e usare il portale **App personali** da un dispositivo iPhone o iPad, che esegue iOS 7 o versione successiva. È anche possibile installare l'[app per dispositivi mobili My Apps](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8) per accedere alle app dell'organizzazione dai dispositivi iOS.
+- **Google Chrome** : da Chrome Web Store, passare alla funzionalità [My App Secure Sign-in Extension](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) e quindi selezionare **Add to Chrome**.
 
-1. Nel dispositivo mobile avviare un'app Web browser, ad esempio Safari.
+- **Mozilla Firefox** : dalla pagina dei componenti aggiuntivi di **Firefox** passare alla funzionalità di estensione per l' [accesso sicuro alle app personali](https://addons.mozilla.org/firefox/addon/access-panel-extension/) e quindi selezionare **Aggiungi a Firefox**.
 
-2. Passare a https://myapps.microsoft.com oppure usare il collegamento fornito dall'organizzazione, se è previsto un indirizzamento dell'utente a una pagina personalizzata, ad esempio https://myapps.microsoft.com/contoso.com.
+Viene aggiunta un'icona a destra della barra degli **indirizzi** , che consente di accedere e personalizzare l'estensione.
 
-    Verrà visualizzata la pagina **App**, che mostra tutte le app basate sul cloud di proprietà dell'organizzazione e disponibili per l'uso.
+### <a name="to-change-your-my-apps-portal-using-the-extension"></a>Per modificare il portale App personali usando l'estensione
 
-3. Dalla pagina **App** selezionare l'app che si vuole iniziare a usare.
+È possibile scegliere il numero di app da visualizzare nella sezione **Usate di recente** e decidere se consentire il reindirizzamento degli URL interni dell'organizzazione.
 
-    Verrà aperta una nuova pagina per l'app, in cui è possibile accedere (se necessario) o iniziare a usare l'app.
+1. Selezionare la nuova icona di **My Apps Secure Sign-in Extension** ![icona dell'estensione](media/my-apps-portal/my-apps-portal-extension-icon.png) a destra della barra degli **indirizzi** e quindi selezionare **Accedi** per iniziare.
 
-### <a name="access-and-use-the-my-apps-portal-on-an-android-device"></a>Accedere e usare il portale App personali da un dispositivo Android
+1. Fare clic con il pulsante destro del mouse sull'icona **Impostazioni** ![icona Impostazioni](media/my-apps-portal/my-apps-portal-extension-settings-icon.png), quindi scegliere **Impostazioni**.
 
-È possibile visualizzare e usare il portale **App personali** da un dispositivo Android.
+1. Nella casella **Impostazioni** selezionare il numero di app recenti da visualizzare nel portale e se consentire il reindirizzamento degli URL interni dell'organizzazione per poterli usare in modalità remota.
 
-1. Nel dispositivo mobile avviare un'app Web browser, ad esempio Google Chrome.
+   ![Pagina Impostazioni dell'estensione che mostra le personalizzazioni disponibili](media/my-apps-portal/my-apps-portal-extension-settings-page.png)
 
-2. Passare a https://myapps.microsoft.com oppure usare il collegamento fornito dall'organizzazione, se è previsto un indirizzamento dell'utente a una pagina personalizzata, ad esempio https://myapps.microsoft.com/contoso.com.
+## <a name="access-and-use-the-my-apps-portal-on-mobile-edge"></a>Accedere e usare il portale app personali su Mobile Edge
 
-    Verrà visualizzata la pagina **App**, che mostra tutte le app basate sul cloud di proprietà dell'organizzazione e disponibili per l'uso.
+Visualizzare e usare le app dell'organizzazione dalla versione mobile del browser Microsoft Edge nei dispositivi.
 
-3. Dalla pagina **App** selezionare l'app che si vuole iniziare a usare.
+1. Nel dispositivo mobile scaricare e installare l'app Mobile Edge browser dall'App Store di Apple e il Google Play Store.
 
-    Verrà aperta una nuova pagina per l'app, in cui è possibile accedere (se necessario) o iniziare a usare l'app.
+1. Aprire il browser mobile Edge e passare a https://myapps.microsoft.com oppure usare il collegamento fornito dall'organizzazione se indirizzare l'utente a una pagina personalizzata, ad esempio https://myapps.microsoft.com/contoso.com .
+
+   Verrà visualizzata la pagina **App**, che mostra tutte le app basate sul cloud di proprietà dell'organizzazione e disponibili per l'uso.
+
+1. Dalla pagina **App** selezionare l'app che si vuole iniziare a usare.
+
+   Verrà aperta una nuova pagina per l'app, in cui è possibile accedere (se necessario) o iniziare a usare l'app.
 
 ## <a name="add-a-new-app-to-the-my-apps-portal"></a>Aggiungere una nuova app al portale App personali
 
 Se l'amministratore ha concesso l'autorizzazione, è possibile aggiungere una nuova app alla pagina **App**.
 
-1. Nella pagina **App** eseguire una delle operazioni seguenti:
-    - Se si usa l'esperienza App personali originale, selezionare **Aggiungi app** come illustrato.
+1. Dalla pagina **app** selezionare **Aggiungi app self-service**.
 
-      ![Pagina Aggiungi app nel portale App personali](media/my-apps-portal/my-apps-portal-add-apps-page.png)
+   ![Pagina Aggiungi app nel portale App personali all'indirizzo myapplications.microsoft.com](media/my-apps-portal/my-apps-portal-add-app-link.png)
 
-    - Se si usa l'esperienza App personali aggiornata, selezionare **Aggiungi app self-service**.
+1. Selezionare l'app che si vuole aggiungere dall'elenco fornito, quindi selezionare **Aggiungi**.
 
-       ![Pagina Aggiungi app nel portale App personali all'indirizzo myapplications.microsoft.com](media/my-apps-portal/my-apps-portal-add-app-link.png)
+1. L'app viene aggiunta all'elenco nella pagina **App**.
 
-2. Selezionare l'app che si vuole aggiungere dall'elenco fornito, quindi selezionare **Aggiungi**.
-
-3. L'app viene aggiunta all'elenco nella pagina **App**.
-
-    Prima di aggiungere alcune app potrebbe essere necessaria l'approvazione dell'amministratore. In tal caso, l'app non viene aggiunta alla pagina **App** fino a quando non viene approvata dall'amministratore.
+   Prima di aggiungere alcune app potrebbe essere necessaria l'approvazione dell'amministratore. In tal caso, l'app non viene aggiunta alla pagina **App** fino a quando non viene approvata dall'amministratore.
 
 ## <a name="start-a-cloud-based-app"></a>Avviare un'app basata sul cloud
 
@@ -173,18 +129,23 @@ Se l'amministratore ha concesso l'autorizzazione, è possibile aggiungere una nu
 
 - Dalla pagina **App** selezionare l'app che si vuole iniziare a usare.
 
-    Verrà aperta una nuova pagina per l'app, in cui è possibile accedere (se necessario) o iniziare a usare l'app.
+   Verrà aperta una nuova pagina per l'app, in cui è possibile accedere (se necessario) o iniziare a usare l'app.
 
 ## <a name="activities-in-the-my-apps-portal"></a>Attività nel portale App personali
 
 Dopo l'accesso al portale **App personali**, è possibile:
 
 - Organizzare le app nelle diverse categorie create e fornite dall'organizzazione. Per altre informazioni, vedere [Accedere e usare le raccolte nel portale App personali](my-applications-portal-workspaces.md).
-
 - Esaminare, aggiornare o revocare le autorizzazioni concesse alle applicazioni. Per altre informazioni, vedere [Modificare o revocare le autorizzazione per le applicazioni nel portale App personali](my-applications-portal-permissions-saved-accounts.md).
+- Creare, aggiornare e rimuovere gli account App. Per altre informazioni, vedere [modificare o revocare le autorizzazioni dell'applicazione](my-applications-portal-permissions-saved-accounts.md).
+- Accedere al proprio [**account**](my-account-portal-overview.md) dal portale **app personali** per la gestione degli account:
+  
+  - Verifica dell'attività di accesso insolita
+  - Gestione della password
+  - Gestione di dispositivi, sottoscrizioni, organizzazioni e app di Office connesse
 
->[!Note]
->Se non sono disponibili raccolte o categorie, significa che l'amministratore non le ha configurate né condivise. Rivolgersi all'help desk dell'organizzazione per ottenere ulteriore assistenza o le autorizzazioni per visualizzare le raccolte condivise.
+>[!NOTE]
+>Se non sono disponibili raccolte o categorie, significa che l'amministratore non le ha configurate né condivise. Contattare l'help desk dell'organizzazione per ottenere assistenza o autorizzazioni aggiuntive per visualizzare le raccolte condivise.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

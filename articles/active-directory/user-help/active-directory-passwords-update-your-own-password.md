@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: end-user-help
-ms.date: 05/28/2020
+ms.date: 09/10/2020
 ms.author: curtand
-ms.openlocfilehash: b83cdf0b069eac2e46cfdd54edc11a1aa5a41075
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c2bf4d5facc96a0876d4321a61ed6f414dfd78da
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799044"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029546"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>Reimpostare la password aziendale o dell'istituto di istruzione tramite l'informazione di sicurezza
 
@@ -107,7 +107,7 @@ Dopo aver reimpostato la password, è possibile che venga visualizzato un messag
 
 ## <a name="how-to-change-your-password"></a>Come cambiare la password
 
-Se si vuole semplicemente modificare la password, è possibile eseguire questa operazione tramite il portale di Office 365, il pannello di accesso di Azure o la pagina di accesso di Windows 10.
+Se si vuole solo modificare la password, è possibile farlo tramite il portale di Office 365, il portale delle app personali o la pagina di accesso di Windows 10.
 
 ### <a name="to-change-your-password-using-the-office-365-portal"></a>Per cambiare la password usando il portale di Microsoft Office 365
 
@@ -121,11 +121,11 @@ Usare questo metodo se in genere si accede alle app tramite il portale di Office
 
 4. Digitare la password precedente, creare e confermare la nuova password, quindi selezionare **Invia**.
 
-### <a name="to-change-your-password-from-the-azure-access-panel"></a>Per cambiare la password dal pannello di accesso di Azure
+### <a name="to-change-your-password-from-the-my-apps-portal"></a>Per modificare la password dal portale app personali
 
-Usare questo metodo se in genere si accede alle app dal pannello di accesso di Azure (MyApps):
+Usare questo metodo se in genere si accede alle app dal portale app personali:
 
-1. Accedere al [pannello di accesso di Azure](https://myapps.microsoft.com/) usando la password esistente.
+1. Accedere al [portale app personali](https://myapps.microsoft.com/), usando la password esistente.
 
 2. Selezionare il profilo in alto a destra e quindi selezionare **Profilo**.
 

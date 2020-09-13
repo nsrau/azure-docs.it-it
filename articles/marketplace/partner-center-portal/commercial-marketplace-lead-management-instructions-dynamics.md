@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: keferna
 ms.author: keferna
 ms.date: 03/30/2020
-ms.openlocfilehash: 92f4bde31af2a7bb4c658141964f238a8c077eef
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 31dba5489db3778d738fc2856cf6aacfd6987711
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86120377"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030753"
 ---
 # <a name="configure-lead-management-for-dynamics-365-customer-engagement"></a>Configurare la gestione dei lead per Dynamics 365 Customer Engagement
 
@@ -27,7 +27,7 @@ Per completare le procedure descritte in questo articolo, sono necessarie le aut
 
 * Diritti di amministratore per l'istanza di Dynamics 365 Customer Engagement per poter installare una soluzione.
 * Diritti di amministratore del tenant per creare un nuovo account per il servizio di lead usato per inviare i lead dalle offerte del marketplace commerciale.
-* Accesso al portale di amministrazione di Office 365.
+* Accesso al portale di amministrazione.
 * Accesso al portale di Azure.
 
 ## <a name="install-the-solution"></a>Installare la soluzione

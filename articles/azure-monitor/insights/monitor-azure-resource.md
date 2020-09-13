@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: de381b4200e2ec3381f452ac0ec32e61a055a6ec
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 70ab387018fc54b4dad9ee911d4c7557e1e7805c
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326172"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030345"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Monitoraggio delle risorse di Azure con Monitoraggio di Azure
 Quando si usano applicazioni e processi aziendali critici basati sulle risorse di Azure, è consigliabile monitorare tali risorse per verificarne disponibilità, prestazioni e funzionamento. Questo articolo descrive i dati di monitoraggio generati dalle risorse di Azure e come è possibile usare le funzionalità di Monitoraggio di Azure per analizzare e creare avvisi su tali dati.
@@ -20,10 +20,7 @@ Quando si usano applicazioni e processi aziendali critici basati sulle risorse d
 > Questo articolo si applica a tutti i servizi di Azure che usano Monitoraggio di Azure. Le risorse di calcolo, tra cui le macchine virtuali e il servizio app, generano gli stessi dati di monitoraggio descritti in questo articolo, ma dispongono inoltre di un sistema operativo guest che può generare anche log e metriche. Per informazioni dettagliate su come raccogliere e analizzare questi dati, vedere la documentazione di monitoraggio relativa a questi servizi.
 
 ## <a name="what-is-azure-monitor"></a>Informazioni su Monitoraggio di Azure
-Monitoraggio di Azure è un servizio di monitoraggio completo dello stack di Azure che offre un set completo di funzionalità per monitorare le risorse e di Azure e le risorse che si trovano in altri cloud e in locale. La [piattaforma dati di Monitoraggio di Azure](../platform/data-platform.md) raccoglie i dati in [log](../platform/data-platform-logs.md) e [metriche](../platform/data-platform-metrics.md), dove possono essere analizzati insieme grazie a un set completo di strumenti di monitoraggio, come descritto nelle sezioni seguenti.
-
-- [Che cosa è possibile fare con le metriche di Monitoraggio di Azure?](../platform/data-platform-metrics.md#what-can-you-do-with-azure-monitor-metrics)
-- [Che cosa è possibile fare con i log di Monitoraggio di Azure?](../platform/data-platform-logs.md#what-can-you-do-with-azure-monitor-logs)
+Monitoraggio di Azure è un servizio di monitoraggio completo dello stack di Azure che offre un set completo di funzionalità per monitorare le risorse e di Azure e le risorse che si trovano in altri cloud e in locale. La [piattaforma dati di monitoraggio di Azure](../platform/data-platform.md) raccoglie dati in [log](../platform/data-platform-logs.md) e [metriche](../platform/data-platform-metrics.md) in cui possono essere analizzati insieme usando un set completo di strumenti di monitoraggio. Vedere l'elenco completo delle applicazioni e dei servizi che possono essere monitorati da monitoraggio di Azure in [che cosa viene monitorato da monitoraggio di Azure](../monitor-reference.md).
 
 Non appena si crea una risorsa di Azure, Monitoraggio di Azure viene abilitato e inizia a raccogliere metriche e log attività, che è possibile [visualizzare e analizzare nel portale di Azure](#monitoring-in-the-azure-portal). Con alcune operazioni di configurazione, è possibile raccogliere dati di monitoraggio aggiuntivi e abilitare funzionalità aggiuntive. Per informazioni dettagliate sui requisiti di configurazione, vedere la sezione [Dati di monitoraggio](#monitoring-data) più avanti.
 
@@ -100,7 +97,7 @@ Alcuni servizi forniranno strumenti aggiuntivi oltre alle funzionalità standard
 
 Se un servizio dispone di informazioni dettagliate di Monitoraggio di Azure, è possibile accedervi dalla voce **Monitoraggio** del menu di ogni risorsa. È possibile accedere a tutte le soluzioni e le informazioni dettagliate dal menu **Monitoraggio di Azure**.
 
-![Informazioni dettagliate](media/monitor-azure-resource/insights.png)
+![Informazioni dettagliate nella portale di Azure](media/monitor-azure-resource/insights.png)
 
 ### <a name="metrics"></a>Metriche
 È possibile analizzare le metriche disponibili nel portale di Azure usando [Esplora metriche](../platform/metrics-getting-started.md) accessibile dalla voce di menu **Metriche** della maggior parte dei servizi. Questo strumento consente di usare singole metriche o combinare più metriche per identificare correlazioni e tendenze. 
@@ -108,7 +105,7 @@ Se un servizio dispone di informazioni dettagliate di Monitoraggio di Azure, è 
 - Per informazioni di base sull'uso di Esplora metriche di Azure, vedere [Introduzione a Esplora metriche di Azure](../platform/metrics-getting-started.md).
 - Vedere [Funzionalità avanzate di Esplora metriche di Azure](../platform/metrics-charts.md) per informazioni sulle funzionalità avanzate di Esplora metriche, tra cui l'uso di più metriche e l'applicazione di filtri e suddivisioni.
 
-![Metriche](media/monitor-azure-resource/metrics.png)
+![Esplora metriche nel portale di Azure](media/monitor-azure-resource/metrics.png)
 
 
 ### <a name="activity-log"></a>Log attività 
@@ -129,7 +126,7 @@ I log di Monitoraggio di Azure consolidano i log e le metriche generati da più 
 - Per conoscere il modo in cui i dati dei log risorse sono strutturati nei log di Monitoraggio di Azure, vedere [Modalità di raccolta](../platform/resource-logs.md#send-to-log-analytics-workspace).
 - Vedere la documentazione di ogni servizio di Azure per informazioni dettagliate sulla relativa tabella nei log di Monitoraggio di Azure.
 
-![Log](media/monitor-azure-resource/logs.png)
+![Log Analytics nel portale di Azure](media/monitor-azure-resource/logs.png)
 
 ## <a name="monitoring-from-command-line"></a>Monitoraggio dalla riga di comando
 È possibile accedere ai dati di monitoraggio raccolti dalla risorsa in uso da una riga di comando o includerli in uno script usando [Azure PowerShell](/powershell/azure/) o l'[interfaccia della riga di comando di Azure](/cli/azure/). 

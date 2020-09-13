@@ -7,13 +7,13 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 09/06/2019
-ms.openlocfilehash: 02ec26c80a8a64f88a30ded2067a377c292d621d
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.date: 09/11/2020
+ms.openlocfilehash: 1d996e62fe60606c3eb93a638d229028ee0471e6
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87475601"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030600"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapping della modalità di debug del flusso di dati
 
@@ -41,13 +41,15 @@ Al termine del debug, disattivare l'opzione debug in modo che il cluster di Azur
 
 ## <a name="debug-settings"></a>Impostazioni di debug
 
-È possibile modificare le impostazioni di debug facendo clic su "impostazioni di debug" sulla barra degli strumenti dell'area di disegno flusso di dati. È possibile selezionare il limite di righe o l'origine file da usare per ognuna delle trasformazioni di origine. I limiti delle righe in questa impostazione sono solo per la sessione di debug corrente. È anche possibile selezionare il servizio collegato di gestione temporanea da usare per un'origine SQL DW. 
+Una volta attivata la modalità di debug, è possibile modificare il modo in cui un flusso di dati Visualizza in anteprima i dati. È possibile modificare le impostazioni di debug facendo clic su "impostazioni di debug" sulla barra degli strumenti dell'area di disegno flusso di dati. È possibile selezionare il limite di righe o l'origine file da usare per ognuna delle trasformazioni di origine. I limiti delle righe in questa impostazione sono solo per la sessione di debug corrente. È anche possibile selezionare il servizio collegato di gestione temporanea da usare per un'origine di analisi sinapsi di Azure. 
 
 ![Impostazioni di debug](media/data-flow/debug-settings.png "Impostazioni di debug")
 
 Se sono presenti parametri nel flusso di dati o in uno dei set di dati a cui viene fatto riferimento, è possibile specificare i valori da usare durante il debug selezionando la scheda **parametri** .
 
 ![Parametri delle impostazioni di debug](media/data-flow/debug-settings2.png "Parametri delle impostazioni di debug")
+
+Il runtime di integrazione predefinito usato per la modalità di debug nei flussi di dati di ADF è un piccolo nodo a 4 core di un singolo ruolo di lavoro con un singolo nodo di driver a 4 core. Questa operazione può essere eseguita correttamente con esempi di dati più piccoli durante il test della logica del flusso di dati. Se si espandono i limiti delle righe nelle impostazioni di debug durante l'anteprima dei dati oppure si imposta un numero maggiore di righe campionate nell'origine durante il debug della pipeline, è consigliabile impostare un ambiente di calcolo più ampio in una nuova Azure Integration Runtime. Sarà quindi possibile riavviare la sessione di debug usando l'ambiente di calcolo più grande.
 
 ## <a name="data-preview"></a>Anteprima dati
 
@@ -59,6 +61,8 @@ Quando il debug è attivato, la scheda Anteprima dati sarà attivata nel pannell
 > Le origini file limitano solo le righe visualizzate, non le righe lette. Per i set di impostazioni di grandi dimensioni, è consigliabile eseguire una piccola parte del file e usarlo per i test. È possibile selezionare un file temporaneo nelle impostazioni di debug per ogni origine che corrisponde a un tipo di set di dati di file.
 
 Quando è attiva la modalità di debug nel flusso di dati, i dati non vengono scritti nella trasformazione sink. Una sessione di debug è destinata a fungere da test harness per le trasformazioni. I sink non sono necessari durante il debug e vengono ignorati nel flusso di dati. Se si desidera testare la scrittura dei dati nel sink, eseguire il flusso di dati da una pipeline Azure Data Factory e utilizzare l'esecuzione del debug da una pipeline.
+
+Data Preview è uno snapshot dei dati trasformati usando i limiti di riga e il campionamento dei dati dei frame di dati nella memoria di Spark. I driver di sink non vengono pertanto utilizzati o testati in questo scenario.
 
 ### <a name="testing-join-conditions"></a>Test delle condizioni di join
 

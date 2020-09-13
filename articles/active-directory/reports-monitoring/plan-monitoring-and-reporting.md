@@ -1,6 +1,6 @@
 ---
 title: Pianificare i report & il monitoraggio della distribuzione-Azure AD
-description: Viene descritto come pianificare ed eseguire implmentation di Reporting e monitoraggio.
+description: Viene descritto come pianificare ed eseguire l'implementazione della creazione di report e del monitoraggio.
 services: active-directory
 author: BarbaraSelden
 manager: daveba
@@ -12,12 +12,12 @@ ms.date: 11/13/2018
 ms.author: baselden
 ms.reviewer: plenzke
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 20b83291dc37c6248761214654f99d3ce214b551
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a75cc77b45d41d7fd63eadce34265ca54b663e14
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229753"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030991"
 ---
 # <a name="plan-an-azure-active-directory-reporting-and-monitoring-deployment"></a>Pianificare un Azure Active Directory la distribuzione di report e monitoraggio
 
@@ -133,7 +133,7 @@ Vedere come [installare e usare le viste di analisi dei log per i log attività 
 
 Il routing dei log a un hub eventi di Azure consente l'integrazione con gli strumenti SIEM di terze parti. Questa integrazione consente di combinare i dati di log attività di Azure AD con altri dati gestiti dallo strumento per informazioni di sicurezza e gestione degli eventi, per fornire informazioni dettagliate più estese per il proprio ambiente. 
 
-Informazioni su come [trasmettere i log a un hub eventi](//azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
+Informazioni su come [trasmettere i log a un hub eventi](/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub).
 
 ## <a name="plan-operations-and-security-for-azure-ad-reporting-and-monitoring"></a>Pianificare operazioni e sicurezza per la creazione di report e il monitoraggio di Azure AD
 

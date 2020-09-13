@@ -11,12 +11,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 8be13a299de0fc3de0acaf0001722d8c96a460e6
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: bd6f88db2b55a5f0f445659e4b5ef609d3e146e9
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88205929"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030311"
 ---
 # <a name="redirect-uri-reply-url-restrictions-and-limitations"></a>Limitazioni e limitazioni dell'URI di reindirizzamento (URL di risposta)
 
@@ -65,6 +65,8 @@ Dal punto di vista dello sviluppo, questo significa che:
 * Non registrare più URI di reindirizzamento in cui è diversa solo la porta. Il server di accesso ne sceglierà uno arbitrario e utilizzerà il comportamento associato a tale URI di reindirizzamento (ad esempio, se è `web` -, `native` -o `spa` -Type Reindirizzamento).
 * Se è necessario registrare più URI di reindirizzamento in localhost per testare flussi diversi durante lo sviluppo, distinguerli usando il componente *path* dell'URI. Ad esempio, `http://127.0.0.1/MyWebApp` non corrisponde a `http://127.0.0.1/MyNativeApp` .
 * Per istruzioni RFC, non usare `localhost` nell'URI di reindirizzamento. Utilizzare invece l'indirizzo IP di loopback effettivo, `127.0.0.1` . In questo modo si impedisce che l'app venga interruppe da firewall o interfacce di rete rinominate in modo errato.
+
+    Per utilizzare lo `http` schema con l'indirizzo di loopback (127.0.0.1) anziché localhost, è necessario modificare il [manifesto dell'applicazione](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest#replyurls-attribute). 
 
     L'indirizzo di loopback IPv6 ( `[::1]` ) non è attualmente supportato.
 

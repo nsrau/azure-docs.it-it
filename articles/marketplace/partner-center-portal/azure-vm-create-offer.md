@@ -7,12 +7,12 @@ ms.topic: how-to
 author: emuench
 ms.author: mingshen
 ms.date: 08/07/2020
-ms.openlocfilehash: 33b3dcdc4fbcf08114f6ba6d63bb949250380d63
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: b9bacb352b3559c33a4a2ef92dc0c3af6ebbc7d6
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88816525"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029703"
 ---
 # <a name="create-an-azure-virtual-machine-offer-on-azure-marketplace"></a>Creare un'offerta di macchina virtuale di Azure in Azure Marketplace
 
@@ -27,7 +27,7 @@ Prima di iniziare, [creare un account per il marketplace commerciale nel Centro 
 La pubblicazione delle offerte in Azure Marketplace consente di:
 
 - Promuovere la propria azienda usando il marchio Microsoft.
-- Raggiungere più di 100 milioni di utenti di Office 365 e Dynamics 365 e più di 200.000 organizzazioni.
+- Raggiungi oltre 100 milioni Microsoft 365 e gli utenti di Dynamics 365 e più di 200.000 organizzazioni.
 - Acquisire clienti potenziali di alta qualità da questi marketplace.
 - Far promuovere i propri servizi dai team di vendita sul campo e di telemarketing di Microsoft.
 
@@ -162,7 +162,7 @@ Vedere l'elenco completo di categorie e sottocategorie nell'elenco delle [proced
 
        a. Immettere le condizioni di modifica nella casella **Condizioni di modifica personalizzate**. È possibile immettere un numero illimitato di caratteri. Solo i clienti degli ID tenant selezionati visualizzeranno queste condizioni personalizzate nel flusso di acquisto dell'offerta nel portale di Azure.
 
-       b. (Obbligatorio) Specificare gli **ID tenant**. Ogni modifica personalizzata può essere destinata a un massimo di 20 ID tenant. Se si aggiunge una modifica personalizzata, è necessario specificare almeno un ID tenant che identifichi il cliente su Azure. Il cliente può trovarlo in autonomia su Azure selezionando **Azure Active Directory** > **Proprietà**. Il valore dell'ID directory corrisponde all'ID tenant (ad esempio 50c464d3-4930-494c-963c-1e951d15360e). È possibile trovare l'ID tenant dell'organizzazione del cliente anche immettendo il relativo indirizzo Web del nome di dominio in [Qual è l'ID tenant di Microsoft Azure e Office 365?](https://www.whatismytenantid.com/).
+       b. (Obbligatorio) Specificare gli **ID tenant**. Ogni modifica personalizzata può essere destinata a un massimo di 20 ID tenant. Se si aggiunge una modifica personalizzata, è necessario specificare almeno un ID tenant che identifichi il cliente su Azure. Il cliente può trovarlo in autonomia su Azure selezionando **Azure Active Directory** > **Proprietà**. Il valore dell'ID directory corrisponde all'ID tenant (ad esempio 50c464d3-4930-494c-963c-1e951d15360e). È anche possibile trovare l'ID tenant dell'organizzazione del cliente usando l'indirizzo Web del nome di dominio in cui [si trova il Microsoft Azure e Microsoft 365 ID tenant?](https://www.whatismytenantid.com/).
 
        c. (Facoltativo) Immettere una **descrizione** dell'ID tenant che agevoli l'identificazione del cliente a cui è rivolta la modifica.
 
