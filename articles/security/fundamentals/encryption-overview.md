@@ -9,12 +9,12 @@ ms.subservice: security-fundamentals
 ms.topic: article
 ms.date: 07/20/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 5189270a7b9de9ff5a222ad76ce46254ae5d2ee3
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: d839ea042dec2224885f9ba4a0cb6adef5108568
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542960"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89458621"
 ---
 # <a name="azure-encryption-overview"></a>Panoramica della crittografia di Azure
 
@@ -83,7 +83,7 @@ Il [database SQL di Azure](../../azure-sql/database/sql-database-paas-overview.m
 
 #### <a name="transparent-data-encryption"></a>Transparent Data Encryption
 
-La tecnologia [Transparent Data Encryption (TDE)](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) viene usata per crittografare i file di dati di [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), del [database SQL di Azure](../../azure-sql/database/sql-database-paas-overview.md) e di [Azure SQL Data Warehouse](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) in tempo reale, usando una chiave di crittografia del database (DEK) archiviata nel record di avvio del database per assicurare la disponibilità durante il ripristino.
+Transparent Data [Encryption viene usato](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption-tde) per crittografare in tempo reale [SQL Server](https://www.microsoft.com/sql-server/sql-server-2016), il [database SQL di Azure](../../azure-sql/database/sql-database-paas-overview.md)e i file di dati di analisi delle sinapsi di [Azure](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-overview-what-is.md) , usando una chiave di crittografia del database, archiviata nel record di avvio del database per la disponibilità durante il ripristino.
 
 La tecnologia TDE protegge i file di dati e di log usando gli algoritmi di crittografia AES e 3DES (Triple Data Encryption Standard). La crittografia del file di database viene eseguita a livello di pagina. Le pagine in un database crittografato vengono crittografate prima di essere scritte sul disco e decrittografate quando vengono lette in memoria. La tecnologia Transparent Data Encryption è ora abilitata per impostazione predefinita nei nuovi database SQL di Azure.
 
