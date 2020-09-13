@@ -3,12 +3,12 @@ title: Determinare le cause di non conformità
 description: Quando una risorsa non è conforme, i motivi possibili sono molti. Informazioni sulle possibili cause di non conformità.
 ms.date: 07/06/2020
 ms.topic: how-to
-ms.openlocfilehash: ee027ff0f2936dc3eb7153869c52d4e70c83918b
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a666da4ecb97c24e7176e6c7cfbe2ee24f46f1b7
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86512028"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648565"
 ---
 # <a name="determine-causes-of-non-compliance"></a>Determinare le cause di non conformità
 
@@ -30,17 +30,17 @@ Quando una risorsa non è conforme, è possibile trovare i dettagli di conformit
 
 Per visualizzare i dettagli di conformità, attenersi alla procedura seguente:
 
-1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri**.
+1. Avviare il servizio criteri di Azure nel portale di Azure selezionando **tutti i servizi**, quindi cercando e selezionando **criteri**.
 
 1. Nella pagina **Panoramica** o **Conformità** selezionare un criterio il cui **stato di conformità** sia _Non conforme_.
 
 1. Nella scheda **Conformità risorsa** della pagina **Conformità dei criteri** fare clic con il pulsante destro del mouse o selezionare i puntini di sospensione di una risorsa il cui **stato di conformità** sia _Non conforme_. Quindi selezionare **Visualizzare i dettagli sulla conformità**.
 
-   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Opzione Visualizzare i dettagli sulla conformità" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Screenshot del collegamento "Visualizza dettagli conformità" nella scheda conformità risorse." border="false":::
 
 1. Il riquadro **Dettagli conformità** visualizza le informazioni della valutazione più recente della risorsa rispetto all'assegnazione dei criteri corrente. In questo esempio il valore del campo **Microsoft.Sql/servers/version** è _12.0_ mentre la definizione del criterio prevedeva _14.0_. Se la risorsa non è conforme per più motivi, in questo riquadro vengono elencati tutti i motivi.
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Riquadro Dettagli conformità e motivi di non conformità" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane.png" alt-text="Screenshot del riquadro dettagli conformità e motivi per la mancata conformità il valore corrente è dodici e il valore di destinazione è quattordici." border="false":::
 
    Per una definizione dei criteri **auditIfNotExists** o **deployIfNotExists**, i dettagli includono la proprietà **details.type** e tutte le proprietà facoltative. Per un elenco, vedere [Proprietà di AuditIfNotExists](../concepts/effects.md#auditifnotexists-properties) e [Proprietà di DeployIfNotExists](../concepts/effects.md#deployifnotexists-properties). **Ultima risorsa valutata** collega a una risorsa correlata della sezione dei **dettagli** della definizione.
 
@@ -69,7 +69,7 @@ Per visualizzare i dettagli di conformità, attenersi alla procedura seguente:
    }
    ```
 
-   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Riquadro Dettagli conformità - *ifNotExists" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/compliance-details-pane-existence.png" alt-text="Screenshot del riquadro dei dettagli di conformità per ifNotExists, incluso il conteggio delle risorse valutato." border="false":::
 
 > [!NOTE]
 > Per proteggere i dati, quando il valore di una proprietà è _segreto_, il valore corrente visualizza gli asterischi.
@@ -114,13 +114,13 @@ Potrebbe non essere possibile accedere direttamente alla macchina virtuale. È t
 
 Per iniziare, seguire la stessa procedura descritta nella sezione precedente per visualizzare i dettagli di conformità dei criteri.
 
-Nel riquadro Dettagli conformità fare clic sul collegamento **Ultima risorsa valutata**.
+Nella visualizzazione riquadro dettagli conformità selezionare il collegamento **ultima risorsa valutata**.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Visualizzare i dettagli della definizione di auditIfNotExists" border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-auditifnotexists-compliance.png" alt-text="Screenshot della visualizzazione dei dettagli di conformità della definizione auditIfNotExists." border="false":::
 
 Nella pagina **Assegnazione guest** vengono visualizzati tutti i dettagli di conformità disponibili. Ogni riga della vista rappresenta una valutazione eseguita all'interno del computer. Nella colonna **Motivo** viene visualizzata una frase che descrive il motivo per cui l'assegnazione guest è _Non conforme_. Se ad esempio si controllano i criteri password, nella colonna **Motivo** verrà visualizzato il testo che include il valore corrente per ogni impostazione.
 
-:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Visualizzare i dettagli di conformità" border="false":::
+:::image type="content" source="../media/determine-non-compliance/guestconfig-compliance-details.png" alt-text="Screenshot dei dettagli di conformità dell'assegnazione Guest." border="false":::
 
 ### <a name="azure-powershell"></a>Azure PowerShell
 
@@ -191,7 +191,7 @@ Audit that an application is installed inside Windows VMs                 NonCom
 
 La nuova **anteprima pubblica** include gli ultimi 14 giorni di cronologia delle modifiche per tutte le risorse di Azure che supportano l'[eliminazione in modalità completa](../../../azure-resource-manager/templates/complete-mode-deletion.md). La cronologia modifiche fornisce informazioni dettagliate su quando è stata rilevata una modifica e offre un _diff visivo_ per ogni modifica. Il rilevamento delle modifiche viene attivato quando vengono aggiunte, rimosse o modificate le proprietà del Azure Resource Manager.
 
-1. Avviare il servizio Criteri di Azure nel portale di Azure facendo clic su **Tutti i servizi** e quindi cercando e selezionando **Criteri**.
+1. Avviare il servizio criteri di Azure nel portale di Azure selezionando **tutti i servizi**, quindi cercando e selezionando **criteri**.
 
 1. Nella pagina **Panoramica** o **Conformità** selezionare un criterio con uno **stato di conformità** qualsiasi.
 
@@ -199,11 +199,11 @@ La nuova **anteprima pubblica** include gli ultimi 14 giorni di cronologia delle
 
 1. Selezionare la scheda **Cronologia modifiche (anteprima)** nella pagina **Conformità risorsa**. Verrà visualizzato un elenco delle eventuali modifiche rilevate.
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Scheda Cronologia modifiche di Criteri di Azure nella pagina Conformità risorsa" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-tab.png" alt-text="Screenshot della scheda cronologia modifiche e rilevati orari di modifica nella pagina conformità risorse." border="false":::
 
 1. Selezionare una delle modifiche rilevate. Verrà visualizzato il _diff visivo_ per la risorsa nella pagina **Cronologia modifiche**.
 
-   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Diff visivo in Cronologia modifiche di Criteri di Azure nella pagina Cronologia modifiche" border="false":::
+   :::image type="content" source="../media/determine-non-compliance/change-history-visual-diff.png" alt-text="Screenshot delle differenze visive della cronologia delle modifiche dello stato before e After delle proprietà nella pagina della cronologia delle modifiche." border="false":::
 
 Il _diff visivo_ facilita l'identificazione delle modifiche di una risorsa. Le modifiche rilevate potrebbero non essere correlate allo stato di conformità corrente della risorsa.
 
