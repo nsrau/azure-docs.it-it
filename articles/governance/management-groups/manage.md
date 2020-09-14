@@ -82,7 +82,7 @@ Per eliminare un gruppo di gestione è necessario che siano soddisfatti i requis
 
 1. Selezionare **Elimina**
 
-   :::image type="content" source="./media/delete.png" alt-text="Screenshot della pagina del gruppo di gestione con il pulsante "Elimina" evidenziato." border="false":::
+   :::image type="content" source="./media/delete.png" alt-text="Screenshot della pagina del gruppo di gestione con il pulsante Elimina evidenziato." border="false":::
 
    > [!TIP]
    > Se l'icona è disabilitata, posizionando il cursore del mouse sull'icona viene visualizzato il motivo.
@@ -229,7 +229,7 @@ Per controllare le proprie autorizzazioni nel portale di Azure, selezionare il g
 
 1. Selezionare nell'elenco la sottoscrizione con l'ID corretto.
 
-   :::image type="content" source="./media/add_context_sub.png" alt-text="Screenshot delle opzioni "Aggiungi sottoscrizione" per la selezione di una sottoscrizione esistente da aggiungere a un gruppo di gestione." border="false":::
+   :::image type="content" source="./media/add_context_sub.png" alt-text="Screenshot delle opzioni Aggiungi sottoscrizione per la selezione di una sottoscrizione esistente da aggiungere a un gruppo di gestione." border="false":::
 
 1. Selezionare "Salva".
 
@@ -243,13 +243,13 @@ Per controllare le proprie autorizzazioni nel portale di Azure, selezionare il g
 
 1. Selezionare i puntini di sospensione in fondo alla riga della sottoscrizione che si vuole spostare.
 
-   :::image type="content" source="./media/move_small.png" alt-text="Screenshot del menu alternativo per una sottoscrizione per selezionare l'opzione "Sposta"." border="false":::
+   :::image type="content" source="./media/move_small.png" alt-text="Screenshot del menu alternativo per una sottoscrizione per selezionare l'opzione Sposta." border="false":::
 
 1. Selezionare **Sposta**.
 
 1. Nel menu visualizzato selezionare il **Gruppo di gestione padre**.
 
-   :::image type="content" source="./media/move_small_context.png" alt-text="Screenshot della finestra "Sposta" e opzioni per lo spostamento di una sottoscrizione in un gruppo di gestione diverso." border="false":::
+   :::image type="content" source="./media/move_small_context.png" alt-text="Screenshot della finestra Sposta e opzioni per lo spostamento di una sottoscrizione in un gruppo di gestione diverso." border="false":::
 
 1. Selezionare **Salva**.
 
@@ -298,7 +298,7 @@ az account management-group subscription remove --name 'Contoso' --subscription 
    - Selezionando la prima opzione verrà creato un nuovo gruppo di gestione.
    - Selezionando la seconda, verrà visualizzato un elenco a discesa di tutti i gruppi di gestione a cui è possibile spostare questo gruppo di gestione.  
 
-   :::image type="content" source="./media/add_context_MG.png" alt-text="Screenshot delle opzioni "Aggiungi gruppo di gestione" per la creazione di un nuovo gruppo di gestione." border="false":::
+   :::image type="content" source="./media/add_context_MG.png" alt-text="Screenshot delle opzioni Aggiungi gruppo di gestione per la creazione di un nuovo gruppo di gestione." border="false":::
 
 1. Selezionare **Salva**.
 
