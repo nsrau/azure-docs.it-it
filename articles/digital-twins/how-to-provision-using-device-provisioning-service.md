@@ -40,7 +40,7 @@ Il simulatore del dispositivo si basa su **Node.js**, versione 10.0. x o success
 
 L'immagine seguente illustra l'architettura di questa soluzione usando i dispositivi gemelli digitali di Azure con il servizio Device provisioning. Mostra sia il provisioning del dispositivo che il flusso di ritiro.
 
-:::image type="content" source="media/how-to-provision-using-dps/flows.png" alt-text="Visualizzazione di un dispositivo e di diversi servizi di Azure in uno scenario end-to-end. I dati passano da un dispositivo termostato a un DP e viceversa. I dati passano anche da DPS nell'hub Internet e ai gemelli digitali di Azure tramite una funzione di Azure con etichetta "Allocation". I dati provenienti da un'azione ' Elimina dispositivo ' manuale passano attraverso l'hub degli eventi > Hub eventi > funzioni di Azure > i dispositivi gemelli digitali di Azure.":::
+:::image type="content" source="media/how-to-provision-using-dps/flows.png" alt-text="Visualizzazione di un dispositivo e di diversi servizi di Azure in uno scenario end-to-end. I dati passano da un dispositivo termostato a un DP e viceversa. I dati passano anche da DPS nell'hub Internet e ai gemelli digitali di Azure tramite una funzione di Azure con etichetta Allocation. I dati provenienti da un'azione ' Elimina dispositivo ' manuale passano attraverso l'hub degli eventi > Hub eventi > funzioni di Azure > i dispositivi gemelli digitali di Azure.":::
 
 Questo articolo è diviso in due sezioni:
 * [*Eseguire il provisioning automatico del dispositivo con il servizio Device provisioning*](#auto-provision-device-using-device-provisioning-service)
@@ -52,7 +52,7 @@ Per una spiegazione più approfondita di ogni passaggio dell'architettura, veder
 
 In questa sezione si collegherà il servizio Device provisioning a dispositivi digitali gemelli di Azure per eseguire il provisioning automatico dei dispositivi tramite il percorso riportato di seguito. Si tratta di un estratto dall'architettura completa illustrata in [precedenza](#solution-architecture).
 
-:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Provisioning del flusso: un estratto del diagramma dell'architettura della soluzione, con numeri che descrivono le sezioni del flusso. I dati passano tra un dispositivo termostato e un DPS (1 per il dispositivo > DPS e 5 per il dispositivo DPS >). I dati passano anche da DPS nell'hub Internet (4) e nei dispositivi gemelli digitali di Azure (3) tramite una funzione di Azure con etichetta "Allocation" (2).":::
+:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Provisioning del flusso: un estratto del diagramma dell'architettura della soluzione, con numeri che descrivono le sezioni del flusso. I dati passano tra un dispositivo termostato e un DPS (1 per il dispositivo > DPS e 5 per il dispositivo DPS >). I dati passano anche da DPS nell'hub Internet (4) e nei dispositivi gemelli digitali di Azure (3) tramite una funzione di Azure con etichetta Allocation (2).":::
 
 Ecco una descrizione del flusso del processo:
 1. Il dispositivo Contatta l'endpoint DPS, passando le informazioni di identificazione per dimostrare la propria identità.
