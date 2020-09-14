@@ -36,7 +36,7 @@ Per visualizzare i dettagli di conformità, attenersi alla procedura seguente:
 
 1. Nella scheda **Conformità risorsa** della pagina **Conformità dei criteri** fare clic con il pulsante destro del mouse o selezionare i puntini di sospensione di una risorsa il cui **stato di conformità** sia _Non conforme_. Quindi selezionare **Visualizzare i dettagli sulla conformità**.
 
-   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Screenshot del collegamento "Visualizza dettagli conformità" nella scheda conformità risorse." border="false":::
+   :::image type="content" source="../media/determine-non-compliance/view-compliance-details.png" alt-text="Screenshot del collegamento Visualizza dettagli conformità nella scheda conformità risorse." border="false":::
 
 1. Il riquadro **Dettagli conformità** visualizza le informazioni della valutazione più recente della risorsa rispetto all'assegnazione dei criteri corrente. In questo esempio il valore del campo **Microsoft.Sql/servers/version** è _12.0_ mentre la definizione del criterio prevedeva _14.0_. Se la risorsa non è conforme per più motivi, in questo riquadro vengono elencati tutti i motivi.
 
