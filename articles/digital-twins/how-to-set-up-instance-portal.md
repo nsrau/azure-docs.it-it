@@ -52,7 +52,7 @@ Al termine, selezionare _Verifica + crea_. Verrà visualizzata una pagina di rie
 
 Dopo aver premuto *Crea*, è possibile visualizzare lo stato della distribuzione dell'istanza nelle notifiche di Azure lungo la barra delle icone del portale. La notifica indicherà quando la distribuzione ha avuto esito positivo e sarà possibile selezionare il pulsante _Vai alla risorsa_ per visualizzare l'istanza creata.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="Visualizzazione delle notifiche di Azure che mostrano una distribuzione riuscita ed evidenziano il pulsante "Vai alla risorsa"":::
+:::image type="content" source="media/how-to-set-up-instance/portal/notifications-deployment.png" alt-text="Visualizzazione delle notifiche di Azure che mostrano una distribuzione riuscita ed evidenziano il pulsante Vai alla risorsa":::
 
 In alternativa, se la distribuzione ha esito negativo, la notifica indicherà il motivo. Osservare il suggerimento del messaggio di errore e riprovare a creare l'istanza.
 
@@ -71,7 +71,7 @@ A questo punto si ha un'istanza di Azure Digital Twins pronta per l'uso. Success
 
 Prima di tutto, aprire la pagina per l'istanza di Azure Digital Twins nell'portale di Azure. Selezionare *controllo di accesso (IAM)* dal menu dell'istanza. Selezionare il pulsante  *Aggiungi* in *Aggiungi un'assegnazione di ruolo*.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selezione per aggiungere un'assegnazione di ruolo dalla pagina "controllo di accesso (IAM)"":::
+:::image type="content" source="media/how-to-set-up-instance/portal/add-role-assignment-1.png" alt-text="Selezione per aggiungere un'assegnazione di ruolo dalla pagina controllo di accesso (IAM)":::
 
 Nella pagina *Aggiungi assegnazione ruolo* , inserire i valori (che devono essere completati da un utente con [autorizzazioni sufficienti](#prerequisites-permission-requirements) nella sottoscrizione di Azure):
 * **Ruolo**: selezionare il *proprietario di Azure Digital gemelli (anteprima)* dal menu a discesa
@@ -125,14 +125,14 @@ Dalla pagina del portale per la registrazione dell'app, selezionare *autorizzazi
 
 Nella pagina *autorizzazioni API richiesta* seguente passare alle API usate dall' *organizzazione* e cercare i dispositivi *gemelli digitali di Azure*. Selezionare *Azure Digital gemelli* dai risultati della ricerca per procedere con l'assegnazione delle autorizzazioni per le API dei dispositivi gemelli digitali di Azure.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="Visualizzazione dei risultati della ricerca nella pagina "autorizzazioni API richieste" con i dispositivi gemelli digitali di Azure":::
+:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-1.png" alt-text="Visualizzazione dei risultati della ricerca nella pagina autorizzazioni API richieste con i dispositivi gemelli digitali di Azure":::
 
 >[!NOTE]
 > Se si ha un'istanza di Azure Digital Twins esistente dalla precedente versione di anteprima pubblica del servizio (prima del 2020 luglio) ancora nella sottoscrizione, sarà necessario cercare il *servizio Azure Smart Spaces* . Si tratta di un nome precedente per lo stesso set di API e l'esperienza non verrà modificata oltre questo passaggio.
 
 Selezionare quindi le autorizzazioni da concedere per le API. Espandere l'autorizzazione **lettura (1)** e selezionare la casella *Read. Write* per concedere le autorizzazioni di lettura e scrittura per la registrazione dell'app.
 
-:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-2.png" alt-text="Visualizzazione della pagina "autorizzazioni API richiesta" selezionando le autorizzazioni di lettura. scrittura per le API gemelle digitali di Azure":::
+:::image type="content" source="media/how-to-set-up-instance/portal/request-api-permissions-2.png" alt-text="Visualizzazione della pagina autorizzazioni API richiesta selezionando le autorizzazioni di lettura. scrittura per le API gemelle digitali di Azure":::
 
 Al termine, fare clic su *Aggiungi autorizzazioni* .
 
