@@ -61,7 +61,7 @@ Un valore di parametro definito nella definizione di un progetto viene chiamato 
 
 1. Gli artefatti aggiunti al progetto che hanno opzioni dei parametri mostrano l'indicazione **X di Y parametri popolati** nella colonna **Parametri**. Selezionare la riga dell'artefatto per modificare i parametri dell'artefatto.
 
-   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Screenshot della definizione di un progetto e della "X di parametri Y popolati" evidenziati." border="false":::
+   :::image type="content" source="../media/parameters/parameter-column.png" alt-text="Screenshot della definizione di un progetto e della X di parametri Y popolati evidenziati." border="false":::
 
 1. Nella pagina **modifica elemento** vengono visualizzate le opzioni relative ai valori appropriate per l'elemento selezionato. Ogni parametro dell'artefatto ha un titolo, una casella del valore e una casella di controllo. Deselezionare la casella di controllo per renderlo un **parametro statico**. Nell'esempio seguente, solo _Località_ è un **parametro statico** perché la casella è deselezionata, mentre è selezionata in _Nome gruppo di risorse_.
 
