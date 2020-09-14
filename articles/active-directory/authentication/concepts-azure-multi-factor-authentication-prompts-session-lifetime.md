@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0019f7d8195dc39127b992a31ebd8c33e55452f6
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 9d5ffaf996f51348334f4adeeae150db9eb0defa
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89179352"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052665"
 ---
 # <a name="optimize-reauthentication-prompts-and-understand-session-lifetime-for-azure-multi-factor-authentication"></a>Ottimizzare le richieste di riautenticazione e comprendere la durata della sessione per Azure Multi-Factor Authentication
 
@@ -36,7 +36,7 @@ Per offrire agli utenti il giusto equilibrio tra sicurezza e facilità d'uso chi
     * Abilita Single Sign-On (SSO) tra le applicazioni usando i [dispositivi gestiti](../devices/overview.md) o l'accesso [Single](../hybrid/how-to-connect-sso.md)Sign-on facile.
     * Se è necessaria la riautenticazione, usare un [criterio di frequenza di accesso con](../conditional-access/howto-conditional-access-session-lifetime.md)accesso condizionale.
     * Per gli utenti che accedono da dispositivi non gestiti o da scenari di dispositivi mobili, usare l'accesso condizionale per abilitare le sessioni del browser permanenti e i criteri di frequenza di accesso.
-* Se si dispone di licenze per le app di Office 365 o del livello gratuito Azure AD:
+* Se si hanno Microsoft 365 licenze per le app o il livello gratuito Azure AD:
     * Abilita Single Sign-On (SSO) tra le applicazioni usando i [dispositivi gestiti](../devices/overview.md) o l'accesso [Single](../hybrid/how-to-connect-sso.md)Sign-on facile.
     * Mantenere abilitata l'opzione *resta connesso* e consentire agli utenti di accettarla.
 * Per gli scenari di dispositivi mobili, assicurarsi che gli utenti usino l'app Microsoft Authenticator. Questa app viene usata come broker per altre Azure AD app federate e riduce le richieste di autenticazione nel dispositivo.
@@ -123,13 +123,13 @@ Per configurare i criteri di accesso condizionale per la frequenza di accesso e 
 
 Per esaminare le durate dei token, [usare Azure ad PowerShell per eseguire una query su tutti i criteri di Azure ad](../develop/active-directory-configurable-token-lifetimes.md#prerequisites). Disabilitare tutti i criteri disponibili.
 
-Se nel tenant è abilitata più di un'impostazione, è consigliabile aggiornare le impostazioni in base alle licenze disponibili. Se ad esempio si hanno Azure AD licenze Premium, è consigliabile usare solo i criteri di accesso condizionale per la *frequenza* di accesso e la *sessione del browser permanente*. Se si dispone di app di Office 365 o Azure AD licenze gratuite, è necessario usare la configurazione *rimanere connessi?* .
+Se nel tenant è abilitata più di un'impostazione, è consigliabile aggiornare le impostazioni in base alle licenze disponibili. Se ad esempio si hanno Azure AD licenze Premium, è consigliabile usare solo i criteri di accesso condizionale per la *frequenza* di accesso e la *sessione del browser permanente*. Se si dispone di Microsoft 365 app o Azure AD licenze gratuite, è necessario usare la configurazione *rimanere connessi?* .
 
 Se è stata abilitata la durata del token configurabile, questa funzionalità verrà rimossa a breve. Pianificare una migrazione a un criterio di accesso condizionale.
 
 Nella tabella seguente sono riepilogate le raccomandazioni basate sulle licenze:
 
-|              | App Azure AD Free e Office 365 | Azure AD Premium |
+|              | App Azure AD Free e Microsoft 365 | Azure AD Premium |
 |------------------------------|-----------------------------------|------------------|
 | **SSO**                      | [Azure ad join](../devices/concept-azure-ad-join.md) o [Azure ad ibrido join](../devices/concept-azure-ad-join-hybrid.md)o l'accesso [SSO](../hybrid/how-to-connect-sso.md) facile per i dispositivi non gestiti. | Aggiunta ad Azure AD<br />Aggiunta ad Azure AD ibrido |
 | **Impostazioni di riautenticazione** | Resta connesso                  | Usare i criteri di accesso condizionale per la frequenza di accesso e la sessione del browser persistente |

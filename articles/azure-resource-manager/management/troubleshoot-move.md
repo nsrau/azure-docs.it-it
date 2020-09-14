@@ -1,14 +1,14 @@
 ---
 title: Risolvere gli errori di spostamento
-description: Usare Azure Resource Manager per spostare risorse a un nuovo gruppo di risorse o a una nuova sottoscrizione.
+description: Risolvere i problemi di trasferimento delle risorse in un nuovo gruppo di risorse o una nuova sottoscrizione.
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.openlocfilehash: 60e4ffb2b79fcce85fa4b316e68e191eb14f8bf0
-ms.sourcegitcommit: bcb962e74ee5302d0b9242b1ee006f769a94cfb8
+ms.openlocfilehash: 41b1e2435caf9874f3582a3394664c7b7f5a8d29
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86055087"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054163"
 ---
 # <a name="troubleshoot-moving-azure-resources-to-new-resource-group-or-subscription"></a>Risoluzione degli errori di spostamento delle risorse di Azure in un nuovo gruppo di risorse o in una nuova sottoscrizione
 

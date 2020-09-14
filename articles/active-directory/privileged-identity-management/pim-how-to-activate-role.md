@@ -14,18 +14,18 @@ ms.date: 07/06/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb1041cb5fc4aa7503f5ae9de6ffc74ba72052b8
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 0306ae3193dc53f25a1e82eae1eb09c7d26ba9b6
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421400"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055453"
 ---
 # <a name="activate-my-azure-ad-roles-in-pim"></a>Attivare i ruoli di Azure AD in PIM
 
-Azure Active Directory (Azure AD) Privileged Identity Management (PIM) semplifica la gestione aziendale dell'accesso con privilegi alle risorse in Azure AD e in altri servizi online Microsoft, ad esempio Office 365 o Microsoft Intune.  
+Azure Active Directory (Azure AD) Privileged Identity Management (PIM) semplifica il modo in cui le aziende gestiscono l'accesso con privilegi alle risorse in Azure AD e in altri Servizi online Microsoft come Microsoft 365 o Microsoft Intune.  
 
-Se è stato reso idoneo per un ruolo amministrativo, è necessario attivare l'assegnazione di ruolo quando è necessario eseguire azioni con privilegi. Se ad esempio si gestiscono occasionalmente le funzionalità di Office 365, è possibile che gli amministratori dei ruoli con privilegi dell'organizzazione non configurino l'utente come amministratore globale permanente perché tale ruolo interessa anche altri servizi. L'utente è invece considerato idoneo per ruoli di Azure AD, ad esempio amministratore di Exchange Online. È possibile richiedere l'attivazione del ruolo quando tali privilegi risulteranno necessari; si avrà il controllo amministrativo per un periodo di tempo predeterminato.
+Se è stato reso idoneo per un ruolo amministrativo, è necessario attivare l'assegnazione di ruolo quando è necessario eseguire azioni con privilegi. Ad esempio, se talvolta si gestiscono le funzionalità di Microsoft 365, è possibile che gli amministratori dei ruoli con privilegi dell'organizzazione non rendano un amministratore globale permanente, perché questo ruolo influisca anche su altri servizi. L'utente è invece considerato idoneo per ruoli di Azure AD, ad esempio amministratore di Exchange Online. È possibile richiedere l'attivazione del ruolo quando tali privilegi risulteranno necessari; si avrà il controllo amministrativo per un periodo di tempo predeterminato.
 
 Questo articolo è per gli amministratori che devono attivare il proprio ruolo di Azure AD in Privileged Identity Management.
 
@@ -118,7 +118,7 @@ Quando si attiva un ruolo in Privileged Identity Management, è possibile che l'
 
 # <a name="previous-version"></a>[Versione precedente](#tab/previous)
 
-## <a name="activate-a-role"></a>Attivare un ruolo
+## <a name="activate-a-role-previous-version"></a>Attivare un ruolo (versione precedente)
 
 Quando è necessario assumere un ruolo di Azure AD, è possibile richiedere l'attivazione usando l'opzione di navigazione **ruoli personali** in Privileged Identity Management.
 
@@ -168,7 +168,7 @@ Quando è necessario assumere un ruolo di Azure AD, è possibile richiedere l'at
 
     Se il [ruolo richiede l'approvazione](./azure-ad-pim-approval-workflow.md) per l'attivazione, viene visualizzata una notifica di Azure nell'angolo superiore destro del browser che informa che la richiesta è in attesa di approvazione.
 
-## <a name="view-the-status-of-your-requests"></a>Visualizzare lo stato della richiesta da attivare
+## <a name="view-the-status-of-your-requests-previous-version"></a>Visualizzare lo stato delle richieste (versione precedente)
 
 È possibile visualizzare lo stato delle richieste in attesa da attivare.
 
@@ -180,7 +180,7 @@ Quando è necessario assumere un ruolo di Azure AD, è possibile richiedere l'at
 
     ![Ruoli di Azure AD-elenco richieste personali](./media/pim-how-to-activate-role/directory-roles-my-requests.png)
 
-## <a name="deactivate-a-role"></a>Disattivare un ruolo
+## <a name="deactivate-a-role-previous-version"></a>Disattivare un ruolo (versione precedente)
 
 Un ruolo attivato si disattiva automaticamente quando viene raggiunto il limite di tempo (durata idonea).
 
@@ -196,7 +196,7 @@ Se si completano le attività dell'amministratore prima del raggiungimento del l
 
 1. Individuare il ruolo da non usare ulteriormente e quindi fare clic su **Disattiva**.
 
-## <a name="cancel-a-pending-request"></a>Annullare una richiesta in sospeso
+## <a name="cancel-a-pending-request-previous-version"></a>Annulla una richiesta in sospeso (versione precedente)
 
 Nel caso in cui non è richiesta l'attivazione di un ruolo che richiede l'approvazione, è possibile annullare una richiesta in sospeso in qualsiasi momento.
 
@@ -212,7 +212,7 @@ Nel caso in cui non è richiesta l'attivazione di un ruolo che richiede l'approv
 
    ![Elenco richieste personali con il pulsante Annulla evidenziato](./media/pim-how-to-activate-role/directory-role-cancel.png)
 
-## <a name="troubleshoot"></a>Risolvere problemi
+## <a name="troubleshoot-previous-version"></a>Risoluzione dei problemi (versione precedente)
 
 ### <a name="permissions-are-not-granted-after-activating-a-role"></a>Le autorizzazioni non vengono concesse dopo l'attivazione di un ruolo
 

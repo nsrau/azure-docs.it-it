@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: end-user-help
 ms.date: 01/15/2020
 ms.author: curtand
-ms.openlocfilehash: 7d630fac1f848e691ddb96dc47596a2e9927309f
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 7f4c09a32794e13b0e0041ee916401b714d8509e
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799435"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055232"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Che cos'è l'app Microsoft Authenticator?
 
@@ -41,8 +41,8 @@ L'app Microsoft Authenticator consente di accedere ai propri account se si usa l
 | ----|-----------|
 | Verifica a due fattori | Un processo di verifica che richiede l'utilizzo specifico di due sole informazioni di verifica, come una password e un PIN. L'app Microsoft Authenticator supporta sia la verifica a due fattori standard che l'accesso senza password. |
 | Multi-Factor Authentication (MFA) | Tutta la verifica a due fattori è un'autenticazione a più fattori, che richiede l'utilizzo di *almeno* due informazioni di verifica, in base ai requisiti dell'organizzazione. |
-| Account Microsoft | È possibile creare i propri account personali per accedere ai prodotti e ai servizi cloud Microsoft destinati agli utenti privati, ad esempio Outlook, OneDrive, Xbox LIVE oppure Office 365. L'account Microsoft viene creato e archiviato nel sistema di account delle identità degli utenti gestito da Microsoft. |
-| Account aziendale o dell'istituto di istruzione | L'organizzazione crea l'account aziendale o dell'istituto di istruzione, ad esempio alain@contoso.com, per consentire l'accesso a risorse interne e potenzialmente limitate, come Microsoft Azure, Windows Intune e Office 365. |
+| Account Microsoft | È possibile creare account personali, per ottenere l'accesso ai prodotti e ai servizi cloud Microsoft orientati agli utenti, ad esempio Outlook, OneDrive, Xbox LIVE o Microsoft 365. L'account Microsoft viene creato e archiviato nel sistema di account delle identità degli utenti gestito da Microsoft. |
+| Account aziendale o dell'istituto di istruzione | L'organizzazione crea l'account aziendale o dell'Istituto di istruzione (ad esempio alain@contoso.com ) per consentire l'accesso a risorse interne e potenzialmente limitate, ad esempio Microsoft Azure, Windows Intune e Microsoft 365. |
 | Codice di verifica | Il codice a sei cifre visualizzato nell'app di autenticazione, in ogni account aggiunto. Il codice di verifica cambia ogni 30 secondi per impedire che venga usato più volte. Ciò è noto anche come passcode monouso (OTP). |
 
 ## <a name="how-two-factor-verification-works-with-the-app"></a>Come funziona la verifica a due fattori con l'app

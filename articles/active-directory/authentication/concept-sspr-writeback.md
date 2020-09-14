@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3959fc7df78a5c1f255f7551a018eec6b7279eb1
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 690dead3cb0059dd1b20ff042a93c36d674e62d2
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717439"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052682"
 ---
 # <a name="how-does-self-service-password-reset-writeback-work-in-azure-active-directory"></a>Come funziona il writeback per la reimpostazione della password self-service in Azure Active Directory?
 
@@ -37,7 +37,7 @@ Il writeback delle password offre le funzionalità seguenti:
 
 * **Applicazione di criteri delle password Active Directory Domain Services (AD DS) locali**: quando un utente reimposta la propria password, viene verificato che soddisfi i criteri di AD DS locali prima di eseguirne il commit nella directory. Questo esame include il controllo di cronologia, complessità, validità, filtri delle password e altre restrizioni per le password definite in AD DS.
 * **Nessun ritardo nel feedback**:  Il writeback delle password è un'operazione sincrona. Gli utenti vengono informati immediatamente se la password non soddisfa i criteri o non può essere reimpostata o modificata per qualsiasi motivo.
-* **Supporta la modifica delle password dal pannello di accesso e da Office 365**: quando gli utenti federati o sincronizzati con l'hash delle password modificano le password scadute o non scadute, queste verranno riscritte in AD DS.
+* **Supporta le modifiche delle password dal pannello di accesso e Microsoft 365**: quando gli utenti federati o con sincronizzazione di hash della password cambiano le password scadute o non scadute, le password vengono riscritte in servizi di dominio Active Directory.
 * **Supporta il writeback delle password quando un amministratore le reimposta dal portale di Azure**: quando un amministratore reimposta la password di un utente nel [portale di Azure](https://portal.azure.com), se tale utente è federato o sincronizzato con l'hash delle password, la password verrà riscritta in locale. Questa funzionalità non è attualmente supportata nel portale di amministrazione di Office.
 * **Non richiede regole del firewall in entrata**: il writeback delle password usa un bus di servizio di Azure come canale di comunicazione sottostante. Tutte le comunicazioni sono in uscita tramite la porta 443.
 

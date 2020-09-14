@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e294aa2580dd9f0cceb539a2696e7ebbf08c4afe
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 829a82cb94e5c2a7e7cbc9190047c368299612cd
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051016"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052750"
 ---
 # <a name="features-and-licenses-for-azure-multi-factor-authentication"></a>Funzionalità e licenze per Azure Multi-Factor Authentication
 
@@ -41,7 +41,7 @@ Azure Multi-Factor Authentication può essere usato e concesso in licenza in div
 
 La tabella seguente indica un elenco delle funzionalità disponibili nelle varie versioni di Azure Multi-Factor Authentication. Pianificare le esigenze di protezione dell'autenticazione utente, quindi determinare quale approccio soddisfa tali requisiti. Ad esempio, sebbene Azure AD Free offra impostazioni predefinite di sicurezza che forniscono Azure Multi-Factor Authentication, è possibile usare solo l'app per dispositivi mobili Microsoft Authenticator per la richiesta di autenticazione e non una telefonata o un SMS. Questo approccio può costituire una limitazione se non è possibile verificare che l'app di autenticazione per dispositivi mobili sia installata nel dispositivo personale di un utente.
 
-| Funzionalità | Azure AD Free - Impostazioni predefinite per la sicurezza | Azure AD Free - Amministratori globali di Azure AD | App di Office 365 | Azure AD Premium P1 o P2 |
+| Funzionalità | Azure AD Free - Impostazioni predefinite per la sicurezza | Azure AD Free - Amministratori globali di Azure AD | App di Microsoft 365 | Azure AD Premium P1 o P2 |
 | --- |:---:|:---:|:---:|:---:|
 | Protezione degli account amministratore tenant di Azure AD con MFA | ● | ● (solo per l'account *amministratore globale di Azure AD*) | ● | ● |
 | App per dispositivi mobili come secondo fattore | ● | ● | ● | ● |
@@ -58,11 +58,11 @@ La tabella seguente indica un elenco delle funzionalità disponibili nelle varie
 
 ## <a name="purchase-and-enable-azure-multi-factor-authentication"></a>Acquistare e abilitare Azure Multi-Factor Authentication
 
-Per usare Azure Multi-Factor Authentication, effettuare la registrazione o acquistare un livello di Azure AD idoneo. Azure AD è disponibile in quattro edizioni: gratuita, app Office 365, Premium P1 e Premium P2.
+Per usare Azure Multi-Factor Authentication, effettuare la registrazione o acquistare un livello di Azure AD idoneo. Azure AD è disponibile in quattro edizioni: gratuita, Microsoft 365 app, Premium P1 e Premium P2.
 
 L'edizione Free è inclusa in una sottoscrizione Azure. Vedere la [sezione riportata di seguito](#azure-ad-free-tier) per informazioni su come usare le impostazioni predefinite di sicurezza o proteggere gli account con il ruolo di *amministratore globale di Azure AD*.
 
-Le edizioni di Azure AD Premium sono disponibili tramite il rappresentante Microsoft, il [programma di licenza Open Volume](https://www.microsoft.com/licensing/licensing-programs/open-license.aspx) e il [programma Cloud Solution Provider](https://go.microsoft.com/fwlink/?LinkId=614968&clcid=0x409). I sottoscrittori di Azure e Microsoft 365 possono anche acquistare Azure Active Directory Premium P1 e P2 online. [Accedere](https://portal.office.com/Commerce/Catalog.aspx) per acquistare.
+Le edizioni di Azure AD Premium sono disponibili tramite il rappresentante Microsoft, il [programma di licenza Open Volume](https://www.microsoft.com/licensing/licensing-programs/open-license.aspx) e il [programma Cloud Solution Provider](https://go.microsoft.com/fwlink/?LinkId=614968&clcid=0x409). I sottoscrittori di Azure e Microsoft 365 possono acquistare Azure Active Directory Premium P1 e P2 anche online. [Accedere](https://portal.office.com/Commerce/Catalog.aspx) per acquistare.
 
 Dopo aver acquistato il livello di Azure AD necessario, [pianificare e distribuire Azure Multi-Factor Authentication](howto-mfa-getstarted.md).
 

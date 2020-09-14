@@ -1,19 +1,19 @@
 ---
 title: Riparazione di un processo di importazione in Importazione/Esportazione di Azure - versione 1 | Documentazione Microsoft
 description: Informazioni su come ripristinare un processo di importazione che è stato creato ed eseguito usando il servizio Importazione/Esportazione di Azure.
-author: twooley
+author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/23/2017
-ms.author: twooley
+ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: b3ba9844bf8412e169322fd4953cbc259a94e174
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: d67046f799e60db3101dfeb27dee10f92f9aad79
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88525776"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052427"
 ---
 # <a name="repairing-an-import-job"></a>Riparazione di un processo di importazione
 Il servizio Importazione/Esportazione di Microsoft Azure potrebbe non riuscire a copiare alcuni file o parti di file nel servizio BLOB di Windows Azure. I motivi includono:  

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: troubleshooting
-ms.date: 07/08/2020
+ms.date: 09/10/2020
 ms.author: alkohli
-ms.openlocfilehash: a632e753426def52bb260d7bf01875ec24e2ea9e
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 2a40e908677a173862ad715f7024865ff728d0b9
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200138"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053454"
 ---
 # <a name="troubleshoot-issues-related-to-azure-data-box-and-azure-data-box-heavy"></a>Risolvere i problemi relativi a Azure Data Box e Azure Data Box Heavy
 
@@ -33,7 +33,7 @@ Gli errori in Data Box e Data Box Heavy sono riepilogati come segue:
 | Tipo di dati o di file | Il formato dei dati o il tipo di file non è supportato. |Scaricare gli elenchi degli errori. <br> Per i BLOB di pagine o i dischi gestiti, assicurarsi che i dati siano allineati a 512 byte e che vengano copiati nelle cartelle create in precedenza. [Altre informazioni](#data-or-file-type-errors). |
 | Errori di BLOB o file non critici  | I nomi di BLOB o file non seguono le regole di denominazione di Azure o il tipo di file non è supportato. | È possibile che questi BLOB o file non vengano copiati o che i nomi vengano modificati. [Informazioni su come risolvere questi errori](#non-critical-blob-or-file-errors). |
 
-\*Le prime quattro categorie di errore sono errori critici e devono essere corrette prima di procedere alla preparazione per la spedizione.
+\* Le prime quattro categorie di errore sono errori critici e devono essere corrette prima di procedere alla preparazione per la spedizione.
 
 
 ## <a name="container-or-share-name-errors"></a>Errori del nome del contenitore o della condivisione
@@ -53,8 +53,8 @@ Si tratta di errori relativi ai nomi di contenitori e condivisioni.
     - I nomi possono contenere solo lettere, numeri e trattini.
     - I nomi non possono iniziare o terminare con trattini.
     - I nomi non possono avere trattini consecutivi.
-    - Esempi di nomi validi: `my-folder-1` ,`my-really-extra-long-folder-111`
-    - Esempi di nomi non validi: `my-folder_1` , `my` , `--myfolder` , `myfolder--` ,`myfolder!`
+    - Esempi di nomi validi: `my-folder-1` , `my-really-extra-long-folder-111`
+    - Esempi di nomi non validi: `my-folder_1` , `my` , `--myfolder` , `myfolder--` , `myfolder!`
 
     Per altre informazioni, vedere convenzioni di denominazione di Azure per i [nomi dei contenitori](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e le [condivisioni](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
@@ -72,8 +72,8 @@ Si tratta di errori relativi ai nomi di contenitori e condivisioni.
     - I nomi possono contenere solo lettere, numeri e trattini.
     - I nomi non possono iniziare o terminare con trattini.
     - I nomi non possono avere trattini consecutivi.
-    - Esempi di nomi validi: `my-folder-1` ,`my-really-extra-long-folder-111`
-    - Esempi di nomi non validi: `my-folder_1` , `my` , `--myfolder` , `myfolder--` ,`myfolder!`
+    - Esempi di nomi validi: `my-folder-1` , `my-really-extra-long-folder-111`
+    - Esempi di nomi non validi: `my-folder_1` , `my` , `--myfolder` , `myfolder--` , `myfolder!`
 
     Per altre informazioni, vedere convenzioni di denominazione di Azure per i [nomi dei contenitori](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e le [condivisioni](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
 
@@ -90,8 +90,8 @@ Si tratta di errori relativi ai nomi di contenitori e condivisioni.
     - I nomi possono contenere solo lettere, numeri e trattini.
     - I nomi non possono iniziare o terminare con trattini.
     - I nomi non possono avere trattini consecutivi.
-    - Esempi di nomi validi: `my-folder-1` ,`my-really-extra-long-folder-111`
-    - Esempi di nomi non validi: `my-folder_1` , `my` , `--myfolder` , `myfolder--` ,`myfolder!`
+    - Esempi di nomi validi: `my-folder-1` , `my-really-extra-long-folder-111`
+    - Esempi di nomi non validi: `my-folder_1` , `my` , `--myfolder` , `myfolder--` , `myfolder!`
 
     Per altre informazioni, vedere convenzioni di denominazione di Azure per i [nomi dei contenitori](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-containers--blobs--and-metadata#container-names) e le [condivisioni](https://docs.microsoft.com/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata#share-names).
     
@@ -112,13 +112,17 @@ Si tratta di errori relativi ai dati che superano le dimensioni dei dati consent
 
 ### <a name="error_container_or_share_capacity_exceeded"></a>ERROR_CONTAINER_OR_SHARE_CAPACITY_EXCEEDED
 
-**Descrizione errore:** La condivisione file di Azure limita una condivisione a 5 TB di dati. Questo limite è stato superato per alcune condivisioni.
+**Descrizione errore:** La condivisione file di Azure limita una condivisione a 5 TiB di dati e le condivisioni file di grandi dimensioni non sono abilitate nell'account di archiviazione. Questo limite è stato superato per alcune condivisioni.
 
 **Risoluzione suggerita:** Nella pagina **Connetti e copia** dell'interfaccia utente Web locale scaricare ed esaminare i file degli errori.
 
-Identificare le cartelle che presentano questo problema nei log degli errori e verificare che i file in tale cartella siano di 5 TB.
-
-
+- Identificare le cartelle che presentano questo problema nei log degli errori e verificare che i file in tale cartella siano meno di 5 TiB.
+- Il limite di 5 TiB non si applica a un account di archiviazione che consente condivisioni di file di grandi dimensioni. Tuttavia, le condivisioni file di grandi dimensioni devono essere configurate quando si inserisce l'ordine. 
+  - Contattare [supporto tecnico Microsoft](data-box-disk-contact-microsoft-support.md) e richiedere una nuova etichetta per la spedizione.
+  - [Abilitare condivisioni file di grandi dimensioni nell'account di archiviazione.](../storage/files/storage-files-how-to-create-large-file-share.md#enable-large-files-shares-on-an-existing-account)
+  - [Espandere le condivisioni file nell'account di archiviazione](../storage/files/storage-files-how-to-create-large-file-share.md#expand-existing-file-shares) e impostare la quota su 100 tib.
+  
+  
 ## <a name="object-or-file-size-limit-errors"></a>Errori limite dimensioni oggetti o file
 
 Si tratta di errori relativi ai dati che superano le dimensioni massime dell'oggetto o del file consentito in Azure. 

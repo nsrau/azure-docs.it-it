@@ -14,16 +14,16 @@ ms.date: 04/24/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4096c65fa4375152f44891d4a0a5aac4b9077cf2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4dd0b63e08f44167b89b6e2d491722f3708b4036
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84743848"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055436"
 ---
 # <a name="review-access-to-azure-ad-roles-in-privileged-identity-management"></a>Controllare l'accesso ai ruoli di Azure AD in Privileged Identity Management
 
-Privileged Identity Management (PIM) semplifica il modo in cui le aziende gestiscono l'accesso con privilegi alle risorse in Azure Active Directory (AD) e in altri Servizi online Microsoft, ad esempio Office 365 o Microsoft Intune. Eseguire la procedura descritta in questo articolo per verificare autonomamente i ruoli assegnati.
+Privileged Identity Management (PIM) semplifica il modo in cui le aziende gestiscono l'accesso con privilegi alle risorse in Azure Active Directory (AD) e in altri Servizi online Microsoft, ad esempio Microsoft 365 o Microsoft Intune. Eseguire la procedura descritta in questo articolo per verificare autonomamente i ruoli assegnati.
 
 Se si è stati assegnati a un ruolo amministrativo, è possibile che l'amministratore dei ruoli con privilegi dell'organizzazione richieda di confermare a intervalli regolari che il ruolo sia ancora necessario. Si potrebbe ricevere un messaggio di posta elettronica che include un collegamento oppure è possibile passare direttamente alla [portale di Azure](https://portal.azure.com) e iniziare.
 

@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0ed286cf2b11429d5f0f56b3a85f173c2a39bc81
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: eb51f402cd7032358e6a9d2f9fad9aa64316b809
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88799299"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054552"
 ---
 # <a name="configure-the-expiration-policy-for-microsoft-365-groups"></a>Configurare i criteri di scadenza per i gruppi di Microsoft 365
 
@@ -42,7 +42,7 @@ Per informazioni su come scaricare e installare i cmdlet di Azure AD PowerShell,
 
 ## <a name="activity-based-automatic-renewal"></a>Rinnovo automatico basato sulle attività
 
-Con Azure AD Intelligence, i gruppi vengono ora rinnovati automaticamente a seconda che siano stati usati di recente. Questa funzionalità Elimina la necessità di azioni manuali da parte dei proprietari del gruppo, perché si basa sull'attività dell'utente in gruppi nei servizi di Office 365 come Outlook, SharePoint o teams. Se, ad esempio, un proprietario o un membro del gruppo esegue un'operazione come caricare un documento in SharePoint, visitare un canale teams o inviare un messaggio di posta elettronica al gruppo in Outlook, il gruppo viene rinnovato automaticamente e il proprietario non riceve alcuna notifica di rinnovo.
+Con Azure AD Intelligence, i gruppi vengono ora rinnovati automaticamente a seconda che siano stati usati di recente. Questa funzionalità Elimina la necessità di azioni manuali da parte dei proprietari del gruppo, perché si basa sull'attività dell'utente in gruppi in Microsoft 365 servizi come Outlook, SharePoint o teams. Se, ad esempio, un proprietario o un membro del gruppo esegue un'operazione come caricare un documento in SharePoint, visitare un canale teams o inviare un messaggio di posta elettronica al gruppo in Outlook, il gruppo viene rinnovato automaticamente e il proprietario non riceve alcuna notifica di rinnovo.
 
 ### <a name="activities-that-automatically-renew-group-expiration"></a>Attività che rinnovano automaticamente la scadenza del gruppo
 

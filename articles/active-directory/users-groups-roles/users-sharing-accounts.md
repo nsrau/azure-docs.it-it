@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 39eb637ae3da9c6a0a3ea066ad741845bad36d5d
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: 019327436eaf2186e23068a5b0a1ac4b21b9fbe7
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89489630"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055164"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Condivisione di account con Azure AD
 
@@ -29,7 +29,7 @@ ms.locfileid: "89489630"
 Le organizzazioni devono usare un singolo nome e una singola password per più utenti nei due casi descritti di seguito:
 
 * Quando si accede alle applicazioni che richiedono account di accesso e password univoci per ogni utente, in caso di app locali o servizi cloud di livello consumer (ad esempio, gli account aziendali di social media).
-* Quando si creano ambienti multiutente. Potrebbe essere presente un singolo account locale che dispone di privilegi elevati che viene usato per attività di base, ad esempio installazione, amministrazione e ripristino. Ad esempio, l'account locale "amministratore globale" per Office 365 o l'account radice in Salesforce.
+* Quando si creano ambienti multiutente. Potrebbe essere presente un singolo account locale che dispone di privilegi elevati che viene usato per attività di base, ad esempio installazione, amministrazione e ripristino. Ad esempio, l'account "amministratore globale" locale per Microsoft 365 o l'account radice in Salesforce.
 
 In genere, questi account possono essere condivisi distribuendo le credenziali (nome utente/password) agli individui appropriati o archiviandoli in un percorso condiviso a cui possono accedere più agenti attendibili.
 

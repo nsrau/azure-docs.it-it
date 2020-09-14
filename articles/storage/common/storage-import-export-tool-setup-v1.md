@@ -1,19 +1,19 @@
 ---
 title: Configurazione dello strumento Importazione/Esportazione di Azure versione 1 | Documentazione Microsoft
 description: Informazioni su come configurare lo strumento di preparazione e ripristino delle unità per il servizio Importazione/Esportazione di Azure. Questo articolo si riferisce alla versione 1 dello strumento di importazione/esportazione.
-author: twooley
+author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
 ms.date: 01/15/2017
-ms.author: twooley
+ms.author: alkohli
 ms.subservice: common
-ms.openlocfilehash: f2aeb010d0c6f62284f1347bd90b952be50c665e
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e03601bc929354a69e7f9027db5ac9b7697c3c82
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88530801"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054076"
 ---
 # <a name="setting-up-the-azure-importexport-tool-v1"></a>Configurazione dello strumento di importazione/esportazione di Azure V1
 Lo strumento Importazione/Esportazione di Microsoft Azure è lo strumento di preparazione e ripristino delle unità che è possibile usare con il servizio Importazione/Esportazione di Microsoft Azure. È possibile usare lo strumento per svolgere le funzioni seguenti:  

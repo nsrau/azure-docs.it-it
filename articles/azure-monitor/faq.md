@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/15/2020
-ms.openlocfilehash: 8ace82147f17e6ee7e888553c58f32ec6e5ba271
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 4a5203a91ba528328dce7036d4690c6dea137c33
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569204"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054263"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Domande frequenti su Monitoraggio di Azure
 
@@ -785,7 +785,7 @@ Il tempo di risposta è un'approssimazione. Poiché non si instrumenta il codice
 
 Questa approssimazione funziona adeguatamente per i protocolli basati su richiesta/risposta: una singola richiesta viene inviata sulla connessione e viene ricevuta una singola risposta. Questo calcolo è adatto per il protocollo HTTP(S) (senza pipelining), ma non è soddisfacente per altri protocolli.
 
-### <a name="are-their-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Sono previste limitazioni se è in vigore il piano tariffario Gratuito di Log Analytics?
+### <a name="are-there-limitations-if-i-am-on-the-log-analytics-free-pricing-plan"></a>Esistono limitazioni se si è Log Analytics piano tariffario gratuito?
 Se Monitoraggio di Azure è stato configurato con un'area di lavoro Log Analytics che usa il piano tariffario *Gratuito*, la funzionalità della mappa Monitoraggio di Azure per le macchine virtuali supporterà solo cinque computer connessi all'area di lavoro. Se si hanno cinque macchine virtuali connesse a un'area di lavoro gratuita, si disconnette una delle macchine virtuali e in un secondo momento si connette una nuova macchina virtuale, la nuova macchina virtuale non viene monitorata e riflessa nella pagina della mappa.  
 
 In questo caso, verrà visualizzata l'opzione **Prova adesso** quando si apre la macchina virtuale e si seleziona **Informazioni dettagliate** nel riquadro a sinistra, anche dopo che è già stato installato nella macchina virtuale.  Non vengono tuttavia visualizzate le normali opzioni come avverrebbe normalmente se non fosse stato eseguito l'onboarding di questa macchina virtuale in Monitoraggio di Azure per le macchine virtuali. 

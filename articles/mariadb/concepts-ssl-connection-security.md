@@ -6,15 +6,18 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 07/09/2020
-ms.openlocfilehash: 5072710378d0a179b3b96ae9b698e9a92d81cf44
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a108459985f235f0280354ef7b4fa0cb181f5dda
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290231"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054246"
 ---
 # <a name="ssltls-connectivity-in-azure-database-for-mariadb"></a>Connettività SSL/TLS nel database di Azure per MariaDB
 Database di Azure per MariaDB supporta la connessione del server di database alle applicazioni client mediante Secure Sockets Layer (SSL). L'applicazione delle connessioni SSL tra il server di database e le applicazioni client aiuta a proteggersi dagli attacchi "man in the middle" crittografando il flusso di dati tra il server e l'applicazione.
+
+> [!IMPORTANT] 
+> Il certificato radice SSL è impostato per scadere a partire dal 26 ottobre 2020 (10/26/2020). Aggiornare l'applicazione per usare il [nuovo certificato](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem). Per altre informazioni, vedere [aggiornamenti di certificati pianificati](concepts-certificate-rotation.md)
 
 ## <a name="default-settings"></a>Impostazioni predefinite
 Per impostazione predefinita, il servizio di database deve essere configurato per richiedere le connessioni SSL quando ci si connette a MariaDB.  È consigliabile evitare di disabilitare l'opzione SSL, quando possibile.

@@ -3,12 +3,12 @@ title: Eseguire il backup di computer Windows usando l'agente MARS
 description: Utilizzare l'agente di Servizi di ripristino di Microsoft Azure (MARS) per eseguire il backup dei computer Windows.
 ms.topic: conceptual
 ms.date: 03/03/2020
-ms.openlocfilehash: 55eb8bdf069fd1b5793468ae52f764eb4288f261
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: d2cdd5d1fa98462a70d72fd9f8723685952b665a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89182089"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052223"
 ---
 # <a name="back-up-windows-server-files-and-folders-to-azure"></a>Eseguire il backup di file e cartelle di Windows Server in Azure
 
@@ -125,7 +125,7 @@ Per abilitare la limitazione della larghezza di banda:
 1. Nella scheda **limitazione** , selezionare **Abilita limitazione all'utilizzo della larghezza di banda Internet per le operazioni di backup**.
 
     ![Configurare la limitazione delle richieste di rete per le operazioni di backup](./media/backup-configure-vault/throttling-dialog.png)
-1. Specificare la larghezza di banda consentita durante le ore lavorative e non lavorative. I valori della larghezza di banda iniziano a 512 kbps e passano fino a 1.023 MBps. Selezionare **OK**.
+1. Specificare la larghezza di banda consentita durante le ore lavorative e non lavorative. I valori della larghezza di banda iniziano a 512 kbps e passano fino a 1.023 Mbps. Quindi scegliere **OK**.
 
 ## <a name="run-an-on-demand-backup"></a>Eseguire un backup su richiesta
 

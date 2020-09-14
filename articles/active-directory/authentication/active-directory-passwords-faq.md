@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6e210a11dbcde17c8a5dfd16c46c0d3b3d5c6523
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: c1927cc103ba14b4b9b545eca82aee28cd32eeb2
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716334"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052384"
 ---
 # <a name="self-service-password-reset-frequently-asked-questions"></a>Domande frequenti sulla reimpostazione della password self-service
 
@@ -104,7 +104,7 @@ Questo articolo di domande frequenti è suddiviso nelle sezioni seguenti:
   > * Controllare che i dati di autenticazione nella directory siano nel formato corretto, ad esempio +1 4255551234 o *utente\@contoso.com*. 
 * **D:  Quali lingue sono supportate per la reimpostazione della password?**
 
-  > **R:** L'interfaccia utente, gli SMS e le chiamate vocali per la reimpostazione della password sono localizzati nelle stesse lingue supportate in Office 365.
+  > **R:** L'interfaccia utente di reimpostazione della password, i messaggi SMS e le chiamate vocali sono localizzati nelle stesse lingue supportate in Microsoft 365.
   >
   >
 * **D:  A quali parti dell'esperienza di reimpostazione della password vengono applicate le impostazioni di personalizzazione dell'organizzazione specificate nella scheda Configura della directory?**

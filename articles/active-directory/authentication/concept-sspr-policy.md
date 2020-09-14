@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 4cfeda0d06c1e6956c7bbc953f1082a3510e8712
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 4b729e975ddc9c184c1b0f39a6d3be548211cdfc
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90005021"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052716"
 ---
 # <a name="password-policies-and-account-restrictions-in-azure-active-directory"></a>Criteri password e limitazioni dell'account in Azure Active Directory
 
@@ -108,7 +108,7 @@ Un amministratore *globale* o un *amministratore utente* può utilizzare il [mod
 
 È anche possibile usare i cmdlet di PowerShell per rimuovere la configurazione never-expires o per vedere quali password utente sono impostate in modo da non scadere mai.
 
-Queste indicazioni si applicano ad altri provider, ad esempio Intune e Office 365, che si basano sempre su Azure AD per i servizi di identità e directory. La scadenza della password è l'unica parte dei criteri a poter essere modificata.
+Queste linee guida si applicano ad altri provider, ad esempio Intune e Microsoft 365, che si basano anche su Azure AD per i servizi di identità e directory. La scadenza della password è l'unica parte dei criteri a poter essere modificata.
 
 > [!NOTE]
 > Solo le password per gli account utente che non sono sincronizzati tramite Azure AD Connect possono essere configurate in modo da non scadere. Per altre informazioni sulla sincronizzazione delle directory, vedere [Connettere AD con Azure AD](../hybrid/whatis-hybrid-identity.md).

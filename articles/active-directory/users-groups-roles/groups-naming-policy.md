@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ff525eab42d69ded33381fefc83076f9aa94f05
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 7fe5072042553d676c798a32e0ca6fc28e92332d
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88213751"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054467"
 ---
 # <a name="enforce-a-naming-policy-on-microsoft-365-groups-in-azure-active-directory"></a>Applicare un criterio di denominazione nei gruppi di Microsoft 365 in Azure Active Directory
 
@@ -174,7 +174,7 @@ Assicurarsi di disinstallare qualsiasi versione precedente di Azure Active Direc
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
   
-Questo è tutto. Sono stati impostati criteri di denominazione e sono state aggiunte le parole bloccate.
+È tutto. Sono stati impostati criteri di denominazione e sono state aggiunte le parole bloccate.
 
 ## <a name="export-or-import-custom-blocked-words"></a>Esportare o importare parole bloccate personalizzate
 
@@ -229,9 +229,9 @@ Set-AzureADDirectorySetting -Id $Settings.Id -DirectorySetting $Settings
    Set-AzureADDirectorySetting -Id (Get-AzureADDirectorySetting | where -Property DisplayName -Value "Group.Unified" -EQ).id -DirectorySetting $Setting
    ```
 
-## <a name="experience-across-office-365-apps"></a>Esperienza nelle app di Office 365
+## <a name="experience-across-microsoft-365-apps"></a>Esperienza nelle app Microsoft 365
 
-Dopo aver impostato criteri di denominazione dei gruppi in Azure AD, quando un utente crea un gruppo in un'app di Office 365, viene visualizzato quanto segue:
+Dopo aver impostato i criteri di denominazione dei gruppi in Azure AD, quando un utente crea un gruppo in un'app Microsoft 365, Visualizza:
 
 - Un'anteprima del nome conforme ai criteri di denominazione (con prefissi e suffissi) non appena l'utente digita il nome del gruppo
 - Se l'utente immette parole bloccate, viene visualizzato un messaggio di errore che ne consente la rimozione.
@@ -252,7 +252,7 @@ School Data Sync (SDS) | I gruppi creati tramite SDS sono conformi ai criteri di
 Outlook Customer Manager (OCM) | Outlook Customer Manager è conforme ai criteri di denominazione, che vengono applicati automaticamente al gruppo creato in Outlook Customer Manager. Se viene rilevata una parola bloccata personalizzata, la creazione del gruppo in OCM viene bloccata e l'utente non può utilizzare l'app OCM.
 App Classroom | I gruppi creati nell'app Classroom sono conformi ai criteri di denominazione, ma tali criteri non vengono applicati automaticamente e l'anteprima dei criteri di denominazione non viene visualizzata agli utenti quando immettono un nome per il gruppo della classe. Gli utenti devono immettere il nome per il gruppo della classi imposto con prefissi e suffissi. In caso contrario, l'operazione di creazione o modifica del gruppo della classe ha esito negativo con errori.
 Power BI | Le aree di lavoro di Power BI sono conformi ai criteri di denominazione.    
-Yammer | Quando un utente connesso a Yammer con il proprio account Azure Active Directory crea un gruppo o modifica il nome di gruppo, quest'ultimo risulterà conforme ai criteri di denominazione. Questo vale sia per i gruppi collegati a Office 365 sia per tutti gli altri gruppi di Yammer.<br>Se un gruppo collegato a Office 365 è stato creato prima che il criterio di denominazione fosse stato stabilito, il nome del gruppo non seguirà automaticamente i criteri di denominazione. Quando un utente modifica il nome del gruppo, gli sarà richiesto di aggiungere il prefisso e suffisso.
+Yammer | Quando un utente connesso a Yammer con il proprio account Azure Active Directory crea un gruppo o modifica il nome di gruppo, quest'ultimo risulterà conforme ai criteri di denominazione. Questo vale sia per Microsoft 365 gruppi connessi che per tutti gli altri gruppi di Yammer.<br>Se è stato creato un gruppo Microsoft 365 Connected prima del criterio di denominazione, il nome del gruppo non seguirà automaticamente i criteri di denominazione. Quando un utente modifica il nome del gruppo, gli sarà richiesto di aggiungere il prefisso e suffisso.
 StaffHub  | I team StaffHub non seguono i criteri di denominazione, ma il gruppo di Microsoft 365 sottostante lo esegue. Il nome del team StaffHub non applica i prefissi e i suffissi e verifica la presenza di parole bloccate personalizzate. Tuttavia, StaffHub applica i prefissi e i suffissi e rimuove le parole bloccate dal gruppo di Microsoft 365 sottostante.
 PowerShell per Exchange | I cmdlet di PowerShell per Exchange sono conformi ai criteri di denominazione. Gli utenti ricevono messaggi di errore appropriati con prefissi e suffissi suggeriti e relativi alle parole bloccate personalizzate se non seguono i criteri di denominazione nel nome e nell'alias del gruppo (mailNickname).
 Cmdlet di PowerShell per Azure Active Directory | I cmdlet di PowerShell per Azure Active Directory sono conformi ai criteri di denominazione. Gli utenti ricevono messaggi di errore appropriati con prefissi e suffissi suggeriti e relativi alle parole bloccate personalizzate se non seguono la convenzione di denominazione nei nomi e negli alias del gruppo.

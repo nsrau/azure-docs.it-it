@@ -2,18 +2,18 @@
 title: Esercitazione per esportare i dati da Azure Data Box | Microsoft Docs
 description: Informazioni sui prerequisiti di distribuzione e su come esportare i dati da un Azure Data Box
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: how-to
-ms.date: 07/10/2020
-ms.author: twooley
-ms.openlocfilehash: 0ddadd8d2bddda0fdff6a126fe6c09d863139b44
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/10/2020
+ms.author: alkohli
+ms.openlocfilehash: 5494c2dd57220888ad846aaf69fde2f7a59353e4
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783621"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053055"
 ---
 # <a name="tutorial-create-export-order-for-azure-data-box-preview"></a>Esercitazione: creare un ordine di esportazione per Azure Data Box (anteprima)
 
@@ -60,7 +60,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
    ![Crea risorsa](media/data-box-deploy-export-ordered/azure-data-box-export-00b.png)
 
-3. Selezionare **Crea**.
+3. Selezionare **Create** (Crea).
 
    ![Crea Azure Data Box](media/data-box-deploy-export-ordered/azure-data-box-export-00c.png)
 
@@ -70,7 +70,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
     |---------|---------|
     |Tipo di trasferimento     | Selezionare **Esporta in Azure**.        |
     |Subscription     | Selezionare una sottoscrizione di tipo Contratto Enterprise, CSP o Azure Sponsorship per il servizio Data Box. <br> La sottoscrizione viene collegata all'account di fatturazione.       |
-    |Resource group     |    Selezionare un gruppo di risorse esistente. <br> Un gruppo di risorse è un contenitore logico per le risorse che possono essere gestite o distribuite insieme.         |
+    |Gruppo di risorse     |    Selezionare un gruppo di risorse esistente. <br> Un gruppo di risorse è un contenitore logico per le risorse che possono essere gestite o distribuite insieme.         |
     |Area di Azure di origine    |    Selezionare l'area di Azure in cui sono attualmente presenti i dati.         |
     |Paese di destinazione     |     Selezionare il paese in cui si vuole spedire il dispositivo.        |
 
@@ -82,7 +82,7 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
 6. Specificare i **Dettagli dell'ordine di** **base** . Immettere o selezionare le informazioni seguenti e quindi selezionare **Avanti**.
 
-    |Impostazione  |valore  |
+    |Impostazione  |Valore  |
     |---------|---------|
     |Sottoscrizione     | La sottoscrizione viene popolata automaticamente in base alla selezione precedente.|
     |Resource group | Il gruppo di risorse selezionato in precedenza. |
@@ -115,9 +115,20 @@ Seguire questa procedura nel portale di Azure per ordinare un dispositivo.
 
    Per un esempio di input XML, vedere [input XML di esempio](data-box-deploy-export-ordered.md#sample-xml-file)
 
-9. In **selezione dati**esaminare le impostazioni e selezionare **Avanti: dettagli contatto>**.
+9. In **selezione dati**esaminare le impostazioni e fare clic su **avanti: sicurezza>**.
 
    ![Dettagli del contatto](media/data-box-deploy-export-ordered/azure-data-box-export-05.png)
+
+1. In **sicurezza**, se si desidera abilitare la crittografia doppia basata su software, selezionare **Abilita crittografia doppia per l'ordine**. 
+
+   La crittografia basata su software viene eseguita oltre alla crittografia AES-256 bit dei dati nel Data Box.
+
+   > [!NOTE]
+   > Se si abilita questa opzione, l'elaborazione degli ordini e la copia dei dati potrebbero richiedere più tempo. Non è possibile modificare questa opzione dopo aver creato l'ordine.
+
+   ![Schermata di sicurezza per l'importazione di data box, crittografia doppia](media/data-box-deploy-export-ordered/azure-data-box-export-05b.png)
+
+   Selezionare **Avanti: Dettagli contatto** per continuare.
 
 10. Nei **Dettagli del contatto**selezionare **+ Aggiungi indirizzo di spedizione** per immettere le informazioni sulla spedizione.
 
@@ -157,7 +168,7 @@ Se si seleziona **Usa file XML**, è possibile specificare contenitori e BLOB sp
 
    ![File XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-04.png)
 
-4. Selezionare **Crea**.
+4. Selezionare **Create** (Crea).
 
    ![File XML](media/data-box-deploy-export-ordered/azure-data-box-export-sms-use-xml-file-07.png)
 

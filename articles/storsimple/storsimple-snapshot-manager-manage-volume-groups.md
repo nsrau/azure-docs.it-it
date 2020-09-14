@@ -3,7 +3,7 @@ title: StorSimple Snapshot Manager gruppi di volume | Microsoft Docs
 description: Viene descritto come utilizzare lo snap-in MMC StorSimple Snapshot Manager per creare e gestire i gruppi di volumi.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: carmonm
 editor: ''
 ms.assetid: 7a232414-6a28-4b81-bd7b-cf61e28b33d7
@@ -13,13 +13,13 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: twooley
-ms.openlocfilehash: 97bb232f726dada5241242e4a1d90e120c07e38c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: 805ab0e78f0679ce483af3a73203b41132be2a59
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85506260"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90054773"
 ---
 # <a name="use-storsimple-snapshot-manager-to-create-and-manage-volume-groups"></a>Usare StorSimple Snapshot Manager per creare e gestire gruppi di volumi
 ## <a name="overview"></a>Panoramica
@@ -52,7 +52,7 @@ Se si fa clic sul nodo **Gruppi di volumi**, nel riquadro **Risultati** vengono 
 |:--- |:--- |
 | Nome |La colonna **Nome** contiene il nome del gruppo di volumi. |
 | Applicazione |La colonna **Applicazioni** mostra il numero di writer VSS attualmente installati e in esecuzione nell'host Windows. |
-| Selezionato |La colonna **Selezionato** mostra il numero di volumi contenuti nel gruppo di volumi. Zero (0) indica che nessuna applicazione è associata ai volumi nel gruppo di volumi. |
+| Opzione selezionata |La colonna **Selezionato** mostra il numero di volumi contenuti nel gruppo di volumi. Zero (0) indica che nessuna applicazione è associata ai volumi nel gruppo di volumi. |
 | Importati |La colonna **Importato** mostra il numero di volumi importati. Se impostata su **True**, questa colonna indica che un gruppo di volumi è stato importato dal portale di Azure e non è stato creato in StorSimple Snapshot Manager. |
 
 > [!NOTE]
@@ -72,7 +72,7 @@ Utilizzare la procedura seguente per creare un gruppo di volumi.
     Viene visualizzata la finestra di dialogo **Crea un gruppo di volumi**.
    
     ![Finestra di dialogo Crea un gruppo di volumi](./media/storsimple-snapshot-manager-manage-volume-groups/HCS_SSM_CreateVolumeGroup_dialog.png)
-3. Immettere le seguenti informazioni:
+3. Immettere le informazioni seguenti:
    
    1. Nella casella **Nome** digitare un nome univoco per il nuovo gruppo di volumi.
    2. Nella casella **Applicazioni** selezionare le applicazioni associate ai volumi che verranno aggiunte al gruppo di volumi.

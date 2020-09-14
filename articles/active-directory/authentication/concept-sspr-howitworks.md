@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 393ed336018c7a0272c15adaa72633abd6b95d2f
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: cf03dffe82d611f10639af2a147bc2d9e9316621
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377200"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052775"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Funzionamento: reimpostazione self-service della password di Azure AD
 
@@ -39,7 +39,7 @@ Un utente può reimpostare o modificare la password tramite il [portale SSPR](ht
 
 Quando un utente seleziona il collegamento **non è possibile accedere all'account** da un'applicazione o da una pagina o passa direttamente a [https://aka.ms/sspr](https://passwordreset.microsoftonline.com) , la lingua usata nel portale di SSPR si basa sulle opzioni seguenti:
 
-* Per impostazione predefinita, le impostazioni locali del browser vengono usate per visualizzare il SSPR nella lingua appropriata. L'esperienza di reimpostazione della password viene localizzata nelle stesse lingue [supportate da Office 365](https://support.microsoft.com/office/what-languages-is-office-available-in-26d30382-9fba-45dd-bf55-02ab03e2a7ec).
+* Per impostazione predefinita, le impostazioni locali del browser vengono usate per visualizzare il SSPR nella lingua appropriata. L'esperienza di reimpostazione della password viene localizzata nelle stesse lingue [supportate da Microsoft 365](https://support.microsoft.com/office/what-languages-is-office-available-in-26d30382-9fba-45dd-bf55-02ab03e2a7ec).
 * Se si vuole creare un collegamento a SSPR in una lingua localizzata specifica, aggiungere `?mkt=` alla fine dell'URL di reimpostazione della password insieme alle impostazioni locali obbligatorie.
     * Ad esempio, per specificare le impostazioni locali di spagnolo *es-US* , usare `?mkt=es-us`  -  [https://passwordreset.microsoftonline.com/?mkt=es-us](https://passwordreset.microsoftonline.com/?mkt=es-us) .
 
@@ -77,7 +77,7 @@ Prima che gli utenti possano reimpostare o modificare la password usando SSPR, d
 
 È possibile abilitare l'opzione per richiedere a un utente di completare la registrazione SSPR se accedono a qualsiasi applicazione usando Azure AD. Questo flusso di lavoro include le applicazioni seguenti:
 
-* Office 365
+* Microsoft 365
 * Portale di Azure
 * Pannello di accesso
 * Applicazioni federate
@@ -226,7 +226,7 @@ SSPR esegue l'equivalente di una reimpostazione della password avviata dall'ammi
 
 La modifica e la reimpostazione della password sono completamente supportate in tutte le configurazioni B2B. La reimpostazione della password di utenti B2B è supportata nei tre casi seguenti:
 
-* **Utenti di un'organizzazione partner con un tenant di Azure ad esistente**: se l'organizzazione partner ha un tenant di Azure ad esistente, verranno rispettati i criteri di reimpostazione della password abilitati in tale tenant. Per garantire il corretto funzionamento della reimpostazione della password, l'organizzazione partner deve assicurarsi che sia abilitata la reimpostazione delle password self-service di Azure AD. Non sono previsti costi aggiuntivi per i clienti di Office 365.
+* **Utenti di un'organizzazione partner con un tenant di Azure ad esistente**: se l'organizzazione partner ha un tenant di Azure ad esistente, verranno rispettati i criteri di reimpostazione della password abilitati in tale tenant. Per garantire il corretto funzionamento della reimpostazione della password, l'organizzazione partner deve assicurarsi che sia abilitata la reimpostazione delle password self-service di Azure AD. Non sono previsti costi aggiuntivi per i clienti Microsoft 365.
 * **Utenti che si iscrivono** all'iscrizione self-service: se l'organizzazione partner ha usato la funzionalità di [iscrizione self-service](../users-groups-roles/directory-self-service-signup.md) per accedere a un tenant, è possibile reimpostare la password con l'indirizzo di posta elettronica registrato.
 * **Utenti B2B**: tutti i nuovi utenti B2B creati usando le nuove [funzionalità B2B di Azure ad](../external-identities/what-is-b2b.md) possono anche reimpostare le password con l'indirizzo di posta elettronica registrato durante il processo di invito.
 

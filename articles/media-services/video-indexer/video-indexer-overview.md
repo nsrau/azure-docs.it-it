@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 08/31/2020
+ms.date: 09/11/2020
 ms.author: juliako
-ms.openlocfilehash: bff99cdd44763c0df6bb5b2dd863b27728c23fcd
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: b327facc2ac9ad64cf5237ecddc3e4024f75daa6
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318685"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052138"
 ---
 # <a name="what-is-azure-media-services-video-indexer"></a>Informazioni su Video Indexer di Servizi multimediali di Azure
 
@@ -81,7 +81,7 @@ L'elenco seguente contiene le informazioni dettagliate che è possibile recupera
 * **Elaborazione a due canali**: rileva automaticamente trascrizioni separate e le unisce in una singola sequenza temporale.
 * **Riduzione del rumore**: ripulisce le registrazioni audio di telefonia o le registrazioni con rumori (in base ai filtri Skype).
 * **Personalizzazione della trascrizione** (CRIS): esegue il training di modelli di riconoscimento vocale personalizzati per creare trascrizioni specifiche del settore. Per altre informazioni, vedere [Personalizzare un modello di lingua dal sito Web di Video Indexer](customize-language-model-with-website.md) e [Personalizzare un modello di lingua con l'API Video Indexer](customize-language-model-with-api.md).
-* **Enumerazione dei relatori**: identifica e riconosce quale relatore ha pronunciato determinate parole e quando.
+* **Enumerazione dei relatori**: identifica e riconosce quale relatore ha pronunciato determinate parole e quando. È possibile rilevare sedici oratori in un unico file audio.
 * **Statistiche dei relatori**: fornisce statistiche sulla percentuale di parlato dei parlanti.
 * **Moderazione del contenuto testuale**: rileva testo esplicito nella trascrizione audio.
 * **Effetti audio**: identifica effetti audio, come applausi, parlato e silenzio.

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: troubleshooting
-ms.date: 08/12/2020
+ms.date: 09/11/2020
 ms.reviewer: arvinh
-ms.openlocfilehash: 23c3dfc6670c96f44a10b2ad5d5bfeb3ff96382c
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: 2f83679a39f919e5e9932303731560aedd796233
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88271006"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052385"
 ---
 # <a name="known-issues-application-provisioning"></a>Problemi noti: provisioning delle applicazioni
 Problemi noti da tenere presente quando si utilizza il provisioning delle app. È possibile fornire commenti e suggerimenti sul servizio di provisioning dell'applicazione in UserVoice, vedere Azure AD provisioning [dell'applicazione UserVoice](https://aka.ms/appprovisioningfeaturerequest). Osserviamo attentamente UserVoice per poter migliorare il servizio. 
@@ -66,7 +66,13 @@ Le espressioni di mapping degli attributi possono avere un massimo di 10.000 car
 - Il provisioning di gruppi annidati non è supportato. 
 - Il provisioning in tenant B2C non è supportato a causa delle dimensioni dei tenant. 
 
-**L'intervallo di provisioning è fisso** Il [tempo](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) tra i cicli di provisioning non è attualmente configurabile. 
+**Il provisioning automatico non è disponibile nell'applicazione basata su OIDC**
+
+Se si crea una registrazione dell'app, l'entità servizio corrispondente nelle app aziendali non verrà abilitata per il provisioning utenti automatico. È necessario richiedere che l'app venga aggiunta alla raccolta, se usata da più organizzazioni, oppure creare una seconda app non della raccolta per il provisioning. 
+
+**L'intervallo di provisioning è fisso**
+
+Il [tempo](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user#how-long-will-it-take-to-provision-users) tra i cicli di provisioning non è attualmente configurabile. 
 
 **Le modifiche non passano dall'app di destinazione al Azure AD**
 

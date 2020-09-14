@@ -2,16 +2,19 @@
 title: Usare una raccolta di immagini condivise in Azure Lab Services | Microsoft Docs
 description: Informazioni su come configurare un account lab per l'uso di una raccolta di immagini condivise in modo che un utente possa condividere un'immagine con altri utenti e un altro utente possa usare l'immagine per creare una macchina virtuale modello nel lab.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: 4dc001a5e4c95db608c38f0a7c00190fd1859998
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/11/2020
+ms.openlocfilehash: 04e3764b095706d091bb72baaae77f5a4016fd28
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445152"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052835"
 ---
 # <a name="use-a-shared-image-gallery-in-azure-lab-services"></a>Usare una raccolta di immagini condivise in Azure Lab Services
 Questo articolo illustra il modo in cui docenti e amministratori di lab possono salvare un'immagine di macchina virtuale modello in una [raccolta di immagini condivise](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries) in modo che possa essere usata da altri utenti per creare lab. 
+
+> [!IMPORTANT]
+> Quando si usa una raccolta di immagini condivise, Azure Lab Services supporta solo le immagini con meno di 128 GB di spazio su disco del sistema operativo. Le immagini con più di 128 GB di spazio su disco o più dischi non verranno visualizzate nell'elenco delle immagini di macchine virtuali durante la creazione del Lab.
 
 ## <a name="scenarios"></a>Scenari
 Ecco i due scenari supportati da questa funzionalità: 

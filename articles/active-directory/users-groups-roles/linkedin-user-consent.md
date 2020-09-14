@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4eaf0ab6cc412b7f5a02f898682e90fdde9de3a1
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 5d90391dd5512b08ee6995a32bcd0b0f111b0f2b
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87542362"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90053937"
 ---
 # <a name="linkedin-account-connections-data-sharing-and-consent"></a>Condivisione e consenso per i dati delle connessioni dell'account LinkedIn
 
@@ -73,7 +73,7 @@ Con la connessione degli account Microsoft e LinkedIn si consente a Microsoft di
 * Dati del profilo: includono informazioni come nome, cognome, foto del profilo, indirizzo di posta elettronica, responsabile e persone gestite.
 * Dati del calendario: includono le riunioni impostate nei calendari, i relativi orari, i luoghi e le informazioni di contatto dei partecipanti. Le informazioni sulla riunione, ad esempio l'ordine del giorno, il contenuto o il titolo, non sono incluse nei dati del calendario.
 * Dati relativi agli interessi: includono gli interessi associati all'account e basati sull'uso di servizi Microsoft, ad esempio Cortana e Bing per le aziende.
-* Dati sulle sottoscrizioni: includono le sottoscrizioni fornite dall'organizzazione ad app e servizi Microsoft, ad esempio Office 365.
+* Dati delle sottoscrizioni: include le sottoscrizioni fornite dall'organizzazione per le app e i servizi Microsoft, ad esempio Microsoft 365.
 * Dati dei contatti: includono gli elenchi dei contatti di Outlook, Skype e altri servizi Microsoft, comprese le informazioni di contatto relative alle persone con le quali si collabora e si comunica frequentemente. I contatti verranno periodicamente importati, archiviati e usati da LinkedIn, ad esempio per suggerire connessioni, consentire di organizzare i contatti e visualizzare gli eventuali aggiornamenti.
 
 I dati a cui si accede da Microsoft non vengono archiviati in modo permanente in LinkedIn, tranne i contatti. I contatti di Microsoft rimangono archiviati in LinkedIn fino a quando non vengono rimossi. Per altre informazioni, vedere la pagina sull'[eliminazione dei contatti importati da LinkedIn](https://www.linkedin.com/help/linkedin/answer/43377).

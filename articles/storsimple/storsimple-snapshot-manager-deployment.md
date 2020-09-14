@@ -3,7 +3,7 @@ title: Distribuzione di StorSimple Snapshot Manager | Microsoft Docs
 description: Informazioni su come scaricare e installare Snapshot StorSimple Manager, uno snap-in MMC per la gestione delle funzionalità di protezione e backup dei dati di StorSimple.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: timlt
 editor: ''
 ms.assetid: f0128f57-519e-49ec-9187-23575809cdbe
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: twooley
-ms.openlocfilehash: 6d3e3d6cdf7a831bf09d9c4709c1a60d27683438
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: 5f94564c5e769d3cf0e0abbe92a309a1ee2117a1
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75933372"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055079"
 ---
 # <a name="deploy-the-storsimple-snapshot-manager-mmc-snap-in"></a>Distribuire lo snap-in di StorSimple Snapshot Manager
 
@@ -53,7 +53,7 @@ I passaggi seguenti forniscono una panoramica generale delle attività di config
    
    * Windows Server 2008 R2 (nei server che eseguono Windows 2008 R2, è necessario inoltre installare Windows Server 2008 SP1 e Windows Management Framework 3.0)
    * Windows Server 2012
-   * R2 per Windows Server 2012
+   * Windows Server 2012 R2
      
      Per un dispositivo virtuale StorSimple, l'host deve essere una macchina virtuale di Microsoft Azure.
 3. Assicurarsi che siano soddisfatti i requisiti di configurazione Microsoft Azure StorSimple. Per ulteriori informazioni, vedere [Prerequisiti di distribuzione](storsimple-8000-deployment-walkthrough-u2.md#deployment-prerequisites).
@@ -160,7 +160,7 @@ Utilizzare la procedura seguente per disinstallare StorSimple Snapshot Manager
    > Se sono presenti processi MMC in esecuzione in background, ad esempio StorSimple Snapshot Manager o Disk Management, la disinstallazione non riesce e verrà visualizzato un messaggio di chiudere tutte le istanze di MMC prima di tentare di disinstallare il programma. Selezionare**Chiudi automaticamente le applicazioni e tenta di riavviarle al termine dell'installazione**, quindi fare clic su **OK**.
    > 
    > 
-5. Al termine del processo di disinstallazione, viene visualizzato il messaggio **Installazione completata**. Fare clic su **Chiudi**.
+5. Al termine del processo di disinstallazione, viene visualizzato il messaggio **Installazione completata**. Fare clic su **Close**.
 
 ### <a name="step-2-back-up-the-storsimple-snapshot-manager-database"></a>Passaggio 2: Eseguire il backup del database di StorSimple Snapshot Manager
 Utilizzare la procedura seguente per creare e salvare una copia del database di StorSimple Snapshot Manager.

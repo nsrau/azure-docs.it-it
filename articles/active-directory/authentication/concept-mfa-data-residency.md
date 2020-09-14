@@ -11,16 +11,16 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sasubram
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee4b15311dfefecd9a533add9c5a028a9b7b22fd
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 8bed0f6cc32c25563d322da77193c5a3b6072902
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87051154"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90052280"
 ---
 # <a name="data-residency-and-customer-data-for-azure-multi-factor-authentication"></a>Residenza dei dati e dati dei clienti per Azure Multi-Factor Authentication
 
-I dati dei clienti vengono archiviati da Azure AD in una posizione geografica in base all'indirizzo fornito dall'organizzazione al momento della sottoscrizione di un servizio online Microsoft, ad esempio Office 365 e Azure. Per informazioni sulla posizione di archiviazione dei dati dei clienti, è possibile usare la sezione [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) (Percorso di archiviazione dei dati) di Microsoft Trust Center.
+I dati dei clienti vengono archiviati da Azure AD in una posizione geografica in base all'indirizzo fornito dall'organizzazione quando si sottoscrive un servizio online Microsoft, ad esempio Microsoft 365 e Azure. Per informazioni sulla posizione di archiviazione dei dati dei clienti, è possibile usare la sezione [Where is your data located?](https://www.microsoft.com/trustcenter/privacy/where-your-data-is-located) (Percorso di archiviazione dei dati) di Microsoft Trust Center.
 
 Azure Multi-Factor Authentication basato sul cloud e il server Azure Multi-Factor Authentication elaborano e archiviano una certa quantità di dati personali e aziendali. Questo articolo descrive quali dati vengono archiviati e dove.
 
