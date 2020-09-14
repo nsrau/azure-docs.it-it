@@ -4,12 +4,12 @@ description: Application Performance Monitoring senza codice per applicazioni Ja
 ms.topic: conceptual
 ms.date: 04/16/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: ca3094197deb7c74ba9b51422a78ee0f5d3687d2
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.openlocfilehash: 561a6405a49d8f15affbf6d8d4de1a7f4886826a
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374287"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056099"
 ---
 # <a name="configuration-options---java-standalone-agent-for-azure-monitor-application-insights"></a>Opzioni di configurazione-Application Insights agente autonomo Java per monitoraggio di Azure
 
@@ -38,8 +38,8 @@ Per impostazione predefinita, Application Insights Java 3,0 Preview prevede che 
 
 È possibile specificare un percorso del file di configurazione personalizzato utilizzando
 
-* `APPLICATIONINSIGHTS_CONFIGURATION_FILE`variabile di ambiente o
-* `applicationinsights.configurationFile`Proprietà di sistema Java
+* `APPLICATIONINSIGHTS_CONFIGURATION_FILE` variabile di ambiente o
+* `applicationinsights.configurationFile` Proprietà di sistema Java
 
 Se si specifica un percorso relativo, questo verrà risolto in relazione alla directory in cui `applicationinsights-agent-3.0.0-PREVIEW.5.jar` si trova.
 
@@ -113,18 +113,18 @@ Se si vuole modificare questa soglia:
 
 Questi sono i `threshold` valori validi che è possibile specificare nel `ApplicationInsights.json` file e il modo in cui corrispondono ai livelli di registrazione tra diversi framework di registrazione:
 
-| `threshold`  | Log4j  | Logback | LUG     |
-|--------------|--------|---------|---------|
-| OFF          | OFF    | OFF     | OFF     |
-| IRREVERSIBILE        | IRREVERSIBILE  | ERRORE   | SEVERE  |
-| ERRORE/GRAVE | ERRORE  | ERRORE   | SEVERE  |
-| AVVISI/AVVISI | AVVERTIRE   | AVVERTIRE    | WARNING |
-| INFO         | INFO   | INFO    | INFO    |
-| CONFIG       | DEBUG  | DEBUG   | CONFIG  |
-| DEBUG/FINE   | DEBUG  | DEBUG   | FINE    |
-| FINER        | DEBUG  | DEBUG   | FINER   |
-| TRACCIA/FINEST | TRACE  | TRACE   | FINEST  |
-| ALL          | ALL    | ALL     | ALL     |
+| valore soglia   | Log4j  | Logback | LUG     |
+|-------------------|--------|---------|---------|
+| OFF               | OFF    | OFF     | OFF     |
+| IRREVERSIBILE             | IRREVERSIBILE  | ERRORE   | SEVERE  |
+| ERRORE (o grave) | ERRORE  | ERRORE   | SEVERE  |
+| AVVISA (o avviso) | AVVERTIRE   | AVVERTIRE    | WARNING |
+| INFO              | INFO   | INFO    | INFO    |
+| CONFIG            | DEBUG  | DEBUG   | CONFIG  |
+| DEBUG (o FINE)   | DEBUG  | DEBUG   | FINE    |
+| FINER             | DEBUG  | DEBUG   | FINER   |
+| TRACE (o FINEST) | TRACE  | TRACE   | FINEST  |
+| ALL               | ALL    | ALL     | ALL     |
 
 ## <a name="jmx-metrics"></a>Metriche JMX
 
@@ -134,7 +134,7 @@ Se sono presenti alcune metriche JMX che si desidera acquisire:
 {
   "instrumentationSettings": {
     "preview": {
-        "jmxMetrics": [
+      "jmxMetrics": [
         {
           "objectName": "java.lang:type=ClassLoading",
           "attribute": "LoadedClassCount",
@@ -181,9 +181,9 @@ Per impostazione predefinita, Application Insights Java 3,0 Preview invia una me
 {
   "instrumentationSettings": {
     "preview": {
-        "heartbeat": {
-            "intervalSeconds": 60
-        }
+      "heartbeat": {
+        "intervalSeconds": 60
+      }
     }
   }
 }
@@ -205,13 +205,13 @@ Di seguito è riportato un esempio di come impostare il campionamento sul **10% 
 {
   "instrumentationSettings": {
     "preview": {
-        "sampling": {
-            "fixedRate": {
-                "percentage": 10
-            }
-          }
+      "sampling": {
+        "fixedRate": {
+          "percentage": 10
         }
+      }
     }
+  }
 }
 ```
 
@@ -244,10 +244,10 @@ Per impostazione predefinita, viene registrato nella console di con `warn` il li
 {
   "instrumentationSettings": {
     "preview": {
-        "selfDiagnostics": {
-            "destination": "console",
-            "level": "WARN"
-        }
+      "selfDiagnostics": {
+        "destination": "console",
+        "level": "WARN"
+      }
     }
   }
 }
@@ -261,12 +261,12 @@ Se si desidera accedere a un file anziché registrarsi nella console:
 {
   "instrumentationSettings": {
     "preview": {
-        "selfDiagnostics": {
-            "destination": "file",
-            "directory": "/var/log/applicationinsights",
-            "level": "WARN",
-            "maxSizeMB": 10
-        }    
+      "selfDiagnostics": {
+        "destination": "file",
+        "directory": "/var/log/applicationinsights",
+        "level": "WARN",
+        "maxSizeMB": 10
+      }
     }
   }
 }

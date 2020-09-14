@@ -12,12 +12,12 @@ ms.custom:
 - amqp
 - mqtt
 - 'Role: Cloud Development'
-ms.openlocfilehash: a5707ef266f3d49bdcbff9793a0b90e6c3f4cb68
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: c1dc3b5fe4eecea42baf7073b9c806eea1648cff
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87327651"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056167"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Rispondere agli eventi dell'hub IoT usando Griglia di eventi per attivare le azioni
 
@@ -188,7 +188,7 @@ Per filtrare i messaggi prima dell'invio dei dati di telemetria, è possibile ag
 
 ## <a name="limitations-for-device-connected-and-device-disconnected-events"></a>Limitazioni per gli eventi correlati a dispositivi connessi e disconnessi
 
-Per ricevere gli eventi dello stato di connessione del dispositivo, un dispositivo deve eseguire un'operazione di invio dei dati di telemetria di tipo ' 2C ' o ' C2D Receive message ' con l'hub Internet. Si noti tuttavia che se un dispositivo usa il protocollo AMQP per connettersi all'hub Internet, è consigliabile eseguire un'operazione di "messaggio di ricezione C2D", altrimenti le notifiche dello stato di connessione potrebbero essere ritardate di pochi minuti. Se il dispositivo usa il protocollo MQTT, l'hub IoT mantiene aperto il collegamento C2D. Per AMQP, è possibile aprire il collegamento C2D chiamando l' [API asincrona Receive](https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.deviceclient.receiveasync?view=azure-dotnet), per l'SDK per gli hub di Internet o [per il client di dispositivo per AMQP](iot-hub-amqp-support.md#device-client).
+Per ricevere gli eventi dello stato di connessione del dispositivo, un dispositivo deve eseguire un'operazione di invio dei dati di telemetria di tipo ' 2C ' o ' C2D Receive message ' con l'hub Internet. Si noti tuttavia che se un dispositivo usa il protocollo AMQP per connettersi all'hub Internet, è consigliabile eseguire un'operazione di "messaggio di ricezione C2D", altrimenti le notifiche dello stato di connessione potrebbero essere ritardate di pochi minuti. Se il dispositivo usa il protocollo MQTT, l'hub IoT mantiene aperto il collegamento C2D. Per AMQP, è possibile aprire il collegamento C2D chiamando l'API asincrona Receive per l'SDK per C# o il [client del dispositivo per AMQP](iot-hub-amqp-support.md#device-client).
 
 Il collegamento D2C è aperto se si inviano dati di telemetria. 
 
@@ -214,4 +214,4 @@ Le applicazioni che gestiscono gli eventi dell'hub IoT devono seguire queste pro
 
 * [Compare the differences between routing IoT Hub events and messages (Confrontare le differenze tra il routing degli eventi dell'hub IoT e quello dei messaggi)](iot-hub-event-grid-routing-comparison.md)
 
-* [Informazioni su come usare gli eventi di telemetria degli oggetti Internet per implementare l'analisi spaziale delle cose usando mappe di Azure](../azure-maps/tutorial-iot-hub-maps.md#create-an-azure-function-and-add-an-event-grid-subscription)
+* [Informazioni su come usare gli eventi di telemetria degli oggetti Internet per implementare l'analisi spaziale delle cose usando mappe di Azure](../azure-maps/tutorial-iot-hub-maps.md)

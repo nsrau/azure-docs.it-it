@@ -2,13 +2,13 @@
 title: Collegare o scollegare una raccolta di immagini condivise in Azure Lab Services | Microsoft Docs
 description: Questo articolo descrive come collegare una raccolta di immagini condivise a un lab per le classi in Azure Lab Services.
 ms.topic: article
-ms.date: 06/26/2020
-ms.openlocfilehash: e0b29bcabe1cfb234b422982c0f8faab49c30796
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/11/2020
+ms.openlocfilehash: 08d2a97138633a43e9acd69575c4b44e245d4faa
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85445356"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056473"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Collegare o scollegare una raccolta di immagini condivise in Azure Lab Services
 Questo articolo descrive come collegare o scollegare una raccolta di immagini condivise a un account lab. 
@@ -25,6 +25,9 @@ Ecco i due scenari supportati da questa funzionalità:
 - Un amministratore dell'account lab collega una raccolta di immagini condivise all'account lab. Un autore del lab (docente) salva l'immagine personalizzata del suo lab nella raccolta di immagini condivise. Quindi, altri creatori di lab possono selezionare questa immagine dalla raccolta di immagini condivise per creare un modello per i propri lab. 
 
     Quando un'immagine viene salvata in una raccolta di immagini condivise, Azure Lab Services replica l'immagine salvata in altre regioni disponibili nella stessa [area geografica](https://azure.microsoft.com/global-infrastructure/geographies/). Ciò assicura che l'immagine sia disponibile per i lab creati in altre regioni nella stessa area geografica. Il salvataggio di immagini in una raccolta di immagini condivise comporta un costo aggiuntivo, che include il costo per tutte le immagini replicate. Questo costo è separato dal costo di utilizzo di Azure Lab Services. Per altre informazioni sui prezzi della Raccolta immagini condivise, consultare [Raccolta immagini condivise - Fatturazione](https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#billing).
+
+> [!IMPORTANT]
+> Quando si usa una raccolta di immagini condivise, Azure Lab Services supporta solo le immagini con meno di 128 GB di spazio su disco del sistema operativo. Le immagini con più di 128 GB di spazio su disco o più dischi non verranno visualizzate nell'elenco delle immagini di macchine virtuali durante la creazione del Lab.
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>Eseguire la configurazione al momento della creazione dell'account lab
 È possibile collegare una raccolta di immagini condivise al momento di creare un account lab. È possibile selezionare una raccolta di immagini condivise esistente dall'elenco a discesa o crearne una nuova. Per creare e collegare una raccolta di immagini condivise all'account lab, selezionare **Crea nuova**, immettere un nome per la raccolta e premere **OK**. 

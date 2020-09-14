@@ -13,12 +13,12 @@ ms.topic: end-user-help
 ms.date: 05/28/2020
 ms.author: curtand
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 8c6a9304927f5d4bcad895b725955c522b60207a
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: c9d8bb85aac87503ca641f6633668a6dc582882f
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266237"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056082"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>Gestire le password per le app per la verifica in due passaggi
 
@@ -44,7 +44,7 @@ Durante il processo iniziale di registrazione della verifica a due fattori, vien
 
 - **L'organizzazione usa la verifica a due fattori e la pagina Verifica di sicurezza aggiuntiva**. Se si usa l'account aziendale o dell'istituto di istruzione, ad esempio alain@contoso.com, con la verifica a due fattori all'interno dell'organizzazione, è possibile gestire le password per le app dalla pagina [Verifica di sicurezza aggiuntiva](https://account.activedirectory.windowsazure.com/Proofup.aspx). Per istruzioni dettagliate, vedere [Creare ed eliminare password per le app usando la pagina Verifica di sicurezza aggiuntiva](#create-and-delete-app-passwords-from-the-additional-security-verification-page) in questo articolo.
 
-- **L'organizzazione usa la verifica a due fattori e il portale di Office 365**. Se si usa l'account aziendale o dell'istituto di istruzione, ad esempio alain@contoso.com, la verifica a due fattori e le app di Office 365 all'interno dell'organizzazione, è possibile gestire le password per le app dalla [pagina del portale di Office 365](https://www.office.com). Per istruzioni dettagliate, vedere [Creare ed eliminare password per le app usando il portale di Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) in questo articolo.
+- **L'organizzazione usa la verifica a due fattori e il portale di Office 365**. Se si usa l'account aziendale o dell'Istituto di istruzione (ad esempio, alain@contoso.com ), la verifica a due fattori e Microsoft 365 app nell'organizzazione, è possibile gestire le password dell'app dalla [pagina del portale di Office 365](https://www.office.com). Per istruzioni dettagliate, vedere [Creare ed eliminare password per le app usando il portale di Office 365](#create-and-delete-app-passwords-using-the-office-365-portal) in questo articolo.
 
 - **Si usa la verifica a due fattori con un account Microsoft personale**. Se si usa un account Microsoft personale, ad esempio alain@outlook.com, con la verifica a due fattori, è possibile gestire le password per le app dalla pagina [Informazioni di base sulla sicurezza](https://account.microsoft.com/security/). Per istruzioni dettagliate, vedere [Utilizzo delle password con le app che non supportano la verifica in due passaggi](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification).
 
@@ -82,11 +82,11 @@ Durante il processo iniziale di registrazione della verifica a due fattori, vien
 
 ## <a name="create-and-delete-app-passwords-using-the-office-365-portal"></a>Creare ed eliminare password per le app tramite il portale di Office 365
 
-Se si usa la verifica in due passaggi con l'account aziendale o dell'istituto di istruzione e le app di Office 365, è possibile creare ed eliminare le password per le app tramite il portale di Office 365.
+Se si usa la verifica in due passaggi con l'account aziendale o dell'Istituto di istruzione e le app Microsoft 365, è possibile creare ed eliminare le password dell'app tramite il portale di Office 365.
 
 ### <a name="to-create-app-passwords-using-the-office-365-portal"></a>Per creare password per le app tramite il portale di Office 365
 
-1. Accedere a Office 365, passare alla pagina [Account personale](https://portal.office.com), selezionare **Sicurezza e privacy**, quindi espandere **Verifica di sicurezza aggiuntiva**.
+1. Accedere all'account aziendale o dell'Istituto di istruzione, passare alla [pagina account personale](https://portal.office.com), selezionare **sicurezza & privacy**, quindi espandere **verifica aggiuntiva di sicurezza**.
 
     ![Portale di Office che mostra l'area Verifica aggiuntiva di sicurezza espansa](media/multi-factor-authentication-end-user-app-passwords/mfa-app-passwords-o365-my-account-page.png)
 

@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 09/11/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: dd02f2dbb7666ba9f2134ffba4cf683e1e9ac67b
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: d90384644c58938bfc8a37ec1231b0d12fd60057
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90039063"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058701"
 ---
 # <a name="azure-security-baseline-for-azure-public-ip"></a>Baseline della sicurezza di Azure per IP pubblico di Azure
 
-Questa linea di base di sicurezza applica le linee guida del [benchmark di sicurezza di Azure versione 1,0](../security/benchmarks/overview.md) all'indirizzo IP pubblico di Azure. Azure Security Benchmark offre consigli sulla protezione delle soluzioni cloud in Azure. Il contenuto viene raggruppato in base ai **controlli di sicurezza** definiti dal benchmark di sicurezza di Azure e alle linee guida correlate applicabili all'indirizzo IP pubblico di Azure. I **controlli** non applicabili all'indirizzo IP pubblico di Azure sono stati esclusi.
+Questa linea di base di sicurezza applica le linee guida del [benchmark di sicurezza di Azure versione 1,0](../security/benchmarks/overview.md) all'indirizzo IP pubblico di Azure. Azure Security Benchmark offre consigli sulla protezione delle soluzioni cloud in Azure. Il contenuto viene raggruppato in base ai **controlli di sicurezza** definiti dal benchmark di sicurezza di Azure e alle linee guida correlate applicabili all'indirizzo IP pubblico di Azure. I **controlli** non applicabili all'indirizzo IP pubblico di Azure sono stati esclusi.  Nota gli indirizzi IP pubblici di Azure non archiviano i dati dei clienti.
 
 Per informazioni sul modo in cui l'indirizzo IP pubblico di Azure è completamente mappato al benchmark di sicurezza di Azure, vedere il file di mapping di base per la [sicurezza degli indirizzi IP pubblici](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/Azure%20Offer%20Security%20Baselines)
 
@@ -46,7 +46,7 @@ Azure PowerShell o l'interfaccia della riga di comando di Azure può essere usat
 
 ### <a name="22-configure-central-security-log-management"></a>2.2: configurare la gestione dei log di sicurezza centralizzata
 
-**Linee guida**: usare il log attività di Azure per monitorare le configurazioni e rilevare le modifiche apportate alle istanze IP pubbliche. A parte il piano di controllo (ad esempio, portale di Azure), l'indirizzo IP pubblico stesso non genera i log relativi al traffico di rete. 
+**Linee guida**: usare il log attività di Azure per monitorare le configurazioni e rilevare le modifiche apportate alle istanze IP pubbliche. A parte il piano di controllo (ad esempio, portale di Azure), l'indirizzo IP pubblico stesso non genera i log relativi al traffico di rete.
 
 IP pubblico fornisce strumenti per monitorare, diagnosticare, visualizzare le metriche e abilitare o disabilitare i log per le risorse in una rete virtuale di Azure.
 

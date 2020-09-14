@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: elkuzmen
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12193b469b6e1f014e6c948da7b2adb370e78d4b
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 48f924cef12db974faae8fb8ed73f01ff8c9a3f8
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795344"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056252"
 ---
 # <a name="managing-custom-domain-names-in-your-azure-active-directory"></a>Gestione dei nomi di dominio personalizzati in Azure Active Directory
 
@@ -55,7 +55,7 @@ Se è già stato aggiunto un dominio contoso.com a un tenant di Azure AD, è anc
 
 ## <a name="what-to-do-if-you-change-the-dns-registrar-for-your-custom-domain-name"></a>Cosa fare se si modifica il registrar DNS per il nome di dominio personalizzato
 
-Se si modificano i registrar DNS, non sono necessarie attività di configurazione aggiuntive in Azure AD. Si può continuare a usare il nome di dominio con Azure AD senza interruzioni. Se si usa il nome di dominio personalizzato con Office 365, Intune o altri servizi che si basano su nomi di dominio personalizzati in Azure AD, vedere la documentazione per tali servizi.
+Se si modificano i registrar DNS, non sono necessarie attività di configurazione aggiuntive in Azure AD. Si può continuare a usare il nome di dominio con Azure AD senza interruzioni. Se si usa il nome di dominio personalizzato con Microsoft 365, Intune o altri servizi che si basano sui nomi di dominio personalizzati in Azure AD, vedere la documentazione relativa a tali servizi.
 
 ## <a name="delete-a-custom-domain-name"></a>Eliminare un nome di dominio personalizzato
 
@@ -75,7 +75,7 @@ Per eliminare un nome di dominio personalizzato, è prima necessario assicurarsi
 
 Per chiamare **ForceDelete** nel portale di Azure, è necessario verificare che siano presenti meno di 1000 riferimenti al nome di dominio e aggiornare o rimuovere nell'[interfaccia di amministrazione di Exchange](https://outlook.office365.com/ecp/) tutti i riferimenti in cui il servizio di provisioning è Exchange. Ciò include gli elenchi distribuiti e i gruppi di sicurezza abilitati alla posta elettronica di Exchange. Per altre informazioni, vedere l'articolo relativo alla [rimozione dei gruppi di sicurezza abilitati alla posta elettronica](/Exchange/recipients/mail-enabled-security-groups?view=exchserver-2019#Remove%20mail-enabled%20security%20groups). L'operazione **ForceDelete** non riesce, inoltre, in presenza di una delle condizioni seguenti:
 
-* Si è acquistato un dominio tramite servizi di sottoscrizione di domini di Office 365
+* È stato acquistato un dominio tramite Microsoft 365 servizi di sottoscrizione di dominio
 * Si amministra come partner per conto dell'organizzazione di un altro cliente
 
 L'operazione **ForceDelete** include le azioni seguenti:

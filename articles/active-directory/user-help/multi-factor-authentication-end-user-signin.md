@@ -13,12 +13,12 @@ ms.date: 04/02/2017
 ms.author: curtand
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
-ms.openlocfilehash: daa2cfae4ed8371e245d12a9f805fe07f31a6d76
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 51cfe2c448fde8c50f8b846979a4b35fa4be5ec1
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83742946"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056029"
 ---
 # <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>Accedere all'account aziendale o dell'istituto di istruzione usando il metodo di verifica a due fattori
 
@@ -39,14 +39,14 @@ L'esperienza di accesso varia a seconda di ciò che si desidera usare come secon
 ## <a name="signing-in-with-a-phone-call"></a>Accesso tramite telefonata
 Le informazioni seguenti descrivono l'esperienza di verifica in due passaggi con una telefonata al cellulare o al telefono dell'ufficio.
 
-1. Accedere a un'applicazione o servizio come Office 365 usando nome utente e password.  
+1. Accedere a un'applicazione o a un servizio, ad esempio Microsoft 365 usando il nome utente e la password.  
 2. Microsoft telefona all'utente.  
 3. Rispondere al telefono e premere il tasto #.  
 
 ## <a name="signing-in-with-a-text-message"></a>Accesso tramite messaggio di testo
 Le informazioni seguenti descrivono l'esperienza di verifica in due passaggi tramite messaggio di testo al telefono cellulare:
 
-1. Accedere a un'applicazione o servizio come Office 365 usando nome utente e password.
+1. Accedere a un'applicazione o a un servizio, ad esempio Microsoft 365 usando il nome utente e la password.
 2. Microsoft invia un messaggio di testo che contiene un codice numerico.
 3. Immettere il codice nell'apposita casella sulla pagina di accesso.
 
@@ -54,7 +54,7 @@ Le informazioni seguenti descrivono l'esperienza di verifica in due passaggi tra
 Le informazioni seguenti descrivono l'esperienza d'uso dell'app Microsoft Authenticator per le verifiche in due passaggi. Esistono due modi diversi di usare l'app. È possibile ricevere notifiche push sul dispositivo oppure aprire l'app per ottenere un codice di verifica.
 
 ### <a name="to-sign-in-with-a-notification-from-the-microsoft-authenticator-app"></a>Per eseguire l'accesso con una notifica dell'app Microsoft Authenticator
-1. Accedere a un'applicazione o servizio come Office 365 usando nome utente e password.
+1. Accedere a un'applicazione o a un servizio, ad esempio Microsoft 365 usando il nome utente e la password.
 2. Microsoft invia una notifica all'app Microsoft Authenticator sul dispositivo dell'utente.
 
    ![Microsoft invia una notifica](./media/multi-factor-authentication-end-user-signin/notify.png)
@@ -66,7 +66,7 @@ Le informazioni seguenti descrivono l'esperienza d'uso dell'app Microsoft Authen
 
 Se si usa l'app Microsoft Authenticator per ottenere i codici di verifica, quando si apre l'app viene visualizzato un numero nel nome dell'account. Questo numero cambia ogni trenta secondi, pertanto non è possibile usare lo stesso numero di due volte. Quando viene richiesto un codice di verifica, aprire l'app e utilizzare il numero attualmente visualizzato.
 
-1. Accedere a un'applicazione o servizio come Office 365 usando nome utente e password.
+1. Accedere a un'applicazione o a un servizio, ad esempio Microsoft 365 usando il nome utente e la password.
 2. Microsoft richiede un codice di verifica.
 
    ![Inserire il codice di verifica dell'app](./media/multi-factor-authentication-end-user-signin/verify3.png)
@@ -76,7 +76,7 @@ Se si usa l'app Microsoft Authenticator per ottenere i codici di verifica, quand
 ## <a name="signing-in-with-an-alternate-method"></a>Accesso con un metodo alternativo
 A volte non si dispone del telefono o del dispositivo configurato come metodo di verifica preferito. Per questo motivo è consigliabile configurare metodi di backup per l'account. Nella sezione seguente viene mostrato come effettuare l'accesso con un metodo alternativo quando il metodo principale può non essere disponibile.
 
-1. Accedere a un'applicazione o servizio come Office 365 usando nome utente e password.
+1. Accedere a un'applicazione o a un servizio, ad esempio Microsoft 365 usando il nome utente e la password.
 2. Selezionare **Usa un'opzione di verifica diversa**. Vengono visualizzate diverse opzioni di verifica in base al numero di opzioni configurate.
 3. Scegliere un metodo alternativo ed effettuare l’accesso.
 

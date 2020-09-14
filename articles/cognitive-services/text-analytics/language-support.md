@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: conceptual
-ms.date: 08/26/2020
+ms.date: 09/12/2020
 ms.author: aahi
-ms.openlocfilehash: e2c6fc739fa81e6eb7c98073e3575e4143d317b2
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 185a6a26350f7803d109e26d8985510380b8cc16
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88932968"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056592"
 ---
 # <a name="text-analytics-api-v3-language-support"></a>Supporto del linguaggio API Analisi del testo V3 
 
@@ -88,6 +88,9 @@ ms.locfileid: "88932968"
 
 #### <a name="key-phrase-extraction"></a>[Estrazione delle frasi chiave](#tab/key-phrase-extraction)
 
+> [!NOTE]
+> Le versioni del modello di Estrazione frasi chiave precedenti alla 2020-07-01 hanno un limite di 64 caratteri. Questo limite non è presente nelle versioni successive del modello.
+
 | Linguaggio              | Codice lingua | supporto V2 | supporto V3 | Disponibile a partire dalla versione del modello V3: |       Note        |
 |:----------------------|:-------------:|:----------:|:----------:|:-----------------------------------------:|:------------------:|
 | Olandese                 |     `nl`      |     ✓      |     ✓      |                2019-10-01                 |                    |
@@ -123,6 +126,6 @@ Se si ha contenuto espresso in un lingua usata con minore frequenza, si può pro
 
 ---
 
-## <a name="see-also"></a>Vedere anche
+## <a name="see-also"></a>Vedi anche
 
 * [Qual è la API Analisi del testo?](overview.md)   

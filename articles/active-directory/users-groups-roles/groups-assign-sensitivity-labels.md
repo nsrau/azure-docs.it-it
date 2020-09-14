@@ -1,6 +1,6 @@
 ---
 title: Assegnare etichette di riservatezza ai gruppi-Azure AD | Microsoft Docs
-description: Come creare regole di appartenenza per popolare automaticamente i gruppi e informazioni di riferimento sulle regole.
+description: Informazioni su come assegnare etichette di riservatezza ai gruppi. Vedere informazioni sulla risoluzione dei problemi e visualizzare altre risorse disponibili.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -14,16 +14,16 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f056b34df0a70374e8bae909f210bfabf107ed4a
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 3179bb294678ee030218e67dafa1c69dcf5d77a0
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90005939"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056269"
 ---
 # <a name="assign-sensitivity-labels-to-microsoft-365-groups-in-azure-active-directory"></a>Assegnare etichette di riservatezza ai gruppi di Microsoft 365 in Azure Active Directory
 
-Azure Active Directory (Azure AD) supporta l'applicazione di etichette di riservatezza pubblicate dal [centro conformità Microsoft 365](https://sip.protection.office.com/homepage) a gruppi Microsoft 365. Le etichette di riservatezza si applicano al gruppo tra servizi come Outlook, Microsoft teams e SharePoint. Questa funzionalità è attualmente disponibile nella versione GA pubblica. Per ulteriori informazioni sul supporto delle app di Office 365, vedere [supporto di office 365 per le etichette di riservatezza](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
+Azure Active Directory (Azure AD) supporta l'applicazione di etichette di riservatezza pubblicate dal [centro conformità Microsoft 365](https://sip.protection.office.com/homepage) a gruppi Microsoft 365. Le etichette di riservatezza si applicano al gruppo tra servizi come Outlook, Microsoft teams e SharePoint. Questa funzionalità è attualmente disponibile nella versione GA pubblica. Per ulteriori informazioni sul supporto delle app Microsoft 365, vedere [supporto Microsoft 365 per le etichette di riservatezza](/microsoft-365/compliance/sensitivity-labels-teams-groups-sites#support-for-the-sensitivity-labels).
 
 > [!IMPORTANT]
 > Per configurare questa funzionalità, è necessario che sia presente almeno una licenza attiva Azure Active Directory Premium P1 nell'organizzazione Azure AD.

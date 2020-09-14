@@ -2,17 +2,17 @@
 title: Installare l'aggiornamento nel dispositivo della serie Azure Data Box Gateway | Microsoft Docs
 description: Viene descritto come applicare gli aggiornamenti usando il portale di Azure e l'interfaccia utente Web locale per il dispositivo della serie Azure Data Box Gateway
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.topic: article
 ms.date: 06/30/2020
-ms.author: twooley
-ms.openlocfilehash: 3972aecf70a664980e8279152eb001915ae1bb53
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: 1b3f0faa2b5f67a23317935f0ad868e3872cf86e
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783876"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055964"
 ---
 # <a name="update-your-azure-data-box-gateway"></a>Aggiornare la Azure Data Box Gateway
 
@@ -22,7 +22,7 @@ Questo articolo descrive i passaggi necessari per installare l'aggiornamento nel
 >
 > - L'aggiornamento **1911** corrisponde alla versione del software **1.6.1049.786** nel dispositivo. Per informazioni su questo aggiornamento, vedere [Note sulla versione](data-box-gateway-1911-release-notes.md).
 >
-> - Tenere presente che l'installazione di un aggiornamento o un hotfix potrebbe riavviare il dispositivo. Dato che il Data Box Gateway è un dispositivo a nodo singolo, eventuali I/O in corso vengono interrotti e il dispositivo si verifica un tempo di inattività di un massimo di 30 minuti per l'aggiornamento del software del dispositivo.
+> - Tenere presente che l'installazione di un aggiornamento o un hotfix potrebbe riavviare il dispositivo. Poiché il Data Box Gateway è un dispositivo a nodo singolo, eventuali operazioni di I/O in corso verranno interrotte e il dispositivo rimarrà inattivo per un tempo massimo di 30 minuti per consentire l'aggiornamento del software.
 
 Ogni passaggio viene descritto nelle sezioni seguenti.
 
@@ -39,7 +39,7 @@ Si consiglia di installare gli aggiornamenti tramite il portale di Azure. Il dis
 
 2. Nel pannello **aggiornamenti del dispositivo** verificare di aver esaminato le condizioni di licenza associate alle nuove funzionalità nelle note sulla versione.
 
-    È possibile scegliere di **scaricare e installare** gli aggiornamenti o semplicemente **scaricare** gli aggiornamenti. È quindi possibile scegliere di installare questi aggiornamenti in un secondo momento.
+    È possibile scegliere di **scaricare e installare** gli aggiornamenti o semplicemente **scaricare** gli aggiornamenti. Sarà così possibile installarli in un secondo momento.
 
     ![Versione del software dopo l'aggiornamento](./media/data-box-gateway-apply-updates/portal-apply-update-02.png)
 

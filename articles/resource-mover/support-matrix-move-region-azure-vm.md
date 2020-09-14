@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: raynew
-ms.openlocfilehash: 4462ea0277193f0f8a4112cad5991d1e12c5f600
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: ddb1c68ab417390987ac4873a16b89757ec24789
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89652871"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058734"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Supporto per lo trasferimento di VM di Azure tra aree di Azure
 
@@ -80,7 +80,7 @@ Debian 8 |  Da 3.16.0-4-amd64 a 3.16.0-10-amd64, da 4.9.0-0.bpo.4-amd64 a 4.9.0-
 
 **Versione** | **Versione del kernel** 
 --- |  --- 
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) |  Sono supportati tutti i [kernel di borsa SUSE 12 SP1, SP2, SP3 e SP4](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) .</br></br> Da 4.4.138-4.7 Azure a 4.4.180-4.31 Azure</br>Da 4.12.14-6.3 Azure a 4.12.14-6.34 Azure  
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) |  Sono supportati tutti i [kernel di borsa SUSE 12 SP1, SP2, SP3 e SP4](https://www.suse.com/support/kb/doc/?id=000019587) .</br></br> Da 4.4.138-4.7 Azure a 4.4.180-4.31 Azure</br>Da 4.12.14-6.3 Azure a 4.12.14-6.34 Azure  
 
 
 ### <a name="supported-suse-linux-enterprise-server-15-kernel-versions"></a>Versioni del kernel supportate SUSE Linux Enterprise Server 15
@@ -100,7 +100,7 @@ SUSE Linux Enterprise Server 15 e 15 SP1 |  Sono supportati tutti i kernel SUSE 
 
 **Impostazione** | **Supporto** | **Dettagli**
 --- | --- | ---
-Dimensione | Qualsiasi dimensione di VM di Azure con almeno due core CPU e 1 GB di RAM | Verificare le [dimensioni delle macchine virtuali in Azure](https://docs.microsoft.com/azure/virtual-machines/sizes-general).
+Dimensione | Qualsiasi dimensione di VM di Azure con almeno due core CPU e 1 GB di RAM | Verificare le [dimensioni delle macchine virtuali in Azure](../virtual-machines/sizes-general.md).
 Set di disponibilità | Attualmente non supportato | Se si aggiunge una macchina virtuale di Azure con un set di disponibilità alla raccolta di spostamento con le opzioni predefinite, il processo di preparazione ha esito negativo. È possibile scegliere di spostare la macchina virtuale in una zona di disponibilità in o per spostarla come macchina virtuale a istanza singola. È possibile modificare queste impostazioni nella pagina Modifica proprietà di destinazione.
 Zone di disponibilità | Supportato | Supportato, a seconda del supporto dell'area di destinazione.
 Immagini della raccolta di Azure (pubblicate da Microsoft) | Supportato | Supportate se la macchina virtuale viene eseguita in un sistema operativo supportato.
@@ -113,15 +113,15 @@ Estensioni | Non supportate | Le estensioni non vengono copiate nella macchina v
 
 ## <a name="supported-vm-storage-settings"></a>Impostazioni di archiviazione delle macchine virtuali supportate
 
-Questa tabella riepiloga il supporto per il disco del sistema operativo, il disco dati e il disco temporaneo della macchina virtuale di Azure. È importante osservare i limiti dei dischi e le destinazioni per le macchine virtuali [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/disk-scalability-targets) e [Windows](https://docs.microsoft.com/azure/virtual-machines/windows/disk-scalability-targets) per evitare eventuali problemi di prestazioni.
+Questa tabella riepiloga il supporto per il disco del sistema operativo, il disco dati e il disco temporaneo della macchina virtuale di Azure. È importante osservare i limiti dei dischi e le destinazioni per le macchine virtuali [Linux](../virtual-machines/linux/disk-scalability-targets.md) e [Windows](../virtual-machines/windows/disk-scalability-targets.md) per evitare eventuali problemi di prestazioni.
 
 **Componente** | **Supporto** | **Dettagli**
 --- | --- | ---
-Dimensione massima del disco del sistema operativo | 2048 GB | [Altre informazioni](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview) sui dischi delle VM.
-Disco temporaneo | Non supportate | Il disco temporaneo è sempre escluso dal processo di preparazione.<br/><br/> Non conservare dati persistenti sul disco temporaneo. [Altre informazioni](https://docs.microsoft.com/azure/virtual-machines/windows/managed-disks-overview#temporary-disk)
+Dimensione massima del disco del sistema operativo | 2048 GB | [Altre informazioni](../virtual-machines/windows/managed-disks-overview.md) sui dischi delle VM.
+Disco temporaneo | Non supportate | Il disco temporaneo è sempre escluso dal processo di preparazione.<br/><br/> Non conservare dati persistenti sul disco temporaneo. [Altre informazioni](../virtual-machines/windows/managed-disks-overview.md#temporary-disk)
 Dimensione massima del disco dati | 8192 GB per i dischi gestiti
 Dimensione minima del disco dati |  2 GB per i dischi gestiti |
-Numero massimo di dischi dati | Fino a 64, in conformità con il supporto per una specifica dimensione di VM di Azure | [Altre informazioni](https://docs.microsoft.com/azure/virtual-machines/windows/sizesd) sulle dimensioni delle VM.
+Numero massimo di dischi dati | Fino a 64, in conformità con il supporto per una specifica dimensione di VM di Azure | [Altre informazioni](../virtual-machines/windows/sizes.md) sulle dimensioni delle VM.
 Frequenza di modifica del disco dati | Massimo 10 Mbps per disco per l'archiviazione Premium. Massimo 2 Mbps per disco per l'archiviazione Standard. | Se la frequenza di modifica dei dati media sul disco è costantemente superiore al limite massimo, la preparazione non verrà aggiornata.<br/><br/>  Tuttavia, se il valore massimo viene superato sporadicamente, la preparazione può essere aggiornata, ma è possibile che vengano visualizzati punti di ripristino leggermente ritardati.
 Disco dati (account di archiviazione standard) | Non supportata. | Modificare il tipo di archiviazione in disco gestito, quindi provare a spostarsi sulla macchina virtuale.
 Disco dati (account di archiviazione Premium) | Non supportate | Modificare il tipo di archiviazione in disco gestito, quindi provare a spostarsi sulla macchina virtuale.

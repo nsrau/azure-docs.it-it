@@ -3,15 +3,15 @@ title: Integrazioni di partner desktop virtuali Windows-Azure
 description: Informazioni sui partner del desktop virtuale di Windows e sull'accesso alla documentazione su come integrarli.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 07/17/2020
+ms.date: 09/11/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 94da428862e1af66ee58e739b3ad3b5b95be3310
-ms.sourcegitcommit: cd0a1ae644b95dbd3aac4be295eb4ef811be9aaa
+ms.openlocfilehash: 9e5b9017854465724724638bfe5d32783a031030
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88612368"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056462"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Integrazioni di partner desktop virtuali Windows
 
@@ -46,7 +46,8 @@ la tecnologia 10ZiG, con hardware e software client all'avanguardia e con thin-E
 
 la leadership del mercato 10ZiG's in dispositivi endpoint client thin e zero e nel software di gestione per i desktop virtuali è esemplificata dal modo in cui lavorano per i clienti. L'hardware thin client viene creato con le funzionalità e le opzioni di vantaggio appositamente progettate per garantire che i clienti ricevano i dispositivi client appropriati in base alle esigenze. 10ZiG Personalizza i dispositivi per adattarsi agli ambienti dei clienti con client basati su Windows e Linux che offrono le migliori prestazioni possibili nei desktop virtuali, sia all'interno che all'esterno del cloud.
 
-- [Accedere al sito Web del partner](https://www.10zig.com/about/microsoft-wvd).
+- [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FaeR).
+- [Accedere al sito Web del partner](https://www.10zig.com/about/microsoft-windows-virtual-desktop).
 
 ## <a name="automai"></a>Automai
 
@@ -101,7 +102,7 @@ Se usato con desktop virtuale di Windows, ControlUp offre funzionalità aggiunti
 
 I thin client di dell Technologies sono ottimizzati per l'accesso Microsoft Azure e i servizi desktop virtuali di Windows. In grado di soddisfare le esigenze dei Knowledge Worker collaborativi fino a un elevato numero di utenti a elevato utilizzo di grafica, i thin client Wyse offrono un'esperienza di elaborazione di alta qualità per sfruttare appieno il numero crescente di app e contenuti. Ideale per ambienti con vincoli di spazio, Wyse thin client si adattano al modo in cui gli utenti lavorano con fattori di forma versatili e una vasta gamma di opzioni per il montaggio di opzioni.
 
-I thin client Wyse sono progettati tenendo conto della sicurezza con una superficie di attacco limitata, il supporto per gli standard di conformità della sicurezza e soluzioni avanzate di autenticazione a più fattori. Distribuisci client thin altamente sicuri con dell-Exclusive Wyse Thinos o verifica l'accesso sicuro alle applicazioni cloud e alle aree di lavoro virtuali da Wyse ThinLinux di protezione avanzata con una progettazione collaudata e commerciale di Windows 10 con le funzionalità di sicurezza aggiunte da Dell. Con le comunicazioni sicure basate su HTTPS e l'autenticazione di Active Directory per l'amministrazione basata su ruoli, Wyse Management Suite mantiene sempre aggiornati gli endpoint Wyse e l'app per dispositivi mobili per WMS Pro consente di visualizzare gli avvisi critici e inviare comandi in tempo reale con un tocco in qualsiasi momento.
+I thin client Wyse sono progettati tenendo in considerazione la sicurezza con superfici di attacco limitate, il supporto per gli standard di conformità della sicurezza e soluzioni avanzate di autenticazione a più fattori. Distribuisci client thin altamente sicuri con le funzionalità di sicurezza di Windows 10 e Enterprise e dell-added. Con le comunicazioni sicure basate su HTTPS e l'autenticazione di Active Directory per l'amministrazione basata su ruoli, Wyse Management Suite mantiene sempre aggiornati gli endpoint Wyse e l'app per dispositivi mobili per WMS Pro consente di visualizzare gli avvisi critici e inviare comandi in tempo reale con un tocco in qualsiasi momento.
 
 - [Accedere al sito Web del partner](https://www.delltechnologies.com/en-us/wyse/index.htm#scroll=off&overlay=//www.dellemc.com/en-us/collaterals/unauth/brochures/products/thin-clients/Wyse_Windows_Embedded_Standard_thin_clients_brochure.pdf).
 
@@ -190,6 +191,15 @@ La soluzione di monitoraggio dell'esperienza digitale del software Lakeside, Sys
 - [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oL8Q).
 - [Accedere al sito Web del partner](https://www.lakesidesoftware.com/assessments/wvd).
 
+## <a name="lenovo"></a>Lenovo
+
+![Logo Lenovo](./media/partners/lenovo.png)
+
+I thin client Lenovo offrono alla rete la flessibilità di un computer client che esegue dal server, ma con capacità e potenza dei PC nativi. I thin client Lenovo forniscono le distribuzioni di desktop virtuali di Windows e gestibilità intuitiva, elevando la rete aziendale al livello di affidabilità successivo. Ogni thin client è dotato di una licenza di gestione terminal di Lenovo senza costi aggiuntivi per offrire alle organizzazioni soluzioni di gestione e distribuzione di hardware semplici e convenienti. Sono anche piccoli e versatili, semplificando l'aggiunta alle distribuzioni Lenovo esistenti.
+
+- [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FnaB).
+- [Accedere al sito Web del partner](https://www.lenovo.com/us/en/desktops-and-all-in-ones/thinkcentre/m-series-thin-clients/c/M-Series-Thin-Clients).
+
 ## <a name="liquidware"></a>Liquidware
 
 ![Logo di Liquidware](./media/partners/liquidware.png)
@@ -220,6 +230,17 @@ Login VSI è un provider di servizi a valore aggiunto per desktop virtuale Windo
 
 - [Accedere al sito Web del partner](https://www.loginvsi.com/use-cases-initiatives/windows-virtual-desktop).
 
+## <a name="nasuni"></a>Nasuni
+
+![Logo di Nasuni](./media/partners/nasuni.png)
+
+Nasuni Corp., il provider leader di servizi file cloud e un partner ISV globale di Azure, offre la piattaforma software-as-a-Service Nasuni come soluzione di archiviazione file moderna per i desktop virtuali moderni. Nasuni, in combinazione con l'archiviazione BLOB di Azure, consolida l'archiviazione di file primari (NAS), il backup di file, il ripristino di emergenza e la sincronizzazione dei file tra aree in una soluzione unificata. Con Nasuni, le aziende possono distribuire desktop virtuali Windows per più casi d'uso e in più aree di Azure, semplificare l'amministrazione e garantire la continuità aziendale. 
+
+Essendo una soluzione VDI cloud moderna, desktop virtuale di Windows richiede l'archiviazione file Cloud moderna. Tradizionalmente, l'archiviazione di file VDI è basata su NAS (Network-Attached Storage) e file server hardware situato in locale e sulla tecnologia necessaria per fornire backup di file, ripristino e ripristino di emergenza. Questi approcci tradizionali sono costosi, complessi da gestire e amministrare e non possono essere ridimensionati facilmente. Introducono anche la latenza se usata con una soluzione VDI cloud moderna, come desktop virtuale Windows, a causa della distanza fisica e delle connessioni WAN più lente tra i desktop basati su Azure e l'archiviazione file basata in locale. Nasuni, una piattaforma di servizi file creata appositamente per Azure, offre capacità di archiviazione file illimitata e accesso ai file ad alte prestazioni. Nasuni può avere un percorso condiviso con il desktop virtuale di Windows nelle stesse aree di Azure per offrire un accesso ai file economico e ad alte prestazioni a un singolo spazio dei nomi globale. Nasuni offre l'archiviazione dei file di desktop virtuali Windows a una frazione del costo dei file server NAS e Windows tradizionali e include backup predefiniti e ripristino di emergenza per ridurre ulteriormente i costi e liberare risorse IT.
+
+- [Accedere al sito Web del partner](https://www.nasuni.com/partner/microsoft/#wvd).
+- [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FaeS).
+
 ## <a name="nerdio"></a>Nerdio
 
 ![Logo di Nerdio](./media/partners/nerdio.png)
@@ -230,6 +251,17 @@ Nerdio estende il valore di desktop virtuale di Windows facilitando il provision
 
 - [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3p0Mh).
 - [Accedere al sito Web del partner](https://getnerdio.com/windows-virtual-desktop/).
+
+## <a name="nexthink"></a>Nexthink
+
+![Logo di Nexthink](./media/partners/nexthink.png)
+
+Nexthink è un provider con valore aggiunto al desktop virtuale di Windows che consente alle organizzazioni di misurare, gestire e migliorare la produttività e l'esperienza digitali dei dipendenti. Con una costante lettura sull'impulso dell'esperienza dei dipendenti digitali, può migliorare costantemente la capacità della tecnologia di coinvolgere, responsabilizzare e deliziare gli utenti, indipendentemente dal punto in cui lavorano. 
+
+Fornendo soluzioni con risorse di area di lavoro visibili, Nexthink fornisce il contesto e informazioni dettagliate sulla base utente. La potente piattaforma di gestione dell'esperienza di Nexthink consente ai team IT di garantire che le migrazioni al desktop virtuale di Windows siano pianificate e messe in atto in modo tempestivo e riuscito.
+
+- [Accedere al sito Web del partner](https://www.nexthink.com/initiative/desktop-virtualization/).
+- [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4FaeT).
 
 ## <a name="numecent"></a>Numecent
 
@@ -287,12 +319,16 @@ Le soluzioni Desktop remoto Commander di RDPSoft migliorano l'amministrazione di
 
 ![Logo Rimo3](./media/partners/rimo3.png)
 
-Rimo3 migliora l'esperienza del desktop virtuale Windows accelerando la distribuzione e migliorando la gestione delle modifiche in corso. Rimo3 fornisce ai team IT le informazioni necessarie per supportare il portfolio di applicazioni per la preparazione della migrazione di Azure dei carichi di lavoro dell'applicazione. Gli utenti possono caricare le applicazioni e testarle nell'area di lavoro desktop virtuale Windows di destinazione in modo rapido e senza problemi. Gli utenti possono anche comprendere in modo proattivo l'effetto di eventuali modifiche apportate dall'organizzazione per il rollup di nuove applicazioni e aggiornamenti. Infine, gli amministratori IT possono sfruttare la funzionalità di test di fumo intelligente Rimo3's e automatizzare il test delle funzionalità senza interrompere le sessioni utente.
+Rimo3 migliora l'esperienza del desktop virtuale Windows grazie alla piattaforma di modernizzazione delle applicazioni basata sul cloud, scalabile e facile da usare.
 
-Rimo3 offre una piattaforma di test di applicazioni automatizzata, scalabile e di facile utilizzo. Questa piattaforma include le funzionalità per tutti e tre i concetti fondamentali di test delle applicazioni: compatibilità, funzionalità e prestazioni. Consente a organizzazioni, leader e team di migliorare la continuità aziendale, adottare modifiche più velocemente e ottimizzare l'esperienza utente.
+Per i team IT, Rimo3 consente di individuare, modernizzare e gestire i carichi di lavoro delle applicazioni per il passaggio al desktop virtuale di Windows. Gli utenti possono analizzare automaticamente il portfolio di applicazioni per individuare i candidati idonei per l'onboarding in desktop virtuale Windows o la modernizzazione in MSIX.  
+
+Gli utenti possono automatizzare il pre-test delle applicazioni, la conversione delle app in MSIX e i test post-conversione applicando la correzione automatica se le app non vengono convertite correttamente. Il risultato è un pacchetto MSIX modernizzato e pronto per la distribuzione. Con ogni versione e aggiornamento della funzionalità desktop virtuale Windows, gli utenti possono testare completamente le app automaticamente prima della distribuzione, garantendo la massima confidenza e la gestione continuativa.
+
+Per i provider di servizi gestiti, Rimo3 consente di estendere la funzionalità dei servizi gestiti per migliorare i margini e di aiutarli a colmare i ricavi basati sul progetto ai ricavi ricorrenti basati su sottoscrizione e aggiungere valore ai clienti che devono modernizzare e passare a desktop virtuale di Windows e gestire aggiornamenti regolari nelle aree di lavoro desktop.
 
 - [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4yj7B).
-- [Accedere al sito Web del partner](https://rimo3.com/outcomes/).
+- [Accedere al sito Web del partner](https://rimo3.com/windows-virtual-desktop/).
 
 ## <a name="sepago"></a>sepago
 
@@ -304,6 +340,17 @@ il laboratorio di innovazione e sviluppo di sepago crea soluzioni intelligenti c
 
 - [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4qMsm).
 - [Accedere al sito Web del partner](https://www.sepago.de/en/).
+
+## <a name="ssh2"></a>SSH2
+
+![Logo di SSH2](./media/partners/ssh2.png)
+
+SSH2 è un provider di servizi a valore aggiunto per desktop virtuale di Windows che fornisce ai team IT il software per velocizzare il recapito dell'applicazione dalla piattaforma corrente al desktop virtuale Windows in Azure. SSH2 consente di accelerare l'acquisizione dell'applicazione per semplificare il processo di migrazione. SSH2's appCURE acquisisce le applicazioni in esecuzione nell'endpoint, consente l'aggiornamento e la correzione per creare una modifica completa del passaggio nella velocità con cui è possibile eseguire gli ambienti degli utenti finali. 
+
+appCURE acquisisce i dettagli dell'applicazione dalle applicazioni in esecuzione per garantire che tutti i punti che possono influito sulle applicazioni dell'utente finale siano compresi. appCURE quindi gli aggiornamenti e li recapita al nuovo desktop virtuale di Windows. Acquisendo tutti i punti di integrazione dell'applicazione nell'ambiente corrente, appCURE fornisce la velocità per ottimizzare le risorse IT e pianificare le migrazioni in modo migliore e più rapido che mai prima di consentire alle organizzazioni di raggiungere più velocemente la produzione.
+
+- [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fs38).
+- [Passare alla pagina del partner](https://www.ssh2.xyz/windows-virtual-desktop/).
 
 ## <a name="thinprint"></a>ThinPrint
 
@@ -334,6 +381,7 @@ i limiti vasti, la società uberAgent, offrono visibilità nelle distribuzioni d
 
 uberAgent è un prodotto di monitoraggio e analisi progettato per i computer degli utenti finali che non solo raccoglie i dati, ma fornisce ai clienti le informazioni più importanti. uberAgent dispone di metriche proprie, che coprono aspetti chiave dell'esperienza utente, delle prestazioni delle applicazioni e della sicurezza degli endpoint, che indicano tutto ciò che è necessario sapere sulle VM desktop virtuali Windows senza influire sulla densità utente dei sistemi. uberAgent semplifica la risoluzione dei problemi, supporta il dimensionamento e fornisce informazioni importanti per la sicurezza delle informazioni.
 
+- [Vedere la breve soluzione congiunta](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE4Fs39).
 - [Accedere al sito Web del partner](https://uberagent.com/docs/uberagent/latest/about-uberagent/system-requirements/#windows-virtual-desktop).
 
 ## <a name="workspace-365"></a>Area di lavoro 365

@@ -3,7 +3,7 @@ title: StorSimple Snapshot Manager azioni del menu MMC | Microsoft Docs
 description: Viene descritto come utilizzare lo standard delle azioni di menu di Microsoft Management Console (MMC) in Gestione snapshot StorSimple.
 services: storsimple
 documentationcenter: NA
-author: twooley
+author: alkohli
 manager: timlt
 editor: ''
 ms.assetid: 78ef81af-0d3a-4802-be54-ad192f9ac8a6
@@ -13,28 +13,28 @@ ms.topic: how-to
 ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 06/05/2017
-ms.author: twooley
-ms.openlocfilehash: c177adaa6fe0808d6719a8e87669d7f2fa4fb9cf
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.author: alkohli
+ms.openlocfilehash: 01064c3668b673baea7aedd9a65c92b03c48dc10
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85508827"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056004"
 ---
 # <a name="use-the-mmc-menu-actions-in-storsimple-snapshot-manager"></a>Utilizzo delle azioni del menu MMC in Gestione snapshot StorSimple
 
 ## <a name="overview"></a>Panoramica
 In Gestione snapshot StorSimple, le azioni seguenti verranno visualizzate elencate in tutti i menu delle azioni e in tutte le variazioni del riquadro **Azioni** .
 
-* Visualizza
+* Visualizzazione
 * Nuova finestra da qui 
 * Aggiorna 
 * Esporta elenco 
-* Help 
+* Guida 
 
 Queste azioni fanno parte di Microsoft Management Console (MMC) e non sono specifiche di Gestione snapshot StorSimple. In questa esercitazione vengono descritte tali azioni e viene illustrato come utilizzare ciascuna di esse in Gestione snapshot StorSimple.
 
-## <a name="view"></a>Visualizza
+## <a name="view"></a>Visualizzazione
 È possibile usare l'opzione **Visualizza** per modificare la visualizzazione del riquadro **Risultati** e quella della finestra della console. 
 
 #### <a name="to-change-the-results-pane-view"></a>Per modificare la visualizzazione del riquadro Risultati
@@ -91,7 +91,7 @@ L'azione **Aggiorna** consente di aggiornare la finestra della console.
       
       ![Esportazione dell’elenco come file con valori delimitati da virgole](./media/storsimple-snapshot-manager-mmc-menu/HCS_SSM_Export_List.png) 
 
-## <a name="help"></a>Help
+## <a name="help"></a>Guida
 È possibile utilizzare il menu **Guida** per visualizzare la guida disponibile online per Gestione snapshot StorSimple e MMC.
 
 #### <a name="to-view-available-online-help"></a>Per visualizzare la guida disponibile online

@@ -2,18 +2,18 @@
 title: Spedizione autogestita di Microsoft Azure Data Box Disk | Microsoft Docs
 description: Descrive il flusso di lavoro della spedizione autogestita per i dispositivi Azure Data Box Disk
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: how-to
 ms.date: 05/20/2020
-ms.author: twooley
-ms.openlocfilehash: f3292e2088397e332323bec71f9a5965eddd0fe0
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: 7b069d1bf16e8cbf4dfc245fbb3c66863cd0b994
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783230"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055573"
 ---
 # <a name="use-self-managed-shipping-for-azure-data-box-disk-in-the-azure-portal"></a>Usare la spedizione autogestita per Azure Data Box Disk nel portale di Azure
 
@@ -28,7 +28,7 @@ La spedizione autogestita è disponibile come opzione quando si [ordina Azure Da
 * Giappone
 * Singapore
 * Corea del Sud
-* Sud Africa
+* Sudafrica
 * India (anteprima)
 
 ## <a name="use-self-managed-shipping"></a>Usare la spedizione autogestita

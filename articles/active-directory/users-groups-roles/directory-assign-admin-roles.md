@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro, fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 62628e4b85af96fd9c9ba4174d22d3f1f7c6540a
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 0a861a038cefec56dfaaed1aca443f494dc82680
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006024"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055759"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Autorizzazioni del ruolo di amministratore in Azure Active Directory
 
@@ -96,7 +96,7 @@ Tutti i criteri aziendali di Azure DevOps possono essere gestiti dagli utenti in
 
 ### <a name="azure-information-protection-administrator"></a>[Amministratore di Azure Information Protection](#azure-information-protection-administrator-permissions)
 
-gli utenti con questo ruolo hanno tutte le autorizzazioni nel servizio Azure Information Protection. Questo ruolo consente di configurare etichette per i criteri di Azure Information Protection, gestire i modelli di protezione e attivare la protezione. Il ruolo tuttavia non concede le autorizzazioni relative a Identity Protection Center, Privileged Identity Management, Centro sicurezza e conformità di Office 365 e al servizio di monitoraggio dell'integrità dei servizi di Office 365.
+gli utenti con questo ruolo hanno tutte le autorizzazioni nel servizio Azure Information Protection. Questo ruolo consente di configurare etichette per i criteri di Azure Information Protection, gestire i modelli di protezione e attivare la protezione. Questo ruolo non concede alcuna autorizzazione in Identity Protection Center, Privileged Identity Management, monitoraggio Microsoft 365 integrità del servizio o Microsoft Office 365 Security & Compliance Center.
 
 ### <a name="b2c-ief-keyset-administrator"></a>[Amministratore dei set di chiavi IEF B2C](#b2c-ief-keyset-administrator-permissions)
 
@@ -130,7 +130,7 @@ gli utenti con questo ruolo possono abilitare, disabilitare ed eliminare disposi
 
 ### <a name="compliance-administrator"></a>[Amministratore di conformità](#compliance-administrator-permissions)
 
-gli utenti con questo ruolo hanno le autorizzazioni necessarie per gestire le funzionalità relative alla conformità nel Centro conformità Microsoft 365, nell'interfaccia di amministrazione di Microsoft 365, in Azure e nel Centro sicurezza e conformità di Office 365. Gli assegnatari possono anche gestire tutte le funzionalità all'interno dell'interfaccia di amministrazione di Exchange e nelle interfacce di amministrazione di Teams e Skype for Business, nonché creare ticket di supporto per Azure e Microsoft 365. Per altre informazioni, vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d). [Questa documentazione](https://docs.microsoft.com/microsoft-365/security/office-365-security/permissions-in-the-security-and-compliance-center?view=o365-worldwide#permissions-needed-to-use-features-in-the-security--compliance-center) contiene informazioni dettagliate sulle differenze tra l'amministratore della conformità e l'amministratore dei dati di conformità. 
+gli utenti con questo ruolo hanno le autorizzazioni necessarie per gestire le funzionalità relative alla conformità nel Centro conformità Microsoft 365, nell'interfaccia di amministrazione di Microsoft 365, in Azure e nel Centro sicurezza e conformità di Office 365. Gli assegnatari possono anche gestire tutte le funzionalità all'interno dell'interfaccia di amministrazione di Exchange e nelle interfacce di amministrazione di Teams e Skype for Business, nonché creare ticket di supporto per Azure e Microsoft 365. Ulteriori informazioni sono disponibili in [informazioni sui ruoli di amministratore Microsoft 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 In ingresso | Operazione consentita
 ----- | ----------
@@ -195,21 +195,21 @@ gli utenti con questo ruolo hanno autorizzazioni globali in Microsoft Dynamics 3
 
 ### <a name="exchange-administrator"></a>[Amministratore di Exchange](#exchange-service-administrator-permissions)
 
-gli utenti con questo ruolo hanno autorizzazioni globali in Microsoft Exchange Online, quando il servizio è presente. È inoltre in grado di creare e gestire tutti i gruppi di Microsoft 365, gestire i ticket di supporto e monitorare l'integrità dei servizi. Per altre informazioni vedere [Informazioni sui ruoli di amministratore di Office 365](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+gli utenti con questo ruolo hanno autorizzazioni globali in Microsoft Exchange Online, quando il servizio è presente. È inoltre in grado di creare e gestire tutti i gruppi di Microsoft 365, gestire i ticket di supporto e monitorare l'integrità dei servizi. Altre informazioni [su Microsoft 365 ruoli di amministratore](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
 > Nell'API Microsoft Graph e in Azure AD PowerShell questo ruolo è identificato come "Amministratore del servizio Exchange". È l'"Amministratore di Exchange" nel [portale di Azure](https://portal.azure.com). È l'"Amministratore di Exchange Online" nell'[interfaccia di amministrazione di Exchange](https://go.microsoft.com/fwlink/p/?LinkID=529144).
 
 
-### <a name="external-id-user-flow-administrator"></a>[ID esterno - Amministratore dei flussi utente](#external-id-user-flow-administrator-permissions)
+### <a name="external-id-user-flow-administrator"></a>[Amministratore flusso utente ID esterno](#external-id-user-flow-administrator-permissions)
 
 Gli utenti con questo ruolo possono creare e gestire i flussi utente (detti anche criteri "predefiniti") nell'portale di Azure. Questi utenti possono personalizzare il contenuto HTML/CSS/JavaScript, modificare i requisiti dell'autenticazione a più fattori, selezionare attestazioni nel token, gestire i connettori API e configurare le impostazioni di sessione per tutti i flussi utente nell'organizzazione Azure AD. D'altra parte, questo ruolo non include la possibilità di esaminare i dati dell'utente o di apportare modifiche agli attributi inclusi nello schema dell'organizzazione. Anche le modifiche ai criteri del Framework dell'esperienza di identità (noti anche come criteri personalizzati) non rientrano nell'ambito di questo ruolo.
 
-### <a name="external-id-user-flow-attribute-administrator"></a>[ID esterno - Amministratore degli attributi dei flussi utente](#external-id-user-flow-attribute-administrator-permissions)
+### <a name="external-id-user-flow-attribute-administrator"></a>[Amministratore attributo flusso utente ID esterno](#external-id-user-flow-attribute-administrator-permissions)
 
 Gli utenti con questo ruolo aggiungono o eliminano attributi personalizzati disponibili per tutti i flussi utente nell'organizzazione Azure AD. Gli utenti con questo ruolo possono quindi modificare o aggiungere nuovi elementi allo schema degli utenti finali e influire sul comportamento di tutti i flussi utente, causando indirettamente modifiche ai dati che possono essere richiesti agli utenti finali e inviati infine come attestazioni alle applicazioni. Questo ruolo non può modificare i flussi utente.
 
-### <a name="external-identity-provider-administrator"></a>[Amministratore dei provider di identità esterni](#external-identity-provider-administrator-permissions)
+### <a name="external-identity-provider-administrator"></a>[Amministratore del provider di identità esterno](#external-identity-provider-administrator-permissions)
 
 Questo amministratore gestisce la federazione tra le organizzazioni Azure AD e i provider di identità esterni. Con questo ruolo gli utenti possono aggiungere nuovi provider di identità e configurare tutte le impostazioni disponibili, ad esempio percorso di autenticazione, ID del servizio e contenitori di chiavi assegnati. Questo utente può abilitare l'organizzazione Azure AD in modo che ritenga attendibili le autenticazioni da provider di identità esterni. L'impatto risultante sulle esperienze degli utenti finali dipende dal tipo di organizzazione:
 
@@ -307,7 +307,7 @@ Gli utenti con questo ruolo possono monitorare tutte le notifiche nel Centro mes
 
 ### <a name="message-center-reader"></a>[Ruolo con autorizzazioni di lettura per il Centro messaggi](#message-center-reader-permissions)
 
-gli utenti in questo ruolo possono monitorare le notifiche e gli aggiornamenti dello stato di integrità nel [Centro messaggi di Office 365](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) per la propria organizzazione sui servizi configurati, ad esempio Exchange, Intune e Microsoft Teams. Il Ruolo con autorizzazioni di lettura per il Centro messaggi riceve settimanalmente digest di posta elettronica di post, aggiornamenti e può condividere i post del centro messaggi in Office 365. In Azure AD, gli utenti assegnati a questo ruolo avranno solo l'accesso di sola lettura ai servizi di Azure AD, ad esempio utenti e gruppi. Questo ruolo non ha accesso alle funzionalità per visualizzare, creare o gestire i ticket di supporto.
+Gli utenti con questo ruolo possono monitorare le notifiche e gli aggiornamenti di integrità consultivi in [Message Center](https://support.office.com/article/Message-center-in-Office-365-38FB3333-BFCC-4340-A37B-DEDA509C2093) per la propria organizzazione in servizi configurati, ad esempio Exchange, Intune e Microsoft teams. I lettori del centro messaggi ricevono i digest settimanali dei post, degli aggiornamenti e possono condividere i post del centro messaggi in Microsoft 365. In Azure AD, gli utenti assegnati a questo ruolo avranno solo l'accesso di sola lettura ai servizi di Azure AD, ad esempio utenti e gruppi. Questo ruolo non ha accesso alle funzionalità per visualizzare, creare o gestire i ticket di supporto.
 
 ### <a name="modern-commerce-user"></a>[Utente commerciale moderno](#modern-commerce-user-permissions)
 
@@ -328,10 +328,10 @@ Se il ruolo utente Commerce moderno non è assegnato a un utente, perderà l'acc
 
 ### <a name="network-administrator"></a>[Amministratore di rete](#network-administrator-permissions)
 
-Gli utenti con questo ruolo possono esaminare le raccomandazioni relative all'architettura perimetrale di rete di Microsoft basate sui dati di telemetria di rete dalle posizioni degli utenti. Le prestazioni di rete per Office 365 si basano su un'attenta architettura perimetrale della rete dei clienti aziendali, in genere specifica della posizione degli utenti. Questo ruolo consente di modificare le posizioni utente individuate e la configurazione dei parametri di rete per tali percorsi per semplificare le misurazioni di telemetria migliorate e le indicazioni di progettazione
+Gli utenti con questo ruolo possono esaminare le raccomandazioni relative all'architettura perimetrale di rete di Microsoft basate sui dati di telemetria di rete dalle posizioni degli utenti. Le prestazioni di rete per Microsoft 365 si basano su un'attenta architettura perimetrale della rete del cliente aziendale, che in genere è specifica del percorso utente. Questo ruolo consente di modificare le posizioni utente individuate e la configurazione dei parametri di rete per tali percorsi per semplificare le misurazioni di telemetria migliorate e le indicazioni di progettazione
 ### <a name="office-apps-administrator"></a>[Amministratore delle app di Office](#office-apps-administrator-permissions)
 
-Gli utenti con questo ruolo possono gestire le impostazioni cloud per le app di Office 365. Sono incluse la gestione dei criteri cloud, la gestione dei download self-service e la possibilità di visualizzare report correlati alle app di Office. Questo ruolo concede anche la possibilità di gestire i ticket di supporto e di monitorare l'integrità dei servizi nell'interfaccia di amministrazione principale. Gli utenti assegnati a questo ruolo possono anche gestire la comunicazione delle nuove funzionalità nelle app di Office. 
+Gli utenti con questo ruolo possono gestire le impostazioni cloud di Microsoft 365 app. Sono incluse la gestione dei criteri cloud, la gestione dei download self-service e la possibilità di visualizzare report correlati alle app di Office. Questo ruolo concede anche la possibilità di gestire i ticket di supporto e di monitorare l'integrità dei servizi nell'interfaccia di amministrazione principale. Gli utenti assegnati a questo ruolo possono anche gestire la comunicazione delle nuove funzionalità nelle app di Office. 
 
 ### <a name="partner-tier1-support"></a>[Supporto partner - Livello 1](#partner-tier1-support-permissions)
 
@@ -399,7 +399,7 @@ Gli utenti con questo ruolo possono creare, gestire ed eliminare contenuti per M
 
 ### <a name="security-administrator"></a>[Amministratore della sicurezza](#security-administrator-permissions)
 
-Gli utenti con questo ruolo hanno le autorizzazioni necessarie per gestire le funzionalità relative alla sicurezza nel Centro sicurezza Microsoft 365, in Azure Active Directory Identity Protection, per l'autenticazione di Azure Active Directory, in Azure Information Protection e nel Centro sicurezza e conformità di Office 365. Altre informazioni sulle autorizzazioni di Office 365 sono disponibili in [Autorizzazioni nel Centro sicurezza e conformità di Office 365](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+Gli utenti con questo ruolo hanno le autorizzazioni necessarie per gestire le funzionalità relative alla sicurezza nel Centro sicurezza Microsoft 365, in Azure Active Directory Identity Protection, per l'autenticazione di Azure Active Directory, in Azure Information Protection e nel Centro sicurezza e conformità di Office 365. Altre informazioni sulle autorizzazioni di Office 365 sono disponibili in [autorizzazioni nel centro sicurezza & conformità](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 In ingresso | Operazione consentita
 --- | ---
@@ -412,13 +412,13 @@ Windows Defender ATP ed EDR | Assegnare ruoli<br>Gestire i gruppi di computer<br
 [Intune](/intune/role-based-access-control) | Visualizzare le informazioni relative a utenti, dispositivi e applicazioni e i dati di registrazione e configurazione<br>Non è consentito apportare modifiche a Intune
 [Cloud App Security](/cloud-app-security/manage-admins) | Aggiungere amministratori, criteri e impostazioni, caricare i log ed eseguire azioni di governance
 [Centro sicurezza di Azure](../../role-based-access-control/built-in-roles.md) | è possibile visualizzare i criteri di sicurezza e gli stati di sicurezza, modificare i criteri di sicurezza, visualizzare gli avvisi e le raccomandazioni, ignorare gli avvisi e le raccomandazioni
-[Integrità dei servizi di Office 365](/office365/enterprise/view-service-health) | Visualizzare l'integrità dei servizi di Office 365
+[Integrità del servizio Microsoft 365](/office365/enterprise/view-service-health) | Visualizzare l'integrità dei servizi Microsoft 365
 [Blocco intelligente](../authentication/howto-password-smart-lockout.md) | Definire la soglia e la durata dei blocchi quando si verificano eventi di accesso non riuscito.
 [Password di protezione](../authentication/concept-password-ban-bad.md) | Configurare l'elenco delle password personalizzate escluse o la password di protezione locale.
 
 ### <a name="security-operator"></a>[Operatore per la sicurezza](#security-operator-permissions)
 
-Gli utenti con questo ruolo possono gestire gli avvisi e hanno accesso globale di sola lettura alle funzionalità correlate alla sicurezza, incluse tutte le informazioni disponibili nel Centro sicurezza Microsoft 365 e in Azure Active Directory, Identity Protection, Privileged Identity Management e nel Centro sicurezza e conformità di Office 365. Altre informazioni sulle autorizzazioni di Office 365 sono disponibili in [Autorizzazioni nel Centro sicurezza e conformità di Office 365](/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
+Gli utenti con questo ruolo possono gestire gli avvisi e hanno accesso globale di sola lettura alle funzionalità correlate alla sicurezza, incluse tutte le informazioni disponibili nel Centro sicurezza Microsoft 365 e in Azure Active Directory, Identity Protection, Privileged Identity Management e nel Centro sicurezza e conformità di Office 365. Altre informazioni sulle autorizzazioni di Office 365 sono disponibili in [autorizzazioni nel centro sicurezza & conformità](/office365/securitycompliance/permissions-in-the-security-and-compliance-center).
 
 In ingresso | Operazione consentita
 --- | ---
@@ -429,11 +429,11 @@ Centro di Identity Protection | Tutte le autorizzazioni del ruolo con autorizzaz
 Windows Defender ATP ed EDR | Tutte le autorizzazioni del ruolo con autorizzazioni di lettura per la sicurezza<br>Visualizzare, analizzare e rispondere agli avvisi per la sicurezza
 [Intune](/intune/role-based-access-control) | Tutte le autorizzazioni del ruolo con autorizzazioni di lettura per la sicurezza
 [Cloud App Security](/cloud-app-security/manage-admins) | Tutte le autorizzazioni del ruolo con autorizzazioni di lettura per la sicurezza
-[Integrità dei servizi di Office 365](/office365/enterprise/view-service-health) | Visualizzare l'integrità dei servizi di Office 365
+[Integrità del servizio Microsoft 365](/office365/enterprise/view-service-health) | Visualizzare l'integrità dei servizi Microsoft 365
 
 ### <a name="security-reader"></a>[Ruolo con autorizzazioni di lettura per la sicurezza](#security-reader-permissions)
 
-gli utenti con questo ruolo hanno accesso globale di sola lettura alle funzionalità relative alla sicurezza, incluse tutte le informazioni nel Centro sicurezza Microsoft 365, in Azure Active Directory, Identity Protection e Privileged Identity Management, oltre alla possibilità di accedere in lettura ai log di controllo e ai report di accesso di Azure Active Directory, e nel Centro sicurezza e conformità di Office 365. Altre informazioni sulle autorizzazioni di Office 365 sono disponibili in [Autorizzazioni nel Centro sicurezza e conformità di Office 365](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+gli utenti con questo ruolo hanno accesso globale di sola lettura alle funzionalità relative alla sicurezza, incluse tutte le informazioni nel Centro sicurezza Microsoft 365, in Azure Active Directory, Identity Protection e Privileged Identity Management, oltre alla possibilità di accedere in lettura ai log di controllo e ai report di accesso di Azure Active Directory, e nel Centro sicurezza e conformità di Office 365. Altre informazioni sulle autorizzazioni di Office 365 sono disponibili in [autorizzazioni nel centro sicurezza & conformità](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 In ingresso | Operazione consentita
 --- | ---
@@ -445,11 +445,11 @@ Windows Defender ATP ed EDR | Visualizzare e analizzare gli avvisi. Quando si at
 [Intune](/intune/role-based-access-control) | Visualizzare le informazioni relative a utenti, dispositivi e applicazioni e i dati di registrazione e configurazione. Non è consentito apportare modifiche a Intune.
 [Cloud App Security](/cloud-app-security/manage-admins) | Disporre di autorizzazioni di sola lettura e gestire gli avvisi
 [Centro sicurezza di Azure](../../role-based-access-control/built-in-roles.md) | è possibile visualizzare raccomandazioni, avvisi, criteri di sicurezza e stati di sicurezza, ma non è possibile apportare modifiche
-[Integrità dei servizi di Office 365](/office365/enterprise/view-service-health) | Visualizzare l'integrità dei servizi di Office 365
+[Integrità del servizio Microsoft 365](/office365/enterprise/view-service-health) | Visualizzare l'integrità dei servizi Microsoft 365
 
 ### <a name="service-support-administrator"></a>[Amministratore servizio di supporto](#service-support-administrator-permissions)
 
-Gli utenti con questo ruolo possono inviare a Microsoft richieste di supporto per i servizi di Azure e Office 365, nonché visualizzare il dashboard del servizio e il centro messaggi nel [portale di Azure](https://portal.azure.com) e nell'[interfaccia di amministrazione di Microsoft 365](https://admin.microsoft.com). Per altre informazioni vedere [Informazioni sui ruoli di amministratore](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
+Gli utenti con questo ruolo possono aprire richieste di supporto con Microsoft per Azure e Microsoft 365 Services e visualizzare il dashboard del servizio e il centro messaggi nell'interfaccia di amministrazione di [portale di Azure](https://portal.azure.com) e [Microsoft 365](https://admin.microsoft.com). Per altre informazioni vedere [Informazioni sui ruoli di amministratore](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
 > In precedenza, questo ruolo era denominato "Amministratore del servizio" nel [portale di Azure](https://portal.azure.com) e nell'[interfaccia di amministrazione di Microsoft 365](https://admin.microsoft.com). È stato rinominato in "Amministratore servizio di supporto" per allinearlo al nome esistente nell'API Microsoft Graph, nell'API Azure AD Graph e in Azure AD PowerShell.
@@ -564,8 +564,8 @@ Può creare e gestire tutti gli aspetti delle registrazioni di app e delle app a
 | microsoft.directory/servicePrincipals/policies/update | Aggiornare la proprietà servicePrincipals.policies in Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Leggere tutte le proprietà (incluse quelle con privilegi) per signInReports in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 
 ### <a name="application-developer-permissions"></a>Autorizzazioni per sviluppatori di applicazioni
@@ -590,9 +590,9 @@ Può creare registrazioni di applicazioni indipendentemente dall'impostazione 'G
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
-| microsoft.directory/users/password/update | Aggiornare le password per tutti gli utenti nell'organizzazione Office 365. Per informazioni dettagliate, vedere la documentazione online. |
+| microsoft.directory/users/password/update | Aggiornare le password per tutti gli utenti dell'organizzazione Microsoft 365. Per informazioni dettagliate, vedere la documentazione online. |
 
 ### <a name="azure-devops-administrator-permissions"></a>Autorizzazioni per l'amministratore di Azure DevOps
 
@@ -620,8 +620,8 @@ Può gestire tutti gli aspetti del servizio Azure Information Protection.
 | --- | --- |
 | microsoft.azure.informationProtection/allEntities/allTasks | Gestisce tutti gli aspetti di Azure Information Protection. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 
 ### <a name="b2c-ief-keyset-administrator-permissions"></a>Autorizzazioni dell'amministratore dei set di chiavi IEF B2C
@@ -656,7 +656,7 @@ Può eseguire attività comuni relative alla fatturazione, ad esempio aggiornare
 | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.commerce.billing/allEntities/allTasks | Gestire tutti gli aspetti della fatturazione. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 
 ### <a name="cloud-application-administrator-permissions"></a>Autorizzazioni per l'amministratore applicazione cloud
@@ -698,8 +698,8 @@ Può creare e gestire tutti gli aspetti delle registrazioni di app e delle app a
 | microsoft.directory/servicePrincipals/policies/update | Aggiornare la proprietà servicePrincipals.policies in Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Leggere tutte le proprietà (incluse quelle con privilegi) per signInReports in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 
 ### <a name="cloud-device-administrator-permissions"></a>Autorizzazioni per l'amministratore dispositivo cloud
@@ -715,7 +715,7 @@ Accesso completo per la gestione dei dispositivi in Azure AD.
 | microsoft.directory/devices/enable | Abilitare i dispositivi in Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Leggere tutte le proprietà (incluse quelle con privilegi) per signInReports in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 
 ### <a name="company-administrator-permissions"></a>Autorizzazioni per l'amministratore società
 
@@ -777,7 +777,7 @@ Può gestire tutti gli aspetti di Azure AD e dei servizi Microsoft che usano ide
 | microsoft.office365.messageCenter/securityMessages/read | Leggere i messaggi relativi alla sicurezza in microsoft.office365.messageCenter. |
 | microsoft.office365.protectionCenter/allEntities/allTasks | Gestire tutti gli aspetti di Centro protezione di Office 365. |
 | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Creare ed eliminare tutte le risorse e leggere e aggiornare le proprietà standard in microsoft.office365.securityComplianceCenter. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.sharepoint/allEntities/allTasks | Creare ed eliminare tutte le risorse, eseguire la lettura e aggiornare le proprietà standard in microsoft.office365.sharepoint. |
 | microsoft.office365.skypeForBusiness/allEntities/allTasks | Gestire tutti gli aspetti di Skype for Business Online. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
@@ -789,7 +789,7 @@ Può gestire tutti gli aspetti di Azure AD e dei servizi Microsoft che usano ide
 
 ### <a name="compliance-administrator-permissions"></a>Autorizzazioni per l'amministratore conformità
 
-Può eseguire la lettura e gestire i report e la configurazione di conformità in Azure AD e Office 365.
+Consente di leggere e gestire la configurazione e i report di conformità in Azure AD e Microsoft 365.
 
 > [!NOTE]
 > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
@@ -801,7 +801,7 @@ Può eseguire la lettura e gestire i report e la configurazione di conformità i
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Gestire tutti gli aspetti di Office 365 Compliance Manager |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 
@@ -821,7 +821,7 @@ Creare e gestire i contenuti relativi alla conformità.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.complianceManager/allEntities/allTasks | Gestire tutti gli aspetti di Office 365 Compliance Manager |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 
@@ -855,7 +855,7 @@ Può gestire tutti gli aspetti del prodotto Dynamics 365.
 | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.powerApps.dynamics365/allEntities/allTasks | Gestire tutti gli aspetti di Dynamics 365. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 
 ### <a name="customer-lockbox-access-approver-permissions"></a>Autorizzazioni per il responsabile approvazione accesso a Customer Lockbox
@@ -887,7 +887,7 @@ Può gestire Desktop Analytics, il Servizio criteri e lo Strumento di personaliz
 | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 | microsoft.office365.desktopAnalytics/allEntities/allTasks | Gestire tutti gli aspetti di Desktop Analytics. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 
 ### <a name="device-administrators-permissions"></a>Autorizzazioni per gli amministratori di dispositivi
@@ -1012,7 +1012,7 @@ Può leggere e scrivere le informazioni base della directory. Per concedere l'ac
 | Microsoft. directory/oAuth2PermissionGrants/crea | Creare oAuth2PermissionGrants in Azure Active Directory. |
 | microsoft.directory/servicePrincipals/synchronizationCredentials/manage | Gestire segreti e credenziali per il provisioning delle applicazioni. |
 | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Avviare, riavviare e sospendere i processi di sincronizzazione del provisioning dell'applicazione. |
-| microsoft.directory/servicePrincipals/synchronizationSchema/manage | Creare e gestire lo schema e i processi sincronizzazione del provisioning delle applicazioni. |
+| microsoft.directory/servicePrincipals/synchronizationSchema/manage | Creazione e gestione dello schema e dei processi di sincronizzazione del provisioning delle applicazioni. |
 | microsoft.directory/users/appRoleAssignments/update | Aggiornare la proprietà users.appRoleAssignments in Azure Active Directory. |
 | microsoft.directory/users/assignLicense | Gestire le licenze per gli utenti in Azure Active Directory. |
 | microsoft.directory/users/basic/update | Aggiornare le proprietà di base su utenti in Azure Active Directory. |
@@ -1043,13 +1043,13 @@ Può gestire tutti gli aspetti del prodotto Exchange.
 | microsoft.directory/groups/unified/members/update | Aggiornare l'appartenenza dei gruppi di Microsoft 365. |
 | microsoft.directory/groups/unified/owners/update | Aggiornare la proprietà dei gruppi di Microsoft 365. |
 | microsoft.office365.exchange/allEntities/allTasks | Gestire tutti gli aspetti di Exchange Online. |
-| microsoft.office365.network/performance/allProperties/read | Leggere le pagine sulle prestazioni di rete nell'interfaccia di amministrazione di M365. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.network/performance/allProperties/read | Leggere le pagine relative alle prestazioni di rete in Microsoft 365 interfaccia di amministrazione. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 | microsoft.office365.usageReports/allEntities/read | Eseguire la lettura dei report sull'utilizzo di Office 365. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 
-### <a name="external-id-user-flow-administrator-permissions"></a>Autorizzazioni per ID esterno - Amministratore dei flussi utente
+### <a name="external-id-user-flow-administrator-permissions"></a>Autorizzazioni di amministratore flusso utente ID esterno
 
 Creare e gestire tutti gli aspetti dei flussi utente.
 
@@ -1057,7 +1057,7 @@ Creare e gestire tutti gli aspetti dei flussi utente.
 | --- | --- |
 | microsoft.aad.b2c/userFlows/allTasks | Leggere e configurare i flussi utente in Azure Active Directory B2C. |
 
-### <a name="external-id-user-flow-attribute-administrator-permissions"></a>Autorizzazioni per ID esterno - Amministratore degli attributi dei flussi utente
+### <a name="external-id-user-flow-attribute-administrator-permissions"></a>Autorizzazioni di amministratore dell'attributo flusso utente ID esterno
 
 Creare e gestire lo schema dell'attributo disponibile per tutti i flussi utente.
 
@@ -1138,7 +1138,7 @@ Può leggere tutti gli elementi che possono essere letti da un amministratore gl
 | microsoft.office365.exchange/allEntities/read    | Leggere tutti gli aspetti di Exchange Online. |
 | microsoft.office365.messageCenter/messages/read    | Leggere i messaggi in microsoft.office365.messageCenter. |
 | microsoft.office365.messageCenter/securityMessages/read    | Leggere i messaggi relativi alla sicurezza in microsoft.office365.messageCenter. |
-| microsoft.office365.network/performance/allProperties/read | Leggere le pagine sulle prestazioni di rete nell'Interfaccia di amministrazione di M365. |
+| microsoft.office365.network/performance/allProperties/read | Leggere le pagine relative alle prestazioni di rete in Microsoft 365 interfaccia di amministrazione. |
 | microsoft.office365.protectionCenter/allEntities/read    | Eseguire la lettura di tutti gli aspetti del Centro protezione Office 365. |
 | microsoft.office365.securityComplianceCenter/allEntities/read    | Leggere tutte le proprietà standard in microsoft.office365.securityComplianceCenter. |
 | microsoft.office365.usageReports/allEntities/read    | Eseguire la lettura dei report sull'utilizzo di Office 365. |
@@ -1162,7 +1162,7 @@ Può gestire tutti gli aspetti dei gruppi e delle impostazioni dei gruppi, ad es
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.messageCenter/messages/read | Leggere i messaggi in microsoft.office365.messageCenter. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 
 ### <a name="guest-inviter-permissions"></a>Autorizzazioni per il mittente dell'invito guest
@@ -1193,7 +1193,7 @@ Può reimpostare le password per gli utenti non amministratori e gli amministrat
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 
 ### <a name="hybrid-identity-administrator-permissions"></a>Autorizzazioni per l'amministratore delle identità ibride
@@ -1236,19 +1236,19 @@ Abilitare, distribuire, configurare, gestire, monitorare e risolvere i problemi 
 | microsoft.directory/servicePrincipals/tag/update | Aggiornare la proprietà servicePrincipals.tag in Azure Active Directory. |
 | microsoft.directory/signInReports/allProperties/read | Leggere tutte le proprietà (incluse quelle con privilegi) per signInReports in Azure Active Directory. |
 | microsoft.office365.messageCenter/messages/read | Leggere i messaggi in microsoft.office365.messageCenter. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 
 ### <a name="insights-administrator-permissions"></a>Autorizzazioni di amministratore di Insights
 
-Ha accesso sdministrative nell'app M365 Insights. 
+Ha accesso amministrativo nell'app Microsoft 365 Insights. 
 
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | Microsoft. Insights/allEntities/allTasks | Gestire tutti gli aspetti delle informazioni dettagliate. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 
@@ -1310,9 +1310,9 @@ Può gestire le impostazioni per Microsoft Kaizala.
 
 | **Actions** | **Descrizione** |
 | --- | --- |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
-| microsoft.office365.webPortal/allEntities/basic/read | Leggere l'interfaccia di amministrazione di Office 365. |
+| microsoft.office365.webPortal/allEntities/basic/read | Leggere Microsoft 365 interfaccia di amministrazione. |
 
 ### <a name="license-administrator-permissions"></a>Autorizzazioni per l'amministratore licenze
 
@@ -1324,7 +1324,7 @@ Possono gestire licenze dei prodotti per utenti e gruppi.
 | microsoft.directory/users/usageLocation/update | Aggiornare la proprietà Users.UsageLocation in Azure Active Directory. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 
 ### <a name="lync-service-administrator-permissions"></a>Autorizzazioni per l'amministratore del servizio Lync
 
@@ -1338,8 +1338,8 @@ Può gestire tutti gli aspetti del prodotto Skype for Business.
 | **Actions** | **Descrizione** |
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
-| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto tecnico di Azure. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.skypeForBusiness/allEntities/allTasks | Gestire tutti gli aspetti di Skype for Business Online. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 | microsoft.office365.usageReports/allEntities/read    | Eseguire la lettura dei report sull'utilizzo di Office 365. |
@@ -1362,7 +1362,7 @@ Può leggere i post del Centro messaggi, i messaggi sulla privacy dei dati, i gr
 | microsoft.office365.messageCenter/securityMessages/read | Leggere i messaggi relativi alla sicurezza in microsoft.office365.messageCenter. |
 
 ### <a name="message-center-reader-permissions"></a>Autorizzazioni per il ruolo con autorizzazioni di lettura per il Centro messaggi
-Può eseguire la lettura di messaggi e aggiornamenti per la propria organizzazione solo nel Centro messaggi di Office 365. 
+Consente di leggere i messaggi e gli aggiornamenti per la propria organizzazione solo nel centro messaggi. 
 
 > [!NOTE]
 > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
@@ -1384,7 +1384,7 @@ Può gestire gli acquisti commerciali per una società, un reparto o un team.
 
 | **Actions** | **Descrizione** |
 | --- | --- |
-| microsoft.commerce.billing/partners/read | Leggere la proprietà partner della fatturazione O365. |
+| microsoft.commerce.billing/partners/read | Legge la proprietà del partner di Microsoft 365 la fatturazione. |
 | microsoft.commerce.volumeLicenseServiceCenter/allEntities/allTasks | Gestire tutti gli aspetti di Volume Licensing Service Center. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e visualizzare i ticket di supporto di Office 365. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
@@ -1416,7 +1416,7 @@ Può gestire servizi cloud per app di Office, inclusa la gestione di criteri e i
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.messageCenter/messages/read | Leggere i messaggi in microsoft.office365.messageCenter. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 | microsoft.office365.userCommunication/allEntities/allTasks | Leggere e aggiornare la visibilità dei messaggi relativi alle novità. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
@@ -1451,7 +1451,7 @@ Non usare: non destinato all'uso generale.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 
 ### <a name="partner-tier2-support-permissions"></a>Autorizzazioni per Supporto partner - Livello 2
@@ -1486,7 +1486,7 @@ Non usare: non destinato all'uso generale.
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 
 ### <a name="password-administrator-permissions"></a>Autorizzazioni per l'amministratore password
@@ -1512,7 +1512,7 @@ Può gestire tutti gli aspetti del prodotto Power BI.
 | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.powerApps.powerBI/allEntities/allTasks | Gestire tutti gli aspetti di Power BI. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 
 
@@ -1532,7 +1532,7 @@ Può creare e gestire tutti gli aspetti di Microsoft Dynamics 365, PowerApps e M
 | microsoft.flow/allEntities/allTasks | Gestire tutti gli aspetti di Microsoft Flow. |
 | microsoft.powerApps/allEntities/allTasks | Gestire tutti gli aspetti di PowerApps. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 
 ### <a name="printer-administrator-permissions"></a>Autorizzazioni per l'amministratore stampante
@@ -1574,9 +1574,9 @@ Può registrare e annullare la registrazione delle stampanti e aggiornare lo sta
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
-| microsoft.directory/users/password/update | Aggiornare le password per tutti gli utenti nell'organizzazione Office 365. Per informazioni dettagliate, vedere la documentazione online. |
+| microsoft.directory/users/password/update | Aggiornare le password per tutti gli utenti dell'organizzazione Microsoft 365. Per informazioni dettagliate, vedere la documentazione online. |
 
 ### <a name="privileged-role-administrator-permissions"></a>Autorizzazioni per l'amministratore dei ruoli con privilegi
 
@@ -1628,7 +1628,7 @@ Consente di creare e gestire tutti gli aspetti delle impostazioni di Microsoft S
 | --- | --- |
 | microsoft.office365.messageCenter/messages/read | Leggere i messaggi in microsoft.office365.messageCenter. |
 | microsoft.office365.search/allEntities/allProperties/allTasks | Creare ed eliminare tutte le risorse, leggere e aggiornare tutte le proprietà in microsoft.office365.search. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 
@@ -1648,7 +1648,7 @@ Può creare e gestire i contenuti editoriali, ad esempio segnalibri, domande e r
 
 ### <a name="security-administrator-permissions"></a>Autorizzazioni per l'amministratore della sicurezza
 
-Può leggere i report e le informazioni di sicurezza e gestire la configurazione in Azure AD e Office 365.
+Consente di leggere le informazioni di sicurezza e i report e gestire la configurazione in Azure AD e Microsoft 365.
 
 > [!NOTE]
 > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
@@ -1674,7 +1674,7 @@ Può leggere i report e le informazioni di sicurezza e gestire la configurazione
 | microsoft.directory/signInReports/allProperties/read | Leggere tutte le proprietà (incluse quelle con privilegi) per signInReports in Azure Active Directory. |
 | microsoft.office365.protectionCenter/allEntities/read | Eseguire la lettura di tutti gli aspetti del Centro protezione Office 365. |
 | microsoft.office365.protectionCenter/allEntities/update | Aggiornare tutte le risorse in microsoft.office365.protectionCenter. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 
@@ -1701,7 +1701,7 @@ Creare e gestire gli eventi di sicurezza.
 
 ### <a name="security-reader-permissions"></a>Autorizzazioni per il ruolo con autorizzazioni di lettura per la sicurezza
 
-Può eseguire la lettura dei report e delle informazioni di sicurezza in Azure AD e Office 365.
+Consente di leggere le informazioni sulla sicurezza e i report in Azure AD e Microsoft 365.
 
 > [!NOTE]
 > Questo ruolo usufruisce di autorizzazioni aggiuntive all'esterno di Azure Active Directory. Per altre informazioni, vedere la descrizione dei ruoli sopra riportata.
@@ -1719,7 +1719,7 @@ Può eseguire la lettura dei report e delle informazioni di sicurezza in Azure A
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
 | microsoft.office365.protectionCenter/allEntities/read | Eseguire la lettura di tutti gli aspetti del Centro protezione Office 365. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 
 ### <a name="service-support-administrator-permissions"></a>Autorizzazioni per l'amministratore servizio di supporto
 
@@ -1735,7 +1735,7 @@ Può eseguire la lettura delle informazioni di integrità dei servizi e gestire 
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 
 ### <a name="sharepoint-service-administrator-permissions"></a>Autorizzazioni per l'amministratore del servizio SharePoint
@@ -1758,7 +1758,7 @@ Può gestire tutti gli aspetti del servizio SharePoint.
 | microsoft.directory/groups/unified/members/update | Aggiornare l'appartenenza dei gruppi di Microsoft 365. |
 | microsoft.directory/groups/unified/owners/update | Aggiornare la proprietà dei gruppi di Microsoft 365. |
 | microsoft.office365.network/performance/allProperties/read | Leggere le pagine sulle prestazioni di rete nell'interfaccia di amministrazione di M365. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.sharepoint/allEntities/allTasks | Creare ed eliminare tutte le risorse, eseguire la lettura e aggiornare le proprietà standard in microsoft.office365.sharepoint. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 | microsoft.office365.usageReports/allEntities/read    | Eseguire la lettura dei report sull'utilizzo di Office 365. |
@@ -1778,7 +1778,7 @@ Può gestire le funzionalità per chiamate e riunioni all'interno del servizio M
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 | microsoft.office365.usageReports/allEntities/read | Eseguire la lettura dei report sull'utilizzo di Office 365. |
 | Microsoft. teams/Meetings/allProperties/allTasks | Gestire riunioni, tra cui criteri per la riunione, configurazioni e Bridge di conferenze. |
@@ -1798,7 +1798,7 @@ Può risolvere i problemi di comunicazione all'interno di Teams tramite strument
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | Microsoft. teams/callQuality/allProperties/Read | Leggere tutti i dati nel dashboard della qualità della chiamata (CQD). |
 
 ### <a name="teams-communications-support-specialist-permissions"></a>Autorizzazioni per lo specialista di supporto comunicazioni Teams
@@ -1814,7 +1814,7 @@ Può risolvere i problemi di comunicazione all'interno di Teams tramite strument
 | --- | --- |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | Microsoft. teams/callQuality/Basic/Read | Leggere i dati di base nel dashboard della qualità della chiamata (CQD). |
 
 ### <a name="teams-devices-administrator-permissions"></a>Autorizzazioni di amministratore per i dispositivi Teams
@@ -1852,7 +1852,7 @@ Può gestire il servizio Microsoft Teams.
 | microsoft.directory/groups/unified/members/update | Aggiornare l'appartenenza dei gruppi di Microsoft 365. |
 | microsoft.directory/groups/unified/owners/update | Aggiornare la proprietà dei gruppi di Microsoft 365. |
 | microsoft.office365.network/performance/allProperties/read | Leggere le pagine sulle prestazioni di rete nell'interfaccia di amministrazione di M365. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 | microsoft.office365.usageReports/allEntities/read | Eseguire la lettura dei report sull'utilizzo di Office 365. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
@@ -1892,7 +1892,7 @@ Può gestire tutti gli aspetti di utenti e gruppi, inclusa la reimpostazione del
 | microsoft.azure.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Azure. |
 | microsoft.azure.supportTickets/allEntities/allTasks | Creare e gestire i ticket di supporto di Azure per i servizi a livello di directory. |
 | microsoft.office365.webPortal/allEntities/basic/read | Leggere le proprietà di base per tutte le risorse in microsoft.office365.webPortal. |
-| microsoft.office365.serviceHealth/allEntities/allTasks | Eseguire la lettura e configurare l'integrità dei servizi di Office 365. |
+| microsoft.office365.serviceHealth/allEntities/allTasks | Leggere e configurare Microsoft 365 integrità del servizio. |
 | microsoft.office365.supportTickets/allEntities/allTasks | Creare e gestire ticket di supporto per Office 365. |
 
 ## <a name="role-template-ids"></a>ID dei modelli di ruolo

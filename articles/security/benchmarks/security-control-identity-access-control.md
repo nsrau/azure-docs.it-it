@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/14/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 473fe838f53df0a874a2c793792533e01b7c069a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2df534842c6f6a922579e1128757ee4b7f46e006
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81408522"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058598"
 ---
 # <a name="security-control-identity-and-access-control"></a>Controllo di sicurezza: identità e controllo di accesso
 
@@ -76,7 +76,7 @@ Abilitare l'autenticazione a più fattori Azure AD e seguire le indicazioni per 
 
 | ID Azure | ID CIS | Responsabilità |
 |--|--|--|
-| 3.6 | 4,6, 11,6, 12,12 | Customer |
+| 3,6 | 4,6, 11,6, 12,12 | Customer |
 
 Usare le workstation Paw (Privileged Access workstation) con multi-factor authentication configurato per accedere e configurare le risorse di Azure.
 
@@ -112,9 +112,9 @@ Usare i percorsi denominati di accesso condizionale per consentire l'accesso sol
 |--|--|--|
 | 3.9 | 16,1, 16,2, 16,4, 16,5, 16,6 | Customer |
 
-Usare Azure Active Directory (AAD) come sistema di autenticazione e autorizzazione centrale. Azure AD protegge i dati usando la crittografia avanzata per i dati inattivi e in transito. AAD inoltre sale, hash e archivia in modo sicuro le credenziali utente.
+Usare Azure Active Directory come sistema di autenticazione e autorizzazione centrale. Azure AD protegge i dati usando la crittografia avanzata per i dati inattivi e in transito. Azure AD effettua anche il salting, aggiunge hash e archivia in modo sicuro le credenziali utente.
 
-- [Come creare e configurare un'istanza di AAD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- [Come creare e configurare un'istanza di Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
 
 ## <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: controllare e riconciliare regolarmente l'accesso utente
 

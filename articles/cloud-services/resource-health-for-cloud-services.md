@@ -3,17 +3,16 @@ title: Integrità risorse per i servizi cloud (versione classica)
 description: Questo articolo illustra il supporto di Integrità risorse check (RHC) per Servizi cloud di Microsoft Azure (versione classica)
 services: cloud-services
 author: tanmaygore
-manager: vashan
 ms.service: cloud-services
 ms.topic: article
 ms.date: 9/1/2020
 ms.author: tagore
-ms.openlocfilehash: 969390b0988c59940cb210c14821cbee42edfa7a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: ea25695ddc36571bef3ff61df7de3e71f6f939ca
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664543"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056056"
 ---
 # <a name="resource-health-check-rhc-support-for-azure-cloud-services-classic"></a>Supporto di Integrità risorse check (RHC) per servizi cloud di Azure (versione classica)
 Questo articolo illustra il supporto di Integrità risorse check (RHC) per [servizi cloud di Microsoft Azure (versione classica)](https://azure.microsoft.com/services/cloud-services)
@@ -22,6 +21,7 @@ Questo articolo illustra il supporto di Integrità risorse check (RHC) per [serv
 
 Azure status segnala i problemi che interessano un'ampia gamma di clienti di Azure. Integrità risorse offre un dashboard personalizzato dell'integrità delle risorse. Integrità risorse Mostra tutte le volte in cui le risorse non sono state disponibili a causa di problemi dei servizi di Azure. Questi dati semplificano la verifica della violazione di un contratto di contratto.
 
+:::image type="content" source="media/cloud-services-allocation-failure/rhc-blade-cloud-services.png" alt-text="Immagine Visualizza il pannello di controllo integrità risorse nel portale di Azure.":::
 
 ## <a name="how-health-is-checked-and-reported"></a>Come viene controllata e segnalata l'integrità?
 Integrità risorse viene segnalato a livello di distribuzione o di ruolo. Il controllo dell'integrità si verifica a livello di istanza del ruolo, lo stato viene aggregato e segnalato a livello di ruolo. ad esempio Se tutte le istanze del ruolo sono disponibili, lo stato del ruolo è disponibile. Allo stesso modo, viene aggregato lo stato di integrità di tutti i ruoli e viene segnalato a livello di distribuzione. ad esempio Se tutti i ruoli sono disponibili, lo stato della distribuzione diventa disponibile. 

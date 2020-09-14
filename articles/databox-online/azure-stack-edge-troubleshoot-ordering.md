@@ -2,24 +2,24 @@
 title: Usare il portale di Azure per risolvere i problemi di ordinamento Azure Stack Edge | Microsoft Docs
 description: Viene descritto come risolvere i problemi di ordinamento Azure Stack Edge.
 services: databox
-author: twooley
+author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
-ms.author: twooley
-ms.openlocfilehash: 226274c52610e24c305400d77dc7737d32c2b722
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.author: alkohli
+ms.openlocfilehash: 8c42ee867bdd20de64fa1c603de47b5f1e7bdb39
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783995"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055946"
 ---
 # <a name="troubleshoot-your-azure-stack-edge-ordering-issues"></a>Risolvere i problemi di ordinamento di Azure Stack Edge
 
 Questo articolo descrive come risolvere i problemi di ordinamento Azure Stack Edge.
 
-In questa esercitazione si apprenderà come:
+In questa esercitazione verranno illustrate le procedure per:
 
 > [!div class="checklist"]
 >

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: f29a7e48fc1872f83b5a6ce127f38c1a559b2691
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: f5116b3dfd53c5272ef7bb11d1719b7ee62416c4
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762318"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90055793"
 ---
 # <a name="about-virtual-hub-routing"></a>Informazioni sul routing dell'hub virtuale
 
@@ -87,6 +87,7 @@ Quando si configura il routing WAN virtuale, tenere presente quanto segue:
 * Quando si usa il firewall di Azure in più aree, tutte le reti virtuali spoke devono essere associate alla stessa tabella di route. Ad esempio, se si ha un subset di reti virtuali che passano attraverso il firewall di Azure mentre altri reti virtuali ignorano il firewall di Azure nello stesso hub virtuale, non è possibile.
 * È possibile configurare un singolo IP hop successivo per ogni connessione VNet.
 * Hub virtuale non supporta la route statica per 0.0.0.0/0 e la connessione di rete virtuale hop successivo (o un indirizzo IP di un dispositivo nella connessione VNet)
+* Tutte le informazioni relative alla Route 0.0.0.0/0 sono confinate alla tabella di route di un Hub locale. Questa route non viene propagata tra gli hub.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

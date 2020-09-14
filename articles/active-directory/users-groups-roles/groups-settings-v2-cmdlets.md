@@ -14,17 +14,17 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2da67b9996156f136aa2eddb8aa3d2b1777a554
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: c00c89e5f81bcb142c50e5f3438c1af2d72a9de5
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88794564"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056218"
 ---
 # <a name="azure-active-directory-version-2-cmdlets-for-group-management"></a>Cmdlet di Azure Active Directory versione 2 per la gestione dei gruppi
 
 > [!div class="op_single_selector"]
-> - [Portale di Azure](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
+> - [Azure portal](../fundamentals/active-directory-groups-create-azure-portal.md?context=azure/active-directory/users-groups-roles/context/ugr-context)
 > - [PowerShell](groups-settings-v2-cmdlets.md)
 >
 >
@@ -328,13 +328,13 @@ Quando viene creato un gruppo, alcuni endpoint consentono all'utente finale di s
 
 ## <a name="group-writeback-to-on-premises-preview"></a>Eseguire il writeback del gruppo in locale (anteprima)
 
-Attualmente, molti gruppi sono ancora gestiti in Active Directory locali. Per rispondere alle richieste di sincronizzazione dei gruppi di cloud di nuovo in locale, la funzionalità di writeback dei gruppi di Office 365 per Azure AD è ora disponibile in anteprima.
+Attualmente, molti gruppi sono ancora gestiti in Active Directory locali. Per rispondere alle richieste di sincronizzazione dei gruppi di cloud di nuovo in locale, la funzionalità di writeback dei gruppi di Microsoft 365 per Azure AD è ora disponibile in anteprima.
 
-I gruppi di Office 365 vengono creati e gestiti nel cloud. La funzionalità di writeback consente di eseguire il writeback dei gruppi di Office 365 come gruppi di distribuzione in una foresta Active Directory con Exchange installato. Gli utenti con cassette postali di Exchange locali possono inviare e ricevere messaggi di posta elettronica da questi gruppi. La funzionalità di writeback dei gruppi non supporta i gruppi di sicurezza o i gruppi di distribuzione di Azure AD.
+I gruppi di Microsoft 365 vengono creati e gestiti nel cloud. La funzionalità di writeback consente di scrivere Microsoft 365 gruppi come gruppi di distribuzione in una foresta Active Directory con Exchange installato. Gli utenti con cassette postali di Exchange locali possono inviare e ricevere messaggi di posta elettronica da questi gruppi. La funzionalità di writeback dei gruppi non supporta i gruppi di sicurezza o i gruppi di distribuzione di Azure AD.
 
 Per altri dettagli, vedere la documentazione per il [servizio di sincronizzazione Azure ad Connect](../hybrid/how-to-connect-syncservice-features.md).
 
-Il writeback dei gruppi di Office 365 è una funzionalità di anteprima pubblica di Azure Active Directory (Azure AD) ed è disponibile con qualsiasi piano di licenza Azure AD a pagamento. Per alcune informazioni legali sulle anteprime, vedere le [condizioni per l'utilizzo supplementari per le anteprime Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+Il writeback del gruppo di Microsoft 365 è una funzionalità di anteprima pubblica di Azure Active Directory (Azure AD) ed è disponibile con qualsiasi piano di licenza Azure AD a pagamento. Per alcune informazioni legali sulle anteprime, vedere le [condizioni per l'utilizzo supplementari per le anteprime Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

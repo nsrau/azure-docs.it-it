@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/12/2020
-ms.openlocfilehash: 57a981f4967bc58ca39067f94abdcf64d764ab87
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 9d037fa0faa1419e4cd1b600eea1b3b3eb0a29c0
+ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536192"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90058768"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>Connettere prodotti e servizi di Gestione dei servizi IT con Connettore di Gestione dei servizi IT
 Questo articolo fornisce informazioni su come configurare la connessione tra un prodotto o servizio di Gestione dei servizi IT e Connettore di Gestione dei servizi IT in Log Analytics per gestire da una posizione centrale gli elementi di lavoro. Per altre informazioni su Connettore di Gestione dei servizi IT, vedere [Panoramica](./itsmc-overview.md).
@@ -25,7 +25,8 @@ Sono supportati i prodotti/servizi ITSM seguenti. Selezionare il prodotto per vi
 
 > [!NOTE]
 > 
-> Connettore di Gestione dei servizi IT può connettersi solo a istanze di ServiceNow basate su cloud. Le istanze locali di ServiceNow non sono attualmente supportate.
+> A partire da 1-Oct-2020, le integrazioni di Cherwell e Provance ITSM con avviso di Azure non verranno più abilitate per i nuovi clienti. Le nuove connessioni ITSM non saranno supportate. 
+> Saranno supportate le connessioni ITSM esistenti.
 
 ## <a name="connect-system-center-service-manager-to-it-service-management-connector-in-azure"></a>Connettere System Center Service Manager a Connettore di Gestione dei servizi IT in Azure
 
@@ -40,6 +41,10 @@ Accertarsi di aver soddisfatto i prerequisiti seguenti:
 - Connessione ibrida è stata creata e configurata. Altre informazioni: [Configurazione della connessione ibrida](#configure-the-hybrid-connection).
 - Versioni supportate di Service Manager:  2012 R2 o 2016.
 - Ruolo utente:  [Operatore avanzato](/previous-versions/system-center/service-manager-2010-sp1/ff461054(v=technet.10)).
+
+> [!NOTE]
+> 
+> Connettore di Gestione dei servizi IT può connettersi solo a istanze di ServiceNow basate su cloud. Le istanze locali di ServiceNow non sono attualmente supportate.
 
 ### <a name="connection-procedure"></a>Procedura di connessione
 

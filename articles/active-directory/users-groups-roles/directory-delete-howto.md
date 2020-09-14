@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: addimitu
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8c0b203647bc57c7c7eb48e321895cf3b3fa7d44
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: 97a8f372a90d3add99390220d89214c6ad205db6
+ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88795423"
+ms.lasthandoff: 09/13/2020
+ms.locfileid: "90056303"
 ---
 # <a name="delete-a-tenant-in-azure-active-directory"></a>Eliminare un tenant in Azure Active Directory
 
@@ -27,12 +27,12 @@ Quando viene eliminata un'organizzazione di Azure AD (tenant), vengono eliminate
 
 ## <a name="prepare-the-organization"></a>Preparare l'organizzazione
 
-Non è possibile eliminare un'organizzazione di Azure AD fino a quando non supera numerosi controlli. In questo modo si riduce il rischio che l'eliminazione di un'organizzazione di Azure AD possa influire negativamente sull'accesso degli utenti, ad esempio sulla possibilità di accedere a Office 365 o alle risorse in Azure. Se l'organizzazione associata a una sottoscrizione viene eliminata accidentalmente, ad esempio, gli utenti non potranno accedere alle risorse di Azure per tale sottoscrizione. Viene verificato che siano soddisfatte le condizioni seguenti:
+Non è possibile eliminare un'organizzazione di Azure AD fino a quando non supera numerosi controlli. Questi controlli riducono il rischio che l'eliminazione di un Azure AD organizzazione influisca negativamente sull'accesso degli utenti, ad esempio la possibilità di accedere a Microsoft 365 o accedere alle risorse in Azure. Se l'organizzazione associata a una sottoscrizione viene eliminata accidentalmente, ad esempio, gli utenti non potranno accedere alle risorse di Azure per tale sottoscrizione. Viene verificato che siano soddisfatte le condizioni seguenti:
 
 * Nell'organizzazione (tenant) di Azure AD non deve essere presente alcun utente, ad eccezione dell'amministratore globale che deve eliminare l'organizzazione. Per poter eliminare l'organizzazione, è prima necessario eliminare tutti gli altri utenti. Se gli utenti vengono sincronizzati dall'ambiente locale, è prima necessario disattivare la sincronizzazione ed eliminare gli utenti nell'organizzazione cloud tramite il portale di Azure o i cmdlet di Azure PowerShell.
 * L'organizzazione non può contenere applicazioni. Per poter eliminare l'organizzazione, è prima necessario rimuovere tutte le applicazioni.
 * All'organizzazione non possono essere collegati provider di autenticazione a più fattori.
-* All'organizzazione non possono essere associate sottoscrizioni per i Microsoft Online Services, ad esempio Microsoft Azure, Office 365 o Azure AD Premium. Se, ad esempio, in Azure è stata creata automaticamente un'organizzazione di Azure AD predefinita, non è possibile eliminare questa organizzazione se la sottoscrizione di Azure si basa ancora su di essa per l'autenticazione. Analogamente, non è possibile eliminare un'organizzazione se la sottoscrizione di un altro utente è associata a tale organizzazione.
+* Non possono essere presenti sottoscrizioni per i Microsoft Online Services, ad esempio Microsoft Azure, Microsoft 365 o Azure AD Premium associate all'organizzazione. Se, ad esempio, in Azure è stata creata automaticamente un'organizzazione di Azure AD predefinita, non è possibile eliminare questa organizzazione se la sottoscrizione di Azure si basa ancora su di essa per l'autenticazione. Analogamente, non è possibile eliminare un'organizzazione se la sottoscrizione di un altro utente è associata a tale organizzazione.
 
 ## <a name="delete-the-organization"></a>Eliminare l'organizzazione
 
@@ -52,16 +52,16 @@ Non è possibile eliminare un'organizzazione di Azure AD fino a quando non super
 
 ## <a name="if-you-cant-delete-the-organization"></a>Se non è possibile eliminare l'organizzazione
 
-Quando è stata configurata l'organizzazione di Azure AD, potrebbero essere state attivate sottoscrizioni basate su licenza per l'azienda, ad esempio Azure AD Premium P2, Office 365 Business Premium o Enterprise Mobility + Security E5. Per evitare la perdita accidentale di dati, non è possibile eliminare un'organizzazione fino a quando le sottoscrizioni non sono state completamente eliminate. Per consentire l'eliminazione dell'organizzazione, lo stato delle sottoscrizioni deve essere **Deprovisioning eseguito**. Una sottoscrizione **Scaduta** o **Annullata** passa allo stato **Disabilitato** e la fase finale è lo stato **Deprovisioning eseguito**.
+Quando è stata configurata la Azure AD organizzazione, è possibile che siano state attivate anche le sottoscrizioni basate su licenza per l'organizzazione, ad esempio Azure AD Premium P2, Microsoft 365 Business standard o Enterprise Mobility + Security E5. Per evitare la perdita accidentale di dati, non è possibile eliminare un'organizzazione fino a quando le sottoscrizioni non sono state completamente eliminate. Per consentire l'eliminazione dell'organizzazione, lo stato delle sottoscrizioni deve essere **Deprovisioning eseguito**. Una sottoscrizione **Scaduta** o **Annullata** passa allo stato **Disabilitato** e la fase finale è lo stato **Deprovisioning eseguito**.
 
-Per sapere come comportarsi quando una sottoscrizione della versione di prova gratuita di Office 365 scade (esclusi Partner/CSP a pagamento, Enterprise Agreement o Contratti multilicenza), vedere la tabella seguente. Per altre informazioni sulla conservazione dei dati di Office 365 dati e il ciclo di vita della sottoscrizione, vedere [Cosa accade ai dati e all'accesso quando la sottoscrizione aziendale a Office 365 termina?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
+Per sapere cosa accade quando una sottoscrizione di Microsoft 365 di valutazione scade (escluso partner a pagamento/CSP, Enterprise Agreement o contratti multilicenza), vedere la tabella seguente. Per ulteriori informazioni sul ciclo di vita delle sottoscrizioni e sulla conservazione dei dati Microsoft 365, vedere [cosa accade ai dati e all'accesso quando termina la sottoscrizione di Microsoft 365 for business?](https://support.office.com/article/what-happens-to-my-data-and-access-when-my-office-365-for-business-subscription-ends-4436582f-211a-45ec-b72e-33647f97d8a3). 
 
 Stato sottoscrizione | Data | Accesso ai dati
 ----- | ----- | -----
-Attivo (30 giorni per la versione di prova gratuita) | Dati accessibili a tutti | Gli utenti hanno accesso normale ai file di Office 365 o alle app<br>Gli amministratori hanno accesso normale all'interfaccia di amministrazione di Microsoft 365 e alle risorse 
-Scaduto (30 giorni) | Dati accessibili a tutti| Gli utenti hanno accesso normale ai file di Office 365 o alle app<br>Gli amministratori hanno accesso normale all'interfaccia di amministrazione di Microsoft 365 e alle risorse
-Disattivato (30 giorni) | Dati accessibili solo all'amministratore | Gli utenti non possono accedere ai file di Office 365 o alle app<br>Gli amministratori possono accedere all'interfaccia di amministrazione di Microsoft 365, ma non possono assegnare licenze o aggiornare gli utenti
-Deprovisioning eseguito (30 giorni dopo la disattivazione) | Dati eliminati (eliminati automaticamente se nessun altro servizio è in funzione) | Gli utenti non possono accedere ai file di Office 365 o alle app<br>Gli amministratori possono accedere all'interfaccia di amministrazione di Microsoft 365 per acquistare e gestire altre sottoscrizioni
+Attivo (30 giorni per la versione di prova gratuita) | Dati accessibili a tutti | Gli utenti hanno accesso normale a file Microsoft 365 o app<br>Gli amministratori hanno accesso normale all'interfaccia di amministrazione di Microsoft 365 e alle risorse 
+Scaduto (30 giorni) | Dati accessibili a tutti| Gli utenti hanno accesso normale a file Microsoft 365 o app<br>Gli amministratori hanno accesso normale all'interfaccia di amministrazione di Microsoft 365 e alle risorse
+Disattivato (30 giorni) | Dati accessibili solo all'amministratore | Gli utenti non possono accedere ai file di Microsoft 365 o alle app<br>Gli amministratori possono accedere all'interfaccia di amministrazione di Microsoft 365, ma non possono assegnare licenze o aggiornare gli utenti
+Deprovisioning eseguito (30 giorni dopo la disattivazione) | Dati eliminati (eliminati automaticamente se nessun altro servizio è in funzione) | Gli utenti non possono accedere ai file di Microsoft 365 o alle app<br>Gli amministratori possono accedere all'interfaccia di amministrazione di Microsoft 365 per acquistare e gestire altre sottoscrizioni
 
 ## <a name="delete-a-subscription"></a>Eliminare una sottoscrizione
 
@@ -97,7 +97,7 @@ Deprovisioning eseguito (30 giorni dopo la disattivazione) | Dati eliminati (eli
 
 ## <a name="i-have-a-trial-subscription-that-blocks-deletion"></a>Ho una sottoscrizione di valutazione che blocca l'eliminazione
 
-Per alcuni [prodotti con iscrizione self-service](/office365/admin/misc/self-service-sign-up?view=o365-worldwide), ad esempio Microsoft Power BI, Rights Management Services, Microsoft Power Apps o Dynamics 365, i singoli utenti possono effettuare l'iscrizione tramite Office 365. Questa procedura crea anche un utente guest per l'autenticazione nell'organizzazione di Azure AD. Questi prodotti self-service bloccano le eliminazioni di directory fino a quando i prodotti non vengono eliminati completamente dall'organizzazione, per evitare la perdita di dati. Possono essere eliminati solo dall'amministratore di Azure AD, indipendentemente dal fatto che l'utente abbia effettuato l'iscrizione singolarmente o che sia stato assegnato al prodotto.
+Sono disponibili [prodotti di iscrizione self-service](/office365/admin/misc/self-service-sign-up?view=o365-worldwide) come Microsoft Power BI, Rights Management Services, Microsoft Power Apps o Dynamics 365, i singoli utenti possono iscriversi tramite Microsoft 365, che crea anche un utente Guest per l'autenticazione nell'organizzazione Azure ad. Questi prodotti self-service bloccano le eliminazioni di directory fino a quando i prodotti non vengono eliminati completamente dall'organizzazione, per evitare la perdita di dati. Possono essere eliminati solo dall'amministratore di Azure AD, indipendentemente dal fatto che l'utente abbia effettuato l'iscrizione singolarmente o che sia stato assegnato al prodotto.
 
 Esistono due tipi di prodotti con iscrizione self-service con modalità di assegnazione diverse: 
 
@@ -108,7 +108,7 @@ Quando si avvia l'eliminazione del prodotto con iscrizione self-service, l'azion
 
 Per ulteriori informazioni sui prodotti e i servizi con iscrizione self-service attualmente disponibili, vedere [Programmi self-service disponibili](/office365/admin/misc/self-service-sign-up?view=o365-worldwide#available-self-service-programs).
 
-Per sapere come comportarsi quando una sottoscrizione della versione di prova gratuita di Office 365 scade (esclusi Partner/CSP a pagamento, Enterprise Agreement o Contratti multilicenza), vedere la tabella seguente. Per altre informazioni sulla conservazione dei dati di Office 365 dati e il ciclo di vita della sottoscrizione, vedere [Cosa accade ai dati e all'accesso quando la sottoscrizione aziendale a Office 365 termina?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
+Per sapere cosa accade quando una sottoscrizione di Microsoft 365 di valutazione scade (escluso partner a pagamento/CSP, Enterprise Agreement o contratti multilicenza), vedere la tabella seguente. Per ulteriori informazioni sul ciclo di vita delle sottoscrizioni e sulla conservazione dei dati Microsoft 365, vedere [cosa accade ai dati e all'accesso quando termina la sottoscrizione di Microsoft 365 for business?](/office365/admin/subscriptions-and-billing/what-if-my-subscription-expires?view=o365-worldwide).
 
 Stato del prodotto | Data | Accesso ai dati
 ------------- | ---- | --------------
