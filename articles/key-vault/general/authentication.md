@@ -7,18 +7,18 @@ ms.date: 08/27/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 1ef5b2229aadc4be46361a7319351a1f27b28b63
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: d247e657e93afd0c43ecee1154c542398304d8dd
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378976"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89481376"
 ---
 # <a name="authenticate-to-azure-key-vault"></a>Eseguire l'autenticazione con Azure Key Vault
 
 Azure Key Vault consente di archiviare i segreti e controllarne la distribuzione in un repository cloud sicuro e centralizzato, che evita di dover archiviare le credenziali nelle applicazioni. Le applicazioni devono solo eseguire l'autenticazione con Key Vault in fase di esecuzione per accedere a tali segreti.
 
-## <a name="app-identity-and-service-principals"></a>Identità e entità servizio delle app
+## <a name="app-identity-and-security-principals"></a>Identità ed entità di sicurezza dell'app
 
 L'autenticazione con Key Vault funziona in combinazione con [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis), che è responsabile dell'autenticazione dell'identità di una determinata **entità di sicurezza**.
 
@@ -40,7 +40,7 @@ Per le applicazioni esistono due modi per ottenere un'entità servizio:
 
 * Se non è possibile usare l'identità gestita, **registrare** invece l'applicazione nel tenant di Azure AD, come descritto in [Avvio rapido: Registrare un'applicazione con la piattaforma delle identità di Azure](/azure/active-directory/develop/quickstart-register-app). La registrazione crea anche un secondo oggetto applicazione che identifica l'app in tutti i tenant.
 
-## <a name="authorize-a-service-principal-to-access-key-vault"></a>Autorizzare un'entità servizio per l'accesso a Key Vault
+## <a name="authorize-a-security-principal-to-access-key-vault"></a>Autorizzare un'entità di sicurezza per l'accesso a Key Vault
 
 Key Vault funziona con due livelli distinti di autorizzazione:
 

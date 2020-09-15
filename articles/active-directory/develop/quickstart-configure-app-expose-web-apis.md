@@ -1,146 +1,119 @@
 ---
-title: "Avvio rapido: Configurare un'app per esporre un'API Web | Azure"
+title: "Avvio rapido: Registrare ed esporre un'API Web | Azure"
 titleSuffix: Microsoft identity platform
-description: In questo argomento di avvio rapido viene illustrato come configurare un'applicazione in modo da esporre un nuovo ambito/autorizzazione e un nuovo ruolo e renderla così disponibile per le applicazioni client.
+description: Questo argomento di avvio rapido illustra come registrare un'API Web con Microsoft Identity Platform e configurarne gli ambiti, esponendola ai client per l'accesso basato su autorizzazioni alle risorse dell'API.
 services: active-directory
-author: rwike77
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 08/05/2020
-ms.author: ryanwi
-ms.custom: aaddev
+ms.date: 09/03/2020
+ms.author: marsma
+ms.custom: aaddev, contperfq1
 ms.reviewer: aragra, lenalepa, sureshja
-ms.openlocfilehash: 93b0c3392a32a6ff18a285d34fdaede6ceea6528
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 72d66bd4c738ed60bbaefc123daae90ecc0db163
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87830292"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442147"
 ---
 # <a name="quickstart-configure-an-application-to-expose-a-web-api"></a>Avvio rapido: Configurare un'applicazione per esporre un'API Web
 
-È possibile sviluppare un'API Web e renderla disponibile per applicazioni client esponendo [ambiti/autorizzazioni](developer-glossary.md#scopes) e [ruoli](developer-glossary.md#roles). Un'API Web correttamente configurata viene resa disponibile come le altre API Web Microsoft, tra cui l'API Graph e le API di Office 365.
-
-In questo argomento di avvio rapido viene illustrato come configurare un'applicazione in modo da esporre un nuovo ambito e renderla così disponibile per le applicazioni client.
+Questo argomento di avvio rapido illustra come registrare un'API Web con Microsoft Identity Platform ed esporla alle app client aggiungendo un ambito di esempio. Registrando l'API Web ed esponendola tramite gli ambiti, è possibile fornire l'accesso basato sulle autorizzazioni alle relative risorse non solo agli utenti autorizzati, ma anche alle app client che accedono all'API.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Completamento di [Avvio rapido: Registrare un'applicazione con Microsoft Identity Platform](quickstart-register-app.md).
+* Un account Azure con una sottoscrizione attiva ([creare un account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
+* Completamento di [Avvio rapido: Configurare un tenant](quickstart-create-new-tenant.md)
 
-## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Accedere al portale di Azure e selezionare l'app
+## <a name="register-the-web-api"></a>Registrare l'API Web
 
-Per poter configurare l'app, seguire prima questa procedura:
+Per fornire l'accesso con ambito alle risorse nell'API Web, è prima di tutto necessario registrare l'API con Microsoft Identity Platform.
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra e impostare la sessione del portale sul tenant di Azure Active Directory desiderato.
-1. Nel riquadro di spostamento sinistro selezionare il servizio **Azure Active Directory** e quindi **Registrazioni app**.
-1. Trovare e selezionare l'applicazione che si vuole configurare. Dopo la selezione dell'app verrà visualizzata la pagina **Panoramica** o la pagina di registrazione principale dell'applicazione.
-1. Scegliere il metodo (interfaccia utente o manifesto dell'applicazione) che si vuole usare per esporre un nuovo ambito:
-    * [Esporre un nuovo ambito tramite l'interfaccia utente](#expose-a-new-scope-through-the-ui)
-    * [Esporre un nuovo ambito o ruolo tramite il manifesto dell'applicazione](#expose-a-new-scope-or-role-through-the-application-manifest)
+1. Seguire la procedura descritta nella sezione **Registrare un'applicazione** di [Avvio rapido: Registrare un'app con Microsoft Identity Platform](quickstart-register-app.md).
+1. Ignorare le sezioni **Aggiungere un URI di reindirizzamento** e **Configurare le impostazioni della piattaforma**. Non è necessario configurare un URI di reindirizzamento per un'API Web perché nessun utente è connesso in modo interattivo.
+1. Per il momento ignorare la sezione **Aggiungere le credenziali**. L'API richiede le proprie credenziali solo se accede a un'API downstream, uno scenario che non viene trattato in questo articolo.
 
-## <a name="expose-a-new-scope-through-the-ui"></a>Esporre un nuovo ambito tramite l'interfaccia utente
+Dopo aver registrato l'API Web, è possibile aggiungere gli ambiti che il codice API può usare per fornire l'autorizzazione granulare ai consumer dell'API.
 
-[![Mostra come esporre un'API con l'interfaccia utente](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-api-through-ui-expanded.png#lightbox)
+## <a name="add-a-scope"></a>Aggiungere un ambito
 
-Per esporre un nuovo ambito tramite l'interfaccia utente:
+Per richiedere l'autorizzazione per eseguire le operazioni definite dall'API Web, il codice in un'applicazione client passa un token di accesso unitamente alle relative richieste alla risorsa protetta, ovvero l'API Web. L'API Web esegue quindi l'operazione richiesta solo se il token di accesso ricevuto contiene gli ambiti necessari per l'operazione.
 
-1. Nella pagina **Panoramica** dell'app selezionare la sezione **Esporre un'API**.
+Seguire innanzitutto questa procedura per creare un ambito di esempio denominato `Employees.Read.All`:
 
-1. Selezionare **Aggiungi un ambito**.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/quickstart-configure-app-expose-web-apis/portal-01-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant che contiene la registrazione dell'app client.
+1. Selezionare **Azure Active Directory** > **Registrazioni app** e quindi selezionare la registrazione dell'app dell'API.
+1. Selezionare **Esporre un'API** > **Aggiungi un ambito**.
 
-1. Se non è stato impostato un **URI dell'ID applicazione**, verrà richiesto di immetterne uno. Immettere l'URI dell'ID applicazione o usare quello fornito e quindi selezionare **Salva e continua**.
+    :::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-02-expose-api.png" alt-text="Riquadro Esporre un'API di una registrazione dell'app nel portale di Azure":::
 
-1. Nella pagina **Aggiungi un ambito** visualizzata immettere le informazioni dell'ambito:
+1. Se non è stato ancora configurato, viene richiesto di impostare un valore per **URI ID applicazione**.
 
-    | Campo | Descrizione |
-    |-------|-------------|
-    | **Nome ambito** | Immettere un nome significativo per l'ambito.<br><br>Ad esempio: `Employees.Read.All`. |
-    | **Utenti che possono fornire il consenso** | Selezionare se il consenso per l'ambito può essere fornito dagli utenti o è necessario il consenso amministratore. Selezionare **Solo amministratori** per autorizzazioni con privilegi più elevati. |
-    | **Nome visualizzato per il consenso amministratore** | Immettere una descrizione significativa per l'ambito, che verrà visualizzata agli amministratori.<br><br>Ad esempio, usare `Read-only access to Employee records` |
-    | **Descrizione del consenso amministratore** | Immettere una descrizione significativa per l'ambito, che verrà visualizzata agli amministratori.<br><br>Ad esempio, usare `Allow the application to have read-only access to all Employee data.` |
+   L'URI dell'ID applicazione funge da prefisso per gli ambiti a cui verrà fatto riferimento nel codice dell'API e deve essere univoco a livello globale. È possibile usare il valore predefinito fornito, in formato `api://<application-client-id>`, oppure specificare un URI più leggibile, ad esempio `https://contoso.com/api`.
 
-    Se gli utenti possono fornire il consenso per l'ambito, aggiungere valori anche per i campi seguenti:
+1. Specificare quindi gli attributi dell'ambito nel riquadro **Aggiungi un ambito**. Per questa procedura dettagliata è possibile usare i valori di esempio o specificare valori personalizzati.
 
-    | Campo | Descrizione |
-    |-------|-------------|
-    | **Nome visualizzato per il consenso utente** | Immettere un nome significativo per l'ambito, che verrà visualizzato agli utenti.<br><br>Ad esempio, usare `Read-only access to your Employee records` |
-    | **Descrizione del consenso utente** | Immettere una descrizione significativa per l'ambito, che verrà visualizzata agli utenti.<br><br>Ad esempio, usare `Allow the application to have read-only access to your Employee data.` |
+    | Campo | Descrizione | Esempio |
+    |-------|-------------|---------|
+    | **Nome ambito** | Nome dell'ambito. Una convenzione di denominazione standard è `resource.operation.constraint`. | `Employees.Read.All` |
+    | **Utenti che possono fornire il consenso** | Indica se il consenso per l'ambito può essere fornito dagli utenti oppure se è necessario il consenso amministratore. Selezionare **Solo amministratori** per autorizzazioni con privilegi più elevati. | **Amministratori e utenti** |
+    | **Nome visualizzato per il consenso amministratore** | Breve descrizione dello scopo dell'ambito che verrà visualizzata solo dagli amministratori. | `Read-only access to Employee records` |
+    | **Descrizione del consenso amministratore** | Descrizione più dettagliata dell'autorizzazione concessa dall'ambito che verrà visualizzata solo dagli amministratori. | `Allow the application to have read-only access to all Employee data.` |
+    | **Nome visualizzato per il consenso utente** | Breve descrizione dello scopo dell'ambito. Viene visualizzata agli utenti solo se si imposta **Utenti autorizzati al consenso** su **Amministratori e utenti**. | `Read-only access to your Employee records` |
+    | **Descrizione del consenso utente** | Descrizione più dettagliata dell'autorizzazione concessa dall'ambito. Viene visualizzata agli utenti solo se si imposta **Utenti autorizzati al consenso** su **Amministratori e utenti**. | `Allow the application to have read-only access to your Employee data.` |
 
-1. Impostare **Stato** e al termine selezionare **Aggiungi l'ambito**.
+1. Impostare **Stato** su **Abilitato** e quindi selezionare **Aggiungi ambito**.
 
-1. (Facoltativo) Per rimuovere la richiesta del consenso degli utenti dell'app per gli ambiti definiti, è possibile "pre-autorizzare" l'accesso dell'applicazione client all'API Web. È consigliabile pre-autorizzare *solo* le applicazioni client attendibili, perché gli utenti non hanno la possibilità di rifiutare il consenso.
+1. (Facoltativo) Per rimuovere la richiesta del consenso degli utenti dell'app per gli ambiti definiti, è possibile *pre-autorizzare* l'accesso dell'applicazione client all'API Web. Pre-autorizzare *solo* le applicazioni client attendibili, perché gli utenti non hanno la possibilità di rifiutare il consenso.
     1. In **Applicazioni client autorizzate** selezionare **Aggiungi applicazione client**
     1. Immettere il valore di **ID applicazione (client)** dell'applicazione client da pre-autorizzare, ad esempio quello di un'applicazione Web già registrata.
     1. In **Ambiti autorizzati**selezionare gli ambiti per cui rimuovere la richiesta di consenso, quindi selezionare **Aggiungi applicazione**.
 
-    L'app client è ora un'app client pre-autorizzata e agli utenti non verrà richiesto il consenso per l'accesso.
+    Se è stato eseguito questo passaggio facoltativo, l'app client è ora un'app client pre-autorizzata e agli utenti non verrà richiesto il consenso per accedervi.
 
-1. Seguire la procedura per [verificare che l'API Web sia esposta ad altre applicazioni](#verify-the-web-api-is-exposed-to-other-applications).
+## <a name="add-a-scope-requiring-admin-consent"></a>Aggiungere un ambito che richiede il consenso dell'amministratore
 
-## <a name="expose-a-new-scope-or-role-through-the-application-manifest"></a>Esporre un nuovo ambito o ruolo tramite il manifesto dell'applicazione
+Aggiungere quindi un altro ambito di esempio denominato `Employees.Write.All` per il quale solo gli amministratori possono concedere il consenso. Gli ambiti che richiedono il consenso dell'amministratore vengono usati in genere per fornire l'accesso a operazioni con privilegi più elevati e spesso da applicazioni client che vengono eseguite come servizi back-end o daemon che non eseguono l'accesso utente interattivo.
 
-Il manifesto dell'applicazione funge da meccanismo per l'aggiornamento dell'entità applicazione e definisce gli attributi di una registrazione di app Azure AD.
+Per aggiungere l'ambito di esempio `Employees.Write.All`, seguire la procedura descritta nella sezione [Aggiungere un ambito](#add-a-scope) e specificare questi valori nel riquadro **Aggiungi un ambito**:
 
-[![Esporre un nuovo ambito con la raccolta oauth2Permissions del manifesto](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png)](./media/quickstart-update-azure-ad-app-preview/expose-new-scope-through-app-manifest-expanded.png#lightbox)
+| Campo                          | Valore di esempio                                                      |
+|--------------------------------|--------------------------------------------------------------------|
+| **Nome ambito**                 | `Employees.Write.All`                                              |
+| **Utenti che possono fornire il consenso**            | **Solo amministratori**                                                    |
+| **Nome visualizzato per il consenso amministratore** | `Write access to Employee records`                                 |
+| **Descrizione del consenso amministratore**  | `Allow the application to have write access to all Employee data.` |
+| **Nome visualizzato per il consenso utente**  | *Nessuno (lasciare vuoto)*                                               |
+| **Descrizione del consenso utente**   | *Nessuno (lasciare vuoto)*                                               |
 
-Per esporre un nuovo ambito modificando il manifesto dell'applicazione:
+## <a name="verify-the-exposed-scopes"></a>Verificare gli ambiti esposti
 
-1. Nella pagina **Panoramica** dell'app selezionare la sezione **Manifesto**. Si apre un editor di manifesto basato sul Web che consente di **modificare** il manifesto all'interno del portale. Facoltativamente è possibile selezionare **Scarica**, modificare il manifesto in locale e quindi usare **Carica** per riapplicarlo all'applicazione.
+Se sono stati aggiunti entrambi, gli ambiti di esempio descritti nelle sezioni precedenti verranno visualizzati nel riquadro **Esporre un'API** della registrazione dell'app dell'API Web, come illustrato nell'immagine seguente:
 
-    L'esempio seguente illustra come esporre un nuovo ambito denominato `Employees.Read.All` nella risorsa/API aggiungendo l'elemento JSON seguente alla raccolta `oauth2Permissions`.
+:::image type="content" source="media/quickstart-configure-app-expose-web-apis/portal-03-scopes-list.png" alt-text="Screenshot del riquadro Esporre un'API che mostra due ambiti esposti.":::
 
-    Generare il valore di `id` a livello di codice oppure usando uno strumento per la generazione di GUID come [guidgen](https://www.microsoft.com/download/details.aspx?id=55984).
-
-      ```json
-      {
-        "adminConsentDescription": "Allow the application to have read-only access to all Employee data.",
-        "adminConsentDisplayName": "Read-only access to Employee records",
-        "id": "2b351394-d7a7-4a84-841e-08a6a17e4cb8",
-        "isEnabled": true,
-        "type": "User",
-        "userConsentDescription": "Allow the application to have read-only access to your Employee data.",
-        "userConsentDisplayName": "Read-only access to your Employee records",
-        "value": "Employees.Read.All"
-      }
-      ```
-
-1. Al termine fare clic su **Salva**. Ora l'API Web è configurata in modo che possa essere usata da altre applicazioni nella directory.
-1. Seguire la procedura per [verificare che l'API Web sia esposta ad altre applicazioni](#verify-the-web-api-is-exposed-to-other-applications).
-
-Per altre informazioni sull'entità applicazione e sul relativo schema, vedere la documentazione di riferimento per il tipo di risorsa [applicazione][ms-graph-application] di Microsoft Graph.
-
-Per altre informazioni sul manifesto dell'applicazione, incluse le informazioni di riferimento sullo schema, vedere [Informazioni sul manifesto dell'app Azure AD](reference-app-manifest.md).
-
-## <a name="verify-the-web-api-is-exposed-to-other-applications"></a>Verificare che l'API Web sia esposta ad altre applicazioni
-
-1. Tornare nel tenant di Azure AD, selezionare **Registrazioni app** e quindi trovare e selezionare l'applicazione client da configurare.
-1. Ripetere la procedura illustrata in [Configurare un'applicazione client per l'accesso ad API Web](quickstart-configure-app-access-web-apis.md).
-1. Quando si arriva al passaggio per [selezionare un'API](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis), selezionare la risorsa, ovvero la registrazione dell'app per l'API Web.
-    * Se la registrazione dell'app per l'API Web è stata creata con il portale di Azure, la risorsa API è riportata nella scheda **Le mie API**.
-    * Se la registrazione dell'app per l'API Web è stata creata in Visual Studio durante la creazione del progetto, la risorsa API è riportata nella scheda **API usate dall'organizzazione**.
-
-Dopo aver selezionato la risorsa API Web, il nuovo ambito sarà disponibile per le richieste di autorizzazioni dei client.
-
-## <a name="using-the-exposed-scopes"></a>Uso degli ambiti esposti
-
-Dopo che un client è stato configurato in modo appropriato con le autorizzazioni per accedere all'API Web, Azure AD può rilasciare al client un token di accesso OAuth 2.0. Quando il client chiama l'API Web, presenta il token di accesso che ha l'attestazione di ambito (`scp`) impostata sulle autorizzazioni richieste nella registrazione dell'applicazione.
-
-Se necessario, è possibile esporre altri ambiti successivamente. Tenere presente che l'API Web può esporre più ambiti associati a molte funzioni diverse. La risorsa può controllare l'accesso all'API Web in fase di esecuzione, valutando le attestazioni dell'ambito (`scp`) nel token di accesso OAuth 2.0 ricevuto.
-
-Nelle applicazioni il valore dell'ambito completo è una concatenazione di **URI ID applicazione** dell'API Web (la risorsa) e **Nome ambito**.
+Come illustrato nell'immagine, la stringa completa di un ambito è costituita dalla concatenazione del valore **URI ID applicazione** dell'API Web e del valore di **Nome ambito** dell'ambito.
 
 Se, ad esempio, l'URI ID applicazione dell'API Web è `https://contoso.com/api` e il nome dell'ambito è `Employees.Read.All`, l'ambito completo è:
 
 `https://contoso.com/api/Employees.Read.All`
 
+## <a name="using-the-exposed-scopes"></a>Uso degli ambiti esposti
+
+Nell'articolo successivo della serie viene configurata la registrazione di un'app client con l'accesso all'API Web e gli ambiti definiti seguendo la procedura descritta in questo articolo.
+
+Dopo che a una registrazione dell'app del client è stata concessa l'autorizzazione per accedere all'API Web, Microsoft Identity Platform può rilasciare al client un token di accesso OAuth 2.0. Quando il client chiama l'API Web, presenta un token di accesso con attestazione di ambito (`scp`) impostata sulle autorizzazioni specificate nella registrazione dell'app del client.
+
+Se necessario, è possibile esporre altri ambiti successivamente. Tenere presente che l'API Web può esporre più ambiti associati a operazioni diverse. La risorsa può controllare l'accesso all'API Web in fase di esecuzione, valutando le attestazioni di ambito (`scp`) nel token di accesso OAuth 2.0 ricevuto.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-Ora che l'API Web è stata esposta configurandone gli ambiti, configurare la registrazione dell'app client con l'autorizzazione per accedere a tali ambiti.
+Ora che l'API Web è stata esposta configurandone gli ambiti, configurare la registrazione dell'app client con l'autorizzazione per accedere agli ambiti.
 
 > [!div class="nextstepaction"]
 > [Configurare la registrazione di un'app per l'accesso all'API Web](quickstart-configure-app-access-web-apis.md)

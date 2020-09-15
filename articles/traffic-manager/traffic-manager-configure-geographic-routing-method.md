@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
 ms.author: duau
-ms.openlocfilehash: 71219eea1c7cdeeefbf63e5a5715fb10fcf68682
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 53773d7c616edec067e1ed1778b7ce6b500ee936
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401079"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89462616"
 ---
 # <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>Esercitazione: Configurare il metodo di routing del traffico Geografico tramite Gestione traffico
 
@@ -39,8 +39,7 @@ Il metodo di routing del traffico Geografico consente di indirizzare il traffico
 
 1. Cercare il nome del profilo di Gestione traffico creato nella barra di ricerca del portale e fare clic sul risultato visualizzato.
 2. Passare a **Impostazioni** -> **Endpoint** nel pannello di Gestione traffico.
-3. Fare clic su **Aggiungi** per visualizzare **Aggiungi endpoint**.
-3. Fare clic su **Aggiungi** e completare come segue il pannello **Aggiungi endpoint** visualizzato:
+3. Fare clic su **Aggiungi** e nel riquadro **Aggiungi endpoint** visualizzato, completare le operazioni seguenti:
 4. Selezionare **Tipo** in base al tipo di endpoint che si desidera aggiungere. Per i profili di routing geografico usati nell'ambiente di produzione è consigliabile usare i tipi di endpoint annidati che contengono un profilo figlio con più di un endpoint. Per altre informazioni, vedere le [domande frequenti sui metodi di routing del traffico](traffic-manager-FAQs.md).
 5. Indicare un **nome** con il quale si desidera identificare l'endpoint.
 6. Determinati campi di questa pagina dipendono dal tipo di endpoint che si vuole aggiungere:

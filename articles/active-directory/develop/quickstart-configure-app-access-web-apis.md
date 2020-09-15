@@ -1,202 +1,148 @@
 ---
 title: "Avvio rapido: Configurare un'app per l'accesso a un'API Web | Azure"
 titleSuffix: Microsoft identity platform
-description: Questo argomento di avvio rapido illustra come configurare un'app registrata con Microsoft Identity Platform in modo da includere gli URI di reindirizzamento, le credenziali o le autorizzazioni per l'accesso alle API Web.
+description: Questo argomento di avvio rapido illustra come configurare una registrazione di app che rappresenta un'API Web in Microsoft Identity Platform per consentire alle applicazioni client di accedere alle risorse con ambito tramite autorizzazioni.
 services: active-directory
-author: rwike77
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
-ms.date: 08/05/2020
-ms.author: ryanwi
-ms.custom: aaddev
+ms.date: 09/03/2020
+ms.author: marsma
+ms.custom: aaddev, contperfq1
 ms.reviewer: lenalepa, aragra, sureshja
-ms.openlocfilehash: 87c21587567ffe3462e4b702985114ac10454886
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: fc2f3202ac88e3ee6c24db21dd9072a13a8deef9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88140803"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442285"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-a-web-api"></a>Avvio rapido: Configurare un'applicazione client per l'accesso a un'API Web
 
-In questo argomento di avvio rapido si aggiungono gli URI di reindirizzamento, le credenziali o le autorizzazioni per l'accesso alle API Web per l'applicazione. Per consentire a un'applicazione client Web o riservata di partecipare a un flusso di concessione di autorizzazioni che richiede l'autenticazione, è necessario definire credenziali sicure. Il metodo di autenticazione predefinito supportato dal portale di Azure è ID client + chiave privata. Durante questo processo, l'app ottiene un token di accesso.
+Questo argomento di avvio rapido illustra come fornire a un'app client registrata con Microsoft Identity Platform l'accesso con ambito basato su autorizzazioni all'API Web personalizzata. Viene spiegato anche come fornire l'accesso all'app client a Microsoft Graph.
 
-Prima che un client possa accedere a un'API Web esposta dall'applicazione di una risorsa, ad esempio l'API Microsoft Graph, il framework di consenso assicura che il client ottenga la concessione necessaria delle autorizzazioni richieste. Per impostazione predefinita, tutte le applicazioni possono richiedere autorizzazioni all'API Microsoft Graph.
+Specificando gli ambiti di un'API Web nella registrazione dell'app client, l'app client può ottenere da Microsoft Identity Platform un token di accesso che contiene gli ambiti. All'interno del codice, l'API Web può quindi fornire accesso basato su autorizzazioni alle relative risorse in base agli ambiti trovati nel token di accesso.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un account Azure con una sottoscrizione attiva. [Creare un account gratuitamente](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-* Completamento di [Avvio rapido: Configurare un'applicazione per esporre un'API Web](quickstart-configure-app-expose-web-apis.md).
+* Un account Azure con una sottoscrizione attiva ([creare un account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F))
+* Completamento di [Avvio rapido: Registrare un'applicazione](quickstart-register-app.md)
+* Completamento di [Avvio rapido: Configurare un'applicazione per esporre un'API Web](quickstart-configure-app-expose-web-apis.md)
 
-## <a name="sign-in-to-the-azure-portal-and-select-the-app"></a>Accedere al portale di Azure e selezionare l'app
+## <a name="add-permissions-to-access-your-web-api"></a>Aggiungere autorizzazioni per accedere all'API Web
 
-1. Accedere al [portale di Azure](https://portal.azure.com) con un account aziendale o dell'istituto di istruzione oppure con un account Microsoft personale.
-1. Se l'account consente di accedere a più tenant, selezionare l'account nell'angolo in alto a destra. Impostare la sessione del portale sul tenant di Azure AD desiderato.
-1. Cercare e selezionare **Azure Active Directory**. In **Gestisci** selezionare **Registrazioni app**.
-1. Trovare e selezionare l'applicazione che si vuole configurare. Dopo la selezione dell'app, verrà visualizzata la relativa pagina **Panoramica** o la pagina di registrazione principale.
+Nel primo scenario si concede a un'app client l'accesso all'API Web personalizzata. Entrambi devono essere registrate come previsto nei prerequisiti. Se non si hanno ancora un'app client e un'API Web, completare la procedura descritta nei due articoli inclusi nei [prerequisiti](#prerequisites).
 
-Seguire queste procedure per configurare l'applicazione per l'accesso ad API Web.
+Questo diagramma mostra la correlazione tra le due registrazioni dell'app. In questa sezione vengono aggiunte le autorizzazioni per la registrazione dell'app client.
 
-## <a name="add-redirect-uris-to-your-application"></a>Aggiungere gli URI di reindirizzamento all'applicazione
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/diagram-01-app-permission-to-api-scopes.svg" alt-text="Diagramma a linee che mostra un'API Web con ambiti esposti a destra e un'app client a sinistra con gli ambiti selezionati come autorizzazioni" border="false":::
 
-È possibile aggiungere all'applicazione gli URI di reindirizzamento personalizzati e suggeriti. Per aggiungere un URI di reindirizzamento personalizzato per applicazioni client Web e pubbliche:
+Dopo aver registrato sia l'app client che l'API Web e aver esposto l'API creando gli ambiti, seguire questa procedura per configurare le autorizzazioni del client per l'API:
 
-1. Nella pagina **Panoramica** dell'app selezionare **Autenticazione**.
-1. Individuare l'opzione **URI di reindirizzamento**. Può essere necessario selezionare **Passa all'esperienza precedente**.
-1. Selezionare il tipo di applicazione da creare: **Web** o **Client pubblico/nativo (dispositivi mobili e desktop)** .
-1. Immettere l'URI di reindirizzamento per l'applicazione.
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant che contiene la registrazione dell'app client.
+1. Selezionare **Azure Active Directory** > **Registrazioni app** e quindi selezionare l'applicazione client (*non* l'API Web).
+1. Selezionare **Autorizzazioni API** > **Aggiungi un'autorizzazione** > **Le mie API**.
+1. Selezionare l'API Web registrata come parte dei prerequisiti.
 
-   * Per le applicazioni Web, specificare l'URL di base dell'applicazione. L'URL per un'applicazione Web in esecuzione nel computer locale potrebbe essere ad esempio `http://localhost:31544`. Gli utenti useranno questo URL per accedere a un'applicazione client Web.
-   * Per le applicazione pubbliche, specificare l'URI usato da Azure AD per restituire le risposte dei token. Immettere un valore specifico dell'applicazione, ad esempio: `https://MyFirstApp`.
-1. Selezionare **Salva**.
+    L'opzione **Autorizzazioni delegate** è selezionata per impostazione predefinita. Le autorizzazioni delegate sono appropriate per le app client che accedono a un'API Web come utente connesso e il cui accesso deve essere limitato alle autorizzazioni selezionate nel passaggio successivo. Per questo esempio lasciare selezionata l'opzione **Autorizzazioni delegate**.
 
-Per scegliere tra gli URI di reindirizzamento suggeriti per client pubblici, seguire questa procedura:
+    Usare **Autorizzazioni applicazione** per applicazioni di tipo servizio o daemon che devono accedere a un'API Web automaticamente, senza richiedere l'intervento dell'utente per l'accesso o il consenso. A meno che non siano stati definiti ruoli applicazione per l'API Web, questa opzione è disabilitata.
+1. In **Selezionare le autorizzazioni** espandere la risorsa con gli ambiti definiti per l'API Web e selezionare le autorizzazioni che l'app client deve avere per conto dell'utente che ha eseguito l'accesso.
 
-1. Nella pagina **Panoramica** dell'app selezionare **Autenticazione**.
-1. Individuare l'opzione **URI di reindirizzamento suggeriti per client pubblici (dispositivi mobili, desktop)** . Può essere necessario selezionare **Passa all'esperienza precedente**.
-1. Selezionare uno o più URI di reindirizzamento per l'applicazione. È anche possibile immettere un URI di reindirizzamento personalizzato. In caso di dubbi su quale usare, vedere la documentazione della libreria.
-1. Selezionare **Salva**.
+    Se sono stati usati i nomi di ambito di esempio specificati nell'argomento di avvio rapido precedente, i valori visualizzati dovrebbero essere **Employees.Read.All** e **Employees.Write.All**.
+    Selezionare **Employees.Read.All** o un'altra autorizzazione eventualmente creata durante il completamento dei prerequisiti.
+1. Selezionare **Aggiungi autorizzazioni** per completare il processo.
 
-Agli URI di reindirizzamento si applicano specifiche restrizioni. Per altre informazioni, vedere [Restrizioni e limitazioni degli URI di reindirizzamento/URL di risposta](./reply-url.md).
+Dopo aver aggiunto le autorizzazioni per l'API, le autorizzazioni selezionate dovrebbero essere visualizzate in **Autorizzazioni configurate**. L'immagine seguente illustra l'autorizzazione delegata di esempio *Employees.Read.All* aggiunta alla registrazione dell'app client.
 
-> [!NOTE]
-> Provare la nuova esperienza per le Impostazioni di **autenticazione** che consente di configurare le impostazioni dell'applicazione in base alla piattaforma o al dispositivo di destinazione.
->
-> Per accedere a questa visualizzazione, selezionare **Prova la nuova esperienza** nella pagina **Autenticazione**.
->
-> ![Fare clic su "Prova la nuova esperienza" per accedere alla visualizzazione della configurazione della piattaforma](./media/quickstart-update-azure-ad-app-preview/authentication-try-new-experience-cropped.png)
->
-> Si verrà reindirizzati alla [nuova pagina **Configurazioni della piattaforma**](#configure-platform-settings-for-your-application).
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-02-configured-permissions-pane.png" alt-text="Riquadro Autorizzazioni configurate nel portale di Azure che mostra l'autorizzazione appena aggiunta":::
 
-### <a name="configure-advanced-settings-for-your-application"></a>Configurare le impostazioni avanzate per l'applicazione
+Notare anche l'autorizzazione *User.Read* per l'API Microsoft Graph. Questa autorizzazione viene aggiunta automaticamente quando si registra un'app nel portale di Azure.
 
-A seconda dell'applicazione che si sta registrando, potrebbe essere necessario configurare impostazioni aggiuntive, ad esempio:
+## <a name="add-permissions-to-access-microsoft-graph"></a>Aggiungere autorizzazioni per accedere a Microsoft Graph
 
-* **URL di disconnessione**.
-* Per le app a singola pagina, è possibile abilitare **Concessione implicita** e selezionare i token che dovranno essere rilasciati dall'endpoint di autorizzazione.
-* Per le app desktop che acquisiscono i token tramite l'autenticazione integrata di Windows, il flusso del codice del dispositivo o il nome utente e la password nella sezione **Tipo di client predefinito**, impostare l'opzione **Consente di gestire l'applicazione come un client pubblico** su **Sì**.
-* Per le app legacy che usano Live SDK per l'integrazione con il servizio account Microsoft, configurare il **Supporto Live SDK**. Per le nuove app, questa impostazione non è necessaria.
-* **Tipo di client predefinito**.
-* **Tipi di account supportati**.
+Oltre ad accedere all'API Web personalizzata per conto dell'utente connesso, l'applicazione potrebbe anche dover accedere o modificare i dati dell'utente (o di altro tipo) archiviati in Microsoft Graph. Potrebbe anche essere presente un'app di servizio o daemon che deve accedere a Microsoft Graph automaticamente, eseguendo operazioni senza alcuna interazione utente.
 
-### <a name="modify-supported-account-types"></a>Modificare i tipi di account supportati
+### <a name="delegated-permission-to-microsoft-graph"></a>Autorizzazione delegata per Microsoft Graph
 
-Nei **Tipi di account supportati** sono specificati gli utenti autorizzati a usare l'applicazione o ad accedere all'API.
+Configurare l'autorizzazione delegata per Microsoft Graph per consentire all'applicazione client di eseguire operazioni per conto dell'utente connesso, ad esempio la lettura della posta elettronica o la modifica del profilo. Per impostazione predefinita, quando eseguono l'accesso, agli utenti dell'app client viene richiesto di fornire il consenso alle autorizzazioni delegate configurate.
 
-Se durante la registrazione dell'applicazione sono stati configurati i tipi di account supportati, è possibile cambiare questa impostazione usando l'editor del manifesto dell'applicazione solo se:
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant che contiene la registrazione dell'app client.
+1. Selezionare **Azure Active Directory** > **Registrazioni app** e quindi selezionare l'applicazione client.
+1. Selezionare **Autorizzazioni API** > **Aggiungi un'autorizzazione** > **Microsoft Graph**.
+1. Selezionare **Autorizzazioni delegate**. Microsoft Graph espone numerose autorizzazioni. Quella usata più di frequente è visualizzata all'inizio dell'elenco.
+1. In **Selezionare le autorizzazioni** selezionare le autorizzazioni seguenti:
 
-* I tipi di account vengono cambiati da **AzureADMyOrg** o **AzureADMultipleOrgs** in **AzureADandPersonalMicrosoftAccount** o viceversa.
-* I tipi di account vengono cambiati da **AzureADMyOrg** in **AzureADMultipleOrgs** o viceversa.
+    | Autorizzazione       | Descrizione                                         |
+    |------------------|-----------------------------------------------------|
+    | `email`          | Visualizzare l'indirizzo di posta elettronica degli utenti                           |
+    | `offline_access` | Conservazione dell'accesso ai dati per cui è stato autorizzato l'accesso |
+    | `openid`         | Concedere l'accesso agli utenti                                       |
+    | `profile`        | Visualizzare il profilo di base degli utenti                           |
+1. Selezionare **Aggiungi autorizzazioni** per completare il processo.
 
-Per cambiare i tipi di account supportati per una registrazione app esistente, aggiornare la chiave `signInAudience`. Per altre informazioni, vedere [Configurare il manifesto dell'applicazione](reference-app-manifest.md#configure-the-app-manifest).
+Quando si configurano le autorizzazioni, agli utenti dell'app che eseguono l'accesso viene richiesto di fornire il consenso per consentire all'app di accedere all'API di risorse per conto dell'utente.
 
-## <a name="configure-platform-settings-for-your-application"></a>Configurare le impostazioni della piattaforma per l'applicazione
+Gli amministratori possono anche concedere il consenso per conto di *tutti* gli utenti in modo che non venga visualizzata alcuna richiesta di consenso. Il consenso amministratore è illustrato più avanti nella sezione [Altre informazioni sulle autorizzazioni per le API e sul consenso amministratore](#more-on-api-permissions-and-admin-consent) di questo articolo.
 
-![Configurare le impostazioni per l'app in base alla piattaforma o al dispositivo](./media/quickstart-update-azure-ad-app-preview/authentication-new-platform-configurations.png)
+### <a name="application-permission-to-microsoft-graph"></a>Autorizzazione dell'applicazione per Microsoft Graph
 
-Per configurare le impostazioni dell'applicazione in base alla piattaforma o al dispositivo di destinazione:
+Configurare le autorizzazioni dell'applicazione per un'applicazione che deve eseguire l'autenticazione automaticamente senza alcuna interazione o consenso dell'utente. Le autorizzazioni dell'applicazione vengono in genere usate da servizi in background o da app daemon che accedono a un'API in modalità "headless" e da API Web che accedono a un'altra API (downstream).
 
-1. Nella pagina **Configurazioni della piattaforma** selezionare **Aggiungi una piattaforma** e scegliere una delle opzioni disponibili.
+Nella procedura seguente viene concessa, ad esempio, l'autorizzazione *Files.Read.All* di Microsoft Graph.
 
-   ![Mostra la pagina Configura piattaforme](./media/quickstart-update-azure-ad-app-preview/authentication-platform-configurations-configure-platforms.png)
+1. Accedere al [portale di Azure](https://portal.azure.com).
+1. Se si accede a più tenant, usare il filtro **Directory e sottoscrizione** :::image type="icon" source="./media/quickstart-configure-app-access-web-apis/portal-01-directory-subscription-filter.png" border="false"::: nel menu in alto e selezionare il tenant che contiene la registrazione dell'app client.
+1. Selezionare **Azure Active Directory** > **Registrazioni app** e quindi selezionare l'applicazione client.
+1. Selezionare **Autorizzazioni API** > **Aggiungi un'autorizzazione** > **Microsoft Graph** > **Autorizzazioni applicazione**.
+1. Tutte le autorizzazioni esposte da Microsoft Graph sono visualizzate in **Selezionare le autorizzazioni**.
+1. Selezionare l'autorizzazione o le autorizzazioni da concedere all'applicazione. È ad esempio possibile che sia presente un'app daemon che analizza i file dell'organizzazione, inviando avvisi relativi a un nome o un tipo di file specifico.
 
-1. Immettere le informazioni sulle impostazioni in base alla piattaforma selezionata.
+    In **Selezionare le autorizzazioni** espandere **File** e quindi selezionare l'autorizzazione *Files.Read.All*.
+1. Selezionare **Aggiungi autorizzazioni**.
 
-   | Piattaforma                | Impostazioni di configurazione            |
-   |-------------------------|-----------------------------------|
-   | **Web**              | Immettere l'**URI di reindirizzamento** per l'applicazione. |
-   | **iOS/macOS**              | Immettere l'**ID bundle** dell'app, disponibile nell'ambiente XCode nel file Info.plist o nelle impostazioni di compilazione. L'aggiunta dell'ID bundle crea automaticamente un URI di reindirizzamento per l'applicazione. |
-   | **Android**          | Specificare il **nome del pacchetto** dell'app, disponibile nel file AndroidManifest.xml.<br/>Generare e immettere l'**hash della firma**. L'aggiunta dell'hash della firma crea automaticamente un URI di reindirizzamento per l'applicazione.  |
-   | **Applicazioni per dispositivi mobili e desktop**  | Facoltativa. Selezionare uno degli **URI di reindirizzamento suggeriti** se si creano app per desktop e dispositivi.<br/>Facoltativa. Immettere un **URI di reindirizzamento personalizzato** che costituisce la posizione a cui Azure AD reindirizzerà gli utenti in risposta alle richieste di autenticazione. Ad esempio, per le applicazioni .NET Core che richiedono interazione, usare `http://localhost`. |
+Per alcune autorizzazioni, come quella *Files.Read.All* di Microsoft Graph, è richiesto il consenso amministratore. Per concedere il consenso dell'amministratore, selezionare il pulsante **Fornisci il consenso amministratore**, illustrato più avanti nella sezione [Pulsante Consenso amministratore](#admin-consent-button).
 
-   > [!NOTE]
-   > In Active Directory Federation Services (AD FS) e Azure AD B2C è necessario specificare anche un numero di porta.  Ad esempio: `http://localhost:1234`.
+### <a name="configure-client-credentials"></a>Configurare le credenziali del client
 
-   > [!IMPORTANT]
-   > Per le applicazioni per dispositivi mobili che non usano la libreria MSAL (Microsoft Authentication Library) più recente o che non usano un broker, è necessario configurare gli URI di reindirizzamento in **Desktop e dispositivi**.
+Le app che usano le autorizzazioni dell'applicazione eseguono l'autenticazione con le proprie credenziali, senza richiedere alcuna interazione utente. Prima che l'applicazione (o l'API) possa accedere a Microsoft Graph, a un'API Web o a un'altra API usando le autorizzazioni dell'applicazione, è necessario configurare le credenziali dell'app client.
 
-A seconda della piattaforma scelta, potrebbe essere possibile configurare impostazioni aggiuntive. Per le app **Web**, è possibile:
+Per altre informazioni sulla configurazione delle credenziali di un'app, vedere la sezione [Aggiungere le credenziali](quickstart-register-app.md#add-credentials) di [Avvio rapido: Registrare un'applicazione con Microsoft Identity Platform](quickstart-register-app.md).
 
-* Aggiungere più URI di reindirizzamento
-* Configurare la **Concessione implicita** per selezionare i token che devono essere rilasciati dall'endpoint di autorizzazione:
+## <a name="more-on-api-permissions-and-admin-consent"></a>Altre informazioni sulle autorizzazioni per le API e sul consenso amministratore
 
-  * Per le app a singola pagina, selezionare sia **Token di accesso** sia **Token ID**
-  * Per le app Web, selezionare **Token ID**
-
-## <a name="add-credentials-to-your-web-application"></a>Aggiungere credenziali all'applicazione Web
-
-Per aggiungere una credenziale all'applicazione Web, aggiungere un certificato o creare un segreto client. Per aggiungere un certificato:
-
-1. Nella pagina **Panoramica** dell'app selezionare la sezione **Certificati e segreti**.
-1. Selezionare **Carica certificato**.
-1. Selezionare il file da caricare. Il tipo di file deve essere uno dei seguenti: .cer, .pem, .crt.
-1. Selezionare **Aggiungi**.
-
-Per aggiungere un segreto client:
-
-1. Nella pagina **Panoramica** dell'app selezionare la sezione **Certificati e segreti**.
-1. Selezionare **Nuovo segreto client**.
-1. Aggiungere una descrizione per il segreto client.
-1. Selezionare una durata.
-1. Selezionare **Aggiungi**.
-
-> [!NOTE]
-> Dopo il salvataggio delle modifiche alla configurazione, nella colonna più a destra verrà visualizzato il valore del segreto client. **Assicurarsi di copiare il valore** per usarlo nel codice dell'applicazione client, perché non sarà più accessibile dopo aver lasciato la pagina.
-
-## <a name="add-permissions-to-access-web-apis"></a>Aggiungere autorizzazioni per accedere ad API Web
-
-L'[autorizzazione Accedi e leggi il profilo di un altro utente dell'API Graph](/graph/permissions-reference#user-permissions) è selezionata per impostazione predefinita. È possibile selezionare tra [due tipi di autorizzazione](developer-glossary.md#permissions) per ogni API Web:
-
-* **Autorizzazioni dell'applicazione**. L'applicazione client deve accedere all'API Web direttamente come se stessa, senza contesto utente. Questo tipo di autorizzazione richiede il consenso dell'amministratore. Questa autorizzazione non è disponibile per le applicazioni client per dispositivi mobili e desktop.
-* **Autorizzazioni delegate**. l'applicazione client deve accedere all'API Web come utente connesso, ma con accesso limitato dall'autorizzazione selezionata. Questo tipo di autorizzazione può essere concesso da un utente, a meno che l'autorizzazione richieda il consenso dell'amministratore.
-
-  > [!NOTE]
-  > L'aggiunta di un'autorizzazione delegata a un'applicazione non concede automaticamente il consenso all'utente all'interno del tenant. Gli utenti devono comunque concedere manualmente il consenso per le autorizzazioni delegate aggiuntive in fase di esecuzione, a meno che l'amministratore non conceda il consenso per conto di tutti gli utenti.
-
-Per aggiungere autorizzazioni per l'accesso ad API di risorsa dal client:
-
-1. Nella pagina **Panoramica** dell'app selezionare **Autorizzazioni API**.
-1. In **Autorizzazioni configurate** selezionare **Aggiungi un'autorizzazione**.
-1. Per impostazione predefinita, la visualizzazione consente di selezionare tra **API Microsoft**. Selezionare la sezione delle API a cui si è interessati:
-
-    * **API Microsoft**. Consente di selezionare le autorizzazioni per API Microsoft come Microsoft Graph.
-    * **API usate dall'organizzazione**. Consente di selezionare le autorizzazioni per le API che sono state esposte dall'organizzazione o con cui l'organizzazione ha eseguito l'integrazione.
-    * **Le mie API**. Consente di selezionare le autorizzazioni per le API esposte dall'utente.
-
-1. Al termine della selezione delle API, verrà visualizzata la pagina **Richiedi le autorizzazioni dell'API**. Se l'API espone autorizzazioni sia delegate che di tipo applicazione, selezionare il tipo di autorizzazione necessario all'applicazione.
-1. Al termine, selezionare **Aggiungi autorizzazioni**.
-
-Si torna nella pagina **Autorizzazioni API**. Le autorizzazioni sono state salvate e aggiunte alla tabella.
-
-## <a name="understanding-api-permissions-and-admin-consent-ui"></a>Informazioni sulle autorizzazioni API e sull'interfaccia utente di consenso amministratore
+Il riquadro **Autorizzazioni API** di una registrazione dell'app contiene una tabella [Autorizzazioni configurate](#configured-permissions) e potrebbe includere anche una tabella [Altre autorizzazioni concesse](#other-permissions-granted). Entrambe le tabelle e il [pulsante Consenso amministratore](#admin-consent-button) sono descritti nelle sezioni seguenti.
 
 ### <a name="configured-permissions"></a>Autorizzazioni configurate
 
-Questa sezione illustra le autorizzazioni configurate in modo esplicito nell'oggetto applicazione. Queste autorizzazioni fanno parte dell'elenco di accesso alle risorse necessarie dell'app. È possibile aggiungere o rimuovere autorizzazioni da questa tabella. L'amministratore può anche concedere o revocare il consenso amministratore per una o più autorizzazioni di un'API.
+La tabella **Autorizzazioni configurate** nel riquadro **Autorizzazioni API** mostra l'elenco delle autorizzazioni richieste dall'applicazione per le operazioni di base, ovvero l'elenco di *accesso alle risorse necessarie*. Gli utenti o i relativi amministratori dovranno fornire il consenso per queste autorizzazioni prima di usare l'app. In un secondo momento in fase di esecuzione è possibile richiedere altre autorizzazioni facoltative (usando il consenso dinamico).
+
+Questo è l'elenco minimo di autorizzazioni per cui gli utenti dovranno fornire il consenso per usare l'app. Le autorizzazioni potrebbero essere più numerose, ma queste rimarranno obbligatorie. Per garantire una maggiore sicurezza e per facilitare l'uso dell'app per utenti e amministratori, è preferibile chiedere il consenso solo per le autorizzazioni realmente necessarie.
+
+Per aggiungere o rimuovere le autorizzazioni visualizzate in questa tabella o in [Altre autorizzazioni concesse](#other-permissions-granted) (descritto nella sezione successiva), usare la procedura descritta in precedenza. Gli amministratori possono fornire il consenso amministratore per il set completo di autorizzazioni di un'API visualizzate nella tabella e revocarlo per singole autorizzazioni.
 
 ### <a name="other-permissions-granted"></a>Altre autorizzazioni concesse
 
-Se l'applicazione è registrata in un tenant, è possibile che venga visualizzata una sezione aggiuntiva intitolata **Altre autorizzazioni concesse per Tenant**. Questa sezione illustra le autorizzazioni concesse per il tenant che non sono state configurate in modo esplicito nell'oggetto applicazione. Queste autorizzazioni sono state richieste e concesse dinamicamente. Questa sezione viene visualizzata solo se è presente almeno un'autorizzazione applicabile.
+Nel riquadro **Autorizzazioni API** potrebbe essere visualizzata anche una tabella diritti **Altre autorizzazioni concesse per {tenant}** . La tabella **Altre autorizzazioni concesse per {tenant}** mostra le autorizzazioni concesse per il tenant che non sono state configurate in modo esplicito nell'oggetto applicazione. Queste autorizzazioni sono state richieste e concesse dinamicamente. Questa sezione viene visualizzata solo se è presente almeno un'autorizzazione applicabile.
 
-È possibile aggiungere un set di autorizzazioni o singole autorizzazioni di un'API visualizzate in questa sezione sulla sezione **Autorizzazioni configurate**. In qualità di amministratore, è anche possibile revocare il consenso amministratore per singole API o autorizzazioni in questa sezione.
+È possibile aggiungere nella tabella **Autorizzazioni configurate** il set completo di autorizzazioni o singole autorizzazioni di un'API visualizzate in questa tabella. Gli amministratori possono revocare il consenso amministratore per le API o per singole autorizzazioni in questa sezione.
 
 ### <a name="admin-consent-button"></a>Pulsante Consenso amministratore
 
-Se l'applicazione è registrata in un tenant, viene visualizzato il pulsante **Concedi consenso amministratore per Tenant**. Se non si è un amministratore o se non sono state configurate autorizzazioni per l'applicazione, questo pulsante è disabilitato.
-Il pulsante consente a un amministratore di concedere il consenso amministratore alle autorizzazioni configurate per l'applicazione. Facendo clic sul pulsante Consenso amministratore, viene avviata una nuova finestra con una richiesta di consenso che mostra tutte le autorizzazioni configurate.
+Il pulsante **Concedi consenso amministratore per {tenant}** consente a un amministratore di fornire il consenso amministratore alle autorizzazioni configurate per l'applicazione. Quando si seleziona il pulsante, viene visualizzata una finestra di dialogo che chiede di confermare l'azione di consenso.
 
-> [!NOTE]
-> Si verifica un ritardo tra la configurazione delle autorizzazioni per l'applicazione e la relativa visualizzazione nella richiesta di consenso. Se non vengono visualizzate tutte le autorizzazioni configurate nella richiesta di consenso, chiuderla e riavviarla.
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-03-grant-admin-consent-button.png" alt-text="Pulsante Concedi consenso amministratore nel riquadro Autorizzazioni configurate nel portale di Azure":::
 
-In caso di autorizzazioni concesse ma non configurate, quando si fa clic sul pulsante del consenso amministratore, verrà chiesto di decidere come gestirle. È possibile aggiungerle alle autorizzazioni configurate o rimuoverle.
+Dopo aver fornito il consenso, le autorizzazioni che richiedono il consenso amministratore vengono visualizzate come autorizzate:
 
-La richiesta di consenso fornisce le opzioni **Accetta** o **Annulla**. Selezionare **Accetta** per concedere il consenso amministratore. Se si seleziona **Annulla**, il consenso amministratore non viene concesso. Un messaggio di errore indica che il consenso è stato rifiutato.
+:::image type="content" source="media/quickstart-configure-app-access-web-apis/portal-04-admin-consent-granted.png" alt-text="Tabella Configura le autorizzazioni nel portale di Azure che mostra il consenso amministratore concesso per l'autorizzazione Files.Read.All":::
 
-> [!NOTE]
-> Esiste un ritardo tra la concessione del consenso amministratore (selezionando **Accetta** nella richiesta di consenso) e lo stato del consenso amministratore riportato nell'interfaccia utente.
+Se non si è un amministratore o se non sono state configurate autorizzazioni per l'applicazione, il pulsante **Concedi consenso amministratore** è *disabilitato*. In caso di autorizzazioni concesse ma non ancora configurate, verrà chiesto di decidere come gestirle quando si fa clic sul pulsante del consenso amministratore. È possibile aggiungerle alle autorizzazioni configurate o rimuoverle.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

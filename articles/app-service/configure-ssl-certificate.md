@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: d45852326a7f771b2cf79e20c784e2c441fef0d6
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: c8ede3c4a186b4b24d56651deb8172fdcde8e5ed
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401487"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89420881"
 ---
 # <a name="add-a-tlsssl-certificate-in-azure-app-service"></a>Aggiungere un certificato TLS/SSL nel Servizio app di Azure
 
@@ -188,6 +188,13 @@ Al termine dell'operazione, il certificato viene visualizzato nell'elenco **Cert
 
 Se si usa Azure Key Vault per gestire i certificati, è possibile importare un certificato PKCS12 da Key Vault nel servizio app, purché [siano soddisfatti i requisiti](#private-certificate-requirements).
 
+### <a name="authorize-app-service-to-read-from-the-vault"></a>Autorizzare il servizio app per la lettura dall'insieme di credenziali
+Per impostazione predefinita, il provider di risorse del servizio app non ha accesso a Key Vault. Per poter usare un Key Vault per la distribuzione di un certificato, è necessario [autorizzare il provider di risorse ad accedere in lettura al Key Vault](../key-vault/general/group-permissions-for-apps.md#grant-access-to-your-key-vault). 
+
+`abfa0a7c-a6b6-4736-8310-5855508787cd` è il nome dell'entità servizio del provider di risorse per il servizio app ed è lo stesso per tutte le sottoscrizioni di Azure. Per l'ambiente cloud di Azure per enti pubblici usare invece `6a02c803-dafd-4136-b4c3-5a6f318b4714` come nome dell'entità servizio del provider di risorse.
+
+### <a name="import-a-certificate-from-your-vault-to-your-app"></a>Importare un certificato nell'app dall'insieme di credenziali
+
 Nel menu a sinistra del <a href="https://portal.azure.com" target="_blank">portale di Azure</a> scegliere **Servizi app** >  **\<app-name>** .
 
 Nel riquadro di spostamento a sinistra dell'app selezionare **Impostazioni TLS/SSL** > **Certificati a chiave privata (.pfx)**  > **Importa certificato dell'insieme di credenziali delle chiavi**.
@@ -205,6 +212,9 @@ La tabella seguente contiene informazioni utili per facilitare la selezione del 
 Al termine dell'operazione, il certificato viene visualizzato nell'elenco **Certificati a chiave privata**. Se l'importazione non riesce e viene restituito un errore, significa che il certificato non soddisfa i [requisiti per il servizio app](#private-certificate-requirements).
 
 ![Importazione del certificato di Key Vault completata](./media/configure-ssl-certificate/import-app-service-cert-finished.png)
+
+> [!NOTE]
+> Se si aggiorna il certificato in Key Vault con un nuovo certificato, il servizio app sincronizza automaticamente il certificato entro 48 ore.
 
 > [!IMPORTANT] 
 > Per proteggere un dominio personalizzato con questo certificato, è necessario anche creare un'associazione di certificato. Seguire la procedura descritta in [Creare l'associazione](configure-ssl-bindings.md#create-binding).

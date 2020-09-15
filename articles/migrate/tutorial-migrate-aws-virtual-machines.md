@@ -4,12 +4,12 @@ description: Questo articolo illustra come eseguire la migrazione di macchine vi
 ms.topic: tutorial
 ms.date: 08/19/2020
 ms.custom: MVC
-ms.openlocfilehash: 72579c103102196e641244600ce9add64d6e20a4
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 6c4b53e3c3673b913e4afbfb65801d83f0640bd3
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419011"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89651836"
 ---
 # <a name="discover-assess-and-migrate-amazon-web-services-aws-vms-to-azure"></a>Individuare e valutare le VM AWS (Amazon Web Services) ed eseguirne la migrazione ad Azure
 
@@ -43,12 +43,17 @@ Configurare una valutazione nel modo seguente:
 1. Seguire questa [esercitazione](./tutorial-prepare-physical.md) per configurare Azure e preparare le VM AWS per la valutazione. Tenere presente quanto segue:
 
     - Azure Migrate usa l'autenticazione della password durante l'individuazione delle istanze di AWS. Le istanze di AWS non supportano l'autenticazione della password per impostazione predefinita. Prima di poter individuare l'istanza, è necessario abilitare l'autenticazione della password.
-        - Per i computer Windows, consentire le porte 5986 (HTTPS) e 5985 (HTTP) di WinRM per permettere le chiamate WMI remote. Se si esegue la configurazione 
+        - Per i computer Windows consentire la porta 5985 (HTTP) di WinRM per permettere le chiamate WMI remote.
         - Per i computer Linux:
             1. Accedere a ogni computer Linux.
             2. Aprire il file sshd_config: vi /etc/ssh/sshd_config
             3. Nel file individuare la riga **PasswordAuthentication** e impostare il valore su **yes**.
             4. Salvare il file e chiuderlo. Riavviare il servizio ssh.
+    - Se si usa un utente root per individuare le macchine virtuali Linux, assicurarsi che l'accesso root sia consentito nelle macchine virtuali.
+        1. Accedere a ogni computer Linux
+        2. Aprire il file sshd_config: vi /etc/ssh/sshd_config
+        3. Nel file individuare la riga **PermitRootLogin** e impostare il valore su **yes**.
+        4. Salvare il file e chiuderlo. Riavviare il servizio ssh.
 
 2. Quindi, seguire questa [esercitazione](./tutorial-assess-physical.md) per configurare un progetto e un'appliance di Azure Migrate per l'individuazione e la valutazione delle macchine virtuali AWS.
 

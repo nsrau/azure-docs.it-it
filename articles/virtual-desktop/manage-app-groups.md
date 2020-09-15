@@ -3,15 +3,15 @@ title: Gestire gruppi di app per Desktop virtuale Windows con il portale - Azure
 description: Come gestire i gruppi di app di Desktop virtuale Windows con il portale di Azure.
 author: Heidilohr
 ms.topic: tutorial
-ms.date: 08/20/2020
+ms.date: 09/04/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 21dba3c9beeefa2b25b8038f6cbd0ec77f947774
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 52f495753d055730c1ad42444c83cf3d5cd4c1d3
+ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226727"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89461426"
 ---
 # <a name="tutorial-manage-app-groups-with-the-azure-portal"></a>Esercitazione: Gestire gruppi di app con il portale di Azure
 
@@ -121,6 +121,9 @@ Il processo di distribuzione eseguirà le operazioni seguenti:
 - Pubblicare il gruppo di app pubblicato per gli utenti e i gruppi di utenti selezionati.
 - Registrare il gruppo di app, se si è scelto di eseguire questa operazione.
 - Creare un collegamento a un modello di Azure Resource Manager in base alla configurazione che è possibile scaricare e salvare per un uso successivo.
+
+>[!IMPORTANT]
+>È possibile creare solo 50 gruppi di applicazioni per ogni tenant di Azure Active Directory. Questo limite è stato aggiunto a causa di limitazioni del servizio per il recupero di feed per gli utenti. Il limite non si applica ai gruppi di app creati in Desktop virtuale Windows (classico).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

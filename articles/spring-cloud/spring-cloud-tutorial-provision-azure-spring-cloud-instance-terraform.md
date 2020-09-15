@@ -7,12 +7,12 @@ ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 06/26/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: 70a9d9f8b137f02e647d1ea0edddd409ec3cdaf3
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.openlocfilehash: 1f2e4ddc2d2cfbbfb7f95e5ae6b1af7a76eece85
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88079193"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89426351"
 ---
 # <a name="tutorial-provision-an-azure-spring-cloud-instance-with-terraform"></a>Esercitazione: Effettuare il provisioning di un'istanza di Azure Spring Cloud con Terraform
 
@@ -94,7 +94,7 @@ In questa sezione vengono usati numerosi comandi di Terraform per eseguire la co
     terraform apply plan.out
     ```
 
-1. Per verificare i risultati all'interno del portale di Azure, passare al nuovo gruppo di risorse. La nuova **istanza di Azure Cosmos DB** viene visualizzata nel nuovo gruppo di risorse.
+1. Per verificare i risultati all'interno del portale di Azure, passare al nuovo gruppo di risorse. La nuova istanza di **Azure Spring Cloud** viene visualizzata nel nuovo gruppo di risorse.
 
 ## <a name="update-configuration-to-config-logs-and-metrics"></a>Aggiornare la configurazione ai log e alle metriche di configurazione
 

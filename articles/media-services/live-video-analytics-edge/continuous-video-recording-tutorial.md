@@ -3,12 +3,12 @@ title: 'Esercitazione: Registrazione continua di video nel cloud e riproduzione 
 description: Questa esercitazione illustra come usare Analisi video live di Azure in Azure IoT Edge per registrare i video in modo continuo nel cloud ed eseguirne lo streaming di qualsiasi parte usando Servizi multimediali di Azure.
 ms.topic: tutorial
 ms.date: 05/27/2020
-ms.openlocfilehash: 60b93aac3a0da4bbc49f83c5cbd43191693cae50
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c94f87068d003fc260d861cb99c60326d4a53258
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043482"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566798"
 ---
 # <a name="tutorial-continuous-video-recording-to-the-cloud-and-playback-from-the-cloud"></a>Esercitazione: Registrazione continua di video nel cloud e riproduzione dal cloud
 
@@ -61,7 +61,8 @@ Come descritto nell'articolo [Concetti relativi al grafo multimediale](media-gra
  
  Per eseguire la registrazione continua di video, è necessario acquisire il video da una videocamera compatibile con il protocollo RTSP e registrarlo in modo continuo in un [asset di Servizi multimediali di Azure](terminology.md#asset). Questo diagramma mostra una rappresentazione grafica del grafo multimediale.
 
-![Grafico multimediale](./media/continuous-video-recording-tutorial/continuous-video-recording-overview.png)
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/continuous-video-recording-tutorial/continuous-video-recording-overview.svg" alt-text="Grafo multimediale":::
 
 In questa esercitazione si userà un modulo Edge creato usando [Live555 Media Server](https://github.com/Azure/live-video-analytics/tree/master/utilities/rtspsim-live555) per simulare una videocamera RTSP. All'interno del grafo multimediale, si userà un nodo di [origine RTSP](media-graph-concept.md#rtsp-source) per ottenere il feed live e inviare il video al [nodo sink di asset](media-graph-concept.md#asset-sink) che registrerà il video in un asset.
 
@@ -352,7 +353,7 @@ La sezione body contiene informazioni sulla posizione dell'output, che in questo
 1. Individuare l'account Servizi multimediali tra le risorse presenti nella sottoscrizione e aprire il relativo pannello.
 1. Selezionare **Asset** nell'elenco **Servizi multimediali**.
 
-    ![Asset](./media/continuous-video-recording-tutorial/assets.png)
+    ![Asset di Servizi multimediali](./media/continuous-video-recording-tutorial/assets.png)
 1. L'elenco conterrà un asset denominato sampleAsset-CVRToAMSAsset-Sample-Graph-1. Si tratta del modello di denominazione scelto nel file della topologia del grafo.
 1. Selezionare l'asset.
 1. Nella pagina dei dettagli dell'asset fare clic su **Crea nuovo** sotto la casella di testo **URL di streaming**.

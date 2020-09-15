@@ -7,12 +7,12 @@ ms.date: 08/10/2020
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
-ms.openlocfilehash: 6884062bc5107ecb1e31fc6826a9d847e4d31e89
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: d77cc4cc65eb73aa85a1d54202627cd18d5747b3
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400433"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89595989"
 ---
 # <a name="troubleshooting-azure-key-vault-access-policy-issues"></a>Risoluzione dei problemi relativi ai criteri di accesso di Azure Key Vault
 
@@ -25,6 +25,14 @@ Dopo aver creato una o più insiemi di credenziali delle chiavi, può essere uti
 ### <a name="how-can-i-monitor-vault-availability-service-latency-periods-or-other-performance-metrics-for-key-vault"></a>Come è possibile monitorare la disponibilità, i periodi di latenza del servizio o altre metriche delle prestazioni per l'insieme di credenziali?
 
 Quando si inizia a ridimensionare il servizio, il numero di richieste inviate all'insieme di credenziali delle chiavi aumenta. Con questa domanda può aumentare anche la latenza delle richieste e, in casi estremi, le richieste possono venire limitate, con un impatto sulle prestazioni del servizio. È possibile monitorare le metriche delle prestazioni dell'insieme di credenziali delle chiavi e ricevere avvisi per soglie specifiche. Per una guida dettagliata per configurare il monitoraggio, [leggere altre informazioni](https://docs.microsoft.com/azure/key-vault/general/alert).
+
+### <a name="i-am-not-able-to-modify-access-policy-how-can-it-be-enabled"></a>Non si riesce a modificare i criteri di accesso. Che cosa bisogna fare per abilitarla?
+Per modificare i criteri di accesso, l'utente deve avere autorizzazioni AAD sufficienti. In questo caso l'utente deve avere il ruolo di collaboratore di livello superiore.
+
+### <a name="i-am-seeing-unkwown-policy-error-what-does-that-mean"></a>Viene visualizzato l'errore 'Criteri sconosciuti'. Che cosa significa?
+I criteri di accesso vengono visualizzati nella sezione Sconosciuti in due casi:
+* Un utente precedente ha effettuato l'accesso, ma per qualche motivo l'utente non esiste.
+* Se i criteri di accesso vengono aggiunti tramite PowerShell e vengono aggiunti per l'ID oggetto dell'applicazione anziché per l'entità servizio
 
 ### <a name="how-can-i-assign-access-control-per-key-vault-object"></a>In che modo è possibile assegnare il controllo di accesso per ogni oggetto dell'insieme di credenziali delle chiavi? 
 

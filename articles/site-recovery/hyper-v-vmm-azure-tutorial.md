@@ -4,12 +4,12 @@ description: Informazioni su come configurare il ripristino di emergenza in Azur
 ms.topic: tutorial
 ms.date: 03/19/2020
 ms.custom: MVC
-ms.openlocfilehash: f32103adce184a67cec9e5a778ac1d1e6f330f4d
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: c806f968bc6530879f64ddbf6fd4c7d45aa7a8d3
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86130239"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89442821"
 ---
 # <a name="set-up-disaster-recovery-of-on-premises-hyper-v-vms-in-vmm-clouds-to-azure"></a>Configurare il ripristino di emergenza in Azure di macchine virtuali Hyper-V locali di cloud VMM
 
@@ -83,10 +83,14 @@ Installare l'agente in ogni host Hyper-V contenente le macchine virtuali da repl
 Nell'Installazione guidata di Agente di Servizi di ripristino di Microsoft Azure configurare queste impostazioni:
 
 1. **Controllo dei prerequisiti**. Selezionare **Avanti**. Gli eventuali prerequisiti mancanti verranno installati automaticamente.
-1. **Impostazioni di installazione**. Accettare il percorso di installazione e il percorso della cache. L'unità di cache necessita di almeno 5 GB di spazio di archiviazione. Si consiglia un'unità con almeno 600 GB di spazio libero. Quindi, selezionare **Installa**.
+1. **Impostazioni di installazione**. Accettare il percorso di installazione. Quindi, selezionare **Installa**.
+
+    >[!NOTE]
+    >Per Azure Site Recovery non è necessario specificare un valore per **Percorso cache**.
+
 1. **Installazione**. Al termine dell'installazione, selezionare **Chiudi** per chiudere la procedura guidata.
 
-   ![Installare Agent](./media/hyper-v-vmm-azure-tutorial/mars-install.png)
+   ![Installazione dell'agente](./media/hyper-v-vmm-azure-tutorial/mars-install.png)
 
 ## <a name="set-up-the-target-environment"></a>Configurare l'ambiente di destinazione
 

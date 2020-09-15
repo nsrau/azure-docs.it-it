@@ -1,6 +1,6 @@
 ---
-title: Con questo modello di Azure Resource Manager, sarà possibile distribuire un endpoint privato per l'app Web.
-description: Informazioni su come usare un modello di Resource Manager per distribuire un endpoint privato per l'app Web
+title: Usare un modello di Azure Resource Manager per distribuire un endpoint privato per un'app Web
+description: Informazioni su come usare il modello di Resource Manager per distribuire un endpoint privato per l'app Web.
 author: ericgre
 ms.assetid: 49e460d0-7759-4ceb-b5a4-f1357e4fde56
 ms.topic: sample
@@ -8,14 +8,14 @@ ms.date: 07/08/2020
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
-ms.openlocfilehash: ff2d59ed569037f34e24a69ffafa0df237a3de34
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: acf7198477ce0c55f9321fd3f8e57294a60c0961
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86524825"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89652016"
 ---
-# <a name="create-an-app-service-app-and-deploy-private-endpoint-using-azure-resource-manager-template"></a>Creare un'app del servizio app e distribuire un endpoint privato usando un modello di Azure Resource Manager
+# <a name="create-an-app-service-app-and-deploy-a-private-endpoint-by-using-an-azure-resource-manager-template"></a>Creare un'app del servizio app e distribuire un endpoint privato usando un modello di Azure Resource Manager
 
 In questa guida di avvio rapido si usa un modello di Azure Resource Manager per creare un'app Web ed esporla con un endpoint privato.
 
@@ -37,13 +37,10 @@ Questo modello crea un endpoint privato per un'app Web di Azure.
 
 Di seguito è riportata la procedura per distribuire il modello di Azure Resource Manager in Azure:
 
-1. Selezionare **Distribuisci in Azure** per accedere ad Azure e aprire il modello. Il modello crea la rete virtuale, l'app Web, l'endpoint privato e la zona DNS privato.
-
-   [Distribuzione in Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-webapp%2Fazuredeploy.json)
-
+1. Per accedere ad Azure e aprire il modello, selezionare questo collegamento:  [Distribuzione in Azure](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2F101-private-endpoint-webapp%2Fazuredeploy.json). Il modello crea la rete virtuale, l'app Web, l'endpoint privato e la zona DNS privato.
 2. Selezionare o creare un gruppo di risorse.
-3. Digitare il nome dell'app Web, del piano di servizio app e dell'endpoint privato.
-5. Esaminare le condizioni per l'utilizzo del servizio. Per accettarle, selezionare Accetto le condizioni riportate sopra > Acquista. La distribuzione può richiedere diversi minuti.
+3. Immettere il nome dell'app Web, del piano di servizio app e dell'endpoint privato.
+5. Leggere le condizioni per l'utilizzo del servizio. Per accettarle, selezionare **Accetto le condizioni riportate sopra** > **Acquista**. Il completamento della distribuzione può richiedere alcuni minuti.
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 

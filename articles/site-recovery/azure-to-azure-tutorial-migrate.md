@@ -2,18 +2,18 @@
 title: Spostare le VM IaaS di Azure in un'altra area con Azure Site Recovery
 description: Usare Site Recovery per lo spostamento di macchine virtuali IaaS di Azure da un'area di Azure a un'altra.
 services: site-recovery
-author: rajani-janaki-ram
+author: Sharmistha-Rai
 ms.service: site-recovery
 ms.topic: tutorial
 ms.date: 01/28/2019
-ms.author: rajanaki
+ms.author: sharrai
 ms.custom: MVC
-ms.openlocfilehash: 3cbf3eda97bd1ba6b71c4bc7910e942e39224e30
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e8f14b86678f7d395f445438d7e869168b13e54b
+ms.sourcegitcommit: ac5cbef0706d9910a76e4c0841fdac3ef8ed2e82
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076099"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89425926"
 ---
 # <a name="move-azure-vms-to-another-region"></a>Spostare macchine virtuali di Azure in un'altra area
 
@@ -88,7 +88,7 @@ I passaggi seguenti mostrano come preparare la macchina virtuale per lo spostame
 1. In **Nome** specificare il nome descrittivo **ContosoVMVault**. Se è disponibile più di una sottoscrizione, selezionare quella appropriata.
 1. Creare il gruppo di risorse **ContosoRG**.
 1. Specificare un'area di Azure. Per informazioni sulla disponibilità a livello geografico e sulle aree supportate, vedere la pagina relativa ai [dettagli sui prezzi per Azure Site Recovery](https://azure.microsoft.com/pricing/details/site-recovery/).
-1. In **Insiemi di credenziali dei servizi di ripristino** selezionare **Panoramica** > **ContosoVMVault** >  **+Replica**.
+1. In **Insiemi di credenziali dei servizi di ripristino** selezionare **Panoramica** > **ContosoVMVault** > **Elementi replicati** >  **+Replica**.
 1. In **Source** (Origine) selezionare **Azure**.
 1. In **Percorso di origine** selezionare l'area di Azure di origine in cui le VM sono attualmente in esecuzione.
 1. Selezionare il modello di distribuzione Resource Manager. Selezionare quindi la **sottoscrizione di origine** e il **gruppo di risorse di origine**.
