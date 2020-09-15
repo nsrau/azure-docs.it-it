@@ -8,12 +8,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 08/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 84c7b72e3ac7a5726dea38b21b14b5bd83b42340
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: 0a3665f1719c7a5f8ed9bd6acf518b642e06320d
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87831023"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400059"
 ---
 # <a name="scenario-custom-isolation-for-vnets"></a>Scenario: isolamento personalizzato per reti virtuali
 
@@ -29,7 +29,7 @@ Per determinare il numero di tabelle di route necessarie, è possibile creare un
 | **Reti virtuali rosso**  |   &#8594;|              |       X       |       X      |
 | **Rami**   |   &#8594;|     X        |       X       |       X      |
 
-Ognuna delle celle della tabella precedente descrive se una connessione WAN virtuale (il lato "da" del flusso, le intestazioni di riga nella tabella) apprende un prefisso di destinazione (il lato "a" del flusso, le intestazioni di colonna in corsivo nella tabella) per un flusso di traffico specifico.
+Ogni cella della tabella precedente descrive se una connessione WAN virtuale (il lato "da" del flusso, le intestazioni di riga nella tabella) apprende un prefisso di destinazione (il lato "a" del flusso, le intestazioni di colonna in corsivo nella tabella) per un flusso di traffico specifico, dove una "X" significa che la connettività viene fornita dalla rete WAN virtuale.
 
 Il numero di modelli di riga diversi sarà il numero di tabelle di route che saranno necessarie in questo scenario. In questo caso, tre tabelle Route route che chiameremo **RT_BLUE** e **RT_RED** per le reti virtuali e **predefinite** per i rami. Tenere presente che i rami devono sempre essere associati alla tabella di routing predefinita.
 

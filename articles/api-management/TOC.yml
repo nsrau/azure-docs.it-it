@@ -11,9 +11,11 @@
 - name: Avvi rapidi
   expanded: true
   items:
-    - name: 'Creare un''istanza: portale'
+    - name: Creare un'istanza- Interfaccia della riga di comando
+      href: get-started-create-service-instance-cli.md
+    - name: Creare un'istanza - Portale
       href: get-started-create-service-instance.md
-    - name: 'Creare un''istanza: PowerShell'
+    - name: Creare un'istanza - PowerShell
       href: powershell-create-service-instance.md
 - name: Esercitazioni
   items:

@@ -101,6 +101,8 @@
           href: unresponsive-vm-apply-windows-update.md
         - name: La VM non risponde durante l'applicazione di criteri di configurazione di controllo
           href: vm-unresponsive-applying-audit-configuration-policy.md
+        - name: La macchina virtuale non risponde durante l'applicazione dei criteri dei controller di dominio predefiniti
+          href: vm-unresponsive-domain-controllers-policy.md
         - name: La macchina virtuale non risponde durante l'applicazione di criteri di gruppo
           href: unresponsive-vm-apply-group-policy.md
         - name: La macchina virtuale non risponde durante l'applicazione di criteri di sicurezza

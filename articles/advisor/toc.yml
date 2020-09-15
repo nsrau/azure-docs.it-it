@@ -41,6 +41,8 @@
       href: advisor-quick-fix.md
     - name: Dati di Advisor in Azure Resource Graph
       href: advisor-azure-resource-graph.md
+    - name: Utilizzare il punteggio di Advisor
+      href: azure-advisor-score.md
 - name: Informazioni di riferimento
   items:
     - name: Centro sicurezza

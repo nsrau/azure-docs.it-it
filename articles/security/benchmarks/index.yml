@@ -2,7 +2,7 @@
 title: Documentazione di Azure Security Benchmark
 summary: Informazioni su come proteggere le soluzioni cloud in Azure con procedure consigliate e linee guida.
 metadata:
-  title: Azure Security Benchmark
+  title: Benchmark di sicurezza di Azure
   description: Azure Security Benchmark contiene raccomandazioni che consentono di migliorare la sicurezza delle applicazioni e dei dati in Azure.
   services: security
   ms.service: security
@@ -13,12 +13,12 @@ metadata:
   ms.author: mbaldwin
   manager: rkarlin
   ms.date: 12/23/2019
-  ms.openlocfilehash: 705757e3021ff7421dd88e3a2661b1b51f3f927a
-  ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+  ms.openlocfilehash: addc6aab30d23ab1aaca691e5d1ee1f0b9d12c39
+  ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 08/14/2020
-  ms.locfileid: "88213553"
+  ms.lasthandoff: 09/13/2020
+  ms.locfileid: "90058666"
 landingContent:
 - title: Informazioni su Azure Security Benchmark
   linkLists:
@@ -34,22 +34,22 @@ landingContent:
       url: ../../security-center/index.yml
     - text: Concetti fondamentali della sicurezza di Azure
       url: ../fundamentals/index.yml
-- title: Controlli di Azure Security Benchmark
+- title: Controlli di Azure Security Benchmark V2
   linkLists:
   - linkListType: overview
     links:
     - text: Sicurezza di rete
-      url: security-control-network-security.md
-    - text: Registrazione e monitoraggio
-      url: security-control-logging-monitoring.md
-    - text: Identità e controllo di accesso
-      url: security-control-identity-access-control.md
+      url: security-controls-v2-network-security.md
+    - text: Gestione delle identità
+      url: security-controls-v2-identity-management.md
+    - text: Accesso con privilegi
+      url: security-controls-v2-privileged-access.md
     - text: Protezione dei dati
-      url: security-control-data-protection.md
-    - text: Gestione vulnerabilità
-      url: security-control-vulnerability-management.md
+      url: security-controls-v2-data-protection.md
+    - text: Gestione degli asset
+      url: security-controls-v2-asset-management.md
     - text: Altre informazioni
-      url: security-control-inventory-asset-management.md
+      url: security-controls-v2-logging-threat-detection.md
 - title: Linee di base sulla sicurezza dell'ambiente di calcolo
   linkLists:
   - linkListType: overview

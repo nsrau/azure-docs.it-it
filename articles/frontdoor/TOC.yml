@@ -7,8 +7,10 @@
 - name: Avvi rapidi
   expanded: true
   items:
-    - name: Creare una frontdoor
+    - name: Creare un servizio Frontdoor - Portale
       href: quickstart-create-front-door.md
+    - name: Creare un servizio Frontdoor - Modello di Resource Manager
+      href: quickstart-create-front-door-template.md
 - name: Esercitazioni
   items:
     - name: Aggiungere un dominio personalizzato alla frontdoor

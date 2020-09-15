@@ -20,6 +20,8 @@
       href: set-up-service-alerts.md
 - name: Procedure
   items:
+    - name: Eseguire la migrazione manualmente
+      href: manual-migration.md
     - name: Connettersi alle risorse di Desktop virtuale Windows
       items:
         - name: Connettersi con il client desktop di Windows

@@ -4,6 +4,10 @@
   items:
     - name: Informazioni su Database di Azure per PostgreSQL
       href: overview.md
+    - name: Aggiornamenti del servizio
+      items:
+        - name: Scadenza del certificato radice SSL
+          href: concepts-certificate-rotation.md
 - name: Avvi rapidi
   expanded: true
   items:
