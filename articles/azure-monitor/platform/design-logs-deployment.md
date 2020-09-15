@@ -6,16 +6,16 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: b74fd1ad5c3783b2e456fa5f3c24fb8bc7875d4d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 49ab515c265b4b4444e7d4ca5b93c4e898e4cf54
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88551323"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527310"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Progettazione della distribuzione dei log di Monitoraggio di Azure
 
-Monitoraggio di Azure archivia i dati di [log](data-platform-logs.md) in un'area di lavoro log Analytics, ovvero una risorsa di Azure e un contenitore in cui i dati vengono raccolti, aggregati e utilizzati come limite amministrativo. Sebbene sia possibile distribuire una o più aree di lavoro nella sottoscrizione di Azure, è necessario comprendere alcune considerazioni per garantire che la distribuzione iniziale stia seguendo le linee guida per offrire una distribuzione economica, gestibile e scalabile che soddisfi le esigenze dell'organizzazione.
+Monitoraggio di Azure archivia i dati di [log](data-platform-logs.md) in un'area di lavoro log Analytics, ovvero una risorsa di Azure e un contenitore in cui i dati vengono raccolti, aggregati e utilizzati come limite amministrativo. Sebbene sia possibile distribuire una o più aree di lavoro nella sottoscrizione di Azure, è necessario comprendere alcune considerazioni per assicurarsi che la distribuzione iniziale stia seguendo le linee guida per offrire una distribuzione economica, gestibile e scalabile che soddisfi le esigenze dell'organizzazione.
 
 I dati in un'area di lavoro sono organizzati in tabelle, ognuna delle quali archivia diversi tipi di dati e dispone di un proprio set univoco di proprietà in base alla risorsa che genera i dati. La maggior parte delle origini dati scriverà nelle proprie tabelle in un'area di lavoro Log Analytics.
 
@@ -131,7 +131,7 @@ Monitoraggio di Azure è un servizio dati su larga scala che serve migliaia di c
 
 Quando si inviano dati a un'area di lavoro a una velocità del volume superiore all'80% della soglia configurata nell'area di lavoro, viene inviato un evento alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore durante il periodo in cui la soglia continua a essere superata. Quando la velocità del volume è superiore alla soglia, alcuni dati vengono eliminati e un evento viene inviato alla tabella delle *operazioni* nell'area di lavoro ogni 6 ore durante il periodo in cui la soglia continua a essere superata. Se la velocità del volume di inserimento continua a superare la soglia o se si prevede di raggiungerla presto, è possibile richiedere di aumentarla aprendo una richiesta di supporto. 
 
-Per ricevere una notifica su approching o raggiungere il limite di velocità del volume di inserimento nell'area di lavoro, creare una [regola di avviso del log](alerts-log.md) usando la query seguente con la base della logica di avviso per numero di risultati maggiore di zero, periodo di valutazione di 5 minuti e frequenza di 5 minuti.
+Per ricevere una notifica relativa a approching o raggiungere il limite di velocità del volume di inserimento nell'area di lavoro, creare una [regola di avviso del log](alerts-log.md) usando la query seguente con la base di logica di avviso per il numero di risultati maggiore di zero, il periodo di valutazione di 5 minuti e la frequenza di 5 minuti.
 
 La velocità del volume di inserimento ha raggiunto l'80% della soglia:
 ```Kusto
@@ -152,9 +152,9 @@ Operation
 
 ![Esempio di progettazione del contesto di risorsa](./media/design-logs-deployment/workspace-design-resource-context-01.png)
 
-In questo scenario viene illustrata una singola progettazione dell'area di lavoro nella sottoscrizione dell'organizzazione IT non vincolata dalla sovranità dei dati o dalla conformità alle normative oppure è necessario eseguire il mapping alle aree in cui vengono distribuite le risorse. Consente alle organizzazioni di sicurezza e amministratore IT di sfruttare la migliore integrazione con la gestione dell'accesso di Azure e un controllo di accesso più sicuro.
+Questo scenario illustra una singola progettazione dell'area di lavoro nella sottoscrizione dell'organizzazione IT, che non è vincolata dalla sovranità dei dati o dalla conformità alle normative, oppure è necessario eseguire il mapping alle aree in cui vengono distribuite le risorse. Consente ai team di sicurezza e amministrazione IT dell'organizzazione di sfruttare la migliore integrazione con la gestione dell'accesso di Azure e un controllo di accesso più sicuro.
 
-Tutte le risorse, le soluzioni di monitoraggio e le informazioni dettagliate, ad esempio Application Insights e Monitoraggio di Azure per le macchine virtuali, l'infrastruttura di supporto e le applicazioni gestite dai diversi team sono configurate per l'invio dei dati di log raccolti all'area di lavoro condivisa centralizzata delle organizzazioni IT. Agli utenti di ogni team viene concesso l'accesso ai log per le risorse a cui è stato concesso l'accesso.
+Tutte le risorse, le soluzioni di monitoraggio e le informazioni dettagliate, ad esempio Application Insights e Monitoraggio di Azure per le macchine virtuali, il supporto dell'infrastruttura e delle applicazioni gestite dai diversi team sono configurate per l'invio dei dati di log raccolti all'area di lavoro condivisa centralizzata dell'organizzazione IT. Agli utenti di ogni team viene concesso l'accesso ai log per le risorse a cui è stato concesso l'accesso.
 
 Una volta distribuita l'architettura dell'area di lavoro, è possibile applicarla alle risorse di Azure con [criteri di Azure](../../governance/policy/overview.md). Fornisce un modo per definire i criteri e garantire la conformità alle risorse di Azure in modo che invii tutti i log delle risorse a una determinata area di lavoro. Con le macchine virtuali di Azure o i set di scalabilità di macchine virtuali, ad esempio, è possibile usare i criteri esistenti per valutare la conformità dell'area di lavoro e i risultati del report oppure personalizzarli in modo da correggerli se non conformi.  
 

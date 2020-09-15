@@ -3,12 +3,12 @@ title: Distribuire analisi video in tempo reale in un dispositivo IoT Edge-Azure
 description: Questo articolo elenca i passaggi che consentono di distribuire analisi video in tempo reale sul dispositivo IoT Edge. Questa operazione può essere eseguita, ad esempio, se si ha accesso a un computer Linux locale e/o in precedenza è stato creato un account di servizi multimediali di Azure.
 ms.topic: how-to
 ms.date: 04/27/2020
-ms.openlocfilehash: eecc17e36f35e7552c0be83f7ecc38f2d644f18d
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 30a3bda4069bb8c07d7c9be3fd8a3a2b1171eba2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89439623"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526324"
 ---
 # <a name="deploy-live-video-analytics-on-an-iot-edge-device"></a>Distribuire analisi video in tempo reale in un dispositivo IoT Edge
 
@@ -107,7 +107,7 @@ Un manifesto della distribuzione è un documento JSON contenente la descrizione 
     * **Nome del modulo IOT Edge**: lvaEdge
     * **URI immagine**: MCR.Microsoft.com/media/Live-Video-Analytics:1.0    
     
-    ![Add](./media/deploy-iot-edge-device/add.png)
+    ![Screenshot mostra la scheda impostazioni del modulo.](./media/deploy-iot-edge-device/add.png)
     
     > [!TIP]
     > Non selezionare **Aggiungi** fino a quando non sono stati specificati i valori nelle schede **Impostazioni modulo**, **Opzioni di creazione contenitori**e **modulo gemello** , come descritto in questa procedura.
@@ -217,7 +217,7 @@ Dopo aver creato la distribuzione, tornare alla pagina IoT Edge dell'hub Interne
 Per l'avvio del modulo e per il rilevamento da parte dell'hub IoT può essere richiesto un po' di tempo. Aggiornare la pagina per visualizzare lo stato aggiornato.
 Codice di stato: 200 – OK significa che [il runtime di IOT Edge](../../iot-edge/iot-edge-runtime.md) è integro e funziona correttamente.
 
-![Stato](./media/deploy-iot-edge-device/status.png)
+![Screenshot mostra un valore di stato per un IoT Edge Runtime.](./media/deploy-iot-edge-device/status.png)
 
 #### <a name="invoke-a-direct-method"></a>Richiamare un metodo diretto
 
@@ -225,7 +225,7 @@ Successivamente, è possibile testare l'esempio richiamando un metodo diretto. L
 
 1. Facendo clic sul modulo perimetrale creato, verrà visualizzata la pagina di configurazione.  
 
-    ![Moduli](./media/deploy-iot-edge-device/modules.png)
+    ![Screenshot che mostra la pagina di configurazione di un modulo perimetrale.](./media/deploy-iot-edge-device/modules.png)
 1. Fare clic sull'opzione di menu Metodo diretto.
 
     > [!NOTE] 

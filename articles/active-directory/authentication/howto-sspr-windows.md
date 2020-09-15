@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: rhicock
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a51d8c45f652173e5b2b0731d64a8e6f14ee46c7
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: a6013ed47196e2300f56f0066c634da2a64fdee8
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717354"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526868"
 ---
 # <a name="enable-azure-active-directory-self-service-password-reset-at-the-windows-sign-in-screen"></a>Abilitare la reimpostazione della password self-service Azure Active Directory nella schermata di accesso di Windows
 
@@ -40,7 +40,7 @@ Le limitazioni seguenti si applicano all'uso di SSPR dalla schermata di accesso 
 - Per usare la nuova password e aggiornare le credenziali memorizzate nella cache, è necessario che i computer aggiunti ad Azure AD ibrido abbiano la connettività di rete associata a un controller di dominio. Ciò significa che i dispositivi devono trovarsi nella rete interna dell'organizzazione o in una VPN con accesso di rete a un controller di dominio locale.
 - Se si usa un'immagine, assicurarsi che la cache Web sia stata cancellata per l'amministratore predefinito prima di eseguire il passaggio CopyProfile di Sysprep. Per altre informazioni su questo passaggio, vedere l'articolo di supporto [Prestazioni insufficienti quando si usa il profilo utente predefinito personalizzato](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile).
 - Le impostazioni seguenti sono note per interferire con la possibilità di usare e reimpostare le password nei dispositivi Windows 10:
-    - Se la combinazione di tasti CTRL + ALT + CANC è necessaria per i criteri nelle versioni di Windows 10 prima di v1809, **reimpostare la password** non funzionerà.
+    - Se la combinazione di tasti CTRL + ALT + CANC è necessaria per i criteri nelle versioni di Windows 10 prima di v1909, **reimpostare la password** non funzionerà.
     - Se le notifiche della schermata di blocco sono spente, **reimpostare la password** non funzionerà.
     - *HideFastUserSwitching* è impostato su Enabled o su 1
     - *DontDisplayLastUserName* è impostato su Enabled o su 1

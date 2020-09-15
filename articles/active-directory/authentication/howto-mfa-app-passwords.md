@@ -11,16 +11,16 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c4e34c6f13f7013847e99a362716fc9c570cdaf
-ms.sourcegitcommit: 152c522bb5ad64e5c020b466b239cdac040b9377
+ms.openlocfilehash: 12be5109f339223c11970041922ed2172f67382b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88224918"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526902"
 ---
 # <a name="enable-and-use-azure-multi-factor-authentication-with-legacy-applications-using-app-passwords"></a>Abilitare e usare Multi-Factor Authentication di Azure con le applicazioni legacy usando le password dell'app
 
-Alcune applicazioni, ad esempio Office 2010 o versioni precedenti e Apple Mail prima di iOS 11, non supportano la funzionalità di autenticazione a più fattori. Le app non sono configurate per accettare una forma secondaria di autenticazione o richiesta. Per usare queste applicazioni in modo sicuro con Azure Multi-Factor Authentication abilitato per gli account utente, è possibile usare le password dell'app. Queste password dell'app hanno sostituito la password tradizionale per consentire a un'app di ignorare l'autenticazione a più fattori e di funzionare correttamente.
+Alcune app meno recenti non basate su browser, come Office 2010 o versioni precedenti e Apple Mail, prima di iOS 11, non comprendono pause o interruzioni nel processo di autenticazione. Se un utente è abilitato per Multi-Factor Authentication di Azure e tenta di usare una di queste app non basate su browser, non è possibile eseguire correttamente l'autenticazione. Per usare queste applicazioni in modo sicuro con Azure Multi-Factor Authentication abilitato per gli account utente, è possibile usare le password dell'app. Queste password dell'app hanno sostituito la password tradizionale per consentire a un'app di ignorare l'autenticazione a più fattori e di funzionare correttamente.
 
 L'autenticazione moderna è supportata per i client di Microsoft Office 2013 e versioni successive. I client Office 2013, tra cui Outlook, supportano i protocolli di autenticazione moderni e possono essere abilitati per lavorare con la verifica in due passaggi. Dopo averlo abilitato, il client non richiede le password dell'app.
 

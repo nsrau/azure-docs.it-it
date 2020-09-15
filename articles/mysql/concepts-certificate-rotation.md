@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 7e78c0d2538dbb6326df30d63ec1c38de48b62e6
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 9c5c4247ab01a571613cad4f33832de152909b11
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90057227"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527106"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Informazioni sulle modifiche apportate alla modifica della CA radice per database di Azure per MySQL
 
@@ -87,7 +87,7 @@ Non sono necessarie azioni se non si usa SSL/TLS.
 No, non è necessario riavviare il server di database per iniziare a usare il nuovo certificato. Questo certificato radice è una modifica sul lato client e le connessioni client in ingresso devono usare il nuovo certificato per assicurarsi che possano connettersi al server di database.
 
 ### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-october-26-2020-10262020"></a>3. cosa accade se non si aggiorna il certificato radice prima del 26 ottobre 2020 (10/26/2020)?
-Se non si aggiorna il certificato radice prima del 30 novembre 2020, le applicazioni che si connettono tramite SSL/TLS e la verifica per il certificato radice non saranno in grado di comunicare con il server di database MySQL e l'applicazione subirà problemi di connettività al server di database MySQL.
+Se non si aggiorna il certificato radice prima del 26 ottobre 2020, le applicazioni che si connettono tramite SSL/TLS e la verifica per il certificato radice non saranno in grado di comunicare con il server di database MySQL e l'applicazione subirà problemi di connettività al server di database MySQL.
 
 ### <a name="4-do-i-need-to-plan-a-maintenance-downtime-for-this-changebr"></a>4. è necessario pianificare un tempo di inattività di manutenzione per questa modifica?<BR>
 No. Poiché la modifica è solo sul lato client per la connessione al server di database, per questa modifica non è necessario alcun tempo di inattività di manutenzione.
@@ -95,7 +95,7 @@ No. Poiché la modifica è solo sul lato client per la connessione al server di 
 ### <a name="5--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-october-26-2020-10262020"></a>5. cosa accade se non è possibile ottenere un tempo di inattività pianificato per questa modifica prima del 26 ottobre 2020 (10/26/2020)?
 Poiché i client usati per la connessione al server devono aggiornare le informazioni del certificato come descritto [nella sezione correzione](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity), in questo caso non è necessario un tempo di inattività per il server.
 
-###  <a name="6-if-i-create-a-new-server-after-nov-30-2020-will-i-be-impacted"></a>6. Se si crea un nuovo server dopo il 30 novembre 2020, I ripercussioni saranno compromessi?
+###  <a name="6-if-i-create-a-new-server-after-october-26-2020-will-i-be-impacted"></a>6. Se si crea un nuovo server dopo il 26 ottobre 2020, I ripercussioni saranno compromessi?
 Per i server creati dopo il 26 ottobre 2020 (10/26/2020), è possibile usare il certificato appena emesso per le applicazioni per la connessione tramite SSL.
 
 ### <a name="7-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>7. con quale frequenza Microsoft aggiorna i certificati o quali sono i criteri di scadenza?

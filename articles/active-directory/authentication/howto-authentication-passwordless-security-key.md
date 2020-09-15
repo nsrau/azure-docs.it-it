@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 02/12/2020
+ms.date: 09/14/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f17a634a9bc3b410eec8ed6e868d454dc9ecee6
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: e523f8cc3aa9ab2f42d2d28909c9dec2dad30b43
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88116598"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526953"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>Abilitare l'accesso senza password per la chiave di sicurezza (anteprima)
 
@@ -25,22 +25,22 @@ Per le aziende che usano oggi le password e hanno un ambiente PC condiviso, le c
 Questo documento è incentrato sull'abilitazione dell'autenticazione senza password basata sulla chiave di sicurezza. Alla fine di questo articolo, sarà possibile accedere alle applicazioni basate sul Web con l'account Azure AD usando una chiave di sicurezza FIDO2.
 
 > [!NOTE]
-> Le chiavi di sicurezza di FIDO2 sono una funzionalità di anteprima pubblica di Azure Active Directory. Per ulteriori informazioni sulle anteprime, vedere la pagina relativa alle [condizioni per l'utilizzo aggiuntive per Microsoft Azure anteprime](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Le chiavi di sicurezza di FIDO2 sono una funzionalità di anteprima pubblica di Azure Active Directory. Per ulteriori informazioni sulle anteprime, vedere la pagina relativa alle  [condizioni per l'utilizzo aggiuntive per Microsoft Azure anteprime](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="requirements"></a>Requisiti
 
 - [Azure Multi-Factor Authentication](howto-mfa-getstarted.md)
 - Abilita l' [Anteprima di registrazione delle informazioni di sicurezza combinate](concept-registration-mfa-sspr-combined.md)
 - [Chiavi di sicurezza FIDO2](concept-authentication-passwordless.md#fido2-security-keys) compatibili
-- Webauthn richiede Windows 10 versione 1809 o successiva * *
+- Webauthn richiede Windows 10 versione 1903 o successiva * *
 
 Per usare le chiavi di sicurezza per l'accesso a servizi e app Web, è necessario disporre di un browser che supporti il protocollo webauthn. Sono inclusi Microsoft Edge, Chrome, Firefox e Safari.
 
 ## <a name="prepare-devices-for-preview"></a>Preparare i dispositivi per l'anteprima
 
-Azure AD i dispositivi aggiunti con cui si esegue il progetto pilota devono eseguire Windows 10 versione 1809 o successiva. L'esperienza migliore è in Windows 10 versione 1903 o successiva.
+Azure AD i dispositivi aggiunti con cui si esegue il progetto pilota devono eseguire Windows 10 versione 1909 o successiva. L'esperienza migliore è in Windows 10 versione 1903 o successiva.
 
-Azure AD ibrido dispositivi aggiunti devono eseguire Windows 10 Insider Build 18945 o versione successiva.
+Azure AD ibrido dispositivi aggiunti devono eseguire Windows 10 versione 2004 o successiva.
 
 ## <a name="enable-passwordless-authentication-method"></a>Abilita metodo di autenticazione con password
 
@@ -73,7 +73,7 @@ Le funzionalità di registrazione per i metodi di autenticazione con password si
 
 ## <a name="sign-in-with-passwordless-credential"></a>Accedi con credenziali senza password
 
-Nell'esempio seguente un utente ha già eseguito il provisioning della chiave di sicurezza FIDO2. L'utente può scegliere di accedere al Web con la chiave di sicurezza FIDO2 all'interno di un browser supportato in Windows 10 versione 1809 o successiva.
+Nell'esempio seguente un utente ha già eseguito il provisioning della chiave di sicurezza FIDO2. L'utente può scegliere di accedere al Web con la chiave di sicurezza FIDO2 all'interno di un browser supportato in Windows 10 versione 1903 o successiva.
 
 ![Accesso alla chiave di sicurezza Microsoft Edge](./media/howto-authentication-passwordless-security-key/fido2-windows-10-1903-edge-sign-in.png)
 

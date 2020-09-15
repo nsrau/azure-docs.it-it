@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f20da2d2ecb4426c0deb1c01591ead5933090f6
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 45e1e516986c32e203837f79c83290cc99049e7a
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716997"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526970"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Abilitare la chiave di sicurezza senza password accesso alle risorse locali con Azure Active Directory (anteprima)
 
@@ -46,7 +46,7 @@ Prima di completare la procedura descritta in questo articolo, le organizzazioni
 
 Le organizzazioni devono inoltre soddisfare i requisiti software seguenti.
 
-- I dispositivi devono eseguire Windows 10 Insider Build 18945 o versione successiva.
+- I dispositivi devono eseguire Windows 10 versione 2004 o successiva.
 - È necessario avere la versione 1.4.32.0 o successiva di [Azure ad Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect).
   - Per altre informazioni sulle opzioni di autenticazione ibrida Azure AD disponibili, vedere [scegliere il metodo di autenticazione appropriato per la soluzione di identità ibrida Azure Active Directory](../hybrid/choose-ad-authn.md) e [selezionare il tipo di installazione da usare per Azure ad Connect](../hybrid/how-to-connect-install-select-installation.md).
 - Nei controller di dominio di Windows Server devono essere installate le patch seguenti:

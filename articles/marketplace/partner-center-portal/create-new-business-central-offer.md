@@ -7,12 +7,12 @@ ms.topic: how-to
 author: navits09
 ms.author: navits
 ms.date: 08/07/2020
-ms.openlocfilehash: 953d22e2dc41ca64af3793c8e0f67a203eb5ca7c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 1e2af29779c93175ccc4c7f6964862b79febd8e6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646848"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527089"
 ---
 # <a name="create-a-dynamics-365-business-central-offer"></a>Creare un'offerta Dynamics 365 Business Central
 
@@ -71,9 +71,7 @@ Consente di raccogliere informazioni di contatto del cliente tramite la connessi
 
 ### <a name="test-drive"></a>Test drive
 
-Il test drive è un'ottima soluzione per presentare un'offerta a potenziali clienti, dando loro la possibilità di provarla prima dell'acquisto e ottenendo più conversioni e la generazione di lead altamente qualificati. Per altre informazioni, vedere la pagina relativa all' [test drive](../what-is-test-drive.md).
-
-Per abilitare un test drive per un periodo di tempo fisso, selezionare la casella di controllo **Abilita un test drive**. Per rimuovere il test drive dall'offerta, deselezionare questa casella di controllo.
+A questo punto le offerte di Dynamics 365 business Central non supportano test drive. Per rimuovere test drive dall'offerta, deselezionare la casella di controllo **Abilita una test drive** .
 
 ### <a name="customer-leads"></a>Clienti potenziali
 
@@ -124,7 +122,7 @@ Di seguito è riportato un esempio di come vengono visualizzate le informazioni 
 #### <a name="call-out-descriptions"></a>Descrizioni di chiamata
 
 1. Logo
-2. Prodotti
+2. Products
 3. Categorie
 4. Indirizzo di supporto (collegamento)
 5. Condizioni per l'utilizzo

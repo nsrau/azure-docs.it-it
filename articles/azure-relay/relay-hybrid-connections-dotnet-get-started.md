@@ -4,12 +4,12 @@ description: Scrivere un'applicazione console C# per l'inoltro di Azure Connessi
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
 ms.date: 06/23/2020
-ms.openlocfilehash: eb204a7bf18ed1c88a6d359cc521130fa19a1c82
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: bf22b8b11dc386644803b43ee4e3a51d04b70419
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88934260"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527429"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-net"></a>Introduzione a Websocket per Connessioni ibride di Inoltro di Azure in .NET
 [!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
@@ -52,7 +52,7 @@ In Visual Studio scrivere un'applicazione console in C# per inviare messaggi all
 2. Eseguire l'applicazione client e immettere il testo.
 3. Assicurarsi che la console dell'applicazione server visualizzi il testo immesso nell'applicazione client.
 
-    ![applicazioni in esecuzione](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
+    ![Windows console che testa le applicazioni server e client.](./media/relay-hybrid-connections-dotnet-get-started/running-applications.png)
 
 Congratulazioni, è stata creata un'applicazione Connessioni ibride completa.
 

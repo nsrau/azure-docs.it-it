@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 3/13/2020
 ms.author: harshacs
-ms.openlocfilehash: 2c6d1873aadbbf19f1b7650f9b432b3b6bed2841
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 0a2763beec9fed9025198ca283f7746286875512
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068371"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527378"
 ---
 # <a name="about-networking-in-azure-vm-disaster-recovery"></a>Informazioni sulle reti in ripristino di emergenza per macchine virtuali di Azure
 
@@ -35,7 +35,7 @@ Se si usa Azure ExpressRoute o una connessione VPN da una rete locale ad Azure, 
 
 ![customer-environment](./media/site-recovery-azure-to-azure-architecture/source-environment-expressroute.png)
 
-Le reti sono in genere protette tramite firewall e gruppi di sicurezza di rete (NSG). I firewall usano URL o whitelist basate su IP per controllare la connettività di rete. I gruppi di sicurezza di rete forniscono regole che usano intervalli di indirizzi IP per controllare la connettività di rete.
+Le reti sono in genere protette tramite firewall e gruppi di sicurezza di rete (NSG). I tag di servizio devono essere usati per controllare la connettività di rete. Gruppi deve consentire a diversi tag di servizio di controllare la connettività in uscita.
 
 >[!IMPORTANT]
 > Se si usa un proxy autenticato per controllare la connettività di rete, questo non è supportato da Site Recovery e non è possibile abilitare la replica.
@@ -45,6 +45,8 @@ Le reti sono in genere protette tramite firewall e gruppi di sicurezza di rete (
 
 Se si usa un proxy firewall basato su URL per controllare la connettività in uscita, assicurarsi di consentire gli URL di Site Recovery seguenti:
 
+>[!NOTE]
+> Non è necessario eseguire l'elenco di elementi consentiti basato su indirizzi IP per controllare la connettività in uscita.
 
 **URL** | **Dettagli**
 --- | ---
@@ -86,7 +88,7 @@ In questo esempio viene illustrato come configurare le regole NSG per una macchi
 
       ![aad-tag](./media/azure-to-azure-about-networking/aad-tag.png)
 
-3. Analogamente alle regole di sicurezza sopra riportate, creare una regola di sicurezza HTTPS in uscita (443) per "EventHub. Centralus" in NSG che corrisponda al percorso di destinazione. In questo modo è possibile accedere al monitoraggio Site Recovery.
+3. Analogamente alle regole di sicurezza sopra riportate, creare una regola di sicurezza HTTPS in uscita (443) per "EventHub. Centralus" in NSG che corrisponde al percorso di destinazione. In questo modo è possibile accedere al monitoraggio Site Recovery.
 
 4. Creare una regola di sicurezza HTTPS in uscita (443) per "AzureSiteRecovery" in NSG. In questo modo è possibile accedere al servizio Site Recovery in qualsiasi area.
 

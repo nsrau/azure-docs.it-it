@@ -11,16 +11,16 @@ ms.topic: how-to
 ms.date: 07/17/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 79807e8e0f798a73063576a00b8d0c32cdfe5a4b
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 53d41b5024b29a8c6c394d65a3ce36f8bb878fc2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87005345"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524981"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Impostare gli URL di reindirizzamento su b2clogin.com per Azure Active Directory B2C
 
-Quando si configura un provider di identità per l'iscrizione e l'accesso nell'applicazione Azure Active Directory B2C (Azure AD B2C), è necessario specificare un URL di reindirizzamento. Non è più necessario fare riferimento a *login.microsoftonline.com* nelle applicazioni e nelle API. Usare invece *b2clogin.com* per tutte le nuove applicazioni ed eseguire la migrazione delle applicazioni esistenti da *login.microsoftonline.com* a *b2clogin.com*.
+Quando si configura un provider di identità per l'iscrizione e l'accesso nell'applicazione Azure Active Directory B2C (Azure AD B2C), è necessario specificare un URL di reindirizzamento. Non è più necessario fare riferimento a *login.microsoftonline.com* nelle applicazioni e nelle API per l'autenticazione degli utenti con Azure ad B2C. Usare invece *b2clogin.com* per tutte le nuove applicazioni ed eseguire la migrazione delle applicazioni esistenti da *login.microsoftonline.com* a *b2clogin.com*.
 
 ## <a name="deprecation-of-loginmicrosoftonlinecom"></a>Deprecazione di login.microsoftonline.com
 
@@ -31,6 +31,23 @@ Il 04 dicembre 2019 abbiamo annunciato il ritiro pianificato del supporto login.
 La deprecazione di login.microsoftonline.com viene applicata a tutti i tenant Azure AD B2C il 04 dicembre 2020, fornendo ai tenant esistenti uno (1) anno di migrazione a b2clogin.com. I nuovi tenant creati dopo il 04 dicembre 2019 non accetteranno le richieste da login.microsoftonline.com. Tutte le funzionalità rimangono invariate sull'endpoint b2clogin.com.
 
 La deprecazione di login.microsoftonline.com non ha alcun effetto Azure Active Directory tenant. Questa modifica ha effetto solo sui tenant Azure Active Directory B2C.
+
+## <a name="what-endpoints-does-this-apply-to"></a>A quali endpoint si applica questa operazione
+La transizione a b2clogin.com si applica solo agli endpoint di autenticazione che usano criteri di Azure AD B2C (flussi utente o criteri personalizzati) per autenticare gli utenti. Questi endpoint hanno un `<policy-name>` parametro che specifica i criteri Azure ad B2C deve usare. [Altre informazioni sui criteri di Azure ad B2C](technical-overview.md#identity-experiences-user-flows-or-custom-policies). 
+
+Questi endpoint possono avere un aspetto simile al seguente:
+- <code>https://login.microsoft.com/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/authorize</code>
+
+- <code>https://login.microsoft.com/\<tenant-name\>.onmicrosoft.com/<b>\<policy-name\></b>/oauth2/v2.0/token</code>
+
+In alternativa, `<policy-name>` può essere passato come parametro di query:
+- <code>https://login.microsoft.com/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/authorize?<b>p=\<policy-name\></b></code>
+- <code>https://login.microsoft.com/\<tenant-name\>.onmicrosoft.com/oauth2/v2.0/token?<b>p=\<policy-name\></b></code>
+
+> [!IMPORTANT]
+> Gli endpoint che usano il parametro ' Policy ' devono essere aggiornati e gli [URL di reindirizzamento del provider di identità](#change-identity-provider-redirect-urls).
+
+Alcuni Azure AD B2C clienti usano le funzionalità condivise di Azure AD tenant aziendali come il flusso di concessione delle credenziali client OAuth 2,0. È possibile accedere a queste funzionalità usando gli endpoint login.microsoftonline.com di Azure AD, *che non contengono un parametro dei criteri*. __Questi endpoint non sono interessati__.
 
 ## <a name="benefits-of-b2clogincom"></a>Vantaggi di b2clogin.com
 
@@ -45,8 +62,15 @@ Quando si usa *b2clogin.com* come URL di reindirizzamento:
 Per eseguire la migrazione delle applicazioni a *b2clogin.com*, potrebbe essere necessario apportare diverse modifiche:
 
 * Modificare l'URL di reindirizzamento nelle applicazioni del provider di identità in modo che faccia riferimento a *b2clogin.com*.
-* Aggiornare le applicazioni Azure AD B2C in modo da usare *b2clogin.com* nei riferimenti all'endpoint del flusso utente e del token.
+* Aggiornare le applicazioni Azure AD B2C in modo da usare *b2clogin.com* nei riferimenti all'endpoint del flusso utente e del token. Ciò può includere l'aggiornamento dell'utilizzo di una libreria di autenticazione come Microsoft Authentication Library (MSAL).
 * Aggiornare le **origini consentite** definite nelle impostazioni CORS per la [personalizzazione dell'interfaccia utente](custom-policy-ui-customization.md).
+
+Un endpoint precedente potrebbe essere simile al seguente:
+- <b><code>https://login.microsoft.com/</b>\<tenant-name\>.onmicrosoft.com/\<policy-name\>/oauth2/v2.0/authorize</code>
+
+Un endpoint aggiornato corrispondente sarà simile al seguente:
+- <code><b>https://\<tenant-name\>.b2clogin.com/</b>\<tenant-name\>.onmicrosoft.com/\<policy-name\>/oauth2/v2.0/authorize</code>
+
 
 ## <a name="change-identity-provider-redirect-urls"></a>Modificare gli URL di reindirizzamento del provider di identità
 

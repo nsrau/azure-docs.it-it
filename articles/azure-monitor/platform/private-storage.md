@@ -1,241 +1,100 @@
 ---
-title: Account di archiviazione di proprietà del cliente per l'inserimento dei log
-description: Usare il proprio account di archiviazione per l'inserimento dei dati di log in un'area di lavoro Log Analytics in Monitoraggio di Azure.
+title: Uso di account di archiviazione gestiti dal cliente in monitoraggio di Azure Log Analytics
+description: Usare il proprio account di archiviazione per scenari di Log Analytics
 ms.subservice: logs
 ms.topic: conceptual
-author: bwren
-ms.author: bwren
-ms.date: 05/20/2020
-ms.openlocfilehash: 58d6f98c87e37254e77bcc8dda1cdca6e608cafc
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+author: noakup
+ms.author: noakuper
+ms.date: 09/03/2020
+ms.openlocfilehash: 9d54e6eb84e3269eb95f8d314875474f78536652
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88962673"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526426"
 ---
-# <a name="customer-owned-storage-accounts-for-log-ingestion-in-azure-monitor"></a>Account di archiviazione di proprietà del cliente per l'inserimento dei log in Monitoraggio di Azure
+# <a name="using-customer-managed-storage-accounts-in-azure-monitor-log-analytics"></a>Uso di account di archiviazione gestiti dal cliente in monitoraggio di Azure Log Analytics
 
-Monitoraggio di Azure usa gli account di archiviazione nel processo di inserimento di alcuni tipi di dati, ad esempio [log personalizzati](data-sources-custom-logs.md) e alcuni [log di Azure](./diagnostics-extension-logs.md). Durante il processo di inserimento, i log vengono prima inviati a un account di archiviazione e successivamente inseriti in Log Analytics o in Application Insights. Se si vuole controllare i dati durante l'inserimento, è possibile usare i propri account di archiviazione anziché l'archiviazione gestita dal servizio. L'uso del proprio account di archiviazione consente di controllare l'accesso, il contenuto, la crittografia e la conservazione dei log durante l'inserimento. Questa operazione viene indicata come Bring Your Own Storage, o BYOS. 
+Log Analytics si basa su archiviazione di Azure in diversi scenari. Questo utilizzo viene in genere gestito automaticamente. Tuttavia, in alcuni casi è necessario fornire e gestire il proprio account di archiviazione, noto anche come account di archiviazione gestito dal cliente. Questo documento illustra in dettaglio l'uso dell'archiviazione gestita dal cliente per l'inserimento di log WAD/LAD, scenari specifici di collegamento privato e crittografia CMK. 
 
-Uno scenario che richiede BYOS è l'isolamento di rete tramite collegamenti privati. Quando si usa una rete virtuale, l'isolamento rete è spesso un requisito e l'accesso alla rete Internet pubblica è limitato. In questi casi, l'accesso all'archiviazione del servizio di Monitoraggio di Azure per l'inserimento dei log è completamente bloccato o considerato una procedura non valida. Al contrario, i log devono essere inseriti tramite un account di archiviazione di proprietà del cliente all'interno della VNet o facilmente accessibili da tale account.
+> [!NOTE]
+> Si consiglia di non assumere una dipendenza dal contenuto Log Analytics caricamenti nell'archiviazione gestita dal cliente, dato che la formattazione e il contenuto possono cambiare.
 
-Un altro scenario è la crittografia dei log con chiavi gestite dal cliente (CMK). I clienti possono crittografare i dati registrati usando CMK nei cluster che archiviano i log. La stessa chiave può essere usata anche per crittografare i log durante il processo di inserimento.
+## <a name="ingesting-azure-diagnostics-extension-logs-wadlad"></a>Inserimento di log estensioni di Diagnostica di Azure (WAD/LAD)
+Gli agenti di estensione Diagnostica di Azure (detti anche WAD e LAD per gli agenti Windows e Linux rispettivamente) raccolgono vari log del sistema operativo e li archiviano in un account di archiviazione gestito dal cliente. È quindi possibile inserire questi log in Log Analytics per esaminarli e analizzarli.
+Come raccogliere i log di estensione Diagnostica di Azure dall'account di archiviazione, connettere l'account di archiviazione all'area di lavoro di Log Analytics come origine dati di archiviazione usando [il portale di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-logs#collect-logs-from-azure-storage) o chiamando l' [API di archiviazione Insights](https://docs.microsoft.com/rest/api/loganalytics/connectedsources/storage%20insights/createorupdate).
 
-## <a name="data-types-supported"></a>Tipi di dati supportati
+Tipi di dati supportati:
+* syslog
+* Eventi Windows
+* Service Fabric
+* Eventi ETW
+* Log IIS
 
-Di seguito sono riportati i tipi di dati inseriti da un account di archiviazione. Per altre informazioni sull'inserimento di questi tipi di dati, vedere [Raccogliere i dati dall'estensione diagnostica di Azure ai log di monitoraggio di Azure](./diagnostics-extension-logs.md).
+## <a name="using-private-links"></a>Uso di collegamenti privati
+Gli account di archiviazione gestiti dal cliente sono necessari in alcuni casi d'uso, quando si usano i collegamenti privati per connettersi alle risorse di monitoraggio di Azure. Un caso di questo tipo è l'inserimento di log personalizzati o di log di IIS. Questi tipi di dati vengono prima caricati come BLOB in un account di archiviazione di Azure intermediario e quindi inseriti solo in un'area di lavoro. Analogamente, alcune soluzioni di monitoraggio di Azure possono usare gli account di archiviazione per archiviare file di grandi dimensioni, ad esempio i file di dump Watson, usati dalla soluzione del Centro sicurezza di Azure. 
 
-| Type | Informazioni tabella |
-|:-----|:------------------|
-| Log di IIS | Blob: wad-iis-logfiles|
-|Log eventi di Windows | Tabella: WADWindowsEventLogsTable |
-| syslog | Tabella: LinuxsyslogVer2v0 |
-| Log di Windows ETW | Tabella: WADETWEventTable|
-| Service Fabric | Tabella: WADServiceFabricSystemEventTable <br/> WADServiceFabricReliableActorEventTable<br/> WADServiceFabricReliableServicEventTable |
-| Log personalizzati | n/d |
-| File dump del Centro sicurezza di Azure Watson | n/d|  
+##### <a name="private-link-scenarios-that-require-a-customer-managed-storage"></a>Scenari di collegamento privato che richiedono una risorsa di archiviazione gestita dal cliente
+* Inserimento di log personalizzati e log di IIS
+* Consentire alla soluzione ASC di raccogliere i file di dump di Watson
 
-## <a name="storage-account-requirements"></a>Requisiti dell'account di archiviazione 
-L'account di archiviazione deve soddisfare i requisiti indicati di seguito.
+### <a name="how-to-use-a-customer-managed-storage-account-over-a-private-link"></a>Come usare un account di archiviazione gestito dal cliente tramite un collegamento privato
+##### <a name="workspace-requirements"></a>Requisiti dell'area di lavoro
+Quando ci si connette a monitoraggio di Azure tramite un collegamento privato, gli agenti Log Analytics possono inviare log solo alle aree di lavoro collegate alla rete tramite un collegamento privato. Questa regola richiede la configurazione corretta di un oggetto ambito di collegamento privato (AMPLS) di monitoraggio di Azure, la connessione alle aree di lavoro e la connessione di AMPLS alla rete tramite un collegamento privato. Per altre informazioni sulla procedura di configurazione AMPLS, vedere [usare il collegamento privato di Azure per connettere in modo sicuro le reti a monitoraggio di Azure](https://docs.microsoft.com/azure/azure-monitor/platform/private-link-security). 
+##### <a name="storage-account-requirements"></a>Requisiti dell'account di archiviazione
+Perché l'account di archiviazione si connetta correttamente al collegamento privato, è necessario:
+* Trovarsi nella VNet o in una rete con peering e connettersi alla VNet tramite un collegamento privato. In questo modo gli agenti nel VNet possono inviare i log all'account di archiviazione.
+* Trovarsi nella stessa area dell'area di lavoro a cui è collegato.
+* Consentire a monitoraggio di Azure di accedere all'account di archiviazione. Se si sceglie di consentire solo la selezione di reti per l'accesso all'account di archiviazione, è necessario consentire anche questa eccezione: "Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione". Questo consente Log Analytics di leggere i log inseriti in questo account di archiviazione.
+* Se l'area di lavoro gestisce anche il traffico da altre reti, è necessario configurare l'account di archiviazione per consentire il traffico in ingresso proveniente dalle reti/Internet pertinenti.
 
-- Accessibile alle risorse nella VNet che scrivono i log nell'archiviazione.
-- Deve trovarsi nella stessa area geografica dell'area di lavoro a cui è collegato.
-- Consenti accesso a monitoraggio di Azure: se si sceglie di limitare l'accesso dell'account di archiviazione per selezionare le reti, assicurarsi di consentire questa eccezione: *Consenti ai servizi Microsoft attendibili di accedere a questo account di archiviazione*.
+##### <a name="link-your-storage-account-to-a-log-analytics-workspace"></a>Collegare l'account di archiviazione a un'area di lavoro Log Analytics
+È possibile collegare l'account di archiviazione all'area di lavoro tramite l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage) o l' [API REST](https://docs.microsoft.com/rest/api/loganalytics/linkedstorageaccounts). Valori dataSourceType applicabili:
+* CustomLogs: per usare l'archiviazione per i log personalizzati e i log di IIS durante l'inserimento.
+* AzureWatson: usare i file di dump di archiviazione per Watson caricati dalla soluzione ASC (Centro sicurezza di Azure). Per altre informazioni sulla gestione della conservazione, sulla sostituzione di un account di archiviazione collegato e sul monitoraggio dell'attività dell'account di archiviazione, vedere [gestione degli account di archiviazione collegati](#managing-linked-storage-accounts). 
 
-## <a name="process-to-configure-customer-owned-storage"></a>Processo di configurazione dell'archiviazione di proprietà del cliente
-Il processo di base dell'uso dell'account di archiviazione per l'inserimento è il seguente:
+## <a name="encrypting-data-with-cmk"></a>Crittografia dei dati con CMK
+Archiviazione di Azure crittografa tutti i dati inattivi in un account di archiviazione. Per impostazione predefinita, i dati vengono crittografati con le chiavi gestite da Microsoft (MMK). Tuttavia, archiviazione di Azure consente invece di usare una chiave gestita dal cliente (CMK) da Azure Key Vault per crittografare i dati di archiviazione. È possibile importare le proprie chiavi in Azure Key Vault oppure è possibile usare le API Azure Key Vault per generare chiavi.
+##### <a name="cmk-scenarios-that-require-a-customer-managed-storage-account"></a>Scenari CMK che richiedono un account di archiviazione gestito dal cliente
+* Crittografia di query di avviso di log con CMK
+* Crittografia delle query salvate con CMK
 
-1. creare un account di archiviazione o selezionarne uno esistente.
-2. Collegare l'account di archiviazione a un'area di lavoro Log Analytics.
-3. Gestire l'archiviazione esaminando il carico e la conservazione per assicurarsi che funzioni come previsto.
+### <a name="how-to-apply-cmk-to-customer-managed-storage-accounts"></a>Come applicare CMK a account di archiviazione gestiti dal cliente
+##### <a name="storage-account-requirements"></a>Requisiti dell'account di archiviazione
+L'account di archiviazione e l'insieme di credenziali chiave devono essere nella stessa area, ma possono appartenere a sottoscrizioni diverse. Per altre informazioni sulla crittografia di archiviazione di Azure e sulla gestione delle chiavi, vedere [crittografia di archiviazione di Azure per dati](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)inattivi.
 
-L'unico metodo disponibile per la creazione e la rimozione dei collegamenti è tramite l'API REST. Le sezioni seguenti forniscono informazioni dettagliate sulla richiesta API specifica necessaria per ogni processo.
+##### <a name="apply-cmk-to-your-storage-accounts"></a>Applicare CMK agli account di archiviazione
+Per configurare l'account di archiviazione di Azure in modo da usare chiavi gestite dal cliente con Azure Key Vault, usare il [portale di Azure](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal?toc=/azure/storage/blobs/toc.json), [PowerShell](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-powershell?toc=/azure/storage/blobs/toc.json) o l' [interfaccia](https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-cli?toc=/azure/storage/blobs/toc.json)della riga di comando. 
 
-## <a name="command-line-and-rest-api"></a>Riga di comando e API REST
+## <a name="managing-linked-storage-accounts"></a>Gestione degli account di archiviazione collegati
 
-### <a name="command-line"></a>Riga di comando
-Per creare e gestire gli account di archiviazione collegati, usare [AZ monitor log-Analytics Workspace Linked-storage](/cli/azure/monitor/log-analytics/workspace/linked-storage). Questo comando può collegare e scollegare gli account di archiviazione da un'area di lavoro ed elencare gli account di archiviazione collegati.
+Per collegare o scollegare gli account di archiviazione nell'area di lavoro, usare l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/monitor/log-analytics/workspace/linked-storage) o l' [API REST](https://docs.microsoft.com/rest/api/loganalytics/linkedstorageaccounts).
 
-### <a name="request-and-cli-values"></a>Valori di richiesta e CLI
+##### <a name="create-or-modify-a-link"></a>Creare o modificare un collegamento
+Quando si collega un account di archiviazione a un'area di lavoro, Log Analytics inizierà a usarlo al posto dell'account di archiviazione di proprietà del servizio. È possibile 
+* Registrare più account di archiviazione per suddividere il carico dei log tra di essi
+* Riutilizzare lo stesso account di archiviazione per più aree di lavoro
 
-#### <a name="datasourcetype"></a>dataSourceType 
+##### <a name="unlink-a-storage-account"></a>Scollegare un account di archiviazione
+Per interrompere l'uso di un account di archiviazione, scollegare lo spazio di archiviazione dall'area di lavoro. Lo scollegamento di tutti gli account di archiviazione da un'area di lavoro significa che Log Analytics tenterà di utilizzare gli account di archiviazione gestiti dal servizio. Se la rete ha accesso limitato a Internet, queste archiviazioni potrebbero non essere disponibili e gli eventuali scenari che si basano sull'archiviazione avranno esito negativo.
 
-- AzureWatson: usare questo valore per i file di dump di Azure Watson del Centro sicurezza di Azure.
-- CustomLogs: usare questo valore per i tipi di dati seguenti:
-  - Log personalizzati
-  - Log IIS
-  - Eventi (Windows)
-  - Syslog (Linux)
-  - Log ETW
-  - Eventi di Service Fabric
-  - Dati di valutazione  
+##### <a name="replace-a-storage-account"></a>Sostituire un account di archiviazione
+Per sostituire un account di archiviazione usato per l'inserimento,
+1.  **Creare un collegamento a un nuovo account di archiviazione.** Gli agenti di registrazione otterranno la configurazione aggiornata e inizieranno a inviare i dati anche alla nuova risorsa di archiviazione. Il processo potrebbe richiedere alcuni minuti.
+2.  **Scollegare quindi l'account di archiviazione precedente in modo che gli agenti interrompano la scrittura nell'account rimosso.** Il processo di inserimento continua a leggere i dati da questo account fino a quando non vengono inseriti tutti. Non eliminare l'account di archiviazione finché non vengono visualizzati tutti i log inseriti.
 
-#### <a name="storage_account_resource_id"></a>storage_account_resource_id
-Questo valore usa la struttura seguente:
+### <a name="maintaining-storage-accounts"></a>Gestione degli account di archiviazione
+##### <a name="manage-log-retention"></a>Gestire la conservazione dei log
+Quando si usa il proprio account di archiviazione, la conservazione dipende dall'utente. In altre parole, Log Analytics non elimina i log archiviati nella risorsa di archiviazione privata. È necessario invece configurare un criterio per gestire il carico in base alle proprie preferenze.
 
-```
-subscriptions/{subscriptionId}/resourcesGroups/{resourceGroupName}/providers/Microsoft.Storage/storageAccounts/{storageAccountName1}
-```
-
-
-## <a name="get-linked-storage-accounts"></a>Ottenere gli account di archiviazione collegati
-
-### <a name="get-linked-storage-accounts-for-all-data-source-types"></a>Ottenere gli account di archiviazione collegati per tutti i tipi di origine dati
-
-#### <a name="api-request"></a>Richiesta API
-
-```
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts?api-version=2019-08-01-preview  
-```
-
-#### <a name="response"></a>Risposta
-
-```json
-{
-    [
-        {
-            "properties":
-            {
-                "dataSourceType": "CustomLogs",
-                "storageAccountIds  ": 
-                [  
-                    "<storage_account_resource_id_1>",
-                    "<storage_account_resource_id_2>"
-                ],
-            },
-            "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
-            "name": "CustomLogs",
-            "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-        },
-        {
-            "properties":
-            {
-                "dataSourceType": " AzureWatson "
-                "storageAccountIds  ": 
-                [  
-                    "<storage_account_resource_id_3>",
-                    "<storage_account_resource_id_4>"
-                ],
-            },
-            "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/AzureWatson",
-            "name": "AzureWatson",
-            "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-        }
-    ]
-}
-```
-
-
-### <a name="get-linked-storage-accounts-for-a-specific-data-source-type"></a>Ottenere gli account di archiviazione collegati per un tipo di origine dati specifico
-
-#### <a name="api-request"></a>Richiesta API
-
-```
-GET https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
-```
-
-#### <a name="response"></a>Risposta 
-
-```json
-{
-    "properties":
-    {
-        "dataSourceType": "CustomLogs",
-        "storageAccountIds  ": 
-        [  
-            "<storage_account_resource_id_1>",
-            "<storage_account_resource_id_2>"
-        ],
-    },
-    "id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
-    "name": "CustomLogs",
-    "type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-}
-```
-
-## <a name="create-or-modify-a-link"></a>Creare o modificare un collegamento
-
-Quando si collega un account di archiviazione a un'area di lavoro, Log Analytics inizia a usarlo al posto dell'account di archiviazione di proprietà del servizio. È possibile registrare contemporaneamente un elenco di account di archiviazione ed è possibile usare lo stesso account di archiviazione per più aree di lavoro.
-
-Se l'area di lavoro gestisce sia risorse VNet che risorse esterne a una VNet, è necessario assicurarsi che non venga rifiutato il traffico proveniente da Internet. Lo spazio di archiviazione deve avere le stesse impostazioni dell'area di lavoro ed essere reso disponibile per le risorse all'esterno della VNet. 
-
-### <a name="api-request"></a>Richiesta API
-
-```
-PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
-```
-
-### <a name="payload"></a>Payload
-
-```json
-{
-    "properties":
-    {
-        "storageAccountIds  " : 
-        [  
-            "<storage_account_resource_id_1>",
-            "<storage_account_resource_id_2>"
-        ],
-    }
-}
-```
-
-### <a name="response"></a>Risposta
-
-```json
-{
-    "properties":
-    {
-        "dataSourceType": "CustomLogs"
-        "storageAccountIds  ": 
-        [  
-            "<storage_account_resource_id_1>",
-            "<storage_account_resource_id_2>"
-        ],
-    },
-"id":"/subscriptions/{subscriptionId}/resourceGroups/{resourceGroup}/providers/microsoft. operationalinsights/workspaces/{resourceName}/linkedStorageAccounts/CustomLogs",
-"name": "CustomLogs",
-"type": "Microsoft.OperationalInsights/workspaces/linkedStorageAccounts"
-}
-```
-
-
-## <a name="unlink-a-storage-account"></a>Scollegare un account di archiviazione
-Se si decide di interrompere l'uso di un account di archiviazione per l'inserimento o di sostituire l'area di lavoro in uso, è necessario scollegare lo spazio di archiviazione dall'area di lavoro.
-
-Lo scollegamento di tutti gli account di archiviazione da un'area di lavoro significa che l'inserimento tenterà di utilizzare gli account di archiviazione gestiti dal servizio. Se gli agenti vengono eseguiti in una rete virtuale con accesso limitato a Internet, l'inserimento dovrebbe avere esito negativo. L'area di lavoro deve avere un account di archiviazione collegato raggiungibile dalle risorse monitorate.
-
-Prima di eliminare un account di archiviazione, è necessario assicurarsi che tutti i dati in esso contenuti siano stati inseriti nell'area di lavoro. Per precauzione, tenere disponibile l'account di archiviazione dopo avere collegato una risorsa di archiviazione alternativa. Eliminarlo solo dopo che tutto il contenuto è stato inserito ed è possibile vedere che i nuovi dati vengono scritti nell'account di archiviazione appena connesso.
-
-
-### <a name="api-request"></a>Richiesta API
-```
-DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/linkedStorageAccounts/{dataSourceType}?api-version=2019-08-01-preview  
-```
-
-## <a name="replace-a-storage-account"></a>Sostituire un account di archiviazione
-
-Per sostituire un account di archiviazione usato per l'inserimento, creare prima di tutto un collegamento per un nuovo account di archiviazione. Gli agenti di registrazione otterranno la configurazione aggiornata e inizieranno a inviare i dati anche alla nuova risorsa di archiviazione.
-
-Scollegare quindi il vecchio account di archiviazione in modo che gli agenti smettano di scrivere nell'account rimosso. Il processo di inserimento continua a leggere i dati da questo account fino a quando non vengono inseriti tutti. Non eliminare l'account di archiviazione finché non vengono visualizzati tutti i log inseriti.
-
-La configurazione dell'agente verrà aggiornata dopo alcuni minuti e passerà alla nuova risorsa di archiviazione.
-
-## <a name="manage-storage-account"></a>Gestire un account di archiviazione
-
-### <a name="load"></a>Caricamento
-
-Gli account di archiviazione possono gestire un determinato carico di richieste di lettura e scrittura prima di avviare la limitazione delle richieste. Tale limitazione influisce sul tempo necessario per inserire i log e può causare la perdita di dati. Se lo spazio di archiviazione è sovraccarico, registrare gli account di archiviazione aggiuntivi e suddividere il carico tra di loro. 
+##### <a name="consider-load"></a>Prendere in considerazione il carico
+Gli account di archiviazione possono gestire un determinato carico di richieste di lettura e scrittura prima di iniziare la limitazione delle richieste. per altri dettagli, vedere [obiettivi di scalabilità e prestazioni per l'archiviazione BLOB](https://docs.microsoft.com/azure/storage/common/scalability-targets-standard-account) . La limitazione influiscono sul tempo necessario per inserire i log. Se l'account di archiviazione è sovraccarico, registrare un account di archiviazione aggiuntivo per suddividere il carico tra di essi. Per monitorare la capacità e le prestazioni dell'account di archiviazione, esaminare le [informazioni dettagliate nella portale di Azure]( https://docs.microsoft.com/azure/azure-monitor/insights/storage-insights-overview).
 
 ### <a name="related-charges"></a>Addebiti correlati
-
-Gli account di archiviazione vengono addebitati in base al volume dei dati archiviati, ai tipi di archiviazione e al tipo di ridondanza. Per informazioni dettagliate, vedere [Prezzi per i BLOB in blocchi](https://azure.microsoft.com/pricing/details/storage/blobs/) e [Prezzi di Archiviazione tabelle di Azure](https://azure.microsoft.com/pricing/details/storage/tables/).
-
-Se l'account di archiviazione registrato dell'area di lavoro si trova in un'altra area geografica, verranno addebitati i costi per l'uscita in base a tali [dati sui prezzi per la larghezza di banda](https://azure.microsoft.com/pricing/details/bandwidth/).
-
+Gli account di archiviazione vengono addebitati in base al volume dei dati archiviati, al tipo di archiviazione e al tipo di ridondanza. Per informazioni dettagliate, vedere [Prezzi per i BLOB in blocchi](https://azure.microsoft.com/pricing/details/storage/blobs) e [Prezzi di Archiviazione tabelle di Azure](https://azure.microsoft.com/pricing/details/storage/tables).
 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sulla configurazione di un collegamento privato, vedere [usare il collegamento privato di Azure per connettere in modo sicuro le reti a monitoraggio di Azure](private-link-security.md)
-
+- Informazioni sull' [uso del collegamento privato di Azure per connettere in modo sicuro le reti a monitoraggio di Azure](private-link-security.md)
+- Informazioni sulle [chiavi gestite dal cliente di monitoraggio di Azure](customer-managed-keys.md)

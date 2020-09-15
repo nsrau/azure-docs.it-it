@@ -3,12 +3,12 @@ title: Creare un ruolo di Azure Resource Manager personalizzato e assegnarlo a u
 description: Questo articolo fornisce indicazioni su come creare un ruolo di Azure Resource Manager personalizzato e assegnarlo a un'entità servizio per analisi video in tempo reale su IoT Edge usando l'interfaccia della riga di comando di Azure.
 ms.topic: how-to
 ms.date: 05/27/2020
-ms.openlocfilehash: eb4c9a1f90ab50f7070184fc9a394d9e6edb833a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a780ecbbf2530b15984c596281c4aa7e4f5dd520
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87043172"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526579"
 ---
 # <a name="create-custom-azure-resource-manager-role-and-assign-to-service-principal"></a>Creare un ruolo di Azure Resource Manager personalizzato e assegnarlo a un'entità servizio
 
@@ -43,7 +43,7 @@ Se non si dispone di un account del servizio multimediale, attenersi alla proced
 1. Passare al [cloud Shell](https://shell.azure.com/).
 1. Selezionare "bash" come ambiente nell'elenco a discesa nella parte sinistra della finestra della shell
 
-    ![Bash](./media/create-custom-azure-resource-manager-role-how-to/bash.png)
+    ![Schermo capturs Mostra bash selezionato dalla finestra della shell.](./media/create-custom-azure-resource-manager-role-how-to/bash.png)
 1. Impostare la sottoscrizione di Azure come account predefinito usando il modello di comando seguente:
     
     ```
@@ -163,7 +163,7 @@ az ad sp show --id "<appId>" | Select-String "objectId"
 ```
 
 > [!NOTE]
-> `<appId>`può essere recuperato dall'output del passaggio [Crea entità servizio](#create-service-principal) .
+> `<appId>` può essere recuperato dall'output del passaggio [Crea entità servizio](#create-service-principal) .
 
 Con il comando precedente viene stampato il valore objectId dell'entità servizio. 
 

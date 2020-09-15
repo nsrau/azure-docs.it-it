@@ -3,12 +3,12 @@ title: Creare avvisi del log attività per i Lab in Azure DevTest Labs
 description: Questo articolo illustra la procedura per creare avvisi del log attività per Lab in Azure DevTest Labs.
 ms.topic: how-to
 ms.date: 07/10/2020
-ms.openlocfilehash: 6c859e70ab8a101c533e16f9cb118e26727baa52
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d5886ea26ddbeb07efc23d61d3197860620eebf3
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098946"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526358"
 ---
 # <a name="create-activity-log-alerts-for-labs-in-azure-devtest-labs"></a>Creare avvisi del log attività per i Lab in Azure DevTest Labs
 Questo articolo illustra come creare avvisi del log attività per i Lab in Azure DevTest Labs, ad esempio quando viene creata una macchina virtuale o quando viene eliminata una macchina virtuale.
@@ -64,7 +64,7 @@ In questo esempio viene creato un avviso per tutte le operazioni amministrative 
 ## <a name="view-alerts"></a>Visualizzare gli avvisi 
 1. Gli avvisi vengono visualizzati negli **avvisi** per tutte le operazioni amministrative (in questo esempio). Gli avvisi potrebbero richiedere qualche minuto per la visualizzazione. 
 
-    :::image type="content" source="./media/activity-logs/alerts.png" alt-text="Avvisi":::
+    :::image type="content" source="./media/activity-logs/alerts.png" alt-text="L'acquisizione schermo visualizza gli avvisi nel dashboard.":::
 1. Se si seleziona numero in una colonna (ad esempio, **avvisi totali**), vengono visualizzati gli avvisi che sono stati generati. 
 
     :::image type="content" source="./media/activity-logs/all-alerts.png" alt-text="Tutti gli avvisi":::
@@ -77,6 +77,6 @@ In questo esempio viene creato un avviso per tutte le operazioni amministrative 
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Per altre informazioni sulla creazione di gruppi di azioni con tipi di azione diversi, vedere [creare e gestire gruppi di azioni nella portale di Azure](../azure-monitor/platform/action-groups.md).
-- Per altre informazioni sui log attività, vedere [log attività di Azure](../azure-monitor/platform/activity-log.md).
+- Per altre informazioni sui log attività, vedere  [log attività di Azure](../azure-monitor/platform/activity-log.md).
 - Per informazioni sull'impostazione degli avvisi nei log attività, vedere [avvisi sul log attività](../azure-monitor/platform/activity-log-alerts.md).
 

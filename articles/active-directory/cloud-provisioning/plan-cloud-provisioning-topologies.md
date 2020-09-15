@@ -1,6 +1,6 @@
 ---
 title: Topologie e scenari supportati per il provisioning del Cloud Azure AD Connect
-description: Questo argomento descrive i prerequisiti e i requisiti hardware per il provisioning del cloud.
+description: Informazioni sulle diverse topologie locali e Azure Active Directory (Azure AD) che usano Azure AD Connect il provisioning cloud.
 services: active-directory
 author: billmath
 manager: daveba
@@ -11,12 +11,12 @@ ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 386af46bbee623d37bc914d2ee9130c914c6c885
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d442c980ad5bbe3b56eae127b6e9eaeddf380a4e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77620880"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526851"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-supported-topologies-and-scenarios"></a>Topologie e scenari supportati per il provisioning del Cloud Azure AD Connect
 Questo articolo descrive diverse topologie locali e Azure Active Directory (Azure AD) che usano Azure AD Connect il provisioning cloud. Questo articolo include solo le configurazioni e gli scenari supportati.

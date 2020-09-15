@@ -10,12 +10,12 @@ ms.date: 08/12/2020
 ms.author: euang
 ms.reviewer: euang
 zone_pivot_groups: programming-languages-spark-all-minus-sql
-ms.openlocfilehash: e87ecc14907c6e0618de47ffdbd334d8ba03ec99
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 3d65a7771ff2bd8807a5f02278b0455ee103dbd6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500623"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526341"
 ---
 # <a name="hyperspace---an-indexing-subsystem-for-apache-spark"></a>Iperspaziale-un sottosistema di indicizzazione per Apache Spark
 
@@ -392,7 +392,8 @@ Un frame di dati Spark che fa riferimento ai dati da indicizzare.
 Oggetto di configurazione dell'indice: IndexConfig, che specifica il nome dell'indice, le colonne indicizzate e incluse dell'indice.
 Si inizia creando tre indici iperspaziali sui dati di esempio: due indici nel set di dati Department denominato "deptIndex1" e "deptIndex2" e un indice nel set di dati Employee denominato "empIndex". Per ogni indice è necessario un IndexConfig corrispondente per acquisire il nome insieme agli elenchi di colonne per le colonne indicizzate e incluse. In esecuzione sotto la cella vengono creati questi indexConfigs e l'output li elenca.
 
-Nota: una colonna di indice è una colonna visualizzata nei filtri o nelle condizioni di join. Una colonna inclusa è una colonna visualizzata in Select/Project.
+> [!Note]
+> Una colonna di indice è una colonna visualizzata nei filtri o nelle condizioni di join. Una colonna inclusa è una colonna visualizzata in Select/Project.
 
 Ad esempio, nella query seguente:
 
@@ -508,8 +509,9 @@ Il codice seguente illustra come è possibile elencare tutti gli indici disponib
 
 La cella seguente usa l'azione ' Show ' di dataframe per stampare completamente le righe e visualizzare i dettagli degli indici in un formato tabulare. Per ogni indice, è possibile visualizzare tutte le informazioni che l'iperspazio ha archiviato nei metadati. Si noterà immediatamente quanto segue:
 
-"config. IndexName", "config. indexedColumns", "config. includedColumns" e "status. status" sono i campi a cui un utente fa normalmente riferimento.
-"dfSignature" viene generato automaticamente dall'iperspazio ed è univoco per ogni indice. L'iperspazio usa questa firma internamente per gestire l'indice e sfruttarlo in fase di query.
+* "config. IndexName", "config. indexedColumns", "config. includedColumns" e "status. status" sono i campi a cui un utente fa normalmente riferimento.
+* "dfSignature" viene generato automaticamente dall'iperspazio ed è univoco per ogni indice. L'iperspazio usa questa firma internamente per gestire l'indice e sfruttarlo in fase di query.
+
 Nell'output seguente, tutti e tre gli indici devono essere "attivi" come stato e il nome, le colonne indicizzate e le colonne incluse devono corrispondere a quanto definito nelle configurazioni degli indici precedenti.
 
 :::zone pivot = "programming-language-scala"
@@ -839,7 +841,7 @@ deptDFrame: org.apache.spark.sql.DataFrame = [deptId: int, deptName: string ... 
 | 7876|  ADAMS|    20|
 ```
 
-&nbsp;&nbsp;visualizzazione delle prime cinque righe &nbsp;&nbsp;
+&nbsp;&nbsp;Mostra solo le prime 5 righe &nbsp;&nbsp;
 
 ```console
 |deptId|  deptName|location|
@@ -1369,8 +1371,8 @@ Se vengono modificati i dati originali in cui è stato creato un indice, l'indic
 
 Le due celle seguenti mostrano un esempio di questo scenario:
 
-La prima cella aggiunge altri due reparti ai dati dei reparti originali. Legge e stampa l'elenco dei reparti per verificare che i nuovi reparti siano stati aggiunti correttamente. L'output mostra sei reparti in totale: quattro vecchi e due nuovi. Richiamando gli aggiornamenti "refreshIndex" "deptIndex1", l'indice acquisisce i nuovi reparti.
-Seconda cella esegue l'esempio di query di selezione intervallo. I risultati dovrebbero ora contenere quattro dipartimenti: due sono quelli visualizzati prima dell'esecuzione della query precedente e due sono i nuovi reparti appena aggiunti.
+* La prima cella aggiunge altri due reparti ai dati dei reparti originali. Legge e stampa l'elenco dei reparti per verificare che i nuovi reparti siano stati aggiunti correttamente. L'output mostra sei reparti in totale: quattro vecchi e due nuovi. Richiamando gli aggiornamenti "refreshIndex" "deptIndex1", l'indice acquisisce i nuovi reparti.
+* Seconda cella esegue l'esempio di query di selezione intervallo. I risultati dovrebbero ora contenere quattro dipartimenti: due sono quelli visualizzati prima dell'esecuzione della query precedente e due sono i nuovi reparti appena aggiunti.
 
 ### <a name="specific-index-refresh"></a>Aggiornamento indice specifico
 

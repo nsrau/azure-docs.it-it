@@ -4,12 +4,12 @@ description: Scrivere un'applicazione console Node.js per Websockets per Conness
 ms.topic: conceptual
 ms.date: 06/23/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 8dc52c93d4b5cd6d50b66338350a41cf0e24daa0
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: cf660d7a776c0dfa48b6c023fa0fa3516a3a0ea5
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386300"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527412"
 ---
 # <a name="get-started-with-relay-hybrid-connections-websockets-in-nodejs"></a>Introduzione a WebSockets per Connessioni ibride di Inoltro di Azure in Node.js
 
@@ -52,7 +52,7 @@ Per inviare messaggi al servizio di inoltro, scrivere un'applicazione console No
 2. Eseguire l'applicazione client digitando `node sender.js` al prompt dei comandi Node.js e immettendo testo.
 3. Assicurarsi che la console dell'applicazione server restituisca il testo immesso nell'applicazione client.
 
-    ![applicazioni in esecuzione](./media/relay-hybrid-connections-node-get-started/running-applications.png)
+    ![Windows console che testa le applicazioni server e client.](./media/relay-hybrid-connections-node-get-started/running-applications.png)
 
 A questo punto è stata creata un'applicazione per le connessioni ibride end-to-end con Node.js.
 

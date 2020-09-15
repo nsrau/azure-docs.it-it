@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d9ca8b7e188a7ed438feb5e2b99c6db22ad12b3
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 95f4221b390071ad149699608d3937b9af4e1d5d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88717150"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527004"
 ---
 # <a name="plan-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Pianificare una distribuzione di autenticazione con password in Azure Active Directory
 
@@ -82,7 +82,7 @@ I prerequisiti per Windows Hello dipendono fortemente dal fatto che la distribuz
 
 Gli utenti registrano il proprio metodo con password come parte del flusso di registrazione di Azure Multifactor Authentication. L'autenticazione a più fattori con un nome utente e una password insieme a un altro metodo registrato può essere usata come fallback nel caso in cui non possano usare il telefono o la chiave di sicurezza in alcuni scenari.
 
-### <a name="licensing"></a>Gestione delle licenze 
+### <a name="licensing"></a>Licenza 
 Non sono previsti costi aggiuntivi per l'autenticazione senza password, sebbene alcuni prerequisiti possano richiedere una sottoscrizione Premium. Per informazioni dettagliate sulle funzionalità e sulle licenze nella [pagina Azure Active Directory Licensing](https://azure.microsoft.com/pricing/details/active-directory/). 
 
 ## <a name="develop-a-plan"></a>Sviluppare un piano
@@ -160,7 +160,7 @@ Sono disponibili tre tipi di distribuzioni di accesso senza password con chiavi 
 -    Windows 10 versione 1809 supporta l'accesso a FIDO2 e può richiedere il software dal produttore della chiave FIDO2 da distribuire. Si consiglia di usare la versione 1903 o successiva. 
 
 **Per i dispositivi ibridi Azure Active Directory aggiunti a un dominio**: 
--    Windows 10 Insider Build 18945 o versione successiva
+-    Windows 10 versione 2004 o successiva
 -    Server di dominio con patch completa che eseguono Windows Server 2016 o 2019.
 -    Ultima versione di Azure AD Connect
 

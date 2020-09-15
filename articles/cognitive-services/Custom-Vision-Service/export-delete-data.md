@@ -1,5 +1,5 @@
 ---
-title: Esportare o eliminare i dati - Servizio visione artificiale personalizzato
+title: Visualizzare o eliminare i dati Servizio visione artificiale personalizzato
 titleSuffix: Azure Cognitive Services
 description: Si mantiene il controllo completo sui dati. Questo articolo illustra come è possibile visualizzare, esportare o eliminare i dati nel Servizio visione artificiale personalizzato.
 services: cognitive-services
@@ -10,28 +10,28 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 03/21/2019
 ms.author: pafarley
-ms.openlocfilehash: 82d9f4508db376ebbe69ef772c15fb732391a31d
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: fe17fa4349085be47201974b418493fe8d912ece
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "73718962"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527395"
 ---
-# <a name="export-or-delete-user-data-in-custom-vision"></a>Esportare o eliminare i dati in Visione personalizzata
+# <a name="view-or-delete-user-data-in-custom-vision"></a>Visualizzare o eliminare dati utente in Visione personalizzata
 
-Visione personalizzata raccoglie i dati utente per il funzionamento del servizio, ma i clienti hanno il controllo completo sulla visualizzazione, l'esportazione e l'eliminazione dei dati usando le [API di training](https://go.microsoft.com/fwlink/?linkid=865446)di visione personalizzata.
+Visione personalizzata raccoglie i dati utente per il funzionamento del servizio, ma i clienti hanno il controllo completo sulla visualizzazione e sull'eliminazione dei dati usando le [API di training](https://go.microsoft.com/fwlink/?linkid=865446)di visione personalizzata.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
 
-Per informazioni su come esportare ed eliminare i dati utente in Visione personalizzata, vedere la tabella seguente.
+Per informazioni su come visualizzare ed eliminare i dati degli utenti in Visione personalizzata, vedere la tabella seguente.
 
-| Data | Operazione di esportazione | Operazioni di eliminazione |
+| Data | Visualizza operazione | Operazioni di eliminazione |
 | ---- | ---------------- | ---------------- |
-| Informazioni sull'account (chiavi di sottoscrizione) | [GetAccountInfo](https://go.microsoft.com/fwlink/?linkid=865446) | Eliminare tramite il portale di Azure (sottoscrizioni di Azure). In alternativa, usare il pulsante "Elimina l'account" nella pagina delle impostazioni di CustomVision.ai (sottoscrizioni di account Microsoft) | 
+| Informazioni account (chiavi di sottoscrizione) | [GetAccountInfo](https://go.microsoft.com/fwlink/?linkid=865446) | Eliminare tramite il portale di Azure (sottoscrizioni di Azure). In alternativa, usare il pulsante "Elimina account" nella pagina delle impostazioni di CustomVision.ai (sottoscrizioni dell'account Microsoft) | 
 | Dettagli sull'iterazione | [GetIteration](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) |
-| Dettagli sulle prestazioni dell'iterazione | [GetIterationPerformance](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) | 
+| Dettagli prestazioni iterazione | [GetIterationPerformance](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) | 
 | Elenco delle iterazioni | [GetIterations](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteIteration](https://go.microsoft.com/fwlink/?linkid=865446) |
 | Progetti e dettagli dei progetti | [GetProject](https://go.microsoft.com/fwlink/?linkid=865446) e [GetProjects](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteProject](https://go.microsoft.com/fwlink/?linkid=865446) | 
 | Tag di immagine | [GetTag](https://go.microsoft.com/fwlink/?linkid=865446) e [GetTags](https://go.microsoft.com/fwlink/?linkid=865446) | [DeleteTag](https://go.microsoft.com/fwlink/?linkid=865446) | 
 | Immagini | [GetTaggedImages](https://go.microsoft.com/fwlink/?linkid=865446) (fornisce l'URI per il download di immagini) e [GetUntaggedImages](https://go.microsoft.com/fwlink/?linkid=865446) (fornisce l'URI per il download di immagini) | [DeleteImages](https://go.microsoft.com/fwlink/?linkid=865446) | 
-| Modelli esportati | [GetExports](https://go.microsoft.com/fwlink/?linkid=865446) | Eliminati con l'eliminazione dell'account |
+| Iterazioni esportate | [GetExports](https://go.microsoft.com/fwlink/?linkid=865446) | Eliminati con l'eliminazione dell'account |

@@ -3,22 +3,22 @@ title: Usare il dashboard per un Lab della classe in Azure Lab Services | Micros
 description: Informazioni su come usare il dashboard per un Lab della classe in Azure Lab Services.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: 4e59917aa385a344d79a62441e208df970f42285
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 607a3e7faaae65adb67afc0ab0ffd5698adf4655
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85444319"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528262"
 ---
 # <a name="dashboard-for-classroom-labs"></a>Dashboard per lab per le classi
 Questo articolo descrive la visualizzazione dashboard di un Lab della classe in Azure Lab Services. 
 
-![Dashboard](./media/use-dashboard/dashboard.png)
+![Schermo capature Mostra la visualizzazione dashboard di un Lab in aula in Azure Lab Services.](./media/use-dashboard/dashboard.png)
 
 ## <a name="costs-and-billing-tile"></a>Riquadro costi e fatturazione
 Questo riquadro fornisce i dettagli di stima dei costi seguenti:
 
-| Impostazione | valore | 
+| Impostazione | Valore | 
 | ------- | ----- | 
 | Ore quota | Numero massimo di ore in cui un utente può usare la VM al di fuori delle ore pianificate. |
 | Ore pianificate | Ore che verranno ricorrete in base alla pianificazione impostata nel Lab. Questo valore è disponibile solo se è presente una data da/a impostata su tutti gli eventi di pianificazione. |

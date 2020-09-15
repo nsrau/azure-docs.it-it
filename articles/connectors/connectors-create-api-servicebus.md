@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: conceptual
-ms.date: 09/03/2020
+ms.date: 09/14/2020
 tags: connectors
-ms.openlocfilehash: 68b81fa8cf110b47581e482e7e546821d40aef62
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 2993fc718462d1ac2a9cfd02be5642fb21f86702
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89435151"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526528"
 ---
 # <a name="exchange-messages-in-the-cloud-by-using-azure-logic-apps-and-azure-service-bus"></a>Scambiare messaggi nel cloud usando app per la logica di Azure e il bus di servizio di Azure
 
@@ -79,7 +79,7 @@ Verificare che l'app per la logica abbia le autorizzazioni per l'accesso allo sp
    Alcuni trigger, ad esempio **quando uno o più messaggi arrivano in un trigger di coda (completamento automatico)** , possono restituire uno o più messaggi. Quando questi trigger vengono attivati, restituiscono tra uno e il numero di messaggi specificato dalla proprietà numero **massimo messaggi** del trigger.
 
     > [!NOTE]
-    > Il trigger di completamento automatico completa automaticamente un messaggio, ma il completamento si verifica solo alla successiva esecuzione del trigger. Questo comportamento può influire sulla progettazione dell'app per la logica. Se ad esempio si imposta il trigger di completamento automatico per verificare la presenza di messaggi ogni minuto, ma la durata del blocco è impostata su 30 secondi sul lato del bus di servizio, il risultato è un errore di blocco scaduto che si verifica durante il completamento del messaggio. È necessario impostare la durata del blocco su un valore più lungo dell'intervallo di polling.
+    > Il trigger di completamento automatico completa automaticamente un messaggio, ma il completamento si verifica solo alla successiva esecuzione del trigger. Questo comportamento può influire sulla progettazione dell'app per la logica. Ad esempio, evitare di modificare la concorrenza nel trigger di completamento automatico perché questa modifica potrebbe generare messaggi duplicati se l'app per la logica entra in uno stato limitato. La modifica del controllo della concorrenza crea queste condizioni: i trigger limitati vengono ignorati con il `WorkflowRunInProgress` codice, l'operazione di completamento non viene eseguita e l'esecuzione del trigger successiva si verifica dopo l'intervallo di polling. È necessario impostare la durata del blocco del bus di servizio su un valore più lungo dell'intervallo di polling. Tuttavia, nonostante questa impostazione, il messaggio potrebbe ancora non essere completato se l'app per la logica rimane in uno stato limitato all'intervallo di polling successivo.
 
 1. Se il trigger si connette allo spazio dei nomi del bus di servizio per la prima volta, seguire questa procedura quando la finestra di progettazione dell'app per la logica richiede le informazioni di connessione.
 

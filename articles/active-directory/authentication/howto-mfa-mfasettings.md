@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 838e0a13cb919a5bc17807c2349bb173e4e489f4
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 50f7af3bb1ad543dea0263304b82287225500a21
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068813"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526885"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurare le impostazioni di Azure Multi-Factor Authentication
 
@@ -31,7 +31,7 @@ Le impostazioni Multi-Factor Authentication di Azure seguenti sono disponibili n
 | [Blocca/Sblocca utenti](#block-and-unblock-users) | Impedisce a utenti specifici di ricevere richieste di Multi-Factor Authentication di Azure. Eventuali tentativi di autenticazione per gli utenti bloccati vengono negati automaticamente. Gli utenti rimangono bloccati per 90 giorni dal momento in cui vengono bloccati o sbloccati manualmente. |
 | [Avviso di illecito](#fraud-alert) | Configurare le impostazioni che consentono agli utenti di segnalare le richieste di verifica illecite. |
 | [Notifications](#notifications) | Abilita le notifiche degli eventi dal server MFA. |
-| [Token OATH](concept-authentication-methods.md#oath-tokens) | Funzionalità usata in ambienti Azure MFA basati sul cloud per gestire i token OATH per gli utenti. |
+| [Token OATH](concept-authentication-oath-tokens.md) | Funzionalità usata in ambienti Azure MFA basati sul cloud per gestire i token OATH per gli utenti. |
 | [Impostazioni telefonata](#phone-call-settings) | Permette di configurare le impostazioni correlate a chiamate telefoniche e messaggi di saluto per gli ambienti cloud e locali. |
 | Providers | Mostra tutti i provider di autenticazione esistenti che possono essere stati associati all'account. Non è stato possibile creare nuovi provider di autenticazione fino al 1° settembre 2018 |
 

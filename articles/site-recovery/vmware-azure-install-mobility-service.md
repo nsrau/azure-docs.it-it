@@ -6,12 +6,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: 0613af3d286a9c670d09b2e72c2807c018753455
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 78fddb5b4512883f8e78d6ed53f6e3dbbeba0e4f
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669239"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90524998"
 ---
 # <a name="prepare-source-machine-for-push-installation-of-mobility-agent"></a>Preparare il computer di origine per l'installazione push dell'agente Mobility
 
@@ -63,7 +63,7 @@ In ogni computer Linux da proteggere eseguire le operazioni seguenti:
 11. Nella scheda **Gestisci account** fare clic su **Aggiungi account**.
 12. Aggiungere l'account che è stato creato.
 13. Immettere le credenziali usate quando si abilita la replica per un computer.
-1. Passaggio aggiuntivo per l'aggiornamento o la protezione dei computer SUSE Linux Enterprise Server 11 SP3. [Verificare che nel server di configurazione sia disponibile la versione più recente](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-server).
+1. Passaggio aggiuntivo per l'aggiornamento o la protezione dei computer SUSE Linux Enterprise Server 11 SP3 o RHEL 5 o CentOS 5 o Debian 7. [Verificare che nel server di configurazione sia disponibile la versione più recente](vmware-physical-mobility-service-overview.md#download-latest-mobility-agent-installer-for-suse-11-sp3-rhel-5-debian-7-server).
 
 ## <a name="anti-virus-on-replicated-machines"></a>Antivirus nei computer replicati
 

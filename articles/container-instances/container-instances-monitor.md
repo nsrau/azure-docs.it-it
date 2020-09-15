@@ -3,12 +3,12 @@ title: Monitorare le istanze di contenitore
 description: Come monitorare il consumo delle risorse di calcolo, ad esempio CPU e memoria, da parte dei contenitori in Istanze di Azure Container.
 ms.topic: article
 ms.date: 04/24/2019
-ms.openlocfilehash: e8d41e419abe43530186e256ac6253e2d4783f9b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b10c370b599233d00b2b4a65268f6c61a11cbd5c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82116368"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526698"
 ---
 # <a name="monitor-container-resources-in-azure-container-instances"></a>Monitorare le risorse dei contenitori in Istanze di Azure Container
 
@@ -44,7 +44,7 @@ Se un gruppo di contenitori contiene più contenitori, usare una [dimensione][mo
 1. Nella pagina **Panoramica** selezionare uno dei grafici delle metriche, ad esempio **CPU**. 
 1. Selezionare il pulsante **Applicare separazione** e quindi **Nome contenitore**.
 
-![dimension][dimension]
+![L'acquisizione schermo mostra le metriche per un'istanza del contenitore con l'opzione applica suddivisione selezionata e nome contenitore selezionato.][dimension]
 
 ## <a name="get-metrics---azure-cli"></a>Ottenere le metriche: interfaccia della riga di comando di Azure
 

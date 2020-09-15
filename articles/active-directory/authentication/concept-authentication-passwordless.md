@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 144198a708b8e3cfcb5b3c6936d7fc51cadf4a13
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: fdac9562ed9a83f49e074e7abd790e8e2819d6aa
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90084329"
+ms.locfileid: "90527021"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opzioni di autenticazione con password per Azure Active Directory
 
 Funzionalità come l'autenticazione a più fattori sono un ottimo modo per proteggere l'organizzazione, ma gli utenti spesso sono frustrati con il livello di sicurezza aggiuntivo oltre a dover ricordare le proprie password. I metodi di autenticazione senza password sono più convenienti perché la password viene rimossa e sostituita da un elemento, più un elemento o un elemento che si conosce.
 
-| Authentication  | Un elemento | Un elemento o una conoscenza |
+| Autenticazione  | Un elemento | Un elemento o una conoscenza |
 | --- | --- | --- |
 | Accesso senza password | Dispositivo Windows 10, telefono o chiave di sicurezza | Biometrico o PIN |
 
@@ -82,11 +82,15 @@ Per iniziare a usare l'accesso senza password, completare le procedure seguenti:
 
 ## <a name="fido2-security-keys"></a>Chiavi di sicurezza FIDO2
 
+FIDO (Fast Identity Online) Alliance promuove gli standard di autenticazione aperti e limita l'uso delle password come forma di autenticazione. FIDO2 è lo standard più recente che incorpora lo standard di autenticazione Web (WebAuthn).
+
 Le chiavi di sicurezza di FIDO2 sono un metodo di autenticazione senza password basato su standard unphishable che può provenire da qualsiasi fattore di forma. Fast Identity online (FIDO) è uno standard aperto per l'autenticazione con password. FIDO consente a utenti e organizzazioni di sfruttare lo standard per accedere alle risorse senza nome utente o password usando una chiave di sicurezza esterna o una chiave della piattaforma incorporata in un dispositivo.
 
-I dipendenti possono usare le chiavi di sicurezza per accedere ai dispositivi Azure AD o ibridi Azure AD aggiunti a dispositivi Windows 10 e ottenere l'accesso Single Sign-on alle risorse cloud e locali. Gli utenti possono anche accedere ai browser supportati. Le chiavi di sicurezza di FIDO2 sono un'ottima opzione per le aziende che hanno una sicurezza molto sensibile o hanno scenari o dipendenti che non sono disposti o in grado di usare il telefono come secondo fattore.
+Gli utenti possono registrarsi e quindi selezionare una chiave di sicurezza FIDO2 nell'interfaccia di accesso come mezzo di autenticazione principale. Le chiavi di sicurezza di FIDO2 sono in genere dispositivi USB, ma possono anche usare il Bluetooth o l'NFC. Grazie a un dispositivo hardware che gestisce l'autenticazione, la sicurezza di un account viene aumentata poiché non vi è una password che può essere esposta o individuata.
 
-L'accesso con chiavi di sicurezza FIDO2 per Azure AD è attualmente in fase di anteprima.
+Le chiavi di sicurezza di FIDO2 possono essere usate per accedere ai dispositivi Azure AD o ibridi Azure AD aggiunti a dispositivi Windows 10 e ottenere l'accesso Single Sign-on alle risorse cloud e locali. Gli utenti possono anche accedere ai browser supportati. Le chiavi di sicurezza di FIDO2 sono un'ottima opzione per le aziende che hanno una sicurezza molto sensibile o hanno scenari o dipendenti che non sono disposti o in grado di usare il telefono come secondo fattore.
+
+L'accesso con chiavi di sicurezza FIDO2 per Azure AD è attualmente in fase di anteprima. Per altre informazioni sulle anteprime, vedere [Condizioni per l'utilizzo supplementari per le anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ![Accedere a Microsoft Edge con una chiave di sicurezza](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -141,7 +145,6 @@ Per iniziare a usare le chiavi di sicurezza di FIDO2, completare le procedure se
 > [!div class="nextstepaction"]
 > [Abilita il segno senza password con le chiavi di sicurezza FIDO2](howto-authentication-passwordless-security-key.md)
 
-
 ## <a name="what-scenarios-work-with-the-preview"></a>Quali scenari funzionano con l'anteprima?
 
 Azure AD funzionalità di accesso senza password sono attualmente in anteprima. Si applicano le considerazioni seguenti:
@@ -161,7 +164,7 @@ Di seguito sono riportati alcuni fattori da considerare quando si sceglie la tec
 
 ||**Windows Hello for Business**|**Accesso senza password con l'app Microsoft Authenticator**|**Chiavi di sicurezza FIDO2**|
 |:-|:-|:-|:-|
-|**Prerequisiti**| Windows 10 versione 1809 o successiva<br>Azure Active Directory| App Microsoft Authenticator<br>Telefono (dispositivi iOS e Android che eseguono Android 6,0 o versione successiva).|Windows 10 versione 1809 o successiva<br>Azure Active Directory|
+|**Prerequisiti**| Windows 10 versione 1809 o successiva<br>Azure Active Directory| App Microsoft Authenticator<br>Telefono (dispositivi iOS e Android che eseguono Android 6,0 o versione successiva).|Windows 10, versione 1903 o successiva<br>Azure Active Directory|
 |**Modalità**|Piattaforma|Software|Hardware|
 |**Sistemi e dispositivi**|PC con un Trusted Platform Module incorporato (TPM)<br>Riconoscimento del PIN e della biometria |Riconoscimento del PIN e della biometria sul telefono|Dispositivi di sicurezza FIDO2 compatibili con Microsoft|
 |**Esperienza utente**|Accedere con un PIN o un riconoscimento biometrico (facciale, Iris o impronta digitale) con i dispositivi Windows.<br>L'autenticazione di Windows Hello è associata al dispositivo. per accedere alle risorse aziendali, l'utente deve disporre sia del dispositivo sia di un componente di accesso, ad esempio un PIN o un fattore biometrico.|Eseguire l'accesso con un telefono cellulare con impronta digitale, riconoscimento facciale o Iris oppure PIN.<br>Gli utenti possono accedere al proprio account di lavoro o personale dal PC o dal telefono cellulare.|Accedere con il dispositivo di sicurezza FIDO2 (biometria, PIN e NFC)<br>L'utente può accedere al dispositivo in base ai controlli dell'organizzazione ed eseguire l'autenticazione in base al PIN, alla biometria usando dispositivi quali chiavi di sicurezza USB e smart card, chiavi o indossabili abilitati per NFC.|

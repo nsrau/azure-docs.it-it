@@ -4,12 +4,12 @@ description: Informazioni sui partner del monitoraggio di Azure e sulle modalit√
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 05/29/2020
-ms.openlocfilehash: d5f239540a74c431e381c581f00514a1f7acd5e3
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: dbac5f28723b712788df61eda34a0db61b9c5652
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030381"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526477"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Integrazioni partner del monitoraggio di Azure
 
@@ -149,7 +149,7 @@ Altre informazioni
 
 ## <a name="moogsoft"></a>Moogsoft
 
-![Moogsoft](./media/partners/moogsoft.png)
+![Logo di Moogsoft](./media/partners/moogsoft.png)
 
 Moogsoft AIOps accelera la trasformazione del business agile.
 
