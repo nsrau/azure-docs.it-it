@@ -5,14 +5,14 @@ services: data-factory
 author: nabhishek
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.date: 09/10/2020
+ms.date: 09/14/2020
 ms.author: abnarain
-ms.openlocfilehash: a6a0a62bd857dff575e17f47f1e2394375b08c45
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 1a68263598cb2cba8cc0853f5dd1be7c62dc062e
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90033660"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069476"
 ---
 # <a name="troubleshoot-self-hosted-integration-runtime"></a>Risolvere i problemi relativi al runtime di integrazione self-hosted
 
@@ -46,63 +46,63 @@ Per le attività non riuscite in esecuzione sul runtime di integrazione self-hos
 > La visualizzazione del log e il caricamento delle richieste verranno eseguiti in tutte le istanze del runtime di integrazione self-hosted online. Verificare che tutte le istanze del runtime di integrazione Self-Hosted siano online in caso di log mancanti. 
 
 
-## <a name="self-hosted-ir-general-failure-or-error"></a>Errore generale del runtime di integrazione self-hosted o errore
+## <a name="self-hosted-ir-general-failure-or-error"></a>Errore generale del runtime di integrazione self-hosted
 
-### <a name="tlsssl-certificate-issue"></a>Problema relativo al certificato TLS/SSL
+### <a name="tlsssl-certificate-issue"></a>Problemi per i certificati TLS/SSL
 
 #### <a name="symptoms"></a>Sintomi
 
-Quando si prova ad abilitare il certificato TLS/SSL (avanzato) dal runtime di integrazione **self-hosted Configuration Manager**  ->  **accesso remoto dalla rete Intranet**, dopo aver selezionato il certificato TLS/SSL, viene visualizzato l'errore seguente:
+Durante il tentativo di abilitazione dei certificati TLS/SSL (avanzati) dalla **Gestione configurazione del runtime di integrazione self-hosted** -> **Accesso remoto da intranet**, dopo aver selezionato i certificati TLS/SSL, viene visualizzato l'errore seguente:
 
 `Remote access settings are invalid. Identity check failed for outgoing message. The expected DNS identity of the remote endpoint was ‘abc.microsoft.com’ but the remote endpoint provided DNS claim ‘microsoft.com’. If this is a legitimate remote endpoint, you can fix the problem by explicitly specifying DNS identity ‘microsoft.com’ as the Identity property of EndpointAddress when creating channel proxy.`
 
-Nel caso precedente, l'utente usa il certificato con "microsoft.com" come ultimo elemento.
+Nel caso presente, l'utente sta usando il certificato con "microsoft.com" come ultimo elemento.
 
 #### <a name="cause"></a>Causa
 
-Si tratta di un problema noto in WCF: la convalida TLS/SSL di WCF controlla solo gli ultimi DNSName nella SAN. 
+Questo è un problema noto in WCF: La verifica TLS/SSL di WCF controlla solo l'ultimo DNSName in SAN. 
 
 #### <a name="resolution"></a>Soluzione
 
-Il certificato con caratteri jolly è supportato nel runtime di integrazione self-hosted Azure Data Factory V2. Questo problema si verifica in genere perché il certificato SSL non è corretto. L'ultimo DNSName nella SAN deve essere valido. Attenersi alla procedura seguente per verificarlo. 
+Il certificato con carattere jolly è supportato dal runtime di integrazione self-hosted Azure Data Factory v2. Questo problema avviene generalmente a causa di un certificato SSL errato. È necessario che l'ultimo DNSName in SAN sia valido. Seguire i passaggi seguenti per verificarlo. 
 1.  Aprire Management Console, controllare il nome del *soggetto* e il *nome alternativo del soggetto* dai dettagli del certificato. Nel caso precedente, ad esempio, l'ultimo elemento nel *nome alternativo del soggetto*, ovvero "DNS Name = Microsoft.com.com", non è legittimo.
 2.  Per rimuovere il nome DNS errato, contattare la società di emissione del certificato.
 
-### <a name="concurrent-jobs-limit-issue"></a>Numero massimo di processi simultanei
+### <a name="concurrent-jobs-limit-issue"></a>Problemi nelle limiti dei processi simultanei
 
 #### <a name="symptoms"></a>Sintomi
 
-Quando si tenta di aumentare il limite dei processi simultanei dall'interfaccia utente di Azure Data Factory, si blocca come *aggiornamento* per sempre.
-Il valore max dei processi simultanei è stato impostato su 24 e si desidera aumentare il numero in modo che i processi possano essere eseguiti più velocemente. Il valore minimo che è possibile immettere è 3 e il valore massimo che è possibile immettere è 32. È stato aumentato il valore da 24 a 32 e viene visualizzato il pulsante *Aggiorna* nell'interfaccia utente che si è bloccato durante l' *aggiornamento* , come si può vedere di seguito. Dopo l'aggiornamento, il cliente ha ancora visto il valore 24 e non è mai stato aggiornato a 32.
+Durante il tentativo di aumentare il limite dei processi simultanei dall'interfaccia utente di Azure Data Factory, si blocca su *aggiornamento in corso*.
+Il valore massimo di processi simultanei è stato impostato su 24 e si desidera aumentare il numero per ottenere processi più rapidi. Il valore minimo che può essere inserito è pari a 3 e il valore massimo è pari a 32. È stato aumentato il valore da 24 a 32 e viene visualizzato il pulsante *Aggiorna* nell'interfaccia utente che si è bloccato durante l' *aggiornamento* , come si può vedere di seguito. Dopo aver aggiornato, il cliente vede ancora il valore 24 e non viene aggiornato a 32.
 
 ![Aggiornamento dello stato](media/self-hosted-integration-runtime-troubleshoot-guide/updating-status.png)
 
 #### <a name="cause"></a>Causa
 
-Esiste una limitazione per l'impostazione poiché il valore dipende dal computer logicCore e dalla memoria, è sufficiente modificarlo a un valore più piccolo, ad esempio 24, e visualizzare il risultato.
+Esiste un limite per l'impostazione dal momento che il valore dipende dal logicCore e della memoria del computer, è possibile modificarlo solo con un valore minore ad esempio 24 e osservare il risultato.
 
 > [!TIP] 
 > - Per informazioni dettagliate sul numero di core per la logica e su come trovare il numero di core per la logica del computer, vedere [questo articolo](https://www.top-password.com/blog/find-number-of-cores-in-your-cpu-on-windows-10/).
 > - Per informazioni dettagliate su come calcolare Math. log, vedere [questo articolo](https://www.rapidtables.com/calc/math/Log_Calculator.html).
 
 
-### <a name="self-hosted-ir-ha-ssl-certificate-issue"></a>Problema relativo al certificato SSL a disponibilità elevata per IR self-hosted
+### <a name="self-hosted-ir-ha-ssl-certificate-issue"></a>Problemi per i certificati SSL a disponibilità elevata del runtime di integrazione self-hosted
 
 #### <a name="symptoms"></a>Sintomi
 
-Il nodo di lavoro IR self-hosted ha segnalato l'errore seguente:
+Il nodo di lavoro del runtime di integrazione self-hosted ha rilevato l'errore seguente:
 
 `Failed to pull shared states from primary node net.tcp://abc.cloud.corp.Microsoft.com:8060/ExternalService.svc/. Activity ID: XXXXX The X.509 certificate CN=abc.cloud.corp.Microsoft.com, OU=test, O=Microsoft chain building failed. The certificate that was used has a trust chain that cannot be verified. Replace the certificate or change the certificateValidationMode. The revocation function was unable to check revocation because the revocation server was offline.`
 
 #### <a name="cause"></a>Causa
 
-Quando si gestiscono i case correlati all'handshake SSL/TLS, potrebbero verificarsi alcuni problemi relativi alla verifica della catena di certificati. 
+Quando vengono gestiti casi relativi all'handshake SSL/TLS, è possibile riscontrare problemi relativi alla verifica della catena di certificati. 
 
 #### <a name="resolution"></a>Soluzione
 
 - Ecco un modo rapido e intuitivo per risolvere gli errori di compilazione della catena di certificati X. 509.
  
-    1. Esportare il certificato, che deve essere verificato. Passare a Gestisci certificato computer e individuare il certificato che si desidera controllare e fare clic con il pulsante destro del mouse su **tutte le attività**  ->  **Esporta**.
+    1. Esportare il certificato, che deve essere verificato. Andare in gestione certificati computer, trovare il certificato che si desidera controllare e fare clic con il tasto destro su **Tutte le attività** -> **Esporta**.
     
         ![Esporta attività](media/self-hosted-integration-runtime-troubleshoot-guide/export-tasks.png)
 
@@ -118,7 +118,7 @@ Quando si gestiscono i case correlati all'handshake SSL/TLS, potrebbero verifica
         ```
         Certutil -verify -urlfetch c:\users\test\desktop\servercert02.cer > c:\users\test\desktop\Certinfo.txt
         ```
-    4. Controllare se è presente un errore nel file txt di output. È possibile trovare il riepilogo degli errori alla fine del file txt.
+    4. Controllare se ci sono errori nell'output del file con estensione .txt. È possibile trovare il riepilogo degli errori alla fine del file con estensione .txt.
 
         Ad esempio: 
 
@@ -138,13 +138,13 @@ Quando si gestiscono i case correlati all'handshake SSL/TLS, potrebbero verifica
         ```
           Certutil   -URL    <certificate path> 
         ```
-    1. Quindi verrà aperto lo **strumento di recupero URL** . È possibile verificare i certificati da AIA, CDP e OCSP facendo clic sul pulsante **Recupera** .
+    1. Quindi verrà aperto lo **strumento di recupero URL**. È possibile verificare i certificati da AIA, CDP e OCSP facendo clic sul pulsante **Recuperare**.
 
         ![Pulsante recupero](media/self-hosted-integration-runtime-troubleshoot-guide/retrieval-button.png)
  
-        La catena di certificati può essere compilata correttamente se il certificato da AIA è "verificato" e il certificato da CDP o OCSP è "verificato".
+        La catena di certificati può essere compilata correttamente se il certificato da AIA è "Verificato" e il certificato da CDP o OCSP è "Verificato".
 
-        Se si verifica un errore durante il recupero di AIA, CDP, collaborare con il team di rete per preparare il computer client per la connessione all'URL di destinazione. Sarà sufficiente se è possibile verificare il percorso http o il percorso LDAP.
+        Se si verifica un errore durante il recupero di AIA o CDP, collaborare con il team di rete per preparare il computer client per la connessione all'URL di destinazione. Sarà sufficiente se è possibile verificare il percorso HTTP o il percorso LDAP.
 
 ### <a name="self-hosted-ir-could-not-load-file-or-assembly"></a>Il runtime di integrazione self-hosted non può caricare il file o l'assembly
 
@@ -152,7 +152,7 @@ Quando si gestiscono i case correlati all'handshake SSL/TLS, potrebbero verifica
 
 `Could not load file or assembly 'XXXXXXXXXXXXXXXX, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
  
-Ad esempio: 
+Esempio: 
 
 `Could not load file or assembly 'System.ValueTuple, Version=4.0.2.0, Culture=neutral, PublicKeyToken=XXXXXXXXX' or one of its dependencies. The system cannot find the file specified. Activity ID: 92693b45-b4bf-4fc8-89da-2d3dc56f27c3`
 
@@ -165,7 +165,7 @@ Se si esegue monitoraggio processi, è possibile visualizzare i risultati seguen
 > [!TIP] 
 > È possibile impostare il filtro come illustrato nello screenshot seguente.
 > Indica che la dll **System. ValueTuple** non si trova nella cartella correlata alla GAC oppure in *c:\Programmi\Microsoft Integration Runtime\4.0\Gateway*o nella cartella c:\Programmi\Microsoft *Integration Runtime\4.0\Shared*
-> In sostanza, caricherà prima di tutto la dll dalla cartella *GAC* , quindi da *condivisa* e infine da cartella del *gateway* . Pertanto, è possibile inserire la dll in qualsiasi percorso che può essere utile.
+> In sostanza, caricherà prima di tutto la dll dalla cartella *GAC*, quindi da *Condivisi* e infine dalla cartella *Gateway*. Pertanto, è possibile inserire l'estensione .dll in qualsiasi percorso che può essere utile.
 
 ![Configurare i filtri](media/self-hosted-integration-runtime-troubleshoot-guide/set-filters.png)
 
@@ -173,7 +173,7 @@ Se si esegue monitoraggio processi, è possibile visualizzare i risultati seguen
 
 È possibile scoprire che la **System.ValueTuple.dll** si trova nella cartella *c:\Programmi\Microsoft Integration Runtime\4.0\Gateway\DataScan* Copiare il **System.ValueTuple.dll** nella cartella C:\Programmi\Microsoft *Integration Runtime\4.0\Gateway* per risolvere il problema.
 
-È possibile usare lo stesso metodo per risolvere altri problemi di file o assembly mancanti.
+È possibile usare lo stesso metodo per risolvere i problemi mancanti di assembly o file.
 
 #### <a name="more-information"></a>Altre informazioni
 
@@ -186,22 +186,22 @@ Dall'errore riportato di seguito, è possibile vedere chiaramente che l'assembly
 Per ulteriori informazioni sulla GAC, vedere [questo articolo](https://docs.microsoft.com/dotnet/framework/app-domains/gac).
 
 
-### <a name="how-to-audit-self-hosted-ir-key-missing"></a>Come controllare la chiave IR self-hosted mancante
+### <a name="how-to-audit-self-hosted-ir-key-missing"></a>Come controllare la mancanza di una chiave di runtime di integrazione self-hosted
 
 #### <a name="symptoms"></a>Sintomi
 
-Il runtime di integrazione self-hosted passa improvvisamente alla modalità offline senza chiave. di seguito viene visualizzato un messaggio di errore nel registro eventi: `Authentication Key is not assigned yet`
+Il runtime di integrazione self-hosted passa improvvisamente alla modalità offline senza chiave, nel registro eventi viene visualizzato il messaggio di errore seguente: `Authentication Key is not assigned yet`
 
 ![Chiave di autenticazione mancante](media/self-hosted-integration-runtime-troubleshoot-guide/key-missing.png)
 
 #### <a name="cause"></a>Causa
 
-- Il nodo IR indipendente o il runtime di integrazione self-hosted logico nel portale viene eliminato.
-- È stata eseguita una disinstallazione pulita.
+- Il nodo di runtime di integrazione self-hosted o il nodo di runtime di integrazione self-hosted logico nel portale sono stati eliminati.
+- È stata eseguita una disinstallazione corretta.
 
 #### <a name="resolution"></a>Soluzione
 
-Se nessuna delle cause precedenti si applica, è possibile passare alla cartella: *%ProgramData%\Microsoft\Data Transfer\DataManagementGateway*e verificare se il file denominato **configurazioni** è stato eliminato. Se viene eliminata, seguire le istruzioni riportate [qui](https://www.netwrix.com/how_to_detect_who_deleted_file.html) per controllare chi elimina il file.
+Se nessuna delle cause precedenti si applica, è possibile passare alla cartella: *%ProgramData%\Microsoft\Data Transfer\DataManagementGateway*e verificare se il file denominato **configurazioni** è stato eliminato. Se viene eliminato, seguire le istruzioni riportate [qui](https://www.netwrix.com/how_to_detect_who_deleted_file.html) per controllare chi elimina il file.
 
 ![Verifica file di configurazione](media/self-hosted-integration-runtime-troubleshoot-guide/configurations-file.png)
 
@@ -210,53 +210,53 @@ Se nessuna delle cause precedenti si applica, è possibile passare alla cartella
 
 #### <a name="symptoms"></a>Sintomi
 
-Dopo aver creato l'IRs self-hosted per gli archivi dati di origine e di destinazione, è necessario connettere i due IRs insieme per completare una copia. Se gli archivi dati sono configurati in reti virtuali diversi o non riescono a comprendere il meccanismo del gateway, si verificano errori simili ai seguenti: *Impossibile trovare il driver dell'origine nel*runtime di integrazione di destinazione. *non è possibile accedere all'origine dal runtime di integrazione di destinazione*.
+Dopo aver creato i runtime di integrazione self-hosted per gli archivi dati di origine e di destinazione, è necessario connettere i due runtime di integrazione insieme per completare una copia. Se gli archivi dati sono configurati in reti virtuali diversi o non riescono a comprendere il meccanismo del gateway, si verificano errori simili ai seguenti: *Impossibile trovare il driver dell'origine nel*runtime di integrazione di destinazione. *non è possibile accedere all'origine dal runtime di integrazione di destinazione*.
  
 #### <a name="cause"></a>Causa
 
-Il runtime di integrazione self-hosted è progettato come nodo centrale di un'attività di copia, non come agente client che deve essere installato per ogni archivio dati.
+Il runtime di integrazione self-hosted è progettato come un nodo centrale di un'attività di copia, non di un agente client che è necessario installare per ogni archivio dati.
  
-In precedenza, il servizio collegato per ogni archivio dati deve essere creato con lo stesso IR e il runtime di integrazione deve essere in grado di accedere a entrambi gli archivi dati attraverso la rete. Indipendentemente dal fatto che il runtime di integrazione sia installato con l'archivio dati di origine, con l'archivio dati di destinazione o in una terza macchina, se vengono creati due servizi collegati con un altro IRs, ma usati nella stessa attività di copia, verrà usato il runtime di integrazione di destinazione e i driver per entrambi gli archivi dati dovranno essere installati nel computer IR di destinazione.
+Nel caso soprastante, è necessario creare il servizio collegato per ogni archivio dati con lo stesso runtime di integrazione e il runtime di integrazione deve essere in grado di accedere a entrambi gli archivi dati attraverso la rete. Indipendentemente dal fatto che il runtime di integrazione sia installato con l'archivio dati di origine, con l'archivio dati di destinazione o in un terzo computer, se vengono creati due servizi collegati con runtime di integrazione diversi, ma usati nella stessa attività di copia, verrà usato il runtime di integrazione di destinazione e i driver per entrambi gli archivi dati dovranno essere installati nel computer di runtime di integrazione di destinazione.
 
 #### <a name="resolution"></a>Soluzione
 
 Installare i driver sia per l'origine che per la destinazione nel runtime di integrazione di destinazione e assicurarsi che sia in grado di accedere all'archivio dati di origine.
  
-Se il traffico non è in grado di passare attraverso la rete tra due archivi dati (ad esempio, sono configurati in due reti virtuali), non è possibile completare la copia in un'attività anche se è installato il runtime di integrazione. In tal caso, è possibile creare due attività di copia con due IRs, ognuna in uno sfiato: 1 IR da copiare dall'archivio dati 1 all'archivio BLOB di Azure, un'altra per la copia dall'archiviazione BLOB di Azure all'archivio dati 2. Questo potrebbe simulare la necessità di usare il runtime di integrazione per creare un Bridge che connette due archivi dati disconnessi.
+Se il traffico non è in grado di passare attraverso la rete tra due archivi dati (ad esempio, sono configurati in due reti virtuali), non è possibile completare la copia in un'attività anche se il runtime di integrazione è installato. In tal caso, è possibile creare due attività di copia con due runtime di integrazione, ciascuna in una rete virtuale: 1 runtime di integrazione per la copia dall'archivio dati 1 all'Archiviazione BLOB di Azure, un altro per la copia dall'Archiviazione BLOB di Azure all'archivio dati 2. Questo potrebbe simulare la necessità di usare il runtime di integrazione per creare un bridge che connette due archivi dati disconnessi.
 
 
 ### <a name="credential-sync-issue-causes-credential-lost-from-ha"></a>Il problema di sincronizzazione delle credenziali causa la perdita delle credenziali da disponibilità elevata
 
 #### <a name="symptoms"></a>Sintomi
 
-Le credenziali dell'origine dati "XXXXXXXXXX" sono state eliminate dal nodo Integration Runtime corrente con payload "quando si elimina il servizio di collegamento su portale di Azure o l'attività ha il payload errato, creare nuovamente un nuovo servizio di collegamento con le credenziali".
+Le credenziali "XXXXXXXXXX" dell'origine dati sono state eliminate dal nodo corrente di Integration Runtime con payload "quando si elimina il servizio di collegamento nel portale di Azure oppure il payload dell'attività è errato, creare il nuovo servizio di collegamento con le proprie credenziali".
 
 #### <a name="cause"></a>Causa
 
-Il runtime di integrazione self-hosted è compilato in modalità a disponibilità elevata con due nodi, ma non si trovano nello stato di sincronizzazione delle credenziali, il che significa che le credenziali archiviate nel nodo dispatcher non vengono sincronizzate con altri nodi di lavoro. Se si verifica un failover dal nodo Dispatcher al nodo di lavoro ma le credenziali erano presenti solo nel nodo Dispatcher precedente, l'attività non riuscirà quando si tenta di accedere alle credenziali e si verificherà un errore.
+Il runtime di integrazione self-hosted è compilato in modalità a disponibilità elevata con due nodi, ma non si trovano nello stato di sincronizzazione delle credenziali, il che significa che le credenziali archiviate nel nodo dispatcher non vengono sincronizzate con altri nodi di lavoro. Se si verifica un failover dal nodo dispatcher al nodo di lavoro ma le credenziali erano presenti solo nel nodo dispatcher precedente, se si tenta di accedere alle credenziali, l'accesso sarà negato e si verificherà l'errore soprastante.
 
 #### <a name="resolution"></a>Soluzione
 
-L'unico modo per evitare questo problema consiste nel verificare che due nodi si trovino nello stato di sincronizzazione delle credenziali. In caso contrario, è necessario riimmettere le credenziali per il nuovo Dispatcher.
+L'unico modo per evitare questo problema consiste nel verificare che due nodi si trovino nello stato di sincronizzazione delle credenziali. In caso contrario, è necessario reinserire le credenziali per il nuovo dispatcher.
 
 
 ### <a name="cannot-choose-the-certificate-due-to-private-key-missing"></a>Non è possibile scegliere il certificato a causa di una chiave privata mancante
 
 #### <a name="symptoms"></a>Sintomi
 
-1.  Importare un file PFX nell'archivio certificati.
-2.  Quando si seleziona il certificato tramite l'interfaccia utente di Configuration Manager IR, viene raggiunto l'errore seguente:
+1.  Importare un file con estensione .pfx nell'archivio certificati.
+2.  Quando si seleziona il certificato tramite l'interfaccia utente di Configuration Manager di runtime di integrazione, si verifica l'errore seguente:
 
     ![Chiave privata mancante](media/self-hosted-integration-runtime-troubleshoot-guide/private-key-missing.png)
 
 #### <a name="cause"></a>Causa
 
-- L'account utente è con privilegi limitati e non può accedere alla chiave privata.
+- L'account utente ha autorizzazione limitata e non può accedere alla chiave privata.
 - Il certificato è stato generato come firma ma non come scambio di chiave.
 
 #### <a name="resolution"></a>Soluzione
 
-1.  Usare un account con privilegi che può accedere alla chiave privata per il funzionamento dell'interfaccia utente.
+1.  Usare un account con autorizzazione alla chiave privata per il funzionamento dell'interfaccia utente.
 2.  Eseguire il comando seguente per importare il certificato:
     
     ```
@@ -574,50 +574,6 @@ Eseguire la traccia Netmon e analizzarla ulteriormente.
     ![TTL 107](media/self-hosted-integration-runtime-troubleshoot-guide/ttl-107.png)
 
     Pertanto, è necessario coinvolgere il team di rete per verificare quale sia il quarto hop dal runtime di integrazione self-hosted. Se si tratta del firewall come sistema Linux, controllare tutti i log sui motivi per cui il dispositivo Reimposta il pacchetto dopo l'handshake TCP 3. Tuttavia, se non si è certi della posizione in cui eseguire l'analisi, provare a ottenere la traccia Netmon dal runtime di integrazione self-hosted e dal firewall insieme nel tempo problematico per determinare quale dispositivo può reimpostare il pacchetto e causare la disconnessione. In questo caso, è anche necessario coinvolgere il team di rete per andare avanti.
-
-### <a name="how-to-collect-netmon-trace"></a>Come raccogliere la traccia Netmon
-
-1.  Scaricare gli strumenti NetMon da [questo sito Web](https://cnet-downloads.com/network-monitor)e installarli nel computer server (indipendentemente dal server in cui si verifica il problema) e dal client, ad esempio il runtime di integrazione self-hosted.
-
-2.  Creare una cartella, ad esempio, nel percorso seguente: *D:\Netmon*. Verificare che lo spazio disponibile sia sufficiente per salvare il log.
-
-3.  Acquisire le informazioni su IP e porta. 
-    1. Avviare un prompt dei comandi.
-    2. Selezionare Esegui come amministratore ed eseguire il comando seguente:
-       
-        ```
-        Ipconfig /all >D:\netmon\IP.txt
-        netstat -abno > D:\netmon\ServerNetstat.txt
-        ```
-
-4.  Acquisire la traccia Netmon (pacchetto di rete).
-    1. Avviare un prompt dei comandi.
-    2. Selezionare Esegui come amministratore ed eseguire il comando seguente:
-        
-        ```
-        cd C:\Program Files\Microsoft Network Monitor 3
-        ```
-    3. È possibile usare tre comandi diversi per acquisire la pagina di rete:
-        - Opzione A: RoundRobin file Command (verrà acquisito un solo file e sovrascriverà i vecchi log).
-
-            ```
-            nmcap /network * /capture /file D:\netmon\ServerConnection.cap:200M
-            ```         
-        - Opzione B: comando file concatenato (verrà creato un nuovo file se viene raggiunto 200 MB).
-        
-            ```
-            nmcap /network * /capture /file D:\netmon\ServerConnection.chn:200M
-            ```          
-        - Opzione C: comando file pianificato.
-
-            ```
-            nmcap /network * /capture /StartWhen /Time 10:30:00 AM 10/28/2011 /StopWhen /Time 11:30:00 AM 10/28/2011 /file D:\netmon\ServerConnection.chn:200M
-            ```  
-
-5.  Premere **CTRL + C** per arrestare l'acquisizione della traccia Netmon.
- 
-> [!NOTE]
-> Se è possibile raccogliere solo la traccia NetMon nel computer client, ottenere l'indirizzo IP del server per facilitare l'analisi della traccia.
 
 ### <a name="how-to-analyze-netmon-trace"></a>Come analizzare la traccia Netmon
 

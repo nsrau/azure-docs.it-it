@@ -5,14 +5,14 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 06/22/2020
+ms.date: 09/13/2020
 ms.author: rogarana
-ms.openlocfilehash: 612584a71aa6be54d726ccdd74d9368ba9cddbc9
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: ce6325abf34813a9ca397f5bcbe2e774af3442d4
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87535077"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061479"
 ---
 # <a name="part-one-enable-ad-ds-authentication-for-your-azure-file-shares"></a>Parte 1: abilitare l'autenticazione di servizi di dominio Active Directory per le condivisioni file di Azure 
 
@@ -28,7 +28,7 @@ I cmdlet nel modulo AzFilesHybrid di PowerShell effettuano le modifiche necessar
 
 ### <a name="download-azfileshybrid-module"></a>Scaricare il modulo AzFilesHybrid
 
-- [Scaricare e decomprimere il modulo AzFilesHybrid](https://github.com/Azure-Samples/azure-files-samples/releases) (modulo GA: v 0.2.0 +)
+- [Scaricare e decomprimere il modulo AzFilesHybrid (modulo GA: v 0.2.0 +)](https://github.com/Azure-Samples/azure-files-samples/releases) Si noti che la crittografia Kerberos AES 256 è supportata in 0.2.2 o versione successiva. Se è stata abilitata la funzionalità con una versione di AzFilesHybrid inferiore a v 0.2.2 e si vuole eseguire l'aggiornamento per supportare la crittografia Kerberos AES 256, fare riferimento a [questo articolo](https://docs.microsoft.com/azure/storage/files/storage-troubleshoot-windows-file-connection-problems). 
 - Installare ed eseguire il modulo in un dispositivo che è aggiunto a un dominio ad DS locale con le credenziali di servizi di dominio Active Directory che dispongono delle autorizzazioni per creare un account di accesso al servizio o un account computer nell'annuncio di destinazione.
 -  Eseguire lo script con una credenziale AD DS locale sincronizzata con la Azure AD. Le credenziali di servizi di dominio Active Directory locali devono avere il proprietario dell'account di archiviazione o le autorizzazioni del ruolo di Azure collaboratore.
 

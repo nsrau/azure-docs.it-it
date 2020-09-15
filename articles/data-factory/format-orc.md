@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 10/24/2019
+ms.date: 09/14/2020
 ms.author: jingwang
-ms.openlocfilehash: 9b68d3724c6390fc5d30745924451e27ef9855b3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f71b739242cf4f6a3549927a2a7e61400b2f987e
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81417726"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061088"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Formato ORC in Azure Data Factory
 
@@ -82,7 +82,16 @@ Nella sezione *** \* sink \* *** dell'attività di copia sono supportate le prop
 | Proprietà      | Descrizione                                                  | Obbligatoria |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | La proprietà Type dell'origine dell'attività di copia deve essere impostata su **OrcSink**. | Sì      |
+| formatSettings | Gruppo di proprietà. Vedere la tabella **delle impostazioni di scrittura ORC** riportata di seguito. |    No      |
 | storeSettings | Gruppo di proprietà su come scrivere dati in un archivio dati. Ogni connettore basato su file ha le proprie impostazioni di scrittura supportate in `storeSettings` . **Per informazioni dettagliate, vedere l'articolo connettore > sezione proprietà dell'attività di copia**. | No       |
+
+**Impostazioni di scrittura ORC** supportate in `formatSettings` :
+
+| Proprietà      | Descrizione                                                  | Obbligatoria                                              |
+| ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
+| type          | Il tipo di formatSettings deve essere impostato su **OrcWriteSettings**. | Sì                                                   |
+| maxRowsPerFile | Quando si scrivono dati in una cartella, è possibile scegliere di scrivere in più file e specificare il numero massimo di righe per ogni file.  | No |
+| fileNamePrefix | Specificare il prefisso del nome file durante la scrittura di dati in più file. questo modello è risultato: `<fileNamePrefix>_00000.<fileExtension>` . Se non è specificato, il prefisso del nome file verrà generato automaticamente. Questa proprietà non viene applicata quando l'origine è un archivio dati basato su file o sull' [opzione partition-Enabled](copy-activity-performance-features.md).  | No |
 
 ## <a name="using-self-hosted-integration-runtime"></a>Uso di Integration Runtime self-hosted
 

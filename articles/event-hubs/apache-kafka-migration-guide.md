@@ -1,17 +1,17 @@
 ---
 title: Eseguire la migrazione a hub eventi di Azure per Apache Kafka
-description: Questo articolo illustra in che modo i consumer e i producer che usano protocolli diversi (AMQP, Apache Kafka e HTTPS) possono scambiare eventi quando usano Hub eventi di Azure.
+description: Questo articolo illustra come eseguire la migrazione dei client da Apache Kafka a hub eventi di Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: cf585cdc0a43c595ec013ba78a2e3ae191c40b8d
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d9f3775a85df5a881c2c38566628e4e1d4d8c40e
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090655"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061445"
 ---
 # <a name="migrate-to-azure-event-hubs-for-apache-kafka-ecosystems"></a>Eseguire la migrazione a Hub eventi di Azure per ecosistemi Apache Kafka
-Hub eventi di Azure espone un endpoint Apache Kafka, che consente di connettersi a hub eventi usando il protocollo Kafka. Apportando modifiche minime all'applicazione Kafka esistente, è possibile connettersi a hub eventi di Azure e sfruttare i vantaggi dell'ecosistema di Azure. Hub eventi per il supporto Kafka [Apache Kafka versione 1,0](https://kafka.apache.org/10/documentation.html) e successive.
+Hub eventi di Azure espone un endpoint Apache Kafka, che consente di connettersi a hub eventi usando il protocollo Kafka. Apportando modifiche minime all'applicazione Kafka esistente, è possibile connettersi a hub eventi di Azure e sfruttare i vantaggi dell'ecosistema di Azure. Hub eventi funziona con molte applicazioni Kafka esistenti, tra cui MirrorMaker. Per ulteriori informazioni, vedere [Hub eventi per Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
 ## <a name="pre-migration"></a>Pre-migrazione 
 

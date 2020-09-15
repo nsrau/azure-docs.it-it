@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: rosouz
-ms.openlocfilehash: d77922d5957a0f6602e00621ebbabeaa3f3ac8f9
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 50881071380bbe5d245ed458d162e62bfabd108a
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322467"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061496"
 ---
 # <a name="configure-and-use-azure-synapse-link-for-azure-cosmos-db-preview"></a>Configurare e usare Collegamento ad Azure Synapse per Azure Cosmos DB (anteprima)
 
@@ -48,16 +48,15 @@ Per eseguire query analitiche con Collegamento a Synapse per Azure Cosmos DB, se
 
 1. L'account è ora abilitato per l'uso di Collegamento a Synapse. Vedere quindi come creare contenitori abilitati per l'archivio analitico per iniziare automaticamente a replicare i dati operativi dall'archivio transazionale all'archivio analitico.
 
-### <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
-
-Il [modello di Azure Resource Manager](manage-sql-with-resource-manager.md#azure-cosmos-account-with-analytical-store) crea un account Azure Cosmos abilitato per Collegamento a Synapse per l'API SQL. Questo modello crea un account dell'API (SQL) Core in un'area con un contenitore configurato con il TTL dei dati analitici abilitato e un'opzione per usare la velocità effettiva manuale o con scalabilità automatica. Per distribuire questo modello, fare clic su **Distribuisci in Azure** nella pagina README.
+> [!NOTE]
+> Quando si attiva il collegamento sinapsi, l'archivio analitico non viene attivato automaticamente. Dopo aver abilitato il collegamento sinapsi nell'account Cosmos DB, abilitare l'archivio analitico nei contenitori al momento della creazione, per avviare la replica dei dati dell'operazione nell'archivio analitico. 
 
 ## <a name="create-an-azure-cosmos-container-with-analytical-store"></a><a id="create-analytical-ttl"></a> Creare un contenitore Azure Cosmos con l'archivio analitico
 
 È possibile attivare l'archivio analitico in un contenitore Azure Cosmos durante la creazione del contenitore. È possibile usare il portale di Azure o configurare la proprietà `analyticalTTL` durante la creazione del contenitore tramite Azure Cosmos DB SDK.
 
 > [!NOTE]
-> Attualmente, l'archivio analitico può essere abilitato solo per i **nuovi** contenitori (in account nuovi ed esistenti).
+> Attualmente, l'archivio analitico può essere abilitato solo per i **nuovi** contenitori (in account nuovi ed esistenti). È possibile eseguire la migrazione dei dati dai contenitori esistente ai nuovi contenitori usando [Azure Cosmos DB strumenti di migrazione.](cosmosdb-migrationchoices.md)
 
 ### <a name="azure-portal"></a>Portale di Azure
 
@@ -211,6 +210,10 @@ Usare le istruzioni riportate in [Connettersi a Collegamento ad Azure Synapse](.
 ## <a name="query-using-synapse-spark"></a><a id="query-analytical-store"></a> Eseguire query con Synapse Spark
 
 Usare le istruzioni riportate nell'articolo [Eseguire query sull'archivio analitico di Azure Cosmos DB](../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md) per eseguire query con Synapse Spark. Questo articolo include alcuni esempi su come interagire con l'archivio analitico dai movimenti di Synapse. Questi movimenti sono visibili quando si fa clic con il pulsante destro del mouse su un contenitore. Con i movimenti è possibile generare rapidamente il codice e modificarlo in base alle esigenze. Sono inoltre perfetti per l'individuazione dei dati con un singolo clic.
+
+## <a name="azure-resource-manager-template"></a>Modello di Azure Resource Manager
+
+Il [modello di Azure Resource Manager](manage-sql-with-resource-manager.md#azure-cosmos-account-with-analytical-store) crea un account Azure Cosmos abilitato per Collegamento a Synapse per l'API SQL. Questo modello crea un account dell'API (SQL) Core in un'area con un contenitore configurato con il TTL dei dati analitici abilitato e un'opzione per usare la velocità effettiva manuale o con scalabilità automatica. Per distribuire questo modello, fare clic su **Distribuisci in Azure** nella pagina README.
 
 ## <a name="getting-started-with-azure-synpase-link---samples"></a><a id="cosmosdb-synapse-link-samples"></a> Introduzione a Collegamento ad Azure Synapse - Esempi
 

@@ -7,12 +7,12 @@ author: sarahhubbard
 ms.author: sahubbar
 ms.date: 09/10/2020
 ms.topic: how-to
-ms.openlocfilehash: 82a370bcda2d762abb36e6e43ab755c45348e4c5
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: ae8b830469a9b52ae68310dde2e65dcffdf4e3be
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90020006"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060816"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Creare ed eseguire un processo nell'applicazione IoT Central di Azure
 
@@ -38,7 +38,7 @@ Nell'esempio seguente viene illustrato come creare ed eseguire un processo per i
 
     Selezionare **Salva e Chiudi** per aggiungere il processo all'elenco dei processi salvati nella pagina **processi** . In seguito sarà possibile tornare a un processo dall'elenco dei processi salvati.
 
-    Selezionare **Avanti** per passare alla pagina **Verifica** . La pagina * * Review * * * * Visualizza i dettagli della configurazione del processo. Selezionare **Run (Esegui** ) per inviare il processo.
+    Selezionare **Avanti** per passare alla pagina **Verifica** . La pagina **Verifica** Mostra i dettagli di configurazione del processo. Selezionare **Run (Esegui** ) per inviare il processo.
 
     :::image type="content" source="media/howto-run-a-job/job-wizard-review.png" alt-text="Screenshot della pagina Revisione della creazione guidata processo":::
 

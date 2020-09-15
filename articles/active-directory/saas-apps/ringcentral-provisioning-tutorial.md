@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 10/30/2019
 ms.author: Zhchia
-ms.openlocfilehash: fb990b5aa615e37d9893a891143cb04933b603bb
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: aaaa073f798998ed97be1bd3cd66795d7b3dfb23
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88542616"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069663"
 ---
 # <a name="tutorial-configure-ringcentral-for-automatic-user-provisioning"></a>Esercitazione: configurare RingCentral per il provisioning utenti automatico
 
@@ -113,7 +113,6 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
    |userName|string|
    |externalId|string|
    |active|Boolean|
-   |displayName|string|
    |title|string|
    |emails[type eq "work"].value|string|
    |addresses[type eq "work"].country|string|
@@ -125,7 +124,6 @@ Questa sezione descrive la procedura per configurare il servizio di provisioning
    |name.familyName|string|
    |phoneNumbers[type eq "mobile"].value|string|
    |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:department|string|
-   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Informazioni di riferimento|
 
 10. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -149,6 +147,10 @@ Dopo aver configurato il provisioning, usare le risorse seguenti per monitorare 
 1. Usare i [log di provisioning](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs) per determinare gli utenti di cui è stato eseguito il provisioning con esito positivo o negativo.
 2. Controllare l'[indicatore di stato](https://docs.microsoft.com/azure/active-directory/app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user) per visualizzare lo stato del ciclo di provisioning e quanto manca al completamento.
 3. Se la configurazione del provisioning sembra essere in uno stato non integro, l'applicazione entrerà in quarantena. Per altre informazioni sugli stati di quarantena, fare clic [qui](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status).
+
+## <a name="change-log"></a>Registro delle modifiche
+
+* 09/10/2020: è stato rimosso il supporto per gli attributi "displayName" e "Manager".
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

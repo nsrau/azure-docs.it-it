@@ -3,12 +3,12 @@ title: Risolvere i problemi relativi a hub eventi di Azure per Apache Kafka
 description: Questo articolo illustra come risolvere i problemi relativi a hub eventi di Azure per Apache Kafka
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: 034541aa6ea683c0e294ca8790b02f0dc60b5440
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: e32e02947b9f004755381d562fd3f3c897b70674
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87090570"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061428"
 ---
 # <a name="apache-kafka-troubleshooting-guide-for-event-hubs"></a>Guida alla risoluzione dei problemi di Apache Kafka per hub eventi
 Questo articolo fornisce suggerimenti per la risoluzione dei problemi che possono verificarsi quando si usano Hub eventi per Apache Kafka. 
@@ -55,11 +55,11 @@ Se si riscontrano problemi durante l'uso di Kafka negli hub eventi, controllare 
 - **Autenticazione SASL** : il Framework per collaborare con il protocollo di autenticazione SASL richiesto dagli hub di eventi può essere più difficile rispetto a quello che soddisfa l'occhio. Vedere se è possibile risolvere i problemi di configurazione usando le risorse del Framework nell'autenticazione SASL. 
 
 ## <a name="limits"></a>Limiti
-Apache Kafka rispetto a hub eventi Kafka. Per la maggior parte, gli hub eventi Kafka hanno le stesse impostazioni predefinite, le proprietà, i codici di errore e il comportamento generale che Apache Kafka. Le istanze di queste due differenze in modo esplicito (o in cui Hub eventi impone un limite a Kafka non) sono elencate di seguito:
+Apache Kafka rispetto a hub eventi Kafka. Nella maggior parte dei casi, l'interfaccia Kafka di hub eventi di Azure ha le stesse impostazioni predefinite, le proprietà, i codici di errore e il comportamento generale che Apache Kafka. Le istanze di queste due differenze in modo esplicito (o in cui Hub eventi impone un limite a Kafka non) sono elencate di seguito:
 
 - La lunghezza massima della `group.id` proprietà è di 256 caratteri
 - La dimensione massima di `offset.metadata.max.bytes` è 1024 byte
-- I commit offset sono limitati a 4 chiamate al secondo per partizione con una dimensione massima del log interno di 1 MB
+- I commit offset sono limitati a 4 chiamate al secondo per partizione, con una dimensione massima del log interno di 1 MB
 
 
 ## <a name="next-steps"></a>Passaggi successivi

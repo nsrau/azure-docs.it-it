@@ -11,13 +11,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 08/14/2020
-ms.openlocfilehash: 902fa34be149f0b876729409c530186e34c706e5
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.date: 09/14/2020
+ms.openlocfilehash: 3c9389e6063279e214e3650f6364dc25ff773db5
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88587311"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069595"
 ---
 # <a name="overview-of-azure-sql-managed-instance-resource-limits"></a>Panoramica dei limiti delle risorse del Istanza gestita SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -99,12 +99,12 @@ Altre informazioni sui [limiti delle risorse nei pool di istanza gestita SQL son
 
 ### <a name="file-io-characteristics-in-general-purpose-tier"></a>Caratteristiche di I/O dei file nel livello Utilizzo generico
 
-Nel livello di servizio per utilizzo generico ogni file di database ottiene IOPS e velocità effettiva dedicati che dipendono dalle dimensioni del file. I file di dati di dimensioni maggiori ottengono più IOPS e velocità effettiva. Nella tabella seguente sono illustrate le caratteristiche di I/O dei file di database.
+Nel livello di servizio per utilizzo generico ogni file di database ottiene IOPS e velocità effettiva dedicati che dipendono dalle dimensioni del file. I file più grandi ottengono più IOPS e velocità effettiva. Le caratteristiche di i/o dei file di database sono illustrate nella tabella seguente:
 
-| Dimensione del file | >=0 e <=128 GiB | >128 e <=256 GiB | >256 e <= 512 GiB | >0,5 e <=1 TiB    | >1 e <=2 TiB    | >2 e <=4 TiB | >4 e <=8 TiB |
+| Dimensione del file | >=0 e <=128 GiB | >128 e <= 512 GiB | >0,5 e <=1 TiB    | >1 e <=2 TiB    | >2 e <=4 TiB | >4 e <=8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
-| IOPS per file       | 500   | 1100 | 2300              | 5000              | 7500              | 7500              | 12.500   |
-| Velocità effettiva per file | 100 MiB/s | 125 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
+| IOPS per file       | 500   | 2300              | 5000              | 7500              | 7500              | 12.500   |
+| Velocità effettiva per file | 100 MiB/s | 150 MiB/s | 200 MiB/s | 250 MiB/s | 250 MiB/s | 480 MiB/s | 
 
 Se si nota una latenza di I/O elevata per un file di database o si scopre che il rapporto IOPS/velocità effettiva sta raggiungendo il limite, è possibile migliorare le prestazioni [aumentando le dimensioni del file](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/Increase-data-file-size-to-improve-HammerDB-workload-performance/ba-p/823337).
 

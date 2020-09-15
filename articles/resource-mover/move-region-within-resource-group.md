@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: raynew
-ms.openlocfilehash: 7d230ce068678bbc074b54ab361f3d70d9b102f8
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 716928761d23c2cf04ebcc72e253ad7884408065
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89670530"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061844"
 ---
 # <a name="move-resources-across-regions-from-resource-group"></a>Spostare le risorse tra le aree (dal gruppo di risorse)
 
@@ -65,7 +65,6 @@ Selezionare le risorse che si desidera spostare. Si spostano le risorse in un'ar
     ![Selezione per lo trasferimento di risorse in un'area diversa](./media/move-region-within-resource-group/select-move-region.png)
     
 4. In **origine e destinazione**selezionare l'area di destinazione in cui si desidera spostare le risorse. Quindi selezionare **Avanti**.
-5. In **area metadati**selezionare la posizione in cui si vogliono archiviare i metadati relativi alle risorse che si stanno muovendo.  Un gruppo di risorse viene creato in modo specifico a questo scopo. Quindi selezionare **Avanti**.
 
 
     ![Pagina di origine e destinazione per selezionare l'area di destinazione](./media/move-region-within-resource-group/source-target.png)

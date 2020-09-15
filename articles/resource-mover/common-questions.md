@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: evansma
 ms.service: resource-move
 ms.topic: conceptual
-ms.date: 09/07/2020
+ms.date: 09/14/2020
 ms.author: raynew
-ms.openlocfilehash: 520c2d4fd258bfab5a5a1e0abf890d58bb98fbdc
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a83191fd29e0cda4bc398f6a46a0d2ebf9631665
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89653186"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068048"
 ---
 # <a name="common-questions"></a>Domande frequenti
 
@@ -24,7 +24,13 @@ Questo articolo risponde a domande comuni su [Azure Resource Mover](overview.md)
 
 Il motore di risorse è attualmente disponibile in anteprima pubblica. Sono supportati i carichi di lavoro di produzione.
 
-## <a name="region-move"></a>Spostamento area
+
+
+## <a name="moving-across-regions"></a>Trasferimento tra aree
+
+### <a name="can-i-move-resources-across-any-regions"></a>È possibile spostare le risorse in tutte le aree?
+
+Attualmente, è possibile spostare le risorse da qualsiasi area pubblica di origine a qualsiasi area pubblica di destinazione, a seconda dei [tipi di risorse disponibili in tale area](https://azure.microsoft.com/global-infrastructure/services/). Il trasferimento delle risorse nelle aree di Azure per enti pubblici non è attualmente supportato.
 
 ### <a name="what-resources-can-i-move-across-regions-using-resource-mover"></a>Quali risorse è possibile spostare tra le aree usando il motore di risorse?
 
@@ -34,13 +40,19 @@ Tramite il motore di risorse è possibile spostare le risorse seguenti tra le ar
 - Schede di interfaccia di rete
 - Set di disponibilità 
 - Reti virtuali di Azure 
-- Indirizzi IP pubblici gruppi di sicurezza di rete (gruppi)
+- Indirizzi IP pubblici
+- Gruppi di sicurezza di rete (NSG)
 - Bilanciamento del carico interno e pubblico 
 - Database SQL di Azure e pool elastici
 
+
+### <a name="can-i-move-resources-across-subscriptions-when-i-move-them-across-regions"></a>È possibile spostare le risorse tra le sottoscrizioni quando si spostano in aree diverse?
+
+È possibile modificare la sottoscrizione dopo aver spostato le risorse nell'area di destinazione. [Altre](../azure-resource-manager/management/move-resource-group-and-subscription.md) informazioni sullo stato di trasferimento delle risorse in una sottoscrizione diversa. 
+
 ### <a name="where-is-the-metadata-about-a-region-move-stored"></a>Dove vengono archiviati i metadati relativi a un'area?
 
-Viene archiviato in un database di [Azure Cosmos](../cosmos-db/database-encryption-at-rest.md) e nell' [archiviazione BLOB di Azure](../storage/common/storage-service-encryption.md)in una sottoscrizione Microsoft.
+Viene archiviato in un database di [Azure Cosmos](../cosmos-db/database-encryption-at-rest.md) e nell' [archiviazione BLOB di Azure](../storage/common/storage-service-encryption.md)in una sottoscrizione Microsoft. Attualmente i metadati vengono archiviati nell'area Stati Uniti orientali 2 ed Europa settentrionale. Questa copertura verrà espansa in altre aree. Questo non impedisce di trasferire le risorse in tutte le aree pubbliche.
 
 ### <a name="is-the-collected-metadata-encrypted"></a>I metadati raccolti sono crittografati?
 

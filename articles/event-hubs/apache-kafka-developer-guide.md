@@ -3,18 +3,18 @@ title: Guida per gli sviluppatori Apache Kafka per hub eventi
 description: Questo articolo fornisce collegamenti ad articoli che descrivono come integrare le applicazioni Kafka con hub eventi di Azure.
 ms.date: 06/23/2020
 ms.topic: article
-ms.openlocfilehash: bbd173a7f81042c0839cec81838172b21f80d5cd
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 757db4faf2a933e366bc818d5cf6aab04d0b08ba
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85314230"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061734"
 ---
 # <a name="apache-kafka-developer-guide-for-azure-event-hubs"></a>Guida per gli sviluppatori Apache Kafka per hub eventi di Azure
 Questo articolo fornisce collegamenti ad articoli che descrivono come integrare le applicazioni Apache Kafka con hub eventi di Azure. 
 
 ## <a name="overview"></a>Panoramica
-Hub eventi fornisce un endpoint Kafka che può essere usato dalle applicazioni Kafka esistenti come alternativa all'esecuzione del proprio cluster Kafka. Hub eventi supporta il protocollo Apache Kafka 1.0 e versioni successive e funziona con le applicazioni Kafka esistenti, tra cui MirrorMaker. Per ulteriori informazioni, vedere [Hub eventi per Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
+Hub eventi fornisce un endpoint Kafka che può essere usato dalle applicazioni Kafka esistenti come alternativa all'esecuzione del proprio cluster Kafka. Hub eventi funziona con molte applicazioni Kafka esistenti. Per ulteriori informazioni, vedere [Hub eventi per Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md)
 
 ## <a name="quickstarts"></a>Avvi rapidi
 È possibile trovare guide introduttive in GitHub e in questo set di contenuti che consente di accedere rapidamente a hub eventi per Kafka.
@@ -63,7 +63,7 @@ Vedere anche l'esercitazione: [elaborare Apache Kafka per gli eventi di hub even
 ## <a name="how-to-guides"></a>Guide pratiche
 Vedere le guide alle procedure seguenti nella documentazione di:
 
-| Articolo | Description | 
+| Articolo | Descrizione | 
 | ------- | ----------- | 
 | [Eseguire il mirroring di un broker Kafka in un hub eventi](event-hubs-kafka-mirror-maker-tutorial.md) | Illustra come eseguire il mirroring di un broker Kafka in un hub eventi usando Kafka MirrorMaker. |
 | [Connettere Apache Spark a un hub eventi](event-hubs-kafka-spark-tutorial.md) | Viene illustrato come connettere l'applicazione Spark a hub eventi per lo streaming in tempo reale. |

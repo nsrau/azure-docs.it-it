@@ -4,14 +4,14 @@ description: Problemi comuni relativi agli avvisi delle metriche di monitoraggio
 author: harelbr
 ms.author: harelbr
 ms.topic: reference
-ms.date: 08/13/2020
+ms.date: 09/14/2020
 ms.subservice: alerts
-ms.openlocfilehash: 1c1fe613721ea2bc2d4b9665d6da73b094487efc
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: b0e39982b3d62e0ef722a139024b499efc254f5f
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88190662"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068763"
 ---
 # <a name="troubleshooting-problems-in-azure-monitor-metric-alerts"></a>Risoluzione dei problemi negli avvisi relativi alle metriche di monitoraggio di Azure 
 
@@ -234,7 +234,7 @@ Prendere in considerazione le restrizioni seguenti per i nomi delle regole di av
 - Non è possibile modificare i nomi delle regole di avviso delle metriche (rinominate) dopo la creazione
 - I nomi delle regole di avviso delle metriche devono essere univoci in un gruppo di risorse
 - I nomi delle regole di avviso per la metrica non possono contenere i caratteri seguenti: * # & +:  < > ? @ % { } \ / 
-- I nomi delle regole di avviso della metrica non possono terminare con il carattere seguente:.
+- I nomi delle regole di avviso della metrica non possono terminare con uno spazio o un punto
 
 
 ## <a name="restrictions-when-using-dimensions-in-a-metric-alert-rule-with-multiple-conditions"></a>Restrizioni relative all'uso di dimensioni in una regola di avviso metrica con più condizioni
@@ -245,7 +245,7 @@ Quando si usano le dimensioni in una regola di avviso che contiene più condizio
 - È possibile selezionare un solo valore per dimensione all'interno di ogni condizione.
 - Non è possibile usare l'opzione per "selezionare tutti i valori correnti e futuri" (Select \* ).
 - Quando le metriche configurate in condizioni diverse supportano la stessa dimensione, un valore della dimensione configurato deve essere impostato in modo esplicito nello stesso modo per tutte le metriche (nelle condizioni pertinenti).
-Ad esempio:
+Esempio:
     - Si consideri una regola di avviso metrica definita in un account di archiviazione e che monitora due condizioni:
         * Totale **transazioni** > 5
         * Media **SuccessE2ELatency** > 250 ms

@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: fdd564618232ce7fde5a76fb9c37937113f179b2
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 315ea9b683ccd583f5c29c7527013f0d924336f4
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89670622"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061878"
 ---
 # <a name="move-azure-vms-to-an-availability-zone-in-another-region"></a>Spostare le macchine virtuali di Azure in una zona di disponibilità in un'altra area
 
@@ -71,8 +71,7 @@ Selezionare le risorse che si desidera spostare.
     ![Pulsante per iniziare](./media/move-region-availability-zone/get-started.png)
 
 3. In **Move Sources**  >  **Source + Destination**selezionare la sottoscrizione e l'area di origine.
-4. In **destinazione**selezionare l'area in cui si desidera spostare le macchine virtuali. 
-5. In **area metadati**selezionare la posizione in cui si vogliono archiviare i metadati relativi alle risorse che si stanno muovendo. Un gruppo di risorse viene creato in modo specifico a questo scopo. Quindi fare clic su **Next**.
+4. In **destinazione**selezionare l'area in cui si desidera spostare le macchine virtuali. Quindi fare clic su **Next**.
 
      ![Pagina per compilare l'area/sottoscrizione di origine e di destinazione](./media/move-region-availability-zone/source-target.png)
 

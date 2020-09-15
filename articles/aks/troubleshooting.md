@@ -4,12 +4,12 @@ description: Informazioni su come individuare e risolvere i problemi comuni quan
 services: container-service
 ms.topic: troubleshooting
 ms.date: 06/20/2020
-ms.openlocfilehash: 4a28ebd047e4d5e610ea0c895063eb87ce051d45
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 855e5e5e23371f600a7e73139f2e6da1eebc91d0
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460321"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068830"
 ---
 # <a name="aks-troubleshooting"></a>Risoluzione dei problemi di servizio Azure Kubernetes
 
@@ -450,3 +450,15 @@ Nelle versioni di Kubernetes **precedenti a 1.15.0**, è possibile che venga vis
 <!-- LINKS - internal -->
 [view-master-logs]: view-master-logs.md
 [cluster-autoscaler]: cluster-autoscaler.md
+
+### <a name="why-do-upgrades-to-kubernetes-116-fail-when-using-node-labels-with-a-kubernetesio-prefix"></a>Perché gli aggiornamenti a Kubernetes 1,16 hanno esito negativo quando si usano etichette di nodo con un prefisso kubernetes.io
+
+A partire da Kubernetes [1,16](https://v1-16.docs.kubernetes.io/docs/setup/release/notes/) [solo un subset definito di etichette con il prefisso kubernetes.io](https://github.com/kubernetes/enhancements/blob/master/keps/sig-auth/0000-20170814-bounding-self-labeling-kubelets.md#proposal) può essere applicato da kubelet ai nodi. AKS non può rimuovere le etichette attive per conto dell'utente senza consenso, perché potrebbe causare tempi di inattività per i carichi di lavoro interessati.
+
+Di conseguenza, per mitigare questo problema, è possibile:
+
+1. Aggiornare il piano di controllo cluster a 1,16 o versione successiva
+2. Aggiungere un nuovo nodepoool su 1,16 o versione successiva senza le etichette kubernetes.io non supportate
+3. Elimina il nodepool precedente
+
+AKS sta esaminando la funzionalità per mutare le etichette attive in una nodepool per migliorare questa attenuazione.

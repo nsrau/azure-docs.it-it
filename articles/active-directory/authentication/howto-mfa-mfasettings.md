@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 6a5ec4644eaed8d525c278c4fc464b4dbc683596
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: 838e0a13cb919a5bc17807c2349bb173e4e489f4
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90023840"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90068813"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Configurare le impostazioni di Azure Multi-Factor Authentication
 
@@ -156,7 +156,7 @@ Nel Stati Uniti, se l'ID chiamante dell'autenticazione a più fattori non è sta
 * *+ 1 (877) 668 6536*
 
 > [!NOTE]
-> Quando le chiamate di Azure Multi-Factor Authentication vengono inserite attraverso la rete telefonica pubblica, talvolta vengono instradate tramite un vettore che non supporta l'ID chiamante. Per questo motivo, l'ID chiamante non è garantito, anche se Azure Multi-Factor Authentication lo invia sempre.
+> Quando le chiamate di Azure Multi-Factor Authentication vengono inserite attraverso la rete telefonica pubblica, a volte le chiamate vengono instradate tramite un vettore che non supporta l'ID chiamante. Per questo motivo, l'ID chiamante non è garantito, anche se Azure Multi-Factor Authentication lo invia sempre. Questo vale sia per le chiamate telefoniche che per i messaggi di testo forniti da Azure Multi-Factor Authentication. Se è necessario convalidare che un messaggio di testo è da Azure Multi-Factor Authentication, vedere [quali codici brevi SMS vengono usati per l'invio di messaggi?](multi-factor-authentication-faq.md#what-sms-short-codes-are-used-for-sending-sms-messages-to-my-users)
 
 Per configurare il proprio numero ID chiamante, attenersi alla procedura seguente:
 

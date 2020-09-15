@@ -3,12 +3,12 @@ title: Come creare e gestire DHCP
 description: Questo articolo illustra come gestire DHCP in una soluzione VMware di Azure.
 ms.topic: conceptual
 ms.date: 05/04/2020
-ms.openlocfilehash: 3fc3de228179925afdf1b7c1015c577fd9c4c924
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: ba7c3983f55ed729c77d2f24d3ef311a00522148
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752164"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069561"
 ---
 # <a name="how-to-create-and-manage-dhcp-in-azure-vmware-solution"></a>Come creare e gestire DHCP in una soluzione VMWare di Azure
 
@@ -56,7 +56,7 @@ Dopo aver creato il server DHCP, è necessario aggiungervi segmenti di rete.
 
 ## <a name="create-dhcp-relay-service"></a>Crea servizio di inoltro DHCP
 
-1. Nella finestra NXT-T Selezionare la scheda **rete** e in **gestione IP**Selezionare **DHCP**. Selezionare **Aggiungi server**. Scegliere inoltro DHCP per il **tipo di server** e immettere il nome del server e l'indirizzo IP per il server di inoltro. Fare clic su **Salva** per salvare le modifiche.
+1. Nella finestra NSX-T Selezionare la scheda **rete** e in **gestione IP**Selezionare **DHCP**. Selezionare **Aggiungi server**. Scegliere inoltro DHCP per il **tipo di server** e immettere il nome del server e l'indirizzo IP per il server di inoltro. Fare clic su **Salva** per salvare le modifiche.
 
    :::image type="content" source="./media/manage-dhcp/create-dhcp-relay.png" alt-text="Crea server di inoltro DHCP" border="true":::
 

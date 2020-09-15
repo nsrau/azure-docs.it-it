@@ -3,14 +3,14 @@ title: Configurare monitoraggio di Azure per i contenitori integrazione Promethe
 description: Questo articolo descrive come configurare il monitoraggio di Azure per l'agente dei contenitori per eliminare le metriche da Prometheus con il cluster Kubernetes.
 ms.topic: conceptual
 ms.date: 04/22/2020
-ms.openlocfilehash: f7a43f00ce160829cc8e6ed3b6272ab14aaace66
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8c83d962a31150b31f5883150a2f7bd8d4b49183
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85800461"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069425"
 ---
-# <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Configurare la frammentazione delle metriche Prometeo con monitoraggio di Azure per i contenitori
+# <a name="configure-scraping-of-prometheus-metrics-with-azure-monitor-for-containers"></a>Configurare lo scraping delle metriche di Prometheus con Monitoraggio di Azure per i contenitori
 
 [Prometeo](https://prometheus.io/) è una diffusa soluzione di monitoraggio delle metriche open source ed è parte integrante della [base di calcolo nativa del cloud](https://www.cncf.io/). Il monitoraggio di Azure per i contenitori offre un'esperienza di onboarding trasparente per raccogliere le metriche Prometeo. In genere, per usare Prometeo, è necessario configurare e gestire un server Prometeo con un archivio. Grazie all'integrazione con monitoraggio di Azure, non è necessario un server Prometeo. È sufficiente esporre l'endpoint della metrica Prometheus tramite gli esportatori o i pod (applicazione) e l'agente in contenitori per monitoraggio di Azure per i contenitori può ricavare le metriche per l'utente. 
 
@@ -44,7 +44,7 @@ Il frammento attivo delle metriche da Prometheus viene eseguito da una delle due
 
 Quando si specifica un URL, monitoraggio di Azure per i contenitori esegue solo il frammento dell'endpoint. Quando si specifica il servizio Kubernetes, il nome del servizio viene risolto con il server DNS del cluster per ottenere l'indirizzo IP e quindi il servizio risolto viene frammentato.
 
-|Scope | Chiave | Tipo di dati | valore | Descrizione |
+|Scope | Chiave | Tipo di dati | Valore | Descrizione |
 |------|-----|-----------|-------|-------------|
 | A livello di cluster | | | | Specificare uno dei tre metodi seguenti per rimuovere gli endpoint per le metriche. |
 | | `urls` | string | Matrice con valori delimitati da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio: `urls=[$NODE_IP/metrics]`. ($NODE _IP è uno specifico parametro di monitoraggio di Azure per contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutti in maiuscolo.) |
@@ -54,7 +54,7 @@ Quando si specifica un URL, monitoraggio di Azure per i contenitori esegue solo 
 | | `prometheus.io/scheme` | string | http o https | Il valore predefinito è la rottamazione su HTTP. Se necessario, impostare su `https` . | 
 | | `prometheus.io/path` | string | Matrice con valori delimitati da virgole | Percorso della risorsa HTTP da cui recuperare le metriche. Se il percorso delle metriche non è `/metrics` , definirlo con questa annotazione. |
 | | `prometheus.io/port` | string | 9102 | Specificare una porta da cui deframmentare. Se la porta non è impostata, il valore predefinito è 9102. |
-| | `monitor_kubernetes_pods_namespaces` | string | Matrice con valori delimitati da virgole | Un elenco di spazi dei nomi consentiti per rimuovere le metriche dai pod Kubernetes.<br> Ad esempio: `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
+| | `monitor_kubernetes_pods_namespaces` | string | Matrice con valori delimitati da virgole | Un elenco di spazi dei nomi consentiti per rimuovere le metriche dai pod Kubernetes.<br> Ad esempio, usare `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]` |
 | A livello di nodo | `urls` | string | Matrice con valori delimitati da virgole | Endpoint HTTP (indirizzo IP o percorso URL valido specificato). Ad esempio: `urls=[$NODE_IP/metrics]`. ($NODE _IP è uno specifico parametro di monitoraggio di Azure per contenitori e può essere usato al posto dell'indirizzo IP del nodo. Deve essere tutti in maiuscolo.) |
 | A livello di nodo o a livello di cluster | `interval` | string | 60 s | Il valore predefinito per l'intervallo di raccolta è di un minuto (60 secondi). È possibile modificare la raccolta per *[prometheus_data_collection_settings. Node]* e/o *[prometheus_data_collection_settings. cluster]* in unità di tempo quali s, m, h. |
 | A livello di nodo o a livello di cluster | `fieldpass`<br> `fielddrop`| string | Matrice con valori delimitati da virgole | È possibile specificare determinate metriche da raccogliere o meno dall'endpoint impostando l'elenco Consenti ( `fieldpass` ) e non consentire ( `fielddrop` ). È necessario impostare prima l'elenco Consenti. |
@@ -142,12 +142,12 @@ Per configurare il file di configurazione ConfigMap per i cluster seguenti, segu
 
            ```
            - prometheus.io/scrape:"true" #Enable scraping for this pod 
-           - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’
+           - prometheus.io/scheme:"http" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’
            - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. 
            - prometheus.io/port:"8000" #If port is not 9102 use this annotation
            ```
     
-          Se si vuole limitare il monitoraggio a spazi dei nomi specifici per i pod con annotazioni, ad esempio includere solo i pod dedicati per i carichi di lavoro di produzione, impostare `monitor_kubernetes_pod` su `true` in ConfigMap e aggiungere il filtro dello spazio dei nomi che `monitor_kubernetes_pods_namespaces` specifica gli spazi dei nomi da cui deframmentare. Ad esempio: `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
+          Se si vuole limitare il monitoraggio a spazi dei nomi specifici per i pod con annotazioni, ad esempio includere solo i pod dedicati per i carichi di lavoro di produzione, impostare `monitor_kubernetes_pod` su `true` in ConfigMap e aggiungere il filtro dello spazio dei nomi che `monitor_kubernetes_pods_namespaces` specifica gli spazi dei nomi da cui deframmentare. Ad esempio, usare `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
 
 3. Eseguire il comando kubectl seguente: `kubectl apply -f <configmap_yaml_file.yaml>` .
     
@@ -259,12 +259,12 @@ Per configurare il file di configurazione ConfigMap per il cluster Azure Red Hat
 
            ```
            - prometheus.io/scrape:"true" #Enable scraping for this pod 
-           - prometheus.io/scheme:"http:" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’
+           - prometheus.io/scheme:"http" #If the metrics endpoint is secured then you will need to set this to `https`, if not default ‘http’
            - prometheus.io/path:"/mymetrics" #If the metrics path is not /metrics, define it with this annotation. 
            - prometheus.io/port:"8000" #If port is not 9102 use this annotation
            ```
     
-          Se si vuole limitare il monitoraggio a spazi dei nomi specifici per i pod con annotazioni, ad esempio includere solo i pod dedicati per i carichi di lavoro di produzione, impostare `monitor_kubernetes_pod` su `true` in ConfigMap e aggiungere il filtro dello spazio dei nomi che `monitor_kubernetes_pods_namespaces` specifica gli spazi dei nomi da cui deframmentare. Ad esempio: `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
+          Se si vuole limitare il monitoraggio a spazi dei nomi specifici per i pod con annotazioni, ad esempio includere solo i pod dedicati per i carichi di lavoro di produzione, impostare `monitor_kubernetes_pod` su `true` in ConfigMap e aggiungere il filtro dello spazio dei nomi che `monitor_kubernetes_pods_namespaces` specifica gli spazi dei nomi da cui deframmentare. Ad esempio, usare `monitor_kubernetes_pods_namespaces = ["default1", "default2", "default3"]`
 
 2. Salvare le modifiche nell'editor.
 

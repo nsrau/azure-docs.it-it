@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aafaeb1143049b14f0a2fe2d867a951355d1ba61
-ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
+ms.openlocfilehash: 68e40696c935adf6bef78636770b1add81255fa8
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89667580"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90060918"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Concedere a un'applicazione il consenso amministratore a livello di tenant
 
@@ -88,7 +88,7 @@ dove:
 Come sempre, esaminare attentamente le autorizzazioni richieste da un'applicazione prima di concedere il consenso.
 
 > [!WARNING]
-> Se si concede il consenso dell'amministratore a livello di tenant tramite questo URL, le autorizzazioni concesse in precedenza a livello di tenant vengono revocate. Le autorizzazioni precedentemente ggranted dagli utenti per loro conto non saranno interessate. 
+> Se si concede il consenso dell'amministratore a livello di tenant tramite questo URL, le autorizzazioni concesse in precedenza a livello di tenant vengono revocate. Le autorizzazioni concesse in precedenza agli utenti per loro conto non saranno interessate. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

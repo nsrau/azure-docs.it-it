@@ -17,6 +17,8 @@
       href: get-started-create-service-instance.md
     - name: Creare un'istanza - PowerShell
       href: powershell-create-service-instance.md
+    - name: Creare un'istanza - Visual Studio Code
+      href: vscode-create-service-instance.md
 - name: Esercitazioni
   items:
     - name: 1 - Importare la prima API

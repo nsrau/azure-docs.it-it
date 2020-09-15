@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB Apache Spark Connector per le risorse e le note sulla versione dell'API SQL
+title: Cosmos DB Apache Spark Connector per le risorse e le note sulla versione dell'API SQL
 description: Informazioni sul connettore Azure Cosmos DB Apache Spark per l'API SQL, incluse le date di rilascio, le date di ritiro e le modifiche apportate tra le singole versioni di Azure Cosmos DB SQL Async Java SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/12/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 46ddbd18051ffa44232468704ce189d4171b50e7
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 05f81e4d93244db854bf8d0ec254ee647f81d9cc
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88590010"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069170"
 ---
 # <a name="azure-cosmos-db-apache-spark-connector-for-core-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Apache Spark Connector per l'API di base (SQL): Note sulla versione e risorse
 > [!div class="op_single_selector"]
@@ -36,95 +36,84 @@ ms.locfileid: "88590010"
 > * [Executor in blocco-.NET v2](sql-api-sdk-bulk-executor-dot-net.md)
 > * [Esecuzione bulk - Java](sql-api-sdk-bulk-executor-java.md)
 
-Accelerare Big Data Analytics usando il connettore di Apache Spark Azure Cosmos DB per core (SQL). Il connettore Spark consente di eseguire processi [Spark ](https://spark.apache.org/) sui dati archiviati in Azure Cosmos DB. L'elaborazione di batch e flussi è supportata.
+È possibile accelerare Big Data Analytics usando il connettore di Apache Spark Azure Cosmos DB per core (SQL). Il connettore Spark consente di eseguire processi [Spark](https://spark.apache.org/) sui dati archiviati in Azure Cosmos DB. L'elaborazione di batch e flussi è supportata.
 
-È possibile usare il connettore con [Azure Databricks](https://azure.microsoft.com/services/databricks) o [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/), che forniscono cluster Spark gestiti in Azure. La tabella seguente illustra le versioni di Spark supportate.
+È possibile usare il connettore con [Azure Databricks](https://azure.microsoft.com/services/databricks) o [Azure HDInsight](https://azure.microsoft.com/services/hdinsight/), che forniscono cluster Spark gestiti in Azure. Nella tabella seguente vengono illustrate le versioni supportate:
 
 | Componente | Versione |
 |---------|-------|
-| Apache Spark | 2.4. x, 2.3. x, 2.2. x e 2.1. x |
-| Scala | 2.11 |
-| Versione del runtime di Azure Databricks | > 3.4 |
+| Apache Spark | 2,4.*x*, 2,3. *x*, 2,2. *x*e 2,1. *x* |
+| Scala | 2,11 |
+| Azure Databricks (versione Runtime) | Successiva alla 3,4 |
 
 > [!WARNING]
 > Questo connettore supporta l'API principale (SQL) di Azure Cosmos DB.
-> Per Cosmos DB per l'API MongoDB, usare il [connettore Spark MongoDB](https://docs.mongodb.com/spark-connector/master/).
-> Per Cosmos DB API Cassandra, usare il [connettore Cassandra Spark](https://github.com/datastax/spark-cassandra-connector).
+> Per l'API Cosmos DB per MongoDB, usare il [connettore MongoDB per Spark](https://docs.mongodb.com/spark-connector/master/).
+> Per il API Cassandra Cosmos DB, usare il [connettore Cassandra Spark](https://github.com/datastax/spark-cassandra-connector).
 >
 
-## <a name="helpful-content"></a>Contenuto utile
+## <a name="resources"></a>Risorse
 
-| Contenuto | Collegamento |
+| Risorsa | Collegamento |
 |---|---|
 | **Download dell'SDK** | [Scarica da Apache Spark](https://aka.ms/CosmosDB_OLTP_Spark_2.4_LKG) |
 |**Documentazione sull'API** | [Riferimento al connettore Spark]() |
 |**Contribuire all'SDK** | [Connettore Azure Cosmos DB per Apache Spark su GitHub](https://github.com/Azure/azure-cosmosdb-spark) | 
-|**Operazioni preliminari** | [Accelerare l'analisi di Big Data con il connettore Apache Spark per Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/spark-connector#bk_working_with_connector) <br> [Usare Apache Spark Structured Streaming con Apache Kafka e Azure Cosmos DB](https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) | 
+|**Attività iniziali** | [Accelerare l'analisi di Big Data con il connettore Apache Spark per Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/spark-connector#bk_working_with_connector) <br> [Usare Apache Spark Structured Streaming con Apache Kafka e Azure Cosmos DB](https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json) | 
 
 ## <a name="release-history"></a>Cronologia delle versioni
 
 ### <a name="311"></a>3.1.1
-#### <a name="new-features"></a>Nuove funzionalità
 #### <a name="key-bug-fixes"></a>Correzioni di bug chiave
-* Corregge un caso Edge del checkpoint di streaming in cui "ID" contiene il carattere "|" con la configurazione "ChangeFeedMaxPagesPerBatch" applicata
+* Corregge un caso di Edge del checkpoint di streaming in cui `ID` contiene il carattere barra verticale (|) con la `ChangeFeedMaxPagesPerBatch` configurazione applicata.
 
 ### <a name="310"></a>3.1.0
 #### <a name="new-features"></a>Nuove funzionalità
-* Aggiunta del supporto per gli aggiornamenti in blocco quando si utilizzano chiavi di partizione annidate
-* Aggiunge il supporto per i tipi di dati Decimal e float durante le Scritture Cosmos DB.
-* Aggiunge il supporto per i tipi timestamp quando usa Long (Unix Epoch) come valore
-#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+* Aggiunge il supporto per gli aggiornamenti in blocco quando si utilizzano chiavi di partizione nidificate.
+* Aggiunge il supporto per i tipi di dati Decimal e float durante le Scritture Azure Cosmos DB.
+* Aggiunge il supporto per i tipi timestamp quando usa Long (Unix Epoch) come valore.
 
 ### <a name="308"></a>3.0.8
-#### <a name="new-features"></a>Nuove funzionalità
 #### <a name="key-bug-fixes"></a>Correzioni di bug chiave
-* Corregge l'eccezione cast di tipo quando si utilizza la configurazione "WriteThroughputBudget".
+* Corregge l'eccezione typecast che si verifica quando `WriteThroughputBudget` viene utilizzata la configurazione.
 
 ### <a name="307"></a>3.0.7
 #### <a name="new-features"></a>Nuove funzionalità
 * Aggiunge informazioni sull'errore per gli errori bulk per l'eccezione e il log.
-#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
 
 ### <a name="306"></a>3.0.6
-#### <a name="new-features"></a>Nuove funzionalità
 #### <a name="key-bug-fixes"></a>Correzioni di bug chiave
 * Corregge i problemi di checkpoint di streaming.
 
 ### <a name="305"></a>3.0.5
-#### <a name="new-features"></a>Nuove funzionalità
 #### <a name="key-bug-fixes"></a>Correzioni di bug chiave
-* Corregge il livello di registrazione di un messaggio lasciato involontariamente con un errore di livello per ridurre il rumore
+* Per ridurre il rumore, corregge il livello di registrazione di un messaggio lasciato involontariamente con un errore di livello.
 
 ### <a name="304"></a>3.0.4
-#### <a name="new-features"></a>Nuove funzionalità
 #### <a name="key-bug-fixes"></a>Correzioni di bug chiave
-* Corregge un bug nel flusso strutturato durante le divisioni della partizione, causando probabilmente la mancata presenza di alcuni record del feed di modifiche o la visualizzazione di eccezioni null
+* Corregge un bug nel flusso strutturato durante le divisioni di partizione. Il bug potrebbe causare la mancata presenza di record del feed di modifiche o eccezioni null per le Scritture del checkpoint.
 
 ### <a name="303"></a>3.0.3
-#### <a name="new-features"></a>Nuove funzionalità
 #### <a name="key-bug-fixes"></a>Correzioni di bug chiave
-* Corregge un bug in cui viene ignorato uno schema personalizzato fornito per readStream
+* Corregge un bug che determina l'Ignorazione di uno schema personalizzato fornito per readStream.
 
 ### <a name="302"></a>3.0.2
-#### <a name="new-features"></a>Nuove funzionalità
 #### <a name="key-bug-fixes"></a>Correzioni di bug chiave
-* Correzione della regressione (il file JAR non ombreggiato include tutte le dipendenze ombreggiate) che hanno aumentato il tempo di compilazione del 50%
+* Corregge una regressione (il file JAR non ombreggiato include tutte le dipendenze ombreggiate) che aumenta il tempo di compilazione del 50%.
 
 ### <a name="301"></a>3.0.1
-#### <a name="new-features"></a>Nuove funzionalità
 #### <a name="key-bug-fixes"></a>Correzioni di bug chiave
-* Corregge un problema di dipendenza che causa l'esito negativo del trasporto diretto su TCP con RequestTimeoutException
+* Corregge un problema di dipendenza che causa l'esito negativo del trasporto diretto su TCP con RequestTimeoutException.
 
 ### <a name="300"></a>3.0.0
 #### <a name="new-features"></a>Nuove funzionalità
-* Migliora la gestione della connessione e il pool di connessioni per ridurre il numero di chiamate di metadati
-#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+* Migliora la gestione della connessione e il pool di connessioni per ridurre il numero di chiamate di metadati.
 
 ## <a name="faq"></a>Domande frequenti
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni su Cosmos DB, vedere la pagina del servizio [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
+Altre informazioni su [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
-Per ulteriori informazioni su Apache Spark, vedere [la Home page](https://spark.apache.org/).
+Per altre informazioni, vedere [Apache Spark](https://spark.apache.org/).
