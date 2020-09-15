@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
-ms.date: 08/21/2020
-ms.openlocfilehash: 7ce4580b366b57e2a1d4904b6ab63bf1834bdb65
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.date: 09/14/2020
+ms.openlocfilehash: 08b7fe2b3e959536589cfd425541ad36e3bd1e78
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090109"
+ms.locfileid: "90532189"
 ---
 # <a name="autoscale-azure-hdinsight-clusters"></a>Ridimensionare automaticamente i cluster Azure HDInsight
 
@@ -68,20 +68,20 @@ Per il ridimensionamento automatico, la scalabilità automatica invia una richie
 > [!Important]
 > La funzionalità di scalabilità automatica di Azure HDInsight, rilasciata per la disponibilità generale il 7 novembre 2019 per i cluster Spark e Hadoop, include miglioramenti non disponibili nella versione di anteprima della funzionalità. Se è stato creato un cluster Spark prima del 7 novembre 2019 e si vuole usare la funzionalità di scalabilità automatica nel cluster, è consigliabile creare un nuovo cluster e abilitare la scalabilità automatica nel nuovo cluster.
 >
-> La funzionalità di scalabilità automatica per i cluster Interactive Query (LLAP) e HBase è ancora in anteprima. La funzionalità di scalabilità automatica è disponibile solo nei cluster Spark, Hadoop, Interactive Query e HBase.
+> La scalabilità automatica per Interactive query (LLAP) è stata rilasciata per la disponibilità generale il 27 agosto 2020. I cluster HBase sono ancora in anteprima. La funzionalità di scalabilità automatica è disponibile solo nei cluster Spark, Hadoop, Interactive Query e HBase.
 
 La tabella seguente descrive i tipi di cluster e le versioni compatibili con la funzionalità di scalabilità automatica.
 
 | Versione | Spark | Hive | LLAP | hbase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3,6 senza ESP | Sì | Sì | Sì | Sì* | No | No | No |
-| HDInsight 4,0 senza ESP | Yes | Sì | Sì | Sì* | No | No | No |
-| HDInsight 3,6 con ESP | Yes | Yes | Yes | Sì* | No | No | No |
-| HDInsight 4,0 con ESP | Yes | Yes | Yes | Sì* | No | No | No |
+| HDInsight 4,0 senza ESP | Sì | Sì | Sì | Sì* | No | No | No |
+| HDInsight 3,6 con ESP | Sì | Sì | Sì | Sì* | No | No | No |
+| HDInsight 4,0 con ESP | Sì | Sì | Sì | Sì* | No | No | No |
 
 \* I cluster HBase possono essere configurati solo per la scalabilità basata su pianificazione, non per il caricamento.
 
-## <a name="get-started"></a>Introduzione
+## <a name="get-started"></a>Operazioni preliminari
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>Creare un cluster con scalabilità automatica basata sul carico
 

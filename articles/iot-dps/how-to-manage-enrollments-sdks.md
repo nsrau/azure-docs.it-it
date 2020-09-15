@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.service: iot-dps
 ms.custom: fasttrack-edit, iot
 services: iot-dps
-ms.openlocfilehash: 4a5e8b6f430f6af49ab79ca0f8cb2253bd0f2049
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 1dc97f92e6139475d0d5ac5ea1201d6ff6b8d470
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520657"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532325"
 ---
 # <a name="how-to-manage-device-enrollments-with-azure-device-provisioning-service-sdks"></a>Come gestire le registrazioni dei dispositivi con gli SDK del servizio Device Provisioning di Azure
 La *registrazione dei dispositivi* crea un record di un singolo dispositivo o di un gruppo di dispositivi registrato in un dato punto con il servizio Device Provisioning. Il record di registrazione contiene la configurazione iniziale desiderata per i dispositivi come parte della registrazione, incluso l'hub IoT desiderato. In questo articolo viene illustrato come gestire le registrazioni dei dispositivi per il servizio di provisioning a livello di programmazione tramite gli SDK del servizio di provisioning di Azure IoT.  Gli SDK sono disponibili su GitHub nello stesso repository degli SDK di Azure IoT.
 
 ## <a name="prerequisites"></a>Prerequisiti
 * Ottenere la stringa di connessione da un'istanza del servizio Device Provisioning.
-* Ottenere gli elementi di sicurezza dei dispositivi per il [meccanismo di attestazione](concepts-security.md#attestation-mechanism) in uso:
+* Ottenere gli elementi di sicurezza dei dispositivi per il [meccanismo di attestazione](concepts-service.md#attestation-mechanism) in uso:
     * [**Trusted Platform Module (TPM)**](/azure/iot-dps/concepts-security#trusted-platform-module):
         * Registrazione singola: ID registrazione e chiave di verifica dell'autenticità del TPM da un dispositivo fisico o da un simulatore TPM.
         * Il gruppo di registrazioni non è valido per l'attestazione TPM.

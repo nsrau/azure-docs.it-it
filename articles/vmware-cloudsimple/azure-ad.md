@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: f90f5f4298fcca77e293965ddd377598bcfd1930
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 93922986dfe0b2b4e8ba0923931df601cc12428b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87077303"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532529"
 ---
 # <a name="use-azure-ad-as-an-identity-provider-for-vcenter-on-cloudsimple-private-cloud"></a>Usare Azure AD come provider di identità per vCenter nel cloud privato CloudSimple
 
@@ -46,7 +46,7 @@ Prima di iniziare, sarà necessario accedere alla sottoscrizione di Azure con i 
 > [!NOTE]
 > Se si dispone già di Azure AD, è possibile ignorare questa sezione.
 
-1. Configurare Azure AD sulla sottoscrizione come descritto in [Azure ad documentazione](../active-directory/fundamentals/active-directory-whatis.md).
+1. Configurare Azure AD sulla sottoscrizione come descritto in  [Azure ad documentazione](../active-directory/fundamentals/active-directory-whatis.md).
 2. Abilitare Azure Active Directory Premium sulla sottoscrizione come descritto in [iscriversi a Azure Active Directory Premium](../active-directory/fundamentals/active-directory-get-started-premium.md).
 3. Configurare un nome di dominio personalizzato e verificare il nome di dominio personalizzato come descritto in [aggiungere un nome di dominio personalizzato a Azure Active Directory](../active-directory/fundamentals/add-custom-domain.md).
     1. Configurare un record DNS nel registrar con le informazioni fornite in Azure.
@@ -64,7 +64,7 @@ Facoltativamente, è possibile configurare altre funzionalità di Azure AD.  Que
 3. Configurare il gruppo di amministratori per la gestione di Azure AD Domain Services come descritto in [abilitare Azure Active Directory Domain Services con il portale di Azure](../active-directory-domain-services/tutorial-create-instance.md).
 4. Aggiornare le impostazioni DNS per il Azure AD Domain Services come descritto in [abilitare Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md).  Se si desidera connettersi ad Active Directory tramite Internet, impostare il record DNS per l'indirizzo IP pubblico del Azure AD servizi di dominio sul nome di dominio.
 5. Abilitare la sincronizzazione dell'hash delle password per gli utenti.  Questo passaggio consente la sincronizzazione degli hash delle password necessari per l'autenticazione NTLM (NT LAN Manager) e Kerberos per Azure AD Domain Services. Al termine della configurazione della sincronizzazione dell'hash delle password, gli utenti potranno accedere al dominio gestito con le credenziali aziendali. Vedere [abilitare la sincronizzazione dell'hash delle password per Azure Active Directory Domain Services](../active-directory-domain-services/tutorial-create-instance.md).
-    1. Se sono presenti utenti solo cloud, è necessario modificare la password usando <a href="http://myapps.microsoft.com/" target="_blank">Azure ad pannello di accesso</a> per assicurarsi che gli hash delle password siano archiviati nel formato richiesto da NTLM o Kerberos.  Seguire le istruzioni riportate in [abilitare la sincronizzazione dell'hash delle password nel dominio gestito per gli account utente solo cloud](../active-directory-domain-services/tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).  Questo passaggio deve essere eseguito per singoli utenti e per qualsiasi nuovo utente creato nella directory Azure AD usando i cmdlet di portale di Azure o Azure AD PowerShell. Gli utenti che richiedono l'accesso a Azure AD Domain Services devono usare il <a href="http://myapps.microsoft.com/" target="_blank">Pannello di accesso Azure ad</a> e accedere al proprio profilo per modificare la password.
+    1. Se sono presenti utenti solo cloud, è necessario modificare la password usando <a href="https://myapps.microsoft.com/" target="_blank">Azure ad pannello di accesso</a> per assicurarsi che gli hash delle password siano archiviati nel formato richiesto da NTLM o Kerberos.  Seguire le istruzioni riportate in [abilitare la sincronizzazione dell'hash delle password nel dominio gestito per gli account utente solo cloud](../active-directory-domain-services/tutorial-create-instance.md#enable-user-accounts-for-azure-ad-ds).  Questo passaggio deve essere eseguito per singoli utenti e per qualsiasi nuovo utente creato nella directory Azure AD usando i cmdlet di portale di Azure o Azure AD PowerShell. Gli utenti che richiedono l'accesso a Azure AD Domain Services devono usare il <a href="https://myapps.microsoft.com/" target="_blank">Pannello di accesso Azure ad</a> e accedere al proprio profilo per modificare la password.
 
         > [!NOTE]
         > Se l'organizzazione include account utente solo cloud, tutti gli utenti che devono usare Azure Active Directory Domain Services devono cambiare le proprie password. Un account utente solo cloud è un account creato nella directory di Azure AD tramite il portale di Azure o i cmdlet di Azure AD PowerShell. Questi account utente non vengono sincronizzati da una directory locale.
@@ -86,10 +86,10 @@ Facoltativamente, è possibile configurare altre funzionalità di Azure AD.  Que
     | **Opzione** | **Descrizione** |
     |------------|-----------------|
     | **Nome** | Nome dell'origine di identità. |
-    | **DN di base per gli utenti** | Nome distinto di base per gli utenti.  Per Azure AD, usare: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` esempio: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com` .|
+    | **DN di base per gli utenti** | Nome distinto di base per gli utenti.  Per Azure AD, usare: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>`  esempio: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com` .|
     | **Nome di dominio** | FQDN del dominio, ad esempio example.com. Non specificare un indirizzo IP in questa casella di testo. |
     | **Alias di dominio** | *(facoltativo)* Nome NetBIOS del dominio. Se si usano le autenticazioni SSPI, aggiungere il nome NetBIOS del dominio Active Directory come alias dell'origine di identità. |
-    | **DN di base per i gruppi** | Nome distinto di base per i gruppi. Per Azure AD, usare: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>` esempio:`OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
+    | **DN di base per i gruppi** | Nome distinto di base per i gruppi. Per Azure AD, usare: `OU=AADDC Users,DC=<domain>,DC=<domain suffix>`  esempio: `OU=AADDC Users,DC=cloudsimplecustomer,DC=com`|
     | **URL server primario** | Server LDAP del controller di dominio primario per il dominio.<br><br>Usare il formato `ldaps://hostname:port`. La porta è in genere 636 per le connessioni LDAPs. <br><br>Quando si usa  `ldaps://`   nell'URL LDAP primario o secondario, è necessario un certificato che stabilisce l'attendibilità per l'endpoint LDAPS del server Active Directory. |
     | **URL server secondario** | Indirizzo di un server LDAP del controller di dominio secondario usato per il failover. |
     | **Scegliere il certificato** | Se si vuole usare LDAPs con il server Active Directory LDAP o con l'origine identità del server OpenLDAP, dopo aver digitato  `ldaps://`   nella casella di testo URL viene visualizzato un pulsante Scegli certificato. Un URL secondario non è obbligatorio. |

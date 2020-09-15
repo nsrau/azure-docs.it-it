@@ -8,12 +8,12 @@ ms.topic: how-to
 ms.date: 02/25/2019
 ms.author: duau
 ms.custom: devx-track-azurepowershell
-ms.openlocfilehash: 2b88fb32fd4bc07bbaaaf8834646e8d585491dc6
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 460ea446fc6dfc43e81a1a57bbba032a61f3a72d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89395690"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532546"
 ---
 # <a name="move-expressroute-circuits-from-classic-to-resource-manager-deployment-model-using-powershell"></a>Spostare i circuiti ExpressRoute dal modello di distribuzione classica a quello Resource Manager usando PowerShell
 
@@ -95,14 +95,14 @@ Move-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "DemoRG" -Locati
 Nella modalità classica di un circuito ExpressRoute non esiste il concetto di vincolo a un'area. In Resource Manager, tuttavia, ogni risorsa deve essere mappata a un'area di Azure. L'area specificata nel cmdlet Move-AzExpressRouteCircuit può essere tecnicamente di qualsiasi area. A fini organizzativi, è possibile scegliere un'area che rappresenta in modo affidabile il percorso di peering.
 
 > [!NOTE]
-> Al termine dello spostamento, il nuovo nome elencato nel cmdlet precedente verrà usato per fare riferimento alla risorsa. Il circuito verrà essenzialmente rinominato.
-> 
+> * Dopo aver spostato il circuito ExpressRoute classico nel modello di distribuzione Gestione risorse, sarà possibile accedere ai modelli di distribuzione classica e Gestione risorse per impostazione predefinita.
+> * Il nuovo nome elencato nel cmdlet precedente verrà usato per risolvere la risorsa. Il circuito verrà essenzialmente rinominato.
 
 ## <a name="modify-circuit-access"></a>Modificare l'accesso al circuito
 
 ### <a name="to-enable-expressroute-circuit-access-for-both-deployment-models"></a>Per abilitare il circuito ExpressRoute accedere ad entrambi i modelli di distribuzione
 
-Dopo aver spostato il circuito ExpressRoute classico nel modello di distribuzione Resource Manager, è possibile abilitare l'accesso a entrambi i modelli di distribuzione. Eseguire i cmdlet seguenti per abilitare l'accesso a entrambi i modelli di distribuzione:
+È possibile abilitare l'accesso al modello di distribuzione classica per i circuiti ExpressRoute creati nel modello di distribuzione Gestione risorse. Eseguire i cmdlet seguenti per abilitare l'accesso a entrambi i modelli di distribuzione:
 
 1. Ottenere i dettagli del circuito.
 

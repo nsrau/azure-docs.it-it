@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
 manager: timlt
-ms.openlocfilehash: abc625c27617c27a79fe284393cdf7b281973bc4
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: f5bedde9e5e095b1b8637a09263bf18b06bcddea
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299259"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532342"
 ---
 # <a name="how-to-disenroll-a-device-from-azure-iot-hub-device-provisioning-service"></a>Come annullare la registrazione di un dispositivo nel servizio Device Provisioning in hub IoT
 
 L'adeguata gestione delle credenziali dei dispositivi è un fattore fondamentale per i sistemi di alto profilo quali, ad esempio, le soluzioni IoT. Una procedura consigliata per questi sistemi prevede l'uso di un piano strutturato e definito contenente le procedure di revoca dell'accesso per i dispositivi qualora le relative credenziali, siano esse token di firma di accesso condiviso o certificati X.509, risultino compromesse. 
 
-La registrazione di un dispositivo nel servizio Device Provisioning ne consente il [provisioning automatico](concepts-auto-provisioning.md). Eseguire il provisioning di un dispositivo vuol dire registrarlo nell'hub IoT, in modo che possa ricevere lo stato iniziale [del dispositivo gemello](~/articles/iot-hub/iot-hub-devguide-device-twins.md) e iniziare a segnalare i dati di telemetria. Questo articolo descrive come annullare la registrazione di un dispositivo nell'istanza del servizio di provisioning ed evitare che ne venga eseguito nuovamente il provisioning in futuro.
+La registrazione nel servizio Device provisioning consente di eseguire il [provisioning](about-iot-dps.md#provisioning-process)di un dispositivo. Eseguire il provisioning di un dispositivo vuol dire registrarlo nell'hub IoT, in modo che possa ricevere lo stato iniziale [del dispositivo gemello](~/articles/iot-hub/iot-hub-devguide-device-twins.md) e iniziare a segnalare i dati di telemetria. Questo articolo descrive come annullare la registrazione di un dispositivo nell'istanza del servizio di provisioning ed evitare che ne venga eseguito nuovamente il provisioning in futuro.
 
 > [!NOTE] 
 > Tenere presente i criteri di ripetizione dei dispositivi per i quali si sta per revocare l'accesso. Ad esempio, è possibile che un dispositivo con criteri di ripetizione infiniti cerchi di eseguire in modo continuativo la registrazione del servizio di provisioning, con il conseguente esaurimento delle risorse del servizio e con un potenziale impatto negativo sulle prestazioni.

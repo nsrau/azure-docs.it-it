@@ -1,14 +1,14 @@
 ---
 title: Riferimento ai dati di importazione ed esportazione-QnA Maker
-description: Informazioni sul modo in cui vengono usati i tipi di URL per importare e creare coppie QnA.
+description: Utilizzare questo riferimento di importazione ed esportazione per ottenere i migliori risultati per il backup, l'archiviazione e la sostituzione della Knowledge base.
 ms.topic: reference
 ms.date: 01/02/2020
-ms.openlocfilehash: e4a423ef9478cd39181c6440801f9fe954dc896c
-ms.sourcegitcommit: 58faa9fcbd62f3ac37ff0a65ab9357a01051a64f
+ms.openlocfilehash: c77f51263206c3cc0d4b546e1728963211a186c6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/29/2020
-ms.locfileid: "80804244"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532155"
 ---
 # <a name="import-and-export-data-reference"></a>Riferimento ai dati di importazione ed esportazione
 

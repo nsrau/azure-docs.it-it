@@ -8,12 +8,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 03/11/2020
 ms.author: mbaldwin
-ms.openlocfilehash: b18ca88f9a97b09b7c5e15e78a2301bee712df5e
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: e6ee8ce065361ac27bba0e80349eb5e1d1877526
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89394755"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532291"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Guida per gli sviluppatori dell'insieme di credenziali delle chiavi di Azure
 
@@ -24,7 +24,7 @@ Key Vault consente di accedere in modo sicuro ai dati sensibili dall'interno del
 - L'applicazione possa usare le chiavi per la firma e la crittografia, ma tenga la gestione della chiave esterna all'applicazione in modo che la soluzione sia adatta a essere un'app geograficamente distribuita.
 - Gestire i certificati Key Vault. Per ulteriori informazioni, vedere [certificati](../certificates/about-certificates.md) .
 
-Per informazioni più generali sui Azure Key Vault, vedere [che cos'è Key Vault](overview.md)).
+Per altre informazioni generali sull'insieme di credenziali delle chiavi di Azure, vedere l'articolo [Cos'è l'insieme di credenziali chiave di Azure?](overview.md)
 
 ## <a name="public-previews"></a>Anteprime pubbliche
 
@@ -140,7 +140,7 @@ Questi articoli illustrano altri scenari e servizi che usano o si integrano con 
 
 ## <a name="key-vault-overviews-and-concepts"></a>Panoramiche e concetti su Key Vault
 
-- [Key Vault comportamento di eliminazione](soft-delete-overview.md)temporanea) descrive una funzionalità che consente il ripristino di oggetti eliminati, indipendentemente dal fatto che l'eliminazione sia stata accidentale o intenzionale.
+- [Comportamento di eliminazione temporanea di Key Vault](soft-delete-overview.md) descrive una funzionalità che consente il recupero di oggetti eliminati, sia che l'eliminazione sia stata accidentale sia che sia stata intenzionale.
 - [Limitazione del client di Key Vault](overview-throttling.md) descrive i concetti di base della limitazione e offre un approccio per l'app.
 - [Scenari di sicurezza di Key Vault](overview-security-worlds.md) descrive le relazioni tra le aree e le zone di sicurezza.
 

@@ -7,12 +7,12 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f167ffb652054b64098994d334eea6e1db6d2d14
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 549f9b03272accbe107c432f4929c5de250a6f6b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061207"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532393"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Risolvere i problemi di File di Azure in Windows
 
@@ -369,7 +369,7 @@ Probabilmente questo errore viene attivato da un errore di sintassi nel comando 
 
 ## <a name="azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption"></a>File di Azure il supporto dell'autenticazione AD DS locale per la crittografia Kerberos AES 256
 
-È stato introdotto il supporto per la crittografia Kerberos AES 256 per File di Azure l'autenticazione di servizi di dominio Active Directory locale con [AzFilesHybrid Module v 0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). Se è stata abilitata l'autenticazione di servizi di dominio Active Directory con una versione del modulo inferiore a v 0.2.2, sarà necessario scaricare il modulo AzFilesHybrid più recente (v 0.2.2 +) ed eseguire PowerShell di seguito. Se l'autenticazione di servizi di dominio Active Directory non è ancora stata abilitata nell'account di archiviazione, è possibile seguire questa [Guida](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable#option-one-recommended-use-azfileshybrid-powershell-module) per l'abilitazione. Non è necessario eseguire di nuovo PowerShell di seguito se è stata eseguita l'abilitazione della funzionalità con il modulo AzFilesHybrid v 0.2.2 o versione successiva. 
+È stato introdotto il supporto per la crittografia Kerberos AES 256 per File di Azure l'autenticazione di servizi di dominio Active Directory locale con [AzFilesHybrid Module v 0.2.2](https://github.com/Azure-Samples/azure-files-samples/releases). Se è stata abilitata l'autenticazione di servizi di dominio Active Directory con una versione del modulo inferiore a v 0.2.2, sarà necessario scaricare il modulo AzFilesHybrid più recente (v 0.2.2 +) ed eseguire PowerShell di seguito. Se l'autenticazione di servizi di dominio Active Directory non è ancora stata abilitata nell'account di archiviazione, è possibile seguire questa [Guida](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-enable#option-one-recommended-use-azfileshybrid-powershell-module) per l'abilitazione. 
 
 ```PowerShell
 $ResourceGroupName = "<resource-group-name-here>"
