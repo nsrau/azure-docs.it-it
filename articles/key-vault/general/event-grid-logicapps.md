@@ -10,18 +10,18 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c0121c42c5d498aa79109c874981b9de0f8f4b7c
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 2781ef69ce85e82dab45a9f890ef5e6862949d98
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588875"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087984"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Usare App per la logica per ricevere messaggi di posta elettronica sulle modifiche dello stato dei segreti dell'insieme di credenziali delle chiavi
 
 In questa guida si apprenderà come rispondere agli eventi di Azure Key Vault ricevuti tramite [Griglia di eventi di Azure](../../event-grid/index.yml) usando [App per la logica di Azure](../../logic-apps/index.yml). Al termine, si otterrà un'app per la logica di Azure configurata per l'invio di un messaggio di posta elettronica di notifica ogni volta che viene creato un segreto in Azure Key Vault.
 
-Per una panoramica dell'integrazione tra Azure Key Vault e Griglia di eventi di Azure, vedere [Monitoraggio di Key Vault con Griglia di eventi di Azure (anteprima)](event-grid-overview.md).
+Per una panoramica dell'integrazione tra Azure Key Vault e Griglia di eventi di Azure, vedere [Monitoraggio di Key Vault con Griglia di eventi di Azure](event-grid-overview.md).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -56,7 +56,7 @@ Per creare una sottoscrizione di Griglia di eventi di Azure, seguire questa proc
 1. Cercare **Posta elettronica**. Selezionare il connettore corrispondente al provider di posta elettronica in uso. Questa esercitazione usa **Office 365 Outlook**. I passaggi per altri provider di posta elettronica sono del tutto simili.
 1. Selezionare l'azione **Invia un messaggio di posta elettronica (v2)**.
 
-   ![Progettazione app per la logica - aggiunta di un'azione di posta elettronica](../media/eventgrid-logicappdesigner3.png)
+   ![Progettazione app per la logica - Invia messaggio di posta elettronica](../media/eventgrid-logicappdesigner3.png)
 
 1. Creare il modello di messaggio di posta elettronica:
     - **A:** immettere l'indirizzo di posta elettronica per ricevere i messaggi di notifica. Per questa esercitazione, usare un account di posta elettronica a cui è possibile accedere per i test.
@@ -64,18 +64,18 @@ Per creare una sottoscrizione di Griglia di eventi di Azure, seguire questa proc
 
     Il modello di messaggio di posta elettronica creato sarà simile all'esempio seguente.
 
-    ![Progettazione app per la logica - aggiunta di un'azione di posta elettronica](../media/eventgrid-logicappdesigner4.png)
+    ![Progettazione app per la logica - Corpo messaggio di posta elettronica](../media/eventgrid-logicappdesigner4.png)
 
 8. Fare clic su **Salva con nome**.
 9. Immettere un **nome** per la nuova app per la logica e fare clic su **Crea**.
     
-    ![Progettazione app per la logica - aggiunta di un'azione di posta elettronica](../media/eventgrid-logicappdesigner5.png)
+    ![Progettazione app per la logica - Crea](../media/eventgrid-logicappdesigner5.png)
 
 ## <a name="test-and-verify"></a>Test e verifica
 
 1.  Passare all'insieme di credenziali delle chiavi nel portale di Azure e selezionare **Eventi > Sottoscrizioni di eventi**.  Verificare che sia stata creata una nuova sottoscrizione
     
-    ![Progettazione app per la logica - aggiunta di un'azione di posta elettronica](../media/eventgrid-logicapps-kvnewsubs.png)
+    ![Progettazione app per la logica - Test e verifica](../media/eventgrid-logicapps-kvnewsubs.png)
 
 1.  Passare all'insieme di credenziali delle chiavi, selezionare **Segreti** e quindi **+ Genera/Importa**. Creare un nuovo segreto a scopo di test, assegnare un nome alla chiave e mantenere le impostazioni predefinite dei parametri rimanenti.
 
@@ -87,8 +87,8 @@ Una volta creato il segreto, si riceverà un messaggio di posta elettronica all'
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Panoramica: [Monitoraggio di Key Vault con Griglia di eventi di Azure (anteprima)](event-grid-overview.md)
+- Panoramica: [Monitoraggio di Key Vault con Griglia di eventi di Azure](event-grid-overview.md)
 - Procedura: [Inoltrare le notifiche dell'insieme di credenziali delle chiavi ad Automazione di Azure](event-grid-tutorial.md).
-- [Schema di eventi di Griglia di eventi di Azure per Azure Key Vault (anteprima)](../../event-grid/event-schema-key-vault.md)
+- [Schema di eventi di Griglia di eventi di Azure per Azure Key Vault](../../event-grid/event-schema-key-vault.md)
 - Altre informazioni su [Griglia di eventi di Azure](../../event-grid/index.yml).
 - Altre informazioni sulla [funzionalità App per la logica del Servizio app di Azure](../../logic-apps/index.yml).

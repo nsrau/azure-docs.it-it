@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sulle macchine virtuali
       href: overview.md
-- name: Avvi rapidi
+- name: Guide introduttive
   items:
     - name: 'Creare una VM: interfaccia della riga di comando di Azure'
       href: quick-create-cli.md
@@ -345,7 +345,7 @@
       href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Automatizzazione dell'infrastruttura
       href: ../infrastructure-automation.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Sicurezza e criteri
           href: ../security-policy.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -479,7 +479,7 @@
                   items:
                     - name: Da una VM
                       href: ../image-version-vm-cli.md
-                    - name: Da un disco rigido virtuale o uno snapshot
+                    - name: Da un disco gestito o da uno snapshot
                       href: ../image-version-snapshot-cli.md
                     - name: Eseguire la migrazione da un'immagine gestita
                       href: ../image-version-managed-image-cli.md
@@ -501,7 +501,7 @@
                   items:
                     - name: Da una VM
                       href: ../image-version-vm-powershell.md
-                    - name: Da un disco rigido virtuale o uno snapshot
+                    - name: Da un disco gestito o da uno snapshot
                       href: ../image-version-snapshot-powershell.md
                     - name: Eseguire la migrazione da un'immagine gestita
                       href: ../image-version-managed-image-powershell.md
@@ -542,14 +542,16 @@
               href: image-builder-overview.md
             - name: Utilizzare l'interfaccia della riga di comando di Azure
               href: image-builder.md
-            - name: Creare una macchina virtuale usando la rete virtuale - Interfaccia della riga di comando
+            - name: Usare una rete virtuale - Interfaccia della riga di comando
               href: image-builder-vnet.md
-            - name: Configurare le autorizzazioni - Interfaccia della riga di comando
-              href: image-builder-permissions-cli.md
-            - name: Configurare le autorizzazioni - PowerShell
-              href: image-builder-permissions-powershell.md
             - name: Opzioni di rete
               href: image-builder-networking.md
+            - name: Configurare le autorizzazioni
+              items:
+                - name: CLI
+                  href: image-builder-permissions-cli.md
+                - name: PowerShell
+                  href: image-builder-permissions-powershell.md
             - name: Attività DevOps
               href: image-builder-devops-task.md
             - name: Informazioni di riferimento sui modelli di Azure Resource Manager
@@ -931,7 +933,7 @@
           href: /azure/architecture/topics/high-performance-computing/
         - name: IBM Db2 pureScale
           items:
-            - name: Architettura
+            - name: Architecture
               href: ibm-db2-purescale-azure.md
             - name: Distribuzione
               href: deploy-ibm-db2-purescale-azure.md

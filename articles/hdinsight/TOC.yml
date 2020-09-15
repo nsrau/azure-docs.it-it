@@ -392,14 +392,20 @@
                   href: ./spark/apache-spark-analyze-application-insight-logs.md
         - name: Gestione
           items:
+            - name: Gestire le dipendenze
+              items:
+                - name: Gestire le dipendenze dell'applicazione Spark
+                  href: ./spark/apache-spark-manage-dependencies.md
+                - name: Gestire in modo sicuro le dipendenze JAR
+                  href: ./spark/safely-manage-jar-dependency.md
+                - name: Gestire in modo sicuro l'ambiente Python
+                  href: ./spark/apache-spark-python-package-installation.md
             - name: Gestire le risorse cluster
               href: ./spark/apache-spark-resource-manager.md
             - name: Gestire le applicazioni Apache Spark tramite il Server cronologia esteso
               href: ./spark/apache-azure-spark-history-server.md
             - name: Abilitare la memorizzazione nella cache con IO Cache
               href: ./spark/apache-spark-improve-performance-iocache.md
-            - name: Gestire le dipendenze da JAR
-              href: ./spark/manage-jar-dependency.md
             - name: Usare i notebook con Apache Spark
               items:
                 - name: Usare un Jupyter Notebook locale
@@ -408,8 +414,6 @@
                   href: ./spark/apache-spark-jupyter-notebook-kernels.md
                 - name: Usare pacchetti esterni con Jupyter usando Magic nella cella
                   href: ./spark/apache-spark-jupyter-notebook-use-external-packages.md
-                - name: Gestire in modo sicuro l'ambiente Python in Azure HDInsight con azione script
-                  href: ./spark/apache-spark-python-package-installation.md
                 - name: Usare i notebook di Apache Zeppelin
                   href: ./spark/apache-spark-zeppelin-notebook.md
             - name: Uso con altri servizi di Azure

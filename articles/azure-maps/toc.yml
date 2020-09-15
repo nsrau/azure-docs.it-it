@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Mappe di Azure
       href: about-azure-maps.md
-- name: Avvii rapidi
+- name: Guide introduttive
   expanded: true
   items:
     - name: Creare un'app Web
@@ -33,6 +33,14 @@
           href: tutorial-ev-routing.md
         - name: Analizzare i dati meteo con Azure Notebooks (Python)
           href: weather-service-tutorial.md
+    - name: Eseguire la migrazione da Bing Mappe
+      items:
+        - name: Eseguire la migrazione da Bing Mappe
+          href: migrate-from-bing-maps.md
+        - name: Eseguire la migrazione di un'app Web
+          href: migrate-from-bing-maps-web-app.md
+        - name: Eseguire la migrazione di un servizio Web
+          href: migrate-from-bing-maps-web-services.md
     - name: Eseguire la migrazione da Google Maps
       items:
         - name: Eseguire la migrazione da Google Maps

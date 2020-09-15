@@ -160,6 +160,8 @@
               href: 'https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core'
             - name: JavaScript SDK - npm
               href: 'https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1'
+            - name: JavaScript SDK - informazioni di riferimento
+              href: 'https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true'
     - name: Interfaccia della riga di comando di Gemelli digitali
       items:
         - name: Informazioni di riferimento sull'interfaccia della riga di comando di Gemelli digitali

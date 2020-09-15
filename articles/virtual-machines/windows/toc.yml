@@ -4,7 +4,7 @@
   items:
     - name: Informazioni sulle macchine virtuali
       href: overview.md
-- name: Avvi rapidi
+- name: Guide introduttive
   items:
     - name: 'Creare una VM: portale'
       href: quick-create-portal.md
@@ -337,7 +337,7 @@
       href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
     - name: Automatizzazione dell'infrastruttura
       href: ../infrastructure-automation.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Sicurezza e criteri
           href: ../security-policy.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
@@ -446,7 +446,7 @@
                   items:
                     - name: Da una VM
                       href: ../image-version-vm-powershell.md
-                    - name: Da un disco rigido virtuale o uno snapshot
+                    - name: Da un disco gestito o da uno snapshot
                       href: ../image-version-snapshot-powershell.md
                     - name: Eseguire la migrazione da un'immagine gestita
                       href: ../image-version-managed-image-powershell.md
@@ -468,7 +468,7 @@
                   items:
                     - name: Da una VM
                       href: ../image-version-vm-cli.md
-                    - name: Da un disco rigido virtuale o uno snapshot
+                    - name: Da un disco gestito o da uno snapshot
                       href: ../image-version-snapshot-cli.md
                     - name: Eseguire la migrazione da un'immagine gestita
                       href: ../image-version-managed-image-cli.md
@@ -507,21 +507,33 @@
           items:
             - name: Panoramica
               href: ../linux/image-builder-overview.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Utilizzare l'interfaccia della riga di comando di Azure
-              href: image-builder.md
-            - name: Creare una macchina virtuale usando la rete virtuale
+            - name: Usare Image Builder
+              items:
+                - name: CLI
+                  href: ../linux/image-builder.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                - name: PowerShell
+                  href: image-builder-powershell.md
+            - name: Usare una rete virtuale
               href: image-builder-vnet.md
-            - name: Usare Azure PowerShell
-              href: image-builder-powershell.md
+            - name: Opzioni di rete
+              href: ../linux/image-builder-networking.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Configurare le autorizzazioni
+              items:
+                - name: CLI
+                  href: ../linux/image-builder-permissions-cli.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+                - name: PowerShell
+                  href: ../linux/image-builder-permissions-powershell.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Attività DevOps
+              href: ../linux/image-builder-devops-task.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+            - name: Informazioni di riferimento sui modelli di Azure Resource Manager
+              displayName: Azure Resource Manager
+              href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Creare immagini per le raccolte
               href: image-builder-gallery.md
             - name: Aggiornare un'immagine esistente
               href: image-builder-gallery-update-image-version.md
             - name: Script per l'archiviazione
               href: ../linux/image-builder-user-assigned-identity.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-            - name: Informazioni di riferimento sui modelli di Azure Resource Manager
-              displayName: Azure Resource Manager
-              href: ../linux/image-builder-json.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
             - name: Risolvere problemi
               href: 'https://github.com/danielsollondon/azvmimagebuilder/blob/master/troubleshootingaib.md'
         - name: Trovare e usare immagini

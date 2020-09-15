@@ -165,7 +165,7 @@
           href: awardspring-tutorial.md
         - name: Axiad Cloud
           href: axiad-cloud-tutorial.md
-    - name: B
+    - name: b
       items:
         - name: BambooHR
           href: bamboo-hr-tutorial.md
@@ -427,6 +427,8 @@
           href: cyara-cx-assurance-platform-tutorial.md
         - name: CyberArk SAML Authentication
           href: cyberark-saml-authentication-tutorial.md
+        - name: CyberSolutions CYBERMAILΣ
+          href: cybersolutions-cybermail-tutorial.md
         - name: CyberSolutions MAILBASEΣ\CMSS
           href: cybersolutions-mailbase-tutorial.md
         - name: CylancePROTECT

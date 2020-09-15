@@ -18,12 +18,32 @@
           href: common-questions-server-migration.md
 - name: Esercitazioni
   items:
-    - name: Valutare le VM VMware ed eseguirne la migrazione
+    - name: Rilevazione
       items:
-        - name: Preparare la valutazione e la migrazione di VM VMware
-          href: tutorial-prepare-vmware.md
-        - name: Valutare le VM VMware per la migrazione
-          href: tutorial-assess-vmware.md
+        - name: Individuare le macchine virtuali VMware
+          href: tutorial-discover-vmware.md
+        - name: Individuare le macchine virtuali Hyper-V
+          href: tutorial-discover-hyper-v.md
+        - name: Individuare server fisici
+          href: tutorial-discover-physical.md
+        - name: Individuare istanze di AWS
+          href: tutorial-discover-aws.md
+        - name: Individuare server importati
+          href: tutorial-discover-import.md
+    - name: Valutare
+      items:
+        - name: Valutare le VM VMware per la migrazione a macchine virtuali di Azure
+          href: tutorial-assess-vmware-azure-vm.md
+        - name: Valutare le VM VMware per la migrazione alla soluzione Azure VMware
+          href: tutorial-assess-vmware-azure-vmware-solution.md
+        - name: Valutare la migrazione di VM Hyper-V ad Azure
+          href: tutorial-assess-hyper-v.md
+        - name: Valutare i server fisici per la migrazione ad Azure
+          href: tutorial-assess-physical.md
+        - name: Valutare le istanze di AWS per la migrazione ad Azure
+          href: tutorial-assess-aws.md
+    - name: Migrazione
+      items:
         - name: Eseguire la migrazione di VM VMware
           items:
             - name: Informazioni sulle opzioni di migrazione per VM VMware
@@ -32,30 +52,12 @@
               href: tutorial-migrate-vmware.md
             - name: Eseguire la migrazione di VM VMware con agente
               href: tutorial-migrate-vmware-agent.md
-    - name: Valutare le VM Hyper-V ed eseguirne la migrazione
-      items:
-        - name: Preparare la valutazione e la migrazione di Hyper-V
-          href: tutorial-prepare-hyper-v.md
-        - name: Valutare la migrazione di VM Hyper-V
-          href: tutorial-assess-hyper-v.md
         - name: Eseguire la migrazione di VM Hyper-V
           href: tutorial-migrate-hyper-v.md
-    - name: Valutare ed eseguire la migrazione di server fisici
-      items:
-        - name: Preparare i server fisici per la valutazione e la migrazione
-          href: tutorial-prepare-physical.md
-        - name: Valutare i server fisici
-          href: tutorial-assess-physical.md
         - name: Eseguire la migrazione di server fisici
           href: tutorial-migrate-physical-virtual-machines.md
-    - name: Valutare le VM AWS ed eseguirne la migrazione
-      items:
-        - name: Individuare e valutare le VM AWS (Amazon Web Services) ed eseguirne la migrazione ad Azure
+        - name: Eseguire la migrazione di istanze di AWS
           href: tutorial-migrate-aws-virtual-machines.md
-    - name: Valutare i server importati per la migrazione
-      items:
-        - name: Valutare i server importati per la migrazione
-          href: tutorial-assess-import.md
 - name: Concetti
   items:
     - name: Creare un piano di migrazione con Azure Migrate

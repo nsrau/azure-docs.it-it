@@ -10,16 +10,16 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 10/25/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 283c66eb3b49b60b87283c5d94cc4f110adceffe
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 034bdce96d88deb31a071682a3c02200a64699dd
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88588748"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087573"
 ---
-# <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid-preview"></a>Ricevere e rispondere alle notifiche di Key Vault con Griglia di eventi di Azure (anteprima)
+# <a name="receive-and-respond-to-key-vault-notifications-with-azure-event-grid"></a>Ricevere e rispondere alle notifiche di Key Vault con Griglia di eventi di Azure
 
-L'integrazione di Azure Key Vault con Griglia di eventi di Azure, attualmente in anteprima, consente agli utenti di ricevere notifiche quando lo stato di un segreto archiviato in un insieme di credenziali delle chiavi è cambiato. Per una panoramica di questa funzionalità, vedere [Monitoraggio di Key Vault con Griglia di eventi di Azure](event-grid-overview.md).
+L'integrazione di Azure Key Vault con Griglia di eventi di Azure consente agli utenti di ricevere notifiche quando lo stato di un segreto archiviato in un insieme di credenziali delle chiavi è cambiato. Per una panoramica di questa funzionalità, vedere [Monitoraggio di Key Vault con Griglia di eventi di Azure](event-grid-overview.md).
 
 Questa guida illustra come ricevere notifiche di Key Vault tramite Griglia di eventi e come rispondere alle modifiche dello stato tramite Automazione di Azure.
 
@@ -32,7 +32,7 @@ Questa guida illustra come ricevere notifiche di Key Vault tramite Griglia di ev
 
 Griglia di eventi è un servizio di gestione degli eventi per il cloud. Seguendo le procedure di questa guida, si sottoscriveranno eventi per Key Vault e li si indirizzeranno ad Automazione di Azure. Quando uno dei segreti nell'insieme di credenziali delle chiavi sta per scadere, Griglia di eventi riceve una notifica della modifica dello stato e invia un POST HTTP all'endpoint. Un webhook attiva quindi un'esecuzione di Automazione di Azure di uno script di PowerShell.
 
-![Diagramma di flusso POST HTTP](../media/image1.png)
+![Diagramma di flusso POST HTTP](../media/event-grid-tutorial-1.png)
 
 ## <a name="create-an-automation-account"></a>Creare un account di Automazione
 
@@ -46,7 +46,7 @@ Creare un account di Automazione nel [portale di Azure](https://portal.azure.com
 
 1.  Selezionare **Aggiungi**.
 
-    ![Riquadro Account di Automazione](../media/image2.png)
+    ![Riquadro Account di Automazione](../media/event-grid-tutorial-2.png)
 
 1.  Immettere le informazioni necessarie nel riquadro **Aggiungi account di Automazione** e quindi selezionare **Crea**.
 
@@ -54,7 +54,7 @@ Creare un account di Automazione nel [portale di Azure](https://portal.azure.com
 
 Quando l'account di Automazione è pronto, creare un runbook.
 
-![Interfaccia utente per la creazione di un runbook](../media/image3.png)
+![Interfaccia utente per la creazione di un runbook](../media/event-grid-tutorial-3.png)
 
 1.  Selezionare l'account di Automazione appena creato.
 
@@ -92,7 +92,7 @@ write-Error "No input data found."
 }
 ```
 
-![Interfaccia utente di pubblicazione del runbook](../media/image4.png)
+![Interfaccia utente di pubblicazione del runbook](../media/event-grid-tutorial-4.png)
 
 ## <a name="create-a-webhook"></a>Creare un webhook
 
@@ -102,7 +102,7 @@ Creare un webhook per attivare il runbook appena creato.
 
 1.  Selezionare **Aggiungi webhook**.
 
-    ![Pulsante Aggiungi webhook](../media/image5.png)
+    ![Pulsante Aggiungi webhook](../media/event-grid-tutorial-5.png)
 
 1.  Selezionare **Crea un nuovo webhook**.
 
@@ -115,15 +115,15 @@ Creare un webhook per attivare il runbook appena creato.
 
 1. Scegliere **OK**, quindi **Crea**.
 
-    ![Interfaccia utente di creazione di un nuovo webhook](../media/image6.png)
+    ![Interfaccia utente di creazione di un nuovo webhook](../media/event-grid-tutorial-6.png)
 
 ## <a name="create-an-event-grid-subscription"></a>Creare una sottoscrizione di Griglia di eventi
 
 Creare una sottoscrizione di Griglia di eventi tramite il [portale di Azure](https://portal.azure.com).
 
-1.  Passare all'insieme di credenziali delle chiavi e selezionare la scheda **Eventi**. Se la scheda non è visibile, assicurarsi di usare la [versione di anteprima del portale](https://ms.portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true).
+1.  Passare all'insieme di credenziali delle chiavi e selezionare la scheda **Eventi**.
 
-    ![Scheda Eventi nel portale di Azure](../media/image7.png)
+    ![Scheda Eventi nel portale di Azure](../media/event-grid-tutorial-7.png)
 
 1.  Selezionare il pulsante **Sottoscrizione di eventi**.
 
@@ -143,15 +143,15 @@ Creare una sottoscrizione di Griglia di eventi tramite il [portale di Azure](htt
 
 1.  Selezionare **Create** (Crea).
 
-    ![Crea sottoscrizione di eventi](../media/image8.png)
+    ![Crea sottoscrizione di eventi](../media/event-grid-tutorial-8.png)
 
 ## <a name="test-and-verify"></a>Test e verifica
 
 Verificare che la sottoscrizione di Griglia di eventi sia configurata correttamente. Questo test presuppone che sia stata sottoscritta la notifica di "creazione di una nuova versione di un segreto" in [Creare una sottoscrizione di Griglia di eventi](#create-an-event-grid-subscription) e che si abbiano le autorizzazioni necessarie per creare una nuova versione di un segreto in un insieme di credenziali delle chiavi.
 
-![Testare la configurazione della sottoscrizione di Griglia di eventi](../media/image9.png)
+![Testare la configurazione della sottoscrizione di Griglia di eventi](../media/event-grid-tutorial-9.png)
 
-![Riquadro Crea un segreto](../media/image10.png)
+![Riquadro Crea un segreto](../media/event-grid-tutorial-10.png)
 
 1.  Passare all'insieme di credenziali delle chiavi nel portale di Azure.
 
@@ -161,7 +161,7 @@ Verificare che la sottoscrizione di Griglia di eventi sia configurata correttame
 
 1.  In **Metriche** verificare se è stato acquisito un evento. Sono previsti due eventi: SecretNewVersion e SecretNearExpiry. Questi eventi verificano che Griglia di eventi abbia acquisito correttamente la modifica dello stato del segreto nell'insieme di credenziali delle chiavi.
 
-    ![Riquadro Metriche: verifica della presenza di eventi acquisiti](../media/image11.png)
+    ![Riquadro Metriche: verifica della presenza di eventi acquisiti](../media/event-grid-tutorial-11.png)
 
 1.  Passare all'account di Automazione.
 
@@ -169,13 +169,13 @@ Verificare che la sottoscrizione di Griglia di eventi sia configurata correttame
 
 1.  Selezionare la scheda **Webhook** e verificare che il timestamp "Ultima attivazione" sia entro 60 secondi dalla creazione del nuovo segreto. Questo risultato conferma che Griglia di eventi ha inviato un POST al webhook con i dettagli dell'evento relativi alla modifica dello stato nell'insieme di credenziali delle chiavi e che il webhook è stato attivato.
 
-    ![Scheda Webhook, timestamp Ultima attivazione](../media/image12.png)
+    ![Scheda Webhook, timestamp Ultima attivazione](../media/event-grid-tutorial-12.png)
 
 1. Tornare al runbook e selezionare la scheda **Panoramica**.
 
 1. Esaminare l'elenco **Processi recenti**. Si dovrebbe vedere che è stato creato un processo e che lo stato è Completato. Questo conferma che il webhook ha attivato il runbook per avviare l'esecuzione dello script.
 
-    ![Elenco Processi recenti del webhook](../media/image13.png)
+    ![Elenco Processi recenti del webhook](../media/event-grid-tutorial-13.png)
 
 1. Selezionare il processo recente ed esaminare la richiesta POST inviata da Griglia di eventi al webhook. Esaminare il JSON e verificare che i parametri dell'insieme di credenziali delle chiavi e del tipo di evento siano corretti. Se il parametro del "tipo di evento" nell'oggetto JSON corrisponde all'evento che si è verificato nell'insieme di credenziali delle chiavi (in questo esempio Microsoft.KeyVault.SecretNearExpiry), il test è riuscito.
 
@@ -194,9 +194,9 @@ Se si usa un sistema basato su polling per cercare le modifiche dello stato dei 
 Altre informazioni:
 
 
-- Panoramica: [Monitoraggio di Key Vault con Griglia di eventi di Azure (anteprima)](event-grid-overview.md)
+- Panoramica: [Monitoraggio di Key Vault con Griglia di eventi di Azure](event-grid-overview.md)
 - Procedura: [Ricevere un messaggio di posta elettronica quando viene modificato un segreto dell'insieme di credenziali delle chiavi](event-grid-logicapps.md)
-- [Schema di eventi di Griglia di eventi di Azure per Azure Key Vault (anteprima)](../../event-grid/event-schema-key-vault.md)
+- [Schema di eventi di Griglia di eventi di Azure per Azure Key Vault](../../event-grid/event-schema-key-vault.md)
 - [Panoramica di Azure Key Vault](overview.md)
 - [Panoramica di Griglia di eventi di Azure](../../event-grid/overview.md)
 - [Panoramica di Automazione di Azure](../../automation/index.yml)

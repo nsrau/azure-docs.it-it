@@ -5,7 +5,7 @@
   items:
     - name: Cos'è Azure Spring Cloud?
       href: spring-cloud-overview.md
-- name: Avvii rapidi
+- name: Guide introduttive
   expanded: true
   items:
     - name: Avviare la prima app
@@ -47,6 +47,8 @@
       href: spring-cloud-tutorial-managed-identities-key-vault.md
     - name: Distribuire Azure Spring Cloud nella rete virtuale
       href: spring-cloud-tutorial-deploy-in-azure-virtual-network.md
+    - name: Usare l'identità gestita per richiamare Funzioni di Azure da un'app di Azure Spring Cloud
+      href: spring-cloud-tutorial-managed-identities-functions.md
 - name: Concetti
   items:
     - name: Informazioni su app e distribuzione
