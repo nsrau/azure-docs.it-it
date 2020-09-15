@@ -3,12 +3,13 @@ title: Opzioni di rete di Funzioni di Azure
 description: Panoramica di tutte le opzioni di rete disponibili in Funzioni di Azure.
 ms.topic: conceptual
 ms.date: 4/11/2019
-ms.openlocfilehash: 60258ef4aa3bbbbab69acd4f5106c774caa6f46f
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 271730e57a2d7ef8324420744b4bcd088b9809cc
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87385943"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530090"
 ---
 # <a name="azure-functions-networking-options"></a>Opzioni di rete di Funzioni di Azure
 
@@ -86,7 +87,7 @@ Attualmente è possibile usare funzioni trigger non HTTP da una rete virtuale in
 
 ### <a name="premium-plan-with-virtual-network-triggers"></a>Piano Premium con trigger di rete virtuale
 
-Quando si esegue un piano Premium, è possibile connettere funzioni trigger non HTTP a servizi in esecuzione all'interno di una rete virtuale. A tale scopo è necessario abilitare il supporto dei trigger della rete virtuale per l'app per le funzioni. L'impostazione **Supporto trigger di rete virtuale** è disponibile nel [portale di Azure](https://portal.azure.com) in **Configurazione** > **Impostazioni di runtime della funzione**.
+Quando si esegue un piano Premium, è possibile connettere funzioni trigger non HTTP a servizi in esecuzione all'interno di una rete virtuale. A tale scopo è necessario abilitare il supporto dei trigger della rete virtuale per l'app per le funzioni. L'impostazione di **monitoraggio della scalabilità di runtime** si trova nel [portale di Azure](https://portal.azure.com) in **Configuration**  >  **impostazioni runtime funzione**di configurazione.
 
 :::image type="content" source="media/functions-networking-options/virtual-network-trigger-toggle.png" alt-text="VNETToggle":::
 

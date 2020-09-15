@@ -3,12 +3,12 @@ title: Gestire i criteri di lab in Azure DevTest Labs| Microsoft Docs
 description: Informazioni su come definire i criteri del lab, ad esempio per le dimensioni delle macchine virtuali, il numero massimo di macchine virtuali per ogni utente e l'arresto automatico.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: ab2e2b1905a515d3a85339099f02d93d8e5c0424
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a7ada980b2a251b8164f2e1a20f65da54c89ba72
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290426"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530353"
 ---
 # <a name="manage-all-policies-for-a-lab-in-azure-devtest-labs"></a>Gestire tutti i criteri per un lab in Azure DevTest Labs
 
@@ -105,7 +105,7 @@ I criteri di avvio automatico consentono di specificare l'ora in cui devono esse
 
 1. Dal riquadro **Configurazione e criteri** del lab selezionare **Avvio automatico**.
    
-    ![Avvio automatico](./media/devtest-lab-set-lab-policy/auto-start.png)
+    ![L'acquisizione schermo mostra le opzioni di avvio automatico per una macchina virtuale.](./media/devtest-lab-set-lab-policy/auto-start.png)
 
 2. Selezionare **Attivo** per abilitare i criteri e **Non attivo** per disabilitarli.
 

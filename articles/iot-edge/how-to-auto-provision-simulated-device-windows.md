@@ -8,16 +8,16 @@ ms.date: 4/3/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 8278d9f2129ab8b213cf1b561f4b82b56dffc8da
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8a31f2739e497d8e203a9806d25b21608e5701f
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82131029"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531475"
 ---
 # <a name="create-and-provision-a-simulated-iot-edge-device-with-a-virtual-tpm-on-windows"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge simulato con un TPM virtuale in Windows
 
-È possibile eseguire il provisioning automatico dei dispositivi Azure IoT Edge usando il [servizio Device provisioning](../iot-dps/index.yml) proprio come i dispositivi non abilitati per Edge. Se non si ha familiarità con il processo di provisioning automatico, vedere [Concetti relativi al provisioning automatico](../iot-dps/concepts-auto-provisioning.md) prima di continuare.
+È possibile eseguire il provisioning automatico dei dispositivi Azure IoT Edge usando il [servizio Device provisioning](../iot-dps/index.yml) proprio come i dispositivi non abilitati per Edge. Se non si ha familiarità con il processo di provisioning automatico, vedere Panoramica del [provisioning](../iot-dps/about-iot-dps.md#provisioning-process) prima di continuare.
 
 DPS supporta l'attestazione della chiave simmetrica per i dispositivi IoT Edge sia nella registrazione singola che nella registrazione di gruppo. Per la registrazione di gruppo, se si seleziona l'opzione "IoT Edge dispositivo" come true nell'attestazione della chiave simmetrica, tutti i dispositivi registrati nel gruppo di registrazioni verranno contrassegnati come IoT Edge dispositivi.
 
@@ -75,7 +75,7 @@ Dopo aver creato la singola registrazione, salvare il valore di **ID registrazio
 
 ## <a name="install-the-iot-edge-runtime"></a>Installare il runtime IoT Edge.
 
-Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. I relativi componenti vengono eseguiti in contenitori e consentono di distribuire altri contenitori al dispositivo in modo che sia possibile eseguire codice nella rete perimetrale.
+Il runtime IoT Edge viene distribuito in tutti i dispositivi IoT Edge. I relativi componenti vengono eseguiti in contenitori e consentono di distribuire altri contenitori al dispositivo in modo che sia possibile eseguire codice nella rete perimetrale.
 
 Quando si esegue il provisioning del dispositivo, sono necessarie le informazioni seguenti:
 

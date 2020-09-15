@@ -3,19 +3,19 @@ title: Aree in cui è disponibile Video Indexer - Azure
 titleSuffix: Azure Media Services
 description: Questo articolo illustra le aree di Azure in cui è disponibile Video Indexer di servizi multimediali di Azure.
 services: media-services
-author: anikaz
-manager: johndeu
+author: Juliako
+manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/08/2020
-ms.author: kumud
-ms.openlocfilehash: dd95f022e40b9ae6fa60a6536a87146049c53b68
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.date: 09/14/2020
+ms.author: juliako
+ms.openlocfilehash: 6ebdb22f50efbefc695f9752c6e6fc333571828c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89565328"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530939"
 ---
 # <a name="azure-regions-in-which-video-indexer-exists"></a>Aree di Azure in cui esiste Video Indexer
 
@@ -23,7 +23,18 @@ Le API di Video Indexer contengono un parametro **location** che è consigliabil
 
 ## <a name="locations"></a>Percorsi
 
-Al `location` parametro deve essere assegnato il nome del codice dell'area di Azure come valore. Se si usa Video Indexer in modalità di anteprima, è necessario inserire `"trial"` come valore. `trial` è il valore predefinito per il `location` parametro. In alternativa, per ottenere il nome del codice dell'area di Azure in cui si trova l'account e a cui deve essere indirizzata la chiamata, è possibile eseguire la riga seguente nell'[interfaccia della riga di comando di Azure](/cli/azure):
+Al `location` parametro deve essere assegnato il nome del codice dell'area di Azure come valore. Se si usa Video Indexer in modalità di anteprima, è necessario inserire `"trial"` come valore. `trial` è il valore predefinito per il `location` parametro. In caso contrario, per ottenere il nome in codice dell'area di Azure in cui si trova l'account e che la chiamata deve essere indirizzata a, è possibile usare il portale di Azure o eseguire un comando dell'interfaccia della riga di comando di [Azure](/cli/azure) .
+
+### <a name="azure-portal"></a>Portale di Azure
+
+1. Accedere al sito Web di [Video Indexer](https://www.videoindexer.ai/).
+1. Selezionare **account utente** nell'angolo superiore destro della pagina.
+1. Trovare il percorso dell'account nell'angolo superiore destro.  
+
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/location/location1.png" alt-text="Posizione":::
+    
+###  <a name="cli-command"></a>Comando dell'interfaccia della riga di comando
 
 ```azurecli-interactive
 az account list-locations

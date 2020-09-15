@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/04/2020
 ms.author: cherylmc
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 2fdc1cd36c037f163b6b04907248e08ef20e961d
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 46ffb5bfe52fe4f398594a1dfed76a6ea6c0fd81
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400025"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530795"
 ---
 # <a name="scenario-route-traffic-through-an-nva"></a>Scenario: indirizzare il traffico attraverso un'appliance virtuale di dispositivo
 
@@ -71,8 +71,8 @@ In questo modo, le route statiche necessarie nella tabella predefinita per invia
 
 | Descrizione | Tabella di route | Route statica              |
 | ----------- | ----------- | ------------------------- |
-| VNet 2       | Predefinito     | 10.2.0.0/16-> eastusconn |
-| VNet 4       | Predefinito     | 10.4.0.0/16-> weconn     |
+| VNet 2       | Impostazione predefinita     | 10.2.0.0/16-> eastusconn |
+| VNet 4       | Impostazione predefinita     | 10.4.0.0/16-> weconn     |
 
 A questo punto, la rete WAN virtuale sa a quale connessione inviare i pacchetti, ma la connessione deve sapere cosa fare quando ricevono i pacchetti: qui vengono usate le tabelle della route di connessione. Qui verranno usati i prefissi più brevi (/24 anziché più a lungo/16) per assicurarsi che queste route abbiano la preferenza sulle route importate dall'appliance virtuale di reti virtuali (VNet 2 e VNet 4):
 
@@ -112,6 +112,8 @@ Per configurare il routing tramite appliance virtuale di sistema, ecco i passagg
    * Da VNet 7 e VNet 8 a VNet 4 appliance virtuale di dispositivo virtuale 
    
    Non è necessario connettere direttamente reti virtuali 5, 6, 7 e 8 agli hub virtuali. Assicurarsi che gruppi in reti virtuali 5, 6, 7, 8 consentano il traffico per Branch (VPN/ER/P2S) o reti virtuali connesso al reti virtuali remoto. Ad esempio, reti virtuali 5, 6 deve garantire che gruppi consenta il traffico per i prefissi degli indirizzi locali e reti virtuali 7, 8 connessi all'Hub remoto 2.
+
+La rete WAN virtuale non supporta uno scenario in cui reti virtuali 5, 6 si connettono all'hub virtuale e comunicano tramite l'IP di VNet 2. quindi, la necessità di connettere reti virtuali 5, 6 a VNet2 e in modo analogo VNet 7, 8 a VNet 4.
 
 2. Aggiungere una voce di route statica aggregata per reti virtuali 2, 5, 6 alla tabella di route predefinita dell'hub 1.
 

@@ -6,13 +6,13 @@ ms.author: makromer
 ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
-ms.date: 10/21/2019
-ms.openlocfilehash: aacec8830948e08f66d71da88897670f7ef43788
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/14/2020
+ms.openlocfilehash: c6a2d38644d844cb1231a24465478b7f70a85111
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606129"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531151"
 ---
 # <a name="using-column-patterns-in-mapping-data-flow"></a>Utilizzo di modelli di colonna nel flusso di dati di mapping
 
@@ -27,17 +27,17 @@ I criteri di colonna sono attualmente disponibili nelle trasformazioni Colonna d
 
 ## <a name="column-patterns-in-derived-column-and-aggregate"></a>Modelli di colonna in colonna derivata e aggregazione
 
-Per aggiungere un modello di colonna in una colonna derivata o nella scheda Aggregazioni di una trasformazione aggregazione, fare clic sull'icona a forma di segno più a destra di una colonna esistente. Selezionare **Aggiungi modello di colonna**. 
+Per aggiungere un modello di colonna in una colonna derivata, un'aggregazione o una trasformazione finestra, fare clic su **Aggiungi** sopra l'elenco di colonne o sull'icona a forma di segno più accanto a una colonna derivata esistente. Scegliere **Aggiungi modello di colonna**.
 
-![modelli di colonna](media/data-flow/columnpattern.png "Criteri delle colonne")
+![modelli di colonna](media/data-flow/add-column-pattern.png "Criteri delle colonne")
 
 Utilizzare il [Generatore di espressioni](concepts-data-flow-expression-builder.md) per immettere la condizione di corrispondenza. Creare un'espressione booleana che corrisponda alle colonne basate su `name` , `type` , `stream` e `position` della colonna. Il criterio influirà su qualsiasi colonna, a cui viene applicata la deviazione o definita, in cui la condizione restituisce true.
 
 Le due caselle di espressione sotto la condizione di corrispondenza specificano i nuovi nomi e i nuovi valori delle colonne interessate. Usare `$$` per fare riferimento al valore esistente del campo corrispondente. Nella casella espressione a sinistra viene definito il nome e la casella espressione a destra definisce il valore.
 
-![modelli di colonna](media/data-flow/columnpattern2.png "Criteri delle colonne")
+![modelli di colonna](media/data-flow/edit-column-pattern.png "Criteri delle colonne")
 
-Il modello di colonna precedente corrisponde a ogni colonna di tipo Double e crea una colonna di aggregazione per ogni corrispondenza. Il nome della nuova colonna è il nome della colonna corrispondente concatenato con "_total". Il valore della nuova colonna è costituito dalla somma aggregata arrotondata del valore Double esistente.
+Il modello di colonna precedente corrisponde a ogni colonna di tipo Double e crea una colonna derivata per ogni corrispondenza. Indicando `$$` come campo nome colonna, ogni colonna corrispondente viene aggiornata con lo stesso nome. Il valore di ogni colonna è il valore esistente arrotondato a due punti decimali.
 
 Per verificare che la condizione di corrispondenza sia corretta, è possibile convalidare lo schema di output delle colonne definite nella scheda **Controlla** oppure ottenere uno snapshot dei dati nella scheda **Anteprima dati** . 
 
@@ -73,15 +73,15 @@ Se la proiezione definita dispone di una gerarchia, è possibile utilizzare il m
 
 ![mapping basato su regole](media/data-flow/rule-based-hierarchy.png "mapping basato su regole")
 
-L'esempio precedente corrisponde a tutte le sottocolonne della colonna complessa `a` . `a`contiene due sottocolonne `b` e `c` . Lo schema di output includerà due colonne `b` e `c` la condizione ' name As ' sarà `$$` .
+L'esempio precedente corrisponde a tutte le sottocolonne della colonna complessa `a` . `a` contiene due sottocolonne `b` e `c` . Lo schema di output includerà due colonne `b` e `c` la condizione ' name As ' sarà `$$` .
 
 ## <a name="pattern-matching-expression-values"></a>Criteri di ricerca dei valori di espressione.
 
-* `$$`viene convertito nel nome o nel valore di ogni corrispondenza in fase di esecuzione
-* `name`rappresenta il nome di ogni colonna in ingresso
-* `type`rappresenta il tipo di dati di ogni colonna in ingresso
-* `stream`rappresenta il nome associato a ogni flusso o trasformazione nel flusso
-* `position`posizione ordinale delle colonne nel flusso di dati
+* `$$` viene convertito nel nome o nel valore di ogni corrispondenza in fase di esecuzione
+* `name` rappresenta il nome di ogni colonna in ingresso
+* `type` rappresenta il tipo di dati di ogni colonna in ingresso
+* `stream` rappresenta il nome associato a ogni flusso o trasformazione nel flusso
+* `position` posizione ordinale delle colonne nel flusso di dati
 
 ## <a name="next-steps"></a>Passaggi successivi
 * Altre informazioni sul [linguaggio delle espressioni](data-flow-expression-functions.md) del flusso di dati di mapping per le trasformazioni dei dati

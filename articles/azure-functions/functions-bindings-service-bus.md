@@ -6,23 +6,27 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 46660a0c8d20ab82c994a62b1c781108ea1070c1
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 5e15dfec049197fa056cbd55fd839b3eb93be77c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86111202"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530370"
 ---
 # <a name="azure-service-bus-bindings-for-azure-functions"></a>Associazioni del bus di servizio di Azure per Funzioni di Azure
 
 Funzioni di Azure si integra con il [bus di servizio di Azure](https://azure.microsoft.com/services/service-bus) tramite [trigger e associazioni](./functions-triggers-bindings.md). L'integrazione con il bus di servizio consente di compilare funzioni che reagiscono e inviano messaggi di coda o di argomento.
 
-| Action | Type |
+| Action | Tipo |
 |---------|---------|
 | Esegue una funzione quando viene creato un messaggio di coda o argomento del bus di servizio | [Trigger](./functions-bindings-service-bus-trigger.md) |
 | Inviare messaggi del bus di servizio di Azure |[Binding di output](./functions-bindings-service-bus-output.md) |
 
 ## <a name="add-to-your-functions-app"></a>Aggiungi all'app funzioni
+
+> [!NOTE]
+> L'associazione del bus di servizio non supporta attualmente l'autenticazione tramite un'identità gestita. Usare invece una firma di [accesso condiviso del bus di servizio](../service-bus-messaging/service-bus-authentication-and-authorization.md#shared-access-signature).
 
 ### <a name="functions-2x-and-higher"></a>Funzioni 2.x e versioni successive
 

@@ -9,16 +9,16 @@ ms.date: 04/09/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: e01255a34e97f6c11e4909287b98fcd3d15fca92
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: dbd4a80c0f480e51ce7ec248c3b5d3dc523e9d74
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669042"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530744"
 ---
 # <a name="create-and-provision-an-iot-edge-device-using-x509-certificates"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge usando certificati X. 509
 
-Con il [servizio Device provisioning in hub Azure (DPS)](../iot-dps/index.yml), è possibile effettuare automaticamente il provisioning dei dispositivi IOT Edge usando i certificati X. 509. Se non si ha familiarità con il processo di provisioning automatico, vedere [Concetti relativi al provisioning automatico](../iot-dps/concepts-auto-provisioning.md) prima di continuare.
+Con il [servizio Device provisioning in hub Azure (DPS)](../iot-dps/index.yml), è possibile effettuare automaticamente il provisioning dei dispositivi IOT Edge usando i certificati X. 509. Se non si ha familiarità con il processo di provisioning automatico, vedere Panoramica del [provisioning](../iot-dps/about-iot-dps.md#provisioning-process) prima di continuare.
 
 Questo articolo illustra come creare una registrazione del servizio Device provisioning usando i certificati X. 509 in un dispositivo IoT Edge con i passaggi seguenti:
 

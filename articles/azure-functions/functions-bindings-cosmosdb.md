@@ -1,17 +1,17 @@
 ---
 title: Associazioni di Azure Cosmos DB per Funzioni 1.x
-description: Informazioni su come usare trigger e associazioni di Azure Cosmos DB in Funzioni di Azure.
+description: Informazioni su come usare trigger e associazioni di Azure Cosmos DB in funzioni di Azure 1. x.
 author: craigshoemaker
 ms.author: cshoe
 ms.topic: reference
 ms.date: 11/21/2017
 ms.custom: devx-track-csharp, seodec18
-ms.openlocfilehash: 8ae7613eea4b952c079be90b05e615087ea80a32
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 9ae3ef133fa1b246c09fe0a9aa4ec27b0f75fd19
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88214153"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531577"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-1x"></a>Associazioni di Azure Cosmos DB per Funzioni di Azure 1.x
 

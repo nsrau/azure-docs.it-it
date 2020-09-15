@@ -7,12 +7,12 @@ ms.date: 02/26/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: b008c4ebc83200043d51fc8ef367f1983c549949
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 50e8dfd2998b50bfff7341e49ac4d0770c115166
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74973442"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530863"
 ---
 # <a name="how-to-do-proof-of-possession-for-x509-ca-certificates-with-your-device-provisioning-service"></a>Come eseguire una verifica del possesso per certificati della CA X.509 con il servizio Device Provisioning
 
@@ -23,7 +23,7 @@ La verifica del possesso prevede i passaggi seguenti:
 2. Creare un certificato di verifica X.509 con il codice di verifica come oggetto e firmare il certificato con la chiave privata associata al certificato della CA X.509 stesso.
 3. Caricare il certificato di verifica firmato nel servizio. Il servizio convalida il certificato di verifica usando la parte pubblica del certificato della CA da verificare, dimostrando quindi che l'utente è in possesso della chiave privata del certificato.
 
-I certificati verificati svolgono un ruolo importante nell'uso dei gruppi di registrazione. La verifica della proprietà dei certificati costituisce un livello di sicurezza aggiuntivo che garantisce che l'autore del caricamento del certificato è in possesso della chiave privata del certificato stesso. La verifica impedisce a un attore malintenzionato di effettuare l'hijack dei dispositivi intercettando il traffico tramite l'estrazione di un certificato intermedio e usando tale certificato per creare un gruppo di registrazione nel proprio servizio di provisioning. Dimostrando la proprietà della radice o di un certificato intermedio in una catena di certificati, si dimostra di avere l'autorizzazione a generare certificati foglia per i dispositivi che verranno registrati come appartenenti a tale gruppo di registrazione. Per questo motivo, la radice o il certificato intermedio configurato in un gruppo di registrazione deve essere un certificato verificato oppure deve fare riferimento a un certificato verificato nella catena di certificati presentata da un dispositivo quando esegue l'autenticazione con il servizio. Per altre informazioni sui gruppi di registrazione, vedere [Certificati X.509](concepts-security.md#x509-certificates) e [Controllo dell'accesso dei dispositivi al servizio di provisioning con certificati X.509](concepts-security.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
+I certificati verificati svolgono un ruolo importante nell'uso dei gruppi di registrazione. La verifica della proprietà dei certificati costituisce un livello di sicurezza aggiuntivo che garantisce che l'autore del caricamento del certificato è in possesso della chiave privata del certificato stesso. La verifica impedisce a un attore malintenzionato di effettuare l'hijack dei dispositivi intercettando il traffico tramite l'estrazione di un certificato intermedio e usando tale certificato per creare un gruppo di registrazione nel proprio servizio di provisioning. Dimostrando la proprietà della radice o di un certificato intermedio in una catena di certificati, si dimostra di avere l'autorizzazione a generare certificati foglia per i dispositivi che verranno registrati come appartenenti a tale gruppo di registrazione. Per questo motivo, la radice o il certificato intermedio configurato in un gruppo di registrazione deve essere un certificato verificato oppure deve fare riferimento a un certificato verificato nella catena di certificati presentata da un dispositivo quando esegue l'autenticazione con il servizio. Per altre informazioni sull'attestazione del certificato X. 509, vedere [certificati x. 509](concepts-x509-attestation.md) e [controllo dell'accesso dei dispositivi al servizio di provisioning con certificati x. 509](concepts-x509-attestation.md#controlling-device-access-to-the-provisioning-service-with-x509-certificates).
 
 ## <a name="register-the-public-part-of-an-x509-certificate-and-get-a-verification-code"></a>Registrare la parte pubblica di un certificato X.509 e ottenere un codice di verifica
 
@@ -44,7 +44,7 @@ Per registrare un certificato della CA con il servizio di provisioning e ottener
 
 7. Il servizio di provisioning crea un **codice di verifica** che è possibile usare per convalidare la proprietà del certificato. Copiare il codice negli Appunti. 
 
-   ![Verificare il certificato](./media/how-to-verify-certificates/verify-cert.png)  
+   ![Verifica il certificato](./media/how-to-verify-certificates/verify-cert.png)  
 
 ## <a name="digitally-sign-the-verification-code-to-create-a-verification-certificate"></a>Firmare digitalmente il codice di verifica per creare un certificato di verifica
 

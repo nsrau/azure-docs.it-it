@@ -10,12 +10,12 @@ ms.subservice: computer-vision
 ms.topic: conceptual
 ms.date: 04/17/2019
 ms.author: pafarley
-ms.openlocfilehash: 1e4dfb399432278ee09d1c016faae8fd3b584647
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 844ef8c09f10e1df888ef4990db22be8705d5c01
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318047"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530200"
 ---
 # <a name="language-support-for-computer-vision"></a>Supporto delle lingue per Visione artificiale
 
@@ -40,7 +40,7 @@ Le API OCR di Visione artificiale supportano diverse lingue. Non è necessario s
 |Greco | `el` |✔ | | |
 |Ungherese | `hu` |✔ | | |
 |Italiano | `it` |✔ |✔ |✔ |
-|Giapponese | `ja` |✔ | | |
+|Giapponese | `ja` |✔ | |✔ |
 |Coreano | `ko` |✔ | | |
 |Norvegese | `nb` |✔ | | |
 |Polacco | `pl` |✔ | | |

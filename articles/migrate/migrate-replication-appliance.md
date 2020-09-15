@@ -3,12 +3,12 @@ title: Appliance di replica Azure Migrate
 description: Informazioni sull'appliance di replica di Azure Migrate per la migrazione VMWare basata su agenti.
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 8149613effc4519638cc9b80f7894874ef3eafe3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: af9e45e47c2f0645d81a571161f15f7d69cfec61
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86122099"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532121"
 ---
 # <a name="replication-appliance"></a>Appliance di replica
 
@@ -58,10 +58,10 @@ TLS | TLS 1,2 deve essere abilitato.
 MySQL | MySQL deve essere installato nell'appliance.<br/> MySQL deve essere installato. È possibile eseguire l'installazione manualmente oppure Site Recovery possibile installarla durante la distribuzione dell'appliance.
 Altre app | Non eseguire altre app nell'appliance di replica.
 Ruoli di Windows Server | Non abilitare questi ruoli: <br> - Active Directory Domain Services <br>- Internet Information Services <br> - Hyper-V
-Criteri di gruppo | Non abilitare questi criteri di gruppo: <br> - Impedisci accesso al prompt dei comandi <br> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br> - Logica di attendibilità per file allegati <br> - Attiva l'esecuzione di script <br> [Scopri di più](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))
+Criteri di gruppo | Non abilitare questi criteri di gruppo: <br> - Impedisci accesso al prompt dei comandi <br> - Impedisci accesso agli strumenti di modifica del Registro di sistema <br> - Logica di attendibilità per file allegati <br> - Attiva l'esecuzione di script <br> [Altre informazioni](/previous-versions/windows/it-pro/windows-7/gg176671(v=ws.10))
 IIS | - Nessun sito Web predefinito preesistente <br> - Nessun sito Web o applicazione preesistente in ascolto sulla porta 443 <br>- Abilitare l'[autenticazione anonima](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc731244(v=ws.10)) <br> - Abilitare l'impostazione di [FastCGI](/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc753077(v=ws.10))
 **Impostazioni di rete** |
-Tipo di indirizzo IP | Statico
+Tipo di indirizzo IP | Static
 Porte | 443 (orchestrazione del canale di controllo)<br>9443 (trasporto dei dati)
 Tipo di scheda di interfaccia di rete | VMXNET3
 
@@ -129,7 +129,7 @@ Server di elaborazione | Il server di elaborazione riceve i dati di replica, li 
     - Il server di elaborazione riceve i dati di replica, li ottimizza e li crittografa e li invia ad archiviazione di Azure tramite la porta 443 in uscita.
 5. I dati di replica registrano il primo terreno in un account di archiviazione della cache in Azure. Questi log vengono elaborati e i dati vengono archiviati in un disco gestito di Azure.
 
-![Architecture](./media/migrate-replication-appliance/architecture.png)
+![Il diagramma mostra l'architettura del processo di replica.](./media/migrate-replication-appliance/architecture.png)
 
 ## <a name="appliance-upgrades"></a>Aggiornamenti dell'appliance
 

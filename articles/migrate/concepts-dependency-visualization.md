@@ -2,13 +2,13 @@
 title: Analisi delle dipendenze in Azure Migrate server Assessment
 description: Viene descritto come utilizzare l'analisi delle dipendenze per la valutazione utilizzando Azure Migrate server assessment.
 ms.topic: conceptual
-ms.date: 06/14/2020
-ms.openlocfilehash: 386a8cefce722c4bff09e2a7fe6d25957630ff61
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.date: 09/15/2020
+ms.openlocfilehash: a284d549f13595e0ce8a5d06cc017602e559b648
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118801"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530251"
 ---
 # <a name="dependency-analysis"></a>Analisi delle dipendenze
 
@@ -31,7 +31,7 @@ Sono disponibili due opzioni per la distribuzione dell'analisi delle dipendenze
 **Opzione** | **Dettagli** | **Cloud pubblico** | **Azure per enti pubblici**
 ----  |---- | ---- 
 **Senza agente** | Esegue il polling di dati da macchine virtuali VMware usando le API di vSphere.<br/><br/> Non è necessario installare gli agenti nelle macchine virtuali.<br/><br/> Questa opzione è attualmente in anteprima, solo per le macchine virtuali VMware. | Supportata. | Supportata.
-**Analisi basata su agenti** | Usa la [soluzione mapping dei servizi](../azure-monitor/insights/service-map.md) in monitoraggio di Azure per abilitare la visualizzazione e l'analisi delle dipendenze.<br/><br/> È necessario installare gli agenti in ogni computer locale che si vuole analizzare. | Supportato | Non supportato.
+**Analisi basata su agenti** | Usa la [soluzione mapping dei servizi](../azure-monitor/insights/service-map.md) in monitoraggio di Azure per abilitare la visualizzazione e l'analisi delle dipendenze.<br/><br/> È necessario installare gli agenti in ogni computer locale che si vuole analizzare. | Supportato | Non supportata.
 
 
 ## <a name="agentless-analysis"></a>Analisi senza agenti
@@ -75,7 +75,7 @@ Le differenze tra la visualizzazione senza agente e la visualizzazione basata su
 --- | --- | ---
 **Supporto** | In anteprima solo per le macchine virtuali VMware. [Esaminare](migrate-support-matrix-vmware.md#dependency-analysis-requirements-agentless) i sistemi operativi supportati. | In disponibilità generale (GA).
 **Agent** | Non sono necessari agenti nei computer che si vuole analizzare. | Agenti necessari in ogni computer locale che si vuole analizzare.
-**Log Analytics** | Non obbligatorio. | Azure Migrate usa la soluzione [mapping dei servizi](../azure-monitor/insights/service-map.md) nei [log di monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md) per l'analisi delle dipendenze. 
+**Log Analytics** | Non obbligatorio. | Azure Migrate usa la soluzione [mapping dei servizi](../azure-monitor/insights/service-map.md) nei [log di monitoraggio di Azure](../azure-monitor/log-query/log-query-overview.md) per l'analisi delle dipendenze.<br/><br/> Associare un'area di lavoro Log Analytics a un progetto Azure Migrate. L'area di lavoro deve trovarsi nelle aree Stati Uniti orientali, Asia sud-orientale o Europa occidentale. L'area di lavoro deve trovarsi in una regione in cui la soluzione [Mapping dei servizi](../azure-monitor/insights/vminsights-configure-workspace.md#supported-regions) è supportata.
 **Processo** | Acquisisce i dati di connessione TCP. Dopo l'individuazione, raccoglie i dati a intervalli di cinque minuti. | Mapping dei servizi agenti installati in un computer raccolgono i dati relativi ai processi TCP e alle connessioni in ingresso/in uscita per ogni processo.
 **Dati** | Nome del server del computer di origine, processo, nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta. | Nome del server del computer di origine, processo, nome dell'applicazione.<br/><br/> Nome del server del computer di destinazione, processo, nome dell'applicazione e porta.<br/><br/> Il numero di connessioni, la latenza e le informazioni sul trasferimento dei dati sono raccolte e disponibili per Log Analytics query. 
 **Visualizzazione** | La mappa delle dipendenze di un singolo server può essere visualizzata per una durata di un'ora a 30 giorni. | Mappa delle dipendenze di un singolo server.<br/><br/> Mappa delle dipendenze di un gruppo di server.<br/><br/>  La mappa può essere visualizzata solo in un'ora.<br/><br/> Aggiungere e rimuovere i server in un gruppo dalla vista mappa.

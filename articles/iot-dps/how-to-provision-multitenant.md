@@ -7,16 +7,16 @@ ms.date: 04/10/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: e0dec0a67ed33186797ccec8066aaad89ceb8dcb
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bcdda8d1bd08a26dcdbec294be88fd4540670596
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75434747"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531424"
 ---
 # <a name="how-to-provision-for-multitenancy"></a>Come effettuare il provisioning per la multi-tenancy 
 
-I criteri di allocazione definiti dal servizio di provisioning supportano una vasta gamma di scenari di allocazione. Due scenari comuni sono:
+Questo articolo illustra come eseguire il provisioning sicuro di più dispositivi chiave simmetrica in un gruppo di hub Internet con [criteri di allocazione](concepts-service.md#allocation-policy). I criteri di allocazione definiti dal servizio di provisioning supportano un'ampia gamma di scenari di allocazione. Due scenari comuni sono:
 
 * **Georilevazione/GeoLatency**: quando un dispositivo si sposta tra le posizioni, la latenza della rete viene migliorata effettuando il provisioning del dispositivo sull'hub IoT più vicino a ogni posizione. In questo scenario per le registrazioni viene selezionato un gruppo di hub IoT, che si estendono su più aree geografiche. Per queste registrazioni il criterio di allocazione selezionato è **Latenza più bassa**. Questo criterio fa sì che il servizio Device Provisioning valuti la latenza del dispositivo e determini l'hub IoT più vicino tra quelli all'interno del gruppo. 
 
@@ -83,7 +83,7 @@ In questa sezione si userà Azure Cloud Shell per creare due nuovi hub IoT a liv
 
 In questa sezione si creerà un nuovo gruppo di registrazione per i dispositivi tenant.  
 
-Per semplicità, in questo articolo viene usata l'[attestazione con chiave simmetrica](concepts-symmetric-key-attestation.md) per la registrazione. Per una soluzione più sicura è consigliabile usare l'[attestazione del certificato X.509](concepts-security.md#x509-certificates) con una catena di certificati.
+Per semplicità, in questo articolo viene usata l'[attestazione con chiave simmetrica](concepts-symmetric-key-attestation.md) per la registrazione. Per una soluzione più sicura è consigliabile usare l'[attestazione del certificato X.509](concepts-x509-attestation.md) con una catena di certificati.
 
 1. Accedere al [portale di Azure](https://portal.azure.com) e aprire l'istanza del servizio Device Provisioning.
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.author: sukishen
-ms.openlocfilehash: b9bb3691901d551f63592bee60adec913ee437ca
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: b0b2e4953d135176fcebab59c040dbf162bc5cb8
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029648"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531186"
 ---
 # <a name="about-azure-networking-msp-partners"></a>Informazioni sui partner MSP di rete di Azure
 
@@ -56,7 +56,7 @@ Usare i collegamenti in questa sezione per altre informazioni sui servizi di ret
 |[Vigilant IT](https://vigilant.it/manage-cloud-service/)|[Controllo integrità Azure: valutazione di 5 giorni](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.ahc01)|[ExpressRoute: Implementazione di 5 giorni](https://azuremarketplace.microsoft.com/en-us/marketplace/consulting-services/vigilant-it.erd01)|||
 |[Vandis](https://www.vandis.com/microsoft-azure-practice/)||[ExpressRoute gestito Vandis](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_expressroute?tab=Overview)|[Rete WAN virtuale gestita Vandis con tecnologia Fortinet](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_fortinet?tab=Overview); [Rete WAN virtuale gestita Vandis con tecnologia con tecnologia Palo Alto Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/vandis.vandis_managed_vwan_powered_by_palo_alto_networks?tab=Overview)|
 
-Le offerte di Azure Marketplace per ExpressRoute gestiti, WAN virtuale, servizi di sicurezza e servizi di zona Edge privati dai seguenti partner MSP di rete di Azure sono disponibili nella roadmap: [Amdocs](https://www.amdocs.com/);  [Deutsche Telekom](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406);  [IX REACH](https://www.ixreach.com/services/sdn-cloud-connect/);  [Intercloud](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [OmniClouds](https://omniclouds.com/); [Sistema aperto](https://open-systems.com/solutions/cloud-enablement/); [Servizi aziendali Orange](https://www.orange-business.com/en/partners/orange-business-services-become-microsoft-azure-networking-managed-services-provider); [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)
+Le offerte di Azure Marketplace per ExpressRoute gestiti, WAN virtuale, servizi di sicurezza e servizi di zona Edge privati dai seguenti partner MSP di rete di Azure sono disponibili nella roadmap: [Amdocs](https://www.amdocs.com/);  [Deutsche Telekom](https://www.telekom.com/en/media/media-information/archive/deutsche-telekom-offers-managed-network-services-for-microsoft-azure-598406);  [IX REACH](https://www.ixreach.com/services/sdn-cloud-connect/);  [Intercloud](https://intercloud.com/partners/microsoft-azure/);  [KINX](https://www.kinx.net/service/cloud/?lang=en); [OmniClouds](https://omniclouds.com/); [OpenSystems](https://open-systems.com/solutions/microsoft-azure-virtual-wan); [Servizi aziendali Orange](https://www.orange-business.com/en/partners/orange-business-services-become-microsoft-azure-networking-managed-services-provider); [Sejong Telecom](https://www.sejongtelecom.net/en/pages/service/cloud_ms)
 
 ## <a name="expressroute-partners"></a><a name="expressroute"></a>Partner ExpressRoute
 

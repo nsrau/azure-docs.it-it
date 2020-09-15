@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/31/2020
-ms.openlocfilehash: 3621d0c22aa6f35fc845f449d07bce8dcf0ba1fa
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 8749b64b664571abab6f354018dcbd2bd797531e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461885"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531220"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Integrazione e recapito continui in Azure Data Factory
 
@@ -639,7 +639,7 @@ Se si usa l'integrazione di Git con la data factory e si dispone di una pipeline
 
 -   **Insieme di credenziali delle chiavi**. Quando si usano servizi collegati le cui informazioni di connessione vengono archiviate in Azure Key Vault, è consigliabile conservare insiemi di credenziali delle chiavi separati per ambienti diversi. È anche possibile configurare i livelli di autorizzazione separati per ogni insieme di credenziali delle chiavi. Ad esempio, è possibile che non si voglia che i membri del team siano autorizzati ad accedere ai segreti di produzione. Se si segue questo approccio, è consigliabile mantenere gli stessi nomi dei segreti in tutte le fasi. Se si mantengono gli stessi nomi dei segreti, non è necessario parametrizzare ogni stringa di connessione negli ambienti CI/CD, perché l'unica cosa che cambia è il nome dell'insieme di credenziali delle chiavi, che è un parametro separato.
 
--  **Denominazione delle risorse** Do to ARM template Constraint, possono verificarsi problemi di distribuzione se le risorse contengono spazi nel nome. Il team di Azure Data Factory consiglia di usare caratteri ' _' o '-' anziché spazi per le risorse. Ad esempio,' Pipeline_1' potrebbe essere un nome preferibile rispetto a' pipeline 1'.
+-  **Denominazione delle risorse** A causa dei vincoli del modello ARM, è possibile che si verifichino problemi di distribuzione se le risorse contengono spazi nel nome. Il team di Azure Data Factory consiglia di usare caratteri ' _' o '-' anziché spazi per le risorse. Ad esempio,' Pipeline_1' potrebbe essere un nome preferibile rispetto a' pipeline 1'.
 
 ## <a name="unsupported-features"></a>Funzionalità non supportate
 

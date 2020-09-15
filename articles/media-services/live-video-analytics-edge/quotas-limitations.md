@@ -1,14 +1,14 @@
 ---
-title: Analisi video in tempo reale sulle quote di IoT Edge-Azure
+title: Analisi video in tempo reale su IoT Edge quote e limitazioni-Azure
 description: Questo articolo descrive le analisi video in tempo reale su IoT Edge quote e limitazioni.
 ms.topic: conceptual
 ms.date: 05/22/2020
-ms.openlocfilehash: 32a24079b36655bfdacd25b07d419009f5012507
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: df1978de4ee1bbbe15d0df3b02a70fb51491e9d2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88750236"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90529231"
 ---
 # <a name="quotas-and-limitations"></a>Quote e limitazioni
 
@@ -40,7 +40,7 @@ Con la versione di anteprima, è possibile connettere in una topologia del grafi
    * Non può essere upstream da un processore di rilevamento del movimento.
 * Processore di estensione HTTP
    * Può essere presente al massimo un processore per ogni topologia Graph.
-* processore di estensione gRPC
+* Processore di estensione gRPC
    * Può essere presente al massimo un processore per ogni topologia Graph.
 * Processore rilevamento movimento
    * Deve essere immediatamente a valle dall'origine RTSP.
@@ -66,6 +66,10 @@ Al momento della versione di anteprima, l'analisi video live su IoT Edge non sup
 * Possibilità di usare più di un account di archiviazione con l'account del servizio multimediale.
 * Possibilità di modificare le informazioni sull'entità servizio nelle proprietà desiderate del modulo in modo dinamico, senza un riavvio.
 
+È possibile utilizzare solo le fotocamere IP che supportano il protocollo RTSP. È possibile trovare videocamere IP che supportano RTSP nella pagina dei [prodotti conformi a ONVIF](https://www.onvif.org/conformant-products). Cercare dispositivi conformi ai profili G, S o T.
+
+Inoltre, è necessario configurare queste fotocamere per l'uso di video H. 264 e audio AAC. Non sono attualmente supportati altri codec. 
+
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Overview](overview.md)
+[Panoramica](overview.md)

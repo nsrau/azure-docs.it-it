@@ -1,18 +1,18 @@
 ---
 title: Configurazione di intelligence per le minacce di Azure firewall
-description: I filtri basati sull'intelligence per le minacce possono essere abilitati per il firewall per la creazione di avvisi e il rifiuto del traffico da o verso indirizzi IP e domini dannosi noti.
+description: Informazioni su come configurare il filtro basato su Intelligence per le minacce per i criteri del firewall di Azure per segnalare e negare il traffico da e verso domini e indirizzi IP dannosi noti.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: article
 ms.date: 06/30/2020
 ms.author: victorh
-ms.openlocfilehash: 136ceeb271bec29bdbfc4572626936ee67f05556
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a663c5f3bcf3492c4a9bc74fe93c6ed6a86137ee
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85567702"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530642"
 ---
 # <a name="azure-firewall-threat-intelligence-configuration"></a>Configurazione di intelligence per le minacce di Azure firewall
 

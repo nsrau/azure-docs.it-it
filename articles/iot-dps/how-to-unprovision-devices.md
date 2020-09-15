@@ -7,12 +7,12 @@ ms.date: 05/11/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: efd19d9dc1fdc857a51d7af34c54bbe2d6077767
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 5683d40e9565068c6cd79eedb08b036eab2c54cd
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294391"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531390"
 ---
 # <a name="how-to-deprovision-devices-that-were-previously-auto-provisioned"></a>Come eseguire il deprovisioning di dispositivi di cui in precedenza è stato eseguito il provisioning automatico 
 
@@ -43,7 +43,7 @@ Per effettuare il deprovisioning di un dispositivo associato a una registrazione
 
 
 ## <a name="enrollment-groups"></a>Gruppi di registrazioni
-Con l'attestazione X.509, il provisioning dei dispositivi può essere effettuato anche tramite un gruppo di registrazione. I gruppi di registrazione sono configurati con un certificato di firma, che può essere un certificato intermedio o CA radice, e autorizzano l'accesso al servizio di provisioning solo ai dispositivi che dispongono di tale certificato nella rispettiva catena di certificati. Per altre informazioni sulla registrazione dei gruppi e dei certificati X.509 con il servizio di provisioning, vedere [Certificati X.509](concepts-security.md#x509-certificates). 
+Con l'attestazione X.509, il provisioning dei dispositivi può essere effettuato anche tramite un gruppo di registrazione. I gruppi di registrazione sono configurati con un certificato di firma, che può essere un certificato intermedio o CA radice, e autorizzano l'accesso al servizio di provisioning solo ai dispositivi che dispongono di tale certificato nella rispettiva catena di certificati. Per altre informazioni sui gruppi di registrazione e i certificati X. 509 con il servizio di provisioning, vedere [attestazione del certificato x. 509](concepts-x509-attestation.md). 
 
 Per visualizzare l'elenco dei dispositivi di cui è stato effettuato il provisioning tramite un gruppo di registrazione, è possibile visualizzare i dettagli del gruppo di registrazione. In questo modo, è possibile capire facilmente in quale hub IoT è stato effettuato il provisioning di ogni dispositivo. Per visualizzare l'elenco dei dispositivi: 
 

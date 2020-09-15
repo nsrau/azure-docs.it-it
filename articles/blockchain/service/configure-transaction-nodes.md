@@ -4,12 +4,12 @@ description: Come configurare i nodi delle transazioni del servizio blockchain d
 ms.date: 11/20/2019
 ms.topic: how-to
 ms.reviewer: janders
-ms.openlocfilehash: 90836ad94410dfec5caa32275362f1407c9f5b1a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b3a4650977f1ad1a7a6967daa162adc8d2ef7bff
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85212565"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530387"
 ---
 # <a name="configure-azure-blockchain-service-transaction-nodes"></a>Configurare i nodi delle transazioni del servizio blockchain di Azure
 
@@ -52,7 +52,7 @@ Per visualizzare i dettagli dell'endpoint di un nodo di transazione:
 
 1. Nella portale di Azure passare a uno dei nodi di transazione membro del servizio Azure blockchain e selezionare **Panoramica**.
 
-    ![Endpoint](./media/configure-transaction-nodes/endpoints.png)
+    ![L'acquisizione schermo mostra la panoramica dei nodi di transazione per un membro di blockchain.](./media/configure-transaction-nodes/endpoints.png)
 
 Gli endpoint del nodo di transazione sono protetti e richiedono l'autenticazione. È possibile connettersi a un endpoint di transazione usando l'autenticazione Azure AD, l'autenticazione di base HTTPS e usando una chiave di accesso su HTTPS o WebSocket su TLS.
 

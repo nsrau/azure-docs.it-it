@@ -7,12 +7,12 @@ ms.date: 08/06/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: c2bbfcb4832adba767750256a25c378356cf4c23
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: fbcb3656bc824e2fd352f92314652bd04167b4d8
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89299265"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531407"
 ---
 # <a name="how-to-roll-x509-device-certificates"></a>Come rinnovare i certificati X.509 dei dispositivi
 
@@ -20,14 +20,14 @@ Durante il ciclo di vita di una soluzione IoT, è necessario rinnovare i certifi
 
 Il rinnovo dei certificati è una procedura consigliata per la sicurezza che consente di proteggere il sistema in caso di violazione. Come parte della [metodologia di presunzione delle violazioni](https://download.microsoft.com/download/C/1/9/C1990DBA-502F-4C2A-848D-392B93D9B9C3/Microsoft_Enterprise_Cloud_Red_Teaming.pdf), Microsoft sostiene che, parallelamente alle misure preventive, sia necessario mettere in atto processi di sicurezza reattivi. In questi processi di sicurezza deve essere incluso anche il rinnovo dei certificati dei dispositivi. La frequenza di rinnovo dei certificati dipende dalle esigenze di sicurezza della soluzione in uso. I clienti di soluzioni con dati altamente sensibili potrebbero rinnovare i certificati ogni giorno, mentre altri potrebbero rinnovarli ogni due anni.
 
-Il rinnovo dei certificati dei dispositivi comporta l'aggiornamento del certificato archiviato nel dispositivo e dell'hub IoT. Al termine dell'aggiornamento, il dispositivo può procedere a un nuovo provisioning nell'hub IoT usando la normale funzione di [provisioning automatico](concepts-auto-provisioning.md) con il servizio Device Provisioning.
+Il rinnovo dei certificati dei dispositivi comporta l'aggiornamento del certificato archiviato nel dispositivo e dell'hub IoT. Successivamente, il dispositivo può effettuare un nuovo provisioning con l'hub Internet delle cose usando il normale [provisioning](about-iot-dps.md#provisioning-process) con il servizio Device provisioning (DPS).
 
 
 ## <a name="obtain-new-certificates"></a>Ottenere nuovi certificati
 
 Esistono diversi modi per ottenere nuovi certificati per i dispositivi IoT. È ad esempio possibile ottenere certificati dalla factory dei dispositivi, generare certificati in modo autonomo oppure richiedere a terzi di gestire per proprio conto la creazione di certificati. 
 
-I certificati si assegnano reciprocamente una firma in modo da formare una catena da un certificato dell'autorità di certificazione (CA) radice a un [certificato foglia](concepts-security.md#end-entity-leaf-certificate). Un certificato di firma è il certificato usato per firmare il certificato foglia in fondo alla catena. Può essere un certificato della CA radice o un certificato intermedio nella catena. Per altre informazioni, vedere [Certificati X.509](concepts-security.md#x509-certificates).
+I certificati si assegnano reciprocamente una firma in modo da formare una catena da un certificato dell'autorità di certificazione (CA) radice a un [certificato foglia](concepts-x509-attestation.md#end-entity-leaf-certificate). Un certificato di firma è il certificato usato per firmare il certificato foglia in fondo alla catena. Può essere un certificato della CA radice o un certificato intermedio nella catena. Per altre informazioni, vedere [Certificati X.509](concepts-x509-attestation.md#x509-certificates).
  
 Esistono due modi diversi per ottenere un certificato di firma. Il primo, consigliato per i sistemi di produzione, consiste nell'acquistare un certificato di firma da una CA radice. In questo modo la sicurezza viene concatenata fino a un'origine attendibile. 
 
@@ -36,7 +36,7 @@ Il secondo modo consiste nel creare i propri certificati X.509 usando uno strume
 
 ## <a name="roll-the-certificate-on-the-device"></a>Rinnovare il certificato nel dispositivo
 
-I certificati di un dispositivo devono sempre essere archiviati in un luogo sicuro, ad esempio in un [modulo di protezione hardware](concepts-device.md#hardware-security-module). La modalità di rinnovo dei certificati dei dispositivi dipende da come sono stati creati e installati nei dispositivi per la prima volta. 
+I certificati di un dispositivo devono sempre essere archiviati in un luogo sicuro, ad esempio in un [modulo di protezione hardware](concepts-service.md#hardware-security-module). La modalità di rinnovo dei certificati dei dispositivi dipende da come sono stati creati e installati nei dispositivi per la prima volta. 
 
 Se si sono ottenuti i certificati da una terza parte, è necessario verificare in che modo è previsto il rinnovo dei certificati. Il processo può essere incluso in un accordo con la terza parte oppure può essere offerto come servizio separato. 
 
@@ -75,7 +75,7 @@ Se si rinnovano i certificati in risposta a una violazione della sicurezza, è c
 
     Questi passaggi devono essere completati sia per il certificato primario sia per quello secondario, se sono entrambi compromessi.
 
-    ![Gestire le registrazioni singole](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
+    ![Gestire le registrazioni individuali con una violazione della sicurezza](./media/how-to-roll-certificates/manage-individual-enrollments-portal.png)
 
 3. Una volta eliminato il certificato compromesso dal servizio di provisioning, il certificato può essere ancora usato per stabilire le connessioni dei dispositivi agli hub loT, purchè esista una registrazione del dispositivo. È possibile risolvere questo problema in due modi: 
 
@@ -96,7 +96,7 @@ In un secondo momento, quando il certificato secondario è prossimo alla scadenz
 
 2. Fare clic su **Certificato secondario** e quindi sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Salva**.
 
-    ![Gestire le registrazioni singole usando il certificato secondario](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
+    ![Gestire le registrazioni individuali usando la scadenza del certificato secondario](./media/how-to-roll-certificates/manage-individual-enrollments-secondary-portal.png)
 
 3. In un secondo momento, quando il certificato primario è scaduto, tornare indietro ed eliminare tale certificato facendo clic sul pulsante **Elimina certificato corrente**.
 
@@ -118,7 +118,7 @@ Per aggiornare una registrazione di gruppo in risposta a una violazione della si
 
 5. Fare clic su **Certificato CA** e selezionare il nuovo certificato della CA radice. Fare quindi clic su **Salva**. 
 
-    ![Selezionare il nuovo certificato della CA radice](./media/how-to-roll-certificates/select-new-root-cert.png)
+    ![Selezionare il nuovo certificato CA radice per un certificato compromesso](./media/how-to-roll-certificates/select-new-root-cert.png)
 
 6. Una volta eliminato il certificato compromesso dal servizio di provisioning, il certificato può essere ancora usato per stabilire connessioni dei dispositivi agli hub loT, purchè esista una registrazione del dispositivo. È possibile risolvere questo problema in due modi: 
 
@@ -136,9 +136,9 @@ Per aggiornare una registrazione di gruppo in risposta a una violazione della si
 
 2. Fare clic su **Certificato intermedio** e su **Elimina certificato corrente**. Fare clic sull'icona della cartella per passare al nuovo certificato intermedio da caricare per il gruppo di registrazioni. Al termine, fare clic su **Salva**. Questi passaggi devono essere completati sia per il certificato primario sia per quello secondario, se sono entrambi compromessi.
 
-    Il nuovo certificato intermedio deve essere firmato da un certificato della CA radice verificato che sia già stato aggiunto al servizio di provisioning. Per altre informazioni, vedere [Certificati X.509](concepts-security.md#x509-certificates).
+    Il nuovo certificato intermedio deve essere firmato da un certificato della CA radice verificato che sia già stato aggiunto al servizio di provisioning. Per altre informazioni, vedere [Certificati X.509](concepts-x509-attestation.md#x509-certificates).
 
-    ![Gestire le registrazioni singole](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
+    ![Gestire le registrazioni individuali per un intermediario compromesso](./media/how-to-roll-certificates/enrollment-group-delete-intermediate-cert.png)
 
 
 3. Una volta eliminato il certificato compromesso dal servizio di provisioning, il certificato può essere ancora usato per stabilire connessioni dei dispositivi agli hub loT, purchè esista una registrazione del dispositivo. È possibile risolvere questo problema in due modi: 
@@ -164,7 +164,7 @@ In un secondo momento, quando il certificato secondario è prossimo alla scadenz
 
 3. Fare clic su **Certificato CA** e selezionare il nuovo certificato della CA radice nella configurazione **Certificato secondario**. Fare quindi clic su **Salva**. 
 
-    ![Selezionare il nuovo certificato della CA radice](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
+    ![Selezionare il nuovo certificato CA radice per la scadenza](./media/how-to-roll-certificates/select-new-root-secondary-cert.png)
 
 4. In un secondo momento, quando il certificato primario è scaduto, fare clic sulla scheda **Certificati** per l'istanza del servizio di provisioning di dispositivi. Fare clic sul certificato scaduto nell'elenco e quindi sul pulsante **Elimina**. Confermare l'eliminazione digitando il nome del certificato e fare clic su **OK**.
 
@@ -179,9 +179,9 @@ In un secondo momento, quando il certificato secondario è prossimo alla scadenz
 
 2. Fare clic su **Certificato secondario** e quindi sull'icona della cartella per selezionare il nuovo certificato da caricare per la voce di registrazione. Fare clic su **Salva**.
 
-    Il nuovo certificato intermedio deve essere firmato da un certificato della CA radice verificato che sia già stato aggiunto al servizio di provisioning. Per altre informazioni, vedere [Certificati X.509](concepts-security.md#x509-certificates).
+    Il nuovo certificato intermedio deve essere firmato da un certificato della CA radice verificato che sia già stato aggiunto al servizio di provisioning. Per altre informazioni, vedere [Certificati X.509](concepts-x509-attestation.md#x509-certificates).
 
-   ![Gestire le registrazioni singole usando il certificato secondario](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
+   ![Gestire i gruppi di registrazione usando il certificato secondario in scadenza](./media/how-to-roll-certificates/manage-enrollment-group-secondary-portal.png)
 
 3. In un secondo momento, quando il certificato primario è scaduto, tornare indietro ed eliminare tale certificato facendo clic sul pulsante **Elimina certificato corrente**.
 
@@ -208,6 +208,6 @@ Dopo che un certificato è stato incluso in una voce di registrazione disabilita
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per altre informazioni sui certificati X.509 nel servizio Device Provisioning, vedere [Sicurezza](concepts-security.md). 
+- Per ulteriori informazioni sui certificati X. 509 nel servizio Device provisioning, vedere [attestazione del certificato x. 509](concepts-x509-attestation.md) . 
 - Per informazioni su come eseguire una verifica del possesso per i certificati della CA X.509 con il servizio Device Provisioning in hub IoT di Azure, vedere [Come eseguire la verifica dei certificati](how-to-verify-certificates.md).
 - Per informazioni su come usare il portale per creare un gruppo di registrazione, vedere [Gestione delle registrazioni dei dispositivi con il portale di Azure](how-to-manage-enrollments.md).

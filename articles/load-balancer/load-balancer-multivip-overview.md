@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 2192531aec7800314c6748740262f8746da0c4fc
-ms.sourcegitcommit: 845a55e6c391c79d2c1585ac1625ea7dc953ea89
+ms.openlocfilehash: b24514ed477d1acd31dbc4ef0daa3aa89b8739f9
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/05/2020
-ms.locfileid: "85956373"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530829"
 ---
 # <a name="multiple-frontends-for-azure-load-balancer"></a>Più front-end per Azure Load Balancer
 
@@ -163,6 +163,7 @@ Il tipo di regola con indirizzo IP mobile è alla base di diversi modelli di con
 
 * Le configurazioni di più front-end sono supportate solo con le macchine virtuali IaaS.
 * Con la regola dell'indirizzo IP mobile, l'applicazione deve usare la configurazione IP primaria per i flussi SNAT in uscita. Se l'applicazione si associa all'indirizzo IP front-end configurato nell'interfaccia di loopback del sistema operativo guest, il SNAT in uscita di Azure non è disponibile per riscrivere il flusso in uscita e il flusso ha esito negativo.  Esaminare gli [scenari in uscita](load-balancer-outbound-connections.md).
+* L'IP mobile non è attualmente supportato nelle configurazioni IP secondarie per gli scenari di bilanciamento del carico interno.
 * Gli indirizzi IP pubblici hanno un effetto sulla fatturazione. Per altre informazioni, vedere [Prezzi per gli indirizzi IP](https://azure.microsoft.com/pricing/details/ip-addresses/)
 * Si applicano i limiti delle sottoscrizioni. Per altre informazioni, vedere i [limiti del servizio](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits) .
 

@@ -7,13 +7,13 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 03/24/2020
-ms.openlocfilehash: 871f2b49e2dce9d762ef8a54923da04b0f24e4be
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/14/2020
+ms.openlocfilehash: 71f5488b1f689e8892155b013730bcbb3c8e0e35
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81606529"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531925"
 ---
 # <a name="aggregate-transformation-in-mapping-data-flow"></a>Trasformazione aggregazione nel flusso di dati di mapping
 
@@ -29,17 +29,18 @@ Consente di selezionare una colonna esistente o di creare una nuova colonna calc
 
 Una clausola Group by è facoltativa in una trasformazione aggregazione.
 
-## <a name="aggregate-column"></a>Colonna aggregazione 
+## <a name="aggregate-columns"></a>Colonne aggregate
 
-Passare alla scheda **aggregazioni** per compilare le espressioni di aggregazione. È possibile sovrascrivere una colonna esistente con un'aggregazione oppure creare un nuovo campo con un nuovo nome. L'espressione di aggregazione viene immessa nella casella a destra accanto al selettore del nome di colonna. Per modificare l'espressione, fare clic sulla casella di testo per aprire il generatore di espressioni. Per aggiungere altre aggregazioni, passare il puntatore del mouse su un'espressione esistente e fare clic sull'icona del segno più per creare un nuovo [modello](concepts-data-flow-column-pattern.md)di colonna o colonna di aggregazione.
+Passare alla scheda **aggregazioni** per compilare le espressioni di aggregazione. È possibile sovrascrivere una colonna esistente con un'aggregazione oppure creare un nuovo campo con un nuovo nome. L'espressione di aggregazione viene immessa nella casella a destra accanto al selettore del nome di colonna. Per modificare l'espressione, fare clic sulla casella di testo e aprire Generatore di espressioni. Per aggiungere altre colonne aggregate, fare clic su **Aggiungi** sopra l'elenco di colonne o sull'icona a forma di segno più accanto a una colonna aggregata esistente. Scegliere **Aggiungi colonna** o **Aggiungi criteri di ricerca colonna**. Ogni espressione di aggregazione deve contenere almeno una funzione di aggregazione.
 
-Ogni espressione di aggregazione deve contenere almeno una funzione di aggregazione.
-
-![Impostazioni aggregate trasformazione aggregazione](media/data-flow/agg2.png "Impostazioni aggregate trasformazione aggregazione")
-
+![Impostazioni aggregate](media/data-flow/aggregate-columns.png "Impostazioni aggregate")
 
 > [!NOTE]
 > In modalità di debug, il generatore di espressioni non può produrre anteprime dei dati con funzioni di aggregazione. Per visualizzare le anteprime dei dati per le trasformazioni aggregate, chiudere il generatore di espressioni e visualizzare i dati tramite la scheda "Anteprima dati".
+
+### <a name="column-patterns"></a>Criteri delle colonne
+
+Usare i [criteri di colonna](concepts-data-flow-column-pattern.md) per applicare la stessa aggregazione a un set di colonne. Questa opzione è utile se si desidera salvare in modo permanente molte colonne dello schema di input perché vengono eliminate per impostazione predefinita. Utilizzare un'euristica come `first()` per salvare in modo permanente le colonne di input tramite l'aggregazione.
 
 ## <a name="reconnect-rows-and-columns"></a>Riconnettere righe e colonne
 

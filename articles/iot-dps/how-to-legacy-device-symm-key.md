@@ -1,25 +1,27 @@
 ---
-title: Eseguire il provisioning di dispositivi legacy con chiavi simmetriche-servizio Device provisioning in hub Azure
-description: Come usare le chiavi simmetriche per eseguire il provisioning di dispositivi legacy con l'istanza del servizio Device provisioning (DPS)
+title: Eseguire il provisioning di dispositivi con chiavi simmetriche-servizio Device provisioning in hub Azure
+description: Come usare le chiavi simmetriche per eseguire il provisioning di dispositivi con l'istanza del servizio Device provisioning (DPS)
 author: wesmc7777
 ms.author: wesmc
-ms.date: 04/10/2019
+ms.date: 07/13/2020
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: philmea
-ms.openlocfilehash: 4d1a92f3ebf32d2270eb77ec9c79fe860ba090e1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+manager: eliotga
+ms.openlocfilehash: f67ed44fffe6bd690d6bd76fcefa19d9ee23e52b
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75434706"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90529401"
 ---
-# <a name="how-to-provision-legacy-devices-using-symmetric-keys"></a>Come effettuare il provisioning di dispositivi legacy usando chiavi simmetriche
+# <a name="how-to-provision-devices-using-symmetric-key-enrollment-groups"></a>Come eseguire il provisioning dei dispositivi con i gruppi di registrazioni con chiavi simmetriche
 
-Un problema comune a molti dispositivi legacy è che spesso hanno un'identità costituita da una singola informazione. Queste informazioni di identità sono in genere un indirizzo MAC o un numero di serie. È possibile che i dispositivi legacy non dispongano di certificato, TPM o qualsiasi altra funzionalità di sicurezza che può essere usata per identificare in modo sicuro il dispositivo. Il servizio Device Provisioning per hub IoT include l'attestazione con chiave simmetrica. L'attestazione con chiave simmetrica può essere usata per identificare un dispositivo basato su informazioni come l'indirizzo MAC o un numero di serie.
+Questo articolo illustra come eseguire il provisioning sicuro di più dispositivi chiave simmetrica in un hub Internet singolo usando un gruppo di registrazione.
 
-Se è possibile installare facilmente un [modulo di protezione hardware (HSM)](concepts-security.md#hardware-security-module) e un certificato, ciò può rappresentare un approccio più efficace per l'identificazione e il provisioning dei dispositivi. Poiché con questo approccio è consentito ignorare l'aggiornamento del codice distribuito in tutti i dispositivi e non viene incorporata una chiave privata nell'immagine del dispositivo.
+Alcuni dispositivi potrebbero non avere un certificato, un TPM o qualsiasi altra funzionalità di sicurezza che può essere usata per identificare in modo sicuro il dispositivo. Il servizio Device provisioning include l' [attestazione della chiave simmetrica](concepts-symmetric-key-attestation.md). L'attestazione della chiave simmetrica può essere usata per identificare un dispositivo in base a informazioni univoche come l'indirizzo MAC o un numero di serie.
+
+Se è possibile installare facilmente un [modulo di protezione hardware (HSM)](concepts-service.md#hardware-security-module) e un certificato, ciò può rappresentare un approccio più efficace per l'identificazione e il provisioning dei dispositivi. Poiché con questo approccio è consentito ignorare l'aggiornamento del codice distribuito in tutti i dispositivi e non viene incorporata una chiave privata nell'immagine del dispositivo.
 
 Questo articolo presuppone che un modulo di protezione hardware o un certificato non siano opzioni valide. Tuttavia, si presuppone che si disponga di un metodo di aggiornamento del codice dispositivo al fine di usare il servizio Device Provisioning per effettuare il provisioning dei dispositivi. 
 
@@ -47,7 +49,7 @@ Il codice del dispositivo illustrato in questo articolo seguirà lo stesso model
 
 I prerequisiti seguenti si riferiscono a un ambiente di sviluppo Windows. Per Linux o macOS, vedere la sezione appropriata in [Preparare l'ambiente di sviluppo](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md) nella documentazione dell'SDK.
 
-* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) con il carico di lavoro ['Sviluppo di applicazioni desktop con C++'](https://docs.microsoft.com/cpp/?view=vs-2019#pivot=workloads) abilitato. Sono supportati anche Visual Studio 2015 e Visual Studio 2017.
+* [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) con il carico di lavoro ['Sviluppo di applicazioni desktop con C++'](https://docs.microsoft.com/cpp/ide/using-the-visual-studio-ide-for-cpp-desktop-development) abilitato. Sono supportati anche Visual Studio 2015 e Visual Studio 2017.
 
 * La versione più recente di [Git](https://git-scm.com/download/) installata.
 
@@ -73,7 +75,7 @@ L'SDK include il codice di esempio per il dispositivo simulato. Il dispositivo s
 
     Il completamento di questa operazione richiederà alcuni minuti.
 
-4. Creare una sottodirectory `cmake` nella directory radice del repository Git e passare a tale cartella. Eseguire i comandi seguenti dalla directory `azure-iot-sdk-c`:
+4. Creare una `cmake` sottodirectory nella directory radice del repository git e passare a tale cartella. Eseguire i comandi seguenti dalla directory `azure-iot-sdk-c`:
 
     ```cmd/sh
     mkdir cmake
@@ -147,7 +149,8 @@ Creare un ID di registrazione univoco per il dispositivo. I caratteri validi son
 
 Per generare la chiave di dispositivo, usare la chiave master di gruppo per calcolare un valore [HMAC-SHA256](https://wikipedia.org/wiki/HMAC) dell'ID di registrazione univoco per il dispositivo e convertire il risultato nel formato Base64.
 
-Non includere la chiave master di gruppo nel codice del dispositivo.
+> [!WARNING]
+> Il codice del dispositivo deve includere solo la chiave del dispositivo derivato per il singolo dispositivo. Non includere la chiave master di gruppo nel codice del dispositivo. Una chiave master compromessa può compromettere la sicurezza di tutti i dispositivi in cui viene eseguita l'autenticazione.
 
 
 #### <a name="linux-workstations"></a>Workstation di Linux

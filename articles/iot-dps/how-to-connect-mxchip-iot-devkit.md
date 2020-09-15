@@ -1,23 +1,23 @@
 ---
 title: Come usare il provisioning automatico del servizio Device Provisioning in hub IoT per registrare MXChip IoT DevKit nell'hub IoT | Microsoft Docs
 description: Come usare il provisioning automatico del servizio Device provisioning in hub Azure (DPS) per registrare il DevKit MXChip.
-author: liydu
-ms.author: liydu
+author: wesmc7777
+ms.author: wesmc
 ms.date: 06/25/2019
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-manager: jeffya
-ms.openlocfilehash: f05e92f0452b1cfff23e2094354203fd7eaea48b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+manager: eliotgra
+ms.openlocfilehash: 2a030d9ca5422e12856dcb81b29f8327e684c97e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74975653"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90528654"
 ---
 # <a name="use-azure-iot-hub-device-provisioning-service-auto-provisioning-to-register-the-mxchip-iot-devkit-with-iot-hub"></a>Usare il provisioning automatico del servizio Device Provisioning in hub IoT per registrare MXChip IoT DevKit nell'hub IoT
 
-Questo articolo descrive come usare il [provisioning automatico](concepts-auto-provisioning.md) del servizio Device Provisioning in hub IoT per registrare MXChip IoT DevKit nell'hub IoT di Azure. In questa esercitazione verranno illustrate le procedure per:
+Questo articolo descrive come usare il servizio Device provisioning in hub Azure per il [provisioning](about-iot-dps.md#provisioning-process) di MXChip Internet DevKit in un hub Azure. In questa esercitazione verranno illustrate le procedure per:
 
 * Configurare l'endpoint globale del servizio Device Provisioning in un dispositivo.
 * Usare un segreto univoco del dispositivo (Unique Device Secret, UDS) per generare un certificato X.509.
@@ -45,7 +45,7 @@ Per completare la procedura di questa esercitazione, effettuare le attività seg
 
 ## <a name="save-a-unique-device-secret-on-device-security-storage"></a>Salvare un segreto UDS (Unique Device Secret) nell'archivio di sicurezza del dispositivo
 
-È possibile configurare il provisioning automatico in un dispositivo in base al [meccanismo di attestazione](concepts-security.md#attestation-mechanism) del dispositivo stesso. MXChip IoT DevKit usa lo standard [Device Identity Composition Engine (DICE)](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf) del [Trusted Computing Group (TCG)](https://trustedcomputinggroup.org). Un **segreto UDS** salvato in un chip di sicurezza STSAFE ([STSAFE-A100](https://microsoft.github.io/azure-iot-developer-kit/docs/understand-security-chip/)) del DevKit viene usato per generare il certificato [X.509](concepts-security.md#x509-certificates) univoco del dispositivo. Il certificato viene usato in seguito per il processo di registrazione nel servizio Device Provisioning e durante la registrazione in fase di esecuzione.
+È possibile configurare il provisioning automatico in un dispositivo in base al [meccanismo di attestazione](concepts-service.md#attestation-mechanism) del dispositivo stesso. MXChip IoT DevKit usa lo standard [Device Identity Composition Engine (DICE)](https://trustedcomputinggroup.org/wp-content/uploads/Foundational-Trust-for-IOT-and-Resource-Constrained-Devices.pdf) del [Trusted Computing Group (TCG)](https://trustedcomputinggroup.org). Un **segreto UDS** salvato in un chip di sicurezza STSAFE ([STSAFE-A100](https://microsoft.github.io/azure-iot-developer-kit/docs/understand-security-chip/)) del DevKit viene usato per generare il certificato [X.509](concepts-x509-attestation.md) univoco del dispositivo. Il certificato viene usato in seguito per il processo di registrazione nel servizio Device Provisioning e durante la registrazione in fase di esecuzione.
 
 Un segreto UDS tipico è una stringa di 64 caratteri, come illustrato nell'esempio seguente:
 

@@ -1,16 +1,16 @@
 ---
 title: Backup/ripristino periodici in Azure autonomo Service Fabric
-description: Usare la funzionalità di backup e ripristino periodici di Service Fabric per abilitare il backup periodico dei dati delle applicazioni.
+description: Utilizzare la funzionalità di backup e ripristino periodico di un Service Fabric autonomo per abilitare il backup periodico dei dati dell'applicazione.
 author: hrushib
 ms.topic: conceptual
 ms.date: 5/24/2019
 ms.author: hrushib
-ms.openlocfilehash: 07a6260c176165af5ced5ce275b9e4b365707d77
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: dd91b8eb120de24d752073fd80157e9d2a663594
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261247"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531322"
 ---
 # <a name="periodic-backup-and-restore-in-a-standalone-service-fabric"></a>Backup e ripristino periodici in un Service Fabric autonomo
 > [!div class="op_single_selector"]

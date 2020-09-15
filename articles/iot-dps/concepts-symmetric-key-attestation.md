@@ -9,18 +9,18 @@ ms.service: iot-dps
 services: iot-dps
 manager: philmea
 ms.custom: devx-track-csharp
-ms.openlocfilehash: ba4f67f924455b911d76426231cc71b661faf4a0
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 994c2c3124d6822f047af942268ad7a401d5a976
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89020338"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531560"
 ---
 # <a name="symmetric-key-attestation"></a>Attestazione con chiave simmetrica
 
 Questo articolo descrive il processo di attestazione di identità quando si usano le chiavi simmetriche con il servizio Device Provisioning. 
 
-L'attestazione con chiave simmetrica costituisce un approccio semplice per autenticare un dispositivo con un'istanza del servizio Device Provisioning. Questo metodo di attestazione rappresenta un'esperienza di "Hello World" per gli sviluppatori che non hanno familiarità con il provisioning dei dispositivi o che non possiedono requisiti di sicurezza restrittivi. L'attestazione relativa al dispositivo che si serve di un certificato [TPM](concepts-tpm-attestation.md) o [ X.509](concepts-security.md#x509-certificates) è più sicura e deve essere usata per requisiti di sicurezza più rigorosi.
+L'attestazione con chiave simmetrica costituisce un approccio semplice per autenticare un dispositivo con un'istanza del servizio Device Provisioning. Questo metodo di attestazione rappresenta un'esperienza di "Hello World" per gli sviluppatori che non hanno familiarità con il provisioning dei dispositivi o che non possiedono requisiti di sicurezza restrittivi. L'attestazione relativa al dispositivo che si serve di un certificato [TPM](concepts-tpm-attestation.md) o [ X.509](concepts-x509-attestation.md) è più sicura e deve essere usata per requisiti di sicurezza più rigorosi.
 
 Le registrazioni con chiave simmetrica offrono anche un modo eccezionale di avvio automatico nel cloud tramite IoT di Azure ai dispositivi legacy con funzionalità di sicurezza limitata. Per altre informazioni sull'attestazione con chiave simmetrica con i dispositivi legacy, vedere [Come usare le chiavi simmetriche con i dispositivi legacy](how-to-legacy-device-symm-key.md).
 
@@ -109,12 +109,12 @@ Si consideri il seguente diagramma che mostra una tabella di chiavi del disposit
 
 L'identità di ogni dispositivo è rappresentata dall'ID di registrazione e dalla chiave di dispositivo derivata che viene installata in fase di produzione. La chiave del dispositivo non viene mai copiata in un'altra posizione e la chiave di gruppo non viene mai archiviata in un dispositivo.
 
-Se le chiavi di dispositivo non vengono installate in ambiente di fabbrica, deve essere usato un [modulo di protezione hardware HSM](concepts-security.md#hardware-security-module) per archiviare in modo sicuro l'identità del dispositivo.
+Se le chiavi di dispositivo non vengono installate in ambiente di fabbrica, deve essere usato un [modulo di protezione hardware HSM](concepts-service.md#hardware-security-module) per archiviare in modo sicuro l'identità del dispositivo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 Ora che si hanno le informazioni sull'attestazione con chiave simmetrica, vedere gli articoli seguenti per altre informazioni:
 
 * [Guida introduttiva: eseguire il provisioning di un dispositivo simulato con chiavi simmetriche](quick-create-simulated-device-symm-key.md)
-* [Informazioni sui concetti di provisioning automatico](./concepts-auto-provisioning.md)
+* [Informazioni sui concetti relativi al provisioning](about-iot-dps.md#provisioning-process)
 * [Iniziare a usare il provisioning automatico](./quick-setup-auto-provision.md) 

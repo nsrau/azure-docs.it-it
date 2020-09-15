@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 09/14/2020
+ms.date: 09/15/2020
 ms.author: jingwang
-ms.openlocfilehash: f71b739242cf4f6a3549927a2a7e61400b2f987e
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 3aa42d6060ecdd93dd97438a025c4f5e4f05ac52
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90061088"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531730"
 ---
 # <a name="orc-format-in-azure-data-factory"></a>Formato ORC in Azure Data Factory
 
@@ -91,7 +91,7 @@ Nella sezione *** \* sink \* *** dell'attività di copia sono supportate le prop
 | ------------- | ------------------------------------------------------------ | ----------------------------------------------------- |
 | type          | Il tipo di formatSettings deve essere impostato su **OrcWriteSettings**. | Sì                                                   |
 | maxRowsPerFile | Quando si scrivono dati in una cartella, è possibile scegliere di scrivere in più file e specificare il numero massimo di righe per ogni file.  | No |
-| fileNamePrefix | Specificare il prefisso del nome file durante la scrittura di dati in più file. questo modello è risultato: `<fileNamePrefix>_00000.<fileExtension>` . Se non è specificato, il prefisso del nome file verrà generato automaticamente. Questa proprietà non viene applicata quando l'origine è un archivio dati basato su file o sull' [opzione partition-Enabled](copy-activity-performance-features.md).  | No |
+| fileNamePrefix | Applicabile quando `maxRowsPerFile` è configurato.<br> Specificare il prefisso del nome file durante la scrittura di dati in più file. questo modello è risultato: `<fileNamePrefix>_00000.<fileExtension>` . Se non è specificato, il prefisso del nome file verrà generato automaticamente. Questa proprietà non viene applicata quando l'origine è un archivio dati basato su file o sull' [opzione partition-Enabled](copy-activity-performance-features.md).  | No |
 
 ## <a name="using-self-hosted-integration-runtime"></a>Uso di Integration Runtime self-hosted
 

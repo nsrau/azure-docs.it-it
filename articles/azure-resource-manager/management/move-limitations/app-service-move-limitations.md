@@ -3,12 +3,12 @@ title: Spostare le risorse del servizio app Azure
 description: Usare Azure Resource Manager per spostare le risorse del servizio app in un nuovo gruppo di risorse o una nuova sottoscrizione.
 ms.topic: conceptual
 ms.date: 08/10/2020
-ms.openlocfilehash: 45f04cad27e175b471f4d6e07426787ca678e369
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: 27555a4616befca41c7e970e947afa1cd1ff7248
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042059"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531373"
 ---
 # <a name="move-guidance-for-app-service-resources"></a>Spostare le linee guida per le risorse del servizio app
 
@@ -42,7 +42,7 @@ Selezionare l'opzione per la procedura consigliata per spostare l'app Web.
 
 Verranno visualizzate le azioni consigliate da eseguire prima di trasferire le risorse. Le informazioni includono il gruppo di risorse originale per l'app Web.
 
-![Consigli](./media/app-service-move-limitations/recommendations.png)
+![L'acquisizione schermo Mostra i passaggi consigliati per lo stato di trasferimento delle risorse Web di Microsoft dot.](./media/app-service-move-limitations/recommendations.png)
 
 ## <a name="move-support"></a>Supporto per l'operazione di spostamento
 

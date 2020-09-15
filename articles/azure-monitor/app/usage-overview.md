@@ -3,12 +3,12 @@ title: Analisi dell'utilizzo con Azure Application Insights | Documentazione Mic
 description: Informazioni sugli utenti e le operazioni eseguite con l'app.
 ms.topic: conceptual
 ms.date: 03/25/2019
-ms.openlocfilehash: 4ace90b0893eed24227cadcb9a5b9fae7d502ff8
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 4f4954451bfa195b07c580ffa451b8cb333eb32c
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87800212"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90532104"
 ---
 # <a name="usage-analysis-with-application-insights"></a>Uso dell'analisi con Application Insights
 
@@ -54,7 +54,7 @@ Scoprire quando le persone usano l'app, a quali pagine sono più interessati, do
 
 I report sugli utenti e le sessioni filtrano i dati in base alle pagine o agli eventi personalizzati e li segmentano in base a proprietà quali posizione, ambiente e pagina. È anche possibile aggiungere filtri personalizzati.
 
-![Utenti](./media/usage-overview/users.png)  
+![L'acquisizione schermo mostra la pagina Panoramica utenti per una società fittizia.](./media/usage-overview/users.png)  
 
 Informazioni approfondite sui modelli di segnalazione corretti nel set di dati.  
 
@@ -71,7 +71,7 @@ La conservazione consente di comprendere la frequenza con cui gli utenti tornano
 - Fare ipotesi in base a dati utente reali 
 - Determinare se la conservazione è un problema per il prodotto 
 
-![Conservazione](./media/usage-overview/retention.png) 
+![L'acquisizione schermo mostra la pagina Panoramica conservazione che visualizza informazioni sulla frequenza con cui gli utenti tornano a usare l'app.](./media/usage-overview/retention.png) 
 
 I controlli di conservazione nella parte superiore consentono di definire l'intervallo di tempo e gli eventi specifici per il calcolo della conservazione. Il grafico nella parte centrale offre una rappresentazione visiva della percentuale della conservazione generale in base all'intervallo di tempo specificato. Il grafico nella parte inferiore rappresenta la singola conservazione in un determinato periodo di tempo. Questo livello di dettagli consente di capire le operazioni eseguite dagli utenti e le possibili motivazioni per cui un utente sceglie di ritornare con una granularità più dettagliata.  
 
@@ -110,7 +110,7 @@ Altre informazioni sugli [eventi personalizzati](./api-custom-events-metrics.md#
 ### <a name="slice-and-dice-events"></a>Analisi approfondita degli eventi
 
 Negli strumenti Utenti, Sessioni ed Eventi, è possibile eseguire un'analisi approfondita degli eventi personalizzati per utente, nome dell'evento e proprietà.
-![Utenti](./media/usage-overview/users.png)  
+![L'acquisizione schermo mostra la pagina Panoramica utenti per una società fittizia.](./media/usage-overview/users.png)  
   
 ## <a name="design-the-telemetry-with-the-app"></a>Progettare i dati di telemetria con l'app
 

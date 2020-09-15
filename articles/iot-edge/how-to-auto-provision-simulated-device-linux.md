@@ -8,16 +8,16 @@ ms.date: 6/30/2020
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 3bc9344459802f4bb4268093d905a051525d78dc
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 9bd597bbff54687af1ba8536dddd6f0d8dfc621e
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684457"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531492"
 ---
 # <a name="create-and-provision-an-iot-edge-device-with-a-tpm-on-linux"></a>Creare ed effettuare il provisioning di un dispositivo IoT Edge con un TPM in Linux
 
-Questo articolo illustra come testare il provisioning automatico in un dispositivo IoT Edge Linux usando un Trusted Platform Module (TPM). È possibile effettuare automaticamente il provisioning di Azure IoT Edge dispositivi con il [servizio Device provisioning](../iot-dps/index.yml). Se non si ha familiarità con il processo di provisioning automatico, vedere [Concetti relativi al provisioning automatico](../iot-dps/concepts-auto-provisioning.md) prima di continuare.
+Questo articolo illustra come testare il provisioning automatico in un dispositivo IoT Edge Linux usando un Trusted Platform Module (TPM). È possibile effettuare automaticamente il provisioning di Azure IoT Edge dispositivi con il [servizio Device provisioning](../iot-dps/index.yml). Se non si ha familiarità con il processo di provisioning automatico, vedere Panoramica del [provisioning](../iot-dps/about-iot-dps.md#provisioning-process) prima di continuare.
 
 Le attività sono le seguenti:
 
@@ -176,7 +176,7 @@ Ora che è presente una registrazione per questo dispositivo, il runtime di IoT 
 
 ## <a name="install-the-iot-edge-runtime"></a>Installare il runtime IoT Edge.
 
-Il runtime di IoT Edge viene distribuito in tutti i dispositivi IoT Edge. I relativi componenti vengono eseguiti in contenitori e consentono di distribuire altri contenitori al dispositivo in modo che sia possibile eseguire codice nella rete perimetrale. Installare il runtime IoT Edge nella macchina virtuale.
+Il runtime IoT Edge viene distribuito in tutti i dispositivi IoT Edge. I relativi componenti vengono eseguiti in contenitori e consentono di distribuire altri contenitori al dispositivo in modo che sia possibile eseguire codice nella rete perimetrale. Installare il runtime IoT Edge nella macchina virtuale.
 
 Prima di iniziare l'articolo per il tipo di dispositivo in uso, assicurarsi di conoscere il valore di **Ambito ID** del servizio Device Provisioning e il valore di **ID registrazione** del dispositivo. Se è installato il server di esempio Ubuntu, usare le istruzioni per **x64**. Assicurarsi di configurare il runtime IoT Edge per il provisioning automatico, non manuale.
 

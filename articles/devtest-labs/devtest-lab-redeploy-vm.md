@@ -3,12 +3,12 @@ title: Ridistribuire una macchina virtuale in un lab in Azure DevTest Labs | Mic
 description: Informazioni su come ridistribuire una macchina virtuale (spostamento da un nodo di Azure a un altro) in Azure DevTest Labs.
 ms.topic: article
 ms.date: 06/26/2020
-ms.openlocfilehash: da0edf13adaa0d7ecd84ee2c190f376c19b398db
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a38b112165b893d877733b967c21bb62b20ca2f6
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85480236"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530319"
 ---
 # <a name="redeploy-a-vm-in-a-lab-in-azure-devtest-labs"></a>Ridistribuire una macchina virtuale in un lab in Azure DevTest Labs
 Se non è possibile connettersi a una macchina virtuale (VM) in un Lab tramite una connessione Desktop remoto, ridistribuire la macchina virtuale e provare a connettersi di nuovo. Quando si ridistribuisce una VM, DevTest Labs sposta la macchina virtuale dal nodo in cui è in esecuzione in un nuovo nodo dell'infrastruttura di Azure. La macchina virtuale viene avviata e tutte le opzioni di configurazione e le risorse associate vengono mantenute. Questa funzionalità consente di risparmiare il tempo impiegato per la risoluzione dei problemi di connessione desktop remoto o accesso all'applicazione per le macchine virtuali basate su Windows nel lab. 
@@ -23,7 +23,7 @@ Per ridistribuire una macchina virtuale in un lab in Azure DevTest Labs, procede
 5. Nell'elenco delle macchine virtuali selezionare una macchina virtuale.
 6. Nella pagina della propria macchina virtuale selezionare **Ripetere la distribuzione** sotto **OPERAZIONI** nel menu a sinistra.
 
-    ![Redeploy](media/devtest-lab-redeploy-vm/redeploy.png)
+    ![L'acquisizione schermo mostra la pagina della macchina virtuale con la ridistribuzione selezionata.](media/devtest-lab-redeploy-vm/redeploy.png)
 7. Leggere le informazioni nella pagina e selezionare il pulsante **Ridistribuire**. 9. Controllare lo stato dell'operazione di ridistribuzione nella finestra **Notifiche**.
 
     ![Ridistribuire lo stato](media/devtest-lab-redeploy-vm/redeploy-status.png)

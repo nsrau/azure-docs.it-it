@@ -1,21 +1,21 @@
 ---
 title: Usare gli strumenti degli SDK del servizio Device provisioning in hub Azure
 description: Questo documento illustra gli strumenti disponibili negli SDK del servizio Device provisioning (DPS) dell'hub Azure per lo sviluppo
-author: robinsh
-ms.author: robinsh
+author: wesmc7777
+ms.author: wesmc
 ms.date: 04/09/2018
 ms.topic: conceptual
 ms.service: iot-dps
 services: iot-dps
-ms.openlocfilehash: b817b3cfe47ed08cae9e7e0b1c2c24363f2ccfed
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 28d682a9ca698afb72d08b4d111562c725d46996
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84691629"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530846"
 ---
 # <a name="how-to-use-tools-provided-in-the-sdks-to-simplify-development-for-provisioning"></a>Come usare gli strumenti disponibili negli SDK per semplificare lo sviluppo per il provisioning
-Il servizio Device Provisioning in hub IoT semplifica il processo di provisioning supportando il provisioning JIT [automatico](concepts-auto-provisioning.md) in modo sicuro e scalabile.  È necessaria un'attestazione di sicurezza sotto forma di certificato X.509 o modulo TPM (Trusted Platform).  Microsoft sta inoltre collaborando con [altri produttori di hardware per la sicurezza](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) per migliorare il livello di protezione della distribuzione di IoT. Comprendere i requisiti di sicurezza hardware può risultare difficile per gli sviluppatori. Per questo motivo, viene fornito un set di SDK del servizio di provisioning di IoT di Azure in modo che gli sviluppatori possano usufruire di un livello dedicato per creare client in grado di comunicare con il servizio di provisioning. Gli SDK offrono anche esempi di scenari comuni, nonché un set di strumenti in grado di semplificare l'attestazione di sicurezza in fase di sviluppo.
+Il servizio Device provisioning in hub Internet semplifica il processo di provisioning con il [provisioning](about-iot-dps.md#provisioning-process) JIT (just-in-Time) in modo sicuro e scalabile.  È necessaria un'attestazione di sicurezza sotto forma di certificato X.509 o modulo TPM (Trusted Platform).  Microsoft sta inoltre collaborando con [altri produttori di hardware per la sicurezza](https://azure.microsoft.com/blog/azure-iot-supports-new-security-hardware-to-strengthen-iot-security/) per migliorare il livello di protezione della distribuzione di IoT. Comprendere i requisiti di sicurezza hardware può risultare difficile per gli sviluppatori. Per questo motivo, viene fornito un set di SDK del servizio di provisioning di IoT di Azure in modo che gli sviluppatori possano usufruire di un livello dedicato per creare client in grado di comunicare con il servizio di provisioning. Gli SDK offrono anche esempi di scenari comuni, nonché un set di strumenti in grado di semplificare l'attestazione di sicurezza in fase di sviluppo.
 
 ## <a name="trusted-platform-module-tpm-simulator"></a>Simulatore TPM (Trusted Platform Module)
 Il concetto di [TPM](https://docs.microsoft.com/azure/iot-dps/concepts-security) può fare riferimento a uno standard per archiviare in modo sicuro le chiavi usate per autenticare la piattaforma oppure all'interfaccia di I/O usata per interagire con i moduli che implementano lo standard. Il TPM può essere un componente hardware distinto o integrato e può essere basato su firmware o su software.  Nell'ambiente di produzione, il TPM si trova sul dispositivo come componente hardware distinto o integrato e può essere basato sul firmware. Durante la fase di test, invece, agli sviluppatori viene fornito un simulatore TPM basato sul software.  Per il momento, il simulatore è disponibile solo per attività di sviluppo su piattaforme Windows.

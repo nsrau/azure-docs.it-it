@@ -3,12 +3,12 @@ title: Errori di quota
 description: Viene descritto come risolvere gli errori di quota delle risorse durante la distribuzione di risorse con Azure Resource Manager.
 ms.topic: troubleshooting
 ms.date: 03/09/2018
-ms.openlocfilehash: 410b086b39d63d03491d390364f4aec6300fc7c1
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 75e8abf31d035a1e3a106bc0c6561624762db5d5
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87007793"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530421"
 ---
 # <a name="resolve-errors-for-resource-quotas"></a>Risolvere gli errori di quota delle risorse
 
@@ -84,7 +84,7 @@ Total Regional Cores                         0   100 Count
 Virtual Machines                             0 10000 Count
 ```
 
-## <a name="solution"></a>Solution
+## <a name="solution"></a>Soluzione
 
 Per ottenere un aumento della quota, accedere al portale e inviare una richiesta di supporto. Nella richiesta specificare un aumento della quota per l'area di destinazione della distribuzione.
 
@@ -95,11 +95,11 @@ Per ottenere un aumento della quota, accedere al portale e inviare una richiesta
 
 1. Selezionare **Sottoscrizioni**.
 
-   ![Sottoscrizioni](./media/error-resource-quota/subscriptions.png)
+   ![L'acquisizione schermo mostra il menu del portale di Azure con le sottoscrizioni selezionate.](./media/error-resource-quota/subscriptions.png)
 
 2. Selezionare la sottoscrizione per cui è necessario ottenere un aumento della quota.
 
-   ![Selezionare la sottoscrizione](./media/error-resource-quota/select-subscription.png)
+   ![Seleziona sottoscrizione](./media/error-resource-quota/select-subscription.png)
 
 3. Selezionare **utilizzo e quote**
 
