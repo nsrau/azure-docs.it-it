@@ -16,12 +16,12 @@ ms.date: 03/26/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c539fd37116f8c55f336aecf1e8979355a40d61c
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 0852171544f179315535d234f5a2680d918e7d85
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662555"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084839"
 ---
 # <a name="azure-ad-connect-sync-configure-filtering"></a>Servizio di sincronizzazione Azure AD Connect: Configurare il filtro
 L'applicazione di un filtro consente di controllare quali oggetti vengono visualizzati in Azure Active Directory (Azure AD) dalla directory locale. La configurazione predefinita considera tutti gli oggetti in tutti i domini delle foreste configurate. In generale, questa è la configurazione consigliata. Gli utenti che usano carichi di lavoro Microsoft 365, ad esempio Exchange Online e Skype for business, traggono vantaggio da un elenco di indirizzi globale completo, in modo da poter inviare messaggi di posta elettronica e chiamare chiunque. Con la configurazione predefinita possono usufruire della stessa esperienza resa disponibile da un'implementazione locale di Exchange o Lync.
@@ -217,7 +217,7 @@ I filtri in ingresso usano la configurazione predefinita in base alla quale per 
 Per determinare gli oggetti da sincronizzare o da non sincronizzare, durante l'applicazione del filtro in ingresso si usa l'**ambito** dove si apportano le modifiche necessarie per rispettare i requisiti dell'organizzazione. Nel modulo di ambito sono disponibili un **gruppo** e una **clausola** per determinare quando una regola di sincronizzazione è nell'ambito. Un gruppo contiene una o più clausole. Tra più clausole viene inserito un operatore AND logico e tra più gruppi un operatore OR logico.
 
 Ecco un esempio:   
-![Screenshot che illustra un esempio di aggiunta di filtri di ambito](./media/how-to-connect-sync-configure-filtering/scope.png)  
+![Screenshot che mostra un esempio di aggiunta di filtri di ambito.](./media/how-to-connect-sync-configure-filtering/scope.png)  
 Deve essere letto come **(department = IT) OR (department = Sales AND c = US)**.
 
 Negli esempi e nei passaggi seguenti viene usato l'oggetto utente come esempio, ma l'uso può essere esteso a tutti i tipi di oggetto.
@@ -275,7 +275,7 @@ In questo esempio si modifica il filtro in modo che vengano sincronizzati solo g
 1. Accedere al server che esegue il servizio di sincronizzazione Azure AD Connect usando un account membro del gruppo di sicurezza **ADSyncAdmins** .
 2. Avviare l'**editor delle regole di sincronizzazione** dal menu **Start**.
 3. In **Rules Type** (Tipo di regola) fare clic su **Outbound** (In uscita).
-4. A seconda della versione di Connect in uso, trovare la regola denominata **Out to AAD – User Join** (Verso ADD - Aggiunta utente) o **Out to AAD - User Join SOAInAD** (Verso ADD - Aggiunta utente SOAInAD) e fare clic su **Edit** (Modifica).
+4. A seconda della versione di Connect in uso, trovare la regola denominata **out to Azure ad – User join** o **out to Azure ad-User join SOAInAD**, quindi fare clic su **Edit (modifica**).
 5. Nel popup selezionare **Yes** (Sì) per creare una copia della regola.
 6. Nella pagina **Description** (Descrizione) modificare il campo **Precedence** (Precedenza) su un valore non usato, ad esempio 50.
 7. Fare clic su **Scoping filter** (Filtro ambito) nel riquadro di spostamento a sinistra e quindi fare clic su **Add clause** (Aggiungi clausola). In **Attribute** (Attributo) selezionare **mail**. In **Operator** (Operatore) selezionare **ENDSWITH** (TERMINACON). In **valore**Digitare ** \@ contoso.com**e quindi fare clic su **Aggiungi clausola**. In **Attribute** (Attributo) selezionare **userPrincipalName**. In **Operator** (Operatore) selezionare **ENDSWITH** (TERMINACON). In **valore**Digitare ** \@ contoso.com**.
@@ -300,7 +300,7 @@ Dopo la sincronizzazione, tutte le modifiche vengono inserite temporaneamente pe
 
 1. Avviare un prompt dei comandi e passare a `%ProgramFiles%\Microsoft Azure AD Sync\bin`.
 2. Eseguire `csexport "Name of Connector" %temp%\export.xml /f:x`.  
-   Il nome del connettore si trova nel servizio di sincronizzazione. Il nome sarà simile a "contoso.com - AAD" per Azure AD.
+   Il nome del connettore si trova nel servizio di sincronizzazione. Ha un nome simile a "contoso.com-Azure AD" per Azure AD.
 3. Eseguire `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv`.
 4. A questo punto si avrà un file denominato export.csv in %temp%, che può essere esaminato in Microsoft Excel. Questo file contiene tutte le modifiche in fase di esportazione.
 5. Apportare le modifiche necessarie ai dati o alla configurazione ed eseguire di nuovo questi passaggi (importazione, sincronizzazione e verifica) finché le modifiche che verranno esportate non saranno quelle previste.

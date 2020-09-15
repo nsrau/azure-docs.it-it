@@ -12,12 +12,12 @@ ms.date: 11/04/2019
 ms.author: kenwith
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 68e40696c935adf6bef78636770b1add81255fa8
-ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
+ms.openlocfilehash: 96b4cb6f751a5d2bc4259117007b3abec2e0598d
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/14/2020
-ms.locfileid: "90060918"
+ms.locfileid: "90069578"
 ---
 # <a name="grant-tenant-wide-admin-consent-to-an-application"></a>Concedere a un'applicazione il consenso amministratore a livello di tenant
 
@@ -69,6 +69,9 @@ Per concedere il consenso dell'amministratore a livello di tenant da **registraz
 4. Selezionare **autorizzazioni API** , quindi fare clic su **concedi il consenso dell'amministratore**.
 5. Esaminare attentamente le autorizzazioni richieste dall'applicazione.
 6. Se si accettano le autorizzazioni richieste dall'applicazione, concedere il consenso. In caso contrario, fare clic su **Annulla** o chiudere la finestra.
+
+> [!WARNING]
+> Se si concede il consenso dell'amministratore a livello di tenant tramite **registrazioni app** , tutte le autorizzazioni concesse in precedenza a livello di tenant vengono revocate. Le autorizzazioni concesse in precedenza agli utenti per loro conto non saranno interessate. 
 
 ## <a name="construct-the-url-for-granting-tenant-wide-admin-consent"></a>Costruire l'URL per concedere il consenso dell'amministratore a livello di tenant
 

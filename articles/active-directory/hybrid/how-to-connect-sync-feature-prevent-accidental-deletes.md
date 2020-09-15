@@ -16,12 +16,12 @@ ms.date: 07/12/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55270889c8c284335d5aa7b545718da419ba8d84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 16d48cda87b8226ebc3bbab179c1034abf0a486f
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85357359"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084610"
 ---
 # <a name="azure-ad-connect-sync-prevent-accidental-deletes"></a>Servizio di sincronizzazione Azure AD Connect: Impedire eliminazioni accidentali
 Questo argomento descrive la funzionalità per impedire le eliminazioni accidentali in Azure AD Connect.
@@ -54,7 +54,7 @@ Se si tratta di un messaggio inatteso, ricercare la causa e intraprendere eventu
 2. Passare alla pagina **Connettori**.
 3. Selezionare il connettore con tipo **Azure Active Directory**.
 4. In **Azioni** a destra selezionare **Spazio connettore di ricerca**.
-5. Nella casella popup in **Scope** (Ambito) selezionare **Disconnected Since** (Disconnesso dal) e selezionare una data/ora trascorsa. Scegliere **Cerca**. Questa pagina offre la visualizzazione di tutti gli oggetti che verranno eliminati. Facendo clic su ogni elemento è possibile ottenere altre informazioni sull'oggetto. È anche possibile fare clic su **Column Settings** (Impostazioni colonna) per aggiungere altri attributi da visualizzare nella griglia.
+5. Nella casella popup in **Scope** (Ambito) selezionare **Disconnected Since** (Disconnesso dal) e selezionare una data/ora trascorsa. Fare clic su **Cerca**. Questa pagina offre la visualizzazione di tutti gli oggetti che verranno eliminati. Facendo clic su ogni elemento è possibile ottenere altre informazioni sull'oggetto. È anche possibile fare clic su **Column Settings** (Impostazioni colonna) per aggiungere altri attributi da visualizzare nella griglia.
 
 ![Spazio connettore di ricerca](./media/how-to-connect-sync-feature-prevent-accidental-deletes/searchcs.png)
 
@@ -65,7 +65,7 @@ Se si desidera tutte le eliminazioni, eseguire le operazioni seguenti:
 
 1. Per recuperare la soglia di eliminazione corrente, eseguire il cmdlet di PowerShell `Get-ADSyncExportDeletionThreshold`. Indicare un account di amministratore globale di Azure AD e una password. Il valore predefinito è 500.
 2. Per disabilitare temporaneamente la protezione e consentire l'esportazione di queste eliminazioni, eseguire il cmdlet PowerShell: `Disable-ADSyncExportDeletionThreshold`. Indicare un account di amministratore globale di Azure AD e una password.
-   ![Credenziali](./media/how-to-connect-sync-feature-prevent-accidental-deletes/credentials.png)
+   ![Screenshot Visualizza una finestra di dialogo per l'immissione del nome utente e della password dell'amministratore globale Azure AD.](./media/how-to-connect-sync-feature-prevent-accidental-deletes/credentials.png)
 3. Con il connettore Azure Active Directory ancora selezionato, selezionare l'azione **Esegui** e selezionare **Esporta**.
 4. Per riabilitare la protezione, eseguire il cmdlet PowerShell: `Enable-ADSyncExportDeletionThreshold -DeletionThreshold 500`. Sostituire 500 con il valore osservato quando si recupera la soglia di eliminazione corrente. Indicare un account di amministratore globale di Azure AD e una password.
 

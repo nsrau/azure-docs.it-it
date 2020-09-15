@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 06/06/2020
 ms.author: vigunase
 ms.subservice: B2C
-ms.openlocfilehash: 6fee96354760e448de132f88918e9839c6220af3
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c8739da859c00a9caf08ac833f7b4ae7ae52e392
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254492"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084312"
 ---
 # <a name="recommendations-and-best-practices-for-azure-active-directory-b2c"></a>Suggerimenti e procedure consigliate per Azure Active Directory B2C
 
 Le procedure consigliate e le raccomandazioni seguenti illustrano alcuni aspetti principali dell'integrazione di Azure Active Directory (Azure AD) B2C in ambienti applicativi nuovi o esistenti.
 
-## <a name="fundamentals"></a>Fundamentals
+## <a name="fundamentals"></a>Concetti fondamentali
 
 | Procedura consigliata | Descrizione |
 |--|--|
@@ -56,7 +56,6 @@ Durante la fase di implementazione, prendere in considerazione i consigli seguen
 | Informazioni su come risolvere i problemi Azure AD B2C | Informazioni su come [risolvere i problemi relativi ai criteri personalizzati](https://docs.microsoft.com/azure/active-directory-b2c/troubleshoot-custom-policies?tabs=applications) durante lo sviluppo. Informazioni sul flusso di autenticazione normale e su come usare gli strumenti per individuare anomalie ed errori. Ad esempio, usare [Application Insights](troubleshoot-with-application-insights.md) per esaminare i log di output dei percorsi utente. |
 | Sfrutta la nostra libreria di modelli di criteri personalizzati collaudati | [Esempi](https://github.com/azure-ad-b2c/samples) per diversi percorsi utente avanzati per la gestione delle identità e degli accessi Azure ad B2C clienti (CIAM). |
 
-
 ## <a name="testing"></a>Test
 
 Testare e automatizzare l'implementazione del Azure AD B2C.
@@ -71,7 +70,7 @@ Testare e automatizzare l'implementazione del Azure AD B2C.
 | Limitazione |  Azure AD B2C limita il traffico se un numero eccessivo di richieste viene inviato dalla stessa origine in un breve periodo di tempo. Usare diverse origini di traffico durante i test di carico e gestire `AADB2C90229` correttamente il codice di errore nelle applicazioni. |
 | Automazione | USA pipeline di integrazione continua e recapito continuo per automatizzare i test e le distribuzioni, ad esempio [Azure DevOps](deploy-custom-policies-devops.md). |
 
-## <a name="operations"></a>Gestione operativa
+## <a name="operations"></a>Operazioni
 
 Gestire l'ambiente di Azure AD B2C.
 
@@ -79,11 +78,10 @@ Gestire l'ambiente di Azure AD B2C.
 |--|--|
 | Creazione di più ambienti | Per semplificare le operazioni e implementare la distribuzione, creare ambienti distinti per lo sviluppo, il test, la pre-produzione e la produzione. Creare Azure AD B2C tenant per ognuno di essi. |
 | Usare il controllo della versione per i criteri personalizzati | Si consiglia di usare GitHub, Azure Repos o un altro sistema di controllo della versione basato sul cloud per i criteri personalizzati Azure AD B2C. |
-| Usare l'API Microsoft Graph per automatizzare la gestione dei tenant B2C | API Microsoft Graph:<br/>Gestire il [Framework dell'esperienza](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta) di gestione delle identità (criteri personalizzati)<br/>[Chiavi](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta)<br/>[Flussi degli utenti](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta) |
+| Usare l'API Microsoft Graph per automatizzare la gestione dei tenant B2C | API Microsoft Graph:<br/>Gestire il [Framework dell'esperienza](https://docs.microsoft.com/graph/api/resources/trustframeworkpolicy?view=graph-rest-beta&preserve-view=true) di gestione delle identità (criteri personalizzati)<br/>[Chiavi](https://docs.microsoft.com/graph/api/resources/trustframeworkkeyset?view=graph-rest-beta&preserve-view=true)<br/>[Flussi degli utenti](https://docs.microsoft.com/graph/api/resources/identityuserflow?view=graph-rest-beta&preserve-view=true) |
 | Eseguire l'integrazione con Azure DevOps | Una [pipeline](deploy-custom-policies-devops.md) di integrazione continua/recapito continuo rende più semplice lo trasferimento di codice tra ambienti diversi e garantisce sempre la preparazione alla produzione.   |
 | Integrare con Monitoraggio di Azure | [Gli eventi del log di controllo](view-audit-logs.md) vengono conservati per sette giorni. Eseguire l' [integrazione con monitoraggio di Azure](azure-monitor.md) per conservare i log per l'uso a lungo termine o per l'integrazione con strumenti di gestione di informazioni ed eventi di sicurezza di terze parti per ottenere informazioni approfondite sull'ambiente. |
 | Configurare gli avvisi attivi e il monitoraggio | [Tenere traccia del comportamento degli utenti](active-directory-b2c-custom-guide-eventlogger-appins.md) in Azure AD B2C usando Application Insights. |
-
 
 ## <a name="support-and-status-updates"></a>Supporto e aggiornamenti di stato
 

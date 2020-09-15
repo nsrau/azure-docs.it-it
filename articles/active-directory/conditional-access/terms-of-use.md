@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 05/29/2019
+ms.date: 09/14/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5cead917c6c98d10d3f9e5ebe2f75bd5513574c5
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 19c6bf058af62f830c825eef900bff712ba07181
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948913"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085910"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory le condizioni per l'utilizzo
 
@@ -256,15 +256,15 @@ Ecco un elenco dei software e delle piattaforme supportate.
 > |  | iOS | Android | Windows 10 | Altro |
 > | --- | --- | --- | --- | --- |
 > | **App nativa** | Sì | Sì | Sì |  |
-> | **Microsoft Edge** | Sì | Sì | Sì |  |
-> | **Internet Explorer** | Sì | Sì | Sì |  |
-> | **Chrome (con estensione)** | Sì | Sì | Sì |  |
+> | **Microsoft Edge** | Yes | Sì | Yes |  |
+> | **Internet Explorer** | Yes | Sì | Yes |  |
+> | **Chrome (con estensione)** | Yes | Yes | Sì |  |
 
 Le condizioni per l'utilizzo per dispositivo hanno i vincoli seguenti:
 
 - Un dispositivo può essere aggiunto a un solo tenant.
 - Un utente deve disporre delle autorizzazioni per aggiungere il dispositivo.
-- L'app di registrazione di Intune non è supportata.
+- L'app di registrazione di Intune non è supportata. Assicurarsi che sia escluso dai criteri di accesso condizionale che richiedono le condizioni per l'utilizzo.
 - Azure AD utenti B2B non sono supportati.
 
 Se il dispositivo dell'utente non è stato aggiunto, riceveranno un messaggio che indica che devono aggiungere il dispositivo. L'esperienza sarà dipendente dalla piattaforma e dal software.
@@ -366,7 +366,7 @@ R: attualmente non è possibile aggiornare un documento di condizioni per l'util
 R: Sì, gli utenti finali possono selezionare collegamenti ipertestuali a pagine aggiuntive, ma i collegamenti alle sezioni all'interno del documento non sono supportati. Inoltre, i collegamenti ipertestuali in termini di utilizzo di PDF non funzionano quando si accede dal portale Azure AD app/account Web.
 
 **D: le condizioni per l'utilizzo possono supportare più lingue?**<br />
-A: Sì. Attualmente sono disponibili 108 lingue diverse che possono essere configurate da un amministratore per le singole condizioni per l'utilizzo. Un amministratore può caricare più documenti PDF e contrassegnare i documenti con una lingua corrispondente (fino a 108). Quando gli utenti finali accedono, vengono esaminate le preferenze della lingua del browser e viene visualizzato il documento corrispondente. Se non viene trovata alcuna corrispondenza, verrà visualizzato il documento predefinito, ovvero il primo documento che viene caricato.
+R: Sì. Attualmente sono disponibili 108 lingue diverse che possono essere configurate da un amministratore per le singole condizioni per l'utilizzo. Un amministratore può caricare più documenti PDF e contrassegnare i documenti con una lingua corrispondente (fino a 108). Quando gli utenti finali accedono, vengono esaminate le preferenze della lingua del browser e viene visualizzato il documento corrispondente. Se non viene trovata alcuna corrispondenza, verrà visualizzato il documento predefinito, ovvero il primo documento che viene caricato.
 
 **D: quando vengono attivate le condizioni per l'utilizzo?**<br />
 R: le condizioni per l'utilizzo vengono attivate durante l'accesso.

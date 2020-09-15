@@ -3,15 +3,15 @@ title: Creazione del pool host dell'ambiente desktop virtuale Windows-Azure
 description: Come risolvere i problemi e risolvere i problemi relativi ai pool di tenant e host durante l'installazione di un ambiente desktop virtuale di Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 08/11/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 4d504c46288ebe2a8112586ce6be6449178df16a
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: d02642b49951b4b116eaae6dbea490ef2720c15d
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121375"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084414"
 ---
 # <a name="host-pool-creation"></a>Creazione di pool di host
 
@@ -20,7 +20,7 @@ ms.locfileid: "88121375"
 
 In questo articolo vengono illustrati i problemi durante la configurazione iniziale del tenant di desktop virtuale Windows e l'infrastruttura del pool di host sessione correlata.
 
-## <a name="provide-feedback"></a>Fornire il feedback
+## <a name="provide-feedback"></a>Fornire commenti e suggerimenti
 
 Visitare la pagina [Windows Virtual Desktop Tech Community](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) per discutere del servizio Desktop virtuale Windows con il team del prodotto e i membri attivi della community.
 
@@ -46,6 +46,12 @@ Se l'operazione supera il limite di quota, è possibile eseguire una delle opera
 - Creare un nuovo pool di host con gli stessi parametri, ma un minor numero di VM e Core VM.
 
 - Aprire il collegamento visualizzato nel campo statusMessage in un browser per inviare una richiesta di aumento della quota per la sottoscrizione di Azure per lo SKU di VM specificato.
+
+### <a name="error-cant-see-user-assignments-in-app-groups"></a>Errore: non è possibile visualizzare le assegnazioni utente nei gruppi di app.
+
+Motivo: questo errore si verifica in genere dopo lo spostamento della sottoscrizione da 1 tenant Azure Active Directory (AD) a un altro. Se le assegnazioni precedenti sono ancora legate al tenant Azure AD precedente, il portale di Azure ne rileverà la perdita.
+
+Correzione: è necessario riassegnare gli utenti ai gruppi di app.
 
 ## <a name="azure-resource-manager-template-errors"></a>Errori del modello di Azure Resource Manager
 
@@ -88,7 +94,7 @@ Per risolvere il problema, eseguire le operazioni seguenti:
 3. Il menu server DNS verrà visualizzato sul lato destro dello schermo. Nel menu selezionare **personalizzato**.
 4. Verificare che i server DNS elencati in personalizzato corrispondano al controller di dominio o al dominio Active Directory. Se il server DNS non è visibile, è possibile aggiungerlo immettendo il relativo valore nel campo **Aggiungi server DNS** .
 
-### <a name="error-your-deployment-failedunauthorized"></a>Errore: la distribuzione non è riuscita. ..\Unauthorized
+### <a name="error-your-deployment-failedunauthorized"></a>Errore: La distribuzione non è riuscita...\Non autorizzato
 
 ```Error
 {"code":"DeploymentFailed","message":"At least one resource deployment operation failed. Please list deployment operations for details. Please see https://aka.ms/arm-debug for usage details.","details":[{"code":"Unauthorized","message":"{\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Target\": null,\r\n \"Details\": [\r\n {\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n },\r\n {\r\n \"Code\": \"Unauthorized\"\r\n },\r\n {\r\n \"ErrorEntity\": {\r\n \"ExtendedCode\": \"52020\",\r\n \"MessageTemplate\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\",\r\n \"Parameters\": [\r\n \"default\"\r\n ],\r\n \"Code\": \"Unauthorized\",\r\n \"Message\": \"The scale operation is not allowed for this subscription in this region. Try selecting different region or scale option.\"\r\n }\r\n }\r\n ],\r\n \"Innererror\": null\r\n}"}]}
@@ -109,7 +115,7 @@ Per risolvere il problema, eseguire le operazioni seguenti:
 
 **Correzione:** Verificare che l'ambiente desktop virtuale Windows sia integro eseguendo l'accesso con PowerShell. Completare manualmente la registrazione della macchina virtuale in [creare un pool di host con PowerShell](create-host-pools-powershell.md).
 
-### <a name="error-the-admin-username-specified-isnt-allowed"></a>Errore: il nome utente amministratore specificato non è consentito
+### <a name="error-the-admin-username-specified-isnt-allowed"></a>Errore: Il nome utente amministratore specificato non è consentito
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot della distribuzione non riuscita. l'amministratore specificato non è consentito.](media/failure-username.png)
@@ -127,7 +133,7 @@ Esempio di errore non elaborato:
 
 **Correzione:** Aggiornare il nome utente o usare utenti diversi.
 
-### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Errore: la macchina virtuale ha segnalato un errore durante l'elaborazione dell'estensione
+### <a name="error-vm-has-reported-a-failure-when-processing-extension"></a>Errore: La macchina virtuale ha segnalato un errore durante l'elaborazione dell'estensione 
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot dell'operazione della risorsa completata con lo stato di provisioning terminal nella distribuzione non riuscita.](media/failure-processing.png)

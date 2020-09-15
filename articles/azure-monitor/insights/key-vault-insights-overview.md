@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 04/13/2019
-ms.openlocfilehash: c669946ab76fcaeaaa6fd681f521408643c5a63c
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7b799c462cc683d8d05edc3f10885c458185a843
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88531260"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069799"
 ---
 # <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Monitoraggio del servizio Key Vault con Monitoraggio di Azure per Key Vault (anteprima)
 Monitoraggio di Azure per Key Vault (anteprima) offre il monitoraggio completo degli insiemi di credenziali delle chiavi mettendo a disposizione una vista unificata delle richieste, delle prestazioni, degli errori e della latenza di Key Vault.
@@ -76,16 +76,6 @@ Per le colonne della cartella di lavoro vengono usate una codifica a colori o ma
 La cartella di lavoro visualizza le operazioni riuscite (codici di stato 2xx), gli errori di autenticazione (codici di stato 401/403), la limitazione delle richieste (codici di stato 429) e altri errori (codici di stato 4xx).
 
 Per capire meglio cosa rappresenta ogni codice di stato, è consigliabile leggere la documentazione su [codici di risposta e di stato di Azure Key Vault](../../key-vault/general/authentication-requests-and-responses.md).
-
-## <a name="operations--latency-workbook"></a>Cartella di lavoro Operazioni e latenza
-
-Selezionare **Operazioni e latenza** nella parte superiore della pagina per aprire la scheda corrispondente. Questa scheda consente di eseguire l'onboarding degli insiemi di credenziali delle chiavi per il monitoraggio. Per una procedura più dettagliata, vedere la sezione [Configurazione degli insiemi di credenziali delle chiavi per il monitoraggio](#configuring-your-key-vaults-for-monitoring).
-
-È possibile vedere quanti insiemi di credenziali delle chiavi sono abilitati per la registrazione. Se almeno un insieme di credenziali è stato configurato correttamente, verranno visualizzate le tabelle con le operazioni e i codici di stato per ogni insieme di credenziali delle chiavi. È possibile fare clic nella sezione dei dettagli di una riga per ottenere informazioni aggiuntive sulla singola operazione.
-
-![Screenshot dei grafici di operazioni e latenza](./media/key-vaults-insights-overview/logs.png)
-
-Se non vengono visualizzati dati per questa sezione, vedere la sezione precedente su come abilitare i log per Azure Key Vault oppure la sezione sulla risoluzione dei problemi di seguito.
 
 ## <a name="view-from-a-key-vault-resource"></a>Visualizzazione in una risorsa Key Vault
 
@@ -191,16 +181,6 @@ La cadenza temporale è automatica, quindi dipende dall'intervallo di tempo sele
 ### <a name="what-is-the-time-range-when-any-part-of-the-workbook-is-pinned"></a>Qual è l'intervallo di tempo in cui una parte della cartella di lavoro è bloccata
 
 L'intervallo di tempo dipende dalle impostazioni del dashboard.
-
-### <a name="why-do-i-not-see-any-data-for-my-key-vault-under-the-operations--latency-sections"></a>Perché non vengono visualizzati dati per la Key Vault nelle sezioni operazioni & latenza
-
-Per visualizzare i dati basati su log, è necessario abilitare i log per ogni insieme di credenziali delle chiavi da monitorare. Questa operazione può essere eseguita nelle impostazioni di diagnostica per ogni insieme di credenziali delle chiavi. Sarà necessario inviare i dati a un'area di lavoro Log Analytics designata.
-
-### <a name="i-have-already-enabled-logs-for-my-key-vault-why-am-i-still-unable-to-see-my-data-under-operations--latency"></a>Sono già stati abilitati i log per la Key Vault, perché non è ancora possibile visualizzare i dati in Operations & latenza
-
-Attualmente, i log di diagnostica non funzionano in modo retroattivo, quindi i dati inizieranno a essere visualizzati dopo che saranno state eseguite azioni negli insiemi di credenziali delle chiavi. Pertanto, può essere necessario del tempo, da diverse ore a un giorno, a seconda della quantità di attività eseguite nell'insieme di credenziali delle chiavi.
-
-Inoltre, se è stato selezionato un numero elevato di insiemi di credenziali delle chiavi e di sottoscrizioni, potrebbe non essere possibile visualizzare i dati a causa delle limitazioni delle query. Per visualizzare i dati, può essere necessario ridurre il numero di sottoscrizioni o degli insiemi di credenziali selezionati. 
 
 ### <a name="what-if-i-want-to-see-other-data-or-make-my-own-visualizations-how-can-i-make-changes-to-the-key-vault-insights"></a>È possibile vedere altri dati o creare visualizzazioni personali? Come è possibile apportare modifiche a Key Vault Insights
 

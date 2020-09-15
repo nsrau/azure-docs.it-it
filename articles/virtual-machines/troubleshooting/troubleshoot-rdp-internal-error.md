@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: 299bbfa31584b260f85dfa7bafddea268084f876
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 7cbb67a215d44759b2b503929c37cb50ea94709c
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235163"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069765"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>Si verifica un errore interno quando si prova a connettersi a una macchina virtuale di Azure tramite Desktop remoto
 
@@ -26,7 +26,7 @@ Questo articolo descrive un errore che può verificarsi quando si tenta di conne
 
 ## <a name="symptoms"></a>Sintomi
 
-Non è possibile connettersi a una macchina virtuale di Azure usando il protocollo Remote Desktop Protocol (RDP). La connessione si blocca nella sezione “Configurazione remota”, oppure viene visualizzato il seguente messaggio di errore:
+Non è possibile connettersi a una macchina virtuale di Azure usando Remote Desktop Protocol (RDP). La connessione si blocca nella sezione **configurazione remota** oppure viene visualizzato il messaggio di errore seguente:
 
 - Errore interno di RDP
 - Si è verificato un errore interno
@@ -35,22 +35,26 @@ Non è possibile connettersi a una macchina virtuale di Azure usando il protocol
 
 ## <a name="cause"></a>Causa
 
-Questo problema può verificarsi a causa dei motivi seguenti:
+Questo problema può verificarsi per i motivi seguenti:
 
+- È possibile che la macchina virtuale sia stata attaccata.
 - Non è possibile accedere alle chiavi di crittografia RSA locali.
 - Il protocollo TLS è disabilitato.
 - Il certificato è danneggiato o scaduto.
 
 ## <a name="solution"></a>Soluzione
 
-Prima di seguire questa procedura, creare uno snapshot del disco del sistema operativo della macchina virtuale interessata come backup. Per altre informazioni, vedere [Snapshot di un disco](../windows/snapshot-copy-managed-disk.md).
+Per risolvere questo problema, completare la procedura descritta nelle sezioni seguenti. Prima di iniziare, eseguire uno snapshot del disco del sistema operativo della macchina virtuale interessata come backup. Per altre informazioni, vedere [Snapshot di un disco](../windows/snapshot-copy-managed-disk.md).
 
-Per risolvere questo problema, usare la console seriale o [riparare la macchina virtuale in modalità offline](#repair-the-vm-offline) collegando il disco del sistema operativo della macchina virtuale a una macchina virtuale di ripristino.
+### <a name="check-rdp-security"></a>Controllare la sicurezza RDP
 
+Per prima cosa, verificare se il gruppo di sicurezza di rete per la porta RDP 3389 non è protetto (aperto). Se non è protetto e viene visualizzato \* come indirizzo IP di origine per il traffico in ingresso, limitare la porta RDP all'indirizzo IP di un utente di specifico e quindi testare l'accesso RDP. Se l'operazione non riesce, completare la procedura descritta nella sezione successiva.
 
 ### <a name="use-serial-control"></a>Usare il controllo seriale
 
-Connettersi alla [console seriale e aprire un'istanza di PowerShell](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
+Usare la console seriale o [ripristinare la macchina virtuale offline](#repair-the-vm-offline) connettendo il disco del sistema operativo della macchina virtuale a una macchina virtuale di ripristino.
+
+Per iniziare, connettersi alla [console seriale e aprire un'istanza di PowerShell](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
 ). Se la console seriale non è abilitata nella macchina virtuale, andare alla sezione [Riparare la macchina virtuale in modalità offline](#repair-the-vm-offline).
 
 #### <a name="step-1-check-the-rdp-port"></a>Passaggio: 1 Verificare la porta RDP
@@ -194,7 +198,7 @@ Il client RDP usa TLS 1.0 come protocollo predefinito. Tuttavia, ciò può esser
 Per abilitare il log Dump e la console seriale, eseguire lo script seguente.
 
 1. Aprire una sessione del prompt dei comandi con privilegi elevati (**Esegui come amministratore**).
-2. Eseguire lo script riportato di seguito:
+2. Eseguire lo script seguente:
 
     In questo script si presuppone che la lettera di unità assegnata al disco del sistema operativo collegato sia F. Sostituirla con il valore appropriato per la specifica macchina virtuale.
 

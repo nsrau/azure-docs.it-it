@@ -3,16 +3,16 @@ title: Eseguire il backup di macchine virtuali VMware con il server di Backup di
 description: Questo articolo illustra come usare server di Backup di Azure per eseguire il backup di macchine virtuali VMware in esecuzione su un server VMware vCenter/ESXi.
 ms.topic: conceptual
 ms.date: 05/24/2020
-ms.openlocfilehash: e18b5c51446446103a91ef7d6a00277c2b41db77
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: db5e5c4bdac64e2faf5babb107ecec61a02d6468
+ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017567"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90069833"
 ---
 # <a name="back-up-vmware-vms-with-azure-backup-server"></a>Eseguire il backup di macchine virtuali VMware con il server di Backup di Azure
 
-Questo articolo illustra come eseguire il backup in Azure di macchine virtuali VMware in esecuzione in host VMware ESXi/server vCenter usando il server di Backup di Azure.
+Questo articolo illustra come eseguire il backup di macchine virtuali VMware in esecuzione in VMware ESXi host/server vCenter in Azure usando server di Backup di Azure (MAB).
 
 Questo articolo spiega come:
 
@@ -21,6 +21,31 @@ Questo articolo spiega come:
 - Aggiungere le credenziali dell'account a Backup di Azure.
 - Aggiungere il server VMware o ESXi al server di Backup di Azure.
 - Configurare un gruppo protezione contenente le macchine virtuali VMware di cui si vuole eseguire il backup, specificare le impostazioni di backup e pianificare il backup.
+
+## <a name="supported-vmware-features"></a>Funzionalità di VMware supportate
+
+In MAB sono disponibili le funzionalità seguenti per il backup di macchine virtuali VMware:
+
+- Backup senza agenti: MAB non richiede l'installazione di un agente nel server vCenter o ESXi per eseguire il backup della macchina virtuale. Al contrario, è sufficiente fornire l'indirizzo IP o il nome di dominio completo (FQDN) e le credenziali di accesso usate per autenticare il server VMware con MAB.
+- Backup integrato nel cloud: MAB protegge i carichi di lavoro su disco e cloud. Il flusso di lavoro di backup e ripristino di MAB consente di gestire la conservazione a lungo termine e il backup fuori sede.
+- Rilevare e proteggere le macchine virtuali gestite da vCenter: MAB rileva e protegge le macchine virtuali distribuite in un server VMware (server vCenter o ESXi). Quando aumentano le dimensioni della distribuzione, usare vCenter per gestire l'ambiente VMware. MAB rileva anche le macchine virtuali gestite da vCenter, consentendo di proteggere le distribuzioni di grandi dimensioni.
+- Protezione automatica a livello di cartella: vCenter consente di organizzare le macchine virtuali in cartelle di macchine virtuali. MAB rileva queste cartelle e consente di proteggere le macchine virtuali a livello di cartella e include tutte le sottocartelle. Quando si proteggono le cartelle, MAB non solo protegge le VM presenti in tale cartella, ma protegge anche le VM aggiunte in un secondo momento. MAB rileva le nuove macchine virtuali su base giornaliera e le protegge automaticamente. Quando si organizzano le macchine virtuali in cartelle ricorsive, MAB rileva e protegge automaticamente le nuove macchine virtuali distribuite nelle cartelle ricorsive.
+- MAB protegge le macchine virtuali archiviate in un disco locale, in un file system di rete (NFS) o in un archivio cluster.
+- MAB protegge le VM migrate per il bilanciamento del carico: quando viene eseguita la migrazione delle macchine virtuali per il bilanciamento del carico, MAB rileva automaticamente e continua la protezione delle macchine virtuali.
+- MAB può ripristinare file o cartelle da una macchina virtuale Windows senza ripristinare l'intera macchina virtuale, consentendo così di ripristinare i file necessari più velocemente.
+
+## <a name="prerequisites-and-limitations"></a>Prerequisiti e limitazioni
+
+Prima di avviare il backup di una macchina virtuale VMware, esaminare l'elenco seguente di prerequisiti e limitazioni.
+
+- Se si usa MAB per proteggere un server vCenter (in esecuzione in Windows) come server Windows usando il nome di dominio completo del server, non è possibile proteggere il server vCenter come server VMware usando il nome di dominio completo (FQDN) del server.
+  - È possibile utilizzare l'indirizzo IP statico di server vCenter come soluzione alternativa.
+  - Se si desidera utilizzare il nome di dominio completo, è necessario arrestare la protezione dati come server di Windows, rimuovere l'agente protezione, quindi aggiungere come server VMware utilizzando il nome di dominio completo.
+- Se si usa vCenter per gestire i server ESXi nell'ambiente in uso, aggiungere vCenter (e non ESXi) al gruppo protezione dati MAB.
+- Non è possibile eseguire il backup degli snapshot utente prima del primo backup di MAB. Una volta completato il primo backup, è possibile eseguire il backup degli snapshot utente.
+- MAB non può proteggere le macchine virtuali VMware con dischi pass-through e mapping di dispositivi non elaborati fisici (pRDM).
+- MAB non è in grado di rilevare o proteggere vApp VMware.
+- MAB non può proteggere le macchine virtuali VMware con snapshot esistenti.
 
 ## <a name="before-you-start"></a>Prima di iniziare
 
@@ -392,7 +417,7 @@ Con le versioni precedenti di MAB, i backup paralleli venivano eseguiti solo tra
 
 Per eseguire il backup di vSphere 6,7, seguire questa procedura:
 
-- Abilitare TLS 1.2 nel server DPM
+- Abilitare TLS 1,2 nel server MAB
 
 >[!NOTE]
 >VMWare 6,7 in poi aveva TLS abilitato come protocollo di comunicazione.

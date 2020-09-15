@@ -9,12 +9,12 @@ ms.date: 05/19/2020
 ms.author: normesta
 ms.reviewer: fryu
 ms.custom: monitoring, devx-track-csharp
-ms.openlocfilehash: 0edb50fd72622d3d7d628e0e02ef2c3737f8713a
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.openlocfilehash: 0c4178513c5a6027b3261d6d7975d4ec7cc55c6a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500420"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085791"
 ---
 # <a name="monitoring-azure-storage"></a>Monitoraggio di archiviazione di Azure
 
@@ -76,7 +76,11 @@ Tutte le altre richieste anonime non riuscite non vengono registrate. Per un ele
 
 ## <a name="configuration"></a>Configurazione
 
-Le metriche della piattaforma e il log attività vengono raccolti automaticamente, ma è necessario creare un'impostazione di diagnostica per raccogliere i log delle risorse o per inviarli all'esterno di Monitoraggio di Azure. Per consentire al processo di creare un'impostazione di diagnostica usando il portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell, vedere [Creare un'impostazione di diagnostica per raccogliere i log e le metriche della piattaforma in Azure](../../azure-monitor/platform/diagnostic-settings.md).
+Le metriche della piattaforma e il log attività vengono raccolti automaticamente, ma è necessario creare un'impostazione di diagnostica per raccogliere i log delle risorse o per inviarli all'esterno di Monitoraggio di Azure. 
+
+Per creare un'impostazione di diagnostica usando il portale di Azure, l'interfaccia della riga di comando di Azure o PowerShell, vedere [creare un'impostazione di diagnostica per raccogliere i log e le metriche della piattaforma in Azure](../../azure-monitor/platform/diagnostic-settings.md). 
+
+Per visualizzare un modello di Azure Resource Manager che crea un'impostazione di diagnostica, vedere [impostazione di diagnostica per archiviazione di Azure](https://docs.microsoft.com/azure/azure-monitor/samples/resource-manager-diagnostic-settings#diagnostic-setting-for-azure-storage).
 
 Quando si crea un'impostazione di diagnostica, scegliere il tipo di archiviazione per il quale abilitare i log, ad esempio BLOB, coda, tabella o file. Data Lake Storage Gen2 non viene visualizzato come tipo di archiviazione. Questo perché Data Lake Storage Gen2 è un set di funzionalità disponibili per l'archiviazione BLOB. 
 
@@ -124,7 +128,7 @@ Un elenco di tutte le metriche supportate da Monitoraggio di Azure e Archiviazio
 
 #### <a name="list-the-metric-definition"></a>Elenco della definizione di metrica
 
-È possibile elencare la definizione di metrica del proprio account di archiviazione o del singolo servizio di archiviazione, ad esempio BLOB, file, tabella o coda. Usare il cmdlet [Get-AzMetricDefinition](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition?view=azps-3.3.0).
+È possibile elencare la definizione di metrica del proprio account di archiviazione o del singolo servizio di archiviazione, ad esempio BLOB, file, tabella o coda. Usare il cmdlet [Get-AzMetricDefinition](https://docs.microsoft.com/powershell/module/az.monitor/get-azmetricdefinition).
 
 In questo esempio, sostituire il segnaposto `<resource-ID>` con l'ID risorsa dell'intero account di archiviazione o l'ID risorsa di un singolo servizio di archiviazione, ad esempio BLOB, file, tabella o coda. Gli ID delle risorse si trovano nella **pagina delle proprietà** del proprio account di archiviazione nel portale di Azure.
 
@@ -135,7 +139,7 @@ In questo esempio, sostituire il segnaposto `<resource-ID>` con l'ID risorsa del
 
 #### <a name="reading-metric-values"></a>Lettura dei valori delle metriche
 
-È possibile leggere i valori della metrica a livello di account per il proprio account di archiviazione o per il singolo servizio di archiviazione, ad esempio BLOB, file, tabella o coda. Usare il cmdlet [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric?view=azps-3.3.0).
+È possibile leggere i valori della metrica a livello di account per il proprio account di archiviazione o per il singolo servizio di archiviazione, ad esempio BLOB, file, tabella o coda. Usare il cmdlet [Get-AzMetric](https://docs.microsoft.com/powershell/module/Az.Monitor/Get-AzMetric).
 
 ```powershell
    $resourceId = "<resource-ID>"
@@ -146,7 +150,7 @@ In questo esempio, sostituire il segnaposto `<resource-ID>` con l'ID risorsa del
 
 #### <a name="list-the-account-level-metric-definition"></a>Elenco della definizione di metrica a livello di account
 
-È possibile elencare la definizione di metrica del proprio account di archiviazione o del singolo servizio di archiviazione, ad esempio BLOB, file, tabella o coda. Usare il comando [az monitor metrics list-definitions](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list-definitions).
+È possibile elencare la definizione di metrica del proprio account di archiviazione o del singolo servizio di archiviazione, ad esempio BLOB, file, tabella o coda. Usare il comando [az monitor metrics list-definitions](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list-definitions).
  
 In questo esempio, sostituire il segnaposto `<resource-ID>` con l'ID risorsa dell'intero account di archiviazione o l'ID risorsa di un singolo servizio di archiviazione, ad esempio BLOB, file, tabella o coda. Gli ID delle risorse si trovano nella **pagina delle proprietà** del proprio account di archiviazione nel portale di Azure.
 
@@ -156,7 +160,7 @@ In questo esempio, sostituire il segnaposto `<resource-ID>` con l'ID risorsa del
 
 #### <a name="read-account-level-metric-values"></a>Lettura dei valori di metrica a livello di account
 
-È possibile leggere i valori di metrica per il proprio account di archiviazione o per il singolo servizio di archiviazione, ad esempio BLOB, file, tabella o coda. Usare il comando [az monitor metrics list](https://docs.microsoft.com/cli/azure/monitor/metrics?view=azure-cli-latest#az-monitor-metrics-list).
+È possibile leggere i valori di metrica per il proprio account di archiviazione o per il singolo servizio di archiviazione, ad esempio BLOB, file, tabella o coda. Usare il comando [az monitor metrics list](https://docs.microsoft.com/cli/azure/monitor/metrics#az-monitor-metrics-list).
 
 ```azurecli-interactive
    az monitor metrics list --resource <resource-ID> --metric "UsedCapacity" --interval PT1H

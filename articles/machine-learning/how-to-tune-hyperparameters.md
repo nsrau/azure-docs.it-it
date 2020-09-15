@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 03/30/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 84262427c6d5183fb803f3fc16d2e7b8021e9d5e
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 52e419e970173ddaf3d4d6176f2dd26a1e8194e2
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651808"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084661"
 ---
 # <a name="tune-hyperparameters-for-your-model-with-azure-machine-learning"></a>Ottimizzazione degli iperparametri per il modello con Azure Machine Learning
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -151,11 +151,9 @@ param_sampling = BayesianParameterSampling( {
 ```
 
 > [!NOTE]
-> Il campionamento bayesiano non supporta i criteri per la terminazione anticipata (vedere [Specificare i criteri per la terminazione anticipata](#specify-early-termination-policy)). Quando si usa il campionamento bayesiano dei parametri, impostare `early_termination_policy = None` o lasciare disattivato il parametro `early_termination_policy`.
+> Il campionamento bayesiano non supporta i criteri per la terminazione anticipata (vedere [Specificare i criteri per la terminazione anticipata](#early-termination)). Quando si usa il campionamento bayesiano dei parametri, impostare `early_termination_policy = None` o lasciare disattivato il parametro `early_termination_policy`.
 
-<a name='specify-primary-metric-to-optimize'/>
-
-## <a name="specify-primary-metric"></a>Specificare la metrica primaria
+## <a name="specify-primary-metric"></a><a name="specify-primary-metric-to-optimize"></a> Specificare la metrica primaria
 
 Specificare la [metrica primaria](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive.primarymetricgoal?view=azure-ml-py&preserve-view=true) da ottimizzare per l'esperimento di ottimizzazione degli iperparametri. Ogni esecuzione di training viene valutata in base a questa metrica primaria e le esecuzioni con scarse prestazioni (in cui la metrica primaria non soddisfa i criteri di terminazione anticipata) verranno terminate. Oltre al nome della metrica primaria, specificare anche l'obiettivo dell'ottimizzazione: se aumentare o ridurre la metrica primaria.
 
@@ -169,9 +167,7 @@ primary_metric_goal=PrimaryMetricGoal.MAXIMIZE
 
 Ottimizzare le esecuzioni per migliorare il livello di precisione.  Assicurarsi di registrare questo valore nello script di training.
 
-<a name='log-metrics-for-hyperparameter-tuning'/>
-
-### <a name="log-metrics-for-hyperparameter-tuning"></a>Registrare le metriche per l'ottimizzazione degli iperparametri
+### <a name="specify-primary-metric"></a><a name="log-metrics-for-hyperparameter-tuning"></a> Specificare la metrica primaria
 
 Lo script di training per il modello deve registrare le metriche pertinenti durante il training del modello. Quando si configura l'ottimizzazione degli iperparametri, specificare la metrica primaria da usare per la valutazione delle prestazioni di esecuzione. Vedere [specificare una metrica primaria da ottimizzare](#specify-primary-metric-to-optimize).  Nello script di training è necessario registrare questa metrica in modo che sia disponibile per il processo di ottimizzazione degli iperparametri.
 
@@ -184,8 +180,6 @@ run_logger.log("accuracy", float(val_accuracy))
 ```
 
 Lo script di training calcola `val_accuracy` e lo registra come precisione, che viene usata come metrica primaria. Ogni volta che viene registrata, la metrica viene ricevuta dal servizio di ottimizzazione degli iperparametri. È compito dello sviluppatore del modello determinare la frequenza con cui segnalare questa metrica.
-
-<a name='specify-early-termination-policy'/>
 
 ## <a name="specify-early-termination-policy"></a><a name="early-termination"></a> Specificare i criteri di terminazione anticipata
 

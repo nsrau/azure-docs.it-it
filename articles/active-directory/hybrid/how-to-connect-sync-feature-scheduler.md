@@ -16,12 +16,12 @@ ms.date: 05/01/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c2b65f8cd22e72e0ba90918121a02d66fe6bf3e7
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: ad7b0039602add7f4cd3cdd300bd829c4f148a79
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053049"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084737"
 ---
 # <a name="azure-ad-connect-sync-scheduler"></a>Servizio di sincronizzazione Azure AD Connect: utilità di pianificazione
 In questo argomento viene descritta l'utilità di pianificazione predefinita in Azure AD Connect Sync (motore di sincronizzazione).
@@ -160,12 +160,15 @@ Esempio: se sono state apportate modifiche alle regole di sincronizzazione per i
 ## <a name="stop-the-scheduler"></a>Arrestare l'utilità di pianificazione
 Se l'utilità di pianificazione sta eseguendo un ciclo di sincronizzazione, potrebbe essere necessario interromperlo. Ad esempio, se si avvia l'installazione guidata e viene visualizzato questo errore:
 
-![SyncCycleRunningError](./media/how-to-connect-sync-feature-scheduler/synccyclerunningerror.png)
+![Screenshot mostra che non è possibile modificare il messaggio di errore di configurazione.](./media/how-to-connect-sync-feature-scheduler/synccyclerunningerror.png)
 
 Quando un ciclo di sincronizzazione è in esecuzione, non è possibile modificare la configurazione. Si può attendere il completamento del processo da parte dell'utilità di pianificazione oppure è possibile interromperlo, per potere apportare immediatamente le modifiche. L'arresto del ciclo corrente non è dannoso e le modifiche in sospeso vengono elaborate all'esecuzione successiva.
 
 1. Richiedere prima di tutto all'utilità di pianificazione di interrompere il ciclo corrente con il cmdlet `Stop-ADSyncSyncCycle`di PowerShell.
-2. Se si usa una build precedente alla 1.1.281, l'arresto dell'utilità di pianificazione non comporta l'interruzione dell'attività corrente del connettore attuale. Per imporre l'arresto del connettore, eseguire queste azioni: ![StopAConnector](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+2. Se si usa una build precedente alla 1.1.281, l'arresto dell'utilità di pianificazione non comporta l'interruzione dell'attività corrente del connettore attuale. Per imporre l'arresto del connettore, eseguire queste azioni: 
+
+   ![Screenshot mostra Synchronization Service Manager con i connettori selezionati e un connettore in esecuzione evidenziato con l'azione arresta selezionata.](./media/how-to-connect-sync-feature-scheduler/stopaconnector.png)
+
    * Avviare **servizio di sincronizzazione** dal menu Start. Passare a **connettori**, evidenziare il connettore con lo stato **in esecuzione**e selezionare **Interrompi** tra le azioni.
 
 L'utilità di pianificazione è ancora attiva e viene riavviata alla successiva opportunità.

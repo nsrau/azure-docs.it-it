@@ -11,18 +11,18 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ef1148555706ff04c58733b66f4784da71849ce8
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 144198a708b8e3cfcb5b3c6936d7fc51cadf4a13
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89226676"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084329"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Opzioni di autenticazione con password per Azure Active Directory
 
 Funzionalità come l'autenticazione a più fattori sono un ottimo modo per proteggere l'organizzazione, ma gli utenti spesso sono frustrati con il livello di sicurezza aggiuntivo oltre a dover ricordare le proprie password. I metodi di autenticazione senza password sono più convenienti perché la password viene rimossa e sostituita da un elemento, più un elemento o un elemento che si conosce.
 
-| Autenticazione  | Un elemento | Un elemento o una conoscenza |
+| Authentication  | Un elemento | Un elemento o una conoscenza |
 | --- | --- | --- |
 | Accesso senza password | Dispositivo Windows 10, telefono o chiave di sicurezza | Biometrico o PIN |
 
@@ -45,7 +45,7 @@ I passaggi seguenti illustrano il funzionamento del processo di accesso con Azur
 ![Diagramma che descrive i passaggi necessari per l'accesso utente con Windows Hello for business](./media/concept-authentication-passwordless/windows-hello-flow.png)
 
 1. Un utente accede a Windows usando biometrico o un movimento PIN. Il movimento Sblocca la chiave privata di Windows Hello for business e viene inviata all'Security Support Provider di autenticazione cloud, denominata *provider di app Cloud*.
-1. Il provider AP cloud richiede un parametro nonce da Azure AD.
+1. Il provider AP cloud richiede un parametro nonce (un numero arbitrario casuale che può essere usato una sola volta) da Azure AD.
 1. Azure AD restituisce un parametro nonce valido per 5 minuti.
 1. Il provider AP cloud firma il parametro nonce usando la chiave privata dell'utente e restituisce il parametro nonce firmato al Azure AD.
 1. Azure AD convalida il parametro nonce firmato usando la chiave pubblica registrata in modo sicuro dell'utente sulla firma nonce. Dopo la convalida della firma, Azure AD convalida il parametro nonce firmato restituito. Quando il parametro nonce viene convalidato, Azure AD crea un token di aggiornamento primario (PRT) con la chiave della sessione crittografata con la chiave di trasporto del dispositivo e la restituisce al provider di app cloud.
@@ -169,7 +169,7 @@ Di seguito sono riportati alcuni fattori da considerare quando si sceglie la tec
 
 Usare la tabella seguente per scegliere il metodo che supporterà i requisiti e gli utenti.
 
-|Utente tipo|Scenario|Environment|Tecnologia con password|
+|Utente tipo|Scenario|Ambiente|Tecnologia con password|
 |:-|:-|:-|:-|
 |**Admin**|Proteggere l'accesso a un dispositivo per le attività di gestione|Dispositivo Windows 10 assegnato|Chiave di sicurezza di Windows Hello for business e/o FIDO2|
 |**Admin**|Attività di gestione su dispositivi non Windows| Dispositivo mobile o non Windows|Accesso senza password con l'app Microsoft Authenticator|

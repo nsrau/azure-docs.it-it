@@ -3,15 +3,15 @@ title: Personalizzare il feed per gli utenti di desktop virtuali Windows-Azure
 description: Come personalizzare il feed per gli utenti di desktop virtuali Windows con i cmdlet di PowerShell.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/29/2019
+ms.date: 09/14/2019
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: 1f1779ac27c7e46aa3e608b33e3c006902df8c27
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: e47486f29537cb948aaae7cf17e97bae14b60700
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009121"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90084295"
 ---
 # <a name="customize-the-feed-for-windows-virtual-desktop-users"></a>Personalizzare il feed per gli utenti di desktop virtuali Windows
 
@@ -107,7 +107,7 @@ Update-AzWvdDesktop -ResourceGroupName <resourcegroupname> -ApplicationGroupName
 
 3. In servizi selezionare **desktop virtuale di Windows**.
 
-4. Nella pagina desktop virtuale di Windows selezionare **gruppi di applicazioni** sul lato sinistro della schermata, quindi selezionare il nome del gruppo di app che si desidera modificare.
+4. Nella pagina desktop virtuale di Windows selezionare **gruppi di applicazioni** sul lato sinistro della schermata, quindi selezionare il nome del gruppo di app che si desidera modificare. Se, ad esempio, si desidera modificare il nome visualizzato del gruppo di app desktop, selezionare il gruppo di app denominato **Desktop**.
 
 5. Selezionare **applicazioni** nel menu sul lato sinistro della schermata.
 

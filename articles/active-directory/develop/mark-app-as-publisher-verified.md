@@ -12,21 +12,21 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: b3c3bed20b5fd60b9323dada617fb1302efc41d2
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: acb4b601118b341d14bc5e7c549d22eef23b2cc2
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006945"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085706"
 ---
 # <a name="mark-your-app-as-publisher-verified"></a>Contrassegnare l'app come con autore verificato
 
-Se un'applicazione è contrassegnata come con autore verificato, significa che l'autore ha verificato la propria identità usando il proprio account MPN (Microsoft Partner Network) e ha associato questo account MPN durante la registrazione dell'applicazione. Questo articolo descrive come eseguire il processo di [verifica dell'autore (anteprima)](publisher-verification-overview.md).
+Se un'applicazione è contrassegnata come con autore verificato, significa che l'autore ha verificato la propria identità usando il proprio account MPN (Microsoft Partner Network) e ha associato questo account MPN durante la registrazione dell'applicazione. Questo articolo descrive come completare il processo di [Verifica dell'editore](publisher-verification-overview.md) .
 
 ## <a name="quickstart"></a>Guida introduttiva
 Se si è già iscritti a Microsoft Partner Network (MPN) e sono stati soddisfatti i [prerequisiti](publisher-verification-overview.md#requirements), è possibile iniziare subito: 
 
-1. Passare al [portale di registrazione delle app](https://aka.ms/PublisherVerificationPreview).
+1. Accedere al [portale di registrazione delle app](https://aka.ms/PublisherVerificationPreview) usando [l'autenticazione](../fundamentals/concept-fundamentals-mfa-get-started.md) a più fattori
 
 1. Scegliere un'app e fare clic su **Personalizzazione**. 
 
@@ -40,9 +40,9 @@ Per informazioni dettagliate su vantaggi specifici, requisiti e domande frequent
 ## <a name="mark-your-app-as-publisher-verified"></a>Contrassegnare l'app come con autore verificato
 Assicurarsi di soddisfare i [prerequisiti](publisher-verification-overview.md#requirements) e quindi seguire questa procedura per contrassegnare le app come con autore verificato.  
 
-1. Assicurarsi di aver eseguito l'accesso con un account aziendale (Azure AD) autorizzato ad apportare modifiche alle app che si vogliono contrassegnare come con autore verificato e all'account MPN nel Partner Center. 
+1. Assicurarsi di aver eseguito l'accesso con l'autenticazione a più [fattori](../fundamentals/concept-fundamentals-mfa-get-started.md) a un account aziendale (Azure ad) autorizzato a apportare modifiche alle app che si desidera contrassegnare come server di pubblicazione verificato e nell'account MPN nel centro per i partner.
 
-    - In Azure AD questo utente deve essere il proprietario dell'app o avere uno dei ruoli seguenti: Amministratore applicazione, Amministratore applicazione cloud, Amministratore globale. 
+    - In Azure AD questo utente deve essere membro di uno dei ruoli seguenti: Amministratore applicazione, amministratore applicazione cloud, amministratore globale. 
 
     - In Partner Center questo utente deve avere uno dei ruoli seguenti: Amministratore MPN, Amministratore account o Amministratore globale (si tratta di un ruolo condiviso gestito in Azure AD). 
 
@@ -50,11 +50,9 @@ Assicurarsi di soddisfare i [prerequisiti](publisher-verification-overview.md#re
 
 1. Fare clic su un'app che si vuole contrassegnare come con autore verificato (Publisher Verified) e aprire il pannello Personalizzazione. 
 
-1. Verificare che il dominio dell'autore dell'app sia impostato in modo appropriato. Il dominio deve essere: 
+1. Verificare che sia impostato il [dominio di pubblicazione](howto-configure-publisher-domain.md) dell'applicazione. 
 
-    - Aggiunto al tenant di Azure AD come dominio personalizzato verificato da DNS,  
-
-    - Corrispondere al dominio dell'indirizzo di posta elettronica usato durante il processo di verifica per l'account MPN. 
+1. Verificare che il dominio del server di pubblicazione o un [dominio personalizzato](../fundamentals/add-custom-domain.md) verificato dal DNS nel tenant corrisponda al dominio dell'indirizzo di posta elettronica usato durante il processo di verifica per l'account MPN.
 
 1. Fare clic su **Aggiungere l'ID MPN per verificare l'autore** nella parte inferiore della pagina. 
 
@@ -72,7 +70,7 @@ Assicurarsi di soddisfare i [prerequisiti](publisher-verification-overview.md#re
 
 1. Gli utenti che ricevono la richiesta di consenso per l'app inizieranno a visualizzare il badge subito dopo il completamento del processo di verifica, anche se per la replica in tutto il sistema potrebbe essere richiesto del tempo. 
 
-1. Testare questa funzionalità effettuando l'accesso all'applicazione e assicurandosi che il badge di verifica completata venga visualizzato nella schermata di consenso. Se è stato eseguito l'accesso come utente che ha già concesso il consenso all'app, è possibile usare il parametro di query *prompt=consent* per forzare una richiesta di consenso. 
+1. Testare questa funzionalità effettuando l'accesso all'applicazione e assicurandosi che il badge di verifica completata venga visualizzato nella schermata di consenso. Se è stato eseguito l'accesso come utente che ha già concesso il consenso all'app, è possibile usare il parametro di query *prompt=consent* per forzare una richiesta di consenso. Questo parametro deve essere usato solo per i test e mai hardcoded nelle richieste dell'app.
 
 1. Ripetere questo processo in base alle esigenze per le app aggiuntive per le quali si vuole che venga visualizzato il badge. È possibile usare Microsoft Graph per eseguire questa operazione più rapidamente in blocco e i cmdlet di PowerShell saranno presto disponibili. Per altre informazioni, vedere [Esecuzione di chiamate all'API Microsoft Graph](troubleshoot-publisher-verification.md#making-microsoft-graph-api-calls). 
 

@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 09/11/2020
-ms.openlocfilehash: 1d996e62fe60606c3eb93a638d229028ee0471e6
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 41153c488825e87583284b23a287353f63ff8db8
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030600"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085094"
 ---
 # <a name="mapping-data-flow-debug-mode"></a>Mapping della modalità di debug del flusso di dati
 
@@ -32,6 +32,11 @@ Una volta acceso il dispositivo di scorrimento, verrà richiesto di selezionare 
 Quando la modalità di debug è attivata, il flusso di dati verrà compilato in modo interattivo con un cluster Spark attivo. La sessione verrà chiusa quando si disattiva il debug in Azure Data Factory. È bene tenere conto dei costi orari addebitati da Azure Databricks durante il periodo in cui è attivata la sessione di debug.
 
 Nella maggior parte dei casi, è consigliabile compilare i flussi di dati in modalità di debug, in modo da poter convalidare la logica di business e visualizzare le trasformazioni dei dati prima di pubblicare il lavoro in Azure Data Factory. Usare il pulsante "debug" nel pannello della pipeline per testare il flusso di dati in una pipeline.
+
+![Visualizzare le sessioni di debug del flusso di dati](media/iterative-development-debugging/view-dataflow-debug-sessions.png)
+
+> [!NOTE]
+> Ogni sessione di debug avviata da un utente dall'interfaccia utente del browser ADF è una nuova sessione con il proprio cluster Spark. È possibile utilizzare la visualizzazione monitoraggio per le sessioni di debug sopra indicate per visualizzare e gestire le sessioni di debug per Factory.
 
 ## <a name="cluster-status"></a>Stato del cluster
 
