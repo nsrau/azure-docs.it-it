@@ -16,12 +16,12 @@ ms.date: 07/13/2017
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c57ab03f72f0f59dd18a873ddc7cd98d3c36ef9c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 128303cb51b39db8442fdda71f949db17923bfa2
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356662"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088971"
 ---
 # <a name="azure-ad-connect-sync-service-shadow-attributes"></a>Attributi shadow del servizio di sincronizzazione Azure AD Connect
 La maggior parte degli attributi viene rappresentata allo stesso modo in Azure AD e nel servizio Active Directory locale. Tuttavia, alcuni attributi sono caratterizzati da una gestione speciale e il valore dell'attributo in Azure AD potrebbe essere diverso da quello sincronizzato in Azure AD Connect.
@@ -32,13 +32,13 @@ Alcuni attributi hanno due rappresentazioni in Azure AD. Vengono archiviati sia 
 Non è possibile visualizzare gli attributi shadow usando il portale di Azure o con PowerShell. Ma comprendere questo concetto sarà d'aiuto per risolvere determinati scenari in cui l'attributo presenta valori differenti in locale e nel cloud.
 
 Per capire meglio questo comportamento, esaminare l'esempio seguente relativo a Fabrikam:  
-![Domains](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
+![Screenshot mostra il suffisso UPN Active Directory per diversi esempi con un valore di dominio Azure AD corrispondente non aggiunto, non verificato e verificato.](./media/how-to-connect-syncservice-shadow-attributes/domains.png)  
 Includono più suffissi UPN nel servizio Active Directory locale, ma ne è stato verificato solo uno.
 
 ### <a name="userprincipalname"></a>userPrincipalName
 Un utente ha i seguenti valori di attributo in un dominio non verificato:
 
-| Attributo | valore |
+| Attributo | Valore |
 | --- | --- |
 | userPrincipalName locale | lee.sperry@fabrikam.com |
 | shadowUserPrincipalName in Azure AD | lee.sperry@fabrikam.com |
@@ -53,7 +53,7 @@ Lo stesso processo per includere solo domini verificati si verifica anche per pr
 
 Per un utente della cassetta postale, in locale o in Exchange Online, vengono visualizzati solo i valori per i domini verificati. L'aspetto è simile al seguente:
 
-| Attributo | valore |
+| Attributo | Valore |
 | --- | --- |
 | proxyAddresses locale | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie.spencer@fabrikam.com</br>smtp:abbie@fabrikamonline.com |
 | proxyAddresses in Exchange Online | SMTP:abbie.spencer@fabrikamonline.com</br>smtp:abbie@fabrikamonline.com</br>SIP:abbie.spencer@fabrikamonline.com |

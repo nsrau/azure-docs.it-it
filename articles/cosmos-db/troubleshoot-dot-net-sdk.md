@@ -3,18 +3,18 @@ title: Diagnosticare e risolvere i problemi quando si usa .NET SDK di Azure Cosm
 description: Usare funzionalità come la registrazione lato client e altri strumenti di terze parti per identificare, diagnosticare e risolvere i problemi Azure Cosmos DB quando si usa .NET SDK.
 author: anfeldma-ms
 ms.service: cosmos-db
-ms.date: 06/16/2020
+ms.date: 09/12/2020
 ms.author: anfeldma
 ms.subservice: cosmosdb-sql
 ms.topic: troubleshooting
 ms.reviewer: sngun
 ms.custom: devx-track-dotnet
-ms.openlocfilehash: bc5af781b86ef559abaf33b0cb027ef14adb4262
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d7ed48354b3666a3ec544ffb66724bc605041c90
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021902"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086988"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-cosmos-db-net-sdk"></a>Diagnosticare e risolvere i problemi quando si usa .NET SDK di Azure Cosmos DB
 
@@ -28,6 +28,7 @@ Questo articolo descrive i problemi comuni, le soluzioni alternative, i passaggi
 .NET SDK fornisce una rappresentazione logica sul lato client per accedere all'API SQL Azure Cosmos DB. Questo articolo descrive strumenti e approcci utili ad affrontare eventuali problemi.
 
 ## <a name="checklist-for-troubleshooting-issues"></a>Elenco di controllo per la risoluzione dei problemi
+
 Prendere in considerazione il seguente elenco di controllo prima di spostare l'applicazione in produzione. Utilizzando l'elenco di controllo, si eviteranno diversi problemi comuni che potrebbero verificarsi. È anche possibile diagnosticare rapidamente quando si verifica un problema:
 
 *    Usare l' [SDK](sql-api-sdk-dotnet-standard.md)più recente. Gli SDK di anteprima non devono essere usati per la produzione. In questo modo si eviteranno problemi noti già corretti.
@@ -99,10 +100,15 @@ Questa latenza può avere più cause:
     * Abilitare [la rete accelerata in una macchina virtuale esistente](../virtual-network/create-vm-accelerated-networking-powershell.md#enable-accelerated-networking-on-existing-vms).
     * Provare a usare una [macchina virtuale di fascia superiore](../virtual-machines/windows/sizes.md).
 
-### <a name="slow-query-performance"></a>Rallentamento delle prestazioni delle query
-La [metrica della query](sql-api-query-metrics.md) consente di determinare la posizione in cui la query sta spendendo la maggior parte del tempo. Dalla metrica della query è possibile vedere la quantità di spazio dedicato al back-end rispetto al client.
+### <a name="common-query-issues"></a>Problemi comuni di query
+
+La [metrica della query](sql-api-query-metrics.md) consente di determinare la posizione in cui la query sta spendendo la maggior parte del tempo. Dalla metrica della query è possibile vedere la quantità di spazio dedicato al back-end rispetto al client. Altre informazioni sulla [risoluzione dei problemi relativi alle prestazioni delle query](troubleshoot-query-performance.md).
+
 * Se la query back-end viene restituita rapidamente e trascorre molto tempo sul client, controllare il carico sul computer. È probabile che la risorsa non sia sufficiente e che l'SDK sia in attesa della disponibilità di risorse per la gestione della risposta.
-* Se la query back-end è lenta, provare a [ottimizzare la query](optimize-cost-queries.md) e a esaminare i [criteri di indicizzazione](index-overview.md) correnti 
+* Se la query back-end è lenta, provare ad [ottimizzare la query](troubleshoot-query-performance.md) e a esaminare i [criteri di indicizzazione](index-overview.md) correnti
+
+    > [!NOTE]
+    > Per migliorare le prestazioni, è consigliabile l'elaborazione host di Windows a 64 bit. L'SDK SQL include un file ServiceInterop.dll nativo che consente di analizzare e ottimizzare le query in locale. Il file ServiceInterop.dll è supportato solo nella piattaforma Windows x64. Per Linux e altre piattaforme non supportate in cui ServiceInterop.dll non è disponibile, viene effettuata una chiamata di rete aggiuntiva al gateway per ottenere la query ottimizzata.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

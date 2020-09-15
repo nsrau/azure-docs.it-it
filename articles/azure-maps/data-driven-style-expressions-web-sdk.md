@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendleton
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: c8de7148e91f8fafa4a2b1f8a661964a77ead215
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: ea88797a6423118cba40d117a37dc9df75b0b7a1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009138"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089446"
 ---
 # <a name="data-driven-style-expressions-web-sdk"></a>Espressioni di stile basate sui dati (SDK Web)
 
@@ -72,7 +72,12 @@ Tutti gli esempi in questo documento utilizzano la seguente funzionalità per il
         "subTitle": "Building 40", 
         "temperature": 72,
         "title": "Cafeteria", 
-        "zoneColor": "red"
+        "zoneColor": "red",
+        "abcArray": ['a', 'b', 'c'],
+        "array2d": [['a', 'b'], ['x', 'y']],
+        "_style": {
+            "fillColor": 'red'
+        }
     }
 }
 ```
@@ -90,7 +95,7 @@ Le espressioni di dati consentono di accedere ai dati delle proprietà di una fu
 | `['has', string]` | boolean | Determina se le proprietà di una funzionalità dispongono della proprietà specificata. |
 | `['has', string, object]` | boolean | Determina se le proprietà dell'oggetto dispongono della proprietà specificata. |
 | `['id']` | Valore | Ottiene l'ID della funzionalità se ne è presente uno. |
-| `['length', string | array]` | Numero | Ottiene la lunghezza di una stringa o di una matrice. |
+| `['length', string | array]` | d'acquisto | Ottiene la lunghezza di una stringa o di una matrice. |
 | `['in', boolean | string | number, array]` | boolean | Determina se un elemento esiste in una matrice |
 | `['in', substring, string]` | boolean | Determina se una sottostringa esiste in una stringa |
 
@@ -137,38 +142,60 @@ var layer = new atlas.layer.BubbleLayer(datasource, null, {
 
 Analogamente, la struttura dei poligoni viene sottoposta a rendering nei livelli linea. Per disabilitare questo comportamento in un livello linea, aggiungere un filtro che consenta solo `LineString` le `MultiLineString` funzionalità e.  
 
+Di seguito sono riportati alcuni esempi aggiuntivi di come usare le espressioni di dati:
+
+```javascript
+//Get item [2] from an array "properties.abcArray[1]" = "c"
+['at', 2, ['get', 'abcArray']]
+
+//Get item [0][1] from a 2D array "properties.array2d[0][1]" = "b"
+['at', 1, ['at', 0, ['get', 'array2d']]]
+
+//Check to see if a value is in an array property "properties.abcArray.indexOf('a') !== -1" = true
+['in', 'a', ['get', 'abcArray']]
+
+//Get the length of an array "properties.abcArray.length" = 3
+['length', ['get', 'abcArray']]
+
+//Get the value of a subproperty "properties._style.fillColor" = "red"
+['get', 'fillColor', ['get', '_style']]
+
+//Check that "fillColor" exists as a subproperty of "_style".
+['has', 'fillColor', ['get', '_style']]
+```
+
 ## <a name="math-expressions"></a>Espressioni matematiche
 
 Le espressioni matematiche forniscono operatori matematici per eseguire calcoli basati sui dati all'interno del Framework di espressioni.
 
 | Expression | Tipo restituito | Descrizione |
 |------------|-------------|-------------|
-| `['+', number, number, …]` | Numero | Calcola la somma dei numeri specificati. |
-| `['-', number]` | Numero | Sottrae 0 per il numero specificato. |
-| `['-', number, number]` | Numero | Sottrae i primi numeri per il secondo numero. |
-| `['*', number, number, …]` | Numero | Moltiplica i numeri specificati insieme. |
-| `['/', number, number]` | Numero | Divide il primo numero per il secondo numero. |
-| `['%', number, number]` | Numero | Calcola il resto quando si divide il primo numero per il secondo numero. |
-| `['^', number, number]` | Numero | Calcola il valore del primo valore elevato alla potenza del secondo numero. |
-| `['abs', number]` | Numero | Calcola il valore assoluto del numero specificato. |
-| `['acos', number]` | Numero | Calcola l'arcoseno del numero specificato. |
-| `['asin', number]` | Numero | Calcola l'arcoseno del numero specificato. |
-| `['atan', number]` | Numero | Calcola l'arcotangente del numero specificato. |
-| `['ceil', number]` | Numero | Arrotonda il numero per eccesso al numero intero successivo. |
-| `['cos', number]` | Numero | Calcola il coseno del numero specificato. |
-| `['e']` | Numero | Restituisce la costante matematica `e` . |
-| `['floor', number]` | Numero | Arrotonda il numero per difetto all'intero intero precedente. |
-| `['ln', number]` | Numero | Calcola il logaritmo naturale del numero specificato. |
-| `['ln2']` | Numero | Restituisce la costante matematica `ln(2)` . |
-| `['log10', number]` | Numero | Calcola il logaritmo in base 10 del numero specificato. |
-| `['log2', number]` | Numero | Calcola il logaritmo in base due del numero specificato. |
-| `['max', number, number, …]` | Numero | Calcola il numero massimo nel set di numeri specificato. |
-| `['min', number, number, …]` | Numero | Calcola il numero minimo nel set di numeri specificato. |
-| `['pi']` | Numero | Restituisce la costante matematica `PI` . |
-| `['round', number]` | Numero | Arrotonda il numero all'intero più vicino. I valori a metà vengono arrotondati per eccesso da zero. Ad esempio, `['round', -1.5]` restituisce-2. |
-| `['sin', number]` | Numero | Calcola il seno del numero specificato. |
-| `['sqrt', number]` | Numero | Calcola la radice quadrata del numero specificato. |
-| `['tan', number]` | Numero | Calcola la tangente del numero specificato. |
+| `['+', number, number, …]` | d'acquisto | Calcola la somma dei numeri specificati. |
+| `['-', number]` | d'acquisto | Sottrae 0 per il numero specificato. |
+| `['-', number, number]` | d'acquisto | Sottrae i primi numeri per il secondo numero. |
+| `['*', number, number, …]` | d'acquisto | Moltiplica i numeri specificati insieme. |
+| `['/', number, number]` | d'acquisto | Divide il primo numero per il secondo numero. |
+| `['%', number, number]` | d'acquisto | Calcola il resto quando si divide il primo numero per il secondo numero. |
+| `['^', number, number]` | d'acquisto | Calcola il valore del primo valore elevato alla potenza del secondo numero. |
+| `['abs', number]` | d'acquisto | Calcola il valore assoluto del numero specificato. |
+| `['acos', number]` | d'acquisto | Calcola l'arcoseno del numero specificato. |
+| `['asin', number]` | d'acquisto | Calcola l'arcoseno del numero specificato. |
+| `['atan', number]` | d'acquisto | Calcola l'arcotangente del numero specificato. |
+| `['ceil', number]` | d'acquisto | Arrotonda il numero per eccesso al numero intero successivo. |
+| `['cos', number]` | d'acquisto | Calcola il coseno del numero specificato. |
+| `['e']` | d'acquisto | Restituisce la costante matematica `e` . |
+| `['floor', number]` | d'acquisto | Arrotonda il numero per difetto all'intero intero precedente. |
+| `['ln', number]` | d'acquisto | Calcola il logaritmo naturale del numero specificato. |
+| `['ln2']` | d'acquisto | Restituisce la costante matematica `ln(2)` . |
+| `['log10', number]` | d'acquisto | Calcola il logaritmo in base 10 del numero specificato. |
+| `['log2', number]` | d'acquisto | Calcola il logaritmo in base due del numero specificato. |
+| `['max', number, number, …]` | d'acquisto | Calcola il numero massimo nel set di numeri specificato. |
+| `['min', number, number, …]` | d'acquisto | Calcola il numero minimo nel set di numeri specificato. |
+| `['pi']` | d'acquisto | Restituisce la costante matematica `PI` . |
+| `['round', number]` | d'acquisto | Arrotonda il numero all'intero più vicino. I valori a metà vengono arrotondati per eccesso da zero. Ad esempio, `['round', -1.5]` restituisce-2. |
+| `['sin', number]` | d'acquisto | Calcola il seno del numero specificato. |
+| `['sqrt', number]` | d'acquisto | Calcola la radice quadrata del numero specificato. |
+| `['tan', number]` | d'acquisto | Calcola la tangente del numero specificato. |
 
 ## <a name="aggregate-expression"></a>Espressione di aggregazione
 
@@ -181,14 +208,14 @@ Un'espressione di aggregazione accetta tre valori: un valore di operatore e un v
 ```
 
 - Operator: funzione di espressione a cui viene quindi applicato rispetto a tutti i valori calcolati da `mapExpression` per ogni punto del cluster. Operatori supportati: 
-    - Per i numeri: `+` , `*` , `max` ,`min`
-    - Per i valori booleani: `all` ,`any`
+    - Per i numeri: `+` , `*` , `max` , `min`
+    - Per i valori booleani: `all` , `any`
 - initialValue: valore iniziale in cui viene aggregato il primo valore calcolato.
 - mapExpression: espressione applicata a ogni punto del set di dati.
 
 **esempi**
 
-Se tutte le funzionalità di un set di dati dispongono di una `revenue` proprietà, che è un numero. Quindi, è possibile calcolare i ricavi totali di tutti i punti di un cluster creati dal set di dati. Questo calcolo viene eseguito utilizzando l'espressione di aggregazione seguente:`['+', 0, ['get', 'revenue']]`
+Se tutte le funzionalità di un set di dati dispongono di una `revenue` proprietà, che è un numero. Quindi, è possibile calcolare i ricavi totali di tutti i punti di un cluster creati dal set di dati. Questo calcolo viene eseguito utilizzando l'espressione di aggregazione seguente: `['+', 0, ['get', 'revenue']]`
 
 ## <a name="boolean-expressions"></a>Espressioni booleane
 
@@ -405,12 +432,12 @@ Le espressioni di tipo forniscono strumenti per il test e la conversione di tipi
 | `['image', string]` | string | Verifica se un ID immagine specificato viene caricato nello sprite dell'immagine maps. Se è, viene restituito l'ID; in caso contrario, viene restituito null. |
 | `['to-boolean', value]` | boolean | Converte il valore di input in un valore booleano. Il risultato è `false` quando l'input è una stringa vuota,,, `0` `false` `null` o `NaN` ; in caso contrario, `true` . |
 | `['to-color', value]`<br/><br/>`['to-color', value1, value2…]` | color | Converte il valore di input in un colore. Se vengono specificati più valori, ognuno di essi viene valutato in ordine fino a quando non viene ottenuta la prima conversione riuscita. Se non è possibile convertire nessuno degli input, l'espressione è un errore. |
-| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | Numero | Converte il valore di input in un numero, se possibile. Se l'input è `null` o `false` , il risultato è 0. Se l'input è `true` , il risultato è 1. Se l'input è una stringa, viene convertito in un numero utilizzando la funzione di stringa [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) della specifica del linguaggio ECMAScript. Se vengono specificati più valori, ognuno di essi viene valutato in ordine fino a quando non viene ottenuta la prima conversione riuscita. Se non è possibile convertire nessuno degli input, l'espressione è un errore. |
+| `['to-number', value]`<br/><br/>`['to-number', value1, value2, …]` | d'acquisto | Converte il valore di input in un numero, se possibile. Se l'input è `null` o `false` , il risultato è 0. Se l'input è `true` , il risultato è 1. Se l'input è una stringa, viene convertito in un numero utilizzando la funzione di stringa [ToNumber](https://tc39.github.io/ecma262/#sec-tonumber-applied-to-the-string-type) della specifica del linguaggio ECMAScript. Se vengono specificati più valori, ognuno di essi viene valutato in ordine fino a quando non viene ottenuta la prima conversione riuscita. Se non è possibile convertire nessuno degli input, l'espressione è un errore. |
 | `['to-string', value]` | string | Converte il valore di input in una stringa. Se l'input è `null` , il risultato è `""` . Se l'input è un valore booleano, il risultato è `"true"` o `"false"` . Se l'input è un numero, viene convertito in una stringa utilizzando la funzione numero [ToString](https://tc39.github.io/ecma262/#sec-tostring-applied-to-the-number-type) della specifica del linguaggio ECMAScript. Se l'input è un colore, viene convertito nella stringa CSS RGBA color `"rgba(r,g,b,a)"` . In caso contrario, l'input viene convertito in una stringa utilizzando la funzione [JSON. stringify](https://tc39.github.io/ecma262/#sec-json.stringify) della specifica del linguaggio ECMAScript. |
 | `['typeof', value]` | string | Restituisce una stringa che descrive il tipo del valore specificato. |
 
 > [!TIP]
-> Se `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` nella console del browser viene visualizzato un messaggio di errore simile a, significa che nel codice è presente un'espressione che contiene una matrice che non dispone di una stringa per il primo valore. Se si desidera che l'espressione restituisca una matrice, eseguire il wrapping della matrice con l' `literal` espressione. Nell'esempio seguente viene impostata l' `offset` opzione Icon di un livello Symbol, che deve essere una matrice contenente due numeri, usando un' `match` espressione per scegliere tra due valori di offset in base al valore della `entityType` proprietà della funzionalità punto.
+> Se `Expression name must be a string, but found number instead. If you wanted a literal array, use ["literal", [...]].` nella console del browser viene visualizzato un messaggio di errore simile a, significa che nel codice è presente un'espressione che contiene una matrice che non dispone di una stringa per il primo valore. Se si desidera che l'espressione restituisca una matrice, eseguire il wrapping della matrice con l' `literal` espressione. Nell'esempio seguente viene impostata l' `offset` opzione Icon di un livello Symbol, che deve essere una matrice contenente due numeri, usando un' `match` espressione per scegliere tra due valori di offset in base al valore della  `entityType` proprietà della funzionalità punto.
 >
 > ```javascript
 > var layer = new atlas.layer.SymbolLayer(datasource, null, {
@@ -490,7 +517,7 @@ L'espressione precedente esegue il rendering di un pin sulla mappa con il testo 
 
 <center>
 
-![Esempio ](media/how-to-expressions/string-operator-expression.png) di espressione dell'operatore String</center>
+![Esempio ](media/how-to-expressions/string-operator-expression.png) di espressione dell'operatore String </center>
 
 ## <a name="interpolate-and-step-expressions"></a>Espressioni interpolate e Step
 
@@ -502,9 +529,9 @@ Un' `interpolate` espressione può essere utilizzata per calcolare un set contin
 
 Sono disponibili tre tipi di metodi di interpolazione che possono essere utilizzati in un' `interpolate` espressione:
  
-* `['linear']`: Esegue l'interpolazione lineare tra la coppia di arresti.
-* `['exponential', base]`-Esegue l'interpolazione esponenziale tra le interruzioni. Il `base` valore controlla la frequenza con cui aumenta l'output. I valori più elevati rendono l'output maggiore verso l'estremità superiore dell'intervallo. Un `base` valore vicino a 1 produce un output che aumenta in modo lineare.
-* `['cubic-bezier', x1, y1, x2, y2]`-Esegue l'interpolazione usando una [curva di Bezier cubica](https://developer.mozilla.org/docs/Web/CSS/timing-function) definita dai punti di controllo specificati.
+* `['linear']` : Esegue l'interpolazione lineare tra la coppia di arresti.
+* `['exponential', base]` -Esegue l'interpolazione esponenziale tra le interruzioni. Il `base` valore controlla la frequenza con cui aumenta l'output. I valori più elevati rendono l'output maggiore verso l'estremità superiore dell'intervallo. Un `base` valore vicino a 1 produce un output che aumenta in modo lineare.
+* `['cubic-bezier', x1, y1, x2, y2]` -Esegue l'interpolazione usando una [curva di Bezier cubica](https://developer.mozilla.org/docs/Web/CSS/timing-function) definita dai punti di controllo specificati.
 
 Di seguito è riportato un esempio di come appaiono questi diversi tipi di interpolazioni. 
 
@@ -553,7 +580,7 @@ Nell'immagine seguente viene illustrata la scelta dei colori per l'espressione p
  
 <center>
 
-![Esempio ](media/how-to-expressions/interpolate-expression-example.png) di espressione di interpolazione</center>
+![Esempio ](media/how-to-expressions/interpolate-expression-example.png) di espressione di interpolazione </center>
 
 ### <a name="step-expression"></a>Espressione Step
 
@@ -609,7 +636,7 @@ Espressioni speciali che si applicano solo a livelli specifici.
 
 ### <a name="heat-map-density-expression"></a>Espressione densità mappa termica
 
-Un'espressione di densità della mappa termica Recupera il valore della densità della mappa termica per ogni pixel in un livello mappa termica e viene definito come `['heatmap-density']` . Questo valore è un numero compreso tra `0` e `1` . Viene usato in combinazione con un' `interpolation` espressione o `step` per definire la sfumatura di colore usata per colorare la mappa termica. Questa espressione può essere utilizzata solo nell' [opzione Color](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest#color) del livello mappa termica.
+Un'espressione di densità della mappa termica Recupera il valore della densità della mappa termica per ogni pixel in un livello mappa termica e viene definito come `['heatmap-density']` . Questo valore è un numero compreso tra `0` e `1` . Viene usato in combinazione con un' `interpolation` espressione o `step` per definire la sfumatura di colore usata per colorare la mappa termica. Questa espressione può essere utilizzata solo nell' [opzione Color](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions#color) del livello mappa termica.
 
 > [!TIP]
 > Il colore in corrispondenza dell'indice 0, in un'espressione di interpolazione o nel colore predefinito del colore di un passaggio, definisce il colore dell'area in cui non sono presenti dati. Il colore in corrispondenza dell'indice 0 può essere utilizzato per definire un colore di sfondo. Molti preferiscono impostare questo valore su un nero trasparente o semitrasparente.
@@ -653,7 +680,7 @@ Per ulteriori informazioni, vedere la documentazione relativa all' [aggiunta di 
 
 ### <a name="line-progress-expression"></a>Espressione avanzamento riga
 
-Un'espressione di avanzamento riga recupera lo stato di avanzamento lungo una linea sfumata in un livello linea e viene definito come `['line-progress']` . Questo valore è un numero compreso tra 0 e 1. Viene usato in combinazione con un' `interpolation` espressione or `step` . Questa espressione può essere utilizzata solo con l' [opzione strokeGradient]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest#strokegradient) del livello linea. 
+Un'espressione di avanzamento riga recupera lo stato di avanzamento lungo una linea sfumata in un livello linea e viene definito come `['line-progress']` . Questo valore è un numero compreso tra 0 e 1. Viene usato in combinazione con un' `interpolation` espressione or `step` . Questa espressione può essere utilizzata solo con l' [opzione strokeGradient]( https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions#strokegradient) del livello linea. 
 
 > [!NOTE]
 > L' `strokeGradient` opzione del livello linea richiede che l' `lineMetrics` opzione dell'origine dati sia impostata su `true` .
@@ -684,9 +711,9 @@ var layer = new atlas.layer.LineLayer(datasource, null, {
 
 L'espressione del formato del campo di testo può essere usata con l' `textField` opzione della `textOptions` Proprietà livelli simboli per fornire la formattazione mista del testo. Questa espressione consente di specificare un set di stringhe di input e di opzioni di formattazione. È possibile specificare le opzioni seguenti per ogni stringa di input in questa espressione.
 
- * `'font-scale'`: Specifica il fattore di scala per le dimensioni del carattere. Se specificato, questo valore eseguirà l'override della `size` proprietà di `textOptions` per la singola stringa.
- * `'text-font'`: Specifica una o più famiglie di caratteri da usare per la stringa. Se specificato, questo valore eseguirà l'override della `font` proprietà di `textOptions` per la singola stringa.
- * `'text-color'`: Specifica un colore da applicare a un testo durante il rendering. 
+ * `'font-scale'` : Specifica il fattore di scala per le dimensioni del carattere. Se specificato, questo valore eseguirà l'override della `size` proprietà di `textOptions` per la singola stringa.
+ * `'text-font'` : Specifica una o più famiglie di caratteri da usare per la stringa. Se specificato, questo valore eseguirà l'override della `font` proprietà di `textOptions` per la singola stringa.
+ * `'text-color'` : Specifica un colore da applicare a un testo durante il rendering. 
 
 Lo pseudocodice seguente definisce la struttura dell'espressione del formato del campo di testo. 
 
@@ -743,16 +770,16 @@ Questo livello eseguirà il rendering della funzionalità punto, come illustrato
  
 <center>
 
-![Immagine della funzionalità punto con il campo ](media/how-to-expressions/text-field-format-expression.png) di testo formattato</center>
+![Immagine della funzionalità punto con il campo ](media/how-to-expressions/text-field-format-expression.png) di testo formattato </center>
 
 ### <a name="number-format-expression"></a>Espressione formato numero
 
 L' `number-format` espressione può essere utilizzata solo con l' `textField` opzione di un livello di simbolo. Questa espressione converte il numero fornito in una stringa formattata. Questa espressione esegue il wrapping della funzione [Number. toLocalString](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Number/toLocaleString) di JavaScript e supporta il set di opzioni seguente.
 
- * `locale`-Specificare questa opzione per convertire i numeri in stringhe in modo da essere allineati alla lingua specificata. Passare un [tag di lingua BCP 47](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation) in questa opzione.
- * `currency`-Per convertire il numero in una stringa che rappresenta una valuta. I valori possibili sono i [codici di valuta ISO 4217](https://en.wikipedia.org/wiki/ISO_4217), ad esempio "USD" per il dollaro statunitense, "EUR" per l'euro, o "CNY" per il RMB cinese.
- * `'min-fraction-digits'`-Specifica il numero minimo di posizioni decimali da includere nella versione della stringa del numero.
- * `'max-fraction-digits'`: Specifica il numero massimo di posizioni decimali da includere nella versione della stringa del numero.
+ * `locale` -Specificare questa opzione per convertire i numeri in stringhe in modo da essere allineati alla lingua specificata. Passare un [tag di lingua BCP 47](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Intl#Locale_identification_and_negotiation) in questa opzione.
+ * `currency` -Per convertire il numero in una stringa che rappresenta una valuta. I valori possibili sono i [codici di valuta ISO 4217](https://en.wikipedia.org/wiki/ISO_4217), ad esempio "USD" per il dollaro statunitense, "EUR" per l'euro, o "CNY" per il RMB cinese.
+ * `'min-fraction-digits'` -Specifica il numero minimo di posizioni decimali da includere nella versione della stringa del numero.
+ * `'max-fraction-digits'` : Specifica il numero massimo di posizioni decimali da includere nella versione della stringa del numero.
 
 Lo pseudocodice seguente definisce la struttura dell'espressione del formato del campo di testo. 
 
@@ -791,7 +818,7 @@ Questo livello eseguirà il rendering della funzionalità punto, come illustrato
 
 <center>
 
-![Esempio ](media/how-to-expressions/number-format-expression.png) di espressione di formato numerico</center>
+![Esempio ](media/how-to-expressions/number-format-expression.png) di espressione di formato numerico </center>
 
 ### <a name="image-expression"></a>Espressione immagine
 
@@ -829,7 +856,7 @@ Questo livello eseguirà il rendering del campo di testo nel livello dei simboli
 
 <center>
 
-![Esempio ](media/how-to-expressions/image-expression.png) di espressione immagine</center>
+![Esempio ](media/how-to-expressions/image-expression.png) di espressione immagine </center>
 
 ## <a name="zoom-expression"></a>Espressione zoom
 
@@ -916,16 +943,16 @@ Per altri esempi di codice che implementano espressioni, vedere gli articoli seg
 Altre informazioni sulle opzioni del livello che supportano le espressioni:
 
 > [!div class="nextstepaction"] 
-> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions?view=azure-iot-typescript-latest)
+> [BubbleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.bubblelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions?view=azure-iot-typescript-latest)
+> [HeatMapLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.heatmaplayeroptions)
 
 > [!div class="nextstepaction"] 
-> [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions?view=azure-iot-typescript-latest)
+> [LineLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.linelayeroptions)
 
 > [!div class="nextstepaction"] 
-> [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions?view=azure-iot-typescript-latest)
+> [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.polygonlayeroptions)
 
 > [!div class="nextstepaction"] 
-> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions?view=azure-iot-typescript-latest)
+> [SymbolLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.symbollayeroptions)

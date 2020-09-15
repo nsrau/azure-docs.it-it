@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 06/04/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: e97db598556d10538746242fa67449631394cd55
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: aac5c937ab2f80dcbe1567a3817b056a6285cf17
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90030651"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086675"
 ---
 # <a name="use-the-azure-digital-twins-apis-and-sdks"></a>Usare le API e gli SDK di Gemelli digitali di Azure
 
@@ -59,7 +59,8 @@ Per usare le API del piano dati:
    - è possibile visualizzare la [documentazione di riferimento dell'SDK](https://docs.microsoft.com/dotnet/api/overview/azure/digitaltwins?view=azure-dotnet-preview&preserve-view=true).
    - per visualizzare informazioni dettagliate ed esempi di utilizzo, continuare con la sezione [.NET (C#) SDK (piano dati)](#net-c-sdk-data-plane) di questo articolo.
 * È possibile usare **JavaScript** SDK. Per utilizzare JavaScript SDK...
-   - è possibile visualizzare e installare il pacchetto da NPM: [libreria client di Azure Digital gemelli di Azure per JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1)
+   - è possibile visualizzare e installare il pacchetto da NPM: [libreria client di Azure Digital gemelli di Azure per JavaScript](https://www.npmjs.com/package/@azure/digital-twins/v/1.0.0-preview.1).
+   - è possibile visualizzare la [documentazione di riferimento dell'SDK](https://docs.microsoft.com/javascript/api/@azure/digital-twins/?view=azure-node-latest&preserve-view=true).
 * È possibile generare un SDK per un altro linguaggio con autorest. Seguire le istruzioni in [*procedura: creare SDK personalizzati per i dispositivi gemelli digitali di Azure con autorest*](how-to-create-custom-sdks.md).
 
 È anche possibile esercitare le API del piano dati interagendo con i dispositivi gemelli digitali di Azure tramite l' [interfaccia](how-to-use-cli.md)della riga di comando.

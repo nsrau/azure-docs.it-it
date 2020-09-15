@@ -9,13 +9,13 @@ ms.reviewer: maghan
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/27/2019
-ms.openlocfilehash: d679dbb7a14767b83d6508e4b1e637584f33210a
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.date: 09/14/2020
+ms.openlocfilehash: 5110f5fd09e360d1435e26312dd2ee2db6891cbb
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88949958"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087185"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Determinazione dei prezzi di Data Factory ed esempi
 
@@ -130,9 +130,13 @@ Per eseguire lo scenario è necessario creare una pipeline con gli elementi segu
 
 ## <a name="using-mapping-data-flow-debug-for-a-normal-workday"></a>Uso del debug del flusso di dati di mapping per una giornata lavorativa normale
 
-In qualità di ingegnere dei dati, l'utente è responsabile della progettazione, della compilazione e del testing di flussi di dati di mapping ogni giorno. Accedere all'interfaccia utente di ADF al mattino e abilitare la modalità di debug per i flussi di dati. Il valore TTL predefinito per le sessioni di debug è 60 minuti. Si lavora in tutto il giorno per 8 ore, quindi la sessione di debug non scade mai. L'addebito per la giornata sarà quindi:
+In qualità di ingegnere dei dati, Sam è responsabile della progettazione, della compilazione e del testing di flussi di dati di mapping ogni giorno. Sam accede all'interfaccia utente di ADF al mattino e Abilita la modalità di debug per i flussi di dati. Il valore TTL predefinito per le sessioni di debug è 60 minuti. Sam funziona nel corso della giornata per 8 ore, quindi la sessione di debug non scade mai. Quindi, gli addebiti per il giorno di Sam saranno:
 
 **8 (ore) x 8 (Core ottimizzati per il calcolo) x $0,193 = $12,35**
+
+Allo stesso tempo, Chris, un altro ingegnere di dati, accede anche all'interfaccia utente del browser ADF per il profiling dei dati e il lavoro di progettazione ETL. Chris non funziona in ADF tutti i giorni come Sam. Chris deve solo usare il debugger del flusso di dati per un'ora nello stesso periodo e nello stesso giorno di Sam sopra. Questi sono gli addebiti che Chris comporta per l'utilizzo del debug:
+
+**1 (ora) x 8 (core per utilizzo generico) x $0,274 = $2,19**
 
 ## <a name="transform-data-in-blob-store-with-mapping-data-flows"></a>Trasformare i dati nell'archivio BLOB con i flussi di dati di mapping
 

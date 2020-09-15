@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: virtual-machines
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 53089fa42c536cbdc59865f80f63a77c76720e2c
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: bfc1a818aeb85eca04faca713d4c7acbbce3626a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752021"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088494"
 ---
 # <a name="what-disk-types-are-available-in-azure"></a>Quali tipi di dischi sono disponibili in Azure?
 
@@ -23,7 +23,7 @@ Azure Managed Disks offre attualmente quattro tipi di dischi, ciascuno dei quali
 
 La tabella seguente fornisce un confronto tra dischi Ultra, unità SSD Premium, unità SSD standard e unità disco rigido standard (HDD) per Managed disks che consentono di decidere cosa usare.
 
-| Dettaglio | Disco Ultra | SSD Premium | SSD Standard | HDD Standard |
+| Dettagli | Disco Ultra | SSD Premium | SSD Standard | HDD Standard |
 | ------ | ---------- | ----------- | ------------ | ------------ |
 |Tipo di disco   |SSD   |SSD   |SSD   |HDD   |
 |Scenario   |Carichi di lavoro intensivo di i/o, come [SAP Hana](workloads/sap/hana-vm-operations-storage.md), database di livello superiore (ad esempio, SQL, Oracle) e altri carichi di lavoro con transazioni pesanti.   |Carichi di lavoro di produzione con requisiti particolari di prestazioni   |Server Web, applicazioni aziendali usate poco di frequente e sviluppo/test   |Backup, carichi di lavoro non critici, accesso poco frequente   |
@@ -71,12 +71,12 @@ Per iniziare a usare i dischi Ultra, vedere l'articolo sull'argomento relativo a
 
 I dischi SSD Premium di Azure offrono prestazioni elevate e supporto per dischi a bassa latenza per le macchine virtuali (VM) con carichi di lavoro con I/O intensivo. È possibile migrare i dischi delle VM esistenti in SSD Premium per trarre vantaggio dalla velocità e dalle prestazioni di questi dischi. I dischi SSD Premium sono idonei per applicazioni di produzione cruciali. Le unità SSD Premium possono essere usate solo con le serie di VM che sono compatibili con archiviazione Premium.
 
-Per altre informazioni sui singoli tipi e dimensioni delle VM in Azure per Windows o Linux, incluse le dimensioni compatibili con archiviazione Premium, vedere [dimensioni per le macchine virtuali in Azure](sizes.md). Per altre informazioni sui singoli tipi e dimensioni delle VM in Azure per Linux, incluse le dimensioni compatibili con archiviazione Premium, vedere [dimensioni per le macchine virtuali in Azure](sizes.md). Da uno di questi articoli è necessario controllare ogni singolo articolo sulle dimensioni della VM per determinare se è compatibile con archiviazione Premium.
+Per altre informazioni sui singoli tipi e dimensioni delle VM in Azure per Windows o Linux, incluse le dimensioni compatibili con archiviazione Premium, vedere [dimensioni per le macchine virtuali in Azure](sizes.md). Da questo articolo è necessario controllare ogni singolo articolo sulle dimensioni della VM per determinare se è compatibile con archiviazione Premium.
 
 ### <a name="disk-size"></a>Dimensioni del disco
 [!INCLUDE [disk-storage-premium-ssd-sizes](../../includes/disk-storage-premium-ssd-sizes.md)]
 
-Quando si effettua il provisioning di un disco di archiviazione Premium, a differenza di Archiviazione Standard, vengono garantiti livelli di capacità, IOPS e velocità effettiva del disco. Se ad esempio si crea un disco P50, Azure effettua il provisioning di 4.095 GB di capacità di archiviazione, 7.500 IOPS e 250 MB/s di velocità effettiva per tale disco. L'applicazione può usare la totalità o una della capacità e delle prestazioni. I dischi SSD Premium sono progettati per fornire latenze di millisecondi a singola cifra e la velocità effettiva e la velocità effettiva di destinazione descritti nella tabella precedente 99,9% del tempo.
+Quando si effettua il provisioning di un disco di archiviazione Premium, a differenza di Archiviazione Standard, vengono garantiti livelli di capacità, IOPS e velocità effettiva del disco. Se ad esempio si crea un disco P50, Azure effettua il provisioning di 4.095 GB di capacità di archiviazione, 7.500 IOPS e 250 MB/s di velocità effettiva per tale disco. L'applicazione può usare la totalità o una della capacità e delle prestazioni. I dischi SSD Premium sono progettati per offrire basse latenze di pochissimi millisecondi, nonché il numero di operazioni di I/O al secondo e la velocità effettiva di destinazione descritti nella tabella precedente per il 99,9% del tempo.
 
 ## <a name="bursting"></a>Espansione nel
 

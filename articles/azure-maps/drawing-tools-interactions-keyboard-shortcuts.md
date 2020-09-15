@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: fb8a1e1a8c29086553500bdad2e4604d1e1ef471
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 429baa4d5dc85476192758e4500f4c1f14610e6d
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77198293"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089310"
 ---
 # <a name="interaction-types-and-keyboard-shortcuts-in-the-drawing-tools-module"></a>Tipi di interazione e tasti di scelta rapida nel modulo strumenti di disegno
 
@@ -21,9 +21,9 @@ In questo articolo vengono illustrati tutti i diversi modi per creare e modifica
 
 Il gestore del disegno supporta tre diverse modalità di interazione con la mappa, per disegnare forme.
 
-* `click`-Le coordinate vengono aggiunte quando si fa clic con il mouse o il tocco.
-* `freehand `-Le coordinate vengono aggiunte quando il mouse o il tocco viene trascinato sulla mappa.
-* `hybrid`-Le coordinate vengono aggiunte quando si fa clic o si trascina il mouse o il tocco.
+* `click` -Le coordinate vengono aggiunte quando si fa clic con il mouse o il tocco.
+* `freehand ` -Le coordinate vengono aggiunte quando il mouse o il tocco viene trascinato sulla mappa.
+* `hybrid` -Le coordinate vengono aggiunte quando si fa clic o si trascina il mouse o il tocco.
 
 ## <a name="how-to-draw-shapes"></a>Come creare forme
 
@@ -131,7 +131,7 @@ Quando la gestione del disegno è in `draw-circle` modalità, è possibile esegu
 **Annulla disegno**
  - Premere il `Escape` tasto.
 
-## <a name="keyboard-shortcuts"></a>Tasti di scelta rapida
+## <a name="keyboard-shortcuts"></a>Scelte rapide da tastiera
 
 Gli strumenti di disegno supportano le scelte rapide da tastiera. Questi tasti di scelta rapida sono funzionali quando la mappa è attiva.
 
@@ -146,7 +146,7 @@ Gli strumenti di disegno supportano le scelte rapide da tastiera. Questi tasti d
 Per altre informazioni sulle classi, vedere il modulo strumenti di disegno:
 
 > [!div class="nextstepaction"]
-> [Gestione disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
+> [Gestione disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
-> [Barra degli strumenti disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)
+> [Barra degli strumenti disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)

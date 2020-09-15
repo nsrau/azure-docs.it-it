@@ -17,12 +17,12 @@ ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 7bc39e409d0ac10e41fae58c5e5216f386427e30
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 897c0f3c51d6d9bea1f90a66ccf50aa51e22f118
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87541737"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088307"
 ---
 # <a name="troubleshoot-azure-ad-connectivity"></a>Risolvere i problemi di connettività Azure AD
 Questo articolo illustra il funzionamento della connettività tra Azure AD Connect e Azure AD e come risolverne i problemi. Questi problemi si verificano con maggiore probabilità in un ambiente con un server proxy.
@@ -33,7 +33,7 @@ Azure AD Connect usa l'autenticazione moderna con la libreria ADAL per l'autenti
 Questo articolo illustra in che modo Fabrikam si connette ad Azure AD tramite il proxy. Il server proxy è denominato fabrikamproxy e usa la porta 8080.
 
 Prima di tutto è necessario assicurarsi che [**machine.config**](how-to-connect-install-prerequisites.md#connectivity) sia configurato correttamente e che **Microsoft Azure ad servizio di sincronizzazione** sia stato riavviato dopo l'aggiornamento del machine.config file.
-![machineconfig](./media/tshoot-connect-connectivity/machineconfig.png)
+![Screenshot mostra parte del file di configurazione del punto di macchina.](./media/tshoot-connect-connectivity/machineconfig.png)
 
 > [!NOTE]
 > In alcuni blog non Microsoft è invece documentato che le modifiche devono essere apportate al file miiserver.exe.config. Questo file viene però sovrascritto a ogni aggiornamento, quindi anche se funziona durante l'installazione iniziale, il sistema smetterà di funzionare al primo aggiornamento. Per questo motivo è consigliabile aggiornare machine.config.
@@ -60,7 +60,7 @@ Di seguito sono riportati i problemi più comuni che vengono visualizzati nell'I
 
 ### <a name="the-installation-wizard-has-not-been-correctly-configured"></a>L'Installazione guidata non è stata configurata correttamente
 Questo errore viene visualizzato quando la procedura guidata non riesce a raggiungere il proxy.
-![nomachineconfig](./media/tshoot-connect-connectivity/nomachineconfig.png)
+![Lo screenshot mostra un errore: non è possibile convalidare le credenziali.](./media/tshoot-connect-connectivity/nomachineconfig.png)
 
 * Se viene visualizzato questo errore, verificare che [machine.config](how-to-connect-install-prerequisites.md#connectivity) sia stato configurato correttamente.
 * Se il file è corretto, seguire i passaggi in [Verificare la connettività del proxy](#verify-proxy-connectivity) per vedere se il problema è presente anche all'esterno della procedura guidata.
@@ -122,7 +122,7 @@ Ecco il dump del log di un proxy effettivo e la pagina dell'Installazione guidat
 | 1/11/2016 8:33 |connect://provisioningapi.microsoftonline.com:443 |
 | 1/11/2016 8:33 |connect://*bwsc02-relay*.microsoftonline.com:443 |
 
-**Configurare un**
+**Configurare**
 
 | Tempo | URL |
 | --- | --- |
@@ -225,14 +225,14 @@ Visualizzata come un errore imprevisto nell'Installazione guidata, può verifica
 L'Assistente per l'accesso è stato ritirato a partire dalle versioni con numero di build 1.1.105.0, rilasciata nel mese di febbraio 2016. Questa sezione e la configurazione non dovrebbero essere più necessarie, ma vengono conservate come riferimento.
 
 Per consentire il funzionamento dell'Assistente per l'accesso, è necessario configurare winhttp Questa configurazione può essere eseguita con [**netsh**](how-to-connect-install-prerequisites.md#connectivity).
-![netsh](./media/tshoot-connect-connectivity/netsh.png)
+![Screenshot mostra una finestra del prompt dei comandi che esegue lo strumento Netsh per impostare un proxy.](./media/tshoot-connect-connectivity/netsh.png)
 
 ### <a name="the-sign-in-assistant-has-not-been-correctly-configured"></a>L'Assistente per l'accesso non è stato configurato correttamente
 Questo errore viene visualizzato quando l'Assistente per l'accesso non riesce a raggiungere il proxy o il proxy non consente la richiesta.
-![nonetsh](./media/tshoot-connect-connectivity/nonetsh.png)
+![Screenshot mostra un errore: non è possibile convalidare le credenziali, verificare la connettività di rete e le impostazioni del firewall o del proxy.](./media/tshoot-connect-connectivity/nonetsh.png)
 
 * Se viene visualizzato questo errore, esaminare la configurazione del proxy in [netsh](how-to-connect-install-prerequisites.md#connectivity) e verificare che sia corretta.
-  ![netshshow](./media/tshoot-connect-connectivity/netshshow.png)
+  ![Screenshot mostra una finestra del prompt dei comandi che esegue lo strumento Netsh per visualizzare la configurazione del proxy.](./media/tshoot-connect-connectivity/netshshow.png)
 * Se il file è corretto, seguire i passaggi in [Verificare la connettività del proxy](#verify-proxy-connectivity) per vedere se il problema è presente anche all'esterno della procedura guidata.
 
 ## <a name="next-steps"></a>Passaggi successivi

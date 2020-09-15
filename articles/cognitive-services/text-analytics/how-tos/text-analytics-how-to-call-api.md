@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: aahi
-ms.openlocfilehash: c6fbec35920c8afd08ab60fc380c9f816ae599b0
-ms.sourcegitcommit: 964af22b530263bb17fff94fd859321d37745d13
+ms.openlocfilehash: fec85a03b74155b5b18145bfaddc5d326c910bc9
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/09/2020
-ms.locfileid: "84561017"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087304"
 ---
 # <a name="how-to-call-the-text-analytics-rest-api"></a>Come chiamare l'API REST Analisi del testo
 
@@ -39,7 +39,7 @@ L'input deve essere JSON in testo non elaborato e non strutturato. XML non è su
 
 Attualmente è possibile inviare gli stessi documenti per tutte le operazioni di Analisi del testo: sentiment, frase chiave, rilevamento della lingua e identificazione delle entità. In futuro probabilmente lo schema varierà per ogni analisi.
 
-| Elemento | Valori validi | Obbligatorio? | Uso |
+| Elemento | Valori validi | Necessaria? | Uso |
 |---------|--------------|-----------|-------|
 |`id` |Il tipo di dati è stringa, ma in pratica gli ID documento tendono a essere numeri interi. | Obbligatoria | Il sistema usa gli ID immessi per strutturare l'output. Per ogni ID della richiesta vengono generati codici di lingua, frasi chiave e punteggi di sentiment.|
 |`text` | Testo non elaborato non strutturato, composto da un massimo di 5.120 caratteri. | Obbligatoria | Per il rilevamento della lingua, il testo può essere espresso in qualsiasi lingua. Per l'analisi del sentiment, l'estrazione delle frasi chiave e l'identificazione delle entità, il testo deve essere in una [lingua supportata](../text-analytics-supported-languages.md). |
@@ -59,10 +59,10 @@ Il servizio accetta richieste fino alla dimensione di 1 MB. Se si usa Postman o 
 
    Gli endpoint di risorsa sono i seguenti (l'area può variare):
 
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/sentiment`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/keyPhrases`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/languages`
-   + `https://westus.api.cognitive.microsoft.com/text/analytics/v2.1/entities`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v3.0/sentiment`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v3.0/keyPhrases`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v3.0/languages`
+   + `https://westus.api.cognitive.microsoft.com/text/analytics/v3.0/entities/recognition/general`
 
 2. Impostare le tre intestazioni della richiesta:
 
@@ -98,4 +98,4 @@ Il servizio accetta richieste fino alla dimensione di 1 MB. Se si usa Postman o 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Rileva lingua](text-analytics-how-to-language-detection.md)
+> [Rilevare la lingua](text-analytics-how-to-language-detection.md)

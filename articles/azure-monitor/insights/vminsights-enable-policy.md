@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/27/2020
-ms.openlocfilehash: 9bc323e0fafc576c5e75f46b3c38fdf140b1b0f4
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 240c96016304c009c36485869ac15f5f38076fb7
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87799803"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088290"
 ---
 # <a name="enable-azure-monitor-for-vms-by-using-azure-policy"></a>Abilitare Monitoraggio di Azure per le macchine virtuali con Criteri di Azure
 Questo articolo illustra come abilitare Monitoraggio di Azure per le macchine virtuali per macchine virtuali di Azure o macchine virtuali ibride connesse con Azure Arc (anteprima) usando criteri di Azure. Criteri di Azure consente di assegnare le definizioni dei criteri che installano gli agenti necessari per Monitoraggio di Azure per le macchine virtuali nell'ambiente Azure e abilitano automaticamente il monitoraggio per le macchine virtuali durante la creazione di ogni macchina virtuale. Monitoraggio di Azure per le macchine virtuali offre una funzionalità che consente di individuare e correggere le macchine virtuali non conformi nell'ambiente in uso. Usare questa funzionalità anziché lavorare direttamente con criteri di Azure.
@@ -46,7 +46,7 @@ Si tratta della stessa pagina che consente di assegnare un'iniziativa in criteri
 Nella pagina **parametri** selezionare un'area di **lavoro log Analytics** che verrà utilizzata da tutte le macchine virtuali nell'assegnazione. Se si desidera specificare diverse aree di lavoro per diverse macchine virtuali, è necessario creare più assegnazioni, ognuna con il proprio ambito. 
 
    > [!NOTE]
-   > Se l'area di lavoro non rientra nell'ambito dell'assegnazione, concedere le autorizzazioni di *Collaboratore di Log Analytics* all'ID entità di sicurezza dell'assegnazione dei criteri. Se non si esegue questa operazione, è possibile che venga visualizzato un errore di distribuzione come`The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
+   > Se l'area di lavoro non rientra nell'ambito dell'assegnazione, concedere le autorizzazioni di *Collaboratore di Log Analytics* all'ID entità di sicurezza dell'assegnazione dei criteri. Se non si esegue questa operazione, è possibile che venga visualizzato un errore di distribuzione come `The client '343de0fe-e724-46b8-b1fb-97090f7054ed' with object id '343de0fe-e724-46b8-b1fb-97090f7054ed' does not have authorization to perform action 'microsoft.operationalinsights/workspaces/read' over scope ...`
 
 [![Area di lavoro](media/vminsights-enable-at-scale-policy/assignment-workspace.png)](media/vminsights-enable-at-scale-policy/assignment-workspace.png#lightbox)
 
@@ -102,7 +102,7 @@ Per creare un'attività di monitoraggio e aggiornamento per attenuare i problemi
 
 Fare **clic su** Correggi per creare l'attività di monitoraggio e aggiornamento e quindi **correggere** per avviarla. Probabilmente sarà necessario creare più attività di correzione, una per ogni definizione di criteri. Non è possibile creare un'attività di correzione per un'iniziativa.
 
-[![Soluzione](media/vminsights-enable-at-scale-policy/remediation.png)](media/vminsights-enable-at-scale-policy/remediation.png#lightbox)
+[![Screenshot che mostra il riquadro monitoraggio e aggiornamento dei criteri per il monitoraggio | Macchine virtuali.](media/vminsights-enable-at-scale-policy/remediation.png)](media/vminsights-enable-at-scale-policy/remediation.png#lightbox)
 
 
 Una volta completate le attività di correzione, le macchine virtuali devono essere conformi agli agenti installati e abilitati per Monitoraggio di Azure per le macchine virtuali. 

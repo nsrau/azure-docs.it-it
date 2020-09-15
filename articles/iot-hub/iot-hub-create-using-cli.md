@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/23/2018
 ms.author: robinsh
-ms.openlocfilehash: e7253747d95917e34725cc7c6c034b1306f65e50
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 69372e4c212e2ce81bcd4c91d460aa191a1d3476
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84708077"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087848"
 ---
 # <a name="create-an-iot-hub-using-the-azure-cli"></a>Creare un hub IoT usando l'interfaccia della riga di comando di Azure
 
@@ -22,7 +22,7 @@ Questo articolo illustra come creare un hub IoT usando l'interfaccia della riga 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per completare questa esercitazione è necessario disporre di una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, prima di iniziare creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+Per completare questa esercitazione è necessario disporre di una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -44,21 +44,21 @@ Usare l'interfaccia della riga di comando di Azure per creare un gruppo di risor
 
 1. Quando si crea un hub IoT, è necessario crearlo in un gruppo di risorse. Usare un gruppo di risorse esistente o eseguire questo [comando per creare un gruppo di risorse](https://docs.microsoft.com/cli/azure/resource):
     
-   ```azurecli
+   ```azurecli-interactive
    az group create --name {your resource group name} --location westus
    ```
 
    > [!TIP]
    > L'esempio precedente crea il gruppo di risorse nella località Stati Uniti occidentali. È possibile visualizzare un elenco di località disponibili eseguendo questo comando: 
    >
-   >``` bash
-   >az account list-locations -o table
-   >```
+   > ```azurecli-interactive
+   > az account list-locations -o table
+   > ```
    >
 
 2. Eseguire il seguente [comando per creare un hub IoT](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-create) nel gruppo di risorse, usando un nome globalmente univoco per l'hub IoT:
     
-   ```azurecli
+   ```azurecli-interactive
    az iot hub create --name {your iot hub name} \
       --resource-group {your resource group name} --sku S1
    ```
@@ -74,14 +74,14 @@ Il comando precedente crea un hub IoT nel piano tariffario S1 che viene fatturat
 
 Per [eliminare un hub IoT](https://docs.microsoft.com/cli/azure/iot/hub#az-iot-hub-delete), eseguire questo comando:
 
-```azurecli
+```azurecli-interactive
 az iot hub delete --name {your iot hub name} -\
   -resource-group {your resource group name}
 ```
 
 Per [eliminare un gruppo di risorse](https://docs.microsoft.com/cli/azure/group#az-group-delete) e tutte le risorse correlate, eseguire questo comando:
 
-```azurecli
+```azurecli-interactive
 az group delete --name {your resource group name}
 ```
 

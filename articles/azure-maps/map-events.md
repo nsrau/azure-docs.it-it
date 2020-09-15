@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: f3a48e4434588b2eb64637e6f0a454148cad39f2
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: e1cce536a9ec498304cbbc591fc56a0ee1b21b13
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036443"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087270"
 ---
 # <a name="interact-with-the-map"></a>Interazione con la mappa
 
@@ -26,7 +26,7 @@ Provare a usare la mappa sottostante e osservare gli eventi del mouse corrispond
 
 <br/>
 
-<iframe height='600' scrolling='no' title='Interazione con la mappa - eventi del mouse' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Pen <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>Interact with the map - mouse events</a> (Interagire con la mappa - eventi del mouse) di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Interazione con la mappa - eventi del mouse' src='//codepen.io/azuremaps/embed/bLZEWd/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Pen <a href='https://codepen.io/azuremaps/pen/bLZEWd/'>Interact with the map - mouse events</a> (Interagire con la mappa - eventi del mouse) di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="interact-with-map-layers"></a>Interagire con i livelli mappa
@@ -35,16 +35,16 @@ Nel codice seguente viene evidenziato l'evento generato quando si interagisce co
 
 <br/>
 
-<iframe height='600' scrolling='no' title='Interazione con la mappa - Eventi del livello' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Pen <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>Interazione con la mappa - eventi del livello</a> di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+<iframe height='600' scrolling='no' title='Interazione con la mappa - Eventi del livello' src='//codepen.io/azuremaps/embed/bQRRPE/?height=600&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Pen <a href='https://codepen.io/azuremaps/pen/bQRRPE/'>Interazione con la mappa - eventi del livello</a> di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="interact-with-html-marker"></a>Interagire con il marcatore di HTML
 
-Il codice seguente aggiunge gli eventi della mappa Javascript a un marcatore di HTML. Inoltre evidenzia il nome degli eventi che si attivano durante l'interazione con il marcatore di HTML.
+Il codice seguente aggiunge gli eventi della mappa JavaScript a un marcatore HTML. Inoltre evidenzia il nome degli eventi che si attivano durante l'interazione con il marcatore di HTML.
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Interazione con la mappa - Eventi del marcatore di HTML' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Pen <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>Interazione con la mappa - eventi del marcatore di HTML</a> di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Interazione con la mappa - Eventi del marcatore di HTML' src='//codepen.io/azuremaps/embed/VVzKJY/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Vedere l'elemento Pen <a href='https://codepen.io/azuremaps/pen/VVzKJY/'>Interazione con la mappa - eventi del marcatore di HTML</a> di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 Nella tabella seguente sono elencati tutti gli eventi della classe Map supportati.
@@ -98,11 +98,11 @@ Nella tabella seguente sono elencati tutti gli eventi della classe Map supportat
 | `sourceremoved`     | Generato quando viene rimosso dalla mappa un oggetto `DataSource` o `VectorTileSource`.|
 | `styledata`         | Generato quando lo stile della mappa viene caricato o modificato.|
 | `styleimagemissing` | Generato quando un livello tenta di caricare un'immagine dallo sprite dell'immagine che non esiste |
-| `tokenacquired`     | Generato quando si ottiene un token di accesso AAD.|
-| `touchcancel`       | Generato quando si verifica un evento touchcancel all'interno della mappa.|
-| `touchend`          | Generato quando si verifica un evento touchend all'interno della mappa.|
-| `touchmove`         | Generato quando si verifica un evento touchmove all'interno della mappa.|
-| `touchstart`        | Generato quando si verifica un evento touchstart all'interno della mappa.|
+| `tokenacquired`     | Generato quando si ottiene un token di accesso Azure Active Directory.|
+| `touchcancel`       | Generato quando `touchcancel` si verifica un evento all'interno della mappa.|
+| `touchend`          | Generato quando `touchend` si verifica un evento all'interno della mappa.|
+| `touchmove`         | Generato quando `touchmove` si verifica un evento all'interno della mappa.|
+| `touchstart`        | Generato quando `touchstart` si verifica un evento all'interno della mappa.|
 | `wheel`             | Generato quando si verifica un evento della rotellina del mouse all'interno della mappa.|
 | `zoom`              | Generato ripetutamente durante una transizione animata da un livello di zoom a un altro, come risultato dell'interazione utente o dei metodi.|
 | `zoomend`           | Generato immediatamente dopo che la mappa completa una transizione da un livello di zoom a un altro, come risultato dell'interazione utente o dei metodi.|

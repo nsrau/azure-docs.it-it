@@ -3,17 +3,17 @@ title: 'Domande frequenti: SRE e codifica | Microsoft Docs'
 titleSuffix: Azure
 description: 'Domande frequenti: informazioni sulla relazione tra SRE e codice'
 author: dnblankedelman
-manager: efreeman
+manager: ScottCa
 ms.service: site-reliability-engineering
 ms.topic: article
-ms.date: 06/19/2020
+ms.date: 09/14/2020
 ms.author: dnb
-ms.openlocfilehash: 7003844878fcd23b20957c393ac2ed011f5f5946
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b8865fdd53f4947b17a3621a128fc83f3d93d3e2
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85834939"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089072"
 ---
 # <a name="frequently-asked-questions-do-i-need-to-know-how-to-code-to-get-involved-with-sre"></a>Domande frequenti: è necessario avere informazioni su come scrivere codice per collaborare con SRE?
 

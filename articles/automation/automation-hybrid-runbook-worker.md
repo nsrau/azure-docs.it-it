@@ -3,14 +3,14 @@ title: Panoramica dei ruoli di lavoro ibridi per runbook di Automazione di Azure
 description: Questo articolo fornisce una panoramica dei ruoli di lavoro ibridi per runbook, che è possibile usare per eseguire runbook su computer nel data center locale o nel provider di servizi cloud.
 services: automation
 ms.subservice: process-automation
-ms.date: 07/16/2020
+ms.date: 09/14/2020
 ms.topic: conceptual
-ms.openlocfilehash: 4d29979e28140b728478d405db934cb41783f4b0
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: f5dc9305df8ce0e26e13738d605849fa75cc53a7
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87448076"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087890"
 ---
 # <a name="hybrid-runbook-worker-overview"></a>Panoramica del ruolo di lavoro ibrido per runbook
 
@@ -51,9 +51,9 @@ Per potersi connettere e registrarsi ad Automazione di Azure, il ruolo di lavoro
 La porta e gli URL seguenti sono necessari al ruolo di lavoro ibrido per runbook:
 
 * Porta: è necessaria solo la porta TCP 443 per l'accesso a Internet in uscita
-* URL globale:`*.azure-automation.net`
-* URL globale di US Gov Virginia:`*.azure-automation.us`
-* Servizio Agent:`https://<workspaceId>.agentsvc.azure-automation.net`
+* URL globale: `*.azure-automation.net`
+* URL globale di US Gov Virginia: `*.azure-automation.us`
+* Servizio Agent: `https://<workspaceId>.agentsvc.azure-automation.net`
 
 Se di dispone di un account di Automazione di Azure definito per un'area specifica, è possibile limitare la comunicazione del ruolo di lavoro ibrido per runbook a tale data center regionale. Esaminare i [record DNS usati da automazione di Azure](how-to/automation-region-dns-records.md) per i record DNS necessari.
 
@@ -63,11 +63,11 @@ Se si usa un server proxy per la comunicazione tra automazione di Azure e i comp
 
 ### <a name="firewall-use"></a>Uso del firewall
 
-Se si usa un firewall per limitare l'accesso a Internet, è necessario configurarlo per consentire l'accesso. Se si usa il gateway di Analisi dei log come proxy, assicurarsi che sia configurato per i ruoli di lavoro ibridi per runbook. Vedere [Configurare il gateway di Analisi dei log per i ruoli di lavoro ibridi per runbook di Automazione](../azure-monitor/platform/gateway.md).
+Se si usa un firewall per limitare l'accesso a Internet, è necessario configurarlo per consentire l'accesso. Se si usa il gateway di Analisi dei log come proxy, assicurarsi che sia configurato per i ruoli di lavoro ibridi per runbook. Vedere [configurare il gateway log Analytics per i ruoli di lavoro ibridi per Runbook di automazione](../azure-monitor/platform/gateway.md).
 
 ### <a name="service-tags"></a>Tag di servizio
 
-Automazione di Azure supporta i tag del servizio rete virtuale di Azure, a partire dal tag del servizio [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). È possibile usare i tag di servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza di rete](../virtual-network/security-overview.md#security-rules) o nel firewall di [Azure](../firewall/service-tags.md). I tag di servizio possono essere usati al posto di indirizzi IP specifici quando si creano regole di sicurezza. Specificando il nome del tag del servizio **GuestAndHybridManagement** nel campo di origine o di destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio di automazione. Questo tag di servizio non supporta l'abilitazione di un controllo più granulare limitando gli intervalli IP a un'area specifica.
+Automazione di Azure supporta i tag del servizio rete virtuale di Azure, a partire dal tag del servizio [GuestAndHybridManagement](../virtual-network/service-tags-overview.md). È possibile usare i tag di servizio per definire i controlli di accesso alla rete nei [gruppi di sicurezza di rete](../virtual-network/security-overview.md#security-rules) o nel firewall di [Azure](../firewall/service-tags.md). I tag di servizio possono essere usati al posto di indirizzi IP specifici quando si creano regole di sicurezza. Specificando il nome del tag del servizio **GuestAndHybridManagement**  nel campo di origine o di destinazione appropriato di una regola, è possibile consentire o negare il traffico per il servizio di automazione. Questo tag di servizio non supporta l'abilitazione di un controllo più granulare limitando gli intervalli IP a un'area specifica.
 
 Il tag di servizio per il servizio automazione di Azure fornisce solo gli indirizzi IP usati per gli scenari seguenti:
 
@@ -115,6 +115,20 @@ In caso di riavvio del computer host con il ruolo di lavoro ibrido per runbook, 
 ### <a name="runbook-permissions-for-a-hybrid-runbook-worker"></a>Autorizzazioni runbook per un ruolo di lavoro ibrido per runbook
 
 Poiché accedono a risorse non di Azure, i runbook eseguiti in un ruolo di lavoro ibrido per runbook non possono usare il meccanismo di autenticazione in genere usato per l'autenticazione dei runbook in risorse di Azure. Il runbook può fornire la propria autenticazione alle risorse locali o configurare l'autenticazione mediante [identità gestite per le risorse di Azure](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager). È anche possibile specificare un account RunAs per fornire un contesto utente per tutti i runbook.
+
+## <a name="view-hybrid-runbook-workers"></a>Visualizza i ruoli di lavoro ibridi per Runbook
+
+Una volta abilitata la funzionalità Gestione aggiornamenti nei server o nelle macchine virtuali Windows, è possibile inventariare l'elenco di gruppi di ruoli di lavoro ibridi per Runbook di sistema nel portale di Azure. È possibile visualizzare fino a 2.000 processi di lavoro nel portale selezionando il **gruppo Tab System Hybrid Workers** nell'opzione **gruppo Hybrid Workers** dal riquadro a sinistra per l'account di automazione selezionato.
+
+:::image type="content" source="./media/automation-hybrid-runbook-worker/system-hybrid-workers-page.png" alt-text="Pagina gruppi di lavoro ibridi del sistema di account di automazione" border="false" lightbox="./media/automation-hybrid-runbook-worker/system-hybrid-workers-page.png":::
+
+Se si dispone di più di 2.000 ruoli di lavoro ibridi, per ottenere un elenco di tutti i ruoli, è possibile eseguire lo script di PowerShell seguente:
+
+```powershell
+"Get-AzSubscription -SubscriptionName "<subscriptionName>" | Set-AzContext
+$workersList = (Get-AzAutomationHybridWorkerGroup -ResourceGroupName "<resourceGroupName>" -AutomationAccountName "<automationAccountName>").Runbookworker
+$workersList | export-csv -Path "<Path>\output.csv" -NoClobber -NoTypeInformation"
+```
 
 ## <a name="next-steps"></a>Passaggi successivi
 

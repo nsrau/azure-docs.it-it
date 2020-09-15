@@ -5,24 +5,23 @@ services: notification-hubs
 documentationcenter: ''
 author: sethmanheim
 manager: femila
-editor: jwargo
-ms.assetid: 11d2131b-f683-47fd-a691-4cdfc696f62b
+editor: thsomasu
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: multiple
 ms.topic: article
-ms.date: 09/30/2019
+ms.date: 09/14/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 10/02/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 3acfc9e3a856ec777bfada68d535b6a1e9878a08
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: bf9670ae8fd22342a05f8d506f743c7a5c395e5f
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017924"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088137"
 ---
 # <a name="send-cross-platform-notifications-with-azure-notification-hubs"></a>Inviare notifiche multipiattaforma con hub di notifica di Azure
 
@@ -31,16 +30,16 @@ Questa esercitazione si basa sull'esercitazione precedente, [che consente di inv
 Questo articolo illustra come sfruttare i modelli per inviare una notifica destinata a tutte le piattaforme. Questo articolo usa una singola Request to Send una notifica indipendente dalla piattaforma. Per informazioni più dettagliate sui modelli, vedere [Panoramica di hub di notifica][Templates].
 
 > [!IMPORTANT]
-> I progetti Windows Phone 8,1 e versioni precedenti non sono supportati in Visual Studio 2019. Per altre informazioni, vedere [Selezione della piattaforma e compatibilità di Visual Studio 2019](/visualstudio/releases/2019/compatibility).
+> I progetti Windows Phone 8,1 e versioni precedenti non sono supportati in Visual Studio 2019. Per altre informazioni, vedere Selezione della [piattaforma e compatibilità di Visual Studio 2019](/visualstudio/releases/2019/compatibility).
 
 > [!NOTE]
 > Con Hub di notifica, un dispositivo può registrare più modelli con lo stesso tag. In questo caso, un messaggio in arrivo destinato a tale tag determina il recapito di più notifiche al dispositivo, una per ogni modello. Questo processo consente di visualizzare lo stesso messaggio in più notifiche visive, ad esempio sia come notifica che come avviso popup in un'app di Windows Store.
 
 ## <a name="send-cross-platform-notifications-using-templates"></a>Inviare notifiche multipiattaforma usando i modelli
 
-Questa sezione usa il codice di esempio creato nell'esercitazione [inviare notifiche a utenti specifici usando hub di notifica di Azure] . È possibile scaricare l'esempio da [GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
+Questa sezione usa il codice di esempio creato nell'esercitazione [inviare notifiche a utenti specifici usando hub di notifica di Azure] . È possibile [scaricare l'esempio completo da GitHub](https://github.com/Azure/azure-notificationhubs-dotnet/tree/master/Samples/NotifyUsers).
 
-Per inviare notifiche multipiattaforma tramite modelli, seguire questa procedura:
+Per inviare notifiche multipiattaforma tramite modelli, eseguire le operazioni seguenti:
 
 1. In Visual Studio in **Esplora soluzioni**espandere la cartella **Controllers** , quindi aprire il file *RegisterController.cs* .
 
@@ -77,7 +76,7 @@ Per inviare notifiche multipiattaforma tramite modelli, seguire questa procedura
 
     In questo codice viene chiamato il metodo specifico della piattaforma per creare una registrazione modello anziché una registrazione nativa. Dato che le registrazioni dei modelli derivano da registrazioni native, non è necessario modificare le registrazioni esistenti.
 
-1. In **Esplora soluzioni**aprire il file *NotificationsController.cs* nella cartella **Controllers** . Sostituire il metodo `Post` con il codice seguente:
+1. In **Esplora soluzioni**aprire il file **NotificationsController.cs** nella cartella **Controllers** . Sostituire il metodo `Post` con il codice seguente:
 
     ```csharp
     public async Task<HttpResponseMessage> Post()

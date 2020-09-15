@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: f2bf058ddce81ab9f04e97787a4dc93e44036b1b
-ms.sourcegitcommit: ec682dcc0a67eabe4bfe242fce4a7019f0a8c405
+ms.openlocfilehash: f90d88e49675681a7f73df838ca489a7193955b3
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86186113"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087861"
 ---
 # <a name="use-runbooks-and-modules-in-powershell-gallery"></a>Usare runbook e moduli in PowerShell Gallery
 
@@ -39,7 +39,7 @@ L'elenco seguente contiene alcuni runbook che supportano scenari comuni. Per un 
    * [Update-ModulesInAutomationToLatestVersion](https://www.powershellgallery.com/packages/Update-ModulesInAutomationToLatestVersion/): importa la versione più recente di tutti i moduli di un account di automazione da PowerShell Gallery.
    * [Enable-AzureDiagnostics](https://www.powershellgallery.com/packages/Enable-AzureDiagnostics/): configura Diagnostica di Azure e Log Analytics per ricevere i log di Automazione di Azure contenenti lo stato e i flussi del processo.
    * [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemFromAzureVM/): copia un file remoto da una macchina virtuale di Windows Azure.
-   * [Copy-ItemFromAzureVM](https://www.powershellgallery.com/packages/Copy-ItemToAzureVM/): copia un file locale in una macchina virtuale di Windows Azure.
+   * [Copy-ItemToAzureVM](https://www.powershellgallery.com/packages/Copy-ItemToAzureVM/) : copia un file locale in una macchina virtuale di Azure.
 
 ## <a name="import-a-powershell-runbook-from-the-runbook-gallery-with-the-azure-portal"></a>Importare un runbook PowerShell dalla raccolta di runbook con il portale di Azure
 

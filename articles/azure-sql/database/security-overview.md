@@ -1,5 +1,5 @@
 ---
-title: Panoramica della sicurezza
+title: Cenni preliminari sulla sicurezza
 titleSuffix: Azure SQL Database & Azure SQL Managed Instance
 description: Informazioni sulla sicurezza nel database SQL di Azure e Istanza gestita SQL di Azure, incluse le differenze rispetto a SQL Server.
 services: sql-database
@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto, carlrab, emlisa
 ms.date: 05/14/2019
-ms.openlocfilehash: bfb7c94f1a29eaaf849dbf18a2b6137102617be8
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: a9e563f32f2b8f38af7ab86be82cd18ef1c2309c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85986849"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088409"
 ---
 # <a name="an-overview-of-azure-sql-database-and-sql-managed-instance-security-capabilities"></a>Panoramica delle funzionalità di sicurezza del database SQL di Azure e di SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -79,7 +79,7 @@ La sicurezza a livello di riga consente ai clienti di controllare l'accesso alle
 
 ![azure-database-rls.png](./media/security-overview/azure-database-rls.png)
 
-## <a name="threat-protection"></a>Threat Protection
+## <a name="threat-protection"></a>Protezione dalle minacce
 
 Il database SQL e SQL Istanza gestita proteggere i dati dei clienti fornendo funzionalità di controllo e rilevamento delle minacce.
 
@@ -89,7 +89,7 @@ Il controllo del database SQL e di SQL Istanza gestita tiene traccia delle attiv
 
 ### <a name="advanced-threat-protection"></a>Advanced Threat Protection
 
-Advanced Threat Protection sta analizzando i log per rilevare comportamenti insoliti e tentativi potenzialmente dannosi di accesso o exploit dei database. Gli avvisi vengono creati per attività sospette, ad esempio SQL injection, potenziali infiltrazione dei dati e attacchi di forza bruta o per le anomalie nei modelli di accesso per intercettare le escalation dei privilegi e l'uso delle credenziali violate. Gli avvisi vengono visualizzati dal [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/), in cui vengono forniti i dettagli delle attività sospette e le raccomandazioni per un'ulteriore analisi fornita insieme alle azioni per attenuare la minaccia. Advanced Threat Protection può essere abilitato per ogni server per un costo aggiuntivo. Per altre informazioni, vedere [Introduzione al database SQL Advanced Threat Protection](threat-detection-configure.md).
+Advanced Threat Protection sta analizzando i log per rilevare comportamenti insoliti e tentativi potenzialmente dannosi di accesso o exploit dei database. Gli avvisi vengono creati per attività sospette, ad esempio SQL injection, potenziali infiltrazione dei dati e attacchi di forza bruta o per le anomalie nei modelli di accesso per intercettare le escalation dei privilegi e l'uso delle credenziali violate. Gli avvisi vengono visualizzati dal  [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/), in cui vengono forniti i dettagli delle attività sospette e le raccomandazioni per un'ulteriore analisi fornita insieme alle azioni per attenuare la minaccia. Advanced Threat Protection può essere abilitato per ogni server per un costo aggiuntivo. Per altre informazioni, vedere [Introduzione al database SQL Advanced Threat Protection](threat-detection-configure.md).
 
 ![azure-database-td.jpg](./media/security-overview/azure-database-td.jpg)
 
@@ -103,7 +103,7 @@ Il database SQL e SQL Istanza gestita applicano sempre la crittografia (SSL/TLS)
 
 Come procedura consigliata, nella stringa di connessione usata dall'applicazione è consigliabile specificare una connessione crittografata e _**non**_ considerare attendibile il certificato del server. In questo modo, l'applicazione deve verificare il certificato del server e quindi impedire che l'applicazione venga vulnerabile agli attacchi di tipo intermedio.
 
-Ad esempio, quando si usa il driver ADO.NET, questa operazione viene eseguita tramite **Encrypt = True** e **TrustServerCertificate = false**. Se si ottiene la stringa di connessione dal portale di Azure, le impostazioni saranno corrette.
+Ad esempio, quando si usa il driver ADO.NET, questa operazione viene eseguita tramite  **Encrypt = True** e **TrustServerCertificate = false**. Se si ottiene la stringa di connessione dal portale di Azure, le impostazioni saranno corrette.
 
 > [!IMPORTANT]
 > Si noti che alcuni driver non Microsoft non possono usare TLS per impostazione predefinita o si basano su una versione precedente di TLS (<1,2) per funzionare. In questo caso il server consente ancora di connettersi al database. Tuttavia, si consiglia di valutare i rischi per la sicurezza che consentono a tali driver e applicazioni di connettersi al database SQL, soprattutto se si archiviano dati sensibili.
@@ -140,7 +140,7 @@ La maschera dati dinamica limita l'esposizione dei dati sensibili nascondendoli 
 
 ### <a name="data-discovery-and-classification"></a>Individuazione e classificazione dei dati
 
-Individuazione dati e classificazione (attualmente in anteprima) offre funzionalità avanzate incorporate nel database SQL di Azure e in SQL Istanza gestita per l'individuazione, la classificazione, l'assegnazione di etichette e la protezione dei dati sensibili nei database. L'individuazione e la classificazione dei dati più sensibili (dati commerciali e finanziari, dati relativi all'assistenza sanitaria, informazioni personali e così via) possono svolgere un ruolo fondamentale per il livello di protezione delle informazioni aziendali. Possono costituire l'infrastruttura per:
+Individuazione dati e classificazione (attualmente in anteprima) offre funzionalità avanzate incorporate nel database SQL di Azure e in SQL Istanza gestita per l'individuazione, la classificazione, l'assegnazione di etichette e la protezione dei dati sensibili nei database. L'individuazione e la classificazione dei dati più sensibili (dati commerciali e finanziari, dati relativi all'assistenza sanitaria, informazioni personali e così via) possono svolgere un ruolo fondamentale per il livello di protezione delle informazioni aziendali. Individuazione dati e classificazione può svolgere la funzione di infrastruttura per:
 
 - Vari scenari di sicurezza, ad esempio monitoraggio (controllo) e invio di avvisi sulle anomalie di accesso a dati sensibili.
 - Controllare l'accesso ai database che contengono dati molto sensibili e rafforzarne la sicurezza.
@@ -150,7 +150,7 @@ Per ulteriori informazioni, vedere [Introduzione all'individuazione e alla class
 
 ### <a name="compliance"></a>Conformità
 
-Oltre alle caratteristiche e alle funzionalità sopra descritte, che consentono all'applicazione di soddisfare vari requisiti di sicurezza, il database SQL di Azure è inoltre sottoposto a controlli regolari ed ha ottenuto la certificazione per diversi standard di conformità. Per ulteriori informazioni, vedere la [Microsoft Azure Centro protezione](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità del database SQL.
+Oltre alle caratteristiche e alle funzionalità sopra descritte, che consentono all'applicazione di soddisfare vari requisiti di sicurezza, il database SQL di Azure è inoltre sottoposto a controlli regolari ed ha ottenuto la certificazione per diversi standard di conformità. Per ulteriori informazioni, vedere la [Microsoft Azure Centro protezione](https://www.microsoft.com/trust-center/compliance/compliance-overview) in cui è possibile trovare l'elenco più aggiornato delle certificazioni di conformità del database SQL.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

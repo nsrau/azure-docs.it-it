@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
-ms.openlocfilehash: 080952752dc5abfd7cf61ae1c5b00b539af58b99
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 5a85efc5de0d99904da568c97672adf40ce8a414
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646561"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088919"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>Monitoraggio di Azure per le reti (anteprima)
 Monitoraggio di Azure per la rete offre una panoramica completa dell'integrità e delle metriche per tutte le risorse di rete distribuite senza alcuna configurazione. La funzionalità di ricerca avanzata consente di identificare le dipendenze delle risorse che consentono scenari come l'identificazione delle risorse che ospitano il sito web cercando il nome del sito Web ospitato.
@@ -30,7 +30,7 @@ La vista integrità risorse e avvisi può essere personalizzata usando filtri co
 
 La casella di ricerca può essere usata per cercare le risorse e le risorse associate. Un indirizzo IP pubblico, ad esempio, è associato a un gateway applicazione. La ricerca del nome DNS degli indirizzi IP pubblici identificherà sia l'IP pubblico che il gateway applicazione associato.
 
-![Ricerca](media/network-insights-overview/search.png)
+![Screenshot mostra i risultati di una ricerca di un nome DNS.](media/network-insights-overview/search.png)
 
 
 ## <a name="resource-health-and-metric"></a>Integrità risorse e metrica

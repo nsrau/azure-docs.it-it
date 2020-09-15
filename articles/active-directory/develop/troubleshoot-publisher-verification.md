@@ -12,12 +12,12 @@ ms.date: 05/08/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: c332b960caf7707953069c5252219ca6c51761a8
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: fd49e922e5952f5a7c4b7f477dd33d6518010428
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007554"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088324"
 ---
 # <a name="troubleshoot-publisher-verification"></a>Risolvere i problemi di verifica dell'autore
 Se non si riesce a completare il processo o si verifica un comportamento imprevisto con la [Verifica dell'editore](publisher-verification-overview.md), è consigliabile iniziare eseguendo le operazioni seguenti se si ricevono errori o si verifica un comportamento imprevisto: 
@@ -39,10 +39,10 @@ Di seguito sono riportati alcuni problemi comuni che possono verificarsi durante
     1. Se esiste già un account MPN, verrà riconosciuto e l'utente verrà aggiunto all'account 
     1. Passare alla [pagina del profilo del partner](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) in cui sono elencati l'ID MPN e il contatto dell'account primario
 
-- **Non si sa chi sia l'amministratore globale di Azure AD (noto anche come amministratore società o amministratore tenant), come si può trovarli? Stessa domanda per l'amministratore delle app o a un altro ruolo di amministratore.**
+- **Non conosco chi Azure AD amministratore globale (noto anche come amministratore della società o amministratore tenant), come posso trovarli? Cosa accade all'amministratore dell'applicazione o all'amministratore di applicazioni cloud?**
     1. Accedere al [portale di Azure AD](https://aad.portal.azure.com) usando un account utente nel tenant primario dell'organizzazione
     1. Passare a [Gestione ruoli](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RolesAndAdministrators)
-    1. Fare clic su "Amministratore globale" o sul ruolo di amministratore desiderato
+    1. Fare clic sul ruolo di amministratore desiderato
     1. Verrà visualizzato l'elenco degli utenti assegnati al ruolo
 
 - **Non si conoscono gli amministratori dell'account MPN** Passare alla [pagina di gestione degli utenti MPN](https://partner.microsoft.com/pcv/users) e filtrare l'elenco di utenti per vedere quali sono gli utenti con i diversi ruoli di amministratore.
@@ -51,22 +51,25 @@ Di seguito sono riportati alcuni problemi comuni che possono verificarsi durante
     1. Passare al [profilo partner](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) e verificare che: 
         - L'ID MPN sia corretto. 
         - Non siano visualizzati errori o "azioni in sospeso" e lo stato di verifica nel profilo di business legale e nelle informazioni sul partner sia "autorizzato" o "operazione riuscita".
-    1. Passare alla [pagina di gestione del tenant di MPN](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) e verificare che il tenant in cui è registrata l'app e di cui si sta usando un account utente per l'accesso sia incluso nell'elenco dei tenant associati.
-    1. Passare alla [pagina di gestione degli utenti di MPN](https://partner.microsoft.com/pcv/users) e verificare che l'utente usato per l'accesso sia un amministratore globale, un amministratore MPN o un amministratore account.
+    1. Passare alla [pagina di gestione del tenant di MPN](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) e verificare che il tenant in cui è registrata l'app e di cui si sta usando un account utente per l'accesso sia incluso nell'elenco dei tenant associati. Se è necessario aggiungere un tenant aggiuntivo, seguire le istruzioni riportate [qui](https://docs.microsoft.com/partner-center/multi-tenant-account). Tenere presente che a tutti gli amministratori globali di qualsiasi tenant aggiunto verranno concessi privilegi di amministratore globale per l'account del centro per i partner.
+    1. Passare alla [pagina Gestione utenti MPN](https://partner.microsoft.com/pcv/users) e verificare che l'utente che si sta eseguendo l'accesso sia un amministratore globale, un amministratore MPN o un account amministratore. Se è necessario aggiungere un utente a un ruolo in centro per i partner, seguire le istruzioni riportate [qui](https://docs.microsoft.com/partner-center/create-user-accounts-and-set-permissions).
 
 - **Quando si accede al portale di Azure AD, non viene visualizzata alcuna app registrata. Perché?** 
-    È possibile che le registrazioni dell'app siano state create usando un account utente diverso o in un tenant diverso. Assicurarsi di aver eseguito l'accesso con l'account corretto nel tenant in cui sono state create le registrazioni dell'app.
+    È possibile che le registrazioni dell'app siano state create usando un account utente diverso in questo tenant, un account personale/utente o un tenant diverso. Assicurarsi di aver eseguito l'accesso con l'account corretto nel tenant in cui sono state create le registrazioni dell'app.
 
-- **Come si può risalire al proprietario della registrazione di un'app in Azure AD?** 
-    Dopo aver eseguito l'accesso a un tenant in cui è registrata l'app, passare al pannello Registrazioni app, fare clic su un'app e quindi fare clic su Proprietari.
+- **Si verifica un errore relativo all'autenticazione a più fattori. Cosa dovrei fare?** 
+    Assicurarsi che la [funzionalità autenticazione](../fundamentals/concept-fundamentals-mfa-get-started.md) a più fattori sia abilitata e necessaria per l'utente con cui si esegue l'accesso e per questo scenario. Ad esempio, l'autenticazione a più fattori può essere:
+    - Sempre necessario per l'utente con cui si sta effettuando l'accesso
+    - [Obbligatorio per gestione di Azure](../conditional-access/howto-conditional-access-policy-azure-management.md).
+    - [Obbligatorio per il tipo di amministratore](../conditional-access/howto-conditional-access-policy-admin-mfa.md) con cui si esegue l'accesso.
 
 ## <a name="making-microsoft-graph-api-calls"></a>Eseguire chiamate API Microsoft Graph 
 
 Se si verifica un problema, ma non si riesce a capirne il motivo in base a ciò che viene visualizzato nell'interfaccia utente, può essere utile eseguire ulteriori operazioni di risoluzione dei problemi usando chiamate API Microsoft Graph per eseguire le stesse operazioni che è possibile eseguire nel portale di registrazione delle app.
 
-Il modo più semplice per effettuare queste richieste consiste nell'usare [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). È anche possibile prendere in considerazione altre opzioni, ad esempio l'uso [Postman](https://www.postman.com/) o l'uso di PowerShell per [richiamare una richiesta Web](/powershell/module/microsoft.powershell.utility/invoke-webrequest?view=powershell-7).  
+Il modo più semplice per effettuare queste richieste consiste nell'usare [Graph Explorer](https://developer.microsoft.com/graph/graph-explorer). È anche possibile prendere in considerazione altre opzioni, ad esempio l'uso [Postman](https://www.postman.com/) o l'uso di PowerShell per [richiamare una richiesta Web](/powershell/module/microsoft.powershell.utility/invoke-webrequest).  
 
-È possibile usare Microsoft Graph sia per impostare l'autore verificato per l'app che per annullarne l'impostazione e controllare il risultato dopo l'esecuzione di una di queste operazioni. Il risultato può essere visualizzato sia nell'oggetto [applicazione](/graph/api/resources/application?view=graph-rest-beta) corrispondente alla registrazione dell'app che in qualsiasi [entità servizio](/graph/api/resources/serviceprincipal?view=graph-rest-beta) di cui è stata creata un'istanza da tale app. Per altre informazioni sulla relazione tra questi oggetti, vedere: [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](app-objects-and-service-principals.md).  
+È possibile usare Microsoft Graph sia per impostare l'autore verificato per l'app che per annullarne l'impostazione e controllare il risultato dopo l'esecuzione di una di queste operazioni. Il risultato può essere visualizzato sia nell'oggetto [applicazione](/graph/api/resources/application) corrispondente alla registrazione dell'app che in qualsiasi [entità servizio](/graph/api/resources/serviceprincipal) di cui è stata creata un'istanza da tale app. Per altre informazioni sulla relazione tra questi oggetti, vedere: [Oggetti applicazione e oggetti entità servizio in Azure Active Directory](app-objects-and-service-principals.md).  
 
 Di seguito sono riportati alcuni esempi di richieste utili:  
 
@@ -105,7 +108,7 @@ Risposta
 ### <a name="get-verified-publisher-info-from-application"></a>Ottenere informazioni sull'autore verificato dall'applicazione 
  
 ```
-GET https://graph.microsoft.com/beta/applications/0cd04273-0d11-4e62-9eb3-5c3971a7cbec 
+GET https://graph.microsoft.com/v1.0/applications/0cd04273-0d11-4e62-9eb3-5c3971a7cbec 
 
 HTTP/1.1 200 OK 
 
@@ -124,7 +127,7 @@ HTTP/1.1 200 OK
 
 ### <a name="get-verified-publisher-info-from-service-principal"></a>Ottenere informazioni sull'autore verificato dall'entità servizio 
 ```
-GET https://graph.microsoft.com/beta/servicePrincipals/010422a7-4d77-4f40-9335-b81ef5c23dd4 
+GET https://graph.microsoft.com/v1.0/servicePrincipals/010422a7-4d77-4f40-9335-b81ef5c23dd4 
 
 HTTP/1.1 200 OK 
 
@@ -183,11 +186,7 @@ Questa funzionalità non è supportata in un tenant verificato tramite posta ele
 
 ### <a name="nopublisherdomainonapplication"></a>NoPublisherDomainOnApplication   
 
-Per l'applicazione di destinazione (<AppId>) deve essere impostato un dominio dell'autore. Impostare un dominio dell'autore e riprovare. 
-
-### <a name="publisherdomainisnotdnsverified"></a>PublisherDomainIsNotDNSVerified  
-
-Il dominio dell'autore dell'applicazione di destinazione (<publisherDomain>) non è un dominio verificato nel tenant. Verificare un dominio tenant usando la verifica DNS e riprovare. 
+L'applicazione di destinazione ( \<AppId\> ) deve avere un set di domini editore. Impostare un dominio dell'autore e riprovare.
 
 ### <a name="publisherdomainmismatch"></a>PublisherDomainMismatch  
 

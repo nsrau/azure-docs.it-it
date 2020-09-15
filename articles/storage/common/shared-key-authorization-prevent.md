@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 08/20/2020
 ms.author: tamram
 ms.reviewer: fryu
-ms.openlocfilehash: f65bf2bbe174ff90d5a0b962768833b8668f6400
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 9bf656989dc331fdd4ce044126ea9d0be9414930
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019717"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088800"
 ---
 # <a name="prevent-shared-key-authorization-for-an-azure-storage-account-preview"></a>Impedisci l'autorizzazione della chiave condivisa per un account di archiviazione di Azure (anteprima)
 
@@ -216,7 +216,7 @@ Alcuni strumenti di Azure offrono la possibilità di usare Azure AD autorizzazio
 | Portale di Azure | Supportata. Per informazioni sull'autorizzazione con l'account Azure AD dall'portale di Azure, vedere [scegliere come autorizzare l'accesso ai dati BLOB nel portale di Azure](../blobs/authorize-blob-access-portal.md). |
 | AzCopy | Supportato per l'archiviazione BLOB. Per informazioni su come autorizzare le operazioni di AzCopy, vedere [scegliere come fornire le credenziali di autorizzazione](storage-use-azcopy-v10.md#choose-how-youll-provide-authorization-credentials) nella documentazione di AzCopy. |
 | Esplora archivi Azure | Supportato solo per l'archiviazione BLOB e Azure Data Lake Storage Gen2. Azure AD l'accesso all'archiviazione code non è supportato. Assicurarsi di selezionare il tenant Azure AD corretto. Per ulteriori informazioni, vedere [Introduzione a Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=windows#sign-in-to-azure) |
-| Azure PowerShell | Supportata. Per informazioni su come autorizzare i comandi di PowerShell con Azure AD per l'accesso ai dati BLOB e di Accodamento, vedere [eseguire comandi di PowerShell con Azure ad credenziali per accedere ai dati di BLOB o di Accodamento](authorize-active-directory-powershell.md). |
+| Azure PowerShell | Supportata. Per informazioni su come autorizzare i comandi di PowerShell per operazioni BLOB o di Accodamento con Azure AD, vedere [eseguire comandi di PowerShell con Azure ad credenziali per accedere ai dati BLOB](../blobs/authorize-active-directory-powershell.md) o [eseguire comandi di PowerShell con Azure ad credenziali per accedere ai dati della coda](../queues/authorize-active-directory-powershell.md). |
 | Interfaccia della riga di comando di Azure | Supportata. Per informazioni su come autorizzare i comandi dell'interfaccia della riga di comando di Azure con Azure AD per l'accesso ai dati BLOB e di Accodamento, vedere [eseguire comandi dell'interfaccia della riga di comando di Azure con Azure ad credenziali per accedere ai dati BLOB](authorize-data-operations-cli.md) |
 | Hub IoT Azure | Supportata. Per altre informazioni, vedere [supporto dell'hub Internet per le reti virtuali](../../iot-hub/virtual-network-support.md). |
 | Azure Cloud Shell | Azure Cloud Shell è una shell integrata nel portale di Azure. Azure Cloud Shell ospita file per la persistenza in una condivisione file di Azure in un account di archiviazione. Questi file diventeranno inaccessibili se l'autorizzazione della chiave condivisa non è consentita per l'account di archiviazione. Per altre informazioni, vedere [connettere l'archiviazione dei file di Microsoft Azure](/azure/cloud-shell/overview#connect-your-microsoft-azure-files-storage). <br /><br /> Per eseguire i comandi in Azure Cloud Shell per gestire gli account di archiviazione per cui non è consentito l'accesso con chiave condivisa, verificare prima di tutto che siano state concesse le autorizzazioni necessarie per questi account tramite il controllo degli accessi in base al ruolo (RBAC). Per altre informazioni, vedere informazioni [sul controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md). |

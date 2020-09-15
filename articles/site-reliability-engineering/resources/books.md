@@ -2,17 +2,17 @@
 title: Elenco dei libri di SRE | Microsoft Docs
 description: Migliorare la conoscenza della progettazione dell'affidabilità del sito con questi libri
 author: dnblankedelman
-manager: efreeman
+manager: ScottCa
 ms.service: site-reliability-engineering
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 09/14/2020
 ms.author: dnb
-ms.openlocfilehash: 4a350953a5755f24c938011ae4b98e1e35e094e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1e4738d933b7bd20252f597ae9c0ea27c5e3f5c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77599041"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086590"
 ---
 # <a name="books-about-site-reliability-engineering"></a>Libri sulla progettazione dell'affidabilità del sito
 

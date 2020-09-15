@@ -9,16 +9,16 @@ ms.subservice: general
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: cdbd78808d1758b43d2b2fe6e8f7ac03652ff92b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1ee38196f0b1a6e00d385dc0d2c88d45a4291d3b
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85296339"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087437"
 ---
-# <a name="monitoring-key-vault-with-azure-event-grid-preview"></a>Monitoraggio di Key Vault con Griglia di eventi di Azure (anteprima)
+# <a name="monitoring-key-vault-with-azure-event-grid"></a>Monitoraggio di Key Vault con Griglia di eventi di Azure
 
-L'integrazione di Key Vault con Griglia di eventi è attualmente in fase di anteprima. Consente agli utenti di ricevere una notifica quando lo stato di un segreto archiviato nell'insieme di credenziali delle chiavi cambia. Una modifica dello stato viene definita come un segreto che sta per scadere (30 giorni prima della scadenza), un segreto scaduto o un segreto con una nuova versione disponibile. Sono supportate le notifiche per tutti e tre i tipi di segreto (chiave, certificato e segreto).
+Key Vault integrazione con griglia di eventi consente agli utenti di ricevere notifiche quando lo stato di un segreto archiviato in Key Vault è stato modificato. Una modifica dello stato viene definita come un segreto che sta per scadere (30 giorni prima della scadenza), un segreto scaduto o un segreto con una nuova versione disponibile. Sono supportate le notifiche per tutti e tre i tipi di segreto (chiave, certificato e segreto).
 
 Le applicazioni possono reagire a questi eventi usando moderne architetture senza server, senza la necessità di usare codice complesso o servizi di polling costosi e inefficienti. Il push degli eventi viene eseguito attraverso [Griglia di eventi di Azure](https://azure.microsoft.com/services/event-grid/) ai gestori degli eventi, ad esempio [Funzioni di Azure](https://azure.microsoft.com/services/functions/), [App per la logica di Azure](https://azure.microsoft.com/services/logic-apps/) o anche al webhook in uso, con pagamento in base all'utilizzo. Per informazioni sui prezzi, vedere [Prezzi di Griglia di eventi](https://azure.microsoft.com/pricing/details/event-grid/).
 
@@ -29,7 +29,7 @@ Griglia di eventi usa le [sottoscrizioni di eventi](../../event-grid/concepts.md
 Per altre informazioni, vedere [Schema di eventi di Griglia di eventi di Azure per Azure Key Vault (anteprima)](../../event-grid/event-schema-key-vault.md).
 
 > [!WARNING]
-> Gli eventi di notifica vengono attivati solo per le nuove versioni di segreti, chiavi e certificati ed è prima necessario sottoscrivere l'evento nell'insieme di credenziali delle chiavi per ricevere queste notifiche.
+> Gli eventi di notifica vengono attivati solo su nuove versioni di segreti, chiavi e certificati ed è necessario prima sottoscrivere l'evento nell'insieme di credenziali delle chiavi per ricevere queste notifiche.
 
 ## <a name="practices-for-consuming-events"></a>Procedure consigliate per l'utilizzo di eventi
 
@@ -44,7 +44,7 @@ Per le applicazioni che gestiscono gli eventi di Key Vault è consigliabile segu
 
 - [Panoramica di Azure Key Vault](overview.md)
 - [Panoramica di Griglia di eventi di Azure](../../event-grid/overview.md)
-- Procedura: [indirizzare eventi di Key Vault ai Runbook di automazione (anteprima)](event-grid-tutorial.md).
+- Procedura: [indirizzare eventi di Key Vault ai Runbook di automazione](event-grid-tutorial.md).
 - Procedura: [Ricevere un messaggio di posta elettronica quando viene modificato un segreto dell'insieme di credenziali delle chiavi](event-grid-logicapps.md)
-- [Schema di eventi di Griglia di eventi di Azure per Azure Key Vault (anteprima)](../../event-grid/event-schema-key-vault.md)
+- [Schema di eventi di griglia di eventi di Azure per Azure Key Vault](../../event-grid/event-schema-key-vault.md)
 - [Panoramica di Automazione di Azure](../../automation/index.yml)

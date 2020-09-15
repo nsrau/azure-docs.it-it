@@ -13,12 +13,12 @@ ms.date: 10/06/2018
 ms.reviewer: martincoetzer
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3e2c09bcd43b08778324a32cc052fad5b85714c4
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 15bcb0f7ca30c343072da396abeac8d08dee03a9
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279585"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90087010"
 ---
 # <a name="factors-influencing-the-performance-of-azure-ad-connect"></a>Fattori che influenzano le prestazioni di Azure AD Connect
 
@@ -41,7 +41,7 @@ Questo documento descrive i fattori che influenzano le prestazioni del motore di
 
 Il diagramma seguente mostra un'architettura generale del motore di provisioning che si connette a una singola foresta, anche se sono supportate più foreste. Questa architettura illustra l'interazione tra i vari componenti.
 
-![AzureADConnentInternal](media/plan-connect-performance-factors/AzureADConnentInternal.png)
+![Il diagramma mostra il modo in cui le directory connesse e Azure AD Connect il motore di provisioning interagiscono, inclusi lo spazio connettore e i componenti del metaverse in un database SQL. ](media/plan-connect-performance-factors/AzureADConnentInternal.png)
 
 Il motore di provisioning si connette a ogni foresta di Active Directory e ad Azure AD. Il processo di lettura delle informazioni da ogni directory viene chiamato importazione. L'esportazione è invece l'aggiornamento delle directory dal motore di provisioning. La sincronizzazione valuta le regole relative a come gli oggetti si sposteranno all'interno del motore di provisioning. Per un approfondimento, è possibile vedere [Servizio di sincronizzazione Azure AD Connect: informazioni sull'architettura](./concept-azure-ad-connect-sync-architecture.md).
 

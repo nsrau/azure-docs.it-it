@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: f792820b7b0dff20e647031410ba87ac26c2495a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5021b815da1419052ceb4d6114fbb2bc676fe8d6
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80672966"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90088400"
 ---
 # <a name="working-with-json-and-data-structures-in-azure-monitor-log-queries"></a>Uso di JSON e strutture dei dati nelle query di log di Monitoraggio di Azure
 
@@ -85,7 +85,7 @@ print hosts_object
 | mvexpand hosts_object.hosts[0]
 ```
 
-![mvexpand](media/json-data-structures/mvexpand.png)
+![Screenshot mostra hosts_0 con i valori per località, stato e frequenza.](media/json-data-structures/mvexpand.png)
 
 ### <a name="buildschema"></a>buildschema
 Usare `buildschema` per ottenere lo schema che ammette tutti i valori di un oggetto:
