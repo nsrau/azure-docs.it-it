@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 06/09/2020
 ms.author: absha
-ms.openlocfilehash: daf4c4ab56e23a212256c2629b7d0ae52a09e7c4
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: dbaad0f6639d65d88da6847886d3aa3d39b93e82
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89595711"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563754"
 ---
 # <a name="configure-app-service-with-application-gateway"></a>Configurare il servizio app con il gateway applicazione
 
@@ -67,9 +67,9 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 5. Fare clic su **OK** per creare l'impostazione http.
 
-   ![HTTP-Setting1](./media/configure-web-app-portal/http-setting1.png)
+   ![Screenshot mostra il riquadro delle impostazioni Aggiungi H T T con l'opzione Usa per il servizio app e OK selezionato.](./media/configure-web-app-portal/http-setting1.png)
 
-   ![HTTP-setting2](./media/configure-web-app-portal/http-setting2.png)
+   ![Screenshot mostra un probe di integrità con l'opzione Seleziona nome host modulo impostazioni http back-end selezionato.](./media/configure-web-app-portal/http-setting2.png)
 
 
 
@@ -85,7 +85,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 5. Fare clic su **OK** per salvare la regola.
 
-   ![Regola](./media/configure-web-app-portal/rule.png)
+   ![Screenshot mostra il riquadro Aggiungi regola di base con listener, il pool back-end e l'impostazione di H T P evidenziati.](./media/configure-web-app-portal/rule.png)
 
 ## <a name="additional-configuration-in-case-of-redirection-to-app-services-relative-path"></a>Configurazione aggiuntiva in caso di reindirizzamento al percorso relativo del servizio app
 

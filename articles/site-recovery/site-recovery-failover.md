@@ -4,12 +4,12 @@ description: Come eseguire il failover di VM/server fisici in Azure con Azure Si
 ms.service: site-recovery
 ms.topic: article
 ms.date: 12/10/2019
-ms.openlocfilehash: bebc4cd56f248d09579dcde2fc234f63dd65a09f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d2f7fed25955d6a34c6162b87b82bfae5e58ff41
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84309969"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563982"
 ---
 # <a name="run-a-failover-from-on-premises-to-azure"></a>Eseguire un failover dal sito locale in Azure
 
@@ -46,7 +46,7 @@ Eseguire il failover del piano di ripristino come segue:
 1. Nell'insieme di credenziali Site Recovery selezionare **piani di ripristino**  >  *recoveryplan_name*.
 2. Fare clic su **Failover**.
 
-    ![Failover](./media/site-recovery-failover/Failover.png)
+    ![Screenshot mostra il riquadro ADRP con failover selezionato dal menu altro.](./media/site-recovery-failover/Failover.png)
 
 3. Nella **Failover**  >  **direzione del failover**di failover lasciare l'impostazione predefinita se si esegue la replica in Azure.
 4. In **failover**selezionare un **punto di ripristino** in cui eseguire il failover.

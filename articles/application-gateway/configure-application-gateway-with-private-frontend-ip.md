@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.author: victorh
-ms.openlocfilehash: c7a0022c5cff405a993f30cdf2ab5900485c84a1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 64dfe284772faf2a345b7959f1a1bd6f474cd1bf
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84808121"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562486"
 ---
 # <a name="configure-an-application-gateway-with-an-internal-load-balancer-ilb-endpoint"></a>Configurare un gateway applicazione con un endpoint del servizio di bilanciamento del carico interno (ILB)
 
@@ -90,7 +90,7 @@ A tale scopo, eseguire l'operazione seguente:
 ### <a name="create-a-virtual-machine"></a>Creare una macchina virtuale
 
 1. Selezionare **Crea una risorsa**.
-2. Selezionare **calcolo** , quindi selezionare **macchina virtuale**.
+2. Selezionare **Calcolo** e quindi **Macchina virtuale**.
 4. Immettere i valori seguenti per la macchina virtuale:
    - Selezionare *myResourceGroupAG* per **gruppo di risorse**.
    - *myVM* -per **nome macchina virtuale**.
@@ -110,7 +110,7 @@ A tale scopo, eseguire l'operazione seguente:
 ### <a name="install-iis"></a>Installare IIS
 
 1. Aprire il Cloud Shell e verificare che sia impostato su **PowerShell**.
-    ![privato-frontendip-3](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
+    ![Screenshot mostra una finestra della console Azure Cloud Shell aperta che usa PowerShell.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-3.png)
 2. Eseguire questo comando per installare IIS nella macchina virtuale:
 
    ```azurepowershell
@@ -142,15 +142,15 @@ A tale scopo, eseguire l'operazione seguente:
 
 1. Fare clic su **Tutte le risorse** e quindi selezionare **myAppGateway**.
 2. Selezionare **Pool back-end**. Selezionare **appGatewayBackendPool**.
-3. In **tipo di destinazione** selezionare **macchina virtuale** e in **destinazione**selezionare il vNIC associato a myVM.
+3. In **tipo di destinazione** selezionare **macchina virtuale**  e in **destinazione**selezionare il vNIC associato a myVM.
 4. Ripetere l'aggiunta per aggiungere MyVM2.
-   ![privato-frontendip-4](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
+   ![Screenshot mostra il riquadro Modifica pool back-end con tipi di destinazione e destinazioni evidenziati.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-4.png)
 5. Selezionare **Salva.**
 
 ## <a name="test-the-application-gateway"></a>Testare il gateway applicazione
 
 1. Controllare l'IP front-end assegnato facendo clic sulla pagina **configurazioni IP** front-end nel portale.
-    ![privato-frontendip-5](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
+    ![Screenshot mostra il riquadro configurazioni IP front-end con il tipo privato evidenziato.](./media/configure-application-gateway-with-private-frontend-ip/private-frontendip-5.png)
 2. Copiare l'indirizzo IP privato e quindi incollarlo nella barra degli indirizzi del browser in una macchina virtuale nella stessa VNet o in locale che disponga della connettività a questo VNet e provare ad accedere al gateway applicazione.
 
 ## <a name="next-steps"></a>Passaggi successivi

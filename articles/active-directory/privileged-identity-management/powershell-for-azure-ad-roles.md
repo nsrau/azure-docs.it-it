@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/11/2020
+ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6792fdc405d539a662c8dc20c04b2891fd036704
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: 1aa0eb0988474a21fbf77ea08ce14a5fa9fb21bc
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87421910"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564118"
 ---
 # <a name="powershell-for-azure-ad-roles-in-privileged-identity-management"></a>PowerShell per i ruoli di Azure AD in Privileged Identity Management
 
@@ -30,7 +30,7 @@ Questo articolo contiene le istruzioni per l'uso di cmdlet PowerShell in Azure A
 > [!Note]
 > La versione di PowerShell ufficiale è supportata solo se si dispone della nuova versione di Azure AD Privileged Identity Management. Passare a Privileged Identity Management e assicurarsi di avere il banner seguente nel pannello di avvio rapido.
 > [![verificare la versione di Privileged Identity Management installata](media/pim-how-to-add-role-to-user/pim-new-version.png "Selezionare Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox) Se non si visualizza il banner, attendere: l'implementazione di questa esperienza aggiornata è in corso e avverrà nelle prossime settimane.
-> I cmdlet PowerShell di Privileged Identity Management sono supportati tramite il modulo Anteprima di Azure AD. Nel caso sia stato usato un modulo diverso che restituisce ora un messaggio di errore, iniziare a usare il nuovo modulo. Se sono presenti sistemi di produzione basati su un modulo diverso, contattare pim_preview@microsoft.com
+> I cmdlet PowerShell di Privileged Identity Management sono supportati tramite il modulo Anteprima di Azure AD. Nel caso sia stato usato un modulo diverso che restituisce ora un messaggio di errore, iniziare a usare il nuovo modulo. Se sono presenti sistemi di produzione basati su un modulo diverso, rivolgersi a [pim_preview@microsoft.com](mailto:pim_preview@microsoft.com) .
 
 ## <a name="installation-and-setup"></a>Installazione e configurazione
 
@@ -49,12 +49,12 @@ Questo articolo contiene le istruzioni per l'uso di cmdlet PowerShell in Azure A
     Connect-AzureAD -Credential $AzureAdCred
     ```
 
-1. Trovare l'ID tenant per l'organizzazione di Azure AD accedendo a **Azure Active Directory** > **Proprietà** > **ID directory**. Nella sezione cmdlet usare questo ID ogni volta che è necessario specificare il resourceId.
+1. Trovare l'ID tenant per l'organizzazione Azure ad selezionando **Azure Active Directory**  >  **Properties**  >  **ID directory**proprietà. Nella sezione cmdlet usare questo ID ogni volta che è necessario specificare il resourceId.
 
     ![Individuare l'ID dell'organizzazione nelle proprietà dell'organizzazione di Azure AD](./media/powershell-for-azure-ad-roles/tenant-id-for-Azure-ad-org.png)
 
 > [!Note]
-> Le sezioni seguenti offrono semplici esempi per la configurazione e l'esecuzione. Per una documentazione più dettagliata sui cmdlet seguenti, vedere https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management. Tuttavia, nel parametro providerID sarà necessario sostituire "azureResources" con "aadRoles". Sarà inoltre necessario ricordare di usare l'ID dell'organizzazione di Azure AD come parametro resourceId.
+> Le sezioni seguenti offrono semplici esempi per la configurazione e l'esecuzione. Per una documentazione più dettagliata sui cmdlet seguenti [https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview#privileged_role_management&preserve-view=true) , vedere. Tuttavia, è necessario sostituire "azureResources" nel parametro providerID con "aadRoles". Sarà anche necessario ricordare di usare l'ID tenant per l'organizzazione Azure AD come parametro resourceId.
 
 ## <a name="retrieving-role-definitions"></a>Recupero delle definizioni dei ruoli
 
@@ -135,7 +135,7 @@ Questo cmdlet è quasi identico al cmdlet per la creazione di un'assegnazione di
 Usare il cmdlet seguente per accedere a tutte le impostazioni del ruolo nell'organizzazione Azure AD.
 
 ```powershell
-Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "ResourceId eq '926d99e7-117c-4a6a-8031-0cc481e9da26'" 
+Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "ResourceId eq '926d99e7-117c-4a6a-8031-0cc481e9da26'"
 ```
 
 Nell'impostazione sono presenti quattro oggetti principali. Attualmente, solo tre di questi oggetti vengono usati da PIM. UserMemberSettings sono impostazioni di attivazione, AdminEligibleSettings sono impostazioni di assegnazione per le assegnazioni idonee e AdminmemberSettings sono impostazioni di assegnazione per le assegnazioni attive.
@@ -145,8 +145,10 @@ Nell'impostazione sono presenti quattro oggetti principali. Attualmente, solo tr
 Per aggiornare l'impostazione del ruolo è necessario ottenere l'oggetto impostazione esistente per un ruolo specifico e apportare le modifiche seguenti:
 
 ```powershell
-$setting = Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "roleDefinitionId eq 'xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx'"
-$setting.UserMemberSetting.justificationRule = '{"required":false}'
+Get-AzureADMSPrivilegedRoleSetting -ProviderId 'aadRoles' -Filter "ResourceId eq 'tenant id' and RoleDefinitionId eq 'role id'"
+$settinga = New-Object Microsoft.Open.MSGraph.Model.AzureADMSPrivilegedRuleSetting
+$settinga.RuleIdentifier = "JustificationRule"
+$settinga.Setting = '{"required":false}'
 ```
 
 A questo punto è possibile procedere e applicare l'impostazione a uno degli oggetti per uno specifico ruolo, come illustrato di seguito. Qui l'ID corrisponde all'ID dell'impostazione del ruolo, che può essere recuperato dal risultato dell'elenco cmdlet delle impostazioni del ruolo.

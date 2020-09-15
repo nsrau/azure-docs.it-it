@@ -7,12 +7,12 @@ ms.topic: reference
 ms.date: 09/08/2018
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 88160d82cb7cc0a012d63445f101a1f2a3740da0
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 4b2d882e6956fa23464e620e9820b0616e13b6f6
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569281"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563088"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Trigger timer per Funzioni di Azure 
 
@@ -231,7 +231,7 @@ Nella tabella seguente sono illustrate le proprietà di configurazione dell'asso
 > [!CAUTION]
 > L'impostazione di **runOnStartup** su `true` non è consigliata in ambienti di produzione. Con questa impostazione, il codice viene eseguito in momenti estremamente imprevedibili. In alcune impostazioni di produzione queste esecuzioni aggiuntive possono determinare costi molto più elevati per le app ospitate in piani a consumo. Con **runOnStartup** abilitato, ad esempio, il trigger viene richiamato ogni volta che l'app per le funzioni viene ridimensionata. Prima di abilitare **runOnStartup** in un ambiente di produzione assicurarsi di avere ben compreso il comportamento in produzione delle proprie funzioni.   
 
-## <a name="usage"></a>Uso
+## <a name="usage"></a>Utilizzo
 
 Quando viene richiamata una funzione di trigger del timer, nella funzione viene passato un oggetto timer. Il codice JSON seguente è una rappresentazione di esempio dell'oggetto timer.
 
@@ -249,6 +249,7 @@ Quando viene richiamata una funzione di trigger del timer, nella funzione viene 
 ```
 
 La proprietà `IsPastDue` è `true` quando la chiamata della funzione corrente avviene successivamente al momento pianificato. Ad esempio, un riavvio dell'app per le funzioni può causare la mancata riuscita di una chiamata.
+
 
 ## <a name="ncrontab-expressions"></a>Espressioni NCRONTAB 
 
@@ -282,6 +283,8 @@ Di seguito sono riportati alcuni esempi di espressioni NCRONTAB che è possibile
 |`"0 30 9 * * 1-5"`|Alle 9.30 di ogni giorno feriale|
 |`"0 30 9 * Jan Mon"`|Alle 9.30 di ogni lunedì di gennaio|
 
+> [!NOTE]
+> L'espressione NCRONTAB richiede sei formati di **campo** . Cinque espressioni cron del campo non sono supportate in Azure.
 
 ### <a name="ncrontab-time-zones"></a>Fusi orari NCRONTAB
 

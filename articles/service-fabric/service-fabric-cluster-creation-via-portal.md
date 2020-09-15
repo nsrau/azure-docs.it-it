@@ -3,17 +3,17 @@ title: Creare un cluster di Service Fabric nel portale di Azure
 description: Informazioni su come configurare un cluster di Service Fabric protetto in Azure tramite il portale di Azure e Azure Key Vault.
 ms.topic: conceptual
 ms.date: 09/06/2018
-ms.openlocfilehash: b47f3b756ef4d012b41fd15686ffc08ab54fc187
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: c679a804db09b1034f31e9d8da1f7d2ad206f684
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86259308"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563727"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Creare un cluster di Service Fabric in Azure tramite il portale di Azure
 > [!div class="op_single_selector"]
 > * [Azure Resource Manager](service-fabric-cluster-creation-via-arm.md)
-> * [Portale di Azure](service-fabric-cluster-creation-via-portal.md)
+> * [Azure portal](service-fabric-cluster-creation-via-portal.md)
 > 
 > 
 
@@ -128,42 +128,42 @@ Seguire le schermate per aggiungere o usare di nuovo un insieme di credenziali d
 
 Resistere alla tentazione di uscire dalla schermata finché non viene completato il processo precedente.
 
-![CreateKeyVault]
+![Screenshot mostra la pagina sicurezza con la finestra di dialogo di base selezionata con il riquadro insieme di credenziali delle chiavi e crea insieme di credenziali chiave.][CreateKeyVault]
 
 Una volta creato l'insieme di credenziali delle chiavi, modificare i criteri di accesso per tale insieme. 
 
-![CreateKeyVault2]
+![Screenshot mostra il riquadro crea Service Fabric cluster con l'opzione 3 sicurezza selezionata e una spiegazione che l'insieme di credenziali delle chiavi non è abilitato.][CreateKeyVault2]
 
 Fare clic su **Modifica i criteri di accesso per**, selezionare **Fare clic per visualizzare i criteri di accesso avanzati** e quindi abilitare l'accesso alle macchine virtuali di Azure per la distribuzione. È consigliabile abilitare anche la distribuzione del modello. Dopo aver effettuato le selezioni, non dimenticare di fare clic sul pulsante **Salva** e uscire dal riquadro **Criteri di accesso**.
 
-![CreateKeyVault3]
+![Screenshot mostra il riquadro crea Service Fabric cluster con il riquadro sicurezza aperto e il riquadro Criteri di accesso aperto.][CreateKeyVault3]
 
 Immettere il nome del certificato e fare clic su **OK**.
 
-![CreateKeyVault4]
+![Screenshot mostra il riquadro crea Service Fabric cluster con sicurezza selezionata come prima, ma senza la spiegazione che l'insieme di credenziali delle chiavi non è abilitato.][CreateKeyVault4]
 
 #### <a name="custom-option"></a>Opzione Personalizzata
 Ignorare questa sezione, se è stato già eseguita la procedura nell'opzione **Basic**.
 
-![SecurityCustomOption]
+![Screenshot mostra la finestra di dialogo Impostazioni di sicurezza configurazione cluster di sicurezza.][SecurityCustomOption]
 
 Per completare la pagina di sicurezza, sono necessarie le informazioni relative all'insieme di credenziali delle chiavi di origine e all'URL e all'identificazione personale del certificato. Se queste informazioni non sono a disposizione, aprire un'altra finestra del browser e nel portale di Azure eseguire le operazioni seguenti
 
 1. Passare al servizio Key Vault.
 2. Selezionare la scheda "Proprietà" e copiare 'ID RISORSA' in "Insieme delle credenziali delle chiave di origine" nell'altra finestra del browser 
 
-    ![CertInfo0]
+    ![Screenshot mostra i Finestra Proprietà per l'insieme di credenziali delle chiavi.][CertInfo0]
 
 3. A questo punto, selezionare la scheda "Certificati".
 4. Fare clic sull'identificazione personale del certificato, che consente di passare alla pagina delle versioni.
 5. Fare clic sui GUID visualizzati per la versione corrente.
 
-    ![CertInfo1]
+    ![Screenshot mostra la finestra del certificato per l'insieme di credenziali delle chiavi][CertInfo1]
 
 6. Ora si dovrebbe visualizzare la schermata seguente. Copiare l'identificazione personale SHA-1 esadecimale in "Identificazione personale certificato" nell'altra finestra del browser
 7. Copiare 'Identificatore del segreto' in 'URL del certificato' nell'altra finestra del browser.
 
-    ![CertInfo2]
+    ![Screenshot mostra la finestra di dialogo versione certificato con un'opzione per copiare l'identificatore del certificato.][CertInfo2]
 
 Selezionare la casella **Configura impostazioni avanzate** per l'immissione dei certificati client per **amministratore client** e **client di sola lettura**. In questi campi, immettere l'identificazione personale del certificato client amministratore e l'identificazione personale del certificato client utente di sola lettura, se applicabile. Quando gli amministratori provano a connettersi al cluster, viene concesso l'accesso solo se hanno un certificato con identificazione personale corrispondente ai valori di identificazione personale immessi in questi campi.  
 
@@ -173,7 +173,7 @@ Selezionare la casella **Configura impostazioni avanzate** per l'immissione dei 
 
 Per completare la creazione del cluster fare clic su **Crea**. È possibile, facoltativamente, scaricare il modello.
 
-![Riepilogo]
+![Screenshot mostra la pagina di riepilogo crea Service Fabric cluster con un collegamento per visualizzare e scaricare un certificato.][Summary]
 
 È possibile visualizzare lo stato di avanzamento del processo di creazione nell'area delle notifiche: Fare clic sull'icona "campanello" accanto alla barra di stato nella parte superiore destra della schermata. Se è stato fatto clic su **Aggiungi a schermata iniziale** durante la creazione del cluster, viene visualizzata la **distribuzione di Service Fabric cluster** aggiunto alla lavagna **iniziale** . Questo processo richiede tempo. 
 
@@ -230,7 +230,7 @@ A questo punto, è stato creato un cluster protetto tramite i certificati per l'
 [CertInfo2]: ./media/service-fabric-cluster-creation-via-portal/CertInfo2.PNG
 [SecurityCustomOption]: ./media/service-fabric-cluster-creation-via-portal/SecurityCustomOption.PNG
 [DownloadCert]: ./media/service-fabric-cluster-creation-via-portal/DownloadCert.PNG
-[Riepilogo]: ./media/service-fabric-cluster-creation-via-portal/Summary.PNG
+[Summary]: ./media/service-fabric-cluster-creation-via-portal/Summary.PNG
 [SecurityConfigs]: ./media/service-fabric-cluster-creation-via-portal/SecurityConfigs.png
 [Notifications]: ./media/service-fabric-cluster-creation-via-portal/notifications.png
 [ClusterDashboard]: ./media/service-fabric-cluster-creation-via-portal/ClusterDashboard.png

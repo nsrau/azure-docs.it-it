@@ -1,25 +1,25 @@
 ---
-title: 'Guida introduttiva: Riconoscimento della voce archiviata in archivio BLOB'
+title: Riconoscimento della voce archiviata in archivio BLOB
 titleSuffix: Azure Cognitive Services
-description: In questo argomento di avvio rapido si userà l'API REST di trascrizione in batch per riconoscere in modo asincrono la voce archiviata in un BLOB con firma di accesso condiviso.
+description: In questa procedura si usa l'API REST di trascrizione in batch per riconoscere in modo asincrono la voce archiviata in un BLOB con firma di accesso condiviso.
 services: cognitive-services
 author: trevorbye
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 06/25/2020
+ms.date: 09/04/2020
 ms.author: trbye
 ms.custom: devx-track-javascript, devx-track-csharp
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: 3c6ae5a7635222b48ce097c6c517cebb60f961aa
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 28da97cb54c0147edc3d1609596b56db81546f18
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88926143"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569416"
 ---
-# <a name="quickstart-recognize-speech-stored-in-blob-storage"></a>Guida introduttiva: Riconoscimento della voce archiviata in archivio BLOB
+# <a name="recognize-speech-stored-in-blob-storage"></a>Riconoscimento della voce archiviata in archivio BLOB
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/from-blob/header.md)]

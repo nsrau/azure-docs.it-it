@@ -1,18 +1,18 @@
 ---
 title: 'Esercitazione: Inviare i dati di Hub eventi di Azure al data warehouse: Griglia di eventi'
-description: 'Esercitazione: Descrive come usare Griglia di eventi e Hub eventi di Azure per eseguire la migrazione dei dati in un SQL Data Warehouse. Usa una Funzione di Azure per recuperare un file di Acquisizione.'
+description: 'Esercitazione: Informazioni su come usare Griglia di eventi di Azure e Hub eventi per eseguire la migrazione dei dati ad Azure Synapse Analytics. Usa una Funzione di Azure per recuperare un file di Acquisizione.'
 ms.topic: tutorial
 ms.date: 07/07/2020
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 1c4a1943981fc3e9f1df0fafff540e24ee3631e9
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: d45fcedb570e384b851a7ac815ca175c67cc00a0
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89007452"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89435032"
 ---
 # <a name="tutorial-stream-big-data-into-a-data-warehouse"></a>Esercitazione: Trasmettere Big Data a un data warehouse
-[Griglia di eventi](overview.md) di Azure è un servizio intelligente di routing di eventi che consente di rispondere alle notifiche (eventi) inviate da applicazioni e servizi. Per esempio, può attivare una Funzione di Azure per elaborare i dati di Hub eventi che sono stati acquisiti in un archivio BLOB di Azure o Azure Data Lake Store ed eseguire la migrazione dei dati su altri repository di dati. Questo [esempio di integrazione di Hub eventi e di Griglia di eventi](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra come usare Hub eventi con Griglia di eventi per migrare facilmente i dati di Hub eventi acquisiti da una risorsa di archiviazione BLOB a un SQL Data Warehouse.
+[Griglia di eventi](overview.md) di Azure è un servizio intelligente di routing di eventi che consente di rispondere alle notifiche (eventi) inviate da applicazioni e servizi. Per esempio, può attivare una Funzione di Azure per elaborare i dati di Hub eventi che sono stati acquisiti in un archivio BLOB di Azure o Azure Data Lake Store ed eseguire la migrazione dei dati su altri repository di dati. Questo [esempio di integrazione di Hub eventi e di Griglia di eventi](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) mostra come usare Hub eventi con Griglia di eventi per migrare facilmente i dati di Hub eventi acquisiti da una risorsa di archiviazione BLOB a un'istanza di Azure Synapse Analytics (in precedenza SQL Data Warehouse).
 
 ![Panoramica dell'applicazione](media/event-grid-event-hubs-integration/overview.png)
 
@@ -22,12 +22,12 @@ Questo diagramma illustra il flusso di lavoro della soluzione compilata in quest
 2. Una volta completata l'acquisizione dei dati, viene generato un evento e viene inviato a una griglia di eventi di Azure. 
 3. La griglia di eventi inoltra i dati di tale evento a un'app per le funzioni di Azure.
 4. L'app per le funzioni usa l'URL del BLOB nei dati dell'evento per recuperare il BLOB dalla risorsa di archiviazione. 
-5. L'app per le funzioni esegue la migrazione dei dati del BLOB in un data warehouse SQL di Azure. 
+5. L'app per le funzioni esegue la migrazione dei dati del BLOB a un'istanza di Azure Synapse Analytics. 
 
 In questo articolo, si eseguono i passaggi seguenti:
 
 > [!div class="checklist"]
-> * Usare un modello di Azure Resource Manager per implementare l'infrastruttura: un hub eventi, un account di archiviazione, un'app per le funzioni, un SQL data warehouse.
+> * Usare un modello di Azure Resource Manager per distribuire l'infrastruttura, ovvero un hub eventi, un account di archiviazione, un'app per le funzioni e un'istanza di Synapse Analytics.
 > * Creare una tabella nel data warehouse.
 > * Aggiungere codice all'app per le funzioni.
 > * Abbonarsi all'evento. 
@@ -52,7 +52,7 @@ In questo passaggio, implementare l'infrastruttura necessaria con un [modello di
 * Piano di servizio app per l'hosting dell'app per le funzioni
 * App per le funzioni per l'elaborazione dell'evento
 * SQL Server per l'hosting del data warehouse
-* SQL Data Warehouse per l'archiviazione dei dati migrati
+* Azure Synapse Analytics per l'archiviazione dei dati trasferiti
 
 ### <a name="launch-azure-cloud-shell-in-azure-portal"></a>Avviare Azure Cloud Shell nel portale di Azure
 
@@ -97,7 +97,7 @@ In questo passaggio, implementare l'infrastruttura necessaria con un [modello di
           "tags": null
         }
         ```
-2. Distribuire tutte le risorse menzionate nella sezione precedente (hub eventi, account di archiviazione, app per le funzioni, data warehouse di SQL) eseguendo il comando CLI seguente: 
+2. Distribuire tutte le risorse menzionate nella sezione precedente (hub eventi, account di archiviazione, app per le funzioni, Azure Synapse Analytics) eseguendo il comando dell'interfaccia della riga di comando seguente: 
     1. Copiare e incollare il comando nella finestra di Cloud Shell. In alternativa, è possibile copiare/incollare in un editor di propria scelta, impostare i valori, quindi copiare il comando in Cloud Shell. 
 
         ```azurecli
@@ -112,7 +112,7 @@ In questo passaggio, implementare l'infrastruttura necessaria con un [modello di
         3. Nome dell'hub eventi. È possibile lasciare il valore così com'è (hubdatamigration).
         4. Nome del server SQL.
         5. Nome dell'utente e della password SQL. 
-        6. Nome del data warehouse SQL
+        6. Nome dell'istanza di Azure Synapse Analytics
         7. Nome dell'account di archiviazione. 
         8. Nome dell’app per le funzioni. 
     3.  Premere **INVIO** nella finestra di Cloud Shell per eseguire il comando. Questo processo potrebbe richiedere qualche minuto, poiché si sta creando una serie di risorse. Nel risultato del comando, assicurarsi che non si siano verificati errori. 
@@ -131,7 +131,7 @@ In questo passaggio, implementare l'infrastruttura necessaria con un [modello di
         ```
     2. Specificare un nome per il **gruppo di risorse**.
     3. Premere INVIO. 
-3. Distribuire tutte le risorse menzionate nella sezione precedente (hub eventi, account di archiviazione, app per le funzioni, data warehouse di SQL) eseguendo il comando seguente:
+3. Distribuire tutte le risorse menzionate nella sezione precedente (hub eventi, account di archiviazione, app per le funzioni, Azure Synapse Analytics) eseguendo il comando seguente:
     1. Copiare e incollare il comando nella finestra di Cloud Shell. In alternativa, è possibile copiare/incollare in un editor di propria scelta, impostare i valori, quindi copiare il comando in Cloud Shell. 
 
         ```powershell
@@ -143,7 +143,7 @@ In questo passaggio, implementare l'infrastruttura necessaria con un [modello di
         3. Nome dell'hub eventi. È possibile lasciare il valore così com'è (hubdatamigration).
         4. Nome del server SQL.
         5. Nome dell'utente e della password SQL. 
-        6. Nome del data warehouse SQL
+        6. Nome dell'istanza di Azure Synapse Analytics
         7. Nome dell'account di archiviazione. 
         8. Nome dell’app per le funzioni. 
     3.  Premere **INVIO** nella finestra di Cloud Shell per eseguire il comando. Questo processo potrebbe richiedere qualche minuto, poiché si sta creando una serie di risorse. Nel risultato del comando, assicurarsi che non si siano verificati errori. 
@@ -162,13 +162,13 @@ Chiudere la shell cloud selezionando il pulsante **Cloud Shell** nel portale (op
 
     ![Risorse nel gruppo di risorse](media/event-grid-event-hubs-integration/resources-in-resource-group.png)
 
-### <a name="create-a-table-in-sql-data-warehouse"></a>Creare una tabella in un SQL Data Warehouse
+### <a name="create-a-table-in-azure-synapse-analytics"></a>Creare una tabella in Azure Synapse Analytics
 Creare una tabella nel data warehouse mediante l'esecuzione dello script [CreateDataWarehouseTable.sql](https://github.com/Azure/azure-event-hubs/blob/master/samples/e2e/EventHubsCaptureEventGridDemo/scripts/CreateDataWarehouseTable.sql). Per eseguire lo script, è possibile usare Visual Studio o l'Editor di query nel portale. I passaggi seguenti mostrano come usare l'Editor di query: 
 
 1. Nell'elenco di risorse nel gruppo di risorse, selezionare il **Pool Synapse SQL (data warehouse)** . 
-2. Nella pagina del data warehouse SQL, selezionare **Editor di query (anteprima)** nel menu a sinistra. 
+2. Nella pagina Azure Synapse Analytics selezionare **Editor di query (anteprima)** nel menu sinistro. 
 
-    ![Pagina del data warehouse di SQL](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
+    ![Pagina Azure Synapse Analytics](media/event-grid-event-hubs-integration/sql-data-warehouse-page.png)
 2. Immettere il nome dell'**utente** e la **password** per il server SQL e selezionare **OK**. Per accedere a SQL Server, può essere necessario aggiungere l'indirizzo IP del client al firewall. 
 
     ![Autenticazione del server di SQL](media/event-grid-event-hubs-integration/sql-server-authentication.png)
@@ -258,7 +258,7 @@ Dopo aver pubblicato la funzione, si è pronti per sottoscrivere l'evento.
         ![Creare la sottoscrizione a Griglia di eventi](media/event-grid-event-hubs-integration/create-event-subscription.png)
 
 ## <a name="run-the-app-to-generate-data"></a>Eseguire l'app per generare i dati
-È stata completata la configurazione dell'hub eventi, di SQL Data Warehouse, dell'app per le funzioni di Azure e della sottoscrizione di eventi. Prima di eseguire un'applicazione che genera i dati per l'hub eventi, è necessario configurare alcuni valori.
+È stata completata la configurazione dell'hub eventi, dell'istanza di Azure Synapse Analytics, dell'app per le funzioni di Azure e della sottoscrizione di eventi. Prima di eseguire un'applicazione che genera i dati per l'hub eventi, è necessario configurare alcuni valori.
 
 1. Nel portale di Azure, passare al gruppo di risorse come in precedenza. 
 2. Selezionare lo spazio dei nomi di Hub eventi.

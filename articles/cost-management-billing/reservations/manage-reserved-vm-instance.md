@@ -8,12 +8,12 @@ ms.reviewer: yashesvi
 ms.topic: how-to
 ms.date: 07/24/2020
 ms.author: banders
-ms.openlocfilehash: f67cbb70d7064b894b9042bba42f48e4fb6a6b5e
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: d032937fe79b9f51818ce8917c36fa1cc30397c0
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684780"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400127"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Gestire le prenotazioni per le risorse di Azure
 
@@ -73,7 +73,7 @@ Per delegare la gestione dell'accesso per una prenotazione:
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>Dividere una prenotazione singola in due prenotazioni
 
- Dopo aver acquistato più di un'istanza di risorsa all'interno di una prenotazione, è possibile assegnare le istanze all'interno di tale prenotazione a sottoscrizioni diverse. Per impostazione predefinita, tutte le istanze sono associate a un ambito (sottoscrizione singola o ambito condiviso). Si supponga ad esempio di aver acquistato 10 istanze di prenotazione e di aver specificato la sottoscrizione A come ambito. Si vuole in seguito impostare l'ambito di sette prenotazioni sulla sottoscrizione A e quello delle restanti tre sulla sottoscrizione B. La suddivisione di una prenotazione consente di distribuire le istanze per una gestione più granulare dell'ambito. È possibile semplificare il processo di allocazione alle sottoscrizioni scegliendo l'ambito condiviso. Tuttavia, per motivi di gestione di costi o budget dei costi è possibile allocare quantità a sottoscrizioni specifiche.
+ Dopo aver acquistato più di un'istanza di risorsa all'interno di una prenotazione, è possibile assegnare le istanze all'interno di tale prenotazione a sottoscrizioni diverse. Per impostazione predefinita, tutte le istanze sono associate a un ambito (sottoscrizione singola, gruppo di risorse o ambito condiviso). Si supponga ad esempio di aver acquistato una prenotazione per 10 istanze di VM e di aver specificato la sottoscrizione A come ambito. Si vuole in seguito impostare l'ambito di sette istanze di VM sulla sottoscrizione A e quello delle restanti tre sulla sottoscrizione B. La divisione di una prenotazione consente di eseguire questa operazione. Dopo aver diviso una prenotazione, l'ID prenotazione originale viene annullato e vengono create due nuove prenotazioni. La divisione non ha effetti sull'ordine di prenotazione: non si crea una nuova transazione commerciale e le prenotazioni avranno la stessa data di fine di quella divisa.
 
  È possibile dividere una prenotazione in due prenotazioni tramite PowerShell, l'interfaccia della riga di comando oppure l'API.
 

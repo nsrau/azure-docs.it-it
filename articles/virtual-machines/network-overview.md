@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: cc98a0703cf408194c4c3740938399b57a36d468
-ms.sourcegitcommit: 2ff0d073607bc746ffc638a84bb026d1705e543e
+ms.openlocfilehash: fe1cdf738162fe5c4492ff0585f057256153a838
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87835613"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561415"
 ---
 # <a name="virtual-networks-and-virtual-machines-in-azure"></a>Reti virtuali e macchine virtuali in Azure 
 
@@ -147,7 +147,7 @@ Questa tabella elenca i metodi che è possibile usare per creare un servizio di 
 | Portale di Azure | È possibile [bilanciare il carico del traffico interno con un servizio di bilanciamento del carico nel portale di Azure](../load-balancer/tutorial-load-balancer-standard-internal-portal.md). |
 | [Azure PowerShell](../load-balancer/load-balancer-get-started-ilb-arm-ps.md) | Per specificare un indirizzo IP privato nella subnet della rete, usare [New-AzLoadBalancerFrontendIpConfig](/powershell/module/az.network/new-azloadbalancerfrontendipconfig) con il parametro **-PrivateIpAddress**. Usare [New-AzLoadBalancerBackendAddressPoolConfig](/powershell/module/az.network/new-azloadbalancerbackendaddresspoolconfig) per creare la configurazione del pool di indirizzi back-end. Usare [New-AzLoadBalancerInboundNatRuleConfig](/powershell/module/az.network/new-azloadbalancerinboundnatruleconfig) per creare regole NAT in ingresso associate alla configurazione IP front-end creata. Usare [New-AzLoadBalancerProbeConfig](/powershell/module/az.network/new-azloadbalancerprobeconfig) per creare i probe necessari. Usare [New-AzLoadBalancerRuleConfig](/powershell/module/az.network/new-azloadbalancerruleconfig) per creare la configurazione del servizio di bilanciamento del carico. Usare [New-AzLoadBalancer](/powershell/module/az.network/new-azloadbalancer) per creare il servizio di bilanciamento del carico.|
 | [Interfaccia della riga di comando di Azure](../load-balancer/load-balancer-get-started-ilb-arm-cli.md) | Usare il comando [az network lb create](/cli/azure/network/lb) per creare la configurazione del servizio di bilanciamento del carico. Per definire l'indirizzo IP privato, usare [az network lb frontend-ip create](/cli/azure/network/lb/frontend-ip) con il parametro **--private-ip-address**. Usare [az network lb address-pool create](/cli/azure/network/lb/address-pool) per aggiungere la configurazione del pool di indirizzi back-end. Usare [az network lb inbound-nat-rule create](/cli/azure/network/lb/inbound-nat-rule) per aggiungere le regole NAT. Usare [az network lb rule create](/cli/azure/network/lb/rule) per aggiungere le regole del servizio di bilanciamento del carico. Usare [az network lb probe create](/cli/azure/network/lb/probe) per aggiungere i probe.|
-| [Modello](../load-balancer/load-balancer-get-started-ilb-arm-template.md) | Vedere [Creare 2 macchine virtuali in un servizio di bilanciamento del carico e configurare le regole NAT nel servizio di bilanciamento del carico](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) per istruzioni sulla distribuzione di un servizio di bilanciamento del carico con un modello. |
+| [Modello](../load-balancer/quickstart-load-balancer-standard-internal-template.md) | Vedere [Creare 2 macchine virtuali in un servizio di bilanciamento del carico e configurare le regole NAT nel servizio di bilanciamento del carico](https://github.com/Azure/azure-quickstart-templates/tree/master/201-2-vms-internal-load-balancer) per istruzioni sulla distribuzione di un servizio di bilanciamento del carico con un modello. |
 
 ### <a name="virtual-machine-scale-sets"></a>set di scalabilità di macchine virtuali
 

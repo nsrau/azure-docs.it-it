@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
 ms.date: 03/10/2020
-ms.openlocfilehash: 537c989271800c15444d5323cfce8e133c8eeeba
-ms.sourcegitcommit: 93462ccb4dd178ec81115f50455fbad2fa1d79ce
+ms.openlocfilehash: 8c9bdb059008a3d9e33631c3101cb7b459660119
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/06/2020
-ms.locfileid: "85984659"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436783"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>Automatizzare le attività di gestione con processi di database
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -51,7 +51,7 @@ Sono disponibili le tecnologie di pianificazione dei processi seguenti:
 - **Processi di SQL Agent**: componente classico e testato sul campo per la pianificazione dei processi di SQL Server disponibile in Istanza gestita di SQL di Azure. I processi di SQL Agent non sono disponibili in Database SQL di Azure.
 - **Processi di database elastico (anteprima)** : servizi di pianificazione dei processi che eseguono processi personalizzati su uno o più database in Database SQL di Azure.
 
-È opportuno notare alcune differenze tra SQL Agent, disponibile in locale e come parte di Istanza gestita di SQL, e l'agente dei processi di database elastico, disponibile per database singoli in Database SQL di Azure e per database in SQL Data Warehouse.
+È opportuno notare alcune differenze tra SQL Agent, disponibile in locale e come parte di Istanza gestita di SQL, e l'agente dei processi di database elastico, disponibile per database singoli in Database SQL di Azure e per database in Azure Synapse Analytics.
 
 | |Processi elastici |SQL Agent |
 |---------|---------|---------|

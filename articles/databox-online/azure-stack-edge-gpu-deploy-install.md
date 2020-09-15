@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 08/29/2020
+ms.date: 09/02/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Azure Stack Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: e5682d511b20f7b6f4dbfbd7487e39f345b660fa
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 25bdf2fba67b3a2b42a24416a9de692cf3e992dd
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89262856"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421374"
 ---
 # <a name="tutorial-install-azure-stack-edge-with-gpu"></a>Esercitazione: Installare Azure Stack Edge con GPU
 
@@ -221,6 +221,10 @@ Per collegare il dispositivo per l'alimentazione e la rete, completare i passagg
 4. Collegare i cavi di alimentazione alle unità PDU (Power Distribution Unit) del rack. Verificare che i due alimentatori usino fonti di alimentazione separate.
 5. Premere il pulsante di alimentazione per accendere il dispositivo.
 6. Collegare l'interfaccia di rete PORT 1 a 1 GbE al computer usato per configurare il dispositivo fisico. PORT 1 funge da interfaccia di gestione.
+    
+    > [!NOTE]
+    > Se si connette direttamente il computer al dispositivo (senza passare per uno switch), usare un cavo crossover o una scheda Ethernet USB.
+
 7. Collegare una o più delle interfacce di rete PORT 2, PORT 3, PORT 4, PORT 5 o PORT 6 alla rete del data center/Internet.
 
     - Se si connette PORT 2, usare il cavo di rete 1-GbE RJ-45.
@@ -235,7 +239,7 @@ In questa esercitazione sono stati presentati argomenti relativi ad Azure Stack 
 > * Montare su rack il dispositivo
 > * Cablare il dispositivo
 
-Passare all'esercitazione successiva per informazioni su come connettere, configurare e attivare il dispositivo.
+Per informazioni su come connettersi al dispositivo, procedere con l'esercitazione successiva.
 
 > [!div class="nextstepaction"]
 > [Connettere Azure Stack Edge](./azure-stack-edge-gpu-deploy-connect.md)

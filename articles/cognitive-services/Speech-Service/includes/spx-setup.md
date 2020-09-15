@@ -5,12 +5,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 05/15/2020
 ms.author: v-demjoh
-ms.openlocfilehash: c92d6569e3c92d3bad3575599283c7796bd78225
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 2a0cb34c23ebee5ae16a8c0a272055880ceed388
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88068618"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89494321"
 ---
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -22,9 +22,8 @@ L'unico prerequisito è una sottoscrizione a Voce di Azure. Vedere la [guida ](.
 
 Per installare l’interfaccia della riga di comando di Voce su Windows, seguire questa procedura:
 
-1. Installare [.NET Framework 4.7](https://dotnet.microsoft.com/download/dotnet-framework/net471) o [.NET Core 3.0](https://dotnet.microsoft.com/download/dotnet-core/3.0)
-2. Scaricare l'[archivio zip](https://aka.ms/speech/spx-zips.zip) dell’interfaccia della riga di comando di Voce, quindi estrarlo.
-3. Passare alla directory radice `spx-zips` estratta dal download ed estrarre la sottodirectory necessaria (`spx-net471` per .NET Framework 4.7 o `spx-netcore-win-x64` per .NET Core 3.0 su una CPU x64).
+1. Scaricare l'[archivio zip](https://aka.ms/speech/spx-zips.zip) dell’interfaccia della riga di comando di Voce, quindi estrarlo.
+2. Passare alla directory radice `spx-zips` estratta dal download ed estrarre la sottodirectory necessaria (`spx-net471` per .NET Framework 4.7 o `spx-netcore-win-x64` per .NET Core 3.0 su una CPU x64).
 
 Nel prompt dei comandi, passare alla directory in questo percorso, quindi digitare `spx` per visualizzare la guida per l'interfaccia della riga di comando di Voce.
 
@@ -53,11 +52,13 @@ Digitare `spx` per visualizzare la guida per l'interfaccia della riga di comando
 
 #### <a name="docker-install"></a>[Installazione di Docker](#tab/dockerinstall)
 
+> [!NOTE]
+> È necessario che sia installato <a href="https://www.docker.com/get-started" target="_blank">Docker Desktop per la piattaforma <span class="docon docon-navigate-external x-hidden-focus"></span></a> in uso.
+
 Seguire questa procedura per installare l'interfaccia della riga di comando di Voce in un contenitore Docker:
 
-1. Installare ed eseguire [Docker Desktop per la piattaforma specifica](https://www.docker.com/get-started).
 1. In un nuovo prompt dei comandi o terminale digitare questo comando: `docker pull msftspeech/spx`
-1. Digitare il comando seguente. Dovrebbero essere visualizzate informazioni della Guida per l'interfaccia della riga di comando di Voce: `docker run -it --rm msftspeech/spx help`
+2. Digitare il comando seguente. Dovrebbero essere visualizzate informazioni della Guida per l'interfaccia della riga di comando di Voce: `docker run -it --rm msftspeech/spx help`
 
 ### <a name="mount-a-directory-in-the-container"></a>Montare una directory nel contenitore
 

@@ -9,14 +9,14 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 04/21/2020
+ms.date: 08/31/2020
 ms.author: jeedes
-ms.openlocfilehash: 6736edd615f99ed987e7d1618c449ff7a819c497
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: c91f9d38922cc1bddf252fde59291c2f233e1aa2
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88536071"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650194"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>Esercitazione: Integrazione dell'accesso Single Sign-On (SSO) di Azure Active Directory con DocuSign
 
@@ -61,7 +61,7 @@ Per configurare l'integrazione di DocuSign in Azure AD, è necessario aggiungere
 1. Selezionare **DocuSign** nel pannello dei risultati e quindi aggiungere l'app. Attendere alcuni secondi che l'app venga aggiunta al tenant.
 
 
-## <a name="configure-and-test-azure-ad-single-sign-on-for-docusign"></a>Configurare e testare l'accesso Single Sign-On di Azure AD per DocuSign
+## <a name="configure-and-test-azure-ad-sso-for-docusign"></a>Configurare e testare l'accesso SSO di Azure AD per DocuSign
 
 Configurare e testare l'accesso SSO di Azure AD con DocuSign usando un utente di test di nome **B.Simon**. Per consentire il funzionamento dell'accesso Single Sign-On, è necessario stabilire una relazione di collegamento tra un utente di Azure AD e l'utente corrispondente in DocuSign.
 
@@ -94,9 +94,12 @@ Per abilitare l'accesso Single Sign-On di Azure AD nel portale di Azure, seguire
 
     `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2`
 
-    c. Nella casella di testo **URL di risposta** immettere un URL nel formato seguente:
+    c. Nella casella di testo **URL di risposta** immettere un URL in uno dei formati seguenti:
     
-    `https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login`
+    | URL di risposta |
+    |-------------|
+    |`https://<subdomain>.docusign.com/organizations/<OrganizationID>/saml2/login/<IDPID>`|
+    |`https://<subdomain>.docusign.net/SAML/`|
 
     > [!NOTE]
     > Questi valori tra parentesi angolari sono segnaposto. Sostituirli con i valori effettivi dell'URL di accesso, dell'identificatore e dell'URL di risposta. Per informazioni dettagliate, vedere la sezione relativa a "View SAML 2.0 Endpoints" (Visualizza endpoint SAML 2.0) più avanti in questa esercitazione.

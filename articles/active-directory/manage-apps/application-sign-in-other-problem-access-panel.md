@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 472ab82e6941be5c1485773b1115d91eda701666
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: a5201d0e31eb6d3b06316b74463dc2b68b33008c
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231181"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563914"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Risolvere i problemi di accesso a un'applicazione da Azure AD app personali
 
@@ -33,7 +33,7 @@ Il tipo di app che l'utente può visualizzare rientra nelle categorie seguenti:
 -   Applicazioni con soluzioni SSO esistenti
 
 Ecco alcuni aspetti da controllare se un'app viene visualizzata o meno.
-- Assicurarsi che l'app venga aggiunta a Azure AD e assicurarsi che l'utente sia assegnato. Per altre informazioni, vedere la [serie di guide introduttive sulla gestione delle applicazioni](view-applications-portal.md).
+- Assicurarsi che l'app venga aggiunta a Azure AD e assicurarsi che l'utente sia assegnato. Per altre informazioni, vedere la [serie di guide introduttive sulla gestione delle applicazioni](add-application-portal.md).
 - Se un'app è stata aggiunta di recente, chiedere all'utente di disconnettersi ed eseguire di nuovo l'accesso. 
 - Se l'app richiede una licenza, ad esempio Office, assicurarsi che all'utente sia assegnata la licenza appropriata.
 - Il tempo necessario per le modifiche alle licenze può variare a seconda delle dimensioni e della complessità del gruppo.

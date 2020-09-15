@@ -7,12 +7,12 @@ ms.subservice: files
 ms.topic: conceptual
 ms.date: 05/29/2020
 ms.author: rogarana
-ms.openlocfilehash: 65d7845763b60a66f396d9081f3c9c6e1d04c1bc
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: 04f2b0e989edcb182c6c52ff0479902035137810
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447254"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561824"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-options-for-smb-access"></a>Panoramica delle opzioni di autenticazione File di Azure basate sull'identità per l'accesso SMB
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
@@ -44,7 +44,7 @@ Per informazioni su come abilitare l'autenticazione di Azure AD DS per le condiv
 
     L'integrazione di Active Directory Domain Services locale (AD DS) con File di Azure fornisce i metodi per archiviare i dati della directory, rendendoli disponibili per gli amministratori e gli utenti della rete. La sicurezza è integrata con servizi di dominio Active Directory tramite l'autenticazione di accesso e il controllo degli accessi agli oggetti nella directory. Con un unico accesso alla rete, gli amministratori possono gestire i dati e l'organizzazione della directory in tutta la rete e gli utenti di rete autorizzati possono accedere alle risorse in qualsiasi punto della rete. Active Directory Domain Services viene comunemente adottato dalle aziende negli ambienti locali e le credenziali di Active Directory Domain Services vengono usate come identità per il controllo di accesso. Per ulteriori informazioni, vedere [Active Directory Domain Services Overview](https://docs.microsoft.com/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview).
 
--   **Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)**
+-   **Controllo degli accessi in base al ruolo di Azure**
 
     Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) consente una gestione degli accessi con granularità fine per Azure. Usando RBAC è possibile gestire l'accesso alle risorse concedendo agli utenti il minor numero di autorizzazioni necessarie per svolgere il proprio lavoro. Per altre informazioni su RBAC, vedere [che cos'è il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) in Azure](../../role-based-access-control/overview.md).
 
@@ -78,6 +78,7 @@ La tabella seguente riepiloga gli scenari di autenticazione condivisioni file di
 - Azure AD DS e l'autenticazione di servizi di dominio Active Directory locale non supportano l'autenticazione per gli account computer. È possibile prendere in considerazione l'uso di un account di accesso al servizio.
 - Non è supportata né l'autenticazione di servizi di dominio Active Directory Azure AD né l'autenticazione AD DS locale per i dispositivi aggiunti a Azure AD o per i dispositivi registrati Azure AD.
 - Le condivisioni file di Azure supportano solo l'autenticazione basata su identità per uno dei seguenti servizi di dominio, ovvero [Azure Active Directory Domain Services (Azure AD DS)](#azure-ad-ds) o [Active Directory Domain Services locale (ad DS)](#ad-ds).
+- Il metodo di autenticazione basato su identità non è supportato con NFS (Network File System), disponibile in anteprima.
 
 ## <a name="advantages-of-identity-based-authentication"></a>Vantaggi dell'autenticazione basata sull'identità
 L'autenticazione basata su identità per File di Azure offre diversi vantaggi rispetto all'uso dell'autenticazione con chiave condivisa:
@@ -91,7 +92,7 @@ L'autenticazione basata su identità per File di Azure offre diversi vantaggi ri
 -   **Eseguire il backup degli elenchi di accesso Windows (noti anche come NTFS) insieme ai dati**  
     È possibile usare le condivisioni file di Azure per eseguire il backup delle condivisioni file locali esistenti. File di Azure conserva gli ACL insieme ai dati quando si esegue il backup di una condivisione file in condivisioni file di Azure tramite SMB.
 
-## <a name="how-it-works"></a>Come funziona
+## <a name="how-it-works"></a>Funzionamento
 
 Le condivisioni file di Azure sfruttano il protocollo Kerberos per l'autenticazione con servizi di dominio Active Directory locale o Azure AD DS. Quando un'identità associata a un utente o a un'applicazione in esecuzione su un client tenta di accedere ai dati nelle condivisioni file di Azure, la richiesta viene inviata al servizio del dominio, ad DS o Azure AD DS, per autenticare l'identità. Se l'autenticazione ha esito positivo, viene restituito un token Kerberos. Il client invia una richiesta che include il token Kerberos e le condivisioni file di Azure usano tale token per autorizzare la richiesta. Le condivisioni file di Azure ricevono solo il token Kerberos, non le credenziali di accesso.
 

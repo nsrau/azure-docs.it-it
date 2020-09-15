@@ -3,12 +3,12 @@ title: Aggiornare la versione di Azure Service Fabric di un cluster
 description: Aggiornamento del codice di Service Fabric e/o della configurazione eseguita in un cluster di Service Fabric, con impostazione della modalità di aggiornamento del cluster, aggiornamento dei certificati, aggiunta di porte dell'applicazione, applicazione di patch del sistema operativo e così via. Possibili risultati degli aggiornamenti.
 ms.topic: conceptual
 ms.date: 11/12/2018
-ms.openlocfilehash: b0fef612725d606f1415e7e8d004aacee025cedf
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 01fe916f0ee78c8481ac6b17b8f7409b47c852ee
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261047"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564288"
 ---
 # <a name="upgrade-the-service-fabric-version-of-a-cluster"></a>Aggiornare la versione di Service Fabric di un cluster
 
@@ -28,7 +28,7 @@ A questo scopo, impostare l'opzione di configurazione "upgradeMode" del cluster 
 ## <a name="set-the-upgrade-mode-in-the-azure-portal"></a>Impostare la modalità di aggiornamento nel portale di Azure
 È possibile impostare l'aggiornamento automatico o manuale durante la creazione del cluster.
 
-![Creazione - Modalità manuale][Create_Manualmode]
+![Screenshot mostra il riquadro crea Service Fabric cluster con l'opzione 2 configurazione cluster selezionata e il riquadro Configurazione cluster aperto.][Create_Manualmode]
 
 È possibile impostare l'aggiornamento automatico o manuale in un cluster attivo con l'esperienza di gestione. 
 
@@ -39,12 +39,12 @@ Se i criteri di integrità del cluster non vengono soddisfatti, viene eseguito i
 
 Dopo aver risolto i problemi che hanno determinato il rollback, è necessario avviare di nuovo l'aggiornamento, seguendo la stessa procedura precedente.
 
-![Gestione - Modalità automatica][Manage_Automaticmode]
+![Screenshot mostra la finestra cluster di Service Fabric con il riquadro aggiornamenti infrastruttura aperto e le opzioni di aggiornamento evidenziate, incluse quelle automatiche e manuali.][Manage_Automaticmode]
 
 ## <a name="set-the-upgrade-mode-using-a-resource-manager-template"></a>Impostare la modalità di aggiornamento tramite un modello di Resource Manager
 Aggiungere l'opzione di configurazione "upgradeMode" alla definizione della risorsa Microsoft.ServiceFabric/clusters e impostare "clusterCodeVersion" su una delle versioni di Fabric supportate come illustrato di seguito, quindi distribuire il modello. I valori validi per "upgradeMode" sono "Manual" e "Automatic"
 
-![Modalità di aggiornamento tramite Azure Resource Manager][ARMUpgradeMode]
+![Screenshot mostra un modello, che è rientrato in testo non crittografato per riflettere la struttura e i clusterCodeVersion e upgradeMode sono evidenziati.][ARMUpgradeMode]
 
 ### <a name="upgrading-to-a-new-version-on-a-cluster-that-is-set-to-manual-mode-via-a-resource-manager-template"></a>Aggiornamento a una nuova versione in un cluster impostato sulla modalità manuale tramite un modello di Resource Manager
 Quando il cluster è in modalità manuale, per eseguire l'aggiornamento a una nuova versione modificare "clusterCodeVersion" impostando una versione supportata e quindi eseguire la distribuzione. Con la distribuzione del modello, l'aggiornamento di Fabric viene avviato automaticamente. Durante l'aggiornamento vengono rispettati i criteri di integrità del cluster (una combinazione dell'integrità del nodo e dell'integrità di tutte le applicazioni in esecuzione nel cluster).

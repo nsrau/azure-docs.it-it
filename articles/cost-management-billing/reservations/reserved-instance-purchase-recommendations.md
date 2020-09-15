@@ -7,13 +7,13 @@ ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
-ms.date: 08/04/2020
-ms.openlocfilehash: 813cf91195a43a2fc68236febe114c67eb5a3378
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.date: 09/02/2020
+ms.openlocfilehash: 869009d7dd26685842da3c948fbdc058a38feb21
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684610"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89398427"
 ---
 # <a name="reservation-recommendations"></a>Consigli sulle prenotazioni
 
@@ -25,6 +25,7 @@ Nei passaggi seguenti viene definita la modalità di calcolo delle raccomandazio
 2. In base ai dati di utilizzo, il motore simula i costi con e senza prenotazioni.
 3. Vengono simulati i costi per le diverse quantità e viene consigliata la quantità che consente di ottenere il massimo risparmio.
 4. Se le risorse vengono arrestate regolarmente, con la simulazione non verrà individuato alcun risparmio e non verrà fornita alcuna raccomandazione di acquisto.
+5. Il calcolo delle raccomandazioni include gli eventuali sconti speciali che possono essere applicati alle tariffe di utilizzo su richiesta.
 
 ## <a name="recommendations-in-the-azure-portal"></a>Raccomandazioni nel portale di Azure
 
@@ -52,11 +53,11 @@ Per ottimizzare i risparmi con le prenotazioni, provare ad acquistare prenotazio
 
 Le raccomandazioni per l'acquisto di prenotazioni sono disponibili in Azure Advisor. Tenere presente quanto segue:
 
-- In Advisor sono disponibili solo le raccomandazioni relative a una singola sottoscrizione.
-- Le raccomandazioni vengono calcolate considerando la tendenza di utilizzo degli ultimi 30 giorni.
+- In Advisor sono disponibili solo le raccomandazioni relative a una singola sottoscrizione. Per visualizzare le raccomandazioni per l'intero ambito di fatturazione (account di fatturazione o profilo di fatturazione) passare al portale di Azure > Prenotazioni > aggiungere e selezionare il tipo per cui visualizzare le raccomandazioni.
+- Le raccomandazioni disponibili in Advisor considerano la tendenza di utilizzo di 30 giorni.
 - La quantità delle raccomandazioni e il risparmio si riferiscono a una prenotazione di 3 anni, se disponibile. Se per il servizio non viene venduta la prenotazione di 3 anni, la raccomandazione viene calcolata in base al prezzo di prenotazione di 1 anno.
-- Le raccomandazioni tengono conto di tutti gli sconti speciali che possono essere applicati alle tariffe di utilizzo su richiesta.
-- Se si acquista una prenotazione con ambito condiviso, la rimozione delle raccomandazioni di acquisto delle prenotazioni di Advisor può richiedere fino a 30 giorni.
+- Il calcolo delle raccomandazioni include gli eventuali sconti speciali che possono essere applicati alle tariffe di utilizzo su richiesta.
+- Se si acquista una prenotazione con ambito condiviso, la rimozione delle raccomandazioni di acquisto delle prenotazioni di Advisor può richiedere fino a 5 giorni.
 
 ## <a name="other-expected-api-behavior"></a>Altro comportamento previsto dell'API
 

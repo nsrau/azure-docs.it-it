@@ -1,25 +1,26 @@
 ---
-title: 'Guida introduttiva: Riconoscere la voce, le finalità e le entità - Servizio Voce'
+title: Guida di avvio rapido sul riconoscimento delle finalità - Servizio Voce
 titleSuffix: Azure Cognitive Services
-description: In questo argomento di avvio rapido si userà Speech SDK per riconoscere in modo interattivo i dati audio acquisiti da un microfono.
+description: In questo argomento di avvio rapido si usa il riconoscimento delle finalità per riconoscere in modo interattivo le finalità dai dati audio acquisiti da un microfono.
 services: cognitive-services
 author: erhopf
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 06/25/2020
+ms.date: 09/02/2020
 ms.author: erhopf
-ms.custom: devx-track-javascript, devx-track-csharp
+ms.custom: devx-track-javascript, devx-track-csharp, cog-serv-seo-aug-2020
 zone_pivot_groups: programming-languages-set-two-with-js
-ms.openlocfilehash: 4cc0754ea38ad7006431dd40206b2f10b1249e92
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+keywords: Riconoscimento delle finalità
+ms.openlocfilehash: 1bc8e7da760d1037185aed5ef0538055d5e697f2
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88925972"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89400994"
 ---
-# <a name="quickstart-recognize-speech-intents-and-entities-with-language-understanding-luis"></a>Guida introduttiva: Riconoscere la voce, le finalità e le entità con LUIS (Language Understanding)
+# <a name="get-started-with-intent-recognition"></a>Introduzione al riconoscimento delle finalità
 
 ::: zone pivot="programming-language-csharp"
 [!INCLUDE [Header](../includes/quickstarts/intent-recognition/header.md)]

@@ -9,14 +9,16 @@ ms.reviewer: douglasl
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.custom: seo-lt-2019
+ms.custom:
+- seo-lt-2019
+- references_regions
 ms.date: 07/15/2020
-ms.openlocfilehash: 0553cb47ba0119cf1bc5e744b689b6c510ba8396
-ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
+ms.openlocfilehash: 5a40faa1feac20ae096dfe39a5b1d109d4a11d3d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89594357"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563999"
 ---
 # <a name="azure-data-factory-managed-virtual-network-preview"></a>Rete virtuale gestita Azure Data Factory (anteprima)
 
@@ -88,11 +90,11 @@ Le origini dati seguenti sono supportate per la connessione tramite un collegame
 - Database di Azure per PostgreSQL
 - Database di Azure per MariaDB
 
-### <a name="supported-regions"></a>Aree supportate
+### <a name="azure-data-factory-managed-virtual-network-is-available-in-the-following-azure-regions"></a>Azure Data Factory rete virtuale gestita è disponibile nelle aree di Azure seguenti:
 - Stati Uniti orientali
 - Stati Uniti orientali 2
 - Stati Uniti centro-occidentali
-- West US 2
+- Stati Uniti occidentali 2
 - Stati Uniti centro-meridionali
 - Stati Uniti centrali
 - Europa settentrionale
@@ -104,6 +106,10 @@ Le origini dati seguenti sono supportate per la connessione tramite un collegame
 ### <a name="outbound-communications-through-public-endpoint-from-adf-managed-virtual-network"></a>Comunicazioni in uscita tramite endpoint pubblico da rete virtuale gestita da ADF
 - Solo la porta 443 è aperta per le comunicazioni in uscita.
 - Archiviazione di Azure e Azure Data Lake Gen2 non sono supportati per la connessione tramite un endpoint pubblico dalla rete virtuale gestita di ADF.
+
+### <a name="linked-service-creation-of-azure-key-vault"></a>Creazione del servizio collegato di Azure Key Vault 
+- Quando si crea un servizio collegato per Azure Key Vault, non esiste alcun riferimento Azure Integration Runtime. Non è quindi possibile creare un endpoint privato durante la creazione del servizio collegato di Azure Key Vault. Tuttavia, quando si crea un servizio collegato per gli archivi dati che fa riferimento Azure Key Vault servizio collegato e questo servizio collegato fa riferimento Azure Integration Runtime con la rete virtuale gestita abilitata, è possibile creare un endpoint privato per il servizio collegato Azure Key Vault durante la creazione. 
+- L'operazione di **test della connessione** per il servizio collegato di Azure Key Vault convalida solo il formato dell'URL, ma non esegue alcuna operazione di rete.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

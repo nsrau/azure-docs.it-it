@@ -12,12 +12,12 @@ ms.tgt_pltfrm: NA
 ms.workload: na
 ms.date: 12/20/2019
 ms.author: mblythe
-ms.openlocfilehash: ad0d3a1bf2c293039df3bba3aa18da7d6e7dd0a5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b77c9cfd6e4d1721839acb9db5469b5f0ac73a48
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81459220"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561602"
 ---
 # <a name="the-structure-of-azure-dashboards"></a>Struttura dei dashboard di Azure
 Questo documento descrive dettagliatamente la struttura di un dashboard di Azure usando il dashboard seguente come esempio:
@@ -329,7 +329,7 @@ La proprietà __position__ contiene le informazioni su dimensioni e posizione pe
 
 `location: { x: 0, y: 0, rowSpan: 2, colSpan: 1 }`
 
-![Unità griglia](./media/azure-portal-dashboards-structure/grid-units.png)
+![Screenshot mostra una chiusura della griglia, con un'unità griglia quadrata evidenziata.](./media/azure-portal-dashboards-structure/grid-units.png)
 
 ### <a name="the-metadata-object"></a>Oggetto metadata
 Ogni parte contiene una proprietà metadata, mentre un oggetto ha solo una proprietà obbligatoria chiamata __type__. Questa stringa indica al portale quale riquadro visualizzare. Il dashboard di esempio usa questi tipi di riquadri:

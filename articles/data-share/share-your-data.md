@@ -6,12 +6,12 @@ ms.author: jife
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 08/28/2020
-ms.openlocfilehash: 4f3c9d739f959670700182baf80c4a08e53d8587
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 5aa760c661fd596c55693edd537ca7820c7d7f58
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89259065"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489902"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>Esercitazione: Condividere dati con Condivisione dati di Azure  
 
@@ -40,7 +40,7 @@ In questa esercitazione si apprenderà come:
 
 ### <a name="share-from-a-sql-based-source"></a>Condividere da un'origine basata su SQL:
 
-* Database SQL di Azure o Azure Synapse Analytics (precedentemente noto come Azure SQL Data Warehouse) con tabelle e viste da condividere.
+* Un'istanza di Database SQL di Azure o di Azure Synapse Analytics (in precedenza SQL Data Warehouse) con tabelle e visualizzazioni da condividere.
 * Autorizzazione per la scrittura nei database del server SQL, disponibile in *Microsoft.Sql/servers/databases/write*. Questa autorizzazione è presente nel ruolo Collaboratore.
 * Autorizzazione per la condivisione dati che deve accedere al data warehouse. A tale scopo, seguire questa procedura: 
     1. Impostare se stessi come amministratore di Azure Active Directory per il server SQL.
@@ -113,7 +113,7 @@ Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azur
 
     ![Aggiungere set di dati alla condivisione](./media/datasets.png "Set di dati")
 
-1. Selezionare il tipo di set di dati da aggiungere. Verrà visualizzato un elenco di tipi di set di dati diverso a seconda del tipo di condivisione (snapshot o sul posto) selezionato nel passaggio precedente. Se si condivide da un database SQL di Azure o da Azure SQL Data Warehouse, verranno richieste alcune credenziali di SQL. Eseguire l'autenticazione con l'utente creato come parte dei prerequisiti.
+1. Selezionare il tipo di set di dati da aggiungere. Verrà visualizzato un elenco di tipi di set di dati diverso a seconda del tipo di condivisione (snapshot o sul posto) selezionato nel passaggio precedente. Se si condivide da un'istanza di Database SQL di Azure o di Azure Synapse Analytics, verrà chiesto di immettere alcune credenziali di SQL. Eseguire l'autenticazione con l'utente creato come parte dei prerequisiti.
 
     ![Aggiungere i set di dati](./media/add-datasets.png "Aggiungere i set di dati")    
 

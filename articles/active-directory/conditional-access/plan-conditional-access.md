@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: joflore
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14612247d241aed420a76ff40e19d04164cbe150
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: a26a7320cab20c769ddf8dd1f24cd6fda0cc7d64
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049928"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561534"
 ---
 # <a name="plan-a-conditional-access-deployment"></a>Pianificare una distribuzione dell'accesso condizionale
 
@@ -448,7 +448,7 @@ Nel caso in cui sia necessario eseguire il rollback dei criteri appena implement
 
 Usare le seguenti opzioni di gestione per controllare e gestire i criteri di accesso condizionale:
 
-![manage-access](media/plan-conditional-access/manage-access.png)
+![Screenshot mostra le opzioni di gestione per i criteri di C, inclusi i percorsi denominati, i controlli personalizzati, Condizioni per l'utilizzo, la connettività V P N e i criteri classici selezionati.](media/plan-conditional-access/manage-access.png)
 
 
 ### <a name="named-locations"></a>Posizioni specifiche

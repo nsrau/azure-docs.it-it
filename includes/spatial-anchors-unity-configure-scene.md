@@ -2,21 +2,19 @@
 author: craigktreasure
 ms.service: azure-spatial-anchors
 ms.topic: include
-ms.date: 1/2/2019
+ms.date: 8/13/2020
 ms.author: crtreasu
-ms.openlocfilehash: 43e64dadc5e339d174d08788cc7a98506841ee88
-ms.sourcegitcommit: 85eb6e79599a78573db2082fe6f3beee497ad316
+ms.openlocfilehash: 89c804c038e2b23c9d61225a07f92f70bf1157fe
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87810173"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89536261"
 ---
 ## <a name="configure-the-account-information"></a>Configurare le informazioni sull'account
-
-Nel riquadro **Progetto** passare a `Assets/AzureSpatialAnchors.Examples/Scenes` e aprire il file della scena `AzureSpatialAnchorsBasicDemo.unity`.
 
 Il passaggio successivo consiste nel configurare l'app per l'uso delle informazioni sull'account. Questi dati sono stati copiati in un editor di testo durante la [configurazione della risorsa Ancoraggi nello spazio](#create-a-spatial-anchors-resource).
 
 Nel riquadro **Progetto** passare a `Assets\AzureSpatialAnchors.SDK\Resources`. Selezionare `SpatialAnchorConfig`. Quindi nel riquadro **Inspector** (Controllo) immettere `Account Key` come valore per `Spatial Anchors Account Key`, `Account ID` co me valore per `Spatial Anchors Account Id` e `Account Domain` come valore per `Spatial Anchors Account Domain`.
 
-Salvare la scena selezionando **File** > **Salva**.
+Salvare le modifiche selezionando **File** > **Salva**.

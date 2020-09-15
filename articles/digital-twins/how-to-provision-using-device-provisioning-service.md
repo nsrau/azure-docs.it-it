@@ -7,12 +7,12 @@ ms.author: baanders
 ms.date: 9/1/2020
 ms.topic: how-to
 ms.service: digital-twins
-ms.openlocfilehash: 1a7ab90cccd78c3b005487938432a0f955d50738
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: efc507cb69b3368a2102b6de0b905657d5806ef2
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89380863"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561432"
 ---
 # <a name="auto-manage-devices-in-azure-digital-twins-using-device-provisioning-service-dps"></a>Gestire automaticamente i dispositivi nei dispositivi gemelli digitali di Azure usando il servizio Device provisioning (DPS)
 
@@ -40,7 +40,7 @@ Il simulatore del dispositivo si basa su **Node.js**, versione 10.0. x o success
 
 L'immagine seguente illustra l'architettura di questa soluzione usando i dispositivi gemelli digitali di Azure con il servizio Device provisioning. Mostra sia il provisioning del dispositivo che il flusso di ritiro.
 
-:::image type="content" source="media/how-to-provision-using-dps/flows.png" alt-text="Visualizzazione di un dispositivo e di diversi servizi di Azure in uno scenario end-to-end. I dati passano da un dispositivo termostato a un DP e viceversa. I dati passano anche da DPS nell'hub Internet e ai gemelli digitali di Azure tramite una funzione di Azure con etichetta Allocation. I dati provenienti da un'azione ' Elimina dispositivo ' manuale passano attraverso l'hub degli eventi > Hub eventi > funzioni di Azure > i dispositivi gemelli digitali di Azure.":::
+:::image type="content" source="media/how-to-provision-using-dps/flows.png" alt-text="Visualizzazione di un dispositivo e di diversi servizi di Azure in uno scenario end-to-end. I dati passano da un dispositivo termostato a un DP e viceversa. I dati passano anche da DPS nell'hub Internet e ai gemelli digitali di Azure tramite una funzione di Azure con etichetta "Allocation". I dati provenienti da un'azione ' Elimina dispositivo ' manuale passano attraverso l'hub degli eventi > Hub eventi > funzioni di Azure > i dispositivi gemelli digitali di Azure.":::
 
 Questo articolo è diviso in due sezioni:
 * [*Eseguire il provisioning automatico del dispositivo con il servizio Device provisioning*](#auto-provision-device-using-device-provisioning-service)
@@ -52,7 +52,7 @@ Per una spiegazione più approfondita di ogni passaggio dell'architettura, veder
 
 In questa sezione si collegherà il servizio Device provisioning a dispositivi digitali gemelli di Azure per eseguire il provisioning automatico dei dispositivi tramite il percorso riportato di seguito. Si tratta di un estratto dall'architettura completa illustrata in [precedenza](#solution-architecture).
 
-:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Provisioning del flusso: un estratto del diagramma dell'architettura della soluzione, con numeri che descrivono le sezioni del flusso. I dati passano tra un dispositivo termostato e un DPS (1 per il dispositivo > DPS e 5 per il dispositivo DPS >). I dati passano anche da DPS nell'hub Internet (4) e nei dispositivi gemelli digitali di Azure (3) tramite una funzione di Azure con etichetta Allocation (2).":::
+:::image type="content" source="media/how-to-provision-using-dps/provision.png" alt-text="Provisioning del flusso: un estratto del diagramma dell'architettura della soluzione, con numeri che descrivono le sezioni del flusso. I dati passano tra un dispositivo termostato e un DPS (1 per il dispositivo > DPS e 5 per il dispositivo DPS >). I dati passano anche da DPS nell'hub Internet (4) e nei dispositivi gemelli digitali di Azure (3) tramite una funzione di Azure con etichetta "Allocation" (2).":::
 
 Ecco una descrizione del flusso del processo:
 1. Il dispositivo Contatta l'endpoint DPS, passando le informazioni di identificazione per dimostrare la propria identità.
@@ -71,7 +71,7 @@ Creare un'istanza del servizio Device provisioning, che verrà usata per eseguir
 
 Il comando dell'interfaccia della riga di comando di Azure seguente creerà un servizio Device provisioning. Sarà necessario specificare un nome, un gruppo di risorse e un'area. Il comando può essere eseguito in [cloud Shell](https://shell.azure.com)o localmente se nel [computer è installata](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)l'interfaccia della riga di comando di Azure.
 
-```azurecli-interactive
+```azurecli
 az iot dps create --name <Device Provisioning Service name> --resource-group <resource group name> --location <region; for example, eastus>
 ```
 
@@ -237,7 +237,7 @@ A questo punto, è necessario impostare le variabili di ambiente nell'app per le
 
 Aggiungere l'impostazione con questo comando dell'interfaccia della riga di comando di Azure:
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
 ```
 
@@ -246,7 +246,7 @@ Assicurarsi che le autorizzazioni e l'assegnazione di ruolo identità gestita si
 <!-- 
 * Azure AD app registration **_Application (client) ID_** ([find in portal](../articles/digital-twins/how-to-set-up-instance-portal.md#collect-important-values))
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "AdtAppId=<Application (client)" ID> -g <resource group> -n <your App Service (function app) name> 
 ``` -->
 
@@ -293,7 +293,7 @@ Si noterà che il dispositivo è registrato e connesso all'hub Internet e quindi
 
 In seguito al flusso configurato in questo articolo, il dispositivo verrà registrato automaticamente nei dispositivi gemelli digitali di Azure. Usare il comando dell'interfaccia della riga di comando di [Azure Digital Twins](how-to-use-cli.md) seguente per trovare il dispositivo gemello nell'istanza di Azure Digital Twins creata.
 
-```azurecli-interactive
+```azurecli
 az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration ID>"
 ```
 
@@ -449,13 +449,13 @@ A questo punto, è necessario impostare le variabili di ambiente nell'app per le
 
 Aggiungere l'impostazione con questo comando dell'interfaccia della riga di comando di Azure. Il comando può essere eseguito in [cloud Shell](https://shell.azure.com)o localmente se nel [computer è installata](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)l'interfaccia della riga di comando di Azure.
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "ADT_SERVICE_URL=https://<Azure Digital Twins instance _host name_>" -g <resource group> -n <your App Service (function app) name>
 ```
 
 Successivamente, sarà necessario configurare la variabile di ambiente Function per la connessione all'hub eventi appena creato.
 
-```azurecli-interactive
+```azurecli
 az functionapp config appsettings set --settings "EVENTHUB_CONNECTIONSTRING=<Event Hubs SAS connection string Listen>" -g <resource group> -n <your App Service (function app) name>
 ```
 
@@ -486,7 +486,7 @@ Il dispositivo verrà rimosso automaticamente dai dispositivi gemelli digitali d
 
 Usare il comando dell'interfaccia della riga di comando di [Azure Digital gemelli](how-to-use-cli.md) seguente per verificare che il dispositivo gemello nell'istanza di Azure Digital Twins sia stato eliminato.
 
-```azurecli-interactive
+```azurecli
 az dt twin show -n <Digital Twins instance name> --twin-id <Device Registration ID>"
 ```
 
@@ -502,7 +502,7 @@ Usando l'interfaccia della riga di comando di Azure Azure Cloud Shell o locale �
 > [!IMPORTANT]
 > L'eliminazione di un gruppo di risorse è irreversibile. Il gruppo di risorse e tutte le risorse in esso contenute vengono eliminati in modo permanente. Assicurarsi di non eliminare accidentalmente il gruppo di risorse sbagliato o le risorse errate. 
 
-```azurecli-interactive
+```azurecli
 az group delete --name <your-resource-group>
 ```
 <!-- 

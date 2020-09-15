@@ -7,14 +7,14 @@ ms.topic: include
 ms.date: 07/08/2020
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: c2dffe576bfb52981b331c02b3f24ec2507ec349
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
-ms.translationtype: MT
+ms.openlocfilehash: 662afb902c97e164cc24bc664b854db118904210
+ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86501960"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89494308"
 ---
-Raccolta immagini condivise è un servizio che consente di creare struttura e organizzazione in base alle immagini. Raccolte di immagini condivise fornisce:
+Raccolta immagini condivise è un servizio che consente di compilare la struttura e l'organizzazione per le immagini. Raccolte di immagini condivise fornisce:
 
 - Replica globale delle immagini.
 - Controllo delle versioni e raggruppamento delle immagini per la semplificazione della gestione.
@@ -33,7 +33,7 @@ La funzionalità Raccolta di immagini condivise presenta più tipi di risorse:
 
 | Risorsa | Descrizione|
 |----------|------------|
-| **Origine immagine** | Si tratta di una risorsa che è possibile usare per creare una **versione di immagine** in una raccolta di immagini. Un'origine immagine può essere una macchina virtuale di Azure esistente, [generalizzata o specializzata](#generalized-and-specialized-images), un'immagine gestita, uno snapshot, un disco rigido virtuale o una versione dell'immagine in un'altra raccolta di immagini. |
+| **Origine immagine** | Si tratta di una risorsa che è possibile usare per creare una **versione di immagine** in una raccolta di immagini. Un'origine dell'immagine può essere una macchina virtuale di Azure esistente [generalizzata o specializzata](#generalized-and-specialized-images), un'immagine gestita, uno snapshot, un disco rigido virtuale o una versione di immagine in un'altra raccolta immagini. |
 | **Raccolta di immagini** | Come in Azure Marketplace, una **raccolta di immagini** è un repository per la gestione e la condivisione delle immagini, ma è possibile controllare chi ha accesso. |
 | **Definizione delle immagini** | Le definizioni di immagini vengono create all'interno di una raccolta e forniscono informazioni sull'immagine e sui requisiti per il relativo uso interno. Questa include il fatto che l'immagine è per Windows o Linux, le note sulla versione e i requisiti minimi e massimi di memoria. Si tratta della definizione di un tipo di immagine. |
 | **Versione dell'immagine** | La **versione dell'immagine** è ciò che si usa per creare una macchina virtuale quando si usa una raccolta. È possibile avere più versioni di un'immagine in base alle necessità del proprio ambiente. Come un'immagine gestita, quando si usa una **versione dell'immagine** per creare una macchina virtuale, la versione dell'immagine viene usata per creare nuovi dischi per la macchina virtuale. Le versioni delle immagini possono essere usate più volte. |
@@ -68,7 +68,7 @@ Di seguito sono elencati altri parametri che è possibile impostare nella defini
 * Elementi consigliati per la CPU virtuale e memoria minime e massime: se l'immagine presenta CPU virtuale ed elementi consigliati per la memoria, è possibile allegare tali informazioni alla definizione dell'immagine.
 * Tipi di dischi non consentiti: è possibile fornire informazioni sulle esigenze di archiviazione per la macchina virtuale. Se, ad esempio, l'immagine non è adatta per dischi HDD standard, è necessario aggiungerli all'elenco di quelli non consentiti.
 * Generazione di Hyper-V: è possibile specificare se l'immagine è stata creata da un disco rigido virtuale Hyper-V di prima o di seconda generazione.
-* Informazioni sul piano di acquisto per le immagini del Marketplace `-PurchasePlanPublisher ` ,, `-PurchasePlanName` e `-PurchasePlanProduct` . Per altre informazioni sulle informazioni sul piano di acquisto, vedere [trovare immagini in Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) e [fornire informazioni sul piano di acquisto di Azure Marketplace durante la creazione di immagini](../articles/virtual-machines/marketplace-images.md).
+* Informazioni sui piani di acquisto per immagini del Marketplace - `-PurchasePlanPublisher `, `-PurchasePlanName` e `-PurchasePlanProduct`. Per un approfondimento delle informazioni sui piani di acquisto, vedere [Trovare immagini in Azure Marketplace](https://docs.microsoft.com/azure/virtual-machines/windows/cli-ps-findimage) e [Fornire informazioni sul piano di acquisto di Azure Marketplace durante la creazione di immagini](../articles/virtual-machines/marketplace-images.md).
 
 ## <a name="generalized-and-specialized-images"></a>Immagini specializzate e generalizzate
 
@@ -83,7 +83,7 @@ Le macchine virtuali specializzate non sono state sottoposte a un processo per r
 
 ## <a name="regional-support"></a>Supporto a livello di area
 
-Tutte le aree pubbliche possono essere aree di destinazione, ma per eseguire la replica in Australia centrale e in Australia centrale 2 è necessario aggiungere la sottoscrizione all'elenco Consenti. Per richiedere l'aggiunta di sottoscrizioni all'elenco Consenti, vedere:https://azure.microsoft.com/global-infrastructure/australia/contact/
+Tutte le aree pubbliche possono essere aree di destinazione, tuttavia per la replica in Australia centrale e Australia centrale 2 è necessario che la sottoscrizione sia aggiunta all'elenco elementi consentiti. per richiedere che una sottoscrizione venga aggiunta all'elenco elementi consentiti, visitare: https://azure.microsoft.com/global-infrastructure/australia/contact/
 
 ## <a name="limits"></a>Limiti 
 
@@ -196,7 +196,7 @@ Gli SDK seguenti supportano la creazione di raccolte di immagini condivise:
 * [Quali sono gli addebiti per l'uso della Raccolta immagini condivise?](#what-are-the-charges-for-using-the-shared-image-gallery)
 * [Quale versione API è necessario usare per creare Raccolta immagini condivise, Definizione dell'immagine e Versione immagine?](#what-api-version-should-i-use-to-create-shared-image-gallery-and-image-definition-and-image-version)
 * [Quale versione dell'API è consigliabile usare per creare una macchina virtuale condivisa o un set di scalabilità di macchine virtuali dalla versione dell'immagine?](#what-api-version-should-i-use-to-create-shared-vm-or-virtual-machine-scale-set-out-of-the-image-version)
-* [È possibile aggiornare il set di scalabilità di macchine virtuali creato con un'immagine gestita per usare immagini di Raccolta immagini condivise?]
+* [È possibile aggiornare il set di scalabilità di macchine virtuali creato con un'immagine gestita per usare immagini di Raccolta immagini condivise?](#can-i-update-my-virtual-machine-scale-set-created-using-managed-image-to-use-shared-image-gallery-images)
 
 ### <a name="how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions"></a>Come elencare tutte le risorse di Raccolta di immagini condivise tra le sottoscrizioni?
 
@@ -230,7 +230,7 @@ Sì. Esistono tre scenari in base ai tipi di immagini che si possono avere.
 
 ### <a name="can-i-create-an-image-version-from-a-specialized-disk"></a>È possibile creare una versione di immagine da un disco specializzato?
 
-Sì, può creare una macchina virtuale da un'immagine specializzata usando l' [interfaccia](../articles/virtual-machines/vm-specialized-image-version-cli.md)della riga di comando, [PowerShell](../articles/virtual-machines/vm-specialized-image-version-powershell.md)o l'API. 
+Sì, è possibile creare una macchina virtuale da un'immagine specializzata usando l'[interfaccia della riga di comando](../articles/virtual-machines/vm-specialized-image-version-cli.md), [PowerShell](../articles/virtual-machines/vm-specialized-image-version-powershell.md) o l'API. 
 
 ### <a name="can-i-move-the-shared-image-gallery-resource-to-a-different-subscription-after-it-has-been-created"></a>È possibile spostare la risorsa Raccolta immagini condivise in una sottoscrizione diversa in seguito alla sua creazione?
 

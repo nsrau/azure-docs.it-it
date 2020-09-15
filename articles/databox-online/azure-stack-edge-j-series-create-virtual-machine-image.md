@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 08/28/2020
+ms.date: 09/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 83332c3bfa0b2b99d7333fa679fb8d398aecf8bd
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: fd87cbef4c667d9da1f93b448a2a67e6e90307b7
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268911"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500284"
 ---
 # <a name="create-custom-vm-images-for-your-azure-stack-edge-device"></a>Creare immagini di VM personalizzate per il dispositivo Azure Stack Edge
 
@@ -52,7 +52,22 @@ Seguire questa procedura per creare un'immagine di VM Linux.
 
 1. Creare una macchina virtuale Linux. Per altre informazioni, vedere l'[Esercitazione: Creare e gestire VM Linux con l'interfaccia della riga di comando di Azure](../virtual-machines/linux/tutorial-manage-vm.md).
 
-2. [Scaricare un disco del sistema operativo esistente](../virtual-machines/linux/download-vhd.md).
+1. Eseguire il deprovisioning della VM. Usare l'agente della macchina virtuale di Azure per eliminare file e dati specifici della macchina. Usare il comando `waagent` con il parametro `-deprovision+user` nella macchina virtuale Linux di origine. Per altre informazioni, vedere [Informazioni e uso dell'agente Linux di Azure](../virtual-machines/extensions/agent-linux.md).
+
+    1. Connettersi alla macchina virtuale Linux con un client SSH.
+    2. Nella finestra SSH digitare il comando seguente:
+       
+        ```bash
+        sudo waagent -deprovision+user
+        ```
+       > [!NOTE]
+       > Eseguire questo comando solo su una macchina virtuale che si intende acquisire come immagine. Questo comando non garantisce che dall'immagine vengano cancellate tutte le informazioni sensibili o che l'immagine sia adatta per la ridistribuzione. Il parametro `+user` rimuove anche l'ultimo account utente di cui è stato effettuato il provisioning. Per mantenere le credenziali dell'account utente nella macchina virtuale, usare solo `-deprovision`.
+     
+    3. Immettere **y** per continuare. È possibile aggiungere il parametro `-force` per evitare questo passaggio di conferma.
+    4. Dopo aver eseguito il comando, digitare **exit** per chiudere il client SSH.  A questo punto la macchina virtuale sarà ancora in esecuzione.
+
+
+1. [Scaricare un disco del sistema operativo esistente](../virtual-machines/linux/download-vhd.md).
 
 Usare questo disco rigido virtuale per creare e distribuire una VM nel dispositivo Azure Stack Edge. È possibile usare le due immagini di Azure Marketplace seguenti per creare immagini personalizzate di Linux:
 

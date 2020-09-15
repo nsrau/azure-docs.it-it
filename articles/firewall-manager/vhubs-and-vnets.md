@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: article
-ms.date: 06/30/2020
+ms.date: 09/14/2020
 ms.author: victorh
-ms.openlocfilehash: 7a06111fbe38f167ddf3512fdb312d7de754a738
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 71ff23e749139087f24da406474403167dcc1c0d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85563582"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563149"
 ---
 # <a name="what-are-the-azure-firewall-manager-architecture-options"></a>Quali sono le opzioni di architettura di Azure Firewall Manager?
 
@@ -35,7 +35,7 @@ Nella tabella seguente vengono confrontate queste due opzioni di architettura ch
 |**Risorsa sottostante**     |Rete virtuale|Hub WAN virtuale|
 |**Hub & spoke**     |Usa il peering di rete virtuale|Connessione automatizzata tramite la rete virtuale dell'hub|
 |**Connettività locale**     |Gateway VPN fino a 10 Gbps e 30 connessioni S2S; ExpressRoute|Gateway VPN più scalabile fino a 20 Gbps e 1000 connessioni S2S. Express Route|
-|**Connettività del ramo automatizzata con SDWAN**      |Non supportato|Supportato|
+|**Connettività del ramo automatizzata con SDWAN**      |Non supportate|Supportato|
 |**Hub per area**     |Più reti virtuali per area|Hub virtuale singolo per area. Più hub possibili con più WAN virtuali|
 |**Firewall di Azure: più indirizzi IP pubblici**      |Fornito dal cliente|Generato automaticamente|
 |**zone di disponibilità del firewall di Azure**     |Supportato|Non ancora disponibile|
@@ -44,8 +44,9 @@ Nella tabella seguente vengono confrontate queste due opzioni di architettura ch
 |**Supporto per più provider di sicurezza**|Supportato con il tunneling forzato configurato manualmente per i firewall di terze parti|Supporto automatizzato per due provider di sicurezza: firewall di Azure per il filtraggio del traffico privato e di terze parti per il filtro Internet|
 |**Web Application Firewall nel gateway applicazione** |Supportato nella rete virtuale|Attualmente supportata nella rete spoke|
 |**Appliance virtuale di rete**|Supportato nella rete virtuale|Attualmente supportata nella rete spoke|
+|**Supporto standard di protezione DDoS di Azure**|Sì|No|
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Vedere [Panoramica della distribuzione di gestione firewall di Azure](deployment-overview.md)
+- Vedere [Panoramica della distribuzione di Gestione firewall di Azure](deployment-overview.md)
 - Informazioni sugli [hub virtuali protetti](secured-virtual-hub.md).

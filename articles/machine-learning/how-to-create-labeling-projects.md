@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: 1ba293890f6a6fd165e03486d7da375f2ac53ab1
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a86a7ee600d7443e5ba8cb4f30db0c48c8170327
+ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326451"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89612180"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creare un progetto di etichettatura dei dati ed esportare le etichette 
 
@@ -78,7 +78,7 @@ Per creare un set di dati da dati già archiviati nell'archiviazione BLOB di Azu
 
 1. Selezionare **Crea un set di dati** > **Da archivio dati**.
 1. Assegnare un **Nome** al set di dati.
-1. Scegliere **File** come **Tipo di set di dati**.  
+1. Scegliere **File** come **Tipo di set di dati**.  Sono supportati solo i tipi di set di dati di file.
 1. Selezionare l'archivio dati.
 1. Se i dati si trovano in una sottocartella all'interno dell'archiviazione BLOB, scegliere **Sfoglia** per selezionare il percorso.
     * Aggiungere "/**" al percorso per includere tutti i file nelle sottocartelle del percorso selezionato.

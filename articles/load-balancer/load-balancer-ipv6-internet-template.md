@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/25/2017
 ms.author: allensu
-ms.openlocfilehash: 65f378f52c464869217084c6f155b9d34c6fc092
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 415c95a441ac0cc6ed2dbf2d6a37f57d7a9e7341
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84803725"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562520"
 ---
 # <a name="deploy-an-internet-facing-load-balancer-solution-with-ipv6-using-a-template"></a>Distribuire una soluzione di bilanciamento del carico con connessione Internet con IPv6 usando un modello
 
@@ -38,7 +38,7 @@ Azure Load Balancer è un servizio di bilanciamento del carico di livello 4 (TCP
 
 Il diagramma seguente illustra la soluzione di bilanciamento del carico distribuita usando il modello di esempio descritto in questo articolo.
 
-![Scenario del bilanciamento del carico](./media/load-balancer-ipv6-internet-template/lb-ipv6-scenario.png)
+![Il diagramma mostra uno scenario di esempio usato in questo articolo, incluso un client workstation connesso a un Azure Load Balancer su Internet, connesso a due macchine virtuali.](./media/load-balancer-ipv6-internet-template/lb-ipv6-scenario.png)
 
 In questo scenario si creeranno le seguenti risorse di Azure:
 
@@ -55,43 +55,43 @@ Questo articolo fa riferimento a un modello pubblicato nella raccolta [Modelli d
 1. Aprire il portale di Azure e accedere con un account che abbia le autorizzazioni per la creazione di macchine virtuali e risorse di rete all'interno di una sottoscrizione di Azure. A meno che non si usino le risorse esistenti, l'account richiede le autorizzazioni per la creazione di un gruppo di risorse e un account di archiviazione.
 2. Fare clic su "+Nuovo" dal menu, quindi digitare "modello" nella casella di ricerca. Selezionare "Distribuzione modello" nei risultati della ricerca.
 
-    ![lb-ipv6-portal-step2](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
+    ![Screenshot mostra i portale di Azure con i nuovi e Distribuzione modelli selezionati.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step2.png)
 
 3. Nel pannello Tutto fare clic su "Distribuzione modello".
 
-    ![lb-ipv6-portal-step3](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
+    ![Screenshot mostra Distribuzione modelli nel Marketplace.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step3.png)
 
 4. Fare clic su "Crea".
 
-    ![lb-ipv6-portal-step4](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step4.png)
+    ![Screenshot mostra la descrizione del Distribuzione modelli nel Marketplace.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step4.png)
 
 5. Fare clic su "Modifica modello". Eliminare il contenuto esistente e copiare e incollare l'intero contenuto del file modello (per includere i caratteri { } di inizio e fine), quindi fare clic su "Salva".
 
     > [!NOTE]
     > Se si usa Microsoft Internet Explorer, quando si incolla viene visualizzata una finestra di dialogo che chiede di consentire l'accesso agli Appunti di Windows. Fare clic su "Consenti accesso".
 
-    ![lb-ipv6-portal-step5](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
+    ![Screenshot mostra il passaggio di una distribuzione personalizzata, ovvero modifica modello.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step5.png)
 
 6. Fare clic su "Modifica parametri". Nel pannello Parametri specificare i valori nella sezione dei parametri del modello, quindi fare clic su "Salva" per chiudere il pannello Parametri. Nel pannello Distribuzione personalizzata selezionare la sottoscrizione e un gruppo di risorse esistente oppure crearne uno. Se si crea un gruppo di risorse è necessario specificarne la posizione. Fare clic su **Note legali**, quindi su **Acquisto**. Azure avvierà la distribuzione delle risorse. Occorreranno alcuni minuti per la distribuzione di tutte le risorse.
 
-    ![lb-ipv6-portal-step6](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
+    ![Screenshot mostra i passaggi necessari per la distribuzione personalizzata, iniziando dall'immissione dei valori dei parametri del modello.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step6.png)
 
     Per altre informazioni su questi parametri, vedere la sezione [Parametri e variabili del modello](#template-parameters-and-variables) più avanti in questo articolo.
 
 7. Per visualizzare le risorse create dal modello fare clic su Esplora, scorrere l'elenco verso il basso fino a "Gruppi di risorse", quindi fare clic sulla voce.
 
-    ![lb-ipv6-portal-step7](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step7.png)
+    ![Screenshot mostra la portale di Azure con Esplora e gruppi di risorse selezionati.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step7.png)
 
 8. Nel pannello Gruppi di risorse fare clic sul nome del gruppo di risorse specificato nel passaggio 6. Verrà visualizzato un elenco di tutte le risorse distribuite. Se non si sono verificati errori, verrà visualizzato "Riuscito" in "Ultima distribuzione". In caso contrario, verificare che l'account usato abbia le autorizzazioni per creare le risorse necessarie.
 
-    ![lb-ipv6-portal-step8](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
+    ![Screenshot mostra lo stato dell'ultima distribuzione per un gruppo di risorse. in questo esempio l'operazione è riuscita.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step8.png)
 
     > [!NOTE]
     > Se si esplorano i gruppi di risorse subito dopo aver completato il passaggio 6, "Ultima distribuzione" visualizzerà lo stato "Distribuzione" durante la distribuzione delle risorse.
 
 9. Fare clic su "myIPv6PublicIP" nell'elenco delle risorse. Si noti che è presente un indirizzo IPv6 in Indirizzo IP e che il nome DNS è il valore specificato per il parametro dnsNameforIPv6LbIP nel passaggio 6. Questa risorsa è l'indirizzo IPv6 pubblico e il nome host accessibile ai client Internet.
 
-    ![lb-ipv6-portal-step9](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
+    ![Screenshot che mostra l'indirizzo pubblico IPv6.](./media/load-balancer-ipv6-internet-template/lb-ipv6-portal-step9.png)
 
 ## <a name="validate-connectivity"></a>Convalidare la connettività
 

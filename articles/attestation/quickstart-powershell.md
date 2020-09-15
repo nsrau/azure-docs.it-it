@@ -7,12 +7,12 @@ ms.service: attestation
 ms.topic: overview
 ms.date: 08/31/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 70e86e01a9d37a27620d451bcd5d035dfcb4573d
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 538aa29ab66fce48da944dbdf9ea79d5c8f7f330
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89236978"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89421289"
 ---
 # <a name="quickstart-set-up-azure-attestation-with-azure-powershell"></a>Avvio rapido: Configurare Attestazione di Azure con Azure PowerShell
 
@@ -159,26 +159,27 @@ TagsTable:
 
 I provider di attestazioni possono essere eliminati usando il cmdlet Remove-AzAttestation.  
 
-"azurepowershell Remove-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup
+```powershell
+Remove-AzAttestation -Name $attestationProvider -ResourceGroupName $attestationResourceGroup
 ```
 
-## Policy management
+## <a name="policy-management"></a>Gestione dei criteri
 
-In order to manage policies, an Azure AD user requires the following permissions for "Actions":
+Per gestire i criteri, gli utenti di Azure AD devono avere le autorizzazioni seguenti per "Azioni":
 - Microsoft.Attestation/attestationProviders/attestation/read
 - Microsoft.Attestation/attestationProviders/attestation/write
 - Microsoft.Attestation/attestationProviders/attestation/delete
 
-These permissions can be assigned to an AD user through a role such as "Owner" (wildcard permissions), "Contributor" (wildcard permissions) or "Attestation Contributor" (specific permissions for Azure Attestation only).  
+Queste autorizzazioni possono essere assegnate a un utente di AD tramite un ruolo come "Proprietario" (autorizzazioni con caratteri jolly), "Collaboratore" (autorizzazioni con caratteri jolly) o "Collaboratore per attestazioni" (autorizzazioni specifiche solo per Attestazione di Azure).  
 
-In order to read policies, an Azure AD user requires the following permission for "Actions":
+Per leggere i criteri, gli utenti di Azure AD devono avere l'autorizzazione seguente per "Azioni":
 - Microsoft.Attestation/attestationProviders/attestation/read
 
-This permission can be assigned to an AD user through a role such as "Reader" (wildcard permissions) or "Attestation Reader" (specific permissions for Azure Attestation only).
+Questa autorizzazione può essere assegnata a un utente di Azure AD tramite un ruolo come "Lettore" (autorizzazioni con caratteri jolly) o "Ruolo con autorizzazioni di lettura per le attestazioni" (autorizzazioni specifiche solo per Attestazione di Azure).
 
-Below PowerShell cmdlets provide policy management for an attestation provider (one TEE at a time).
+I cmdlet di PowerShell seguenti forniscono la gestione dei criteri per un provider di attestazioni (un ambiente TEE alla volta).
 
-Get-AzAttestationPolicy returns the current policy for the specified TEE. The cmdlet displays policy in both text and JWT format of the policy.
+Get-AzAttestationPolicy restituisce il criterio corrente per il TEE specificato. Il cmdlet visualizza il criterio in formato testo e JWT.
 
 ```powershell
 $teeType = "<tee Type>"

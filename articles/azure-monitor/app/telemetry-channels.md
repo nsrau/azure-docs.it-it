@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 05/14/2019
 ms.custom: devx-track-csharp
 ms.reviewer: mbullwin
-ms.openlocfilehash: 41d2feefc5af1e795520d9b3d90809e625502fa6
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: fec7bfc16e2cc36d19c84b93b5b93c3c1365b166
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88918401"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564016"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Canali di telemetria in Application Insights
 
@@ -153,13 +153,25 @@ La risposta breve è che nessuno dei canali predefiniti offre una garanzia del t
 
 Sebbene il nome del pacchetto e dello spazio dei nomi includa "WindowsServer", questo canale è supportato in sistemi diversi da Windows, con la seguente eccezione. Nei sistemi diversi da Windows, per impostazione predefinita il canale non crea una cartella di archiviazione locale. È necessario creare una cartella di archiviazione locale e configurare il canale per usarlo. Dopo aver configurato l'archiviazione locale, il canale funziona allo stesso modo in tutti i sistemi.
 
+> [!NOTE]
+> Con la versione 2.15.0-beta3 e una maggiore archiviazione locale viene ora creata automaticamente per Linux, Mac e Windows. Per i sistemi non Windows, l'SDK creerà automaticamente una cartella di archiviazione locale basata sulla logica seguente:
+> - `${TMPDIR}` -Se `${TMPDIR}` la variabile di ambiente è impostata, viene utilizzato questo percorso.
+> - `/var/tmp` -Se il percorso precedente non esiste, viene eseguito un tentativo `/var/tmp` .
+> - `/tmp` -Se non esistono entrambe le posizioni precedenti, viene eseguito un tentativo `tmp` . 
+> - Se nessuno di questi percorsi esiste, non viene creata alcuna risorsa di archiviazione locale e la configurazione manuale è ancora richiesta. [Per i dettagli di implementazione completi](https://github.com/microsoft/ApplicationInsights-dotnet/pull/1860).
+
 ### <a name="does-the-sdk-create-temporary-local-storage-is-the-data-encrypted-at-storage"></a>L'SDK crea una risorsa di archiviazione locale temporanea? I dati sono crittografati in archiviazione?
 
 L'SDK archivia gli elementi di telemetria nell'archiviazione locale durante i problemi di rete o durante la limitazione delle richieste. Questi dati non vengono crittografati localmente.
 
 Per i sistemi Windows, l'SDK crea automaticamente una cartella locale temporanea nella directory% TEMP% o% LOCALAPPDATA%, limitando l'accesso solo agli amministratori e all'utente corrente.
 
-Per i sistemi diversi da Windows, l'SDK non crea automaticamente alcuna risorsa di archiviazione locale e pertanto nessun dato viene archiviato localmente per impostazione predefinita. È possibile creare manualmente una directory di archiviazione e configurare il canale per usarlo. In questo caso, l'utente è responsabile di garantire che la directory sia protetta.
+Per i sistemi diversi da Windows, l'SDK non crea automaticamente alcuna risorsa di archiviazione locale e pertanto nessun dato viene archiviato localmente per impostazione predefinita.
+
+> [!NOTE]
+> Con la versione 2.15.0-beta3 e una maggiore archiviazione locale viene ora creata automaticamente per Linux, Mac e Windows. 
+
+ È possibile creare manualmente una directory di archiviazione e configurare il canale per usarlo. In questo caso, l'utente è responsabile di garantire che la directory sia protetta.
 Scopri di più sulla [protezione dei dati e sulla privacy](data-retention-privacy.md#does-the-sdk-create-temporary-local-storage).
 
 ## <a name="open-source-sdk"></a>SDK open source

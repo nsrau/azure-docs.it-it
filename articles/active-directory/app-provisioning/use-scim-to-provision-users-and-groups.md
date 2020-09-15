@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 09/15/2020
 ms.author: kenwith
 ms.reviewer: arvinh
-ms.openlocfilehash: d0f67f9052467e5d1a89fc4c520bd39821403bbe
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: fc77d8cbb88385d9be65ccb8df80e922704640a4
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90015450"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563806"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-ad"></a>Creare un endpoint SCIM e configurare il provisioning utenti con Azure AD
 
@@ -167,6 +167,7 @@ Quando si implementa un endpoint SCIM, per garantire la compatibilità con Azure
 * Non richiedere una corrispondenza con distinzione tra maiuscole e minuscole negli elementi strutturali in SCIM, in particolare nei valori delle operazioni `op` di PATCH, come indicato in https://tools.ietf.org/html/rfc7644#section-3.5.2. Azure AD genera i valori di "op" `Add`, `Replace` e `Remove`.
 * Microsoft Azure AD effettua richieste per recuperare un utente e un gruppo casuali e verificare così che l'endpoint e le credenziali siano validi. Questa operazione viene eseguita anche come parte del flusso **Test connessione** nel [portale di Azure](https://portal.azure.com). 
 * L'attributo per cui possono essere eseguite query sulle risorse deve essere impostato come attributo corrispondente nell'applicazione nel [portale di Azure](https://portal.azure.com). Per altre informazioni, vedere [Personalizzazione dei mapping degli attributi del provisioning utenti](customize-application-attributes.md).
+* Supporto di HTTPS nell'endpoint SCIM
 
 ### <a name="user-provisioning-and-deprovisioning"></a>Provisioning e deprovisioning utenti
 

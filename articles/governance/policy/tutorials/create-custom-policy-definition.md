@@ -3,12 +3,12 @@ title: 'Esercitazione: Creare una definizione di criteri personalizzata'
 description: In questa esercitazione viene creata una definizione di criteri personalizzata per Criteri di Azure per applicare regole di business personalizzate alla risorse di Azure.
 ms.date: 06/16/2020
 ms.topic: tutorial
-ms.openlocfilehash: 5eee969257f5cf640ce82fbda9877974207c87af
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 72282cbc5ed1877cf3f61b792235e8dc2f72fffe
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86044618"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649821"
 ---
 # <a name="tutorial-create-a-custom-policy-definition"></a>Esercitazione: Creare una definizione di criteri personalizzata
 
@@ -73,7 +73,7 @@ L'[estensione per VS Code](../how-to/extension-for-vscode.md#search-for-and-view
 Il modo più semplice per trovare proprietà consiste nell'esaminare una risorsa esistente dello stesso tipo. Le risorse già configurate con l'impostazione da applicare forniscono anche il valore da confrontare.
 Esaminare la pagina **Esporta modello** in **Impostazioni** nel portale di Azure per questa specifica risorsa.
 
-:::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Pagina Esporta modello per la risorsa esistente" border="false":::
+:::image type="content" source="../media/create-custom-policy-definition/export-template.png" alt-text="Screenshot della pagina Esporta modello in una risorsa esistente nel portale di Azure." border="false":::
 
 Per un account di archiviazione questa pagina visualizza un modello simile a questo esempio:
 

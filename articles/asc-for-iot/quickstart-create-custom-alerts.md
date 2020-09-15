@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 1/27/2020
+ms.date: 09/04/2020
 ms.author: mlottner
-ms.openlocfilehash: 8ba81b669c25d91efa8ad1f07b1a7835b42c5cf4
-ms.sourcegitcommit: 7e04a51363de29322de08d2c5024d97506937a60
+ms.openlocfilehash: 7638ad070e8ac8bd99cbfb49b99bbb347a243a21
+ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/14/2020
-ms.locfileid: "81310841"
+ms.lasthandoff: 09/07/2020
+ms.locfileid: "89505438"
 ---
 # <a name="quickstart-create-custom-alerts"></a>Guida introduttiva: Creare avvisi personalizzati
 
@@ -67,8 +67,8 @@ Usare i gruppi di sicurezza per raggruppare i dispositivi in categorie logiche. 
 
 ## <a name="customize-an-alert"></a>Personalizzare un avviso
 
-1. Aprire l'hub IoT.
-1. Fare clic su **Avvisi personalizzati** nella sezione **Sicurezza**.
+1. Aprire l'hub IoT e quindi scegliere **Impostazioni** dal menu **Sicurezza**. 
+1. Fare clic su **Avvisi personalizzati**.
 1. Scegliere un gruppo di sicurezza a cui si vuole applicare la personalizzazione.
 1. Fare clic su **Aggiungi un avviso personalizzato**.
 1. Selezionare un avviso personalizzato nell'elenco a discesa.

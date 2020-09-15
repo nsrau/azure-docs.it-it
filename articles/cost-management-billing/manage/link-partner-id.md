@@ -8,18 +8,18 @@ ms.date: 07/24/2020
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.openlocfilehash: 8f3e4762b0c0286a47b407595cf73b66bef8d750
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: dc4d319e0e6b55af8af460fa8a56b9ef24a53341
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88682842"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89487352"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Collegare un ID partner agli account Azure
 
-I partner Microsoft offrono servizi che aiutano i clienti a raggiungere i loro obiettivi in termini di business e mission usando i prodotti Microsoft. Per occuparsi per conto del cliente delle attività di gestione, configurazione e supporto dei servizi di Azure, gli utenti del partner dovranno avere accesso all'ambiente del cliente. Tramite il collegamento amministratore partner, i partner possono associare l'ID Partner Network alle credenziali usate per la fornitura dei servizi.
+I partner Microsoft offrono servizi che aiutano i clienti a raggiungere i loro obiettivi in termini di business e mission usando i prodotti Microsoft. Per occuparsi per conto del cliente delle attività di gestione, configurazione e supporto dei servizi di Azure, gli utenti del partner dovranno avere accesso all'ambiente del cliente. Usando Partner Admin Link (PAL), i partner possono associare il loro ID rete alle credenziali usate per la distribuzione di servizi.
 
-Il collegamento amministrazione partner consente a Microsoft di identificare e riconoscere i partner che contribuiscono al successo dei clienti di Azure. Microsoft può attribuire all'organizzazione un determinato livello di influenza e proventi per l'utilizzo di Azure a seconda delle autorizzazioni dell'account (ruolo di Azure) e dell'ambito (sottoscrizione, gruppo di risorse, risorsa).
+PAL consente a Microsoft di identificare e riconoscere i partner che contribuiscono al successo dei clienti di Azure. Microsoft può attribuire all'organizzazione un determinato livello di influenza e proventi per l'utilizzo di Azure a seconda delle autorizzazioni dell'account (ruolo di Azure) e dell'ambito (sottoscrizione, gruppo di risorse, risorsa).
 
 ## <a name="get-access-from-your-customer"></a>Ottenere l'accesso dal cliente
 
@@ -133,10 +133,11 @@ Sì. Un ID partner collegato può essere modificato, aggiunto o rimosso.
 
 Il collegamento tra l'ID partner e l'account viene eseguito per ogni tenant del cliente. Collegare l'ID partner in ogni tenant del cliente.
 
+Se tuttavia le risorse dei clienti vengono gestite tramite Azure Lighthouse, è consigliabile creare il collegamento nel tenant del provider di servizi, usando un account che abbia accesso a tali risorse. Per altre informazioni, vedere [Collegare l'ID partner per abilitare il credito ottenuto dai partner nelle risorse delegate](../../lighthouse/how-to/partner-earned-credit.md).
+
 **Altri partner o clienti possono modificare o rimuovere il collegamento all'ID partner?**
 
 Il collegamento è associato a livello di account utente. Solo il titolare dell'account può modificare o rimuovere il collegamento all'ID partner. Il cliente e altri partner non possono modificare il collegamento all'ID partner.
-
 
 **Quale ID MPN è necessario usare se l'azienda ne ha più di uno?**
 
@@ -158,10 +159,11 @@ Il cliente non viene visualizzato nei report per i motivi seguenti
 
 Sì, è possibile collegare l'ID partner per Azure Stack.
 
-**Come si collega il proprio ID partner se l'azienda usa [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview) per accedere alle risorse dei clienti?**
+**Come si collega il proprio ID partner se l'azienda usa [Azure Lighthouse](../../lighthouse/overview.md) per accedere alle risorse dei clienti?**
 
-Se si esegue l'onboarding dei clienti nella gestione delle risorse delegata di Azure tramite la [pubblicazione di un'offerta di servizi gestiti in Azure Marketplace](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers), l'ID MPN (Microsoft Partner Network) verrà associato automaticamente. Se si [esegue l'onboarding dei clienti tramite la distribuzione di modelli di Azure Resource Manager](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer), è necessario associare l'ID MPN ad almeno un account utente che abbia accesso a ognuna delle sottoscrizioni di cui è stato eseguito l'onboarding. Si noti che sarà necessario eseguire questa associazione nel tenant del provider di servizi. Per semplicità, è consigliabile creare un account di entità servizio nel tenant associato all'ID MPN e concedergli l'accesso in lettura a tutti i clienti di cui è stato eseguito l'onboarding. In questo esempio viene usato il ruolo Lettore del controllo degli accessi in base al ruolo, che è uno dei ruoli non sono idonei per il credito guadagnato dal partner. Per altre informazioni sui ruoli, vedere [Ruoli e autorizzazioni per il credito guadagnato dal partner](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3QuW2).
+Se si esegue l'onboarding dei clienti nella gestione delle risorse delegata di Azure tramite la [pubblicazione di un'offerta di servizi gestiti in Azure Marketplace](../../lighthouse/how-to/publish-managed-services-offers.md), l'ID MPN (Microsoft Partner Network) verrà associato automaticamente.
 
+Se si [esegue l'onboarding dei clienti tramite la distribuzione di modelli di Azure Resource Manager](../../lighthouse/how-to/onboard-customer.md), è necessario associare l'ID MPN ad almeno un account utente che abbia accesso a ognuna delle sottoscrizioni di cui è stato eseguito l'onboarding. Si noti che sarà necessario eseguire questa associazione nel tenant del provider di servizi invece che nel tenant di ogni cliente. Per semplicità, è consigliabile creare un account di entità servizio nel tenant, associarlo all'ID MPN, quindi concedergli l'accesso a tutti i clienti di cui si esegue l'onboarding con un [ruolo predefinito di Azure idoneo per ricevere il credito ottenuto dai partner](/partner-center/azure-roles-perms-pec). Per altre informazioni, vedere [Collegare l'ID partner per abilitare il credito ottenuto dai partner nelle risorse delegate](../../lighthouse/how-to/partner-earned-credit.md).
 
 **Come si spiega il collegamento amministrazione partner al cliente?**
 
@@ -173,4 +175,4 @@ L'associazione del collegamento amministrazione partner alle credenziali esisten
 
 **Questo approccio influisce sulla sicurezza dell'ambiente di Azure di un cliente?**
 
-L'associazione del collegamento amministrazione partner aggiunge solo l'ID MPN del partner alle credenziali già sottoposte a provisioning e non modifica alcuna autorizzazione (ruolo di Azure) né fornisce dati aggiuntivi sui servizi di Azure al partner o a Microsoft. 
+L'associazione del collegamento amministrazione partner aggiunge solo l'ID MPN del partner alle credenziali già sottoposte a provisioning e non modifica alcuna autorizzazione (ruolo di Azure) né fornisce dati aggiuntivi sui servizi di Azure al partner o a Microsoft.

@@ -1,32 +1,40 @@
 ---
 title: Ridimensionare rapidamente e proteggere un'applicazione Web tramite Frontdoor di Azure e Azure Web Application Firewall (WAF) | Microsoft Docs
-description: Questo articolo illustra come usare il Web Application Firewall con il servizio Azure front door
+description: Questa esercitazione illustra come usare web application firewall con il servizio Frontdoor di Azure
 services: frontdoor
 documentationcenter: ''
 author: duongau
 ms.service: frontdoor
 ms.devlang: na
-ms.topic: how-to
+ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/06/2020
+ms.date: 09/14/2020
 ms.author: duau
-ms.openlocfilehash: a0252004b01e64b195b372d72682f6b777012258
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
-ms.translationtype: MT
+ms.openlocfilehash: 1958481193b66c8cec2cb6a1ac6648a6900d70ac
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89535432"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531203"
 ---
-# <a name="quickly-scale-and-protect-a-web-application-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Ridimensionare rapidamente e proteggere un'applicazione Web tramite Frontdoor di Azure e Azure Web Application Firewall (WAF)
+# <a name="tutorial-quickly-scale-and-protect-a-web-application-using-azure-front-door-and-azure-web-application-firewall-waf"></a>Esercitazione: Ridimensionare rapidamente e proteggere un'applicazione Web tramite Frontdoor di Azure e Azure Web Application Firewall (WAF)
 
 Molte applicazioni Web hanno riscontrato un rapido aumento del traffico nelle ultime settimane in relazione a COVID-19. Per queste applicazioni Web viene anche notato un picco di traffico dannoso con attacchi Denial of Service. Un modo efficace per gestire entrambe queste esigenze, aumentando le prestazioni per i picchi di traffico e attivando la protezione dagli attacchi, consiste nel configurare Frontdoor di Azure con Azure WAF come livello di accelerazione, memorizzazione nella cache e sicurezza davanti all'applicazione Web. Questo articolo offre indicazioni su come realizzare rapidamente la configurazione di Frontdoor di Azure con Azure WAF per tutte le applicazioni Web in esecuzione all'interno o all'esterno di Azure. 
 
 In questa esercitazione, per configurare WAF si userà l'interfaccia della riga di comando di Azure, ma tutti questi passaggi sono completamente supportati anche nel portale di Azure, in Azure PowerShell, in Azure ARM e nelle API REST di Azure. 
 
-## <a name="prerequisites"></a>Prerequisiti
+In questa esercitazione verranno illustrate le procedure per:
+> [!div class="checklist"]
+> - Creare un frontdoor.
+> - Creare un criterio WAF di Azure.
+> - Configurare set di regole per i criteri WAF.
+> - Associare criteri WAF a Frontdoor
+> - Configurare un dominio personalizzato
 
-Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) prima di iniziare. 
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+
+## <a name="prerequisites"></a>Prerequisiti
 
 Le istruzioni in questo blog usano l'interfaccia della riga di comando di Azure. Vedere questa guida per [iniziare con l'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest).
 
@@ -40,8 +48,7 @@ az extension add --name front-door
 
 Nota: Per altri dettagli sui comandi elencati di seguito, fare riferimento alle [informazioni di riferimento dell'interfaccia della riga di comando di Azure per Frontdoor](https://docs.microsoft.com/cli/azure/ext/front-door/?view=azure-cli-latest).
 
-## <a name="step-1-create-an-azure-front-door-afd-resource"></a>Passaggio 1: Creare una risorsa di Frontdoor di Azure
-
+## <a name="create-an-azure-front-door-afd-resource"></a>Creare una risorsa di Frontdoor di Azure
 
 ```azurecli-interactive 
 az network front-door create --backend-address <>  --accepted-protocols <> --name <> --resource-group <>
@@ -57,7 +64,7 @@ az network front-door create --backend-address <>  --accepted-protocols <> --nam
 
 Nella risposta ottenuta dall'esecuzione di questo comando, cercare la chiave "hostName" e prendere nota del suo valore per usarlo in un passaggio successivo. La chiave hostName è il nome DNS della risorsa di Frontdoor di Azure creata
 
-## <a name="step-2-create-an-azure-waf-profile-to-use-with-azure-front-door-resources"></a>Passaggio 2: Creare un profilo di Azure WAF da usare con le risorse di Frontdoor di Azure
+## <a name="create-an-azure-waf-profile-to-use-with-azure-front-door-resources"></a>Creare un profilo di Azure WAF da usare con le risorse di Frontdoor di Azure
 
 ```azurecli-interactive 
 az network front-door waf-policy create --name <>  --resource-group <>  --disabled false --mode Prevention
@@ -75,7 +82,7 @@ Nella risposta ottenuta dall'esecuzione di questo comando, cercare la chiave "ID
 
 /subscriptions/**ID sottoscrizione**/resourcegroups/**nome gruppo risorse**/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/**nome criterio WAF**
 
-## <a name="step-3-add-managed-rulesets-to-this-waf-policy"></a>Passaggio 3: Aggiungere set di regole gestiti al criterio WAF
+## <a name="add-managed-rulesets-to-this-waf-policy"></a>Aggiungere set di regole gestiti al criterio WAF
 
 In un criterio WAF è possibile aggiungere set di regole creati e gestiti da Microsoft e offrire una protezione predefinita contro intere classi di minacce. In questo esempio si aggiungeranno due set di regole di questo tipo: (1) un set di regole predefinito che protegga da minacce Web comuni e (2) un set di regole di protezione bot, che protegga da bot dannosi
 
@@ -95,7 +102,7 @@ az network front-door waf-policy managed-rules add --policy-name <> --resource-g
 
 --resource-group Il gruppo di risorse in cui si è inserita la risorsa di WAF.
 
-## <a name="step-4-associate-the-waf-policy-with-the-afd-resource"></a>Passaggio 4: Associare il criterio di WAF alla risorsa di Frontdoor
+## <a name="associate-the-waf-policy-with-the-afd-resource"></a>Associare il criterio di WAF alla risorsa di Frontdoor
 
 In questo passaggio si assocerà il criterio di WAF creato con la risorsa del servizio Frontdoor di Azure che si trova davanti all'applicazione Web.
 
@@ -113,18 +120,35 @@ Nota: l'esempio sopra riportato riguarda il caso in cui non si usa un dominio pe
 
 Se non si usano domini personalizzati per accedere alle applicazioni Web, è possibile ignorare il passaggio 5. In tal caso, si indicherà agli utenti finali il nome host ottenuto nel passaggio 1 per passare all'applicazione Web
 
-## <a name="step-5-configure-custom-domain-for-your-web-application"></a>Passaggio 5: Configurare un dominio personalizzato per l'applicazione Web
+## <a name="configure-custom-domain-for-your-web-application"></a>Configurare un dominio personalizzato per l'applicazione Web
 
 Il nome di dominio personalizzato dell'applicazione Web (quello che i clienti usano per fare riferimento all'applicazione, ad esempio, www.contoso.com) puntava inizialmente al punto in cui si eseguiva l'applicazione prima dell'introduzione di Frontdoor di Azure. Dopo questa modifica dell'architettura, con l'aggiunta di Frontdoor di Azure e WAF davanti all'applicazione, la voce DNS corrispondente al dominio personalizzato dovrebbe ora puntare a questa risorsa di Frontdoor di Azure. Per eseguire questa operazione, modificare il mapping di questa voce nel server DNS usando il nome host di Frontdoor di Azure annotato nel passaggio 1.
 
 I passaggi specifici per aggiornare i record DNS dipendono dal provider di servizi DNS, ma se si usa DNS di Azure per ospitare il nome DNS, è possibile fare riferimento alla documentazione per i [passaggi per aggiornare un record DNS](https://docs.microsoft.com/azure/dns/dns-operations-recordsets-cli) e per fare in modo che punti al nome host di Frontdoor di Azure. 
 
-Un aspetto fondamentale da tenere presente è che, se è necessario che gli utenti accedano al sito Web usando il vertice della zona, ad esempio contoso.com, è necessario usare DNS di Azure e il [tipo di record alias](https://docs.microsoft.com/azure/dns/dns-alias) per ospitare il nome DNS. 
+Un aspetto fondamentale da tenere presente è che, se è necessario consentire agli utenti di accedere al sito Web con il dominio radice, ad esempio contoso.com, si deve usare DNS di Azure e il [tipo di record ALIAS](https://docs.microsoft.com/azure/dns/dns-alias) corrispondente per ospitare il nome DNS. 
 
 È anche necessario aggiornare la configurazione di Frontdoor di Azure [aggiungendovi il dominio personalizzato](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain) in modo da renderlo noto a Frontdoor di Azure.
 
 Se per raggiungere l'applicazione Web si usa un dominio personalizzato e si vuole abilitare il protocollo HTTPS, è necessario avere i [certificati per la configurazione del dominio personalizzato in Frontdoor di Azure](https://docs.microsoft.com/azure/frontdoor/front-door-custom-domain-https). 
 
-## <a name="step-6-lock-down-your-web-application"></a>Passaggio 6: Bloccare l'applicazione Web
+## <a name="lock-down-your-web-application"></a>Bloccare l'applicazione Web
 
 Una procedura consigliata facoltativa da seguire è garantire che solo il perimetro di Frontdoor di Azure possa comunicare con l'applicazione Web. Questa azione garantisce che nessuno possa superare le protezioni di Frontdoor di Azure e accedere alle applicazioni direttamente. È possibile realizzare questo blocco visitando la [sezione relativa alle domande frequenti di Frontdoor di Azure](https://docs.microsoft.com/azure/frontdoor/front-door-faq) e consultando la domanda relativa al blocco dei back-end per consentire l'accesso solo da parte di Frontdoor di Azure.
+
+## <a name="clean-up-resources"></a>Pulire le risorse
+
+Quando le risorse di questa esercitazione non sono più necessarie, usare il comando [az group delete](https://docs.microsoft.com/cli/azure/group?view=azure-cli-latest#az-group-delete) per rimuovere il gruppo di risorse, Frontdoor e i criteri WAF.
+
+```azurecli-interactive
+  az group delete \
+    --name <>
+```
+--name Il nome del gruppo di risorse per tutte le risorse distribuite in questa esercitazione.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+Per informazioni su come risolvere i problemi relativi a Frontdoor, continuare con le guide pratiche.
+
+> [!div class="nextstepaction"]
+> [Risoluzione dei più frequenti problemi di routing](front-door-troubleshoot-routing.md)

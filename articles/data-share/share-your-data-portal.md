@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: quickstart
 ms.date: 08/19/2020
-ms.openlocfilehash: 5ceaf949df88468b2239bd901f639ba6096b0d5f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 41598c04af78d4366435259357d8f897ac178942
+ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89269642"
+ms.lasthandoff: 09/04/2020
+ms.locfileid: "89489936"
 ---
 # <a name="quickstart-share-data-using-azure-data-share-in-the-azure-portal"></a>Avvio rapido: Condividere dati con Condivisione dati di Azure nel portale di Azure
 
@@ -67,7 +67,7 @@ Creare una risorsa di condivisione dati di Azure in un gruppo di risorse di Azur
 
    ![Aggiungere set di dati alla condivisione](./media/datasets.png "Set di dati")
 
-1. Selezionare il tipo di set di dati da aggiungere. Verrà visualizzato un elenco di tipi di set di dati diverso a seconda del tipo di condivisione (snapshot o sul posto) selezionato nel passaggio precedente. Se si condivide da un database SQL di Azure o da Azure SQL Data Warehouse, verranno richieste alcune credenziali di SQL. Eseguire l'autenticazione con l'utente creato come parte dei prerequisiti.
+1. Selezionare il tipo di set di dati da aggiungere. Verrà visualizzato un elenco di tipi di set di dati diverso a seconda del tipo di condivisione (snapshot o sul posto) selezionato nel passaggio precedente. Se si condivide da un'istanza di Database SQL di Azure o di Azure Synapse Analytics, verrà chiesto di immettere alcune credenziali di SQL. Eseguire l'autenticazione con l'utente creato come parte dei prerequisiti.
 
    ![Aggiungere i set di dati](./media/add-datasets.png "Aggiungere i set di dati")    
 

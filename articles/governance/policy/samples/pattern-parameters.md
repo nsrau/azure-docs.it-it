@@ -1,14 +1,14 @@
 ---
 title: 'Criterio: Parametri in una definizione di criteri'
-description: Questo modello di Criteri di Azure fornisce un esempio di come usare i parametri in una definizione di criteri.
+description: Questo modello di Criteri di Azure fornisce un esempio di come usare i parametri di stringa e matrice in una definizione dei criteri, nonché come parametrizzare l'effetto.
 ms.date: 08/17/2020
 ms.topic: sample
-ms.openlocfilehash: 6d938cdf2f31d30932d3631e99254b7d833f2941
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 7bb991c43a1deee39dd047aa7d814c124712fe69
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545574"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89649955"
 ---
 # <a name="azure-policy-pattern-parameters"></a>Modello di Criteri di Azure: parametri
 

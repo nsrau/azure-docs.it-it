@@ -5,18 +5,18 @@ services: static-web-apps
 author: craigshoemaker
 ms.service: static-web-apps
 ms.topic: quickstart
-ms.date: 08/13/2020
+ms.date: 09/03/2020
 ms.author: cshoe
-ms.openlocfilehash: e0b78c5e053c5668fbebd8ebaac91a90aa2b364f
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: 7818754ca335f503c5afdc47d410cfe1d1029ab4
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "88752861"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89434785"
 ---
 # <a name="quickstart-building-your-first-static-web-app-in-the-azure-portal"></a>Avvio rapido: Creazione della prima app Web statica nel portale di Azure
 
-App Web statiche di Azure consente di pubblicare un sito Web in un ambiente di produzione creando app da un repository GitHub. In questa guida di avvio rapido si distribuisce un'applicazione Web in App Web statiche di Azure usando il portale.
+App Web statiche di Azure consente di pubblicare un sito Web in un ambiente di produzione creando app da un repository GitHub. In questa guida di avvio rapido si distribuisce un'applicazione Web in App Web statiche di Azure usando il portale di Azure.
 
 Se non si ha una sottoscrizione di Azure, creare un [account per una versione di prova gratuita](https://azure.microsoft.com/free).
 
@@ -56,38 +56,39 @@ Dopo aver eseguito l'accesso con GitHub, immettere le informazioni sul repositor
 1. Selezionare l'_organizzazione_ preferita
 1. Selezionare **my-first-web-static-app** nell'elenco a discesa _Repository_
 1. Selezionare **master** dall'elenco a discesa _Ramo_
-1. Fare clic sul pulsante **Avanti: Compilazione >** per modificare la configurazione della build
-
-:::image type="content" source="media/getting-started-portal/next-build-button.png" alt-text="Pulsante Avanti > Compilazione":::
 
 > [!NOTE]
 > Se non viene visualizzato alcun repository, potrebbe essere necessario autorizzare App Web statiche di Azure in GitHub. Passare al repository GitHub e quindi a **Impostazioni > Applicazioni > App OAuth autorizzate**, selezionare **App Web statiche di Azure** e infine **Concedi**. Per concedere le autorizzazioni per i repository dell'organizzazione, è necessario essere un proprietario dell'organizzazione.
 
-1. Nella scheda _Compilazione_ aggiungere i dettagli di configurazione specifici del framework front-end preferito.
+1. Nella scheda _Dettagli compilazione_ aggiungere i dettagli di configurazione specifici del framework front-end preferito.
 
     # <a name="no-framework"></a>[Nessun framework](#tab/vanilla-javascript)
 
-    - Cancellare il valore predefinito nella casella _Percorso app_
-    - Cancellare il valore predefinito nella casella _Percorso_
-    - Cancellare il valore predefinito dalla casella _Percorso artefatto app_
+    1. Selezionare **Personalizzato** nel menu a discesa _Set di impostazioni compilazione_
+    1. Cancellare il valore predefinito nella casella _Percorso app_
+    1. Cancellare il valore predefinito nella casella _Percorso_
+    1. Lasciare vuota la casella _Percorso artefatto app_
 
     # <a name="angular"></a>[Angular](#tab/angular)
 
-    - Cancellare il valore predefinito nella casella _Percorso app_
-    - Cancellare il valore predefinito nella casella _Percorso_
-    - Digitare **dist/angular-basic** nella casella _Percorso artefatto app_
+    1. Selezionare **Angular** nel menu a discesa _Set di impostazioni compilazione_
+    1. Mantenere il valore predefinito nella casella _Percorso app_
+    1. Cancellare il valore predefinito nella casella _Percorso_
+    1. Digitare **dist/angular-basic** nella casella _Percorso artefatto app_
 
     # <a name="react"></a>[React](#tab/react)
 
-    - Cancellare il valore predefinito nella casella _Percorso app_
-    - Cancellare il valore predefinito nella casella _Percorso_
-    - Digitare **build** nella casella _Percorso artefatto app_
+    1. Selezionare **React** nel menu a discesa _Set di impostazioni compilazione_
+    1. Mantenere il valore predefinito nella casella _Percorso app_
+    1. Cancellare il valore predefinito nella casella _Percorso_
+    1. Digitare **build** nella casella _Percorso artefatto app_
 
     # <a name="vue"></a>[Vue](#tab/vue)
 
-    - Cancellare il valore predefinito nella casella _Percorso app_
-    - Cancellare il valore predefinito nella casella _Percorso_
-    - Digitare **dist** nella casella _Percorso artefatto app_
+    1. Selezionare **Vue.js** nel menu a discesa _Set di impostazioni compilazione_
+    1. Mantenere il valore predefinito nella casella _Percorso app_
+    1. Cancellare il valore predefinito nella casella _Percorso_
+    1. Mantenere il valore predefinito nella casella _Percorso artefatto app_
 
     ---
 

@@ -11,12 +11,12 @@ author: BarbaraSelden
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f17f6fd881243d91428c6025fd63469a38afa0f
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 60d3e3c174ad9a3372df084cac9eb67270779298
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268809"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563897"
 ---
 # <a name="plan-your-azure-active-directory-device-deployment"></a>Pianificare la distribuzione del dispositivo Azure Active Directory
 
@@ -105,24 +105,24 @@ i dispositivi iOS e Android possono essere registrati solo Azure AD. La tabella 
 | Considerazioni | Registrazione in Azure AD| Aggiunta ad Azure AD| Aggiunta ad Azure AD ibrido |
 | - | - | - | - |
 | **Sistemi operativi client**| | |  |
-| Dispositivi Windows 10| ![selezionare](./media/plan-device-deployment/check.png)| ![selezionare](./media/plan-device-deployment/check.png)| ![selezionare](./media/plan-device-deployment/check.png) |
-| Dispositivi Windows di livello inferiore (Windows 8.1 o Windows 7)| | | ![selezionare](./media/plan-device-deployment/check.png) |
+| Dispositivi Windows 10| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png) |
+| Dispositivi Windows di livello inferiore (Windows 8.1 o Windows 7)| | | ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png) |
 |**Opzioni di accesso**| | |  |
-| Credenziali locali dell'utente finale| ![selezionare](./media/plan-device-deployment/check.png)| |  |
-| Password| ![selezionare](./media/plan-device-deployment/check.png)| ![selezionare](./media/plan-device-deployment/check.png)| ![selezionare](./media/plan-device-deployment/check.png) |
-| PIN per i dispositivi| ![selezionare](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello| ![selezionare](./media/plan-device-deployment/check.png)| |  |
-| Windows Hello for Business| | ![selezionare](./media/plan-device-deployment/check.png)| ![selezionare](./media/plan-device-deployment/check.png) |
-| Chiavi di sicurezza di FIDO 2,0| | ![selezionare](./media/plan-device-deployment/check.png)| ![selezionare](./media/plan-device-deployment/check.png) |
-| App Microsoft Authenticator (con password)| ![selezionare](./media/plan-device-deployment/check.png)| ![selezionare](./media/plan-device-deployment/check.png)| ![selezionare](./media/plan-device-deployment/check.png) |
+| Credenziali locali dell'utente finale| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| |  |
+| Password| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png) |
+| PIN per i dispositivi| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| |  |
+| Windows Hello| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| |  |
+| Windows Hello for Business| | ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png) |
+| Chiavi di sicurezza di FIDO 2,0| | ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png) |
+| App Microsoft Authenticator (con password)| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png) |
 |**Funzionalità principali**| | |  |
-| Da SSO a risorse cloud| ![selezionare](./media/plan-device-deployment/check.png)| ![selezionare](./media/plan-device-deployment/check.png)| ![selezionare](./media/plan-device-deployment/check.png) |
-| Accesso SSO alle risorse locali| | ![selezionare](./media/plan-device-deployment/check.png)| ![selezionare](./media/plan-device-deployment/check.png) |
-| Accesso condizionale <br> (Richiedi che i dispositivi siano contrassegnati come conformi) <br> (Deve essere gestito da MDM)| ![selezionare](./media/plan-device-deployment/check.png) | ![selezionare](./media/plan-device-deployment/check.png)|![selezionare](./media/plan-device-deployment/check.png) |
-Accesso condizionale <br>(Richiedi dispositivi ibridi Azure AD aggiunti)| | | ![selezionare](./media/plan-device-deployment/check.png)
-| Reimpostazione della password self-service dalla schermata di accesso di Windows| | ![selezionare](./media/plan-device-deployment/check.png)| ![selezionare](./media/plan-device-deployment/check.png) |
-| Ripristino del PIN di Windows Hello| | ![selezionare](./media/plan-device-deployment/check.png)| ![selezionare](./media/plan-device-deployment/check.png) |
-| Enterprise state roaming tra dispositivi| | ![selezionare](./media/plan-device-deployment/check.png)| ![selezionare](./media/plan-device-deployment/check.png) |
+| Da SSO a risorse cloud| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png) |
+| Accesso SSO alle risorse locali| | ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png) |
+| Accesso condizionale <br> (Richiedi che i dispositivi siano contrassegnati come conformi) <br> (Deve essere gestito da MDM)| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png) | ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)|![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png) |
+Accesso condizionale <br>(Richiedi dispositivi ibridi Azure AD aggiunti)| | | ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)
+| Reimpostazione della password self-service dalla schermata di accesso di Windows| | ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png) |
+| Ripristino del PIN di Windows Hello| | ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png) |
+| Enterprise state roaming tra dispositivi| | ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png) |
 
 
 ## <a name="azure-ad-registration"></a>Registrazione Azure AD 
@@ -239,9 +239,9 @@ Esaminare le piattaforme supportate e non supportate per i dispositivi integrati
 
 | Strumenti di gestione dei dispositivi| Registrazione in Azure AD| Aggiunta ad Azure AD| Aggiunta ad Azure AD ibrido|
 | - | - | - | - |
-| [Gestione dei dispositivi mobili (MDM) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Esempio: Microsoft Intune| ![selezionare](./media/plan-device-deployment/check.png)| ![selezionare](./media/plan-device-deployment/check.png)| ![selezionare](./media/plan-device-deployment/check.png)|  |
-| [Co-gestione con Microsoft Intune e Microsoft endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 e versioni successive)| | ![selezionare](./media/plan-device-deployment/check.png)| ![selezionare](./media/plan-device-deployment/check.png)|  |
-| [Criteri di gruppo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Solo Windows)| | | ![selezionare](./media/plan-device-deployment/check.png)|  |
+| [Gestione dei dispositivi mobili (MDM) ](/windows/client-management/mdm/azure-active-directory-integration-with-mdm) <br>Esempio: Microsoft Intune| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)|  |
+| [Co-gestione con Microsoft Intune e Microsoft endpoint Configuration Manager](/mem/configmgr/comanage/overview) <br>(Windows 10 e versioni successive)| | ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)| ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)|  |
+| [Criteri di gruppo](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831791(v=ws.11))<br>(Solo Windows)| | | ![Segno di spunta per questi valori.](./media/plan-device-deployment/check.png)|  |
 
 
 

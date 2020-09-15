@@ -7,16 +7,16 @@ ms.topic: how-to
 ms.date: 03/19/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: fd2e4f5c81427413e3f3f3eceaa0cc41a3b9e318
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 202f7fd065641f9921df5237fb83e7900819c8f7
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85510367"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90563506"
 ---
 # <a name="migrate-from-linux-to-a-hybrid-cloud-deployment-with-azure-file-sync"></a>Eseguire la migrazione da Linux a una distribuzione cloud ibrida con Sincronizzazione file di Azure
 
-Sincronizzazione file di Azure funziona nelle istanze di Windows Server con l'archiviazione diretta (DAS). Non supporta la sincronizzazione da e verso Linux o una condivisione SMB (Server Message Block) remota.
+Sincronizzazione file di Azure funziona nelle istanze di Windows Server con l'archiviazione diretta (DAS). Non supporta la sincronizzazione da e verso client Linux o una condivisione SMB (Server Message Block) remota o NFS (Network File System).
 
 Di conseguenza, la trasformazione dei servizi file in una distribuzione ibrida rende necessario eseguire una migrazione a Windows Server. Questo articolo illustra la pianificazione e l'esecuzione di una migrazione di questo tipo.
 
@@ -201,7 +201,7 @@ Creare una condivisione nella cartella di Windows Server ed eventualmente modifi
 È possibile provare a eseguire alcune di queste copie in parallelo. Si consiglia di elaborare l'ambito di una condivisione file di Azure alla volta.
 
 > [!WARNING]
-> Dopo aver spostato tutti i dati dal server Samba Linux all'istanza di Windows Server e aver completato la migrazione, tornare a *tutti* i gruppi di sincronizzazione nella portale di Azure. Modificare la percentuale di spazio disponibile per il volume di suddivisione in livelli nel cloud in modo più appropriato per l'utilizzo della cache, ad esempio il 20%. 
+> Dopo aver spostato tutti i dati dal server Samba Linux all'istanza di Windows Server e aver completato la migrazione, tornare a *tutti*  i gruppi di sincronizzazione nella portale di Azure. Modificare la percentuale di spazio disponibile per il volume di suddivisione in livelli nel cloud in modo più appropriato per l'utilizzo della cache, ad esempio il 20%. 
 
 I criteri per lo spazio disponibile nel volume di suddivisione in livelli cloud agiscono su un livello di volume con potenzialmente più endpoint server sincronizzati. Se si dimentica di regolare lo spazio libero su un solo endpoint server, la sincronizzazione continuerà ad applicare la regola più restrittiva e tenterà di mantenere lo spazio libero su disco al 99%. La cache locale potrebbe non funzionare come previsto. È possibile che le prestazioni siano accettabili se l'obiettivo è quello di ottenere lo spazio dei nomi per un volume che contiene solo i dati di archivio a cui si accede raramente e si sta riservando il resto dello spazio di archiviazione per un altro scenario.
 

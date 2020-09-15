@@ -7,14 +7,17 @@ ms.topic: troubleshooting
 ms.date: 08/24/2020
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: fe1460d4353addff1b8e3095cfe06c1fcb3b7bd0
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: cffac114cacd05e04e149af96d1678b536db7fec
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782371"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564237"
 ---
-# <a name="troubleshoot-azure-files-performance-issues"></a>Risolvere i problemi relativi alle prestazioni File di Azure
+# <a name="troubleshoot-azure-files-performance-issues-smb"></a>Risolvere i problemi relativi alle prestazioni File di Azure (SMB)
+
+> [!IMPORTANT]
+> Il contenuto di questo articolo è valido solo per le condivisioni SMB.
 
 Questo articolo elenca alcuni problemi comuni relativi alle condivisioni file di Azure. Fornisce possibili cause e soluzioni alternative quando si verificano questi problemi.
 
@@ -161,7 +164,7 @@ I carichi di lavoro che si basano sulla creazione di un numero elevato di file n
 
 ### <a name="workaround"></a>Soluzione alternativa
 
-- Nessuno.
+- No.
 
 ## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Rallentamento delle prestazioni da Windows 8.1 o Server 2012 R2
 
@@ -200,6 +203,36 @@ Maggiore della latenza prevista per l'accesso File di Azure per carichi di lavor
 11. Fare clic su **Seleziona gruppo di azioni** per aggiungere un **gruppo di azioni** (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
 12. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità**della **regola di avviso**.
 13. Fare clic su **Crea regola di avviso** per creare l'avviso.
+
+Per altre informazioni sulla configurazione degli avvisi in monitoraggio di Azure, vedere [Panoramica degli avvisi in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+
+## <a name="how-to-create-alerts-if-a-premium-file-share-is-trending-towards-being-throttled"></a>Come creare avvisi se una condivisione file Premium è in tendenza verso la limitazione
+
+1. Passare all' **account di archiviazione** nell' **portale di Azure**.
+2. Nella sezione Monitoraggio fare clic su **avvisi** e quindi su **+ nuova regola di avviso**.
+3. Fare clic su **Modifica risorsa**, selezionare il **tipo di risorsa file** per l'account di archiviazione e quindi fare clic su **fine**. Ad esempio, se il nome dell'account di archiviazione è contoso, selezionare la risorsa Contoso/file.
+4. Fare clic su **Seleziona condizione** per aggiungere una condizione.
+5. Viene visualizzato un elenco di segnali supportati per l'account di archiviazione, selezionare la metrica in **uscita** .
+
+  > [!NOTE]
+  > È necessario creare 3 avvisi distinti da avvisare quando il traffico in ingresso, in uscita o nelle transazioni supera la soglia impostata. Questo perché un avviso viene generato solo quando vengono soddisfatte tutte le condizioni. Quindi, se si inseriscono tutte le condizioni in un avviso, viene generato un avviso solo se il traffico in ingresso, in uscita e nelle transazioni supera i rispettivi importi di soglia.
+
+6. Scorrere verso il basso. Fare clic sull'elenco a discesa **nome dimensione** e selezionare **condivisione file**.
+7. Fare clic sull'elenco a discesa **valori dimensione** e selezionare le condivisioni file per le quali si desidera ricevere un avviso.
+8. Definire i **parametri di avviso** (valore soglia, operatore, granularità aggregazione e frequenza di valutazione) e fare clic su **fine**.
+
+  > [!NOTE]
+  > Le metriche in uscita, in ingresso e nelle transazioni sono al minuto anche se è stato effettuato il provisioning in uscita, in ingresso e IOPS al secondo. (per informazioni sulla granularità di aggregazione, > al minuto = più rumoroso, scegliere diff uno) Se, ad esempio, l'uscita di cui è stato effettuato il provisioning è 90 MiB/secondo e si vuole che la soglia sia pari al 80% dell'uscita sottoposta a provisioning, è necessario selezionare i seguenti parametri di avviso: 75497472 per **valore soglia**, maggiore o uguale a per **operatore**e media per **tipo di aggregazione**. A seconda della rumorosità dell'avviso, è possibile scegliere i valori da selezionare per la granularità di aggregazione e la frequenza di valutazione. Se, ad esempio, si desidera che l'avviso esamini il traffico in ingresso medio nel periodo di tempo di un'ora e desidero che la regola di avviso venga eseguita ogni ora, selezionare 1 ora per la **granularità di aggregazione** e un'ora per la **frequenza di valutazione**.
+
+9. Fare clic su **Seleziona gruppo di azioni** per aggiungere un **gruppo di azioni** (posta elettronica, SMS e così via) all'avviso selezionando un gruppo di azioni esistente o creando un nuovo gruppo di azioni.
+10. Specificare i **Dettagli dell'avviso** , ad esempio il nome, la **Descrizione** e la **gravità**della **regola di avviso**.
+11. Fare clic su **Crea regola di avviso** per creare l'avviso.
+
+  > [!NOTE]
+  > Per ricevere una notifica se la condivisione file Premium è prossima a essere limitata a causa del provisioning in ingresso, seguire la stessa procedura, ad eccezione del passaggio 5, selezionare invece la metrica di **ingresso** .
+
+  > [!NOTE]
+  > Per ricevere una notifica se la condivisione file Premium è vicina a essere limitata a causa di operazioni di i/o al secondo con provisioning, sarà necessario apportare alcune modifiche. Nel passaggio 5 Selezionare invece la metrica **transazioni** . Inoltre, per il passaggio 10, l'unica opzione per il **tipo di aggregazione** è Total. Il valore soglia dipende pertanto dalla granularità di aggregazione selezionata. Se, ad esempio, si desidera che la soglia sia pari al 80% di IOPS di base di cui è stato effettuato il provisioning ed è stata selezionata un'ora per la **granularità di aggregazione**, il **valore soglia** corrisponderà al valore di IOPS di base (in byte) x 0,8 x 3600. Oltre a queste modifiche, attenersi alla stessa procedura riportata sopra. 
 
 Per altre informazioni sulla configurazione degli avvisi in monitoraggio di Azure, vedere [Panoramica degli avvisi in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
 

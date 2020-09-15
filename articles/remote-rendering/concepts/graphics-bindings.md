@@ -10,12 +10,12 @@ ms.date: 12/11/2019
 ms.topic: conceptual
 ms.service: azure-remote-rendering
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8d8dc4a3efb034c9428de32f0f975869e1044327
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: 3d0628777fbd6250fff4bb8347461d206d13782d
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89613893"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561874"
 ---
 # <a name="graphics-binding"></a>Binding di grafica
 
@@ -137,11 +137,23 @@ wmrBinding->BlitRemoteFrame();
 ### <a name="simulation"></a>Simulazione
 
 `GraphicsApiType.SimD3D11` è il binding della simulazione e se selezionato crea il binding di grafica `GraphicsBindingSimD3d11`. Questa interfaccia viene usata per simulare il movimento della testa, ad esempio in un'applicazione desktop, ed esegue il rendering di un'immagine monoscopica.
+
+Per implementare l'associazione della simulazione, è importante comprendere la differenza tra la fotocamera locale e il frame remoto come descritto nella pagina della [fotocamera](../overview/features/camera.md) .
+
+Sono necessarie due fotocamere:
+
+* **Fotocamera locale**: questa fotocamera rappresenta la posizione corrente della fotocamera basata sulla logica dell'applicazione.
+* **Fotocamera proxy**: questa fotocamera corrisponde al *frame remoto* corrente inviato dal server. Poiché si verifica un ritardo tra il client che richiede un frame e il suo arrivo, il *frame remoto* è sempre un po' dietro lo spostamento della fotocamera locale.
+
+L'approccio di base è che l'immagine remota e il contenuto locale vengono sottoposti a rendering in una destinazione fuori schermo usando la fotocamera del proxy. L'immagine proxy viene quindi riproiettata nello spazio locale della fotocamera, descritta ulteriormente nella [riproiezione della fase finale](../overview/features/late-stage-reprojection.md).
+
 La configurazione è un po' più complessa e funziona nel modo seguente:
 
 #### <a name="create-proxy-render-target"></a>Creare la destinazione di rendering proxy
 
-È necessario eseguire il rendering del contenuto remoto e locale in una destinazione di rendering di colore/profondità fuori schermo denominata 'proxy' usando i dati della camera proxy forniti dalla funzione `GraphicsBindingSimD3d11.Update`. Il proxy deve avere la stessa risoluzione del buffer nascosto. Quando la sessione è pronta, è necessario chiamare `GraphicsBindingSimD3d11.InitSimulation` prima della connessione:
+È necessario eseguire il rendering del contenuto remoto e locale in una destinazione di rendering di colore/profondità fuori schermo denominata 'proxy' usando i dati della camera proxy forniti dalla funzione `GraphicsBindingSimD3d11.Update`.
+
+Il proxy deve corrispondere alla risoluzione del buffer nascosto e deve essere int il formato *DXGI_FORMAT_R8G8B8A8_UNORM* o *DXGI_FORMAT_B8G8R8A8_UNORM* . Quando la sessione è pronta, è necessario chiamare `GraphicsBindingSimD3d11.InitSimulation` prima della connessione:
 
 ```cs
 AzureSession currentSession = ...;
@@ -244,4 +256,6 @@ else
 
 ## <a name="next-steps"></a>Passaggi successivi
 
+* [Fotocamera](../overview/features/camera.md)
+* [Riproiezione con ritardo della fase](../overview/features/late-stage-reprojection.md)
 * [Esercitazione: Visualizzazione di un modello di cui è stato eseguito il rendering in remoto](../tutorials/unity/view-remote-models/view-remote-models.md)

@@ -1,22 +1,25 @@
 ---
-title: Risolvere i problemi di File di Azure in Windows | Microsoft Docs
-description: Risoluzione dei problemi di File di Azure in Windows. Vedere i problemi comuni relativi alle File di Azure quando ci si connette da client Windows e vedere le possibili soluzioni.
+title: Risolvere i problemi di File di Azure in Windows
+description: Risoluzione dei problemi di File di Azure in Windows. Vedere i problemi comuni relativi alle File di Azure quando ci si connette da client Windows e vedere le possibili soluzioni. Solo per le condivisioni SMB
 author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 549f9b03272accbe107c432f4929c5de250a6f6b
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 16491e36e0196bc3dabee17daf905d9a5204f8cd
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532393"
+ms.locfileid: "90564254"
 ---
-# <a name="troubleshoot-azure-files-problems-in-windows"></a>Risolvere i problemi di File di Azure in Windows
+# <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Risolvere i problemi di File di Azure in Windows (SMB)
 
 Questo articolo elenca i problemi comuni correlati a File di Microsoft Azure quando si effettua la connessione da client Windows. L'articolo descrive anche le possibili cause e risoluzioni per tali problemi. Oltre ai passaggi per la risoluzione dei problemi di questo articolo, è anche possibile usare [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)   per assicurarsi che l'ambiente client Windows disponga dei prerequisiti corretti. AzFileDiagnostics automatizza il rilevamento della maggior parte dei sintomi indicati in questo articolo e consente di configurare l'ambiente in modo da ottenere prestazioni ottimali. Queste informazioni sono disponibili anche nello strumento di [risoluzione dei problemi di condivisione file di Azure](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) , che fornisce i passaggi necessari per semplificare la connessione, il mapping e il montaggio di condivisioni file di Azure.
+
+> [!IMPORTANT]
+> Il contenuto di questo articolo è valido solo per le condivisioni SMB.
 
 <a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Errore 5 durante il montaggio di una condivisione file di Azure
@@ -54,7 +57,7 @@ Verificare che le autorizzazioni siano configurate correttamente:
 
 - **Active Directory (ad)** vedere [assegnare autorizzazioni a livello di condivisione a un'identità](https://docs.microsoft.com/azure/storage/files/storage-files-identity-ad-ds-assign-permissions).
 
-    Le assegnazioni delle autorizzazioni a livello di condivisione sono supportate per i gruppi e gli utenti che sono stati sincronizzati dal Active Directory (AD) al Azure Active Directory (AAD) usando Azure AD Connect.  Verificare che i gruppi e gli utenti a cui vengono assegnate le autorizzazioni a livello di condivisione non siano gruppi "solo cloud" non supportati.
+    Le assegnazioni delle autorizzazioni a livello di condivisione sono supportate per i gruppi e gli utenti che sono stati sincronizzati dal Active Directory (AD) al Azure Active Directory (Azure AD) utilizzando Azure AD Connect.  Verificare che i gruppi e gli utenti a cui vengono assegnate le autorizzazioni a livello di condivisione non siano gruppi "solo cloud" non supportati.
 - **Azure Active Directory Domain Services (Azure AD DS)** vedere [assegnare le autorizzazioni di accesso a un'identità](https://docs.microsoft.com/azure/storage/files/storage-files-identity-auth-active-directory-domain-service-enable?tabs=azure-portal#assign-access-permissions-to-an-identity).
 
 <a id="error53-67-87"></a>

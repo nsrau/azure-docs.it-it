@@ -3,12 +3,12 @@ title: Informazioni sull'estensione Grafico multimediale - Azure
 description: Analisi video live su IoT Edge consente di estendere le funzionalità di elaborazione del grafico multimediale tramite un nodo di estensione del grafico.
 ms.topic: overview
 ms.date: 09/14/2020
-ms.openlocfilehash: 2e1ca730a6736776425cd70b323147b58e8eacbf
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 74929cc51a868d20952f1e25432f5343e4821d08
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88716079"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89569331"
 ---
 # <a name="media-graph-extension"></a>Estensione Grafico multimediale
 
@@ -49,13 +49,14 @@ Usare quindi un nodo del processore di estensione gRPC quando:
 Le estensioni del grafico multimediale consentono di eseguire modelli di inferenza scelti in qualsiasi runtime di inferenza disponibile, ad esempio ONNX, TensorFlow, PyTorch o altri, nel proprio contenitore Docker. Per ottenere prestazioni ottimali, è necessario distribuire l'estensione personalizzata di inferenza insieme al modulo Edge di Analisi video live e quindi richiamarlo tramite il processore di estensione HTTP o il processore di estensione gRPC incluso nella topologia del grafico. La frequenza delle chiamate nell'estensione personalizzata può essere inoltre limitata aggiungendo facoltativamente un [processore di rilevamento dei movimenti](media-graph-concept.md#motion-detection-processor) e un [processore di filtro della frequenza dei fotogrammi](media-graph-concept.md#frame-rate-filter-processor) upstream al processore dell'estensione multimediale.
 
 Il diagramma seguente illustra il flusso di dati generale:
- 
-![Flusso di dati](./media/media-graph-extension/data-flow.png)
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/media-graph-extension/analyze-live-video-with-AI-inference-service.svg" alt-text="Servizio di inferenza di intelligenza artificiale":::
 
 ## <a name="samples"></a>Esempi
 
-Vedere alcuni esempi di [notebook Jupyter](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) per Analisi video live. Questi notebook forniranno istruzioni dettagliate su:
+Vedere alcuni esempi di [notebook Jupyter](https://github.com/Azure/live-video-analytics/blob/master/utilities/video-analysis/notebooks/readme.md) per Analisi video live. Questi notebook forniranno istruzioni dettagliate per le **estensioni del grafo multimediale** in:
 
 * Come creare un'immagine del contenitore Docker di un servizio di estensione
 * Come distribuire il servizio di estensione come contenitore insieme al contenitore di Analisi video live
-* Come usare un grafico multimediale di Analisi video live con un client di estensione e indirizzarlo all'endpoint gRPC di estensione
+* Come usare un grafo multimediale di Analisi video live con un client di estensione e come puntarlo all'endpoint di estensione (HTTP/gRPC)

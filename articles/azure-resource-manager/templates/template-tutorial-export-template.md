@@ -2,16 +2,16 @@
 title: 'Esercitazione: Esportare un modello dal portale di Azure'
 description: Informazioni su come usare un modello esportato per completare lo sviluppo del modello.
 author: mumian
-ms.date: 03/27/2020
+ms.date: 09/09/2020
 ms.topic: tutorial
 ms.author: jgao
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 4042ed29b143ab160883ca46ecb1cc17d2e0c761
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7aaeb7af3876c2603208faaf46bead01199906cd
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87497155"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89650058"
 ---
 # <a name="tutorial-use-exported-template-from-the-azure-portal"></a>Esercitazione: Usare il modello esportato dal portale di Azure
 
@@ -62,7 +62,7 @@ Questo modello è adatto per la distribuzione di account di archiviazione, ma è
 
    La funzionalità Esporta modello accetta lo stato corrente di una risorsa e genera un modello per distribuirlo. L'esportazione di un modello può essere utile per ottenere rapidamente il codice JSON necessario per distribuire una risorsa.
 
-1. Copiare la definizione **Microsoft.Web/serverfarms** e la definizione del parametro nel modello.
+1. Esaminare la definizione **Microsoft.Web/serverfarms** e la definizione del parametri nel modello esportato. Non è necessario copiare queste sezioni. È possibile usare questo modello esportato solo come esempio di come aggiungere questa risorsa al modello.
 
     ![Modello di Resource Manager - Esporta modello - Modello esportato](./media/template-tutorial-export-template/resource-manager-template-exported-template.png)
 
@@ -73,7 +73,7 @@ Questo modello è adatto per la distribuzione di account di archiviazione, ma è
 
 Il modello esportato include la maggior parte del codice JSON necessario, che però deve essere personalizzato per il modello. Prestare particolare attenzione alle differenze tra parametri e variabili tra il modello e il modello esportato. Ovviamente, il processo di esportazione non conosce i parametri e le variabili già definiti nel modello.
 
-L'esempio seguente evidenzia le aggiunte apportate al modello. Contiene infatti il codice esportato oltre ad alcune modifiche. In primo luogo, modifica il nome del parametro in modo che corrisponda alla convenzione di denominazione. Quindi, usa il parametro location per la località del piano di servizio app. Infine rimuove la proprietà **name** all'interno dell'oggetto **properties** perché questo valore è ridondante con la proprietà **name** a livello di risorsa.
+L'esempio seguente evidenzia le aggiunte apportate al modello. Contiene infatti il codice esportato oltre ad alcune modifiche. In primo luogo, modifica il nome del parametro in modo che corrisponda alla convenzione di denominazione. Quindi, usa il parametro location per la località del piano di servizio app. In terzo luogo, rimuove alcune proprietà in cui il valore predefinito è corretto.
 
 Copiare l'intero file e sostituire il modello con il contenuto del file.
 

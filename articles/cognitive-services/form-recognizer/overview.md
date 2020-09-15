@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 08/05/2020
 ms.author: pafarley
-ms.openlocfilehash: 0df61c2ee42d468562efd67a2a66a90a5e4fda53
-ms.sourcegitcommit: 5b6acff3d1d0603904929cc529ecbcfcde90d88b
+ms.openlocfilehash: 070796cd260e56bb51115a7ef33ced8455bfb6a9
+ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88723563"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89394398"
 ---
 # <a name="what-is-form-recognizer"></a>Informazioni su Riconoscimento modulo
 
@@ -48,6 +48,7 @@ Riconoscimento modulo usa l'[API di layout](#layout-api) per riconoscere le dime
 ## <a name="prebuilt-models"></a>Modelli predefiniti
 
 Riconoscimento modulo include anche modelli predefiniti per tipi di moduli univoci.
+
 ### <a name="prebuilt-receipt-model"></a>Modello di ricevuta predefinito
 Il modello di ricevuta predefinito viene usato per la lettura di ricevute di vendita in inglese di Australia, Canada, Gran Bretagna, India e Stati Uniti, il tipo usato da ristoranti, distributori di carburante, rivenditori e così via. Questo modello consente di estrarre le informazioni principali, come la data e l'ora della transazione, i dati del fornitore, gli importi delle imposte, gli articoli, i totali e altro ancora. Il training del modello di ricevute predefinito è stato inoltre eseguito in modo che il modello possa riconoscere e restituire tutto il testo di una ricevuta. 
 
@@ -74,9 +75,11 @@ Seguire un argomento di avvio rapido per iniziare a estrarre i dati dai moduli. 
     * [Training senza etichette - cURL](quickstarts/curl-train-extract.md)
     * [Training senza etichette - Python](quickstarts/python-train-extract.md)
     * [Training con etichette - Python](quickstarts/python-labeled-data.md)
-  * Estrarre dati dalle ricevute di vendita USA
+  * Estrarre dati dalle ricevute di vendita
     * [Estrarre dati dalle ricevute - cURL](quickstarts/curl-receipts.md)
     * [Estrarre dati dalle ricevute - Python](quickstarts/python-receipts.md)
+  * Estrarre dati dai biglietti da visita
+    * [Estrarre dati dai biglietti da visita - Python](quickstarts/python-business-cards.md)
   * Estrarre la struttura di testo e tabelle dai moduli
     * [Estrarre i dati del layout - Python](quickstarts/python-layout.md)
 
@@ -90,6 +93,7 @@ Per eseguire il training dei modelli ed estrarre dati strutturati dai moduli, ve
 | **Eseguire il training di un modello personalizzato**| Eseguire il training di un nuovo modulo per analizzare i moduli usando cinque moduli dello stesso tipo. Impostare il parametro _useLabelFile_ su `true` per eseguire il training con dati etichettati manualmente. |
 | **Analyze Form** |Analizzare un singolo documento passato come flusso per estrarre testo, coppie chiave-valore e tabelle dal modulo con il modello personalizzato.  |
 | **Analyze Receipt** |Analizzare una singola ricevuta per estrarre le informazioni principali e eventuale testo aggiuntivo contenuto nella ricevuta.|
+| **Analyze Business Card** |Analizzare un biglietto da lavoro per estrarre le principali informazioni e il testo.|
 | **Analyze Layout** |Analizzare il layout di un modulo per estrarre la struttura di testo e tabelle.|
 
 Per altre informazioni, esplorare la [documentazione di riferimento dell'API REST](https://westus2.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2/operations/AnalyzeWithCustomForm). Se si ha familiarità con una versione precedente dell'API, vedere l'articolo [Novità](./whats-new.md) per informazioni sulle modifiche recenti.

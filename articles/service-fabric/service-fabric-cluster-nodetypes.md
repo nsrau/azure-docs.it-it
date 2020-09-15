@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 4efa8626e80cbd64cd6216faa1869d7210f32cf2
-ms.sourcegitcommit: dabd9eb9925308d3c2404c3957e5c921408089da
+ms.openlocfilehash: 870467760a2baaa887b06fb8e01335f225f04d6e
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/11/2020
-ms.locfileid: "86261100"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561891"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Tipi di nodo di Azure Service Fabric e set di scalabilità di macchine virtuali
 
@@ -32,7 +32,7 @@ Quando si aumenta la scalabilità orizzontale di un set di scalabilità, viene c
 
 Se è stato distribuito il cluster dal portale Azure o è stato usato il modello di Azure Resource Manager di esempio, si otterrà un elenco di tutte le risorse in un gruppo di risorse. Verranno visualizzati i bilanciamenti del carico per ogni set di scalabilità o tipo di nodo. Il nome del bilanciamento del carico usa il formato seguente: **LB-&lt;nome del tipo di nodo&gt;**. Ad esempio, LB-sfcluster4doc-0, come in questa figura:
 
-![Risorse][Resources]
+![Screenshot mostra un gruppo di risorse con due bilanciamenti del carico evidenziati.][Resources]
 
 ## <a name="service-fabric-virtual-machine-extension"></a>Estensione della macchina virtuale Service Fabric
 

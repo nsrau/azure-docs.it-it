@@ -8,12 +8,12 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 464c0fee31f86ba6ffa1dbecc7b2dd659cd86685
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: c633cc973cb9e4d4f0375dec638e278c48c6709c
+ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89255529"
+ms.lasthandoff: 09/06/2020
+ms.locfileid: "89500233"
 ---
 # <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-using-azure-cli-and-python"></a>Distribuire VM in un dispositivo GPU Azure Stack Edge tramite interfaccia della riga di comando di Azure e Python
 
@@ -60,13 +60,13 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
 
     2. Abilitare il calcolo nell'interfaccia di rete. Azure Stack Edge crea e gestisce uno switch virtuale corrispondente a tale interfaccia di rete.
 
-    Se si decide di usare un'altra interfaccia di rete per il calcolo, assicurarsi di:
+    <!--If you decide to use another network interface for compute, make sure that you:
 
-    - Eliminare tutte le macchine virtuali distribuite con Azure Resource Manager.
+    - Delete all the VMs that you have deployed using Azure Resource Manager.
 
-    - Eliminare tutte le interfacce di rete virtuali e la rete virtuale associate a questa interfaccia di rete.
+    - Delete all virtual network interfaces and the virtual network associated with this network interface.
 
-    - È ora possibile abilitare un'altra interfaccia di rete per il calcolo.
+    - You can now enable another network interface for compute.-->
 
 3. Sono stati creati e installati tutti i certificati nel dispositivo Azure Stack Edge e nell'archivio attendibile del client. Seguire la procedura descritta in [Passaggio 2: Creare e installare i certificati](azure-stack-edge-j-series-connect-resource-manager.md#step-2-create-and-install-certificates).
 
@@ -342,7 +342,8 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
    ]
    PS C:\Program Files (x86)\Microsoft SDKs\Azure\CLI2>
    ```
-
+   Prendere nota dei valori di `id` e `tenantId` in quanto corrispondono rispettivamente all'ID sottoscrizione di Azure Resource Manager e all'ID tenant di Azure Resource Manager e verranno usati nel passaggio successivo.
+       
    Le variabili di ambiente seguenti devono essere impostate per funzionare da *entità servizio*:
 
    ```
@@ -352,7 +353,7 @@ Prima di iniziare a creare e gestire una macchina virtuale nel dispositivo Azure
    $ENV:ARM_SUBSCRIPTION_ID = "A4257FDE-B946-4E01-ADE7-674760B8D1A3"
    ```
 
-   L'ID tenant di Azure Resource Manager, l'ID client di Azure Resource Manager e l'ID sottoscrizione di Azure Resource Manager sono tutti hardcoded e hanno gli stessi valori in tutti i dispositivi Azure Stack Edge. Il segreto client di Azure Resource Manager è la password di Azure Resource Manager impostata.
+   L'ID client di Azure Resource Manager Client ID è hardcoded. L'ID tenant di Azure Resource Manager e l'ID sottoscrizione di Azure Resource Manager sono entrambi presenti nell'output del comando `az login` eseguito in precedenza. Il segreto client di Azure Resource Manager è la password di Azure Resource Manager impostata.
 
    Per altre informazioni, vedere [Panoramica di Azure Resource Manager](azure-stack-edge-j-series-set-azure-resource-manager-password.md).
 
@@ -379,7 +380,7 @@ Per creare una macchina virtuale, è disponibile uno script Python. A seconda de
 
 2. Quando viene eseguito lo script, il caricamento del disco rigido virtuale richiede 20-30 minuti. Per visualizzare lo stato di avanzamento dell'operazione di caricamento, è possibile usare Azure Storage Explorer o AzCopy.
 
-    Ecco un esempio di output di un'esecuzione riuscita dello script. Lo script crea tutte le risorse all'interno di un gruppo di risorse, usa queste risorse per creare una macchina virtuale e infine elimina il gruppo di risorse, incluse tutte le risorse create.
+    Ecco un esempio di output di un'esecuzione riuscita dello script. Lo script crea tutte le risorse all'interno di un gruppo di risorse, usa queste risorse per creare una VM e infine elimina il gruppo di risorse, incluse tutte le risorse create.
 
     
     ```powershell

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.date: 07/08/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, contperfq1
-ms.openlocfilehash: c25ee5d9c626ba95d28f2247e6771d9fa1ada0f7
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: af912838e99e7b36cb29695758108f0a9efeb8ea
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662546"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561636"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-with-python-sdk"></a>Creare destinazioni di calcolo per il training e la distribuzione di modelli con Python SDK
 
@@ -36,7 +36,11 @@ In questo articolo viene usato il Azure Machine Learning Python SDK per creare e
 
 ## <a name="limitations"></a>Limitazioni
 
-Alcuni degli scenari elencati in questo documento sono contrassegnati come __Anteprima__. La funzionalità di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+* **Non creare più allegati simultanei nello stesso calcolo** dall'area di lavoro. Ad esempio, se si connette un cluster del servizio Kubernetes di Azure a un'area di lavoro usando due nomi diversi. Ogni nuovo allegato interromperà gli allegati esistenti precedenti.
+
+    Se si vuole ricollegare una destinazione di calcolo, ad esempio per modificare TLS o altre impostazioni di configurazione del cluster, è necessario innanzitutto rimuovere l'allegato esistente.
+
+* Alcuni degli scenari elencati in questo documento sono contrassegnati come __Anteprima__. La funzionalità di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="whats-a-compute-target"></a>Che cos'è una destinazione di calcolo?
 
@@ -269,6 +273,9 @@ Usare la Data Science Virtual Machine di Azure (DSVM) come macchina virtuale di 
 
    In alternativa, è possibile collegare la Data Science VM all'area di lavoro [usando Azure Machine Learning Studio](how-to-create-attach-compute-studio.md#attached-compute).
 
+    > [!WARNING]
+    > Non creare più allegati simultanei nello stesso DSVM dall'area di lavoro. Ogni nuovo allegato interromperà gli allegati esistenti precedenti.
+
 1. **Configurare**: Creare una configurazione di esecuzione per la destinazione di calcolo Data Science Virtual Machine. Docker e conda vengono usati per creare e configurare l'ambiente di training nella Data Science Virtual Machine.
 
    [!code-python[](~/aml-sdk-samples/ignore/doc-qa/how-to-set-up-training-targets/dsvm.py?name=run_dsvm)]
@@ -313,6 +320,9 @@ Azure HDInsight è una piattaforma comune per l'analisi dei Big Data. La piattaf
    ```
 
    In alternativa, è possibile collegare il cluster HDInsight all'area di lavoro [usando Azure Machine Learning Studio](how-to-create-attach-compute-studio.md#attached-compute).
+
+    > [!WARNING]
+    > Non creare più allegati simultanei nello stesso HDInsight dall'area di lavoro. Ogni nuovo allegato interromperà gli allegati esistenti precedenti.
 
 1. **Configurare**: Creare una configurazione di esecuzione per la destinazione di calcolo HDI. 
 
@@ -360,6 +370,9 @@ except ComputeTargetException:
 
 print("Using Batch compute:{}".format(batch_compute.cluster_resource_id))
 ```
+
+> [!WARNING]
+> Non creare più allegati simultanei per lo stesso Azure Batch dall'area di lavoro. Ogni nuovo allegato interromperà gli allegati esistenti precedenti.
 
 ### <a name="azure-databricks"></a><a id="databricks"></a>Azure Databricks
 
@@ -414,6 +427,9 @@ except ComputeTargetException:
 
 Per un esempio più dettagliato, vedere un [notebook di esempio](https://aka.ms/pl-databricks) in GitHub.
 
+> [!WARNING]
+> Non creare più allegati simultanei per lo stesso Azure Databricks dall'area di lavoro. Ogni nuovo allegato interromperà gli allegati esistenti precedenti.
+
 ### <a name="azure-data-lake-analytics"></a><a id="adla"></a>Azure Data Lake Analytics.
 
 Azure Data Lake Analytics è una piattaforma di analisi dei Big Data nel cloud di Azure. Può essere usata come destinazione di calcolo con una pipeline di Azure Machine Learning.
@@ -463,6 +479,9 @@ except ComputeTargetException:
 ```
 
 Per un esempio più dettagliato, vedere un [notebook di esempio](https://aka.ms/pl-adla) in GitHub.
+
+> [!WARNING]
+> Non creare più allegati simultanei nello stesso Anna dall'area di lavoro. Ogni nuovo allegato interromperà gli allegati esistenti precedenti.
 
 > [!TIP]
 > Le pipeline di Azure Machine Learning possono funzionare solo con i dati archiviati nell'archivio dati predefinito dell'account Data Lake Analytics. Se i dati che è necessario utilizzare si trova in un archivio non predefinito, è possibile utilizzare un oggetto [`DataTransferStep`](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.data_transfer_step.datatransferstep?view=azure-ml-py&preserve-view=true) per copiare i dati prima del training.

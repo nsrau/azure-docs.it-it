@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: include
-ms.date: 08/18/2020
+ms.date: 09/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: fab36a538cd9dfa17852c513974af062fa7a0ec2
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 2519baa01fa9d8a13dd2e7855f9da3ec7f9093f9
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89304068"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89570187"
 ---
 ### <a name="does-the-user-need-to-have-hub-and-spoke-with-sd-wanvpn-devices-to-use-azure-virtual-wan"></a>Per usare la rete WAN virtuale di Azure, è necessario avere un'architettura hub-spoke con dispositivi SD-WAN/VPN?
 
@@ -83,7 +83,7 @@ Per aggiungere server DNS per i client da punto a sito, sono disponibili due opz
 
 ### <a name="for-user-vpn-point-to-site--how-many-clients-are-supported"></a>Per la VPN utente (da punto a sito), quanti client sono supportati?
 
-Ogni gateway VPN utente da punto a sito include due istanze, ognuna delle quali supporta fino a un determinato numero di utenti in base all'unità di scala. L'unità di scala 1-3 supporta 500 connessioni, l'unità di scala 4-6 supporta 1000 connessioni, l'unità di scala 7-12 supporta 5000 connessioni e l'unità di scala 13-20 supporta fino a 10.000 connessioni. 
+Ogni gateway VPN utente da punto a sito include due istanze, ognuna delle quali supporta fino a un determinato numero di utenti in base all'unità di scala. L'unità di scala 1-3 supporta 500 connessioni, l'unità di scala 4-6 supporta 1000 connessioni, l'unità di scala 7-12 supporta 5000 connessioni e l'unità di scala 13-18 supporta fino a 10.000 connessioni. 
 
 Si supponga, ad esempio, che l'utente scelga l'unità di scala 1. Ogni unità di scala implica la distribuzione di un gateway attivo-attivo e ognuna delle istanze (in questo caso 2) supporta fino a 500 connessioni. Anche se è possibile ottenere 500 * 2 connessioni per ogni gateway, questo non significa che se ne pianificano 1000 invece di 500 per questa unità di scala. Se si supera il numero consigliato di connessioni, possono essere richiesti interventi di manutenzione per le istanze, durante i quali la connettività per le 500 connessioni aggiuntive potrebbe interrompersi. Assicurarsi anche di pianificare i tempi di inattività nel caso in cui si decida di aumentare o ridurre l'unità di scala o di cambiare la configurazione da punto a sito nel gateway VPN.
 

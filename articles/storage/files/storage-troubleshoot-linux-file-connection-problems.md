@@ -7,18 +7,21 @@ ms.topic: troubleshooting
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: a01d9e90e87d1c23b9aefc5f2d9ba3ba84d0f59f
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: e4aa0cb2cc3ff623929222d83a560f66198f13c0
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87904922"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90564271"
 ---
-# <a name="troubleshoot-azure-files-problems-in-linux"></a>Risolvere i problemi di File di Azure in Linux
+# <a name="troubleshoot-azure-files-problems-in-linux-smb"></a>Risolvere i problemi di File di Azure in Linux (SMB)
 
 Questo articolo elenca i problemi comuni correlati a File di Azure quando si effettua la connessione da client Linux. L'articolo descrive anche le possibili cause e risoluzioni per tali problemi. 
 
 Oltre alle procedure di risoluzione dei problemi descritte in questo articolo, si può usare [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Linux) per verificare che il client Linux abbia i prerequisiti corretti. AzFileDiagnostics automatizza il rilevamento della maggior parte dei sintomi descritti in questo articolo. Aiuta a configurare l'ambiente per ottenere prestazioni ottimali. Queste informazioni sono disponibili anche in [Troubleshooter for Azure Files storage problems](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) (Strumento di risoluzione dei problemi di archiviazione di File di Azure). Lo strumento di risoluzione dei problemi fornisce le procedure da eseguire per risolvere i problemi di connessione, mapping e montaggio di condivisioni di File di Azure.
+
+> [!IMPORTANT]
+> Il contenuto di questo articolo è valido solo per le condivisioni SMB.
 
 ## <a name="cannot-connect-to-or-mount-an-azure-file-share"></a>Non è possibile connettersi a o montare una condivisione file di Azure
 
@@ -80,7 +83,7 @@ Verificare che le regole di rete virtuale e di firewall siano configurate corret
 
 In Linux si riceve un messaggio di errore simile al seguente:
 
-**\<filename>[autorizzazione negata] Quota disco superata**
+**\<filename> [autorizzazione negata] Quota disco superata**
 
 ### <a name="cause"></a>Causa
 
@@ -107,7 +110,7 @@ Per chiudere gli handle aperti per una condivisione file, una directory o un fil
     - Usare [AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) per i trasferimenti tra due condivisioni file.
     - L'uso di CP o DD con Parallel può migliorare la velocità di copia, il numero di thread dipende dal caso d'uso e dal carico di lavoro. Gli esempi seguenti usano sei: 
     - esempio CP (CP utilizzerà la dimensione del blocco predefinita del file system come dimensione del blocco): `find * -type f | parallel --will-cite -j 6 cp {} /mntpremium/ &` .
-    - esempio di dd (questo comando imposta in modo esplicito le dimensioni del blocco su 1 MiB):`find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
+    - esempio di dd (questo comando imposta in modo esplicito le dimensioni del blocco su 1 MiB): `find * -type f | parallel --will-cite-j 6 dd if={} of=/mnt/share/{} bs=1M`
     - Strumenti di terze parti open source, ad esempio:
         - [Parallelo GNU](https://www.gnu.org/software/parallel/).
         - [Fpart](https://github.com/martymac/fpart) : Ordina i file e li comprime in partizioni.
@@ -115,7 +118,7 @@ Per chiudere gli handle aperti per una condivisione file, una directory o un fil
         - CP e [md5sum multithread](https://github.com/pkolano/mutil) multithreading basati su coreutils GNU.
 - Impostando in anticipo le dimensioni del file, invece di creare ogni scrittura di un'estensione di scrittura, contribuisce a migliorare la velocità di copia negli scenari in cui le dimensioni del file sono note. Se è necessario evitare l'estensione delle Scritture, è possibile impostare le dimensioni del file di destinazione con il `truncate - size <size><file>` comando. Successivamente, tramite `dd if=<source> of=<target> bs=1M conv=notrunc` il comando viene copiato un file di origine senza dover aggiornare ripetutamente le dimensioni del file di destinazione. Ad esempio, è possibile impostare le dimensioni del file di destinazione per ogni file che si desidera copiare (si supponga che una condivisione sia montata in/mnt/share):
     - `$ for i in `` find * -type f``; do truncate --size ``stat -c%s $i`` /mnt/share/$i; done`
-    - e quindi copiare i file senza estendere le Scritture in parallelo:`$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
+    - e quindi copiare i file senza estendere le Scritture in parallelo: `$find * -type f | parallel -j6 dd if={} of =/mnt/share/{} bs=1M conv=notrunc`
 
 <a id="error115"></a>
 ## <a name="mount-error115-operation-now-in-progress-when-you-mount-azure-files-by-using-smb-30"></a>"Errore di montaggio (115): L'operazione è in corso" quando si esegue il montaggio di File di Azure usando SMB 3.0

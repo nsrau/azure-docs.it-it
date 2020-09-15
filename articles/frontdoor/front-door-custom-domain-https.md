@@ -10,14 +10,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/05/2018
+ms.date: 09/09/2020
 ms.author: duau
-ms.openlocfilehash: 3956a843e67dba82486f350fc4380d4c8f6065f1
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: bbd45a4190cfa1199568c23cc346b9ccacc20ac5
+ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89399821"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89648883"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Esercitazione: Configurare HTTPS per un dominio personalizzato di Frontdoor
 
@@ -219,7 +219,27 @@ Se si verifica un errore prima dell'invio della richiesta, viene visualizzato il
 We encountered an unexpected error while processing your HTTPS request. Please try again and contact support if the issue persists.
 </code>
 
+## <a name="frequently-asked-questions"></a>Domande frequenti
 
+1. *Chi è il provider di certificati e quale tipo di certificato viene usato?*
+
+    Per il dominio personalizzato viene usato un certificato dedicato/singolo, fornito da Digicert. 
+
+2. *Viene usata una configurazione TLS/SSL basata su IP o su SNI?*
+
+    Il servizio Frontdoor di Azure usa SNI TLS/SSL.
+
+3. *Cosa accade se non si riceve il messaggio di verifica del dominio da DigiCert?*
+
+    Se è disponibile una voce CNAME per il dominio personalizzato che punta direttamente al nome host dell'endpoint (e non si usa il nome del sottodominio afdverify), non viene visualizzato alcun messaggio di verifica del dominio. La convalida viene eseguita automaticamente. In caso contrario, se non è disponibile alcuna voce CNAME e non è stato ricevuto alcun messaggio di posta elettronica entro 24 ore, contattare il supporto tecnico Microsoft.
+
+4. *L'uso di un certificato SAN è meno sicuro rispetto a un certificato dedicato?*
+    
+    Un certificato SAN applica gli stessi standard di crittografia e sicurezza di un certificato dedicato. Tutti i certificati TLS/SSL emessi usano l'algoritmo SHA-256 per la protezione avanzata dei server.
+
+5. *È necessario avere un record di autorizzazione dell'autorità di certificazione presso il provider DNS?*
+
+    No, attualmente un record di autorizzazione dell'autorità di certificazione non è obbligatorio. Se tuttavia se ne ha uno, deve includere DigiCert come CA valida.
 
 ## <a name="clean-up-resources---disable-https"></a>Pulire le risorse - Disabilitare il protocollo HTTPS
 
@@ -247,30 +267,15 @@ La tabella seguente illustra l'avanzamento dell'operazione per la disabilitazion
 | 2 Deprovisioning del certificato | Eliminazione del certificato |
 | 3 Operazione completata | Il certificato è stato eliminato |
 
-## <a name="frequently-asked-questions"></a>Domande frequenti
-
-1. *Chi è il provider di certificati e quale tipo di certificato viene usato?*
-
-    Per il dominio personalizzato viene usato un certificato dedicato/singolo, fornito da Digicert. 
-
-2. *Viene usata una configurazione TLS/SSL basata su IP o su SNI?*
-
-    Il servizio Frontdoor di Azure usa SNI TLS/SSL.
-
-3. *Cosa accade se non si riceve il messaggio di verifica del dominio da DigiCert?*
-
-    Se è disponibile una voce CNAME per il dominio personalizzato che punta direttamente al nome host dell'endpoint (e non si usa il nome del sottodominio afdverify), non viene visualizzato alcun messaggio di verifica del dominio. La convalida viene eseguita automaticamente. In caso contrario, se non è disponibile alcuna voce CNAME e non è stato ricevuto alcun messaggio di posta elettronica entro 24 ore, contattare il supporto tecnico Microsoft.
-
-4. *L'uso di un certificato SAN è meno sicuro rispetto a un certificato dedicato?*
-    
-    Un certificato SAN applica gli stessi standard di crittografia e sicurezza di un certificato dedicato. Tutti i certificati TLS/SSL emessi usano l'algoritmo SHA-256 per la protezione avanzata dei server.
-
-5. *È necessario avere un record di autorizzazione dell'autorità di certificazione presso il provider DNS?*
-
-    No, attualmente un record di autorizzazione dell'autorità di certificazione non è obbligatorio. Se tuttavia se ne ha uno, deve includere DigiCert come CA valida.
-
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [creare una Frontdoor](quickstart-create-front-door.md).
-- Informazioni sul [funzionamento di Frontdoor](front-door-routing-architecture.md).
+In questa esercitazione sono state illustrate le procedure per:
+
+* Caricare un certificato in Key Vault.
+* Convalidare un dominio.
+* Abilitare HTTPS per il dominio personalizzato.
+
+Per informazioni su come configurare un criterio di filtro geografico per Frontdoor, continuare con l'esercitazione successiva.
+
+> [!div class="nextstepaction"]
+> [Configurare un criterio di filtro geografico](front-door-geo-filtering.md)

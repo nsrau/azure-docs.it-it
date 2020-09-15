@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 08/25/2020
 ms.author: pafarley
-ms.openlocfilehash: 6118f8109f44081c797cb09a6157abaf4044965e
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: e231bb7919f25210d7e5a2adff49dede6f0349a9
+ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377813"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89418960"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>Eseguire il training di un modello di Riconoscimento modulo con le etichette usando lo strumento di etichettatura campioni
 
@@ -225,7 +225,9 @@ Sono attualmente supportati i tipi di valore e le varianti seguenti:
 > [!NOTE]
 > Vedere queste regole per la formattazione della data:
 > 
-> Come delimitatori di data DMY è possibile usare i caratteri seguenti: `, - / . \`. Non è possibile usare uno spazio come delimitatore. Ad esempio:
+> Per il corretto funzionamento della formattazione della data, è necessario specificare un formato (`dmy`, `mdy`, `ymd`).
+>
+> Come delimitatori di data è possibile usare i caratteri seguenti: `, - / . \`. Non è possibile usare uno spazio come delimitatore. Ad esempio:
 > * 01.01.2020
 > * 01-01-2020
 > * 01/01/2020
@@ -234,11 +236,11 @@ Sono attualmente supportati i tipi di valore e le varianti seguenti:
 > * 1-1-2020
 > * 1-01-20
 >
-> Se una stringa di data DMY è costituita da otto cifre, il delimitatore è facoltativo:
+> Se una stringa di data è costituita da otto cifre, il delimitatore è facoltativo:
 > * 01012020
 > * 01 01 2020
 >
-> Il mese può anche essere scritto con il nome completo o abbreviato. Se viene usato il nome, il delimitatore è facoltativo:
+> Il mese può anche essere scritto con il nome completo o abbreviato. Se viene usato il nome, i caratteri delimitatori sono facoltativi. Tuttavia, questo formato può essere riconosciuto con meno accuratezza rispetto ad altri.
 > * 01/gen/2020
 > * 01gen2020
 > * 01 gen 2020

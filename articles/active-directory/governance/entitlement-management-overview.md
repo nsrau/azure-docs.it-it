@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 08/25/2020
+ms.date: 09/08/2020
 ms.author: barclayn
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: dbcd8ab2f2825e18943436dcc1a9ca4ff38e2d8d
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 2ce5f0c9b340e1b81fcf002ee70e7ec1cc74d38c
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88871208"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594323"
 ---
 # <a name="what-is-azure-ad-entitlement-management"></a>Cos'è Gestione entitlement di Azure AD?
 
@@ -153,7 +153,7 @@ Le licenze di Azure AD Premium P2 **non** sono necessarie per le attività segue
 - Non sono necessarie licenze per gli utenti a cui sono state delegate attività amministrative, ad esempio autore del catalogo, proprietario del catalogo e responsabile dei pacchetti di accesso.
 - Non sono necessarie licenze per gli utenti guest che **possono** richiedere pacchetti di accesso ma **non** li richiedono.
 
-Per ogni licenza di Azure AD Premium P2 a pagamento acquistata per gli utenti membro (dipendenti), è possibile usare Azure AD B2B per invitare fino a cinque utenti guest. Questi utenti guest possono anche usare le funzionalità di Azure AD Premium P2. Per altre informazioni, vedere [Linee guida sulle licenze per la collaborazione di Azure AD B2B](../external-identities/licensing-guidance.md).
+I prezzi delle identità esterne di Azure AD (utente guest) si basano sugli utenti attivi mensili, ovvero sul numero di utenti univoci con attività di autenticazione entro un mese di calendario. Questo modello sostituisce il modello di fatturazione con rapporto 1:5, che consentiva fino a cinque utenti guest per ogni licenza di Azure AD Premium nel tenant. Se il tenant è collegato a una sottoscrizione e si usano le funzionalità di identità esterne per collaborare con utenti guest, la fatturazione verrà eseguita automaticamente usando il modello di fatturazione basato sugli utenti attivi mensili. Per altre informazioni, vedere il modello di fatturazione per [identità esterne di Azure AD](../external-identities/external-identities-pricing.md).
 
 Per altre informazioni sulle licenze, vedere [Assegnare o rimuovere licenze usando il portale di Azure Active Directory](../fundamentals/license-users-groups.md).
 

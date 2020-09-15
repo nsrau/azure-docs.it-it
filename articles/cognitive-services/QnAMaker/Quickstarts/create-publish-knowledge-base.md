@@ -3,12 +3,12 @@ title: 'Avvio rapido: Eseguire la creazione, il training e la pubblicazione di u
 description: È possibile creare una knowledge base di QnA Maker (KB) a partire dal proprio contenuto, come le domande frequenti o i manuali del prodotto. Questo articolo offre un esempio della creazione di una knowledge base di QnA Maker da una semplice pagina Web di domande frequenti, per rispondere alle domande di QnA Maker.
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.openlocfilehash: 77ddb2a0a149729af72066b53c17b1dcb08a2992
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: 3cc38ca49820b1a97ec11c890bfd0ef1670f6eef
+ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88540755"
+ms.lasthandoff: 09/08/2020
+ms.locfileid: "89535850"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>Avvio rapido: Creare, eseguire il training e pubblicare la knowledge base QnA Maker
 
@@ -89,7 +89,7 @@ In alto a destra selezionare **Save and train** (Salva ed esegui il training) pe
 
 ## <a name="publish-the-knowledge-base"></a>Pubblicare la knowledge base
 
-Quando si pubblica una knowledge base, il suo contenuto viene spostato dall'indice `test` a un indice `prod` in Ricerca di Azure.
+Quando si pubblica una knowledge base, il relativo contenuto viene spostato dall'indice `test` a un indice `prod` in Ricerca di Azure.
 
 ![Screenshot dello spostamento del contenuto della knowledge base](../media/qnamaker-how-to-publish-kb/publish-prod-test.png)
 

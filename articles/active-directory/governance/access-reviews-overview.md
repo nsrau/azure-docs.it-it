@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.subservice: compliance
-ms.date: 08/18/2020
+ms.date: 09/08/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
 ms.custom: contperfq1
-ms.openlocfilehash: c69a5e153377eee86eaf0c43d6c982dee2938ddf
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: b454ced085ec3d73f3ca0f761abb6c5de44244ab
+ms.sourcegitcommit: 1b320bc7863707a07e98644fbaed9faa0108da97
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783672"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89594340"
 ---
 # <a name="what-are-azure-ad-access-reviews"></a>Cosa sono le verifiche di accesso di Azure AD?
 
@@ -45,7 +45,7 @@ Azure AD consente di collaborare con utenti all'interno dell'organizzazione e co
 ## <a name="when-should-you-use-access-reviews"></a>Quando è consigliabile usare le verifiche di accesso?
 
 - **Troppi utenti nei ruoli con privilegi:** è opportuno verificare quanti utenti hanno accesso amministrativo, quanti sono amministratori globali e se sono presenti utenti guest o partner invitati che non sono stati rimossi dopo l'assegnazione a un'attività amministrativa. È possibile ricertificare gli utenti a cui sono assegnati i [ruoli di Azure AD](../privileged-identity-management/pim-how-to-perform-security-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), ad esempio gli amministratori globali, o i [ruoli delle risorse di Azure](../privileged-identity-management/pim-resource-roles-perform-access-review.md?toc=%2fazure%2factive-directory%2fgovernance%2ftoc.json), ad esempio il ruolo Amministratore Accesso utenti, tramite l'esperienza di [Azure AD Privileged Identity Management (PIM)](../privileged-identity-management/pim-configure.md).
-- **Quando l'automazione non è possibile:** è possibile creare regole per l'appartenenza dinamica ai gruppi di sicurezza o a Gruppi di Office 365, ma cosa succede se i dati delle risorse umane non si trovano in Azure AD o se gli utenti necessitano ancora dell'accesso dopo aver lasciato il gruppo per contribuire a formare i loro sostituti. È possibile creare una verifica per tale gruppo per assicurarsi che gli utenti che necessitano ancora dell'accesso dispongano di accesso continuo.
+- **Quando l'automazione non è possibile:** è possibile creare regole per l'appartenenza dinamica ai gruppi di sicurezza o a Gruppi di Microsoft 365, ma cosa succede se i dati delle risorse umane non si trovano in Azure AD o se gli utenti necessitano ancora dell'accesso dopo aver lasciato il gruppo per contribuire a formare i loro sostituti? È possibile creare una verifica per tale gruppo per assicurarsi che gli utenti che necessitano ancora dell'accesso dispongano di accesso continuo.
 - **Quando un gruppo viene usato per un nuovo scopo**: se c'è un gruppo che deve essere sincronizzato con Azure AD o se si prevede di abilitare l'applicazione Salesforce per tutti gli utenti nel gruppo del team di vendita, può essere utile chiedere al proprietario del gruppo di verificare l'appartenenza al gruppo prima che il gruppo venga usato in un ambito di rischio diverso.
 - **Accesso ai dati business critical**: per determinate risorse, può essere necessario chiedere a persone esterne all'IT di disconnettersi regolarmente e di fornire una giustificazione in merito al motivo per cui devono eseguire l'accesso a scopo di controllo.
 - **Per mantenere l'elenco eccezioni dei criteri:** in una situazione ideale, tutti gli utenti seguono gli stessi criteri di accesso per proteggere l'accesso alle risorse dell'organizzazione. Esistono tuttavia casi aziendali che richiedono di introdurre eccezioni. L'amministratore IT può gestire questa attività, evitare problemi di supervisione delle eccezioni dei criteri e fornire ai revisori una prova che queste eccezioni vengono esaminate periodicamente.
@@ -94,8 +94,10 @@ Ecco alcuni esempi di scenari che consentono di determinare il numero di licenze
 | Un amministratore crea una verifica di accesso del gruppo A con 75 utenti e 1 proprietario del gruppo, quindi assegna il proprietario del gruppo come revisore. | 1 licenza per il proprietario del gruppo come revisore | 1 |
 | Un amministratore crea una verifica di accesso del gruppo B con 500 utenti e 3 proprietari del gruppo, quindi assegna i 3 proprietari del gruppo come revisori. | 3 licenze, una per ogni proprietario del gruppo come revisore | 3 |
 | Un amministratore crea una verifica di accesso del gruppo B con 500 utenti. La crea come verifica autonoma. | 500 licenze, una per ogni utente come revisore autonomo | 500 |
-| Un amministratore crea una verifica di accesso del gruppo C con 50 utenti membro e 25 utenti guest. La crea come verifica autonoma. | 50 licenze, una per ogni utente come revisore autonomo.<br/>Gli utenti guest sono coperti dal rapporto 1:5 richiesto | 50 |
-| Un amministratore crea una verifica di accesso del gruppo D con 6 utenti membro e 108 utenti guest. La crea come verifica autonoma. | 6 licenze, una per ogni utente come revisore autonomo + 16 licenze aggiuntive per coprire tutti i 108 utenti guest nel rapporto 1:5 richiesto. 6 licenze, che coprono 6\*5 = 30 utenti guest. Per i rimanenti utenti sono necessarie (108-6\*5) = 78 utenti guest, 78/5 = 16 licenze aggiuntive. Quindi in totale sono necessarie 6 + 16 = 22 licenze. | 22 |
+| Un amministratore crea una verifica di accesso del gruppo C con 50 utenti membro e 25 utenti guest. La crea come verifica autonoma. | 50 licenze, una per ogni utente come revisore autonomo.* | 50 |
+| Un amministratore crea una verifica di accesso del gruppo D con 6 utenti membro e 108 utenti guest. La crea come verifica autonoma. | 6 licenze, una per ogni utente come revisore autonomo. Gli utenti guest vengono fatturati in base agli utenti attivi mensili. Non occorre alcuna licenza aggiuntiva. *  | - |
+
+\* I prezzi delle identità esterne di Azure AD (utente guest) si basano sugli utenti attivi mensili, ovvero sul numero di utenti univoci con attività di autenticazione entro un mese di calendario. Questo modello sostituisce il modello di fatturazione con rapporto 1:5, che consentiva fino a cinque utenti guest per ogni licenza di Azure AD Premium nel tenant. Se il tenant è collegato a una sottoscrizione e si usano le funzionalità di identità esterne per collaborare con utenti guest, la fatturazione verrà eseguita automaticamente usando il modello di fatturazione basato sugli utenti attivi mensili. Per altre informazioni, vedere il modello di fatturazione per identità esterne di Azure AD.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

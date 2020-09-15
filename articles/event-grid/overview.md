@@ -3,12 +3,12 @@ title: Informazioni su Griglia di eventi di Azure
 description: Informazioni su come inviare i dati degli eventi un'origine ai gestori con Griglia di eventi di Azure. Creare applicazioni basate su eventi e integrarle con i servizi di Azure.
 ms.topic: overview
 ms.date: 07/07/2020
-ms.openlocfilehash: 95deeddbd7ae3f5ee07bef0c4ac73559d208c352
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 87ac29c2324c63977c57d60b11b3b930c23a4dd9
+ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116132"
+ms.lasthandoff: 09/03/2020
+ms.locfileid: "89436868"
 ---
 # <a name="what-is-azure-event-grid"></a>Informazioni su Griglia di eventi di Azure
 
@@ -118,6 +118,6 @@ Griglia di eventi di Azure usa un modello di determinazione prezzi basato sul pa
 * [Uso di App per la logica come gestore dell'evento](monitor-virtual-machine-changes-event-grid-logic-app.md)  
   Esercitazione sulla compilazione di un'app con App per la logica per rispondere agli eventi di cui viene eseguito il push da Griglia di eventi.
 * [Trasmettere Big Data a un data warehouse](event-grid-event-hubs-integration.md)  
-  Un'esercitazione che usa Funzioni di Azure per eseguire il flusso di dati da Hub eventi a SQL Data Warehouse.
+  Un'esercitazione che usa Funzioni di Azure per trasmettere dati in streaming da Hub eventi ad Azure Synapse Analytics.
 * [Event Grid REST API reference (Informazioni di riferimento sulle API REST di Griglia di eventi)](/rest/api/eventgrid)  
   Offre contenuto di riferimento per la gestione di sottoscrizioni agli eventi, routing e filtri.

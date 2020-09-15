@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 07/28/2020
 ms.author: kenwith
 ms.reviewer: arvinh,luleon
-ms.openlocfilehash: 827afbf811042acb2bf01f3e863408d5a6e9732f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 500bfff4afaebc345d344566b02fe945edb05795
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441919"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562605"
 ---
 # <a name="configure-saml-based-single-sign-on"></a>Configurare l'accesso Single Sign-On basato su SAML
 
@@ -27,7 +27,7 @@ Nella [serie di guide introduttive](view-applications-portal.md) sulla gestione 
 
 L'uso di Azure AD come provider di identità (IdP) e la configurazione di Single Sign-On (SSO) può essere semplice o complesso a seconda dell'applicazione usata. Alcune applicazioni possono essere configurate con poche azioni. Altri richiedono una configurazione approfondita. Per iniziare rapidamente, esaminare la serie di [guide introduttive](view-applications-portal.md) sulla gestione delle applicazioni. Se l'applicazione che si sta aggiungendo è semplice, probabilmente non è necessario leggere questo articolo. Se l'applicazione che si sta aggiungendo richiede una configurazione personalizzata per SSO basato su SAML, questo articolo è adatto all'utente.
 
-Nella [serie di guide introduttive](view-applications-portal.md)è disponibile un articolo sulla configurazione di Single Sign-on. Si apprenderà come accedere alla pagina di configurazione SAML per un'app. La pagina di configurazione SAML include cinque sezioni. Queste sezioni sono descritte in dettaglio in questo articolo.
+Nella [serie di guide introduttive](add-application-portal-setup-sso.md)è disponibile un articolo sulla configurazione di Single Sign-on. Si apprenderà come accedere alla pagina di configurazione SAML per un'app. La pagina di configurazione SAML include cinque sezioni. Queste sezioni sono descritte in dettaglio in questo articolo.
 
 > [!IMPORTANT] 
 > Esistono alcuni scenari in cui l'opzione **Single Sign-on** non sarà presente nella navigazione per un'applicazione nelle **applicazioni aziendali**. 
@@ -42,7 +42,7 @@ Nella [serie di guide introduttive](view-applications-portal.md)è disponibile u
 È necessario ottenere i valori necessari dal fornitore dell'applicazione. È possibile immettere manualmente i valori o caricare un file di metadati per estrarre il valore dei campi.
 
 > [!TIP]
-> Molte app sono già preconfigurate per l'uso con Azure AD. Queste app sono elencate nella raccolta di app che è possibile esplorare quando si aggiunge un'app al tenant di Azure AD. La [serie di guide introduttive](view-applications-portal.md) illustra il processo. Per le app nella raccolta, sono disponibili istruzioni dettagliate per la configurazione. Per accedere ai passaggi è possibile fare clic sul collegamento nella pagina di configurazione SAML per l'app, come descritto nella serie di guide introduttive oppure è possibile visualizzare un elenco di tutte le esercitazioni sulla configurazione delle app in [app Saas](../saas-apps/tutorial-list.md).
+> Molte app sono già preconfigurate per l'uso con Azure AD. Queste app sono elencate nella raccolta di app che è possibile esplorare quando si aggiunge un'app al tenant di Azure AD. La [serie di guide introduttive](add-application-portal-setup-sso.md) illustra il processo. Per le app nella raccolta, sono disponibili istruzioni dettagliate per la configurazione. Per accedere ai passaggi è possibile fare clic sul collegamento nella pagina di configurazione SAML per l'app, come descritto nella serie di guide introduttive oppure è possibile visualizzare un elenco di tutte le esercitazioni sulla configurazione delle app in [app Saas](../saas-apps/tutorial-list.md).
 
 | Impostazione della configurazione SAML di base | SSO avviato da provider di servizi | SSO avviato da IdP | Descrizione |
 |:--|:--|:--|:--|
@@ -57,7 +57,7 @@ Nella [serie di guide introduttive](view-applications-portal.md)è disponibile u
 Quando un utente esegue l'autenticazione all'applicazione, Azure AD rilascia all'applicazione un token SAML contenente informazioni (o attestazioni) sull'utente, che lo identificano in modo univoco. Per impostazione predefinita sono inclusi il nome utente, l'indirizzo di posta elettronica, il nome e il cognome dell'utente. Potrebbe essere necessario personalizzare queste attestazioni se, ad esempio, l'applicazione richiede valori di attestazione specifici o un formato del **Nome** diverso dal nome utente. 
 
 > [!IMPORTANT]
-> Molte app sono già preconfigurate e nella raccolta di app e non è necessario preoccuparsi di impostare le attestazioni di utenti e gruppi. La [serie di guide introduttive](view-applications-portal.md) illustra come aggiungere e configurare app.
+> Molte app sono già preconfigurate e nella raccolta di app e non è necessario preoccuparsi di impostare le attestazioni di utenti e gruppi. La [serie di guide introduttive](add-application-portal.md) illustra come aggiungere e configurare app.
 
 
 Il valore identificatore **univoco dell'identificatore utente (ID nome)** è un'attestazione obbligatoria ed è importante. Il valore predefinito è *User. userPrincipalName*. L'ID utente identifica in modo univoco ogni utente all'interno dell'applicazione. Se l'indirizzo di posta elettronica è sia il nome utente che l'identificatore univoco, ad esempio, impostare il valore su *user.mail*.
@@ -79,7 +79,7 @@ Per altre informazioni sulla personalizzazione delle attestazioni SAML, vedere [
 Azure AD usa un certificato per firmare i token SAML che invia all'applicazione. Per configurare il trust tra Azure AD e l'applicazione, è necessario questo certificato. Per informazioni dettagliate sul formato del certificato, vedere la documentazione sul protocollo SAML dell'applicazione. Per altre informazioni, vedere [Gestione di certificati per l'accesso Single Sign-On federato](manage-certificates-for-federated-single-sign-on.md) e [Opzioni avanzate di firma del certificato nel token SAML](certificate-signing-options.md).
 
 > [!IMPORTANT]
-> Molte app sono già preconfigurate e nella raccolta di app e non è necessario approfondire i certificati. La [serie di guide introduttive](view-applications-portal.md) illustra come aggiungere e configurare app.
+> Molte app sono già preconfigurate e nella raccolta di app e non è necessario approfondire i certificati. La [serie di guide introduttive](add-application-portal.md) illustra come aggiungere e configurare app.
 
 Da Azure AD è possibile scaricare il certificato attivo in formato Base64 o RAW direttamente dalla pagina principale **Configurare l'accesso Single Sign-On con SAML**. È anche possibile ottenere il certificato attivo scaricando il file XML dei metadati dell'applicazione o usando l'URL dei metadati di Federazione dell'app. Per visualizzare, creare o scaricare i certificati (attivi o inattivi), seguire questa procedura.
 

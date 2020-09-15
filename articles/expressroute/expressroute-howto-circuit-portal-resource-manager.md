@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: tutorial
 ms.date: 09/01/2020
 ms.author: duau
-ms.openlocfilehash: 58c35b094d21dc562e61b4819c0d8e063908392d
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: e0ba14cd5db47c12435b2de35d0753b402c947ea
+ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322142"
+ms.lasthandoff: 09/09/2020
+ms.locfileid: "89566263"
 ---
 # <a name="tutorial-create-and-modify-an-expressroute-circuit"></a>Esercitazione: Creare e modificare un circuito ExpressRoute
 
@@ -75,7 +75,10 @@ In un browser passare al [portale di Azure](https://portal.azure.com) e accedere
     > [!IMPORTANT]
     > La località peer indica la [posizione fisica](expressroute-locations.md) di peering con Microsoft. Questo percorso **non** è collegato alla proprietà "Location", ovvero all'area geografica in cui si trova il provider di risorse di rete di Azure. Dal momento che non sono collegati, è consigliabile scegliere un provider di risorse di rete geograficamente vicino alla posizione di peering del circuito.
 
-    * **SKU** determina se deve essere abilitato il componente aggiuntivo ExpressRoute Locale, Standard o Premium. È possibile specificare **Locale** per ottenere lo SKU locale, **Standard** per ottenere lo SKU Standard o **Premium** per il componente aggiuntivo Premium.
+    * **SKU** determina se deve essere abilitato il componente aggiuntivo ExpressRoute Locale, Standard o Premium. È possibile specificare **Locale** per ottenere lo SKU locale, **Standard** per ottenere lo SKU Standard o **Premium** per il componente aggiuntivo Premium. Si noti che è possibile cambiare lo SKU per abilitare il componente aggiuntivo Premium.
+    > [!IMPORTANT]
+    > Non è possibile cambiare lo SKU da **Standard/Premium** a **Locale**.
+    
     * L'opzione **Modello di fatturazione** determina il tipo di fatturazione. È possibile specificare **A consumo** per un piano dati a consumo e **Senza limiti** per un piano dati illimitato. Si noti che è possibile modificare il tipo di fatturazione da **A consumo** in **Illimitato**.
 
     > [!IMPORTANT]
@@ -150,6 +153,10 @@ Collegare quindi una rete virtuale al circuito ExpressRoute. Fare riferimento al
 È possibile eseguire le attività seguenti evitando tempi di inattività:
 
 * Abilitare o disabilitare un componente aggiuntivo ExpressRoute Premium per il circuito ExpressRoute.
+
+> [!IMPORTANT]
+  > Il cambiamento dello SKU da **Standard/Premium** a **Locale** non è supportato.
+
 * Aumentare la larghezza di banda del circuito ExpressRoute, a condizione che nella porta sia disponibile capacità.
 
   > [!IMPORTANT]

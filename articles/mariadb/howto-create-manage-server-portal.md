@@ -6,17 +6,17 @@ ms.author: andrela
 ms.service: mariadb
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 196b1dda17de1c9430ab048ac90d1d10b6a595b4
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: 24481abb6606d9ce830e5b65285b31637417cbd7
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86104691"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562452"
 ---
 # <a name="manage-an-azure-database-for-mariadb-server-using-the-azure-portal"></a>Gestire un database di Azure per il server MariaDB usando il portale di Azure
 Questo articolo illustra come gestire il database di Azure per i server MariaDB. Le attività di gestione includono il ridimensionamento di calcolo e archiviazione, la reimpostazione della password amministratore e la visualizzazione dei dettagli del server.
 
-## <a name="sign-in"></a>Accedi
+## <a name="sign-in"></a>Accesso
 Accedere al [portale di Azure](https://portal.azure.com).
 
 ## <a name="create-a-server"></a>Creare un server
@@ -34,7 +34,7 @@ Dopo la creazione del server è possibile scalare tra i livelli per utilizzo gen
 
 2. Selezionare **per utilizzo generico** o con ottimizzazione per la **memoria**, a seconda di ciò che si sta ridimensionando. 
 
-    ![modifica-piano tariffario](./media/howto-create-manage-server-portal/change-pricing-tier.png)
+    ![Screenshot mostra i portale di Azure con il piano tariffario selezionato e il valore di ottimizzato per la memoria selezionato.](./media/howto-create-manage-server-portal/change-pricing-tier.png)
 
     > [!NOTE]
     > La modifica di livelli comporta il riavvio del server.
@@ -79,7 +79,7 @@ Dopo la creazione del server è possibile scalare tra i livelli per utilizzo gen
 
 2. Immettere una nuova password e confermarla. Nella casella di testo vengono visualizzati i requisiti di complessità delle password.
 
-   ![reset-password](./media/howto-create-manage-server-portal/reset-password.png)
+   ![Screenshot mostra la finestra di dialogo Reimposta password con password e conferma password.](./media/howto-create-manage-server-portal/reset-password.png)
 
 3. Selezionare **OK** per salvare la nuova password.
 
@@ -94,7 +94,7 @@ Se non è più necessario, è possibile eliminare il server.
 
 2. Digitare il nome del server nella casella di input per confermare che si tratta del server che si desidera eliminare.
 
-    ![confirm-delete](./media/howto-create-manage-server-portal/confirm-delete.png)
+    ![Screenshot mostra una finestra di dialogo che verifica se si desidera eliminare un database irreversibile.](./media/howto-create-manage-server-portal/confirm-delete.png)
 
     > [!NOTE]
     > L'eliminazione di un server è irreversibile.

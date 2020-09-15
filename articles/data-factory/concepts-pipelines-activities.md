@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 78007c9f153267b72a94dc4b4024155dee6beb88
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: b6a3e67ffd909262da2f890874f049dfac59a4ce
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442991"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90562010"
 ---
 # <a name="pipelines-and-activities-in-azure-data-factory"></a>Pipeline e attività in Azure Data Factory
 
@@ -30,7 +30,7 @@ Una data factory può comprendere una o più pipeline. Una pipeline è un raggru
 
 Le attività in una pipeline definiscono le azioni da eseguire sui dati. Ad esempio, è possibile usare un'attività di copia per copiare i dati da SQL Server in un archivio BLOB di Azure. Quindi, usare un'attività flusso di dati o un'attività del notebook di databricks per elaborare e trasformare i dati dall'archiviazione BLOB a un pool di analisi delle sinapsi di Azure in cui vengono compilate business intelligence soluzioni di creazione di report.
 
-Data Factory prevede tre raggruppamenti di attività: [attività di spostamento dei dati](copy-activity-overview.md), [attività di trasformazione dei dati](transform-data.md)e [attività di controllo](control-flow-web-activity.md). Un'attività può assumere zero o più [set](concepts-datasets-linked-services.md) di dati di input e generare uno o più [set](concepts-datasets-linked-services.md)di dati di output. Nel diagramma seguente viene illustrata la relazione tra attività, set di dati e pipeline in Data Factory:
+Data Factory prevede tre raggruppamenti di attività: [attività di spostamento dei dati](copy-activity-overview.md), [attività di trasformazione dei dati](transform-data.md)e [attività di controllo](#control-flow-activities). Un'attività può assumere zero o più [set](concepts-datasets-linked-services.md) di dati di input e generare uno o più [set](concepts-datasets-linked-services.md)di dati di output. Nel diagramma seguente viene illustrata la relazione tra attività, set di dati e pipeline in Data Factory:
 
 ![Relazione tra set di dati, attività e pipeline](media/concepts-pipelines-activities/relationship-between-dataset-pipeline-activity.png)
 
