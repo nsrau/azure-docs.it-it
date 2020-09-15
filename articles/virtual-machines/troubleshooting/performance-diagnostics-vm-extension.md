@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 62a30fada32a23546323dae34f875ab9c7da228c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c570c43560ad865b8bcc5161cbd0c6731ea4a237
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87028550"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090653"
 ---
 # <a name="azure-performance-diagnostics-vm-extension-for-windows"></a>Estensione per macchine virtuali Diagnostica prestazioni di Azure per Windows
 
@@ -29,7 +29,15 @@ L'estensione per macchine virtuali Azure Performance Diagnostics raccoglie i dat
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Questa estensione può essere installata in Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 e Windows Server 2016, nonché in Windows 8.1 e Windows 10.
+Questa estensione può essere installata in
+* Windows Server 2019
+* Windows Server 2016
+* Windows Server 2012 R2
+* Windows Server 2012
+* Windows Server 2008 R2
+* Windows 10
+* Windows 8.1
+* Windows 8
 
 ## <a name="extension-schema"></a>Schema dell'estensione
 Il codice JSON seguente illustra lo schema dell'estensione per macchine virtuali Azure Performance Diagnostics. Per archiviare l'output e il report di diagnostica, l'estensione richiede il nome e la chiave di un account di archiviazione. Questi valori sono riservati. La chiave dell'account di archiviazione deve essere archiviata all'interno di una configurazione con impostazioni protette. I dati della configurazione protetta dell'estensione per macchine virtuali di Azure vengono crittografati, per essere poi decrittografati solo nella macchina virtuale di destinazione. Si noti che **storageAccountName** e **storageAccountKey** distinguono tra maiuscole e minuscole. Gli altri parametri obbligatori sono elencati nella sezione seguente.
@@ -70,7 +78,7 @@ Il codice JSON seguente illustra lo schema dell'estensione per macchine virtuali
 |--------------|-------------------|----------------------------|
 |apiVersion|2015-06-15|Versione dell'API.
 |publisher|Microsoft.Azure.Performance.Diagnostics|Spazio dei nomi del server di pubblicazione per l'estensione.
-|tipo|AzurePerformanceDiagnostics|Tipo dell'estensione per macchine virtuali.
+|type|AzurePerformanceDiagnostics|Tipo dell'estensione per macchine virtuali.
 |typeHandlerVersion|1.0|Versione del gestore dell'estensione.
 |performanceScenario|basic|Scenario di prestazioni per il quale acquisire i dati. I valori validi sono: **basic**, **vmslow**, **azurefiles** e **custom**.
 |traceDurationInSeconds|300|Durata delle tracce se è selezionata una delle opzioni di traccia.

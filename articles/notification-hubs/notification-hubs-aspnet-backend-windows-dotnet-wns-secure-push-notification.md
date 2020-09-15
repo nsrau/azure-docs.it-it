@@ -1,30 +1,28 @@
 ---
 title: Push sicuro di hub di notifica di Azure per Windows
 description: Informazioni su come inviare notifiche push sicure in Azure. Gli esempi di codice sono scritti in C# mediante l'API .NET.
-documentationcenter: windows
 author: sethmanheim
 manager: femila
-editor: jwargo
+editor: thsomasu
 services: notification-hubs
-ms.assetid: 5aef50f4-80b3-460e-a9a7-7435001273bd
 ms.service: notification-hubs
 ms.workload: mobile
 ms.tgt_pltfrm: windows
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 09/14/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 4c75af054a342e74606696f09c227822f385e096
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 98e587103e63cd5cc26eab5b00864d00e0b9007f
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017992"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089948"
 ---
-# <a name="securely-push-notifications-from-azure-notification-hubs"></a>Inviare notifiche push in modo sicuro da Hub di notifica di Azure
+# <a name="send-secure-push-notifications-from-azure-notification-hubs"></a>Inviare notifiche push sicure da Hub di notifica di Azure
 
 > [!div class="op_single_selector"]
 > * [Windows Universal](notification-hubs-aspnet-backend-windows-dotnet-wns-secure-push-notification.md)
@@ -48,21 +46,22 @@ A livello generale, il flusso è il seguente:
 
 È importante notare che nel flusso precedente e in questa esercitazione si presuppone che il dispositivo archivi un token di autenticazione nella memoria locale, dopo l’accesso dell'utente. Ciò garantisce un'esperienza completamente lineare, in quanto il dispositivo può recuperare il payload sicuro della notifica tramite questo token. Se invece l'applicazione non archivia i token di autenticazione nel dispositivo o se questi hanno una scadenza, l'app per dispositivo, alla ricezione della notifica, dovrà visualizzare una notifica generica in cui si richiede all'utente di avviare l'app. L'app autentica quindi l'utente e mostra il payload di notifica.
 
-In questa esercitazione sul push sicuro viene illustrato come inviare una notifica push in modo sicuro. Poiché i passaggi qui descritti si basano sull'esercitazione [Utilizzo di Hub di notifica per inviare notifiche agli utenti](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) , sarà prima necessario completare i passaggi di quest'ultima.
+Questa esercitazione illustra come inviare una notifica push in modo sicuro. L'esercitazione si basa sull'esercitazione [Notify Users](notification-hubs-aspnet-backend-windows-dotnet-wns-notification.md) , quindi è necessario completare prima di tutto la procedura descritta in questa esercitazione.
 
 > [!NOTE]
-> Questa esercitazione presuppone che l'utente abbia creato e configurato l'hub di notifica come descritto in [Introduzione ad Hub di notifica (Windows Store)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
+> Questa esercitazione presuppone che sia stato creato e configurato l'hub di notifica come descritto in [inviare notifiche alle app piattaforma UWP (Universal Windows Platform)](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
 > Si noti inoltre che Windows Phone 8.1 richiede le credenziali di Windows (non di Windows Phone) e che le attività in background non funzionano in Windows Phone 8.0 o Silverlight 8.1. Per le applicazioni per Windows Store, è possibile ricevere le notifiche tramite un'attività in background solo se per l'app è abilitata la schermata di blocco (fare clic sulla casella di controllo nel manifesto dell'app).
 
 [!INCLUDE [notification-hubs-aspnet-backend-securepush](../../includes/notification-hubs-aspnet-backend-securepush.md)]
 
-## <a name="modify-the-windows-phone-project"></a>Modificare il progetto dell'app di Windows Phone
+## <a name="modify-the-windows-phone-project"></a>Modificare il progetto di Windows Phone
 
 1. Nel progetto **NotifyUserWindowsPhone** aggiungere il codice seguente al file App.xaml.cs per registrare l'attività di push in background. Aggiungere la seguente riga di codice alla fine del metodo `OnLaunched()` :
 
     ```csharp
     RegisterBackgroundTask();
     ```
+
 2. Sempre nel file App.xaml.cs aggiungere il seguente codice immediatamente dopo il metodo `OnLaunched()` :
 
     ```csharp
@@ -80,15 +79,17 @@ In questa esercitazione sul push sicuro viene illustrato come inviare una notifi
         }
     }
     ```
+
 3. Aggiungere le seguenti istruzioni `using` all'inizio del file App.xaml.cs:
 
     ```csharp
     using Windows.Networking.PushNotifications;
     using Windows.ApplicationModel.Background;
     ```
+
 4. Scegliere **Salva tutto** dal menu **File** in Visual Studio.
 
-## <a name="create-the-push-background-component"></a>Creare il componente push in background
+## <a name="create-the-push-background-component"></a>Creare il componente per lo sfondo push
 
 Il passaggio successivo consiste nella creazione del componente push in background.
 
@@ -143,6 +144,7 @@ Il passaggio successivo consiste nella creazione del componente push in backgrou
             }
         }
     ```
+
 5. In Esplora soluzioni fare clic con il pulsante destro del mouse sul progetto **PushBackgroundComponent (Windows Phone 8.1)**, quindi fare clic su **Gestisci pacchetti NuGet**.
 6. Sul lato sinistro fare clic su **Online**.
 7. Nella **casella di ricerca** digitare **Client Http**.
@@ -160,6 +162,7 @@ Il passaggio successivo consiste nella creazione del componente push in backgrou
     using Windows.UI.Notifications;
     using Windows.Data.Xml.Dom;
     ```
+
 11. In Esplora soluzioni, nel progetto **NotifyUserWindowsPhone (Windows Phone 8,1)** , fare clic con il pulsante destro del mouse su **riferimenti**, quindi scegliere **Aggiungi riferimento.** Nella finestra di dialogo Gestione riferimenti selezionare la casella accanto a **PushBackgroundComponent**, quindi fare clic su **OK**.
 12. In Esplora soluzioni fare doppio clic sul file **Package.appxmanifest** nel progetto **NotifyUserWindowsPhone (Windows Phone 8.1)**. In **Notifiche** impostare **Popup supportati** su **Sì**.
 

@@ -3,12 +3,12 @@ title: Configurare il cluster Kubernetes abilitato per Azure Arc con monitoraggi
 description: Questo articolo descrive come configurare il monitoraggio con monitoraggio di Azure per i contenitori nei cluster Kubernetes abilitati per Azure Arc.
 ms.topic: conceptual
 ms.date: 06/23/2020
-ms.openlocfilehash: f8002b20f37ca5149c58ca3e29402916ebbc1333
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 54a8fea6ddb46dc00fff29ad83a2a348d9218380
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87092882"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090619"
 ---
 # <a name="enable-monitoring-of-azure-arc-enabled-kubernetes-cluster"></a>Abilita il monitoraggio del cluster Kubernetes abilitato per Azure Arc
 
@@ -124,7 +124,7 @@ Per abilitare il monitoraggio del cluster usando lo script di PowerShell o bash 
 4. Se si vuole usare l'area di lavoro Log Analytics di monitoraggio di Azure esistente, configurare la variabile `$logAnalyticsWorkspaceResourceId` con il valore corrispondente che rappresenta l'ID risorsa dell'area di lavoro. In caso contrario, impostare la variabile su `""` e lo script crea un'area di lavoro predefinita nel gruppo di risorse predefinito della sottoscrizione del cluster, se non ne esiste già una nell'area. L'area di lavoro predefinita creata è simile al formato di *DefaultWorkspace \<SubscriptionID> - \<Region> -*.
 
     ```powershell
-    $logAnalyticsWorkspaceResourceId = “/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>”
+    $logAnalyticsWorkspaceResourceId = "/subscriptions/<subscriptionId>/resourceGroups/<resourceGroup>/providers/microsoft.operationalinsights/workspaces/<workspaceName>"
     ```
 
 5. Se il cluster Kubernetes abilitato per l'arco comunica tramite un server proxy, configurare la variabile `$proxyEndpoint` con l'URL del server proxy. Se il cluster non comunica tramite un server proxy, è possibile impostare il valore su `""` .  Per ulteriori informazioni, vedere [configure proxy endpoint](#configure-proxy-endpoint) più avanti in questo articolo.
@@ -199,7 +199,7 @@ Dopo aver abilitato il monitoraggio, possono essere necessari circa 15 minuti pr
 
 Con l'agente in contenitori per monitoraggio di Azure per i contenitori, è possibile configurare un endpoint proxy per consentire la comunicazione attraverso il server proxy. La comunicazione tra l'agente in contenitori e monitoraggio di Azure può essere un server proxy HTTP o HTTPS ed è supportata sia l'autenticazione anonima che quella di base (nome utente/password).
 
-Il valore di configurazione proxy ha la sintassi seguente:`[protocol://][user:password@]proxyhost[:port]`
+Il valore di configurazione proxy ha la sintassi seguente: `[protocol://][user:password@]proxyhost[:port]`
 
 > [!NOTE]
 >Se il server proxy non richiede l'autenticazione, è comunque necessario specificare un nome utente/password di pseudoclasse. Può trattarsi di qualsiasi nome utente o password.
@@ -218,7 +218,7 @@ Se si specifica il protocollo come **http**, le richieste HTTP vengono create us
 
 ### <a name="configure-using-powershell"></a>Configurare con PowerShell
 
-Specificare il nome utente e la password, l'indirizzo IP o il nome di dominio completo e il numero di porta per il server proxy. Ad esempio:
+Specificare il nome utente e la password, l'indirizzo IP o il nome di dominio completo e il numero di porta per il server proxy. Esempio:
 
 ```powershell
 $proxyEndpoint = https://<user>:<password>@<proxyhost>:<port>

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 9/20/2018
 ms.author: anandh
-ms.openlocfilehash: 16be3d1695608165405a3490b686a01ba6a2a62c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 857d49fa579e7ea1a6e2c14ae8198cd8ac4fe228
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "70080608"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090636"
 ---
 # <a name="performance-diagnostics-for-azure-virtual-machines"></a>Diagnostica delle prestazioni per le macchine virtuali di Azure
 
@@ -33,11 +33,28 @@ Lo strumento di diagnostica delle prestazioni consente di risolvere i problemi r
 
 ### <a name="windows"></a>Windows
 
-Windows 10, Windows 8, Windows 8 Enterprise, Windows 8 Pro, Windows 8.1, Windows Server 2016, Windows Server 2012, Windows Server 2012 Datacenter, Windows Server 2012 R2, Windows Server 2012 R2 Datacenter, Windows Server 2012 R2 Standard, Windows Server 2012 Standard, Windows Server 2008 R2, Windows Server 2008 R2 Datacenter, Windows Server 2008 R2 Enterprise, Windows Server 2008 R2 Foundation, Windows Server 2008 R2 SP1, Windows Server 2008 R2 Standard.
+* Windows Server 2019
+* Windows Server 2016
+* Windows Server 2012 R2
+* Windows Server 2012
+* Windows Server 2008 R2
+* Windows 10
+* Windows 8.1
+* Windows 8
 
 ### <a name="linux"></a>Linux
 
-Oracle Linux Server 6,10 [ `*` ], 7,3, 7,6, 7,5 (Oracle-database-Ee 13,8 Marketplace image), CentOS 6,5 [ `*` ], 7,6, RHEL 7,2, 7,5, 8,0 [ `*` ], Ubuntu 14,04, 16,04, 18,04, Debian 8, 9, 10 [ `*` ], SLES 12 SP4 [ `*` ]
+- Attualmente sono supportate le distribuzioni seguenti:
+
+    | Distribuzione               | Versione                                         |
+    |----------------------------|-------------------------------------------------|
+    | Server Oracle Linux        | 6,10 [ `*` ], 7,3, 7,6, 7,5 |
+    | CentOS                     | 6,5 [ `*` ], 7,6                                    |
+    | RHEL                       | 7,2, 7,5, 8,0 [ `*` ]                               |
+    | Ubuntu                     | 14,04, 16,04, 18,04, 20,04                               |
+    | Debian                     | 8, 9, 10 [ `*` ]                                    |
+    | SLES                       | 12 SP4 [ `*` ]                                      |
+    |                            |                                                   |
 
 >[!Note]
 >[ `*` ] Consultare i [problemi noti](how-to-use-perfinsights-linux.md#known-issues)
@@ -80,10 +97,10 @@ I seguenti scenari di analisi sono disponibili sul portale di Azure. Selezionare
     Include tutti i controlli nell'analisi rapida delle prestazioni e consente di monitorare il consumo elevato di risorse. Usare questa versione per risolvere i problemi generali relativi alle prestazioni, ad esempio un utilizzo elevato della CPU, della memoria e dello spazio su disco. Questa analisi richiede tra 30 secondi e 15 minuti, a seconda della durata selezionata. Altre informazioni su [Windows](https://aka.ms/perfinsights/vmslow) o [Linux](https://aka.ms/perfinsightslinux/vmslow)
 
 * **Analisi avanzata delle prestazioni**`*`  
-    Include tutti i controlli nell'analisi delle prestazioni e raccoglie una o più tracce, come indicato nelle sezioni seguenti. Usare questo scenario per risolvere problemi complessi che richiedono tracce supplementari. L’esecuzione di questo scenario per periodi più lunghi aumenterà le dimensioni complessive dell'output di diagnostica, a seconda delle dimensioni della macchina virtuale e delle opzioni di traccia selezionate. L'esecuzione di questa analisi richiede tra 30 secondi e 15 minuti, a seconda della durata selezionata. [Scopri di più](https://aka.ms/perfinsights/advanced)
+    Include tutti i controlli nell'analisi delle prestazioni e raccoglie una o più tracce, come indicato nelle sezioni seguenti. Usare questo scenario per risolvere problemi complessi che richiedono tracce supplementari. L’esecuzione di questo scenario per periodi più lunghi aumenterà le dimensioni complessive dell'output di diagnostica, a seconda delle dimensioni della macchina virtuale e delle opzioni di traccia selezionate. L'esecuzione di questa analisi richiede tra 30 secondi e 15 minuti, a seconda della durata selezionata. [Altre informazioni](https://aka.ms/perfinsights/advanced)
 
 * **Analisi file di Azure**`*`  
-    Include tutti i controlli nell'analisi delle prestazioni e consente di acquisire una traccia della rete e i contatori SMB. Usare questo scenario per risolvere i problemi di prestazione dei file di Azure. L'esecuzione di questa analisi richiede tra 30 secondi e 15 minuti, a seconda della durata selezionata. [Scopri di più](https://aka.ms/perfinsights/azurefiles)
+    Include tutti i controlli nell'analisi delle prestazioni e consente di acquisire una traccia della rete e i contatori SMB. Usare questo scenario per risolvere i problemi di prestazione dei file di Azure. L'esecuzione di questa analisi richiede tra 30 secondi e 15 minuti, a seconda della durata selezionata. [Altre informazioni](https://aka.ms/perfinsights/azurefiles)
 
 >[!Note]
 >[ `*` ] Questi scenari di analisi sono supportati solo in Windows.
@@ -174,7 +191,7 @@ Esistono diversi modi per condividere il report di diagnostica con Microsoft.
 Quando si apre un ticket di supporto con Microsoft, è importante condividere il report di diagnostica delle prestazioni. Se si sceglie di condividere queste informazioni con Microsoft mentre si esegue la diagnostica (selezionando la casella di controllo "**Accetto di condividere le informazioni di diagnostica con Microsoft**"), Microsoft sarà in grado di accedere al report nell’account di archiviazione usando un collegamento SAS al file ZIP di output fino a 30 giorni dalla data di esecuzione. Il tecnico del supporto avrà accesso solo al report più recente.
 
 **Opzione 2:** generare una firma di accesso condiviso per il file ZIP contenente i dati di diagnostica  
-È possibile condividere un collegamento al file ZIP del report usando una firma di accesso condiviso. A tale scopo, effettuare le operazioni seguenti:
+È possibile condividere un collegamento al file ZIP del report usando una firma di accesso condiviso. A tale scopo, attenersi alla seguente procedura:
 
 1. Nel portale di Azure, passare all'account di archiviazione in cui i dati di diagnostica vengono archiviati.
 1. Selezionare **BLOB** nella sezione **Servizio BLOB**.

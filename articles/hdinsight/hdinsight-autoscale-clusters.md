@@ -1,6 +1,6 @@
 ---
 title: Ridimensionare automaticamente i cluster Azure HDInsight
-description: Usare la funzionalità di scalabilità automatica di Azure HDInsight per Apache Hadoop automaticamente i cluster di scalabilità
+description: Usare la funzionalità di scalabilità automatica di Azure HDInsight per ridimensionare automaticamente i cluster Apache Hadoop.
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
@@ -8,18 +8,18 @@ ms.service: hdinsight
 ms.topic: how-to
 ms.custom: contperfq1
 ms.date: 08/21/2020
-ms.openlocfilehash: 4c4b9c60eb967b5791af724e5c15bba887263d44
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 7ce4580b366b57e2a1d4904b6ab63bf1834bdb65
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88757864"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090109"
 ---
-# <a name="automatically-scale-azure-hdinsight-clusters"></a>Ridimensionare automaticamente i cluster Azure HDInsight
+# <a name="autoscale-azure-hdinsight-clusters"></a>Ridimensionare automaticamente i cluster Azure HDInsight
 
 La funzionalità di scalabilità automatica gratuita di Azure HDInsight può aumentare o ridurre automaticamente il numero di nodi del ruolo di lavoro nel cluster in base ai criteri impostati in precedenza. Si imposta un numero minimo e massimo di nodi durante la creazione del cluster, si stabiliscono i criteri di scalabilità usando una pianificazione giornaliera o metriche delle prestazioni specifiche e la piattaforma HDInsight esegue il resto.
 
-## <a name="how-it-works"></a>Funzionamento
+## <a name="how-it-works"></a>Come funziona
 
 La funzionalità di scalabilità automatica usa due tipi di condizioni per attivare gli eventi di scalabilità: le soglie per diverse metriche delle prestazioni del cluster (denominate *scalabilità basata sul carico*) e i trigger basati sul tempo, denominati *scalabilità basata su pianificazione*. Il ridimensionamento basato sul carico modifica il numero di nodi nel cluster, all'interno di un intervallo impostato, per garantire un utilizzo ottimale della CPU e ridurre al minimo i costi di esecuzione. La scalabilità basata sulla pianificazione modifica il numero di nodi nel cluster in base alle operazioni che si associano a date e ore specifiche.
 
@@ -72,12 +72,12 @@ Per il ridimensionamento automatico, la scalabilità automatica invia una richie
 
 La tabella seguente descrive i tipi di cluster e le versioni compatibili con la funzionalità di scalabilità automatica.
 
-| Versione | Spark | Hive | LLAP | hbase | Kafka | Tempesta | ML |
+| Versione | Spark | Hive | LLAP | hbase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
 | HDInsight 3,6 senza ESP | Sì | Sì | Sì | Sì* | No | No | No |
-| HDInsight 4,0 senza ESP | Sì | Sì | Sì | Sì* | No | No | No |
-| HDInsight 3,6 con ESP | Sì | Sì | Sì | Sì* | No | No | No |
-| HDInsight 4,0 con ESP | Sì | Sì | Sì | Sì* | No | No | No |
+| HDInsight 4,0 senza ESP | Yes | Sì | Sì | Sì* | No | No | No |
+| HDInsight 3,6 con ESP | Yes | Yes | Yes | Sì* | No | No | No |
+| HDInsight 4,0 con ESP | Yes | Yes | Yes | Sì* | No | No | No |
 
 \* I cluster HBase possono essere configurati solo per la scalabilità basata su pianificazione, non per il caricamento.
 
@@ -243,41 +243,43 @@ Selezionare le **metriche** in **monitoraggio**. Selezionare quindi **Aggiungi m
 
 ![Abilitare la metrica di scalabilità automatica basata sulla pianificazione del nodo di lavoro](./media/hdinsight-autoscale-clusters/hdinsight-autoscale-clusters-chart-metric.png)
 
-## <a name="other-considerations"></a>Altre considerazioni
+## <a name="best-practices"></a>Procedure consigliate
 
-### <a name="consider-the-latency-of-scale-up-or-scale-down-operations"></a>Considerare la latenza delle operazioni di aumento o riduzione
+### <a name="consider-the-latency-of-scale-up-and-scale-down-operations"></a>Prendere in considerazione la latenza delle operazioni di scalabilità verticale e verticale
 
 Il completamento di un'operazione di ridimensionamento può richiedere da 10 a 20 minuti. Quando si configura una pianificazione personalizzata, pianificare questo ritardo. Se, ad esempio, è necessario che le dimensioni del cluster siano pari a 20 alle 9:00, impostare il trigger di pianificazione su un orario precedente, ad esempio 8:30 AM, in modo che l'operazione di ridimensionamento sia stata completata da 9:00 AM.
 
-### <a name="preparation-for-scaling-down"></a>Preparazione per la riduzione
+### <a name="prepare-for-scaling-down"></a>Preparare la scalabilità verso il basso
 
-Durante il processo di ridimensionamento del cluster, la scalabilità automatica eliminerà le autorizzazioni dei nodi per soddisfare le dimensioni di destinazione. Se le attività sono in esecuzione in tali nodi, la scalabilità automatica resterà in attesa fino al completamento delle attività. Poiché ogni nodo di lavoro svolge anche un ruolo in HDFS, i dati temporanei vengono spostati nei nodi rimanenti. Quindi, è necessario assicurarsi che vi sia spazio sufficiente nei nodi rimanenti per ospitare tutti i dati temporanei.
+Durante il processo di ridimensionamento automatico del cluster, la scalabilità automatica rimuove le autorizzazioni dei nodi per soddisfare le dimensioni di destinazione. Se le attività sono in esecuzione in tali nodi, la scalabilità automatica attende il completamento delle attività. Poiché ogni nodo di lavoro svolge anche un ruolo in HDFS, i dati temporanei vengono spostati nei nodi rimanenti. Assicurarsi che sia disponibile spazio sufficiente nei nodi rimanenti per ospitare tutti i dati temporanei.
 
 I processi in esecuzione continueranno. I processi in sospeso attendono la pianificazione con un minor numero di nodi di lavoro disponibili.
 
-### <a name="minimum-cluster-size"></a>Dimensioni minime del cluster
+### <a name="be-aware-of-the-minimum-cluster-size"></a>Tenere presente le dimensioni minime del cluster
 
-Non ridimensionare il cluster fino a un massimo di tre nodi. Il ridimensionamento del cluster a meno di tre nodi può comportare il blocco in modalità provvisoria a causa di una replica di file insufficiente.  Per ulteriori informazioni, vedere la pagina relativa [all'inserimento in modalità provvisoria](./hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
+Non ridimensionare il cluster fino a un massimo di tre nodi. Il ridimensionamento del cluster a meno di tre nodi può comportare il blocco in modalità provvisoria a causa di una replica di file insufficiente. Per ulteriori informazioni, vedere la pagina relativa [all'inserimento in modalità provvisoria](hdinsight-scaling-best-practices.md#getting-stuck-in-safe-mode).
+
+### <a name="increase-the-number-of-mappers-and-reducers"></a>Aumentare il numero di Mapper e riduttori
+
+La scalabilità automatica per i cluster Hadoop monitora anche l'utilizzo di HDFS. Se il HDFS è occupato, presuppone che il cluster necessiti ancora delle risorse correnti. Quando la query include dati di grandi dimensioni, è possibile aumentare il numero di Mapper e riduttori per aumentare il parallelismo e accelerare le operazioni di HDFS. In questo modo, verrà attivata la scalabilità verticale corretta quando sono presenti risorse aggiuntive. 
+
+### <a name="set-the-hive-configuration-maximum-total-concurrent-queries-for-the-peak-usage-scenario"></a>Impostare la configurazione hive numero massimo di query simultanee per lo scenario di utilizzo massimo
+
+Gli eventi di scalabilità automatica non modificano il *numero massimo di query simultanee* di configurazione hive in Ambari. Ciò significa che il servizio interattivo hive Server 2 è in grado di gestire solo il numero specificato di query simultanee in qualsiasi momento, anche se il numero di daemon LLAP viene scalato verso l'alto e verso il basso in base al carico e alla pianificazione. L'indicazione generale è quella di impostare questa configurazione per lo scenario di utilizzo massimo per evitare l'intervento manuale.
+
+Tuttavia, è possibile che si verifichi un errore di riavvio del server hive 2 se è presente solo un numero ridotto di nodi del ruolo di lavoro e il valore massimo per le query simultanee totali è troppo elevato. Come minimo, è necessario il numero minimo di nodi del ruolo di lavoro in grado di contenere il numero specificato di TeZ AMS (uguale alla configurazione totale massima delle query simultanee). 
+
+## <a name="limitations"></a>Limitazioni
+
+### <a name="node-label-file-missing"></a>Manca il file dell'etichetta del nodo
+
+La scalabilità automatica di HDInsight usa un file di etichetta del nodo per determinare se un nodo è pronto per l'esecuzione di attività. Il file dell'etichetta del nodo viene archiviato in HDFS con tre repliche. Se le dimensioni del cluster vengono ridimensionate in modo significativo ed è presente una grande quantità di dati temporanei, è possibile che tutte e tre le repliche vengano eliminate. In tal caso, il cluster entra in uno stato di errore.
 
 ### <a name="llap-daemons-count"></a>Conteggio daemon LLAP
 
-In caso di cluster LLAP abilitati per la scalabilità automatica, l'evento di aumento o riduzione della scalabilità automatica aumenta anche il numero di daemon LLAP al numero di nodi di lavoro attivi. Questa modifica al numero di daemon non viene tuttavia salvata in modo permanente nella configurazione di **num_llap_nodes** in Ambari. Se i servizi hive vengono riavviati manualmente, il numero di daemon LLAP verrà reimpostato in base alla configurazione in Ambari.
+Nel caso di cluster LLAP abilitati per autoscae, un evento di aumento o riduzione della scalabilità automatica aumenta il numero di daemon LLAP al numero di nodi di lavoro attivi. La modifica del numero di daemon non è resa permanente nella `num_llap_nodes` configurazione in Ambari. Se i servizi hive vengono riavviati manualmente, il numero di daemon LLAP viene reimpostato in base alla configurazione in Ambari.
 
-Si prenda lo scenario seguente:
-1. Un cluster abilitato per la scalabilità automatica di LLAP viene creato con tre nodi di lavoro e la scalabilità automatica basata sul carico è abilitata con i nodi di lavoro minimi come 3 e i nodi di lavoro massimo 10
-2. Il LLAP daemons count config in base alla configurazione di LLAP e Ambari è 3, dal momento che il cluster è stato creato con 3 nodi di lavoro.
-3. Viene attivata la scalabilità automatica a causa del carico sul cluster, il cluster viene ora ridimensionato a 10 nodi.
-4. Il controllo di scalabilità automatica eseguito a intervalli regolari rileva che il numero di daemon di LLAP è 3, ma il numero di nodi del ruolo di lavoro attivo è 10, il processo di ridimensionamento automatico aumenterà il numero di daemon LLAP a 10, ma questa modifica non viene salvata in modo permanente in Ambari config-num_llap_nodes.
-5. La scalabilità automatica è ora disabilitata.
-6. Il cluster dispone ora di 10 nodi di lavoro e 10 DAEMON LLAP.
-7. Il servizio LLAP viene riavviato manualmente.
-8. Durante il riavvio, controlla la configurazione di num_llap_nodes nella configurazione di LLAP e nota il valore come 3, in modo da attivare 3 istanze di daemon, ma il numero di nodi del ruolo di lavoro è 10. Tra i due è ora presente una mancata corrispondenza.
-
-Quando si verifica questo problema, è necessario modificare manualmente la **configurazione del num_llap_node (numero di nodi a per l'esecuzione del daemon hive LLAP) in Advanced hive-Interactive-ENV** in modo che corrisponda al numero di nodi del ruolo di lavoro attivo corrente.
-
-**Nota**
-
-Gli eventi di scalabilità automatica non modificano il numero **massimo di query simultanee** di configurazione hive in Ambari. Ciò significa che il servizio interattivo hive Server 2 **è in grado di gestire solo il numero specificato di query simultanee in qualsiasi momento, anche se il numero di daemon LLAP viene scalato verso l'alto e verso il basso in base al carico o alla pianificazione**. L'indicazione generale è quella di impostare questa configurazione per lo scenario di utilizzo massimo, in modo che l'intervento manuale possa essere evitato. Tuttavia, è necessario tenere presente che l' **impostazione di un valore elevato per la configurazione del totale massimo di query simultanee potrebbe non riuscire a eseguire il riavvio del servizio interattivo hive Server 2 Se il numero minimo di nodi del ruolo di lavoro non è in grado di contenere il numero specificato di TeZ AMS (uguale al numero massimo totale di configurazioni**
+Se il servizio LLAP viene riavviato manualmente, è necessario modificare manualmente la `num_llap_node` configurazione (il numero di nodi necessari per eseguire il daemon hive LLAP) in *Advanced hive-Interactive-ENV* in modo che corrisponda al numero di nodi del ruolo di lavoro attivo corrente.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

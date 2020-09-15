@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: douglas, carlrab
 ms.date: 07/11/2019
-ms.openlocfilehash: b7623a3c89f9ae4b20385caaac676b972f55f85e
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: a54cf2ed228a166ea3d87c14515f41d5b0e7aed9
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88209482"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090228"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>SQL Server la migrazione dell'istanza ad Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -45,7 +45,7 @@ A livello generale, il processo di migrazione del database è simile a quello in
 
 Per prima cosa, determinare se SQL Istanza gestita è compatibile con i requisiti del database dell'applicazione. Il Istanza gestita SQL è progettato per offrire una migrazione semplificata e in modalità Lift-and-Shift per la maggior parte delle applicazioni esistenti che utilizzano SQL Server. Tuttavia, talvolta è possibile richiedere caratteristiche o funzionalità non ancora supportate e il costo di implementazione di una soluzione alternativa è troppo elevato.
 
-Usare [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview) per rilevare i potenziali problemi di compatibilità che incidono sulla funzionalità del database nel database SQL di Azure. In caso di problemi di blocco segnalati, potrebbe essere necessario prendere in considerazione un'opzione alternativa, ad esempio [SQL Server in una VM di Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Di seguito sono riportati alcuni esempi:
+Usare [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview) per rilevare i potenziali problemi di compatibilità che incidono sulla funzionalità del database nel database SQL di Azure. In caso di problemi di blocco segnalati, potrebbe essere necessario prendere in considerazione un'opzione alternativa, ad esempio [SQL Server in una VM di Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Ecco alcuni esempi:
 
 - Se è necessario l'accesso diretto al sistema operativo o file system, ad esempio per installare agenti di terze parti o personalizzati nella stessa macchina virtuale con SQL Server.
 - Se si ha una dipendenza rigorosa da funzionalità che non sono ancora supportate, ad esempio FileStream/FileTable, polibase e transazioni tra istanze.
@@ -126,7 +126,7 @@ Il ripristino di backup nativi (file con estensione bak) ricavati da un'istanza 
 
 Il diagramma seguente offre una panoramica di alto livello del processo:
 
-![Flusso della migrazione](./media/migrate-to-instance-from-sql-server/migration-flow.png)
+![Il diagramma mostra SQL Server con una freccia con etichetta BACKUP/upload nell'URL che passa ad archiviazione di Azure e una seconda freccia con etichetta Ripristina da URL che passa da archiviazione di Azure a una Istanza gestita di SQL.](./media/migrate-to-instance-from-sql-server/migration-flow.png)
 
 La tabella seguente contiene altre informazioni sul metodo che è possibile usare a seconda della versione di SQL Server di origine eseguita:
 

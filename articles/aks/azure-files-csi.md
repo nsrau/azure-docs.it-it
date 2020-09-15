@@ -5,53 +5,55 @@ services: container-service
 ms.topic: article
 ms.date: 08/27/2020
 author: palma21
-ms.openlocfilehash: 018275b6db4c2d2d1059f35077f74a6f45ec3ba9
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 330c1b74a46b0f18af1068797d080e903f516ea6
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89422050"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089871"
 ---
-# <a name="use-the-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Usare i driver CSI (container Storage Interface) di File di Azure in Azure Kubernetes Service (AKS) (anteprima)
-Il driver File di Azure CSI è un driver conforme alla [specifica CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md) usato da AKS per gestire il ciclo di vita delle condivisioni di file di Azure. 
+# <a name="use-azure-files-container-storage-interface-csi-drivers-in-azure-kubernetes-service-aks-preview"></a>Usare i driver CSI (container Storage Interface) di File di Azure in Azure Kubernetes Service (AKS) (anteprima)
 
-L'interfaccia CSI (container Storage Interface) è uno standard per l'esposizione di sistemi di archiviazione di blocchi e file arbitrari ai carichi di lavoro in contenitori in Kubernetes. Grazie all'adozione e all'uso di CSI, Azure Kubernetes Service (AKS) ora è in grado di scrivere, distribuire ed eseguire l'iterazione di plug-in che espongono nuovi o migliorati sistemi di archiviazione esistenti in Kubernetes senza dover toccare il codice Kubernetes principale e attendere i cicli di rilascio.
+Il driver CSI (container Storage Interface) di File di Azure è un driver conforme a [specifiche CSI](https://github.com/container-storage-interface/spec/blob/master/spec.md)usato da Azure Kubernetes Service (AKS) per gestire il ciclo di vita delle condivisioni di file di Azure.
+
+CSI è uno standard per l'esposizione di sistemi di archiviazione di file e blocchi arbitrari ai carichi di lavoro in contenitori in Kubernetes. Con l'adozione e l'uso di CSI, AKS ora può scrivere, distribuire ed eseguire l'iterazione dei plug-in per esporre nuovi o migliorare i sistemi di archiviazione esistenti in Kubernetes senza dover toccare il codice Kubernetes principale e attendere i cicli di rilascio.
 
 Per creare un cluster AKS con supporto driver CSI, vedere [Enable CSI Drivers for Azure disks and file di Azure on AKS](csi-storage-drivers.md).
 
 >[!NOTE]
-> *"Driver all'interno dell'albero"* si riferisce ai driver di archiviazione correnti che fanno parte del codice kubernetes principale rispetto ai nuovi driver CSI che sono plug-in.
+> I *driver nell'albero* fanno riferimento ai driver di archiviazione correnti che fanno parte del codice Kubernetes principale rispetto ai nuovi driver CSI, che sono plug-in.
 
-## <a name="use-a-persistent-volume-pv-with-azure-files"></a>Usare un volume permanente (PV) con File di Azure
+## <a name="use-a-persistent-volume-with-azure-files"></a>Usare un volume permanente con File di Azure
 
-Un [volume permanente](concepts-storage.md#persistent-volumes) rappresenta una parte di archiviazione di cui è stato effettuato il provisioning per l'uso con Pod Kubernetes. Un volume permanente può essere usato da uno o più pod e se ne può eseguire il provisioning in modo dinamico o in modo statico. Se più pod necessitano di accesso simultaneo allo stesso volume di archiviazione, è possibile usare File di Azure per connettersi usando il [protocollo Server Message Block (SMB)][smb-overview]. Questo articolo illustra come creare in modo dinamico una condivisione di file di Azure per l'uso da più POD in un cluster del servizio Azure Kubernetes. Per il provisioning statico, vedere [creare e usare manualmente un volume con file di Azure condivisione](azure-files-volume.md).
+Un [volume permanente (PV)](concepts-storage.md#persistent-volumes) rappresenta una parte di archiviazione di cui è stato effettuato il provisioning per l'uso con i pod Kubernetes. Un PV può essere usato da uno o più POD e può essere sottoposta a provisioning in modo dinamico o statico. Se più POD necessitano di accesso simultaneo allo stesso volume di archiviazione, è possibile usare File di Azure per connettersi usando il [protocollo SMB (Server Message Block)][smb-overview]. Questo articolo illustra come creare in modo dinamico una condivisione File di Azure per l'uso da parte di più pod in un cluster AKS. Per il provisioning statico, vedere [creare e usare manualmente un volume con una condivisione file di Azure](azure-files-volume.md).
 
 Per altre informazioni sui volumi Kubernetes, vedere [Opzioni di archiviazione per le applicazioni nel servizio Azure Kubernetes][concepts-storage].
 
 [!INCLUDE [preview features callout](./includes/preview/preview-callout.md)]
 
-## <a name="dynamically-create-azure-files-pvs-using-the-built-in-storage-classes"></a>Crea dinamicamente File di Azure PVs usando le classi di archiviazione predefinite
-Una classe di archiviazione permette di definire come creare una condivisione file di Azure. Nel [gruppo di risorse nodo][node-resource-group] viene creato automaticamente un account di archiviazione da usare insieme alla classe di archiviazione per contenere le condivisioni file di Azure. Scegliere la [ridondanza dell'archiviazione di Azure][storage-skus] seguente per *skuName*:
+## <a name="dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes"></a>Creare in modo dinamico File di Azure PVs usando le classi di archiviazione predefinite
 
-* Archiviazione con ridondanza locale *Standard_LRS* standard
-* Archiviazione con ridondanza geografica standard *Standard_GRS*
-* *Standard_ZRS* -archiviazione con ridondanza della zona standard
-* Archiviazione con ridondanza geografica e accesso in lettura standard *Standard_RAGRS*
-* Archiviazione con ridondanza locale di *Premium_LRS* Premium
+Una classe di archiviazione viene usata per definire la modalità di creazione di una condivisione di File di Azure. Viene creato automaticamente un account di archiviazione nel [gruppo di risorse nodo][node-resource-group] da usare con la classe di archiviazione per conservare le condivisioni di file di Azure. Scegliere uno degli SKU di [ridondanza di archiviazione di Azure][storage-skus] seguenti per *SKUName*:
+
+* **Standard_LRS**: archiviazione con ridondanza locale standard
+* **Standard_GRS**: archiviazione con ridondanza geografica standard
+* **Standard_ZRS**: archiviazione con ridondanza della zona standard
+* **Standard_RAGRS**: archiviazione con ridondanza geografica e accesso in lettura standard
+* **Premium_LRS**: archiviazione con ridondanza locale Premium
 
 > [!NOTE]
-> File di Azure supportano archiviazione Premium, la condivisione file Premium minima è 100 GB.
+> File di Azure supporta archiviazione Premium di Azure. La condivisione file Premium minima è di 100 GB.
 
-Quando si usano i driver CSI di archiviazione su AKS, sono disponibili 2 componenti aggiuntivi `StorageClasses` che sfruttano i **driver di archiviazione di file di Azure CSI**. Le classi di archiviazione CSI aggiuntive vengono create con il cluster insieme alle classi di archiviazione predefinite nell'albero.
+Quando si usano i driver CSI di archiviazione su AKS, sono disponibili altre due funzionalità predefinite `StorageClasses` che usano i driver di archiviazione di file di Azure CSI. Le classi di archiviazione CSI aggiuntive vengono create con il cluster insieme alle classi di archiviazione predefinite nell'albero.
 
-- `azurefile-csi` : Usa l'archiviazione standard di Azure per creare una condivisione file di Azure. 
-- `azurefile-csi-premium` -Usa archiviazione Premium di Azure per creare una condivisione file di Azure. 
+- `azurefile-csi`: Usa l'archiviazione standard di Azure per creare una condivisione File di Azure.
+- `azurefile-csi-premium`: Usa archiviazione Premium di Azure per creare una condivisione File di Azure.
 
-Il criterio di rimborso su entrambe le classi di archiviazione garantisce che la condivisione file di Azure sottostante venga eliminata quando viene eliminato il rispettivo volume permanente. Anche le classi di archiviazione configurano le condivisioni file in modo che siano espandibili. è sufficiente modificare l'attestazione del volume permanente con le nuove dimensioni.
+Il criterio di rimborso su entrambe le classi di archiviazione garantisce che la condivisione File di Azure sottostante venga eliminata quando viene eliminato il rispettivo PV. Anche le classi di archiviazione configurano le condivisioni file in modo che siano espandibili. è sufficiente modificare l'attestazione del volume permanente (PVC) con le nuove dimensioni.
 
-Per sfruttare queste classi di archiviazione, creare un' [attestazione di volume permanente (PVC)](concepts-storage.md#persistent-volume-claims) e il rispettivo pod che vi fa riferimento e li utilizza. Un'attestazione di volume permanente viene usata per il provisioning automatico dell'archiviazione in una classe di archiviazione. Un PVC può usare una delle classi di archiviazione create in precedenza o una classe di archiviazione definita dall'utente per creare una condivisione di File di Azure per lo SKU e le dimensioni desiderate. Quando si crea una definizione di pod, viene specificata l'attestazione di volume permanente per richiedere le risorse di archiviazione desiderate.
+Per usare queste classi di archiviazione, creare un [PVC](concepts-storage.md#persistent-volume-claims) e il rispettivo pod che vi faccia riferimento e li usi. Un PVC viene usato per effettuare automaticamente il provisioning dell'archiviazione in base a una classe di archiviazione. Un PVC può usare una delle classi di archiviazione create in precedenza o una classe di archiviazione definita dall'utente per creare una condivisione di File di Azure per lo SKU e le dimensioni desiderate. Quando si crea una definizione di Pod, viene specificato il PVC per richiedere l'archiviazione desiderata.
 
-Creare un' [attestazione di volume permanente di esempio e un pod che stampa la `outfile` data corrente in un oggetto](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) con il comando [kubectl Apply][kubectl-apply] :
+Creare un [esempio di PVC e pod che stampa la data corrente in `outfile` un oggetto](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/statefulset.yaml) con il comando [kubectl Apply][kubectl-apply] :
 
 ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/pvc-azurefile-csi.yaml
@@ -61,7 +63,7 @@ persistentvolumeclaim/pvc-azurefile created
 pod/nginx-azurefile created
 ```
 
-Quando il Pod si trova nello stato in esecuzione, è possibile convalidare che la condivisione file sia montata correttamente eseguendo il comando seguente e verificando che l'output contenga `outfile` : 
+Quando il Pod si trova nello stato in esecuzione, è possibile verificare che la condivisione file sia montata correttamente eseguendo il comando seguente e verificando che l'output contenga `outfile` :
 
 ```console
 $ kubectl exec nginx-azurefile -- ls -l /mnt/azurefile
@@ -76,7 +78,7 @@ Le classi di archiviazione predefinite soddisfano gli scenari più comuni, ma no
 
 Il valore predefinito per *FileMode* e *dirMode* è *0777* per le condivisioni file montate in Kubernetes. È possibile specificare le diverse opzioni di montaggio nell'oggetto classe di archiviazione.
 
-Creare un file denominato `azure-file-sc.yaml` e incollare il manifesto di esempio seguente: 
+Creare un file denominato `azure-file-sc.yaml` e incollare il manifesto di esempio seguente:
 
 ```yaml
 kind: StorageClass
@@ -107,7 +109,7 @@ kubectl apply -f azure-file-sc.yaml
 storageclass.storage.k8s.io/my-azurefile created
 ```
 
-Il driver CSI per file di Azure supporta la creazione [di snapshot dei volumi persistenti](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html) e delle condivisioni file sottostanti. 
+Il driver File di Azure CSI supporta la creazione [di snapshot dei volumi persistenti](https://kubernetes-csi.github.io/docs/snapshot-restore-feature.html) e delle condivisioni file sottostanti.
 
 Creare una [classe snapshot del volume](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/snapshot/volumesnapshotclass-azurefile.yaml) con il comando [kubectl Apply][kubectl-apply] :
 
@@ -117,7 +119,7 @@ $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-c
 volumesnapshotclass.snapshot.storage.k8s.io/csi-azurefile-vsc created
 ```
 
-Creare uno [snapshot del volume](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/snapshot/volumesnapshot-azurefile.yaml) dal PVC [creato dinamicamente all'inizio di questa esercitazione](#dynamically-create-azure-files-pvs-using-the-built-in-storage-classes), `pvc-azurefile` .
+Creare uno [snapshot del volume](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/snapshot/volumesnapshot-azurefile.yaml) dal PVC [creato dinamicamente all'inizio di questa esercitazione](#dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes), `pvc-azurefile` .
 
 
 ```bash
@@ -156,14 +158,14 @@ Status:
 Events:                                <none>
 ```
 
-## <a name="resize-a-persistent-volume-pv"></a>Ridimensionare un volume permanente (PV)
+## <a name="resize-a-persistent-volume"></a>Ridimensionare un volume permanente
 
-È possibile richiedere un volume maggiore per un PVC. Modificare l'oggetto PVC e specificare una dimensione maggiore. Questa modifica attiva l'espansione del volume sottostante che esegue il backup del PersistentVolume. 
+È possibile richiedere un volume maggiore per un PVC. Modificare l'oggetto PVC e specificare una dimensione maggiore. Questa modifica attiva l'espansione del volume sottostante che esegue il backup del fotovoltaico.
 
-> [!NOTE] 
-> Un nuovo PersistentVolume non viene mai creato per soddisfare l'attestazione. Viene invece ridimensionato un volume esistente.
+> [!NOTE]
+> Un nuovo PV non viene mai creato per soddisfare l'attestazione. Viene invece ridimensionato un volume esistente.
 
-In AKS la classe di archiviazione predefinita `azurefile-csi` supporta già l'espansione, quindi è necessario sfruttare il [PVC creato in precedenza con questa classe di archiviazione](#dynamically-create-azure-files-pvs-using-the-built-in-storage-classes). Il PVC ha richiesto una condivisione file 100Gi, è possibile verificare che esegua:
+In AKS la classe di archiviazione predefinita `azurefile-csi` supporta già l'espansione, quindi usare il [PVC creato in precedenza con questa classe di archiviazione](#dynamically-create-azure-files-pvs-by-using-the-built-in-storage-classes). Il PVC ha richiesto una condivisione file 100Gi. È possibile confermare che eseguendo:
 
 ```console 
 $ kubectl exec -it nginx-azurefile -- df -h /mnt/azurefile
@@ -180,7 +182,7 @@ $ kubectl patch pvc pvc-azurefile --type merge --patch '{"spec": {"resources": {
 persistentvolumeclaim/pvc-azurefile patched
 ```
 
-Verificare che il PVC e il file System all'interno del Pod mostrino le nuove dimensioni:
+Verificare che sia il PVC che la file system all'interno del Pod mostrino le nuove dimensioni:
 
 ```console
 $ kubectl get pvc pvc-azurefile
@@ -192,11 +194,11 @@ Filesystem                                                                      
 //f149b5a219bd34caeb07de9.file.core.windows.net/pvc-5e5d9980-da38-492b-8581-17e3cad01770  200G  128K  200G   1% /mnt/azurefile
 ```
 
-## <a name="windows-containers"></a>Contenitori di Windows
+## <a name="windows-containers"></a>Contenitori Windows
 
-Il driver CSI per file di Azure supporta anche i nodi e i contenitori di Windows, se si vuole usare i contenitori di Windows, seguire l' [esercitazione sui contenitori](windows-container-cli.md) di Windows per aggiungere un pool di nodi Windows.
+Il driver File di Azure CSI supporta anche i nodi e i contenitori di Windows. Se si vuole usare i contenitori di Windows, seguire l' [esercitazione sui contenitori di Windows](windows-container-cli.md) per aggiungere un pool di nodi Windows.
 
-Quando si dispone di un pool di nodi di Windows, è possibile sfruttare le classi di archiviazione predefinite, ad esempio `azurefile-csi` o creare quelle personalizzate. È possibile distribuire un set di esempio con [stato basato su Windows](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) che salva i timestamp in un file `data.txt` distribuendo il comando seguente con il comando [kubectl Apply][kubectl-apply] :
+Quando si dispone di un pool di nodi di Windows, usare le classi di archiviazione predefinite, ad esempio `azurefile-csi` o creare quelle personalizzate. È possibile distribuire un set di esempio con [stato basato su Windows](https://github.com/kubernetes-sigs/azurefile-csi-driver/blob/master/deploy/example/windows/statefulset.yaml) che salva i timestamp in un file `data.txt` distribuendo il comando seguente con il comando [kubectl Apply][kubectl-apply] :
 
  ```console
 $ kubectl apply -f https://raw.githubusercontent.com/kubernetes-sigs/azurefile-csi-driver/master/deploy/example/windows/statefulset.yaml
@@ -218,8 +220,8 @@ $ kubectl exec -it busybox-azurefile-0 -- cat c:\mnt\azurefile\data.txt # on Win
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Per informazioni su come usare il driver CSI per i dischi di Azure, vedere [usare dischi di Azure con driver CSI](azure-disk-csi.md).
-- Per altre informazioni sulle procedure consigliate per l'archiviazione, vedere procedure consigliate [per l'archiviazione e i backup in Azure Kubernetes Service (AKS)][operator-best-practices-storage]
+- Per informazioni su come usare i driver CSI per i dischi di Azure, vedere [usare dischi di Azure con driver CSI](azure-disk-csi.md).
+- Per altre informazioni sulle procedure consigliate per l'archiviazione, vedere procedure consigliate [per l'archiviazione e i backup nel servizio Azure Kubernetes][operator-best-practices-storage].
 
 
 <!-- LINKS - external -->

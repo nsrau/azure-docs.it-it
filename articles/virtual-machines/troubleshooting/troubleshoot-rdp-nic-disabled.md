@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/12/2018
 ms.author: genli
-ms.openlocfilehash: 6bce1616ce0c7f7e42810a551acb2f02165ccf93
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 0e79efc9de43fc0a3044e9ae1e3959f63bb6e69f
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86078630"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090261"
 ---
 #  <a name="cannot-remote-desktop-to-a-vm-because-the-network-interface-is-disabled"></a>Non è possibile stabilire una connessione Desktop remoto a Macchine virtuali di Azure perché la scheda di interfaccia di rete è disabilitata
 
@@ -28,6 +28,11 @@ Questo articolo spiega come risolvere un problema che impedisce di stabilire una
 
 Non è possibile stabilire una connessione RDP o qualsiasi altro tipo di connessione a qualsiasi altra porta in una macchina virtuale in Azure perché l'interfaccia di rete nella macchina virtuale è disabilitata.
 
+![Screenshot che mostra una macchina virtuale in cui l'interfaccia di rete è disconnessa.](./media/troubleshoot-rdp-nic-disabled/disconnected.png)
+
+![Screenshot che mostra una macchina virtuale in cui l'interfaccia di rete è disabilitata.](./media/troubleshoot-rdp-nic-disabled/disabled.png)
+
+
 ## <a name="solution"></a>Soluzione
 
 Prima di seguire questa procedura, creare uno snapshot del disco del sistema operativo della macchina virtuale interessata come backup. Per altre informazioni, vedere [Snapshot di un disco](../windows/snapshot-copy-managed-disk.md).
@@ -36,8 +41,7 @@ Per abilitare l'interfaccia per la macchina virtuale, usare il controllo seriale
 
 ### <a name="use-serial-control"></a>Usare il controllo seriale
 
-1. Connettersi alla [console seriale e aprire un'istanza CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console
-). Se la console seriale non è abilitata nella macchina virtuale, vedere [Reimposta interfaccia di rete](#reset-network-interface).
+1. Connettersi alla [console seriale e aprire un'istanza CMD](./serial-console-windows.md#use-cmd-or-powershell-in-serial-console). Se la console seriale non è abilitata nella macchina virtuale, vedere [Reimposta interfaccia di rete](#reset-network-interface).
 2. Controllare lo stato dell'interfaccia di rete:
 
     ```console

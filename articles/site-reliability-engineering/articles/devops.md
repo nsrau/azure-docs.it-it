@@ -3,17 +3,17 @@ title: 'Domande frequenti: SRE e DevOps | Microsoft Docs'
 titleSuffix: Azure
 description: 'Domande frequenti: informazioni sulla relazione tra SRE e DevOps'
 author: dnblankedelman
-manager: efreeman
+manager: ScottCa
 ms.service: site-reliability-engineering
 ms.topic: article
-ms.date: 04/22/2020
+ms.date: 09/14/2020
 ms.author: dnb
-ms.openlocfilehash: e917c609b484b1a58377fea2f6cdd75dde30ca6c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 3d0698f2780a4ccc41eedbde70fddea1766c5f21
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82196413"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090330"
 ---
 # <a name="frequently-asked-questions-whats-the-relationship-between-sre-and-devops"></a>Domande frequenti: qual è la relazione tra SRE e DevOps?
 
@@ -24,8 +24,8 @@ ms.locfileid: "82196413"
 SRE e DevOps sono procedure di operazioni moderne create e sviluppate in risposta a problemi che includono:
 
 - una maggiore complessità degli ambienti di produzione e dei processi di sviluppo
-- maggiore dipendenza aziendale dal funzionamento continuo di tali ambienti
-- l'impossibilità di ridimensionare la forza lavoro in modo lineare con le dimensioni di questi ambienti
+- l'aumento della dipendenza delle organizzazioni dal funzionamento continuo di tali ambienti
+- l'impossibilità di ridimensionare il personale in modo lineare per adattarlo alle dimensioni di questi ambienti
 - la necessità di muoversi più velocemente mantenendo comunque la stabilità operativa
 
 Entrambe le procedure operative valutano l'attenzione per gli argomenti cruciali per affrontare tali problemi, ad esempio monitoraggio/osservabilità, automazione, documentazione e strumenti di sviluppo software collaborativi.
@@ -52,7 +52,7 @@ quindi, sarebbe facile dire che la parola per SRE è "affidabilità". Il fatto d
 
 Se si usa questa definizione di DevOps dal [Centro risorse di Azure DevOps](https://docs.microsoft.com/azure/devops/learn/):
 
-> DevOps è l'unione di persone, processi e prodotti per offrire recapito continuo di valore agli utenti finali.
+> DevOps è l'unione di persone, processi e prodotti in grado di offrire recapito continuo di valore agli utenti finali.
 
 una distillazione simile per DevOps potrebbe essere "recapito".
 

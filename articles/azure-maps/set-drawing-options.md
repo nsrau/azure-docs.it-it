@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 4c00639c02f8834a24a3828ac5b8ba828d0e1733
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 82c5d87be084e85b6de9f890bd042babca9df476
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282824"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090500"
 ---
 # <a name="use-the-drawing-tools-module"></a>Usare il modulo Strumenti di disegno
 
-Azure Maps Web SDK fornisce un *modulo di strumenti di disegno*. Questo modulo consente di creare e modificare facilmente forme sulla mappa usando un dispositivo di input, ad esempio un mouse o un touchscreen. La classe principale di questo modulo è [gestione del disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-). Il gestore di disegno offre tutte le funzionalità necessarie per disegnare e modificare forme sulla mappa. Può essere usato direttamente ed è integrato con un'interfaccia utente personalizzata della barra degli strumenti. È anche possibile usare la classe della [barra degli strumenti di disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest) incorporata. 
+Azure Maps Web SDK fornisce un *modulo di strumenti di disegno*. Questo modulo consente di creare e modificare facilmente forme sulla mappa usando un dispositivo di input, ad esempio un mouse o un touchscreen. La classe principale di questo modulo è [gestione del disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). Il gestore di disegno offre tutte le funzionalità necessarie per disegnare e modificare forme sulla mappa. Può essere usato direttamente ed è integrato con un'interfaccia utente personalizzata della barra degli strumenti. È anche possibile usare la classe della [barra degli strumenti di disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar) incorporata. 
 
 ## <a name="loading-the-drawing-tools-module-in-a-webpage"></a>Caricamento del modulo strumenti di disegno in una pagina Web
 
@@ -44,13 +44,13 @@ Azure Maps Web SDK fornisce un *modulo di strumenti di disegno*. Questo modulo c
 
 ## <a name="use-the-drawing-manager-directly"></a>Usare direttamente gestione disegno
 
-Una volta caricato il modulo strumenti di disegno nell'applicazione, è possibile abilitare le funzionalità di disegno e modifica usando [gestione disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-). È possibile specificare le opzioni per il gestore di disegno durante la creazione di un'istanza o usare la funzione in alternativa `drawingManager.setOptions()` .
+Una volta caricato il modulo strumenti di disegno nell'applicazione, è possibile abilitare le funzionalità di disegno e modifica usando [gestione disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager#setoptions-drawingmanageroptions-). È possibile specificare le opzioni per il gestore di disegno durante la creazione di un'istanza o usare la funzione in alternativa `drawingManager.setOptions()` .
 
 ### <a name="set-the-drawing-mode"></a>Impostare la modalità di disegno
 
 Il codice seguente crea un'istanza del gestore di disegno e imposta l'opzione della **modalità** di disegno. 
 
-```Javascript
+```javascript
 //Create an instance of the drawing manager and set drawing mode.
 drawingManager = new atlas.drawing.DrawingManager(map,{
     mode: "draw-polygon"
@@ -70,13 +70,13 @@ Vedere le informazioni su come <a href='https://codepen.io/azuremaps/pen/YzKVKRa
 
 Il gestore del disegno supporta tre diverse modalità di interazione con la mappa per disegnare forme.
 
-* `click`-Le coordinate vengono aggiunte quando si fa clic con il mouse o il tocco.
-* `freehand `-Le coordinate vengono aggiunte quando il mouse o il tocco viene trascinato sulla mappa. 
-* `hybrid`-Le coordinate vengono aggiunte quando si fa clic o si trascina il mouse o il tocco.
+* `click` -Le coordinate vengono aggiunte quando si fa clic con il mouse o il tocco.
+* `freehand ` -Le coordinate vengono aggiunte quando il mouse o il tocco viene trascinato sulla mappa. 
+* `hybrid` -Le coordinate vengono aggiunte quando si fa clic o si trascina il mouse o il tocco.
 
 Il codice seguente abilita la modalità di disegno Polygon e imposta il tipo di interazione del disegno a cui deve aderire il gestore del disegno `freehand` . 
 
-```Javascript
+```javascript
 //Create an instance of the drawing manager and set drawing mode.
 drawingManager = new atlas.drawing.DrawingManager(map,{
     mode: "draw-polygon",
@@ -122,10 +122,10 @@ Vedere le informazioni su come usare le funzionalità aggiuntive del modulo stru
 Per altre informazioni sulle classi e sui metodi usati in questo articolo, vedere:
 
 > [!div class="nextstepaction"]
-> [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+> [Mappa](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map)
 
 > [!div class="nextstepaction"]
-> [Gestione disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest)
+> [Gestione disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager)
 
 > [!div class="nextstepaction"]
-> [Barra degli strumenti disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest)
+> [Barra degli strumenti disegno](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar)

@@ -3,15 +3,15 @@ title: Configurare Multi-Factor Authentication di Azure per desktop virtuale Win
 description: Come configurare Multi-Factor Authentication di Azure per una maggiore sicurezza nel desktop virtuale di Windows.
 author: Heidilohr
 ms.topic: how-to
-ms.date: 08/27/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: e8e723aa26ab08c8a09e75f506802101dc07f7e8
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: e31693eafcf32de1460cfa5b74ae35ffd05b5a67
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017779"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089922"
 ---
 # <a name="enable-azure-multi-factor-authentication-for-windows-virtual-desktop"></a>Abilitare l'autenticazione a più fattori di Azure per Desktop virtuale Windows
 
@@ -48,10 +48,19 @@ Ecco come creare un criterio di accesso condizionale che richiede l'autenticazio
 7. Selezionare **Fine**.
 8. In **app Cloud o azioni**  >  **Includi**selezionare **Seleziona app**.
 9. Selezionare una delle app seguenti in base alla versione di desktop virtuale di Windows in uso.
-   - Se si usa desktop virtuale di Windows (versione classica), scegliere questa app:
+   
+   - Se si usa desktop virtuale di Windows (versione classica), scegliere le app seguenti:
+       
        - **Desktop virtuale Windows** (ID app 5a0aa725-4958-4b0c-80a9-34562e23f3b7)
+       - **Client desktop virtuale Windows** (ID app fa4345a4-A730-4230-84a8-7d9651b86739), che consente di impostare i criteri nel client Web
+       
+        Successivamente, procedere con il passaggio 11.
+
    - Se si usa desktop virtuale di Windows, scegliere questa app:
+       
        -  **Desktop virtuale Windows** (ID app 9cdead84-A844-4324-93f2-b2e6bb768d07)
+       
+        Successivamente, andare al passaggio 10.
 
    >[!IMPORTANT]
    > Non selezionare l'app denominata Windows Virtual Desktop Azure Resource Manager Provider (50e95039-B200-4007-bc97-8d5790743a63). Questa app viene usata solo per recuperare il feed dell'utente e non deve avere l'autenticazione a più fattori.

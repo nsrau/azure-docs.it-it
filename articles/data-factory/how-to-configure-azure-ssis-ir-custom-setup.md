@@ -11,13 +11,13 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 08/11/2020
-ms.openlocfilehash: 18e1ff05d76937f8809408da0ed25f55120e456a
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.date: 09/15/2020
+ms.openlocfilehash: ff56ef55066fd0f56b5b8dc7507bfb63b8b8baa0
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440576"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090602"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Personalizzare l'installazione di Azure-SSIS Integration Runtime
 
@@ -40,7 +40,7 @@ Utilizzando le configurazioni personalizzate, è possibile modificare la configu
 
 Le limitazioni seguenti si applicano solo alle installazioni personalizzate standard:
 
-- Se si vuole usare *gacutil.exe* nello script per installare assembly in Global Assembly Cache (GAC), è necessario specificare *gacutil.exe* come parte dell'installazione personalizzata. In alternativa, è possibile usare la copia disponibile nel contenitore *Public Preview* (Anteprima pubblica), descritta più avanti nella sezione "Istruzioni".
+- Se si vuole usare *gacutil.exe* nello script per installare assembly in Global Assembly Cache (GAC), è necessario specificare *gacutil.exe* come parte dell'installazione personalizzata. In alternativa, è possibile usare la copia fornita nella cartella *Sample* del contenitore di *anteprima pubblica* , vedere la sezione **esempi di installazione personalizzata standard** riportata di seguito.
 
 - Se si vuole fare riferimento a una sottocartella nello script, *msiexec.exe* non supporta la notazione `.\` usata per i riferimenti alla cartella radice. Usare un comando, ad esempio `msiexec /i "MySubfolder\MyInstallerx64.msi" ...`, anziché `msiexec /i ".\MySubfolder\MyInstallerx64.msi" ...`.
 

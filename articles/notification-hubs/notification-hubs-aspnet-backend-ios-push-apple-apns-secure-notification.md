@@ -10,16 +10,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: ios
 ms.devlang: objective-c
 ms.topic: article
-ms.date: 01/04/2019
+ms.date: 08/17/2020
 ms.author: sethm
-ms.reviewer: jowargo
+ms.reviewer: thsomasu
 ms.lastreviewed: 01/04/2019
-ms.openlocfilehash: d7dc3212007e9b9ec67d0d235135d4d46f20b950
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: a6c85ba017656bd312ddfe3d5f6d98014a3dc89a
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87022124"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090347"
 ---
 # <a name="azure-notification-hubs-secure-push"></a>Push sicuro degli hub di notifica di Azure
 
@@ -43,7 +43,7 @@ A livello generale, il flusso è il seguente:
    * Il dispositivo contatta il back-end richiedendo il payload sicuro.
    * L'app può indicare il payload come una notifica sul dispositivo.
 
-È importante notare che nel flusso precedente e in questa esercitazione si presuppone che il dispositivo archivi un token di autenticazione nella memoria locale, dopo l’accesso dell'utente. Ciò garantisce un'esperienza lineare, in quanto il dispositivo può recuperare il payload sicuro della notifica tramite questo token. Se invece l'applicazione non archivia i token di autenticazione nel dispositivo o se questi hanno una scadenza, l'app per dispositivo, alla ricezione della notifica, dovrà visualizzare una notifica generica in cui si richiede all'utente di avviare l'app. L'app autentica quindi l'utente e mostra il payload di notifica.
+È importante notare che nel flusso precedente e in questa esercitazione si presuppone che il dispositivo archivi un token di autenticazione nella memoria locale, dopo l’accesso dell'utente. Ciò garantisce un'esperienza lineare, in quanto il dispositivo può recuperare il payload sicuro della notifica tramite questo token. Se l'applicazione non archivia i token di autenticazione nel dispositivo o se questi token possono essere scaduti, l'app per dispositivo, alla ricezione della notifica, dovrebbe visualizzare una notifica generica che richiede all'utente di avviare l'app. L'app autentica quindi l'utente e mostra il payload di notifica.
 
 In questa esercitazione sul push sicuro viene illustrato come inviare una notifica push in modo sicuro. Poiché i passaggi qui descritti si basano sull'esercitazione [Utilizzo di Hub di notifica per inviare notifiche agli utenti](notification-hubs-aspnet-backend-ios-apple-apns-notification.md) , sarà prima necessario completare i passaggi di quest'ultima.
 
@@ -119,8 +119,8 @@ Per conseguire questo obiettivo, è necessario scrivere la logica per recuperare
 
     Questo metodo chiama il back-end dell'app per recuperare il contenuto della notifica usando le credenziali memorizzate nelle preferenze condivise.
 
-4. A questo punto, è necessario gestire la notifica in arrivo e usare il metodo sopra citato per recuperare il contenuto da visualizzare. In primo luogo, è necessario abilitare l'esecuzione dell'app per iOS in background quando riceve una notifica push. In **XCode** selezionare il progetto dell'app nel riquadro a sinistra, fare clic sull'app di destinazione principale nella sezione **Targets** (Destinazioni) nel riquadro centrale.
-5. Fare quindi clic sulla scheda **Capabilities** (Funzionalità) nella parte superiore del riquadro centrale e selezionare la casella di controllo **Remote Notifications** (Notifiche remote).
+4. A questo punto, gestire la notifica in ingresso e usare il metodo precedente per recuperare il contenuto da visualizzare. Prima di tutto, abilitare l'app per iOS per l'esecuzione in background quando si riceve una notifica push. In **XCode** selezionare il progetto dell'app nel riquadro a sinistra, fare clic sull'app di destinazione principale nella sezione **Targets** (Destinazioni) nel riquadro centrale.
+5. Fare quindi clic sulla scheda **funzionalità** nella parte superiore del riquadro centrale e selezionare la casella **notifiche remote** .
 
     ![Screenshot di XCode, con il progetto dell'app selezionato e la scheda funzionalità aperta. La casella di controllo notifiche remote è selezionata.][IOS1]
 

@@ -1,17 +1,17 @@
 ---
 title: Risoluzione dei problemi di connessione del servizio Desktop virtuale Windows - Azure
-description: Come risolvere i problemi quando si configurano le connessioni client in un ambiente tenant di Desktop virtuale Windows.
+description: Come risolvere i problemi durante la configurazione delle connessioni ai servizi in un ambiente tenant di desktop virtuali Windows.
 author: Heidilohr
 ms.topic: troubleshooting
-ms.date: 06/19/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: c6d0360a4fe957f43e38fd892cef6b4ab0a2325a
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5eb5602b8330906311df4a0d1f59bc5e5130237e
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009376"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089905"
 ---
 # <a name="windows-virtual-desktop-service-connections"></a>Connessioni del servizio Desktop virtuale Windows
 
@@ -39,6 +39,12 @@ Un utente può avviare i client Desktop remoto ed è in grado di eseguire l'aute
 3. Se viene utilizzato il client Web, verificare che non siano presenti problemi di credenziali memorizzate nella cache.
 
 4. Se l'utente fa parte di un gruppo di utenti Azure Active Directory (AD), assicurarsi che il gruppo di utenti sia un gruppo di sicurezza anziché un gruppo di distribuzione. Desktop virtuale Windows non supporta i gruppi di distribuzione Azure AD.
+
+## <a name="user-loses-existing-feed-and-no-remote-resource-is-displayed-no-feed"></a>L'utente perde il feed esistente e non viene visualizzata alcuna risorsa remota (nessun feed)
+
+Questo errore viene in genere visualizzato dopo che un utente ha spostato la sottoscrizione da un tenant Azure AD a un altro. Di conseguenza, il servizio perde la traccia delle assegnazioni degli utenti, dal momento che sono ancora legate alla vecchia Azure AD tenant.
+
+Per risolvere il problema, è sufficiente riassegnare gli utenti ai gruppi di app.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

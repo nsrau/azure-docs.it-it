@@ -4,16 +4,16 @@ description: Informazioni su come identificare, diagnosticare e risolvere i prob
 author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 04/22/2020
+ms.date: 09/12/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 80e966bf190dcbe4490269ef28a95babadda68d8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6833f9d59eca4c2f0b49dd70684ade900226aba
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85117914"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089990"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Risolvere i problemi di query relativi all'uso di Azure Cosmos DB
 
@@ -26,22 +26,21 @@ In generale, l'ottimizzazione delle query in Azure Cosmos DB può essere classif
 
 Se si riduce l'addebito UR di una query, quasi sicuramente è possibile ridurre anche la latenza.
 
-Questo articolo fornisce esempi che è possibile riprodurre usando il set di dati [nutrition](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
+Questo articolo fornisce esempi che è possibile ricreare usando il set di [dati nutrizionale](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json).
 
 ## <a name="common-sdk-issues"></a>Problemi comuni dell'SDK
 
 Prima di leggere questa guida, è opportuno prendere in considerazione i più problemi comuni dell'SDK che non sono correlati al motore di query.
 
-- Per prestazioni ottimali, seguire questi [suggerimenti per incrementare le prestazioni](performance-tips.md).
-    > [!NOTE]
-    > Per migliorare le prestazioni, è consigliabile l'elaborazione host di Windows a 64 bit. L'SDK SQL include un file ServiceInterop.dll nativo che consente di analizzare e ottimizzare le query in locale. Il file ServiceInterop.dll è supportato solo nella piattaforma Windows x64. Per Linux e altre piattaforme non supportate in cui ServiceInterop.dll non è disponibile, viene effettuata una chiamata di rete aggiuntiva al gateway per ottenere la query ottimizzata.
+- Seguire questi [suggerimenti sulle prestazioni dell'SDK](performance-tips.md).
+    - [Guida alla risoluzione dei problemi di .NET SDK](troubleshoot-dot-net-sdk.md)
+    - [Guida alla risoluzione dei problemi di Java SDK](troubleshoot-java-sdk-v4-sql.md)
 - L'SDK consente di impostare un valore `MaxItemCount` per le query, ma non è possibile specificare un numero minimo di elementi.
     - Il codice deve gestire qualsiasi dimensione di pagina, da zero fino al valore`MaxItemCount`.
-    - Il numero di elementi in una pagina sarà sempre minore o uguale al valore `MaxItemCount` specificato. Tuttavia, `MaxItemCount` è rigorosamente un valore massimo e potrebbe essere presente un minor numero di risultati rispetto a questa quantità.
 - A volte le query possono includere pagine vuote anche quando sono presenti risultati in una pagina successiva. Alcuni possibili motivi sono:
     - L'SDK sta eseguendo più chiamate di rete.
     - Il recupero dei documenti da parte della query potrebbe richiedere molto tempo.
-- Tutte le query hanno un token di continuazione che consente la continuazione della query. Assicurarsi di svuotare completamente la query. Esaminare gli esempi dell'SDK e usare un ciclo `while` in`FeedIterator.HasMoreResults` per svuotare completamente la query.
+- Tutte le query hanno un token di continuazione che consente la continuazione della query. Assicurarsi di svuotare completamente la query. Altre informazioni sulla [gestione di più pagine di risultati](sql-query-pagination.md#handling-multiple-pages-of-results)
 
 ## <a name="get-query-metrics"></a>Recuperare le metriche della query
 

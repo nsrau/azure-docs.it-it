@@ -12,12 +12,12 @@ ms.date: 05/19/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
-ms.openlocfilehash: 07e8f1d0cf173a8ab41f8feb105743a7559cdd2f
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 0c30b5305fb5496db86a20be7a37f36b894ecc8b
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90005792"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90089752"
 ---
 # <a name="publisher-verification"></a>Verifica dell'editore
 
@@ -33,7 +33,7 @@ La verifica dell'autore offre i vantaggi seguenti:
 
 - **Miglioramento della personalizzazione** - Viene visualizzato un badge di verifica completata nella [richiesta di consenso](application-consent-experience.md) di Azure AD, nella pagina App aziendali e in altre aree dell'esperienza utente usate dagli utenti finali e dagli amministratori. 
 
-- **Adozione aziendale più agevole** - Gli amministratori possono configurare nuovi criteri di consenso dell'utente e lo stato di verifica dell'autore sarà uno dei criteri principali. 
+- **Adozione più agevole dell'organizzazione**: gli amministratori possono configurare i criteri di [consenso dell'utente](../manage-apps/configure-user-consent.md), con lo stato di verifica del server di pubblicazione come uno dei criteri principali. 
 
 - **Valutazione dei rischi migliorata** - I rilevamenti Microsoft per le richieste di consenso "rischiose" includeranno la verifica dell'autore come segnale. 
 
@@ -52,6 +52,8 @@ Esistono alcuni prerequisiti per la verifica dell'autore, alcuni dei quali saran
 
     -  In Partner Center questo utente deve avere uno dei [ruoli](/partner-center/permissions-overview) seguenti: Amministratore MPN, Amministratore account o Amministratore globale (si tratta di un ruolo condiviso gestito in Azure AD).
     
+-  L'utente che esegue la verifica deve eseguire l'accesso con [l'autenticazione a più fattori](../authentication/howto-mfa-getstarted.md).
+
 -  L'autore accetta le [condizioni per l'utilizzo di Microsoft Identity Platform per sviluppatori](/legal/microsoft-identity-platform/terms-of-use).
 
 Gli sviluppatori che hanno già soddisfatto questi prerequisiti possono essere verificati in pochi minuti. Se i requisiti non sono stati soddisfatti, la configurazione è gratuita. 

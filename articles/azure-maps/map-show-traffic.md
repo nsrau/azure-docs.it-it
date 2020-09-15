@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen, devx-track-javascript
-ms.openlocfilehash: 063fbd2ad4f2f5d427fd2cb39b8ce9b231eba374
-ms.sourcegitcommit: bfeae16fa5db56c1ec1fe75e0597d8194522b396
+ms.openlocfilehash: cd59bb411a598603ccef215cd9a56b7619115e72
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88036426"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090568"
 ---
 # <a name="show-traffic-on-the-map"></a>Mostrare il traffico sulla mappa
 
@@ -40,7 +40,7 @@ Di seguito è riportato l'esempio di codice completo e funzionante della funzion
 
 <br/>
 
-<iframe height='500' scrolling='no' title='Mostrare il traffico su una mappa' src='//codepen.io/azuremaps/embed/WMLRPw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Visualizzare l'elemento Pen <a href='https://codepen.io/azuremaps/pen/WMLRPw/'>Show traffic on a map</a> (Visualizzare il traffico su una mappa) di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
+<iframe height='500' scrolling='no' title='Mostrare il traffico su una mappa' src='//codepen.io/azuremaps/embed/WMLRPw/?height=500&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' loading="lazy" allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Visualizzare l'elemento Pen <a href='https://codepen.io/azuremaps/pen/WMLRPw/'>Show traffic on a map</a> (Visualizzare il traffico su una mappa) di Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) in <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
 ## <a name="traffic-overlay-options"></a>Opzioni di sovrapposizione del traffico
@@ -49,9 +49,31 @@ Lo strumento seguente consente di alternare tra varie impostazioni di sovrapposi
 
 <br/>
 
-<iframe height="700" style="width: 100%;" scrolling="no" title="Opzioni di sovrapposizione del traffico" src="//codepen.io/azuremaps/embed/RwbPqRY/?height=700&theme-id=0&default-tab=result" frameborder="no" allowtransparency="true" allowfullscreen="true">
+<iframe height="700" style="width: 100%;" scrolling="no" title="Opzioni di sovrapposizione del traffico" src="//codepen.io/azuremaps/embed/RwbPqRY/?height=700&theme-id=0&default-tab=result" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
 Vedere le <a href='https://codepen.io/azuremaps/pen/RwbPqRY/'>Opzioni di sovrapposizione del traffico</a> dell'elemento Pen con Mappe di Azure (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) su <a href='https://codepen.io'>CodePen</a>.
 </iframe>
+
+
+## <a name="add-traffic-controls"></a>Aggiungere controlli di traffico
+
+Sono disponibili due diversi controlli di traffico che è possibile aggiungere alla mappa. Il primo controllo, `TrafficControl` , aggiunge un interruttore che può essere usato per attivare e disattivare il traffico. Le opzioni per questo controllo consentono di specificare quando usare le impostazioni del traffico quando viene visualizzato il traffico. Per impostazione predefinita, questo controllo visualizzerà il flusso di traffico relativo e i dati degli eventi imprevisti. Tuttavia, è possibile modificarlo per visualizzare il flusso di traffico assoluto e nessun evento imprevisto, se necessario. Il secondo controllo, `TrafficLegendControl` , aggiunge una legenda del flusso del traffico alla mappa che consente agli utenti di comprendere il significato della strada del codice colori. Questo controllo verrà visualizzato sulla mappa solo quando i dati del flusso di traffico vengono visualizzati sulla mappa e verranno nascosti in tutti gli altri momenti.
+
+Il codice seguente mostra come aggiungere i controlli di traffico alla mappa.
+
+```JavaScript
+//Att the traffic control toogle button to the top right corner of the map.
+map.controls.add(new atlas.control.TrafficControl(), { position: 'top-right' });
+
+//Att the traffic legend control to the bottom left corner of the map.
+map.controls.add(new atlas.control.TrafficLegendControl(), { position: 'bottom-left' });
+```
+
+<br/>
+
+<iframe height="500" style="width: 100%;" scrolling="no" title="Controlli di traffico" src="https://codepen.io/azuremaps/embed/ZEWaeLJ?height500&theme-id=0&default-tab=js,result&embed-version=2&editable=true" frameborder='no' loading="lazy" loading="lazy" allowtransparency="true" allowfullscreen="true">
+Vedere i <a href='https://codepen.io/azuremaps/pen/ZEWaeLJ'>controlli del traffico</a> di penna da Azure Maps ( <a href='https://codepen.io/azuremaps'>@azuremaps</a> ) in <a href='https://codepen.io'>CodePen</a>.
+</iframe>
+
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -16,12 +16,12 @@ ms.date: 02/27/2018
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18c982b09aa8a28d520c709c9b8db2c9be4c7bb4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 48584fa4042cf53fa1084e519dca0e64f530ca59
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85356951"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090126"
 ---
 # <a name="azure-ad-connect-staging-server-and-disaster-recovery"></a>Azure AD Connect: server di staging e ripristino di emergenza
 Con un server in modalità di gestione temporanea è possibile apportare modifiche alla configurazione e visualizzarle in anteprima prima di attivare il server. È anche possibile eseguire operazioni di importazione e sincronizzazione complete per verificare che tutte le modifiche siano previste prima di introdurle nell'ambiente di produzione.
@@ -49,15 +49,15 @@ Coloro che hanno una conoscenza delle tecnologie di sincronizzazione precedenti 
 ### <a name="verify-the-configuration-of-a-server"></a>Verificare la configurazione di un server
 Per applicare questo metodo, seguire questa procedura:
 
-1. [Preparazione](#prepare)
+1. [Preparare](#prepare)
 2. [Configuration](#configuration)
 3. [Importare e sincronizzare](#import-and-synchronize)
 4. [Verificare](#verify)
 5. [Cambiare il server attivo](#switch-active-server)
 
-#### <a name="prepare"></a>Preparazione
+#### <a name="prepare"></a>Preparare
 1. Installare Azure AD Connect, selezionare **Modalità di gestione temporanea** e deselezionare **Avvia sincronizzazione** nell'ultima pagina dell'installazione guidata. In questo modo è possibile eseguire manualmente il motore di sincronizzazione.
-   ![ReadyToConfigure](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
+   ![Screenshot mostra la pagina pronto per la configurazione nella finestra di dialogo Azure AD Connect.](./media/how-to-connect-sync-staging-server/readytoconfigure.png)
 2. Disconnettersi e accedere, quindi dal menu Start selezionare **Synchronization Service**(Servizio di sincronizzazione).
 
 #### <a name="configuration"></a>Configurazione
@@ -73,7 +73,7 @@ Se si sono apportate modifiche personalizzate al server primario e si desidera c
 
 #### <a name="verify"></a>Verifica
 1. Avviare un prompt dei comandi e passare a `%ProgramFiles%\Microsoft Azure AD Sync\bin`
-2. Eseguire: `csexport "Name of Connector" %temp%\export.xml /f:x` Il nome del connettore si trova nel servizio di sincronizzazione. Il nome sarà simile a "contoso.com - AAD" per Azure AD.
+2. Eseguire: `csexport "Name of Connector" %temp%\export.xml /f:x` Il nome del connettore si trova nel servizio di sincronizzazione. Ha un nome simile a "contoso.com-Azure AD" per Azure AD.
 3. Eseguire: `CSExportAnalyzer %temp%\export.xml > %temp%\export.csv` Si avrà un file denominato export.csv in %temp%, che può essere esaminato in Microsoft Excel. Questo file contiene tutte le modifiche in fase di esportazione.
 4. Apportare le modifiche necessarie ai dati o alla configurazione ed eseguire di nuovo questi passaggi (importazione, sincronizzazione e verifica) finché le modifiche che verranno esportate non saranno quelle previste.
 
