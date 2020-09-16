@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: how-to
 ms.date: 06/29/2020
 ms.author: cherylmc
-ms.openlocfilehash: 0f5481531d23eeb579dcabe80e028ed7b482b09f
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 6592b1a934e732888ef949071d95075d0af61bf6
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88762267"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708071"
 ---
 # <a name="view-virtual-hub-effective-routes"></a>Visualizzare le route effettive dell'hub virtuale
 
@@ -50,6 +50,8 @@ Utilizzare la barra di scorrimento nella parte inferiore della tabella per visua
 * Il campo della **route predefinita propagate** viene visualizzato nel portale WAN virtuale di Azure quando si modifica una connessione di rete virtuale, una connessione VPN o una connessione ExpressRoute. Questo campo indica il flag **enableInternetSecurity** , che è sempre per impostazione predefinita "false" per le connessioni EXPRESSROUTE e VPN, ma "true" per le connessioni di rete virtuale.
 
 * Quando si visualizzano route valide in una scheda di interfaccia di rete della macchina virtuale, se viene visualizzato l'hop successivo come "gateway di rete virtuale", che implica il router dell'hub virtuale quando la macchina virtuale si trova in una connessione a un hub WAN virtuale.
+
+* Visualizzare le route valide per una tabella di route dell'hub virtuale viene popolato solo se per l'hub virtuale è connesso almeno un tipo di connessione (VPN/ER/VNET).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

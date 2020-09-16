@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 89de144ab3d0ac4d8b68749e8c836ea1cf328dae
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: f35a43e9cbffb2613f7a98e02b03840c774e5999
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/16/2020
-ms.locfileid: "90601059"
+ms.locfileid: "90708156"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mariadb"></a>Informazioni sulle modifiche apportate alla modifica della CA radice per il database di Azure per MariaDB
 
@@ -29,9 +29,8 @@ Il nuovo certificato verrà usato a partire dal 26 ottobre 2020 (10/26/2020). Se
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>Ricerca per categorie verificare se il database sarà interessato?
 
 Tutte le applicazioni che usano SSL/TLS e verificano che il certificato radice debba aggiornare il certificato radice. È possibile stabilire se le connessioni verificano il certificato radice rivedendo la stringa di connessione.
--   Se la stringa di connessione include `sslmode=verify-ca` o ''
--   Se la stringa di connessione include `sslmode=disable` , non è necessario aggiornare i certificati.
--   Se la stringa di connessione include `sslmode=allow` , `sslmode=prefer` o `sslmode=require` , non è necessario aggiornare i certificati. 
+-   Se la stringa di connessione include `sslmode=verify-ca` o `sslmode=verify-full` , è necessario aggiornare il certificato.
+-   Se la stringa di connessione include `sslmode=disable` ,, `sslmode=allow` `sslmode=prefer` o `sslmode=require` , non è necessario aggiornare i certificati. 
 -   Se la stringa di connessione non specifica sslmode, non è necessario aggiornare i certificati.
 
 Se si usa un client che astrae la stringa di connessione, esaminare la documentazione del client per capire se verifica i certificati.

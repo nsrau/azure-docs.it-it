@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/21/2020
+ms.date: 9/16/2020
 ms.author: b-juche
-ms.openlocfilehash: 60d3c9df270561c94b8eb162595e4fe01713c0b5
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 870863cc0b1a98aa0efe671da4a8f6a5bb7f53aa
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536480"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708105"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Limiti delle risorse per Azure NetApp Files
 
@@ -44,7 +44,8 @@ La tabella seguente descrive i limiti delle risorse per Azure NetApp Files:
 |  Dimensioni massime di un singolo volume     |    100 TiB    |    No    |
 |  Dimensioni massime di un singolo file     |    16 TiB    |    No    |    
 |  Dimensioni massime dei metadati della directory in una singola directory      |    320 MB    |    No    |    
-|  Numero massimo di file ([maxfiles](#maxfiles)) per volume     |    100 milioni    |    Sì    |    
+|  Numero massimo di file ([maxfiles](#maxfiles)) per volume     |    100 milioni    |    Sì    |   
+|  Numero di volumi di protezione dei dati di replica tra aree (volumi di destinazione)     |    5    |    Sì    |     
 
 Per altre informazioni, vedere [domande frequenti sulla gestione della capacità](azure-netapp-files-faqs.md#capacity-management-faqs).
 
@@ -83,9 +84,10 @@ Dal piano di navigazione portale di Azure:
         |  Risorsa  |    Risorse padre      |    Nuovi limiti richiesti     |    Motivo dell'aumento della quota       |
         |----------------|------------------------------|---------------------------------|------------------------------------------|
         |  Account |  *ID sottoscrizione*   |  *Nuovo numero di **conto** massimo richiesto*    |  *Quale scenario o caso di utilizzo ha richiesto la richiesta?*  |
-        |  Pool    |  *ID sottoscrizione, URI account*  |  *Numero massimo di **pool** richiesti*   |  *Quale scenario o caso di utilizzo ha richiesto la richiesta?*  |
-        |  Volume  |  *ID sottoscrizione, URI dell'account, URI del pool*   |  *Numero massimo di **volumi** massimo richiesto*     |  *Quale scenario o caso di utilizzo ha richiesto la richiesta?*  |
-        |  Maxfiles  |  *ID sottoscrizione, URI dell'account, URI del pool, URI del volume*   |  *Numero massimo di **maxfiles** richiesto*     |  *Quale scenario o caso di utilizzo ha richiesto la richiesta?*  |    
+        |  Pool    |  *ID sottoscrizione, URI dell'account NetApp*  |  *Numero massimo di **pool** richiesti*   |  *Quale scenario o caso di utilizzo ha richiesto la richiesta?*  |
+        |  Volume  |  *ID sottoscrizione, URI dell'account NetApp, URI del pool di capacità*   |  *Numero massimo di **volumi** massimo richiesto*     |  *Quale scenario o caso di utilizzo ha richiesto la richiesta?*  |
+        |  Maxfiles  |  *ID sottoscrizione, URI dell'account NetApp, URI del pool di capacità, URI del volume*   |  *Numero massimo di **maxfiles** richiesto*     |  *Quale scenario o caso di utilizzo ha richiesto la richiesta?*  |    
+        |  Volumi di protezione dei dati di replica tra aree  |  *ID sottoscrizione, URI account NetApp di destinazione, URI del pool di capacità di destinazione, URI dell'account NetApp di origine, URI del pool di capacità di origine, URI del volume di origine*   |  *È stato richiesto un nuovo numero massimo di **volumi di protezione dei dati di replica tra aree (volumi di destinazione)***     |  *Quale scenario o caso di utilizzo ha richiesto la richiesta?*  |    
 
     2. Specificare il metodo di supporto appropriato e fornire le informazioni sul contratto.
 

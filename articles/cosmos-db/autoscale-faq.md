@@ -6,12 +6,12 @@ ms.author: dech
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/10/2020
-ms.openlocfilehash: ca4e79977132586c619f323015f9d915e04707f1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0e6a502ae7ed71beaeefe603e0810264e62187ba
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84449516"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90708003"
 ---
 # <a name="frequently-asked-questions-about-autoscale-provisioned-throughput-in-azure-cosmos-db"></a>Domande frequenti sulla velocità effettiva con provisioning a scalabilità automatica in Azure Cosmos DB
 
@@ -27,7 +27,7 @@ Le risorse create con il modello di livello precedente sono supportate automatic
 
 Se, ad esempio, in precedenza era stato selezionato il livello che è stato ridimensionato tra 400 e 4000 UR/s, il database o il contenitore viene ora visualizzato con un numero massimo di 4000 UR/s, che può essere ridimensionato tra 400 e 4000 UR/s. Da qui è possibile modificare il numero massimo di UR/s con un valore personalizzato, in modo da adattarlo al carico di lavoro. 
 
-### <a name="how-quickly-will-autoscale-scale-up-and-down-based-on-spikes-in-traffic"></a>Con quale velocità la scalabilità automatica aumenta e diminuisce la velocità effettiva in base ai picchi di traffico?
+### <a name="how-quickly-will-autoscale-scale-up-based-on-spikes-in-traffic"></a>Con quale velocità il ridimensionamento automatico viene scalato in base ai picchi di traffico?
 Con la scalabilità automatica, il sistema ridimensiona la velocità effettiva (UR/sec) `T` verso l'alto o verso il basso entro un intervallo compreso tra `0.1 * Tmax` e `Tmax`, in base al traffico in ingresso. Poiché il ridimensionamento è automatico e istantaneo, in qualsiasi momento è possibile utilizzare fino al valore `Tmax` di cui è stato effettuato il provisioning senza alcun ritardo. 
 
 ### <a name="how-do-i-determine-what-rus-the-system-is-currently-scaled-to"></a>Come si determina il numero di UR/s a cui è attualmente dimensionato il sistema?

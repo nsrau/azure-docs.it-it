@@ -1,6 +1,6 @@
 ---
 title: Problemi di accesso a un'applicazione Microsoft | Microsoft Docs
-description: Risoluzione di problemi comuni relativi all'accesso ad applicazioni prodotte direttamente da Microsoft usando Azure AD (ad esempio Office 365)
+description: Risolvere i problemi comuni riscontrati durante l'accesso alle applicazioni Microsoft di terze parti usando Azure AD (ad esempio Microsoft 365).
 services: active-directory
 documentationcenter: ''
 author: kenwith
@@ -16,20 +16,20 @@ ms.date: 09/10/2018
 ms.author: kenwith
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69edf8e8dc51f8a8841ceed94221ed44786e280d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 8942a55d880132313e1cdac6bfc025e0b153b410
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84759284"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707952"
 ---
 # <a name="problems-signing-in-to-a-microsoft-application"></a>Problemi di accesso a un'applicazione Microsoft
 
-Le applicazioni Microsoft (ad esempio Office 365 Exchange, SharePoint, Yammer e così via) vengono assegnate e gestite in modo leggermente diverso dalle applicazioni SaaS di terza parte o da altre applicazioni che si integrano con Azure AD per Single Sign On.
+Le applicazioni Microsoft (ad esempio Exchange, SharePoint, Yammer e così via) vengono assegnate e gestite in modo leggermente diverso rispetto alle applicazioni SaaS di terze parti o ad altre applicazioni che si integrano con Azure AD per Single Sign-on.
 
 Vi sono tre principali modi con cui un utente può accedere a un'applicazione pubblicata da Microsoft.
 
--   Per le applicazioni in Office 365 o in altre famiglie di prodotti a pagamento, agli utenti è consentito l'accesso tramite l'**assegnazione di una licenza** direttamente all'account utente o tramite un gruppo utilizzando la funzionalità di assegnazione di licenze di gruppo.
+-   Per le applicazioni nel Microsoft 365 o in altri gruppi a pagamento, agli utenti viene concesso l'accesso tramite l' **assegnazione delle licenze** direttamente al proprio account utente oppure tramite un gruppo che usa la funzionalità di assegnazione delle licenze basata sui gruppi.
 
 -   Per le applicazioni che Microsoft o una terza parte pubblica per l'utilizzo gratuito da parte di chiunque, gli utenti possono ottenere l'accesso tramite **consenso dell'utente**. Ciò significa che gli utenti accedono all'applicazione con l'account Azure AD aziendale o dell'istituto di istruzione e consentono a tale applicazione di accedere a un set limitato di dati nell'account.
 
@@ -61,7 +61,7 @@ Di seguito sono riportati alcuni problemi comuni che vengono riscontrati quando 
 
   * Verificare che l'**account dell'utente sia presente** in Azure Active Directory. [Controllare se esiste un account utente in Azure Active Directory](#problems-with-the-users-account)
 
-  * Assicurarsi che l'account dell'utente sia **abilitato** per gli accessi. [controllare lo stato dell'account di un utente](#problems-with-the-users-account)
+  * Assicurarsi che l'account dell'utente sia **abilitato** per gli accessi. [Controllare lo stato dell'account di un utente](#problems-with-the-users-account)
 
   * Verificare che la **password dell'utente non sia scaduta o non sia stata dimenticata**. [Reimpostare la password di un utente](#reset-a-users-password) o [Abilitare la reimpostazione self-service delle password](https://docs.microsoft.com/azure/active-directory/active-directory-passwords-getting-started)
 
