@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/10/2020
 ms.author: raynew
-ms.openlocfilehash: c58fdd38c4221c03778b2c769620bf7911aaded8
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: ca22def6bc152d03c3992ed7e94ac2b5ccf179e9
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89670522"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604479"
 ---
 # <a name="modify-target-settings"></a>Modificare le impostazioni di destinazione
 
@@ -42,10 +42,10 @@ Le impostazioni di configurazione che è possibile modificare sono riepilogate n
 **Risorse di rete** | Opzioni per le reti virtuali (reti virtuali)/Network gruppi di sicurezza/interfacce di rete:<br/><br/> -Creare una nuova risorsa con lo stesso nome nell'area di destinazione.<br/><br/> -Creare una nuova risorsa con un nome diverso nell'area di destinazione.<br/><br/> -Usare una risorsa di rete esistente nell'area di destinazione.<br/><br/> Se si crea una nuova risorsa di destinazione, ad eccezione delle impostazioni modificate, vengono assegnate le stesse impostazioni della risorsa di origine.
 **Nome indirizzo IP pubblico** | Specificare il nome.
 **SKU indirizzo IP pubblico** | Specificare lo [SKU](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#sku).
-**Area indirizzi IP pubblici** | Specificare la [zona](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) per gli indirizzi IP pubblici standard.<br/><br/> Se si vuole che la zona sia ridondante, immettere come **regione**.
+**Area indirizzi IP pubblici** | Specificare la [zona](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm#standard) per gli indirizzi IP pubblici standard.<br/><br/> Se si vuole che la zona sia ridondante, immettere come **ridondanza**della zona.
 **Nome del servizio di bilanciamento del carico** | Specificare il nome.
 **SKU del servizio di bilanciamento del carico** | Basic o Standard. Si consiglia di usare standard.
-**Area del servizio di bilanciamento del carico** | Specificare una zona per il servizio di bilanciamento del carico. <br/><br/> Se si vuole che la zona sia ridondante, immettere come **regione**.
+**Area del servizio di bilanciamento del carico** | Specificare una zona per il servizio di bilanciamento del carico. <br/><br/> Se si vuole che la zona sia ridondante, immettere come **ridondanza**della zona.
 **Dipendenze delle risorse** | Opzioni per ogni dipendenza:<br/><br/>-La risorsa usa risorse dipendenti dall'origine che si sposteranno nell'area di destinazione.<br/><br/> -La risorsa usa risorse dipendenti diverse che si trovano nell'area di destinazione. In questo caso, è possibile scegliere tra le risorse simili nell'area di destinazione.
 
 ### <a name="edit-vm-target-settings"></a>Modificare le impostazioni di destinazione della macchina virtuale

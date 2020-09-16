@@ -2,14 +2,14 @@
 title: Usare la raccolta di immagini condivise per creare un pool di immagini personalizzato
 description: I pool di immagini personalizzati sono un modo efficiente per configurare i nodi di calcolo per l'esecuzione dei carichi di lavoro di batch.
 ms.topic: conceptual
-ms.date: 07/01/2020
+ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: aad8b279ce821496d4c947bc7f9c707243468f07
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 31fcbff50a2a66aec1643f1bac351e0401205861
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852413"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605193"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-image-pool"></a>Usare la raccolta di immagini condivise per creare un pool di immagini personalizzato
 
@@ -43,7 +43,9 @@ L'uso di un'Immagine condivisa configurata per uno scenario specifico può esser
 - **Un'immagine Raccolta immagini condivise**. Per creare un'Immagine condivisa, è necessario avere o creare una risorsa immagine gestita. È consigliabile creare l'immagine dagli snapshot del disco del sistema operativo della macchina virtuale e, facoltativamente, i relativi dischi dati collegati.
 
 > [!NOTE]
-> L'Immagine condivisa deve trovarsi nella stessa sottoscrizione dell'account Batch. L'immagine può trovarsi in aree diverse, purché includa repliche nella stessa area dell'account Batch.
+> Se l'immagine condivisa non si trova nella stessa sottoscrizione dell'account batch, è necessario [registrare il provider di risorse Microsoft.Batch](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) per tale sottoscrizione. Le due sottoscrizioni devono trovarsi nello stesso tenant Azure AD.
+>
+> L'immagine può trovarsi in un'area diversa, purché includa repliche nella stessa area dell'account batch.
 
 Se si usa un'applicazione Azure AD per creare un pool di immagini personalizzato con un'immagine della raccolta immagini condivisa, a tale applicazione deve essere stato concesso un [ruolo predefinito di Azure](../role-based-access-control/rbac-and-directory-admin-roles.md#azure-roles) che consente di accedere all'immagine condivisa. È possibile concedere questo accesso nel portale di Azure passando all'immagine condivisa, selezionando **controllo di accesso (IAM)** e aggiungendo un'assegnazione di ruolo per l'applicazione.
 

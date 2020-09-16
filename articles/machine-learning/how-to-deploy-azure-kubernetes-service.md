@@ -11,12 +11,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: da6554ae3b7df9962e1f57ac652567c282227d64
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: bfc285f68e8a44b6b09fc63d9b2775a047955a37
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661648"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604666"
 ---
 # <a name="deploy-a-model-to-an-azure-kubernetes-service-cluster"></a>Distribuire un modello in un cluster del servizio Kubernetes di Azure
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -60,6 +60,39 @@ Quando si esegue la distribuzione nel servizio Azure Kubernetes, viene distribui
 
     - Se si desidera distribuire modelli a nodi GPU o a nodi FPGA (o a qualsiasi SKU specifico), è necessario creare un cluster con lo SKU specifico. Non è disponibile alcun supporto per la creazione di un pool di nodi secondari in un cluster esistente e la distribuzione di modelli nel pool di nodi secondari.
 
+## <a name="understand-the-deployment-processes"></a>Informazioni sui processi di distribuzione
+
+Il termine "distribuzione" viene usato sia in Kubernetes che in Azure Machine Learning. "Distribuzione" ha significati diversi in questi due contesti. In Kubernetes, `Deployment` è un'entità concreta, specificata con un file YAML dichiarativo. Un Kubernetes `Deployment` ha un ciclo di vita definito e relazioni concrete con altre entità Kubernetes, ad esempio `Pods` e `ReplicaSets` . Per informazioni su Kubernetes da documenti e video, vedere informazioni su [Kubernetes](https://aka.ms/k8slearning).
+
+In Azure Machine Learning, "distribuzione" viene usato nel senso più generale di rendere disponibile e pulire le risorse del progetto. I passaggi che Azure Machine Learning considera parte della distribuzione sono:
+
+1. Comprime i file nella cartella del progetto, ignorando quelli specificati in. amlignore o. gitignore
+1. Scalabilità verticale del cluster di elaborazione (correlato a Kubernetes)
+1. Compilazione o download di dockerfile nel nodo di calcolo (correlato a Kubernetes)
+    1. Il sistema calcola un hash di: 
+        - Immagine di base 
+        - Passaggi personalizzati di Docker (vedere [distribuire un modello usando un'immagine di base Docker personalizzata](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
+        - YAML per la definizione conda (vedere [creare & usare gli ambienti software in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
+    1. Il sistema usa questo hash come chiave in una ricerca dell'area di lavoro Azure Container Registry (ACR)
+    1. Se non viene trovato, viene cercata una corrispondenza nell'ACR globale
+    1. Se non viene trovato, il sistema compila una nuova immagine, che verrà memorizzata nella cache e inserita nell'area di lavoro ACR.
+1. Download del file di progetto compresso nell'archiviazione temporanea nel nodo di calcolo
+1. Decompressione del file di progetto
+1. Nodo di calcolo in esecuzione `python <entry script> <arguments>`
+1. Salvataggio dei log, dei file di modello e di altri file scritti nell' `./outputs` account di archiviazione associato all'area di lavoro
+1. Riduzione delle prestazioni di calcolo, inclusa la rimozione dell'archiviazione temporanea (in relazione a Kubernetes)
+
+### <a name="azure-ml-router"></a>Router Azure ML
+
+Il componente front-end (azureml-Fe) che instrada le richieste di inferenza in ingresso ai servizi distribuiti viene ridimensionato automaticamente in base alle esigenze. Il ridimensionamento di azureml-Fe è basato sullo scopo e sulle dimensioni del cluster AKS (numero di nodi). Lo scopo e i nodi del cluster vengono configurati quando si [Crea o si connette un cluster AKS](how-to-create-attach-kubernetes.md). È disponibile un servizio azureml-Fe per ogni cluster, che potrebbe essere in esecuzione su più POD.
+
+> [!IMPORTANT]
+> Quando si usa un cluster configurato come __dev-test__, lo scaler automatico è **disabilitato**.
+
+Azureml-Fe scala sia verso l'alto (verticalmente) per usare più core, sia orizzontalmente per usare più baccelli. Quando si decide di eseguire la scalabilità verticale, viene usato il tempo necessario per instradare le richieste di inferenza in ingresso. Se questo tempo supera la soglia, viene eseguita una scalabilità verticale. Se il tempo di instradamento delle richieste in ingresso continua a superare la soglia, si verificherà una scalabilità orizzontale.
+
+Quando si esegue il ridimensionamento in basso e in, viene utilizzato l'utilizzo della CPU. Se viene raggiunta la soglia di utilizzo della CPU, il front-end verrà prima ridimensionato. Se l'utilizzo della CPU scende alla soglia di riduzione delle prestazioni, viene eseguita un'operazione di riduzione del livello. La scalabilità verticale e orizzontale si verifica solo se sono disponibili risorse cluster sufficienti.
+
 ## <a name="deploy-to-aks"></a>Distribuire in servizio Azure Kubernetes
 
 Per distribuire un modello nel servizio Azure Kubernetes, creare una __configurazione di distribuzione__ che descriva le risorse di calcolo necessarie. Ad esempio, numero di core e memoria. È inoltre necessaria una __configurazione di inferenza__, che descrive l'ambiente necessario per ospitare il modello e il servizio Web. Per ulteriori informazioni sulla creazione della configurazione di inferenza, vedere [come e dove distribuire i modelli](how-to-deploy-and-where.md).
@@ -67,7 +100,9 @@ Per distribuire un modello nel servizio Azure Kubernetes, creare una __configura
 > [!NOTE]
 > Il numero di modelli da distribuire è limitato a 1.000 modelli per distribuzione (per contenitore).
 
-### <a name="using-the-sdk"></a>Uso dell'SDK
+<a id="using-the-cli"></a>
+
+# <a name="python"></a>[Python](#tab/python)
 
 ```python
 from azureml.core.webservice import AksWebservice, Webservice
@@ -91,7 +126,7 @@ Per ulteriori informazioni sulle classi, i metodi e i parametri utilizzati in qu
 * [Model. deploy](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-)
 * [WebService. wait_for_deployment](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice%28class%29?view=azure-ml-py#&preserve-view=truewait-for-deployment-show-output-false-)
 
-### <a name="using-the-cli"></a>Uso dell'interfaccia della riga di comando
+# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
 Per eseguire la distribuzione usando l'interfaccia della riga di comando, usare il comando seguente. Sostituire `myaks` con il nome della destinazione di calcolo AKS. Sostituire `mymodel:1` con il nome e la versione del modello registrato. Sostituire `myservice` con il nome da assegnare al servizio:
 
@@ -103,36 +138,57 @@ az ml model deploy -ct myaks -m mymodel:1 -n myservice -ic inferenceconfig.json 
 
 Per ulteriori informazioni, vedere il riferimento [AZ ml Model deploy](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-deploy) .
 
-### <a name="using-vs-code"></a>Uso di VS Code
+# <a name="visual-studio-code"></a>[Visual Studio Code](#tab/visual-studio-code)
 
 Per informazioni sull'uso di VS Code, vedere [Deploy to AKS by the vs code Extension](tutorial-train-deploy-image-classification-model-vscode.md#deploy-the-model).
 
 > [!IMPORTANT]
 > Per la distribuzione tramite VS Code è necessario che il cluster AKS venga creato o collegato all'area di lavoro in anticipo.
 
-### <a name="understand-the-deployment-processes"></a>Informazioni sui processi di distribuzione
+---
 
-Il termine "distribuzione" viene usato sia in Kubernetes che in Azure Machine Learning. "Distribuzione" ha significati diversi in questi due contesti. In Kubernetes, `Deployment` è un'entità concreta, specificata con un file YAML dichiarativo. Un Kubernetes `Deployment` ha un ciclo di vita definito e relazioni concrete con altre entità Kubernetes, ad esempio `Pods` e `ReplicaSets` . Per informazioni su Kubernetes da documenti e video, vedere informazioni su [Kubernetes](https://aka.ms/k8slearning).
+### <a name="autoscaling"></a>Scalabilità automatica
 
-In Azure Machine Learning, "distribuzione" viene usato nel senso più generale di rendere disponibile e pulire le risorse del progetto. I passaggi che Azure Machine Learning considera parte della distribuzione sono:
+Il componente che gestisce la scalabilità automatica per le distribuzioni di modelli di Azure ML è azureml-Fe, che è un router di richiesta intelligente. Poiché tutte le richieste di inferenza passano attraverso di essa, sono presenti i dati necessari per ridimensionare automaticamente i modelli distribuiti.
 
-1. Comprime i file nella cartella del progetto, ignorando quelli specificati in. amlignore o. gitignore
-1. Scalabilità verticale del cluster di elaborazione (correlato a Kubernetes)
-1. Compilazione o download di dockerfile nel nodo di calcolo (correlato a Kubernetes)
-    1. Il sistema calcola un hash di: 
-        - Immagine di base 
-        - Passaggi personalizzati di Docker (vedere [distribuire un modello usando un'immagine di base Docker personalizzata](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-custom-docker-image))
-        - YAML per la definizione conda (vedere [creare & usare gli ambienti software in Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/how-to-use-environments))
-    1. Il sistema usa questo hash come chiave in una ricerca dell'area di lavoro Azure Container Registry (ACR)
-    1. Se non viene trovato, viene cercata una corrispondenza nell'ACR globale
-    1. Se non viene trovato, il sistema compila una nuova immagine (che verrà memorizzata nella cache e registrata con l'area di lavoro ACR)
-1. Download del file di progetto compresso nell'archiviazione temporanea nel nodo di calcolo
-1. Decompressione del file di progetto
-1. Nodo di calcolo in esecuzione `python <entry script> <arguments>`
-1. Salvataggio dei log, dei file di modello e di altri file scritti nell' `./outputs` account di archiviazione associato all'area di lavoro
-1. Riduzione delle prestazioni di calcolo, inclusa la rimozione dell'archiviazione temporanea (in relazione a Kubernetes)
+> [!IMPORTANT]
+> * Non **abilitare Kubernetes Horizontal Pod AutoScaler (hPa) per le distribuzioni di modelli**. Questa operazione causerebbe la competizione tra i due componenti di ridimensionamento automatico. Azureml-Fe è progettato per la scalabilità automatica dei modelli distribuiti da Azure ML, in cui HPA dovrebbe indovinare o approssimarsi all'utilizzo del modello da una metrica generica, ad esempio l'utilizzo della CPU o una configurazione della metrica personalizzata.
+> 
+> * **Azureml-Fe non ridimensiona il numero di nodi in un cluster AKS**, perché ciò potrebbe causare un aumento imprevisto dei costi. Ridimensiona invece **il numero di repliche per il modello** all'interno dei limiti del cluster fisico. Se è necessario ridimensionare il numero di nodi all'interno del cluster, è possibile ridimensionare manualmente il cluster o [configurare il servizio di scalabilità automatica del cluster AKS](/azure/aks/cluster-autoscaler).
 
-Quando si usa AKS, la scalabilità verso l'alto e verso il basso del calcolo viene controllata da Kubernetes, usando la dockerfile compilata o rilevata come descritto in precedenza. 
+La scalabilità automatica può essere controllata impostando `autoscale_target_utilization` , `autoscale_min_replicas` e `autoscale_max_replicas` per il servizio Web AKS. Nell'esempio seguente viene illustrato come abilitare la scalabilità automatica:
+
+```python
+aks_config = AksWebservice.deploy_configuration(autoscale_enabled=True, 
+                                                autoscale_target_utilization=30,
+                                                autoscale_min_replicas=1,
+                                                autoscale_max_replicas=4)
+```
+
+Le decisioni per la scalabilità verticale e orizzontale sono basate sull'utilizzo delle repliche del contenitore correnti. Il numero di repliche occupate (elaborazione di una richiesta) divise per il numero totale di repliche correnti è l'utilizzo corrente. Se questo numero è superiore a `autoscale_target_utilization` , vengono create altre repliche. Se è inferiore, le repliche vengono ridotte. Per impostazione predefinita, l'utilizzo della destinazione è pari al 70%.
+
+Le decisioni di aggiunta di repliche sono ansiose e veloci (circa 1 secondo). Le decisioni di rimozione delle repliche sono conservative (circa 1 minuto).
+
+È possibile calcolare le repliche richieste usando il codice seguente:
+
+```python
+from math import ceil
+# target requests per second
+targetRps = 20
+# time to process the request (in seconds)
+reqTime = 10
+# Maximum requests per container
+maxReqPerContainer = 1
+# target_utilization. 70% in this example
+targetUtilization = .7
+
+concurrentRequests = targetRps * reqTime / targetUtilization
+
+# Number of container replicas
+replicas = ceil(concurrentRequests / maxReqPerContainer)
+```
+
+Per ulteriori informazioni sull'impostazione di `autoscale_target_utilization` , `autoscale_max_replicas` e `autoscale_min_replicas` , vedere il riferimento al modulo [AksWebservice](https://docs.microsoft.com/python/api/azureml-core/azureml.core.webservice.akswebservice?view=azure-ml-py) .
 
 ## <a name="deploy-models-to-aks-using-controlled-rollout-preview"></a>Distribuire modelli in AKS usando l'implementazione controllata (anteprima)
 
@@ -223,7 +279,6 @@ endpoint.wait_for_deployment(true)
 endpoint.delete_version(version_name="versionb")
 
 ```
-
 
 ## <a name="web-service-authentication"></a>Autenticazione del servizio Web
 

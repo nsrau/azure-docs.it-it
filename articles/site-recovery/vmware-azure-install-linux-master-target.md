@@ -6,14 +6,14 @@ services: site-recovery
 manager: rochakm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 03/06/2019
+ms.date: 09/15/2020
 ms.author: mayg
-ms.openlocfilehash: 281743268364b0e9d39c7bea28afc17d753db2f6
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 1790ac666d77f14ccadfde56f7b86e05b2c563dd
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86130143"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604683"
 ---
 # <a name="install-a-linux-master-target-server-for-failback"></a>Installare un server di destinazione master Linux per il failback
 Dopo avere effettuato il failover delle macchine virtuali in Azure, è possibile eseguirne il failback nel sito locale. Per eseguire il failback, è necessario riproteggere la macchina virtuale da Azure al sito locale. A tale scopo, è necessario un server di destinazione master locale che riceva il traffico. 
@@ -48,16 +48,7 @@ Creare il server di destinazione master in base alle linee guida per il ridimens
 - **Dimensioni disco sistema operativo**: almeno 100 GB (per installare il sistema operativo)
 - **Dimensioni disco aggiuntive per l'unità di conservazione**: 1 TB
 - **Core CPU**: almeno 4
-
-Sono supportati i kernel Ubuntu seguenti.
-
-
-|Serie di kernel  |Supporta fino a  |
-|---------|---------|
-|4.4      |4.4.0-81-generico         |
-|4.8      |4.8.0-56-generico         |
-|4.10     |4.10.0-24-generico        |
-
+- **Kernel**: 4,16. *
 
 ## <a name="deploy-the-master-target-server"></a>Distribuire il server di destinazione master
 

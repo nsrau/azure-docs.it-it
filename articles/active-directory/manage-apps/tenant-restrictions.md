@@ -12,22 +12,22 @@ ms.date: 03/28/2019
 ms.author: kenwith
 ms.reviewer: hpsin
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0f45cc2444a14fc138d201e3d7f81e687f53d3ac
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: 1cce42cdb63fcfcb9a5841f2f2199daf2bb92304
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87285901"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604173"
 ---
 # <a name="use-tenant-restrictions-to-manage-access-to-saas-cloud-applications"></a>Uso delle restrizioni del tenant per gestire l'accesso alle applicazioni cloud SaaS
 
-Le organizzazioni di grandi dimensioni che mettono l'accento sulla sicurezza vogliono passare a servizi cloud come Office 365, ma devono sapere che i loro utenti saranno in grado di accedere solo a risorse approvate. In genere, le aziende limitano gli indirizzi IP o i nomi di dominio quando vogliono gestire gli accessi. Questo approccio non è efficace in situazioni dove le app SaaS (software come servizio) vengono ospitate in un cloud pubblico ed eseguite su nomi di dominio condivisi come [outlook.office.com](https://outlook.office.com/) e [login.microsoftonline.com](https://login.microsoftonline.com/). Bloccare questi indirizzi impedirebbe totalmente agli utenti di accedere ad Outlook sul Web invece di limitare il loro accesso alle identità e alle risorse approvate.
+Le organizzazioni di grandi dimensioni che enfatizzano la sicurezza vogliono passare a servizi cloud come Microsoft 365, ma devono essere a conoscenza che i loro utenti possono accedere solo alle risorse approvate. In genere, le aziende limitano gli indirizzi IP o i nomi di dominio quando vogliono gestire gli accessi. Questo approccio non è efficace in situazioni dove le app SaaS (software come servizio) vengono ospitate in un cloud pubblico ed eseguite su nomi di dominio condivisi come [outlook.office.com](https://outlook.office.com/) e [login.microsoftonline.com](https://login.microsoftonline.com/). Bloccare questi indirizzi impedirebbe totalmente agli utenti di accedere ad Outlook sul Web invece di limitare il loro accesso alle identità e alle risorse approvate.
 
-La soluzione offerta da Azure Active Directory (Azure AD) per risolvere questo problema è una funzionalità denominata Restrizioni del tenant. Restrizioni del tenant consente alle organizzazioni di controllare l'accesso alle applicazioni cloud SaaS in base al tenant di Azure AD usato dalle applicazioni per il Single Sign-On. Ad esempio, si supponga di voler consentire l'accesso alle applicazioni Office 365 dell'organizzazione, impedendolo al contempo alle istanze di quelle stesse applicazioni in altre organizzazioni.  
+La soluzione offerta da Azure Active Directory (Azure AD) per risolvere questo problema è una funzionalità denominata Restrizioni del tenant. Restrizioni del tenant consente alle organizzazioni di controllare l'accesso alle applicazioni cloud SaaS in base al tenant di Azure AD usato dalle applicazioni per il Single Sign-On. Ad esempio, è possibile consentire l'accesso alle applicazioni Microsoft 365 dell'organizzazione, impedendo l'accesso alle istanze di altre organizzazioni di queste stesse applicazioni.  
 
 Con Restrizioni del tenant le organizzazioni possono specificare l'elenco dei tenant ai quali i loro utenti possono accedere. Azure AD consente quindi l'accesso solo ai tenant autorizzati.
 
-Questo articolo si concentra su Restrizioni del tenant per Office 365, ma la funzionalità può essere usata con qualsiasi app cloud SaaS che usa protocolli di autenticazione moderni con Azure AD per il Single Sign-On. Se si usano app SaaS con un tenant Azure AD diverso da quello usato da Office 365, assicurarsi che tutti i tenant richiesti siano autorizzati. Per ulteriori informazioni sulle app cloud SaaS, vedere il [Marketplace di Active Directory](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory).
+Questo articolo è incentrato sulle restrizioni dei tenant per Microsoft 365, ma la funzionalità dovrebbe funzionare con qualsiasi app Cloud SaaS che usa protocolli di autenticazione moderni con Azure AD per Single Sign-On. Se si usano app SaaS con un tenant di Azure AD diverso dal tenant usato da Microsoft 365, assicurarsi che siano consentiti tutti i tenant richiesti. Per ulteriori informazioni sulle app cloud SaaS, vedere il [Marketplace di Active Directory](https://azuremarketplace.microsoft.com/marketplace/apps/Microsoft.AzureActiveDirectory).
 
 ## <a name="how-it-works"></a>Funzionamento
 
@@ -37,11 +37,11 @@ La soluzione globale è composta dai seguenti elementi:
 
 2. **Infrastruttura di server proxy locale**: questa infrastruttura è un dispositivo proxy idoneo per l'ispezione Transport Layer Security (TLS). Per inserire l'intestazione contenente l'elenco dei tenant consentiti nel traffico destinato a Azure AD è necessario configurare il proxy.
 
-3. **Software client**: per supportare Restrizioni del tenant, il software client deve richiedere i token direttamente da Azure AD in modo che l'infrastruttura proxy possa intercettare il traffico. Restrizioni del tenant è attualmente supportata nelle applicazioni Office 365 basate su browser e nei client Office che usano tecniche di autenticazione moderne come OAuth 2.0.
+3. **Software client**: per supportare Restrizioni del tenant, il software client deve richiedere i token direttamente da Azure AD in modo che l'infrastruttura proxy possa intercettare il traffico. Le applicazioni Microsoft 365 basate su browser attualmente supportano le restrizioni dei tenant, ad esempio i client di Office che usano l'autenticazione moderna (ad esempio OAuth 2,0).
 
-4. **Tecniche di autenticazione moderne**: i servizi cloud devono usare tecniche di autenticazione moderne per Restrizioni del tenant e per bloccare l'accesso a tutti i tenant non consentiti. È necessario configurare i servizi cloud di Office 365 in modo che possano usare i moderni protocolli di autenticazione come impostazione predefinita. Per le informazioni più aggiornate sul supporto di Office 365 per l'autenticazione moderna, leggere il [relativo documento aggiornato](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
+4. **Tecniche di autenticazione moderne**: i servizi cloud devono usare tecniche di autenticazione moderne per Restrizioni del tenant e per bloccare l'accesso a tutti i tenant non consentiti. Per impostazione predefinita, è necessario configurare Microsoft 365 servizi cloud per l'uso di protocolli di autenticazione moderni. Per le informazioni più aggiornate sul supporto Microsoft 365 per l'autenticazione moderna, leggere [aggiornamento dell'autenticazione moderna di Office 365](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/).
 
-Il diagramma seguente illustra il flusso di traffico di alto livello. Restrizioni del tenant richiedono l'ispezione TLS solo per il traffico verso Azure AD, non per i servizi cloud di Office 365. Questa distinzione è importante perché il volume di traffico per l'autenticazione in Azure AD è in genere molto inferiore rispetto a quello verso applicazioni SaaS come Exchange Online e SharePoint Online.
+Il diagramma seguente illustra il flusso di traffico di alto livello. Per le restrizioni dei tenant è richiesta l'ispezione TLS solo sul traffico da Azure AD, non ai servizi cloud Microsoft 365. Questa distinzione è importante perché il volume di traffico per l'autenticazione in Azure AD è in genere molto inferiore rispetto a quello verso applicazioni SaaS come Exchange Online e SharePoint Online.
 
 ![Flusso di traffico di Restrizioni del tenant, diagramma](./media/tenant-restrictions/traffic-flow.png)
 
@@ -63,7 +63,7 @@ Per abilitare Restrizioni del tenant nell'infrastruttura proxy è necessaria la 
 
 - I client devono considerare attendibile la catena di certificati presentata dal proxy per le comunicazioni TLS. Ad esempio, se vengono usati certificati da un'[infrastruttura a chiave pubblica (PKI) interna](/windows/desktop/seccertenroll/public-key-infrastructure), deve essere considerato attendibile il certificato interno dell'autorità di certificazione interna.
 
-- Questa funzionalità è inclusa nelle sottoscrizioni di Office 365, ma se si desidera usare Restrizioni del tenant per controllare l'accesso ad altre app SaaS, sono necessarie licenze Premium 1 di Azure AD.
+- Questa funzionalità è inclusa in Microsoft 365 sottoscrizioni, ma se si vogliono usare le restrizioni del tenant per controllare l'accesso ad altre app SaaS, sono necessarie Azure AD Premium 1 licenze.
 
 #### <a name="configuration"></a>Configurazione
 
@@ -129,16 +129,16 @@ Come per gli altri report nel portale di Azure, è possibile usare i filtri per 
 - **Posizione**
 - **ID tenant di destinazione**
 
-## <a name="office-365-support"></a>Supporto di Office 365
+## <a name="microsoft-365-support"></a>Supporto tecnico di Microsoft 365
 
-Le applicazioni di Office 365 devono soddisfare due criteri per supportare pienamente Restrizioni del tenant:
+Microsoft 365 applicazioni devono soddisfare due criteri per supportare completamente le restrizioni del tenant:
 
 1. Il client usato supporta tecniche di autenticazione moderne.
 2. L'autenticazione moderna è abilitata come protocollo di autenticazione predefinito per il servizio cloud.
 
 Fare riferimento al [documento aggiornato sull'autenticazione moderna di Office 365](https://www.microsoft.com/en-us/microsoft-365/blog/2015/03/23/office-2013-modern-authentication-public-preview-announced/) per le informazioni più recenti sui client Office che supportano attualmente l'autenticazione moderna. Questa pagina include anche collegamenti a istruzioni su come abilitare l'autenticazione moderna in tenant Exchange Online e Skype for Business Online specifici. SharePoint Online abilità già l'autenticazione moderna per impostazione predefinita.
 
-Restrizioni del tenant è attualmente supportata nelle applicazioni Office 365 basate su browser come il portale di Office, Yammer, i siti SharePoint, Outlook sul Web e così via. I client che richiedono molte risorse (Outlook, Skype for Business, Word, Excel, PowerPoint e così via) possono applicare restrizioni del tenant solo quando si usa l'autenticazione moderna.  
+Microsoft 365 le applicazioni basate su browser (il portale di Office, Yammer, i siti di SharePoint, Outlook sul Web e altro ancora) supportano attualmente le restrizioni dei tenant. I client che richiedono molte risorse (Outlook, Skype for Business, Word, Excel, PowerPoint e così via) possono applicare restrizioni del tenant solo quando si usa l'autenticazione moderna.  
 
 I client Outlook e Skype for Business che supportano l'autenticazione moderna possono comunque usare protocolli legacy con tenant dove l'autenticazione moderna non è abilitata, ignorando di fatto Restrizioni del tenant. Restrizioni del tenant potrebbe bloccare applicazioni che usano protocolli legacy se queste contattano login.microsoftonline.com, login.microsoft.com o login.windows.net durante l'autenticazione.
 

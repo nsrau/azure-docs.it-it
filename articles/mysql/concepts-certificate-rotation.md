@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 9c5c4247ab01a571613cad4f33832de152909b11
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: dd009542adffed2f459534c943e3a873678ecd35
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90527106"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604921"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Informazioni sulle modifiche apportate alla modifica della CA radice per database di Azure per MySQL
 
@@ -27,13 +27,20 @@ Il nuovo certificato verrà usato a partire dal 26 ottobre 2020 (10/26/2020). Se
 
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>Ricerca per categorie verificare se il database sarà interessato?
 
-Tutte le applicazioni che usano SSL/TLS e verificano che il certificato radice debba aggiornare il certificato radice per connettersi a database di Azure per MySQL. Se non si usa SSL/TLS attualmente, non vi sono effetti sulla disponibilità dell'applicazione. È possibile verificare se l'applicazione client sta provando a usare la modalità SSL con l'autorità di certificazione attendibile (CA) predefinita [qui](concepts-ssl-connection-security.md#ssl-default-settings).
+Tutte le applicazioni che usano SSL/TLS e verificano che il certificato radice debba aggiornare il certificato radice. È possibile stabilire se le connessioni verificano il certificato radice rivedendo la stringa di connessione.
+-   Se la stringa di connessione include `sslmode=verify-ca` o ''
+-   Se la stringa di connessione include `sslmode=disable` , non è necessario aggiornare i certificati.
+-   Se la stringa di connessione include `sslmode=allow` , `sslmode=prefer` o `sslmode=require` , non è necessario aggiornare i certificati. 
+-   Se la stringa di connessione non specifica sslmode, non è necessario aggiornare i certificati.
+
+Se si usa un client che astrae la stringa di connessione, esaminare la documentazione del client per capire se verifica i certificati.
+Per informazioni su database di Azure per MySQL sslmode, vedere le [descrizioni della modalità SSL](concepts-ssl-connection-security.md#ssl-default-settings).
 
 Per evitare che la disponibilità dell'applicazione venga interrotta a causa di un arresto imprevisto dei certificati o per aggiornare un certificato revocato, vedere la sezione [**"cosa devo fare per mantenere la connettività"**](concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity) .
 
 ## <a name="what-do-i-need-to-do-to-maintain-connectivity"></a>Cosa è necessario fare per mantenere la connettività
 
-Per evitare che la disponibilità dell'applicazione venga interrotta a causa di un arresto imprevisto dei certificati o per aggiornare un certificato revocato, attenersi alla procedura seguente:
+Per evitare che la disponibilità dell'applicazione venga interrotta a causa di un arresto imprevisto dei certificati o per l'aggiornamento di un certificato revocato, attenersi alla procedura riportata di seguito. L'idea è creare un nuovo file con *estensione PEM* , che combina il certificato corrente e quello nuovo e durante la convalida del certificato SSL una volta che vengono usati i valori consentiti. Vedere i passaggi seguenti:
 
 *   Scaricare BaltimoreCyberTrustRoot & DigiCertGlobalRootG2 CA radice dai collegamenti seguenti:
     *   https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem
@@ -72,11 +79,10 @@ Per evitare che la disponibilità dell'applicazione venga interrotta a causa di 
 *   Sostituire il file PEM CA radice originale con il file CA radice combinato e riavviare l'applicazione/client.
 *   In futuro, dopo la distribuzione del nuovo certificato sul lato server, è possibile modificare il file di CA PEM in DigiCertGlobalRootG2. CRT. pem.
 
-## <a name="what-can-be-the-impact"></a>Quale può essere l'effetto?
+## <a name="what-can-be-the-impact-of-not-updating-the-certificate"></a>Quale può essere l'effetto del mancato aggiornamento del certificato?
 Se si usa il certificato rilasciato da database di Azure per MySQL, come descritto in questo articolo, la disponibilità dell'applicazione potrebbe essere interrotta perché il database non sarà raggiungibile. A seconda dell'applicazione, è possibile ricevere una serie di messaggi di errore, tra cui:
 *   Certificato/certificato revocato non valido
 *   Timeout della connessione
-*   Errore se applicabile
 
 ## <a name="frequently-asked-questions"></a>Domande frequenti
 
@@ -89,23 +95,36 @@ No, non è necessario riavviare il server di database per iniziare a usare il nu
 ### <a name="3-what-will-happen-if-i-do-not-update-the-root-certificate-before-october-26-2020-10262020"></a>3. cosa accade se non si aggiorna il certificato radice prima del 26 ottobre 2020 (10/26/2020)?
 Se non si aggiorna il certificato radice prima del 26 ottobre 2020, le applicazioni che si connettono tramite SSL/TLS e la verifica per il certificato radice non saranno in grado di comunicare con il server di database MySQL e l'applicazione subirà problemi di connettività al server di database MySQL.
 
-### <a name="4-do-i-need-to-plan-a-maintenance-downtime-for-this-changebr"></a>4. è necessario pianificare un tempo di inattività di manutenzione per questa modifica?<BR>
-No. Poiché la modifica è solo sul lato client per la connessione al server di database, per questa modifica non è necessario alcun tempo di inattività di manutenzione.
+### <a name="4-what-is-the-impact-if-using-app-service-with-azure-database-for-mysql"></a>4. quali sono le conseguenze dell'uso del servizio app con database di Azure per MySQL?
+Per i servizi app di Azure che si connettono al database di Azure per MySQL, è possibile avere due scenari possibili e dipende da come si usa SSL con l'applicazione.
+*   Questo nuovo certificato è stato aggiunto al servizio app a livello di piattaforma. Se si usano i certificati SSL inclusi nella piattaforma del servizio app nell'applicazione, non è necessaria alcuna azione.
+*   Se si include in modo esplicito il percorso del file del certificato SSL nel codice, è necessario scaricare il nuovo certificato e aggiornare il codice per usare il nuovo certificato.
 
-### <a name="5--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-october-26-2020-10262020"></a>5. cosa accade se non è possibile ottenere un tempo di inattività pianificato per questa modifica prima del 26 ottobre 2020 (10/26/2020)?
+### <a name="5-what-is-the-impact-if-using-azure-kubernetes-services-aks-with-azure-database-for-mysql"></a>5. quali sono le conseguenze dell'uso di Azure Kubernetes Services (AKS) con database di Azure per MySQL?
+Se si sta provando a connettersi al database di Azure per MySQL usando i servizi di Azure Kubernetes (AKS), è simile all'accesso da un ambiente host dedicato ai clienti. Fare riferimento ai passaggi [qui](../aks/ingress-own-tls.md).
+
+### <a name="6-what-is-the-impact-if-using-azure-data-factory-to-connect-to-azure-database-for-mysql"></a>6. quali sono le conseguenze dell'uso di Azure Data Factory per connettersi a database di Azure per MySQL?
+Per il connettore con Azure Integration Runtime, il connettore usa i certificati nell'archivio certificati di Windows nell'ambiente ospitato da Azure. Questi certificati sono già compatibili con i nuovi certificati applicati e pertanto non è necessaria alcuna azione.
+
+Per il connettore che usa Integration Runtime self-hosted in cui si include in modo esplicito il percorso del file del certificato SSL nella stringa di connessione, è necessario scaricare il [nuovo certificato](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) e aggiornare la stringa di connessione per usarlo.
+
+### <a name="7-do-i-need-to-plan-a-database-server-maintenance-downtime-for-this-change"></a>7. è necessario pianificare un tempo di inattività per la manutenzione del server di database per questa modifica?
+No. Poiché la modifica è disponibile solo sul lato client per la connessione al server di database, non è necessario alcun tempo di inattività di manutenzione per il server di database per questa modifica.
+
+### <a name="8--what-if-i-cannot-get-a-scheduled-downtime-for-this-change-before-october-26-2020-10262020"></a>8. cosa accade se non è possibile ottenere un tempo di inattività pianificato per questa modifica prima del 26 ottobre 2020 (10/26/2020)?
 Poiché i client usati per la connessione al server devono aggiornare le informazioni del certificato come descritto [nella sezione correzione](./concepts-certificate-rotation.md#what-do-i-need-to-do-to-maintain-connectivity), in questo caso non è necessario un tempo di inattività per il server.
 
-###  <a name="6-if-i-create-a-new-server-after-october-26-2020-will-i-be-impacted"></a>6. Se si crea un nuovo server dopo il 26 ottobre 2020, I ripercussioni saranno compromessi?
+### <a name="9-if-i-create-a-new-server-after-october-26-2020-will-i-be-impacted"></a>9. Se si crea un nuovo server dopo il 26 ottobre 2020, I ripercussioni saranno compromessi?
 Per i server creati dopo il 26 ottobre 2020 (10/26/2020), è possibile usare il certificato appena emesso per le applicazioni per la connessione tramite SSL.
 
-### <a name="7-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>7. con quale frequenza Microsoft aggiorna i certificati o quali sono i criteri di scadenza?
+### <a name="10-how-often-does-microsoft-update-their-certificates-or-what-is-the-expiry-policy"></a>10. con quale frequenza Microsoft aggiorna i certificati o quali sono i criteri di scadenza?
 Questi certificati usati da database di Azure per MySQL sono forniti da autorità di certificazione (CA) attendibili. Il supporto di questi certificati nel database di Azure per MySQL è quindi associato al supporto di questi certificati da parte dell'autorità di certificazione. Tuttavia, come in questo caso, in questi certificati predefiniti possono essere presenti bug non previsti, che devono essere corretti al più presto.
 
-### <a name="8-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-master-server-or-all-the-read-replicas"></a>8. Se si usano le repliche di lettura, è necessario eseguire questo aggiornamento solo sul server master o su tutte le repliche di lettura?
-Poiché questo aggiornamento è una modifica sul lato client, se il client utilizzato per leggere i dati dal server di replica, sarà necessario applicare anche le modifiche per tali client. 
+### <a name="11-if-i-am-using-read-replicas-do-i-need-to-perform-this-update-only-on-master-server-or-the-read-replicas"></a>11. Se si usano le repliche di lettura, è necessario eseguire questo aggiornamento solo sul server master o sulle repliche di lettura?
+Poiché questo aggiornamento è una modifica sul lato client, se il client utilizzato per leggere i dati dal server di replica, sarà necessario applicare anche le modifiche per questi client.
 
-### <a name="9-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>9. è presente una query sul lato server per verificare se è in uso SSL?
+### <a name="12-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>12. è presente una query sul lato server per verificare se è in uso SSL?
 Per verificare se si sta usando la connessione SSL per la connessione al server, fare riferimento alla [verifica SSL](howto-configure-ssl.md#step-4-verify-the-ssl-connection).
 
-### <a name="10-what-if-i-have-further-questions"></a>10. cosa accade se si hanno altre domande?
+### <a name="13-what-if-i-have-further-questions"></a>13. cosa accade se si hanno altre domande?
 In caso di domande, ottenere le risposte dagli esperti della community in [Microsoft Q&a](mailto:AzureDatabaseforMySQL@service.microsoft.com). Se si dispone di un piano di supporto ed è necessario assistenza tecnica, [contattare](mailto:AzureDatabaseforMySQL@service.microsoft.com) Microsoft

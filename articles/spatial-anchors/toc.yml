@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Ancoraggi nello spazio
       href: overview.md
-- name: Avvi rapidi
+- name: Guide introduttive
   expanded: true
   items:
     - name: Creare app Unity
@@ -108,6 +108,8 @@
       href: 'https://docs.microsoft.com/cpp/api/spatial-anchors/winrt/'
     - name: Interfaccia della riga di comando di Azure
       href: /cli/azure/ext/mixed-reality/spatial-anchors-account
+    - name: Azure PowerShell
+      href: /powershell/module/az.mixedreality
 - name: Risorse
   items:
     - name: Note sulla versione

@@ -103,9 +103,9 @@
           displayName: studio
           href: concept-designer.md
         - name: Foglio informativo sugli algoritmi
-          href: /azure/machine-learning/algorithm-cheat-sheet
+          href: algorithm-cheat-sheet.md
         - name: Come selezionare gli algoritmi
-          href: /azure/machine-learning/how-to-select-algorithms
+          href: how-to-select-algorithms.md
     - name: Funzionalità automatiche di Machine Learning
       items:
         - name: Panoramica di ML automatizzato

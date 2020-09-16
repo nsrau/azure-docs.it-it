@@ -2,13 +2,13 @@
 title: Distribuire risorse in una sottoscrizione
 description: Questo articolo descrive come creare un gruppo di risorse in un modello di Azure Resource Manager. Illustra anche come distribuire le risorse nell'ambito della sottoscrizione di Azure.
 ms.topic: conceptual
-ms.date: 09/04/2020
-ms.openlocfilehash: ef4f92d2e113e7cd393c50ba4eb8b47eb4ad9d08
-ms.sourcegitcommit: 4feb198becb7a6ff9e6b42be9185e07539022f17
+ms.date: 09/15/2020
+ms.openlocfilehash: 3889f5a06f138114dfe4511d0957558d6d803c8e
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89468641"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605176"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>Creare gruppi di risorse e risorse a livello di sottoscrizione
 
@@ -82,7 +82,7 @@ https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json
 
 I comandi per le distribuzioni a livello di sottoscrizione sono diversi rispetto ai comandi per le distribuzioni di gruppi di risorse.
 
-Per l'interfaccia della riga di comando di Azure usare [az deployment sub create](/cli/azure/deployment/sub?view=azure-cli-latest#az-deployment-sub-create). L'esempio seguente distribuisce un modello per creare un gruppo di risorse:
+Per l'interfaccia della riga di comando di Azure usare [az deployment sub create](/cli/azure/deployment/sub#az-deployment-sub-create). L'esempio seguente distribuisce un modello per creare un gruppo di risorse:
 
 ```azurecli-interactive
 az deployment sub create \
@@ -162,9 +162,7 @@ Per le distribuzioni a livello di sottoscrizione, esistono alcune considerazioni
 
 * La funzione [resourceGroup()](template-functions-resource.md#resourcegroup)**non** è supportata.
 * Le funzioni [reference()](template-functions-resource.md#reference) e [list()](template-functions-resource.md#list) sono supportate.
-* Non usare [ResourceID ()](template-functions-resource.md#resourceid) per ottenere l'ID risorsa per le risorse distribuite a livello di sottoscrizione.
-
-  Usare invece la funzione [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) .
+* Non usare [ResourceID ()](template-functions-resource.md#resourceid) per ottenere l'ID risorsa per le risorse distribuite a livello di sottoscrizione. Usare invece la funzione [subscriptionResourceId ()](template-functions-resource.md#subscriptionresourceid) .
 
   Ad esempio, per ottenere l'ID risorsa per una definizione di criteri distribuita in una sottoscrizione, usare:
 

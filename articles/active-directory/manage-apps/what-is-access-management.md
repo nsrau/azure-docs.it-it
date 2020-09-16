@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: kenwith
-ms.openlocfilehash: 7738bd2f2dc169ab52677928c6fecbc193ff2f35
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: d9dd03ec349daf2312b7d803e16e3c5fb41ecf0c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88639920"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604105"
 ---
 # <a name="managing-access-to-apps"></a>Gestione dell'accesso alle app
 
@@ -54,11 +54,11 @@ Per alcune applicazioni, l'opzione per richiedere l'assegnazione di utenti non �
 Azure AD fornisce [diverse soluzioni personalizzabili per distribuire le applicazioni](end-user-experiences.md) agli utenti finali all'interno dell'organizzazione:
 
 * Azure AD app personali
-* Applicazione di avvio di Office 365
+* Utilità di avvio dell'applicazione Microsoft 365
 * Accesso diretto alle app federate (service-pr)
 * Collegamenti diretti per applicazioni federate, basate su password o esistenti
 
-È possibile determinare se gli utenti assegnati a un'app aziendale possono visualizzarlo nelle app personali e nell'utilità di avvio delle applicazioni di Office 365.
+È possibile determinare se gli utenti assegnati a un'app aziendale possono visualizzarlo nelle app personali e Microsoft 365 l'utilità di avvio delle applicazioni.
 
 ## <a name="example-complex-application-assignment-with-azure-ad"></a>Esempio: Assegnazione di applicazioni complesse con Azure AD
 Si tenga in considerazione un'applicazione come Salesforce. In molte organizzazioni, Salesforce viene principalmente usata dai team di vendita e marketing. Spesso, i membri del team di marketing dispongono di privilegi elevati per l'accesso a Salesforce, mentre i membri del team di vendita ha accesso limitato. In molti casi numerosi information worker hanno accesso limitato all'applicazione ed eventuali eccezioni a tale regola rendono la questione più complessa. Spesso è prerogativa dei team responsabili del marketing o delle vendite concedere a un utente l'accesso o modificare i ruoli indipendentemente da queste regole generiche.
@@ -78,17 +78,17 @@ Gli amministratori possono usare l'[accesso condizionale di Azure AD](../conditi
 
 ## <a name="access-to-microsoft-applications"></a>Accesso alle applicazioni Microsoft
 
-Le applicazioni Microsoft (ad esempio Office 365 Exchange, SharePoint, Yammer e così via) vengono assegnate e gestite in modo leggermente diverso dalle applicazioni SaaS di terza parte o da altre applicazioni che si integrano con Azure AD per Single Sign On.
+Le applicazioni Microsoft (ad esempio Exchange, SharePoint, Yammer e così via) vengono assegnate e gestite in modo leggermente diverso rispetto alle applicazioni SaaS di terze parti o ad altre applicazioni che si integrano con Azure AD per Single Sign-on.
 
 Vi sono tre principali modi con cui un utente può accedere a un'applicazione pubblicata da Microsoft.
 
-- Per le applicazioni in Office 365 o in altre famiglie di prodotti a pagamento, agli utenti è consentito l'accesso tramite l'**assegnazione di una licenza** direttamente all'account utente o tramite un gruppo utilizzando la funzionalità di assegnazione di licenze di gruppo.
+- Per le applicazioni nel Microsoft 365 o in altri gruppi a pagamento, agli utenti viene concesso l'accesso tramite l' **assegnazione delle licenze** direttamente al proprio account utente oppure tramite un gruppo che usa la funzionalità di assegnazione delle licenze basata sui gruppi.
 - Per le applicazioni che Microsoft o una terza parte pubblica per l'utilizzo gratuito da parte di chiunque, gli utenti possono ottenere l'accesso tramite il [consenso utente](configure-user-consent.md). Ciò significa che gli utenti accedono all'applicazione con l'account Azure AD aziendale o dell'istituto di istruzione e consentono a tale applicazione di accedere a un set limitato di dati nell'account.
 - Per le applicazioni che Microsoft o una terza parte pubblica per l'utilizzo gratuito da parte di chiunque, gli utenti possono ottenere l'accesso tramite il [consenso dell'amministratore](manage-consent-requests.md). Ciò significa che un amministratore ha determinato che l'applicazione può essere usata da qualsiasi utente dell'organizzazione e, tale scopo, ha effettuato l'accesso all'applicazione con un account di amministratore globale e ha consentito l'accesso a tutti gli utenti dell'organizzazione.
 
-Alcune applicazioni combinano questi metodi. Alcune applicazioni Microsoft, ad esempio, fanno parte di una sottoscrizione di Office 365, ma richiedono comunque il consenso.
+Alcune applicazioni combinano questi metodi. Alcune applicazioni Microsoft, ad esempio, fanno parte di una sottoscrizione di Microsoft 365, ma richiedono comunque il consenso.
 
-Gli utenti possono accedere alle applicazioni di Office 365 tramite i portali di Office 365. È anche possibile visualizzare o nascondere le applicazioni di Office 365 in app personali con l' [interruttore di visibilità di office 365](hide-application-from-user-portal.md) nelle **impostazioni utente**della directory. 
+Gli utenti possono accedere alle applicazioni Microsoft 365 tramite i portali di Office 365. È anche possibile visualizzare o nascondere le applicazioni Microsoft 365 in app personali con l' [interruttore di visibilità di Office 365](hide-application-from-user-portal.md) nelle **impostazioni utente**della directory. 
 
 Come per le app aziendali, è possibile [assegnare utenti](assign-user-or-group-access-portal.md) a determinate applicazioni Microsoft tramite il portale di Azure o, se l'opzione del portale non è disponibile, usando PowerShell.
 

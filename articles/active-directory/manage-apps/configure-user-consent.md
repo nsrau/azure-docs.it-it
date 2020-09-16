@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 05/19/2020
 ms.author: kenwith
 ms.reviewer: arvindh, luleon, phsignor
-ms.openlocfilehash: 0c9844d5e3f65dba5e51170367cfd16715a08883
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 433ff5498baeb4c31473e43fc4a5d24f4ba9fd1c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84763466"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605159"
 ---
 # <a name="configure-how-end-users-consent-to-applications"></a>Configurare la modalità con cui gli utenti finali forniscono il consenso alle applicazioni
 
@@ -32,7 +32,7 @@ Per controllare i casi in cui gli utenti possono fornire il consenso alle applic
 
 * **Disable user consent** (Disabilita consenso utente): gli utenti non possono concedere le autorizzazioni alle applicazioni. Gli utenti possono continuare ad accedere alle app a cui hanno precedentemente fornito il consenso o che sono autorizzate dagli amministratori per loro conto, ma non potranno fornire autonomamente il consenso a nuove autorizzazioni o a nuove app. Solo gli utenti a cui è stato concesso un ruolo della directory che include l'autorizzazione per fornire il consenso saranno in grado di consentire nuove autorizzazioni o nuove app.
 
-* **Users can consent to apps from verified publishers, but only for permissions you select (preview)** (Gli utenti possono fornire il consenso alle app di editori verificati, ma solo per le autorizzazioni selezionate (anteprima)): tutti gli utenti possono fornire il consenso solo alle app pubblicate da un [editore verificato](../develop/publisher-verification-overview.md) e alle app registrate nel tenant. Gli utenti possono solo fornire il consenso alle autorizzazioni classificate come a "Impatto basso".
+* **Users can consent to apps from verified publishers, but only for permissions you select (preview)** (Gli utenti possono fornire il consenso alle app di editori verificati, ma solo per le autorizzazioni selezionate (anteprima)): tutti gli utenti possono fornire il consenso solo alle app pubblicate da un [editore verificato](../develop/publisher-verification-overview.md) e alle app registrate nel tenant. Gli utenti possono solo dare il consenso alle autorizzazioni classificate come "Low Impact", dette anche "low risk". Ciò che è considerato basso rischio per un'organizzazione, ad esempio un'app che visualizza un indirizzo di posta elettronica degli utenti, può essere considerato un rischio elevato per un'altra organizzazione. Per questo motivo, le autorizzazioni di "basso rischio" vengono impostate dall'amministratore per il tenant.
 
   Assicurarsi di [classificare le autorizzazioni](#configure-permission-classifications-preview) per selezionare le autorizzazioni a cui gli utenti possono fornire il consenso.
 
@@ -56,7 +56,7 @@ Per configurare le impostazioni di consenso utente tramite il portale di Azure:
 
 ### <a name="configure-user-consent-settings-using-powershell"></a>Configurare le impostazioni di consenso utente tramite PowerShell
 
-È possibile usare il modulo Azure AD PowerShell Preview più recente, [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview), per scegliere i criteri di consenso che governano il consenso dell'utente per le applicazioni.
+È possibile usare il modulo Azure AD PowerShell Preview più recente, [AzureADPreview](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0-preview&preserve-view=true), per scegliere i criteri di consenso che governano il consenso dell'utente per le applicazioni.
 
 * **Disable user consent** (Disabilita consenso utente): per disabilitare il consenso dell'utente, impostare i criteri che regolano il consenso dell'utente come vuoti:
 
@@ -109,7 +109,7 @@ In questo esempio è stato classificato il set minimo di autorizzazioni necessar
 
 ### <a name="classify-permissions-using-powershell"></a>Classificare le autorizzazioni tramite PowerShell
 
-Per classificare le autorizzazioni, è possibile usare il modulo Azure AD PowerShell Preview più recente, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview). Le classificazioni delle autorizzazioni vengono configurate nell'oggetto **ServicePrincipal** dell'API che pubblica le autorizzazioni.
+Per classificare le autorizzazioni, è possibile usare il modulo Azure AD PowerShell Preview più recente, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true). Le classificazioni delle autorizzazioni vengono configurate nell'oggetto **ServicePrincipal** dell'API che pubblica le autorizzazioni.
 
 #### <a name="to-read-the-current-permission-classifications-for-an-api"></a>Per leggere le classificazioni delle autorizzazioni correnti di un'API:
 
@@ -196,9 +196,9 @@ In questo esempio, tutti i proprietari del gruppo possono fornire il consenso al
 
 ### <a name="configure-group-owner-consent-using-powershell"></a>Configurare il consenso del proprietario del gruppo usando PowerShell
 
-È possibile usare il modulo Azure AD PowerShell Preview, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview), per abilitare o disabilitare la capacità dei proprietari dei gruppi di fornire il consenso alle applicazioni che accedono ai dati dell'organizzazione per i gruppi di cui sono proprietari.
+È possibile usare il modulo Azure AD PowerShell Preview, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), per abilitare o disabilitare la capacità dei proprietari dei gruppi di fornire il consenso alle applicazioni che accedono ai dati dell'organizzazione per i gruppi di cui sono proprietari.
 
-1. Accertarsi di usare il modulo [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview). Questo passaggio è importante se sono stati installati sia il modulo [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0) sia il modulo [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview)).
+1. Accertarsi di usare il modulo [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true). Questo passaggio è importante se sono stati installati sia il modulo [AzureAD](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0&preserve-view=true) sia il modulo [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true)).
 
     ```powershell
     Remove-Module AzureAD
@@ -280,7 +280,7 @@ In questo caso, verrà registrato anche un evento di controllo con una categoria
 
 ### <a name="disable-or-re-enable-risk-based-step-up-consent-using-powershell"></a>Disabilitare o riabilitare il consenso incrementale basato sul rischio usando PowerShell
 
-È possibile usare il modulo Azure AD PowerShell Preview, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview), per disabilitare il passaggio al consenso amministratore necessario nei casi in cui Microsoft rilevi un rischio oppure riabilitarlo se è stato disabilitato in precedenza.
+È possibile usare il modulo Azure AD PowerShell Preview, [AzureADPreview](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0-preview&preserve-view=true), per disabilitare il passaggio al consenso amministratore necessario nei casi in cui Microsoft rilevi un rischio oppure riabilitarlo se è stato disabilitato in precedenza.
 
 È possibile eseguire questa operazione usando la stessa procedura illustrata in precedenza per la [configurazione del consenso del proprietario del gruppo tramite PowerShell](#configure-group-owner-consent-using-powershell), ma sostituendo un valore delle impostazioni diverso. Esistono tre differenze nella procedura: 
 

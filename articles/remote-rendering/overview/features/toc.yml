@@ -4,6 +4,8 @@
   href: debug-rendering.md
 - name: Override dello stato gerarchico
   href: override-hierarchical-state.md
+- name: Fotocamera
+  href: camera.md
 - name: Spazio della fase
   href: stage-space.md
 - name: Riproiezione in fase avanzata

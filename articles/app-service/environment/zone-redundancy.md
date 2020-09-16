@@ -7,12 +7,12 @@ ms.topic: article
 ms.date: 07/15/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 15b129db56a9c6854bc3c1f2814a8776ec39adc6
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 1e88aac4209f7960b2589cf43f59ead4bd129134
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961568"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605074"
 ---
 # <a name="availability-zone-support-for-app-service-environments"></a>Supporto della zona di disponibilità per gli ambienti del servizio app
 
@@ -29,17 +29,21 @@ A meno che non vengano seguiti i passaggi descritti in questo articolo, ILB gli 
 
 È possibile creare il gli ambienti di zona ILB in una delle aree seguenti:
 
+- Australia orientale
+- Brasile meridionale
+- Canada centrale
 - Stati Uniti centrali
 - Stati Uniti orientali
 - Stati Uniti orientali 2
 - Stati Uniti orientali 2 (EUAP)
 - Francia centrale 
+- Germania centro-occidentale
 - Giappone orientale
 - Europa settentrionale
 - Europa occidentale
 - Asia sud-orientale
 - Regno Unito meridionale
-- West US 2
+- Stati Uniti occidentali 2
 
 Le applicazioni distribuite in un ambiente del servizio app ILB di zona continueranno a essere eseguite e gestiranno il traffico sull'ambiente ASE anche se altre zone nella stessa area subiscono un'interruzione.  È possibile che i comportamenti non runtime, tra cui; il ridimensionamento del piano di servizio dell'applicazione, la creazione di applicazioni, la configurazione dell'applicazione e la pubblicazione dell'applicazione possono comunque essere interessati da un'interruzione in altre zone di disponibilità. La distribuzione con aggiunta di zone di un ambiente del servizio app ILB di zona garantisce solo tempi di inseguimento per le applicazioni già distribuite.
 

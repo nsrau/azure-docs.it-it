@@ -7,18 +7,18 @@ ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
 ms.custom: devx-track-csharp, devx-track-python
-ms.openlocfilehash: 72f12ece3c939ee8fbaecbec377d18c5bb3b0a49
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: cd0b73dd22e5e2cab720bb1a33e58e25e517b1f6
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89294612"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90605040"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Trigger del bus di servizio di Azure per funzioni di Azure
 
 Usare il trigger di bus di servizio per rispondere a messaggi da una coda o da un argomento del bus di servizio. A partire dalla versione dell'estensione 3.1.0, è possibile attivare un argomento o una coda abilitata per la sessione.
 
-Per informazioni sui dettagli di impostazione e configurazione, vedere la [panoramica](functions-bindings-service-bus-output.md).
+Per informazioni sui dettagli di impostazione e configurazione, vedere la [panoramica](functions-bindings-service-bus.md).
 
 ## <a name="example"></a>Esempio
 

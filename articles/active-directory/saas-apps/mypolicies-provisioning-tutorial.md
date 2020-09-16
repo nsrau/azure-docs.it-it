@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: ea9a0e52ce424459b6c402eb136d06dd370bab7d
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: fe85dfb39a9787376221cb9beeea11bec35293f4
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88548044"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604462"
 ---
 # <a name="tutorial-configure-mypolicies-for-automatic-user-provisioning"></a>Esercitazione: configurare i criteri per il provisioning utenti automatico
 
@@ -101,7 +101,7 @@ Questa sezione illustra i passaggi per configurare il servizio di provisioning A
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![Scheda Provisioning](common/provisioning-automatic.png)
+    ![Scheda Provisioning automatica](common/provisioning-automatic.png)
 
 5. Nella sezione **credenziali amministratore** immettere l' `https://<myPoliciesCustomDomain>.mypolicies.com/scim` URL del **tenant** in cui `<myPoliciesCustomDomain>` è il dominio personalizzato dei criteri. Dall'URL è possibile recuperare il dominio Customer dei criteri.
 Esempio: `<demo0-qa>` . mypolicies.com.
@@ -122,7 +122,18 @@ Esempio: `<demo0-qa>` . mypolicies.com.
 
 10. Esaminare gli attributi utente che vengono sincronizzati da Azure AD a criteri di base nella sezione **mapping attributi** . Gli attributi selezionati come proprietà **corrispondenti** vengono usati per trovare le corrispondenze con gli account utente in criteri per le operazioni di aggiornamento. Selezionare il pulsante **Salva** per eseguire il commit delle modifiche.
 
-    ![Mapping utente criteri](media/mypolicies-provisioning-tutorial/userattribute.png)
+   |Attributo|Type|
+   |---|---|
+   |userName|string|
+   |active|Boolean|
+   |emails[type eq "work"].value|string|
+   |name.givenName|string|
+   |name.familyName|string|
+   |name.formatted|string|
+   |externalId|string|
+   |addresses[type eq "work"].country|string|
+   |urn:ietf:params:scim:schemas:extension:enterprise:2.0:User:manager|Informazioni di riferimento|
+
 
 11. Per configurare i filtri di ambito, fare riferimento alle istruzioni fornite nell'[esercitazione sui filtri per la definizione dell'ambito](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
 
@@ -146,6 +157,10 @@ Per altre informazioni sulla lettura dei log di provisioning di Azure AD, vedere
 
 * i criteri per i criteri richiedono sempre **nome utente**, **indirizzo di posta elettronica** e **externalID**.
 * i criteri non supportano le eliminazioni hardware per gli attributi utente.
+
+## <a name="change-log"></a>Registro delle modifiche
+
+* 09/15/2020-è stato aggiunto il supporto per l'attributo "Country" per gli utenti.
 
 ## <a name="additional-resources"></a>Risorse aggiuntive
 

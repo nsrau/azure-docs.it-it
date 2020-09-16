@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: vpn-gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/12/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: feaf72de1d2c578d2b2d0df9e86ec0fbe0b49445
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 594ad352d5fd8431ffaf6d681c891c967cf9d32a
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79371748"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606161"
 ---
 Per stabilire correttamente un tunnel del dispositivo, è necessario soddisfare i requisiti seguenti:
 
@@ -123,18 +123,18 @@ Dopo aver configurato il gateway di rete virtuale e installato il certificato cl
    PsExec64.exe Powershell for 64-bit Windows
    ```
 
-   ![powershell](./media/vpn-gateway-vwan-always-on-device/powershell.png)
+   ![Screenshot mostra una finestra del prompt dei comandi con un comando per avviare la versione a 64 bit di PowerShell.](./media/vpn-gateway-vwan-always-on-device/powershell.png)
 1. In PowerShell passare alla cartella in cui si trovano **devicecert.ps1** e **VPNProfile.xml** ed eseguire il comando seguente:
 
    ```powershell
    .\devicecert.ps1 .\VPNProfile.xml MachineCertTest
    ```
    
-   ![MachineCertTest](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
+   ![Screenshot mostra una finestra di PowerShell che ha eseguito MachineCertTest con lo script devicesert.](./media/vpn-gateway-vwan-always-on-device/machinecerttest.png)
 1. Eseguire **RASPHONE**.
 
-   ![RASPHONE](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
+   ![Screenshot mostra una finestra di dialogo Esegui con RASPHONE selezionato.](./media/vpn-gateway-vwan-always-on-device/rasphone.png)
 1. Cercare la voce **MachineCertTest** e fare clic su **Connetti**.
 
-   ![Connessione](./media/vpn-gateway-vwan-always-on-device/connect.png)
+   ![Screenshot mostra una finestra di dialogo connessioni di rete con MachineCertTest selezionato e un pulsante Connetti.](./media/vpn-gateway-vwan-always-on-device/connect.png)
 1. Se la connessione ha esito positivo, riavviare il computer. Il tunnel si connetterà automaticamente.

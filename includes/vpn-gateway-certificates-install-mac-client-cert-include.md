@@ -1,5 +1,5 @@
 ---
-title: includere il file
+title: includere file
 description: includere file
 services: vpn-gateway
 author: cherylmc
@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: b214932f43ce20480ee37a7b4edf942f080b38e8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: ce39e23208398f6060103345a6c6cb3541834abc
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "67180040"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606580"
 ---
 Quando si installa un certificato client, è necessaria la password che è stata creata durante l'esportazione del certificato client.
 
@@ -23,4 +23,4 @@ Quando si installa un certificato client, è necessaria la password che è stata
    ![Aggiungere certificati](./media/vpn-gateway-certificates-install-mac-client-cert-include/addcert.png)
 3. Immettere la password creata durante l'esportazione del certificato client. La password consente di proteggere la chiave privata del certificato. Fare clic su **OK** per completare l'installazione.
 
-   ![Password](./media/vpn-gateway-certificates-install-mac-client-cert-include/password.png)
+   ![Screenshot Visualizza una finestra di dialogo in cui viene richiesta una password.](./media/vpn-gateway-certificates-install-mac-client-cert-include/password.png)

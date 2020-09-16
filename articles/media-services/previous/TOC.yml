@@ -318,33 +318,16 @@
               href: hybrid-design-drm-sybsystem.md
             - name: Progettazione con DRM multiplo di riferimento
               href: media-services-cenc-with-multidrm-access-control.md
-    - name: Analisi
-      href: media-services-analytics-overview.md
-      items:
-        - name: Analizzare i file multimediali usando il portale di Azure
-          href: media-services-portal-analyze.md
-        - name: Elaborare con Indexer 2
-          href: media-services-process-content-with-indexer2.md
         - name: Elaborare con Indexer
           href: media-services-index-content.md
           items:
             - name: Set di impostazioni per le attività
               href: indexer-task-preset.md
-        - name: Elaborare con Face Detector
-          href: media-services-face-and-emotion-detection.md
-        - name: Elaborare con Motion Detector
-          href: media-services-motion-detection.md
         - name: Elaborare con lo strumento di offuscamento dei volti
           href: media-services-face-redaction.md
           items:
             - name: Procedura dettagliata per lo strumento di offuscamento dei volti
               href: media-services-redactor-walkthrough.md
-        - name: Elaborare con Video Thumbnails
-          href: media-services-video-summarization.md
-        - name: Elaborare con OCR
-          href: media-services-video-optical-character-recognition.md
-        - name: Elaborare con Content Moderator
-          href: media-services-content-moderation.md
     - name: Configurare i dati di telemetria
       href: media-services-telemetry-overview.md
       items:

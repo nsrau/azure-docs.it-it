@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: kenwith
-ms.openlocfilehash: 243e5ece0d0a14cb7e3ade409ee68510cef64a9c
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 411e9a6e059075dfc2928ed09c0c604d600fd9be
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89397101"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604156"
 ---
 # <a name="understand-how-users-are-assigned-to-apps-in-azure-active-directory"></a>Informazioni sul modo in cui gli utenti vengono assegnati alle app in Azure Active Directory
 Questo articolo consente di comprendere come vengono assegnati gli utenti a un'applicazione nel tenant.
@@ -28,14 +28,14 @@ Un utente deve prima essere assegnato a un'applicazione per potervi accedere. L'
     * Un gruppo che è stato sincronizzato da locale
     * Un gruppo di sicurezza statico creato nel cloud
     * Un [gruppo di sicurezza dinamico](https://docs.microsoft.com/azure/active-directory/active-directory-groups-dynamic-membership-azure-portal) creato nel cloud
-    * Un gruppo di Office 365 creato nel cloud
+    * Un gruppo Microsoft 365 creato nel cloud
     * Il gruppo [Tutti gli utenti](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-dedicated-groups)
 *  Un amministratore abilita [l'accesso alle applicazioni self-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) per consentire a un utente di aggiungere un'applicazione usando la funzionalità app [personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Aggiungi app** **senza approvazione aziendale**
-*  Un amministratore abilita [l'accesso alle applicazioni self-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) per consentire a un utente di aggiungere un'applicazione usando la funzionalità app [personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Aggiungi app** , ma solo l'**approvazione precedente a un set selezionato di responsabili approvazione aziendali**
+*  Un amministratore abilita [l'accesso alle applicazioni self-service](https://docs.microsoft.com/azure/active-directory/active-directory-self-service-application-access) per consentire a un utente di aggiungere un'applicazione usando la funzionalità app [personali](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction) **Aggiungi app** , ma solo **con l'approvazione precedente da un set selezionato di responsabili approvazione aziendali**
 *  Un amministratore abilita la [Gestione gruppi self-service](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) per consentire a un utente di partecipare a un gruppo assegnato a un'applicazione **senza l'approvazione aziendale**
 *  Un amministratore abilita la [Gestione gruppi self-service](https://docs.microsoft.com/azure/active-directory/active-directory-accessmanagement-self-service-group-management) per consentire a un utente di partecipare a un gruppo assegnato a un'applicazione, ma solo **con l'approvazione previa di una serie di responsabili approvazione aziendali selezionati**
-*  Un amministratore assegna una licenza direttamente a un utente per un'applicazione prodotta per esempio da [Microsoft Office 365](https://products.office.com/)
-*  Un amministratore assegna una licenza a un gruppo del quale l'utente è membro a un'applicazione prodotta per esempio da [Microsoft Office 365](https://products.office.com/)
+*  Un amministratore assegna una licenza direttamente a un utente per un'applicazione di prima entità, ad esempio [Microsoft 365](https://products.office.com/)
+*  Un amministratore assegna una licenza a un gruppo di cui l'utente è membro in un'applicazione di prima entità, ad esempio [Microsoft 365](https://products.office.com/)
 *  Un [amministratore dà il consenso a un'applicazione](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) per essere usata da tutti gli utenti e quindi un utente effettua l'accesso all'applicazione
 * Un utente [dà il consenso a un'applicazione](https://docs.microsoft.com/azure/active-directory/develop/active-directory-devhowto-multi-tenant-overview) da solo effettuando l'accesso all'applicazione
 

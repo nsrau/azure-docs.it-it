@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/26/2020
 ms.author: trbye
 ms.custom: seodec18
-ms.openlocfilehash: 19f4e7b340f0b1ceb64d04a2704a4f6667e1e14a
-ms.sourcegitcommit: 269da970ef8d6fab1e0a5c1a781e4e550ffd2c55
+ms.openlocfilehash: de6cd4ee2c9800757399b7e32b59d903b817c657
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88053576"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90604394"
 ---
 # <a name="language-and-voice-support-for-the-speech-service"></a>Lingue e voci supportate per il servizio Voce
 
@@ -42,17 +42,21 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `ar-BH` | Arabo (Bahrein), standard moderno | Modello linguistico                                    |
 | `ar-EG` | Arabo (Egitto)                    | Modello linguistico                                    |
 | `ar-IL` | Arabo (Israele)                   | No                                                |
+| `ar-IQ` | Arabo (Iraq)                     | No                                                |
 | `ar-JO` | Arabo (Giordania)                   | No                                                |
 | `ar-KW` | Arabo (Kuwait)                   | No                                                |
 | `ar-LB` | Arabo (Libano)                  | No                                                |
+| `ar-OM` | Arabo (Oman)                     | No                                                |
 | `ar-PS` | Arabo (Palestina)                | No                                                |
 | `ar-QA` | Arabo (Qatar)                    | No                                                |
 | `ar-SA` | Arabo (Arabia Saudita)             | No                                                |
 | `ar-SY` | Arabo (Siria)                    | Modello linguistico                                    |
-| `ca-ES` | Catalano                           | Modello linguistico                                    |
+| `bg-BG` | Bulgaro (Bulgaria)              | Modello linguistico                                    |
+| `ca-ES` | Catalano (Spagna)                   | Modello linguistico                                    |
 | `cs-CZ` | Ceco (Repubblica Ceca)            | Modello linguistico                                    | 
 | `da-DK` | Danese (Danimarca)                  | Modello linguistico                                    |
 | `de-DE` | Tedesco (Germania)                  | Modello acustico<br>Modello linguistico<br>Pronuncia |
+| `el-GR` | Greco (Grecia)                    | Modello linguistico                                    |
 | `en-AU` | Inglese (Australia)               | Modello acustico<br>Modello linguistico                  |
 | `en-CA` | Inglese (Canada)                  | Modello acustico<br>Modello linguistico                  |
 | `en-GB` | Inglese (Regno Unito)          | Modello acustico<br>Modello linguistico<br>Pronuncia |
@@ -84,23 +88,32 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | `es-SV` | Spagnolo (El Salvador)             | Modello linguistico                                    | 
 | `es-US` | Spagnolo (Stati Uniti)                     | Modello linguistico                                    | 
 | `es-UY` | Spagnolo (Uruguay)                 | Modello linguistico                                    | 
-| `es-VE` | Spagnolo (Venezuela)               | Modello linguistico                                    | 
+| `es-VE` | Spagnolo (Venezuela)               | Modello linguistico                                    |
+| `et-EE` | Estone (Estonia)                 | Modello linguistico                                    | 
 | `fi-FI` | Finlandese (Finlandia)                 | Modello linguistico                                    |
 | `fr-CA` | Francese (Canada)                   | Modello acustico<br>Modello linguistico                  |
 | `fr-FR` | Francese (Francia)                   | Modello acustico<br>Modello linguistico<br>Pronuncia |
+| `ga-IE` | Irlandese (Irlanda)                    | Modello linguistico                                    |
 | `gu-IN` | Gujarati (India)                 | Modello linguistico                                    |
 | `hi-IN` | Hindi (India)                     | Modello acustico<br>Modello linguistico                  |
+| `hr-HR` | Croato (Croazia)                | Modello linguistico                                    |
 | `hu-HU` | Ungherese (Ungheria)               | Modello linguistico                                    | 
 | `it-IT` | Italiano (Italia)                   | Modello acustico<br>Modello linguistico<br>Pronuncia |
 | `ja-JP` | Giapponese (Giappone)                  | Modello linguistico                                    |
 | `ko-KR` | Coreano (Corea)                    | Modello linguistico                                    |
+| `lt-LT` | Lituano (Lituania)            | Modello linguistico                                    |
+| `lv-LV` | Lettone (Lettonia)                  | Modello linguistico                                    |
 | `mr-IN` | Marathi (India)                   | Modello linguistico                                    |
+| `mt-MT` | Maltese (Malta)                    | Modello linguistico                                    |
 | `nb-NO` | Norvegese (Bokmål) (Norvegia)       | Modello linguistico                                    |
 | `nl-NL` | Olandese (Paesi Bassi)               | Modello linguistico                                    |
 | `pl-PL` | Polacco (Polonia)                   | Modello linguistico                                    |
 | `pt-BR` | Portoghese (Brasile)               | Modello acustico<br>Modello linguistico<br>Pronuncia |
 | `pt-PT` | Portoghese (Portogallo)             | Modello linguistico                                    |
+| `ro-RO` | Romeno (Romania)                | Modello linguistico                                    |
 | `ru-RU` | Russo (Russia)                  | Modello acustico<br>Modello linguistico                  |
+| `sk-SK` | Slovacco (Slovacchia)                 | Modello linguistico                                    |
+| `sl-SI` | Sloveno (Slovenia)              | Modello linguistico                                    |
 | `sv-SE` | Svedese (Svezia)                  | Modello linguistico                                    |
 | `ta-IN` | Tamil (India)                     | Modello linguistico                                    |
 | `te-IN` | Telugu (India)                    | Modello linguistico                                    |
