@@ -1,6 +1,6 @@
 ---
 title: Configurare app SaaS per la collaborazione B2B-Azure AD
-description: Codici ed esempi di PowerShell per Collaborazione B2B in Azure Active Directory
+description: Informazioni su come configurare app SaaS per Azure Active Directory collaborazione B2B e visualizzare altre risorse disponibili.
 services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9b8f38d42003645e6d6544d5c2064a0c8e692c0f
-ms.sourcegitcommit: 4e5560887b8f10539d7564eedaff4316adb27e2c
+ms.openlocfilehash: e0db5e609a5e6b7d74809810a50f86d72ae85675
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87909612"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705511"
 ---
 # <a name="configure-saas-apps-for-b2b-collaboration"></a>Configurare app SaaS per Collaborazione B2B
 
@@ -72,7 +72,7 @@ Per consentire agli utenti di accedere con il proprio account aziendale, è nece
 
 Al termine della configurazione nell'app Dropbox, gli utenti guest o membro ricevono un invito separato da Dropbox. Per usare l'accesso Single Sign-On in Dropbox, gli invitati devono accettare l'invito facendo clic su un collegamento in esso contenuto.
 
-## <a name="box"></a>Box
+## <a name="box"></a>Casella
 È possibile consentire agli utenti di autenticare utenti guest Box con il proprio account Azure AD usando la federazione basata sul protocollo SAML. In questa procedura si caricano metadati in Box.com.
 
 1. Aggiungere l'app Box dalle app aziendali.
@@ -105,5 +105,5 @@ Vedere gli articoli seguenti su Collaborazione B2B di Azure AD:
 - [Che cos'è Azure AD B2B Collaboration?](what-is-b2b.md)
 - [Gruppi dinamici e Collaborazione B2B](use-dynamic-groups.md)
 - [Mapping delle attestazioni utente per Collaborazione B2B](claims-mapping.md)
-- [Condivisione esterna di Office 365](o365-external-user.md)
+- [Microsoft 365 condivisione esterna](o365-external-user.md)
 

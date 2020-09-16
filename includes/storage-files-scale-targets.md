@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: 8034a7a520cc50b2e57e0ad26205da2e408296a1
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 3d4cc17570057f5f37cf38685847afbe38ea6831
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88760596"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606748"
 ---
 | Risorsa | Condivisioni file Standard | Condivisioni file Premium |
 |----------|---------------|------------------------------------------|
@@ -26,5 +26,6 @@ ms.locfileid: "88760596"
 | Numero massimo di condivisioni snapshot | 200 snapshot di condivisione | 200 snapshot di condivisione |
 | Lunghezza massima del nome dell'oggetto (directory e file) | 2\.048 caratteri | 2\.048 caratteri |
 | Numero massimo di componenti del percorso (nel percorso \A\B\C\D ogni lettera è un componente) | 255 caratteri | 255 caratteri |
+| Limite di collegamenti reali (solo NFS) | N/D | 178 |
 
 \* Il valore predefinito per le condivisioni file Standard è 5 TiB. Vedere [Abilitare e creare condivisioni file di grandi dimensioni](../articles/storage/files/storage-files-how-to-create-large-file-share.md) per informazioni su come aumentare fino a 100 TiB le dimensioni delle condivisioni file Standard.

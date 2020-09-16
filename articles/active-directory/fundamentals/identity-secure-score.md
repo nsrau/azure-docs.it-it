@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tilarso
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 77c673ec52873d854647cf49c0efcbd650fb6aa8
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 8c319489fe4c884cd5de48ac2d3e47e7beb3026f
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320648"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705487"
 ---
 # <a name="what-is-the-identity-secure-score-in-azure-active-directory"></a>Informazioni su Identity Secure Score in Azure Active Directory
 
@@ -102,7 +102,7 @@ Si ricevono punti quando si configurano funzionalità di sicurezza consigliate o
 
 Per visualizzare la cronologia dei punteggi, passare al [Centro sicurezza Microsoft 365](https://security.microsoft.com/) ed esaminare il Punteggio globale Microsoft sicuro. È possibile fare clic su Visualizza cronologia per esaminare le modifiche apportate al Punteggio sicuro generale. Scegliere una data specifica per vedere quali controlli sono stati abilitati per quel giorno e i punti guadagnati per ognuno di essi.
 
-### <a name="how-does-the-identity-secure-score-relate-to-the-office-365-secure-score"></a>In che modo il punteggio Identity Secure Score è correlato al punteggio Office 365 Secure Score?
+### <a name="how-does-the-identity-secure-score-relate-to-the-microsoft-365-secure-score"></a>In che modo il Punteggio sicuro per l'identità è correlato al Microsoft 365 Punteggio sicuro?
 
 Il [Punteggio Microsoft Secure](/office365/securitycompliance/microsoft-secure-score) contiene cinque categorie di controllo e Punteggio distinte:
 

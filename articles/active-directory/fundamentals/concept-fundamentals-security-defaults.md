@@ -12,12 +12,12 @@ manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
 ms.custom: contperfq4
-ms.openlocfilehash: 64ee8f2daddd53d37aeaf0f02208e02500b48f57
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 2c056bd4d5fa9037ce00588269c0da2937ff57ff
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320869"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705334"
 ---
 # <a name="what-are-security-defaults"></a>Cosa sono le impostazioni predefinite per la sicurezza?
 
@@ -92,7 +92,7 @@ Una volta abilitate le impostazioni predefinite per la sicurezza nel tenant, tut
 > [!WARNING]
 > Prima di abilitare le impostazioni predefinite per la sicurezza, assicurarsi che gli amministratori non usino protocolli di autenticazione precedenti. Per altre informazioni, vedere [Come passare dall'autenticazione legacy a un'altra autenticazione](concept-fundamentals-block-legacy-authentication.md).
 
-- [Come configurare un dispositivo multifunzione o un'applicazione per l'invio di messaggi di posta elettronica tramite Office 365 e Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
+- [Come configurare un dispositivo multifunzione o un'applicazione per l'invio di messaggi di posta elettronica tramite Microsoft 365](/exchange/mail-flow-best-practices/how-to-set-up-a-multifunction-device-or-application-to-send-email-using-microsoft-365-or-office-365)
 
 ### <a name="protecting-privileged-actions"></a>Protezione delle azioni con privilegi
 

@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: a86402fec698a299c7f233dcd8c7fde8270dd74d
-ms.sourcegitcommit: 02ca0f340a44b7e18acca1351c8e81f3cca4a370
+ms.openlocfilehash: 247f37a69cd8524339a3f5414230cca0f42fa22d
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88585662"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662052"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando
 
@@ -58,7 +58,7 @@ az keyvault update -n ContosoVault --enable-soft-delete true
 
 ### <a name="new-key-vault"></a>Insieme di credenziali delle chiavi nuovo
 
-L'eliminazione temporanea è abilitata automaticamente in tutti gli insiemi di credenziali delle chiavi per impostazione predefinita. Entro il 31 dicembre 2020 non sarà più possibile creare un nuovo insieme di credenziali delle chiavi senza l'eliminazione temporanea abilitata.
+L'eliminazione temporanea è abilitata automaticamente in tutti gli insiemi di credenziali delle chiavi per impostazione predefinita. A partire dal 31 dicembre 2020 non sarà più possibile creare un nuovo insieme di credenziali delle chiavi senza l'eliminazione temporanea abilitata.
 
 ### <a name="verify-soft-delete-enablement"></a>Verificare l'abilitazione della funzione di eliminazione temporanea
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/20/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: dc80141d796b66dd7e610342166f7b88df58f530
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
-ms.translationtype: MT
+ms.openlocfilehash: d2c309340155bc626d4da94d74aee9be51bde510
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "75928023"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606386"
 ---
 ## <a name="create-a-namespace-in-the-azure-portal"></a>Creare uno spazio dei nomi nel portale di Azure
 Per iniziare a usare le entità di messaggistica del bus di servizio in Azure, prima di tutto è necessario creare uno spazio dei nomi con un nome univoco in Azure. Uno spazio dei nomi fornisce un contenitore di ambito per fare riferimento alle risorse del bus di servizio all'interno dell'applicazione.
@@ -53,10 +53,10 @@ Con la creazione di un nuovo spazio dei nomi viene generata automaticamente una 
 2. Nella finestra dello spazio dei nomi fare clic su **Criteri di accesso condiviso**.
 3. Nella schermata **Criteri di accesso condiviso** fare clic su **RootManageSharedAccessKey**.
    
-    ![connection-info](./media/service-bus-create-namespace-portal/connection-info.png)
+    ![Screenshot che mostra la finestra Criteri di accesso condiviso con un criterio evidenziato.](./media/service-bus-create-namespace-portal/connection-info.png)
 4. Nella finestra **Criteri: RootManageSharedAccessKey** fare clic sul pulsante Copia accanto a **Stringa di connessione primaria** per copiare la stringa di connessione negli Appunti e usarla in un secondo momento. Incollare questo valore nel Blocco note o in un'altra posizione temporanea.
    
-    ![connection-string](./media/service-bus-create-namespace-portal/connection-string.png)
+    ![Screenshot che mostra un criterio di firma di accesso condiviso denominato RootManageSharedAccessKey, che include chiavi e stringhe di connessione.](./media/service-bus-create-namespace-portal/connection-string.png)
 5. Ripetere il passaggio precedente e copiare e incollare il valore della **chiave primaria** in un percorso temporaneo per usarlo in seguito.
 
 <!--Image references-->

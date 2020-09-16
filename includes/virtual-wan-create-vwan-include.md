@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/09/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 56f79bf38b627f80d73b59dbbfbb73dddd809458
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 5c9c8fa8099848eec09e689bf9491f71f378e9e3
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86525170"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606779"
 ---
 In un browser passare al portale di Azure e accedere con l'account Azure.
 
@@ -21,7 +21,7 @@ In un browser passare al portale di Azure e accedere con l'account Azure.
 1. Selezionare **Rete WAN virtuale** nei risultati. Nella pagina della rete WAN virtuale fare clic su **Crea** per aprire la pagina Crea rete WAN.
 1. Nella pagina **Crea rete WAN**, nella scheda **Nozioni di base**, compilare i campi seguenti:
 
-   :::image type="content" source="./media/virtual-wan-create-vwan-include/basics.png" alt-text="Nozioni di base":::
+   :::image type="content" source="./media/virtual-wan-create-vwan-include/basics.png" alt-text="Screenshot che mostra il riquadro Crea rete WAN con la scheda Informazioni di base selezionata.":::
 
    * **Sottoscrizione** - Selezionare la sottoscrizione che si vuole usare.
    * **Gruppo di risorse** - Creare un nuovo gruppo o usarne uno esistente.
