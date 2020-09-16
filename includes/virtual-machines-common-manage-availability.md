@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: d7f7b0eb2c49e4abba9e12e09d70e321cc6c06f4
-ms.sourcegitcommit: afa1411c3fb2084cccc4262860aab4f0b5c994ef
+ms.openlocfilehash: 965da18c265fad1686473d5d6dcf8ba4a7a53b33
+ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/23/2020
-ms.locfileid: "88760574"
+ms.lasthandoff: 09/02/2020
+ms.locfileid: "89324746"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>Informazioni sui riavvii delle VM: manutenzione e tempo di inattività
 Sono tre gli scenari che possono interessare la macchina virtuale in Azure: manutenzione dell'hardware non pianificata, tempo di inattività imprevisto e manutenzione pianificata.
@@ -33,7 +33,7 @@ Per ridurre le conseguenze dei tempi di inattività causati da uno o più di que
 * [Configurare più macchine virtuali in un set di disponibilità per la ridondanza]
 * [Usare Managed Disks per le macchine virtuali nel set di disponibilità]
 * [Usare Eventi pianificati per rispondere in modo proattivo agli eventi che hanno impatto sulle macchine virtuali](../articles/virtual-machines/linux/scheduled-events.md)
-* [Configurare ogni livello dell'applicazione in set di disponibilità separati]
+* [Configurare ogni livello dell'applicazione in set di disponibilità separati](../articles/virtual-machines/windows/tutorial-availability-sets.md)
 * [Combinare il bilanciamento del carico con zone o set di disponibilità]
 * [Usare le zone di disponibilità per la protezione dagli errori a livello di data center]
 
@@ -82,12 +82,12 @@ az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Lo
 ```
 
 > [!NOTE]
-> In determinate circostanze due macchine virtuali nello stesso set di disponibilità potrebbero condividere lo stesso dominio di errore. Per verificarlo, controllare la colonna **Dominio di errore** nel set di disponibilità.
-> Questo problema può essere causato dalla sequenza seguente durante la distribuzione delle macchine virtuali:
-> - Distribuzione della prima macchina virtuale
-> - Arresto/deallocazione della prima macchina virtuale
-> - Distribuzione della seconda macchina virtuale In queste circostanze il disco del sistema operativo della seconda macchina virtuale potrebbe essere creato nello stesso dominio di errore della prima macchina virtuale, di conseguenza anche la seconda macchina virtuale userà lo stesso dominio di errore. 
-> Per evitare questo problema, è consigliabile non arrestare/deallocare le macchine virtuali tra una distribuzione e l'altra.
+> In determinate circostanze, due VM nello stesso set di disponibilità potrebbero condividere un dominio di errore. Per verificare la presenza di un dominio di errore condiviso, controllare la colonna **Dominio di errore** nel set di disponibilità. Un dominio di errore condiviso potrebbe essere il risultato del completamento della sequenza seguente al momento della distribuzione delle VM:
+> 1. Distribuire la prima VM.
+> 1. Arrestare/deallocare la prima VM.
+> 1. Distribuire la seconda VM.
+>
+> In queste circostanze, il disco del sistema operativo della seconda VM potrebbe essere creato nello stesso dominio di errore della prima VM, quindi le due VM si troveranno nello stesso dominio di errore. Per evitare questo problema, è consigliabile non arrestare/deallocare le VM tra una distribuzione e l'altra.
 
 Se si intende usare macchine virtuali con dischi non gestiti, seguire queste procedure consigliate per gli account di archiviazione in cui i dischi rigidi virtuali delle macchine virtuali vengono archiviati come [BLOB di pagine](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs).
 

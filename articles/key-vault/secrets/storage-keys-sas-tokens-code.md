@@ -1,6 +1,6 @@
 ---
 title: Recuperare i token di firma di accesso condiviso nel codice | Azure Key Vault
-description: Un account di archiviazione gestito consente un'integrazione diretta tra Azure Key Vault e un account di archiviazione di Azure.
+description: Un account di archiviazione gestito consente una perfetta integrazione tra Azure Key Vault e un account di archiviazione di Azure. Questo esempio usa Azure SDK per .NET per gestire i token di firma di accesso condiviso.
 ms.topic: tutorial
 ms.service: key-vault
 ms.subservice: secrets
@@ -9,55 +9,41 @@ ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 8ca89d06ea0d5e2396c820b25490b30e25c99f10
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: afe7d5ce3dd1756ddb9e33fe402fb2eb699ce8f7
+ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89002930"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "90007418"
 ---
 # <a name="fetch-shared-access-signature-tokens-in-code"></a>Recuperare i token della firma di accesso condiviso nel codice
 
 È possibile gestire l'account di archiviazione con i token di firma di accesso condiviso archiviati nell'insieme di credenziali delle chiavi. Per altre informazioni, vedere [Concedere l'accesso limitato alle risorse di Archiviazione di Azure tramite la firma di accesso condiviso](../../storage/common/storage-sas-overview.md).
 
-Questo articolo fornisce esempi di codice .NET che recupera un token di firma di accesso condiviso ed esegue operazioni con tale token. Per informazioni su come creare e archiviare token di firma di accesso condiviso, vedere [Gestire le chiavi dell'account di archiviazione con Key Vault e l'interfaccia della riga di comando di Azure](overview-storage-keys.md) o [Gestire le chiavi dell'account di archiviazione con Key Vault e Azure PowerShell](overview-storage-keys-powershell.md).
+> [!NOTE]
+> Per proteggere l'account di archiviazione è consigliabile usare il [controllo degli accessi in base al ruolo](../../storage/common/storage-auth-aad.md), che offre una maggiore sicurezza e facilità d'uso rispetto all'autorizzazione con chiave condivisa.
+
+Questo articolo fornisce esempi di codice .NET che crea una definizione di firma di accesso condiviso e recupera i token di firma di accesso condiviso. Vedere l'esempio [ShareLink](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/share-link/) per i dettagli completi, incluso il client generato per gli account di archiviazione gestiti da Key Vault. Per informazioni su come creare e archiviare token di firma di accesso condiviso, vedere [Gestire le chiavi dell'account di archiviazione con Key Vault e l'interfaccia della riga di comando di Azure](overview-storage-keys.md) o [Gestire le chiavi dell'account di archiviazione con Key Vault e Azure PowerShell](overview-storage-keys-powershell.md).
 
 ## <a name="code-samples"></a>Esempi di codice
 
-In questo esempio il codice recupera un token di firma di accesso condiviso dall'insieme di credenziali delle chiavi, lo usa per creare un nuovo account di archiviazione e crea un nuovo client del servizio BLOB.
+Nell'esempio seguente viene creato un modello di firma di accesso condiviso:
 
-```cs
-// The shared access signature is stored as a secret in keyvault. 
-// After you get a security token, create a new SecretClient with vault credentials and the key vault URI.
-// The format for the key vault URI (kvuri) is https://<YourKeyVaultName>.vault.azure.net
+:::code language="csharp" source="~/azure-sdk-for-net/sdk/keyvault/samples/sharelink/Program.cs" range="91-97":::
 
-var kv = new SecretClient(new Uri(kvUri), new DefaultAzureCredential());
+Con questo modello è possibile creare una definizione di firma di accesso condiviso usando 
 
-// Now retrive your storage SAS token from Key Vault using the name of the secret (secretName).
+:::code language="csharp" source="~/azure-sdk-for-net/sdk/keyvault/samples/sharelink/Program.cs" range="137-156":::
 
-KeyVaultSecret secret = client.GetSecret(secretName);
-var sasToken = secret.Value;
+Dopo la creazione della definizione di firma di accesso condiviso, è possibile recuperare i token di firma di accesso condiviso come i segreti usando un `SecretClient`. È necessario anteporre al nome del segreto il nome dell'account di archiviazione seguito da un trattino:
 
-// Create new storage credentials using the SAS token.
-StorageCredentials accountSAS = new StorageCredentials(sasToken);
+:::code language="csharp" source="~/azure-sdk-for-net/sdk/keyvault/samples/sharelink/Program.cs" range="52-58":::
 
-// Use these credentials and your storage account name to create a Blob service client.
-CloudStorageAccount accountWithSAS = new CloudStorageAccount(accountSAS, "<storage-account>", endpointSuffix: null, useHttps: true);
-CloudBlobClient blobClientWithSAS = accountWithSAS.CreateCloudBlobClient();
-```
-
-Se il token di firma di accesso condiviso sta per scadere, è possibile recuperare il token di firma di accesso condiviso dall'insieme di credenziali delle chiavi e aggiornare il codice.
-
-```cs
-// If your shared access signature token is about to expire,
-// get the shared access signature token again from Key Vault and update it.
-KeyVaultSecret secret = client.GetSecret(secretName);
-var sasToken = secret.Value;
-accountSAS.UpdateSASToken(sasToken);
-```
-
+Se il token di firma di accesso condiviso sta per scadere, è possibile recuperare nuovamente lo stesso segreto per generarne uno nuovo.
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Vedere altre informazioni su come [Concedere l'accesso limitato alle risorse di Archiviazione di Azure tramite la firma di accesso condiviso](../../storage/common/storage-sas-overview.md).
 - Vedere altre informazioni su come [Gestire le chiavi degli account di archiviazione con Key Vault e l'interfaccia della riga di comando di Azure](overview-storage-keys.md) o [Azure PowerShell](overview-storage-keys-powershell.md).
+- Vedere l'esempio [ShareLink](https://docs.microsoft.com/samples/azure/azure-sdk-for-net/share-link/) completo.
+- Altri [esempi di Key Vault](https://docs.microsoft.com/samples/browse/?expanded=azure&products=azure-key-vault)
 - Vedere [Esempi di chiavi di account di archiviazione gestiti](https://github.com/Azure-Samples?utf8=%E2%9C%93&q=key+vault+storage&type=&language=)
