@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8dfeb8a38e07d94671691bb797d26a32973c910
-ms.sourcegitcommit: 1a0dfa54116aa036af86bd95dcf322307cfb3f83
+ms.openlocfilehash: d0ea9259e701e2ad9a4026401f5aef39c0ecfa51
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/10/2020
-ms.locfileid: "88042480"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601827"
 ---
 # <a name="conditional-access-conditions"></a>Accesso condizionale: condizioni
 
@@ -113,7 +113,7 @@ Questa impostazione funziona con tutti i browser. Tuttavia, per soddisfare un cr
 | Windows Server 2019 | Microsoft Edge, Internet Explorer, Chrome |
 | Windows Server 2016 | Internet Explorer |
 | Windows Server 2012 R2 | Internet Explorer |
-| Windows Server 2008 R2 | Internet Explorer |
+| Windows Server 2008 R2 | Internet Explorer |
 | macOS | Chrome, Safari |
 
 #### <a name="why-do-i-see-a-certificate-prompt-in-the-browser"></a>Perché viene visualizzata una richiesta di certificato nel browser
@@ -149,27 +149,27 @@ Questa impostazione interessa i tentativi di accesso eseguiti dalle app per disp
 | App client | Servizio di destinazione | Piattaforma |
 | --- | --- | --- |
 | Dynamics CRM | Dynamics CRM | Windows 10, Windows 8.1, iOS e Android |
-| App Posta/Calendario/Contatti, Outlook 2016, Outlook 2013 (con autenticazione moderna)| Office 365 Exchange Online | Windows 10 |
+| App Posta/Calendario/Contatti, Outlook 2016, Outlook 2013 (con autenticazione moderna)| Exchange Online | Windows 10 |
 | MFA e criteri relativi alle applicazioni. I criteri basati su dispositivo non sono supportati.| Qualsiasi servizio app Mie app | Android e iOS |
 | Microsoft Team Services consente di controllare tutti i servizi che supportano Microsoft Teams e tutte le app client: Windows Desktop, iOS, Android, WP e Web Client | Microsoft Teams | Windows 10, Windows 8.1, Windows 7, iOS, Android e macOS |
-| App Office 2016, Office 2013 (con autenticazione moderna), [client di sincronizzazione OneDrive](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 8.1, Windows 7 |
-| App di Office 2016, app di Office universale, Office 2013 (con autenticazione moderna), [client di sincronizzazione OneDrive](/onedrive/enable-conditional-access) | Office 365 SharePoint Online | Windows 10 |
-| Office 2016 (solo Word, Excel, PowerPoint e OneNote). | Office 365 SharePoint Online | macOS |
-| Office 2019| Office 365 SharePoint Online | Windows 10, macOS |
-| App Office per dispositivi mobili | Office 365 SharePoint Online | Android, iOS |
-| App Office Yammer | Office 365 Yammer | Windows 10, iOS, Android |
-| Outlook 2019 | Office 365 SharePoint Online | Windows 10, macOS |
-| Outlook 2016 (Office per macOS) | Office 365 Exchange Online | macOS |
-| Outlook 2016, Outlook 2013 (con l'autenticazione moderna), Skype for Business (con l'autenticazione moderna) | Office 365 Exchange Online | Windows 8.1, Windows 7 |
-| App Outlook per dispositivi mobili | Office 365 Exchange Online | Android, iOS |
+| App Office 2016, Office 2013 (con autenticazione moderna), [client di sincronizzazione OneDrive](/onedrive/enable-conditional-access) | SharePoint | Windows 8.1, Windows 7 |
+| App di Office 2016, app di Office universale, Office 2013 (con autenticazione moderna), [client di sincronizzazione OneDrive](/onedrive/enable-conditional-access) | SharePoint Online | Windows 10 |
+| Office 2016 (solo Word, Excel, PowerPoint e OneNote). | SharePoint | macOS |
+| Office 2019| SharePoint | Windows 10, macOS |
+| App Office per dispositivi mobili | SharePoint | Android, iOS |
+| App Office Yammer | Yammer | Windows 10, iOS, Android |
+| Outlook 2019 | SharePoint | Windows 10, macOS |
+| Outlook 2016 (Office per macOS) | Exchange Online | macOS |
+| Outlook 2016, Outlook 2013 (con l'autenticazione moderna), Skype for Business (con l'autenticazione moderna) | Exchange Online | Windows 8.1, Windows 7 |
+| App Outlook per dispositivi mobili | Exchange Online | Android, iOS |
 | App Power BI | Servizio Power BI | Windows 10, Windows 8.1, Windows 7, Android e iOS |
-| Skype for Business | Office 365 Exchange Online| Android, iOS |
+| Skype for Business | Exchange Online| Android, iOS |
 | App Visual Studio Team Services | Visual Studio Team Services | Windows 10, Windows 8.1, Windows 7, iOS e Android |
 
 ### <a name="exchange-activesync-clients"></a>Client Exchange ActiveSync
 
 - Le organizzazioni possono selezionare solo i client di Exchange ActiveSync quando assegnano criteri a utenti o gruppi. Se si seleziona **tutti gli**utenti, tutti gli utenti **guest ed External**o i **ruoli della directory** , tutti gli utenti verranno bloccati.
-- Quando si crea un criterio assegnato ai client di Exchange ActiveSync, **Office 365 Exchange Online** deve essere l'unica applicazione cloud assegnata ai criteri. 
+- Quando si crea un criterio assegnato ai client di Exchange ActiveSync, **Exchange Online** deve essere l'unica applicazione cloud assegnata ai criteri. 
 - Le organizzazioni possono limitare l'ambito di questo criterio a piattaforme specifiche usando la condizione per le **piattaforme del dispositivo** .
 
 Se il controllo di accesso assegnato ai criteri USA **Richiedi app client approvata**, l'utente viene indirizzato per l'installazione e l'uso di Outlook Mobile client. Nel caso in cui sia necessaria **l'autenticazione** a più fattori, gli utenti interessati vengono bloccati perché l'autenticazione di base non supporta l'autenticazione a più fattori.

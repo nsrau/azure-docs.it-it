@@ -11,22 +11,22 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol, rosssmi
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3626a29bb828c9fbc353b11858d42fecd4bb129d
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 82ab9bc0159528446a9de95769f1e433f03acb56
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641025"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601946"
 ---
 # <a name="how-to-require-app-protection-policy-and-an-approved-client-app-for-cloud-app-access-with-conditional-access"></a>Procedura: Richiedere criteri di protezione delle app e un'app client approvata per l'accesso alle app cloud con Accesso condizionale
 
 Gli utenti usano spesso i dispositivi mobili sia per le attività personali che per quelle di lavoro. Le organizzazioni vogliono garantire che il personale sia produttivo, ma anche impedire la perdita di dati da applicazioni potenzialmente non sicure. Con Accesso condizionale le organizzazioni possono limitare l'accesso alle app client approvate (che supportano l'autenticazione moderna) alle quali sono applicati i criteri di protezione delle app di Intune.
 
-Questo articolo presenta tre scenari per configurare i criteri di Accesso condizionale per risorse come Office 365, Exchange Online e SharePoint Online.
+Questo articolo presenta tre scenari per configurare i criteri di accesso condizionale per risorse quali Microsoft 365, Exchange Online e SharePoint.
 
-- [Scenario 1: le app di Office 365 richiedono app approvate con criteri di protezione delle app](#scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies)
+- [Scenario 1: le app Microsoft 365 richiedono app approvate con i criteri di protezione delle app](#scenario-1-microsoft-365-apps-require-approved-apps-with-app-protection-policies)
 - [Scenario 2: le app browser richiedono app approvate con criteri di protezione delle app](#scenario-2-browser-apps-require-approved-apps-with-app-protection-policies)
-- [Scenario 3: Exchange Online e SharePoint Online richiedono un'app client approvata e criteri di protezione delle app](#scenario-3-exchange-online-and-sharepoint-online-require-an-approved-client-app-and-app-protection-policy)
+- [Scenario 3: Exchange Online e SharePoint richiedono un'app client approvata e i criteri di protezione delle app](#scenario-3-exchange-online-and-sharepoint-require-an-approved-client-app-and-app-protection-policy)
 
 In Accesso condizionale è noto che queste app client sono protette con criteri di protezione delle app. Altre informazioni sui criteri di protezione delle app sono disponibili nell'articolo [Panoramica dei criteri di protezione app](/intune/apps/app-protection-policy).
 
@@ -36,13 +36,13 @@ In Accesso condizionale è noto che queste app client sono protette con criteri 
 > [!NOTE]
 > "Richiedi uno dei controlli selezionati" nei controlli di concessione è simile a una clausola o. Questa opzione viene usata all'interno dei criteri per consentire agli utenti di usare le app che supportano i **criteri di protezione delle app require** o **Require client approvati** . È necessario applicare i **criteri di protezione delle app** se un'app è supportata in entrambi i criteri. Per altre informazioni sulle app che supportano il controllo di concessione **Richiedi criteri di protezione delle app**, vedere [Requisiti dei criteri di protezione app](concept-conditional-access-grant.md#require-app-protection-policy).
 
-## <a name="scenario-1-office-365-apps-require-approved-apps-with-app-protection-policies"></a>Scenario 1: Le app di Office 365 richiedono app approvate con criteri di protezione delle app
+## <a name="scenario-1-microsoft-365-apps-require-approved-apps-with-app-protection-policies"></a>Scenario 1: le app Microsoft 365 richiedono app approvate con i criteri di protezione delle app
 
-In questo scenario, Contoso ha deciso che tutti gli accessi per dispositivi mobili alle risorse di Office 365 devono usare app client approvate, come Outlook Mobile e OneDrive, protette da un criterio di protezione delle app prima di ricevere l'accesso. Tutti gli utenti accedono già con credenziali di Azure AD e hanno licenze assegnate che includono Azure AD Premium P1 o P2 e Microsoft Intune.
+In questo scenario, Contoso ha deciso che tutti gli accessi per dispositivi mobili alle risorse Microsoft 365 devono usare app client approvate come Outlook Mobile e OneDrive, protette da un criterio di protezione delle app prima di ricevere l'accesso. Tutti gli utenti accedono già con credenziali di Azure AD e hanno licenze assegnate che includono Azure AD Premium P1 o P2 e Microsoft Intune.
 
 Per richiedere l'uso di un'app client approvata nei dispositivi mobili, le organizzazioni devono completare la procedura seguente.
 
-**Passaggio 1: configurare criteri di accesso condizionale di Azure AD per Office 365**
+**Passaggio 1: configurare un criterio di accesso condizionale Azure AD per Microsoft 365**
 
 1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
 1. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale**.
@@ -89,11 +89,11 @@ Vedere l'articolo [Come creare e assegnare criteri di protezione delle app](/int
 
 ## <a name="scenario-2-browser-apps-require-approved-apps-with-app-protection-policies"></a>Scenario 2: Le app browser richiedono app approvate con criteri di protezione delle app
 
-In questo scenario, Contoso ha deciso che tutti gli accessi mobili tramite esplorazione Web alle risorse di Office 365 devono usare un'app client approvata, come Edge per iOS e Android, protetta da criteri di protezione delle app prima di ottenere l'accesso. Tutti gli utenti accedono già con credenziali di Azure AD e hanno licenze assegnate che includono Azure AD Premium P1 o P2 e Microsoft Intune.
+In questo scenario, Contoso ha deciso che tutti gli accessi Web Browsing per dispositivi mobili alle risorse Microsoft 365 devono usare un'app client approvata, ad esempio Edge per iOS e Android, protetta da un criterio di protezione delle app prima di ricevere l'accesso. Tutti gli utenti accedono già con credenziali di Azure AD e hanno licenze assegnate che includono Azure AD Premium P1 o P2 e Microsoft Intune.
 
 Per richiedere l'uso di un'app client approvata nei dispositivi mobili, le organizzazioni devono completare la procedura seguente.
 
-**Passaggio 1: configurare criteri di accesso condizionale di Azure AD per Office 365**
+**Passaggio 1: configurare un criterio di accesso condizionale Azure AD per Microsoft 365**
 
 1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
 1. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale**.
@@ -120,13 +120,13 @@ Per richiedere l'uso di un'app client approvata nei dispositivi mobili, le organ
 
 Vedere l'articolo [Come creare e assegnare criteri di protezione delle app](/intune/apps/app-protection-policies) per la procedura di creazione di criteri di protezione delle app per Android e iOS. 
 
-## <a name="scenario-3-exchange-online-and-sharepoint-online-require-an-approved-client-app-and-app-protection-policy"></a>Scenario 3: Exchange Online e SharePoint Online richiedono un'app client approvata e criteri di protezione delle app
+## <a name="scenario-3-exchange-online-and-sharepoint-require-an-approved-client-app-and-app-protection-policy"></a>Scenario 3: Exchange Online e SharePoint richiedono un'app client approvata e i criteri di protezione delle app
 
 In questo scenario, Contoso ha deciso che gli utenti possono accedere solo ai dati di posta elettronica e di SharePoint nei dispositivi mobili, a condizione che usino un'app client approvata come Outlook Mobile protetta da criteri di protezione delle app prima di ottenere l'accesso. Tutti gli utenti accedono già con credenziali di Azure AD e hanno licenze assegnate che includono Azure AD Premium P1 o P2 e Microsoft Intune.
 
 Per richiedere l'uso di un'app client approvata nei dispositivi mobili e nei client Exchange ActiveSync, le organizzazioni devono completare la procedura seguente.
 
-**Passaggio 1: criteri per i client di autenticazione moderni basati su Android e iOS che richiedono l'uso di un'app client approvata e di criteri di protezione delle app per l'accesso a Exchange Online e SharePoint Online.**
+**Passaggio 1: criteri per i client di autenticazione moderni basati su Android e iOS che richiedono l'uso di un'app client approvata e dei criteri di protezione delle app per l'accesso a Exchange Online e SharePoint.**
 
 1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
 1. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale**.

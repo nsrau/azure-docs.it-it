@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5536c3c427e5b6225d81d649722d8af48c23091
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 161b02ec962df5c5e1c8dee7e124ef78b3ca4db3
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948454"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601980"
 ---
 # <a name="best-practices-for-conditional-access-in-azure-active-directory"></a>Procedure consigliate per l'accesso condizionale in Azure Active Directory
 
@@ -97,13 +97,13 @@ Per ogni accesso, Azure Active Directory valuta tutti i criteri e verifica che t
 
 Sì, è possibile usare Exchange ActiveSync in un criterio di accesso condizionale.
 
-Alcune app cloud come SharePoint Online ed Exchange Online supportano anche i protocolli di autenticazione legacy. Quando un'app client può usare un protocollo di autenticazione legacy per accedere a un'app Cloud, Azure AD non può applicare un criterio di accesso condizionale al tentativo di accesso. Per impedire a un'app client di ignorare l'applicazione di criteri, è necessario controllare se è possibile abilitare solo l'autenticazione moderna nelle app cloud interessate.
+Alcune app cloud come SharePoint ed Exchange Online supportano anche i protocolli di autenticazione legacy. Quando un'app client può usare un protocollo di autenticazione legacy per accedere a un'app Cloud, Azure AD non può applicare un criterio di accesso condizionale al tentativo di accesso. Per impedire a un'app client di ignorare l'applicazione di criteri, è necessario controllare se è possibile abilitare solo l'autenticazione moderna nelle app cloud interessate.
 
-### <a name="how-should-you-configure-conditional-access-with-office-365-apps"></a>Come configurare l'accesso condizionale con le app di Office 365?
+### <a name="how-should-you-configure-conditional-access-with-microsoft-365-apps"></a>Come configurare l'accesso condizionale con Microsoft 365 app?
 
-Poiché le app di Office 365 sono interconnesse, è consigliabile assegnare le app comunemente usate insieme quando si creano i criteri.
+Poiché le app Microsoft 365 sono interconnesse, è consigliabile assegnare le app comunemente usate insieme quando si creano i criteri.
 
-Le applicazioni interconnesse comuni includono Microsoft Flow, Microsoft Planner, Microsoft teams, Office 365 Exchange Online, Office 365 SharePoint Online e Office 365 Yammer.
+Le applicazioni interconnesse comuni includono Microsoft Flow, Microsoft Planner, Microsoft teams, Exchange Online, SharePoint e Yammer.
 
 È importante per i criteri che richiedono interazioni utente, ad esempio l'autenticazione a più fattori, quando l'accesso viene controllato all'inizio di una sessione o di un'attività. In caso contrario, gli utenti non saranno in grado di completare alcune attività all'interno di un'app. Se, ad esempio, è richiesta l'autenticazione a più fattori sui dispositivi non gestiti per accedere a SharePoint ma non alla posta elettronica, gli utenti che lavorano nella posta elettronica non saranno in grado di allineare i file di SharePoint a un messaggio. Altre informazioni sono disponibili nell'articolo informazioni sulle [dipendenze del servizio in Azure Active Directory l'accesso condizionale](service-dependencies.md).
 

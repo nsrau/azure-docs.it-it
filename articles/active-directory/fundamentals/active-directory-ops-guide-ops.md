@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: edb35986fcfc0e8855fa712b519ee7a8ca2f0ed8
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 921a56dca8f1cda67e6f32458914fef4ac2d324c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321957"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601309"
 ---
 # <a name="azure-active-directory-general-operations-guide-reference"></a>Informazioni di riferimento sulla Guida operativa di Azure Active Directory
 
@@ -125,9 +125,9 @@ Se l'organizzazione non ha attualmente alcun programma per monitorare le modific
 
 ### <a name="notifications"></a>Notifiche
 
-Microsoft invia comunicazioni tramite posta elettronica agli amministratori per notificare diverse modifiche al servizio, aggiornamenti della configurazione necessari ed errori che richiedono l'intervento dell'amministratore. È importante che i clienti impostino gli indirizzi di posta elettronica di notifica in modo che le notifiche vengano inviate ai membri del team appropriati che possono confermare e agire su tutte le notifiche. Si consiglia di aggiungere più destinatari al [centro messaggi di Office 365](/office365/admin/manage/message-center) e di richiedere l'invio di notifiche (incluse Azure ad Connect Health notifiche) a una lista di distribuzione o a una cassetta postale condivisa. Se è presente un solo account amministratore globale con un indirizzo di posta elettronica, assicurarsi di configurare almeno due account che supportano la posta elettronica.
+Microsoft invia comunicazioni tramite posta elettronica agli amministratori per notificare diverse modifiche al servizio, aggiornamenti della configurazione necessari ed errori che richiedono l'intervento dell'amministratore. È importante che i clienti impostino gli indirizzi di posta elettronica di notifica in modo che le notifiche vengano inviate ai membri del team appropriati che possono confermare e agire su tutte le notifiche. Si consiglia di aggiungere più destinatari al [centro messaggi](/office365/admin/manage/message-center) e di richiedere l'invio di notifiche (incluse Azure ad Connect Health notifiche) a una lista di distribuzione o a una cassetta postale condivisa. Se è presente un solo account amministratore globale con un indirizzo di posta elettronica, assicurarsi di configurare almeno due account che supportano la posta elettronica.
 
-Esistono due indirizzi "da" usati da Azure AD: <o365mc@email2.microsoft.com> , che invia le notifiche del centro messaggi di Office 365 e <azure-noreply@microsoft.com> , che invia le notifiche relative a:
+Esistono due indirizzi "from" usati da Azure AD: <o365mc@email2.microsoft.com> , che invia le notifiche del centro messaggi e <azure-noreply@microsoft.com> , che invia le notifiche correlate a:
 
 - [Verifiche di accesso Azure AD](../governance/access-reviews-overview.md)
 - [Azure AD Connect Health](../hybrid/how-to-connect-health-operations.md#enable-email-notifications)
@@ -141,14 +141,14 @@ Vedere la tabella seguente per informazioni sul tipo di notifiche inviate e su d
 | Origine notifica | Elementi inviati | Dove controllare |
 |:-|:-|:-|
 | Contatto tecnico | Errori di sincronizzazione | Pannello Proprietà portale di Azure |
-| Centro messaggi di Office 365 | Notifiche relative a eventi imprevisti e riduzione dei servizi Identity e O365 back-end | Portale di Office |
+| Centro messaggi | Notifiche relative a eventi imprevisti e riduzione dei servizi Identity e Microsoft 365 servizi back-end | Portale di Office |
 | Digest settimanale di Identity Protection | Digest di Identity Protection | Pannello Azure AD Identity Protection |
 | Azure AD Connect Health | Notifiche di avviso | Pannello portale di Azure-Azure AD Connect Health |
 | Notifiche delle applicazioni aziendali | Notifiche quando i certificati stanno per scadere e il provisioning degli errori | Pannello dell'applicazione portale di Azure-Enterprise (ogni app ha una propria impostazione di indirizzo di posta elettronica) |
 
 #### <a name="notifications-recommended-reading"></a>Letture consigliate notifiche
 
-- [Modificare l'indirizzo dell'organizzazione, il contatto tecnico e altro ancora-Office 365](/office365/admin/manage/change-address-contact-and-more)
+- [Modifica l'indirizzo dell'organizzazione, il contatto tecnico e altro ancora](/office365/admin/manage/change-address-contact-and-more)
 
 ## <a name="operational-surface-area"></a>Superficie operativa
 

@@ -7,12 +7,12 @@ ms.service: resource-move
 ms.topic: conceptual
 ms.date: 09/14/2020
 ms.author: raynew
-ms.openlocfilehash: 18de210d817ee309ac4970ecea6b62f6ef03ef02
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 68e5f937b8ad8367abf488598bda311a39d462c6
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530404"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600654"
 ---
 # <a name="common-questions"></a>Domande frequenti
 
@@ -90,6 +90,9 @@ L'identità gestita del motore di risorse non ha il ruolo richiesto. | Aggiunger
 L'identità gestita del motore di risorse è stata reimpostata su *None*. | Riabilitare un'identità assegnata dal sistema nell' **identità**di spostamento della raccolta >. In alternativa, aggiungere di nuovo la risorsa in **Aggiungi risorse**, che esegue la stessa operazione.  
 La sottoscrizione è stata spostata in un tenant diverso. | Disabilitare e quindi abilitare l'identità gestita per la raccolta di spostamento.
 
+### <a name="how-can-i-do-multiple-moves-together"></a>Come è possibile eseguire più spostamenti contemporaneamente?
+
+Modificare le combinazioni di origine/destinazione in base alle esigenze usando l'opzione di modifica nel portale.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

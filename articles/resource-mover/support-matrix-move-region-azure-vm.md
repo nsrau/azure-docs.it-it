@@ -7,19 +7,19 @@ ms.service: resource-move
 ms.topic: how-to
 ms.date: 09/07/2020
 ms.author: raynew
-ms.openlocfilehash: ddb1c68ab417390987ac4873a16b89757ec24789
-ms.sourcegitcommit: 94c750edd4d755d6ecee50ac977328098a277479
+ms.openlocfilehash: fa71cd502f730844e4f4398d41d06ada56fc2413
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90058734"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602286"
 ---
 # <a name="support-for-moving-azure-vms-between-azure-regions"></a>Supporto per lo trasferimento di VM di Azure tra aree di Azure
 
 Questo articolo riepiloga il supporto e i prerequisiti quando si spostano le macchine virtuali e le risorse di rete correlate tra le aree di Azure usando il motore di risorse.
 
 > [!IMPORTANT]
-> Il motore di risorse di Azure è attualmente in versione di anteprima.
+> Spostamento risorse di Azure è attualmente disponibile in anteprima.
 
 
 ## <a name="windows-vm-support"></a>Supporto per VM Windows
@@ -115,6 +115,10 @@ Estensioni | Non supportate | Le estensioni non vengono copiate nella macchina v
 
 Questa tabella riepiloga il supporto per il disco del sistema operativo, il disco dati e il disco temporaneo della macchina virtuale di Azure. È importante osservare i limiti dei dischi e le destinazioni per le macchine virtuali [Linux](../virtual-machines/linux/disk-scalability-targets.md) e [Windows](../virtual-machines/windows/disk-scalability-targets.md) per evitare eventuali problemi di prestazioni.
 
+> [!NOTE]
+> Le dimensioni della macchina virtuale di destinazione devono essere maggiori o uguali a quelle della VM di origine. I parametri usati per la convalida sono: numero di dischi dati, numero di schede di rete, CPU disponibili, memoria in GB. In caso contrario, viene generato un errore.
+
+
 **Componente** | **Supporto** | **Dettagli**
 --- | --- | ---
 Dimensione massima del disco del sistema operativo | 2048 GB | [Altre informazioni](../virtual-machines/windows/managed-disks-overview.md) sui dischi delle VM.
@@ -125,8 +129,8 @@ Numero massimo di dischi dati | Fino a 64, in conformità con il supporto per un
 Frequenza di modifica del disco dati | Massimo 10 Mbps per disco per l'archiviazione Premium. Massimo 2 Mbps per disco per l'archiviazione Standard. | Se la frequenza di modifica dei dati media sul disco è costantemente superiore al limite massimo, la preparazione non verrà aggiornata.<br/><br/>  Tuttavia, se il valore massimo viene superato sporadicamente, la preparazione può essere aggiornata, ma è possibile che vengano visualizzati punti di ripristino leggermente ritardati.
 Disco dati (account di archiviazione standard) | Non supportata. | Modificare il tipo di archiviazione in disco gestito, quindi provare a spostarsi sulla macchina virtuale.
 Disco dati (account di archiviazione Premium) | Non supportate | Modificare il tipo di archiviazione in disco gestito, quindi provare a spostarsi sulla macchina virtuale.
-Disco gestito (standard) | Funzionalità supportata  |
-Disco gestito (Premium) | Funzionalità supportata |
+Disco gestito (standard) | Supportato  |
+Disco gestito (Premium) | Supportato |
 SSD Standard | Supportato |
 Generazione 2 (avvio UEFI) | Supportato
 Account di archiviazione di diagnostica di avvio | Non supportate | Riabilitarla dopo aver spostato la macchina virtuale nell'area di destinazione.
@@ -148,14 +152,14 @@ Disco P20, P30, P40 o P50 Premium | 16 KB o superiori |20 MB/s | 1684 GB per dis
 
 **Impostazione** | **Supporto** | **Dettagli**
 --- | --- | ---
-NIC | Funzionalità supportata | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione. 
-Servizio di bilanciamento del carico interno | Funzionalità supportata | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione.  
+NIC | Supportato | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione. 
+Servizio di bilanciamento del carico interno | Supportato | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione.  
 Bilanciamento del carico pubblico | Attualmente non supportato | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione.  
 Indirizzo IP pubblico | Supportato | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione.  
-Gruppo di sicurezza di rete | Funzionalità supportata | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione.  
+Gruppo di sicurezza di rete | Supportato | Specificare una risorsa esistente nell'area di destinazione oppure creare una nuova risorsa durante il processo di preparazione.  
 Indirizzo IP riservato (statico) | Supportato | Attualmente non è possibile configurare questa operazione. Il valore predefinito è il valore di origine. <br/><br/> Se la scheda di interfaccia di rete nella macchina virtuale di origine ha un indirizzo IP statico e la subnet di destinazione ha lo stesso indirizzo IP disponibile, viene assegnata alla macchina virtuale di destinazione.<br/><br/> Se la subnet di destinazione non ha lo stesso indirizzo IP disponibile, lo spostamento di avvio per la macchina virtuale avrà esito negativo.
 Indirizzo IP dinamico | Supportato | Attualmente non è possibile configurare questa operazione. Il valore predefinito è il valore di origine.<br/><br/> Se la scheda di interfaccia di rete nell'origine ha un indirizzo IP dinamico, anche la scheda di interfaccia di rete nella macchina virtuale di destinazione è dinamica per impostazione predefinita.
-Configurazioni IP | Funzionalità supportata | Attualmente non è possibile configurare questa operazione. Il valore predefinito è il valore di origine.
+Configurazioni IP | Supportato | Attualmente non è possibile configurare questa operazione. Il valore predefinito è il valore di origine.
 
 ## <a name="outbound-access-requirements"></a>Requisiti di accesso in uscita
 

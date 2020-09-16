@@ -5,14 +5,14 @@ description: Informazioni su come creare un profilo personalizzato di Intune per
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/11/2020
+ms.date: 09/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 5a754a14cada1547a83e29d474e9b77aed7a2728
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: fba8433a7964b10901527894eee98722ece970ec
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024350"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602194"
 ---
 # <a name="create-an-intune-profile-to-deploy-vpn-client-profiles"></a>Creare un profilo di Intune per distribuire i profili client VPN
 
@@ -54,17 +54,7 @@ Per altre opzioni supportate, vedere l'articolo relativo a [VPNV2 CSP](https://d
     </VPNProfile>
    ```
 1. Modificare la voce tra ```<ServerUrlList>``` e ```</ServerUrlList>``` con la voce del profilo scaricato (azurevpnconfig.xml). Modificare il nome di dominio completo "TrustedNetworkDetection" per adattarlo all'ambiente.
-1. Aprire il profilo scaricato di Azure (azurevpnconfig.xml) e copiare il contenuto negli appunti evidenziando il testo e premendo <ctrl> + C. copiare tutti gli elementi tra le seguenti righe di AzVpnProfile, ma non copiare le righe AzVpnProfile:
-
-   ```
-   <AzVpnProfile xmlns:i="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.datacontract.org/2004/07/">
-     <any xmlns:d2p1="http://schemas.datacontract.org/2004/07/System.Xml"
-       i:nil="true" />
-
-   For example - copy the text in your xml that is located here.
-
-   </AzVpnProfile>
-   ```
+1. Aprire il profilo scaricato di Azure (azurevpnconfig.xml) e copiare l'intero contenuto negli appunti evidenziando il testo e premendo CTRL + C. 
 1. Incollare il testo copiato dal passaggio precedente nel file creato nel passaggio 2 tra i ```<CustomConfiguration>  </CustomConfiguration>``` tag. Salvare il file con un'estensione XML.
 1. Annotare il valore nei ```<name>  </name>``` tag. Nome del profilo. Questo nome sarà necessario quando si crea il profilo in Intune. Chiudere il file e ricordare il percorso in cui viene salvato.
 
@@ -87,7 +77,7 @@ In questa sezione viene creato un profilo di Microsoft Intune con impostazioni p
    Selezionare l'icona della cartella e selezionare il file salvato nel passaggio 6 della procedura [XML](#xml) . Selezionare **Aggiungi**.
 
    :::image type="content" source="./media/create-profile-intune/configuration-settings.png" alt-text="Impostazioni di configurazione" lightbox="./media/create-profile-intune/configuration-settings.png":::
-1. Selezionare **Next** (Avanti).
+1. Selezionare **Avanti**.
 1. In **assegnazioni**selezionare il gruppo al quale si desidera effettuare il push della configurazione. Quindi selezionare **Avanti**.
 1. Le regole di applicabilità sono facoltative. Definire eventuali regole, se necessario, quindi fare clic su **Avanti**.
 1. Nella pagina **Verifica e crea** selezionare **Crea**.

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb,
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d05aaa7a6bd48c92e863d38dcee9f0bf925bafa
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 68ab302e5c24835174d03b3579c9ec587bfd9006
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049265"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601589"
 ---
 # <a name="conditional-access-block-access"></a>Accesso condizionale: bloccare l'accesso
 
@@ -40,7 +40,7 @@ Poiché i criteri di accesso condizionale sono strumenti avanzati, è consigliab
 
 La procedura seguente consente di creare criteri di accesso condizionale per bloccare l'accesso a tutte le app ad eccezione di [Office 365](concept-conditional-access-cloud-apps.md#office-365-preview) se gli utenti non si trovano in una rete attendibile. Questi criteri vengono inseriti in [modalità di sola segnalazione](howto-conditional-access-insights-reporting.md) per iniziare, in modo che gli amministratori possano determinare l'effetto che avranno sugli utenti esistenti. Quando gli amministratori hanno dimestichezza con l'applicazione dei criteri, possono impostarli **su on**.
 
-Il primo criterio blocca l'accesso a tutte le app, ad eccezione delle applicazioni Office 365, se non in un percorso attendibile.
+Il primo criterio blocca l'accesso a tutte le app, ad eccezione delle applicazioni Microsoft 365 se non in un percorso attendibile.
 
 1. Accedere al **portale di Azure** come amministratore globale, amministratore della sicurezza o amministratore dell'accesso condizionale.
 1. Passare ad **Azure Active Directory** > **Sicurezza** > **Accesso condizionale**.
@@ -64,7 +64,7 @@ Il primo criterio blocca l'accesso a tutte le app, ad eccezione delle applicazio
 1. Confermare le impostazioni e impostare **Attiva criterio** su **Solo report**.
 1. Selezionare **Crea** per creare e abilitare il criterio.
 
-Per richiedere l'autenticazione a più fattori o un dispositivo conforme per gli utenti di Office 365, viene creato un secondo criterio.
+Di seguito viene creato un secondo criterio per richiedere l'autenticazione a più fattori o un dispositivo conforme per gli utenti di Microsoft 365.
 
 1. Selezionare **Nuovi criteri**.
 1. Assegnare un nome ai criteri. È consigliabile che le organizzazioni creino uno standard descrittivo per i nomi dei criteri.

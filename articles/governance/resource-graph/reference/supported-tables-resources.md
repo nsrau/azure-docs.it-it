@@ -1,15 +1,15 @@
 ---
 title: Tipi di risorse Azure Resource Manager supportati
 description: Fornire un elenco dei tipi di risorse Azure Resource Manager supportati da Azure Resource Graph e la cronologia delle modifiche.
-ms.date: 09/04/2020
+ms.date: 09/15/2020
 ms.topic: reference
 ms.custom: generated
-ms.openlocfilehash: b81ffcdde074978a9a72c5ab651ec2c5556870bd
-ms.sourcegitcommit: de2750163a601aae0c28506ba32be067e0068c0c
+ms.openlocfilehash: a52378422c6ee740f30f155cdfb0839a3f281abe
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89488321"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600603"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Tabella di Azure Resource Graph e riferimenti sui tipi di risorsa
 
@@ -63,6 +63,7 @@ Azure Resource Graph supporta i **tipi di risorsa** di [Azure Resource Manager](
 - Microsoft. aadiam/azureadmetrics
 - microsoft.aadiam/privatelinkforazuread
 - microsoft.aadiam/tenants
+- Microsoft. agfoodplatform/farmbeats
 - microsoft.aisupercomputer/accounts
 - microsoft.aisupercomputer/accounts/jobgroups
 - microsoft.aisupercomputer/accounts/jobgroups/jobs
@@ -80,6 +81,7 @@ Azure Resource Graph supporta i **tipi di risorsa** di [Azure Resource Manager](
 - microsoft.automation/automationaccounts
 - microsoft.automation/automationaccounts/configurations
 - microsoft.automation/automationaccounts/runbooks
+- Microsoft. autonomousdevelopmentplatform/accounts
 - microsoft.autonomoussystems/workspaces
 - microsoft.avs/privateclouds
 - microsoft.azconfig/configurationstores
@@ -94,6 +96,7 @@ Azure Resource Graph supporta i **tipi di risorsa** di [Azure Resource Manager](
 - microsoft.azuredata/sqlserverinstances
 - microsoft.azuredata/sqlserverregistrations
 - Microsoft. azurestack/edgesubscriptions
+- Microsoft. azurestack/linkedsubscriptions
 - microsoft.azurestack/registrations
 - microsoft.azurestackhci/clusters
 - microsoft.baremetal/consoleconnections
@@ -168,6 +171,7 @@ Azure Resource Graph supporta i **tipi di risorsa** di [Azure Resource Manager](
 - microsoft.containerservice/containerservices
 - microsoft.containerservice/managedclusters
 - microsoft.containerservice/openshiftmanagedclusters
+- Microsoft. contoso/cluster
 - microsoft.contoso/employees
 - microsoft.costmanagement/connectors
 - microsoft.customproviders/resourceproviders
@@ -250,6 +254,7 @@ Azure Resource Graph supporta i **tipi di risorsa** di [Azure Resource Manager](
 - Microsoft. hybridnetwork/Devices
 - Microsoft. hybridnetwork/virtualnetworkfunctions
 - microsoft.importexport/jobs
+- Microsoft. industrydatalifecycle/basemodels
 - Microsoft. industrydatalifecycle/custodiancollaboratives
 - microsoft.industrydatalifecycle/derivedmodels
 - Microsoft. industrydatalifecycle/membercollaboratives
@@ -265,6 +270,7 @@ Azure Resource Graph supporta i **tipi di risorsa** di [Azure Resource Manager](
 - microsoft.insights/notificationgroups
 - microsoft.insights/notificationrules
 - microsoft.insights/privatelinkscopes
+- Microsoft. Insights/QueryPacks
 - microsoft.insights/scheduledqueryrules
 - microsoft.insights/webtests
 - microsoft.insights/workbooks
@@ -414,6 +420,7 @@ Azure Resource Graph supporta i **tipi di risorsa** di [Azure Resource Manager](
 - microsoft.resources/templatespecs/versions
 - microsoft.saas/applications
 - microsoft.scheduler/jobcollections
+- Microsoft. SCVMM/vmmservers
 - microsoft.search/searchservices
 - microsoft.security/automations
 - microsoft.security/iotsecuritysolutions
@@ -523,6 +530,8 @@ Azure Resource Graph supporta i **tipi di risorsa** di [Azure Resource Manager](
 - wandisco.fusion/fusiongroups/managedonpremzones
 - wandisco.fusion/fusiongroups/onpremzones
 - wandisco.fusion/fusiongroups/replicationrules
+- wandisco. Fusion/migratori
+- wandisco. Fusion/migratori/targets
 
 ## <a name="securityresources"></a>securityresources
 

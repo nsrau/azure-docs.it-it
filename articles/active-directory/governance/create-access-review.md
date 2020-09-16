@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 09/06/2020
+ms.date: 09/15/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f8598e77940bd2b33a9d8ba2c5a56348be841f7b
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 02d1c40c26dd6b6992d8df85a986b4157a22226a
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505106"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602932"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Creare una verifica di accesso dei gruppi e delle applicazioni nelle verifiche di accesso Azure AD
 
@@ -111,6 +111,8 @@ Per altre informazioni, vedere [Requisiti relativi alle licenze](access-reviews-
     - **Approva accesso**: l'accesso dell'utente viene approvato
     - **Accetta i consigli**: vengono applicati i consigli del sistema per rifiutare o approvare l'accesso continuo dell'utente
 
+    ![Creare una verifica di accesso-impostazioni avanzate](./media/create-access-review/advanced-settings-preview-new.png)
+
 4. Anteprima Usare l'azione da applicare agli utenti negati per specificare cosa accade agli utenti Guest se vengono negati.
     - L' **opzione 1** rimuoverà l'accesso dell'utente negato al gruppo o all'applicazione da rivedere, sarà comunque in grado di accedere al tenant. 
     - L' **opzione 2** impedirà agli utenti negati di accedere al tenant, indipendentemente dal fatto che abbiano accesso ad altre risorse. Se si è verificato un errore o se un amministratore decide di riabilitare l'accesso di un utente, può eseguire questa operazione entro 30 giorni dopo che l'utente è stato disabilitato. Se non viene eseguita alcuna azione sugli utenti disabilitati, questi verranno eliminati dal tenant.
@@ -123,8 +125,6 @@ Per ulteriori informazioni sulle procedure consigliate per la rimozione degli ut
 ### <a name="advanced-settings"></a>Impostazioni avanzate
 
 1. Per specificare impostazioni aggiuntive, espandere la sezione **Impostazioni avanzate**.
-
-    ![Creare una verifica di accesso-impostazioni avanzate](./media/create-access-review/advanced-settings-preview-new.png)
 
 1. Impostare **Mostra i consigli** su **Abilita** per mostrare ai revisori i consigli del sistema basati sulle informazioni di accesso dell'utente.
 

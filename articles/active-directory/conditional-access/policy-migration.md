@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 33b1f76dd1489e00115d0f805add8d754038df84
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: d1811d5b9ae4d3e34b48e1cdc156438f2bad98d1
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77185918"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601657"
 ---
 # <a name="conditional-access-classic-policy-migration"></a>Migrazione dei criteri classici dell'accesso condizionale
 
@@ -73,9 +73,9 @@ Nella prospettiva di un consolidamento dei criteri è importante considerare gli
    - Combinare più condizioni, se necessarie per lo specifico scenario. 
    - Selezionare più requisiti di controllo di accesso e combinarli con un *OR* logico (per richiedere uno dei controlli selezionati) o con un *AND* logico (per richiedere tutti i controlli selezionati).
 
-### <a name="office-365-exchange-online"></a>Office 365 Exchange Online
+### <a name="exchange-online"></a>Exchange Online
 
-Se si intende eseguire la migrazione di criteri classici per **Office 365 Exchange Online** che includono **Exchange Active Sync** come condizione per le app client, può non essere possibile consolidarli in un unico criterio nuovo. 
+Se si vuole eseguire la migrazione dei criteri classici per **Exchange Online** che includono **Exchange Active Sync** come condizione per le app client, potrebbe non essere possibile consolidarli in un nuovo criterio. 
 
 Ciò avviene, ad esempio, quando si vuole includere il supporto per tutti i tipi di app client. In un criterio nuovo con **Exchange Active Sync** come condizione per le app client, non è possibile selezionare altre app client.
 
@@ -89,7 +89,7 @@ Se si ha un criterio nuovo con **Exchange Active Sync** configurato come condizi
 
 ![Condizioni di accesso condizionale](./media/policy-migration/16.png)
  
-I criteri classici basati su app per Office 365 Exchange Online che includono **Exchange Active Sync** come condizione **per le app** client consentono piattaforme per dispositivi supportate e non **supportate** . Anche se non si possono configurare singole piattaforme di dispositivo in un criterio nuovo correlato, è possibile limitare il supporto alle [piattaforme di dispositivo supportate](concept-conditional-access-conditions.md#device-platforms). 
+I criteri classici basati su app per Exchange Online che includono **Exchange Active Sync** come condizione per le app client consentono piattaforme per dispositivi **supportate** e **non supportate.** Anche se non si possono configurare singole piattaforme di dispositivo in un criterio nuovo correlato, è possibile limitare il supporto alle [piattaforme di dispositivo supportate](concept-conditional-access-conditions.md#device-platforms). 
 
 ![Accesso condizionale selezionare Exchange ActiveSync](./media/policy-migration/65.png)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8b1440f34feb1cda2661178e520590cb9ec54f1
-ms.sourcegitcommit: e69bb334ea7e81d49530ebd6c2d3a3a8fa9775c9
+ms.openlocfilehash: 838d2a1dd1c7b89c1f5c9fec6578312107264958
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88948403"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602065"
 ---
 # <a name="conditional-access-cloud-apps-or-actions"></a>Accesso condizionale: App o azioni cloud
 
@@ -55,9 +55,9 @@ Gli amministratori possono assegnare un criterio di accesso condizionale alle se
 - Microsoft StaffHub
 - Microsoft Stream
 - Microsoft Teams
-- Office 365 Exchange Online
-- Office 365 SharePoint Online
-- Office 365 Yammer
+- Exchange Online
+- SharePoint
+- Yammer
 - Office Delve
 - Office Sway
 - Outlook Groups
@@ -69,7 +69,7 @@ Gli amministratori possono assegnare un criterio di accesso condizionale alle se
 
 ### <a name="office-365-preview"></a>Office 365 (anteprima)
 
-Office 365 offre servizi di produttività e collaborazione basati sul cloud come Exchange, SharePoint e Microsoft Teams. I servizi cloud di Office 365 sono ampiamente integrati, per garantire esperienze uniformi e collaborative. Questa integrazione può causare confusione quando si creano criteri perché alcune app, come ad esempio Microsoft Teams, presentano dipendenze da altre, quali SharePoint o Exchange.
+Microsoft 365 offre servizi di produttività e collaborazione basati sul cloud come Exchange, SharePoint e Microsoft teams. I servizi cloud Microsoft 365 sono profondamente integrati per garantire esperienze uniformi e collaborative. Questa integrazione può causare confusione quando si creano criteri perché alcune app, come ad esempio Microsoft Teams, presentano dipendenze da altre, quali SharePoint o Exchange.
 
 L'app Office 365 (anteprima) consente di fare riferimento a tutti i servizi in una sola volta. È consigliabile usare la nuova app Office 365 (anteprima), anziché fare riferimento a singole app cloud per evitare problemi con le [dipendenze del servizio](service-dependencies.md). Facendo riferimento a questo gruppo di applicazioni è possibile evitare problemi che possono verificarsi a causa di criteri e dipendenze non coerenti.
 
@@ -82,10 +82,10 @@ Applicazioni chiave incluse nell'app client Office 365 (anteprima):
    - Microsoft Stream
    - Microsoft To-Do
    - Microsoft Teams
-   - Office 365 Exchange Online
-   - Office 365 SharePoint Online
-   - Servizio di ricerca di Office 365
-   - Office 365 Yammer
+   - Exchange Online
+   - SharePoint Online
+   - Microsoft 365 servizio di ricerca
+   - Yammer
    - Office Delve
    - Office Online
    - Office.com

@@ -11,12 +11,12 @@ ms.date: 04/27/2020
 ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: a0131e461f2664fa06fc0e24237aec1579bd253c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf70d4381a7d128f7a2716540b1318b39cd729b8
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85203844"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602133"
 ---
 # <a name="web-sign-in-with-openid-connect-in-azure-active-directory-b2c"></a>Accesso Web con OpenID Connect in Azure Active Directory B2C
 
@@ -45,14 +45,14 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &nonce=12345
 ```
 
-| Parametro | Obbligatoria | Descrizione |
+| Parametro | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | inquilino | Sì | Nome del tenant di Azure AD B2C |
 | politica | Sì | Flusso utente da eseguire. Specificare il nome di un flusso utente creato nel tenant del Azure AD B2C. Ad esempio: `b2c_1_sign_in`, `b2c_1_sign_up` o `b2c_1_edit_profile`. |
 | client_id | Sì | ID applicazione assegnato dall' [portale di Azure](https://portal.azure.com/) all'applicazione. |
 | nonce | Sì | Valore incluso nella richiesta, generato dall'applicazione, incluso nel token ID risultante come attestazione. L'applicazione può quindi verificare questo valore per attenuare gli attacchi di riproduzione del token. Il valore è in genere una stringa casuale univoca che può essere usata per identificare l'origine della richiesta. |
 | response_type | Sì | Deve includere un token ID per OpenID Connect. Se l'applicazione Web richiede anche token per chiamare un'API Web, è possibile usare `code+id_token` . |
-| scope | Sì | Elenco di ambiti separato da spazi. L'ambito `openid` indica un'autorizzazione per l'accesso dell'utente e per ottenere i dati relativi all'utente sotto forma di token ID. L' `offline_access` ambito è facoltativo per le applicazioni Web. Indica che l'applicazione richiede un token di *aggiornamento* per l'accesso esteso alle risorse. |
+| ambito | Sì | Elenco di ambiti separato da spazi. L'ambito `openid` indica un'autorizzazione per l'accesso dell'utente e per ottenere i dati relativi all'utente sotto forma di token ID. L' `offline_access` ambito è facoltativo per le applicazioni Web. Indica che l'applicazione richiede un token di *aggiornamento* per l'accesso esteso alle risorse. |
 | prompt | No | Tipo di interazione utente obbligatoria. L'unico valore valido in questa fase è `login`, che impone all'utente di immettere le credenziali per la richiesta. |
 | redirect_uri | No | Il `redirect_uri` parametro dell'applicazione, in cui le risposte di autenticazione possono essere inviate e ricevute dall'applicazione. Deve corrispondere esattamente a uno dei `redirect_uri` parametri registrati nella portale di Azure, ad eccezione del fatto che deve essere codificato in URL. |
 | response_mode | No | Metodo utilizzato per inviare di nuovo il codice di autorizzazione risultante all'applicazione. Può essere `query`, `form_post` o `fragment`.  `form_post` è la modalità di risposta consigliata perché offre la sicurezza migliore. |
@@ -71,7 +71,7 @@ id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik5HVEZ2ZEstZnl0aEV1Q...
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| Parametro | Description |
+| Parametro | Descrizione |
 | --------- | ----------- |
 | id_token | Token ID richiesto dall'applicazione. È possibile usare il token ID per verificare l'identità dell'utente e avviare una sessione con l'utente. |
 | codice | Il codice di autorizzazione richiesto dall'applicazione, se è stato usato `response_type=code+id_token` . L'applicazione può usare il codice di autorizzazione per richiedere un token di accesso per una risorsa di destinazione. I codici di autorizzazione scadono in genere dopo circa 10 minuti. |
@@ -86,7 +86,7 @@ error=access_denied
 &state=arbitrary_data_you_can_receive_in_the_response
 ```
 
-| Parametro | Description |
+| Parametro | Descrizione |
 | --------- | ----------- |
 | error | Codice che può essere usato per classificare i tipi di errori che si verificano. |
 | error_description | Messaggio di errore specifico che consente di identificare la causa principale di un errore di autenticazione. |
@@ -112,7 +112,7 @@ Per determinare quale flusso utente è stato usato per la firma di un token ID e
 
 Dopo aver acquisito il documento di metadati dall'endpoint di metadati OpenID Connect, è possibile usare le chiavi pubbliche RSA 256 per convalidare la firma del token ID. È possibile che siano presenti più chiavi elencate in questo endpoint, ognuna identificata da un' `kid` attestazione. L'intestazione del token ID contiene anche un'attestazione `kid`, che indica quali di queste chiavi sono state usate per firmare il token ID.
 
-Per verificare i token da Azure AD B2C, è necessario generare la chiave pubblica usando l'esponente (e) e il modulo (n). È necessario determinare come eseguire questa operazione nel rispettivo linguaggio di programmazione. La documentazione ufficiale sulla generazione di chiavi pubbliche con il protocollo RSA è disponibile qui:https://tools.ietf.org/html/rfc3447#section-3.1
+Per verificare i token da Azure AD B2C, è necessario generare la chiave pubblica usando l'esponente (e) e il modulo (n). È necessario determinare come eseguire questa operazione nel rispettivo linguaggio di programmazione. La documentazione ufficiale sulla generazione di chiavi pubbliche con il protocollo RSA è disponibile qui: https://tools.ietf.org/html/rfc3447#section-3.1
 
 Dopo avere convalidato la firma del token ID, è necessario verificare diverse attestazioni. Ad esempio:
 
@@ -144,7 +144,7 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
-| Parametro | Obbligatoria | Descrizione |
+| Parametro | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | inquilino | Sì | Nome del tenant di Azure AD B2C |
 | politica | Sì | Flusso utente usato per acquisire il codice di autorizzazione. Non è possibile usare un flusso utente diverso in questa richiesta. Aggiungere questo parametro alla stringa di query, non al corpo del POST. |
@@ -153,7 +153,7 @@ grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&sco
 | codice | Sì | Codice di autorizzazione acquisito all'inizio del flusso utente. |
 | grant_type | Sì | Tipo di concessione, che deve essere `authorization_code` per il flusso del codice di autorizzazione. |
 | redirect_uri | Sì | Parametro `redirect_uri` dell'applicazione dove è stato ricevuto il codice di autorizzazione. |
-| scope | No | Elenco di ambiti separato da spazi. L'ambito `openid` indica un'autorizzazione per l'accesso dell'utente e per ottenere i dati relativi all'utente sotto forma di parametri id_token. Può essere usato per ottenere i token per l'API Web back-end dell'applicazione, che è rappresentata dallo stesso ID applicazione del client. L' `offline_access` ambito indica che l'applicazione richiede un token di aggiornamento per l'accesso esteso alle risorse. |
+| ambito | No | Elenco di ambiti separato da spazi. L'ambito `openid` indica un'autorizzazione per l'accesso dell'utente e per ottenere i dati relativi all'utente sotto forma di parametri id_token. Può essere usato per ottenere i token per l'API Web back-end dell'applicazione, che è rappresentata dallo stesso ID applicazione del client. L' `offline_access` ambito indica che l'applicazione richiede un token di aggiornamento per l'accesso esteso alle risorse. |
 
 Una risposta di token con esito positivo ha un aspetto simile al seguente:
 
@@ -168,12 +168,12 @@ Una risposta di token con esito positivo ha un aspetto simile al seguente:
 }
 ```
 
-| Parametro | Description |
+| Parametro | Descrizione |
 | --------- | ----------- |
 | not_before | Il momento in cui il token viene considerato valido, nel periodo. |
-| token_type | Valore del tipo di token. `Bearer`è l'unico tipo supportato. |
+| token_type | Valore del tipo di token. `Bearer` è l'unico tipo supportato. |
 | access_token | Il token JWT firmato richiesto. |
-| scope | Ambiti per il quale il token è valido. |
+| ambito | Ambiti per il quale il token è valido. |
 | expires_in | Periodo di validità del token di accesso (in secondi). |
 | token di aggiornamento | Token di aggiornamento di OAuth 2.0. L'applicazione può usare questo token per acquisire token aggiuntivi dopo la scadenza del token corrente. I token di aggiornamento possono essere usati per mantenere l'accesso alle risorse per lunghi periodi di tempo. `offline_access`Per ricevere un token di aggiornamento, è necessario che l'ambito sia stato usato nelle richieste di autorizzazione e di token. |
 
@@ -186,7 +186,7 @@ Le risposte di errore si presentano nel modo seguente:
 }
 ```
 
-| Parametro | Description |
+| Parametro | Descrizione |
 | --------- | ----------- |
 | error | Codice che può essere usato per classificare i tipi di errori che si verificano. |
 | error_description | Messaggio che consente di identificare la causa principale di un errore di autenticazione. |
@@ -213,16 +213,16 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob
 ```
 
-| Parametro | Obbligatoria | Descrizione |
+| Parametro | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | inquilino | Sì | Nome del tenant di Azure AD B2C |
 | politica | Sì | Flusso utente usato per acquisire il token di aggiornamento originale. Non è possibile usare un flusso utente diverso in questa richiesta. Aggiungere questo parametro alla stringa di query, non al corpo del POST. |
 | client_id | Sì | ID applicazione assegnato dall' [portale di Azure](https://portal.azure.com/) all'applicazione. |
 | client_secret | Sì, nelle app Web | Segreto dell'applicazione generato nel [portale di Azure](https://portal.azure.com/). I segreti client vengono usati in questo flusso per gli scenari di app Web, in cui il client può archiviare in modo sicuro un segreto client. Per gli scenari di app native (client pubblico), i segreti client non possono essere archiviati in modo sicuro, quindi non vengono usati in questa chiamata. Se si usa un segreto client, modificarlo periodicamente. |
-| grant_type | Sì | Tipo di concessione, che deve essere un token di aggiornamento per questa parte del flusso del codice di autorizzazione. |
+| grant_type | Sì | Tipo di concessione, che deve essere `refresh_token` per questa parte del flusso del codice di autorizzazione. |
 | token di aggiornamento | Sì | Token di aggiornamento originale acquisito nella seconda parte del flusso. `offline_access`Per ricevere un token di aggiornamento, è necessario usare l'ambito nelle richieste di autorizzazione e di token. |
 | redirect_uri | No | Parametro `redirect_uri` dell'applicazione dove è stato ricevuto il codice di autorizzazione. |
-| scope | No | Elenco di ambiti separato da spazi. L'ambito `openid` indica un'autorizzazione per l'accesso dell'utente e per ottenere i dati relativi all'utente sotto forma di token ID. Può essere usato per inviare token all'API Web back-end dell'applicazione, che è rappresentata dallo stesso ID applicazione del client. L' `offline_access` ambito indica che l'applicazione richiede un token di aggiornamento per l'accesso esteso alle risorse. |
+| ambito | No | Elenco di ambiti separato da spazi. L'ambito `openid` indica un'autorizzazione per l'accesso dell'utente e per ottenere i dati relativi all'utente sotto forma di token ID. Può essere usato per inviare token all'API Web back-end dell'applicazione, che è rappresentata dallo stesso ID applicazione del client. L' `offline_access` ambito indica che l'applicazione richiede un token di aggiornamento per l'accesso esteso alle risorse. |
 
 Una risposta di token con esito positivo ha un aspetto simile al seguente:
 
@@ -237,12 +237,12 @@ Una risposta di token con esito positivo ha un aspetto simile al seguente:
 }
 ```
 
-| Parametro | Description |
+| Parametro | Descrizione |
 | --------- | ----------- |
 | not_before | Il momento in cui il token viene considerato valido, nel periodo. |
-| token_type | Valore del tipo di token. `Bearer`è l'unico tipo supportato. |
+| token_type | Valore del tipo di token. `Bearer` è l'unico tipo supportato. |
 | access_token | Token JWT firmato che è stato richiesto. |
-| scope | Ambito per il quale il token è valido. |
+| ambito | Ambito per il quale il token è valido. |
 | expires_in | Periodo di validità del token di accesso (in secondi). |
 | token di aggiornamento | Token di aggiornamento di OAuth 2.0. L'applicazione può usare questo token per acquisire token aggiuntivi dopo la scadenza del token corrente. I token di aggiornamento possono essere usati per mantenere l'accesso alle risorse per lunghi periodi di tempo. |
 
@@ -255,7 +255,7 @@ Le risposte di errore si presentano nel modo seguente:
 }
 ```
 
-| Parametro | Description |
+| Parametro | Descrizione |
 | --------- | ----------- |
 | error | Codice che può essere usato per classificare i tipi di errori che si verificano. |
 | error_description | Messaggio che consente di identificare la causa principale di un errore di autenticazione. |
@@ -270,7 +270,7 @@ Per disconnettere l'utente, reindirizzare l'utente all' `end_session` endpoint e
 GET https://{tenant}.b2clogin.com/{tenant}.onmicrosoft.com/{policy}/oauth2/v2.0/logout?post_logout_redirect_uri=https%3A%2F%2Fjwt.ms%2F
 ```
 
-| Parametro | Obbligatoria | Descrizione |
+| Parametro | Obbligatorio | Descrizione |
 | --------- | -------- | ----------- |
 | inquilino | Sì | Nome del tenant di Azure AD B2C |
 | politica | Sì | Flusso utente da usare per disconnettere l'utente dall'applicazione. |

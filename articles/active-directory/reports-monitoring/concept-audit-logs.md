@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 01c9449a996929eb20acf35897a100dfbb722e82
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 86eec0cf7108e2d3b47f7b98dbdaffe76be8afd8
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89229923"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603511"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di controllo nel portale di Azure Active Directory 
 
@@ -114,7 +114,7 @@ Il filtro **Category** consente di selezionare uno dei filtri seguenti:
 - Tutti
 - AdministrativeUnit
 - ApplicationManagement
-- Autenticazione
+- Authentication
 - Autorizzazione
 - Contatto
 - Dispositivo
@@ -208,11 +208,11 @@ Per esaminare i dati di controllo relativi alle applicazioni, è disponibile una
 
 ![Log di controllo](./media/concept-audit-logs/enterpriseapplications.png "Log di controllo")
 
-## <a name="office-365-activity-logs"></a>Log attività di Office 365
+## <a name="microsoft-365-activity-logs"></a>Log attività Microsoft 365
 
-È possibile visualizzare i log attività di Office 365 dall'interfaccia di [amministrazione di Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Anche se l'attività di Office 365 e i log attività Azure AD condividono numerose risorse della directory, solo l'interfaccia di amministrazione di Microsoft 365 fornisce una visualizzazione completa dei log attività di Office 365. 
+È possibile visualizzare i log attività Microsoft 365 dall'interfaccia di [amministrazione di Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Anche se Microsoft 365 attività e i log attività Azure AD condividono numerose risorse della directory, solo l'interfaccia di amministrazione Microsoft 365 fornisce una visualizzazione completa dei log attività Microsoft 365. 
 
-È anche possibile accedere ai log attività di Office 365 a livello di codice usando le [API di gestione di office 365](/office/office-365-management-api/office-365-management-apis-overview).
+È anche possibile accedere ai log attività di Microsoft 365 a livello di codice usando le [API di gestione di Office 365](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

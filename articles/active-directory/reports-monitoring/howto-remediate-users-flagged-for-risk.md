@@ -15,12 +15,12 @@ ms.date: 11/13/2018
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 725b3b712313c199382cebe32bed98f2115fc262
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 08305b6aec7dcd5906f4316767c4c512d3a0535e
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231164"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600501"
 ---
 # <a name="remediate-users-flagged-for-risk-in-the-azure-active-directory-portal"></a>Correggere gli utenti contrassegnati per il rischio nel portale di Azure Active Directory
 
@@ -42,9 +42,9 @@ Nel report Utenti contrassegnati per il rischio è possibile eseguire le azioni 
 
 Per altre informazioni, vedere il [report sulla sicurezza Utenti contrassegnati per il rischio](../identity-protection/overview-identity-protection.md).
 
-### <a name="azure-ad-subscription-for-office-365-customers"></a>Sottoscrizione di Azure AD per i clienti di Office 365
+### <a name="azure-ad-subscription-for-microsoft-365-customers"></a>Sottoscrizione di Azure AD per clienti Microsoft 365
 
-È anche possibile usare le credenziali di Office 365 per accedere all'**interfaccia di amministrazione di Azure**. Dopo aver attivato l'accesso ad Azure AD, si viene reindirizzati al portale di Azure AD. Con la sottoscrizione di livello Basic, la quantità di dettagli forniti nei report è limitata. La sottoscrizione Premium di Azure mette a disposizione un maggior livello di dati e analisi.
+È anche possibile usare le credenziali di Microsoft 365 per accedere all'interfaccia di **amministrazione di Azure**. Dopo aver attivato l'accesso ad Azure AD, si viene reindirizzati al portale di Azure AD. Con la sottoscrizione di livello Basic, la quantità di dettagli forniti nei report è limitata. La sottoscrizione Premium di Azure mette a disposizione un maggior livello di dati e analisi.
 
 Per accedere ai report sugli **utenti contrassegnati per il rischio** nell'interfaccia di amministrazione di Microsoft 365:
 
@@ -79,7 +79,7 @@ Eseguire queste operazioni per correggere gli account interessati e proteggere l
 
     h. Generare un log di controllo da sottoporre all'esame dell'amministratore.
 
-4. Analizzare il tenant di Office 365 e altre infrastrutture IT, esaminando anche tutte le impostazioni del tenant, gli account utente e le impostazioni di configurazione per utente per individuare eventuali modifiche. Cercare eventuali indicatori di metodi di persistenza e di intrusi che potrebbero aver sfruttato un appiglio iniziale per ottenere le credenziali VPN o l'accesso ad altre risorse aziendali. 
+4. Esaminare il tenant Microsoft 365 e altre infrastrutture IT, inclusa la revisione di tutte le impostazioni del tenant, gli account utente e le impostazioni di configurazione per utente per la possibile modifica. Cercare eventuali indicatori di metodi di persistenza e di intrusi che potrebbero aver sfruttato un appiglio iniziale per ottenere le credenziali VPN o l'accesso ad altre risorse aziendali. 
 
 5.  Nell'ambito dell'analisi valutare se è opportuno informare le autorità, incluse le forze dell'ordine.
 

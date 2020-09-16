@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: nichola
-ms.openlocfilehash: bbe813b46b41bf0e2b8bf9c6b3fe3e3e843204ed
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 54a1135931c2be9c6b7941c9ff740fd29f855eee
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89319747"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601249"
 ---
 # <a name="five-steps-for-integrating-all-your-apps-with-azure-ad"></a>Cinque passaggi per l'integrazione di tutte le app con Azure AD
 
@@ -70,7 +70,7 @@ Durante il processo di individuazione, è possibile che siano state trovate appl
 
 Sono state pubblicate informazioni aggiuntive per la gestione del processo di business per l'integrazione di app con Azure AD, tra cui un [poster](https://aka.ms/AppOnePager) e una [presentazione](https://aka.ms/AppGuideline) che è possibile usare per rendere i proprietari aziendali e delle applicazioni consapevoli e interessati. È possibile modificare questi esempi con una personalizzazione personalizzata e pubblicarli nell'organizzazione tramite il portale aziendale, la newsletter o un altro supporto per il completamento di questo processo.
 
-Per iniziare, è opportuno valutare l'uso di Active Directory Federation Services (ADFS). Molte organizzazioni usano ADFS per l'autenticazione con app SaaS, app line-of-business personalizzate e app Office 365 e basate su Azure AD:
+Per iniziare, è opportuno valutare l'uso di Active Directory Federation Services (ADFS). Molte organizzazioni usano ADFS per l'autenticazione con app SaaS, app line-of-business personalizzate e app basate su Microsoft 365 e Azure AD:
 
 ![Il diagramma mostra le app locali, le app line-of-business, le app SaaS e, tramite Azure AD, Office 365 che si connettono con linee tratteggiate in Active Directory e AD FS.](\media\five-steps-to-full-application-integration-with-azure-ad\adfs-integration-1.png)
 

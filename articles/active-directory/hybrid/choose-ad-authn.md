@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: beabe9440c37d16ca4a81efdbc9588739f4c7473
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: d5de8da548c2e141eb921aa4f95e82f7199ae1f4
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89279347"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602371"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Scegliere il metodo di autenticazione appropriato per la soluzione ibrida di gestione delle identità di Azure AD
 
@@ -86,7 +86,7 @@ Dettagli relativi alle domande nell'albero delle decisioni:
 
 ### <a name="cloud-authentication-password-hash-synchronization"></a>Autenticazione cloud: Sincronizzazione dell'hash delle password
 
-* **Lavoro richiesto**. La sincronizzazione dell'hash delle password richiede il minimo sforzo a livello di distribuzione, manutenzione e infrastruttura.  Questo livello di sforzo è valido per le organizzazioni che hanno bisogno solo di consentire ai propri utenti di accedere a Office 365, alle app SaaS e ad altre risorse basate su Azure AD. Quando abilitata, la sincronizzazione dell'hash delle password rientra nel processo del servizio di sincronizzazione di Azure AD Connect e viene eseguita ogni due minuti.
+* **Lavoro richiesto**. La sincronizzazione dell'hash delle password richiede il minimo sforzo a livello di distribuzione, manutenzione e infrastruttura.  Questo livello di lavoro si applica in genere alle organizzazioni che necessitano solo degli utenti per accedere a Microsoft 365, app SaaS e altre risorse basate su Azure AD. Quando abilitata, la sincronizzazione dell'hash delle password rientra nel processo del servizio di sincronizzazione di Azure AD Connect e viene eseguita ogni due minuti.
 
 * **Esperienza utente**. Per migliorare l'esperienza di accesso degli utenti, distribuire Seamless SSO con la sincronizzazione dell'hash delle password. Seamless SSO elimina i prompt non necessari dopo che gli utenti hanno eseguito l'accesso.
 
@@ -203,7 +203,7 @@ Usare o abilitare la sincronizzazione dell'hash delle password indipendentemente
 
 2. **Sopravvivenza alle interruzioni locali**.  Le conseguenze di un'interruzione locale causata da attacchi informatici o emergenze possono essere significative e spaziano da un danno alla reputazione del marchio alla paralisi delle organizzazioni che non sono in grado di gestire l'attacco. Recentemente, molte organizzazioni sono state vittime di attacchi di malware, inclusi ransomware mirati, che hanno reso inattivi i server locali. Nel fornire il proprio supporto ai clienti che devono affrontare questi tipi di attacchi, Microsoft ha notato due categorie di organizzazioni:
 
-   * Le organizzazioni che in precedenza avevano attivato la sincronizzazione dell'hash delle password oltre all'autenticazione federata o pass-through hanno cambiato metodo di autenticazione principale in modo da usare tale sincronizzazione. Sono tornati online in poche ore. Usando l'accesso alla posta elettronica tramite Office 365, hanno lavorato per risolvere i problemi e accedere ad altri carichi di lavoro basati sul cloud.
+   * Le organizzazioni che in precedenza avevano attivato la sincronizzazione dell'hash delle password oltre all'autenticazione federata o pass-through hanno cambiato metodo di autenticazione principale in modo da usare tale sincronizzazione. Sono tornati online in poche ore. Utilizzando l'accesso alla posta elettronica tramite Microsoft 365, hanno lavorato per risolvere i problemi e accedere ad altri carichi di lavoro basati sul cloud.
 
    * Le organizzazioni che in precedenza non avevano abilitato la sincronizzazione dell'hash delle password sono dovute ricorrere a sistemi di posta elettronica consumer esterni non attendibili per le comunicazioni per risolvere i problemi. In questi casi, hanno impiegato settimane per ripristinare l'infrastruttura di identità locale e solo successivamente gli utenti sono stati in grado di accedere di nuovo alle app basate sul cloud.
 

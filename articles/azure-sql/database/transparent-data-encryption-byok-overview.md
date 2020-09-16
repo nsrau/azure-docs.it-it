@@ -12,12 +12,12 @@ author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 03/18/2020
-ms.openlocfilehash: 04a3499da15bc226fe2cada2283d7a115036a48c
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 4e17af8289c68ded282a9c4a9ca2d400d31ca30d
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89318293"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602670"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>Azure SQL Transparent Data Encryption con chiave gestita dal cliente
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -93,6 +93,10 @@ Se la registrazione è abilitata, i revisori possono usare Monitoraggio di Azure
 - La chiave deve avere lo stato *Abilitato*.
 
 - Se si importa una chiave esistente nel Key Vault, assicurarsi di specificarla nei formati di file supportati (pfx, byok o backup).
+
+> [!NOTE]
+> Azure SQL ora supporta l'uso di una chiave RSA archiviata in un modulo di protezione hardware gestito come protezione Transparent Data Encryption. Questa funzionalità è in **anteprima pubblica**. Azure Key Vault HSM gestito è un servizio cloud completamente gestito, a disponibilità elevata, a tenant singolo e conforme agli standard, che consente di proteggere le chiavi crittografiche per le applicazioni cloud, usando la HSM convalidata FIPS 140-2 Level 3. Altre informazioni sulle [HSM gestite](https://aka.ms/mhsm).
+
 
 ## <a name="recommendations-when-configuring-customer-managed-tde"></a>Suggerimenti per la configurazione di Transparent Data Encryption gestita dal cliente
 

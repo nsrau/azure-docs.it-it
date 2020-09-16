@@ -8,67 +8,47 @@ ms.subservice: core
 ms.reviewer: jmartens
 ms.author: larryfr
 author: blackmist
-ms.date: 07/23/2020
+ms.date: 09/15/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: ae66447e128b07ce942b8c2fcc66347a31cfe83f
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: f497bf5374dd6f621a6b48bae245e5efb1505a19
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87848860"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603068"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>Monitorare e raccogliere dati da endpoint servizio Web di ML
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-Questo articolo illustra come raccogliere e monitorare i modelli distribuiti negli endpoint dei servizi Web in Azure Kubernetes Service (AKS) o istanze di contenitore di Azure eseguendo query sui log e abilitando applicazione Azure Insights tramite 
-* [Python SDK di Azure Machine Learning](#python)
-* [Azure Machine Learning Studio](#studio) allehttps://ml.azure.com
-
-Oltre a raccogliere i dati di output e la risposta di un endpoint, è possibile monitorare:
-
+Questo articolo illustra come raccogliere dati da modelli distribuiti in endpoint di servizio Web in Azure Kubernetes Service (AKS) o istanze di contenitore di Azure (ACI). Usare [applicazione Azure Insights](../azure-monitor/app/app-insights-overview.md) per raccogliere i dati seguenti da un endpoint:
+* Dati di output
+* Risposte
 * Frequenza delle richieste, tempi di risposta e percentuali di errore
 * Tassi di dipendenza, tempi di risposta e percentuali di errore
 * Eccezioni
 
-[Altre informazioni su applicazione Azure Insights](../azure-monitor/app/app-insights-overview.md). 
-
-
+Il notebook [Enable-App-Insights-in-Production-Service. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) illustra i concetti descritti in questo articolo.
+ 
+[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
+ 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Se non si ha una sottoscrizione di Azure, creare un account gratuito prima di iniziare. Prova subito la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree)
+* Una sottoscrizione di Azure: provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 
-* Un'area di lavoro di Azure Machine Learning, una directory locale contenente gli script e Azure Machine Learning SDK per Python installato. Per informazioni su come ottenere questi prerequisiti, vedere [come configurare un ambiente di sviluppo](how-to-configure-environment.md)
+* Un'area di lavoro di Azure Machine Learning, una directory locale contenente gli script e Azure Machine Learning SDK per Python installato. Per ulteriori informazioni, vedere [come configurare un ambiente di sviluppo](how-to-configure-environment.md).
 
-* Un modello di training di Machine Learning da distribuire nel servizio Azure Kubernetes o nel servizio Azure Container. Se non si dispone di un, vedere l'esercitazione [Train image classification Model](tutorial-train-models-with-aml.md)
-
-## <a name="query-logs-for-deployed-models"></a>Log di query per i modelli distribuiti
-
-Per recuperare i log da un servizio Web distribuito in precedenza, caricare il servizio e usare la funzione `get_logs()`. Il log può contenere informazioni dettagliate sugli errori che si sono verificati durante la distribuzione.
-
-```python
-from azureml.core.webservice import Webservice
-
-# load existing web service
-service = Webservice(name="service-name", workspace=ws)
-logs = service.get_logs()
-```
-
-## <a name="web-service-metadata-and-response-data"></a>Metadati del servizio Web e dati di risposta
-
-> [!IMPORTANT]
-> Applicazione Azure Insights registra solo i payload fino a 64KB. Se viene raggiunto questo limite, è possibile che vengano visualizzati errori, ad esempio memoria insufficiente, oppure che non vengano registrate informazioni.
-
-Per registrare le informazioni per una richiesta al servizio Web, aggiungere `print` istruzioni al file score.py. Ogni `print` istruzione restituisce una voce della tabella di traccia in Application Insights, sotto il messaggio `STDOUT` . Il contenuto dell' `print` istruzione sarà contenuto in `customDimensions` , quindi `Contents` nella tabella di traccia. Se si stampa una stringa JSON, viene prodotta una struttura di dati gerarchica nell'output di traccia in `Contents` .
-
-È possibile eseguire query direttamente in applicazione Azure Insights per accedere a questi dati oppure configurare un' [esportazione continua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) in un account di archiviazione per un periodo di conservazione più lungo o un'ulteriore elaborazione. È quindi possibile usare i dati del modello nella Azure Machine Learning per configurare l'assegnazione di etichette, la ripetizione del training, la spiegazione, l'analisi dei dati o altro uso. 
-
+* Un modello di Machine Learning addestrato. Per altre informazioni, vedere l'esercitazione [Train image classification Model](tutorial-train-models-with-aml.md) .
 
 <a name="python"></a>
 
-## <a name="use-python-sdk-to-configure"></a>Usare Python SDK per configurare 
+## <a name="configure-logging-with-the-python-sdk"></a>Configurare la registrazione con Python SDK
+
+Questa sezione illustra come abilitare la registrazione di Application Insights usando Python SDK. 
 
 ### <a name="update-a-deployed-service"></a>Aggiornare un servizio distribuito
+
+Per aggiornare un servizio Web esistente, attenersi alla procedura seguente:
 
 1. Identificare il servizio nell'area di lavoro. Il valore per `ws` è il nome dell'area di lavoro
 
@@ -84,12 +64,17 @@ Per registrare le informazioni per una richiesta al servizio Web, aggiungere `pr
 
 ### <a name="log-custom-traces-in-your-service"></a>Registrare tracce personalizzate nel servizio
 
-Per registrare tracce personalizzate, seguire il processo di distribuzione standard per il servizio Azure Kubernetes o il servizio Istanze di Azure Container, descritto nel documento [Distribuire modelli con il servizio di Azure Machine Learning](how-to-deploy-and-where.md). Seguire quindi questa procedura:
+> [!IMPORTANT]
+> Applicazione Azure Insights registra solo i payload fino a 64KB. Se viene raggiunto questo limite, è possibile che vengano visualizzati errori, ad esempio memoria insufficiente, oppure che non vengano registrate informazioni. Se i dati da registrare sono di dimensioni maggiori 64KB, è invece consigliabile archiviarli nell'archiviazione BLOB usando le informazioni in [raccogliere dati per i modelli in produzione](how-to-enable-data-collection.md).
+>
+> Per situazioni più complesse, come il rilevamento dei modelli all'interno di una distribuzione di AKS, è consigliabile usare una libreria di terze parti, ad esempio [OpenCensus](https://opencensus.io).
 
-1. Per inviare dati a Application Insights durante l'inferenza, aggiornare il file di assegnazione dei punteggi aggiungendo istruzioni Print. Per registrare informazioni più complesse, ad esempio i dati della richiesta e la risposta, usa una struttura JSON. Il file score.py di esempio seguente registra l'ora di inizializzazione del modello, l'input e l'output durante l'inferenza e l'ora in cui si verificano gli errori:
+Per registrare tracce personalizzate, seguire il processo di distribuzione standard per AKS o ACI nel documento [How to deploy and where](how-to-deploy-and-where.md) . Quindi, attenersi alla procedura seguente:
 
-    > [!IMPORTANT]
-    > Applicazione Azure Insights registra solo i payload fino a 64KB. Se viene raggiunto questo limite, è possibile che vengano visualizzati errori, ad esempio memoria insufficiente, oppure che non vengano registrate informazioni. Se i dati da registrare sono di dimensioni maggiori 64KB, è invece consigliabile archiviarli nell'archiviazione BLOB usando le informazioni in [raccogliere dati per i modelli in produzione](how-to-enable-data-collection.md).
+1. Aggiornare il file di assegnazione dei punteggi aggiungendo istruzioni Print per inviare i dati a Application Insights durante l'inferenza. Per informazioni più complesse, ad esempio i dati della richiesta e la risposta, usare una struttura JSON. 
+
+    Il file di esempio seguente `score.py` registra quando il modello è stato inizializzato, l'input e l'output durante l'inferenza e l'ora in cui si verificano gli errori.
+
     
     ```python
     import pickle
@@ -133,15 +118,14 @@ Per registrare tracce personalizzate, seguire il processo di distribuzione stand
             return error
     ```
 
-2. Aggiornare la configurazione del servizio
+2. Aggiornare la configurazione del servizio e assicurarsi di abilitare Application Insights.
     
     ```python
     config = Webservice.deploy_configuration(enable_app_insights=True)
     ```
 
-3. Compilare un'immagine e distribuirla in [Azure Kubernetes o Azure Container](how-to-deploy-and-where.md).
+3. Compilare un'immagine e distribuirla in Azure Kubernetes o Azure Container. Per ulteriori informazioni, vedere [How to deploy and where](how-to-deploy-and-where.md).
 
-Per altre informazioni sulla registrazione e sulla raccolta dati, vedere [abilitare la registrazione in Azure Machine Learning](how-to-enable-logging.md) e [raccogliere dati da modelli in produzione](how-to-enable-data-collection.md).
 
 ### <a name="disable-tracking-in-python"></a>Disabilitare il rilevamento in Python
 
@@ -154,34 +138,47 @@ Per disabilitare applicazione Azure Insights, usare il codice seguente:
 
 <a name="studio"></a>
 
-## <a name="use-azure-machine-learning-studio-to-configure"></a>Usare Azure Machine Learning Studio per la configurazione
+## <a name="configure-logging-with-azure-machine-learning-studio"></a>Configurare la registrazione con Azure Machine Learning Studio
 
-È anche possibile abilitare applicazione Azure Insights da Azure Machine Learning Studio quando si è pronti per distribuire il modello con questa procedura.
+È anche possibile abilitare applicazione Azure Insights da Azure Machine Learning Studio. Quando si è pronti per distribuire il modello come servizio Web, attenersi alla procedura seguente per abilitare Application Insights:
 
-1. Accedere all'area di lavoro all'indirizzohttps://ml.azure.com/
-1. Passare a **modelli** e selezionare il modello che si desidera distribuire
-1. Selezionare **+ Distribuisci**
-1. Popolare il modulo **Distribuisci modello**
-1. Espandere il menu **Avanzate**
+1. Accedere a studio all'indirizzo https://ml.azure.com .
+1. Passare a **modelli** e selezionare il modello che si desidera distribuire.
+1. Selezionare  **+ Distribuisci**.
+1. Popolare il modulo **Distribuisci modello** .
+1. Espandere il menu **Avanzate** .
 
     ![Modulo di distribuzione](./media/how-to-enable-app-insights/deploy-form.png)
-1. Selezionare **Enable Application Insights Diagnostics and Data Collection**
+1. Selezionare **Enable Application Insights Diagnostics and Data Collection**.
 
     ![Abilita App Insights](./media/how-to-enable-app-insights/enable-app-insights.png)
 
 ## <a name="view-metrics-and-logs"></a>Visualizzare metriche e log
 
-I dati del servizio vengono archiviati nell'account di applicazione Azure Insights, all'interno dello stesso gruppo di risorse Azure Machine Learning.
-Per visualizzarli:
+### <a name="query-logs-for-deployed-models"></a>Log di query per i modelli distribuiti
+
+È possibile utilizzare la `get_logs()` funzione per recuperare i log da un servizio Web distribuito in precedenza. Il log può contenere informazioni dettagliate sugli errori che si sono verificati durante la distribuzione.
+
+```python
+from azureml.core.webservice import Webservice
+
+# load existing web service
+service = Webservice(name="service-name", workspace=ws)
+logs = service.get_logs()
+```
+
+### <a name="view-logs-in-the-studio"></a>Visualizzare i log in studio
+
+Applicazione Azure Insights archivia i log dei servizi nello stesso gruppo di risorse dell'area di lavoro Azure Machine Learning. Usare la procedura seguente per visualizzare i dati tramite Studio:
 
 1. Passare all'area di lavoro Azure Machine Learning in [Studio](https://ml.azure.com/).
 1. Selezionare **Endpoint**.
 1. Selezionare il servizio distribuito.
-1. Scorrere verso il basso per trovare l' **URL del Application Insights** e selezionare il collegamento.
+1. Selezionare il collegamento **url Application Insights** .
 
     [![Individuare l'URL Application Insights](./media/how-to-enable-app-insights/appinsightsloc.png)](././media/how-to-enable-app-insights/appinsightsloc.png#lightbox)
 
-1. In Application Insights, nella scheda **Panoramica** o nella sezione __monitoraggio__ nell'elenco a sinistra, selezionare __log__.
+1. In Application Insights, nella scheda **Panoramica** o nella sezione __monitoraggio__ Selezionare __log__.
 
     [![Scheda Panoramica del monitoraggio](./media/how-to-enable-app-insights/overview.png)](./media/how-to-enable-app-insights/overview.png#lightbox)
 
@@ -197,25 +194,29 @@ Per visualizzarli:
 
 Per altre informazioni su come usare applicazione Azure Insights, vedere [che cos'è Application Insights?](../azure-monitor/app/app-insights-overview.md).
 
-## <a name="export-data-for-further-processing-and-longer-retention"></a>Esportare i dati per un'ulteriore elaborazione e una conservazione più lunga
+## <a name="web-service-metadata-and-response-data"></a>Metadati del servizio Web e dati di risposta
+
+> [!IMPORTANT]
+> Applicazione Azure Insights registra solo i payload fino a 64KB. Se viene raggiunto questo limite, è possibile che vengano visualizzati errori, ad esempio memoria insufficiente, oppure che non vengano registrate informazioni.
+
+Per registrare le informazioni della richiesta del servizio Web, aggiungere `print` istruzioni al file score.py. Ogni `print` istruzione genera una voce nella tabella di traccia Application Insights sotto il messaggio `STDOUT` . Application Insights archivia gli `print` output dell'istruzione in  `customDimensions` e nella `Contents` tabella di traccia. La stampa di stringhe JSON produce una struttura di dati gerarchica nell'output di traccia in `Contents` .
+
+## <a name="export-data-for-retention-and-processing"></a>Esportare i dati per la conservazione e l'elaborazione
 
 >[!Important]
-> Applicazione Azure Insights supporta solo le esportazioni nell'archivio BLOB. I limiti aggiuntivi di questa funzionalità di esportazione sono elencati in esportare i dati di [telemetria da Application Insights](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
+> Applicazione Azure Insights supporta solo le esportazioni nell'archivio BLOB. Per altre informazioni sui limiti di questa implementazione, vedere Esportare dati di [telemetria da App Insights](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry#continuous-export-advanced-storage-configuration).
 
-È possibile usare l' [esportazione continua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) di applicazione Azure Insights per inviare messaggi a un account di archiviazione supportato, in cui è possibile impostare un periodo di conservazione più lungo. I dati vengono archiviati in formato JSON e possono essere facilmente analizzati per estrarre i dati del modello. 
-
-Azure Data Factory, le pipeline di Azure ML o altri strumenti di elaborazione dati possono essere usati per trasformare i dati in base alle esigenze. Dopo aver trasformato i dati, è possibile registrarli con l'area di lavoro Azure Machine Learning come set di dati. A tale scopo, vedere [How to create and register DataSets](how-to-create-register-datasets.md).
+Usare Application Insights ' [esportazione continua](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) per esportare i dati in un account di archiviazione BLOB in cui è possibile definire le impostazioni di conservazione. Application Insights Esporta i dati in formato JSON. 
 
 :::image type="content" source="media/how-to-enable-app-insights/continuous-export-setup.png" alt-text="Esportazione continua":::
 
-
-## <a name="example-notebook"></a>Notebook di esempio
-
-Il notebook [Enable-App-Insights-in-Production-Service. ipynb](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/enable-app-insights-in-production-service/enable-app-insights-in-production-service.ipynb) illustra i concetti descritti in questo articolo. 
- 
-[!INCLUDE [aml-clone-in-azure-notebook](../../includes/aml-clone-for-examples.md)]
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Vedere [come distribuire un modello in un cluster di servizi Kubernetes di Azure](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service) o [come distribuire un modello in istanze di contenitore di Azure](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-container-instance) per distribuire i modelli negli endpoint del servizio Web e abilitare applicazione Azure Insights per sfruttare la raccolta dei dati e il monitoraggio degli endpoint
-* Per altre informazioni sull'uso dei dati raccolti dai modelli nell'ambiente di produzione [, vedere MLOps: gestire, distribuire e monitorare i modelli con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment) . Questi dati possono contribuire a migliorare continuamente il processo di Machine Learning
+In questo articolo si è appreso come abilitare la registrazione e visualizzare i log per gli endpoint del servizio Web. Per i passaggi successivi, provare questi articoli:
+
+
+* [Come distribuire un modello in un cluster AKS](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-kubernetes-service)
+
+* [Come distribuire un modello in istanze di contenitore di Azure](https://docs.microsoft.com/azure/machine-learning/how-to-deploy-azure-container-instance)
+
+* [MLOps: consente di gestire, distribuire e monitorare i modelli con Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/concept-model-management-and-deployment) per ottenere altre informazioni sull'uso dei dati raccolti dai modelli nell'ambiente di produzione. Tali dati possono contribuire a migliorare continuamente il processo di machine learning.

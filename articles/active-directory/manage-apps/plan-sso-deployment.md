@@ -13,12 +13,12 @@ ms.author: baselden
 ms.reviewer: jeedes
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: e8aa5515bf8ae8e842a98656167f4198ac652981
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 87d455a77096a2ae9339c578f3405c629d79fa76
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88642385"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603340"
 ---
 # <a name="plan-a-single-sign-on-deployment"></a>Pianificare una distribuzione di Single Sign-On
 
@@ -28,11 +28,11 @@ Single Sign-on (SSO) consente di accedere a tutte le applicazioni e risorse nece
 
 Single Sign-on (SSO) consente di aggiungere sicurezza e praticità quando gli utenti possono accedere alle applicazioni in Azure Active Directory (Azure AD). 
 
-Molte organizzazioni si basano su applicazioni SaaS (Software as a Service), ad esempio Office 365, box e Salesforce, per la produttività degli utenti finali. In passato, il personale IT doveva creare e aggiornare singolarmente gli account utente in ciascuna applicazione SaaS e gli utenti dovevano ricordare una password per ognuna.
+Molte organizzazioni si basano su applicazioni SaaS (Software as a Service), ad esempio Microsoft 365, box e Salesforce, per la produttività degli utenti finali. In passato, il personale IT doveva creare e aggiornare singolarmente gli account utente in ciascuna applicazione SaaS e gli utenti dovevano ricordare una password per ognuna.
 
 Azure Marketplace ha più di 3000 applicazioni con connessioni SSO pre-integrate, semplificando l'integrazione nel tenant.
 
-## <a name="licensing"></a>Gestione delle licenze
+## <a name="licensing"></a>Licenza
 
 - **Azure ad Licensing** -SSO per le applicazioni SaaS pre-integrate è gratuito. Tuttavia, il numero di oggetti nella directory e le funzionalità che si desidera distribuire potrebbero richiedere licenze aggiuntive. Per un elenco completo dei requisiti di licenza, vedere [Azure Active Directory prezzi](https://azure.microsoft.com/pricing/details/active-directory/).
 - **Licenze** per le applicazioni: per soddisfare le esigenze aziendali è necessario disporre delle licenze appropriate per le applicazioni SaaS. Collaborare con il proprietario dell'applicazione per determinare se gli utenti assegnati all'applicazione hanno le licenze appropriate per i rispettivi ruoli all'interno dell'applicazione. Se Azure AD gestisce il provisioning automatico basato sui ruoli, i ruoli assegnati in Azure AD devono essere allineati con il numero di licenze possedute nell'applicazione. Il numero di licenze non corrette di proprietà dell'applicazione può causare errori durante il provisioning o l'aggiornamento di un utente.
@@ -118,7 +118,7 @@ Di seguito sono elencati alcuni degli argomenti chiave da pianificare durante la
 
 Azure AD fornisce [report contenenti informazioni tecniche e aziendali](https://azure.microsoft.com/documentation/articles/active-directory-view-access-usage-reports/). 
 
-Sono disponibili sia report di sicurezza che di attività. I report sulla sicurezza mostrano gli utenti contrassegnati per il rischio e gli accessi a rischio. i report sulle attività consentono di comprendere il comportamento degli utenti dell'organizzazione, fornendo informazioni dettagliate sulle attività di accesso e fornendo audit trail di tutti gli account di accesso. È possibile utilizzare i report per gestire i rischi, aumentare la produttività e monitorare la conformità.
+Sono disponibili sia report di sicurezza che di attività. I report di sicurezza mostrano gli utenti contrassegnati per il rischio e gli accessi a rischio. I report delle attività consentono di comprendere il comportamento degli utenti dell'organizzazione, fornendo informazioni dettagliate sulle attività di accesso e fornendo audit trail di tutti gli account di accesso. È possibile utilizzare i report per gestire i rischi, aumentare la produttività e monitorare la conformità.
 
 | Tipo di report | Verifica di accesso | Report sulla sicurezza | Report di accesso |
 |-------------|---------------|------------------|----------------|
@@ -187,7 +187,7 @@ Usare le fasi seguenti per pianificare e distribuire la soluzione nell'organizza
    
    Creare l'utente in Azure AD manualmente come utente basato sul cloud o sincronizzare l'utente da locale usando il motore di sincronizzazione Azure AD Connect. Verificare che le informazioni corrispondano alle attestazioni inviate all'applicazione.
 
-- **Configurare SSO**
+- **Configurare SSL**
 
    Dall' [elenco di applicazioni](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list), individuare e aprire l'esercitazione SSO per l'applicazione, quindi seguire i passaggi dell'esercitazione in per configurare correttamente l'applicazione SaaS.
 
@@ -235,11 +235,11 @@ Usare sempre il ruolo con il minor numero di autorizzazioni disponibili per eseg
 
 | Utente tipo| Ruoli | Ruolo Azure AD (se necessario) |
 |--------|-------|-----------------------------|
-| Amministratore del supporto tecnico | Supporto di livello 1 | Nessuno |
+| Amministratore del supporto tecnico | Supporto di livello 1 | nessuno |
 | Amministratore identità | Configurare ed eseguire il debug quando i problemi hanno effetto Azure AD | Amministratore globale |
-| Amministratore applicazione | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | Nessuno |
+| Amministratore applicazione | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | nessuno |
 | Amministratori dell'infrastruttura | Proprietario del rollover del certificato | Amministratore globale |
-| Proprietario/stakeholder aziendale | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | Nessuno |
+| Proprietario/stakeholder aziendale | Attestazione utente nell'applicazione, configurazione sugli utenti con autorizzazioni | nessuno |
 
 È consigliabile usare [Privileged Identity Management](https://docs.microsoft.com/azure/active-directory/active-directory-privileged-identity-management-configure) (PIM) per gestire i ruoli per fornire controllo, controllo e verifica di accesso aggiuntivi per gli utenti con autorizzazioni di directory.
 
@@ -285,7 +285,7 @@ I collegamenti seguenti presentano scenari di risoluzione dei problemi. Potrebbe
 
 - [Problemi di accesso da un portale personalizzato](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-deeplink)
 
-- [Problemi di accesso dalle app personali](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
+- [Problemi durante l'accesso da App personali](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-other-problem-access-panel)
 
 - [Errore della pagina di accesso dell'applicazione](https://docs.microsoft.com/azure/active-directory/manage-apps/application-sign-in-problem-application-error)
 

@@ -1,6 +1,6 @@
 ---
 title: Cosa è un dispositivo aggiunto ad Azure AD
-description: Informazioni su come le identità dei dispositivi semplificano la gestione dei dispositivi che accedono alle risorse nell'ambiente.
+description: Informazioni sui dispositivi Azure AD aggiunti e sul modo in cui la gestione delle identità dei dispositivi consente di gestire i dispositivi che accedono alle risorse nell'ambiente.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31374b851d90e43e7380024923c3ad025859b7a0
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 2b7cc0535549f2dbcdef4ab043ee506527fdbc5f
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923731"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601453"
 ---
 # <a name="azure-ad-joined-devices"></a>Dispositivi aggiunti ad Azure AD
 
@@ -58,7 +58,7 @@ Anche se l'aggiunta ad Azure AD è destinata soprattutto alle organizzazioni pri
 
 - Si vuole passare all'infrastruttura basata su cloud mediante Azure AD e MDM come Intune.
 - Non è possibile usare un'aggiunta a un dominio locale, ad esempio se è necessario avere il controllo di dispositivi mobili come tablet e telefoni.
-- Gli utenti hanno soprattutto necessità di accedere a Office 365 o ad altre app SaaS integrate con Azure AD.
+- È necessario che gli utenti accedano principalmente a Microsoft 365 o ad altre app SaaS integrate con Azure AD.
 - Si vuole gestire un gruppo di utenti in Azure AD invece che in Active Directory, ad esempio lavoratori stagionali, terzisti o studenti.
 - Si vogliono fornire funzionalità di join ai lavoratori in succursali remote con un'infrastruttura locale limitata.
 

@@ -14,12 +14,12 @@ ms.date: 04/01/2020
 ms.author: kenwith
 ms.reviewer: baselden
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c9d2f295394d89432f3c6dd99585cc4363d4ff74
-ms.sourcegitcommit: 628be49d29421a638c8a479452d78ba1c9f7c8e4
+ms.openlocfilehash: 3b8a40449d7a2b17adddd55120ab232a5cd3f459
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88641365"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600946"
 ---
 # <a name="moving-application-authentication-from-active-directory-federation-services-to-azure-active-directory"></a>Trasferimento dell'autenticazione dell'applicazione da Active Directory Federation Services a Azure Active Directory
 
@@ -35,7 +35,7 @@ Se si dispone di una directory locale che contiene gli account utente, è probab
 
 Gli utenti possono anche eseguire l'autenticazione direttamente con la Active Directory locale. Active Directory Federation Services (AD FS) è un servizio di identità locale basato su standard. AD FS estende la possibilità di usare la funzionalità Single Sign-On (SSO) tra partner commerciali attendibili senza richiedere agli utenti di accedere separatamente a ogni applicazione. Questa operazione è nota come Federazione.
 
-Molte organizzazioni hanno applicazioni SaaS (software as a Service) o LOB (line-of-business) personalizzate federate direttamente a AD FS, insieme alle app di Office 365 e basate su Azure AD. 
+Molte organizzazioni hanno applicazioni SaaS (software as a Service) o LOB (line-of-business) personalizzate federate direttamente a AD FS, insieme alle app basate su Microsoft 365 e Azure AD. 
 
 ![Applicazioni connesse direttamente in locale](media/migrate-adfs-apps-to-azure/app-integration-before-migration1.png)
 
@@ -237,11 +237,11 @@ Le app SaaS devono comprendere dove inviare le richieste di autenticazione e com
 
 | Impostazione di configurazione| AD FS| Come configurare in Azure AD |
 | - | - | - |
-| **URL accesso IdP** <p>URL di accesso del provider di identità dal punto di vista dell'app, in cui l'utente viene reindirizzato per l'accesso.| L'URL di accesso AD FS è il nome del servizio federativo AD FS seguito da "/adfs/ls/." <p>Ad esempio: `https://fs.contoso.com/adfs/ls/`| Sostituire {Tenant-ID} con l'ID tenant. <p> Per le app che usano il protocollo SAML-P: [https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p>Per le app che usano il protocollo WS-Federation: [https://login.microsoftonline.com/{tenant-id}/wsfed](https://login.microsoftonline.com/{tenant-id}/wsfed) |
-| **URL di disconnessione IdP**<p>URL di disconnessione del provider di identità dal punto di vista dell'app, in cui l'utente viene reindirizzato quando sceglie di disconnettersi dall'app.| L'URL di disconnessione è uguale all'URL di accesso oppure lo stesso URL con l'aggiunta di "WA = wsignout 1.0". Ad esempio: `https://fs.contoso.com/adfs/ls/?wa=wsignout1.0`| Sostituire {Tenant-ID} con l'ID tenant.<p>Per le app che usano il protocollo SAML-P:<p>[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p> Per le app che usano il protocollo WS-Federation: [https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0](https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0) |
+| **URL accesso IdP** <p>URL di accesso del provider di identità dal punto di vista dell'app, in cui l'utente viene reindirizzato per l'accesso.| L'URL di accesso AD FS è il nome del servizio federativo AD FS seguito da "/adfs/ls/." <p>ad esempio `https://fs.contoso.com/adfs/ls/`| Sostituire {Tenant-ID} con l'ID tenant. <p> Per le app che usano il protocollo SAML-P: [https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p>Per le app che usano il protocollo WS-Federation: [https://login.microsoftonline.com/{tenant-id}/wsfed](https://login.microsoftonline.com/{tenant-id}/wsfed) |
+| **URL di disconnessione IdP**<p>URL di disconnessione del provider di identità dal punto di vista dell'app, in cui l'utente viene reindirizzato quando sceglie di disconnettersi dall'app.| L'URL di disconnessione è uguale all'URL di accesso oppure lo stesso URL con l'aggiunta di "WA = wsignout 1.0". ad esempio `https://fs.contoso.com/adfs/ls/?wa=wsignout1.0`| Sostituire {Tenant-ID} con l'ID tenant.<p>Per le app che usano il protocollo SAML-P:<p>[https://login.microsoftonline.com/{tenant-id}/saml2](https://login.microsoftonline.com/{tenant-id}/saml2) <p> Per le app che usano il protocollo WS-Federation: [https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0](https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0) |
 | **Certificato per la firma di token**<p>IdP usa la chiave privata del certificato per firmare i token emessi. Verifica che il token provenga dallo stesso provider di identità per cui è stato configurato il trust nell'app.| Il certificato per la firma di token di AD FS si trova in **Certificati** in Gestione AD FS.| Trovarlo nella portale di Azure nelle **proprietà Single Sign-on** dell'applicazione sotto l'intestazione certificato di **firma SAML**. da dove può essere scaricato per il caricamento nell'app.  <p>Se l'applicazione dispone di più di un certificato, è possibile trovare tutti i certificati nel file XML dei metadati di Federazione. |
-| **Identificatore/"emittente"**<p>Identificatore dell'IdP dal punto di vista dell'app, talvolta denominato "ID autorità emittente".<p>Nel token SAML, il valore viene visualizzato come elemento Issuer.| L'identificatore per AD FS è in genere l'identificatore del servizio federativo nella gestione AD FS in **service > modificare le proprietà servizio federativo**. Ad esempio: `http://fs.contoso.com/adfs/services/trust`| Sostituire {Tenant-ID} con l'ID tenant.<p>https: \/ /STS.Windows.NET/{Tenant-ID}/ |
-| **Metadati federativi IdP**<p>Posizione dei metadati di federazione disponibili pubblicamente del provider di identità. Alcune app usano i metadati di federazione come alternativa alla configurazione di URL, identificatore e certificato per la firma di token eseguita singolarmente dall'amministratore.| Trovare l'URL dei metadati della Federazione AD FS in gestione AD FS in **Service > endpoint > metadati di tipo >: metadati federativi**. Ad esempio: `https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`| Il valore corrispondente per Azure AD segue il modello [https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml) . Sostituire {TenantDomainName} con il nome del tenant nel formato "contoso.onmicrosoft.com".   <p>Per altre informazioni, vedere [Metadati della federazione](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-federation-metadata). |
+| **Identificatore/"emittente"**<p>Identificatore dell'IdP dal punto di vista dell'app, talvolta denominato "ID autorità emittente".<p>Nel token SAML, il valore viene visualizzato come elemento Issuer.| L'identificatore per AD FS è in genere l'identificatore del servizio federativo nella gestione AD FS in **service > modificare le proprietà servizio federativo**. ad esempio `http://fs.contoso.com/adfs/services/trust`| Sostituire {Tenant-ID} con l'ID tenant.<p>https: \/ /STS.Windows.NET/{Tenant-ID}/ |
+| **Metadati federativi IdP**<p>Posizione dei metadati di federazione disponibili pubblicamente del provider di identità. Alcune app usano i metadati di federazione come alternativa alla configurazione di URL, identificatore e certificato per la firma di token eseguita singolarmente dall'amministratore.| Trovare l'URL dei metadati della Federazione AD FS in gestione AD FS in **Service > endpoint > metadati di tipo >: metadati federativi**. ad esempio `https://fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml`| Il valore corrispondente per Azure AD segue il modello [https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml](https://login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml) . Sostituire {TenantDomainName} con il nome del tenant nel formato "contoso.onmicrosoft.com".   <p>Per altre informazioni, vedere [Metadati della federazione](https://docs.microsoft.com/azure/active-directory/azuread-dev/azure-ad-federation-metadata). |
 
 
 ## <a name="represent-ad-fs-security-policies-in-azure-ad"></a>Rappresentano i criteri di sicurezza AD FS in Azure AD
@@ -406,7 +406,7 @@ In questa tabella sono state elencate alcune opzioni utili ed escluse e il modo 
 | Con attestazioni specifiche nella richiesta| Non è possibile eseguire la migrazione di questa impostazione| Non è possibile eseguire la migrazione di questa impostazione |
 
 
-Un esempio di come configurare l'opzione di esclusione per i percorsi attendibili nel portale di Azure:
+Un esempio di come configurare l'opzione di esclusione per i percorsi attendibili nella portale di Azure:
 
 ![Screenshot del mapping dei criteri di controllo di accesso](media/migrate-adfs-apps-to-azure/map-builtin-access-control-policies-3.png)
 

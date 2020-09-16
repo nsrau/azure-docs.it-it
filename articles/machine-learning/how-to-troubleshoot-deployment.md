@@ -11,12 +11,12 @@ ms.reviewer: jmartens
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: troubleshooting, contperfq4, devx-track-python
-ms.openlocfilehash: 4a0601e2821920e7de3b389d9acfd78598ef67ee
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 22f9c709ced1069caa39ba2145981efa353caadf
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90019292"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602634"
 ---
 # <a name="troubleshoot-docker-deployment-of-models-with-azure-kubernetes-service-and-azure-container-instances"></a>Risolvere i problemi di distribuzione Docker dei modelli con il servizio Azure Kubernetes e le istanze di contenitore di Azure 
 
@@ -24,7 +24,7 @@ Informazioni su come risolvere e risolvere gli errori comuni di distribuzione Do
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una **sottoscrizione di Azure**. Se non se ne possiede una, provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
+* Una **sottoscrizione di Azure**. Provare la [versione gratuita o a pagamento di Azure Machine Learning](https://aka.ms/AMLFree).
 * [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py&preserve-view=true).
 * [Interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest).
 * [Estensione dell'interfaccia della riga di comando per Azure Machine Learning](reference-azure-machine-learning-cli.md).
@@ -34,14 +34,12 @@ Informazioni su come risolvere e risolvere gli errori comuni di distribuzione Do
 
 ## <a name="steps-for-docker-deployment-of-machine-learning-models"></a>Passaggi per la distribuzione di Docker dei modelli di Machine Learning
 
-Durante la distribuzione di un modello in Azure Machine Learning, il sistema esegue una serie di attività.
-
-L'approccio consigliato per la distribuzione del modello è tramite l'API [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) usando un oggetto [Environment](how-to-use-environments.md) come parametro di input. In questo caso, il servizio crea un'immagine Docker di base durante la fase di distribuzione e monta i modelli richiesti in una sola chiamata. Le attività di distribuzione di base sono le seguenti:
+Quando si distribuisce un modello in Azure Machine Learning, si usano l'API [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) e un oggetto [Environment](how-to-use-environments.md) . Il servizio crea un'immagine Docker di base durante la fase di distribuzione e monta i modelli richiesti in una sola chiamata. Le attività di distribuzione di base sono le seguenti:
 
 1. Registrare il modello nel registro dei modelli dell'area di lavoro.
 
 2. Definire la configurazione dell'inferenza:
-    1. Creare un oggetto [Ambiente](how-to-use-environments.md) in base alle dipendenze specificate nel file YAML dell'ambiente o usare uno degli ambienti di approvvigionamento.
+    1. Creare un oggetto [ambiente](how-to-use-environments.md) . Questo oggetto può usare le dipendenze in un file YAML dell'ambiente, uno degli ambienti curati.
     2. Creare una configurazione dell'inferenza (oggetto InferenceConfig) in base all'ambiente e allo script di assegnazione dei punteggi.
 
 3. Distribuire il modello nel servizio Istanze di Azure Container (ACI) o nel servizio Azure Kubernetes (AKS).
@@ -52,7 +50,7 @@ Per altre informazioni su questa procedura, vedere [Gestire e distribuire modell
 
 Se si verifica un problema, la prima cosa da fare è suddividere l'attività di distribuzione (descritta in precedenza) in singoli passaggi per isolare il problema.
 
-Supponendo che si stia usando il metodo di distribuzione nuovo/consigliato tramite l'API [Model.deploy()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) con un oggetto [Ambiente](how-to-use-environments.md) come parametro di input, il codice può essere suddiviso in tre passaggi principali:
+Quando si usa [Model. Deploy ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model%28class%29?view=azure-ml-py#&preserve-view=truedeploy-workspace--name--models--inference-config-none--deployment-config-none--deployment-target-none--overwrite-false-) con un oggetto [Environment](how-to-use-environments.md) come parametro di input, il codice può essere suddiviso in tre passaggi principali:
 
 1. Registrare il modello. Di seguito è riportato il codice di esempio:
 
@@ -95,11 +93,11 @@ Supponendo che si stia usando il metodo di distribuzione nuovo/consigliato trami
     aci_service.wait_for_deployment(show_output=True)
     ```
 
-Una volta suddiviso il processo di distribuzione in singole attività, è possibile esaminare alcuni degli errori più comuni.
+Suddividere il processo di distribuzione in singole attività consente di identificare più facilmente alcuni degli errori più comuni.
 
 ## <a name="debug-locally"></a>Eseguire il debug in locale
 
-Se si verificano problemi durante la distribuzione di un modello in ACI o AKS, provare a distribuirlo come servizio Web locale. L'utilizzo di un servizio Web locale rende più semplice la risoluzione dei problemi. L'immagine Docker contenente il modello viene scaricata e avviata nel sistema locale.
+Se si verificano problemi durante la distribuzione di un modello in ACI o AKS, distribuirlo come servizio Web locale. L'utilizzo di un servizio Web locale rende più semplice la risoluzione dei problemi.
 
 Per esplorare un esempio eseguibile, è possibile trovare un [notebook di distribuzione locale](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/deploy-to-local/register-model-deploy-local.ipynb) di esempio nel repository  [MachineLearningNotebooks](https://github.com/Azure/MachineLearningNotebooks) .
 
@@ -128,9 +126,9 @@ service.wait_for_deployment(True)
 print(service.port)
 ```
 
-Se si definisce YAML specifiche conda, è necessario elencare azureml-defaults con Version >= 1.0.45 come dipendenza PIP. Questo pacchetto contiene le funzionalità necessarie per ospitare il modello come servizio Web.
+Se si definisce una specifica conda specifica YAML, List azureml-defaults Version >= 1.0.45 come dipendenza PIP. Questo pacchetto è necessario per ospitare il modello come servizio Web.
 
-A questo punto, è possibile usare il servizio come di consueto. Ad esempio, il codice seguente dimostra l'invio di dati al servizio:
+A questo punto, è possibile usare il servizio come di consueto. Nel codice seguente viene illustrato l'invio di dati al servizio:
 
 ```python
 import json
@@ -189,7 +187,7 @@ Se la riga si `Booting worker with pid: <pid>` verifica più volte nei log, sign
  
 ## <a name="container-cannot-be-scheduled"></a>Non è possibile pianificare il contenitore
 
-Quando si distribuisce un servizio in una destinazione di calcolo del servizio Kubernetes di Azure, Azure Machine Learning tenterà di pianificare il servizio con la quantità di risorse richiesta. Se dopo 5 minuti non sono disponibili nodi nel cluster con la quantità appropriata di risorse disponibili, la distribuzione avrà esito negativo con il messaggio `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . Per risolvere questo errore, è possibile aggiungere più nodi, modificare lo SKU dei nodi o modificare i requisiti di risorse del servizio. 
+Quando si distribuisce un servizio in una destinazione di calcolo del servizio Kubernetes di Azure, Azure Machine Learning tenterà di pianificare il servizio con la quantità di risorse richiesta. Se non sono disponibili nodi nel cluster con la quantità appropriata di risorse dopo 5 minuti, la distribuzione avrà esito negativo. Il messaggio di errore è `Couldn't Schedule because the kubernetes cluster didn't have available resources after trying for 00:05:00` . Per risolvere questo errore, è possibile aggiungere più nodi, modificare lo SKU dei nodi o modificare i requisiti di risorse del servizio. 
 
 Il messaggio di errore indicherà in genere la risorsa necessaria. ad esempio, se viene visualizzato un messaggio di errore `0/3 nodes are available: 3 Insufficient nvidia.com/gpu` che indica che il servizio richiede GPU e sono presenti tre nodi nel cluster che non hanno GPU disponibili. È possibile risolvere questo problema aggiungendo altri nodi se si usa uno SKU GPU, passando a uno SKU abilitato per GPU in caso contrario, o modificando l'ambiente in modo da non richiedere GPU.  
 
@@ -239,13 +237,16 @@ Un codice di stato 502 indica che il servizio ha generato un'eccezione o si è a
 
 ## <a name="http-status-code-503"></a>Codice di stato HTTP 503
 
-Le distribuzioni del servizio Azure Kubernetes supportano il ridimensionamento automatico, che consente di aggiungere repliche per supportare un carico aggiuntivo. Tuttavia, il ridimensionamento automatico è progettato per gestire modifiche **graduali** nel carico. Se si ricevono picchi elevati di richieste al secondo, i client potrebbero ricevere un codice di stato HTTP 503.
+Le distribuzioni del servizio Azure Kubernetes supportano il ridimensionamento automatico, che consente di aggiungere repliche per supportare un carico aggiuntivo. Il ridimensionamento automatico è progettato per gestire modifiche **graduali** del carico. Se si ricevono picchi elevati di richieste al secondo, i client potrebbero ricevere un codice di stato HTTP 503. Sebbene il ridimensionamento automatico reagisca rapidamente, il tempo necessario per la creazione di contenitori aggiuntivi richiede AKS.
+
+Le decisioni per la scalabilità verticale e orizzontale sono basate sull'utilizzo delle repliche del contenitore correnti. Il numero di repliche occupate (elaborazione di una richiesta) divise per il numero totale di repliche correnti è l'utilizzo corrente. Se questo numero è superiore a `autoscale_target_utilization` , vengono create altre repliche. Se è inferiore, le repliche vengono ridotte. Le decisioni di aggiunta di repliche sono ansiose e veloci (circa 1 secondo). Le decisioni di rimozione delle repliche sono conservative (circa 1 minuto). Per impostazione predefinita, l'utilizzo della destinazione per la scalabilità automatica è impostato su **70%**, il che significa che il servizio è in grado di gestire picchi di richieste al secondo (RPS) **fino al 30%**.
 
 Esistono due elementi che consentono di prevenire codici di stato 503:
 
-* Modificare il livello di utilizzo a cui il ridimensionamento automatico crea nuove repliche.
-    
-    Per impostazione predefinita, l'uso della destinazione per il ridimensionamento automatico è impostato su 70%, che significa che il servizio è in grado di gestire picchi di richieste al secondo (RPS) fino al 30%. È possibile regolare la destinazione di utilizzo impostando `autoscale_target_utilization` su un valore inferiore.
+> [!TIP]
+> Questi due approcci possono essere usati singolarmente o in combinazione.
+
+* Modificare il livello di utilizzo a cui il ridimensionamento automatico crea nuove repliche. È possibile regolare la destinazione di utilizzo impostando `autoscale_target_utilization` su un valore inferiore.
 
     > [!IMPORTANT]
     > Questa modifica non comporta la creazione di repliche *più velocemente*. Vengono invece create con una soglia di utilizzo inferiore. Anziché attendere fino al 70% di utilizzo del servizio, la modifica del valore su 30% comporta la creazione di repliche quando si verifica l'utilizzo al 30%.
@@ -286,7 +287,9 @@ Un codice di stato 504 indica che si è verificato il timeout della richiesta. I
 
 ## <a name="advanced-debugging"></a>Debug avanzato
 
-In alcuni casi, potrebbe essere necessario eseguire il debug interattivo del codice Python contenuto nella distribuzione del modello. Ad esempio, se lo script di immissione ha esito negativo e il motivo non può essere determinato da una registrazione aggiuntiva. Usando Visual Studio Code e debugpy, è possibile connettersi al codice in esecuzione all'interno del contenitore docker. Per ulteriori informazioni, vedere il [debug interattivo in vs Code Guida](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments).
+Potrebbe essere necessario eseguire il debug interattivo del codice Python contenuto nella distribuzione del modello. Ad esempio, se lo script di immissione ha esito negativo e il motivo non può essere determinato da una registrazione aggiuntiva. Usando Visual Studio Code e debugpy, è possibile connettersi al codice in esecuzione all'interno del contenitore docker.
+
+Per ulteriori informazioni, vedere il [debug interattivo in vs Code Guida](how-to-debug-visual-studio-code.md#debug-and-troubleshoot-deployments).
 
 ## <a name="model-deployment-user-forum"></a>[Forum dell'utente per la distribuzione di modelli](https://docs.microsoft.com/answers/topics/azure-machine-learning-inference.html)
 

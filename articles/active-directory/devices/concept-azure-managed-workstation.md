@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: frasim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05a3a8cf14a591dd3037175e4eed5b5bd8d3096c
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4298518dae9afdf197321073846fa1ab9262ec0a
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "78672654"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601385"
 ---
 # <a name="understand-secure-azure-managed-workstations"></a>Informazioni sulle workstation sicure gestite da Azure
 
@@ -64,7 +64,7 @@ Tutti gli utenti e gli operatori traggono vantaggio dall'utilizzo di una worksta
 * Workstation estremamente sensibile, ad esempio un terminale di pagamento SWIFT
 * Gestione dei segreti commerciali con la workstation
 
-Per ridurre il rischio, è necessario implementare controlli di sicurezza elevati per le workstation con privilegi che usano questi account. Per ulteriori informazioni, vedere la [Guida alla distribuzione della funzionalità Azure Active Directory, guida](../fundamentals/active-directory-deployment-checklist-p2.md)di [orientamento per Office 365](https://aka.ms/o365secroadmap)e [sicurezza per l'accesso con privilegi](https://aka.ms/sparoadmap).
+Per ridurre il rischio, è necessario implementare controlli di sicurezza elevati per le workstation con privilegi che usano questi account. Per ulteriori informazioni, vedere la [Guida alla distribuzione delle funzionalità Azure Active Directory](../fundamentals/active-directory-deployment-checklist-p2.md), [Microsoft 365 roadmap](https://aka.ms/o365secroadmap)e [protezione di Access Privileged Access roadmap](https://aka.ms/sparoadmap).
 
 ## <a name="why-use-dedicated-workstations"></a>Perché usare le workstation dedicate?
 
@@ -73,7 +73,7 @@ Sebbene sia possibile aggiungere sicurezza a un dispositivo esistente, è prefer
 Un numero crescente di vettori di attacco attraverso la posta elettronica e l'esplorazione Web rende sempre più difficile assicurarsi che un dispositivo possa essere considerato attendibile. In questa guida si presuppone che una workstation dedicata sia isolata dalla produttività standard, dall'esplorazione e dalla posta elettronica. La rimozione della produttività, l'esplorazione Web e la posta elettronica da un dispositivo possono avere un impatto negativo sulla produttività. Tuttavia, questa protezione è in genere accettabile per gli scenari in cui le attività di processo non lo richiedono in modo esplicito e il rischio di un evento imprevisto di sicurezza è elevato.
 
 > [!NOTE]
-> Il web browsing si riferisce all'accesso generale a siti Web arbitrari che possono essere un'attività a rischio elevato. Questo tipo di esplorazione è diverso rispetto all'uso di un Web browser per accedere a un piccolo numero di siti Web amministrativi noti per servizi quali Azure, Office 365, altri provider di servizi cloud e applicazioni SaaS.
+> Il web browsing si riferisce all'accesso generale a siti Web arbitrari che possono essere un'attività a rischio elevato. Questo tipo di esplorazione è diverso rispetto all'uso di un Web browser per accedere a un numero ridotto di siti Web amministrativi noti per servizi quali Azure, Microsoft 365, altri provider di servizi cloud e applicazioni SaaS.
 
 Le strategie di contenimento rafforzano la sicurezza aumentando il numero e il tipo di controlli che impedisce a un utente malintenzionato di ottenere risorse sensibili all'accesso. Il modello descritto in questo articolo usa una progettazione di privilegi a più livelli e limita i privilegi amministrativi a dispositivi specifici.
 

@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: pim
 ms.topic: how-to
 ms.workload: identity
-ms.date: 08/24/2020
+ms.date: 09/15/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ea8bf2407fb533870495dc501a2d740bff9ee968
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 5bcfb21ab15355653780355f1b5e459bc806ec8c
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89567351"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90600722"
 ---
 # <a name="start-using-privileged-identity-management"></a>Iniziare a usare Privileged Identity Management
 
@@ -35,6 +35,14 @@ Per usare Privileged Identity Management, è necessario disporre di una delle li
 - Enterprise Mobility + Security (EMS) E5
 
 Per ulteriori informazioni, vedere [requisiti di licenza per l'utilizzo di Privileged Identity Management](subscription-requirements.md).
+
+> [!Note]
+> Quando un utente che è attivo in un ruolo con privilegi in un'organizzazione Azure AD con una licenza Premium P2 passa a **ruoli e amministratori** in Azure ad e seleziona un ruolo (o anche solo visite Privileged Identity Management):
+>
+> - PIM viene abilitato automaticamente per l'organizzazione
+> - La loro esperienza è ora che possono assegnare un'assegnazione di ruolo "normale" o un'assegnazione di ruolo idonea
+>
+> Quando PIM è abilitato, non ha alcun effetto sull'organizzazione che è necessario preoccuparsi. Fornisce opzioni di assegnazione aggiuntive, ad esempio Active vs idonee con l'ora di inizio e di fine. PIM consente inoltre di definire l'ambito per le assegnazioni di ruolo utilizzando unità amministrative e ruoli personalizzati. Se si è un amministratore globale o un amministratore del ruolo con privilegi, è possibile iniziare a ricevere alcuni messaggi di posta elettronica aggiuntivi come il digest settimanale di PIM. È anche possibile vedere l'entità servizio MS-PIM nel log di controllo relativa all'assegnazione di ruolo. Si tratta di una modifica prevista che non dovrebbe avere alcun effetto sul flusso di lavoro.
 
 ## <a name="prepare-pim-for-azure-ad-roles"></a>Preparare PIM per i ruoli di Azure AD
 

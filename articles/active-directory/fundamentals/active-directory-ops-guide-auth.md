@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: b45a0608d78330eafd6afc3656f8a4addbdffd3b
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 178c54b9726f21775603d67cb0911237aa4caf01
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89321719"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601365"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Guida di riferimento per le operazioni di gestione dell'autenticazione Azure Active Directory
 
@@ -95,7 +95,7 @@ Le password non sono sufficientemente sicure per impedire agli attori malintenzi
 
 ### <a name="on-premises-outage-authentication-resiliency"></a>Resilienza dell'autenticazione di interruzione locale
 
-Oltre ai vantaggi della semplicità e all'abilitazione del rilevamento di credenziali perse, Azure AD la sincronizzazione dell'hash delle password (pH) e l'autenticazione a più fattori di Azure consentono agli utenti di accedere alle applicazioni SaaS e a Office 365 nonostante le interruzioni locali a causa di attacchi cibernetici, ad esempio [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). È anche possibile abilitare pH insieme alla Federazione. L'abilitazione di pH consente un fallback di autenticazione quando i servizi federativi non sono disponibili.
+Oltre ai vantaggi della semplicità e all'abilitazione del rilevamento di credenziali perse, Azure AD la sincronizzazione dell'hash delle password (pH) e l'autenticazione a più fattori di Azure consentono agli utenti di accedere alle applicazioni SaaS e Microsoft 365 nonostante le interruzioni locali a causa di attacchi cibernetici, ad esempio [NotPetya](https://www.microsoft.com/security/blog/2018/02/05/overview-of-petya-a-rapid-cyberattack/). È anche possibile abilitare pH insieme alla Federazione. L'abilitazione di pH consente un fallback di autenticazione quando i servizi federativi non sono disponibili.
 
 Se nell'organizzazione locale manca una strategia di resilienza delle interruzioni o ne è presente una che non è integrata con Azure AD, è necessario distribuire Azure AD pH e definire un piano di ripristino di emergenza che includa pH. L'abilitazione di Azure AD pH consentirà agli utenti di eseguire l'autenticazione con Azure AD se il Active Directory locale non è disponibile.
 
@@ -249,7 +249,7 @@ L'accesso condizionale è uno strumento essenziale per migliorare il comportamen
 - Disporre di un piccolo set di criteri di base che possono essere applicati a più applicazioni
 - Definire gruppi di eccezioni vuoti e aggiungerli ai criteri per avere una strategia di eccezione
 - Pianificare gli account [break Glass](../users-groups-roles/directory-admin-roles-secure.md#break-glass-what-to-do-in-an-emergency) senza controlli multi-factor authentication
-- Assicura un'esperienza coerente tra le applicazioni client di Office 365, ad esempio teams, OneDrive for business, Outlook e così via. implementando lo stesso set di controlli per servizi come Exchange Online e SharePoint Online
+- Assicura un'esperienza coerente tra Microsoft 365 applicazioni client, ad esempio teams, OneDrive, Outlook e così via. implementando lo stesso set di controlli per servizi come Exchange Online e SharePoint Online
 - L'assegnazione ai criteri deve essere implementata tramite gruppi, non singoli utenti
 - Eseguire verifiche regolari dei gruppi di eccezioni usati nei criteri per limitare il tempo di inattività della sicurezza da parte degli utenti. Se si è proprietari di Azure AD P2, è possibile usare le verifiche di accesso per automatizzare il processo
 
@@ -302,7 +302,7 @@ Di seguito è riportato un elenco di app con autorizzazioni che possono essere e
 
 | Risorsa | Autorizzazione |
 | :- | :- |
-| Office 365 Exchange Online | EAS. AccessAsUser. All |
+| Exchange Online | EAS. AccessAsUser. All |
 | | EWS. AccessAsUser. All |
 | | Mail.Read |
 | API Microsoft Graph | Mail.Read |
@@ -339,7 +339,7 @@ Di seguito sono elencate le impostazioni di utenti e gruppi che possono essere b
 
 #### <a name="group-settings"></a>Impostazioni dei gruppi
 
-**Gestione dei gruppi self-service/gli utenti possono creare gruppi di sicurezza/gruppi di O365.** Se non è presente alcuna iniziativa self-service per i gruppi nel cloud, i clienti potrebbero decidere di disattivarla fino a quando non saranno pronti a usare questa funzionalità.
+**Gestione dei gruppi self-service/gli utenti possono creare gruppi di sicurezza/gruppi di Microsoft 365.** Se non è presente alcuna iniziativa self-service per i gruppi nel cloud, i clienti potrebbero decidere di disattivarla fino a quando non saranno pronti a usare questa funzionalità.
 
 #### <a name="groups-recommended-reading"></a>Gruppi consigliati per la lettura
 

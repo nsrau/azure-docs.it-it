@@ -6,16 +6,20 @@ author: lgayhardt
 ms.custom: devx-track-java
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: 464bf650cbcaa99e947a21f5a87a5872f7b11178
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f0583af05ae7d8e365b50610bfb812ac7764f223
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87326920"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90602466"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>Guida introduttiva: Introduzione a Application Insights in un progetto Web Java
 
-In questa Guida introduttiva si usa Application Insights per instrumentare automaticamente le richieste, tenere traccia delle dipendenze e raccogliere i contatori delle prestazioni, diagnosticare i problemi di prestazioni e le eccezioni e scrivere codice per tenere traccia delle operazioni eseguite dagli utenti con l'app.
+
+> [!IMPORTANT]
+> L'approccio consigliato per il monitoraggio delle applicazioni Java consiste nell'usare la strumentazione automatica senza modificare il codice. Seguire le linee guida per [Application Insights agente Java 3,0](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
+
+In questa Guida introduttiva si usa Application Insights SDK per instrumentare la richiesta, tenere traccia delle dipendenze e raccogliere i contatori delle prestazioni, diagnosticare i problemi di prestazioni e le eccezioni e scrivere codice per tenere traccia delle operazioni eseguite dagli utenti con l'app.
 
 Application Insights è un servizio di analisi estendibile per gli sviluppatori Web che semplifica la comprensione delle prestazioni e dell'uso dell'applicazione live. Application Insights supporta le app Java in esecuzione in Linux, Unix o Windows.
 
@@ -77,9 +81,9 @@ Scaricare la [versione più recente](https://github.com/Microsoft/ApplicationIns
 
 ### <a name="questions"></a>Domande
 * *Qual è la relazione tra i `-web-auto` `-web` componenti, e `-core` ?*
-  * `applicationinsights-web-auto`fornisce metriche che tengono traccia dei conteggi delle richieste di servlet HTTP e dei tempi di risposta, registrando automaticamente il filtro Application Insights servlet in fase di esecuzione.
-  * `applicationinsights-web`fornisce anche metriche che tengono traccia dei conteggi delle richieste di servlet HTTP e dei tempi di risposta, ma richiede la registrazione manuale del filtro Application Insights servlet nell'applicazione.
-  * `applicationinsights-core`fornisce solo l'API bare, ad esempio se l'applicazione non è basata su servlet.
+  * `applicationinsights-web-auto` fornisce metriche che tengono traccia dei conteggi delle richieste di servlet HTTP e dei tempi di risposta, registrando automaticamente il filtro Application Insights servlet in fase di esecuzione.
+  * `applicationinsights-web` fornisce anche metriche che tengono traccia dei conteggi delle richieste di servlet HTTP e dei tempi di risposta, ma richiede la registrazione manuale del filtro Application Insights servlet nell'applicazione.
+  * `applicationinsights-core` fornisce solo l'API bare, ad esempio se l'applicazione non è basata su servlet.
   
 * *Come si esegue l'aggiornamento alla versione più recente dell'SDK?*
   * Se si usa Gradle o Maven...
@@ -193,22 +197,10 @@ A questo punto è possibile pubblicare l'applicazione nel server, permettere agl
 
     Questo componente abilita i contatori delle prestazioni.
 
-## <a name="azure-app-service-config-spring-boot"></a>Configurazione del servizio app Azure (Spring boot)
+## <a name="azure-app-service-aks-vms-config"></a>Servizio app Azure, AKS, configurazione VM
 
-Le app Spring boot eseguite in Windows richiedono una configurazione aggiuntiva per l'esecuzione nei servizi app Azure. Modificare **web.config** e aggiungere la configurazione seguente:
+L'approccio migliore e più semplice per monitorare le applicazioni in esecuzione in uno dei provider di risorse di Azure consiste nell'usare Application Insights la strumentazione automatica tramite [Java 3,0 Agent](https://docs.microsoft.com/azure/azure-monitor/app/java-in-process-agent).
 
-```xml
-<?xml version="1.0" encoding="UTF-8"?>
-<configuration>
-    <system.webServer>
-        <handlers>
-            <add name="httpPlatformHandler" path="*" verb="*" modules="httpPlatformHandler" resourceType="Unspecified"/>
-        </handlers>
-        <httpPlatform processPath="%JAVA_HOME%\bin\java.exe" arguments="-Djava.net.preferIPv4Stack=true -Dserver.port=%HTTP_PLATFORM_PORT% -jar &quot;%HOME%\site\wwwroot\AzureWebAppExample-0.0.1-SNAPSHOT.jar&quot;">
-        </httpPlatform>
-    </system.webServer>
-</configuration>
-```
 
 ## <a name="exceptions-and-request-failures"></a>Eccezioni e richieste non eseguite
 Le eccezioni non gestite e gli errori delle richieste vengono raccolti automaticamente dal filtro Application Insights Web.
@@ -259,7 +251,7 @@ Per disabilitare la raccolta del set standard di contatori delle prestazioni, ag
 * `displayName` : il nome visualizzato nel portale di Application Insights.
 * `objectName` : il nome dell'oggetto JMX.
 * `attribute` : l'attributo del nome dell'oggetto JMX da recuperare
-* `type`(facoltativo): tipo di attributo dell'oggetto JMX:
+* `type` (facoltativo): tipo di attributo dell'oggetto JMX:
   * Impostazione predefinita: un tipo semplice come int o long.
   * `composite`: i dati del contatore delle prestazioni sono nel formato 'Attribute.Data'
   * `tabular`: i dati del contatore delle prestazioni sono nel formato della riga di una tabella
@@ -309,7 +301,7 @@ Application Insights può testare il sito Web a intervalli regolari per verifica
 * [Monitorare contatori delle prestazioni Unix](java-collectd.md)
 * Aggiungere il [monitoraggio alle pagine Web](javascript.md) per monitorare i tempi di caricamento delle pagine, le chiamate AJAX e le eccezioni del browser.
 * Scrivere [dati di telemetria personalizzati](./api-custom-events-metrics.md) per tenere traccia dell'uso nel browser o nel server.
-* Usare [Analytics](../log-query/log-query-overview.md) per eseguire query avanzate sui dati di telemetria dall'app
+* Usare  [Analytics](../log-query/log-query-overview.md) per eseguire query avanzate sui dati di telemetria dall'app
 * Per altre informazioni, vedere [Azure for Java developers](/java/azure) (Azure per sviluppatori Java).
 
 <!--Link references-->

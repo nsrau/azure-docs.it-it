@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jlu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 27aabac75516eed2c68b4f14c6593411d0141ef1
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 15f4f5d9eea8f53a894289160df00a1c1d8d8048
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89437242"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90601759"
 ---
 # <a name="continuous-access-evaluation"></a>Valutazione continua dell'accesso
 
@@ -48,26 +48,26 @@ La valutazione dell'accesso continuo viene implementata abilitando i servizi, ad
 - L'amministratore revoca in modo esplicito tutti i token di aggiornamento per un utente
 - Rischi utente elevati rilevati da Azure AD Identity Protection
 
-Questo processo Abilita lo scenario in cui gli utenti perdono l'accesso ai file, alla posta elettronica, al calendario o alle attività di SharePoint Online, nonché ai team da app client O365 entro pochi minuti da uno di questi eventi critici. 
+Questo processo consente lo scenario in cui gli utenti perdono l'accesso ai file, alla posta elettronica, al calendario o alle attività di SharePoint Online, nonché ai team di Microsoft 365 app client entro pochi minuti da uno di questi eventi critici. 
 
 ### <a name="conditional-access-policy-evaluation-preview"></a>Valutazione dei criteri di accesso condizionale (anteprima)
 
 Exchange e SharePoint sono in grado di sincronizzare i criteri di accesso condizionale chiave in modo che possano essere valutati all'interno del servizio stesso.
 
-Questo processo Abilita lo scenario in cui gli utenti perdono l'accesso ai file dell'organizzazione, alla posta elettronica, al calendario o alle attività dalle app client O365 o SharePoint Online immediatamente dopo le modifiche del percorso di rete.
+Questo processo Abilita lo scenario in cui gli utenti perdono l'accesso ai file dell'organizzazione, alla posta elettronica, al calendario o alle attività da Microsoft 365 app client o SharePoint Online immediatamente dopo le modifiche del percorso di rete.
 
 > [!NOTE]
 > Non tutte le combinazioni di provider di risorse e app sono supportate. Vedere la tabella seguente. Office fa riferimento a Word, Excel e PowerPoint
 
 | | Outlook Web | Outlook Win32 | Outlook iOS | Outlook Android | Outlook Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| SharePoint Online | Funzionalità supportata | Supportato | Non supportato | Non supportato | Supportato |
-| Exchange Online | Funzionalità supportata | Funzionalità supportata | Funzionalità supportata | Funzionalità supportata | Funzionalità supportata |
+| **SharePoint Online** | Supportato | Supportato | Non supportato | Non supportato | Supportato |
+| **Exchange Online** | Supportato | Supportato | Supportato | Supportato | Supportato |
 
 | | App Web di Office | App di Office Win32 | Office per iOS | Office per Android | Office per Mac |
 | :--- | :---: | :---: | :---: | :---: | :---: |
-| SharePoint Online | Funzionalità supportata | Supportato | Non supportato | Supportato | Funzionalità supportata |
-| Exchange Online | Funzionalità supportata | Supportato | Non supportato | Supportato | Funzionalità supportata |
+| **SharePoint Online** | Supportato | Supportato | Non supportato | Supportato | Supportato |
+| **Exchange Online** | Supportato | Supportato | Non supportato | Supportato | Supportato |
 
 ### <a name="client-side-claim-challenge"></a>Richiesta di attestazione lato client
 

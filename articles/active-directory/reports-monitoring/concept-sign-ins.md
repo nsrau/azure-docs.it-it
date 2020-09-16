@@ -17,12 +17,12 @@ ms.date: 03/24/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e84fb04d967311fede3be7f20b45f01fb442e69e
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: 99e15c6d1ca33623151b7a2d75e3e28878f673ef
+ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89228767"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90603595"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Report delle attività di accesso nel portale di Azure Active Directory
 
@@ -142,18 +142,18 @@ Il **percorso: il percorso da** cui è stata avviata la connessione:
 ![Filtro app client](./media/concept-sign-ins/client-app-filter.png)
 
 
-|Nome|Autenticazione moderna|Descrizione|
+|NOME|Autenticazione moderna|Descrizione|
 |---|:-:|---|
 |SMTP autenticato| |Usato dai client POP e IMAP per inviare messaggi di posta elettronica.|
 |Individuazione automatica| |Usato dai client Outlook e EAS per trovare e connettersi alle cassette postali in Exchange Online.|
 |Exchange ActiveSync| |Questo filtro Mostra tutti i tentativi di accesso in cui è stato tentato il protocollo EAS.|
-|Browser|![Controllo](./media/concept-sign-ins/check.png)|Mostra tutti i tentativi di accesso degli utenti che usano i Web browser|
-|Exchange ActiveSync| | Mostra tutti i tentativi di accesso da parte degli utenti con le app client che usano Exchange ActiceSync per connettersi a Exchange Online|
+|Browser|![Segno di spunta](./media/concept-sign-ins/check.png)|Mostra tutti i tentativi di accesso degli utenti che usano i Web browser|
+|Exchange ActiveSync| | Mostra tutti i tentativi di accesso da parte degli utenti con le app client che usano Exchange ActiveSync per connettersi a Exchange Online|
 |PowerShell per Exchange Online| |Usato per connettersi a Exchange Online con PowerShell remoto. Se si blocca l'autenticazione di base per Exchange Online PowerShell, è necessario usare il modulo PowerShell di Exchange Online per connettersi. Per istruzioni, vedere [Connettersi a Exchange Online PowerShell con l'autenticazione a più fattori](/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell).|
 |Servizi Web Exchange| |Interfaccia di programmazione usata da Outlook, Outlook per Mac e app di terze parti.|
 |IMAP4| |Un client di posta legacy che usa IMAP per recuperare la posta elettronica.|
 |MAPI su HTTP| |Usato da Outlook 2010 e versioni successive.|
-|App per dispositivi mobili e client desktop|![Controllo](./media/concept-sign-ins/check.png)|Mostra tutti i tentativi di accesso degli utenti che usano app per dispositivi mobili e client desktop.|
+|App per dispositivi mobili e client desktop|![Segno di spunta blu](./media/concept-sign-ins/check.png)|Mostra tutti i tentativi di accesso degli utenti che usano app per dispositivi mobili e client desktop.|
 |Rubrica non in linea| |Copia delle raccolte di elenchi di indirizzi scaricate e utilizzate da Outlook.|
 |Outlook Anywhere (RPC su HTTP)| |Usato da Outlook 2016 e versioni precedenti.|
 |Servizio Outlook| |Usato dall'app mail e Calendar per Windows 10.|
@@ -194,7 +194,7 @@ Il **percorso: il percorso da** cui è stata avviata la connessione:
 
 Fare clic sull'opzione di **download** per creare un file CSV o JSON dei record 250.000 più recenti. Iniziare a [scaricare i dati di accesso](quickstart-download-sign-in-report.md) se si vuole usarli al di fuori della portale di Azure.  
 
-![Scaricare](./media/concept-sign-ins/71.png "Scarica")
+![Scaricare](./media/concept-sign-ins/71.png "Download")
 
 > [!IMPORTANT]
 > Il numero di record che è possibile scaricare è limitato dai [criteri di conservazione dei report di Azure Active Directory](reference-reports-data-retention.md).  
@@ -228,7 +228,7 @@ Facendo clic su un elemento, si ottengono altri dettagli sull'operazione di acce
 
 - ID utente
 - Utente
-- Username
+- Nome utente
 - ID applicazione
 - Applicazione
 - Client
@@ -269,11 +269,11 @@ Quando si fa clic su un giorno nel grafico dell'utilizzo dell'app, si ottiene un
 
 L'opzione **Accessi** offre una panoramica completa di tutti gli eventi di accesso nell'applicazione.
 
-## <a name="office-365-activity-logs"></a>Log attività di Office 365
+## <a name="microsoft-365-activity-logs"></a>Log attività Microsoft 365
 
-È possibile visualizzare i log attività di Office 365 dall'interfaccia di [amministrazione di Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Si consideri il fatto che l'attività di Office 365 e i log attività Azure AD condividono un numero significativo di risorse di directory. Solo l'interfaccia di amministrazione di Microsoft 365 fornisce una visualizzazione completa dei log attività di Office 365. 
+È possibile visualizzare i log attività Microsoft 365 dall'interfaccia di [amministrazione di Microsoft 365](/office365/admin/admin-overview/about-the-admin-center). Si consideri il fatto che, Microsoft 365 attività e i log attività Azure AD condividono un numero significativo di risorse di directory. Solo l'interfaccia di amministrazione di Microsoft 365 fornisce una visualizzazione completa dei log attività Microsoft 365. 
 
-È anche possibile accedere ai log attività di Office 365 a livello di codice usando le [API di gestione di office 365](/office/office-365-management-api/office-365-management-apis-overview).
+È anche possibile accedere ai log attività di Microsoft 365 a livello di codice usando le [API di gestione di Office 365](/office/office-365-management-api/office-365-management-apis-overview).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
