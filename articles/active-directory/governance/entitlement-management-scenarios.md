@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e83560caa6f4147252fd4c55767888e7c0ad632b
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 59b66511720966ff978c8460b9ac69ad133b7501
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783400"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707221"
 ---
 # <a name="common-scenarios-in-azure-ad-entitlement-management"></a>Scenari comuni di gestione dei diritti Azure AD
 
@@ -154,7 +154,7 @@ Esistono diversi modi in cui è possibile configurare la gestione dei diritti pe
 
 ## <a name="programmatic-administration"></a>Amministrazione a livello di codice
 
-È anche possibile gestire pacchetti di accesso, cataloghi, criteri, richieste e assegnazioni usando Microsoft Graph.  Un utente con un ruolo appropriato con un'applicazione che dispone dell'autorizzazione delegata `EntitlementManagement.ReadWrite.All` può chiamare l' [API di gestione dei diritti](/graph/api/resources/entitlementmanagement-root?view=graph-rest-beta).
+È anche possibile gestire pacchetti di accesso, cataloghi, criteri, richieste e assegnazioni usando Microsoft Graph.  Un utente con un ruolo appropriato con un'applicazione che dispone dell'autorizzazione delegata `EntitlementManagement.ReadWrite.All` può chiamare l' [API di gestione dei diritti](https://docs.microsoft.com/graph/tutorial-access-package-api?view=graph-rest-beta ).
 
 ## <a name="next-steps"></a>Passaggi successivi
 

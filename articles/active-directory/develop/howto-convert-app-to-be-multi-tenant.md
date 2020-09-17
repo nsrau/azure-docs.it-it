@@ -13,12 +13,12 @@ ms.date: 03/17/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 966149cf1a4f40ccc565b22e9d5afdd599997b4e
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 7ff1e6e3b422f55da332e206aea184ca1b5902a6
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141365"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705895"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>Procedura: Come consentire l'accesso a qualsiasi utente di Azure Active Directory usando il modello di applicazione multi-tenant
 
@@ -141,7 +141,7 @@ L'applicazione può avere più livelli, ognuno rappresentato dalla propria regis
 
 #### <a name="multiple-tiers-in-a-single-tenant"></a>Più livelli in un tenant singolo
 
-Può trattarsi di un problema se l'applicazione logica è costituita da due o più registrazioni di applicazioni, ad esempio un client e una risorsa separati. Come ottenere prima la risorsa nel tenant del cliente? Azure AD si occupa di questo caso, concedendo al client e alla risorsa l'autorizzazione in un unico passaggio. L'utente visualizza la somma totale delle autorizzazioni richieste dal client e dalla risorsa nella pagina del consenso. Per abilitare questo comportamento, la registrazione dell'applicazione della risorsa deve includere l'ID app del client come `knownClientApplications` nel [manifesto dell'applicazione][AAD-App-Manifest]. Ad esempio:
+Può trattarsi di un problema se l'applicazione logica è costituita da due o più registrazioni di applicazioni, ad esempio un client e una risorsa separati. Come ottenere prima la risorsa nel tenant del cliente? Azure AD si occupa di questo caso, concedendo al client e alla risorsa l'autorizzazione in un unico passaggio. L'utente visualizza la somma totale delle autorizzazioni richieste dal client e dalla risorsa nella pagina del consenso. Per abilitare questo comportamento, la registrazione dell'applicazione della risorsa deve includere l'ID app del client come `knownClientApplications` nel [manifesto dell'applicazione][AAD-App-Manifest]. Esempio:
 
 ```aad-app-manifest
     knownClientApplications": ["94da0930-763f-45c7-8d26-04d5938baab2"]
@@ -153,9 +153,9 @@ Ciò viene illustrato in un client nativo multilivello che esegue la chiamata al
 
 #### <a name="multiple-tiers-in-multiple-tenants"></a>Più livelli in tenant multipli
 
-Un caso simile si verifica se i diversi livelli di un'applicazione vengono registrati in tenant diversi. Ad esempio, si consideri il caso della creazione di un'applicazione client nativa che esegue la chiamata all'API di Office 365 Exchange Online. Per sviluppare l'applicazione nativa e successivamente eseguire l'applicazione nativa nel tenant del cliente, è necessario che sia presente l'entità servizio Exchange Online. In questo caso lo sviluppatore e il cliente devono acquistare Exchange Online per creare l'entità servizio nei tenant.
+Un caso simile si verifica se i diversi livelli di un'applicazione vengono registrati in tenant diversi. Si consideri, ad esempio, il caso di compilazione di un'applicazione client nativa che chiama l'API di Exchange Online. Per sviluppare l'applicazione nativa e successivamente eseguire l'applicazione nativa nel tenant del cliente, è necessario che sia presente l'entità servizio Exchange Online. In questo caso lo sviluppatore e il cliente devono acquistare Exchange Online per creare l'entità servizio nei tenant.
 
-Se si tratta di un'API creata da un'organizzazione diversa da Microsoft, lo sviluppatore dell'API deve fornire un modo per consentire ai clienti di fornire il consenso dell'applicazione ai tenant dei clienti. La progettazione consigliata è destinata allo sviluppatore di terze parti a compilare l'API in modo che possa fungere anche da client Web per implementare l'iscrizione. A tale scopo, effettuare le seguenti operazioni:
+Se si tratta di un'API creata da un'organizzazione diversa da Microsoft, lo sviluppatore dell'API deve fornire un modo per consentire ai clienti di fornire il consenso dell'applicazione ai tenant dei clienti. La progettazione consigliata è destinata allo sviluppatore di terze parti a compilare l'API in modo che possa fungere anche da client Web per implementare l'iscrizione. Per eseguire questa operazione:
 
 1. Seguire le sezioni precedenti per verificare che l'API implementi i requisiti del codice/registrazione dell'applicazione multi-tenant.
 2. Oltre ad esporre gli ambiti o i ruoli dell'API, assicurarsi che la registrazione includa l'autorizzazione "Accedi e leggi profilo utente" (fornita per impostazione predefinita).
@@ -181,7 +181,7 @@ Le applicazioni multi-tenant possono anche ottenere i token di accesso per esegu
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Questo articolo ha illustrato come compilare un'applicazione che consente a un utente di accedere da qualsiasi tenant di Azure AD. Dopo aver abilitato l'accesso Single Sign-On (SSO) tra l'app e Azure AD, è anche possibile aggiornare l'applicazione per accedere alle API esposte dalle risorse di Microsoft, come Office 365. In questo modo è possibile offrire un'esperienza personalizzata nell'applicazione, ad esempio mostrando informazioni contestuali per gli utenti, come l'immagine del profilo o il successivo appuntamento nel calendario. Per altre informazioni sulle chiamate API ai servizi di Azure AD e Office 365 come Exchange, SharePoint, OneDrive, OneNote e altri ancora, vedere [API di Microsoft Graph][MSFT-Graph-overview].
+Questo articolo ha illustrato come compilare un'applicazione che consente a un utente di accedere da qualsiasi tenant di Azure AD. Dopo aver abilitato l'accesso Single Sign-on (SSO) tra l'app e Azure AD, è anche possibile aggiornare l'applicazione per accedere alle API esposte da risorse Microsoft, ad esempio Microsoft 365. In questo modo è possibile offrire un'esperienza personalizzata nell'applicazione, ad esempio mostrando informazioni contestuali per gli utenti, come l'immagine del profilo o il successivo appuntamento nel calendario. Per altre informazioni sull'esecuzione di chiamate API a Azure AD e Microsoft 365 servizi come Exchange, SharePoint, OneDrive, OneNote e altro ancora, vedere [Microsoft Graph API][MSFT-Graph-overview].
 
 ## <a name="related-content"></a>Contenuti correlati
 

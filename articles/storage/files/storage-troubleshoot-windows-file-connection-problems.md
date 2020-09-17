@@ -7,19 +7,19 @@ ms.topic: troubleshooting
 ms.date: 09/13/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 16491e36e0196bc3dabee17daf905d9a5204f8cd
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: a899927166d7e1294ad89d48e5c646e6abb5ed76
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564254"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707612"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows-smb"></a>Risolvere i problemi di File di Azure in Windows (SMB)
 
 Questo articolo elenca i problemi comuni correlati a File di Microsoft Azure quando si effettua la connessione da client Windows. L'articolo descrive anche le possibili cause e risoluzioni per tali problemi. Oltre ai passaggi per la risoluzione dei problemi di questo articolo, è anche possibile usare [AzFileDiagnostics](https://github.com/Azure-Samples/azure-files-samples/tree/master/AzFileDiagnostics/Windows)   per assicurarsi che l'ambiente client Windows disponga dei prerequisiti corretti. AzFileDiagnostics automatizza il rilevamento della maggior parte dei sintomi indicati in questo articolo e consente di configurare l'ambiente in modo da ottenere prestazioni ottimali. Queste informazioni sono disponibili anche nello strumento di [risoluzione dei problemi di condivisione file di Azure](https://support.microsoft.com/help/4022301/troubleshooter-for-azure-files-shares) , che fornisce i passaggi necessari per semplificare la connessione, il mapping e il montaggio di condivisioni file di Azure.
 
 > [!IMPORTANT]
-> Il contenuto di questo articolo è valido solo per le condivisioni SMB.
+> Il contenuto di questo articolo è valido solo per le condivisioni SMB. Per informazioni dettagliate sulle condivisioni NFS, vedere [risolvere i problemi relativi alle condivisioni file NFS di Azure](storage-troubleshooting-files-nfs.md).
 
 <a id="error5"></a>
 ## <a name="error-5-when-you-mount-an-azure-file-share"></a>Errore 5 durante il montaggio di una condivisione file di Azure

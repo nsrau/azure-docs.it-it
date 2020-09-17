@@ -11,12 +11,12 @@ ms.topic: troubleshooting
 ms.date: 07/11/2017
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: a5201d0e31eb6d3b06316b74463dc2b68b33008c
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: bfb4d265a42fe1e4473af0f9bde4ebb76f0734a0
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90563914"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707969"
 ---
 # <a name="troubleshoot-problems-signing-in-to-an-application-from-azure-ad-my-apps"></a>Risolvere i problemi di accesso a un'applicazione da Azure AD app personali
 
@@ -27,7 +27,7 @@ Per altre informazioni sull'uso di Azure AD come provider di identità per un'ap
 Queste applicazioni sono configurate per conto dell'utente nel portale di Azure AD. L'applicazione deve essere configurata correttamente e assegnata all'utente o a un gruppo di cui l'utente è membro per visualizzare l'applicazione in app personali. 
 
 Il tipo di app che l'utente può visualizzare rientra nelle categorie seguenti:
--   Applicazioni Microsoft 365 e Office 365
+-   Applicazioni Microsoft 365
 -   Applicazioni Microsoft e di terze parti configurate con il servizio Single Sign-On basato su federazione
 -   Applicazioni SSO basate su password
 -   Applicazioni con soluzioni SSO esistenti
@@ -163,7 +163,7 @@ Per assegnare una licenza a un utente, seguire questa procedura:
 11. Selezionare il pulsante **assegna** per assegnare queste licenze a questo utente.
 
 ## <a name="troubleshooting-deep-links"></a>Risoluzione dei problemi relativi ai collegamenti profondi
-I collegamenti diretti o gli URL di accesso utente sono collegamenti che gli utenti potrebbero utilizzare per accedere alle applicazioni con SSO basato su password direttamente dalla barra degli indirizzi del browser. Passando a questo collegamento, gli utenti accedono automaticamente all'applicazione senza dover prima accedere alle app personali. Il collegamento è identico a quello usato dagli utenti per accedere a queste applicazioni dall'utilità di avvio delle applicazioni di Office 365.
+I collegamenti diretti o gli URL di accesso utente sono collegamenti che gli utenti potrebbero utilizzare per accedere alle applicazioni con SSO basato su password direttamente dalla barra degli indirizzi del browser. Passando a questo collegamento, gli utenti accedono automaticamente all'applicazione senza dover prima accedere alle app personali. Il collegamento è identico a quello usato dagli utenti per accedere a queste applicazioni dal Microsoft 365 l'utilità di avvio delle applicazioni.
 
 ### <a name="checking-the-deep-link"></a>Controllo del collegamento profondo
 

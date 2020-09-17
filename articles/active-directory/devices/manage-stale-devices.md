@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: spunukol
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fc8f599860b6095e1bab90e8e29818d8079e89a9
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 9b327e388366fe3129695a5c1780600e5903508a
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88184942"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705538"
 ---
 # <a name="how-to-manage-stale-devices-in-azure-ad"></a>Procedura: gestire dispositivi non aggiornati in Azure AD
 
@@ -91,7 +91,7 @@ Se il dispositivo è sotto il controllo di Intune o di qualsiasi altra soluzione
 
 Non eliminare i dispositivi gestiti dal sistema. Si tratta in genere di dispositivi, ad esempio Autopilot. Una volta eliminati, non è possibile effettuare nuovamente il provisioning di questi dispositivi. Per impostazione predefinita, il nuovo cmdlet `Get-AzureADDevice` esclude i dispositivi gestiti dal sistema. 
 
-### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivi aggiunti all'identità ibrida di Azure AD
+### <a name="hybrid-azure-ad-joined-devices"></a>Dispositivi aggiunti ad Azure AD ibridi
 
 I dispositivi aggiunti ad Azure AD ibrido devono seguire i criteri per la gestione dei dispositivi non aggiornati in locale. 
 
@@ -175,9 +175,9 @@ Per saperne di più sui diversi tipi, vedere la [panoramica sulla gestione dei d
 
 Viene negata qualsiasi autenticazione in cui viene usato un dispositivo per eseguire l'autenticazione in Azure AD. Esempi comuni:
 
-- **Azure ad ibrido dispositivo aggiunto** : gli utenti potrebbero essere in grado di usare il dispositivo per accedere al dominio locale. Tuttavia, non riescono ad accedere alle risorse di Azure AD come Office 365.
+- **Azure ad ibrido dispositivo aggiunto** : gli utenti potrebbero essere in grado di usare il dispositivo per accedere al dominio locale. Tuttavia, non possono accedere alle risorse Azure AD come Microsoft 365.
 - **Dispositivo aggiunto ad Azure AD**: gli utenti non possono usare il dispositivo per eseguire l'accesso. 
-- **Utenti di dispositivi mobili**: gli utenti non riescono ad accedere alle risorse di Azure AD come Office 365. 
+- **Dispositivi mobili** : l'utente non può accedere a risorse Azure AD come Microsoft 365. 
 
 ## <a name="next-steps"></a>Passaggi successivi
 

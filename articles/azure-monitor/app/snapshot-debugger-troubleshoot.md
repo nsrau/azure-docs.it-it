@@ -2,18 +2,18 @@
 title: Risolvere i problemi relativi a applicazione Azure Insights Snapshot Debugger
 description: Questo articolo presenta le informazioni e i passaggi per la risoluzione dei problemi per aiutare gli sviluppatori che non riescono ad abilitare o usare Application Insights Snapshot Debugger.
 ms.topic: conceptual
-author: brahmnes
+author: cweining
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 485f35ed249ab7f6bbb987d8c79afe20287cd25a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 935e1832629827b0286a79ab8ea6d1dfbb143e1c
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77671410"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707833"
 ---
-# <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a>Risolvere i problemi abilitando Application Insights Snapshot Debugger o visualizzando gli snapshot
-Se è stata abilitata Application Insights Snapshot Debugger per l'applicazione, ma non vengono visualizzati snapshot per le eccezioni, è possibile utilizzare queste istruzioni per la risoluzione dei problemi. Possono esserci diversi motivi per cui non vengono generati snapshot. È possibile eseguire il controllo integrità snapshot per identificare alcune delle possibili cause comuni.
+# <a name="troubleshoot-problems-enabling-application-insights-snapshot-debugger-or-viewing-snapshots"></a><a id="troubleshooting"></a> Risolvere i problemi abilitando Application Insights Snapshot Debugger o visualizzando gli snapshot
+Se è stata abilitata Application Insights Snapshot Debugger per l'applicazione, ma non vengono visualizzati snapshot per le eccezioni, è possibile utilizzare queste istruzioni per la risoluzione dei problemi. I motivi per cui gli snapshot non vengono generati possono essere diversi. È possibile eseguire il controllo integrità snapshot per identificare alcune delle possibili cause comuni.
 
 ## <a name="use-the-snapshot-health-check"></a>Usare il controllo integrità dello snapshot
 Alcuni problemi comuni riguardano la mancata visualizzazione di Apri snapshot di debug. Ad esempio, se si usa un agente di raccolta snapshot obsoleto, se si raggiunge il limite giornaliero di caricamento o se il caricamento dello snapshot richiede molto tempo. Per la risoluzione di problemi comuni, usare il controllo integrità dello snapshot.
@@ -31,6 +31,30 @@ Se il problema non viene risolto, fare riferimento ai passaggi manuali di risolu
 ## <a name="verify-the-instrumentation-key"></a>Verificare la chiave di strumentazione
 
 Verificare di usare la chiave di strumentazione corretta nell'applicazione pubblicata. In genere, la chiave di strumentazione viene letta dal file ApplicationInsights.config. Verificare che il valore sia lo stesso della chiave di strumentazione per la risorsa di Application Insights visualizzata nel portale.
+
+## <a name="check-ssl-client-settings-aspnet"></a><a id="SSL"></a>Controllare le impostazioni del client SSL (ASP.NET)
+
+Se si dispone di un'applicazione ASP.NET ospitata nel servizio app Azure o in IIS in una macchina virtuale, l'applicazione potrebbe non riuscire a connettersi al servizio Snapshot Debugger a causa di un protocollo di sicurezza SSL mancante.
+[L'endpoint snapshot debugger richiede TLS versione 1,2](snapshot-debugger-upgrade.md?toc=/azure/azure-monitor/toc.json). Il set di protocolli di sicurezza SSL è uno dei peculiari abilitati dal valore httpRuntime targetFramework nella sezione System. Web della web.config. Se httpRuntime targetFramework è 4.5.2 o Lower, TLS 1,2 non è incluso per impostazione predefinita.
+
+> [!NOTE]
+> Il valore targetFramework di httpRuntime è indipendente dal framework di destinazione usato durante la compilazione dell'applicazione.
+
+Per controllare l'impostazione, aprire il file di web.config e trovare la sezione System. Web. Verificare che `targetFramework` per `httpRuntime` sia impostato su 4,6 o versione successiva.
+
+   ```xml
+   <system.web>
+      ...
+      <httpRuntime targetFramework="4.7.2" />
+      ...
+   </system.web>
+   ```
+
+> [!NOTE]
+> Modificando il valore di targetFramework di httpRuntime si modificano le anomalie di runtime applicate all'applicazione e possono verificarsi modifiche di comportamento impercettibili. Assicurarsi di testare accuratamente l'applicazione dopo avere apportato questa modifica. Per un elenco completo delle modifiche per la compatibilità, vedere https://docs.microsoft.com/dotnet/framework/migration-guide/application-compatibility#retargeting-changes
+
+> [!NOTE]
+> Se il targetFramework è 4,7 o superiore, Windows determina i protocolli disponibili. Nel servizio app Azure è disponibile TLS 1,2. Tuttavia, se si usa la propria macchina virtuale, potrebbe essere necessario abilitare TLS 1,2 nel sistema operativo.
 
 ## <a name="preview-versions-of-net-core"></a>Versioni di anteprima di .NET Core
 Se l'applicazione usa una versione di anteprima di .NET Core e Snapshot Debugger è stata abilitata tramite il [riquadro Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json) nel portale, snapshot debugger potrebbe non essere avviata. Per prima cosa includere il pacchetto NuGet [Microsoft. ApplicationInsights. SnapshotCollector](https://www.nuget.org/packages/Microsoft.ApplicationInsights.SnapshotCollector) con l'applicazione, ***oltre*** ad abilitare il [riquadro Application Insights](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json), seguire le istruzioni riportate in [Enable snapshot debugger for other environments](snapshot-debugger-vm.md?toc=/azure/azure-monitor/toc.json) .
@@ -84,7 +108,7 @@ SnapshotUploader.exe Information: 0 : Deleted D:\local\Temp\Dumps\c12a605e73c443
 Nell'esempio precedente la chiave di strumentazione è `c12a605e73c44346a984e00000000000`. Questo valore deve corrispondere alla chiave di strumentazione dell'applicazione.
 Il minidump è associato a uno snapshot con l'ID `139e411a23934dc0b9ea08a626db16c5`. Sarà possibile usare questo ID in seguito per individuare i dati di telemetria delle eccezioni associati in Application Insights Analytics.
 
-L'utilità di caricamento cerca i nuovi file PDB ogni 15 minuti circa. Ad esempio:
+L'utilità di caricamento cerca i nuovi file PDB ogni 15 minuti circa. Ecco un esempio:
 
 ```
 SnapshotUploader.exe Information: 0 : PDB rescan requested.
@@ -199,7 +223,7 @@ In alternativa, se si usa appsettings.json con un'applicazione .NET Core:
 Quando viene creato uno snapshot, l'eccezione generata viene contrassegnata con un ID snapshot. Tale ID snapshot viene incluso come proprietà personalizzata, quando i dati di telemetria dell'eccezione vengono segnalati ad Application Insights. Usando **Cerca** in Application Insights, è possibile trovare tutti i dati di telemetria con la proprietà personalizzata `ai.snapshot.id`.
 
 1. Passare alla risorsa di Application Insights nel portale di Azure.
-2. Scegliere **Cerca**.
+2. Fare clic su **Cerca**.
 3. Digitare `ai.snapshot.id` nella casella di testo di ricerca e premere INVIO.
 
 ![Cercare i dati di telemetria con i ID snapshot nel portale](./media/snapshot-debugger/search-snapshot-portal.png)

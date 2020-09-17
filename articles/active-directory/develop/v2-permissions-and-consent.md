@@ -1,6 +1,6 @@
 ---
 title: Ambiti, autorizzazioni e consenso della piattaforma di identità Microsoft
-description: Descrizione dell'autorizzazione nell'endpoint della piattaforma di identità Microsoft, inclusi gli ambiti, le autorizzazioni e il consenso.
+description: Informazioni sull'autorizzazione nell'endpoint della piattaforma di identità Microsoft, inclusi gli ambiti, le autorizzazioni e il consenso.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -12,12 +12,12 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: aaddev, fasttrack-edit
-ms.openlocfilehash: d513dbd8449dad1d34117e06970f0c0881462aa3
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f1c35fc80a4ab5b293a974b8f2901716e65f32b1
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84263228"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705691"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Autorizzazioni e consenso nell'endpoint di Microsoft Identity Platform
 
@@ -28,11 +28,11 @@ Le applicazioni che si integrano con Microsoft Identity Platform seguono un mode
 Microsoft Identity Platform implementa il protocollo di autorizzazione [OAuth 2.0](active-directory-v2-protocols.md). OAuth 2.0 è un metodo tramite cui un'applicazione di terze parti può accedere alle risorse ospitate sul Web per conto dell'utente. Qualsiasi risorsa ospitata sul Web che si integra con Microsoft Identity Platform ha un identificatore di risorsa, o *URI dell'ID applicazione*. Ad esempio, alcune delle risorse ospitate sul Web di Microsoft includono:
 
 * Microsoft Graph: `https://graph.microsoft.com`
-* API Office 365 Mail: `https://outlook.office.com`
-* Azure Key Vault:`https://vault.azure.net`
+* API di posta elettronica Microsoft 365: `https://outlook.office.com`
+* Azure Key Vault: `https://vault.azure.net`
 
 > [!NOTE]
-> Si consiglia vivamente di usare Microsoft Graph anziché l'API di posta elettronica di Office 365 e così via.
+> Si consiglia di usare Microsoft Graph anziché Microsoft 365 API di posta elettronica e così via.
 
 Lo stesso vale per le risorse di terze parti integrate con Microsoft Identity Platform. Tali risorse possono anche definire un set di autorizzazioni che può essere usato per suddividere le funzionalità di tale risorsa in blocchi più piccoli. Ad esempio, [Microsoft Graph](https://graph.microsoft.com) ha definito le autorizzazioni per eseguire le attività seguenti, tra le altre:
 
@@ -193,12 +193,12 @@ https://graph.microsoft.com/mail.send
 ```
 
 
-| Parametro        | Condizione        | Description                                                                                |
+| Parametro        | Condizione        | Descrizione                                                                                |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
-| `tenant` | Necessario | Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere specificato in formato GUID o nome descrittivo o a cui si fa riferimento in modo generico con le organizzazioni come illustrato nell'esempio. Non usare ' Common ', perché gli account personali non possono fornire il consenso dell'amministratore tranne nel contesto di un tenant. Per garantire la massima compatibilità con gli account personali per la gestione dei tenant, usare l'ID tenant quando possibile. |
+| `tenant` | Obbligatorio | Il tenant della directory da cui si desidera richiedere autorizzazioni. Può essere specificato in formato GUID o nome descrittivo o a cui si fa riferimento in modo generico con le organizzazioni come illustrato nell'esempio. Non usare ' Common ', perché gli account personali non possono fornire il consenso dell'amministratore tranne nel contesto di un tenant. Per garantire la massima compatibilità con gli account personali per la gestione dei tenant, usare l'ID tenant quando possibile. |
 | `client_id` | Obbligatoria | L'**ID dell'applicazione (client)** assegnato all'app dall'esperienza[Portale di Azure - Registrazioni app](https://go.microsoft.com/fwlink/?linkid=2083908). |
 | `redirect_uri` | Obbligatoria |URI di reindirizzamento in cui si desidera che venga inviata la risposta per la gestione da parte dell'app. Deve corrispondere esattamente a uno degli URI di reindirizzamento registrati nel portale di registrazione delle applicazioni. |
-| `state` | Implementazione consigliata | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Usare questo stato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
+| `state` | Consigliato | Valore incluso nella richiesta che verrà restituito anche nella risposta del token. Può trattarsi di una stringa di qualsiasi contenuto. Usare questo stato per codificare le informazioni sullo stato dell'utente nell'app prima dell'esecuzione della richiesta di autenticazione, ad esempio la pagina o la vista in cui si trovava. |
 |`scope`        | Necessario        | Definisce il set di autorizzazioni richieste dall'applicazione. Può trattarsi di ambiti statici (using [`/.default`](#the-default-scope) ) o dinamici.  Possono essere inclusi gli ambiti OIDC ( `openid` , `profile` , `email` ). Se sono necessarie le autorizzazioni dell'applicazione, è necessario usare `/.default` per richiedere l'elenco di autorizzazioni configurate in modo statico.  |
 
 

@@ -13,22 +13,22 @@ ms.date: 11/30/2018
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
 ms.custom: aaddev, has-adal-ref
-ms.openlocfilehash: 75d848c8d4459e5534e2954a11612bdf44f6d1ce
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: e9780332ad6279deef63910c7e6ba95e1ccf43bd
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141551"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706133"
 ---
 # <a name="azure-active-directory-consent-framework"></a>Framework di consenso di Azure Active Directory
 
-Il framework di consenso di Azure Active Directory (Azure AD) semplifica lo sviluppo di applicazioni client native e Web multi-tenant. Queste applicazioni consentono l'accesso da parte degli account utente da un tenant di Azure AD diverso da quello in cui l'applicazione è registrata. Le applicazioni possono anche dover accedere ad API Web, come l'API Microsoft Graph (per l'accesso ad Azure AD, Intune e ai servizi di Office 365) e alle API di altri servizi Microsoft, oltre che alle API Web personalizzate.
+Il framework di consenso di Azure Active Directory (Azure AD) semplifica lo sviluppo di applicazioni client native e Web multi-tenant. Queste applicazioni consentono l'accesso da parte degli account utente da un tenant di Azure AD diverso da quello in cui l'applicazione è registrata. Possono anche dover accedere alle API Web, ad esempio l'API Microsoft Graph (per accedere Azure AD, Intune e servizi in Microsoft 365) e altre API dei servizi Microsoft, oltre alle API Web personalizzate.
 
-Il framework è basato sulla possibilità per un utente o un amministratore di fornire il consenso alla richiesta di registrazione di un'applicazione nella propria directory, che può comportare l'accesso a dati di directory. Ad esempio, se un'applicazione client Web deve leggere le informazioni del calendario dell'utente da Office 365, l'utente deve prima fornire il consenso all'applicazione client. Una volta ottenuto il consenso, l'applicazione client potrà chiamare l'API di Microsoft Graph per conto dell'utente e usare le informazioni del calendario nel modo necessario. L'[API Microsoft Graph](https://developer.microsoft.com/graph) fornisce l'accesso ai dati in Office 365 (come calendari e messaggi di Exchange, siti ed elenchi di SharePoint, documenti di OneDrive, blocchi appunti di OneNote, attività di Planner e cartelle di lavoro di Excel), nonché a utenti e gruppi di Azure AD e ad altri oggetti dati di più servizi cloud Microsoft.
+Il framework è basato sulla possibilità per un utente o un amministratore di fornire il consenso alla richiesta di registrazione di un'applicazione nella propria directory, che può comportare l'accesso a dati di directory. Se, ad esempio, un'applicazione client Web deve leggere le informazioni del calendario relative all'utente da Microsoft 365, l'utente deve prima di tutto concedere il consenso all'applicazione client. Una volta ottenuto il consenso, l'applicazione client potrà chiamare l'API di Microsoft Graph per conto dell'utente e usare le informazioni del calendario nel modo necessario. L' [API Microsoft Graph](https://developer.microsoft.com/graph) consente di accedere ai dati in Microsoft 365, ad esempio calendari e messaggi di Exchange, siti ed elenchi di SharePoint, documenti di OneDrive, notebook da OneNote, attività di Planner e cartelle di lavoro di Excel, nonché utenti e gruppi di Azure ad e altri oggetti dati di altri servizi cloud Microsoft.
 
 Il framework di consenso è basato su OAuth 2.0 e i relativi flussi diversi, come la concessione del codice di autorizzazione e delle credenziali utente, mediante client pubblici o riservati. Tramite OAuth 2.0, Azure AD consente di creare numerosi tipi diversi di applicazioni client, ad esempio su telefono, tablet, server o applicazione Web, e di ottenere l'accesso alle risorse necessarie.
 
-Per altre informazioni sull'uso del framework di consenso con le concessioni di autorizzazione OAuth 2.0, vedere [Autorizzare l'accesso ad applicazioni Web tramite OAuth 2.0 e Azure AD](v2-oauth2-auth-code-flow.md) e [Scenari di autenticazione per Azure AD](./authentication-vs-authorization.md). Per informazioni su come ottenere l'autorizzazione per l'accesso a Office 365 tramite Microsoft Graph, vedere [App authentication with Microsoft Graph](/graph/) (Autenticazione di app con Microsoft Graph).
+Per altre informazioni sull'uso del framework di consenso con le concessioni di autorizzazione OAuth 2.0, vedere [Autorizzare l'accesso ad applicazioni Web tramite OAuth 2.0 e Azure AD](v2-oauth2-auth-code-flow.md) e [Scenari di autenticazione per Azure AD](./authentication-vs-authorization.md). Per informazioni su come ottenere l'accesso autorizzato ai Microsoft 365 tramite Microsoft Graph, vedere l'articolo relativo all' [autenticazione delle app con Microsoft Graph](/graph/).
 
 ## <a name="consent-experience---an-example"></a>Esempio di esperienza di consenso
 

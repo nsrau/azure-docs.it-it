@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: kenwith
-ms.openlocfilehash: 955efe45be27fa2f4e738066bb3b69b3604be33a
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 5229b123986149903d562bc0b3d6902c0136f647
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89400722"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707884"
 ---
 # <a name="viewing-apps-using-your-azure-ad-tenant-for-identity-management"></a>Visualizzazione di app con il tenant di Azure AD per la gestione delle identità
 La [serie di guide introduttive sulla gestione delle applicazioni](view-applications-portal.md) offre le nozioni di base. Si apprenderà come visualizzare tutte le app usando il tenant di Azure AD per la gestione delle identità. Questo articolo illustra in maniera approfondita i tipi di app disponibili.
@@ -27,7 +27,7 @@ Quando viene applicato un filtro a **tutte le applicazioni**, l' **elenco** **tu
    - **Azure ad-registrazioni app** : app aggiunte al tenant usando l'opzione **registrazioni app** nel portale di Azure ad. In genere app personalizzate sviluppate usando gli standard Open ID Connect e OAuth.
    - **Applicazioni del proxy di applicazione**: un'applicazione in esecuzione nell'ambiente locale per cui si vuole offrire l'accesso Single Sign-On sicuro all'esterno.
 - Quando si effettua l'iscrizione o si accede a un'applicazione di terze parti integrata con Azure Active Directory. ad esempio [Smartsheet](https://app.smartsheet.com/b/home) o [DocuSign](https://www.docusign.net/member/MemberLogin.aspx).
-- App Microsoft, ad esempio Microsoft 365 o Office 365.
+- App Microsoft, ad esempio Microsoft 365.
 - Quando si aggiunge una nuova registrazione di applicazione creando un'applicazione personalizzata con il [Registro applicazioni](https://docs.microsoft.com/azure/active-directory/active-directory-app-registration).
 - Quando si aggiunge una nuova registrazione di applicazione creando un'applicazione personalizzata con il [portale di registrazione delle applicazioni V2.0](https://docs.microsoft.com/azure/active-directory/develop/active-directory-v2-app-registration).
 - Quando si aggiunge un'applicazione, si sta sviluppando usando i [metodi di autenticazione ASP.NET](https://www.asp.net/visual-studio/overview/2013/creating-web-projects-in-visual-studio#orgauthoptions) di Visual Studio o [servizi connessi](https://devblogs.microsoft.com/visualstudio/connecting-to-cloud-services/)

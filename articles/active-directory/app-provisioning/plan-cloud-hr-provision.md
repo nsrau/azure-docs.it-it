@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: kenwith
 ms.reviewer: arvindha, celested
-ms.openlocfilehash: b96b679e967fd898f072b4b1ae195e3dd1061c04
-ms.sourcegitcommit: 3bf69c5a5be48c2c7a979373895b4fae3f746757
+ms.openlocfilehash: 3a3f461941bfcd5091ebb14818bac05d6844b3fe
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88235695"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706356"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>Pianificare l'applicazione cloud HR per Azure Active Directory il provisioning degli utenti
 
@@ -50,9 +50,9 @@ L'integrazione delle app HR cloud con Azure AD provisioning degli utenti è part
 - Richiedere il provisioning utenti diretto dall'app Cloud HR per Active Directory o Azure AD.
 - Richiedere il provisioning degli utenti usando i dati ottenuti dall'app Cloud HR.
 - Richiedere l'Unione, lo stato di trasferimento e l'uscita degli utenti per la sincronizzazione in uno o più Active Directory foreste, domini e unità organizzative basate solo sulle informazioni sulle modifiche rilevate nell'app Cloud HR.
-- Usare Office 365 per la posta elettronica.
+- Usare Microsoft 365 per la posta elettronica.
 
-## <a name="learn"></a>Informazioni
+## <a name="learn"></a>Learn
 
 Il provisioning degli utenti crea una base per la governance delle identità in corso. Migliora la qualità dei processi di business che si basano sui dati di identità autorevoli.
 
@@ -61,14 +61,14 @@ Il provisioning degli utenti crea una base per la governance delle identità in 
 Questo articolo usa i termini seguenti:
 
 - **Sistema di origine**: repository di utenti che Azure ad provisioning da. Un esempio è un'app HR cloud come la giornata lavorativa o SuccessFactors.
-- **Sistema di destinazione**: il repository di utenti a cui il Azure ad effettua il provisioning. Gli esempi sono Active Directory, Azure AD, Office 365 o altre app SaaS.
+- **Sistema di destinazione**: il repository di utenti a cui il Azure ad effettua il provisioning. Gli esempi sono Active Directory, Azure AD, Microsoft 365 o altre app SaaS.
 - **Joiner-Movers-processo di uscita**: un termine usato per nuove assunzioni, trasferimenti e terminazioni usando un'app HR cloud come un sistema di record. Il processo viene completato quando il servizio esegue correttamente il provisioning degli attributi necessari per il sistema di destinazione.
 
 ### <a name="key-benefits"></a>Vantaggi principali
 
 Questa funzionalità del provisioning IT basato su HR offre i vantaggi aziendali seguenti:
 
-- **Aumentare la produttività:** È ora possibile automatizzare l'assegnazione degli account utente e delle licenze di Office 365 e fornire l'accesso ai gruppi di chiavi. Automatizzando le assegnazioni, i nuovi assunti hanno accesso immediato ai propri strumenti di lavoro e aumentano la produttività.
+- **Aumentare la produttività:** È ora possibile automatizzare l'assegnazione degli account utente e Microsoft 365 licenze e fornire l'accesso ai gruppi di chiavi. Automatizzando le assegnazioni, i nuovi assunti hanno accesso immediato ai propri strumenti di lavoro e aumentano la produttività.
 - **Gestisci i rischi:** Per aumentare la sicurezza, è possibile automatizzare le modifiche in base allo stato dei dipendenti o alle appartenenze ai gruppi con dati provenienti dall'app Cloud HR. L'automazione delle modifiche garantisce che le identità degli utenti e l'accesso alle app principali vengano aggiornate automaticamente quando gli utenti passano o lasciano l'organizzazione.
 - **Conformità e governance degli indirizzi:** Azure AD supporta i log di controllo nativi per le richieste di provisioning degli utenti eseguite dalle app del sistema di origine e di destinazione. Con il controllo è possibile tenere traccia degli utenti che hanno accesso alle app da un'unica schermata.
 - **Gestione dei costi:** Il provisioning automatico riduce i costi evitando inefficienze ed errori umani associati al provisioning manuale. Riduce la necessità di soluzioni di provisioning utente personalizzate sviluppate nel tempo usando piattaforme legacy e obsolete.
@@ -94,7 +94,7 @@ Per configurare l'app HR cloud per Azure AD l'integrazione del provisioning degl
 |:-|:-|
 | Video | [Che cos'è il provisioning utenti in Active Directory di Azure?](https://youtu.be/_ZjARPpI6NI) |
 | | [Come distribuire il provisioning utenti in Active Directory di Azure](https://youtu.be/pKzyts6kfrw) |
-| Esercitazioni | [Elenco delle esercitazioni sull'integrazione di app SaaS con Azure AD](../saas-apps/tutorial-list.md) |
+| Esercitazioni | [Elenco di esercitazioni sull'integrazione delle app SaaS con Azure AD](../saas-apps/tutorial-list.md) |
 | | [Esercitazione: Configurare Workday per il provisioning utenti automatico](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
 | Domande frequenti | [Provisioning utenti automatizzato](../app-provisioning/user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
 | | [Provisioning da giorni lavorativi a Azure AD](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |

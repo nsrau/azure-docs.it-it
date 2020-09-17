@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: tanning
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb376ebacdd76fdde30178e19fa3c3062e57da1c
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: e427a68751cc348a7b0024fb01402bd15ca87d2a
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267242"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705725"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Risoluzione dei problemi di Enterprise State Roaming in Azure Active Directory
 
@@ -78,9 +78,9 @@ Enterprise State Roaming richiede che il dispositivo sia registrato con Azure AD
 
 In determinate condizioni, l'Enterprise State Roaming potrebbe non riuscire a sincronizzare i dati se è configurata la funzione Azure Multi-Factor Authentication. Per ulteriori informazioni su questi sintomi, vedere il documento di supporto [KB3193683](https://support.microsoft.com/kb/3193683). 
 
-**Potenziale problema**: se nel portale di Azure Active Directory il dispositivo è configurato per richiedere la Multi-Factor Authentication, potrebbe non essere possibile sincronizzare le impostazioni durante l'accesso tramite password a un dispositivo Windows 10. Questo tipo di configurazione Multi-Factor Authentication è pensata per proteggere gli account di amministratore di Azure. Gli utenti amministratori potrebbero riuscire comunque a sincronizzare l'accesso ai dispositivi Windows 10 tramite il PIN Microsoft Passport for Work o eseguendo la Multi-Factor Authentication durante l'accesso ad altri servizi Azure, come Office 365.
+**Potenziale problema**: se nel portale di Azure Active Directory il dispositivo è configurato per richiedere la Multi-Factor Authentication, potrebbe non essere possibile sincronizzare le impostazioni durante l'accesso tramite password a un dispositivo Windows 10. Questo tipo di configurazione Multi-Factor Authentication è pensata per proteggere gli account di amministratore di Azure. Gli utenti amministratori potrebbero ancora essere in grado di eseguire la sincronizzazione accedendo ai dispositivi Windows 10 con il PIN Microsoft Passport for Work o completando Multi-Factor Authentication durante l'accesso ad altri servizi di Azure, ad esempio Microsoft 365.
 
-**Potenziale problema**: la sincronizzazione può non riuscire se l'amministratore configura il Active Directory Federation Services multi-factor authentication i criteri di accesso condizionale e il token di accesso nel dispositivo scade. Per accedere e disconnettersi, usare sempre il PIN Microsoft Passport for Work oppure eseguire l'autenticazione Multi-Factor Authentication quando si accede ad altri servizi Azure come Office 365.
+**Potenziale problema**: la sincronizzazione può non riuscire se l'amministratore configura il Active Directory Federation Services multi-factor authentication i criteri di accesso condizionale e il token di accesso nel dispositivo scade. Assicurarsi di effettuare l'accesso e la disconnessione usando il PIN Microsoft Passport for Work o completare Multi-Factor Authentication durante l'accesso ad altri servizi di Azure, ad esempio Microsoft 365.
 
 ### <a name="event-viewer"></a>Visualizzatore eventi
 
@@ -111,7 +111,7 @@ Assicurarsi che il client Windows 10 v1511 disponga dell'aggiornamento cumulativ
 Per evitare la perdita di dati, i dati protetti con [windows Information Protection](/windows/security/information-protection/windows-information-protection/protect-enterprise-data-using-wip) non vengono sincronizzati tramite Enterprise state roaming per i dispositivi che usano l'aggiornamento dell'anniversario di Windows 10.
 
 **Azione consigliata**  
-Nessuno. È possibile che questo problema venga risolto da aggiornamenti futuri di Windows.
+No. È possibile che questo problema venga risolto da aggiornamenti futuri di Windows.
 
 ---
 
@@ -120,7 +120,7 @@ Nessuno. È possibile che questo problema venga risolto da aggiornamenti futuri 
 Nei dispositivi aggiunti a un dominio non verranno sincronizzati la data, l'ora e l'ora automatica dell'area. L'uso dell'ora automatica potrebbe sovrascrivere le altre impostazioni di data, ora e area e causare la mancata sincronizzazione di queste impostazioni. 
 
 **Azione consigliata**  
-Nessuno. 
+No. 
 
 ---
 
@@ -138,7 +138,7 @@ Assicurarsi che il client Windows 10 v1511 disponga dell'aggiornamento cumulativ
 Se si tenta di accedere al dispositivo Windows utilizzando una smart card, anche virtuale, la sincronizzazione delle impostazioni cesserà di funzionare.     
 
 **Azione consigliata**  
-Nessuno. È possibile che questo problema venga risolto da aggiornamenti futuri di Windows.
+No. È possibile che questo problema venga risolto da aggiornamenti futuri di Windows.
 
 ---
 

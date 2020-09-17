@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: dd009542adffed2f459534c943e3a873678ecd35
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: 971554443e5b420cf759f86013445a6ff9069dea
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604921"
+ms.locfileid: "90706868"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-mysql"></a>Informazioni sulle modifiche apportate alla modifica della CA radice per database di Azure per MySQL
 
@@ -28,9 +28,8 @@ Il nuovo certificato verrà usato a partire dal 26 ottobre 2020 (10/26/2020). Se
 ## <a name="how-do-i-know-if-my-database-is-going-to-be-affected"></a>Ricerca per categorie verificare se il database sarà interessato?
 
 Tutte le applicazioni che usano SSL/TLS e verificano che il certificato radice debba aggiornare il certificato radice. È possibile stabilire se le connessioni verificano il certificato radice rivedendo la stringa di connessione.
--   Se la stringa di connessione include `sslmode=verify-ca` o ''
--   Se la stringa di connessione include `sslmode=disable` , non è necessario aggiornare i certificati.
--   Se la stringa di connessione include `sslmode=allow` , `sslmode=prefer` o `sslmode=require` , non è necessario aggiornare i certificati. 
+-   Se la stringa di connessione include `sslmode=verify-ca` o `sslmode=verify-full` , è necessario aggiornare il certificato.
+-   Se la stringa di connessione include `sslmode=disable` ,, `sslmode=allow` `sslmode=prefer` o `sslmode=require` , non è necessario aggiornare i certificati. 
 -   Se la stringa di connessione non specifica sslmode, non è necessario aggiornare i certificati.
 
 Se si usa un client che astrae la stringa di connessione, esaminare la documentazione del client per capire se verifica i certificati.

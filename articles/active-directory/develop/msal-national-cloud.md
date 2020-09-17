@@ -13,12 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: 479e74f9c36864e041685393d35972e7365260da
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 0b54a8227594a81c17dcaaaaa6c599d70217c498
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88119439"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705861"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>Usare MSAL in un ambiente cloud nazionale
 
@@ -42,7 +42,7 @@ Prima di iniziare, verificare che siano soddisfatti questi prerequisiti.
 
 Le applicazioni di [Azure per enti](../../azure-government/index.yml) pubblici possono usare Azure ad identità governative e Azure ad identità pubbliche per autenticare gli utenti. Poiché è possibile usare una di queste identità, è necessario decidere quale endpoint dell'autorità scegliere per lo scenario:
 
-- Azure AD public: comunemente usato se l'organizzazione dispone già di un Azure AD tenant pubblico per supportare Office 365 (pubblico o GCC) o un'altra applicazione.
+- Azure AD public: comunemente usato se l'organizzazione dispone già di un Azure AD tenant pubblico per supportare Microsoft 365 (pubblico o GCC) o un'altra applicazione.
 - Azure AD Government: comunemente usato se l'organizzazione dispone già di un tenant di Azure AD Government per supportare Office 365 (GCC High o DoD) o sta creando un nuovo tenant in Azure AD Government.
 
 Una volta deciso, una particolare considerazione è la posizione in cui si esegue la registrazione dell'app. Se si sceglie Azure AD identità pubbliche per l'applicazione Azure per enti pubblici, è necessario registrare l'applicazione nel tenant pubblico di Azure AD.
@@ -122,7 +122,7 @@ const myMSALObj = new UserAgentApplication(msalConfig);
 
 Nel codice:
 
-- `Enter_the_Application_Id_here`è il valore ID dell'applicazione **(client)** per l'applicazione registrata.
+- `Enter_the_Application_Id_here` è il valore ID dell'applicazione **(client)** per l'applicazione registrata.
 - `Enter_the_Tenant_Info_Here` è impostato su una delle opzioni seguenti:
     - Se l'applicazione supporta gli **account in questa directory aziendale**, sostituire questo valore con l'ID tenant o il nome del tenant (ad esempio, contoso.Microsoft.com).
     - Se l'applicazione supporta gli **account in qualsiasi directory organizzativa**, sostituire questo valore con `organizations` .
@@ -132,7 +132,7 @@ Nel codice:
     > [!NOTE]
     > Gli account Microsoft personali non sono supportati nei cloud nazionali.
 
-- `graphEndpoint`è l'endpoint Microsoft Graph per Microsoft Cloud per il governo degli Stati Uniti.
+- `graphEndpoint` è l'endpoint Microsoft Graph per Microsoft Cloud per il governo degli Stati Uniti.
 
    Per trovare endpoint Microsoft Graph per tutti i cloud nazionali, vedere [Microsoft Graph endpoint nei cloud nazionali](/graph/deployments#microsoft-graph-and-graph-explorer-service-root-endpoints).
 

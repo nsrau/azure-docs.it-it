@@ -12,12 +12,12 @@ ms.date: 04/08/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, seoapril2019
-ms.openlocfilehash: c193742527cf69526d69549d3c10f5591f0d2f93
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: bdeb27f9e761fefc52c9c97b28d15770e22221f4
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88115697"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706167"
 ---
 # <a name="integrating-with-microsoft-identity-platform"></a>Integrazione con la piattaforma di identità Microsoft
 
@@ -31,7 +31,7 @@ Esistono diversi modi per integrare l'applicazione con la piattaforma di identit
 
 ### <a name="support-microsoft-identity-platform-as-a-way-to-sign-in-to-your-application"></a>Supporto della piattaforma di identità Microsoft per accedere all'applicazione
 
-**Ridurre i problemi di accesso e i costi di supporto.** Usando la piattaforma di identità Microsoft per accedere all'applicazione, gli utenti non avranno un nome e una password da ricordare. Gli sviluppatori avranno invece una password in meno da archiviare e proteggere. Anche il solo fatto di non dover gestire la reimpostazione delle password dimenticate costituisce un risparmio significativo. Microsoft Identity Platform Powers permette di accedere ad alcune delle applicazioni cloud più diffuse del mondo, tra cui Office 365 e Microsoft Azure. Con centinaia di milioni di utenti di milioni di organizzazioni, è probabile che l'utente abbia già eseguito l'accesso alla piattaforma Microsoft Identity. Altre informazioni sull' [aggiunta del supporto per l'accesso alla piattaforma di identità Microsoft](./authentication-vs-authorization.md).
+**Ridurre i problemi di accesso e i costi di supporto.** Usando la piattaforma di identità Microsoft per accedere all'applicazione, gli utenti non avranno un nome e una password da ricordare. Gli sviluppatori avranno invece una password in meno da archiviare e proteggere. Anche il solo fatto di non dover gestire la reimpostazione delle password dimenticate costituisce un risparmio significativo. Microsoft Identity Platform Powers permette di accedere ad alcune delle applicazioni cloud più diffuse del mondo, tra cui Microsoft 365 e Microsoft Azure. Con centinaia di milioni di utenti di milioni di organizzazioni, è probabile che l'utente abbia già eseguito l'accesso alla piattaforma Microsoft Identity. Altre informazioni sull' [aggiunta del supporto per l'accesso alla piattaforma di identità Microsoft](./authentication-vs-authorization.md).
 
 **Semplificare l'iscrizione all'applicazione.**  Durante l'iscrizione per l'applicazione, la piattaforma di identità Microsoft può inviare informazioni essenziali su un utente in modo che sia possibile compilare il modulo di iscrizione o eliminarlo completamente. Gli utenti possono effettuare l'iscrizione all'applicazione usando l'account Azure AD tramite un'esperienza di consenso nota simile a quelle dei social media e delle applicazioni per dispositivi mobili. Qualsiasi utente può iscriversi e accedere a un'applicazione integrata con Microsoft Identity Platform senza richiedere il coinvolgimento IT. Altre informazioni sulla [registrazione dell'applicazione per l'accesso con l'account Azure AD](../../app-service/configure-authentication-provider-aad.md) .
 
@@ -47,13 +47,13 @@ Esistono diversi modi per integrare l'applicazione con la piattaforma di identit
 
 ### <a name="get-access-to-users-profile-calendar-email-contacts-files-and-more"></a>Ottenere l'accesso al profilo utente, al calendario, alla posta elettronica, ai contatti, ai file e altro ancora
 
-**Microsoft Identity Platform è il server di autorizzazione per Office 365 e altri servizi aziendali Microsoft.**  Se si supporta la piattaforma di identità Microsoft per accedere all'applicazione o il supporto del collegamento degli account utente correnti a Azure AD account utente con OAuth 2,0, è possibile richiedere l'accesso in lettura e scrittura al profilo, al calendario, alla posta elettronica, ai contatti, ai file e ad altre informazioni dell'utente. In questo modo, è possibile inserire eventi nel calendario dell'utente oppure accedere in lettura e scrittura ai file in OneDrive. Altre informazioni sull' [accesso alle API di Office 365](/previous-versions/office/office-365-api/).
+**Microsoft Identity Platform è il server di autorizzazione per Microsoft 365 e altri servizi aziendali Microsoft.**  Se si supporta la piattaforma di identità Microsoft per accedere all'applicazione o il supporto del collegamento degli account utente correnti a Azure AD account utente con OAuth 2,0, è possibile richiedere l'accesso in lettura e scrittura al profilo, al calendario, alla posta elettronica, ai contatti, ai file e ad altre informazioni dell'utente. In questo modo, è possibile inserire eventi nel calendario dell'utente oppure accedere in lettura e scrittura ai file in OneDrive. Altre informazioni sull' [accesso alle api Microsoft 365](/previous-versions/office/office-365-api/).
 
-### <a name="promote-your-application-in-the-azure-and-office-365-marketplaces"></a>Promuovere l'applicazione nei Marketplace di Azure e Office 365
+### <a name="promote-your-application-in-the-azure-and-microsoft-365-marketplaces"></a>Promuovere l'applicazione in Azure e Microsoft 365 Marketplace
 
 **Promuovere l'applicazione per farla conoscere a milioni di organizzazioni che usano già Azure AD.**   Gli utenti che esplorano questi Marketplace usano già uno o più servizi cloud, di conseguenza rappresentano il pubblico di destinazione ideale per l'applicazione. Altre informazioni sulla promozione dell'applicazione in [Azure Marketplace](https://azure.microsoft.com/marketplace/partner-program/).
 
-**Quando gli utenti effettuano l'iscrizione all'applicazione, questa verrà visualizzata nel riquadro di accesso di Azure AD e nell'icona di avvio delle app di Office 365.**   Questo consente tornare all'applicazione in modo facile e veloce, migliorando così il coinvolgimento degli utenti. Altre informazioni sul [pannello di accesso di Azure AD](../user-help/my-apps-portal-end-user-access.md).
+**Quando gli utenti si iscrivono per l'applicazione, verranno visualizzati nel pannello di accesso Azure AD e Microsoft 365 l'utilità di avvio delle app.**   Questo consente tornare all'applicazione in modo facile e veloce, migliorando così il coinvolgimento degli utenti. Altre informazioni sul [pannello di accesso di Azure AD](../user-help/my-apps-portal-end-user-access.md).
 
 ### <a name="secure-device-to-service-and-service-to-service-communication"></a>Comunicazione da dispositivo a servizio e da servizio a servizio sicura
 
@@ -85,7 +85,7 @@ L'integrazione con la piattaforma di identità Microsoft offre vantaggi che non 
 
 ### <a name="worldwide-presence-and-high-availability"></a>Presenza in tutto il mondo e disponibilità elevata
 
-**Azure AD è distribuito nei data center di tutto il mondo ed è gestito e monitorato 24 ore al giorno.**   Azure AD è il sistema di gestione delle identità per Microsoft Azure e Office 365 ed è distribuito in 28 data center nel mondo. I dati della directory vengono replicati in almeno tre data center. I servizi di bilanciamento del carico globali garantiscono che l'utente acceda alla copia di Azure AD che contiene i dati dell'utente più vicina e reindirizza automaticamente le richieste ad altri data center nel caso in cui vengono rilevati problemi.
+**Azure AD è distribuito nei data center di tutto il mondo ed è gestito e monitorato 24 ore al giorno.**  Azure AD è il sistema di gestione delle identità per Microsoft Azure e Microsoft 365 ed è distribuito in 28 Data Center in tutto il mondo. I dati della directory vengono replicati in almeno tre data center. I servizi di bilanciamento del carico globali garantiscono che l'utente acceda alla copia di Azure AD che contiene i dati dell'utente più vicina e reindirizza automaticamente le richieste ad altri data center nel caso in cui vengono rilevati problemi.
 
 ## <a name="next-steps"></a>Passaggi successivi
 

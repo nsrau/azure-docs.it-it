@@ -13,12 +13,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: justhu
 ms.custom: aaddev
-ms.openlocfilehash: ec59383f9ca2b71ec9f4b6df3ab2e24c6b52473b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: dfb9cb80bdcd2854a3ddd5b273806fbcdda916b0
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "80881366"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705640"
 ---
 # <a name="tenancy-in-azure-active-directory"></a>Tenancy in Azure Active Directory
 
@@ -35,8 +35,8 @@ Nel portale di Azure è possibile configurare l'app come multi-tenant o a tenant
 | Destinatari | Tenant singolo/multi-tenant | Utenti autorizzati a effettuare l'accesso | 
 |----------|--------| ---------|
 | Account solo in questa directory | Tenant singolo | Tutti gli account utente e guest della directory possono usare l'applicazione o l'API.<br>*Usare questa opzione se i destinatari sono interni all'organizzazione.* |
-| Account in qualsiasi directory di Azure AD | Multi-tenant | Tutti gli utenti e gli utenti guest con un account Microsoft aziendale o dell'istituto di istruzione possono usare l'applicazione o l'API. Sono inclusi gli istituti di istruzione e le aziende che usano Office 365.<br>*Usare questa opzione se i destinatari sono clienti aziendali o di istituti di istruzione.* |
-| Account in qualsiasi directory di Azure AD e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com) | Multi-tenant | Tutti gli utenti con un account aziendale o dell'istituto di istruzione o con un account Microsoft personale possono usare l'applicazione o l'API. Sono inclusi gli istituiti di istruzione e le aziende che usano Office 365, nonché gli account personali usati per accedere a servizi come Xbox e Skype.<br>*Usare questa opzione per rivolgersi alla gamma più ampia di account Microsoft.* | 
+| Account in qualsiasi directory di Azure AD | Multi-tenant | Tutti gli utenti e gli utenti guest con un account Microsoft aziendale o dell'istituto di istruzione possono usare l'applicazione o l'API. Sono incluse le scuole e le aziende che usano Microsoft 365.<br>*Usare questa opzione se i destinatari sono clienti aziendali o di istituti di istruzione.* |
+| Account in qualsiasi directory di Azure AD e account Microsoft personali (ad esempio Skype, Xbox, Outlook.com) | Multi-tenant | Tutti gli utenti con un account aziendale o dell'istituto di istruzione o con un account Microsoft personale possono usare l'applicazione o l'API. Include scuole e aziende che usano Microsoft 365 e account personali usati per accedere a servizi quali Xbox e Skype.<br>*Usare questa opzione per rivolgersi alla gamma più ampia di account Microsoft.* | 
 
 ## <a name="best-practices-for-multi-tenant-apps"></a>Procedure consigliate per app multi-tenant
 

@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 09/10/2020
+ms.date: 09/15/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 4fb616860cb1e85c6249329f3679de0d29b72e61
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: e6e6c802da212294594f45d0545c6cf07694760b
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018833"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707918"
 ---
 # <a name="configure-object-replication-for-block-blobs"></a>Configurare la replica di oggetti per i BLOB in blocchi
 
@@ -150,9 +150,11 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 Per creare criteri di replica con l'interfaccia della riga di comando di Azure, installare prima l'interfaccia della riga di comando di Azure versione 2.11.1 Per altre informazioni, vedere [Introduzione all'interfaccia](/cli/azure/get-started-with-azure-cli)della riga di comando di Azure.
 
-Successivamente, abilitare il controllo delle versioni dei BLOB negli account di archiviazione di origine e di destinazione e abilitare il feed delle modifiche nell'account di origine. Ricordare di sostituire i valori tra parentesi angolari con valori personalizzati:
+Successivamente, abilitare il controllo delle versioni dei BLOB negli account di archiviazione di origine e di destinazione e abilitare il feed delle modifiche nell'account di origine, chiamando il comando [AZ storage account Blob-Service-Properties Update](/cli/azure/storage/account/blob-service-properties#az_storage_account_blob_service_properties_update) . Ricordare di sostituire i valori tra parentesi angolari con valori personalizzati:
 
 ```azurecli
+az login
+
 az storage account blob-service-properties update \
     --resource-group <resource-group> \
     --account-name <source-storage-account> \
@@ -174,24 +176,24 @@ Creare i contenitori di origine e di destinazione nei rispettivi account di arch
 ```azurecli
 az storage container create \
     --account-name <source-storage-account> \
-    --name source-container3 \
+    --name source-container-1 \
     --auth-mode login
 az storage container create \
     --account-name <source-storage-account> \
-    --name source-container4 \
+    --name source-container-2 \
     --auth-mode login
 
 az storage container create \
     --account-name <dest-storage-account> \
-    --name source-container3 \
+    --name dest-container-1 \
     --auth-mode login
 az storage container create \
     --account-name <dest-storage-account> \
-    --name source-container4 \
+    --name dest-container-1 \
     --auth-mode login
 ```
 
-Creare un nuovo criterio di replica e le regole associate nell'account di destinazione.
+Creare un nuovo criterio di replica e una regola associata nell'account di destinazione chiamando il comando [AZ storage account o-policy create](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_create).
 
 ```azurecli
 az storage account or-policy create \
@@ -199,21 +201,26 @@ az storage account or-policy create \
     --resource-group <resource-group> \
     --source-account <source-storage-account> \
     --destination-account <dest-storage-account> \
-    --source-container source-container3 \
-    --destination-container dest-container3 \
-    --min-creation-time '2020-05-10T00:00:00Z' \
+    --source-container source-container-1 \
+    --destination-container dest-container-1 \
+    --min-creation-time '2020-09-10T00:00:00Z' \
     --prefix-match a
 
+```
+
+Archiviazione di Azure imposta l'ID criterio per i nuovi criteri al momento della creazione. Per aggiungere regole aggiuntive al criterio, chiamare la [regola AZ storage account o-policy Add](/cli/azure/storage/account/or-policy/rule#az_storage_account_or_policy_rule_add) e specificare l'ID dei criteri.
+
+```azurecli
 az storage account or-policy rule add \
     --account-name <dest-storage-account> \
-    --destination-container dest-container4 \
-    --policy-id <policy-id> \
     --resource-group <resource-group> \
-    --source-container source-container4 \
+    --source-container source-container-2 \
+    --destination-container dest-container-2 \
+    --policy-id <policy-id> \
     --prefix-match b
 ```
 
-Creare il criterio nell'account di origine usando l'ID criterio.
+Successivamente, creare i criteri nell'account di origine usando l'ID criterio.
 
 ```azurecli
 az storage account or-policy show \
@@ -229,16 +236,16 @@ az storage account or-policy show \
 
 ### <a name="configure-object-replication-when-you-have-access-only-to-the-destination-account"></a>Configurare la replica di oggetti quando si ha accesso solo all'account di destinazione
 
-Se non si dispone delle autorizzazioni per l'account di archiviazione di origine, è possibile configurare la replica degli oggetti nell'account di destinazione e fornire un file JSON che contenga la definizione dei criteri a un altro utente per creare gli stessi criteri nell'account di origine. Se, ad esempio, l'account di origine si trova in un tenant di Azure AD diverso dall'account di destinazione, utilizzare questo approccio per configurare la replica degli oggetti. 
+Se non si dispone delle autorizzazioni per l'account di archiviazione di origine, è possibile configurare la replica degli oggetti nell'account di destinazione e fornire un file JSON che contenga la definizione dei criteri a un altro utente per creare gli stessi criteri nell'account di origine. Se, ad esempio, l'account di origine si trova in un tenant di Azure AD diverso dall'account di destinazione, è possibile usare questo approccio per configurare la replica degli oggetti.
 
 Tenere presente che è necessario avere a disposizione il ruolo **collaboratore** Azure Resource Manager ambito per il livello dell'account di archiviazione di destinazione o superiore per creare il criterio. Per altre informazioni, vedere [ruoli predefiniti di Azure](../../role-based-access-control/built-in-roles.md) nella documentazione relativa al controllo degli accessi in base al ruolo di Azure (RBAC).
 
-La tabella seguente riepiloga i valori da usare per l'ID dei criteri nel file JSON in ogni scenario.
+La tabella seguente riepiloga i valori da usare per l'ID criterio e gli ID regola nel file JSON in ogni scenario.
 
-| Quando si crea il file JSON per l'account... | Imposta l'ID dei criteri su questo valore... |
+| Quando si crea il file JSON per l'account... | Imposta ID criterio e ID regola su questo valore... |
 |-|-|
-| Account di destinazione | Valore *predefinito*della stringa. Archiviazione di Azure creerà l'ID criterio per l'utente. |
-| Account di origine | ID dei criteri restituito quando si scarica un file JSON contenente le regole definite nell'account di destinazione. |
+| Account di destinazione | Valore *predefinito*della stringa. Archiviazione di Azure creerà l'ID criterio e gli ID regola. |
+| Account di origine | I valori dell'ID criterio e degli ID regola restituiti quando si scaricano i criteri definiti nell'account di destinazione come file JSON. |
 
 Nell'esempio seguente viene definito un criterio di replica nell'account di destinazione con una singola regola che corrisponde al prefisso *b* e viene impostato il tempo di creazione minimo per i BLOB che devono essere replicati. Ricordare di sostituire i valori tra parentesi angolari con valori personalizzati:
 
@@ -307,7 +314,7 @@ $destPolicy = Get-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 $destPolicy | ConvertTo-Json -Depth 5 > c:\temp\json.txt
 ```
 
-Per usare il file JSON per definire i criteri di replica nell'account di origine con PowerShell, recuperare il file locale ed eseguire la conversione da JSON a un oggetto. Chiamare quindi il comando [set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) per configurare i criteri nell'account di origine, come illustrato nell'esempio seguente. Ricordarsi di sostituire i valori tra parentesi acute e il percorso del file con valori personalizzati:
+Per usare il file JSON per configurare i criteri di replica nell'account di origine con PowerShell, recuperare il file locale ed eseguire la conversione da JSON in un oggetto. Chiamare quindi il comando [set-AzStorageObjectReplicationPolicy](/powershell/module/az.storage/set-azstorageobjectreplicationpolicy) per configurare i criteri nell'account di origine, come illustrato nell'esempio seguente. Ricordarsi di sostituire i valori tra parentesi acute e il percorso del file con valori personalizzati:
 
 ```powershell
 $object = Get-Content -Path C:\temp\json.txt | ConvertFrom-Json
@@ -321,7 +328,24 @@ Set-AzStorageObjectReplicationPolicy -ResourceGroupName $rgname `
 
 # <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
 
-N/D
+Per scrivere la definizione dei criteri di replica per l'account di destinazione in un file JSON dall'interfaccia della riga di comando di Azure, chiamare il comando [AZ storage account o-policy Show](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_show) e l'output in un file.
+
+Nell'esempio seguente viene scritta la definizione di criteri in un file JSON denominato *policy.json*. Ricordarsi di sostituire i valori tra parentesi acute e il percorso del file con valori personalizzati:
+
+```azurecli
+az storage account or-policy show \
+    --account-name <dest-account-name> \
+    --policy-id  <policy-id> > policy.json
+```
+
+Per usare il file JSON per configurare i criteri di replica nell'account di origine con l'interfaccia della riga di comando di Azure, chiamare il comando [AZ storage account o-policy create](/cli/azure/storage/account/or-policy#az_storage_account_or_policy_create) e fare riferimento all' *policy.jssu* file. Ricordarsi di sostituire i valori tra parentesi acute e il percorso del file con valori personalizzati:
+
+```azurecli
+az storage account or-policy create \
+    -resource-group <resource-group> \
+    --source-account <source-account-name> \
+    --policy @policy.json
+```
 
 ---
 
@@ -360,12 +384,12 @@ Per rimuovere un criterio di replica, eliminarlo sia dall'account di origine che
 
 ```azurecli
 az storage account or-policy delete \
-    --policy-id $policyid \
+    --policy-id <policy-id> \
     --account-name <source-storage-account> \
     --resource-group <resource-group>
 
 az storage account or-policy delete \
-    --policy-id $policyid \
+    --policy-id <policy-id> \
     --account-name <dest-storage-account> \
     --resource-group <resource-group>
 ```

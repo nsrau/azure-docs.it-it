@@ -9,12 +9,12 @@ ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
 ms.custom: devx-track-azurepowershell, references_regions
-ms.openlocfilehash: be5d86fe690d60f687622243a2f1d7771b8af7d0
-ms.sourcegitcommit: 80b9c8ef63cc75b226db5513ad81368b8ab28a28
+ms.openlocfilehash: d47b9b5882b25ee030ca813abbaf77805b2df0f5
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/16/2020
-ms.locfileid: "90604011"
+ms.locfileid: "90707765"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Gestire il ciclo di vita di Archiviazione BLOB di Azure
 
@@ -87,7 +87,7 @@ Esistono due modi per aggiungere un criterio tramite il portale di Azure.
    > [!IMPORTANT]
    > L'anteprima del rilevamento dell'ora dell'ultimo accesso è solo per uso non di produzione. I contratti di servizio (SLA) di produzione non sono al momento disponibili.
    
-   Per altre informazioni sull'opzione dell' **Ultimo accesso** , vedere [spostare i dati in base alla data dell'ultimo accesso (anteprima)](#move-data-based-on-last-accessed-date-preview).
+   Per usare l'opzione **ultimo** accesso, selezionare **rilevamento accessi abilitato** nella pagina di **gestione del ciclo** di vita del portale di Azure. Per altre informazioni sull'opzione dell' **Ultimo accesso** , vedere [spostare i dati in base alla data dell'ultimo accesso (anteprima)](#move-data-based-on-last-accessed-date-preview).
 
 1. Se è stata selezionata l'opzione **limita BLOB con filtri** nella pagina **Dettagli** , selezionare **filtro impostato** per aggiungere un filtro facoltativo. Nell'esempio seguente vengono filtrati i BLOB nel contenitore *mylifecyclecontainer* che iniziano con "log".
 
@@ -376,6 +376,8 @@ L' **ultima opzione accessibile** è disponibile in anteprima nelle aree seguent
 
 > [!IMPORTANT]
 > L'anteprima del rilevamento dell'ora dell'ultimo accesso è solo per uso non di produzione. I contratti di servizio (SLA) di produzione non sono al momento disponibili.
+
+Per usare l'opzione **ultimo** accesso, selezionare **rilevamento accessi abilitato** nella pagina di **gestione del ciclo** di vita del portale di Azure.
 
 #### <a name="how-last-access-time-tracking-works"></a>Funzionamento dell'ultimo rilevamento del tempo di accesso
 

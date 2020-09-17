@@ -12,12 +12,12 @@ ms.date: 04/24/2020
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
-ms.openlocfilehash: 781aa48442d80e55128314dd1e271532162df32c
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: b02329d624eda440230fb99e02e08c841c5580f2
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89178825"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705997"
 ---
 # <a name="microsoft-identity-platform-developer-glossary"></a>Glossario per sviluppatori Microsoft Identity Platform
 
@@ -154,7 +154,7 @@ In base alla definizione del [framework di autorizzazione di OAuth2][OAuth2-Role
 
 In base alla definizione del [framework di autorizzazione di OAuth2][OAuth2-Role-Def], server che ospita risorse protette e può accettare e rispondere alle relative richieste effettuate da [applicazioni client](#client-application) che presentano un [token di accesso](#access-token). È detto anche server di risorse protette o applicazione della risorsa.
 
-Un server di risorse espone le API e consente l'accesso alle proprie risorse protette tramite [ambiti](#scopes) e [ruoli](#roles), usando il framework di autorizzazione di OAuth 2.0. Gli esempi includono l' [api Microsoft Graph][Microsoft-Graph] che fornisce l'accesso ai dati del tenant di Azure ad e le API di Office 365 che consentono di accedere ai dati, ad esempio la posta elettronica e il calendario.
+Un server di risorse espone le API e consente l'accesso alle proprie risorse protette tramite [ambiti](#scopes) e [ruoli](#roles), usando il framework di autorizzazione di OAuth 2.0. Gli esempi includono l' [api Microsoft Graph][Microsoft-Graph] che fornisce l'accesso ai dati del tenant Azure ad e le API Microsoft 365 che consentono di accedere ai dati, ad esempio la posta elettronica e il calendario.
 
 Così come per un'applicazione client, la configurazione di identità dell'applicazione della risorsa viene definita tramite la [registrazione](#application-registration) in un tenant di Azure AD, con cui vengono specificati sia l'oggetto applicazione che l'oggetto entità servizio. Alcune API fornite da Microsoft, ad esempio l'API Microsoft Graph, hanno entità servizio pre-registrate rese disponibili in tutti i tenant durante il provisioning.
 
@@ -172,7 +172,7 @@ Così come i [ruoli](#roles), gli ambiti consentono a un [server di risorse](#re
 
 Gli ambiti sono stringhe definite a livello di risorsa, ad esempio "Mail.Read", "Directory.ReadWrite.All", vengono gestiti nel [portale di Azure][AZURE-portal] tramite il [manifesto dell'applicazione](#application-manifest) della risorsa e vengono archiviati nella [proprietà oauth2Permissions][Graph-Sp-Resource] della risorsa. Il portale di Azure viene usato anche per configurare le [autorizzazioni delegate](#permissions) dell'applicazione client per l'accesso a un ambito.
 
-Come convenzione di denominazione, la procedura consigliata è usare il formato "risorsa.operazione.vincolo". Per una descrizione dettagliata degli ambiti esposti da Microsoft Graph API, vedere [API Graph ambiti di autorizzazione][Graph-Perm-Scopes]. Per informazioni sugli ambiti esposti dai servizi di Office 365, vedere [Office 365 API permissions reference][O365-Perm-Ref] (Informazioni di riferimento sulle autorizzazioni delle API di Office 365).
+Come convenzione di denominazione, la procedura consigliata è usare il formato "risorsa.operazione.vincolo". Per una descrizione dettagliata degli ambiti esposti da Microsoft Graph API, vedere [API Graph ambiti di autorizzazione][Graph-Perm-Scopes]. Per gli ambiti esposti da Microsoft 365 Services, vedere informazioni di [riferimento sulle autorizzazioni dell'API Microsoft 365][O365-Perm-Ref].
 
 ## <a name="security-token"></a>token di sicurezza
 
@@ -202,7 +202,7 @@ Un'istanza di una directory di Azure AD è definita tenant di Azure AD. Fornisce
 * autenticazione di account utente e applicazioni registrate
 * endpoint REST necessari per il supporto di diversi protocolli tra cui OAuth2 e SAML, inclusi l'[endpoint di autorizzazione](#authorization-endpoint), l'[endpoint di token](#token-endpoint) e l'endpoint "comune" usato dalle [applicazioni multi-tenant](#multi-tenant-application).
 
-I tenant di Azure AD vengono creati/associati alle sottoscrizioni di Azure e agli abbonamenti a Office 365 durante l'iscrizione, fornendo funzionalità di gestione delle identità e degli accessi per la sottoscrizione. Gli amministratori delle sottoscrizioni di Azure inoltre possono creare altri tenant di Azure AD tramite il portale di Azure. Per informazioni dettagliate sui vari modi in cui è possibile ottenere l'accesso a un tenant, vedere [Come ottenere un tenant di Azure Active Directory][AAD-How-To-Tenant]. Vedere [associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory][AAD-How-Subscriptions-Assoc] per informazioni dettagliate sulla relazione tra le sottoscrizioni e un tenant di Azure ad e per istruzioni su come associare o aggiungere una sottoscrizione a un tenant di Azure ad.
+Azure AD tenant vengono creati/associati ad Azure e Microsoft 365 sottoscrizioni durante l'iscrizione, fornendo funzionalità di gestione degli accessi & di identità per la sottoscrizione. Gli amministratori delle sottoscrizioni di Azure inoltre possono creare altri tenant di Azure AD tramite il portale di Azure. Per informazioni dettagliate sui vari modi in cui è possibile ottenere l'accesso a un tenant, vedere [Come ottenere un tenant di Azure Active Directory][AAD-How-To-Tenant]. Vedere [associare o aggiungere una sottoscrizione di Azure al tenant di Azure Active Directory][AAD-How-Subscriptions-Assoc] per informazioni dettagliate sulla relazione tra le sottoscrizioni e un tenant di Azure ad e per istruzioni su come associare o aggiungere una sottoscrizione a un tenant di Azure ad.
 
 ## <a name="token-endpoint"></a>endpoint di token
 

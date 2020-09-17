@@ -11,12 +11,12 @@ ms.topic: how-to
 ms.date: 06/08/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ec1aa165b8fa5d3a249cb525887acf2990136bd3
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: 21498f9117ac25356c9381d632644bbaa4d5a74b
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89049868"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706681"
 ---
 # <a name="azure-active-directory-b2c-isv-partners"></a>Partner ISV Azure Active Directory B2C
 
@@ -37,6 +37,7 @@ Microsoft ISV partner Network estende le funzionalità della soluzione per facil
 | ![Logo](./media/partner-gallery/jumio-logo.png) | [Jumio](./partner-jumio.md) è un servizio di verifica ID, che consente la verifica automatica in tempo reale degli ID, salvaguardando i dati dei clienti. |
 | ![Logo](./media/partner-gallery/lexisnexis-logo.png) | [LexisNexis](./partner-lexisnexis.md) è un provider di convalida dell'identità e di profilatura che verifica l'identificazione dell'utente e fornisce una valutazione completa dei rischi in base al dispositivo dell'utente. |
 | ![Logo](./media/partner-gallery/onfido-logo.png) | [Onfido](./partner-onfido.md) è un ID documento e una soluzione di verifica biometria facciale che consente alle aziende di soddisfare i requisiti dei *clienti* e delle identità in tempo reale.  |
+| ![Logo](./media/partner-gallery/saviynt-logo.png) | [Saviynt](./partner-saviynt.md) cloud-native Platform usa l'analisi intelligente e fornisce l'integrazione tra applicazioni per semplificare la modernizzazione it e promuovere una migliore sicurezza, governance e conformità. La modernizzazione aziendale cambia il modo in cui le aziende verificano le richieste di accesso, le verifiche di accesso, le analisi dei report e semplificano le campagne di certificazione.  |
 | ![Logo](./media/partner-gallery/trusona-logo.png) | L'integrazione con [Trusona](./partner-trusona.md) consente di accedere in modo sicuro e consente l'autenticazione senza password, l'autenticazione a più fattori e l'analisi delle licenze digitali.|
 | ![Logo](./media/partner-gallery/twilio-logo.png) | L' [app Twilio Verify](./partner-twilio.md) offre più soluzioni per abilitare l'autenticazione a più fattori tramite la password monouso (OTP) SMS, la password monouso basata sul tempo (TOTP) e le notifiche push e per conformarsi ai requisiti SCA per la direttiva 2 (PSD2) dei servizi di pagamento.|
 | ![Logo](./media/partner-gallery/typingdna-logo.png) | [TypingDNA](./partner-typingdna.md) è un provider di verifica dell'identità e di correzione basato sul modello di digitazione degli utenti, fornisce soluzioni di verifica dell'ID che forzano l'autenticazione a più fattori e contribuisce a conformarsi ai requisiti SCA per la direttiva 2 (PSD2) di Payment Services. |

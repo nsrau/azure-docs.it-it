@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 45e1e516986c32e203837f79c83290cc99049e7a
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 23ce2f02ef96a88b6bf4471377ce97a529dbd1a9
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90526970"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706337"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-on-premises-resources-with-azure-active-directory-preview"></a>Abilitare la chiave di sicurezza senza password accesso alle risorse locali con Azure Active Directory (anteprima)
 
@@ -57,7 +57,7 @@ Le organizzazioni devono inoltre soddisfare i requisiti software seguenti.
 
 Lo scenario supporta Single Sign-On (SSO) in entrambi gli scenari seguenti:
 
-- Per le risorse cloud come Office 365 e altre applicazioni abilitate per SAML.
+- Per le risorse cloud come Microsoft 365 e altre applicazioni abilitate per SAML.
 - Per le risorse locali e l'autenticazione integrata di Windows nei siti Web. Le risorse possono includere siti Web e siti di SharePoint che richiedono l'autenticazione IIS e/o risorse che usano l'autenticazione NTLM.
 
 ### <a name="unsupported-scenarios"></a>Scenari non supportati

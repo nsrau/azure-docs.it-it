@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/14/2020
 ms.author: kenwith
 ms.reviewer: japere
-ms.openlocfilehash: 82e984b629c8d838ba179b25a78262eccf078a04
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: 65e1b1b5e84c3344a082b73b7768935d788a3394
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89377863"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90707408"
 ---
 # <a name="remote-access-to-on-premises-applications-through-azure-ad-application-proxy"></a>Accesso remoto alle applicazioni locali tramite Azure AD proxy di applicazione
 
@@ -24,7 +24,7 @@ Azure Active Directory Application Proxy consente l'accesso remoto sicuro ad app
 
 Azure Active Directory Application Proxy è:
 
-- **Semplice da usare**. Gli utenti possono accedere alle applicazioni locali nello stesso modo in cui accedono a Office 365 e alle altre app SaaS integrate in Azure AD. Non è necessario modificare o aggiornare le applicazioni per usare AD Application Proxy.
+- **Semplice da usare**. Gli utenti possono accedere alle applicazioni locali nello stesso modo in cui accedono a Microsoft 365 e ad altre app SaaS integrate con Azure AD. Non è necessario modificare o aggiornare le applicazioni per usare AD Application Proxy.
 
 - **Sicurezza**. Le applicazioni locali possono usare i controlli di autorizzazione e le funzionalità di analisi della sicurezza di Azure. Ad esempio, le applicazioni locali possono usare l'accesso condizionale e la verifica in due passaggi. Application Proxy non richiede l'apertura delle connessioni in ingresso attraverso il firewall.
 

@@ -13,12 +13,12 @@ ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev
 ROBOTS: NOINDEX
-ms.openlocfilehash: 662bda03fc2d389ed316bd2c7141d5e6a30cef1a
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 40d299049a0a1bbff81c412a5beb84f28e64ff46
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814627"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706303"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Inserire l'applicazione nella raccolta di applicazioni di Azure Active Directory
 
@@ -124,7 +124,7 @@ Per richiedere il provisioning degli utenti, seguire la procedura illustrata nel
 
 ## <a name="update-or-remove-an-existing-listing"></a>Aggiornare o rimuovere un elenco esistente
 
-Per aggiornare o rimuovere un'applicazione esistente nella raccolta Azure AD app, è necessario prima inviare la richiesta nel [portale di rete dell'applicazione](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Se si dispone di un account Office 365, usarlo per accedere a questo portale. In caso contrario, usare la account Microsoft, ad esempio Outlook o Hotmail, per accedere.
+Per aggiornare o rimuovere un'applicazione esistente nella raccolta Azure AD app, è necessario prima inviare la richiesta nel [portale di rete dell'applicazione](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Se si dispone di un account aziendale o dell'Istituto di istruzione, usarlo per accedere a questo portale. In caso contrario, usare la account Microsoft, ad esempio Outlook o Hotmail, per accedere.
 
 - Selezionare l'opzione appropriata, come illustrato nella figura seguente.
 

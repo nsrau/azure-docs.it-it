@@ -1,6 +1,6 @@
 ---
-title: includere file
-description: includere file
+title: File di inclusione
+description: File di inclusione
 services: storage
 author: roygara
 ms.service: storage
@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 09/15/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7e009516721473554517d1677bdef7a7451e4007
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 8901f54c4802766eb3f12830d98d29fb47337ae5
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564868"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705215"
 ---
 Durante l'anteprima, NFS presenta le limitazioni seguenti:
 
 - NFS 4,1 supporta attualmente solo le funzionalità obbligatorie della [specifica del protocollo](https://tools.ietf.org/html/rfc5661). Funzionalità facoltative quali le deleghe e il callback di tutti i tipi, gli aggiornamenti e i downgrade dei blocchi e l'autenticazione e la crittografia Kerberos non sono supportate.
-- Se la maggior parte delle richieste è incentrata sui metadati, la latenza sarà peggiore rispetto alle operazioni di apertura/chiusura.
+- Se la maggior parte delle richieste è incentrata sui metadati, la latenza sarà peggiore rispetto alle operazioni di lettura/scrittura/aggiornamento.
 - È necessario creare un nuovo account di archiviazione per creare una condivisione NFS.
 - Sono supportate solo le API REST del piano di gestione. Le API REST del piano dati non sono disponibili, il che significa che strumenti come Storage Explorer non funzioneranno con le condivisioni NFS né sarà possibile sfogliare i dati di condivisione NFS nel portale di Azure.
 - Disponibile solo per il livello Premium.

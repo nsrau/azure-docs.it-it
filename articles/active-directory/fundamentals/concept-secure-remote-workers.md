@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: davidspo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e0e0ad9086a7945201b1752126253f12eb751bf
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 4f4d9d1a2a4c88601e7dd7e0d6f56025b79aaac1
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89320036"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705368"
 ---
 # <a name="rapidly-respond-to-secure-identities-with-azure-ad"></a>Rispondere rapidamente a identità sicure con Azure AD
 
@@ -42,16 +42,15 @@ Questa guida presuppone che le identità solo cloud o ibride siano state stabili
 
 Ci sono molti aspetti di un'infrastruttura di identità sicura, ma questo elenco di controllo è incentrato su un'infrastruttura di identità sicura e sicura che consente agli utenti di lavorare in modalità remota. La protezione dell'identità è solo una parte della storia della sicurezza, ma anche la protezione dei dati, delle applicazioni e dei dispositivi.
 
-### <a name="guidance-for-azure-ad-free-or-office-365-customers"></a>Linee guida per i clienti Azure AD Free o Office 365.
+### <a name="guidance-for-azure-ad-free-office-365-or-microsoft-365-customers"></a>Linee guida per i clienti Azure AD Free, Office 365 o Microsoft 365.
 
-Per proteggere le identità utente, è necessario che Azure AD Free o i clienti delle app di Office 365 siano disponibili una serie di consigli che consentono di evidenziare le azioni principali per le sottoscrizioni delle licenze seguenti:
+Per proteggere le proprie identità utente, è necessario che i clienti di Azure AD Free, Office 365 o Microsoft 365 app si occupino di una serie di raccomandazioni, nella tabella seguente vengono evidenziate le azioni principali per le seguenti sottoscrizioni di licenza:
 
-- Office 365 (O365 E1, E3, E5, F1, a1, a3, a5)
-- Office 365 business (Essentials, business, Business Premium)
-- Microsoft 365 (M365 business, a1)
+- Office 365 (Office 365 E1, E3, E5, F1, a1, a3, a5)
+- Microsoft 365 (Business Basic, Apps for business, business standard, Business Premium, a1)
 - Azure AD Free (incluso con Azure, Dynamics 365, Intune e Power Platform)
 
-| Azione consigliata | Dettagli |
+| Azione consigliata | Dettaglio |
 | --- | --- |
 | [Abilita impostazioni predefinite sicurezza](concept-fundamentals-security-defaults.md) | Proteggi tutte le identità utente e le applicazioni abilitando l'autenticazione a più fattori e bloccando l'autenticazione legacy |
 | [Abilitare la sincronizzazione dell'hash delle password](../hybrid/how-to-connect-password-hash-synchronization.md) (se si usano le identità ibride) | Fornire ridondanza per l'autenticazione e migliorare la sicurezza (inclusi il blocco intelligente, il blocco IP e la possibilità di individuare le credenziali perse). |
@@ -74,7 +73,7 @@ Nella tabella seguente vengono evidenziate le azioni principali per le seguenti 
 - Enterprise Mobility + Security (EMS E3)
 - Microsoft 365 (M365 E3, a3, F1, F3)
 
-| Azione consigliata | Dettagli |
+| Azione consigliata | Dettaglio |
 | --- | --- |
 | [Abilitare l'esperienza di registrazione combinata per Azure multi-factor authentication e SSPR per semplificare l'esperienza di registrazione utente](../authentication/howto-registration-mfa-sspr-combined.md) | Consentire agli utenti di registrarsi da un'esperienza comune sia per Azure Multi-Factor Authentication che per la reimpostazione della password self-service. |
 | [Configurare le impostazioni dell'autenticazione a più fattori per l'organizzazione](../authentication/howto-mfa-getstarted.md) | Assicurarsi che gli account siano protetti da compromessi con l'autenticazione a più fattori |
@@ -104,7 +103,7 @@ Nella tabella seguente vengono evidenziate le azioni principali per le seguenti 
 - Enterprise Mobility + Security (EMS E5)
 - Microsoft 365 (M365 E5, a5)
 
-| Azione consigliata | Dettagli |
+| Azione consigliata | Dettaglio |
 | --- | --- |
 | [Abilitare l'esperienza di registrazione combinata per Azure multi-factor authentication e SSPR per semplificare l'esperienza di registrazione utente](../authentication/howto-registration-mfa-sspr-combined.md) | Consentire agli utenti di registrarsi da un'esperienza comune sia per Azure Multi-Factor Authentication che per la reimpostazione della password self-service. |
 | [Configurare le impostazioni dell'autenticazione a più fattori per l'organizzazione](../authentication/howto-mfa-getstarted.md) | Assicurarsi che gli account siano protetti da compromessi con l'autenticazione a più fattori |

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/29/2020
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 8bae89e68e5a016dbdc10c763f1ea2daedece3c8
-ms.sourcegitcommit: d661149f8db075800242bef070ea30f82448981e
+ms.openlocfilehash: c357720c937a5b63944b7fc598eaff428f85bfb6
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/19/2020
-ms.locfileid: "88605331"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90706818"
 ---
 # <a name="high-availability-with-azure-cosmos-db"></a>Disponibilità elevata con Azure Cosmos DB
 
@@ -62,7 +62,7 @@ Per i rari casi di interruzione a livello di area, Azure Cosmos DB garantisce ch
 ### <a name="multi-region-accounts-with-a-single-write-region-read-region-outage"></a>Account a più aree con un'area a scrittura singola (interruzione dell'area di lettura)
 
 - Durante un'interruzione dell'area di lettura, gli account Azure Cosmos che usano un livello di coerenza o una coerenza assoluta con tre o più aree di lettura rimarranno a disponibilità elevata per operazioni di lettura e scrittura.
-- Gli account Azure Cosmos che usano la coerenza assoluta con due o meno aree di lettura (che includono l'area di lettura & scrittura) perderanno la disponibilità di scrittura durante un'interruzione dell'area di lettura, ma manterranno la disponibilità in lettura per le aree rimanenti.
+- Gli account Azure Cosmos che usano la coerenza assoluta con due o meno aree di lettura (che includono l'area di lettura & scrittura) perderanno la disponibilità di lettura durante un'interruzione dell'area di lettura.
 - L'area interessata viene disconnessa automaticamente e verrà contrassegnata come offline. Il [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md) reindirizza le chiamate di lettura all'area successiva disponibile nell'elenco delle aree preferite.
 - Se nessuna delle aree presenti nell'elenco è disponibile, viene eseguito il fallback automatico delle chiamate all'area di scrittura corrente.
 - Non sono necessarie modifiche nel codice dell'applicazione per gestire le interruzioni di lettura a livello di area. Quando l'area di lettura interessata è di nuovo online, viene sincronizzata automaticamente con l'area di scrittura corrente e sarà disponibile di nuovo per gestire le richieste di lettura.

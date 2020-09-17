@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: hafowler
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 569bc54d262e8611679c8aa86ed4dbfbed61aa79
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: d9efb3b451f6fc6c70c5d9ec346132bfc763ca28
+ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442680"
+ms.lasthandoff: 09/16/2020
+ms.locfileid: "90705776"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Gestire le identità dei dispositivi usando il portale di Azure
 
@@ -155,7 +155,7 @@ Per gestire le identità dei dispositivi tramite il portale di Azure AD, è nece
 > **Gli utenti possono aggiungere dispositivi a Azure ad** impostazione è applicabile solo a Azure ad join in Windows 10.
 
 - **Amministratori locali aggiuntivi su dispositivi aggiunti ad Azure AD**: è possibile selezionare gli utenti a cui vengono concessi i diritti di amministratore locale per un dispositivo. Questi utenti vengono aggiunti al ruolo di *amministratore del dispositivo* in Azure ad. Agli amministratori globali di Azure AD e ai proprietari dei dispositivi vengono concessi i diritti di amministratore locale per impostazione predefinita. Questa opzione è una funzionalità dell'edizione Premium disponibile tramite prodotti come Azure AD Premium o Enterprise Mobility Suite (EMS).
-- **Gli utenti possono registrare i propri dispositivi con Azure ad** : è necessario configurare questa impostazione per consentire la registrazione dei dispositivi Windows 10 Personal, iOS, Android e macOS con Azure ad. Se si seleziona **nessuno**, i dispositivi non possono eseguire la registrazione con Azure ad. L'iscrizione a Microsoft Intune o Gestione dispositivi mobili per Office 365 richiede la registrazione. Se è stato configurato uno di questi servizi, è selezionata l'opzione **TUTTI** e l'opzione **NESSUNO** non è disponibile.
+- **Gli utenti possono registrare i propri dispositivi con Azure ad** : è necessario configurare questa impostazione per consentire la registrazione dei dispositivi Windows 10 Personal, iOS, Android e macOS con Azure ad. Se si seleziona **nessuno**, i dispositivi non possono eseguire la registrazione con Azure ad. La registrazione con Microsoft Intune o la gestione di dispositivi mobili (MDM) per Microsoft 365 richiede la registrazione. Se è stato configurato uno di questi servizi, è selezionata l'opzione **TUTTI** e l'opzione **NESSUNO** non è disponibile.
 - **Richiedi autenticazione a più fattori per aggiungere dispositivi** : è possibile scegliere se gli utenti devono fornire un ulteriore fattore di autenticazione per aggiungere il dispositivo a Azure ad. Il valore predefinito è **No**. Si consiglia di richiedere l'autenticazione a più fattori quando si registra un dispositivo. Per abilitare l'autenticazione a più fattori per questo servizio, è necessario verificare che tale tipo di autenticazione sia configurato per gli utenti che registrano i dispositivi. Per altre informazioni sui diversi servizi di autenticazione a più fattori di Azure, vedere [Introduzione ad Azure Multi-Factor Authentication](../authentication/concept-mfa-howitworks.md). 
 
 > [!NOTE]
