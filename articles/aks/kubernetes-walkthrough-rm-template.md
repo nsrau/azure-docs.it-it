@@ -3,14 +3,14 @@ title: Avvio rapido - Creare un cluster del servizio Azure Kubernetes
 description: Informazioni su come creare rapidamente un cluster Kubernetes tramite un modello di Azure Resource Manager e distribuire un'applicazione nel servizio Azure Kubernetes
 services: container-service
 ms.topic: quickstart
-ms.date: 08/18/2020
+ms.date: 09/11/2020
 ms.custom: mvc,subject-armqs
-ms.openlocfilehash: bf77d1b4297c62e71f4fc227162ba2f6d1a387bd
-ms.sourcegitcommit: 271601d3eeeb9422e36353d32d57bd6e331f4d7b
+ms.openlocfilehash: 3966a8c21d33601a939adccef21a5c16cf3bfc9c
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88654396"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90032691"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-arm-template"></a>Avvio rapido: Distribuire un cluster del servizio Azure Kubernetes con un modello di Resource Manager
 
@@ -203,7 +203,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: azure-vote-front
-        image: microsoft/azure-vote-front:v1
+        image: mcr.microsoft.com/azuredocs/azure-vote-front:v1
         resources:
           requests:
             cpu: 100m

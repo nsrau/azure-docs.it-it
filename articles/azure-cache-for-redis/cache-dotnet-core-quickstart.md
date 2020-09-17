@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.custom: devx-track-csharp, mvc
 ms.topic: quickstart
 ms.date: 06/18/2020
-ms.openlocfilehash: bc045eba331c861801dceef7f00db42e851f8bb2
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 1cb35ce995a27030612499cc3147943112e1c50e
+ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88211380"
+ms.lasthandoff: 09/10/2020
+ms.locfileid: "89662372"
 ---
 # <a name="quickstart-use-azure-cache-for-redis-with-a-net-core-app"></a>Guida introduttiva: Usare Cache Redis di Azure con un'app .NET Core
 
@@ -23,7 +23,6 @@ In questa guida di avvio rapido si incorpora Azure Cache for Redis in un'app .NE
 
 - Sottoscrizione di Azure: [creare un account gratuito](https://azure.microsoft.com/free/)
 - [ASP.NET Core SDK](https://dotnet.microsoft.com/download)
-- [.NET Framework 4 o versione successiva](https://www.microsoft.com/net/download/dotnet-framework-runtime), richiesto dal client StackExchange.Redis.
 
 ## <a name="create-a-cache"></a>Creare una cache
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-create.md)]
@@ -34,7 +33,7 @@ Prendere nota del **nome host** e della chiave di accesso **primaria**. Questi v
 
 
 
-## <a name="create-a-console-app"></a>Creare un'app console
+## <a name="create-a-console-app"></a>Creare un'applicazione console
 
 Aprire una nuova finestra di comando ed eseguire il comando seguente per creare una nuova app console .NET Core:
 
@@ -125,7 +124,7 @@ Aggiungere l'istruzione `using` seguente al file *Program.cs*:
 using StackExchange.Redis;
 ```
 
-La connessione a Cache Redis di Azure è gestita dalla classe `ConnectionMultiplexer`. Questa classe deve essere condivisa e riutilizzata in tutta l'applicazione client. Non creare una nuova connessione per ogni operazione. 
+La connessione a Cache Redis di Azure è gestita dalla classe `ConnectionMultiplexer`. Questa classe deve essere condivisa e riusata in tutta l'applicazione client. Non creare una nuova connessione per ogni operazione. 
 
 In *Program.cs* aggiungere i membri seguenti alla classe `Program` dell'applicazione console:
 

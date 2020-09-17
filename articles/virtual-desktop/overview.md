@@ -3,15 +3,15 @@ title: Informazioni su Desktop virtuale Windows - Azure
 description: Panoramica di Desktop virtuale Windows.
 author: Heidilohr
 ms.topic: overview
-ms.date: 08/20/2020
+ms.date: 09/14/2020
 ms.author: helohr
 manager: lizross
-ms.openlocfilehash: cc5ad91c779a3445712db962fb97bab309eda973
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: 08455d3033040d14c85e4c4170ae34a6d05cfac1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661113"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527174"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Informazioni su Desktop virtuale Windows
 
@@ -110,12 +110,10 @@ I seguenti client Desktop remoto supportano Desktop virtuale Windows:
 * [macOS](connect-macos.md)
 * [iOS](connect-ios.md)
 * [Android](connect-android.md)
+* Client Microsoft Store
 
 > [!IMPORTANT]
 > Desktop virtuale Windows non supporta il client RADC (RemoteApp and Desktop Connections) o il client Connessione Desktop remoto.
-
-> [!IMPORTANT]
-> Desktop virtuale Windows non supporta attualmente il client Desktop remoto di Windows Store. Il supporto per questo client verrà aggiunto in una versione futura.
 
 Per altre informazioni sugli URL che è necessario sbloccare per usare i client, vedere l'[elenco degli URL sicuri](safe-url-list.md).
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: subject-armsq
 ms.date: 08/31/2020
 ms.author: duau
-ms.openlocfilehash: 2bc4c2a3ee7f1a1dbd85d46e49ec27e5276de159
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f1dbb9623ddc87f9940fd97b05abbee113fd71c4
+ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89237009"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90016555"
 ---
 # <a name="quickstart-create-an-expressroute-circuit-with-private-peering-using-an-arm-template"></a>Avvio rapido: Creare un circuito ExpressRoute con peering privato usando un modello di Resource Manager
 
@@ -76,9 +76,9 @@ Per altri modelli correlati a ExpressRoute, vedere [Modelli di avvio rapido di A
 
     Il nome del gruppo di risorse è il nome del progetto seguito da **rg**.
 
-La distribuzione del modello richiede circa 20 minuti. Al termine, l'output sarà simile al seguente:
+    La distribuzione del modello richiede circa 20 minuti. Al termine, l'output sarà simile al seguente:
 
-:::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-powershell-output.png" alt-text="Modello di Resource Manager per ExpressRoute: output della distribuzione con PowerShell":::
+    :::image type="content" source="./media/quickstart-create-expressroute-vnet/expressroute-powershell-output.png" alt-text="Modello di Resource Manager per ExpressRoute: output della distribuzione con PowerShell":::
 
 Per distribuire il modello viene usato Azure PowerShell. Oltre ad Azure PowerShell, è anche possibile usare il portale di Azure, l'interfaccia della riga di comando di Azure e l'API REST. Per informazioni sugli altri metodi di distribuzione, vedere [Distribuire modelli](../azure-resource-manager/templates/deploy-portal.md).
 

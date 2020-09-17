@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 79f3efad9ba5f6c0378f8b093a2f375275767659
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 15bbce208475a85e7be6efbadebcb4e43c2d8d17
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185843"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90029104"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-mysql"></a>Avvio rapido: Usare Ruby per connettersi ai dati ed eseguire query in Database di Azure per MySQL
 
@@ -72,7 +72,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database d
 ## <a name="connect-and-create-a-table"></a>Connettersi e creare una tabella
 Usare il codice seguente per connettersi e creare una tabella usando l'istruzione SQL **CREATE TABLE**, seguita dalle istruzioni SQL **INSERT INTO** per aggiungere righe nella tabella.
 
-Il codice usa un metodo [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) class .new() per la connessione ad Azure Database per MySQL. Chiama quindi il metodo [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) più volte per eseguire i comandi DROP, CREATE TABLE e INSERT INTO. Chiama infine il metodo [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) per chiudere la connessione prima di terminare.
+Il codice usa un metodo [mysql2::client](https://www.rubydoc.info/gems/mysql2) class .new() per la connessione ad Azure Database per MySQL. Chiama quindi il metodo [query()](https://www.rubydoc.info/gems/mysql2#Usage) più volte per eseguire i comandi DROP, CREATE TABLE e INSERT INTO. Chiama infine il metodo [close()](https://www.rubydoc.info/gems/mysql2/Mysql2/Client#close-instance_method) per chiudere la connessione prima di terminare.
 
 Sostituire le stringhe `host`, `database`, `username` e `password` con valori personalizzati. 
 ```ruby
@@ -117,7 +117,7 @@ end
 ## <a name="read-data"></a>Leggere i dati
 Usare il codice seguente per connettersi e leggere i dati usando un'istruzione SQL **SELECT**. 
 
-Il codice usa un metodo [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) class.new() per la connessione a Database di Azure per MySQL. Chiama quindi il metodo [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) per eseguire i comandi SELECT. Chiama infine il metodo [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) per chiudere la connessione prima di terminare.
+Il codice usa un metodo [mysql2::client](https://www.rubydoc.info/gems/mysql2) class.new() per la connessione a Database di Azure per MySQL. Chiama quindi il metodo [query()](https://www.rubydoc.info/gems/mysql2#Usage) per eseguire i comandi SELECT. Chiama infine il metodo [close()](https://www.rubydoc.info/gems/mysql2/Mysql2/Client#close-instance_method) per chiudere la connessione prima di terminare.
 
 Sostituire le stringhe `host`, `database`, `username` e `password` con valori personalizzati. 
 
@@ -156,7 +156,7 @@ end
 ## <a name="update-data"></a>Aggiornare i dati
 Usare il codice seguente per connettersi e aggiornare i dati usando un'istruzione SQL **UPDATE**.
 
-Il codice usa un metodo [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) class .new() per la connessione ad Azure Database per MySQL. Chiama quindi il metodo [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) per eseguire i comandi UPDATE. Chiama infine il metodo [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) per chiudere la connessione prima di terminare.
+Il codice usa un metodo [mysql2::client](https://www.rubydoc.info/gems/mysql2) class .new() per la connessione ad Azure Database per MySQL. Chiama quindi il metodo [query()](https://www.rubydoc.info/gems/mysql2#Usage) per eseguire i comandi UPDATE. Chiama infine il metodo [close()](https://www.rubydoc.info/gems/mysql2/Mysql2/Client#close-instance_method) per chiudere la connessione prima di terminare.
 
 Sostituire le stringhe `host`, `database`, `username` e `password` con valori personalizzati. 
 
@@ -193,7 +193,7 @@ end
 ## <a name="delete-data"></a>Eliminare i dati
 Usare il codice seguente per connettersi e leggere i dati usando un'istruzione SQL **DELETE**. 
 
-Il codice usa un metodo [mysql2::client](https://www.rubydoc.info/gems/mysql2/0.4.8) class .new() per la connessione ad Azure Database per MySQL. Chiama quindi il metodo [query()](https://www.rubydoc.info/gems/mysql2/0.4.8#Usage) per eseguire i comandi DELETE. Chiama infine il metodo [close()](https://www.rubydoc.info/gems/mysql2/0.4.8/Mysql2/Client#close-instance_method) per chiudere la connessione prima di terminare.
+Il codice usa un metodo [mysql2::client](https://www.rubydoc.info/gems/mysql2) class .new() per la connessione ad Azure Database per MySQL. Chiama quindi il metodo [query()](https://www.rubydoc.info/gems/mysql2#Usage) per eseguire i comandi DELETE. Chiama infine il metodo [close()](https://www.rubydoc.info/gems/mysql2/Mysql2/Client#close-instance_method) per chiudere la connessione prima di terminare.
 
 Sostituire le stringhe `host`, `database`, `username` e `password` con valori personalizzati. 
 

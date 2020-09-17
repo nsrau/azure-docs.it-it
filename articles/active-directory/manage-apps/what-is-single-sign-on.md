@@ -12,12 +12,12 @@ ms.date: 12/03/2019
 ms.author: kenwith
 ms.reviewer: arvindh, japere
 ms.custom: contperfq1
-ms.openlocfilehash: 6c7ac840dfba665c4691fc4d389d66f44b077bf7
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 1eaef57f46bf6373fdd2a73575bb028904ef108b
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89069470"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90561651"
 ---
 # <a name="what-is-single-sign-on-sso"></a>Informazioni sull'accesso Single Sign-On (SSO)
 
@@ -53,7 +53,7 @@ Il modo in cui si implementa l'accesso Single Sign-On dipende da dove è ospitat
 > [!TIP]
 > Le app ospitate nel cloud sono dette anche app SaaS (Software as a Service). 
 
-L'accesso Single Sign-on per le app ospitate nel cloud è semplice. Si indica al provider di identità che verrà usato per l'app e quindi si configura l'app in modo che consideri attendibile il provider di identità. Per informazioni su come usare Azure AD come provider di identità per un'app, vedere la [serie di guide di avvio rapido sulla gestione delle applicazioni](view-applications-portal.md).
+L'accesso Single Sign-on per le app ospitate nel cloud è semplice. Si indica al provider di identità che verrà usato per l'app e quindi si configura l'app in modo che consideri attendibile il provider di identità. Per informazioni su come usare Azure AD come provider di identità per un'app, vedere la [serie di guide di avvio rapido sulla gestione delle applicazioni](add-application-portal.md).
 
 > [!TIP]
 > I termini cloud e Internet vengono spesso usati in modo interscambiabile. Il motivo ha a che fare con i diagrammi di rete. È comune denotare le reti di computer di grandi dimensioni con una forma di nuvoletta in un diagramma perché non è possibile disegnare ogni componente. Internet è la rete più conosciuta ed è quindi facile usare i termini in modo interscambiabile. Tuttavia, qualsiasi rete di computer può essere trasformata in un cloud.
