@@ -1,7 +1,7 @@
 ---
-title: Configurare gli endpoint Web (anteprima)
+title: Configurare endpoint Web (anteprima)
 titleSuffix: Azure Cognitive Services
-description: configurare gli endpoint Web per i comandi personalizzati
+description: configurare endpoint Web per comandi personalizzati
 services: cognitive-services
 author: xiaojul
 manager: yetian
@@ -12,117 +12,117 @@ ms.date: 06/18/2020
 ms.author: xiaojul
 ms.openlocfilehash: 0197bb81fdba8bab20742d95aebaa2028bb90c18
 ms.sourcegitcommit: 0100d26b1cac3e55016724c30d59408ee052a9ab
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: it-IT
 ms.lasthandoff: 07/07/2020
 ms.locfileid: "86027682"
 ---
 # <a name="set-up-web-endpoints"></a>Configurare endpoint Web
 
-In questo articolo si apprenderà come configurare gli endpoint Web in un'applicazione di comandi personalizzati che consente di effettuare richieste HTTP da un'applicazione client. Si completeranno le attività seguenti:
+Questo articolo illustra come configurare gli endpoint Web in un'applicazione di comandi personalizzati che consentono di effettuare richieste HTTP da un'applicazione client. Verranno completate le attività seguenti:
 
-- Configurare gli endpoint Web nell'applicazione comandi personalizzati
-- Chiamare endpoint Web nell'applicazione comandi personalizzati
+- Configurare gli endpoint Web in un'applicazione di comandi personalizzati
+- Chiamare gli endpoint Web in un'applicazione di comandi personalizzati
 - Ricevere la risposta degli endpoint Web 
-- Integrare la risposta degli endpoint Web in un payload JSON personalizzato, inviarlo e visualizzarlo da un'applicazione client C# UWP Speech SDK
+- Integrare la risposta degli endpoint Web in un payload JSON personalizzato, inviarla e visualizzarla in un'applicazione client Speech SDK della piattaforma UWP in C#
 
 ## <a name="prerequisites"></a>Prerequisiti
 > [!div class = "checklist"]
 > * [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/)
-> * Una chiave di sottoscrizione di Azure per il servizio di riconoscimento vocale: [ottenerne una gratuita](get-started.md) o crearla nel [portale di Azure](https://portal.azure.com)
-> * [App comandi personalizzati creata](quickstart-custom-commands-application.md) in precedenza
-> * App client abilitata per l'SDK di riconoscimento vocale: [procedura: terminare l'attività nell'applicazione client](./how-to-custom-commands-setup-speech-sdk.md)
+> * Una chiave di sottoscrizione di Azure per il servizio Voce: È possibile [ottenerne una gratuitamente](get-started.md) o crearla nel [portale di Azure](https://portal.azure.com)
+> * Un'[app di comandi personalizzati creata](quickstart-custom-commands-application.md) in precedenza
+> * Un'app client abilitata per Speech SDK: [Procedura: Inviare attività a un'applicazione client](./how-to-custom-commands-setup-speech-sdk.md)
 
 ## <a name="setup-web-endpoints"></a>Configurare gli endpoint Web
 
-1. Aprire l'applicazione Custom Commands creata in precedenza. 
-1. Passare a "endpoint Web" e fare clic su "nuovo endpoint Web".
+1. Aprire l'applicazione di comandi personalizzati creata in precedenza. 
+1. Passare a "Web endpoint" (Endpoint Web) e fare clic su "New web endpoint" (Nuovo endpoint Web).
 
    > [!div class="mx-imgBorder"]
    > ![Nuovo endpoint Web](media/custom-commands/setup-web-endpoint-new-endpoint.png)
 
    | Impostazione | Valore consigliato | Descrizione |
    | ------- | --------------- | ----------- |
-   | Nome | UpdateDeviceState | Nome dell'endpoint Web. |
-   | URL | https://webendpointexample.azurewebsites.net/api/DeviceState | URL dell'endpoint con cui si vuole comunicare l'app del comando personalizzata. |
-   | Metodo | POST | Interazioni consentite, ad esempio GET, POST, con l'endpoint.|
-   | Headers | Chiave: app, valore: accetta le prime 8 cifre della applicationId | Parametri dell'intestazione da includere nell'intestazione della richiesta.|
+   | Nome | UpdateDeviceState | Il nome dell'endpoint Web. |
+   | URL | https://webendpointexample.azurewebsites.net/api/DeviceState | L'URL dell'endpoint da mettere in comunicazione con l'app di comandi personalizzati. |
+   | Metodo | POST | Le interazioni consentite, ad esempio GET o POST, con l'endpoint.|
+   | Intestazioni | Chiave: app, Valore: usare le prime 8 cifre dell'ID applicazione | I parametri dell'intestazione da includere nell'intestazione della richiesta.|
 
     > [!NOTE]
-    > - L'endpoint Web di esempio creato con la [funzione di Azure](https://docs.microsoft.com/azure/azure-functions/), che si collega al database che salva lo stato del dispositivo del televisore e della ventola
+    > - L'endpoint Web di esempio, creato con [Funzioni di Azure](https://docs.microsoft.com/azure/azure-functions/), si collega al database e salva lo stato dispositivo della TV e del ventilatore
     > - L'intestazione suggerita è necessaria solo per l'endpoint di esempio
-    > - Per assicurarsi che il valore dell'intestazione sia univoco nell'endpoint di esempio, prendere le prime 8 cifre della applicationId
-    > - Nel mondo reale, l'endpoint Web può essere l'endpoint per l' [Hub](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) delle cose che gestisce i dispositivi
+    > - Per assicurarsi che il valore dell'intestazione sia univoco nell'endpoint di esempio, usare le prime 8 cifre dell'ID applicazione
+    > - Nella realtà, l'endpoint Web può essere l'endpoint per l'[hub IoT](https://docs.microsoft.com/azure/iot-hub/about-iot-hub) che gestisce i dispositivi
 
 1. Fare clic su **Salva**.
 
-## <a name="call-web-endpoints"></a>Chiama endpoint Web
+## <a name="call-web-endpoints"></a>Chiamare gli endpoint Web
 
-1. Passare a **TurnOnOff** comando, selezionare **ConfirmationResponse** in regola di completamento, quindi selezionare **Aggiungi un'azione**.
-1. In **nuovo tipo di azione**selezionare **chiama endpoint Web**
-1. In **Edit action-Endpoints**selezionare **UpdateDeviceState**, che è l'endpoint Web creato.  
-1. In **configurazione**inserire i valori seguenti: 
+1. Passare al comando **TurnOnOff**, selezionare **ConfirmationResponse** nella regola di completamento, quindi selezionare **Aggiungi un'azione**.
+1. In **Nuova azione - Tipo** selezionare **Call web endpoint** (Chiamata a endpoint Web)
+1. In **Modifica azione - Endpoint** selezionare **UpdateDeviceState**, ovvero l'endpoint Web creato.  
+1. In **Configurazione** inserire i valori seguenti: 
    > [!div class="mx-imgBorder"]
-   > ![Chiama parametri azione endpoint Web](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
+   > ![Parametri dell'azione di chiamata a endpoint Web](media/custom-commands/setup-web-endpoint-edit-action-parameters.png)
 
    | Impostazione | Valore consigliato | Descrizione |
    | ------- | --------------- | ----------- |
-   | Endpoint | UpdateDeviceState | Endpoint Web che si desidera chiamare in questa azione. |
-   | Parametri di query | Item = {SubjectDevice} &&valore = {OnOff} | Parametri di query da accodare all'URL dell'endpoint Web.  |
-   | Contenuto del corpo | N/D | Contenuto del corpo della richiesta. |
+   | Endpoint | UpdateDeviceState | L'endpoint Web da chiamare in questa azione. |
+   | Parametri di query | item={SubjectDevice}&&value={OnOff} | I parametri di query da aggiungere alla fine dell'URL dell'endpoint.  |
+   | Contenuto del corpo | N/D | Il contenuto del corpo della richiesta. |
 
     > [!NOTE]
     > - I parametri di query suggeriti sono necessari solo per l'endpoint di esempio
 
-1. In **in esito positivo-azione da eseguire**selezionare **Invia risposta vocale**.
+1. Per **In caso di esito positivo - Action to execute** (Azione da eseguire) selezionare **Send speech response** (Invia risposta vocale).
     
-    Nell' **Editor semplice**immettere `{SubjectDevice} is {OnOff}` .
+    In **Simple editor** (Editor semplice) immettere `{SubjectDevice} is {OnOff}`.
    
    > [!div class="mx-imgBorder"]
-   > ![Chiama l'azione endpoint Web per l'esito positivo](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
+   > ![Azione di chiamata a endpoint Web in caso di esito positivo](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-response.png)
 
    | Impostazione | Valore consigliato | Descrizione |
    | ------- | --------------- | ----------- |
-   | Azione da eseguire | Invia risposta vocale | Azione da eseguire se la richiesta all'endpoint Web ha esito positivo |
+   | Azione da eseguire | Send speech response (Invia risposta vocale) | Azione da eseguire in caso di esito positivo della richiesta effettuata all'endpoint Web |
    
    > [!NOTE]
-   > - È anche possibile accedere direttamente ai campi nella risposta http usando `{YourWebEndpointName.FieldName}` . Ad esempio: `{UpdateDeviceState.TV}`
+   > - È anche possibile accedere direttamente ai campi della risposta HTTP usando `{YourWebEndpointName.FieldName}`. ad esempio `{UpdateDeviceState.TV}`
 
-1. In **in caso di errore-azione da eseguire**selezionare **Invia risposta vocale**
+1. Per **In caso di esito negativo - Action to execute** (Azione da eseguire) selezionare **Send speech response** (Invia risposta vocale)
 
-    Nell' **Editor semplice**immettere `Sorry, {WebEndpointErrorMessage}` .
+    In **Simple editor** (Editor semplice) immettere `Sorry, {WebEndpointErrorMessage}`.
 
    > [!div class="mx-imgBorder"]
-   > ![Chiama l'azione endpoint Web in errore](media/custom-commands/setup-web-endpoint-edit-action-on-fail.png)
+   > ![Azione di chiamata a endpoint Web in caso di esito negativo](media/custom-commands/setup-web-endpoint-edit-action-on-fail.png)
 
    | Impostazione | Valore consigliato | Descrizione |
    | ------- | --------------- | ----------- |
-   | Azione da eseguire | Invia risposta vocale | Azione da eseguire se la richiesta all'endpoint Web ha esito negativo |
+   | Azione da eseguire | Send speech response (Invia risposta vocale) | Azione da eseguire in caso di esito negativo della richiesta all'endpoint Web |
 
    > [!NOTE]
    > - `{WebEndpointErrorMessage}` è facoltativo. Se non si vuole esporre alcun messaggio di errore, è possibile rimuoverlo.
-   > - All'interno dell'endpoint di esempio, viene restituita la risposta http con messaggi di errore dettagliati per gli errori comuni, ad esempio i parametri di intestazione mancanti. 
+   > - All'interno dell'endpoint di esempio viene restituita la risposta HTTP con messaggi dettagliati per gli errori comuni, ad esempio parametri di intestazione mancanti. 
 
-### <a name="try-it-out-in-test-portal"></a>Provare il portale di test
-- In risposta riuscita \
-Salva, Esegui il training e testa
+### <a name="try-it-out-in-test-portal"></a>Provare nel portale di test
+- Risposta in caso di esito positivo\
+Salvare, eseguire il training e testare
    > [!div class="mx-imgBorder"]
-   > ![Chiama l'azione endpoint Web per l'esito positivo](media/custom-commands/setup-web-endpoint-on-success-response.png)
-- Risposta non riuscita \
-Rimuovere uno dei parametri di query, Save, Retrain e test
+   > ![Azione di chiamata a endpoint Web in caso di esito positivo](media/custom-commands/setup-web-endpoint-on-success-response.png)
+- Risposta in caso di esito negativo\
+Rimuovere uno dei parametri di query, salvare, ripetere il training e testare
    > [!div class="mx-imgBorder"]
-   > ![Chiama l'azione endpoint Web per l'esito positivo](media/custom-commands/setup-web-endpoint-on-fail-response.png)
+   > ![Azione di chiamata a endpoint Web in caso di esito positivo](media/custom-commands/setup-web-endpoint-on-fail-response.png)
 
 ## <a name="integrate-with-client-application"></a>Integrazione con l'applicazione client
 
-In [procedura: inviare l'attività all'applicazione client (anteprima)](./how-to-custom-commands-send-activity-to-client.md)è stata aggiunta un' **attività Invia all'azione client** . L'attività viene inviata all'applicazione client indipendentemente dal fatto che l'azione dell' **endpoint Web** venga eseguita o meno.
-Tuttavia, nella maggior parte dei casi si desidera inviare l'attività all'applicazione client solo quando la chiamata all'endpoint Web ha esito positivo. In questo esempio, si tratta del momento in cui lo stato del dispositivo è stato aggiornato correttamente.
+In [Procedura: Inviare attività all'applicazione client (anteprima)](./how-to-custom-commands-send-activity-to-client.md) è stata aggiunta un'azione **Send activity to client** (Invia attività a client). L'attività viene inviata all'applicazione client indipendentemente dall'esito positivo o negativo dell'azione **Call Web endpoint** (Chiamata a endpoint Web).
+Tuttavia, nella maggior parte dei casi è preferibile che l'attività venga inviata all'applicazione client solo quando la chiamata all'endpoint Web ha esito positivo. In questo esempio si tratta del momento in cui lo stato del dispositivo viene aggiornato correttamente.
 
-1. Eliminare l' **attività Send all'azione client** aggiunta in precedenza.
-1. Modifica endpoint Web di chiamata: 
-    1. In **configurazione**verificare che i **parametri di query** siano`item={SubjectDevice}&&value={OnOff}`
-    1. In **in esito positivo**, modificare l' **azione da eseguire** per **inviare l'attività al client**
-    1. Copiare il codice JSON seguente nel **contenuto dell'attività**
+1. Eliminare l'azione **Send activity to client** (Invia attività a client) aggiunta in precedenza.
+1. Modificare la chiamata all'endpoint Web: 
+    1. In **Configurazione** assicurarsi che l'opzione **Parametri di query** sia impostata su `item={SubjectDevice}&&value={OnOff}`
+    1. Per **In caso di esito positivo** impostare **Action to execute** (Azione da eseguire) su **Send activity to client** (Invia attività a client)
+    1. Copiare il codice JSON seguente in **Activity Content** (Contenuto attività)
    ```json
    {
      "type": "event",
@@ -132,12 +132,12 @@ Tuttavia, nella maggior parte dei casi si desidera inviare l'attività all'appli
    }
    ```
     > [!div class="mx-imgBorder"]
-    > ![Invia attività in seguito all'esito positivo](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-activity.png)
+    > ![Invia attività in caso di esito positivo](media/custom-commands/setup-web-endpoint-edit-action-on-success-send-activity.png)
    
-A questo punto si invia l'attività al client solo quando la richiesta all'endpoint Web ha esito positivo.
+Ora l'attività viene inviata al client solo quando la richiesta all'endpoint Web ha esito positivo.
 
 ### <a name="create-visuals-for-syncing-device-state"></a>Creare oggetti visivi per sincronizzare lo stato del dispositivo
-Aggiungere il seguente codice XML a `MainPage.xaml` sopra il `"EnableMicrophoneButton"` blocco.
+Aggiungere il codice XML seguente a `MainPage.xaml` sopra il blocco `"EnableMicrophoneButton"`.
 
 ```xml
 <Button x:Name="SyncDeviceStateButton" Content="Sync Device State"
@@ -147,9 +147,9 @@ Aggiungere il seguente codice XML a `MainPage.xaml` sopra il `"EnableMicrophoneB
         .........../>
 ```
 
-### <a name="sync-device-state"></a>Sincronizza stato del dispositivo 
+### <a name="sync-device-state"></a>Sincronizzare lo stato del dispositivo 
 
-In `MainPage.xaml.cs` aggiungere il riferimento `using Windows.Web.Http;` . Aggiungere il codice seguente alla classe `MainPage` . Questo metodo invierà una richiesta GET all'endpoint di esempio ed estrarà lo stato corrente del dispositivo per l'app. Assicurarsi di modificare `<your_app_name>` l'elemento usato nell' **intestazione** dell'endpoint Web del comando personalizzato
+In `MainPage.xaml.cs` aggiungere il riferimento `using Windows.Web.Http;`. Aggiungere il codice seguente alla classe `MainPage` . Questo metodo invierà una richiesta GET all'endpoint di esempio ed estrarrà lo stato corrente del dispositivo per l'app. Assicurarsi di sostituire `<your_app_name>` con il valore usato nell'**intestazione** nell'endpoint Web di comandi personalizzati
 
 ```C#
 private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs e)
@@ -192,18 +192,18 @@ private async void SyncDeviceState_ButtonClicked(object sender, RoutedEventArgs 
 ## <a name="try-it-out"></a>Procedura
 
 1. Avviare l'applicazione
-1. Fare clic su Sincronizza stato del dispositivo. \
-Se l'app è stata sottoposta `turn on tv` a test nella sezione precedente, la TV verrà visualizzata come "on".
+1. Fare clic su Sync Device State (Sincronizza stato dispositivo).\
+Se l'app è stata testata con `turn on tv` nella sezione precedente, lo stato della TV sarà "on".
     > [!div class="mx-imgBorder"]
-    > ![Sincronizza stato del dispositivo](media/custom-commands/setup-web-endpoint-sync-device-state.png)
+    > ![Sincronizzare lo stato del dispositivo](media/custom-commands/setup-web-endpoint-sync-device-state.png)
 1. Selezionare Abilita microfono
-1. Selezionare il pulsante Talk
-1. Ad esempio`turn on the fan`
-1. Lo stato di visualizzazione della ventola verrà modificato in "on".
+1. Selezionare il pulsante Talk (Parla)
+1. Pronunciare la frase `turn on the fan`
+1. Lo stato visivo del ventilatore cambierà in "on"
     > [!div class="mx-imgBorder"]
-    > ![Attiva ventola](media/custom-commands/setup-web-endpoint-turn-on-fan.png)
+    > ![Attivare il ventilatore](media/custom-commands/setup-web-endpoint-turn-on-fan.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 > [!div class="nextstepaction"]
-> [Abilitare un processo di integrazione continua/distribuzione continua per l'applicazione comandi personalizzati](./how-to-custom-commands-deploy-cicd.md)
+> [Abilitare un processo CI/CD per l'applicazione di comandi personalizzati](./how-to-custom-commands-deploy-cicd.md)

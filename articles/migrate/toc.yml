@@ -28,8 +28,6 @@
           href: tutorial-discover-physical.md
         - name: Individuare istanze di AWS
           href: tutorial-discover-aws.md
-        - name: Individuare server importati
-          href: tutorial-discover-import.md
     - name: Valutare
       items:
         - name: Valutare le VM VMware per la migrazione a macchine virtuali di Azure
@@ -42,6 +40,8 @@
           href: tutorial-assess-physical.md
         - name: Valutare le istanze di AWS per la migrazione ad Azure
           href: tutorial-assess-aws.md
+        - name: Valutare i server importati
+          href: tutorial-discover-import.md
     - name: Migrazione
       items:
         - name: Eseguire la migrazione di VM VMware

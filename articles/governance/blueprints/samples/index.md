@@ -1,14 +1,14 @@
 ---
 title: Indice degli esempi di progetto
 description: Indice di esempi di conformità e standard per la distribuzione di ambienti, criteri ed elementi di base di Cloud Adoptions Framework con Azure Blueprints.
-ms.date: 09/11/2020
+ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: 7ac95dee88cb244ecb4b60738daae26bb0d8831a
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: def5e51a3db7e0733e0d7e1ef5c6895aedb7128d
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90031875"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90530982"
 ---
 # <a name="azure-blueprints-samples"></a>Esempi di Azure Blueprints
 
@@ -42,7 +42,8 @@ La tabella seguente include collegamenti a esempi per Azure Blueprints. Ogni ese
 
 ## <a name="samples-strategy"></a>Strategia degli esempi
 
-:::image type="content" source="../media/blueprint-samples-strategy.png" alt-text="Strategia dei progetti di esempio" border="false":::
+:::image type="complex" source="../media/blueprint-samples-strategy.png" alt-text="Diagramma della posizione degli esempi di progetto ai fini del confronto tra complessità dell'architettura e requisiti di conformità." border="false":::
+   Illustra un sistema di coordinate in cui la complessità dell'architettura corrisponde all'asse X e i requisiti di conformità corrispondono all'asse Y.  Quando i requisiti di conformità e la complessità dell'architettura sono più elevati, adottare esempi di progetto standard del portale designato nell'area E. Per i clienti che iniziano con Azure, sfruttare i progetti di base e della zona di destinazione di Cloud Adoption Framework designati dalle aree A e B. Lo spazio rimanente viene attribuito ai progetti personalizzati creati dai clienti che sono partner per le aree C, D e F. :::image-end:::
 
 I progetti per la definizione della base di Cloud Adoption Framework e la zona di destinazione per la migrazione di Cloud Adoption Framework presuppongono che il cliente prepari una sottoscrizione singola pulita in cui eseguire la migrazione di carichi di lavoro e asset locali ad Azure
 (area A e B nella figura).  

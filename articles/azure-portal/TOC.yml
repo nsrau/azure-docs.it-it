@@ -31,6 +31,8 @@
       href: set-preferences.md
     - name: 'Aggiungere, rimuovere e ordinare i preferiti'
       href: azure-portal-add-remove-sort-favorites.md
+    - name: Visualizzare e filtrare le informazioni sulle risorse
+      href: manage-filter-resource-views.md
     - name: Creare dashboard di Azure
       items:
         - name: Creare e condividere dashboard di Azure

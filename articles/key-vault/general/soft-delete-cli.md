@@ -9,12 +9,12 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 08/11/2020
 ms.author: sudbalas
-ms.openlocfilehash: 247f37a69cd8524339a3f5414230cca0f42fa22d
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: da821da08594180b9dd94728252e1a43c04fbde2
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662052"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531662"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Come usare l'eliminazione temporanea di Key Vault con l'interfaccia della riga di comando
 
@@ -25,7 +25,7 @@ La funzionalità di eliminazione temporanea di Azure Key Vault consente il recup
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-- Interfaccia della riga di comando di Azure: se non è ancora stata installata nell'ambiente, vedere [Gestire Key Vault tramite l'interfaccia della riga di comando di Azure](manage-with-cli2.md).
+- Interfaccia della riga di comando di Azure: se non è ancora installata nell'ambiente di lavoro, vedere [Gestire Key Vault tramite l'interfaccia della riga di comando di Azure](manage-with-cli2.md).
 
 Per informazioni sui comandi dell'interfaccia della riga di comando relativi a Key Vault, vedere la [Documentazione sull'interfaccia della riga di comando di Azure per Key Vault](https://docs.microsoft.com/cli/azure/keyvault).
 
@@ -242,5 +242,5 @@ az keyvault update --name ContosoVault --resource-group ContosoRG --enable-purge
 ## <a name="other-resources"></a>Altre risorse
 
 - Per una panoramica della funzionalità di eliminazione temporanea di Key Vault, vedere [Panoramica della funzionalità di eliminazione temporanea di Azure Key Vault](soft-delete-overview.md).
-- Per una panoramica generale dell'uso di Azure Key Vault, vedere [Cos'è Azure Key Vault?](overview.md)
+- Per una panoramica generale dell'uso di Azure Key Vault, vedere [Cos'è Azure Key Vault?](overview.md).
 

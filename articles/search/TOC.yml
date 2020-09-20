@@ -3,9 +3,11 @@
 - name: Panoramica
   expanded: true
   items:
-    - name: Che cos'è la ricerca cognitiva di Azure?
+    - name: Che cos'è Ricerca cognitiva?
       href: search-what-is-azure-search.md
-    - name: Novità
+    - name: Funzionalità incluse in Ricerca cognitiva
+      href: search-features-list.md
+    - name: Novità di Ricerca cognitiva
       href: whats-new.md
 - name: Avvi rapidi
   items:
@@ -413,25 +415,27 @@
     - name: .NET
       items:
         - name: API di ricerca
-          href: /dotnet/api/overview/azure/search.documents-readme?view=azure-dotnet
+          href: /dotnet/api/overview/azure/search.documents-readme
         - name: API di gestione
-          href: /dotnet/api/overview/azure/search/management?view=azure-dotnet
+          href: /dotnet/api/overview/azure/search/management
     - name: Java
       items:
+        - name: API di ricerca
+          href: /java/api/overview/azure/search-documents-readme
         - name: API di gestione
-          href: /java/api/overview/azure/search/management?view=azure-java-stable
+          href: /java/api/overview/azure/search/management
     - name: JavaScript
       items:
         - name: API di ricerca
-          href: /javascript/api/overview/azure/search-documents-readme?view=azure-node-latest
+          href: /javascript/api/overview/azure/search-documents-readme
         - name: API di gestione
-          href: /javascript/api/overview/azure/search/management?view=azure-node-latest
+          href: /javascript/api/overview/azure/search/management
     - name: Python
       items:
         - name: API di ricerca
-          href: /python/api/overview/azure/search-documents-readme?view=azure-python
+          href: /python/api/overview/azure/search-documents-readme
         - name: API di gestione
-          href: /python/api/overview/azure/search/management?view=azure-python
+          href: /python/api/overview/azure/search/management
     - name: Informazioni di riferimento sul linguaggio OData
       items:
         - name: Panoramica

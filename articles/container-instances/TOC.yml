@@ -4,7 +4,7 @@
   items:
     - name: Informazioni su Istanze di Azure Container
       href: container-instances-overview.md
-- name: Guide introduttive
+- name: Avvi rapidi
   expanded: true
   items:
     - name: Distribuire un'istanza di contenitore - Interfaccia della riga di comando
@@ -17,7 +17,7 @@
       displayName: Resource Manager
       href: container-instances-quickstart-template.md
     - name: Distribuire un'istanza di contenitore - Interfaccia della riga di comando Docker
-      href: container-instances-quickstart-docker-cli.md
+      href: quickstart-docker-cli.md
 - name: Esercitazioni
   items:
     - name: Creare e distribuire un'immagine del contenitore
@@ -34,6 +34,8 @@
           href: container-instances-multi-container-yaml.md
         - name: Distribuire un gruppo di contenitori - Resource Manager
           href: container-instances-multi-container-group.md
+        - name: Distribuire un gruppo di contenitori - Docker Compose
+          href: tutorial-docker-compose.md
     - name: Eseguire l'integrazione con i servizi di Azure
       items:
         - name: Trigger con Funzioni di Azure

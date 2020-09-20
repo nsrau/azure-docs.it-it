@@ -64,6 +64,8 @@
           href: protect-avs-web-apps-with-app-gateway.md
         - name: Gestione traffico
           href: deploy-traffic-manager-to-balance-avs-workloads.md
+        - name: NetApp Files
+          href: net-app-files.md
     - name: Soluzioni VMware
       items:
         - name: Configurare operazioni vRealize

@@ -1072,6 +1072,8 @@
               href: troubleshoot-not-found.md
             - name: Risolvere il problema relativo a elementi non autorizzati
               href: troubleshoot-unauthorized.md
+            - name: Disponibilità di SDK in ambienti composti da più aree
+              href: troubleshoot-sdk-availability.md
         - name: .NET
           items:
             - name: Risoluzione dei problemi generali di .NET SDK

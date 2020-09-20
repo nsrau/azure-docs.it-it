@@ -345,7 +345,7 @@
       href: ../../virtual-machine-scale-sets/overview.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Automatizzazione dell'infrastruttura
       href: ../infrastructure-automation.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-    - name: Security
+    - name: Sicurezza
       items:
         - name: Sicurezza e criteri
           href: ../security-policy.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -619,7 +619,7 @@
               href: disk-encryption-troubleshooting.md
             - name: Domande frequenti sulla crittografia del disco
               href: disk-encryption-faq.md
-            - name: Crittografia dischi - versione precedente (AAD)
+            - name: Crittografia dischi - versione precedente (Azure AD)
               items:
                 - name: Panoramica
                   href: disk-encryption-overview-aad.md
@@ -691,7 +691,7 @@
         - name: Usare Desktop remoto
           href: use-remote-desktop.md
         - name: Aggiungere una macchina virtuale ad Azure Active Directory
-          displayName: AAD
+          displayName: Azure AD
           items:
             - name: Red Hat Enterprise Linux
               href: ../../active-directory-domain-services/join-rhel-linux-vm.md
@@ -717,7 +717,7 @@
           href: instance-metadata-service.md
         - name: Ottenere le metriche di utilizzo con REST
           href: metrics-vm-usage-rest.md
-    - name: Manutenzione della piattaforma
+    - name: Controllo della manutenzione
       items:
         - name: Notifiche di manutenzione
           items:
@@ -729,7 +729,7 @@
               href: ../maintenance-notifications-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: PowerShell
               href: ../maintenance-notifications-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-        - name: Controllo della manutenzione
+        - name: Manutenzione della piattaforma
           items:
             - name: Panoramica
               href: ../maintenance-control.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
@@ -741,6 +741,16 @@
               href: ../maintenance-control-portal.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
         - name: Eventi pianificati
           href: scheduled-events.md
+        - name: Aggiornamenti delle immagini del sistema operativo del set di scalabilità di macchine virtuali
+          items:
+            - name: Aggiornamenti automatici del sistema operativo
+              href: ../../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: Controllo della manutenzione
+              items:
+                - name: Panoramica (anteprima)
+                  href: ../virtual-machine-scale-sets-maintenance-control.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+                - name: PowerShell (anteprima)
+                  href: ../virtual-machine-scale-sets-maintenance-control-powershell.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
     - name: Monitorare le VM
       items:
         - name: Agenti
@@ -933,7 +943,7 @@
           href: /azure/architecture/topics/high-performance-computing/
         - name: IBM Db2 pureScale
           items:
-            - name: Architecture
+            - name: Architettura
               href: ibm-db2-purescale-azure.md
             - name: Distribuzione
               href: deploy-ibm-db2-purescale-azure.md

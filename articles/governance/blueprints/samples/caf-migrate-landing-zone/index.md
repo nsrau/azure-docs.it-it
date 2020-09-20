@@ -1,14 +1,14 @@
 ---
 title: Panoramica dell'esempio di progetto della zona di destinazione per la migrazione di Cloud Adoption Framework
 description: Panoramica e architettura del progetto di esempio della zona di destinazione per la migrazione di Cloud Adoption Framework (CAF) per Azure.
-ms.date: 04/15/2020
+ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: 6deb671070a742448560309b1b1a3572f5aa082d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 6b8e3484690d263a43d3824c054b28344ea07fb1
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852311"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531679"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-migration-landing-zone-blueprint-sample"></a>Panoramica del progetto di esempio della zona di destinazione per la migrazione di Microsoft Cloud Adoption Framework per Azure
 
@@ -20,7 +20,9 @@ Il progetto di esempio di [definizione della base di Cloud Adoption Framework](.
 
 Il progetto di esempio della zona di destinazione per la migrazione di Cloud Adoption Framework distribuisce le risorse dell'infrastruttura di base in Azure che possono essere usate dalle organizzazioni per preparare la sottoscrizione in cui eseguire la migrazione delle macchine virtuali. Consente inoltre di predisporre i controlli di governance necessari per gestire l'ambiente cloud. Con questo esempio verranno distribuite e imposte risorse, criteri e modelli che permetteranno a un'organizzazione di iniziare a usare Azure in modo sicuro.
 
-:::image type="content" source="../../media/caf-blueprints/caf-migration-landing-zone-architecture.png" alt-text="Zona di destinazione per la migrazione di Cloud Adoption Framework: l'immagine illustra gli elementi installati previsti dalle linee guida di Cloud Adoption Framework per la zona di destinazione iniziale" border="false":::
+:::image type="complex" source="../../media/caf-blueprints/caf-migration-landing-zone-architecture.png" alt-text="Zona di destinazione per la migrazione di Cloud Adoption Framework: l'immagine illustra gli elementi installati previsti dalle linee guida di Cloud Adoption Framework per la zona di destinazione iniziale." border="false":::
+   Illustra un'architettura di Azure ottenuta dalla distribuzione del progetto di migrazione di Cloud Adoption Framework.  È applicabile a una sottoscrizione con gruppi di risorse costituita da una rete virtuale di Azure, un account di archiviazione per l'archiviazione dei log e Log Analytics configurato per l'archiviazione nell'account di archiviazione.  Illustra anche la configurazione di Azure Key Vault e la creazione della configurazione iniziale per Azure Migrate.  È possibile accedere a tutte queste infrastrutture di base usando Azure Active Directory.     
+:::image-end:::
 
 Questo ambiente è costituito da diversi servizi di Azure usati per offrire una governance di livello aziendale sicura e completamente monitorata. L'ambiente è costituito da:
 

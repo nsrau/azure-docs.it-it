@@ -3,17 +3,17 @@ title: Gestire i costi di Azure con l'automazione
 description: Questo articolo illustra come gestire i costi di Azure con l'automazione.
 author: bandersmsft
 ms.author: banders
-ms.date: 08/19/2020
+ms.date: 09/14/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: cost-management
-ms.reviewer: adwise
-ms.openlocfilehash: a5ab84794884cc0c87bd766be7a0fa2fe4c52aa9
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.reviewer: matrive
+ms.openlocfilehash: eb6ed73305d55b4f76464a4567c6b53715b10c3a
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88684406"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90526647"
 ---
 # <a name="manage-costs-with-automation"></a>Gestire i costi con l'automazione
 
@@ -161,6 +161,70 @@ Una chiamata GET all'API dei budget non restituirà i costi correnti indicati ne
 ### <a name="automate-budget-creation"></a>Automatizzare la creazione del budget
 
 È possibile automatizzare la creazione del budget usando l'[API dei budget](/rest/api/consumption/budgets). È anche possibile creare un budget con un [modello di budget](quick-create-budget-template.md). I modelli rappresentano un modo semplice per standardizzare le distribuzioni di Azure garantendo al contempo la corretta configurazione e applicazione del controllo dei costi.
+
+#### <a name="supported-locales-for-budget-alert-emails"></a>Impostazioni locali supportate per i messaggi di posta elettronica di avviso relativi ai budget
+
+Con i budget si riceve un avviso quando i costi superano una soglia impostata. È possibile impostare un massimo di cinque destinatari di posta elettronica per ogni budget. I destinatari ricevono i messaggi di posta elettronica di avviso entro 24 ore dal superamento della soglia del budget. È però possibile che il destinatario debba ricevere un messaggio di posta elettronica in una lingua diversa. Con l'API dei budget è possibile usare i codici di impostazioni cultura della lingua seguenti. Per definire le impostazioni cultura, usare il parametro `locale` come descritto nell'esempio seguente.
+
+```json
+{
+  "eTag": "\"1d681a8fc67f77a\"",
+  "properties": {
+    "timePeriod": {
+      "startDate": "2020-07-24T00:00:00Z",
+      "endDate": "2022-07-23T00:00:00Z"
+    },
+    "timeGrain": "BillingMonth",
+    "amount": 1,
+    "currentSpend": {
+      "amount": 0,
+      "unit": "USD"
+    },
+    "category": "Cost",
+    "notifications": {
+      "actual_GreaterThan_10_Percent": {
+        "enabled": true,
+        "operator": "GreaterThan",
+        "threshold": 20,
+        "locale": "en-us",
+        "contactEmails": [
+          "user@contoso.com"
+        ],
+        "contactRoles": [],
+        "contactGroups": [],
+        "thresholdType": "Actual"
+      }
+    }
+  }
+}
+
+```
+
+Lingue supportate dalle impostazioni cultura:
+
+| Codice di impostazioni cultura| Linguaggio |
+| --- | --- |
+| it-it | Inglese (Stati Uniti) |
+| ja-jp | Giapponese (Giappone) |
+| zh-cn | Cinese (semplificato, Cina) |
+| de-de | Tedesco (Germania) |
+| es-es | Spagnolo (Spagna, internazionale) |
+| fr-fr | Francese (Francia) |
+| it-it | Italiano (Italia) |
+| ko-kr | Coreano (Corea) |
+| pt-br | Portoghese (Brasile) |
+| ru-ru | Russo (Russia) |
+| zh-tw | Cinese (tradizionale, Taiwan) |
+| cs-cz | Ceco (Repubblica Ceca) |
+| pl-pl | Polacco (Polonia) |
+| tr-tr | Turco (Turchia) |
+| da-dk | Danese (Danimarca) |
+| dn-gb | Inglese (Regno Unito) |
+| hu-hu | Ungherese (Ungheria) |
+| nb-bo | Norvegese Bokmål (Norvegia) |
+| nl-nl | Olandese (Paesi Bassi) |
+| pt-pt | Portoghese (Portogallo) |
+| sv-se | Svedese (Svezia) |
 
 #### <a name="common-budgets-api-configurations"></a>Configurazioni comuni dell'API dei budget
 

@@ -4,7 +4,7 @@
   items:
     - name: Che cosa sono i set di scalabilità delle macchine virtuali?
       href: overview.md
-- name: Avvi rapidi
+- name: Guide introduttive
   items:
     - name: Creare nel portale di Azure
       href: quick-create-portal.md
@@ -340,8 +340,16 @@
           href: virtual-machine-scale-sets-upgrade-scale-set.md
         - name: Risorse di rete per i set di scalabilità
           href: virtual-machine-scale-sets-networking.md
-        - name: Aggiornamenti automatici del sistema operativo
-          href: virtual-machine-scale-sets-automatic-upgrade.md
+        - name: Aggiornamenti delle immagini del sistema operativo
+          items:
+            - name: Aggiornamenti automatici del sistema operativo
+              href: virtual-machine-scale-sets-automatic-upgrade.md
+            - name: Controllo della manutenzione
+              items:
+                - name: Panoramica (anteprima)
+                  href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control.md
+                - name: PowerShell (anteprima)
+                  href: ../virtual-machines/virtual-machine-scale-sets-maintenance-control-powershell.md
         - name: Ripristini automatici delle istanze
           href: virtual-machine-scale-sets-automatic-instance-repairs.md
         - name: Protezione delle istanze

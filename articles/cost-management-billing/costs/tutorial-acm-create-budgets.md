@@ -9,12 +9,12 @@ ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: fab6422300dd3db7dd0d02055721bd57354668bf
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: 32aad7bc350c2ee8ca55d340623c3c3e44820d43
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322280"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90527140"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>Esercitazione: Creare e gestire budget di Azure
 
@@ -106,7 +106,7 @@ Dopo aver configurato l'importo del budget, selezionare **Avanti** per configura
 
 Se si vogliono ricevere messaggi di posta elettronica, aggiungere azure-noreply@microsoft.com all'elenco dei mittenti approvati in modo che i messaggi non vengano recapitati nella cartella Posta indesiderata. Per altre informazioni sulle notifiche, vedere [Use cost alerts](../../cost-management/cost-mgt-alerts-monitor-usage-spending.md) (Usare avvisi per i costi).
 
-Nell'esempio seguente viene generato un avviso tramite posta elettronica quando viene raggiunto il 90% del budget. Se si crea un budget con l'API dei budget, è anche possibile assegnare ruoli agli utenti perché ricevano gli avvisi. L'assegnazione dei ruoli agli utenti non è supportata nel portale di Azure. Per altre informazioni sull'API dei budget di Azure, vedere [API dei budget](/rest/api/consumption/budgets).
+Nell'esempio seguente viene generato un avviso tramite posta elettronica quando viene raggiunto il 90% del budget. Se si crea un budget con l'API dei budget, è anche possibile assegnare ruoli agli utenti perché ricevano gli avvisi. L'assegnazione dei ruoli agli utenti non è supportata nel portale di Azure. Per altre informazioni sull'API dei budget di Azure, vedere [API dei budget](/rest/api/consumption/budgets). Se si vuole che un messaggio di posta elettronica di avviso venga inviato in una lingua diversa, vedere [Impostazioni locali supportate per i messaggi di posta elettronica di avviso relativi ai budget](manage-automation.md#supported-locales-for-budget-alert-emails).
 
 I limiti di avviso supportano un intervallo compreso tra 0,01 e 1000% della soglia del budget specificata.
 

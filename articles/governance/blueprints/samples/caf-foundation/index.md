@@ -1,14 +1,14 @@
 ---
 title: Panoramica dell'esempio di progetto di definizione della base di Cloud Adoption Framework
 description: Panoramica e architettura del progetto di esempio di definizione della base di Cloud Adoption Framework (CAF) per Azure.
-ms.date: 04/15/2020
+ms.date: 09/14/2020
 ms.topic: sample
-ms.openlocfilehash: b8bd0015d5f95fc61806197ca21fdaeeb3452700
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: cce5ea001b32ae92542f38f8f11427e85075cee9
+ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852345"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90531696"
 ---
 # <a name="overview-of-the-microsoft-cloud-adoption-framework-for-azure-foundation-blueprint-sample"></a>Panoramica del progetto di esempio di definizione della base di Microsoft Cloud Adoption Framework per Azure
 
@@ -18,7 +18,9 @@ Il progetto di definizione della base di Microsoft Cloud Adoption Framework (CAF
 
 Il progetto di esempio di definizione della base di Cloud Adoption Framework distribuisce le risorse dell'infrastruttura consigliate in Azure che possono essere usate dalle organizzazioni per predisporre i controlli di base necessari per gestire l'ambiente cloud. Con questo esempio verranno distribuite e imposte risorse, criteri e modelli che permetteranno a un'organizzazione di iniziare a usare Azure in modo sicuro.
 
-:::image type="content" source="../../media/caf-blueprints/caf-foundation-architecture.png" alt-text="Definizione della base di Microsoft Cloud Adoption Framework: l'immagine illustra gli elementi installati previsti dalle linee guida di Cloud Adoption Framework per la creazione di una base iniziale da usare con Azure" border="false":::
+:::image type="complex" source="../../media/caf-blueprints/caf-foundation-architecture.png" alt-text="Base di Cloud Adoption Framework: l'immagine illustra gli elementi installati previsti dalle linee guida di Cloud Adoption Framework per la creazione di una base iniziale da usare con Azure." border="false":::
+   Illustra un'architettura di Azure ottenuta dalla distribuzione del progetto di base di Cloud Adoption Framework.  È applicabile a una sottoscrizione con gruppi di risorse costituita da un account di archiviazione per l'archiviazione dei log e Log Analytics configurato per l'archiviazione nell'account di archiviazione. Illustra anche Azure Key Vault impostato con la configurazione standard di Centro sicurezza di Azure. È possibile accedere a tutte queste infrastrutture di base usando Azure Active Directory e applicarle usando Criteri di Azure.     
+:::image-end:::
 
 Questa implementazione include diversi servizi di Azure usati per offrire una base sicura, completamente monitorata e pronta per l'azienda. L'ambiente è costituito da:
 

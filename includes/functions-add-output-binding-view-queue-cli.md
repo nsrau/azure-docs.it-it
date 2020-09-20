@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/25/2020
 ms.author: glenga
-ms.openlocfilehash: 44823ce888e97b308f29403612f598c0eb585ae5
-ms.sourcegitcommit: b129186667a696134d3b93363f8f92d175d51475
+ms.openlocfilehash: 894a89126d1ee3ed909134f3e0dd914166568654
+ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/06/2020
-ms.locfileid: "80673325"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90606598"
 ---
 È possibile visualizzare la coda nel [portale di Azure](../articles/storage/queues/storage-quickstart-queues-portal.md) o in [Microsoft Azure Storage Explorer](https://storageexplorer.com/). È anche possibile visualizzare la coda nell'interfaccia della riga di comando di Azure, come descritto nei passaggi seguenti:
 
@@ -18,7 +18,7 @@ ms.locfileid: "80673325"
     # <a name="bash"></a>[Bash](#tab/bash)
     
     ```bash
-    AZURE_STORAGE_CONNECTION_STRING="<MY_CONNECTION_STRING>"
+    export AZURE_STORAGE_CONNECTION_STRING="<MY_CONNECTION_STRING>"
     ```
     
     # <a name="powershell"></a>[PowerShell](#tab/powershell)

@@ -9,12 +9,12 @@ ms.topic: reference
 ms.date: 08/18/2020
 ms.author: anfeldma
 ms.custom: devx-track-java
-ms.openlocfilehash: 4b2d474f25209034034db092ca971bff6b78d73a
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 9e5b92918d93109183740be555bb805877862407
+ms.sourcegitcommit: 0fd1f3fe7817ad44d878d580ec167e1508051795
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068738"
+ms.lasthandoff: 09/19/2020
+ms.locfileid: "90817871"
 ---
 # <a name="spring-data-azure-cosmos-db-v3-for-core-sql-api-release-notes-and-resources"></a>Spring data Azure Cosmos DB V3 per l'API Core (SQL): Note sulla versione e risorse
 > [!div class="op_single_selector"]
@@ -57,7 +57,7 @@ Spring data Azure Cosmos DB presenta una dipendenza dal framework Spring data. I
 
 ## <a name="start-here"></a>Inizia da qui
 
-# <a name="explore"></a>[Esplora](#tab/explore)
+# <a name="explore"></a>[Esplorare](#tab/explore)
 
 <img src="media/sql-api-sdk-java-spring-v3/up-arrow.png" alt="explore the tabs above" width="80"/>
 
@@ -67,22 +67,10 @@ Spring data Azure Cosmos DB presenta una dipendenza dal framework Spring data. I
 
 ### <a name="configure-dependencies"></a>Configurare le dipendenze
 
-Sono disponibili due elementi di Spring data Azure Cosmos DB versione 3 Maven.
-
-- Artefatto che dipende dalla versione 2,2 di Spring Data Framework:
   ```xml
   <dependency>
       <groupId>com.azure</groupId>
-      <artifactId>azure-spring-data-2-2-cosmos</artifactId>
-      <version>latest</version>
-  </dependency>
-  ```
-
-- Artefatto che dipende dalla versione 2,3 di Spring Data Framework:
-  ```xml
-  <dependency>
-      <groupId>com.azure</groupId>
-      <artifactId>azure-spring-data-2-3-cosmos</artifactId>
+      <artifactId>azure-spring-data-cosmos</artifactId>
       <version>latest</version>
   </dependency>
   ```
@@ -93,7 +81,7 @@ Sono disponibili due elementi di Spring data Azure Cosmos DB versione 3 Maven.
 
 Specificare Azure Cosmos DB dettagli dell'account e del contenitore. Spring data Azure Cosmos DB crea automaticamente il client e si connette al contenitore.
 
-[Application. Properties](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-2-2-cosmos-java-getting-started/src/main/resources/application.properties):
+[Application. Properties](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-cosmos-java-getting-started/src/main/resources/application.properties):
 ```
 cosmos.uri=${ACCOUNT_HOST}
 cosmos.key=${ACCOUNT_KEY}
@@ -108,30 +96,46 @@ cosmos.queryMetricsEnabled=true
 
 ### <a name="document-operations"></a>Operazioni relative ai documenti
 
-[Crea](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java): [!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Create)]
+Crea:
+:::code language="java" source="~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java" ID="Create":::
 
-[Elimina](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java): [!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Delete)]
+Delete (Elimina):
+:::code language="java" source="~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java" ID="Delete":::
 
 # <a name="query"></a>[Query](#tab/queries)
 
-[Query](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/blob/main/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java): [!code-java[](~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-2-3-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java?name=Query)]
+Query:
+:::code language="java" source="~/spring-data-azure-cosmos-db-sql-tutorial/azure-spring-data-cosmos-java-getting-started/src/main/java/com/azure/spring/data/cosmostutorial/SampleApplication.java" ID="Query":::
 
 ---
 
 ## <a name="resources"></a>Risorse
 
-| Resource | Spring Data Framework 2,2 | Spring Data Framework 2,3 |
-|---|---|
-| **Download dell'SDK** | [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-2-2-cosmos) | [Maven](https://mvnrepository.com/artifact/com.azure/azure-spring-data-2-3-cosmos) |
-|**Contribuire all'SDK** | [Repository Spring data Azure Cosmos DB su GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-2-2-cosmos) | [Repository Spring data Azure Cosmos DB su GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-2-3-cosmos) | 
-|**Esercitazione**| [Esercitazione sui dati primaverili Azure Cosmos DB su GitHub](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/tree/main/azure-spring-data-2-2-cosmos-java-getting-started) | [Esercitazione sui dati primaverili Azure Cosmos DB su GitHub](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started/tree/main/azure-spring-data-2-3-cosmos-java-getting-started) |
+* **Contribuire all'SDK**: [Spring data Azure Cosmos DB repo su GitHub](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/cosmos/azure-spring-data-cosmos)
+
+* **Esercitazione**: [Introduzione a Spring data Azure Cosmos DB su GitHub](https://github.com/Azure-Samples/azure-spring-data-cosmos-java-sql-api-getting-started) 
 
 ## <a name="release-history"></a>Cronologia delle versioni
 
-### <a name="300-beta2-unreleased"></a>3.0.0-beta. 2 (non rilasciato)
+### <a name="300-beta2-september-17-2020"></a>3.0.0-beta. 2 (17 settembre 2020)
+
+#### <a name="new-features"></a>Nuove funzionalità
+
+* ID artefatto aggiornato a `azure-spring-data-cosmos` .
+* La dipendenza Azure-Cosmos è stata aggiornata a `4.5.0` .
+* `Query Annotation` supporto per le query native.
+* Supporto per Java 11.
+* Aggiunta del supporto per la chiave di partizione nidificata esponendo il `partitionKeyPath` campo nell' `@Container` annotazione.
+* Aggiunta del supporto per il `limit` tipo di query che consente `top` e `first` da utilizzare per la definizione delle API del repository.
+
+#### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+
+* Correzione del bug della chiave di partizione annidata se utilizzata con l' `@GeneratedValue` annotazione.
 
 ### <a name="300-beta1-august-17-2020"></a>3.0.0-beta. 1 (17 agosto 2020)
+
 #### <a name="new-features"></a>Nuove funzionalità
+
 * Aggiorna l'ID del gruppo a `com.azure` .
 * Aggiorna l'ID dell'artefatto a `azure-spring-data-2-3-cosmos` .
 * Aggiorna la dipendenza di Azure-Cosmos SDK a `4.3.2-beta.2` .
@@ -143,7 +147,9 @@ cosmos.queryMetricsEnabled=true
 * Espone `CosmosClientBuilder` dal Azure Cosmos DB SDK come Spring Bean alla `@Configuration` classe.
 * Aggiornamenti `CosmosConfig` per contenere metriche di query e implementazione del processore di diagnostica delle risposte.
 * Aggiunge il supporto per la restituzione del `Optional` tipo di dati per le singole query di risultato.
+
 #### <a name="renames"></a>Rinomina
+
 * `CosmosDbFactory` a `CosmosFactory` .
 * `CosmosDBConfig` a `CosmosConfig` .
 * `CosmosDBAccessException` a `CosmosAccessException` .
@@ -151,7 +157,9 @@ cosmos.queryMetricsEnabled=true
 * `DocumentIndexingPolicy` annotazione per l' `CosmosIndexingPolicy` annotazione.
 * `DocumentQuery` a `CosmosQuery` .
 * Application. Properties flag `populateQueryMetrics` a `queryMetricsEnabled` .
+
 #### <a name="key-bug-fixes"></a>Correzioni di bug chiave
+
 * Pianificazione dell'attività di registrazione diagnostica nei `Parallel` thread per evitare il blocco di thread I/O netti.
 * Corregge il blocco ottimistico sull'operazione di eliminazione.
 * Corregge il problema relativo alla clausola di escape delle query per la `IN` clausola.
@@ -161,9 +169,11 @@ cosmos.queryMetricsEnabled=true
 * Rimuove il valore predefinito dell'unità richiesta 4.000 quando i contenitori vengono creati automaticamente.
 
 ## <a name="faq"></a>Domande frequenti
+
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
 ## <a name="next-steps"></a>Passaggi successivi
+
 Altre informazioni su [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/).
 
 Scopri di più sul [framework Spring](https://spring.io/projects/spring-framework).

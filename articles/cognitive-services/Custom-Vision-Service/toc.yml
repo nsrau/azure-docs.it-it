@@ -4,7 +4,7 @@
   expanded: true
   items:
     - name: Informazioni su Visione personalizzata
-      href: home.md
+      href: overview.md
     - name: Novità
       href: whats-new.md
 - name: Avvi rapidi
@@ -39,7 +39,7 @@
       href: use-prediction-api.md
     - name: Usare Smart Labeler
       href: suggested-tags.md
-    - name: Controllo degli accessi in base al ruolo
+    - name: Controllo di accesso in base ai ruoli
       href: role-based-access-control.md
     - name: Esportare i modelli
       items:
@@ -49,7 +49,11 @@
           href: custom-vision-onnx-windows-ml.md
         - name: Eseguire il modello TensorFlow in Python
           href: export-model-python.md
-    - name: Esportare o eliminare i dati dell'account
+    - name: Integrare le notifiche di archiviazione
+      href: storage-integration.md
+    - name: Copiare e spostare progetti
+      href: copy-move-projects.md
+    - name: Visualizzare o eliminare i dati degli account
       href: ./export-delete-data.md
     - name: Aggiornare l'app all'API 3.0
       href: ./update-application-to-3.0-sdk.md
