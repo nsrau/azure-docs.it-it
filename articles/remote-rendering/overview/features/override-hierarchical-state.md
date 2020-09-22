@@ -6,12 +6,12 @@ ms.author: flborn
 ms.date: 02/10/2020
 ms.topic: article
 ms.custom: devx-track-csharp
-ms.openlocfilehash: a3f032ca973a188bf294155c73de3ca84f6ee30f
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: c098dc6b1d3b41a41246857f8a353dd4f5dfcef1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024401"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884183"
 ---
 # <a name="hierarchical-state-override"></a>Override dello stato gerarchico
 
@@ -45,6 +45,10 @@ Il set fisso di stati di cui è possibile eseguire l'override sono:
   ![Opzione di struttura utilizzata per evidenziare una parte selezionata](./media/selection-outline.png)
 
 * **`DisableCollision`**: La geometria è esentata dalle [query spaziali](spatial-queries.md). Il **`Hidden`** flag non influisce sul flag di stato di collisione, quindi questi due flag vengono spesso impostati insieme.
+
+* **`UseCutPlaneFilterMask`**: Usare una maschera di bit filtro singola per controllare la selezione del piano di taglio. Questo flag determina se la singola maschera di filtro deve essere utilizzata o ereditata dal relativo elemento padre. La maschera di bit del filtro viene impostata tramite la `CutPlaneFilterMask` Proprietà. Per informazioni dettagliate sul funzionamento del filtro, vedere il [paragrafo selettivo dei piani di taglio](cut-planes.md#selective-cut-planes).
+![Piani tagliati selettivi](./media/selective-cut-planes.png)
+
 
 > [!TIP]
 > In alternativa alla disattivazione delle query spaziali e di visibilità per un sottografico completo, `enabled` è possibile attivare/disattivare lo stato di un oggetto gioco. Se una gerarchia è disabilitata, avrà la preferenza su Any `HierarchicalStateOverrideComponent` .

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/15/2020
 ms.author: memildin
-ms.openlocfilehash: f8b09c71e9ad55528788f97fb986606f21e8b0ec
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2551a3c860dbdf27e7c9473e88c3a3293f575faa
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84769778"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883947"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure
 
@@ -28,7 +28,7 @@ In questo argomento viene illustrato come visualizzare ed elaborare gli avvisi r
 * Per una panoramica del modo in cui il Centro sicurezza genera avvisi, vedere [come il Centro sicurezza di Azure rileva e risponde alle minacce](security-center-alerts-overview.md).
 
 > [!NOTE]
-> Per abilitare le funzionalità di rilevamento avanzato, eseguire l'aggiornamento al livello Standard del Centro sicurezza di Azure. È disponibile una versione di valutazione gratuita. Per eseguire l'aggiornamento, selezionare piano tariffario nei [criteri di sicurezza](tutorial-security-policy.md). Per altre informazioni, vedere [Prezzi del Centro sicurezza di Azure](security-center-pricing.md).
+> Per abilitare i rilevamenti avanzati, abilitare Azure Defender. È disponibile una versione di valutazione gratuita. Per eseguire l'aggiornamento, selezionare piano tariffario nei [criteri di sicurezza](tutorial-security-policy.md). Per altre informazioni, vedere [Prezzi del Centro sicurezza di Azure](security-center-pricing.md).
 
 ## <a name="what-are-security-alerts"></a>Informazioni sugli avvisi di sicurezza
 Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log delle risorse di Azure, della rete e delle soluzioni dei partner connesse, come soluzioni di protezione endpoint e firewall, per rilevare le minacce reali e ridurre i falsi positivi. Il Centro sicurezza visualizza un elenco degli avvisi di sicurezza in ordine di priorità, nonché le informazioni necessarie per analizzare rapidamente il problema e indicazioni per risolvere un attacco.
@@ -38,7 +38,7 @@ Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log 
 
 ## <a name="manage-your-security-alerts"></a>Gestire gli avvisi di sicurezza
 
-1. Dal dashboard del Centro sicurezza, vedere il riquadro **protezione dalle minacce** per visualizzare e ottenere una panoramica degli avvisi.
+1. Dal dashboard del Centro sicurezza, vedere il riquadro  **protezione dalle minacce** per visualizzare e ottenere una panoramica degli avvisi.
 
     ![Riquadro Avvisi di sicurezza nel Centro sicurezza di Azure](./media/security-center-managing-and-responding-alerts/security-center-dashboard-alert.png)
 
@@ -64,7 +64,7 @@ Il Centro sicurezza raccoglie, analizza e integra automaticamente i dati di log 
      
     ![Suggerimenti sulle operazioni da eseguire per gli avvisi di sicurezza](./media/security-center-managing-and-responding-alerts/security-center-alert-remediate.png)
 
-    Inoltre, nel riquadro di destra è presente la scheda **azione** . utilizzare questa scheda per eseguire ulteriori azioni relative all'avviso di sicurezza. Azioni come:
+    Inoltre, nel riquadro di destra è presente la scheda **azione** . Utilizzare questa scheda per eseguire ulteriori azioni relative all'avviso di sicurezza. Azioni come:
     - *Attenuazione della minaccia* : fornisce la procedura di correzione manuale per questo avviso di sicurezza
     - *Impedisci attacchi futuri* : fornisce consigli sulla sicurezza che consentono di ridurre la superficie di attacco, aumentare il comportamento di sicurezza e prevenire quindi attacchi futuri
     - *Attiva risposta automatica* : consente di attivare un'app per la logica come risposta a questo avviso di sicurezza

@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 06/15/2020
 ms.author: memildin
-ms.openlocfilehash: 28a6ea4ed40df909b4d74ff52703babb8e8cd949
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a6ddfa1f6db06c2ca06b94efec7f890c2a714b2a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84791741"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883860"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Gestire gli eventi imprevisti della sicurezza nel centro sicurezza di Azure
 
@@ -62,6 +62,5 @@ Nel Centro sicurezza, un evento imprevisto della sicurezza è un'aggregazione di
 
 Questa pagina ha illustrato le funzionalità per gli eventi imprevisti di sicurezza del Centro sicurezza. Per informazioni correlate, vedere le pagine seguenti:
 
-* [Protezione dalle minacce nel centro sicurezza](threat-protection.md)
-* [Avvisi di sicurezza nel centro sicurezza](security-center-alerts-overview.md)
-* [Gestire e rispondere agli avvisi di sicurezza](security-center-managing-and-responding-alerts.md)
+- [Avvisi di sicurezza nel centro sicurezza](security-center-alerts-overview.md)
+- [Gestire e rispondere agli avvisi di sicurezza](security-center-managing-and-responding-alerts.md)
