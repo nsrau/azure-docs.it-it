@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: c218b5dc8ca3bfa0358a9b6a0d4867696762a8d4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 7a81b3016f86c6fd7de646ccbdbf533685471ac3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77430942"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894799"
 ---
 # <a name="configure-a-security-policy-in-azure-policy-using-the-rest-api"></a>Configurare i criteri di sicurezza in criteri di Azure usando l'API REST
 
@@ -122,9 +122,9 @@ Questo esempio illustra come rimuovere un'assegnazione:
 |Crittografia SQL |Monitorare i database SQL non crittografati nel Centro sicurezza di Azure |sqlEncryptionMonitoringEffect| 
 |Controllo SQL |Monitorare i database SQL non controllati nel Centro sicurezza di Azure |sqlAuditingMonitoringEffect|
 |Aggiornamenti del sistema |Monitorare gli aggiornamenti di sistema mancanti nel Centro sicurezza di Azure |systemUpdatesMonitoringEffect|
-|Crittografia di archiviazione |Controllare crittografia BLOB mancante per gli account di archiviazione |storageEncryptionMonitoringEffect|
+|Crittografia di archiviazione |Controlla crittografia BLOB mancante per gli account di archiviazione |storageEncryptionMonitoringEffect|
 |Accesso alla rete JIT |Monitorare il possibile accesso JIT (just-in-Time) di rete nel centro sicurezza di Azure |jitNetworkAccessMonitoringEffect |
-|Controlli delle applicazioni adattivi |Monitorare il possibile elenco elementi consentiti dell'app nel Centro sicurezza di Azure |adaptiveApplicationControlsMonitoringEffect|
+|Controlli delle applicazioni adattivi |Monitorare i possibili elenchi di Consenti app nel centro sicurezza di Azure |adaptiveApplicationControlsMonitoringEffect|
 |Gruppi di sicurezza di rete |Monitorare gli accessi di rete permissivi nel Centro sicurezza di Azure |networkSecurityGroupsMonitoringEffect| 
 |Configurazioni della sicurezza |Monitorare le vulnerabilità del sistema operativo nel Centro sicurezza di Azure |systemConfigurationsMonitoringEffect| 
 |Protezione degli endpoint |Monitorare il server senza Endpoint Protection nel Centro sicurezza di Azure |endpointProtectionMonitoringEffect |

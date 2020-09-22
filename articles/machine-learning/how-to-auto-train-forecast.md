@@ -10,15 +10,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
 ms.date: 08/20/2020
-ms.openlocfilehash: fc8e8de817c1b311e3252c7399a09ed1c9eb7031
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 982c7a41f1e05c34ddf0fbae9f944df4a4d08fa5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651515"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893364"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>Eseguire il training automatico di un modello di previsione di una serie temporale
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Questo articolo illustra come configurare ed eseguire il training di un modello di regressione di previsione di serie temporali usando Machine Learning automatizzato, AutoML, in [Azure Machine Learning Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/?view=azure-ml-py&preserve-view=true). 
 
@@ -38,7 +38,7 @@ Per questo articolo è necessario,
 
 * Un'area di lavoro di Azure Machine Learning. Per creare l'area di lavoro, vedere [Creare un'area di lavoro di Azure Machine Learning](how-to-manage-workspace.md).
 
-* Questo articolo presuppone una conoscenza di base della configurazione di un esperimento di Machine Learning automatizzato. Seguire l'[esercitazione](tutorial-auto-train-models.md) o la [procedura](how-to-configure-auto-train.md) per visualizzare i modelli di progettazione dell'esperimento di Machine Learning automatizzato di base.
+* Questo articolo presuppone una certa familiarità con la configurazione di un esperimento di Machine Learning automatizzato. Seguire l' [esercitazione](tutorial-auto-train-models.md) o le [procedure](how-to-configure-auto-train.md) per visualizzare i modelli di progettazione dell'esperimento automatizzato di machine learning.
 
 ## <a name="preparing-data"></a>Preparazione dei dati
 

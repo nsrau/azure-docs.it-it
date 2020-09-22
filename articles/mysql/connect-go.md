@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 154c41c6799bb251f30991fde05f6eacc5de57da
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: a9fc43c2b9b95022f9036fc5410c314c1546d1ea
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185945"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882548"
 ---
 # <a name="quickstart-use-go-language-to-connect-and-query-data-in-azure-database-for-mysql"></a>Avvio rapido: Usare il linguaggio Go per connettersi ai dati ed eseguire query in Database di Azure per MySQL
 
@@ -86,7 +86,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database d
 2. Nel menu a sinistra nel portale di Azure fare clic su **Tutte le risorse** e quindi cercare il server creato, ad esempio **mydemoserver**.
 3. Fare clic sul nome del server.
 4. Nel pannello **Panoramica** del server prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server**. Se si dimentica la password, in questo pannello è anche possibile reimpostarla.
- ![Nome del server del database di Azure per MySQL](./media/connect-go/1_server-overview-name-login.png)
+ :::image type="content" source="./media/connect-go/1_server-overview-name-login.png" alt-text="Nome del server del database di Azure per MySQL":::
    
 
 ## <a name="build-and-run-go-code"></a>Compilare ed eseguire il codice Go 

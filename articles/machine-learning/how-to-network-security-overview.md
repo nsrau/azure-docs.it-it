@@ -11,12 +11,12 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python, references_regions
-ms.openlocfilehash: 57746b833e238bbd0cc99ba103f710a9239ee5ba
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 36d3d84949e44719474656d07da9c7b7c46a4e98
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664570"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893175"
 ---
 # <a name="virtual-network-isolation-and-privacy-overview"></a>Panoramica dell'isolamento e della privacy della rete virtuale
 
@@ -63,22 +63,6 @@ Nelle cinque sezioni successive viene illustrato come proteggere lo scenario di 
 1. Proteggere l' [**ambiente di inferenza**](#secure-the-inferencing-environment).
 1. Facoltativamente, [**abilitare la funzionalità di studio**](#optional-enable-studio-functionality).
 1. Configurare [ **le impostazioni del firewall**](#configure-firewall-settings)
-
-> [!TIP]
->  Alcune combinazioni di rete virtuale e servizi di Azure richiedono un'area di lavoro Enterprise Edition. Usare la tabella seguente per capire quali scenari richiedono l'edizione Enterprise:
->
-> | Scenario | Enterprise</br>edition | Basic</br>edition |
-> | ----- |:-----:|:-----:| 
-> | Nessuna rete virtuale o collegamento privato | ✔ | ✔ |
-> | Area di lavoro senza collegamento privato. Altre risorse (ad eccezione di Registro Azure Container) in una rete virtuale | ✔ | ✔ |
-> | Area di lavoro senza collegamento privato. Altre risorse con collegamento privato | ✔ | |
-> | Area di lavoro con collegamento privato. Altre risorse (ad eccezione di Registro Azure Container) in una rete virtuale | ✔ | ✔ |
-> | Area di lavoro e qualsiasi altra risorsa con collegamento privato | ✔ | |
-> | Area di lavoro con collegamento privato. Altre risorse senza collegamento privato o rete virtuale | ✔ | ✔ |
-> | Registro Azure Container in una rete virtuale | ✔ | |
-> | Chiavi gestite dal cliente per l'area di lavoro | ✔ | |
->
-
 
 ## <a name="secure-the-workspace-and-associated-resources"></a>Proteggere l'area di lavoro e le risorse associate
 

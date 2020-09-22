@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 03/17/2020
 ms.custom: seodec18
-ms.openlocfilehash: 680fd298f3d772ecb9a4787342d22bf44e74ec78
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 394d048ce5978c2789e47b984abebaf30dec5f93
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651090"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893566"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: gestione dei modelli, distribuzione e monitoraggio con Azure Machine Learning
 
@@ -140,7 +140,7 @@ Per altre informazioni, vedere [implementazione controllata dei modelli ml](how-
 
 Per ulteriori informazioni, vedere [deploy Models](how-to-deploy-and-where.md).
 
-### <a name="analytics"></a>Analytics
+### <a name="analytics"></a>Analisi
 
 Microsoft Power BI supporta l'uso di modelli di apprendimento automatico per l'analisi dei dati. Per ulteriori informazioni, vedere [integrazione di Azure Machine Learning in Power BI (anteprima)](https://docs.microsoft.com/power-bi/service-machine-learning-integration).
 
@@ -184,7 +184,7 @@ Non esiste alcuna risposta universale a "Ricerca per categorie sa se devo ripete
 - Confrontare gli output del nuovo modello con quelli del vecchio modello
 - Usare i criteri predefiniti per scegliere se sostituire il modello precedente 
 
-Un tema dei passaggi precedenti consiste nel fatto che la ripetizione del training dovrebbe essere automatizzata, non ad hoc. [Azure Machine Learning pipeline](concept-ml-pipelines.md) rappresentano una valida soluzione per la creazione di flussi di lavoro relativi alla preparazione, al training, alla convalida e alla distribuzione dei dati. Leggere ripetere il training dei [modelli con Azure Machine Learning Designer (anteprima)](how-to-retrain-designer.md) per vedere come le pipeline e il Azure machine learning designer rientrino in uno scenario di ripetizione del training. 
+Un tema dei passaggi precedenti consiste nel fatto che la ripetizione del training dovrebbe essere automatizzata, non ad hoc. [Azure Machine Learning pipeline](concept-ml-pipelines.md) rappresentano una valida soluzione per la creazione di flussi di lavoro relativi alla preparazione, al training, alla convalida e alla distribuzione dei dati. Leggere ripetere il training dei [modelli con Azure machine learning designer](how-to-retrain-designer.md) per vedere come le pipeline e il Azure machine learning designer rientrino in uno scenario di ripetizione del training. 
 
 ## <a name="automate-the-ml-lifecycle"></a>Automatizzare il ciclo di vita del ML 
 

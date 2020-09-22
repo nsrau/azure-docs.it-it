@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 05/23/2019
-ms.openlocfilehash: f03b5e93e4ed5155f6a713c152fbcf34dc873674
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 64be7f01cc9cc7ae77af5386be7a11cd16785dd1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88065880"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882408"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-postgresql"></a>Architettura di connettività nel database di Azure per PostgreSQL
 Questo articolo illustra l'architettura di connettività del database di Azure per PostgreSQL e il modo in cui il traffico viene indirizzato all'istanza del database di Azure per PostgreSQL dai client all'interno e all'esterno di Azure.
@@ -19,7 +19,7 @@ Questo articolo illustra l'architettura di connettività del database di Azure p
 ## <a name="connectivity-architecture"></a>Architettura della connettività
 La connessione al database di Azure per PostgreSQL viene stabilita tramite un gateway responsabile del routing delle connessioni in ingresso alla posizione fisica del server nei cluster. Il diagramma seguente illustra il flusso del traffico.
 
-![Panoramica dell'architettura di connettività](./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png)
+:::image type="content" source="./media/concepts-connectivity-architecture/connectivity-architecture-overview-proxy.png" alt-text="Panoramica dell'architettura di connettività":::
 
 Quando il client si connette al database, ottiene una stringa di connessione che si connette al gateway. Questo gateway ha un indirizzo IP pubblico che è in ascolto sulla porta 5432. All'interno del database il traffico del cluster viene inviato al database di Azure appropriato per PostgreSQL. Pertanto, per connettersi al server, ad esempio dalle reti aziendali, è necessario aprire il firewall sul lato client per consentire al traffico in uscita di raggiungere i nostri Gateway. Di seguito è possibile trovare un elenco completo degli indirizzi IP usati dai gateway per area.
 

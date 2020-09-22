@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/10/2020
-ms.openlocfilehash: 806c19100594f449288d810b68d072dd7de23646
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: bf62fa995724b8e1fff757e89945cc39db3d9842
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88189815"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893705"
 ---
 # <a name="score-svd-recommender"></a>Score SVD Recommender
 
-Questo articolo descrive come usare il modulo Score SVD Recommender in Azure Machine Learning Designer (Preview). Utilizzare questo modulo per creare stime utilizzando un modello di raccomandazione con training basato sull'algoritmo SVD (Single value Decomposition).
+Questo articolo descrive come usare il modulo Score SVD Recommender in Azure Machine Learning Designer. Utilizzare questo modulo per creare stime utilizzando un modello di raccomandazione con training basato sull'algoritmo SVD (Single value Decomposition).
 
 SVD Recommender può generare due tipi diversi di stime:
 

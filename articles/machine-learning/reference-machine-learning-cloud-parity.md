@@ -11,12 +11,12 @@ ms.author: andzha
 author: Anurzeuii
 ms.date: 08/24/2020
 ms.custom: references_regions
-ms.openlocfilehash: 886e45e92fb3a882de167b5c59a9b5ee09a9c430
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 4a6f09fdff82b8e86c7fe75018c5267dba3c1b4a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89657583"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892971"
 ---
 # <a name="azure-machine-learning-sovereign-cloud-parity"></a>Parità di Azure Machine Learning del cloud sovrano
 
@@ -34,7 +34,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 
 ## <a name="azure-government"></a>Azure Government 
 
-| Feature | Stato del cloud pubblico  | Stati Uniti-Virginia | Stati Uniti-Arizona| 
+| Funzionalità | Stato del cloud pubblico  | Stati Uniti-Virginia | Stati Uniti-Arizona| 
 |----------------------------------------------------------------------------|:----------------------:|:--------------------:|:-------------:|
 | **Machine Learning automatizzato** | | | |
 | Creare ed eseguire esperimenti nei notebook                                    | GA                   | YES                | YES         |
@@ -49,9 +49,9 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 | Creare endpoint della pipeline usando Azure ML SDK                           | GA                   | YES                | YES         |
 | Creare, modificare ed eliminare esecuzioni pianificate di pipeline usando Azure ML SDK | GA                   | Sì               | Sì        |
 | Visualizzare i dettagli dell'esecuzione della pipeline in studio                                        | GA                   | YES                | YES         |
-| Creare, eseguire, visualizzare e pubblicare pipeline in Azure ML designer          | Anteprima pubblica       | YES                | YES         |
+| Creare, eseguire, visualizzare e pubblicare pipeline in Azure ML designer          | GA      | YES                | YES         |
 | Integrazione di Azure Databricks con la pipeline ML                             | GA                   | NO                 | NO          |
-| Creare endpoint della pipeline in Azure ML designer                             | Anteprima pubblica       | YES                | YES         |
+| Creare endpoint della pipeline in Azure ML designer                             | GA      | YES                | YES         |
 | **Notebook integrati** |   |  | | 
 | Notebook e condivisione di file dell'area di lavoro                                        | GA                   | YES                | YES         |
 | Supporto per R e Python                                                       | GA                   | YES                | YES         |
@@ -60,7 +60,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 | Istanze di calcolo gestite per notebook integrati                         | GA                   | YES                | YES         |
 | Jupyter, integrazione JupyterLab                                            | GA                   | YES                | YES         |
 | Supporto della Rete virtuale di Microsoft Azure (VNet)                                             | Anteprima pubblica       | YES                | YES         |
-| **SDK supportati** |  |  | | 
+| **Supporto SDK** |  |  | | 
 | Supporto per R SDK                                                              | Anteprima pubblica       | YES                | YES         |
 | Supporto per Python SDK                                                         | GA                   | YES                | YES         |
 | **Sicurezza** |   | | | 
@@ -147,7 +147,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 
 ## <a name="azure-china-21vianet"></a>Azure Cina 21Vianet 
 
-| Feature                                       | Stato del cloud pubblico | CH-Est-2 | CH-Nord-3 |
+| Funzionalità                                       | Stato del cloud pubblico | CH-Est-2 | CH-Nord-3 |
 |----------------------------------------------------------------------------|:------------------:|:--------------------:|:-------------:|
 | **Machine Learning automatizzato** |    | | |
 | Creare ed eseguire esperimenti nei notebook                                    | GA               | YES       | N/D        |
@@ -162,9 +162,9 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 | Creare endpoint della pipeline usando Azure ML SDK                           | GA               | YES       | N/D        |
 | Creare, modificare ed eliminare esecuzioni pianificate di pipeline usando Azure ML SDK | GA               | YES       | N/D        |
 | Visualizzare i dettagli dell'esecuzione della pipeline in studio                                        | GA               | YES       | N/D        |
-| Creare, eseguire, visualizzare e pubblicare pipeline in Azure ML designer          | Anteprima pubblica   | YES       | N/D        |
+| Creare, eseguire, visualizzare e pubblicare pipeline in Azure ML designer          | GA  | YES       | N/D        |
 | Integrazione di Azure Databricks con la pipeline ML                             | GA               | NO        | N/D        |
-| Creare endpoint della pipeline in Azure ML designer                             | Anteprima pubblica   | YES       | N/D        |
+| Creare endpoint della pipeline in Azure ML designer                             | GA   | YES       | N/D        |
 | **Notebook integrati** |   | | |
 | Notebook e condivisione di file dell'area di lavoro                                        | GA               | YES       | N/D        |
 | Supporto per R e Python                                                       | GA               | YES       | N/D        |
@@ -173,7 +173,7 @@ Si intende fornire la parità massima tra il cloud pubblico e le aree sovrane. T
 | Istanze di calcolo gestite per notebook integrati                         | GA               | NO        | N/D        |
 | Jupyter, integrazione JupyterLab                                            | GA               | YES       | N/D        |
 | Supporto della Rete virtuale di Microsoft Azure (VNet)                                             | Anteprima pubblica   | YES       | N/D        |
-| **SDK supportati** |    | | |
+| **Supporto SDK** |    | | |
 | Supporto per R SDK                                                              | Anteprima pubblica   | YES       | N/D        |
 | Supporto per Python SDK                                                         | GA               | YES       | N/D        |
 | **Sicurezza** |   | | |

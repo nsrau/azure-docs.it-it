@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 98dfd51783ad3bc0b89f441f89436d3c3d928104
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: a642f7dfc470a695f96967cad0ed738d45b11efb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875717"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90881926"
 ---
 # <a name="azure-data-lake-storage-gen-1-output-from-azure-stream-analytics"></a>Output di Azure Data Lake Storage generazione 1 da analisi di flusso di Azure
 
@@ -53,4 +53,4 @@ Per la dimensione massima dei messaggi, vedere [limiti data Lake storage](../azu
 * [Avvio rapido: Creare un processo di Analisi di flusso di Azure con un modello di Resource Manager](quick-create-azure-resource-manager.md)
 * [Guida introduttiva: creare un processo di analisi di flusso usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Guida introduttiva: Creare un processo di Analisi di flusso di Azure con Visual Studio Code](stream-analytics-quick-create-vs.md)
-* [Guida introduttiva: creare un processo di analisi di flusso di Azure in Visual Studio Code](quick-create-vs-code.md)
+* [Guida introduttiva: creare un processo di analisi di flusso di Azure in Visual Studio Code](quick-create-visual-studio-code.md)

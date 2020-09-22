@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: jordane
 author: jpe316
 ms.date: 03/05/2020
-ms.openlocfilehash: 6d9d9f2d7363217ef4e9b13b44d3665af33cb8ef
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: bd77af133b88e1ba93054dbb7e0f896d8d418f89
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661784"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893553"
 ---
 # <a name="git-integration-for-azure-machine-learning"></a>Integrazione git per Azure Machine Learning
 
@@ -70,12 +70,10 @@ Le informazioni git vengono archiviate nelle proprietà di un'esecuzione di trai
 
 ### <a name="azure-portal"></a>Portale di Azure
 
-1. Dalla [portale di Azure](https://portal.azure.com)selezionare l'area di lavoro.
+1. Dal [portale di studio](https://ml.azure.com)selezionare l'area di lavoro.
 1. Selezionare __esperimenti__, quindi selezionare uno degli esperimenti.
 1. Selezionare una delle esecuzioni dalla colonna __numero di esecuzione__ .
-1. Selezionare __logs__, quindi espandere i __registri__ e le voci __azureml__ . Selezionare il collegamento che inizia con __ ### \_ Azure__.
-
-    ![La voce # # #_azure nel portale](./media/concept-train-model-git-integration/azure-machine-learning-logs.png)
+1. Selezionare __output + log__, quindi espandere i __registri__ e le voci __azureml__ . Selezionare il collegamento che inizia con __ ### \_ Azure__.
 
 Le informazioni registrate contengono testo simile al seguente JSON:
 

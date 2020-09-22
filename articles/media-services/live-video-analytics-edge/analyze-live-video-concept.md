@@ -3,12 +3,12 @@ title: Analisi di video live senza alcuna registrazione-Azure
 description: È possibile usare un grafico multimediale per estrarre solo le analisi da un flusso video live, senza doverle registrare sul perimetro o nel cloud. In questo articolo viene illustrato questo concetto.
 ms.topic: conceptual
 ms.date: 04/27/2020
-ms.openlocfilehash: d59e2e9e309f0ed6a65e001557dcd9dd8af90da2
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 5dda18b68cb19d29623f2120fe07d7cc617f0c2f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89566746"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893040"
 ---
 # <a name="analyzing-live-video-without-any-recording"></a>Analisi di video live senza registrazione
 
@@ -40,7 +40,7 @@ In questo grafico multimediale, il nodo processore filtro frequenza frame abbass
 Un miglioramento di questo esempio prevede l'uso di un processore del rilevamento di movimento in avanti rispetto al nodo del processore del filtro della frequenza dei fotogrammi. Questo consente di ridurre il carico sul servizio di inferenza, perché viene usato solo quando è presente un'attività di movimento nel video.
 
 > [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/analyze-live-video/custom-model.png" alt-text="Analisi dei video in tempo reale basata su frame rilevati in movimento tramite un modulo esterno di inferenza":::
+> :::image type="content" source="./media/analyze-live-video/custom-model.svg" alt-text="Analisi dei video in tempo reale basata su frame rilevati in movimento tramite un modulo esterno di inferenza":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

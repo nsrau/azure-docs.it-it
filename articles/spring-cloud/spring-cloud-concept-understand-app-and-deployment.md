@@ -7,14 +7,16 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 07/23/2020
 ms.custom: devx-track-java
-ms.openlocfilehash: a1f6d318c123b5907a8c434bb097fb86a351f5d1
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 9e909db0041979eb7bc4fc30bd9551382e83c488
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297536"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892508"
 ---
 # <a name="understand-app-and-deployment-in-azure-spring-cloud"></a>Informazioni sull'app e la distribuzione nel cloud Spring di Azure
+
+**Questo articolo si applica a:** ✔️ Java ✔️ C #
 
 **App** e **distribuzione** sono i due concetti chiave del modello di risorse di Azure Spring cloud. Nel cloud Spring di Azure un' *app* è un'astrazione di un'app aziendale o di un microservizio.  Una versione di codice o binario distribuita quando l' *app* viene eseguita in una *distribuzione*.  Le app vengono eseguite in un' *istanza del servizio cloud di Azure Spring*o semplicemente in un' *istanza del servizio*, come illustrato di seguito.
 
@@ -29,7 +31,7 @@ Le seguenti funzionalità/proprietà sono definite a livello di app.
 
 | Enumerazione | Definizione |
 |:--|:----------------|
-| Public</br>Endpoint | URL per accedere all'app |
+| Pubblico</br>Endpoint | URL per accedere all'app |
 | Personalizzato</br>Dominio | Record CNAME che protegge il dominio personalizzato |
 | Servizio</br>Binding | Binding delle proprietà di configurazione impostate nell'function.jssu file e l'attributo *ServiceBusTrigger* |
 | Gestiti</br>Identità | L'identità gestita da Azure Active Directory consente all'app di accedere facilmente ad altre risorse protette da Azure AD, ad esempio Azure Key Vault |
@@ -46,8 +48,8 @@ Le seguenti funzionalità/proprietà sono definite a livello di distribuzione e 
 | Istanza</br>Conteggio | Il numero di istanze dell'app, impostate manualmente o automaticamente |
 | Ridimensionamento automatico | Ridimensionare automaticamente il numero di istanze in base a regole e pianificazioni predefinite |
 | JVM</br>Opzioni | impostazione: JAVA_OPTS |
-| Environment</br>variables | Impostazioni applicabili all'intero ambiente cloud Spring di Azure |
-| Runtime</br>Version | Java 8/Java 11|
+| Ambiente</br>Variabili | Impostazioni applicabili all'intero ambiente cloud Spring di Azure |
+| Runtime</br>Versione | Java 8/Java 11|
 
 ## <a name="restrictions"></a>Restrizioni
 
@@ -55,5 +57,5 @@ Le seguenti funzionalità/proprietà sono definite a livello di distribuzione e 
 * **Un'app può avere al massimo due distribuzioni**: la creazione di più di due distribuzioni è bloccata dall'API. Distribuire il nuovo file binario in una distribuzione di produzione o di gestione temporanea esistente.
 * **La gestione della distribuzione non è disponibile nel piano Basic**: usare il livello standard per la funzionalità di distribuzione blu-verde.
 
-## <a name="see-also"></a>Vedi anche
+## <a name="see-also"></a>Vedere anche
 * [Configurare un ambiente di staging nel cloud Spring di Azure](spring-cloud-howto-staging-environment.md)

@@ -11,15 +11,14 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 07/22/2020
 ms.custom: how-to, contperfq1, devx-track-python
-ms.openlocfilehash: 08685a6ebfcbfced91c3685635c40ff48030fe38
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 769b4d364412d3409ef95c4222197fe6f7ce222c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89669578"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893464"
 ---
 # <a name="connect-to-azure-storage-services"></a>Connettersi ai servizi di archiviazione di Azure
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Questo articolo illustra come **connettersi ai servizi di archiviazione di Azure tramite Azure Machine Learning archivi dati**. Gli archivi dati si connettono in modo sicuro al servizio di archiviazione di Azure senza inserire le credenziali di autenticazione e l'integrità dell'origine dati originale a rischio. Le informazioni di connessione vengono archiviate, ad esempio l'ID sottoscrizione e l'autorizzazione token nell' [Key Vault](https://azure.microsoft.com/services/key-vault/) associata all'area di lavoro, in modo da poter accedere in modo sicuro alla risorsa di archiviazione senza che sia necessario codificarli negli script. Per creare e registrare archivi dati, è possibile usare [Azure Machine Learning Python SDK](#python) o [Azure Machine Learning Studio](#studio) .
 
@@ -54,7 +53,7 @@ Sono necessari gli elementi seguenti:
     Quando si crea un'area di lavoro, un contenitore BLOB di Azure e una condivisione file di Azure vengono registrati automaticamente come archivi dati nell'area di lavoro. A questi due elementi vengono assegnati, rispettivamente, i nomi `workspaceblobstore` e `workspacefilestore`. `workspaceblobstore`Viene usato per archiviare gli elementi dell'area di lavoro e i log dell'esperimento di machine learning. Viene anche impostato come **archivio dati predefinito** e non può essere eliminato dall'area di lavoro. Il `workspacefilestore` viene usato per archiviare notebook e script R autorizzati tramite l' [istanza di calcolo](https://docs.microsoft.com/azure/machine-learning/concept-compute-instance#accessing-files).
     
     > [!NOTE]
-    > La finestra di progettazione di Azure Machine Learning (anteprima) crea automaticamente un archivio dati denominato **azureml_globaldatasets** quando si apre un campione nella home page della finestra di progettazione. Questo archivio dati contiene solo i set di dati del campione. **Non** usare questo archivio dati per l'accesso ai dati riservati.
+    > Azure Machine Learning Designer creerà automaticamente un archivio dati denominato **azureml_globaldatasets** quando si apre un esempio nella Home page della finestra di progettazione. Questo archivio dati contiene solo i set di dati del campione. **Non** usare questo archivio dati per l'accesso ai dati riservati.
 
 <a name="matrix"></a>
 

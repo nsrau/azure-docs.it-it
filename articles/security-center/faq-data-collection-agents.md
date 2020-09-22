@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: 0bcf81e0c762dd2a8e63ae242fec77d30f5b2c3d
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 78668eaadca872d7c25ab909fad5b9838bbc01d3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89011855"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894815"
 ---
 # <a name="faq---questions-about-data-collection-agents-and-workspaces"></a>Domande frequenti sulla raccolta dati, gli agenti e le aree di lavoro
 
@@ -29,9 +29,9 @@ Il Centro sicurezza raccoglie i dati dalle macchine virtuali (VM) di Azure, dai 
 
 No. Le aree di lavoro create dal Centro sicurezza non comportano addebiti di Monitoraggio di Azure, benché siano configurate per la fatturazione di Monitoraggio di Azure per nodo. La fatturazione del Centro sicurezza è sempre basata sui criteri di sicurezza del Centro sicurezza e sulle soluzioni installate in un'area di lavoro:
 
-- **Livello Gratuito**: il Centro sicurezza abilita la soluzione 'SecurityCenterFree' nell'area di lavoro predefinita. Non verrà addebitato alcun costo per il livello gratuito.
+- **Azure Defender off** : il Centro sicurezza Abilita la soluzione ' SecurityCenterFree ' nell'area di lavoro predefinita. Non verrà addebitato alcun costo se Azure Defender è disattivato.
 
-- **Livello Standard**: il Centro sicurezza abilita la soluzione 'Security' nell'area di lavoro predefinita.
+- **Azure Defender on** : il Centro sicurezza Abilita la soluzione ' Security ' nell'area di lavoro predefinita.
 
 Per altre informazioni sui prezzi, vedere [Prezzi di Centro sicurezza](https://azure.microsoft.com/pricing/details/security-center/).
 
@@ -164,7 +164,7 @@ Se si rimuove l'estensione Microsoft Monitoring, il Centro sicurezza non potrà 
 
 È possibile disattivare il provisioning automatico per le sottoscrizioni nei criteri di sicurezza, ma questa opzione non è consigliata. La disattivazione del provisioning automatico limita le raccomandazioni e gli avvisi del Centro sicurezza. Per disabilitare il provisioning automatico:
 
-1. Se la sottoscrizione è configurata per il livello standard, aprire i criteri di sicurezza per la sottoscrizione e selezionare il livello **gratuito** .
+1. Se per la sottoscrizione è abilitata la funzionalità Azure Defender, aprire i criteri di sicurezza per la sottoscrizione e selezionare **Azure Defender off**.
 
    ![Piano tariffario][1]
 

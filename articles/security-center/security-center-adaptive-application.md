@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/06/2020
 ms.author: memildin
-ms.openlocfilehash: 8ee9712c01c8ab6b36f595829c3ccc5ae392ff35
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: bbabceeea2fd009efe1098e37a0b1c9dcb8a48aa
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89276763"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894730"
 ---
 # <a name="use-adaptive-application-controls-to-reduce-your-machines-attack-surfaces"></a>Usare i controlli delle applicazioni adattivi per ridurre la superficie di attacco dei computer
 
@@ -50,8 +50,8 @@ Definendo elenchi di applicazioni sicure e generando avvisi quando viene eseguit
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato versione:|Disponibilità generale|
-|Prezzi|Livello Standard|
+|Stato versione:|Disponibile a livello generale|
+|Prezzi|Richiede [Azure Defender per i server](defender-for-servers-introduction.md)|
 |Computer supportati:|![Sì ](./media/icons/yes-icon.png) macchine virtuali di Azure e non Azure che eseguono Windows e Linux<br>![Sì ](./media/icons/yes-icon.png) computer [Azure Arc](https://docs.microsoft.com/azure/azure-arc/)|
 |Ruoli e autorizzazioni necessari:|I ruoli Reader **e Reader di** **sicurezza** possono visualizzare i gruppi e gli elenchi di applicazioni sicure.<br>I ruoli di amministratore di **collaboratore** e **sicurezza** possono sia modificare i gruppi che gli elenchi di applicazioni sicure.|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![Sì](./media/icons/yes-icon.png) Nazionale/sovrano (US Gov, Cina gov, altri gov)|
@@ -65,7 +65,9 @@ Se il Centro sicurezza ha identificato gruppi di computer nelle sottoscrizioni c
 
 Selezionare la raccomandazione oppure aprire la pagina controlli applicazione adattivi per visualizzare l'elenco delle applicazioni e dei gruppi di computer consigliati e sicuri.
 
-1. Dal menu del Centro sicurezza selezionare **controlli applicazione adattivi**.
+1. Aprire il dashboard di Azure Defender e dall'area protezione avanzata selezionare **controlli applicazione adattivi**.
+
+    :::image type="content" source="./media/security-center-adaptive-application/opening-adaptive-application-control.png" alt-text="Apertura di controlli applicazione adattivi dal dashboard di Azure" lightbox="./media/security-center-adaptive-application/opening-adaptive-application-control.png":::
 
     Viene visualizzata la pagina **controlli applicazione adattivi** con le macchine virtuali raggruppate nelle schede seguenti:
 
@@ -86,7 +88,7 @@ Selezionare la raccomandazione oppure aprire la pagina controlli applicazione ad
       - Si tratta di un computer Windows con criteri di [AppLocker](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-application-control/applocker/applocker-overview) preesistenti abilitati da un oggetto Criteri di gruppo o criteri di sicurezza locali
 
       > [!TIP]
-      > Il Centro sicurezza necessita di almeno due settimane di dati per definire le raccomandazioni univoche per ogni gruppo di computer. I computer che sono stati creati di recente o che appartengono alle sottoscrizioni abilitate solo di recente con il livello standard verranno visualizzati nella scheda **Nessuna raccomandazione** .
+      > Il Centro sicurezza necessita di almeno due settimane di dati per definire le raccomandazioni univoche per ogni gruppo di computer. I computer che sono stati creati di recente o che appartengono alle sottoscrizioni abilitate solo di recente con Azure Defender verranno visualizzati nella scheda **Nessuna raccomandazione** .
 
 
 1. Aprire la scheda **consigliata** . Vengono visualizzati i gruppi di computer con gli elenchi consentiti consigliati.
@@ -121,7 +123,7 @@ Selezionare la raccomandazione oppure aprire la pagina controlli applicazione ad
 
 Per modificare le regole per un gruppo di computer:
 
-1. Dal menu del Centro sicurezza selezionare **controlli applicazione adattivi**.
+1. Aprire il dashboard di Azure Defender e dall'area protezione avanzata selezionare **controlli applicazione adattivi**.
 
 1. Dalla scheda **configurata** selezionare il gruppo con la regola che si desidera modificare.
 
@@ -169,7 +171,7 @@ Per correggere i problemi:
 
 ## <a name="audit-alerts-and-violations"></a>Controlla avvisi e violazioni
 
-1. Dal menu del Centro sicurezza selezionare **controlli applicazione adattivi**.
+1. Aprire il dashboard di Azure Defender e dall'area protezione avanzata selezionare **controlli applicazione adattivi**.
 
 1. Per visualizzare i gruppi con computer con avvisi recenti, esaminare i gruppi elencati nella scheda **configurata** .
 
@@ -184,6 +186,8 @@ Per correggere i problemi:
 ## <a name="move-a-machine-from-one-group-to-another"></a>Spostare un computer da un gruppo a un altro
 
 Quando si sposta un computer da un gruppo a un altro, il criterio di controllo delle applicazioni applicato viene modificato in base alle impostazioni del gruppo in cui è stato spostato. È anche possibile spostare un computer da un gruppo configurato a un gruppo non configurato. in questo modo vengono rimosse tutte le regole di controllo delle applicazioni applicate al computer.
+
+1. Aprire il dashboard di Azure Defender e dall'area protezione avanzata selezionare **controlli applicazione adattivi**.
 
 1. Dalla scheda **configurato** della pagina **controlli applicazione adattivi** selezionare il gruppo che contiene il computer da spostare.
 

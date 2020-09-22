@@ -1,0 +1,54 @@
+---
+title: Installare gli strumenti client
+description: Installare azdata, kubectl, l'interfaccia della riga di comando di Azure, PSQL, Azure Data Studio (Insider) e l'estensione ARC per Azure Data Studio
+services: azure-arc
+ms.service: azure-arc
+ms.subservice: azure-arc-data
+author: twright-msft
+ms.author: twright
+ms.reviewer: mikeray
+ms.date: 09/22/2020
+ms.topic: how-to
+ms.openlocfilehash: 3eb41b868aba7e7350f54594fa43f01eeeabebc4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.translationtype: MT
+ms.contentlocale: it-IT
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90940674"
+---
+# <a name="install-client-tools-for-deploying-and-managing-azure-arc-enabled-data-services"></a>Installare gli strumenti client per la distribuzione e la gestione dei servizi dati abilitati per Azure Arc
+
+> [!IMPORTANT]
+> Se si esegue l'aggiornamento a una nuova versione mensile, assicurarsi di eseguire anche l'aggiornamento alla versione più recente di Azure Data Studio, lo strumento dell'interfaccia della riga di comando di Azure (azdata) e l'interfaccia della riga di comando di Azure Data e le estensioni di Azure Arc per Azure Data Studio.
+
+Questo documento illustra i passaggi per installare l'interfaccia della riga di comando di Azure Data (azdata), Azure Data Studio, l'interfaccia della riga di comando di Azure (AZ) e lo strumento dell'interfaccia della riga di comando Kubernetes (kubectl) nel computer client.
+
+[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+
+## <a name="tools-for-creating-and-managing-azure-arc-enabled-data-services"></a>Strumenti per la creazione e la gestione di servizi dati abilitati per Azure Arc 
+
+La tabella seguente elenca gli strumenti comuni necessari per la creazione e la gestione dei servizi dati abilitati per Azure Arc e per installare questi strumenti:
+
+| Strumento | Obbligatoria | Descrizione | Installazione |
+|---|---|---|---|
+| INTERFACCIA della riga di comando di Azure Data (azdata) | Sì | Strumento da riga di comando per l'installazione e la gestione di un cluster Big Data. L'interfaccia della riga di comando di Azure include anche un'utilità della riga di comando per connettersi ed eseguire query in istanze di Azure SQL e SQL Server e server Postgres usando i comandi `azdata sql query` (eseguire una singola query dalla riga di comando), `azdata sql shell` (una shell interattiva) `azdata postgres query` e `azdata postgres shell` . | [Installazione](/sql/azdata/install/deploy-install-azdata?toc=/azure/azure-arc/data/toc.json&bc=/azure/azure-arc/data/breadcrumb/toc.json) |
+| Azure Data Studio | Sì | Strumento di esperienza avanzata per la connessione e l'esecuzione di query su diversi database, tra cui SQL di Azure, SQL Server, PostrgreSQL e MySQL. Le estensioni per Azure Data Studio offrono un'esperienza di amministrazione per i servizi dati abilitati per Azure Arc. | [Installazione](https://aka.ms/getazuredatastudio) |
+| Estensione dell'interfaccia della riga di comando di Azure per Azure Data Studio | Sì | Estensione per Azure Data Studio che installerà l'interfaccia della riga di comando di Azure, se non è già presente.| Installare dalla raccolta estensioni in Azure Data Studio.|
+| Estensione di Azure Arc per Azure Data Studio | Sì | Estensione per Azure Data Studio che fornisce un'esperienza di gestione per i servizi dati abilitati per Azure Arc. È presente una dipendenza dall'estensione dell'interfaccia della riga di comando di Azure per Azure Data Studio. | Installare dalla raccolta estensioni in Azure Data Studio.|
+| Estensione PostgreSQL in Azure Data Studio | No | Estensione PostgreSQL per Azure Data Studio che fornisce funzionalità di gestione per PostgreSQL. | <!--{need link} [Install](../azure-data-studio/data-virtualization-extension.md) --> Installare dalla raccolta estensioni in Azure Data Studio.|
+| INTERFACCIA della riga di comando di Azure (AZ)<sup>1</sup> | Sì | Interfaccia della riga di comando moderna per la gestione dei servizi di Azure. Usato con le distribuzioni AKS e per caricare i dati di inventario e fatturazione di Azure Arc abilitato in Azure. ([Altre informazioni](/cli/azure/?view=azure-cli-latest&preserve-view=true)). | [Installazione](/cli/azure/install-azure-cli?view=azure-cli-latest&preserve-view=true) |
+| INTERFACCIA della riga di comando Kubernetes (kubectl)<sup>2</sup> | Sì | Strumento da riga di comando per la gestione del cluster Kubernetes ([altre informazioni](https://kubernetes.io/docs/tasks/tools/install-kubectl/)). | [Windows](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-with-powershell-from-psgallery) \| [Linux](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-using-native-package-management) |
+| curl <sup>3</sup> | Obbligatorio per alcuni script di esempio. | Strumento da riga di comando per il trasferimento di dati con URL. | [Windows](https://curl.haxx.se/windows/) \| Linux: installare il pacchetto curl |
+| OC | Obbligatorio per le distribuzioni di Red Hat OpenShift e Azure RedHat OpenShift. |`oc` è l'interfaccia della riga di comando di Open Shift. | [Installazione dell'interfaccia della riga di comando](https://docs.openshift.com/container-platform/4.4/cli_reference/openshift_cli/getting-started-cli.html#installing-the-cli)
+
+
+
+<sup>1</sup> è necessario usare l'interfaccia della riga di comando di Azure versione 2.0.4 o successiva. Eseguire `az --version` per trovare la versione, se necessario.
+
+<sup>2</sup> è necessario usare la `kubectl` versione 1,13 o successiva. Il numero di versione di `kubectl` deve anche essere compreso tra il numero precedente e quello successivo della versione secondaria del cluster Kubernetes. Se si vuole installare una versione specifica nel client `kubectl`, vedere [Installare il file binario di `kubectl` tramite curl](https://kubernetes.io/docs/tasks/tools/install-kubectl/#install-kubectl-binary-using-curl). In Windows 10 usare cmd.exe e non Windows PowerShell per eseguire curl.
+
+<sup>3</sup> se si usa PowerShell, curl è un alias per il cmdlet Invoke-WebRequest.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+[Creare il controller di dati di Azure Arc](create-data-controller.md)

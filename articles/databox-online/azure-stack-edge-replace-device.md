@@ -1,6 +1,6 @@
 ---
-title: Sostituire il dispositivo Azure Stack Edge | Microsoft Docs
-description: Viene descritto come ottenere un dispositivo Azure Stack Edge sostitutivo.
+title: Sostituire il dispositivo Azure Stack Edge Pro | Microsoft Docs
+description: Viene descritto come ottenere una sostituzione Azure Stack dispositivo Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 07/20/2020
 ms.author: alkohli
-ms.openlocfilehash: 5d5e8cc3a959c7800019107d2c682e144449b46c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ec16a2b42b818e96399b8fdbad4a0951f84ef825
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87098753"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893902"
 ---
-# <a name="replace-your-azure-stack-edge-device"></a>Sostituire il dispositivo Azure Stack Edge
+# <a name="replace-your-azure-stack-edge-pro-device"></a>Sostituire il dispositivo Azure Stack Edge Pro
 
-Questo articolo descrive come ottenere una sostituzione Azure Stack dispositivo perimetrale. Un dispositivo sostitutivo è necessario quando il dispositivo esistente presenta un errore hardware o necessita di un aggiornamento. 
+Questo articolo descrive come ottenere una sostituzione Azure Stack dispositivo Edge Pro. Un dispositivo sostitutivo è necessario quando il dispositivo esistente presenta un errore hardware o necessita di un aggiornamento. 
 
 
 In questo articolo vengono illustrate le operazioni seguenti:
@@ -33,7 +33,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 Se si verifica un errore hardware nel dispositivo esistente, aprire un ticket di supporto. Il supporto tecnico Microsoft determinerà che un'unità sostituibile sul campo non è disponibile per questa istanza o che l'hardware del dispositivo deve essere aggiornato. In entrambi i casi, il supporto tecnico ordinerà un dispositivo sostitutivo.
 
-1. Aprire un ticket di supporto con il supporto tecnico Microsoft indicando che si vuole restituire il dispositivo. Selezionare il tipo di problema **Hardware Azure Stack Edge**.
+1. Aprire un ticket di supporto con il supporto tecnico Microsoft indicando che si vuole restituire il dispositivo. Selezionare il tipo di problema come **hardware di Azure stack Edge Pro**.
 
     ![Aprire il ticket di supporto](media/azure-stack-edge-replace-device/open-support-ticket-1.png)  
 
@@ -47,7 +47,7 @@ Per creare una risorsa, seguire questa procedura.
 
 1. Eseguire la procedura descritta in [creare una nuova risorsa](azure-stack-edge-deploy-prep.md#create-a-new-resource) per creare una risorsa per il dispositivo sostitutivo. 
 
-2. Selezionare la casella di controllo accanto a **I have an Azure Stack Edge device** (Ho un dispositivo Azure Stack Edge). 
+2. Assicurarsi di selezionare la casella di controllo **se si dispone di un dispositivo Azure stack Edge Pro**. 
 
     ![Risorsa per il dispositivo sostitutivo](media/azure-stack-edge-replace-device/replace-resource-1.png)  
 
@@ -71,4 +71,4 @@ Seguire tutti i passaggi per restituire il dispositivo originale:
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- Informazioni su come [restituire un dispositivo Azure stack Edge](azure-stack-edge-return-device.md).
+- Informazioni su come [restituire un dispositivo Azure stack Edge Pro](azure-stack-edge-return-device.md).

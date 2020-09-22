@@ -2,26 +2,25 @@
 title: Domande frequenti sul bus di servizio di Azure | Microsoft Docs
 description: Questo articolo fornisce le risposte ad alcune domande frequenti sul bus di servizio di Azure.
 ms.topic: article
-ms.date: 07/15/2020
-ms.openlocfilehash: e098b05dba25a51d5d6ef7c50a1b73730828357a
-ms.sourcegitcommit: 2ffa5bae1545c660d6f3b62f31c4efa69c1e957f
+ms.date: 09/16/2020
+ms.openlocfilehash: addd629f137c5f638cd32a639f79cdbbafc4a94d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88080814"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894533"
 ---
 # <a name="azure-service-bus---frequently-asked-questions-faq"></a>Bus di servizio di Azure-Domande frequenti
 
 Questo articolo risponde ad alcune domande frequenti sul bus di servizio di Microsoft Azure. Per informazioni generali sui prezzi e sul supporto di Azure, vedere [Domande frequenti sul supporto di Azure](https://azure.microsoft.com/support/faq/).
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="general-questions-about-azure-service-bus"></a>Domande generali sul bus di servizio di Azure
 ### <a name="what-is-azure-service-bus"></a>Cos'è il bus di servizio di Azure?
 Il [bus di servizio di Azure](service-bus-messaging-overview.md) è una piattaforma cloud di messaggistica asincrona che consente di inviare dati tra sistemi disaccoppiati. Microsoft offre questa funzionalità come servizio, il che significa che non è necessario ospitare l'hardware per usarlo.
 
 ### <a name="what-is-a-service-bus-namespace"></a>Cos'è uno spazio dei nomi del bus di servizio?
-Lo [spazio dei nomi](service-bus-create-namespace-portal.md) è un contenitore per le risorse del bus di servizio all'interno dell'applicazione. La creazione di uno spazio dei nomi è necessaria per usare il bus di servizio ed è uno dei primi passaggi delle attività iniziali.
+Uno [spazio dei nomi](service-bus-create-namespace-portal.md) fornisce un contenitore di ambito per indirizzare le risorse del bus di servizio all'interno dell'applicazione. La creazione di uno spazio dei nomi è necessaria per usare il bus di servizio ed è uno dei primi passaggi delle attività iniziali.
 
 ### <a name="what-is-an-azure-service-bus-queue"></a>Cos'è una coda del bus di servizio di Azure?
 La [coda del bus di servizio](service-bus-queues-topics-subscriptions.md) è un'entità in cui vengono archiviati i messaggi. Le code sono utili in presenza di più applicazioni o più parti di un'applicazione distribuita che devono comunicare tra loro. La coda è simile a un centro di distribuzione perché più prodotti (messaggi) vengono ricevuti e quindi inviati da tale posizione.
@@ -36,6 +35,9 @@ L'ordinamento non è garantito quando si usano entità partizionate. Se una part
 
  Le entità partizionate non sono più supportate nello [SKU Premium](service-bus-premium-messaging.md). 
 
+### <a name="where-does-azure-service-bus-store-customer-data"></a><a name="in-region-data-residency"></a>Dove il bus di servizio di Azure archivia i dati dei clienti?
+Il bus di servizio di Azure archivia i dati dei clienti. Questi dati vengono archiviati automaticamente dal bus di servizio in una singola area, in modo che il servizio soddisfi automaticamente i requisiti di residenza dei dati dell'area, inclusi quelli specificati nel [Centro protezione](https://azuredatacentermap.azurewebsites.net/).
+
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quali porte è necessario aprire nel firewall? 
 È possibile usare i protocolli seguenti con il bus di servizio di Azure per inviare e ricevere messaggi:
 
@@ -48,7 +50,7 @@ Vedere la tabella seguente per le porte in uscita da aprire per usare questi pro
 | Protocollo | Porte | Dettagli | 
 | -------- | ----- | ------- | 
 | AMQP | 5671 e 5672 | Vedere [Guida al protocollo AMQP](service-bus-amqp-protocol-guide.md) | 
-| SBMP | da 9350 a 9354 | Vedere la [modalità di connettività](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet) |
+| SBMP | da 9350 a 9354 | Vedere la [modalità di connettività](/dotnet/api/microsoft.servicebus.connectivitymode?view=azure-dotnet&preserve-view=true) |
 | HTTP, HTTPS | 80, 443 | 
 
 ### <a name="what-ip-addresses-do-i-need-to-add-to-allow-list"></a>Quali indirizzi IP è necessario aggiungere all'elenco Consenti?
@@ -59,9 +61,9 @@ Per trovare gli indirizzi IP corretti da aggiungere all'elenco Consenti per le c
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Annotare l'indirizzo IP restituito in `Non-authoritative answer`. Questo indirizzo IP è statico. L'unico caso che prevede una modifica è il ripristino dello spazio dei nomi in un cluster diverso.
+2. Annotare l'indirizzo IP restituito in `Non-authoritative answer`. 
 
-Se si usa la ridondanza della zona per lo spazio dei nomi, è necessario eseguire alcuni passaggi aggiuntivi: 
+Se si usa la **ridondanza della zona** per lo spazio dei nomi, è necessario eseguire alcuni passaggi aggiuntivi: 
 
 1. Per prima cosa, eseguire nslookup nello spazio dei nomi.
 
@@ -76,6 +78,9 @@ Se si usa la ridondanza della zona per lo spazio dei nomi, è necessario eseguir
     <name>-s3.cloudapp.net
     ```
 3. Eseguire nslookup per ciascuna di esse con suffissi S1, S2 e S3 per ottenere gli indirizzi IP di tutte e tre le istanze in esecuzione in tre zone di disponibilità. 
+
+    > [!NOTE]
+    > L'indirizzo IP restituito dal `nslookup` comando non è un indirizzo IP statico. Tuttavia rimane costante fino a quando la distribuzione sottostante non viene eliminata o spostata in un cluster diverso.
 
 ### <a name="where-can-i-find-the-ip-address-of-the-client-sendingreceiving-messages-tofrom-a-namespace"></a>Dove è possibile trovare l'indirizzo IP del client che invia o riceve messaggi da e verso uno spazio dei nomi? 
 Gli indirizzi IP dei client che inviano o ricevono messaggi da e verso lo spazio dei nomi non vengono registrati. Rigenerare le chiavi in modo che tutti i client esistenti non siano in grado di autenticare e rivedere le[RBAC](authenticate-application.md#azure-built-in-roles-for-azure-service-bus)impostazioni di controllo degli accessi in base al ruolo per garantire che solo gli utenti o le applicazioni consentite abbiano accesso allo spazio dei nomi. 
