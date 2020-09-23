@@ -1,15 +1,15 @@
 ---
 title: Creare e configurare insiemi di credenziali dei servizi di ripristino
-description: Questo articolo illustra come creare e configurare insiemi di credenziali dei servizi di ripristino in cui archiviare i backup e i punti di ripristino.
+description: Questo articolo illustra come creare e configurare insiemi di credenziali dei servizi di ripristino in cui archiviare i backup e i punti di ripristino. Informazioni su come usare il ripristino tra aree per ripristinare in un'area secondaria.
 ms.topic: conceptual
 ms.date: 05/30/2019
 ms.custom: references_regions
-ms.openlocfilehash: 81c6fd47ccea2ea17a20535df04931727c23be6f
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: c659efad7f0eaf5793e1fd608eb522964df7befd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89177194"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90981495"
 ---
 # <a name="create-and-configure-a-recovery-services-vault"></a>Creare e configurare un insieme di credenziali di servizi di ripristino
 
@@ -30,34 +30,45 @@ Backup di Azure gestisce automaticamente lo spazio di archiviazione per l'insiem
 
 1. Selezionare il tipo di replica di archiviazione e selezionare **Salva**.
 
-     ![Impostare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+     ![Impostare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png)
 
    - Se si usa Azure come endpoint di archiviazione di backup primario, è consigliabile continuare a usare l'impostazione con **ridondanza geografica** predefinita.
    - Se non si usa Azure come endpoint di archiviazione di backup primario, scegliere l'opzione **Con ridondanza locale**, che riduce i costi di archiviazione di Azure.
-   - Altre informazioni sulla ridondanza [geografica](../storage/common/storage-redundancy.md) e [locale](../storage/common/storage-redundancy.md) .
+   - Altre informazioni sulla ridondanza [geografica](../storage/common/storage-redundancy.md#geo-redundant-storage) e [locale](../storage/common/storage-redundancy.md#locally-redundant-storage) .
+   - Se è necessaria la disponibilità dei dati senza tempi di inattività in un'area, garantendo la residenza dei dati, scegliere l' [archiviazione con ridondanza della zona](https://docs.microsoft.com/azure/storage/common/storage-redundancy#zone-redundant-storage).
 
 >[!NOTE]
 >Le impostazioni di replica di archiviazione per l'insieme di credenziali non sono rilevanti per il backup della condivisione file di Azure perché la soluzione corrente è basata su snapshot e non ci sono dati trasferiti nell'insieme di credenziali. Gli snapshot vengono archiviati nello stesso account di archiviazione della condivisione file di cui è stato eseguito il backup.
 
 ## <a name="set-cross-region-restore"></a>Imposta ripristino tra aree
 
-Come una delle opzioni di ripristino, Cross Region Restore (CRR) consente di ripristinare le macchine virtuali di Azure in un'area secondaria, ovvero un' [area abbinata ad Azure](../best-practices-availability-paired-regions.md). Questa opzione consente di:
+L'opzione di ripristino **Cross Region Restore (CRR)** consente di ripristinare i dati in un' [area associata](../best-practices-availability-paired-regions.md)secondaria di Azure.
+
+Supporta le origini dati seguenti:
+
+- Macchine virtuali di Azure
+- Database SQL ospitati in macchine virtuali di Azure
+- SAP HANA database ospitati in macchine virtuali di Azure
+
+L'uso del ripristino tra aree consente di:
 
 - eseguire esercitazioni in caso di requisiti di controllo o di conformità
-- ripristinare la macchina virtuale o il relativo disco in caso di emergenza nell'area primaria.
+- ripristinare i dati in caso di emergenza nell'area primaria
+
+Quando si ripristina una macchina virtuale, è possibile ripristinare la macchina virtuale o il relativo disco. Se si esegue il ripristino da database SQL/SAP HANA ospitati in macchine virtuali di Azure, è possibile ripristinare i database o i relativi file.
 
 Per scegliere questa funzionalità, selezionare **Abilita ripristino tra aree** dal riquadro **configurazione backup** .
 
-Per questo processo, esistono implicazioni relative ai prezzi a livello di archiviazione.
+Poiché questo processo è a livello di archiviazione, esistono [implicazioni](https://azure.microsoft.com/pricing/details/backup/)relative ai prezzi.
 
 >[!NOTE]
 >Prima di iniziare:
 >
 >- Esaminare la [matrice di supporto](backup-support-matrix.md#cross-region-restore) per un elenco di tipi e aree gestiti supportati.
->- La funzionalità di ripristino tra aree (CRR) è ora visualizzata in anteprima in tutte le aree pubbliche di Azure.
+>- La funzionalità di ripristino tra aree (CRR) è ora visualizzata in anteprima in tutte le aree pubbliche e nei cloud sovrani di Azure.
 >- CRR è una funzionalità di consenso esplicito a livello di insieme di credenziali GRS (disattivata per impostazione predefinita).
 >- Dopo aver acconsentito, potrebbero essere necessarie fino a 48 ore affinché gli elementi di backup siano disponibili nelle aree secondarie.
->- Attualmente CRR è supportato solo per il tipo di gestione di backup: macchina virtuale di Azure ARM (la macchina virtuale di Azure classica non sarà supportata).  Quando i tipi di gestione aggiuntivi supportano CRR, verranno registrati **automaticamente** .
+>- Attualmente CRR per le macchine virtuali di Azure è supportato solo per le macchine virtuali di Azure Resource Manager di Azure. Le macchine virtuali di Azure classiche non saranno supportate.  Quando i tipi di gestione aggiuntivi supportano CRR, verranno registrati **automaticamente** .
 >- Il ripristino tra aree attualmente non può essere ripristinato in GRS o con ridondanza locale una volta avviata la protezione per la prima volta.
 
 ### <a name="configure-cross-region-restore"></a>Configurare il ripristino tra aree
@@ -69,15 +80,13 @@ Un insieme di credenziali creato con ridondanza GRS include l'opzione per config
 1. Dal portale passare a insieme di credenziali di servizi di ripristino > impostazioni > proprietà.
 2. Per abilitare la funzionalità, selezionare **Abilita ripristino tra aree in questo** insieme di credenziali.
 
-   ![Prima di selezionare Abilita ripristino tra aree in questo insieme di credenziali](./media/backup-azure-arm-restore-vms/backup-configuration1.png)
+   ![Abilita ripristino tra aree](./media/backup-azure-arm-restore-vms/backup-configuration.png)
 
-   ![Dopo aver selezionato Abilita ripristino tra aree in questo insieme di credenziali](./media/backup-azure-arm-restore-vms/backup-configuration2.png)
+Per ulteriori informazioni su backup e ripristino con CRR, vedere questi articoli:
 
-Informazioni su come [visualizzare gli elementi di backup nell'area secondaria](backup-azure-arm-restore-vms.md#view-backup-items-in-secondary-region).
-
-Informazioni su come eseguire [il ripristino nell'area secondaria](backup-azure-arm-restore-vms.md#restore-in-secondary-region).
-
-Informazioni su come [monitorare i processi di ripristino dell'area secondaria](backup-azure-arm-restore-vms.md#monitoring-secondary-region-restore-jobs).
+- [Ripristino tra aree per macchine virtuali di Azure](backup-azure-arm-restore-vms.md#cross-region-restore)
+- [Ripristino tra aree per database SQL](restore-sql-database-azure-vm.md#cross-region-restore)
+- [Ripristino tra aree per database SAP HANA](sap-hana-db-restore.md#cross-region-restore)
 
 ## <a name="set-encryption-settings"></a>Imposta impostazioni di crittografia
 

@@ -5,12 +5,12 @@ ms.devlang: java
 ms.date: 08/01/2019
 ms.topic: conceptual
 ms.custom: devx-track-java
-ms.openlocfilehash: 4039a70bf90bc8f4b7932dbf40d8369e9773abf3
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 6a596eff70bfc20b5a6752ef47398bd14d527c97
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321820"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973340"
 ---
 # <a name="create-and-deploy-arm-templates-by-using-the-intellij-idea"></a>Creare e distribuire modelli ARM con IntelliJ IDEA
 
@@ -66,7 +66,7 @@ Invece di creare un modello da zero, aprire un modello da [Modelli di avvio rapi
 
 1. È possibile modificare i due file in questa pagina e distribuire le modifiche in Azure. In questo esempio si modifica il valore di **storageAccountType** da `Standard_LRS` a `Standard_GRS` nel file dei parametri. Fare quindi clic su **Update Deployment** (Aggiorna distribuzione) in basso e confermare l'aggiornamento.
 
-    ![Modello di Resource Manager: modificare la distribuzione](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
+    ![Screenshot che mostra il modello di Gestione risorse con il prompt della distribuzione degli aggiornamenti visualizzato.](./media/create-templates-use-intellij/resource-manager-edit-deployment-update.png)
 
 1. Al termine dell'aggiornamento della distribuzione, è possibile verificare nel portale che l'account di archiviazione creato sia stato modificato in `Standard_GRS`.
 

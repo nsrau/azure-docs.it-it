@@ -1,6 +1,6 @@
 ---
 title: Parametri delle risorse delle cartelle di lavoro di monitoraggio di Azure
-description: Semplificare la creazione di report complessi con cartelle di lavoro con parametri predefinite e personalizzate
+description: Informazioni su come usare i parametri delle risorse per consentire la selezione di risorse nelle cartelle di lavoro di. Usare i parametri della risorsa per impostare l'ambito da cui ottenere i dati.
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: b5822c1af4f3bc5d9519af93054a01c3cdc82001
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: a4d4e095e065e9f505ba1b9b46f0d31fb1783eb2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86504992"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972857"
 ---
 # <a name="workbook-resource-parameters"></a>Parametri delle risorse della cartella di lavoro
 
@@ -27,12 +27,12 @@ I valori dei selezionatori di risorse possono provenire dal contesto della carte
 2. Scegliere _Aggiungi parametri_ dai collegamenti all'interno della cartella di lavoro.
 3. Fare clic sul pulsante _Aggiungi parametro_ blu.
 4. Nel riquadro nuovo parametro visualizzato immettere:
-    1. Nome parametro:`Applications`
-    2. Tipo di parametro:`Resource picker`
-    3. Obbligatorio:`checked`
-    4. Consenti selezioni multiple:`checked`
-5. Ottenere i dati da:`Workbook Resources`
-6. Includi solo tipi di risorse:`Application Insights`
+    1. Nome parametro: `Applications`
+    2. Tipo di parametro: `Resource picker`
+    3. Obbligatorio: `checked`
+    4. Consenti selezioni multiple: `checked`
+5. Ottenere i dati da: `Workbook Resources`
+6. Includi solo tipi di risorse: `Application Insights`
 7. Scegliere ' Salva ' dalla barra degli strumenti per creare il parametro.
 
 ![Immagine che mostra la creazione di un parametro di risorsa usando le risorse della cartella di lavoro](./media/workbooks-resources/resource-create.png)
@@ -42,13 +42,13 @@ I valori dei selezionatori di risorse possono provenire dal contesto della carte
 2. Scegliere _Aggiungi parametri_ dai collegamenti all'interno della cartella di lavoro.
 3. Fare clic sul pulsante _Aggiungi parametro_ blu.
 4. Nel riquadro nuovo parametro visualizzato immettere:
-    1. Nome parametro:`Applications`
-    2. Tipo di parametro:`Resource picker`
-    3. Obbligatorio:`checked`
-    4. Consenti selezioni multiple:`checked`
-5. Ottenere i dati da:`Query`
-    1. Tipo di query:`Azure Resource Graph`
-    2. Sottoscrizioni`Use default subscriptions`
+    1. Nome parametro: `Applications`
+    2. Tipo di parametro: `Resource picker`
+    3. Obbligatorio: `checked`
+    4. Consenti selezioni multiple: `checked`
+5. Ottenere i dati da: `Query`
+    1. Tipo di query: `Azure Resource Graph`
+    2. Sottoscrizioni `Use default subscriptions`
     3. Nel controllo query aggiungere questo frammento di codice
     ```kusto
     where type == 'microsoft.insights/components'
@@ -68,11 +68,11 @@ I valori dei selezionatori di risorse possono provenire dal contesto della carte
 2. Scegliere _Aggiungi parametri_ dai collegamenti all'interno della cartella di lavoro.
 3. Fare clic sul pulsante _Aggiungi parametro_ blu.
 4. Nel riquadro nuovo parametro visualizzato immettere:
-    1. Nome parametro:`Applications`
-    2. Tipo di parametro:`Resource picker`
-    3. Obbligatorio:`checked`
-    4. Consenti selezioni multiple:`checked`
-5. Ottenere i dati da:`JSON`
+    1. Nome parametro: `Applications`
+    2. Tipo di parametro: `Resource picker`
+    3. Obbligatorio: `checked`
+    4. Consenti selezioni multiple: `checked`
+5. Ottenere i dati da: `JSON`
     1. Nel controllo contenuto aggiungere questo frammento di codice JSON
     ```json
     [

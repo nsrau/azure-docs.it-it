@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 04/06/2020
-ms.openlocfilehash: efb99e23466e4615dfa1f4a429addcd8c4ac68f5
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 51d86e51d89bdaf83be4a722d0350b35d2146cff
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86085600"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973048"
 ---
 # <a name="configure-streaming-export-of-azure-sql-database-and-sql-managed-instance-diagnostic-telemetry"></a>Configurare l'esportazione di flussi del database SQL di Azure e la telemetria diagnostica di SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -72,7 +72,7 @@ Questi dati di telemetria diagnostici possono essere trasmessi a una delle segue
 
 Questa telemetria diagnostica trasmessa a una di queste destinazioni può essere usata per misurare l'utilizzo delle risorse e le statistiche di esecuzione delle query per semplificare il monitoraggio delle prestazioni.
 
-![Architecture](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/architecture.png)
+![Il diagramma mostra molti database e database SQL nelle istanze gestite che inviano dati di telemetria al Diagnostica di Azure, che inoltra le informazioni a Analisi SQL di Azure, Hub eventi e archiviazione.](./media/metrics-diagnostic-telemetry-logging-streaming-export-configure/architecture.png)
 
 ## <a name="enable-and-configure-the-streaming-export-of-diagnostic-telemetry"></a>Abilitare e configurare l'esportazione di flussi di dati di telemetria diagnostica
 
@@ -439,13 +439,13 @@ Per informazioni dettagliate sulle metriche di base per risorsa, vedere le tabel
 
 #### <a name="basic-metrics-for-elastic-pools"></a>Metriche di base per i pool elastici
 
-|**Risorsa**|**Metriche**|
+|**Risorsa**|**Metrics** (Metriche)|
 |---|---|
 |Pool elastico|Percentuale eDTU, eDTU usata, limite eDTU, percentuale CPU, percentuale lettura dati fisici, percentuale scrittura log, percentuale sessioni, percentuale ruoli di lavoro, risorsa di archiviazione, percentuale di archiviazione, limite di archiviazione, percentuale di archiviazione XTP |
 
 #### <a name="basic-metrics-for-single-and-pooled-databases"></a>Metriche di base per database singoli e in pool
 
-|**Risorsa**|**Metriche**|
+|**Risorsa**|**Metrics** (Metriche)|
 |---|---|
 |Database singolo e in pool|Percentuale DTU, DTU usata, limite DTU, percentuale CPU, percentuale lettura dati fisici, percentuale scrittura log, riuscito/non riuscito/bloccato dalle connessioni firewall, percentuale sessioni, percentuale ruoli di lavoro, risorsa di archiviazione, percentuale di archiviazione, percentuale di archiviazione XTP, deadlock |
 
@@ -476,7 +476,7 @@ I dettagli dei dati di telemetria disponibili per tutti i log sono descritti nel
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure|
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Type|Always: AzureDiagnostics |
+|Tipo|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Sempre: ResourceUsageStats |
 |Risorsa|Nome della risorsa |
@@ -501,7 +501,7 @@ I dettagli dei dati di telemetria disponibili per tutti i log sono descritti nel
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Type|Always: AzureDiagnostics |
+|Tipo|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Always: QueryStoreRuntimeStatistics |
 |OperationName|Nome dell'operazione. Always: QueryStoreRuntimeStatisticsEvent |
@@ -552,7 +552,7 @@ Altre informazioni sui [dati delle statistiche di runtime query Store](https://d
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Type|Always: AzureDiagnostics |
+|Tipo|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Always: QueryStoreWaitStatistics |
 |OperationName|Nome dell'operazione. Always: QueryStoreWaitStatisticsEvent |
@@ -590,7 +590,7 @@ Altre informazioni sui [dati delle statistiche di attesa di Query Store](https:/
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Type|Always: AzureDiagnostics |
+|Tipo|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Always: Errors |
 |OperationName|Nome dell'operazione. Always: ErrorEvent |
@@ -602,7 +602,7 @@ Altre informazioni sui [dati delle statistiche di attesa di Query Store](https:/
 |ElasticPoolName_s|Nome del pool elastico per il database, se presente |
 |DatabaseName_s|Nome del database |
 |ResourceId|URI della risorsa |
-|Message|Messaggio di errore in testo normale |
+|Messaggio|Messaggio di errore in testo normale |
 |user_defined_b|È il bit di errore definito dall'utente |
 |error_number_d|Codice di errore |
 |Gravità|Gravità dell'errore |
@@ -619,7 +619,7 @@ Ulteriori informazioni sui [messaggi di errore SQL](https://docs.microsoft.com/s
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Type|Always: AzureDiagnostics |
+|Tipo|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Always: DatabaseWaitStatistics |
 |OperationName|Nome dell'operazione. Always: DatabaseWaitStatisticsEvent |
@@ -648,7 +648,7 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Type|Always: AzureDiagnostics |
+|Tipo|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Always: Timeouts |
 |OperationName|Nome dell'operazione. Always: TimeoutEvent |
@@ -671,7 +671,7 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Type|Always: AzureDiagnostics |
+|Tipo|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Always: Blocks |
 |OperationName|Nome dell'operazione. Always: BlockEvent |
@@ -695,7 +695,7 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC] |Timestamp di quando è stato registrato il log |
-|Type|Always: AzureDiagnostics |
+|Tipo|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Always: Deadlocks |
 |OperationName|Nome dell'operazione. Always: DeadlockEvent |
@@ -716,7 +716,7 @@ Altre informazioni sulle [statistiche di attesa del database](https://docs.micro
 |TenantId|ID del tenant. |
 |SourceSystem|Always: Azure |
 |TimeGenerated [UTC]|Timestamp di quando è stato registrato il log |
-|Type|Always: AzureDiagnostics |
+|Tipo|Always: AzureDiagnostics |
 |ResourceProvider|Nome del provider di risorse. Always: MICROSOFT.SQL |
 |Category|Nome della categoria. Always: AutomaticTuning |
 |Risorsa|Nome della risorsa |
@@ -752,7 +752,7 @@ Per informazioni su come abilitare la registrazione e comprendere le categorie d
 
 Per informazioni su Hub eventi, leggere:
 
-- [Che cos'è l'hub di eventi di Azure?](../../event-hubs/event-hubs-about.md)
+- [Che cos'è Hub eventi di Azure?](../../event-hubs/event-hubs-about.md)
 - [Introduzione all'Hub eventi](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
 
 Per informazioni su come configurare gli avvisi in base ai dati di telemetria da log Analytics, vedere:

@@ -4,12 +4,12 @@ description: Questa esercitazione descrive in dettaglio l'esecuzione di backup d
 ms.topic: tutorial
 ms.date: 03/05/2019
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 33090a0156d147fee5ab362b284ec503039617c4
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 53a5df430a3ea57201ecb19bac68ef9f073beb14
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181732"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980972"
 ---
 # <a name="back-up-azure-vms-with-powershell"></a>Eseguire il backup di macchine virtuali di Azure con PowerShell
 
@@ -48,7 +48,7 @@ In questa esercitazione si apprenderà come:
 Un [insieme di credenziali di Servizi di ripristino](backup-azure-recovery-services-vault-overview.md) è un contenitore logico in cui vengono archiviati i dati di backup per le risorse protette, ad esempio le VM di Azure. Quando viene eseguito, il processo di backup crea un punto di ripristino all'interno dell'insieme di credenziali di Servizi di ripristino. È quindi possibile usare uno di questi punti di ripristino per ripristinare i dati a un dato momento.
 
 * In questa esercitazione l'insieme di credenziali viene creato nello stesso gruppo di risorse e nella stessa posizione della macchina virtuale di cui si vuole eseguire il backup.
-* Backup di Azure gestisce automaticamente l'archiviazione per i dati sottoposti a backup. Per impostazione predefinita, l'insieme di credenziali usa l'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy.md). Con l'archiviazione con ridondanza geografica i dati di backup vengono replicati in un'area di Azure secondaria a centinaia di chilometri di distanza dall'area primaria.
+* Backup di Azure gestisce automaticamente l'archiviazione per i dati sottoposti a backup. Per impostazione predefinita, l'insieme di credenziali usa l'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy.md#geo-redundant-storage). Con l'archiviazione con ridondanza geografica i dati di backup vengono replicati in un'area di Azure secondaria a centinaia di chilometri di distanza dall'area primaria.
 
 Creare l'insieme di credenziali nel modo seguente:
 
