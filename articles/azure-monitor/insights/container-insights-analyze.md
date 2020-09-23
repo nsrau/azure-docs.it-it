@@ -3,12 +3,12 @@ title: Monitoraggio di Kubernetes con monitoraggio di Azure per contenitori | Mi
 description: Questo articolo descrive come è possibile visualizzare e analizzare le prestazioni di un cluster Kubernetes con monitoraggio di Azure per i contenitori.
 ms.topic: conceptual
 ms.date: 03/26/2020
-ms.openlocfilehash: d8b298208794e4ba562a608f22f4d0a539b81b47
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 888853f0e9e7634cafa5e480752371c501376158
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86166638"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988133"
 ---
 # <a name="monitor-your-kubernetes-cluster-performance-with-azure-monitor-for-containers"></a>Monitorare le prestazioni del cluster Kubernetes con monitoraggio di Azure per i contenitori
 
@@ -75,10 +75,10 @@ Nella tabella seguente viene fornita una suddivisione del calcolo che controlla 
 | |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |
 |**Pod di sistema**| | |
 | |Healthy |100% |
-| |Avviso |N/A |
+| |Avviso |N/D |
 | |Critico |<100% |
 | |Sconosciuto |Se non è stato segnalato negli ultimi 30 minuti |
-|**Nodo** | | |
+|**Node** | | |
 | |Healthy |>85% |
 | |Avviso |60 - 84% |
 | |Critico |<60% |
@@ -161,7 +161,7 @@ I nodi virtuali di istanze di contenitore di Azure che eseguono il sistema opera
 
 Da un nodo espanso è possibile eseguire il drill-down dal Pod o dal contenitore eseguito sul nodo al controller per visualizzare i dati sulle prestazioni filtrati per il controller. Selezionare il valore nella colonna **controller** per il nodo specifico.
 
-![Esempio di drill-down dal nodo al controller nella vista prestazioni](./media/container-insights-analyze/drill-down-node-controller.png)
+![Screenshot mostra il drill-down da nodo a controller nella visualizzazione prestazioni](./media/container-insights-analyze/drill-down-node-controller.png)
 
 Selezionare i controller o i contenitori nella parte superiore della pagina per esaminare lo stato e l'utilizzo delle risorse per tali oggetti. Per esaminare l'utilizzo della memoria, nell'elenco a discesa **metrica** selezionare **memoria RSS** o **memoria working set**. L'opzione **Memoria RSS** è supportata solo per Kubernetes versione 1.8 e successive. In caso contrario, è possibile visualizzare i valori per **Min &nbsp; % ** As *NaN &nbsp; % *, che è un valore numerico del tipo di dati che rappresenta un valore non definito o non rappresentabile.
 

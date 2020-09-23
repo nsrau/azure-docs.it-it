@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: how-to
 ms.date: 09/08/2020
 ms.author: memildin
-ms.openlocfilehash: ceafbe1fd1682fc5e92ab3048ed09866fb9ebbdf
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 19e9a33350b6a1a67986dc35a372f737e45ab39a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89570490"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906383"
 ---
 # <a name="prevent-misconfigurations-with-enforcedeny-recommendations"></a>Impedisci configurazioni errate con le raccomandazioni Imponi/nega
 
@@ -24,10 +24,9 @@ Questa funzionalità può aiutare a proteggere i carichi di lavoro e stabilizzar
 L'applicazione di una configurazione sicura, basata su una raccomandazione specifica, viene offerta in due modalità:
 
 - Usando l'effetto di **negazione** di criteri di Azure, è possibile arrestare la creazione di risorse non integre.
-
 - Con l'opzione **Imponi** è possibile sfruttare l'effetto **DeployIfNotExist** di criteri di Azure e correggere automaticamente le risorse non conformi al momento della creazione
- 
-Questa opzione è disponibile per le raccomandazioni di sicurezza selezionate e si trova nella parte superiore della pagina dei dettagli delle risorse.
+
+Si trova nella parte superiore della pagina dei dettagli della risorsa per le raccomandazioni di sicurezza selezionate (vedere le [raccomandazioni con le opzioni di negazione/applicazione](#recommendations-with-denyenforce-options)).
 
 ## <a name="prevent-resource-creation"></a>Impedisci la creazione di risorse
 

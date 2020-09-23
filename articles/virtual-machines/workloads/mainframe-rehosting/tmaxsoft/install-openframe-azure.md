@@ -1,6 +1,6 @@
 ---
 title: Installare TmaxSoft OpenFrame in macchine virtuali di Azure
-description: Riospitare i carichi di lavoro del mainframe IBM z/OS usando l'ambiente OpenFrame di TmaxSoft in macchine virtuali di Azure.
+description: Informazioni su come configurare un ambiente OpenFrame in Azure adatto per lo sviluppo, le demo, i test o i carichi di lavoro di produzione.
 services: virtual-machines-linux
 documentationcenter: ''
 author: njray
@@ -8,12 +8,12 @@ ms.author: larryme
 ms.date: 04/02/2019
 ms.topic: article
 ms.service: virtual-machines-linux
-ms.openlocfilehash: 41b31d5c4a01183d4620dcd6ec6f4729f078d382
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: bd5b20d8e713e07b52eb1d6cbc57f01b9e5c1a95
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87082393"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987488"
 ---
 # <a name="install-tmaxsoft-openframe-on-azure"></a>Installare TmaxSoft OpenFrame in Azure
 
@@ -51,7 +51,7 @@ Altri componenti di OpenFrame necessari:
 - PROTRIEVE, una soluzione che esegue la lingua del mainframe CA-Easytrieve.
 - OFMiner, una soluzione che analizza gli asset mainframe e li esegue quindi la migrazione in Azure.
 
-## <a name="architecture"></a>Architecture
+## <a name="architecture"></a>Architettura
 
 La figura seguente fornisce una panoramica dei componenti dell'architettura OpenFrame 7,0 installati in questa esercitazione:
 
@@ -349,7 +349,7 @@ Tibero fornisce le numerose funzioni chiave nell'ambiente OpenFrame in Azure:
      )
     ```
 
-7. Creare il database. Compare l'output seguente:
+7. Creare il database. Viene visualizzato l'output seguente:
 
     ```
     Change core dump dir to /opt/tmaxdb/tibero6/bin/prof.
@@ -460,7 +460,7 @@ Per installare ODBC:
 
      Per impostazione predefinita, unixODBC è installato in/usr/local, quindi `--prefix` passa un valore per modificare il percorso. Analogamente, i file di configurazione vengono installati in/etc per impostazione predefinita, quindi `--sysconfdir` passa il valore della posizione desiderata.
 
-4. Esegui Makefile:`[oframe7@ofdemo unixODBC-2.3.4]$ make`
+4. Esegui Makefile: `[oframe7@ofdemo unixODBC-2.3.4]$ make`
 
 5. Copiare il file eseguibile nella directory del programma dopo la compilazione. Ad esempio:
 
@@ -945,7 +945,7 @@ Prosort è un'utilità utilizzata nelle transazioni batch per l'ordinamento dei 
      export PATH
      ```
 
-6. Per eseguire il profilo bash, al prompt dei comandi digitare:`. .bash_profile`
+6. Per eseguire il profilo bash, al prompt dei comandi digitare: `. .bash_profile`
 
 7. Creare il file di configurazione. Ad esempio:
 

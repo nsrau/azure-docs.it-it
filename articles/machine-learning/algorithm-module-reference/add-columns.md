@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: f2e067f76d6ed7d89a38e9b8920c407f161969a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 17882581c4548996c9a8b2a8670b5f720e64da1e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456779"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898994"
 ---
 # <a name="add-columns-module"></a>Modulo Aggiungi colonne
 
-Questo articolo descrive un modulo disponibile nella finestra di progettazione di Azure Machine Learning (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Usare questo modulo per concatenare due set di impostazioni. Per creare un singolo set di dati, è possibile combinare tutte le colonne dei due set di dati specificati come input. Se è necessario concatenare più di due set di impostazioni, utilizzare diverse istanze di **Aggiungi colonne**.
 

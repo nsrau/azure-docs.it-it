@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 04/28/2020
-ms.openlocfilehash: 9cd1db0365cdc4f834516fd4efb0d80dacc75eca
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: e7b747bd2babeeccb210bb30c3eb28f22d4befe7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118529"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905799"
 ---
 # <a name="validating-data-encryption-for-azure-database-for-mysql"></a>Convalida della crittografia dei dati per database di Azure per MySQL
 
@@ -37,7 +37,7 @@ Questo articolo illustra come verificare che la crittografia dei dati tramite la
 
 2. Nel portale di Azure, se è possibile assicurarsi che sia impostata la chiave di crittografia, i dati vengono crittografati con la chiave Customers utilizzata nel portale di Azure.
 
-  ![Panoramica dei criteri di accesso](media/concepts-data-access-and-security-data-encryption/byok-validate.png)
+  :::image type="content" source="media/concepts-data-access-and-security-data-encryption/byok-validate.png" alt-text="Panoramica dei criteri di accesso":::
 
 ### <a name="from-cli"></a>Dall'interfaccia della riga di comando
 

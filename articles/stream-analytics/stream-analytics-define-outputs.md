@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: ade5972226a735ce5d093890091536baf02f5eff
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 6576ac53f43a8e176b3d166d5218b0ba9934b856
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89068984"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907157"
 ---
 # <a name="outputs-from-azure-stream-analytics"></a>Output di analisi di flusso di Azure
 
@@ -26,11 +26,11 @@ Alcuni tipi di output supportano il [partizionamento](#partitioning) e le [dimen
 |-------------|--------------|----------|
 |[Azure Data Lake Storage Gen 1](azure-data-lake-storage-gen1-output.md)|Sì|Utente Azure Active Directory </br> Identità del servizio gestita|
 |[Database SQL di Azure](sql-database-output.md)|Sì, deve essere abilitato.|Autenticazione utente SQL </br> MSI (anteprima)|
-|[Azure Synapse Analytics (anteprima)](azure-synapse-analytics-output.md)|No|Autenticazione utente SQL|
+|[Azure Synapse Analytics](azure-synapse-analytics-output.md)|No|Autenticazione utente SQL|
 |[Archiviazione BLOB e Azure Data Lake generazione 2](blob-storage-azure-data-lake-gen2-output.md)|Sì|Identità del servizio gestita </br> Chiave di accesso|
 |[Hub eventi di Azure](event-hubs-output.md)|Sì|Chiave di accesso|
 |[Power BI](power-bi-output.md)|No|Utente Azure Active Directory </br> Identità del servizio gestita|
-|[Archivio tabelle di Azure](table-storage-output.md)|Sì|Chiave dell'account|
+|[Archivio tabelle di Azure](table-storage-output.md)|Sì|Chiave account|
 |[Code del bus di servizio di Azure](service-bus-queues-output.md)|Sì|Chiave di accesso|
 |[Argomenti del bus di servizio di Azure](service-bus-topics-output.md)|Sì|Chiave di accesso|
 |[Azure Cosmos DB](azure-cosmos-db-output.md)|Sì|Chiave di accesso|

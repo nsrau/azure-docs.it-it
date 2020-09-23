@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 09/02/2020
-ms.openlocfilehash: 5b46dc0197022aa72b6ca4c206d1da4369234167
-ms.sourcegitcommit: 7374b41bb1469f2e3ef119ffaf735f03f5fad484
+ms.openlocfilehash: 576ff4eb3a189b27a4c7743966ced0676ec67a9d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/16/2020
-ms.locfileid: "90707680"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978907"
 ---
 # <a name="understanding-the-changes-in-the-root-ca-change-for-azure-database-for-postgresql-single-server"></a>Informazioni sulle modifiche apportate alla modifica della CA radice per il server singolo database di Azure per PostgreSQL
 
@@ -126,5 +126,8 @@ Poiché questo aggiornamento è una modifica sul lato client, se il client utili
 ### <a name="12-do-we-have-server-side-query-to-verify-if-ssl-is-being-used"></a>12. è presente una query sul lato server per verificare se è in uso SSL?
 Per verificare se si sta usando la connessione SSL per la connessione al server, fare riferimento alla [verifica SSL](concepts-ssl-connection-security.md#applications-that-require-certificate-verification-for-tls-connectivity).
 
-### <a name="13-what-if-i-have-further-questions"></a>13. cosa accade se si hanno altre domande?
+### <a name="13-is-there-an-action-needed-if-i-already-have-the-digicertglobalrootg2-in-my-certificate-file"></a>13. esiste un'azione necessaria se si dispone già di DigiCertGlobalRootG2 nel file di certificato?
+No. Non è necessario alcun intervento se il file del certificato dispone già del **DigiCertGlobalRootG2**.
+
+### <a name="14-what-if-i-have-further-questions"></a>14. cosa accade se si hanno altre domande?
 In caso di domande, ottenere le risposte dagli esperti della community in [Microsoft Q&a](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com). Se si dispone di un piano di supporto ed è necessario assistenza tecnica, [contattare](mailto:AzureDatabaseforPostgreSQL@service.microsoft.com) Microsoft

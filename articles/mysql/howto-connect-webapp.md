@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: a3f3daa56c782d84cf6ba07223f8cfea15daa8a4
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: deb99ea4f674c901974ca219a0e1bf831f5b4e51
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86101625"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905845"
 ---
 # <a name="connect-an-existing-azure-app-service-to-azure-database-for-mysql-server"></a>Connessione di un servizio app di Azure esistente al Database di Azure per MySQL
 Questo argomento descrive come connettere un Servizio app di Azure esistente al database di Azure per il server MySQL.
@@ -26,21 +26,21 @@ Il database di Azure per MySQL offre accesso alla sicurezza tramite un firewall 
 
 1. Nel pannello del server MySQL fare clic su **Sicurezza connessione** sotto l'intestazione Impostazioni per aprire il pannello Sicurezza connessione per il database di Azure per MySQL.
 
-   ![Portale di Azure: fare clic su Sicurezza connessione](./media/howto-connect-webapp/1-connection-security.png)
+   :::image type="content" source="./media/howto-connect-webapp/1-connection-security.png" alt-text="Portale di Azure: fare clic su Sicurezza connessione":::
 
 2. Selezionare **ON** in **Consenti l'accesso a Servizi di Azure**, quindi **Salva**.
-   ![Portale di Azure: Consenti accesso ad Azure](./media/howto-connect-webapp/allow-azure.png)
+   :::image type="content" source="./media/howto-connect-webapp/allow-azure.png" alt-text="Portale di Azure: Consenti accesso ad Azure":::
 
 ## <a name="solution-2---create-a-firewall-rule-to-explicitly-allow-outbound-ips"></a>Soluzione 2: creare una regola del firewall per consentire in modo esplicito gli indirizzi IP in uscita
 È possibile aggiungere in modo esplicito tutti gli IP in uscita del servizio app di Azure.
 
 1. Nel pannello Proprietà del servizio app, visualizzare l'**INDIRIZZO IP IN USCITA**.
 
-   ![Portale di Azure - Visualizzare gli indirizzi IP in uscita](./media/howto-connect-webapp/2_1-outbound-ip-address.png)
+   :::image type="content" source="./media/howto-connect-webapp/2_1-outbound-ip-address.png" alt-text="Portale di Azure - Visualizzare gli indirizzi IP in uscita":::
 
 2. Nel pannello Sicurezza connessione di MySQL, aggiungere gli indirizzi IP in uscita uno alla volta.
 
-   ![Portale di Azure - Aggiungere indirizzi IP in modo esplicito](./media/howto-connect-webapp/2_2-add-explicit-ips.png)
+   :::image type="content" source="./media/howto-connect-webapp/2_2-add-explicit-ips.png" alt-text="Portale di Azure - Aggiungere indirizzi IP in modo esplicito":::
 
 3. Ricordarsi di **salvare** le regole del firewall.
 

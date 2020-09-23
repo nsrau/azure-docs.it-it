@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 3/16/2020
-ms.openlocfilehash: 88425e2c875b3cce7c63cd66fd034e5a7af56ec7
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b5ccd1281e50ca10b8edd7d7567a000b97107901
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86117033"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907432"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-postgresql---hyperscale-citus"></a>Usare il portale di Azure per configurare gli avvisi sulle metriche per database di Azure per PostgreSQL-iperscalabilità (CITUS)
 
@@ -35,19 +35,19 @@ Verrà impostato un avviso da attivare quando il valore di una metrica specifica
 
 2. Nella sezione **Monitoraggio** della barra laterale selezionare **Avvisi** come illustrato di seguito:
 
-   ![Selezionare le regole di avviso](./media/howto-hyperscale-alert-on-metric/2-alert-rules.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/2-alert-rules.png" alt-text="Selezionare le regole di avviso":::
 
 3. Selezionare **nuova regola di avviso** (+ icona).
 
 4. Verrà aperta la pagina **Crea regola** come illustrato di seguito. Specificare le informazioni necessarie:
 
-   ![Form Aggiungi avviso per la metrica](./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/4-add-rule-form.png" alt-text="Form Aggiungi avviso per la metrica":::
 
 5. Nella sezione **condizione** selezionare **Aggiungi**.
 
 6. Selezionare una metrica dall'elenco dei segnali per i quali ricevere un avviso. In questo esempio selezionare "Storage percent".
    
-   ![Selezionare una metrica](./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/6-configure-signal-logic.png" alt-text="Selezionare una metrica":::
 
 7. Configurare la logica di avviso:
 
@@ -58,13 +58,13 @@ Verrà impostato un avviso da attivare quando il valore di una metrica specifica
    
    Al termine, selezionare **Chiudi**.
 
-   ![Selezionare una metrica](./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png)
+   :::image type="content" source="./media/howto-hyperscale-alert-on-metric/7-set-threshold-time.png" alt-text="Selezionare una metrica":::
 
 8. Nella sezione **Gruppi di azioni** selezionare **Crea nuovo** per creare un nuovo gruppo di azioni per ricevere le notifiche relative all'avviso.
 
 9. Compilare il modulo "Aggiungi gruppo di azioni" specificando nome, nome breve, sottoscrizione e gruppo di risorse.
 
-    ![Gruppo di azioni](./media/howto-hyperscale-alert-on-metric/9-add-action-group.png)
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/9-add-action-group.png" alt-text="Gruppo di azioni":::
 
 10. Configurare un tipo di azione **Email/SMS/Push/Voice** (Posta elettronica/SMS/Push/Voce).
     
@@ -72,11 +72,11 @@ Verrà impostato un avviso da attivare quando il valore di una metrica specifica
    
     Al termine, fare clic su **OK**.
 
-    ![Gruppo di azioni](./media/howto-hyperscale-alert-on-metric/10-action-group-type.png)
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/10-action-group-type.png" alt-text="Gruppo di azioni":::
 
 11. Specificare un nome per la regola di avviso, una descrizione e il livello di gravità.
 
-    ![Gruppo di azioni](./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png) 
+    :::image type="content" source="./media/howto-hyperscale-alert-on-metric/11-name-description-severity.png" alt-text="Gruppo di azioni"::: 
 
 12. Selezionare **Crea regola di avviso** per creare l'avviso.
 

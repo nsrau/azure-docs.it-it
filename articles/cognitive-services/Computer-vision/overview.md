@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 08/31/2020
+ms.date: 09/11/2020
 ms.author: pafarley
 ms.custom:
 - seodec18
 - cog-serv-seo-aug-2020
 keywords: visione artificiale, applicazioni di visione artificiale, servizio visione artificiale
-ms.openlocfilehash: f613080ec24fdfc4c739d4d0494aa2f3c36705cd
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+ms.openlocfilehash: fa00265f3c591578f9970b77770fbf7290d87510
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89323099"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907077"
 ---
 # <a name="what-is-computer-vision"></a>Informazioni sulla Visione artificiale
 
@@ -92,7 +92,11 @@ Analizzare il contenuto di un'immagine per restituire le coordinate dell'*area d
 
 ## <a name="use-containers"></a>Usare i contenitori
 
-[Usare i contenitori di Visione artificiale](computer-vision-how-to-install-containers.md) per riconoscere il testo stampato e scritto a mano in locale installando un contenitore Docker standardizzato più vicino ai dati.
+Usare i contenitori Docker di Visione artificiale per usare il servizio in locale. Attualmente sono disponibili due contenitori:
+
+* Il [contenitore di lettura di Visione artificiale](computer-vision-how-to-install-containers.md) consente di riconoscere il testo stampato e scritto a mano nelle immagini.
+
+* Il [contenitore di analisi spaziale di Visione artificiale](spatial-analysis-container.md) consente di analizzare i video in streaming in tempo reale per comprendere le relazioni spaziali tra le persone e i loro movimenti negli ambienti fisici.
 
 ## <a name="image-requirements"></a>Requisiti dell'immagine
 

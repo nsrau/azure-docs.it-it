@@ -7,12 +7,12 @@ ms.service: bastion
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: charwen
-ms.openlocfilehash: 563c12f91e9553f802d4cf26519da0550880dfcd
-ms.sourcegitcommit: 2bab7c1cd1792ec389a488c6190e4d90f8ca503b
+ms.openlocfilehash: a69aa8d8a6dc324d6fe28219316c36ac2ec816a5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/17/2020
-ms.locfileid: "88270530"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987702"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>Uso di NSG Access e Azure Bastion
 
@@ -42,7 +42,7 @@ Azure Bastion viene distribuito in modo specifico a ***AzureBastionSubnet***.
    * **Traffico in ingresso dal piano di controllo Bastion di Azure:** Per la connettività del piano di controllo, abilitare la porta 443 in ingresso dal tag del servizio **GatewayManager** . In questo modo, il piano di controllo, ovvero Gestione Gateway, sarà in grado di comunicare con Azure Bastion.
 
 
-   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="In ingresso":::
+   :::image type="content" source="./media/bastion-nsg/inbound.png" alt-text="Screenshot mostra le regole di sicurezza in ingresso per la connettività di Azure Bastion.":::
 
 * **Traffico in uscita:**
 
@@ -50,7 +50,7 @@ Azure Bastion viene distribuito in modo specifico a ***AzureBastionSubnet***.
    * **Traffico in uscita verso altri endpoint pubblici in Azure:** Azure Bastion deve essere in grado di connettersi a diversi endpoint pubblici in Azure, ad esempio per archiviare i log di diagnostica e i log di misurazione. Per questo motivo, Azure Bastion deve essere in uscita da 443 al tag del servizio **AzureCloud** .
 
 
-   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="In uscita":::
+   :::image type="content" source="./media/bastion-nsg/outbound.png" alt-text="Screenshot mostra le regole di sicurezza in uscita per la connettività di Azure Bastion.":::
 
 ### <a name="target-vm-subnet"></a>Subnet VM di destinazione
 Si tratta della subnet che contiene la macchina virtuale di destinazione a cui si desidera connettersi tramite RDP/SSH.

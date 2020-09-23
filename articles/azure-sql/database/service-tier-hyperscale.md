@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 06/03/2020
-ms.openlocfilehash: 655486d8273719e89187ebac0992cf83904d9b98
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 3455503570d09daedc5e34cba0bf36d71ddcdcbc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88120644"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988120"
 ---
 # <a name="hyperscale-service-tier"></a>Livello di servizio Hyperscale
 
@@ -228,7 +228,7 @@ Queste sono le limitazioni correnti per il livello di servizio con iperscalabili
 | La migrazione al livello di servizio Hyperscale è attualmente un'operazione unidirezionale | Una volta eseguita la migrazione di un database a iperscalabilità, non è possibile eseguirne la migrazione direttamente a un livello di servizio non iperscalabile. Attualmente, l'unico modo per eseguire la migrazione di un database da iperscalabilità a non iperscalare consiste nell'esportare/importare utilizzando un file BACPAC o altre tecnologie di spostamento dei dati (copia bulk, Azure Data Factory, Azure Databricks, SSIS e così via). Esportazione/importazione di BACPAC da portale di Azure, da PowerShell con [New-AzSqlDatabaseExport](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseexport) o [New-AZSQLDATABASEIMPORT](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaseimport), dall'interfaccia della riga di comando di Azure con il comando [AZ SQL DB Export](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-export) e [AZ SQL DB Import](https://docs.microsoft.com/cli/azure/sql/db?view=azure-cli-latest#az-sql-db-import)e dall' [API REST](https://docs.microsoft.com/rest/api/sql/databases%20-%20import%20export) non è supportata. L'importazione/esportazione di BACPAC per database con iperscala più piccoli (fino a 200 GB) è supportata con SSMS e [SqlPackage](https://docs.microsoft.com/sql/tools/sqlpackage) versione 18,4 e versioni successive. Per i database di dimensioni maggiori, l'esportazione/importazione BACPAC può richiedere molto tempo e potrebbe non riuscire per vari motivi.|
 | Migrazione di database con oggetti OLTP in memoria | L'iperscalabilità supporta un subset di oggetti OLTP in memoria, inclusi i tipi di tabella ottimizzata per la memoria, le variabili di tabella e i moduli compilati in modo nativo. Tuttavia, quando nel database di cui viene eseguita la migrazione sono presenti oggetti OLTP in memoria, la migrazione dai livelli di servizio Premium e business critical a iperscalare non è supportata. Per eseguire la migrazione di un database di questo tipo a iperscalabilità, è necessario eliminare tutti gli oggetti OLTP in memoria e le relative dipendenze. Dopo la migrazione del database, è possibile ricreare questi oggetti. Le tabelle ottimizzate per la memoria durevoli e non durevoli non sono attualmente supportate in iperscalabilità e devono essere ricreate come tabelle disco.|
 | Replica geografica  | Non è ancora possibile configurare la replica geografica per l'iperscalabilità del database SQL di Azure. |
-| Copia del database | Non è ancora possibile usare la copia del database per creare un nuovo database in Azure SQL iperscalabile. |
+| Copia del database | La copia del database su iperscala è ora disponibile in anteprima pubblica. |
 | Integrazione di Transparent Data Encryption/AKV | La crittografia trasparente del database con Azure Key Vault, comunemente definita Bring-your-own-key o BYOK, è attualmente in fase di anteprima. |
 | Funzionalità di database intelligenti | Ad eccezione dell'opzione "forza piano", tutte le altre opzioni di ottimizzazione automatica non sono ancora supportate in iperscalabilità: le opzioni potrebbero sembrare abilitate, ma non verranno eseguite raccomandazioni o azioni. |
 | Analisi delle prestazioni della query | Le informazioni dettagliate sulle prestazioni delle query non sono attualmente supportate per i database con iperscalabilità. |

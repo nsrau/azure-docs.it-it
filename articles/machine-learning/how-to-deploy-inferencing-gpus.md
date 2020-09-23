@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.date: 06/17/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 112d086b9e988726e5ed4790119cc19b6d101426
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 3874f2126354b9ecbd453d00c86b647b0f7f3dcc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646127"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889989"
 ---
 # <a name="deploy-a-deep-learning-model-for-inference-with-gpu"></a>Distribuire un modello di apprendimento avanzato per l'inferenza con GPU
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Questo articolo illustra come usare Azure Machine Learning per distribuire un modello abilitato per GPU come servizio Web. Le informazioni contenute in questo articolo si basano sulla distribuzione di un modello in Azure Kubernetes Service (AKS). Il cluster AKS fornisce una risorsa GPU utilizzata dal modello per l'inferenza.
 

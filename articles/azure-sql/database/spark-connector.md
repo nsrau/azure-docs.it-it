@@ -11,12 +11,12 @@ author: denzilribeiro
 ms.author: denzilr
 ms.reviewer: carlrab
 ms.date: 09/02/2020
-ms.openlocfilehash: 22a9bec09652b6cbce02fe5a54a319694aaa6911
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 46fa489c5a72c3de923f5281cc9be205925dd42d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421306"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988099"
 ---
 # <a name="accelerate-real-time-big-data-analytics-using-the-spark-connector"></a>Accelerare l'analisi Big Data in tempo reale con il connettore Spark
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -38,8 +38,8 @@ Il repository GitHub per il connettore precedente precedentemente collegato a da
 | Scala                                 | 2.10 o versione successiva            |
 | Microsoft JDBC Driver per SQL Server  | 6.2 o versione successiva             |
 | Microsoft SQL Server                  | SQL Server 2008 o versione successiva |
-| Database SQL di Azure                    | Funzionalità supportata                |
-| Istanza gestita di SQL di Azure            | Funzionalità supportata                |
+| Database SQL di Azure                    | Supportato                |
+| Istanza gestita di SQL di Azure            | Supportato                |
 
 Il connettore Spark utilizza Microsoft JDBC driver per SQL Server per spostare i dati tra i nodi di lavoro Spark e i database:
 
@@ -51,7 +51,7 @@ Il flusso di dati è il seguente:
 
 Il diagramma seguente illustra il flusso di dati.
 
-   ![architettura](./media/spark-connector/architecture.png)
+   ![Il diagramma mostra il flusso descritto, con un nodo master che si connette direttamente al database e si connette a tre nodi di lavoro, che si connettono al database.](./media/spark-connector/architecture.png)
 
 ### <a name="build-the-spark-connector"></a>Compilare il connettore Spark
 

@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/07/2020
 ms.author: memildin
-ms.openlocfilehash: e1595d7e205c788f90177836f3c0370681b7747b
-ms.sourcegitcommit: d0541eccc35549db6381fa762cd17bc8e72b3423
+ms.openlocfilehash: 28242341ddd21adea33e56c3e1f35f0677e5921a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89569085"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907359"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Microsoft Defender Advanced Threat Protection con il Centro sicurezza di Azure
 
@@ -28,8 +28,8 @@ Il Centro sicurezza di Azure si integra con [Microsoft Defender Advanced Threat 
 
 |Aspetto|Dettagli|
 |----|:----|
-|Stato versione:|**Disponibilità generale**|
-|Prezzi|Livello Standard|
+|Stato versione:|Disponibile a livello generale|
+|Prezzi|Richiede [Azure Defender](security-center-pricing.md)|
 |Computer supportati:|![Sì](./media/icons/yes-icon.png) Macchine virtuali di Azure che eseguono Windows<br>![Sì](./media/icons/yes-icon.png) Computer Azure Arc che eseguono Windows|
 |Ruoli e autorizzazioni necessari:|Per abilitare o disabilitare l'integrazione: **amministratore della sicurezza** o **proprietario**<br>Per visualizzare gli avvisi MDATP nel centro sicurezza: **lettore sicurezza**, **lettore**, **collaboratore gruppo di risorse**, **proprietario del gruppo di risorse**, amministratore della **sicurezza**, **proprietario della sottoscrizione**o **collaboratore della sottoscrizione**|
 |Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali.<br>![No](./media/icons/no-icon.png) Clienti GCC che eseguono carichi di lavoro in cloud di Azure pubblici<br>![Sì](./media/icons/yes-icon.png) US Gov<br>![No](./media/icons/no-icon.png) Gov per la Cina, altri gov|
@@ -57,7 +57,7 @@ Integrando Defender ATP con il Centro sicurezza di Azure, è anche possibile sfr
 
 ## <a name="platform-support"></a>Piattaforme supportate
 
-Microsoft Defender ATP nel centro sicurezza supporta il rilevamento in Windows Server 2016, 2012 R2 e 2008 R2 SP1. Per le macchine virtuali di Azure è necessaria una sottoscrizione di livello standard e per le macchine virtuali non di Azure è necessario il livello standard solo a livello di area di lavoro.
+Microsoft Defender ATP nel centro sicurezza supporta il rilevamento in Windows Server 2016, 2012 R2 e 2008 R2 SP1. Per le macchine virtuali di Azure è necessario un per abilitare Azure Defender sulla sottoscrizione e per le macchine virtuali non di Azure è necessario abilitare Azure Defender solo a livello di area di lavoro.
 
 Il monitoraggio degli endpoint server con questa integrazione è stato disabilitato per i clienti di Office 365 GCC.
 
@@ -74,24 +74,25 @@ Per caricare i server nel centro sicurezza, fare clic su **Vai al centro sicurez
 
 1. Nell'area **onboarding** selezionare o creare un'area di lavoro in cui archiviare i dati.
 
-2. Se non è possibile visualizzare tutte le aree di lavoro, il problema potrebbe essere dovuto a una mancanza di autorizzazioni, assicurarsi che l'area di lavoro sia impostata sul piano tariffario standard di sicurezza di Azure. Per altre informazioni, vedere [eseguire l'aggiornamento al livello standard del Centro sicurezza per una maggiore sicurezza](security-center-pricing.md).
+2. Se non è possibile visualizzare tutte le aree di lavoro, il problema potrebbe essere dovuto a una mancanza di autorizzazioni, assicurarsi che l'area di lavoro sia protetta da Azure Defender.
     
 3. Selezionare **Aggiungi server** per visualizzare le istruzioni su come installare l'agente di log Analytics. 
 
-4. Dopo l'onboarding, è possibile monitorare i computer in **calcolo e app**.
+4. Dopo l'onboarding, è possibile monitorare i computer nell' [inventario asset](asset-inventory.md).
 
    ![Onboarding di computer](media/security-center-wdatp/onboard-computers.png)
 
 ## <a name="enable-microsoft-defender-atp-integration"></a>Abilita l'integrazione di Microsoft Defender ATP
 
-Per visualizzare se l'integrazione di Microsoft Defender ATP è abilitata, selezionare **Security center**  >  **& impostazioni prezzi** del Centro sicurezza > fare clic sulla sottoscrizione.
+Per visualizzare se l'integrazione di Microsoft Defender ATP è abilitata, selezionare il **Centro sicurezza**  >  **prezzi & impostazioni** > selezionare la sottoscrizione.
+
 In questa schermata è possibile visualizzare le integrazioni attualmente abilitate.
 
   ![Pagina delle impostazioni di rilevamento delle minacce del Centro sicurezza di Azure con l'integrazione di Microsoft Defender ATP abilitata](media/security-center-wdatp/enable-integrations.png)
 
-- Se si è già eseguito l'onboarding dei server nel livello Standard del Centro sicurezza di Azure, non è necessario eseguire altre operazioni. Il Centro sicurezza di Azure effettuerà automaticamente l'onboarding dei server a Microsoft Defender ATP. Il caricamento potrebbe richiedere fino a 24 ore.
+- Se Azure Defender è già stato abilitato, non è necessaria alcuna azione aggiuntiva. Il Centro sicurezza di Azure effettuerà automaticamente l'onboarding dei server a Microsoft Defender ATP. Il caricamento potrebbe richiedere fino a 24 ore.
 
-- Se non è mai stato eseguito l'onboarding dei server nel livello Standard del Centro sicurezza di Azure, eseguirne l'onboarding nel Centro sicurezza di Azure come di consueto.
+- Se i server non sono mai stati caricati nel centro sicurezza di Azure, caricarli nel centro sicurezza di Azure e abilitare Azure Defender come di consueto.
 
 - Se i server sono stati caricati tramite Microsoft Defender ATP:
   - Vedere la documentazione per istruzioni su [come eseguire l'offboarding dei computer server](https://go.microsoft.com/fwlink/p/?linkid=852906).

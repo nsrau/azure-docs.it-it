@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 3/18/2020
-ms.openlocfilehash: 834083b0f472de6ac1fd157ee966ebb021286cff
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: ccee3b52b0f204561ca790ce364308f81a1db6f6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87290180"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906600"
 ---
 # <a name="azure-database-for-mysql-advanced-threat-protection"></a>Advanced Threat Protection per Database di Azure per MySQL
 
@@ -30,7 +30,7 @@ Advanced Threat Protection fa parte dell'offerta Advanced Data Security (Sicurez
 
 Advanced Threat Protection per Database di Azure per MySQL offre un nuovo livello di sicurezza che permette ai clienti di rilevare e gestire le possibili minacce non appena si manifestano attraverso avvisi di sicurezza sulle attività anomale. Gli utenti ricevono un avviso in caso di attività di database sospette, potenziali vulnerabilità e modelli di query e accesso ai database anomali. Advanced Threat Protection per Database di Azure per MySQL integra gli avvisi con [Centro sicurezza di Azure](https://azure.microsoft.com/services/security-center/), includendo così i dettagli delle attività sospette e consiglia le azioni per individuare e ridurre la minaccia. Advanced Threat Protection per Database di Azure per MySQL rende più semplice affrontare le minacce potenziali al database, senza dover essere esperti della sicurezza o gestire sistemi di controllo di sicurezza avanzati. 
 
-![Concetti di Advanced Threat Protection](media/concepts-data-access-and-security-threat-protection/advanced-threat-protection-concept.png)
+:::image type="content" source="media/concepts-data-access-and-security-threat-protection/advanced-threat-protection-concept.png" alt-text="Concetti di Advanced Threat Protection":::
 
 ## <a name="advanced-threat-protection-alerts"></a>Avvisi di Advanced Threat Protection 
 Advanced Threat Protection per Database di Azure per MySQL rileva le attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database e può attivare gli avvisi seguenti:

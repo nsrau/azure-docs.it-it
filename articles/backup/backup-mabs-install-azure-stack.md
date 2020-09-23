@@ -3,12 +3,12 @@ title: Installare il server di Backup di Azure in Azure Stack
 description: Questo articolo illustra come usare il server di Backup di Azure per proteggere o eseguire il backup dei carichi di lavoro in Azure Stack.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: a95ee42c3229e642bd48b812eb6bc01636af3ba2
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 7153e2ff03a4f78ee1cc92ca04054fb2955d11a5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018128"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970244"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Installare il server di Backup di Azure in Azure Stack
 
@@ -107,7 +107,7 @@ Aggiungere sempre il server di backup di Azure a un dominio. Se è necessario sp
 
 ### <a name="set-storage-replication"></a>Impostare la replica di archiviazione
 
-La replica di archiviazione dell'insieme di credenziali di Servizi di ripristino consente di scegliere tra l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza locale. Per impostazione predefinita, gli insiemi di credenziali di Servizi di ripristino usano l'archiviazione con ridondanza geografica. Se questo insieme di credenziali è quello primario, lasciare l'opzione di archiviazione impostata sull'archiviazione con ridondanza geografica. Scegliere l'archiviazione con ridondanza locale se si vuole un'opzione più economica meno durevole. Per altre informazioni sulle opzioni di archiviazione con [ridondanza geografica](../storage/common/storage-redundancy.md) e con [ridondanza locale](../storage/common/storage-redundancy.md), vedere la panoramica [Replica di Archiviazione di Azure](../storage/common/storage-redundancy.md).
+La replica di archiviazione dell'insieme di credenziali di Servizi di ripristino consente di scegliere tra l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza locale. Per impostazione predefinita, gli insiemi di credenziali di Servizi di ripristino usano l'archiviazione con ridondanza geografica. Se questo insieme di credenziali è quello primario, lasciare l'opzione di archiviazione impostata sull'archiviazione con ridondanza geografica. Scegliere l'archiviazione con ridondanza locale se si vuole un'opzione più economica meno durevole. Per altre informazioni sulle opzioni di archiviazione con ridondanza [geografica](../storage/common/storage-redundancy.md#geo-redundant-storage), con ridondanza [locale](../storage/common/storage-redundancy.md#locally-redundant-storage)e con [ridondanza della zona](../storage/common/storage-redundancy.md#zone-redundant-storage) , vedere [Panoramica della replica di archiviazione di Azure](../storage/common/storage-redundancy.md).
 
 Per modificare le impostazioni di replica di archiviazione:
 
@@ -243,7 +243,7 @@ Il server di Backup di Azure condivide codice con Data Protection Manager. Verra
 
     ![Specificare il percorso per l'installazione dei file](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    La disponibilità di uno spazio di lavoro è obbligatoria per il backup in Azure. Verificare che la dimensione dello spazio di lavoro sia equivalente ad almeno il 5% dei dati pianificati per il backup in Azure. Per la protezione disco, è necessario configurare dischi separati una volta completata l'installazione. Per altre informazioni sui pool di archiviazione, vedere [preparare l'archiviazione dati](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
+    La disponibilità di uno spazio di lavoro è obbligatoria per il backup in Azure. Verificare che la dimensione dello spazio di lavoro sia equivalente ad almeno il 5% dei dati pianificati per il backup in Azure. Per la protezione disco, è necessario configurare dischi separati una volta completata l'installazione. Per altre informazioni sui pool di archiviazione, vedere [preparare l'archiviazione dati](/system-center/dpm/plan-long-and-short-term-data-storage).
 
 6. Nella schermata **impostazioni di sicurezza** specificare una password complessa per gli account utente locali con restrizioni e selezionare **Avanti**.
 

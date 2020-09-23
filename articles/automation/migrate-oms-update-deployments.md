@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 07/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 9c8238e6e0b52a625c76f79fa0dd5a91dd640fb8
-ms.sourcegitcommit: cee72954f4467096b01ba287d30074751bcb7ff4
+ms.openlocfilehash: dabe914ffd4e84e8ded5c0e3b519036479fe33ec
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87447846"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987604"
 ---
 # <a name="migrate-azure-monitor-logs-update-deployments-to-azure-portal"></a>Eseguire la migrazione delle distribuzioni di aggiornamento dei log di Monitoraggio di Azure al portale di Azure
 
@@ -33,7 +33,7 @@ Il portale di Operations Management Suite (OMS) sarà presto [deprecato](../azur
 
 3. Nell'account di Automazione di Azure fare clic su **Gestione aggiornamenti**.
 
-    ![Gestione degli aggiornamenti](media/migrate-oms-update-deployments/azure-automation.png)
+    :::image type="content" source="media/migrate-oms-update-deployments/azure-automation.png" alt-text="Screenshot della pagina Gestione aggiornamenti.":::
 
 4. Nel portale di Azure selezionare **Account di automazione** in **Tutti i servizi**. 
 
@@ -43,7 +43,7 @@ Il portale di Operations Management Suite (OMS) sarà presto [deprecato](../azur
 
 Tutte le distribuzioni di aggiornamenti create nel portale di OMS hanno una [ricerca salvata](../azure-monitor/platform/computer-groups.md), definita anche gruppo di computer, con lo stesso nome della distribuzione di aggiornamenti esistente. La ricerca salvata contiene l'elenco dei computer per cui è stata pianificata la distribuzione di aggiornamenti.
 
-![Gestione degli aggiornamenti](media/migrate-oms-update-deployments/oms-deployment.png)
+:::image type="content" source="media/migrate-oms-update-deployments/oms-deployment.png" alt-text="Screenshot della pagina distribuzioni di aggiornamento con i campi nome e server evidenziati.":::
 
 Per usare la ricerca salvata esistente, seguire questa procedura:
 

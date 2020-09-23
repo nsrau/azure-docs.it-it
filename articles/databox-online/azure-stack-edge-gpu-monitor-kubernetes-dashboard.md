@@ -1,6 +1,6 @@
 ---
-title: Monitorare il dispositivo Azure Stack Edge tramite il dashboard di Kubernetes | Microsoft Docs
-description: Viene descritto come accedere e usare il dashboard di Kubernetes per monitorare il dispositivo Azure Stack Edge.
+title: Monitorare il dispositivo Azure Stack Edge Pro tramite il dashboard di Kubernetes | Microsoft Docs
+description: Viene descritto come accedere e usare il dashboard di Kubernetes per monitorare il dispositivo Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/29/2020
 ms.author: alkohli
-ms.openlocfilehash: 12fe605fef444b4e0d7439350e350316157f53a5
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 1a4f22e7ae3cc60d0a16b24a1f0e5f93d3a86d8c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89297848"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899197"
 ---
-# <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-gpu-device"></a>Usare il dashboard di Kubernetes per monitorare il dispositivo GPU Azure Stack Edge
+# <a name="use-kubernetes-dashboard-to-monitor-your-azure-stack-edge-pro-gpu-device"></a>Usare il dashboard di Kubernetes per monitorare il dispositivo GPU Pro Azure Stack Edge
 
-Questo articolo descrive come accedere e usare il dashboard di Kubernetes per monitorare il dispositivo GPU Azure Stack Edge. Per monitorare il dispositivo, è possibile usare i grafici in portale di Azure, visualizzare il dashboard di Kubernetes o eseguire `kubectl` comandi tramite l'interfaccia di PowerShell del dispositivo. 
+Questo articolo descrive come accedere e usare il dashboard di Kubernetes per monitorare il dispositivo GPU Pro Azure Stack Edge. Per monitorare il dispositivo, è possibile usare i grafici in portale di Azure, visualizzare il dashboard di Kubernetes o eseguire `kubectl` comandi tramite l'interfaccia di PowerShell del dispositivo. 
 
 Questo articolo è incentrato solo sulle attività di monitoraggio che possono essere eseguite nel dashboard di Kubernetes.
 
@@ -35,7 +35,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 Il dashboard di Kubernetes è un'interfaccia utente basata sul Web che è possibile usare per risolvere i problemi delle applicazioni incluse in contenitori. Il dashboard di Kubernetes è un'alternativa basata sull'interfaccia utente alla riga di comando di Kubernetes `kubectl` . Per altre informazioni, vedere [Dashboard Kubernetes](https://kubernetes.io/docs/tasks/access-application-cluster/web-ui-dashboard/). 
 
-Sul dispositivo Azure Stack Edge, è possibile usare il dashboard di Kubernetes in modalità di sola *lettura* per ottenere una panoramica delle applicazioni in esecuzione sul dispositivo Azure stack Edge, visualizzare lo stato delle risorse del cluster Kubernetes e visualizzare gli eventuali errori che si sono verificati nel dispositivo.
+Sul dispositivo Azure Stack Edge Pro, è possibile usare il dashboard di Kubernetes in modalità di sola *lettura* per ottenere una panoramica delle applicazioni in esecuzione sul dispositivo Azure stack Edge Pro, visualizzare lo stato delle risorse del cluster Kubernetes e visualizzare gli eventuali errori che si sono verificati nel dispositivo.
 
 ## <a name="access-dashboard"></a>Accedi al dashboard
 
@@ -54,19 +54,19 @@ Il dashboard Kubernetes è di sola *lettura* e viene eseguito nel nodo master Ku
     1. Selezionare i puntini di sospensione **...**. Individuare e selezionare il `kubeconfig` scaricato in precedenza nel sistema locale. Selezionare **Accedi**.
         ![Passare al file kubeconfig](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-sign-in-2.png)    
 
-6. È ora possibile visualizzare il dashboard di Kubernetes per il dispositivo Azure Stack Edge in modalità di sola lettura.
+6. È ora possibile visualizzare il dashboard di Kubernetes per il dispositivo Azure Stack Edge Pro in modalità di sola lettura.
 
     ![Pagina principale del dashboard Kubernetes](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-dashboard-main-page-1.png)
 
 ## <a name="view-module-status"></a>Visualizza lo stato del modulo
 
-I moduli di calcolo sono contenitori per i quali è implementata una logica di business. È possibile usare il dashboard per verificare se un modulo di calcolo è stato distribuito correttamente sul dispositivo Azure Stack Edge.
+I moduli di calcolo sono contenitori per i quali è implementata una logica di business. È possibile usare il dashboard per verificare se un modulo di calcolo è stato distribuito correttamente sul dispositivo Azure Stack Edge Pro.
 
 PER visualizzare lo stato del modulo, seguire questa procedura nel Dashboard:
 
 1. Nel riquadro sinistro del Dashboard passare a **spazio dei nomi**. Filtrare in base allo spazio dei nomi in cui vengono visualizzati i moduli IoT Edge, in questo caso **iotedge**.
 1. Nel riquadro sinistro passare a **carichi di lavoro > distribuzioni**.
-1. Nel riquadro di destra vengono visualizzati tutti i moduli distribuiti nel dispositivo. In questo caso, un modulo GettingStartedWithGPU è stato distribuito in Azure Stack Edge. È possibile osservare che il modulo è stato distribuito.
+1. Nel riquadro di destra vengono visualizzati tutti i moduli distribuiti nel dispositivo. In questo caso, un modulo GettingStartedWithGPU è stato distribuito in Azure Stack Edge Pro. È possibile osservare che il modulo è stato distribuito.
 
     ![Visualizza distribuzione moduli](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-view-module-deployment-1.png)
 
@@ -81,7 +81,7 @@ Per ottenere l'indirizzo IP, seguire questa procedura nel Dashboard:
 
 1. Nel riquadro sinistro del Dashboard passare a **spazio dei nomi**. Filtrare in base allo spazio dei nomi in cui viene distribuito un servizio esterno, in questo caso **iotedge**.
 1. Nel riquadro sinistro passare a **individuazione e bilanciamento del carico > Servizi**.
-1. Nel riquadro di destra verranno visualizzati tutti i servizi in esecuzione nello `iotedge` spazio dei nomi nel dispositivo Azure stack Edge.
+1. Nel riquadro di destra verranno visualizzati tutti i servizi in esecuzione nello `iotedge` spazio dei nomi nel dispositivo Azure stack Edge Pro.
 
     ![Ottenere l'indirizzo IP per i servizi esterni](./media/azure-stack-edge-gpu-monitor-kubernetes-dashboard/kubernetes-get-ip-external-service-1.png)
 
@@ -104,7 +104,7 @@ Per visualizzare i log dei contenitori, seguire questa procedura nel Dashboard:
 
 ## <a name="view-cpu-memory-usage"></a>Visualizza CPU, utilizzo memoria
 
-Il dashboard di Kubernetes per il dispositivo Azure Stack Edge dispone anche di un [componente aggiuntivo](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/) per il server delle metriche che aggrega l'utilizzo di CPU e memoria tra le risorse di Kubernetes.
+Il dashboard di Kubernetes per il dispositivo Azure Stack Edge Pro dispone anche di un [componente aggiuntivo](https://kubernetes.io/docs/tasks/debug-application-cluster/resource-metrics-pipeline/) per il server delle metriche che aggrega l'utilizzo della CPU e della memoria tra le risorse di Kubernetes.
  
 Ad esempio, è possibile visualizzare la CPU e la memoria utilizzate tra le distribuzioni in tutti gli spazi dei nomi. 
 
