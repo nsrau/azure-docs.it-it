@@ -4,12 +4,12 @@ description: Informazioni sulle regole di azione in monitoraggio di Azure e su c
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.subservice: alerts
-ms.openlocfilehash: 083db4ad046ee586f139309b62eedf0fcc2ffa6a
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 723da36093c895a3a4aefbe66c2d8ca2ac0cba32
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87045717"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983137"
 ---
 # <a name="action-rules-preview"></a>Regole di azione (anteprima)
 
@@ -21,7 +21,7 @@ Le regole di azione consentono di definire o escludere azioni in qualsiasi ambit
 
 ### <a name="suppression-of-alerts"></a>Eliminazione di avvisi
 
-Esistono molti scenari in cui è utile disattivare le notifiche generate dagli avvisi. Questi scenari variano dall'eliminazione durante una finestra di manutenzione pianificata per l'eliminazione durante le ore non lavorative. Ad esempio, il team responsabile di **ContosoVM** desidera disattivare le notifiche di avviso per il prossimo weekend, perché **ContosoVM** è in fase di manutenzione pianificata.
+Esistono molti scenari in cui è utile disattivare le notifiche generate dagli avvisi. Questi scenari variano dall'eliminazione durante una finestra di manutenzione pianificata per l'eliminazione durante le ore non lavorative. Ad esempio, il team responsabile di  **ContosoVM** desidera disattivare le notifiche di avviso per il prossimo weekend, perché **ContosoVM** è in fase di manutenzione pianificata.
 
 Sebbene il team possa disabilitare manualmente ogni regola di avviso configurata in **ContosoVM** (e abilitarla di nuovo dopo la manutenzione), non si tratta di un processo semplice. Le regole di azione consentono di definire l'eliminazione degli avvisi su larga scala con la possibilità di configurare in modo flessibile il periodo di eliminazione. Nell'esempio precedente, il team può definire una regola di azione in **ContosoVM** che elimina tutte le notifiche di avviso per il fine settimana.
 
@@ -44,17 +44,17 @@ Le regole di azione consentono di semplificare questo processo. Definendo azioni
 
 Selezionare **+ nuova regola di azione**.
 
-![Aggiungi nuova regola azione](media/alerts-action-rules/action-rules-new-rule.png)
+![Screenshot mostra la pagina Gestisci azioni con il pulsante nuova regola azione evidenziato.](media/alerts-action-rules/action-rules-new-rule.png)
 
 In alternativa, è possibile creare una regola di azione durante la configurazione di una regola di avviso.
 
-![Aggiungi nuova regola azione](media/alerts-action-rules/action-rules-alert-rule.png)
+![Screenshot mostra la pagina Crea regola con il pulsante Crea regola di azione evidenziato.](media/alerts-action-rules/action-rules-alert-rule.png)
 
 A questo punto verrà visualizzata la pagina flusso per la creazione di regole di azione. Configurare gli elementi seguenti:
 
 ![Nuovo flusso di creazione della regola azione](media/alerts-action-rules/action-rules-new-rule-creation-flow.png)
 
-### <a name="scope"></a>Scope
+### <a name="scope"></a>Ambito
 
 Scegliere prima di tutto l'ambito (sottoscrizione di Azure, gruppo di risorse o risorsa di destinazione). È anche possibile selezionare una combinazione di ambiti all'interno di una singola sottoscrizione.
 
@@ -117,7 +117,7 @@ Infine, configurare i dettagli seguenti per la regola di azione:
 
    Se si preferisce, è anche possibile usare Azure Cloud Shell per completare la procedura descritta in questo articolo.  Azure Cloud Shell è un ambiente shell interattivo utilizzato dal browser.  Avviare Cloud Shell usando uno dei metodi seguenti:
 
-   - Per aprire Cloud Shell, passare a[https://shell.azure.com](https://shell.azure.com)
+   - Per aprire Cloud Shell, passare a [https://shell.azure.com](https://shell.azure.com)
 
    - Selezionare il pulsante **cloud Shell** sulla barra dei menu nell'angolo superiore destro della [portale di Azure](https://portal.azure.com)
 
@@ -255,7 +255,7 @@ az monitor action-rule delete --resource-group MyResourceGroupName --name MyActi
 
 Gli avvisi del log creati con l'opzione [numero di risultati](alerts-unified-log.md) generano una singola istanza di avviso utilizzando l'intero risultato della ricerca, che può estendersi su più computer. In questo scenario, se una regola di azione usa il filtro del **contesto dell'avviso (payload)** , agisce sull'istanza di avviso purché esista una corrispondenza. Nello scenario 2, descritto in precedenza, se i risultati della ricerca per l'avviso del log generato contengono sia **computer-01** che **computer-02**, viene eliminato l'intera notifica. Non viene generata alcuna notifica per **computer-02** .
 
-![Regole di azione e avvisi del log (numero di risultati)](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
+![Il diagramma mostra le regole di azione e gli avvisi del log con una singola istanza di avviso evidenziata.](media/alerts-action-rules/action-rules-log-alert-number-of-results.png)
 
 Per usare al meglio gli avvisi del log con le regole di azione, creare gli avvisi del log con l'opzione [misurazione metrica](alerts-unified-log.md) . Le istanze di avviso separate vengono generate da questa opzione, in base al campo gruppo definito. Quindi, nello scenario 2 vengono generate istanze di avviso separate per **computer-01** e **computer-02**. A causa della regola di azione descritta nello scenario, viene eliminata solo la notifica per **computer-01** . La notifica per **computer-02** continua a essere attivata normalmente.
 
@@ -272,7 +272,7 @@ Dopo aver definito un ambito durante la configurazione di una regola di azione, 
 * Un superset: ad esempio, la regola di azione che si sta definendo si trova in un gruppo di risorse e la regola di azione sovrapposta si trova nella sottoscrizione che contiene il gruppo di risorse.
 * Un'intersezione: ad esempio, la regola di azione che si sta definendo si trova in **VM1** e **VM2**e la regola di azione sovrapposta si trova in **VM2** e **VM3**.
 
-![Regole di azione sovrapposte](media/alerts-action-rules/action-rules-overlapping.png)
+![Screenshot mostra la pagina nuova regola azione con le regole di azione sovrapposte visualizzate nelle regole di azione definite nella stessa finestra ambito.](media/alerts-action-rules/action-rules-overlapping.png)
 
 ### <a name="while-im-configuring-an-alert-rule-is-it-possible-to-know-if-there-are-already-action-rules-defined-that-might-act-on-the-alert-rule-im-defining"></a>Durante la configurazione di una regola di avviso, è possibile verificare se sono già state definite regole di azione che potrebbero agire sulla regola di avviso che sto definendo?
 

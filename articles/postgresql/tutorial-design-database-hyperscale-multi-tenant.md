@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Progettare un database multi-tenant - Hyperscale (Citus) - Database di Azure per PostgreSQL'
-description: Questa esercitazione illustra come creare, popolare ed eseguire query su tabelle distribuite in Database di Azure per PostgreSQL - Hyperscale (Citus).
+description: Questa esercitazione illustra come potenziare un'applicazione multi-tenant scalabile con Database di Azure per PostgreSQL Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: bc7891e157bbffa386396a352fd1d48e4559ecdc
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: ef0f542a27f378b6132d8ef19b55f386d4102d53
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386394"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895252"
 ---
 # <a name="tutorial-design-a-multi-tenant-database-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Esercitazione: Progettare un database multi-tenant con Database di Azure per PostgreSQL - Hyperscale (Citus)
 
@@ -275,6 +275,5 @@ Nei passaggi precedenti sono state create risorse di Azure in un gruppo di serve
 
 In questa esercitazione è stato illustrato come effettuare il provisioning di un gruppo di server Hyperscale (Citus). È stata stabilita la connessione al gruppo con psql, è stato creato uno schema e sono stati distribuiti i dati. Si è inoltre appreso come eseguire query sui dati sia all'interno dei tenant sia tra più tenant e come personalizzare lo schema per ogni tenant.
 
-Nell'argomento successivo verranno illustrati i concetti relativi all'iperscalabilità.
-> [!div class="nextstepaction"]
-> [Tipi di nodi Hyperscale](https://aka.ms/hyperscale-concepts)
+- Ottenere informazioni sui [tipi di nodo](https://aka.ms/hyperscale-concepts) del gruppo di server
+- Determinare le [dimensioni iniziali](howto-hyperscale-scaling.md#picking-initial-size) ottimali per il gruppo di server

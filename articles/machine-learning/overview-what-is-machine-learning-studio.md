@@ -8,12 +8,12 @@ ms.topic: overview
 author: peterclu
 ms.author: peterlu
 ms.date: 08/24/2020
-ms.openlocfilehash: 4f6252ffbb880e347a89594cb267fb99d576dc7a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 40a4fbd956b12d469247cb178007d0259cbeac75
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89039299"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902917"
 ---
 # <a name="what-is-azure-machine-learning-studio"></a>Che cos'è Azure Machine Learning Studio?
 
@@ -34,13 +34,13 @@ Nello Studio sono disponibili più esperienze di creazione a seconda del progett
 
   Scrivere ed eseguire il codice personalizzato in [server Jupyter Notebook](how-to-run-jupyter-notebooks.md) gestiti direttamente integrati nello Studio. 
 
-+ **Finestra di progettazione di Azure Machine Learning (anteprima)**
++ **Finestra di progettazione di Azure Machine Learning**
 
   Usare la finestra di progettazione per eseguire il training e distribuire i modelli di Machine Learning senza scrivere codice. Trascinare e rilasciare i set di dati e moduli per creare pipeline di ML. Provare l'[esercitazione relativa alla finestra di progettazione](tutorial-designer-automobile-price-train-score.md).
 
     ![Esempio di finestra di progettazione di Azure Machine Learning](media/concept-designer/designer-drag-and-drop.gif)
 
-+ **Interfaccia utente di Machine Learning automatizzato (anteprima)**
++ **Interfaccia utente di Machine Learning automatizzato**
 
   Informazioni su come creare [esperimenti di Machine Learning automatizzato](tutorial-first-experiment-automated-ml.md) con un'interfaccia di facile utilizzo. 
 
@@ -82,7 +82,7 @@ Nella tabella seguente sono riepilogate alcune delle differenze principali tra M
 
 | Feature | ML Studio (versione classica) | Azure Machine Learning |
 |---| --- | --- |
-| Interfaccia per il trascinamento della selezione | Esperienza classica | Esperienza aggiornata - [Finestra di progettazione di Azure Machine Learning (anteprima)](concept-designer.md) <br/>(Richiede l'area di lavoro Enterprise) | 
+| Interfaccia per il trascinamento della selezione | Esperienza classica | Esperienza aggiornata - [Finestra di progettazione di Azure Machine Learning](concept-designer.md)| 
 | SDK di codice | Non supportato | Completamente integrato con gli SDK di [Azure Machine Learning per Python](https://docs.microsoft.com/python/api/overview/azure/ml/) e [R](tutorial-1st-r-experiment.md) |
 | Esperimento | Scalabile (limite dei dati di training di 10 GB) | Ridimensionamento con destinazione di calcolo |
 | Destinazioni di calcolo del training | Destinazione di calcolo proprietaria, solo supporto di CPU | Ampia gamma di [destinazioni di calcolo per il training](concept-compute-target.md#train) personalizzabili. Include il supporto di GPU e CPU | 

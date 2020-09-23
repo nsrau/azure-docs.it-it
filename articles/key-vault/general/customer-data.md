@@ -9,16 +9,16 @@ ms.service: key-vault
 ms.topic: reference
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: e7cfc707aa4bccdcd72e45efa3693ebd8f88a211
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 9b320c765b258473acd6fa553831b4f075cca9ba
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88189922"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983244"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Funzionalità dei dati dei clienti in Azure Key Vault
 
-Azure Key Vault riceve i dati dei clienti durante la creazione o l'aggiornamento di insiemi di credenziali, chiavi, segreti, certificati e account di archiviazione gestiti. I dati dei clienti sono visibili direttamente nel portale di Azure e tramite l'API REST e possono essere modificati o eliminati aggiornando o eliminando l'oggetto contenente tali dati.
+Azure Key Vault riceve i dati dei clienti durante la creazione o l'aggiornamento di insiemi di credenziali, pool di HSM gestiti, chiavi, segreti, certificati e account di archiviazione gestiti. I dati dei clienti sono visibili direttamente nel portale di Azure e tramite l'API REST e possono essere modificati o eliminati aggiornando o eliminando l'oggetto contenente tali dati.
 
 I log di accesso al sistema vengono generati quando un utente o un'applicazione accede a Key Vault. I log di accesso dettagliati sono disponibili per i clienti che usano Azure Insights.
 
@@ -52,7 +52,7 @@ I log di diagnostica di Azure Key Vault che contengono dati personali possono es
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Registrazione Azure Key Vault](logging.md))
+- [Registrazione dell'insieme di credenziali delle chiavi di Azure](logging.md)
 
 - [Panoramica dell'eliminazione temporanea di Azure Key Vault](soft-delete-cli.md)
 

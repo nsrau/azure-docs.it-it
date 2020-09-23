@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/17/2020
-ms.openlocfilehash: 195e606a66b1b49821fc1b46381fdc551f142a6a
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 4c9f74f5a9950a299b34e22c1e86dd91f8c82364
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87325526"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983597"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Visualizzazione dei dati da Monitoraggio di Azure
 Questo articolo contiene un riepilogo dei metodi disponibili per visualizzare i dati di metrica e log archiviati in Monitoraggio di Azure.
@@ -21,7 +21,7 @@ Visualizzazioni come grafici e grafi consentono di analizzare i dati di monitora
 ## <a name="workbooks"></a>Workbooks
 Le [cartelle di lavoro](./platform/workbooks-overview.md) sono documenti interattivi che forniscono informazioni dettagliate sui dati, sulle analisi e la collaborazione all'interno del team. Esempi specifici in cui le cartelle di lavoro sono utili sono le guide alla risoluzione dei problemi e l'analisi a posteriore degli eventi imprevisti.
 
-![Cartella di lavoro](media/visualizations/workbook.png)
+![Il diagramma mostra le schermate di alcune pagine di una cartella di lavoro, inclusa l'analisi delle visualizzazioni pagina, l'utilizzo e il tempo impiegato nella pagina.](media/visualizations/workbook.png)
 
 ### <a name="advantages"></a>Vantaggi
 - Supporto sia per le metriche sia per i log.
@@ -39,7 +39,7 @@ Le [cartelle di lavoro](./platform/workbooks-overview.md) sono documenti interat
 ## <a name="azure-dashboards"></a>Dashboard di Azure
 I [dashboard di Azure](../azure-portal/azure-portal-dashboards.md) sono la tecnologia principale per la gestione di dashboard per Azure. Sono particolarmente utili poiché forniscono un unico riquadro di monitoraggio dell'infrastruttura e dei servizi di Azure per identificare rapidamente i problemi importanti.
 
-![Dashboard](media/visualizations/dashboard.png)
+![Screenshot mostra un esempio di dashboard di Azure con informazioni personalizzabili.](media/visualizations/dashboard.png)
 
 Ecco una procedura dettagliata video sulla creazione di dashboard.
 
@@ -88,7 +88,7 @@ Ecco una procedura dettagliata video sulla creazione di dashboard.
 ## <a name="grafana"></a>Grafana
 [Grafana](https://grafana.com/) è una piattaforma aperta, ideale per i dashboard operativi. È particolarmente utile per il rilevamento, l'isolamento e la valutazione degli eventi operativi imprevisti. È possibile aggiungere il [plug-in Grafana dell'origine dati Monitoraggio di Azure](platform/grafana-plugin.md) alla sottoscrizione di Azure per visualizzare i dati delle metriche di Azure.
 
-![Grafana](media/visualizations/grafana.png)
+![Screenshot mostra le visualizzazioni Grafana.](media/visualizations/grafana.png)
 
 ### <a name="advantages"></a>Vantaggi
 - Visualizzazioni avanzate.
@@ -120,7 +120,7 @@ Ecco una procedura dettagliata video sulla creazione di dashboard.
 Le [visualizzazioni di Monitoraggio di Azure](platform/view-designer.md) consentono di creare visualizzazioni personalizzate con i dati di log. Vengono usate dalle [soluzioni di monitoraggio](insights/solutions.md) per presentare i dati raccolti.
 
 
-![Visualizzazione](media/visualizations/view.png)
+![Screenshot mostra un riquadro della soluzione di monitoraggio del contenitore e la visualizzazione dettagliata di monitoraggio di Azure che viene visualizzata quando si seleziona.](media/visualizations/view.png)
 
 ### <a name="advantages"></a>Vantaggi
 - Visualizzazioni avanzate per i dati di log.

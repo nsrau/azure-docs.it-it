@@ -1,6 +1,6 @@
 ---
-title: Creare e gestire un cluster Kubernetes nel dispositivo GPU Azure Stack Edge | Microsoft Docs
-description: Viene descritto come creare e gestire un cluster Kubernetes nel dispositivo GPU Azure Stack Edge tramite l'interfaccia di Windows PowerShell.
+title: Creare e gestire un cluster Kubernetes nel dispositivo GPU Pro Azure Stack Edge | Microsoft Docs
+description: Viene descritto come creare e gestire un cluster Kubernetes nel dispositivo GPU Pro Azure Stack Edge tramite l'interfaccia di Windows PowerShell.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,29 +8,29 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 95663553bc68d34eebd90be0d4032ee53900479b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: cb783e5da7364f38944ce31ce49a6a6529658fe3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89267959"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903216"
 ---
-# <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-gpu-device"></a>Connettersi a un cluster Kubernetes e gestirlo tramite kubectl sul dispositivo GPU Azure Stack Edge
+# <a name="connect-to-and-manage-a-kubernetes-cluster-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Connettersi a un cluster Kubernetes e gestirlo tramite kubectl nel dispositivo GPU Pro Azure Stack Edge
 
-Nel dispositivo Azure Stack Edge viene creato un cluster Kubernetes quando si configura il ruolo di calcolo. Una volta creato il cluster Kubernetes, è possibile connettersi al cluster e gestirlo localmente da un computer client tramite uno strumento nativo, ad esempio *kubectl*.
+Nel dispositivo Azure Stack Edge Pro viene creato un cluster Kubernetes quando si configura il ruolo di calcolo. Una volta creato il cluster Kubernetes, è possibile connettersi al cluster e gestirlo localmente da un computer client tramite uno strumento nativo, ad esempio *kubectl*.
 
-Questo articolo descrive come connettersi a un cluster Kubernetes nel dispositivo Azure Stack Edge e quindi gestirlo con *kubectl*. 
+Questo articolo descrive come connettersi a un cluster Kubernetes nel dispositivo Azure Stack Edge Pro e quindi gestirlo con *kubectl*. 
 
 
 ## <a name="prerequisites"></a>Prerequisiti
 
 Prima di iniziare, verificare che:
 
-1. È possibile accedere a un dispositivo Azure Stack Edge.
+1. È possibile accedere a un dispositivo Azure Stack Edge Pro.
 
-2. Il dispositivo Azure Stack Edge è stato attivato come descritto in [attivare Azure stack Edge](azure-stack-edge-gpu-deploy-activate.md).
+2. Aver attivato il dispositivo Azure Stack Edge Pro come descritto in [Attivare il dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 
-3. Il ruolo di calcolo è stato abilitato nel dispositivo. Un cluster Kubernetes è stato creato anche nel dispositivo quando è stato configurato il calcolo nel dispositivo in base alle istruzioni riportate in [configurare il calcolo nel dispositivo Azure stack Edge](azure-stack-edge-gpu-deploy-configure-compute.md).
+3. Il ruolo di calcolo è stato abilitato nel dispositivo. Un cluster Kubernetes è stato creato anche nel dispositivo quando è stato configurato il calcolo nel dispositivo in base alle istruzioni riportate in [configurare il calcolo nel dispositivo Azure stack Edge Pro](azure-stack-edge-gpu-deploy-configure-compute.md).
 
 4. Per accedere al dispositivo, è possibile accedere a un sistema client Windows che esegue PowerShell 5,0 o versione successiva. È possibile avere anche un altro client con un [sistema operativo supportato](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . 
 
@@ -48,7 +48,7 @@ Dopo aver creato il cluster Kubernetes, è possibile accedere a questo cluster p
 
 Dopo aver creato il cluster Kubernetes, è possibile usare *kubectl* tramite cmdline per accedere al cluster. 
 
-In questo approccio vengono creati uno spazio dei nomi e un utente. Quindi si associa l'utente allo spazio dei nomi. È anche necessario ottenere il file di *configurazione* che consente di usare un client Kubernetes per comunicare direttamente con il cluster Kubernetes creato senza dover connettersi all'interfaccia di PowerShell del dispositivo Azure stack Edge.
+In questo approccio vengono creati uno spazio dei nomi e un utente. Quindi si associa l'utente allo spazio dei nomi. È anche necessario ottenere il file di *configurazione* che consente di usare un client Kubernetes per comunicare direttamente con il cluster Kubernetes creato senza dover connettersi all'interfaccia di PowerShell del dispositivo Azure stack Edge Pro.
 
 1. Creare uno spazio dei nomi Digitare:
 
@@ -66,7 +66,7 @@ In questo approccio vengono creati uno spazio dei nomi e un utente. Quindi si as
     `New-HcsKubernetesUser -UserName <string>`
 
     > [!NOTE]
-    > Non è possibile usare *aseuser* come nome utente perché è riservato per un utente predefinito associato allo spazio dei nomi internet per Azure stack Edge.
+    > Non è possibile usare *aseuser* come nome utente perché è riservato per un utente predefinito associato allo spazio dei nomi internet per Azure stack Edge Pro.
 
     Di seguito è riportato un esempio di output del file di configurazione:
    
@@ -113,7 +113,7 @@ In questo approccio vengono creati uno spazio dei nomi e un utente. Quindi si as
 
     `[10.100.10.10]: PS>Grant-HcsKubernetesNamespaceAccess -Namespace "myasetest1" -UserName "aseuser1"`
 
-    Una volta ottenuto il file di configurazione, non è necessario l'accesso fisico al cluster. Se il client può effettuare il ping dell'indirizzo IP del dispositivo Azure Stack Edge, dovrebbe essere possibile indirizzare il cluster usando i comandi *kubectl* .
+    Una volta ottenuto il file di configurazione, non è necessario l'accesso fisico al cluster. Se il client può effettuare il ping dell'indirizzo IP del dispositivo Azure Stack Edge Pro, dovrebbe essere possibile indirizzare il cluster usando i comandi *kubectl* .
 
 6. Avviare una nuova sessione di PowerShell nel client. Non è necessario essere connessi all'interfaccia del dispositivo. È ora possibile installare `kubectl` nel client usando il comando seguente:
 
@@ -125,7 +125,7 @@ In questo approccio vengono creati uno spazio dei nomi e un utente. Quindi si as
     Ad esempio, se il nodo master Kubernetes esegue v 1.15.2, installare v 1.15.2 nel client.
 
     > [!IMPORTANT]
-    > Scaricare un client in cui non è presente più di una versione secondaria dal master. La versione del client, ma può condurre il master fino a una versione secondaria. Ad esempio, un Master v 1.3 dovrebbe funzionare con i nodi v 1.1, v 1.2 e v 1.3 e dovrebbe funzionare con i client v 1.2, v 1.3 e v 1.4. Per altre informazioni sulla versione del client Kubernetes, vedere [criteri di supporto per versione e sfasamento](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew)della versione di Kubernetes. Per altre informazioni sulla versione del server Kubernetes in Azure Stack Edge, vedere ottenere la versione del server Kubernetes.<!-- insert link-->
+    > Scaricare un client in cui non è presente più di una versione secondaria dal master. La versione del client, ma può condurre il master fino a una versione secondaria. Ad esempio, un Master v 1.3 dovrebbe funzionare con i nodi v 1.1, v 1.2 e v 1.3 e dovrebbe funzionare con i client v 1.2, v 1.3 e v 1.4. Per altre informazioni sulla versione del client Kubernetes, vedere [criteri di supporto per versione e sfasamento](https://kubernetes.io/docs/setup/release/version-skew-policy/#supported-version-skew)della versione di Kubernetes. Per ulteriori informazioni sulla versione del server Kubernetes in Azure Stack Edge Pro, vedere la pagina relativa alla versione del server Kubernetes.<!-- insert link-->
     > In alcuni casi, `kubectl` è preinstallato nel sistema se si esegue Docker per Windows o altri strumenti. È importante scaricare la versione specifica di `kubectl` come indicato in questa sezione per usare questo cluster kubernetes. 
 
     L'installazione richiede alcuni minuti.
@@ -172,4 +172,4 @@ Per istruzioni dettagliate, vedere [rimuovere la configurazione di calcolo](azur
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Distribuire un'applicazione senza stato nel Azure stack Edge](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).
+- [Distribuire un'applicazione senza stato nel Azure stack Edge Pro](azure-stack-edge-j-series-deploy-stateless-application-kubernetes.md).

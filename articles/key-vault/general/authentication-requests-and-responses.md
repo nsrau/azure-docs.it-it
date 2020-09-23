@@ -2,22 +2,40 @@
 title: Autenticazione, richieste e risposte
 description: Informazioni su come Azure Key Vault usa richieste e risposte in formato JSON e sull'autenticazione necessaria per l'uso di un insieme di credenziali delle chiavi.
 services: key-vault
-author: msmbaldwin
-manager: rkarlin
+author: amitbapat
+manager: msmbaldwin
 tags: azure-resource-manager
 ms.service: key-vault
 ms.subservice: general
 ms.topic: conceptual
-ms.date: 01/07/2019
-ms.author: mbaldwin
-ms.openlocfilehash: 2b4c8ad666efa32d98e78a0bc2544d0f8851be5e
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.date: 09/15/2020
+ms.author: ambapat
+ms.openlocfilehash: 2100572c0bcf5bf65fe5a70ab9e552c2d7f72934
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88191786"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983262"
 ---
 # <a name="authentication-requests-and-responses"></a>Autenticazione, richieste e risposte
+
+Azure Key Vault fornisce due tipi di contenitori per archiviare e gestire i segreti per le applicazioni cloud:
+
+|Tipo di contenitore|Tipi di oggetto supportati|Endpoint del piano dati|
+|--|--|--|
+| **Insiemi di credenziali**|<ul><li>Chiavi protette tramite software</li><li>Chiavi protette dal modulo di protezione hardware (con SKU Premium)</li><li>Certificati</li><li>Chiavi dell'account di archiviazione</li></ul> | https://{Vault-Name}. Vault. Azure. NET
+|**Modulo di protezione hardware gestito** |<ul><li>Chiavi protette dal modulo di protezione hardware</li></ul> | https:///{HSM-Name}. managedhsm. Azure. NET
+
+Ecco i suffissi URL usati per accedere a ogni tipo di oggetto
+
+|Tipo oggetto|Suffisso dell'URL dell'API|
+|--|--|
+|Chiavi protette tramite software| /keys |
+|Chiavi protette dal modulo di protezione hardware| /keys |
+|Segreti|/secrets|
+|Certificati| /certificates|
+|Chiavi dell'account di archiviazione|/storageaccounts
+||
 
 Azure Key Vault supporta richieste e risposte in formato JSON. Le richieste dirette ad Azure Key Vault vengono indirizzate a un URL di Azure Key Vault valido usando HTTPS con alcuni parametri URL e corpi di richiesta e risposta con codifica JSON.
 
@@ -36,7 +54,9 @@ Questo argomento illustra le caratteristiche del servizio Azure Key Vault. Per i
 
 - Per firmare un digest usando una chiave denominata TESTKEY in Key Vault usare - `POST /keys/TESTKEY/sign?api-version=<api_version> HTTP/1.1`  
 
-  L'autorità per una richiesta a Key Vault è sempre la seguente: `https://{keyvault-name}.vault.azure.net/`  
+- L'autorità per una richiesta a Key Vault è sempre la seguente: 
+  - Per gli insiemi di credenziali: `https://{keyvault-name}.vault.azure.net/`
+  - Per HSM gestiti: `https://{HSM-name}.managedhsm.azure.net/`
 
   Le chiavi vengono sempre archiviate nel percorso /keys, i segreti vengono sempre archiviati nel percorso /secrets.  
 
