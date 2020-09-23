@@ -1,6 +1,6 @@
 ---
-title: Configurare la replica in SQL Edge di Azure (anteprima)
-description: Informazioni sulla configurazione della replica in Azure SQL Edge (anteprima).
+title: Configurare la replica in Azure SQL Edge
+description: Informazioni sulla configurazione della replica in Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,14 +9,14 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: ad92f796205d84a372de610cb210bbf8878a6c9b
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a748bf977e76357c710518e608c12ad19a8cd0be
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87282773"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888430"
 ---
-# <a name="configure-replication-to-azure-sql-edge-preview"></a>Configurare la replica in SQL Edge di Azure (anteprima) 
+# <a name="configure-replication-to-azure-sql-edge"></a>Configurare la replica in Azure SQL Edge 
 
 È possibile configurare un'istanza di Azure SQL Edge come Sottoscrittore push per la replica transazionale unidirezionale o la replica snapshot. Questa istanza non può fungere da server di pubblicazione o da server di distribuzione per una configurazione della replica transazionale. Si noti che Azure SQL Edge non supporta la replica di tipo merge, la replica peer-to-peer o la pubblicazione Oracle.
 
@@ -32,7 +32,7 @@ ms.locfileid: "87282773"
 > [!NOTE]
 > Se si tenta di configurare la replica utilizzando una versione non supportata, è possibile che vengano visualizzati i due errori seguenti: MSSQL_REPL20084 ("Impossibile connettersi al Sottoscrittore") e MSSQL_REPL40532 ("Impossibile aprire il server \<name> richiesto dall'account di accesso. Accesso non riuscito. ").  
 
-## <a name="remarks"></a>Osservazioni
+## <a name="remarks"></a>Commenti
 
 Quando si configura la replica, è importante comprendere i requisiti e le procedure consigliate seguenti:
 
@@ -87,7 +87,7 @@ Creare una pubblicazione e una sottoscrizione push. Per altre informazioni, vede
 
 ## <a name="next-steps"></a>Passaggi successivi  
 
-- [Creazione di una pubblicazione](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
+- [Creare una pubblicazione](https://docs.microsoft.com/sql/relational-databases/replication/publish/create-a-publication)
 - [Creare una sottoscrizione push](https://docs.microsoft.com/sql/relational-databases/replication/create-a-push-subscription/)
 - [Tipi di replica](https://docs.microsoft.com/sql/relational-databases/replication/types-of-replication)
 - [Monitoraggio (replica)](https://docs.microsoft.com/sql/relational-databases/replication/monitor/monitoring-replication)

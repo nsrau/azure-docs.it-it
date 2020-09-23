@@ -1,6 +1,6 @@
 ---
-title: Autorizzazioni del ruolo amministratore personalizzato disponibili-Azure AD | Microsoft Docs
-description: Autorizzazioni del ruolo amministratore personalizzato per la delega della gestione delle identità.
+title: Autorizzazioni per i ruoli personalizzati per la registrazione di app-Azure AD | Microsoft Docs
+description: Delegare le autorizzazioni del ruolo amministratore personalizzato per la gestione delle registrazioni dell'app.
 services: active-directory
 author: curtand
 manager: daveba
@@ -8,27 +8,27 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: how-to
-ms.date: 11/08/2019
+ms.date: 09/22/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c11723efe3fac236fce49c1f92fa338d4e58b59
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 624489033097c0da4d85488b7ae376c5e0f3a56b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84732107"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967690"
 ---
-# <a name="application-registration-subtypes-and-permissions-in-azure-active-directory"></a>Sottotipi e autorizzazioni per la registrazione dell'applicazione in Azure Active Directory
+# <a name="application-registration-permissions-for-custom-roles-in-azure-active-directory"></a>Autorizzazioni di registrazione dell'applicazione per i ruoli personalizzati in Azure Active Directory
 
 Questo articolo contiene le autorizzazioni di registrazione delle app attualmente disponibili per le definizioni di ruolo personalizzate in Azure Active Directory (Azure AD).
 
-## <a name="permissions-for-managing-single-directory-applications"></a>Autorizzazioni per la gestione di applicazioni a directory singola
+## <a name="permissions-for-managing-single-tenant-applications"></a>Autorizzazioni per la gestione di applicazioni a tenant singolo
 
-Quando si scelgono le autorizzazioni per il ruolo personalizzato, è possibile concedere l'accesso per gestire solo le applicazioni con una sola directory. Le applicazioni a directory singola sono disponibili solo per gli utenti dell'organizzazione Azure AD in cui l'applicazione è registrata. Le applicazioni a directory singola sono definite con **tipi di account supportati** impostati su "account solo in questa directory organizzativa". Nella API Graph le applicazioni a directory singola hanno la proprietà signInAudience impostata su "AzureADMyOrg".
+Quando si scelgono le autorizzazioni per il ruolo personalizzato, si ha la possibilità di concedere l'accesso per gestire solo le applicazioni a tenant singolo. le applicazioni a tenant singolo sono disponibili solo per gli utenti dell'organizzazione Azure AD in cui l'applicazione è registrata. le applicazioni a tenant singolo sono definite con **tipi di account supportati** impostati su "account solo in questa directory organizzativa". Nella API Graph le applicazioni a tenant singolo hanno la proprietà signInAudience impostata su "AzureADMyOrg".
 
-Per concedere l'accesso per gestire solo le applicazioni a directory singola, utilizzare le autorizzazioni riportate di seguito con il sottotipo **Applications. Organization**. Ad esempio, Microsoft. directory/Applications. organizzazione/Basic/Update.
+Per concedere l'accesso per gestire solo le applicazioni a tenant singolo, utilizzare le autorizzazioni riportate di seguito con il sottotipo **Applications. Organization**. Ad esempio, Microsoft. directory/Applications. organizzazione/Basic/Update.
 
 Vedere [Cenni preliminari sui ruoli personalizzati](roles-custom-overview.md) per una spiegazione del significato del sottotipo, dell'autorizzazione e del set di proprietà dei termini generali. Le informazioni seguenti sono specifiche per le registrazioni di applicazioni.
 
@@ -95,7 +95,7 @@ Concede le stesse autorizzazioni di Microsoft. directory/Applications/standard/R
 
 #### <a name="microsoftdirectoryapplicationsallpropertiesupdate"></a>Microsoft. directory/Applications/allProperties/Update
 
-Possibilità di aggiornare tutte le proprietà nelle applicazioni a directory singola e multidirectory.
+Possibilità di aggiornare tutte le proprietà nelle applicazioni a tenant singolo e multi-tenant.
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationallpropertiesupdate"></a>Microsoft. directory/Applications. organizzazione/allProperties/aggiornamento
 
@@ -103,7 +103,7 @@ Concede le stesse autorizzazioni di Microsoft. directory/Applications/allPropert
 
 #### <a name="microsoftdirectoryapplicationsaudienceupdate"></a>microsoft.directory/applications/audience/update
 
-Possibilità di aggiornare la proprietà tipo di account supportato (signInAudience) nelle applicazioni a directory singola e multidirectory.
+Possibilità di aggiornare la proprietà tipo di account supportato (signInAudience) nelle applicazioni a tenant singolo e multi-tenant.
 
 ![Questa autorizzazione concede l'accesso alla proprietà tipo di account supportato per la registrazione dell'app nella pagina di autenticazione](./media/roles-custom-available-permissions/supported-account-types.png)
 
@@ -139,7 +139,7 @@ Possibilità di aggiornare le proprietà dei certificati e dei segreti client ne
 
 #### <a name="microsoftdirectoryapplicationsmyorganizationcredentialsupdate"></a>Microsoft. directory/Applications. organizzazione/credenziali/aggiornamento
 
-Concede le stesse autorizzazioni di Microsoft. directory/Applications/Credentials/Update, ma solo per le applicazioni a directory singola.
+Concede le stesse autorizzazioni di Microsoft. directory/Applications/Credentials/Update, ma solo per le applicazioni a tenant singolo.
 
 #### <a name="microsoftdirectoryapplicationsownersupdate"></a>microsoft.directory/applications/owners/update
 

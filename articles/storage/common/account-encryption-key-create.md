@@ -11,16 +11,16 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: d60a6f9032a39ab4889ce0db154739c5cb3b540b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 726be3f0f8402404d0154336aaf7d5f09fefec10
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89070497"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967473"
 ---
 # <a name="create-an-account-that-supports-customer-managed-keys-for-tables-and-queues"></a>Creazione di un account che supporta chiavi gestite dal cliente per tabelle e code
 
-Archiviazione di Azure crittografa tutti i dati in un account di archiviazione inattivo. Per impostazione predefinita, l'archiviazione delle code e l'archiviazione tabelle usano una chiave con ambito limitato al servizio e gestita da Microsoft. È inoltre possibile scegliere di utilizzare chiavi gestite dal cliente per crittografare i dati della coda o della tabella. Per usare chiavi gestite dal cliente con code e tabelle, è necessario creare prima un account di archiviazione che usi una chiave di crittografia con ambito per l'account anziché per il servizio. Dopo aver creato un account che usa la chiave di crittografia dell'account per i dati della coda e della tabella, è possibile configurare le chiavi gestite dal cliente con Azure Key Vault per tale account di archiviazione.
+Archiviazione di Azure crittografa tutti i dati in un account di archiviazione inattivo. Per impostazione predefinita, l'archiviazione delle code e l'archiviazione tabelle usano una chiave con ambito limitato al servizio e gestita da Microsoft. È inoltre possibile scegliere di utilizzare chiavi gestite dal cliente per crittografare i dati della coda o della tabella. Per usare chiavi gestite dal cliente con code e tabelle, è necessario creare prima un account di archiviazione che usi una chiave di crittografia con ambito per l'account anziché per il servizio. Dopo aver creato un account che usa la chiave di crittografia dell'account per i dati della coda e della tabella, è possibile configurare le chiavi gestite dal cliente per l'account di archiviazione.
 
 Questo articolo descrive come creare un account di archiviazione che si basa su una chiave con ambito definito per l'account. Quando l'account viene creato per la prima volta, Microsoft usa la chiave dell'account per crittografare i dati nell'account e Microsoft gestisce la chiave. È quindi possibile configurare le chiavi gestite dal cliente per l'account per sfruttare i vantaggi offerti, inclusa la possibilità di fornire chiavi personalizzate, aggiornare la versione della chiave, ruotare le chiavi e revocare i controlli di accesso.
 
@@ -215,11 +215,7 @@ Nell'esempio JSON seguente viene creato un account di archiviazione per utilizzo
 
 ---
 
-Dopo aver creato un account che si basa sulla chiave di crittografia dell'account, vedere uno degli articoli seguenti per configurare le chiavi gestite dal cliente con Azure Key Vault:
-
-- [Configurare le chiavi gestite dal cliente con Azure Key Vault tramite il portale di Azure](storage-encryption-keys-portal.md)
-- [Configurare chiavi gestite dal cliente con Azure Key Vault tramite PowerShell](storage-encryption-keys-powershell.md)
-- [Configurare chiavi gestite dal cliente con Azure Key Vault usando l'interfaccia della riga di comando di Azure](storage-encryption-keys-cli.md)
+Dopo aver creato un account che si basa sulla chiave di crittografia dell'account, è possibile configurare le chiavi gestite dal cliente archiviate in Azure Key Vault o nel modulo di protezione hardware (HSM) gestito Key Vault (anteprima). Per informazioni su come archiviare le chiavi gestite dal cliente in un insieme di credenziali delle chiavi, vedere [configurare la crittografia con chiavi gestite dal cliente archiviate in Azure Key Vault](customer-managed-keys-configure-key-vault.md). Per informazioni su come archiviare le chiavi gestite dal cliente in un modulo di protezione hardware gestito, vedere [configurare la crittografia con chiavi gestite dal cliente archiviate in Azure Key Vault HSM gestito (anteprima)](customer-managed-keys-configure-key-vault-hsm.md).
 
 ## <a name="verify-the-account-encryption-key"></a>Verificare la chiave di crittografia dell'account
 
@@ -254,5 +250,6 @@ N/D
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md) 
+- [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md)
+- [Chiavi gestite dal cliente per la crittografia di archiviazione di Azure](customer-managed-keys-overview.md)
 - [Che cos'è Azure Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview)?

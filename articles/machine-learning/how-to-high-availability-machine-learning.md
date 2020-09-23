@@ -10,16 +10,16 @@ ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
 ms.date: 09/16/2020
-ms.openlocfilehash: abb24ef1cc6a693acbaf6561a185fd5ae536a66d
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: 64665c0b1e32970f29233f5abdd6b2d2d020a6b2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89668789"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897517"
 ---
 # <a name="increase-azure-machine-learning-resiliency"></a>Aumentare la resilienza Azure Machine Learning
 
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In questo articolo si apprenderà come rendere più resilienti le risorse di Microsoft Azure Machine Learning usando configurazioni a disponibilità elevata. È possibile configurare i servizi di Azure da cui Azure Machine Learning dipende per la disponibilità elevata. Questo articolo identifica i servizi che è possibile configurare per la disponibilità elevata e i collegamenti a informazioni aggiuntive sulla configurazione di queste risorse.
 

@@ -1,6 +1,6 @@
 ---
-title: Sincronizzare i dati da SQL Edge di Azure (anteprima) con Azure Data Factory
-description: Informazioni sulla sincronizzazione dei dati tra SQL Edge di Azure (anteprima) e l'archivio BLOB di Azure
+title: Sincronizzare i dati da SQL Edge di Azure usando Azure Data Factory
+description: Informazioni sulla sincronizzazione dei dati tra SQL Edge di Azure e Archiviazione BLOB di Azure
 keywords: SQL Edge,sincronizzare i dati da SQL Edge, data factory di SQL Edge
 services: sql-edge
 ms.service: sql-edge
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 91bf2ba0957104b7ccba330f914734a362c3e309
-ms.sourcegitcommit: bf99428d2562a70f42b5a04021dde6ef26c3ec3a
+ms.openlocfilehash: 672c9f0d5403ae27a26d58617dca44f0f1121411
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/23/2020
-ms.locfileid: "85255433"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904165"
 ---
 # <a name="tutorial-sync-data-from-sql-edge-to-azure-blob-storage-by-using-azure-data-factory"></a>Esercitazione: Sincronizzare i dati da SQL Edge all'archivio BLOB di Azure con Azure Data Factory
 

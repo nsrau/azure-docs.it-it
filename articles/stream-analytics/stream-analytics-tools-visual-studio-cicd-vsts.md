@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: d9360ff64206cdce208f9643cf8ca86515aaeb7e
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 18ab9a4108d6d9effaa25fe69ce42a18ca4ba0dc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75354427"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903835"
 ---
 # <a name="tutorial-deploy-an-azure-stream-analytics-job-with-cicd-using-azure-pipelines"></a>Esercitazione: Distribuire un processo di Analisi di flusso di Azure con CI/CD usando Azure Pipelines
 Questa esercitazione illustra come configurare l'integrazione continua e la distribuzione continua per un processo di Analisi di flusso di Azure usando Azure Pipelines. 
@@ -26,8 +26,12 @@ In questa esercitazione verranno illustrate le procedure per:
 > * Creare una pipeline di versione in Azure Pipelines
 > * Distribuire automaticamente e aggiornare un'applicazione
 
+> [!NOTE]
+> Il pacchetto NuGet CI/CD verrà deprecato. Per informazioni su come eseguire la migrazione alla versione di npm più recente, vedere [Panoramica dell'integrazione e della distribuzione continue](cicd-overview.md)
+
 ## <a name="prerequisites"></a>Prerequisiti
-Prima di iniziare, verificare di disporre degli elementi seguenti:
+
+Prima di iniziare, verificare di aver eseguito questa procedura:
 
 * Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * Installare [Visual Studio](stream-analytics-tools-for-visual-studio-install.md) e i carichi di lavoro **Sviluppo di Azure** o **Elaborazione ed archiviazione dati**.
@@ -63,9 +67,9 @@ Condividere i file di origine dell'applicazione in un progetto in Azure DevOps, 
     Con la pubblicazione del repository viene creato un nuovo progetto nell'organizzazione con lo stesso nome del repository locale. Per creare il repository in un progetto esistente, fare clic su **Avanzate** accanto al nome del **repository** e selezionare un progetto. È possibile visualizzare il codice nel browser selezionando **Visualizza nel Web**.
  
 ## <a name="configure-continuous-delivery-with-azure-devops"></a>Configurare la distribuzione continua con Azure DevOps
-Una pipeline di compilazione di Azure Pipelines descrive un flusso di lavoro costituito da istruzioni di compilazione eseguite in sequenza. Altre informazioni sulle [pipeline di compilazione di Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav). 
+Una pipeline di compilazione di Azure Pipelines descrive un flusso di lavoro costituito da istruzioni di compilazione eseguite in sequenza. Altre informazioni sulle [pipeline di compilazione di Azure Pipelines](https://docs.microsoft.com/azure/devops/pipelines/get-started-designer?view=vsts&tabs=new-nav&preserve-view=true).
 
-Una pipeline di versione di Azure Pipelines descrive un flusso di lavoro che distribuisce un pacchetto dell'applicazione in un cluster. Se usate insieme, la pipeline di compilazione e la pipeline di versione eseguono l'intero flusso di lavoro, a partire dai file di origine fino alla creazione di un'applicazione in esecuzione nel cluster. Altre informazioni sulle [pipeline di versione](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts) di Azure Pipelines.
+Una pipeline di versione di Azure Pipelines descrive un flusso di lavoro che distribuisce un pacchetto dell'applicazione in un cluster. Se usate insieme, la pipeline di compilazione e la pipeline di versione eseguono l'intero flusso di lavoro, a partire dai file di origine fino alla creazione di un'applicazione in esecuzione nel cluster. Altre informazioni sulle [pipeline di versione](https://docs.microsoft.com/azure/devops/pipelines/release/define-multistage-release-process?view=vsts&preserve-view=true) di Azure Pipelines.
 
 ### <a name="create-a-build-pipeline"></a>Creare una pipeline di compilazione
 Aprire un Web browser e passare al progetto appena creato in [Azure DevOps](https://app.vsaex.visualstudio.com/). 
@@ -120,8 +124,8 @@ Aprire un Web browser e passare al progetto appena creato in [Azure DevOps](http
     |Azione  |  Creare o aggiornare un gruppo di risorse   |
     |Gruppo di risorse  |  Immettere il nome di un gruppo di risorse.   |
     |Modello  | [Percorso della soluzione]\bin\Debug\Deploy\\[Nome progetto].JobTemplate.json   |
-    |Parametri del modello  | [Percorso della soluzione]\bin\Debug\Deploy\\[Nome progetto].JobTemplate.parameters.json   |
-    |Eseguire l'override dei parametri del modello  | Digitare nella casella di testo i parametri del modello di cui eseguire l'override. Esempio: –storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre). Questa proprietà è facoltativa, ma si verificheranno errori nella compilazione se non viene eseguito l'override dei parametri chiave.    |
+    |Parametri di modelli  | [Percorso della soluzione]\bin\Debug\Deploy\\[Nome progetto].JobTemplate.parameters.json   |
+    |Eseguire l'override dei parametri del modello  | Digitare nella casella di testo i parametri del modello di cui eseguire l'override. Esempio: `–storageName fabrikam –adminUsername $(vmusername) -adminPassword $(password) –azureKeyVaultName $(fabrikamFibre)`. Questa proprietà è facoltativa, ma si verificheranno errori nella compilazione se non viene eseguito l'override dei parametri chiave.    |
     
     ![Impostare le proprietà per Distribuzione gruppo di risorse di Azure](./media/stream-analytics-tools-visual-studio-cicd-vsts/build-deployment-properties.png)
 
@@ -158,7 +162,7 @@ Quando non sono più necessari, eliminare il gruppo di risorse, il processo di s
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'uso degli strumenti di Visual Studio per Analisi di flusso di Azure per configurare un processo di distribuzione e integrazione continue, procedere con l'articolo relativo alla configurazione della pipeline CI/CD:
+Per altre informazioni sull'uso degli strumenti di Analisi di flusso di Azure per Visual Studio per configurare un processo di distribuzione e integrazione continue, procedere con l'articolo relativo alla configurazione della pipeline CI/CD:
 
 > [!div class="nextstepaction"]
 > [Eseguire integrazione e sviluppo in modo continuo con gli strumenti di Analisi di flusso](stream-analytics-tools-for-visual-studio-cicd.md)

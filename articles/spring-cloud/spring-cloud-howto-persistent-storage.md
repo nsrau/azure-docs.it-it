@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 10/07/2019
 ms.author: brendm
 ms.custom: devx-track-java, devx-track-azurecli
-ms.openlocfilehash: 1ff09941d07ecd6d62483b1fca59c9003ddbd159
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 9d769cb6e2cc33df259da46a82ad27a8bfd9e74b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496271"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888526"
 ---
 # <a name="use-persistent-storage-in-azure-spring-cloud"></a>Usare l'archiviazione persistente in Azure Spring Cloud
+
+**Questo articolo si applica a:** ✔️ Java ✔️ C #
 
 Azure Spring cloud fornisce due tipi di archiviazione per l'applicazione: permanente e temporanea.
 

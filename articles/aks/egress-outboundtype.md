@@ -6,12 +6,12 @@ ms.topic: article
 ms.author: juluk
 ms.date: 06/29/2020
 author: jluk
-ms.openlocfilehash: 5095931e28438beebf3250155ede1a8af0bb5c64
-ms.sourcegitcommit: c5021f2095e25750eb34fd0b866adf5d81d56c3a
+ms.openlocfilehash: d8ae03d52691a6c30f78439a579e7e7c136dda76
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88796970"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975285"
 ---
 # <a name="customize-cluster-egress-with-a-user-defined-route"></a>Personalizzare l'uscita del cluster con una route definita dall'utente
 
@@ -51,7 +51,7 @@ La configurazione seguente viene eseguita da AKS.
 
 Di seguito è illustrata una topologia di rete distribuita nei cluster del servizio Azure Kubernetes per impostazione predefinita, in cui `outboundType` è impostato su `loadBalancer`.
 
-![outboundtype-lb](media/egress-outboundtype/outboundtype-lb.png)
+![Il diagramma mostra i P in ingresso e in uscita i p, dove il traffico in ingresso i P indirizza il traffico verso un servizio di bilanciamento del carico, che indirizza il traffico verso e da un cluster interno e altro traffico verso l'i P in uscita, che indirizza il traffico verso Internet, M C R, Azure required Services e il piano di controllo A K S.](media/egress-outboundtype/outboundtype-lb.png)
 
 ### <a name="outbound-type-of-userdefinedrouting"></a>Tipo in uscita userDefinedRouting
 

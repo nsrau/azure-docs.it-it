@@ -9,13 +9,13 @@ metadata:
   ms.collection: collection
   author: DCtheGeek
   ms.author: dacoulte
-  ms.date: 08/10/2020
-  ms.openlocfilehash: 66095427637b52d9bc220cba911c3099fd8f397c
-  ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+  ms.date: 09/22/2020
+  ms.openlocfilehash: 175c01423b9d7ae987b38913b0376c333f5c9ea9
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 08/12/2020
-  ms.locfileid: "88135947"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90904057"
 landingContent:
 - title: Informazioni su Criteri di Azure
   linkLists:
@@ -27,8 +27,12 @@ landingContent:
       url: ./concepts/effects.md
     - text: Struttura delle definizioni
       url: ./concepts/definition-structure.md
+    - text: Ambito
+      url: ./concepts/scope.md
     - text: Struttura delle assegnazioni
       url: ./concepts/assignment-structure.md
+    - text: Struttura delle esenzioni
+      url: ./concepts/exemption-structure.md
   - linkListType: video
     links:
     - text: Criteri di Azure nella build 2018
@@ -91,6 +95,8 @@ landingContent:
       url: ./how-to/get-compliance-data.md
     - text: Determinare le cause di non conformità
       url: ./how-to/determine-non-compliance.md
+    - text: Esentare risorse
+      url: ./concepts/exemption-structure.md
     - text: Correggere le risorse non conformi
       url: ./how-to/remediate-resources.md
 - title: Interagire

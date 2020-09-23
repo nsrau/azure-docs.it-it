@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
 ms.author: damendo
-ms.openlocfilehash: 7a4aa4cc545d6941f144ce0657ede7199d4f8f57
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 62f4a06ec729d896dc11a290bc7a5ccc7c321683
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86497115"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984059"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Gestire e analizzare i log di flusso dei gruppi di sicurezza di rete in Azure con Network Watcher e Graylog
 
@@ -186,7 +186,7 @@ Dopo aver stabilito una connessione con i log di flusso tramite Logstash e confi
 
    Verificare di associare l'input all'indirizzo IP su cui è stato configurato il server Graylog. L'indirizzo IP deve corrispondere al campo **host** dell'output UDP del file di configurazione di Logstash. La porta predefinita deve essere *12201*. Verificare che la porta corrisponda al campo **port** nell'output UDP indicato nel file di configurazione di Logstash.
 
-   ![Input](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
+   ![Screenshot Mostra gli input Graylog, con le opzioni per avviare e trovare gli input.](./media/network-watcher-analyze-nsg-flow-logs-graylog/inputs.png)
 
    Dopo che l'input è stato avviato, deve essere visualizzato nella sezione **Local inputs** (Input locali), come illustrato nella figura seguente:
 
@@ -200,11 +200,11 @@ Dopo aver stabilito una connessione con i log di flusso tramite Logstash e confi
 
 Dopo aver consentito al server Graylog di raccogliere i messaggi, è possibile eseguire una ricerca. Per controllare i messaggi inviati al server Graylog, nella pagina **Inputs** (Input) fare clic sul pulsante "**Show received messages**" (Visualizza messaggi ricevuti) dell'input GELF UDP creato. Si verrà reindirizzati a una schermata analoga alla figura seguente: 
 
-![Istogramma](./media/network-watcher-analyze-nsg-flow-logs-graylog/histogram.png)
+![Screenshot mostra il server Graylog che Visualizza i risultati della ricerca, l'istogramma e i messaggi.](./media/network-watcher-analyze-nsg-flow-logs-graylog/histogram.png)
 
 Se si fa clic sul collegamento blu "% {Message}" (% Messaggio), si espande ogni messaggio per visualizzare i parametri di ogni tupla del flusso, come illustrato nella figura seguente:
 
-![Messaggi](./media/network-watcher-analyze-nsg-flow-logs-graylog/messages.png)
+![Screenshot Visualizza i dettagli del messaggio dal server Graylog.](./media/network-watcher-analyze-nsg-flow-logs-graylog/messages.png)
 
 Per impostazione predefinita, se non si seleziona un campo di messaggio specifico in cui eseguire la ricerca, vengono inclusi tutti i campi. Se si intende eseguire la ricerca di messaggi specifici, ad esempio tuple di flusso da un indirizzo IP specifico di origine, è possibile usare il linguaggio di query di ricerca Graylog come descritto nella [documentazione](https://docs.graylog.org/en/2.2/pages/queries.html)
 
@@ -218,7 +218,7 @@ Ora che Graylog è configurato ed è in esecuzione, è possibile usarne alcune f
 
 2. Fare clic sul pulsante verde **Create dashboard** (Crea dashboard) e compilare il breve modulo inserendo il titolo e la descrizione del dashboard. Fare clic sul pulsante **Save** (Salva) per creare il nuovo dashboard. Verrà visualizzato un dashboard come illustrato nella figura seguente:
 
-    ![Dashboard](./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png)
+    ![Screenshot mostra i dashboard del server Graylog con le opzioni per creare e modificare i dashboard.](./media/network-watcher-analyze-nsg-flow-logs-graylog/dashboards.png)
 
 ### <a name="add-widgets"></a>Aggiungere widget
 

@@ -3,12 +3,12 @@ title: Informazioni su Live Video Analytics in IoT Edge - Azure
 description: Questo argomento fornisce una panoramica di Live Video Analytics in IoT Edge. La piattaforma offre capacità che è possibile usare per migliorare le soluzioni IoT. È ad esempio possibile acquisire, registrare e analizzare video live e pubblicare i risultati (video e/o analisi video) nei servizi di Azure.
 ms.topic: overview
 ms.date: 05/27/2020
-ms.openlocfilehash: 81a67322d0a5e524d75b9bf3e481be7157e09e63
-ms.sourcegitcommit: 309cf6876d906425a0d6f72deceb9ecd231d387c
+ms.openlocfilehash: b9b8726c5e8ad6850e05aeee48fccabee703080e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/01/2020
-ms.locfileid: "84266798"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904356"
 ---
 # <a name="what-is-live-video-analytics-on-iot-edge-preview"></a>Informazioni su Live Video Analytics in IoT Edge (anteprima)
 
@@ -26,7 +26,10 @@ Con Live Video Analytics in IoT Edge, l'utente può continuare a usare le [fotoc
 
 ## <a name="supported-environments"></a>Ambienti supportati
 
-Sono supportati gli ambienti Linux AMD64 e X64.
+Sono supportati gli ambienti Linux x86-64 e ARM64.
+> [!NOTE]
+> Il supporto per i dispositivi ARM64 è disponibile nelle build `1.0.4` e successive.
+> Il supporto per l'esecuzione del runtime IoT Edge di Azure nei dispositivi ARM64 è in [anteprima pubblica](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## <a name="get-started"></a>Introduzione
 

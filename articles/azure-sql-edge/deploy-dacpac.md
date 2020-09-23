@@ -1,6 +1,6 @@
 ---
-title: Uso dei pacchetti DACPAC e BACPAC del database SQL-Azure SQL Edge (anteprima)
-description: Informazioni sull'uso di dacpac e i file BACPAC in Azure SQL Edge (anteprima)
+title: Uso dei pacchetti DACPAC e BACPAC del database SQL-Azure SQL Edge
+description: Informazioni sull'uso di dacpac e i file BACPAC in Azure SQL Edge
 keywords: SQL Edge, SqlPackage
 services: sql-edge
 ms.service: sql-edge
@@ -9,37 +9,29 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/03/2020
-ms.openlocfilehash: 52c8e9586d8ee53cdaac28cb1c48d2927d82c2ed
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: 6c8be6e67b1d7b919d6ea221c473c8975e559658
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462760"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887492"
 ---
 # <a name="sql-database-dacpac-and-bacpac-packages-in-sql-edge"></a>Pacchetti DACPAC e BACPAC del database SQL in SQL Edge
 
-SQL Edge di Azure (anteprima) è un motore di database relazionale ottimizzato progettato per distribuzioni di IoT ed Edge. È basato sulle versioni più recenti del motore di database di Microsoft SQL Server, che offre funzionalità leader del settore per prestazioni, sicurezza ed elaborazione delle query. Oltre alle funzionalità leader del settore per la gestione dei database relazionali di SQL Server, SQL Edge di Azure offre funzionalità di streaming predefinite per l'analisi in tempo reale e l'elaborazione di eventi complessa.
+SQL Edge di Azure un motore di database relazionale ottimizzato e progettato per distribuzioni IoT e perimetrali. Si basa sulle versioni più recenti di Microsoft SQL motore di database, che offre funzionalità leader del settore per le prestazioni, la sicurezza e l'elaborazione delle query. Oltre alle funzionalità leader del settore per la gestione dei database relazionali di SQL Server, SQL Edge di Azure offre funzionalità di streaming predefinite per l'analisi in tempo reale e l'elaborazione di eventi complessa.
 
-Azure SQL Edge fornisce anche un'implementazione nativa di SqlPackage.exe che consente di distribuire un pacchetto [dacpac e BACPAC del database SQL](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) durante la distribuzione di SQL Edge. Per distribuire i pacchetti di applicazione livello dati del database SQL in SQL Edge, è possibile usare il parametro SqlPackage esposto tramite l'opzione `module twin's desired properties` del modulo SQL Edge:
+Azure SQL Edge fornisce anche un'implementazione nativa di SqlPackage.exe che consente di distribuire un pacchetto [dacpac e BACPAC del database SQL](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/data-tier-applications) durante la distribuzione di SQL Edge. 
 
-```json
-{
-    "properties.desired":
-    {
-        "SqlPackage": "<Optional_DACPAC_ZIP_SAS_URL>",
-        "ASAJobInfo": "<Optional_ASA_Job_ZIP_SAS_URL>"
-    }
-}
-```
-
-|Campo | Descrizione |
-|------|-------------|
-| SqlPackage | URI dell'archiviazione BLOB di Azure per il file *zip* che contiene il pacchetto DAC o BACPAC del database SQL. Il file zip può contenere sia più pacchetti DAC che file BACPAC.
-| ASAJobInfo | URI dell'archiviazione BLOB di Azure per il processo Edge di Analisi di flusso di Azure.
+I pacchetti DACPAC e BACPAC del database SQL possono essere distribuiti in SQL Edge usando la `MSSQL_PACKAGE` variabile di ambiente. La variabile di ambiente può essere configurata con uno dei seguenti elementi.  
+- Percorso di una cartella locale all'interno del contenitore SQL contenente i file dacpac e BACPAC. È possibile eseguire il mapping di questa cartella a un volume host usando i punti di montaggio o i contenitori del volume di dati. 
+- Un percorso di file locale nel mapping del contenitore SQL al file dacpac o BACPAC. Questo percorso di file può essere mappato a un volume host usando i punti di montaggio o i contenitori del volume di dati. 
+- Un percorso di file locale all'interno del contenitore SQL che viene mappato a un file zip contenente i file dacpac o BACPAC. Questo percorso di file può essere mappato a un volume host usando i punti di montaggio o i contenitori del volume di dati. 
+- Un URL di firma di accesso condiviso BLOB di Azure in un file zip contenente i file dacpac e BACPAC.
+- Un URL di firma di accesso condiviso BLOB di Azure in un file dacpac o BACPAC. 
 
 ## <a name="use-a-sql-database-dac-package-with-sql-edge"></a>Usare un pacchetto di applicazione livello dati del database SQL con SQL Edge
 
-Per usare un pacchetto di applicazione livello dati del database SQL `(*.dacpac)` o un file BACPAC `(*.bacpac)` con SQL Edge, seguire questa procedura:
+Per distribuire o importare un pacchetto di applicazione livello dati del database SQL `(*.dacpac)` o un file BACPAC `(*.bacpac)` usando l'archiviazione BLOB di Azure e un file zip, seguire questa procedura. 
 
 1. Creare/estrarre un pacchetto di applicazione livello dati o esportare un file BACPAC usando il meccanismo indicato di seguito. 
     - Creare o estrarre un pacchetto di applicazione livello dati del database SQL. Vedere [Estrazione di un'applicazione livello dati da un database](/sql/relational-databases/data-tier-applications/extract-a-dac-from-a-database/) per informazioni su come generare un pacchetto di applicazione livello dati per un database di SQL Server esistente.
@@ -59,34 +51,22 @@ Per usare un pacchetto di applicazione livello dati del database SQL `(*.dacpac)
 
     4. Nella pagina **Dispositivo IoT Edge** selezionare **Imposta moduli**.
 
-    5. Nella pagina **Imposta moduli** selezionare **Configura** per il modulo SQL Edge.
+    5. Nella pagina **imposta moduli** fare clic sul modulo Azure SQL Edge.
 
-    6. Nel riquadro **Moduli personalizzati IoT Edge** selezionare **Impostare le proprietà desiderate del modulo gemello**. Aggiornare le proprietà desiderate in modo da includere l'URI per l'opzione `SQLPackage`, come illustrato nell'esempio seguente.
+    6. Nel riquadro **aggiorna IOT Edge modulo** selezionare variabili di **ambiente**. Aggiungere la `MSSQL_PACKAGE` variabile di ambiente e specificare l'URL SAS generato nel passaggio 3 precedente come valore per la variabile di ambiente. 
 
-        > [!NOTE]
-        > L'URI della firma di accesso condiviso nel codice JSON seguente è solo un esempio. Sostituire l'URI con l'URI effettivo della distribuzione.
+    7. Selezionare **Aggiorna**.
 
-        ```json
-            {
-                "properties.desired":
-                {
-                    "SqlPackage": "<<<SAS URL for the *.zip file containing the dacpac and/or the bacpac files",
-                }
-            }
-        ```
+    8. Nella pagina **set Modules** selezionare **Review + create**.
 
-    7. Selezionare **Salva**.
+    9. Nella pagina **set Modules** selezionare **create**.
 
-    8. Nella pagina **Imposta moduli** selezionare **Avanti**.
+5. Dopo l'aggiornamento del modulo, i file del pacchetto vengono scaricati, decompressi e distribuiti nell'istanza di SQL Edge.
 
-    9. Nella pagina **Imposta moduli** selezionare **Avanti** e quindi **Invia**.
-
-5. Dopo l'aggiornamento del modulo, il file del pacchetto viene scaricato, decompresso e distribuito nell'istanza di SQL Edge.
-
-A ogni riavvio del contenitore Edge di Azure SQL, il `*.dacpac` pacchetto di file viene scaricato e valutato per le modifiche. Se viene rilevata una nuova versione del file dacpac, le modifiche vengono distribuite nel database in SQL Edge. File BACPAC 
+A ogni riavvio del contenitore Edge di Azure SQL, SQL Edge tenta di scaricare il pacchetto di file compresso e di valutare le modifiche. Se viene rilevata una nuova versione del file dacpac, le modifiche vengono distribuite nel database in SQL Edge.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Distribuire SQL Edge tramite il portale di Azure](deploy-portal.md).
 - [Trasmettere i dati](stream-data.md)
-- [Machine Learning e intelligenza artificiale con ONNX in SQL Edge (anteprima)](onnx-overview.md)
+- [Machine Learning e intelligenza artificiale con ONNX in SQL Edge](onnx-overview.md)

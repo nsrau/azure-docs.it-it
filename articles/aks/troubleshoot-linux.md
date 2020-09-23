@@ -1,19 +1,19 @@
 ---
 title: Strumenti per le prestazioni Linux
 titleSuffix: Azure Kubernetes Service
-description: Informazioni su come individuare e risolvere i problemi comuni quando si usa il servizio Azure Kubernetes
+description: Informazioni su come usare gli strumenti per le prestazioni di Linux per risolvere i problemi comuni quando si usa Azure Kubernetes Service (AKS).
 services: container-service
 author: alexeldeib
 ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 02/10/2020
 ms.author: aleldeib
-ms.openlocfilehash: eb6b126b4d1794adf0380432040190b91a17a675
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 74f65780594c7bc938ed6d59437473c4363e5848
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77925605"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982038"
 ---
 # <a name="linux-performance-troubleshooting"></a>Risoluzione dei problemi relativi alle prestazioni di Linux
 
@@ -78,13 +78,13 @@ KiB Swap:        0 total,        0 free,        0 used. 62739060 avail Mem
      ...
 ```
 
-`top`fornisce una panoramica generale dello stato del sistema corrente. Le intestazioni forniscono alcune utili informazioni di aggregazione:
+`top` fornisce una panoramica generale dello stato del sistema corrente. Le intestazioni forniscono alcune utili informazioni di aggregazione:
 
 - stato delle attività: in esecuzione, in sospensione, arrestato.
 - Utilizzo della CPU, in questo caso la maggior parte del tempo di inattività.
 - memoria di sistema totale, gratuita e utilizzata.
 
-`top`potrebbero mancare processi di breve durata; alternative come `htop` e `atop` forniscono interfacce analoghe durante la correzione di alcune di queste limitazioni.
+`top` potrebbero mancare processi di breve durata; alternative come `htop` e `atop` forniscono interfacce analoghe durante la correzione di alcune di queste limitazioni.
 
 ## <a name="cpu"></a>CPU
 
@@ -108,7 +108,7 @@ Linux 4.15.0-1064-azure (aks-main-10212767-vmss000001)  02/10/20        _x86_64_
 19:49:04       7    1.98    0.00    0.99    0.00    0.00    0.00    0.00    0.00    0.00   97.03
 ```
 
-`mpstat`stampa le informazioni di CPU simili nella parte superiore, ma suddivise in base al thread della CPU. La visualizzazione di tutti i core in una sola volta può essere utile per rilevare l'utilizzo della CPU altamente sbilanciata, ad esempio quando un'applicazione a thread singolo usa un core al 100% di utilizzo. Questo problema può essere più difficile da individuare quando viene aggregato su tutte le CPU del sistema.
+`mpstat` stampa le informazioni di CPU simili nella parte superiore, ma suddivise in base al thread della CPU. La visualizzazione di tutti i core in una sola volta può essere utile per rilevare l'utilizzo della CPU altamente sbilanciata, ad esempio quando un'applicazione a thread singolo usa un core al 100% di utilizzo. Questo problema può essere più difficile da individuare quando viene aggregato su tutte le CPU del sistema.
 
 ### <a name="vmstat"></a>vmstat
 
@@ -119,13 +119,13 @@ procs -----------memory---------- ---swap-- -----io---- -system-- ------cpu-----
  2  0      0 43300372 545716 19691456    0    0     3    50    3    3  2  1 95  1  0
 ```
 
-`vmstat`fornisce informazioni simili `mpstat` e `top` , enumerando il numero di processi in attesa di CPU (colonna r), statistiche della memoria e percentuale del tempo di CPU impiegato in ogni stato di lavoro.
+`vmstat` fornisce informazioni simili `mpstat` e `top` , enumerando il numero di processi in attesa di CPU (colonna r), statistiche della memoria e percentuale del tempo di CPU impiegato in ogni stato di lavoro.
 
-## <a name="memory"></a>Memory
+## <a name="memory"></a>Memoria
 
 La memoria è una risorsa molto importante e fortunatamente facile da tenere traccia. Alcuni strumenti possono segnalare CPU e memoria, ad esempio `vmstat` . Tuttavia, gli strumenti come `free` possono essere ancora utili per il debug rapido.
 
-### <a name="free"></a>libero
+### <a name="free"></a>free
 
 ```
 $ free -m
@@ -134,7 +134,7 @@ Mem:          64403        2338       42485           1       19579       61223
 Swap:             0           0           0
 ```
 
-`free`vengono fornite informazioni di base sulla memoria totale, oltre che sulla memoria libera e utilizzata. `vmstat`può essere più utile anche per l'analisi della memoria di base grazie alla possibilità di fornire output in sequenza.
+`free` vengono fornite informazioni di base sulla memoria totale, oltre che sulla memoria libera e utilizzata. `vmstat` può essere più utile anche per l'analisi della memoria di base grazie alla possibilità di fornire output in sequenza.
 
 ## <a name="disk"></a>Disco
 
@@ -157,21 +157,21 @@ sda               0.00    56.00    0.00   65.00     0.00   504.00    15.51     0
 scd0              0.00     0.00    0.00    0.00     0.00     0.00     0.00     0.00    0.00    0.00    0.00   0.00   0.00
 ```
 
-`iostat`fornisce informazioni approfondite sull'utilizzo dei dischi. Questa chiamata passa `-x` per le statistiche estese, `-y` per ignorare le medie iniziali del sistema di stampa dell'output dall'avvio e `1 1` per specificare che si desidera un intervallo di 1 secondo, che termina dopo un blocco di output. 
+`iostat` fornisce informazioni approfondite sull'utilizzo dei dischi. Questa chiamata passa `-x` per le statistiche estese, `-y` per ignorare le medie iniziali del sistema di stampa dell'output dall'avvio e `1 1` per specificare che si desidera un intervallo di 1 secondo, che termina dopo un blocco di output. 
 
-`iostat`espone molte statistiche utili:
+`iostat` espone molte statistiche utili:
 
-- `r/s`e `w/s` sono letture al secondo e scritture al secondo. La somma di questi valori è IOPS.
-- `rkB/s`e `wkB/s` sono kilobyte letti/scritti al secondo. La somma di questi valori è la velocità effettiva.
-- `await`tempo medio di iowait in millisecondi per le richieste in coda.
-- `avgqu-sz`dimensioni medie della coda nell'intervallo specificato.
+- `r/s` e `w/s` sono letture al secondo e scritture al secondo. La somma di questi valori è IOPS.
+- `rkB/s` e `wkB/s` sono kilobyte letti/scritti al secondo. La somma di questi valori è la velocità effettiva.
+- `await` tempo medio di iowait in millisecondi per le richieste in coda.
+- `avgqu-sz` dimensioni medie della coda nell'intervallo specificato.
 
 In una macchina virtuale di Azure:
 
 - la somma di `r/s` e `w/s` per un singolo dispositivo a blocchi non può superare i limiti dello SKU del disco.
-- la somma di `rkB/s` e `wkB/s` per un singolo dispositivo a blocchi non può superare i limiti dello SKU del disco
+- la somma di `rkB/s` e `wkB/s`  per un singolo dispositivo a blocchi non può superare i limiti dello SKU del disco
 - la somma di `r/s` e `w/s` per tutti i dispositivi a blocchi non può superare i limiti per lo SKU della macchina virtuale.
-- la somma di `rkB/s` è wkB/s per tutti i dispositivi a blocchi non può superare i limiti per lo SKU della macchina virtuale.
+- la somma di  `rkB/s` è wkB/s per tutti i dispositivi a blocchi non può superare i limiti per lo SKU della macchina virtuale.
 
 Si noti che il disco del sistema operativo viene conteggiato come un disco gestito dello SKU più piccolo corrispondente alla capacità. Ad esempio, un disco del sistema operativo 1024GB corrisponde a un disco P30. I dischi temporanei del sistema operativo e i dischi temporanei non hanno limiti di singoli dischi. sono limitati solo dai limiti completi della macchina virtuale.
 
@@ -199,10 +199,10 @@ $ sar -n DEV [interval]
 22:36:58    azvdbf16b0b2fc      9.00     19.00      3.36      1.18      0.00      0.00      0.00      0.00
 ```
 
-`sar`è uno strumento potente per un'ampia gamma di analisi. Sebbene in questo esempio venga utilizzata la capacità di misurare le statistiche di rete, è ugualmente potente per misurare l'utilizzo della CPU e della memoria. Questo esempio richiama `sar` con `-n` flag per specificare la `DEV` parola chiave (dispositivo di rete), visualizzando la velocità effettiva della rete per dispositivo.
+`sar` è uno strumento potente per un'ampia gamma di analisi. Sebbene in questo esempio venga utilizzata la capacità di misurare le statistiche di rete, è ugualmente potente per misurare l'utilizzo della CPU e della memoria. Questo esempio richiama `sar` con `-n` flag per specificare la `DEV` parola chiave (dispositivo di rete), visualizzando la velocità effettiva della rete per dispositivo.
 
 - La somma di `rxKb/s` e `txKb/s` è la velocità effettiva totale per un determinato dispositivo. Quando questo valore supera il limite per la scheda di interfaccia di rete di Azure di cui è stato effettuato il provisioning, i carichi di lavoro nel computer aumenteranno la latenza
-- `%ifutil`misura l'utilizzo per un determinato dispositivo. Poiché questo valore si avvicina al 100%, i carichi di lavoro riscontrano una maggiore latenza di rete.
+- `%ifutil` misura l'utilizzo per un determinato dispositivo. Poiché questo valore si avvicina al 100%, i carichi di lavoro riscontrano una maggiore latenza di rete.
 
 ```
 $ sar -n TCP,ETCP [interval]
@@ -323,4 +323,4 @@ IpExt:
     InECT0Pkts: 14
 ```
 
-`netstat`può analizzare un'ampia gamma di statistiche di rete, richiamate con l'output di riepilogo. Sono disponibili molti campi utili a seconda del problema. Un campo utile nella sezione TCP è "tentativi di connessione non riusciti". Potrebbe trattarsi di un'indicazione dell'esaurimento delle porte SNAT o di altri problemi che rendono le connessioni in uscita. Una frequenza elevata di segmenti ritrasmessi (anche nella sezione TCP) può indicare problemi di recapito dei pacchetti. 
+`netstat` può analizzare un'ampia gamma di statistiche di rete, richiamate con l'output di riepilogo. Sono disponibili molti campi utili a seconda del problema. Un campo utile nella sezione TCP è "tentativi di connessione non riusciti". Potrebbe trattarsi di un'indicazione dell'esaurimento delle porte SNAT o di altri problemi che rendono le connessioni in uscita. Una frequenza elevata di segmenti ritrasmessi (anche nella sezione TCP) può indicare problemi di recapito dei pacchetti. 

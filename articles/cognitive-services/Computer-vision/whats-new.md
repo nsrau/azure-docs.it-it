@@ -8,22 +8,41 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: overview
-ms.date: 06/29/2020
+ms.date: 09/11/2020
 ms.author: pafarley
-ms.openlocfilehash: 0b432a224aa32edf762f6610990027451abe9acc
-ms.sourcegitcommit: 5a37753456bc2e152c3cb765b90dc7815c27a0a8
+ms.openlocfilehash: f007ddf2625bf9e8b9d4365902ac1511ea95fa81
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87759207"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904088"
 ---
 # <a name="whats-new-in-computer-vision"></a>Novità di Visione artificiale
 
 Ecco cosa c'è di nuovo nel servizio. Le novità possono essere note sulla versione, video, post di blog e altri tipi di informazioni. Aggiungere un segnalibro a questa pagina per rimanere aggiornati sul servizio.
 
+## <a name="september-2020"></a>Settembre 2020
+
+### <a name="spatial-analysis-container-preview"></a>Anteprima del contenitore Analisi spaziale
+
+Il [contenitore Analisi spaziale](spatial-analysis-container.md) è ora disponibile in anteprima. La funzionalità Analisi spaziale di Visione artificiale consente di analizzare i video in streaming in tempo reale per comprendere le relazioni spaziali tra le persone e i loro movimenti negli ambienti fisici. Analisi spaziale è un contenitore Docker che è possibile usare in locale. 
+
+### <a name="read-api-v31-public-preview-adds-ocr-for-japanese"></a>Aggiunta del riconoscimento ottico dei caratteri per il giapponese nell'API di lettura v3.1 (anteprima pubblica)
+Nell'API di lettura v3.1 (anteprima pubblica) di Visione artificiale sono state aggiunte queste funzionalità:
+* Riconoscimento ottico dei caratteri (OCR) per la lingua giapponese
+* Per ogni riga di testo, viene indicato se l'aspetto è in stile Scrittura manuale o Stampa, insieme a un punteggio di attendibilità (solo lingue latine).
+* Per un documento di più pagine è possibile estrarre il testo solo per le pagine o l'intervallo di pagine selezionati.
+
+* Questa versione di anteprima dell'API di lettura supporta le lingue inglese, olandese, francese, tedesco, italiano, giapponese, portoghese, cinese semplificato e spagnolo.
+
+Per altre informazioni, vedere la [panoramica dell'API di lettura](concept-recognizing-text.md).
+
+> [!div class="nextstepaction"]
+> [Altre informazioni sull'API di lettura v3.1 (anteprima pubblica 2)](https://westus2.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-2/operations/5d986960601faab4bf452005)
+
 ## <a name="july-2020"></a>Luglio 2020
 
-### <a name="read-api-v31-public-preview-adds-simplified-chinese-support"></a>Aggiunta del supporto per il cinese semplificato nell'API di lettura v3.1 (anteprima pubblica)
+### <a name="read-api-v31-public-preview-with-ocr-for-simplified-chinese"></a>Aggiunta del riconoscimento ottico dei caratteri per il cinese semplificato nell'API di lettura v3.1 (anteprima pubblica)
 Nell'API di lettura v3.1 (anteprima pubblica) di Visione artificiale è stato aggiunto il supporto per il cinese semplificato.
 
 * Questa versione di anteprima dell'API di lettura supporta le lingue inglese, olandese, francese, tedesco, italiano, portoghese, cinese semplificato e spagnolo.
@@ -31,7 +50,7 @@ Nell'API di lettura v3.1 (anteprima pubblica) di Visione artificiale è stato ag
 Per altre informazioni, vedere la [panoramica dell'API di lettura](concept-recognizing-text.md).
 
 > [!div class="nextstepaction"]
-> [Altre informazioni sull'API di lettura v3.1 (anteprima pubblica)](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
+> [Altre informazioni sull'API di lettura v3.1 (anteprima pubblica 1)](https://westus.dev.cognitive.microsoft.com/docs/services/computer-vision-v3-1-preview-1/operations/5d986960601faab4bf452005)
 
 ## <a name="may-2020"></a>Maggio 2020
 API Visione artificiale v3.0 è ora in stato di disponibilità generale, con aggiornamenti per [API di lettura](concept-recognizing-text.md):

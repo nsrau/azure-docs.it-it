@@ -1,14 +1,14 @@
 ---
 title: Dettagli della struttura delle definizioni dei criteri
 description: Descrive come vengono usate le definizioni dei criteri per stabilire convenzioni per le risorse di Azure nell'organizzazione.
-ms.date: 08/27/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 81e08e07236d445a4ca351a7d93e7851cad69ace
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: a049134a32fd6026cc1e0c4044a7b9d08fb9bd8f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648717"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895368"
 ---
 # <a name="azure-policy-definition-structure"></a>Struttura delle definizioni di criteri di Azure
 
@@ -77,7 +77,7 @@ Usare **displayName** e **description** per identificare la definizione dei crit
 > [!NOTE]
 > Durante la creazione o l'aggiornamento di una definizione dei criteri, **ID**, **tipo** e **nome** sono definiti dalle proprietà esterne a JSON e non sono necessari nel file JSON. Il recupero della definizione dei criteri tramite SDK restituisce le proprietà **id**, **tipo** e **nome** come parte di JSON, ma ognuna è costituita da informazioni di sola lettura correlate alla definizione dei criteri.
 
-## <a name="type"></a>Type
+## <a name="type"></a>Tipo
 
 Anche se non è possibile impostare la proprietà **Type** , sono disponibili tre valori restituiti da SDK e visibili nel portale:
 
@@ -206,8 +206,10 @@ Durante la creazione di iniziative o criteri è importante specificare la posizi
 
 Se la posizione della definizione è:
 
-- Una **sottoscrizione**: solo le risorse all'interno di tale sottoscrizione possono essere assegnate ai criteri.
-- Un **gruppo di gestione**: solo le risorse all'interno dei gruppi di gestione figlio e delle sottoscrizioni figlio possono essere assegnate ai criteri. Se si prevede di applicare la definizione dei criteri a diverse sottoscrizioni, il percorso deve essere un gruppo di gestione che contiene la sottoscrizione.
+- È possibile assegnare la definizione dei criteri alle risorse solo della **sottoscrizione** all'interno di tale sottoscrizione.
+- **Gruppo di gestione** : è possibile assegnare la definizione dei criteri solo alle risorse solo nei gruppi di gestione figlio e nelle sottoscrizioni figlio. Se si prevede di applicare la definizione dei criteri a diverse sottoscrizioni, il percorso deve essere un gruppo di gestione che contiene ogni sottoscrizione.
+
+Per altre informazioni, vedere [comprendere l'ambito nei criteri di Azure](./scope.md#definition-location).
 
 ## <a name="policy-rule"></a>Regola dei criteri
 
@@ -576,16 +578,16 @@ Tutte le [funzioni del modello di Resource Manager](../../../azure-resource-mana
 La funzione seguente è disponibile per l'uso in una regola dei criteri, ma è diversa da quella usata in un modello di Azure Resource Manager (modello ARM):
 
 - `utcNow()` -Diversamente da un modello ARM, questa proprietà può essere usata all'esterno di _DefaultValue_.
-  - Restituisce una stringa impostata sulla data e l'ora corrente nel formato DateTime ISO 8601 universale "aaaa-MM-ggTHH:mm:SS.fffffffZ"
+  - Restituisce una stringa impostata sulla data e sull'ora correnti nel formato DateTime ISO 8601 universale `yyyy-MM-ddTHH:mm:ss.fffffffZ` .
 
 Le funzioni seguenti sono disponibili solo nelle regole dei criteri:
 
 - `addDays(dateTime, numberOfDaysToAdd)`
-  - **dateTime**: [Obbligatorio] stringa - Stringa nel formato DateTime ISO 8601 universale "aaaa-MM-ggTHH:mm:ss.fffffffZ"
-  - **numberOfDaysToAdd**: [Obbligatorio] numero intero - Numero intero di giorni da aggiungere
+  - **DateTime**: [Required] stringa stringa nel formato DateTime universale ISO 8601 `yyyy-MM-ddTHH:mm:ss.fffffffZ` .
+  - **numberOfDaysToAdd**: [Required] numero intero di giorni da aggiungere.
 - `field(fieldName)`
   - **fieldName**: [Obbligatorio] stringa - Nome del [campo](#fields) da recuperare
-  - Restituisce il valore di tale campo dalla risorsa valutata dalla condizione If
+  - Restituisce il valore di tale campo dalla risorsa valutata dalla condizione If.
   - `field` viene principalmente usata con **AuditIfNotExists** e **DeployIfNotExists** per fare riferimento ai campi sulla risorsa che viene valutata. Altre informazioni sono disponibili nell'esempio [DeployIfNotExists](effects.md#deployifnotexists-example).
 - `requestContext().apiVersion`
   - Restituisce la versione dell'API della richiesta che ha attivato la valutazione del criterio, ad esempio: `2019-09-01`.

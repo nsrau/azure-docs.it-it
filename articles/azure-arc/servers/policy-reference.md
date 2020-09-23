@@ -1,23 +1,23 @@
 ---
 title: Definizioni di criteri predefiniti per i server con abilitazione di Azure Arc
 description: Elenco di definizioni di criteri predefiniti di Criteri di Azure per i server con abilitazione di Azure Arc (anteprima). Queste definizioni di criteri predefinite forniscono approcci comuni alla gestione delle risorse di Azure.
-ms.date: 09/10/2020
+ms.date: 09/16/2020
 ms.topic: reference
 ms.custom: subject-policy-reference
-ms.openlocfilehash: 15e7ab3e8b6f355f112aafe20afdea80f958fda8
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 792532c407687a84a4e90c34fd7d1c69ba0fcedd
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90007231"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967366"
 ---
-# <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-servers-preview"></a>Definizioni predefinite di Criteri di Azure per i server con abilitazione di Azure Arc (anteprima)
+# <a name="azure-policy-built-in-definitions-for-azure-arc-enabled-servers"></a>Definizioni predefinite di criteri di Azure per i server abilitati per Azure Arc
 
-Questa pagina include un indice delle definizioni di criteri predefiniti di [Criteri di Azure](../../governance/policy/overview.md) per i server con abilitazione di Azure Arc (anteprima). Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../../governance/policy/samples/built-in-policies.md).
+Questa pagina è un indice delle definizioni dei criteri predefiniti di [criteri di Azure](../../governance/policy/overview.md) per i server abilitati per Azure Arc. Per informazioni su altre definizioni predefinite di Criteri di Azure per altri servizi, vedere [Definizioni di criteri predefiniti di Criteri di Azure](../../governance/policy/samples/built-in-policies.md).
 
 Il nome di ogni definizione di criterio predefinito punta alla definizione del criterio nel portale di Azure. Usare il collegamento nella colonna **Versione** per visualizzare l'origine nel [repository GitHub di Criteri di Azure](https://github.com/Azure/azure-policy).
 
-## <a name="azure-arc-enabled-servers-preview"></a>Server con abilitazione per Azure Arc (anteprima)
+## <a name="azure-arc-enabled-servers"></a>Server con abilitazione di Azure Arc
 
 [!INCLUDE [azure-policy-reference-rp-arcserver](../../../includes/policy/reference/byrp/microsoft.hybridcompute.md)]
 

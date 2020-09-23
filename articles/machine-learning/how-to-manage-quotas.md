@@ -11,15 +11,15 @@ ms.author: nigup
 ms.date: 05/08/2020
 ms.topic: conceptual
 ms.custom: troubleshooting,contperfq4
-ms.openlocfilehash: a9ae3d2789758d03405fb5be82181c799d1ea692
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: c86397b20a95f045ac5edfeb2cfa4833982df990
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141126"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897417"
 ---
 # <a name="manage--increase-quotas-for-resources-with-azure-machine-learning"></a>Gestire e aumentare le quote per le risorse con Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In questo articolo vengono illustrati i limiti preconfigurati per le risorse di Azure per la sottoscrizione di [Azure Machine Learning](overview-what-is-azure-ml.md) e le quote che è possibile gestire. Questi limiti vengono applicati per evitare lo sforamento del budget a causa di illeciti e per rispettare i vincoli di capacità di Azure. 
 
@@ -99,8 +99,6 @@ Per impostare le quote a livello di area di lavoro, passare a qualsiasi area di 
 
 
 > [!NOTE]
-> Questa è una funzionalità esclusiva di Enterprise Edition. Se sono presenti [un'area di lavoro Basic Edition e un'area di lavoro Enterprise Edition](overview-what-is-azure-ml.md#sku) nella sottoscrizione, è possibile usare questa impostazione per impostare solo le quote nelle aree di lavoro Enterprise. Le aree di lavoro Basic continueranno ad avere la quota a livello di sottoscrizione del comportamento predefinito.
->
 > È necessario avere le autorizzazioni a livello di sottoscrizione per impostare la quota a livello di area di lavoro. Questa impostazione viene applicata in modo che i proprietari delle singole aree di lavoro non modifichino o aumentino le quote e inizino a usare le risorse riservate a un'altra area di lavoro. Per questa ragione, è consigliabile che un amministratore della sottoscrizione esegua l'allocazione e la distribuzione delle quote tra le aree di lavoro.
 
 

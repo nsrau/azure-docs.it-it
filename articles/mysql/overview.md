@@ -1,77 +1,68 @@
 ---
 title: Panoramica - Database di Azure per MySQL
 description: Informazioni sul servizio Database di Azure per MySQL, un servizio di database relazionale in Microsoft Cloud basato su MySQL Community Edition.
-author: ajlam
+author: savjani
 ms.service: mysql
-ms.author: andrela
+ms.author: pariks
 ms.custom: mvc
 ms.topic: overview
 ms.date: 3/18/2020
-ms.openlocfilehash: 37bc99d9f83f185a5372fd45634351987b85e20b
-ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+ms.openlocfilehash: 2a44896ff7cabb9e44c02be9f3dba201298d4794
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88763661"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903935"
 ---
 # <a name="what-is-azure-database-for-mysql"></a>Database di Azure per MySQL:
 
 Database di Azure per MySQL è un servizio di database relazionale in Microsoft Cloud basato sul motore di database [MySQL Community Edition](https://www.mysql.com/products/community/), versioni 5.6, 5.7 e 8.0, disponibile con licenza GPLv2. Database di Azure per MySQL offre:
 
-- Disponibilità elevata integrata senza costi aggiuntivi.
+- Disponibilità elevata predefinita.
+- Protezione dati con backup automatici e ripristino temporizzato per un massimo di 35 giorni.
+- Manutenzione automatica per hardware, sistema operativo e motore di database sottostanti per un servizio sempre sicuro e aggiornato.
 - Prestazioni prevedibili, con piano tariffario tutto incluso e pagamento in base al consumo.
-- Ridimensionamento in base alle esigenze in pochi secondi.
-- Protezione dei dati sensibili inattivi e in movimento.
-- Backup automatici e ripristino temporizzato per un massimo di 35 giorni.
-- Sicurezza e conformità di livello aziendale.
+- Scalabilità elastica in pochi secondi.
+- Controlli di ottimizzazione dei costi con la possibilità di arrestare/avviare il server. 
+- Sicurezza di livello aziendale e conformità leader di settore per proteggere i dati sensibili inattivi e in transito.
+- Monitoraggio e automazione per semplificare la gestione e il monitoraggio per distribuzioni su larga scala.
+- Esperienza di supporto leader di settore.
 
 Queste funzionalità richiedono pochissima amministrazione e sono disponibili senza costi aggiuntivi. Consentono di concentrarsi sullo sviluppo rapido di app e di accelerare i tempi di mercato, piuttosto che allocare tempo e risorse preziose alla gestione delle macchine virtuali e dell'infrastruttura. È anche possibile continuare a sviluppare l'applicazione con la piattaforma e gli strumenti open source scelti e renderla disponibile con la rapidità e l'efficienza richiesti dall'azienda senza bisogno di acquisire nuove competenze.
 
-![Diagramma concettuale di Azure Database for MySQL](media/overview/1-azure-db-for-mysql-conceptual-diagram.png)
+:::image type="content" source="media/overview/1-azure-db-for-mysql-conceptual-diagram.png" alt-text="Diagramma concettuale di Azure Database for MySQL":::
 
-Questo articolo è un'introduzione dei concetti fondamentali su Database di Azure per MySQL e delle funzionalità correlate a prestazioni, scalabilità e gestibilità, con collegamenti per esplorare i dettagli. Per iniziare, vedere queste guide introduttive:
+## <a name="deployment-models"></a>Modelli di distribuzione
 
-- [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) (Creare un database di Azure per il server MySQL usando il portale di Azure)
-- [Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure](quickstart-create-mysql-server-database-using-azure-cli.md)
+Database di Azure per MySQL basato su MySQL Community Edition è disponibile in due modalità di distribuzione:
+- Server unico 
+- Server flessibile (anteprima)
+  
+### <a name="azure-database-for-mysql---single-server"></a>Database di Azure per MySQL - Server singolo
 
-Per un set di esempi dell'interfaccia della riga di comando di Azure, vedere:
+Il server singolo di Database di Azure per MySQL è un servizio di database completamente gestito con requisiti minimi per le personalizzazioni di database. La piattaforma server singolo è progettata per gestire la maggior parte delle funzioni di gestione di database, ad esempio l'applicazione di patch, i backup, la disponibilità elevata e la sicurezza con configurazione e controllo minimi dell'utente. L'architettura è ottimizzata per la disponibilità elevata predefinita con disponibilità del 99,99% in una singola zona di disponibilità. Supporta la versione community di MySQL 5.6, 5.7 e 8.0. Il servizio è attualmente disponibile a livello generale in un'ampia gamma di [aree di Azure](https://azure.microsoft.com/global-infrastructure/services/).
 
-- [Esempi dell'interfaccia della riga di comando di Azure per il database di Azure per MySQL](sample-scripts-azure-cli.md)
+L'opzione di distribuzione Server singolo offre tre piani tariffari: piani Basic, Per utilizzo generico e Con ottimizzazione per la memoria. Ognuno offre diverse funzionalità in termini di risorse per il supporto dei carichi di lavoro dei database. È possibile compilare la prima app in un database di piccole dimensioni con un costo mensile minimo, quindi regolare la scalabilità in base alle esigenze della soluzione. La scalabilità dinamica consente al database di rispondere in modo trasparente ai requisiti delle risorse soggetti a rapidi cambiamenti. Si paga solo per le risorse necessarie, quando sono necessarie. Per informazioni dettagliate, vedere [Piani tariffari](concepts-pricing-tiers.md).
 
-## <a name="automated-patching"></a>Applicazione automatica delle patch
-Il servizio esegue l'applicazione automatica di patch dell'hardware, del sistema operativo e del motore di database sottostanti. L'applicazione di patch include aggiornamenti di sicurezza e software per l'hardware, il sistema operativo e il motore di database sottostanti. Per il motore di MySQL gli aggiornamenti della versione secondaria sono automatici e sono inclusi come parte della release di applicazione delle patch. Quando la community rilascia una versione secondaria, tale versione viene integrata automaticamente come parte del ciclo di test per il servizio. Il test della versione secondaria viene eseguito in alcuni carichi di lavoro canonici per MySQL. Il rilascio di versioni secondarie del motore di MySQL viene valutato a livello di affidabilità (nessun arresto anomalo del sistema), disponibilità, sicurezza e prestazioni. Non tutte le versioni secondarie vengono rilasciate in produzione nel servizio. Le versioni vengono valutate in base alla criticità delle correzioni di bug e al nuovo valore incrementale. Questo approccio consente di ottenere il giusto equilibrio tra nuovo valore incrementale e riduzione al minimo delle variabili del sistema per finalità di stabilità. Non è richiesto alcun intervento da parte dell'utente o alcuna impostazione di configurazione per l'applicazione di patch. La frequenza dell'applicazione delle patch è gestita dal servizio in base alla criticità del payload. Il servizio segue in genere la pianificazione di rilascio mensile come parte del processo continuo di integrazione e rilascio. Gli utenti possono sottoscrivere la [notifica per la manutenzione pianificata](concepts-monitoring.md) per ricevere una notifica relativa alla manutenzione imminente 72 ore prima dell'evento.
+I server singoli sono ideali per applicazioni native per il cloud progettate per gestire l'applicazione automatizzata di patch senza la necessità di un controllo granulare sulla pianificazione dell'applicazione di patch e sulle impostazioni di configurazione di MySQL personalizzate. 
 
-## <a name="adjust-performance-and-scale-within-seconds"></a>Regolare prestazioni e scalabilità in pochi secondi
-Database di Azure per MySQL offre vari livelli di servizio: piani Basic, Per utilizzo generico e Con ottimizzazione per la memoria. Ogni livello offre diverse prestazioni e capacità per supportare i carichi di lavoro del database, da quelli leggeri a quelli pesanti. È possibile compilare la prima app in un database di piccole dimensioni con un costo mensile minimo, quindi regolare la scalabilità in base alle esigenze della soluzione. La scalabilità dinamica consente al database di rispondere in modo trasparente ai requisiti delle risorse soggetti a rapidi cambiamenti. Si paga solo per le risorse necessarie, quando sono necessarie. Per informazioni dettagliate, vedere  [Piani tariffari](concepts-service-tiers.md).
+Per una panoramica dettagliata della modalità di distribuzione server singolo, vedere la [panoramica del server singolo](single-server-overview.md).
 
-## <a name="monitoring-and-alerting"></a>Monitoraggio e avviso
-Per decidere quando aumentare e ridurre le prestazioni, si usano le funzionalità predefinite di monitoraggio delle prestazioni e avviso, combinate con le classificazioni delle prestazioni basate sui vCore. Con questi strumenti, è possibile valutare rapidamente l'impatto dell'aumento o della riduzione dei vCore in base alle esigenze attuali o previste in termini di prestazioni. Per informazioni dettagliate, vedere [Avvisi](howto-alert-on-metric.md).
+### <a name="azure-database-for-mysql---flexible-server-preview"></a>Database di Azure per MySQL - Server flessibile (anteprima)
 
-## <a name="keep-your-app-and-business-running"></a>Mantenere l'applicazione e l’esecuzione dell’azienda
-Il Contratto di servizio per la disponibilità del 99,99% leader del settore di Azure, fornito da una rete globale di datacenter gestiti da Microsoft, consente di mantenere l'applicazione in esecuzione 24 ore su 24, 7 giorni su 7. Con ogni database di Azure per il server MySQL, è possibile sfruttare i vantaggi delle funzionalità di sicurezza, tolleranza di errore e protezione dei dati predefinite che sarebbe altrimenti necessario acquistare o progettare, creare e gestire. Con Database di Azure per MySQL, è possibile usare un ripristino temporizzato per ripristinare uno stato precedente di un server, addirittura fino a 35 giorni prima.
+Il server flessibile di Database di Azure per MySQL è un servizio di database completamente gestito progettato per offrire un controllo più granulare e una maggiore flessibilità rispetto alle funzioni di gestione e alle impostazioni di configurazione del database. In generale, il servizio offre maggiori flessibilità e personalizzazioni in base ai requisiti dell'utente. L'architettura del server flessibile consente agli utenti di scegliere la disponibilità elevata all'interno di una singola zona di disponibilità e tra più zone di disponibilità. I server flessibili forniscono controlli di ottimizzazione dei costi migliori con la possibilità di arrestare/avviare il server e il livello di calcolo della possibilità di burst, una soluzione ideale per i carichi di lavoro che non necessitano di capacità di calcolo completa in modo continuo. Il servizio supporta attualmente la versione community di MySQL 5.7 con i piani per aggiungere presto le versioni più recenti. Il servizio è attualmente disponibile in anteprima pubblica in un'ampia gamma di [aree di Azure](https://azure.microsoft.com/global-infrastructure/services/).
 
-## <a name="secure-your-data"></a>Protezione dei dati
-I servizi di database di Azure vantano una tradizione di sicurezza dei dati rispettata anche da Database di Azure per MySQL con funzionalità che limitano l'accesso, proteggono i dati inattivi e in transito e consentono di monitorare l'attività. Visitare il [Centro protezione di Azure](https://www.microsoft.com/trustcenter/security) per informazioni sulla sicurezza della piattaforma Azure. Per altre informazioni sulle funzionalità di sicurezza di Database di Azure per MySQL, vedere la [panoramica sulla sicurezza](concepts-security.md).
+I server flessibili sono ideali per 
+- Sviluppi di applicazioni che richiedono un controllo e personalizzazioni migliori.
+- Disponibilità elevata di ridondanza della zona
+- Finestre di manutenzione gestite
 
-## <a name="contacts"></a>Contatti
-Per eventuali domande o suggerimenti sull'uso di Database di Azure per MySQL, inviare un messaggio di posta elettronica al team di Database di Azure per MySQL ([@Ask Azure DB per MySQL](mailto:AskAzureDBforMySQL@service.microsoft.com)). Questo indirizzo di posta elettronica non è un alias del supporto tecnico.
-
-Inoltre, prendere in considerazione i seguenti punti di contatto in base alle specifiche esigenze:
-
-- Per contattare il supporto di Azure, [creare un ticket dal portale di Azure](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
-- Per risolvere un problema relativo all'account, inviare una [richiesta di supporto](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest) nel portale di Azure.
-- Per fornire commenti e suggerimenti o richiedere nuove funzionalità, creare una richiesta tramite [UserVoice](https://feedback.azure.com/forums/597982-azure-database-for-mysql).
+Per una panoramica dettagliata della modalità di distribuzione server flessibile, vedere la [panoramica del server flessibile](flexible-server/overview.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
-Dopo avere letto l'introduzione a Database di Azure per MySQL e avere capito di cosa si tratta, è possibile:
 
-- Vedere la pagina relativa ai prezzi per confrontare i costi e usare i calcolatori. [Prezzi](https://azure.microsoft.com/pricing/details/mysql/)
-- Per iniziare, creare il primo server. [Create an Azure Database for MySQL server using Azure portal](quickstart-create-mysql-server-database-using-azure-portal.md) (Creare un database di Azure per il server MySQL usando il portale di Azure)
-- Creare la prima app usando il linguaggio preferito:
-  - [Python](./connect-python.md)
-  - [Node.JS](./connect-nodejs.md)
-  - [Java](./connect-java.md)
-  - [Ruby](./connect-ruby.md)
-  - [PHP](./connect-php.md)
-  - [.NET (C#)](./connect-csharp.md)
-  - [Go](./connect-go.md)
+Ottenere altre informazioni sulle due modalità di distribuzione per Database di Azure per MySQL e scegliere le opzioni appropriate in base alle proprie esigenze.
+
+- [Server singolo](single-server/index.yml)
+- [Server flessibile](flexible-server/index.yml)
+- [Scegliere l'opzione di distribuzione MySQL appropriata per il carico di lavoro](select-right-deployment-type.md)

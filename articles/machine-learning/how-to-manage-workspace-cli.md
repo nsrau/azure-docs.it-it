@@ -10,15 +10,15 @@ author: Blackmist
 ms.date: 07/28/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: cd9b891212010d7e61c4a4eb64d8bf0660bbd69a
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: cd9af35e5b616f3f4d72405078782e1e88414c98
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661638"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897352"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Creare un'area di lavoro per Azure Machine Learning con l'interfaccia della riga di comando di Azure
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Questo articolo contiene informazioni su come creare un’area di lavoro di Azure Machine Learning usando l’interfaccia della riga di comando di Azure. L’interfaccia della riga di comando di Azure fornisce i comandi per la gestione delle risorse di Azure. L'estensione Machine Learning dell’interfaccia della riga di comando fornisce i comandi per l'uso delle risorse di Azure Machine Learning.
 
@@ -109,9 +109,6 @@ Per altre informazioni sull'uso dei gruppi di risorse, vedere [az group](https:/
 
 Per creare una nuova area di lavoro in cui i __servizi vengono creati automaticamente__, utilizzare il comando seguente:
 
-> [!TIP]
-> I comandi in questa sezione consentono di creare un'area di lavoro edizione Basic. Per creare un'area di lavoro aziendale, usare l'opzione `--sku enterprise` con il comando `az ml workspace create`. Per altre informazioni sulle edizioni di Azure Machine Learning, vedere [Informazioni su Azure Machine Learning](overview-what-is-azure-ml.md#sku).
-
 ```azurecli-interactive
 az ml workspace create -w <workspace-name> -g <resource-group-name>
 ```
@@ -161,7 +158,7 @@ Per ulteriori informazioni sull'utilizzo di un endpoint privato e di una rete vi
 
 Per impostazione predefinita, le metriche e i metadati per l'area di lavoro vengono archiviati in un'istanza di Azure Cosmos DB gestita da Microsoft. Questi dati vengono crittografati tramite chiavi gestite da Microsoft. 
 
-Se si sta creando una versione __Enterprise__ di Azure Machine Learning, è possibile usare la specifica chiave. In questo modo viene creata l'istanza Azure Cosmos DB che archivia le metriche e i metadati nella sottoscrizione di Azure. Usare il `--cmk-keyvault` parametro per specificare il Azure Key Vault che contiene la chiave e `--resource-cmk-uri` per specificare l'URL della chiave all'interno dell'insieme di credenziali.
+Invece di usare la chiave gestita da Microsoft, è possibile usare la chiave specifica. In questo modo viene creata l'istanza Azure Cosmos DB che archivia le metriche e i metadati nella sottoscrizione di Azure. Usare il `--cmk-keyvault` parametro per specificare il Azure Key Vault che contiene la chiave e `--resource-cmk-uri` per specificare l'URL della chiave all'interno dell'insieme di credenziali.
 
 > [!IMPORTANT]
 > Prima di usare `--cmk-keyvault` i `--resource-cmk-uri` parametri e, è prima necessario eseguire le azioni seguenti:

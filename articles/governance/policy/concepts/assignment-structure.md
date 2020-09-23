@@ -1,14 +1,14 @@
 ---
 title: Dettagli della struttura di assegnazione dei criteri
 description: Descrive la definizione di assegnazione dei criteri usata da criteri di Azure per mettere in relazione le definizioni dei criteri e i parametri alle risorse per la valutazione.
-ms.date: 08/17/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: 969274d72724c8d0a8f10f86f614fe2c50d066f7
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: e930e9ddcc04846a35c8db7784a349007c71580b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88520714"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904079"
 ---
 # <a name="azure-policy-assignment-structure"></a>Struttura di assegnazione di Criteri di Azure
 
@@ -61,7 +61,7 @@ La proprietà **enforcementMode** fornisce ai clienti la possibilità di testare
 
 Questa proprietà presenta i valori seguenti:
 
-|Mode |Valore JSON |Type |Correzione manuale |Voce del log attività |Descrizione |
+|Modalità |Valore JSON |Tipo |Correzione manuale |Voce del log attività |Descrizione |
 |-|-|-|-|-|-|
 |Attivato |Predefinito |string |Sì |Sì |L'effetto dei criteri viene applicato durante la creazione o l'aggiornamento delle risorse. |
 |Disabled |DoNotEnforce |string |Sì |No | L'effetto dei criteri non viene applicato durante la creazione o l'aggiornamento delle risorse. |
@@ -70,7 +70,10 @@ Se **enforcementMode** non è specificato nella definizione di un criterio o di 
 
 ## <a name="excluded-scopes"></a>Ambiti esclusi
 
-L' **ambito** dell'assegnazione include tutti i contenitori di risorse figlio e le risorse figlio. Se a un contenitore di risorse figlio o a una risorsa figlio non deve essere applicata la definizione, ciascuna di esse può essere esclusa dalla valutazione impostando **notScopes**. Questa proprietà è una matrice che consente di escludere uno o più contenitori di risorse o risorse dalla valutazione. **notScopes** può essere aggiunto o aggiornato dopo la creazione dell'assegnazione iniziale.
+L' **ambito** dell'assegnazione include tutti i contenitori di risorse figlio e le risorse figlio. Se a un contenitore di risorse figlio o a una risorsa figlio non deve essere applicata la definizione, ciascuna di esse può essere _esclusa_ dalla valutazione impostando **notScopes**. Questa proprietà è una matrice che consente di escludere uno o più contenitori di risorse o risorse dalla valutazione. **notScopes** può essere aggiunto o aggiornato dopo la creazione dell'assegnazione iniziale.
+
+> [!NOTE]
+> Una risorsa _esclusa_ è diversa da una risorsa _esentata_ . Per altre informazioni, vedere [comprendere l'ambito nei criteri di Azure](./scope.md).
 
 ## <a name="policy-definition-id"></a>ID definizione dei criteri
 
