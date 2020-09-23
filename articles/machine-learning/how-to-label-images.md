@@ -8,12 +8,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: a71b4096e791221057fdcc5d14351ceccab720fb
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: e34fa4af08be898785acbc6f00aa735c1412ec47
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87307200"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897564"
 ---
 # <a name="tag-images-in-a-labeling-project"></a>Aggiungere tag alle immagini in un progetto di etichettatura 
 
@@ -111,7 +111,7 @@ Se il progetto Ã¨ di tipo "Identificazione oggetto (rettangolo di selezione)", Ã
 1. Selezionare lo strumento **Rectangular box** (casella rettangolare) ![Rectangular box tool](./media/how-to-label-images/rectangular-box-tool.png) (Strumento Casella rettangolare) o premere "R".
 3. Fare clic e trascinare in diagonale nell'area di destinazione per creare un rettangolo di selezione approssimativo. Per modificare il rettangolo di selezione, trascinare i bordi o gli angoli.
 
-![Screenshot che mostra la creazione di un rettangolo di selezione di base.](./media/how-to-label-images/bounding-box-sequence.png)
+![Creazione del rettangolo di selezione](./media/how-to-label-images/bounding-box-sequence.png)
 
 Per eliminare un rettangolo di selezione, fare clic sulla destinazione a forma di X visualizzata accanto ad esso dopo la creazione.
 

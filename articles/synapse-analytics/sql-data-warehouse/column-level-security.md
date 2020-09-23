@@ -12,12 +12,12 @@ ms.author: jrasnick
 ms.reviewer: igorstan, carlrab
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: a4da74c01f732f3a62d29847d5f61934dede9778
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1364da4849a07100ac28644a51409837012f93cc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85208094"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986212"
 ---
 # <a name="column-level-security"></a>Sicurezza a livello di colonna
 
@@ -28,9 +28,9 @@ Da quando questo video è stato pubblicato [Sicurezza a livello di riga](/sql/re
 
 La sicurezza a livello di colonna semplifica la progettazione e la codifica della sicurezza nell'applicazione, consentendo di limitare l'accesso alle colonne per proteggere i dati sensibili. Assicurando, ad esempio, che utenti specifici possano accedere solo determinate colonne di una tabella relative al loro reparto. La logica di restrizione dell'accesso si trova sul livello del database e non su un altro livello applicazione lontano dai dati. Il database applica le restrizioni di accesso a ogni tentativo di accesso ai dati da qualsiasi livello. Questa restrizione rende la sicurezza più affidabile e solida, grazie alla riduzione della superficie di attacco del sistema di sicurezza generale. La sicurezza a livello di colonna elimina anche l'esigenza di introduzione di visualizzazioni per filtrare le colonne per imporre limitazioni di accesso agli utenti.
 
-È possibile implementare Sicurezza a livello di colonna con l'istruzione T-SQL [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Con questo meccanismo sono supportate sia l'autenticazione SQL che quella di Azure Active Directory (AAD).
+È possibile implementare Sicurezza a livello di colonna con l'istruzione T-SQL [GRANT](/sql/t-sql/statements/grant-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest). Con questo meccanismo, sono supportate sia l'autenticazione SQL che la Azure Active Directory (Azure AD).
 
-![cls](./media/column-level-security/cls.png)
+![Il diagramma mostra una tabella schematica con la prima colonna a capo di un lucchetto chiuso e le relative celle un colore arancione mentre le altre colonne sono celle bianche.](./media/column-level-security/cls.png)
 
 ## <a name="syntax"></a>Sintassi
 

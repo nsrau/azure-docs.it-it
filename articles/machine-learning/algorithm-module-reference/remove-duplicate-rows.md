@@ -9,22 +9,22 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 490d3305abcbcd906a0f727d736db8cab7e4287e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: bf35d08128aa8a3e8f545ed7184866694219f2cb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456022"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905216"
 ---
 # <a name="remove-duplicate-rows-module"></a>Rimuovi modulo righe duplicate
 
-Questo articolo descrive un modulo disponibile nella finestra di progettazione di Azure Machine Learning (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Usare questo modulo per rimuovere potenziali duplicati da un set di dati.
 
 Si supponga, ad esempio, che i dati abbiano un aspetto simile al seguente e che rappresenti più record per i pazienti. 
 
-| PatientID | Iniziali| Sesso|Age|Ammessi|
+| PatientID | Iniziali| Sesso|Età|Ammessi|
 |----|----|----|----|----|
 |1|F.M.| M| 53| Gen|
 |2| F.A.M.| M| 53| Gen|

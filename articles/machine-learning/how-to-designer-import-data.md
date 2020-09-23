@@ -1,7 +1,7 @@
 ---
-title: Importa i dati nella finestra di progettazione (anteprima)
+title: Importare dati nella finestra di progettazione
 titleSuffix: Azure Machine Learning
-description: Informazioni su come importare dati in Azure Machine Learning Designer (anteprima) da varie origini dati.
+description: Informazioni su come importare dati in Azure Machine Learning Designer da varie origini dati.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,14 +10,14 @@ ms.author: keli19
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: a7d0a1604b3bea1f11532639dbbc5102f4a243a6
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: 15fca48327c46480546764be1b2ab40c1635e874
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006985"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985601"
 ---
-# <a name="import-data-into-azure-machine-learning-designer-preview"></a>Importare dati in Azure Machine Learning Designer (anteprima)
+# <a name="import-data-into-azure-machine-learning-designer"></a>Importare dati in Azure Machine Learning Designer
 
 In questo articolo si spiega come importare dati nella finestra di progettazione per creare soluzioni personalizzate. È possibile importare i dati nella finestra di progettazione in due modi: 
 
@@ -32,7 +32,7 @@ Consigliamo di usare i [set di dati](concept-data.md#datasets) per importare i d
 
 ### <a name="register-a-dataset"></a>Registrazione di un set di dati
 
-È possibile registrare i set di dati esistenti [a livello di codice con l'SDK](how-to-create-register-datasets.md#datasets-sdk) o [visivamente in Azure Machine Learning Studio](how-to-create-register-datasets.md#datasets-ui).
+È possibile registrare i set di dati esistenti [a livello di codice con l'SDK](how-to-create-register-datasets.md#datasets-sdk) o [visivamente in Azure Machine Learning Studio](how-to-connect-data-ui.md#create-datasets).
 
 È anche possibile registrare l'output di qualsiasi modulo della finestra di progettazione come set di dati.
 
@@ -68,7 +68,7 @@ Sebbene sia consigliabile usare i set di dati per importare i dati, è anche pos
 Per informazioni dettagliate su come usare il modulo Import Data, vedere la [pagina di riferimento di Importa dati](algorithm-module-reference/import-data.md).
 
 > [!NOTE]
-> Se nel set di dati sono presenti troppe colonne, potrebbe verificarsi il seguente errore: "Convalida non riuscita a causa della limitazione delle dimensioni". Per evitare che si verifichi, [registrare il set di dati nell'interfaccia Set di dati](how-to-create-register-datasets.md#datasets-ui).
+> Se nel set di dati sono presenti troppe colonne, potrebbe verificarsi il seguente errore: "Convalida non riuscita a causa della limitazione delle dimensioni". Per evitare che si verifichi, [registrare il set di dati nell'interfaccia Set di dati](how-to-connect-data-ui.md#create-datasets).
 
 ## <a name="supported-sources"></a>Origini supportate
 
@@ -107,4 +107,4 @@ Se l'area di lavoro si trova in una rete virtuale, è necessario eseguire passag
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Nozioni di base sulla finestra di progettazione con [Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione](tutorial-designer-automobile-price-train-score.md).
+Scopri i concetti fondamentali della finestra di progettazione con questa [esercitazione: stimare il prezzo dell'automobile con la finestra di progettazione](tutorial-designer-automobile-price-train-score.md).

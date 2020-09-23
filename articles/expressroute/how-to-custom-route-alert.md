@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: how-to
 ms.date: 05/29/2020
 ms.author: duau
-ms.openlocfilehash: f29f43234f1541abeb448e722d0b72ef7c0221c9
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 4a116d06f5feb3fe402e7f64b9bccd5531b210c1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401725"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986572"
 ---
 # <a name="configure-custom-alerts-to-monitor-advertised-routes"></a>Configurare avvisi personalizzati per il monitoraggio di route annunciate
 
@@ -235,7 +235,7 @@ Write-Output  $jsonResults
 
 Quando si esegue lo script di PowerShell, viene raccolto un elenco di valori:
  
-* Gruppo di risorse
+* Resource group
 
 * Nome del gateway ExpressRoute
 
@@ -299,7 +299,7 @@ Nel trigger di pianificazione della ricorrenza è possibile impostare il fuso or
 
 Al termine della configurazione del flusso di lavoro, è possibile verificare la coerenza della frequenza di ricorrenza eseguendo il flusso di lavoro alcune volte, quindi verificando il risultato nella **Cronologia esecuzioni**.
 
-:::image type="content" source="./media/custom-route-alert-portal/recurrence.png" alt-text="Ricorrenza" lightbox="./media/custom-route-alert-portal/recurrence-expand.png":::
+:::image type="content" source="./media/custom-route-alert-portal/recurrence.png" alt-text="Screenshot che mostra l'intervallo di ricorrenza e i valori di frequenza." lightbox="./media/custom-route-alert-portal/recurrence-expand.png":::
 
 ### <a name="3-create-a-job"></a><a name="job"></a>3. creare un processo
 
@@ -320,7 +320,7 @@ Un'app per la logica accede ad altre app, servizi e la piattaforma, sebbene i co
 
 5. Nella pagina **Crea processo** , l'entità servizio deve avere il ruolo "lettore" nel gruppo di **risorse** che ospita l'account di automazione e l'operatore processo di automazione nell' **account di automazione**. Inoltre, verificare di aver aggiunto il **nome Runbook** come nuovo parametro.
 
-   :::image type="content" source="./media/custom-route-alert-portal/roles.png" alt-text="Ruoli" lightbox="./media/custom-route-alert-portal/roles-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/roles.png" alt-text="Screenshot mostra i valori di Crea processo in ricorrenza, in cui è possibile verificare il nome Runbook." lightbox="./media/custom-route-alert-portal/roles-expand.png":::
 
 ### <a name="4-get-the-job-output"></a><a name="output"></a>4. ottenere l'output del processo
 
@@ -343,7 +343,7 @@ Le informazioni contenute nell'output dell'azione ' Crea processo di automazione
 
 3. Fare clic all'interno della casella **contenuto** . Quando viene visualizzato l'elenco contenuto dinamico, selezionare **contenuto**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/content.png" alt-text="Contenuto" lightbox="./media/custom-route-alert-portal/content-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/content.png" alt-text="Screenshot mostra la finestra di dialogo Analizza JSON con contenuto selezionato." lightbox="./media/custom-route-alert-portal/content-expand.png":::
 
 4. Per l'analisi di un file JSON è necessario uno schema. Lo schema può essere generato usando l'output del Runbook di automazione. Aprire una nuova sessione del Web browser, eseguire il Runbook di automazione e acquisire l'output. Tornare all'azione **analizza operazioni dati JSON in app** per la logica. Nella parte inferiore della pagina selezionare **USA payload di esempio per generare lo schema**.
 
@@ -363,7 +363,7 @@ In questo passaggio del flusso di lavoro viene creata una condizione per inviare
 
 1. Nell' **azione Ottieni output processo**selezionare **nuovo passaggio**. Nella casella di ricerca trovare e selezionare le **variabili**.
 
-   :::image type="content" source="./media/custom-route-alert-portal/variables.png" alt-text="Variabili":::
+   :::image type="content" source="./media/custom-route-alert-portal/variables.png" alt-text="Screenshot mostra la finestra di dialogo scegliere un'azione con variabile nella casella di ricerca e variabili selezionate.":::
 
 2. Nell'elenco **azioni** selezionare l'azione **Inizializza variabile** .
 
@@ -371,7 +371,7 @@ In questo passaggio del flusso di lavoro viene creata una condizione per inviare
 
 3. Specificare il nome della variabile. Per **tipo**selezionare **stringa**. Il **valore** della variabile verrà assegnato in un secondo momento nel flusso di lavoro.
 
-   :::image type="content" source="./media/custom-route-alert-portal/string.png" alt-text="Stringa" lightbox="./media/custom-route-alert-portal/string-expand.png":::
+   :::image type="content" source="./media/custom-route-alert-portal/string.png" alt-text="Screenshot mostra l'analisi JSON associata alla variabile Initialize, in cui è possibile immettere un nome, un tipo e un valore." lightbox="./media/custom-route-alert-portal/string-expand.png":::
 
 ### <a name="7-create-a-for-each-action"></a><a name="cycles-json"></a>7. creare un'azione "for each"
 
@@ -379,7 +379,7 @@ Una volta analizzato il codice JSON, l'azione **analizza operazioni dati JSON** 
 
 1. In **Inizializza variabile**selezionare **Aggiungi un'azione**. Nella casella di ricerca digitare "for each" come filtro.
 
-   :::image type="content" source="./media/custom-route-alert-portal/control.png" alt-text="Controllo":::
+   :::image type="content" source="./media/custom-route-alert-portal/control.png" alt-text="Screenshot mostra la finestra di dialogo scegliere un'azione con per ogni nella casella di ricerca e il controllo selezionato.":::
 
 2. Nell'elenco **azioni** selezionare l'azione **per ogni controllo**.
 
@@ -387,7 +387,7 @@ Una volta analizzato il codice JSON, l'azione **analizza operazioni dati JSON** 
 
 3. Fare clic nella casella di testo **selezionare un output dai passaggi precedenti** . Quando viene visualizzato l'elenco di **contenuto dinamico** , selezionare il **corpo**, che è l'output del JSON analizzato.
 
-   :::image type="content" source="./media/custom-route-alert-portal/body.png" alt-text="Corpo":::
+   :::image type="content" source="./media/custom-route-alert-portal/body.png" alt-text="Screenshot mostra la variabile inizializzata associata a per ogni, che contiene la casella di testo selezionare un output dai passaggi precedenti.":::
 
 4. Per ogni elemento del corpo JSON, è necessario impostare una condizione. Dal gruppo azione selezionare **controllo**.
 

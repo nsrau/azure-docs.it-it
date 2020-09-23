@@ -1,6 +1,6 @@
 ---
-title: Creare un processo di streaming T-SQL in Azure SQL Edge (anteprima)
-description: Informazioni sulla creazione di processi di analisi di flusso in Azure SQL Edge (anteprima).
+title: Creare un processo di streaming T-SQL in Azure SQL Edge
+description: Informazioni sulla creazione di processi di analisi di flusso in Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,19 +9,16 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 07/27/2020
-ms.openlocfilehash: 346a59f085e766fef09d73b9e7baa03dad510148
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: f0fcdf7aab5f43a0412cd28a1c15188b19770dc6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87321718"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888094"
 ---
-# <a name="create-an-azure-stream-analytics-job-in-azure-sql-edge-preview"></a>Creare un processo di analisi di flusso di Azure in Azure SQL Edge (anteprima) 
+# <a name="create-a-data-streaming-job-in-azure-sql-edge"></a>Creare un processo di streaming dei dati in Azure SQL Edge 
 
-Questo articolo illustra come creare un processo di streaming T-SQL in Azure SQL Edge (anteprima). Si creano gli oggetti di input e output del flusso esterno, quindi si definisce la query del processo di streaming nell'ambito della creazione del processo di streaming.
-
-> [!NOTE]
-> Per abilitare la funzionalità di streaming T-SQL in Azure SQL Edge, abilitare TF 11515 come opzione di avvio oppure usare il comando [DBCC TRACEON]( https://docs.microsoft.com/sql/t-sql/database-console-commands/dbcc-traceon-transact-sql) . Per altre informazioni su come abilitare i flag di traccia usando un file MSSQL. conf, vedere [configurare usando un file MSSQL. conf](configure.md#configure-by-using-an-mssqlconf-file).
+Questo articolo illustra come creare un processo di streaming T-SQL in Azure SQL Edge. Si creano gli oggetti di input e output del flusso esterno, quindi si definisce la query del processo di streaming nell'ambito della creazione del processo di streaming.
 
 ## <a name="configure-the-external-stream-input-and-output-objects"></a>Configurare gli oggetti di input e output del flusso esterno
 
@@ -251,9 +248,9 @@ Il processo di streaming può avere uno degli Stati seguenti:
 | Elaborazione in corso | Il processo di streaming è in esecuzione ed è in corso l'elaborazione degli input. Questo stato indica uno stato integro per il processo di streaming. |
 | Degraded | Il processo di streaming è in esecuzione, ma si sono verificati alcuni errori non irreversibili durante l'elaborazione dell'input. L'esecuzione del processo di input continuerà, ma verranno eliminati gli input per cui si verificano errori. |
 | Arrestato | Il processo di streaming è stato arrestato. |
-| Non riuscito | Il processo di streaming non è riuscito. Si tratta in genere di un'indicazione di un errore irreversibile durante l'elaborazione. |
+| Operazione non riuscita | Il processo di streaming non è riuscito. Si tratta in genere di un'indicazione di un errore irreversibile durante l'elaborazione. |
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Visualizzare i metadati associati ai processi di streaming in SQL Edge di Azure (anteprima)](streaming-catalog-views.md) 
+- [Visualizzare i metadati associati ai processi di streaming in Azure SQL Edge](streaming-catalog-views.md) 
 - [Creare un flusso esterno](create-external-stream-transact-sql.md)

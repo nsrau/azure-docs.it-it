@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/24/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: 758846e2b4bfa42c9f6db0dc330c12e38a2f8c96
-ms.sourcegitcommit: 0b8320ae0d3455344ec8855b5c2d0ab3faa974a3
+ms.openlocfilehash: 25be55021e4f07b0803d8b7cc1bb48ab05a3ea3b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/30/2020
-ms.locfileid: "87432363"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889620"
 ---
 # <a name="debug-user-defined-functions-in-azure-stream-analytics"></a>Eseguire il debug di funzioni definite dall'utente in analisi di flusso di Azure 
 
@@ -47,7 +47,7 @@ La compilazione si verifica quando il progetto di analisi di flusso viene compil
 
 Poiché non è disponibile alcun supporto per il debug delle funzioni JavaScript in analisi di flusso direttamente, è possibile eseguire il debug incapsulando la funzione in un sito HTML e ottenendo l'output da tale posizione.
 
-Nell'esempio seguente viene illustrato come eseguire il debug di funzioni definite dall'utente JavaScript con alcune limitazioni in un ambiente di runtime integrato in [Visual Studio Code](quick-create-vs-code.md).
+Nell'esempio seguente viene illustrato come eseguire il debug di funzioni definite dall'utente JavaScript con alcune limitazioni in un ambiente di runtime integrato in [Visual Studio Code](quick-create-visual-studio-code.md).
 
 ### <a name="prerequisites"></a>Prerequisiti
 

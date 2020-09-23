@@ -4,8 +4,8 @@
   items:
     - name: Che cos'è Analisi di flusso?
       href: stream-analytics-introduction.md
-    - name: Modelli di soluzioni end-to-end
-      href: stream-analytics-solution-patterns.md
+    - name: Cluster di Analisi di flusso
+      href: cluster-overview.md
 - name: Avvi rapidi
   expanded: true
   items:
@@ -23,7 +23,11 @@
         - name: Visual Studio
           href: stream-analytics-quick-create-vs.md
         - name: Visual Studio Code
-          href: quick-create-vs-code.md
+          href: quick-create-visual-studio-code.md
+    - name: Creare un cluster
+      items:
+        - name: Portale di Azure
+          href: create-cluster.md
 - name: Esercitazioni
   items:
     - name: 1 - Creare/gestire un processo
@@ -42,6 +46,8 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
 - name: Concetti
   items:
+    - name: Modelli di soluzioni end-to-end
+      href: stream-analytics-solution-patterns.md
     - name: Scegliere una tecnologia di analisi del flusso
       href: streaming-technologies.md
     - name: Scegliere uno strumento di sviluppo di processi
@@ -145,6 +151,14 @@
   items:
     - name: Gestione
       items:
+        - name: Cluster
+          items:
+            - name: Creare ed eliminare endpoint privati
+              href: private-endpoints.md
+            - name: Aggiungere e rimuovere processi
+              href: manage-jobs-cluster.md
+            - name: Dimensionare il cluster
+              href: scale-cluster.md
         - name: Processi con scalabilità automatica
           href: stream-analytics-autoscale.md
         - name: Aggiornare le credenziali
@@ -234,6 +248,14 @@
           href: stream-analytics-cicd-api.md
         - name: Esportare e distribuire con Azure Resource Manager
           href: resource-manager-export.md
+    - name: Integrazione e distribuzione continua
+      items:
+        - name: Panoramica di CI/CD
+          href: cicd-overview.md
+        - name: 'Compilare, testare e distribuire con PowerShell'
+          href: cicd-tools.md
+        - name: Configurare una pipeline con Azure DevOps
+          href: set-up-cicd-pipeline.md
     - name: Visual Studio
       items:
         - name: Installare gli strumenti
@@ -260,8 +282,6 @@
           href: visual-studio-code-local-run-live-input.md
         - name: Eseguire il debug delle query con il diagramma del processo
           href: debug-locally-using-job-diagram-vs-code.md
-        - name: Configurare una pipeline di integrazione continua/recapito continuo
-          href: setup-cicd-vs-code.md
         - name: Esplorare i processi
           href: visual-studio-code-explore-jobs.md
         - name: Campi di JobConfig.json

@@ -4,12 +4,12 @@ description: Configurare i test Web in Application Insights. Ottenere avvisi se 
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 6f9c5fa691456195943f97419c1175fd5b586878
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: a5bee2da5059213e85e03d5a0e4df0ef88c26b03
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87310277"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986023"
 ---
 # <a name="monitor-the-availability-of-any-website"></a>Monitorare la disponibilità di qualsiasi sito Web
 
@@ -78,7 +78,7 @@ I risultati del test di disponibilità possono essere visualizzati con visualizz
 
 Dopo alcuni minuti, fare clic su **Aggiorna** per visualizzare i risultati del test.
 
-![visualizzazione Riga](./media/monitor-web-app-availability/availability-refresh-002.png)
+![Screenshot mostra la pagina di disponibilità con il pulsante Aggiorna evidenziato.](./media/monitor-web-app-availability/availability-refresh-002.png)
 
 La vista scatterplot Mostra esempi dei risultati del test con i dettagli del passo del test diagnostici. Il motore di test archivia i dettagli diagnostici per i test che hanno restituito errori. Per i test riusciti, vengono archiviati i dettagli diagnostici per un subset delle esecuzioni. Passare il mouse su uno dei punti verdi/rossi per visualizzare il test, il nome del test e la posizione.
 

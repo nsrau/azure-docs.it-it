@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 4/15/2020
-ms.openlocfilehash: c9da25a7d7521108195d3183f52b914e13105e8d
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 2bdfdd31e2cc9bc964abc040d0631c4760fca283
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86082285"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984880"
 ---
 # <a name="use-azure-sql-managed-instance-with-sql-server-integration-services-ssis-in-azure-data-factory"></a>Usare Istanza gestita SQL di Azure con SQL Server Integration Services (SSIS) in Azure Data Factory
 
@@ -141,7 +141,7 @@ ms.locfileid: "86082285"
 
     Il nome host dell'endpoint pubblico presenta il formato <nome_ig>.public.<zona_dns>.database.windows.net e per la connessione viene usata la porta 3342.  
 
-    ![catalog-public-endpoint](./media/how-to-use-sql-managed-instance-with-ir/catalog-public-endpoint.png)
+    ![Screenshot mostra il programma di installazione di Integration Runtime con il catalogo di create s I S selezionato e l'endpoint del server di database del catalogo immesso.](./media/how-to-use-sql-managed-instance-with-ir/catalog-public-endpoint.png)
 
 1. Selezionare l'autenticazione di Azure AD, quando applicabile.
 
@@ -157,7 +157,7 @@ ms.locfileid: "86082285"
 
     Per altre informazioni su come aggiungere Azure-SSIS IR a una rete virtuale, vedere [Aggiungere Azure-SSIS Integration Runtime a una rete virtuale](join-azure-ssis-integration-runtime-virtual-network.md).
 
-    ![join-virtual-network](./media/how-to-use-sql-managed-instance-with-ir/join-virtual-network.png)
+    ![Screenshot mostra le impostazioni avanzate di installazione di Integration Runtime, in cui è possibile selezionare una rete virtuale per l'aggiunta del runtime.](./media/how-to-use-sql-managed-instance-with-ir/join-virtual-network.png)
 
 Per altre informazioni su come creare Azure-SSIS IR, vedere [Creare un runtime di integrazione SSIS di Azure in Azure Data Factory](create-azure-ssis-integration-runtime.md#provision-an-azure-ssis-integration-runtime).
 

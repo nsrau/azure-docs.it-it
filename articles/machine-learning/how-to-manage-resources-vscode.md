@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 09/03/2020
-ms.openlocfilehash: 06fc929e0149c48aa75aa87a12e3747ef1df1bf2
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: abdd04f59ee820585d58817297d161f68bd952f0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89440119"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897397"
 ---
 # <a name="manage-azure-machine-learning-resources-with-the-vs-code-extension-preview"></a>Gestire le risorse di Azure Machine Learning con l'estensione VS Code (anteprima)
 
@@ -44,7 +44,6 @@ Per ulteriori informazioni, vedere [aree di lavoro](concept-workspace.md).
     1. Scegliere la sottoscrizione di Azure
     1. Scegliere o creare un nuovo gruppo di risorse in cui eseguire il provisioning dell'area di lavoro
     1. Selezionare la località in cui eseguire il provisioning dell'area di lavoro.
-    1. Scegliere tra *Basic* ed *Enterprise* Edition. Altre informazioni sulle diverse [edizioni di Azure Machine Learning](concept-editions.md).
 
 I metodi alternativi per creare un'area di lavoro includono:
 

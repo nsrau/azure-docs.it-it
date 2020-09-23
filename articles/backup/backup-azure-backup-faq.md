@@ -3,12 +3,12 @@ title: Risposte alle domande comuni
 description: 'Risposte alle domande frequenti su: funzionalità di Backup di Azure, inclusi insieme di credenziali di Servizi di ripristino, elementi di cui è possibile eseguire il backup, funzionamento, crittografia e limiti. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: 16ee9fa94f8c6d5ee97c35833b4cee908750bc0a
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 26d833dfea214c5f29b77c2ac34a5f8863c7fbc0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89017737"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986423"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Domande frequenti su Backup di Azure
 
@@ -45,7 +45,7 @@ Sì. Per spostare un insieme di credenziali di Servizi di ripristino, vedere que
 
 No. Non è possibile spostare i dati di backup archiviati in un insieme di credenziali in un insieme di credenziali diverso.
 
-### <a name="can-i-change-from-grs-to-lrs-after-a-backup"></a>È possibile passare dall'archiviazione con ridondanza geografica all'archiviazione con ridondanza locale dopo un backup?
+### <a name="can-i-change-the-storage-redundancy-setting-after-a-backup"></a>È possibile modificare l'impostazione di ridondanza di archiviazione dopo un backup?
 
 Per impostazione predefinita, il tipo di replica di archiviazione è impostato su archiviazione con ridondanza geografica (GRS). Dopo aver configurato il backup, l'opzione per la modifica è disabilitata e non può essere modificata.
 

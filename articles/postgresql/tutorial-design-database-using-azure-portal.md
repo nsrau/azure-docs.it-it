@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.custom: tutorial, mvc
 ms.topic: tutorial
 ms.date: 06/25/2019
-ms.openlocfilehash: d7ddb286285de9be089c0a5176e33b7108021c77
-ms.sourcegitcommit: 0947111b263015136bca0e6ec5a8c570b3f700ff
+ms.openlocfilehash: 7e98c34198c0821dac59f849267a920a87c48a54
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/24/2020
-ms.locfileid: "75459958"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905640"
 ---
 # <a name="tutorial-design-an-azure-database-for-postgresql---single-server-using-the-azure-portal"></a>Esercitazione: Progettare un'istanza del database di Azure per server singolo PostgreSQL usando il portale di Azure
 
@@ -38,15 +38,15 @@ Verrà creato un database di Azure per il server PostgreSQL con un set definito 
 Seguire questa procedura per creare un database di Azure per il server PostgreSQL:
 1. Fare clic su **Crea una risorsa** nell'angolo superiore sinistro del portale di Azure.
 2. Selezionare **Database** nella pagina **Nuovo** e selezionare **Database di Azure per PostgreSQL** nella pagina **Database**.
-   ![Database di Azure per PostgreSQL - Creare il database](./media/tutorial-design-database-using-azure-portal/1-create-database.png)
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/1-create-database.png" alt-text="Database di Azure per PostgreSQL - Creare il database":::
 
 3. Selezionare l'opzione di distribuzione **Server singolo**.
 
-   ![Selezionare l'opzione di distribuzione Database di Azure per PostgreSQL - Server singolo](./media/tutorial-design-database-using-azure-portal/select-deployment-option.png)
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/select-deployment-option.png" alt-text="Selezionare l'opzione di distribuzione Database di Azure per PostgreSQL - Server singolo":::
 
 4. Compilare il modulo **Informazioni di base** con le informazioni seguenti:
 
-    ![Creare un server](./media/tutorial-design-database-using-azure-portal/create-basics.png)
+    :::image type="content" source="./media/tutorial-design-database-using-azure-portal/create-basics.png" alt-text="Creare un server":::
 
     Impostazione|Valore consigliato|Descrizione
     ---|---|---
@@ -64,7 +64,7 @@ Seguire questa procedura per creare un database di Azure per il server PostgreSQ
    > È consigliabile usare il piano tariffario Basic se le esigenze di calcolo e di prestazioni I/O sono adeguate per il carico di lavoro. Si noti che i server creati nel piano tariffario Basic non possono essere scalati in un secondo momento per utilizzo generico o ottimizzati per la memoria. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/postgresql/).
    > 
 
-    ![Riquadro "Piano tariffario"](./media/quickstart-create-database-portal/2-pricing-tier.png)
+    :::image type="content" source="./media/quickstart-create-database-portal/2-pricing-tier.png" alt-text="Riquadro Piano tariffario":::
 
     > [!TIP]
     > Quando l'opzione per l'**aumento automatico** è abilitata, il server aumenta lo spazio di archiviazione disponibile quando si sta per raggiungere il limite allocato, senza alcun impatto sul carico di lavoro.
@@ -73,7 +73,7 @@ Seguire questa procedura per creare un database di Azure per il server PostgreSQ
 
 6. Sulla barra degli strumenti selezionare l'icona **Notifiche** a forma di campana per monitorare il processo di distribuzione. Al termine della distribuzione è possibile selezionare **Aggiungi al dashboard** per creare un riquadro di questo server nel dashboard del portale di Azure come collegamento alla pagina **Panoramica** del server. Selezionare **Vai alla risorsa** per aprire la pagina **Panoramica** del server.
 
-    ![Riquadro "Notifiche"](./media/quickstart-create-database-portal/3-notifications.png)
+    :::image type="content" source="./media/quickstart-create-database-portal/3-notifications.png" alt-text="Riquadro Notifiche":::
    
    Per impostazione predefinita, un database **postgres** viene creato nel server. Il database [postgres](https://www.postgresql.org/docs/9.6/static/app-initdb.html) è un database predefinito che può essere usato da utenti, utilità e applicazioni di terze parti. (L'altro database predefinito è **azure_maintenance**. La sua funzione è quella di separare i processi del servizio gestito dalle azioni dell'utente. Non è possibile accedere a questo database.)
 
@@ -84,13 +84,13 @@ Il servizio Database di Azure per PostgreSQL usa un firewall a livello di server
 
 1. Al termine della distribuzione, fare clic su **Tutte le risorse** nel menu a sinistra e digitare il nome **mydemoserver** per cercare il server appena creato. Fare clic sul nome del server elencato nei risultati della ricerca. Si apre la pagina **Panoramica** del server in cui vengono fornite le opzioni per una configurazione aggiuntiva.
 
-   ![Database di Azure per PostgreSQL - Cercare il server](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/4-locate.png" alt-text="Database di Azure per PostgreSQL - Cercare il server":::
 
 2. Nella pagina del server selezionare **Sicurezza connessione**. 
 
 3. Fare clic nella casella di testo in **Nome regola** e aggiungere una nuova regola del firewall per specificare l'intervallo IP per la connettività. Immettere l'intervallo IP. Fare clic su **Salva**.
 
-   ![Database di Azure per PostgreSQL - Creare una regola del firewall](./media/tutorial-design-database-using-azure-portal/5-firewall-2.png)
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/5-firewall-2.png" alt-text="Database di Azure per PostgreSQL: creare una regola del firewall":::
 
 4. Fare clic su **Salva** e quindi fare clic su **X** per chiudere la pagina **Sicurezza connessione**.
 
@@ -104,13 +104,13 @@ Quando si è creato il server del Database di Azure per PostgreSQL, è stato cre
 
 1. Nel menu a sinistra nel portale di Azure fare clic su **Tutte le risorse** e cercare il server appena creato.
 
-   ![Database di Azure per PostgreSQL - Cercare il server](./media/tutorial-design-database-using-azure-portal/4-locate.png)
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/4-locate.png" alt-text="Database di Azure per PostgreSQL - Cercare il server":::
 
 2. Fare clic sul nome del server **mydemoserver**.
 
 3. Selezionare la pagina **Panoramica** del server. Annotare il **Nome server** e il **nome di accesso dell'amministratore del server**.
 
-   ![Database di Azure per PostgreSQL - Accesso dell'amministratore del server](./media/tutorial-design-database-using-azure-portal/6-server-name.png)
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/6-server-name.png" alt-text="Database di Azure per PostgreSQL - Accesso dell'amministratore del server":::
 
 
 ## <a name="connect-to-postgresql-database-using-psql"></a>Connettersi al database PostgreSQL tramite psql
@@ -190,11 +190,11 @@ Si supponga di aver eliminato accidentalmente questa tabella. Questa situazione 
 
 1. Nella pagina **Panoramica** del server Database di Azure per PostgreSQL, fare clic su **Ripristino** sulla barra degli strumenti. Si apre la pagina **Ripristina** .
 
-   ![Portale di Azure - Opzioni del modulo di ripristino](./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png)
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/9-azure-portal-restore.png" alt-text="Portale di Azure - Opzioni del modulo di ripristino":::
 
 2. Compilare il modulo **Ripristina** con le informazioni obbligatorie:
 
-   ![Portale di Azure - Opzioni del modulo di ripristino](./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png)
+   :::image type="content" source="./media/tutorial-design-database-using-azure-portal/10-azure-portal-restore.png" alt-text="Portale di Azure - Opzioni del modulo di ripristino":::
 
    - **Punto di ripristino**: selezionare un punto nel tempo precedente la modifica del server
    - **Server di destinazione**: specificare il nome del nuovo server in cui eseguire il ripristino
