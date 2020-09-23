@@ -1,23 +1,23 @@
 ---
-title: Monitorare Key Vault con Monitoraggio di Azure per Key Vault (anteprima) | Microsoft Docs
+title: Monitorare Key Vault con monitoraggio di Azure per Key Vault | Microsoft Docs
 description: Questo articolo descrive Monitoraggio di Azure per Key Vault.
 services: azure-monitor
 ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
-ms.date: 04/13/2019
-ms.openlocfilehash: 7b799c462cc683d8d05edc3f10885c458185a843
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.date: 09/10/2020
+ms.openlocfilehash: 4aeb97f112f0c95329b1449fe9c1423fdd5bd0d6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90069799"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894505"
 ---
-# <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault-preview"></a>Monitoraggio del servizio Key Vault con Monitoraggio di Azure per Key Vault (anteprima)
-Monitoraggio di Azure per Key Vault (anteprima) offre il monitoraggio completo degli insiemi di credenziali delle chiavi mettendo a disposizione una vista unificata delle richieste, delle prestazioni, degli errori e della latenza di Key Vault.
-Questo articolo illustra come eseguire l'onboarding di Monitoraggio di Azure per Key Vault (anteprima) e personalizzare l'esperienza.
+# <a name="monitoring-your-key-vault-service-with-azure-monitor-for-key-vault"></a>Monitoraggio del servizio Key Vault con monitoraggio di Azure per Key Vault
+Monitoraggio di Azure per Key Vault offre un monitoraggio completo degli insiemi di credenziali delle chiavi grazie a una visualizzazione unificata delle richieste Key Vault, delle prestazioni, degli errori e della latenza.
+Questo articolo consente di comprendere come eseguire l'onboarding e personalizzare l'esperienza di monitoraggio di Azure per Key Vault.
 
-## <a name="introduction-to-azure-monitor-for-key-vault-preview"></a>Introduzione a Monitoraggio di Azure per Key Vault (anteprima)
+## <a name="introduction-to-azure-monitor-for-key-vault"></a>Introduzione a monitoraggio di Azure per Key Vault
 
 Prima di approfondire l'esperienza è necessario comprendere il modo in cui le informazioni vengono presentate e visualizzate.
 -    **Prospettiva su larga scala**, che mostra una visualizzazione snapshot delle prestazioni in base alle richieste, una suddivisione degli errori e a una panoramica di operazioni e latenza.
@@ -49,7 +49,7 @@ Per visualizzare l'utilizzo e le operazioni degli insiemi di credenziali delle c
 
 1. Accedere al [portale di Azure](https://portal.azure.com/)
 
-2. Selezionare **Monitoraggio** nel riquadro sinistro del portale di Azure, quindi selezionare **Insiemi di credenziali delle chiavi (anteprima)** nella sezione Informazioni dettagliate.
+2. Selezionare **monitoraggio** dal riquadro a sinistra nel portale di Azure e nella sezione Insights selezionare **Key Vaults**(insiemi di credenziali delle chiavi).
 
 ![Screenshot dell'esperienza di panoramica con più grafici](./media/key-vaults-insights-overview/overview.png)
 
@@ -83,7 +83,7 @@ Per accedere a Monitoraggio di Azure per Key Vault direttamente da un insieme di
 
 1. Nella portale di Azure selezionare Insiemi di credenziali delle chiavi.
 
-2. Scegliere un insieme di credenziali delle chiavi nell'elenco. Nella sezione Monitoraggio scegliere Informazioni dettagliate (anteprima).
+2. Scegliere un insieme di credenziali delle chiavi nell'elenco. Nella sezione monitoraggio scegliere Insights.
 
 Queste visualizzazioni sono accessibili anche selezionando il nome della risorsa di un insieme di credenziali delle chiavi nella cartella di lavoro a livello di Monitoraggio di Azure.
 
@@ -140,7 +140,7 @@ Le personalizzazioni vengono salvate in una cartella di lavoro personalizzata pe
 
 È possibile configurare la panoramica relativa a più sottoscrizioni e insiemi di credenziali delle chiavi o le cartelle di lavoro degli errori in modo da includere nell'ambito una o più sottoscrizioni o uno o più insiemi di credenziali delle chiavi per ogni esecuzione, seguendo questa procedura:
 
-1. Selezionare **Monitoraggio** nel portale e quindi selezionare **Insiemi di credenziali delle chiavi (anteprima)** dal riquadro sinistro.
+1. Selezionare **monitoraggio** dal portale e quindi selezionare insiemi di credenziali delle **chiavi** nel riquadro a sinistra.
 2. Nella cartella di lavoro **Panoramica** selezionare **Modifica** sulla barra dei comandi.
 3. Nell'elenco a discesa **Sottoscrizioni** selezionare una o più sottoscrizioni da usare come predefinite. Tenere presente che la cartella di lavoro supporta la selezione di un totale di 10 sottoscrizioni.
 4. Nell'elenco a discesa **Insiemi di credenziali delle chiavi** selezionare uno o più account da usare come predefiniti. Tenere presente che la cartella di lavoro supporta la selezione di un totale di 200 account di archiviazione.
@@ -150,11 +150,11 @@ Le personalizzazioni vengono salvate in una cartella di lavoro personalizzata pe
 
 Per indicazioni generali sulla risoluzione dei problemi, vedere l'articolo dedicato alla [risoluzione dei](troubleshoot-workbooks.md)problemi di Insights basato sulla cartella di lavoro.
 
-Questa sezione fornisce un supporto per la diagnosi e la risoluzione di alcuni dei problemi più comuni che possono verificarsi durante l'uso di Monitoraggio di Azure per Key Vault (anteprima). Usare l'elenco che segue per individuare le informazioni pertinenti a un problema specifico.
+Questa sezione illustra la diagnosi e la risoluzione dei problemi comuni che possono verificarsi quando si usa monitoraggio di Azure per Key Vault. Usare l'elenco che segue per individuare le informazioni pertinenti a un problema specifico.
 
 ### <a name="resolving-performance-issues-or-failures"></a>Risoluzione dei problemi di prestazioni o degli errori
 
-Per risolvere i problemi relativi agli insiemi di credenziali delle chiavi identificati con Monitoraggio di Azure per Key Vault (anteprima), vedere la [documentazione di Azure Key Vault](../../key-vault/index.yml).
+Per risolvere i problemi relativi all'insieme di credenziali delle chiavi identificato con monitoraggio di Azure per Key Vault, vedere la [documentazione di Azure Key Vault](../../key-vault/index.yml).
 
 ### <a name="why-can-i-only-see-200-key-vaults"></a>Perché è possibile visualizzare solo gli insiemi di credenziali delle chiavi 200
 

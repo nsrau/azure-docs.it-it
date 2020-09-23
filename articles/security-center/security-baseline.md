@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/05/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: f7da9b1779ed2cf46cb29b21215a9415cbaef494
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: f41dfa0889b7f0c34486eee5d16362f4c3c7360d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231283"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894592"
 ---
 # <a name="azure-security-baseline-for-security-center"></a>Baseline della sicurezza di Azure per il Centro sicurezza
 
@@ -606,7 +606,7 @@ Usare Azure Resource Graph per eseguire query e individuare le risorse all'inter
 
 **Indicazioni**: implementare Credential Scanner per identificare le credenziali all'interno del codice. Tale strumento inoltre incoraggerà a spostare le credenziali rilevate in posizioni più sicure, ad esempio Azure Key Vault.
 
-- [Come impostare Credential Scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
+- [Come configurare Credential scanner](https://secdevtools.azurewebsites.net/helpcredscan.html)
 
 **Monitoraggio del Centro sicurezza di Azure**: Non applicabile
 

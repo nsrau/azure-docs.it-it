@@ -1,233 +1,403 @@
 ---
-title: 'Esercitazione: Eseguire il training del primo modello di Azure ML in Python'
+title: 'Esercitazione: Eseguire il training del primo modello di Machine Learning - Python'
 titleSuffix: Azure Machine Learning
-description: In questa esercitazione si apprenderanno gli schemi progettuali di base in Azure Machine Learning e si eseguirà il training di un semplice modello scikit-learn basato sul set di dati diabetes.
+description: La terza parte della serie introduttiva su Azure Machine Learning mostra come eseguire il training di un modello di Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.author: sgilley
-author: sdgilley
-ms.date: 08/25/2020
+author: aminsaied
+ms.author: amsaied
+ms.reviewer: sgilley
+ms.date: 09/15/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 7052617eb83dbd07c2d6938dcbb7a38ba19f3aad
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: a267231dd447b114c69e6ead20c8ab5252f85d0e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89536228"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896749"
 ---
-# <a name="tutorial-train-your-first-ml-model"></a>Esercitazione: Eseguire il training del primo modello di Machine Learning
+# <a name="tutorial-train-your-first-machine-learning-model-part-3-of-4"></a>Esercitazione: Eseguire il training del primo modello di Machine Learning (parte 3 di 4)
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+Questa esercitazione illustra come eseguire il training di un modello di Machine Learning in Azure Machine Learning.
 
-Questa esercitazione è la **seconda di una serie in due parti**. Nell'esercitazione precedente [si è creata un'area di lavoro e si è scelto un ambiente di sviluppo](tutorial-1st-experiment-sdk-setup.md). In questa esercitazione si apprenderanno gli schemi progettuali di base in Azure Machine Learning e si eseguirà il training di un semplice modello scikit-learn basato sul set di dati diabetes. Al termine dell'esercitazione, si avrà la conoscenza pratica dell'SDK necessaria per passare allo sviluppo di esperimenti e flussi di lavoro più complessi.
+Questa esercitazione è la **terza di una serie in quattro parti** in cui vengono illustrati i concetti fondamentali su Azure Machine Learning e vengono completate attività di Machine Learning basate su processi in Azure. Questa esercitazione si basa sull'attività completata nella [Parte 1: Configurare](tutorial-1st-experiment-sdk-setup-local.md) e [Parte 2: Eseguire "Hello World"](tutorial-1st-experiment-hello-world.md) della serie.
 
-In questa esercitazione si apprenderanno informazioni sulle attività seguenti:
+In questa esercitazione si eseguirà il passaggio successivo inviando uno script che esegue il training di un modello di Machine Learning. Questo esempio illustra come Azure Machine Learning renda possibile un comportamento coerente tra il debug locale e le esecuzioni remote.
+
+In questa esercitazione:
 
 > [!div class="checklist"]
-> * Connettere l'area di lavoro e creare un esperimento
-> * Caricare i dati ed eseguire il training di modelli scikit-learn
-> * Visualizzare i risultati del training in Studio
-> * Recuperare il modello migliore
+> * Creare lo script di training.
+> * Usare Conda per definire un ambiente di Azure Machine Learning.
+> * Creare lo script di controllo.
+> * Comprendere le classi di Azure Machine Learning (Environment, Run, Metrics).
+> * Inviare ed eseguire lo script di training.
+> * Visualizzare l'output del codice nel cloud.
+> * Registrare le metriche in Azure Machine Learning.
+> * Visualizzare le metriche nel cloud.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-L'unico prerequisito consiste nell'eseguire la prima parte di questa esercitazione, [Configurare l'ambiente e l'area di lavoro](tutorial-1st-experiment-sdk-setup.md).
+* Completare la [parte 1](tutorial-1st-experiment-sdk-setup-local.md) se non si ha già un'area di lavoro di Azure Machine Learning.
+* Conoscenze di base del linguaggio Python e dei flussi di lavoro di Machine Learning.
+* Ambiente di sviluppo locale, inclusi tra gli altri Visual Studio Code, Jupyter o PyCharm.
+* Python (versione 3.5-3.7).
 
-In questa parte dell'esercitazione si eseguirà il codice del notebook di Jupyter di esempio *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* aperto alla fine della prima parte. Questo articolo illustra lo stesso codice presente nel notebook.
+## <a name="create-training-scripts"></a>Creare gli script di training
 
-## <a name="open-the-notebook"></a>Aprire il notebook
+Prima di tutto si definisce l'architettura della rete neurale in un file `model.py`. Tutto il codice di training, incluso `model.py`, verrà inserito nella sottodirectory `src`.
 
-1. Accedere ad [Azure Machine Learning Studio](https://ml.azure.com/).
-
-1. Aprire il file **tutorial-1st-experiment-sdk-train.ipynb** nella cartella, come illustrato nella [prima parte](tutorial-1st-experiment-sdk-setup.md#open).
-
-**Non** creare un *nuovo* notebook nell'interfaccia di Jupyter. Il notebook *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb* include **tutto il codice e i dati necessari** per questa esercitazione.
-
-## <a name="connect-workspace-and-create-experiment"></a>Connettere l'area di lavoro e creare un esperimento
-
-<!-- nbstart https://raw.githubusercontent.com/Azure/MachineLearningNotebooks/master/tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb -->
-
-> [!TIP]
-> Contenuto di _tutorial-1st-experiment-sdk-train.ipynb_. Passare ora al notebook di Jupyter se si desidera leggere durante l'esecuzione del codice. Per eseguire una singola cella di codice in un notebook, fare clic sulla cella di codice e premere **MAIUSC + INVIO**. In alternativa, eseguire l'intero notebook scegliendo **Esegui tutto** dalla barra degli strumenti superiore.
-
-
-Importare la classe `Workspace` e caricare le informazioni sulla sottoscrizione dal file `config.json` con la funzione `from_config().`. Per impostazione predefinita, questa funzione cerca il file JSON nella directory corrente, ma è possibile anche specificare un parametro del percorso che punti al file usando `from_config(path="your/file/path")`. Se il notebook viene eseguito in un server notebook cloud nell'area di lavoro, il file si trova automaticamente nella directory radice.
-
-Se il codice seguente richiede un'autenticazione aggiuntiva, incollare semplicemente il collegamento in un browser e immettere il token di autenticazione. Inoltre, se all'utente sono collegati più tenant, sarà necessario aggiungere le righe seguenti:
+Il codice seguente è tratto da [questo esempio introduttivo](https://pytorch.org/tutorials/beginner/blitz/cifar10_tutorial.html) da PyTorch. Si noti che i concetti su Azure Machine Learning si applicano a qualsiasi codice di Machine Learning, non solo a PyTorch.
 
 ```python
-from azureml.core.authentication import InteractiveLoginAuthentication
-interactive_auth = InteractiveLoginAuthentication(tenant_id="your-tenant-id")
+# tutorial/src/model.py
+import torch.nn as nn
+import torch.nn.functional as F
+
+
+class Net(nn.Module):
+    def __init__(self):
+        super(Net, self).__init__()
+        self.conv1 = nn.Conv2d(3, 6, 5)
+        self.pool = nn.MaxPool2d(2, 2)
+        self.conv2 = nn.Conv2d(6, 16, 5)
+        self.fc1 = nn.Linear(16 * 5 * 5, 120)
+        self.fc2 = nn.Linear(120, 84)
+        self.fc3 = nn.Linear(84, 10)
+
+    def forward(self, x):
+        x = self.pool(F.relu(self.conv1(x)))
+        x = self.pool(F.relu(self.conv2(x)))
+        x = x.view(-1, 16 * 5 * 5)
+        x = F.relu(self.fc1(x))
+        x = F.relu(self.fc2(x))
+        x = self.fc3(x)
+        return x
 ```
 
-Per altre informazioni sull'autenticazione, vedere [Autenticazione in Azure Machine Learning](https://aka.ms/aml-notebook-auth)
+Successivamente si definisce lo script di training. Questo script scarica il set di dati CIFAR10 usando le API `torchvision.dataset` di PyTorch, configura la rete definita in `model.py` e ne esegue il training per due periodi usando il metodo SGD standard e la perdita di entropia incrociata.
 
+Creare uno script `train.py` nella sottodirectory `src`:
 
 ```python
+# tutorial/src/train.py
+import torch
+import torch.optim as optim
+import torchvision
+import torchvision.transforms as transforms
+
+from model import Net
+
+# download CIFAR 10 data
+trainset = torchvision.datasets.CIFAR10(
+    root="./data",
+    train=True,
+    download=True,
+    transform=torchvision.transforms.ToTensor(),
+)
+trainloader = torch.utils.data.DataLoader(
+    trainset, batch_size=4, shuffle=True, num_workers=2
+)
+
+if __name__ == "__main__":
+
+    # define convolutional network
+    net = Net()
+
+    # set up pytorch loss /  optimizer
+    criterion = torch.nn.CrossEntropyLoss()
+    optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
+
+    # train the network
+    for epoch in range(2):
+
+        running_loss = 0.0
+        for i, data in enumerate(trainloader, 0):
+            # unpack the data
+            inputs, labels = data
+
+            # zero the parameter gradients
+            optimizer.zero_grad()
+
+            # forward + backward + optimize
+            outputs = net(inputs)
+            loss = criterion(outputs, labels)
+            loss.backward()
+            optimizer.step()
+
+            # print statistics
+            running_loss += loss.item()
+            if i % 2000 == 1999:
+                loss = running_loss / 2000
+                print(f"epoch={epoch + 1}, batch={i + 1:5}: loss {loss:.2f}")
+                running_loss = 0.0
+
+    print("Finished Training")
+
+```
+
+È stata creata la struttura di directory seguente:
+
+```txt
+tutorial
+└──.azureml
+|  └──config.json
+└──src
+|  └──hello.py
+|  └──model.py
+|  └──train.py
+└──01-create-workspace.py
+└──02-create-compute.py
+└──03-run-hello.py
+```
+
+## <a name="define-a-python-environment"></a>Definire un ambiente Python
+
+A scopo dimostrativo, verrà usato un ambiente Conda. I passaggi per un ambiente virtuale pip sono quasi identici.
+
+Creare un file denominato `pytorch-env.yml` nella directory nascosta `.azureml`:
+
+```yml
+# tutorial/.azureml/pytorch-env.yml
+name: pytorch-env
+channels:
+    - defaults
+    - pytorch
+dependencies:
+    - python=3.6.2
+    - pytorch
+    - torchvision
+```
+
+Questo ambiente ha tutte le dipendenze richieste dal modello e dallo script di training. Si noti che non esistono dipendenze da Azure Machine Learning Python SDK.
+
+## <a name="test-locally"></a>Test in locale
+
+Verificare che lo script venga eseguito in locale usando questo ambiente con:
+
+```bash
+conda env create -f .azureml/pytorch-env.yml    # create conda environment
+conda activate pytorch-env             # activate conda environment
+python src/train.py                    # train model
+```
+
+Dopo aver eseguito questo script, i dati risulteranno scaricati in una directory denominata `tutorial/data`.
+
+## <a name="create-the-control-script"></a>Creare lo script di controllo
+
+La differenza tra lo script di controllo seguente e quello usato per inviare "Hello World" è l'aggiunta di altre due righe per impostare l'ambiente.
+
+Creare un nuovo file di Python denominato `04-run-pytorch.py`nella directory `tutorial`:
+
+```python
+# tutorial/04-run-pytorch.py
 from azureml.core import Workspace
-ws = Workspace.from_config()
-```
-
-Creare quindi un esperimento nell'area di lavoro. Un esperimento è un'altra risorsa cloud fondamentale che rappresenta una raccolta di prove, ossia singole esecuzioni del modello. In questa esercitazione si userà l'esperimento per creare le esecuzioni e tenere traccia del training del modello in Azure Machine Learning Studio. I parametri includono il riferimento all'area di lavoro e la stringa del nome dell'esperimento.
-
-
-```python
 from azureml.core import Experiment
-experiment = Experiment(workspace=ws, name="diabetes-experiment")
+from azureml.core import Environment
+from azureml.core import ScriptRunConfig
+
+if __name__ == "__main__":
+    ws = Workspace.from_config()
+    experiment = Experiment(workspace=ws, name='day1-experiment-train')
+    config = ScriptRunConfig(source_directory='src', script='train.py', compute_target='cpu-cluster')
+
+    # set up pytorch environment
+    env = Environment.from_conda_specification(name='pytorch-env', file_path='.azureml/pytorch-env.yml')
+    config.run_config.environment = env
+
+    run = experiment.submit(config)
+
+    aml_url = run.get_portal_url()
+    print(aml_url)
 ```
 
-## <a name="load-data-and-prepare-for-training"></a>Caricare i dati e preparare il training
+### <a name="understand-the-code-changes"></a>Informazioni sulle modifiche al codice
 
-Per questa esercitazione si usa il set di dati sul diabete, che usa caratteristiche come età, sesso e BMI per prevedere lo stato di avanzamento del diabete. Caricare i dati dalla classe del [set di dati aperti di Azure](https://azure.microsoft.com/services/open-datasets/) e dividerli in set di training e di test con `train_test_split()`. Questa funzione separa i dati affinché il modello contenga dati non visibili da usare per i test dopo il training.
+:::row:::
+   :::column span="":::
+      `env = Environment.from_conda_specification( ... )`
+   :::column-end:::
+   :::column span="2":::
+      Azure Machine Learning si basa sul concetto di [ambiente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true) per rappresentare un ambiente Python riproducibile e dotato di versione per l'esecuzione di esperimenti. La creazione di un ambiente da un ambiente Conda o pip locale è semplice.
+   :::column-end:::
+:::row-end:::
+:::row:::
+   :::column span="":::
+      `config.run_config.environment = env`
+   :::column-end:::
+   :::column span="2":::
+      Aggiunge l'ambiente a [ScriptRunConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py&preserve-view=true).
+   :::column-end:::
+:::row-end:::
 
+## <a name="submit-run-to-azure-machine-learning"></a>Inviare l'esecuzione ad Azure Machine Learning
+
+Se l'ambiente locale è stato cambiato, assicurarsi di tornare a un ambiente con Azure Machine Learning Python SDK installato e in esecuzione:
+
+```bash
+python 04-run-pytorch.py
+```
+
+>[!NOTE] 
+> Alla prima esecuzione di questo script, Azure Machine Learning creerà una nuova immagine Docker dall'ambiente PyTorch. Il completamento dell'intera esecuzione potrebbe richiedere da 5 a 10 minuti. È possibile visualizzare i log di compilazione di Docker in Azure Machine Learning Studio: Seguire il collegamento a Machine Learning Studio > selezionare la scheda "Outputs + logs" (Output + log) > selezionare `20_image_build_log.txt`.
+Questa immagine verrà riutilizzata nelle esecuzioni future, rendendole molto più veloci.
+
+Una volta creata l'immagine, selezionare `70_driver_log.txt` per visualizzare l'output dello script di training.
+
+```txt
+Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to ./data/cifar-10-python.tar.gz
+...
+Files already downloaded and verified
+epoch=1, batch= 2000: loss 2.19
+epoch=1, batch= 4000: loss 1.82
+epoch=1, batch= 6000: loss 1.66
+epoch=1, batch= 8000: loss 1.58
+epoch=1, batch=10000: loss 1.52
+epoch=1, batch=12000: loss 1.47
+epoch=2, batch= 2000: loss 1.39
+epoch=2, batch= 4000: loss 1.38
+epoch=2, batch= 6000: loss 1.37
+epoch=2, batch= 8000: loss 1.33
+epoch=2, batch=10000: loss 1.31
+epoch=2, batch=12000: loss 1.27
+Finished Training
+```
+
+> [!WARNING]
+> Se viene visualizzato l'errore `Your total snapshot size exceeds the limit`, significa che la directory `data` si trova nella cartella `source_directory` usata in `ScriptRunConfig`.
+> Assicurarsi di spostare `data` al di fuori di `src`.
+
+Gli ambienti possono essere registrati in un'area di lavoro con `env.register(ws)`, il che ne consente la condivisione, il riutilizzo e il controllo delle versioni con la massima facilità. Gli ambienti facilitano la riproduzione dei risultati precedenti e la collaborazione con il team.
+
+Azure Machine Learning gestisce anche una raccolta di ambienti curati. Questi ambienti coprono scenari comuni di Machine Learning e sono supportati da immagini Docker memorizzate nella cache. Le immagini Docker memorizzate nella cache velocizzano la prima esecuzione remota.
+
+L'uso di ambienti registrati consente quindi di risparmiare tempo. Per altre informazioni, vedere la [documentazione relativa agli ambienti](./how-to-use-environments.md)
+
+## <a name="log-training-metrics"></a>Registrare le metriche di training
+
+Dopo aver creato un training del modello in Azure Machine Learning, è possibile iniziare a tenere traccia di alcune metriche delle prestazioni.
+Lo script di training corrente stampa le metriche nel terminale. Azure Machine Learning offre un meccanismo per registrare le metriche con più funzionalità. Aggiungendo alcune righe di codice, è possibile visualizzare le metriche in Studio e confrontarle in più esecuzioni.
+
+### <a name="modify-trainpy-to-include-logging"></a>Modificare `train.py` per includere la registrazione
+
+Modificare lo script `train.py` per includere altre due righe di codice:
 
 ```python
-from azureml.opendatasets import Diabetes
-from sklearn.model_selection import train_test_split
+# train.py
+import torch
+import torch.optim as optim
+import torchvision
+import torchvision.transforms as transforms
 
-x_df = Diabetes.get_tabular_dataset().to_pandas_dataframe().dropna()
-y_df = x_df.pop("Y")
-
-X_train, X_test, y_train, y_test = train_test_split(x_df, y_df, test_size=0.2, random_state=66)
-```
-
-## <a name="train-a-model"></a>Eseguire il training di un modello
-
-Il training di un modello scikit-learn può essere facilmente eseguito in locale se di scala ridotta, ma in caso di training di molte iterazioni con decine di permutazioni di caratteristiche e impostazioni di iperparametri diversi è facile perdere traccia dei modelli sottoposti a training e di come il training è stato eseguito. Lo schema progettuale seguente illustra come sfruttare l'SDK per tenere facilmente traccia del training nel cloud.
-
-Creare uno script che esegue il training di modelli ridge in un ciclo con diversi valori alfa di iperparametri.
-
-
-```python
-from sklearn.linear_model import Ridge
-from sklearn.metrics import mean_squared_error
-from sklearn.externals import joblib
-import math
-
-alphas = [0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0]
-
-for alpha in alphas:
-    run = experiment.start_logging()
-    run.log("alpha_value", alpha)
-    
-    model = Ridge(alpha=alpha)
-    model.fit(X=X_train, y=y_train)
-    y_pred = model.predict(X=X_test)
-    rmse = math.sqrt(mean_squared_error(y_true=y_test, y_pred=y_pred))
-    run.log("rmse", rmse)
-    
-    model_name = "model_alpha_" + str(alpha) + ".pkl"
-    filename = "outputs/" + model_name
-    
-    joblib.dump(value=model, filename=filename)
-    run.upload_file(name=model_name, path_or_stream=filename)
-    run.complete()
-```
-
-Il codice precedente effettua le operazioni seguenti:
-
-1. Per ogni valore alfa di iperparametro nella matrice `alphas` viene creata una nuova esecuzione all'interno dell'esperimento. Il valore alfa viene registrato per distinguere ogni singola esecuzione.
-1. In ogni esecuzione viene creata un'istanza di un modello ridge che viene sottoposto a training e usato per eseguire previsioni. Viene calcolata la radice dell'errore quadratico medio per i valori effettivi rispetto a quelli previsti, che viene quindi registrata nell'esecuzione. A questo punto, all'esecuzione sono associati metadati sia per il valore alfa sia per l'accuratezza della radice dell'errore quadratico medio.
-1. Il modello per ogni esecuzione viene quindi serializzato e caricato nell'esecuzione. In questo modo è possibile scaricare il file del modello dall'esecuzione in Studio.
-1. Alla fine di ogni iterazione, l'esecuzione viene completata chiamando `run.complete()`.
-
-Al termine del training, chiamare la variabile `experiment` per recuperare un collegamento all'esperimento in Studio.
-
-```python
-experiment
-```
-
-<table style="width:100%"><tr><th>Nome</th><th>Area di lavoro</th><th>Pagina report</th><th>Pagina documentazione</th></tr><tr><td>diabetes-experiment</td><td>nome-area-lavoro</td><td>Collegamento ad Azure Machine Learning Studio</td><td>Collegamento alla documentazione</td></tr></table>
-
-## <a name="view-training-results-in-studio"></a>Visualizzare i risultati del training in Studio
-
-Seguendo il **collegamento ad Azure Machine Learning Studio** si passa alla pagina principale dell'esperimento, in cui vengono visualizzate tutte le singole esecuzioni dell'esperimento. Tutti i valori per cui è stata personalizzata la registrazione (in questo caso, `alpha_value` e `rmse`) diventano campi per ogni esecuzione e sono disponibili anche per i grafici. Per tracciare un nuovo grafico con una metrica registrata, fare clic su 'Aggiungi grafico' e selezionare la metrica da tracciare.
-
-In caso di training di modelli su vasta scala, con centinaia e migliaia di esecuzioni separate, questa pagina semplifica la visualizzazione di ogni modello sottoposto a training, in particolare di come è stato eseguito il training e di come le metriche univoche usate sono cambiate nel tempo.
-
-:::image type="content" source="./media/tutorial-1st-experiment-sdk-train/experiment-main.png" alt-text="Pagina principale dell'esperimento in Studio":::
-
-
-Selezionare il collegamento con il numero di un'esecuzione nella colonna `RUN NUMBER` per visualizzare la pagina relativa a una singola esecuzione. La scheda **Dettagli** predefinita mostra informazioni più dettagliate su ogni esecuzione. Passare alla scheda **Outputs + logs** (Output e log) per visualizzare il file con estensione `.pkl` per il modello che è stato caricato nell'esecuzione durante ogni iterazione del training. In questa scheda è possibile scaricare il file del modello, per non doverne ripetere manualmente il training.
-
-:::image type="content" source="./media/tutorial-1st-experiment-sdk-train/model-download.png" alt-text="Pagina dei dettagli dell'esecuzione in Studio":::
-
-## <a name="get-the-best-model"></a>Recuperare il modello migliore
-
-Oltre che dall'esperimento in Studio, è possibile scaricare i file di modello anche a livello di codice. Il codice seguente scorre ogni esecuzione nell'esperimento e accede sia alle metriche registrate che ai dettagli (contenenti run_id) dell'esecuzione. Viene così tenuta traccia dell'esecuzione migliore, in questo caso l'esecuzione con la radice dell'errore quadratico medio più bassa.
-
-```python
-minimum_rmse_runid = None
-minimum_rmse = None
-
-for run in experiment.get_runs():
-    run_metrics = run.get_metrics()
-    run_details = run.get_details()
-    # each logged metric becomes a key in this returned dict
-    run_rmse = run_metrics["rmse"]
-    run_id = run_details["runId"]
-    
-    if minimum_rmse is None:
-        minimum_rmse = run_rmse
-        minimum_rmse_runid = run_id
-    else:
-        if run_rmse < minimum_rmse:
-            minimum_rmse = run_rmse
-            minimum_rmse_runid = run_id
-
-print("Best run_id: " + minimum_rmse_runid)
-print("Best run_id rmse: " + str(minimum_rmse))    
-```
-```output
-Best run_id: 864f5ce7-6729-405d-b457-83250da99c80
-Best run_id rmse: 57.234760283951765
-```
-
-Usare l'ID dell'esecuzione migliore per recuperare la singola esecuzione con il costruttore `Run` e l'oggetto esperimento. Chiamare quindi `get_file_names()` per visualizzare tutti i file disponibili per il download da questa esecuzione. In questo caso, durante il training è stato caricato un solo file per ogni esecuzione.
-
-
-```python
+from model import Net
 from azureml.core import Run
-best_run = Run(experiment=experiment, run_id=minimum_rmse_runid)
-print(best_run.get_file_names())
+
+
+# ADDITIONAL CODE: get Azure Machine Learning run from the current context
+run = Run.get_context()
+
+# download CIFAR 10 data
+trainset = torchvision.datasets.CIFAR10(root='./data', train=True, download=True, transform=torchvision.transforms.ToTensor())
+trainloader = torch.utils.data.DataLoader(trainset, batch_size=4, shuffle=True, num_workers=2)
+
+if __name__ == "__main__":
+
+    # define convolutional network
+    net = Net()
+
+    # set up pytorch loss /  optimizer
+    criterion = torch.nn.CrossEntropyLoss()
+    optimizer = optim.SGD(net.parameters(), lr=0.001, momentum=0.9)
+
+    # train the network
+    for epoch in range(2):
+
+        running_loss = 0.0
+        for i, data in enumerate(trainloader, 0):
+            # unpack the data
+            inputs, labels = data
+
+            # zero the parameter gradients
+            optimizer.zero_grad()
+
+            # forward + backward + optimize
+            outputs = net(inputs)
+            loss = criterion(outputs, labels)
+            loss.backward()
+            optimizer.step()
+
+            # print statistics
+            running_loss += loss.item()
+            if i % 2000 == 1999:
+                loss = running_loss / 2000
+                run.log('loss', loss) # ADDITIONAL CODE: log loss metric to Azure Machine Learning
+                print(f'epoch={epoch + 1}, batch={i + 1:5}: loss {loss:.2f}')
+                running_loss = 0.0
+
+    print('Finished Training')
 ```
 
-```output
-['model_alpha_0.1.pkl']
-```
+#### <a name="understand-the-additional-two-lines-of-code"></a>Informazioni sulle due righe di codice aggiuntive
 
-Chiamare `download()` sull'oggetto esecuzione, specificando il nome del file del modello da scaricare. Per impostazione predefinita, questa funzione esegue il download nella directory corrente.
-
+In `train.py` si accede all'oggetto run dall'_interno_ dello script di training usando il metodo `Run.get_context()` e lo si usa per registrare le metriche:
 
 ```python
-best_run.download_file(name="model_alpha_0.1.pkl")
+# in train.py
+run = Run.get_context()
+
+...
+
+run.log('loss', loss)
 ```
-<!-- nbend -->
 
-## <a name="clean-up-resources"></a>Pulire le risorse
+Le metriche in Azure Machine Learning sono:
 
-Se si intende eseguire altre esercitazioni su Azure Machine Learning, non completare questa sezione.
+- Organizzate per esperimento ed esecuzione in modo che sia facile tenere traccia delle metriche e confrontarle.
+- Dotate di interfaccia utente per poter visualizzare le prestazioni del training in Studio.
+- Progettate per la scalabilità, per continuare a sfruttare questi vantaggi anche quando si eseguono centinaia di esperimenti.
 
-### <a name="stop-the-compute-instance"></a>Arrestare l'istanza di calcolo
+### <a name="update-the-conda-environment-file"></a>Aggiornare il file dell'ambiente conda
 
-[!INCLUDE [aml-stop-server](../../includes/aml-stop-server.md)]
+Lo script `train.py` ha appena acquisito una nuova dipendenza da `azureml.core`. Aggiornare `pytorch-env.yml` in modo da riflettere questa modifica:
 
-### <a name="delete-everything"></a>Eliminare tutto
+```yaml
+# tutorial/.azureml/pytorch-env.yml
+name: pytorch-env
+channels:
+    - defaults
+    - pytorch
+dependencies:
+    - python=3.6.2
+    - pytorch
+    - torchvision
+    - pip
+    - pip:
+        - azureml-sdk
+```
 
-[!INCLUDE [aml-delete-resource-group](../../includes/aml-delete-resource-group.md)]
+### <a name="submit-run-to-azure-machine-learning"></a>Inviare l'esecuzione ad Azure Machine Learning
+Inviare ancora una volta questo script:
 
-È anche possibile mantenere il gruppo di risorse ma eliminare una singola area di lavoro. Visualizzare le proprietà dell'area di lavoro e selezionare **Elimina**.
+```bash
+python 04-run-pytorch.py
+```
+
+Questa volta, quando si visita Studio, passare alla scheda "Metriche", dove è ora possibile visualizzare gli aggiornamenti dinamici sulla perdita di training del modello.
+
+:::image type="content" source="media/tutorial-1st-experiment-sdk-train/logging-metrics.png" alt-text="Grafico della perdita di training nella scheda metriche":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-In questa esercitazione sono state completate le attività seguenti:
+In questa sessione è stato eseguito l'aggiornamento da uno script "Hello World!" di base a uno script di training più realistico che ha richiesto l'esecuzione di un ambiente Python specifico. Si è visto come trasferire un ambiente Conda locale nel cloud con gli ambienti Azure Machine Learning. Si è infine visto come con poche righe di codice sia possibile registrare le metriche in Azure Machine Learning.
 
-> [!div class="checklist"]
-> * Connessione dell'area di lavoro e creazione di un esperimento
-> * Caricamento dei dati e training di modelli scikit-learn
-> * Visualizzazione dei risultati del training in Studio e recupero dei modelli
+Esistono altri modi per creare ambienti Azure Machine Learning, ad esempio [da un file pip requirements.txt](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#from-pip-requirements-name--file-path-) o addirittura [da un ambiente Conda locale esistente](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true#from-existing-conda-environment-name--conda-environment-name-).
 
-[Distribuire il modello](tutorial-deploy-models-with-aml.md) con Azure Machine Learning.
-Scoprire come sviluppare esperimenti di [Machine Learning automatizzato](tutorial-auto-train-models.md).
+Nella sessione successiva si vedrà come usare i dati in Azure Machine Learning caricando in Azure il set di dati CIFAR10.
+
+> [!div class="nextstepaction"]
+> [Esercitazione: Usare i dati personali](tutorial-1st-experiment-bring-data.md)
+
+>[!NOTE] 
+> Per completare questa serie di esercitazioni e non procedere al passaggio successivo, ricordare di [pulire le risorse](tutorial-1st-experiment-bring-data.md#clean-up-resources)

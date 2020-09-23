@@ -1,14 +1,14 @@
 ---
 title: Ottenere i dati di conformità ai criteri
 description: Le valutazioni e gli effetti di Criteri di Azure determinano la conformità. Informazioni su come ottenere informazioni dettagliate sulle risorse di Azure.
-ms.date: 08/10/2020
+ms.date: 09/22/2020
 ms.topic: how-to
-ms.openlocfilehash: 57e508048b5e628911db90b0b6835f88b5ebd8fb
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 2ab75bdab0dcf910da91eb60b5f0cf23892d6c51
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648344"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895430"
 ---
 # <a name="get-compliance-data-of-azure-resources"></a>Ottenere i dati di conformità delle risorse di Azure
 
@@ -30,11 +30,13 @@ I risultati di un ciclo di valutazione completato sono disponibili nel provider 
 
 Le valutazioni delle iniziative e dei criteri assegnati sono il risultato di diversi eventi:
 
-- Un criterio o un'iniziativa è stata appena assegnata a un ambito. L'applicazione dell'assegnazione all'ambito definito richiede circa 30 minuti. Dopo l'applicazione, ha inizio il ciclo di valutazione per le risorse in tale ambito sulla base del criterio o dell'iniziativa appena assegnata e, a seconda degli effetti usati dal criterio o dall'iniziativa, le risorse sono contrassegnate come conformi o non conformi. La valutazione di un criterio o un'iniziativa estesa rispetto a un ambito di risorse di grandi dimensioni può richiedere tempo. Di conseguenza, non esiste un tempo predefinito di completamento di un ciclo di valutazione. Dopo il completamento, i risultati di conformità aggiornati sono disponibili nel portale e negli SDK.
+- Un criterio o un'iniziativa è stata appena assegnata a un ambito. L'applicazione dell'assegnazione all'ambito definito richiede circa 30 minuti. Una volta applicato, il ciclo di valutazione inizia per le risorse all'interno di tale ambito rispetto al criterio o all'iniziativa appena assegnata e a seconda degli effetti usati dal criterio o dall'iniziativa, le risorse sono contrassegnate come conformi, non conformi o esenti. La valutazione di un criterio o un'iniziativa estesa rispetto a un ambito di risorse di grandi dimensioni può richiedere tempo. Di conseguenza, non esiste un tempo predefinito di completamento di un ciclo di valutazione. Dopo il completamento, i risultati di conformità aggiornati sono disponibili nel portale e negli SDK.
 
 - Un criterio o un'iniziativa già assegnata a un ambito viene aggiornata. Il ciclo di valutazione e la tempistica per questo scenario sono gli stessi di quelli per una nuova assegnazione a un ambito.
 
 - Una risorsa viene distribuita o aggiornata all'interno di un ambito con un'assegnazione tramite Azure Resource Manager, l'API REST o un SDK supportato. In questo scenario l'evento di effetto (Append, Audit, Deny, Deploy) e le informazioni sullo stato conforme per la singola risorsa diventano disponibili nel portale e negli SDK dopo circa 15 minuti. Questo evento non causa una valutazione di altre risorse.
+
+- Viene creata, aggiornata o eliminata un' [esenzione dei criteri](../concepts/exemption-structure.md) . In questo scenario, l'assegnazione corrispondente viene valutata per l'ambito di esenzione definito.
 
 - Ciclo di valutazione della conformità standard. Le assegnazioni vengono automaticamente rivalutate ogni 24 ore. Un criterio o un'iniziativa estesa di molte risorse può richiedere tempo, pertanto non è prevedibile quando verrà completato il ciclo di valutazione. Dopo il completamento, i risultati di conformità aggiornati sono disponibili nel portale e negli SDK.
 
@@ -127,8 +129,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/providers/Microsoft.
 
 ## <a name="how-compliance-works"></a>Funzionamento della conformità
 
-In un'assegnazione, una risorsa risulta **Non conforme** se non segue le regole dei criteri o delle iniziative.
-La tabella seguente illustra il funzionamento dei diversi effetti dei criteri in base alla valutazione della condizione per lo stato di conformità risultante:
+In un'assegnazione, una risorsa **non è conforme** se non segue le regole di criteri o di iniziativa e non è _esente_. La tabella seguente illustra il funzionamento dei diversi effetti dei criteri in base alla valutazione della condizione per lo stato di conformità risultante:
 
 | Stato della risorsa | Effetto | Valutazione dei criteri | Stato di conformità |
 | --- | --- | --- | --- |
@@ -137,8 +138,7 @@ La tabella seguente illustra il funzionamento dei diversi effetti dei criteri in
 | Nuovo | Audit, AuditIfNotExist\* | True | Non conforme |
 | Nuovo | Audit, AuditIfNotExist\* | False | Conforme |
 
-\* Gli effetti Append, DeployIfNotExist e AuditIfNotExist richiedono che l'istruzione IF sia TRUE.
-Richiedono inoltre che la condizione di esistenza sia FALSE per lo stato non conforme. Se è TRUE, la condizione IF attiva la valutazione della condizione di esistenza per le risorse correlate.
+\* Per gli effetti Modify, Append, DeployIfNotExist e AuditIfNotExist è necessario che l'istruzione IF sia TRUE. Richiedono inoltre che la condizione di esistenza sia FALSE per lo stato non conforme. Se è TRUE, la condizione IF attiva la valutazione della condizione di esistenza per le risorse correlate.
 
 Ad esempio, si supponga di avere un gruppo di risorse, ContosoRG, con alcuni account di archiviazione (evidenziati in rosso) esposti su reti pubbliche.
 
@@ -146,22 +146,23 @@ Ad esempio, si supponga di avere un gruppo di risorse, ContosoRG, con alcuni acc
    Diagramma che mostra le immagini per cinque account di archiviazione nel gruppo di risorse contoso R G.  Gli account di archiviazione uno e tre sono blu, mentre gli account di archiviazione due, quattro e cinque sono rossi.
 :::image-end:::
 
-In questo esempio, è necessario essere ben consapevoli dei rischi di sicurezza. Dopo avere creato un'assegnazione dei criteri, questa viene valutata per tutti gli account di archiviazione nel gruppo di risorse ContosoRG. Controlla i tre account di archiviazione non conformi, modificandone di conseguenza lo stato impostandolo su **Non conforme**.
+In questo esempio, è necessario essere ben consapevoli dei rischi di sicurezza. Ora che è stata creata un'assegnazione di criteri, questa viene valutata per tutti gli account di archiviazione inclusi e non esenti nel gruppo di risorse ContosoRG. Controlla i tre account di archiviazione non conformi, modificandone di conseguenza lo stato impostandolo su **Non conforme**.
 
 :::image type="complex" source="../media/getting-compliance-data/resource-group03.png" alt-text="Diagramma della conformità dell'account di archiviazione nel gruppo di risorse contoso R G." border="false":::
    Diagramma che mostra le immagini per cinque account di archiviazione nel gruppo di risorse contoso R G. Gli account di archiviazione uno e tre ora hanno segni di spunta verdi sotto di essi, mentre gli account di archiviazione due, quattro e cinque ora hanno segni di avviso rossi sotto di essi.
 :::image-end:::
 
-Oltre a **Conforme** e **Non conforme**, i criteri e le risorse possono avere altri tre stati:
+Oltre ai criteri **conformi** e **non conformi**, i criteri e le risorse hanno altri quattro stati:
 
-- **In conflitto**: esistono due o più criteri con regole in conflitto. Ad esempio, due criteri aggiungono lo stesso tag con valori diversi.
+- **Esenzione**: la risorsa è nell'ambito di un'assegnazione, ma ha un' [esenzione definita](../concepts/exemption-structure.md).
+- In **conflitto**: sono presenti due o più definizioni di criteri con regole in conflitto. Ad esempio, due definizioni aggiungono lo stesso tag con valori diversi.
 - **Non avviato**: il ciclo di valutazione per i criteri o la risorsa non è stato avviato.
 - **Non registrato**: il provider di risorse di Criteri di Azure non è stato registrato o l'account connesso non è autorizzato a leggere i dati di conformità.
 
-Criteri di Azure usa i campi **tipo** e **nome** nella definizione per determinare se una risorsa corrisponde. Se la risorsa corrisponde, viene considerata applicabile e il suo stato è **Conforme** o **Non conforme**. Se la sola proprietà presente nella definizione è **tipo** o **nome**, tutte le risorse sono considerate applicabili e vengono valutate.
+Criteri di Azure usa i campi **tipo** e **nome** nella definizione per determinare se una risorsa corrisponde. Quando la risorsa corrisponde, viene considerata applicabile e presenta uno stato **conforme**, **non conforme**o **esentato**. Se il **tipo** o il **nome** è l'unica proprietà nella definizione, tutte le risorse incluse e non esenti vengono considerate applicabili e vengono valutate.
 
-La percentuale di conformità viene determinata dividendo le risorse **conformi** per il  _totale delle risorse_.
-Per _totale delle risorse_ si intende la somma delle risorse **conformi**, **non conformi** e **in conflitto**. I valori di conformità complessiva corrispondono alla somma delle risorse distinte **conformi** divisa per la somma di tutte le risorse distinte. Nell'immagine seguente sono presenti 20 risorse distinte applicabili, di cui una sola **Non conforme**. La conformità complessiva delle risorse è pari al 95% (19 su 20).
+La percentuale di conformità viene determinata dividendo le risorse **conformi** ed **esenti** dalle _risorse totali_. _Il totale delle risorse_ è definito come la somma delle risorse **conformi**, **non conformi**, **esentate**e in **conflitto** . I numeri di conformità generali sono la somma delle risorse distinte **conformi** o **esentate** divise per la somma di tutte le risorse distinte. Nell'immagine seguente sono presenti 20 risorse distinte applicabili, di cui una sola **Non conforme**.
+La conformità complessiva delle risorse è pari al 95% (19 su 20).
 
 :::image type="content" source="../media/getting-compliance-data/simple-compliance.png" alt-text="Screenshot dei dettagli di conformità dei criteri dalla pagina conformità." border="false":::
 

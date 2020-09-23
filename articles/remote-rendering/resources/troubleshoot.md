@@ -5,12 +5,12 @@ author: florianborn71
 ms.author: flborn
 ms.date: 02/25/2020
 ms.topic: troubleshooting
-ms.openlocfilehash: 14184c09cc9d5eebab7f33323cd8ce587fdf9e88
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: a5b625ea2b5b76d0938ac62be2202127ff0af66e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89014592"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90982974"
 ---
 # <a name="troubleshoot"></a>Risolvere problemi
 
@@ -37,7 +37,7 @@ Se si lavora su un computer portatile con due GPU, è possibile che la GPU su cu
 
 ## <a name="retrieve-sessionconversion-status-fails"></a>Il recupero dello stato della sessione/conversione non riesce
 
-L'invio troppo frequente dei comandi dell'API REST provocherà la limitazione del server e la restituzione di un errore. Il codice di stato HTTP nel case di limitazione delle richieste è 429 ("numero eccessivo di richieste"). Come regola generale, è necessario un ritardo di **5-10 secondi tra le chiamate successive**.
+L'invio troppo frequente dei comandi dell'API REST provocherà la limitazione del server e la restituzione di un errore. Il codice di stato HTTP nel case di limitazione delle richieste è 429 ("numero eccessivo di richieste"). Come regola generale, è necessario un ritardo di **5-10 secondi tra chiamate successive**.
 
 Si noti che questo limite non solo influiscono sulle chiamate all'API REST quando viene chiamato direttamente, ma anche sulle rispettive controparti C#/C + +, ad esempio `Session.GetPropertiesAsync` , `Session.RenewAsync` o `Frontend.GetAssetConversionStatusAsync` .
 
@@ -156,7 +156,8 @@ Rendering remoto di Azure include gli hook alla pipeline di rendering di Unity p
 
 ## <a name="checkerboard-pattern-is-rendered-after-model-loading"></a>Il rendering del modello a scacchi viene eseguito dopo il caricamento
 
-Se l'immagine sottoposta a rendering è simile alla seguente: ![ scacchiera, ](../reference/media/checkerboard.png) il renderer raggiunge i [limiti del poligono per le dimensioni di configurazione standard](../reference/vm-sizes.md). Per attenuare, passare a dimensioni di configurazione **Premium** o ridurre il numero di poligoni visibili.
+Se l'immagine di cui è stato eseguito il rendering è simile alla seguente: ![ screenshot mostra una griglia di quadrati neri e bianchi con un menu strumenti.](../reference/media/checkerboard.png)
+il renderer raggiunge quindi i [limiti del poligono per le dimensioni di configurazione standard](../reference/vm-sizes.md). Per attenuare, passare a dimensioni di configurazione **Premium** o ridurre il numero di poligoni visibili.
 
 ## <a name="the-rendered-image-in-unity-is-upside-down"></a>L'immagine sottoposta a rendering in Unity è capovolta
 
@@ -216,7 +217,7 @@ Se i passaggi precedenti sono stati esauriti e la restante z-Fighting è inaccet
 
 ARR presenta una funzionalità che consente di determinare se le superfici potrebbero combattere z: [evidenziazione della scacchiera](../overview/features/z-fighting-mitigation.md). È anche possibile determinare visivamente la causa della lotta z. La prima animazione seguente mostra un esempio di perdita della precisione della profondità nella distanza e la seconda mostra un esempio di superfici quasi complanari:
 
-![profondità-precisione-z-combattimento](./media/depth-precision-z-fighting.gif)  ![complanante-z-Fighting](./media/coplanar-z-fighting.gif)
+![L'animazione mostra un esempio di perdita della precisione della profondità nella distanza.](./media/depth-precision-z-fighting.gif)  ![L'animazione mostra un esempio di superfici quasi complanante.](./media/coplanar-z-fighting.gif)
 
 Confrontare questi esempi con la z-Fighting per determinare la causare o, facoltativamente, seguire questo flusso di lavoro Step-by-Step:
 

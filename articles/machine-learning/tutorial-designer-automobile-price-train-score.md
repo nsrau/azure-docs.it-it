@@ -1,5 +1,5 @@
 ---
-title: 'Esercitazione: Stimare i prezzi delle automobili con la finestra di progettazione (anteprima)'
+title: 'Esercitazione: Stimare i prezzi delle automobili con la finestra di progettazione'
 titleSuffix: Azure Machine Learning
 description: Informazioni su come eseguire il training, assegnare punteggi e distribuire un modello di Machine Learning usando un'interfaccia basata su trascinamento della selezione. Questa esercitazione è la prima parte di una serie in due parti su come stimare i prezzi delle automobili con la regressione lineare.
 author: peterclu
@@ -10,15 +10,15 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 3992bbe466241eb388874905237dbe00f07b3752
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 55d950435522a18eafda69d152619426fe54d87f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88812986"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896702"
 ---
-# <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione (anteprima)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="tutorial-predict-automobile-price-with-the-designer"></a>Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione
+
 
 In questa esercitazione in due parti si apprenderà come usare la finestra di progettazione di Azure Machine Learning per eseguire il training e la distribuzione di un modello di Machine Learning che stima il prezzo di qualsiasi automobile. La finestra di progettazione è uno strumento con trascinamento della selezione che consente di creare modelli di Machine Learning senza scrivere una sola riga di codice.
 
@@ -49,10 +49,6 @@ Per creare una pipeline di Azure Machine Learning, è necessaria un'area di lavo
 ### <a name="create-a-new-workspace"></a>Creazione di una nuova area di lavoro
 
 Per usare la finestra di progettazione, occorre innanzitutto un'area di lavoro di Azure Machine Learning. L'area di lavoro è la risorsa di primo livello per Azure Machine Learning e fornisce una posizione centralizzata da cui gestire tutti gli artefatti creati in Azure Machine Learning.
-
-Se è già disponibile un'area di lavoro di Azure Machine Learning con un'edizione Enterprise, [passare alla sezione successiva](#create-the-pipeline).
-
-[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
 
 ### <a name="create-the-pipeline"></a>Creare la pipeline
 
@@ -94,7 +90,7 @@ Una pipeline viene eseguita in una destinazione di calcolo, ossia una risorsa di
 
 Nella finestra di progettazione sono disponibili diversi set di dati di esempio con cui sperimentare. Per questa esercitazione, usare **Automobile price data (Raw)** . 
 
-1. A sinistra del canvas della pipeline è presente un pannello di set di dati e moduli. Selezionare **Datasets** (Set di dati), quindi nella sezione **Samples** (Esempi) visualizzare i set di dati di esempio disponibili.
+1. A sinistra del canvas della pipeline è presente un pannello di set di dati e moduli. Selezionare **Set di dati di esempio** per visualizzare i set di dati di esempio disponibili.
 
 1. Selezionare il set di dati **Automobile price data (Raw)** e trascinarlo nel canvas.
 

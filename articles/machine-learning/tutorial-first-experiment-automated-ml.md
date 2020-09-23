@@ -10,20 +10,17 @@ author: cartacioS
 ms.author: sacartac
 ms.reviewer: nibaccam
 ms.date: 07/10/2020
-ms.openlocfilehash: d11df9bae954dc654e22157639b74e5ca2363494
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f68867a7b24e9c5d8dafa0da65209e14eeae5210
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87047841"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896479"
 ---
 # <a name="tutorial-create-a-classification-model-with-automated-ml-in-azure-machine-learning"></a>Esercitazione: Creare un modello di classificazione con ML automatizzato in Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-In questa esercitazione viene descritto come creare un modello di classificazione di base senza scrivere una sola riga di codice usando Machine Learning automatizzato in Azure Machine Learning Studio. Questo modello di classificazione consente di stimare se un cliente sottoscriverà un deposito a termine fisso presso un istituto finanziario.
 
->[!IMPORTANT]
-> L'esperienza di Machine Learning automatizzato in Azure Machine Learning Studio è in anteprima. Alcune funzionalità potrebbero non essere supportate o potrebbero avere funzionalità limitate.
+In questa esercitazione viene descritto come creare un modello di classificazione semplice senza scrivere una sola riga di codice usando Machine Learning automatizzato in Azure Machine Learning Studio. Questo modello di classificazione consente di stimare se un cliente sottoscriverà un deposito a termine fisso presso un istituto finanziario.
 
 Con l'apprendimento automatico automatizzato, è possibile automatizzare le attività a elevato utilizzo di tempo. L'apprendimento automatico automatizzato esegue rapidamente l'iterazione su numerose combinazioni di algoritmi e iperparametri per aiutare a trovare il modello migliore in base a una metrica di riuscita di propria scelta.
 
@@ -47,9 +44,9 @@ In questa esercitazione si apprenderà come eseguire le attività seguenti:
 
 Un'area di lavoro di Machine Learning è una risorsa cloud fondamentale usata per eseguire gli esperimenti, il training e la distribuzione di modelli di Machine Learning. Collega la sottoscrizione e il gruppo di risorse di Azure a un oggetto di facile utilizzo nel servizio. 
 
-Creare un'area di lavoro **Enterprise Edition** tramite il portale di Azure, una console basata sul Web per la gestione delle risorse di Azure.
+Creare un'area di lavoro tramite il portale di Azure, una console basata sul Web per la gestione delle risorse di Azure.
 
-[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal-enterprise.md)]
+[!INCLUDE [aml-create-portal](../../includes/aml-create-in-portal.md)]
 
 >[!IMPORTANT] 
 > Prendere nota dell'**area di lavoro** e della **sottoscrizione**. Si tratta di informazioni necessarie per assicurarsi di creare l'esperimento nel posto giusto. 

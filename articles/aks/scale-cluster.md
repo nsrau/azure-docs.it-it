@@ -2,16 +2,14 @@
 title: Ridimensionare un cluster del servizio Azure Kubernetes
 description: Scopri come ridimensionare il numero di nodi in un cluster del servizio Azure Kubernetes (AKS).
 services: container-service
-author: iainfoulds
 ms.topic: article
-ms.date: 05/31/2019
-ms.author: iainfou
-ms.openlocfilehash: 55d7a00a0a8c0b655f06810f8bcea7126bb9167f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.date: 09/16/2020
+ms.openlocfilehash: d5686a74ffe138af51d2319c839a3a5c5887f992
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79368418"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902941"
 ---
 # <a name="scale-the-node-count-in-an-azure-kubernetes-service-aks-cluster"></a>Ridimensionare il numero di nodi in un cluster del servizio Azure Kubernetes (AKS)
 
@@ -41,7 +39,7 @@ L'output di esempio seguente illustra che il *nome* è *nodepool1*:
 ]
 ```
 
-Usare il comando [AZ AKS scale][az-aks-scale] per ridimensionare i nodi del cluster. L'esempio seguente ridimensiona un cluster denominato *myAKSCluster* passando a un singolo nodo. Specificare il proprio *--nodepool-name* dal comando precedente, ad esempio *nodepool1*:
+Usare il comando [AZ AKS scale][az-aks-scale] per ridimensionare i nodi del cluster. L'esempio seguente ridimensiona un cluster denominato *myAKSCluster* passando a un singolo nodo. Specificare `--nodepool-name` il comando precedente, ad esempio *nodepool1*:
 
 ```azurecli-interactive
 az aks scale --resource-group myResourceGroup --name myAKSCluster --node-count 1 --nodepool-name <your node pool name>
@@ -69,6 +67,20 @@ L'output di esempio seguente mostra che il cluster è stato ridimensionato a un 
 }
 ```
 
+
+## <a name="scale-user-node-pools-to-0"></a>Ridimensionare i `User` pool di nodi a 0
+
+A differenza dei `System` pool di nodi che richiedono sempre nodi in esecuzione, i `User` pool di nodi consentono di applicare la scalabilità a 0. Per ulteriori informazioni sulle differenze tra i pool di nodi del sistema e degli utenti, vedere [pool di nodi di sistema e utente](use-system-pools.md).
+
+Per ridimensionare un pool di utenti a 0, è possibile usare il comando [AZ AKS nodepool scale][az-aks-nodepool-scale] in alternativa al `az aks scale` comando precedente e impostare 0 come numero di nodi.
+
+
+```azurecli-interactive
+az aks nodepool scale --name <your node pool name> --cluster-name myAKSCluster --resource-group myResourceGroup  --node-count 0 
+```
+
+È anche possibile ridimensionare automaticamente `User` i pool di nodi a 0 nodi, impostando il `--min-count` parametro del [ridimensionatore](cluster-autoscaler.md) automatico del cluster su 0.
+
 ## <a name="next-steps"></a>Passaggi successivi
 
 In questo articolo è stato ridimensionato manualmente un cluster AKS per aumentare o diminuire il numero di nodi. È anche possibile usare il servizio di [scalabilità][cluster-autoscaler] automatica del cluster per ridimensionare automaticamente il cluster.
@@ -81,3 +93,4 @@ In questo articolo è stato ridimensionato manualmente un cluster AKS per aument
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
 [cluster-autoscaler]: cluster-autoscaler.md
+[az-aks-nodepool-scale]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-scale&preserve-view=true

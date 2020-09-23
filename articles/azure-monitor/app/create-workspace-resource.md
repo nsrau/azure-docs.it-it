@@ -4,15 +4,15 @@ description: Informazioni sui passaggi necessari per abilitare le nuove risorse 
 author: mrbullwinkle
 ms.author: mbullwin
 ms.topic: conceptual
-ms.date: 08/24/2020
-ms.openlocfilehash: d6d6731ae087604e0a53a6721bb76dfba5fbf40c
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.date: 09/10/2020
+ms.openlocfilehash: 196be1caf91b6f1f1731d7c4afbfe72482c8f2ac
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783842"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894539"
 ---
-# <a name="workspace-based-application-insights-resources-preview"></a>Risorse di Application Insights basate sull'area di lavoro (anteprima)
+# <a name="workspace-based-application-insights-resources"></a>Risorse di Application Insights basate sull’area di lavoro
 
 Le risorse basate sull'area di lavoro supportano l'integrazione completa tra Application Insights e Log Analytics. È ora possibile scegliere di inviare i dati di telemetria di Application Insights a un'area di lavoro Log Analytics comune, che consente l'accesso completo a tutte le funzionalità di Log Analytics mantenendo al tempo stesso i log dell'applicazione, dell'infrastruttura e della piattaforma in un'unica posizione consolidata.
 
@@ -21,7 +21,19 @@ Ciò consente anche un controllo degli accessi in base al ruolo comune tra le ri
 > [!NOTE]
 > L'inserimento e la conservazione di dati per le risorse di Application Insights basate sull'area di lavoro vengono fatturate tramite l'area di lavoro Log Analytics in cui si trovano i dati. [Altre informazioni]( ./pricing.md#workspace-based-application-insights) sulla fatturazione per le risorse di Application Insights basate sull'area di lavoro.
 
-Per testare la nuova esperienza, accedere al [portale di Azure](https://portal.azure.com) e creare una risorsa di Application Insights:
+## <a name="new-capabilities"></a>Nuove funzionalità
+
+Application Insights basata sull'area di lavoro consente di sfruttare le funzionalità più recenti di monitoraggio di Azure e Log Analytics, tra cui:
+
+* [Chiavi gestite dal cliente (CMK)](../platform/customer-managed-keys.md) fornisce la crittografia dei dati inattivi per i dati con chiavi di crittografia solo a cui si ha accesso.
+* [Collegamento privato di Azure](../platform/private-link-security.md) consente di collegare in modo sicuro i servizi PaaS di Azure alla rete virtuale usando endpoint privati.
+* [Bring your own Storage (BYOS) per Profiler e snapshot debugger](./profiler-bring-your-own-storage.md) offre il controllo completo sui criteri di crittografia dei dati inattivi, sui criteri di gestione della durata e sull'accesso alla rete per tutti i dati associati a Application Insights Profiler e snapshot debugger. 
+* I [livelli di prenotazione della capacità](../platform/manage-cost-storage.md#pricing-model) consentono di risparmiare fino al 25% rispetto al prezzo con pagamento in base al consumo. 
+* Inserimento più rapido dei dati tramite Log Analytics inserimento di flussi.
+
+## <a name="create-workspace-based-resource"></a>Crea risorsa basata sull'area di lavoro
+
+Accedere al [portale di Azure](https://portal.azure.com)e creare una risorsa Application Insights:
 
 ![Risorsa di Application Insights basata sull'area di lavoro](./media/create-workspace-resource/create-workspace-based.png)
 
@@ -36,7 +48,7 @@ Dopo aver creato la risorsa, le informazioni corrispondenti sull'area di lavoro 
 Facendo clic sul testo del collegamento in blu verrà visualizzata l'area di lavoro Log Analytics associata in cui è possibile sfruttare il nuovo ambiente di query unificato dell'area di lavoro.
 
 > [!NOTE]
-> È ancora disponibile la completa compatibilità con le versioni precedenti per le query classiche sulle risorse di Application Insights, le cartelle di lavoro e gli avvisi basati su log all'interno dell'esperienza di Application Insights. Per eseguire query o visualizzare la [nuova struttura di tabella o lo schema basati sull'area di lavoro](apm-tables.md) è prima necessario passare all'area di lavoro Log Analytics. Durante l'anteprima, selezionare **Log** all'interno dei riquadri di Application Insights per accedere all'esperienza di query classica di Application Insights.
+> È ancora disponibile la completa compatibilità con le versioni precedenti per le query classiche sulle risorse di Application Insights, le cartelle di lavoro e gli avvisi basati su log all'interno dell'esperienza di Application Insights. Per eseguire query o visualizzare la [nuova struttura di tabella o lo schema basati sull'area di lavoro](apm-tables.md) è prima necessario passare all'area di lavoro Log Analytics. Selezionando **log (Analytics)** dall'interno dei riquadri Application Insights sarà possibile accedere all'esperienza di query Application Insights classica.
 
 ## <a name="copy-the-connection-string"></a>Copia della stringa di connessione
 
@@ -185,14 +197,6 @@ Il comando di PowerShell `New-AzApplicationInsights` non supporta attualmente la
 
 ```
 
-## <a name="new-capabilities"></a>Nuove funzionalità
-
-Application Insights basato sull'area di lavoro consente di sfruttare tutte le funzionalità più recenti di monitoraggio di Azure, tra cui:
-
-* [Chiavi gestite dal cliente (CMK)](../platform/customer-managed-keys.md) fornisce la crittografia dei dati inattivi per i dati con chiavi di crittografia solo a cui si ha accesso.
-* [Collegamento privato di Azure](../platform/private-link-security.md) consente di collegare in modo sicuro i servizi PaaS di Azure alla rete virtuale usando endpoint privati.
-* [Bring your own Storage (BYOS) per Profiler e snapshot debugger](./profiler-bring-your-own-storage.md) offre il controllo completo sui criteri di crittografia dei dati inattivi, sui criteri di gestione della durata e sull'accesso alla rete per tutti i dati associati a Application Insights Profiler e snapshot debugger. 
-
 ## <a name="modifying-the-associated-workspace"></a>Modifica dell'area di lavoro associata
 
 Dopo aver creato una risorsa di Application Insights basata sull'area di lavoro, è possibile modificare l'area di lavoro Log Analytics associata.
@@ -207,8 +211,3 @@ La funzionalità di esportazione continua legacy non è supportata per risorse b
 
 * [Esplorare le metriche](../platform/metrics-charts.md)
 * [Scrivere query di Analisi](../log-query/log-query-overview.md)
-
-[api]: ./api-custom-events-metrics.md
-[diagnostic]: ./diagnostic-search.md
-[metrics]: ../platform/metrics-charts.md
-[start]: ./app-insights-overview.md
