@@ -4,15 +4,15 @@ description: Baseline della sicurezza di Azure per il database SQL di Azure e Is
 author: msmbaldwin
 ms.service: security
 ms.topic: conceptual
-ms.date: 04/09/2020
+ms.date: 09/21/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 846d66a1cf1bb1d97f7ab9d7dfd7bbcf43d3f8d6
-ms.sourcegitcommit: d68c72e120bdd610bb6304dad503d3ea89a1f0f7
+ms.openlocfilehash: ce297b436ce79a4a0a14d0f6e9ad900de61a8dc9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89231028"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885204"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database--sql-managed-instance"></a>Baseline della sicurezza di Azure per il database SQL di Azure & SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -285,15 +285,15 @@ https://docs.microsoft.com/azure/sql-database/sql-database-insights-alerts-porta
 
 ### <a name="27-enable-alerts-for-anomalous-activity"></a>2.7: abilitare gli avvisi per le attività anomale
 
-**Linee guida**: usare il Centro sicurezza di Azure Advanced Threat Protection per il database SQL di Azure per il monitoraggio e l'invio di avvisi sulle attività anomale. Abilitare la sicurezza dei dati avanzata per i database SQL. La sicurezza dei dati avanzata include funzionalità per l'individuazione e la classificazione dei dati sensibili, l'emersione e la mitigazione di potenziali vulnerabilità del database e il rilevamento di attività anomale che potrebbero indicare una minaccia per il database.
+**Linee guida**: usare il Centro sicurezza di Azure Advanced Threat Protection per il database SQL di Azure per il monitoraggio e l'invio di avvisi sulle attività anomale. Abilitare Azure Defender per SQL per i database SQL. Azure Defender per SQL include funzionalità per l'emersione e la mitigazione di potenziali vulnerabilità del database e per il rilevamento di attività anomale che potrebbero indicare una minaccia per il database.
 
 Informazioni sulla protezione avanzata dalle minacce e sugli avvisi per il database SQL di Azure:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
 
-Come abilitare la sicurezza dei dati avanzata per il database SQL di Azure:
+Come abilitare Azure Defender per SQL per il database SQL di Azure:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security
+https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql
 
 Come gestire gli avvisi nel centro sicurezza di Azure:
 
@@ -333,7 +333,7 @@ https://docs.microsoft.com/azure/security-center/security-center-managing-and-re
 
 ### <a name="31-maintain-an-inventory-of-administrative-accounts"></a>3.1: mantenere un inventario degli account amministrativi
 
-**Linee guida**: Azure Active Directory (AAD) include ruoli predefiniti che devono essere assegnati in modo esplicito e possono essere sottoposte a query. Usare il modulo AAD PowerShell per eseguire query ad hoc per individuare gli account che sono membri di gruppi amministrativi.
+**Linee guida**: Azure Active Directory (Azure ad) include ruoli predefiniti che devono essere assegnati in modo esplicito e possono essere sottoposte a query. Usare il modulo Azure AD PowerShell per eseguire query ad hoc per individuare gli account che sono membri di gruppi amministrativi.
 
 Come ottenere un ruolo della directory in Azure AD con PowerShell:
 
@@ -381,7 +381,7 @@ https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
 ### <a name="35-use-multi-factor-authentication-for-all-azure-active-directory-based-access"></a>3.5: usare l'autenticazione a più fattori per tutti gli accessi basati su Azure Active Directory
 
-**Linee guida**: abilitare l'autenticazione a più multi-factor authentication Azure Active Directory fattori (multi-factor authentication) e seguire le indicazioni sulla gestione delle identità e degli accessi nel centro sicurezza di Azure
+**Linee guida**: abilitare l'autenticazione a più fattori (Azure Active Directory Azure ad multi-factor authentication) e seguire le indicazioni sulla gestione delle identità e degli accessi nel centro sicurezza di Azure.
 
 Come abilitare l'autenticazione a più fattori in Azure:
 
@@ -445,13 +445,13 @@ Come configurare località denominate in Azure: https://docs.microsoft.com/azure
 
 ### <a name="39-use-azure-active-directory"></a>3.9: Usare Azure Active Directory
 
-**Indicazioni**: creare un amministratore di Azure Active Directory (AAD) per il server.
+**Linee guida**: creare un amministratore Azure Active Directory (Azure ad) per il server.
 
 Come configurare e gestire l'autenticazione Azure Active Directory con SQL di Azure:
 
 https://docs.microsoft.com/azure/azure-sql/database/authentication-aad-configure
 
-Come creare e configurare un'istanza di AAD:
+Come creare e configurare un'istanza di Azure AD:
 
 https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance
 
@@ -461,7 +461,7 @@ https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-creat
 
 ### <a name="310-regularly-review-and-reconcile-user-access"></a>3.10: controllare e riconciliare regolarmente l'accesso utente
 
-**Indicazioni**: Azure Active Directory (AAD) fornisce i log per individuare gli account obsoleti. Usare inoltre le verifiche di accesso alle identità di Azure per gestire in modo efficiente l'appartenenza ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. L'accesso degli utenti può essere esaminato a intervalli regolari per assicurarsi che solo gli utenti corretti abbiano accesso continuo.
+**Indicazioni**: Azure Active Directory (Azure ad) fornisce i log per individuare gli account obsoleti. Usare inoltre le verifiche di accesso alle identità di Azure per gestire in modo efficiente l'appartenenza ai gruppi, l'accesso alle applicazioni aziendali e le assegnazioni di ruolo. L'accesso degli utenti può essere esaminato a intervalli regolari per assicurarsi che solo gli utenti corretti abbiano accesso continuo.
 
 Come usare le verifiche di accesso alle identità di Azure:
 
@@ -473,7 +473,7 @@ https://docs.microsoft.com/azure/active-directory/governance/access-reviews-over
 
 ### <a name="311-monitor-attempts-to-access-deactivated-accounts"></a>3.11: monitorare i tentativi di accesso agli account disattivati
 
-**Indicazioni**: configurare l'autenticazione Azure Active Directory (AAD) con SQL di Azure e creare le impostazioni di diagnostica per Azure Active Directory account utente, inviando i log di controllo e i log di accesso a un'area di lavoro log Analytics. Configurare gli avvisi desiderati nell'area di lavoro Log Analytics.
+**Indicazioni**: configurare l'autenticazione Azure Active Directory (Azure ad) con SQL di Azure e creare le impostazioni di diagnostica per Azure Active Directory account utente, inviando i log di controllo e i log di accesso a un'area di lavoro log Analytics. Configurare gli avvisi desiderati nell'area di lavoro Log Analytics.
 
 Come configurare e gestire l'autenticazione Azure Active Directory con SQL di Azure:
 
@@ -489,7 +489,7 @@ https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integ
 
 ### <a name="312-alert-on-account-login-behavior-deviation"></a>3.12: avvisare in caso di deviazione dal comportamento di accesso dell'account
 
-**Indicazioni**: usare la protezione delle identità Azure Active Directory (AAD) e i rilevamenti di rischi per configurare risposte automatiche per rilevare azioni sospette correlate alle identità utente. Inoltre, è possibile inserire dati in Sentinel di Azure per un'analisi più approfondita.
+**Linee guida**: usare Azure Active Directory (Azure ad) la protezione delle identità e i rilevamenti di rischi per configurare risposte automatiche per rilevare azioni sospette correlate alle identità utente. Inoltre, è possibile inserire dati in Sentinel di Azure per un'analisi più approfondita.
 
 Come visualizzare gli accessi ai rischi Azure AD:
 
@@ -599,7 +599,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-data-discovery-and-cl
 
 ### <a name="46-use-azure-rbac-to-control-access-to-resources"></a>4.6: usare il controllo degli accessi in base al ruolo di Azure per controllare l'accesso alle risorse
 
-**Linee guida**: usare Azure Active Directory (AAD) per l'autenticazione e il controllo dell'accesso alle istanze del database SQL di Azure.
+**Linee guida**: usare Azure Active Directory (Azure ad) per l'autenticazione e il controllo dell'accesso alle istanze del database SQL di Azure.
 
 Come integrare il database SQL di Azure con Azure Active Directory per l'autenticazione:
 
@@ -655,15 +655,15 @@ https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 ### <a name="51-run-automated-vulnerability-scanning-tools"></a>5.1: eseguire strumenti di analisi della vulnerabilità automatizzati
 
-**Linee guida**: abilitare la sicurezza dei dati avanzata per il database SQL di Azure e seguire le raccomandazioni del Centro sicurezza di Azure per l'esecuzione di valutazioni delle vulnerabilità sui server.
+**Linee guida**: abilitare Azure Defender per SQL per il database SQL di Azure e seguire le raccomandazioni del Centro sicurezza di Azure per l'esecuzione di valutazioni delle vulnerabilità sui server.
 
 Come eseguire valutazioni delle vulnerabilità nel database SQL di Azure:
 
 https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment
 
-Come abilitare la sicurezza avanzata dei dati:
+Come abilitare Azure Defender per SQL:
 
-https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security
+https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql
 
 Come implementare le raccomandazioni per la valutazione della vulnerabilità del Centro sicurezza di Azure:
 
@@ -993,7 +993,7 @@ https://docs.microsoft.com/azure/sql-database/sql-database-always-encrypted-azur
 
 ### <a name="712-manage-identities-securely-and-automatically"></a>7.12: gestire le identità in modo sicuro e automatico
 
-**Linee guida**: usare identità gestite per fornire servizi di Azure con un'identità gestita automaticamente in Azure Active Directory (AAD). Le identità gestite consentono di eseguire l'autenticazione a qualsiasi servizio che supporti l'autenticazione AAD, incluso Azure Key Vault, senza credenziali nel codice.
+**Linee guida**: usare identità gestite per fornire servizi di Azure con un'identità gestita automaticamente in Azure Active Directory (Azure ad). Le identità gestite consentono di eseguire l'autenticazione a qualsiasi servizio che supporti l'autenticazione Azure AD, incluso Azure Key Vault, senza credenziali nel codice.
 
 Esercitazione: usare un'identità gestita assegnata dal sistema VM Windows per accedere a SQL di Azure:
 

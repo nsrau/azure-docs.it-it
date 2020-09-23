@@ -8,14 +8,14 @@ ms.custom: sqldbrb=2
 author: VanMSFT
 ms.author: vanto
 ms.topic: article
-ms.date: 02/20/2020
+ms.date: 09/21/2020
 ms.reviewer: ''
-ms.openlocfilehash: e720a95007ff06a954affe03f43f386be3bed39f
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: e418e64fe9fbe98fbd8da4e75a81c05d5e3d118d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89442106"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885176"
 ---
 # <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database-and-azure-sql-managed-instance"></a>PlayBook per soddisfare i requisiti di sicurezza comuni con il database SQL di Azure e Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -231,7 +231,7 @@ Assegnare solo le [autorizzazioni](https://docs.microsoft.com/sql/relational-dat
        - [CREA RUOLO](https://docs.microsoft.com/sql/t-sql/statements/create-role-transact-sql)
        - [CREATE SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/create-server-role-transact-sql)
     1. Creare gli utenti necessari
-       - [CREATE USER](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)
+       - [CREA UTENTE](https://docs.microsoft.com/sql/t-sql/statements/create-user-transact-sql)
     1. Aggiungere utenti come membri ai ruoli
        - [ALTER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-role-transact-sql)
        - [ALTER SERVER ROLE](https://docs.microsoft.com/sql/t-sql/statements/alter-server-role-transact-sql)
@@ -266,7 +266,7 @@ Le procedure consigliate seguenti sono facoltative, ma comporteranno una miglior
 - Tenere presente che le autorizzazioni nel motore di database possono essere applicate all'interno degli ambiti seguenti (minore sarà l'ambito, minore sarà l'effetto delle autorizzazioni concesse):
   - Server (ruoli speciali nel database master) in Azure
   - Database
-  - SCHEMA
+  - Schema
     - È consigliabile utilizzare gli schemi per concedere autorizzazioni all'interno di un database. (vedere anche: [progettazione schema: suggerimenti per la progettazione dello schema tenendo presente la sicurezza](http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/))
   - Oggetto (tabella, vista, procedura e così via)
 
@@ -647,7 +647,7 @@ Advanced Threat Protection consente di rilevare e rispondere alle minacce potenz
 
 **Procedure consigliate**:
 
-- Configurare la [sicurezza avanzata dei dati (ADS)](advanced-data-security.md#getting-started-with-ads)   per un server specifico o un'istanza gestita. È anche possibile configurare annunci per tutti i server e le istanze gestite in una sottoscrizione passando al [livello standard del Centro sicurezza di Azure](../../security-center/security-center-pricing.md).
+- Configurare [Azure Defender per SQL](azure-defender-for-sql.md)   per un server specifico o un'istanza gestita. È anche possibile configurare Azure Defender per SQL per tutti i server e le istanze gestite in una sottoscrizione passando al [livello standard del Centro sicurezza di Azure](../../security-center/security-center-pricing.md).
 
 - Per un'esperienza di analisi completa, è consigliabile abilitare il [controllo del database SQL](../../azure-sql/database/auditing-overview.md). Con il controllo è possibile tenere traccia degli eventi di database e scriverli in un log di controllo in un account di archiviazione di Azure o in un'area di lavoro di Azure Log Analytics.
 

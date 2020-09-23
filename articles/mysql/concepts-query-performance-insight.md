@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 5/12/2020
-ms.openlocfilehash: 51b478e5184c79e11d95ff004a652b2e5298558f
-ms.sourcegitcommit: 90d2d95f2ae972046b1cb13d9956d6668756a02e
+ms.openlocfilehash: 7aefa6cd048c41feb1535f2ae7fa5c87bf628b2d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/14/2020
-ms.locfileid: "83402603"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884896"
 ---
 # <a name="query-performance-insight-in-azure-database-for-mysql"></a>Informazioni dettagliate prestazioni query in Database di Azure per MySQL
 
@@ -51,7 +51,7 @@ La scheda**Query a esecuzione prolungata** mostra le prime 5 query in base alla 
 
 È possibile fare clic e trascinare nel grafico per limitare l'elenco a un intervallo di tempo specifico. In alternativa, usare le icone di ingrandimento e riduzione per visualizzare rispettivamente un intervallo di tempo superiore o inferiore.
 
-![Informazioni dettagliate sulle prestazioni delle query a esecuzione prolungata](./media/concepts-query-performance-insight/query-performance-insight-landing-page.png) 
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-landing-page.png" alt-text="Informazioni dettagliate sulle prestazioni delle query a esecuzione prolungata"::: 
 
 ### <a name="wait-statistics"></a>Statistiche di attesa
 
@@ -64,7 +64,7 @@ Selezionare la scheda **Statistiche di attesa** per visualizzare le corrisponden
 
 Le query visualizzate nelle statistiche di attesa sono raggruppate in base a quelle che mostrano le attese più lunghe durante l'intervallo di tempo specificato.
 
-![Statistiche di attesa di Informazioni dettagliate prestazioni query](./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png)
+:::image type="content" source="./media/concepts-query-performance-insight/query-performance-insight-wait-statistics.png" alt-text="Statistiche di attesa di Informazioni dettagliate prestazioni query":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 5/6/2019
-ms.openlocfilehash: e8a44de5b6da4c9a125b5c035d0344115930cfe2
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 21ae18b239eaa5f9e894d76bc143161b2d536638
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88182902"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902025"
 ---
 # <a name="quickstart-use-go-language-to-connect-and-query-data-in-azure-database-for-postgresql---single-server"></a>Avvio rapido: Usare il linguaggio Go per connettersi ai dati ed eseguire query in Database di Azure per PostgreSQL - Server singolo
 
@@ -83,7 +83,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database d
 2. Nel menu a sinistra nel portale di Azure fare clic su **Tutte le risorse** e quindi cercare il server creato, ad esempio **mydemoserver**.
 3. Fare clic sul nome del server.
 4. Nel pannello **Panoramica** del server prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server**. Se si dimentica la password, in questo pannello è anche possibile reimpostarla.
- ![Nome del server Database di Azure per PostgreSQL](./media/connect-go/1-connection-string.png)
+ :::image type="content" source="./media/connect-go/1-connection-string.png" alt-text="Nome del server Database di Azure per PostgreSQL":::
 
 ## <a name="build-and-run-go-code"></a>Compilare ed eseguire il codice Go 
 1. Per scrivere codice Golang, è possibile usare un editor di testo normale, ad esempio Blocco note di Microsoft Windows, [vi](https://manpages.ubuntu.com/manpages/xenial/man1/nvi.1.html#contenttoc5) o [Nano](https://www.nano-editor.org/) in Ubuntu oppure TextEdit in macOS. Se si preferisce un ambiente IDE (Interactive Development Environment) più avanzato, provare [GoLand](https://www.jetbrains.com/go/) di Jetbrains, [Visual Studio Code](https://code.visualstudio.com/) di Microsoft o [Atom](https://atom.io/).

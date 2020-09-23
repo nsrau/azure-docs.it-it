@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: f444ff4e884e50ed75b02328bfbe4d4117bc4cc9
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 1be04c0617dc4ed235cc3f3bc29aa58f4c2cb1d2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88064792"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902139"
 ---
 # <a name="azure-database-for-postgresql-single-server-data-encryption-with-a-customer-managed-key"></a>Crittografia dei dati per server singolo di Database di Azure per PostgreSQL con una chiave gestita dal cliente
 
@@ -43,7 +43,7 @@ Le chiavi DEK, crittografate con chiavi KEK, vengono archiviate separatamente. S
 
 ## <a name="how-data-encryption-with-a-customer-managed-key-work"></a>Funzionamento della crittografia dei dati con una chiave gestita dal cliente
 
-![Diagramma che mostra una panoramica di Bring Your Own Key](media/concepts-data-access-and-security-data-encryption/postgresql-data-encryption-overview.png)
+:::image type="content" source="media/concepts-data-access-and-security-data-encryption/postgresql-data-encryption-overview.png" alt-text="Diagramma che mostra una panoramica di Bring Your Own Key":::
 
 Affinché un server PostgreSQL usi chiavi gestite dal cliente archiviate in Key Vault per la crittografia della chiave DEK, un amministratore di Key Vault concede al server i diritti di accesso seguenti:
 
@@ -79,7 +79,7 @@ Se si usa la crittografia dei dati con una chiave gestita dal cliente, ecco le r
 * Assicurarsi che Key Vault e il server singolo di Database di Azure per PostgreSQL risiedano nella stessa area, per garantire un accesso più rapido per le operazioni wrapping e annullamento del wrapping della chiave DEK.
 * Bloccare Azure KeyVault per limitarne l'accesso solo **all'endpoint privato e alle reti selezionate** e consentire solo a servizi *Microsoft attendibili* di proteggere le risorse.
 
-    ![Servizio attendibile con Azure Key Vault](media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png)
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Servizio attendibile con Azure Key Vault":::
 
 Ecco le raccomandazioni per la configurazione di una chiave gestita dal cliente:
 

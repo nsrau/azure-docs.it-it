@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/21/2020
 ms.author: memildin
-ms.openlocfilehash: df7b8d23b68e8040e9a7485565b8d7b35cf378d6
-ms.sourcegitcommit: 0194a29a960e3615f96a2d9d8a7e681cf3e8f9ab
+ms.openlocfilehash: 16ec78d6d4d2ceb9498cc25d482c24ccdc6b9f56
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89667599"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901191"
 ---
 # <a name="security-alerts---a-reference-guide"></a>Guida di riferimento per gli avvisi di sicurezza
 
@@ -31,9 +31,10 @@ Alla fine di questa pagina è disponibile una tabella che descrive la catena di 
 
 
 
+
 ## <a name="alerts-for-windows-machines"></a><a name="alerts-windows"></a>Avvisi per computer Windows
 
-[Altri dettagli e note](threat-protection.md#windows-machines)
+[Altri dettagli e note](defender-for-servers-introduction.md)
 
 |Avviso|Descrizione|Finalità ([altre informazioni](#intentions))|Gravità|
 |----|----|:----:|--|
@@ -125,7 +126,7 @@ Alla fine di questa pagina è disponibile una tabella che descrive la catena di 
 
 ## <a name="alerts-for-linux-machines"></a><a name="alerts-linux"></a>Avvisi per macchine Linux
 
-[Altri dettagli e note](threat-protection.md#linux-machines)
+[Altri dettagli e note](defender-for-servers-introduction.md)
 
 |Avviso|Descrizione|Finalità ([altre informazioni](#intentions))|Gravità|
 |----|----|:----:|--|
@@ -217,7 +218,7 @@ Alla fine di questa pagina è disponibile una tabella che descrive la catena di 
 
 ## <a name="alerts-for-azure-app-service"></a><a name="alerts-azureappserv"></a>Avvisi per Servizio app di Azure
 
-[Altri dettagli e note](threat-protection.md#app-services)
+[Altri dettagli e note](defender-for-app-service-introduction.md)
 
 | Avviso                                                                                            | Descrizione                                                                                                                                                                                                                                                                                                                                                                           | Finalità ([altre informazioni](#intentions)) | Gravità |
 |---------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -242,7 +243,7 @@ Alla fine di questa pagina è disponibile una tabella che descrive la catena di 
 
 ## <a name="alerts-for-containers---azure-kubernetes-service-clusters"></a><a name="alerts-akscluster"></a>Avvisi per i contenitori - Cluster del servizio Azure Kubernetes
 
-[Altri dettagli e note](threat-protection.md#azure-containers)
+[Altri dettagli e note](defender-for-kubernetes-introduction.md)
 
 | Avviso                                                   | Descrizione                                                                                                                                                                                                                                                                                                 | Finalità ([altre informazioni](#intentions)) | Gravità |
 |---------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -260,7 +261,7 @@ Alla fine di questa pagina è disponibile una tabella che descrive la catena di 
 
 ## <a name="alerts-for-containers---host-level"></a><a name="alerts-containerhost"></a>Avvisi per i contenitori - Livello host
 
-[Altri dettagli e note](threat-protection.md#azure-containers)
+[Altri dettagli e note](defender-for-kubernetes-introduction.md)
 
 | Avviso                                              | Descrizione                                                                                                                                                                                                                                                                                                | Finalità ([altre informazioni](#intentions)) | Gravità |
 |----------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -276,7 +277,7 @@ Alla fine di questa pagina è disponibile una tabella che descrive la catena di 
 
 ## <a name="alerts-for-sql-database-and-azure-synapse-analytics"></a><a name="alerts-sql-db-and-warehouse"></a>Avvisi per il database SQL e Azure sinapsi Analytics
 
-[Altri dettagli e note](threat-protection.md#data-sql)
+[Altri dettagli e note](defender-for-sql-introduction.md)
 
 | Avviso                                           | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                 | Finalità ([altre informazioni](#intentions)) | Gravità |
 |-------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -292,7 +293,7 @@ Alla fine di questa pagina è disponibile una tabella che descrive la catena di 
 
 ## <a name="alerts-for-azure-storage"></a><a name="alerts-azurestorage"></a>Avvisi per Archiviazione di Azure
 
-[Altri dettagli e note](threat-protection.md#azure-storage)
+[Altri dettagli e note](defender-for-storage-introduction.md)
 
 | Avviso                                                         | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | Finalità ([altre informazioni](#intentions)) | Gravità |
 |---------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -315,7 +316,7 @@ Alla fine di questa pagina è disponibile una tabella che descrive la catena di 
 
 ## <a name="alerts-for-azure-cosmos-db-preview"></a><a name="alerts-azurecosmos"></a>Avvisi per Azure Cosmos DB (anteprima)
 
-[Altri dettagli e note](threat-protection.md#cosmos-db)
+[Altri dettagli e note](other-threat-protections.md#cosmos-db)
 
 | Avviso                                                         | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | Finalità ([altre informazioni](#intentions)) | Gravità |
 |---------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -326,7 +327,7 @@ Alla fine di questa pagina è disponibile una tabella che descrive la catena di 
 
 ## <a name="alerts-for-azure-network-layer"></a><a name="alerts-azurenetlayer"></a>Avvisi per il livello di rete di Azure
 
-[Altri dettagli e note](threat-protection.md#network-layer)
+[Altri dettagli e note](other-threat-protections.md#network-layer)
 
 | Avviso                                                                 | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             | Finalità ([altre informazioni](#intentions)) | Gravità |
 |-----------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -351,7 +352,7 @@ Alla fine di questa pagina è disponibile una tabella che descrive la catena di 
 
 ## <a name="alerts-for-azure-resource-manager-preview"></a><a name="alerts-azureresourceman"></a>Avvisi per Azure Resource Manager (anteprima)
 
-[Altri dettagli e note](threat-protection.md#management-layer)
+[Altri dettagli e note](other-threat-protections.md#management-layer)
 
 | Avviso                                                                          | Descrizione                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  | Finalità ([altre informazioni](#intentions)) | Gravità |
 |--------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -368,9 +369,9 @@ Alla fine di questa pagina è disponibile una tabella che descrive la catena di 
 |                                                                                |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |                                    |          |
 
 
-## <a name="alerts-for-azure-key-vault-preview"></a><a name="alerts-azurekv"></a>Avvisi per Azure Key Vault (anteprima)
+## <a name="alerts-for-azure-key-vault"></a><a name="alerts-azurekv"></a>Avvisi per Azure Key Vault
 
-[Altri dettagli e note](threat-protection.md#azure-keyvault)
+[Altri dettagli e note](defender-for-key-vault-introduction.md)
 
 | Avviso                                                        | Descrizione                                                                                                                                                                                                                                                                                                                            | Finalità ([altre informazioni](#intentions)) | Gravità |
 |--------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:----------------------------------:|----------|
@@ -388,7 +389,7 @@ Alla fine di questa pagina è disponibile una tabella che descrive la catena di 
 
 ## <a name="alerts-for-azure-ddos-protection"></a><a name="alerts-azureddos"></a>Avvisi per Protezione DDoS di Azure
 
-[Altri dettagli e note](threat-protection.md#azure-ddos)
+[Altri dettagli e note](other-threat-protections.md#azure-ddos)
 
 | Avviso                                   | Descrizione                                                          | Finalità ([altre informazioni](#intentions)) | Gravità |
 |-----------------------------------------|----------------------------------------------------------------------|:----------------------------------:|----------|
@@ -425,7 +426,6 @@ Le finalità della catena di attacco supportata dal Centro sicurezza si basano s
 ## <a name="next-steps"></a>Passaggi successivi
 Per altre informazioni sugli avvisi, vedere gli argomenti seguenti:
 
-* [Protezione dalle minacce nel Centro sicurezza di Azure](threat-protection.md)
-* [Avvisi di sicurezza nel Centro sicurezza di Azure](security-center-alerts-overview.md)
-* [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md)
-* [Esportare avvisi e raccomandazioni sulla sicurezza (anteprima)](continuous-export.md)
+- [Avvisi di sicurezza nel Centro sicurezza di Azure](security-center-alerts-overview.md)
+- [Gestione e risposta agli avvisi di sicurezza nel Centro sicurezza di Azure](security-center-managing-and-responding-alerts.md)
+- [Esportare avvisi e raccomandazioni sulla sicurezza (anteprima)](continuous-export.md)

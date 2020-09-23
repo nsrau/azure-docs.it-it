@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: sstein, carlrab
 ms.date: 09/26/2019
-ms.openlocfilehash: b2d43e970012209acb6ed7fbbaafbb1719617280
-ms.sourcegitcommit: 3d56d25d9cf9d3d42600db3e9364a5730e80fa4a
+ms.openlocfilehash: 1899baa927bffdaedd1d7ee00f442c449480fc04
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87533870"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986853"
 ---
 # <a name="quickstart-create-a-managed-instance-of-sql-managed-instance"></a>Avvio rapido: Creare un'istanza gestita di Istanza gestita di SQL
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -124,7 +124,7 @@ Se non si ha una sottoscrizione di Azure, [creare un account gratuito](https://a
 > 3. Selezionare l'operazione di distribuzione di istanza gestita di SQL in corso.
 
 > [!IMPORTANT]
-> - La creazione di Istanza gestita di SQL è un'operazione a esecuzione prolungata che potrebbe richiedere diverse ore alla volta, a seconda delle specifiche circostanze. Per i tempi tipici di creazione, vedere [Durata delle operazioni di gestione](management-operations-overview.md#management-operations-duration).
+> - La creazione di Istanza gestita di SQL è un'operazione a esecuzione prolungata che potrebbe richiedere diverse ore alla volta, a seconda delle specifiche circostanze. Per i tempi tipici di creazione, vedere [Durata delle operazioni di gestione](management-operations-overview.md#duration).
 > - L'avvio della creazione di Istanza gestita di SQL potrebbe essere ritardato a causa di altre operazioni a esecuzione prolungata già in corso, ad esempio operazioni di ripristino o dimensionamento di altre istanze gestite nella stessa subnet. Per altre informazioni, vedere [Effetti incrociati sulle operazioni di gestione](management-operations-overview.md#management-operations-cross-impact).
 > - Per ottenere lo stato della creazione dell'istanza gestita, è necessario avere **autorizzazioni di lettura** per il gruppo di risorse. Se non si ha questa autorizzazione o la si revoca mentre è in corso la creazione dell'istanza gestita, è possibile che l'istanza gestita di SQL non sia visibile nell'elenco delle distribuzioni del gruppo di risorse.
 >

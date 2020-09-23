@@ -1,14 +1,14 @@
 ---
 title: Creare un'app per le funzioni in Linux dal portale di Azure
-description: Informazioni su come creare la prima funzione di Azure per l'esecuzione senza server tramite il portale di Azure.
+description: Informazioni su come creare la prima funzione di Azure in Linux usando il portale di Azure.
 ms.topic: how-to
 ms.date: 04/29/2020
-ms.openlocfilehash: 5aae60900a61c28f6c53f89b8e273daccb047eef
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: 53edee15d9c9dfa66e57bb1eb03b1d8f66aa1ee2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83116211"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970726"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Creare un'app per le funzioni in Linux in un piano di servizio app di Azure
 

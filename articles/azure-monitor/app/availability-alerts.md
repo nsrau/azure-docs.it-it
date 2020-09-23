@@ -1,17 +1,17 @@
 ---
 title: Configurare gli avvisi di disponibilità con applicazione Azure Insights | Microsoft Docs
-description: Configurare i test Web in Application Insights. Ottenere avvisi se un sito Web diventa non disponibile o risponde lentamente.
+description: Informazioni su come configurare i test Web in Application Insights. Ottenere avvisi se un sito Web diventa non disponibile o risponde lentamente.
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: c53b43d811e5e2b9cd8d70e3c8e05af444895154
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 300c4bcdb948665b2cdf4ce0eb429499208660b1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87320647"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970750"
 ---
 # <a name="availability-alerts"></a>Avvisi di disponibilità
 

@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 72f0d361f69232894df3a9131d173411614a2055
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 035b13140ee1fb7a48d0cea9a3611eac145d9f8c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87921215"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970686"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Trovare e applicare raccomandazioni per le prestazioni
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -35,13 +35,13 @@ Usare la procedura seguente per trovare le raccomandazioni sulle prestazioni nel
 
 Le raccomandazioni per le prestazioni vengono visualizzate in una tabella simile a quella illustrata nella figura seguente:
 
-![Consigli](./media/database-advisor-find-recommendations-portal/recommendations.png)
+![Screenshot mostra le raccomandazioni sulle prestazioni in una tabella con Descrizione azione e raccomandazione.](./media/database-advisor-find-recommendations-portal/recommendations.png)
 
 Le raccomandazioni vengono ordinate in base all'impatto potenziale sulle prestazioni nelle categorie seguenti:
 
 | Impatto | Descrizione |
 |:--- |:--- |
-| Alta |Le indicazioni ad alto impatto devono fornire l'impatto più significativo sulle prestazioni. |
+| Alto |Le indicazioni ad alto impatto devono fornire l'impatto più significativo sulle prestazioni. |
 | Media |Le raccomandazioni a impatto medio devono migliorare le prestazioni, ma non sostanzialmente. |
 | Bassa |Le raccomandazioni a basso impatto devono offrire prestazioni migliori, ma i miglioramenti potrebbero non essere significativi. |
 
@@ -129,7 +129,7 @@ L'applicazione di un'indicazione potrebbe non avvenire in tempo reale. Il portal
 
 | Stato | Descrizione |
 |:--- |:--- |
-| In sospeso |Il comando di applicazione della raccomandazione è stato ricevuto ed è pianificato per l'esecuzione. |
+| Pending |Il comando di applicazione della raccomandazione è stato ricevuto ed è pianificato per l'esecuzione. |
 | In esecuzione |La raccomandazione viene applicata. |
 | Convalida in corso. |La raccomandazione è stata applicata e il servizio sta valutando i vantaggi. |
 | Operazione completata |La raccomandazione è stata applicata e i vantaggi sono stati misurati. |
@@ -172,4 +172,4 @@ Monitorare le raccomandazioni e continuare ad applicarle in modo da migliorare l
 
 * [Archivio query](https://msdn.microsoft.com/library/dn817826.aspx)
 * [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
-* [Controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](../../role-based-access-control/overview.md)
+* [Controllo degli accessi in base al ruolo di Azure](../../role-based-access-control/overview.md)

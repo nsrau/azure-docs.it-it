@@ -1,14 +1,14 @@
 ---
 title: Esempio di progetto DoD Impact Level 5
 description: Procedura di distribuzione per l'esempio di progetto DoD Impact Level 5, inclusi i dettagli dei parametri degli artefatti del progetto.
-ms.date: 06/30/2020
+ms.date: 09/17/2020
 ms.topic: sample
-ms.openlocfilehash: 9267ed0de35107b8f6582d852ab925b4dbbbdba4
-ms.sourcegitcommit: a989fb89cc5172ddd825556e45359bac15893ab7
+ms.openlocfilehash: deb6ffa0f886cc6a4a9bea10a38d7cd82e7df8f1
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/01/2020
-ms.locfileid: "85804409"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978224"
 ---
 # <a name="deploy-the-dod-impact-level-5-blueprint-sample"></a>Distribuire l'esempio di progetto DoD Impact Level 5
 

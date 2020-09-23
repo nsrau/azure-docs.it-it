@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: 0fc4e9a794429e7f1c1609fac287e67dabb3c878
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: d398cfe063dbbb2bc87a3debf1669afa6a16b43e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875756"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891994"
 ---
 # <a name="power-bi-output-from-azure-stream-analytics"></a>Power BI output di analisi di flusso di Azure
 
@@ -20,7 +20,7 @@ ms.locfileid: "88875756"
 
 L'output di Power BI da Stream Analytics non è attualmente disponibile nelle aree di Azure Cina 21Vianet e Germania (T-Systems International).
 
-## <a name="ouput-configuration"></a>Configurazione di ouput
+## <a name="output-configuration"></a>Configurazione di output
 
 La tabella seguente elenca i nomi di proprietà e le relative descrizioni per configurare l'output di Power BI.
 
@@ -68,7 +68,7 @@ Precedente/Corrente | Int64 | string | Datetime | Double
 -----------------|-------|--------|----------|-------
 Int64 | Int64 | string | string | Double
 Double | Double | string | string | Double
-string | string | string | string | string 
+string | Stringa | Stringa | Stringa | string 
 Datetime | string | string |  Datetime | string
 
 ## <a name="output-batch-size"></a>Dimensione del batch di output
@@ -82,4 +82,4 @@ Per le dimensioni del batch di output, vedere [Power Bi limiti dell'API REST](ht
 * [Avvio rapido: Creare un processo di Analisi di flusso di Azure con un modello di Resource Manager](quick-create-azure-resource-manager.md)
 * [Guida introduttiva: creare un processo di analisi di flusso usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Guida introduttiva: Creare un processo di Analisi di flusso di Azure con Visual Studio Code](stream-analytics-quick-create-vs.md)
-* [Guida introduttiva: creare un processo di analisi di flusso di Azure in Visual Studio Code](quick-create-vs-code.md)
+* [Guida introduttiva: creare un processo di analisi di flusso di Azure in Visual Studio Code](quick-create-visual-studio-code.md)

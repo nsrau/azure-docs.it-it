@@ -3,12 +3,12 @@ title: Dashboard panoramica di Azure Application Insights| Microsoft Docs
 description: Monitorare le applicazioni con la funzionalità Dashboard panoramica di Azure Application Insights.
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 8c8aa4460a545f032eaa60560de00efff27ae1ef
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 714488d88b269f252dfd6677f847db315969a270
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87322534"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970605"
 ---
 # <a name="application-insights-overview-dashboard"></a>Dashboard panoramica di Application Insights
 
@@ -36,7 +36,7 @@ Il dashboard delle applicazioni sfrutta la tecnologia del dashboard esistente in
 
 Per accedere al dashboard predefinito selezionare _Dashboard dell'applicazione_ nell'angolo superiore sinistro.
 
-![Visualizzazione dashboard](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
+![Screenshot che mostra il pulsante del dashboard dell'applicazione evidenziato.](./media/overview-dashboard/app-insights-overview-dashboard-05.png)
 
 Se è la prima volta che si accede al dashboard, verrà avviata una visualizzazione predefinita:
 

@@ -6,24 +6,24 @@ author: mamccrea
 ms.author: mamccrea
 ms.date: 05/15/2019
 ms.topic: how-to
-ms.openlocfilehash: 00705e40ca17959701af325ed52a4c3754d35122
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 4b4ddd7db4891c642ec2002bbe992314fe67a20f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86039059"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891973"
 ---
 # <a name="explore-azure-stream-analytics-with-visual-studio-code-preview"></a>Esplora analisi di flusso di Azure con Visual Studio Code (anteprima)
 
 Analisi di flusso di Azure per Visual Studio Code estensione offre agli sviluppatori un'esperienza semplificata per la gestione dei processi di analisi di flusso. Può essere usato in Windows, Mac e Linux. Con l'estensione analisi di flusso di Azure è possibile:
 
-- [Creare](quick-create-vs-code.md), avviare e arrestare processi
+- [Creare](quick-create-visual-studio-code.md), avviare e arrestare processi
 - Esportare i processi esistenti in un progetto locale
 - Elencare i processi e visualizzare le entità del processo
 
 ## <a name="export-a-job-to-a-local-project"></a>Esportare un processo in un progetto locale
 
-Per esportare un processo in un progetto locale, individuare il processo che si vuole esportare in **Esplora analisi di flusso** in Visual Studio Code. Quindi selezionare una cartella per il progetto. Il progetto viene esportato nella cartella selezionata ed è possibile continuare a gestire il processo da Visual Studio Code. Per altre informazioni sull'uso di Visual Studio Code per gestire i processi di analisi di flusso, vedere la [Guida introduttiva](quick-create-vs-code.md)di Visual Studio Code.
+Per esportare un processo in un progetto locale, individuare il processo che si vuole esportare in **Esplora analisi di flusso** in Visual Studio Code. Quindi selezionare una cartella per il progetto. Il progetto viene esportato nella cartella selezionata ed è possibile continuare a gestire il processo da Visual Studio Code. Per altre informazioni sull'uso di Visual Studio Code per gestire i processi di analisi di flusso, vedere la [Guida introduttiva](quick-create-visual-studio-code.md)di Visual Studio Code.
 
 ![Esporta processo ASA in Visual Studio Code](./media/vscode-explore-jobs/export-job.png)
 
@@ -44,4 +44,4 @@ Per esportare un processo in un progetto locale, individuare il processo che si 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Creare un processo cloud di Analisi di flusso di Azure in Visual Studio Code (Anteprima)](quick-create-vs-code.md)
+* [Creare un processo cloud di Analisi di flusso di Azure in Visual Studio Code (Anteprima)](quick-create-visual-studio-code.md)

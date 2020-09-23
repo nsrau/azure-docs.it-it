@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 09/11/2019
-ms.openlocfilehash: 2c6b6af46ae89f794e05c3aa80716250c566257e
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: e0214cb9515a5974f1de9a27760dc037f7593f30
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86037223"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892301"
 ---
 # <a name="copy-or-back-up-azure-stream-analytics-jobs"></a>Copiare o eseguire il backup dei processi di analisi di flusso di Azure
 
@@ -23,7 +23,7 @@ ms.locfileid: "86037223"
 
 * Accedere al [portale di Azure](https://portal.azure.com/).
 
-* Installare l' [estensione analisi di flusso di Azure per Visual Studio Code](quick-create-vs-code.md#install-the-azure-stream-analytics-tools-extension) o [gli strumenti di analisi di flusso di Azure per Visual Studio](quick-create-vs-code.md#install-the-azure-stream-analytics-tools-extension).  
+* Installare l' [estensione analisi di flusso di Azure per Visual Studio Code](quick-create-visual-studio-code.md#install-the-azure-stream-analytics-tools-extension) o [gli strumenti di analisi di flusso di Azure per Visual Studio](quick-create-visual-studio-code.md#install-the-azure-stream-analytics-tools-extension).  
 
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
@@ -33,7 +33,7 @@ ms.locfileid: "86037223"
 
 2. Per esportare un processo in un progetto locale, individuare il processo che si vuole esportare in **Esplora analisi di flusso** in Visual Studio Code. Quindi selezionare una cartella per il progetto.
 
-    ![Esporta processo ASA in Visual Studio Code](./media/vscode-explore-jobs/export-job.png)
+    ![Individuare un processo ASA in Visual Studio Code](./media/vscode-explore-jobs/export-job.png)
 
     Il progetto viene esportato nella cartella selezionata e aggiunta all'area di lavoro corrente.
 
@@ -41,7 +41,7 @@ ms.locfileid: "86037223"
 
 3. Per pubblicare il processo in un'altra area o backup usando un altro nome, selezionare **Seleziona dalle sottoscrizioni da pubblicare** nell'editor di query (con \* estensione asaql) e seguire le istruzioni.
 
-    ![Pubblicare in Azure in Visual Studio Code](./media/quick-create-vs-code/submit-job.png)
+    ![Pubblicare in Azure in Visual Studio Code](./media/quick-create-visual-studio-code/submit-job.png)
 
 ## <a name="visual-studio"></a>Visual Studio
 
@@ -51,6 +51,6 @@ ms.locfileid: "86037223"
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Guida introduttiva: creare un processo di analisi di flusso usando Visual Studio Code](quick-create-vs-code.md)
+* [Guida introduttiva: creare un processo di analisi di flusso usando Visual Studio Code](quick-create-visual-studio-code.md)
 * [Guida introduttiva: creare un processo di analisi di flusso con Visual Studio](stream-analytics-quick-create-vs.md)
 * [Distribuire un processo di Analisi di flusso di Azure con CI/CD usando Azure Pipelines](stream-analytics-tools-visual-studio-cicd-vsts.md)

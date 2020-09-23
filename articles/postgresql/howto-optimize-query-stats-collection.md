@@ -6,12 +6,12 @@ ms.author: dianas
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: a4c2051a3f52ae363d8dc704aef790d8ce77efbd
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: bc731f6f6a5a60bce0851bf8fe5874f7149f3899
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86116200"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901456"
 ---
 # <a name="optimize-query-statistics-collection-on-an-azure-database-for-postgresql---single-server"></a>Ottimizzare la raccolta delle statistiche sulle query in un database di Azure per PostgreSQL-server singolo
 Questo articolo descrive come ottimizzare la raccolta di statistiche query in un server di Database di Azure per PostgreSQL.
@@ -27,7 +27,7 @@ Per impostare `pg_stat_statements.track = NONE`:
 
 - Nel portale di Azure passare alla [pagina di gestione delle risorse PostgreSQL e selezionare il pannello dei parametri del server](howto-configure-server-parameters-using-portal.md).
 
-  ![Pannello dei parametri del server PostgreSQL](./media/howto-optimize-query-stats-collection/pg_stats_statements_portal.png)
+  :::image type="content" source="./media/howto-optimize-query-stats-collection/pg_stats_statements_portal.png" alt-text="Pannello dei parametri del server PostgreSQL":::
 
 - Usare il comando dell'[interfaccia della riga di comando di Azure](howto-configure-server-parameters-using-cli.md) az postgres server configuration set con i parametri `--name pg_stat_statements.track --resource-group myresourcegroup --server mydemoserver --value NONE`.
 
@@ -38,5 +38,5 @@ La funzionalità [Query Store](concepts-query-store.md) di Database di Azure per
 È consigliabile impostare `pg_stat_statements.track = NONE` nel [portale di Azure](howto-configure-server-parameters-using-portal.md) o usare l'[interfaccia della riga di comando di Azure](howto-configure-server-parameters-using-cli.md).
 
 Per altre informazioni, vedere: 
-- [Scenari di utilizzo dell'archivio query](concepts-query-store-scenarios.md) 
-- [Procedure consigliate per Query Store](concepts-query-store-best-practices.md) 
+- [Scenari di utilizzo di Query Store](concepts-query-store-scenarios.md) 
+- [Procedure consigliate Query Store](concepts-query-store-best-practices.md) 

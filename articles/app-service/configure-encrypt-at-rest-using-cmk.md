@@ -1,14 +1,14 @@
 ---
 title: Crittografare l'origine dell'applicazione inattiva
-description: Crittografare i dati dell'applicazione in archiviazione di Azure e distribuirli come file di pacchetto.
+description: Informazioni su come crittografare i dati dell'applicazione in archiviazione di Azure e distribuirli come file di pacchetto.
 ms.topic: article
 ms.date: 03/06/2020
-ms.openlocfilehash: 7e5e809fe8b670ae6ec5bfd15e54f9a8019e76d1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 62bb1e51bada155b98fe46740662b86b753d44fa
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79408744"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90978489"
 ---
 # <a name="encryption-at-rest-using-customer-managed-keys"></a>Crittografia dei componenti inattivi con chiavi gestite dal cliente
 
@@ -20,7 +20,7 @@ Per crittografare i dati dell'applicazione dell'app Web inattivi sono necessari 
 
 ## <a name="set-up-encryption-at-rest"></a>Configurare la crittografia inattiva
 
-### <a name="create-an-azure-storage-account"></a>Creare un account di Archiviazione di Azure
+### <a name="create-an-azure-storage-account"></a>Creare un account di archiviazione di Azure
 
 Prima di tutto, [creare un account di archiviazione di Azure](../storage/common/storage-account-create.md) e [crittografarlo con chiavi gestite dal cliente](../storage/common/encryption-customer-managed-keys.md). Una volta creato l'account di archiviazione, usare il [Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md) per caricare i file del pacchetto.
 
@@ -99,7 +99,7 @@ Se la chiave SAS per l'account di archiviazione viene ruotata, l'app Web non avr
 
 È possibile revocare l'accesso dell'app Web ai dati del sito disabilitando l'accesso dell'app Web a Key Vault. A tale scopo, rimuovere i criteri di accesso per l'identità dell'app Web. Si tratta della stessa identità creata in precedenza durante la configurazione dei riferimenti a Key Vault.
 
-## <a name="summary"></a>Summary
+## <a name="summary"></a>Riepilogo
 
 I file dell'applicazione sono ora crittografati a riposo nell'account di archiviazione. Quando l'app Web viene avviata, recupera l'URL di firma di accesso condiviso dall'insieme di credenziali delle chiavi. Infine, l'app Web carica i file dell'applicazione dall'account di archiviazione. 
 
