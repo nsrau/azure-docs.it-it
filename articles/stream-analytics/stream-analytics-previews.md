@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 8/07/2020
-ms.openlocfilehash: e11d5b14bdf6b134fefea79a1f709ec73499bd20
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 0020efea69fc684ff6ebebf286718aa2a720910e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88815709"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900800"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Funzionalità in anteprima di Analisi di flusso di Azure
 
@@ -25,10 +25,6 @@ Nell'anteprima pubblica sono disponibili le funzionalità seguenti. È possibile
 ### <a name="authenticate-to-sql-database-output-with-managed-identities"></a>Eseguire l'autenticazione all'output del database SQL con identità gestite
 
 Analisi di flusso di Azure supporta l'[autenticazione con identità gestita](../active-directory/managed-identities-azure-resources/overview.md) per i sink di output del database SQL di Azure. Le identità gestite eliminano le limitazioni dei metodi di autenticazione basati su utente, ad esempio la necessità di ripetere l'autenticazione a causa di modifiche della password. 
-
-### <a name="output-to-azure-synapse-analytics"></a>Output in Azure Synapse Analytics
-
-I processi di Analisi di flusso di Azure possono inviare l'output a una tabella del pool SQL in [Azure Synapse Analytics](https://azure.microsoft.com/services/synapse-analytics) e possono elaborare velocità effettive fino a 200 MB/sec. In questo modo vengono soddisfatte le più elevate esigenze di analisi in tempo reale e di elaborazione dei dati del percorso critico tipiche di carichi di lavoro quali la creazione di report e dashboard.  
 
 ### <a name="real-time-high-performance-scoring-with-custom-ml-models-managed-by-azure-machine-learning"></a>Assegnazione di punteggio in tempo reale ad alte prestazioni con modelli di ML personalizzati gestiti da Azure Machine Learning
 
@@ -52,7 +48,7 @@ Gli strumenti di Visual Studio per Analisi di flusso di Azure migliorano la funz
 
 ### <a name="visual-studio-code-for-azure-stream-analytics"></a>Visual Studio Code per Analisi di flusso di Azure
 
-I processi di Analisi di flusso di Azure possono essere creati in Visual Studio Code. Vedere l'[esercitazione introduttiva su VS Code](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code).
+I processi di Analisi di flusso di Azure possono essere creati in Visual Studio Code. Vedere l'[esercitazione introduttiva su VS Code](https://docs.microsoft.com/azure/stream-analytics/quick-create-visual-studio-code).
 
 ### <a name="local-testing-with-live-data-in-visual-studio-code"></a>Test locale con dati dinamici in Visual Studio Code
 

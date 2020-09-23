@@ -8,15 +8,14 @@ ms.author: nibaccam
 author: nibaccam
 ms.date: 08/05/2020
 ms.custom: how-to, tracking-python
-ms.openlocfilehash: 0725a97aecab5d03c2f5e3937c181a95a7b97c2a
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: c90d11ba630dbb1e37054715855ae5547a8a034b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89461511"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902719"
 ---
 # <a name="create-azure-machine-learning-datasets-from-azure-open-datasets"></a>Creare set di impostazioni di Azure Machine Learning da Azure Open DataSet
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Questo articolo illustra come inserire dati di arricchimento curati negli esperimenti di Machine Learning locali o remoti con set di dati [Azure Machine Learning](../machine-learning/overview-what-is-azure-ml.md) e set di dati [aperti di Azure](https://docs.microsoft.com/azure/open-datasets/). 
 
@@ -111,7 +110,7 @@ titanic_ds = titanic_ds.register(workspace=workspace,
 
     ![Scegliere il set di dati](./media/how-to-create-dataset-from-open-dataset/open-datasets-2.png)
 
-1. Scegliere un nome con cui registrare il set di dati e, facoltativamente, filtrare i dati usando i filtri disponibili. In questo caso, per il set di dati **Public Holidays** è possibile filtrare il periodo di tempo a un anno e il codice paese solo negli Stati Uniti. Vedere il [Catalogo dei set](https://azure.microsoft.com/services/open-datasets/catalog) di dati aperti di Azure per informazioni dettagliate sui dati, ad esempio le descrizioni dei campi e gli intervalli di date. Selezionare **Create** (Crea).
+1. Scegliere un nome con cui registrare il set di dati e, facoltativamente, filtrare i dati usando i filtri disponibili. In questo caso, per il set di dati **Public Holidays** è possibile filtrare il periodo di tempo a un anno e il codice paese solo negli Stati Uniti. Vedere il [Catalogo dei set](https://azure.microsoft.com/services/open-datasets/catalog) di dati aperti di Azure per informazioni dettagliate sui dati, ad esempio le descrizioni dei campi e gli intervalli di date. Selezionare **Crea**.
 
     ![Imposta parametri set di dati e crea set di dati](./media/how-to-create-dataset-from-open-dataset/open-datasets-3.png)
 

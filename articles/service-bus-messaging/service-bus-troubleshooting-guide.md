@@ -1,14 +1,14 @@
 ---
 title: Guida alla risoluzione dei problemi del bus di servizio di Azure | Microsoft Docs
-description: Questo articolo fornisce un elenco delle eccezioni di messaggistica del bus di servizio di Azure e le azioni consigliate da intraprendere quando si verifica l'eccezione.
+description: Questo articolo fornisce suggerimenti e consigli per la risoluzione dei problemi che possono verificarsi quando si usa il bus di servizio di Azure.
 ms.topic: article
-ms.date: 07/15/2020
-ms.openlocfilehash: 822a97a230a8646ddadde21eedc6c23d5e3efbd6
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.date: 09/16/2020
+ms.openlocfilehash: 39d2bf14f88e8efabcddda98268a187009cf029e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067053"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885723"
 ---
 # <a name="troubleshooting-guide-for-azure-service-bus"></a>Guida alla risoluzione dei problemi del bus di servizio di Azure
 Questo articolo fornisce suggerimenti e consigli per la risoluzione dei problemi che possono verificarsi quando si usa il bus di servizio di Azure. 
@@ -64,7 +64,7 @@ I passaggi seguenti possono essere utili per la risoluzione dei problemi di conn
 ### <a name="cause"></a>Causa
 Gli aggiornamenti del servizio back-end e i riavvii possono causare questi problemi nelle applicazioni.
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 Se il codice dell'applicazione usa l'SDK, i criteri di ripetizione dei tentativi sono già incorporati e attivi. L'applicazione si riconnetterà senza conseguenze significative per l'applicazione o il flusso di lavoro.
 
 ## <a name="unauthorized-access-send-claims-are-required"></a>Accesso non autorizzato: è necessario inviare attestazioni
@@ -79,7 +79,7 @@ Service Bus Error: Unauthorized access. 'Send' claim\(s\) are required to perfor
 ### <a name="cause"></a>Causa
 L'identità non dispone delle autorizzazioni per accedere all'argomento del bus di servizio. 
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 Per correggere l'errore, installare la libreria [Microsoft. Azure. Services. AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication/) .  Per ulteriori informazioni, vedere [autenticazione di sviluppo locale](../key-vault/general/service-to-service-authentication.md#local-development-authentication). 
 
 Per informazioni su come assegnare le autorizzazioni ai ruoli, vedere [autenticare un'identità gestita con Azure Active Directory per accedere alle risorse del bus di servizio di Azure](service-bus-managed-service-identity.md).
@@ -94,7 +94,7 @@ Quando si tenta di inviare più di 1000 messaggi usando la stessa connessione de
 ### <a name="cause"></a>Causa
 È previsto un limite al numero di token usati per inviare e ricevere messaggi usando una singola connessione a uno spazio dei nomi del bus di servizio. È 1000. 
 
-### <a name="resolution"></a>Risoluzione
+### <a name="resolution"></a>Soluzione
 Aprire una nuova connessione allo spazio dei nomi del bus di servizio per inviare altri messaggi.
 
 ## <a name="next-steps"></a>Passaggi successivi

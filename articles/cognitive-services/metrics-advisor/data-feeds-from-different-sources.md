@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: conceptual
 ms.date: 09/04/2020
 ms.author: aahi
-ms.openlocfilehash: 4dc3c46b65bab48b8923af985f0c2c29fcddc53b
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: f9ab340e73ce8d58da63a0089073ac4770bf2d52
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938192"
+ms.locfileid: "90973386"
 ---
 # <a name="add-data-feeds-from-different-data-sources-to-metrics-advisor"></a>Aggiungere feed di dati da origini dati diverse a metrica Advisor
 
@@ -27,10 +27,10 @@ Usare questo articolo per trovare le impostazioni e i requisiti per la connessio
 | ---------------------|-------------|
 |**Base** | Sarà necessario essere in grado di fornire parametri di base per l'accesso alle origini dati. Ad esempio una stringa di connessione o una chiave. Gli amministratori del feed di dati sono in grado di visualizzare queste credenziali. |
 | **AzureManagedIdentity** | Le [identità gestite](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) per le risorse di Azure sono una funzionalità di Azure Active Directory. Fornisce servizi di Azure con un'identità gestita automaticamente in Azure AD. È possibile usare l'identità per eseguire l'autenticazione a qualsiasi servizio che supporti l'autenticazione Azure AD.|
-| **AzureSQLConnectionString**| Archiviare la stringa di connessione AzureSQL come **entità di autenticazione** in metrica Advisor e usarla direttamente ogni volta quando si caricano i dati delle metriche. Solo gli amministratori dell'entità di autenticazione sono in grado di visualizzare queste credenziali, ma consentono ai visualizzatori autorizzati di creare feed di dati senza che sia necessario conoscerne i dettagli. |
-| **DataLakeGen2SharedKey**| Archiviare la chiave dell'account data Lake come **entità di autenticazione** in metrica Advisor e usarla direttamente ogni volta quando si caricano i dati delle metriche. Solo gli amministratori dell'entità di autenticazione possono visualizzare queste credenziali, ma consentono ai visualizzatori autorizzati di creare feed di dati senza che sia necessario conoscerne i dettagli.|
-| **ServicePrincipal**| Archiviare l'entità servizio come **entità di autenticazione** in metrica Advisor e usarla direttamente ogni volta quando si caricano i dati di metrica. Solo gli amministratori dell'entità di autenticazione sono in grado di visualizzare le credenziali, ma consentono ai visualizzatori autorizzati di creare feed di dati senza che sia necessario conoscerne i dettagli.|
-| **ServicePrincipalInKeyVault**|Archiviare l'entità servizio nell'insieme di credenziali delle chiavi come **entità di autenticazione** in metrica Advisor e usarla direttamente ogni volta quando si caricano i dati di metrica. Solo gli amministratori dell' **entità di autenticazione** sono in grado di visualizzare le credenziali, ma lasciano anche che i visualizzatori possano creare feed di dati senza che sia necessario conoscerne le credenziali dettagliate. |
+| **AzureSQLConnectionString**| Archiviare la stringa di connessione AzureSQL come **entità Credential** in Metrics Advisor e usarla direttamente ogni volta durante l'onboarding dei dati di metrica. Solo gli amministratori dell'entità Credential sono in grado di visualizzare queste credenziali, ma consentono ai visualizzatori autorizzati di creare feed di dati senza che sia necessario conoscerne i dettagli. |
+| **DataLakeGen2SharedKey**| Archiviare la chiave dell'account data Lake come **entità Credential** in Metrics Advisor e usarla direttamente ogni volta quando si caricano i dati di metrica. Solo gli amministratori dell'entità Credential sono in grado di visualizzare queste credenziali, ma consentono ai visualizzatori autorizzati di creare feed di dati senza che sia necessario conoscerne i dettagli.|
+| **Entità servizio**| Archiviare l'entità servizio come **entità Credential** in Metrics Advisor e usarla direttamente ogni volta quando si caricano i dati di metrica. Solo gli amministratori dell'entità Credential sono in grado di visualizzare le credenziali, ma consentono ai visualizzatori autorizzati di creare feed di dati senza che sia necessario conoscerne i dettagli.|
+| **Entità servizio da Key Vault**|Archiviare l'entità servizio in un insieme di credenziali delle chiavi come **entità di credenziali** in metriche Advisor e usarla direttamente ogni volta quando si caricano i dati delle metriche. Solo gli amministratori di un' **entità Credential** sono in grado di visualizzare le credenziali, ma lasciano anche che i visualizzatori siano in grado di creare feed di dati senza che siano necessarie informazioni dettagliate sulle credenziali. |
 
 ## <a name="data-sources-supported-and-corresponding-authentication-types"></a>Origini dati supportate e tipi di autenticazione corrispondenti
 
@@ -41,8 +41,8 @@ Usare questo articolo per trovare le impostazioni e i requisiti per la connessio
 |[**Archiviazione BLOB di Azure (JSON)**](#blob) | Basic<br>ManagedIdentity|
 |[**Azure Cosmos DB (SQL)**](#cosmosdb) | Basic |
 |[**Azure Esplora dati (kusto)**](#kusto) | Basic<br>ManagedIdentity|
-|[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>DataLakeGen2SharedKey<br>ServicePrincipal<br>ServicePrincipalInKeyVault<br> |
-|[**Database SQL di Azure/SQL Server**](#sql) | Basic<br>ManagedIdentity<br>ServicePrincipal<br>ServicePrincipalInKeyVault<br>AzureSQLConnectionString
+|[**Azure Data Lake Storage Gen2**](#adl) | Basic<br>DataLakeGen2SharedKey<br>Entità servizio<br>Entità servizio da Key Vault<br> |
+|[**Database SQL di Azure/SQL Server**](#sql) | Basic<br>ManagedIdentity<br>Entità servizio<br>Entità servizio da Key Vault<br>AzureSQLConnectionString
 |[**Archiviazione tabelle di Azure**](#table) | Basic | 
 |[**ElasticSearch**](#es) | Basic |
 |[**Richiesta http**](#http) | Basic | 
@@ -51,7 +51,7 @@ Usare questo articolo per trovare le impostazioni e i requisiti per la connessio
 |[**MySQL**](#mysql) | Basic |
 |[**PostgreSQL**](#pgsql)| Basic|
 
-Creare un' **entità di autenticazione** e usarla per l'autenticazione alle origini dati. Le sezioni seguenti specificano i parametri richiesti da per l'autenticazione di *base* . 
+Creare un' **entità Credential** e usarla per l'autenticazione alle origini dati. Le sezioni seguenti specificano i parametri richiesti da per l'autenticazione di *base* . 
 
 ## <a name="span-idappinsightsazure-application-insightsspan"></a><span id="appinsights">Azure Application Insights</span>
 

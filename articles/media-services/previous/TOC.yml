@@ -323,11 +323,12 @@
           items:
             - name: Set di impostazioni per le attività
               href: indexer-task-preset.md
+    - name: Analizzare il contenuto
+      items:
         - name: Elaborare con lo strumento di offuscamento dei volti
           href: media-services-face-redaction.md
-          items:
-            - name: Procedura dettagliata per lo strumento di offuscamento dei volti
-              href: media-services-redactor-walkthrough.md
+        - name: Procedura dettagliata per lo strumento di offuscamento dei volti
+          href: media-services-redactor-walkthrough.md
     - name: Configurare i dati di telemetria
       href: media-services-telemetry-overview.md
       items:

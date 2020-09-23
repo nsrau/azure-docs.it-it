@@ -1,6 +1,6 @@
 ---
-title: Rilevare le modifiche ai dati in Azure SQL Edge (anteprima)
-description: Informazioni sul rilevamento delle modifiche e Change Data Capture in Azure SQL Edge (anteprima).
+title: Rilevare le modifiche ai dati in Azure SQL Edge
+description: Informazioni sul rilevamento delle modifiche e Change Data Capture in Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,14 +9,14 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 6d0a081f2b0adb143a6b37a647a00014846f8fe2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f7d5d5f74a816bf745faf5decf761cd453f40123
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84669597"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900070"
 ---
-# <a name="track-data-changes-in-azure-sql-edge-preview"></a>Rilevare le modifiche ai dati in Azure SQL Edge (anteprima)
+# <a name="track-data-changes-in-azure-sql-edge"></a>Rilevare le modifiche ai dati in Azure SQL Edge
 
 Azure SQL Edge supporta le due funzionalità SQL Server che consentono di tenere traccia delle modifiche ai dati in un database: [rilevamento](https://docs.microsoft.com/sql/relational-databases/track-changes/track-data-changes-sql-server#Tracking) delle modifiche e [Change Data Capture](https://docs.microsoft.com/sql/relational-databases/track-changes/track-data-changes-sql-server#Capture). Queste funzionalità consentono alle applicazioni di determinare le modifiche del linguaggio di modifica dei dati (operazioni di inserimento, aggiornamento ed eliminazione) apportate alle tabelle utente in un database. È possibile abilitare Change Data Capture e il rilevamento delle modifiche nello stesso database. Non richiedono considerazioni particolari.
 
@@ -60,10 +60,10 @@ Per altre informazioni, vedere [tabelle temporali](https://docs.microsoft.com/sq
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Streaming dei dati in Azure SQL Edge (anteprima)](stream-data.md)
-- [Machine Learning e intelligenza artificiale con ONNX in SQL Edge di Azure (anteprima) ](onnx-overview.md)
-- [Configurare la replica in Azure SQL Edge (anteprima)](configure-replication.md)
-- [Eseguire il backup e il ripristino di database in Azure SQL Edge (anteprima)](backup-restore.md)
+- [Streaming dei dati in Azure SQL Edge ](stream-data.md)
+- [Machine Learning e intelligenza artificiale con ONNX in Azure SQL Edge ](onnx-overview.md)
+- [Configurare la replica in Azure SQL Edge](configure-replication.md)
+- [Eseguire il backup e il ripristino di database in Azure SQL Edge](backup-restore.md)
 
 
 

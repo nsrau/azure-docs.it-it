@@ -7,14 +7,16 @@ ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 56f392210aac6045a9dc8cc3522d36092162f26c
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: ce8dbe017e3cc80588cd1aa37ad02a82199ccc10
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87086116"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892562"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>Analizzare i log e le metriche con le impostazioni di diagnostica
+
+**Questo articolo si applica a:** ✔️ Java ✔️ C #
 
 Usando la funzionalità di diagnostica di Azure Spring cloud, è possibile analizzare i log e le metriche con uno dei servizi seguenti:
 
@@ -25,11 +27,11 @@ Usando la funzionalità di diagnostica di Azure Spring cloud, è possibile anali
 Scegliere la categoria di log e la categoria metrica che si vuole monitorare.
 
 > [!TIP]
-> Vuoi semplicemente trasmettere i log? Vedere questo [comando dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest#ext-spring-cloud-az-spring-cloud-app-logs).
+> Vuoi semplicemente trasmettere i log? Vedere questo [comando dell'interfaccia della riga di comando di Azure](https://docs.microsoft.com/cli/azure/ext/spring-cloud/spring-cloud/app?view=azure-cli-latest&preserve-view=true#ext-spring-cloud-az-spring-cloud-app-logs).
 
 ## <a name="logs"></a>Log
 
-|File di log | Descrizione |
+|Registro | Descrizione |
 |----|----|
 | **ApplicationConsole** | Log della console di tutte le applicazioni dei clienti. |
 | **SystemLogs** | Attualmente, solo i log di [Spring cloud config server](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) in questa categoria. |
@@ -106,7 +108,7 @@ Sono disponibili diversi metodi per visualizzare i log e le metriche, come descr
     | limit 50
     ```
 > [!NOTE]
-> `==`fa distinzione tra maiuscole e minuscole, ma `=~` non lo è.
+> `==` fa distinzione tra maiuscole e minuscole, ma `=~` non lo è.
 
 Per altre informazioni sul linguaggio di query usato in Log Analytics, vedere query di [log di monitoraggio di Azure](../azure-monitor/log-query/query-language.md).
 
@@ -203,3 +205,7 @@ AppPlatformLogsforSpring
 | extend Log = array_strcat(split(Log, '\\n'), '\n')
 ```
 Potrebbe essere possibile usare la stessa strategia per altre librerie di log Java.
+
+## <a name="next-steps"></a>Passaggi successivi
+
+* [Avvio rapido: Distribuire la prima applicazione Azure Spring Cloud](spring-cloud-quickstart.md)

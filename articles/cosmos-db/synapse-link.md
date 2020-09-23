@@ -5,14 +5,14 @@ author: Rodrigossz
 ms.author: rosouz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/22/2020
 ms.reviewer: sngun
-ms.openlocfilehash: f200fe96478e15e938899d294ecd5491d6a03206
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 4226676ed7fbaf5b2998306fa5240316c327d59c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88814391"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891490"
 ---
 # <a name="what-is-azure-synapse-link-for-azure-cosmos-db-preview"></a>Che cos'è Collegamento ad Azure Synapse per Azure Cosmos DB (anteprima)?
 
@@ -40,7 +40,6 @@ Collegamento ad Azure Synapse consente di accedere direttamente all'archivio ana
 ### <a name="near-real-time-insights-into-your-operational-data"></a>Informazioni dettagliate quasi in tempo reale sui dati operativi
 
 È ora possibile ottenere informazioni dettagliate sui dati operativi quasi in tempo reale usando Collegamento ad Azure Synapse. I sistemi basati su ETL tendono ad avere una latenza più elevata per l'analisi dei dati operativi, a causa dei molti livelli necessari per estrarli, trasformarli e caricarli. Grazie all'integrazione nativa dell'archivio analitico di Azure Cosmos DB con Azure Synapse Analytics, è possibile analizzare i dati operativi quasi in tempo reale, rendendo possibili nuovi scenari aziendali. 
-
 
 ### <a name="no-impact-on-operational-workloads"></a>Nessun impatto sui carichi di lavoro operativi
 
@@ -91,7 +90,7 @@ Con Collegamento a Synapse è ora possibile connettersi direttamente ai contenit
 
 Questa integrazione consente gli scenari HTAP seguenti per utenti diversi:
 
-* Un ingegnere di business intelligence che vuole modellare e pubblicare un report per l'accesso ai dati operativi di Azure Cosmos DB direttamente tramite Synapse SQL.
+* Un ingegnere di business intelligence che vuole modellare e pubblicare un report Power BI per accedere ai dati operativi Live in Azure Cosmos DB direttamente tramite sinapsi SQL.
 
 * Un analista di dati che vuole ricavare informazioni dettagliate dai dati operativi di un contenitore Azure Cosmos DB eseguendo query con Synapse SQL, leggere i dati su larga scala e combinare i risultati con altre origini dati.
 
@@ -115,16 +114,15 @@ In questi casi, Collegamento a Synapse offre un'esperienza di analisi maggiormen
 
 L'uso di Collegamento a Synapse non è consigliato se è necessario rispettare i requisiti dei tradizionali data warehouse, ad esempio concorrenza elevata, gestione dei carichi di lavoro e persistenza degli aggregati tra più origini dati. Per altre informazioni, vedere gli [scenari comuni che possono essere basati su Collegamento ad Azure Synapse per Azure Cosmos DB](synapse-link-use-cases.md).
 
-
 ## <a name="limitations"></a>Limitazioni
 
-* Durante la fase di anteprima pubblica, Collegamento ad Azure Synapse è supportato solo per le API SQL (Core) SQL di Azure Cosmos DB. Il supporto per le API di Azure Cosmos DB per Mongo DB e API Cassandra è attualmente in fase di anteprima controllata. Per richiedere l'accesso all'anteprima controllata, inviare un messaggio di posta elettronica al [team di Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+* Il collegamento sinapsi di Azure è supportato per l'API Azure Cosmos DB SQL (Core) e l'API Azure Cosmos DB per MongoDB. Il supporto per API Cassandra è attualmente disponibile in un'anteprima gestita. Per richiedere l'accesso all'anteprima controllata, inviare un messaggio di posta elettronica al [team di Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
 
-* Attualmente, l'archivio analitico può essere abilitato solo per i nuovi contenitori (in account Azure Cosmos DB nuovi ed esistenti).
-
-* In anteprima, per gli account di database abilitati per il collegamento sinapsi, il backup e il ripristino di contenitori non sono supportati. Se si dispone di carichi di lavoro di produzione che richiedono funzionalità di backup e ripristino, è consigliabile non abilitare il collegamento sinapsi per gli account di database. 
+* Attualmente, l'archivio analitico può essere abilitato solo per i nuovi contenitori. Per usare l'archivio analitico per i contenitori esistenti, migrare i dati dai contenitori esistenti ai nuovi contenitori usando [Azure Cosmos DB strumenti di migrazione](cosmosdb-migrationchoices.md). È possibile abilitare il collegamento sinapsi su account Azure Cosmos DB nuovi ed esistenti.
 
 * L'accesso all'archivio analitico di Azure Cosmos DB con Synapse SQL serverless è attualmente in fase di anteprima controllata. Per richiedere l'accesso, inviare un messaggio di posta elettronica al [team di Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+
+* In anteprima, per gli account di database abilitati per il collegamento sinapsi, il backup e il ripristino di contenitori non sono supportati. Se si dispone di carichi di lavoro che richiedono funzionalità di backup e ripristino, è consigliabile non abilitare il collegamento sinapsi per gli account di database. 
 
 * L'accesso all'archivio analitico di Azure Cosmos DB con Synapse SQL con provisioning non è attualmente disponibile.
 

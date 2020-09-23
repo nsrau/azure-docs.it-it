@@ -1,7 +1,7 @@
 ---
-title: Risolvere gli errori del modulo di progettazione (anteprima)
+title: Risolvere gli errori del modulo di progettazione
 titleSuffix: Azure Machine Learning
-description: Risolvere i problemi relativi ai codici di errore del modulo in Azure Machine Learning Designer (anteprima)
+description: Risolvere i problemi dei codici di errore del modulo in Azure Machine Learning Designer
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,16 +10,16 @@ ms.custom: troubleshooting
 author: likebupt
 ms.author: keli19
 ms.date: 04/16/2020
-ms.openlocfilehash: 023a28c6f1d89d0975ff8ecac2466c51c05fa9da
-ms.sourcegitcommit: dea88d5e28bd4bbd55f5303d7d58785fad5a341d
+ms.openlocfilehash: c0a55780687b4c03d6809d1d740bf0b0afcd63fd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87876921"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908086"
 ---
-# <a name="exceptions-and-error-codes-for-the-designer-preview"></a>Eccezioni e codici di errore per la finestra di progettazione (anteprima)
+# <a name="exceptions-and-error-codes-for-the-designer"></a>Eccezioni e codici di errore per la finestra di progettazione
 
-Questo articolo descrive i messaggi di errore e i codici di eccezione nella finestra di progettazione di Azure Machine Learning (anteprima) per risolvere i problemi relativi alle pipeline di Machine Learning.
+Questo articolo descrive i messaggi di errore e i codici di eccezione in Azure Machine Learning Designer per semplificare la risoluzione dei problemi relativi alle pipeline di machine learning.
 
 È possibile trovare il messaggio di errore nella finestra di progettazione, seguendo la procedura seguente:  
 

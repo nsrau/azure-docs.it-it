@@ -8,15 +8,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/02/2020
-ms.openlocfilehash: 34caefba5bae660ca150f6e447b1d59b7174c768
-ms.sourcegitcommit: 9b5c20fb5e904684dc6dd9059d62429b52cb39bc
+ms.openlocfilehash: 6bc9f69440be772910ea8200b5ccf7d5a5122ae6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85857740"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907803"
 ---
 # <a name="train-vowpal-wabbit-model"></a>Eseguire il training del modello Vowpal Wabbit
-Questo articolo descrive come usare il modulo **Train Vowpal Wabbit Model** in Azure Machine Learning Designer (Preview) per creare un modello di Machine Learning usando Vowpal Wabbit.  
+Questo articolo descrive come usare il modulo **Train Vowpal Wabbit Model** in Azure Machine Learning Designer per creare un modello di Machine Learning usando Vowpal Wabbit.  
 
 Per usare Vowpal Wabbit per Machine Learning, formattare l'input in base ai requisiti di Wabbit di Vowpal e preparare i dati nel formato richiesto. Usare questo modulo per specificare gli argomenti della riga di comando Vowpal Wabbit. 
 
@@ -112,7 +112,7 @@ In genere, sono supportati tutti gli argomenti tranne un set limitato di argomen
 
 I parametri seguenti non sono supportati:
 
--   Opzioni di input/output specificate in[https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments)  
+-   Opzioni di input/output specificate in [https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments)  
   
      Queste proprietà sono già configurate automaticamente dal modulo.  
   

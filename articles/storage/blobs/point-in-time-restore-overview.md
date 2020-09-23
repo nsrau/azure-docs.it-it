@@ -1,27 +1,29 @@
 ---
-title: Ripristino temporizzato per i BLOB in blocchi (anteprima)
+title: Ripristino temporizzato per BLOB in blocchi
 titleSuffix: Azure Storage
 description: Il ripristino temporizzato per i BLOB in blocchi offre protezione da eliminazioni accidentali o danneggiamenti consentendo di ripristinare uno stato precedente di un account di archiviazione in un determinato momento.
 services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/11/2020
+ms.date: 09/18/2020
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 1187b01fa623264055edecf21ea5c9d35d59a152
-ms.sourcegitcommit: 1fe5127fb5c3f43761f479078251242ae5688386
+ms.openlocfilehash: 7fbebf21b79d2a533de0a872dfe6a10bc8f8e7e5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/14/2020
-ms.locfileid: "90068303"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987031"
 ---
-# <a name="point-in-time-restore-for-block-blobs-preview"></a>Ripristino temporizzato per i BLOB in blocchi (anteprima)
+# <a name="point-in-time-restore-for-block-blobs"></a>Ripristino temporizzato per BLOB in blocchi
 
 Il ripristino temporizzato garantisce la protezione da eliminazioni accidentali o danneggiamenti consentendo di ripristinare uno stato precedente dei dati BLOB in blocchi. Il ripristino temporizzato è utile negli scenari in cui un utente o un'applicazione elimina accidentalmente i dati o quando un errore dell'applicazione danneggia i dati. Il ripristino temporizzato consente anche scenari di test che richiedono il ripristino di un set di dati a uno stato noto prima di eseguire ulteriori test.
 
-Per informazioni su come abilitare il ripristino temporizzato per un account di archiviazione, vedere [abilitare e gestire il ripristino temporizzato per i BLOB in blocchi (anteprima)](point-in-time-restore-manage.md).
+Il ripristino temporizzato è supportato solo per gli account di archiviazione per utilizzo generico V2. Con il ripristino temporizzato è possibile ripristinare solo i dati nei livelli di accesso ad accesso frequente e sporadico.
+
+Per informazioni su come abilitare il ripristino temporizzato per un account di archiviazione, vedere [eseguire un ripristino temporizzato sui dati BLOB in blocchi](point-in-time-restore-manage.md).
 
 ## <a name="how-point-in-time-restore-works"></a>Funzionamento del ripristino temporizzato
 
@@ -48,17 +50,15 @@ Tenere presenti le limitazioni seguenti per le operazioni di ripristino:
 > Quando l'account di archiviazione viene replicato geograficamente, è possibile che le operazioni di lettura dalla posizione secondaria continuino durante l'operazione di ripristino.
 
 > [!CAUTION]
-> Il ripristino temporizzato supporta solo il ripristino di operazioni su BLOB in blocchi. Non è possibile ripristinare le operazioni su contenitori. Se si elimina un contenitore dall'account di archiviazione chiamando l'operazione [Elimina contenitore](/rest/api/storageservices/delete-container) durante l'anteprima del ripristino temporizzato, il contenitore non può essere ripristinato con un'operazione di ripristino. Durante l'anteprima, invece di eliminare un contenitore, eliminare i singoli BLOB se si prevede di volerli ripristinarli.
+> Il ripristino temporizzato supporta solo il ripristino di operazioni su BLOB in blocchi. Non è possibile ripristinare le operazioni su contenitori. Se si elimina un contenitore dall'account di archiviazione chiamando l'operazione [Delete Container](/rest/api/storageservices/delete-container) , il contenitore non può essere ripristinato con un'operazione di ripristino. Anziché eliminare un contenitore, eliminare i singoli BLOB se si desidera ripristinarli.
 
 ### <a name="prerequisites-for-point-in-time-restore"></a>Prerequisiti per il ripristino temporizzato
 
-Per il ripristino temporizzato è necessario che siano abilitate le funzionalità di archiviazione di Azure seguenti:
+Il ripristino temporizzato richiede che le funzionalità di archiviazione di Azure seguenti siano abilitate prima che sia possibile abilitare il ripristino temporizzato:
 
 - [Eliminazione temporanea](soft-delete-overview.md)
-- [Feed di modifiche (anteprima)](storage-blob-change-feed.md)
+- [Feed delle modifiche](storage-blob-change-feed.md)
 - [Controllo delle versioni dei BLOB](versioning-overview.md)
-
-Abilitare queste funzionalità per l'account di archiviazione prima di abilitare il ripristino temporizzato. Assicurarsi di eseguire la registrazione per le anteprime del feed di modifiche e del controllo delle versioni dei BLOB prima di abilitarli.
 
 ### <a name="retention-period-for-point-in-time-restore"></a>Periodo di memorizzazione per il ripristino temporizzato
 
@@ -72,83 +72,17 @@ Il periodo di memorizzazione per il ripristino temporizzato deve essere almeno u
 
 Per avviare un'operazione di ripristino, un client deve disporre delle autorizzazioni di scrittura per tutti i contenitori nell'account di archiviazione. Per concedere autorizzazioni per autorizzare un'operazione di ripristino con Azure Active Directory (Azure AD), assegnare il ruolo **collaboratore account di archiviazione** all'entità di sicurezza a livello di account di archiviazione, gruppo di risorse o sottoscrizione.
 
-## <a name="about-the-preview"></a>Informazioni sulla versione di anteprima
+## <a name="limitations-and-known-issues"></a>Limitazioni e problemi noti
 
-Il ripristino temporizzato è supportato solo per gli account di archiviazione per utilizzo generico V2. Con il ripristino temporizzato è possibile ripristinare solo i dati nei livelli di accesso ad accesso frequente e sporadico.
+Il ripristino temporizzato per i BLOB in blocchi presenta le limitazioni e i problemi noti seguenti:
 
-Le aree seguenti supportano il ripristino temporizzato in anteprima:
-
-- Canada centrale
-- Canada orientale
-- Francia centrale
-
-L'anteprima include le limitazioni seguenti:
-
-- Il ripristino di BLOB in blocchi Premium non è supportato.
-- Il ripristino di BLOB nel livello di accesso archivio non è supportato. Se, ad esempio, un BLOB nel livello di accesso frequente è stato spostato nel livello di accesso archivio due giorni fa e si esegue un'operazione di ripristino a tre giorni fa, il BLOB non viene ripristinato nel livello di accesso frequente.
+- Come parte di un'operazione di ripristino temporizzato, è possibile ripristinare solo i BLOB in blocchi in un account di archiviazione standard per utilizzo generico V2. I BLOB di Accodamento, i BLOB di pagine e i BLOB in blocchi Premium non vengono ripristinati. Se un contenitore è stato eliminato durante il periodo di memorizzazione, il contenitore non verrà ripristinato con l'operazione di ripristino temporizzato. Per informazioni sulla protezione dei contenitori dall'eliminazione, vedere l'articolo [relativo all'eliminazione temporanea per i contenitori (anteprima)](soft-delete-container-overview.md).
+- In un'operazione di ripristino temporizzato è possibile ripristinare solo BLOB in blocchi nei livelli ad accesso frequente o sporadico. Il ripristino dei BLOB in blocchi nel livello archivio non è supportato. Se, ad esempio, un BLOB nel livello di accesso frequente è stato spostato nel livello di accesso archivio due giorni fa e si esegue un'operazione di ripristino a tre giorni fa, il BLOB non viene ripristinato nel livello di accesso frequente. Per ripristinare un BLOB archiviato, spostarlo prima dal livello archivio.
+- Se un BLOB in blocchi nell'intervallo da ripristinare dispone di un lease attivo, l'operazione di ripristino temporizzato avrà esito negativo. Interrompere eventuali lease attivi prima di avviare l'operazione di ripristino.
 - Il ripristino Azure Data Lake Storage Gen2 spazi dei nomi flat e gerarchici non è supportato.
-- Il ripristino degli account di archiviazione con chiavi fornite dal cliente non è supportato.
 
 > [!IMPORTANT]
-> L'anteprima del ripristino temporizzato è destinata all'uso solo in ambienti non di produzione. I contratti di servizio (SLA) di produzione non sono al momento disponibili.
-
-### <a name="register-for-the-preview"></a>Registrarsi per l'anteprima
-
-Per eseguire la registrazione per l'anteprima, eseguire i comandi seguenti:
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-```powershell
-# Register for the point-in-time restore preview
-Register-AzProviderFeature -FeatureName RestoreBlobRanges -ProviderNamespace Microsoft.Storage
-
-# Register for change feed (preview)
-Register-AzProviderFeature -FeatureName Changefeed -ProviderNamespace Microsoft.Storage
-
-# Register for Blob versioning
-Register-AzProviderFeature -FeatureName Versioning -ProviderNamespace Microsoft.Storage
-
-# Refresh the Azure Storage provider namespace
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
-```
-
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
-
-```azurecli
-az feature register --namespace Microsoft.Storage --name RestoreBlobRanges
-az feature register --namespace Microsoft.Storage --name Changefeed
-az feature register --namespace Microsoft.Storage --name Versioning
-az provider register --namespace 'Microsoft.Storage'
-```
-
----
-
-### <a name="check-registration-status"></a>Controllare lo stato della registrazione
-
-La registrazione per il ripristino temporizzato è automatica e dovrebbe richiedere meno di 10 minuti. Per verificare lo stato della registrazione, eseguire i comandi seguenti:
-
-# <a name="powershell"></a>[PowerShell](#tab/powershell)
-
-```powershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName RestoreBlobRanges
-
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Changefeed
-
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage `
-    -FeatureName Versioning
-```
-
-# <a name="azure-cli"></a>[Interfaccia della riga di comando di Azure](#tab/azure-cli)
-
-```azurecli
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/RestoreBlobRanges')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Changefeed')].{Name:name,State:properties.state}"
-az feature list -o table --query "[?contains(name, 'Microsoft.Storage/Versioning')].{Name:name,State:properties.state}"
-```
-
----
+> Se si ripristinano i BLOB in blocchi in un punto precedente al 22 settembre 2020, verranno applicate le limitazioni di anteprima per il ripristino temporizzato. Microsoft consiglia di scegliere un punto di ripristino uguale o successivo al 22 settembre 2020 per sfruttare i vantaggi della funzionalità di ripristino temporizzato disponibile a livello generale.
 
 ## <a name="pricing-and-billing"></a>Prezzi e fatturazione
 
@@ -158,13 +92,9 @@ Per stimare il costo di un'operazione di ripristino, esaminare il log del feed d
 
 Per altre informazioni sui prezzi per il ripristino temporizzato, vedere prezzi dei [BLOB in blocchi](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-## <a name="ask-questions-or-provide-feedback"></a>Porre domande o inviare commenti
-
-Per porre domande sull'anteprima del ripristino temporizzato o per inviare commenti e suggerimenti, contattare Microsoft all'indirizzo pitrdiscussion@microsoft.com .
-
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Abilitare e gestire il ripristino temporizzato per i BLOB in blocchi (anteprima)](point-in-time-restore-manage.md)
-- [Supporto del feed di modifiche in Archiviazione BLOB di Azure (anteprima)](storage-blob-change-feed.md)
+- [Eseguire un ripristino temporizzato sui dati BLOB in blocchi](point-in-time-restore-manage.md)
+- [Supporto del feed delle modifiche nell'archiviazione BLOB di Azure](storage-blob-change-feed.md)
 - [Abilitare l'eliminazione temporanea per i BLOB](soft-delete-enable.md)
 - [Abilitare e gestire il controllo delle versioni dei BLOB](versioning-enable.md)

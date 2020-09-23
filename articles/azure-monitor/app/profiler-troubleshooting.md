@@ -6,12 +6,12 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: aa9b186e74ed3b8fe5496afd5b21c54f50537d5f
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: d9acd322c454002613e21e8591c3e83aeec2d51e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87049778"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979389"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Risolvere i problemi di abilitazione o visualizzazione di Application Insights Profiler
 
@@ -79,12 +79,12 @@ Per il corretto funzionamento di Profiler:
    1. Scegliere **WebJobs Dashboard** (Dashboard processi Web) dal menu **Tools** (Strumenti).  
       Verrà visualizzato il riquadro **WebJobs** (Processi Web). 
    
-      ![profiler-webjob]   
+      ![Screenshot mostra il riquadro processi Web, che consente di visualizzare il nome, lo stato e l'ora dell'ultima esecuzione dei processi.][profiler-webjob]   
    
    1. Per visualizzare i dettagli del processo Web, incluso il log, selezionare il collegamento **ApplicationInsightsProfiler3** .  
      Verrà visualizzato il riquadro **Continuous WebJob Details** (Dettagli processo Web continuo).
 
-      ![profiler-webjob-log]
+      ![Screenshot che mostra il riquadro dei dettagli di processo Web continuo.][profiler-webjob-log]
 
 Se non si riesce a capire perché Profiler non funziona, è possibile scaricare il log e inviarlo al team per assistenza serviceprofilerhelp@microsoft.com . 
     

@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4703a7d1928415d78eae63c42051542b035d3b1a
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: ca42ddbc648f7c342b1cd649c19b77df803257d8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798359"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979805"
 ---
 # <a name="approve-or-deny-access-requests-in-azure-ad-entitlement-management"></a>Approva o rifiuta le richieste di accesso in Azure AD gestione dei diritti
 
@@ -48,6 +48,22 @@ Se non si dispone del messaggio di posta elettronica, è possibile trovare le ri
 1. Nel menu a sinistra fare clic su **approvazioni** per visualizzare un elenco di richieste di accesso in attesa di approvazione.
 
 1. Individuare la richiesta nella scheda **in sospeso** .
+
+## <a name="view-requestors-answers-to-questions-preview"></a>Visualizza le risposte del richiedente alle domande (anteprima)
+
+1. Passare alla scheda **approvazioni** in accesso personale.
+
+1. Passare alla richiesta che si desidera approvare e fare clic su **Dettagli**. È anche possibile fare clic su **approva** o **Nega** se si è pronti per prendere una decisione.
+
+1. Fare clic su **Dettagli richiesta**.
+
+     ![Portale di accesso personale-richiesta di accesso-dettagli richiesta](./media/entitlement-management-request-approve/requestor-information-request-details.png)
+
+1. Le informazioni fornite dal richiedente saranno nella parte inferiore del pannello.
+
+     ![Portale di Accesso personale - Richiesta di accesso](./media/entitlement-management-request-approve/requestor-information-requestor-answers.png)
+
+1. In base alle informazioni fornite dal richiedente, è possibile approvare o rifiutare la richiesta. Per istruzioni, vedere la procedura in approva o Nega richiesta.
 
 ## <a name="approve-or-deny-request"></a>Approva o rifiuta la richiesta
 
