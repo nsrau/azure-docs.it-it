@@ -1,18 +1,18 @@
 ---
 title: Panoramica dell'agente Connected Machine per Windows
-description: Questo articolo fornisce una panoramica dettagliata dell'agente di Azure Arc Enabled Server (anteprima) disponibile, che supporta il monitoraggio di macchine virtuali ospitate in ambienti ibridi.
-ms.date: 08/06/2020
+description: Questo articolo fornisce una panoramica dettagliata dell'agente server abilitati per Azure Arc, che supporta il monitoraggio di macchine virtuali ospitate in ambienti ibridi.
+ms.date: 09/02/2020
 ms.topic: conceptual
-ms.openlocfilehash: d922652537034bef258c5bcde78fb178b092ed16
-ms.sourcegitcommit: 4913da04fd0f3cf7710ec08d0c1867b62c2effe7
+ms.openlocfilehash: 990b5999a8483c6417049ac5ab965843c2b13659
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/14/2020
-ms.locfileid: "88212983"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908180"
 ---
-# <a name="overview-of-azure-arc-enabled-servers-preview-agent"></a>Panoramica dell'agente di Azure Arc Enabled Servers (anteprima)
+# <a name="overview-of-azure-arc-enabled-servers-agent"></a>Panoramica dell'agente di server abilitati per Azure Arc
 
-Azure Arc Enabled Servers (anteprima) Connected Machine Agent consente di gestire i computer Windows e Linux ospitati all'esterno di Azure nella rete aziendale o in un altro provider di servizi cloud. Questo articolo offre una panoramica dettagliata dell'agente, dei requisiti di sistema e di rete, nonché dei diversi metodi di distribuzione.
+Azure Arc Enabled Servers Connected Machine Agent consente di gestire i computer Windows e Linux ospitati all'esterno di Azure nella rete aziendale o in un altro provider di servizi cloud. Questo articolo offre una panoramica dettagliata dell'agente, dei requisiti di sistema e di rete, nonché dei diversi metodi di distribuzione.
 
 ## <a name="agent-component-details"></a>Dettagli del componente agente
 
@@ -47,15 +47,11 @@ L'agente Azure Connected Machine per Windows e Linux può essere aggiornato alla
 Le versioni seguenti dei sistemi operativi Windows e Linux sono ufficialmente supportate per l'agente Azure Connected Machine: 
 
 - Windows Server 2012 R2 e versioni successive (incluso Windows Server Core)
-- Ubuntu 16,04 e 18,04 (x64)
+- Ubuntu 16,04 e 18,04 LTS (x64)
 - CentOS Linux 7 (x64)
 - SUSE Linux Enterprise Server (SLES) 15 (x64)
 - Red Hat Enterprise Linux (RHEL) 7 (x64)
 - Amazon Linux 2 (x64)
-
->[!NOTE]
->Questa versione di anteprima dell'agente Connected Machine per Windows supporta solo Windows Server configurato per l'uso della lingua inglese.
->
 
 ### <a name="required-permissions"></a>Autorizzazioni necessarie
 
@@ -65,7 +61,7 @@ Le versioni seguenti dei sistemi operativi Windows e Linux sono ufficialmente su
 
 ### <a name="azure-subscription-and-service-limits"></a>Limiti del servizio e della sottoscrizione di Azure
 
-Prima di configurare i computer con i server abilitati per Azure Arc (anteprima), rivedere i limiti delle [sottoscrizioni](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) Azure Resource Manager e del [gruppo di risorse](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) per pianificare il numero di computer da connettere.
+Prima di configurare i computer con i server abilitati per Azure Arc, esaminare i limiti della [sottoscrizione](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) Azure Resource Manager e dei [gruppi di risorse](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits) per pianificare il numero di computer da connettere.
 
 ### <a name="transport-layer-security-12-protocol"></a>Protocollo Transport Layer Security 1,2
 
@@ -105,7 +101,7 @@ Gli URL nella tabella precedente sono necessari in aggiunta alle informazioni re
 
 ### <a name="register-azure-resource-providers"></a>Registrare i provider di risorse di Azure
 
-I server abilitati per Azure Arc (anteprima) dipendono dai seguenti provider di risorse di Azure nella sottoscrizione per poter usare questo servizio:
+I server abilitati per Azure Arc dipendono dai provider di risorse di Azure seguenti nella sottoscrizione per poter usare questo servizio:
 
 * **Microsoft.HybridCompute**
 * **Microsoft.GuestConfiguration**
@@ -248,4 +244,4 @@ Dopo l'installazione dell'agente Connected Machine per Linux, vengono applicate 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per iniziare a valutare i server abilitati per Azure Arc (anteprima), seguire l'articolo [connettere macchine ibride ad Azure dalla portale di Azure](onboard-portal.md).
+Per iniziare a valutare i server abilitati per Azure Arc, seguire l'articolo [connettere macchine ibride ad Azure dalla portale di Azure](onboard-portal.md).

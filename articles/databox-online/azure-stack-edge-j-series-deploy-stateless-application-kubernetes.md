@@ -1,6 +1,6 @@
 ---
-title: Distribuire un'applicazione Kubernetes senza stato nel dispositivo GPU Azure Stack Edge usando kubectl | Microsoft Docs
-description: Viene descritto come creare e gestire una distribuzione di applicazioni Kubernetes senza stato usando kubectl in un dispositivo Microsoft Azure Stack Edge.
+title: Distribuire un'applicazione Kubernetes senza stato nel dispositivo GPU Pro Azure Stack Edge usando kubectl | Microsoft Docs
+description: Viene descritto come creare e gestire una distribuzione di applicazioni Kubernetes senza stato usando kubectl in un dispositivo Microsoft Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 27502c58481444a9dc14120bf447d4614d051ccc
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 91a2d08bf9eea2f5af0f6893712515cb2feeab8a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268860"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890733"
 ---
-# <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-gpu-device"></a>Distribuire un'applicazione Kubernetes senza stato tramite kubectl sul dispositivo GPU Azure Stack Edge
+# <a name="deploy-a-kubernetes-stateless-application-via-kubectl-on-your-azure-stack-edge-pro-gpu-device"></a>Distribuire un'applicazione Kubernetes senza stato tramite kubectl sul dispositivo GPU Azure Stack Edge Pro
 
 Questo articolo descrive come distribuire un'applicazione senza stato usando i comandi kubectl in un cluster Kubernetes esistente. Questo articolo illustra anche il processo di creazione e configurazione di Pod nell'applicazione senza stato.
 
@@ -23,13 +23,13 @@ Questo articolo descrive come distribuire un'applicazione senza stato usando i c
 
 Prima di poter creare un cluster Kubernetes e usare lo `kubectl` strumento da riga di comando, è necessario verificare quanto segue:
 
-- Sono disponibili credenziali di accesso a un dispositivo Azure Stack Edge a 1 nodo.
+- Si dispone di credenziali di accesso a un dispositivo Azure Stack Edge Pro a 1 nodo.
 
-- Windows PowerShell 5,0 o versione successiva è installato in un sistema client Windows per accedere al dispositivo Azure Stack Edge. È possibile avere anche un altro client con un sistema operativo supportato. Questo articolo descrive la procedura quando si usa un client Windows. Per scaricare la versione più recente di Windows PowerShell, vedere [installazione di Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
+- Windows PowerShell 5,0 o versione successiva è installato in un sistema client Windows per accedere al dispositivo Azure Stack Edge Pro. È possibile avere anche un altro client con un sistema operativo supportato. Questo articolo descrive la procedura quando si usa un client Windows. Per scaricare la versione più recente di Windows PowerShell, vedere [installazione di Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
 
-- Il calcolo è abilitato nel dispositivo Azure Stack Edge. Per abilitare il calcolo, passare alla pagina **calcolo** nell'interfaccia utente locale del dispositivo. Selezionare quindi un'interfaccia di rete che si vuole abilitare per il calcolo. Selezionare **Abilita**. L'abilitazione dei risultati di calcolo nella creazione di un commutire virtuale sul dispositivo in tale interfaccia di rete. Per altre informazioni, vedere [abilitare la rete di calcolo nel Azure stack Edge](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
+- Il calcolo è abilitato nel dispositivo Azure Stack Edge Pro. Per abilitare il calcolo, passare alla pagina **calcolo** nell'interfaccia utente locale del dispositivo. Selezionare quindi un'interfaccia di rete che si vuole abilitare per il calcolo. Selezionare **Abilita**. L'abilitazione dei risultati di calcolo nella creazione di un commutire virtuale sul dispositivo in tale interfaccia di rete. Per altre informazioni, vedere [abilitare la rete di calcolo nel Azure stack Edge Pro](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md).
 
-- Il dispositivo Azure Stack Edge dispone di un server cluster Kubernetes che esegue la versione 1.9 o successiva. Per altre informazioni, vedere [creare e gestire un cluster Kubernetes nel dispositivo Microsoft Azure stack Edge](azure-stack-edge-gpu-create-kubernetes-cluster.md).
+- Il dispositivo Azure Stack Edge Pro ha un server cluster Kubernetes che esegue la versione 1.9 o successiva. Per altre informazioni, vedere [creare e gestire un cluster Kubernetes nel dispositivo Microsoft Azure stack Edge Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md).
 
 - È installato `kubectl` .
 
@@ -43,7 +43,7 @@ Prima di iniziare, è necessario disporre di:
 4. La configurazione utente è stata salvata in `C:\Users\<username>\.kube` .
 5. Installato `kubectl` .
 
-A questo punto è possibile iniziare a eseguire e gestire le distribuzioni di applicazioni senza stato in un dispositivo Azure Stack Edge. Prima di iniziare `kubectl` a utilizzare, è necessario verificare di disporre della versione corretta di `kubectl` .
+A questo punto è possibile iniziare a eseguire e gestire le distribuzioni di applicazioni senza stato in un dispositivo Azure Stack Edge Pro. Prima di iniziare `kubectl` a utilizzare, è necessario verificare di disporre della versione corretta di `kubectl` .
 
 ### <a name="verify-you-have-the-correct-version-of-kubectl-and-set-up-configuration"></a>Verificare di disporre della versione corretta di kubectl e configurare la configurazione
 
@@ -109,7 +109,7 @@ Un pod è l'unità di esecuzione di base di un'applicazione Kubernetes, l'unità
 
 Il tipo di applicazione senza stato creato è una distribuzione del server web nginx.
 
-Tutti i comandi kubectl usati per creare e gestire le distribuzioni di applicazioni senza stato devono specificare lo spazio dei nomi associato alla configurazione. Lo spazio dei nomi è stato creato durante la connessione al cluster sul dispositivo Azure Stack Edge nell'esercitazione [creare e gestire un cluster Kubernetes nel dispositivo Microsoft Azure stack Edge](azure-stack-edge-gpu-create-kubernetes-cluster.md) con `New-HcsKubernetesNamespace` .
+Tutti i comandi kubectl usati per creare e gestire le distribuzioni di applicazioni senza stato devono specificare lo spazio dei nomi associato alla configurazione. Lo spazio dei nomi è stato creato durante la connessione al cluster nel dispositivo Azure Stack Edge Pro nell'esercitazione [creare e gestire un cluster Kubernetes in Microsoft Azure stack Edge Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md) con `New-HcsKubernetesNamespace` .
 
 Per specificare lo spazio dei nomi in un comando kubectl, usare `kubectl <command> -n <namespace-string>` .
 

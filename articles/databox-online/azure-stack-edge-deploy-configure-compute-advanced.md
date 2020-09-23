@@ -1,6 +1,6 @@
 ---
-title: Esercitazione su come filtrare e analizzare i dati per la distribuzione avanzata con il calcolo in Azure Stack Edge | Microsoft Docs
-description: Informazioni su come configurare il ruolo di calcolo in Azure Stack Edge e usarlo per trasformare i dati per il flusso di distribuzione avanzata prima dell'invio ad Azure.
+title: Esercitazione su come filtrare e analizzare i dati per la distribuzione avanzata con il calcolo in Azure Stack Edge Pro | Microsoft Docs
+description: Informazioni su come configurare il ruolo di calcolo in Azure Stack Edge Pro e usarlo per trasformare i dati per il flusso di distribuzione avanzata prima dell'invio ad Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,17 +8,17 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 05/20/2019
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge for advanced deployment flow so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: 59983530d93885f28dfb1625ca6d58fe572609b8
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro for advanced deployment flow so I can use it to transform the data before sending it to Azure.
+ms.openlocfilehash: f62eec29aebdcc98569134e0c3b75457467bc014
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86080482"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903684"
 ---
-# <a name="tutorial-transform-data-with-azure-stack-edge-for-advanced-deployment-flow"></a>Esercitazione: Trasformare i dati con Azure Stack Edge per il flusso di distribuzione avanzata
+# <a name="tutorial-transform-data-with-azure-stack-edge-pro-for-advanced-deployment-flow"></a>Esercitazione: Trasformare i dati con Azure Stack Edge Pro per il flusso di distribuzione avanzata
 
-Questa esercitazione descrive come configurare un ruolo di calcolo per il flusso di distribuzione avanzata nel dispositivo Azure Stack Edge. Dopo aver configurato il ruolo di calcolo, Azure Stack Edge può trasformare i dati prima che vengano inviati ad Azure.
+Questa esercitazione illustra come configurare un ruolo di calcolo per il flusso di distribuzione avanzata nel dispositivo Azure Stack Edge Pro. Dopo la configurazione del ruolo di calcolo, Azure Stack Edge Pro può trasformare i dati prima che vengano inviati ad Azure.
 
 Il calcolo può essere configurato per un flusso di distribuzione semplice o avanzata sul dispositivo.
 
@@ -43,14 +43,14 @@ In questa esercitazione verranno illustrate le procedure per:
  
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di configurare un ruolo di calcolo nel dispositivo Azure Stack Edge, assicurarsi di:
+Prima di configurare un ruolo di calcolo nel dispositivo Azure Stack Edge Pro, assicurarsi di:
 
-- Aver attivato il dispositivo Azure Stack Edge come descritto in [Connettere, configurare e attivare Azure Stack Edge](azure-stack-edge-deploy-connect-setup-activate.md).
+- Aver attivato il dispositivo Azure Stack Edge Pro come descritto in [Connettere, configurare e attivare Azure Stack Edge Pro](azure-stack-edge-deploy-connect-setup-activate.md).
 
 
 ## <a name="configure-compute"></a>Configurare il calcolo
 
-Per configurare il calcolo in Azure Stack Edge, si creerà una risorsa hub IoT.
+Per configurare il calcolo in Azure Stack Edge Pro, creare una risorsa hub IoT.
 
 1. Nel portale di Azure della risorsa Azure Stack Edge passare a **Panoramica**. Nel riquadro **Calcolo** a destra selezionare **Inizia subito**.
 
@@ -150,9 +150,9 @@ Per la distribuzione avanzata di questa esercitazione, saranno necessarie due co
 
 ## <a name="add-a-module"></a>Aggiungere un modulo
 
-In questo dispositivo Edge non sono presenti moduli personalizzati. È possibile aggiungere un modulo personalizzato o predefinito. Per informazioni su come creare un modulo personalizzato, vedere [Sviluppare un modulo C# per il dispositivo Azure Stack Edge](azure-stack-edge-create-iot-edge-module.md).
+In questo dispositivo Edge non sono presenti moduli personalizzati. È possibile aggiungere un modulo personalizzato o predefinito. Per informazioni su come creare un modulo personalizzato, vedere [Sviluppare un modulo C# per il dispositivo Azure Stack Edge Pro](azure-stack-edge-create-iot-edge-module.md).
 
-In questa sezione si aggiungerà un modulo personalizzato al dispositivo IoT Edge creato in [Sviluppare un modulo C# per Azure Stack Edge](azure-stack-edge-create-iot-edge-module.md). Questo modulo personalizzato sposta i file da una condivisione locale Edge nel dispositivo Edge a una condivisione cloud Edge nel dispositivo. La condivisione cloud esegue quindi il push dei file all'account di archiviazione di Azure associato.
+In questa sezione si aggiungerà un modulo personalizzato al dispositivo IoT Edge creato in [Sviluppare un modulo C# per il dispositivo Azure Stack Edge Pro](azure-stack-edge-create-iot-edge-module.md). Questo modulo personalizzato sposta i file da una condivisione locale Edge nel dispositivo Edge a una condivisione cloud Edge nel dispositivo. La condivisione cloud esegue quindi il push dei file all'account di archiviazione di Azure associato.
 
 1. Passare a **Calcolo Edge > Inizia subito**. Nel riquadro **Aggiungi moduli** selezionare **Avanzato** come tipo di scenario. Selezionare **Vai all'hub IoT**.
 
@@ -175,7 +175,7 @@ In questa sezione si aggiungerà un modulo personalizzato al dispositivo IoT Edg
 4. In **Aggiungi moduli** eseguire queste operazioni:
 
     1. Immettere il nome, l'indirizzo, il nome utente e la password per le impostazioni del registro contenitori per il modulo personalizzato.
-    Il nome, l'indirizzo e le credenziali elencate vengono usati per recuperare i moduli con un URL corrispondente. Per distribuire questo modulo, in **Moduli di distribuzione**, selezionare **Modulo IoT Edge**. Questo modulo IoT Edge è un contenitore Docker che è possibile distribuire nel dispositivo IoT Edge associato al proprio dispositivo Azure Stack Edge.
+    Il nome, l'indirizzo e le credenziali elencate vengono usati per recuperare i moduli con un URL corrispondente. Per distribuire questo modulo, in **Moduli di distribuzione**, selezionare **Modulo IoT Edge**. Questo modulo IoT Edge è un contenitore Docker che è possibile distribuire nel dispositivo IoT Edge associato al proprio dispositivo Azure Stack Edge Pro.
 
         ![Pagina Imposta moduli](./media/azure-stack-edge-deploy-configure-compute-advanced/add-module-4.png) 
  
@@ -183,7 +183,7 @@ In questa sezione si aggiungerà un modulo personalizzato al dispositivo IoT Edg
      
         |Campo  |valore  |
         |---------|---------|
-        |Nome     | Nome univoco per il modulo. Questo modulo è un contenitore Docker che può essere distribuito nel dispositivo IoT Edge associato ad Azure Stack Edge.        |
+        |Nome     | Nome univoco per il modulo. Questo modulo è un contenitore Docker che può essere distribuito nel dispositivo IoT Edge associato ad Azure Stack Edge Pro.        |
         |URI immagine     | URI dell'immagine del contenitore corrispondente per il modulo.        |
         |Sono richieste credenziali     | Se questa opzione è selezionata, per recuperare i moduli con un URL corrispondente vengono usati un nome utente e una password.        |
     
@@ -270,7 +270,7 @@ In questa esercitazione sono state illustrate le procedure per:
 > * Aggiungere un ruolo di calcolo
 > * Verificare la trasformazione e il trasferimento dei dati
 
-Per informazioni su come amministrare il dispositivo Azure Stack Edge, vedere:
+Per informazioni su come amministrare il dispositivo Azure Stack Edge Pro, vedere:
 
 > [!div class="nextstepaction"]
-> [Usare l'interfaccia utente Web locale per amministrare un dispositivo Azure Stack Edge](azure-stack-edge-manage-access-power-connectivity-mode.md)
+> [Usare l'interfaccia utente Web locale per amministrare un dispositivo Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md)

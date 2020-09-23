@@ -5,12 +5,12 @@ ms.assetid: 6223b6bd-84ec-48df-943f-461d84605694
 ms.topic: article
 ms.date: 10/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: b160f0aa50c30f7856bc09b88b3eb305f32d6f98
-ms.sourcegitcommit: 648c8d250106a5fca9076a46581f3105c23d7265
+ms.openlocfilehash: 0aa0393544f5744c6aaf428ca4b4c27922a0c287
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "88961925"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987843"
 ---
 # <a name="back-up-your-app-in-azure"></a>Eseguire il backup dell'app in Azure
 La funzionalità di backup e ripristino nel [Servizio app di Azure](overview.md) consente di creare facilmente backup di app in modo manuale o pianificato. È possibile configurare i backup in modo che vengano conservati per un periodo di tempo indefinito. È possibile ripristinare l'app a una snapshot di uno stato precedente sovrascrivendo l'applicazione esistente o eseguendo il ripristino in un'altra applicazione.
@@ -60,7 +60,7 @@ Le soluzioni di database seguenti sono supportate con funzionalità di backup:
     > [!NOTE]
     > Se viene visualizzato questo messaggio, fare clic per aggiornare il piano di servizio app prima di procedere con i backup.
     > Per altre informazioni, vedere [Aumentare le prestazioni di un'app in Azure](manage-scale-up.md).
-    > ![Scelta dell'account di archiviazione](./media/manage-backup/upgrade-plan.png)
+    > :::image type="content" source="./media/manage-backup/upgrade-plan.png" alt-text="Screenshot di un banner con un messaggio per aggiornare il piano di servizio app per accedere alla funzionalità di backup e ripristino.":::
     > 
     > 
 
@@ -70,13 +70,13 @@ Le soluzioni di database seguenti sono supportate con funzionalità di backup:
 
 3. Nella pagina **Configurazione backup** fare clic su **Archiviazione non configurata** per configurare un account di archiviazione.
 
-    ![Scegliere l'account di archiviazione](./media/manage-backup/configure-storage.png)
+    :::image type="content" source="./media/manage-backup/configure-storage.png" alt-text="Screenshot della sezione archiviazione di backup con l'impostazione di archiviazione non configurata selezionata.":::
 
 4. Scegliere la destinazione del backup selezionando un **Account di archiviazione** e un **Contenitore**. L'account di archiviazione deve appartenere alla stessa sottoscrizione dell'app da sottoporre a backup. Se si vuole, è possibile creare un nuovo account di archiviazione o un nuovo contenitore nelle rispettive pagine. Al termine, fare clic su **Seleziona**.
 
 5. Nella pagina **configurazione backup** rimane aperta, è possibile configurare **backup database**, quindi selezionare i database da includere nei backup (database SQL o MySQL), quindi fare clic su **OK**.
 
-    ![Scegliere l'account di archiviazione](./media/manage-backup/configure-database.png)
+    :::image type="content" source="./media/manage-backup/configure-database.png" alt-text="Screenshot della sezione backup database che mostra la selezione Includi in backup.":::
 
     > [!NOTE]
     > Per visualizzare un database nell'elenco, è necessaria la presenza della relativa stringa di connessione nella sezione **Stringhe di connessione** della pagina **Impostazioni applicazione** per l'app. 

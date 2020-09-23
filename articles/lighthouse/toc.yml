@@ -101,6 +101,8 @@
     - name: Criteri di Azure predefiniti
       displayName: 'samples, policies, definitions'
       href: ./samples/policy-reference.md
+    - name: Terraform
+      href: 'https://www.terraform.io/docs/providers/azurerm/r/lighthouse_assignment.html'
 - name: Risorse
   items:
     - name: Domande e risposte Microsoft per Azure Lighthouse

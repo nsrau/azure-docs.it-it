@@ -1,0 +1,143 @@
+### YamlMime:Landing
+title: Documentazione di Server singolo
+summary: Database di Azure per MySQL - Server singolo è un servizio di database relazionale basato su MySQL Community Edition.  È un database distribuito come servizio completamente gestito in grado di gestire carichi di lavoro cruciali con prestazioni prevedibili e scalabilità dinamica. Le guide introduttive, le esercitazioni e gli esempi illustrano come usare Server singolo.
+metadata:
+  description: Database di Azure per MySQL - Server singolo è un servizio di database relazionale incluso in Microsoft Cloud, creato per gli sviluppatori e basato su MySQL Community Edition.
+  author: mksuni
+  ms.author: sumuth
+  ms.date: 09/20/2020
+  ms.service: mysql
+  ms.topic: landing-page
+  ms.openlocfilehash: a9ddd354a97578c5b83455fc6d709d5c2d60494f
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90928797"
+landingContent:
+- title: Informazioni su Server singolo
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è Server singolo?
+      url: ../concepts-servers.md
+  - linkListType: whats-new
+    links:
+    - text: Consultare il blog
+      url: https://techcommunity.microsoft.com/t5/Azure-Database-for-MySQL/bg-p/ADforMySQL
+- title: Introduzione
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creare un server con il portale di Azure
+      url: ../quickstart-create-mysql-server-database-using-azure-portal.md
+    - text: Creare un server con l'interfaccia della riga di comando di Azure
+      url: ../quickstart-create-mysql-server-database-using-azure-cli.md
+  - linkListType: concept
+    links:
+    - text: Informazioni sui piani tariffari
+      url: ../concepts-pricing-tiers.md
+    - text: Conoscere i limiti
+      url: ../concepts-limits.md
+    - text: Informazioni sulle versioni supportate di MySQL
+      url: ../concepts-supported-versions.md
+    - text: Pianificare la disponibilità elevata
+      url: ../concepts-high-availability.md
+  - linkListType: tutorial
+    links:
+    - text: Progettare un database per Server singolo
+      url: ../tutorial-design-database-using-portal.md
+    - text: Distribuire l'app Wordpress on Web per Contenitori con MySQL
+      url: ../../app-service/tutorial-multi-container-app.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
+    - text: Creare un'app Web PHP (Laravel) con MySQL
+      url: ../../app-service/tutorial-php-mysql-app.md?toc=%2fazure%2fmysql%2ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json
+- title: Connessione ed esecuzione di query
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Informazioni sul firewall
+      url: ../concepts-firewall-rules.md
+    - text: Informazioni su SSL
+      url: ../concepts-ssl-connection-security.md
+  - linkListType: how-to-guide
+    links:
+    - text: Creare regole del firewall
+      url: ../howto-manage-firewall-using-portal.md
+    - text: Configurare la connettività SSL
+      url: ../howto-configure-ssl.md
+    - text: Risolvere i problemi di connessione
+      url: ../howto-troubleshoot-common-connection-issues.md
+  - linkListType: get-started
+    links:
+    - text: Connettersi con MySQL Workbench
+      url: ../connect-workbench.md
+    - text: Connettersi con PHP
+      url: ../connect-php.md
+    - text: Connettersi con Java
+      url: ../connect-java.md
+    - text: Connettersi con .NET
+      url: ../connect-csharp.md
+    - text: Connettersi con Python
+      url: ../connect-python.md
+    - text: Connettersi con Node.js
+      url: ../connect-nodejs.md
+- title: Gestire i dati ed eseguirne la migrazione
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Informazioni sui parametri del server
+      url: ../concepts-server-parameters.md
+    - text: Informazioni sulle reti virtuali
+      url: ../concepts-data-access-and-security-vnet.md
+    - text: Abilitare il monitoraggio
+      url: ../concepts-monitoring.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurare i parametri del server
+      url: ../howto-server-parameters.md
+    - text: Eseguire la migrazione con il servizio Migrazione dei dati
+      url: ../howto-migrate-online.md
+    - text: Eseguire la migrazione con dump e ripristino
+      url: ../concepts-migrate-dump-restore.md
+    - text: Eseguire la migrazione con importazione ed esportazione
+      url: ../concepts-migrate-import-export.md
+- title: Continuità aziendale
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Continuità aziendale
+      url: ../concepts-business-continuity.md
+    - text: Backup e ripristino
+      url: ../concepts-backup.md
+    - text: Replica dei dati in ingresso
+      url: ../concepts-data-in-replication.md
+  - linkListType: how-to-guide
+    links:
+    - text: Configurare la replica dei dati in ingresso
+      url: ../howto-data-in-replication.md
+    - text: Ripristinare un server con il portale di Azure
+      url: ../howto-restore-server-portal.md
+    - text: Ripristinare un server con il portale di Azure
+      url: ../howto-restore-server-cli.md
+- title: Informazioni di riferimento
+  linkLists:
+  - linkListType: download
+    links:
+    - text: MySQL Workbench
+      url: https://www.mysql.com/products/workbench
+    - text: Connettore .NET per MySQL
+      url: https://dev.mysql.com/doc/connector-net/en/
+  - linkListType: deploy
+    links:
+    - text: Script dell'interfaccia della riga di comando di Azure per attività comuni
+      url: /azure/mysql/sample-scripts-azure-cli
+    - text: Modelli di Gestione risorse di Azure
+      url: /azure/templates/microsoft.dbformysql/allversions
+  - linkListType: reference
+    links:
+    - text: Informazioni di riferimento per sviluppatori sull'interfaccia della riga di comando di Azure
+      url: /cli/azure/mysql
+    - text: Informazioni di riferimento per sviluppatori sulle API REST
+      url: /rest/api/mysql/
+    - text: PowerShell
+      url: https://docs.microsoft.com/powershell/module/az.mysql
