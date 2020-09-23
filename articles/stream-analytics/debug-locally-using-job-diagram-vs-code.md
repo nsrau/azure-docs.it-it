@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: how-to
 ms.date: 06/23/2020
-ms.openlocfilehash: c31f3c998df918466e707c95f041592051e8251c
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: f8885229c8ab6784c6c0bf45487812fcc43f9b22
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86045315"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903829"
 ---
 # <a name="debug-azure-stream-analytics-queries-locally-using-job-diagram-in-visual-studio-code"></a>Eseguire il debug di query di analisi di flusso di Azure in locale usando il diagramma Visual Studio Code del processo
 
@@ -27,7 +27,7 @@ Uno script di analisi di flusso di Azure viene usato per trasformare i dati di i
 
 ### <a name="start-local-testing"></a>Avvia test locali
 
-Usare questa [Guida introduttiva](quick-create-vs-code.md) per informazioni su come creare un processo di analisi di flusso usando Visual Studio Code o [esportare un processo esistente in un progetto locale](visual-studio-code-explore-jobs.md). Le credenziali per gli input e gli output vengono popolate automaticamente per i processi esportati.
+Usare questa [Guida introduttiva](quick-create-visual-studio-code.md) per informazioni su come creare un processo di analisi di flusso usando Visual Studio Code o [esportare un processo esistente in un progetto locale](visual-studio-code-explore-jobs.md). Le credenziali per gli input e gli output vengono popolate automaticamente per i processi esportati.
 
 Se si desidera testare la query con i dati di input locali, attenersi a queste [istruzioni](visual-studio-code-local-run.md). Se si vuole eseguire il test con l'input Live, configurare lo spostamento dell' [input](stream-analytics-add-inputs.md) al passaggio successivo. 
 
@@ -59,7 +59,7 @@ In questa sezione vengono esaminate le metriche disponibili per ogni parte del d
 3. Selezionare il nome dell'origine dati di input dall'elenco a discesa per visualizzare le metriche di input. L'origine di input nello screenshot seguente è denominata *virgolette*. Per altre informazioni sulle metriche di input, vedere informazioni sul [monitoraggio dei processi di analisi di flusso e su come monitorare le query](stream-analytics-monitoring.md).
 
    > [!div class="mx-imgBorder"]
-   > ![Metriche del diagramma di processo](./media/debug-locally-using-job-diagram-vs-code/input-metrics.png)
+   > ![Metriche di input del diagramma processi](./media/debug-locally-using-job-diagram-vs-code/input-metrics.png)
 
 4. Selezionare un passaggio della query dal diagramma del processo oppure selezionare il nome del passaggio nell'elenco a discesa per visualizzare le metriche del livello del passaggio. Il ritardo della filigrana è l'unica metrica del passaggio disponibile.
 
@@ -108,7 +108,7 @@ Selezionare **Riepilogo processi** nella parte superiore destra del diagramma de
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* [Guida introduttiva: creare un processo di analisi di flusso usando Visual Studio Code](quick-create-vs-code.md)
+* [Guida introduttiva: creare un processo di analisi di flusso usando Visual Studio Code](quick-create-visual-studio-code.md)
 * [Esplora analisi di flusso di Azure con Visual Studio Code](visual-studio-code-explore-jobs.md)
 * [Eseguire test locali delle query di Analisi di flusso con dati di esempio con Visual Studio Code](visual-studio-code-local-run.md)
 * [Testare i processi di analisi di flusso di Azure localmente con input Live con Visual Studio Code](visual-studio-code-local-run-live-input.md)

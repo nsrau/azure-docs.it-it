@@ -4,15 +4,16 @@ description: Questo articolo fornisce le risposte alle domande frequenti su Azur
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 10/07/2019
+ms.date: 09/08/2020
 ms.author: brendm
 ms.custom: devx-track-java
-ms.openlocfilehash: 1ad008ff3ef4f29ee358b075802deba7eef919bd
-ms.sourcegitcommit: 5ed504a9ddfbd69d4f2d256ec431e634eb38813e
+zone_pivot_groups: programming-languages-spring-cloud
+ms.openlocfilehash: 1947e57a5f200521fe57c6aaf41e9d57c1085592
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89322042"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888712"
 ---
 # <a name="azure-spring-cloud-faq"></a>Domande frequenti su Azure Spring cloud
 
@@ -61,9 +62,11 @@ Se si verificano problemi con Azure Spring cloud, creare una [richiesta di suppo
 
 Per il modo più rapido per iniziare a usare Azure Spring cloud, seguire le istruzioni riportate nella [Guida introduttiva: avviare un'applicazione Azure Spring cloud usando il portale di Azure](spring-cloud-quickstart.md).
 
+::: zone pivot="programming-language-java"
 ### <a name="what-java-runtime-does-azure-spring-cloud-support"></a>Quale runtime Java supporta Azure Spring Cloud?
 
 Azure Spring Cloud supporta Java 8 e 11. Vedere [le versioni del runtime e del sistema operativo Java](#java-runtime-and-os-versions)
+::: zone-end
 
 ### <a name="where-can-i-view-my-spring-cloud-application-logs-and-metrics"></a>Dove è possibile visualizzare i log e le metriche dell'applicazione Spring cloud?
 
@@ -75,12 +78,14 @@ Il cloud Spring di Azure supporta l'esportazione di metriche e log applicazioni 
 
 Sì. Per altre informazioni, vedere [esercitazione: usare la traccia distribuita con Azure Spring cloud](spring-cloud-tutorial-distributed-tracing.md).
 
+::: zone pivot="programming-language-java"
 ### <a name="what-resource-types-does-service-binding-support"></a>Quali tipi di risorse supporta il binding di servizi?
 
 Attualmente sono supportati tre servizi:
 * Azure Cosmos DB
 * Database di Azure per MySQL
 * Cache Redis di Azure.
+::: zone-end
 
 ### <a name="can-i-view-add-or-move-persistent-volumes-from-inside-my-applications"></a>È possibile visualizzare, aggiungere o spostare volumi permanenti dall'interno delle applicazioni?
 
@@ -96,6 +101,7 @@ Dipende dalla logica dei provider di risorse che possiedono le risorse di estens
  az monitor diagnostic-settings delete --name $diagnosticSettingName --resource $azureSpringCloudResourceId
 ```
 
+::: zone pivot="programming-language-java"
 ## <a name="java-runtime-and-os-versions"></a>Runtime Java e versioni del sistema operativo
 
 ### <a name="which-versions-of-java-runtime-are-supported-in-azure-spring-cloud"></a>Quali versioni di Java Runtime sono supportate nel cloud Spring di Azure?
@@ -136,10 +142,11 @@ Il preavviso pubblico verrà inviato a 12 mesi prima del ritiro di qualsiasi ver
 
 Viene usata la versione più recente di Ubuntu LTS, attualmente [ubuntu 20,04 LTS (fossa focale)](https://releases.ubuntu.com/focal/) è il sistema operativo predefinito.
 
-### <a name="how-often-will-os-security-patches-be-applied"></a>Con quale frequenza verranno applicate le patch di sicurezza del sistema operativo?
+### <a name="how-often-are-os-security-patches-applied"></a>Con quale frequenza vengono applicate le patch di sicurezza del sistema operativo?
 
-Le patch di sicurezza applicabili al cloud Spring di Azure verranno implementate in produzione su base mensile.
-Le patch di sicurezza critiche (il Punteggio CVE >= 9) applicabili al cloud Spring di Azure verranno implementate appena possibile.
+Le patch di sicurezza applicabili al cloud Spring di Azure vengono implementate in produzione su base mensile.
+Le patch di sicurezza critiche (il Punteggio CVE >= 9) applicabili al cloud Spring di Azure vengono implementate appena possibile.
+::: zone-end
 
 ## <a name="deployment"></a>Distribuzione
 
@@ -158,6 +165,7 @@ Sì. Per altre informazioni, vedere [avviare l'applicazione Spring cloud dal cod
 
 No.
 
+::: zone pivot="programming-language-java"
 ### <a name="what-are-the-best-practices-for-migrating-existing-spring-cloud-microservices-to-azure-spring-cloud"></a>Quali sono le procedure consigliate per la migrazione di microservizi cloud primaverili esistenti al cloud Spring di Azure?
 
 Quando si esegue la migrazione di microservizi cloud primaverili esistenti al cloud Spring di Azure, è consigliabile osservare le procedure consigliate seguenti:
@@ -168,8 +176,22 @@ Quando si esegue la migrazione di microservizi cloud primaverili esistenti al cl
 * Si consiglia di usare le librerie di primavera pivotal stabili e ufficiali. Le versioni non ufficiale, beta o con fork delle librerie di Spring pivot non hanno supporto per il contratto di servizio (SLA).
 
 Dopo la migrazione, monitorare le metriche della CPU/RAM e il traffico di rete per assicurarsi che le istanze dell'applicazione vengano ridimensionate in modo appropriato.
+::: zone-end
 
-## <a name="trouble-shooting"></a>Problemi di ripresa
+::: zone pivot="programming-language-csharp"
+## <a name="net-core-versions"></a>Versioni di .NET Core
+
+### <a name="which-net-core-versions-are-supported"></a>Quali versioni di .NET Core sono supportate?
+
+.NET Core 3,1 e versioni successive.
+
+### <a name="how-long-will-net-core-31-be-supported"></a>Per quanto tempo sarà supportato .NET Core 3,1?
+
+Fino al 3 dicembre 2022. Vedere [criteri di supporto di .NET Core](https://dotnet.microsoft.com/platform/support/policy/dotnet-core).
+::: zone-end
+
+
+## <a name="troubleshooting"></a>Risoluzione dei problemi
 
 ### <a name="what-are-the-impacts-of-service-registry-rarely-unavailable"></a>Quali sono gli effetti del registro di sistema del servizio raramente non disponibili?
 

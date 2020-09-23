@@ -9,12 +9,12 @@ author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: f38a973611cb1ab18eead4ec51e6be91ada2cc40
-ms.sourcegitcommit: 01cd19edb099d654198a6930cebd61cae9cb685b
+ms.openlocfilehash: abd1bc9b53c303d094d74683da0d6e3fad4d715f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 06/24/2020
-ms.locfileid: "85318642"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887470"
 ---
 # <a name="deploy-ml-model-on-azure-sql-edge-using-onnx"></a>Distribuire il modello di Machine Learning in SQL Edge di Azure usando ONNX 
 
@@ -225,4 +225,4 @@ Immettere il codice Python seguente nel notebook di Azure Data Studio ed eseguir
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per altre informazioni sull'uso di modelli ONNX in SQL Edge di Azure, vedere [Machine Learning e IA con ONNX in SQL Edge (anteprima)](onnx-overview.md).
+Per altre informazioni sull'uso di modelli ONNX in SQL Edge di Azure, vedere [Machine Learning e IA con ONNX in SQL Edge](onnx-overview.md).

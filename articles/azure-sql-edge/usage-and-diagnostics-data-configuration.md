@@ -8,12 +8,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 08/04/2020
-ms.openlocfilehash: af4353e5b0991f7ce2f6fe8ff940e916717b0579
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 130e23c290ce493d3fb92f6dd0be4cd7c61a86fd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650473"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888056"
 ---
 # <a name="azure-sql-edge-usage-and-diagnostics-data-configuration"></a>Configurazione dei dati di utilizzo e diagnostica di Azure SQL Edge
 
@@ -61,6 +61,9 @@ group by data_source_type
 
 La raccolta dei dati di utilizzo e di diagnostica in Azure SQL Edge può essere disabilitata usando uno dei metodi seguenti.
 
+> [!NOTE]
+> Non è possibile disabilitare i dati di utilizzo e di diagnostica per la versione Developer.
+
 ### <a name="disable-usage-and-diagnostics-using-environment-variables"></a>Disabilitare l'utilizzo e la diagnostica usando le variabili di ambiente
 
 Per disabilitare la raccolta dei dati di utilizzo e diagnostica in Azure SQL Edge, aggiungere la variabile di ambiente seguente e impostarne il valore su `*False*` . Per altre informazioni sulla configurazione di Azure SQL Edge con le variabili di ambiente, vedere [configurare usando le variabili di ambiente](configure.md#configure-by-using-environment-variables).
@@ -68,7 +71,7 @@ Per disabilitare la raccolta dei dati di utilizzo e diagnostica in Azure SQL Edg
 `MSSQL_TELEMETRY_ENABLED = TRUE | FALSE`
 
 - TRUE: Abilita la raccolta dei dati di utilizzo e di diagnostica. Questa è la configurazione predefinita.
-- FALSE-Disabilita la raccolta dei dati di utilizzo e di diagnostica
+- FALSE: Disabilita la raccolta dei dati di utilizzo e di diagnostica.
 
 ### <a name="disable-usage-and-diagnostics-using-mssqlconf-file"></a>Disabilitare l'utilizzo e la diagnostica tramite il file MSSQL. conf
 

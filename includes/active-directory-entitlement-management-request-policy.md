@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/30/2020
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: ae3efec3722570e7e94316c5d874a74c523b1f05
-ms.sourcegitcommit: e995f770a0182a93c4e664e60c025e5ba66d6a45
+ms.openlocfilehash: 12c9b1226e3ba928a4062049c7839d4e46ef727d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86156584"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "91024805"
 ---
 ## <a name="for-users-in-your-directory"></a>Per gli utenti nella directory
 
@@ -207,3 +207,33 @@ Se ad esempio sono stati elencati Alice e Bob come primo responsabile approvazio
     ![Pacchetto di accesso-criteri-Abilita impostazione dei criteri](./media/active-directory-entitlement-management-request-policy/enable-requests.png)
 
 1. Fare clic su **Avanti**.
+
+## <a name="add-requestor-information-preview-to-an-access-package"></a>Aggiungere le informazioni sul richiedente (anteprima) a un pacchetto di accesso
+
+1. Passare alla scheda **informazioni sul richiedente** e fare clic sulla scheda sottocartella **domande** .
+ 
+1. Digitare ciò che si vuole chiedere al richiedente, noto anche come stringa di visualizzazione, per la domanda nella casella della **domanda** .
+
+    ![Accesso al pacchetto-criteri-Abilita impostazione informazioni sul richiedente](./media/active-directory-entitlement-management-request-policy/add-requestor-info-question.png)
+
+1. Se si desidera aggiungere opzioni di localizzazione personalizzate, fare clic su **Aggiungi localizzazione**.
+    1. Nel riquadro **Aggiungi localizzazioni per la domanda** selezionare il codice della **lingua** per la lingua in cui si sta localizzando la domanda.
+    1. Nella lingua configurata digitare la domanda nella casella di **testo localizzata** .
+    1. Dopo aver aggiunto tutte le localizzazioni necessarie, fare clic su **Salva**.
+
+    ![Accedere ai criteri di pacchetto-configurare il testo localizzato](./media/active-directory-entitlement-management-request-policy/add-localization-question.png)
+
+1. Selezionare il **formato di risposta** a cui si vogliono rispondere i richiedenti. I formati di risposta includono: *testo breve*, *scelta multipla*e *testo lungo*.
+ 
+    ![Accedere al pacchetto-criteri-selezionare Visualizza e modifica il formato di risposta a scelta multipla](./media/active-directory-entitlement-management-request-policy/answer-format-view-edit.png)
+ 
+1. Se si seleziona scelta multipla, fare clic sul pulsante **Visualizza e modifica** per configurare le opzioni di risposta.
+    1. Dopo aver selezionato Visualizza e modifica, viene aperto il riquadro **Visualizza/modifica domanda** .
+    1. Digitare le opzioni di risposta che si desidera assegnare al richiedente quando si risponde alla domanda nelle caselle **valori di risposta** .
+    1. Digitare il numero di risposte necessario, quindi fare clic su **Salva**.
+    
+    ![Access Package-policy-immettere le opzioni di scelta multipla](./media/active-directory-entitlement-management-request-policy/answer-multiple-choice.png)
+  
+1. Per richiedere ai richiedenti di rispondere a questa domanda quando si richiede l'accesso a un pacchetto di accesso, fare clic sulla casella di controllo in **required**.
+
+1. Fare clic su Next (Avanti)

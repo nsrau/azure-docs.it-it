@@ -1,6 +1,6 @@
 ---
 title: Distribuire ed eseguire stime con ONNX
-description: Informazioni su come eseguire il training di un modello, convertirlo in ONNX, distribuirlo in Azure SQL Edge (anteprima) o Istanza gestita SQL di Azure (anteprima) e quindi eseguire stime native sui dati usando il modello ONNX caricato.
+description: Informazioni su come eseguire il training di un modello, convertirlo in ONNX, distribuirlo in Azure SQL Edge o Azure SQL Istanza gestita (anteprima) e quindi eseguire stime native sui dati usando il modello ONNX caricato.
 keywords: distribuire SQL Edge
 ms.prod: sql
 ms.technology: machine-learning
@@ -8,22 +8,22 @@ ms.topic: conceptual
 author: dphansen
 ms.author: davidph
 ms.date: 07/14/2020
-ms.openlocfilehash: eeb50f682c8b3b225c6574b5276722b79465a511
-ms.sourcegitcommit: 6fc156ceedd0fbbb2eec1e9f5e3c6d0915f65b8e
+ms.openlocfilehash: 1e70b48e4c28cdc74c5079e492b0266ea60900ad
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/21/2020
-ms.locfileid: "88718782"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886820"
 ---
 # <a name="deploy-and-make-predictions-with-an-onnx-model"></a>Distribuire ed eseguire stime con un modello ONNX
 
-In questa Guida introduttiva si apprenderà come eseguire il training di un modello, convertirlo in ONNX, distribuirlo in [Azure SQL Edge (anteprima)](onnx-overview.md) o [Azure SQL istanza gestita (anteprima)](../azure-sql/managed-instance/machine-learning-services-overview.md)e quindi eseguire stime native sui dati usando il modello ONNX caricato.
+In questa Guida introduttiva si apprenderà come eseguire il training di un modello, convertirlo in ONNX, distribuirlo in [Azure SQL Edge](onnx-overview.md) o [Azure SQL istanza gestita (anteprima)](../azure-sql/managed-instance/machine-learning-services-overview.md)e quindi eseguire la stima nativa sui dati usando il modello ONNX caricato.
 
 Questo avvio rapido si basa su **scikit-learn** e usa il [set di dati Boston Housing](https://scikit-learn.org/stable/modules/generated/sklearn.datasets.load_boston.html).
 
 ## <a name="before-you-begin"></a>Prima di iniziare
 
-* Se si usa Azure SQL Edge e non è stato distribuito un modulo Azure SQL Edge, seguire la procedura illustrata in [distribuire SQL Edge (anteprima) usando il portale di Azure](deploy-portal.md).
+* Se si usa Azure SQL Edge e non è stato distribuito un modulo Azure SQL Edge, seguire i passaggi per [distribuire SQL Edge usando il portale di Azure](deploy-portal.md).
 
 * Installare [Azure Data Studio](https://docs.microsoft.com/sql/azure-data-studio/download).
 

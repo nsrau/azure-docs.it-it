@@ -13,15 +13,24 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/11/2020
 ms.author: memildin
-ms.openlocfilehash: 1f69fe027772dc2d008a567723a5b3c04f3ee51b
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: e8aea9b8abb5926fdb73df7c140ecfec1114f7a0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378203"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894760"
 ---
 # <a name="adaptive-network-hardening-in-azure-security-center"></a>Protezione avanzata della rete adattiva nel centro sicurezza di Azure
 Informazioni su come configurare la protezione avanzata della rete adattiva nel centro sicurezza di Azure.
+
+## <a name="availability"></a>Disponibilità
+|Aspetto|Dettagli|
+|----|:----|
+|Stato versione:|Disponibile a livello generale|
+|Prezzi|Richiede [Azure Defender per i server](defender-for-servers-introduction.md)|
+|Ruoli e autorizzazioni necessari:|Autorizzazioni di scrittura per il gruppi del computer|
+|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Nazionale/sovrano (US Gov, Cina gov, altri gov)|
+|||
 
 ## <a name="what-is-adaptive-network-hardening"></a>Che cos'è la protezione avanzata della rete adattiva?
 L'applicazione dei [gruppi di sicurezza di rete (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview) per filtrare il traffico da e verso le risorse migliora il comportamento di sicurezza della rete. Tuttavia, è comunque possibile che si verifichino alcuni casi in cui il traffico effettivo che scorre attraverso NSG è un subset delle regole NSG definite. In questi casi, migliorare ulteriormente il comportamento di sicurezza può essere effettuato grazie alla protezione avanzata delle regole NSG, in base ai modelli di traffico effettivi.
@@ -37,15 +46,6 @@ Ad esempio, supponiamo che la regola NSG esistente consenta il traffico da 140.2
 ![Visualizzazione protezione avanzata della rete](./media/security-center-adaptive-network-hardening/traffic-hardening.png)
 
 
-## <a name="availability"></a>Disponibilità
-
-|Aspetto|Dettagli|
-|----|:----|
-|Stato versione:|Disponibilità generale|
-|Prezzi|Livello Standard|
-|Ruoli e autorizzazioni necessari:|Autorizzazioni di scrittura per il gruppi del computer|
-|Cloud:|![Sì](./media/icons/yes-icon.png) Cloud commerciali<br>![No](./media/icons/no-icon.png) Nazionale/sovrano (US Gov, Cina gov, altri gov)|
-|||
 
 
 ## <a name="view-adaptive-network-hardening-alerts-and-rules"></a>Visualizzare gli avvisi e le regole di protezione avanzata della rete adattiva
@@ -56,7 +56,7 @@ Ad esempio, supponiamo che la regola NSG esistente consenta il traffico da 140.2
    * **Risorse non analizzate**: le macchine virtuali in cui non è possibile eseguire l'algoritmo di protezione avanzata della rete adattiva a causa di uno dei motivi seguenti:
       * Le **macchine virtuali sono macchine virtuali classiche**: sono supportate solo macchine virtuali Azure Resource Manager.
       * **I dati disponibili non sono sufficienti**: per generare raccomandazioni accurate per la protezione avanzata del traffico, il Centro sicurezza richiede almeno 30 giorni di dati sul traffico.
-      * La **macchina virtuale non è protetta da ASC standard**: solo le VM impostate per il piano tariffario standard del Centro sicurezza sono idonee per questa funzionalità.
+      * La **macchina virtuale non è protetta da Azure Defender**: solo le macchine virtuali protette con [Azure Defender per i server](defender-for-servers-introduction.md) sono idonee per questa funzionalità.
 
      ![risorse non integre](./media/security-center-adaptive-network-hardening/unhealthy-resources.png)
 
@@ -69,7 +69,7 @@ Ad esempio, supponiamo che la regola NSG esistente consenta il traffico da 140.2
 
 1. Dalla scheda **risorse non integre** selezionare una macchina virtuale. Sono elencati gli avvisi e le regole di protezione avanzata consigliate.
 
-     ![regole di protezione avanzata](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
+     ![Regole di protezione avanzata](./media/security-center-adaptive-network-hardening/hardening-alerts.png)
 
    > [!NOTE]
    > Nella scheda **regole** sono elencate le regole che la protezione avanzata della rete adattiva consiglia di aggiungere. Nella scheda **avvisi** sono elencati gli avvisi generati a causa del traffico, che si propagano alla risorsa, che non rientra nell'intervallo IP consentito nelle regole consigliate.
@@ -106,14 +106,14 @@ Alcune linee guida importanti per la modifica di una regola di protezione avanza
 
 1. Per modificare alcuni parametri di una regola, nella scheda **regole** fare clic sui tre puntini di sospensione (...) alla fine della riga della regola, quindi fare clic su **modifica**.
 
-   ![Modifica regola](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
+   ![Modifica della regola s](./media/security-center-adaptive-network-hardening/edit-hard-rule.png)
 
 1. Nella finestra **Modifica regola** aggiornare i dettagli che si desidera modificare e fare clic su **Salva**.
 
    > [!NOTE]
-   > Dopo aver fatto clic su **Salva**, la regola è stata modificata. *Tuttavia, non è stato applicato a NSG.* Per applicarla, è necessario selezionare la regola nell'elenco e fare clic su **applica** (come illustrato nel passaggio successivo).
+   > Dopo aver fatto clic su **Salva**, la regola è stata modificata. *Tuttavia, non è stato applicato a NSG.* Per applicarla, è necessario selezionare la regola nell'elenco e selezionare **applica** (come illustrato nel passaggio successivo).
 
-   ![Modifica regola](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
+   ![Selezione di Save](./media/security-center-adaptive-network-hardening/edit-hard-rule3.png)
 
 3. Per applicare la regola aggiornata, dall'elenco selezionare la regola aggiornata e fare clic su **applica**.
 
@@ -150,4 +150,4 @@ Quando necessario, è possibile eliminare una regola consigliata per la sessione
 
 1. Nella scheda **regole** fare clic sui tre puntini di sospensione (...) alla fine della riga della regola, quindi fare clic su **Elimina**.  
 
-    ![regole di protezione avanzata](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)
+    ![Eliminazione di una regola](./media/security-center-adaptive-network-hardening/delete-hard-rule.png)

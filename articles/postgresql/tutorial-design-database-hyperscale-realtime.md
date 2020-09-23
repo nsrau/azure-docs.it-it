@@ -1,6 +1,6 @@
 ---
 title: 'Esercitazione: Progettare un dashboard in tempo reale - Hyperscale (Citus) - Database di Azure per PostgreSQL'
-description: Questa esercitazione illustra come creare, popolare ed eseguire query su tabelle distribuite in Database di Azure per PostgreSQL - Hyperscale (Citus).
+description: Questa esercitazione illustra come parallelizzare query di dashboard in tempo reale con Database di Azure per PostgreSQL Hyperscale (Citus).
 author: jonels-msft
 ms.author: jonels
 ms.service: postgresql
@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: db3cd95c5a833b299ee85c1e68b15644ae0e0226
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 41ac1cb856011d9730f7b49bbf85350f4dbccdbd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87387575"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895242"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>Esercitazione: Progettare un dashboard di analisi in tempo reale usando Database di Azure per PostgreSQL - Hyperscale (Citus)
 
@@ -226,6 +226,5 @@ Nei passaggi precedenti sono state create risorse di Azure in un gruppo di serve
 
 In questa esercitazione è stato illustrato come effettuare il provisioning di un gruppo di server Hyperscale (Citus). È stata stabilita la connessione al gruppo con psql, è stato creato uno schema e sono stati distribuiti i dati. È stato illustrato come eseguire query sui dati in formato non elaborato, aggregare regolarmente i dati, eseguire query sulle tabelle aggregate e impostare come scaduti i dati meno recenti.
 
-Nell'argomento successivo verranno illustrati i concetti relativi all'iperscalabilità.
-> [!div class="nextstepaction"]
-> [Tipi di nodi Hyperscale](https://aka.ms/hyperscale-concepts)
+- Ottenere informazioni sui [tipi di nodo](https://aka.ms/hyperscale-concepts) del gruppo di server
+- Determinare le [dimensioni iniziali](howto-hyperscale-scaling.md#picking-initial-size) ottimali per il gruppo di server

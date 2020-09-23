@@ -3,34 +3,21 @@ author: aahill
 ms.author: aahi
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 05/18/2020
-ms.openlocfilehash: 66bd78c94e6c54d26959778cc059730c13d02629
-ms.sourcegitcommit: 595cde417684e3672e36f09fd4691fb6aa739733
+ms.date: 08/31/2020
+ms.openlocfilehash: 1c374429ca910afeb9972841204bd3e51dcc8306
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/20/2020
-ms.locfileid: "83698544"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888323"
 ---
-Il modulo richiede informazioni sull'utente, sull'azienda e sullo scenario utente per cui si userà il contenitore. Dopo aver inviato il modulo, il team di servizi cognitivi di Azure le esamina per verificare che siano soddisfatti i criteri di accesso al registro contenitori privato.
+Il modulo richiede informazioni sull'utente, sull'azienda e sullo scenario utente per cui si userà il contenitore. Dopo aver inviato il modulo, il team di servizi cognitivi di Azure lo esaminerà e invierà un messaggio di posta elettronica con una decisione.
 
 > [!IMPORTANT]
-> È necessario usare un indirizzo di posta elettronica associato a un account Microsoft (MSA) o a un account Azure Active Directory (Azure AD) nel modulo.
+> * Nel modulo è necessario usare un indirizzo di posta elettronica associato a un ID sottoscrizione di Azure.
+> * La risorsa di Azure usata per eseguire il contenitore deve essere stata creata con l'ID sottoscrizione di Azure approvato. 
+> * Controllare la posta elettronica (cartella posta in arrivo e cartelle indesiderate) per gli aggiornamenti sullo stato dell'applicazione da Microsoft.
 
-Se la richiesta viene approvata, si riceverà un messaggio di posta elettronica con le istruzioni che descrivono come ottenere le credenziali e accedere al registro contenitori privato.
+Una volta approvata, sarà possibile eseguire il contenitore dopo averlo scaricato da Microsoft Container Registry (di Microsoft), descritto più avanti in questo articolo. 
 
-## <a name="log-in-to-the-private-container-registry"></a>Accedere al registro contenitori privato
-
-Esistono diversi modi per eseguire l'autenticazione con il registro contenitori privato per i contenitori di servizi cognitivi. Si consiglia di usare il metodo della riga di comando usando l'interfaccia della riga di comando di [Docker](https://docs.docker.com/engine/reference/commandline/cli/).
-
-Usare il comando [Docker login](https://docs.docker.com/engine/reference/commandline/login/) , come illustrato nell'esempio seguente, per accedere a `containerpreview.azurecr.io` , ovvero al registro contenitori privato per i contenitori di servizi cognitivi. Sostituire * \< username \> * con il nome utente e la * \< password \> * con la password specificata nelle credenziali ricevute dal team di servizi cognitivi di Azure.
-
-```
-docker login containerpreview.azurecr.io -u <username> -p <password>
-```
-
-Se le credenziali sono state protette in un file di testo, è possibile concatenare il contenuto del file di testo al `docker login` comando. Utilizzare il `cat` comando, come illustrato nell'esempio seguente. Sostituire * \< passwordFile \> * con il percorso e il nome del file di testo contenente la password. Sostituire * \< username \> * con il nome utente specificato nelle credenziali.
-
-```
-cat <passwordFile> | docker login containerpreview.azurecr.io -u <username> --password-stdin
-```
-
+Non sarà possibile eseguire il contenitore se la sottoscrizione di Azure non è stata approvata.
