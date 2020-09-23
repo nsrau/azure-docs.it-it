@@ -5,18 +5,18 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 07/14/2020
+ms.date: 09/15/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
-ms.reviewer: sasubram
+ms.reviewer: inbarc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bed0f6cc32c25563d322da77193c5a3b6072902
-ms.sourcegitcommit: 814778c54b59169c5899199aeaa59158ab67cf44
+ms.openlocfilehash: 0e5d8dc60ee0a1f4742382b1cec8ef3ed60e8fb3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/13/2020
-ms.locfileid: "90052280"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970656"
 ---
 # <a name="data-residency-and-customer-data-for-azure-multi-factor-authentication"></a>Residenza dei dati e dati dei clienti per Azure Multi-Factor Authentication
 
@@ -24,13 +24,12 @@ I dati dei clienti vengono archiviati da Azure AD in una posizione geografica in
 
 Azure Multi-Factor Authentication basato sul cloud e il server Azure Multi-Factor Authentication elaborano e archiviano una certa quantità di dati personali e aziendali. Questo articolo descrive quali dati vengono archiviati e dove.
 
-Le attività di Multi-Factor Authentication seguenti provengono attualmente da data center statunitensi, tranne nei casi indicati:
+Il servizio Azure Multi-Factor Authentication dispone di data center negli Stati Uniti, in Europa e Asia Pacifico. Le attività seguenti provengono dai data center regionali, tranne nei casi indicati:
 
-* L'autenticazione a due fattori tramite chiamate telefoniche o SMS ha in genere origine da data center statunitensi e viene instradata da provider globali.
-    * Le richieste di autenticazione utente generiche da altre aree, ad esempio Europa o Australia, sono attualmente elaborate dai data center in tale area. Altri eventi, ad esempio la reimpostazione della password self-service, gli eventi di Azure B2C o gli scenari ibridi che usano l'estensione NPS o la scheda AD FS, sono tutti attualmente elaborati dai data center statunitensi.
-* Le notifiche push che usano l'app Microsoft Authenticator provengono dai data center statunitensi. Inoltre, potrebbero entrare in gioco anche servizi specifici di fornitori di dispositivi da aree diverse.
-* Attualmente, i codici OATH vengono in genere convalidati negli Stati Uniti.
-    * Anche in questo caso, gli eventi di autenticazione utente generici che hanno origine in altre aree, ad esempio Europa o Australia, vengono elaborati dai data center in tale area. Gli eventi aggiuntivi vengono attualmente elaborati dai data center statunitensi.
+* L'autenticazione a più fattori tramite chiamate telefoniche ha origine da Data Center statunitensi e viene instradata dai provider globali.
+* Le richieste di autenticazione utente per utilizzo generico di altre aree, ad esempio Europa o Australia, sono attualmente elaborate in base alla posizione dell'utente.
+* Le notifiche push che usano l'app Microsoft Authenticator hanno origine ai data center locali in base alla posizione dell'utente.
+    * I servizi specifici del fornitore di dispositivi, ad esempio le notifiche push Apple, possono essere esterni alla posizione dell'utente.
 
 ## <a name="personal-data-stored-by-azure-multi-factor-authentication"></a>Dati personali archiviati da Azure Multi-Factor Authentication
 

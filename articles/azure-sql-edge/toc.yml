@@ -15,10 +15,15 @@
   items:
     - name: Distribuire SQL Edge
       href: deploy-portal.md
+    - name: Distribuire con Docker
+      href: disconnected-deployment.md
     - name: Distribuire i modelli ONNX in SQL Edge
       href: deploy-onnx.md
 - name: Esercitazioni
+  expanded: true
   items:
+    - name: Distribuire in Kubernetes
+      href: deploy-kubernetes.md
     - name: Sincronizzare i dati con Azure Data Factory
       href: tutorial-sync-data-factory.md
     - name: Sincronizzare i dati con Sincronizzazione dati SQL
@@ -31,36 +36,42 @@
           href: tutorial-set-up-iot-edge-modules.md
         - name: Distribuire un modello in SQL Edge
           href: tutorial-run-ml-model-on-sql-edge.md
-- name: Procedure
-  items:
-    - name: Distribuire processi di Analisi di flusso
-      href: stream-analytics.md
-    - name: Configurare la replica
-      href: configure-replication.md
-    - name: Rilevare le modifiche ai dati
-      href: track-data-changes.md
-    - name: Gestire i processi di streaming T-SQL
-      href: create-stream-analytics-job.md
-    - name: Connettersi a SQL Edge
-      href: connect.md
-    - name: Configurare SQL Edge
-      href: configure.md
-    - name: Distribuire un pacchetto di applicazione livello dati
-      href: deploy-dacpac.md
 - name: Concetti
   items:
-    - name: Machine Learning e intelligenza artificiale con ONNX
-      href: onnx-overview.md
-    - name: Backup e ripristino
-      href: backup-restore.md
-    - name: Streaming dei dati in SQL Edge
+    - name: Distribuire
+      items:
+        - name: Distribuire tramite il portale di Azure
+          href: deploy-portal.md
+        - name: Distribuire con Docker
+          href: disconnected-deployment.md
+        - name: Distribuire in Kubernetes
+          href: deploy-kubernetes.md
+        - name: Strumenti SQL
+          href: 'https://docs.microsoft.com/en-us/sql/tools/overview-sql-tools?toc=/azure/azure-sql-edge/toc.json'
+    - name: Machine Learning
+      items:
+        - name: Machine Learning e intelligenza artificiale con ONNX
+          href: onnx-overview.md
+        - name: Distribuire modelli ONNX
+          href: deploy-onnx.md
+    - name: Prestazioni
+      items:
+        - name: Linee guida relative alle prestazioni
+          href: performance-best-practices.md
+    - name: Configurare la continuità aziendale
+      items:
+        - name: Backup e ripristino
+          href: backup-restore.md
+        - name: Disponibilità elevata per contenitori
+          href: high-availability-sql-edge-containers.md
+    - name: Streaming di dati
       items:
         - name: Trasmettere i dati
           href: stream-data.md
+        - name: Creare e gestire processi di streaming
+          href: create-stream-analytics-job.md
         - name: Create External Stream (Transact-SQL)
           href: create-external-stream-transact-sql.md
-        - name: Alter External Stream (Transact-SQL)
-          href: alter-external-stream-transact-sql.md
         - name: Drop External Stream (Transact-SQL)
           href: drop-external-stream-transact-sql.md
         - name: DMV e viste di streaming
@@ -69,14 +80,20 @@
               href: streaming-catalog-views.md
             - name: sys.external_job_streams (Transact-SQL)
               href: sys-external-job-streams.md
-            - name: sys.external-streaming_jobs (Transact-SQL)
+            - name: sys.external_streaming_jobs (Transact-SQL)
               href: sys-external-streaming-jobs.md
             - name: sys.external_streams (Transact-SQL)
               href: sys-external-streams.md
     - name: Elaborazione dei dati di serie temporali
       items:
-        - name: Date_Bucket (Transact-SQL)
+        - name: Intervalli di tempo vuoti e valori mancanti
+          href: imputing-missing-values.md
+        - name: DATE_BUCKET (Transact-SQL)
           href: date-bucket-tsql.md
+        - name: FIRST_VALUE (Transact-SQL)
+          href: 'https://docs.microsoft.com/sql/t-sql/functions/first-value-transact-sql?toc=/azure/azure-sql-edge/toc.json'
+        - name: LAST_VALUE (Transact-SQL)
+          href: 'https://docs.microsoft.com/sql/t-sql/functions/last-value-transact-sql?toc=/azure/azure-sql-edge/toc.json'
         - name: Conservazione e pulizia dei dati
           items:
             - name: Panoramica della conservazione dei dati
@@ -85,3 +102,43 @@
               href: data-retention-enable-disable.md
             - name: Pulizia della conservazione dei dati
               href: data-retention-cleanup.md
+            - name: sys.sp_cleanup_data_retention (Transact-SQL)
+              href: sys-sp-cleanup-data-retention.md
+    - name: Sicurezza
+      items:
+        - name: Panoramica della sicurezza
+          href: security-overview.md
+        - name: Funzionalità di sicurezza
+          href: 'https://docs.microsoft.com/sql/linux/sql-server-linux-security-get-started?toc=/azure/azure-sql-edge/toc.json'
+        - name: Crittografia delle connessioni
+          href: 'https://docs.microsoft.com/sql/linux/sql-server-linux-encrypted-connections?toc=/azure/azure-sql-edge/toc.json'
+        - name: Centro sicurezza di Azure per IoT
+          href: 'https://docs.microsoft.com/azure/asc-for-iot/overview?toc=/azure/azure-sql-edge/toc.json&bc=/azure/azure-sql-edge/breadcrumb/toc.json'
+- name: Procedure
+  items:
+    - name: Configurare SQL Edge
+      items:
+        - name: Configurare con le variabili di ambiente
+          href: configure.md#configure-by-using-environment-variables
+        - name: Configurazione tramite il file mssql.conf
+          href: configure.md#configure-by-using-an-mssqlconf-file
+        - name: Eseguire come utente non root
+          href: configure.md#run-azure-sql-edge-as-non-root-user
+        - name: Salvare i dati in modo permanente
+          href: configure.md#persist-your-data
+        - name: Configurare la replica
+          href: configure-replication.md
+    - name: Connettersi a SQL Edge
+      href: connect.md
+    - name: Distribuire un pacchetto di applicazione livello dati
+      href: deploy-dacpac.md
+    - name: Rilevare le modifiche ai dati
+      href: track-data-changes.md
+    - name: Gestire i processi di streaming T-SQL
+      href: create-stream-analytics-job.md
+    - name: Risolvere i problemi relativi alla distribuzione
+      href: troubleshoot.md
+- name: Informazioni di riferimento
+  items:
+    - name: Guida di riferimento a Transact-SQL (T-SQL)
+      href: 'https://docs.microsoft.com/sql/t-sql/language-reference'

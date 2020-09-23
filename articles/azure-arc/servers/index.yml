@@ -1,20 +1,20 @@
 ### YamlMime:Landing
-title: Server con Azure Arc (anteprima)
-summary: Server con Azure Arc
+title: Server con abilitazione di Azure Arc
+summary: Server con abilitazione di Azure Arc
 metadata:
-  title: Server con Azure Arc
+  title: Server con abilitazione di Azure Arc
   description: Informazioni su come gestire i computer locali in Azure
   author: mgoedtel
   ms.service: azure-arc
   ms.topic: landing-page
   ms.date: 06/26/2020
   ms.author: magoedte
-  ms.openlocfilehash: 9080f5bb770f5cb86284b5816c340a614843038c
-  ms.sourcegitcommit: e2b36c60a53904ecf3b99b3f1d36be00fbde24fb
+  ms.openlocfilehash: f03e869e884fff8a1d196817b658c28bbdc55ca9
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 08/24/2020
-  ms.locfileid: "88763814"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90908104"
 landingContent:
 - title: Connettere i computer ad Azure con server con abilitazione di Azure Arc
   linkLists:
@@ -22,7 +22,7 @@ landingContent:
     links:
     - text: Che cosa sono i server con abilitazione di Azure Arc?
       url: overview.md
-  - linkListType: quickstart
+  - linkListType: get-started
     links:
     - text: Connettere i computer ad Azure Arc dal portale di Azure
       url: onboard-portal.md
@@ -30,3 +30,9 @@ landingContent:
       url: onboard-service-principal.md
     - text: Connettere i computer ad Azure con PowerShell DSC
       url: onboard-dsc.md
+- title: Guide di avvio rapido di 10 minuti
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Distribuire l'agente per server con abilitazione di Arc
+      url: ./learn/quick-enable-hybrid-vm.md

@@ -1,6 +1,6 @@
 ---
-title: Abilitare e disabilitare i criteri di conservazione dei dati-Azure SQL Edge (anteprima)
-description: Informazioni su come abilitare e disabilitare i criteri di conservazione dei dati in Azure SQL Edge (anteprima)
+title: Abilitare e disabilitare i criteri di conservazione dei dati-Azure SQL Edge
+description: Informazioni su come abilitare e disabilitare i criteri di conservazione dei dati in Azure SQL Edge
 keywords: SQL Edge, conservazione dei dati
 services: sql-edge
 ms.service: sql-edge
@@ -9,12 +9,12 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 9787f2cfa87a16d9e7dd1753e4389977c6753b81
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: ee2d65d66caef5cd9405d6e3d0e094de2e30ae87
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89550664"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902503"
 ---
 # <a name="enable-and-disable-data-retention-policies"></a>Abilitare e disabilitare i criteri di conservazione dei dati
 
@@ -23,9 +23,6 @@ In questo argomento viene descritto come abilitare e disabilitare i criteri di c
 ## <a name="enable-data-retention-for-a-database"></a>Abilitare la conservazione dei dati per un database
 
 Nell'esempio seguente viene illustrato come abilitare la conservazione dei dati utilizzando [ALTER database](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options).
-
-> [!NOTE]
-> Per abilitare la funzionalità di conservazione dei dati in Azure SQL Edge (anteprima), abilitare TF 12825 come opzione di avvio oppure usare il comando DBCC TRACEON. Per altre informazioni su come abilitare i flag di traccia usando un file MSSQL. conf, vedere [configurare usando un file MSSQL. conf](configure.md#configure-by-using-an-mssqlconf-file). 
 
 ```sql
 ALTER DATABASE [<DatabaseName>] SET DATA_RETENTION  ON;
@@ -64,7 +61,7 @@ La `WITH (DATA_DELETION = ON ( FILTER_COLUMN = [dbdatetime2], RETENTION_PERIOD =
     - Datetime
     - DateTime2
     - DateTimeOffset
-- RETENTION_PERIOD: valore integer seguito da un descrittore di unità. Le unità consentite sono giorno, settimana, mese e anno.
+- RETENTION_PERIOD: valore integer seguito da un descrittore di unità. Le unità consentite sono DAY, DAYS, WEEK, WEEKs, MONTH, MONTHs, YEAR e YEARs.
 
 Nell'esempio seguente viene illustrato come abilitare la conservazione dei dati per la tabella utilizzando [ALTER TABLE](https://docs.microsoft.com/sql/t-sql/statements/alter-table-transact-sql).  
 
@@ -98,9 +95,9 @@ Le impostazioni di conservazione dei dati nel database e nella tabella vengono u
 |Opzione di database | Opzione table | Comportamento |
 |----------------|--------------|----------|
 | OFF | OFF | I criteri di conservazione dei dati sono disabilitati e la pulizia automatica e manuale dei record obsoleti è disabilitata.|
-| OFF | ON  | I criteri di conservazione dei dati sono abilitati per la tabella, tuttavia la pulizia automatica e manuale dei record obsoleti è disabilitata. |
+| OFF | ON  | I criteri di conservazione dei dati sono abilitati per la tabella. La pulizia automatica dei record obsoleti è disabilitata, tuttavia è possibile usare il metodo di pulizia manuale per pulire i record obsoleti. |
 | ON | OFF | I criteri di conservazione dei dati sono abilitati a livello di database. Tuttavia, poiché l'opzione è disabilitata a livello di tabella, non esiste alcuna pulizia basata sulla conservazione delle righe obsolete.|
-| ON | ON | I criteri di conservazione dei dati sono abilitati per il database e le tabelle. Pulizia automatica/manuale dei record obsoleti abilitata |
+| ON | ON | I criteri di conservazione dei dati sono abilitati per il database e le tabelle. La pulizia automatica dei record obsoleti è abilitata. |
 
 ## <a name="disable-data-retention-on-a-table"></a>Disabilitare la conservazione dei dati in una tabella 
 

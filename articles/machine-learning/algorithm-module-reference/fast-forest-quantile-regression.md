@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/13/2020
-ms.openlocfilehash: 5f00164e90d625c5343103290e9272f15d164cd8
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6d59d2fabb0b74ef12e33f55467b0ba68e0b7386
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87099146"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907960"
 ---
-# <a name="fast-forest-quantile-regression"></a>Fast Forest Quantile Regression
+# <a name="fast-forest-quantile-regression"></a>Regressione quantile della foresta rapida
 
-Questo articolo descrive un modulo disponibile nella finestra di progettazione di Azure Machine Learning (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Usare questo modulo per creare un modello di regressione quantile della foresta veloce in una pipeline. La regressione quantile della foresta rapida è utile se si desidera ottenere ulteriori informazioni sulla distribuzione del valore stimato, anziché ottenere un valore di stima singolo medio. Questo metodo ha molte applicazioni, tra cui:  
   
@@ -32,7 +32,7 @@ Questo algoritmo di regressione è un metodo di apprendimento **supervisionato**
 
 ## <a name="more-about-quantile-regression"></a>Altre informazioni sulla regressione quantile
 
-Esistono molti tipi diversi di regressione. Nel suo significato più semplice la regressione è l'adattamento di un modello a una destinazione espressa come vettore numerico. Gli statistici hanno tuttavia sviluppato metodi di regressione sempre più avanzati.
+Esistono molti tipi diversi di regressione. Semplicemente put, regressione significa adattare un modello a una destinazione espressa come vettore numerico. Gli statistici hanno tuttavia sviluppato metodi di regressione sempre più avanzati.
 
 La definizione più semplice di *quantile* è un valore che divide un set di dati in gruppi di pari dimensione; Pertanto, i valori di quantile contrassegnano i limiti tra i gruppi. In termini statistici, quantili sono valori effettuati a intervalli regolari dall'inverso della funzione di distribuzione cumulativa (CDF) di una variabile casuale.
 

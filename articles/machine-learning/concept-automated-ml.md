@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 04/22/2020
-ms.openlocfilehash: eef8abebde2578ac549b2facfc1317a90ecc7fb5
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 83281a9dde0b29a9f8bfc2bd90114227bf9e769f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89658558"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886378"
 ---
 # <a name="what-is-automated-machine-learning-automl"></a>Informazioni su Machine Learning automatizzato
 
@@ -78,8 +78,6 @@ Con **Azure Machine Learning**, è possibile progettare ed eseguire gli esperime
 
    * Per un'esperienza limitata o senza codice, provare l'esperienza Web di Azure Machine Learning Studio all'indirizzo [https://ml.azure.com](https://ml.azure.com/)  
    * Per gli sviluppatori Python, vedere [Azure Machine Learning Python SDK](how-to-configure-auto-train.md) 
-
-    [!INCLUDE [aml-applies-to-enterprise-sku](../../includes/aml-applies-to-enterprise-sku-inline.md)]  
     
 1. **Specificare l'origine e il formato dei dati di training con etichetta**: Matrici Numpy o dataframe Pandas
 
@@ -172,25 +170,25 @@ Nella scelta tra calcolo locale o remoto, tenere presenti i vantaggi e gli svant
 
 ### <a name="feature-availability"></a>Disponibilità delle funzionalità 
 
- Quando si usa il calcolo remoto, sono disponibili altre funzionalità, come illustrato nella tabella seguente. Alcune di queste funzionalità sono disponibili solo in un'area di lavoro Enterprise.
+ Quando si usa il calcolo remoto, sono disponibili altre funzionalità, come illustrato nella tabella seguente. 
 
-| Funzionalità                                                    | Remote | Local | Richiede <br>area di lavoro Enteprise |
-|------------------------------------------------------------|--------|-------|-------------------------------|
-| Streaming dei dati (supporto per dati di grandi dimensioni, fino a 100 GB)          | ✓      |       | ✓                             |
-| Training e definizione delle funzionalità di testo basate su rete neurale profonda e modello BERT             | ✓      |       | ✓                             |
-| Supporto GPU predefinito (training e inferenza)        | ✓      |       | ✓                             |
-| Supporto per la classificazione delle immagini e l'assegnazione di etichette                  | ✓      |       | ✓                             |
-| Modelli di previsione Auto-ARIMA, Prophet e ForecastTCN | ✓      |       | ✓                             |
-| Più esecuzioni/iterazioni in parallelo                       | ✓      |       | ✓                             |
-| Creare modelli con l'interpretabilità nell'interfaccia utente dell'esperienza Web di Machine Learning automatizzato      | ✓      |       | ✓                             |
-| Personalizzazione della progettazione delle funzionalità nell'interfaccia utente dell'esperienza Web di Studio                        | ✓      |       | ✓                              |
-| Ottimizzazione degli iperparametri di Machine Learning automatizzato                             | ✓      |       |                               |
-| Supporto del flusso di lavoro della pipeline di Azure Machine Learning                         | ✓      |       |                               |
-| Continuare un'esecuzione                                             | ✓      |       |                               |
-| Previsione                                                | ✓      | ✓     | ✓                             |
-| Creare ed eseguire esperimenti nei notebook                    | ✓      | ✓     |                               |
-| Registrare e visualizzare le informazioni e le metriche dell'esperimento nell'interfaccia utente | ✓      | ✓     |                               |
-| Protezione dati                                            | ✓      | ✓     |                               |
+| Funzionalità                                                    | Remote | Local | 
+|------------------------------------------------------------|--------|-------|
+| Streaming dei dati (supporto per dati di grandi dimensioni, fino a 100 GB)          | ✓      |       | 
+| Training e definizione delle funzionalità di testo basate su rete neurale profonda e modello BERT             | ✓      |       |
+| Supporto GPU predefinito (training e inferenza)        | ✓      |       |
+| Supporto per la classificazione delle immagini e l'assegnazione di etichette                  | ✓      |       |
+| Modelli di previsione Auto-ARIMA, Prophet e ForecastTCN | ✓      |       | 
+| Più esecuzioni/iterazioni in parallelo                       | ✓      |       |
+| Creare modelli con l'interpretabilità nell'interfaccia utente dell'esperienza Web di Machine Learning automatizzato      | ✓      |       |
+| Personalizzazione della progettazione delle funzionalità nell'interfaccia utente dell'esperienza Web di Studio| ✓      |       |
+| Ottimizzazione degli iperparametri di Machine Learning automatizzato                             | ✓      |       |
+| Supporto del flusso di lavoro della pipeline di Azure Machine Learning                         | ✓      |       |
+| Continuare un'esecuzione                                             | ✓      |       |
+| Previsione                                                | ✓      | ✓     |
+| Creare ed eseguire esperimenti nei notebook                    | ✓      | ✓     |
+| Registrare e visualizzare le informazioni e le metriche dell'esperimento nell'interfaccia utente | ✓      | ✓     |
+| Protezione dati                                            | ✓      | ✓     |
 
 ## <a name="many-models"></a>Molti modelli 
 

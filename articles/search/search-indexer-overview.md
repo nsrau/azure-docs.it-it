@@ -7,14 +7,14 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/12/2020
+ms.date: 09/22/2020
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 982073c77a7e876611f753c716f55c50df8b0817
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: 3f3c53d412105489a814f082bbc0fd209476ecf9
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935161"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971400"
 ---
 # <a name="indexers-in-azure-cognitive-search"></a>Indicizzatori in Ricerca cognitiva di Azure
 
@@ -50,9 +50,9 @@ Gli indicizzatori eseguono ricerche per indicizzazione negli archivi dati in Azu
 * [Azure Data Lake storage Gen2](search-howto-index-azure-data-lake-storage.md) (in anteprima)
 * [Archiviazione tabelle di Azure](search-howto-indexing-azure-tables.md)
 * [Azure Cosmos DB](search-howto-index-cosmosdb.md)
-* [Database SQL di Azure e Istanza gestita SQL](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
-* [SQL Server in macchine virtuali di Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
+* [Database SQL di Azure](search-howto-connecting-azure-sql-database-to-azure-search-using-indexers.md)
 * [Istanza gestita di SQL](search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers.md)
+* [SQL Server in macchine virtuali di Azure](search-howto-connecting-azure-sql-iaas-to-azure-search-using-indexers.md)
 
 ## <a name="indexer-stages"></a>Fasi dell'indicizzatore
 

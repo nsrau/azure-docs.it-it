@@ -10,12 +10,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/13/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 6b40130fb1d965abf76ba9ed1f6ebd45d94c8e01
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b0a0420b470ee6bf0c7fbb9885e496eaabaf7ef4
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651016"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893542"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Eseguire il training di modelli con Azure Machine Learning
 
@@ -32,7 +32,7 @@ Azure Machine Learning offre diversi metodi per eseguire il training dei modelli
 
 + [Azure Machine Learning SDK per r](#r-sdk): l'SDK per r usa il pacchetto reticolare per eseguire l'associazione all'SDK Python di Azure Machine Learning. In questo modo è possibile accedere agli oggetti e ai metodi principali implementati in Python SDK da qualsiasi ambiente R.
 
-+ **Finestra di progettazione**: La finestra di progettazione di Azure Machine Learning (anteprima) offre un semplice punto di ingresso nel Machine Learning per la creazione di modelli di verifica o per gli utenti con scarsa esperienza in codifica. Consente di eseguire il training dei modelli sfruttando un'interfaccia utente basata sul Web con trascinamento della selezione. È possibile usare il codice Python come parte della progettazione o eseguire il training dei modelli senza scrivere alcun codice.
++ **Designer**: Azure Machine Learning Designer fornisce un semplice punto di ingresso in machine learning per la creazione di modelli di prova o per gli utenti con poca esperienza di codifica. Consente di eseguire il training dei modelli sfruttando un'interfaccia utente basata sul Web con trascinamento della selezione. È possibile usare il codice Python come parte della progettazione o eseguire il training dei modelli senza scrivere alcun codice.
 
 + **Interfaccia della riga di comando**: L'interfaccia della riga di comando di Machine Learning fornisce i comandi per le attività comuni con Azure Machine Learning e viene spesso usata per **attività di script e automatizzazione**. Ad esempio, dopo aver creato uno script o una pipeline di training, è possibile usare l'interfaccia della riga di comando per avviare l'esecuzione del training in base a una pianificazione o quando vengono aggiornati i file di dati usati per il training. Per i modelli di training, fornisce i comandi che inviano processi di training. Consente di inviare processi usando le configurazioni di esecuzione o le pipeline.
 
