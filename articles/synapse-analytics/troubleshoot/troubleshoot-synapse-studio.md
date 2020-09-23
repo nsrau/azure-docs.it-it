@@ -8,12 +8,12 @@ ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jrasnick
 ms.reviewer: jrasnick
-ms.openlocfilehash: 3b0070b35d6ee85f698960708363e7b4d226a8af
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: f859700be32bda5d8245429076c2359d1adf9d5a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87070275"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90988054"
 ---
 # <a name="azure-synapse-studio-preview-troubleshooting"></a>Risoluzione dei problemi di Azure sinapsi Studio (anteprima)
 
@@ -31,7 +31,7 @@ L'opzione "SQL su richiesta" è disabilitata nell'elenco a discesa "Connetti a".
 
 L'esecuzione della query con "SQL su richiesta" indica il messaggio di errore "Impossibile stabilire la connessione al server".
 
-![symptom2](media/troubleshooting-synapse-studio/symptom2.png)
+![Screenshot indica che non è stato possibile stabilire una connessione al messaggio del server.](media/troubleshooting-synapse-studio/symptom2.png)
 
 ## <a name="troubleshooting-steps"></a>Passaggi per la risoluzione dei problemi
 
@@ -54,7 +54,7 @@ Assicurarsi che l'opzione "Disabilita cache" nel pannello "rete" sia selezionata
 
 Ripetere l'operazione eseguita in Azure sinapsi Studio. È possibile che vengano visualizzati nuovi elementi nell'elenco "rete" in "Strumenti di sviluppo". Prendere nota dell'ora di sistema corrente da fornire nel ticket di supporto.
 
-![Pannello di rete](media/troubleshooting-synapse-studio/network-panel.png)
+![Screenshot mostra la finestra DevTools con rete e Disabilita la cache online selezionata.](media/troubleshooting-synapse-studio/network-panel.png)
 
 Trovare l'elemento la cui colonna URL corrisponde al modello seguente:
 
@@ -66,7 +66,7 @@ Se uno dei due ha un valore diverso da "20x" e:
 
 - lo stato inizia con "(operazione non riuscita)", ampliando la colonna "stato" o posizionando il puntatore sul testo di stato per visualizzare il testo completo. Includere il testo e/o lo screenshot quando si apre il ticket di supporto.
 
-    ![stato-testo](media/troubleshooting-synapse-studio/status-text.png)
+    ![Screenshot mostra i risultati, incluso un valore non riuscito nella colonna stato.](media/troubleshooting-synapse-studio/status-text.png)
 
     - Se viene visualizzato ERR_NAME_NOT_RESOLVED e l'area di lavoro è stata creata entro 10 minuti, attendere 10 minuti e riprovare a verificare se il problema persiste.
     - Se viene visualizzato ERR_INTERNET_DISCONNECTED o ERR_NETWORK_CHANGED, è possibile che si verifichino problemi di connessione alla rete del computer. Controllare la connessione di rete e ripetere l'operazione.
@@ -76,28 +76,28 @@ Se uno dei due ha un valore diverso da "20x" e:
 
 - status è "40x", "50x" o altri numeri, selezionare gli elementi per visualizzare i dettagli. Verranno visualizzati i dettagli dell'elemento a destra. Trovare la sezione "intestazione risposta"; Controllare quindi se esiste un elemento denominato "Access-Control-Allow-Origin". In caso affermativo, controllare se ha uno dei valori seguenti:
 
-    - `*`(asterisco singolo)
-    - https://web.azuresynapse.net/(o un altro valore che inizia con il testo nella barra degli indirizzi del browser)
+    - `*` (asterisco singolo)
+    - https://web.azuresynapse.net/ (o un altro valore che inizia con il testo nella barra degli indirizzi del browser)
 
 Se l'intestazione della risposta contiene uno dei valori precedenti, significa che è necessario avere già raccolto le informazioni sull'errore. Se necessario, è possibile aprire un ticket di supporto e, facoltativamente, aggiungere la schermata dei dettagli dell'elemento.
 
 Se l'intestazione non è visibile oppure l'intestazione non ha uno dei valori elencati in precedenza, alleghi una schermata dei dettagli dell'elemento quando si apre il ticket.
 
-![elemento-dettagli](media/troubleshooting-synapse-studio/item-details.png)
+![Screenshot mostra la finestra DevTools con U R L evidenziata nelle intestazioni della risposta.](media/troubleshooting-synapse-studio/item-details.png)
 
 Se i passaggi precedenti non consentono di risolvere il problema, potrebbe essere necessario aprire un ticket di supporto. Quando si invia il ticket di supporto, includere "ID sessione" o "informazioni di diagnostica" scaricati all'inizio di questa guida.
 
 Quando si segnala il problema, è possibile creare una schermata della scheda "console" nel "Strumenti di sviluppo" e collegarla al ticket di supporto. Scorrere il contenuto e prendere più di uno screenshot, se necessario, per acquisire l'intero messaggio.
 
-![Developer-Tool-console](media/troubleshooting-synapse-studio/developer-tool-console.png)
+![Screenshot mostra la finestra DevTools, ridimensionata in modo da visualizzare l'intero messaggio per una possibile schermata.](media/troubleshooting-synapse-studio/developer-tool-console.png)
 
 Se si allineano schermate, specificare l'ora (o un intervallo di tempo stimato) di quando si sono prese le schermate. Che ci consentirà di esaminare il problema.
 
 Alcuni browser supportano la visualizzazione dei timestamp nella scheda "console". Per cromo Edge/Chrome, aprire la finestra di dialogo "Impostazioni" in "Strumenti di sviluppo" e selezionare "Mostra timestamp" nella scheda "Preferenze".
 
-![Developer-Tool-console-Impostazioni](media/troubleshooting-synapse-studio/developer-tool-console-settings.png)
+![Screenshot mostra la finestra DevTools con le impostazioni selezionate in un menu contestuale.](media/troubleshooting-synapse-studio/developer-tool-console-settings.png)
 
-![Mostra-timestamp](media/troubleshooting-synapse-studio/show-time-stamp.png)
+![Screenshot mostra le preferenze della finestra DevTools con Mostra timestamp selezionati.](media/troubleshooting-synapse-studio/show-time-stamp.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 Se la procedura precedente non consente di risolvere il problema, [creare un ticket di supporto](../../sql-data-warehouse/sql-data-warehouse-get-started-create-support-ticket.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)

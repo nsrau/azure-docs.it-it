@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: a3cd250e53fb30e07795b184b5c949505e3b20ae
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: af32be357899090e0df96e2c67910a4f9ad5194d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90905738"
+ms.locfileid: "90988078"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sicurezza aziendale per Azure Machine Learning
 
@@ -361,6 +361,17 @@ Di seguito sono riportati i dettagli:
 * Viene anche effettuato il push della telemetria nella sottoscrizione di Microsoft o Azure.
 
 [![Flusso di lavoro di inferenza](media/concept-enterprise-security/inferencing.png)](media/concept-enterprise-security/inferencing.png#lightbox)
+
+## <a name="audit-and-manage-compliance"></a>Controllare e gestire la conformità
+
+[Criteri di Azure](/azure/governance/policy) è uno strumento di governance che consente di garantire che le risorse di Azure siano conformi ai criteri. Con Azure Machine Learning è possibile assegnare i seguenti criteri:
+
+* **Chiave gestita dal cliente**: controlla o impone se le aree di lavoro devono usare una chiave gestita dal cliente.
+* **Collegamento privato**: controllare se le aree di lavoro usano un endpoint privato per comunicare con una rete virtuale.
+
+Per altre informazioni sui criteri di Azure, vedere la [documentazione di criteri di Azure](/azure/governance/policy/overview).
+
+Per altre informazioni sui criteri specifici di Azure Machine Learning, vedere [Audit and Manage compliance with Azure Policy](how-to-integrate-azure-policy.md).
 
 ## <a name="next-steps"></a>Passaggi successivi
 
