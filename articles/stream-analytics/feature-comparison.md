@@ -6,16 +6,16 @@ ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/27/2019
-ms.openlocfilehash: b169a067f05de422b714e18a4d7ebb9c9e7f0428
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 2ba7dc3b0f2bc4f62234c480da0af1061dea1f91
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "82133490"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885561"
 ---
 # <a name="azure-stream-analytics-feature-comparison"></a>Confronto delle funzionalità di analisi di flusso di Azure
 
-Con analisi di flusso di Azure è possibile creare soluzioni di streaming nel cloud e in IoT Edge usando [portale di Azure](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md)e [Visual Studio Code](quick-create-vs-code.md). Nelle tabelle di questo articolo vengono illustrate le funzionalità supportate da ogni piattaforma per entrambi i tipi di processo.
+Con analisi di flusso di Azure è possibile creare soluzioni di streaming nel cloud e in IoT Edge usando [portale di Azure](stream-analytics-quick-create-portal.md), [Visual Studio](stream-analytics-quick-create-vs.md)e [Visual Studio Code](quick-create-visual-studio-code.md). Nelle tabelle di questo articolo vengono illustrate le funzionalità supportate da ogni piattaforma per entrambi i tipi di processo.
 
 > [!NOTE]
 > Gli strumenti di Visual Studio e Visual Studio Code non supportano i processi nelle aree Cina orientale, Cina settentrionale, Germania centrale e Germania nord-orientale.
@@ -45,7 +45,7 @@ Con analisi di flusso di Azure è possibile creare soluzioni di streaming nel cl
 |UDF e UDA JavaScript     |Sì         |Sì         |Solo Windows         |
 |Servizio Machine Learning     |Sì        |Sì         |No         |
 |Machine Learning Studio     |Sì, ma non è possibile testare la query        |Sì |No         |
-|Livello di compatibilità     |1.0</br>1.1</br>1,2 (impostazione predefinita)         |1.0</br>1.1</br>1,2 (impostazione predefinita)           |1.0</br>1.1</br>1,2 (impostazione predefinita)           |
+|Livello di compatibilità     |1,0</br>1.1</br>1,2 (impostazione predefinita)         |1,0</br>1.1</br>1,2 (impostazione predefinita)           |1,0</br>1.1</br>1,2 (impostazione predefinita)           |
 |Funzioni di rilevamento di anomalie basate su ML predefinite     |Sì         |Sì         |Sì         |
 |Funzioni geospaziali predefinite     |Sì         |Sì         |Sì         |
 

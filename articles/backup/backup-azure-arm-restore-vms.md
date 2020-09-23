@@ -1,15 +1,15 @@
 ---
 title: Ripristinare le macchine virtuali usando il portale di Azure
-description: Ripristinare una macchina virtuale di Azure da un punto di ripristino con il portale di Azure
+description: Ripristinare una macchina virtuale di Azure da un punto di ripristino usando il portale di Azure, inclusa la funzionalità di ripristino tra aree.
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 08/02/2020
-ms.openlocfilehash: 582ec3e5409e5ada6f98a0c2db77c0bb73eaed18
-ms.sourcegitcommit: 8a7b82de18d8cba5c2cec078bc921da783a4710e
+ms.openlocfilehash: d2b5c00df9f9b5b41877fe21181f11ea7fe76084
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89050421"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986545"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Come ripristinare i dati delle macchine virtuali di Azure in portale di Azure
 
@@ -138,18 +138,21 @@ Come una delle [Opzioni di ripristino](#restore-options), Cross Region Restore (
 
 Per eseguire l'onboarding nella funzionalità durante l'anteprima, leggere la [sezione prima di iniziare](./backup-create-rs-vault.md#set-cross-region-restore).
 
-Per verificare se CRR è abilitato, seguire le istruzioni riportate in [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore)
+Per verificare se CRR è abilitato, seguire le istruzioni riportate in [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore).
 
 ### <a name="view-backup-items-in-secondary-region"></a>Visualizzare gli elementi di backup nell'area secondaria
 
 Se CRR è abilitato, è possibile visualizzare gli elementi di backup nell'area secondaria.
 
-1. Dal portale passare ad elementi di backup dell'insieme di credenziali di **servizi di ripristino**  >  **Backup items**
+1. Dal portale passare a servizi di **ripristino**insieme di credenziali  >  **elementi di backup**.
 1. Selezionare **area secondaria** per visualizzare gli elementi nell'area secondaria.
 
-    ![Macchine virtuali nell'area secondaria](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
+>[!NOTE]
+>Nell'elenco verranno visualizzati solo i tipi di gestione di backup che supportano la funzionalità CRR. Attualmente, è consentito solo il ripristino dei dati dell'area secondaria in un'area secondaria.
 
-    ![Seleziona area secondaria](./media/backup-azure-arm-restore-vms/backupitems-sec.png)
+![Macchine virtuali nell'area secondaria](./media/backup-azure-arm-restore-vms/secbackedupitem.png)
+
+![Seleziona area secondaria](./media/backup-azure-arm-restore-vms/backupitems-sec.png)
 
 ### <a name="restore-in-secondary-region"></a>Ripristino nell'area secondaria
 

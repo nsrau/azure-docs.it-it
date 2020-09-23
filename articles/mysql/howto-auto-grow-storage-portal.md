@@ -6,12 +6,12 @@ ms.author: ambhatna
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: 2c028bff80856f7edcb34688ffa5c3320a66ccc9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d4dc5c2690be7b9abbda685e78ea562878626b5c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112613"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902848"
 ---
 # <a name="auto-grow-storage-in-azure-database-for-mysql-using-the-azure-portal"></a>Espandere automaticamente l'archiviazione nel database di Azure per MySQL usando il portale di Azure
 Questo articolo descrive come configurare l'archiviazione di un database di Azure per il server MySQL in modo che cresca senza compromettere il carico di lavoro.
@@ -32,13 +32,13 @@ Seguire questa procedura per impostare l'aumento automatico delle dimensioni di 
 
 3. Nella sezione aumento automatico selezionare **Sì** per abilitare l'aumento automatico delle dimensioni di archiviazione.
 
-    ![Database di Azure per MySQL-Settings_Pricing_tier-aumento automatico](./media/howto-auto-grow-storage-portal/3-auto-grow.png)
+    :::image type="content" source="./media/howto-auto-grow-storage-portal/3-auto-grow.png" alt-text="Database di Azure per MySQL-Settings_Pricing_tier-aumento automatico":::
 
 4. Fare clic su **OK** per salvare le modifiche.
 
 5. Una notifica conferma che l'espansione automatica è stata abilitata correttamente.
 
-    ![Database di Azure per MySQL-crescita automatica riuscita](./media/howto-auto-grow-storage-portal/5-auto-grow-success.png)
+    :::image type="content" source="./media/howto-auto-grow-storage-portal/5-auto-grow-success.png" alt-text="Database di Azure per MySQL-crescita automatica riuscita":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

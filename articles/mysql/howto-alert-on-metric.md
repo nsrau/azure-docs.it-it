@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: c20177b3dceca3b32cf8f2e2f8f60fa4227e2082
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b7054b520d31c6c5363c8784bb9a4839e9249c88
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86112718"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902866"
 ---
 # <a name="use-the-azure-portal-to-set-up-alerts-on-metrics-for-azure-database-for-mysql"></a>Usare il portale di Azure per configurare avvisi per le metriche per Database di Azure per MySQL 
 
@@ -34,25 +34,25 @@ L'avviso viene attivato quando il valore di una metrica specifica supera una sog
 
 2. Nella sezione **Monitoraggio** della barra laterale selezionare **Avvisi** come illustrato di seguito:
 
-   ![Selezionare le regole di avviso](./media/howto-alert-on-metric/2-alert-rules.png)
+   :::image type="content" source="./media/howto-alert-on-metric/2-alert-rules.png" alt-text="Selezionare le regole di avviso":::
 
 3. Selezionare **Aggiungi avviso per la metrica** (icona +).
 
 4. Verrà aperta la pagina **Crea regola** come illustrato di seguito. Specificare le informazioni necessarie:
 
-   ![Form Aggiungi avviso per la metrica](./media/howto-alert-on-metric/4-add-rule-form.png)
+   :::image type="content" source="./media/howto-alert-on-metric/4-add-rule-form.png" alt-text="Form Aggiungi avviso per la metrica":::
 
 5. Nella sezione **Condizione** selezionare **Aggiungi condizione**.
 
 6. Selezionare una metrica dall'elenco dei segnali per i quali ricevere un avviso. In questo esempio selezionare "Storage percent".
    
-   ![Selezionare una metrica](./media/howto-alert-on-metric/6-configure-signal-logic.png)
+   :::image type="content" source="./media/howto-alert-on-metric/6-configure-signal-logic.png" alt-text="Selezionare una metrica":::
 
 7. Configurare la logica degli avvisi specificando i valori nei campi **Condizione** (ad esempio "Maggiore di"), **Soglia** (ad esempio l'85%), **Aggregazione temporale**, **Periodo** di tempo in cui è necessario soddisfare la regola della metrica prima che venga attivato l'avviso (ad esempio "Over the Last 30 minutes" e **Frequency**.
    
    Al termine, selezionare **Chiudi**.
 
-   ![Selezionare una metrica](./media/howto-alert-on-metric/7-set-threshold-time.png)
+   :::image type="content" source="./media/howto-alert-on-metric/7-set-threshold-time.png" alt-text="Selezionare una metrica":::
 
 8. Nella sezione **Gruppi di azioni** selezionare **Crea nuovo** per creare un nuovo gruppo di azioni per ricevere le notifiche relative all'avviso.
 
@@ -66,11 +66,11 @@ L'avviso viene attivato quando il valore di una metrica specifica supera una sog
 
     Al termine, fare clic su **OK**.
 
-    ![Gruppo di azioni](./media/howto-alert-on-metric/10-action-group-type.png)
+    :::image type="content" source="./media/howto-alert-on-metric/10-action-group-type.png" alt-text="Gruppo di azioni":::
 
 11. Specificare un nome per la regola di avviso, una descrizione e il livello di gravità.
 
-    ![Gruppo di azioni](./media/howto-alert-on-metric/11-name-description-severity.png) 
+    :::image type="content" source="./media/howto-alert-on-metric/11-name-description-severity.png" alt-text="Gruppo di azioni"::: 
 
 12. Selezionare **Crea regola di avviso** per creare l'avviso.
 

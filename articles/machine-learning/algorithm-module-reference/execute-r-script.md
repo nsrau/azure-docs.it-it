@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 07/27/2020
-ms.openlocfilehash: 873f0d7d2aa4493e77a10f62b0646f4f8233f6b9
-ms.sourcegitcommit: 46f8457ccb224eb000799ec81ed5b3ea93a6f06f
+ms.openlocfilehash: d5ef8d6a9b0c0039b500ce9d0238609e8a8edc93
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87337841"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908009"
 ---
 # <a name="execute-r-script-module"></a>Modulo Execute R script
 
-Questo articolo descrive come usare il modulo Execute R script per eseguire il codice R nella pipeline di Azure Machine Learning Designer (anteprima).
+Questo articolo descrive come usare il modulo Execute R script per eseguire il codice R nella pipeline di Azure Machine Learning Designer.
 
 Con R è possibile eseguire attività che attualmente non supportano i moduli esistenti, ad esempio: 
 - Creare trasformazioni dati personalizzate
@@ -427,7 +427,7 @@ Sono attualmente disponibili i pacchetti R preinstallati seguenti:
 | Matrice       | 1.2-17     | 
 | methods      | 3.5.1      | 
 | mgcv         | 1.8-28     | 
-| mime         | 0.7        | 
+| mime         | 0,7        | 
 | ModelMetrics | 1.2.2      | 
 | modelr       | 0.1.4      | 
 | munsell      | 0.5.0      | 
@@ -464,7 +464,7 @@ Sono attualmente disponibili i pacchetti R preinstallati seguenti:
 | rmarkdown    | 1.13       | 
 | ROCR         | 1.0-7      | 
 | rpart        | 4.1-15     | 
-| rstudioapi   | 0.1        | 
+| rstudioapi   | 0,1        | 
 | rvest        | 0.3.4      | 
 | scales       | 1.0.0      | 
 | selectr      | 0.4-1      | 

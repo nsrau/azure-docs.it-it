@@ -3,12 +3,12 @@ title: Esportare dati in Power BI da Azure Application Insights | Microsoft Docs
 description: Le query di Analisi possono essere visualizzate in Power BI.
 ms.topic: conceptual
 ms.date: 08/10/2018
-ms.openlocfilehash: 51a553452643fc979846ab4604762f11c5b7ff68
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 804da7d3aaa2fd1b7973a686bc9ca5cb5ee973a2
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324370"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979168"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Feed di Power BI da Application Insights
 [Power BI](https://www.powerbi.com/) è un insieme di strumenti aziendali che consente di analizzare i dati e condividere informazioni dettagliate e significative. Dashboard completi sono disponibili in tutti i dispositivi. È possibile combinare dati provenienti da diverse origini, incluse le query di Analytics di [Azure Application Insights](./app-insights-overview.md).
@@ -67,11 +67,11 @@ Installare [Power bi desktop](https://powerbi.microsoft.com/en-us/desktop/).
 
    Nell'Editor avanzato incollare lo script in linguaggio M esportato. 
 
-   ![Screenshot di Power BI Desktop, con l'Editor avanzato evidenziato](./media/export-power-bi/advancedquery.png)
+   ![Screenshot mostra la Power BI Desktop con Editor avanzato evidenziato](./media/export-power-bi/advancedquery.png)
 
 4. Selezionare gli elementi dalla query e scegliere una visualizzazione Imbuto.
 
-   ![Screenshot delle opzioni di visualizzazione di Power BI Desktop](./media/export-power-bi/selectsequence.png)
+   ![Screenshot mostra le opzioni di visualizzazione dell'imbuto Power BI Desktop](./media/export-power-bi/selectsequence.png)
 
 5. Modificare il titolo specificando un testo significativo e pubblicare il report nell'area di lavoro cloud di Power BI. 
 
@@ -86,7 +86,7 @@ Questo errore può verificarsi se il token di aggiornamento non è stato aggiorn
 
 1. Accedere al portale di Azure e verificare che sia possibile accedere alla risorsa.
 2. Provare ad aggiornare le credenziali per il dashboard.
-3. Provare a cancellare la cache dal desktop di Power bi.
+3. Provare a cancellare la cache dal Power BI Desktop.
 
 
    Se si ha accesso e non è possibile aggiornare le credenziali, aprire un ticket di supporto.
@@ -121,14 +121,14 @@ Con questo metodo si crea un dashboard di dati di telemetria completo per l'uten
 1. Accedere a [Power BI](https://app.powerbi.com/).
 2. Aprire **Recupera dati** ![Screenshot dell'icona Recupera dati nell'angolo inferiore sinistro](./media/export-power-bi/001.png), **Servizi**.
 
-    ![Screenshot per il recupero di dati dall'origine dati di Application Insights](./media/export-power-bi/002.png)
+    ![Screenshot mostra il pulsante Get nella finestra servizi.](./media/export-power-bi/002.png)
 
 3. Selezionare **Scarica adesso** in Application Insights.
 
    ![Screenshot per il recupero di dati dall'origine dati di Application Insights](./media/export-power-bi/003.png)
 4. Specificare i dettagli della risorsa di Application Insights, quindi effettuare l'**Accesso**.
 
-    ![Screenshot per il recupero di dati dall'origine dati di Application Insights](./media/export-power-bi/005.png)
+    ![Screenshot mostra Connetti a Application Insights finestra.](./media/export-power-bi/005.png)
 
      Queste informazioni sono disponibili nel riquadro di Panoramica di Application Insights:
 
