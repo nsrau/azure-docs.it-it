@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
 ms.custom: devx-track-csharp
-ms.openlocfilehash: 5adc2a91df5d394fbed3ff10b0ebc5cb543a3ba3
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: c2d1a46a35ef38791b6a3b47c300aa1b47f70324
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89378016"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90086886"
 ---
 # <a name="automate-the-rotation-of-a-secret-for-resources-that-use-one-set-of-authentication-credentials"></a>Automatizzare la rotazione di un segreto per le risorse che usano un unico set di credenziali di autenticazione
 
@@ -24,7 +24,7 @@ Sebbene il modo migliore per eseguire l'autenticazione ai servizi di Azure preve
 
 Questa esercitazione illustra come automatizzare la rotazione periodica dei segreti per i database e i servizi che usano un unico set di credenziali di autenticazione. In particolare, questo scenario consente di ruotare le password di SQL Server archiviate in Azure Key Vault usando una funzione attivata da una notifica di Griglia di eventi di Azure:
 
-![Diagramma della soluzione di rotazione](../media/rotate1.png)
+![Diagramma della soluzione di rotazione](../media/rotate-1.png)
 
 1. 30 giorni prima della data di scadenza di un segreto, Key Vault pubblica l'evento "In scadenza" in Griglia di eventi.
 1. Griglia di eventi controlla le sottoscrizioni di eventi e, tramite POST HTTP, chiama l'endpoint app per le funzioni che ha sottoscritto questo evento.
@@ -49,7 +49,7 @@ Se non si hanno a disposizione istanze esistenti di Key Vault e SQL Server, è p
 1. Selezionare **Rivedi e crea**.
 1. Selezionare **Crea**
 
-    ![Creare un gruppo di risorse](../media/rotate2.png)
+    ![Creare un gruppo di risorse](../media/rotate-2.png)
 
 A questo punto saranno disponibili le istanze di Key Vault e di SQL Server. È possibile verificare questa configurazione nell'interfaccia della riga di comando di Azure con il comando seguente:
 
@@ -91,7 +91,7 @@ L'app per le funzioni richiede questi componenti:
 1. Selezionare **Rivedi e crea**.
 1. Selezionare **Crea**.
 
-   ![Selezionare Rivedi e crea.](../media/rotate3.png)
+   ![Selezionare Rivedi e crea.](../media/rotate-3.png)
 
 Dopo aver completato la procedura precedente, saranno disponibili un account di archiviazione, una server farm e un'app per le funzioni. È possibile verificare questa configurazione nell'interfaccia della riga di comando di Azure con il comando seguente:
 
@@ -207,11 +207,11 @@ La creazione di un segreto con una data di scadenza breve pubblicherà entro 15 
 
 Per verificare l'avvenuta rotazione del segreto, passare a **Key Vault** > **Segreti**:
 
-![Passare a segreti](../media/rotate8.png)
+![Passare a segreti](../media/rotate-8.png)
 
 Aprire il segreto **sqlPassword** per visualizzare la versione originale e quella ruotata:
 
-![Aprire il segreto sqluser](../media/rotate9.png)
+![Aprire il segreto sqluser](../media/rotate-9.png)
 
 ### <a name="create-a-web-app"></a>Creare un'app Web
 
@@ -245,6 +245,6 @@ Quando l'applicazione viene aperta nel browser, verrà visualizzato il **valore 
 ## <a name="learn-more"></a>Altre informazioni
 
 - Esercitazione: [Rotazione per le risorse con due set di credenziali](tutorial-rotation-dual.md)
-- Panoramica: [Monitoraggio di Key Vault con Griglia di eventi di Azure (anteprima)](../general/event-grid-overview.md)
+- Panoramica: [Monitoraggio di Key Vault con Griglia di eventi di Azure](../general/event-grid-overview.md)
 - Procedura: [Ricevere un messaggio di posta elettronica quando viene modificato un segreto dell'insieme di credenziali delle chiavi](../general/event-grid-logicapps.md)
-- [Schema di eventi di Griglia di eventi di Azure per Azure Key Vault (anteprima)](../../event-grid/event-schema-key-vault.md)
+- [Schema di eventi di Griglia di eventi di Azure per Azure Key Vault](../../event-grid/event-schema-key-vault.md)

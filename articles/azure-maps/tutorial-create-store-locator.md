@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc, devx-track-javascript
-ms.openlocfilehash: 1ec4dbb1ce55919fda6c73d198100db34f5f57ea
-ms.sourcegitcommit: b8702065338fc1ed81bfed082650b5b58234a702
+ms.openlocfilehash: 61c085cb721f9e1a8d9c44146a9d96cd5a08562c
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88121256"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90085315"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>Esercitazione: Creare un localizzatore di punti vendita con Mappe di Azure
 
@@ -385,7 +385,7 @@ A questo punto l'interfaccia utente è stata configurata. È ancora necessario a
     var map, popup, datasource, iconLayer, centerMarker, searchURL;
     ```
 
-1. Aggiungere codice al file *index.js*. Il codice seguente inizializza la mappa. È stato aggiunto un [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events) per l'attesa del completamento del caricamento della pagina. Sono stati quindi associati gli eventi per monitorare il caricamento della mappa e sono state fornite le funzionalità al pulsante Cerca e al pulsante My Location.
+1. Aggiungere codice al file *index.js*. Il codice seguente inizializza la mappa. È stato aggiunto un [listener di eventi](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map#events) per l'attesa del completamento del caricamento della pagina. Sono stati quindi associati gli eventi per monitorare il caricamento della mappa e sono state fornite le funzionalità al pulsante Cerca e al pulsante My Location.
 
    Quando l'utente seleziona il pulsante di ricerca o quando l'utente preme INVIO dopo avere immesso una posizione nella casella di ricerca, viene avviata una ricerca fuzzy in base alla query dell'utente. Passare una matrice di valori ISO 2 relativi ai paesi/aree geografiche all'opzione `countrySet` per limitare i risultati della ricerca a tali paesi/aree geografiche. La limitazione dei paesi/aree geografiche in cui eseguire la ricerca consente di migliorare la precisione dei risultati restituiti. 
   
@@ -935,7 +935,7 @@ In questa esercitazione viene illustrato come creare un localizzatore di punti v
 > * Aggiungere la possibilità di [impostare filtri](https://azuremapscodesamples.azurewebsites.net/?sample=Filter%20Symbols%20by%20Property). 
 > * Aggiungere il supporto per specificare un valore di ricerca iniziale mediante una stringa di query. Quando si include questa opzione nel localizzatore di punti vendita, gli utenti possono aggiungere ai segnalibri e condividere le ricerche. Questa opzione consente anche di passare con facilità le ricerche a questa pagina da un'altra pagina.  
 > * Distribuire il localizzatore di punti vendita come [app Web del Servizio app di Azure](https://docs.microsoft.com/azure/app-service/quickstart-html). 
-> * Archiviare i dati in un database e cercare le posizioni nelle vicinanze. Per altre informazioni, vedere la [Panoramica dei tipi di dati spaziali di SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview?view=sql-server-2017) e [Query dei dati spaziali per Nearest Neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor?view=sql-server-2017).
+> * Archiviare i dati in un database e cercare le posizioni nelle vicinanze. Per altre informazioni, vedere la [Panoramica dei tipi di dati spaziali di SQL Server](https://docs.microsoft.com/sql/relational-databases/spatial/spatial-data-types-overview) e [Query dei dati spaziali per Nearest Neighbor](https://docs.microsoft.com/sql/relational-databases/spatial/query-spatial-data-for-nearest-neighbor).
 
 > [!div class="nextstepaction"]
 > [Visualizzare il codice sorgente completo](https://github.com/Azure-Samples/AzureMapsCodeSamples/tree/master/AzureMapsCodeSamples/Tutorials/Simple%20Store%20Locator)

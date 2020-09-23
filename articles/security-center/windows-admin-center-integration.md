@@ -8,20 +8,20 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/31/2020
 ms.author: memildin
-ms.openlocfilehash: 90c1132091f543b84fc764522dfa95672f2e2aef
-ms.sourcegitcommit: c94a177b11a850ab30f406edb233de6923ca742a
+ms.openlocfilehash: 36f519ce41ccfbfb48ca696ed2a61c6131a75998
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89277494"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906324"
 ---
 # <a name="protect-windows-admin-center-resources-with-security-center"></a>Proteggi le risorse dell'interfaccia di amministrazione di Windows con il Centro sicurezza
 
 Centro di amministrazione di Windows è uno strumento di gestione per i server Windows. Si tratta di un'unica posizione per gli amministratori di sistema per accedere alla maggior parte degli strumenti di amministrazione usati più di frequente. Nell'interfaccia di amministrazione di Windows è possibile caricare direttamente i server locali nel centro sicurezza di Azure. È quindi possibile visualizzare un riepilogo delle raccomandazioni e degli avvisi di sicurezza direttamente nell'esperienza dell'interfaccia di amministrazione di Windows.
 
 > [!NOTE]
-> Per abilitare l'integrazione dell'interfaccia di amministrazione di Windows, è necessario che sia abilitata la sottoscrizione di Azure e l'area di lavoro Log Analytics associata per il livello standard del Centro sicurezza.
-> Il livello standard è gratuito per i primi 30 giorni, se non è stato usato in precedenza nella sottoscrizione e nell'area di lavoro. Per ulteriori informazioni, vedere [la pagina relativa alle informazioni sui prezzi](security-center-pricing.md).
+> Per abilitare l'integrazione dell'interfaccia di amministrazione di Windows, è necessario che Azure Defender sia abilitato per la sottoscrizione di Azure e per l'area di lavoro Log Analytics associata.
+> Azure Defender è gratuito per i primi 30 giorni, se non è stato usato in precedenza nella sottoscrizione e nell'area di lavoro. Per ulteriori informazioni, vedere [la pagina relativa alle informazioni sui prezzi](security-center-pricing.md).
 >
 
 Dopo aver caricato un server dall'interfaccia di amministrazione di Windows al centro sicurezza di Azure, è possibile:
@@ -46,8 +46,8 @@ Combinando questi due strumenti, il Centro sicurezza diventa il singolo riquadro
 1. Seguire le istruzioni per connettere il server al centro sicurezza. Dopo aver immesso i dettagli necessari e confermato, il Centro sicurezza apporta le modifiche di configurazione necessarie per assicurarsi che siano soddisfatte tutte le condizioni seguenti:
     * Un gateway di Azure è registrato.
     * Il server dispone di un'area di lavoro a cui eseguire il report e di una sottoscrizione associata.
-    * Il livello standard del Centro sicurezza Log Analytics soluzione è abilitato nell'area di lavoro. Questa soluzione fornisce le funzionalità del livello standard del Centro sicurezza per *tutti i* server e le macchine virtuali che inviano report a questa area di lavoro.
-    * I prezzi del livello standard del Centro sicurezza per la macchina virtuale sono abilitati nella sottoscrizione.
+    * La soluzione Log Analytics del Centro sicurezza è abilitata nell'area di lavoro. Questa soluzione fornisce le funzionalità di Azure Defender per *tutti i* server e le macchine virtuali che inviano report a questa area di lavoro.
+    * Azure Defender per i server è abilitato nella sottoscrizione.
     * L'agente di Log Analytics viene installato nel server e configurato per il report nell'area di lavoro selezionata. Se il server già segnala a un'altra area di lavoro, è configurato in modo da creare un report anche per l'area di lavoro selezionata.
 
     > [!NOTE]
@@ -63,12 +63,8 @@ Al termine dell'onboarding, è possibile visualizzare gli avvisi e le raccomanda
 ## <a name="view-security-recommendations-and-alerts-for-windows-admin-center-managed-servers-in-security-center"></a>Visualizzare le raccomandazioni e gli avvisi relativi alla sicurezza per i server gestiti dall'interfaccia di amministrazione di Windows nel centro sicurezza
 Dal centro sicurezza di Azure:
 
-* Per visualizzare le raccomandazioni sulla sicurezza per tutti i server dell'interfaccia di amministrazione di Windows, aprire **calcolo & app** e fare clic sulla scheda **VM e computer** . Filtrare l'elenco in base alla risorsa "Server", come illustrato di seguito:
-
-    [![Visualizzare le raccomandazioni sulla sicurezza per i server gestiti dall'interfaccia di amministrazione di Windows](media/windows-admin-center-integration/viewing-recommendations-wac.png)](media/windows-admin-center-integration/viewing-recommendations-wac.png#lightbox)
+* Per visualizzare le raccomandazioni sulla sicurezza per tutti i server dell'interfaccia di amministrazione di Windows, aprire [Asset Inventory](asset-inventory.md) e filtrare per il tipo di computer che si desidera analizzare. Selezionare la scheda **VM e computer** .
 
 * Per visualizzare gli avvisi di sicurezza per tutti i server dell'interfaccia di amministrazione di Windows, aprire **avvisi di sicurezza**. Fare clic su **filtro** e verificare che sia selezionato **solo** "non Azure":
 
-    ![Filtrare gli avvisi di sicurezza per i server gestiti dall'interfaccia di amministrazione di Windows](./media/windows-admin-center-integration/filtering-alerts-to-non-azure.png)
-
-    [![Visualizzare gli avvisi di sicurezza per i server gestiti dall'interfaccia di amministrazione di Windows](media/windows-admin-center-integration/viewing-alerts-wac.png)](media/windows-admin-center-integration/viewing-alerts-wac.png#lightbox)
+    :::image type="content" source="./media/windows-admin-center-integration/filtering-alerts-by-environment.png" alt-text="Filtrare gli avvisi di sicurezza per i server gestiti dall'interfaccia di amministrazione di Windows" lightbox="./media/windows-admin-center-integration/filtering-alerts-by-environment.png":::

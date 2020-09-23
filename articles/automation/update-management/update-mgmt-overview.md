@@ -3,14 +3,14 @@ title: Automazione di Azure - Panoramica di Gestione aggiornamenti
 description: Questo articolo fornisce una panoramica della funzionalità Gestione aggiornamenti che implementa gli aggiornamenti per computer Windows e Linux.
 services: automation
 ms.subservice: update-management
-ms.date: 09/11/2020
+ms.date: 09/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ab2c584b1e62ac8296c4e9489a72489cd815fc3c
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: 4a753cd139db9dec23c82346704382979aeaa0de
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90089854"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976980"
 ---
 # <a name="update-management-overview"></a>Panoramica di Gestione aggiornamenti
 
@@ -30,6 +30,8 @@ ms.locfileid: "90089854"
 
 > [!NOTE]
 > Non è possibile usare un computer configurato con Gestione aggiornamenti per l'esecuzione di script personalizzati da Automazione di Azure. Questo computer può eseguire solo lo script di aggiornamento firmato da Microsoft.
+
+Per scaricare e installare automaticamente le patch di *sicurezza* e *critici* disponibili nella macchina virtuale di Azure, vedere applicazione [automatica delle patch Guest](../../virtual-machines/windows/automatic-vm-guest-patching.md) per VM Windows.
 
 ## <a name="about-update-management"></a>Informazioni su Gestione aggiornamenti
 
@@ -82,7 +84,7 @@ Nella tabella seguente sono elencati i sistemi operativi supportati per la valut
 |Windows Server 2008 R2 (RTM e SP1 Standard)| Gestione aggiornamenti supporta le valutazioni e l'applicazione di patch per questo sistema operativo. Il ruolo di [lavoro ibrido per Runbook](../automation-windows-hrw-install.md) è supportato per Windows Server 2008 R2. |
 |CentOS 6 (x86/x64) e 7 (x64)      | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti. L'applicazione di patch basata sulla classificazione richiede `yum` per restituire i dati sulla sicurezza che non sono disponibili nelle release RTM di CentOS. Per altre informazioni sull'applicazione di patch basata sulla classificazione in CentOS, vedere [Classificazioni degli aggiornamenti in Linux](update-mgmt-view-update-assessments.md#linux).          |
 |Red Hat Enterprise 6 (x86/x64) e 7 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
-|SUSE Linux Enterprise Server 11 (x86/x64) e 12 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
+|SUSE Linux Enterprise Server 12 (x64)     | Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.        |
 |Ubuntu 14.04 LTS, 16.04 LTS e 18.04 LTS (x86/x64)      |Gli agenti Linux devono avere accesso a un repository degli aggiornamenti.         |
 
 > [!NOTE]
@@ -234,7 +236,7 @@ Per Linux, Gestione aggiornamenti è in grado di distinguere tra gli aggiornamen
 sudo yum -q --security check-update
 ```
 
-Attualmente non è supportato alcun metodo per abilitare la disponibilità dei dati di classificazione nativi in CentOS. In questa fase viene offerto il miglior supporto possibile ai clienti che hanno abilitato autonomamente questa funzionalità.
+Attualmente non è supportato alcun metodo per abilitare la disponibilità dei dati di classificazione nativi in CentOS. A questo punto, il supporto limitato viene fornito ai clienti che potrebbero avere abilitato questa funzionalità autonomamente.
 
 Per classificare gli aggiornamenti in Red Hat Enterprise versione 6, è necessario installare il plug-in yum-security. In Red Hat Enterprise Linux 7 il plug-in fa già parte di yum e non è necessario eseguire alcuna installazione supplementare. Per altre informazioni, vedere questo [file di caratteristiche del caso](https://access.redhat.com/solutions/10021) su Red Hat.
 

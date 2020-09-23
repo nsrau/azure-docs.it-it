@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 11/20/2017
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04e265ea0128411eb483c84b1317051089a0550a
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 3b0bb70b82e8c34c50743bf56069488e2d4c4e39
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260238"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968778"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-identity-to-access-azure-storage-via-a-sas-credential"></a>Esercitazione: Usare un'identità assegnata dal sistema per una macchina virtuale Linux per accedere ad Archiviazione di Azure tramite credenziali di firma di accesso condiviso
 
@@ -154,7 +154,7 @@ echo "This is a test file." > test.txt
 
 Eseguire quindi l'autenticazione con il comando `az storage` dell'interfaccia della riga di comando usando le credenziali di firma di accesso condiviso e caricare il file nel contenitore BLOB. Per questo passaggio è necessario [installare la versione più recente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) nella macchina virtuale, se non è già stato fatto.
 
-```azurecli-interactive
+```azurecli
  az storage blob upload --container-name 
                         --file 
                         --name
@@ -176,7 +176,7 @@ Finished[#############################################################]  100.000
 
 Richiesta: 
 
-```azurecli-interactive
+```azurecli
 az storage blob download --container-name
                          --file 
                          --name 

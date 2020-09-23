@@ -16,12 +16,12 @@ ms.date: 11/29/2018
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: d26f1cdd6184ca10c3a7b9c9a7dc5724cc5e8129
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: b8eec72666eadf90a401dc8f0adb77df77dbf782
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266307"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969298"
 ---
 # <a name="view-the-service-principal-of-a-managed-identity-using-azure-cli"></a>Visualizzare l'entità servizio di un'identità gestita tramite l'interfaccia della riga di comando di Azure
 
@@ -34,12 +34,9 @@ In questo articolo viene descritto come visualizzare l'entità servizio di un'id
 - Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md).
 - Se non si ha già un account Azure, è possibile [registrarsi per ottenerne uno gratuito](https://azure.microsoft.com/free/).
 - Abilitare l'[identità assegnata dal sistema nella macchina virtuale](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity) o nell'[applicazione](../../app-service/overview-managed-identity.md#add-a-system-assigned-identity).
-- Per eseguire gli esempi di script dell'interfaccia della riga di comando, sono disponibili tre opzioni:
-    - Usare [Azure Cloud Shell](../../cloud-shell/overview.md) dal portale di Azure (vedere la sezione successiva).
-    - Usare Azure Cloud Shell incorporato tramite il pulsante "Prova", che si trova nell'angolo in alto a destra di ogni blocco di codice.
-    - [Installare la versione più recente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) se si preferisce usare una console dell'interfaccia della riga di comando locale e accedere ad Azure tramite `az login`
- 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+- Per eseguire gli script di esempio, sono disponibili due opzioni:
+    - Usare il [Azure cloud Shell](../../cloud-shell/overview.md), che è possibile aprire usando il pulsante **prova** nell'angolo superiore destro dei blocchi di codice.
+    - Eseguire gli script localmente installando la versione più recente dell'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli), quindi accedere ad Azure usando [AZ login](/cli/azure/reference-index#az-login). Usare un account associato alla sottoscrizione di Azure in cui si vogliono creare risorse.   
 
 ## <a name="view-the-service-principal"></a>Visualizzare l'entità servizio
 

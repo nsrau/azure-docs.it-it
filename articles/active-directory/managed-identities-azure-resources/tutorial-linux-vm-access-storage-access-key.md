@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 03/04/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4c00c723c23e2f0d962009d33a6abe1008c734a5
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 312ca5f693c42d70ecb5e210ef0d30df5c9739bb
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89266273"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968714"
 ---
 # <a name="tutorial-use-a-linux-vm-system-assigned-managed-identity-to-access-azure-storage-via-access-key"></a>Esercitazione: Usare un'identità gestita assegnata dal sistema per una macchina virtuale Linux per accedere ad Archiviazione di Azure tramite la chiave di accesso
 
@@ -130,7 +130,7 @@ echo "This is a test file." > test.txt
 Eseguire quindi l'autenticazione con il comando dell'interfaccia della riga di comando `az storage` usando la chiave di accesso alle risorse di archiviazione e caricare il file nel contenitore di BLOB. Per questo passaggio è necessario [installare la versione più recente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) nella macchina virtuale, se non è già stato fatto.
  
 
-```azurecli-interactive
+```azurecli
 az storage blob upload -c <CONTAINER NAME> -n test.txt -f test.txt --account-name <STORAGE ACCOUNT NAME> --account-key <STORAGE ACCOUNT KEY>
 ```
 
@@ -148,7 +148,7 @@ Finished[#############################################################]  100.000
 
 Richiesta: 
 
-```azurecli-interactive
+```azurecli
 az storage blob download -c <CONTAINER NAME> -n test.txt -f test-download.txt --account-name <STORAGE ACCOUNT NAME> --account-key <STORAGE ACCOUNT KEY>
 ```
 
