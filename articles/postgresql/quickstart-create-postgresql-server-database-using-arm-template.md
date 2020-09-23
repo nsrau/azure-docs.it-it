@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: mblythe
 ms.date: 05/14/2020
-ms.openlocfilehash: 0661e743fb2493b9eab4b90dcb65297e99c2cc64
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.openlocfilehash: b73bf82b7fba4c7c618dbae81873efabec61051d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661215"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906434"
 ---
 # <a name="quickstart-use-an-arm-template-to-create-an-azure-database-for-postgresql---single-server"></a>Avvio rapido: Usare un modello di Resource Manager per creare un database di Azure per PostgreSQL: server singolo
 
@@ -22,7 +22,7 @@ Il database di Azure per PostgreSQL è un servizio gestito usato per eseguire, g
 
 Se l'ambiente soddisfa i prerequisiti e si ha familiarità con l'uso dei modelli di Resource Manager, selezionare il pulsante **Distribuisci in Azure**. Il modello verrà aperto nel portale di Azure.
 
-[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuzione in Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -66,7 +66,7 @@ Altri modelli campione di Database di Azure per PostgreSQL sono disponibili in [
 
 Selezionare il collegamento seguente per distribuire il modello di database di Azure per il server PostgreSQL nel portale di Azure:
 
-[![Distribuzione in Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
+[:::image type="content" source="../media/template-deployments/deploy-to-azure.svg" alt-text="Distribuzione in Azure":::](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2f101-managed-postgresql-with-vnet%2fazuredeploy.json)
 
 Nella pagina **Distribuire Database di Azure per PostgreSQL con la rete virtuale**:
 
@@ -76,7 +76,7 @@ Nella pagina **Distribuire Database di Azure per PostgreSQL con la rete virtuale
 
 3. Immettere i valori per **Nome server**, **Account di accesso amministratore** e **Password di accesso amministratore**.
 
-    ![Finestra Distribuisci Database di Azure per PostgreSQL con la rete virtuale, modello di avvio rapido di Azure, portale di Azure](./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png)
+    :::image type="content" source="./media/quickstart-create-postgresql-server-database-using-arm-template/deploy-azure-database-for-postgresql-with-vnet.png" alt-text="Finestra Distribuisci Database di Azure per PostgreSQL con la rete virtuale, modello di avvio rapido di Azure, portale di Azure":::
 
 4. Modificare le altre impostazioni predefinite in base alle esigenze:
 

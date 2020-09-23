@@ -11,15 +11,15 @@ ms.reviewer: jmartens, larryfr, vaidyas, laobri, tracych
 ms.author: trmccorm
 author: tmccrmck
 ms.date: 07/16/2020
-ms.openlocfilehash: 8d357cea7ce809c2df6b35e08ac7da7e9d3795e9
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 010843f4249909e23ffac3b41fb3acaf9c91eb17
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650415"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90890002"
 ---
 # <a name="debug-and-troubleshoot-parallelrunstep"></a>Eseguire il debug e risolvere i problemi di ParallelRunStep
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 In questo articolo viene descritto come eseguire il debug e risolvere i problemi della classe [ParallelRunStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.parallel_run_step.parallelrunstep?view=azure-ml-py&preserve-view=true) da [Azure Machine Learning SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 
@@ -29,7 +29,7 @@ Vedere la sezione [Test degli script in locale](how-to-debug-pipelines.md#debug-
 
 ## <a name="debugging-scripts-from-remote-context"></a>Debug degli script dal contesto remoto
 
-La transizione dal debug di uno script di assegnazione del punteggio in locale al debug di uno script di assegnazione del punteggio in una pipeline effettiva può risultare difficile. Per informazioni sull'individuazione dei log nel portale, vedere la [sezione sulle pipeline di Machine Learning in Debug degli script dal contesto remoto](how-to-debug-pipelines.md#finding-and-reading-pipeline-log-files). Le informazioni contenute nella sezione si applicano anche a ParallelRunStep.
+La transizione dal debug di uno script di assegnazione del punteggio in locale al debug di uno script di assegnazione del punteggio in una pipeline effettiva può risultare difficile. Per informazioni sull'individuazione dei log nel portale, vedere la [sezione sulle pipeline di Machine Learning in Debug degli script dal contesto remoto](how-to-debug-pipelines.md). Le informazioni contenute nella sezione si applicano anche a ParallelRunStep.
 
 Ad esempio, il file di log `70_driver_log.txt` contiene le informazioni del controller che avvia il codice ParallelRunStep.
 

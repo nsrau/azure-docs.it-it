@@ -7,12 +7,12 @@ ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
 ms.custom: devx-track-python, devx-track-javascript
-ms.openlocfilehash: 2dc701b15b0fd30af0f4a28e39153c0ee77ae128
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: 289a33d6544e3b8930059ad58115673193a1c89b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87850339"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905806"
 ---
 # <a name="how-to-connect-applications-to-azure-database-for-mysql"></a>Come connettere le applicazioni a Database di Azure per MySQL
 Questo argomento elenca i tipi di stringa di connessione supportati da Database di Azure per MySQL, oltre a modelli ed esempi. Nella stringa di connessione possono essere presenti parametri e impostazioni diverse.
@@ -63,7 +63,7 @@ client = Mysql2::Client.new(username: {username@servername}, password: {your_pas
 ```
 
 ## <a name="get-the-connection-string-details-from-the-azure-portal"></a>Ottenere i dettagli della stringa di connessione dal portale di Azure
-Nel [portale di Azure](https://portal.azure.com) passare a Database di Azure per il server MySQL e quindi fare clic su **Stringhe di connessione** per ottenere l'elenco di stringhe per l'istanza: ![Riquadro Stringhe di connessione nel portale di Azure](./media/howto-connection-strings/connection-strings-on-portal.png)
+Nel [portale di Azure](https://portal.azure.com) passare a Database di Azure per il server MySQL e quindi fare clic su **Stringhe di connessione** per ottenere l'elenco di stringhe per l'istanza: :::image type="content" source="./media/howto-connection-strings/connection-strings-on-portal.png" alt-text="Riquadro Stringhe di connessione nel portale di Azure":::
 
 La stringa include informazioni dettagliate quali il driver, il server e altri parametri di connessione al database. Modificare questi esempi con i parametri personali, come il nome del database, la password e così via. È quindi possibile usare questa stringa per la connessione al server dal codice e dalle applicazioni.
 

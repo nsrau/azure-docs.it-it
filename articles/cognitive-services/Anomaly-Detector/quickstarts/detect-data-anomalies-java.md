@@ -8,26 +8,27 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: anomaly-detector
 ms.topic: quickstart
-ms.date: 06/30/2020
+ms.date: 09/03/2020
 ms.custom: devx-track-java
 ms.author: aahi
-ms.openlocfilehash: e8fdc703b094ace83e70b736c1eb0d15c461adba
-ms.sourcegitcommit: c293217e2d829b752771dab52b96529a5442a190
+ms.openlocfilehash: 6c37ac4a8e43f8e11e37186e2438c4803556339e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/15/2020
-ms.locfileid: "88243871"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905764"
 ---
 # <a name="quickstart-detect-anomalies-in-your-time-series-data-using-the-anomaly-detector-rest-api-and-java"></a>Avvio rapido: Rilevare le anomalie nei dati delle serie temporali tramite l'API REST Rilevamento anomalie e Java
 
-Usare questa guida di avvio rapido per iniziare a usare le due modalità di rilevamento dell'API Rilevamento anomalie per rilevare le anomalie nei dati delle serie temporali. Questa applicazione Java invia due richieste API contenenti i dati delle serie temporali in formato JSON e riceve le risposte.
+Usare questa guida di avvio rapido per iniziare a usare le due modalità di rilevamento dell'API Rilevamento anomalie per rilevare le anomalie nei dati delle serie temporali. Questa applicazione Java invia le richieste API contenenti i dati delle serie temporali in formato JSON e riceve le risposte.
 
 | Richiesta API                                        | Output dell'applicazione                                                                                                                         |
 |----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------|
 | Rilevare anomalie come batch                        | Risposta JSON contenente lo stato dell'anomalia (e altri dati) per ogni punto dati nei dati di serie temporali e le posizioni delle anomalie rilevate. |
-| Rilevare lo stato delle anomalie del punto dati più recente | Risposta JSON contenente lo stato dell'anomalia (e altri dati) per il punto dati più recente nei dati di serie temporali.                                                                                                                                         |
+| Rilevare lo stato delle anomalie del punto dati più recente | Risposta JSON contenente lo stato dell'anomalia (e altri dati) per il punto dati più recente nei dati di serie temporali.   |
+| Rilevare i punti di modifica che contrassegnano nuove tendenze dei dati | Risposta JSON che contiene i punti di modifica rilevati nei dati delle serie temporali. |
 
- L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/java-detect-anomalies.java).
+L'applicazione è scritta in Java, ma l'API è un servizio Web RESTful compatibile con la maggior parte dei linguaggi di programmazione. Il codice sorgente per questo avvio rapido è disponibile su [GitHub](https://github.com/Azure-Samples/AnomalyDetector/blob/master/quickstarts/java-detect-anomalies.java).
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -56,6 +57,7 @@ Usare questa guida di avvio rapido per iniziare a usare le due modalità di rile
     |---------|---------|
     |Rilevamento in batch    | `/anomalydetector/v1.0/timeseries/entire/detect`        |
     |Rilevamento nel punto dati più recente     | `/anomalydetector/v1.0/timeseries/last/detect`        |
+    | Rilevamento dei punti di modifica | `/anomalydetector/v1.0/timeseries/changepoint/detect`   |
 
     [!code-java[Initial key and endpoint variables](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=vars)]
 
@@ -77,7 +79,7 @@ Usare questa guida di avvio rapido per iniziare a usare le due modalità di rile
 
 ## <a name="detect-anomalies-as-a-batch"></a>Rilevare anomalie come batch
 
-1. Creare un metodo denominato `detectAnomaliesBatch()` per rilevare le anomalie in tutti i dati come batch. Chiamare il metodo `sendRequest()` creato in precedenza con l'endpoint, l'URL, la chiave di sottoscrizione e i dati json. Ottenere il risultato e visualizzarlo nella console.
+1. Creare un metodo denominato `detectAnomaliesBatch()` per rilevare le anomalie in tutti i dati come batch. Chiamare il metodo `sendRequest()` creato in precedenza con l'endpoint, l'URL, la chiave di sottoscrizione e i dati JSON. Ottenere il risultato e visualizzarlo nella console.
 
 2. Se la risposta contiene il campo `code`, viene visualizzato il codice errore e il messaggio di errore.
 
@@ -87,9 +89,20 @@ Usare questa guida di avvio rapido per iniziare a usare le due modalità di rile
 
 ## <a name="detect-the-anomaly-status-of-the-latest-data-point"></a>Rilevare lo stato delle anomalie del punto dati più recente
 
-Creare un metodo denominato `detectAnomaliesLatest()` per rilevare lo stato delle anomalie del punto dati più recente nel set di dati. Chiamare il metodo `sendRequest()` creato in precedenza con l'endpoint, l'URL, la chiave di sottoscrizione e i dati json. Ottenere il risultato e visualizzarlo nella console.
+Creare un metodo denominato `detectAnomaliesLatest()` per rilevare lo stato delle anomalie del punto dati più recente nel set di dati. Chiamare il metodo `sendRequest()` creato in precedenza con l'endpoint, l'URL, la chiave di sottoscrizione e i dati JSON. Ottenere il risultato e visualizzarlo nella console.
 
 [!code-java[Latest point detection method](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectLatest)]
+
+
+## <a name="detect-change-points-in-the-data"></a>Rilevare i punti di modifica nei dati
+
+1. Creare un metodo denominato `detectChangePoints()` per rilevare le anomalie in tutti i dati come batch. Chiamare il metodo `sendRequest()` creato in precedenza con l'endpoint, l'URL, la chiave di sottoscrizione e i dati JSON. Ottenere il risultato e visualizzarlo nella console.
+
+2. Se la risposta contiene un campo `code`, stampare il codice di errore e il messaggio di errore.
+
+3. In caso contrario, trovare le posizioni delle punti di modifica nel set di dati. Il campo `isChangePoint` della risposta contiene un valore booleano che indica se uno specifico punto dati è un punto di modifica della tendenza. Ottenere la matrice JSON e scorrerla, stampando l'indice dei valori `true`. Questi valori corrispondono agli indici dei punti di modifica della tendenza, se individuati.
+
+    [!code-java[detect change points](~/samples-anomaly-detector/quickstarts/java-detect-anomalies.java?name=detectChangePoint)]
 
 ## <a name="load-your-time-series-data-and-send-the-request"></a>Caricare i dati delle serie temporali e inviare la richiesta
 
@@ -104,5 +117,6 @@ Creare un metodo denominato `detectAnomaliesLatest()` per rilevare lo stato dell
 Viene restituita una risposta con esito positivo in formato JSON. Fare clic sui collegamenti seguenti per visualizzare la risposta JSON in GitHub:
 * [Esempio di risposta di rilevamento in batch](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/batch-response.json)
 * [Esempio di risposta di rilevamento nel punto dati più recente](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/latest-point-response.json)
+* [Esempio di risposta di rilevamento di punti di modifica](https://github.com/Azure-Samples/anomalydetector/blob/master/example-data/change-point-sample.json)
 
 [!INCLUDE [anomaly-detector-next-steps](../includes/quickstart-cleanup-next-steps.md)]

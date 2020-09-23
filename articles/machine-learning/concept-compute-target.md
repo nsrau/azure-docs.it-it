@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 07/27/2020
-ms.openlocfilehash: 08f1d1e0ca1936b30db968dde5d7f6f2e6104cf8
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 3e1832d656ea2bad772a686e52a357c1daf0ded5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651198"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883195"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Che cosa sono le destinazioni di calcolo in Azure Machine Learning? 
 
@@ -68,7 +68,7 @@ Quando vengono create, queste risorse di calcolo fanno automaticamente parte del
 
 
 > [!NOTE]
-> Quando un cluster di calcolo è inattivo, viene ridimensionato automaticamente a 0 nodi, quindi non si paga se non è in uso.  Un' *istanza*di calcolo, tuttavia, è sempre attiva e non esegue la scalabilità automatica.  È necessario [arrestare l'istanza di calcolo](tutorial-1st-experiment-sdk-train.md#stop-the-compute-instance) quando non viene usata per evitare costi aggiuntivi. 
+> Quando un cluster di calcolo è inattivo, viene ridimensionato automaticamente a 0 nodi, quindi non si paga se non è in uso.  Un' *istanza*di calcolo, tuttavia, è sempre attiva e non esegue la scalabilità automatica.  È necessario [arrestare l'istanza di calcolo](concept-compute-instance.md#managing-a-compute-instance) quando non viene usata per evitare costi aggiuntivi. 
 
 ### <a name="supported-vm-series-and-sizes"></a>Serie e dimensioni di macchine virtuali supportate
 

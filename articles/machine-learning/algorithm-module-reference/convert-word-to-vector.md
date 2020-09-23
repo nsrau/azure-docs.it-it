@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: 21b207ece1a2a7fd6f218716912d4c4d2c2f1ee2
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 1c2aa9023a7081387d38b9f7c6cfe8323300ad6e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84753882"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898598"
 ---
 # <a name="convert-word-to-vector-module"></a>Converti Word in modulo Vector
 
-Questo articolo descrive come usare il modulo Convert Word to Vector in Azure Machine Learning Designer (Preview) per eseguire queste attività:
+Questo articolo descrive come usare il modulo Convert Word to Vector in Azure Machine Learning Designer per eseguire queste attività:
 
 - Applicare diversi modelli Word2Vec (Word2Vec, FastText, guanto con training) sul corpus di testo specificato come input.
 - Genera un vocabolario con incorporamenti di Word.
@@ -55,7 +55,7 @@ Questo modulo richiede un set di dati contenente una colonna di testo. Il testo 
 
     Poiché questo modulo crea un vocabolario da testo, il contenuto delle colonne è diverso, il che comporta un contenuto del vocabolario diverso. Per questo motivo il modulo accetta solo una colonna di destinazione.
 
-4. Per la **strategia Word2Vec**, scegliere da **GloVe pretrained English Model**, **Gensim Word2Vec**e **Gensim FastText**.
+4. Per la  **strategia Word2Vec**, scegliere da **GloVe pretrained English Model**, **Gensim Word2Vec**e **Gensim FastText**.
 
 5. Se la **strategia Word2Vec** è **Gensim Word2Vec** o **Gensim FastText**:
 
@@ -93,13 +93,13 @@ Il modulo ha un output:
 
 + **Vocabolario con incorporamenti**: contiene il vocabolario generato, insieme all'incorporamento di ogni parola. Una dimensione occupa una colonna.
 
-L'esempio seguente illustra come funziona il modulo Convert Word to Vector. Questo modulo viene applicato con le impostazioni predefinite al set di dati di Wikipedia SP 500 pre-elaborato fornito in Azure Machine Learning (anteprima).
+L'esempio seguente illustra come funziona il modulo Convert Word to Vector. Questo modulo viene applicato con le impostazioni predefinite al set di dati di Wikipedia SP 500 pre-elaborato fornito in Azure Machine Learning.
 
 ### <a name="source-dataset"></a>Set di dati di origine
 
 Il set di dati contiene una colonna di categoria, insieme al testo completo recuperato da wikipedia. Questa tabella contiene solo alcuni esempi rappresentativi.
 
-|Text|
+|Testo|
 |----------|
 |nasdaq 100 component s p 500 component foundation founder location city apple campus 1 infinite loop street infinite loop cupertino california cupertino california location country united states...|
 |br nasdaq 100 nasdaq 100 component br s p 500 s p 500 component industry computer software foundation br founder charles geschke br john warnock location adobe systems...|
@@ -149,4 +149,4 @@ Questa sezione contiene suggerimenti e risposte alle domande più frequenti.
 
 Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 
 
-Per un elenco degli errori specifici dei moduli di progettazione (anteprima), vedere [Machine Learning codici di errore](designer-error-codes.md).
+Per un elenco degli errori specifici dei moduli della finestra di progettazione, vedere [Machine Learning codici di errore](designer-error-codes.md).

@@ -1,6 +1,6 @@
 ---
 title: Pianificazione della migrazione dal modello classico al Azure Resource Manager
-description: Pianificazione della migrazione delle risorse IaaS dal modello di distribuzione classica ad Azure Resource Manager
+description: Questo articolo illustra come pianificare la migrazione delle risorse IaaS dal modello classico al Azure Resource Manager in Linux.
 services: virtual-machines-linux
 author: tanmaygore
 manager: vashan
@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: bb8045e8986ce52b6dddf63421edaa34243ea5df
-ms.sourcegitcommit: 54d8052c09e847a6565ec978f352769e8955aead
+ms.openlocfilehash: 496d58ee76e678e2529914ff2c586ce46bb01a92
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88506448"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967675"
 ---
 # <a name="planning-for-migration-of-iaas-resources-from-classic-to-azure-resource-manager-in-linux"></a>Pianificazione della migrazione delle risorse IaaS dal modello classico al Azure Resource Manager in Linux
 

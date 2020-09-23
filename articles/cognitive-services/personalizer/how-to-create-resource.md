@@ -1,15 +1,15 @@
 ---
 title: Creare la risorsa di Personalizza esperienze
-description: La configurazione del servizio include il modo in cui vengono trattate le ricompense, la frequenza delle esplorazioni, la frequenza di ripetizione del training del modello e la quantità di dati archiviati.
+description: Questo articolo illustra come creare una risorsa di personalizzazione nel portale di Azure per ogni ciclo di feedback.
 ms.topic: how-to
 ms.date: 03/26/2020
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: 2ebd5496eb45ed007f47cd34761800f8b54e5a5a
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: 7965fb1eaa3efbe1f47db4eedd88e4444b0e610b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87501253"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985820"
 ---
 # <a name="create-a-personalizer-resource"></a>Creare una risorsa di personalizzazione
 

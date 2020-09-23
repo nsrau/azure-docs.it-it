@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/24/2020
-ms.openlocfilehash: 171c53aa36ecc854cf32a64f9f2639a7086c24e5
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: 21cd1491da4374babaff8b5b4b451a3cce874368
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88782584"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898836"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>Modulo di regressione dell'albero delle decisioni con boosting
 
-Questo articolo descrive un modulo disponibile nella finestra di progettazione di Azure Machine Learning (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Usare questo modulo per creare un insieme di alberi di regressione con boosting. L' *incremento* significa che ogni albero dipende da alberi precedenti. L'algoritmo apprende inserendo il residuo degli alberi che lo precedono. Il boosting in un insieme di alberi delle decisioni tende quindi a migliorare la precisione, anche se con un rischio minimo di minore copertura.  
 

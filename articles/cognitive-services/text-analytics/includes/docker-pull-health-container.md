@@ -9,20 +9,25 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 4c33952ed56399b94a7db1088cb60919a4f88137
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: b9452baf0301233a1cd6e05621a89d013d32c9e0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108990"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906092"
 ---
 Compilare e inviare il [modulo di richiesta di contenitori di servizi cognitivi](https://aka.ms/cognitivegate) per richiedere l'accesso al contenitore.
+Il modulo richiede informazioni sull'utente, sull'azienda e sullo scenario utente per cui si userà il contenitore. Dopo l'invio del modulo, il team di Servizi cognitivi di Azure lo esaminerà per verificare che siano soddisfatti i criteri di accesso al registro contenitori privato.
 
-[!INCLUDE [Request access to the container registry](../../../../includes/cognitive-services-containers-request-access-only.md)]
+> [!IMPORTANT]
+> * Nel modulo è necessario usare un indirizzo di posta elettronica associato a un ID sottoscrizione di Azure.
+> * La risorsa di Azure usata per eseguire il contenitore deve essere stata creata con l'ID sottoscrizione di Azure approvato. 
+> * Controllare la posta elettronica (cartella posta in arrivo e cartelle indesiderate) per gli aggiornamenti sullo stato dell'applicazione da Microsoft.
 
 Usare il comando Docker login con le credenziali fornite nel messaggio di posta elettronica di onboarding per connettersi al registro contenitori privato per i contenitori di servizi cognitivi.
 
-```bash
+
+```Docker
 docker login containerpreview.azurecr.io -u <username> -p <password>
 ```
 

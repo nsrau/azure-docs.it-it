@@ -1,14 +1,14 @@
 ---
 title: Ripristinare i database di SAP HANA nelle macchine virtuali di Azure
-description: Questo articolo illustra come ripristinare SAP HANA database in esecuzione in macchine virtuali di Azure.
+description: Questo articolo illustra come ripristinare SAP HANA database in esecuzione in macchine virtuali di Azure. È anche possibile usare il ripristino tra aree per ripristinare i database in un'area secondaria.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 68858db6f89221e1a3a8f0955d5e009d56e2d365
-ms.sourcegitcommit: 3246e278d094f0ae435c2393ebf278914ec7b97b
+ms.openlocfilehash: c502b7741acd343baefe5e2bf8b95cfc02e46688
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89375313"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986107"
 ---
 # <a name="restore-sap-hana-databases-on-azure-vms"></a>Ripristinare i database di SAP HANA nelle macchine virtuali di Azure
 
@@ -249,6 +249,51 @@ Se si è scelto **Completo e differenziale** come tipo di ripristino, eseguire l
 
     > [!NOTE]
     > Quando il database di sistema viene ripristinato in un'istanza di destinazione in più database del contenitore di database (MDC), è necessario eseguire di nuovo lo script di pre-registrazione. Solo allora sarà possibile eseguire il ripristino dei database tenant successivi. Per altre informazioni, vedere [risoluzione dei problemi: ripristino di MDC](backup-azure-sap-hana-database-troubleshoot.md#multiple-container-database-mdc-restore).
+
+## <a name="cross-region-restore"></a>Ripristino tra aree
+
+Come una delle opzioni di ripristino, Cross Region Restore (CRR) consente di ripristinare SAP HANA database ospitati in macchine virtuali di Azure in un'area secondaria, ovvero un'area abbinata ad Azure.
+
+Per eseguire l'onboarding nella funzionalità durante l'anteprima, leggere la [sezione prima di iniziare](./backup-create-rs-vault.md#set-cross-region-restore).
+
+Per verificare se CRR è abilitato, seguire le istruzioni riportate in [Configure Cross Region Restore](backup-create-rs-vault.md#configure-cross-region-restore)
+
+### <a name="view-backup-items-in-secondary-region"></a>Visualizzare gli elementi di backup nell'area secondaria
+
+Se CRR è abilitato, è possibile visualizzare gli elementi di backup nell'area secondaria.
+
+1. Dal portale passare a servizi di **ripristino**insieme di credenziali  >  **elementi di backup**.
+1. Selezionare **area secondaria** per visualizzare gli elementi nell'area secondaria.
+
+>[!NOTE]
+>Nell'elenco verranno visualizzati solo i tipi di gestione di backup che supportano la funzionalità CRR. Attualmente, è consentito solo il ripristino dei dati dell'area secondaria in un'area secondaria.
+
+![Elementi di backup nell'area secondaria](./media/sap-hana-db-restore/backup-items-secondary-region.png)
+
+![Database nell'area secondaria](./media/sap-hana-db-restore/databases-secondary-region.png)
+
+### <a name="restore-in-secondary-region"></a>Ripristino nell'area secondaria
+
+L'esperienza utente per il ripristino dell'area secondaria sarà simile all'esperienza utente per il ripristino dell'area primaria. Quando si configurano i dettagli nel riquadro Configurazione ripristino per configurare il ripristino, verrà richiesto di fornire solo parametri dell'area secondaria.
+
+![Dove e come ripristinare](./media/sap-hana-db-restore/restore-secondary-region.png)
+
+>[!NOTE]
+>La rete virtuale nell'area secondaria deve essere assegnata in modo univoco e non può essere usata per altre macchine virtuali in tale gruppo di risorse.
+
+![Attivare la notifica di ripristino in corso](./media/backup-azure-arm-restore-vms/restorenotifications.png)
+
+>[!NOTE]
+>
+>* Dopo l'attivazione del ripristino e la fase di trasferimento dei dati, il processo di ripristino non può essere annullato.
+>* I ruoli di Azure necessari per il ripristino nell'area secondaria sono identici a quelli dell'area primaria.
+
+### <a name="monitoring-secondary-region-restore-jobs"></a>Monitoraggio dei processi di ripristino dell'area secondaria
+
+1. Dal portale passare all'insieme di credenziali **dei servizi di ripristino**  >  **processi di backup**
+1. Selezionare **area secondaria** per visualizzare gli elementi nell'area secondaria.
+
+    ![Processi di backup filtrati](./media/sap-hana-db-restore/backup-jobs-secondary-region.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

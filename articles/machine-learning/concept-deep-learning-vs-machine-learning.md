@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: lazzeri
 author: FrancescaLazzeri
 ms.date: 03/05/2020
-ms.openlocfilehash: b024010583ba1c6e0ffdf663f7335011ce212bf1
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 177f1992eb0cd93ad871ef3a181460417b1ef523
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "81414573"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905135"
 ---
 # <a name="deep-learning-vs-machine-learning"></a>Apprendimento avanzato e Machine Learning
 
@@ -26,7 +26,7 @@ Questo articolo consente di confrontare apprendimento avanzato e machine learnin
 
 Prendere in considerazione le seguenti definizioni per comprendere l'apprendimento avanzato rispetto a Machine Learning e AI:
 
-- **Deep Learning** è un subset di machine learning basato su reti neurali artificiali. Il _processo di apprendimento_ è _profondo_ perché la struttura delle reti neurali artificiali è costituita da più livelli di input, output e nascosto. Ogni livello contiene unità che trasformano i dati di input in informazioni che il livello successivo può utilizzare per una determinata attività predittiva. Grazie a questa struttura, un computer può apprendere tramite la propria elaborazione dei dati.
+- **Deep Learning** è un subset di machine learning basato su reti neurali artificiali. Il _processo di apprendimento_ è _profondo_ perché la struttura delle reti neurali artificiali è costituita da più livelli di input, output e nascosto. Ogni livello contiene unità che trasformano i dati di input in informazioni che il livello successivo può usare per una determinata attività predittiva. Grazie a questa struttura, un computer può apprendere tramite la propria elaborazione dei dati.
 
 - **Machine Learning** è un subset di intelligenza artificiale che usa tecniche, ad esempio l'apprendimento avanzato, che consentono ai computer di usare l'esperienza per migliorare le attività. Il _processo di apprendimento_ è basato sui passaggi seguenti:
 
@@ -96,7 +96,7 @@ Le sezioni seguenti illustrano le più diffuse tipologie di reti neurali artific
 
 ### <a name="feedforward-neural-network"></a>Rete neurale feedforward
 
-La rete neurale feedforward è il tipo di base della rete neurale artificiale. In una rete feedforward, le informazioni si spostano in una sola direzione dal livello di input al livello di output. Feedforward neural network trasforma un input inserendolo in una serie di livelli nascosti. Ogni livello è costituito da un set di neuroni e ogni livello è completamente connesso a tutti i neuroni nel livello precedente. L'ultimo livello completamente connesso, ovvero il livello di output, rappresenta le stime generate.
+La rete neurale feedforward è il tipo più semplice di rete neurale artificiale. In una rete feedforward, le informazioni si spostano in una sola direzione dal livello di input al livello di output. Feedforward neural network trasforma un input inserendolo in una serie di livelli nascosti. Ogni livello è costituito da un set di neuroni e ogni livello è completamente connesso a tutti i neuroni nel livello precedente. L'ultimo livello completamente connesso, ovvero il livello di output, rappresenta le stime generate.
 
 ### <a name="recurrent-neural-network"></a>Rete neurale ricorrente
 

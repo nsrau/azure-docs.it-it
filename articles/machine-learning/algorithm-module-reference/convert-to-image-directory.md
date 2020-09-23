@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: b29b5fa1beb19bc055f94c56b064ae2c0ae175b5
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 677cf60ff3e614fd1486445786154fbf026b7cd9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86171143"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898694"
 ---
 # <a name="convert-to-image-directory"></a>Convert to Image Directory
 
-Questo articolo descrive come usare il modulo Convert to Image directory per convertire il set di dati dell'immagine nel tipo di dati ' image directory ', che è formato dati standardizzato nelle attività correlate all'immagine, ad esempio la classificazione delle immagini in Azure Machine Learning Designer (Preview).
+Questo articolo descrive come usare il modulo Convert to Image directory per convertire il set di dati dell'immagine nel tipo di dati ' image directory ', che è formato dati standardizzato nelle attività correlate all'immagine, ad esempio la classificazione delle immagini in Azure Machine Learning Designer.
 
 ## <a name="how-to-use-convert-to-image-directory"></a>Come usare Convert to Image directory  
 
@@ -58,13 +58,13 @@ L'output del modulo **Convert to Image directory** è in formato di directory im
 
 ###  <a name="expected-inputs"></a>Input previsti  
 
-| Nome          | Type                  | Descrizione   |
+| Nome          | Tipo                  | Descrizione   |
 | ------------- | --------------------- | ------------- |
 | Set di dati di input | AnyDirectory, ZipFile | Set di dati di input |
 
 ###  <a name="output"></a>Output  
 
-| Nome                   | Type           | Descrizione            |
+| Nome                   | Tipo           | Descrizione            |
 | ---------------------- | -------------- | ---------------------- |
 | Directory dell'immagine di output | ImageDirectory | Directory dell'immagine di output |
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 7550bb7c6bbf7602245f9a9f1ac006ce693b36a8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 63c61b12ad68a3add2e7b40ab0bec38d3c2835e5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477647"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898563"
 ---
 # <a name="cross-validate-model"></a>Cross Validate Model
 
-Questo articolo descrive come usare il modulo Cross Validate Model in Azure Machine Learning Designer (anteprima). La *convalida incrociata* è una tecnica spesso usata nell'apprendimento automatico per valutare la variabilità di un set di dati e l'affidabilità di qualsiasi modello sottoposto a training tramite i dati.  
+Questo articolo descrive come usare il modulo Cross Validate Model in Azure Machine Learning Designer. La *convalida incrociata* è una tecnica spesso usata nell'apprendimento automatico per valutare la variabilità di un set di dati e l'affidabilità di qualsiasi modello sottoposto a training tramite i dati.  
 
 Il modulo Cross Validate Model accetta come input un set di dati con etichetta, insieme a un modello di classificazione o regressione senza training. Divide il set di dati in un certo numero di subset (*riduzioni*), compila un modello a ogni riduzioni e quindi restituisce un set di statistiche di accuratezza per ogni sezione. Confrontando le statistiche di accuratezza per tutte le riduzioni, è possibile interpretare la qualità del set di dati. È quindi possibile capire se il modello è soggetto a variazioni nei dati.  
 

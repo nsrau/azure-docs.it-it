@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.custom: devx-track-csharp
 ms.date: 03/01/2019
 ms.author: kenchen
-ms.openlocfilehash: 71bcb72b645c574eedd24ff868751f366738e73d
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.openlocfilehash: b1cb48d1ae858dbcd0df80780b4c3cee3deac75b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88935688"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976491"
 ---
 # <a name="resiliency-and-disaster-recovery-in-azure-signalr-service"></a>Resilienza e ripristino di emergenza nel servizio Azure SignalR
 
@@ -42,7 +42,7 @@ Al momento della connessione, tuttavia, un client viene sempre indirizzato al se
 
 Di seguito è riportato un diagramma che illustra tale topologia:
 
-![Topologia](media/signalr-concept-disaster-recovery/topology.png)
+![Il diagramma mostra due aree ognuna con un server app e un servizio SignalR, in cui ogni server è associato al servizio SignalR nella propria area come primario e con il servizio nell'altra area come secondario.](media/signalr-concept-disaster-recovery/topology.png)
 
 ## <a name="configure-app-servers-with-multiple-signalr-service-instances"></a>Configurare i server app con più istanze del servizio SignalR
 

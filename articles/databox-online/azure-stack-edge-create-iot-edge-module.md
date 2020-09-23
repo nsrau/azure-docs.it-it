@@ -1,6 +1,6 @@
 ---
-title: Modulo IoT Edge C# per Azure Stack Edge | Microsoft Docs
-description: Informazioni su come sviluppare un modulo di IoT Edge C# che può essere distribuito nel Azure Stack Edge.
+title: Modulo di IoT Edge C# per Azure Stack Edge Pro | Microsoft Docs
+description: Informazioni su come sviluppare un modulo di IoT Edge C# che può essere distribuito in Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -9,36 +9,36 @@ ms.topic: how-to
 ms.date: 08/06/2019
 ms.author: alkohli
 ms.custom: devx-track-csharp
-ms.openlocfilehash: d8cea74ec24efa7562caab5074d87d436cddaffb
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 8acbc7eec7581adcf0d73ffcd4bb2aa7ab2dd572
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89018485"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883494"
 ---
-# <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge"></a>Sviluppare un modulo di IoT Edge C# per spostare i file in Azure Stack Edge
+# <a name="develop-a-c-iot-edge-module-to-move-files-on-azure-stack-edge-pro"></a>Sviluppare un modulo di IoT Edge C# per spostare i file in Azure Stack Edge Pro
 
-Questo articolo illustra come creare un modulo di IoT Edge per la distribuzione con il dispositivo Azure Stack Edge. Azure Stack Edge è una soluzione di archiviazione che consente di elaborare i dati e inviarli attraverso la rete ad Azure.
+Questo articolo illustra come creare un modulo di IoT Edge per la distribuzione con il dispositivo Azure Stack Edge Pro. Azure Stack Edge Pro è una soluzione di archiviazione che consente di elaborare i dati e inviarli attraverso la rete ad Azure.
 
-È possibile usare moduli di Azure IoT Edge con il Azure Stack Edge per trasformare i dati spostati in Azure. Il modulo usato in questo articolo implementa la logica per copiare un file da una condivisione locale a una condivisione cloud sul dispositivo Azure Stack Edge.
+È possibile usare i moduli di Azure IoT Edge con il Pro di Azure Stack Edge per trasformare i dati durante lo spostamento in Azure. Il modulo usato in questo articolo implementa la logica per copiare un file da una condivisione locale a una condivisione cloud sul dispositivo Azure Stack Edge Pro.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
 >
 > * Creare un registro contenitori per archiviare e gestire i moduli, ossia immagini Docker.
-> * Creare un modulo IoT Edge per la distribuzione nel dispositivo Azure Stack Edge. 
+> * Creare un modulo IoT Edge per la distribuzione nel dispositivo Azure Stack Edge Pro. 
 
 
 ## <a name="about-the-iot-edge-module"></a>Informazioni sul modulo IoT Edge
 
-Il dispositivo Azure Stack Edge può distribuire ed eseguire IoT Edge moduli. I moduli di Edge sono essenzialmente contenitori Docker che eseguono un'attività specifica, come inserire un messaggio da un dispositivo, trasformare un messaggio o inviare un messaggio a un hub IoT. In questo articolo si creerà un modulo che copia i file da una condivisione locale a una condivisione cloud sul dispositivo Azure Stack Edge.
+Il dispositivo Azure Stack Edge Pro può distribuire ed eseguire IoT Edge moduli. I moduli di Edge sono essenzialmente contenitori Docker che eseguono un'attività specifica, come inserire un messaggio da un dispositivo, trasformare un messaggio o inviare un messaggio a un hub IoT. In questo articolo si creerà un modulo che copia i file da una condivisione locale a una condivisione cloud sul dispositivo Azure Stack Edge Pro.
 
-1. I file vengono scritti nella condivisione locale sul dispositivo Azure Stack Edge.
+1. I file vengono scritti nella condivisione locale sul dispositivo Azure Stack Edge Pro.
 2. Il generatore di eventi del file crea un evento di file per ogni file scritto nella condivisione locale. Gli eventi di file vengono generati anche quando un file viene modificato. Gli eventi di file vengono quindi inviati all'hub di IoT Edge, nel runtime di IoT Edge.
 3. Il modulo personalizzato di IoT Edge elabora l'evento di file per creare un oggetto dell'evento di file che contiene anche un percorso relativo del file. Il modulo genera un percorso assoluto usando il percorso relativo del file e copia il file dalla condivisione locale alla condivisione cloud. Il modulo elimina quindi il file dalla condivisione locale.
 
-![Funzionamento del modulo Azure IoT Edge in Azure Stack Edge](./media/azure-stack-edge-create-iot-edge-module/how-module-works-1.png)
+![Funzionamento del modulo Azure IoT Edge in Azure Stack Edge Pro](./media/azure-stack-edge-create-iot-edge-module/how-module-works-1.png)
 
 Quando il file è nella condivisione cloud, viene caricato automaticamente nell'account di Archiviazione di Azure.
 
@@ -46,11 +46,11 @@ Quando il file è nella condivisione cloud, viene caricato automaticamente nell'
 
 Prima di iniziare, verificare di avere:
 
-- Un dispositivo Azure Stack Edge che esegue.
+- Un dispositivo Azure Stack Edge Pro che esegue.
 
     - Il dispositivo ha anche una risorsa dell'hub IoT associata.
     - Il dispositivo ha il ruolo di calcolo Edge configurato.
-    Per altre informazioni, vedere [configurare il calcolo](azure-stack-edge-deploy-configure-compute.md#configure-compute) per il Azure stack Edge.
+    Per altre informazioni, vedere [configurare il calcolo](azure-stack-edge-deploy-configure-compute.md#configure-compute) per il Azure stack Edge Pro.
 
 - Le risorse di sviluppo seguenti:
 
@@ -77,7 +77,7 @@ Un Registro Azure Container è un registro Docker privato in Azure nel quale è 
 
       ![Creare un registro contenitori](./media/azure-stack-edge-create-iot-edge-module/create-container-registry-1.png)
  
-4. Selezionare **Create** (Crea).
+4. Selezionare **Crea**.
 5. Dopo aver creato il registro contenitori, passare al registro e selezionare **Chiavi di accesso**.
 
     ![Ottenere le chiavi di accesso](./media/azure-stack-edge-create-iot-edge-module/get-access-keys-1.png)
@@ -278,4 +278,4 @@ Nella sezione precedente è stata creata una soluzione IoT Edge ed è stato aggi
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per distribuire ed eseguire questo modulo in Azure Stack Edge, vedere la procedura descritta in [aggiungere un modulo](azure-stack-edge-deploy-configure-compute.md#add-a-module).
+Per distribuire ed eseguire questo modulo in Azure Stack Edge Pro, vedere la procedura descritta in [aggiungere un modulo](azure-stack-edge-deploy-configure-compute.md#add-a-module).

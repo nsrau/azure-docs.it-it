@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 10/16/2019
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: 7c5164a032e77d85c995384473935b134ff528e5
-ms.sourcegitcommit: 98854e3bd1ab04ce42816cae1892ed0caeedf461
+ms.openlocfilehash: 5db25f993fa006fa635ac12c1be5ff1c3eb92f68
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "88009308"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883451"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-32-version-supported-features-and-syntax"></a>API di Azure Cosmos DB per MongoDB (versione 3.2): funzionalità e sintassi supportate
 
@@ -25,7 +25,9 @@ Usando l'API di Azure Cosmos DB per MongoDB è possibile sfruttare i noti vantag
 
 ## <a name="protocol-support"></a>Protocolli supportati
 
-Tutti i nuovi account per l'API di Azure Cosmos DB per MongoDB sono compatibili con la versione **3.6** del server MongoDB. Questo articolo riguarda la versione 3.2 di MongoDB. Gli operatori supportati con i relativi limiti ed eccezioni sono elencati di seguito. I driver client che identificano questi protocolli dovrebbero essere in grado di collegarsi all'API di Cosmos DB per MongoDB.
+Tutti i nuovi account per l'API di Azure Cosmos DB per MongoDB sono compatibili con la versione **3.6** del server MongoDB. Questo articolo riguarda la versione 3.2 di MongoDB. Gli operatori supportati con i relativi limiti ed eccezioni sono elencati di seguito. I driver client che identificano questi protocolli dovrebbero essere in grado di collegarsi all'API di Cosmos DB per MongoDB. 
+
+L'API di Azure Cosmos DB per MongoDB offre anche un'esperienza di aggiornamento facilitato per gli account idonei. Per altre informazioni, vedere la [Guida all'aggiornamento della versione di MongoDB](mongodb-version-upgrade.md).
 
 ## <a name="query-language-support"></a>Linguaggi di query supportati
 

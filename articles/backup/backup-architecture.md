@@ -3,12 +3,12 @@ title: Panoramica dell'architettura
 description: Panoramica dell'architettura, dei componenti e dei processi usati dal servizio Backup di Azure.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: 1081de6b467b896bd8cc62b84c9a67c329b11e02
-ms.sourcegitcommit: ac7ae29773faaa6b1f7836868565517cd48561b2
+ms.openlocfilehash: e70fe13e895315763ae305b48a72d688f09931f0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88824033"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986495"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Architettura e componenti di backup di Azure
 
@@ -35,18 +35,22 @@ Scopri di più sulle funzionalità di [cui puoi eseguire il](backup-overview.md)
 
 ## <a name="where-is-data-backed-up"></a>Dove viene eseguito il backup dei dati?
 
-Backup di Azure archivia i dati sottoposti a backup in un insieme di credenziali di servizi di ripristino. Un insieme di credenziali è un'entità di archiviazione online in Azure usata per conservare i dati, ad esempio copie di backup, punti di ripristino e criteri di backup.
+Backup di Azure archivia i dati sottoposti a backup in un insieme di credenziali: ripristinare insiemi di credenziali dei servizi e insiemi di credenziali di backup. Un insieme di credenziali è un'entità di archiviazione online in Azure usata per conservare i dati, ad esempio copie di backup, punti di ripristino e criteri di backup.
 
-Gli insiemi di credenziali dei servizi di ripristino includono le funzionalità seguenti:
+Gli insiemi di credenziali includono le funzionalità seguenti:
 
 - Gli insiemi di credenziali semplificano l'organizzazione dei dati di backup, riducendo al minimo l'overhead di gestione.
-- In ogni sottoscrizione di Azure è possibile creare fino a 500 insiemi di credenziali.
 - È possibile monitorare gli elementi di cui è stato eseguito il backup in un insieme di credenziali, incluse le macchine virtuali di Azure e i computer locali.
 - È possibile gestire l'accesso dell'insieme di credenziali con il [controllo degli accessi in base al ruolo di Azure](../role-based-access-control/role-assignments-portal.md).
 - È necessario specificare come vengono replicati i dati nell'insieme di credenziali per la ridondanza:
-  - **Archiviazione con ridondanza locale (con ridondanza locale)**: per evitare errori in un Data Center, è possibile usare con ridondanza locale. L'archiviazione con ridondanza locale replica i dati in un'unità di scala di archiviazione. [Altre informazioni](../storage/common/storage-redundancy.md)
-  - **Archiviazione con ridondanza geografica**: per proteggersi da interruzioni a livello di area, è possibile usare GRS. Il GRS replica i dati in un'area secondaria. [Altre informazioni](../storage/common/storage-redundancy.md)
+  - **Archiviazione con ridondanza locale (con ridondanza locale)**: per evitare errori in un Data Center, è possibile usare con ridondanza locale. L'archiviazione con ridondanza locale replica i dati in un'unità di scala di archiviazione. [Altre informazioni](../storage/common/storage-redundancy.md#locally-redundant-storage)
+  - **Archiviazione con ridondanza geografica**: per proteggersi da interruzioni a livello di area, è possibile usare GRS. Il GRS replica i dati in un'area secondaria. [Altre informazioni](../storage/common/storage-redundancy.md#geo-redundant-storage)
+  - **Archiviazione con ridondanza della zona (ZRS)**: replica i dati nelle [zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), garantendo la residenza e la resilienza dei dati nella stessa area. [Scopri di più](../storage/common/storage-redundancy.md#zone-redundant-storage)
   - Per impostazione predefinita, gli insiemi di credenziali dei servizi di ripristino usano GRS.
+
+Gli insiemi di credenziali dei servizi di ripristino offrono le seguenti funzionalità aggiuntive:
+
+- In ogni sottoscrizione di Azure è possibile creare fino a 500 insiemi di credenziali.
 
 ## <a name="backup-agents"></a>Agenti di backup
 

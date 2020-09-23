@@ -10,16 +10,16 @@ ms.subservice: core
 ms.date: 01/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 8c97ee9782f728e39175ed2517b64020ca4169f4
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 39000a34d1d19026ce406eeb996f89d1acc7ea04
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649411"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897369"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>Creazione, esecuzione ed eliminazione di risorse di Azure ML con REST
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Esistono diversi modi per gestire le risorse di Azure ML. È possibile usare il [portale](https://portal.azure.com/), l' [interfaccia della riga di comando](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)o [Python SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true). In alternativa, è possibile scegliere l'API REST. L'API REST usa verbi HTTP in modo standard per creare, recuperare, aggiornare ed eliminare le risorse. L'API REST funziona con qualsiasi linguaggio o strumento in grado di effettuare richieste HTTP. La struttura semplice di REST lo rende spesso una scelta ottimale negli ambienti di scripting e nell'automazione MLOps. 
 
@@ -202,7 +202,7 @@ providers/Microsoft.MachineLearningServices/workspaces/{your-workspace-name}/mod
 
 Si noti che per elencare gli esperimenti il percorso inizia con `history/v1.0` while per elencare i modelli, il percorso inizia con `modelmanagement/v1.0` . L'API REST è divisa in diversi gruppi operativi, ognuno con un percorso distinto. 
 
-|Area|Path|
+|Area|Percorso|
 |-|-|
 |Artifacts|/rest/api/azureml|
 |Archivi dati|/azure/machine-learning/how-to-access-data|
@@ -423,5 +423,5 @@ L'area di lavoro di Azure Machine Learning usa il Registro Azure Container (ACR)
 ## <a name="next-steps"></a>Passaggi successivi
 
 - Esplorare il [riferimento all'API REST AzureML](https://docs.microsoft.com/rest/api/azureml/)completo.
-- Informazioni su come usare Studio & designer per [stimare il prezzo delle automobili con la finestra di progettazione (anteprima)](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score).
+- Informazioni su come usare la finestra di progettazione per [stimare il prezzo delle automobili con la finestra di progettazione](https://docs.microsoft.com/azure/machine-learning/tutorial-designer-automobile-price-train-score).
 - Esplora [Azure Machine Learning con Jupyter notebook](https://docs.microsoft.com/azure//machine-learning/samples-notebooks).

@@ -10,16 +10,14 @@ ms.date: 06/10/2020
 ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.topic: quickstart
-ms.openlocfilehash: 9b89c0a4135bf595991439dd47e57a870ea2b0d1
-ms.sourcegitcommit: b33c9ad17598d7e4d66fe11d511daa78b4b8b330
+ms.openlocfilehash: 8f83cdb09b94fb7eda1f8f700390be8b2c2147e0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88855071"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883158"
 ---
 # <a name="quickstart-create-an-ubuntu-data-science-virtual-machine-using-an-arm-template"></a>Avvio rapido: Creare una Data Science Virtual Machine Ubuntu con un modello di Resource Manager
-
-[!INCLUDE [applies-to-skus](../../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Questa guida di avvio rapido illustra come creare una Data Science Virtual Machine Ubuntu 18.04 usando un modello di Azure Resource Manager. Le Data Science Virtual Machine sono macchine virtuali basate su cloud in cui è precaricata una suite di framework e strumenti di data science e Machine Learning. Quando vengono distribuiti in risorse di calcolo basate su GPU, tutti gli strumenti e le librerie sono configurati per l'utilizzo della GPU.
 

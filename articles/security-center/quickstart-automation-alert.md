@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.custom: subject-armqs
 ms.author: memildin
 ms.date: 08/20/2020
-ms.openlocfilehash: ecef318978194ac3773c54e2d9c960781086de65
-ms.sourcegitcommit: 56cbd6d97cb52e61ceb6d3894abe1977713354d9
+ms.openlocfilehash: 6c8a3d6c291435a379a637707a42f9ad7fe8dc00
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88687218"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906350"
 ---
 # <a name="quickstart-create-an-automatic-response-to-a-specific-security-alert-using-an-azure-resource-manager-template-arm-template"></a>Avvio rapido: Creare una risposta automatica a uno specifico avviso di sicurezza usando un modello di Azure Resource Manager
 
@@ -73,9 +73,7 @@ Usare il portale di Azure per verificare che l'automazione del flusso di lavoro 
 1. Nel [portale di Azure](https://portal.azure.com) aprire **Centro sicurezza**.
 1. Sulla barra dei menu superiore selezionare l'icona del filtro, quindi selezionare la sottoscrizione specifica in cui è stata distribuita la nuova automazione del flusso di lavoro.
 1. Sulla barra laterale del Centro sicurezza aprire **Automazione del flusso di lavoro** e cercare la nuova automazione.
-
-    :::image type="content" source="./media/quickstart-automation-alert/validating-template-run.png" alt-text="Testo alternativo immagine." lightbox="./media/quickstart-automation-alert/validating-template-run.png":::
-
+    :::image type="content" source="./media/quickstart-automation-alert/validating-template-run.png" alt-text="Elenco delle automazioni configurate" lightbox="./media/quickstart-automation-alert/validating-template-run.png":::
     >[!TIP]
     > Se nella sottoscrizione sono presenti molte automazioni del flusso di lavoro, usare l'opzione del **filtro per nome**. 
 
@@ -86,11 +84,9 @@ Quando non è più necessaria, eliminare l'automazione del flusso di lavoro usan
 1. Nel [portale di Azure](https://portal.azure.com) aprire **Centro sicurezza**.
 1. Sulla barra dei menu superiore selezionare l'icona del filtro, quindi selezionare la sottoscrizione specifica in cui è stata distribuita la nuova automazione del flusso di lavoro.
 1. Sulla barra laterale del Centro sicurezza aprire **Automazione del flusso di lavoro** e cercare l'automazione da eliminare.
-
-    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Testo alternativo immagine." lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
-
+    :::image type="content" source="./media/quickstart-automation-alert/deleting-workflow-automation.png" alt-text="Procedura per la rimozione di un'automazione del flusso di lavoro" lightbox="./media/quickstart-automation-alert/deleting-workflow-automation.png":::
 1. Selezionare la casella di controllo per l'elemento da eliminare.
-1. Sulla barra degli strumenti selezionare Elimina.
+1. Sulla barra degli strumenti selezionare **Elimina**.
 
 
 ## <a name="next-steps"></a>Passaggi successivi

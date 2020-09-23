@@ -1,5 +1,5 @@
 ---
-title: Compilare modelli ML con la finestra di progettazione (anteprima)
+title: Compilare modelli ML con la finestra di progettazione
 titleSuffix: Azure Machine Learning
 description: Informazioni su termini, concetti e flussi di lavoro che costituiscono la finestra di progettazione per Azure Machine Learning.
 services: machine-learning
@@ -10,15 +10,15 @@ ms.author: peterlu
 author: peterclu
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 788eebaf28a768acbdb5b1eb778f196fe05dc3e3
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: c92351131a60b571a102b85f7d11b79ab29d939e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651220"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883123"
 ---
-# <a name="what-is-azure-machine-learning-designer-preview"></a>Che cos'è la finestra di progettazione di Azure Machine Learning (anteprima)? 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="what-is-azure-machine-learning-designer"></a>Che cos'è Azure Machine Learning Designer? 
+
 
 La finestra di progettazione di Azure Machine Learning consente di connettere in modo visivo [set di dati](#datasets) e [moduli](#module) in un pannello Canvas interattivo per creare modelli di Machine Learning. Per informazioni su come iniziare a usare la finestra di progettazione, vedere [Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione](tutorial-designer-automobile-price-train-score.md)
 
@@ -118,5 +118,5 @@ La finestra di progettazione crea lo stesso oggetto [PublishedPipeline](https://
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-* Informazioni sulle nozioni di base sull'analisi predittiva e Machine Learning con l'[Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione](tutorial-designer-automobile-price-train-score.md)
+* Informazioni sui concetti fondamentali sull'analisi predittiva e su Machine Learning con l'[Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione](tutorial-designer-automobile-price-train-score.md)
 * Informazioni su come modificare gli [esempi della finestra di progettazione](samples-designer.md) esistenti per adattarli alle proprie esigenze.

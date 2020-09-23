@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: 7ff135911742c49c2c52ce30d1dca00bc89b3a56
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a64d5cebfd8e70e2f54a66193a7041c47887c54a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84450095"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898904"
 ---
 # <a name="apply-image-transformation"></a>Apply Image Transformation 
 
-Questo articolo descrive come usare il modulo Apply Image Transformation in Azure Machine Learning Designer (Preview) per modificare la directory di un'immagine di input in base a una trasformazione immagine precedentemente specificata.  
+Questo articolo descrive come usare il modulo Apply Image Transformation in Azure Machine Learning Designer per modificare una directory di immagini di input in base a una trasformazione immagine precedentemente specificata.  
 
 È necessario connettere un modulo [init Image Transformation](init-image-transformation.md) per specificare la trasformazione, quindi è possibile applicare tale trasformazione alla directory di input Image del modulo Apply Image Transformation.
 
@@ -49,18 +49,18 @@ Questo articolo descrive come usare il modulo Apply Image Transformation in Azur
 
 | Nome | Range | Type | Predefinito                   | Descrizione                              |
 | ---- | ----- | ---- | ------------------------- | ---------------------------------------- |
-| Mode | Qualsiasi   | Mode | (Richiedere all'utente di specificare) | Per quale scopo si usa la trasformazione input. È necessario escludere le operazioni di trasformazione ' Random ' nell'inferenza ma mantenerle nel training |
+| Mode | Qualsiasi   | Modalità | (Richiedere all'utente di specificare) | Per quale scopo si usa la trasformazione input. È necessario escludere le operazioni di trasformazione ' Random ' nell'inferenza ma mantenerle nel training |
 
 ### <a name="expected-inputs"></a>Input previsti  
 
-| Nome                       | Type                    | Description                       |
+| Nome                       | Tipo                    | Descrizione                       |
 | -------------------------- | ----------------------- | --------------------------------- |
 | Trasformazione immagine di input | TransformationDirectory | Trasformazione immagine di input        |
 | Directory dell'immagine di input      | ImageDirectory          | Directory dell'immagine da trasformare |
 
 ### <a name="outputs"></a>Output  
 
-| Nome                   | Type           | Description            |
+| Nome                   | Tipo           | Descrizione            |
 | ---------------------- | -------------- | ---------------------- |
 | Directory dell'immagine di output | ImageDirectory | Directory dell'immagine di output |
 

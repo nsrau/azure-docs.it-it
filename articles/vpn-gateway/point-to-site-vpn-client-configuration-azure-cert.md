@@ -1,19 +1,19 @@
 ---
 title: 'Creare & installare i file di configurazione del client VPN P2S: autenticazione del certificato'
 titleSuffix: Azure VPN Gateway
-description: Creare e installare i file di configurazione del client VPN in Windows, Linux, Linux (strongSwan) e Mac OS X per l'autenticazione del certificato da punto a sito.
+description: Creare e installare i file di configurazione del client VPN di Windows, Linux, Linux (strongSwan) e macOS X per l'autenticazione del certificato P2S.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
 ms.date: 09/02/2020
 ms.author: cherylmc
-ms.openlocfilehash: 17a9339fff27a0fbd7fa389933d21ef85e29248b
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 3a7a9711f04a4b54459d57a05ae65b4eedf1d6b6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89420779"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986638"
 ---
 # <a name="create-and-install-vpn-client-configuration-files-for-native-azure-certificate-authentication-p2s-configurations"></a>Creare e installare i file di configurazione del client VPN per le configurazioni da punto a sito con autenticazione del certificato nativa di Azure
 
@@ -96,7 +96,7 @@ Usare questa procedura per configurare il client VPN nativo in Mac per l'autenti
 
    Il valore di **Interface** (Interfaccia) è "VPN" e quello di **Tipo VPN** è "IKEv2". Specificare un nome per il profilo nel campo **Nome servizio** e quindi fare clic su **Crea** per creare il profilo di connessione del client VPN.
 
-   ![network](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
+   ![Screenshot mostra la finestra di rete con l'opzione per selezionare un'interfaccia, selezionare il tipo di VPN e immettere un nome di servizio.](./media/point-to-site-vpn-client-configuration-azure-cert/network.png)
 4. Nella cartella **Generic** copiare il valore del tag **VpnServer** dal file **VpnSettings.xml**. Incollare tale valore nei campi **Server Address** (Indirizzo server) e **Remote ID** (ID remoto) del profilo.
 
    ![Informazioni sul server](./media/point-to-site-vpn-client-configuration-azure-cert/server.png)
@@ -106,14 +106,14 @@ Usare questa procedura per configurare il client VPN nativo in Mac per l'autenti
 
    * Per Catalina selezionare **nessuno** e quindi **certificato**. **Selezionare** il certificato corretto:
    
-   ![Catalina](./media/point-to-site-vpn-client-configuration-azure-cert/catalina.png)
+   ![Screenshot mostra la finestra di rete con nessuna selezione per le impostazioni di autenticazione e il certificato selezionato.](./media/point-to-site-vpn-client-configuration-azure-cert/catalina.png)
 
 6. Fare clic su **Seleziona...** per scegliere il certificato client da usare per l'autenticazione. Questo è il certificato installato nel passaggio 2.
 
-   ![certificato](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
+   ![Screenshot mostra la finestra di rete con le impostazioni di autenticazione, in cui è possibile selezionare un certificato.](./media/point-to-site-vpn-client-configuration-azure-cert/certificate.png)
 7. In **Choose An Identity** (Scegli identità) viene visualizzato un elenco dei certificati tra cui scegliere. Selezionare il certificato corretto e quindi **Continua**.
 
-   ![identity](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
+   ![Screenshot mostra la finestra di dialogo scegliere un'identità in cui è possibile selezionare il certificato appropriato.](./media/point-to-site-vpn-client-configuration-azure-cert/identity.png)
 8. Nel campo **Local ID** (ID locale) specificare il nome del certificato (dal passaggio 6). In questo esempio è "ikev2Client.com". Fare quindi clic sul pulsante **Applica** per salvare le modifiche.
 
    ![apply](./media/point-to-site-vpn-client-configuration-azure-cert/applyconnect.png)
@@ -213,4 +213,4 @@ Tornare all'articolo per [completare la configurazione della connessione da punt
 Per risolvere i problemi relativi alle connessioni da punto a sito, vedere gli articoli seguenti:
 
   * [Risoluzione dei problemi di connessione da punto a sito di Azure](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md)
-  * [Risolvere i problemi di connessione VPN dai client Mac OS X](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)
+  * [Risolvere i problemi relativi alle connessioni VPN da client VPN macOS X](vpn-gateway-troubleshoot-point-to-site-osx-ikev2.md)

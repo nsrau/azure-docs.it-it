@@ -1,6 +1,6 @@
 ---
-title: Eseguire il backup e il ripristino di database-Azure SQL Edge (anteprima)
-description: Informazioni sulle funzionalità di backup e ripristino in Azure SQL Edge (anteprima).
+title: Eseguire il backup e il ripristino di database-Azure SQL Edge
+description: Informazioni sulle funzionalità di backup e ripristino in Azure SQL Edge.
 keywords: ''
 services: sql-edge
 ms.service: sql-edge
@@ -9,16 +9,16 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 05/19/2020
-ms.openlocfilehash: 92a37babbcc0bbba3845267ca2eb0f95b9fceafa
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f2cc8901ee3952f7d258d768e175412254ec5d1a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84667863"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905953"
 ---
-# <a name="back-up-and-restore-databases-in-azure-sql-edge-preview"></a>Eseguire il backup e il ripristino di database in Azure SQL Edge (anteprima) 
+# <a name="back-up-and-restore-databases-in-azure-sql-edge"></a>Eseguire il backup e il ripristino di database in Azure SQL Edge 
 
-Azure SQL Edge è basato sulle versioni più recenti del Microsoft SQL Server motore di database in Linux. Offre funzionalità di database di backup e ripristino simili a quelle disponibili in SQL Server in Linux e SQL Server in esecuzione nei contenitori. Il componente di backup e ripristino offre una protezione essenziale per la protezione dei dati archiviati nei database di Azure SQL Edge. 
+Azure SQL Edge è basato sulle versioni più recenti di Microsoft SQL motore di database. Offre funzionalità di database di backup e ripristino simili a quelle disponibili in SQL Server in Linux e SQL Server in esecuzione nei contenitori. Il componente di backup e ripristino offre una protezione essenziale per la protezione dei dati archiviati nei database di Azure SQL Edge. 
 
 Per ridurre al minimo il rischio di una perdita di dati irreversibile, è consigliabile eseguire periodicamente il backup dei database per mantenere le modifiche ai dati a intervalli regolari. Una strategia di backup e ripristino ben pianificata aiuta a proteggere i database dalla perdita di dati dovuta a vari errori. Testare la strategia ripristinando un set di backup e quindi recuperando il database per prepararsi a rispondere in modo efficace a una situazione di emergenza.
 
@@ -75,7 +75,7 @@ Nell'esempio seguente viene usato il `BACKUP DATABASE` comando Transact-SQL per 
 
 ### <a name="back-up-to-url"></a>URL di Backup in
 
-SQL Edge di Azure supporta i backup sia sui BLOB di pagine che sui BLOB in blocchi. Per altre informazioni, vedere [backup di BLOB in blocchi e BLOB di pagine](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url?view=sql-server-ver15#blockbloborpageblob). Nell'esempio seguente viene eseguito il backup del database *IronOreSilicaPrediction* in un BLOB in blocchi. 
+SQL Edge di Azure supporta i backup sia sui BLOB di pagine che sui BLOB in blocchi. Per altre informazioni, vedere [backup di BLOB in blocchi e BLOB di pagine](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url#blockbloborpageblob). Nell'esempio seguente viene eseguito il backup del database *IronOreSilicaPrediction* in un BLOB in blocchi. 
 
 1. Per configurare i backup per i BLOB in blocchi, è necessario innanzitutto generare un token di firma di accesso condiviso che è possibile usare per creare una credenziale di SQL Server in Azure SQL Edge. Lo script crea una firma di accesso condiviso associata a un criterio di accesso archiviato. Per altre informazioni, vedere [firme di accesso condiviso, parte 1: informazioni sul modello SAS](https://azure.microsoft.com/documentation/articles/storage-dotnet-shared-access-signature-part-1/). Lo script scrive inoltre il comando T-SQL necessario per creare le credenziali in SQL Server. Lo script seguente presuppone che sia già presente una sottoscrizione di Azure con un account di archiviazione e un contenitore di archiviazione per i backup.
 
@@ -133,7 +133,10 @@ SQL Edge di Azure supporta i backup sia sui BLOB di pagine che sui BLOB in blocc
 
 ## <a name="restore-a-database-in-azure-sql-edge"></a>Ripristinare un database in Azure SQL Edge
 
-In Azure SQL Edge è possibile eseguire il ripristino da un disco locale, da un percorso di rete o da un account di archiviazione BLOB di Azure. Per ulteriori informazioni sul ripristino e il ripristino in SQL Server, vedere Panoramica del ripristino [e del ripristino](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server?view=sql-server-ver15). Per una panoramica del modello di recupero con registrazione minima in SQL Server, vedere [ripristini di database completi (modello di recupero con registrazione minima)](https://docs.microsoft.com/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model?view=sql-server-ver15).
+In Azure SQL Edge è possibile eseguire il ripristino da un disco locale, da un percorso di rete o da un account di archiviazione BLOB di Azure. Per ulteriori informazioni sul ripristino e il ripristino in SQL Server, vedere Panoramica del ripristino [e del ripristino](https://docs.microsoft.com/sql/relational-databases/backup-restore/restore-and-recovery-overview-sql-server). Per una panoramica del modello di recupero con registrazione minima in SQL Server, vedere [ripristini di database completi (modello di recupero con registrazione minima)](https://docs.microsoft.com/sql/relational-databases/backup-restore/complete-database-restores-simple-recovery-model).
+
+> [!IMPORTANT] 
+> Non è possibile ripristinare i database creati in Azure SQL Edge in un'istanza di Microsoft SQL Server o Azure SQL. Inoltre, è possibile ripristinare un database creato in Microsoft SQL Server o Azure SQL in Azure SQL Edge, purché il database non contenga le funzionalità non supportate da Azure SQL Edge. 
 
 ### <a name="restore-from-a-local-disk"></a>Ripristinare da un disco locale
 

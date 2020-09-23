@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 73e8f0de9f879498acb71e97fa47c81b3447252d
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: edf35fada4233fbe43bc7f859c2414bfb8130714
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84749604"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905723"
 ---
 # <a name="train-anomaly-detection-model-module"></a>Modulo Train Anomaly Detection Model
 
-Questo articolo descrive come usare il modulo Train Anomaly Detection Model in Azure Machine Learning Designer (Preview) per creare un modello di rilevamento delle anomalie con training.
+Questo articolo descrive come usare il modulo Train Anomaly Detection Model in Azure Machine Learning Designer per creare un modello di rilevamento anomalie sottoposto a training.
 
 Il modulo accetta come input un set di parametri per un modello di rilevamento delle anomalie e un set di dati senza etichetta. Restituisce un modello di rilevamento delle anomalie con training, insieme a un set di etichette per i dati di training.  
 
@@ -53,5 +53,5 @@ Al termine del training:
 
 Vedere il [set di moduli disponibili](module-reference.md) per Azure Machine Learning. 
 
-Vedere [le eccezioni e i codici di errore per la finestra di progettazione (anteprima)](designer-error-codes.md) per un elenco di errori specifici dei moduli della finestra di progettazione.
+Vedere [le eccezioni e i codici di errore per la finestra di progettazione](designer-error-codes.md) per un elenco di errori specifici dei moduli della finestra di progettazione.
 '
