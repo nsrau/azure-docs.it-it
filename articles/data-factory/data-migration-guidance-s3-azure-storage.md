@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 8/04/2019
-ms.openlocfilehash: 3f40ad7346219b48a38ade38b2a75ddf71940875
-ms.sourcegitcommit: 849bb1729b89d075eed579aa36395bf4d29f3bd9
+ms.openlocfilehash: 5de1ef97050f37bb44d87ebae1d95df365952ace
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 04/28/2020
-ms.locfileid: "81416424"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984888"
 ---
 # <a name="use-azure-data-factory-to-migrate-data-from-amazon-s3-to-azure-storage"></a>Usare Azure Data Factory per eseguire la migrazione dei dati da un archivio dati Amazon S3 ad Archiviazione di Azure 
 
@@ -37,7 +37,7 @@ ADF offre un'architettura serverless che consente il parallelismo a livelli dive
 
 I clienti hanno completato la migrazione di petabyte di dati costituiti da centinaia di milioni di file da Amazon S3 ad Archiviazione BLOB di Azure, con una velocità effettiva prolungata di 2 GBps e superiore. 
 
-![prestazioni](media/data-migration-guidance-s3-to-azure-storage/performance.png)
+![Il diagramma mostra diverse partizioni di file in un archivio S3 a W S con le azioni di copia associate all'archivio BLOB di Azure A D L S Gen2.](media/data-migration-guidance-s3-to-azure-storage/performance.png)
 
 L'immagine precedente illustra come è possibile ottenere velocità di spostamento di dati eccezionali mediante diversi livelli di parallelismo:
  
@@ -61,7 +61,7 @@ In alternativa, se non si vuole trasferire i dati mediante Internet pubblico, è
 
 Migrazione di dati su Internet pubblico:
 
-![soluzione-architettura-pubblico-rete](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-public-network.png)
+![Il diagramma mostra la migrazione tramite Internet da parte di H T P da un archivio S3 a W S tramite Azure Integration Runtime in un da D F Azure ad archiviazione di Azure. Il runtime dispone di un canale di controllo con Data Factory.](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-public-network.png)
 
 - In questa architettura i dati vengono trasferiti in modo sicuro tramite HTTPS su rete Internet pubblica. 
 - Sia l'origine Amazon S3 sia Archiviazione BLOB di Azure di destinazione o Azure Data Lake Storage Gen2 sono configurati per consentire il traffico da tutti gli indirizzi IP di rete.  Vedere la seconda architettura riportata di seguito sulla modalità di limitazione dell'accesso di rete a un intervallo di indirizzi IP specifico. 
@@ -70,7 +70,7 @@ Migrazione di dati su Internet pubblico:
 
 Eseguire la migrazione di dati mediante un collegamento privato: 
 
-![soluzione-architettura-privato-rete](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-private-network.png)
+![Il diagramma mostra la migrazione tramite una connessione peering privata da un archivio S3 A W S tramite il runtime di integrazione self-hosted in macchine virtuali di Azure agli endpoint del servizio V NET in archiviazione di Azure. Il runtime dispone di un canale di controllo con Data Factory.](media/data-migration-guidance-s3-to-azure-storage/solution-architecture-private-network.png)
 
 - In questa architettura, la migrazione dei dati viene eseguita mediante un collegamento peering privato tra AWS Direct Connect e Azure Express Route in modo che i dati non attraversino mai la rete Internet pubblica.  Richiede l'uso di VPC AWS e della rete virtuale di Azure. 
 - Per ottenere questa architettura è necessario installare il runtime di integrazione self-hosted di ADF su una macchina virtuale Windows nella rete virtuale di Azure.  È possibile aumentare manualmente le prestazioni delle macchine virtuali con runtime di integrazione self-hosted o aumentare le istanze in più macchine virtuali (fino a 4 nodi) per usare completamente la rete e le operazioni di I/O al secondo della larghezza di banda di archiviazione. 
@@ -122,7 +122,7 @@ Quando si verificano errori di limitazione delle richieste segnalati dall'attivi
 
 Si consideri la pipeline seguente costruita per la migrazione dei dati da S3 ad Archiviazione BLOB di Azure: 
 
-![prezzi-pipeline](media/data-migration-guidance-s3-to-azure-storage/pricing-pipeline.png)
+![Il diagramma mostra una pipeline per la migrazione dei dati, con il flusso di trigger manuale alla ricerca, il flusso a ForEach, il passaggio a una sottopipeline per ogni partizione che contiene il flusso di copia alla stored procedure. Al di fuori della pipeline, la stored procedure passa ad Azure SQL D B, che passa alla ricerca e a W S S3 Flows da copiare, che scorre nell'archivio BLOB.](media/data-migration-guidance-s3-to-azure-storage/pricing-pipeline.png)
 
 Si supponga quanto segue: 
 
@@ -135,7 +135,7 @@ Si supponga quanto segue:
 
 Ecco il prezzo stimato in base ai presupposti precedenti: 
 
-![prezzi-tabella](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
+![Lo screenshot di una tabella mostra un prezzo stimato.](media/data-migration-guidance-s3-to-azure-storage/pricing-table.png)
 
 ### <a name="additional-references"></a>Riferimenti aggiuntivi 
 - [Copiare dati da Amazon Simple Storage Service usando Azure Data Factory](https://docs.microsoft.com/azure/data-factory/connector-amazon-simple-storage-service)

@@ -1,7 +1,7 @@
 ---
-title: 'Esercitazione: Distribuire modelli di ML con la finestra di progettazione (anteprima)'
+title: 'Esercitazione: Distribuire modelli di ML con la finestra di progettazione'
 titleSuffix: Azure Machine Learning
-description: Questa esercitazione mostra come creare una soluzione di analisi predittiva nella finestra di progettazione di Azure Machine Learning (anteprima). Eseguire il training, assegnare punteggi e distribuire un modello di Machine Learning usando moduli con trascinamento della selezione.
+description: Questa esercitazione mostra come creare una soluzione di analisi predittiva nella finestra di progettazione di Azure Machine Learning. Eseguire il training, assegnare punteggi e distribuire un modello di Machine Learning usando moduli con trascinamento della selezione.
 author: peterclu
 ms.author: peterlu
 services: machine-learning
@@ -10,15 +10,15 @@ ms.subservice: core
 ms.topic: tutorial
 ms.date: 06/28/2020
 ms.custom: designer
-ms.openlocfilehash: 453971d776a0953a344d147bca387a81f65ac73c
-ms.sourcegitcommit: dccb85aed33d9251048024faf7ef23c94d695145
+ms.openlocfilehash: a4923e48c890a50d642d937f014e466e998171cf
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87287969"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896629"
 ---
-# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer-preview"></a>Esercitazione: Distribuire un modello di Machine Learning con la finestra di progettazione (anteprima)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="tutorial-deploy-a-machine-learning-model-with-the-designer"></a>Esercitazione: Distribuire un modello di Machine Learning con la finestra di progettazione
+
 
 È possibile distribuire il modello predittivo sviluppato nella [prima parte dell'esercitazione](tutorial-designer-automobile-price-train-score.md) per offrire ad altri la possibilità di usarlo. Nella prima parte è stato eseguito il training del modello. Ora è il momento di generare nuove stime in base all'input dell'utente. In questa parte dell'esercitazione si apprenderà come:
 

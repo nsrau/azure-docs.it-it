@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2019
 ms.author: memildin
-ms.openlocfilehash: a636acab42d14925f507568e8a9fff4693c8f71c
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 7f235f9255df49c096e224e1754ad2bbdf664423
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519644"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90895823"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>Esercitazione: Migliorare la conformità alle normative
 ---
@@ -35,8 +35,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-Per esaminare le funzionalità descritte in questa esercitazione è necessario il piano tariffario Standard del Centro sicurezza. È possibile provare il livello Standard del Centro sicurezza gratuitamente.
-Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/). La [Guida introduttiva per il Centro sicurezza di Azure ](https://docs.microsoft.com/azure/security-center/security-center-get-started) illustra come eseguire l'aggiornamento al livello Standard.
+Per esaminare le funzionalità descritte in questa esercitazione, [Azure Defender deve essere abilitato](azure-defender.md). È possibile provare Azure Defender gratuitamente per 30 giorni.
 
 ##  <a name="assess-your-regulatory-compliance"></a>Valutare la conformità alle normative
 
@@ -72,13 +71,13 @@ In base alle informazioni riportate nel dashboard Conformità alle normative, è
 
 1.  È possibile selezionare una determinata risorsa per visualizzare altri dettagli e risolvere la relativa raccomandazione. <br>Nella scheda dello standard **Azure CIS**, ad esempio, si può fare clic sulla raccomandazione **Richiedi il trasferimento sicuro nell'account di archiviazione**.
 
-    ![Raccomandazione sulla conformità](./media/security-center-compliance-dashboard/compliance-recommendation.png)
+    ![Selezione della raccomandazione **Richiedi il trasferimento sicuro nell'account di archiviazione**](./media/security-center-compliance-dashboard/compliance-recommendation.png)
 
 1. Facendo clic sulle informazioni della raccomandazione e selezionando una risorsa non integra, si accede direttamente all'esperienza per abilitare il **trasferimento sicuro** per l'account di archiviazione nel portale di Azure.
 
     Per altre informazioni su come applicare le raccomandazioni, leggere l'articolo [Gestione delle raccomandazioni di sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md).
 
-    ![Raccomandazione sulla conformità](./media/security-center-compliance-dashboard/compliance-remediate-recommendation.png)
+    ![Configurazione dell'account di archiviazione](./media/security-center-compliance-dashboard/compliance-remediate-recommendation.png)
 
 1.  Dopo l'intervento per la risoluzione delle raccomandazioni, l'impatto sarà visibile nel report del dashboard relativo alla conformità tramite il miglioramento del punteggio di conformità.
 

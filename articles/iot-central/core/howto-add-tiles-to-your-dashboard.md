@@ -7,12 +7,12 @@ ms.date: 05/27/2020
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 892bdcc08bd19b92c8b3d32d2954583f80005e87
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: beeb771ea5053dd0ad867a7568aa64bbb2d0b4ed
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84022881"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985268"
 ---
 # <a name="configure-the-application-dashboard"></a>Configurare il dashboard dell'applicazione
 
@@ -51,11 +51,11 @@ Per personalizzare un riquadro nel dashboard, è necessario che il dashboard si 
 
 La tabella seguente descrive i diversi tipi di riquadro che è possibile aggiungere a un dashboard:
 
-| Riquadro             | Descrizione |
+| Tile             | Descrizione |
 | ---------------- | ----------- |
 | Markdown         | I riquadri Markdown sono riquadri selezionabili che visualizzano un testo di intestazione e descrizione formattato usando Markdown. L'URL può essere un collegamento relativo a un'altra pagina dell'applicazione o un collegamento assoluto a un sito esterno.|
-| Image            | I riquadri immagine visualizzano un'immagine personalizzata e possono essere selezionabili. L'URL può essere un collegamento relativo a un'altra pagina dell'applicazione o un collegamento assoluto a un sito esterno.|
-| Label            | I riquadri etichetta visualizzano testo personalizzato in un dashboard. È possibile scegliere la dimensione del testo. Usare un riquadro etichetta per aggiungere informazioni pertinenti al dashboard, ad esempio descrizioni, dettagli di contatto o informazioni della Guida.|
+| Immagine            | I riquadri immagine visualizzano un'immagine personalizzata e possono essere selezionabili. L'URL può essere un collegamento relativo a un'altra pagina dell'applicazione o un collegamento assoluto a un sito esterno.|
+| Etichetta            | I riquadri etichetta visualizzano testo personalizzato in un dashboard. È possibile scegliere la dimensione del testo. Usare un riquadro etichetta per aggiungere informazioni pertinenti al dashboard, ad esempio descrizioni, dettagli di contatto o informazioni della Guida.|
 | Conteggio            | I riquadri conteggio visualizzano il numero di dispositivi in un gruppo di dispositivi.|
 | Mappa              | I riquadri mappa visualizzano la posizione di uno o più dispositivi su una mappa. È anche possibile visualizzare fino a 100 punti della cronologia della posizione di un dispositivo. Ad esempio, è possibile visualizzare la route campionata in cui si è verificato un dispositivo nella settimana precedente.|
 | KPI              |  I riquadri KPI visualizzano i valori di telemetria aggregati per uno o più dispositivi in un periodo di tempo. Ad esempio, è possibile usarlo per mostrare la temperatura massima e la pressione raggiunta per uno o più dispositivi nell'ultima ora.|
@@ -79,7 +79,19 @@ Per i grafici a linee, i grafici a barre e i grafici a torta, è possibile perso
 
 Per i riquadri che mostrano le proprietà di stringa o i valori di telemetria, è possibile scegliere come visualizzare il testo. Se, ad esempio, il dispositivo archivia un URL in una proprietà di stringa, è possibile visualizzarlo come collegamento selezionabile. Se l'URL fa riferimento a un'immagine, è possibile eseguire il rendering dell'immagine in un riquadro ultimo valore noto o proprietà. Per modificare la modalità di visualizzazione di una stringa, selezionare l'icona a forma di ingranaggio accanto alla proprietà o al tipo di telemetria:
 
-:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Chana la visualizzazione di una stringa in un riquadro":::
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/string-customization.png" alt-text="Modificare il modo in cui una stringa viene visualizzata in un riquadro":::
+
+Per **indicatori KPI**numerici, **ultimo valore noto**e riquadri delle **proprietà** , è possibile usare la formattazione condizionale per personalizzare il colore del riquadro in base al relativo valore corrente. Per aggiungere la formattazione condizionale, selezionare **Configura** nel riquadro, quindi selezionare l'icona **formattazione condizionale** accanto al valore da personalizzare:
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-1.png" alt-text="Screenshot che illustra come trovare l'opzione Configura per un riquadro e quindi l'icona formattazione condizionale":::
+
+Aggiungere le regole di formattazione condizionale:
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-2.png" alt-text="Screenshot che illustra le regole di formattazione condizionale per il flusso medio. Sono disponibili tre regole: meno 20 è verde, minore di 50 è gialla e tutto il valore di 50 è rosso":::
+
+Lo screenshot seguente mostra l'effetto della regola di formattazione condizionale:
+
+:::image type="content" source="media/howto-add-tiles-to-your-dashboard/conditional-formatting-3.png" alt-text="Screenshot che mostra il colore di sfondo giallo nel riquadro medio del flusso d'acqua. Il numero sul riquadro è 40,84":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

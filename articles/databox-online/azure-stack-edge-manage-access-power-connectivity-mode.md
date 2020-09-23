@@ -1,6 +1,6 @@
 ---
-title: Modalità di accesso, alimentazione e connettività del dispositivo Azure Stack Edge | Microsoft Docs
-description: Viene descritto come gestire l'accesso, l'alimentazione e la modalità di connettività per il dispositivo Azure Stack Edge che consente di trasferire i dati in Azure
+title: Modalità di accesso, alimentazione e connettività dei dispositivi Pro di Azure Stack Edge | Microsoft Docs
+description: Viene descritto come gestire l'accesso, l'alimentazione e la modalità di connettività per il dispositivo Pro Azure Stack Edge che consente di trasferire i dati in Azure
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/24/2019
 ms.author: alkohli
-ms.openlocfilehash: 75e7a43d545bea63d553ad01836ed5c6ebc2dcc9
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: e0e2ac43ce0157b4917e9c45f6a02ace63432137
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079796"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904426"
 ---
-# <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge"></a>Gestire l'accesso, l'alimentazione e la modalità di connettività per il Azure Stack Edge
+# <a name="manage-access-power-and-connectivity-mode-for-your-azure-stack-edge-pro"></a>Gestire l'accesso, l'alimentazione e la modalità di connettività per il Azure Stack Edge Pro
 
-Questo articolo descrive come gestire l'accesso, la potenza e la modalità di connettività per il Azure Stack Edge. Queste operazioni vengono eseguite tramite l'interfaccia utente Web locale o il portale di Azure.
+Questo articolo descrive come gestire l'accesso, la potenza e la modalità di connettività per il Azure Stack Edge Pro. Queste operazioni vengono eseguite tramite l'interfaccia utente Web locale o il portale di Azure.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -29,7 +29,7 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 ## <a name="manage-device-access"></a>Gestire l'accesso al dispositivo
 
-L'accesso al dispositivo Azure Stack Edge è controllato dall'uso di una password del dispositivo. È possibile modificare la password tramite l'interfaccia utente Web locale. È anche possibile reimpostare la password del dispositivo nel portale di Azure.
+L'accesso al dispositivo Azure Stack Edge Pro è controllato dall'uso di una password del dispositivo. È possibile modificare la password tramite l'interfaccia utente Web locale. È anche possibile reimpostare la password del dispositivo nel portale di Azure.
 
 ### <a name="change-device-password"></a>Modificare la password del dispositivo
 
@@ -61,12 +61,12 @@ Per creare il Azure Stack Edge/Data Box Gateway, l'hub Internet e la risorsa di 
 
 ### <a name="manage-microsoft-graph-api-permissions"></a>Gestisci autorizzazioni API Microsoft Graph
 
-Quando si genera la chiave di attivazione per il dispositivo Azure Stack Edge o si eseguono operazioni che richiedono credenziali, è necessario disporre delle autorizzazioni per Azure Active Directory API Graph. Le operazioni che richiedono credenziali potrebbero essere:
+Quando si genera la chiave di attivazione per il dispositivo Azure Stack Edge Pro o si eseguono operazioni che richiedono credenziali, è necessario disporre delle autorizzazioni per Azure Active Directory API Graph. Le operazioni che richiedono credenziali potrebbero essere:
 
 -  Creazione di una condivisione con un account di archiviazione associato.
 -  Creazione di un utente che può accedere alle condivisioni nel dispositivo.
 
-È necessario avere `User` accesso al tenant di Active Directory, perché è necessario poterlo `Read all directory objects` . Non è possibile essere un utente guest perché non dispongono delle autorizzazioni per `Read all directory objects` . Se si è un Guest, le operazioni, ad esempio la generazione di una chiave di attivazione, la creazione di una condivisione sul dispositivo Azure Stack Edge, la creazione di un utente, la configurazione del ruolo di calcolo Edge e la reimpostazione della password del dispositivo avranno esito negativo.
+È necessario avere `User` accesso al tenant di Active Directory, perché è necessario poterlo `Read all directory objects` . Non è possibile essere un utente guest perché non dispongono delle autorizzazioni per `Read all directory objects` . Se si è un Guest, le operazioni, ad esempio la generazione di una chiave di attivazione, la creazione di una condivisione sul dispositivo Azure Stack Edge Pro, la creazione di un utente, la configurazione del ruolo di calcolo Edge e la reimpostazione della password del dispositivo avranno esito negativo.
 
 Per altre informazioni su come fornire l'accesso agli utenti per Microsoft Graph API, vedere [Microsoft Graph le autorizzazioni di riferimento](https://docs.microsoft.com/graph/permissions-reference).
 
@@ -89,7 +89,7 @@ Per ottenere un elenco dei provider di risorse registrati nella sottoscrizione c
 Get-AzResourceProvider -ListAvailable |where {$_.Registrationstate -eq "Registered"}
 ```
 
-Per il dispositivo Azure Stack Edge, `Microsoft.DataBoxEdge` deve essere registrato. Per `Microsoft.DataBoxEdge` eseguire la registrazione, l'amministratore della sottoscrizione deve eseguire il comando seguente:
+Per il dispositivo Azure Stack Edge Pro, `Microsoft.DataBoxEdge` deve essere registrato. Per `Microsoft.DataBoxEdge` eseguire la registrazione, l'amministratore della sottoscrizione deve eseguire il comando seguente:
 
 ```PowerShell
 Register-AzResourceProvider -ProviderNamespace Microsoft.DataBoxEdge

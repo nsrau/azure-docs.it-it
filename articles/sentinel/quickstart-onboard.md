@@ -9,18 +9,18 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.date: 04/27/2020
-ms.openlocfilehash: 3efd0303b447242c0229bc71720e55c8aa3a2f2d
-ms.sourcegitcommit: 37afde27ac137ab2e675b2b0492559287822fded
+ms.openlocfilehash: e9d7c99a123bd92bf55a33c8d1faaf7da55d3e36
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88566251"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889029"
 ---
 # <a name="quickstart-on-board-azure-sentinel"></a>Avvio rapido: Caricare dati in Azure Sentinel
 
 Questa Guida introduttiva illustra come caricare dati in Azure Sentinel. 
 
-Per caricare dati in Azure Sentinel, è necessario prima abilitare Azure Sentinel e quindi connettere le origini dati. Azure Sentinel include numerosi connettori predefiniti per l'integrazione in tempo reale con le soluzioni Microsoft, comprese le soluzioni Microsoft Threat Protection e origini Microsoft 365, tra cui Office 365, Azure AD, Azure ATP, Microsoft Cloud App Security e altre ancora. Inoltre, sono presenti connettori predefiniti a soluzioni non Microsoft, per l'ecosistema di sicurezza allargato. Per connettere le origini dati con Azure Sentinel è anche possibile usare CEF (Common Event Format), Syslog o API REST.  
+Per caricare dati in Azure Sentinel, è necessario prima abilitare Azure Sentinel e quindi connettere le origini dati. Azure Sentinel include numerosi connettori predefiniti per l'integrazione in tempo reale con le soluzioni Microsoft, comprese le soluzioni Microsoft 365 Defender (in precedenza Microsoft Threat Protection), origini Microsoft 365 (tra cui Office 365), Azure AD, Microsoft Defender for Identity (in precedenza Azure ATP), Microsoft Cloud App Security, avvisi di Azure Defender dal Centro sicurezza di Azure e altro ancora. Inoltre, sono presenti connettori predefiniti a soluzioni non Microsoft, per l'ecosistema di sicurezza allargato. Per connettere le origini dati con Azure Sentinel è anche possibile usare CEF (Common Event Format), Syslog o API REST. 
 
 Dopo aver connesso le origini dati, è possibile effettuare una scelta in una raccolta di cartelle di lavoro create in maniera specialistica per far emergere informazioni dettagliate in base ai dati. Tali cartelle di lavoro possono essere facilmente personalizzate in base alle esigenze.
 
@@ -45,13 +45,13 @@ Dopo aver connesso le origini dati, è possibile effettuare una scelta in una ra
 
 1. Cercare e selezionare **Azure Sentinel**.
 
-   ![ricerca](./media/quickstart-onboard/search-product.png)
+   ![Ricerca di servizi](./media/quickstart-onboard/search-product.png)
 
 1. Selezionare **Aggiungi**.
 
 1. Selezionare l'area di lavoro da usare o crearne una nuova. È possibile eseguire Azure Sentinel in più di un'area di lavoro, ma i dati sono isolati in una singola area di lavoro.
 
-   ![ricerca](./media/quickstart-onboard/choose-workspace.png)
+   ![Scegliere un'area di lavoro](./media/quickstart-onboard/choose-workspace.png)
 
    >[!NOTE] 
    > - Le aree di lavoro predefinite create in Centro sicurezza di Azure non vengono visualizzate nell'elenco e non è possibile installare Azure Sentinel in tali aree.
@@ -64,7 +64,6 @@ Dopo aver connesso le origini dati, è possibile effettuare una scelta in una ra
    >   Se l'area di lavoro è già stata spostata, disabilitare tutte le regole attive in **Analytics** e abilitarle di nuovo dopo cinque minuti. Questa operazione dovrebbe essere efficace nella maggior parte dei casi, tuttavia, come già detto, non è supportata e viene eseguita a proprio rischio.
 
 1. Selezionare **Aggiungi Azure Sentinel**.
-  
 
 ## <a name="connect-data-sources"></a>Connettere le origini dati
 

@@ -5,12 +5,12 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 04/16/2019
 ms.custom: mvc, devx-track-azurepowershell
-ms.openlocfilehash: 4a97a084b11b34f97e0c020f367ec730d8dfb079
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5e83c599ceed76927f2a313f78c83638d708f1bb
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89075733"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985135"
 ---
 # <a name="back-up-a-virtual-machine-in-azure-with-powershell"></a>Eseguire il backup di una macchina virtuale in Azure con PowerShell
 
@@ -46,7 +46,7 @@ Quando viene creato l'insieme di credenziali:
 
 - Per il gruppo di risorse e la località, specificare il gruppo di risorse e la località della VM di cui eseguire il backup.
 - Se la VM è stata creata usando lo [script di esempio](../virtual-machines/scripts/virtual-machines-windows-powershell-sample-create-vm.md?toc=%2fpowershell%2fmodule%2ftoc.json), il gruppo di risorse è **myResourceGroup**, la VM è ***myVM** e le risorse si trovano nell'area **WestEuropa**.
-- Backup di Azure gestisce automaticamente l'archiviazione per i dati sottoposti a backup. Per impostazione predefinita, l'insieme di credenziali usa l'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy.md). Con l'archiviazione con ridondanza geografica i dati di backup vengono replicati in un'area di Azure secondaria a centinaia di chilometri di distanza dall'area primaria.
+- Backup di Azure gestisce automaticamente l'archiviazione per i dati sottoposti a backup. Per impostazione predefinita, l'insieme di credenziali usa l'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy.md#geo-redundant-storage). Con l'archiviazione con ridondanza geografica i dati di backup vengono replicati in un'area di Azure secondaria a centinaia di chilometri di distanza dall'area primaria.
 
 Creare ora un insieme di credenziali:
 

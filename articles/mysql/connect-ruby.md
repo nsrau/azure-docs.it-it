@@ -8,12 +8,12 @@ ms.custom: mvc
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 15bbce208475a85e7be6efbadebcb4e43c2d8d17
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 8bedb7177c93eecd13f64d151c56baf5a394e0c2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029104"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896274"
 ---
 # <a name="quickstart-use-ruby-to-connect-and-query-data-in-azure-database-for-mysql"></a>Avvio rapido: Usare Ruby per connettersi ai dati ed eseguire query in Database di Azure per MySQL
 
@@ -25,11 +25,11 @@ Questa guida introduttiva usa le risorse create in una delle guide seguenti come
 - [Create an Azure Database for MySQL server using Azure portal](./quickstart-create-mysql-server-database-using-azure-portal.md) (Creare un database di Azure per il server MySQL usando il portale di Azure)
 - [Creare un database di Azure per il server MySQL tramite l'interfaccia della riga di comando di Azure](./quickstart-create-mysql-server-database-using-azure-cli.md)
 
-> [!IMPORTANT] 
+> [!IMPORTANT]
 > Verificare che l'indirizzo IP da cui ci si sta connettendo sia stato aggiunto alle regole del firewall del server usando il [portale di Azure](./howto-manage-firewall-using-portal.md) o l’[interfaccia della riga di comando di Azure](./howto-manage-firewall-using-cli.md)
 
 ## <a name="install-ruby"></a>Installare Ruby
-Installare Ruby, Gem e la libreria MySQL2 nel computer. 
+Installare Ruby, Gem e la libreria MySQL2 nel computer.
 
 ### <a name="windows"></a>Windows
 1. Scaricare e installare la versione 2.3 di [Ruby](https://rubyinstaller.org/downloads/).
@@ -61,9 +61,9 @@ Ottenere le informazioni di connessione necessarie per connettersi al database d
 2. Nel menu a sinistra nel portale di Azure fare clic su **Tutte le risorse** e quindi cercare il server creato, ad esempio **mydemoserver**.
 3. Fare clic sul nome del server.
 4. Nel pannello **Panoramica** del server prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server**. Se si dimentica la password, in questo pannello è anche possibile reimpostarla.
- ![Nome del server del database di Azure per MySQL](./media/connect-ruby/1_server-overview-name-login.png)
+ :::image type="content" source="./media/connect-ruby/1_server-overview-name-login.png" alt-text="Nome del server del database di Azure per MySQL":::
 
-## <a name="run-ruby-code"></a>Eseguire il codice Ruby 
+## <a name="run-ruby-code"></a>Eseguire il codice Ruby
 1. Incollare in file di testo il codice Ruby riportato nelle sezioni seguenti, quindi salvare i file nella cartella del progetto con l'estensione rb, ad esempio `C:\rubymysql\createtable.rb` o `/home/username/rubymysql/createtable.rb`.
 2. Per eseguire il codice, avviare il prompt dei comandi o la shell Bash. Passare alla cartella del progetto `cd rubymysql`
 3. Per eseguire l'applicazione, digitare quindi il comando Ruby seguito dal nome del file, ad esempio `ruby createtable.rb`.
@@ -72,9 +72,9 @@ Ottenere le informazioni di connessione necessarie per connettersi al database d
 ## <a name="connect-and-create-a-table"></a>Connettersi e creare una tabella
 Usare il codice seguente per connettersi e creare una tabella usando l'istruzione SQL **CREATE TABLE**, seguita dalle istruzioni SQL **INSERT INTO** per aggiungere righe nella tabella.
 
-Il codice usa un metodo [mysql2::client](https://www.rubydoc.info/gems/mysql2) class .new() per la connessione ad Azure Database per MySQL. Chiama quindi il metodo [query()](https://www.rubydoc.info/gems/mysql2#Usage) più volte per eseguire i comandi DROP, CREATE TABLE e INSERT INTO. Chiama infine il metodo [close()](https://www.rubydoc.info/gems/mysql2/Mysql2/Client#close-instance_method) per chiudere la connessione prima di terminare.
+Il codice usa una classe [mysql2::client](https://www.rubydoc.info/gems/mysql2) per connettersi al server MySQL. Chiama quindi il metodo ```query()``` per eseguire i comandi DROP, CREATE TABLE e INSERT INTO. Chiama infine ```close()``` per chiudere la connessione prima di terminare.
 
-Sostituire le stringhe `host`, `database`, `username` e `password` con valori personalizzati. 
+Sostituire le stringhe `host`, `database`, `username` e `password` con valori personalizzati.
 ```ruby
 require 'mysql2'
 
@@ -115,11 +115,11 @@ end
 ```
 
 ## <a name="read-data"></a>Leggere i dati
-Usare il codice seguente per connettersi e leggere i dati usando un'istruzione SQL **SELECT**. 
+Usare il codice seguente per connettersi e leggere i dati usando un'istruzione SQL **SELECT**.
 
-Il codice usa un metodo [mysql2::client](https://www.rubydoc.info/gems/mysql2) class.new() per la connessione a Database di Azure per MySQL. Chiama quindi il metodo [query()](https://www.rubydoc.info/gems/mysql2#Usage) per eseguire i comandi SELECT. Chiama infine il metodo [close()](https://www.rubydoc.info/gems/mysql2/Mysql2/Client#close-instance_method) per chiudere la connessione prima di terminare.
+Il codice usa una classe [mysql2::client](https://www.rubydoc.info/gems/mysql2) per la connessione a Database di Azure per MySQL con il metodo ```new()```. Chiama quindi il metodo ```query()``` per eseguire i comandi SELECT. Chiama infine il metodo ```close()``` per chiudere la connessione prima di terminare.
 
-Sostituire le stringhe `host`, `database`, `username` e `password` con valori personalizzati. 
+Sostituire le stringhe `host`, `database`, `username` e `password` con valori personalizzati.
 
 ```ruby
 require 'mysql2'
@@ -156,9 +156,9 @@ end
 ## <a name="update-data"></a>Aggiornare i dati
 Usare il codice seguente per connettersi e aggiornare i dati usando un'istruzione SQL **UPDATE**.
 
-Il codice usa un metodo [mysql2::client](https://www.rubydoc.info/gems/mysql2) class .new() per la connessione ad Azure Database per MySQL. Chiama quindi il metodo [query()](https://www.rubydoc.info/gems/mysql2#Usage) per eseguire i comandi UPDATE. Chiama infine il metodo [close()](https://www.rubydoc.info/gems/mysql2/Mysql2/Client#close-instance_method) per chiudere la connessione prima di terminare.
+Il codice usa un metodo [mysql2::client](https://www.rubydoc.info/gems/mysql2) class .new() per la connessione ad Azure Database per MySQL. Chiama quindi il metodo ```query()``` per eseguire i comandi UPDATE. Chiama infine il metodo ```close()``` per chiudere la connessione prima di terminare.
 
-Sostituire le stringhe `host`, `database`, `username` e `password` con valori personalizzati. 
+Sostituire le stringhe `host`, `database`, `username` e `password` con valori personalizzati.
 
 ```ruby
 require 'mysql2'
@@ -191,11 +191,11 @@ end
 
 
 ## <a name="delete-data"></a>Eliminare i dati
-Usare il codice seguente per connettersi e leggere i dati usando un'istruzione SQL **DELETE**. 
+Usare il codice seguente per connettersi e leggere i dati usando un'istruzione SQL **DELETE**.
 
-Il codice usa un metodo [mysql2::client](https://www.rubydoc.info/gems/mysql2) class .new() per la connessione ad Azure Database per MySQL. Chiama quindi il metodo [query()](https://www.rubydoc.info/gems/mysql2#Usage) per eseguire i comandi DELETE. Chiama infine il metodo [close()](https://www.rubydoc.info/gems/mysql2/Mysql2/Client#close-instance_method) per chiudere la connessione prima di terminare.
+Il codice usa una classe [mysql2::client](https://rubygems.org/gems/mysql2/) per connettersi al server MySQL, eseguire il comando DELETE e quindi chiudere la connessione al server.
 
-Sostituire le stringhe `host`, `database`, `username` e `password` con valori personalizzati. 
+Sostituire le stringhe `host`, `database`, `username` e `password` con valori personalizzati.
 
 ```ruby
 require 'mysql2'
@@ -228,4 +228,8 @@ end
 
 ## <a name="next-steps"></a>Passaggi successivi
 > [!div class="nextstepaction"]
-> [Eseguire la migrazione del database usando le funzionalità di esportazione e importazione](./concepts-migrate-import-export.md)
+> [Eseguire la migrazione del database usando le funzionalità di esportazione e importazione](./concepts-migrate-import-export.md) <br/>
+
+> [!div class="nextstepaction"]
+> [Altre informazioni sul client MySQL2](https://www.rubydoc.info/gems/mysql2) <br/>
+

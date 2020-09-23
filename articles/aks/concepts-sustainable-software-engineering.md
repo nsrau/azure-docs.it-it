@@ -4,18 +4,18 @@ description: Scopri di più sulla progettazione software sostenibile in Azure Ku
 services: container-service
 ms.topic: conceptual
 ms.date: 08/26/2020
-ms.openlocfilehash: bc2240b3cb8508109f6dd25c4c80ff31ba197cfd
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 2457de7bdaa94a6e2269515fafe6689d44960625
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89086092"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984981"
 ---
-# <a name="sustainable-software-engineering-principals-in-azure-kubernetes-service-aks"></a>Entità di progettazione software sostenibili in Azure Kubernetes Service (AKS)
+# <a name="sustainable-software-engineering-principles-in-azure-kubernetes-service-aks"></a>Principi di progettazione software sostenibili in Azure Kubernetes Service (AKS)
 
-Le entità di progettazione software sostenibili sono un insieme di competenze che consentono di definire, compilare ed eseguire applicazioni sostenibili. L'obiettivo complessivo è quello di ridurre l'impronta di carbonio di ogni aspetto dell'applicazione. Il [progetto principis. Green][principals-green] offre una panoramica delle entità di ingegneria del software sostenibile.
+I principi di progettazione software sostenibili sono un insieme di competenze che consentono di definire, compilare ed eseguire applicazioni sostenibili. L'obiettivo complessivo è quello di ridurre l'impronta di carbonio di ogni aspetto dell'applicazione. Il [progetto principis. Green][principles-green] offre una panoramica dei principi della progettazione software sostenibile.
 
-Un'idea importante da comprendere sull'ingegneria del software sostenibile è che si tratta di un cambiamento delle priorità e dello stato attivo. In molti casi, il software viene progettato ed eseguito in modo da incentrarsi sulle prestazioni veloci e sulla bassa latenza. L'ingegneria del software sostenibile è incentrata sulla riduzione del minor consumo possibile di emissioni di CO2. In alcuni casi, l'applicazione di entità di progettazione software sostenibili può offrire prestazioni più elevate o una minore latenza, ad esempio abbassando il totale dei viaggi di rete. In altri casi, la riduzione delle emissioni di CO2 può causare un rallentamento delle prestazioni o una maggiore latenza, ad esempio ritardare i carichi di lavoro con priorità bassa. Prima di prendere in considerazione l'applicazione di entità di ingegneria software sostenibili alla propria applicazione, rivedere le priorità, le esigenze e i compromessi dell'applicazione.
+Un'idea importante da comprendere sull'ingegneria del software sostenibile è che si tratta di un cambiamento delle priorità e dello stato attivo. In molti casi, il software viene progettato ed eseguito in modo da incentrarsi sulle prestazioni veloci e sulla bassa latenza. L'ingegneria del software sostenibile è incentrata sulla riduzione del minor consumo possibile di emissioni di CO2. In alcuni casi, l'applicazione di principi di progettazione software sostenibili può offrire prestazioni più elevate o una minore latenza, ad esempio abbassando il totale dei viaggi di rete. In altri casi, la riduzione delle emissioni di CO2 può causare un rallentamento delle prestazioni o una maggiore latenza, ad esempio ritardare i carichi di lavoro con priorità bassa. Prima di prendere in considerazione l'applicazione dei principi di progettazione software sostenibili alla propria applicazione, rivedere le priorità, le esigenze e i compromessi dell'applicazione.
 
 ## <a name="measure-and-optimize"></a>Misura e ottimizza
 
@@ -74,4 +74,4 @@ Altre informazioni sulle funzionalità di AKS citate in questo articolo:
 [node-sizing]: use-multiple-node-pools.md#specify-a-vm-size-for-a-node-pool
 [sustainability-calculator]: https://azure.microsoft.com/blog/microsoft-sustainability-calculator-helps-enterprises-analyze-the-carbon-emissions-of-their-it-infrastructure/
 [system-pools]: use-system-pools.md
-[principals-green]: https://principles.green/
+[principles-green]: https://principles.green/

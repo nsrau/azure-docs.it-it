@@ -4,16 +4,16 @@ titleSuffix: Azure Digital Twins
 description: Vedere come connettere le app per la logica ai dispositivi gemelli digitali di Azure usando un connettore personalizzato
 author: baanders
 ms.author: baanders
-ms.date: 8/14/2020
+ms.date: 9/11/2020
 ms.topic: how-to
 ms.service: digital-twins
 ms.reviewer: baanders
-ms.openlocfilehash: 20959709854f8366cc067437fe86c245fcbc3ef0
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: 09181a28edf21f0a4da11a244d3c094469446ab5
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89401062"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983480"
 ---
 # <a name="integrate-with-logic-apps-using-a-custom-connector"></a>Eseguire l'integrazione con app per la logica usando un connettore personalizzato
 
@@ -26,8 +26,12 @@ In questo articolo si userà il [portale di Azure](https://portal.azure.com) per
 ## <a name="prerequisites"></a>Prerequisiti
 
 Se non si ha una sottoscrizione di Azure, **creare un [account gratuito](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)** prima di iniziare.
+Accedere al [portale di Azure](https://portal.azure.com) con questo account. 
 
-Accedere al [portale di Azure](https://portal.azure.com) con questo account.
+Nella parte restante di questa sezione vengono illustrati i passaggi seguenti:
+- Configurare un'istanza di Gemelli digitali di Azure
+- Ottenere il segreto client di registrazione dell'app
+- Aggiungere un dispositivo gemello digitale
 
 ### <a name="set-up-azure-digital-twins-instance"></a>Configurare l'istanza di Gemelli digitali di Azure
 
@@ -49,7 +53,12 @@ Premere i *certificati e i segreti* dal menu della registrazione e selezionare *
 :::image type="content" source="media/how-to-integrate-logic-apps/client-secret.png" alt-text="Visualizzazione del portale di una registrazione dell'app Azure AD. Nel menu delle risorse è presente un'evidenziazione dei certificati e dei segreti e un'evidenziazione nella pagina relativa alla nuova chiave privata del client":::
 
 Immettere i valori desiderati per la descrizione e la scadenza, quindi fare clic su *Aggiungi*.
-Il segreto verrà aggiunto all'elenco dei segreti client nella pagina *certificati e segreti* . Prendere nota del valore da usare in seguito (è anche possibile copiarlo negli Appunti con l'icona di copia).
+
+:::image type="content" source="media/how-to-integrate-logic-apps/add-client-secret.png" alt-text="Aggiungi segreto client":::
+
+Verificare ora che il segreto client sia visibile nella pagina _certificati & segreti_ con i campi _scadenza_ e _valore_ . Prendere nota del _valore_ da usare in un secondo momento. è anche possibile copiarlo negli Appunti con l'icona di copia.
+
+:::image type="content" source="media/how-to-integrate-logic-apps/client-secret-value.png" alt-text="Copia valore segreto client":::
 
 ### <a name="add-a-digital-twin"></a>Aggiungere un dispositivo gemello digitale
 
@@ -65,11 +74,15 @@ In questo passaggio verrà creato un [connettore personalizzato](../logic-apps/c
 
 Passare alla pagina del [connettore personalizzato app](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Web%2FcustomApis) per la logica nel portale di Azure (è possibile usare questo collegamento o cercarlo nella barra di ricerca del portale). Premere *+ Aggiungi*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="Pagina connettore personalizzato app per la logica nel portale di Azure. Evidenzia intorno al pulsante Aggiungi":::
+:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-custom-connector.png" alt-text="Pagina "connettore personalizzato app per la logica" nel portale di Azure. Evidenzia intorno al pulsante "Aggiungi"":::
 
-Nella pagina *Crea connettore personalizzato app* per la logica che segue selezionare la sottoscrizione e il gruppo di risorse e un nome e un percorso di distribuzione per il nuovo connettore. Hit *Review + crea*. Verrà visualizzata la scheda *Verifica + crea* , in cui è possibile fare clic su *Crea* nella parte inferiore per creare la risorsa.
+Nella pagina *Crea connettore personalizzato app* per la logica che segue selezionare la sottoscrizione e il gruppo di risorse e un nome e un percorso di distribuzione per il nuovo connettore. Hit *Review + crea*. 
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="Scheda ' Rivedi + crea ' della pagina ' Crea connettore personalizzato per app per la logica ' nel portale di Azure. Evidenzia intorno al pulsante ' Crea '":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-apps-custom-connector.png" alt-text="La pagina ' Crea connettore personalizzato per app per la logica ' nel portale di Azure.":::
+
+Verrà visualizzata la scheda *Verifica + crea* , in cui è possibile fare clic su *Crea* nella parte inferiore per creare la risorsa.
+
+:::image type="content" source="media/how-to-integrate-logic-apps/review-logic-apps-custom-connector.png" alt-text="La scheda "verifica e crea" della pagina "esaminare il connettore personalizzato per app per la logica" nel portale di Azure. Evidenzia intorno al pulsante ' Crea '":::
 
 Si passerà alla pagina di distribuzione per il connettore. Al termine della distribuzione, fare clic sul pulsante *Vai alla risorsa* per visualizzare i dettagli del connettore nel portale.
 
@@ -81,7 +94,7 @@ Prima di tutto, scaricare un'app personalizzata dei gemelli digitali di Azure ch
 
 Quindi, passare alla pagina Panoramica del connettore nel [portale di Azure](https://portal.azure.com) e fare clic su *modifica*.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="Pagina Overview per il connettore creato nel passaggio precedente. Evidenzia intorno al pulsante ' modifica '":::
+:::image type="content" source="media/how-to-integrate-logic-apps/edit-connector.png" alt-text="Pagina "Overview" per il connettore creato nel passaggio precedente. Evidenzia intorno al pulsante ' modifica '":::
 
 Nella pagina *modifica connettore personalizzato app* per la logica che segue configurare queste informazioni:
 * **Connettori personalizzati**
@@ -89,14 +102,16 @@ Nella pagina *modifica connettore personalizzato app* per la logica che segue co
     - Modalità di importazione: file OpenAPI (lasciare l'impostazione predefinita)
     - File: si tratta del file di spavalderia personalizzato scaricato in precedenza. Premere *Importa*, individuare il file nel computer (*Azure_Digital_Twins_Custom_Swaggers\LogicApps\preview\2020-05-31-preview\digitaltwins.jsin*) e fare clic su *Apri*.
 * **Informazioni generali**
-    - Icona, colore di sfondo dell'icona, Descrizione: specificare tutti i valori desiderati.
+    - Icona: caricare un'icona che si desidera
+    - Colore di sfondo dell'icona: immettere il codice esadecimale nel formato "#xxxxxx" per il colore.
+    - Descrizione: specificare tutti i valori desiderati.
     - Schema: HTTPS (lasciare l'impostazione predefinita)
     - Host: *nome host* dell'istanza di Azure Digital gemelli.
     - URL di base:/(lasciare l'impostazione predefinita)
 
 Quindi, fare clic sul pulsante *sicurezza* nella parte inferiore della finestra per continuare con il passaggio di configurazione successivo.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/configure-next.png" alt-text="Screenshot della parte inferiore della pagina modifica connettore personalizzato app per la logica. Evidenziare il pulsante per passare alla sicurezza":::
+:::image type="content" source="media/how-to-integrate-logic-apps/configure-next.png" alt-text="Screenshot della parte inferiore della pagina "modifica connettore personalizzato app per la logica". Evidenziare il pulsante per passare alla sicurezza":::
 
 Nel passaggio sicurezza, fare clic su *modifica* e configurare queste informazioni:
 * **Tipo di autenticazione**: OAuth 2,0
@@ -112,13 +127,13 @@ Nel passaggio sicurezza, fare clic su *modifica* e configurare queste informazio
 
 Si noti che il campo URL di reindirizzamento dice *Salva il connettore personalizzato per generare l'URL di reindirizzamento*. A tale scopo, premere *Aggiorna connettore* nella parte superiore del riquadro per confermare le impostazioni del connettore.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Screenshot della parte superiore della pagina modifica connettore personalizzato app per la logica. Evidenziare il pulsante ' Aggiorna connettore '":::
+:::image type="content" source="media/how-to-integrate-logic-apps/update-connector.png" alt-text="Screenshot della parte superiore della pagina "modifica connettore personalizzato app per la logica". Evidenziare il pulsante ' Aggiorna connettore '":::
 
 <!-- Success message? didn't see one -->
 
 Tornare al campo URL di reindirizzamento e copiare il valore che è stato generato. Verrà usato nel passaggio successivo.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/copy-redirect-url.png" alt-text="Il campo URL di reindirizzamento nella pagina modifica connettore personalizzato app per la logica ha ora un valore di  https://logic-apis-westus2.consent.azure-apim.net/redirect . Il pulsante per la copia del valore è evidenziato.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/copy-redirect-url.png" alt-text="Il campo URL di reindirizzamento nella pagina "modifica connettore personalizzato app per la logica" ha ora un valore di " https://logic-apis-westus2.consent.azure-apim.net/redirect ". Il pulsante per la copia del valore è evidenziato.":::
 
 Si tratta di tutte le informazioni necessarie per creare il connettore (non è necessario continuare la protezione per la fase di definizione). È possibile chiudere il riquadro *modifica app per la logica del connettore personalizzato* .
 
@@ -133,11 +148,11 @@ Passare alla pagina [registrazioni app](https://portal.azure.com/#blade/Microsof
 
 In *autenticazione* dal menu della registrazione aggiungere un URI.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/add-uri.png" alt-text="Pagina di autenticazione per la registrazione dell'app nel portale di Azure. Authentication nel menu è evidenziato e nella pagina viene evidenziato il pulsante Aggiungi un URI."::: 
+:::image type="content" source="media/how-to-integrate-logic-apps/add-uri.png" alt-text="Pagina di autenticazione per la registrazione dell'app nel portale di Azure. "Authentication" nel menu è evidenziato e nella pagina viene evidenziato il pulsante "Aggiungi un URI"."::: 
 
 Immettere l' *URL di reindirizzamento* del connettore personalizzato nel nuovo campo e fare clic sull'icona *Salva* .
 
-:::image type="content" source="media/how-to-integrate-logic-apps/save-uri.png" alt-text="Pagina di autenticazione per la registrazione dell'app nel portale di Azure. Il nuovo URL di reindirizzamento è evidenziato e il pulsante Salva per la pagina.":::
+:::image type="content" source="media/how-to-integrate-logic-apps/save-uri.png" alt-text="Pagina di autenticazione per la registrazione dell'app nel portale di Azure. Il nuovo URL di reindirizzamento è evidenziato e il pulsante "Salva" per la pagina.":::
 
 A questo punto è stata eseguita la configurazione di un connettore personalizzato che può accedere alle API dei dispositivi gemelli digitali di Azure. 
 
@@ -145,11 +160,15 @@ A questo punto è stata eseguita la configurazione di un connettore personalizza
 
 Si creerà quindi un'app per la logica che userà il nuovo connettore per automatizzare gli aggiornamenti dei dispositivi gemelli digitali di Azure.
 
-Passare alla pagina [app](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Logic%2Fworkflows) per la logica nella portale di Azure (è possibile usare questo collegamento o cercarla nella barra di ricerca del portale). Toccare *Crea app*per la logica.
+Passare alla pagina [app per la logica (consumo)](https://portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Logic%2Fworkflows) nella portale di Azure (è possibile usare questo collegamento o cercarla nella barra di ricerca del portale). Fare clic sul pulsante *Aggiungi* per creare un'app per la logica.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="Pagina app per la logica nel portale di Azure. Evidenziare il pulsante ' Crea app per la logica '":::
+:::image type="content" source="media/how-to-integrate-logic-apps/create-logic-app.png" alt-text="La pagina ' app per la logica (consumo)' nella portale di Azure. Premere il pulsante ' Aggiungi '":::
 
-Nella pagina dell'app per la *logica* che segue selezionare la sottoscrizione e il gruppo di risorse e un nome e un percorso di distribuzione per la nuova app per la logica. Hit *Review + crea*. Verrà visualizzata la scheda *Verifica + crea* , in cui è possibile fare clic su *Crea* nella parte inferiore per creare la risorsa.
+Nella pagina *app per la logica (consumo)* riportata di seguito immettere la sottoscrizione, il gruppo di risorse. Scegliere anche un nome per l'app per la logica e selezionare il percorso.
+
+Selezionare il pulsante _Verifica + crea_ .
+
+Verrà visualizzata la scheda *Verifica + crea* , in cui è possibile esaminare i dettagli e fare clic su *Crea* nella parte inferiore per creare la risorsa.
 
 Si passerà alla pagina di distribuzione per l'app per la logica. Al termine della distribuzione, fare clic sul pulsante *Vai a risorsa* per passare alla *finestra di progettazione delle app*per la logica, in cui verrà compilata la logica del flusso di lavoro.
 
@@ -157,7 +176,7 @@ Si passerà alla pagina di distribuzione per l'app per la logica. Al termine del
 
 In *progettazione app*per la logica, in *inizia con un trigger comune*Selezionare _**ricorrenza**_.
 
-:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="La pagina progettazione app per la logica nel portale di Azure. Evidenzia intorno al trigger comune ricorrenza":::
+:::image type="content" source="media/how-to-integrate-logic-apps/logic-apps-designer-recurrence.png" alt-text="La pagina "progettazione app per la logica" nel portale di Azure. Evidenzia intorno al trigger comune "ricorrenza"":::
 
 Nella pagina della *finestra di progettazione di app* per la logica che segue, modificare la frequenza di **ricorrenza** in *secondo*, in modo che l'evento venga attivato ogni 3 secondi. In questo modo sarà più semplice visualizzare i risultati in un secondo momento senza dover attendere molto tempo.
 
@@ -172,11 +191,13 @@ Selezionarlo per visualizzare l'elenco delle API contenute in tale connettore. U
 È possibile che venga richiesto di accedere con le credenziali di Azure per connettersi al connettore. Se si riceve una finestra di dialogo per le *autorizzazioni richieste* , seguire le istruzioni per concedere il consenso per l'app e accettarle.
 
 Nella casella nuovo *DigitalTwinsAdd* compilare i campi come indicato di seguito:
-* ID: inserire l' *ID* del dispositivo gemello digitale nell'istanza che si vuole aggiornare all'app per la logica.
-* Elemento-1: questo campo è il punto in cui si immetterà il corpo richiesto dalla richiesta API scelta. Per *DigitalTwinsUpdate*, questo corpo è sotto forma di codice patch JSON. Per altre informazioni sulla strutturazione di una patch JSON per l'aggiornamento del dispositivo gemello, vedere la sezione relativa all' [aggiornamento di un dispositivo gemello digitale](how-to-manage-twin.md#update-a-digital-twin) di *How-to: Manage Digital gemells*.
-* API-Version: nell'anteprima pubblica corrente, questo valore è *2020-05-31-Preview*
+* _ID_: inserire l' *ID* del dispositivo gemello digitale nell'istanza che si vuole aggiornare all'app per la logica.
+* _gemello_: questo campo consente di immettere il corpo richiesto dalla richiesta API scelta. Per *DigitalTwinsUpdate*, questo corpo è sotto forma di codice patch JSON. Per altre informazioni sulla strutturazione di una patch JSON per l'aggiornamento del dispositivo gemello, vedere la sezione relativa all' [aggiornamento di un dispositivo gemello digitale](how-to-manage-twin.md#update-a-digital-twin) di *How-to: Manage Digital gemells*.
+* _API-Version_: nell'anteprima pubblica corrente, questo valore è *2020-05-31-Preview*
 
 Fare clic su *Salva* nella finestra di progettazione di app per la logica.
+
+È possibile scegliere altre operazioni selezionando _+ nuovo passaggio_ nella stessa finestra.
 
 :::image type="content" source="media/how-to-integrate-logic-apps/save-logic-app.png" alt-text="La visualizzazione dell'app è stata completata nel connettore app per la logica. La casella DigitalTwinsAdd è compilata con i valori descritti in precedenza, incluso un corpo patch JSON di esempio. Il pulsante ' Salva ' per la finestra è evidenziato.":::
 

@@ -3,12 +3,12 @@ title: Preparare il server DPM per il backup dei carichi di lavoro
 description: Questo articolo illustra come preparare i backup di System Center Data Protection Manager (DPM) in Azure usando il servizio backup di Azure.
 ms.topic: conceptual
 ms.date: 06/11/2020
-ms.openlocfilehash: 4534b75018fb91cedda00b8c1167012858c5e562
-ms.sourcegitcommit: 419cf179f9597936378ed5098ef77437dbf16295
+ms.openlocfilehash: 0089c3d86eb36b82287570ecdfd6e8c782e6fb8a
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/27/2020
-ms.locfileid: "89021035"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975462"
 ---
 # <a name="prepare-to-back-up-workloads-to-azure-with-system-center-dpm"></a>Preparare il backup dei carichi di lavoro in Azure con System Center DPM
 
@@ -61,7 +61,7 @@ Prima di iniziare è necessario disporre di un account di Azure su cui è abilit
 
 - Per impostazione predefinita, l'insieme di credenziali prevede l'archiviazione con ridondanza geografica.
 - Se l'insieme di credenziali è il backup primario, lasciare l'opzione impostata sull'archiviazione con ridondanza geografica. Se si vuole un'opzione più economica ma non altrettanto permanente, usare la procedura seguente per configurare l'archiviazione con ridondanza locale.
-- Informazioni sulle opzioni di archiviazione [di Azure](../storage/common/storage-redundancy.md), [con ridondanza geografica](../storage/common/storage-redundancy.md) e [con ridondanza locale](../storage/common/storage-redundancy.md).
+- Informazioni sull' [archiviazione di Azure](../storage/common/storage-redundancy.md)e sulle opzioni di archiviazione con ridondanza [geografica](../storage/common/storage-redundancy.md#geo-redundant-storage)e con ridondanza [locale](../storage/common/storage-redundancy.md#locally-redundant-storage) e con ridondanza della [zona](../storage/common/storage-redundancy.md#zone-redundant-storage) .
 - Modificare le impostazioni di archiviazione prima del backup iniziale. Se già stato eseguito il backup di un elemento, arrestare l'esecuzione del backup nell'insieme di credenziali prima di modificare le impostazioni di archiviazione.
 
 Per modificare le impostazioni di replica di archiviazione:
@@ -119,7 +119,7 @@ In ogni computer di cui viene eseguito il backup con Backup di Azure deve essere
     ![Apri impostazioni insieme di credenziali](./media/backup-azure-dpm-introduction/vault-settings-dpm.png)
 3. Nella pagina **Proprietà** scaricare l'agente di Backup di Azure.
 
-    ![Download](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
+    ![Scarica](./media/backup-azure-dpm-introduction/azure-backup-agent.png)
 
 4. Al termine del download eseguire MARSAgentInstaller.exe. per installare l'agente in un computer DPM.
 5. Selezionare una cartella di installazione e una cartella della cache per l'agente. Lo spazio disponibile nel percorso della cache deve essere almeno il 5% dei dati di backup.
@@ -165,7 +165,7 @@ In ogni computer di cui viene eseguito il backup con Backup di Azure deve essere
 
 7. Selezionare **Register (registra** ) per registrare il server DPM nell'insieme di credenziali.
 
-Dopo che il server è stato registrato correttamente nell'insieme di credenziali, è ora possibile iniziare a eseguire il backup Microsoft Azure. È necessario configurare il gruppo protezione dati nella console DPM per eseguire il backup dei carichi di lavoro in Azure. [Informazioni su come](/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-2019) distribuire i gruppi protezione dati.
+Dopo che il server è stato registrato correttamente nell'insieme di credenziali, è ora possibile iniziare a eseguire il backup Microsoft Azure. È necessario configurare il gruppo protezione dati nella console DPM per eseguire il backup dei carichi di lavoro in Azure. [Informazioni su come](/system-center/dpm/create-dpm-protection-groups) distribuire i gruppi protezione dati.
 
 ## <a name="troubleshoot-vault-credentials"></a>Risolvere i problemi dell'insieme di credenziali
 

@@ -1,6 +1,6 @@
 ---
 title: Ottimizzazione delle prestazioni con viste materializzate
-description: Raccomandazioni e considerazioni relative all'uso delle viste materializzate per migliorare le prestazioni delle query.
+description: Informazioni sulle raccomandazioni e le considerazioni che è necessario conoscere quando si usano viste materializzate per migliorare le prestazioni delle query.
 services: synapse-analytics
 author: XiaoyuMSFT
 manager: craigg
@@ -10,12 +10,12 @@ ms.subservice: sql-dw
 ms.date: 09/05/2019
 ms.author: xiaoyul
 ms.reviewer: nibruno; jrasnick
-ms.openlocfilehash: ddab106e11340dd040b99d1e8abf9d93e9338ab7
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 7c7109999d478121ba0251de8e7470bc0f38d64c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441205"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90984107"
 ---
 # <a name="performance-tune-with-materialized-views"></a>Ottimizzazione delle prestazioni con viste materializzate
 

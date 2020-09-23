@@ -1,6 +1,6 @@
 ---
-title: Limiti di Azure Stack Edge | Microsoft Docs
-description: Informazioni sui limiti e le dimensioni consigliate per la distribuzione e l'uso di Azure Stack Edge, inclusi i limiti del servizio, i limiti dei dispositivi e i limiti di archiviazione.
+title: Limiti per Pro Azure Stack Edge | Microsoft Docs
+description: Informazioni sui limiti e le dimensioni consigliate per la distribuzione e l'uso di Azure Stack Edge Pro, inclusi i limiti del servizio, i limiti dei dispositivi e i limiti di archiviazione.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,26 +8,26 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: e21f5a89d9f1f21eb99071a141794f99c07a8dfa
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 5f3c39ce7334145d3ffc1d54badb1f7b766da70f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079813"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904448"
 ---
-# <a name="azure-stack-edge-limits"></a>Limiti di Azure Stack Edge
+# <a name="azure-stack-edge-pro-limits"></a>Limiti di Azure Stack Edge Pro
 
-Considerare questi limiti quando si distribuisce e si utilizza la soluzione Microsoft Azure Stack Edge. 
+Considerare questi limiti quando si distribuisce e si utilizza la soluzione di Microsoft Azure Stack Edge Pro. 
 
 ## <a name="azure-stack-edge-service-limits"></a>Limiti dei servizi di Azure Stack Edge
 
 [!INCLUDE [data-box-edge-gateway-service-limits](../../includes/data-box-edge-gateway-service-limits.md)]
 
-## <a name="azure-stack-device-limits"></a>Limiti del dispositivo Azure Stack
+## <a name="azure-stack-edge-device-limits"></a>Limiti del dispositivo Azure Stack Edge
 
-La tabella seguente descrive i limiti per il dispositivo Azure Stack Edge. 
+La tabella seguente descrive i limiti per il dispositivo Azure Stack Edge Pro. 
 
-| Descrizione | valore |
+| Descrizione | Valore |
 |---|---|
 |No. di file per dispositivo |100 milioni |
 |No. di condivisioni per dispositivo |24 |
@@ -53,4 +53,4 @@ La tabella seguente descrive i limiti per il dispositivo Azure Stack Edge.
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-- [Preparare la distribuzione di Azure Stack Edge](azure-stack-edge-deploy-prep.md)
+- [Preparare la distribuzione di Azure Stack Edge Pro](azure-stack-edge-deploy-prep.md)

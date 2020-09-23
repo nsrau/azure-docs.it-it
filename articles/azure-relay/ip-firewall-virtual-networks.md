@@ -3,12 +3,12 @@ title: Configurare il firewall IP per spazio dei nomi di inoltro di Azure
 description: Questo articolo descrive come usare regole del firewall per consentire le connessioni da indirizzi IP specifici a spazi dei nomi di Inoltro di Azure.
 ms.topic: article
 ms.date: 06/23/2020
-ms.openlocfilehash: e47c5071a5fc7207d4eabc162fcb24ab6ad57d28
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 250158aff2ceb89e2823b711717f1d3a1cad438c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88141857"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90976011"
 ---
 # <a name="configure-ip-firewall-for-an-azure-relay-namespace"></a>Configurare un firewall per gli indirizzi IP per uno spazio dei nomi di Inoltro di Azure
 Per impostazione predefinita, gli spazi dei nomi di Inoltro sono accessibili da Internet, purché la richiesta sia accompagnata da un'autenticazione e da un'autorizzazione valide. Con un firewall per gli indirizzi IP, è possibile limitare ulteriormente l'accesso a un set di indirizzi IPv4 o a intervalli di indirizzi IPv4 in notazione [CIDR (Classless Inter-Domain Routing)](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing).
@@ -29,7 +29,7 @@ Questa sezione illustra come usare il portale di Azure per creare regole del fir
 1. Passare allo **Spazio dei nomi di inoltro** nel [portale di Azure](https://portal.azure.com).
 2. Nel menu a sinistra selezionare l'opzione **Rete**. Se si seleziona l'opzione **Tutte le reti** nella sezione **Consenti l'accesso da**, lo spazio dei nomi di inoltro accetta connessioni da qualsiasi indirizzo IP. Questa impostazione equivale a una regola che accetti l'intervallo di indirizzi IP 0.0.0.0/0. 
 
-    ![Opzione Firewall - Tutte le reti selezionata](./media/ip-firewall/all-networks-selected.png)
+    ![Screenshot mostra la pagina rete con l'opzione tutte le reti selezionata.](./media/ip-firewall/all-networks-selected.png)
 1. Per limitare l'accesso a reti e indirizzi IP specifici, selezionare l'opzione **Reti selezionate**. Nella sezione **Firewall** seguire questa procedura:
     1. Selezionare l'opzione **Aggiungere l'indirizzo IP client** per concedere all'IP del client corrente l'accesso allo spazio dei nomi. 
     2. Per **Intervallo di indirizzi** immettere un indirizzo IPv4 specifico o un intervallo di indirizzi IPv4 in notazione CIDR. 

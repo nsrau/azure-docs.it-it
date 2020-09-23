@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/02/2020
 ms.author: memildin
-ms.openlocfilehash: e5728b220f12c3305aa896e64010fc7e5828d6fb
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: ed73c4781b9fd9926e12910ca1eb2f71d2b99245
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067223"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904826"
 ---
 # <a name="permissions-in-azure-security-center"></a>Autorizzazioni nel Centro sicurezza di Azure
 
@@ -40,11 +40,11 @@ Oltre a questi ruoli, esistono due ruoli specifici del Centro sicurezza:
 
 La tabella seguente contiene i ruoli e le azioni consentite in Centro sicurezza.
 
-|Action|Lettore di sicurezza/ <br> Lettore |Amministrazione della protezione  |Collaboratore gruppo di risorse/ <br> Proprietario del gruppo di risorse  |Collaboratore alla sottoscrizione  |Proprietario della sottoscrizione  |
+|Azione|Lettore di sicurezza/ <br> Reader |Amministrazione della protezione  |Collaboratore gruppo di risorse/ <br> Proprietario del gruppo di risorse  |Collaboratore alla sottoscrizione  |Proprietario della sottoscrizione  |
 |:--- |:---:|:---:|:---:|:---:|:---:|
 |Modificare i criteri di sicurezza|-|✔|-|-|✔|
 |Aggiungere/assegnare iniziative (inclusi) standard di conformità alle normative|-|-|-|-|✔|
-|Modificare il piano tariffario della sottoscrizione|-|✔|-|-|✔|
+|Abilita/Disabilita Azure Defender|-|✔|-|-|✔|
 |Abilitare/disabilitare il provisioning automatico|-|✔|-|✔|✔|
 |Applicare i suggerimenti per la sicurezza per una risorsa</br> e usare la [correzione rapida.](security-center-remediate-recommendations.md#quick-fix-remediation)|-|-|✔|✔|✔|
 |Ignora avvisi|-|✔|-|✔|✔|

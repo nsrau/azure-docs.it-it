@@ -1,6 +1,6 @@
 ---
-title: Monitorare il dispositivo Azure Stack Edge | Microsoft Docs
-description: Descrive come usare il portale di Azure e l'interfaccia utente locale per monitorare Azure Stack Edge.
+title: Monitorare il dispositivo Azure Stack Edge Pro | Microsoft Docs
+description: Viene descritto come usare il portale di Azure e l'interfaccia utente Web locale per monitorare il Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: 9e4050a4a75432e8bcc840a2406660dce268c5a4
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: cd75eb0f7de602979f2233a873c01ef742471e37
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84339553"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904400"
 ---
-# <a name="monitor-your-azure-stack-edge"></a>Monitorare Azure Stack Edge
+# <a name="monitor-your-azure-stack-edge-pro"></a>Monitorare il Azure Stack Edge Pro
 
-Questo articolo descrive come monitorare Azure Stack Edge. Per monitorare il dispositivo, è possibile usare il portale di Azure o l'interfaccia utente Web locale. Usare il portale di Azure per visualizzare gli eventi del dispositivo, configurare e gestire gli avvisi e visualizzare le metriche. Usare l'interfaccia utente Web locale sul dispositivo fisico per visualizzare lo stato dell'hardware dei vari componenti del dispositivo.
+Questo articolo descrive come monitorare il Azure Stack Edge Pro. Per monitorare il dispositivo, è possibile usare il portale di Azure o l'interfaccia utente Web locale. Usare il portale di Azure per visualizzare gli eventi del dispositivo, configurare e gestire gli avvisi e visualizzare le metriche. Usare l'interfaccia utente Web locale sul dispositivo fisico per visualizzare lo stato dell'hardware dei vari componenti del dispositivo.
 
 In questo articolo vengono illustrate le operazioni seguenti:
 

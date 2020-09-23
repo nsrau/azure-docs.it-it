@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 09/14/2020
-ms.openlocfilehash: 5110f5fd09e360d1435e26312dd2ee2db6891cbb
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: a80e0f1b62257fdbce6598c9cc4088701cc2ae9c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90087185"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983617"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>Determinazione dei prezzi di Data Factory ed esempi
 
@@ -38,7 +38,7 @@ Per eseguire lo scenario è necessario creare una pipeline con gli elementi segu
 
 3. Un trigger di pianificazione per eseguire la pipeline ogni ora.
 
-   ![Scenario1](media/pricing-concepts/scenario1.png)
+   ![Il diagramma mostra una pipeline con un trigger di pianificazione. Nella pipeline, l'attività di copia passa a un set di dati di input, che passa a un servizio collegato a W S S3 e l'attività di copia passa anche a un set di dati di output, che scorre in un servizio collegato di archiviazione di Azure.](media/pricing-concepts/scenario1.png)
 
 | **Operazioni** | **Tipi e unità** |
 | --- | --- |
@@ -69,7 +69,7 @@ Per eseguire lo scenario è necessario creare una pipeline con gli elementi segu
 2. Una sola attività di Azure Databricks per la trasformazione dei dati.
 3. Un solo trigger di pianificazione per eseguire la pipeline ogni ora.
 
-![Scenario2](media/pricing-concepts/scenario2.png)
+![Il diagramma mostra una pipeline con un trigger di pianificazione. Nella pipeline, l'attività di copia scorre in un set di dati di input, un set di dati di output e un'attività databricks, che viene eseguita in Azure Databricks. Il set di dati di input passa a un servizio collegato A W S S3. Il set di dati di output passa a un servizio collegato di archiviazione di Azure.](media/pricing-concepts/scenario2.png)
 
 | **Operazioni** | **Tipi e unità** |
 | --- | --- |
@@ -103,7 +103,7 @@ Per eseguire lo scenario è necessario creare una pipeline con gli elementi segu
 3. Una sola attività di Azure Databricks per la trasformazione dei dati.
 4. Un solo trigger di pianificazione per eseguire la pipeline ogni ora.
 
-![Scenario3](media/pricing-concepts/scenario3.png)
+![Il diagramma mostra una pipeline con un trigger di pianificazione. Nella pipeline, l'attività di copia scorre in un set di dati di input, un set di dati di output e un'attività di ricerca che passano a un'attività di databricks, che viene eseguita su Azure Databricks. Il set di dati di input passa a un servizio collegato A W S S3. Il set di dati di output passa a un servizio collegato di archiviazione di Azure.](media/pricing-concepts/scenario3.png)
 
 | **Operazioni** | **Tipi e unità** |
 | --- | --- |
