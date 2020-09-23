@@ -1,6 +1,6 @@
 ---
 title: Assegnare un ruolo a un gruppo utilizzando Privileged Identity Management in Azure AD | Microsoft Docs
-description: Anteprima dei ruoli di Azure AD personalizzati per la delega della gestione delle identità. Gestire i ruoli di Azure nel portale di Azure, in PowerShell o nell'API Graph.
+description: Informazioni su come assegnare un ruolo di Azure Active Directory (Azure AD) a un gruppo usando Azure AD Privileged Identity Management (PIM).
 services: active-directory
 author: curtand
 manager: daveba
@@ -13,12 +13,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 343da87048cf43c04a137376e9a7f24270ce729a
-ms.sourcegitcommit: 5f7b75e32222fe20ac68a053d141a0adbd16b347
+ms.openlocfilehash: b297ee3d03d61b654e2b7fffa17141a1fd5268f3
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87476096"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971176"
 ---
 # <a name="assign-a-role-to-a-group-using-privileged-identity-management"></a>Assegnare un ruolo a un gruppo utilizzando Privileged Identity Management
 
@@ -104,6 +104,6 @@ https://graph.microsoft.com/beta/privilegedAccess/aadroles/roleAssignmentRequest
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Usare i gruppi di cloud per gestire le assegnazioni di ruolo](roles-groups-concept.md)
-- [Risoluzione dei problemi assegnati ai gruppi di cloud](roles-groups-faq-troubleshooting.md)
+- [Risoluzione dei problemi correlati ai ruoli assegnati ai gruppi cloud](roles-groups-faq-troubleshooting.md)
 - [Configurare le impostazioni del ruolo amministratore Azure AD in Privileged Identity Management](../privileged-identity-management/pim-how-to-change-default-settings.md)
 - [Assegnare i ruoli delle risorse di Azure in Privileged Identity Management](../privileged-identity-management/pim-resource-roles-assign-roles.md)

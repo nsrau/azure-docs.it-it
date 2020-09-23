@@ -2,13 +2,13 @@
 title: Tipi di risorsa dell'estensione
 description: Elenca i tipi di risorse di Azure usati per estendere le funzionalità di altri tipi di risorse.
 ms.topic: conceptual
-ms.date: 07/28/2020
-ms.openlocfilehash: 84de9b66f9001985b8c7b92882f03ff8c7cbf431
-ms.sourcegitcommit: f353fe5acd9698aa31631f38dd32790d889b4dbb
+ms.date: 09/22/2020
+ms.openlocfilehash: 8b80c63d361f3ad8199fd669178f7bf88dabe02e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87374015"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969748"
 ---
 # <a name="resource-types-that-extend-capabilities-of-other-resources"></a>Tipi di risorse che estendono le funzionalità di altre risorse
 
@@ -21,6 +21,8 @@ Una risorsa di estensione è una risorsa che aggiunge le funzionalità di un'alt
 - Microsoft. Advisor/evitamenti
 - Microsoft. AlertsManagement/Alerts
 - Microsoft. AlertsManagement/alertsSummary
+- Microsoft. Authorization/accessReviewScheduleDefinitions
+- Microsoft. Authorization/accessReviewScheduleSettings
 - Microsoft. Authorization/checkAccess
 - Microsoft. Authorization/denyAssignments
 - Microsoft. Authorization/findOrphanRoleAssignments
@@ -34,6 +36,7 @@ Una risorsa di estensione è una risorsa che aggiunge le funzionalità di un'alt
 - Microsoft.Authorization/roleAssignments
 - Microsoft. Authorization/roleAssignmentsUsageMetrics
 - Microsoft. Authorization/roleDefinitions
+- Microsoft. automanage/configurationProfileAssignments
 - Microsoft. Billing/billingPeriods
 - Microsoft. Billing/billingPermissions
 - Microsoft. Billing/billingRoleAssignments
@@ -47,24 +50,24 @@ Una risorsa di estensione è una risorsa che aggiunge le funzionalità di un'alt
 - Microsoft. consumo/budget
 - Microsoft. consumo/addebiti
 - Microsoft. consumer/CostTags
+- Microsoft. consumo/crediti
+- Microsoft. consumo/eventi
 - Microsoft. consumo/previsioni
+- Microsoft. consumo/molti
 - Microsoft. consumer/Marketplace
 - Microsoft. consumer/OperationResults
 - Microsoft. consumer/OperationStatus
 - Microsoft. consumer/Pricesheets
+- Microsoft. consumo/prodotti
 - Microsoft. consumer/ReservationDetails
 - Microsoft. consumer/ReservationRecommendationDetails
 - Microsoft. consumer/ReservationRecommendations
 - Microsoft. consumer/ReservationSummaries
 - Microsoft. consumer/ReservationTransactions
 - Microsoft. consumo/Tag
+- Microsoft. consumer/tenant
 - Microsoft. consumo/termini
 - Microsoft. consumer/UsageDetails
-- Microsoft. consumo/crediti
-- Microsoft. consumo/eventi
-- Microsoft. consumo/molti
-- Microsoft. consumo/prodotti
-- Microsoft. consumer/tenant
 - Microsoft. ContainerInstance/serviceAssociationLinks
 - Microsoft. CostManagement/Alerts
 - Microsoft. CostManagement/budgets
@@ -73,6 +76,7 @@ Una risorsa di estensione è una risorsa che aggiunge le funzionalità di un'alt
 - Microsoft. CostManagement/Exports
 - Microsoft. CostManagement/ExternalSubscriptions
 - Microsoft. CostManagement/previsione
+- Microsoft. CostManagement/Insights
 - Microsoft. CostManagement/query
 - Microsoft. CostManagement/Reportconfigs
 - Microsoft. CostManagement/Reports
@@ -93,17 +97,19 @@ Una risorsa di estensione è una risorsa che aggiunge le funzionalità di un'alt
 - Microsoft. Insights/diagnosticSettingsCategories
 - Microsoft. Insights/EventTypes
 - Microsoft. Insights/extendedDiagnosticSettings
+- Microsoft. Insights/generateLiveToken
 - Microsoft. Insights/guestDiagnosticSettingsAssociation
 - Microsoft. Insights/logDefinitions
 - Microsoft. Insights/log
+- Microsoft. Insights/metricbaselines
 - Microsoft. Insights/metricDefinitions
 - Microsoft. Insights/metricNamespaces
-- Microsoft. Insights/metricbaselines
 - Microsoft. Insights/metrica
 - Microsoft. Insights/cartelle di lavoro
 - Microsoft. Insights/topologia
 - Microsoft. Insights/transazioni
 - Microsoft. Insights/vmInsightsOnboardingStatuses
+- Microsoft. KubernetesConfiguration/Extensions
 - Microsoft. KubernetesConfiguration/sourceControlConfigurations
 - Microsoft. Maintenance/applyUpdates
 - Microsoft. Maintenance/configurationAssignments
@@ -128,20 +134,22 @@ Una risorsa di estensione è una risorsa che aggiunge le funzionalità di un'alt
 - Microsoft. ResourceHealth/notifiche
 - Microsoft. resources/Links
 - Microsoft. resources/Tag
-- Microsoft. Security/compliances
-- Microsoft. Security/InformationProtectionPolicies
 - Microsoft. Security/adaptiveNetworkHardenings
 - Microsoft. Security/advancedThreatProtectionSettings
 - Microsoft. Security/assessmentMetadata
 - Microsoft. Security/Assessment
 - Microsoft. Security/complianceResults
+- Microsoft. Security/compliances
 - Microsoft. Security/dataCollectionAgents
 - Microsoft. Security/deviceSecurityGroups
+- Microsoft. Security/InformationProtectionPolicies
+- Microsoft. Security/iotSensors
 - Microsoft. Security/jitPolicies
 - Microsoft. Security/serverVulnerabilityAssessments
+- Microsoft. Security/sqlVulnerabilityAssessments
 - Microsoft. SecurityInsights/Aggregations
-- Microsoft. SecurityInsights/alertRuleTemplates
 - Microsoft. SecurityInsights/alertRules
+- Microsoft. SecurityInsights/alertRuleTemplates
 - Microsoft. SecurityInsights/automationRules
 - Microsoft. SecurityInsights/segnalibri
 - Microsoft. SecurityInsights/case
@@ -153,6 +161,7 @@ Una risorsa di estensione è una risorsa che aggiunge le funzionalità di un'alt
 - Microsoft. SecurityInsights/officeConsents
 - Microsoft. SecurityInsights/Settings
 - Microsoft. SecurityInsights/threatIntelligence
+- Microsoft. SecurityInsights/watchlists
 - Microsoft. SoftwarePlan/hybridUseBenefits
 - Microsoft. Subscription/CreateSubscription
 - Microsoft. support/supporttickets

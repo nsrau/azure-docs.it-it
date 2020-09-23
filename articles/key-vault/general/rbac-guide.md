@@ -9,14 +9,17 @@ ms.subservice: general
 ms.topic: how-to
 ms.date: 8/30/2020
 ms.author: mbaldwin
-ms.openlocfilehash: 9b7abc39bf50a61b7b52bc4027c6d845728c3874
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: b80b3cf1712fab17b8f626bae5fef97849e44e20
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419266"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972265"
 ---
 # <a name="provide-access-to-key-vault-keys-certificates-and-secrets-with-an-azure-role-based-access-control-preview"></a>Fornire l'accesso a chiavi Key Vault, certificati e segreti con un controllo degli accessi in base al ruolo di Azure (anteprima)
+
+> [!NOTE]
+> Il **provider di risorse** Key Vault supporta due tipi di risorse: insiemi di credenziali e **HSM gestiti**. Il **controllo di accesso**descritto in questo articolo si applica solo agli insiemi di credenziali. Per altre informazioni sul controllo di accesso per il modulo di protezione hardware gestito, vedere [controllo di accesso HSM gestito](../managed-hsm/access-control.md).
 
 Il controllo degli accessi in base al ruolo di Azure (RBAC di Azure) è un sistema di autorizzazione basato su [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) che offre una gestione degli accessi con granularità fine delle risorse di Azure.
 
@@ -61,10 +64,6 @@ Per altre informazioni sulle definizioni dei ruoli predefiniti di Azure, vedere 
 Il nuovo modello di autorizzazione RBAC di Azure per Key Vault fornisce un'alternativa al modello di autorizzazioni per i criteri di accesso all'insieme di credenziali. 
 
 ### <a name="enable-azure-rbac-permissions-on-key-vault"></a>Abilitare le autorizzazioni RBAC di Azure per Key Vault
-
-Durante la fase di anteprima, è necessario usare il tag di funzionalità RBAC di Azure (Microsoft_Azure_KeyVault_RBACEnabled = true) per visualizzare le nuove opzioni del modello di autorizzazione.
-
-https://portal.azure.com/?Microsoft_Azure_KeyVault_RBACEnabled=true#home
 
 > [!IMPORTANT]
 > L'impostazione del modello di autorizzazione RBAC di Azure invalida tutte le autorizzazioni per i criteri di accesso. Può causare interruzioni quando i ruoli di Azure equivalenti non vengono assegnati.

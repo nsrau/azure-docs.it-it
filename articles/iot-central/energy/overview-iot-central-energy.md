@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 services: iot-central
 manager: abjork
-ms.openlocfilehash: 13b626945743c17bad8df58fba77e1c960e90ef3
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1a7502a77f8dca526c95e92302f0ca0a06a1dd32
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77016563"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970446"
 ---
 # <a name="build-energy-solutions-with-iot-central"></a>Creare soluzioni per il settore energetico con IoT Central 
 
@@ -62,7 +62,6 @@ Dopo aver distribuito l'app, i dati del pannello solare simulato verranno visual
 
 > [!div class="mx-imgBorder"]
 > ![Dashboard dell'app per pannelli solari](media/overview-iot-central-energy/solar-panel-app-dashboard.png)
-
 
 ## <a name="next-steps"></a>Passaggi successivi
 Per iniziare a creare una soluzione per il settore energetico:

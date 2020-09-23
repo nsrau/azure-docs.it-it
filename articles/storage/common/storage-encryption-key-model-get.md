@@ -11,12 +11,12 @@ ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: common
 ms.custom: devx-track-azurecli, devx-track-azurepowershell
-ms.openlocfilehash: 11e08427067efa5e7bd33b8d08d84443444a190b
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 17be7cb8e3330a9bd0391e0750f5e37ac64b0484
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89078266"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971007"
 ---
 # <a name="determine-which-azure-storage-encryption-key-model-is-in-use-for-the-storage-account"></a>Determinare quale modello della chiave di crittografia di archiviazione di Azure è in uso per l'account di archiviazione
 
@@ -33,7 +33,7 @@ Per altre informazioni sulle chiavi di crittografia, vedere [crittografia di arc
 
 Per determinare se un account di archiviazione USA chiavi gestite da Microsoft o chiavi gestite dal cliente per la crittografia, usare uno degli approcci seguenti.
 
-# <a name="azure-portal"></a>[Portale di Azure](#tab/portal)
+# <a name="azure-portal"></a>[Azure portal](#tab/portal)
 
 Per controllare il modello di crittografia per l'account di archiviazione usando il portale di Azure, seguire questa procedura:
 
@@ -79,4 +79,4 @@ Se il valore della proprietà della chiave di **origine** è `Microsoft.Storage`
 ## <a name="next-steps"></a>Passaggi successivi
 
 - [Crittografia del servizio di archiviazione di Azure per dati inattivi](storage-service-encryption.md)
-- [Usare chiavi gestite dal cliente con Azure Key Vault per gestire la crittografia di archiviazione di Azure](encryption-customer-managed-keys.md)
+- [Chiavi gestite dal cliente per la crittografia di archiviazione di Azure](customer-managed-keys-overview.md)

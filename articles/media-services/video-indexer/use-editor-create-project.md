@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 04/02/2019
 ms.author: juliako
-ms.openlocfilehash: 9f16ab34dc9b37806f9c58b22a3f02afe839632e
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5eaf17281fef32d682a2dac17b379faf7ec23a53
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "73839174"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90970093"
 ---
 # <a name="use-the-video-indexer-editor-to-create-projects"></a>Utilizzare l'Editor Video Indexer per creare progetti
 
@@ -51,11 +51,11 @@ Questo articolo illustra come creare un progetto da zero e come creare un proget
     
     Nell'immagine seguente, ad esempio, si cercano i video che citano "GitHub".
     
-    ![GitHub](./media/video-indexer-view-edit/github.png)
+    ![Screenshot mostra la ricerca di video che fanno riferimento a GitHub con due risultati.](./media/video-indexer-view-edit/github.png)
 
     È possibile filtrare ulteriormente i risultati selezionando **Filtra risultati**. È possibile filtrare per visualizzare i video che contengono una determinata persona o per specificare che si desidera visualizzare solo i risultati video che sono in una determinata lingua o hanno un proprietario specifico. <br/> È inoltre possibile specificare l'ambito della query. Se ad esempio si vuole cercare "GitHub" nell'OCR, selezionare **testo visivo**.
 
-    ![Filtro](./media/video-indexer-view-edit/visual-text.png)
+    ![Filtra](./media/video-indexer-view-edit/visual-text.png)
 
     È possibile eseguire il layer di più filtri per la query. Usare i **+** / **-** pulsanti per aggiungere o rimuovere i filtri. Utilizzare **Cancella filtri** per rimuovere tutti i filtri.
 1. Per aggiungere video, selezionarli e quindi selezionare **Aggiungi**.
@@ -63,7 +63,7 @@ Questo articolo illustra come creare un progetto da zero e come creare un proget
 
     È possibile ridisporre l'ordine dei video trascinando o facendo clic sul pulsante di menu elenco e scegliendo **Sposta giù** o **Sposta su**. Dal menu elenco sarà anche possibile rimuovere il video dal progetto. 
 
-    ![Riorganizzare](./media/video-indexer-view-edit/rearrange.png)
+    ![Screenshot Mostra Video Indexer con un menu contestuale per uno dei video da rimuovere, deselezionare la selezione o Sposta giù.](./media/video-indexer-view-edit/rearrange.png)
     
     È possibile aggiungere altri video al progetto in qualsiasi momento selezionando **Aggiungi video**. È anche possibile aggiungere più occorrenze dello stesso video al progetto. Questa operazione può essere eseguita se si desidera visualizzare una clip da un video e quindi una clip da un'altra, quindi un altro clip dal primo video. 
 
@@ -81,7 +81,7 @@ Se si fa clic sulla freccia verso il basso sul lato destro di ogni video, si apr
 
     Ad esempio, è possibile visualizzare i clip in cui GitHub è indicato mentre Donovan Brown è sullo schermo. A tale proposito, è necessario aggiungere un filtro "include" con "people" come tipo di informazioni dettagliate. È quindi necessario digitare "Donovan Brown" nella casella di ricerca per il filtro.
     
-    ![Includi](./media/video-indexer-view-edit/include.png)
+    ![Screenshot Mostra Video Indexer con persone selezionate per un filtro Includi.](./media/video-indexer-view-edit/include.png)
     
     Se si desiderano le clip in cui GitHub è indicato mentre Donovan Brown _non_ è visualizzato sullo schermo, è sufficiente modificare il filtro "Includi" in un filtro "Escludi" utilizzando l'elenco a discesa. 
 
@@ -96,7 +96,7 @@ Se si fa clic sulla freccia verso il basso sul lato destro di ogni video, si apr
 > [!TIP]
 > Quando si selezionano e si ordinano i clip, è possibile visualizzare in anteprima il video nel lettore sul lato destro della pagina. 
 
-![Anteprima](./media/video-indexer-view-edit/preview.png)
+![Screenshot Mostra Video Indexer con l'anteprima di un video sul lato destro della finestra.](./media/video-indexer-view-edit/preview.png)
 
 Ricordarsi di salvare il progetto quando si apportano modifiche selezionando **Salva progetto**. 
 
@@ -107,7 +107,7 @@ Ricordarsi di salvare il progetto quando si apportano modifiche selezionando **S
 
 1. Al termine, verificare che il progetto sia stato salvato. È ora possibile eseguire il rendering di questo progetto. Selezionare **il rendering e il download**. 
 
-    ![Salva](./media/video-indexer-view-edit/save.png)
+    ![Screenshot Mostra Video Indexer con l'opzione per eseguire il rendering e scaricare il progetto.](./media/video-indexer-view-edit/save.png)
 
     Sarà presente un popup che indica che l'indicizzatore video eseguirà il rendering di un file e il collegamento per il download verrà inviato al messaggio di posta elettronica. Selezionare Continua. 
     

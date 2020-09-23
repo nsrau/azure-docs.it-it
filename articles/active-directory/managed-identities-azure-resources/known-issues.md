@@ -17,12 +17,12 @@ ms.date: 08/06/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: has-adal-ref
-ms.openlocfilehash: 4bcd36a1ce38d4d9eb6a0faec470f7427852894b
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 0d8c835cdc501061607dc05d0b40ebf95deb36a8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89260221"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969150"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Domande frequenti e problemi noti nell'uso di identità gestite per le risorse di Azure
 
@@ -33,15 +33,13 @@ ms.locfileid: "89260221"
 > [!NOTE]
 > Identità gestite per le risorse di Azure è il nuovo nome per il servizio precedentemente noto come identità del servizio gestita.
 
-
 ### <a name="how-can-you-find-resources-that-have-a-managed-identity"></a>Come è possibile trovare le risorse con un'identità gestita?
 
 È possibile trovare l'elenco delle risorse che hanno un'identità gestita assegnata dal sistema usando il comando dell'interfaccia della riga di comando di Azure seguente: 
 
-`az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table`
-
-
-
+```azurecli-interactive
+az resource list --query "[?identity.type=='SystemAssigned'].{Name:name,  principalId:identity.principalId}" --output table
+```
 
 ### <a name="do-managed-identities-have-a-backing-app-object"></a>Le identità gestite hanno un oggetto app di supporto?
 
@@ -72,8 +70,6 @@ Il limite di sicurezza dell'identità è la risorsa a cui è collegata. Ad esemp
 - Se non è abilitata l'identità gestita assegnata dal sistema ed esiste solo un'identità gestita assegnata dall'utente, IMDS userà come predefinita quella singola identità gestita assegnata dall'utente. 
 - Se non è abilitata l'identità gestita assegnata dal sistema ed esistono più identità gestite assegnate dall'utente, è necessario allora specificare un'identità gestita nella richiesta.
 
-
-
 ### <a name="will-managed-identities-be-recreated-automatically-if-i-move-a-subscription-to-another-directory"></a>Le identità gestite saranno ricreate automaticamente se si sposta una sottoscrizione in un'altra directory?
 
 No. Se si sposta una sottoscrizione in un'altra directory, sarà necessario ricrearla manualmente e concedere nuovamente le assegnazioni di ruolo di Azure.
@@ -88,7 +84,6 @@ No. Le identità gestite attualmente non supportano gli scenari tra directory.
 
 - Identità gestita assegnata dal sistema: Sono necessarie autorizzazioni di scrittura per la risorsa. Per le macchine virtuali, ad esempio, è necessario Microsoft.Compute/virtualMachines/write. Questa azione è inclusa in ruoli predefiniti specifici della risorsa come [Collaboratore Macchina virtuale](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor).
 - Identità gestita assegnata dall'utente: Sono necessarie autorizzazioni di scrittura per la risorsa. Per le macchine virtuali, ad esempio, è necessario Microsoft.Compute/virtualMachines/write. Oltre all'assegnazione di ruolo [Operatore di identità gestite](../../role-based-access-control/built-in-roles.md#managed-identity-operator) per l'identità gestita.
-
 
 
 ## <a name="known-issues"></a>Problemi noti
@@ -112,7 +107,7 @@ Se si sposta una macchina virtuale in esecuzione, questa continuerà a eseguire 
 Attivare un aggiornamento nella macchina virtuale così da poter ottenere i valori corretti per le identità gestite per le risorse di Azure. È possibile apportare una modifica alla proprietà della macchina virtuale per aggiornare il riferimento alle identità gestite per le risorse di Azure. Ad esempio, è possibile impostare un nuovo valore di tag nella macchina virtuale con il comando seguente:
 
 ```azurecli-interactive
- az  vm update -n <VM Name> -g <Resource Group> --set tags.fixVM=1
+az vm update -n <VM Name> -g <Resource Group> --set tags.fixVM=1
 ```
  
 Questo comando imposta un nuovo tag "fixVM" con valore 1 nella macchina virtuale. 
@@ -124,8 +119,6 @@ Dopo aver avviato la macchina virtuale, il tag può essere rimosso tramite il se
 ```azurecli-interactive
 az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 ```
-
-
 
 ### <a name="transferring-a-subscription-between-azure-ad-directories"></a>Trasferimento di una sottoscrizione tra directory di Azure AD
 

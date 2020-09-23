@@ -573,7 +573,7 @@
           href: optimize-dev-test.md
         - name: Ottimizzare il costo con la capacità riservata
           href: cosmos-db-reserved-capacity.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Panoramica della sicurezza
           href: database-security.md
@@ -768,6 +768,8 @@
                   href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
                 - name: Guida alla post-migrazione
                   href: mongodb-post-migration.md
+            - name: Eseguire l'aggiornamento da MongoDB 3.2 alla versione 3.6
+              href: mongodb-version-upgrade.md
             - name: Ottenere la stringa di connessione
               href: connect-mongodb-account.md
             - name: Uso di Studio 3T
@@ -944,7 +946,7 @@
               href: table-sdk-python.md
             - name: API REST dell'archivio tabelle
               href: /rest/api/storageservices/table-service-rest-api
-    - name: API Etcd
+    - name: API etcd
       items:
         - name: Panoramica
           items:
@@ -1108,7 +1110,7 @@
           href: how-to-migrate-from-change-feed-library.md
         - name: Feed di modifiche - Esempio di Async Java
           href: create-sql-api-java-changefeed.md
-    - name: Analisi con Collegamento ad Azure Synapse
+    - name: Analisi e business intelligence Collegamento ad Azure Synapse
       items:
         - name: Configurare Collegamento ad Azure Synapse
           href: configure-synapse-link.md
@@ -1116,6 +1118,8 @@
           href: ../synapse-analytics/synapse-link/how-to-connect-synapse-link-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Eseguire query con Azure Synapse Spark
           href: ../synapse-analytics/synapse-link/how-to-query-analytical-store-spark.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
+        - name: Usare Power BI con Collegamento a Synapse
+          href: synapse-link-power-bi.md
     - name: Analisi predefinita con Apache Spark
       items:
         - name: Connettore Azure Databricks Spark
@@ -1140,7 +1144,7 @@
           href: how-to-write-javascript-query-api.md
         - name: 'Usare stored procedure, trigger e funzioni definite dall''utente'
           href: how-to-use-stored-procedures-triggers-udfs.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Configurare il firewall IP
           href: how-to-configure-firewall.md
@@ -1198,12 +1202,16 @@
           href: monitor-cosmos-db-reference.md
         - name: Registrazione delle applicazioni con App per la logica
           href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
-    - name: Sviluppare in locale
+    - name: Sviluppare in locale con un emulatore
       items:
-        - name: Usare l'emulatore
+        - name: Installare e usare l'emulatore
           href: local-emulator.md
-        - name: Esportare i certificati
+        - name: Esportare i certificati dell'emulatore
           href: local-emulator-export-ssl-certificates.md
+        - name: Parametri della riga di comando dell'emulatore
+          href: emulator-command-line-parameters.md
+        - name: Risoluzione dei problemi dell'emulatore
+          href: troubleshoot-local-emulator.md
         - name: Estensione Visual Studio Code
           href: 'https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb'
     - name: Configurare una pipeline di CI/CD di Azure DevOps

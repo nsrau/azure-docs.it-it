@@ -7,13 +7,16 @@ ms.date: 07/07/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.custom: mqtt, devx-track-javascript
-ms.openlocfilehash: 92b28b89d181de368ef1e39eb695be2e1fad6c37
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.custom:
+- mqtt
+- device-developer
+- devx-track-javascript
+ms.openlocfilehash: 7eba6adffcdd3dab3263e82faf51ac90bae79b89
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87423523"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90968158"
 ---
 # <a name="tutorial-create-and-connect-a-client-application-to-your-azure-iot-central-application-nodejs"></a>Esercitazione: Creare e connettere un'applicazione client all'applicazione Azure IoT Central (Node.js)
 
@@ -335,12 +338,12 @@ node environmentalSensor.js
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-A questo punto, dopo aver appreso le nozioni di base relative alla creazione di un dispositivo con Node.js, i passaggi successivi consigliati per gli sviluppatori di dispositivi sono i seguenti:
-
-* Vedere [Che cosa sono i modelli di dispositivo?](./concepts-device-templates.md) per altre informazioni sul ruolo dei modelli di dispositivo durante l'implementazione del codice del dispositivo.
-* Articolo [Connettersi ad Azure IoT Central](./concepts-get-connected.md) per altre informazioni su come registrare dispositivi con IoT Central e sulla protezione delle connessioni ai dispositivi in IoT Central.
-
 Se si preferisce continuare il set di esercitazioni di IoT Central e saperne di più sulla creazione di una soluzione di IoT Central, vedere:
 
 > [!div class="nextstepaction"]
 > [Creare un modello di dispositivo gateway](./tutorial-define-gateway-device-type.md)
+
+A questo punto, dopo aver appreso le nozioni di base relative alla creazione di un dispositivo con Node.js, i passaggi successivi consigliati per gli sviluppatori di dispositivi sono i seguenti:
+
+* Vedere [Che cosa sono i modelli di dispositivo?](./concepts-device-templates.md) per altre informazioni sul ruolo dei modelli di dispositivo durante l'implementazione del codice del dispositivo.
+* Articolo [Connettersi ad Azure IoT Central](./concepts-get-connected.md) per altre informazioni su come registrare dispositivi con IoT Central e sulla protezione delle connessioni ai dispositivi in IoT Central.

@@ -1,18 +1,18 @@
 ---
-title: What ' s New with Azure Arc Enabled Servers (anteprima) Agent
-description: Questo articolo contiene le note sulla versione per l'agente Azure Arc Enabled Servers (anteprima). Per molti dei problemi riepilogati sono disponibili collegamenti a ulteriori dettagli.
+title: What ' s New with Azure Arc Enabled Servers Agent
+description: Questo articolo contiene le note sulla versione per l'agente Azure Arc Enabled Server. Per molti dei problemi riepilogati sono disponibili collegamenti a ulteriori dettagli.
 ms.topic: conceptual
-ms.date: 09/14/2020
-ms.openlocfilehash: 3b739401603f6dc18b9f48fb3cb6e28023a051ab
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.date: 09/16/2020
+ms.openlocfilehash: 1918d03b5bbfaaa64b7d74c18fad4eb9a86800a0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90532172"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90908163"
 ---
-# <a name="whats-new-with-azure-arc-enabled-servers-preview-agent"></a>What ' s New with Azure Arc Enabled Servers (anteprima) Agent
+# <a name="whats-new-with-azure-arc-enabled-servers-agent"></a>What ' s New with Azure Arc Enabled Servers Agent
 
-L'agente computer connesso ad Arc di Azure (anteprima) riceve miglioramenti su base continuativa. Per stare al passo con gli sviluppi più recenti, questo articolo fornisce informazioni sugli argomenti seguenti:
+Azure Arc Enabled Servers Connected computer Agent riceve i miglioramenti su base continuativa. Per stare al passo con gli sviluppi più recenti, questo articolo fornisce informazioni sugli argomenti seguenti:
 
 - Versioni più recenti
 - Problemi noti
@@ -60,4 +60,4 @@ Se si usa una versione precedente dell'agente Linux e la si configura per l'uso 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Prima di valutare o abilitare i server abilitati per Arc (anteprima) tra più computer ibridi, vedere [Panoramica dell'agente Connected Machine](agent-overview.md) per informazioni su requisiti, i dettagli tecnici sull'agente e metodi di distribuzione.
+Prima di valutare o abilitare i server con abilitazione di Arc tra più macchine virtuali ibride, vedere [Panoramica dell'agente Connected Machine](agent-overview.md) per informazioni sui requisiti, i dettagli tecnici sull'agente e i metodi di distribuzione.

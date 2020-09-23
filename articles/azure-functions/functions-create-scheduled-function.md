@@ -5,12 +5,12 @@ ms.assetid: ba50ee47-58e0-4972-b67b-828f2dc48701
 ms.topic: how-to
 ms.date: 04/16/2020
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: be539efdb66b0a9bda583960484f40fae1e18235
-ms.sourcegitcommit: a8ee9717531050115916dfe427f84bd531a92341
+ms.openlocfilehash: 9e542c493c02174364072f91d092f05ad9ec69cf
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/12/2020
-ms.locfileid: "83123433"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973094"
 ---
 # <a name="create-a-function-in-azure-that-is-triggered-by-a-timer"></a>Creare una funzione in Azure attivata da un timer
 
@@ -44,7 +44,7 @@ La nuova app per le funzioni è pronta per essere usata. Si creerà ora una funz
 
 1. Configurare il nuovo trigger con le impostazioni indicate nella tabella sotto l'immagine e quindi selezionare **Crea funzione**.
 
-    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="Selezionare il trigger timer nel portale di Azure." border="true":::
+    :::image type="content" source="./media/functions-create-scheduled-function/function-configure-timer-trigger.png" alt-text="Screenshot mostra la pagina nuova funzione con il modello di trigger timer selezionato." border="true":::
     
     | Impostazione | Valore consigliato | Descrizione |
     |---|---|---|
