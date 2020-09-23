@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 6d2b2fb55a9c23643bbb778ced047e75871ba7f5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 0896df301718c74e63a9e18c74615130fa80c952
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84807680"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986254"
 ---
 # <a name="visualize-azure-network-watcher-nsg-flow-logs-using-open-source-tools"></a>Visualizzare i log dei flussi dei gruppi di sicurezza di rete di Azure Network Watcher con strumenti open source
 
@@ -29,7 +29,7 @@ Analizzare manualmente i log dei flussi e ottenerne informazioni significative p
 
 In questo articolo si configurerà una soluzione che consentirà di visualizzare i log dei flussi dei gruppi di sicurezza di rete con Elastic Stack.  Un plug-in di input Logstash otterrà i log dei flussi direttamente dal BLOB del servizio di archiviazione configurato per contenerli. Successivamente, con Elastic Stack, i log dei flussi verranno indicizzati e usati per creare un dashboard Kibana per visualizzare le informazioni.
 
-![scenario][scenario]
+![Il diagramma mostra uno scenario che consente di visualizzare i log di flusso dei gruppi di sicurezza di rete con Elastic stack.][scenario]
 
 ## <a name="steps"></a>Passaggi
 
@@ -215,27 +215,27 @@ Il dashboard di esempio offre diverse visualizzazioni dei log dei flussi.
 
 1. Flussi per decisione/direzione nel tempo: grafici di serie temporali che mostrano il numero dei flussi nel periodo di tempo specificato. È possibile modificare l'unità di tempo e l'intervallo di entrambe queste visualizzazioni. Il grafico dei flussi per decisione mostra la proporzione tra le decisioni di consentire e di rifiutare il traffico che sono state prese, mentre quello dei flussi per direzione mostra la proporzione tra traffico in ingresso e in uscita. Questi oggetti visivi consentono di esaminare le tendenze del traffico nel tempo e individuare eventuali picchi o modelli insoliti.
 
-   ![Figura 2][2]
+   ![Screenshot mostra un dashboard di esempio con i flussi in base a decisione e direzione nel tempo.][2]
 
 2. Flussi per porta di origine/destinazione: grafici a torta che mostrano la suddivisione dei flussi sulle rispettive porte. Questa visualizzazione consente di verificare le porte più usate. Facendo clic su una porta specifica nel grafico a torta, il resto del dashboard viene filtrato in modo da visualizzare i flussi di tale porta.
 
-   ![Figura 3][3]
+   ![Screenshot mostra un dashboard di esempio con flussi in base alla porta di origine e di destinazione.][3]
 
 3. Numero di flussi e data e ora del primo log: metriche che mostrano il numero di flussi registrato e la data del primo log acquisito.
 
-   ![Figura 4][4]
+   ![Screenshot mostra un dashboard di esempio con il numero di flussi e il primo tempo di registrazione.][4]
 
 4. Flussi per gruppo di sicurezza di rete e regola: grafico a barre che mostra la distribuzione dei flussi in ogni gruppo di sicurezza di rete nonché la distribuzione delle regole all'interno di ogni gruppo. Questo grafico consente di determinare il gruppo di sicurezza di rete e le regole che hanno generato la maggiore quantità di traffico.
 
-   ![Figura 5][5]
+   ![Screenshot mostra un dashboard di esempio con i flussi per N S G e la regola.][5]
 
 5. 10 principali IP di origine/destinazione: grafici a barre che mostrano i 10 principali indirizzi IP di origine e di destinazione. È possibile modificare i grafici in modo da visualizzare un numero maggiore o minore di indirizzi IP principali. Questi grafici consentono di rilevare gli indirizzi IP più ricorrenti nonché le decisioni di consentire o rifiutare il traffico prese nei confronti di ogni IP.
 
-   ![Figura 6][6]
+   ![Screenshot mostra un dashboard di esempio con I flussi in base ai primi dieci indirizzi I P di origine e di destinazione.][6]
 
 6. Tuple dei flussi: questa tabella mostra le informazioni contenute in ogni tupla dei flussi, nonché il gruppo di sicurezza di rete e la regola corrispondenti.
 
-   ![Figura 7][7]
+   ![Screenshot mostra le tuple del flusso in una tabella.][7]
 
 Usando la barra per le query nella parte superiore è possibile filtrare il dashboard in base a qualsiasi parametro dei flussi, come ID sottoscrizione, gruppi di risorse, regola o qualsiasi altra variabile a cui si è interessati. Per altre informazioni su query e filtri di Kibana, vedere la [documentazione ufficiale](https://www.elastic.co/guide/en/beats/packetbeat/current/kibana-queries-filters.html)
 

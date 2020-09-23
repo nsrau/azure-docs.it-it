@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/08/2019
 ms.author: alkohli
-ms.openlocfilehash: 6db2d8fa6e957a63a4410f17b09a9f106bfba6e6
-ms.sourcegitcommit: 4f1c7df04a03856a756856a75e033d90757bb635
+ms.openlocfilehash: 4e54f5254d38bca9c8ff30d5b7cefbe3fde69576
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/07/2020
-ms.locfileid: "87923476"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904371"
 ---
 # <a name="tutorial-transfer-data-with-azure-data-box-gateway"></a>Esercitazione: Trasferire i dati con Azure Data Box Gateway
 
@@ -57,7 +57,7 @@ Per creare una condivisione, seguire questa procedura:
 
     3. Specificare l'account di archiviazione in cui risiederà la condivisione. Se non esiste già un contenitore, viene creato nell'account di archiviazione con il nome della condivisione appena creato. Se esiste già un contenitore, viene usato quello.
        > [!IMPORTANT]
-       > Verificare che per l'account di archiviazione di Azure in uso non siano impostati criteri di immutabilità se lo si usa con un dispositivo Azure Stack Edge o Data Box Gateway. Per altre informazioni, vedere [Impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+       > Verificare che per l'account di archiviazione di Azure in uso non siano impostati criteri di immutabilità se lo si usa con un dispositivo Azure Stack Edge Pro o Data Box Gateway. Per altre informazioni, vedere [Impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
     
     4. In **Servizio di archiviazione** selezionare BLOB in blocchi, BLOB di pagine o File. Il tipo di servizio scelto dipende dal formato che si vuole applicare ai dati che risiederanno in Azure. In questo esempio si vuole che i dati vengano trasferiti in Azure come BLOB in blocchi, quindi è questa l'opzione da selezionare. Se si sceglie BLOB di pagine, occorre verificare che i dati siano allineati su 512 byte. Ad esempio, VHDX è sempre allineato su 512 byte.
    
@@ -115,7 +115,7 @@ Nel client Windows Server connesso a Data Box Gateway, connettersi a una condivi
 
 ### <a name="connect-to-an-nfs-share"></a>Connettersi a una condivisione NFS
 
-Nel client Linux connesso al dispositivo Azure Stack Edge, eseguire la seguente procedura:
+Nel client Linux connesso al dispositivo Azure Stack Edge Pro seguire questa procedura:
 
 1. Verificare che nel client sia installato il client NFSv4. Per installare il client NFS, usare il comando seguente:
 

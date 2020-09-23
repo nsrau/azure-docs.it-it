@@ -3,12 +3,12 @@ title: Creare e distribuire progetti Gruppo di risorse con Visual Studio
 description: Usare Visual Studio per creare un progetto Gruppo di risorse di Azure e distribuire le risorse in Azure.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 5127732ac0c33d4b27f70bd616fb23aaec5c871f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eacab3e1919b68661dd24eb78e3b0eca51cf4972
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "76152732"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90985248"
 ---
 # <a name="creating-and-deploying-azure-resource-groups-through-visual-studio"></a>Creazione e distribuzione di gruppi di risorse di Azure tramite Visual Studio
 
@@ -23,7 +23,7 @@ In questa sezione verrà creato un progetto Gruppo di risorse di Azure con un mo
 1. In Visual Studio scegliere **file** > **nuovo** > **progetto**.
 1. Selezionare il modello di progetto **Gruppo di risorse di Azure** e **Avanti**.
 
-    ![Crea progetto](./media/create-visual-studio-deployment-project/create-project.png)
+    ![Screenshot mostra la finestra Crea un nuovo progetto con il gruppo di risorse di Azure e il pulsante Avanti evidenziato.](./media/create-visual-studio-deployment-project/create-project.png)
 
 1. Assegnare un nome al progetto. Le altre impostazioni predefinite sono probabilmente corrette, ma controllarle per assicurarsi che siano appropriate per l'ambiente specifico. Al termine, scegliere **Crea**.
 
@@ -65,7 +65,7 @@ In questa sezione verrà creato un progetto Gruppo di risorse di Azure con un mo
 
 1. È possibile aggiungere una risorsa facendo clic sul pulsante **Aggiungi risorsa** nella parte superiore della finestra Struttura JSON oppure facendo clic con il pulsante destro del mouse su **risorse** e scegliendo **Aggiungi nuova risorsa**.
 
-   ![Aggiungere una risorsa](./media/create-visual-studio-deployment-project/add-resource.png)
+   ![Screenshot mostra la finestra struttura JSON con l'opzione Aggiungi nuova risorsa evidenziata.](./media/create-visual-studio-deployment-project/add-resource.png)
 
 1. Selezionare **Account di archiviazione** e specificare un nome. Specificare un nome contenente non più di 11 caratteri costituiti solo da numeri e lettere minuscole.
 
@@ -189,7 +189,7 @@ A questo punto è stata distribuita l'infrastruttura per l'app, ma non è stato 
 
 1. Ora è necessario verificare che il progetto del gruppo di risorse sia a conoscenza del nuovo progetto. Tornare al progetto del gruppo di risorse (ExampleAppDeploy). Fare clic con il pulsante destro del mouse su **Riferimenti** e scegliere **Aggiungi riferimento**.
 
-    ![Aggiungi riferimento](./media/create-visual-studio-deployment-project/add-new-reference.png)
+    ![Screenshot mostra il menu ExampleAppDeploy con l'opzione Aggiungi riferimento evidenziata.](./media/create-visual-studio-deployment-project/add-new-reference.png)
 
 1. Selezionare il progetto dell'app Web creato.
 
@@ -364,7 +364,7 @@ Non si è limitati solo alle risorse disponibili tramite l'interfaccia di Visual
 
 1. Al termine della distribuzione, visualizzare il dashboard nel portale. Selezionare **Dashboard** e scegliere quello che è stato distribuito.
 
-   ![Dashboard personalizzato](./media/create-visual-studio-deployment-project/view-custom-dashboards.png)
+   ![Screenshot mostra la pagina dashboard con un dashboard personalizzato di esempio evidenziato.](./media/create-visual-studio-deployment-project/view-custom-dashboards.png)
 
 1. Viene visualizzato il dashboard personalizzato.
 

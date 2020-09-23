@@ -11,12 +11,12 @@ ms.reviewer: nibaccam
 ms.date: 07/10/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 10c0200aae5ffa432c2da037d58d455fc28e8acd
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: 3214ce260fa4981b8ac970bdf3520ecd7de59e18
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90904939"
+ms.locfileid: "90985577"
 ---
 # <a name="create-review-and-deploy-automated-machine-learning-models-with-azure-machine-learning"></a>Creare, rivedere e distribuire modelli di Machine Learning automatizzato con Azure Machine Learning
 
@@ -86,7 +86,7 @@ Altrimenti, verrà visualizzato un elenco degli esperimenti recenti di Machine L
             
         Selezionare **Avanti.**
 
-    1. Il modulo **Conferma dettagli** è un riepilogo delle informazioni con cui sono stati precedentemente popolati i moduli **Info di base** e **Impostazioni e anteprima**. È inoltre possibile creare un profilo dati per il set di dati usando un ambiente di calcolo abilitato per la profilatura. Altre informazioni sulla [profilatura dei dati](#profile).
+    1. Il modulo **Conferma dettagli** è un riepilogo delle informazioni con cui sono stati precedentemente popolati i moduli **Info di base** e **Impostazioni e anteprima**. È inoltre possibile creare un profilo dati per il set di dati usando un ambiente di calcolo abilitato per la profilatura. Altre informazioni sulla [profilatura dei dati](how-to-connect-data-ui.md#profile).
 
         Selezionare **Avanti**.
 1. Selezionare il set di dati appena creato quando viene visualizzato. È anche possibile visualizzare un'anteprima del set di dati e delle statistiche di esempio. 
@@ -111,7 +111,7 @@ Altrimenti, verrà visualizzato un elenco degli esperimenti recenti di Machine L
     Selezionare **Create** (Crea). La creazione di un nuovo ambiente di calcolo può richiedere alcuni minuti.
 
     >[!NOTE]
-    > Il nome dell’ambiente di calcolo indicherà se l’ambiente di calcolo selezionato/creato è *abilitato per la profilatura*. Per ulteriori informazioni, vedere la sezione [Profilatura dei dati](#profile).
+    > Il nome dell’ambiente di calcolo indicherà se l’ambiente di calcolo selezionato/creato è *abilitato per la profilatura*. Per ulteriori informazioni, vedere la sezione [Profilatura dei dati](how-to-connect-data-ui.md#profile).
 
     Selezionare **Avanti**.
 
@@ -144,32 +144,6 @@ Altrimenti, verrà visualizzato un elenco degli esperimenti recenti di Machine L
 1. Opzionale Visualizza impostazioni conteggi: se si sceglie di abilitare **conteggi automatici** nel modulo **impostazioni di configurazione aggiuntive** , vengono applicate le tecniche conteggi predefinite. Nelle **impostazioni di visualizzazione conteggi** è possibile modificare queste impostazioni predefinite e personalizzarle di conseguenza. Informazioni su come [personalizzare featurizations](#customize-featurization). 
 
     ![Form del tipo di attività di Azure Machine Learning Studio](media/how-to-use-automated-ml-for-ml-models/view-featurization-settings.png)
-
-<a name="profile"></a>
-
-## <a name="data-profiling--summary-stats"></a>Statistiche di riepilogo e profilatura dei dati
-
-È possibile ottenere un'ampia gamma di statistiche di riepilogo nel set di dati per verificare se il set di dati è idoneo per il Machine Learning. Per le colonne non numeriche, sono incluse solo statistiche di base come min, max e conteggio errori. Per le colonne numeriche, è anche possibile esaminare i momenti statistici e i quantili stimati. In particolare, il profilo dati include:
-
->[!NOTE]
-> Per le funzionalità con tipi irrilevanti vengono visualizzate voci vuote.
-
-Statistiche|Descrizione
-------|------
-Funzionalità| Nome della colonna sottoposta a riepilogo.
-Profilo| Visualizzazione in linea basata sul tipo dedotto. Ad esempio, le stringhe, i valori booleani e le date avranno conteggi di valori, mentre i decimali (numerici) avranno istogrammi approssimati. In questo modo è possibile ottenere una visione immediata della distribuzione dei dati.
-Distribuzione dei tipi| Conteggio dei valori in linea dei tipi all'interno di una colonna. I valori Null hanno un proprio tipo, quindi questa visualizzazione è utile per rilevare valori strani o mancanti.
-Type|Tipo dedotto della colonna. I valori possibili includono: stringhe, valori booleani, date e decimali.
-Min| Valore minimo della colonna. Vengono visualizzate voci vuote per le funzionalità il cui tipo non ha un ordinamento intrinseco, ad esempio i valori booleani.
-Max| Valore massimo della colonna. 
-Conteggio| Numero totale di voci mancanti e non mancanti nella colonna.
-Totale non mancanti| Numero di voci nella colonna che non sono mancanti. Le stringhe vuote e gli errori vengono considerati come valori, quindi non contribuiscono al "totale non mancanti".
-Quantili| Valori approssimati a ogni quantile per una visione generale della distribuzione dei dati.
-Media| Media aritmetica o media della colonna.
-Deviazione standard| Misura della quantità di dispersione o variazione dei dati di questa colonna.
-Variance| Misura della distribuzione dei dati di questa colonna rispetto al relativo valore medio. 
-Asimmetria| Misura della differenza dei dati di questa colonna rispetto a una distribuzione normale.
-Curtosi| Misura della pesantezza delle code dei dati di questa colonna in relazione a una distribuzione normale.
 
 ## <a name="customize-featurization"></a>Personalizzare conteggi
 

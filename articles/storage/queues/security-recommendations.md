@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 03/11/2020
 ms.author: tamram
 ms.custom: security-recommendations
-ms.openlocfilehash: ee3808684ab2548999d71fe0d31fa9a160cd9347
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 70bb96da858c94fbd2c75d56cda4e705f2ffa3ba
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86200048"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986622"
 ---
 # <a name="security-recommendations-for-queue-storage"></a>Raccomandazioni sulla sicurezza per l'archiviazione code
 
@@ -30,7 +30,7 @@ Il Centro sicurezza di Azure analizza periodicamente lo stato di sicurezza delle
 | Recommendation | Commenti | Centro sicurezza |
 |-|----|--|
 | Usare il modello di distribuzione Azure Resource Manager | Creare nuovi account di archiviazione usando il modello di distribuzione Azure Resource Manager per importanti miglioramenti della sicurezza, tra cui controllo degli accessi in base al controllo (RBAC) e controllo, distribuzione e governance basati su Gestione risorse, accesso alle identità gestite, accesso ai Azure Key Vault per i segreti e autenticazione basata su Azure AD e autorizzazione per l'accesso ai dati e alle risorse di archiviazione di Azure. Se possibile, eseguire la migrazione degli account di archiviazione esistenti che usano il modello di distribuzione classica per usare Azure Resource Manager. Per ulteriori informazioni su Azure Resource Manager, vedere [Panoramica di Azure Resource Manager](/azure/azure-resource-manager/resource-group-overview). | - |
-| Abilitare Advanced Threat Protection per tutti gli account di archiviazione | Advanced Threat Protection per archiviazione di Azure offre un ulteriore livello di intelligence per la sicurezza che rileva tentativi insoliti e potenzialmente dannosi di accedere o sfruttare gli account di archiviazione. Gli avvisi di sicurezza vengono attivati nel centro sicurezza di Azure quando si verificano anomalie nelle attività e vengono inviati anche tramite posta elettronica agli amministratori della sottoscrizione, con dettagli relativi a attività sospette e consigli su come analizzare e correggere le minacce. Per altre informazioni, vedere [Advanced Threat Protection per archiviazione di Azure](../common/storage-advanced-threat-protection.md). | [Sì](../../security-center/security-center-sql-service-recommendations.md) |
+| Abilitare Advanced Threat Protection per tutti gli account di archiviazione | Advanced Threat Protection per archiviazione di Azure offre un ulteriore livello di intelligence per la sicurezza che rileva tentativi insoliti e potenzialmente dannosi di accedere o sfruttare gli account di archiviazione. Gli avvisi di sicurezza vengono attivati nel centro sicurezza di Azure quando si verificano anomalie nelle attività e vengono inviati anche tramite posta elettronica agli amministratori della sottoscrizione, con dettagli relativi a attività sospette e consigli su come analizzare e correggere le minacce. Per altre informazioni, vedere [Advanced Threat Protection per archiviazione di Azure](../common/azure-defender-storage-configure.md). | [Sì](../../security-center/security-center-sql-service-recommendations.md) |
 | Limitare i token di firma di accesso condiviso solo alle connessioni HTTPS | Richiesta di HTTPS quando un client utilizza un token di firma di accesso condiviso per accedere ai dati della coda consente di ridurre al minimo il rischio di intercettazione. Per altre informazioni, vedere [concedere l'accesso limitato alle risorse di archiviazione di Azure usando le firme di accesso condiviso (SAS)](../common/storage-sas-overview.md). | - |
 
 ## <a name="identity-and-access-management"></a>Gestione delle identità e dell'accesso

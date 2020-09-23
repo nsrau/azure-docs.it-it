@@ -1,6 +1,6 @@
 ---
-title: Gestire i dati cronologici con i criteri di conservazione-Azure SQL Edge (anteprima)
-description: Informazioni su come gestire i dati cronologici con i criteri di conservazione in Azure SQL Edge (anteprima)
+title: Gestire i dati cronologici con i criteri di conservazione-Azure SQL Edge
+description: Informazioni su come gestire i dati cronologici con i criteri di conservazione in Azure SQL Edge
 keywords: SQL Edge, conservazione dei dati
 services: sql-edge
 ms.service: sql-edge
@@ -9,22 +9,21 @@ author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: sstein
 ms.date: 09/04/2020
-ms.openlocfilehash: 9acec467819f159623176edf2f3f763a55019eb4
-ms.sourcegitcommit: c52e50ea04dfb8d4da0e18735477b80cafccc2cf
+ms.openlocfilehash: 45ce874ffb626f63b2239c66afdefd091114cbd2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/08/2020
-ms.locfileid: "89550696"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90888141"
 ---
 # <a name="manage-historical-data-with-retention-policy"></a>Gestire i dati cronologici con i criteri di conservazione
 
 La conservazione dei dati può essere abilitata nel database e in qualsiasi tabella sottostante singolarmente, consentendo agli utenti di creare criteri di invecchiamento flessibili per le tabelle e i database. L'applicazione della conservazione dei dati è semplice: è necessario impostare un solo parametro durante la creazione della tabella o come parte di un'operazione ALTER TABLE. 
 
-Dopo aver definito i criteri di conservazione dei dati per un database e la tabella sottostante, viene eseguita un'attività timer di tempo in background per rimuovere tutti i record obsoleti dalla tabella abilitata per la conservazione dei dati. L'identificazione delle righe corrispondenti e la loro rimozione dalla tabella si verificano in modo trasparente nell'attività in background pianificata ed eseguita dal sistema. La condizione di età per le righe della tabella viene controllata in base alla colonna utilizzata come `filter_column` nella definizione della tabella. Se, ad esempio, il periodo di memorizzazione è impostato su una settimana, le righe della tabella idonee per la pulizia soddisfano la condizione seguente: 
+Dopo aver definito i criteri di conservazione dei dati per un database e la tabella sottostante, viene eseguita un'attività timer di tempo in background per rimuovere tutti i record obsoleti dalla tabella abilitata per la conservazione dei dati. L'identificazione delle righe corrispondenti e la loro rimozione dalla tabella si verificano in modo trasparente nell'attività in background pianificata ed eseguita dal sistema. La condizione di età per le righe della tabella viene controllata in base alla colonna utilizzata come `filter_column` nella definizione della tabella. Se, ad esempio, il periodo di memorizzazione è impostato su una settimana, le righe della tabella idonee per la pulizia soddisfano una delle condizioni seguenti: 
 
-```sql
-filter_column < DATEADD(WEEK, -1, SYSUTCDATETIME())
-```
+- Se nella colonna filtro viene utilizzato il tipo di dati DATETIMEOFFSET, la condizione è `filter_column < DATEADD(WEEK, -1, SYSUTCDATETIME())`
+- In caso contrario, la condizione è `filter_column < DATEADD(WEEK, -1, SYSDATETIME())`
 
 ## <a name="data-retention-cleanup-phases"></a>Fasi di pulizia della conservazione dei dati
 
@@ -37,7 +36,7 @@ L'operazione di pulizia della conservazione dei dati è costituita da due fasi.
 
 ## <a name="manual-cleanup"></a>Pulizia manuale
 
-A seconda delle impostazioni di conservazione dei dati in una tabella e della natura del carico di lavoro nel database, è possibile che il thread di pulizia automatica non rimuova completamente tutte le righe obsolete durante l'esecuzione. Per semplificare questa operazione e consentire agli utenti di rimuovere manualmente le righe obsolete, il `sys.sp_cleanup_data_retention` stored procedure è stato introdotto in Azure SQL Edge (anteprima). 
+A seconda delle impostazioni di conservazione dei dati in una tabella e della natura del carico di lavoro nel database, è possibile che il thread di pulizia automatica non rimuova completamente tutte le righe obsolete durante l'esecuzione. Per semplificare questa operazione e consentire agli utenti di rimuovere manualmente le righe obsolete, il `sys.sp_cleanup_data_retention` stored procedure è stato introdotto in Azure SQL Edge. 
 
 Questa stored procedure accetta tre parametri. 
     - Nome schema: nome dello schema proprietario della tabella. Parametro obbligatorio. 
@@ -67,7 +66,7 @@ Una buona compressione dei dati e una pulizia efficiente della conservazione ren
 
 ## <a name="monitoring-data-retention-cleanup"></a>Monitoraggio della pulizia della conservazione dei dati
 
-Le operazioni di pulizia dei criteri di conservazione dei dati possono essere monitorate tramite gli eventi estesi (XEvent) in Azure SQL Edge (anteprima). Per altre informazioni sugli eventi estesi, vedere [Panoramica di XEvent](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events).
+Le operazioni di pulizia dei criteri di conservazione dei dati possono essere monitorate tramite gli eventi estesi (XEvent) in Azure SQL Edge. Per altre informazioni sugli eventi estesi, vedere [Panoramica di XEvent](https://docs.microsoft.com/sql/relational-databases/extended-events/extended-events). 
 
 I sei eventi estesi seguenti consentono di tenere traccia dello stato delle operazioni di pulizia. 
 
@@ -78,7 +77,9 @@ I sei eventi estesi seguenti consentono di tenere traccia dello stato delle oper
 | data_retention_task_exception  | Si verifica quando l'attività in background per la pulizia delle tabelle con criteri di conservazione non riesce all'esterno del processo di pulizia della conservazione specifico per la tabella. |
 | data_retention_cleanup_started  | Si verifica quando viene avviato il processo di pulizia della tabella con i criteri di conservazione dei dati. |
 | data_retention_cleanup_exception  | Si verifica un processo di pulizia della tabella con criteri di conservazione non riuscito. |
-| data_retention_cleanup_completed  | Si verifica quando termina il processo di pulizia della tabella con criteri di conservazione dei dati. |
+| data_retention_cleanup_completed  | Si verifica quando termina il processo di pulizia della tabella con criteri di conservazione dei dati. |  
+
+Inoltre, è stato aggiunto un nuovo tipo di buffer circolare denominato `RING_BUFFER_DATA_RETENTION_CLEANUP` alla vista a gestione dinamica sys. dm_os_ring_buffers. Questa vista può essere utilizzata per monitorare le operazioni di pulizia della conservazione dei dati. 
 
 
 ## <a name="next-steps"></a>Passaggi successivi

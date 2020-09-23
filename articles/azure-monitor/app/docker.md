@@ -3,12 +3,12 @@ title: Monitorare le applicazioni Docker in Azure Application Insights | Microso
 description: I contatori delle prestazioni, gli eventi e le eccezioni di Docker possono essere visualizzati in Application Insights, insieme ai dati di telemetria dalle app nei contenitori.
 ms.topic: conceptual
 ms.date: 03/14/2019
-ms.openlocfilehash: 1cbb2968fec68eb750ce3c9b6cac09f23a1d36c5
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 272b4e8af7b1ed3d01d8af0979b56954585f795d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87324421"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90977586"
 ---
 # <a name="monitor-docker-applications-in-application-insights-deprecated"></a>Monitorare le applicazioni Docker in Application Insights (deprecato)
 
@@ -61,7 +61,7 @@ Se l'applicazione è instrumentata con [Application Insights SDK per Java](./jav
     <Add type="com.microsoft.applicationinsights.extensibility.initializer.docker.DockerContextInitializer"/> 
 ```
 
-Ciò aggiunge informazioni di Docker, come ad esempio il contenitore e l’id dell’host, ad ogni elemento di telemetria inviato dall'app.
+Verranno aggiunte informazioni Docker, ad esempio il contenitore e l'ID host, a ogni elemento di telemetria inviato dall'app.
 
 ## <a name="view-your-telemetry"></a>Visualizzare i dati di telemetria
 Tornare alla risorsa Application Insights nel portale di Azure.
@@ -71,12 +71,12 @@ Fare clic nel riquadro Docker.
 In breve verranno visualizzati i dati in arrivo dall’app Docker, soprattutto se nel motore Docker sono in esecuzione altri contenitori.
 
 ### <a name="docker-container-events"></a>Eventi del contenitore Docker
-![esempio](./media/docker/13.png)
+![Screenshot mostra la selezione della ricerca, una finestra Risultati ricerca diagnostica con una freccia che punta da un evento personalizzato a una finestra con dati personalizzati.](./media/docker/13.png)
 
 Per analizzare i singoli eventi, fare clic su [Cerca](./diagnostic-search.md). Eseguire una ricerca e applicare filtri per trovare gli eventi desiderati. Per ottenere altri dettagli, fare clic su qualsiasi evento.
 
 ### <a name="exceptions-by-container-name"></a>Eccezioni per nome del contenitore
-![esempio](./media/docker/14.png)
+![Screenshot mostra la pagina di Esplora metriche con un grafico selezionato e la finestra dettagli grafico aperta sul lato destro.](./media/docker/14.png)
 
 ### <a name="docker-context-added-to-app-telemetry"></a>Contesto Docker aggiunto ai dati di telemetria dell’app
 I dati di telemetria sulle richieste inviati dall'applicazione instrumentata con AI SDK sono arricchiti con informazioni di contesto Docker.

@@ -11,20 +11,20 @@ ms.author: laobri
 ms.reviewer: laobri
 ms.date: 03/11/2020
 ms.custom: contperfq4, devx-track-python
-ms.openlocfilehash: c981bed2b30f47223a1fd562d4a5d0fff96e3adf
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b6b4be2eb2cd490d525046541f68a45d87a8e638
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646979"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906679"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>Esercitazione: Creare una pipeline di Azure Machine Learning per l'assegnazione di punteggi batch
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-In questa esercitazione avanzata viene illustrato come creare una pipeline di Azure Machine Learning per eseguire un processo di assegnazione di punteggi batch. Le pipeline di Machine Learning ottimizzano il flusso di lavoro offrendo velocità, portabilità e possibilità di riutilizzo per consentire così di concentrarsi su Machine Learning anziché sull'infrastruttura e l'automazione. Dopo aver creato e pubblicato una pipeline, configurare un endpoint REST da usare per attivare la pipeline da qualsiasi libreria HTTP in qualsiasi piattaforma. 
 
-Questo esempio usa il modello di rete neurale convoluzionale [Inception-V3](https://arxiv.org/abs/1512.00567) già sottoposto a training implementato in Tensorflow per classificare le immagini senza etichetta. [Altre informazioni sulle pipeline di Machine Learning](concept-ml-pipelines.md).
+In questa esercitazione avanzata viene illustrato come creare una [pipeline di Azure Machine Learning](concept-ml-pipelines.md) per eseguire un processo di assegnazione di punteggi batch. Le pipeline di Machine Learning ottimizzano il flusso di lavoro offrendo velocità, portabilità e possibilità di riutilizzo per consentire così di concentrarsi su Machine Learning anziché sull'infrastruttura e l'automazione. Dopo aver creato e pubblicato una pipeline, configurare un endpoint REST da usare per attivare la pipeline da qualsiasi libreria HTTP in qualsiasi piattaforma. 
+
+Questo esempio usa il modello di rete neurale convoluzionale [Inception-V3](https://arxiv.org/abs/1512.00567) già sottoposto a training implementato in Tensorflow per classificare le immagini senza etichetta. 
 
 In questa esercitazione si completano le attività seguenti:
 

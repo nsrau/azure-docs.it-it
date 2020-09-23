@@ -11,15 +11,15 @@ author: lostmygithubaccount
 ms.date: 06/25/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 4b2b435be2a39b6e31a7f44fa6acbe7e1bc9c2c0
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d60a963f8ad4b29d3c282d30e6aca9973208860b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661673"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905155"
 ---
 # <a name="detect-data-drift-preview-on-datasets"></a>Rileva Drift dei dati (anteprima) nei set di dati
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 > [!IMPORTANT]
 > Il rilevamento della tendenza dei dati nei set di dati è attualmente disponibile in anteprima pubblica.
@@ -37,9 +37,6 @@ Con Azure Machine Learning monitor del set di dati (anteprima), è possibile:
 Per creare il monitoraggio viene usato un [set di dati di Azure Machine Learning](how-to-create-register-datasets.md) . Il set di dati deve includere una colonna timestamp.
 
 È possibile visualizzare le metriche di spostamento dei dati con Python SDK o in Azure Machine Learning Studio.  Altre metriche e informazioni dettagliate sono disponibili tramite la risorsa [applicazione Azure Insights](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview) associata all'area di lavoro Azure Machine Learning.
-
-> [!Important]
-> Il monitoraggio della tendenza dei dati con l'SDK è disponibile in tutte le edizioni. Tuttavia, il monitoraggio della tendenza dei dati attraverso lo studio sul Web è solo Enterprise Edition.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
@@ -135,7 +132,6 @@ dset = dset.register(ws, 'target')
 Per un esempio completo dell'uso del `timeseries` tratto dei set di impostazioni, vedere il [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/work-with-data/datasets-tutorial/timeseries-datasets/tabular-timeseries-dataset-filtering.ipynb) o la documentazione di [DataSets SDK](https://docs.microsoft.com/python/api/azureml-core/azureml.data.tabulardataset?view=azure-ml-py#&preserve-view=truewith-timestamp-columns-timestamp-none--partition-timestamp-none--validate-false----kwargs-).
 
 ### <a name="azure-machine-learning-studio"></a><a name="studio-dataset"></a>Azure Machine Learning Studio
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
 Se si crea il set di dati usando Azure Machine Learning Studio, verificare che il percorso dei dati contenga informazioni sul timestamp, includere tutte le sottocartelle con dati e impostare il formato della partizione.
 
@@ -209,15 +205,13 @@ monitor = monitor.enable_schedule()
 Per un esempio completo di configurazione di un `timeseries` set di dati e un rilevatore di drifting dati, vedere il [notebook di esempio](https://aka.ms/datadrift-notebook).
 
 ### <a name="azure-machine-learning-studio"></a><a name="studio-monitor"></a> Azure Machine Learning Studio
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku-inline.md)]
 
-Per impostare gli avvisi sul monitoraggio del set di dati, l'area di lavoro che contiene il set di dati per cui si desidera creare un monitoraggio deve avere funzionalità di Enterprise Edition.
+1. Passare alla [Home page di studio](https://ml.azure.com).
+1. Selezionare la scheda **set di impostazioni** a sinistra. 
+1. Selezionare **monitoraggi del set di dati**.
+   ![Elenco monitoraggio](./media/how-to-monitor-datasets/monitor-list.png)
 
-Una volta confermata la funzionalità dell'area di lavoro, passare alla [Home page di studio](https://ml.azure.com) e selezionare la scheda **set di impostazioni** a sinistra. Selezionare **monitoraggi del set di dati**.
-
-![Elenco monitoraggio](./media/how-to-monitor-datasets/monitor-list.png)
-
-Fare clic sul pulsante **+ Crea monitoraggio** e continuare la procedura guidata facendo clic su **Avanti**.  
+1. Fare clic sul pulsante **+ Crea monitoraggio** e continuare la procedura guidata facendo clic su **Avanti**.  
 
 :::image type="content" source="media/how-to-monitor-datasets/wizard.png" alt-text="Creazione guidata monitoraggio":::
 
@@ -232,7 +226,7 @@ Fare clic sul pulsante **+ Crea monitoraggio** e continuare la procedura guidata
     | Nome | Nome del monitoraggio del set di dati. | | No |
     | Funzionalità | Elenco di funzionalità che verranno analizzate per la deviazione dei dati nel tempo. | Impostare sulle funzionalità di output di un modello per misurare la tendenza del concetto. Non includere funzioni che si spostano naturalmente nel tempo (mese, anno, indice e così via). Dopo aver modificato l'elenco di funzionalità, è possibile indicizzazione e monitoraggio della deviazione dati esistente. | Sì | 
     | Destinazione del calcolo | Azure Machine Learning la destinazione di calcolo per eseguire i processi di monitoraggio del set di dati. | | Sì | 
-    | Abilitare | Abilitare o disabilitare la pianificazione nella pipeline di monitoraggio del set di dati | Disabilitare la pianificazione per analizzare i dati cronologici con l'impostazione di recupero dati. Può essere abilitata dopo la creazione del monitor del set di dati. | Sì | 
+    | Abilita | Abilitare o disabilitare la pianificazione nella pipeline di monitoraggio del set di dati | Disabilitare la pianificazione per analizzare i dati cronologici con l'impostazione di recupero dati. Può essere abilitata dopo la creazione del monitor del set di dati. | Sì | 
     | Frequenza | Frequenza che verrà usata per pianificare il processo della pipeline e analizzare i dati cronologici se si esegue un recupero dati. Le opzioni includono giornaliera, settimanale o mensile. | Ogni esecuzione Confronta i dati nel set di dati di destinazione in base alla frequenza: <li>Giornaliero: confrontare il giorno completo più recente nel set di dati di destinazione con la linea di base <li>Settimanale: confrontare la settimana completa più recente (lunedì-domenica) nel set di dati di destinazione con la linea di base <li>Mensile: confrontare il mese completo più recente nel set di dati di destinazione con la linea di base | No | 
     | Latenza | Tempo, in ore, necessario per l'arrivo dei dati nel set di dati. Se, ad esempio, sono necessari tre giorni per l'arrivo dei dati nel database SQL incapsulato dal set di dati, impostare la latenza su 72. | Non può essere modificato dopo la creazione del monitor del set di dati | No | 
     | Indirizzi di posta elettronica | Indirizzi di posta elettronica per gli avvisi in base alla violazione della soglia percentuale di drifting dei dati. | I messaggi di posta elettronica vengono inviati tramite monitoraggio di Azure. | Sì | 

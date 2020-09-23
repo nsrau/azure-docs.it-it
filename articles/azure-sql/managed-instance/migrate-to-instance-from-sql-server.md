@@ -9,14 +9,14 @@ ms.devlang: ''
 ms.topic: conceptual
 author: bonova
 ms.author: bonova
-ms.reviewer: douglas, carlrab
+ms.reviewer: ''
 ms.date: 07/11/2019
-ms.openlocfilehash: a54cf2ed228a166ea3d87c14515f41d5b0e7aed9
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: a33ff6b927045389c3692201fa70839c6a466ede
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90090228"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887654"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-managed-instance"></a>SQL Server la migrazione dell'istanza ad Azure SQL Istanza gestita
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -198,7 +198,7 @@ Anche se non si apportano modifiche all'istanza gestita durante la migrazione, �
 
 Non è ad esempio necessario creare backup nell'istanza gestita. il servizio esegue automaticamente i backup. né preoccuparsi della pianificazione, dell'esecuzione e della gestione dei backup. SQL Istanza gestita offre la possibilità di eseguire il ripristino in qualsiasi momento entro il periodo di conservazione utilizzando il [ripristino temporizzato (ripristino temporizzato)](../database/recovery-using-backups.md#point-in-time-restore). Non è inoltre necessario preoccuparsi della configurazione della disponibilità elevata, in quanto la [disponibilità elevata](../database/high-availability-sla.md) è incorporata in.
 
-Per rafforzare la sicurezza, è consigliabile usare [Azure Active Directory autenticazione](../database/security-overview.md), il [controllo](auditing-configure.md), il [rilevamento delle minacce](../database/advanced-data-security.md), la [sicurezza a livello di riga](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)e la [maschera dati dinamica](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking).
+Per rafforzare la sicurezza, è consigliabile usare [Azure Active Directory autenticazione](../database/security-overview.md), il [controllo](auditing-configure.md), il [rilevamento delle minacce](../database/azure-defender-for-sql.md), la [sicurezza a livello di riga](https://docs.microsoft.com/sql/relational-databases/security/row-level-security)e la [maschera dati dinamica](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking).
 
 Oltre alle funzionalità avanzate di gestione e sicurezza, un'istanza gestita fornisce un set di strumenti avanzati che consentono di [monitorare e ottimizzare il carico di lavoro](../database/monitor-tune-overview.md). [Analisi SQL di Azure](https://docs.microsoft.com/azure/azure-monitor/insights/azure-sql) consente di monitorare un ampio set di istanze gestite e centralizzare il monitoraggio di un numero elevato di istanze e database. L' [ottimizzazione automatica](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning#automatic-plan-correction) nelle istanze gestite monitora continuamente le prestazioni delle statistiche di esecuzione del piano SQL e corregge automaticamente i problemi di prestazioni identificati.
 

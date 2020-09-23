@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: jonfan, logicappspm
 ms.topic: article
 ms.date: 08/03/2020
-ms.openlocfilehash: 46f7c7185de559fb6b6545eb8f1b2113aa0ec4b2
-ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
+ms.openlocfilehash: d5db970d4ed3c3988c96a2c0c33775bcbfb00d92
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90085009"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986021"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Informazioni su limiti e configurazione per App per la logica di Azure
 
@@ -31,12 +31,13 @@ Ecco i limiti per una singola definizione di app per la logica:
 | Trigger per flusso di lavoro | 10 | Quando si usa la visualizzazione codice e non la finestra di progettazione |
 | Limite ambito switch-case | 25 | |
 | Variabili per flusso di lavoro | 250 | |
-| Caratteri per espressione | 8,192 | |
-| Dimensioni massime per `trackedProperties` | 16.000 caratteri |
 | Nome per `action` o `trigger` | 80 caratteri | |
+| Caratteri per espressione | 8,192 | |
 | Lunghezza di `description` | 256 caratteri | |
-| Massimo per `parameters` | 50 | |
-| Massimo per `outputs` | 10 | |
+| Numero massimo di `parameters` | 50 | |
+| Numero massimo di `outputs` | 10 | |
+| Dimensioni massime per `trackedProperties` | 16.000 caratteri |
+| Azione di codice inline: numero massimo di caratteri di codice | 1.024 caratteri <p>Per un limite di 100.000 caratteri, creare app per la logica con Visual Studio Code e l' [estensione anteprima **app** ](../logic-apps/create-stateful-stateless-workflows-visual-studio-code.md)per la logica di Azure. |
 
 <a name="run-duration-retention-limits"></a>
 

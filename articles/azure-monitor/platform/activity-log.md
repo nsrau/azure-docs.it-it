@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 06/12/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: e6fb2f09200e42f7ad7781716bb83ab418134509
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 089c53c72ae2c4cf6216937e8977b64a7abf80fc
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86516142"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983201"
 ---
 # <a name="azure-activity-log"></a>Log attività di Azure
 Il log attività è un [log di piattaforma](platform-logs-overview.md) in Azure che fornisce informazioni approfondite sugli eventi a livello di sottoscrizione. Tali dati includono le informazioni relative, ad esempio, alla modifica di una risorsa o all'avvio di una macchina virtuale. È possibile visualizzare il log attività nel portale di Azure o recuperarne le voci con PowerShell e l'interfaccia della riga di comando. Per altre funzionalità, è necessario creare un'impostazione di diagnostica per inviare il log attività ai [log di monitoraggio di Azure](data-platform-logs.md), a hub eventi di Azure in modo che inoltri al di fuori di Azure o ad archiviazione di Azure per l'archiviazione. Questo articolo fornisce informazioni dettagliate sulla visualizzazione del log attività e sull'invio a destinazioni diverse.
@@ -156,7 +156,7 @@ insights-logs-networksecuritygrouprulecounter/resourceId=/SUBSCRIPTIONS/00000000
 
 Ogni BLOB PT1H.json contiene un BLOB JSON di eventi che si sono verificati nell'ora specificata nell'URL BLOB (ad esempio, h=12). Durante l'ora attuale, gli eventi vengono aggiunti al file PT1H.json man mano che si verificano. Il valore dei minuti (m = 00) è sempre 00, perché gli eventi del log delle risorse sono suddivisi in singoli BLOB all'ora.
 
-Ogni evento viene archiviato nella PT1H.jssu file con il formato seguente che usa uno schema di primo livello comune, ma in caso contrario è univoco per ogni categoria, come descritto in [schema del log attività](activity-log-schema.md).
+Ogni evento viene archiviato nella PT1H.jssu file con il formato seguente che usa uno schema di primo livello comune, ma in caso contrario è univoco per ogni categoria, come descritto in  [schema del log attività](activity-log-schema.md).
 
 ``` JSON
 { "time": "2020-06-12T13:07:46.766Z", "resourceId": "/SUBSCRIPTIONS/00000000-0000-0000-0000-000000000000/RESOURCEGROUPS/MY-RESOURCE-GROUP/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/MV-VM-01", "correlationId": "0f0cb6b4-804b-4129-b893-70aeeb63997e", "operationName": "Microsoft.Resourcehealth/healthevent/Updated/action", "level": "Information", "resultType": "Updated", "category": "ResourceHealth", "properties": {"eventCategory":"ResourceHealth","eventProperties":{"title":"This virtual machine is starting as requested by an authorized user or process. It will be online shortly.","details":"VirtualMachineStartInitiatedByControlPlane","currentHealthStatus":"Unknown","previousHealthStatus":"Unknown","type":"Downtime","cause":"UserInitiated"}}}
@@ -259,7 +259,7 @@ Il metodo legacy per l'invio del log attività in un'area di lavoro Log Analytic
 1. Nella sezione **origini dati dell'area di lavoro** del menu dell'area di lavoro selezionare **log attività di Azure**.
 1. Fare clic sulla sottoscrizione che si desidera connettere.
 
-    ![Aree di lavoro](media/activity-log-collect/workspaces.png)
+    ![Screenshot Mostra Log Analytics area di lavoro con un log attività di Azure selezionato.](media/activity-log-collect/workspaces.png)
 
 1. Fare clic su **Connetti** per connettere il log attività nella sottoscrizione all'area di lavoro selezionata. Se la sottoscrizione è già connessa a un'altra area di lavoro, fare clic su **Disconnetti** prima per disconnetterla.
 

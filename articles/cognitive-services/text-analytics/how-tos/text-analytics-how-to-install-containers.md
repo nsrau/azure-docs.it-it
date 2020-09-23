@@ -11,19 +11,20 @@ ms.subservice: text-analytics
 ms.topic: conceptual
 ms.date: 07/07/2020
 ms.author: aahi
-ms.openlocfilehash: 61303a52212c4cec88dee2ccd8a1c08fb971a9b8
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: a83fd67a9ad5e5a36555fcbaed65b1d76936c33d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88545659"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906057"
 ---
 # <a name="install-and-run-text-analytics-containers"></a>Installare ed eseguire i contenitori di Analisi del testo
 
 > [!NOTE]
 > * Il contenitore per Analisi del sentiment V3 è ora disponibile a livello generale. I contenitori per l'estrazione di frasi chiave e rilevamento della lingua sono disponibili in anteprima pubblica non gestita.
 > * Il collegamento di entità e NER non sono attualmente disponibili come contenitore.
-> * Attualmente, non verranno addebitati i costi per l'uso del contenitore Analisi del testo per l'integrità.
+> * Per accedere alla Analisi del testo per il contenitore di integrità è necessario un [modulo di richiesta](https://aka.ms/cognitivegate). Attualmente, non verrà addebitato l'utilizzo.
+> * I percorsi delle immagini del contenitore potrebbero essere stati modificati di recente. Leggere questo articolo per visualizzare il percorso aggiornato per questo contenitore.
 
 I contenitori consentono di eseguire le API di analisi del testo nell'ambiente in uso e sono perfette per i requisiti di sicurezza e governance dei dati specifici. I contenitori di Analisi del testo forniscono l'elaborazione avanzata in linguaggio naturale su testo non elaborato e includono tre funzioni principali: analisi dei sentimenti, estrazione di frasi chiave e rilevamento della lingua. 
 
@@ -40,7 +41,7 @@ Per eseguire uno dei contenitori di Analisi del testo, è necessario disporre de
 
 Per usare i contenitori di Analisi del testo, è necessario soddisfare i prerequisiti seguenti:
 
-|Obbligatoria|Scopo|
+|Necessario|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.| 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 05/18/2020
 ms.author: kumud
 ms.reviewer: kumud
-ms.openlocfilehash: ce4c44ef17f456a776fde3addc5ec4ed29c8ebbd
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: fd6894ea90dc6cb3cc721438ba73a94b43c36a5b
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89434453"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983706"
 ---
 # <a name="virtual-network-service-tags"></a>Tag del servizio di rete virtuale
 <a name="network-service-tags"></a>
@@ -67,7 +67,7 @@ Per impostazione predefinita, i tag del servizio riflettono gli intervalli per l
 | **AzureInformationProtection** | Azure Information Protection.<br/><br/>*Nota:* questo tag presenta una dipendenza dai tag **AzureActiveDirectory**, **AzureFrontDoor.Frontend** e **AzureFrontDoor.FirstParty**. | In uscita | No | No |
 | **AzureIoTHub** | Hub IoT di Azure. | In uscita | No | No |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*Nota:* questo tag presenta una dipendenza dal tag  **AzureActiveDirectory**. | In uscita | Sì | Sì |
-| **AzureLoadBalancer** | Bilanciamento del carico di infrastruttura di Azure. Viene convertito nell'[indirizzo IP virtuale dell'host](security-overview.md#azure-platform-considerations) (168.63.129.16) da cui hanno origine i probe di integrità di Azure. Ciò non include il traffico verso la risorsa Azure Load Balancer. Se non si usa Azure Load Balancer, è possibile ignorare questa regola. | Entrambe | No | No |
+| **AzureLoadBalancer** | Bilanciamento del carico di infrastruttura di Azure. Viene convertito nell'[indirizzo IP virtuale dell'host](security-overview.md#azure-platform-considerations) (168.63.129.16) da cui hanno origine i probe di integrità di Azure. Questo include solo il traffico Probe, non il traffico reale verso la risorsa back-end. Se non si usa Azure Load Balancer, è possibile ignorare questa regola. | Entrambe | No | No |
 | **AzureMachineLearning** | Azure Machine Learning | Entrambe | No | Sì |
 | **AzureMonitor** | Log Analytics, Application Insights, AzMon e metriche personalizzate (GiG endpoints).<br/><br/>*Nota:* per Log Analytics, questo tag presenta una dipendenza dal tag **Storage**. | In uscita | No | Sì |
 | **AzureOpenDatasets** | Set di dati aperti di Azure.<br/><br/>*Nota:* questo tag presenta una dipendenza dai tag **AzureFrontDoor.Frontend** e **Storage**. | In uscita | No | No |

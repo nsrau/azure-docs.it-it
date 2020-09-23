@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: how-to
 ms.date: 06/30/2020
-ms.openlocfilehash: d3076f2591718931bdab4dba9510d25fe07b2d02
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: eafad5edf9dcac5745986d09060baf7e4278762d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118761"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903980"
 ---
 # <a name="infrastructure-double-encryption-for-azure-database-for-mysql"></a>Crittografia doppia infrastruttura per database di Azure per MySQL
 
@@ -29,19 +29,19 @@ Seguire questa procedura per creare un database di Azure per il server MySQL con
 
 2. Selezionare **Database** > **Database di Azure per MySQL**. È anche possibile immettere **MySQL** nella casella di ricerca per trovare il servizio.
 
-   ![Opzione Database di Azure per MySQL](./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png)
+   :::image type="content" source="./media/quickstart-create-mysql-server-database-using-azure-portal/2_navigate-to-mysql.png" alt-text="Opzione Database di Azure per MySQL":::
 
 3. Fornire le informazioni di base del server. Selezionare **Impostazioni aggiuntive** e abilitare la casella di controllo **crittografia doppia infrastruttura** per impostare il parametro.
 
-    ![Selezioni per database di Azure per MySQL](./media/howto-double-encryption/infrastructure-encryption-selected.png)
+    :::image type="content" source="./media/howto-double-encryption/infrastructure-encryption-selected.png" alt-text="Selezioni per database di Azure per MySQL":::
 
-4. Selezionare **Verifica + crea** per eseguire il provisioning del server.
+4. Selezionare **Rivedi e crea** per effettuare il provisioning del server.
 
-    ![Riepilogo di database di Azure per MySQL](./media/howto-double-encryption/infrastructure-encryption-summary.png)
+    :::image type="content" source="./media/howto-double-encryption/infrastructure-encryption-summary.png" alt-text="Riepilogo di database di Azure per MySQL":::
 
 5. Una volta creato il server, è possibile convalidare la crittografia a doppia infrastruttura controllando lo stato nel pannello **Data Encryption** server.
 
-    ![Convalida di database di Azure per MySQL](./media/howto-double-encryption/infrastructure-encryption-validation.png)
+    :::image type="content" source="./media/howto-double-encryption/infrastructure-encryption-validation.png" alt-text="Convalida di database di Azure per MySQL":::
 
 ## <a name="create-an-azure-database-for-mysql-server-with-infrastructure-double-encryption---cli"></a>Creare un database di Azure per il server MySQL con l'infrastruttura crittografia doppia-interfaccia della riga di comando
 

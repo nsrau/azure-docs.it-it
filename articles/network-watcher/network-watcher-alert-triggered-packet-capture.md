@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: fb5ae2408c15baee0f37acaacc780f4d198b1521
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: eefd67d4d150c0c8d152002a174c62d31fcb8b5f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84738057"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975069"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>Usare l'acquisizione di pacchetti per il monitoraggio proattivo della rete con avvisi e Funzioni di Azure
 
@@ -30,7 +30,7 @@ Le risorse distribuite in Azure sono in esecuzione 24 ore su 24, 7 giorni su 7. 
 
 Usando Network Watcher, gli avvisi e le funzioni dall'ecosistema di Azure, è possibile rispondere in modo proattivo alle problematiche della rete con i dati e gli strumenti più idonei.
 
-![Scenario][scenario]
+![Il diagramma mostra Network Watcher estensione in una macchina virtuale che passa a un segmento T C P inviato > errore 100, che passa alle funzioni di Azure, che scorre fino a Network Watcher che esegue il flusso di Network Watcher estensione.][scenario]
 
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
@@ -74,7 +74,7 @@ Il primo passaggio è la creazione di una funzione di Azure per elaborare l'avvi
 
 2. Nel pannello **App per le funzioni** immettere i valori seguenti e fare clic su **OK** per creare l'app:
 
-    |**Impostazione** | **Valore** | **Dettagli** |
+    |**Impostazione** | **Valore** | **Informazioni dettagliate** |
     |---|---|---|
     |**Nome app**|PacketCaptureExample|Nome dell'app per le funzioni.|
     |**Sottoscrizione**|[Sottoscrizione]sottoscrizione in cui creare l'app per le funzioni.||
@@ -87,10 +87,10 @@ Il primo passaggio è la creazione di una funzione di Azure per elaborare l'avvi
 
 4. Selezionare **HttpTrigger-Powershell** e quindi immettere le informazioni rimanenti. Selezionare infine **Crea** per creare la funzione.
 
-    |**Impostazione** | **Valore** | **Dettagli** |
+    |**Impostazione** | **Valore** | **Informazioni dettagliate** |
     |---|---|---|
     |**Scenario**|Sperimentale|Tipo di scenario|
-    |**Dare un nome alla funzione**|AlertPacketCapturePowerShell|Nome della funzione|
+    |**Assegnare un nome alla funzione**|AlertPacketCapturePowerShell|Nome della funzione|
     |**Livello di autorizzazione**|Funzione|Livello di autorizzazione per la funzione|
 
 ![Esempio di funzioni][functions1]
@@ -138,7 +138,7 @@ Per usare i cmdlet PowerShell di Network Watcher, caricare il modulo PowerShell 
 
 1. Fare clic con il pulsante destro del mouse sulla sottocartella **AZ. Network** , quindi scegliere **Carica file**. 
 
-6. Passare ai moduli di Azure. Nella cartella **AZ. Network** locale selezionare tutti i file nella cartella. Selezionare **OK**. 
+6. Passare ai moduli di Azure. Nella cartella **AZ. Network** locale selezionare tutti i file nella cartella. Quindi scegliere **OK**. 
 
 7. Ripetere questi passaggi per **AZ. Accounts** e **AZ. resources**.
 
@@ -342,15 +342,15 @@ Si possono configurare avvisi per notificare alle singole persone quando una met
 
 Passare a una macchina virtuale esistente, quindi aggiungere una regola di avviso. Per informazioni più dettagliate sulla configurazione di avvisi, vedere [Creazione di avvisi in Monitoraggio di Azure per i servizi Azure - Portale di Azure](../monitoring-and-diagnostics/insights-alerts-portal.md). Immettere i valori seguenti nel pannello **Regola di avviso** e fare clic su **OK**.
 
-  |**Impostazione** | **Valore** | **Dettagli** |
+  |**Impostazione** | **Valore** | **Informazioni dettagliate** |
   |---|---|---|
   |**Nome**|TCP_Segments_Sent_Exceeded|Nome della regola di avviso.|
   |**Descrizione**|Soglia superata segmenti TCP inviati|Descrizione della regola di avviso.|
   |**Metrica**|Segmenti TCP inviati| La metrica da utilizzare per attivare l'avviso. |
-  |**Condizione**|Maggiore di| La condizione da utilizzare per valutare la metrica.|
+  |**Condition**|Maggiore di| La condizione da utilizzare per valutare la metrica.|
   |**Soglia**|100| Valore della metrica che attiva l'avviso. Deve trattarsi di un valore valido per l'ambiente in uso.|
   |**Periodo**|Negli ultimi cinque minuti| Determina il periodo in cui cercare la soglia per la metrica.|
-  |**webhook**|[URL webhook dell'app per le funzioni]| URL webhook dall'app per le funzioni creata nei passaggi precedenti.|
+  |**Webhook**|[URL webhook dell'app per le funzioni]| URL webhook dall'app per le funzioni creata nei passaggi precedenti.|
 
 > [!NOTE]
 > La metrica di segmenti TCP non è abilitata per impostazione predefinita. Per altre informazioni su come abilitare metriche aggiuntive, vedere [Abilitare il monitoraggio e la diagnostica](../monitoring-and-diagnostics/insights-how-to-use-diagnostics.md).

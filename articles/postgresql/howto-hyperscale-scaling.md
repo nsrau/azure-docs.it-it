@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
 ms.date: 8/10/2020
-ms.openlocfilehash: 10d253b3e470ea009944d4ccd756d4bbbe3766e7
-ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
+ms.openlocfilehash: 5b1a5da688b162c85d2be8580e29dc6ee9db6d40
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90029818"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906479"
 ---
 # <a name="server-group-size"></a>Dimensioni del gruppo di server
 
@@ -42,7 +42,7 @@ Database di Azure per PostgreSQL-iperscalabilità (CITUS) offre la scalabilità 
 
 Per aggiungere nodi, passare alla scheda **calcolo e archiviazione** nel gruppo di server di iperscalabilità (CITUS).  Quando si trascina il dispositivo di scorrimento per il **numero di nodi di lavoro** , viene modificato il valore
 
-![Dispositivi di scorrimento delle risorse](./media/howto-hyperscale-scaling/01-sliders-workers.png)
+:::image type="content" source="./media/howto-hyperscale-scaling/01-sliders-workers.png" alt-text="Dispositivi di scorrimento delle risorse":::
 
 Fare clic sul pulsante **Salva** per rendere effettivo il valore modificato.
 

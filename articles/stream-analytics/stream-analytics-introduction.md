@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: overview
 ms.custom: mvc
 ms.date: 07/6/2020
-ms.openlocfilehash: d62fd0a23a5f5553f27c7a399eb17d06d427a6f3
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: c6c878aa0e4a9d5caa22f7cd94c438f22a81d2ab
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108788"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90881881"
 ---
 # <a name="what-is-azure-stream-analytics"></a>Informazioni su Analisi di flusso di Azure
 
@@ -57,7 +57,7 @@ Per l'intero elenco di output di Analisi di flusso, vedere [Informazioni sugli o
 
 ## <a name="programmer-productivity"></a>Produttività per i programmatori
 
-Analisi di flusso di Azure usa un semplice linguaggio di query basato su SQL che è stato migliorato con potenti vincoli temporali per analizzare i dati in continua evoluzione. Per definire le trasformazioni dei processi, è possibile usare un [linguaggio di query di Analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) semplice e dichiarativo, che permette di creare query e analisi temporali complesse usando semplici costrutti SQL. Poiché il linguaggio di query di Analisi di flusso è coerente con il linguaggio SQL, è sufficiente avere familiarità con il linguaggio SQL per iniziare a creare processi. È anche possibile creare processi usando strumenti di sviluppo come Azure PowerShell, [strumenti di Visual Studio per Analisi di flusso](stream-analytics-tools-for-visual-studio-install.md), l'[estensione Visual Studio Code per Analisi di flusso](quick-create-vs-code.md) o modelli di Azure Resource Manager. L'uso di strumenti di sviluppo permette di sviluppare query di trasformazione offline e usare la [pipeline di integrazione continua e distribuzione continua](stream-analytics-tools-for-visual-studio-cicd.md) per inviare processi ad Azure.
+Analisi di flusso di Azure usa un semplice linguaggio di query basato su SQL che è stato migliorato con potenti vincoli temporali per analizzare i dati in continua evoluzione. Per definire le trasformazioni dei processi, è possibile usare un [linguaggio di query di Analisi di flusso](https://docs.microsoft.com/stream-analytics-query/stream-analytics-query-language-reference) semplice e dichiarativo, che permette di creare query e analisi temporali complesse usando semplici costrutti SQL. Poiché il linguaggio di query di Analisi di flusso è coerente con il linguaggio SQL, è sufficiente avere familiarità con il linguaggio SQL per iniziare a creare processi. È anche possibile creare processi usando strumenti di sviluppo come Azure PowerShell, [strumenti di Visual Studio per Analisi di flusso](stream-analytics-tools-for-visual-studio-install.md), l'[estensione Visual Studio Code per Analisi di flusso](quick-create-visual-studio-code.md) o modelli di Azure Resource Manager. L'uso di strumenti di sviluppo permette di sviluppare query di trasformazione offline e usare la [pipeline di integrazione continua e distribuzione continua](stream-analytics-tools-for-visual-studio-cicd.md) per inviare processi ad Azure.
 
 Il linguaggio di query di Analisi di flusso offre un'ampia gamma di funzioni per l'analisi e l'elaborazione dei dati in streaming. Questo linguaggio di query supporta semplici funzioni di manipolazione, aggregazione e analisi dei dati, [funzioni geospaziali](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-geospatial-functions), [criteri di ricerca](https://docs.microsoft.com/stream-analytics-query/match-recognize-stream-analytics) e [rilevamento anomalie](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-machine-learning-anomaly-detection). È possibile modificare le query nel portale e testarle usando i dati di esempio estratti da uno streaming live.
 
@@ -106,4 +106,4 @@ In questo articolo è stata presentata una panoramica di Analisi di flusso di Az
 * [Creare un processo di Analisi di flusso tramite il portale di Azure](stream-analytics-quick-create-portal.md).
 * [Creare un processo di Analisi di flusso tramite Azure PowerShell](stream-analytics-quick-create-powershell.md).
 * [Creare un processo di Analisi di flusso con Visual Studio](stream-analytics-quick-create-vs.md).
-* [Creare un processo di Analisi di flusso con Visual Studio Code](quick-create-vs-code.md).
+* [Creare un processo di Analisi di flusso con Visual Studio Code](quick-create-visual-studio-code.md).

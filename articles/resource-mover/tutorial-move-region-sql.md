@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 0718151039d88ffb76a07ce082c08fb011dab88b
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: e3e2c9aa42ff3189e90f57d7c6e92b2a71f46639
+ms.sourcegitcommit: 51df05f27adb8f3ce67ad11d75cb0ee0b016dc5d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89652377"
+ms.lasthandoff: 09/14/2020
+ms.locfileid: "90061606"
 ---
 # <a name="tutorial-move-azure-sql-database-resources-to-another-region"></a>Esercitazione: Spostare risorse del database SQL di Azure in un'altra area
 
@@ -77,7 +77,6 @@ Selezionare le risorse da spostare.
 
 3. In **Sposta risorse** > **Origine e destinazione** selezionare l'area e la sottoscrizione di origine.
 4. In **Destinazione** selezionare l'area in cui spostare le risorse. Quindi fare clic su **Next**.
-5. In **Area dei metadati** selezionare la posizione in cui archiviare i metadati relativi alle risorse da spostare. Viene creato un gruppo di risorse appositamente per questo scopo. Quindi fare clic su **Next**.
 
     ![Pagina per la selezione dell'area di origine e di destinazione](./media/tutorial-move-region-sql/source-target.png)
 

@@ -7,18 +7,18 @@ ms.service: machine-learning
 ms.subservice: core
 ms.author: sgilley
 author: sdgilley
-ms.date: 12/27/2019
+ms.date: 09/22/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 1f68753e7b28163f3ec0c18c30cf5939e0bc5243
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 38784b006acac4c3ff70b2aa3c38648e939eddeb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89649415"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889922"
 ---
 # <a name="create-and-manage-azure-machine-learning-workspaces-in-the-azure-portal"></a>Creare e gestire le aree di lavoro di Azure Machine Learning nel portale di Azure
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Questo articolo illustra come creare, visualizzare ed eliminare [**Azure Machine Learning aree di lavoro**](concept-workspace.md) nel portale di Azure per [Azure Machine Learning](overview-what-is-azure-ml.md).  Il portale è il modo più semplice per iniziare a usare le aree di lavoro, ma in base alle esigenze modificate o ai requisiti per l'aumento dell'automazione è anche possibile creare ed eliminare aree di lavoro [tramite l'interfaccia della](reference-azure-machine-learning-cli.md)riga di comando, [con codice Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true) o [tramite l'estensione vs code](tutorial-setup-vscode-extension.md).
 
@@ -44,14 +44,13 @@ Per creare un'area di lavoro, è necessaria una sottoscrizione di Azure. Se non 
    ---|---
    Nome dell'area di lavoro |Immettere un nome univoco che identifichi l'area di lavoro. In questo esempio si usa **docs-ws**. I nomi devono essere univoci all'interno del gruppo di risorse. Usare un nome facile da ricordare e da distinguere dai nomi delle aree di lavoro create da altri utenti. Il nome dell'area di lavoro non rileva la distinzione tra maiuscole e minuscole.
    Subscription |Selezionare la sottoscrizione di Azure da usare.
-   Gruppo di risorse | Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse. Un gruppo di risorse include risorse correlate per una soluzione Azure. In questo esempio si usa **docs-aml**. Per usare un gruppo di risorse esistente, è necessario un ruolo di *collaboratore* o *proprietario* .  Per ulteriori informazioni sull'accesso, vedere [gestire l'accesso a un'area di lavoro Azure Machine Learning](how-to-assign-roles.md).
+   Resource group | Usare un gruppo di risorse esistente nella sottoscrizione oppure immettere un nome per creare un nuovo gruppo di risorse. Un gruppo di risorse include risorse correlate per una soluzione Azure. In questo esempio si usa **docs-aml**. Per usare un gruppo di risorse esistente, è necessario un ruolo di *collaboratore* o *proprietario* .  Per ulteriori informazioni sull'accesso, vedere [gestire l'accesso a un'area di lavoro Azure Machine Learning](how-to-assign-roles.md).
    Location | Selezionare la località più vicina agli utenti e alle risorse di dati per creare l'area di lavoro.
    Location | Selezionare la località più vicina agli utenti e alle risorse di dati per creare l'area di lavoro.
-   Edizione dell'area di lavoro | Selezionare **Basic** o **Enterprise**.  Questa edizione dell'area di lavoro determina le funzionalità a cui si avrà accesso e i prezzi. Scopri di più sulle [offerte Basic ed Enterprise Edition](overview-what-is-azure-ml.md#sku). 
 
     ![Configurare l'area di lavoro](./media/how-to-manage-workspace/select-edition.png)
 
-1. Al termine della configurazione dell'area di lavoro, selezionare **Verifica + crea**. Facoltativamente, usare le sezioni [rete](#networking) e [Avanzate](#advanced) per configurare altre impostazioni per l'area di lavoro.
+1. Al termine della configurazione dell'area di lavoro, selezionare **Verifica + crea**.
 2. Rivedere le impostazioni e apportare eventuali modifiche o correzioni aggiuntive. Quando si è soddisfatti delle impostazioni, selezionare **Crea**.
 
    > [!Warning] 
@@ -60,84 +59,6 @@ Per creare un'area di lavoro, è necessaria una sottoscrizione di Azure. Se non 
    Al termine del processo verrà visualizzato un messaggio di conferma del completamento della distribuzione, 
  
  1. Per visualizzare la nuova area di lavoro, selezionare **Vai alla risorsa**.
-
-
-### <a name="networking"></a>Rete
-
-> [!IMPORTANT]
-> Per ulteriori informazioni sull'utilizzo di un endpoint privato e di una rete virtuale con l'area di lavoro, vedere [isolamento e privacy della rete](how-to-enable-virtual-network.md).
-
-1. La configurazione di rete predefinita prevede l'uso di un __endpoint pubblico__accessibile dalla rete Internet pubblica. Per limitare l'accesso all'area di lavoro a una rete virtuale di Azure creata, è invece possibile selezionare __endpoint privato__ (anteprima) come __metodo di connettività__e quindi usare __+ Aggiungi__ per configurare l'endpoint.
-
-   > [!IMPORTANT]
-   > L'uso di un endpoint privato con Azure Machine Learning area di lavoro è attualmente disponibile in anteprima pubblica. Questa versione di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
-
-   :::image type="content" source="media/how-to-manage-workspace/select-private-endpoint.png" alt-text="Selezione endpoint privato":::
-
-1. Nel modulo __Crea endpoint privato__ impostare il percorso, il nome e la rete virtuale da usare. Se si vuole usare l'endpoint con una zona DNS privato, selezionare __integra con zona DNS privata__ e selezionare la zona usando il campo __area DNS privato__ . Selezionare __OK__ per creare l'endpoint. 
-
-   :::image type="content" source="media/how-to-manage-workspace/create-private-endpoint.png" alt-text="Creazione di endpoint privati":::
-
-1. Al termine della configurazione della rete, è possibile selezionare __Verifica + crea__o passare alla configurazione __avanzata__ facoltativa.
-
-    > [!WARNING]
-    > Quando si crea un endpoint privato, viene creata una nuova zona DNS privato denominata __privatelink.API.azureml.ms__ . Contiene un collegamento alla rete virtuale. Se si creano più aree di lavoro con endpoint privati nello stesso gruppo di risorse, è possibile aggiungere solo la rete virtuale per il primo endpoint privato alla zona DNS. Per aggiungere voci per le reti virtuali usate dalle aree di lavoro o dagli endpoint privati aggiuntivi, seguire questa procedura:
-    > 
-    > 1. Nella [portale di Azure](https://portal.azure.com)selezionare il gruppo di risorse che contiene l'area di lavoro. Quindi selezionare la risorsa DNS privato zona denominata __privatelink.API.azureml.ms__.
-    > 2. In __Impostazioni__selezionare collegamenti alla __rete virtuale__.
-    > 3. Selezionare __Aggiungi__. Nella pagina __Aggiungi collegamento rete virtuale__ specificare un nome univoco per il __collegamento__, quindi selezionare la __rete virtuale__ da aggiungere. Selezionare __OK__ per aggiungere il collegamento di rete.
-    >
-    > Per altre informazioni, vedere [configurazione DNS dell'endpoint privato di Azure](/azure/private-link/private-endpoint-dns).
-
-### <a name="advanced"></a>Avanzate
-
-Per impostazione predefinita, le metriche e i metadati per l'area di lavoro vengono archiviati in un'istanza di Azure Cosmos DB gestita da Microsoft. Questi dati vengono crittografati tramite chiavi gestite da Microsoft. 
-
-Per limitare i dati raccolti da Microsoft nell'area di lavoro, selezionare __area di lavoro a elevato__uso di business.
-
-> [!IMPORTANT]
-> Quando si crea un'area di lavoro, è possibile selezionare un elevato effetto aziendale. Questa impostazione non può essere modificata dopo la creazione dell'area di lavoro.
-
-Se si usa la versione __Enterprise__ di Azure Machine Learning, è invece possibile specificare la propria chiave. In questo modo viene creata l'istanza Azure Cosmos DB che archivia le metriche e i metadati nella sottoscrizione di Azure. Per usare la propria chiave, attenersi alla procedura seguente:
-
-> [!IMPORTANT]
-> Prima di seguire questa procedura, è necessario eseguire le azioni seguenti:
->
-> 1. Autorizzare l' __App Machine Learning__ (in gestione delle identità e degli accessi) con le autorizzazioni di collaboratore per la sottoscrizione.
-> 1. Seguire i passaggi in [configurare le chiavi gestite dal cliente](/azure/cosmos-db/how-to-setup-cmk) per:
->     * Registrare il provider di Azure Cosmos DB
->     * Creare e configurare un Azure Key Vault
->     * Genera una chiave
->
->     Non è necessario creare manualmente l'istanza di Azure Cosmos DB, ne verrà creata una automaticamente durante la creazione dell'area di lavoro. Questa istanza di Azure Cosmos DB verrà creata in un gruppo di risorse distinto usando un nome basato su questo modello: `<your-resource-group-name>_<GUID>` .
->
-> Questa impostazione non può essere modificata dopo la creazione dell'area di lavoro. Se si elimina il Azure Cosmos DB usato dall'area di lavoro, è necessario eliminare anche l'area di lavoro che lo usa.
-
-1. Selezionare __chiavi gestite dal cliente__, quindi selezionare __fare clic per selezionare la chiave__.
-
-    :::image type="content" source="media/how-to-manage-workspace/advanced-workspace.png" alt-text="Chiavi gestite dal cliente":::
-
-1. Nel modulo __Seleziona chiave da Azure Key Vault__ selezionare una Azure Key Vault esistente, una chiave che contiene e la versione della chiave. Questa chiave viene usata per crittografare i dati archiviati in Azure Cosmos DB. Usare infine il pulsante __Seleziona__ per usare questa chiave.
-
-   :::image type="content" source="media/how-to-manage-workspace/select-key-vault.png" alt-text="Selezionare la chiave":::
-
-## <a name="upgrade-to-enterprise-edition"></a><a name="upgrade"></a>Eseguire l'aggiornamento a Enterprise Edition
-
-È possibile aggiornare l'area di lavoro da Basic Edition a Enterprise Edition per sfruttare le funzionalità avanzate, ad esempio esperienze con codice basso e funzionalità di sicurezza avanzate.
-
-1. Accedere ad [Azure Machine Learning Studio](https://ml.azure.com).
-
-1. Selezionare l'area di lavoro che si desidera aggiornare.
-
-1. Selezionare **altre informazioni**  nella parte superiore destra della pagina.
-
-   [![Aggiornare un'area di lavoro ](./media/how-to-manage-workspace/upgrade.png)](./media/how-to-manage-workspace/upgrade.png#lightbox)
-
-1. Selezionare **Aggiorna** nella finestra visualizzata.
-
-
-> [!IMPORTANT]
-> Non è possibile effettuare il downgrade di un'area di lavoro Enterprise Edition a un'area di lavoro Basic Edition.
 
 ### <a name="download-a-configuration-file"></a>Scaricare un file di configurazione
 
@@ -148,7 +69,6 @@ Se si usa la versione __Enterprise__ di Azure Machine Learning, è invece possib
    ![Scarica config.json](./media/how-to-manage-workspace/configure.png)
    
    Inserire il file nella struttura di directory che contiene gli script Python o i notebook di Jupyter. Può trattarsi della stessa directory, in una sottodirectory denominata *.azureml* o in una directory padre. Quando si crea un'istanza di calcolo, questo file viene aggiunto alla directory corretta nella macchina virtuale.
-
 ## <a name="find-a-workspace"></a><a name="view"></a>Trovare un'area di lavoro
 
 1. Accedere al [portale di Azure](https://portal.azure.com/).

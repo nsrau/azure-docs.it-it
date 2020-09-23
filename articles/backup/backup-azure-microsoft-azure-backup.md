@@ -3,12 +3,12 @@ title: Usare il server di Backup di Azure per eseguire il backup dei carichi di 
 description: Questo articolo contiene informazioni su come preparare l'ambiente per proteggere ed eseguire il backup dei carichi di lavoro usando il server di Backup di Microsoft Azure (MABS).
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: 79abf55fdbaae80a84618f6944870131dcd82c89
-ms.sourcegitcommit: 3fb5e772f8f4068cc6d91d9cde253065a7f265d6
+ms.openlocfilehash: 6fe03260cc1759929e7ff9886b1b232a37056866
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/31/2020
-ms.locfileid: "89181698"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90975523"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Installare e preparare il server di Backup di Azure
 
@@ -59,7 +59,7 @@ Se non si vuole eseguire il server di base in Azure, è possibile eseguire il se
 | Windows Server 2019 |64 bit |Standard, Datacenter, Essentials |
 | Windows Server 2016 e versioni più recenti di SP |64 bit |Standard, Datacenter, Essentials  |
 
-È possibile deduplicare la risorsa di archiviazione DPM usando la deduplicazione di Windows Server. Vedere altre informazioni sull'interazione di [DPM e deduplicazione](/system-center/dpm/deduplicate-dpm-storage?view=sc-dpm-2019) in caso di distribuzione in macchine virtuali Hyper-V.
+È possibile deduplicare la risorsa di archiviazione DPM usando la deduplicazione di Windows Server. Vedere altre informazioni sull'interazione di [DPM e deduplicazione](/system-center/dpm/deduplicate-dpm-storage) in caso di distribuzione in macchine virtuali Hyper-V.
 
 > [!NOTE]
 > Il server di Backup di Azure è progettato per essere eseguito su un server dedicato, con un unico scopo. Non è possibile installare server di Backup di Azure in:
@@ -80,7 +80,7 @@ Se si inviano dati di backup in Azure o se si vuole mantenerli in locale, è nec
 
 ### <a name="set-storage-replication"></a>Impostare la replica di archiviazione
 
-L'opzione della replica di archiviazione consente di scegliere tra l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza locale. Per impostazione predefinita, gli insiemi di credenziali di Servizi di ripristino usano l'archiviazione con ridondanza geografica. Se questo insieme di credenziali è quello primario, lasciare l'opzione di archiviazione impostata sull'archiviazione con ridondanza geografica. Se si vuole un'opzione più economica ma non altrettanto permanente, scegliere l'archiviazione con ridondanza locale. Per altre informazioni sulle opzioni di archiviazione con [ridondanza geografica](../storage/common/storage-redundancy.md) e con [ridondanza locale](../storage/common/storage-redundancy.md), vedere la panoramica [Replica di Archiviazione di Azure](../storage/common/storage-redundancy.md).
+L'opzione della replica di archiviazione consente di scegliere tra l'archiviazione con ridondanza geografica e l'archiviazione con ridondanza locale. Per impostazione predefinita, gli insiemi di credenziali di Servizi di ripristino usano l'archiviazione con ridondanza geografica. Se questo insieme di credenziali è quello primario, lasciare l'opzione di archiviazione impostata sull'archiviazione con ridondanza geografica. Se si vuole un'opzione più economica ma non altrettanto permanente, scegliere l'archiviazione con ridondanza locale. Per altre informazioni sulle opzioni di archiviazione con ridondanza [geografica](../storage/common/storage-redundancy.md#geo-redundant-storage)e con ridondanza [locale](../storage/common/storage-redundancy.md#locally-redundant-storage) e con [ridondanza della zona](../storage/common/storage-redundancy.md#zone-redundant-storage) , vedere [Panoramica della replica di archiviazione di Azure](../storage/common/storage-redundancy.md)
 
 Per modificare le impostazioni di replica di archiviazione:
 
@@ -89,7 +89,7 @@ Per modificare le impostazioni di replica di archiviazione:
 
 3. Selezionare il tipo di replica di archiviazione e selezionare **Salva**.
 
-     ![Impostare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-try-azure-backup-in-10-mins/recovery-services-vault-backup-configuration.png)
+     ![Impostare la configurazione dell'archiviazione per il nuovo insieme di credenziali](./media/backup-create-rs-vault/recovery-services-vault-backup-configuration.png)
 
 ## <a name="software-package"></a>Pacchetto software
 
@@ -199,7 +199,7 @@ Al termine del processo di estrazione, selezionare la casella per avviare il *se
 
     ![Specificare il percorso per l'installazione dei file](./media/backup-azure-microsoft-azure-backup/space-screen.png)
 
-    La disponibilità di uno spazio di lavoro è un requisito per il backup in Azure. Verificare che lo spazio di lavoro sia almeno il 5% dei dati pianificati per il backup nel cloud. Per la protezione disco, è necessario configurare dischi separati una volta completata l'installazione. Per altre informazioni sui pool di archiviazione, vedere [preparare l'archiviazione dati](/system-center/dpm/plan-long-and-short-term-data-storage?view=sc-dpm-2019).
+    La disponibilità di uno spazio di lavoro è un requisito per il backup in Azure. Verificare che lo spazio di lavoro sia almeno il 5% dei dati pianificati per il backup nel cloud. Per la protezione disco, è necessario configurare dischi separati una volta completata l'installazione. Per altre informazioni sui pool di archiviazione, vedere [preparare l'archiviazione dati](/system-center/dpm/plan-long-and-short-term-data-storage).
 5. Specificare una password complessa per gli account utente locali con restrizioni e selezionare **Avanti**.
 
     ![Specificare una password complessa](./media/backup-azure-microsoft-azure-backup/security-screen.png)
@@ -362,7 +362,7 @@ In caso di errori del server di Backup di Microsoft Azure durante la fase di ins
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni dettagliate, vedere [Preparazione dell'ambiente per Data Protection Manager](/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-2019). Contiene anche informazioni sulle configurazioni supportate in cui è possibile distribuire e usare il server di Backup di Azure. È possibile usare una serie di [cmdlet di PowerShell](/powershell/module/dataprotectionmanager/) per eseguire diverse operazioni.
+Per informazioni dettagliate, vedere [Preparazione dell'ambiente per Data Protection Manager](/system-center/dpm/prepare-environment-for-dpm). Contiene anche informazioni sulle configurazioni supportate in cui è possibile distribuire e usare il server di Backup di Azure. È possibile usare una serie di [cmdlet di PowerShell](/powershell/module/dataprotectionmanager/) per eseguire diverse operazioni.
 
 È possibile usare questi articoli per acquisire una comprensione più profonda della protezione dei carichi di lavoro tramite il server di Backup di Microsoft Azure.
 
