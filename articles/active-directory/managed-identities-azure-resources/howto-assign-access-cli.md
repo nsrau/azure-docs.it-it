@@ -16,12 +16,12 @@ ms.date: 12/06/2017
 ms.author: barclayn
 ms.collection: M365-identity-device-management
 ms.custom: devx-track-azurecli
-ms.openlocfilehash: b0437308a0495281e364d42199cc84d9a291cb58
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 13c69dda1e300bcff95b6a017fdeb308a6bbf3a4
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89263416"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90969249"
 ---
 # <a name="assign-a-managed-identity-access-to-a-resource-using-azure-cli"></a>Assegnare a un'identità gestita l'accesso a una risorsa tramite l'interfaccia della riga di comando di Azure
 
@@ -33,24 +33,15 @@ Dopo aver configurato una risorsa di Azure con un'identità gestita, è possibil
 
 - Se non si ha familiarità con le identità gestite per le risorse di Azure, vedere la [sezione sulla panoramica](overview.md). **Assicurarsi di conoscere la [differenza tra identità assegnata dal sistema e identità gestita assegnata dall'utente](overview.md#managed-identity-types)**.
 - Se non si ha un account Azure, [registrarsi per ottenere un account gratuito](https://azure.microsoft.com/free/) prima di continuare.
-- Per eseguire gli esempi di script dell'interfaccia della riga di comando, sono disponibili tre opzioni:
-    - Usare [Azure Cloud Shell](../../cloud-shell/overview.md) dal portale di Azure (vedere la sezione successiva).
-    - Usare il Azure Cloud Shell incorporato tramite il pulsante "prova", che si trova nell'angolo superiore destro di ogni blocco di codice.
-    - [Installare la versione più recente dell'interfaccia della riga di comando di Azure](/cli/azure/install-azure-cli) se si preferisce usare una console dell'interfaccia della riga di comando locale. 
-
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+- Per eseguire gli script di esempio, sono disponibili due opzioni:
+    - Usare il [Azure cloud Shell](../../cloud-shell/overview.md), che è possibile aprire usando il pulsante **prova** nell'angolo superiore destro dei blocchi di codice.
+    - Eseguire gli script localmente installando la versione più recente dell'interfaccia della riga di comando di [Azure](/cli/azure/install-azure-cli), quindi accedere ad Azure usando [AZ login](/cli/azure/reference-index#az-login). Usare un account associato alla sottoscrizione di Azure in cui si vogliono creare risorse.
 
 ## <a name="use-azure-rbac-to-assign-a-managed-identity-access-to-another-resource"></a>Usare il controllo degli accessi in base al ruolo di Azure
 
 Dopo aver abilitato l'identità gestita in una risorsa di Azure, ad esempio una [macchina virtuale di Azure](qs-configure-cli-windows-vm.md) o un [set di scalabilità di macchine virtuali di Azure](qs-configure-cli-windows-vmss.md): 
 
-1. Se si usa l'interfaccia della riga di comando di Azure in una console locale, accedere prima di tutto ad Azure tramite [az login](/cli/azure/reference-index#az-login). Usare un account associato alla sottoscrizione di Azure in cui si vuole distribuire la macchina virtuale o il set di scalabilità di macchine virtuali:
-
-   ```azurecli-interactive
-   az login
-   ```
-
-2. In questo esempio viene concesso alla macchina virtuale di Azure l'accesso a un account di archiviazione. Prima di tutto usare il comando [az resource list](/cli/azure/resource/#az-resource-list) per ottenere l'entità servizio per la macchina virtuale denominata myVM:
+1. In questo esempio viene concesso alla macchina virtuale di Azure l'accesso a un account di archiviazione. Prima di tutto usare il comando [az resource list](/cli/azure/resource/#az-resource-list) per ottenere l'entità servizio per la macchina virtuale denominata myVM:
 
    ```azurecli-interactive
    spID=$(az resource list -n myVM --query [*].identity.principalId --out tsv)
@@ -61,7 +52,7 @@ Dopo aver abilitato l'identità gestita in una risorsa di Azure, ad esempio una 
    spID=$(az resource list -n DevTestVMSS --query [*].identity.principalId --out tsv)
    ```
 
-3. Dopo aver ottenuto l'ID dell'entità servizio, usare il comando [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) per concedere alla macchina virtuale o al set di scalabilità di macchine virtuali l'accesso "Lettura" a un account di archiviazione denominato "myStorageAcct":
+1. Dopo aver ottenuto l'ID dell'entità servizio, usare il comando [az role assignment create](/cli/azure/role/assignment#az-role-assignment-create) per concedere alla macchina virtuale o al set di scalabilità di macchine virtuali l'accesso "Lettura" a un account di archiviazione denominato "myStorageAcct":
 
    ```azurecli-interactive
    az role assignment create --assignee $spID --role 'Reader' --scope /subscriptions/<mySubscriptionID>/resourceGroups/<myResourceGroup>/providers/Microsoft.Storage/storageAccounts/myStorageAcct

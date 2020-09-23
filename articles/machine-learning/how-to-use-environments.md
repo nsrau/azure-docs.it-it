@@ -11,15 +11,15 @@ ms.subservice: core
 ms.date: 07/23/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: fc681b57824f5db7b6a24fbd55351f774dc515da
-ms.sourcegitcommit: 5d7f8c57eaae91f7d9cf1f4da059006521ed4f9f
+ms.openlocfilehash: e1285d62d036ebda46348ae1c1a3f8aa0db50243
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89668861"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882746"
 ---
 # <a name="create--use-software-environments-in-azure-machine-learning"></a>Creare & usare gli ambienti software in Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Questo articolo illustra come creare e gestire [ambienti](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py&preserve-view=true)Azure Machine Learning. Usare gli ambienti per tenere traccia e riprodurre le dipendenze del software dei progetti man mano che si evolvono.
 
@@ -405,7 +405,7 @@ Questo [notebook di esempio](https://github.com/Azure/MachineLearningNotebooks/t
 
 ## <a name="create-and-manage-environments-with-the-cli"></a>Creare e gestire gli ambienti con l'interfaccia della riga di comando
 
-L' [interfaccia](reference-azure-machine-learning-cli.md) della riga di comando di Azure Machine Learning rispecchia la maggior parte delle funzionalità di Python SDK. È possibile usarlo per creare e gestire gli ambienti. I comandi illustrati in questa sezione illustrano le funzionalità di base.
+L' [interfaccia](reference-azure-machine-learning-cli.md) della riga di comando di Azure Machine Learning rispecchia la maggior parte delle funzionalità di Python SDK. È possibile usarlo per creare e gestire gli ambienti. I comandi illustrati in questa sezione illustrano le funzionalità fondamentali.
 
 Il comando seguente imposta come impalcature i file per una definizione di ambiente predefinita nella directory specificata. Questi file sono file JSON. Funzionano come la classe corrispondente nell'SDK. È possibile utilizzare i file per creare nuovi ambienti con impostazioni personalizzate. 
 

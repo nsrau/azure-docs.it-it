@@ -3,12 +3,12 @@ title: Eseguire il backup di macchine virtuali di Azure in un insieme di credenz
 description: Informazioni su come eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino tramite Backup di Azure
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 29895c0358547679a9db7b2f4da203e2b546d67f
-ms.sourcegitcommit: d7352c07708180a9293e8a0e7020b9dd3dd153ce
+ms.openlocfilehash: 28cc995afc131e747314032c1363f73531e6915c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/30/2020
-ms.locfileid: "89145655"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986503"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Eseguire il backup di macchine virtuali di Azure in un insieme di credenziali di Servizi di ripristino
 
@@ -41,10 +41,11 @@ In alcune circostanze può anche essere necessario eseguire alcune operazioni:
 
 ### <a name="modify-storage-replication"></a>Modificare la replica di archiviazione
 
-Per impostazione predefinita, gli insiemi di credenziali usano l'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy.md).
+Per impostazione predefinita, gli insiemi di credenziali usano l'[archiviazione con ridondanza geografica](../storage/common/storage-redundancy.md#geo-redundant-storage).
 
 * Se l'insieme di credenziali rappresenta il meccanismo principale di backup, è consigliabile usare l'archiviazione con ridondanza geografica.
-* Per un'opzione più economica, è possibile usare l' [archiviazione con ridondanza locale (con ridondanza locale)](../storage/common/storage-redundancy.md?toc=/azure/storage/blobs/toc.json) .
+* Per un'opzione più economica, è possibile usare l' [archiviazione con ridondanza locale (con ridondanza locale)](../storage/common/storage-redundancy.md#locally-redundant-storage) .
+* L' [archiviazione con ridondanza della zona (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replica i dati nelle [zone di disponibilità](https://docs.microsoft.com/azure/availability-zones/az-overview#availability-zones), garantendo la residenza e la resilienza dei dati nella stessa area.
 
 Modificare il tipo di replica di archiviazione come segue:
 
@@ -80,7 +81,7 @@ Configurare un criterio di backup per l'insieme di credenziali.
 
       ![Aggiungi macchine virtuali](./media/backup-azure-arm-vms-prepare/add-virtual-machines.png)
 
-1. Verrà aperto il riquadro **Seleziona macchine virtuali**. Selezionare le macchine virtuali di cui si vuole eseguire il backup usando i criteri. Selezionare **OK**.
+1. Verrà aperto il riquadro **Seleziona macchine virtuali**. Selezionare le macchine virtuali di cui si vuole eseguire il backup usando i criteri. Quindi scegliere **OK**.
 
    * Le macchine virtuali selezionate vengono convalidate.
    * È possibile selezionare solo macchine virtuali presenti nella stessa area dell'insieme di credenziali.
@@ -128,7 +129,7 @@ Il backup iniziale verrà eseguito in base alla pianificazione, ma è possibile 
 2. In **elementi di backup**selezionare **macchina virtuale di Azure**.
 3. Nell'elenco **elementi di backup selezionare i puntini** di sospensione (...).
 4. Selezionare **Esegui backup ora**.
-5. In **Esegui backup** usare il comando del calendario per selezionare l'ultimo giorno di conservazione del punto di ripristino. Selezionare **OK**.
+5. In **Esegui backup** usare il comando del calendario per selezionare l'ultimo giorno di conservazione del punto di ripristino. Quindi scegliere **OK**.
 6. Monitorare le notifiche del portale. È possibile monitorare l'avanzamento del processo nel dashboard dell'insieme di credenziali > **Processi di Backup** > **In corso**. A seconda delle dimensioni della macchina virtuale, la creazione del backup iniziale potrebbe richiedere un po' di tempo.
 
 ## <a name="verify-backup-job-status"></a>Verificare lo stato dei processi di backup

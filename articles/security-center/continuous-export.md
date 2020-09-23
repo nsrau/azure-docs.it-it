@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 03/13/2020
 ms.author: memildin
-ms.openlocfilehash: 4d5cff416c1ac54e54d06e8def121db65bb7d191
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: cf8fdd8d91c035d374277c4752fb761c0c4e72c7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89433934"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905625"
 ---
 # <a name="export-security-alerts-and-recommendations"></a>Esportare avvisi e raccomandazioni di sicurezza
 
@@ -89,7 +89,7 @@ L'API fornisce funzionalità aggiuntive non disponibili dal portale di Azure, ad
 * **Ambito più mirato** : l'API fornisce un livello più granulare per l'ambito delle configurazioni di esportazione. Quando si definisce un'esportazione con l'API, è possibile eseguire questa operazione a livello di gruppo di risorse. Se si usa la pagina **esportazione continua** nell'interfaccia utente del portale del Centro sicurezza, è necessario definirla a livello di sottoscrizione.
 
     > [!TIP]
-    > Se sono state impostate più configurazioni di esportazione tramite l'API o se sono stati usati parametri solo API, le funzionalità aggiuntive non verranno visualizzate nell'interfaccia utente del Centro sicurezza. Al contrario, sarà presente un banner che informa che sono presenti altre configurazioni.
+    > Se sono state configurate più configurazioni di esportazione tramite l'API o se sono stati usati parametri solo API, le funzionalità aggiuntive non verranno visualizzate nell'interfaccia utente del Centro sicurezza. Al contrario, sarà presente un banner che informa che sono presenti altre configurazioni.
 
 Altre informazioni sull'API Automations sono disponibili nella [documentazione dell'API REST](https://docs.microsoft.com/rest/api/securitycenter/automations).
 
@@ -125,11 +125,11 @@ Inoltre, per spostare automaticamente i dati esportati dall'hub eventi configura
 
 Per analizzare i dati del Centro sicurezza di Azure all'interno di un'area di lavoro Log Analytics o usare gli avvisi di Azure insieme al centro sicurezza, configurare l'esportazione continua nell'area di lavoro Log Analytics.
 
-Per eseguire l'esportazione in un'area di lavoro Log Analytics, è necessario che siano abilitate le soluzioni Log Analytics del Centro sicurezza nell'area di lavoro. Se si usa il portale di Azure, la soluzione del livello gratuito del Centro sicurezza viene abilitata automaticamente quando si Abilita l'esportazione continua. Tuttavia, se si configurano le impostazioni di esportazione continua a livello di codice, è necessario selezionare manualmente il piano tariffario gratuito o standard per l'area di lavoro necessaria dall'interno dei **prezzi & impostazioni**.  
+Per eseguire l'esportazione in un'area di lavoro Log Analytics, è necessario che siano abilitate le soluzioni Log Analytics del Centro sicurezza nell'area di lavoro. Se si usa il portale di Azure, la soluzione gratuita del Centro sicurezza viene abilitata automaticamente quando si Abilita l'esportazione continua. Tuttavia, se si configurano le impostazioni di esportazione continua a livello di codice, è necessario attivare o disattivare manualmente Azure Defender dall'interno della pagina dei **prezzi & impostazioni** .
 
 ### <a name="log-analytics-tables-and-schemas"></a>Log Analytics tabelle e schemi
 
-Gli avvisi di sicurezza e le raccomandazioni vengono archiviati rispettivamente nelle tabelle *SecurityAlert* e *SecurityRecommendations* . Il nome della soluzione Log Analytics contenente queste tabelle varia a seconda che si tratti del livello gratuito o standard (vedere [prezzi](security-center-pricing.md)): sicurezza (' sicurezza e controllo ') o SecurityCenterFree.
+Gli avvisi di sicurezza e le raccomandazioni vengono archiviati rispettivamente nelle tabelle *SecurityAlert* e *SecurityRecommendations* . Il nome della soluzione Log Analytics contenente queste tabelle varia a seconda che Azure Defender sia abilitato: Security (' Sicurezza e controllo ') o SecurityCenterFree.
 
 ![La tabella * SecurityAlert * in Log Analytics](./media/continuous-export/log-analytics-securityalert-solution.png)
 

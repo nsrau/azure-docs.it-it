@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 8/7/2020
-ms.openlocfilehash: f8dbdf87eef193540fd5c1bf9d9e7f3794ae46ce
-ms.sourcegitcommit: c28fc1ec7d90f7e8b2e8775f5a250dd14a1622a6
+ms.openlocfilehash: 8ebb524a5297380fca575ce6849fe4c5f15507cb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88168219"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903999"
 ---
 # <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Come configurare la replica dei dati in ingresso in Database di Azure per MySQL
 
@@ -23,7 +23,7 @@ Questo articolo descrive come configurare [replica dei dati in ingresso](concept
 > Microsoft supporta un ambiente eterogeneo e di inclusione. Questo articolo contiene riferimenti alla parola _slave_. La [Guida di stile Microsoft per la comunicazione senza distorsione](https://github.com/MicrosoftDocs/microsoft-style-guide/blob/master/styleguide/bias-free-communication.md) riconosce questo aspetto come una parola di esclusione. La parola viene usata in questo articolo per coerenza perché è attualmente la parola che viene visualizzata nel software. Quando il software viene aggiornato per rimuovere la parola, questo articolo verrà aggiornato in modo da essere allineato.
 >
 
-Per creare una replica nel servizio database di Azure per MySQL, [replica dei dati in ingresso](concepts-data-in-replication.md) sincronizza i dati da un server MySQL master locale, in macchine virtuali (VM) o in servizi di database cloud. La replica dei dati in ingresso si basa sulla replica nativa di MySQL in base alla posizione di file di log binari (binlog). Per altre informazioni su questo tipo di replica, vedere [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html) (Panoramica della replica basata su binlog di MySQL).
+Per creare una replica nel servizio database di Azure per MySQL, [replica dei dati in ingresso](concepts-data-in-replication.md)  sincronizza i dati da un server MySQL master locale, in macchine virtuali (VM) o in servizi di database cloud. La replica dei dati in ingresso si basa sulla replica nativa di MySQL in base alla posizione di file di log binari (binlog). Per altre informazioni su questo tipo di replica, vedere [MySQL binlog replication overview](https://dev.mysql.com/doc/refman/5.7/en/binlog-replication-configuration-overview.html) (Panoramica della replica basata su binlog di MySQL).
 
 Esaminare le [limitazioni e i requisiti](concepts-data-in-replication.md#limitations-and-considerations) di replica dei dati prima di eseguire i passaggi descritti in questo articolo.
 
@@ -101,19 +101,19 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
    GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%';
    ```
 
-   **MySQL Workbench**
+   **Workbench MySQL**
 
    Per creare il ruolo di replica in MySQL Workbench, aprire il pannello **Users and Privileges** (Utenti e privilegi) dal pannello **Management** (Gestione). Fare quindi clic su **Add Account** (Aggiungi account). 
  
-   ![Utenti e privilegi](./media/howto-data-in-replication/users_privileges.png)
+   :::image type="content" source="./media/howto-data-in-replication/users_privileges.png" alt-text="Utenti e privilegi":::
 
    Digitare il nome utente nel campo **Login Name** (ID di accesso). 
 
-   ![Sincronizzazione utente](./media/howto-data-in-replication/syncuser.png)
+   :::image type="content" source="./media/howto-data-in-replication/syncuser.png" alt-text="Sincronizzazione utente":::
  
    Fare clic sul pannello **Administrative Roles** (Ruoli amministrativi) e quindi selezionare **Replication Slave** (Slave di replica) dall'elenco **Global Privileges** (Privilegi globali). Fare quindi clic su **Apply** (Applica) per creare il ruolo di replica.
 
-   ![Slave di replica](./media/howto-data-in-replication/replicationslave.png)
+   :::image type="content" source="./media/howto-data-in-replication/replicationslave.png" alt-text="Slave di replica":::
 
 1. Impostare il server master in modalità di sola lettura
 
@@ -133,7 +133,7 @@ I passaggi seguenti consentono di preparare e configurare il server MySQL ospita
    ```
    Si otterranno risultati simili ai seguenti. Prendere nota del nome del file binario poiché sarà necessario specificarlo nei passaggi successivi.
 
-   ![Risultati stato master](./media/howto-data-in-replication/masterstatus.png)
+   :::image type="content" source="./media/howto-data-in-replication/masterstatus.png" alt-text="Risultati stato master":::
  
 ## <a name="dump-and-restore-master-server"></a>Eseguire il dump e il ripristino del server master
 

@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 05/08/2020
-ms.openlocfilehash: f20abffa429add8edcbffba16529c467cb9506fe
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 21153d3c914864966106bf66edccb3c549398bc7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651095"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898239"
 ---
 # <a name="plan-and-manage-costs-for-azure-machine-learning"></a>Pianificare e gestire i costi per Azure Machine Learning
 
@@ -49,7 +49,7 @@ Lo screenshot seguente mostra la stima dei costi tramite il calcolatore:
 
 Quando si aggiungono nuove risorse all'area di lavoro, tornare al calcolatore e aggiungere la stessa risorsa qui per aggiornare le stime dei costi.
 
-Anche se Enterprise Edition è in anteprima, non è previsto alcun supplemento ML. Quando la versione Enterprise Edition diventa disponibile a livello generale, avrà un sovrapprezzo (per il training e l'inferenza).  Per ulteriori informazioni, vedere [Azure Machine Learning prezzi](https://azure.microsoft.com/pricing/details/machine-learning/).
+Per ulteriori informazioni, vedere [Azure Machine Learning prezzi](https://azure.microsoft.com/pricing/details/machine-learning/).
 
 ## <a name="get-cost-alerts"></a>Ottenere gli avvisi relativi ai costi
 

@@ -32,6 +32,8 @@
           href: quickstart-feature-flag-aspnet-core.md
         - name: .NET Framework
           href: quickstart-feature-flag-dotnet.md
+        - name: Funzioni di Azure in .NET Core
+          href: quickstart-feature-flag-azure-functions-csharp.md
         - name: Java Spring
           href: quickstart-feature-flag-spring-boot.md
 - name: Esercitazioni
@@ -86,7 +88,7 @@
       href: concept-feature-management.md
     - name: Gestione degli eventi
       href: concept-app-configuration-event.md
-    - name: Sicurezza
+    - name: Security
       items:
         - name: Crittografare con chiavi gestite dal cliente
           href: concept-customer-managed-keys.md

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 09/02/2020
+ms.date: 09/16/2020
 ms.author: cherylmc
-ms.openlocfilehash: 57288d49fdfa193e9ebebe5f2ce4d24327997980
-ms.sourcegitcommit: 5a3b9f35d47355d026ee39d398c614ca4dae51c6
+ms.openlocfilehash: af3513c4a4f3b3187e85c65de51ad2e6e2d7279c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89392477"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90983198"
 ---
 # <a name="modify-local-network-gateway-settings-using-the-azure-portal"></a>Modificare le impostazioni del gateway di rete locale usando il portale di Azure
 
@@ -27,18 +27,63 @@ Prima di eliminare la connessione, è opportuno scaricare la configurazione dei 
 >
 >
 
+## <a name="local-network-gateway-configuration"></a><a name="configure-lng"></a>Configurazione del gateway di rete locale
+
+La schermata seguente mostra la pagina di **configurazione** di una risorsa gateway di rete locale con l'endpoint di indirizzo IP pubblico:
+
+:::image type="content" source="./media/vpn-gateway-modify-local-network-gateway-portal/ip-address.png" alt-text="Configurare il gateway di rete locale-indirizzo IP":::
+
+Si tratta della stessa pagina di configurazione con un endpoint FQDN:
+
+:::image type="content" source="./media/vpn-gateway-modify-local-network-gateway-portal/fqdn.png" alt-text="Configurare il gateway di rete locale-FQDN":::
+
+## <a name="modify-the-gateway-ip-address"></a><a name="ip"></a>Modificare l'indirizzo IP del gateway
+
+Se l'indirizzo IP pubblico del dispositivo VPN a cui ci si vuole connettere è stato modificato, è necessario modificare il gateway di rete locale per riflettere tale modifica.
+
+1. Nella risorsa Gateway di rete locale, nella sezione **Impostazioni** fare clic su **Configurazione**.
+2. Nella casella **Indirizzo IP** modificare l'indirizzo IP.
+3. Fare clic su **Salva** per salvare le impostazioni.
+
+## <a name="modify-the-gateway-fqdn"></a><a name="fqdn"></a>Modificare il nome di dominio completo del gateway
+
+Se il nome di dominio completo (FQDN) del dispositivo VPN a cui si desidera connettersi è stato modificato, è necessario modificare il gateway di rete locale per riflettere la modifica.
+
+1. Nella risorsa Gateway di rete locale, nella sezione **Impostazioni** fare clic su **Configurazione**.
+2. Nella casella **FQDN** modificare il nome di dominio.
+3. Fare clic su **Salva** per salvare le impostazioni.
+
+> ! Si noti Non è possibile modificare un gateway di rete locale tra l'endpoint FQDN e l'endpoint dell'indirizzo IP. È necessario eliminare tutte le connessioni associate a questo gateway di rete locale, crearne uno nuovo con il nuovo endpoint (indirizzo IP o FQDN), quindi ricreare le connessioni.
 
 ## <a name="modify-ip-address-prefixes"></a><a name="ipaddprefix"></a>Modificare i prefissi degli indirizzi IP
 
-Quando si modificano i prefissi degli indirizzi IP, la procedura seguita varia a seconda che il gateway di rete locale abbia una connessione oppure no.
+### <a name="to-add-additional-address-prefixes"></a>Per aggiungere altri prefissi degli indirizzi:
 
-[!INCLUDE [modify prefix](../../includes/vpn-gateway-modify-ip-prefix-portal-include.md)]
+1. Nella risorsa Gateway di rete locale, nella sezione **Impostazioni** fare clic su **Configurazione**.
+2. Aggiungere lo spazio di indirizzi IP nella casella *Aggiungi intervallo di indirizzi*.
+3. Per salvare le impostazioni, fare clic su **Save** .
 
-## <a name="modify-the-gateway-ip-address"></a><a name="gwip"></a>Modificare l'indirizzo IP del gateway
+### <a name="to-remove-address-prefixes"></a>Per rimuovere prefissi degli indirizzi:
 
-Se l'indirizzo IP pubblico del dispositivo VPN a cui ci si vuole connettere è stato modificato, è necessario modificare il gateway di rete locale per riflettere tale modifica. Quando si modifica l'indirizzo IP pubblico, la procedura seguita varia a seconda che il gateway di rete locale abbia una connessione oppure no.
+1. Nella risorsa Gateway di rete locale, nella sezione **Impostazioni** fare clic su **Configurazione**.
+2. Fare clic su **"..."** nella riga contenente il prefisso da rimuovere.
+3. Scegliere **Rimuovi**.
+4. Per salvare le impostazioni, fare clic su **Save** .
 
-[!INCLUDE [modify gateway IP](../../includes/vpn-gateway-modify-lng-gateway-ip-portal-include.md)]
+## <a name="modify-bgp-settings"></a><a name="bgp"></a>Modificare le impostazioni BGP
+
+### <a name="to-add-or-update-bgp-settings"></a>Per aggiungere o aggiornare le impostazioni BGP:
+
+1. Nella risorsa Gateway di rete locale, nella sezione **Impostazioni** fare clic su **Configurazione**.
+2. Selezionare **"Configura impostazioni BGP"** per visualizzare o aggiornare le configurazioni BGP per questo gateway di rete locale
+3. Aggiungere o aggiornare il numero di sistema autonomo o l'indirizzo IP del peer BGP nei campi corrispondenti
+4. Per salvare le impostazioni, fare clic su **Save** .
+
+### <a name="to-remove-bgp-settings"></a>Per rimuovere le impostazioni BGP:
+
+1. Nella risorsa Gateway di rete locale, nella sezione **Impostazioni** fare clic su **Configurazione**.
+2. Annulla la selezione di **"Configura impostazioni BGP"** per rimuovere l'indirizzo IP del peer BGP e BGP esistente
+3. Per salvare le impostazioni, fare clic su **Save** .
 
 ## <a name="next-steps"></a>Passaggi successivi
 

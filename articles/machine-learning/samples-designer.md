@@ -1,30 +1,30 @@
 ---
-title: Pipeline di esempio e set di dati per la finestra di progettazione (anteprima)
+title: Pipeline e set di dati di esempio per la finestra di progettazione
 titleSuffix: Azure Machine Learning
 description: Usare gli esempi nella finestra di progettazione di Azure Machine Learning per avviare rapidamente le pipeline di Machine Learning.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: sample
-author: peterclu
-ms.author: peterlu
-ms.date: 03/29/2020
+author: likebupt
+ms.author: keli19
+ms.date: 09/09/2020
 ms.custom: designer
-ms.openlocfilehash: c4fa5a2554f10a720c0f2241e17514e798cf7f4c
-ms.sourcegitcommit: d39f2cd3e0b917b351046112ef1b8dc240a47a4f
+ms.openlocfilehash: 15393a0e618c14fbaff46a51a300284d8afb4b77
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/25/2020
-ms.locfileid: "88812938"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889754"
 ---
-# <a name="example-pipelines--datasets-for-azure-machine-learning-designer-preview"></a>Pipeline e set di dati di esempio per la finestra di progettazione di Azure Machine Learning (anteprima)
+# <a name="example-pipelines--datasets-for-azure-machine-learning-designer"></a>Pipeline e set di dati di esempio per la finestra di progettazione di Azure Machine Learning
 
 Usare gli esempi incorporati nella finestra di progettazione di Azure Machine Learning per iniziare rapidamente a creare le proprie pipeline di Machine Learning. Il [repository GitHub](https://github.com/Azure/MachineLearningDesigner) della finestra di progettazione di Azure Machine Learning contiene la documentazione dettagliata per comprendere alcuni scenari comuni di Machine Learning.
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://aka.ms/AMLFree).
-* Un'area di lavoro di Azure Machine Learning con Enterprise SKU.
+* Una sottoscrizione di Azure. Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://aka.ms/AMLFree)
+* Area di lavoro di Azure Machine Learning 
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
@@ -67,8 +67,8 @@ Esplorare questi esempi di regressione incorporati.
 
 | Titolo di esempio | Descrizione | 
 | --- | --- |
-| [Esempio 1: Regressione - Previsione dei prezzi delle automobili (base)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-basic.md) | Stimare i prezzi delle automobili usando la regressione lineare. |
-| [Esempio 2: Regressione - Previsione dei prezzi delle automobili (avanzata)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-compare-algorithms.md) | Stimare i prezzi delle automobili usando la foresta delle decisioni e i regressori degli alberi delle decisioni con boosting. Confrontare i modelli per trovare l'algoritmo migliore.
+| [Regressione - Previsione dei prezzi delle automobili (base)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-basic.md) | Stimare i prezzi delle automobili usando la regressione lineare. |
+| [Regressione - Previsione dei prezzi delle automobili (avanzata)](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-regression-automobile-price-compare-algorithms.md) | Stimare i prezzi delle automobili usando la foresta delle decisioni e i regressori degli alberi delle decisioni con boosting. Confrontare i modelli per trovare l'algoritmo migliore.
 
 ## <a name="classification"></a>Classificazione
 
@@ -76,11 +76,19 @@ Esplorare questi esempi di classificazione incorporati. È possibile ottenere al
 
 | Titolo di esempio | Descrizione | 
 | --- | --- |
-| [Esempio 3: Classificazione binaria con selezione delle funzionalità - Stima del reddito](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-predict-income.md) | Stimare il reddito come alto o basso, usando un albero delle decisioni con boosting a due classi. Usare la correlazione di Pearson per selezionare le funzionalità.
-| [Esempio 4: Classificazione binaria con script Python personalizzato - Stima del rischio di credito](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-credit-risk-cost-sensitive.md) | Classificare le applicazioni di credito come ad alto o basso rischio. Usare il modulo di esecuzione dello script Python per ponderare i dati.
-| [Esempio 5: Classificazione binaria - Stima delle relazioni con i clienti](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-churn.md) | Stimare l'abbandono dei clienti usando alberi delle decisioni con boosting a due classi. Usare SMOTE per campionare i dati distorti.
-| [Esempio 7: Classificazione del testo - Set di dati Wikipedia SP 500](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-text-classification.md) | Classificare i tipi di aziende da articoli Wikipedia con regressione logistica multiclasse. |
-| Esempio 12: Classificazione multiclasse - Riconoscimento delle lettere | Creare un insieme di classificatori binari per classificare le lettere scritte. |
+| [Classificazione binaria con selezione delle funzionalità - Stima del reddito](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-predict-income.md) | Stimare il reddito come alto o basso, usando un albero delle decisioni con boosting a due classi. Usare la correlazione di Pearson per selezionare le funzionalità.
+| [Classificazione binaria con script di Python personalizzato - Stima del rischio di credito](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-credit-risk-cost-sensitive.md) | Classificare le applicazioni di credito come ad alto o basso rischio. Usare il modulo di esecuzione dello script Python per ponderare i dati.
+| [Classificazione binaria - Stima delle relazioni con i clienti](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-churn.md) | Stimare l'abbandono dei clienti usando alberi delle decisioni con boosting a due classi. Usare SMOTE per campionare i dati distorti.
+| [Classificazione del testo - Set di dati Wikipedia SP 500](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-text-classification.md) | Classificare i tipi di aziende da articoli Wikipedia con regressione logistica multiclasse. |
+| Classificazione multiclasse - Riconoscimento delle lettere | Creare un insieme di classificatori binari per classificare le lettere scritte. |
+
+## <a name="computer-vision"></a>Visione artificiale
+
+Esplorare questi esempi di visione artificiale predefiniti. È possibile ottenere altre informazioni sugli esempi senza collegamenti alla documentazione aprendo gli esempi e visualizzando i commenti del modulo.
+
+| Titolo di esempio | Descrizione | 
+| --- | --- |
+| Raccomandazione basata su Wide & Deep - Stima della valutazione dei ristoranti | Creare un motore di raccomandazione dei ristoranti dalle funzionalità e dalle valutazioni di ristoranti/utenti.|
 
 ## <a name="recommender"></a>Moduli di raccomandazione
 
@@ -88,7 +96,7 @@ Esplorare questi esempi di raccomandazione incorporati. È possibile ottenere al
 
 | Titolo di esempio | Descrizione | 
 | --- | --- |
-| Esempio 10: Raccomandazione - Tweet sulla classificazione dei film | Creare un motore di raccomandazione film da titoli di film e classificazioni. |
+| Classificazione delle immagini con DenseNet | Usare i moduli di visione artificiale per creare un modello di classificazione delle immagini basato su PyTorch DenseNet.| 
 
 ## <a name="utility"></a>Utilità
 
@@ -96,10 +104,11 @@ Altre informazioni sugli esempi che illustrano le utilità e le funzionalità di
 
 | Titolo di esempio | Descrizione | 
 | --- | --- |
-| [Esempio 6: Usare uno script R personalizzato - Stima dei ritardi dei voli](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-flight-delay.md) |
-| Esempio 8: Convalida incrociata per la classificazione binaria - Stima del reddito per adulti | Usare la convalida incrociata per creare un classificatore binario per il reddito degli adulti.
-| Esempio 9: Permutation Feature Importance | Usare l'importanza della caratteristica di permutazione per calcolare i punteggi di importanza per il set di dati di test. 
-| Esempio 11: Ottimizzare i parametri per la classificazione binaria - Stima del reddito per adulti | Usare gli iperparametri del modello di ottimizzazione per trovare iperparametri ottimali per creare un classificatore binario. |
+| Classificazione binaria tramite il modello Vowpal Wabbit - Stima del reddito degli adulti | Vowpal Wabbit è un sistema di Machine Learning che supera i limiti di Machine Learning con tecniche come hash, allreduce, reduction, learning2search, nonché apprendimento online, attivo e interattivo. Questo esempio illustra come usare il modello di Vowpal Wabbit per creare il modello di classificazione binaria. 
+| [Usare uno script R personalizzato - Stima dei ritardi dei voli](https://github.com/Azure/MachineLearningDesigner/blob/master/articles/samples/how-to-designer-sample-classification-flight-delay.md) | Usare lo script R personalizzato per stimare se un volo passeggeri pianificato subirà un ritardo di oltre 15 minuti.
+| Convalida incrociata per la classificazione binaria - Stima del reddito per adulti | Usare la convalida incrociata per creare un classificatore binario per il reddito degli adulti.
+| Permutation Feature Importance | Usare l'importanza della caratteristica di permutazione per calcolare i punteggi di importanza per il set di dati di test. 
+| Ottimizzare i parametri per la classificazione binaria - Stima del reddito per adulti | Usare gli iperparametri del modello di ottimizzazione per trovare iperparametri ottimali per creare un classificatore binario. |
 
 ## <a name="datasets"></a>Set di dati
 
@@ -129,5 +138,5 @@ I set di dati di esempio sono disponibili nella categoria **Set di dati**-**Esem
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Informazioni sulle nozioni di base sull'analisi predittiva e Machine Learning con l'[Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione](tutorial-designer-automobile-price-train-score.md)
+Informazioni sui concetti fondamentali sull'analisi predittiva e su Machine Learning con l'[Esercitazione: Stimare il prezzo di un'automobile con la finestra di progettazione](tutorial-designer-automobile-price-train-score.md)
 

@@ -3,12 +3,12 @@ title: Livelli Premium e standard del bus di servizio di Azure
 description: Questo articolo descrive i livelli standard e Premium del bus di servizio di Azure. Confronta questi livelli e fornisce le differenze tecniche.
 ms.topic: conceptual
 ms.date: 07/28/2020
-ms.openlocfilehash: 82f8dbce7c48cb6efea67de4297239915e46eac8
-ms.sourcegitcommit: 5b8fb60a5ded05c5b7281094d18cf8ae15cb1d55
+ms.openlocfilehash: 31c53a1375078cd5d185945cba55a6e5a6dd5ffb
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87386351"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90966790"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Livelli di messaggistica Standard e Premium del bus di servizio
 
@@ -72,7 +72,7 @@ Quando si decide il numero di unità di messaggistica per l'architettura, è nec
     - Se l'utilizzo della CPU è ***inferiore al 20%***, potrebbe essere possibile ***ridurre*** il numero di unità di messaggistica allocate allo spazio dei nomi.
     - Se l'utilizzo della CPU è ***superiore al 70%***, l'applicazione trarrà vantaggio dal ***ridimensionamento*** del numero di unità di messaggistica allocate allo spazio dei nomi.
 
-Il processo di ridimensionamento delle risorse allocate a uno spazio dei nomi del bus di servizio può essere automatizzato tramite [manuali operativi di automazione di Azure](../automation/automation-quickstart-create-runbook.md).
+Per informazioni su come configurare uno spazio dei nomi del bus di servizio per la scalabilità automatica (aumento o riduzione delle unità di messaggistica), vedere [aggiornare automaticamente le unità di messaggistica](automate-update-messaging-units.md).
 
 > [!NOTE]
 > Il **ridimensionamento** delle risorse allocate allo spazio dei nomi può essere di tipo preemptive o Reactive.
@@ -96,10 +96,9 @@ Iniziare a usare la messaggistica Premium è estremamente semplice e il processo
 
 Per altre informazioni sulla messaggistica del bus di servizio, vedi i collegamenti seguenti:
 
-* [Introduzione alla messaggistica Premium del bus di servizio di Azure (post di Blog)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
-* [Introducing Azure Service Bus Premium Messaging](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging) (Introduzione alla messaggistica Premium del bus di servizio di Azure, Channel9)
-* [Panoramica della messaggistica del bus di servizio](service-bus-messaging-overview.md)
-* [Introduzione alle code del bus di servizio](service-bus-dotnet-get-started-with-queues.md)
+- [Aggiorna automaticamente le unità di messaggistica](automate-update-messaging-units.md).
+- [Introduzione alla messaggistica Premium del bus di servizio di Azure (post di Blog)](https://azure.microsoft.com/blog/introducing-azure-service-bus-premium-messaging/)
+- [Introducing Azure Service Bus Premium Messaging](https://channel9.msdn.com/Blogs/Subscribe/Introducing-Azure-Service-Bus-Premium-Messaging) (Introduzione alla messaggistica Premium del bus di servizio di Azure, Channel9)
 
 <!--Image references-->
 

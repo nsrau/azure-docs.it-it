@@ -11,15 +11,15 @@ ms.subservice: core
 ms.topic: conceptual
 ms.custom: how-to
 ms.date: 06/27/2020
-ms.openlocfilehash: a59905c1d410ae0ffd4520f3b61fd37e649012e7
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b310f195477f4cba83ef30c6fb5ea2fd24c4df9a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650919"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897383"
 ---
 # <a name="how-to-run-jupyter-notebooks-in-your-workspace"></a>Come eseguire Jupyter Notebook nell'area di lavoro
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Di seguito viene descritto come eseguire Jupyter Notebook direttamente nell'area di lavoro in Azure Machine Learning Studio. Sebbene sia possibile avviare [Jupyter](https://jupyter.org/) or [JupyterLab](https://jupyterlab.readthedocs.io), è anche possibile modificare ed eseguire i notebook senza uscire dall'area di lavoro.
 

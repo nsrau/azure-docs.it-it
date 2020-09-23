@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 09/09/2020
-ms.openlocfilehash: a89115d69943ff63d403edff942677b134e7f2a8
-ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
+ms.openlocfilehash: a3cd250e53fb30e07795b184b5c949505e3b20ae
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90024384"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905738"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Sicurezza aziendale per Azure Machine Learning
 
@@ -63,7 +63,6 @@ La tabella seguente elenca alcune delle principali operazioni di Azure Machine L
 | ---- |:----:|:----:|:----:|
 | Creare un'area di lavoro | ✓ | ✓ | |
 | Condividere l'area di lavoro | ✓ | |  |
-| Aggiornare l'area di lavoro all'edizione Enterprise | ✓ | |
 | Creare una destinazione di calcolo | ✓ | ✓ | |
 | Collegare la destinazione di calcolo | ✓ | ✓ | |
 | Collegare gli archivi dati | ✓ | ✓ | |
@@ -105,7 +104,7 @@ Azure Machine Learning crea un'applicazione aggiuntiva, il cui nome inizia con `
 
 Azure Machine Learning si basa su altri servizi di Azure per le risorse di calcolo. Le risorse di calcolo (destinazioni di calcolo) vengono usate per eseguire il training e la distribuzione dei modelli. Queste destinazioni di calcolo possono essere create in una rete virtuale. È ad esempio possibile usare una Data Science Virtual Machine di Azure per eseguire il training di un modello e distribuirlo nel servizio Azure Kubernetes.  
 
-Per ulteriori informazioni, vedere [Panoramica dell'isolamento e della privacy della rete virtuale](how-to-network-security-overview.md).
+Per altre informazioni, vedere [Panoramica della privacy e dell'isolamento rete virtuale](how-to-network-security-overview.md).
 
 È anche possibile abilitare il collegamento privato di Azure per l'area di lavoro. Il collegamento privato consente di limitare le comunicazioni all'area di lavoro da una rete virtuale di Azure. Per altre informazioni, vedere [Come configurare il collegamento privato](how-to-configure-private-link.md).
 

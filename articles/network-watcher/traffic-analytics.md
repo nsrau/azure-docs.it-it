@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 8deb3d81895629e817aeb9dbc1eb6520e1fb7aad
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: f978343bd47c4b8c86653024e651b56c782f768c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747522"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90967504"
 ---
 # <a name="traffic-analytics"></a>Analisi del traffico
 
@@ -339,7 +339,7 @@ Distribuzione del traffico per Gateway applicazione e bilanciamento del carico, 
  - Sapere quale subnet è in conversazione con quale gateway applicazione o bilanciamento del carico. Se si osservano conversazioni impreviste, è possibile correggere la configurazione.
  - Se reti non autorizzate sono in conversazione con un gateway applicazione o un bilanciamento del carico, è possibile risolvere il problema configurando regole dei gruppi di sicurezza di rete per bloccare le reti non autorizzate. 
 
-    ![subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
+    ![Screenshot mostra una topologia di subnet con distribuzione del traffico a una subnet del gateway applicazione per quanto riguarda i flussi.](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-application-gateway-subnet-with-regards-to-flows.png)
 
 ### <a name="view-ports-and-virtual-machines-receiving-traffic-from-the-internet"></a>Visualizzare le porte e le macchine virtuali che ricevono il traffico da Internet
 

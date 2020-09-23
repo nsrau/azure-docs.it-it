@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: f5e71697ca6ce9e2585bbb903ad8c46744e05e13
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: e2922d19dbcad7da2808a86896e39d21420e73d5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89462395"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904746"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Guida alla risoluzione dei problemi del Centro sicurezza di Azure
 
@@ -132,7 +132,7 @@ In caso di problemi di caricamento del dashboard del Centro sicurezza, assicurar
 
 ## <a name="contacting-microsoft-support"></a>Contattare il supporto tecnico Microsoft
 
-Alcuni problemi possono essere identificati tramite le linee guida contenute in questo articolo, altri sono documentati nella [pagina pubblica delle domande di Domande e risposte Microsoft](https://docs.microsoft.com/answers/topics/azure-security-center.html) del Centro sicurezza. Tuttavia, se è necessario un altro tipo di risoluzione dei problemi, è possibile aprire una nuova richiesta di supporto tramite il **portale di Azure**, come illustrato di seguito:
+Alcuni problemi possono essere identificati usando le linee guida disponibili in questo articolo, altri possono anche essere documentati nel centro sicurezza pubblico [Microsoft Q&una pagina](https://docs.microsoft.com/answers/topics/azure-security-center.html). Tuttavia, se è necessario un altro tipo di risoluzione dei problemi, è possibile aprire una nuova richiesta di supporto tramite il **portale di Azure**, come illustrato di seguito:
 
 ![Supporto tecnico Microsoft](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig2.png)
 

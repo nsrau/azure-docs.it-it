@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: duau
-ms.openlocfilehash: bbd45a4190cfa1199568c23cc346b9ccacc20ac5
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: bac1d1e41cab4aa3be10fb226df57277db20c78e
+ms.sourcegitcommit: 3fc3457b5a6d5773323237f6a06ccfb6955bfb2d
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648883"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90030277"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>Esercitazione: Configurare HTTPS per un dominio personalizzato di Frontdoor
 
@@ -241,7 +241,7 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
     No, attualmente un record di autorizzazione dell'autorità di certificazione non è obbligatorio. Se tuttavia se ne ha uno, deve includere DigiCert come CA valida.
 
-## <a name="clean-up-resources---disable-https"></a>Pulire le risorse - Disabilitare il protocollo HTTPS
+## <a name="clean-up-resources"></a>Pulire le risorse
 
 Nei passaggi precedenti è stato abilitato il protocollo HTTPS nel dominio personalizzato. Se non si vuole più usare il dominio personalizzato con HTTPS, è possibile disabilitare il protocollo HTTPS seguendo questa procedura:
 

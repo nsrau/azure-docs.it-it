@@ -7,12 +7,12 @@ ms.service: mysql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 5/26/2020
-ms.openlocfilehash: 1b1249fe7159e2a3a8d2a74d22f274a9766e7922
-ms.sourcegitcommit: faeabfc2fffc33be7de6e1e93271ae214099517f
+ms.openlocfilehash: 5ec6aab8aaa63b848131d44f78867100f154d251
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88185826"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896325"
 ---
 # <a name="quickstart-use-mysql-workbench-to-connect-and-query-data-in-azure-database-for-mysql"></a>Avvio rapido: Usare MySQL Workbench per connettersi ai dati ed eseguire query in Database di Azure per MySQL
 
@@ -40,7 +40,7 @@ Ottenere le informazioni di connessione necessarie per connettersi al database d
 3. Fare clic sul nome del server.
 
 4. Nel pannello **Panoramica** del server prendere nota dei valori riportati in **Nome server** e **Nome di accesso dell'amministratore server**. Se si dimentica la password, in questo pannello è anche possibile reimpostarla.
- ![Nome del server del database di Azure per MySQL](./media/connect-php/1_server-overview-name-login.png)
+ :::image type="content" source="./media/connect-php/1_server-overview-name-login.png" alt-text="Nome del server del database di Azure per MySQL":::
 
 ## <a name="connect-to-the-server-by-using-mysql-workbench"></a>Connettersi al server con MySQL Workbench 
 Per connettersi al server MySQL di Azure con lo strumento dell'interfaccia utente grafica MySQL Workbench:
@@ -49,7 +49,7 @@ Per connettersi al server MySQL di Azure con lo strumento dell'interfaccia utent
 
 2.    Nella finestra di dialogo **Setup New Connection** (Configura nuova connessione) immettere le informazioni seguenti nella scheda **Parameters** (Parametri):
 
-![Setup New Connection (Configura nuova connessione)](./media/connect-workbench/2-setup-new-connection.png)
+:::image type="content" source="./media/connect-workbench/2-setup-new-connection.png" alt-text="Setup New Connection (Configura nuova connessione)":::
 
 | **Impostazione** | **Valore consigliato** | **Descrizione campo** |
 |---|---|---|
@@ -103,7 +103,7 @@ Per connettersi al server MySQL di Azure con lo strumento dell'interfaccia utent
 
     Lo screenshot mostra un esempio di codice SQL in MySQL Workbench e l'output dopo l'esecuzione.
     
-    ![Scheda SQL in MySQL Workbench per l'esecuzione del codice SQL di esempio](media/connect-workbench/3-workbench-sql-tab.png)
+    :::image type="content" source="media/connect-workbench/3-workbench-sql-tab.png" alt-text="Scheda SQL in MySQL Workbench per l'esecuzione del codice SQL di esempio":::
 
 2. Per eseguire l'esempio di codice SQL, fare clic sull'icona saetta nella barra degli strumenti della scheda **File SQL**.
 3. Si notino i tre risultati a schede nella sezione **Griglia risultati** nella parte centrale della pagina. 
