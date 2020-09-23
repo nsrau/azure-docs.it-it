@@ -7,12 +7,12 @@ ms.date: 10/23/2019
 ms.topic: overview
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 159691ee101e586419d2fd8df314947af28219dd
-ms.sourcegitcommit: c2065e6f0ee0919d36554116432241760de43ec8
+ms.openlocfilehash: 1ed5a64a76d27f87b590573894e34f2560a5c2aa
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 03/26/2020
-ms.locfileid: "77016511"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972303"
 ---
 # <a name="building-government-solutions-with-azure-iot-central"></a>Creazione di soluzioni per enti pubblici con Azure IoT Central
 
@@ -72,12 +72,10 @@ Il modello di app Gestione rifiuti connessa è costituito dagli elementi preconf
 
 Iniziare con l'[esercitazione sull'applicazione Gestione rifiuti connessa](./tutorial-connected-waste-management.md).
 
-
 ## <a name="next-steps"></a>Passaggi successivi
 
 * Provare a usare gratuitamente i modelli di applicazione per enti pubblici in IoT Central e [creare un'app](https://apps.azureiotcentral.com/build/government)
 * Informazioni sui [concetti di monitoraggio della qualità dell'acqua](./concepts-waterqualitymonitoring-architecture.md)
 * Informazioni sui [concetti di monitoraggio del consumo idrico](./concepts-waterconsumptionmonitoring-architecture.md)
 * Informazioni sui [concetti di gestione rifiuti connessa](./concepts-connectedwastemanagement-architecture.md)  
-* Per informazioni su IoT Central, vedere [Panoramica di IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central)
- 
+* Per informazioni su IoT Central, vedere [Panoramica di IoT Central](https://docs.microsoft.com/azure/iot-central/core/overview-iot-central) 

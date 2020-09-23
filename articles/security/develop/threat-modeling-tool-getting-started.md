@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/17/2017
 ms.author: jegeib
-ms.openlocfilehash: 3b8467a5983ae9d8928d14987bcee9d2aef094aa
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 6ddb2ecef3a70ed6a56b404e64cef5b78b7abd13
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87539901"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980468"
 ---
 # <a name="getting-started-with-the-threat-modeling-tool"></a>Guida introduttiva a Threat Modeling Tool
 
@@ -97,7 +97,7 @@ Ricardo inizia selezionando il primo elemento nell'elenco. Di seguito è illustr
 
 In primo luogo è stata migliorata l'interazione tra i due stencil
 
-![Interazione](./media/threat-modeling-tool-getting-started/interaction.png)
+![Screenshot mostra due stencil e la freccia curva che li connette con un peso più pesante della linea.](./media/threat-modeling-tool-getting-started/interaction.png)
 
 In secondo luogo, altre informazioni sulla minaccia sono visualizzate nella finestra delle proprietà della minaccia
 

@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 086623378b64aecb91c4e70e6e69bb13453f7681
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: be03996f3f88efeb02893f815162a04d6a1e8aa6
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85078635"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979949"
 ---
 # <a name="view-requests-for-an-access-package-in-azure-ad-entitlement-management"></a>Visualizzare le richieste per un pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -29,7 +29,7 @@ In Azure AD gestione dei diritti, è possibile visualizzare gli utenti che hanno
 
 ## <a name="view-requests"></a>Visualizzare le richieste
 
-**Ruolo prerequisito:** amministratore globale, amministratore utenti, proprietario del catalogo o responsabile dei pacchetti di accesso
+**Ruolo prerequisiti:** Amministratore globale, amministratore utente, proprietario del catalogo, gestione pacchetti di accesso o gestione assegnazione pacchetti di accesso
 
 1. Nel portale di Azure fare clic su **Azure Active Directory** e quindi su **Identity Governance**.
 

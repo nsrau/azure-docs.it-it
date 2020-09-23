@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/29/2019
+ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 0d918de4669e1b4bac6c1775a813eb1d224f39cf
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: f9c400b55b0da47495db4f1ff4ceb86aa39fe2cc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89662019"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885839"
 ---
 # <a name="remove-azure-sentinel-from-your-workspace"></a>Rimuovere Azure Sentinel dall'area di lavoro
 
-Se non si vuole più usare Azure Sentinel, questo articolo illustra come rimuoverlo dall'area di lavoro.
+Se non si vuole più usare Sentinel di Azure, questo articolo illustra come rimuoverlo dall'area di lavoro.
 
 ## <a name="how-to-remove-azure-sentinel"></a>Come rimuovere Azure Sentinel
 
@@ -48,13 +48,13 @@ Una volta identificata la disconnessione, viene avviato il processo offboarding.
 
 -   AWS
 
--   Avvisi di sicurezza dei servizi Microsoft: Microsoft Defender for Identity (in*precedenza Azure ATP*), Microsoft Cloud App Security inclusi cloud Discovery Shadow it reporting, Azure ad Identity Protection, Microsoft Defender for endpoint (in*precedenza Microsoft Defender ATP*), Azure Defender (in*precedenza il Centro sicurezza di Azure*)
+-   Avvisi di sicurezza dei servizi Microsoft: Microsoft Defender for Identity (in*precedenza Azure ATP*), Microsoft Cloud App Security inclusi cloud Discovery Shadow it reporting, Azure ad Identity Protection, Microsoft Defender for endpoint (in*precedenza Microsoft Defender ATP*), Azure Defender Alerts dal centro sicurezza di Azure
 
 -   Intelligence per le minacce
 
--   Log di sicurezza comuni (inclusi i log basati su CEF, Barracuda e syslog). Se si dispone di Azure Defender, questi log continueranno a essere raccolti.
+-   Log di sicurezza comuni (inclusi i log basati su CEF, Barracuda e syslog) (se si ottengono avvisi di Azure Defender dal centro sicurezza di Azure, questi log continueranno a essere raccolti).
 
--   Eventi di sicurezza di Windows. Se si dispone di Azure Defender, questi log continueranno a essere raccolti.
+-   Eventi di sicurezza di Windows. Se si ricevono avvisi di Azure Defender dal centro sicurezza di Azure, questi log continueranno a essere raccolti.
 
 Nelle prime 48 ore, i dati e le regole analitiche (inclusa la configurazione di automazione in tempo reale) non saranno più accessibili o disponibili per le query in Sentinel di Azure.
 

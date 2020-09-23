@@ -7,12 +7,12 @@ ms.service: security
 ms.subservice: security-develop
 ms.topic: article
 ms.date: 08/17/2017
-ms.openlocfilehash: e405ea35dcaa33ac7c8227385e4aaff86d9244cb
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: 65a88f309602462e77336181316c0d5bf19a8a1e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87540003"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980680"
 ---
 # <a name="threat-modeling-tool-feature-overview"></a>Panoramica della funzione Threat Modeling Tool
 
@@ -29,7 +29,7 @@ Per vedere tutte le funzionalità attualmente disponibili nello strumento, usare
 
 ![Modello di minaccia di base](./media/threat-modeling-tool-feature-overview/basictmt.png)
 
-## <a name="navigation"></a>Spostamento
+## <a name="navigation"></a>Navigazione
 
 Prima di illustrare le funzionalità integrate, è opportuno discutere dei componenti principali presenti nello strumento.
 
@@ -43,10 +43,10 @@ L'esperienza è simile ad altri prodotti Microsoft. Esaminare le voci di menu di
 | --------------------------------------- | ------------ |
 | **File** | <ul><li>Aprire, salvare e chiudere i file</li><li>Accedere e disconnettersi dagli account di OneDrive.</li><li>Condividere collegamenti (visualizzazione e modifica).</li><li>Visualizzare le informazioni di file.</li><li>Applicare un nuovo modello a modelli esistenti.</li></ul> |
 | **Modifica** | Annullare e ripristinare azioni, copiare, incollare ed eliminare. |
-| **Visualizzazione** | <ul><li>Passare fra le visualizzazioni **Analisi** e **Progettazione**.</li><li>Aprire finestre chiuse (ad esempio stencil, proprietà degli elementi e messaggi).</li><li>Ripristinare le impostazioni predefinite del layout.</li></ul> |
+| **Visualizza** | <ul><li>Passare fra le visualizzazioni **Analisi** e **Progettazione**.</li><li>Aprire finestre chiuse (ad esempio stencil, proprietà degli elementi e messaggi).</li><li>Ripristinare le impostazioni predefinite del layout.</li></ul> |
 | **Diagramma** | Aggiungere ed eliminare diagrammi e spostarsi tra le schede dei diagrammi. |
 | **Report** | Creare report HTML da condividere con altri utenti. |
-| **?** | Individuare guide sull'uso dello strumento. |
+| **Guida** | Individuare guide sull'uso dello strumento. |
 
 I simboli sono collegamenti ai menu di primo livello:
 
@@ -54,8 +54,8 @@ I simboli sono collegamenti ai menu di primo livello:
 | --------------------------------------- | ------------ |
 | **Apri** | Apre un nuovo file. |
 | **Salva** | Salva il file attuale. |
-| **Progetta** | Passa alla visualizzazione **Progettazione** dove è possibile creare modelli. |
-| **Analisi** | Mostra le minacce generate e le relative proprietà. |
+| **Progettazione** | Passa alla visualizzazione **Progettazione** dove è possibile creare modelli. |
+| **Analizzare** | Mostra le minacce generate e le relative proprietà. |
 | **Aggiungi diagramma** | Aggiunge un nuovo diagramma (simile a nuove schede di Excel). |
 | **Elimina diagramma** | Elimina il diagramma attuale. |
 | **Copia/Taglia/Incolla** | Copia, taglia e incolla gli elementi. |
@@ -122,7 +122,7 @@ Passare il mouse su **Apri un modello** per visualizzare due opzioni: **Apri da 
 
 Quando si seleziona **Commenti, suggerimenti e problemi**, visitare il forum di MSDN per gli strumenti di SDL. Consente di vedere opinioni di altri utenti sullo strumento nonché nuove idee e soluzioni alternative.
 
-![Commenti e suggerimenti](./media/threat-modeling-tool-feature-overview/feedback.png)
+![Screenshot mostra un pulsante con commenti, suggerimenti e problemi relativi al testo.](./media/threat-modeling-tool-feature-overview/feedback.png)
 
 ## <a name="design-view"></a>Visualizzazione progettazione
 
@@ -158,7 +158,7 @@ Quando si apre o crea un nuovo modello, viene aperta la visualizzazione **Proget
 
 Se si crea un modello di minaccia e si dimentica di connettere i flussi di dati agli elementi, viene visualizzata una notifica. È possibile ignorare il messaggio o seguire le istruzioni per risolvere il problema. 
 
-![Messaggi](./media/threat-modeling-tool-feature-overview/messages.png)
+![Screenshot mostra un connettore del modello di minaccia non connesso agli elementi, con il messaggio causato da questo problema.](./media/threat-modeling-tool-feature-overview/messages.png)
 
 ### <a name="notes"></a>Note
 
@@ -178,7 +178,7 @@ Quando si seleziona una minaccia, è possibile usare tre funzioni distinte:
 | --------------------------------------- | ------------ |
 | **Indicatore letto** | <p>La minaccia viene contrassegnata come letta, permettendo di tenere traccia degli elementi rivisti.</p><p>![Indicatore letto/non letto](./media/threat-modeling-tool-feature-overview/readmode.png)</p> |
 | **Centro di interazione** | <p>Viene evidenziata l'interazione nel diagramma appartenente a una minaccia.</p><p>![Centro di interazione](./media/threat-modeling-tool-feature-overview/interactionfocus.png)</p> |
-| **Proprietà della minaccia** | <p>Altre informazioni sulla minaccia sono visualizzate nella finestra **Proprietà della minaccia**.</p><p>![Proprietà della minaccia](./media/threat-modeling-tool-feature-overview/threatproperties.png)</p> |
+| **Proprietà delle minacce** | <p>Altre informazioni sulla minaccia sono visualizzate nella finestra **Proprietà della minaccia**.</p><p>![Proprietà della minaccia](./media/threat-modeling-tool-feature-overview/threatproperties.png)</p> |
 
 ### <a name="priority-change"></a>Modifica della priorità
 
@@ -190,13 +190,13 @@ Quando si seleziona una minaccia, è possibile usare tre funzioni distinte:
 
 Come illustrato nella figura precedente, è possibile modificare le informazioni generate dallo strumento. È anche possibile aggiungere informazioni a determinati campi, ad esempio la giustificazione. Questi campi vengono generati dal modello. Se sono necessarie altre informazioni per ogni minaccia, è possibile apportare modifiche.
 
-![Proprietà della minaccia](./media/threat-modeling-tool-feature-overview/threatproperties.png)
+![Proprietà delle minacce](./media/threat-modeling-tool-feature-overview/threatproperties.png)
 
 ## <a name="reports"></a>Report
 
 Dopo aver completato la modifica delle priorità e aggiornato lo stato di ogni minaccia generata, sarà possibile salvare il file e/o stampare un report. Passare a **report**  >  **Crea report completo**. Denominare il report. Verrà visualizzata una schermata simile all'immagine seguente:
 
-![Report](./media/threat-modeling-tool-feature-overview/report.png)
+![Screenshot mostra un esempio di report di modellazione delle minacce, che include un riepilogo, diagrammi e altre informazioni.](./media/threat-modeling-tool-feature-overview/report.png)
 
 ## <a name="next-steps"></a>Passaggi successivi
 

@@ -1,0 +1,110 @@
+### YamlMime:Landing
+title: Documentazione di Server flessibile (anteprima)
+summary: Database di Azure per PostgreSQL - Server flessibile (anteprima) è un database distribuito come servizio PostgreSQL completamente gestito in grado di gestire carichi di lavoro cruciali con prestazioni prevedibili e scalabilità dinamica. È possibile sviluppare applicazioni con il database di Azure per PostgreSQL sfruttando la piattaforma e gli strumenti open source preferiti. Le guide introduttive, le esercitazioni e gli esempi illustrano come usare Server flessibile.
+metadata:
+  title: Database di Azure per PostgreSQL - Server flessibile (anteprima)
+  description: Database di Azure per PostgreSQL - Server flessibile (anteprima) è un servizio di database relazionale incluso in Microsoft Cloud, creato per gli sviluppatori e basato su PostgreSQL Community Edition.
+  author: rachel-msft
+  ms.author: raagyema
+  ms.date: 09/22/2020
+  ms.service: postgresql
+  ms.topic: landing-page
+  ms.openlocfilehash: 7c214662a37083708b0a38148382e16b553145c4
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90929073"
+landingContent:
+- title: Informazioni su Server flessibile (anteprima)
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cos'è Server flessibile?
+      url: overview.md
+  - linkListType: quickstart
+    links:
+    - text: Creare un server flessibile
+      url: quickstart-create-server-portal.md
+  - linkListType: tutorial
+    links:
+    - text: Creare un'app Django con il server flessibile
+      url: tutorial-django-app-service-postgres.md
+  - linkListType: whats-new
+    links:
+    - text: Consultare il blog
+      url: https://techcommunity.microsoft.com/t5/Azure-Database-for-PostgreSQL/bg-p/ADforPostgreSQL
+- title: Gestione
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Opzioni di calcolo e archiviazione
+      url: concepts-compute-storage.md
+    - text: Rete
+      url: concepts-networking.md
+    - text: Versioni di PostgreSQL
+      url: concepts-supported-versions.md
+    - text: Estensioni
+      url: concepts-extensions.md
+    - text: Monitorare
+      url: concepts-monitoring.md
+    - text: Replica logica
+      url: concepts-logical.md
+  - linkListType: how-to-guide
+    links:
+    - text: Gestire il server
+      url: how-to-manage-server-portal.md
+    - text: Arrestare/Avviare il server
+      url: how-to-stop-start-server-portal.md
+    - text: Aumentare le prestazioni
+      url: how-to-scale-compute-storage-portal.md
+    - text: Riavviare un server
+      url: how-to-restart-server-portal.md
+    - text: Configurare e accedere ai log
+      url: howto-configure-and-access-logs.md
+    - text: Pianificare la manutenzione
+      url: how-to-maintenance-portal.md
+- title: Continuità aziendale
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Panoramica sulla continuità aziendale
+      url: concepts-business-continuity.md
+    - text: Disponibilità elevata
+      url: concepts-high-availability.md
+    - text: Backup e ripristino
+      url: concepts-backup-restore.md
+  - linkListType: how-to-guide
+    links:
+    - text: Gestire la disponibilità elevata
+      url: how-to-manage-high-availability-portal.md
+    - text: Ripristinare un server
+      url: how-to-restore-server-portal.md
+- title: Connessione
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Connettersi con Python
+      url: connect-python.md
+  - linkListType: tutorial
+    links:
+    - text: Connettere App Web nella rete virtuale
+      url: tutorial-webapp-server-vnet.md
+- title: Migrate
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Eseguire la migrazione di un database usando pg_dump e pg_restore
+      url: ../howto-migrate-using-dump-and-restore.md
+    - text: Eseguire la migrazione online
+      url: ../howto-migrate-online.md
+- title: Informazioni di riferimento
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: Informazioni di riferimento per sviluppatori sull'interfaccia della riga di comando di Azure
+      url: /cli/azure/postgres
+    - text: Informazioni di riferimento per sviluppatori sulle API REST
+      url: /rest/api/postgresql/
+    - text: Modelli di Gestione risorse di Azure
+      url: /azure/templates/microsoft.dbforpostgresql/allversions

@@ -16,12 +16,12 @@ ms.date: 07/22/2020
 ms.author: barclayn
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8ab68ab4166ddf9e938648e6618ef37df6d998f0
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.openlocfilehash: c761be04c7d31567e727e93b84c98a1b3510e3d9
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89460899"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979881"
 ---
 # <a name="delegation-and-roles-in-azure-ad-entitlement-management"></a>Delega e ruoli in Azure AD gestione dei diritti
 
@@ -81,6 +81,7 @@ La gestione dei diritti ha i seguenti ruoli specifici per la gestione dei diritt
 | Creatore del catalogo | Creare e gestire cataloghi. In genere un amministratore IT che non è un amministratore globale o un proprietario di risorse per una raccolta di risorse. La persona che crea un catalogo diventa automaticamente il primo proprietario del catalogo e può aggiungere altri proprietari del catalogo. Un autore del catalogo non può gestire o vedere cataloghi di cui non è proprietario e non può aggiungere risorse di cui non è proprietario per un catalogo. Se l'autore del catalogo deve gestire un altro catalogo o aggiungere risorse di cui non è proprietario, può richiedere di essere un comproprietario di tale catalogo o risorsa. |
 | Proprietario Catalogo | Modificare e gestire cataloghi esistenti. In genere un amministratore IT o proprietari di risorse oppure un utente designato dal proprietario del catalogo. |
 | Gestione pacchetti di Access | Modificare e gestire tutti i pacchetti di accesso esistenti all'interno di un catalogo. |
+| Gestione assegnazione pacchetti di Access | Modificare e gestire tutte le assegnazioni dei pacchetti di accesso esistenti. |
 
 Inoltre, un responsabile approvazione designato e un richiedente di un pacchetto di accesso dispongono anche di diritti, anche se non sono ruoli.
 
@@ -91,28 +92,29 @@ Inoltre, un responsabile approvazione designato e un richiedente di un pacchetto
 
 Nella tabella seguente sono elencate le attività che i ruoli di gestione dei diritti possono eseguire.
 
-| Attività | Amministratore | Creatore del catalogo | Proprietario Catalogo | Gestione pacchetti di Access |
-| --- | :---: | :---: | :---: | :---: |
-| [Delega a un creatore del catalogo](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |
-| [Aggiungere un'organizzazione connessa](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |
-| [Crea un nuovo catalogo](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |
-| [Aggiungere una risorsa a un catalogo](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
-| [Aggiungere un proprietario del catalogo](entitlement-management-catalog-create.md#add-additional-catalog-owners) | :heavy_check_mark: |  | :heavy_check_mark: |  |
-| [Modificare un catalogo](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
-| [Eliminare un catalogo](entitlement-management-catalog-create.md#delete-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |
-| [Delega a una gestione pacchetti di Access](entitlement-management-delegate-managers.md) | :heavy_check_mark: |  | :heavy_check_mark: |  |
-| [Rimuovere una gestione pacchetti di accesso](entitlement-management-delegate-managers.md#remove-an-access-package-manager) | :heavy_check_mark: |  | :heavy_check_mark: |  |
-| [Creare un nuovo pacchetto di accesso in un catalogo](entitlement-management-access-package-create.md) | :heavy_check_mark: |  | :heavy_check_mark:  | :heavy_check_mark:  |
-| [Modificare i ruoli delle risorse in un pacchetto di accesso](entitlement-management-access-package-resources.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Creazione e modifica di criteri](entitlement-management-access-package-request-policy.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Assegnare direttamente un utente a un pacchetto di accesso](entitlement-management-access-package-assignments.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Visualizza chi ha un'assegnazione a un pacchetto di accesso](entitlement-management-access-package-assignments.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Visualizzare le richieste di un pacchetto di accesso](entitlement-management-access-package-requests.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Visualizzare gli errori di recapito di una richiesta](entitlement-management-troubleshoot.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Rielaborare una richiesta](entitlement-management-troubleshoot.md#reprocess-a-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Annullare una richiesta in sospeso](entitlement-management-troubleshoot.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Nascondi un pacchetto di accesso](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
-| [Eliminare un pacchetto di accesso](entitlement-management-access-package-edit.md#delete-an-access-package) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |
+| Attività | Amministratore | Creatore del catalogo | Proprietario Catalogo | Gestione pacchetti di Access | Gestione assegnazione pacchetti di Access |
+| --- | :---: | :---: | :---: | :---: | :---: |
+| [Delega a un creatore del catalogo](entitlement-management-delegate-catalog.md) | :heavy_check_mark: |  |  |  |  |
+| [Aggiungere un'organizzazione connessa](entitlement-management-organization.md) | :heavy_check_mark: |  |  |  |  |
+| [Crea un nuovo catalogo](entitlement-management-catalog-create.md) | :heavy_check_mark: | :heavy_check_mark: |  |  |  |
+| [Aggiungere una risorsa a un catalogo](entitlement-management-catalog-create.md#add-resources-to-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+| [Aggiungere un proprietario del catalogo](entitlement-management-catalog-create.md#add-additional-catalog-owners) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+| [Modificare un catalogo](entitlement-management-catalog-create.md#edit-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+| [Eliminare un catalogo](entitlement-management-catalog-create.md#delete-a-catalog) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+| [Delega a una gestione pacchetti di Access](entitlement-management-delegate-managers.md) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+| [Rimuovere una gestione pacchetti di accesso](entitlement-management-delegate-managers.md#remove-an-access-package-manager) | :heavy_check_mark: |  | :heavy_check_mark: |  |  |
+| [Creare un nuovo pacchetto di accesso in un catalogo](entitlement-management-access-package-create.md) | :heavy_check_mark: |  | :heavy_check_mark:  | :heavy_check_mark:  |  |
+| [Modificare i ruoli delle risorse in un pacchetto di accesso](entitlement-management-access-package-resources.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Creazione e modifica di criteri](entitlement-management-access-package-request-policy.md) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Assegnare direttamente un utente a un pacchetto di accesso](entitlement-management-access-package-assignments.md#directly-assign-a-user) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  :heavy_check_mark: |
+| [Rimuovere direttamente un utente da un pacchetto di accesso](entitlement-management-access-package-assignments.md#remove-an-assignment) | :heavy_check_mark:  |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Visualizza chi ha un'assegnazione a un pacchetto di accesso](entitlement-management-access-package-assignments.md#view-who-has-an-assignment) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  :heavy_check_mark: |
+| [Visualizzare le richieste di un pacchetto di accesso](entitlement-management-access-package-requests.md#view-requests) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:  |
+| [Visualizzare gli errori di recapito di una richiesta](entitlement-management-troubleshoot.md#view-a-requests-delivery-errors) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  :heavy_check_mark: |
+| [Rielaborare una richiesta](entitlement-management-troubleshoot.md#reprocess-a-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark:  |
+| [Annullare una richiesta in sospeso](entitlement-management-troubleshoot.md#cancel-a-pending-request) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| [Nascondi un pacchetto di accesso](entitlement-management-access-package-edit.md#change-the-hidden-setting) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
+| [Eliminare un pacchetto di accesso](entitlement-management-access-package-edit.md#delete-an-access-package) | :heavy_check_mark: |  | :heavy_check_mark: | :heavy_check_mark: |  |
 
 ## <a name="required-roles-to-add-resources-to-a-catalog"></a>Ruoli necessari per aggiungere risorse a un catalogo
 

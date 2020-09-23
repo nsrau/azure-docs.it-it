@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: ajburnle
 ms.reviewer: mamkumar
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 527255653bf2779b36e0e463cd32a0b334c00f96
-ms.sourcegitcommit: fbb66a827e67440b9d05049decfb434257e56d2d
+ms.openlocfilehash: 726507fa6ea0651b23d46424bda669a2d8ad41e0
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/05/2020
-ms.locfileid: "87798495"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979910"
 ---
 # <a name="request-access-to-an-access-package-in-azure-ad-entitlement-management"></a>Richiedere l'accesso a un pacchetto di accesso in Azure AD gestione dei diritti
 
@@ -80,6 +80,12 @@ Dopo aver trovato il pacchetto di accesso nel portale di accesso personale, è p
 Se si richiede l'accesso a un pacchetto di accesso con più criteri applicabili, potrebbe essere richiesto di selezionare un criterio. Una gestione pacchetti di Access, ad esempio, potrebbe configurare un pacchetto di accesso con due criteri per due gruppi di dipendenti interni. Il primo criterio potrebbe consentire l'accesso per 60 giorni e richiedere l'approvazione. Il secondo criterio potrebbe consentire l'accesso per 2 giorni e non richiede l'approvazione. Se si verifica questo scenario, è necessario selezionare il criterio che si desidera utilizzare.
 
 ![Portale di accesso personale-richiesta di accesso-più criteri](./media/entitlement-management-request-access/my-access-multiple-policies.png)
+
+### <a name="fill-out-requestor-information"></a>Compila le informazioni sul richiedente
+
+È possibile richiedere l'accesso a un pacchetto di accesso che richiede la motivazione aziendale e informazioni aggiuntive del richiedente prima di concedere l'accesso al pacchetto di accesso. Compilare tutte le informazioni sul richiedente necessarie per accedere al pacchetto di accesso.
+
+![Portale di accesso personale: richiedere l'accesso: informazioni sul richiedente per la compilazione](./media/entitlement-management-request-access/my-access-requestor-information.png)
 
 ## <a name="resubmit-a-request"></a>Inviare nuovamente una richiesta
 

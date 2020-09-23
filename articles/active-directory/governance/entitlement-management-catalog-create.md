@@ -16,12 +16,12 @@ ms.date: 06/18/2020
 ms.author: barclayn
 ms.reviewer: hanki
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d0b8e107fb377a30b35f0941b89c490e11fc458c
-ms.sourcegitcommit: 9c3cfbe2bee467d0e6966c2bfdeddbe039cad029
+ms.openlocfilehash: cf6e02ebad2ac5150be4775ad0ff6069fe3db89f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/24/2020
-ms.locfileid: "88783536"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90980039"
 ---
 # <a name="create-and-manage-a-catalog-of-resources-in-azure-ad-entitlement-management"></a>Creare e gestire un catalogo di risorse in Azure AD gestione dei diritti
 
@@ -100,6 +100,7 @@ Per includere le risorse in un pacchetto di accesso, le risorse devono esistere 
 1. Selezionare le risorse che si desidera rimuovere.
 
 1. Fare clic su **Rimuovi** (oppure fare clic sui puntini di sospensione (**...**) e quindi fare clic su **Rimuovi risorsa**.
+
 
 ## <a name="add-additional-catalog-owners"></a>Aggiunta di proprietari di cataloghi aggiuntivi
 

@@ -1,0 +1,63 @@
+### YamlMime:Landing
+title: Servizi dati con abilitazione di Azure Arc
+summary: Eseguire i servizi dati di Azure in locale, al perimetro e in ambienti multicloud con Kubernetes in un'infrastruttura a scelta.
+metadata:
+  title: Servizi dati con abilitazione di Azure Arc (anteprima)
+  description: Eseguire i servizi dati di Azure in locale, al perimetro e in ambienti multicloud con Kubernetes in un'infrastruttura a scelta.
+  ms.service: azure-arc
+  ms.subservice: azure-arc-data
+  ms.topic: landing-page
+  author: MikeRayMSFT
+  ms.author: mikeray
+  ms.date: 09/22/2020
+  ms.openlocfilehash: 3ef94bfc9d3870c4c91116fb2aaf26387999a8da
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+  ms.translationtype: HT
+  ms.contentlocale: it-IT
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90928789"
+landingContent:
+- title: Informazioni
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Che cosa sono i servizi dati con abilitazione di Azure Arc?
+      url: overview.md
+  - linkListType: concept
+    links:
+    - text: Modalità e requisiti di connettività
+      url: connectivity.md
+    - text: Configurazione dell'archiviazione
+      url: storage-configuration.md
+- title: Introduzione
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Creare un controller dei dati
+      url: create-data-controller.md
+    - text: Installare gli strumenti client
+      url: install-client-tools.md
+- title: PostgreSQL Hyperscale con abilitazione di Azure Arc (anteprima)
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Crea
+      url: create-postgresql-hyperscale-server-group.md
+    - text: Connessione
+      url: get-connection-endpoints-and-connection-strings-postgres-hyperscale.md
+    - text: Migrate
+      url: migrate-postgresql-data-into-postgresql-hyperscale-server-group.md
+    - text: Restore
+      url: restore-adventureworks-sample-db-into-postgresql-hyperscale-server-group.md
+- title: Istanza gestita di SQL con abilitazione di Azure Arc (anteprima)
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Crea
+      url: create-sql-managed-instance.md
+    - text: Connessione
+      url: connect-managed-instance.md
+    - text: Migrate
+      url: migrate-to-managed-instance.md
+    - text: Restore
+      url: restore-adventureworks-sample-db.md

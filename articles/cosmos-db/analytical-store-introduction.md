@@ -4,21 +4,21 @@ description: Informazioni sull'archivio transazionale (basato su righe) e sull'a
 author: Rodrigossz
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/19/2020
+ms.date: 09/22/2020
 ms.author: rosouz
-ms.openlocfilehash: fdaffef6c682bd1f9c81f14af6cd949816f7555a
-ms.sourcegitcommit: 59ea8436d7f23bee75e04a84ee6ec24702fb2e61
+ms.openlocfilehash: 17dce45e73a5620db2201534126900d8e571ec45
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/07/2020
-ms.locfileid: "89505523"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900266"
 ---
 # <a name="what-is-azure-cosmos-db-analytical-store-preview"></a>Che cos'è l'archivio analitico di Azure Cosmos DB (anteprima)?
 
 > [!IMPORTANT]
 > L'archivio analitico di Azure Cosmos DB attualmente è disponibile in anteprima. Questa versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Per altre informazioni, vedere le [Condizioni supplementari per l'uso delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-L'archivio analitico di Azure Cosmos DB è un archivio colonne completamente isolato per consentire l'analisi su larga scala dei dati operativi in Azure Cosmos DB, senza alcun impatto sui carichi di lavoro transazionali.  
+Azure Cosmos DB archivio analitico è un archivio colonne completamente isolato per l'abilitazione di analisi su larga scala rispetto ai dati operativi nel Azure Cosmos DB, senza alcun effetto sui carichi di lavoro transazionali.  
 
 ## <a name="challenges-with-large-scale-analytics-on-operational-data"></a>Problemi con l'analisi su larga scala dei dati operativi
 
@@ -34,7 +34,7 @@ L'archivio analitico di Azure Cosmos DB risolve i problemi di complessità e lat
 
 Usando Collegamento ad Azure Synapse, è ora possibile creare soluzioni HTAP senza ETL collegandosi direttamente all'archivio analitico di Azure Cosmos DB da Synapse Analytics. Consente di eseguire analisi su larga scala in near real-time sui dati operativi.
 
-## <a name="analytical-store-details"></a>Dettagli dell'archivio analitico
+## <a name="features-of-analytical-store"></a>Funzionalità dell'archivio analitico 
 
 Quando si abilita l'archivio analitico in un contenitore Azure Cosmos DB, viene creato internamente un nuovo archivio colonne in base ai dati operativi presenti nel contenitore. Questo archivio colonne viene mantenuto separato dall'archivio transazionale orientato alle righe di tale contenitore. Gli inserimenti, gli aggiornamenti e le eliminazioni dei dati operativi vengono sincronizzati automaticamente con l'archivio analitico. Non è necessario il feed di modifiche o ETL per sincronizzare i dati.
 
@@ -72,33 +72,92 @@ Grazie al partizionamento orizzontale, l'archivio transazionale di Azure Cosmos 
 
 L'archivio transazionale di Azure Cosmos DB è senza schema e consente di eseguire l'iterazione sulle applicazioni transazionali senza dover gestire schemi o indici. Al contrario, l'archivio analitico di Azure Cosmos DB è schematizzato per ottimizzare le prestazioni delle query analitiche. Con la funzionalità di sincronizzazione automatica, Azure Cosmos DB gestisce l'inferenza dello schema sugli aggiornamenti più recenti dall'archivio transazionale.  Gestisce inoltre per impostazione predefinita la rappresentazione dello schema nell'archivio analitico, che include la gestione dei tipi di dati annidati.
 
-Si tratta di un'evoluzione dello schema, in cui vengono aggiunte nuove proprietà nel tempo, e l'archivio analitico presenta automaticamente uno schema unificato di tutti gli schemi cronologici nell'archivio transazionale.
+Con l'evoluzione dello schema e l'aggiunta di nuove proprietà nel tempo, l'archivio analitico presenta automaticamente uno schema unificato in tutti gli schemi cronologici nell'archivio transazionale.
 
-Se tutti i dati operativi in Azure Cosmos DB seguono uno schema ben definito per l'analisi, lo schema viene automaticamente dedotto e rappresentato correttamente nell'archivio analitico. Se lo schema ben definito per l'analisi, come definito di seguito, viene violato da alcuni elementi, questi non verranno inclusi nell'archivio analitico. Se sono presenti scenari bloccati a causa di uno schema ben definito per la definizione dell'analisi, inviare un messaggio di posta elettronica al [team di Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com).
+##### <a name="schema-constraints"></a>Vincoli dello schema
 
-Uno schema ben definito per l'analisi viene definito con le considerazioni seguenti:
+I vincoli seguenti sono applicabili ai dati operativi in Azure Cosmos DB quando si Abilita l'archivio analitico per dedurre automaticamente e rappresentare correttamente lo schema:
 
-* Una proprietà ha sempre lo stesso tipo in più elementi
-
-  * Ad esempio, `{"a":123} {"a": "str"}` non ha uno schema ben definito perché `"a"` a volte è una stringa e a volte un numero. 
+* È possibile avere un massimo di 200 proprietà a qualsiasi livello di annidamento nello schema e una profondità massima di nidificazione di 5.
   
-    In questo caso, l'archivio analitico registra il tipo di dati di `“a”` come tipo di dati di `“a”` nell'elemento che si verifica per primo per tutta la durata del contenitore. Gli elementi in cui il tipo di dati di `“a”` è diverso non verranno inclusi nell'archivio analitico.
+  * Un elemento con proprietà 201 al livello principale non soddisfa questo vincolo e pertanto non sarà rappresentato nell'archivio analitico.
+  * Anche un elemento con più di cinque livelli annidati nello schema non soddisfa questo vincolo e pertanto non sarà rappresentato nell'archivio analitico. Ad esempio, l'elemento seguente non soddisfa il requisito:
+
+     `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
+
+* I nomi delle proprietà devono essere univoci quando la distinzione tra maiuscole e minuscole Ad esempio, gli elementi seguenti non soddisfano questo vincolo e pertanto non verranno rappresentati nell'archivio analitico:
+
+  `{"Name": "fred"} {"name": "john"}` – "Name" e "Name" sono uguali quando vengono confrontati senza distinzione tra maiuscole e minuscole.
+
+##### <a name="schema-representation"></a>Rappresentazione dello schema
+
+Nell'archivio analitico sono disponibili due modalità di rappresentazione dello schema. Queste modalità presentano compromessi tra la semplicità di una rappresentazione a colonne, la gestione degli schemi polimorfici e la semplicità di utilizzo delle query:
+
+* Rappresentazione dello schema ben definita
+* Rappresentazione dello schema con fedeltà completa
+
+> [!NOTE]
+> Per gli account API SQL (Core), quando l'archivio analitico è abilitato, la rappresentazione dello schema predefinita nell'archivio analitico è ben definita. Mentre per Azure Cosmos DB API per gli account MongoDB, la rappresentazione dello schema predefinita nell'archivio analitico è una rappresentazione dello schema a fedeltà completa. Se sono presenti scenari che richiedono una rappresentazione dello schema diversa da quella predefinita per ognuna di queste API, rivolgersi al [team di Azure Cosmos DB](mailto:cosmosdbsynapselink@microsoft.com) per abilitarlo.
+
+**Rappresentazione dello schema ben definita**
+
+La rappresentazione dello schema ben definita crea una semplice rappresentazione tabulare dei dati indipendenti dallo schema nell'archivio transazionale. La rappresentazione dello schema ben definita presenta le considerazioni seguenti:
+
+* Una proprietà ha sempre lo stesso tipo in più elementi.
+
+  * Ad esempio, `{"a":123} {"a": "str"}` non ha uno schema ben definito perché `"a"` a volte è una stringa e a volte un numero. In questo caso, l'archivio analitico registra il tipo di dati di `“a”` come tipo di dati di nell'elemento che si verifica per la `“a”` prima volta nella durata del contenitore. Gli elementi in cui il tipo di dati di `“a”` è diverso non verranno inclusi nell'archivio analitico.
   
     Questa condizione non è valida per le proprietà Null. Ad esempio, `{"a":123} {"a":null}` è ancora ben definito.
 
-* I tipi di matrice devono contenere un solo tipo ripetuto
+* I tipi di matrice devono contenere un solo tipo ripetuto.
 
-  * Ad esempio, `{"a": ["str",12]}` non è uno schema ben definito perché la matrice contiene una combinazione di tipi integer e stringa
+  * Ad esempio, `{"a": ["str",12]}` non è uno schema ben definito perché la matrice contiene una combinazione di tipi integer e String.
 
-* Esiste un massimo di 200 proprietà per ogni livello di annidamento di uno schema e un numero massimo di livelli di annidamento pari a 5
+> [!NOTE]
+> Se il Azure Cosmos DB archivio analitico segue la rappresentazione dello schema ben definita e la specifica precedente viene violata da determinati elementi, tali elementi non verranno inclusi nell'archivio analitico.
 
-  * Un elemento con proprietà 201 al livello superiore non ha uno schema ben definito.
+**Rappresentazione dello schema con fedeltà completa**
 
-  * Anche un elemento con più di cinque livelli annidati nello schema non ha uno schema ben definito. Ad esempio, usare `{"level1": {"level2":{"level3":{"level4":{"level5":{"too many":12}}}}}}`
+La rappresentazione dello schema di fedeltà completa è progettata per gestire l'intera gamma di schemi polimorfici nei dati operativi indipendenti dallo schema. In questa rappresentazione dello schema, nessun elemento viene eliminato dall'archivio analitico anche se vengono violati i vincoli dello schema ben definiti, ovvero senza campi con tipo di dati misto o matrici di tipi di dati misti.
 
-* I nomi delle proprietà sono univoci se confrontati senza distinzione tra maiuscole e minuscole
+Questa operazione viene eseguita traducendo le proprietà foglia dei dati operativi nell'archivio analitico con colonne distinte in base al tipo di dati dei valori nella proprietà. I nomi delle proprietà foglia vengono estesi con i tipi di dati come suffisso nello schema dell'archivio analitico, in modo che possano essere query senza ambiguità.
 
-  * Gli elementi seguenti, ad esempio, non hanno uno schema ben definito `{"Name": "fred"} {"name": "john"}` – `"Name"` e `"name"` sono uguali se confrontati senza distinzione tra maiuscole e minuscole
+Si prenda, ad esempio, il documento di esempio seguente nell'archivio transazionale:
+
+```json
+{
+name: "John Doe",
+age: 32,
+profession: "Doctor",
+address: {
+  streetNo: 15850,
+  streetName: "NE 40th St.",
+  zip: 98052
+},
+salary: 1000000
+}
+```
+
+La proprietà foglia `streetName` all'interno dell'oggetto annidato `address` sarà rappresentata nello schema dell'archivio analitico come colonna `address.object.streetName.int32` . Il tipo di dati viene aggiunto come suffisso per la colonna. In questo modo, se un altro documento viene aggiunto all'archivio transazionale in cui il valore della proprietà foglia `streetNo` è "123" (si noti che si tratta di una stringa), lo schema dell'archivio analitico si evolve automaticamente senza modificare il tipo di una colonna scritta in precedenza. Nuova colonna aggiunta all'archivio analitico come `address.object.streetName.string` dove è archiviato questo valore di "123".
+
+**Mappa del tipo di dati a suffisso**
+
+Di seguito è riportato un mapping di tutti i tipi di dati delle proprietà e delle rispettive rappresentazioni dei suffissi nell'archivio analitico:
+
+|Tipo di dati originale  |Suffisso  |Esempio  |
+|---------|---------|---------|
+| Double |  ". float64" |    24,99|
+| Array | ". matrice" |    ["a", "b"]|
+|Binary | ". Binary" |0|
+|Boolean    | ". bool"   |True|
+|Int32  | ". Int32"  |123|
+|Int64  | ". Int64"  |255486129307|
+|Null   | ". null"   | Null|
+|Stringa|    ". stringa" | "ABC"|
+|Timestamp |    ". timestamp" |  Timestamp (0,0)|
+|Datetime   |". date"    | ISODate ("2020-08-21T07:43:07.375 Z")|
+|ObjectId   |". objectId"    | ObjectId ("5f3f7b59330ec25c132623a2")|
+|Documento   |". Object" |    {"a": "a"}|
 
 ### <a name="cost-effective-archival-of-historical-data"></a>Archiviazione conveniente di dati cronologici
 
@@ -155,15 +214,17 @@ Il valore della durata (TTL) dei dati analitici in un contenitore viene impostat
 * Se presente e il valore è impostato su un numero positivo "n": gli elementi scadranno dall'archivio analitico "n" secondi dopo l'ora dell'ultima modifica nell'archivio transazionale. Questa impostazione può essere sfruttata se si desidera conservare i dati operativi per un periodo di tempo limitato nell'archivio analitico, indipendentemente dalla conservazione dei dati nell'archivio transazionale.
 
 Alcune informazioni da considerare:
-*   Dopo l'abilitazione dell'archivio analitico con un valore TTL analitico, è possibile aggiornarlo a un valore valido diverso in un secondo momento 
-*   Sebbene sia possibile impostare la durata TTL transazionale a livello di contenitore o di elemento, è possibile impostare la durata (TTL) solo a livello di contenitore
-*   È possibile ottenere un periodo di conservazione più lungo dei dati operativi nell'archivio analitico impostando TTL analitico >= TTL transazionale a livello di contenitore
-*   È possibile eseguire l'archivio analitico per eseguire il mirroring dell'archivio transazionale impostando il valore di Analytical TTL = transazionale TTL
 
-Quando si Abilita l'archivio anaytical in un contenitore:
- * con il portale di Azure, il valore TTL analitico è impostato sul valore predefinito-1. È possibile modificare questo valore in "n" secondi passando alle impostazioni del contenitore in Esplora dati. 
+*   Dopo aver abilitato l'archivio analitico con un valore della durata (TTL) dei dati analitici, è possibile aggiornarlo con un altro valore valido in un secondo momento. 
+*   Mentre la durata (TTL) dei dati transazionali può essere impostata a livello di contenitore o di elemento, la durata (TTL) dei dati analitici può essere impostata solo a livello di contenitore.
+*   È possibile ottenere un periodo di conservazione più lungo dei dati operativi nell'archivio analitico impostando la proprietà TTL dei dati analitici su un valore maggiore o uguale alla proprietà TTL dei dati transazionali a livello di contenitore.
+*   È possibile eseguire l'archivio analitico per eseguire il mirroring dell'archivio transazionale impostando TTL analitico = valore TTL transazionale.
+
+Quando si Abilita l'archivio analitico in un contenitore:
+
+* Dal portale di Azure, l'opzione TTL analitico è impostata sul valore predefinito-1. È possibile modificare questo valore in "n" secondi passando alle impostazioni del contenitore in Esplora dati. 
  
- * usando Azure SDK o PowerShell o l'interfaccia della riga di comando, è possibile abilitare l'opzione TTL analitico impostando il valore su-1 o ' n'. 
+* Da Azure SDK o PowerShell o dall'interfaccia della riga di comando, è possibile abilitare l'opzione analitica TTL impostando il valore su-1 o ' n'. 
 
 Per altre informazioni, vedere [come configurare la durata (TTL) dei dati analitici in un contenitore](configure-synapse-link.md#create-analytical-ttl).
 

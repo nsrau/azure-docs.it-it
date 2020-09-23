@@ -1,23 +1,23 @@
 ---
-title: Concetti relativi ai servizi meteorologici | Mappe Microsoft Azure
-description: In questo articolo verranno illustrati i concetti che si applicano a Microsoft Azure Maps Weather Services.
+title: Concetti relativi ai servizi meteorologici in Microsoft Azure Maps
+description: Informazioni sui concetti che si applicano a Microsoft Azure Maps Weather Services.
 author: anastasia-ms
 ms.author: v-stharr
-ms.date: 11/20/2019
+ms.date: 09/10/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: e8ecbd50aa4490bde705b386a67b8732bb8c02c9
-ms.sourcegitcommit: 0e8a4671aa3f5a9a54231fea48bcfb432a1e528c
+ms.openlocfilehash: 4430737814ef904e83b2bf3ce25edf3d44e2668d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/24/2020
-ms.locfileid: "87132110"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972045"
 ---
 # <a name="weather-services-in-azure-maps"></a>Servizi Meteo in mappe di Azure
 
-Questo articolo presenta i concetti che si applicano ai [Servizi Meteo di Azure Maps](https://aka.ms/AzureMapsWeatherService). Si consiglia di eseguire questo articolo prima di iniziare con le API Meteo. 
+Questo articolo presenta i concetti che si applicano ai [Servizi Meteo di Azure Maps](https://aka.ms/AzureMapsWeatherService). Si consiglia di eseguire questo articolo prima di iniziare con le API Meteo.
 
 ## <a name="unit-types"></a>Tipi di unità
 
@@ -47,7 +47,7 @@ Alcune API del servizio meteorologico consentono all'utente di specificare se i 
 |19      |kelvin              |
 |20      |percent             |
 |21      |float               |
-|22      |integer             |
+|22      |numero intero             |
 
 
 ## <a name="weather-icons"></a>Icone Meteo
@@ -81,7 +81,7 @@ Alcune API del servizio meteo restituiscono `iconCode` nella risposta. `iconCode
 | 25           | :::image type="icon" source="./media/weather-services-concepts/sleet-i.png"::: | Sì |  Sì   | Nevischio|
 | 26           | :::image type="icon" source="./media/weather-services-concepts/freezing-rain.png"::: | Sì |  Sì   | Congelamento pioggia|
 | 29           | :::image type="icon" source="./media/weather-services-concepts/rain-snow.png"::: | Sì |  Sì   | Pioggia e neve|
-| 30           | :::image type="icon" source="./media/weather-services-concepts/hot-i.png"::: | Sì |  Sì   | Frequente|
+| 30           | :::image type="icon" source="./media/weather-services-concepts/hot-i.png"::: | Sì |  Sì   | Accesso frequente|
 | 31           | :::image type="icon" source="./media/weather-services-concepts/cold-i.png"::: | Sì |  Sì   | Cold|
 | 32           | :::image type="icon" source="./media/weather-services-concepts/windy-i.png"::: | Sì |  Sì   | Ventoso|
 | 33           | :::image type="icon" source="./media/weather-services-concepts/clear-night.png"::: | No  |  Sì   | Cancella|
@@ -472,3 +472,169 @@ Di seguito è riportata la tavolozza colori dettagliata per i riquadri satellite
 |307,57  |#02555555     |
 |308     |#00525252     |
 |308     |#00525252     |
+
+## <a name="index-ids-and-index-groups-ids"></a>ID indice e ID gruppi di indici
+
+L'API per l' [ottenimento di indici giornalieri](https://aka.ms/AzureMapsWeatherDailyIndices) consente agli utenti di limitare i risultati restituiti a tipi di indice o gruppi di indici specifici.
+
+Di seguito è riportata una tabella di ID indice disponibili, i relativi nomi e un collegamento ai relativi set di intervalli. Sotto questa tabella è riportata una tabella che elenca i vari gruppi di indici.
+
+  Index Name |  ID  | Gamma valori
+  -------------------------- |---|-----
+  Dolore artrite             |21 | [Vantaggioso-a rischio estremo](#beneficial-at-extreme-risk)
+  Asma                     |23|  [Vantaggioso-a rischio estremo](#beneficial-at-extreme-risk)
+  Pool di & spiaggia               |10| [Scarso-eccellente 1](#poor-excellent-1)
+  Ciclistici                  |4| [Scarso-eccellente 1](#poor-excellent-1)
+  Freddo comune                |25|  [Vantaggioso-a rischio estremo](#beneficial-at-extreme-risk)
+  Compostaggio                 |38| [Scarso-eccellente 1](#poor-excellent-1)
+  Edilizia               |14| [Scarso-eccellente 1](#poor-excellent-1)
+  BPCO                       |44|  [Vantaggioso-a rischio estremo](#beneficial-at-extreme-risk)
+  Dog walking comfort        |43| [Scarso-eccellente 1](#poor-excellent-1)
+  Driving (Guida)                    |40|  [Scarso-eccellente 2](#poor-excellent-2)
+  Polvere & dander              |18| [Basso-estremo 1](#low-extreme-1)
+  Preparazione campi            |32| [Scarso-eccellente 1](#poor-excellent-1)
+  Pesca                    |13| [Scarso-eccellente 1](#poor-excellent-1)
+  Ritardi dei voli              |-3|  [Molto improbabile, molto probabile 2](#very-unlikely-very-likely-2)
+  Influenza                        |26|  [Vantaggioso-a rischio estremo](#beneficial-at-extreme-risk)
+  Indice di viaggio in volo        |31| [Ottimo-scarso](#excellent-poor)
+  Risparmio energia               |37| [Scarso-eccellente 1](#poor-excellent-1)
+  Meteo Golf               |5| [Scarso-eccellente 1](#poor-excellent-1)
+  Crescita erba              |33| [Scarso-eccellente 1](#poor-excellent-1)
+  Crespo dei capelli                 |42| [Improbabile-emergenza](#unlikely-emergency)
+  Fitness Heart integro      |16| [Scarso-eccellente 1](#poor-excellent-1)
+  Escursioni                     |3| [Scarso-eccellente 1](#poor-excellent-1)
+  Efficienza energetica domestica     |36| [Scarso-eccellente 1](#poor-excellent-1)
+  Ricerca                    | 20| [Scarso-eccellente 1](#poor-excellent-1)
+  Attività interna            | -2| [Scarso-eccellente 1](#poor-excellent-1)
+  Jogging                    |2| [Scarso-eccellente 1](#poor-excellent-1)
+  Kite Flying                |9| [Scarso-eccellente 1](#poor-excellent-1)
+  Falciatura del prato                |28| [Scarso-eccellente 1](#poor-excellent-1)
+  Emicrania emicrania          |27|  [Vantaggioso-a rischio estremo](#beneficial-at-extreme-risk)
+  Bus di scuola mattina         |35| [Scarso-eccellente 1](#poor-excellent-1)
+  Attività zanzara          |17|[Basso-estremo 1](#low-extreme-1)
+  Attività esterna           |29| [Scarso-eccellente 1](#poor-excellent-1)
+  Barbecue esterno           |24| [Scarso-eccellente 1](#poor-excellent-1)
+  Concerto esterno            |8| [Scarso-eccellente 1](#poor-excellent-1)
+  In esecuzione                    |1|  [Scarso-eccellente 1](#poor-excellent-1)
+  Tennis                     |6| [Scarso-eccellente 1](#poor-excellent-1)
+  Sete                     |41| [Basso-estremo 2](#low-extreme-2)
+  Vela                    |11| [Scarso-eccellente 1](#poor-excellent-1)
+  Shopping                   |39| [Scarso-eccellente 1](#poor-excellent-1)
+  Cefalea sinusale             |30|  [Vantaggioso-a rischio estremo](#beneficial-at-extreme-risk)
+  Skateboard              | 7| [Scarso-eccellente 1](#poor-excellent-1)
+  Meteo Ski                | 15| [Scarso-eccellente 1](#poor-excellent-1)
+  Giorni di neve                  | 19| [Molto improbabile: molto probabile](#very-unlikely-very-likely)
+  Umidità del suolo              | 34| [Scarso-eccellente 1](#poor-excellent-1)
+  Stargazing                 | 12| [Scarso-eccellente 1](#poor-excellent-1)
+
+Di seguito è riportato l'elenco dei gruppi di indici disponibili (indexGroupId):
+
+  ID   | Nome gruppo | Indici in questo gruppo |
+  -------- | ------------------|------
+  1       |Tutti | Tutti
+  2       |Dolori e dolori | Dolore artrite (21) </br> Emicrania emicrania (27) </br> Cefalea sinusale (30)
+  3       |Respiratorio | Asma (23) </br> Freddo comune (25) </br> Previsione Flu (26)
+  4       |Garden | Preparazione campi (32) </br> Falciatura del prato (28) </br> Umidità del suolo (34)</br>
+  5       |Ambientale | Composizione (38) </br> Efficienza energetica domestica (36) </br> Risparmio di energia (37)
+  6       |Vita esterna | Barbecue esterno (24) </br> Attività zanzara (17)
+  7       |Spiaggia e Marina | Pool di & spiaggia (10) </br> Pesca (13) </br> Sailing (11)
+  8       |Sportivo | Pesca (13) </br> Caccia (20) </br> Attività esterna (29)</br>
+  9       |Agricoltura |  Preparazione campi (32) </br>  Umidità del suolo (34)
+  10      |Salute | Dolore artrite (21) </br> Asma (23) </br> Freddo comune (25) </br> Polvere & dander (18) </br> Influenza (26) </br> Fitness Heart integro (16) </br> Emicrania emicrania (27)
+  11      |Piscina | Barbecue esterno (24) </br> Pool di & spiaggia (10) </br> Ciclismo (4) </br> Concerto esterno (8) </br>  Preparazione campi (32) </br> Pesca (13) </br> Meteo golf (5) </br> Escursioni (3) </br> Caccia (20) </br> Jogging (2) </br> Kite Flying (9) </br> Attività zanzara (17)</br> Falciatura del prato (28) </br> Attività esterna (29) </br> In esecuzione (1) </br> Sailing (11) </br> Skateboarding (7) </br> Meteo Ski (15) </br>  Umidità del suolo (34)</br> Stargazing (12) </br> Tennis (6)
+  12      |Sportivo | Ciclismo (4) </br> Meteo golf (5) </br> Escursioni (3) </br>  Jogging (2) </br> In esecuzione (1) </br> Skateboarding (7) </br> Meteo Ski (15) </br>Tennis (6)
+  13      |Home page | Efficienza energetica domestica (36) </br> Risparmio di energia (37) </br> Attività interna (-2)
+
+## <a name="daily-index-range-sets"></a>Set di intervalli di indici giornalieri
+
+L'API per l' [ottenimento di indici giornalieri](https://aka.ms/AzureMapsWeatherDailyIndices) restituisce il valore con intervallo e il nome di categoria associato per ogni ID di indice. I set di intervalli non sono gli stessi per tutti gli indici. Nelle tabelle seguenti vengono illustrati i vari set di intervalli utilizzati dagli indici supportati elencati in ID [indice e ID gruppi](#index-ids-and-index-groups-ids)di indici. Per individuare gli indici che utilizzano i set di intervalli, passare alla sezione [ID indice e ID gruppi](#index-ids-and-index-groups-ids) di indici di questo documento.
+
+### <a name="poor-excellent-1"></a>Scarso-eccellente 1
+
+  | Nome categoria | Intervallo iniziale | Intervallo finale |
+  ----------------|--------------|------------
+  Scarso              |  0 |                2,99
+  Sufficiente              |  3  |               4,99
+  Buono              |  5  |              6,99
+  Molto bene         |  7  |               8,99
+  Eccellente         |  9  |               10
+
+### <a name="poor-excellent-2"></a>Scarso-eccellente 2
+
+ | Nome categoria | Intervallo iniziale | Intervallo finale |
+  ----------------|--------------|------------
+  Scarso           |0              |  3
+  Sufficiente           |3,01           |  6
+  Buono           |6.01           |  7,5
+  Molto bene      |7,51           |  8,99
+  Eccellente      |9              |  10
+
+### <a name="excellent-poor"></a>Ottimo-scarso
+
+ | Nome categoria | Intervallo iniziale | Intervallo finale |
+  ----------------|--------------|------------
+  Eccellente      |     0,00        |    1,00
+  Molto bene        |   1.01          |  3,00
+  Buono             |   3,01          |  5,00
+  Sufficiente             |   5,01          |  7,00
+  Scarso             |   7,01          |  10,00
+
+### <a name="low-extreme-1"></a>Basso-estremo 1
+
+   | Nome categoria | Intervallo iniziale | Intervallo finale |
+  ----------------|--------------|------------
+  Bassa                |  0         |        1,99
+  Moderato           |  2         |        3,99
+  Alto               |  4         |        5,99
+  Molto elevata          |  6         |        7,99
+  Extreme            |  8         |        10
+
+### <a name="low-extreme-2"></a>Basso-estremo 2
+
+   | Nome categoria | Intervallo iniziale | Intervallo finale |
+  ----------------|--------------|------------
+  Bassa                |  0            |      2,99
+  Moderato           |  3            |      4,99
+  Alto               |  5            |      6,99
+  Molto elevata          |  7            |      8,99
+  Extreme            |  9            |      10
+
+### <a name="very-unlikely-very-likely"></a>Molto improbabile: molto probabile
+
+ | Nome categoria | Intervallo iniziale | Intervallo finale |
+  ----------------|--------------|------------
+  Molto improbabile      | 0     |           1,99
+  Improbabile           | 2     |           3,99
+  Forse           | 4     |           5,99
+  Probabile             | 6     |           7,99
+  Molto probabile        | 8     |           10
+
+### <a name="very-unlikely-very-likely-2"></a>Molto improbabile, molto probabile 2
+
+ | Nome categoria | Intervallo iniziale | Intervallo finale |
+  ----------------|--------------|------------
+  Molto improbabile      |  0,00     |         1,00
+  Improbabile           |  1.01     |         3,00
+  Forse           |  3,01     |         5,00
+  Probabile             |  5,01     |         7,00
+  Molto probabile        |  7,01     |         10,00
+
+### <a name="unlikely-emergency"></a>Improbabile-emergenza
+
+| Nome categoria | Intervallo iniziale | Intervallo finale |
+  ----------------|--------------|------------
+  Improbabile         |  0     |          2,99
+  Espressioni di controllo            |  3     |          4,99
+  Avviso         |  5     |          6,99
+  Avviso          |  7     |          8,99
+  Emergenza        |  9     |          10
+
+### <a name="beneficial-at-extreme-risk"></a>Vantaggioso-a rischio estremo
+
+| Nome categoria | Intervallo iniziale | Intervallo finale |
+  ----------------|--------------|------------
+  Utile        |    0        |        1,99
+  Neutralità           |    2        |        3,99
+  A rischio           |    4        |        5,99
+  A rischio elevato      |    6        |        7,99
+  A rischio estremo   |    8        |        10

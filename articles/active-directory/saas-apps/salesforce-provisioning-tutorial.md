@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 08/01/2019
 ms.author: jeedes
-ms.openlocfilehash: 66bba0d4825300a6cead2453a67518af631234b9
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: db94c868daecdd82bcf7749f17fc6fde86fac963
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88543505"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979773"
 ---
 # <a name="tutorial-configure-salesforce-for-automatic-user-provisioning"></a>Esercitazione: Configurare Salesforce per il provisioning utenti automatico
 
@@ -67,7 +67,7 @@ In questa sezione viene descritto come abilitare il provisioning utenti degli ac
 
 4. Impostare **Modalità di provisioning** su **Automatico**.
 
-    ![provisioning](./media/salesforce-provisioning-tutorial/provisioning.png)
+    ![Screenshot mostra la pagina di provisioning di Salesforce, con la modalità di provisioning impostata su automatico e altri valori che è possibile impostare.](./media/salesforce-provisioning-tutorial/provisioning.png)
 
 5. Nella sezione **Credenziali di amministratore** specificare le impostazioni di configurazione seguenti:
 

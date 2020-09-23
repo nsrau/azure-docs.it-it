@@ -9,12 +9,12 @@ ms.topic: reference
 ms.author: jmartens
 author: j-martens
 ms.date: 09/10/2020
-ms.openlocfilehash: 245b977e0aeda3df933b6ab4b27735264444c4df
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 022040f4fa7f70dd5fc7677ce969ee9acbe7bcbb
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89659168"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886409"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Note sulla versione di Azure Machine Learning
 
@@ -22,6 +22,54 @@ In questo articolo vengono fornite informazioni sulle versioni Azure Machine Lea
 
 Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei problemi noti](resource-known-issues.md).
 
+## <a name="2020-09-21"></a>2020-09-21
+
+### <a name="azure-machine-learning-sdk-for-python-v1140"></a>SDK di Azure Machine Learning per Python v 1.14.0
++ **Correzioni di bug e miglioramenti**
+  + **azure-cli-ml**
+    + La profilatura della griglia è stata rimossa dall'SDK e non è più supportata.
+  + **azureml-accel-models**
+    + il pacchetto azureml-Accel-Models ora supporta Tensorflow 2. x
+  + **azureml-automl-core**
+    + Aggiunta della gestione degli errori nel get_output nei casi in cui le versioni locali di Pandas/sklearn non corrispondano a quelle usate durante il training
+  + **azureml-automl-runtime**
+    + Correzione di un bug in cui le iterazioni autoarima avrebbero esito negativo con un PredictionException e il messaggio: "si è verificato un errore invisibile durante la stima".
+  + **azureml-CLI-comune**
+    + La profilatura della griglia è stata rimossa dall'SDK e non è più supportata.
+  + **azureml-contrib-server**
+    + Aggiornare la descrizione della pagina di panoramica del pacchetto per pypi.
+  + **azureml-core**
+    + La profilatura della griglia è stata rimossa dall'SDK e non è più supportata.
+    + Ridurre il numero di messaggi di errore quando il recupero dell'area di lavoro non riesce.
+    + Non visualizzare l'avviso quando il recupero dei metadati ha esito negativo
+    + New kusto Step e kusto Compute target.
+    + Aggiornare il documento per il parametro SKU. Rimuovere lo SKU nella funzionalità di aggiornamento dell'area di lavoro in CLI e SDK.
+    + Aggiornare la descrizione della pagina di panoramica del pacchetto per pypi.
+    + Documentazione aggiornata per gli ambienti AzureML.
+    + Esporre le impostazioni delle risorse gestite dal servizio per l'area di lavoro AML nell'SDK.
+  + **azureml-dataprep**
+    + Abilitare l'autorizzazione Execute per i file per il montaggio del set di dati.
+  + **azureml-mlflow**
+    + Aggiornamento della documentazione di AzureML MLflow e degli esempi di notebook 
+    + Nuovo supporto per i progetti MLflow con backend AzureML
+    + Supporto del registro di sistema del modello MLflow
+    + Aggiunto il supporto RBAC per le operazioni AzureML-MLflow 
+    
+  + **azureml-pipeline-core**
+    + È stata migliorata la documentazione dei metodi PipelineOutputFileDataset. parse_ *.
+    + New kusto Step e kusto Compute target.
+    + La proprietà Swaggerurl fornita per l'entità endpoint della pipeline tramite tale utente può visualizzare la definizione dello schema per l'endpoint della pipeline pubblicata.
+  + **azureml-pipeline-steps**
+    + New kusto Step e kusto Compute target.
+  + **azureml-telemetry**
+    + Aggiornare la descrizione della pagina di panoramica del pacchetto per pypi.
+  + **azureml-Training**
+    + Aggiornare la descrizione della pagina di panoramica del pacchetto per pypi.
+  + **azureml-train-automl-client**
+    + Aggiunta della gestione degli errori nel get_output nei casi in cui le versioni locali di Pandas/sklearn non corrispondano a quelle usate durante il training
+  + **azureml-train-core**
+    + Aggiornare la descrizione della pagina di panoramica del pacchetto per pypi.
+    
 ## <a name="2020-08-31"></a>2020-08-31
 
 ### <a name="azure-machine-learning-sdk-for-python-v1130"></a>SDK di Azure Machine Learning per Python v 1.13.0
@@ -42,7 +90,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
     + Dipendenze di AutoML aggiornate: `scikit-learn` (ora 0.22.1), `pandas` (ora 0.25.1), `numpy` (ora 1.18.2).
   + **azureml-contrib-fairness**
     + Fornire una breve descrizione per azureml-contrib-equity.
-  + **azureml-contrib-pipeline-steps**
+  + **azureml-contrib-pipeline-passaggi**
     + Aggiunto messaggio che indica che il pacchetto è deprecato e che l'utente deve usare azureml-pipeline-Steps.
   + **azureml-core**
     + Aggiunta del comando elenco chiavi per l'area di lavoro.
@@ -488,7 +536,7 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
     + Supporto per cv_split_column_names da usare con training_data
   + **azureml-train-core**
     + Aggiunta di un nuovo set di eccezioni specifiche dell'iperguida. azureml. Train. iperguida ora genererà eccezioni dettagliate.
-  + **azureml-widgets**
+  + **azureml-widget**
     + I widget AzureML non vengono visualizzati in JupyterLab
   
 
@@ -592,9 +640,9 @@ Per informazioni sui bug noti e le soluzioni alternative, vedere l'[elenco dei p
 
 Accedere ai seguenti strumenti di creazione basati sul Web da studio:
     
-| Strumento basato sul Web  |     Descrizione  | Edizione | 
-|---|---|---|
-| Notebook di Azure ML Studio   |     Prima creazione di classi per i file notebook e supporto per tutte le operazioni disponibili in Azure ML Python SDK. | Basic & Enterprise  |   
+| Strumento basato sul Web  |     Descrizione  |
+|---|---|
+| Notebook di Azure ML Studio   |     Prima creazione di classi per i file notebook e supporto per tutte le operazioni disponibili in Azure ML Python SDK. | 
 
 ## <a name="2020-04-27"></a>2020-04-27
 
@@ -900,7 +948,7 @@ Accedere ai seguenti strumenti di creazione basati sul Web da studio:
   + **azureml-core**
     + Ottenere l'utilizzo di base corrente e la limitazione delle quote per le risorse di AmlCompute in una determinata area di lavoro e sottoscrizione
   
-  + **azureml-contrib-pipeline-steps**
+  + **azureml-contrib-pipeline-passaggi**
     + Consentire all'utente di passare il set di dati tabulare come risultato intermedio dal passaggio precedente a parallelrunstep
 
 + **Correzioni di bug e miglioramenti**
@@ -1098,17 +1146,17 @@ Accedere ai seguenti strumenti di creazione basati sul Web da studio:
 
 ### <a name="web-experience"></a>Esperienza Web
 
-La pagina di destinazione dell'area di lavoro collaborativa in [https://ml.azure.com](https://ml.azure.com) è stata migliorata e rimarcata come Azure Machine Learning Studio (anteprima).
+La pagina di destinazione dell'area di lavoro collaborativa in [https://ml.azure.com](https://ml.azure.com) è stata migliorata e rimarcata come Azure Machine Learning Studio.
 
 Da studio è possibile eseguire il training, il test, la distribuzione e la gestione di asset Azure Machine Learning come DataSet, pipeline, modelli, endpoint e altro ancora.
 
 Accedere ai seguenti strumenti di creazione basati sul Web da studio:
 
-| Strumento basato sul Web | Descrizione | Edizione |
+| Strumento basato sul Web | Descrizione | 
 |-|-|-|
-| VM notebook (anteprima) | Workstation basata su cloud completamente gestita | Basic & Enterprise |
-| [Machine Learning automatizzato](tutorial-first-experiment-automated-ml.md) (anteprima) | Nessuna esperienza di codice per l'automazione dello sviluppo di modelli di Machine Learning | Enterprise |
-| [Finestra di progettazione](concept-designer.md) (anteprima) | Strumento di modellazione di Machine Learning con trascinamento della selezione precedentemente noto come designer | Enterprise |
+| VM notebook (anteprima) | Workstation basata su cloud completamente gestita | 
+| [Machine Learning automatizzato](tutorial-first-experiment-automated-ml.md) (anteprima) | Nessuna esperienza di codice per l'automazione dello sviluppo di modelli di Machine Learning | 
+| [Progettazione](concept-designer.md) | Strumento di modellazione di Machine Learning con trascinamento della selezione precedentemente noto come interfaccia visiva | 
 
 
 ### <a name="azure-machine-learning-designer-enhancements"></a>Miglioramenti di Azure Machine Learning Designer
