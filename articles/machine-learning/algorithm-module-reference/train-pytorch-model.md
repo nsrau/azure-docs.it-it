@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: af14d4770d032c23216b805045eb27fadded5954
-ms.sourcegitcommit: 1e6c13dc1917f85983772812a3c62c265150d1e7
+ms.openlocfilehash: 0ba603dad7d48be725f308f3a3296676c5f4f108
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86170259"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883238"
 ---
 # <a name="train-pytorch-model"></a>Train Pytorch Model
 
-Questo articolo descrive come usare il modulo **Train Pytorch Model** in Azure Machine Learning Designer (Preview) per eseguire il training di modelli Pytorch come DenseNet. Il training viene eseguito dopo aver definito un modello e avere impostato i relativi parametri e sono necessari dati con etichetta. 
+Questo articolo descrive come usare il modulo **Train Pytorch Model** in Azure Machine Learning Designer per eseguire il training di modelli Pytorch come DenseNet. Il training viene eseguito dopo aver definito un modello e avere impostato i relativi parametri e sono necessari dati con etichetta. 
 
 ## <a name="how-to-use-train-pytorch-model"></a>Come usare Train Pytorch Model 
 
@@ -58,7 +58,7 @@ Al termine dell'esecuzione della pipeline, per usare il modello per il punteggio
 ## <a name="technical-notes"></a>Note tecniche
 ###  <a name="expected-inputs"></a>Input previsti  
 
-| Nome               | Type                    | Description                              |
+| Nome               | Tipo                    | Descrizione                              |
 | ------------------ | ----------------------- | ---------------------------------------- |
 | Untrained model    | UntrainedModelDirectory | Modello non sottoposto a training, richiede pytorch         |
 | Dataset di training   | ImageDirectory          | Dataset di training                         |
@@ -66,17 +66,17 @@ Al termine dell'esecuzione della pipeline, per usare il modello per il punteggio
 
 ###  <a name="module-parameters"></a>Parametri del modulo  
 
-| Nome          | Intervallo            | Type    | Predefinito | Descrizione                              |
+| Nome          | Range            | Type    | Predefinito | Descrizione                              |
 | ------------- | ---------------- | ------- | ------- | ---------------------------------------- |
 | Periodi        | >0               | Integer | 5       | Seleziona la colonna contenente l'etichetta o la colonna del risultato |
 | Dimensioni dei batch    | >0               | Integer | 16      | Numero di istanze di cui eseguire il training in un batch   |
-| Velocità di apprendimento | >=double.Epsilon | Float   | 0.001   | Velocità di apprendimento iniziale per l'ottimizzatore di valori descent con sfumatura stocastica |
+| Velocità di apprendimento | >=double.Epsilon | Float   | 0,001   | Velocità di apprendimento iniziale per l'ottimizzatore di valori descent con sfumatura stocastica |
 | Random seed   | Qualsiasi              | Integer | 1       | Valore di inizializzazione per il generatore di numeri casuali usato dal modello. |
 | Pazienza      | >0               | Integer | 3       | Il numero di epoche per il training anticipato   |
 
 ###  <a name="outputs"></a>Output  
 
-| Nome          | Type           | Description   |
+| Nome          | Tipo           | Descrizione   |
 | ------------- | -------------- | ------------- |
 | Trained model | ModelDirectory | Trained model |
 

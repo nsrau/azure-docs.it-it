@@ -11,15 +11,15 @@ manager: cgronlun
 ms.date: 08/26/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: eb28ee0adb3c23a44936cbc940ee9bcddfd11141
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 6b239ab14437083b74f4501eabb588e929152431
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89647422"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897244"
 ---
 # <a name="use-automated-ml-in-an-azure-machine-learning-pipeline-in-python"></a>Usare Machine Learning automatiche in una pipeline Azure Machine Learning in Python
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 La funzionalità di Machine Learning automatizzata di Azure Machine Learning consente di individuare i modelli ad alte prestazioni senza riimplementare ogni possibile approccio. Insieme a pipeline di Azure Machine Learning, è possibile creare flussi di lavoro distribuibili che consentono di individuare rapidamente l'algoritmo più adatto ai propri dati. Questo articolo illustra come unire in modo efficiente un passaggio di preparazione dei dati a un passaggio di Machine Learning automatico. Machine Learning Machine Learning consente di individuare rapidamente l'algoritmo più adatto ai propri dati, mentre è in corso la fase di MLOps e la messa in funzione del ciclo di vita del modello con le pipeline.
 
@@ -29,7 +29,7 @@ La funzionalità di Machine Learning automatizzata di Azure Machine Learning con
 
 * Un'area di lavoro di Azure Machine Learning. Vedere [Creare un'area di lavoro di Azure Machine Learning](how-to-manage-workspace.md).  
 
-* Familiarità di base con le infrastrutture e l'SDK di machine learning e di [Machine Learning](concept-ml-pipelines.md) [automatizzati](concept-automated-ml.md) di Azure.
+* Familiarità con le infrastrutture e l'SDK per Machine Learning e Machine [Learning](concept-ml-pipelines.md) [automatizzati](concept-automated-ml.md) di Azure.
 
 ## <a name="review-automated-mls-central-classes"></a>Esaminare le classi centrali di Machine Learning automatiche
 
@@ -368,7 +368,7 @@ Occasionalmente è possibile vedere l'uso delle `X` funzionalità dei dati e `y`
 
 ## <a name="register-the-model-generated-by-automated-ml"></a>Registrare il modello generato da Machine Learning automatico 
 
-L'ultimo passaggio in una pipeline Basic ML consiste nel registrare il modello creato. Aggiungendo il modello al registro di sistema del modello dell'area di lavoro, sarà disponibile nel portale e sarà possibile eseguire il controllo delle versioni. Per registrare il modello, scrivere un altro oggetto `PythonScriptStep` che accetta l' `model_data` output di `AutoMLStep` .
+L'ultimo passaggio di una semplice pipeline di ML è la registrazione del modello creato. Aggiungendo il modello al registro di sistema del modello dell'area di lavoro, sarà disponibile nel portale e sarà possibile eseguire il controllo delle versioni. Per registrare il modello, scrivere un altro oggetto `PythonScriptStep` che accetta l' `model_data` output di `AutoMLStep` .
 
 ### <a name="write-the-code-to-register-the-model"></a>Scrivere il codice per registrare il modello
 

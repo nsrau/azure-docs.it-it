@@ -1,7 +1,7 @@
 ---
 title: Domande frequenti
 titleSuffix: Azure SQL Managed Instance
-description: Domande frequenti su Azure SQL Istanza gestita
+description: Domande frequenti su Istanza gestita di SQL di Azure
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: operations
@@ -10,16 +10,16 @@ ms.devlang: ''
 ms.topic: conceptual
 author: jovanpop-msft
 ms.author: jovanpop
-ms.reviewer: sstein, carlrab
-ms.date: 03/17/2020
-ms.openlocfilehash: fe779ebf8bb041fb90b8eb38a9469a783127ffd3
-ms.sourcegitcommit: d18a59b2efff67934650f6ad3a2e1fe9f8269f21
+ms.reviewer: sstein
+ms.date: 09/21/2020
+ms.openlocfilehash: 2e3bf8251cfb5da20cade65831ef34dbc6709b1b
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/20/2020
-ms.locfileid: "88661419"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90887383"
 ---
-# <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Domande frequenti su Azure SQL Istanza gestita
+# <a name="azure-sql-managed-instance-frequently-asked-questions-faq"></a>Domande frequenti su Istanza gestita di SQL di Azure
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 Questo articolo contiene le domande più comuni su [Azure SQL istanza gestita](sql-managed-instance-paas-overview.md).
@@ -82,7 +82,7 @@ Per le funzionalità nuove e in anteprima, vedere [Note sulla versione](../datab
 
 **Come è possibile effettuare il provisioning di Istanza gestita SQL?**
 
-È possibile effettuare il provisioning di un'istanza dal [portale di Azure](instance-create-quickstart.md), [PowerShell](scripts/create-configure-managed-instance-powershell.md), [Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) e [modelli ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates).
+È possibile effettuare il provisioning di un'istanza di da [portale di Azure](instance-create-quickstart.md), [PowerShell](scripts/create-configure-managed-instance-powershell.md), [Azure CLI](https://techcommunity.microsoft.com/t5/azure-sql-database/create-azure-sql-managed-instance-using-azure-cli/ba-p/386281) e [modelli ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/creating-azure-sql-managed-instance-using-arm-templates).
 
 **È possibile eseguire il provisioning di istanze gestite in una sottoscrizione esistente?**
 
@@ -94,7 +94,7 @@ Si tratta di una limitazione corrente per il componente sottostante che verifica
 
 **Come è possibile ridimensionare l'istanza gestita?**
 
-È possibile ridimensionare l'istanza gestita dal [portale di Azure](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update) o i [modelli ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
+È possibile ridimensionare l'istanza gestita da [portale di Azure](../database/service-tiers-vcore.md?tabs=azure-portal#selecting-a-hardware-generation), [PowerShell](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/change-size-azure-sql-managed-instance-using-powershell), l'interfaccia della riga di comando di [Azure](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-update) o i [modelli ARM](https://docs.microsoft.com/archive/blogs/sqlserverstorageengine/updating-azure-sql-managed-instance-properties-using-arm-templates).
 
 **È possibile spostare il Istanza gestita da un'area a un'altra?**
 
@@ -102,7 +102,7 @@ Sì, è possibile. Per istruzioni, vedere [spostare le risorse tra le aree](../d
 
 **Come è possibile eliminare la Istanza gestita?**
 
-È possibile eliminare istanze gestite tramite il portale di Azure, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0), l' [interfaccia](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) della riga di comando di Azure o le [API REST gestione risorse](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
+È possibile eliminare le istanze gestite tramite portale di Azure, [PowerShell](https://docs.microsoft.com/powershell/module/az.sql/remove-azsqlinstance?view=azps-4.3.0), l' [interfaccia](https://docs.microsoft.com/cli/azure/sql/mi?view=azure-cli-latest#az-sql-mi-delete) della riga di comando di Azure o le [API REST di gestione risorse](https://docs.microsoft.com/rest/api/sql/managedinstances/delete).
 
 **Quanto tempo è necessario per creare o aggiornare un'istanza o per ripristinare un database?**
 
@@ -326,7 +326,7 @@ I servizi di gestione e distribuzione si connettono a un'istanza gestita usando 
 
 **È possibile usare l'endpoint pubblico per accedere ai dati in Istanza gestita database?**
 
-Sì. Il cliente dovrà abilitare l'accesso ai dati dell'endpoint pubblico dal [portale di Azure](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) /ARM e configurare NSG per bloccare l'accesso alla porta dati (numero di porta 3342). Per altre informazioni, vedere [configurare un endpoint pubblico in Azure sql istanza gestita](public-endpoint-configure.md) e [usare Azure SQL istanza gestita in modo sicuro con l'endpoint pubblico](public-endpoint-overview.md). 
+Sì. Il cliente dovrà abilitare l'accesso ai dati dell'endpoint pubblico da [portale di Azure](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-in-the-azure-portal)  /  [PowerShell](public-endpoint-configure.md#enabling-public-endpoint-for-a-managed-instance-using-powershell) /ARM e configurare NSG per bloccare l'accesso alla porta dati (numero di porta 3342). Per altre informazioni, vedere [configurare un endpoint pubblico in Azure sql istanza gestita](public-endpoint-configure.md) e [usare Azure SQL istanza gestita in modo sicuro con l'endpoint pubblico](public-endpoint-overview.md). 
 
 **È possibile specificare una porta personalizzata per gli endpoint dati SQL?**
 
@@ -350,7 +350,7 @@ Per attenuare i rischi exfiltration di dati, è consigliabile applicare un set d
 - Accedere all'istanza con un account DBA con privilegi limitati.
 - Configurare l'accesso JumpBox JIT per l'account sysadmin.
 - Attivare il [controllo SQL](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine)e integrarlo con i meccanismi di avviso.
-- Attivare il [rilevamento delle minacce](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) dalla Suite [Advanced Data Security (ADS)](https://docs.microsoft.com/azure/sql-database/sql-database-advanced-data-security) .
+- Attivare il [rilevamento delle minacce](https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection) da [Azure Defender per SQL](https://docs.microsoft.com/azure/azure-sql/database/azure-defender-for-sql) suite.
 
 ## <a name="dns"></a>DNS
 
@@ -450,7 +450,7 @@ Si ottiene la stessa quantità di spazio di archiviazione di backup libero come 
 
 **Come è possibile monitorare I costi di fatturazione per il consumo di risorse di archiviazione di backup?**
 
-È possibile monitorare i costi per l'archiviazione di backup tramite il portale di Azure. Per istruzioni, vedere [monitorare i costi per i backup automatici](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs). 
+È possibile monitorare i costi per l'archiviazione di backup tramite portale di Azure. Per istruzioni, vedere [monitorare i costi per i backup automatici](https://docs.microsoft.com/azure/azure-sql/database/automated-backups-overview?tabs=managed-instance#monitor-costs). 
 
 **Come è possibile ottimizzare i costi di archiviazione di backup nell'istanza gestita?**
 

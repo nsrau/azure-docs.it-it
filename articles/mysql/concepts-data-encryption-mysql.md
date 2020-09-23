@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 8fca0195c2941e4ed1a859c3201adfc2a4a0a2ed
-ms.sourcegitcommit: d8b8768d62672e9c287a04f2578383d0eb857950
+ms.openlocfilehash: 71657d45ce9c4cc6fb103b61235a282b3005b924
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/11/2020
-ms.locfileid: "88067444"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884927"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>Crittografia dei dati di Database di Azure per MySQL con una chiave gestita dal cliente
 
@@ -44,7 +44,7 @@ Le chiavi DEK, crittografate con chiavi KEK, vengono archiviate separatamente. S
 
 ## <a name="how-data-encryption-with-a-customer-managed-key-work"></a>Funzionamento della crittografia dei dati con una chiave gestita dal cliente
 
-![Diagramma che mostra una panoramica dello scenario Bring Your Own Key](media/concepts-data-access-and-security-data-encryption/mysqloverview.png)
+:::image type="content" source="media/concepts-data-access-and-security-data-encryption/mysqloverview.png" alt-text="Diagramma che mostra una panoramica dello scenario Bring Your Own Key":::
 
 Affinché un server MySQL usi chiavi gestite dal cliente archiviate in Key Vault per la crittografia della chiave DEK, un amministratore di Key Vault concede al server i diritti di accesso seguenti:
 
@@ -80,7 +80,7 @@ Se si usa la crittografia dei dati con una chiave gestita dal cliente, ecco le r
 * Assicurarsi che Key Vault e Database di Azure per MySQL si trovino nella stessa area, per garantire un accesso più rapido per le operazioni di wrapping e annullamento del wrapping della chiave DEK.
 * Bloccare Azure KeyVault per limitarne l'accesso solo **all'endpoint privato e alle reti selezionate** e consentire solo ai servizi *Microsoft attendibili* di proteggere le risorse.
 
-    ![Servizio attendibile con Azure Key Vault](media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png)
+    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/keyvault-trusted-service.png" alt-text="Servizio attendibile con Azure Key Vault":::
 
 Ecco le raccomandazioni per la configurazione di una chiave gestita dal cliente:
 

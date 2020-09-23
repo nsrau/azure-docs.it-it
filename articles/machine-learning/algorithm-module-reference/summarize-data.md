@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 01/27/2020
-ms.openlocfilehash: b0def12582dd3795e1b17334406e28d77c3c5656
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5206565b85d1551e5e551f1dfe75d28c93bc53f0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477443"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898209"
 ---
 # <a name="summarize-data"></a>Riepilogare i dati
 
-Questo articolo descrive un modulo di Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo di Azure Machine Learning Designer.
 
 Usare il modulo riepiloga dati per creare un set di misure statistiche standard che descrivono ogni colonna della tabella di input.
 
@@ -54,7 +54,7 @@ Il report del modulo può includere le statistiche seguenti.
 |**Conteggio valori mancanti**|Numero di valori univoci nella colonna|
 |**Min**|Valore minimo nella colonna|  
 |**Max**|Valore massimo nella colonna|
-|**Significa**|Media di tutti i valori di colonna|
+|**Media**|Media di tutti i valori di colonna|
 |**Deviazione media**|Deviazione media dei valori di colonna|
 |**1st Quartile**|Valore al primo quartile|
 |**Mediana**|Valore della colonna mediana|

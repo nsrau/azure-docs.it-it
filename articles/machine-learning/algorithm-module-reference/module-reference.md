@@ -1,6 +1,6 @@
 ---
 title: Informazioni di riferimento su algoritmi e moduli
-description: Informazioni sui moduli disponibili nella finestra di progettazione di Azure Machine Learning (anteprima).
+description: Informazioni sui moduli disponibili in Azure Machine Learning Designer
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/19/2020
-ms.openlocfilehash: a588c58c74ab9632f3c3c61e223dd37704103714
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 9a2e21696409c320b89d1fed54fefad953b955e1
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87048102"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886402"
 ---
-# <a name="algorithm--module-reference-for-azure-machine-learning-designer-preview"></a>Informazioni di riferimento su algoritmi e moduli della finestra di progettazione di Azure Machine Learning (anteprima)
+# <a name="algorithm--module-reference-for-azure-machine-learning-designer"></a>Guida di riferimento al modulo & dell'algoritmo per Azure Machine Learning Designer
 
-Questi contenuti di riferimento offrono il background tecnico per ognuno degli algoritmi e dei moduli di Machine Learning disponibili nella finestra di progettazione di Azure Machine Learning (anteprima).
+Questo contenuto di riferimento fornisce lo sfondo tecnico su ognuno degli algoritmi e dei moduli di machine learning disponibili in Azure Machine Learning Designer.
 
 Ogni modulo rappresenta un set di codice che può essere eseguito in modo indipendente e può eseguire un'attività di Machine Learning, a condizione che vengano specificati i necessari valori di input. Un modulo può contenere un particolare algoritmo o eseguire un'attività di particolare rilevanza nell'apprendimento automatico, ad esempio la sostituzione di valori mancanti o l'analisi statistica.
 
@@ -43,7 +43,7 @@ Per assistenza nella scelta degli algoritmi, vedere:
 
 | Funzionalità | Descrizione | Modulo |
 | --- |--- | --- |
-| Regressione | Prevede un valore. | [Boosted Decision Tree Regression](boosted-decision-tree-regression.md) (Regressione albero delle decisioni con boosting) <br/> [Decision Forest Regression](decision-forest-regression.md) (Regressione foresta delle decisioni) <br/> [Fast Forest Quantile Regression](fast-forest-quantile-regression.md)  <br/> [Linear Regression](linear-regression.md) (Regressione lineare)  <br/> [Neural Network Regression](neural-network-regression.md) (Regressione rete neurale)  <br/> [Poisson Regression](poisson-regression.md)  <br/>|
+| Regressione | Prevede un valore. | [Boosted Decision Tree Regression](boosted-decision-tree-regression.md) (Regressione albero delle decisioni con boosting) <br/> [Decision Forest Regression](decision-forest-regression.md) (Regressione foresta delle decisioni) <br/> [Regressione quantile della foresta rapida](fast-forest-quantile-regression.md)  <br/> [Linear Regression](linear-regression.md) (Regressione lineare)  <br/> [Neural Network Regression](neural-network-regression.md) (Regressione rete neurale)  <br/> [Regressione di Poisson](poisson-regression.md)  <br/>|
 | Clustering | Raggruppa i dati.| [Clustering K-Means](k-means-clustering.md)
 | Classificazione | Prevedono una classe.  Scegliere tra algoritmi binari (a due classi) o multiclasse.| [Albero delle decisioni incrementato a più classi](multiclass-boosted-decision-tree.md) <br/> [Foresta delle decisioni multiclasse](multiclass-decision-forest.md) <br/> [Regressione logistica multiclasse](multiclass-logistic-regression.md)  <br/> [Rete neurale multiclasse](multiclass-neural-network.md) <br/> [One vs. All Multiclass](one-vs-all-multiclass.md) (Uno contro tutti multiclasse) <br/> [Percettrone medio a due classi](two-class-averaged-perceptron.md) <br/>  [Albero delle decisioni incrementato a due classi](two-class-boosted-decision-tree.md)  <br/> [Foresta delle decisioni a due classi](two-class-decision-forest.md) <br/>  [Regressione logistica a due classi](two-class-logistic-regression.md) <br/> [Rete neurale a due classi](two-class-neural-network.md) <br/> [Two Class Support Vector Machine](two-class-support-vector-machine.md) (Macchina a vettori di supporto a due classi) | 
 

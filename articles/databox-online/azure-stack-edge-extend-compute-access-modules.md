@@ -1,6 +1,6 @@
 ---
-title: Gestire la rete di calcolo su Azure Stack Edge per accedere ai moduli | Microsoft Docs
-description: Viene descritto come estendere la rete di calcolo sulla Azure Stack Edge per accedere ai moduli tramite un indirizzo IP esterno.
+title: Gestire la rete di calcolo in Azure Stack Edge Pro per accedere ai moduli | Microsoft Docs
+description: Viene descritto come estendere la rete di calcolo nel Azure Stack Edge Pro per accedere ai moduli tramite un indirizzo IP esterno.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,21 +8,21 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 05/17/2019
 ms.author: alkohli
-ms.openlocfilehash: 01b0eae7d2e5d1078c0761838081a2379a724a97
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 19c92deb58ac51aa882e7123b9a90aa3eae627d0
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84342987"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894119"
 ---
-# <a name="enable-compute-network-on-your-azure-stack-edge"></a>Abilitare la rete di calcolo sulla Azure Stack Edge
+# <a name="enable-compute-network-on-your-azure-stack-edge-pro"></a>Abilitare la rete di calcolo sulla Azure Stack Edge Pro
 
-Questo articolo descrive il modo in cui i moduli in esecuzione sul Azure Stack Edge possono accedere alla rete di calcolo abilitata nel dispositivo.
+Questo articolo descrive il modo in cui i moduli in esecuzione in Azure Stack Edge Pro possono accedere alla rete di calcolo abilitata nel dispositivo.
 
 Per configurare la rete, seguire questa procedura:
 
-- Abilitare un'interfaccia di rete nel dispositivo Azure Stack Edge per il calcolo
-- Aggiungere un modulo per accedere alla rete di calcolo nel Azure Stack Edge
+- Abilitare un'interfaccia di rete nel dispositivo Azure Stack Edge Pro per il calcolo
+- Aggiungere un modulo per accedere alla rete di calcolo sulla Azure Stack Edge Pro
 - Verificare che il modulo sia in grado di accedere all'interfaccia di rete abilitata
 
 In questa esercitazione si userà un modulo app webserver per illustrare lo scenario.
@@ -31,8 +31,8 @@ In questa esercitazione si userà un modulo app webserver per illustrare lo scen
 
 Prima di iniziare, è necessario:
 
-- Un dispositivo Azure Stack Edge con installazione del dispositivo completato.
-- Il passaggio di **calcolo** è stato completato in base all' [esercitazione: trasformare i dati con Azure stack Edge](azure-stack-edge-deploy-configure-compute-advanced.md#configure-compute) nel dispositivo. Il dispositivo deve disporre di una risorsa Hub di Internet delle cose associata, un dispositivo Internet delle cose e un dispositivo IoT Edge.
+- Un dispositivo Azure Stack Edge Pro con la configurazione del dispositivo completata.
+- Il passaggio di **calcolo** è stato completato in base all' [esercitazione: trasformare i dati con Azure stack Edge Pro](azure-stack-edge-deploy-configure-compute-advanced.md#configure-compute) nel dispositivo. Il dispositivo deve disporre di una risorsa Hub di Internet delle cose associata, un dispositivo Internet delle cose e un dispositivo IoT Edge.
 
 ## <a name="enable-network-interface-for-compute"></a>Abilitare l'interfaccia di rete per il calcolo
 
@@ -55,10 +55,10 @@ Per configurare le impostazioni di calcolo, seguire questa procedura nell'interf
 
 ## <a name="add-webserver-app-module"></a>Aggiungi modulo app webserver
 
-Per aggiungere un modulo app webserver nel dispositivo Azure Stack Edge, seguire questa procedura.
+Per aggiungere un modulo app webserver nel dispositivo Azure Stack Edge Pro, seguire questa procedura.
 
-1. Passare alla risorsa dell'hub Internet delle cose associata al dispositivo Azure Stack Edge e quindi selezionare **IOT Edge dispositivo**.
-2. Selezionare il dispositivo IoT Edge associato al dispositivo Azure Stack Edge. In **Dettagli dispositivo**selezionare **imposta moduli**. In **Aggiungi moduli**selezionare **+ Aggiungi** e quindi selezionare **IOT Edge modulo**.
+1. Passare alla risorsa hub Internet delle cose associata al dispositivo Azure Stack Edge Pro e quindi selezionare **IOT Edge dispositivo**.
+2. Selezionare il dispositivo IoT Edge associato al dispositivo Azure Stack Edge Pro. In **Dettagli dispositivo**selezionare **imposta moduli**. In **Aggiungi moduli**selezionare **+ Aggiungi** e quindi selezionare **IOT Edge modulo**.
 3. Nel pannello **IOT Edge moduli personalizzati** :
 
     1. Specificare un **nome** per il modulo app webserver che si desidera distribuire.

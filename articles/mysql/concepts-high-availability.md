@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 7/7/2020
-ms.openlocfilehash: bd2f7798ca02f4d6eab6d6d78d158a48bcccc010
-ms.sourcegitcommit: 3541c9cae8a12bdf457f1383e3557eb85a9b3187
+ms.openlocfilehash: 668243f66deff67a923097c116c4b150d0256992
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/09/2020
-ms.locfileid: "86206064"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882562"
 ---
 # <a name="high-availability-in-azure-database-for-mysql"></a>Disponibilità elevata nel database di Azure per MySQL
 Il servizio database di Azure per MySQL offre un livello di disponibilità elevato garantito con il contratto di servizio con copertura finanziaria del [99,99%](https://azure.microsoft.com/support/legal/sla/mysql) di tempo di indisponibilità. Database di Azure per MySQL offre disponibilità elevata durante gli eventi pianificati, ad esempio l'operazione di calcolo con scalabilità dell'utente avviate da, e anche quando si verificano eventi non pianificati, ad esempio hardware, software o errori di rete sottostanti. Database di Azure per MySQL è in grado di eseguire rapidamente il ripristino dalla maggior parte delle circostanze critiche, garantendo al tempo stesso un tempo di inattività durante l'uso
@@ -29,7 +29,7 @@ Database di Azure per MySQL è adatto per l'esecuzione di database mission-criti
 ## <a name="planned-downtime-mitigation"></a>Mitigazione dei tempi di inattività pianificati
 Database di Azure per MySQL è progettato per garantire un'elevata disponibilità durante le operazioni di inattività pianificate. 
 
-![visualizzazione della scalabilità elastica in MySQL di Azure](./media/concepts-high-availability/elastic-scaling-mysql-server.png)
+:::image type="content" source="./media/concepts-high-availability/elastic-scaling-mysql-server.png" alt-text="visualizzazione della scalabilità elastica in MySQL di Azure":::
 
 Di seguito sono riportati alcuni scenari di manutenzione pianificata:
 
@@ -46,7 +46,7 @@ Di seguito sono riportati alcuni scenari di manutenzione pianificata:
 Il tempo di inattività non pianificato può verificarsi a causa di errori imprevisti, inclusi errori hardware sottostanti, problemi di rete e bug software. Se il server di database si interrompe in modo imprevisto, viene eseguito automaticamente il provisioning di un nuovo server di database in pochi secondi. L'archiviazione remota viene collegata automaticamente al nuovo server di database. Il motore MySQL esegue l'operazione di ripristino usando WAL e i file di database e apre il server di database per consentire ai client di connettersi. Le transazioni di cui non è stato eseguito il commit vengono perse ed è necessario eseguire un nuovo tentativo da parte dell'applicazione. Sebbene non sia possibile evitare tempi di inattività non pianificati, database di Azure per MySQL riduce il tempo di inattività eseguendo automaticamente le operazioni di ripristino a livello di server di database e di archiviazione senza richiedere l'intervento umano. 
 
 
-![visualizzazione della disponibilità elevata in Azure MySQL](./media/concepts-high-availability/availability-for-mysql-server.png)
+:::image type="content" source="./media/concepts-high-availability/availability-for-mysql-server.png" alt-text="visualizzazione della disponibilità elevata in Azure MySQL":::
 
 ### <a name="unplanned-downtime-failure-scenarios-and-service-recovery"></a>Tempo di inattività non pianificato: scenari di errore e ripristino del servizio
 Ecco alcuni scenari di errore e il ripristino automatico del database di Azure per MySQL:
@@ -60,8 +60,8 @@ Di seguito sono riportati alcuni scenari di errore che richiedono l'intervento d
 
 | **Scenario** | **Piano di ripristino** |
 | ---------- | ---------- |
-| <b>Errore area | L'errore di un'area è un evento raro. Tuttavia, se è necessaria la protezione da un errore dell'area, è possibile configurare una o più repliche di lettura in altre aree per il ripristino di emergenza. Per informazioni dettagliate, vedere [questo articolo](howto-read-replicas-portal.md) sulla creazione e la gestione di repliche di lettura. In caso di errore a livello di area, è possibile alzare di livello manualmente la replica di lettura configurata nell'altra area come server di database di produzione. |
-| <b>Errori logici/utente | Il ripristino da errori dell'utente, ad esempio le tabelle eliminate accidentalmente o i dati aggiornati in modo errato, comporta l'esecuzione di un [ripristino temporizzato](concepts-backup.md) (ripristino temporizzato), mediante il ripristino e il recupero dei dati fino al momento precedente all'errore.<br> <br>  Se si desidera ripristinare solo un subset di database o tabelle specifiche anziché tutti i database nel server di database, è possibile ripristinare il server di database in una nuova istanza, esportare le tabelle tramite [mysqldump](concepts-migrate-dump-restore.md)e quindi utilizzare [Restore](concepts-migrate-dump-restore.md#restore-your-mysql-database-using-command-line-or-mysql-workbench) per ripristinare le tabelle nel database. |
+| <b> Errore area | L'errore di un'area è un evento raro. Tuttavia, se è necessaria la protezione da un errore dell'area, è possibile configurare una o più repliche di lettura in altre aree per il ripristino di emergenza. Per informazioni dettagliate, vedere [questo articolo](howto-read-replicas-portal.md) sulla creazione e la gestione di repliche di lettura. In caso di errore a livello di area, è possibile alzare di livello manualmente la replica di lettura configurata nell'altra area come server di database di produzione. |
+| <b> Errori logici/utente | Il ripristino da errori dell'utente, ad esempio le tabelle eliminate accidentalmente o i dati aggiornati in modo errato, comporta l'esecuzione di un [ripristino temporizzato](concepts-backup.md) (ripristino temporizzato), mediante il ripristino e il recupero dei dati fino al momento precedente all'errore.<br> <br>  Se si desidera ripristinare solo un subset di database o tabelle specifiche anziché tutti i database nel server di database, è possibile ripristinare il server di database in una nuova istanza, esportare le tabelle tramite [mysqldump](concepts-migrate-dump-restore.md)e quindi utilizzare [Restore](concepts-migrate-dump-restore.md#restore-your-mysql-database-using-command-line-or-mysql-workbench) per ripristinare le tabelle nel database. |
 
 
 

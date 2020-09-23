@@ -11,12 +11,12 @@ ms.author: cesardl
 author: CESARDELATORRE
 ms.reviewer: nibaccam
 ms.date: 06/16/2020
-ms.openlocfilehash: 7a7b603efe376250607b4a48ff3ef2833f40a2bd
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 3e2711243d7c093d3ab8aa5f0e7ebac0a5ec95f9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650725"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886200"
 ---
 # <a name="configure-data-splits-and-cross-validation-in-automated-machine-learning"></a>Configurare la suddivisione dei dati e la convalida incrociata in Machine Learning automatico
 
@@ -37,7 +37,7 @@ Per questo articolo è necessario,
 
 * Un'area di lavoro di Azure Machine Learning. Per creare l'area di lavoro, vedere [Creare un'area di lavoro di Azure Machine Learning](how-to-manage-workspace.md).
 
-* Familiarità con la configurazione di un esperimento di Machine Learning automatizzato con il Azure Machine Learning SDK. Seguire l'[esercitazione](tutorial-auto-train-models.md) o la [procedura](how-to-configure-auto-train.md) per visualizzare i modelli di progettazione dell'esperimento di Machine Learning automatizzato di base.
+* Familiarità con la configurazione di un esperimento di Machine Learning automatizzato con il Azure Machine Learning SDK. Seguire l' [esercitazione](tutorial-auto-train-models.md) o le [procedure](how-to-configure-auto-train.md) per visualizzare i modelli di progettazione dell'esperimento automatizzato di machine learning.
 
 * Una comprensione dei dati di convalida incrociata e di Training/convalida si suddivide come concetti ML. Per una spiegazione di alto livello,
 

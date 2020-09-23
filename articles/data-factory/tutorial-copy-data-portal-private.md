@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 05/15/2020
 ms.author: jingwang
-ms.openlocfilehash: b2e666419a702832243c69bdb059f4447b02d756
-ms.sourcegitcommit: 656c0c38cf550327a9ee10cc936029378bc7b5a2
+ms.openlocfilehash: 953dae3c264e76b1e40f0dc07ccea0c00a7464c8
+ms.sourcegitcommit: 70ee014d1706e903b7d1e346ba866f5e08b22761
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/28/2020
-ms.locfileid: "89079456"
+ms.lasthandoff: 09/11/2020
+ms.locfileid: "90024418"
 ---
 # <a name="copy-data-securely-from-azure-blob-storage-to-a-sql-database-by-using-private-endpoints"></a>Copiare dati dall'archiviazione BLOB di Azure a un database SQL in sicurezza usando endpoint privati
 
@@ -57,7 +57,7 @@ Preparare ora l'archivio BLOB di Azure e il database SQL per l'esercitazione seg
 
 #### <a name="create-a-sink-sql-table"></a>Creare una tabella SQL sink
 
-1. Usare lo script SQL seguente per creare la tabella **dbo.emp** nel database SQL:
+Usare lo script SQL seguente per creare la tabella **dbo.emp** nel database SQL:
 
     ```sql
     CREATE TABLE dbo.emp
@@ -70,8 +70,6 @@ Preparare ora l'archivio BLOB di Azure e il database SQL per l'esercitazione seg
 
     CREATE CLUSTERED INDEX IX_emp_ID ON dbo.emp (ID);
     ```
-
-1. Consentire ai servizi di Azure di accedere a SQL Server. Assicurarsi che l'opzione **Consenti l'accesso a Servizi di Azure** sia impostata su **SÌ** per il server SQL in modo che Data Factory possa scrivere dati nel server SQL. Per verificare e attivare questa impostazione, passare a **Server di Azure SQL** > **Panoramica** > **Imposta firewall server**. Impostare l'opzione **Consenti l'accesso a Servizi di Azure** su **SÌ**.
 
 ## <a name="create-a-data-factory"></a>Creare una data factory
 In questo passaggio si crea una data factory e si avvia l'interfaccia utente di Data Factory per creare una pipeline nella data factory.

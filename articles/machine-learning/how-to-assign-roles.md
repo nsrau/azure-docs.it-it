@@ -11,15 +11,14 @@ ms.author: nigup
 author: nishankgu
 ms.date: 07/24/2020
 ms.custom: how-to, seodec18
-ms.openlocfilehash: 235135cbbcc7c622f4dd23c2e4f29cc3636dc1ea
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d36c0ab78f9f96a051e6cb0a53b756c7409ca142
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661933"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893399"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Gestire gli accessi all'area di lavoro di Azure Machine Learning
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Questo articolo illustra come gestire l'accesso a un'area di lavoro Azure Machine Learning. Il [controllo degli accessi in base al ruolo di Azure (RBAC di Azure)](/azure/role-based-access-control/overview) viene usato per gestire l'accesso alle risorse di Azure. Agli utenti nella Azure Active Directory vengono assegnati ruoli specifici che consentono di accedere alle risorse. Azure fornisce ruoli predefiniti e la possibilità di creare ruoli personalizzati.
 
@@ -135,7 +134,6 @@ La tabella seguente è un riepilogo delle attività Azure Machine Learning e del
 | Attività | Ambito a livello di sottoscrizione | Ambito a livello di gruppo di risorse | Ambito a livello di area di lavoro |
 | ----- | ----- | ----- | ----- |
 | Creare una nuova area di lavoro | Facoltativo | Proprietario o collaboratore | N/d (diventa proprietario o eredita un ruolo con ambito superiore dopo la creazione) |
-| Aggiornare l'edizione dell'area di lavoro | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente: `/workspaces/write` |
 | Richiedi quota Amlcompute a livello di sottoscrizione o imposta quota a livello di area di lavoro | Proprietario, collaboratore o ruolo personalizzato </br>permettendo `/locations/updateQuotas/action`</br> nell'ambito della sottoscrizione | Non autorizzato | Non autorizzato |
 | Crea nuovo cluster di calcolo | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente: `/workspaces/computes/write` |
 | Crea nuova istanza di calcolo | Facoltativo | Facoltativo | Proprietario, collaboratore o ruolo personalizzato che consente: `/workspaces/computes/write` |
@@ -301,7 +299,6 @@ Sì Ecco alcuni scenari comuni con le definizioni di ruolo proposte personalizza
 
     * Creazione di una nuova area di lavoro
     * Assegnazione delle quote a livello di sottoscrizione o area di lavoro
-    * Aggiornamento dell'edizione dell'area di lavoro
 
     L'amministratore dell'area di lavoro non è inoltre in grado di creare un nuovo ruolo. Può assegnare i ruoli predefiniti o personalizzati esistenti solo nell'ambito dell'area di lavoro:
 
@@ -415,11 +412,7 @@ az role definition update --role-definition update_def.json --subscription <sub-
 
 > [!NOTE]
 > Gli aggiornamenti dei ruoli possono richiedere da 15 minuti a un'ora per essere applicati a tutte le assegnazioni di ruolo in tale ambito.
-### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>Q. È possibile definire un ruolo che impedisce l'aggiornamento dell'edizione dell'area di lavoro? 
 
-Sì, è possibile definire un ruolo che impedisce l'aggiornamento dell'edizione dell'area di lavoro. Poiché l'aggiornamento dell'area di lavoro è una chiamata PATCH nell'oggetto dell'area di lavoro, è possibile eseguire questa operazione inserendo l'azione seguente nella `"NotActions"` matrice nella definizione JSON: 
-
-`"Microsoft.MachineLearningServices/workspaces/write"`
 
 ### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>Q. Quali autorizzazioni sono necessarie per eseguire operazioni di quota in un'area di lavoro? 
 

@@ -12,15 +12,15 @@ ms.reviewer: nibaccam
 ms.date: 07/31/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 1db62b77f3b9b1bcfc524a68b52c4aef5c16d851
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7a3f839a676723942af2e669839457ed3246aabd
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89648188"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885894"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Eseguire il training con set di impostazioni in Azure Machine Learning
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Questo articolo illustra come usare i set di impostazioni di [Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset%28class%29?view=azure-ml-py&preserve-view=true) negli esperimenti di training.  È possibile usare i set di dati nella destinazione di calcolo locale o remota senza preoccuparsi di stringhe di connessione o percorsi di dati.
 

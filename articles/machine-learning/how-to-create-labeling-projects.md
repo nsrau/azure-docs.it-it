@@ -8,16 +8,16 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 07/27/2020
-ms.openlocfilehash: a86a7ee600d7443e5ba8cb4f30db0c48c8170327
-ms.sourcegitcommit: f845ca2f4b626ef9db73b88ca71279ac80538559
+ms.openlocfilehash: e74d22d3d45079a6568f6fca35dc5d84e2d7469f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/09/2020
-ms.locfileid: "89612180"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898004"
 ---
 # <a name="create-a-data-labeling-project-and-export-labels"></a>Creare un progetto di etichettatura dei dati ed esportare le etichette 
 
-[!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 L'etichettatura di un volume elevato di dati in progetti di Machine Learning è spesso un'operazione complicata. I progetti che includono un componente visione artificiale, ad esempio la classificazione di immagini o il rilevamento di oggetti, richiedono in genere le etichette per migliaia di immagini.
  
@@ -144,13 +144,7 @@ Per i rettangoli di selezione, le domande importanti sono:
 >[!NOTE]
 > Tenere presente che gli etichettatori potranno selezionare le prime 9 etichette usando i tasti numerici 1-9.
 
-## <a name="use-ml-assisted-labeling-preview"></a>Usare l'etichettatura assistita da ML (anteprima)
-
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
-
-> [!IMPORTANT]
-> L'etichettatura assistita da ML è attualmente disponibile in anteprima pubblica.
-> La versione di anteprima viene messa a disposizione senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione. Alcune funzionalità potrebbero non essere supportate o potrebbero presentare funzionalità limitate. Per altre informazioni, vedere [Condizioni supplementari per l'utilizzo delle anteprime di Microsoft Azure](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+## <a name="use-ml-assisted-labeling"></a>Usare l'etichettatura assistita da ML
 
 La pagina **Etichettatura assistita da ML** consente di attivare modelli di Machine Learning automatici per accelerare l'attività di etichettatura. All'inizio del progetto di etichettatura, le immagini vengono mescolate in modo casuale per ridurre le potenziali distorsioni. Tuttavia, eventuali distorsioni presenti nel set di dati si rifletteranno nel modello con training. Se, ad esempio, l'80% delle immagini appartiene a una singola classe, circa l'80% dei dati usati per il training del modello sarà di tale classe. Questo training non include l'apprendimento attivo.
 
@@ -175,9 +169,6 @@ La fase di clustering non viene visualizzata per i modelli di rilevamento degli 
 Dopo l'invio di una quantità sufficiente di etichette di immagini, viene usato un modello di classificazione per prevedere i tag di immagine oppure un modello di rilevamento degli oggetti per prevedere i rettangoli di selezione. L'etichettatore ora visualizza le pagine che contengono etichette stimate già presenti in ogni immagine. Per il rilevamento degli oggetti, vengono visualizzati anche i rettangoli di selezione previsti. L'attività consiste quindi nell'esaminare le previsioni e correggere le eventuali immagini etichettate in modo non corretto prima di inviare la pagina.  
 
 Dopo avere eseguito il training di un modello di Machine Learning sui dati etichettati manualmente, il modello viene valutato su un set di test di immagini etichettate manualmente per determinarne l'accuratezza in base a una varietà di soglie di attendibilità diverse. Questo processo di valutazione viene usato per determinare una soglia di attendibilità oltre la quale il modello è sufficientemente accurato per mostrare le pre-etichette. Il modello viene quindi valutato in base ai dati non etichettati. Le immagini con stime più attendibili di questa soglia vengono usate per la pre-etichettatura.
-
-> [!NOTE]
-> L'etichettatura assistita da ML è disponibile **solo** nelle aree di lavoro Enterprise Edition.
 
 ## <a name="initialize-the-labeling-project"></a>Inizializzare il progetto di etichettatura
 

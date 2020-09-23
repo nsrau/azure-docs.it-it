@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/01/2020
 ms.author: memildin
-ms.openlocfilehash: 539b663366cd2820eec62a18d1fc2989c6b3c9b0
-ms.sourcegitcommit: e132633b9c3a53b3ead101ea2711570e60d67b83
+ms.openlocfilehash: 77bf0f4cd60ba6e85763334a4d864975945ec2c3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/07/2020
-ms.locfileid: "86042357"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90894776"
 ---
-# <a name="feature-coverage-for-azure-paas-services"></a>Copertura delle funzionalità per i servizi PaaS di Azure<a name="paas-services"></a>
+# <a name="feature-coverage-for-azure-paas-services"></a>Copertura delle funzionalità per i servizi PaaS di Azure <a name="paas-services"></a>
 
 La tabella seguente illustra la disponibilità delle funzionalità del Centro sicurezza di Azure per le risorse PaaS di Azure supportate.
 
-|Servizio|Raccomandazioni (gratuito)|Avvisi di sicurezza (standard)|Valutazione della vulnerabilità (standard)|
+|Servizio|Raccomandazioni (gratuito)|Avvisi di sicurezza (Azure Defender)|Valutazione della vulnerabilità (Azure Defender)|
 |:----|:----:|:----:|:----:|
 |Servizio app di Azure|✔|✔|-|
 |Account di automazione di Azure|✔|-|-|
@@ -41,11 +41,11 @@ La tabella seguente illustra la disponibilità delle funzionalità del Centro si
 |Database di Azure per PostgreSQL *|✔|✔|-|
 |Spazio dei nomi di hub eventi di Azure|✔|-|-|
 |App Funzioni di Azure|✔|-|-|
-|Insieme di credenziali chiave di Azure|✔|✔ *|-|
+|Insieme di credenziali chiave di Azure|✔|✔|-|
 |Servizio Azure Kubernetes|✔|✔|-|
 |Azure Load Balancer|✔|-|-|
 |App per la logica di Azure|✔|-|-|
-|database SQL di Azure|✔|✔|✔|
+|Database SQL di Azure|✔|✔|✔|
 |Istanza gestita di SQL di Azure|✔|✔|✔|
 |Spazio dei nomi del bus di servizio di Azure|✔|-|-|
 |Account Service Fabric di Azure|✔|-|-|
@@ -54,6 +54,6 @@ La tabella seguente illustra la disponibilità delle funzionalità del Centro si
 |Sottoscrizione di Azure|✔ **|✔|-|
 |Rete virtuale di Azure</br> (incl. subnet, nic e gruppi di sicurezza di rete)|✔|-|-|
 
-\*Queste funzionalità sono attualmente supportate in anteprima.
+\* Queste funzionalità sono attualmente supportate in anteprima.
 
-\*\*Le raccomandazioni Azure Active Directory (Azure AD) sono disponibili solo per le sottoscrizioni standard.
+\*\* Le raccomandazioni di Azure Active Directory (Azure AD) sono disponibili solo per le sottoscrizioni con Azure Defender abilitato.

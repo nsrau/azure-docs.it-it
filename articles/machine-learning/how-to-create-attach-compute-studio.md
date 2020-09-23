@@ -11,15 +11,14 @@ ms.subservice: core
 ms.date: 08/06/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq1
-ms.openlocfilehash: 37253ccfb249eb8b510af5e314c3167ddd979a87
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 5345fd81e41bbb354e11e1be23329c3130d4d0c2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661958"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898089"
 ---
 # <a name="create-compute-targets-for-model-training-and-deployment-in-azure-machine-learning-studio"></a>Creare destinazioni di calcolo per il training e la distribuzione di modelli in Azure Machine Learning Studio
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Questo articolo illustra come creare e gestire le destinazioni di calcolo in Azure Machine Studio.  È anche possibile creare e gestire le destinazioni di calcolo con:
 
@@ -91,7 +90,7 @@ Usare la [procedura precedente](#portal-create) per creare l'istanza di calcolo.
 |Tipo di macchina virtuale |  Scegliere CPU o GPU. Questo tipo non può essere modificato dopo la creazione     |
 |Dimensioni della macchina virtuale     |  Le dimensioni delle macchine virtuali supportate possono essere limitate nella propria area. Controllare l' [elenco di disponibilità](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Abilitare/disabilitare l'accesso SSH     |   L'accesso SSH è disabilitato per impostazione predefinita.  L'accesso SSH non può essere. modificato dopo la creazione. Assicurarsi di abilitare l'accesso se si prevede di eseguire il debug in modo interattivo con [vs code remoto](how-to-set-up-vs-code-remote.md)   |
-|Impostazioni avanzate     |  Facoltativa. Configurare una rete virtuale. Specificare il **gruppo di risorse**, la **rete virtuale**e la **subnet** per creare l'istanza di calcolo all'interno di una rete virtuale di Azure (VNET). Per ulteriori informazioni, vedere i [requisiti di rete](how-to-enable-virtual-network.md#compute-instance) per vnet.  |
+|Impostazioni avanzate     |  facoltativo. Configurare una rete virtuale. Specificare il **gruppo di risorse**, la **rete virtuale**e la **subnet** per creare l'istanza di calcolo all'interno di una rete virtuale di Azure (VNET). Per ulteriori informazioni, vedere i [requisiti di rete](how-to-enable-virtual-network.md#compute-instance) per vnet.  |
 
 ### <a name="compute-clusters"></a><a name="amlcompute"></a> Cluster di calcolo
 
@@ -106,7 +105,7 @@ Creare un cluster di calcolo a nodo singolo o a più nodi per i carichi di lavor
 |Dimensioni della macchina virtuale     |  Le dimensioni delle macchine virtuali supportate possono essere limitate nella propria area. Controllare l' [elenco di disponibilità](https://azure.microsoft.com/global-infrastructure/services/?products=virtual-machines)     |
 |Numero minimo di nodi | Numero minimo di nodi di cui si vuole eseguire il provisioning. Se si desidera un numero dedicato di nodi, impostare il conteggio qui. Per risparmiare sui costi, impostare il valore minimo su 0, in modo da non pagare per alcun nodo quando il cluster è inattivo. |
 |Numero massimo di nodi | Numero massimo di nodi di cui si vuole eseguire il provisioning. Il calcolo verrà ridimensionato automaticamente fino a un numero massimo di questo nodo quando viene inviato un processo. |
-|Impostazioni avanzate     |  Facoltativa. Configurare una rete virtuale. Specificare il **gruppo di risorse**, la **rete virtuale**e la **subnet** per creare l'istanza di calcolo all'interno di una rete virtuale di Azure (VNET). Per ulteriori informazioni, vedere i [requisiti di rete](how-to-enable-virtual-network.md#compute-instance) per vnet.   Connetti anche le [identità gestite](#managed-identity) per concedere l'accesso alle risorse     |
+|Impostazioni avanzate     |  facoltativo. Configurare una rete virtuale. Specificare il **gruppo di risorse**, la **rete virtuale**e la **subnet** per creare l'istanza di calcolo all'interno di una rete virtuale di Azure (VNET). Per ulteriori informazioni, vedere i [requisiti di rete](how-to-enable-virtual-network.md#compute-instance) per vnet.   Connetti anche le [identità gestite](#managed-identity) per concedere l'accesso alle risorse     |
 
 #### <a name="set-up-managed-identity"></a><a id="managed-identity"></a> Configurare l'identità gestita
 

@@ -9,12 +9,12 @@ ms.author: laobri
 author: lobrien
 ms.date: 08/17/2020
 ms.custom: devx-track-python
-ms.openlocfilehash: 2232aa46b0586ca62e80c8b9002271a67e4021c1
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: b0217766c92ddcd1907eca2c6702d91b02e06c03
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651120"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90893634"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Che cosa sono le pipeline Azure Machine Learning?
 
@@ -95,7 +95,7 @@ Una pipeline di Azure ML è associata a un'area di lavoro Azure Machine Learning
 
 ### <a name="a-simple-python-pipeline"></a>Una semplice pipeline Python
 
-Questo frammento di codice Mostra gli oggetti e le chiamate necessari per creare ed eseguire un'operazione di base `Pipeline` :
+Questo frammento di codice Mostra gli oggetti e le chiamate necessari per creare ed eseguire `Pipeline` :
 
 ```python
 ws = Workspace.from_config() 
@@ -152,7 +152,7 @@ I vantaggi principali dell'uso delle pipeline per i flussi di lavoro di Machine 
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Le pipeline di Azure ML sono una potente funzionalità che inizia a produrre valore nelle prime fasi di sviluppo. Il valore aumenta man mano che il team e il progetto crescono. Questo articolo ha illustrato come vengono specificate le pipeline con il Azure Machine Learning Python SDK e orchestrato in Azure. Sono stati introdotti alcuni codici sorgente di base e sono stati introdotti alcuni `PipelineStep` tipi di classi disponibili. È necessario avere un'idea di quando usare le pipeline di Azure ML e il modo in cui vengono eseguite da Azure. 
+Le pipeline di Azure ML sono una potente funzionalità che inizia a produrre valore nelle prime fasi di sviluppo. Il valore aumenta man mano che il team e il progetto crescono. Questo articolo ha illustrato come vengono specificate le pipeline con il Azure Machine Learning Python SDK e orchestrato in Azure. È stato illustrato un codice sorgente semplice ed è stato introdotto un numero ridotto di `PipelineStep` classi disponibili. È necessario avere un'idea di quando usare le pipeline di Azure ML e il modo in cui vengono eseguite da Azure. 
 
 
 + Informazioni su come [creare la prima pipeline](how-to-create-your-first-pipeline.md).

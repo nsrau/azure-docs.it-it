@@ -8,14 +8,14 @@ ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: quickstart
 ms.custom: mvc, fasttrack-edit
-ms.date: 09/23/2019
+ms.date: 09/16/2020
 ms.author: yelevin
-ms.openlocfilehash: 83f83922b3bed19e98566002cbf9ad084ba66cb9
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: fe2a632901b32993d46e723ab73fce045bfa9f84
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86496214"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889128"
 ---
 # <a name="quickstart-get-started-with-azure-sentinel"></a>Avvio rapido: Introduzione ad Azure Sentinel
 
@@ -34,7 +34,7 @@ Per visualizzare e ottenere analisi di ciò che accade nell'ambiente, in primo l
 
 - La barra degli strumenti nella parte superiore indica il numero di eventi che si sono verificati nel periodo di tempo selezionato e lo confronta con le 24 ore precedenti. La barra degli strumenti indica gli avvisi che sono stati attivati da questi eventi (il piccolo numero rappresenta i cambiamenti nelle ultime 24 ore) e quanti eventi sono aperti, in corso e chiusi. Qui si può controllare se ci sia un forte aumento o calo nel numero degli eventi. Se si verifica un calo, è possibile che una connessione abbia smesso di inviare segnalazioni ad Azure Sentinel. Se si verifica un aumento, può essere accaduto qualcosa di sospetto. Controllare se sono presenti nuovi avvisi.
 
-   ![Imbuto di Azure Sentinel](./media/qs-get-visibility/funnel.png)
+   ![Contatori di Azure Sentinel](./media/qs-get-visibility/funnel.png)
 
 Il corpo principale della pagina di panoramica offre informazioni dettagliate a colpo d'occhio sullo stato di sicurezza dell'area di lavoro:
 
@@ -42,14 +42,13 @@ Il corpo principale della pagina di panoramica offre informazioni dettagliate a 
 
 - **Potential malicious events** (Potenziali eventi dannosi): quando viene rilevato traffico da origini note per essere dannose, Azure Sentinel lo segnala sulla mappa. Se il segnale è arancione, si tratta di traffico in ingresso: qualcuno sta provando ad accedere all'organizzazione da un indirizzo IP dannoso noto. Se è rosso indica attività in uscita, ovvero che dati della rete interna vengono trasmessi all'esterno dell'organizzazione verso un indirizzo IP dannoso noto.
 
-   ![Mappa di Azure Sentinel](./media/qs-get-visibility/map.png)
+   ![Mappa del traffico dannoso](./media/qs-get-visibility/map.png)
 
-
-- **Eventi imprevisti recenti**: per visualizzare gli eventi imprevisti recenti, la relativa gravità e il numero di avvisi associati all'evento imprevisto. La comparsa di un picco improvviso di un tipo specifico di avviso potrebbe indicare un attacco attivo in corso. Ad esempio, se è visibile un picco improvviso di 20 eventi Pass-the-Hash da Azure ATP, l'organizzazione potrebbe essere sotto attacco.
+- **Eventi imprevisti recenti**: per visualizzare gli eventi imprevisti recenti, la relativa gravità e il numero di avvisi associati all'evento imprevisto. La comparsa di un picco improvviso di un tipo specifico di avviso potrebbe indicare un attacco attivo in corso. Ad esempio, se è visibile un picco improvviso di 20 eventi Pass-the-Hash da Microsoft Defender for Identity (in precedenza Azure ATP), l'organizzazione potrebbe essere sotto attacco.
 
 - **Data source anomalies** (Anomalie dell'origine dati): gli analisti di dati di Microsoft hanno creato modelli che cercano continuamente anomalie nei dati provenienti dalle origini dati. Se non sono presenti anomalie, non compare nulla. Se vengono rilevate anomalie, è necessario approfondire per capire cosa è successo. Ad esempio, fare clic sul picco nelle attività di Azure. È possibile fare clic su **Chart** (Grafico) per vedere quando si è verificato il picco e quindi filtrare le attività che si sono verificate in quel periodo di tempo per vedere cosa ha causato il picco.
 
-   ![Mappa di Azure Sentinel](./media/qs-get-visibility/anomolies.png)
+   ![Origini dati anomale](./media/qs-get-visibility/anomolies.png)
 
 ## <a name="use-built-in-workbooks"></a>Usare cartelle di lavoro predefinite<a name="dashboards"></a>
 
@@ -67,7 +66,7 @@ Le cartelle di lavoro predefinite offrono dati integrati provenienti dalle origi
       ![Dashboard Palo Alto](./media/qs-get-visibility/palo-alto-week-query.png)
 
 
-È possibile personalizzare le cartelle di lavoro modificando la query principale ![pulsante](./media/qs-get-visibility/edit-query-button.png). È possibile fare clic sul pulsante ![pulsante](./media/qs-get-visibility/go-to-la-button.png) per passare a[Log Analytics e modificare la query](../azure-monitor/log-query/get-started-portal.md) ed è possibile selezionare i puntini di sospensione (...) e quindi **Personalizza dati riquadro**, che consente di modificare il filtro temporale principale o rimuovere specifici riquadri dalla cartella di lavoro.
+È possibile personalizzare le cartelle di lavoro modificando la query principale ![pulsante di modifica query](./media/qs-get-visibility/edit-query-button.png). È possibile fare clic sul pulsante ![pulsante Log Analytics](./media/qs-get-visibility/go-to-la-button.png) per passare a [Log Analytics e modificarvi la query](../azure-monitor/log-query/get-started-portal.md) ed è possibile selezionare i puntini di sospensione (...) e quindi **Personalizza dati riquadro**, che consente di modificare il filtro temporale principale o rimuovere i riquadri specifici dalla cartella di lavoro.
 
 Per altre informazioni sull'uso delle query, vedere [Esercitazione: Visualizzare i dati in Log Analytics](../azure-monitor/learn/tutorial-logs-dashboards.md)
 

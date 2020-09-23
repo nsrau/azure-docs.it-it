@@ -11,14 +11,14 @@ ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 04/28/2020
+ms.date: 09/21/2020
 tags: azure-synapse
-ms.openlocfilehash: 3f1f284255d1c0e77779c175951eaf33d3e56067
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: 6f324b1b0b5ed1882050684e7ac1c8ec4ea573dc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87004104"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886498"
 ---
 # <a name="data-discovery--classification"></a>Individuazione dati e classificazione
 [!INCLUDE[appliesto-sqldb-sqlmi-asa](../includes/appliesto-sqldb-sqlmi-asa.md)]
@@ -30,8 +30,6 @@ I dati più sensibili possono includere informazioni aziendali, finanziarie, san
 - Supporto per soddisfare gli standard per la privacy dei dati e i requisiti per la conformità alle normative.
 - Vari scenari di sicurezza, ad esempio monitoraggio (controllo) e invio di avvisi sulle anomalie di accesso a dati sensibili.
 - Controllare l'accesso e rafforzare la protezione dei database che contengono dati altamente sensibili.
-
-L'individuazione dei dati & classificazione fa parte dell'offerta [Advanced Data Security](advanced-data-security.md) , che è un pacchetto unificato per le funzionalità avanzate di sicurezza di Azure SQL. È possibile accedere e gestire l'individuazione dei dati & classificazione tramite la sezione **sicurezza avanzata dei dati di SQL** centrale del portale di Azure.
 
 > [!NOTE]
 > Per informazioni sulle SQL Server locali, vedere [SQL Data Discovery & Classification](https://go.microsoft.com/fwlink/?linkid=866999).
@@ -79,31 +77,23 @@ Dopo aver definito i criteri a livello di organizzazione, è possibile continuar
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
 
-2. Passare a **Advanced Data Security** nell'intestazione **sicurezza** nel riquadro del database SQL di Azure. Selezionare **sicurezza dati avanzata**e quindi selezionare la scheda di **classificazione individuazione dati &** .
+1. Passare a **individuazione dati & classificazione** sotto l'intestazione sicurezza nel riquadro del database SQL di Azure. La scheda Panoramica include un riepilogo dello stato di classificazione corrente del database. Il riepilogo include un elenco dettagliato di tutte le colonne classificate, che è anche possibile filtrare per visualizzare solo parti dello schema, tipi di informazioni ed etichette specifici. Se non sono ancora state classificate colonne, [andare al passaggio 4](#step-4).
 
-   ![Riquadro sicurezza dati avanzata in portale di Azure](./media/data-discovery-and-classification-overview/data_classification.png)
+1. Per scaricare un report in formato Excel, scegliere **Esporta** dal menu superiore del riquadro.
 
-3. Nella pagina **individuazione dati & classificazione** la scheda **Panoramica** include un riepilogo dello stato di classificazione corrente del database. Il riepilogo include un elenco dettagliato di tutte le colonne classificate, che è anche possibile filtrare per visualizzare solo parti dello schema, tipi di informazioni ed etichette specifici. Se non sono ancora state classificate colonne, [andare al passaggio 5](#step-5).
-
-   ![Riepilogo dello stato corrente di classificazione](./media/data-discovery-and-classification-overview/2_data_classification_overview_dashboard.png)
-
-4. Per scaricare un report in formato Excel, scegliere **Esporta** dal menu superiore del riquadro.
-
-5. <a id="step-5"></a>Per iniziare a classificare i dati, selezionare la scheda **classificazione** nella pagina **individuazione dati & classificazione** .
+1. <a id="step-4"></a>Per iniziare a classificare i dati, selezionare la scheda **classificazione** nella pagina **individuazione dati & classificazione** .
 
     Il motore di classificazione esegue l'analisi del database per le colonne contenenti dati potenzialmente sensibili e fornisce un elenco di classificazioni di colonna consigliate.
 
-6. Visualizzare e applicare le raccomandazioni di classificazione:
+1. Visualizzare e applicare le raccomandazioni di classificazione:
 
    - Per visualizzare l'elenco delle classificazioni di colonna consigliate, selezionare il pannello raccomandazioni nella parte inferiore del riquadro.
 
    - Per accettare un suggerimento per una colonna specifica, selezionare la casella di controllo nella colonna sinistra della riga pertinente. Per contrassegnare tutte le raccomandazioni come accettate, selezionare la casella di controllo più a sinistra nell'intestazione della tabella consigli.
 
-       ![Esaminare e selezionare un elenco di consigli per la classificazione](./media/data-discovery-and-classification-overview/6_data_classification_recommendations_list.png)
-
    - Per applicare le raccomandazioni selezionate, selezionare **accetta raccomandazioni selezionate**.
 
-7. È anche possibile classificare manualmente le colonne, in alternativa o in aggiunta alla classificazione basata su consigli:
+1. È anche possibile classificare manualmente le colonne, in alternativa o in aggiunta alla classificazione basata su consigli:
 
    1. Selezionare **Aggiungi classificazione** nel menu superiore del riquadro.
 
@@ -111,9 +101,7 @@ Dopo aver definito i criteri a livello di organizzazione, è possibile continuar
 
    1. Selezionare **Aggiungi classificazione** nella parte inferiore della finestra di contesto.
 
-      ![Selezionare una colonna da classificare](./media/data-discovery-and-classification-overview/9_data_classification_manual_classification.png)
-
-8. Per completare la classificazione e contrassegnare in modo permanente le colonne del database con i nuovi metadati di classificazione, selezionare **Salva** nel menu in alto della finestra.
+1. Per completare la classificazione e contrassegnare in modo permanente le colonne del database con i nuovi metadati di classificazione, selezionare **Salva** nel menu in alto della finestra.
 
 ## <a name="audit-access-to-sensitive-data"></a><a id="audit-sensitive-data"></a>Controllare l'accesso ai dati sensibili
 
@@ -126,10 +114,10 @@ Un aspetto importante del paradigma di protezione delle informazioni è la possi
 Questi ruoli predefiniti possono leggere la classificazione dei dati di un database:
 
 - Proprietario
-- Lettore
+- Reader
 - Autore di contributi
 - Gestione della sicurezza SQL
-- Amministratore Accesso utenti
+- Amministratore accessi utente
 
 Questi ruoli predefiniti possono modificare la classificazione dei dati di un database:
 
@@ -191,6 +179,5 @@ Gestire le classificazioni e le raccomandazioni per il database SQL di Azure e I
 
 ## <a name="next-steps"></a><a id="next-steps"></a>Passaggi successivi
 
-- Altre informazioni sulla [sicurezza dei dati avanzata](advanced-data-security.md).
 - Prendere in considerazione la configurazione del [controllo SQL di Azure](../../azure-sql/database/auditing-overview.md) per il monitoraggio e il controllo dell'accesso ai dati riservati classificati.
 - Per una presentazione che includa l'individuazione dei dati & classificazione, vedere [individuazione, classificazione, assegnazione di etichette & protezione dei dati SQL | Dati esposti](https://www.youtube.com/watch?v=itVi9bkJUNc).

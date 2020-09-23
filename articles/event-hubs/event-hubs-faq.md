@@ -2,13 +2,13 @@
 title: Domande frequenti su Hub eventi di Azure | Microsoft Docs
 description: Questo articolo offre un elenco di domande frequenti (FAQ) su Hub eventi di Azure e le relative risposte.
 ms.topic: article
-ms.date: 06/23/2020
-ms.openlocfilehash: 9995588e618679ae38a11aff26485d1ba0b60688
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.date: 09/16/2020
+ms.openlocfilehash: b852af961327fbecb773c0608dfb823093e17267
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89288968"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883388"
 ---
 # <a name="event-hubs-frequently-asked-questions"></a>Domande frequenti sugli Hub eventi di Azure
 
@@ -55,6 +55,9 @@ Il livello Standard di Hub eventi supporta attualmente un periodo di conservazio
 ### <a name="how-do-i-monitor-my-event-hubs"></a>Come si monitora Hub eventi?
 Hub eventi genera metriche complete che specificano lo stato delle risorse in [Monitoraggio di Azure](../azure-monitor/overview.md). Consentono anche di valutare l'integrità generale delle risorse del servizio Hub eventi, non solo a livello di spazio dei nomi, ma anche a livello di entità. Sono disponibili informazioni sul tipo di monitoraggio offerto per [Hub eventi di Azure](event-hubs-metrics-azure-monitor.md).
 
+### <a name="where-does-azure-event-hubs-store-customer-data"></a><a name="in-region-data-residency"></a>Dove vengono archiviati i dati dei clienti in hub eventi di Azure?
+Hub eventi di Azure archivia i dati dei clienti. Questi dati vengono archiviati automaticamente da Hub eventi in una singola area, in modo che il servizio soddisfi automaticamente i requisiti di residenza dei dati dell'area, inclusi quelli specificati nel [Centro protezione](https://azuredatacentermap.azurewebsites.net/).
+
 ### <a name="what-ports-do-i-need-to-open-on-the-firewall"></a>Quali porte è necessario aprire nel firewall? 
 È possibile usare i protocolli seguenti con il bus di servizio di Azure per inviare e ricevere messaggi:
 
@@ -78,9 +81,9 @@ Per trovare gli indirizzi IP corretti da aggiungere all'elenco di connessioni co
     ```
     nslookup <YourNamespaceName>.servicebus.windows.net
     ```
-2. Annotare l'indirizzo IP restituito in `Non-authoritative answer`. L'unico caso che prevede una modifica è il ripristino dello spazio dei nomi in un cluster diverso.
+2. Annotare l'indirizzo IP restituito in `Non-authoritative answer`. 
 
-Se si usa la ridondanza della zona per lo spazio dei nomi, è necessario eseguire alcuni passaggi aggiuntivi: 
+Se si usa la **ridondanza della zona** per lo spazio dei nomi, è necessario eseguire alcuni passaggi aggiuntivi: 
 
 1. Per prima cosa, eseguire nslookup nello spazio dei nomi.
 
@@ -94,9 +97,12 @@ Se si usa la ridondanza della zona per lo spazio dei nomi, è necessario eseguir
     <name>-s2.cloudapp.net
     <name>-s3.cloudapp.net
     ```
+
+    > [!NOTE]
+    > L'indirizzo IP restituito dal `nslookup` comando non è un indirizzo IP statico. Tuttavia rimane costante fino a quando la distribuzione sottostante non viene eliminata o spostata in un cluster diverso.
 3. Eseguire nslookup per ciascuna di esse con suffissi S1, S2 e S3 per ottenere gli indirizzi IP di tutte e tre le istanze in esecuzione in tre zone di disponibilità. 
 
-### <a name="where-can-i-find-client-ip-sending-or-receiving-msgs-to-my-namespace"></a>Dove è possibile trovare I messaggi di invio o ricezione degli indirizzi IP client nello spazio dei nomi?
+### <a name="where-can-i-find-client-ip-sending-or-receiving-messages-to-my-namespace"></a>Dove è possibile trovare gli indirizzi IP client che inviano o ricevono messaggi nello spazio dei nomi?
 Per prima cosa, abilitare il [filtro IP](event-hubs-ip-filtering.md) nello spazio dei nomi. 
 
 Abilitare quindi i log di diagnostica per [gli eventi di connessione alla rete virtuale di hub eventi](event-hubs-diagnostic-logs.md#event-hubs-virtual-network-connection-event-schema) seguendo le istruzioni riportate nell' [Abilitazione dei log di diagnostica](event-hubs-diagnostic-logs.md#enable-diagnostic-logs). Verrà visualizzato l'indirizzo IP per il quale la connessione viene negata.

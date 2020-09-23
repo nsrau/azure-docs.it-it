@@ -10,12 +10,12 @@ ms.author: sgilley
 author: sdgilley
 ms.date: 08/20/2020
 ms.custom: seoapril2019, seodec18
-ms.openlocfilehash: c24e9f58154b1523496a82761a8c48ba06dea46c
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 7f10454eff7958f59cf16b19e98918062b2a61a3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89651264"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90886314"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Modalità di funzionamento di Azure Machine Learning: Architettura e concetti
 
@@ -193,7 +193,7 @@ Per un esempio di distribuzione di un modello come servizio Web, vedere [Distrib
 
 #### <a name="real-time-endpoints"></a>Endpoint in tempo reale
 
-Quando si distribuisce un modello sottoposto a training nella finestra di progettazione (anteprima), è possibile [distribuire il modello come endpoint in tempo reale](tutorial-designer-automobile-price-deploy.md). Un endpoint in tempo reale riceve una singola richiesta tramite l'endpoint REST e restituisce una stima in tempo reale. Questo si differenzia dall'elaborazione batch, che elabora contemporaneamente più valori e salva i risultati dopo il completamento in un archivio dati.
+Quando si distribuisce un modello sottoposto a training nella finestra di progettazione, è possibile [distribuire il modello come endpoint in tempo reale](tutorial-designer-automobile-price-deploy.md). Un endpoint in tempo reale riceve una singola richiesta tramite l'endpoint REST e restituisce una stima in tempo reale. Questo si differenzia dall'elaborazione batch, che elabora contemporaneamente più valori e salva i risultati dopo il completamento in un archivio dati.
 
 #### <a name="pipeline-endpoints"></a>Endpoint della pipeline
 
@@ -229,7 +229,7 @@ I passaggi della pipeline sono riutilizzabili e possono essere eseguiti senza ri
 
 Studio consente anche di accedere agli strumenti interattivi che fanno parte di Azure Machine Learning:
 
-+ [Progettazione Azure Machine Learning (anteprima)](concept-designer.md) per eseguire i passaggi del flusso di lavoro senza scrivere codice
++ [Progettazione Azure Machine Learning](concept-designer.md) per eseguire i passaggi del flusso di lavoro senza scrivere codice
 + Esperienza Web per [Machine Learning automatizzato](concept-automated-ml.md)
 + [Azure Machine Learning notebook](how-to-run-jupyter-notebooks.md) per scrivere ed eseguire il proprio codice in server Jupyter notebook integrati.
 + [Assegnazione di etichette ai progetti](how-to-create-labeling-projects.md) per creare, gestire e monitorare i progetti per etichettare i dati
@@ -242,6 +242,7 @@ Studio consente anche di accedere agli strumenti interattivi che fanno parte di 
 
 +  Interagire con il servizio in qualsiasi ambiente Python con l'[SDK Azure Machine Learning per Python](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py&preserve-view=true).
 + Interagisci con il servizio in qualsiasi ambiente R con [Azure Machine Learning SDK per r](https://azure.github.io/azureml-sdk-for-r/reference/index.html) (anteprima).
++ Utilizzare la [finestra di progettazione Azure Machine Learning](concept-designer.md) per eseguire i passaggi del flusso di lavoro senza scrivere codice. 
 + Usare [Azure Machine Learning interfaccia](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) della riga di comando per l'automazione.
 + L’[acceleratore di soluzione molti modelli](https://aka.ms/many-models) (anteprima) si basa su Azure Machine Learning consente di eseguire il training, utilizzare e gestire centinaia o addirittura migliaia di modelli di Machine Learning.
 
