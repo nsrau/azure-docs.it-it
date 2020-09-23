@@ -11,15 +11,14 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 09/01/2020
-ms.openlocfilehash: cac14d5995042847bc98e47e50ea2d188382fd2a
-ms.sourcegitcommit: 6e1124fc25c3ddb3053b482b0ed33900f46464b3
+ms.openlocfilehash: 034fbf991c97ba7b9f51b5508c35df1889280562
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90564339"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897890"
 ---
 # <a name="create-and-attach-an-azure-kubernetes-service-cluster"></a>Creare e alleghi un cluster di servizi Kubernetes di Azure
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Azure Machine Learning possibile distribuire modelli di apprendimento automatico sottoposti a training nel servizio Azure Kubernetes. Tuttavia, è necessario __creare__ prima di tutto un cluster Azure Kubernetes Service (AKS) dall'area di lavoro di Azure ml o __alleghi__ un cluster AKS esistente. Questo articolo fornisce informazioni sulla creazione e sul fissaggio di un cluster.
 

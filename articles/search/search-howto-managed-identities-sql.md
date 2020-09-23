@@ -1,25 +1,22 @@
 ---
-title: Configurare una connessione al database SQL di Azure usando un'identità gestita (anteprima)
+title: Configurare una connessione al database SQL di Azure usando un'identità gestita
 titleSuffix: Azure Cognitive Search
-description: Informazioni su come configurare una connessione dell'indicizzatore al database SQL di Azure usando un'identità gestita (anteprima)
+description: Informazioni su come configurare una connessione dell'indicizzatore al database SQL di Azure usando un'identità gestita
 manager: luisca
 author: markheff
 ms.author: maheff
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/18/2020
-ms.openlocfilehash: 8dabf69af8628bb0b168bfea94af5333df341423
-ms.sourcegitcommit: 62e1884457b64fd798da8ada59dbf623ef27fe97
+ms.date: 09/22/2020
+ms.openlocfilehash: 9f90125edeee453dc9e8b8b80f8eb09d9fc6e84c
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88924130"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971537"
 ---
-# <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity-preview"></a>Configurare una connessione dell'indicizzatore al database SQL di Azure usando un'identità gestita (anteprima)
-
-> [!IMPORTANT] 
-> Il supporto per la configurazione di una connessione a un'origine dati tramite un'identità gestita è attualmente disponibile in anteprima pubblica. La funzionalità di anteprima viene fornita senza contratto di servizio e non è consigliata per i carichi di lavoro di produzione.
+# <a name="set-up-an-indexer-connection-to-azure-sql-database-using-a-managed-identity"></a>Configurare una connessione dell'indicizzatore al database SQL di Azure usando un'identità gestita
 
 Questa pagina descrive come configurare una connessione dell'indicizzatore al database SQL di Azure usando un'identità gestita anziché fornire le credenziali nella stringa di connessione dell'oggetto origine dati.
 
@@ -97,7 +94,7 @@ In questo passaggio si autorizza il servizio Ricerca cognitiva di Azure a legger
 
 ### <a name="5---create-the-data-source"></a>5 - Creare l'origine dati
 
-L' [API REST](/rest/api/searchservice/create-data-source), portale di Azure e [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource?view=azure-dotnet) supportano la stringa di connessione dell'identità gestita. Di seguito è riportato un esempio di come creare un'origine dati per indicizzare i dati da un database SQL di Azure usando l' [API REST](/rest/api/searchservice/create-data-source) e una stringa di connessione identità gestita. Il formato della stringa di connessione identità gestita è lo stesso per l'API REST, .NET SDK e il portale di Azure.
+L' [API REST](/rest/api/searchservice/create-data-source), portale di Azure e [.NET SDK](/dotnet/api/microsoft.azure.search.models.datasource) supportano la stringa di connessione dell'identità gestita. Di seguito è riportato un esempio di come creare un'origine dati per indicizzare i dati da un database SQL di Azure usando l' [API REST](/rest/api/searchservice/create-data-source) e una stringa di connessione identità gestita. Il formato della stringa di connessione identità gestita è lo stesso per l'API REST, .NET SDK e il portale di Azure.
 
 Quando si crea un'origine dati usando l' [API REST](/rest/api/searchservice/create-data-source), l'origine dati deve avere le proprietà obbligatorie seguenti:
 

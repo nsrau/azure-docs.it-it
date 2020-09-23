@@ -4,12 +4,12 @@ description: Monitorare l'app Web in tempo reale, con metriche personalizzate e 
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: c12126c23ce1f1e2bd72f88eead5b8f34e4fd83d
-ms.sourcegitcommit: a2a7746c858eec0f7e93b50a1758a6278504977e
+ms.openlocfilehash: 1b8b4c43c559831810db9b92da6c2743556cd2ac
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88142214"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973579"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>Live Metrics Stream: monitorare e diagnosticare con una latenza di 1 secondo
 
@@ -114,7 +114,7 @@ Mentre l'esempio precedente è per un'app console, lo stesso codice può essere 
 |**Latency**|Dati visualizzati in un secondo|Aggregati in minuti|
 |**Nessuna conservazione**|I dati vengono mantenuti finché si trovano nel grafico, poi vengono eliminati|[Dati mantenuti per 90 giorni](./data-retention-privacy.md#how-long-is-the-data-kept)|
 |**Su richiesta**|I dati vengono trasmessi solo quando il riquadro metriche attive è aperto |I dati vengono inviati ogni volta che l'SDK viene installato e attivato|
-|**Gratuito**|Non sono previste spese per i dati di Live Stream|Soggetto al [piano tariffario](./pricing.md)
+|**Free**|Non sono previste spese per i dati di Live Stream|Soggetto al [piano tariffario](./pricing.md)
 |**Campionamento**|Tutte le metriche selezionate e i contatori vengono trasmessi. Gli errori e le analisi dello stack vengono usati come esempi. |Eventi potrebbero essere usati come [esempi](./api-filtering-sampling.md)|
 |**Canale di controllo**|I segnali di controllo del filtro vengono inviati all'SDK. È consigliabile proteggere questo canale.|La comunicazione è unidirezionale, al portale|
 
@@ -148,7 +148,7 @@ Così come con le metriche, è possibile specificare i criteri arbitrari per i t
 
 Visualizzare i dettagli di un elemento nel feed live facendovi clic sopra. È possibile sospendere il feed facendo clic su **Sospendi** o semplicemente scorrendo verso il basso o facendo clic su un elemento. Il feed live verrà ripreso se, scorrendo, si torna all'inizio o facendo clic sul contatore degli elementi raccolti che era stato sospeso.
 
-![Errori live campionati](./media/live-stream/sample-telemetry.png)
+![Screenshot mostra la finestra di telemetria di esempio con un'eccezione selezionata e i dettagli dell'eccezione visualizzati nella parte inferiore della finestra.](./media/live-stream/sample-telemetry.png)
 
 ## <a name="filter-by-server-instance"></a>Filtro per istanza di server
 
@@ -242,14 +242,14 @@ Tuttavia, se l'utente riconosce tutti i server collegati e li ritiene affidabili
 |----------------------------------|:--------------------|:--------------------|:--------------------|:--------------------|:---------------------|
 | .NET Framework                   | Supportato (V 2.7.2 +) | Supportato (V 2.7.2 +) | Supportato (V 2.7.2 +) | Supportato (V 2.7.2 +) | Supportato (V 2.7.2 +)  |
 | .NET Core (target =. NET Framework)| Supportato (versione 2.4.1 +) | Supportato (versione 2.4.1 +) | Supportato (versione 2.4.1 +) | Supportato (versione 2.4.1 +) | Supportato (versione 2.4.1 +)  |
-| .NET Core (target =. NET Core)     | Supportato (versione 2.4.1 +) | Supportato*          | Supportato (versione 2.4.1 +) | Supportato (versione 2.4.1 +) | **Non Supportato**    |
-| Funzioni di Azure v2               | Funzionalità supportata           | Funzionalità supportata           | Funzionalità supportata           | Funzionalità supportata           | **Non supportato**    |
-| Java                             | Supportato (versione 2.0.0 +) | Supportato (versione 2.0.0 +) | **Non Supportato**   | **Non Supportato**   | **Non Supportato**    |
-| Node.js                          | Supportato (V 1.3.0 +) | Supportato (V 1.3.0 +) | **Non Supportato**   | Supportato (V 1.3.0 +) | **Non Supportato**    |
+| .NET Core (target =. NET Core)     | Supportato (versione 2.4.1 +) | Supportato*          | Supportato (versione 2.4.1 +) | Supportato (versione 2.4.1 +) | **Non supportato**    |
+| Funzioni di Azure v2               | Supportato           | Supportato           | Supportato           | Supportato           | **Non supportato**    |
+| Java                             | Supportato (versione 2.0.0 +) | Supportato (versione 2.0.0 +) | **Non supportato**   | **Non supportato**   | **Non supportato**    |
+| Node.js                          | Supportato (V 1.3.0 +) | Supportato (V 1.3.0 +) | **Non supportato**   | Supportato (V 1.3.0 +) | **Non supportato**    |
 
 Le metriche di base includono la richiesta, la dipendenza e la frequenza delle eccezioni. Le metriche delle prestazioni (contatori delle prestazioni) includono memoria e CPU. La telemetria di esempio mostra un flusso di informazioni dettagliate per le richieste e le dipendenze non riuscite, le eccezioni, gli eventi e le tracce.
 
- \*Il supporto di PerfCounters varia leggermente tra le versioni di .NET Core che non sono destinate al .NET Framework:
+ \* Il supporto di PerfCounters varia leggermente tra le versioni di .NET Core che non sono destinate al .NET Framework:
 
 - Le metriche PerfCounters sono supportate durante l'esecuzione nel servizio app Azure per Windows. (AspNetCore SDK versione 2.4.1 o successiva)
 - PerfCounters sono supportati quando l'app viene eseguita in qualsiasi computer Windows (VM o servizio cloud o in locale). (AspNetCore SDK versione 2.7.1 o successiva), ma per le app destinate a .NET Core 2,0 o versioni successive.

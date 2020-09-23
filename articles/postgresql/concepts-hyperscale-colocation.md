@@ -7,12 +7,12 @@ ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
 ms.date: 05/06/2019
-ms.openlocfilehash: 7e4073ec45f4c21f33d20924a9948e72f961c7f8
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 842563319e09a001fd6e85403d8aee6fb14690ee
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74967338"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90884420"
 ---
 # <a name="table-colocation-in-azure-database-for-postgresql--hyperscale-citus"></a>Condivisione della tabella nel database di Azure per PostgreSQL: iperscalabilità (CITUS)
 
@@ -22,7 +22,7 @@ La condivisione percorso consente di archiviare insieme le informazioni correlat
 
 In database di Azure per PostgreSQL – iperscalabilità (CITUS), una riga viene archiviata in una partizione se l'hash del valore nella colonna di distribuzione rientra nell'intervallo di hash della partizione. Le partizioni con lo stesso intervallo di hash vengono sempre posizionate nello stesso nodo. Le righe con valori di colonna di distribuzione uguali si trovano sempre nello stesso nodo tra le tabelle.
 
-![Partizioni](media/concepts-hyperscale-colocation/colocation-shards.png)
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-shards.png" alt-text="Partizioni":::
 
 ## <a name="a-practical-example-of-colocation"></a>Esempio pratico di condivisione percorso
 
@@ -96,7 +96,7 @@ Successivamente, i risultati dei due passaggi devono essere combinati dall'appli
 
 L'esecuzione delle query deve consultare i dati nelle partizioni sparse tra i nodi.
 
-![Query inefficienti](media/concepts-hyperscale-colocation/colocation-inefficient-queries.png)
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-inefficient-queries.png" alt-text="Query inefficienti":::
 
 In questo caso, la distribuzione dei dati crea svantaggi sostanziali:
 
@@ -134,7 +134,7 @@ GROUP BY page_id;
 
 A causa del filtro e del join in tenant_id, l'iperscalabilità (CITUS) sa che è possibile rispondere all'intera query usando il set di partizioni con percorso condiviso che contengono i dati per quel particolare tenant. Un singolo nodo PostgreSQL può rispondere alla query in un singolo passaggio.
 
-![Query migliore](media/concepts-hyperscale-colocation/colocation-better-query.png)
+:::image type="content" source="media/concepts-hyperscale-colocation/colocation-better-query.png" alt-text="Query migliore":::
 
 In alcuni casi, è necessario modificare le query e gli schemi di tabella in modo da includere l'ID tenant in vincoli univoci e condizioni di join. Questa modifica è in genere semplice.
 

@@ -12,12 +12,12 @@ ms.reviewer: larryfr
 ms.date: 03/01/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: b756e83f1d810007e9e9ef6cf2987c3cf60b7f7d
-ms.sourcegitcommit: 7fe8df79526a0067be4651ce6fa96fa9d4f21355
+ms.openlocfilehash: ad04566699b2eebb0cbd7a9f242de38bc75e2015
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/06/2020
-ms.locfileid: "87852855"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90986411"
 ---
 # <a name="data-ingestion-with-azure-data-factory"></a>Inserimento dati con Azure Data Factory
 
@@ -35,7 +35,7 @@ Sono disponibili diverse tecniche comuni di utilizzo di Azure Data Factory per t
 
 ## <a name="adf-with-azure-functions"></a>ADF con funzioni di Azure
 
-![ADF-funzione](media/how-to-data-ingest-adf/adf-function.png)
+![Il diagramma mostra una pipeline di Azure Data Factory, con funzioni di Azure e l'esecuzione di una pipeline M L, una pipeline Azure Machine Learning, con Train Model e il modo in cui interagiscono con i dati non elaborati e i dati preparati.](media/how-to-data-ingest-adf/adf-function.png)
 
 Funzioni di Azure consente di eseguire piccole parti di codice (funzioni) senza doversi preoccupare dell'infrastruttura dell'applicazione. In questa opzione i dati vengono elaborati con codice Python personalizzato racchiuso in una funzione di Azure. 
 
@@ -51,7 +51,7 @@ La funzione viene richiamata con l' [attività della funzione Azure di ADF](http
 
 ## <a name="adf-with-custom-component-activity"></a>ADF con attività componente personalizzato
 
-![ADF-CustomComponent](media/how-to-data-ingest-adf/adf-customcomponent.png)
+![Il diagramma mostra una pipeline di Azure Data Factory, con un componente personalizzato ed esegue la pipeline M L, una pipeline Azure Machine Learning, con Train Model e il modo in cui interagiscono con i dati non elaborati e i dati preparati.](media/how-to-data-ingest-adf/adf-customcomponent.png)
 
 In questa opzione i dati vengono elaborati con codice Python personalizzato racchiuso in un eseguibile. Viene richiamato con un' [attività di componente personalizzato di ADF](https://docs.microsoft.com/azure/data-factory/transform-data-using-dotnet-custom-activity). Questo approccio è più adatto per i dati di grandi dimensioni rispetto alla tecnica precedente.
 
@@ -64,7 +64,7 @@ In questa opzione i dati vengono elaborati con codice Python personalizzato racc
 
 ## <a name="adf-with-azure-databricks-python-notebook"></a>ADF con Azure Databricks notebook Python
 
-![ADF-databricks](media/how-to-data-ingest-adf/adf-databricks.png)
+![Il diagramma mostra una pipeline di Azure Data Factory, con Azure Databricks Python e l'esecuzione di una pipeline M L, una pipeline Azure Machine Learning, con Train Model e il modo in cui interagiscono con dati non elaborati e dati preparati.](media/how-to-data-ingest-adf/adf-databricks.png)
 
 [Azure Databricks](https://azure.microsoft.com/services/databricks/) è una piattaforma di analisi basata su Apache Spark nel cloud Microsoft.
 
@@ -82,7 +82,7 @@ In questa tecnica, la trasformazione dei dati viene eseguita da un [notebook di 
 
 ## <a name="consuming-data-in-azure-machine-learning-pipelines"></a>Utilizzo di dati in pipeline di Azure Machine Learning
 
-![AML-DataSet](media/how-to-data-ingest-adf/aml-dataset.png)
+![Il diagramma mostra una pipeline di Azure Data Factory e una pipeline Azure Machine Learning e il modo in cui interagiscono con i dati non elaborati e i dati preparati. La pipeline Data Factory invia i dati al database dei dati preparato, che inserisce un archivio dati, che consente di eseguire il feed dei set di dati nell'area di lavoro Machine Learning.](media/how-to-data-ingest-adf/aml-dataset.png)
 
 I dati trasformati dalla pipeline di ADF vengono salvati nell'archivio dati, ad esempio BLOB di Azure. Azure Machine Learning possibile accedere a questi dati usando gli [archivi](https://docs.microsoft.com/azure/machine-learning/how-to-access-data#create-and-register-datastores) dati e i [set](https://docs.microsoft.com/azure/machine-learning/how-to-create-register-datasets)di dati.
 

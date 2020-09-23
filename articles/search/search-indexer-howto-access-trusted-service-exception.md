@@ -7,20 +7,17 @@ author: arv100kri
 ms.author: arjagann
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 09/07/2020
-ms.openlocfilehash: f901833caf0623de643e0372c53658fa7da8c8be
-ms.sourcegitcommit: 4a7a4af09f881f38fcb4875d89881e4b808b369b
+ms.date: 09/22/2020
+ms.openlocfilehash: 1400f3c3d15698a5f1a145e8e0750ad7c4e9cec8
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/04/2020
-ms.locfileid: "89463724"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90971406"
 ---
 # <a name="accessing-data-in-storage-accounts-securely-via-trusted-service-exception"></a>Accesso sicuro ai dati negli account di archiviazione tramite un'eccezione del servizio attendibile
 
 Gli indicizzatori che accedono ai dati negli account di archiviazione possono usare la funzionalità di [eccezione del servizio attendibile](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) per accedere in modo sicuro ai dati. Questo meccanismo offre ai clienti che non sono in grado di concedere [l'accesso all'indicizzatore tramite regole del firewall IP](search-indexer-howto-access-ip-restricted.md) un'alternativa semplice, sicura e gratuita per accedere ai dati negli account di archiviazione.
-
-> [!NOTE]
-> L'accesso all'account di archiviazione tramite l'identità assegnata dal sistema di un servizio di ricerca è ancora in anteprima. Questa funzionalità di anteprima viene fornita senza un contratto di servizio e non è consigliata per i carichi di lavoro di produzione.
 
 ## <a name="step-1-configure-connection-to-the-storage-account-via-identity"></a>Passaggio 1: configurare la connessione all'account di archiviazione tramite Identity
 

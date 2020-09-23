@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/10/2019
-ms.openlocfilehash: 7df783f15280d9f5ba3330afaf504f3259aeccf3
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 9b2d003ef4938681229317b625aae4526787ac15
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646256"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898715"
 ---
 # <a name="convert-to-dataset"></a>Eseguire la conversione in set di dati
 
-Questo articolo descrive come usare il modulo Convert to DataSet in Azure Machine Learning Designer (Preview) per convertire i dati di una pipeline nel formato interno della finestra di progettazione.
+Questo articolo descrive come usare il modulo Convert to DataSet in Azure Machine Learning Designer per convertire i dati di una pipeline nel formato interno della finestra di progettazione.
   
 La conversione non è necessaria nella maggior parte dei casi. Azure Machine Learning converte in modo implicito i dati nel relativo formato di set di dati nativo quando viene eseguita un'operazione sui dati. 
 

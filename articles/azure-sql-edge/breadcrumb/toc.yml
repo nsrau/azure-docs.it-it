@@ -1,0 +1,14 @@
+- name: Azure
+  tocHref: /azure/
+  topicHref: /azure/index
+  items:
+    - name: SQL Edge di Azure
+      tocHref: /azure/azure-sql-edge/
+      topicHref: /azure/azure-sql-edge/index
+      items:
+        - name: Centro sicurezza di Azure per IoT
+          tocHref: /azure/asc-for-iot/
+          topicHref: /azure/azure-sql-edge/index
+        - name: Sicurezza
+          tocHref: 'https://docs.microsoft.com/sql/linux/'
+          topicHref: /azure/azure-sql-edge/index

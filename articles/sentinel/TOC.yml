@@ -29,6 +29,10 @@
       href: fusion.md
     - name: Estendere Azure Sentinel tra più aree di lavoro e tenant
       href: extend-sentinel-across-workspaces-tenants.md
+    - name: Identificare minacce avanzate con UEBA
+      href: identify-threats-with-entity-behavior-analytics.md
+    - name: Importare intelligence sulle minacce in Azure Sentinel
+      href: import-threat-intelligence.md
     - name: Normalizzare i dati tra le tabelle
       href: normalization.md
     - name: Sicurezza
@@ -162,6 +166,8 @@
           href: connect-threat-intelligence.md
         - name: Connettere le VM di Azure Stack
           href: connect-azure-stack.md
+    - name: Abilitare l'analisi del comportamento di utenti ed entità
+      href: enable-entity-behavior-analytics.md
     - name: Usare più tenant (MSSP)
       href: multiple-tenants-service-providers.md
     - name: Gestire eventi imprevisti in più aree di lavoro

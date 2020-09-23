@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: memildin
-ms.openlocfilehash: dc19d74953db48ccf51d4731e2b9feccb2294041
-ms.sourcegitcommit: 3d79f737ff34708b48dd2ae45100e2516af9ed78
+ms.openlocfilehash: c508591fe9909578dcc04b0922c0b76691898743
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/23/2020
-ms.locfileid: "87076385"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901093"
 ---
 # <a name="tutorial-respond-to-security-incidents"></a>Esercitazione: Rispondere agli eventi imprevisti per la sicurezza
 Il Centro sicurezza analizza continuamente i carichi di lavoro del cloud ibrido usando funzionalità avanzate di analisi e intelligence delle minacce per segnalare attività dannose. È anche possibile integrare nel Centro sicurezza gli avvisi generati da altri servizi e prodotti per la sicurezza e creare avvisi personalizzati in base a indicatori o origini di intelligence dell'utente. Dopo che è stato generato un avviso, è necessaria un'azione rapida per l'analisi e la correzione. In questa esercitazione verranno illustrate le procedure per:
@@ -32,7 +32,7 @@ Il Centro sicurezza analizza continuamente i carichi di lavoro del cloud ibrido 
 Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://azure.microsoft.com/free/) prima di iniziare.
 
 ## <a name="prerequisites"></a>Prerequisiti
-Per esaminare le funzionalità descritte in questa esercitazione, è necessario il piano tariffario Standard del Centro sicurezza. È possibile provare il livello Standard del Centro sicurezza gratuitamente. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/). La [Guida di avvio rapido per il Centro sicurezza di Azure ](security-center-get-started.md) illustra come eseguire l'aggiornamento al livello Standard.
+Per esaminare le funzionalità descritte in questa esercitazione, Azure Defender deve essere abilitato. È possibile provare Azure Defender gratuitamente. Per altre informazioni, vedere la [pagina dei prezzi](https://azure.microsoft.com/pricing/details/security-center/). La guida di avvio rapido [Introduzione a Centro sicurezza](security-center-get-started.md) illustra nel dettaglio come eseguire l'aggiornamento.
 
 ## <a name="scenario"></a>Scenario
 Contoso ha recentemente eseguito la migrazione di alcune delle risorse locali in Azure, inclusi alcuni carichi di lavoro e database SQL di linea di business basati sulle macchine virtuali. Il team di risposta agli eventi imprevisti della sicurezza di Contoso ha attualmente difficoltà nell'analisi dei problemi di sicurezza, data la mancanza di una intelligence di sicurezza integrata con gli attuali strumenti di risposta agli eventi imprevisti. Questa mancata integrazione costituisce un problema durante la fase di rilevamento (troppi falsi positivi) e durante le fasi di valutazione e diagnosi. Nell'ambito di questa migrazione, il team ha deciso di ricorrere al Centro sicurezza per risolvere questo problema.
@@ -68,13 +68,13 @@ Il Centro sicurezza offre una vista centralizzata di tutti gli avvisi di sicurez
 
    ![Avvisi di sicurezza](./media/tutorial-security-incident/tutorial-security-incident-fig1.png)
 
-2. Nell'elenco degli avvisi fare clic su un evento imprevisto della sicurezza, ovvero una raccolta di avvisi, per ottenere altre informazioni sull'evento imprevisto. Si aprirà **Security incident detected** (Rilevato evento imprevisto sicurezza).
+2. Nell'elenco degli avvisi selezionare un evento imprevisto della sicurezza, ovvero una raccolta di avvisi, per ottenere altre informazioni sull'evento imprevisto. Si aprirà **Security incident detected** (Rilevato evento imprevisto sicurezza).
 
-   ![Evento imprevisto della sicurezza](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
+   ![Rilevato evento imprevisto sicurezza](./media/tutorial-security-incident/tutorial-security-incident-fig2.png)
 
 3. Questa schermata indica la descrizione dell'evento imprevisto della sicurezza in alto e l'elenco degli avvisi che fanno parte di questo evento imprevisto. Fare clic sull'avviso da analizzare per ottenere altre informazioni.
 
-   ![Evento imprevisto della sicurezza](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
+   ![Dettagli dell'avviso dall'evento imprevisto](./media/tutorial-security-incident/tutorial-security-incident-fig3.png)
 
    Il tipo di avviso può variare. Vedere [Informazioni sugli avvisi di sicurezza nel Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) per altre informazioni sul tipo di avviso e le possibili procedure correttive. Per gli avvisi che possono essere ignorati, è possibile fare clic con il pulsante destro del mouse sull'avviso e scegliere **Ignora**:
 
@@ -99,13 +99,12 @@ Per eseguire una ricerca, aprire il dashboard del **Centro sicurezza**, fare cli
 
 ## <a name="clean-up-resources"></a>Pulire le risorse
 
-Altre guide introduttive ed esercitazioni della raccolta si basano su questa. Se si prevede di usare le guide introduttive e le esercitazioni successive, continuare a eseguire il livello Standard e tenere abilitato il provisioning automatico. Se non si intende proseguire oppure si vuole tornare al livello gratuito:
+Altre guide introduttive ed esercitazioni della raccolta si basano su questa. Se si prevede di continuare con le guide di avvio rapido e le esercitazioni successive, tenere abilitati il provisioning automatico e Azure Defender. Se non si intende proseguire oppure si vuole disabilitare Azure Defender:
 
-1. Tornare al menu principale del Centro sicurezza e selezionare **Criteri di sicurezza**.
-2. Selezionare la sottoscrizione o i criteri per i quali si vuole tornare al livello gratuito. Viene visualizzata la finestra **Criteri di sicurezza**.
-3. In **COMPONENTI DEI CRITERI** selezionare **Piano tariffario**.
-4. Selezionare **Gratuito** per passare dal livello di sottoscrizione standard a quello gratuito.
-5. Selezionare **Salva**.
+1. Tornare al menu principale del Centro sicurezza e selezionare **Prezzi e impostazioni**.
+1. Selezionare la sottoscrizione di cui effettuare il downgrade.
+1. Disattivare **Azure Defender**.
+1. Selezionare **Salva**.
 
 Se si vuole disabilitare il provisioning automatico:
 

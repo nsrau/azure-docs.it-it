@@ -8,16 +8,16 @@ ms.date: 09/22/2020
 ms.author: rogarana
 ms.subservice: disks
 ms.custom: references_regions
-ms.openlocfilehash: 4ad0ce1aef45dc4126d3ce17c7093b885f1b8bd7
-ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
+ms.openlocfilehash: aa188babf56d4a825059fe6103e2e07745eb134f
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
 ms.lasthandoff: 09/22/2020
-ms.locfileid: "90938015"
+ms.locfileid: "90974136"
 ---
 # <a name="performance-tiers-for-managed-disks-preview"></a>Livelli di prestazioni per Managed Disks (anteprima)
 
-Archiviazione su disco di Azure attualmente offre funzionalità di espansione predefinite per ottenere prestazioni più elevate per la gestione di traffico imprevisto a breve termine. Le unità SSD Premium sono in grado di aumentare le prestazioni del disco senza aumentare le dimensioni effettive del disco, consentendo di soddisfare le esigenze di prestazioni del carico di lavoro e di ridurre i costi. Questa soluzione è ideale per gli eventi che richiedono temporaneamente un livello di prestazioni costantemente più elevato, ad esempio l'acquisto di festività, il test delle prestazioni o l'esecuzione di un ambiente di training. Per gestire questi eventi, è possibile selezionare un livello di prestazioni superiore purché necessario e tornare al livello originale quando le prestazioni aggiuntive non sono più necessarie.
+Archiviazione su disco di Azure attualmente offre funzionalità di espansione predefinite per ottenere prestazioni più elevate per la gestione di traffico imprevisto a breve termine. Le unità SSD Premium sono in grado di aumentare le prestazioni del disco senza aumentare le dimensioni effettive del disco, consentendo di soddisfare le esigenze di prestazioni del carico di lavoro e di ridurre i costi. questa funzionalità è attualmente in anteprima. Questa soluzione è ideale per gli eventi che richiedono temporaneamente un livello di prestazioni costantemente più elevato, ad esempio l'acquisto di festività, il test delle prestazioni o l'esecuzione di un ambiente di training. Per gestire questi eventi, è possibile selezionare un livello di prestazioni superiore purché necessario e tornare al livello originale quando le prestazioni aggiuntive non sono più necessarie.
 
 ## <a name="how-it-works"></a>Funzionamento
 
