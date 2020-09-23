@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 04/28/2020
 ms.author: jeedes
-ms.openlocfilehash: 4b4953cbca4d08e911fd043413387a1602bd8e08
-ms.sourcegitcommit: 3c66bfd9c36cd204c299ed43b67de0ec08a7b968
+ms.openlocfilehash: ae13e062f50e1e8eefeaa886c67c636cf6230c18
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "90006092"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90973879"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workplace by Facebook per il provisioning utenti automatico
 
@@ -89,7 +89,7 @@ Il servizio di provisioning di Azure AD consente di definire l'ambito per gli ut
 
 5. Nella sezione **credenziali amministratore** fare clic su **autorizza**. Si verrà reindirizzati all'area di lavoro dalla pagina di autorizzazione di Facebook. Immettere l'area di lavoro per nome utente di Facebook e fare clic sul pulsante **continue (continua** ). Fare clic su **Test connessione** per assicurarsi che Azure ad possa connettersi all'area di lavoro da Facebook. Se la connessione ha esito negativo, verificare che l'account di lavoro per Facebook disponga delle autorizzazioni di amministratore e riprovare.
 
-    ![provisioning](./media/workplacebyfacebook-provisioning-tutorial/provisioning.png)
+    ![Screenshot Visualizza la finestra di dialogo credenziali amministratore con un'opzione autorizzazione.](./media/workplacebyfacebook-provisioning-tutorial/provisioning.png)
 
     ![Autorizza](./media/workplacebyfacebook-provisioning-tutorial/workplacelogin.png)
 
@@ -125,13 +125,13 @@ Il servizio di provisioning di Azure AD consente di definire l'ambito per gli ut
    |phoneNumbers[type eq "fax"].value|string|
    |externalId|string|
    |preferredLanguage|string|
-   |urn: SCIM: schemas: Extension: Enterprise: 1.0. Manager|string|
-   |urn: SCIM: schemas: Extension: Enterprise: 1.0. Department|string|
-   |urn: SCIM: schemas: Extension: Enterprise: 1.0. Division|string|
-   |urn: SCIM: schemas: estensione: Enterprise: 1.0. Organization|string|
-   |urn: SCIM: schemas: Extension: Enterprise: 1.0. costCenter|string|
-   |urn: SCIM: schemas: Extension: Enterprise: 1.0. employeeNumber|string|
-   |urn: SCIM: schemas: estensione: Facebook: auth_method: 1.0: auth_method|string|
+   |urn:scim:schemas:extension:enterprise:1.0.manager|string|
+   |urn:scim:schemas:extension:enterprise:1.0.department|string|
+   |urn:scim:schemas:extension:enterprise:1.0.division|string|
+   |urn:scim:schemas:extension:enterprise:1.0.organization|string|
+   |urn:scim:schemas:extension:enterprise:1.0.costCenter|string|
+   |urn:scim:schemas:extension:enterprise:1.0.employeeNumber|string|
+   |urn: SCIM: schemas: estensione: Facebook: auth_method: 1.0: auth_method|Stringa|
    |urn: SCIM: schemas: estensione: Facebook: Frontline: 1.0. is_frontline|Boolean|
    |urn: SCIM: schemas: estensione: Facebook: starttermdates: 1.0. startDate|Integer|
 

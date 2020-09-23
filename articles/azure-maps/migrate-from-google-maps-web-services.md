@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 934a7546464cf552c355ee6b4e278b79a0f9ff90
-ms.sourcegitcommit: 493b27fbfd7917c3823a1e4c313d07331d1b732f
+ms.openlocfilehash: 8cc16e611002748dad2716a1c8dc914f297da9f1
+ms.sourcegitcommit: 07166a1ff8bd23f5e1c49d4fd12badbca5ebd19c
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/21/2020
-ms.locfileid: "83747490"
+ms.lasthandoff: 09/15/2020
+ms.locfileid: "90090551"
 ---
 # <a name="migrate-web-service-from-google-maps"></a>Eseguire la migrazione di un servizio Web da Google Maps
 
@@ -495,6 +495,9 @@ Altre informazioni sui servizi REST di Mappe di Azure.
 
 > [!div class="nextstepaction"]
 > [Come usare il modulo dei servizi (Web SDK)](how-to-use-best-practices-for-routing.md)
+
+> [!div class="nextstepaction"]
+> [Documentazione di riferimento per l'API del servizio REST di Mappe di Azure](https://docs.microsoft.com/rest/api/maps/)
 
 > [!div class="nextstepaction"]
 > [Esempi di codice](https://docs.microsoft.com/samples/browse/?products=azure-maps)

@@ -10,12 +10,12 @@ ms.topic: article
 ms.workload: identity
 ms.date: 05/26/2020
 ms.author: chmutali
-ms.openlocfilehash: 0a025ad7857594b3117b1703a0e19ae47407d0fd
-ms.sourcegitcommit: 43558caf1f3917f0c535ae0bf7ce7fe4723391f9
+ms.openlocfilehash: 87085d4a4911801933993720ae0ab23aeb19956d
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/11/2020
-ms.locfileid: "90018102"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90974366"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>Esercitazione: Configurare Workday per il provisioning utenti automatico
 
@@ -373,7 +373,7 @@ Trasferire il programma di installazione dell'agente scaricato nell'host del ser
 1. Verificare l'installazione dell'agente e accertarsi che sia in esecuzione aprendo lo snap-in "Servizi" e cercare il servizio denominato "Agente di provisioning Microsoft Azure Active Directory Connect"
 
    >[!div class="mx-imgBorder"]
-   >![Screenshot della Microsoft Azure AD connettere l'agente di provisioning in esecuzione nei servizi](./media/workday-inbound-tutorial/services.png)
+   >![Screenshot della Microsoft Azure AD connettere l'agente di provisioning in esecuzione nei servizi.](./media/workday-inbound-tutorial/services.png)
 
 ### <a name="part-3-in-the-provisioning-app-configure-connectivity-to-workday-and-active-directory"></a>Parte 3: Nell'app di provisioning, configurare la connettività in Workday e Active Directory
 In questo passaggio viene stabilita la connettività con Workday e Active Directory nel portale di Azure. 

@@ -1,6 +1,6 @@
 ---
 title: Parametri temporali delle cartelle di lavoro di monitoraggio di Azure
-description: Semplificare la creazione di report complessi con cartelle di lavoro con parametri predefinite e personalizzate
+description: Informazioni su come impostare i parametri temporali per consentire agli utenti di impostare il contesto dell'ora di analisi. I parametri temporali vengono utilizzati da quasi tutti i report.
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
@@ -9,12 +9,12 @@ ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 380b8a7ce286ab06b6935bf63bf3a0e82f371c2f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c84133d5728f7b6593e0606dda2eef28b8167e43
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "77658014"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90972866"
 ---
 # <a name="workbook-time-parameters"></a>Parametri ora cartella di lavoro
 
@@ -25,9 +25,9 @@ I parametri temporali consentono agli utenti di impostare il contesto di analisi
 2. Scegliere _Aggiungi parametri_ dai collegamenti all'interno della cartella di lavoro.
 3. Fare clic sul pulsante _Aggiungi parametro_ blu.
 4. Nel riquadro nuovo parametro visualizzato immettere:
-    1. Nome parametro:`TimeRange`
-    2. Tipo di parametro:`Time range picker`
-    3. Obbligatorio:`checked`
+    1. Nome parametro: `TimeRange`
+    2. Tipo di parametro: `Time range picker`
+    3. Obbligatorio: `checked`
     4. Intervalli di tempo disponibili: ultima ora, ultime 12 ore, ultime 24 ore, ultime 48 ore, ultimi 3 giorni, ultimi 7 giorni e Consenti selezione dell'intervallo di tempo personalizzato
 5. Scegliere ' Salva ' dalla barra degli strumenti per creare il parametro.
 
@@ -48,7 +48,7 @@ Questo è il modo in cui la cartella di lavoro sarà simile in modalità lettura
 
 ### <a name="in-kql"></a>In KQL
 1. Aggiungere un controllo query alla cartella di lavoro e selezionare una risorsa Application Insights.
-2. In KQL immettere un filtro per l'ambito temporale utilizzando il parametro:`| where timestamp {TimeRange}`
+2. In KQL immettere un filtro per l'ambito temporale utilizzando il parametro: `| where timestamp {TimeRange}`
 3. In questo modo si espande il tempo di valutazione della query in `| where timestamp > ago(1d)` , ovvero il valore dell'intervallo di tempo del parametro.
 4. Eseguire la query per visualizzare i risultati
 
@@ -56,7 +56,7 @@ Questo è il modo in cui la cartella di lavoro sarà simile in modalità lettura
 
 ### <a name="in-text"></a>Testo 
 1. Aggiungere un controllo di testo alla cartella di lavoro.
-2. In Markdown immettere`The chosen time range is {TimeRange:label}`
+2. In Markdown immettere `The chosen time range is {TimeRange:label}`
 3. Scegli _modifica completato_
 4. Il controllo di testo visualizzerà il testo: _l'intervallo di tempo scelto è le ultime 24 ore_
 

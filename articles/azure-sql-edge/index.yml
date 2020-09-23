@@ -1,21 +1,21 @@
 ### YamlMime:Landing
-title: Documentazione di SQL Edge di Azure (anteprima)
+title: Documentazione di SQL Edge di Azure
 summary: SQL Edge di Azure un motore di database relazionale ottimizzato e progettato per distribuzioni IoT e perimetrali.
 metadata:
-  title: Documentazione di SQL Edge di Azure (anteprima)
-  meta.description: Learn how to use Azure SQL Edge (Preview).
+  title: Documentazione di SQL Edge di Azure
+  meta.description: Learn how to use Azure SQL Edge.
   services: sql-edge
   ms.service: sql-edge
   ms.topic: landing-page
   author: stevestein
   ms.author: sstein
   ms.date: 05/19/2020
-  ms.openlocfilehash: 97595cd74fa5a584d5d1943ed88ac617fc742569
-  ms.sourcegitcommit: f1132db5c8ad5a0f2193d751e341e1cd31989854
+  ms.openlocfilehash: 3a043b3e29352abd44d1b880f366d9fa8ccea4d2
+  ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
   ms.translationtype: HT
   ms.contentlocale: it-IT
-  ms.lasthandoff: 05/31/2020
-  ms.locfileid: "84233191"
+  ms.lasthandoff: 09/22/2020
+  ms.locfileid: "90894482"
 landingContent:
 - title: SQL Edge
   linkLists:
@@ -25,8 +25,14 @@ landingContent:
       url: overview.md
   - linkListType: deploy
     links:
-    - text: Distribuire SQL Edge
+    - text: Distribuire SQL Edge con il portale
       url: deploy-portal.md
+    - text: Distribuire SQL Edge con Docker
+      url: disconnected-deployment.md
+  - linkListType: tutorial
+    links:
+    - text: Distribuire in Kubernetes
+      url: deploy-kubernetes.md
 - title: Sincronizzare i dati
   linkLists:
   - linkListType: tutorial
@@ -43,6 +49,8 @@ landingContent:
       url: stream-data.md
     - text: Viste del catalogo di streaming
       url: streaming-catalog-views.md
+    - text: Creare e gestire processi di streaming
+      url: create-stream-analytics-job.md
 - title: Machine Learning
   linkLists:
   - linkListType: concept
@@ -53,3 +61,21 @@ landingContent:
     links:
     - text: Distribuire ONNX in SQL Edge
       url: deploy-onnx.md
+- title: Elaborazione dei dati di serie temporali
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Inserimento di valori mancanti
+      url: imputing-missing-values.md
+    - text: Criteri di conservazione dei dati
+      url: data-retention-overview.md
+    - text: Date_Bucket (Transact-SQL)
+      url: date-bucket-tsql.md
+- title: Configurare SQL Edge
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Configurare SQL Edge
+      url: configure.md
+    - text: Configurare la replica
+      url: configure-replication.md

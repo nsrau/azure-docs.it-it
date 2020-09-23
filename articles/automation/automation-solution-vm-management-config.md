@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 06/01/2020
 ms.topic: conceptual
-ms.openlocfilehash: 3fbd6292f654071f74b4dfccc5e4de393ccfff02
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: b0bc23d515bebdd0d943bbad33c5ebba35a35605
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84266716"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90987214"
 ---
 # <a name="configure-startstop-vms-during-off-hours"></a>Configurare Avvio/Arresto di macchine virtuali durante gli orari di minore attività
 
@@ -139,17 +139,17 @@ Per modificare le notifiche tramite posta elettronica dopo la distribuzione di A
 
 1. Nel portale di Azure passare a **Monitoraggio**, **Gruppi di azioni**. Selezionare il gruppo di azioni denominato **StartStop_VM_Notication**.
 
-    ![Pagina Gestione aggiornamenti di Automazione](media/automation-solution-vm-management/azure-monitor.png)
+    :::image type="content" source="media/automation-solution-vm-management/azure-monitor.png" alt-text="Screenshot della pagina Monitoraggio-gruppi di azione.":::
 
 2. Nella pagina StartStop_VM_Notification fare clic su **Modifica dettagli** in **Dettagli**. Si aprirà la pagina Email/SMS/Push/Voice (Posta elettronica/SMS/Push/Voce). Aggiornare l'indirizzo di posta elettronica e fare clic su **OK** per salvare le modifiche.
 
-    ![Pagina Gestione aggiornamenti di Automazione](media/automation-solution-vm-management/change-email.png)
+    :::image type="content" source="media/automation-solution-vm-management/change-email.png" alt-text="Screenshot della pagina posta elettronica/SMS/push/Voice che mostra un esempio di indirizzo di posta elettronica aggiornato.":::
 
     In alternativa è possibile aggiungere azioni aggiuntive al gruppo di azione, per altre informazioni sui gruppi di azioni, vedere [gruppi di azioni](../azure-monitor/platform/action-groups.md)
 
 Di seguito è riportato un messaggio di posta elettronica di esempio che viene inviato quando la funzionalità arresta macchine virtuali.
 
-![Pagina Gestione aggiornamenti di Automazione](media/automation-solution-vm-management/email.png)
+:::image type="content" source="media/automation-solution-vm-management/email.png" alt-text="Screenshot di un messaggio di posta elettronica di esempio inviato quando la funzionalità arresta le macchine virtuali.":::
 
 ## <a name="add-or-exclude-vms"></a><a name="add-exclude-vms"></a>Aggiungere o escludere macchine virtuali
 

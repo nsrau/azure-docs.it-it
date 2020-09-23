@@ -4,12 +4,12 @@ description: Rilevamento di problemi con la scalabilità automatica di Azure usa
 ms.topic: conceptual
 ms.date: 11/4/2019
 ms.subservice: autoscale
-ms.openlocfilehash: 9780cf88070110c4efc13c477d65307aa3985fe5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a29b5d11a6ea06af9d5b6a8b5120c6f0caa6601e
+ms.sourcegitcommit: bdd5c76457b0f0504f4f679a316b959dcfabf1ef
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "75751344"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90979047"
 ---
 # <a name="troubleshooting-azure-autoscale"></a>Risoluzione dei problemi di scalabilità automatica di Azure
  
@@ -47,7 +47,7 @@ La scalabilità automatica fornisce [quattro metriche](metrics-supported.md#micr
 
 Esaminiamo le metriche dal servizio di scalabilità automatica.
  
-![Esempio di CPU percentuale del set di scalabilità di macchine virtuali](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
+![Screenshot mostra un esempio di CPU in percentuale del set di scalabilità di macchine virtuali.](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-1.png)
 
 ![Esempio di CPU percentuale del set di scalabilità di macchine virtuali](media/autoscale-troubleshoot/autoscale-vmss-CPU-ex-full-2.png)
 
@@ -72,7 +72,7 @@ Se il valore del **flusso in uscita per istanza** è maggiore di 10, il servizio
 
 In questo caso, il valore della metrica osservato del motore di scalabilità automatica viene calcolato come valore effettivo della metrica diviso per il numero di istanze. Se il valore della metrica osservato è inferiore alla soglia, non viene avviata alcuna azione di scalabilità orizzontale. 
  
-![Esempio di grafici di metriche di scalabilità automatica del set di scalabilità di macchine virtuali](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
+![Screenshot mostra la pagina media dei flussi in uscita con un esempio di grafici di metrica di scalabilità automatica del set di scalabilità di macchine virtuali.](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-1.png)
 
 ![Esempio di grafici di metriche di scalabilità automatica del set di scalabilità di macchine virtuali](media/autoscale-troubleshoot/autoscale-vmss-metric-chart-ex-2.png)
 

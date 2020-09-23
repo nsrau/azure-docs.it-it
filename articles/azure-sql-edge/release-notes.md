@@ -9,17 +9,42 @@ ms.subservice: ''
 author: VasiyaKrishnan
 ms.author: vakrishn
 ms.reviewer: sstein
-ms.date: 09/04/2020
-ms.openlocfilehash: a2d27f892e79d99f515032b72e1ec090ab1f6a31
-ms.sourcegitcommit: 206629373b7c2246e909297d69f4fe3728446af5
+ms.date: 09/22/2020
+ms.openlocfilehash: 3306e51fe2fdbb2586be9684432d8f8c310afe95
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/06/2020
-ms.locfileid: "89500352"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900594"
 ---
 # <a name="azure-sql-edge-release-notes"></a>Note sulla versione di Azure SQL Edge 
 
 Questo articolo descrive le novità e le modifiche apportate a ogni nuova build di Azure SQL Edge.
+
+## <a name="azure-sql-edge---100-rtm"></a>Azure SQL Edge-1.0.0 (RTM)
+
+### <a name="sql-engine-build-number---15020001549"></a>Numero di build del motore SQL: 15.0.2000.1549
+
+### <a name="whats-new"></a>Novità
+1. Immagini del contenitore basate su Ubuntu 18,04. 
+2. Supporto per `IGNORE NULL` la `RESPECT NULL` sintassi e con le `LAST_VALUE()` `FIRST_VALUE()` funzioni e. 
+3. Miglioramenti dell'affidabilità per la stima con ONNX.
+4. Supporto per la pulizia basata sui criteri di conservazione dei dati.      
+   - Supporto per la pulizia ottimizzata per gli indici columnstore cluster.
+5. Supporto per nuove funzionalità 
+   - Ripristino rapido
+   - Ottimizzazione automatica delle query
+
+### <a name="fixes"></a>Correzioni
+1. Messaggi di errore aggiuntivi e dettagli per la risoluzione dei problemi relativi alle operazioni di streaming TSQL. 
+2. Miglioramenti per la conservazione della durata della batteria in modalità inattiva. 
+3. Correzioni del motore di flusso TSQL: 
+   - Pulizia per un processo di streaming interrotto 
+   - Correzioni per la localizzazione e i miglioramenti della gestione Unicode
+4. Pulizia basata su criteri di conservazione dei dati
+   - Correzioni per gli scenari di creazione e pulizia dei criteri di conservazione.
+5. Correzioni per le attività del timer in background per migliorare il risparmio energetico per la modalità a basso consumo.
+
 
 ## <a name="ctp-23"></a>CTP 2.3
 ### <a name="sql-engine-build-number---15020001549"></a>Numero di build del motore SQL: 15.0.2000.1549
@@ -33,7 +58,7 @@ Questo articolo descrive le novità e le modifiche apportate a ogni nuova build 
 
 ### <a name="fixes"></a>Correzioni
 1. Messaggi di errore aggiuntivi e dettagli per la risoluzione dei problemi relativi alle operazioni di streaming TSQL. 
-2. Imporvements per preservare la durata della batteria in modalità inattiva. 
+2. Miglioramenti per la conservazione della durata della batteria in modalità inattiva. 
 3. Correzioni del motore di flusso TSQL: 
    - Correzione del problema relativo alla filigrana bloccata con la finestra di salto in flusso 
    - Correzione della gestione delle eccezioni del Framework per assicurarsi che venga raccolta come errore eseguibile dall'utente

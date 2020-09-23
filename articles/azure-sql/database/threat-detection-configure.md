@@ -8,34 +8,32 @@ ms.custom: seo-dt-2019, sqldbrb=1
 ms.topic: conceptual
 author: rmatchoro
 ms.author: ronmat
-ms.reviewer: vanto, carlrab
-ms.date: 08/05/2019
-ms.openlocfilehash: 2f4e9841a44252829fae283a12ba804219204022
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.reviewer: vanto
+ms.date: 09/21/2020
+ms.openlocfilehash: 19da4581ef44d7c7cc51eac839c7db018793e557
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84321547"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885125"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-sql-database"></a>Configurare Advanced Threat Protection per il database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 [Advanced Threat Protection](threat-detection-overview.md) per il database SQL di Azure rileva attività anomale che indicano tentativi insoliti e potenzialmente dannosi di accesso o exploit dei database. Advanced Threat Protection è in grado di identificare **potenziali attacchi SQL injection**, **accesso da posizioni insolite o Data Center**, **accesso da un'applicazione principale o potenzialmente dannosa**e **forza bruta per le credenziali SQL** . per ulteriori informazioni, vedere gli [avvisi di Advanced Threat Protection](threat-detection-overview.md#alerts).
 
-È possibile ricevere notifiche sulle minacce rilevate tramite [posta elettronica](threat-detection-overview.md#explore-detection-of-a-suspicious-event) o il [portale di Azure](threat-detection-overview.md#explore-alerts-in-the-azure-portal)
+È possibile ricevere notifiche sulle minacce rilevate tramite [notifiche di posta elettronica](threat-detection-overview.md#explore-detection-of-a-suspicious-event) o [portale di Azure](threat-detection-overview.md#explore-alerts-in-the-azure-portal)
 
-[Advanced Threat Protection](threat-detection-overview.md) fa parte dell'offerta [avanzata di sicurezza dei dati](advanced-data-security.md) , un pacchetto unificato per le funzionalità avanzate di sicurezza di SQL. È possibile accedere e gestire Advanced Threat Protection tramite il portale SQL Advanced Data Security centrale.
+[Advanced Threat Protection](threat-detection-overview.md) fa parte dell'offerta [Azure Defender for SQL](azure-defender-for-sql.md) , un pacchetto unificato per le funzionalità avanzate di sicurezza di SQL. È possibile accedere a Advanced Threat Protection e gestirlo tramite il portale di Azure Defender centrale per SQL.
 
 ## <a name="set-up-advanced-threat-protection-in-the-azure-portal"></a>Configurare Advanced Threat Protection nella portale di Azure
 
 1. Accedere al [portale di Azure](https://portal.azure.com).
-2. Passare alla pagina di configurazione del server che si desidera proteggere. Nelle impostazioni di sicurezza, selezionare **Sicurezza dei dati avanzata**.
-3. Nella pagina di configurazione **Sicurezza dei dati avanzata**:
+2. Passare alla pagina di configurazione del server che si desidera proteggere. In Impostazioni sicurezza selezionare **Centro sicurezza**.
+3. Nella pagina di configurazione di **Azure Defender** :
 
-   - Abilitare Sicurezza dei dati avanzata nel server.
+   - Abilitare Azure Defender sul server.
    - In **Impostazioni di Advanced Threat Protection**, nella casella di testo **Invia avvisi a**, viene fornito l'elenco dei messaggi di posta elettronica per ricevere avvisi di sicurezza al rilevamento delle attività anomale del database.
-  
-   ![Configurare Advanced Threat Protection](./media/threat-detection/set_up_threat_detection.png)
 
 ## <a name="set-up-advanced-threat-protection-using-powershell"></a>Configurare Advanced Threat Protection tramite PowerShell
 
@@ -45,7 +43,7 @@ Per un esempio di script, vedere [configurare il controllo e la protezione avanz
 
 - Altre informazioni su [Advanced Threat Protection](threat-detection-overview.md).
 - Altre informazioni sulla [protezione avanzata dalle minacce in SQL istanza gestita](../managed-instance/threat-detection-configure.md).  
-- Altre informazioni su [Sicurezza dei dati avanzata](advanced-data-security.md).
+- Scopri di più su [Azure Defender per SQL](azure-defender-for-sql.md).
 - Altre informazioni su [Controllo](../../azure-sql/database/auditing-overview.md)
 - Scopri di più sul [Centro sicurezza di Azure](https://docs.microsoft.com/azure/security-center/security-center-intro)
 - Per ulteriori informazioni sui prezzi, vedere la [pagina dei prezzi del database SQL](https://azure.microsoft.com/pricing/details/sql-database/)  

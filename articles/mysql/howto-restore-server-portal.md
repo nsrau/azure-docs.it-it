@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/30/2020
-ms.openlocfilehash: c6a35d9ba2d2f1c762f44b3792792401565c4804
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: 7c9e7cda862fe1112cce7ed8cff270843f0a8475
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89421085"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902791"
 ---
 # <a name="how-to-backup-and-restore-a-server-in-azure-database-for-mysql-using-the-azure-portal"></a>Come eseguire il backup e il ripristino di un server in Database di Azure per MySQL tramite il portale di Azure
 
@@ -32,7 +32,7 @@ La scelta tra backup con ridondanza locale o ridondanza geografica si effettua a
 
 Quando si crea un server nel portale di Azure, la finestra **Piano tariffario** consente di selezionare backup **con ridondanza locale** o **ridondanza geografica** per il server. In questa finestra è anche possibile specificare il **periodo di conservazione dei backup**, ovvero per quanti giorni si vogliono archiviare i backup del server.
 
-   ![Piano tariffario: scegliere la ridondanza del backup](./media/howto-restore-server-portal/pricing-tier.png)
+   :::image type="content" source="./media/howto-restore-server-portal/pricing-tier.png" alt-text="Piano tariffario: scegliere la ridondanza del backup":::
 
 Per altre informazioni sull'impostazione di questi valori durante la creazione, vedere la [guida introduttiva del server Database di Azure per MySQL](quickstart-create-mysql-server-database-using-azure-portal.md).
 
@@ -41,7 +41,7 @@ Per altre informazioni sull'impostazione di questi valori durante la creazione, 
 2. Selezionare il server del Database di Azure per MySQL. Questa azione apre la pagina **Panoramica**.
 3. Selezionare **Piano tariffario** nel menu in **IMPOSTAZIONI**. Con il dispositivo di scorrimento è possibile modificare il **periodo di conservazione dei backup** impostandolo su un numero di giorni compreso tra 7 e 35.
 Nello screenshot seguente, il periodo è stato aumentato a 34 giorni.
-![Periodo di conservazione dei backup aumentato](./media/howto-restore-server-portal/3-increase-backup-days.png)
+:::image type="content" source="./media/howto-restore-server-portal/3-increase-backup-days.png" alt-text="Periodo di conservazione dei backup aumentato":::
 
 4. Fare clic su **OK** per confermare la modifica.
 
@@ -57,11 +57,11 @@ La procedura seguente consente di ripristinare il server di esempio a un momento
 
 2. Nella barra degli strumenti della pagina **Panoramica** del server selezionare **Ripristina**.
 
-   ![Database di Azure per MySQL: Panoramica - Pulsante Ripristina](./media/howto-restore-server-portal/2-server.png)
+   :::image type="content" source="./media/howto-restore-server-portal/2-server.png" alt-text="Database di Azure per MySQL: Panoramica - Pulsante Ripristina":::
 
 3. Compilare il modulo Ripristina con le informazioni obbligatorie:
 
-   ![Database di Azure per MySQL - Informazioni di ripristino](./media/howto-restore-server-portal/3-restore.png)
+   :::image type="content" source="./media/howto-restore-server-portal/3-restore.png" alt-text="Database di Azure per MySQL - Informazioni di ripristino":::
    - **Punto di ripristino**: selezionare il punto nel tempo per il ripristino.
    - **Server di destinazione**: specificare un nome per il nuovo server.
    - **Percorso**: non è possibile selezionare l'area. Per impostazione predefinita è uguale al server di origine.

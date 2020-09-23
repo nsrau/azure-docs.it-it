@@ -1,6 +1,6 @@
 ---
-title: Esercitazione su come filtrare e analizzare i dati con il calcolo in Azure Stack Edge con GPU | Microsoft Docs
-description: Informazioni su come configurare il ruolo di calcolo in Azure Stack Edge con GPU e usarlo per trasformare i dati prima dell'invio ad Azure.
+title: Esercitazione su come filtrare e analizzare i dati con il calcolo in Azure Stack Edge Pro con GPU | Microsoft Docs
+description: Informazioni su come configurare il ruolo di calcolo in Azure Stack Edge Pro con GPU e usarlo per trasformare i dati prima dell'invio ad Azure.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,19 +8,19 @@ ms.subservice: edge
 ms.topic: tutorial
 ms.date: 08/28/2020
 ms.author: alkohli
-Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge so I can use it to transform the data before sending it to Azure.
-ms.openlocfilehash: f4a8786c8d86f43d3433dd51fe7696fd523025a9
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+Customer intent: As an IT admin, I need to understand how to configure compute on Azure Stack Edge Pro so I can use it to transform the data before sending it to Azure.
+ms.openlocfilehash: 95c59cff1f47fe720e2dbc65c5b0a69a09be2f2f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89293557"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903179"
 ---
-# <a name="tutorial-configure-compute-on-azure-stack-edge-gpu-device"></a>Esercitazione: Configurare il calcolo nel dispositivo Azure Stack Edge con GPU
+# <a name="tutorial-configure-compute-on-azure-stack-edge-pro-gpu-device"></a>Esercitazione: Configurare il calcolo nel dispositivo Azure Stack Edge Pro con GPU
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Questa esercitazione descrive come configurare un ruolo di calcolo e creare un cluster Kubernetes nel dispositivo Azure Stack Edge. 
+Questa esercitazione illustra come configurare un ruolo di calcolo e creare un cluster Kubernetes nel dispositivo Azure Stack Edge Pro. 
 
 Il completamento di questa procedura può richiedere circa 20-30 minuti.
 
@@ -34,16 +34,16 @@ In questa esercitazione verranno illustrate le procedure per:
  
 ## <a name="prerequisites"></a>Prerequisiti
 
-Prima di configurare un ruolo di calcolo nel dispositivo Azure Stack Edge, assicurarsi di:
+Prima di configurare un ruolo di calcolo nel dispositivo Azure Stack Edge Pro, assicurarsi di:
 
-- Aver attivato il dispositivo Azure Stack Edge come descritto in [Attivare il dispositivo Azure Stack Edge](azure-stack-edge-gpu-deploy-activate.md).
+- Aver attivato il dispositivo Azure Stack Edge Pro come descritto in [Attivare il dispositivo Azure Stack Edge Pro](azure-stack-edge-gpu-deploy-activate.md).
 - Assicurarsi di aver seguito le istruzioni riportate in [Abilitare la rete di calcolo](azure-stack-edge-gpu-deploy-configure-network-compute-web-proxy.md#enable-compute-network) e di:
     - Avere abilitato un'interfaccia di rete per il calcolo.
     - Avere assegnato gli indirizzi IP del nodo Kubernetes e gli indirizzi IP del servizio esterno Kubernetes.
 
 ## <a name="configure-compute"></a>Configurare il calcolo
 
-Per configurare il calcolo in Azure Stack Edge, si creerà una risorsa hub IoT tramite il portale di Azure.
+Per configurare il calcolo in Azure Stack Edge Pro, si creerà una risorsa hub IoT tramite il portale di Azure.
 
 1. Nel portale di Azure della risorsa Azure Stack Edge passare a **Panoramica**. Nel riquadro **Calcolo** a destra selezionare **Inizia subito**.
 
@@ -72,17 +72,17 @@ Per configurare il calcolo in Azure Stack Edge, si creerà una risorsa hub IoT t
     ![Introduzione al calcolo](./media/azure-stack-edge-j-series-deploy-configure-compute/configure-compute-5.png)
 
     > [!NOTE]
-    > Se la finestra di dialogo **Configura calcolo** viene chiusa prima che l'hub IoT sia stato associato al dispositivo Azure Stack Edge, l'hub IoT viene creato, ma non viene visualizzato nella configurazione di calcolo. 
+    > Se la finestra di dialogo **Configura calcolo** viene chiusa prima che l'hub IoT sia stato associato al dispositivo Azure Stack Edge Pro, l'hub IoT viene creato, ma non viene visualizzato nella configurazione di calcolo. 
     
 Quando il ruolo di calcolo Edge è configurato nel dispositivo Edge, crea due dispositivi: un dispositivo IoT e un dispositivo IoT Edge. Entrambi i dispositivi possono essere visualizzati nella risorsa dell'hub IoT. Nel dispositivo IoT Edge viene eseguito anche un runtime IoT Edge. Attualmente per il dispositivo IoT Edge è disponibile solo la piattaforma Linux.
 
 Possono essere necessari 20-30 minuti per configurare il calcolo, dato che dietro le quinte vengono creati il cluster Kubernetes e le macchine virtuali. 
 
-Dopo aver configurato correttamente il calcolo nel portale di Azure, esistono un cluster Kubernetes e un utente predefinito associato allo spazio dei nomi IoT (spazio dei nomi di sistema controllato da Azure Stack Edge). 
+Dopo aver configurato correttamente il calcolo nel portale di Azure, esistono un cluster Kubernetes e un utente predefinito associato allo spazio dei nomi IoT (spazio dei nomi di sistema controllato da Azure Stack Edge Pro). 
 
 ## <a name="get-kubernetes-endpoints"></a>Ottenere gli endpoint Kubernetes
 
-Per configurare un client per l'accesso al cluster Kubernetes, sarà necessario l'endpoint Kubernetes. Seguire questa procedura per ottenere l'endpoint dell'API Kubernetes dall'interfaccia utente locale del dispositivo Azure Stack Edge.
+Per configurare un client per l'accesso al cluster Kubernetes, sarà necessario l'endpoint Kubernetes. Seguire questa procedura per ottenere l'endpoint dell'API Kubernetes dall'interfaccia utente locale del dispositivo Azure Stack Edge Pro.
 
 1. Nell'interfaccia utente Web locale del dispositivo passare alla pagina **Dispositivi**.
 2. In **Device endpoints** (Endpoint dispositivo) copiare l'endpoint **Kubernetes API service** (Servizio API Kubernetes). Questo endpoint è una stringa nel formato seguente: `https://compute.<device-name>.<DNS-domain>[Kubernetes-cluster-IP-address]`. 
@@ -117,7 +117,7 @@ In questa esercitazione sono state illustrate le procedure per:
 > * Ottenere gli endpoint Kubernetes
 
 
-Per informazioni su come amministrare il dispositivo Azure Stack Edge, vedere:
+Per informazioni su come amministrare il dispositivo Azure Stack Edge Pro, vedere:
 
 > [!div class="nextstepaction"]
-> [Usare l'interfaccia utente Web locale per amministrare un dispositivo Azure Stack Edge](azure-stack-edge-manage-access-power-connectivity-mode.md)
+> [Usare l'interfaccia utente Web locale per amministrare un dispositivo Azure Stack Edge Pro](azure-stack-edge-manage-access-power-connectivity-mode.md)
