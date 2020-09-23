@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/11/2020
-ms.openlocfilehash: 14c3bc968da9d398fbc14eda74378047cf28277b
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 5b7943b2026d640ae7e5d119e165bd752ae2fe7f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477698"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898822"
 ---
 # <a name="clean-missing-data-module"></a>Pulisci modulo dati mancanti
 
-Questo articolo descrive un modulo disponibile nella finestra di progettazione di Azure Machine Learning (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Usare questo modulo per rimuovere, sostituire o dedurre i valori mancanti. 
 
@@ -48,7 +48,7 @@ Questo modulo consente di definire un'operazione di pulizia. È anche possibile 
 
 ### <a name="replace-missing-values"></a>Sostituire valori mancanti  
 
-Ogni volta che si applica il modulo [Clean Missing data](./clean-missing-data.md) a un set di dati, la stessa operazione di pulizia viene applicata a tutte le colonne selezionate. Se pertanto è necessario pulire colonne diverse utilizzando metodi diversi, utilizzare istanze separate del modulo.
+Ogni volta che si applica il modulo  [Clean Missing data](./clean-missing-data.md) a un set di dati, la stessa operazione di pulizia viene applicata a tutte le colonne selezionate. Se pertanto è necessario pulire colonne diverse utilizzando metodi diversi, utilizzare istanze separate del modulo.
 
 1.  Aggiungere il modulo [Clean Missing data](./clean-missing-data.md) alla pipeline e connettere il set di dati con valori mancanti.  
   

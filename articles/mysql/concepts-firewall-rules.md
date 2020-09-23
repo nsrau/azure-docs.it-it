@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 07/17/2020
-ms.openlocfilehash: c677b0278d29c499d4369967c1c76132a1ae9d21
-ms.sourcegitcommit: 3543d3b4f6c6f496d22ea5f97d8cd2700ac9a481
+ms.openlocfilehash: 63b3fd64526f45994919267a2f4ddc730d0b2fd7
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/20/2020
-ms.locfileid: "86519848"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90882652"
 ---
 # <a name="azure-database-for-mysql-server-firewall-rules"></a>Regole di firewall per il server MySQL del database di Azure
 I firewall impediscono qualsiasi accesso al server del database finché non vengono specificati i computer autorizzati. Il firewall concede l'accesso al server in base all'indirizzo IP di origine di ogni richiesta.
@@ -25,7 +25,7 @@ L'accesso a database a Database di Azure per il server MySQL è bloccato dal fir
 
 I tentativi di connessione da Internet e Azure devono prima superare il firewall per poter raggiungere il database di Azure dal database MySQL, come illustrato nel diagramma seguente:
 
-![Esempio del flusso di funzionamento del firewall](./media/concepts-firewall-rules/1-firewall-concept.png)
+:::image type="content" source="./media/concepts-firewall-rules/1-firewall-concept.png" alt-text="Esempio del flusso di funzionamento del firewall":::
 
 ## <a name="connecting-from-the-internet"></a>Connessione da Internet
 Le regole di firewall a livello di server si applicano a tutti i database del database di Azure per il server MySQL.
@@ -43,7 +43,7 @@ Se un indirizzo IP in uscita fisso non è disponibile per il servizio di Azure, 
 > L'opzione **Consenti l'accesso a servizi di Azure** consente di configurare il firewall in modo da consentire tutte le connessioni da Azure, incluse le connessioni dalle sottoscrizioni di altri clienti. Quando si seleziona questa opzione, verificare che l'account di accesso e le autorizzazioni utente limitino l'accesso ai soli utenti autorizzati.
 > 
 
-![Configurare Possibilità di accedere ai servizi di Azure nel portale](./media/concepts-firewall-rules/allow-azure-services.png)
+:::image type="content" source="./media/concepts-firewall-rules/allow-azure-services.png" alt-text="Configurare Possibilità di accedere ai servizi di Azure nel portale":::
 
 ### <a name="connecting-from-a-vnet"></a>Connessione da un VNet
 Per connettersi in modo sicuro al database di Azure per il server MySQL da una VNet, è consigliabile usare gli [endpoint del servizio VNet](./concepts-data-access-and-security-vnet.md). 
@@ -68,7 +68,7 @@ Quando l'accesso al servizio Database di Microsoft Azure per server MySQL non si
 
 * **Non è possibile connettersi dalla risorsa di Azure con l'IP consentito:** Controllare se l'endpoint del servizio **Microsoft. SQL** è abilitato per la subnet da cui si esegue la connessione. Se **Microsoft. SQL** è abilitato, significa che si desidera utilizzare solo [le regole dell'endpoint del servizio VNet](concepts-data-access-and-security-vnet.md) in tale subnet.
 
-   Ad esempio, è possibile che venga visualizzato l'errore seguente se ci si connette da una macchina virtuale di Azure in una subnet in cui è abilitato **Microsoft. SQL** ma non è presente alcuna regola VNet corrispondente:`FATAL: Client from Azure Virtual Networks is not allowed to access the server`
+   Ad esempio, è possibile che venga visualizzato l'errore seguente se ci si connette da una macchina virtuale di Azure in una subnet in cui è abilitato **Microsoft. SQL** ma non è presente alcuna regola VNet corrispondente:  `FATAL: Client from Azure Virtual Networks is not allowed to access the server`
 
 ## <a name="next-steps"></a>Passaggi successivi
 

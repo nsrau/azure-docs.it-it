@@ -1,6 +1,6 @@
 ---
 title: 'Input/output del servizio Web: riferimento al modulo'
-description: Informazioni sui moduli del servizio Web in Azure Machine Learning Designer (anteprima)
+description: Informazioni sui moduli del servizio Web in Azure Machine Learning Designer
 titleSuffix: Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 04/13/2020
-ms.openlocfilehash: ded976fc9090535f3c683b5c6351646a55265205
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: a62f8aee0bd0a0d2b7009a48e9d5f00ea3c5155f
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84751112"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883219"
 ---
 # <a name="web-service-input-and-web-service-output-modules"></a>Moduli di input del servizio Web e di output del servizio Web
 
-Questo articolo descrive i moduli di input del servizio Web e di output del servizio Web in Azure Machine Learning Designer (anteprima).
+Questo articolo descrive i moduli di input del servizio Web e di output del servizio Web in Azure Machine Learning Designer.
 
 Il modulo di input del servizio Web può connettersi solo a una porta di input con il tipo **DataFrameDirectory**. Il modulo di output del servizio Web può essere connesso solo da una porta di output di tipo **DataFrameDirectory**. Nella categoria **servizio Web** è possibile trovare i due moduli nell'albero del modulo. 
 

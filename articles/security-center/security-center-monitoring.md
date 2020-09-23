@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2018
 ms.author: memildin
-ms.openlocfilehash: d18258d62267c931a39947611dda038ff6e65205
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 893b2eefc2c4c81e66bf86a1c999a3c4198a3c71
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84718700"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883825"
 ---
 # <a name="strengthen-your-security-posture-with-azure-security-center"></a>Migliorare il comportamento di sicurezza con il Centro sicurezza di Azure
 Questo articolo fornisce informazioni utili per migliorare il comportamento di sicurezza. Descrive come usare le funzionalità di monitoraggio nel Centro sicurezza di Azure per verificare che la sicurezza delle risorse sia elevata e monitorare la conformità ai criteri.
@@ -28,24 +28,12 @@ Spesso si pensa al monitoraggio come l'osservazione e l'attesa di un evento al f
 
 Dopo avere abilitato i [criteri di sicurezza](tutorial-security-policy.md) per le risorse di una sottoscrizione, il Centro sicurezza analizza la sicurezza delle risorse per identificare le potenziali vulnerabilità. Le informazioni sulla configurazione di rete sono disponibili immediatamente. A seconda del numero di macchine virtuali e computer con l'agente installato, potrebbe essere necessaria almeno un'ora per raccogliere informazioni sulle macchine virtuali e la configurazione dei computer, ad esempio lo stato di aggiornamento della sicurezza e la configurazione del sistema operativo. È possibile visualizzare un elenco completo dei problemi e dei modi esistenti per rafforzare la rete e correggere i rischi nel riquadro **Raccomandazioni**.
 
-Lo stato di sicurezza delle risorse ed eventuali problemi sono visualizzabili in base al tipo di risorsa:
-
-- Per monitorare lo stato di sicurezza delle risorse del computer e delle app e ricevere consigli per migliorare la protezione, vedere [Protezione delle macchine virtuali nel Centro sicurezza di Azure](security-center-virtual-machine-protection.md)
-- Per monitorare le risorse di rete, ad esempio le macchine virtuali, i gruppi di sicurezza di rete e gli endpoint, e ricevere consigli per migliorare la sicurezza, vedere [Protezione della rete nel Centro sicurezza di Azure](security-center-network-recommendations.md) per altre informazioni. 
-- Per monitorare i dati e le risorse di archiviazione, ad esempio i server SQL e gli account di archiviazione, e ricevere consigli per migliorare la sicurezza, vedere [Protezione del servizio SQL di Azure e dei dati nel Centro sicurezza di Azure](security-center-sql-service-recommendations.md) per altre informazioni. 
-- Per monitorare le risorse di identità e di accesso, tra cui le autorizzazioni MFA e per gli account, e ricevere consigli per migliorare la sicurezza, vedere [Monitoraggio dell'identità e dell'accesso nel Centro sicurezza di Azure](security-center-identity-access.md) per altre informazioni. 
-- Per monitorare l'accesso just-in-time alle risorse, vedere [gestire l'accesso alle macchine virtuali usando JIT (just-in-Time](security-center-just-in-time.md) ) per ulteriori informazioni.
-
+È possibile visualizzare lo stato di sicurezza delle risorse ed eventuali problemi per ogni tipo di risorsa dalla [pagina inventario e gestione asset](asset-inventory.md).
 
 Per altre informazioni su come applicare le raccomandazioni, leggere l'articolo sull'[implementazione delle raccomandazioni sulla sicurezza nel Centro sicurezza di Azure](security-center-recommendations.md).
 
 
-
-![Riquadro Integrità sicurezza delle risorse](./media/security-center-monitoring/security-center-monitoring-fig1-newUI-2017.png)
-
-
-
-## <a name="see-also"></a>Vedere anche
+## <a name="next-steps"></a>Passaggi successivi
 Questo articolo descrive come usare le funzionalità di monitoraggio nel Centro sicurezza di Azure. Per ulteriori informazioni sul Centro sicurezza di Azure, vedere gli argomenti seguenti:
 
 * [Impostazione dei criteri di sicurezza nel Centro sicurezza di Azure](tutorial-security-policy.md): informazioni su come configurare le impostazioni di sicurezza nel Centro sicurezza di Azure.

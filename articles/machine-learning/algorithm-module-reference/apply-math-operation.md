@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/09/2019
-ms.openlocfilehash: 2b4d6939aa1db4b8321c792898ed421c0d16cc99
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 654b10a283c4dcf5a1a1866ec51799aad45a8893
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79456744"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90898900"
 ---
 # <a name="apply-math-operation"></a>Applicare operazioni matematiche
 
-Questo articolo descrive un modulo di Azure Machine Learning Designer (anteprima).
+Questo articolo descrive un modulo di Azure Machine Learning Designer.
 
 Usare l'operazione Apply Math per creare calcoli applicati a colonne numeriche nel set di dati di input. 
 
@@ -36,7 +36,7 @@ Cercare l'operazione necessaria in queste categorie:
   
      Le funzioni della categoria **Basic** possono essere usate per modificare un singolo valore o una colonna di valori. Ad esempio, è possibile ottenere il valore assoluto di tutti i numeri in una colonna oppure calcolare la radice quadrata di ogni valore in una colonna.  
   
--   [Confrontare](#comparison-operations)  
+-   [Confronta](#comparison-operations)  
   
       Le funzioni nella categoria **Confronta** sono tutte utilizzate per il confronto: è possibile eseguire un confronto a livello di coppia dei valori in due colonne oppure è possibile confrontare ogni valore di una colonna con una costante specificata. È ad esempio possibile confrontare le colonne per determinare se i valori sono uguali in due set di impostazioni. In alternativa, è possibile usare una costante, ad esempio un valore massimo consentito, per trovare gli outlier in una colonna numerica.  
   
@@ -138,7 +138,7 @@ Restituisce e elevato alla potenza del valore nella colonna selezionata. Corrisp
 
 Restituisce l'esponenziale in base 2 degli argomenti, risolvendo per y = x * 2<sup>t</sup> , dove t è una colonna di valori che contiene esponenti.  
 
-In **Column set**selezionare la colonna che contiene i valori dell'esponente t.
+In  **Column set**selezionare la colonna che contiene i valori dell'esponente t.
 
 Per **exp2** è possibile specificare un secondo argomento x, che può essere una costante o un'altra colonna di valori. Nel **secondo tipo di argomento**, indicare se si fornirà il moltiplicatore x come costante o un valore in una colonna.  
 
@@ -162,7 +162,7 @@ Restituisce il logaritmo naturale per i valori nella colonna selezionata.
 
 Restituisce il logaritmo naturale più uno per i valori nella colonna selezionata.  
 
-### <a name="log"></a>File di log
+### <a name="log"></a>Registro
 
 Restituisce il logaritmo dei valori nella colonna selezionata secondo la base specificata.  
 
@@ -260,7 +260,7 @@ Operazione|Num1|Num2|Colonna risultati|Valore risultato|
 |Divisione|1|5|Divisione (Num2_Num1)|5|
 |Divisione|0|1|Divisione (Num2_Num1)|Infinito|
 
-### <a name="add"></a>Aggiunta
+### <a name="add"></a>Add
 
 Specificare le colonne di origine utilizzando il **set di colonne**e quindi aggiungere a tali valori un numero specificato nel **secondo argomento**.  
 

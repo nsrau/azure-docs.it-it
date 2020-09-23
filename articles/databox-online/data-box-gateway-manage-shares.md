@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: how-to
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: d2b26016ec67f0eecd785e3bfb951fe5fd607545
-ms.sourcegitcommit: 124f7f699b6a43314e63af0101cd788db995d1cb
+ms.openlocfilehash: 785fcbbcde0c4efe3c2d1cd84bf19bd03371ab06
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86079149"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90883536"
 ---
 # <a name="use-the-azure-portal-to-manage-shares-on-your-azure-data-box-gateway"></a>Usare il portale di Azure per gestire le condivisioni in Azure Data Box Gateway 
 
@@ -47,10 +47,10 @@ Eseguire i passaggi seguenti nel portale di Azure per creare una condivisione.
 
 4. Specificare un **account di archiviazione** in cui risiede la condivisione. Nell'account di archiviazione viene creato un contenitore con il nome della condivisione, se non esiste già. Se esiste già un contenitore, viene usato quello.  
 
-5. In **Servizio di archiviazione** selezionare BLOB in blocchi, BLOB di pagine o File. Il tipo di servizio scelto dipende dal formato che si vuole applicare ai dati che risiederanno in Azure. In questo esempio si vuole che i dati vengano trasferiti in Azure come **BLOB in blocchi**, quindi è questa l'opzione da selezionare. Se si sceglie **BLOB di pagine**, occorre verificare che i dati siano allineati su 512 byte. Ad esempio, VHDX è sempre allineato su 512 byte.
+5. In **Servizio di archiviazione** selezionare BLOB in blocchi, BLOB di pagine o File. Il tipo di servizio scelto dipende dal formato che si vuole applicare ai dati che risiederanno in Azure. Ad esempio, in questo caso, si vuole che i dati si trovino come blocchi BLOB in Azure, quindi si seleziona **BLOB in blocchi**. Se si sceglie **BLOB di pagine**, occorre verificare che i dati siano allineati su 512 byte. Ad esempio, VHDX è sempre allineato su 512 byte.
 
    > [!IMPORTANT]
-   > Verificare che l'account di archiviazione di Azure in uso non abbia criteri di immutabilità impostati su di esso se lo si usa con un dispositivo Azure Stack Edge o Data Box Gateway. Per altre informazioni, vedere [impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
+   > Verificare che per l'account di archiviazione di Azure in uso non siano impostati criteri di immutabilità se lo si usa con un dispositivo Azure Stack Edge Pro o Data Box Gateway. Per altre informazioni, vedere [Impostare e gestire i criteri di immutabilità per l'archiviazione BLOB](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage).
 
 6. Questo passaggio varia a seconda che si stia creando una condivisione SMB o NFS.
     - **Se si crea una condivisione SMB**: nel campo **Utente locale con tutti i privilegi** selezionare **Crea nuovo** o **Usa esistente**. Se si crea un nuovo utente locale, compilare i campi **Nome utente**, **Password** e Conferma password. Vengono così assegnate le autorizzazioni all'utente locale. Dopo aver assegnato le autorizzazioni in questa fase, è possibile modificarle con Esplora file.

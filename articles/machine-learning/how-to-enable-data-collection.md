@@ -11,16 +11,16 @@ author: lostmygithubaccount
 ms.date: 07/14/2020
 ms.topic: conceptual
 ms.custom: how-to
-ms.openlocfilehash: 72706a67e1798662ea0f40fa7843c32d8267e0d0
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: 195fc6100229fca2a05198ffa80108057ad8ad65
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89646075"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90897587"
 ---
 # <a name="collect-data-from-models-in-production"></a>Raccogliere dati dai modelli nell'ambiente di produzione
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Questo articolo illustra come raccogliere dati da un modello di Azure Machine Learning distribuito in un cluster Azure Kubernetes Service (AKS). I dati raccolti vengono quindi archiviati nell'archivio BLOB di Azure.
 
@@ -199,7 +199,7 @@ Per abilitare la raccolta dei dati, è necessario:
 
     [![Creazione della tabella databricks](./media/how-to-enable-data-collection/dbtable.PNG)](././media/how-to-enable-data-collection/dbtable.PNG#lightbox)
 
-1. Aggiornare il percorso dei dati. Ecco un esempio:
+1. Aggiornare il percorso dei dati. Esempio:
 
     ```
     file_location = "wasbs://mycontainer@storageaccountname.blob.core.windows.net/modeldata/1a2b3c4d-5e6f-7g8h-9i10-j11k12l13m14/myresourcegrp/myWorkspace/aks-w-collv9/best_model/10/inputs/2018/*/*/data.csv" 

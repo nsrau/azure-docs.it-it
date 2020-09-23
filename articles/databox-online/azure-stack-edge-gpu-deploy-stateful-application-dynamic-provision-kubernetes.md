@@ -1,6 +1,6 @@
 ---
-title: Usare kubectl per distribuire un'app con stato Kubernetes tramite la condivisione con provisioning dinamico sul dispositivo GPU Azure Stack Edge | Microsoft Docs
-description: Viene descritto come creare e gestire una distribuzione di applicazioni con stato Kubernetes tramite una condivisione con provisioning dinamico tramite kubectl in un dispositivo GPU Microsoft Azure Stack Edge.
+title: Usare kubectl per distribuire un'app con stato Kubernetes tramite la condivisione con provisioning dinamico sul dispositivo GPU Pro Azure Stack Edge | Microsoft Docs
+description: Viene descritto come creare e gestire una distribuzione di applicazioni con stato Kubernetes tramite una condivisione con provisioning dinamico tramite kubectl in un dispositivo GPU Pro Microsoft Azure Stack Edge.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/26/2020
 ms.author: alkohli
-ms.openlocfilehash: c787fc4c37c8fc3b4b8f007b1a84a5989a15fbc4
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: d37152f7dec78d5f5db21fdde9a8ec25c36c4e05
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254322"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899465"
 ---
-# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-gpu-device"></a>Usare kubectl per eseguire un'applicazione con stato Kubernetes con StorageClass sul dispositivo GPU Azure Stack Edge
+# <a name="use-kubectl-to-run-a-kubernetes-stateful-application-with-storageclass-on-your-azure-stack-edge-pro-gpu-device"></a>Usare kubectl per eseguire un'applicazione con stato Kubernetes con StorageClass nel dispositivo GPU Pro Azure Stack Edge
 
 Questo articolo illustra come distribuire un'applicazione con stato a istanza singola in Kubernetes usando un StorageClass per eseguire il provisioning dinamico di archiviazione e una distribuzione. La distribuzione usa i `kubectl` comandi in un cluster Kubernetes esistente e distribuisce l'applicazione MySQL. 
 
-Questa procedura è destinata a coloro che hanno esaminato l' [archiviazione Kubernetes nel dispositivo Azure stack Edge](azure-stack-edge-gpu-kubernetes-storage.md) e hanno familiarità con i concetti di [archiviazione Kubernetes](https://kubernetes.io/docs/concepts/storage/).
+Questa procedura è destinata a coloro che hanno esaminato l' [archiviazione Kubernetes sul dispositivo Azure stack Edge Pro](azure-stack-edge-gpu-kubernetes-storage.md) e hanno familiarità con i concetti di [archiviazione Kubernetes](https://kubernetes.io/docs/concepts/storage/).
 
 
 ## <a name="prerequisites"></a>Prerequisiti
@@ -28,30 +28,30 @@ Prima di poter distribuire l'applicazione con stato, verificare di aver completa
 
 ### <a name="for-device"></a>Per il dispositivo
 
-- Sono disponibili credenziali di accesso a un dispositivo Azure Stack Edge a 1 nodo.
+- Si dispone di credenziali di accesso a un dispositivo Azure Stack Edge Pro a 1 nodo.
     - Il dispositivo è attivato. Vedere [attivare il dispositivo](azure-stack-edge-gpu-deploy-activate.md).
     - Il dispositivo ha il ruolo di calcolo configurato tramite portale di Azure ed è dotato di un cluster Kubernetes. Vedere [configurare](azure-stack-edge-gpu-deploy-configure-compute.md)le risorse di calcolo.
 
 ### <a name="for-client-accessing-the-device"></a>Per l'accesso client al dispositivo
 
-- Si dispone di un sistema client Windows che verrà usato per accedere al dispositivo Azure Stack Edge.
+- Si dispone di un sistema client Windows che verrà usato per accedere al dispositivo Azure Stack Edge Pro.
     - Il client esegue Windows PowerShell 5,0 o versione successiva. Per scaricare la versione più recente di Windows PowerShell, vedere [installare Windows PowerShell](https://docs.microsoft.com/powershell/scripting/install/installing-windows-powershell?view=powershell-7).
     
     - È possibile avere anche un altro client con un [sistema operativo supportato](azure-stack-edge-gpu-system-requirements.md#supported-os-for-clients-connected-to-device) . Questo articolo descrive la procedura quando si usa un client Windows. 
     
-    - È stata completata la procedura descritta in [accedere al cluster Kubernetes nel dispositivo Azure stack Edge](azure-stack-edge-gpu-create-kubernetes-cluster.md). Precisamente:
+    - È stata completata la procedura descritta in [accedere al cluster Kubernetes nel dispositivo Azure stack Edge Pro](azure-stack-edge-gpu-create-kubernetes-cluster.md). Precisamente:
       - È stato creato uno `userns1` spazio dei nomi tramite il `New-HcsKubernetesNamespace` comando. 
       - Creazione di un utente `user1` tramite il `New-HcsKubernetesUser` comando. 
       - Ha concesso l' `user1` accesso a `userns1` tramite il `Grant-HcsKubernetesNamespaceAccess` comando.       
       - Installato `kubectl` nel client e salvato il `kubeconfig` file con la configurazione utente in C: \\ Users \\ &lt; nomeutente &gt; \\ . Kube. 
     
-    - Verificare che la versione del `kubectl` client non sia più di una versione della versione master di Kubernetes in esecuzione nel dispositivo Azure stack Edge. 
+    - Verificare che la versione del `kubectl` client non sia più di una versione della versione master di Kubernetes in esecuzione nel dispositivo Azure stack Edge Pro. 
         - Usare `kubectl version` per verificare la versione di kubectl in esecuzione sul client. Prendere nota della versione completa.
-        - Nell'interfaccia utente locale del dispositivo Azure Stack Edge passare a **Panoramica** e prendere nota del numero di software Kubernetes. 
+        - Nell'interfaccia utente locale del dispositivo Azure Stack Edge Pro passare a **Panoramica** e prendere nota del numero di software Kubernetes. 
         - Verificare che queste due versioni siano compatibili con il mapping fornito nella versione supportata di Kubernetes<!-- insert link-->. 
 
 
-Si è pronti per distribuire un'applicazione con stato sul dispositivo Azure Stack Edge. 
+È possibile distribuire un'applicazione con stato sul dispositivo Azure Stack Edge Pro. 
 
 
 ## <a name="deploy-mysql"></a>Distribuire MySQL
@@ -78,7 +78,7 @@ Tutti i `kubectl` comandi usati per creare e gestire distribuzioni di applicazio
 
 1. Si useranno i file YAML seguenti. Il `mysql-deployment.yml` file descrive una distribuzione che esegue MySQL e fa riferimento al PVC. Il file definisce un montaggio del volume per `/var/lib/mysql` e quindi crea un PVC che cerca un volume di 20 GB. Viene eseguito il provisioning di un PV dinamico e il PVC è associato a questo PV.
 
-    Copiare e salvare il `mysql-deployment.yml` file seguente in una cartella nel client Windows usato per accedere al dispositivo Azure stack Edge.
+    Copiare e salvare il file seguente in `mysql-deployment.yml` una cartella nel client Windows usato per accedere al dispositivo Azure stack Edge Pro.
     
     ```yml
     apiVersion: v1
@@ -126,7 +126,7 @@ Tutti i `kubectl` comandi usati per creare e gestire distribuzioni di applicazio
               claimName: mysql-pv-claim-sc
     ```
     
-2. Copiare e salvare come `mysql-pvc.yml` file nella stessa cartella in cui è stato salvato `mysql-deployment.yml` . Per usare il StorageClass incorporato che Azure Stack dispositivo Edge in un disco dati collegato, impostare il `storageClassName` campo nell'oggetto PVC su `ase-node-local` e accessModes deve essere `ReadWriteOnce` . 
+2. Copiare e salvare come `mysql-pvc.yml` file nella stessa cartella in cui è stato salvato `mysql-deployment.yml` . Per usare il StorageClass incorporato che Azure Stack dispositivo Pro Edge in un disco dati collegato, impostare il `storageClassName` campo nell'oggetto PVC su `ase-node-local` e accessModes deve essere `ReadWriteOnce` . 
 
     > [!NOTE] 
     > Verificare che i rientri dei file YAML siano corretti. È possibile verificare con la [lanugine YAML](http://www.yamllint.com/) per convalidare e quindi salvare.
@@ -326,4 +326,4 @@ C:\Users\user>
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-Per informazioni su come configurare la rete tramite kubectl, vedere [distribuire un'applicazione senza stato in un dispositivo Azure stack Edge](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md)
+Per informazioni su come configurare la rete tramite kubectl, vedere [distribuire un'applicazione senza stato in un dispositivo Azure stack Edge Pro](azure-stack-edge-gpu-deploy-stateless-application-iot-edge-module.md)

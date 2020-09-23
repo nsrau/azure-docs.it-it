@@ -11,15 +11,15 @@ ms.reviewer: larryfr
 ms.date: 09/09/2020
 ms.topic: conceptual
 ms.custom: how-to, devx-track-python
-ms.openlocfilehash: 2164f6d6b346eda185e8a38720677ad50f2e8c89
-ms.sourcegitcommit: 3be3537ead3388a6810410dfbfe19fc210f89fec
+ms.openlocfilehash: f69ba6e1c5fdfc04fac6fed8487b246f9af72fa2
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89650682"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889947"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>Distribuire un modello usando un'immagine di base Docker personalizzata
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Informazioni su come usare un'immagine di base Docker personalizzata quando si distribuiscono modelli con training con Azure Machine Learning.
 
@@ -184,7 +184,7 @@ Per altre informazioni sul caricamento di immagini esistenti in un Container Reg
 
 Per usare un'immagine personalizzata, sono necessarie le informazioni seguenti:
 
-* __Nome dell'immagine__. Ad esempio, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` è il percorso di un'immagine Docker di base fornita da Microsoft.
+* __Nome dell'immagine__. Ad esempio, `mcr.microsoft.com/azureml/o16n-sample-user-base/ubuntu-miniconda:latest` è il percorso di una semplice immagine Docker fornita da Microsoft.
 
     > [!IMPORTANT]
     > Per le immagini personalizzate create, assicurarsi di includere tutti i tag usati con l'immagine. Ad esempio, se l'immagine è stata creata con un tag specifico, ad esempio `:v1` . Se durante la creazione dell'immagine non è stato usato un tag specifico, `:latest` è stato applicato un tag di.

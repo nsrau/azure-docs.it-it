@@ -11,14 +11,17 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 04/01/2020
 ms.author: aahi
-ms.openlocfilehash: f5409fea1cdbbc35e9068fae6b3ba7fbc2a95580
-ms.sourcegitcommit: 023d10b4127f50f301995d44f2b4499cbcffb8fc
+ms.openlocfilehash: bec96f45de69ab2698f3f0cf26f08222e4595ea5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/18/2020
-ms.locfileid: "88547393"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90889513"
 ---
 # <a name="install-and-run-luis-docker-containers"></a>Installare ed eseguire i contenitori docker LUIS
+
+[!INCLUDE [container image location note](../containers/includes/image-location-note.md)]
+
 
 Il contenitore Language Understanding (LUIS) carica il modello di Language Understanding sottoposto a training o pubblicato. Come [app Luis](https://www.luis.ai), il contenitore Docker fornisce l'accesso alle stime delle query dagli endpoint API del contenitore. È possibile raccogliere i log di query dal contenitore e caricarli nuovamente nell'app Language Understanding per migliorare l'accuratezza della stima dell'app.
 
@@ -32,7 +35,7 @@ Se non si ha una sottoscrizione di Azure, creare un [account gratuito](https://a
 
 Per eseguire il contenitore LUIS, tenere presente i prerequisiti seguenti:
 
-|Obbligatoria|Scopo|
+|Necessario|Scopo|
 |--|--|
 |Motore Docker| È necessario il motore Docker installato in un [computer host](#the-host-computer). Docker offre pacchetti che configurano l'ambiente Docker in [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) e [Linux](https://docs.docker.com/engine/installation/#supported-platforms). Per una panoramica dei concetti fondamentali relativi a Docker e ai contenitori, vedere [Docker overview](https://docs.docker.com/engine/docker-overview/) (Panoramica di Docker).<br><br> Docker deve essere configurato per consentire ai contenitori di connettersi ai dati di fatturazione e inviarli ad Azure. <br><br> **In Windows** Docker deve essere configurato anche per supportare i contenitori Linux.<br><br>|
 |Familiarità con Docker | È opportuno avere una conoscenza di base dei concetti relativi a Docker, tra cui registri, repository, contenitori e immagini dei contenitori, nonché dei comandi `docker` di base.|
@@ -66,10 +69,10 @@ Core e memoria corrispondono alle impostazioni `--cpus` e `--memory` che vengono
 
 ## <a name="get-the-container-image-with-docker-pull"></a>Ottenere l'immagine del contenitore con `docker pull`
 
-Usare il [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando per scaricare un'immagine del contenitore dal `mcr.microsoft.com/azure-cognitive-services/luis` repository:
+Usare il [`docker pull`](https://docs.docker.com/engine/reference/commandline/pull/) comando per scaricare un'immagine del contenitore dal `mcr.microsoft.com/azure-cognitive-services/language/luis` repository:
 
 ```
-docker pull mcr.microsoft.com/azure-cognitive-services/luis:latest
+docker pull mcr.microsoft.com/azure-cognitive-services/language/luis:latest
 ```
 
 Per una descrizione completa dei tag disponibili, ad esempio `latest` usato nel comando precedente, vedere [LUIS](https://go.microsoft.com/fwlink/?linkid=2043204) nel sito Docker Hub.
@@ -108,7 +111,7 @@ La directory di montaggio dell'input può contenere contemporaneamente i modelli
 |Tipo di pacchetto|API endpoint di query|Disponibilità query|Formato nome file pacchetto|
 |--|--|--|--|
 |Versione|GET, POST|Solo contenitore|`{APP_ID}_v{APP_VERSION}.gz`|
-|Gestione temporanea|GET, POST|Azure e contenitore|`{APP_ID}_STAGING.gz`|
+|Staging|GET, POST|Azure e contenitore|`{APP_ID}_STAGING.gz`|
 |Produzione|GET, POST|Azure e contenitore|`{APP_ID}_PRODUCTION.gz`|
 
 > [!IMPORTANT]
@@ -206,7 +209,7 @@ docker run --rm -it -p 5000:5000 ^
 --cpus 2 ^
 --mount type=bind,src=c:\input,target=/input ^
 --mount type=bind,src=c:\output\,target=/output ^
-mcr.microsoft.com/azure-cognitive-services/luis ^
+mcr.microsoft.com/azure-cognitive-services/language/luis ^
 Eula=accept ^
 Billing={ENDPOINT_URI} ^
 ApiKey={API_KEY}

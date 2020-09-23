@@ -10,15 +10,15 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 03/18/2020
 ms.custom: seodec18
-ms.openlocfilehash: 680b6ec17b65cd9452dd3bd5c0c470e395688cb8
-ms.sourcegitcommit: 62717591c3ab871365a783b7221851758f4ec9a4
+ms.openlocfilehash: f0d78fc55ca60fa883c742885acf2fa98ede61ad
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/22/2020
-ms.locfileid: "86025676"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90896584"
 ---
 # <a name="tutorial-deploy-an-image-classification-model-in-azure-container-instances"></a>Esercitazione: Distribuire un modello di classificazione delle immagini in Istanze di Azure Container
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Questa esercitazione è la **seconda di una serie in due parti**. Nell'[esercitazione precedente](tutorial-train-models-with-aml.md), è stato eseguito il training di modelli di machine learning e quindi registrato un modello nell'area di lavoro sul cloud.  A questo punto, si è pronti per distribuire il modello come servizio Web. Un servizio Web è un'immagine, in questo caso un'immagine Docker. Incapsula la logica di assegnazione dei punteggi e il modello stesso. 
 

@@ -7,14 +7,16 @@ ms.author: brendm
 author: bmitchell287
 ms.date: 10/18/2019
 ms.custom: devx-track-java
-ms.openlocfilehash: 665d508a7d95e177d0db09ad86e2a5f0ee4d605b
-ms.sourcegitcommit: 58d3b3314df4ba3cabd4d4a6016b22fa5264f05a
+ms.openlocfilehash: 2f788452455bfbbc47f0a48689ccf3344515fdae
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/02/2020
-ms.locfileid: "89291297"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904250"
 ---
 # <a name="set-up-a-spring-cloud-config-server-instance-for-your-service"></a>Configurare un'istanza del server di configurazione Spring Cloud per il servizio
+
+**Questo articolo si applica a:** ✔️ Java ✔️ C #
 
 Questa articolo descrive come connettere un'istanza del server di configurazione Spring Cloud al servizio Azure Spring Cloud.
 
@@ -163,7 +165,7 @@ Per usare un **Repository di modelli** facoltativo per configurare il servizio, 
 
 Se è stato scritto un file YAML con le impostazioni del repository, è possibile importare il file direttamente dal computer locale in Azure Spring Cloud. Un semplice file YAML per un repository privato con autenticazione di base avrà un aspetto simile al seguente:
 
-```yml
+```yaml
 spring:
     cloud:
         config:

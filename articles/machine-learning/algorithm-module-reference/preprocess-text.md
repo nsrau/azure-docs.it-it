@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: 6e4d4c8f798418e090caeba091dec33c71f0458f
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: 4112d26d6a21ac800e20bb67ce24a35ca9d09a13
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477494"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905228"
 ---
 # <a name="preprocess-text"></a>Preprocess Text
 
-Questo articolo descrive un modulo disponibile nella finestra di progettazione di Azure Machine Learning (anteprima).
+Questo articolo descrive un modulo in Azure Machine Learning Designer.
 
 Usare il modulo di **testo pre-elaborazione** per pulire e semplificare il testo. Supporta le seguenti operazioni comuni di elaborazione del testo:
 
@@ -71,7 +71,7 @@ Il modulo di **testo pre-elaborazione** supporta attualmente solo l'inglese.
     * **Rimuovi caratteri duplicati**: selezionare questa opzione per rimuovere i caratteri aggiuntivi in qualsiasi sequenza ripetuta per più di due volte. Ad esempio, una sequenza come "aaaaa" verrebbe ridotta a "AA".
     
     * **Rimuovi indirizzi di posta elettronica**: selezionare questa opzione per rimuovere qualsiasi sequenza del formato `<string>@<string>` .  
-    * **Rimuovi URL**: selezionare questa opzione per rimuovere qualsiasi sequenza che includa i prefissi URL seguenti: `http` , `https` , `ftp` ,`www`
+    * **Rimuovi URL**: selezionare questa opzione per rimuovere qualsiasi sequenza che includa i prefissi URL seguenti: `http` , `https` , `ftp` , `www`
     
 1. **Espandi contrazioni verbo**: questa opzione si applica solo ai linguaggi che usano le contrazioni di verbi; Attualmente, solo in lingua inglese. 
 

@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/12/2020
-ms.openlocfilehash: 43dca9cd9f9000faae701e618e9a5fdf21d31ee3
-ms.sourcegitcommit: 9ce0350a74a3d32f4a9459b414616ca1401b415a
+ms.openlocfilehash: 9a1a3892e6a47aabd9b5129ca551900494616bc8
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/13/2020
-ms.locfileid: "88192747"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905159"
 ---
 # <a name="score-wide-and-deep-recommender"></a>Score Wide and Deep Recommender
 
-Questo articolo descrive come usare il modulo **Score Wide e Recommender** provisioning in Azure Machine Learning Designer (Preview) per creare stime basate su un modello di raccomandazione con training, in base all'ampia & Deep Learning di Google.
+Questo articolo descrive come usare il modulo **Score Wide e recommendal Recommender** in Azure machine learning designer, per creare stime basate su un modello di raccomandazione con training, in base all'ampia & Deep Learning di Google.
 
 La raccomandazione Wide e Deep può generare due tipi diversi di stime:
 
@@ -56,7 +56,7 @@ Quando si stimano le classificazioni, il modello calcola il modo in cui un deter
 
     Il set di dati può contenere una terza colonna facoltativa di classificazioni per la coppia utente-elemento nella prima e nella seconda colonna, ma la terza colonna verrà ignorata durante la stima.
 
-4.  (Facoltativo). Se si dispone di un set di dati di funzionalità utente, connetterlo alle **funzionalità dell'utente**.
+4.  (Facoltativo) Se si dispone di un set di dati di funzionalità utente, connetterlo alle **funzionalità dell'utente**.
 
     Il set di dati delle funzionalità utente deve contenere l'identificatore utente nella prima colonna. Le colonne rimanenti devono contenere valori che caratterizzano gli utenti, ad esempio il sesso, le preferenze, la posizione e così via.
   
@@ -112,7 +112,7 @@ Per consigliare gli elementi per gli utenti, è necessario fornire un elenco di 
 
         Il set di dati può includere una terza colonna di classificazioni di elementi utente, ma questa colonna viene ignorata.
 
-5. (Facoltativo). Se si dispone di un set di dati di **funzionalità utente**, connetterlo alle **funzionalità dell'utente**.
+5. (Facoltativo) Se si dispone di un set di dati di **funzionalità utente**, connetterlo alle **funzionalità dell'utente**.
 
     La prima colonna nel set di dati delle funzionalità utente deve contenere l'identificatore utente. Le colonne rimanenti devono contenere valori che caratterizzano l'utente, ad esempio il sesso, le preferenze, la posizione e così via.
 
