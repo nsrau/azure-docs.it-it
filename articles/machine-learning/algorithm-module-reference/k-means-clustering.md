@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 08/04/2020
-ms.openlocfilehash: 94a2c9bf3f65897809edaf94fc01b442e02b46d9
-ms.sourcegitcommit: 1b2d1755b2bf85f97b27e8fbec2ffc2fcd345120
+ms.openlocfilehash: 97cadfb8f5004cfd2701335172d4416c64f05259
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/04/2020
-ms.locfileid: "87553003"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907867"
 ---
 # <a name="module-k-means-clustering"></a>Modulo: clustering K-means
 
-Questo articolo descrive come usare il modulo di *clustering k-means* in Azure Machine Learning Designer (Preview) per creare un modello di clustering k-means non sottoposto a training. 
+Questo articolo descrive come usare il modulo di *clustering k-means* in Azure Machine Learning Designer per creare un modello di clustering k-means non sottoposto a training. 
  
 K-means è uno dei più semplici e noti algoritmi di apprendimento senza *supervisione* . È possibile usare l'algoritmo per un'ampia gamma di attività di Machine Learning, ad esempio: 
 
@@ -127,7 +127,7 @@ Se è stato usato il modulo [Train clustering Model](train-clustering-model.md) 
 
 1. Fare clic con il pulsante destro del mouse sul modulo **Train clustering Model** .
 
-2. Selezionare **Visualizza**.
+2. Selezionare **Visualize** (Visualizza).
 
 ### <a name="tips-for-generating-the-best-clustering-model"></a>Suggerimenti per la generazione del modello di clustering migliore  
 

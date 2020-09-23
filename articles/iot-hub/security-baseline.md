@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/03/2020
 ms.author: mbaldwin
 ms.custom: subject-security-benchmark
-ms.openlocfilehash: 314004d2b62d5616c1d7925b82fd9f050d0a1fd0
-ms.sourcegitcommit: bf1340bb706cf31bb002128e272b8322f37d53dd
+ms.openlocfilehash: 31a3bfbc174ca9c4c46005a26cde65db1ff74b65
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89441800"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906924"
 ---
 # <a name="azure-security-baseline-for-azure-iot-hub"></a>Baseline della sicurezza di Azure per l'hub Azure
 
@@ -71,7 +71,7 @@ Protezione DDoS di Azure Basic è già abilitata e disponibile senza costi aggiu
 
 - [Filtro IP dell'hub Internet](iot-hub-ip-filtering.md)
 
-- [Centro sicurezza di Azure per la comunicazione degli indirizzi IP sospetti](../asc-for-iot/concept-security-alerts.md)
+- [Centro sicurezza di Azure per la comunicazione degli indirizzi IP sospetti](../defender-for-iot/concept-security-alerts.md)
 
 - [Gestire la protezione DDoS di Azure Basic](../virtual-network/ddos-protection-overview.md)
 
@@ -234,7 +234,7 @@ In alternativa, è possibile abilitare e caricare i dati in Sentinel di Azure o 
 
 - [Monitorare l'integrità dell'hub Azure](iot-hub-monitor-resource-health.md)
 - [Come eseguire l'onboarding di Azure Sentinel](../sentinel/quickstart-onboard.md)
-- [Centro sicurezza di Azure per gli avvisi](../asc-for-iot/concept-security-alerts.md)
+- [Centro sicurezza di Azure per gli avvisi](../defender-for-iot/concept-security-alerts.md)
 
 - [Come inviare un avviso sui dati del log di log Analytics](../azure-monitor/learn/tutorial-response.md)
 

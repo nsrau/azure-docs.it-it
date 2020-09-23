@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: how-to
 ms.date: 5/6/2019
-ms.openlocfilehash: 2be89f9263c71b7c9d7bc32edd0b1fc7cb2cfbce
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: cf22a165e9a6eadcd2e5d4cdb0efa301538be7e9
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86118155"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907528"
 ---
 # <a name="configure-and-access-azure-database-for-postgresql---single-server-logs-from-the-azure-portal"></a>Configurare e accedere a database di Azure per PostgreSQL: log a server singolo dal portale di Azure
 
@@ -29,7 +29,7 @@ Configurare l'accesso per i log di query e i log degli errori.
 
 3. Nella sezione **monitoraggio** della barra laterale selezionare log del **Server**. 
 
-   ![Screenshot delle opzioni dei log del server](./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/1-select-server-logs-configure.png" alt-text="Screenshot delle opzioni dei log del server":::
 
 4. Per visualizzare i parametri del server, selezionare **fare clic qui per abilitare i log e configurare i parametri del log**.
 
@@ -37,7 +37,7 @@ Configurare l'accesso per i log di query e i log degli errori.
 
    Dopo aver modificato i parametri, selezionare **Salva**. In alternativa, è possibile annullare le modifiche. 
 
-   ![Screenshot delle opzioni dei parametri del server](./media/howto-configure-server-logs-in-portal/3-save-discard.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/3-save-discard.png" alt-text="Screenshot delle opzioni dei parametri del server":::
 
 Dalla pagina **parametri server** è possibile tornare all'elenco dei log chiudendo la pagina.
 
@@ -50,18 +50,18 @@ Una volta iniziata la registrazione, è possibile visualizzare un elenco di log 
 
 3. Nella sezione **monitoraggio** della barra laterale selezionare log del **Server**. La pagina Visualizza un elenco dei file di log.
 
-   ![Screenshot della pagina log del server con elenco dei log evidenziato](./media/howto-configure-server-logs-in-portal/4-server-logs-list.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/4-server-logs-list.png" alt-text="Screenshot della pagina log del server con elenco dei log evidenziato":::
 
    > [!TIP]
    > La convenzione di denominazione del log è **postgresql-aaaa-mm-gg_hh0000.log**. La data e l'ora utilizzate nel nome del file corrispondono all'ora in cui è stato emesso il log. I file di log ruotano ogni ora o 100 MB, a seconda di quale si verifichi per primo.
 
 4. Se necessario, usare la casella di ricerca per restringere rapidamente a un log specifico, in base alla data e all'ora. La ricerca viene eseguita in base al nome del log.
 
-   ![Screenshot della pagina log del server, con la casella di ricerca e i risultati evidenziati](./media/howto-configure-server-logs-in-portal/5-search.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/5-search.png" alt-text="Screenshot della pagina log del server, con la casella di ricerca e i risultati evidenziati":::
 
 5. Per scaricare i singoli file di log, selezionare l'icona della freccia rivolta verso il basso accanto a ogni file di log nella riga della tabella.
 
-   ![Screenshot della pagina log del server con icona con la freccia giù evidenziata](./media/howto-configure-server-logs-in-portal/6-download.png)
+   :::image type="content" source="./media/howto-configure-server-logs-in-portal/6-download.png" alt-text="Screenshot della pagina log del server con icona con la freccia giù evidenziata":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Vedere [accedere ai log del server nell'interfaccia della](howto-configure-server-logs-using-cli.md) riga di comando per informazioni su come scaricare log a livello di codice.

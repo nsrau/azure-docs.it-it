@@ -1,6 +1,6 @@
 ---
-title: Gestione degli account di archiviazione GPU Azure Stack Edge | Microsoft Docs
-description: Viene descritto come usare la portale di Azure per gestire l'account di archiviazione sul Azure Stack Edge.
+title: Gestione degli account di archiviazione della GPU Pro Azure Stack Edge | Microsoft Docs
+description: Viene descritto come usare la portale di Azure per gestire l'account di archiviazione nel Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,24 +8,24 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: 3b190a108651f4b127c2f009c383613922a59018
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: a239b36a539cf7be3e880512b753d45ae4050bad
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89254297"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90904531"
 ---
-# <a name="use-the-azure-portal-to-manage-edge-storage-accounts-on-your-azure-stack-edge"></a>Usare il portale di Azure per gestire gli account di archiviazione perimetrali sul Azure Stack Edge
+# <a name="use-the-azure-portal-to-manage-edge-storage-accounts-on-your-azure-stack-edge-pro"></a>Usare il portale di Azure per gestire gli account di archiviazione perimetrali nel Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Questo articolo descrive come gestire gli account di archiviazione perimetrali sul Azure Stack Edge. È possibile gestire il Azure Stack Edge tramite l'portale di Azure o tramite l'interfaccia utente Web locale. Usare il portale di Azure per aggiungere o eliminare gli account di archiviazione perimetrali nel dispositivo.
+Questo articolo descrive come gestire gli account di archiviazione perimetrali in Azure Stack Edge Pro. È possibile gestire il Azure Stack Edge Pro tramite la portale di Azure o tramite l'interfaccia utente Web locale. Usare il portale di Azure per aggiungere o eliminare gli account di archiviazione perimetrali nel dispositivo.
 
 ## <a name="about-edge-storage-accounts"></a>Informazioni sugli account di archiviazione perimetrale
 
-È possibile trasferire i dati dal dispositivo Azure Stack Edge tramite i protocolli SMB, NFS o REST. Per trasferire i dati nell'archiviazione BLOB usando le API REST, è necessario creare account di archiviazione perimetrale sul Azure Stack Edge. 
+È possibile trasferire i dati dal dispositivo Azure Stack Edge Pro tramite i protocolli SMB, NFS o REST. Per trasferire i dati nell'archiviazione BLOB usando le API REST, è necessario creare account di archiviazione perimetrale sul Azure Stack Edge Pro. 
 
-Gli account di archiviazione perimetrali aggiunti nel dispositivo Azure Stack Edge vengono mappati agli account di archiviazione di Azure. Tutti i dati scritti negli account di archiviazione perimetrale vengono automaticamente inseriti nel cloud.
+Gli account di archiviazione perimetrali aggiunti nel dispositivo Azure Stack Edge Pro vengono mappati agli account di archiviazione di Azure. Tutti i dati scritti negli account di archiviazione perimetrale vengono automaticamente inseriti nel cloud.
 
 Di seguito è riportato un diagramma che illustra in dettaglio i due tipi di account e la modalità di flusso dei dati da ognuno di questi account ad Azure:
 
@@ -34,13 +34,13 @@ Di seguito è riportato un diagramma che illustra in dettaglio i due tipi di acc
 In questo articolo vengono illustrate le operazioni seguenti:
 
 > [!div class="checklist"]
-> * Aggiungere un account di archiviazione perimetrale
+> * Aggiungere un account di archiviazione Edge
 > * Eliminare un account di archiviazione perimetrale
 
 
-## <a name="add-an-edge-storage-account"></a>Aggiungere un account di archiviazione perimetrale
+## <a name="add-an-edge-storage-account"></a>Aggiungere un account di archiviazione Edge
 
-Per creare un account di archiviazione perimetrale, seguire questa procedura:
+Per creare un account di archiviazione Edge, seguire questa procedura:
 
 [!INCLUDE [Add an Edge storage account](../../includes/azure-stack-edge-gateway-add-storage-account.md)]
 

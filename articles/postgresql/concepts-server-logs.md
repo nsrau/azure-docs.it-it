@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 06/25/2020
-ms.openlocfilehash: 506bd79a512a5d8d143f582ee84d292dff86d9df
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c5515c21d89b01576bb6aae8c9d480b439dc1507
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "85392812"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902700"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Log nel database di Azure per PostgreSQL-server singolo
 
@@ -23,7 +23,7 @@ La registrazione di controllo viene resa disponibile tramite un'estensione Postg
 ## <a name="configure-logging"></a>Configurare la registrazione 
 È possibile configurare la registrazione standard Postgres nel server usando i parametri del server di registrazione. In ogni database di Azure per il server PostgreSQL `log_checkpoints` e `log_connections` sono attivati per impostazione predefinita. Esistono anche parametri aggiuntivi che è possibile modificare in base alle esigenze di registrazione: 
 
-![Database di Azure per PostgreSQL - Parametri di registrazione](./media/concepts-server-logs/log-parameters.png)
+:::image type="content" source="./media/concepts-server-logs/log-parameters.png" alt-text="Database di Azure per PostgreSQL - Parametri di registrazione":::
 
 Per altre informazioni sui parametri del log Postgres, vedere le sezioni [When to log](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHEN) e [What to log](https://www.postgresql.org/docs/current/runtime-config-logging.html#RUNTIME-CONFIG-LOGGING-WHAT) della documentazione di postgres. La maggior parte, ma non tutti, i parametri di registrazione Postgres sono disponibili per la configurazione nel database di Azure per PostgreSQL.
 
@@ -103,7 +103,7 @@ Nella tabella seguente vengono descritti i campi del tipo **PostgreSQLLogs** . A
 | TenantId | ID del tenant. |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | Timestamp in cui il log è stato registrato in formato UTC. |
-| Type | Tipo di log. Sempre `AzureDiagnostics` |
+| Tipo | Tipo di log. Sempre `AzureDiagnostics` |
 | SubscriptionId | GUID per la sottoscrizione a cui appartiene il server. |
 | ResourceGroup | Nome del gruppo di risorse a cui appartiene il server. |
 | ResourceProvider | Nome del provider di risorse. Sempre `MICROSOFT.DBFORPOSTGRESQL` |
@@ -113,9 +113,9 @@ Nella tabella seguente vengono descritti i campi del tipo **PostgreSQLLogs** . A
 | Category | `PostgreSQLLogs` |
 | OperationName | `LogEvent` |
 | errorLevel | Livello di registrazione, ad esempio: LOG, ERROR, NOTICE |
-| Message | Messaggio di log primario | 
+| Messaggio | Messaggio di log primario | 
 | Dominio | Versione del server, ad esempio: postgres-10 |
-| Dettagli | Messaggio di log secondario (se applicabile) |
+| Dettaglio | Messaggio di log secondario (se applicabile) |
 | ColumnName | Nome della colonna (se applicabile) |
 | SchemaName | Nome dello schema (se applicabile) |
 | DatatypeName | Nome del tipo di dati (se applicabile) |
@@ -126,5 +126,5 @@ Nella tabella seguente vengono descritti i campi del tipo **PostgreSQLLogs** . A
 
 ## <a name="next-steps"></a>Passaggi successivi
 - Altre informazioni sull'accesso ai log dal [portale di Azure](howto-configure-server-logs-in-portal.md) oppure dall'[interfaccia della riga di comando di Azure](howto-configure-server-logs-using-cli.md).
-- Altre informazioni sui [prezzi di Monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/).
+- Scopri di più sui [prezzi di monitoraggio di Azure](https://azure.microsoft.com/pricing/details/monitor/).
 - Altre informazioni sui [log di controllo](concepts-audit.md)

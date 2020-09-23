@@ -10,12 +10,12 @@ ms.subservice: anomaly-detector
 ms.topic: conceptual
 ms.date: 05/07/2020
 ms.author: aahi
-ms.openlocfilehash: 29e790959e941abc133f95297dc09c951152a503
-ms.sourcegitcommit: bb0afd0df5563cc53f76a642fd8fc709e366568b
+ms.openlocfilehash: c0bf08ae0b2d26b2f4992181d2e300e9dbeed818
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 05/19/2020
-ms.locfileid: "83593308"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903538"
 ---
 # <a name="configure-anomaly-detector-containers"></a>Configurare i contenitori di Rilevamento anomalie
 
@@ -32,8 +32,8 @@ Questo contenitore ha le impostazioni di configurazione seguenti:
 |Sì|[Fatturazione](#billing-configuration-setting)|Specifica l'URI dell'endpoint della risorsa del servizio in Azure.|
 |Sì|[Eula](#eula-setting)| Indica che è stata accettata la licenza per il contenitore.|
 |No|[Fluentd](#fluentd-settings)|Scrivere il log e, facoltativamente, i dati delle metriche in un server Fluentd.|
-|No|[Proxy HTTP](#http-proxy-credentials-settings)|Configurare un proxy HTTP per le richieste in uscita.|
-|No|[Registrazione](#logging-settings)|Fornisce il supporto di registrazione ASP.NET Core per il contenitore. |
+|No|[Proxy http](#http-proxy-credentials-settings)|Configurare un proxy HTTP per le richieste in uscita.|
+|No|[Logging](#logging-settings)|Fornisce il supporto di registrazione ASP.NET Core per il contenitore. |
 |No|[Mounts](#mount-settings)|Leggere e scrivere dati dal computer host al contenitore e dal contenitore al computer host.|
 
 > [!IMPORTANT]
@@ -57,7 +57,7 @@ L' `Billing` impostazione specifica l'URI dell'endpoint della risorsa del _rilev
 
 Questa impostazione è disponibile nelle posizioni seguenti:
 
-* Portale di Azure: Panoramica **del rilevatore di anomalie** , con etichetta`Endpoint`
+* Portale di Azure: Panoramica **del rilevatore di anomalie** , con etichetta `Endpoint`
 
 |Necessario| Nome | Tipo di dati | Descrizione |
 |--|------|-----------|-------------|
@@ -90,7 +90,7 @@ La sintassi esatta della posizione di montaggio host varia a seconda del sistema
 
 |Facoltativo| Nome | Tipo di dati | Descrizione |
 |-------|------|-----------|-------------|
-|Non consentito| `Input` | String | I contenitori dei rilevatori di anomalie non lo usano.|
+|Non consentito| `Input` | Stringa | I contenitori dei rilevatori di anomalie non lo usano.|
 |Facoltativo| `Output` | String | Destinazione del montaggio di output. Il valore predefinito è `/output`. Questo è il percorso dei log. Include i log dei contenitori. <br><br>Esempio:<br>`--mount type=bind,src=c:\output,target=/output`|
 
 ## <a name="example-docker-run-commands"></a>Comandi docker run di esempio 
@@ -121,7 +121,7 @@ Gli esempi di Docker seguenti sono per il contenitore del rilevatore di anomalie
 
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  mcr.microsoft.com/azure-cognitive-services/anomaly-detector \
+  mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector \
   Eula=accept \
   Billing={ENDPOINT_URI} \
   ApiKey={API_KEY} 
@@ -131,7 +131,7 @@ Gli esempi di Docker seguenti sono per il contenitore del rilevatore di anomalie
 
   ```Docker
   docker run --rm -it -p 5000:5000 --memory 4g --cpus 1 \
-  mcr.microsoft.com/azure-cognitive-services/anomaly-detector \
+  mcr.microsoft.com/azure-cognitive-services/decision/anomaly-detector \
   Eula=accept \
   Billing={ENDPOINT_URI} ApiKey={API_KEY} \
   Logging:Console:LogLevel:Default=Information

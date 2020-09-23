@@ -1,6 +1,6 @@
 ---
-title: Informazioni sulla gestione dell'archiviazione Kubernetes nel dispositivo Azure Stack Edge | Microsoft Docs
-description: Viene descritto come viene eseguita la gestione dell'archiviazione di Kubernetes in un dispositivo Azure Stack Edge.
+title: Informazioni sulla gestione dell'archiviazione Kubernetes nel dispositivo Azure Stack Edge Pro | Microsoft Docs
+description: Descrive il modo in cui viene eseguita la gestione dell'archiviazione di Kubernetes in un dispositivo Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: conceptual
 ms.date: 08/27/2020
 ms.author: alkohli
-ms.openlocfilehash: 57574b66ddb20e592a5979a4b827347f7c8e09af
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: ff2a473ca008e9b283d03ebb05f35122473d778a
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268092"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899273"
 ---
-# <a name="kubernetes-storage-management-on-your-azure-stack-edge-gpu-device"></a>Gestione archiviazione Kubernetes sul dispositivo GPU Azure Stack Edge
+# <a name="kubernetes-storage-management-on-your-azure-stack-edge-pro-gpu-device"></a>Gestione archiviazione Kubernetes sul dispositivo GPU Pro Azure Stack Edge
 
-Nel dispositivo Azure Stack Edge viene creato un cluster Kubernetes quando si configura il ruolo di calcolo. Una volta creato il cluster Kubernetes, le applicazioni in contenitori possono essere distribuite nel cluster Kubernetes in pod. Esistono diversi modi per fornire spazio di archiviazione ai Pod nel cluster Kubernetes. 
+Nel dispositivo Azure Stack Edge Pro viene creato un cluster Kubernetes quando si configura il ruolo di calcolo. Una volta creato il cluster Kubernetes, le applicazioni in contenitori possono essere distribuite nel cluster Kubernetes in pod. Esistono diversi modi per fornire spazio di archiviazione ai Pod nel cluster Kubernetes. 
 
-Questo articolo descrive i metodi per eseguire il provisioning dell'archiviazione in un cluster Kubernetes in generale e in particolare nel contesto del dispositivo Azure Stack Edge. 
+Questo articolo descrive i metodi per eseguire il provisioning dell'archiviazione in un cluster Kubernetes in generale e in particolare nel contesto del dispositivo Azure Stack Edge Pro. 
 
 ## <a name="storage-requirements-for-kubernetes-pods"></a>Requisiti di archiviazione per i pod Kubernetes
 
@@ -75,9 +75,9 @@ Si verificano i passaggi seguenti:
 1. **Montare il PVC nel contenitore**: quando il PVC è associato al PV, è possibile montare il PVC sul contenitore in un percorso allo stesso modo del provisioning statico e leggere o scrivere nella condivisione.
 
 
-## <a name="storage-provisioning-on-azure-stack-edge"></a>Provisioning dell'archiviazione su Azure Stack Edge
+## <a name="storage-provisioning-on-azure-stack-edge-pro"></a>Provisioning dell'archiviazione su Azure Stack Edge Pro
 
-Sul dispositivo Azure Stack Edge, il provisioning statico `PersistentVolumes` viene creato usando le funzionalità di archiviazione del dispositivo. Quando si esegue il provisioning di una condivisione e si **Usa l'opzione Condividi con calcolo Edge** è abilitata, questa azione crea automaticamente una risorsa PV nel cluster Kubernetes.
+Sul dispositivo Azure Stack Edge Pro, il provisioning statico `PersistentVolumes` viene creato usando le funzionalità di archiviazione del dispositivo. Quando si esegue il provisioning di una condivisione e si **Usa l'opzione Condividi con calcolo Edge** è abilitata, questa azione crea automaticamente una risorsa PV nel cluster Kubernetes.
 
 ![Creazione di una condivisione locale in portale di Azure per il provisioning statico](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-2.png)
 
@@ -85,7 +85,7 @@ Per usare la suddivisione in livelli nel cloud, è possibile creare una condivis
 
 ![Creazione della condivisione cloud in portale di Azure per il provisioning statico](./media/azure-stack-edge-gpu-kubernetes-storage/static-provisioning-azure-portal-1.png)
 
-È possibile creare condivisioni SMB e NFS per eseguire il provisioning statico di PVs sul dispositivo Azure Stack Edge. Una volta effettuato il provisioning del PV, si invierà un PVC per richiedere questa archiviazione. Di seguito è riportato un esempio di una distribuzione in PVC `yaml` che attesta l'archiviazione e usa le condivisioni di cui è stato effettuato il provisioning.
+È possibile creare condivisioni SMB e NFS per eseguire il provisioning statico di PVs sul dispositivo Azure Stack Edge Pro. Una volta effettuato il provisioning del PV, si invierà un PVC per richiedere questa archiviazione. Di seguito è riportato un esempio di una distribuzione in PVC `yaml` che attesta l'archiviazione e usa le condivisioni di cui è stato effettuato il provisioning.
 
 
 ```yml
@@ -103,13 +103,13 @@ spec:
   storageClassName: ""
 ```
 
-Per altre informazioni, vedere [distribuire un'applicazione con stato tramite il provisioning statico sul Azure stack Edge tramite kubectl](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md).
+Per altre informazioni, vedere [distribuire un'applicazione con stato tramite il provisioning statico sul Azure stack Edge Pro tramite kubectl](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md).
 
-Azure Stack Edge dispone anche di un builtin `StorageClass` denominato `ase-node-local` che usa un archivio di dischi dati collegato al nodo Kubernetes. Questo `StorageClass` supporta il provisioning dinamico. È possibile creare un `StorageClass` riferimento nelle applicazioni pod e un PV viene creato automaticamente. Per ulteriori informazioni, vedere il [dashboard di Kubernetes](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md) per eseguire una query per `ase-node-local StorageClass` .
+Azure Stack Edge Pro dispone anche di un builtin `StorageClass` denominato `ase-node-local` che usa un archivio di dischi dati collegato al nodo Kubernetes. Questo `StorageClass` supporta il provisioning dinamico. È possibile creare un `StorageClass` riferimento nelle applicazioni pod e un PV viene creato automaticamente. Per ulteriori informazioni, vedere il [dashboard di Kubernetes](azure-stack-edge-gpu-monitor-kubernetes-dashboard.md) per eseguire una query per `ase-node-local StorageClass` .
 
 ![Classe di archiviazione predefinita nel dashboard di Kubernetes](./media/azure-stack-edge-gpu-kubernetes-storage/dynamic-provisioning-builtin-storage-class-1.png)
 
-Per altre informazioni, vedere [distribuire un'applicazione con stato tramite il provisioning dinamico sul Azure stack Edge tramite kuebctl](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md).
+Per altre informazioni, vedere [distribuire un'applicazione con stato tramite il provisioning dinamico in Azure stack Edge Pro tramite kuebctl](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md).
 
 ## <a name="choose-storage-type"></a>Scegliere il tipo di archiviazione
 
@@ -127,8 +127,8 @@ Per altre informazioni sulle modalità di accesso, vedere [Kubernetes Volumes Ac
 
 Per comprendere come è possibile eseguire il provisioning statico di un `PersistentVolume` , vedere:
 
-- [Distribuire un'applicazione con stato tramite il provisioning statico sul Azure stack Edge tramite kubectl](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md).
+- [Distribuire un'applicazione con stato tramite il provisioning statico sul Azure stack Edge Pro tramite kubectl](azure-stack-edge-gpu-deploy-stateful-application-static-provision-kubernetes.md).
 
 Per informazioni su come è possibile eseguire il provisioning dinamico di un `StorageClass` , vedere:
 
-- [Distribuire un'applicazione con stato tramite il provisioning dinamico sul Azure stack Edge tramite kuebctl](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md).
+- [Distribuire un'applicazione con stato tramite il provisioning dinamico sul Azure stack Edge Pro tramite kuebctl](azure-stack-edge-gpu-deploy-stateful-application-dynamic-provision-kubernetes.md).

@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 3/18/2020
-ms.openlocfilehash: aa79d1ba2cba86bf3f381ff78fd630ce455128d9
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: d885cc64eeebd4873ad5993b39b48845d1365c23
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86107870"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902751"
 ---
 # <a name="restart-azure-database-for-mysql-server-using-azure-portal"></a>Riavviare un server di Database di Azure per MySQL usando il portale di Azure
 In questo argomento viene descritta la procedura per riavviare un server di Database di Azure per MySQL. Potrebbe essere necessario riavviare il server per motivi di manutenzione, causando così una breve interruzione del servizio mentre il server esegue l'operazione.
@@ -32,19 +32,19 @@ La procedura seguente consente di riavviare il server MySQL:
 
 2. Nella barra degli strumenti della pagina **Panoramica** del server fare clic su **Riavvia**.
 
-   ![Database di Azure per MySQL: Panoramica - Pulsante Riavvia](./media/howto-restart-server-portal/2-server.png)
+   :::image type="content" source="./media/howto-restart-server-portal/2-server.png" alt-text="Database di Azure per MySQL: Panoramica - Pulsante Riavvia":::
 
 3. Fare clic su **Sì** per confermare il riavvio del server.
 
-   ![Database di Azure per MySQL - Conferma di riavvio](./media/howto-restart-server-portal/3-restart-confirm.png)
+   :::image type="content" source="./media/howto-restart-server-portal/3-restart-confirm.png" alt-text="Database di Azure per MySQL - Conferma di riavvio":::
 
 4. Si noti che lo stato del server passa a "Riavvio in corso".
 
-   ![Database di Azure per MySQL - Stato di riavvio](./media/howto-restart-server-portal/4-restarting-status.png)
+   :::image type="content" source="./media/howto-restart-server-portal/4-restarting-status.png" alt-text="Database di Azure per MySQL - Stato di riavvio":::
 
 5. La conferma del riavvio del server ha esito positivo.
 
-   ![Database di Azure per MySQL - Riavvio riuscito](./media/howto-restart-server-portal/5-restart-success.png)
+   :::image type="content" source="./media/howto-restart-server-portal/5-restart-success.png" alt-text="Database di Azure per MySQL - Riavvio riuscito":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

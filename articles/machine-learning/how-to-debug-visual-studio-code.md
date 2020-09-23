@@ -9,16 +9,16 @@ ms.topic: conceptual
 author: luisquintanilla
 ms.author: luquinta
 ms.date: 08/06/2020
-ms.openlocfilehash: 08859eb87431b59e8be68369ce8f3876aa7d9f21
-ms.sourcegitcommit: 03662d76a816e98cfc85462cbe9705f6890ed638
+ms.openlocfilehash: 3c2934c92be668d4b4c05f97a98395e2e219b7dc
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/15/2020
-ms.locfileid: "90530302"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907616"
 ---
 # <a name="interactive-debugging-with-visual-studio-code"></a>Debug interattivo con Visual Studio Code
 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Informazioni su come eseguire il debug interattivo di pipeline e distribuzioni Azure Machine Learning usando Visual Studio Code (VS Code) e [depugpy](https://github.com/microsoft/debugpy/).
 
@@ -42,7 +42,7 @@ Per altre informazioni sull'uso di una rete virtuale di Azure con Azure Machine 
 > [!TIP]
 > Sebbene sia possibile utilizzare Azure Machine Learning risorse che non si trovano dietro una rete virtuale, è consigliabile utilizzare una rete virtuale.
 
-### <a name="how-it-works"></a>Come funziona
+### <a name="how-it-works"></a>Funzionamento
 
 I passaggi della pipeline di ML eseguono script Python. Questi script vengono modificati per eseguire le azioni seguenti:
 
@@ -109,7 +109,7 @@ Per abilitare il debug, apportare le modifiche seguenti agli script Python usati
         print(f'Debugger attached = {debugpy.is_client_connected()}')
     ```
 
-Nell'esempio Python seguente viene illustrato un `train.py` file di base che consente il debug:
+Nell'esempio Python seguente viene illustrato un semplice `train.py` file che consente il debug:
 
 ```python
 # Copyright (c) Microsoft. All rights reserved.

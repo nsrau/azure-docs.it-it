@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 05/26/2020
-ms.openlocfilehash: f54dd09ac82ddefeb2528462c7131aa921592d2a
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: aa81987f9214870e248ef9b625e6afcd1093fe5d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84487951"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907889"
 ---
 # <a name="init-image-transformation"></a>Init Image Transformation
 
-Questo articolo descrive come usare il modulo **init Image Transformation** in Azure Machine Learning Designer (Preview) per inizializzare la trasformazione dell'immagine in modo da specificare come si desidera trasformare l'immagine.
+Questo articolo descrive come usare il modulo **init Image Transformation** in Azure Machine Learning Designer per inizializzare la trasformazione dell'immagine in modo da specificare come si desidera trasformare l'immagine.
 
 ## <a name="how-to-configure-init-image-transformation"></a>Come configurare la trasformazione dell'immagine init
 
@@ -73,27 +73,27 @@ Al termine della trasformazione, è possibile trovare le immagini trasformate ne
 | Dimensione                    | >= 1     | Integer | 256     | Specificare le dimensioni di output desiderate          |
 | Centra ritaglio             | Qualsiasi     | Boolean | True    | Ritaglia l'immagine del PIL specificata al centro  |
 | Dimensioni ritaglio               | >= 1     | Integer | 224     | Specificare le dimensioni di output desiderate per il ritaglio |
-| Pad                     | Qualsiasi     | Boolean | False   | Riempimento dell'immagine PIL specificata su tutti i lati con il valore "pad" specificato |
-| Spaziatura interna                 | >= 0     | Integer | 0       | Spaziatura interna per ogni bordo                   |
-| Jitter colore            | Qualsiasi     | Boolean | False   | Modificare in modo casuale la luminosità, il contrasto e la saturazione di un'immagine |
-| Gradazioni di grigio               | Qualsiasi     | Boolean | False   | Converti immagine in scala di grigi               |
-| Ritaglio casuale ridimensionato     | Qualsiasi     | Boolean | False   | Ritagliare l'immagine del PIL specificata in dimensioni casuali e proporzioni |
+| Pad                     | Qualsiasi     | Boolean | Falso   | Riempimento dell'immagine PIL specificata su tutti i lati con il valore "pad" specificato |
+| Riempimento                 | >= 0     | Integer | 0       | Spaziatura interna per ogni bordo                   |
+| Jitter colore            | Qualsiasi     | Boolean | Falso   | Modificare in modo casuale la luminosità, il contrasto e la saturazione di un'immagine |
+| Gradazioni di grigio               | Qualsiasi     | Boolean | Falso   | Converti immagine in scala di grigi               |
+| Ritaglio casuale ridimensionato     | Qualsiasi     | Boolean | Falso   | Ritagliare l'immagine del PIL specificata in dimensioni casuali e proporzioni |
 | Dimensioni casuali             | >= 1     | Integer | 256     | Dimensioni di output previste per ogni Edge        |
-| Ritaglio casuale             | Qualsiasi     | Boolean | False   | Ritagliare l'immagine del PIL specificata in una posizione casuale |
+| Ritaglio casuale             | Qualsiasi     | Boolean | Falso   | Ritagliare l'immagine del PIL specificata in una posizione casuale |
 | Dimensioni taglia casuale        | >= 1     | Integer | 224     | Dimensioni di output desiderate per il ritaglio          |
 | Capovolgimento orizzontale casuale  | Qualsiasi     | Boolean | True    | Capovolge orizzontalmente l'immagine del PIL specificata in modo casuale con una determinata probabilità |
-| Capovolgimento verticale casuale    | Qualsiasi     | Boolean | False   | Capovolge verticalmente l'immagine del PIL specificata in modo casuale con una determinata probabilità |
-| Rotazione casuale         | Qualsiasi     | Boolean | False   | Ruotare l'immagine in base all'angolo                |
+| Capovolgimento verticale casuale    | Qualsiasi     | Boolean | Falso   | Capovolge verticalmente l'immagine del PIL specificata in modo casuale con una determinata probabilità |
+| Rotazione casuale         | Qualsiasi     | Boolean | Falso   | Ruotare l'immagine in base all'angolo                |
 | Gradi di rotazione casuale | [0180] | Integer | 0       | Intervallo di gradi da selezionare          |
-| Affinità casuale           | Qualsiasi     | Boolean | False   | Trasformazione affine casuale dell'immagine che mantiene invariante il centro |
+| Affinità casuale           | Qualsiasi     | Boolean | Falso   | Trasformazione affine casuale dell'immagine che mantiene invariante il centro |
 | Gradi affini casuali   | [0180] | Integer | 0       | Intervallo di gradi da selezionare          |
-| Scala di grigi casuale        | Qualsiasi     | Boolean | False   | Convertire in modo casuale l'immagine in scala di grigi con probabilità 0,1 |
-| Prospettiva casuale      | Qualsiasi     | Boolean | False   | Esegue in modo casuale la trasformazione prospettiva dell'immagine PIL specificata con la probabilità 0,5 |
-| Cancellazione casuale          | Qualsiasi     | Boolean | False   | Seleziona in modo casuale un'area rettangolare in un'immagine e ne cancella i pixel con probabilità 0,5 |
+| Scala di grigi casuale        | Qualsiasi     | Boolean | Falso   | Convertire in modo casuale l'immagine in scala di grigi con probabilità 0,1 |
+| Prospettiva casuale      | Qualsiasi     | Boolean | Falso   | Esegue in modo casuale la trasformazione prospettiva dell'immagine PIL specificata con la probabilità 0,5 |
+| Cancellazione casuale          | Qualsiasi     | Boolean | Falso   | Seleziona in modo casuale un'area rettangolare in un'immagine e ne cancella i pixel con probabilità 0,5 |
 
 ###  <a name="output"></a>Output  
 
-| Nome                        | Type                    | Descrizione                              |
+| Nome                        | Tipo                    | Descrizione                              |
 | --------------------------- | ----------------------- | ---------------------------------------- |
 | Trasformazione immagine di output | TransformationDirectory | Trasformazione dell'immagine di output che può essere connessa al modulo **Applica trasformazione immagine** . |
 

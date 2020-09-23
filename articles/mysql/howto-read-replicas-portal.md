@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: how-to
 ms.date: 6/10/2020
-ms.openlocfilehash: a3342a626a104dc5eb77ef4b01146a8943dae2d2
-ms.sourcegitcommit: d7008edadc9993df960817ad4c5521efa69ffa9f
+ms.openlocfilehash: ad8fd20d744f7aaa113b4c46f8ca0f05a6cc6951
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/08/2020
-ms.locfileid: "86108074"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90902839"
 ---
 # <a name="how-to-create-and-manage-read-replicas-in-azure-database-for-mysql-using-the-azure-portal"></a>Come creare e gestire le repliche in lettura in Database di Azure per MySQL con il portale di Azure
 
@@ -39,15 +39,15 @@ Questo articolo descrive come creare e gestire repliche in lettura nel servizio 
 
 4. Selezionare **Aggiungi replica**.
 
-   ![Database di Azure per MySQL - Replica](./media/howto-read-replica-portal/add-replica.png)
+   :::image type="content" source="./media/howto-read-replica-portal/add-replica.png" alt-text="Database di Azure per MySQL - Replica":::
 
 5. Immettere un nome per il server di replica.
 
-    ![Database di Azure per MySQL - Nome della replica](./media/howto-read-replica-portal/replica-name.png)
+    :::image type="content" source="./media/howto-read-replica-portal/replica-name.png" alt-text="Database di Azure per MySQL - Nome della replica":::
 
 6. Selezionare la posizione per il server di replica. La posizione predefinita è la stessa di quella del server master.
 
-    ![Database di Azure per MySQL - Posizione della replica](./media/howto-read-replica-portal/replica-location.png)
+    :::image type="content" source="./media/howto-read-replica-portal/replica-location.png" alt-text="Database di Azure per MySQL - Posizione della replica":::
 
    > [!NOTE]
    > Per altre informazioni sulle aree in cui è possibile creare una replica, vedere l'articolo [Concetti relativi alle repliche in lettura](concepts-read-replicas.md). 
@@ -59,7 +59,7 @@ Questo articolo descrive come creare e gestire repliche in lettura nel servizio 
 
 Dopo che è stato creato, il server di replica può essere visualizzato nel pannello **Replica**.
 
-   ![Database di Azure per MySQL - Visualizzare l'elenco delle repliche](./media/howto-read-replica-portal/list-replica.png)
+   :::image type="content" source="./media/howto-read-replica-portal/list-replica.png" alt-text="Database di Azure per MySQL - Visualizzare l'elenco delle repliche":::
 
 ## <a name="stop-replication-to-a-replica-server"></a>Arrestare la replica in un server di replica
 
@@ -74,15 +74,15 @@ Per arrestare la replica tra un server master e uno di replica dal portale di Az
 
 3. Selezionare il server di replica per cui si vuole arrestare la replica.
 
-   ![Database di Azure per MySQL - Selezionare il server per l'arresto della replica](./media/howto-read-replica-portal/stop-replication-select.png)
+   :::image type="content" source="./media/howto-read-replica-portal/stop-replication-select.png" alt-text="Database di Azure per MySQL - Selezionare il server per l'arresto della replica":::
 
 4. Selezionare **Arresta replica**.
 
-   ![Database di Azure per MySQL - Arrestare la replica](./media/howto-read-replica-portal/stop-replication.png)
+   :::image type="content" source="./media/howto-read-replica-portal/stop-replication.png" alt-text="Database di Azure per MySQL - Arrestare la replica":::
 
 5. Confermare che si vuole arrestare la replica facendo clic su **OK**.
 
-   ![Database di Azure per MySQL - Confermare l'arresto della replica](./media/howto-read-replica-portal/stop-replication-confirm.png)
+   :::image type="content" source="./media/howto-read-replica-portal/stop-replication-confirm.png" alt-text="Database di Azure per MySQL - Confermare l'arresto della replica":::
 
 ## <a name="delete-a-replica-server"></a>Eliminare un server di replica
 
@@ -94,15 +94,15 @@ Per eliminare un server di replica in lettura dal portale di Azure, seguire ques
 
 3. Selezionare il server di replica da eliminare.
 
-   ![Database di Azure per MySQL - Selezionare il server per l'eliminazione della replica](./media/howto-read-replica-portal/delete-replica-select.png)
+   :::image type="content" source="./media/howto-read-replica-portal/delete-replica-select.png" alt-text="Database di Azure per MySQL - Selezionare il server per l'eliminazione della replica":::
 
 4. Selezionare **Elimina replica**.
 
-   ![Database di Azure per MySQL - Eliminare la replica](./media/howto-read-replica-portal/delete-replica.png)
+   :::image type="content" source="./media/howto-read-replica-portal/delete-replica.png" alt-text="Database di Azure per MySQL - Eliminare la replica":::
 
 5. Digitare il nome della replica e fare clic su **Elimina** per confermarne l'eliminazione.  
 
-   ![Database di Azure per MySQL - Confermare l'eliminazione della replica](./media/howto-read-replica-portal/delete-replica-confirm.png)
+   :::image type="content" source="./media/howto-read-replica-portal/delete-replica-confirm.png" alt-text="Database di Azure per MySQL - Confermare l'eliminazione della replica":::
 
 ## <a name="delete-a-master-server"></a>Eliminare un server master
 
@@ -115,11 +115,11 @@ Per eliminare un server master dal portale di Azure, seguire questa procedura:
 
 2. In **Panoramica** selezionare **Elimina**.
 
-   ![Database di Azure per MySQL - Eliminare il master](./media/howto-read-replica-portal/delete-master-overview.png)
+   :::image type="content" source="./media/howto-read-replica-portal/delete-master-overview.png" alt-text="Database di Azure per MySQL - Eliminare il master":::
 
 3. Digitare il nome del server master e fare clic su **Elimina** per confermarne l'eliminazione.  
 
-   ![Database di Azure per MySQL - Eliminare il master](./media/howto-read-replica-portal/delete-master-confirm.png)
+   :::image type="content" source="./media/howto-read-replica-portal/delete-master-confirm.png" alt-text="Database di Azure per MySQL - Eliminare il master":::
 
 ## <a name="monitor-replication"></a>Monitorare la replica
 
@@ -129,15 +129,15 @@ Per eliminare un server master dal portale di Azure, seguire questa procedura:
 
 3. Selezionare **Replication lag in seconds** (Intervallo di replica in secondi) nell'elenco a discesa delle metriche disponibili.
 
-   ![Selezionare l'intervallo di replica](./media/howto-read-replica-portal/monitor-select-replication-lag.png)
+   :::image type="content" source="./media/howto-read-replica-portal/monitor-select-replication-lag.png" alt-text="Selezionare l'intervallo di replica":::
 
 4. Selezionare l'intervallo di tempo da visualizzare. Nell'immagine seguente viene selezionato un intervallo di tempo di 30 minuti.
 
-   ![Selezionare l'intervallo di tempo](./media/howto-read-replica-portal/monitor-replication-lag-time-range.png)
+   :::image type="content" source="./media/howto-read-replica-portal/monitor-replication-lag-time-range.png" alt-text="Selezionare l'intervallo di tempo":::
 
 5. Visualizzare l'intervallo di replica per l'intervallo di tempo selezionato. Nell'immagine seguente vengono visualizzati gli ultimi 30 minuti.
 
-   ![Selezionare l'intervallo di tempo](./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png)
+   :::image type="content" source="./media/howto-read-replica-portal/monitor-replication-lag-time-range-thirty-mins.png" alt-text="Selezionare l'intervallo di tempo":::
 
 ## <a name="next-steps"></a>Passaggi successivi
 

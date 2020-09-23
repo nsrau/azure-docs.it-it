@@ -1,6 +1,6 @@
 ---
-title: Usare il portale di Azure per risolvere i problemi relativi a Azure Stack Edge | Microsoft Docs
-description: Informazioni su come risolvere i problemi relativi a Azure Stack Edge. È possibile eseguire la diagnostica, raccogliere informazioni per il supporto e usare i log per la risoluzione dei problemi.
+title: Usare il portale di Azure per risolvere i problemi relativi a Azure Stack Edge Pro | Microsoft Docs
+description: Informazioni su come risolvere i problemi relativi a Azure Stack Edge Pro. È possibile eseguire la diagnostica, raccogliere informazioni per il supporto e usare i log per la risoluzione dei problemi.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: troubleshooting
 ms.date: 08/11/2020
 ms.author: alkohli
-ms.openlocfilehash: f9dabdfd9df77822f06c41fa4355a1657bceb76c
-ms.sourcegitcommit: 1aef4235aec3fd326ded18df7fdb750883809ae8
+ms.openlocfilehash: bc4afa0d26f6ba256354d3802a0c4f9b9b04088e
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/12/2020
-ms.locfileid: "88134565"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903658"
 ---
-# <a name="troubleshoot-your-azure-stack-edge-issues"></a>Risolvere i problemi di Azure Stack Edge
+# <a name="troubleshoot-your-azure-stack-edge-pro-issues"></a>Risolvere i problemi relativi a Azure Stack Edge Pro
 
-Questo articolo descrive come risolvere i problemi relativi al Azure Stack Edge. 
+Questo articolo descrive come risolvere i problemi di Azure Stack Edge Pro. 
 
 In questo articolo vengono illustrate le operazioni seguenti:
 
@@ -65,7 +65,7 @@ Gli eventuali errori riscontrati durante i processi di caricamento e aggiornamen
 
       ![Connettersi alla condivisione e visualizzarne il contenuto](media/azure-stack-edge-troubleshoot/troubleshoot-logs-1.png)
 
-2. Selezionare la _cartella Microsoft Azure stack Edge_. Questa cartella contiene due sottocartelle:
+2. Selezionare la _cartella Pro di Microsoft Azure stack Edge_. Questa cartella contiene due sottocartelle:
 
     * Una cartella di caricamento contenente i file di log per gli errori di caricamento
     * Una cartella di aggiornamento per gli errori durante l'aggiornamento

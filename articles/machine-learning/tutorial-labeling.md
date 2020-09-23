@@ -10,15 +10,15 @@ ms.author: sgilley
 author: sdgilley
 ms.reviewer: ranku
 ms.date: 04/09/2020
-ms.openlocfilehash: 60dd9631df0b997ce39134002bdb6ed9f69336ed
-ms.sourcegitcommit: a76ff927bd57d2fcc122fa36f7cb21eb22154cfa
+ms.openlocfilehash: 9e24a652bb4e577ff9b604b6b4f5284883723ee5
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/28/2020
-ms.locfileid: "87319270"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90906710"
 ---
 # <a name="tutorial-create-a-labeling-project-for-multi-class-image-classification"></a>Esercitazione: Creare un progetto di etichettatura per la classificazione delle immagini multi-classe 
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+
 
 Questa esercitazione illustra come gestire il processo di etichettatura (detto anche assegnazione di tag) di immagini da usare come dati per la creazione di modelli di Machine Learning. La funzionalità di etichettatura dei dati in Azure Machine Learning è in anteprima pubblica.
 
@@ -130,7 +130,7 @@ Selezionare **Avanti** per continuare.
 
 1. Selezionare **Avanti**.
 
-1. Se si usa un'area di lavoro Enterprise, si vedrà la sezione **Etichettatura assistita da ML**.  Lasciare deselezionata la casella di controllo. Per l'etichettatura assistita da ML sono necessari più dati rispetto a quelli usati in questa esercitazione.
+1. Nella sezione **Etichettatura assistita da ML** lasciare la casella di controllo deselezionata. Per l'etichettatura assistita da ML sono necessari più dati rispetto a quelli usati in questa esercitazione.
 
 1. Selezionare **Create project** (Crea progetto).
 

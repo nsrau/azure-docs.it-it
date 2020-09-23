@@ -1,6 +1,6 @@
 ---
-title: Distribuire macchine virtuali nel dispositivo Azure Stack Edge tramite modelli
-description: Viene descritto come creare e gestire macchine virtuali (VM) in un dispositivo Azure Stack Edge utilizzando i modelli.
+title: Distribuire macchine virtuali nel dispositivo Azure Stack Edge Pro tramite modelli
+description: Viene descritto come creare e gestire macchine virtuali (VM) in un dispositivo Azure Stack Edge Pro usando i modelli.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,16 +8,16 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/04/2020
 ms.author: alkohli
-ms.openlocfilehash: 4f5fb02239fa48d96b0b779af7c970fc67fbcb99
-ms.sourcegitcommit: 9c262672c388440810464bb7f8bcc9a5c48fa326
+ms.openlocfilehash: eeefbcdc080620c60f7cd49b8f749375e23ddd02
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/03/2020
-ms.locfileid: "89419827"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90899704"
 ---
-# <a name="deploy-vms-on-your-azure-stack-edge-gpu-device-via-templates"></a>Distribuire macchine virtuali nel dispositivo GPU Azure Stack Edge tramite modelli
+# <a name="deploy-vms-on-your-azure-stack-edge-pro-gpu-device-via-templates"></a>Distribuire macchine virtuali nel dispositivo GPU Azure Stack Edge Pro tramite modelli
 
-Questa esercitazione descrive come creare e gestire una macchina virtuale nel dispositivo Azure Stack Edge usando i modelli. Questi modelli sono file JavaScript Object Notation (JSON) che definiscono l'infrastruttura e la configurazione per la VM. In questi modelli si specificano le risorse da distribuire e le proprietà di tali risorse.
+Questa esercitazione descrive come creare e gestire una macchina virtuale nel dispositivo Azure Stack Edge Pro usando i modelli. Questi modelli sono file JavaScript Object Notation (JSON) che definiscono l'infrastruttura e la configurazione per la VM. In questi modelli si specificano le risorse da distribuire e le proprietà di tali risorse.
 
 I modelli sono flessibili in ambienti diversi, in quanto possono assumere parametri come input in fase di esecuzione da un file. La struttura di denominazione standard è `TemplateName.json` per il modello e `TemplateName.parameters.json` per il file dei parametri. Per altre informazioni sui modelli ARM, vedere [che cosa sono i modelli di Azure Resource Manager?](../azure-resource-manager/templates/overview.md).
 
@@ -25,7 +25,7 @@ In questa esercitazione verranno usati modelli di esempio pre-scritti per la cre
 
 ## <a name="vm-deployment-workflow"></a>Flusso di lavoro di distribuzione della VM
 
-Per distribuire le macchine virtuali Azure Stack Edge in molti dispositivi, è possibile usare un singolo disco rigido virtuale preparata con Sysprep per la flotta completa, lo stesso modello per la distribuzione e apportare solo modifiche minime ai parametri del modello per ogni percorso di distribuzione (queste modifiche possono essere apportate in modo manuale o a livello di codice). 
+Per distribuire le macchine virtuali Azure Stack Edge Pro in molti dispositivi, è possibile usare un singolo disco rigido virtuale preparata con Sysprep per la flotta completa, lo stesso modello per la distribuzione e apportare solo modifiche minime ai parametri del modello per ogni percorso di distribuzione (queste modifiche potrebbero essere manualmente come in questo caso o a livello di codice). 
 
 Il riepilogo generale del flusso di lavoro di distribuzione con i modelli è il seguente:
 
@@ -57,13 +57,13 @@ Il riepilogo generale del flusso di lavoro di distribuzione con i modelli è il 
 
 ## <a name="device-prerequisites"></a>Prerequisiti del dispositivo
 
-Configurare questi prerequisiti nel dispositivo Azure Stack Edge.
+Configurare questi prerequisiti sul dispositivo Azure Stack Edge Pro.
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-virtual-machine-prerequisites](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-prerequisites.md)]
 
 ## <a name="client-prerequisites"></a>Prerequisiti client
 
-Configurare questi prerequisiti nel client che verranno usati per accedere al dispositivo Azure Stack Edge.
+Configurare questi prerequisiti nel client che verranno usati per accedere al dispositivo Azure Stack Edge Pro.
 
 1. [Scaricare Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) se viene usato per caricare un disco rigido virtuale. In alternativa, è possibile scaricare AzCopy per caricare un disco rigido virtuale. Potrebbe essere necessario configurare TLS 1,2 nel computer client se si eseguono versioni precedenti di AzCopy. 
 1. [Scaricare i modelli di macchina virtuale e i file di parametri](https://aka.ms/ase-vm-templates) nel computer client. Decomprimerlo in una directory che verrà usata come directory di lavoro.
@@ -108,7 +108,7 @@ New-AzureRmStorageAccount -Name <Storage account name> -ResourceGroupName <Resou
 ```
 
 > [!NOTE]
-> Solo gli account di archiviazione locali, ad esempio l'archiviazione con ridondanza locale (Standard_LRS o Premium_LRS), possono essere creati tramite Azure Resource Manager. Per creare account di archiviazione a più livelli, vedere la procedura in [aggiungere, connettersi agli account di archiviazione sul Azure stack Edge](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
+> Solo gli account di archiviazione locali, ad esempio l'archiviazione con ridondanza locale (Standard_LRS o Premium_LRS), possono essere creati tramite Azure Resource Manager. Per creare account di archiviazione a più livelli, vedere la procedura in [aggiungere, connettersi agli account di archiviazione in Azure stack Edge Pro](azure-stack-edge-j-series-deploy-add-storage-accounts.md).
 
 Di seguito è riportato un output di esempio.
 
@@ -145,7 +145,7 @@ Assicurarsi di aver già aggiunto l'URI del BLOB nel file hosts per il client us
 
 `<Device IP> <storage account name>.blob.<Device name>.<DNS domain>`
 
-In un ambiente tipico, il DNS è configurato in modo che tutti gli account di archiviazione puntino al dispositivo Azure Stack Edge con una `*.blob.devicename.domainname.com` voce.
+In un ambiente tipico, il DNS è configurato in modo che tutti gli account di archiviazione puntino al dispositivo Azure Stack Edge Pro con una `*.blob.devicename.domainname.com` voce.
 
 ### <a name="optional-install-certificates"></a>Opzionale Installare i certificati
 
@@ -185,11 +185,11 @@ Copiare le immagini del disco da usare nei BLOB di pagine nell'account di archiv
 
     ![Connettersi ad archiviazione di Azure 1](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-1.png)
 
-5. Selezionare **Usare un nome e una chiave dell'account di archiviazione**. Selezionare **Next** (Avanti).
+5. Selezionare **Usare un nome e una chiave dell'account di archiviazione**. Selezionare **Avanti**.
 
     ![Connettersi ad archiviazione di Azure 2](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-azure-storage-2.png)
 
-6. Nella pagina **Connetti con nome e chiave**specificare il **nome visualizzato**, il **nome dell'account di archiviazione**e la chiave dell' **account**di archiviazione di Azure. Selezionare **altro** dominio di archiviazione e quindi specificare la `<device name>.<DNS domain>` stringa di connessione. Se non è stato installato un certificato in Storage Explorer, selezionare l'opzione **USA http** . Selezionare **Next** (Avanti).
+6. Nella pagina **Connetti con nome e chiave**specificare il **nome visualizzato**, il **nome dell'account di archiviazione**e la chiave dell' **account**di archiviazione di Azure. Selezionare **altro** dominio di archiviazione e quindi specificare la `<device name>.<DNS domain>` stringa di connessione. Se non è stato installato un certificato in Storage Explorer, selezionare l'opzione **USA http** . Selezionare **Avanti**.
 
     ![Connetti con nome e chiave](media/azure-stack-edge-gpu-deploy-virtual-machine-templates/connect-name-key-1.png)
 
@@ -215,7 +215,7 @@ Copiare le immagini del disco da usare nei BLOB di pagine nell'account di archiv
 
 <!--### Use AzCopy for upload
 
-Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge device.
+Before you use AzCopy, make sure that the [AzCopy is configured correctly](#configure-azcopy) for use with the blob storage REST API version that you are using with your Azure Stack Edge Pro device.
 
 
 ```powershell
@@ -269,7 +269,7 @@ Il file `CreateImageAndVnet.parameters.json` accetta i parametri seguenti:
     }
 ```
 
-Modificare il file `CreateImageAndVnet.parameters.json` in modo da includere quanto segue per il dispositivo Azure stack Edge:
+Modificare il file `CreateImageAndVnet.parameters.json` in modo da includere quanto segue per il dispositivo Azure stack Edge Pro:
 
 1. Specificare il tipo di sistema operativo corrispondente al disco rigido virtuale che si desidera caricare. Il tipo di sistema operativo può essere Windows o Linux.
 
@@ -341,7 +341,7 @@ Modificare il file `CreateImageAndVnet.parameters.json` in modo da includere qua
 Distribuire il modello `CreateImageAndVnet.json` . Questo modello consente di distribuire le risorse VNet e image che verranno usate per creare le macchine virtuali nel passaggio successivo.
 
 > [!NOTE]
-> Quando si distribuisce il modello se viene ricevuto un errore di autenticazione, è possibile che le credenziali di Azure per questa sessione siano scadute. Eseguire `login-AzureRM` nuovamente il comando per connettersi di nuovo a Azure Resource Manager sul dispositivo Azure stack Edge.
+> Quando si distribuisce il modello se viene ricevuto un errore di autenticazione, è possibile che le credenziali di Azure per questa sessione siano scadute. Eseguire `login-AzureRM` nuovamente il comando per connettersi di nuovo a Azure Resource Manager sul dispositivo Azure stack Edge Pro.
 
 1. Eseguire il comando seguente: 
     
@@ -437,7 +437,7 @@ Per creare una macchina virtuale, usare il `CreateVM.parameters.json` file dei p
         }
 ```    
 
-Assegnare i parametri appropriati in `CreateVM.parameters.json` per il dispositivo Azure stack Edge.
+Assegnare i parametri appropriati in `CreateVM.parameters.json` per il dispositivo Azure stack Edge Pro.
 
 1. Specificare un nome univoco, il nome dell'interfaccia di rete e il nome ipconfig. 
 1. Immettere un nome utente, una password e una dimensione di macchina virtuale supportata.
@@ -594,7 +594,7 @@ Seguire questa procedura per connettersi a una VM Linux.
 
 <!--## Manage VM
 
-The following section describes some of the common operations around the VM that you will create on your Azure Stack Edge device.
+The following section describes some of the common operations around the VM that you will create on your Azure Stack Edge Pro device.
 
 [!INCLUDE [azure-stack-edge-gateway-manage-vm](../../includes/azure-stack-edge-gateway-manage-vm.md)]-->
 
@@ -609,9 +609,9 @@ Le estensioni, i set di scalabilità, i set di disponibilità e gli snapshot non
 
 <!--## Configure AzCopy
 
-When you install the latest version of AzCopy, you will need to configure AzCopy to ensure that it matches the blob storage REST API version of your Azure Stack Edge device.
+When you install the latest version of AzCopy, you will need to configure AzCopy to ensure that it matches the blob storage REST API version of your Azure Stack Edge Pro device.
 
-On the client used to access your Azure Stack Edge device, set up a global variable to match the blob storage REST API version.
+On the client used to access your Azure Stack Edge Pro device, set up a global variable to match the blob storage REST API version.
 
 ### On Windows client 
 

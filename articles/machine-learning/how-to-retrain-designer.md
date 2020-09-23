@@ -1,7 +1,7 @@
 ---
-title: Ripetere il training dei modelli con la finestra di progettazione di Azure Machine Learning (anteprima)
+title: Ripetere il training dei modelli utilizzando Azure Machine Learning Designer
 titleSuffix: Azure Machine Learning
-description: Informazioni su come ripetere il training dei modelli con le pipeline pubblicate nella finestra di progettazione di Azure Machine Learning (anteprima).
+description: Informazioni su come ripetere il training dei modelli con le pipeline pubblicate in Azure Machine Learning Designer.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -10,15 +10,15 @@ author: likebupt
 ms.date: 04/06/2020
 ms.topic: conceptual
 ms.custom: how-to, designer
-ms.openlocfilehash: 11e04d0aa313a005cfd13bca134c75bb712fd234
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: d43bea855d9ac3dc34b8e72adcd9577e5933e52c
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89661621"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90905685"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Ripetere il training dei modelli con la finestra di progettazione di Azure Machine Learning (anteprima)
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
+# <a name="retrain-models-with-azure-machine-learning-designer"></a>Ripetere il training dei modelli con Azure Machine Learning Designer
+
 
 Questo articolo illustra come usare la finestra di progettazione di Azure Machine Learning per ripetere il training di un modello di Machine Learning. Verranno usate le pipeline pubblicate per automatizzare il flusso di lavoro e impostare i parametri per eseguire il training del modello con i nuovi dati. 
 
@@ -32,12 +32,12 @@ In questo articolo vengono illustrate le operazioni seguenti:
 
 ## <a name="prerequisites"></a>Prerequisiti
 
-* Un'area di lavoro di Azure Machine Learning con Enterprise SKU.
-* Completare la parte 1 di questa serie di procedure [Trasformare i dati nella finestra di progettazione](how-to-designer-transform-data.md).
+* Area di lavoro di Azure Machine Learning
+* Completare la parte 1 di questa serie di procedure, [trasformare i dati nella finestra di progettazione](how-to-designer-transform-data.md)
 
 [!INCLUDE [machine-learning-missing-ui](../../includes/machine-learning-missing-ui.md)]
 
-Questo articolo presuppone anche che l'utente abbia una conoscenza di base della creazione di pipeline nella finestra di progettazione. Per un'introduzione guidata, eseguire l'[esercitazione](tutorial-designer-automobile-price-train-score.md). 
+Questo articolo presuppone inoltre che l'utente abbia una certa conoscenza della creazione di pipeline nella finestra di progettazione. Per un'introduzione guidata, eseguire l'[esercitazione](tutorial-designer-automobile-price-train-score.md). 
 
 ### <a name="sample-pipeline"></a>Pipeline di esempio
 

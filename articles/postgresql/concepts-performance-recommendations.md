@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: a30af0c8bef47a37fe3439e885d3895a2c826225
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: f0ce3843752ebd6ed56281f6699783181b52fdc6
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "74768470"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90903879"
 ---
 # <a name="performance-recommendations-in-azure-database-for-postgresql---single-server"></a>Suggerimenti sulle prestazioni in database di Azure per PostgreSQL-server singolo
 
@@ -27,13 +27,13 @@ La funzionalità [Raccomandazioni per le prestazioni](concepts-performance-recom
 
 Aprire **suggerimenti sulle prestazioni** dalla sezione **prestazioni intelligenti** della barra dei menu nella pagina portale di Azure per il server PostgreSQL.
 
-![Pagina di destinazione Elementi consigliati per le prestazioni](./media/concepts-performance-recommendations/performance-recommendations-page.png)
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-page.png" alt-text="Pagina di destinazione Elementi consigliati per le prestazioni":::
 
 Selezionare **Analizza** e scegliere un database per avviare l'analisi. A seconda del carico di lavoro, il completamento dell'analisi potrebbe richiedere alcuni minuti. Al termine dell'analisi, verrà inviata una notifica nel portale. L'analisi esegue un esame approfondito del database. Si consiglia quindi di effettuarla durante i periodi di minore traffico. 
 
 Nella finestra **raccomandazioni** viene visualizzato un elenco di raccomandazioni, se trovate.
 
-![Nuova pagina Raccomandazioni per le prestazioni](./media/concepts-performance-recommendations/performance-recommendations-result.png)
+:::image type="content" source="./media/concepts-performance-recommendations/performance-recommendations-result.png" alt-text="Nuova pagina Raccomandazioni per le prestazioni":::
 
 Le raccomandazioni non vengono applicate automaticamente. Per applicare una raccomandazione, copiare il testo della query ed eseguirlo dal client preferito. Non dimenticare di eseguire le operazioni di test e monitoraggio per valutare la raccomandazione. 
 

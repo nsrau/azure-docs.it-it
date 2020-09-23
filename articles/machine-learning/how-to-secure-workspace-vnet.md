@@ -11,15 +11,14 @@ author: aashishb
 ms.date: 07/07/2020
 ms.topic: conceptual
 ms.custom: how-to, contperfq4, tracking-python
-ms.openlocfilehash: e718ed13cfd67092b50b42584d861a2bcf5dacc5
-ms.sourcegitcommit: f8d2ae6f91be1ab0bc91ee45c379811905185d07
+ms.openlocfilehash: 4dc1f86ce7dbb060c747c4433f0c2b871ce5582d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/10/2020
-ms.locfileid: "89664554"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907644"
 ---
 # <a name="secure-an-azure-machine-learning-workspace-with-virtual-networks"></a>Proteggere un'area di lavoro Azure Machine Learning con reti virtuali
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 Questo articolo illustra come proteggere un'area di lavoro Azure Machine Learning e le risorse associate in una rete virtuale.
 
@@ -173,8 +172,6 @@ Per usare le funzionalità di sperimentazione di Azure Machine Learning con Azur
 
 Per usare Container Registry di Azure all'interno di una rete virtuale, è necessario soddisfare i requisiti seguenti:
 
-* L'area di lavoro di Azure Machine Learning deve essere di tipo Enterprise. Per informazioni sull'aggiornamento, vedere le istruzioni per [l'aggiornamento a Enterprise Edition](how-to-manage-workspace.md#upgrade).
-
 * Il Container Registry di Azure deve essere una versione Premium. Per altre informazioni sull'aggiornamento, vedere [Cambiare SKU](/azure/container-registry/container-registry-skus#changing-skus).
 
 * Registro Azure Container deve essere nella stessa rete virtuale e nella stessa subnet dell'account di archiviazione e delle destinazioni di calcolo usati per il training o l'inferenza.
@@ -256,8 +253,8 @@ Una volta soddisfatti questi requisiti, attenersi alla procedura seguente per ab
             "type": "SystemAssigned"
         },
         "sku": {
-            "tier": "enterprise",
-            "name": "enterprise"
+            "tier": "basic",
+            "name": "basic"
         },
         "properties": {
             "sharedPrivateLinkResources":

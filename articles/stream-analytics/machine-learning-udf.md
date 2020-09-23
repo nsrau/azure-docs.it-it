@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/19/2020
 ms.custom: devx-track-javascript
-ms.openlocfilehash: e2277e2088a8cb386d6f19799b235d96e08959b0
-ms.sourcegitcommit: 8def3249f2c216d7b9d96b154eb096640221b6b9
+ms.openlocfilehash: e9496dc70d847d0e9e830a216e8f435b1c48d878
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/03/2020
-ms.locfileid: "87543436"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90900919"
 ---
 # <a name="integrate-azure-stream-analytics-with-azure-machine-learning-preview"></a>Integrare Analisi di flusso di Azure con Azure Machine Learning (anteprima)
 
@@ -33,23 +33,39 @@ Completare i passaggi seguenti prima di aggiungere un modello di Machine Learnin
 
 ## <a name="add-a-machine-learning-model-to-your-job"></a>Aggiungere un modello di apprendimento automatico al processo
 
-È possibile aggiungere le funzioni di Azure Machine Learning al processo di Analisi di flusso di Azure direttamente dal portale di Azure.
+È possibile aggiungere funzioni Azure Machine Learning al processo di analisi di flusso direttamente dall'portale di Azure o Visual Studio Code.
 
-1. Passare al processo di Analisi di flusso di Azure nel portale di Azure e selezionare **Funzioni** in **Topologia processo**. Selezionare quindi **Servizio Azure ML** dal menu a discesa **+ Aggiungi**.
+### <a name="azure-portal"></a>Portale di Azure
 
-   ![Aggiungere la funzione definita dall'utente di Azure ML](./media/machine-learning-udf/add-azureml-udf.png)
+1. Passare al processo di Analisi di flusso di Azure nel portale di Azure e selezionare **Funzioni** in **Topologia processo**. Selezionare quindi **Azure Machine Learning servizio** dal menu a discesa **+ Aggiungi** .
+
+   ![Aggiungi Azure Machine Learning UDF](./media/machine-learning-udf/add-azure-machine-learning-udf.png)
 
 2. Compilare il modulo della **funzione del servizio Azure Machine Learning** immettendo i valori di proprietà seguenti:
 
-   ![Configurare la funzione definita dall'utente di Azure ML](./media/machine-learning-udf/configure-azureml-udf.png)
+   ![Configurare Azure Machine Learning UDF](./media/machine-learning-udf/configure-azure-machine-learning-udf.png)
 
-La tabella seguente descrive le proprietà delle funzioni del servizio Azure ML in Analisi di flusso di Azure.
+### <a name="visual-studio-code"></a>Visual Studio Code
+
+1. Aprire il progetto di analisi di flusso in Visual Studio Code e fare clic con il pulsante destro del mouse sulla cartella **funzioni** . Scegliere quindi **Aggiungi funzione**. Selezionare **Machine Learning UDF** dall'elenco a discesa.
+
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function.png" alt-text="Aggiungere UDF in VS Code":::
+
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-add-function-2.png" alt-text="Aggiungere Azure Machine Learning UDF in VS Code":::
+
+2. Immettere il nome della funzione e inserire le impostazioni nel file di configurazione usando **Select from your subscriptions** in CodeLens.
+
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-function-name.png" alt-text="Selezionare Azure Machine Learning UDF in VS Code":::
+
+   :::image type="content" source="media/machine-learning-udf/visual-studio-code-machine-learning-udf-configure-settings.png" alt-text="Configurare Azure Machine Learning UDF in VS Code":::
+
+La tabella seguente descrive ogni proprietà di Azure Machine Learning funzioni del servizio in analisi di flusso.
 
 |Proprietà|Descrizione|
 |--------|-----------|
 |Alias di funzione|Immettere un nome per richiamare la funzione nella query.|
 |Subscription|La sottoscrizione di Azure.|
-|Area di lavoro di Azure ML|L'area di lavoro di Azure Machine Learning usata per distribuire il modello come servizio Web.|
+|Area di lavoro di Azure Machine Learning|L'area di lavoro di Azure Machine Learning usata per distribuire il modello come servizio Web.|
 |Deployments|Il servizio Web che ospita il modello.|
 |Firma della funzione|La firma del servizio Web dedotta dalla specifica dello schema dell'API. Se non è possibile caricare la firma, verificare di aver specificato l'input e l'output di esempio nello script di assegnazione dei punteggi per la generazione automatica dello schema.|
 |Numero di richieste parallele per partizione|Si tratta di una configurazione avanzata per ottimizzare la velocità effettiva a scalabilità elevata. Questo numero rappresenta le richieste simultanee inviate da ogni partizione del processo al servizio Web. I processi con sei unità di streaming (SU, Streaming Unit) o meno hanno una partizione. I processi con 12 unità di streaming hanno due partizioni, quelli con 18 unità di streaming ne hanno tre e così via.<br><br> Se, ad esempio, il processo ha due partizioni e si imposta questo parametro sul valore quattro, saranno presenti otto richieste simultanee dal processo al servizio Web. In questa fase dell'anteprima pubblica, il valore predefinito è 20 e non può essere aggiornato.|
@@ -168,4 +184,3 @@ Per evitare tale latenza, assicurarsi che il provisioning del cluster del serviz
 
 * [Esercitazione: Funzioni JavaScript definite dall'utente in Analisi di flusso di Azure](stream-analytics-javascript-user-defined-functions.md)
 * [Ridimensionare il processo di Analisi di flusso di Azure con la funzione di Azure Machine Learning Studio (versione classica)](stream-analytics-scale-with-machine-learning-functions.md)
-

@@ -9,15 +9,15 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 06/12/2020
-ms.openlocfilehash: bb213776d41c07238fcaba1ccdd4e06f5d5bbb5f
-ms.sourcegitcommit: e71da24cc108efc2c194007f976f74dd596ab013
+ms.openlocfilehash: a548a1aa6b7c6382d00e218f1b61347002df2b38
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/29/2020
-ms.locfileid: "87420890"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907790"
 ---
 # <a name="train-wide--deep-recommender"></a>Eseguire il training dell'ampia & raccomandazione profonda
-Questo articolo descrive come usare il modulo **Train Wide & proformer Deep Recommender** in Azure Machine Learning Designer (Preview) per eseguire il training di un modello di raccomandazione. Questo modulo si basa su un'ampia gamma di & Deep Learning, proposta da Google.
+In questo articolo viene descritto come usare il modulo **Train Wide di & Deep Recommender** in Azure machine learning designer, per eseguire il training di un modello di raccomandazione. Questo modulo si basa su un'ampia gamma di & Deep Learning, proposta da Google.
 
 Il modulo **Train Wide pro&s Deep Recommender** legge un set di dati di triple utente-elemento-classificazione e, facoltativamente, alcune funzionalità utente ed elemento. Viene restituito un Consiglio di approfondimento & di livello avanzato.  È quindi possibile usare il modello sottoposto a training per generare stime di classificazione o consigli usando il modulo [Score Wide e Deep Recommender](score-wide-and-deep-recommender.md) .  
 
@@ -77,14 +77,14 @@ Il set di dati delle funzioni elemento deve contenere gli identificatori element
 
 Per un esempio, un set tipico di funzionalità degli elementi potrebbe essere simile al seguente:  
 
-|MovieId|Titolo|Lingua originale|Generi|Anno|
+|MovieId|Titolo|Lingua originale|Generi|Year|
 |-------------|-------------|-------------------|-----------|---------------|
 |68646|Padrino|Inglese|Dramma|1972|
 |31381|Al vento|Inglese|Cronologia|1939|
 
 ### <a name="train-the-model"></a>Eseguire il training del modello
 
-1.  Aggiungere il modulo **Train Wide and Deep Recommender** all'esperimento nella finestra di progettazione (anteprima) e connetterlo al set di dati di training.  
+1.  Aggiungere il modulo **Train Wide and Deep Recommender** all'esperimento nella finestra di progettazione e connetterlo al set di dati di training.  
   
 2. Se si dispone di un set di dati separato per le funzionalità utente e/o le funzionalità degli elementi, connetterle al modulo **Train Wide e Deep Recommender** .  
   

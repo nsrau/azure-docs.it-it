@@ -9,16 +9,16 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 09/01/2019
-ms.openlocfilehash: efe09c1d516b37c23b024e07ae387772fa7e5992
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c21c63bdb64f7c15c049bfe4039ef47cea689922
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "79477613"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90907969"
 ---
 # <a name="extract-n-gram-features-from-text-module-reference"></a>Informazioni di riferimento sul modulo di testo per estrarre le funzionalità di N-Gram
 
-Questo articolo descrive un modulo disponibile nella finestra di progettazione di Azure Machine Learning (anteprima). Usare il modulo Extract N-Gram features from text per *trasforma* i dati di testo non strutturati. 
+Questo articolo descrive un modulo in Azure Machine Learning Designer. Usare il modulo Extract N-Gram features from text per *trasforma* i dati di testo non strutturati. 
 
 ## <a name="configuration-of-the-extract-n-gram-features-from-text-module"></a>Configurazione delle funzionalità di estrazione di N-Gram dal modulo di testo
 
