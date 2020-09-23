@@ -1,6 +1,6 @@
 ---
-title: Configurare TLS 1,2 nei client Windows che accedono al dispositivo GPU Azure Stack Edge
-description: Viene descritto come configurare TLS 1,2 nei client Windows che accedono al dispositivo GPU Azure Stack Edge.
+title: Configurare TLS 1,2 nei client Windows che accedono al dispositivo GPU Pro Azure Stack Edge
+description: Viene descritto come configurare TLS 1,2 nei client Windows che accedono al dispositivo GPU Azure Stack Edge Pro.
 services: databox
 author: alkohli
 ms.service: databox
@@ -8,18 +8,18 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 08/28/2020
 ms.author: alkohli
-ms.openlocfilehash: bf6b591ef3158a5944b1ebeb37dd0ef5935f7215
-ms.sourcegitcommit: bcda98171d6e81795e723e525f81e6235f044e52
+ms.openlocfilehash: 9a6b0910fcfd2a632f2520a2fe683b15592017cf
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 09/01/2020
-ms.locfileid: "89268503"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90891181"
 ---
-# <a name="configure-tls-12-on-windows-clients-accessing-azure-stack-edge-device"></a>Configurare TLS 1,2 nei client Windows che accedono al dispositivo Azure Stack Edge
+# <a name="configure-tls-12-on-windows-clients-accessing-azure-stack-edge-pro-device"></a>Configurare TLS 1,2 nei client Windows che accedono al dispositivo Azure Stack Edge Pro
 
 <!--[!INCLUDE [applies-to-skus](../../includes/azure-stack-edge-applies-to-all-sku.md)]-->
 
-Se si usa un client Windows per accedere al dispositivo Azure Stack Edge, è necessario configurare TLS 1,2 nel client. Questo articolo fornisce le risorse e le linee guida per configurare TLS 1,2 nel client Windows. 
+Se si usa un client Windows per accedere al dispositivo Azure Stack Edge Pro, è necessario configurare TLS 1,2 nel client. Questo articolo fornisce le risorse e le linee guida per configurare TLS 1,2 nel client Windows. 
 
 Le linee guida fornite di seguito si basano sui test eseguiti in un client che esegue Windows Server 2016.
 
@@ -74,4 +74,4 @@ Se si vuole impostare TLS 1,2 a livello di sistema per l'ambiente in uso, attene
 
 ## <a name="next-steps"></a>Passaggi successivi
 
-[Connetti a Azure Resource Manager](azure-stack-edge-j-series-connect-resource-manager.md)
+[Connettersi ad Azure Resource Manager](azure-stack-edge-j-series-connect-resource-manager.md)

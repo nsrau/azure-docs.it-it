@@ -7,12 +7,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 08/25/2020
-ms.openlocfilehash: d18d4aa4bf9306bcdd667faa53f0d888c090e2fd
-ms.sourcegitcommit: 927dd0e3d44d48b413b446384214f4661f33db04
+ms.openlocfilehash: 50d2d974815e0921d99154bce67f604b7314970d
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 08/26/2020
-ms.locfileid: "88875755"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90892035"
 ---
 # <a name="event-hubs-output-from-azure-stream-analytics"></a>Output di hub eventi da analisi di flusso di Azure
 
@@ -38,7 +38,7 @@ La tabella seguente contiene i parametri necessari per configurare i flussi di d
 
 ## <a name="partitioning"></a>Partizionamento
 
-Il partizionamento varia a seconda dell'allineamento della partizione. Quando la chiave di partizione per l'output dell'hub eventi è ugualmente allineata al passaggio di query upstream (precedente), il numero di writer è uguale al numero di partizioni dell'hub eventi. Ogni writer usa la [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet), per inviare eventi alla partizione specifica. Quando la chiave di partizione per l'output dell'hub eventi non è allineata al passaggio di query upstream (precedente), il numero di writer è uguale al numero di partizioni in tale passaggio precedente. Ogni writer usa la [classe SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) in **EventHubClient**, per inviare eventi a tutte le partizioni di output. 
+Il partizionamento varia a seconda dell'allineamento della partizione. Quando la chiave di partizione per l'output dell'hub eventi è ugualmente allineata al passaggio di query upstream (precedente), il numero di writer è uguale al numero di partizioni dell'hub eventi. Ogni writer usa la [classe EventHubSender](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet&preserve-view=true), per inviare eventi alla partizione specifica. Quando la chiave di partizione per l'output dell'hub eventi non è allineata al passaggio di query upstream (precedente), il numero di writer è uguale al numero di partizioni in tale passaggio precedente. Ogni writer usa la [classe SendBatchAsync](/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet&preserve-view=true) in **EventHubClient**, per inviare eventi a tutte le partizioni di output. 
 
 ## <a name="output-batch-size"></a>Dimensione del batch di output
 
@@ -55,4 +55,4 @@ La dimensione massima dei messaggi è 256 KB o 1 MB per messaggio. Per altre inf
 * [Avvio rapido: Creare un processo di Analisi di flusso di Azure con un modello di Resource Manager](quick-create-azure-resource-manager.md)
 * [Guida introduttiva: creare un processo di analisi di flusso usando Azure PowerShell](stream-analytics-quick-create-powershell.md)
 * [Guida introduttiva: Creare un processo di Analisi di flusso di Azure con Visual Studio Code](stream-analytics-quick-create-vs.md)
-* [Guida introduttiva: creare un processo di analisi di flusso di Azure in Visual Studio Code](quick-create-vs-code.md)
+* [Guida introduttiva: creare un processo di analisi di flusso di Azure in Visual Studio Code](quick-create-visual-studio-code.md)

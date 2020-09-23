@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/11/2020
 ms.author: memildin
-ms.openlocfilehash: abcdc903e1509c266b9ea6666c296a59183e83c5
-ms.sourcegitcommit: 877491bd46921c11dd478bd25fc718ceee2dcc08
+ms.openlocfilehash: c7586cca21d470bcb0cf637ca0370f5dfcb59406
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: MT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/02/2020
-ms.locfileid: "84711086"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90901110"
 ---
 # <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Personalizzare i criteri di protezione delle informazioni SQL in Centro sicurezza di Azure (Anteprima)
  
@@ -56,7 +56,7 @@ Per personalizzare i criteri di protezione delle informazioni del tenant di Azur
  
 4. Le etichette sono elencate in ordine crescente di riservatezza. Per modificare la classificazione di due etichette, trascinare le etichette in una posizione diversa della tabella oppure usare i pulsanti **Sposta su** e **Sposta giù** per modificare l'ordine. 
  
-    ![Configurare i criteri di protezione delle informazioni](./media/security-center-info-protection-policy/move-up.png)
+    ![Elenco etichette](./media/security-center-info-protection-policy/move-up.png)
  
 5. Alla fine, assicurarsi di fare clic su **Salva** nella parte superiore della schermata.
  
@@ -66,7 +66,7 @@ Per personalizzare i criteri di protezione delle informazioni del tenant di Azur
 1. È possibile gestire e personalizzare i tipi di informazioni facendo clic su **Gestisci i tipi di informazioni**.
 2. Per aggiungere un nuovo **Tipo di informazioni**, selezionare **Crea tipo di informazioni** nel menu in alto. Per il **Tipo di informazioni** è possibile configurare un nome, una descrizione e le stringhe dei criteri di ricerca. Le stringhe dei criteri di ricerca possono contenere facoltativamente parole chiave con caratteri jolly, indicati dal carattere '%', che il motore di rilevamento automatico usa per identificare i dati sensibili nei database in base ai metadati delle colonne.
  
-    ![Configurare i criteri di protezione delle informazioni](./media/security-center-info-protection-policy/info-types.png)
+    ![Crea tipo di informazioni](./media/security-center-info-protection-policy/info-types.png)
  
 3. È anche possibile configurare i **tipi di informazioni** incorporati mediante l'aggiunta di stringhe dei criteri di ricerca, la disabilitazione di alcune stringhe esistenti o la modifica della descrizione. Non è possibile eliminare i **tipi di informazioni** incorporati o modificarne i nomi. 
 4. I **tipi di informazioni** sono elencati in ordine di classificazione dell'individuazione decrescente, il che significa che i tipi più in alto nell'elenco tenteranno di trovare una corrispondenza prima dei tipi seguenti. Per modificare la classificazione di due tipi, trascinare i tipi nel punto desiderato della tabella oppure usare i pulsanti **Sposta su** e **Sposta giù** per modificare l'ordine. 

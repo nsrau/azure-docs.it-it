@@ -7,15 +7,15 @@ ms.subservice: security
 ms.topic: tutorial
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: carlrab
-ms.date: 09/03/2019
+ms.reviewer: ''
+ms.date: 09/21/2020
 ms.custom: seoapril2019 sqldbrb=1
-ms.openlocfilehash: 12c3a35e12e3f432345ea788893d0d0ae6e6433f
-ms.sourcegitcommit: 11e2521679415f05d3d2c4c49858940677c57900
+ms.openlocfilehash: bec60875561a9d821642d850c27e47d4f906aba3
+ms.sourcegitcommit: 53acd9895a4a395efa6d7cd41d7f78e392b9cfbe
 ms.translationtype: HT
 ms.contentlocale: it-IT
-ms.lasthandoff: 07/31/2020
-ms.locfileid: "87496917"
+ms.lasthandoff: 09/22/2020
+ms.locfileid: "90885413"
 ---
 # <a name="tutorial-secure-a-database-in-azure-sql-database"></a>Esercitazione: Proteggere un database nel database SQL di Azure
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -27,7 +27,7 @@ In questa esercitazione si apprenderà come:
 > - Creare regole del firewall a livello di server e di database
 > - Configurare un amministratore di Azure Active Directory (Azure AD)
 > - Gestire l'accesso degli utenti con l'autenticazione SQL, l'autenticazione di Azure AD e le stringhe di connessione sicure
-> - Abilitare funzionalità di sicurezza come la sicurezza dei dati avanzata, il controllo, la maschera dati e la crittografia
+> - Abilitare funzionalità di sicurezza come Azure Defender per SQL, il controllo, la maschera dati e la crittografia
 
 Il database SQL di Azure protegge i dati consentendo di:
 
@@ -62,7 +62,7 @@ Per tutti i passaggi dell'esercitazione, accedere al [portale di Azure](https://
 
 I database nel database SQL sono protetti da firewall in Azure. Per impostazione predefinita, vengono rifiutate tutte le connessioni al server e al database. Per altre informazioni, vedere [regole del firewall a livello di server e di database](firewall-configure.md).
 
-La configurazione più sicura consiste nell'impostare **Consenti l'accesso a Servizi di Azure** su **NO**. Quindi, creare un [IP riservato (distribuzione classica)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) per la risorsa da connettere, ad esempio una macchina virtuale di Azure o un servizio cloud, e consentire l'accesso tramite il firewall solo a questo indirizzo IP. Se si usa il modello di distribuzione [Resource Manager](/azure/virtual-network/virtual-network-ip-addresses-overview-arm), è necessario un indirizzo IP pubblico dedicato per ogni risorsa.
+La configurazione più sicura consiste nell'impostare **Consenti l'accesso a Servizi di Azure** su **NO**. Quindi, creare un [IP riservato (distribuzione classica)](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip) per la risorsa da connettere, ad esempio una macchina virtuale di Azure o un servizio cloud, e consentire l'accesso tramite il firewall solo a questo indirizzo IP. Se si usa il modello di distribuzione di [Resource Manager](/azure/virtual-network/virtual-network-ip-addresses-overview-arm), è necessario un indirizzo IP pubblico dedicato per ogni risorsa.
 
 > [!NOTE]
 > Il database SQL comunica attraverso la porta 1433. Se si sta tentando di connettersi da una rete aziendale, il traffico in uscita attraverso la porta 1433 potrebbe non essere autorizzato dal firewall della rete. In questo caso, non è possibile connettersi al server a meno che l'amministratore non apra la porta 1433.
@@ -233,30 +233,30 @@ Per copiare una stringa di connessione sicura:
 
 ## <a name="enable-security-features"></a>Abilitare le funzionalità di sicurezza
 
-Il database SQL di Azure include funzionalità di sicurezza accessibili dal portale di Azure. Queste funzionalità sono disponibili sia per il database che per il server, ad eccezione della maschera dei dati, che è disponibile solo nel database. Per altre informazioni, vedere [Sicurezza dei dati avanzata](advanced-data-security.md), [controllo](../../azure-sql/database/auditing-overview.md), [Maschera dati dinamica](dynamic-data-masking-overview.md) e [Transparent Data Encryption](transparent-data-encryption-tde-overview.md).
+Il database SQL di Azure include funzionalità di sicurezza accessibili dal portale di Azure. Queste funzionalità sono disponibili sia per il database che per il server, ad eccezione della maschera dei dati, che è disponibile solo nel database. Per altre informazioni, vedere gli articoli relativi a [Azure Defender per SQL](azure-defender-for-sql.md), [controllo](../../azure-sql/database/auditing-overview.md), [maschera dati dinamica](dynamic-data-masking-overview.md) e [Transparent Data Encryption](transparent-data-encryption-tde-overview.md).
 
-### <a name="advanced-data-security"></a>Sicurezza dei dati avanzata
+### <a name="azure-defender-for-sql"></a>Azure Defender per SQL
 
-La funzionalità di sicurezza dati avanzata rileva le potenziali minacce nel momento in cui si verificano, oltre a inviare avvisi di sicurezza per le attività anomale. Gli utenti possono esaminare gli eventi sospetti con la funzionalità di controllo per determinare se si tratta di un tentativo di accesso, violazione o exploit dei dati del database. Possono inoltre accedere a una panoramica sulla sicurezza, che include una valutazione della vulnerabilità oltre allo strumento di individuazione e classificazione dei dati.
+La funzionalità Azure Defender per SQL rileva le potenziali minacce nel momento in cui si verificano e invia avvisi di sicurezza per le attività anomale. Gli utenti possono esaminare gli eventi sospetti con la funzionalità di controllo per determinare se si tratta di un tentativo di accesso, violazione o exploit dei dati del database. Possono inoltre accedere a una panoramica sulla sicurezza, che include una valutazione della vulnerabilità oltre allo strumento di individuazione e classificazione dei dati.
 
 > [!NOTE]
 > Un esempio di minaccia è SQL injection, un processo in cui gli utenti malintenzionati inseriscono codice SQL dannoso negli input dell'applicazione. L'applicazione può quindi eseguire inconsapevolmente tale codice, consentendo agli utenti malintenzionati di violare o modificare i dati del database.
 
-Per abilitare la sicurezza dei dati avanzata:
+Per abilitare Azure Defender per SQL:
 
 1. Nel portale di Azure scegliere **Database SQL** dal menu a sinistra, quindi selezionare il database nella pagina **Database SQL**.
 
 1. Nella pagina **Panoramica** selezionare il collegamento **Nome server**. Verrà visualizzata la pagina del server.
 
-1. Nella pagina **SQL Server** cercare la sezione **Sicurezza** e selezionare **Sicurezza dei dati avanzata**.
+1. Nella pagina **SQL Server** cercare la sezione **Sicurezza** e selezionare **Centro sicurezza**.
 
-   1. Selezionare **SÌ** in **Sicurezza dei dati avanzata** per abilitare la funzionalità. Scegliere un account di archiviazione per il salvataggio dei risultati della valutazione della vulnerabilità. Selezionare quindi **Salva**.
+   1. Selezionare **ON** in **Azure Defender per SQL** per abilitare la funzionalità. Scegliere un account di archiviazione per il salvataggio dei risultati della valutazione della vulnerabilità. Selezionare quindi **Salva**.
 
       ![Riquadro di spostamento](./media/secure-database-tutorial/threat-settings.png)
 
       È anche possibile configurare gli indirizzi di posta elettronica a cui ricevere avvisi di sicurezza, dettagli sulle risorse di archiviazione e tipi di rilevamento delle minacce.
 
-1. Tornare nella pagina **Database SQL** del database e selezionare **Sicurezza dei dati avanzata** nella sezione **Sicurezza**. In questa sezione sono disponibili vari indicatori della sicurezza per il database.
+1. Tornare nella pagina **Database SQL** del database e selezionare **Centro sicurezza** nella sezione **Sicurezza**. In questa sezione sono disponibili vari indicatori della sicurezza per il database.
 
     ![Stato minacce](./media/secure-database-tutorial/threat-status.png)
 
@@ -347,7 +347,7 @@ In questa esercitazione è stato illustrato come migliorare la sicurezza del dat
 > - Creare regole del firewall a livello di server e di database
 > - Configurare un amministratore di Azure Active Directory (AD)
 > - Gestire l'accesso degli utenti con l'autenticazione SQL, l'autenticazione di Azure AD e le stringhe di connessione sicure
-> - Abilitare funzionalità di sicurezza come la sicurezza dei dati avanzata, il controllo, la maschera dati e la crittografia
+> - Abilitare funzionalità di sicurezza come Azure Defender per SQL, il controllo, la maschera dati e la crittografia
 
 Passare all'esercitazione successiva per informazioni su come implementare la distribuzione geografica.
 
